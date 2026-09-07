@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Deciding N_32(4) in {71,72}: a 72-point genus-4 Artin-Schreier double cover of the Serre-optimal elliptic curve over F_32, or elimination of the residual real Weil polynomial (x+11)^2*(x^2+17x+71)
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 19
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Algebraic Geometry
+- **Method:** explicit zeta-function point counting with Hasse-Weil bound verification
+
+## Problem
+
+Decide N_32(4) in {71, 72}. Either exhibit an explicit smooth projective genus-4 curve C/F_32 with #C(F_32) = 72 — predicted necessarily to have real Weil polynomial (x+11)^2*(x^2+17*x+71) — given by an affine Artin-Schreier double-cover model z^2+z = f(x,y) of the Serre-optimal elliptic curve E: y^2+x*y = x^3+x over F_32 = F_2[r]/(r^5+r^2+1), together with its complete F_32-point list and a Hasse-Weil/zeta-moment consistency certificate; or eliminate that residual real Weil polynomial, proving N_32(4) = 71. The search family (double covers of the #E=44 elliptic curve, the same fibre-product technique as the F_8/F_16 records) and the residual class are dictated by the Howe-Lauter analysis on the manYPoints (32,4) Details page, not chosen ad hoc.
+
+## Attempted claim
+
+An explicit smooth projective genus-4 curve over F_32 with 72 rational points — one above the current table lower bound 71 — presented as an affine Artin-Schreier double cover z^2+z=f(x,y) of E: y^2+x*y=x^3+x, with the complete list of 72 F_32-points, genus verification via Riemann-Hurwitz, real Weil polynomial (x+11)^2*(x^2+17*x+71), and a zeta-moment cross-check (#C(F_1024)), all reproducible by a single license-free script in seconds; this closes the manYPoints interval N_32(4) in {71,72} upward.
+
+## Research outcome
+
+Magma-independent certification of three 71-point genus-4 double covers of Serre-optimal E/F32 (68 affine + poles/infty =71, conductor 6, g=4) with substitution-checkable lists and <2s script, plus proof the 1M vertical-univariate subfamily has no 72-point genus-4 (parity + N32(3)=64), plus 600k sampled with top UB>=72 proved genus 5/6. Interval N32(4) in {71,72} NOT closed; no 72-point genus-4 found; residual RWP not eliminated.
+
+## Why this attempt failed
+
+Failed axes: correctness, originality, value.
+
+correctness: Theorem 1 affine counts are correct and independently reproduced: F32=F2[r]/(r^5+r^2+1) with r=2 has order 31, Tr image {0,1}; brute force over 1024 pairs gives 43 affine + infinity =44 (trace -11, Serre-optimal, fibre stats 21x2 +1x1 +10x0). For the three Howe covers (decoded r-powers match manYPoints snapshot exactly) independent recount gives defined 42/42/41, Tr0 34 each, 68 affine lifts, poles [(23,29)]/[(23,29)]/[(2,28),(2,30)], no N=D=0 rationally. Transversality Fx=y+x^2+1, Fy=x, tangent iff Fy==Fx*a holds: all four poles fail tangency, so simple v=-1. Infinity re-derived by an independent method (chart Y=1: x=t, z=Z/Y with z=(x^3+x*z^2)/(1+x), z=t^3+..., x_aff=t^{-2}u^{-1}, y_aff=t^{-3}u^{-1}) gives v=-2 for all three, Q0/Q1/rem/Q2: cover1 Q0=29 rem 0 Tr(Q2)=0 split +2; cover2 Q0=2 rem 0 Tr=0 split +2; cover3 Q0=29 rem 9!=0 ramified +1, exactly matching DRAFT (including rem=9) via a different series path. Totals 68+1+2=71 (x2) and 68+2+1=71, conductor 6 => 2g-2=6 => g=4. File substitution: all three cover*_affine68.txt contain 68 unique triples, each satisfies E and z^2+z=f, and equal the recomputed complete lift sets. HOWEVER two essential proof gaps fail: (1) Non-rational pole genuineness omitted: DRAFT asserts 'No N=D=0 rationally' plus orbit-size/tangent-count to conclude 3 simples over closure, without excluding N=D=0 at conjugate points. Independent gcd check (substitute x=a*y+b into E and N; cover1 E_sub [13,12,10,22] vs N_sub [14,6,23] gcd [9] degree 0; cover2 E_sub [30,3,30,21] vs N_sub [7,24,27] gcd [26] degree 0; cover3 N(r)=1!=0) shows the conclusion is true but the argument as written is incomplete and verify_three.py never checks it. (2) Theorem 2 b=0 lemma is false as stated: DRAFT claims 'v=2 even, after reduction affine unramified, conductor from infty alone <=4 -> g<=2'. Independent local analysis at (0,0) (uniformizer y, x=y^2+y^3+..., u=x/y^2=1+y+..., u^{-1}=1+y+...) gives f=c/x+..., Q0=c, Q1=c, rem=c+sqrt(c), so rem=0 iff c in {0,1}; e.g. c=2 gives Q1=2 sqrt=27 rem=25!=0 ramified order-1 (conductor 2), contradicting 'affine unramified'. Hence g<=2 is false; b=0 genuine with a!=0 can give affine 2 + infty 2 =4 => g=3 (Hasse-Weil-Serre max 66). The final 'no 72-pt genus-4 in 1M' conclusion remains true (g<=3 max 66<72 via q+1+3*11=66, and b!=0 parity/genus-3 arguments verified: b!=0 transverse, kp=0/2 even, aff even as f depends only on x, ramified-infty total odd, regular-infty g=3), but the intermediate bound and reasoning as written are incorrect. Sampling claims (600k, UB>=72 genus 5/6) are correctly labelled 'not proof' and lack point lists/WORKLOG for verification. Because an essential lemma is false and a key step is omitted, correctness FAILs despite true main counts. originality: Nearest priors substantively cover both theorems. Primary source manYPoints Details q=32 g=4 snapshot (14129B, verified to contain Nmin=71 Zieve 1999, Nmax=72 Howe-Lauter, the three explicit equations with RWPs (x+7)(x+9…
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: ['Does not close N_32(4): no 72-point genus-4 exhibited; residual (x+11)^2*(x^2+17*x+71) not eliminated.', 'Upper bound Nmax=72 and N_32(3)=64 taken from manYPoints/Howe-Lauter, not re-proved Magma-free; Magma scripts not accessed.', 'F_1024 zeta moments and real Weil polynomials of the three models not recomputed (taken from Howe comment).', 'General-family sampling fractions tiny (~3e-7, ~3e-4); negative sampling is evidence only, except 1M vertical-univariate which is exhaustive+proved.', 'H…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
