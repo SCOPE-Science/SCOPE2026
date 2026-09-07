@@ -1,0 +1,41 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 'No DCLS(10) exists' is proved, not merely evidenced. Lemma 1 (L(i,j)=i+a_{j-i}; row-Latin iff a perm, column-Latin iff b_k=a_k-k perm) was verified by auditor on 200 random a-vectors for n=10: constructed L, checked diagonal-cyclicity holds by construction, and rows-Latin <=> a perm and cols-Latin <=> b perm in all trials. Normalization a0=0 is wlog: L->L-c is a symbol permutation preserving Latinity and L(i+1,j+1)=L(i,j)+1. Sum invariant is sound: any permutation of Z10 sums to 45=5 mod 10 as integers mod 10, while sum_k b_k = sum a_k - sum k = 0 mod 10 for ANY a, so b can never be a permutation. This alone proves emptiness; enumeration is corroboration, correctly distinguished as 'machine certificate' not proof. Computation verified by independent replay: inputs/artifacts/verifier.py (set-based, independent of bitmask primary) re-scanned all 9!=362880 normalized a-vectors yielding total=362880 passes=0 in 0.31s, matching DRAFT claim 0.3s; CSV SHA256 b1d83639e7c4fcd57fb2865cd71b255b85f80d1ab8c9ae7f0736ae96727fa61e verified byte-identical; CSV has header-only 0 data rows. Guard against vacuously-rejecting bug passes: same checker yields normalized counts 1,3,19,225 for n=3,5,7,9 (reproduced exactly: n=3 scanned 2 passes 1; n=5 scanned 24 passes 3; n=7 scanned 720 passes 19; n=9 scanned 40320 passes 225) with explicit verified Latin diagonally-cyclic example a=(0,2,4,1,3) for n=5; demo_transversal.py yields tau=5 with 15 full transversals on that example (reproduced), so toolchain works where inputs exist. Vacuous corollaries (F empty, empty tau spectrum, zero DLX instances, RBS holds vacuously, no claim on general OLS(10)/Parker-Bose-Shrikhande) are correctly scoped with explicit NOT-claimed section. No boundary error, no off-by-one, no checksum mismatch.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: mathematical content is a textbook restatement, by the authors' own admission ('No novelty is claimed for the nonexistence argument itself (the n-odd restriction is classical)'). The two-line sum proof in fact proves non-existence for ALL even n (sum perm = n(n-1)/2 = n/2 mod n != 0 = sum b mod n), so the n=10 instance is a mere parameter substitution into the classical 'DCLS exist iff n odd' / even-order Hall-Paige-type obstruction. Substantive comparison: Montgomery 2023, Wanless survey, Parker-Bose-Shrikhande 1960, McKay-Meynert-Myrvold 2007 (topic's nearest_known_results) are all disjoint and correctly distinguished, but the ACTUAL nearest prior \u2014 the classical odd-order DCLS existence theorem taught in design-theory texts \u2014 directly implies the claim and was missed at triage. The claimed delta 'certified replayable empty census (header-only CSV + 0.3s verifier)' adds no substantive method or insight: tripartite-graph canonical labelling and DLX mate decomposition are correctly reported as unexercised (vacuous), autotopism/transversal artifacts are empty, and odd-order controls/demo are standard. A timestamp, header-only CSV hash, or failed live search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: not independently worth finding later under SCOPE value gates. Rejects as (a) textbook restatement: n=10 corollary of all-even-n sum obstruction provable in two lines with no new technique; (b) mere parameter substitution: instantiating known odd-only theorem at n=10; (c) unexplained/empty enumeration: 362880-scan adds nothing beyond the proof (same invariant) and yields zero classes, zero invariants, zero extremal squares, zero DLX trees \u2014 the promised 'exact tau pinning, extremal catalog, mate dichotomy, 50-200 classes' all collapse to empty set with no structural analysis to retain. Correcting the lane's false presupposition of a nonempty family is useful hygiene for this lane but does not create a freestanding result worth retrieving: any future worker consulting the classical theorem would avoid the search without needing this record. Transversal demo on n=5 is unrelated to the n=10 claim. Hence correct and honestly scoped, but textbook + vacuous.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (target claim, audit_plan, nearest_known_results, fallback, internal prior scan)",
+    "inputs/DRAFT.md (theorem, lemma, sum proof, machine certificate claims, consequences, NOT-claimed scope)",
+    "inputs/research_report.json (claim, evidence_summary, artifact_inventory, limitations conceding classical status)",
+    "inputs/artifacts/run_enumeration.py (bitmask 9! scan logic inspected)",
+    "inputs/artifacts/verifier.py (independent set-based re-scan + checksum logic inspected and executed)",
+    "inputs/artifacts/sanity_odd.py (odd-order controls inspected and executed)",
+    "inputs/artifacts/demo_transversal.py (transversal demo inspected and executed)",
+    "inputs/artifacts/dcls10_squares.csv (header-only, SHA256 verified)",
+    "Live web verification attempted via webfetch for en.wikipedia.org/wiki/Latin_square and arxiv.org/abs/2307.05974 \u2014 both failed with transport errors (consistent with topic's reported proxy SSL failures); triage therefore rests on knowledge-cutoff primaries plus draft's own classical-status concession, not on a successful live priority search"
+  ],
+  "decisive_checks": [
+    "Re-executed inputs/artifacts/verifier.py: CSV sha256 b1d83639e7c4fcd57fb2865cd71b255b85f80d1ab8c9ae7f0736ae96727fa61e matches expected, 0 data rows, re-scan total=362880 passes=0, VERIFIED in 0.31s \u2014 PASS",
+    "Re-executed inputs/artifacts/sanity_odd.py: reproduced 1/3/19/225 for n=3/5/7/9 with first vectors (0,2,1), (0,2,4,1,3), (0,2,4,6,1,3,5); n=5 Latin + diag-cyclic asserts OK \u2014 PASS (rules out vacuous-reject bug)",
+    "Re-executed inputs/artifacts/demo_transversal.py: reproduced tau=5, 15 full transversals on n=5 DCLS example; tau=3 on n=3 \u2014 PASS (toolchain valid where inputs exist)",
+    "Independent lemma cross-check (auditor script, 200 random n=10 a-vectors): L construction is diagonally cyclic; rows-Latin iff a perm; cols-Latin iff b perm; normalization by L-c preserves property \u2014 PASS",
+    "Sum-invariant generalization check: sum(range(10))%10==5; spot checks sum(b)%10==0 for sample a-vectors; formula extends to all even n (n(n-1)/2=n/2 mod n vs 0) \u2014 PASS and proves textbook generality",
+    "Scope check: DRAFT Section 5 correctly disclaims general order-10 Latin squares, OLS(10), RBS for n=10, classification method, isotopy vs main-class \u2014 no overclaim \u2014 PASS"
+  ],
+  "residual_risks": [
+    "Negligible correctness risk: proof is self-contained and machine check reproduced; only brittleness is CSV checksum tied to CRLF (csv.writer default \\r\\n) line ending, but verifier pins it explicitly so replay is deterministic.",
+    "Originality search limited by network transport failures; however classical status does not depend on live retrieval because draft itself concedes it and the all-even-n generalization is elementary \u2014 risk that an even earlier specific n=10 empty-census record exists only strengthens REJECT.",
+    "No repository commit hashes / wall-clock provenance beyond 0.22s/0.31s timings, immaterial since proof does not need provenance."
+  ],
+  "verdict": "REJECT"
+}
