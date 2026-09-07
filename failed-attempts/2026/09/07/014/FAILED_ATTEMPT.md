@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Extremal subgroup-lattice size and non-abelian class-number maximum among the 231 groups of order 96
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 18
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Group Theory
+- **Method:** SmallGroups-library enumeration with coset-action subgroup-lattice certification
+
+## Problem
+
+Exhaustively enumerate G=SmallGroup(96,i), i=1..231, in GAP; for each compute s(G)=total number of subgroups via LatticeSubgroups/ConjugacyClassesSubgroups and k(G)=number of conjugacy classes via ConjugacyClasses; certify (a) S_max=max_i s(G) with all attaining IDs and subgroup-by-order profiles, and (b) K_max=max_{i non-abelian} k(G) with all attaining IDs, each with exact Fp-presentation certificates and rerun logs.
+
+## Attempted claim
+
+Exact certified values S_max and K_max for order 96: the unique (or explicitly listed tied) SmallGroup(96,i_s) attaining the global maximum total-subgroup count with full lattice-by-order census, and the SmallGroup(96,i_k) attaining the maximum class number among non-abelian groups of order 96, each identified by SmallGroups ID, structure description, Fp-presentation, and independently rerunnable GAP verification log.
+
+## Research outcome
+
+Certified dual extremal census for the 231 groups of order 96: unique max-subgroup group SmallGroup(96,230)=C2^4xS3 with 1362 subgroups, and 15 non-abelian groups with maximal class number 60, each with profiles, Fp-certificates, and rerunnable GAP logs/CSV.
+
+## Why this attempt failed
+
+Failed axes: value.
+
+value: Even if correct and new, the result is not independently worth finding later. It is an unexplained enumeration plus parameter substitution: (a) The claim is the output of a ~10-line stock-GAP loop over SmallGroup(96,i) reporting two unrelated maxima (total subgroups, class number) with full 231-row CSV and machine-generated Fp relators, explicitly disclaiming any human-readable explanation of why C2^4xS3 maximizes s or why 60 is the non-abelian ceiling, any asymptotic/general-n claim, or minimality of presentations. (b) Order 96 is library-driven, not theory-driven: the same script works verbatim for 72, 84, 120, etc.; justification as 'densest mixed-prime stratum in 64-96' defines an arbitrary interval, and pure-2-group avoidance is a post-hoc filter. (c) The k-claim requires ad-hoc scoping because the unrestricted maximum is the trivial abelian value 96; the scoped K_max=60 attainers all contain a central C3/C6/C12 direct factor, so k=3*k(H_32) and the result collapses to 'max k(H_32)=20 with C3 factor' without analysis — a reduced order-32 question left unexamined. (d) No downstream theorem, conjecture, bound, or application is proved: 'benchmark/citable artifact' is a dataset, not a finding that bridges Sylow analysis to subgroup growth; Fp certificates are unminimized IsomorphismFpGroup output. This matches the instruction to reject unexplained enumerations even if correct and new, and parallels prior SCOPE-FAIL-007 (RT(30,K4,6) SAT enumeration) rejected for value despite correctness/novelty. The defect is conceptual (lack of motivated question/insight/generality), not fixable by adding logs or rewording, so not REPAIRABLE.
+
+## Conditions for a legitimate retry
+
+supply independent motivation and a materially stronger contribution; address the recorded limitation: Computational-exhaustive proof trusting GAP SmallGroups completeness and LatticeSubgroups/ConjugacyClasses/AllSubgroups/CharacterTable correctness (mitigated by dual-route agreement). Fp presentations machine-generated, not hand-minimal. General-web originality triage network-blocked at solve time; relies on assigned prior scan + local SmallGrp docs. Scope strictly order 96.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
