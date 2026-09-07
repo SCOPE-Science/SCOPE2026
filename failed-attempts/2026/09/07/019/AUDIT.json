@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-verified with fresh code (PYTHONPATH networkx 3.6.1) rather than trusting pipeline_lib. Seeds: P10 cubic girth-5 Aut-120 bridgeless and isomorphic to networkx petersen_graph; B18_1 Aut-4 and B18_2 Aut-8 both cubic bridgeless girth-5 non-isomorphic as a pair; J5 cubic bridgeless girth-5 Aut-20; all match DRAFT edge lists. Blanusa/Petersen hypohamiltonicity re-confirmed with independent backtracker (G non-Ham, all G-v Ham). Witness W26 (rep 8): cubic 39 edges, bridgeless, girth-5, Aut-1, non-3-edge-colorable via independent backtracker (positives: cube True, Petersen/Blanusa False as expected); G non-Hamiltonian confirmed by two candidate solvers plus audit-independent solver (3626 nodes, start 0) and again by third solver variant (start n//2, reversed order, different pruning) with zero disagreement; all 26 G-v cycles from DRAFT unmapped (new=old for old<v else old-1) and checked edge-by-edge against W26 edge set \u2014 all valid, length 26 (25+1). Full census: 109 reps pairwise non-isomorphic via exhaustive 5886-pair GraphMatcher check (99.9s, 0 iso pairs); group sizes sum 1280; all 109 cubic/bridgeless/girth-5 re-checked; Aut distribution 1^65 2^32 4^10 8^2 re-enumerated with 0 mismatches; 3-edge-color spot checks (reps 8,0,16,1032,1272) all False matching claims; hypo list (87 indices) and 22 obstruction first-non-Ham-v map match census.json exactly; traceability all True. Enumeration completeness: recomputed Aut-orbit counts P: 75 independent pairs in 2 orbits + 15 adjacent pairs in 1 orbit; B18_1: 297 pairs in 85 orbits + 27 adjacents in 9 orbits; B18_2: 297 pairs in 45 orbits + 27 adjacents in 6 orbits, giving (85+45)*1*8=1040 B.P and 2*(9+6)*8=240 P.B =1280 exactly as claimed; dot-product wiring analysis confirms 8 wirings cover block+within-block swaps and unordered orbit reduction is complete; rep-8 provenance (B18_1 ab=[0,4] cd=[1,6] x=0 y=1 wiring 0) recomputed to labeled equality with W26, not just iso; P.P recomputed to exactly 2 types (8+8 wirings). Third independent Hamiltonian solver verified all 109 G non-Ham and all 22 obstruction G-v non-Ham with 0 fails and 0 timeouts (30s limit), plus neighbouring G-v Ham spot checks. No timeouts/disagreements in census.json ham_G_A/B or coloring. Disclosed deviations (no nauty, WL collides, logs are node/time stats not exponential transcripts, single colourer, GraphMatcher Aut exponential) are honest and do not falsify decisions: dedup via explicit isomorphism is stronger than hashes and pairwise-verified; negatives are exhaustive-search computational certificates triple-checked, positives are proof by verified cycles. Distinguishes proof (cycles) from experimental/exhaustive evidence correctly.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp. Nearest priors cited in topic/DRAFT: (1) Goedgebeur-Zamfirescu Improved bounds (hypo to order 17 extended to 14 of order 18 and 34 of order 19, cubic extensions, smallest girth-6 hypo order 25); (2) Goedgebeur-Zamfirescu On Hypohamiltonian Snarks/Fiorini (corrects Fiorini 1983, flower-snark lemma, all-orders hypo-snark existence, Steffen to 36 vertices); (3) Brinkmann-Goedgebeur-Hagglund-Markstrom snark generation to 36 vertices and girth>=6 to 38 / no girth>=7 to 42. None publishes a per-seed-pair census of single Isaacs dot products B18_i . P10 at order 26 with per-graph hypo decisions, girth/Aut/snark table, witness cycles and obstruction list. General existence/counts do not imply provenance-restricted decisions because Fiorini conditions are choice-sensitive. Internal prior scan (13 SCOPE fails, 5 Resultary findings) is disjoint in objects/claims. Direct arXiv fetches for 1602.07171 and 1608.07164 were attempted via webfetch and failed with transport errors (no internet), so verification rests on topic excerpts plus training knowledge; no priority inferred from failed search. Caveat: as unlabeled graphs the 109 types are necessarily a subset of the known all-snarks-to-36 census, so graph novelty is zero; novelty lies only in hypo-by-provenance labels plus Aut/girth breakdown. That delta is narrow but genuinely absent from priors. No restatement of textbook theorem as new; Blanusa=P.P and J5 formula attributions are credited. Hence narrow PASS on originality.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Correct and narrowly new but not independently worth finding later. (a) Snark status for all 109 is an Isaacs-theorem corollary (dot product of snarks is a snark), not a discovery. (b) Girth is universally 5, identical to all seeds (P10/B18_1/B18_2/J5 all girth 5), no record; global smallest girth-6 hypo is order 25 and no-girth>=7-to-42 constraint is respected but yields no record. (c) Claimed within-family extremal Aut=1 is modal (65/109 ~=60%), not rare or surprising; trivial Aut is generic for cubics. Maximal Aut=8 (2 reps) equals seed B18_2 Aut=8, so not distinguishing. No global symmetry/girth extremality. (d) Draft explicitly admits order-26 hypohamiltonian-snark existence per se was already known, so W26 is not an existence breakthrough, only a provenance instance. (e) 87-vs-22 hypo split is presented without structural explanation: no theorem predicting which edge/vertex/wiring choices preserve hypohamiltonicity, no Fiorini-condition analysis, just brute-force table plus first-non-Ham-v list. This is the paradigmatic unexplained enumeration. (f) Seeded-pair slice defined by n1+n2-2 arithmetic (18+10-2=26 as unique single-product order in 22-26 window) is an artificial parameter substitution, not a natural class like all order-26 cubics/snarks (explicitly out of scope). Regeneration takes seconds-minutes with published scripts, so archival value as dataset is minimal and lacks theoretical payoff comparable to SCOPE successes (sharp bounds, records, coupling proofs). Falls under mere parameter substitution / tiny unmotivated gain / unexplained enumeration, which must be rejected even if correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit_plan, fallback_claim, nearest_known_results, search_queries, internal_prior_scan of 13 fails + 5 findings)",
+    "inputs/DRAFT.md (Theorem a-d, seeds, W26 adjacency/cycles/hashes, 109-table, methods/limitations, replay scripts)",
+    "inputs/research_report.json (claim, evidence_summary, limitations, artifact_inventory)",
+    "inputs/artifacts/seeds.json (P10/B18_1/B18_2/J5 edge lists)",
+    "inputs/artifacts/reps.json (109 edgelists + invariant keys + provenance + group sizes)",
+    "inputs/artifacts/census.json (per-rep girth/Aut/color/hypo + cycles/obstructions)",
+    "inputs/artifacts/pipeline_lib.py, orbits_lib.py, gen_cands.py, enumerate.py, census.py, certify_witness.py, cands_meta.json (logic inspected, not trusted)",
+    "webfetch https://arxiv.org/abs/1602.07171 -> transport error (no internet, no priority inferred)",
+    "webfetch https://arxiv.org/abs/1608.07164 -> transport error (no internet, no priority inferred)",
+    "independent recomputation with PYTHONPATH=/srv/scope-research/homes/research/lane-23/.local/lib/python3.12/site-packages networkx 3.6.1"
+  ],
+  "decisive_checks": [
+    "Seeds: P10 Aut120 girth5 bridgeless and iso to nx.petersen_graph; B18_1 Aut4 vs B18_2 Aut8 distinct; J5 Aut20; all cubic bridgeless \u2014 PASS",
+    "Seeds hypo: independent solver G non-Ham + all G-v Ham for P10/B18_1/B18_2 \u2014 PASS",
+    "W26 invariants: cubic 39e, bridgeless, girth5, Aut1, non-3-edge-colorable (independent backtracker; cube True control) \u2014 PASS",
+    "W26 G non-Ham: independent solver (3626 nodes) + third variant solver \u2014 both False \u2014 PASS",
+    "W26 26 G-v cycles: unmapped (add 1 to labels >=v) and edge-checked \u2014 all 26 valid \u2014 PASS",
+    "109 distinctness: full 5886-pair GraphMatcher, 0 iso pairs \u2014 PASS",
+    "Group sum 1280, all cubic/bridgeless/girth5 \u2014 PASS",
+    "Aut distribution 1^65 2^32 4^10 8^2: full re-enumeration 0 mismatches \u2014 PASS",
+    "Hypo list (87) and 22 obstruction v-map: exact match to DRAFT \u2014 PASS",
+    "Orbit counts: P 2/1, B18_1 85/9, B18_2 45/6 => 1040+240=1280 \u2014 PASS",
+    "Provenance: dot_product(B18_1,P10,[0,4],[1,6],0,1,0) labeled-equals W26; P.P => exactly 2 types \u2014 PASS",
+    "Third solver: all 109 G False + all 22 obstruction G-v False, 0 fails/0 timeouts \u2014 PASS",
+    "Coloring spot checks reps 8/0/16/1032/1272 all False matching claims \u2014 PASS"
+  ],
+  "residual_risks": [
+    "Non-Hamiltonicity rests on exhaustive backtracking correctness, not formal proof; mitigated by three independent solver paths agreeing on all 131 negatives with no timeouts, but no DRAT-style certificate",
+    "Non-Hamiltonicity logs are node/time stats + replayable code, not full exponential transcripts (draft discloses; infeasible to publish)",
+    "Edge-coloring uses single backtracker path (Hamiltonicity uses dual+naive); mitigated by independent audit spot checks and cube/dodeca/K4-style positives, but no second colourer for all 109",
+    "Aut via GraphMatcher enumeration is worst-case exponential; fast here (<=0.1s/graph) and re-verified, but not general method",
+    "Blanusa B1/B2 label swap possible without external LCF import; pair-as-set still Blanusa pair, provenance unaffected",
+    "J5 comparison hypohamiltonicity only spot-tested per draft; not load-bearing for F census",
+    "Web originality comparison limited by no internet (fetches failed); relies on topic excerpts + training knowledge, but gap (no provenance table in general censuses) is structural, not search-sensitive",
+    "Value judgment is domain-normative; dataset could aid future dot-product provenance studies but deemed insufficient per SCOPE value bar"
+  ],
+  "verdict": "REJECT"
+}
