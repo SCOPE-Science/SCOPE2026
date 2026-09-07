@@ -1,0 +1,64 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-verified every essential inference and computation with a different code path (determinant collinearity closure, set-intersection gains) rather than trusting candidate normalization. Lemma 1 (census 62 = 10x4 + 4x3 + 48x2, I=148): PASS. Independent closure method (for each of 120 pairs, collect all grid points with zero area) yields 62 distinct point-sets, distribution 48x2/4x3/10x4, sum binom=120, sum sizes=148. Explicit 4-point lines are x=k, y=k, y=x, x+y=3; 3-point lines y=x+-1, x+y=2, x+y=4 as claimed. lines.csv rows each collinear (all triples zero-area), sizes match n-column, and set-equality with independent enumeration holds. Pair-partition sum=120 certifies no missing pair; draft prose that split would give <120 and merge >120 is directionally correct but incomplete against simultaneous split+merge cancellation \u2014 closed by second encoding agreement and by our truly independent determinant check. Lemma 2 (rich-line reduction to L subset L(G), k>=2): PASS. Proof verified: 0-point line contributes -1 to E=sum(k-1)-N, deletion raises E by 1 and lowers M so R=E/(N^{2/3}M^{2/3}) strictly rises when E>0; 1-point line contributes 0, deletion keeps E and lowers M so R rises when E>0; E<=0 cannot beat positive witness E=70. Covers arbitrary finite real L; N=0/M=0 edge trivial (I=0 <= N+M). Lemma 3 (prefix optimality): PASS. For fixed P, max E over |L|=M is top-M gains; exchange argument verified and spot-checked by brute-forcing all 2^n subsets for small-rich P (e.g. N=4 block 6 lines, N=5 10 lines: prefix max ratio equals exhaustive max). Remark that E*_M strictly increasing in M (each k-1>=1) so per-P max excess at full rich set, while ratio may be interior, confirmed (e.g. N=8 full E=20 M=28 ratio 0.542 vs truncated E=14 M=16 ratio 0.551). Corollary N<=3 no positive excess verified (N=1:-1, N=2:-1, N=3 triangle 0 / collinear -1) by exhaustion. Theorem C*=70/992^{2/3}=0.7037584005: PASS. Witness P=G L=L(G) gives I=148 N+M=78 E=70 ratio 70/(16^{2/3}62^{2/3})=70/992^{2/3}. Integer refutation of C<=0.70 verified: (100*70)^3=343000000000 > 70^3*16^2*62^2=337533952000, equivalently 10^6=100^3 > 992^2=984064. Integer certificate for C=0.71 verified: 0 violations over all 65536 masks (witness margin 71^3*16^2*62^2-7000^3=9207330304 recomputed). Ratio comparison via E1^3 N2^2 M2^2 vs E2^3 N1^2 M1^2 is exact for E>0 (cubes R^3=E^3/(N^2M^2), monotone), avoiding floating error. Exhaustive 65536-mask scan reimplemented via set intersections reproduces global best (70,16,62,148, mask 65535) and per-N excess table E=2,5,9,14,20,25,31,37,44,50,56,63,70 and per-N ratio table (14,16),(19,20),(26,27),(30,29),(38,36),(46,43),(52,47),(62,56) for N=8..15, monotonic to 0.7038. Uniqueness ties==1 re-verified by exact integer equality scan; any optimal L dominates to a prefix, and for P=G full set is forced (all gains >=1), so uniqueness among prefixes implies uniqueness among all L up to the invariant full set (single D4 orbit). Per-N ratio reps in perN_ratio.csv verified (each rep popcount=N, top-M sum gives claimed E/M/I/r). D4 orbit counts claimed (1278/181,1668/217,998/142,204/28,11/4,32/5,10/3,12/2,2/1,4/1,14/3,4/1,1/1) reproduced exactly via BFS D4 group of order 8 (rot (x,y)->(3-y,x), ref (x,y)->(3-x,y)) with canonical min-bitmask reps matching orbit_reps.txt (e.g. N=8 four canons, N=12 0111110110111110 = G minus {(0,0),(1,2),(2,1),(3,3)}, N=15 1111101111111111 = G minus {(2,2)}). Draft transparently corrects earlier fallback understated table for N>=8. Human proofs cover reductions; census/optimum are computer-assisted exhaustion (65536*<=62, deterministic, ~2s) \u2014 correctly distinguished, not claimed as human proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp/failed-search: nearest ST literature is generic/asymptotic and leaves the exact 4x4 restricted optimum open. (1) Dvir survey arXiv:1208.5073 states general ST I=O(n^{2/3}m^{2/3}+n+m) over reals/finite fields with unspecified/large constants and polynomial-method proofs \u2014 no small-grid census, no 0.703 value, no per-N table. (2) Vinh arXiv:0711.4427 finite-field bound I<=|P||L|/q+sqrt(q|P||L|) spectral proof, different field and form \u2014 orthogonal. (3) Borenstein-Croot arXiv:0807.2420 few-rich-lines in n x n grids for n^epsilon slopes, asymptotic needing large n \u2014 explicitly does not cover n=4 exact endpoint, no 10x4/4x3/48 census, no sharp constant. Additional independent source search found OEIS A018808 (number of lines through >=2 points of n x n grid: 0,0,6,20,62,140...) and Haukkanen-Merikoski arXiv:1108.1041 formulas for lines through exactly q points \u2014 this DOES anticipate Lemma 1 count 62 (and by formula the 10/4/48 distribution and I=148 corollary). Candidate originality_delta overclaims census as absent; census count is prior folklore (6 for 2x2, 20 for 3x3, 62 for 4x4). ArXiv search for 4x4 grid incidence exact returned no results, consistent with gap for the MAIN claim. Crucially, no prior gives C*=70/992^{2/3}, the prefix-optimality application to this restricted ST form, the corrected per-N excess/ratio tables, or D4-orbit classification \u2014 these are absent from the three ST nearest and from the enumerative gridline formulas (which count lines, not incidence optima). Method (sorting gains + 65536 scan) is trivial exchange, but claim-type differs substantively (exact small-case optimum vs asymptotic/general). Hence main constant/table is new, though census lemma is not; overall originality narrowly PASSES with that qualification. Failed search alone was not relied upon.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Correct and (for C*) new, but not independently worth finding later under SCOPE bar; falls into tiny-restricted-gain + brute-force enumeration without transferable insight. (a) Scope is P subset of fixed 16-point set with +N+M form; C=0.71 is NOT a general ST constant (draft honestly limits), so 2.5->0.71 3.5x is apples-to-oranges, not an improvement of the general constant textbooks prove; at N<=16 the +N+M term dominates (witness 78 of 148), so sharpening C has no downstream use for cutting/polynomial-partitioning which need general lemmas, not a 16-point table \u2014 calibration motivation is thin. (b) Question is not naturally arising: future worker would not search for optimal C for 4x4 subsets; anyone who wondered could regenerate answer in ~2s (65536*62 popcounts, stdlib), so archiving lines.csv/perN tables has negligible reuse value (regenerability undermines citability). (c) Method is undergrad exercise: to maximize sum under fixed cardinality take largest gains (sorting) + brute force 2^16 masks; no new technique, no transfer to 5x5 (33M masks, ~300 lines, infeasible as draft notes) or general n \u2014 invites infinite chain of n=5,6 micro-constants. (d) Bulk is unexplained enumeration: per-N maxima and D4 reps certified only by exhaustion (computer says so); small-N maximizers highly non-unique (181 orbits at N=4, 217 at N=5) with no structure/theory for why caps etc. are optimal; full-grid global optimality is cute but shallow (follows from E increasing in M plus computation). This is exactly textbook-parameter + epsilon-in-restricted-regime + enumeration SCOPE instructs to reject even if correct/new. Fallback dataset (safe C=1.0 + census + tables as data note) does not salvage value for same reasons, plus census already in OEIS/Haukkanen. Therefore value FAILS; per rules originality/value failure must be REJECT (not REPAIRABLE).",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General ST with unspecified/large constants, polynomial method; no 4x4 census, no 0.703 constant, no per-N table \u2014 substantively different (general vs exact small-case).",
+      "title": "Incidence Theorems and Their Applications (survey)",
+      "url": "https://arxiv.org/abs/1208.5073"
+    },
+    {
+      "finding": "Finite-field bound I<=|P||L|/q+sqrt(q|P||L|), spectral; different field/form, no Euclidean 4x4 result.",
+      "title": "Szemeredi-Trotter type theorem and sum-product estimate in finite fields",
+      "url": "https://arxiv.org/abs/0711.4427"
+    },
+    {
+      "finding": "Asymptotic few-rich-lines for n^epsilon slopes, needs large n; no n=4 exact census/constant/table.",
+      "title": "On rich lines in grids",
+      "url": "https://arxiv.org/abs/0807.2420"
+    },
+    {
+      "finding": "Formulas for lines through >=q / exactly q points of grid; anticipates 62-count and by formula 10/4/48 distribution \u2014 census lemma NOT new.",
+      "title": "Some formulas for numbers of line segments and lines in a rectangular grid",
+      "url": "https://arxiv.org/abs/1108.1041"
+    },
+    {
+      "finding": "Sequence 0,0,6,20,62,140... with refs to Haukkanen-Merikoski, Mustonen, Ernvall-Hytonen et al.; 62 for n=4 is prior folklore.",
+      "title": "OEIS A018808 Number of lines through at least 2 points of n X n grid",
+      "url": "https://oeis.org/search?q=6%2C20%2C62+lines+grid&fmt=text"
+    },
+    {
+      "finding": "No results \u2014 consistent with gap for exact C*/tables, but failed search not used as priority proof.",
+      "title": "arXiv search 4x4 grid lines incidence exact",
+      "url": "https://arxiv.org/search/?query=4x4+grid+lines+incidence+exact&searchtype=all"
+    }
+  ],
+  "decisive_checks": [
+    "Reran inputs/artifacts/verify.py: census 62 (10/4/48) I=148 pairs=120, global best E=70 N=16 M=62 I=148 mask 65535, C*=0.7037584005, ties=1, C=0.71 0 violations, C=0.70 refuted, N<=3 maxima -1/-1/0 \u2014 ALL PASSED.",
+    "Independent determinant-closure enumeration (no (A,B,C) normalization): 62 lines, 48x2/4x3/10x4, sum binom 120, sum I 148; explicit 4-pt/3-pt lists match draft; lines.csv each row collinear-checked and set-equal to independent enumeration.",
+    "Integer certificates recomputed: 100^3=1000000>992^2=984064; (100*70)^3=343000000000>337533952000; 71^3*16^2*62^2-7000^3=9207330304 \u2014 match draft.",
+    "Prefix-vs-exhaustive: for small-rich P (N=4 block, N=5) enumerated all 2^M line subsets, prefix max ratio equals exhaustive max; random exchange spot-checks (random P, random M-subset E <= prefix E) passed.",
+    "Independent per-N recomputation via set intersections (not bitmasks): excess E=2,5,9,14,20,25,31,37,44,50,56,63,70 and ratio optima (14,16),(19,20),(26,27),(30,29),(38,36),(46,43),(52,47),(62,56) reproduced exactly, monotonic to 0.7038.",
+    "D4 orbit recomputation via BFS group order 8: achiever/orbit counts 1278/181,1668/217,998/142,204/28,11/4,32/5,10/3,12/2,2/1,4/1,14/3,4/1,1/1 match draft; canons match orbit_reps.txt and perN_excess.csv reps (e.g. N=12 G minus 4 pts mask 32190, N=15 minus center mask 64511).",
+    "perN_ratio.csv reps verified: each popcount=N and top-M prefix sum gives claimed E/M/I/r."
+  ],
+  "residual_risks": [
+    "Census prose pair-partition argument alone does not rule out simultaneous split+merge cancellation preserving sum 120; closed by second encoding + our determinant check, but draft justification should ideally assert explicit collinearity of each key.",
+    "verify.py does not assert collinearity of each key nor D4 orbit counts (orbits verified only by our independent script, not by shipped script).",
+    "Optimality is computer-assisted exhaustion restricted to P subset 4x4 with +N+M form; no claim for larger grids/general sets (draft states limitation); floating evaluation of 992^{2/3} handled via exact integer comparisons, no rounding risk.",
+    "Census count 62 already in OEIS/Haukkanen, so census novelty overclaimed, though C*/tables remain new; value remains insufficient regardless."
+  ],
+  "verdict": "REJECT"
+}
