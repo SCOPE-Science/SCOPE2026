@@ -1,0 +1,21 @@
+# Search summary (auditable fractions)
+Primary: manYPoints (32,4) Nmin=71 Nmax=72, residual RWP (x+11)^2*(x^2+17*x+71).
+
+## Exhaustive: vertical-univariate D=x+b, N=a*x^2+b1*x+c
+- Space: 32*32^3 = 1,048,576 coefficient triples (b,a,b1,c), f=N/D.
+- Method: affine trace count (exact) + pole transversality + t=x/y Laurent at infty.
+- Result: no genus-4 72. Proof: b=0 tangent double (genus<=2, excluded); b!=0 genuine poles even count (0/2 rational, 2 over closure), total as genus-4 (ramified infty) = aff+kp+1 odd (aff even) so 72 even impossible; max aff among eligible b!=0 is 68 -> max total 71. f=0 and constant-f (N prop D) reducible excluded.
+- Fraction: 100% of this subfamily.
+
+## Sampled: general N(1,x,y,x2,xy,y2)/D(1,x,y), 300k random (seed 98765)
+- Space up to scale ~2^45/31 ~1e12; sampled 300k (~3e-7).
+- UB = aff+kp+2*kb+2 rigorous (pole max1, removable max2, infty max2).
+- Result: best aff70, 29 UB>=69, 3 UB>=72. Exact infty (generic reduction loop) v=-3 ramified; P/Q gcd trivial separable -> 3 simple aff poles + infty order3 => conductor 10 => genus 6, totals 72/71/71 genus-6, not genus-4. No genus-4 72.
+
+## Sampled genus-4-eligible: D=x+a*y+b (a!=0), N=n0+n1*x+n2*y+n3*x2+n4*xy (n4!=0, no y2), 300k (seed 20260907)
+- Space ~1e9; sampled 300k (~3e-4).
+- Result: best aff82 tangent-double+removable (low genus, excluded); next aff70. Top aff70 exact: infty v=-2 -> ramified simple (+1); P separable, gcd trivial -> 3 simples (6) + infty simple (2) =8 => genus 5, totals 72/71/71 genus-5. No genus-4 72.
+
+## Conclusion
+No 72-point smooth genus-4 found in 1M exhaustive + 600k sampled. Interval not closed. Certified three 71-point models (verify_three.py, 68-pt lists) + documented fractions.
+F1024 moments not computed (limitation).
