@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** A bounded sharpened prime-interval certificate: prime in [x, x+x/30000] for 1e7 <= x <= 1e8
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 87
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Analytic Number Theory
+- **Method:** explicit sieve inequalities with segmented-sieve finite verification
+
+## Problem
+
+Fix I=[1e7,1e8] and h(x)=x/30000. Prove that every interval [x,x+h(x)] with x in I contains at least one prime by: (i) an explicit Chebyshev theta-difference inequality theta(x+h)-theta(x)>0 with tabulated margin for x>=X1 (X1 in [3e7,5e7] fixed during work), (ii) a segmented-sieve verification closing [1e7,X1], and (iii) an explicit Selberg-sieve count fragment cross-checking pi(x+h)-pi(x) on sampled blocks. Record the maximal feasible Delta and all code/margin/gap tables.
+
+## Attempted claim
+
+For all real x with 1e7 <= x <= 1e8, the interval [x, x+x/30000] contains at least one prime. Proof split: analytic theta-difference margin m(x)>0 for x>=X1 (X1 in [3e7,5e7]) using an explicit Dusart-type bound with psi-minus-theta correction; segmented-sieve verification for 1e7<=x<X1; explicit Selberg-sieve fragment spot-checking block counts.
+
+## Research outcome
+
+Certified prime in [x,x+x/30000] for all 1e7<=x<=1e8 by segmented-sieve gap closure (max gap 220 vs min window 334), with honestly-reported analytic-leg failure and an exact Selberg upper-bound cross-check; single-script reproducer reruns exit-0 in under a second.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: Nearest substantive prior is not the three cited global theorems but public maximal prime-gap tables. Schoenfeld Thm 12 (Delta=16598 for x>2010760), Dusart-type |theta-x|<=0.2x/log^2x (effective Delta ~6-8k here), and Cully-Hugill-Lee (Delta,x0) pairs for x0>=4e18 indeed do not imply D=30000 analytically, as the candidate states. However the bounded factual content — max gap 220 below 1e8, hence every [x,x+x/30000] (min width 333) contains a prime, and min floor(a/(q-a))=72168 at the known gap (11113933,11114087) gap 154 — is a direct arithmetic transcription of long-public prime-gap data (maximal gaps to >=1e9 and Oliveira e Silva-Herzog-Pardi verifications to 4e18, on which Cully-Hugill-Lee themselves rely for small x). No prior states the verbatim pair (D=72168,[1e7,1e8]), but substantively D-feasibility is equivalent to the gap list via the lemma, so the threshold is determined by that list, not discovered by a new method. Recomputing a 90M subrange from scratch in <1s without consulting the 4e18 tables (candidate's stated mitigation) establishes independent reproducibility, not priority; a timestamp or a failed verbatim search does not establish novelty. The sieve method is conceded classical (segmented Eratosthenes), the analytic leg failed, and the Selberg {2,3,5}/D=36 fragment contributes no lower bound. Hence the claim is an independent rediscovery/restatement of known gap data in Delta language, not a substantively new result. value: Even taking correctness and novelty-of-phrasing at face value, the result is not independently worth finding later. The proof is a <1s routine segmented sieve to 1e8 (stdlib+numpy, seg 2^20) plus exact integer gap comparison — a textbook exercise whose output (max gap 220) is already subsumed by comprehensive gap verifications to 4e18 used to anchor global explicit theorems; a future researcher needs the 4e18 tables, not this arbitrary [1e7,1e8] slice. The headline D=30000 is an assigned target constant and the D=72168 extension is unmotivated parameter maximization (min over known gaps) over that arbitrary range, i.e. mere parameter substitution. The analytic theta-margin leg failed everywhere and the Selberg fragment with tiny primes {2,3,5} is a textbook upper bound proving nothing toward the lower-bound claim, so neither adds methodological value. The contribution therefore falls under the exclusion criteria: textbook restatement (Eratosthenes), mere Delta tweak beating Schoenfeld only on a bounded interval by brute force (any finite interval can beat a global constant this way), and explained-but-routine enumeration whose comprehensive superset already exists. No new method, asymptotic improvement, or reusable tool is produced.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Bounded range only [1e7,1e8]; analytic theta-margin leg fails everywhere in range (no X1; sieve covers all); Selberg fragment is a one-sided upper-bound consistency check, not a lower-bound proof; correctness rests on sieve code, mitigated by pi anchors plus an independent second sieve; base primes extended to 10111 vs audit's 1e4 since sqrt(HI)>1e4; sieve method itself is classical, novelty is the certified bounded sharpening (D=72168 effective, ~4.3x narrower than Schoenfeld 16598).
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
