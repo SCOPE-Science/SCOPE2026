@@ -1,0 +1,96 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lower-bound claim VERIFIED by independent exhaustive replay: re-ran inputs/artifacts/verify.py (stdlib int-bitmask enumeration, independent of derivation code) => 30/30 PASS, exit 0. Independently re-checked: all 30 Gs are systematic [I_k|P] with GF(2)-rank k, full support (no zero column), weight-enumerator sums equal 2^k, min nonzero weight equals claimed d, H=[P^T|I] satisfies H*G^T=0 with rank n-k, and Griesmer sums G(k,d),G(k,d+1) recomputed exactly match bound_log.csv/pruning_log.txt/DRAFT section 3 (15/30 Griesmer-tight as claimed). Parsed DRAFT.md section 7: all 30 systematic witness listings byte-identical to codes.json; section 2 enumerator table 30/30 identical to codes.json with sums 2^k and min=d. Spot-checked classical enumerators: [24,12,8] {0:1,8:759,12:2576,16:759,24:1} and [23,12,7] {0:1,7:253,8:506,11:1288,12:1288,15:506,16:253,23:1} match known Golay distributions, confirming enumeration code is sound. Griesmer bound derivation and Plotkin non-binding claim (all d*<=n/2) correct. Distinguished proof vs citation: (a) PROOF: per-code distance/enumerator via finite 2^k enumeration (k<=12, <=4096 words) plus syndrome check is a complete machine proof of existence/lower bound; Griesmer-tight optimality for 15/30 cells is self-contained proof (Griesmer theorem + exhibited code). (b) CITATION, not proof: optimality for remaining 15 non-Griesmer cells relies entirely on cited Brouwer UBs via Grassl pages (DRAFT honestly discloses this; pruning_log.txt is only a per-(n,k,d) Griesmer KEEP/PRUNE table, not an exhaustive monomial-class search log, and the promised canonical column-multiset search was disclosed as not performed/infeasible). Containment log (shortening/subcode/puncture edges) has no replay script and was not independently re-derived, but existence does not depend on it. No material miscomputation found in the narrowed verification theorem. Hence correctness PASS for what is actually proved, with conditional optimality as disclosed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval decisively anticipates the mathematical facts claimed. DRAFT itself states optimal distances are NOT new and coincide with Brouwer/Grassl tables (LB=UB in all 30 cells). Live inspection confirms: (1) Grassl [24,12] page gives LB=UB=8 via QR with Griesmer UB, anticipating P1 Golay distance and optimality; (2) Grassl [20,10] page gives full construction chain [23,14,5] Wa stored matrix -> extend to [24,14,6] -> shorten to [20,10,6] with UB via one-step Griesmer, and its 14x23 stored matrix is byte-identical to DRAFT P2 rows (e.g. row1 10000000000010000101101), anticipating both distance and derivation route; (3) Grassl [23,7] page gives LB=UB=9 HP with stored 7x23 matrix byte-identical to DRAFT P3, anticipating parent; (4) Grassl [20,8] and [21,9] pages give LB=UB=8 via shortening of Golay [24,12,8], anticipating DRAFT routes for those cells; (5) Golay enumerators reproduced exactly are classical MacWilliams-Sloane facts (extended Golay and punctured [23,12,7] perfect Golay distributions), not new; (6) Griesmer/shortening/puncturing/subcode monotonicity is textbook (Helgert-Stinaff 1973; MacWilliams-Sloane). The only byte-novel data are weight enumerators of arbitrarily resampled subcodes (seed 20260907, e.g. [20,7] subcode of [20,8], [22,7/8/9] subcodes of [22,10]) which DRAFT admits are not cell invariants and vary with random choice, so they constitute no new mathematical fact about (n,k) strata. No timestamp, memory, or failed search was used to establish priority; live pages establish prior disclosure since 2001-2007. Hence no substantively new object, bound, construction, or invariant: originality FAIL.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taking correctness as given, the result is not independently worth finding later. It falls into multiple reject categories: (a) Textbook restatement: shortening the extended Golay [24,12,8], extending/parity-checking Wagner [23,14,5] and Hashim-Pozdniakov [23,7,9], and applying Griesmer/Plotkin bounds are standard exercises in MacWilliams-Sloane Chapter 1, already documented cell-by-cell on codetables.de with identical chains. (b) Mere parameter substitution: the 30-cell grid n=20-24 x k=7-12 varies length/dimension by 1 with the same shortening/subcode recipe, no new phenomenon, threshold, or structural insight, and no distance beats the 2007 Brouwer table. (c) Unexplained enumeration: full weight enumerators for random seed-dependent subcode representatives (explicitly not canonical, other optima in same cell differ) have no interpretation, no downstream use, and no comparison; listing them for 30 cells is an arbitrary census, not a motivated invariant. (d) No method advance: exhaustive 2^k enumeration for k<=12 is trivial Hamming-weight counting; the promised monomial-equivalence canonical reduction with exhaustive search was abandoned as infeasible, leaving no reusable technique. The bundle is a correct reproduction/certificate of 20-year-old table values, useful at most as a classroom replay, not as a finding others would seek out, cite, or build on. Hence value FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, fingerprint, live_literature_check, fallback claim)",
+    "inputs/DRAFT.md (theorem, 30-cell distance/enumerator table, Griesmer table, derivation routes, 30 systematic witnesses, parents P1/P2/P3)",
+    "inputs/research_report.json (claimed table, evidence summary, limitations, artifact inventory with SHA256)",
+    "inputs/artifacts/codes.json (30 systematic witnesses + d + W + Grassl LB/UB)",
+    "inputs/artifacts/verify.py (stdlib replay verifier re-executed)",
+    "inputs/artifacts/replay_log.txt, bound_log.csv, pruning_log.txt, containment_log.txt, grassl_chains.json (bound texts, construction chains, Grassl URLs)"
+  ],
+  "decisive_checks": [
+    "Re-executed python3 inputs/artifacts/verify.py inputs/artifacts: 30/30 PASS, exit 0; enum_d==claimed d and sum==2^k for all cells, Grassl LB==UB==d, G(k,d)<=n verified per cell",
+    "Independent GF(2)-rank/systematic/full-support audit of all 30 Gs: systematic [I|P] true, rank==k, no zero coordinate, enumerator sums==2^k; 0 failures",
+    "Recomputed Griesmer G(k,d)=sum ceil(d/2^i) for all cells: matches bound_log.csv and DRAFT section 3; confirmed 15/30 tight list (20,7;20,8;21,7;21,8;21,9;22,8;22,9;22,10;23,9;23,10;23,11;24,7;24,10;24,11;24,12) and Plotkin never binding because all d*<=n/2",
+    "Parsed DRAFT.md section 7 witnesses vs codes.json: 30/30 sections byte-identical, lengths==n; section 2 enumerator table 30/30 identical to codes.json with sum==2^k and min==d*",
+    "Classical enumerator cross-check: [24,12,8] and [23,12,7] distributions match published Golay weight distributions, validating enumeration pipeline",
+    "Live Grassl spot-checks: [24,12] LB=UB=8 QR+Griesmer; [20,10] Wa->extend->shorten chain with stored matrix byte-identical to P2; [23,7] HP matrix byte-identical to P3; [20,8] and [21,9] shortening-Golay chains identical to DRAFT routes; confirms prior disclosure of distances and constructions",
+    "Confirmed pruning_log.txt is only Griesmer admissibility per d, not an exhaustive-search optimality log; confirmed no monomial-canonical search artifacts, consistent with DRAFT disclosure that search was replaced by targeted derivation"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T16:18:17Z",
+    "queries": [
+      {
+        "query": "binary linear code Griesmer bound",
+        "result_count": 707539,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:binary+linear+code+Griesmer+bound&start=0&max_results=5"
+      },
+      {
+        "query": "binary linear codes optimal minimum distance",
+        "result_count": 1532163,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=binary+linear+codes+optimal+minimum+distance&rows=5"
+      },
+      {
+        "query": "binary Golay code weight distribution",
+        "result_count": 1661166,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=binary+Golay+code+weight+distribution&rows=5"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Live page records [24,12] LB=8 UB=8 via QR quadratic-residue construction with UB following from the Griesmer bound, directly anticipating DRAFT's P1 extended-Golay distance, enumerator {759,2576}, and Griesmer-tight optimality claim for this cell.",
+        "retrieved_at_utc": "2026-09-07T16:16:41Z",
+        "title": "Bounds on linear codes [24,12] over GF(2) (Grassl CodeTables)",
+        "url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=24&k=12"
+      },
+      {
+        "comparison": "Live page documents the exact DRAFT route: stored 14x23 Wagner matrix extended to [24,14,6] then shortened to [20,10,6], with UB via one-step Griesmer; the stored matrix rows are byte-identical to DRAFT parent P2, anticipating both construction and distance.",
+        "retrieved_at_utc": "2026-09-07T16:17:05Z",
+        "title": "Bounds on linear codes [20,10] over GF(2) (Grassl CodeTables)",
+        "url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=20&k=10"
+      },
+      {
+        "comparison": "Live page records [23,7] LB=UB=9 HP with an explicit 7x23 stored generator matrix byte-identical to DRAFT parent P3 and UB via iterated Griesmer steps, anticipating the base code, its distance, and the parity-extension route to [24,7,10].",
+        "retrieved_at_utc": "2026-09-07T16:17:12Z",
+        "title": "Bounds on linear codes [23,7] over GF(2) (Grassl CodeTables)",
+        "url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=23&k=7"
+      },
+      {
+        "comparison": "Characterizes systematic nonlinear codes for which the linear Griesmer bound holds and gives explicit counterexamples where it fails; purely theoretical bound-extension work with no optimal-distance table, generator witnesses, or weight enumerators for n=20-24 k=7-12, showing DRAFT's Griesmer recomputation is textbook application.",
+        "retrieved_at_utc": "2026-09-07T16:17:30Z",
+        "title": "On the Griesmer bound for nonlinear codes",
+        "url": "https://arxiv.org/abs/1502.07379"
+      },
+      {
+        "comparison": "Foundational 1973 paper deriving general minimum-distance bounds for binary linear codes (73 citations in Crossref record); establishes the bounding theory underlying DRAFT's pruning but provides the general method rather than any explicit generator-plus-enumerator table for the 20-24 band, confirming method is classical.",
+        "retrieved_at_utc": "2026-09-07T16:16:55Z",
+        "title": "Minimum-distance bounds for binary linear codes",
+        "url": "https://doi.org/10.1109/tit.1973.1055009"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Only 5 Grassl cells live-re-fetched ([24,12],[20,10],[23,7],[20,8],[21,9] plus index); remaining 25 LB=UB values rely on stored grassl_chains.json texts attributed to 2026-09-07 live retrieval and Brouwer 2007-02-13 table, not re-fetched cell-by-cell in this audit",
+    "Derivation-containment edges (shortening equality, subcode subset, puncture, parity extension) have only a log with no replay script; audit verified existence/distances independently but did not re-derive each containment equality up to column permutation",
+    "Weight-enumerator correctness rests on two implementations (derivation pipeline and verify.py int-bitmask); both are short Python loops but share the same mathematical definition of Hamming weight, so a definitional misunderstanding would be common-mode (mitigated by Golay classical-value match and syndrome H*G^T check)",
+    "No exhaustive monomial-equivalence search exists, so any hidden [n,k] code beating Grassl UB would be missed; risk is borne by Brouwer/Grassl UB citations for 15 non-Griesmer cells, not by this bundle"
+  ],
+  "verdict": "REJECT"
+}
