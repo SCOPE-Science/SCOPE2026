@@ -1,0 +1,112 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified 91 squarefree d in [201,350] exactly (independent mobius sieve matches census list; D=d if d=1 mod 4 else 4d holds for all rows; M=sqrt(D)/2 max 18.627936 so p<=17 correct). Re-ran independent verifier verify.py from scratch: [1] squarefree list OK, [2] CF period/unit/regulator/cycles/K/h for all 91 OK (recomputed CF via (m,d,a) recurrence, convergents, half-unit search N=+-1 and N=+-4 odd, exact same-field unit comparison, reduced-form enumeration |a|,|b|<=isqrt(D) with exact reduced predicate, rho permutation closure, disjoint even-length cycles, unique a=1 and a=-1 forms, two-alpha K-cycle agreement, CK==C0 iff N=-1, h=h+ or h+/2), [3] 53 witness chains step-verified (p<=M, Kronecker matches, discriminant holds, rho steps exact, reduced endpoint, narrow_cycle outside {C0,CK}), [4] structures for all 13 h>=4 fields recomputed via Dirichlet composition with coprime-a CRT plus rho reduction (orders match C4/C2xC2/C6/C8 labels), [5] extrema exact (max period 34 unique at 331; max regulator at 331 via exact cross-discriminant integer comparison, runner-up 334 gap 3.776), [6] class-number-formula cross-check at N=2e5 passes; pipeline L-check at N=1e6 passes 91/91 with worst gap/bound 0.0348, so wrong h by factor >=1.5 would exceed bound by ~50x and be detected. Spot-checked norms (x^2-d*y^2)/4==N for all 91, primes_le_M lists, distribution 38xC1/34xC2/6xC3/5xC4/5xC2xC2/2xC6/1xC8 sums to 91. Externally cross-checked three fields against live LMFDB: 2.2.904.1 (Q(sqrt226) h=8 [8] regulator 3.40230664548, fu a+15), 2.2.277.1 (h=1 regulator 7.86825441198, fu 157a+1228 = (2613+157 sqrt277)/2), 2.2.1324.1 (Q(sqrt331) h=1 narrow C2 regulator 36.2563832043) all match census to displayed digits. Confirmed d=277 correction: maximal-order regulator 7.868254..., 6x is 47.209526... matching brief prototype order-norm+1 unit at convergent n=41 (p=159150073798980475849), while minimal order unit is at n=20 with regulator 23.6047...=3x; DRAFT's '6x order regulator' refers to norm+1 unit, terminologically imprecise but numerically correct and material correction (max-R is 331 not 277) holds. Unit minimality rests on standard convergent theory plus 4l search, Legendre exact check 8y<x+y sqrt(d), and growth certificate v_{4l-1}>2 eps0; joint h*R formula plus LMFDB agreement closes the h-vs-R ambiguity (missed smaller unit would require compensating h factor, excluded by composition/cycle counts and external data). No essential inference, boundary condition, or computation found wrong. Minor presentation nuance about 3x vs 6x order regulator does not affect field-regulator claims.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval (arXiv API totalResults 20 for ti:class-number AND ti:real-quadratic; Crossref 1789899 hits for real-quadratic class-number regulator) plus inspection of six distinct sources shows no prior 201-350 interval census with per-class Minkowski prime witnesses plus dual extrema plus single rerunnable artifact. Nearest results: Amir et al. 2209.09283 is supervised ML separating h=1,2,3 with learned formulas, predicts but proves no h and gives no ideal certificates or interval closure; Bernardini 2412.06351 proves h>1 for a sparse explicit-CF family with finitely many possible exceptions, family-theoretic not consecutive-interval; Kopp-Lagarias 2512.11311 studies non-maximal unit-generated orders Z[eps] with discriminants n^2+-4 asymptotically, different objects (orders vs maximal orders in consecutive interval); Lamzouri 1609.01630 gives asymptotic moments of h(d) ordered by eps_d, not per-field certificates; Cherubini et al. consecutive large class numbers proves existence of large h in blocks, not complete table; PARI/GP site provides bnfinit machinery but publishes no 201-350 bundle; LMFDB provides bare per-field h/regulator/structure (confirmed for 226/277/331) but no uniform Minkowski witnesses, no interval maximality proofs, no single verifier. Zero-hit signal for 'class number census + quadratic' in topic scan corroborated by current broad queries returning only family/asymptotic/ML/tool hits. Delta is bundled closure of one gap stratum with witnesses and exact extrema, not restatement of a single table entry.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a citable closed benchmark, not a textbook restatement or arbitrary slice. Bare h values for d<350 exist in LMFDB/PARI tables, but the bundle is new: full (h, structure, h+, N(eps), l, eps, R to 40 digits) for 91/91, certified nonprincipal prime ideal with full rho chain for each of 53 h>1 fields recheckable in seconds (p<=17 auditability), exact integer proofs that d=331 uniquely maximizes both period (34) and regulator (36.25638..., gap 3.776 to 334), correction of prototype max-R error (47.21 is order norm+1 unit, true field R_277=7.86825...), and analytic class-number-formula cross-check plus from-scratch verifier. Motivated as first full post-textbook block (textbook d<200) with uniform Minkowski auditability and unit/class-group interplay laboratory (e.g., h=8 at minimal period l=1 for d=226; min R 2.7035 at d=221); not a 1% tweak (closure plus extrema) and not unexplained enumeration (every entry explained by CF+Minkowski+BSGS/composition+norm-equation pipeline with per-field self-tests: identity, K^2=C0, inverses, associativity spot checks, well-definedness). Finite computation without new theorem is acknowledged, but closure, witnesses, extrema coincidence, error correction, and rerunnable artifact together exceed bare recomputation and justify future lookup.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (claim, audit plan, nearest_known_results, fallback)",
+    "inputs/DRAFT.md (91-field table, method steps 1-7, cross-checks, limitations)",
+    "inputs/research_report.json (claim, evidence_summary, artifact_inventory)",
+    "inputs/artifacts/census_table.csv (91 rows rechecked)",
+    "inputs/artifacts/witnesses.json (53 chains rechecked)",
+    "inputs/artifacts/step1_units.py/json (CF, units, regulators)",
+    "inputs/artifacts/step2_forms.py/json (cycles, K-cycle, witnesses)",
+    "inputs/artifacts/step3_compose.py/json (composition, structures)",
+    "inputs/artifacts/step4_Lcheck.py/json (extrema, minimality, L-check N=1e6)",
+    "inputs/artifacts/step5_build.py (table builder)",
+    "inputs/artifacts/verify.py (independent verifier, 6 check groups PASS)",
+    "live arXiv abs pages 2209.09283, 2412.06351, 2512.11311, 1609.01630",
+    "live arXiv API queries (20 and 900990 totalResults)",
+    "live Crossref queries (1789899 and 1290646 total-results)",
+    "live PARI/GP headquarters page",
+    "live LMFDB pages 2.2.904.1, 2.2.277.1, 2.2.1324.1"
+  ],
+  "decisive_checks": [
+    "Independent squarefree enumeration [201,350] gives exactly 91 values matching census list",
+    "Discriminant formula D=d (d=1 mod4) else 4d holds for all 91; M=sqrt(D)/2 max 18.627936 so primes_le_M subset of {2,3,5,7,11,13,17} verified",
+    "Ran verify.py (independent code copies) -> ALL CHECKS PASSED: [1] 91 d, [2] CF/unit/cycles/K/h, [3] 53 witnesses, [4] 13 h>=4 structures, [5] extrema, [6] L-check N=2e5",
+    "Norm check (x^2-d*y^2)/4==unit_norm for all 91; distribution 38/34/6/5/5/2/1 sums to 91; h>1 count 53 matches witnesses",
+    "Step4 L-check N=1e6: 91/91 within rigorous D/N tail bound, worst gap/bound 0.0348; factor-1.5 wrong-h gap (~1+) would exceed bound (~0.026) by ~50x",
+    "Exact integer extrema: max period 34 unique at 331; eps_331 strictly greater than other 90 units via cross-discriminant comparison; gap to 334 is 3.776",
+    "LMFDB 2.2.904.1 confirms d=226 h=8 C8 regulator 3.40230664548 fu 15+sqrt226",
+    "LMFDB 2.2.277.1 confirms d=277 h=1 regulator 7.86825441198 fu (2613+157 sqrt277)/2, validating prototype correction",
+    "LMFDB 2.2.1324.1 confirms d=331 h=1 narrow C2 regulator 36.2563832043, D=1324",
+    "Order-unit analysis for d=277: convergents give n=20 p=8920484118 N=-1 log 23.6047 (3x) and n=41 log 47.2095 (6x), confirming 47.21 source as order unit",
+    "Composition self-tests (identity, K^2=C0, inverses, assoc spot checks, well-definedness via two disjoint pairs) pass per field in pipeline and verifier"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:28:29Z",
+    "queries": [
+      {
+        "service": "arXiv",
+        "query": "ti:\"class number\" AND ti:\"real quadratic\"",
+        "url": "http://export.arxiv.org/api/query?search_query=ti:%22class+number%22+AND+ti:%22real+quadratic%22&start=0&max_results=5",
+        "result_count": 20
+      },
+      {
+        "service": "Crossref",
+        "query": "real quadratic class number regulator",
+        "url": "https://api.crossref.org/works?query=real%20quadratic%20class%20number%20regulator&rows=5",
+        "result_count": 1789899
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Supervised ML separates h=1,2,3 and learns formulas on a dataset; it predicts but proves no class number, gives no Minkowski ideal certificates, no consecutive-interval closure, and no regulator-maximum proof, unlike the 201-350 certified census.",
+        "retrieved_at_utc": "2026-09-07T14:26:10Z",
+        "title": "Machine Learning Class Numbers of Real Quadratic Fields",
+        "url": "https://arxiv.org/abs/2209.09283"
+      },
+      {
+        "comparison": "Proves h(D)>1 for a sparse family with known continued-fraction expansions and finitely many possible exceptions; this is family-theoretic with exceptions, not a complete consecutive-d census with ideal representatives for all 91 fields.",
+        "retrieved_at_utc": "2026-09-07T14:26:15Z",
+        "title": "Class number of real quadratic fields of explicit discriminant",
+        "url": "https://arxiv.org/abs/2412.06351"
+      },
+      {
+        "comparison": "Studies non-maximal unit-generated orders Z[epsilon] with discriminants n^2+-4, their asymptotics and class-number-one classification; objects are orders, not maximal orders in the consecutive 201-350 interval, and no interval census with BSGS plus Minkowski certificates is given.",
+        "retrieved_at_utc": "2026-09-07T14:27:05Z",
+        "title": "Unit-generated orders of real quadratic fields I. Class number bounds",
+        "url": "https://arxiv.org/abs/2512.11311"
+      },
+      {
+        "comparison": "Derives asymptotic k-th moments of h(d) over discriminants ordered by fundamental-unit size and tail bounds for large values; this is analytic distribution theory, not explicit per-field certificates, witnesses, or maximal-regulator table for 201-350.",
+        "retrieved_at_utc": "2026-09-07T14:27:10Z",
+        "title": "Large moments and extreme values of class numbers of indefinite binary quadratic forms",
+        "url": "https://arxiv.org/abs/1609.01630"
+      },
+      {
+        "comparison": "Documents the PARI/GP computer-algebra system with bnfinit/quadclassunit/bnfcertify functions capable of computing class numbers; it is a tool baseline that publishes no certified 201-350 census bundle with ideal representatives and dual extrema.",
+        "retrieved_at_utc": "2026-09-07T14:27:20Z",
+        "title": "PARI/GP Development Headquarters (tool baseline)",
+        "url": "https://pari.math.u-bordeaux.fr/"
+      },
+      {
+        "comparison": "Database entry for Q(sqrt226) lists discriminant 904, class number 8, class group [8], narrow C8, fundamental unit a+15 and regulator 3.40230664548, matching the census row exactly but providing only a single-field bare value with no interval witnesses or maximality proof.",
+        "retrieved_at_utc": "2026-09-07T14:27:40Z",
+        "title": "LMFDB Number field 2.2.904.1: Q(sqrt226)",
+        "url": "https://www.lmfdb.org/NumberField/2.2.904.1"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "No PARI/GP bnfcertify in sandbox; unconditional proof rests on reduced-cycle=narrow-class, K-quotient, and Dirichlet composition theorems plus analytic cross-check and independent verifier sharing the same textbook assumptions, mitigated by LMFDB agreement on 226/277/331 and rigorous tail bound",
+    "Unit minimality proof combines standard convergent theory with Legendre exact check and 4l growth certificate; fully elementary closure for half-units relies on exhaustive convergent search to 2l/4l, corroborated by external regulators",
+    "Regulator digits beyond ~15 depend on mpmath; only exact integer comparisons support ordering claims, floating digits are not proof",
+    "DRAFT phrase '6 times the true field regulator' for Z[sqrt277] refers to the norm+1 order unit (n=41); minimal order unit (n=20, norm -1) is 3x; nuance does not affect maximal-order claims but should be clarified to standard regulator definition",
+    "LMFDB rate-limiting prevented rechecking all 91 fields externally; three decisive spot checks plus 91/91 formula agreement cover the gap",
+    "Value remains that of a finite benchmark census, not a new theoretical theorem; reuse depends on citing the witness artifact rather than bare numbers"
+  ],
+  "verdict": "PASS"
+}
