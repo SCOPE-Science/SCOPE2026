@@ -1,0 +1,89 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All exact claims replay. Independent stdlib replay.py re-derived from stored mult tables: 25/25 rows PASS exit 0 (re-ran in audit), including full O(n^3) associativity, identity, inverses, nonabelian witness, closure-from-generators==n, BFS dist0 match, all-pairs diameter recomputed equals max(dist0), every per-element word length==distance and re-evaluates to element, witness length==D and evaluates to witness. Canonical pair rule (lex-first (i,j) closing to n) deterministic and verified generating; D8xC8 exclusion reasoning correct (abelianization C2^2xC8 needs 3 gens) plus brute-force 4096-pair failure logged. Lemma proved and machine-checked: build_twisted correctly implements <r,s|r^m=s^2=1,srs=r^t>; map f(e,k)=(e,(-1)^e k) bijective, preserves rotation edges (k->-k reverses 32-cycle, undirected identical) and sends SD matching (0,k)~(1,15k) to (0,k)~(1,-15k)=(1,17k) exactly modular matching since 17==-15 mod32; replay checks intertwiner entry-by-entry on stored tables; involution counts 17 vs 3 correctly distinguish groups. Spectral part honestly labelled computed-with-intervals not theorem: eigh vs eig agreement <2.5e-14, Ritz residuals <1e-13, lam1==d exact, trace sum==0 and sum squares==n*d hold, top separation >> residuals, reported +-1e-9 intervals exceed numeric error by ~5 orders while decoupling margins exceed 0.11; audit recomputed decoupling strictness (R19 vs R10/R11/R17, R18 vs R11, R15 vs R11 all D-larger and gap_lo>gap_hi) and cycle closed forms (C48 0.01711..., C64 0.00963... match 2-2cos(2pi/n) to 15dp) and dihedral D==ceil(m/2)+1. Orders covered 48,50,52,54,55,56,57,58,60,62,63,64 with 49,51,53,59,61 correctly absent (p^2/prime/pq with p not dividing q-1). Proof vs computed evidence correctly separated in DRAFT Sec5 and limitations.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval finds no same-claim prior giving an exact diameter-plus-gap table with word replay and decoupling for orders 48-64. Nearest: El-Baz/Pagano arXiv:2002.08870 is asymptotic limiting distribution for random Cayley diameters of bounded-rank nilpotent groups via abelianisation inequality, no fixed-pair exhaustive diameters or gaps; Shkredov DOI:10.1134/s0081543821040167 gives universal gap-vs-diameter inequalities by additive-combinatorial/representation methods, not computed values; Jin-Tan DOI:10.1016/j.amc.2022.127437 and Erskine diameter-2 dihedral work classify diameter-two case, not full 48-64 survey; Besche-Eick-O'Brien DOI:10.1142/s0218196702001115 is SmallGroups construction infrastructure to order 2000 with no diameters/gaps. Individual closed forms (C_n gap 2-2cos(2pi/n), dihedral D ceil(m/2)+1) are textbook prior art but the specific 25-row combined census with dual-solver gaps, five disjoint-interval decoupling pairs, and SD-Mod intertwiner is not duplicated in retrieved sources. Hence narrowly new as a dataset, though components are textbook (value issue, not originality defeat).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even if correct and narrowly new as a dataset, not independently worth finding later. (1) Scope collapse: target required full SmallGroups 48-64 Aut-transversal (267 groups at order 64 alone); draft delivers 23 convenience groups with one lex-first pair each (explicitly not Aut-transversal) because GAP unavailable, i.e. convenience sample not principled census. (2) Textbook dominance: 11/25 rows are dihedrals/bireflection cycles with closed forms verified in audit (D ceil(m/2)+1, C_n gap 2-2cos) \u2014 mere parameter sweep m=24..32 plus two cycles; extremal D=32 is just C64 diameter floor(64/2), maximal-in-sample not maximal-in-band (honestly limited but valueless as extremal). (3) Unexplained enumeration: 25 diameters/gaps with Pearson -0.69 and five larger-D-larger-gap pairs merely restate known non-monotonicity of gap vs diameter (universal bounds are inequalities, not orderings); no representation-theoretic explanation for e.g. UT3(Z4) large gap or Q64/SD fractional coincidence (flagged unexplained). (4) Lemma is 2-line t vs -t undirected symmetry (17==-15 mod32), genuine coincidence but trivial symmetry, not substantive theorem. No new method, bound, classification, or surprising extremum; reusable calibration value minimal given incompleteness and dihedral-heavy composition. Falls under textbook restatement + parameter substitution + unexplained enumeration.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (target, fallback, internal prior scan, live_literature_check)",
+    "inputs/DRAFT.md (adjusted claim Sec1-7, lemma proof, tables, limitations)",
+    "inputs/research_report.json (claimed evidence, artifact inventory, limitations)",
+    "inputs/artifacts/census.py (builders, finalize associativity, analyze BFS/eigh-eig)",
+    "inputs/artifacts/replay.py (independent verifier, lemma check)",
+    "inputs/artifacts/cayley_table.csv (25 rows R00-R24)",
+    "inputs/artifacts/words.json (mult tables, dist0, words, spectra)",
+    "inputs/artifacts/run_log.txt (builder/verifier logs)"
+  ],
+  "decisive_checks": [
+    "Re-ran replay.py on words.json: ALL 25/25 PASS + lemma PASS exit 0; gap intervals re-contained, cross-solver <1e-6 (actual <2.5e-14), residuals <1e-6.",
+    "Verified decoupling strictness from words.json: R19(D6,[1.171572874,1.171572876])>R10(D4,[1.008285234,1.008285236]), R19>R11, R18>R11, R19>R17, R15>R11 \u2014 margins 0.11-0.70 vs half-width ~1e-9.",
+    "Verified textbook formulas: C48/C64 gaps equal 2-2cos(2pi/n) to 15dp; dihedral R00 D13 and R08 D17 equal ceil(m/2)+1; SD/Mod lambda2 2.84775906... equal, Q64 3.84775906... same fraction.",
+    "Verified order coverage {48,50,52,54,55,56,57,58,60,62,63,64} and correctly absent 49,51,53,59,61 (p^2/prime/pq criteria); verified group constructions implement stated presentations and symmetric degrees.",
+    "Verified lemma intertwiner f(e,k)=(e,(-1)^e k) logic against build_twisted multiplication and replay adjacency check; verified involution counts 17 vs 3 distinguish groups."
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T16:06:00Z",
+    "queries": [
+      {
+        "query": "Cayley diameter finite groups",
+        "result_count": 797258,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=Cayley+diameter+finite+groups&rows=5&select=DOI,title,author,published,URL"
+      },
+      {
+        "query": "all:Cayley diameter spectral gap",
+        "result_count": 285048,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:Cayley+diameter+spectral+gap&start=0&max_results=5"
+      },
+      {
+        "query": "Cayley spectral gap diameter (title)",
+        "result_count": 467924,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query.title=Cayley+spectral+gap+diameter&rows=5&select=DOI,title,author,published,URL"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Proves limiting distribution for rescaled diameters of random Cayley graphs of bounded-rank nilpotent groups via abelianisation-governed inequality; asymptotic random-generators result with no exhaustive exact BFS diameters for orders 48-64 and no spectral-gap table, so disjoint from fixed-transversal census with word replay.",
+        "retrieved_at_utc": "2026-09-07T16:01:00Z",
+        "title": "Diameters of random Cayley graphs of finite nilpotent groups",
+        "url": "https://arxiv.org/abs/2002.08870"
+      },
+      {
+        "comparison": "Surveys construction of all groups to order 2000 and describes SmallGroups library enumeration infrastructure; contains no Cayley diameters, generating-pair transversal, or spectral gaps, so enabling background rather than competing diameter-plus-gap table.",
+        "retrieved_at_utc": "2026-09-07T16:02:00Z",
+        "title": "A MILLENNIUM PROJECT: CONSTRUCTING SMALL GROUPS",
+        "url": "https://doi.org/10.1142/s0218196702001115"
+      },
+      {
+        "comparison": "Develops general theoretical inequalities relating spectral gap and diameter of Cayley graphs by additive-combinatorial methods; gives universal bounds rather than computed exact diameters or gap values for the 48-64 band with replayable certificates, leaving enumerated extremal table unduplicated.",
+        "retrieved_at_utc": "2026-09-07T16:03:00Z",
+        "title": "On the Spectral Gap and the Diameter of Cayley Graphs",
+        "url": "https://doi.org/10.1134/s0081543821040167"
+      },
+      {
+        "comparison": "Characterises Cayley graphs of diameter two under normality/transitivity hypotheses; does not enumerate exact diameters over all two-generated nonabelian groups of orders 48-64 nor compute spectral gaps with word-length replay and scatter, so no overlap with extremal census.",
+        "retrieved_at_utc": "2026-09-07T16:04:00Z",
+        "title": "On diameter two Cayley graphs",
+        "url": "https://doi.org/10.1016/j.amc.2022.127437"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Spectral intervals are heuristic +-1e-9 from dual LAPACK agreement/residuals, not interval-arithmetic theorems; draft honestly labels as computed, so no misrepresentation but not formal enclosure.",
+    "Convenience sampling (lex-first pair, 23 groups) means any hidden bug in find_canonical ordering or presentation encoding would shift rows, though replay pins stored tables exactly.",
+    "Numpy LAPACK version dependence for 6dp gaps negligible given 1e-14 agreement and 0.11+ decoupling margins, but exact 6th decimal relies on standard double precision."
+  ],
+  "verdict": "REJECT"
+}
