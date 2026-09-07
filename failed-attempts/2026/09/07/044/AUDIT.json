@@ -1,0 +1,40 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential inferences independently re-derived and recomputed. Equilibrium uniqueness, Jacobian trace/det/discriminant, B=1 discriminant range [0.04,2.8], Dulac divergence formula div(BX)/B=-F'-8x(y-F)/(1+2x^2), sign-flip+y-drop diagnosis, counterexample (1.1,2.0,1,-10)->59/2, x-only-weight impossibility lemma, Lyapunov bound min(a-b^2/4)=1/10 and Vdot<=-x^2/10, no-cycle integral argument, and LaSalle GAS step are all mathematically correct. Script verify_lane85.py re-executed successfully; exact Fraction and sympy checks pass. LaSalle is properly cited not re-proved. No boundary or uniformity error.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No substantive new mathematical object or method versus prior literature. (1) Rescue Theorem 2 is immediate textbook Lyapunov: V=(x^2+y^2)/2, Vdot=-xF=-x^2(x^2+bx+a) with x^2+bx+a>=a-b^2/4. Over A max(b^2-4a)=4-4.4=-0.4<0, so positivity holds with large margin; this is the standard xF(x)>0 exercise in Khalil/Perko/Strogatz and classical Lienard theory (Massera/Rychkov/Cherkas uniqueness). Fixing the numeric box [1.1,1.2]x[1.9,2.0] is a parameter substitution inside the open region {a>b^2/4}. (2) Theorem 1 + Lemma only refute the lane-internal unpublished audit-plan formula M (dropped y-term, flipped sign) and observe the one-line consequence that B(x)-only weights retain a y-term; this corrects no published prior claim from Gasull-Giacomini 2013/2021, Cherkas-Sidorenko 2008, or extended Dulac literature, and the Lemma follows immediately from div(BX)=B'(y-F)-BF'. Draft itself concedes energy argument is classical, not original. Hence no originality delta worth priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. Result is a textbook restatement (standard energy + LaSalle) evaluated at an arbitrary tiny box plus arithmetic exposure of an internal sign error. It provides no reusable weight, no new nonexistence phenomenon, no family-wide bound, and no method beyond completing the square and integrating Vdot around a putative cycle. The box is unmotivated except as the failure spot of the flawed plan; the same one-line proof covers the entire open slab a>b^2/4. A correction log for an unpublished derivation is not a retrievable research record. Falls squarely under rejectable categories: textbook restatement, mere parameter substitution, tiny unmotivated gain.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json audit plan and internal prior scan (20 failures, 20 resultary hits, all disjoint)",
+    "inputs/DRAFT.md (candidate correction + rescue)",
+    "inputs/research_report.json claim/evidence/limitations summary",
+    "inputs/artifacts/verify_lane85.py + verify_output.txt (re-executed, all checks passed)",
+    "https://arxiv.org/abs/2101.03874 Gasull-Giacomini Effectiveness of Bendixson-Dulac (abstract + context verified)",
+    "https://arxiv.org/abs/1305.3402 Gasull-Giacomini Extended Bendixson-Dulac applications (abstract + context verified)",
+    "topic nearest-known DOI 10.1134/S0012266108020109 Cherkas-Sidorenko cubic Lienard (as cited, not needed for decision)",
+    "Standard Lyapunov/Lienard background: Khalil Thm 4.4 LaSalle, Perko/Strogatz xF(x)>0 energy argument (cited in draft, substance verified by derivation)"
+  ],
+  "decisive_checks": [
+    "Re-derived div(BX)/B symbolically: B'/B=-8x/(1+2x^2), div/B=-F'-8x(y-F)/(1+2x^2); confirmed audit-plan M drops -8xy term and flips y=0 sign",
+    "Exact Fraction counterexample at (1.1,2.0,1,-10): F=41/10, F'=81/10, div/B=59/2=29.5>-1/20; refutes uniform margin",
+    "Exact Fraction B=1 blindness: b^2-3a in [1/100,7/10], discriminant in [1/25,14/5]=[0.04,2.8]>0 throughout A",
+    "Exact Fraction Lyapunov margin: min_A(a-b^2/4)=11/10-1=1/10 at (1.1,2.0); hence x^2+bx+a>=1/10, Vdot<=-x^2/10",
+    "Validated no-cycle integral argument: x==0 forces equilibrium, otherwise Vdot<0 on interval contradicts periodicity",
+    "Validated LaSalle GAS closure: {Vdot=0}={x=0}, invariance forces y=0; use is cited and correctly separated",
+    "Confirmed rescue generality: condition is b^2-4a<0 open region (max -0.4 on box), so box proof is specialization"
+  ],
+  "residual_risks": [
+    "None material to verdict: correctness fully checked with exact arithmetic; LaSalle citation is standard and correctly scoped",
+    "No hidden numeric or Sturm/SOS dependence: rescue uses no numerics; original flawed quartic audit is moot"
+  ],
+  "verdict": "REJECT"
+}
