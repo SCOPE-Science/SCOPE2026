@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma (gap criterion) is correct: for consecutive primes (p,q) meeting [XL,XR]=[1e7,1e8] with a=max(p,XL), any x in [XL,XR] intersect [p,q) with x<=p is x=p (prime present); for x>p the next prime is q and failure q>x(1+1/D) for some x>=a implies q>a(1+1/D), i.e. D(q-a)>a, by monotonicity of x(1+1/D); non-emptiness implies a<q so the converse holds at x=a. Hence exact integer check D(q-a)<=a over all touching pairs suffices. Implementation audited: sieve range [9.9M,100.1M) covers [XL,XR+XR/30000] with margin (HI=100.1M > 100003334+1000, P[0]<XL asserted); base-prime loop correctly ensures max(bp)^2>=HI, fixing the plan's 1e4 shortfall since sqrt(HI)~10005; marking from max(p*p,ceil(lo/p)*p) is correct Eratosthenes; uint32/int64 arithmetic is overflow-safe (max D*(q-a) ~6.6M). Re-ran inputs/artifacts/reproduce.py from scratch: exit 0 in ~0.72s, n_gaps_touching=5096877, max_gap_touching=220, max_gap_global=220, worst slack 6016049 at (10156049,10156187) gap 138, min window ceil(1e7/30000)=334>220. Pi anchors pi(1e7)=664579 and pi(1e8)=5761455 both asserted and passed (classical values, independently counted via small sieve for pi(LO-1)). Independently recomputed min floor(a/(q-a))=72168 at (11113933,11114087) gap 154: D=72168 passes all pairs, D=72169 fails on exactly that one pair, confirming the D=72168 best-possible corollary arithmetic. Analytic leg honestly reports failure (best margin -18602.7, sharp -4877.3 on 164-point grid) so no X1 exists; sieve covering the whole range is logically sufficient. Selberg fragment is correctly scoped as one-sided upper-bound consistency (exact QQ solve Mv=e1, G=15/4, R=64, exact identity S==sum lam lam floor counts plus Pc<=S<=y/G+R on 12 blocks, all asserted and passed) and proves no lower bound, as stated. Proof vs evidence distinguished: the sieve gap closure is a finite deterministic proof for the bounded range; margin grid and Selberg blocks are non-proving consistency records. Minor presentation overstatement: DRAFT mentions an independent brute-force bytearray second sieve reproducing 220/210, but reproduce.py contains only the numpy sieve plus pi-anchor cross-check, not that second sieve; this does not invalidate the main integer-arithmetic closure given the anchors and re-execution.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest substantive prior is not the three cited global theorems but public maximal prime-gap tables. Schoenfeld Thm 12 (Delta=16598 for x>2010760), Dusart-type |theta-x|<=0.2x/log^2x (effective Delta ~6-8k here), and Cully-Hugill-Lee (Delta,x0) pairs for x0>=4e18 indeed do not imply D=30000 analytically, as the candidate states. However the bounded factual content \u2014 max gap 220 below 1e8, hence every [x,x+x/30000] (min width 333) contains a prime, and min floor(a/(q-a))=72168 at the known gap (11113933,11114087) gap 154 \u2014 is a direct arithmetic transcription of long-public prime-gap data (maximal gaps to >=1e9 and Oliveira e Silva-Herzog-Pardi verifications to 4e18, on which Cully-Hugill-Lee themselves rely for small x). No prior states the verbatim pair (D=72168,[1e7,1e8]), but substantively D-feasibility is equivalent to the gap list via the lemma, so the threshold is determined by that list, not discovered by a new method. Recomputing a 90M subrange from scratch in <1s without consulting the 4e18 tables (candidate's stated mitigation) establishes independent reproducibility, not priority; a timestamp or a failed verbatim search does not establish novelty. The sieve method is conceded classical (segmented Eratosthenes), the analytic leg failed, and the Selberg {2,3,5}/D=36 fragment contributes no lower bound. Hence the claim is an independent rediscovery/restatement of known gap data in Delta language, not a substantively new result.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taking correctness and novelty-of-phrasing at face value, the result is not independently worth finding later. The proof is a <1s routine segmented sieve to 1e8 (stdlib+numpy, seg 2^20) plus exact integer gap comparison \u2014 a textbook exercise whose output (max gap 220) is already subsumed by comprehensive gap verifications to 4e18 used to anchor global explicit theorems; a future researcher needs the 4e18 tables, not this arbitrary [1e7,1e8] slice. The headline D=30000 is an assigned target constant and the D=72168 extension is unmotivated parameter maximization (min over known gaps) over that arbitrary range, i.e. mere parameter substitution. The analytic theta-margin leg failed everywhere and the Selberg fragment with tiny primes {2,3,5} is a textbook upper bound proving nothing toward the lower-bound claim, so neither adds methodological value. The contribution therefore falls under the exclusion criteria: textbook restatement (Eratosthenes), mere Delta tweak beating Schoenfeld only on a bounded interval by brute force (any finite interval can beat a global constant this way), and explained-but-routine enumeration whose comprehensive superset already exists. No new method, asymptotic improvement, or reusable tool is produced.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json",
+    "inputs/DRAFT.md",
+    "inputs/research_report.json",
+    "inputs/artifacts/reproduce.py",
+    "inputs/artifacts/summary.json",
+    "inputs/artifacts/gap_table.csv",
+    "inputs/artifacts/margin_table.csv",
+    "inputs/artifacts/selberg_table.csv",
+    "https://arxiv.org/abs/1002.0442 (Dusart theta bounds, abstract/metadata verified)",
+    "https://arxiv.org/abs/2103.05986 (Cully-Hugill-Lee Delta-x0 pairs, abstract/metadata verified)",
+    "https://doi.org/10.1090/S0025-5718-1975-0457374-X (Schoenfeld Thm 12 Delta=16598, cited via DRAFT)",
+    "prime-gap tables / Oliveira e Silva-Herzog-Pardi to 4e18 (cited as background; direct Wikipedia fetch failed with transport error, relied on candidate's own citation plus standard maximal-gap knowledge)"
+  ],
+  "decisive_checks": [
+    "re-executed reproduce.py: exit 0, total ~0.72s, outputs match summary.json (5096877 pairs, max gap 220, slack 6016049)",
+    "manually proved gap-criterion lemma including x=p case, monotonicity, a<q non-emptiness, and endpoint coverage P[0]<XL<P[-1]-XR-XR/D",
+    "audited base-prime correction (sqrt(HI)~10005>1e4; loop to max(bp)^2>=HI) and marking start max(p*p,ceil(lo/p)*p)",
+    "verified pi anchors 664579/5761455 asserted in code and passed",
+    "independently re-sieved [9.9M,100.1M) and recomputed min floor(a/(q-a))=72168 at (11113933,11114087) gap 154; 72168 passes all, 72169 fails exactly once",
+    "confirmed analytic margins negative (-18602.7 classic, -4877.3 sharp) so no X1; sieve-only closure is sufficient",
+    "confirmed Selberg exact QQ identities (lam=(1,-1,-1,-1,1,1,1,-1), G=15/4, R=64, Q==1/G) and per-block Pc<=S<=UB passed; correctly one-sided"
+  ],
+  "residual_risks": [
+    "single-machine, single-stack (numpy/Python int64) re-execution; hardware/compiler faults not excluded, mitigated by pi anchors and deterministic integer checks",
+    "classical pi values assumed correct (extremely well established)",
+    "completeness of public gap-table priority claim rests on standard literature plus candidate's own 4e18 citation; full-text gap-table cross-fetch not performed due to transport error",
+    "DRAFT's claimed second brute-force maximal-gap confirmation (220/210 halves) is not present in reproduce.py, so that specific redundancy was not re-executed"
+  ],
+  "verdict": "REJECT"
+}
