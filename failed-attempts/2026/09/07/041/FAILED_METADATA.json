@@ -1,0 +1,37 @@
+{
+  "attempted_claim": "For Y as above with (N,n,p)=(160,80,0.2): P(s_min(Y) <= 2.0) <= 0.01 proved by an explicit inequality of the form P <= P_zero-row/col + P_opnorm(K0) + |N_comp(eps0,delta,s)| * q_sb(t)^{N-k} + C_inc*(C_sb*t)^{N-n+1} + exp(-cN) where every term is instantiated numerically (e.g. eps0, delta-compressibility, support size s, net cardinalities via exact sum_{k<=s} C(n,k)*(3/eps0)^k, one-dimensional small-ball L(t) from exact Bernoulli-Rademacher Paley-Zygmund/Esseen bound, matrix-Bernstein operator-norm tail with K0 ~= 26-30), RHS evaluates to <=0.01, strictly beating the naive dense RV instantiation which is >=1 at eps=2.0/(sqrt(N)-sqrt(n-1))~=0.53 for any published generic C>=2. Companion simulation: >=2000 i.i.d. trials show empirical frequency of {s_min<=2.0} equal to 0 (95% Clopper-Pearson upper <=0.002) and median/mean ~=3.8-3.9, consistent with the bound.",
+  "claim_type": "non-asymptotic tail and invertibility bound",
+  "created_at": "2026-09-07T19:22:21Z",
+  "decisive_failure": "No completed closed-form uniform bound P(s_min(Y)<=2.0)<=0.01 or fallback P(<=1.5)<=0.05: (1) matrix-Bernstein gives non-vacuous operator-norm control only at K0>=60 (P(||Y||>=60)<=0.036, P(>=70)<=0.0023), so any rho-net approximation penalty rho*K0 forces tiny rho and huge nets; (2) uniform single-vector MGF small-ball sup over the sphere was not reduced to explicit numbers (worst case y=e1 gives P(||Ye1||<=3.2)=P(Bin(160,0.2)<=2)=2.6e-13, but the full-sphere net (1+2/rho)^80 overwhelms it); (3) the incompressible distance/LCD branch was not instantiated with explicit constants, so the final union-bound RHS is vacuous (>1) and Step 1 of the audit plan is not met. Textbook baseline check is also qualified: (C*eps)^81 with eps=0.5318 is vacuous (147) for C=2 but equals 1.1e-8 for C=1.5, so 'vacuous for any published C>=1.5' as worded is false; the correct statement is that no published numeric (C,c) covers this sparse ensemble, i.e. constants are unspecified. All simulations used numpy.linalg.svd without interval certification; empirical quantiles are estimates with sampling error only.",
+  "disposition": "NO_RESULT",
+  "domain": "Probability",
+  "failed_attempt_id": "SCOPE-FAIL-20260907-041",
+  "failed_axes": [],
+  "failure_class": "NO_RESULT",
+  "fingerprint": {
+    "claim_type": "non-asymptotic tail and invertibility bound",
+    "domain": "Probability",
+    "main_method": "non-asymptotic concentration and net arguments",
+    "primary_object": "sparse random matrices (160x80 sparse Rademacher, p=0.2)"
+  },
+  "method_summary": "non-asymptotic concentration and net arguments",
+  "problem_statement": "Let N=160, n=80, p=0.2. Let B_ij i.i.d. Bernoulli(p) and R_ij i.i.d. Rademacher (+/-1), independent, and define Y_ij = B_ij*R_ij/sqrt(p), so E[Y_ij]=0, Var=1, sparsity 80%. Let s_min(Y)=sigma_n(Y). Prove a fully closed-form, numerically evaluable tail bound P(s_min(Y) <= 2.0) <= 0.01 via a sparsity-aware epsilon-net argument (compressible/incompressible split with support-restricted covering counts + exact binomial small-ball tensorization + explicit operator-norm/degree conditioning), and validate it by an independent Monte Carlo SVD experiment with fixed protocol (arXiv-recorded seed, >=2000 trials, Clopper-Pearson interval). All constants must be numbers, not O()/C/c; the RHS must evaluate in <1s in plain Python/numpy.",
+  "provenance": {
+    "lane": 77,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-07T19:22:21Z",
+  "record_title": "Explicit sparsity-aware smallest-singular-value tail for 160x80 sparse Rademacher matrices at p=0.2 beating textbook net constants",
+  "recovery_conditions": "introduce a materially new method or a justified, still-valuable revised claim; address the recorded limitation: No completed closed-form uniform bound P(s_min(Y)<=2.0)<=0.01 or fallback P(<=1.5)<=0.05: (1) matrix-Bernstein gives non-vacuous operator-norm control only at K0>=60 (P(||Y||>=60)<=0.036, P(>=70)<=0.0023), so any rho-net approximation penalty rho*K0 forces tiny rho and huge nets; (2) uniform single-vector MGF small-ball sup over the sphere was not reduced to explicit numbers (worst case y=e1 gives P(||Ye1||<=3.2)=P(Bin(160,0.2)<=2)=2.6e-13, but the full-sphere net (1+2/rho)^80 overwhelms it); (\u2026",
+  "scope_lane": 77,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://arxiv.org/abs/0802.3956",
+    "https://arxiv.org/abs/1106.0938",
+    "https://arxiv.org/abs/2004.03131",
+    "https://arxiv.org/abs/1507.03525",
+    "https://arxiv.org/abs/2408.14389"
+  ],
+  "time_standard": "UTC"
+}
