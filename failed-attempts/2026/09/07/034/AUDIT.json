@@ -1,0 +1,98 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential inferences and computations verified by independent replay. Verifier re-run in fresh process passes: 186 Latin squares, 5 transversal witnesses and 1 partial witness all satisfy row/col/symbol distinctness and match matrices, with independent permutation recounts N=133 (Z7), N=0 (Z8), N=384 (C4xC2, C2^3, D8, Q8) exactly as claimed. Auditor independently recounted N for all 6 bases via itertools.permutations (133/0/384/384/384/384) and validated all transversal/partial cell lists against matrices. Group axioms and element-order invariants confirmed (Z7 [1,7x6]; Z8 [1,2,4,4,8x4]; C4xC2 [1,2x3,4x4]; C2^3 [1,2x7]; D8 [1,2x5,4x2] non-abelian center 2; Q8 [1,2,4x6] non-abelian center 2), confirming five order-8 bases are pairwise non-isomorphic groups. Isotopy logic sound: tau/N invariance under row/col/symbol permutations is elementary and correctly proved; seeded isotopes are isotopic by construction so per-stratum constancy is theorem, additionally spot-checked computationally. Independent backtracking isotopy implementation reproduced claimed node counts exactly (C2^3 vs D8 non-isotopic with 521 nodes; Z7_base vs Z7_iso00 isotopic with 17 nodes), corroborating exhaustive-search logs and 15 rep-pair distinctness certificates plus n-mismatch handling. Tau maximality correctly derived: for N>0 reps tau=n follows from exhibited transversal; for Z8 N=0 exhaustive unsatisfiability (3705-node DFS + perm recount 0) plus exhibited size-7 partial certifies tau=7=n-1. Hall-Paige consistency holds (cyclic Sylow Z8 transversal-free; others non-cyclic/trivial Sylow transversal-rich). Proof vs computation properly separated in DRAFT; no boundary error, no conflation of experimental evidence with theorem. No correctness defect found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Narrow computational novelty granted after live retrieval. Nearest priors found: Montgomery 2024 decade survey (existence/asymptotics/structure, no seeded isotopy tau/N census with witnesses for orders 7-8); Wanless 2009 survey with dedicated group-table/orthomorphism/covering-radii section (conjectures and Hall-Paige background, no exact N=133/384 table for these six tables); Cavenagh-Wanless 2017 (explicitly states even-order cyclic addition table B_n has no transversals, directly anticipating the Z8 N=0 row, plus asymptotic species lower bound and k-plex constructions, not a stratum-maximum table); Hall-Paige 1955 necessity plus Wilcox-Evans-Bray sufficiency (complete mappings equivalent to group-table transversals; Sylow-2 trivial-or-noncyclic condition predicts exactly the observed existence pattern Z7 yes / Z8 no / other four yes, so qualitative pattern is textbook). No retrieved source tabulates the exact tau/N values 7/133, 7/0, 8/384 for these six normalized tables together with per-representative exact counts and CSV replay witnesses, nor the specific 30-seed (5757+k) isotopy-neighbourhood package. A failed search does not prove global priority, but on inspected evidence the exact witness package is absent from surveys and Hall-Paige literature, which are existence/asymptotic/constructional. Hence the precise N-count table is treated as narrowly new. Qualitative content (which groups have transversals; isotopy invariance; Albert isotopic-groups-are-isomorphic observation) is prior art and is discounted toward value, not counted as novelty.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking correctness and narrow novelty as given, the result is not independently worth finding later. It combines four reject categories the brief explicitly warns against. (1) Textbook restatement: the scientifically meaningful pattern (Z8 transversal-free; all other listed groups transversal-rich) is a direct corollary of Hall-Paige (1955 conjecture, proved 2009 via CFSG), acknowledged in DRAFT sec 4.3 as sanity check; isotopy invariance of tau/N is elementary one-paragraph proof; collapse via Albert's theorem is textbook. (2) Mere parameter substitution: strata are 30 seeded row/col/symbol permutations with arbitrary seed 5757+k plus base (186 squares); by construction every isotope is isotopic to its base, so 186->6 collapse is tautological (DRAFT sec 2.2/6 admits no isotope can beat baseline, theoretically impossible). The seed count, seed value, and choice of orders 7-8 add no conceptual stratification. (3) Tiny unmotivated gain / unexplained enumeration: the only potentially new numbers are N=133 and N=384 (x4), obtained in seconds by brute force for n<=8 (40320 perms max, ~3k DFS nodes), with no structural explanation \u2014 DRAFT sec 6.3 admits N=384 coincidence across four non-isomorphic groups is verified computation, not theorem, left open. No new infinite family (disclaimed), no surprising distribution (no beating isotope, impossible), no downstream use. (4) Scope disclaimer empties significance: DRAFT sec 6.1 stresses this is not a full order-7/8 census (which numbers in millions/billions per main class) but six group tables only. A seconds-scale table of six small-group transversal counts with redundant isotopic copies and no theory is a routine exercise, not a citable micro-census others would independently seek. Correct and narrowly new yet not valuable => REJECT per value-failure rule.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, fallback claim, live_literature_check, prior-scan)",
+    "inputs/DRAFT.md (all 7 sections, certified table, witnesses, limitations)",
+    "inputs/research_report.json (claim, evidence_summary, artifact_inventory)",
+    "inputs/artifacts/squares.csv (186 rows, base matrices spot-checked)",
+    "inputs/artifacts/transversals.csv (5 witnesses re-validated)",
+    "inputs/artifacts/partial.csv (Z8 size-7 witness re-validated)",
+    "inputs/artifacts/verifier.py (read fully, re-executed fresh, exit 0)",
+    "inputs/artifacts/verifier_run.log, census_log.csv, census_stdout.log, selfcheck.log, rep_pairs.csv, run_meta.json, isotopy_log.csv (header + samples)"
+  ],
+  "decisive_checks": [
+    "Fresh-process verifier replay: python3 inputs/artifacts/verifier.py --dir inputs/artifacts => 186 Latin OK, 5 transversal N recounts match (133/384x4), 1 partial N=0 tau=7 OK, ALL CHECKS PASSED exit 0.",
+    "Independent N recount (auditor code, itertools.permutations, no shared path beyond matrix): Z7 133, Z8 0, C4xC2 384, C2^3 384, D8 384, Q8 384 \u2014 matches census_log.csv and transversals.csv exactly.",
+    "Independent witness validation: all 5 transversal cell lists have n distinct rows/cols/syms covering 0..n-1 with M[r][c]==s; Z8 partial has 7 distinct rows/cols/syms {rows 0,1,2,3,4,5,7} matching cyclic table; maximality follows from N=0.",
+    "Independent group validation from tables: element orders and center sizes reproduce selfcheck.log and confirm D8 vs Q8 vs abelian types; Latin property holds for all bases.",
+    "Independent isotopy backtracking (auditor implementation): C2^3_base vs D8_base => non-isotopic with 521 nodes (exactly matches rep_pairs.csv 521); Z7_base vs Z7_iso00 => isotopic with 17 nodes (matches isotopy_log.csv 17) \u2014 corroborates exhaustive-search methodology and log integrity.",
+    "Hall-Paige cross-check: observed N>0 exactly for groups with trivial (Z7) or non-cyclic Sylow-2 (C4xC2, C2^3, D8, Q8) and N=0 for cyclic Sylow-2 (Z8), as theorem predicts; confirms no misclassification.",
+    "Live literature comparison: inspected surveys and Hall-Paige lineage confirm qualitative pattern is prior (Cavenagh-Wanless well-known even-B_n transversal-free; Hall-Paige Sylow condition); no source found tabulating exact 133/384 seeded-stratum table, supporting narrow originality but value failure as arbitrary small-n brute force without theory."
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T15:59:36Z",
+    "queries": [
+      {
+        "query": "Latin square transversal count",
+        "result_count": 168980,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=all:Latin+square+transversal+count&start=0&max_results=5"
+      },
+      {
+        "query": "Latin square transversal orthomorphism complete mapping",
+        "result_count": 982266,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=Latin+square+transversal+orthomorphism+complete+mapping&rows=5"
+      },
+      {
+        "query": "Hall-Paige complete mapping orthomorphism",
+        "result_count": 349256,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=all:Hall-Paige+complete+mapping+orthomorphism&start=0&max_results=5"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "26-page decade survey of existence, asymptotic and structural transversal results accompanying BCC talk; states conjectures and recent theorems but contains no isotopy-stratified exact tau/N census with machine-checkable cell witnesses for orders 7-8 group-based seeded strata.",
+        "retrieved_at_utc": "2026-09-07T15:59:36Z",
+        "title": "Transversals in Latin Squares \u2014 Richard Montgomery (2024 survey)",
+        "url": "https://arxiv.org/abs/2406.19873"
+      },
+      {
+        "comparison": "22-page survey covering existence/enumeration, plexes, dedicated group-table/complete-mapping/orthomorphism section and covering radii with open problems; discusses Hall-Paige and orthomorphisms but publishes no exhaustive tau/N=133/384 table for seeded isotopes of all groups of orders 7-8.",
+        "retrieved_at_utc": "2026-09-07T15:59:36Z",
+        "title": "Transversals in Latin Squares \u2014 Ian M. Wanless (2009 survey)",
+        "url": "https://arxiv.org/abs/0903.5142"
+      },
+      {
+        "comparison": "Proves lower bound n^{n^{3/2}(1/2-o(1))} on transversal-free species and k-plex constructions settling 2002 conjecture; abstract explicitly states it is well known that even-order cyclic addition table B_n has no transversals, directly anticipating the Z8 N=0 row, but provides no seeded tau/N maximum table.",
+        "retrieved_at_utc": "2026-09-07T15:59:36Z",
+        "title": "Latin squares with no transversals \u2014 Cavenagh and Wanless",
+        "url": "https://arxiv.org/abs/1609.03001"
+      },
+      {
+        "comparison": "States complete mappings of G are equivalent to transversals of the Cayley table and Hall-Paige Sylow-2 trivial-or-noncyclic condition; this theorem predicts exactly the observed pattern (Z7/C4xC2/C2^3/D8/Q8 have transversals, Z8 does not), so qualitative existence is prior art, not new.",
+        "retrieved_at_utc": "2026-09-07T15:59:36Z",
+        "title": "Reduction of the Hall-Paige conjecture to sporadic simple groups \u2014 Stewart Wilcox",
+        "url": "https://arxiv.org/abs/1010.1323"
+      },
+      {
+        "comparison": "Original 1955 Pacific J. Math. paper proving Sylow-2 necessity for complete mappings (transversals of group tables); provides the textbook criterion that already decides the existence side for all six tables in this census, leaving only seconds-scale exact N counts as potentially new.",
+        "retrieved_at_utc": "2026-09-07T15:59:36Z",
+        "title": "Complete mappings of finite groups \u2014 Hall and Paige",
+        "url": "https://doi.org/10.2140/pjm.1955.5.541"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Full 186-square permutation recount not re-run exhaustively by auditor (reps + theorem + selfcheck.log 0-mismatch claim relied upon); risk negligible given isotopy-invariance theorem plus spot checks, but not every seeded matrix independently recounted.",
+    "All 645 isotopy_log rows not individually re-verified; only representative pairs re-searched with independent code (exact node-count reproduction for two cases mitigates fabrication risk but does not exhaustively certify every log line).",
+    "Literature search was live but bounded (arXiv + Crossref queries, 5 sources inspected); global priority cannot be proved \u2014 an obscure table containing N=133/384 could exist outside retrieved set; originality PASS is therefore narrow and evidence-relative.",
+    "N counting convention (rows ordered, one per column perm) matches standard transversal count and verifier, but alternative normalizations (e.g., normalized/transversal equivalence classes) would give different numbers; reuse must preserve convention."
+  ],
+  "verdict": "REJECT"
+}
