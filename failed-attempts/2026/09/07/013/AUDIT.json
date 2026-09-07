@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Main lower-bound theorem M22(4,3)>=8 is fully proved by exact-rational enumeration. Independently re-executed inputs/artifacts/census.py: primary witness A*=[[3,3,0,0],[1,2,2,2],[2,0,2,2],[1,0,3,3]], B*=[[2,2,1,3],[0,2,3,0],[2,0,3,0],[1,1,0,2]] yields exactly 9 isolated square-support equilibria (1 pure [3],[3] with v=3,w=2; 8 with k=2 as tabulated), N22=8, all entries in {0..3}. Spot-checked indifference (e.g. I=[0,1],J=[1,2]: A-sub [[3,0],[2,2]] y=[2/3,1/3] gives v=2, outside rows 2/3 and 1 slack 4/3,1; B-sub [[2,1],[2,3]] x=[1/2,1/2] gives w=2, outside cols slack 1,1/2) and pure [3,3] strict slacks; all 8 rows have strictly positive mixtures with denominators 2-3, outside slacks >=1/3, extended (k+1)x(k+1) determinants +-2/+-3 nonzero, matching census_champion.json. Logic audited: M=[[A[I,J],-1],[1^T,0]], N=[[B[I,J]^T,-1],[1^T,0]] with Fraction Gaussian elimination, determinant-nonzero uniqueness, strict positivity and strict outside best-response; k=1 strict pure check; N top-left correctly uses B[I,J]^T. Fast integer screen count_N22_fast agrees with exact census on 1000 random {0..3} games (0 mismatches) and on all three witnesses. Secondary witness verified: total 9, N22=8. Bonus game verified: total 13 (4 pure+6 2x2+3 3x3), N22=6. 69-pair count correct (16+36+16+1). Alphabet containment verified. 1-step neighbourhood exhaustive (96 neighbours) max N22=8; 2-step exhaustive (9120 distinct) max 8, zero >=9, confirming local-optimality claim. Search-log arithmetic consistent (uniform hist 87185+12135+630+48+2=100000, total 101056 with hill evals; iterated totals sum to 516218). 4^32=2^64~=1.84e19 infeasibility statement correct. DRAFT honestly disclaims global upper bound (8<=M22<=36) and distinguishes proof (census) from heuristic saturation evidence. Minor imprecision: invoking continuum-total cap 15 for the slice via N22<=total needs nondegeneracy qualification (degenerate integer games not covered by the 15 bound), but stated conditionally and not part of certified lower-bound claim; does not falsify theorem.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest continuum prior art correctly cited and substantively distinct: (1) von Stengel 1999 DCG maximal numbers / Quint-Shubik counterexample family over real payoffs via polytope combinatorics - no bounded alphabet, no 2x2-slice maximum, no {0..3} witness; (2) Ickstadt-Theobald-von Stengel arXiv:2411.12385 / MOR 2025 stable-set bound settling n=5 at 31 and n=4 at 15 over nondegenerate real games via 159375 dual-neighborly polytope types - no integer-alphabet restriction, no M22(4,3), no exact-rational slack certificates; (3) von Stengel arXiv:2102.04580 exposition of Lemke-Howson/labeled polytopes/index-determinant machinery - method reference only, states no bounded-integer maximal-count result. Topic gap searches (arXiv/OpenAlex for bimatrix maximal numbers, support enumeration, integer-payoff enumeration) returned no bounded-alphabet 4x4 exact maximum; to auditor knowledge no textbook or paper pins M22(4,3) or a 2x2/3x3-slice enumeration with exact certificates. Failed-attempt and resultary scans cover disjoint objects. The integer-obstruction delta (which small determinants in {-6..6} and strict slacks with differences in {-3..3} can coexist across 36 pairs) is not present in continuum literature. Hence slice lower-bound witness with full census is substantively new, not a restatement; timestamp alone not relied upon.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking correctness and novelty as given, the result is not independently worth finding later under SCOPE value standard. Object M22(4,3) (max number of isolated 2x2-support equilibria over {0..3} 4x4 games, excluding unequal supports and all degenerate ties) is an ad-hoc slice: no literature asks for the k=2 slice maximum at n=4,K=3; total-equilibrium maximum would be the natural quantity, and alphabet {0,1,2,3} has no theoretical justification (pilot used {0..5}, fallback bar >=6 arbitrary). Claim delivered is lower-bound-only existence of one matrix with 8 (upper bound openly 8..36, 15 only conditionally), with >2.8M heuristic games covering ~1.5e-13 of 1.8e19 space correctly disclaimed as non-proof, leaving no general theorem, no scaling family, no maximality insight. Per-equilibrium determinants/mixtures/slacks verify the example but do not explain it; structural note (only +-2/+-3 dets, uniform v=2, slacks 1/3-4/3) is explicitly non-proof observation on one example. Second witness (symmetric variant, same shape) and total-13 game add instances, not theory. Benchmark/learning motivation is generic and uninstantiated: no solver experiment, no Gambit/Game Theory Explorer comparison, no demonstration that this instance stresses algorithms beyond random games. This is therefore an unexplained brute-force table plus arbitrary-parameter instance plus first lower bound on an invented quantity - the class SCOPE explicitly rejects (textbook-adjacent enumeration, mere parameter substitution K=3, tiny unmotivated gain, unexplained enumeration) even if correct and new, analogous to the rejected narrow RT(30,K4,6) instance. Exceeding the pre-registered >=6 bar does not create independent value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, fallback, nearest_known_results, search queries)",
+    "inputs/DRAFT.md (theorem, 3 witnesses, 9-row census table, methods, limitations)",
+    "inputs/research_report.json (CLAIMED M22>=8 summary, artifact inventory)",
+    "inputs/artifacts/census.py (exact Fraction census + fast counter - read and re-executed)",
+    "inputs/artifacts/verify_champion.py (read)",
+    "inputs/artifacts/witness.json (all 3 matrix pairs - alphabet verified)",
+    "inputs/artifacts/census_champion.json (9 equilibria - cross-checked)",
+    "inputs/artifacts/uniform_search_script.py + uniform_search_log.txt (100k seed 777 hist and hill climbs - arithmetic checked)",
+    "inputs/artifacts/iterated_search_script.py + iterated_search_log.txt (516218 games seeds 100,101,102,201,205 - arithmetic checked)",
+    "Attempted webfetch https://arxiv.org/abs/2411.12385 -> transport error; curl returned empty (network unavailable) - not relied upon",
+    "Attempted webfetch https://arxiv.org/abs/2102.04580 -> transport error",
+    "Attempted webfetch https://doi.org/10.1007/PL00009438 -> transport error; comparisons rest on auditor knowledge of von Stengel continuum results and topic-provided abstracts, treated as untrusted"
+  ],
+  "decisive_checks": [
+    "Re-ran census(A*,B*): total 9, N22 8, all x>0,y>0, slacks>0, dets +-2/+-3, Fraction-only",
+    "Hand-verified rows [3,3] pure and [0,1]x[1,2] indifference/slacks; confirmed N matrix uses B[I,J]^T and extended-det equals 2x2 DA/DB",
+    "Verified secondary witness total 9 N22 8 and bonus game total 13 (1:4,2:6,3:3) N22 6; all matrices within {0..3}",
+    "Verified candidate count 16+36+16+1=69 and 4^32=2^64~=1.84e19",
+    "Fuzzed fast vs exact on 1000 random games: 0 mismatches; census.py contains zero float",
+    "Exhaustively checked 96 1-step and 9120 distinct 2-step neighbours of champion: max N22 8, none >=9",
+    "Checked log internal consistency: uniform hist sums to 100000, total 101056; iterated seeds sum to 516218; best-8 found twice as logged"
+  ],
+  "residual_risks": [
+    "Web verification of prior art unavailable (transport errors); originality rests on knowledge cutoff and topic search metadata, small risk of obscure bounded-alphabet enumeration missed",
+    "Full >2.8M-game heuristic campaigns not re-executed (only log arithmetic + spot fuzzing); irrelevant to lower-bound proof but leaves saturation claim unaudited beyond logs",
+    "Continuum-15 applicability to degenerate integer games imprecise (needs nondegeneracy); does not affect certified interval 8..36",
+    "Value judgment inherently subjective; benchmark-utility claim could materialize if downstream solver study adopts witness, but no such evidence in draft"
+  ],
+  "verdict": "REJECT"
+}
