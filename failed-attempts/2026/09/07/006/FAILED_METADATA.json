@@ -1,0 +1,37 @@
+{
+  "attempted_claim": "Determine exact A(16,6,7) in [109,122] by exhaustive branch-and-bound with Delsarte LP pruning and canonical isomorph rejection; primary hypothesis to test is optimality of the Golay-derived 109-code, i.e. prove A(16,6,7)=109, or otherwise exhibit the true optimum (e.g. 110-122) with explicit optimal code list (16-bit vectors weight 7, pairwise distance >=6) and a complete optimality certificate (branch tree + per-node LP/Johnson bounds covering all S_16 orbits).",
+  "claim_type": "exact maximum size table entry",
+  "created_at": "2026-09-07T12:14:42Z",
+  "decisive_failure": "['Upper bound unchanged at 122: plain Delsarte LP optimum proved 629.2 (far weaker than Johnson), so per-node Delsarte pruning cannot beat Johnson; SDP (Schrijver/Polak) not implemented in 2h pure-Python budget; depth-bounded branch-and-bound would cover negligible fraction of the 5 c2 orbits (10620 compatible nodes) and was not pursued to a certificate.', 'Lower bound not improved: best explicit code has size 77 (2926 pairs verified), below known 109; hence no Brouwer-table tightening on either side. 110-code not found; 109-code not reproduced from scratch (naive Golay puncture/shorten yields only 33-45 greedy subsets within 704-pools).', 'A(15,6,7)=69 used as cited exact input for Johnson 122 (Ostergard 2010); not re-derived. No originality claim on 109-122 interval itself.', 'Heuristic search is stochastic (ARW tabu, fixed seeds) and plateaued at 75-77 across 8 seeds x80k iterations; LNS pool analysis shows small-k neighborhoods (k<=10) contain 0-1 extra vertices beyond removed set, explaining stall. Larger-k exact LNS and SDP remain future work requiring C implementation and longer budget.', 'No exhaustive optimality certificate; no DRAFT.md per NO_RESULT spec.']",
+  "disposition": "NO_RESULT",
+  "domain": "Combinatorics",
+  "failed_attempt_id": "SCOPE-FAIL-20260907-006",
+  "failed_axes": [],
+  "failure_class": "NO_RESULT",
+  "fingerprint": {
+    "claim_type": "exact maximum size table entry",
+    "domain": "Combinatorics",
+    "main_method": "branch-and-bound integer programming with isomorph rejection",
+    "primary_object": "constant-weight binary codes A(n,d,w)"
+  },
+  "method_summary": "branch-and-bound integer programming with isomorph rejection",
+  "problem_statement": "Determine the exact value of A(16,6,7), the maximum size of a binary code of length n=16, constant weight w=7 and minimum Hamming distance d=6 (intersection <=4). Current Brouwer-type sandwich is 109 <= A(16,6,7) <= 122 over universe C(16,7)=11440. Within a 2-hour bounded search, run branch-and-bound integer programming (maximum independent set on Johnson conflict graph where x_i+x_j<=1 if |supp(i) cap supp(j)|>=5) with Delsarte LP (Johnson-scheme Krawtchouk LP) upper-bound pruning at each node and canonical augmentation / isomorph rejection under S_16 (fix c1=0b1111111000000000, branch c2 by intersection type t=0..4). Success is an exact value with explicit optimal code and machine-checkable optimality certificate; predefined fallback is a tightened sandwich by >=1 on either side with rerunnable certificate.",
+  "provenance": {
+    "lane": 1,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-07T12:14:42Z",
+  "record_title": "Closing or tightening A(16,6,7) in [109,122] via branch-and-bound with Delsarte LP certificates and canonical isomorph rejection",
+  "recovery_conditions": "introduce a materially new method or a justified, still-valuable revised claim; address the recorded limitation: ['Upper bound unchanged at 122: plain Delsarte LP optimum proved 629.2 (far weaker than Johnson), so per-node Delsarte pruning cannot beat Johnson; SDP (Schrijver/Polak) not implemented in 2h pure-Python budget; depth-bounded branch-and-bound would cover negligible fraction of the 5 c2 orbits (10620 compatible nodes) and was not pursued to a certificate.', 'Lower bound not improved: best explicit code has size 77 (2926 pairs verified), below known 109; hence no Brouwer-table tightening on eithe\u2026",
+  "scope_lane": 1,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://aeb.win.tue.nl/codes/Andw.html",
+    "http://webfiles.portal.chalmers.se/s2/research/kit/bounds/cw.html",
+    "https://doi.org/10.1109/TIT.2010.2053178",
+    "https://arxiv.org/abs/1703.05171",
+    "https://arxiv.org/abs/2603.00174"
+  ],
+  "time_standard": "UTC"
+}
