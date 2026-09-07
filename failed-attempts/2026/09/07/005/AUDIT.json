@@ -1,0 +1,60 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential inferences verified by independent recomputation with Python big ints. (a) Union tails: S_k=sum_{j>=k}C(500,j)499^{500-j}, U_k=S_k/500^499. Recomputed U8=0.0049089127<=0.00491, U9=0.0005313459<=0.00060, U10=0.0000517728<=0.00006, U6=0.2909943061<=0.30, U7=0.04035566<=0.045, E[W4]=U4=9.43274489. Integer inequalities S_k*t_den<=t_num*500^499 hold; ran inputs/artifacts/check_exact.py -> ALL-OK (19 PASS). U8 margin is thin (1.09e-06, 0.02%) but valid. (b) Textbook n*(e/k)^k at k=8,9,10 =0.08883947,0.01045774,0.00110132 correct; ratios 18.10x,19.68x,21.27x confirm draft 18.1/19.7/21.3x (proposal 17.5x at k=9 was conservative). Formula P(Bin>=k)<=(enp/k)^k with np=1 plus union is correctly applied for k>np. (c) Stein-Chen: Arratia-Goldstein-Gordon Thm.1 with B_i=all bins gives b3=0 (conditioning on empty sigma-field, E[I-p|trivial]=0), b1=n^2 p6^2=0.08467768, b2=n(n-1)j6=0.08006671 where j6=J6/500^500 with J6=sum_{a,b>=6}500!/(a!b!c!)498^c (full double sum, no truncation). Recomputed b1+b2=0.16474440<=0.165<=0.17<=0.20 (margin 3.2% to 0.17) and diagonal-excluded 0.16457504. Factor (1-e^-lambda)/lambda=0.8676<=1 correctly dropped; refined bound 0.1429 matches draft 0.143. Transfer d_TV>=|P(W6=0)-e^-lambda| with {M<=5}={W6=0} is valid. lambda6=0.29099431 in [0.2909,0.2911] verified. (d) Lower tail: j4<=p4^2 proved by J4*500^500<=S4^2, recomputed ratio 0.97917013<1 and k=6 ratio 0.94744169<1, so Cov<=0 and Var(W4)<=E(1-p) valid. Crude (1-p)/E=0.10401368>0.104 so draft correction that proposed 0.104 is false by 1.37e-05 is correct; corrected crude <=0.105 holds. Exact Var/E^2=[S(D-S)+(n-1)(JD-S^2)]/(nS^2)=0.08322547<=0.084 verified. Chebyshev {W4=0} subset {|W-E|>=E} gives P(M<=3)=P(W4=0)<=0.084 valid. Coverage 1-0.084-0.00491=0.91109>=0.89 valid via rational 84/1000+491/100000<=11/100. (e) exp(-lambda): lambda in [0.2909,0.2911], Taylor alternating with decreasing terms x^k/k! for x<1, N=10/11 remainder <4e-14; e^-xu lower S11=0.74744093, e^-xl upper S10=0.74759043, so e^-lambda in [0.74744,0.74759] containing 0.7475 and true 0.74751993; |0.7475-exp|<0.0001 negligible vs 0.20. (f) Simulation: model rng.integers(0,500,size=500) per trial with bincount max is correct; batching preserves order; 2000-trial spot-check with seed 1 gave {5:1156,6:444,4:315,7:76,8:7,9:2} consistent with 20k table {4:3214,5:11716,6:4317,7:677,8:61,9:15}; CP intervals match Wald approximation (e.g. 0.1607 SE 0.0026 -> [0.1556,0.1658] vs reported [0.1556,0.1659]). Draft Sec.6 correctly distinguishes proved (a,c,d) vs computed evidence (e) vs limits. No proof/computation confusion.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No surveyed source states the exact numbers at n=m=500, but substantive comparison shows each component is a direct corollary of known theorems by plugging n=m=500 with only arithmetic. (a) P(M>=k)<=n*P(Bin(500,1/500)>=k) is textbook union bound with exact binomial definition; replacing loose Chernoff (e/k)^k by exact tail is a standard exercise, and the 18-21x gap is the well-known looseness of Chernoff, not a new inequality or technique. (b) Stein-Chen d_TV<=(1-e^-lambda)/lambda*(b1+b2+b3) is Arratia-Goldstein-Gordon Thm.1 / Barbour-Holst-Janson Ch.2 verbatim; choice B_i=all bins with b3=0 is the trivial maximal neighbourhood taught as the first example, not a new coupling; computing b1=n^2p^2, b2=n(n-1)j via multinomial J is plug-in arithmetic (~1s double sum). (c) Negative association of multinomial and Chebyshev P(W=0)<=Var/E^2 are textbook (Joag-Dev-Proschan, Dubhashi-Ranjan); proving j<=p^2 by brute-force integer inequality J*D<=S^2 verifies a known fact by computation, not a new lemma. Nearest priors substantively imply the claims: Mitzenmacher-Upfal Ch. Balls/Bins gives the general union-Chernoff that yields 0.0888/0.0104/0.00110 at n=500; Raab-Steger RANDOM 1998 gives the asymptotic Theta(log n/log log n) framework whose corollary at fixed n is weaker but same object; Barbour-Holst-Janson 1992 plus AGG Statist.Sci.1990 give the general TV bound instantiated here; Gonnet JACM 1981 gives asymptotic mean context. Candidate adds no new limit theory, no general-n formula, no improved method, no sharp analysis (own limits admit TV 0.165 vs refined 0.143 and Chebyshev 0.084 vs true ~1e-04 are loose). A failed OpenAlex/arXiv/Crossref search for 'n=500 certificate' does not establish priority per audit rules; absence reflects that no one bothered to publish this single-point evaluation, not that it was an open problem. This is mere parameter substitution (n=m=500, k=4..10) plus exact arithmetic and Monte Carlo, i.e. textbook restatement with numbers.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Result is correct and new-as-numbers but not independently worth finding later. It is n=m=500-specific with no new asymptotics (draft Sec.6 admits this); a researcher with n=501, 1000, or general m,n cannot reuse the numbers, only the textbook method they already know. Analytic certificates are too loose to guide operational hashing/load-balancing decisions: TV +-0.20 on P(M<=5) (interval [0.55,0.95]) vs simulation 0.7465+-0.006; coverage >=0.89 (indeed >=0.911) vs empirical 0.9962; lower tail <=0.084 vs Poisson heuristic e^-9.43~8e-05 (1000x loose). The tight numbers (U8=0.00490, histogram) are recomputable in seconds in one line (scipy.stats.binom.sf or math.comb) and by rerunning simulate.py, so archiving them as a citable benchmark has negligible reuse value. 18-21x 'tightening' over (e/k)^k is not a motivated gain for applications because no application uses the loose Chernoff when exact binomial is trivially computable; the gain measures textbook looseness, not operational improvement. The 20k-trial histogram with Clopper-Pearson intervals is an unexplained enumeration in the value sense: although Poisson heuristic 0.7475 predicts 0.7465, the analytic bounds do not tightly explain the histogram (see looseness above), and Monte Carlo evidence is not proof. Together this falls under the reject classes: textbook restatement (union+Chebyshev+Stein-Chen plug-in), mere parameter substitution (fix n=500), and brute-force table (simulation histogram), even though correct and new. A general explicit formula for arbitrary n,m with sharp constants or a new coupling would be valuable; a single-point machine-checked evaluation is not.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "comparison": "Asymptotic thresholds Theta(log n/log log n) and two-point concentration as n->inf. No explicit constants, no fixed-n=500 interval, no exact-binomial or Stein-Chen instantiation. Candidate is a fixed-n evaluation, not an extension of the asymptotic method. Web fetch failed (offline); comparison via knowledge cutoff and topic metadata.",
+      "title": "Balls into Bins - A Simple and Tight Analysis (Raab & Steger, RANDOM 1998)",
+      "url": "https://doi.org/10.1007/3-540-49543-6_13"
+    },
+    {
+      "comparison": "General union-plus-Chernoff P(M>=k)<=n*(e*m/(n*k))^k. At n=m=500 gives 0.08884/0.01045/0.00110 verified. Candidate replaces Chernoff factor by exact binomial tail n*P(Bin>=k)=0.00490/0.00053/0.000051. This is standard exact evaluation of the same union bound, not a new inequality.",
+      "title": "Probability and Computing, Ch. Balls, Bins and Random Graphs (Mitzenmacher & Upfal)",
+      "url": "https://doi.org/10.1017/CBO9780511813603.006"
+    },
+    {
+      "comparison": "General Stein-Chen theory with (1-e^-lambda)/lambda*(b1+b2+b3). Never instantiates W6 at n=m=500. Candidate plugs lambda6=0.291, b1=0.0846, b2=0.0800 with trivial B_i=all, b3=0. Routine instantiation.",
+      "title": "Poisson Approximation (Barbour, Holst & Janson, Oxford 1992)",
+      "url": "https://doi.org/10.1093/oso/9780198522355.001.0001"
+    },
+    {
+      "comparison": "Source of b1,b2,b3 definitions used. Verified b1=n^2p^2 inclusive-diagonal is correct for this theorem; b3=0 reasoning (empty outside sigma-field) is textbook. No numeric n=500 case in original.",
+      "title": "Poisson approximation and the Chen-Stein method (Arratia, Goldstein & Gordon, Statist. Sci. 5, 1990) Theorem 1",
+      "url": "https://doi.org/10.1214/ss/1177012015"
+    },
+    {
+      "comparison": "Asymptotic Gamma-inverse mean for occupancy maximum. Context only; no finite-n certificate. No overlap except shared object M.",
+      "title": "Expected length of the longest probe sequence (Gonnet, JACM 1981)",
+      "url": "https://doi.org/10.1145/322248.322254"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed S_k/500^499 for k=4,6,7,8,9,10: 9.43274489,0.29099430,0.04035566,0.00490891,0.00053134,0.00005177; confirmed thresholds <=0.00491/<=0.00060/<=0.00006/<=0.30 hold; U8 margin 1.09e-06.",
+    "Recomputed textbook 500*(e/k)^k: 0.08883947,0.01045773,0.00110132; ratios 18.09x,19.68x,21.27x confirm draft 18.1/19.7/21.3x.",
+    "Recomputed b1=0.08467768, b2=0.08006671, sum 0.16474440<=0.165, excl-diag 0.16457504; factor 0.86764606 gives refined 0.14293983 matches draft <=0.143; verified J6 double-sum definition and J*D<=S^2 ratio 0.94744169.",
+    "Recomputed negcorr k=4 ratio 0.97917013, crude (D-S)/(500*S)=0.10401368>0.104 (confirms draft correction false-by-1.4e-05), exact Var/E^2=0.08322547<=0.084, coverage 1-0.084-0.00491=0.91109>=0.89.",
+    "Verified exp bounds: Taylor S11(-0.2911)=0.74744093 lower, S10(-0.2909)=0.74759043 upper, true exp(-0.290994)=0.74751993 contains 0.7475.",
+    "Ran inputs/artifacts/check_exact.py: ALL-OK (19 PASS lines including U, lambda, b1+b2<=0.17/0.165/0.20, negcorr, crude<=0.105, exact<=0.084, exp interval).",
+    "Spot-checked simulation: 2000 trials seed 1 via numpy Generator(1) gave Counter {5:1156,6:444,4:315,7:76,8:7,9:2} (15.7%/57.8%/22.2%/3.8%/0.35%/0.10%) consistent with 20k table 16.07%/58.58%/21.59%/3.39%/0.305%/0.075%; CP intervals match Wald approximation.",
+    "Checked proof-vs-evidence separation: draft Sec.6 correctly labels (a,c,d) as proved via integer certs + cited theorems and (e) as evidence; simulation CIs assume correct PRNG, analytic bounds n-specific with stated looseness."
+  ],
+  "residual_risks": [
+    "U8 threshold 0.00491 has 0.02% margin; any recomputation with different rounding or off-by-one in S_8 sum would flip it, but integer inequality is decisive and verified.",
+    "Originality search limited: webfetch to doi.org failed (offline); relied on knowledge cutoff plus topic's OpenAlex/Crossref/arXiv query summaries (untrusted) and substantive textbook comparison. No independent web search possible.",
+    "Simulation correctness assumes numpy Generator(1) integers are i.i.d. uniform and Clopper-Pearson beta-continued-fraction implementation is correct; spot-check supports but full 20k rerun not executed in audit (would take <1min but not needed for REJECT).",
+    "No artifact copying or RESULT/METADATA created per REJECT rule; only AUDIT.json written."
+  ],
+  "verdict": "REJECT"
+}
