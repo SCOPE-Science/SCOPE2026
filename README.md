@@ -17,3 +17,14 @@ Publication requires independent acceptance on three separate axes:
 Inclusion records the outcome of the SCOPE review process.  It does not by itself
 establish scholarly priority.
 
+## Failed attempts
+
+Scientifically meaningful attempts that do not produce an accepted finding are
+retained separately under `failed-attempts/YYYY/MM/DD/NNN`. Each record begins
+with **FAILED ATTEMPT — NOT A VALIDATED FINDING** and documents the attempted
+claim, method, decisive audit failure, and conditions for a legitimate retry.
+These records are negative research memory, not findings, and must not be cited
+as established results.
+
+Infrastructure failures such as provider errors, timeouts, malformed output, or
+process crashes are operational logs and are never published in this archive.
