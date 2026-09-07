@@ -1,0 +1,45 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "CSV has header+231 rows (i=1..231). Independent Python recomputation from census96.csv confirms: S_max=1362 uniquely at i=230; K_max(non-abelian)=60 at exactly 15 IDs [45,47,48,55,60,162,163,164,165,166,177,178,221,222,223]; 7 abelian IDs [2,46,59,161,176,220,231] all with k=96; s-range 12-1362 and non-abelian k-range 10-60 as claimed; top-6 by s (230:1362, 231:748, 207:578, 209:562, 219:498, 228:454) matches DRAFT top-5. Every per-order profile sums exactly to its s (0 mismatches) and every order divides 96 with 1 and 96 present. Theory spot-checks pass: abelian count 7 equals p(5)*p(1)=7*1; cyclic G2 s=12 equals tau(96)=(5+1)*(1+1)=12; G231=C2^5xC3 s=374*2=748 where 374=sum of 2-binomials for n=5 (1+31+155+155+31+1); G230=C2^4xS3 k=16*3=48 by direct-product class multiplication, matching CSV. Dual-route logs agree: crosscheck.log shows s_lattice==s_AllSubgroups on all top-10 including 1362 vs 1362, and k_classes==k_chartab==k_Irr on all top-10 plus all 15 k=60 IDs, plus fresh global rescan reproducing Smax=1362 Sids=[230] and Kmax(nonab)=60 with same 15 Kids. fp_certs.log certifies 20 IDs (s top-5 union k=60) with Order(Range(iso))=96 and Order(Simplified)=96 in all 20 cases. Method s=Sum(ConjugacyClassesSubgroups(LatticeSubgroups),Size) and k=Length(ConjugacyClasses) is the correct standard route; no lattice stalled; versions GAP 4.12.1/SmallGrp 1.5.3 and NumberSmallGroups(96)=231 recorded and consistent with established Besche-Eick-O'Brien value. DRAFT honestly separates machine-checked enumeration (conditional on GAP SmallGroups completeness and Lattice/Classes/AllSubgroups/CharacterTable correctness) from unclaimed theory. Minor path inconsistency (Rerun section cites output/artifacts/ vs archived inputs/artifacts/) does not affect counts. No fresh GAP rerun was possible in audit env (no gap binary), so verification is static+theoretic, not a second execution, but evidence is internally coherent and doubly cross-checked.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp: (1) Besche-Eick-O'Brien SmallGroups library / GAP SmallGrp package provides the universe (231 groups, IDs, constructions) but no extremal s(G) or k(G) ranking, no S_max ID, no non-abelian K_max certificate. (2) GroupNames / List of small groups (order 96) provides per-group lookups/structure descriptions but no compiled max-subgroup or max-class table. (3) Butler abelian p-group formulas give closed-form subgroup counts via Gaussian binomials (which indeed predict the abelian runner-up 748=374*2) but for mixed order 96=2^5*3 no formula selects the global max or the non-abelian class ceiling; exhaustive certification is still required. The draft's dual layer \u2014 global S_max with by-order profile plus non-abelian K_max with 15 attainers, presentation certificates and rerun logs \u2014 is not contained in or implied by those sources. Live web triage was attempted (en.wikipedia List_of_small_groups, gap-system smallgrp.html, groupnames.org/96) but all GETransport errors (network-blocked in audit env, as at solve time), so no contrary prior table was found; decision rests on domain knowledge that no standard theorem or table states S_max=1362 or K_max(nonab)=60 for order 96, plus internal pattern (all 15 k=60 groups share a central C3/C6/C12 direct factor, i.e. k=3*k(H_32)=60) not previously compiled. Residual risk of a hidden web table remains (draft itself concedes this), but on available evidence the compilation is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even if correct and new, the result is not independently worth finding later. It is an unexplained enumeration plus parameter substitution: (a) The claim is the output of a ~10-line stock-GAP loop over SmallGroup(96,i) reporting two unrelated maxima (total subgroups, class number) with full 231-row CSV and machine-generated Fp relators, explicitly disclaiming any human-readable explanation of why C2^4xS3 maximizes s or why 60 is the non-abelian ceiling, any asymptotic/general-n claim, or minimality of presentations. (b) Order 96 is library-driven, not theory-driven: the same script works verbatim for 72, 84, 120, etc.; justification as 'densest mixed-prime stratum in 64-96' defines an arbitrary interval, and pure-2-group avoidance is a post-hoc filter. (c) The k-claim requires ad-hoc scoping because the unrestricted maximum is the trivial abelian value 96; the scoped K_max=60 attainers all contain a central C3/C6/C12 direct factor, so k=3*k(H_32) and the result collapses to 'max k(H_32)=20 with C3 factor' without analysis \u2014 a reduced order-32 question left unexamined. (d) No downstream theorem, conjecture, bound, or application is proved: 'benchmark/citable artifact' is a dataset, not a finding that bridges Sylow analysis to subgroup growth; Fp certificates are unminimized IsomorphismFpGroup output. This matches the instruction to reject unexplained enumerations even if correct and new, and parallels prior SCOPE-FAIL-007 (RT(30,K4,6) SAT enumeration) rejected for value despite correctness/novelty. The defect is conceptual (lack of motivated question/insight/generality), not fixable by adding logs or rewording, so not REPAIRABLE.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, motivation, nearest_known_results, prior-scan)",
+    "inputs/DRAFT.md (claim, method, rerun, proof-vs-computation separation, limitations)",
+    "inputs/research_report.json (artifact inventory, evidence summary, limitations)",
+    "inputs/artifacts/census96.csv (231 rows; independently re-sorted in Python)",
+    "inputs/artifacts/census96_clean.g (enumeration script)",
+    "inputs/artifacts/census96_clean.log (GAP 4.12.1/SmallGrp 1.5.3, NumberSmallGroups(96)=231, per-i s/k)",
+    "inputs/artifacts/crosscheck.g (dual-route script)",
+    "inputs/artifacts/crosscheck.log (AllSubgroups + CharacterTable/Irr agreement + global rescan)",
+    "inputs/artifacts/fp_certs.g + fp_certs.log (20 IDs, Order checks 96/96)",
+    "inputs/artifacts/rerun_timestamp.txt (2026-09-07T12:41:08Z)",
+    "webfetch attempts: https://en.wikipedia.org/wiki/List_of_small_groups, https://www.gap-system.org/Packages/smallgrp.html, https://groupnames.org/96/ \u2014 all Transport error (network-blocked)",
+    "domain theory used as checks: p(5)*p(1)=7 abelian groups, tau(96)=12, Gaussian binomials for C2^4 (67) and C2^5 (374), direct-product k multiplication (16*3=48, 3*k(H32)=60)"
+  ],
+  "decisive_checks": [
+    "Python CSV audit: nrows=231, Smax=1362 ids=[230], Kmax(nonab)=60 ids=[45,47,48,55,60,162,163,164,165,166,177,178,221,222,223], abelian 7 ids with k=96 only, 0 profile-sum mismatches, 0 non-divisor orders, s-range 12-1362, nonab k-range 10-60, top-6 order matches DRAFT",
+    "Abelian theory: 7 abelian groups predicted and observed; cyclic s=12 equals divisor count; G231 748=374*2 verified via q-binomials",
+    "Direct-product class check: G230 k=48=16*3 verified; all 15 k=60 IDs contain C3/C6/C12 direct factor consistent with 3*20",
+    "Log agreement: 10/10 s AllSubgroups matches, 23/23 k CharacterTable/Irr matches, global rescan Smax/Kmax IDs identical to CSV sort",
+    "Fp certs: 20/20 Order(Range)=96 and Order(Simplified)=96; generator/relator counts logged verbatim",
+    "GAP binary absence confirmed (which gap -> not found), so no second execution; verification is static + dual-log + theory"
+  ],
+  "residual_risks": [
+    "No fresh GAP execution in audit env; whole-system trust in GAP SmallGroups completeness (231 groups) and LatticeSubgroups/ConjugacyClasses/AllSubgroups/CharacterTable remains, mitigated but not eliminated by dual-route agreement",
+    "Originality triage network-blocked at both solve and audit time; hidden web table listing S_max/K_max for order 96 cannot be logically excluded (draft concedes fallback to 'rerunnable certificate')",
+    "StructureDescription comma-escaping (','->';') and rendering (x/spaces) could cause minor ID-to-name mismatch on rerun with different GAP version, though IDs/s/k/profiles are version-stable",
+    "Rerun paths in DRAFT cite output/artifacts/ while archived scripts reference output/artifacts/census96.csv; path drift could confuse reproduction though logic is clear"
+  ],
+  "verdict": "REJECT"
+}
