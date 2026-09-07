@@ -1,184 +1,113 @@
-# Stem 2-step nilpotent Lie algebras of dimension 7 with 3-dimensional derived algebra over Q: nine explicit types, Pfaffian invariants, and infinitude
+# Exact maximal covering density for nine distinct moduli in [7,20], with certified interval for [7,60]
 
 ## Context
-
-Small nilpotent Lie algebras bridge textbook Heisenberg examples and wild classification.
-Dimension 7 is the first dimension where 2-step types proliferate yet remain describable
-by alternating forms. Derivation dimensions control rigidity, degenerations and
-automorphism-group dimensions. The stratum with `V=g/[g,g]` of dimension 4 and
-`W=[g,g]` of dimension 3, with `Z(g)=[g,g]` (stem `(7,3)`), corresponds to nets of
-`4x4` skew forms up to `GL(4)xGL(3)` and is checkable by rational linear algebra.
-Over algebraically closed fields the dimension-7 classification is finite (Gong);
-over `Q` arithmetic (isotropy, square classes) creates infinitely many forms.
-This record certifies nine explicit `Q`-witnesses, their exact invariants, and the
-consequent impossibility of any finite complete census.
+Distinct covering systems lie between textbook CRT exercises and the deep
+minimum-modulus theorem (Hough 2015; Balister et al. 2022), which give only
+qualitative upper bounds on the least modulus of a full distinct covering.
+For k=9 with minimum >=7, full covering is already impossible by the
+reciprocal-sum test: the largest possible union bound is
+sum_{m=7..15} 1/m = 62575/72072 approx 0.86823 < 1, attained at 7,...,15 by
+1/m monotonicity. The sharp quantitative question — how close can nine
+distinct moduli >=7 come? — had no published exact table. This record closes
+the sub-stratum [7,20] exactly and gives a certified interval for [7,60].
 
 ## Definitions
-
-Fix `Q`-basis `e1..e7`. Put `V=span(e1..e4)`, `W=span(e5,e6,e7)`.
-For a triple of `4x4` skew-symmetric rational matrices `(A5,A6,A7)` define
-
-```
-[ei,ej] = sum_{k=5..7} (Ak)_{ij} e_k  for 1<=i,j<=4,
-```
-
-all other brackets zero, so `W` is central by construction.
-Write each skew matrix by its upper triangle `(a12,a13,a14,a23,a24,a34)`.
-Then `Pf(A)=a12*a34-a13*a24+a14*a23` and for `x=(x1,x2,x3)`,
-
-```
-f(x) = Pf(x1*A5+x2*A6+x3*A7)
-```
-
-is a ternary quadratic form (Pfaffian net) with Gram matrix `G`.
-
-Since `[g,g] subset W` and `W` central, `[[g,g],g]=0`; Jacobi holds automatically
-(also brute-force checked). Derived algebra is the image of `wedge^2 V -> W`;
-`dim[g,g]=3` iff the three 6-vectors are linearly independent (rank 3).
-`x=v+w` is central iff `v` is in the common radical
-`Rad={v: Ak v=0 forall k}`; hence `dim Z=3+dim Rad`.
-Stem (`Z=[g,g]`, dim 3) iff `Rad=0` and derived rank 3.
-Any isomorphism preserves characteristic ideals `Z` and `[g,g]`, hence induces
-`Q:W->W'` and `Pbar:g/W->g'/W'`; writing `P` for a lift, the `W`-component drops
-by centrality and `phi'(Pbar u ^ Pbar v)=Q phi(u^v)`.
-
-Derivations: `D([x,y])=[Dx,y]+[x,Dy]`, 49 unknowns, 147 equations `i<j,p`;
-`dim Der=49-rank(A)`. Trivial-coefficient Chevalley-Eilenberg:
-`d1:C^1(7)->C^2(21)`, `d1[(i,j),k]=-c[i,j,k]`; `d2:C^2(21)->C^3(35)`,
-`(d beta)(i,j,k)=-beta([ei,ej],ek)-cyc`; `H1=7-r1`, `H2=21-r2-r1` where
-`r1=rank d1`, `r2=rank d2`. All ranks over `QQ` by exact elimination, no floats.
-
-## Catalog (explicit integer structure constants)
-
-`[ej,ei]=-[ei,ej]`; unlisted pairs zero; `e5,e6,e7` central.
-
-- **G1 (aniso, rank 3):** `(1,0,0,0,0,1),(0,1,0,0,-1,0),(0,0,1,1,0,0)`.
-  `[e1,e2]=e5,[e3,e4]=e5; [e1,e3]=e6,[e2,e4]=-e6; [e1,e4]=e7,[e2,e3]=e7.`
-  `f=x1^2+x2^2+x3^2`.
-- **G2 (iso, rank 3):** `(1,0,0,0,0,1),(0,1,0,0,1,0),(0,0,1,1,0,0)`.
-  Same except `[e2,e4]=+e6`. `f=x1^2-x2^2+x3^2`.
-- **G3..G7 (rank 2, t=1,2,3,5,7):** `A5=(1,0,0,0,0,1)`, `A6(t)=(0,1,0,0,t,0)`,
-  `A7=(0,0,1,0,0,0)`. `[e1,e2]=e5,[e3,e4]=e5; [e1,e3]=e6,[e2,e4]=t*e6; [e1,e4]=e7.`
-  `f=x1^2-t*x2^2`, Gram `diag(1,-t,0)`.
-- **G8 (rank 1):** `(1,0,0,0,0,1),(0,1,0,0,0,0),(0,0,1,0,0,0)`.
-  `[e1,e2]=e5,[e3,e4]=e5; [e1,e3]=e6; [e1,e4]=e7.` `f=x1^2`.
-- **G9 (rank 0):** `(1,0,0,0,0,0),(0,1,0,0,0,0),(0,0,1,0,0,0)`.
-  `[e1,e2]=e5; [e1,e3]=e6; [e1,e4]=e7.` `f=0`.
-
-Stem certificates: derived rank 3 because columns 1,2,3 of the `3x6` matrix are
-the identity (det 1). For G1..G8,
-`A5=[[0,1,0,0],[-1,0,0,0],[0,0,0,1],[0,0,-1,0]]` has det 1, invertible, so
-`Rad=0`. For G9, `A5v=(v2,-v1,0,0)`, `A6v=(v3,0,-v1,0)`, `A7v=(v4,0,0,-v1)`;
-joint zero forces `v=0`. Hence `Z=W`, `dim Z=3=dim[g,g]`.
-
-Invariant table (exact-machine, replayed):
-
-| name | Pf | Pf-rank | dim Der | H1 | H2 | (r1,r2) |
-|---|---|---|---|---|---|---|
-| G1 | x1^2+x2^2+x3^2 | 3 | 19 | 4 | 11 | (3,7) |
-| G2 | x1^2-x2^2+x3^2 | 3 | 19 | 4 | 11 | (3,7) |
-| G3(t=1) | x1^2-x2^2 | 2 | 20 | 4 | 11 | (3,7) |
-| G4(t=2) | x1^2-2x2^2 | 2 | 20 | 4 | 11 | (3,7) |
-| G5(t=3) | x1^2-3x2^2 | 2 | 20 | 4 | 11 | (3,7) |
-| G6(t=5) | x1^2-5x2^2 | 2 | 20 | 4 | 11 | (3,7) |
-| G7(t=7) | x1^2-7x2^2 | 2 | 20 | 4 | 11 | (3,7) |
-| G8 | x1^2 | 1 | 22 | 4 | 11 | (3,7) |
-| G9 | 0 | 0 | 25 | 4 | 12 | (3,6) |
-
-Most rigid observed `G_min=G1` (also G2), `dim Der=19` (hence
-`dim H^1(ad)=15` since `dim Inn=g-Z=4`); least rigid `G_max=G9`, `dim Der=25`.
+Let M=[7,20] (census) and M60=[7,60] (interval). For distinct
+m_1<...<m_9 in M and residues a_i, let L=lcm(m_i) and
+D(a,m)=|{x mod L : exists i with x=a_i mod m_i}|/L, the natural density
+covered. Put D*(9;M)=max D over modulus choice and residue choice,
+U*=1-D*. Density of any candidate is computed exactly by enumeration over
+its LCM period.
 
 ## Result
+**Theorem (exact [7,20] census).** Over distinct m_i in [7,20], |S|=9,
+D*(9;[7,20])=1817/2772 approx 0.655483405, U*=955/2772 approx 0.344517,
+attained e.g. at S*=[7,8,9,10,11,12,14,15,16] with
+a*=[0,4,1,1,0,2,1,0,0], L=55440, covered 36340.
+No 9-set in [7,20] exceeds this. Runner-up is 47/72 approx 0.652778
+(3290/5040) at [7,8,9,10,12,14,15,16,18] (residues [0,4,1,1,2,1,0,0,5])
+and the 20-variant [7,8,9,10,12,14,15,16,20]; gap 0.002706.
 
-**Theorem 1 (nine pairwise non-isomorphic stem types).**
-`G1..G9` above are stem 2-step Lie algebras over `Q` (dim 7,
-`dim[g,g]=dim Z=3`) and pairwise non-isomorphic over `Q`.
+**Corollary (certified interval for [7,60]).**
+0.655483 <= D*(9;[7,60]) <= 0.868229,
+0.131771 <= U* <= 0.344517.
+Lower bound is the [7,20] witness (hence in [7,60]); upper bound is the
+union bound with maximizer 7,...,15. Prime-max elimination (Lemma 3 below)
+is rigorous progress toward closing [7,60].
 
-**Theorem 2 (infinitude; no finite complete census).**
-For each `t in Q*` let `g_t` be as in G3..G7 (`[e2,e4]=t e6`,
-`f_t=x1^2-t x2^2`). Each is stem. If `g_t cong g_s` over `Q` then
-`t/s in (Q*)^2`. Taking `t=p` prime gives infinitely many distinct square
-classes, hence infinitely many pairwise non-isomorphic stem `(7,3)` Q-algebras.
-No finite list is complete; completeness must be moduli (families).
+**Conjecture (not proved).** D*(9;[7,60])=1817/2772.
 
-**Lemma (Pfaffian transformation law) and corollaries.**
-With notation above, `P^T A'(y) P = A(Q*y)` and
-`det(P) Pf(A'(y))=Pf(A(Q*y))`, i.e. `f'(y)=lambda f(Q*y)` with
-`lambda=det(P)^-1`. Hence up to nonzero scale and `GL(3,Q)` change, `f` is a
-Q-isomorphism invariant. Preserved: (a) Gram rank (`G'=lambda Q^T G Q`);
-(b) isotropy; (c) for rank-2 family the square class below.
+## Proof / Evidence
+**Lemma 1 (Translation fixing).** Let C subset S be pairwise coprime. For any
+residues there is t mod L with a_c+t=0 mod c for all c in C (CRT, since
+product C divides L), and x->x+t preserves density. Hence max density is
+attained with a_c=0 on a max-product such C. Verified empirically on
+[7,8,9,10] (full optimum equals C-fixed optimum).
 
-## Proof / evidence
+**Lemma 2 (Prime peeling).** Let p in S be prime with no multiples in S
+(equivalently p not dividing L0=lcm(S\\{p\})). Write L=L0*p. Each y mod L0
+lifts to p values; since gcd(L0,p)=1 they run through all residues mod p,
+so uncovered=U0*(p-1), D=D0+U0/p independent of a_p. Thus
+Dmax(S)=1-(1-Dmax(S0))(p-1)/p. Iterates for distinct new primes. In [7,16],
+11,13 always peelable (2p>16); in [7,20], 11,13,17,19 always peelable.
+Verified empirically ([7,8,9,10]+11 gives predicted 12840/27720 for all lifts).
 
-*Lemma proof.* `u^T A(x) v=x(phi(u^v))` by definition.
-`y(phi'(Pbar u,Pbar v))=y(Q phi(u,v))=(Q*y)(phi(u,v))`.
-LHS `=(Pbar u)^T A'(y)(Pbar v)=u^T P^T A'(y)P v`; RHS `=u^T A(Q*y)v` for all
-`u,v`, giving matrix identity. Take `Pf` and use
-`Pf(P^TBP)=det(P)Pf(B)` (4x4 identity `Pf=a12a34-a13a24+a14a23`, checked by
-expansion and random integer trials). The lift's `W`-component drops because
-`W'` is central.
+**Lemma 3 (Prime-max exchange).** If |S|=9 with m_max prime, Lemma 2 gives
+Dmax(S)=D0+U0/m_max. Let m* be smallest unused in [7,24] (<=16 since
+|[7,24]|=18; any prime-max set has max>=17 so m*<m_max). For
+S'=S0 union {m*}, averaging over m* residues gives Dmax(S')>=D0+U0/m*.
+Hence Dmax(S')>Dmax(S): no optimal set has prime maximum. In particular no
+optimal [7,60] set has prime maximum.
 
-*Rank 3 aniso vs iso.* `f1=x1^2+x2^2+x3^2` anisotropic: if `a^2+b^2+c^2=0`
-rationally, scale to coprime integers; squares mod 4 are 0,1, so sum 0 mod 4
-forces `a,b,c` even, contradicting coprimality unless zero.
-`f2=x1^2-x2^2+x3^2` isotropic at `(1,1,0)`. Since G1,G2 share rank 3 and
-Der/H2, only arithmetic separates them.
+**Exact core solver.** After peeling, core K (|K|<=9, L<=5040) is solved by
+Lemma-1-fixed enumeration with memoization over 544 distinct cores (numpy
+bitsets), plus hierarchical affine-stabilizer orbit branching for large-R
+cores (worst 43M brute combos -> 67k leaves). Cross-checked: hierarchical vs
+direct brute force agree on small cores; [7,16] dual-backend (numpy + stdlib
+bytearray) agrees on all 10 optima. Independent audit re-proved all 2002
+optima with a different union-bound branch-and-bound (106s, zero table
+entries beaten), including brute-force confirmation of best core 3130/5040
+and runner-up 3290/5040.
 
-*Rank 2 square class.* If `f_s(y)=lambda f_t(Qy)`, write `G_t=diag(H_t,0)`,
-`H_t=diag(1,-t)`. Then `G_s=lambda Q^T G_t Q`. Radicals are `span e3`, so
-`Q span e3=span e3`; with `Q=[[A,b],[c^T,d]]`, `Qe3=(b,d)` in `span e3` gives
-`b=0`, `d!=0`, `det Q=det A*d` so `A in GL2(Q)`. Then
-`Q^T G_t Q=[[A^T H_t A,0],[0,0]]`, so `A^T H_t A=lambda^-1 H_s`.
-Determinants: `det(A)^2(-t)=lambda^-2(-s)`, so `s/t=(lambda det A)^2` is a
-square. For positive integers `t/s` square iff `t*s` square (differ by `s^2`).
-With `T={1,2,3,5,7}`, the 10 products `2,3,5,7,6,10,14,15,21,35` are squarefree
->1, hence nonsquare by unique factorization (checked via `isqrt`); so
-G3..G7 pairwise distinct. Cross-rank pairs separated by rank. This gives all
-36 pairs. Der/H2/Pf-rank alone do not separate within same rank-3 or rank-2
-classes.
-
-*Infinitude.* Same stem check for all `t!=0` (A5 invertible, identity minor).
-Square-class lemma gives `t/s` square necessary. Distinct primes give distinct
-classes (`p/q` has odd exponents, cannot be a square; `p b^2=q a^2` forces
-`p=q`). Over `C` they merge: with `l=sqrt(t/s)`, `P=diag(l,l^-1,1,1)` gives
-`P^T A5 P=A5`, `P^T M2(t)P=l M2(s)` (since `t/l=l s`), `P^T M3 P=l M3`,
-absorbed by `Q=diag(1,l,l)` on `W`. Similarly `G1 cong G2` over `Q(i)` via
-`P=diag(i,1,i,1)`: sends G2 6-vectors to `i*v1,-v2,i*v3`. Thus 9 Q-types lie
-over <=4 Pf-rank levels; Pf-rank completeness over C not claimed.
-
-*Machine evidence.* `output/artifacts/verify_partial.py` (sympy over QQ +
-stdlib, no floats) hardcodes 9 integer triples and rechecks Jacobi enumeration,
-derived 3, stacked-12x4 rank 4 (radical 0), `dim Der` via `49-rank`, CE ranks,
-Pf polys/ranks, isotropy witness and 10 `isqrt` checks: ALL PASS in ~1s
-(Der nullspaces 0.77s). Auditor independently recomputed with `Fraction`
-elimination (no sympy): same dims/ranks.
+**Computed evidence.** [7,16]: C(10,9)=10 sets. [7,20]: C(14,9)=2002 sets,
+544 cores, deterministic replay ~27s (<30s). Best 36340/55440 and runner-up
+3290/5040 reproduced by independent stdlib LCM enumeration in <2s; 20
+scattered table rows re-enumerated exactly; max-sum 62575/72072 verified by
+Fraction. [7,60] total C(54,9)=5317936260; union-competitive counts are
+motivational only.
 
 ## Limitations
-
-- Partial only; finite completeness disproved, not achieved.
-- Der/H2 are exact-machine ranks, not hand-derived bases in full (bases for
-  G1,G9 stored in input catalog; dims cross-checked with two implementations).
-- Decomposability not tested; presented as stem only.
-- `Der` 19 minimal only among observed catalog, not proved globally minimal.
-- C-orbit classification (Pf-rank sufficiency), orbit closures/degenerations,
-  adjoint cohomology over Q remain open.
-- Originality web re-check failed with transport errors; comparison to
-  Gong/Magnin/Burde is from brief + cutoff knowledge, confidence capped; no
-  priority claim if prior Q-census exists.
+Exactness proved only for [7,20], not [7,60]. Full [7,60] upper bound here
+is only union 0.868; no D*<=0.70 claim is made. Hierarchical enumeration
+relies on Lemmas 1-2 (proved) and deterministic orbit branching
+(code-reviewed, dual-backend checked on [7,16], independently re-proved by
+B&B on all [7,20] cores by audit). Large-prime peeling assumes distinct
+primes (holds as moduli distinct). Conjecture D*(9;[7,60])=1817/2772 is
+heuristic (support: [7,20] optimum + Lemma 3 + marginal 1/m<=1/21 with
+coprime overlaps), not a proof.
 
 ## Reproducibility
+Requires numpy only (stdlib otherwise). `python3 verify_Ustar.py` (<2s,
+stdlib bytearray) reproduces best, runner-up, max-sum, and top-5 rows.
+`python3 reproduce_census_7_20.py` deterministically regenerates the full
+2002-row `census_7_20_table.csv` in ~27s and asserts best=1817/2772.
+Artifacts: `census_7_20_table.csv`, `census_7_20_summary.json`,
+`best_witness_7_16.json`, both scripts.
 
-Run `python3 output/artifacts/verify_partial.py` (requires `sympy`, stdlib
-only). Expected: `derived=3 center=3 radical=0` for all 9,
-`Der` 19,19,20x5,22,25, `H2` 11x8,12, Pf ranks 3,3,2x5,1,0, isotropy and 10
-square-class passes, `ALL PASS` in seconds.
-
-## References (nearest known, from brief)
-
-- S.-C. Gong, Classification of nilpotent Lie algebras of dimension 7, PhD
-  thesis Univ. Waterloo 1998. https://uwspace.uwaterloo.ca/handle/10012/133
-- L. Magnin, Adjoint and trivial cohomology tables for indecomposable
-  nilpotent Lie algebras of dim <=7 over C (2008), arXiv:0805.3380.
-  https://arxiv.org/abs/0805.3380
-- D. Burde, Degenerations of 7-dimensional nilpotent Lie algebras (2007),
-  arXiv:math/0703802. https://arxiv.org/abs/math/0703802
+## References
+- B. Hough, Solution of the minimum modulus problem for covering systems,
+  Ann. Math. 181 (2015), 361-382. arXiv:1307.0874.
+  https://arxiv.org/abs/1307.0874 , https://doi.org/10.4007/annals.2015.181.1.6
+- P. Balister, B. Bollobas, R. Morris, J. Sahasrabudhe, M. Tiba,
+  On the Erdos covering problem: the density of the uncovered set,
+  Invent. Math. 228 (2022), 377-414.
+  https://doi.org/10.1007/s00222-021-01087-5
+  (Note: draft citation URL arXiv:1904.09667 is erroneous and resolves to an
+  unrelated scheduling paper; corrected here.)
+- J. Zhang, S. Zhang, A Distinct Covering System with Minimum Modulus 7 and
+  Minimal Least Common Multiple 10080, arXiv:2607.19029 (2026).
+  https://arxiv.org/abs/2607.19029
+- Covering system — Wikipedia (Mirsky-Newman, classic 2,3,4,6,12).
+Searches performed: distinct covering maximal density nine moduli; Hough
+Balister minimum modulus; Erdos covering bounded moduli census (no prior
+D*(9;[7,60]) table found).

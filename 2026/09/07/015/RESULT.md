@@ -1,113 +1,93 @@
-# Exact maximal covering density for nine distinct moduli in [7,20], with certified interval for [7,60]
+# Certified class-number census for real quadratic Q(sqrt(d)), 201 <= d <= 350 squarefree
 
 ## Context
-Distinct covering systems lie between textbook CRT exercises and the deep
-minimum-modulus theorem (Hough 2015; Balister et al. 2022), which give only
-qualitative upper bounds on the least modulus of a full distinct covering.
-For k=9 with minimum >=7, full covering is already impossible by the
-reciprocal-sum test: the largest possible union bound is
-sum_{m=7..15} 1/m = 62575/72072 approx 0.86823 < 1, attained at 7,...,15 by
-1/m monotonicity. The sharp quantitative question — how close can nine
-distinct moduli >=7 come? — had no published exact table. This record closes
-the sub-stratum [7,20] exactly and gives a certified interval for [7,60].
+Real-quadratic class numbers connect Minkowski finiteness to Cohen-Lenstra
+heuristics, but bounded-d strata beyond textbook d < 200 tables lack a single
+citable bundle with numbers, non-principality certificates, and
+regulator/period data plus rerunnable code. The interval 201-350 is the first
+full post-textbook block where the Minkowski bound M(D)=sqrt(D)/2 stays below
+18.63 (only primes p <= 17), so every non-principality claim rechecks by a
+short norm-equation / rho-chain check, while regulators already span an order
+of magnitude and the class-number distribution becomes nontrivial.
 
 ## Definitions
-Let M=[7,20] (census) and M60=[7,60] (interval). For distinct
-m_1<...<m_9 in M and residues a_i, let L=lcm(m_i) and
-D(a,m)=|{x mod L : exists i with x=a_i mod m_i}|/L, the natural density
-covered. Put D*(9;M)=max D over modulus choice and residue choice,
-U*=1-D*. Density of any candidate is computed exactly by enumeration over
-its LCM period.
+For squarefree d, K=Q(sqrt(d)), discriminant D=d if d=1 mod 4 else D=4d,
+M(D)=sqrt(D)/2. l(d) is the continued-fraction period of sqrt(d).
+The maximal-order fundamental unit is written eps_d=(x+y sqrt(d))/2 with
+x=y mod 2 when D=d, else y even; N(eps_d)=+-1; regulator R_d=log(eps_d).
+Narrow classes are rho-cycles of reduced indefinite forms of discriminant D;
+K is the narrow class of a principal ideal of negative norm when N=+1, and
+ordinary classes are narrow classes modulo K (h=h+ if N=-1 else h+/2).
 
 ## Result
-**Theorem (exact [7,20] census).** Over distinct m_i in [7,20], |S|=9,
-D*(9;[7,20])=1817/2772 approx 0.655483405, U*=955/2772 approx 0.344517,
-attained e.g. at S*=[7,8,9,10,11,12,14,15,16] with
-a*=[0,4,1,1,0,2,1,0,0], L=55440, covered 36340.
-No 9-set in [7,20] exceeds this. Runner-up is 47/72 approx 0.652778
-(3290/5040) at [7,8,9,10,12,14,15,16,18] (residues [0,4,1,1,2,1,0,0,5])
-and the 20-variant [7,8,9,10,12,14,15,16,20]; gap 0.002706.
+For all 91 squarefree d in [201,350]:
 
-**Corollary (certified interval for [7,60]).**
-0.655483 <= D*(9;[7,60]) <= 0.868229,
-0.131771 <= U* <= 0.344517.
-Lower bound is the [7,20] witness (hence in [7,60]); upper bound is the
-union bound with maximizer 7,...,15. Prime-max elimination (Lemma 3 below)
-is rigorous progress toward closing [7,60].
+- Class numbers and structures: h=1 on 38 fields; h=2 (C2) on 34;
+  h=3 (C3) on 6 (223,229,254,257,321,326); h=4 on 10 (C4 on
+  219,274,291,322,323; C2xC2 on 210,231,255,290,330); h=6 (C6) on 235,346;
+  h=8 (C8) on 226.
+- For each of the 53 fields with h>1, an explicit prime ideal of norm
+  p <= M(D) is given as a prime form (p,b,c) plus its exact rho-reduction
+  chain into a certified nonprincipal narrow cycle outside {C0,CK}.
+- Periods, maximal-order units, and regulators are tabulated (40 digits in
+  artifact). Extremal witnesses are unique on the interval and both at
+  d=331: longest period l=34 and largest regulator
+  R=36.25638320432540082048..., eps=2785589801443970+153109862634573 sqrt(331)
+  (norm +1). Regulator maximality is proved by exact integer comparison of
+  all 91 units; runner-up is d=334 (R=32.47999...), gap 3.776.
+  Minimum regulator is 2.703575... at d=221. Maximum class number is h=8
+  at d=226 despite minimal period l=1.
+- Correction: R~=47.21 at d=277 in the topic brief is the non-maximal-order
+  norm+1 unit (convergent n=41, p=159150073798980475849); the true field
+  regulator is R_277=7.8682544119... with eps=(2613+157 sqrt(277))/2 of
+  norm -1. The minimal order unit (n=20) has regulator 23.6047... (3x).
 
-**Conjecture (not proved).** D*(9;[7,60])=1817/2772.
-
-## Proof / Evidence
-**Lemma 1 (Translation fixing).** Let C subset S be pairwise coprime. For any
-residues there is t mod L with a_c+t=0 mod c for all c in C (CRT, since
-product C divides L), and x->x+t preserves density. Hence max density is
-attained with a_c=0 on a max-product such C. Verified empirically on
-[7,8,9,10] (full optimum equals C-fixed optimum).
-
-**Lemma 2 (Prime peeling).** Let p in S be prime with no multiples in S
-(equivalently p not dividing L0=lcm(S\\{p\})). Write L=L0*p. Each y mod L0
-lifts to p values; since gcd(L0,p)=1 they run through all residues mod p,
-so uncovered=U0*(p-1), D=D0+U0/p independent of a_p. Thus
-Dmax(S)=1-(1-Dmax(S0))(p-1)/p. Iterates for distinct new primes. In [7,16],
-11,13 always peelable (2p>16); in [7,20], 11,13,17,19 always peelable.
-Verified empirically ([7,8,9,10]+11 gives predicted 12840/27720 for all lifts).
-
-**Lemma 3 (Prime-max exchange).** If |S|=9 with m_max prime, Lemma 2 gives
-Dmax(S)=D0+U0/m_max. Let m* be smallest unused in [7,24] (<=16 since
-|[7,24]|=18; any prime-max set has max>=17 so m*<m_max). For
-S'=S0 union {m*}, averaging over m* residues gives Dmax(S')>=D0+U0/m*.
-Hence Dmax(S')>Dmax(S): no optimal set has prime maximum. In particular no
-optimal [7,60] set has prime maximum.
-
-**Exact core solver.** After peeling, core K (|K|<=9, L<=5040) is solved by
-Lemma-1-fixed enumeration with memoization over 544 distinct cores (numpy
-bitsets), plus hierarchical affine-stabilizer orbit branching for large-R
-cores (worst 43M brute combos -> 67k leaves). Cross-checked: hierarchical vs
-direct brute force agree on small cores; [7,16] dual-backend (numpy + stdlib
-bytearray) agrees on all 10 optima. Independent audit re-proved all 2002
-optima with a different union-bound branch-and-bound (106s, zero table
-entries beaten), including brute-force confirmation of best core 3130/5040
-and runner-up 3290/5040.
-
-**Computed evidence.** [7,16]: C(10,9)=10 sets. [7,20]: C(14,9)=2002 sets,
-544 cores, deterministic replay ~27s (<30s). Best 36340/55440 and runner-up
-3290/5040 reproduced by independent stdlib LCM enumeration in <2s; 20
-scattered table rows re-enumerated exactly; max-sum 62575/72072 verified by
-Fraction. [7,60] total C(54,9)=5317936260; union-competitive counts are
-motivational only.
+## Proof / evidence
+Exact-integer pipeline in pure Python (stdlib + numpy for sums + mpmath only
+for digit strings): squarefree sieve; CF by (m,d,a) recurrence; maximal-order
+unit from convergents n<2l with N=+-1 and N=+-4 odd half-units, exact minimum,
+Legendre check 8y<x+y sqrt(d), exhaustive search to 4l plus growth
+certificate v_{4l-1}>2 eps0; reduced-form enumeration (|a|,|b|<=isqrt(D),
+exact reduced predicate), rho permutation, disjoint even-length cycles,
+unique a=1 and a=-1 forms; K-form from (x+sqrt(d)) resp. ((x+sqrt(d))/2) of
+negative norm with two-alpha agreement and CK==C0 iff N=-1; Kronecker
+splitting and prime forms (p,b,c) rho-reduced to cycles, nonprincipal iff
+outside {C0,CK}; Dirichlet composition of coprime-a forms plus rho reduction
+with per-field identity, K^2=C0, inverse, associativity spot, and
+well-definedness checks; ordinary group as quotient by K (h<=8, orders
+determine structure). Independent verifier re-derives everything from the
+CSV/JSON with no shared functions (6 check groups PASS). Analytic
+class-number formula h*R=sqrt(D)/2*L(1,chi_D) via vectorized sums to N=1e6
+with rigorous D/N tail bound agrees on 91/91 (worst gap/bound 0.035; wrong h
+by >=1.5x would exceed bound by ~50x). LMFDB spot checks match: 2.2.904.1
+(h=8, R=3.40230664548), 2.2.277.1 (h=1, R=7.86825441198), 2.2.1324.1 (h=1,
+R=36.2563832043, narrow C2).
 
 ## Limitations
-Exactness proved only for [7,20], not [7,60]. Full [7,60] upper bound here
-is only union 0.868; no D*<=0.70 claim is made. Hierarchical enumeration
-relies on Lemmas 1-2 (proved) and deterministic orbit branching
-(code-reviewed, dual-backend checked on [7,16], independently re-proved by
-B&B on all [7,20] cores by audit). Large-prime peeling assumes distinct
-primes (holds as moduli distinct). Conjecture D*(9;[7,60])=1817/2772 is
-heuristic (support: [7,20] optimum + Lemma 3 + marginal 1/m<=1/21 with
-coprime overlaps), not a proof.
+Finite computation, not a new theoretical theorem; background theorems
+(Minkowski generation, cycles=narrow classes, K-quotient, composition,
+class-number formula) are textbook. No PARI bnfcertify in sandbox; replaced
+by formula check plus from-scratch verifier. Regulator digits beyond ~15 rely
+on mpmath; ordering uses exact integers only. Order-regulator factor wording
+(6x vs 3x for norm+1 vs minimal unit at d=277) should be read as norm+1
+comparison.
 
 ## Reproducibility
-Requires numpy only (stdlib otherwise). `python3 verify_Ustar.py` (<2s,
-stdlib bytearray) reproduces best, runner-up, max-sum, and top-5 rows.
-`python3 reproduce_census_7_20.py` deterministically regenerates the full
-2002-row `census_7_20_table.csv` in ~27s and asserts best=1817/2772.
-Artifacts: `census_7_20_table.csv`, `census_7_20_summary.json`,
-`best_witness_7_16.json`, both scripts.
+Run `python3 verify.py` inside the artifact directory (stock Python + numpy +
+mpmath); it re-derives CF/units/cycles/K/h, verifies all 53 witness chains,
+recomputes h>=4 structures, proves extrema exactly, and spot-checks the
+formula at N=2e5 in minutes. Full pipeline scripts and CSV/JSON are in
+output/artifacts/.
 
 ## References
-- B. Hough, Solution of the minimum modulus problem for covering systems,
-  Ann. Math. 181 (2015), 361-382. arXiv:1307.0874.
-  https://arxiv.org/abs/1307.0874 , https://doi.org/10.4007/annals.2015.181.1.6
-- P. Balister, B. Bollobas, R. Morris, J. Sahasrabudhe, M. Tiba,
-  On the Erdos covering problem: the density of the uncovered set,
-  Invent. Math. 228 (2022), 377-414.
-  https://doi.org/10.1007/s00222-021-01087-5
-  (Note: draft citation URL arXiv:1904.09667 is erroneous and resolves to an
-  unrelated scheduling paper; corrected here.)
-- J. Zhang, S. Zhang, A Distinct Covering System with Minimum Modulus 7 and
-  Minimal Least Common Multiple 10080, arXiv:2607.19029 (2026).
-  https://arxiv.org/abs/2607.19029
-- Covering system — Wikipedia (Mirsky-Newman, classic 2,3,4,6,12).
-Searches performed: distinct covering maximal density nine moduli; Hough
-Balister minimum modulus; Erdos covering bounded moduli census (no prior
-D*(9;[7,60]) table found).
+- Amir-He-Lee-Oliver-Sultanow, Machine Learning Class Numbers of Real
+  Quadratic Fields, arXiv:2209.09283 (predictive, no proofs).
+- Bernardini, Class number of real quadratic fields of explicit
+  discriminant, arXiv:2412.06351 (sparse family, exceptions).
+- Kopp-Lagarias, Unit-generated orders I, arXiv:2512.11311 (orders, not
+  interval maximal orders).
+- Lamzouri, Large moments and extreme values, arXiv:1609.01630 (asymptotic).
+- Cherubini-Fazzari-Granville-Kala-Yatsyna, Consecutive real quadratic
+  fields with large class numbers (existence, not census).
+- PARI/GP headquarters, https://pari.math.u-bordeaux.fr/ (tool baseline).
+- LMFDB 2.2.904.1, 2.2.277.1, 2.2.1324.1 (single-field bare values).

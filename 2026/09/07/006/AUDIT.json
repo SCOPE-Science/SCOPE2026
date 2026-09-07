@@ -1,1 +1,360 @@
-{"axes": {"correctness": {"rationale": "Independently re-executed candidate replay.py (stdlib-only): char table 77x77 in 0.1s, hook dims match, sum dim^2=479001600, row+column orthogonality 5929+5929 exact dots, extremal T* Fraction sum 945 with numerator 452656512000=945*12!, 20/20 spot checks match CSV, census counts 30336 zero/48743 nonzero, and --full recompute of all 79079 orbits in 0.4s with zero mismatches. Wrote a second independent Murnaghan-Nakayama implementation (ascending subdiagram enumeration, BFS order differing, stripping smallest cycle part cyc[-1] vs candidate stripping cyc[0]): reproduced chartable.csv 5929/5929 exactly, hook dims with max 7700 at (5,3,2,1,1), T*=945, both falsifier examples (g((12),(12),(11,1))=0, g((9,1,1,1),(8,3,1),(7,5))=1), top-10 values, Durfee distribution {1:12,2:55,3:10}, (1,1,3) block 780/780 zero, dominance table (0:433/43, 1:4630/881, 2:19856/7045, 3:54160/22367), certificate CSV Fraction sum 945 with z*cl=12! on all 77 rows, unique maximum (count of 945 is 1), dim-sum identities spot-checked, even-transpose symmetry 0 mismatches, and ordered expansion 176524 zero/280009 nonzero matching draft. Boundary conditions verified: C(79,3)=79079 S3-orbits, 77^3=456533 ordered, min z=11, max z=479001600, sum cl=12!. Result is a machine-checked computational theorem conditional on the short MN program; strength comes from two independent builds plus hook/orthogonality/dim-sum proofs, not trust in one run. Presentation defect noted but non-fatal: replay.py as shipped checks single MN ordering plus orthogonality (draft table C3 dual-MN wording overstates what replay.py itself does), and the headline dominance-comparable-yet-zero example g((12),(12),(11,1))=0 is trivial from the trivial representation (g((n),(n),nu)=delta), though the aggregate 22367 fully-comparable zeros and the incomparable-nonzero example remain substantive. No integrity failure; all essential inferences and numbers verified exactly.", "verdict": "PASS"}, "originality": {"rationale": "Searched arXiv via API with proxy bypass and fetched primary sources: 1507.02955 (IMW NP-hardness/saturation holes) proves deciding positivity is NP-hard and gives no fixed-n table or M(12); 1406.2988 (Pak-Panova bounds/stability) proves general bounds not shown tight at n=12 and implies no vanishing census; 1601.04325 (Baldoni-Vergne-Walter dilated residues) gives single-ray symbolic formulas, not a full fixed-n cube via MN class sums; 1811.10967 (Ikenmeyer Saxl triple-hooks) covers staircase tensor squares with reductions to n_3=14/n_4=28, disjoint because n=12 is non-triangular (triangular numbers 10,15 bracket 12, so no staircase partition of 12); 2207.02561 (Pak-Panova Durfee/superexponential) proves polynomial growth at fixed Durfee size and superexponential growth of self-conjugate maxima asymptotically, not the exact value M(12)=945; 0907.3351 (rectangular stabilization) and 2306.04734 (ML zero/nonzero prediction with heuristic accuracy) are complementary (asymptotic subfamily and heuristic classifier vs exact certificates). Title search ti:Kronecker coefficients returned only these plus asymptotics/growth/crystals with no exhaustive n=12 S3-reduced census. Internal prior scan (3 validated Resultary findings on 4-uniform families, J2-free rank, spider walks; 9 SCOPE failures) is materially disjoint in objects/methods. No prior gives the triple (V,N)=(30336,48743) over 79079 orbits, M(12)=945 with per-class certificate, or Durfee/dominance breakdown. Folklore Sage/GAP one-liners can compute individual values but are unpublished without certificates; the claimed delta is explicitly only the first independently recheckable census with extremal certificate plus predictor analysis, not a new method, which is modest and not refuted by a one-liner objection.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding later as falsifiable ground truth where theory is silent: NP-hardness says no simple polyhedral vanishing criterion exists, Pak-Panova-type bounds are shown here to be far from tight at the maximum (trivial dim bound 7700 vs actual 945, ~12%), and ML predictors give only heuristic accuracy, so an exhaustive exact table matters. Content exceeds raw enumeration: (i) extremal witness M(12)=945 uniquely at the self-conjugate max-dim Durfee-3 shape (5,3,2,1,1)^3 with 77-term exact certificate recomputable from the triple alone; (ii) vanishing fraction 38.3616% unordered (38.6662% ordered) with full Durfee-profile breakdown showing high-Durfee blocks nearly always nonzero (2,3,3:4.4%, 3,3,3:4.1%) vs hook-heavy blocks mostly vanishing, including a clean 780/780 100%-vanishing (1,1,3) pocket; (iii) dominance analysis reversing the naive heuristic (more comparable => more likely to vanish: 9.9%/19.0%/35.5%/41.3% for 0/1/2/3 comparable pairs) with 22367 fully-comparable zeros and 390 incomparable nonzeros. Choice of n=12 is motivated (first p(n)=77>70, no staircase anchor, rectangular/self-conjugate/Durfee-3 interaction), not mere n=11->12 substitution. Not a textbook restatement (no textbook gives this census), not a tiny gain, and not an unexplained dump (certificates + bound-tightness test + predictor confusion). Single-n computational scope is honestly limited and does not resolve hardness/Saxl/GCT, but supplies data those theories must fit; any future combinatorial formula must reproduce M(12) and the vanishing pattern.", "verdict": "PASS"}}, "checked_sources": ["https://arxiv.org/abs/1507.02955 (fetched via noproxy bypass: NP-hardness abstract confirmed)", "https://arxiv.org/abs/1406.2988 (fetched: Bounds on the Kronecker coefficients)", "https://arxiv.org/abs/1601.04325 (fetched: Computation of Dilated Kronecker Coefficients)", "https://arxiv.org/abs/1811.10967 (fetched: Saxl Conjecture for triple hooks)", "https://arxiv.org/abs/2207.02561 (fetched: Durfee/superexponential bounds, citation_abstract confirms asymptotic not exact M(12))", "https://arxiv.org/abs/0907.3351 (fetched abstract: rectangular stabilization)", "https://arxiv.org/abs/2306.04734 (fetched abstract: ML zero/nonzero prediction, heuristic)", "arXiv API ti:Kronecker coefficients query (10 hits: reduced/rectangular/ML/bounds/vanishing/asymptotics/growth/crystals/dilated; no n=12 census)", "inputs/topic.json internal_prior_scan (3 Resultary findings + 9 SCOPE failures, all disjoint)", "inputs/DRAFT.md + inputs/research_report.json + inputs/artifacts/* (replay.py, kron_table_S3.csv 79079 rows, chartable.csv 5929 rows, certificate_Tstar.csv 77 rows, top10.csv)"], "decisive_checks": ["Ran candidate replay.py: PASS (char table, hook/dim-sum, 11858 orthogonality dots, T*=945, 20/20 spots, census 30336/48743/M=945) and --full: 79079/79079 in 0.4s", "Independent MN (strip-smallest, ascending enumeration, different BFS): 0/5929 chartable mismatches, hook/max-dim/dim-sum reproduced", "Independent g recomputes: T*=945 (N=452656512000), g((12),(12),(11,1))=0, g((9,1,1,1),(8,3,1),(7,5))=1, 10/10 random + 10/10 top10 match CSV", "Combinatorial identities: C(79,3)=79079, 77^3=456533, ordered expansion 176524/280009 matches, top counts 945x1/716x2/697x2/550x2/533x3 match", "Breakdown recomputes: Durfee {1:12,2:55,3:10}, all 10 profile fractions match, dominance 0-3 table matches, (1,1,3) 780/780, fully-comparable 54160/22367, incomparable 433/390 nonzero", "Certificate: 77-row Fraction sum 945, z*cl=12! all rows; even-transpose 0 mismatches; self-conjugates exactly 3 including extremal; n=12 non-triangular (10,15 bracket) confirmed"], "repair_instructions": null, "residual_risks": ["Common-mode bug in rim-hook logic shared by both implementations not logically excluded, though independent enumeration order/strip direction plus hook/orthogonality/dim-sum/float-einsum checks make it unlikely; stdlib-only replay minimizes toolchain risk.", "Single-n (n=12) brute-force scope: no structural proof of M(12) or the (1,1,3) pocket; extension to n=13-14 (~200k/400k orbits) untested here.", "Web-search incompleteness: arXiv API queries and abstract fetches cannot exclude an obscure thesis/database posting the same numbers without certificates; originality rests on no published recheckable census with extremal certificate found, not on proof of nonexistence.", "Headline falsifier g((12),(12),(11,1))=0 is representation-theoretically trivial; value relies on aggregate predictor statistics and the nontrivial incomparable-nonzero example, which were verified."], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-executed candidate replay.py (stdlib-only): char table 77x77 in 0.1s, hook dims match, sum dim^2=479001600, row+column orthogonality 5929+5929 exact dots, extremal T* Fraction sum 945 with numerator 452656512000=945*12!, 20/20 spot checks match CSV, census counts 30336 zero/48743 nonzero, and --full recompute of all 79079 orbits in 0.4s with zero mismatches. Wrote a second independent Murnaghan-Nakayama implementation (ascending subdiagram enumeration, BFS order differing, stripping smallest cycle part cyc[-1] vs candidate stripping cyc[0]): reproduced chartable.csv 5929/5929 exactly, hook dims with max 7700 at (5,3,2,1,1), T*=945, both falsifier examples (g((12),(12),(11,1))=0, g((9,1,1,1),(8,3,1),(7,5))=1), top-10 values, Durfee distribution {1:12,2:55,3:10}, (1,1,3) block 780/780 zero, dominance table (0:433/43, 1:4630/881, 2:19856/7045, 3:54160/22367), certificate CSV Fraction sum 945 with z*cl=12! on all 77 rows, unique maximum (count of 945 is 1), dim-sum identities spot-checked, even-transpose symmetry 0 mismatches, and ordered expansion 176524 zero/280009 nonzero matching draft. Boundary conditions verified: C(79,3)=79079 S3-orbits, 77^3=456533 ordered, min z=11, max z=479001600, sum cl=12!. Result is a machine-checked computational theorem conditional on the short MN program; strength comes from two independent builds plus hook/orthogonality/dim-sum proofs, not trust in one run. Presentation defect noted but non-fatal: replay.py as shipped checks single MN ordering plus orthogonality (draft table C3 dual-MN wording overstates what replay.py itself does), and the headline dominance-comparable-yet-zero example g((12),(12),(11,1))=0 is trivial from the trivial representation (g((n),(n),nu)=delta), though the aggregate 22367 fully-comparable zeros and the incomparable-nonzero example remain substantive. No integrity failure; all essential inferences and numbers verified exactly.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Checked the narrow computational-census claim, not Kronecker theory in general: exhaustive S3-reduced enumeration at exactly n=12 (79079 unordered / 456533 ordered triples), vanishing counts 30336 zero vs 48743 nonzero (38.3616%; ordered 38.6662%), unique maximum M(12)=945 at ((5,3,2,1,1)^3) with 77-term exact class-sum certificate N=452656512000, plus Durfee-profile and dominance-comparability breakdowns and top-10 list as first independently recheckable certificate. Live arXiv exact-conjunction searches for vanishing+census (0 hits), n=12 (0 hits), constants 945 (0 hits) and 30336 (0 hits) returned no covering work; title search (64 hits) and Dilated (2 hits)/Durfee (1 hit) hits are the asymptotic/bound/ray/classifier papers inspected above. Claim-level comparison on hypotheses (fixed n=12, p(12)=77, lex-descending index, MN class-sum g=N/12!), quantifiers (all 79079 orbits with integrality/nonnegativity), parameter ranges (Durfee max 3, dominance counts, (1,1,3) 780/780 pocket), exact constants (945 unique, next values 716/697/550/533, max dim 7700, sum d^2=12!), proof scope (stdlib MN plus dual-build/orthogonality/hook/dim-sum checks plus replay.py --full) and conclusion (ground-truth certificate, explicitly no new formula/bound, no hardness/Saxl resolution) shows no prior states or implies these numbers. Nearest results prove hardness, general bounds, ray formulas, asymptotic Durfee growth, ML heuristics, staircase containment, or rectangular stabilization - all disjoint in scope and quantifiers. Sage/GAP folklore computability was acknowledged in the record itself as uncertified one-liners, and no published certified n=12 census was found in this documented search.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as falsifiable ground truth where theory is silent: NP-hardness says no simple polyhedral vanishing criterion exists, Pak-Panova-type bounds are shown here to be far from tight at the maximum (trivial dim bound 7700 vs actual 945, ~12%), and ML predictors give only heuristic accuracy, so an exhaustive exact table matters. Content exceeds raw enumeration: (i) extremal witness M(12)=945 uniquely at the self-conjugate max-dim Durfee-3 shape (5,3,2,1,1)^3 with 77-term exact certificate recomputable from the triple alone; (ii) vanishing fraction 38.3616% unordered (38.6662% ordered) with full Durfee-profile breakdown showing high-Durfee blocks nearly always nonzero (2,3,3:4.4%, 3,3,3:4.1%) vs hook-heavy blocks mostly vanishing, including a clean 780/780 100%-vanishing (1,1,3) pocket; (iii) dominance analysis reversing the naive heuristic (more comparable => more likely to vanish: 9.9%/19.0%/35.5%/41.3% for 0/1/2/3 comparable pairs) with 22367 fully-comparable zeros and 390 incomparable nonzeros. Choice of n=12 is motivated (first p(n)=77>70, no staircase anchor, rectangular/self-conjugate/Durfee-3 interaction), not mere n=11->12 substitution. Not a textbook restatement (no textbook gives this census), not a tiny gain, and not an unexplained dump (certificates + bound-tightness test + predictor confusion). Single-n computational scope is honestly limited and does not resolve hardness/Saxl/GCT, but supplies data those theories must fit; any future combinatorial formula must reproduce M(12) and the vanishing pattern.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Complexity-theoretic vanishing result: NP-hardness of positivity and existence of holes; complementary background cited by candidate, does not compute any fixed-n exhaustive census or maximum.",
+      "title": "On vanishing of Kronecker coefficients - Ikenmeyer, Mulmuley, Walter",
+      "url": "https://arxiv.org/abs/1507.02955"
+    },
+    {
+      "outcome": "General theoretical upper/lower bounds on Kronecker coefficients for arbitrary n; candidate tests tightness (7700 bound vs 945 actual) but prior gives no tight n=12 values.",
+      "title": "Bounds on the Kronecker coefficients - Pak, Panova",
+      "url": "https://arxiv.org/abs/1406.2988"
+    },
+    {
+      "outcome": "Algorithm for dilated single-ray coefficients with chamber-wise symbolic formulas; different scope (ray) vs candidate full fixed-n cube; no S3-reduced census.",
+      "title": "Computation of Dilated Kronecker Coefficients - Baldoni, Vergne, Walter",
+      "url": "https://arxiv.org/abs/1601.04325"
+    },
+    {
+      "outcome": "Asymptotic Durfee-size bounds (polynomial at fixed Durfee, superexponential diagonal maxima); candidate provides n=12 empirical Durfee breakdown but claims no new bound, so no overlap of exact claim.",
+      "title": "Durfee squares, symmetric partitions and bounds on Kronecker coefficients - Pak, Panova",
+      "url": "https://arxiv.org/abs/2207.02561"
+    },
+    {
+      "outcome": "Heuristic ML binary classifier for vanishing vs exact machine-checked certificates; different method and conclusion, no exhaustive counts or maximum witness.",
+      "title": "Machine-Learning Kronecker Coefficients - Lee",
+      "url": "https://arxiv.org/abs/2306.04734"
+    },
+    {
+      "outcome": "Saxl-conjecture progress for triple-hooks/staircase shapes with n_3=14 threshold; disjoint triangular-n staircase setting, while candidate n=12 is explicitly non-triangular.",
+      "title": "Saxl Conjecture for triple hooks - Li",
+      "url": "https://arxiv.org/abs/1811.10967"
+    },
+    {
+      "outcome": "Stabilization and limit formula for rectangular family only; no exhaustive enumeration and no extremal census at n=12.",
+      "title": "On rectangular Kronecker coefficients - Manivel",
+      "url": "https://arxiv.org/abs/0907.3351"
+    }
+  ],
+  "decisive_checks": [
+    "Ran candidate replay.py: PASS (char table, hook/dim-sum, 11858 orthogonality dots, T*=945, 20/20 spots, census 30336/48743/M=945) and --full: 79079/79079 in 0.4s",
+    "Independent MN (strip-smallest, ascending enumeration, different BFS): 0/5929 chartable mismatches, hook/max-dim/dim-sum reproduced",
+    "Independent g recomputes: T*=945 (N=452656512000), g((12),(12),(11,1))=0, g((9,1,1,1),(8,3,1),(7,5))=1, 10/10 random + 10/10 top10 match CSV",
+    "Combinatorial identities: C(79,3)=79079, 77^3=456533, ordered expansion 176524/280009 matches, top counts 945x1/716x2/697x2/550x2/533x3 match",
+    "Breakdown recomputes: Durfee {1:12,2:55,3:10}, all 10 profile fractions match, dominance 0-3 table matches, (1,1,3) 780/780, fully-comparable 54160/22367, incomparable 433/390 nonzero",
+    "Certificate: 77-row Fraction sum 945, z*cl=12! all rows; even-transpose 0 mismatches; self-conjugates exactly 3 including extremal; n=12 non-triangular (10,15 bracket) confirmed"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:10:14Z",
+    "queries": [
+      {
+        "query": "all:Kronecker AND all:coefficients AND all:vanishing AND all:census",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3Avanishing%20AND%20all%3Acensus&start=0&max_results=1"
+      },
+      {
+        "query": "ti:\"Kronecker coefficients\"",
+        "result_count": 64,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=ti%3A%22Kronecker%20coefficients%22&start=0&max_results=1"
+      },
+      {
+        "query": "all:Kronecker AND all:coefficients AND all:\"n=12\"",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3A%22n%3D12%22&start=0&max_results=1"
+      },
+      {
+        "query": "all:Kronecker AND all:coefficients AND all:Dilated",
+        "result_count": 2,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3ADilated&start=0&max_results=1"
+      },
+      {
+        "query": "all:Kronecker AND all:coefficients AND all:Durfee",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3ADurfee&start=0&max_results=1"
+      },
+      {
+        "query": "all:Kronecker AND all:coefficients AND all:945",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3A945&start=0&max_results=1"
+      },
+      {
+        "query": "all:Kronecker AND all:coefficients AND all:30336",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3A30336&start=0&max_results=1"
+      },
+      {
+        "query": "Kronecker coefficients maximal multiplicity symmetric group",
+        "result_count": 1301654,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=Kronecker+coefficients+maximal+multiplicity+symmetric+group&rows=5"
+      },
+      {
+        "query": "Kronecker coefficients vanishing census n=12",
+        "result_count": 12278463,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=Kronecker+coefficients+vanishing+census+n%3D12&rows=5"
+      },
+      {
+        "query": "Kronecker coefficients Durfee squares symmetric partitions bounds (bibliographic)",
+        "result_count": 284332,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query.bibliographic=Kronecker+coefficients+Durfee+squares+symmetric+partitions+bounds&rows=3"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Proves NP-hardness of deciding positivity and constructs sparse vanishing families/holes asymptotically; states no fixed-n exhaustive census, no count 30336/79079, no maximum 945, no n=12 certificate. Complementary complexity theory, not a census.",
+        "retrieved_at_utc": "2026-09-07T14:09:00Z",
+        "title": "On vanishing of Kronecker coefficients - Ikenmeyer, Mulmuley, Walter",
+        "url": "https://arxiv.org/abs/1507.02955"
+      },
+      {
+        "comparison": "Proves general upper/lower bounds, k-stability, and q-binomial applications for arbitrary n; does not compute or claim tight exhaustive values at fixed n=12, no vanishing fraction, no maximal multiplicity 945 at (5,3,2,1,1)^3.",
+        "retrieved_at_utc": "2026-09-07T14:09:00Z",
+        "title": "Bounds on the Kronecker coefficients - Pak, Panova",
+        "url": "https://arxiv.org/abs/1406.2988"
+      },
+      {
+        "comparison": "Gives symplectic-geometry/residue algorithm for dilated (single-ray k*lambda) symbolic formulas and chambers; explicitly single-ray symbolic scope, not a full fixed-n S3-reduced cube census at n=12 and no 79079-orbit table or extremal certificate.",
+        "retrieved_at_utc": "2026-09-07T14:09:00Z",
+        "title": "Computation of Dilated Kronecker Coefficients - Baldoni, Vergne, Walter",
+        "url": "https://arxiv.org/abs/1601.04325"
+      },
+      {
+        "comparison": "Proves polynomial growth at fixed Durfee size and superexponential growth of diagonal self-conjugate maxima asymptotically; asymptotic bounds only, no fixed n=12 exact census, no 30336 vanishing count, no certified M(12)=945 uniqueness.",
+        "retrieved_at_utc": "2026-09-07T14:09:30Z",
+        "title": "Durfee squares, symmetric partitions and bounds on Kronecker coefficients - Pak, Panova",
+        "url": "https://arxiv.org/abs/2207.02561"
+      },
+      {
+        "comparison": "Trains k-NN/CNN/GBDT classifiers to predict vanishing heuristically at ~0.98 accuracy; heuristic prediction with no exact certificates, no exhaustive enumeration, no maximal-multiplicity witness and no Durfee/dominance breakdowns at n=12.",
+        "retrieved_at_utc": "2026-09-07T14:09:30Z",
+        "title": "Machine-Learning Kronecker Coefficients - Lee",
+        "url": "https://arxiv.org/abs/2306.04734"
+      },
+      {
+        "comparison": "Studies Saxl conjecture for triple-hooks and staircase tensor squares with computer check for Durfee-3 containment; different hypothesis (staircase containing all Durfee-3 irreps) at triangular n, disjoint from non-triangular n=12 exhaustive vanishing/maximum census and its exact constants.",
+        "retrieved_at_utc": "2026-09-07T14:09:30Z",
+        "title": "Saxl Conjecture for triple hooks - Li",
+        "url": "https://arxiv.org/abs/1811.10967"
+      },
+      {
+        "comparison": "Proves stabilization of rectangular Kronecker coefficients as rectangle sides grow with limit formula via sl_n invariants; asymptotic stabilization for rectangular family only, no S12 character table, no 79079-orbit census, no extremal triple certificate.",
+        "retrieved_at_utc": "2026-09-07T14:10:00Z",
+        "title": "On rectangular Kronecker coefficients - Manivel",
+        "url": "https://arxiv.org/abs/0907.3351"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:10:14Z",
+      "queries": [
+        {
+          "query": "all:Kronecker AND all:coefficients AND all:vanishing AND all:census",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3Avanishing%20AND%20all%3Acensus&start=0&max_results=1"
+        },
+        {
+          "query": "ti:\"Kronecker coefficients\"",
+          "result_count": 64,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=ti%3A%22Kronecker%20coefficients%22&start=0&max_results=1"
+        },
+        {
+          "query": "all:Kronecker AND all:coefficients AND all:\"n=12\"",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3A%22n%3D12%22&start=0&max_results=1"
+        },
+        {
+          "query": "all:Kronecker AND all:coefficients AND all:Dilated",
+          "result_count": 2,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3ADilated&start=0&max_results=1"
+        },
+        {
+          "query": "all:Kronecker AND all:coefficients AND all:Durfee",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3ADurfee&start=0&max_results=1"
+        },
+        {
+          "query": "all:Kronecker AND all:coefficients AND all:945",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3A945&start=0&max_results=1"
+        },
+        {
+          "query": "all:Kronecker AND all:coefficients AND all:30336",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3AKronecker%20AND%20all%3Acoefficients%20AND%20all%3A30336&start=0&max_results=1"
+        },
+        {
+          "query": "Kronecker coefficients maximal multiplicity symmetric group",
+          "result_count": 1301654,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=Kronecker+coefficients+maximal+multiplicity+symmetric+group&rows=5"
+        },
+        {
+          "query": "Kronecker coefficients vanishing census n=12",
+          "result_count": 12278463,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=Kronecker+coefficients+vanishing+census+n%3D12&rows=5"
+        },
+        {
+          "query": "Kronecker coefficients Durfee squares symmetric partitions bounds (bibliographic)",
+          "result_count": 284332,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query.bibliographic=Kronecker+coefficients+Durfee+squares+symmetric+partitions+bounds&rows=3"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Proves NP-hardness of deciding positivity and constructs sparse vanishing families/holes asymptotically; states no fixed-n exhaustive census, no count 30336/79079, no maximum 945, no n=12 certificate. Complementary complexity theory, not a census.",
+          "retrieved_at_utc": "2026-09-07T14:09:00Z",
+          "title": "On vanishing of Kronecker coefficients - Ikenmeyer, Mulmuley, Walter",
+          "url": "https://arxiv.org/abs/1507.02955"
+        },
+        {
+          "comparison": "Proves general upper/lower bounds, k-stability, and q-binomial applications for arbitrary n; does not compute or claim tight exhaustive values at fixed n=12, no vanishing fraction, no maximal multiplicity 945 at (5,3,2,1,1)^3.",
+          "retrieved_at_utc": "2026-09-07T14:09:00Z",
+          "title": "Bounds on the Kronecker coefficients - Pak, Panova",
+          "url": "https://arxiv.org/abs/1406.2988"
+        },
+        {
+          "comparison": "Gives symplectic-geometry/residue algorithm for dilated (single-ray k*lambda) symbolic formulas and chambers; explicitly single-ray symbolic scope, not a full fixed-n S3-reduced cube census at n=12 and no 79079-orbit table or extremal certificate.",
+          "retrieved_at_utc": "2026-09-07T14:09:00Z",
+          "title": "Computation of Dilated Kronecker Coefficients - Baldoni, Vergne, Walter",
+          "url": "https://arxiv.org/abs/1601.04325"
+        },
+        {
+          "comparison": "Proves polynomial growth at fixed Durfee size and superexponential growth of diagonal self-conjugate maxima asymptotically; asymptotic bounds only, no fixed n=12 exact census, no 30336 vanishing count, no certified M(12)=945 uniqueness.",
+          "retrieved_at_utc": "2026-09-07T14:09:30Z",
+          "title": "Durfee squares, symmetric partitions and bounds on Kronecker coefficients - Pak, Panova",
+          "url": "https://arxiv.org/abs/2207.02561"
+        },
+        {
+          "comparison": "Trains k-NN/CNN/GBDT classifiers to predict vanishing heuristically at ~0.98 accuracy; heuristic prediction with no exact certificates, no exhaustive enumeration, no maximal-multiplicity witness and no Durfee/dominance breakdowns at n=12.",
+          "retrieved_at_utc": "2026-09-07T14:09:30Z",
+          "title": "Machine-Learning Kronecker Coefficients - Lee",
+          "url": "https://arxiv.org/abs/2306.04734"
+        },
+        {
+          "comparison": "Studies Saxl conjecture for triple-hooks and staircase tensor squares with computer check for Durfee-3 containment; different hypothesis (staircase containing all Durfee-3 irreps) at triangular n, disjoint from non-triangular n=12 exhaustive vanishing/maximum census and its exact constants.",
+          "retrieved_at_utc": "2026-09-07T14:09:30Z",
+          "title": "Saxl Conjecture for triple hooks - Li",
+          "url": "https://arxiv.org/abs/1811.10967"
+        },
+        {
+          "comparison": "Proves stabilization of rectangular Kronecker coefficients as rectangle sides grow with limit formula via sl_n invariants; asymptotic stabilization for rectangular family only, no S12 character table, no 79079-orbit census, no extremal triple certificate.",
+          "retrieved_at_utc": "2026-09-07T14:10:00Z",
+          "title": "On rectangular Kronecker coefficients - Manivel",
+          "url": "https://arxiv.org/abs/0907.3351"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Complexity-theoretic vanishing result: NP-hardness of positivity and existence of holes; complementary background cited by candidate, does not compute any fixed-n exhaustive census or maximum.",
+        "title": "On vanishing of Kronecker coefficients - Ikenmeyer, Mulmuley, Walter",
+        "url": "https://arxiv.org/abs/1507.02955"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "General theoretical upper/lower bounds on Kronecker coefficients for arbitrary n; candidate tests tightness (7700 bound vs 945 actual) but prior gives no tight n=12 values.",
+        "title": "Bounds on the Kronecker coefficients - Pak, Panova",
+        "url": "https://arxiv.org/abs/1406.2988"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Algorithm for dilated single-ray coefficients with chamber-wise symbolic formulas; different scope (ray) vs candidate full fixed-n cube; no S3-reduced census.",
+        "title": "Computation of Dilated Kronecker Coefficients - Baldoni, Vergne, Walter",
+        "url": "https://arxiv.org/abs/1601.04325"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Asymptotic Durfee-size bounds (polynomial at fixed Durfee, superexponential diagonal maxima); candidate provides n=12 empirical Durfee breakdown but claims no new bound, so no overlap of exact claim.",
+        "title": "Durfee squares, symmetric partitions and bounds on Kronecker coefficients - Pak, Panova",
+        "url": "https://arxiv.org/abs/2207.02561"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Heuristic ML binary classifier for vanishing vs exact machine-checked certificates; different method and conclusion, no exhaustive counts or maximum witness.",
+        "title": "Machine-Learning Kronecker Coefficients - Lee",
+        "url": "https://arxiv.org/abs/2306.04734"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Saxl-conjecture progress for triple-hooks/staircase shapes with n_3=14 threshold; disjoint triangular-n staircase setting, while candidate n=12 is explicitly non-triangular.",
+        "title": "Saxl Conjecture for triple hooks - Li",
+        "url": "https://arxiv.org/abs/1811.10967"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Stabilization and limit formula for rectangular family only; no exhaustive enumeration and no extremal census at n=12.",
+        "title": "On rectangular Kronecker coefficients - Manivel",
+        "url": "https://arxiv.org/abs/0907.3351"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-006",
+    "originality_rationale": "Checked the narrow computational-census claim, not Kronecker theory in general: exhaustive S3-reduced enumeration at exactly n=12 (79079 unordered / 456533 ordered triples), vanishing counts 30336 zero vs 48743 nonzero (38.3616%; ordered 38.6662%), unique maximum M(12)=945 at ((5,3,2,1,1)^3) with 77-term exact class-sum certificate N=452656512000, plus Durfee-profile and dominance-comparability breakdowns and top-10 list as first independently recheckable certificate. Live arXiv exact-conjunction searches for vanishing+census (0 hits), n=12 (0 hits), constants 945 (0 hits) and 30336 (0 hits) returned no covering work; title search (64 hits) and Dilated (2 hits)/Durfee (1 hit) hits are the asymptotic/bound/ray/classifier papers inspected above. Claim-level comparison on hypotheses (fixed n=12, p(12)=77, lex-descending index, MN class-sum g=N/12!), quantifiers (all 79079 orbits with integrality/nonnegativity), parameter ranges (Durfee max 3, dominance counts, (1,1,3) 780/780 pocket), exact constants (945 unique, next values 716/697/550/533, max dim 7700, sum d^2=12!), proof scope (stdlib MN plus dual-build/orthogonality/hook/dim-sum checks plus replay.py --full) and conclusion (ground-truth certificate, explicitly no new formula/bound, no hardness/Saxl resolution) shows no prior states or implies these numbers. Nearest results prove hardness, general bounds, ray formulas, asymptotic Durfee growth, ML heuristics, staircase containment, or rectangular stabilization - all disjoint in scope and quantifiers. Sage/GAP folklore computability was acknowledged in the record itself as uncertified one-liners, and no published certified n=12 census was found in this documented search.",
+    "priority_caveat": "This is not an award of academic priority; it reports only that no source found in this documented live search substantively covers or implies the candidate. Independent priority determination requires fuller historical and grey-literature review.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-006",
+    "residual_uncertainties": [
+      "Grey literature not fully indexed (Sage/GAP docs, FindStat, OEIS, theses, code repos) could contain overlapping computed values without formal publication; record itself notes folklore one-liners but claims novelty only as first independently recheckable exhaustive certificate.",
+      "Full-text mining limited to abstracts/landing pages via arXiv and Crossref; inaccessible paywalled appendices or unindexed tables with n=12 values cannot be logically excluded.",
+      "OpenAlex quota exhausted and Semantic Scholar rate-limited at check time, so those services could not corroborate; relied on arXiv API plus Crossref API as the two independent services, with publisher DOI resolution spot-checked.",
+      "Terminology variation (Clebsch-Gordan, Kronecker product, tensor multiplicity, character inner product) means differently-worded tables could be missed despite multiple formulations searched."
+    ],
+    "reviewed_claim": "Exhaustive S3-reduced certified census of Kronecker coefficients at exactly n=12: 30336 of 79079 unordered triples vanish (38.3616%), unique maximum M(12)=945 at ((5,3,2,1,1)^3) with 77-term exact class-sum certificate, plus Durfee/dominance breakdowns, as first independently recheckable exhaustive certificate via stdlib Murnaghan-Nakayama.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "Exact claim: Kronecker coefficients exhaustive vanishing census at n=12 with counts 30336/79079",
+      "Strongest subclaims: unique maximal multiplicity M(12)=945 at (5,3,2,1,1)^3; constants 945 and 30336; Durfee-profile and dominance-comparability breakdowns",
+      "Named objects/methods: Kronecker coefficients, symmetric group S12, Murnaghan-Nakayama class sum N/12!, S3-orbits, Durfee size, dominance order",
+      "Equivalent terminology: Kronecker product / tensor multiplicity / Clebsch-Gordan of symmetric group; dilated/stretched coefficients; rectangular/staircase/triple-hook families; Saxl conjecture",
+      "Services: arXiv API exact-conjunction and title queries plus Crossref API bibliographic queries; OpenAlex/Semantic Scholar attempted but quota/rate-limited"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Common-mode bug in rim-hook logic shared by both implementations not logically excluded, though independent enumeration order/strip direction plus hook/orthogonality/dim-sum/float-einsum checks make it unlikely; stdlib-only replay minimizes toolchain risk.",
+    "Single-n (n=12) brute-force scope: no structural proof of M(12) or the (1,1,3) pocket; extension to n=13-14 (~200k/400k orbits) untested here.",
+    "Web-search incompleteness: arXiv API queries and abstract fetches cannot exclude an obscure thesis/database posting the same numbers without certificates; originality rests on no published recheckable census with extremal certificate found, not on proof of nonexistence.",
+    "Headline falsifier g((12),(12),(11,1))=0 is representation-theoretically trivial; value relies on aggregate predictor statistics and the nontrivial incomparable-nonzero example, which were verified.",
+    "Originality revalidation: Grey literature not fully indexed (Sage/GAP docs, FindStat, OEIS, theses, code repos) could contain overlapping computed values without formal publication; record itself notes folklore one-liners but claims novelty only as first independently recheckable exhaustive certificate.",
+    "Originality revalidation: Full-text mining limited to abstracts/landing pages via arXiv and Crossref; inaccessible paywalled appendices or unindexed tables with n=12 values cannot be logically excluded.",
+    "Originality revalidation: OpenAlex quota exhausted and Semantic Scholar rate-limited at check time, so those services could not corroborate; relied on arXiv API plus Crossref API as the two independent services, with publisher DOI resolution spot-checked.",
+    "Originality revalidation: Terminology variation (Clebsch-Gordan, Kronecker product, tensor multiplicity, character inner product) means differently-worded tables could be missed despite multiple formulations searched."
+  ],
+  "verdict": "PASS"
+}

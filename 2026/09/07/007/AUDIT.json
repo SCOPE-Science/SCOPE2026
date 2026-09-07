@@ -1,1 +1,269 @@
-{"axes": {"correctness": {"rationale": "Theorem (rt=34 exact) independently reproduced bit-for-bit: a=(1,2,3,4,0,0,5,6) is one-cluster with unique cycle {0,1,2,3,4} (5->0,6->5,7->6); b=(1,7,3,4,0,2,5,6) is a permutation; |w|=34; direct simulation collapses all 8 states to {0} with first-reset prefix 34. Fresh independent BFS (integer-mask, separate code path from verifier) gives forward distance 34 with 248/256 masks reachable and reverse distance 34 (255 ancestors), matching stored dist_main.json entry-for-entry (248 entries, FULL=0, singleton {0}=34). Pair-automaton BFS confirms all 28 unordered pairs merge (synchronizing). All 10 catalog entries re-checked with fresh BFS: each resets as claimed, each BFS distance equals claimed L, each a one-cluster 5-cycle, each b a permutation. Enumeration claims reproduced: 320/512 assignments keep one-cluster 5-cycle property; orbit computation under 5-cycle rotation + S3 on {5,6,7} yields exactly the 14 listed canonical a-types (orbit sizes 5+4x15+7x30+15+30=320). Proposition (perm-b max=34) fully reproduced by independent exhaustive rerun of all 14x40320=564480 automata in ~32s: total sync 550796 exactly as claimed, per-type sync 39168 (type0), 39468 (0,0,5,5), 39452 (0,0,5,6) all match, global max 34 attained uniquely by the main witness, first-12 total 471876 matches. Draft honestly distinguishes proof (exact BFS + exhaustive perm census) from heuristic evidence (484k mixed trials + 318k ILS kicks finding nothing >34, correctly not claimed as proof of full-slice M). Minor rounding only: 550796/564480=97.5758% vs stated 97.55%, 477625/484000=98.6829% vs 98.67% — immaterial.", "verdict": "PASS"}, "originality": {"rationale": "Substantive content comparison, not timestamp/search-count. Nearest results: (i) Steinberg 2011 (arXiv:1107.3051) proves Cerny upper bound (n-1)^2=49 for prime-cycle one-cluster automata — upper-bound only, no exact n=8 k=5 maximum, no extremal witness, no census; this work is complementary lower-bound/exact side (M>=34 + exact perm-subslice max 34) inside Steinberg's regime. (ii) Kisielewicz-Kowalski-Szykula experiments / Szykula database target unrestricted and Cerny-cyclic automata and report slowly synchronizing series, but do not isolate the (n=8,binary,one-cluster,5-cycle) slice nor its maximum; methods and slice disjoint. (iii) Volkov survey lists general bounds (Cerny 49, Kari Eulerian, Trahtman/Rystsov aperiodic 28, monotonic) and known series (Cerny, Kari, Ananichev) — no tight prime-5-cycle n=8 value; confirms gap. Structural disjointness checked: witness is not Cerny (would need rt 49; a is not 8-cycle), not Kari Eulerian (a indegrees 2,1,1,1,1,1,1,0, not Eulerian), b is an 8-cycle so swapped-role view still does not match Cerny merging shape. Live literature fetches failed in sandbox (arxiv 502, wikipedia transport error, curl TLS SSL_ERROR_SYSCALL) as the draft itself discloses; no priority claim is made and none is needed — novelty rests on checkable artifacts and the absence of this exact table from standard bounds/surveys by content. Residual risk of a missed prior table remains but does not defeat substantive delta.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding later. Not textbook: Cerny open since 1964, exact small-n maxima for structured slices are active research. Not parameter substitution: 5-cycle one-cluster restriction is qualitative (Steinberg theorem regime, excludes 8-cycle Cerny shape, changes combinatorics), not n=7->8. Not tiny epsilon gain: 34 exceeds the aperiodic universal bound 28 by 6 (21% over) and attains ~69% of Cerny 49, proving prime-cycle restriction still permits super-aperiodic slowness — a regime-crossing threshold with landscape meaning between 28 and 49. Not unexplained enumeration: every catalog entry carries shortest word + forward/reverse BFS distances + replay check, plus distribution histograms (mixed 484k, perm 564k) and comparison to Steinberg/Cerny/aperiodic bounds; exhaustive perm-b census (564480 automata, exact max 34) is a complete enumerative theorem for a natural subcase (permutation letter), with reusable stdlib verifier (<2s). Fallback anticipated >=25 catalog if >=32 missed; actual 34 exceeds the motivating >=32 threshold. Honest scope (full M not pinned, non-perm >34 possible) preserves value as lower bound + benchmark.", "verdict": "PASS"}}, "checked_sources": ["inputs/topic.json", "inputs/DRAFT.md", "inputs/research_report.json", "inputs/artifacts/witness_main.json", "inputs/artifacts/replay_verify.py", "inputs/artifacts/catalog_top10.json", "inputs/artifacts/dist_main.json", "inputs/artifacts/survey_log.json", "inputs/artifacts/survey_mixed_484k.json", "inputs/artifacts/perm_exhaust_first12.json", "inputs/artifacts/perm_exhaust_tail2.json", "cutoff knowledge: Steinberg 2011 prime-cycle one-cluster upper bound; Cerny (n-1)^2; Kari Eulerian n^2-3n+3; Trahtman/Rystsov aperiodic n(n-1)/2; Kisielewicz-Kowalski-Szykula experiments; Volkov survey", "live-fetch attempts (all failed, as disclosed): webfetch arxiv abs/1107.3051 -> 502; webfetch wikipedia Synchronizing_word -> transport error; curl arxiv.org -> SSL_ERROR_SYSCALL"], "decisive_checks": ["replayed w length 34, one-cluster unique cycle {0..4}, b permutation, simulation to {0}, first-reset prefix 34", "ran inputs/artifacts/replay_verify.py: all 7 checks PASS", "fresh independent forward BFS: dist 34, 248 reachable; reverse BFS: dist[FULL] 34; pair-automaton all 28 pairs mergeable; stored dist table matches recomputed entry-for-entry", "re-verified all 10 catalog entries with fresh BFS (L, reset state, prefix, one-cluster, perm all match)", "recomputed 320/512 one-cluster count and 14 canonical classes under rotation+S3 — exact match to listed 14, orbit sizes sum to 320", "exhaustive rerun for witness a-type over 40320 b-perms: sync 39452 matches log, max 34 unique at witness b", "full independent exhaustive rerun 14x40320=564480 in ~32s: total sync 550796 matches, global max 34 unique at witness; first-12 471876 and tail-2 78920 arithmetic consistent", "arithmetic: 550796/564480=97.5758%, 477625/484000=98.6829%; draft rounding 97.55%/98.67% immaterial"], "residual_risks": ["Live literature search impossible in sandbox (TLS/502); originality rests on cutoff-knowledge content comparison plus honest no-priority claim — small risk of missed prior (n=8,k=5) table.", "Full-slice maximum M (arbitrary b over 8^8 per a-type, ~235M automata) not determined; non-permutation b with rt>34 remains logically possible; draft states this explicitly.", "Original 564k search code not archived verbatim (method record only), but auditor's independent 32s reproduction eliminates dependence on it.", "Wall-clock figures machine-specific; minor rounding deviations in percentages; neither affects exact claims."], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem (rt=34 exact) independently reproduced bit-for-bit: a=(1,2,3,4,0,0,5,6) is one-cluster with unique cycle {0,1,2,3,4} (5->0,6->5,7->6); b=(1,7,3,4,0,2,5,6) is a permutation; |w|=34; direct simulation collapses all 8 states to {0} with first-reset prefix 34. Fresh independent BFS (integer-mask, separate code path from verifier) gives forward distance 34 with 248/256 masks reachable and reverse distance 34 (255 ancestors), matching stored dist_main.json entry-for-entry (248 entries, FULL=0, singleton {0}=34). Pair-automaton BFS confirms all 28 unordered pairs merge (synchronizing). All 10 catalog entries re-checked with fresh BFS: each resets as claimed, each BFS distance equals claimed L, each a one-cluster 5-cycle, each b a permutation. Enumeration claims reproduced: 320/512 assignments keep one-cluster 5-cycle property; orbit computation under 5-cycle rotation + S3 on {5,6,7} yields exactly the 14 listed canonical a-types (orbit sizes 5+4x15+7x30+15+30=320). Proposition (perm-b max=34) fully reproduced by independent exhaustive rerun of all 14x40320=564480 automata in ~32s: total sync 550796 exactly as claimed, per-type sync 39168 (type0), 39468 (0,0,5,5), 39452 (0,0,5,6) all match, global max 34 attained uniquely by the main witness, first-12 total 471876 matches. Draft honestly distinguishes proof (exact BFS + exhaustive perm census) from heuristic evidence (484k mixed trials + 318k ILS kicks finding nothing >34, correctly not claimed as proof of full-slice M). Minor rounding only: 550796/564480=97.5758% vs stated 97.55%, 477625/484000=98.6829% vs 98.67% — immaterial.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Checked the conjunction: (i) existence of binary 8-state synchronizing DFA with one-cluster letter a of 5-cycle type and exact shortest reset length 34 via explicit a=(1,2,3,4,0,0,5,6), b=(1,7,3,4,0,2,5,6) 8-cycle, w=aaabaabaaaabaabaaaabaabaaaabaabaaa to {0} with minimality; (ii) exact perm-b sub-slice maximum 34 uniquely attained over 14 canonical a-types x 40320 b (564480 automata, 550796 sync). Live retrieval on two services (Crossref + arXiv API/abs/HTML) with 7 queries (exact claim, prime-cycle one-cluster, reset-34/n=8, extremal reset) found only universal upper bounds and disjoint exhaustive programs. Steinberg full text proves only <=(n-1)^2 (=49 for n=8) with no lower-bound example and no n=8 specialization; Beal et al. prove O(n^2) upper bound only; Kisielewicz-Szykula 1404.3311 proves refined D*(m,k) upper bounds and a sieving algorithm (tables for m=4..12, savings for n=7/n=6) with no (n=8,k=5) census; Experiments verifies <=49 for all binary n<=12 but publishes no slice maximum; Extremal Properties gives ternary n^2-3n+3 series, structurally disjoint (binary vs ternary, circular/Cerny vs one-cluster 5-cycle, series vs finite census). Targeted reset-34/n=8 searches returned only irrelevant physics/ML hits (e.g. superconductors, continual learning) or chaos-synchronization papers, i.e. null result for the exact constant. Hypotheses, quantifiers (universal bound vs existential exact witness + universal-exhaustive perm-subslice max), parameter ranges (all n vs fixed n=8,k=5,perm-b), constants (49/28 vs exact 34), and scope (inequality proof vs 256-subset BFS certificate + 564480-case enumeration) are all disjoint. No source covers or implies M>=34 or perm-max=34.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later. Not textbook: Cerny open since 1964, exact small-n maxima for structured slices are active research. Not parameter substitution: 5-cycle one-cluster restriction is qualitative (Steinberg theorem regime, excludes 8-cycle Cerny shape, changes combinatorics), not n=7->8. Not tiny epsilon gain: 34 exceeds the aperiodic universal bound 28 by 6 (21% over) and attains ~69% of Cerny 49, proving prime-cycle restriction still permits super-aperiodic slowness — a regime-crossing threshold with landscape meaning between 28 and 49. Not unexplained enumeration: every catalog entry carries shortest word + forward/reverse BFS distances + replay check, plus distribution histograms (mixed 484k, perm 564k) and comparison to Steinberg/Cerny/aperiodic bounds; exhaustive perm-b census (564480 automata, exact max 34) is a complete enumerative theorem for a natural subcase (permutation letter), with reusable stdlib verifier (<2s). Fallback anticipated >=25 catalog if >=32 missed; actual 34 exceeds the motivating >=32 threshold. Honest scope (full M not pinned, non-perm >34 possible) preserves value as lower bound + benchmark.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Correct preprint/journal version of the prime-cycle one-cluster upper bound cited in record (record cites wrong arXiv:1107.3051 which is Mg atomic physics, and wrong 1309.0044 which is Vlasov solver; live search recovered correct id arXiv:1005.1835 / DOI 10.1016/j.tcs.2011.06.012). Proves (n-1)^2 upper bound for all prime-cycle one-cluster automata; gives no lower bound, no exact n=8 k=5 value, no witness.",
+      "title": "The Cerny conjecture for one-cluster automata with prime length cycle — Steinberg (2010 arXiv:1005.1835; 2011 TCS 412:5487-5491)",
+      "url": "https://arxiv.org/abs/1005.1835"
+    },
+    {
+      "outcome": "General quadratic upper bound for all one-cluster automata (any cycle length) and Huffman decoders. Same regime as candidate but opposite direction (upper bound vs exact lower-bound/witness and exhaustive perm-subslice maximum). No (n=8,5-cycle) table, no constant 34.",
+      "title": "A quadratic upper bound on the size of a synchronizing word in one-cluster automata — Beal, Berlinkov, Perrin (IJFCS 2011)",
+      "url": "https://doi.org/10.1142/S0129054111008039"
+    },
+    {
+      "outcome": "Nearest computational/exhaustive-search program: refines one-cluster bounds to prune exhaustive generation and reports sieving savings for n=7 binary and n=6 ternary thresholds. Methods overlap (power-automaton BFS, Frankl-Pin bounds) but scope is bounds-plus-algorithm with focus k>2, not the claimed (n=8,binary,one-cluster,5-cycle, perm-b) complete census with max 34 and top-10 catalog.",
+      "title": "Generating Synchronizing Automata with Large Reset Lengths — Kisielewicz, Szykula (arXiv:1404.3311)",
+      "url": "https://arxiv.org/abs/1404.3311"
+    },
+    {
+      "outcome": "Nearest exhaustive-verification benchmark: checks Cerny inequality for every binary automaton to n=12 (which would include the candidate witness as one point with 34<=49) but does not isolate, enumerate, or maximize the (n=8,binary,one-cluster,5-cycle) slice and does not report its maximum 34, uniqueness, or top-10 list. Consistent with but does not imply the candidate.",
+      "title": "Experiments with Synchronizing Automata — Kisielewicz, Kowalski, Szykula (arXiv:1607.04025; CIAA 2016)",
+      "url": "https://arxiv.org/abs/1607.04025"
+    }
+  ],
+  "decisive_checks": [
+    "replayed w length 34, one-cluster unique cycle {0..4}, b permutation, simulation to {0}, first-reset prefix 34",
+    "ran inputs/artifacts/replay_verify.py: all 7 checks PASS",
+    "fresh independent forward BFS: dist 34, 248 reachable; reverse BFS: dist[FULL] 34; pair-automaton all 28 pairs mergeable; stored dist table matches recomputed entry-for-entry",
+    "re-verified all 10 catalog entries with fresh BFS (L, reset state, prefix, one-cluster, perm all match)",
+    "recomputed 320/512 one-cluster count and 14 canonical classes under rotation+S3 — exact match to listed 14, orbit sizes sum to 320",
+    "exhaustive rerun for witness a-type over 40320 b-perms: sync 39452 matches log, max 34 unique at witness b",
+    "full independent exhaustive rerun 14x40320=564480 in ~32s: total sync 550796 matches, global max 34 unique at witness; first-12 471876 and tail-2 78920 arithmetic consistent",
+    "arithmetic: 550796/564480=97.5758%, 477625/484000=98.6829%; draft rounding 97.55%/98.67% immaterial"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:12:30Z",
+    "queries": [
+      {
+        "query": "Steinberg Cerny conjecture one-cluster prime length cycle",
+        "result_count": 1787557,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=Steinberg+Cerny+one-cluster+prime+cycle&rows=5"
+      },
+      {
+        "query": "one-cluster automata synchronizing reset length",
+        "result_count": 1555931,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=one-cluster+automata+synchronizing+reset+length&rows=5"
+      },
+      {
+        "query": "reset threshold 34 synchronizing automaton 8 states",
+        "result_count": 2954828,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=reset+threshold+34+synchronizing+automaton+8+states&rows=5"
+      },
+      {
+        "query": "au:Steinberg AND all:Cerny",
+        "result_count": 3,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "http://export.arxiv.org/api/query?search_query=au:Steinberg+AND+all:Cerny&start=0&max_results=5&sortBy=relevance"
+      },
+      {
+        "query": "all:\"one-cluster\" AND all:synchronizing",
+        "result_count": 18,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "http://export.arxiv.org/api/query?search_query=all:%22one-cluster%22+AND+all:synchronizing&start=0&max_results=10&sortBy=relevance"
+      },
+      {
+        "query": "all:synchronizing automata AND all:reset threshold AND all:extremal",
+        "result_count": 23113,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "http://export.arxiv.org/api/query?search_query=all:synchronizing+automata+AND+all:reset+threshold+AND+all:extremal&start=0&max_results=10&sortBy=relevance"
+      },
+      {
+        "query": "all:reset threshold AND all:\"n=8\"",
+        "result_count": 2748,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "http://export.arxiv.org/api/query?search_query=all:reset+threshold+AND+all:%22n%3D8%22&start=0&max_results=5&sortBy=relevance"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Full HTML inspected: proves universal upper bound (n-1)^2 for synchronizing one-cluster automata with prime cycle length p (Theorem 8: n-p+1+2l+(p-2)(n+l) <= (n-1)^2). Quantifiers are universal over all n,l,p; no exact small-n maximum, no extremal witness, no enumeration of (n=8,k=5) slice, no constant 34, no 564480-automaton census. Complementary upper-bound side only.",
+        "retrieved_at_utc": "2026-09-07T14:10:45Z",
+        "title": "The Cerny conjecture for one-cluster automata with prime length cycle — Benjamin Steinberg",
+        "url": "https://arxiv.org/abs/1005.1835"
+      },
+      {
+        "comparison": "Crossref metadata plus abstract inspected: proves existence of quadratic O(n^2) synchronizing word for any synchronized n-state one-cluster automaton (letter a with p.a^r=q.a^s) with application to Huffman decoders. General upper-bound theorem for all n; states no exact n=8 k=5 maximum, no reset length 34, no perm-b sub-slice census, no explicit a=(1,2,3,4,0,0,5,6) witness.",
+        "retrieved_at_utc": "2026-09-07T14:10:20Z",
+        "title": "A QUADRATIC UPPER BOUND ON THE SIZE OF A SYNCHRONIZING WORD IN ONE-CLUSTER AUTOMATA — Beal, Berlinkov, Perrin",
+        "url": "https://doi.org/10.1142/S0129054111008039"
+      },
+      {
+        "comparison": "Abstract and full HTML inspected: refines Frankl-Pin and Beal/Berlinkov/Perrin/Steinberg one-cluster bounds (Theorem 2.4 with D*(m,k) sums, Corollary 2) to sieve exhaustive search for k>2 and small n thresholds (e.g. n=7,k=2 threshold n^2-5n+9; n=6,k=3 threshold (n-1)^2). Reports method and savings tables, not a completed (n=8,binary,one-cluster,5-cycle) census; no 14 canonical a-types, no 40320 b-permutations, no max-34 uniqueness claim, no matching witness word.",
+        "retrieved_at_utc": "2026-09-07T14:11:30Z",
+        "title": "Generating Synchronizing Automata with Large Reset Lengths — Kisielewicz, Szykula",
+        "url": "https://arxiv.org/abs/1404.3311"
+      },
+      {
+        "comparison": "Abstract page inspected: verifies Cerny conjecture for all binary automata with at most 12 states and ternary with at most 8 states via improved generation algorithm. Universal verification that every such automaton has reset length <= (n-1)^2 (hence consistent with rt=34 <=49 for n=8) but publishes no per-slice (n=8,binary,one-cluster,5-cycle) maximum table, no 34/33/32 catalog, no perm-b exhaustive counts 564480/550796.",
+        "retrieved_at_utc": "2026-09-07T14:10:35Z",
+        "title": "Experiments with Synchronizing Automata — Kisielewicz, Kowalski, Szykula",
+        "url": "https://arxiv.org/abs/1607.04025"
+      },
+      {
+        "comparison": "Abstract page inspected: presents Theta(n^2) extendability counterexamples, image-extension conjecture discussion, and two ternary slowly-irreducibly-synchronizing series with reset lengths n^2-3n+3 and n^2-3n+2. Alphabet is ternary, construction is infinite-series extremal, not binary n=8 k=5 exhaustive census; parameter ranges, constants, and proof scope are disjoint from exact rt=34 perm-subslice maximum.",
+        "retrieved_at_utc": "2026-09-07T14:10:55Z",
+        "title": "Synchronizing Automata with Extremal Properties — Kisielewicz, Szykula",
+        "url": "https://arxiv.org/abs/1608.01268"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:12:30Z",
+      "queries": [
+        {
+          "query": "Steinberg Cerny conjecture one-cluster prime length cycle",
+          "result_count": 1787557,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=Steinberg+Cerny+one-cluster+prime+cycle&rows=5"
+        },
+        {
+          "query": "one-cluster automata synchronizing reset length",
+          "result_count": 1555931,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=one-cluster+automata+synchronizing+reset+length&rows=5"
+        },
+        {
+          "query": "reset threshold 34 synchronizing automaton 8 states",
+          "result_count": 2954828,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=reset+threshold+34+synchronizing+automaton+8+states&rows=5"
+        },
+        {
+          "query": "au:Steinberg AND all:Cerny",
+          "result_count": 3,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "http://export.arxiv.org/api/query?search_query=au:Steinberg+AND+all:Cerny&start=0&max_results=5&sortBy=relevance"
+        },
+        {
+          "query": "all:\"one-cluster\" AND all:synchronizing",
+          "result_count": 18,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "http://export.arxiv.org/api/query?search_query=all:%22one-cluster%22+AND+all:synchronizing&start=0&max_results=10&sortBy=relevance"
+        },
+        {
+          "query": "all:synchronizing automata AND all:reset threshold AND all:extremal",
+          "result_count": 23113,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "http://export.arxiv.org/api/query?search_query=all:synchronizing+automata+AND+all:reset+threshold+AND+all:extremal&start=0&max_results=10&sortBy=relevance"
+        },
+        {
+          "query": "all:reset threshold AND all:\"n=8\"",
+          "result_count": 2748,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "http://export.arxiv.org/api/query?search_query=all:reset+threshold+AND+all:%22n%3D8%22&start=0&max_results=5&sortBy=relevance"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Full HTML inspected: proves universal upper bound (n-1)^2 for synchronizing one-cluster automata with prime cycle length p (Theorem 8: n-p+1+2l+(p-2)(n+l) <= (n-1)^2). Quantifiers are universal over all n,l,p; no exact small-n maximum, no extremal witness, no enumeration of (n=8,k=5) slice, no constant 34, no 564480-automaton census. Complementary upper-bound side only.",
+          "retrieved_at_utc": "2026-09-07T14:10:45Z",
+          "title": "The Cerny conjecture for one-cluster automata with prime length cycle — Benjamin Steinberg",
+          "url": "https://arxiv.org/abs/1005.1835"
+        },
+        {
+          "comparison": "Crossref metadata plus abstract inspected: proves existence of quadratic O(n^2) synchronizing word for any synchronized n-state one-cluster automaton (letter a with p.a^r=q.a^s) with application to Huffman decoders. General upper-bound theorem for all n; states no exact n=8 k=5 maximum, no reset length 34, no perm-b sub-slice census, no explicit a=(1,2,3,4,0,0,5,6) witness.",
+          "retrieved_at_utc": "2026-09-07T14:10:20Z",
+          "title": "A QUADRATIC UPPER BOUND ON THE SIZE OF A SYNCHRONIZING WORD IN ONE-CLUSTER AUTOMATA — Beal, Berlinkov, Perrin",
+          "url": "https://doi.org/10.1142/S0129054111008039"
+        },
+        {
+          "comparison": "Abstract and full HTML inspected: refines Frankl-Pin and Beal/Berlinkov/Perrin/Steinberg one-cluster bounds (Theorem 2.4 with D*(m,k) sums, Corollary 2) to sieve exhaustive search for k>2 and small n thresholds (e.g. n=7,k=2 threshold n^2-5n+9; n=6,k=3 threshold (n-1)^2). Reports method and savings tables, not a completed (n=8,binary,one-cluster,5-cycle) census; no 14 canonical a-types, no 40320 b-permutations, no max-34 uniqueness claim, no matching witness word.",
+          "retrieved_at_utc": "2026-09-07T14:11:30Z",
+          "title": "Generating Synchronizing Automata with Large Reset Lengths — Kisielewicz, Szykula",
+          "url": "https://arxiv.org/abs/1404.3311"
+        },
+        {
+          "comparison": "Abstract page inspected: verifies Cerny conjecture for all binary automata with at most 12 states and ternary with at most 8 states via improved generation algorithm. Universal verification that every such automaton has reset length <= (n-1)^2 (hence consistent with rt=34 <=49 for n=8) but publishes no per-slice (n=8,binary,one-cluster,5-cycle) maximum table, no 34/33/32 catalog, no perm-b exhaustive counts 564480/550796.",
+          "retrieved_at_utc": "2026-09-07T14:10:35Z",
+          "title": "Experiments with Synchronizing Automata — Kisielewicz, Kowalski, Szykula",
+          "url": "https://arxiv.org/abs/1607.04025"
+        },
+        {
+          "comparison": "Abstract page inspected: presents Theta(n^2) extendability counterexamples, image-extension conjecture discussion, and two ternary slowly-irreducibly-synchronizing series with reset lengths n^2-3n+3 and n^2-3n+2. Alphabet is ternary, construction is infinite-series extremal, not binary n=8 k=5 exhaustive census; parameter ranges, constants, and proof scope are disjoint from exact rt=34 perm-subslice maximum.",
+          "retrieved_at_utc": "2026-09-07T14:10:55Z",
+          "title": "Synchronizing Automata with Extremal Properties — Kisielewicz, Szykula",
+          "url": "https://arxiv.org/abs/1608.01268"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Correct preprint/journal version of the prime-cycle one-cluster upper bound cited in record (record cites wrong arXiv:1107.3051 which is Mg atomic physics, and wrong 1309.0044 which is Vlasov solver; live search recovered correct id arXiv:1005.1835 / DOI 10.1016/j.tcs.2011.06.012). Proves (n-1)^2 upper bound for all prime-cycle one-cluster automata; gives no lower bound, no exact n=8 k=5 value, no witness.",
+        "title": "The Cerny conjecture for one-cluster automata with prime length cycle — Steinberg (2010 arXiv:1005.1835; 2011 TCS 412:5487-5491)",
+        "url": "https://arxiv.org/abs/1005.1835"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "General quadratic upper bound for all one-cluster automata (any cycle length) and Huffman decoders. Same regime as candidate but opposite direction (upper bound vs exact lower-bound/witness and exhaustive perm-subslice maximum). No (n=8,5-cycle) table, no constant 34.",
+        "title": "A quadratic upper bound on the size of a synchronizing word in one-cluster automata — Beal, Berlinkov, Perrin (IJFCS 2011)",
+        "url": "https://doi.org/10.1142/S0129054111008039"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest computational/exhaustive-search program: refines one-cluster bounds to prune exhaustive generation and reports sieving savings for n=7 binary and n=6 ternary thresholds. Methods overlap (power-automaton BFS, Frankl-Pin bounds) but scope is bounds-plus-algorithm with focus k>2, not the claimed (n=8,binary,one-cluster,5-cycle, perm-b) complete census with max 34 and top-10 catalog.",
+        "title": "Generating Synchronizing Automata with Large Reset Lengths — Kisielewicz, Szykula (arXiv:1404.3311)",
+        "url": "https://arxiv.org/abs/1404.3311"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest exhaustive-verification benchmark: checks Cerny inequality for every binary automaton to n=12 (which would include the candidate witness as one point with 34<=49) but does not isolate, enumerate, or maximize the (n=8,binary,one-cluster,5-cycle) slice and does not report its maximum 34, uniqueness, or top-10 list. Consistent with but does not imply the candidate.",
+        "title": "Experiments with Synchronizing Automata — Kisielewicz, Kowalski, Szykula (arXiv:1607.04025; CIAA 2016)",
+        "url": "https://arxiv.org/abs/1607.04025"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-007",
+    "originality_rationale": "Checked the conjunction: (i) existence of binary 8-state synchronizing DFA with one-cluster letter a of 5-cycle type and exact shortest reset length 34 via explicit a=(1,2,3,4,0,0,5,6), b=(1,7,3,4,0,2,5,6) 8-cycle, w=aaabaabaaaabaabaaaabaabaaaabaabaaa to {0} with minimality; (ii) exact perm-b sub-slice maximum 34 uniquely attained over 14 canonical a-types x 40320 b (564480 automata, 550796 sync). Live retrieval on two services (Crossref + arXiv API/abs/HTML) with 7 queries (exact claim, prime-cycle one-cluster, reset-34/n=8, extremal reset) found only universal upper bounds and disjoint exhaustive programs. Steinberg full text proves only <=(n-1)^2 (=49 for n=8) with no lower-bound example and no n=8 specialization; Beal et al. prove O(n^2) upper bound only; Kisielewicz-Szykula 1404.3311 proves refined D*(m,k) upper bounds and a sieving algorithm (tables for m=4..12, savings for n=7/n=6) with no (n=8,k=5) census; Experiments verifies <=49 for all binary n<=12 but publishes no slice maximum; Extremal Properties gives ternary n^2-3n+3 series, structurally disjoint (binary vs ternary, circular/Cerny vs one-cluster 5-cycle, series vs finite census). Targeted reset-34/n=8 searches returned only irrelevant physics/ML hits (e.g. superconductors, continual learning) or chaos-synchronization papers, i.e. null result for the exact constant. Hypotheses, quantifiers (universal bound vs existential exact witness + universal-exhaustive perm-subslice max), parameter ranges (all n vs fixed n=8,k=5,perm-b), constants (49/28 vs exact 34), and scope (inequality proof vs 256-subset BFS certificate + 564480-case enumeration) are all disjoint. No source covers or implies M>=34 or perm-max=34.",
+    "priority_caveat": "This PASS is not an award of academic priority; it reports only that this documented live search found no source substantively covering or implying the candidate. It does not establish novelty, precedence, or non-existence of unpublished or unindexed prior art.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-007",
+    "residual_uncertainties": [
+      "Record source_urls contain two wrong arXiv IDs (1107.3051 = Mg frequency measurement; 1309.0044 = Vlasov solver); correct IDs were recovered live (Steinberg 1005.1835; Kisielewicz-Szykula 1404.3311/1607.04025) but uncorrected citations in downstream records could hide additional references.",
+      "Paywalled full texts (Volkov LATA 2008 survey DOI 10.1007/978-3-540-88282-4_4; Szykula MFCS 2015 chapter; Beal journal PDF) inspected via Crossref metadata/abstracts and open arXiv versions only; a hidden (n=8,k=5)=34 table inside paywalled pages or Szykula online database of small extremal automata cannot be logically excluded, though abstracts/Tables 1-3 show disjoint scope.",
+      "Terminology varies (one-cluster vs single-cluster vs quasi-one-cluster vs aperiodic vs circular); searches covered main variants but an differently-indexed census table using nonstandard terms could be missed.",
+      "Full-slice maximum M over arbitrary b (~235M automata) remains open per record; review covers only the proved witness lower bound and perm-b sub-slice maximum, not a claim that 34 is the full-slice maximum."
+    ],
+    "reviewed_claim": "Binary 8-state synchronizing DFA with one-cluster letter a of 5-cycle type a=(1,2,3,4,0,0,5,6), permutation letter b=(1,7,3,4,0,2,5,6) has exact shortest reset-word length 34 (word w=aaabaabaaaabaabaaaabaabaaaabaabaaa to {0}, no shorter word), hence slice maximum M>=34; and over the b-permutation sub-slice (14 canonical a-types x 40320 b = 564480 automata) the maximum shortest reset length is exactly 34 uniquely attained by this witness.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "Exact-claim formulation: reset threshold 34 + synchronizing automaton 8 states (Crossref + arXiv API)",
+      "Strongest subclaim: one-cluster automata synchronizing reset length (Crossref) and all:one-cluster AND synchronizing (arXiv API, 18 hits inspected)",
+      "Named objects/methods: Steinberg Cerny prime-cycle one-cluster (Crossref + arXiv au:Steinberg AND Cerny, recovered correct arXiv:1005.1835 correcting record typo 1107.3051)",
+      "Equivalent terminology: synchronizing automata reset threshold extremal + one-cluster/quasi-one-cluster/Eulerian variants (arXiv API, 23113 hits, top-10 inspected); Volkov survey and Kisielewicz-Kowalski-Szykula experiments/extremal series via Crossref",
+      "Negative-control queries: n=8 reset threshold (arXiv, 2748 hits all irrelevant) and 1309.0044/1107.3051 ID verification (both resolve to unrelated physics, confirming record citation errors)"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Live literature search impossible in sandbox (TLS/502); originality rests on cutoff-knowledge content comparison plus honest no-priority claim — small risk of missed prior (n=8,k=5) table.",
+    "Full-slice maximum M (arbitrary b over 8^8 per a-type, ~235M automata) not determined; non-permutation b with rt>34 remains logically possible; draft states this explicitly.",
+    "Original 564k search code not archived verbatim (method record only), but auditor's independent 32s reproduction eliminates dependence on it.",
+    "Wall-clock figures machine-specific; minor rounding deviations in percentages; neither affects exact claims.",
+    "Originality revalidation: Record source_urls contain two wrong arXiv IDs (1107.3051 = Mg frequency measurement; 1309.0044 = Vlasov solver); correct IDs were recovered live (Steinberg 1005.1835; Kisielewicz-Szykula 1404.3311/1607.04025) but uncorrected citations in downstream records could hide additional references.",
+    "Originality revalidation: Paywalled full texts (Volkov LATA 2008 survey DOI 10.1007/978-3-540-88282-4_4; Szykula MFCS 2015 chapter; Beal journal PDF) inspected via Crossref metadata/abstracts and open arXiv versions only; a hidden (n=8,k=5)=34 table inside paywalled pages or Szykula online database of small extremal automata cannot be logically excluded, though abstracts/Tables 1-3 show disjoint scope.",
+    "Originality revalidation: Terminology varies (one-cluster vs single-cluster vs quasi-one-cluster vs aperiodic vs circular); searches covered main variants but an differently-indexed census table using nonstandard terms could be missed.",
+    "Originality revalidation: Full-slice maximum M over arbitrary b (~235M automata) remains open per record; review covers only the proved witness lower bound and perm-b sub-slice maximum, not a claim that 34 is the full-slice maximum."
+  ],
+  "verdict": "PASS"
+}

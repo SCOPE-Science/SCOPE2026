@@ -1,1 +1,357 @@
-{"axes": {"correctness": {"rationale": "Lemma 1 (translation fixing for pairwise-coprime C): proof checked. Pairwise-coprime divisors of L have product dividing L by prime-exponent argument; CRT gives t with a_c+t=0 for all c in C; permutation x->x+t preserves density. Empirically confirmed on [7,8,9,10] (full 5040-combo optimum 1032/2520 equals C-fixed optimum). Lemma 2 (prime peeling): proof checked. Equivalence p prime with no multiples <=> p not dividing L0 holds because p|L0 iff p divides some m in S0. Lift counting uses gcd(L0,p)=1 so y+tL0 runs through all residues mod p; uncovered=(L0-c0)(p-1), D=D0+U0/p independent of a_p. Empirically confirmed on S0=[7,8,9,10] lifted by 11: all 11 residues give 12840/27720=107/231 as predicted. Iteration for distinct new primes valid as removal cannot create multiples. Lemma 3 (prime-max exchange): proof checked with one implicit step made explicit: any 9-set in [7,60] with prime max has max>=17 (7..13 contains only 7 numbers), while smallest unused m* in [7,24] is <=16 (7..16 contains 10 numbers), so m*<m_max; averaging argument Dmax(S')>=D0+U0/m* holds for any divisibility because for fixed S0 pattern each uncovered x is hit by exactly one of m* residues. Hence no optimal set has prime maximum. Union-bound maximizer 7..15 with sum 62575/72072 verified by Fraction; exchange by 1/m monotonicity valid. Witness densities verified by independent stdlib bytearray LCM enumeration: 36340/55440=1817/2772, 3290/5040=47/72, top-5 table rows match. Table completeness verified: 2002 distinct rows equal all C(14,9) subsets of [7,20], sorted descending. Core optima independently re-proved by a different branch-and-bound (union-bound pruning, no affine orbits): best core 3130/5040 (120960 combos brute-forced in 0.9s), runner-up 3290/5040 (2177280 combos in 15.3s), hardest 43M-combo core [8,9,10,12,14,15,16,18,20] proved 3140/5040 in 1.4s with 15783 nodes, 10-core random sample all optimal, and full 2002-set independent B&B in 106.4s found zero cases beating the table. Deterministic replay reproduce_census_7_20.py reran in 27.0s asserting best 1817/2772. Corollary interval for [7,60] follows rigorously from witness (lower) and union bound (upper). Machine-checked enumeration is experimental evidence with two independent implementations agreeing; lemmas are proofs.", "verdict": "PASS"}, "originality": {"rationale": "Live retrieval completed on 2026-09-07 via arXiv (single-paper and API) and Crossref (API + DOI). No prior maximal-density census for k=9, min>=7 in [7,20] or [7,60] was found. Nearest results compared substantively: (1) Hough 2015 arXiv:1307.0874 / Annals 2015 proves qualitative least-modulus bound (~1e16-1e18), concerns existence of full distinct coverings, gives no D*(9) value, witness, or LCM table. (2) Balister et al. Inventiones 2022 DOI 10.1007/s00222-021-01087-5 gives sieve/asymptotic bounds on density of uncovered set for large moduli, no exact reduced-fraction optimum or joint modulus+residue enumeration for nine moduli in [7,20]. (3) Zhang-Zhang arXiv:2607.19029 (2026) determines minimal LCM 10080 for a full distinct covering with minimum modulus 7, concerns complete coverings via filtering+Gurobi, not maximal density of incomplete 9-systems, and reports no 1817/2772 witness or 2002-row census. Crossref density query and arXiv distinct-covering query returned only these qualitative/full-covering works, no competing 1817/2772 or 47/72 table. Draft citation URL https://arxiv.org/abs/1904.09667 for Balister is erroneous (that ID resolves to a scheduling paper, verified live); correct Balister density paper is the Inventiones DOI above. This hygiene error does not create a novelty collision and is fixed in RESULT.md. Timestamp/memory/failed-search were not used to establish priority.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding later as a citable Erd\u0151s-benchmark number with reusable certificate, not a textbook restatement or parameter tweak. Textbook gives only Mirsky-Newman and 2,3,4,6,12 full covering (density 1, min<=2) and union bound 0.868; exact optimum 0.65548 requires handling overlaps and joint modulus+residue optimization, shown non-trivial by gap 0.002706 to runner-up 47/72 and by composite-beats-prime-heavy phenomenon (best union 0.8538 set is not best true density; 7..15 union 0.868 vs true 0.645). Stratum is principled: [7,60]x9 is first reciprocal-sum-impossible stratum (max sum 0.868<1), and [7,20] closure is the largest exactly closed sub-stratum (2002 sets, 544 cores) with honest limitation that full [7,60] (5.3B sets) remains open; prime-max elimination lemma is general reusable progress. Output is not an unexplained enumeration: divisor-lattice peeling + translation fixing + orbit/B&B method, reduced-fraction CRT replay in <2s, full deterministic replay in 27s, 2002-row table with residues and peel chains. Falls outside rejection classes: not mere substitution (threshold-justified), not tiny unmotivated gain (first exact table for min>=7 k=9), not bare dump (method + proofs + verifiers).", "verdict": "PASS"}}, "checked_sources": ["inputs/topic.json", "inputs/DRAFT.md", "inputs/research_report.json", "inputs/artifacts/verify_Ustar.py", "inputs/artifacts/reproduce_census_7_20.py", "inputs/artifacts/census_7_20_table.csv (2002 rows)", "inputs/artifacts/census_7_20_summary.json", "inputs/artifacts/best_witness_7_16.json", "inputs/artifacts/census_7_16_table.csv", "inputs/artifacts/census_7_16_log.txt"], "decisive_checks": ["verify_Ustar.py rerun: OK best 36340/55440=1817/2772, runner-ups 3290/5040=47/72, max-sum 62575/72072, top-5 rows (<2s)", "Independent numpy brute force best core [7,8,9,10,12,14,15,16] C=[7,15,16] R 120960 combos: optimum 3130/5040 matches table, residues (4,1,1,2,1) (0.9s)", "Independent brute force runner-up core [7,8,9,10,12,14,15,16,18] 2177280 combos: optimum 3290/5040 matches table (15.3s)", "Independent union-bound B&B on hardest 43M-combo core [8,9,10,12,14,15,16,18,20]: proved 3140/5040 with 15783 nodes in 1.4s, witness verified", "Random 10-core independent B&B sample: all table core optima confirmed optimal", "Full 2002-set independent B&B (different method from draft hierarchical): 106.4s, zero table entries beaten; completeness: 2002 distinct combos equal all C(14,9) subsets of [7,20]", "Lemma 1 empirical check [7,8,9,10]: full 5040-combo optimum equals C-fixed optimum 1032/2520", "Lemma 2 empirical check [7,8,9,10]+11: all 11 lifts give predicted 12840/27720", "reproduce_census_7_20.py deterministic replay: 2002 sets in 27.0s asserting best 1817/2772", "Fraction checks: 36340/55440 reduces to 1817/2772, 3290/5040 to 47/72, gap 0.0027056, union sums verified"], "live_literature_check": {"checked_at_utc": "2026-09-07T14:07:57Z", "queries": [{"query": "minimum modulus problem for covering systems Hough", "result_count": 1, "service": "arXiv", "url": "https://arxiv.org/abs/1307.0874"}, {"query": "Balister Bollobas Morris Sahasrabudhe Tiba covering", "result_count": 236040, "service": "Crossref", "url": "https://api.crossref.org/works?query=Balister+Bollobas+Morris+Sahasrabudhe+Tiba+covering&rows=5"}, {"query": "all:covering system distinct moduli", "result_count": 873444, "service": "arXiv API", "url": "http://export.arxiv.org/api/query?search_query=all:covering+system+distinct+moduli&start=0&max_results=5&sortBy=relevance"}, {"query": "density uncovered set Erdos covering", "result_count": 741849, "service": "Crossref", "url": "https://api.crossref.org/works?query=density+uncovered+set+Erdos+covering&rows=5"}], "sources": [{"comparison": "Proves qualitative upper bound on least modulus of any distinct covering system (10^18 in arXiv abstract, 10^16 refined bound cited in draft; Annals 2015 pp.361-382). Concerns existence of full coverings only; computes no maximal covered density, gives no witness system or reduced-fraction density for k=9 with min>=7, and contains no 2002-row [7,20] census or LCM-enumeration certificate.", "retrieved_at_utc": "2026-09-07T14:00:00Z", "title": "Solution of the minimum modulus problem for covering systems (Hough 2015)", "url": "https://arxiv.org/abs/1307.0874"}, {"comparison": "Proves sieve and structural bounds on the density of the uncovered set for Erd\u0151s covering systems with large moduli (Inventiones 228, 377-414, 2022). Gives asymptotic/qualitative density estimates, not an exact joint modulus-plus-residue maximum over nine distinct moduli in [7,20]; contains no 1817/2772 witness, no 47/72 runner-up, and no divisor-lattice max-coverage table with CRT replay.", "retrieved_at_utc": "2026-09-07T14:02:00Z", "title": "On the Erd\u0151s covering problem: the density of the uncovered set (Balister, Bollob\u00e1s, Morris, Sahasrabudhe, Tiba 2022)", "url": "https://doi.org/10.1007/s00222-021-01087-5"}, {"comparison": "Determines the minimum possible LCM (10080) of a full distinct covering system with minimum modulus 7, improving Klein 15120 via reciprocal-sum, divisor-completed IP, and Gurobi filters. Concerns complete coverings with min 7 only; does not study maximal density of incomplete 9-congruence systems, reports no uncovered-density optimum, and has no overlap with the 1817/2772 [7,20] optimum or prime-max exchange lemma.", "retrieved_at_utc": "2026-09-07T14:05:00Z", "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080 (Zhang & Zhang 2026)", "url": "https://arxiv.org/abs/2607.19029"}], "status": "PASS"}, "residual_risks": ["Full [7,60] union-competitive counts (4008111 >0.65548, 612378 >0.70) were not independently re-enumerated (5.3B sets infeasible); they are motivational only and not needed for the [7,20] theorem or [7,60] interval.", "Draft hierarchical affine-orbit correctness argument is terse; risk mitigated by full independent B&B re-proof of all 2002 optima (106s) and dual-method agreement on hardest core, but future reusers should rely on the B&B verifier and LCM checker, not solely the orbit code.", "Draft reference URL https://arxiv.org/abs/1904.09667 does not resolve to Balister covering work (live fetch shows a scheduling paper); corrected to Inventiones DOI in RESULT.md. No scientific claim depends on that URL.", "[7,60] full optimality remains conjectured only (1817/2772); RESULT.md states this explicitly as a conjecture with heuristic support, not a theorem."], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified 91 squarefree d in [201,350] exactly (independent mobius sieve matches census list; D=d if d=1 mod 4 else 4d holds for all rows; M=sqrt(D)/2 max 18.627936 so p<=17 correct). Re-ran independent verifier verify.py from scratch: [1] squarefree list OK, [2] CF period/unit/regulator/cycles/K/h for all 91 OK (recomputed CF via (m,d,a) recurrence, convergents, half-unit search N=+-1 and N=+-4 odd, exact same-field unit comparison, reduced-form enumeration |a|,|b|<=isqrt(D) with exact reduced predicate, rho permutation closure, disjoint even-length cycles, unique a=1 and a=-1 forms, two-alpha K-cycle agreement, CK==C0 iff N=-1, h=h+ or h+/2), [3] 53 witness chains step-verified (p<=M, Kronecker matches, discriminant holds, rho steps exact, reduced endpoint, narrow_cycle outside {C0,CK}), [4] structures for all 13 h>=4 fields recomputed via Dirichlet composition with coprime-a CRT plus rho reduction (orders match C4/C2xC2/C6/C8 labels), [5] extrema exact (max period 34 unique at 331; max regulator at 331 via exact cross-discriminant integer comparison, runner-up 334 gap 3.776), [6] class-number-formula cross-check at N=2e5 passes; pipeline L-check at N=1e6 passes 91/91 with worst gap/bound 0.0348, so wrong h by factor >=1.5 would exceed bound by ~50x and be detected. Spot-checked norms (x^2-d*y^2)/4==N for all 91, primes_le_M lists, distribution 38xC1/34xC2/6xC3/5xC4/5xC2xC2/2xC6/1xC8 sums to 91. Externally cross-checked three fields against live LMFDB: 2.2.904.1 (Q(sqrt226) h=8 [8] regulator 3.40230664548, fu a+15), 2.2.277.1 (h=1 regulator 7.86825441198, fu 157a+1228 = (2613+157 sqrt277)/2), 2.2.1324.1 (Q(sqrt331) h=1 narrow C2 regulator 36.2563832043) all match census to displayed digits. Confirmed d=277 correction: maximal-order regulator 7.868254..., 6x is 47.209526... matching brief prototype order-norm+1 unit at convergent n=41 (p=159150073798980475849), while minimal order unit is at n=20 with regulator 23.6047...=3x; DRAFT's '6x order regulator' refers to norm+1 unit, terminologically imprecise but numerically correct and material correction (max-R is 331 not 277) holds. Unit minimality rests on standard convergent theory plus 4l search, Legendre exact check 8y<x+y sqrt(d), and growth certificate v_{4l-1}>2 eps0; joint h*R formula plus LMFDB agreement closes the h-vs-R ambiguity (missed smaller unit would require compensating h factor, excluded by composition/cycle counts and external data). No essential inference, boundary condition, or computation found wrong. Minor presentation nuance about 3x vs 6x order regulator does not affect field-regulator claims.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live arXiv title search (20 hits) returns only family/asymptotic/ML/existence papers; Crossref broad queries (1.7-2.8M total-results, top hits are Mollin-Williams survey, Gerth 4-ranks, etc.) return no 201-350 consecutive census. Claim-level comparison: candidate quantifier is universal over exactly 91 squarefree d in [201,350] with exact constants (distribution 38x h=1, 34x C2, 6x C3, 5x C4, 5x C2xC2, 2x C6, 1x C8 at d=226; longest period 34 and largest regulator 36.25638... both unique at d=331; Minkowski bound max 18.6279 so p<=17). No retrieved source shares this parameter range or constants: Amir et al. quantifies over ML train/test split for h=1,2,3 with no proofs or witnesses; Bernardini quantifies over sparse explicit-CF discriminants with finitely many allowed exceptions (opposite of exception-free consecutive closure); Lamzouri quantifies asymptotically over eps_d<=x with moment/existence conclusions, not per-field chains; Kopp-Lagarias quantifies over orders of discriminant n^2+-4 asymptotically (different objects: orders vs maximal orders); Cherubini et al. quantifies existentially (many k-blocks with large h up to x) with no fixed-interval table or structure/regulator data; LMFDB entries match three spot rows (226/331 and 277 per audit) but hypothesis is single-field lookup with no interval maximality proof, no p<=M(D) rho chains for 53 fields, no verifier; PARI is machinery, not a publication of this bundle. Hence no source found substantively covers or implies the bundled closure + 53 witness chains + exact dual extrema + rerunnable artifact.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a citable closed benchmark, not a textbook restatement or arbitrary slice. Bare h values for d<350 exist in LMFDB/PARI tables, but the bundle is new: full (h, structure, h+, N(eps), l, eps, R to 40 digits) for 91/91, certified nonprincipal prime ideal with full rho chain for each of 53 h>1 fields recheckable in seconds (p<=17 auditability), exact integer proofs that d=331 uniquely maximizes both period (34) and regulator (36.25638..., gap 3.776 to 334), correction of prototype max-R error (47.21 is order norm+1 unit, true field R_277=7.86825...), and analytic class-number-formula cross-check plus from-scratch verifier. Motivated as first full post-textbook block (textbook d<200) with uniform Minkowski auditability and unit/class-group interplay laboratory (e.g., h=8 at minimal period l=1 for d=226; min R 2.7035 at d=221); not a 1% tweak (closure plus extrema) and not unexplained enumeration (every entry explained by CF+Minkowski+BSGS/composition+norm-equation pipeline with per-field self-tests: identity, K^2=C0, inverses, associativity spot checks, well-definedness). Finite computation without new theorem is acknowledged, but closure, witnesses, extrema coincidence, error correction, and rerunnable artifact together exceed bare recomputation and justify future lookup.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Nearest ML/data-science neighbor: supervised learning separating h=1,2,3 on a dataset with learned formulas; predicts but proves no class number and provides no Minkowski witnesses, no consecutive-interval closure, no regulator-maximum proof.",
+      "title": "Machine Learning Class Numbers of Real Quadratic Fields",
+      "url": "https://arxiv.org/abs/2209.09283"
+    },
+    {
+      "outcome": "Nearest family-theoretic neighbor: proves h(D)>1 with possibly finitely many exceptions for a sparse family with known continued-fraction expansions; quantifier is sparse infinite family with exceptions, not complete consecutive d in [201,350] with per-field certificates.",
+      "title": "Class number of real quadratic fields of explicit discriminant",
+      "url": "https://arxiv.org/abs/2412.06351"
+    },
+    {
+      "outcome": "Nearest analytic neighbor: asymptotic k-th moments of h(d) ordered by eps_d and tail bounds for large values; hypotheses are asymptotic as x->infinity, no per-field table, no p<=M(D) witnesses, no interval extrema constants.",
+      "title": "Large moments and extreme values of class numbers of indefinite binary quadratic forms",
+      "url": "https://arxiv.org/abs/1609.01630"
+    },
+    {
+      "outcome": "Nearest orders neighbor: studies non-maximal orders Z[eps] with discriminants n^2+-4 asymptotically and classifies class-number-one unit-generated orders; objects are orders not consecutive maximal orders in [201,350], no interval census or rho-chain bundle.",
+      "title": "Unit-generated orders of real quadratic fields I. Class number bounds",
+      "url": "https://arxiv.org/abs/2512.11311"
+    },
+    {
+      "outcome": "Nearest consecutive-block neighbor: existence theorem that for fixed k there are >=x^{1/2-o(1)} blocks Q(sqrt(d+1))..Q(sqrt(d+k)) with essentially maximal class numbers; proves existence of large-h blocks, not complete (h, structure, unit, regulator, witness) table for the fixed block 201-350 nor d=331 extremal constants.",
+      "title": "Consecutive real quadratic fields with large class numbers",
+      "url": "https://arxiv.org/abs/2111.11549"
+    },
+    {
+      "outcome": "Authoritative per-field database neighbor: lists single-field bare values D=904, h=8, C8, fu a+15, R=3.40230664548 matching census row; provides no uniform interval witnesses, no maximality proof over 91 fields, no single verifier.",
+      "title": "LMFDB Number field 2.2.904.1: Q(sqrt226)",
+      "url": "https://www.lmfdb.org/NumberField/2.2.904.1"
+    },
+    {
+      "outcome": "Authoritative per-field database neighbor for extremal witness: lists Q(sqrt331) h=1, narrow C2, R=36.2563832043 matching census; single-field bare value only, no proof that 331 uniquely maximizes period and regulator over [201,350], no rho-chain bundle.",
+      "title": "LMFDB Number field 2.2.1324.1: Q(sqrt331)",
+      "url": "https://www.lmfdb.org/NumberField/2.2.1324.1"
+    },
+    {
+      "outcome": "Tool baseline: documents PARI/GP computer-algebra system (bnfinit/quadclassunit/bnfcertify capability) that can compute class numbers; publishes no certified 201-350 census bundle with ideal representatives and dual extrema.",
+      "title": "PARI/GP Development Headquarters (tool baseline)",
+      "url": "https://pari.math.u-bordeaux.fr/"
+    }
+  ],
+  "decisive_checks": [
+    "Independent squarefree enumeration [201,350] gives exactly 91 values matching census list",
+    "Discriminant formula D=d (d=1 mod4) else 4d holds for all 91; M=sqrt(D)/2 max 18.627936 so primes_le_M subset of {2,3,5,7,11,13,17} verified",
+    "Ran verify.py (independent code copies) -> ALL CHECKS PASSED: [1] 91 d, [2] CF/unit/cycles/K/h, [3] 53 witnesses, [4] 13 h>=4 structures, [5] extrema, [6] L-check N=2e5",
+    "Norm check (x^2-d*y^2)/4==unit_norm for all 91; distribution 38/34/6/5/5/2/1 sums to 91; h>1 count 53 matches witnesses",
+    "Step4 L-check N=1e6: 91/91 within rigorous D/N tail bound, worst gap/bound 0.0348; factor-1.5 wrong-h gap (~1+) would exceed bound (~0.026) by ~50x",
+    "Exact integer extrema: max period 34 unique at 331; eps_331 strictly greater than other 90 units via cross-discriminant comparison; gap to 334 is 3.776",
+    "LMFDB 2.2.904.1 confirms d=226 h=8 C8 regulator 3.40230664548 fu 15+sqrt226",
+    "LMFDB 2.2.277.1 confirms d=277 h=1 regulator 7.86825441198 fu (2613+157 sqrt277)/2, validating prototype correction",
+    "LMFDB 2.2.1324.1 confirms d=331 h=1 narrow C2 regulator 36.2563832043, D=1324",
+    "Order-unit analysis for d=277: convergents give n=20 p=8920484118 N=-1 log 23.6047 (3x) and n=41 log 47.2095 (6x), confirming 47.21 source as order unit",
+    "Composition self-tests (identity, K^2=C0, inverses, assoc spot checks, well-definedness via two disjoint pairs) pass per field in pipeline and verifier"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:46:14Z",
+    "queries": [
+      {
+        "query": "ti:\"class number\" AND ti:\"real quadratic\"",
+        "result_count": 20,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:%22class+number%22+AND+ti:%22real+quadratic%22&start=0&max_results=5"
+      },
+      {
+        "query": "ti:consecutive AND ti:real AND ti:quadratic AND ti:class numbers",
+        "result_count": 1,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:consecutive+AND+ti:real+AND+ti:quadratic+AND+ti:class+numbers&start=0&max_results=5"
+      },
+      {
+        "query": "all:real quadratic AND all:fundamental unit AND all:regulator",
+        "result_count": 281593,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:real+quadratic+AND+all:fundamental+unit+AND+all:regulator&start=0&max_results=5"
+      },
+      {
+        "query": "real quadratic class number regulator",
+        "result_count": 1789911,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=real+quadratic+class+number+regulator&rows=3"
+      },
+      {
+        "query": "real quadratic class number census table",
+        "result_count": 2392378,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=real+quadratic+class+number+census+table&rows=3"
+      },
+      {
+        "query": "consecutive real quadratic large class numbers",
+        "result_count": 2293988,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=consecutive+real+quadratic+large+class+numbers&rows=3"
+      },
+      {
+        "query": "real quadratic fundamental unit regulator continued fraction period table",
+        "result_count": 2864933,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=real+quadratic+fundamental+unit+regulator+continued+fraction+period+table&rows=5"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Abstract and metadata confirm supervised learning for h=1,2,3 with symbolic formulas on a dataset; predicts but proves no h, gives no Minkowski prime-ideal rho chains, no 201-350 closure, no regulator-maximum proof — different conclusion and proof scope.",
+        "retrieved_at_utc": "2026-09-07T14:44:30Z",
+        "title": "Machine Learning Class Numbers of Real Quadratic Fields",
+        "url": "https://arxiv.org/abs/2209.09283"
+      },
+      {
+        "comparison": "Abstract confirms h(D)>1 with possibly finitely many exceptions for a sparse explicit-CF family; family-theoretic with exceptions versus candidate's exception-free universal claim over 91 consecutive squarefree d with per-field witnesses — quantifiers do not overlap.",
+        "retrieved_at_utc": "2026-09-07T14:44:35Z",
+        "title": "Class number of real quadratic fields of explicit discriminant",
+        "url": "https://arxiv.org/abs/2412.06351"
+      },
+      {
+        "comparison": "Abstract confirms asymptotic k-th moments over eps_d<=x and tail for large h(d) ordered by unit size plus GRH upper bound; analytic distribution theory with no per-field certificates, no fixed-interval constants, no witness chains.",
+        "retrieved_at_utc": "2026-09-07T14:44:40Z",
+        "title": "Large moments and extreme values of class numbers of indefinite binary quadratic forms",
+        "url": "https://arxiv.org/abs/1609.01630"
+      },
+      {
+        "comparison": "Abstract confirms objects are Z[eps] orders of discriminant n^2+-4 with log|Cl|~log|Delta|/2 and classification of class-number-one orders; concerns orders not maximal orders in 201-350, gives no interval census, no BSGS/composition plus Minkowski certificates.",
+        "retrieved_at_utc": "2026-09-07T14:44:50Z",
+        "title": "Unit-generated orders of real quadratic fields I. Class number bounds",
+        "url": "https://arxiv.org/abs/2512.11311"
+      },
+      {
+        "comparison": "Abstract and Crossref DOI 10.1093/imrn/rnac176 confirm existence of >=x^{1/2-o(1)} k-consecutive blocks with essentially maximal h; existence theorem with no complete table, no group structures, no units/regulators, no unique 331 extrema for fixed 201-350.",
+        "retrieved_at_utc": "2026-09-07T14:45:55Z",
+        "title": "Consecutive real quadratic fields with large class numbers",
+        "url": "https://arxiv.org/abs/2111.11549"
+      },
+      {
+        "comparison": "Page inspected: confirms single-field bare values D=904, h=8, C8 narrow C8, fu a+15, R=3.40230664548 matching census row exactly, but provides only one field with no interval witnesses, no maximality proof, no verifier bundle.",
+        "retrieved_at_utc": "2026-09-07T14:45:20Z",
+        "title": "LMFDB Number field 2.2.904.1: Q(sqrt226)",
+        "url": "https://www.lmfdb.org/NumberField/2.2.904.1"
+      },
+      {
+        "comparison": "Page inspected: confirms extremal row Q(sqrt331) h=1, narrow C2, R=36.2563832043 and D=1324 matching census, but as single-field lookup it does not prove uniqueness of period 34 or regulator maximum over all 91 fields nor supply rho chains.",
+        "retrieved_at_utc": "2026-09-07T14:45:30Z",
+        "title": "LMFDB Number field 2.2.1324.1: Q(sqrt331)",
+        "url": "https://www.lmfdb.org/NumberField/2.2.1324.1"
+      },
+      {
+        "comparison": "Homepage inspected: documents PARI/GP as general number-theory CAS (factorizations, algebraic number theory, L functions) since the 1980s; is tooling capable of computing class numbers but publishes no 201-350 bundle with representatives and dual extrema.",
+        "retrieved_at_utc": "2026-09-07T14:46:05Z",
+        "title": "PARI/GP Development Headquarters (tool baseline)",
+        "url": "https://pari.math.u-bordeaux.fr/"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:46:14Z",
+      "queries": [
+        {
+          "query": "ti:\"class number\" AND ti:\"real quadratic\"",
+          "result_count": 20,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:%22class+number%22+AND+ti:%22real+quadratic%22&start=0&max_results=5"
+        },
+        {
+          "query": "ti:consecutive AND ti:real AND ti:quadratic AND ti:class numbers",
+          "result_count": 1,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:consecutive+AND+ti:real+AND+ti:quadratic+AND+ti:class+numbers&start=0&max_results=5"
+        },
+        {
+          "query": "all:real quadratic AND all:fundamental unit AND all:regulator",
+          "result_count": 281593,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=all:real+quadratic+AND+all:fundamental+unit+AND+all:regulator&start=0&max_results=5"
+        },
+        {
+          "query": "real quadratic class number regulator",
+          "result_count": 1789911,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=real+quadratic+class+number+regulator&rows=3"
+        },
+        {
+          "query": "real quadratic class number census table",
+          "result_count": 2392378,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=real+quadratic+class+number+census+table&rows=3"
+        },
+        {
+          "query": "consecutive real quadratic large class numbers",
+          "result_count": 2293988,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=consecutive+real+quadratic+large+class+numbers&rows=3"
+        },
+        {
+          "query": "real quadratic fundamental unit regulator continued fraction period table",
+          "result_count": 2864933,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=real+quadratic+fundamental+unit+regulator+continued+fraction+period+table&rows=5"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Abstract and metadata confirm supervised learning for h=1,2,3 with symbolic formulas on a dataset; predicts but proves no h, gives no Minkowski prime-ideal rho chains, no 201-350 closure, no regulator-maximum proof — different conclusion and proof scope.",
+          "retrieved_at_utc": "2026-09-07T14:44:30Z",
+          "title": "Machine Learning Class Numbers of Real Quadratic Fields",
+          "url": "https://arxiv.org/abs/2209.09283"
+        },
+        {
+          "comparison": "Abstract confirms h(D)>1 with possibly finitely many exceptions for a sparse explicit-CF family; family-theoretic with exceptions versus candidate's exception-free universal claim over 91 consecutive squarefree d with per-field witnesses — quantifiers do not overlap.",
+          "retrieved_at_utc": "2026-09-07T14:44:35Z",
+          "title": "Class number of real quadratic fields of explicit discriminant",
+          "url": "https://arxiv.org/abs/2412.06351"
+        },
+        {
+          "comparison": "Abstract confirms asymptotic k-th moments over eps_d<=x and tail for large h(d) ordered by unit size plus GRH upper bound; analytic distribution theory with no per-field certificates, no fixed-interval constants, no witness chains.",
+          "retrieved_at_utc": "2026-09-07T14:44:40Z",
+          "title": "Large moments and extreme values of class numbers of indefinite binary quadratic forms",
+          "url": "https://arxiv.org/abs/1609.01630"
+        },
+        {
+          "comparison": "Abstract confirms objects are Z[eps] orders of discriminant n^2+-4 with log|Cl|~log|Delta|/2 and classification of class-number-one orders; concerns orders not maximal orders in 201-350, gives no interval census, no BSGS/composition plus Minkowski certificates.",
+          "retrieved_at_utc": "2026-09-07T14:44:50Z",
+          "title": "Unit-generated orders of real quadratic fields I. Class number bounds",
+          "url": "https://arxiv.org/abs/2512.11311"
+        },
+        {
+          "comparison": "Abstract and Crossref DOI 10.1093/imrn/rnac176 confirm existence of >=x^{1/2-o(1)} k-consecutive blocks with essentially maximal h; existence theorem with no complete table, no group structures, no units/regulators, no unique 331 extrema for fixed 201-350.",
+          "retrieved_at_utc": "2026-09-07T14:45:55Z",
+          "title": "Consecutive real quadratic fields with large class numbers",
+          "url": "https://arxiv.org/abs/2111.11549"
+        },
+        {
+          "comparison": "Page inspected: confirms single-field bare values D=904, h=8, C8 narrow C8, fu a+15, R=3.40230664548 matching census row exactly, but provides only one field with no interval witnesses, no maximality proof, no verifier bundle.",
+          "retrieved_at_utc": "2026-09-07T14:45:20Z",
+          "title": "LMFDB Number field 2.2.904.1: Q(sqrt226)",
+          "url": "https://www.lmfdb.org/NumberField/2.2.904.1"
+        },
+        {
+          "comparison": "Page inspected: confirms extremal row Q(sqrt331) h=1, narrow C2, R=36.2563832043 and D=1324 matching census, but as single-field lookup it does not prove uniqueness of period 34 or regulator maximum over all 91 fields nor supply rho chains.",
+          "retrieved_at_utc": "2026-09-07T14:45:30Z",
+          "title": "LMFDB Number field 2.2.1324.1: Q(sqrt331)",
+          "url": "https://www.lmfdb.org/NumberField/2.2.1324.1"
+        },
+        {
+          "comparison": "Homepage inspected: documents PARI/GP as general number-theory CAS (factorizations, algebraic number theory, L functions) since the 1980s; is tooling capable of computing class numbers but publishes no 201-350 bundle with representatives and dual extrema.",
+          "retrieved_at_utc": "2026-09-07T14:46:05Z",
+          "title": "PARI/GP Development Headquarters (tool baseline)",
+          "url": "https://pari.math.u-bordeaux.fr/"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest ML/data-science neighbor: supervised learning separating h=1,2,3 on a dataset with learned formulas; predicts but proves no class number and provides no Minkowski witnesses, no consecutive-interval closure, no regulator-maximum proof.",
+        "title": "Machine Learning Class Numbers of Real Quadratic Fields",
+        "url": "https://arxiv.org/abs/2209.09283"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest family-theoretic neighbor: proves h(D)>1 with possibly finitely many exceptions for a sparse family with known continued-fraction expansions; quantifier is sparse infinite family with exceptions, not complete consecutive d in [201,350] with per-field certificates.",
+        "title": "Class number of real quadratic fields of explicit discriminant",
+        "url": "https://arxiv.org/abs/2412.06351"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest analytic neighbor: asymptotic k-th moments of h(d) ordered by eps_d and tail bounds for large values; hypotheses are asymptotic as x->infinity, no per-field table, no p<=M(D) witnesses, no interval extrema constants.",
+        "title": "Large moments and extreme values of class numbers of indefinite binary quadratic forms",
+        "url": "https://arxiv.org/abs/1609.01630"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest orders neighbor: studies non-maximal orders Z[eps] with discriminants n^2+-4 asymptotically and classifies class-number-one unit-generated orders; objects are orders not consecutive maximal orders in [201,350], no interval census or rho-chain bundle.",
+        "title": "Unit-generated orders of real quadratic fields I. Class number bounds",
+        "url": "https://arxiv.org/abs/2512.11311"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest consecutive-block neighbor: existence theorem that for fixed k there are >=x^{1/2-o(1)} blocks Q(sqrt(d+1))..Q(sqrt(d+k)) with essentially maximal class numbers; proves existence of large-h blocks, not complete (h, structure, unit, regulator, witness) table for the fixed block 201-350 nor d=331 extremal constants.",
+        "title": "Consecutive real quadratic fields with large class numbers",
+        "url": "https://arxiv.org/abs/2111.11549"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative per-field database neighbor: lists single-field bare values D=904, h=8, C8, fu a+15, R=3.40230664548 matching census row; provides no uniform interval witnesses, no maximality proof over 91 fields, no single verifier.",
+        "title": "LMFDB Number field 2.2.904.1: Q(sqrt226)",
+        "url": "https://www.lmfdb.org/NumberField/2.2.904.1"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative per-field database neighbor for extremal witness: lists Q(sqrt331) h=1, narrow C2, R=36.2563832043 matching census; single-field bare value only, no proof that 331 uniquely maximizes period and regulator over [201,350], no rho-chain bundle.",
+        "title": "LMFDB Number field 2.2.1324.1: Q(sqrt331)",
+        "url": "https://www.lmfdb.org/NumberField/2.2.1324.1"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Tool baseline: documents PARI/GP computer-algebra system (bnfinit/quadclassunit/bnfcertify capability) that can compute class numbers; publishes no certified 201-350 census bundle with ideal representatives and dual extrema.",
+        "title": "PARI/GP Development Headquarters (tool baseline)",
+        "url": "https://pari.math.u-bordeaux.fr/"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-018",
+    "originality_rationale": "Live arXiv title search (20 hits) returns only family/asymptotic/ML/existence papers; Crossref broad queries (1.7-2.8M total-results, top hits are Mollin-Williams survey, Gerth 4-ranks, etc.) return no 201-350 consecutive census. Claim-level comparison: candidate quantifier is universal over exactly 91 squarefree d in [201,350] with exact constants (distribution 38x h=1, 34x C2, 6x C3, 5x C4, 5x C2xC2, 2x C6, 1x C8 at d=226; longest period 34 and largest regulator 36.25638... both unique at d=331; Minkowski bound max 18.6279 so p<=17). No retrieved source shares this parameter range or constants: Amir et al. quantifies over ML train/test split for h=1,2,3 with no proofs or witnesses; Bernardini quantifies over sparse explicit-CF discriminants with finitely many allowed exceptions (opposite of exception-free consecutive closure); Lamzouri quantifies asymptotically over eps_d<=x with moment/existence conclusions, not per-field chains; Kopp-Lagarias quantifies over orders of discriminant n^2+-4 asymptotically (different objects: orders vs maximal orders); Cherubini et al. quantifies existentially (many k-blocks with large h up to x) with no fixed-interval table or structure/regulator data; LMFDB entries match three spot rows (226/331 and 277 per audit) but hypothesis is single-field lookup with no interval maximality proof, no p<=M(D) rho chains for 53 fields, no verifier; PARI is machinery, not a publication of this bundle. Hence no source found substantively covers or implies the bundled closure + 53 witness chains + exact dual extrema + rerunnable artifact.",
+    "priority_caveat": "This PASS is only a finding that the documented live search found no substantively covering prior art; it is not an award of academic priority and does not establish that the candidate is first in any absolute sense.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-018",
+    "residual_uncertainties": [
+      "OpenAlex API returned rate-limit/budget-exhausted error at review time, so OpenAlex could not be used as the second service; mitigated by using two other independent services (arXiv API and Crossref API) plus direct authoritative LMFDB/PARI/DOI retrievals.",
+      "LMFDB direct curl for 2.2.277.1 hit a captcha/challenge page in this sandbox, so the d=277 correction row was not freshly re-inspected here; prior audit spot-checked it and the two decisive rows (226 and 331) were freshly inspected, plus formula-level agreement is claimed in artifacts.",
+      "Printed tables or books (e.g., older class-number tabulations for d<1000) may not be fully indexed by arXiv/Crossref keyword queries; search used multiple formulations but cannot exhaustively exclude an obscure identical 201-350 witness bundle.",
+      "Bare per-field (h, R) values for d in [201,350] are individually computable via PARI/LMFDB, so novelty rests on the bundled closure with 53 rho-chain witnesses, exact dual extrema, and single verifier, not on any single number being previously uncomputed."
+    ],
+    "reviewed_claim": "Certified complete census for all 91 squarefree d in [201,350] giving (class number h, group structure, narrow class number, unit norm, continued-fraction period l, maximal-order fundamental unit eps_d, regulator R_d, Minkowski bound M(D)=sqrt(D)/2) plus for each of the 53 fields with h>1 an explicit prime ideal of norm p<=M(D) as prime form (p,b,c) with exact rho-reduction chain into a certified nonprincipal narrow cycle, plus exact-integer proofs that d=331 uniquely maximizes both period (l=34) and regulator (R=36.25638320432540..., eps=2785589801443970+153109862634573*sqrt(331)) on the interval, bundled with rerunnable pure-Python verifier.",
+    "run_id": "2026-09-07T1445Z-legacy-queued-successes",
+    "search_strategy": [
+      "arXiv API title search ti:\"class number\" AND ti:\"real quadratic\" to capture the strongest recognizable subclaim (real-quadratic class numbers)",
+      "arXiv API title search consecutive + real + quadratic + class numbers to test interval/consecutive-block terminology",
+      "arXiv API all-field search real quadratic + fundamental unit + regulator to test regulator/period/unit equivalent terminology",
+      "Crossref works query \"real quadratic class number regulator\" for broad publisher/DOI coverage",
+      "Crossref works query \"real quadratic class number census table\" for table/census equivalent terminology",
+      "Crossref works query \"consecutive real quadratic large class numbers\" for consecutive-block prior art",
+      "Crossref works query \"real quadratic fundamental unit regulator continued fraction period table\" for unit/period/table terminology",
+      "Direct retrieval and inspection of nearest arXiv abs pages, publisher DOI record (10.1093/imrn/rnac176 via Crossref), LMFDB authoritative per-field pages, and PARI/GP headquarters tool baseline"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "No PARI/GP bnfcertify in sandbox; unconditional proof rests on reduced-cycle=narrow-class, K-quotient, and Dirichlet composition theorems plus analytic cross-check and independent verifier sharing the same textbook assumptions, mitigated by LMFDB agreement on 226/277/331 and rigorous tail bound",
+    "Unit minimality proof combines standard convergent theory with Legendre exact check and 4l growth certificate; fully elementary closure for half-units relies on exhaustive convergent search to 2l/4l, corroborated by external regulators",
+    "Regulator digits beyond ~15 depend on mpmath; only exact integer comparisons support ordering claims, floating digits are not proof",
+    "DRAFT phrase '6 times the true field regulator' for Z[sqrt277] refers to the norm+1 order unit (n=41); minimal order unit (n=20, norm -1) is 3x; nuance does not affect maximal-order claims but should be clarified to standard regulator definition",
+    "LMFDB rate-limiting prevented rechecking all 91 fields externally; three decisive spot checks plus 91/91 formula agreement cover the gap",
+    "Value remains that of a finite benchmark census, not a new theoretical theorem; reuse depends on citing the witness artifact rather than bare numbers",
+    "Originality revalidation: OpenAlex API returned rate-limit/budget-exhausted error at review time, so OpenAlex could not be used as the second service; mitigated by using two other independent services (arXiv API and Crossref API) plus direct authoritative LMFDB/PARI/DOI retrievals.",
+    "Originality revalidation: LMFDB direct curl for 2.2.277.1 hit a captcha/challenge page in this sandbox, so the d=277 correction row was not freshly re-inspected here; prior audit spot-checked it and the two decisive rows (226 and 331) were freshly inspected, plus formula-level agreement is claimed in artifacts.",
+    "Originality revalidation: Printed tables or books (e.g., older class-number tabulations for d<1000) may not be fully indexed by arXiv/Crossref keyword queries; search used multiple formulations but cannot exhaustively exclude an obscure identical 201-350 witness bundle.",
+    "Originality revalidation: Bare per-field (h, R) values for d in [201,350] are individually computable via PARI/LMFDB, so novelty rests on the bundled closure with 53 rho-chain witnesses, exact dual extrema, and single verifier, not on any single number being previously uncomputed."
+  ],
+  "verdict": "PASS"
+}

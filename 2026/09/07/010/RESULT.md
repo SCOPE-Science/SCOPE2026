@@ -1,130 +1,46 @@
-# Exact Sprague-Grundy periodicity for octal heap game 0.057
+# Certified top-five Delta=1 catalog for one-dimensional bin packing at capacity C=24, with exact Gilmore–Gomory duality certificates
 
 ## Context
-
-Octal heap games are a computable edge of impartial-game theory: full
-classification is wild, yet a single ruleset can admit an exact ultimate
-periodicity provable by finite computation plus a Guy–Smith induction.
-Game 0.057 is the splitting-dominant neighbour of solved Dawson's Kayles
-0.07 (differs by forbidding the take-2 singleton leave), sits below 2.00,
-and was previously only tabulated as computed-but-unproved. Closing it
-gives a durable classification where every large heap is an N-position.
+One-dimensional bin packing / cutting stock has LP relaxation LP_GG (Gilmore–Gomory pattern LP) and integer optimum OPT. The integer round-up property (IRUP) is OPT = ceil(LP_GG); the additive gap Delta = OPT − ceil(LP_GG) measures failure. The modified IRUP (MIRUP) is Delta ≤ 1. Prior work stratifies by number of types n (Kartak et al.: n≤9 proper IRUP, n=10 non-IRUP, gap>1 at n=11) or constructs asymptotic large-gap families (Rietz et al.), but publishes no capacity-stratified certified table for small C. Small-C hard instances are directly citable as solver benchmarks for arc-flow, branch-and-price, and column-generation codes.
 
 ## Definitions
+Fix C=24. Stratum box: k distinct integral sizes a_1<…<a_k, k≤6, each a_i ∈ {2,…,12}, demands b_i ∈ [1,8], N=∑b_i ≤30, S=∑a_i b_i ≤240. Feasible patterns: {x∈Z_+^k : ∑a_i x_i ≤24}, enumerated completely by knapsack DP (never priced heuristically). LP_GG: pattern LP optimum (primal min ∑λ_p s.t. ∑_p x^{(p)}_i λ_p ≥ b_i, λ≥0; dual max b^T y s.t. A^T y ≤1, y≥0). Delta = OPT − ceil(LP_GG). Sizes 1 and 13…24 are out-of-scope by definition (scope, not proved reduction).
 
-Octal code `0.057` has fractional digits $d_1=0$, $d_2=5=101_2$,
-$d_3=7=111_2$, max removal $m=3$. Bit $b_0+2b_1+4b_2$ means removing that
-many beans may leave $0$, $1$, or $2$ non-empty heaps. Hence for heap $n$:
+## Result
+**Theorem A (k≤3 IRUP).** Every instance in the box with k≤2 (3,520 instances) and k=3 (84,465 instances) satisfies Delta=0.
 
-- Remove 1: $d_1=0$ — no moves.
-- Remove 2: $d_2=5$ — if $n=2$, take whole heap (terminal); if $n>2$,
-  move to two non-empty heaps $a+b=n-2$ only (no singleton leave).
-- Remove 3: $d_3=7$ — if $n=3$, take whole heap (terminal); if $n>3$,
-  move to singleton $n-3$ or to two non-empty heaps $a+b=n-3$.
+**Theorem B (benchmark catalog).** The following five instances each satisfy Delta=1 (proper non-IRUP):
 
-Let $G(n)$ be the Sprague–Grundy value, $G(0)=0$. For $n\\ge 1$,
-$G(n)=\\mathrm{mex}\\,S(n)$ with:
+| # | sizes a | demands b | N | S | LP_GG | ceil | OPT | Delta |
+|---|---------|-----------|---|---|-------|------|-----|-------|
+| E1 | 5,8,9,12 | 5,8,7,7 | 27 | 236 | 299/30 | 10 | 11 | 1 |
+| E2 | 2,7,8,10,11,12 | 6,3,5,4,5,4 | 27 | 216 | 9 | 9 | 10 | 1 |
+| E3 | 3,7,8,10,12 | 2,8,5,3,5 | 23 | 187 | 8 | 8 | 9 | 1 |
+| E4 | 2,7,8,10,11 | 3,5,5,3,3 | 19 | 144 | 6 | 6 | 7 | 1 |
+| E5 | 5,6,8,9 | 1,3,8,1 | 13 | 96 | 4 | 4 | 5 | 1 |
 
-- $S(1)=\\varnothing$ ($G(1)=0$),
-- $S(2)=\\{0\\}$, $S(3)=\\{0\\}$ (take-2 splits of $n=3$ need $a+b=1$,
-  impossible),
-- for $n>3$: $S(n)=\\{G(n-3)\\}\\cup\\{G(a)\\oplus G(n-3-a)\\}
-  \\cup\\{G(a)\\oplus G(n-2-a)\\}$ over valid $a$.
+**Theorem C (local maximality).** All 63 Hamming-1 neighbors (demand ±1; size ±1 keeping distinctness in 2…12; N,S bounds respected) of E1–E5 have Delta=0; each entry is a strict local Delta-maximum.
 
-## Result (proved)
+**Observation (conjecture, not theorem).** Across ~250k evaluations (exhaustive k≤3, seeded random k=3…6, hill-climbing, neighbors) max observed Delta is 1; no Delta≥2 seen. MIRUP on the stratum (G*(24)=1) is conjectured but not proved (~1e8 combos).
 
-**Theorem.** The Sprague–Grundy sequence of octal 0.057 is ultimately
-periodic with minimal preperiod $N_0=259$ and minimal period $p=148$:
-
-$$G(n+148)=G(n)\\quad\\text{for all }n\\ge 259.$$
-
-The pair is minimal. Periodic values lie in $\\{1,2,4,7,8\\}$ (8 occurs;
-0 never occurs in the tail) with counts $1\\!\\times\\!54$,
-$4\\!\\times\\!53$, $2\\!\\times\\!17$, $7\\!\\times\\!16$,
-$8\\!\\times\\!8$. Global maximum is $8$; overall values to 20000 lie in
-$\\{0,1,2,3,4,6,7,8\\}$ (5 never occurs). P-positions are exactly
-$\\{0,1\\}$ — every heap $n\\ge 2$ is an N-position.
-
-The cycle $C=G(259)\\dots G(406)$ is:
-
-```
-2,7,4,4,4,1,1,1,8,4,4,2,1,1,1,4,4,4,7,2,1,2,8,4,4,1,1,1,2,7,4,4,4,1,1,1,
-8,4,4,7,1,1,1,4,4,4,7,2,1,1,1,4,4,4,2,1,2,7,4,4,1,1,1,2,2,4,4,7,8,1,1,4,
-4,4,7,2,1,1,1,4,4,4,8,1,1,7,4,4,4,1,1,1,2,7,4,7,8,1,1,4,4,4,7,2,1,1,1,4,
-4,4,8,1,1,2,4,4,4,1,1,1,2,7,4,4,4,1,1,1,7,4,7,2,1,1,1,4,4,4,7,1,1,2,8,4,
-4,1,1,1
-```
-
-Observed prefix: $G(0..40)=0,0,1,1,1,2,2,2,3,1,1,1,4,4,4,3,2,2,2,1,1,1,4,
-2,2,2,6,4,4,4,1,1,1,2,2,2,7,1,1,1,4$.
-
-## Proof / evidence
-
-Computation gives $G(0..8000)$ deterministically (0.74 s) with
-$G(n+148)=G(n)$ for all $n\\in[259,7852]$ (7594 agreements, ~51 periods,
-zero mismatches; stability re-confirmed to 20000, ~133 periods).
-
-**Lemma 1 (self-contained Guy–Smith propagation).** Fix $m=3$. Let
-$T^*=2N_0+2p+m$. If $G(n)=G(n-p)$ for all $n\\in[N_0+p,T]$ with
-$T\\ge T^*$, then $G(N)=G(N-p)$ for every $N>T$.
-
-*Proof.* Induction on $N$. Assume equality on $[N_0+p,N-1]$. For $N>m$
-neither $N$ nor $N-p$ has terminal moves. Singletons match since
-$N-3\\in[N_0+p,N-1]$. For splits $A(S)=\\{G(a)\\oplus G(S-a)\\}$ with
-$S=N-k$, $S'=S-p$ ($k=2,3$): any $a+b=S$ has
-$b=\\max(a,b)\\ge S/2\\ge N_0+p+1/2$, so $b\\ge N_0+p+1$ and $b<N$,
-hence $G(b)=G(b-p)$ gives same xor in $A(S')$; conversely any
-$c+d=S'$ has $d\\ge S'/2\\ge N_0+1$, $j=d+p$ satisfies $N_0+p<j<N$ so
-$G(j)=G(d)$ gives same xor in $A(S)$. Thus $S(N)=S(N-p)$ and mexs agree. ∎
-
-Application: $N_0=259$, $p=148$ gives $T^*=817\\le 7852$, so periodicity
-extends to all $n\\ge 259$.
-
-Independent stdlib-only verifier re-reads the CSV and checks integrity,
-suffix equality, mex recomputation (full-range 0 mismatches; final two
-blocks and base window explicitly logged), reachable-set equality
-$S(n)=S(n+148)$ on the final full block (148/148), threshold coverage,
-$G(258)=2\\ne 1=G(406)$ blocking smaller preperiod, exact cyclic period
-148 (no $p'<148$ divides the cycle), and census. Result:
-`CERTIFICATE PASS` in 0.34 s single-core. Minimality follows jointly:
-any period of the infinite tail is a multiple of 148, and any
-$N_0'<259$ fails at $n=258$ since $G(258+k\\cdot148)=G(406)=1\\ne2$.
-
-Experimental corroboration (not load-bearing): $p\\le1000$ scan shows
-only $(259,\\text{multiples of }148)$ with long window; all other $p$
-match only at $n\\ge6995$ with window $\\le6$.
+## Proof / Evidence
+*Pattern completeness:* depth-first knapsack DP re-enumeration matches stored lists (25,107,61,39,90 patterns); exact set equality checked.
+*LP exactness:* per-instance rational primal λ and dual y with equal objectives (Fractions), e.g. E1 y=(1/5,1/3,2/5,1/2), b^T y=299/30; primal 7/2·(0,0,0,2)+8/3·(0,3,0,0)+16/5·(1,0,2,0)+3/5·(3,0,1,0) covering (5,8,7,7); A^T y≤1 verified entrywise, hence optimal by strong duality. E2–E5 analogous with LP 9,8,6,4.
+*OPT upper bound:* explicit packings (e.g. E1: [12,12]×3, [12,9], [9,9,5]×3, [8,8,8]×2, [8,8,5], [5]; all loads ≤24) with correct multisets.
+*OPT lower bound:* item-branching DFS with duplicate-load skipping, empty-bin symmetry break, memoization proves K=OPT−1 infeasible (nodes 2248,7690,7420,828,97), cross-confirmed by independent bin-completion brancher and by auditor's independent re-search.
+*k≤2:* auditor exactly re-proved all 3520 via Fractions vertex enumeration + DFS. *k=3:* auditor reproduced 84465-instance screening with independent simplex + FFD (3925 candidates, exact match) and exactly closed 100/100 sampled candidates. *Neighbors:* auditor regenerated 63 neighbors and exactly proved all Delta=0 via Fractions simplex + DFS.
 
 ## Limitations
-
-- Method (mex + Guy–Smith) is classical; novelty is the exact certificate
-  for 0.057 only. General octal conjectures untouched.
-- Induction base is computational; trust rests on two independent
-  implementations (numpy compute, stdlib verifier) plus logged CSV —
-  rerunnable in seconds. No floating point, randomness, or heuristics.
-- Neighbouring codes (e.g. Dawson's Kayles 0.07, other $0.05x$) untouched;
-  nothing transfers automatically.
-- Value 5 never observed to 20000 but no theorem about it beyond
-  certified max-8 / cycle-set facts.
+1. Full-stratum maximality not proved (partial coverage; k=4 exhaustive alone 1.35M combos).
+2. Size-1 / >C/2 exclusions are scope, not proved reductions for mixed cases.
+3. OPT lower bounds rely on DFS completeness + independent agreement and rerunnable verifier, not a proof-assistant certificate.
+4. Five entries are top-by-OPT-size k-diverse selection among 14 found Delta=1 instances: a benchmark, not an extremal classification; not claimed minimal/unique.
 
 ## Reproducibility
+Stdlib-only `artifacts/recheck.py` + `artifacts/catalog.json`: re-enumerates patterns, checks dual/primal with Fractions, ceil/Delta integers, packing multiset/capacity, and re-runs OPT−1 DFS. Prints ALL 5 ENTRIES VERIFIED in seconds on a laptop. Search seeds, pattern DP, dual simplex with rational polish, and DFS branchers are documented for independent replay.
 
-```
-python3 output/artifacts/compute_grundy_0057.py 8000 output/artifacts/grundy_0057_N8000.csv
-python3 output/artifacts/detect_period.py output/artifacts/grundy_0057_N8000.csv
-python3 output/artifacts/verify_certificate_0057.py output/artifacts/grundy_0057_N8000.csv
-```
-
-Total <5 s single-core (compute ~0.74 s, verifier ~0.34 s).
-
-## References (context only; proof is self-contained)
-
-- R. K. Guy and C. A. B. Smith, “The G-values of various games,”
-  Proc. Cambridge Philos. Soc. 52 (1956) — periodicity theorem whose
-  argument Lemma 1 re-proves with explicit threshold.
-- E. R. Berlekamp, J. H. Conway, R. K. Guy, Winning Ways, Vol. 1
-  (octal games chapter); A. Siegel, Combinatorial Game Theory —
-  background on octal rules and mex.
-- A. Flammenkamp, octal-game survey tables
-  (http://wwwhomes.uni-bielefeld.de/achim/octal.html) — computed
-  (conjectured, unproved) values; this note supplies the missing proof
-  window for 0.057.
+## References
+- Kartak–Kurz–Ripatti–Scheithauer, Minimal proper non-IRUP instances of the 1D Cutting Stock Problem, Discrete Appl. Math. 187:120–129 (2015). arXiv:1405.5988. doi:10.1016/j.dam.2015.02.020 — n-stratification, orthogonal.
+- Scheithauer–Terno, The modified integer round-up property of the 1D cutting stock problem, EJOR 84:562–571 (1995). doi:10.1016/0377-2217(95)00022-I — MIRUP definition.
+- Rietz–Dempe, Large gaps in 1D cutting stock problems, Discrete Appl. Math. 156:1929–1935 (2008). doi:10.1016/j.dam.2007.08.052 — asymptotic families, complementary.
+- Nitsche–Scheithauer–Terno, New cases of the cutting stock problem having MIRUP, Math. Methods OR 48:105–115 (1998). doi:10.1007/s001860050015 — sufficient MIRUP cases.

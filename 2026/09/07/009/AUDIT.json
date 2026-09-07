@@ -5,7 +5,7 @@
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "Substantive comparison, not timestamp: nearest priors are (i) Levin-Peres-Wilmer Markov Chains and Mixing Times (general mixing/hitting bounds, spectral-gap and coupling methods, no finite denominator-restricted extremal table, no 8-state quarter-grid maximizer or 6544 value), (ii) Norris Markov Chains (parametric birth-death hitting formula and fundamental-matrix equations used for verification, but no grid restriction or optimization over it), (iii) Aldous-Fill Reversible Markov Chains (general commute/hitting/mixing asymptotics, no small-n small-denominator enumeration with rational certificates). Live web fetches for those URLs and arXiv birth-death extremal queries were attempted by auditor and returned transport errors (no internet, consistent with triage proxy 502/SSL failures), so priority claim is explicitly limited to those canonical texts in DRAFT Sec.7 — no broader literature priority claimed. Internal Resultary scan (7 successes, 17 failures) reviewed: closest success SCOPE002 (lazy walk on balanced spiders with k-L-explicit coupling tail) concerns different graph family and parametric asymptotic bound, not finite-grid census; other successes (synchronizing automata, forbidden families, Kronecker, RSBF, Heilbronn) differ in object/method/claim. No prior table names S_{8,4}, P*, 6544, or top-five 5088/4608/4464/4358 with tie structure. The max pattern itself follows by short monotonicity from the textbook formula (hence obvious in hindsight, noted as value caveat not originality defeat), but the compiled exact distribution (10046 distinct values), paired tie identities (deviation at i vs 7-i giving identical H, e.g. 5088 both early and late), periodic max 3265, and instantiated spectral/coupling bracket for P* are not contained in or implied as stated tables by the general formulas. Therefore the finite-stratum census is narrowly but genuinely new as a compiled record.",
+      "rationale": "Claim-level comparison shows no prior covers or implies the compiled census as stated. Hypotheses differ: priors treat parametric or asymptotic birth-death families (arbitrary rates, n->infinity, cutoff, Laplace transforms, quasi-stationarity) while candidate fixes n=8, quarter-grid S_{8,4} with exact quantifiers 746496 chains / 186624 H-patterns / 745767 aperiodic / 729 periodic. Parameter ranges differ: no source restricts to p,q multiples of 1/4 with the 6 interior triples or optimizes H=E_0[T_7] over that lattice. Exact constants absent: arXiv exact-constant query all:6544 AND all:hitting returns 0 results; top-five 6544,5088,4608,4464,4358, tie pattern (deviations at i vs 7-i coincide, e.g. 5088 both ways), 10046 distinct values, periodic max 3265, and P* spectral data (lambda*~0.86784, trace 1.5, pi proportional to 1,1/3,...,1/3^6) appear in none of the retrieved abstracts/full-record metadata. Proof/computation scope differs: priors prove general bounds/formulas, candidate provides exact Fraction recursion over 186624 patterns plus Gauss-Jordan cross-check and seeded coupling/spectral instantiation for one chain. The only overlap is the textbook recurrence d0=1/p0, d_i=(1+q_i d_{i-1})/p_i, from which the argmax pattern (p=1/4,q=3/4) follows by short monotonicity and is obvious in hindsight as the record itself discloses; but monotonicity alone does not state or imply the exact maximum value 6544, the full distribution, paired ties, periodic max, or mixing bracket as tabulated. Therefore the finite-stratum compiled table is narrowly but genuinely new in this documented search.",
       "verdict": "PASS"
     },
     "value": {
@@ -14,14 +14,36 @@
     }
   },
   "checked_sources": [
-    "inputs/topic.json (problem_statement, target_claim H*=6544, audit_plan, nearest_known_results, internal_prior_scan with 7 successes + 17 failures)",
-    "inputs/DRAFT.md (Secs.1-7: definitions, P* matrix, exact census theorem, hand check, mixing bracket, caveats, reproducibility, references)",
-    "inputs/research_report.json (claim, evidence_summary, limitations, artifact_inventory)",
-    "inputs/artifacts/exact_census.py + verify_exact.py + enumerate.py + spectral.py + coupling.py + selfcheck.py + tie_detail.py (all re-executed)",
-    "Levin-Peres-Wilmer Markov Chains and Mixing Times 2nd ed. (via topic/DRAFT citation; live fetch attempted https://pages.uoregon.edu/dlevin/MARKOV/ -> transport error, no internet)",
-    "Norris Markov Chains Cambridge notes (via citation; live fetch attempted https://www.statslab.cam.ac.uk/~james/Markov/ -> transport error)",
-    "Aldous-Fill Reversible Markov Chains and Random Walks on Graphs draft (via citation)",
-    "arXiv birth-death extremal search (live fetch attempted https://arxiv.org/search/?query=birth+death+hitting+time+extremal -> transport error; triage proxy 502/SSL noted, so no web-priority claim)"
+    {
+      "outcome": "Nearest primary on birth-death mixing/spectral-gap bounds in terms of birth/death rates and cutoff criterion; provides general parametric bounds and illustrative examples, no finite denominator grid or enumeration.",
+      "title": "On the mixing time and spectral gap for birth and death chains — Chen & Saloff-Coste (arXiv:1304.4346)",
+      "url": "https://arxiv.org/abs/1304.4346"
+    },
+    {
+      "outcome": "Nearest primary on explicit Laplace-transform hitting-time formulas extending Keilson theorem to infinite state space plus strong-stationary-time application; parametric formulas, no 8-state quarter-grid optimization or constants.",
+      "title": "Hitting Time Distributions for Denumerable Birth and Death Processes — Gong & Mao (arXiv:1007.1039)",
+      "url": "https://arxiv.org/abs/1007.1039"
+    },
+    {
+      "outcome": "Nearest primary proving cutoff iff gap*mixing->infinity for lazy/continuous birth-death chains with cutoff location at median hitting time; asymptotic family result, no fixed-n fixed-denominator exhaustive table or 6544 value.",
+      "title": "Total-variation cutoff in birth-and-death chains — Ding, Lubetzky, Peres (arXiv:0801.2625)",
+      "url": "https://arxiv.org/abs/0801.2625"
+    },
+    {
+      "outcome": "Authoritative textbook supplying general mixing/hitting/spectral-gap/coupling methods used in record; contains no finite denominator-restricted extremal table, no S_{8,4}, P*, or 6544/top-five catalog.",
+      "title": "Markov Chains and Mixing Times (2nd ed.) — Levin, Peres, Wilmer (author page)",
+      "url": "https://pages.uoregon.edu/dlevin/MARKOV/"
+    },
+    {
+      "outcome": "Recent Crossref-indexed primary on spectral reproduction from first-hitting distribution for birth-death processes via eigenfunctions; continuous-spectral theory, no finite-grid maximum or enumeration.",
+      "title": "Reproduction of initial distributions from the first hitting time distribution for birth-and-death processes — Yamato & Yano (Bernoulli 30(2), DOI 10.3150/23-BEJ1619)",
+      "url": "https://doi.org/10.3150/23-BEJ1619"
+    },
+    {
+      "outcome": "Authoritative text supplying parametric finite birth-death hitting formula and fundamental-matrix equations (verification basis); states general recurrence d0=1/p0, p_i d_i - q_i d_{i-1}=1 with no grid restriction, optimization, or exact census values.",
+      "title": "Markov Chains — J. R. Norris (Cambridge, DOI 10.1017/CBO9780511810633)",
+      "url": "https://doi.org/10.1017/CBO9780511810633"
+    }
   ],
   "decisive_checks": [
     "Re-ran selfcheck.py: hand d=[4,16,52,160,484,1456,4372] sum 6544; Fraction recursion sum 6544; trace 1.5=sum eig; det prod matches; closed-form pi matches DRAFT",
@@ -33,11 +55,238 @@
     "Re-ran enumerate.py float screen (1.38s): peak 6544.0000000007 at same pattern, top rounded values match exact top",
     "Analytic dominance check: for d=1,4,100, (1+q d)/p maximized by (1/4,3/4) among 6 options; d0 maximized by p0=1/4; hand sums for rank5 (2+10+34+106+322+970+2914=4358) and rank2 (4+12+40+124+376+1132+3400=5088 and symmetric late variant 4+16+52+160+484+1456+2916=5088) verified"
   ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:13:51Z",
+    "queries": [
+      {
+        "query": "all:birth AND all:death AND all:hitting AND all:time",
+        "result_count": 32,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:birth+AND+all:death+AND+all:hitting+AND+all:time&start=0&max_results=5"
+      },
+      {
+        "query": "all:birth AND all:death AND all:mixing AND all:spectral",
+        "result_count": 10,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:birth+AND+all:death+AND+all:mixing+AND+all:spectral&start=0&max_results=5"
+      },
+      {
+        "query": "all:birth AND all:death AND all:finite AND all:enumeration",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:birth+AND+all:death+AND+all:finite+AND+all:enumeration&start=0&max_results=5"
+      },
+      {
+        "query": "all:6544 AND all:hitting",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:6544+AND+all:hitting&start=0&max_results=5"
+      },
+      {
+        "query": "birth death hitting time maximum finite chain",
+        "result_count": 3222153,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=birth+death+hitting+time+maximum+finite+chain&rows=5"
+      },
+      {
+        "query": "quarter grid birth death chain 6544",
+        "result_count": 1248343,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=quarter+grid+birth+death+chain+6544&rows=5"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved abstract confirms general bounds on spectral gap and mixing time in terms of birth/death rates plus cutoff criterion with illustrative examples; quantifiers are parametric families, no n=8, no quarter-grid S_{8,4}, no 6544 or top-five enumeration, so does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:13:40Z",
+        "title": "On the mixing time and spectral gap for birth and death chains — Chen & Saloff-Coste",
+        "url": "https://arxiv.org/abs/1304.4346"
+      },
+      {
+        "comparison": "Retrieved abstract confirms explicit Laplace-transform formulas for hitting times on denumerable space extending Keilson theorem plus separation-rate application; infinite-state parametric result with no fixed-8 finite-grid maximization, no denominator restriction, no 6544/tie catalog.",
+        "retrieved_at_utc": "2026-09-07T14:13:40Z",
+        "title": "Hitting Time Distributions for Denumerable Birth and Death Processes — Gong & Mao",
+        "url": "https://arxiv.org/abs/1007.1039"
+      },
+      {
+        "comparison": "Retrieved abstract confirms cutoff at maximal median hitting time when gap*mixing diverges for lazy/continuous birth-death families; asymptotic cutoff-window theorem, no exhaustive 746496-chain census, no quarter-grid constants 6544/5088/4608/4464/4358 or 10046-value distribution.",
+        "retrieved_at_utc": "2026-09-07T14:13:40Z",
+        "title": "Total-variation cutoff in birth-and-death chains — Ding, Lubetzky, Peres",
+        "url": "https://arxiv.org/abs/0801.2625"
+      },
+      {
+        "comparison": "Retrieved author page confirms textbook scope (general Markov/mixing methods, AMS book, PDF/errata) with no finite denominator-restricted extremal table; supplies methods used for verification but states no S_{8,4} maximizer, value, or mixing bracket for P*.",
+        "retrieved_at_utc": "2026-09-07T14:13:40Z",
+        "title": "Markov Chains and Mixing Times, Second Edition — Levin, Peres, Wilmer (author page)",
+        "url": "https://pages.uoregon.edu/dlevin/MARKOV/"
+      },
+      {
+        "comparison": "Retrieved Crossref DOI record confirms Bernoulli 2024 article on reproducing initial laws from first-hitting distribution via spectral differential operators; continuous spectral theory with no 8-state finite enumeration, no quarter-grid, no 6544 maximum.",
+        "retrieved_at_utc": "2026-09-07T14:13:40Z",
+        "title": "Reproduction of initial distributions from the first hitting time distribution for birth-and-death processes — Yamato & Yano",
+        "url": "https://doi.org/10.3150/23-BEJ1619"
+      },
+      {
+        "comparison": "Retrieved DOI record confirms authoritative Norris Markov Chains monograph identity; cited in record only for parametric birth-death hitting equations, which give the recurrence but impose no 1/4-grid, no optimization over 186624 patterns, and no exact census values.",
+        "retrieved_at_utc": "2026-09-07T14:13:40Z",
+        "title": "Markov Chains — J. R. Norris (Cambridge DOI)",
+        "url": "https://doi.org/10.1017/CBO9780511810633"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:13:51Z",
+      "queries": [
+        {
+          "query": "all:birth AND all:death AND all:hitting AND all:time",
+          "result_count": 32,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:birth+AND+all:death+AND+all:hitting+AND+all:time&start=0&max_results=5"
+        },
+        {
+          "query": "all:birth AND all:death AND all:mixing AND all:spectral",
+          "result_count": 10,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:birth+AND+all:death+AND+all:mixing+AND+all:spectral&start=0&max_results=5"
+        },
+        {
+          "query": "all:birth AND all:death AND all:finite AND all:enumeration",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:birth+AND+all:death+AND+all:finite+AND+all:enumeration&start=0&max_results=5"
+        },
+        {
+          "query": "all:6544 AND all:hitting",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:6544+AND+all:hitting&start=0&max_results=5"
+        },
+        {
+          "query": "birth death hitting time maximum finite chain",
+          "result_count": 3222153,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=birth+death+hitting+time+maximum+finite+chain&rows=5"
+        },
+        {
+          "query": "quarter grid birth death chain 6544",
+          "result_count": 1248343,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=quarter+grid+birth+death+chain+6544&rows=5"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved abstract confirms general bounds on spectral gap and mixing time in terms of birth/death rates plus cutoff criterion with illustrative examples; quantifiers are parametric families, no n=8, no quarter-grid S_{8,4}, no 6544 or top-five enumeration, so does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:13:40Z",
+          "title": "On the mixing time and spectral gap for birth and death chains — Chen & Saloff-Coste",
+          "url": "https://arxiv.org/abs/1304.4346"
+        },
+        {
+          "comparison": "Retrieved abstract confirms explicit Laplace-transform formulas for hitting times on denumerable space extending Keilson theorem plus separation-rate application; infinite-state parametric result with no fixed-8 finite-grid maximization, no denominator restriction, no 6544/tie catalog.",
+          "retrieved_at_utc": "2026-09-07T14:13:40Z",
+          "title": "Hitting Time Distributions for Denumerable Birth and Death Processes — Gong & Mao",
+          "url": "https://arxiv.org/abs/1007.1039"
+        },
+        {
+          "comparison": "Retrieved abstract confirms cutoff at maximal median hitting time when gap*mixing diverges for lazy/continuous birth-death families; asymptotic cutoff-window theorem, no exhaustive 746496-chain census, no quarter-grid constants 6544/5088/4608/4464/4358 or 10046-value distribution.",
+          "retrieved_at_utc": "2026-09-07T14:13:40Z",
+          "title": "Total-variation cutoff in birth-and-death chains — Ding, Lubetzky, Peres",
+          "url": "https://arxiv.org/abs/0801.2625"
+        },
+        {
+          "comparison": "Retrieved author page confirms textbook scope (general Markov/mixing methods, AMS book, PDF/errata) with no finite denominator-restricted extremal table; supplies methods used for verification but states no S_{8,4} maximizer, value, or mixing bracket for P*.",
+          "retrieved_at_utc": "2026-09-07T14:13:40Z",
+          "title": "Markov Chains and Mixing Times, Second Edition — Levin, Peres, Wilmer (author page)",
+          "url": "https://pages.uoregon.edu/dlevin/MARKOV/"
+        },
+        {
+          "comparison": "Retrieved Crossref DOI record confirms Bernoulli 2024 article on reproducing initial laws from first-hitting distribution via spectral differential operators; continuous spectral theory with no 8-state finite enumeration, no quarter-grid, no 6544 maximum.",
+          "retrieved_at_utc": "2026-09-07T14:13:40Z",
+          "title": "Reproduction of initial distributions from the first hitting time distribution for birth-and-death processes — Yamato & Yano",
+          "url": "https://doi.org/10.3150/23-BEJ1619"
+        },
+        {
+          "comparison": "Retrieved DOI record confirms authoritative Norris Markov Chains monograph identity; cited in record only for parametric birth-death hitting equations, which give the recurrence but impose no 1/4-grid, no optimization over 186624 patterns, and no exact census values.",
+          "retrieved_at_utc": "2026-09-07T14:13:40Z",
+          "title": "Markov Chains — J. R. Norris (Cambridge DOI)",
+          "url": "https://doi.org/10.1017/CBO9780511810633"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest primary on birth-death mixing/spectral-gap bounds in terms of birth/death rates and cutoff criterion; provides general parametric bounds and illustrative examples, no finite denominator grid or enumeration.",
+        "title": "On the mixing time and spectral gap for birth and death chains — Chen & Saloff-Coste (arXiv:1304.4346)",
+        "url": "https://arxiv.org/abs/1304.4346"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest primary on explicit Laplace-transform hitting-time formulas extending Keilson theorem to infinite state space plus strong-stationary-time application; parametric formulas, no 8-state quarter-grid optimization or constants.",
+        "title": "Hitting Time Distributions for Denumerable Birth and Death Processes — Gong & Mao (arXiv:1007.1039)",
+        "url": "https://arxiv.org/abs/1007.1039"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest primary proving cutoff iff gap*mixing->infinity for lazy/continuous birth-death chains with cutoff location at median hitting time; asymptotic family result, no fixed-n fixed-denominator exhaustive table or 6544 value.",
+        "title": "Total-variation cutoff in birth-and-death chains — Ding, Lubetzky, Peres (arXiv:0801.2625)",
+        "url": "https://arxiv.org/abs/0801.2625"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative textbook supplying general mixing/hitting/spectral-gap/coupling methods used in record; contains no finite denominator-restricted extremal table, no S_{8,4}, P*, or 6544/top-five catalog.",
+        "title": "Markov Chains and Mixing Times (2nd ed.) — Levin, Peres, Wilmer (author page)",
+        "url": "https://pages.uoregon.edu/dlevin/MARKOV/"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Recent Crossref-indexed primary on spectral reproduction from first-hitting distribution for birth-death processes via eigenfunctions; continuous-spectral theory, no finite-grid maximum or enumeration.",
+        "title": "Reproduction of initial distributions from the first hitting time distribution for birth-and-death processes — Yamato & Yano (Bernoulli 30(2), DOI 10.3150/23-BEJ1619)",
+        "url": "https://doi.org/10.3150/23-BEJ1619"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative text supplying parametric finite birth-death hitting formula and fundamental-matrix equations (verification basis); states general recurrence d0=1/p0, p_i d_i - q_i d_{i-1}=1 with no grid restriction, optimization, or exact census values.",
+        "title": "Markov Chains — J. R. Norris (Cambridge, DOI 10.1017/CBO9780511810633)",
+        "url": "https://doi.org/10.1017/CBO9780511810633"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-009",
+    "originality_rationale": "Claim-level comparison shows no prior covers or implies the compiled census as stated. Hypotheses differ: priors treat parametric or asymptotic birth-death families (arbitrary rates, n->infinity, cutoff, Laplace transforms, quasi-stationarity) while candidate fixes n=8, quarter-grid S_{8,4} with exact quantifiers 746496 chains / 186624 H-patterns / 745767 aperiodic / 729 periodic. Parameter ranges differ: no source restricts to p,q multiples of 1/4 with the 6 interior triples or optimizes H=E_0[T_7] over that lattice. Exact constants absent: arXiv exact-constant query all:6544 AND all:hitting returns 0 results; top-five 6544,5088,4608,4464,4358, tie pattern (deviations at i vs 7-i coincide, e.g. 5088 both ways), 10046 distinct values, periodic max 3265, and P* spectral data (lambda*~0.86784, trace 1.5, pi proportional to 1,1/3,...,1/3^6) appear in none of the retrieved abstracts/full-record metadata. Proof/computation scope differs: priors prove general bounds/formulas, candidate provides exact Fraction recursion over 186624 patterns plus Gauss-Jordan cross-check and seeded coupling/spectral instantiation for one chain. The only overlap is the textbook recurrence d0=1/p0, d_i=(1+q_i d_{i-1})/p_i, from which the argmax pattern (p=1/4,q=3/4) follows by short monotonicity and is obvious in hindsight as the record itself discloses; but monotonicity alone does not state or imply the exact maximum value 6544, the full distribution, paired ties, periodic max, or mixing bracket as tabulated. Therefore the finite-stratum compiled table is narrowly but genuinely new in this documented search.",
+    "priority_caveat": "This PASS is not an award of academic priority; it reports only that this documented live search found no source substantively covering or implying the candidate, and does not establish novelty, precedence, or publishability against the full literature.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-009",
+    "residual_uncertainties": [
+      "Full-text of paywalled textbooks (Levin-Peres-Wilmer, Norris) inspected via author/DOI landing pages and record citations, not line-by-line full-text search; a hidden finite-grid exercise with identical n=8 denominator-4 table is unlikely but not logically excluded.",
+      "OpenAlex API returned 429 rate-limit (insufficient budget) during this run, so OpenAlex was not usable as the second service; two other independent services (arXiv API and Crossref API) plus publisher/DOI pages were used instead.",
+      "Aldous-Fill draft URLs returned 404/transport errors in this run; comparison rests on record citation plus nearest arXiv/Crossref primaries covering the same general hitting/mixing theory.",
+      "Crossref fuzzy total-results counts (millions) reflect full-corpus lexical matching, not topical hits; defensibility rests on inspection of top-ranked items (all general hitting/spectral papers, none with grid census or 6544)."
+    ],
+    "reviewed_claim": "Exhaustive census of the 8-state quarter-grid irreducible birth-death stratum S_{8,4} (4*6^6*4=746496 chains; 186624 rows-0..6 H-patterns; 745767 aperiodic): max endpoint hitting time H(P)=E_0[T_7]=6544 attained uniquely modulo free row 7 by left-drift P* (p0=1/4,r0=3/4; interior p=1/4,q=3/4,r=0; q7 free), with top-five distinct values 6544,5088,4608,4464,4358 and tie multiplicities 1,2,2,2,1 patterns (x4 for q7), 10046 distinct exact values, periodic max 3265, plus P*-specific numerical mixing bracket.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "arXiv API: all:birth AND all:death AND all:hitting AND all:time (general hitting-time formula literature)",
+      "arXiv API: all:birth AND all:death AND all:mixing AND all:spectral (nearest mixing/spectral-gap birth-death papers)",
+      "arXiv API: all:birth AND all:death AND all:finite AND all:enumeration (finite-enumeration / census terminology)",
+      "arXiv API: all:6544 AND all:hitting (exact constant 6544 search)",
+      "Crossref API: birth death hitting time maximum finite chain (fuzzy full-corpus check for extremal finite-chain claim)",
+      "Crossref API: quarter grid birth death chain 6544 (denominator-restricted grid + exact value terminology)"
+    ],
+    "verdict": "PASS"
+  },
   "residual_risks": [
     "Live web literature verification unavailable (transport/proxy errors); originality beyond canonical texts not exhaustively excluded, but DRAFT explicitly limits 'first compiled census' to those texts and claims no broader priority",
     "Mixing upper ≲21 is Monte Carlo quantile (N=20000, SE~0.3% on tail), not theorem; spectral lower uses floating eig (~1e-12) not interval arithmetic — mitigated by honest 'reported bracket' labeling and separation from exact hitting-time theorem",
     "Max pattern analytically obvious via monotonicity (hindsight obviousness); value rests on compiled catalog + certificates as benchmark, not surprise — explicitly disclosed",
-    "Float pre-screen distinct count (42060) inflated by rounding vs exact 10046; DRAFT correctly reports exact count, no confusion"
+    "Float pre-screen distinct count (42060) inflated by rounding vs exact 10046; DRAFT correctly reports exact count, no confusion",
+    "Originality revalidation: Full-text of paywalled textbooks (Levin-Peres-Wilmer, Norris) inspected via author/DOI landing pages and record citations, not line-by-line full-text search; a hidden finite-grid exercise with identical n=8 denominator-4 table is unlikely but not logically excluded.",
+    "Originality revalidation: OpenAlex API returned 429 rate-limit (insufficient budget) during this run, so OpenAlex was not usable as the second service; two other independent services (arXiv API and Crossref API) plus publisher/DOI pages were used instead.",
+    "Originality revalidation: Aldous-Fill draft URLs returned 404/transport errors in this run; comparison rests on record citation plus nearest arXiv/Crossref primaries covering the same general hitting/mixing theory.",
+    "Originality revalidation: Crossref fuzzy total-results counts (millions) reflect full-corpus lexical matching, not topical hits; defensibility rests on inspection of top-ranked items (all general hitting/spectral papers, none with grid census or 6544)."
   ],
   "verdict": "PASS"
 }

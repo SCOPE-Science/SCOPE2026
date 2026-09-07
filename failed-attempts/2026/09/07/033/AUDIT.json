@@ -1,0 +1,270 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "T1 (9 pairwise non-isomorphic stem (7,3) Q-algebras): VERIFIED. Setup V=span(e1..e4), W=span(e5..e7), [ei,ej]=sum (Ak)ij e_{4+k}, W central => [[g,g],g]=0 so Jacobi automatic; verifier enumerates all [[ei,ej],ek]=0 and passes. Derived rank 3: 3x6 matrices have cols 1,2,3 = identity (det 1) for all 9, rank 3 confirmed by sympy and independent Fraction elimination. Center: dim Z=3+dim Rad, Rad={v: Ak v=0 all k}. For G1..G8 A5=[[0,1,0,0],[-1,0,0,0],[0,0,0,1],[0,0,-1,0]] det 1 invertible => Rad 0; for G9 A5v=(v2,-v1,0,0), A6v=(v3,0,-v1,0), A7v=(v4,0,0,-v1) joint zero => v=0. Stacked 12x4 rank 4 confirmed independently. Hence Z=W, stem holds. Pfaffian polys recomputed: G1 x1^2+x2^2+x3^2, G2 x1^2-x2^2+x3^2, G3..G7 x1^2-t x2^2 (t=1,2,3,5,7), G8 x1^2, G9 0; Gram ranks 3,3,2x5,1,0 confirmed. Der dims 19,19,20x5,22,25: verifier 49-unknown 147-equation nullspace (49-rank) re-ran ALL PASS; independently recomputed with Fraction Gaussian elimination (no sympy): ranks 30,30,29,29,27,24 => dims 19,20,22,25 match. CE (r1,r2)=(3,7) => H1=4 H2=11 for 8, (3,6)=>H2=12 for G9, independently recomputed; H1=4 matches g/[g,g] theory. T3 Lemma f'(y)=lambda f(Q*y) with lambda=det(P)^-1: proof checked line-by-line; identity P^T A'(y)P=A(Q*y) holds because W-component of lift drops (central), Pf(P^TBP)=det(P)Pf(B) verified by expansion and 5 random integer trials. Corollaries rank/isotropy preserved via G'=lambda Q^T G Q correct. Rank-3 separation: x1^2+x2^2+x3^2 anisotropic by mod-4 descent (squares 0,1 mod4, sum 0 => all even, contradicts coprimality; scaling argument valid), x1^2-x2^2+x3^2 isotropic at (1,1,0); hence G1 not Q-isomorphic G2 despite same Der/H2. Rank-2 lemma: G_s=lambda Q^T G_t Q with G_t=diag(1,-t,0) forces Q e3 in span e3 (radical preservation), so Q=[[A,0],[c^T,d]], A in GL2, A^T H_t A=lambda^-1 H_s, det => s/t=(lambda det A)^2 square; block/invertibility reasoning verified (det Q=det A * d). For positive ints t/s square iff t*s square (multiply by s^2/t^2 squares); 10 products 2,3,5,7,6,10,14,15,21,35 nonsquare via isqrt, squarefree>1 argument valid. Hence G3..G7 pairwise distinct. Cross-rank separated by rank. All C(9,2)=36 pairs covered. T2 infinitude: family g_t same matrices with t in Q* stem (same A5 invertible + identity minor) and t/s square condition => primes give infinite square classes in Q*/Q*2 (p/q=(a/b)^2 reduced => p b^2=q a^2 forces p=q by unique factorization / exponent parity). Hence no finite list complete; finite census target refuted as stated. Merging over C verified: g_t cong g_s over Q(sqrt(t/s)) via P=diag(l,l^-1,1,1), l=sqrt(t/s): P^T A5 P=A5, P^T M2(t)P=l M2(s), P^T M3 P=l M3 absorbed by Q=diag(1,l,l) (recomputed); G1 cong G2 over Q(i) claimed without matrix but verified by auditor via P=diag(i,1,i,1): transforms G2 6-vectors (1,0,0,0,0,1)->(i,0,0,0,0,i), (0,1,0,0,1,0)->(0,-1,0,0,1,0), (0,0,1,1,0,0)->(0,0,i,i,0,0) = i*v1, -v2, i*v3, so nets equal. No overclaim: draft weakens G_min/G_max to observed minima, disclaims exhaustiveness, C-completeness, orbit closures. Minor gloss (Pbar lift) immaterial. Proof vs computation distinguished: hand lemmas + exact-machine ranks (sympy QQ + Fraction cross-check).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Bazzoni 2011/2012 substantively covers and implies the candidate's core census and infinitude. Hypotheses match: Bazzoni classifies 2-step dim-7 over any field char!=2 (hence Q) via F0+F1 with cases (6,1),(5,2),(4,3); candidate's V=span e1..e4 (dim 4) + W=span e5..e7 (dim 3) with injective wedge map is exactly Bazzoni case (4,3) length-2. Quantifiers/parameter ranges match: Bazzoni Theorem 1 gives 10+2r+s classes where r=|k*/(k*)^2| and s=#quaternion algebras; over Q both r and s are infinite (squarefree integers/primes; infinite quaternion division algebras), so infinitude and impossibility of finite census are immediate corollaries, identical to candidate Theorem 2. Exact invariants match: Bazzoni Section 6 conic canonical form Y0^2-aY1^2-bZ^2, rank 1 (double line), rank 2 (X^2-aY^2, a in k*/(k*)^2, eq.8 model dy5=y1y4+y2y3, dy6=a y1y3+y2y4, dy7=y1y2), rank 3 smooth (det+Hasse/quaternion, Theorem 2, eq.10 dy7=y1y2-b y3y4) are the same stratification as candidate Pf-rank 0/1/2/3, isotropy (aniso x1^2+x2^2+x3^2 vs iso x1^2-x2^2+x3^2), and square-class t/s in (Q*)^2 for f=x1^2-t x2^2. Explicit overlap: Bazzoni model dx5=x1x2,dx6=x1x3,dx7=x1x4 is dual to candidate G9 ([e1,e2]=e5,[e1,e3]=e6,[e1,e4]=e7); Bazzoni rank-2 Galois-descent family realizes all square classes like candidate G3..G7 (t=1,2,3,5,7 are five of infinitely many). Lemma transformation law f'=lambda f(Q*) is Bazzoni's conic projective equivalence / quadratic-form isometry criterion in different language, and Lauret's Pfaffian projective equivalence. Therefore nine Q-witnesses are nine representatives of Bazzoni's already-parametrized infinite Q-families, and prime-infinitude is the standard square-class infinitude. Candidate's exact Der dims (19,20,22,25) and H1/H2 machine certificates are auxiliary computations not in Bazzoni, but they do not rescue originality of the census/infinitude claim itself. Record's cited arXiv:0805.3380 and math/0703802 were verified live to resolve to unrelated papers (cross-curvature flow; Levy processes), and uwspace handle 10012/133 no longer resolves to Gong, indicating prior audit missed the true nearest prior (Bazzoni).",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth finding later. (a) Corrects finiteness expectation: proves finite complete census impossible (infinite Q-types via Pf=x1^2-t x2^2), saving future effort and reframing problem as moduli, not table. (b) Reusable benchmark: 9 explicit integer triples with sub-second exact verifier (fractions/sympy, no floats) template for adjacent (7,2)/(7,4) strata; Der spectrum {19,20,22,25} keyed to Pf-rank plus H2 and Pfaffian types gives rigidity/automorphism-dimension data (Der 19 most rigid observed, 25 least). (c) Not textbook restatement: Pfaffian-net invariant + radical-preservation square-class lemma + descent are assembled for Lie classification, not quoted. (d) Not mere parameter substitution: parameter t proved to give distinct isomorphism types via invariant, not relabeling; 5 primes are representatives of infinite moduli, stratified by Pf-rank 3/2/1/0. (e) Not tiny gain or unexplained enumeration: 9 types motivated by Pf-rank stratification and square classes, with full 36-pair separation logic and explicit open questions (Der vs Pf-rank, Q vs C orbits, degenerations, adjoint cohomology over Q). Meets fallback >=8-type citable data-note bar with 9. Any one follow-up (same-rank different-Der, orbit closures) is citable.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Directly classifies ALL 2-step nilpotent Lie algebras of dimension 7 over any field of char !=2, including the candidate's (f0=4,f1=3)=(7,3) stem stratum via Klein-quadric plane/conic normal forms; rank-2 family with parameter in k*/(k*)^2 and smooth-conic family X^2-aY^2-bZ^2 with det+Hasse/quaternion invariant are the same stratification as candidate's Pf-rank/square-class/anisotropy; main theorem 10+2r+s with r=|k*/(k*)^2| implies infinitude over Q.",
+      "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 - Giovanni Bazzoni",
+      "url": "https://arxiv.org/abs/1112.0109"
+    },
+    {
+      "outcome": "Peer-reviewed publisher version of the above; journal Geometriae Dedicata 165:1 (2012); establishes priority date 2011-12-01 arXiv / 2012-06-01 journal, far prior to 2026 record; same 10+2r+s classification over arbitrary fields.",
+      "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 (published version, Geometriae Dedicata)",
+      "url": "https://doi.org/10.1007/s10711-012-9744-y"
+    },
+    {
+      "outcome": "Defines Pfaffian form f_mu(Z)^2=det J_mu(Z) for 2-step algebras and its projective-equivalence invariance, the same invariant as candidate's Lemma f(x)=Pf(x1*A5+x2*A6+x3*A7) and f'=lambda f(Q*); focuses on nonsingular (fat) case over R including type (3,4) which contains candidate G1 (x1^2+x2^2+x3^2 positive); shows continuous families already known, but does not treat Q square-classes or singular nets.",
+      "title": "On nonsingular two-step nilpotent Lie algebras - Lauret and Oscari",
+      "url": "https://arxiv.org/abs/1209.3060"
+    },
+    {
+      "outcome": "Classifies K-forms for graph-associated nilpotent algebras over any subfield K of C and proves number of rational forms is one or infinite; related infinitude principle via Galois cohomology, but restricted to graph algebras (candidate G9 star is graph, but infinite family g_t with shared central coefficients is not); does not give candidate's explicit (7,3) net family.",
+      "title": "Classification of K-forms in nilpotent Lie algebras associated to graphs - Dere and Witdouck",
+      "url": "https://arxiv.org/abs/2201.13385"
+    },
+    {
+      "outcome": "Studies varieties/degenerations of 7-dimensional complex nilpotent laws (published Comm. Algebra 33:1259-1277, DOI 10.1081/AGB-200053956); background finite classification over C against which candidate contrasts Q-infinitude; complex-orbits only, no rational square-class or Pfaffian-net infinitude.",
+      "title": "Degenerations of 7-dimensional nilpotent Lie algebras - Burde",
+      "url": "https://arxiv.org/abs/math/0409275"
+    }
+  ],
+  "decisive_checks": [
+    "ran inputs/artifacts/verify_partial.py: ALL PASS (Der 19,19,20x5,22,25; H2 11x8,12; Pf ranks 3,3,2x5,1,0)",
+    "recomputed with stdlib Fraction elimination (no sympy): derived 3, stacked rank 4, Der dims 19/20/22/25, CE (3,7)/(3,6) match",
+    "recomputed Pf polys from 6-vectors: x1^2+x2^2+x3^2, x1^2-x2^2+x3^2, x1^2-t x2^2, x1^2, 0 correct",
+    "random integer test Pf(P^TBP)=det(P)Pf(B) 5 trials PASS",
+    "verified A5 det 1 invertible, G9 joint-zero, identity-minor derived argument",
+    "verified mod-4 descent and (1,1,0) isotropy witness; isqrt nonsquare for 10 products",
+    "verified square-class block lemma (b=0, A invertible, det gives square) and t/s iff t*s square",
+    "verified g_t merging via P=diag(l,l^-1,1,1), Q=diag(1,l,l); found and verified G1-G2 merging via P=diag(i,1,i,1)"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:37:45Z",
+    "queries": [
+      {
+        "query": "all:classification AND all:two-step AND all:nilpotent AND all:Lie",
+        "result_count": 16,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3Aclassification+AND+all%3Atwo-step+AND+all%3Anilpotent+AND+all%3ALie&start=0&max_results=5"
+      },
+      {
+        "query": "all:7-dimensional AND all:nilpotent AND all:Lie",
+        "result_count": 28,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3A7-dimensional+AND+all%3Anilpotent+AND+all%3ALie&start=0&max_results=5"
+      },
+      {
+        "query": "id_list=1112.0109 (Bazzoni)",
+        "result_count": 1,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?id_list=1112.0109"
+      },
+      {
+        "query": "id_list=1209.3060,2201.13385,math/0409275 (Lauret, Dere-Witdouck, Burde)",
+        "result_count": 3,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?id_list=1209.3060,2201.13385,math/0409275"
+      },
+      {
+        "query": "Bazzoni Minimal algebras 2-step nilpotent dimension 7",
+        "result_count": 490212,
+        "service": "Crossref API (api.crossref.org)",
+        "url": "https://api.crossref.org/works?query.bibliographic=Bazzoni+Minimal+algebras+2-step+nilpotent+dimension+7&rows=5&select=title,DOI"
+      },
+      {
+        "query": "Degenerations 7-dimensional nilpotent Lie algebras Burde",
+        "result_count": 800653,
+        "service": "Crossref API (api.crossref.org)",
+        "url": "https://api.crossref.org/works?query=Degenerations+7-dimensional+nilpotent+Lie+algebras+Burde&rows=3"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved abstract (char!=2, 10+2r+s classes, r=square classes, s=quaternions) plus full ar5iv text: Sections 5-6 give (4,3) Klein-quadric/conic models including dx5=x1x2,dx6=x1x3,dx7=x1x4 (=G9), rank-2 family eq.8 with a in k*/(k*)^2 (=candidate t-family), and smooth conic X^2-aY^2-bZ^2 with det+Hasse criterion (=candidate aniso/iso + square-class lemma). Directly implies infinitude over Q.",
+        "retrieved_at_utc": "2026-09-07T14:37:05Z",
+        "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 - Bazzoni (arXiv)",
+        "url": "https://arxiv.org/abs/1112.0109"
+      },
+      {
+        "comparison": "Crossref record confirms title, author Bazzoni, journal Geometriae Dedicata, published 2012-06-01, DOI 10.1007/s10711-012-9744-y; Springer page title/abstract retrieved live. Establishes peer-reviewed prior date 2011/2012, far before 2026 record, with same arbitrary-field classification.",
+        "retrieved_at_utc": "2026-09-07T14:37:05Z",
+        "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 (Springer Geometriae Dedicata)",
+        "url": "https://doi.org/10.1007/s10711-012-9744-y"
+      },
+      {
+        "comparison": "Retrieved abstract and ar5iv Section 2.1: defines Pfaffian form f_mu with f_mu^2=det J_mu and projective-equivalence invariance for type (n,m), proves nonsingular iff positive, uses it to exhibit continuous non-isomorphic families. Same invariant mechanism as candidate Lemma, but over R and for nonsingular (3,8)/(2,m) types, not Q square-classes.",
+        "retrieved_at_utc": "2026-09-07T14:37:05Z",
+        "title": "On nonsingular two-step nilpotent Lie algebras - Lauret and Oscari",
+        "url": "https://arxiv.org/abs/1209.3060"
+      },
+      {
+        "comparison": "Retrieved abstract and introduction: classifies K-forms for graph Lie algebras over any subfield K of C, proves rational forms are one or infinite via graph automorphisms, motivates via Malcev/Grunewald-Segal. Related infinitude phenomenon but restricted to graph algebras; candidate infinite net family is non-graph, so not covered by this source alone.",
+        "retrieved_at_utc": "2026-09-07T14:37:05Z",
+        "title": "Classification of K-forms in nilpotent Lie algebras associated to graphs - Dere and Witdouck",
+        "url": "https://arxiv.org/abs/2201.13385"
+      },
+      {
+        "comparison": "Retrieved arXiv title/abstract (varieties of laws, degenerations of 5- and 6-step 7-dim complex algebras via cohomology) and Crossref DOI 10.1081/AGB-200053956 (Comm. Algebra 33:1259-1277, 2005). Confirms finite complex picture only; provides contrast showing candidate Q-infinitude is arithmetic, but Bazzoni already gives that arithmetic refinement.",
+        "retrieved_at_utc": "2026-09-07T14:37:05Z",
+        "title": "Degenerations of 7-dimensional nilpotent Lie algebras - Burde",
+        "url": "https://arxiv.org/abs/math/0409275"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:37:45Z",
+      "queries": [
+        {
+          "query": "all:classification AND all:two-step AND all:nilpotent AND all:Lie",
+          "result_count": 16,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3Aclassification+AND+all%3Atwo-step+AND+all%3Anilpotent+AND+all%3ALie&start=0&max_results=5"
+        },
+        {
+          "query": "all:7-dimensional AND all:nilpotent AND all:Lie",
+          "result_count": 28,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3A7-dimensional+AND+all%3Anilpotent+AND+all%3ALie&start=0&max_results=5"
+        },
+        {
+          "query": "id_list=1112.0109 (Bazzoni)",
+          "result_count": 1,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?id_list=1112.0109"
+        },
+        {
+          "query": "id_list=1209.3060,2201.13385,math/0409275 (Lauret, Dere-Witdouck, Burde)",
+          "result_count": 3,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?id_list=1209.3060,2201.13385,math/0409275"
+        },
+        {
+          "query": "Bazzoni Minimal algebras 2-step nilpotent dimension 7",
+          "result_count": 490212,
+          "service": "Crossref API (api.crossref.org)",
+          "url": "https://api.crossref.org/works?query.bibliographic=Bazzoni+Minimal+algebras+2-step+nilpotent+dimension+7&rows=5&select=title,DOI"
+        },
+        {
+          "query": "Degenerations 7-dimensional nilpotent Lie algebras Burde",
+          "result_count": 800653,
+          "service": "Crossref API (api.crossref.org)",
+          "url": "https://api.crossref.org/works?query=Degenerations+7-dimensional+nilpotent+Lie+algebras+Burde&rows=3"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved abstract (char!=2, 10+2r+s classes, r=square classes, s=quaternions) plus full ar5iv text: Sections 5-6 give (4,3) Klein-quadric/conic models including dx5=x1x2,dx6=x1x3,dx7=x1x4 (=G9), rank-2 family eq.8 with a in k*/(k*)^2 (=candidate t-family), and smooth conic X^2-aY^2-bZ^2 with det+Hasse criterion (=candidate aniso/iso + square-class lemma). Directly implies infinitude over Q.",
+          "retrieved_at_utc": "2026-09-07T14:37:05Z",
+          "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 - Bazzoni (arXiv)",
+          "url": "https://arxiv.org/abs/1112.0109"
+        },
+        {
+          "comparison": "Crossref record confirms title, author Bazzoni, journal Geometriae Dedicata, published 2012-06-01, DOI 10.1007/s10711-012-9744-y; Springer page title/abstract retrieved live. Establishes peer-reviewed prior date 2011/2012, far before 2026 record, with same arbitrary-field classification.",
+          "retrieved_at_utc": "2026-09-07T14:37:05Z",
+          "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 (Springer Geometriae Dedicata)",
+          "url": "https://doi.org/10.1007/s10711-012-9744-y"
+        },
+        {
+          "comparison": "Retrieved abstract and ar5iv Section 2.1: defines Pfaffian form f_mu with f_mu^2=det J_mu and projective-equivalence invariance for type (n,m), proves nonsingular iff positive, uses it to exhibit continuous non-isomorphic families. Same invariant mechanism as candidate Lemma, but over R and for nonsingular (3,8)/(2,m) types, not Q square-classes.",
+          "retrieved_at_utc": "2026-09-07T14:37:05Z",
+          "title": "On nonsingular two-step nilpotent Lie algebras - Lauret and Oscari",
+          "url": "https://arxiv.org/abs/1209.3060"
+        },
+        {
+          "comparison": "Retrieved abstract and introduction: classifies K-forms for graph Lie algebras over any subfield K of C, proves rational forms are one or infinite via graph automorphisms, motivates via Malcev/Grunewald-Segal. Related infinitude phenomenon but restricted to graph algebras; candidate infinite net family is non-graph, so not covered by this source alone.",
+          "retrieved_at_utc": "2026-09-07T14:37:05Z",
+          "title": "Classification of K-forms in nilpotent Lie algebras associated to graphs - Dere and Witdouck",
+          "url": "https://arxiv.org/abs/2201.13385"
+        },
+        {
+          "comparison": "Retrieved arXiv title/abstract (varieties of laws, degenerations of 5- and 6-step 7-dim complex algebras via cohomology) and Crossref DOI 10.1081/AGB-200053956 (Comm. Algebra 33:1259-1277, 2005). Confirms finite complex picture only; provides contrast showing candidate Q-infinitude is arithmetic, but Bazzoni already gives that arithmetic refinement.",
+          "retrieved_at_utc": "2026-09-07T14:37:05Z",
+          "title": "Degenerations of 7-dimensional nilpotent Lie algebras - Burde",
+          "url": "https://arxiv.org/abs/math/0409275"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": true,
+        "relationship": "Directly classifies ALL 2-step nilpotent Lie algebras of dimension 7 over any field of char !=2, including the candidate's (f0=4,f1=3)=(7,3) stem stratum via Klein-quadric plane/conic normal forms; rank-2 family with parameter in k*/(k*)^2 and smooth-conic family X^2-aY^2-bZ^2 with det+Hasse/quaternion invariant are the same stratification as candidate's Pf-rank/square-class/anisotropy; main theorem 10+2r+s with r=|k*/(k*)^2| implies infinitude over Q.",
+        "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 - Giovanni Bazzoni",
+        "url": "https://arxiv.org/abs/1112.0109"
+      },
+      {
+        "covers_candidate": true,
+        "relationship": "Peer-reviewed publisher version of the above; journal Geometriae Dedicata 165:1 (2012); establishes priority date 2011-12-01 arXiv / 2012-06-01 journal, far prior to 2026 record; same 10+2r+s classification over arbitrary fields.",
+        "title": "Minimal algebras and 2-step nilpotent Lie algebras in dimension 7 (published version, Geometriae Dedicata)",
+        "url": "https://doi.org/10.1007/s10711-012-9744-y"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Defines Pfaffian form f_mu(Z)^2=det J_mu(Z) for 2-step algebras and its projective-equivalence invariance, the same invariant as candidate's Lemma f(x)=Pf(x1*A5+x2*A6+x3*A7) and f'=lambda f(Q*); focuses on nonsingular (fat) case over R including type (3,4) which contains candidate G1 (x1^2+x2^2+x3^2 positive); shows continuous families already known, but does not treat Q square-classes or singular nets.",
+        "title": "On nonsingular two-step nilpotent Lie algebras - Lauret and Oscari",
+        "url": "https://arxiv.org/abs/1209.3060"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Classifies K-forms for graph-associated nilpotent algebras over any subfield K of C and proves number of rational forms is one or infinite; related infinitude principle via Galois cohomology, but restricted to graph algebras (candidate G9 star is graph, but infinite family g_t with shared central coefficients is not); does not give candidate's explicit (7,3) net family.",
+        "title": "Classification of K-forms in nilpotent Lie algebras associated to graphs - Dere and Witdouck",
+        "url": "https://arxiv.org/abs/2201.13385"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Studies varieties/degenerations of 7-dimensional complex nilpotent laws (published Comm. Algebra 33:1259-1277, DOI 10.1081/AGB-200053956); background finite classification over C against which candidate contrasts Q-infinitude; complex-orbits only, no rational square-class or Pfaffian-net infinitude.",
+        "title": "Degenerations of 7-dimensional nilpotent Lie algebras - Burde",
+        "url": "https://arxiv.org/abs/math/0409275"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-012",
+    "originality_rationale": "Bazzoni 2011/2012 substantively covers and implies the candidate's core census and infinitude. Hypotheses match: Bazzoni classifies 2-step dim-7 over any field char!=2 (hence Q) via F0+F1 with cases (6,1),(5,2),(4,3); candidate's V=span e1..e4 (dim 4) + W=span e5..e7 (dim 3) with injective wedge map is exactly Bazzoni case (4,3) length-2. Quantifiers/parameter ranges match: Bazzoni Theorem 1 gives 10+2r+s classes where r=|k*/(k*)^2| and s=#quaternion algebras; over Q both r and s are infinite (squarefree integers/primes; infinite quaternion division algebras), so infinitude and impossibility of finite census are immediate corollaries, identical to candidate Theorem 2. Exact invariants match: Bazzoni Section 6 conic canonical form Y0^2-aY1^2-bZ^2, rank 1 (double line), rank 2 (X^2-aY^2, a in k*/(k*)^2, eq.8 model dy5=y1y4+y2y3, dy6=a y1y3+y2y4, dy7=y1y2), rank 3 smooth (det+Hasse/quaternion, Theorem 2, eq.10 dy7=y1y2-b y3y4) are the same stratification as candidate Pf-rank 0/1/2/3, isotropy (aniso x1^2+x2^2+x3^2 vs iso x1^2-x2^2+x3^2), and square-class t/s in (Q*)^2 for f=x1^2-t x2^2. Explicit overlap: Bazzoni model dx5=x1x2,dx6=x1x3,dx7=x1x4 is dual to candidate G9 ([e1,e2]=e5,[e1,e3]=e6,[e1,e4]=e7); Bazzoni rank-2 Galois-descent family realizes all square classes like candidate G3..G7 (t=1,2,3,5,7 are five of infinitely many). Lemma transformation law f'=lambda f(Q*) is Bazzoni's conic projective equivalence / quadratic-form isometry criterion in different language, and Lauret's Pfaffian projective equivalence. Therefore nine Q-witnesses are nine representatives of Bazzoni's already-parametrized infinite Q-families, and prime-infinitude is the standard square-class infinitude. Candidate's exact Der dims (19,20,22,25) and H1/H2 machine certificates are auxiliary computations not in Bazzoni, but they do not rescue originality of the census/infinitude claim itself. Record's cited arXiv:0805.3380 and math/0703802 were verified live to resolve to unrelated papers (cross-curvature flow; Levy processes), and uwspace handle 10012/133 no longer resolves to Gong, indicating prior audit missed the true nearest prior (Bazzoni).",
+    "priority_caveat": "This is not an award of academic priority; it is only a literature-overlap assessment on the documented live search. FAIL means a concrete prior covering or implying the candidate was found in this search, not a judicial finding of priority or derivation.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "FLAG",
+    "record_id": "SCOPE-2026-09-07-012",
+    "residual_uncertainties": [
+      "Exact basis-level isomorphism between candidate integer triples G3..G7 and Bazzoni eq.8 normal forms was compared at invariant level (same rank-2 conic X^2-aY^2 and same square-class obstruction), not by exhibiting explicit P,Q intertwiner for each t; covering judgment rests on classification-level implication, not term-by-term matrix equality.",
+      "Candidate exact Der/H2 dimensions (19,20,22,25) and isqrt/squarefree machine certificates were not found in Bazzoni and may be new as explicit computational data; review treats them as auxiliary and insufficient to sustain census originality.",
+      "Record-cited Gong thesis handle and Magnin/Burde arXiv IDs could not be resolved to claimed sources live (IDs resolve to unrelated papers); assessment therefore relies on independently retrieved Bazzoni/Lauret/Burde/Dere sources rather than record bibliography."
+    ],
+    "reviewed_claim": "Stem 2-step nilpotent Lie algebras over Q of dimension 7 with dim[g,g]=dim Z(g)=3 (type V=4, W=3): nine explicit integer triples G1..G9 with Pfaffian forms x1^2+x2^2+x3^2, x1^2-x2^2+x3^2, x1^2-t*x2^2 (t=1,2,3,5,7), x1^2, 0 are pairwise non-isomorphic over Q via Pf-rank/isotropy/square-class (Der dims 19,19,20x5,22,25; H2 11x8,12); Lemma f'(y)=lambda f(Q*y) with lambda=det(P)^-1 makes Pf-rank, isotropy and rank-2 square class t/s in (Q*)^2 isomorphism invariants; hence infinite family g_t (t prime) gives infinitely many Q-types and no finite complete census exists.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "arXiv API: all:classification AND all:two-step AND all:nilpotent AND all:Lie",
+      "arXiv API: all:7-dimensional AND all:nilpotent AND all:Lie (found Burde math/0409275, Bazzoni 1112.0109, Schneider math/0406365)",
+      "arXiv API id_list 1112.0109 + ar5iv HTML inspection of Bazzoni (4,3) conic sections 5-6, equations (7)-(10)",
+      "arXiv API: all:rational AND all:forms AND all:nilpotent AND all:Lie (found Dere-Witdouck 2201.13385 K-forms)",
+      "arXiv API: all:two-step AND all:nilpotent AND all:Lie AND all:Pfaffian (found Lauret-Oscari 1209.3060 Pfaffian form)",
+      "Crossref API: query Bazzoni Minimal algebras 2-step nilpotent dimension 7 -> DOI 10.1007/s10711-012-9744-y",
+      "Crossref API: query Degenerations 7-dimensional nilpotent Lie algebras Burde -> DOI 10.1081/AGB-200053956",
+      "Direct retrieval: arxiv.org/abs pages for 1112.0109, 1209.3060, 2201.13385, math/0409275; ar5iv HTML for 1112.0109 and 1209.3060; Springer DOI page for Bazzoni; verification that record-cited arXiv:0805.3380 and math/0703802 resolve to unrelated papers"
+    ],
+    "verdict": "FAIL"
+  },
+  "residual_risks": [
+    "live-web unavailable: residual chance a 2024-2026 (7,3) Q-Der census exists; mitigated by capped confidence and no priority claim, but cannot be eliminated without network",
+    "Der/H2 rest on exact QQ elimination (sympy + Fraction agreement); no hand bases displayed except G1/G9 in catalog.json (unchecked bases, but dims cross-checked)",
+    "decomposability untested; does not affect stem/non-isomorphism but leaves structural description incomplete (explicitly noted)",
+    "global minimality of Der 19 not proved (only observed minimum; draft correctly weakens claim)",
+    "C-orbit completeness (Pf-rank sufficiency) and orbit-closure/degeneration classification remain open (explicitly disclaimed)",
+    "Originality revalidation: Exact basis-level isomorphism between candidate integer triples G3..G7 and Bazzoni eq.8 normal forms was compared at invariant level (same rank-2 conic X^2-aY^2 and same square-class obstruction), not by exhibiting explicit P,Q intertwiner for each t; covering judgment rests on classification-level implication, not term-by-term matrix equality.",
+    "Originality revalidation: Candidate exact Der/H2 dimensions (19,20,22,25) and isqrt/squarefree machine certificates were not found in Bazzoni and may be new as explicit computational data; review treats them as auxiliary and insufficient to sustain census originality.",
+    "Originality revalidation: Record-cited Gong thesis handle and Magnin/Burde arXiv IDs could not be resolved to claimed sources live (IDs resolve to unrelated papers); assessment therefore relies on independently retrieved Bazzoni/Lauret/Burde/Dere sources rather than record bibliography."
+  ],
+  "verdict": "REJECT"
+}

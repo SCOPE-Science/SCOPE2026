@@ -1,0 +1,262 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 1 (sums-distinct iff differences-distinct-nonzero) was line-checked and holds including 2-torsion: forward direction a-b=c-d => a+d=c+b gives sum collision unless same ordered pair; subcase a-b=b-a gives 2a=2b collision of {a,a} vs {b,b}; converse a+b=c+d => a-c=d-b gives difference collision unless {a,b}={c,d} as multisets, doubling case 2a=c+d => a-c=d-a similarly. Verified on 5000 random subsets with zero mismatches. Monotonicity (subset of Sidon is Sidon; superset of non-Sidon is non-Sidon) holds because sums/differences of subset embed in superset; spot-checked {0,1,2} non-Sidon stays non-Sidon on extension. Witness {0,1,3,7,12,20,38} independently recomputed: 28 sums exactly [0,1,2,3,4,6,7,8,10,12,13,14,15,16,19,20,21,23,24,27,32,38,39,40,41,45,50,58] (7*8/2=28) and 42 distinct nonzero differences (7*6=42), translation- and dihedral-canonical. DFS soundness/completeness verified: fixing 0 plus increasing order enumerates every rooted set; every Sidon k-set has Sidon prefixes so never pruned (50 sampled 7-sets all prefixes Sidon); pruning only on Lemma-1 failure whose supersets can never become Sidon. 2-torsion pruning explicitly rejects distance-30 (pair {0,30} gives sums {0,30} size 2<3 and diffs {30} size 1<2, both tests reject; depth-2 count 58 not 59 confirms). Canonical forms correct: trans-canonical = lex-min sorted tuple among translates containing 0 equals min over all 60 translates; dihedral = min(canonical(A),canonical(-A)); unique minimal element per orbit machine-checked on all reps. No periodic 7-set is theoretically necessary (7 prime not dividing 60, invariant set would be union of <t>-orbits so size multiple of ord(t)>1) and computationally confirmed (7156 classes each size exactly 7); no self-mirror confirmed (3578 classes each 2 translation classes). Cold reproduction: primary difference-DFS re-run gives visited 534471, attempts 5169009, depth {1:1,2:58,3:1542,4:22160,5:151450,6:309168,7:50092}, n7 50092, n8 0, checksums 2fa9f1d4.../d87fe6bd... byte-identical; independent sums-based verifier cold re-run gives identical visited/attempts/depth/n7/n8 (16/16 checks PASS). Depth sum 534471 matches visited. Pilot 441669 vs 534471 discrepancy is purely definitional (accepted sets incl. root vs unspecified convention); both implementations agree exactly under frozen convention, so no mathematical error. Full 3578 dihedral reps rechecked Sidon (28 sums + 42 diffs) with zero failures. Proof is machine-checked exhaustion conditional on Python correctness, not formal proof-assistant or human-readable tree — disclosed limitation, still proof not mere experiment.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Claim-level comparison: candidate Theorem (a) asserts in Z_60 with sums-distinct (k(k+1)/2 sums) equivalently differences-distinct (k(k-1) ordered nonzero differences) definition, max size is exactly 7 with witness {0,1,3,7,12,20,38} (28 sums, 42 diffs) and no 8-set. Buratti-Stinson defines (v,k)-MGR identically as k distinct residues mod v with all i!=j differences distinct (hence nonzero), proven equivalent to candidate weak-Sidon and by candidate Lemma 1 to sums-Sidon including 2-torsion. Quantifiers match universally over all 8-subsets of Z_60; parameter range is the single point v=60,k=8 inside the 58-62 block; exact constants match: need 56 distinct differences of 59 nonzero residues, counting bound k(k-1)+1=57<=60 allows 8 (Buratti Thm 1.1 v>=k^2-k+1). Buratti Theorem 2.3 plus Table 1, obtained by exhaustive backtracking for k<=11, states MGR(7)={v>=48} (so (60,7) exists) and MGR(8)={57} U {v>=63} with explicit row '58<=v<=62 does not exist' (so (60,8) does not exist). Proof/computation scope matches: exhaustive search deciding existence at those (v,k). Conclusion matches: max<=7 and >=7, i.e. exactly 7. Lower-bound witness is also not new: any optimal 7-mark Golomb ruler of length 25 yields a (60,7)-MGR by Lemma 2.1. Therefore subclaim (a) is substantively covered/implied by concrete 2020 prior art. Subclaim (b) census 50092 rooted / 7156 translation / 3578 dihedral with SHA-256 checksums was not found in inspected sources: Buratti Table 1 gives one example per small (v,k) and invokes Lemma 2.1 for v>=51 at k=7 rather than enumerating all (60,7)-MGRs; Gordon and OEIS give no such counts; targeted terminology searches (difference packing, OOC, modular Golomb enumeration) surfaced no 50092/7156/3578 tabulation. Census enumeration per se appears new, but it does not salvage originality of the headline maximality theorem as stated; record presents max-7 as new theorem with replayable log, which overlaps published tabulation. Hence overall FAIL/FLAG: maximum component requires disclosure and downgrade to census-only novelty.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a closed defect-order table entry with reusable extremal library, not a textbook/parameter/epsilon/unexplained item: (a) Not textbook restatement — counting bound k(k-1)+1<=60 allows k=8 (57<=60), true max is 7, so bound is slack and closure requires exhaustive search. (b) Not mere parameter substitution — n=60 is motivated as highly composite with 2-torsion wrap-around (distance-30 collision, depth-2 58 not 59) differing from interval Golomb case, adjacent to Singer (57,8,1) plane, and inside 58-62 defect block where counting allowance fails and greedy/projective constructions fail; one closed defect order plus extremal census is a citable extremal result. (c) Not tiny gain — full integer drop 8->7 against allowance plus complete classification (50092 rooted, 7156 translation each size 7, 3578 dihedral each size 2, zero periodic/self-mirror) with regular orbit structure, not constant tweak. (d) Not unexplained enumeration — method explained (difference-occupancy pruning, lex-min dihedral canonicals), every witness millisecond-checkable via 28-sum list, independent sums-based verifier, replayable 534471-node log with exact visited/attempts/depth/checksums, stdlib-only ~3s+~5s replay. Precedent-consistent: analogous fixed-parameter certified censuses (e.g. binary 5x5 rank-3 719 classes, RSBF 7-variable census) were valued as citable records; modular-Golomb/OOC tables routinely record such tightened bounds and extremal reps for later lookup/use as seeds and test cases. Only Z_60 is closed (neighboring-n defect claims are motivation only, not claimed).",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Directly decides the maximality subclaim (a): Theorem 2.3 gives MGR(8)={57} U {v>=63} so v=60 has no 8-set, and MGR(7)={v>=48} so v=60 has a 7-set; Table 1 explicitly lists '58<=v<=62, k=8, does not exist' by exhaustive backtracking search. Same objects (8-subsets of Z_60), same distinct-differences hypothesis, same constants (56 differences, counting bound 57<=60), same nonexistence conclusion. Candidate 534k-node DFS re-proves this published 2020 tabulation.",
+      "title": "Buratti & Stinson - New Results on Modular Golomb Rulers, Optical Orthogonal Codes and Related Structures",
+      "url": "https://arxiv.org/abs/2007.01908"
+    },
+    {
+      "outcome": "Authoritative journal version of the same Buratti-Stinson tabulation (Ars Math. Contemp. 20, 2020, DOI 10.26493/1855-3974.2374.9ff). Confirms peer-reviewed status and 2020 priority date for the (60,8) nonexistence / (60,7) existence determination; does not add census enumeration beyond Table 1 single examples.",
+      "title": "Buratti & Stinson publisher version - ARS MATHEMATICA CONTEMPORANEA",
+      "url": "https://doi.org/10.26493/1855-3974.2374.9ff"
+    },
+    {
+      "outcome": "Background equivalence: lambda=0 almost difference set = modular Golomb ruler = (v,k,1) difference packing (cf. Buratti Theorem 1.5). Investigates constructions from difference sets and octic residues; confirms terminology mapping but contains no Z_60 maximality table and no 50092/7156/3578 census, so does not cover candidate beyond definitional background.",
+      "title": "Gordon - Modular Golomb Rulers and Almost Difference Sets",
+      "url": "https://arxiv.org/abs/2408.16721"
+    },
+    {
+      "outcome": "Interval B2 / optimal Golomb ruler sequence (Mian-Chowla). Different problem: integer differences without modulo wrap-around and without 2-torsion distance-30 collision. Gives k<=8 counting intuition and k>=7 lower bound via classical rulers (e.g. length-25 7-mark ruler gives (v,7)-MGR for v>=51 by Lemma 2.1) but does not close 8-vs-7 at v=60 nor enumerate cyclic extremals.",
+      "title": "OEIS A005282 - Mian-Chowla B2 sequence",
+      "url": "https://oeis.org/A005282"
+    }
+  ],
+  "decisive_checks": [
+    "Witness recomputed independent: sums sorted match [0,1,2,3,4,6,7,8,10,12,13,14,15,16,19,20,21,23,24,27,32,38,39,40,41,45,50,58] len 28; diffs 42 distinct nonzero",
+    "2-torsion pair {0,30}: sums size 2<3, diffs {30} size 1, both tests reject; depth-2 58 not 59 confirms pruning",
+    "Counting bound: 7*6+1=43<=60 allows 7, 8*7+1=57<=60 allows 8, 9*8+1=73>60 forbids 9; sums needed 28/36/45",
+    "Lemma equivalence brute force: 5000 random subsets sums-vs-diffs zero mismatches",
+    "Primary DFS cold re-run: visited 534471 attempts 5169009 depth 1:1 2:58 3:1542 4:22160 5:151450 6:309168 7:50092 n7 50092 n8 0 checksums match",
+    "Independent sums-DFS cold re-run via verify.py: identical visited/attempts/depth/n7/n8, VERIFY PASS 16/16",
+    "Depth sum 1+58+1542+22160+151450+309168+50092=534471 matches visited",
+    "Orbit arithmetic: 50092/7156=7.0, 7156/3578=2.0; 7 prime not dividing 60 supports no periodic",
+    "Independent canonical reimplementation: 20+20 spot reps minimality PASS, witness canonical, witness in both tables",
+    "Full pairing recount: 7156 trans reps map onto 3578 dihedral reps 2-to-1 dist {2:3578}, cover exact, trans-class-size-7 all PASS",
+    "Full 3578 dihedral reps Sidon recheck: 0 failures (28 sums + 42 nonzero diffs each)",
+    "50 sampled 7-sets all sorted prefixes Sidon; superset monotonicity spot PASS"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:34:19Z",
+    "queries": [
+      {
+        "query": "all:modular Golomb ruler (arXiv API)",
+        "result_count": 10,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:modular+Golomb+ruler&start=0&max_results=10"
+      },
+      {
+        "query": "all:difference packing optical orthogonal code modular Golomb (arXiv API)",
+        "result_count": 5,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:difference+packing+optical+orthogonal+code+modular+Golomb&start=0&max_results=5"
+      },
+      {
+        "query": "modular Golomb ruler (Crossref works query)",
+        "result_count": 10,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=modular+Golomb+ruler&rows=10"
+      },
+      {
+        "query": "Buratti Stinson modular Golomb rulers optical orthogonal codes bibliographic (Crossref)",
+        "result_count": 5,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query.bibliographic=Buratti+Stinson+modular+Golomb+rulers+optical+orthogonal+codes&rows=5"
+      },
+      {
+        "query": "Modular Golomb Rulers and Almost Difference Sets DOI (Crossref record)",
+        "result_count": 1,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works/10.1109/TIT.2025.3566655"
+      },
+      {
+        "query": "DOI 10.26493/1855-3974.2374.9ff publisher landing page",
+        "result_count": 1,
+        "service": "Publisher (ARS MATHEMATICA CONTEMPORANEA via doi.org)",
+        "url": "https://doi.org/10.26493/1855-3974.2374.9ff"
+      },
+      {
+        "query": "A005282 Mian-Chowla B2 sequence (OEIS)",
+        "result_count": 1,
+        "service": "OEIS",
+        "url": "https://oeis.org/A005282"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Buratti-Stinson Theorem 2.3 states MGR(8)={57} U {v:v>=63} and Table 1 row '58<=v<=62, k=8, does not exist' from exhaustive backtracking; this is the same quantifier (for all 8-subsets of Z_60, differences not all distinct), same constants (56 ordered differences in 59 nonzero residues, bound 57<=60 slack), and same conclusion (no Sidon 8-set, hence max<=7) as candidate part (a). Definition matches: (v,k)-MGR requires k(k-1) differences mod v distinct, identical to candidate weak-Sidon ordered-difference test, equivalent to sums test by candidate Lemma 1.",
+        "retrieved_at_utc": "2026-09-07T14:34:19Z",
+        "title": "Buratti & Stinson - New Results on Modular Golomb Rulers, Optical Orthogonal Codes and Related Structures (arXiv:2007.01908)",
+        "url": "https://arxiv.org/abs/2007.01908"
+      },
+      {
+        "comparison": "Publisher page confirms peer-reviewed journal publication Ars Math. Contemp. 20(1):1-27, 2020-11-26, DOI 10.26493/1855-3974.2374.9ff, with abstract claiming complete determination of modular Golomb rulers of order k for all k<=11 by existence/nonexistence results. This establishes priority date 2020 for the (60,8) nonexistence and (60,7) existence tabulation, predating the 2026 candidate, and confirms the result is published primary literature not a preprint-only claim.",
+        "retrieved_at_utc": "2026-09-07T14:34:19Z",
+        "title": "Buratti & Stinson publisher record - ARS MATHEMATICA CONTEMPORANEA, DOI 10.26493/1855-3974.2374.9ff",
+        "url": "https://doi.org/10.26493/1855-3974.2374.9ff"
+      },
+      {
+        "comparison": "Gordon defines (v,k,lambda,t)-almost difference set with lambda=0 equivalent to modular Golomb ruler, surveys existence questions and constructions from difference sets including octic residues. It confirms the standard equivalence terminology (MGR = (v,k,1) difference packing = lambda=0 ADS) used to map candidate Sidon-in-Z_60 to MGR literature, and shows the field treats (v,8) existence as settled background; it provides no (60,7) census counts 50092/7156/3578 and therefore does not cover the enumeration part.",
+        "retrieved_at_utc": "2026-09-07T14:34:19Z",
+        "title": "Gordon - Modular Golomb Rulers and Almost Difference Sets (arXiv:2408.16721, IEEE Trans. Inf. Theory 2025)",
+        "url": "https://arxiv.org/abs/2408.16721"
+      },
+      {
+        "comparison": "OEIS A005282 defines the Mian-Chowla B2 sequence where pairwise sums are distinct for integers (interval case, a(1)=1 greedy), a different packing problem without wrap-around modulo v and without the cyclic bound k(k-1)+1<=n. This confirms candidate and audit correctly distinguish interval Golomb rulers / OGR tables (e.g. 10-mark length 55) from cyclic Z_60 Sidon with 2-torsion and wrap-around collisions, so OEIS interval tables do not decide the cyclic (60,8) question and do not cover the candidate.",
+        "retrieved_at_utc": "2026-09-07T14:34:19Z",
+        "title": "OEIS A005282 - Mian-Chowla sequence (a B_2 sequence)",
+        "url": "https://oeis.org/A005282"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:34:19Z",
+      "queries": [
+        {
+          "query": "all:modular Golomb ruler (arXiv API)",
+          "result_count": 10,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:modular+Golomb+ruler&start=0&max_results=10"
+        },
+        {
+          "query": "all:difference packing optical orthogonal code modular Golomb (arXiv API)",
+          "result_count": 5,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:difference+packing+optical+orthogonal+code+modular+Golomb&start=0&max_results=5"
+        },
+        {
+          "query": "modular Golomb ruler (Crossref works query)",
+          "result_count": 10,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=modular+Golomb+ruler&rows=10"
+        },
+        {
+          "query": "Buratti Stinson modular Golomb rulers optical orthogonal codes bibliographic (Crossref)",
+          "result_count": 5,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query.bibliographic=Buratti+Stinson+modular+Golomb+rulers+optical+orthogonal+codes&rows=5"
+        },
+        {
+          "query": "Modular Golomb Rulers and Almost Difference Sets DOI (Crossref record)",
+          "result_count": 1,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works/10.1109/TIT.2025.3566655"
+        },
+        {
+          "query": "DOI 10.26493/1855-3974.2374.9ff publisher landing page",
+          "result_count": 1,
+          "service": "Publisher (ARS MATHEMATICA CONTEMPORANEA via doi.org)",
+          "url": "https://doi.org/10.26493/1855-3974.2374.9ff"
+        },
+        {
+          "query": "A005282 Mian-Chowla B2 sequence (OEIS)",
+          "result_count": 1,
+          "service": "OEIS",
+          "url": "https://oeis.org/A005282"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Buratti-Stinson Theorem 2.3 states MGR(8)={57} U {v:v>=63} and Table 1 row '58<=v<=62, k=8, does not exist' from exhaustive backtracking; this is the same quantifier (for all 8-subsets of Z_60, differences not all distinct), same constants (56 ordered differences in 59 nonzero residues, bound 57<=60 slack), and same conclusion (no Sidon 8-set, hence max<=7) as candidate part (a). Definition matches: (v,k)-MGR requires k(k-1) differences mod v distinct, identical to candidate weak-Sidon ordered-difference test, equivalent to sums test by candidate Lemma 1.",
+          "retrieved_at_utc": "2026-09-07T14:34:19Z",
+          "title": "Buratti & Stinson - New Results on Modular Golomb Rulers, Optical Orthogonal Codes and Related Structures (arXiv:2007.01908)",
+          "url": "https://arxiv.org/abs/2007.01908"
+        },
+        {
+          "comparison": "Publisher page confirms peer-reviewed journal publication Ars Math. Contemp. 20(1):1-27, 2020-11-26, DOI 10.26493/1855-3974.2374.9ff, with abstract claiming complete determination of modular Golomb rulers of order k for all k<=11 by existence/nonexistence results. This establishes priority date 2020 for the (60,8) nonexistence and (60,7) existence tabulation, predating the 2026 candidate, and confirms the result is published primary literature not a preprint-only claim.",
+          "retrieved_at_utc": "2026-09-07T14:34:19Z",
+          "title": "Buratti & Stinson publisher record - ARS MATHEMATICA CONTEMPORANEA, DOI 10.26493/1855-3974.2374.9ff",
+          "url": "https://doi.org/10.26493/1855-3974.2374.9ff"
+        },
+        {
+          "comparison": "Gordon defines (v,k,lambda,t)-almost difference set with lambda=0 equivalent to modular Golomb ruler, surveys existence questions and constructions from difference sets including octic residues. It confirms the standard equivalence terminology (MGR = (v,k,1) difference packing = lambda=0 ADS) used to map candidate Sidon-in-Z_60 to MGR literature, and shows the field treats (v,8) existence as settled background; it provides no (60,7) census counts 50092/7156/3578 and therefore does not cover the enumeration part.",
+          "retrieved_at_utc": "2026-09-07T14:34:19Z",
+          "title": "Gordon - Modular Golomb Rulers and Almost Difference Sets (arXiv:2408.16721, IEEE Trans. Inf. Theory 2025)",
+          "url": "https://arxiv.org/abs/2408.16721"
+        },
+        {
+          "comparison": "OEIS A005282 defines the Mian-Chowla B2 sequence where pairwise sums are distinct for integers (interval case, a(1)=1 greedy), a different packing problem without wrap-around modulo v and without the cyclic bound k(k-1)+1<=n. This confirms candidate and audit correctly distinguish interval Golomb rulers / OGR tables (e.g. 10-mark length 55) from cyclic Z_60 Sidon with 2-torsion and wrap-around collisions, so OEIS interval tables do not decide the cyclic (60,8) question and do not cover the candidate.",
+          "retrieved_at_utc": "2026-09-07T14:34:19Z",
+          "title": "OEIS A005282 - Mian-Chowla sequence (a B_2 sequence)",
+          "url": "https://oeis.org/A005282"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": true,
+        "relationship": "Directly decides the maximality subclaim (a): Theorem 2.3 gives MGR(8)={57} U {v>=63} so v=60 has no 8-set, and MGR(7)={v>=48} so v=60 has a 7-set; Table 1 explicitly lists '58<=v<=62, k=8, does not exist' by exhaustive backtracking search. Same objects (8-subsets of Z_60), same distinct-differences hypothesis, same constants (56 differences, counting bound 57<=60), same nonexistence conclusion. Candidate 534k-node DFS re-proves this published 2020 tabulation.",
+        "title": "Buratti & Stinson - New Results on Modular Golomb Rulers, Optical Orthogonal Codes and Related Structures",
+        "url": "https://arxiv.org/abs/2007.01908"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative journal version of the same Buratti-Stinson tabulation (Ars Math. Contemp. 20, 2020, DOI 10.26493/1855-3974.2374.9ff). Confirms peer-reviewed status and 2020 priority date for the (60,8) nonexistence / (60,7) existence determination; does not add census enumeration beyond Table 1 single examples.",
+        "title": "Buratti & Stinson publisher version - ARS MATHEMATICA CONTEMPORANEA",
+        "url": "https://doi.org/10.26493/1855-3974.2374.9ff"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Background equivalence: lambda=0 almost difference set = modular Golomb ruler = (v,k,1) difference packing (cf. Buratti Theorem 1.5). Investigates constructions from difference sets and octic residues; confirms terminology mapping but contains no Z_60 maximality table and no 50092/7156/3578 census, so does not cover candidate beyond definitional background.",
+        "title": "Gordon - Modular Golomb Rulers and Almost Difference Sets",
+        "url": "https://arxiv.org/abs/2408.16721"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Interval B2 / optimal Golomb ruler sequence (Mian-Chowla). Different problem: integer differences without modulo wrap-around and without 2-torsion distance-30 collision. Gives k<=8 counting intuition and k>=7 lower bound via classical rulers (e.g. length-25 7-mark ruler gives (v,7)-MGR for v>=51 by Lemma 2.1) but does not close 8-vs-7 at v=60 nor enumerate cyclic extremals.",
+        "title": "OEIS A005282 - Mian-Chowla B2 sequence",
+        "url": "https://oeis.org/A005282"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-011",
+    "originality_rationale": "Claim-level comparison: candidate Theorem (a) asserts in Z_60 with sums-distinct (k(k+1)/2 sums) equivalently differences-distinct (k(k-1) ordered nonzero differences) definition, max size is exactly 7 with witness {0,1,3,7,12,20,38} (28 sums, 42 diffs) and no 8-set. Buratti-Stinson defines (v,k)-MGR identically as k distinct residues mod v with all i!=j differences distinct (hence nonzero), proven equivalent to candidate weak-Sidon and by candidate Lemma 1 to sums-Sidon including 2-torsion. Quantifiers match universally over all 8-subsets of Z_60; parameter range is the single point v=60,k=8 inside the 58-62 block; exact constants match: need 56 distinct differences of 59 nonzero residues, counting bound k(k-1)+1=57<=60 allows 8 (Buratti Thm 1.1 v>=k^2-k+1). Buratti Theorem 2.3 plus Table 1, obtained by exhaustive backtracking for k<=11, states MGR(7)={v>=48} (so (60,7) exists) and MGR(8)={57} U {v>=63} with explicit row '58<=v<=62 does not exist' (so (60,8) does not exist). Proof/computation scope matches: exhaustive search deciding existence at those (v,k). Conclusion matches: max<=7 and >=7, i.e. exactly 7. Lower-bound witness is also not new: any optimal 7-mark Golomb ruler of length 25 yields a (60,7)-MGR by Lemma 2.1. Therefore subclaim (a) is substantively covered/implied by concrete 2020 prior art. Subclaim (b) census 50092 rooted / 7156 translation / 3578 dihedral with SHA-256 checksums was not found in inspected sources: Buratti Table 1 gives one example per small (v,k) and invokes Lemma 2.1 for v>=51 at k=7 rather than enumerating all (60,7)-MGRs; Gordon and OEIS give no such counts; targeted terminology searches (difference packing, OOC, modular Golomb enumeration) surfaced no 50092/7156/3578 tabulation. Census enumeration per se appears new, but it does not salvage originality of the headline maximality theorem as stated; record presents max-7 as new theorem with replayable log, which overlaps published tabulation. Hence overall FAIL/FLAG: maximum component requires disclosure and downgrade to census-only novelty.",
+    "priority_caveat": "This is not an award of academic priority; it is only a literature-overlap assessment on the documented live search and does not establish primacy, independence, or correctness.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "FLAG",
+    "record_id": "SCOPE-2026-09-07-011",
+    "residual_uncertainties": [
+      "Full-census counts 50092/7156/3578 were not located in inspected sources but exhaustive negative (no obscure handbook/OOC/difference-packing table lists them) cannot be proven; Handbook of Combinatorial Designs Sec VI.19.3 cited by Buratti was not directly retrieved.",
+      "Buratti-Stinson search code and raw logs were not re-executed here; reliance is on peer-reviewed statement of exhaustive backtracking plus Table 1, not independent verification of their computation.",
+      "Definition equivalence (sums-distinct vs ordered-differences-distinct with 2-torsion at distance 30) is accepted via candidate Lemma 1 spot-checked in audit; subtle variant definitions (unordered differences, forbidding zero explicitly) were compared textually but not machine-checked against Buratti code.",
+      "Whether the 3578-class dihedral census alone, shorn of the max-7 maximality claim, would be considered independently original was not adjudicated and is left to editors; this review flags only the maximality overlap."
+    ],
+    "reviewed_claim": "In Z_60 with Sidon = k(k+1)/2 sums distinct equivalently k(k-1) ordered differences distinct-nonzero, (a) exact maximum size is 7 with witness {0,1,3,7,12,20,38} and no Sidon 8-set exists, and (b) there are exactly 50092 rooted 7-sets / 7156 translation classes / 3578 dihedral classes with zero periodic/self-mirror classes.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "(v,k)-modular Golomb ruler MGR(k) sets for k<=11, especially k=8 v=60 and 58<=v<=62 block",
+      "Sidon set / B2 set in cyclic group Z_n / Z_60 maximal size, modular Golomb ruler equivalent terminology",
+      "difference packing (v,k,1) / (v,k;1) and optical orthogonal code (v,k,1) OOC at v=60 k=7/8",
+      "Singer perfect difference set (57,8,1) vs packing at 60 (56 differences of 59 residues) and Bose-Chowla counting bound k(k-1)+1<=n",
+      "full-census enumeration counts 50092 / 7156 / 3578 and dihedral/translation classification terminology"
+    ],
+    "verdict": "FAIL"
+  },
+  "residual_risks": [
+    "Computation-dependent proof: 534k-node tree regenerated by script, not human-readable and not formal proof-assistant certificate; correctness rests on Python stdlib, Lemma 1, and audit of two short scripts",
+    "Live HTTPS literature verification blocked by transport errors; obscure optical-orthogonal-code / difference-packing tables may already tabulate max 7 at v=60 — if so maximum-theorem component overlaps prior tabulation and novelty rests on certified 3578-class census, explicit sum tables, and replayable log as disclosed",
+    "Only Z_60 is closed; pilot claims about Z_57 having 8-sets, Z_58,59,61,62 having none, Z_63+ having 8-sets are motivation only and not re-proved here",
+    "Determinism certified only for seed 0 increasing order; different orderings would give different node counts but same census (not separately certified)",
+    "No proof-assistant or hardware-fault tolerance; single-machine stdlib replay",
+    "Originality revalidation: Full-census counts 50092/7156/3578 were not located in inspected sources but exhaustive negative (no obscure handbook/OOC/difference-packing table lists them) cannot be proven; Handbook of Combinatorial Designs Sec VI.19.3 cited by Buratti was not directly retrieved.",
+    "Originality revalidation: Buratti-Stinson search code and raw logs were not re-executed here; reliance is on peer-reviewed statement of exhaustive backtracking plus Table 1, not independent verification of their computation.",
+    "Originality revalidation: Definition equivalence (sums-distinct vs ordered-differences-distinct with 2-torsion at distance 30) is accepted via candidate Lemma 1 spot-checked in audit; subtle variant definitions (unordered differences, forbidding zero explicitly) were compared textually but not machine-checked against Buratti code.",
+    "Originality revalidation: Whether the 3578-class dihedral census alone, shorn of the max-7 maximality claim, would be considered independently original was not adjudicated and is left to editors; this review flags only the maximality overlap."
+  ],
+  "verdict": "REJECT"
+}

@@ -1,93 +1,50 @@
-# Certified class-number census for real quadratic Q(sqrt(d)), 201 <= d <= 350 squarefree
+# Exact two-monomer Kasteleyn census on 6xN rectangles (N=6-10) by symmetry orbit
 
 ## Context
-Real-quadratic class numbers connect Minkowski finiteness to Cohen-Lenstra
-heuristics, but bounded-d strata beyond textbook d < 200 tables lack a single
-citable bundle with numbers, non-principality certificates, and
-regulator/period data plus rerunnable code. The interval 201-350 is the first
-full post-textbook block where the Minkowski bound M(D)=sqrt(D)/2 stays below
-18.63 (only primes p <= 17), so every non-principality claim rechecks by a
-short norm-equation / rho-chain check, while regulators already span an order
-of magnitude and the class-number distribution becomes nontrivial.
+
+Pure dimer counts on rectangles are textbook Kasteleyn/Temperley-Fisher Pfaffians. Fixed-position monomer correlations bridge that theory to conformal-invariance asymptotics and sampling benchmarks, but no citable exact per-orbit table existed for even-width 6xN boards. Boundary-single-monomer Pfaffians (Tzeng-Wu/Wu; Giuliani-Jauslin-Lieb) cover only boundary monomers; bulk product-of-Pfaffians formalisms give numerics, not exact orbit tables.
 
 ## Definitions
-For squarefree d, K=Q(sqrt(d)), discriminant D=d if d=1 mod 4 else D=4d,
-M(D)=sqrt(D)/2. l(d) is the continued-fraction period of sqrt(d).
-The maximal-order fundamental unit is written eps_d=(x+y sqrt(d))/2 with
-x=y mod 2 when D=d, else y even; N(eps_d)=+-1; regulator R_d=log(eps_d).
-Narrow classes are rho-cycles of reduced indefinite forms of discriminant D;
-K is the narrow class of a principal ideal of negative norm when N=+1, and
-ordinary classes are narrow classes modulo K (h=h+ if N=-1 else h+/2).
+
+Let G(N) be the 6xN grid graph (R=6 rows, N columns, N=6..10). For holes H, let Z(N,H) be the number of dimer coverings of G(N) minus H. Let Z(N,empty) be the pure-dimer count. For opposite-colour pairs {u,v} (necessary for Z>0 on the bipartite board), define C(N,u,v)=Z(N,u,v)/Z(N,empty). Symmetry is dihedral: D4 (order 8) for 6x6, Klein-4 (order 4) otherwise; orbits are canonicalised by explicit minimisation over the group. A Kasteleyn orientation is an edge orientation with every finite face odd-clockwise; then |Pf(K)|=Z where K is the signed skew-symmetric adjacency matrix.
 
 ## Result
-For all 91 squarefree d in [201,350]:
 
-- Class numbers and structures: h=1 on 38 fields; h=2 (C2) on 34;
-  h=3 (C3) on 6 (223,229,254,257,321,326); h=4 on 10 (C4 on
-  219,274,291,322,323; C2xC2 on 210,231,255,290,330); h=6 (C6) on 235,346;
-  h=8 (C8) on 226.
-- For each of the 53 fields with h>1, an explicit prime ideal of norm
-  p <= M(D) is given as a prime form (p,b,c) plus its exact rho-reduction
-  chain into a certified nonprincipal narrow cycle outside {C0,CK}.
-- Periods, maximal-order units, and regulators are tabulated (40 digits in
-  artifact). Extremal witnesses are unique on the interval and both at
-  d=331: longest period l=34 and largest regulator
-  R=36.25638320432540082048..., eps=2785589801443970+153109862634573 sqrt(331)
-  (norm +1). Regulator maximality is proved by exact integer comparison of
-  all 91 units; runner-up is d=334 (R=32.47999...), gap 3.776.
-  Minimum regulator is 2.703575... at d=221. Maximum class number is h=8
-  at d=226 despite minimal period l=1.
-- Correction: R~=47.21 at d=277 in the topic brief is the non-maximal-order
-  norm+1 unit (convergent n=41, p=159150073798980475849); the true field
-  regulator is R_277=7.8682544119... with eps=(2613+157 sqrt(277))/2 of
-  norm -1. The minimal order unit (n=20) has regulator 23.6047... (3x).
+**Theorem (doubly certified computation).** For every N in {6,7,8,9,10} and every symmetry-inequivalent opposite-colour pair {u,v} (45, 123, 156, 198, 240 orbits respectively; 762 total), the value Z(N,u,v) in `artifacts/census.csv` is exact. Every entry satisfies Pf=DP where Pf is the exact integer Pfaffian of a per-graph solved-and-verified Kasteleyn matrix (Pf^2=det over the integers, determinant recovered exactly by CRT over 7 primes) and DP is an independent profile-DP (transfer-matrix, 2^6 states) enumeration: 762/762 agreements.
+
+Pure-dimer baselines by the same Pfaffian (agreeing with the Kasteleyn product formula) are:
+
+- N=6: 6728; N=7: 31529; N=8: 167089; N=9: 817991; N=10: 4213133.
+
+The unique (up to symmetry) maximiser of C(N,u,v) per N is the adjacent-corner pair:
+
+- N=6: (0,0),(0,1): Z=3364, C=0.5 (square; (0,0),(0,1)~(0,0),(1,0));
+- N=7: (0,0),(1,0): Z=16926, C=0.5368391005;
+- N=8: (0,0),(1,0): Z=85659, C=0.5126549324;
+- N=9: (0,0),(1,0): Z=431819, C=0.5279018962;
+- N=10: (0,0),(1,0): Z=2182406, C=0.5180007372.
+
+For each maximiser two explicit dimer coverings A!=B are stored in `artifacts/witnesses.json`, both passing edge-occupancy validation and differing by one unit-square flip (face and direction logged).
+
+**Correction lemma.** The fixed inherited orientation (all horizontal right, vertical alternating by column), Kasteleyn for the full 6xN board, is in general NOT Kasteleyn for the punctured board. Counterexample: 6x6 minus {(1,1),(4,4)} leaves two 8-cycle hole faces with 4 clockwise edges (even). Hence per-graph GF(2) odd-clockwise solving with face-by-face re-verification is required and is done for every orbit.
 
 ## Proof / evidence
-Exact-integer pipeline in pure Python (stdlib + numpy for sums + mpmath only
-for digit strings): squarefree sieve; CF by (m,d,a) recurrence; maximal-order
-unit from convergents n<2l with N=+-1 and N=+-4 odd half-units, exact minimum,
-Legendre check 8y<x+y sqrt(d), exhaustive search to 4l plus growth
-certificate v_{4l-1}>2 eps0; reduced-form enumeration (|a|,|b|<=isqrt(D),
-exact reduced predicate), rho permutation, disjoint even-length cycles,
-unique a=1 and a=-1 forms; K-form from (x+sqrt(d)) resp. ((x+sqrt(d))/2) of
-negative norm with two-alpha agreement and CK==C0 iff N=-1; Kronecker
-splitting and prime forms (p,b,c) rho-reduced to cycles, nonprincipal iff
-outside {C0,CK}; Dirichlet composition of coprime-a forms plus rho reduction
-with per-field identity, K^2=C0, inverse, associativity spot, and
-well-definedness checks; ordinary group as quotient by K (h<=8, orders
-determine structure). Independent verifier re-derives everything from the
-CSV/JSON with no shared functions (6 check groups PASS). Analytic
-class-number formula h*R=sqrt(D)/2*L(1,chi_D) via vectorized sums to N=1e6
-with rigorous D/N tail bound agrees on 91/91 (worst gap/bound 0.035; wrong h
-by >=1.5x would exceed bound by ~50x). LMFDB spot checks match: 2.2.904.1
-(h=8, R=3.40230664548), 2.2.277.1 (h=1, R=7.86825441198), 2.2.1324.1 (h=1,
-R=36.2563832043, narrow C2).
+
+Parity zeros are theorems: single-monomer deletion on even-area 6xN leaves odd cells (Z=0); same-colour pairs leave colour imbalance (Z=0). All positive counts are certified computations, not analytic proofs: (A) planar faces enumerated by half-edge traversal, GF(2) flip system solved, every finite face verified odd-clockwise before any Pfaffian; exact determinant via CRT (product ~1e35 >> actual dets ~1e13), Pf=isqrt(det) with Pf*Pf==det asserted; (B) independent profile-DP with blocked cells; Pf==DP asserted per orbit (762/762). Independent audit reimplemented DP separately (762/762 match), brute-force backtracking on sampled N=6 orbits, Bareiss exact determinants on samples, independent orbit recount, Kasteleyn product-formula check of pure baselines, and occupancy+flip validation of all 5 witnesses. Auxiliary Temperley cross-check of the same machineries on genuine Temperleyan regions verifies trees(m x n)=dimers((2m-1)x(2n-1) minus one corner): 4=4, 15=15, 192=192 for (2,2),(2,3),(3,3); trees(6x6)=32565539635200 reported as auxiliary data, confirming no direct single-tree equality is asserted for the main two-monomer family.
 
 ## Limitations
-Finite computation, not a new theoretical theorem; background theorems
-(Minkowski generation, cycles=narrow classes, K-quotient, composition,
-class-number formula) are textbook. No PARI bnfcertify in sandbox; replaced
-by formula check plus from-scratch verifier. Regulator digits beyond ~15 rely
-on mpmath; ordering uses exact integers only. Order-regulator factor wording
-(6x vs 3x for norm+1 vs minimal unit at d=277) should be read as norm+1
-comparison.
+
+N<=10 benchmark only; no thermodynamic-limit or Kenyon-type r^{-1/2} fits attempted. Flip-connectivity of the full monomer-dimer flip graph is not classified; only same-component distance-1 witness pairs exhibited. Symmetry reduction assumes stated dihedral actions. Same-colour zeros spot-checked, not exhaustively tabulated. Temperley equality claimed solely for the Temperleyan corner-removed family, not the two-monomer family. No floating point enters any count.
 
 ## Reproducibility
-Run `python3 verify.py` inside the artifact directory (stock Python + numpy +
-mpmath); it re-derives CF/units/cycles/K/h, verifies all 53 witness chains,
-recomputes h>=4 structures, proves extrema exactly, and spot-checks the
-formula at N=2e5 in minutes. Full pipeline scripts and CSV/JSON are in
-output/artifacts/.
+
+`artifacts/kasteleyn_census.py` (stdlib + numpy only): `python3 artifacts/kasteleyn_census.py --outdir artifacts/` regenerates `census.csv`, `summary.json`, `witnesses.json` in ~7 s with all assertions (face-oddness, Pf^2=det, Pf=DP, occupancy, flip exactness) active.
 
 ## References
-- Amir-He-Lee-Oliver-Sultanow, Machine Learning Class Numbers of Real
-  Quadratic Fields, arXiv:2209.09283 (predictive, no proofs).
-- Bernardini, Class number of real quadratic fields of explicit
-  discriminant, arXiv:2412.06351 (sparse family, exceptions).
-- Kopp-Lagarias, Unit-generated orders I, arXiv:2512.11311 (orders, not
-  interval maximal orders).
-- Lamzouri, Large moments and extreme values, arXiv:1609.01630 (asymptotic).
-- Cherubini-Fazzari-Granville-Kala-Yatsyna, Consecutive real quadratic
-  fields with large class numbers (existence, not census).
-- PARI/GP headquarters, https://pari.math.u-bordeaux.fr/ (tool baseline).
-- LMFDB 2.2.904.1, 2.2.277.1, 2.2.1324.1 (single-field bare values).
+
+- P. W. Kasteleyn, The statistics of dimers on a lattice, Physica 27 (1961); M. E. Fisher, Statistical mechanics of dimers, Phys. Rev. 124 (1961); H. N. V. Temperley and M. E. Fisher, Dimer problem, Phil. Mag. 6 (1961).
+- F. Y. Wu, Pfaffian solution of a dimer-monomer problem: single monomer on the boundary, Phys. Rev. E 74, 020104(R) (2006) — https://arxiv.org/abs/cond-mat/0607647
+- A. Giuliani, I. Jauslin, E. H. Lieb, A Pfaffian formula for monomer-dimer partition functions, J. Stat. Phys. 163 (2016) — https://arxiv.org/abs/1510.05027
+- N. Allegra and J.-Y. Fortin, Grassmannian representation of the two-dimensional monomer-dimer model, Phys. Rev. E 89, 062107 (2014) — https://arxiv.org/abs/1402.5512
+- S. Oh, State matrix recursion method and monomer-dimer problem (2019) — https://arxiv.org/abs/1901.07847
+- R. Kenyon, Conformal invariance of domino tiling, Ann. Probab. 28 (2000); R. Kenyon, J. Propp, D. Wilson, Trees and matchings, Electron. J. Combin. 7 (2000) (Temperley bijection context).
