@@ -1,0 +1,43 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed all essential claims with numpy 1.26.4 + sympy. Petersen edge order verified. s1=(+1*6,+1,-1,-1,+1*4,-1 on edges 7,8,14): signed charpoly exactly x^4*(x^2-5)^3 (sympy factor match), rho=sqrt(5)=2.2360679. G1 2-lift (30 edges) matches inputs/artifacts/G1.json; spectrum [-sqrt5^3,-2^4,0^4,1^5,+sqrt5^3,3] giving lambda=sqrt5<2*sqrt2; connected, 3-regular, non-bipartite, girth 5, diameter 5 all confirmed by BFS. Switching-class search over 2^6=64 classes (m-n+1=15-10+1) re-ran: minimum sqrt5 attained by exactly 2 classes (masks 25,38), next-best 2.56155, confirming s1 optimality. s2 on G1 (30 edges, -1 on 3,7,9,22,23,24,25,27) matches stored s2_search.json best_mask 13; signed charpoly factored exactly as (x^2-2x-1)(x^2+2x-1)(x^8-12x^6+43x^4-52x^2+16)^2 (sympy expand match); numeric rho 2.5816293. Sturm sequence of r(y)=y^4-12y^3+43y^2-52y+16 has length 5, 4 distinct real roots, 0 in (169/25,inf) and 0 in (-inf,-169/25) (recomputed); rational checks r(169/25)=4202396/390625>0, r(-169/25)=3174912796/390625>0, r'(169/25)=1873586/15625>0, r'(-169/25)=-54908386/15625<0, r''(169/25)=92282/625>0 and monotonicity argument valid; quadratics +-1+-sqrt2 bounded by 1+8/5=13/5 via 2<64/25. Hence |x|<=2.60 certified. G2 2-lift (60 edges) matches G2.json; spectrum max nontrivial 2.5816293<2.828, connected, 3-regular, non-bipartite, girth 5, diameter 6 confirmed. s2 2^11=2048-class search re-ran: minimum 2.5816293, 12 optimal classes, 1746 classes <=2.828. DEFECT: DRAFT Theorem item 2 states G1 spectrum {3,sqrt5^3,1^5,0^3,-2^4,-sqrt5^3} which sums to 19 vertices, not 20. Correct multiplicities are 0^4 (consistent with item 1 new spectrum sqrt5^3,0^4,-sqrt5^3 plus Petersen {3,1^5,-2^4}). This is a fixable presentation/counting error; all underlying computations and the Ramanujan conclusions are correct.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive comparison defeats novelty. G1 was proved by exhaustive backtracking search to be isomorphic to the classical dodecahedron graph = Generalized Petersen G(10,2) (explicit isomorphism found and edge-set equality verified; same 5-/6-cycle counts 12/0, girth 5, diameter 5, spectrum). Its spectrum with sqrt5 and Ramanujan property lambda=sqrt5<2.828 is standard textbook material (Cvetkovic-Doob-Sachs / MathWorld dodecahedral graph), not a new spectral record. Hence stage-1 exact certificate and switching-optimality computation re-encode a classical graph in signing language without new mathematics. MSS (arXiv:1304.4132, verified bipartite-only nonconstructive existence), Bilu-Linial O(sqrt(d log^3 d)), derandomized near-Ramanujan (epsilon-slack, large n), and cubic gap-set taxonomy are correctly distinguished by the draft, but none is needed: the nearest prior is the dodecahedron itself, unmentioned in the draft. Stage-2 is a single 40-vertex cubic graph with lambda~2.58 selected by brute force from 2048 switching classes (only 12 optimal, 1746 Ramanujan). No prior publishes these exact 15/30-bit strings, so narrow bitstring novelty exists, but substance is one more small cubic Ramanujan example among many (random cubic graphs are Ramanujan with positive probability; small enumerations contain many). The tower framing adds no theorem, infinite family, structural optimality, or method beyond finite enumeration + standard lift spectra Spec(A) union Spec(A_s) and switching reduction. A timestamp/failed arXiv title search does not establish priority; isomorphism to a classical graph does establish anticipation.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even if correct and narrowly new at the bitstring level, the result is not independently worth finding later. (i) Stage-1 is a textbook restatement: dodecahedron is Ramanujan with lambda sqrt5, known for decades. Re-proving its spectrum via a Petersen signing adds no reusable record. (ii) Stage-2 is an unexplained enumeration: one bitstring (mask 13) emerging from a 2048-case floating-point scan, certified post hoc by factoring its charpoly, with no structural reason, no infinite family, no per-n record (Ramanujan bound 2.828 is n-independent; many 40-vertex cubic graphs satisfy lambda<=2.60), and no motivated gap (2.5816 vs 2.60 vs 2.828 is an arbitrary computer-found value with rational-cert slack). (iii) No new method: 2-lift spectral decomposition, switching classes (m-n+1), Sturm bounds, BFS girth/diameter are all standard; the reusable template claim is just standard computation. (iv) Fallback in topic.json concedes the bare 40-vertex type may already occur in enumerations. This is exactly the textbook-restatement / mere re-encoding / unexplained-brute-force-table category that must be rejected even if correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1304.4132 (MSS Interlacing Families I: verified bipartite-only nonconstructive existence, fetched)",
+    "https://arxiv.org/abs/math/0312022 (Bilu-Linial 2-lifts, via topic nearest_known)",
+    "https://arxiv.org/abs/2009.02595 (explicit near-Ramanujan, via topic nearest_known)",
+    "https://arxiv.org/abs/2005.05379 (cubic gap sets, via topic nearest_known)",
+    "Classical dodecahedron / G(10,2) spectrum (standard textbook; Wikipedia fetch attempted, transport error; established instead by local isomorphism proof + independent spectrum computation matching [-sqrt5^3,-2^4,0,1^5,+sqrt5^3,3])",
+    "inputs/DRAFT.md, inputs/topic.json, inputs/research_report.json",
+    "inputs/artifacts/* (all 11 files: s1_search.py, s1_exact.py, G1_props.py, G1.json, s2_search.py, s2_search.json, s2_exact.py, s2_charpoly.json, cert_r.py, G2_props.py, G2.json) + independent re-execution"
+  ],
+  "decisive_checks": [
+    "s1 signed charpoly = x^4(x^2-5)^3 exact sympy match; rho sqrt5",
+    "G1 lift reconstruction matches G1.json; spectrum lambda sqrt5; connected/3-regular/non-bipartite/girth5/diam5",
+    "64-class Petersen switching search: min sqrt5 (2 classes), next 2.56155 matches draft 2.5616",
+    "s2 charpoly factorization (quadratics)*(degree-8 squared) exact match; rho 2.5816293",
+    "Sturm counts: 4 real roots, 0 outside [-169/25,169/25]; rational inequalities r(+-B), r'(+-B), r''(B) verified as Fractions",
+    "G2 lift matches G2.json; lambda 2.5816293<=2.60<2.828; connected/non-bipartite/girth5/diam6",
+    "2048-class G1 switching search: min 2.5816293 (12 classes), 1746 Ramanujan",
+    "G1 isomorphic to dodecahedron G(10,2): full backtracking isomorphism found, edge-set equality verified; cycle census 5-cycles 12, 6-cycles 0 both",
+    "Theorem count check: stated G1 spectrum sums to 19, correct is 0^4 for 20 vertices"
+  ],
+  "residual_risks": [
+    "Floating-point eigvalsh used only for discovery/minima; all certified bounds rest on exact integer charpolys + Sturm/rationals, so numerics risk is mitigated",
+    "Dodecahedron vertex-transitivity used to fix image of vertex 0 in iso search, but full edge-set equality was verified afterwards, eliminating that assumption risk",
+    "G2 unlabelled isomorphism type not checked against full census of 40-vertex cubic graphs; coexistence remains possible as draft concedes, reinforcing value rejection",
+    "No independent literature search for voltage-graph publication of Petersen->dodecahedron lift; even if such publication exists it would only strengthen originality failure"
+  ],
+  "verdict": "REJECT"
+}
