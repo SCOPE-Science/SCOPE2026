@@ -1,0 +1,42 @@
+Witness P* in L_28 (degree 28, length 29), a0=+1
+bitstring (a0..a28, '+'=+1, '-'=-1):
++---++++---+---+---+--+-++-++
+
+reciprocal P*(z)=z^28 P(1/z) bitstring (reverse):
+++-++-+--+---+---+---++++---+
+
+Canonical rule: a0=+1; order coefficient vectors numerically with -1 < +1,
+lexicographic on (a1,...,a28); P* is the minimizer of its 4-orbit
+{P,-P,P*,-P*} (a1: -1 vs +1), hence reciprocal-canonical.
+
+Skew-symmetric: center index 14; a[14+k] = (-1)^k a[14-k] for k=1..14. Verified.
+
+Autocorrelations C_k = sum_{i=0}^{28-k} a_i a_{i+k} (exact integers), k=1..28:
+0, -3, 0, 1, 0, 1, 0, 1, 0, -3, 0, -3, 0, -3, 0, -3, 0, 1, 0, 1, 0, 1, 0, 1, 0, -3, 0, 1
+sum_{k>=1} C_k^2 = 62 (exact).
+Merit F = 29^2/(2*62) = 841/124 = 6.782258064516129... (exact Fraction).
+
+Sup norm M(P) = max_{|z|=1} |P(z)|:
+- Lower bound (exact integer arithmetic): P(i) = A + iB with
+  A = sum_j a_{2j}(-1)^j = 3, B = sum_j a_{2j+1}(-1)^j = -6,
+  so |P(i)|^2 = 9+36 = 45, hence M(P*) >= sqrt(45) = 6.708203932499369...
+- Upper bound (Lipschitz + dense FFT grid, recomputed by verify.py):
+  L = sum_{k=0}^{28} k = 406; | |P(e^{it})|-|P(e^{is})| | <= 406|t-s|.
+  Uniform N-grid spacing 2*pi/N; remainder <= 406*pi/N.
+  N=262144: grid max = 6.708203932499369 (attained at z=+/-i, i.e. grid points),
+    remainder = 0.004865595..., M <= 6.713069528 (+1e-6 float margin).
+  N=1048576: grid max = 6.708203932499369,
+    remainder = 0.001216399..., M <= 6.709420332 (+1e-6 float margin).
+  Hence certified interval: sqrt(45) <= M(P*) <= sqrt(45)+0.00122 (N=2^20).
+
+Consequences (proved, no record-beating claim):
+  min_{L_28} M <= 6.7095 (N=2^20 certificate) and max_{L_28} F >= 841/124.
+  Over the skew-symmetric subspace (2^14 sequences with a0=+1),
+  841/124 is the exact maximum merit (exhaustive integer recheck in verify.py).
+
+Search context (evidence, not proof): full skew-subspace exhaustive scan at
+N=8192 grid found P* tied-minimal grid max (6.70820393 vs next 7.1096);
+600-trial sup basin-hopping + 2000-trial merit basin-hopping + 600 random-start
+hill climbs found no beater in full space; 1-flip and 2-flip neighborhoods of P*
+contain no sup-grid improvement. Record comparison NOT claimed (offline; no
+live Borwein-Choi/Mossinghoff pin).
