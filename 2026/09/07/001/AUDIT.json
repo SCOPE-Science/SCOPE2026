@@ -1,0 +1,56 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Claim audited is the CORRECTED claim in DRAFT.md (M=17 unique ball), not the false assigned target (<=15). Every essential inference was re-verified independently. (1) Lower bound: B(S)={A:|A cap S|>=3} has size 1+C(4,3)*C(4,1)=17; hand proof |A cap B|>=|(A cap S) cap (B cap S)|>=3+3-4=2 is correct, so B(S) is 1-free; independently recomputed size 17 and zero bad pairs. (2) Star/clique size-15 1-free checks correct (star: contains fixed pair => inter>=2; clique in 6-set: |A union B|<=6 => inter>=2). (3) Shifting refutation correct under standard Frankl S_{i,j} definition: F={{2,3,4,5},{1,6,7,8}} has inter 0 (1-free) but S_{1,2}(F)={{1,3,4,5},{1,6,7,8}} has inter {1} size 1; recomputed with formal shift implementation. This invalidates the audit_plan shifting reduction, as DRAFT correctly states; monotone >=t preservation does not imply forbidden-value preservation. (4) Symmetry lemmas correct: S8 transitivity reduces to families containing 1234; Stab(1234)=S_{1..4}xS_{5..8} (576 perms) has exactly 3 orbits on compatible second sets, verified both by reasoning (fixed a=|B cap 1234| determines orbit) and by brute-force orbit computation (sizes 1,16,36 for a=0,3,2; a=1 excluded by 1-freeness with 1234, a=4 gives B=1234). Representatives 5678/1235/1256 correct; subpool sizes 36/42/40 and full pool 53 recomputed exactly. (5) Upper bound M<=17: candidate final_verify.py rerun passes (3 cases no-16-more, 267 nodes total, full-pool cross-check no-17-more). Pruning rules audited valid: popcount bound valid, isolated-vertex forcing valid (isolated v satisfies alpha(mask)=1+alpha(mask\\{v})), greedy clique-cover bound valid (any clique contributes <=1 independent vertex, so partition count is UB), max-degree branching exhaustive. Independently re-proved with a different algorithm (Tomita-style Max-Clique with greedy coloring bound on compatibility graph): max-more in P=16 (79 nodes) and global max over 70 sets=17 (383 nodes), without assuming symmetry. (6) Uniqueness: candidate enumerate17.py rerun finds exactly 17 families containing 1234, one S8-orbit, all balls (0.0s). Independently re-enumerated with a different ordered-combination DFS (no coloring, no isolated forcing, no degree heuristic): exactly 17 solutions in 24809 nodes, all verified 1-free and all satisfy ball property; global distinct-ball count is 70 (one per center) with 17 containing 1234, matching predicted-count 17=17. Single-orbit follows from S8 transitivity on 4-sets (pi(B(S))=B(pi(S))). (7) Counting remark (convexity alone insufficient at m=18: N2+3N3>=156, N2+N3<=153 satisfiable) verified arithmetically (156=24*6+4*3 from 108 incidences over 28 pairs). No gaps: empty/singleton families trivial; a=4 second-set case vacuous. Computer-assisted part is exactly specified, stdlib-only, reruns in seconds with two independent search paths agreeing."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Substantive delta over nearest priors, not timestamp/failed-search. Nearest prior (Ellis-Keller-Lifshitz arXiv:1604.06135, JEMS 2024) proves g(n,k,t)=f(n,k,t) for fixed t with o(n)<=k<=n/2-o(n) but explicitly excludes n/2-o(n)<k<n/2+t/2 and k<2t; case (n=8,k=4,t=2 for forbid-1) has k=n/2, squarely in the excluded crossover window, verified from abstract. Kupavskii-Zakharov spread (arXiv:2203.13379) gives asymptotic/junta bounds with no sharp small-n constant and no tie analysis at (8,4,1), verified from abstract. Frankl 1987 forbidden-intersection theorem and Frankl-Tokushige survey give large-n (l+1)-star dominance C(n-2,2) with thresholds excluding n=8, hence predict star for large n but say nothing sharp at the n=2k tie. Ahlswede-Khachatrian Complete Intersection Theorem does contain the ball B(S) as a known 2-intersecting Frankl family, but AK only optimizes over >=2-intersecting families; the new content is optimality over the strictly larger 1-free class allowing intersection 0 (i.e., proving no disjoint-using family beats the ball) plus unique-ball classification among 1-free families and explicit refutation that the star/clique tie (C(6,2)=C(6,4)=15) is optimal. No source found states M=17 for (8,4,1) or the ball-uniqueness among 1-free families; DRAFT honestly limits literature claim and does not assert broad theory. Construction reuse (ball) does not defeat originality because the optimality claim in the larger class is new."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Independently worth finding later. Not a textbook restatement (textbook EKR/AK bounds are far from sharp here and give no 1-free optimum), not a mere parameter substitution (structural surprise: true optimum is neither star nor clique but a third type, ball, beating both 15>17 by 13% and collapsing the assumed two-extremal tie), not a tiny unmotivated gain (changes extremal structure from 2 types to 1 different type and corrects a false assigned claim that would otherwise propagate), and not an unexplained enumeration (human lemmas: transitivity + 3-orbit reduction + hand ball bound + shifting-counterexample pedagogy, plus exact certified B&B with auditable prunes, full-pool cross-check, and predicted-count match 17=17 for uniqueness). Additional durable value: explicit counterexample that Frankl shifts do not preserve forbidden intersections (prevents future invalid reductions) and demonstration that pair/triple convexity alone cannot close the bound. Scope is narrow (single (8,4,1) point, computer-assisted upper bound) but sharp, complete (exact max + uniqueness), and reproducible in seconds; honest limitations stated. Rejecting would perversely penalize correcting the false 15-target."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Stability for the Complete Intersection Theorem, and the Forbidden Intersection Problem of Erdos and Sos (Ellis-Keller-Lifshitz) arXiv:1604.06135",
+      "url": "https://arxiv.org/abs/1604.06135",
+      "finding": "Abstract proves g(n,k,t)=f(n,k,t) except ranges n/2-o(n)<k<n/2+t/2 and k<2t; (8,4,t=2) lies in excluded window, so no sharp 17 result; fetched via arXiv API 2026-09-07."
+    },
+    {
+      "title": "Spread approximations for forbidden intersections problems (Kupavskii-Zakharov) arXiv:2203.13379",
+      "url": "https://arxiv.org/abs/2203.13379",
+      "finding": "Asymptotic spread/junta method for large n, no small-n constant or (8,4,1) tie analysis; fetched full abstract 2026-09-07."
+    },
+    {
+      "title": "Forbidden intersections (Frankl Trans AMS 1987) / Invitation survey (Frankl-Tokushige)",
+      "url": "https://doi.org/10.1090/S0002-9947-1987-0871675-6",
+      "finding": "Large-n (l+1)-star dominance with n0(k,l) thresholds excluding n=8; triage comparison accepted, no elementary sharp tie proof at (8,4,1)."
+    },
+    {
+      "title": "inputs/DRAFT.md corrected theorem (M=17 unique ball + shifting invalidity)",
+      "url": null,
+      "finding": "All hand proofs re-derived; numbers (53 pool, 36/42/40 subpools, 267 nodes, 17 balls) recomputed exactly."
+    },
+    {
+      "title": "inputs/artifacts/final_verify.py, bnb.py, enumerate17.py, ball17.py, shift_counterexample.py, check_constructions.py",
+      "url": null,
+      "finding": "Reran final_verify (PASS, 267 nodes), enumerate17 (17 sols, 1 orbit), ball/shift/constructions checks (all PASS); audited pruning validity."
+    }
+  ],
+  "decisive_checks": [
+    "Reran candidate master check: star/clique 15 1-free OK; S12 0->1 shifting-broken OK; ball 17 1-free + maximal OK; 3-case no-18 (267 nodes) OK; full-pool no-17-more OK.",
+    "Independent Max-Clique (greedy-coloring bound, different code path): max-more in 53-pool =16 (79 nodes, seeded) and unseeded 16; global max over 70 sets =17 (383 nodes); proves M=17 without symmetry assumption.",
+    "Brute-force Stab(1234) orbit computation (576 perms): exactly 3 orbits sizes 1/16/36 for a=0/3/2, matching reps 5678/1235/1256 and counts C(4,a)*C(4,4-a).",
+    "Independent ordered-combination enumeration (no coloring/isolated/degree heuristics): exactly 17 max families containing 1234 in 24809 nodes, all 1-free and all balls; global distinct-ball count 70 with 17 containing 1234 matches prediction.",
+    "Formal Frankl-shift reimplementation confirms counterexample; convexity bound 156=24*6+4*3 recomputed; triple-degree max 5 on ball confirmed."
+  ],
+  "residual_risks": [
+    "Upper bound and uniqueness are computer-assisted (exact integer B&B, not fully human case analysis); trust rests on audited prunes plus two independent solvers agreeing, but no formal proof-checker certificate.",
+    "Literature search limited to main lines (Ellis et al., Kupavskii-Zakharov, Frankl/AK/EKR); 17-ball optimum could appear in obscure thesis/table or follow from unexamined Hilton-Milner-type casework, though excluded-range evidence makes this unlikely to be textbook.",
+    "Scope strictly (n=8,k=4,l=1); no asymptotic or stability claims beyond unique-ball classification at this point."
+  ]
+}
