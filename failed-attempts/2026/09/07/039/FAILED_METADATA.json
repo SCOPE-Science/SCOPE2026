@@ -1,0 +1,40 @@
+{
+  "attempted_claim": "Explicit bitstrings s1 (15 bits) and s2 (30 bits) are exhibited such that G1 has spectrum {3, sqrt(5)^3, 1^5, 0^3, -2^4, -sqrt(5)^3} (hence lambda(G1)=sqrt(5)) and G2 is connected non-bipartite cubic on 40 vertices with lambda(G2) <= 2.60 < 2*sqrt(2) certified by exact integer characteristic polynomial of the 20x20 signed matrix and rigorous interval arithmetic; girth(G1)=5, girth(G2)>=5, and both graphs are non-bipartite (no -3 eigenvalue). This is a new explicit non-bipartite cubic Ramanujan tower of height 2.",
+  "claim_type": "explicit construction with certified spectral gap",
+  "created_at": "2026-09-07T18:57:01Z",
+  "decisive_failure": "correctness: Independently recomputed all essential claims with numpy 1.26.4 + sympy. Petersen edge order verified. s1=(+1*6,+1,-1,-1,+1*4,-1 on edges 7,8,14): signed charpoly exactly x^4*(x^2-5)^3 (sympy factor match), rho=sqrt(5)=2.2360679. G1 2-lift (30 edges) matches inputs/artifacts/G1.json; spectrum [-sqrt5^3,-2^4,0^4,1^5,+sqrt5^3,3] giving lambda=sqrt5<2*sqrt2; connected, 3-regular, non-bipartite, girth 5, diameter 5 all confirmed by BFS. Switching-class search over 2^6=64 classes (m-n+1=15-10+1) re-ran: minimum sqrt5 attained by exactly 2 classes (masks 25,38), next-best 2.56155, confirming s1 optimality. s2 on G1 (30 edges, -1 on 3,7,9,22,23,24,25,27) matches stored s2_search.json best_mask 13; signed charpoly factored exactly as (x^2-2x-1)(x^2+2x-1)(x^8-12x^6+43x^4-52x^2+16)^2 (sympy expand match); numeric rho 2.5816293. Sturm sequence of r(y)=y^4-12y^3+43y^2-52y+16 has length 5, 4 distinct real roots, 0 in (169/25,inf) and 0 in (-inf,-169/25) (recomputed); rational checks r(169/25)=4202396/390625>0, r(-169/25)=3174912796/390625>0, r'(169/25)=1873586/15625>0, r'(-169/25)=-54908386/15625<0, r''(169/25)=92282/625>0 and monotonicity argument valid; quadratics +-1+-sqrt2 bounded by 1+8/5=13/5 via 2<64/25. Hence |x|<=2.60 certified. G2 2-lift (60 edges) matches G2.json; spectrum max nontrivial 2.5816293<2.828, connected, 3-regular, non-bipartite, girth 5, diameter 6 confirmed. s2 2^11=2048-class search re-ran: minimum 2.5816293, 12 optimal classes, 1746 classes <=2.828. DEFECT: DRAFT Theorem item 2 states G1 spectrum {3,sqrt5^3,1^5,0^3,-2^4,-sqrt5^3} which sums to 19 vertices, not 20. Correct multiplicities are 0^4 (consistent with item 1 new spectrum sqrt5^3,0^4,-sqrt5^3 plus Petersen {3,1^5,-2^4}). This is a fixable presentation/counting error; all underlying computations and the Ramanujan conclusions are correct. originality: Substantive comparison defeats novelty. G1 was proved by exhaustive backtracking search to be isomorphic to the classical dodecahedron graph = Generalized Petersen G(10,2) (explicit isomorphism found and edge-set equality verified; same 5-/6-cycle counts 12/0, girth 5, diameter 5, spectrum). Its spectrum with sqrt5 and Ramanujan property lambda=sqrt5<2.828 is standard textbook material (Cvetkovic-Doob-Sachs / MathWorld dodecahedral graph), not a new spectral record. Hence stage-1 exact certificate and switching-optimality computation re-encode a classical graph in signing language without new mathematics. MSS (arXiv:1304.4132, verified bipartite-only nonconstructive existence), Bilu-Linial O(sqrt(d log^3 d)), derandomized near-Ramanujan (epsilon-slack, large n), and cubic gap-set taxonomy are correctly distinguished by the draft, but none is needed: the nearest prior is the dodecahedron itself, unmentioned in the draft. Stage-2 is a single 40-vertex cubic graph with lambda~2.58 selected by brute force from 2048 switching classes (only 12 optimal, 1746 Ramanujan). No prior publishes these exact 15/30-bit strings, so\u2026",
+  "disposition": "AUDIT_1_REJECT",
+  "domain": "Combinatorics",
+  "failed_attempt_id": "SCOPE-FAIL-20260907-039",
+  "failed_axes": [
+    "correctness",
+    "originality",
+    "value"
+  ],
+  "failure_class": "AUDIT_REJECT",
+  "fingerprint": {
+    "claim_type": "explicit construction with certified spectral gap",
+    "domain": "Combinatorics",
+    "main_method": "spectral graph theory and eigenvalue interlacing with exact computation",
+    "primary_object": "3-regular graphs and bipartite 2-lifts (Petersen base tower)"
+  },
+  "method_summary": "spectral graph theory and eigenvalue interlacing with exact computation",
+  "problem_statement": "Starting from the Petersen graph G0 (10-vertex, 3-regular, spectrum {3^1,1^5,-2^4}), find explicit signing vectors s1 in {+1,-1}^15 and s2 in {+1,-1}^30 defining iterated 2-lifts G1 (20 vertices) and G2 (40 vertices) such that each Gi is connected, non-bipartite, 3-regular, and Ramanujan (all nontrivial adjacency eigenvalues |lambda| <= 2*sqrt(2) ~= 2.828), with the bound certified by exact integer characteristic polynomials of the signed quotient matrices plus rigorous interval/Sturm root bounds. Establish girth, diameter, and switching-class optimality of s1.",
+  "provenance": {
+    "lane": 76,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-07T18:57:01Z",
+  "record_title": "Explicit certified non-bipartite cubic Ramanujan 2-lift tower from the Petersen base",
+  "recovery_conditions": "repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Stage-2 certificate proves <=2.60, not the exact value ~2.58163 (rational-cert slack). s2 minimality is over switching classes (exhaustive, 2048) not a structural theorem. The bare 40-vertex isomorphism type may occur in small-cubic enumerations; novelty is the tower+certificates. Graph-property facts are machine-checked from archived edge lists.",
+  "scope_lane": 76,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://arxiv.org/abs/1304.4132",
+    "https://arxiv.org/abs/math/0312022",
+    "https://arxiv.org/abs/2009.02595",
+    "https://arxiv.org/abs/2005.05379"
+  ],
+  "time_standard": "UTC"
+}
