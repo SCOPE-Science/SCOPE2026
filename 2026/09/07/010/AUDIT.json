@@ -1,1 +1,306 @@
-{"axes": {"correctness": {"rationale": "PROOF vs EVIDENCE: The infinite claim G(n+148)=G(n) for all n>=259 is proved by finite computation plus a self-contained Guy-Smith propagation lemma (Lemma 1), not by extrapolation. Experimental corroboration (stability to 20000, p<=1000 scan) is clearly separated and not load-bearing. RULES VERIFIED: Octal 0.057 has d1=0,d2=5=101,d3=7=111,m=3. Auditor checked standard definition (bit0=take whole heap iff n==k, bit1=leave 1 heap, bit2=leave 2 heaps): d2=5 forbids singleton leave, d3=7 allows singleton+splits, d1=0 gives no moves. Boundary conditions recomputed by hand and code: G0=0, S1=empty=>G1=0, S2={0}=>G2=1, S3={0} (take-2 splits need a+b=1 impossible)=>G3=1, n=4 gives S4={0}=>G4=1. Table G0..40 matches recompute exactly. Sensitivity test: allowing take-2 singleton (digit 7) changes 43/51 values to N=50, so rule interpretation is material and correctly implemented. COMPUTATION VERIFIED INDEPENDENTLY: (1) Re-ran compute_grundy_0057.py to 8000: 0.73s, max 8, uniq {0,1,2,3,4,6,7,8}, byte-identical to logged CSV (diff -q IDENTICAL). (2) Independent pure-Python mex recompute to 2000: 0 mismatches. (3) Full stdlib mex recheck to 8000: 0 mismatches in 2.15s. (4) Extended recompute to 20000: 4.40s, zero mismatches on [259,19852], max still 8, zeros still {0,1}, reachset equality on final block still 148/148. (5) Ran verify_certificate_0057.py: CERTIFICATE PASS, all V1-V7 pass, 0.34s. LEMMA 1 LINE-BY-LINE VERIFIED: T*=2N0+2p+m=817. Hypothesis G(n)=G(n-p) on [N0+p=407,T] with T=8000>=817. Induction step N>T: singletons need N-3 in [N0+p,N-1] — holds since T-2>=N0+p because N0+p+m-2>=0. Splits A(S) with k=2,3, S=N-k>=2N0+2p+1, S'=S-p>=2N0+p+1: (subset) b=max(a,b)>=S/2>=N0+p+0.5 => b>=N0+p+1 integer and b<N, so G(b)=G(b-p) gives same xor in A(S'); (superset) d=max>=S'/2>=N0+1, j=d+p satisfies N0+p<j<N so G(j)=G(d) gives same xor in A(S). Terminal exclusion holds since N-p>=2N0+p+m+1>m=3. Threshold coverage 817<=7852 (=Nmax-p) verified. Suffix equality [259,7852] = 7594 agreements (~51 periods) verified 0 mismatches. REACHSET MECHANISM NOT OVERCLAIMED: V4 final-block S(n)=S(n+148) 148/148 verified; auditor additionally found full-range reachset equality fails at exactly 15 early indices [262,267,268,269,270,272,276,282,283,284,290,297,298,304,311] with max 311, and holds thereafter including final block — consistent with draft claiming equality only on final block. MINIMALITY CLOSES: V6a G258=2 vs G406=1 verified; V6b cycle C=G[259..406] has no cyclic subperiod (all p'<148 break; e.g. p=2:117 breaks, p=4:148, p=37:111, p=74:138) verified. Jointly sufficient: any period of infinite tail must be multiple of 148 (V6b), and any N0'<259 with such multiple fails at n=258 since G(258+k*148)=G406=1!=2 for all k>=1 by tail periodicity — draft's terse sketch is complete when V6a+V6b combined as §5 states. CENSUS VERIFIED: zeros to 8000 exactly {0,1}; cycle listing 148 terms byte-matches CSV; cycle set {1,2,4,7,8} with counts 1x54,4x53,2x17,7x16,8x8 verified; max 8 verified; hence P-positions {0,1} globally follows from periodicity plus preperiod check. No floats, no randomness, timings reproduced. No essential inference, boundary, or computation error found.", "verdict": "PASS"}, "originality": {"rationale": "SUBSTANTIVE COMPARISON (not timestamp): Nearest results are (a) Guy-Smith 1956 periodicity theorem + solved Kayles 0.77 / Dawson's Kayles 0.07 (period 34), (b) Flammenkamp octal survey tables to 1e5-1e6 scale, (c) Winning Ways Vol.1 / Siegel textbook octal chapter. (a) proves the general induction method invoked and solves different digits; take-2 digit 5 in 0.057 forbids the singleton leave that 0.07/0.77 allow, changing reachable sets A(N-2) — auditor sensitivity test confirms different sequence — so (259,148) is disjoint, not implied. (b) by nature supplies computed (conjectured, unproved) values without Guy-Smith window or mex-closure certificate; even if it lists 259/148 as observed, observation is not proof — the candidate's contribution is exactly the missing proof log (suffix equality + T*=817 + reachset equality). (c) is background (octal rules, mex) leaving 0.057-class as open tables/exercises. Period-scan uniqueness corroborates novelty of the pair: exhaustive p<=1000 longest-suffix scan gives only (259, multiples of 148) with N0<=400 and window>=3000; every other p first matches only at n>=6995 with window<=6 (end effects). Internal SCOPE prior scan checked: 8 validated findings (synchronizing automata, Heilbronn, Kronecker, forbidden families, RSBF, J2-free rank, 5x5 rank census, spider walks) and 18 failures (Henon, Z197 bases, Littlewood, matroids, Nash M22, balls-in-bins, Szemeredi-Trotter, sextuplets, Polya-Vinogradov, BH(6,3), codes, dicyclic, Latin, groups 96, curves F32, Ramsey-Turan, FEM, knots) — all disjoint objects/methods; nearest SCOPE-FAIL-20260907-013 (bimatrix Nash) explicitly distinguished as non-cooperative vs impartial heaps. No prior result states or proves ultimate Grundy periodicity (259,148) for 0.057 with induction certificate. A timestamp or failed search was not used as priority evidence.", "verdict": "PASS"}, "value": {"rationale": "INDEPENDENTLY WORTH FINDING LATER: Result is a durable exact classification of a canonical named game, not a textbook exercise. (1) Not textbook restatement: textbook gives the Guy-Smith lemma as a method; the new content is the exact minimal pair (259,148), 148-term cycle, and census (P={0,1}, max 8, tail values {1,2,4,7,8}) which no cited source proves. Lemma is re-proved self-contained with explicit loose threshold rather than cited. (2) Not parameter substitution: 0.057 is the splitting-dominant neighbour of solved Dawson's Kayles 0.07 (differs by restricting take-2 to no singleton leave), sits below 2.00, listed as computed-but-unproved survey entry; digit change alters move topology (verified material difference), not arbitrary S-vector. (3) Not tiny gain: first exact infinite proof (51-period base + induction to all n), not bound tweak; fallback 20000-table explicitly labelled as fallback, not claimed. (4) Not unexplained enumeration: mechanism explained and machine-checked (mex recomputation full-range 0 mismatches, reachset equality final block 148/148, threshold coverage). Consequence is citable: every heap n>=2 is N-position, all large-heap Grundy values known. Honest scope limits (§6) disclaim neighbours and general conjectures. Comparable octal periodicity closures (e.g. Dawson's Kayles period 34) are standard citable notes; this is of same kind for an unsolved entry.", "verdict": "PASS"}}, "checked_sources": [{"outcome": "Compared substantively via candidate excerpts + auditor knowledge: proves general lemma and solves 0.07 (period 34) and 0.77 with different digits; does not treat 0.057 whose take-2 forbids singleton leave. Method vs specific certificate distinguished.", "title": "Guy-Smith periodicity theorem and solved Kayles / Dawson's Kayles (0.77, 0.07)", "url": "https://doi.org/10.1017/S0305004100033755"}, {"outcome": "Attempted live fetch via webfetch (502) and via proxied urllib (502 Bad Gateway) — network unavailable. Compared substantively via candidate description + known nature of survey tables: conjectured values to large heaps without Guy-Smith induction window; observation is not proof. No induction certificate for 0.057 found in triage.", "title": "Flammenkamp octal-game Sprague-Grundy survey tables", "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"}, {"outcome": "Attempted live fetch via webfetch (transport error) — network unavailable. Compared via known content: textbook octal rules, mex recursion, solved examples; leaves 0.057-class as tables/exercises without exact (N0,p) proof.", "title": "Winning Ways Vol.1 octal chapter / Siegel CGT; Wikipedia Octal game overview", "url": "https://en.wikipedia.org/wiki/Octal_game"}, {"outcome": "PASS: 18 failures (Henon, Z197, Littlewood, matroids, Nash M22, balls-in-bins, Szemeredi-Trotter, sextuplets, Polya-Vinogradov, BH(6,3), codes, dicyclic, Latin, groups96, curves F32, Ramsey-Turan, FEM, knots) and 8 findings (automata, Heilbronn, Kronecker, forbidden families, RSBF, J2-free rank, 5x5 census, spiders) all disjoint; nearest failure SCOPE-FAIL-20260907-013 distinguished by domain/method. No duplicate.", "title": "Internal SCOPE prior scan (resultary + failed attempts, 2026-09-07)", "url": "inputs/topic.json:internal_prior_scan"}], "decisive_checks": [{"detail": "V1 integrity Nmax=8000 rows=8001, V2 suffix [259,7852] 0 mism, V3 mex [1,406]+[407,817]+[7705,8000] 0 mism, V4 reachset final block 148/148, V5 817<=7852, V6a G258=2 vs G406=1, V6b no subperiod, V7 zeros {0,1} max 8 cycle {1,2,4,7,8}; 0.34s single-core", "name": "Ran verify_certificate_0057.py on logged CSV", "result": "CERTIFICATE PASS"}, {"detail": "Nmax=8000 0.73s maxG=8 uniq [0,1,2,3,4,6,7,8] G0..40 matches; diff -q IDENTICAL to logged CSV", "name": "Re-ran compute_grundy_0057.py to 8000", "result": "PASS"}, {"detail": "Pure-Python (no numpy) mex recursion to 2000: 0 mismatches vs CSV; alt rule with take-2 singleton differs in 43/51 positions, confirming rule sensitivity", "name": "Independent pure-Python recompute + rule-sensitivity test", "result": "PASS"}, {"detail": "Full stdlib mex recheck 1..8000: 0 mismatches (2.15s); full reachset scan [259,7852]: 15 early mismatches only (max 311), final block [7705,7852] 0 mismatches — draft does not overclaim", "name": "Full-range mex and reachset audit", "result": "PASS"}, {"detail": "Recompute to 20000: 4.40s, 0 mismatches on [259,19852], max 8, zeros {0,1}, final-block reachset 148/148", "name": "Extended stability to N=20000", "result": "PASS (corroboration, not proof)"}, {"detail": "Only (259,148) and multiples (296,444,592,740,888) with N0<=400 window>=3000; all other p<=1000 first match >=6995 window<=6", "name": "Ran detect_period.py p<=1000 scan", "result": "PASS uniqueness"}, {"detail": "148-term cycle string byte-matches G[259..406]; Counter {1:54,4:53,2:17,7:16,8:8}; G258=2 G406=1; subperiods=[]; zeros [0,1]; T*=817", "name": "Cycle/census/minimality/threshold arithmetic", "result": "PASS"}, {"detail": "Checked singletons (N-3 bounds), splits both inclusions (S>=2N0+2p+1, b>=N0+p+1, j bounds), terminal exclusion (N-p>m), threshold algebra; loose T* is safe", "name": "Lemma 1 proof line verification", "result": "PASS valid induction"}], "residual_risks": ["Live web literature search unavailable (proxy 502 / SSL errors); exhaustive external priority search beyond cited triad + internal SCOPE scan not possible, but substantive disjointness (method vs conjecture vs textbook) makes hidden identical proof unlikely; future find of overlapping unpublished table would be conjecture, not proof, and would not invalidate this certificate.", "Computational proof trust rests on standard octal-code interpretation (verified against definition and sensitivity-tested) and two independent implementations (numpy + stdlib) plus logged CSV; no formal proof-assistant checking; full mex to 8000 rechecked by auditor to mitigate.", "Grundy bound 64 in compute script is an assertion, not a theorem, but max observed 8 and full independent recheck without bound assumption (set-based mex) confirms no overflow.", "Value judgment assumes community treats single-game Guy-Smith closures as citable (as with Dawson's Kayles); neighbouring codes and general octal conjectures explicitly untouched."], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem B (five Delta=1 instances) was fully re-verified: ran inputs/artifacts/recheck.py which passed ALL 5 ENTRIES VERIFIED (patterns 25,107,61,90,39; lb_nodes 2248,7690,7420,828,97). Independently recomputed with Fractions: dual b^T y equals claimed LP (E1 299/30, E2 9, E3 8, E4 6, E5 4), max A^T y = 1 entrywise over completely re-enumerated knapsack patterns, primal sum equals LP with coverage >= b exactly, enumeration order equals stored order, packing multisets match demands and all bin loads <=24, ceil/Delta arithmetic correct. OPT lower bounds re-confirmed by independent DFS re-search for K=OPT-1 infeasible. Theorem A k<=2: independently proved exactly with Fractions dual vertex enumeration + DFS feasibility for all 3520 instances (C(11,2)*64=3520, S-filter excludes 0) — 0 gaps, confirming IRUP. Theorem A k=3: independently reproduced screening over 84465 instances (C(11,3)*512=84480 minus 15 with S>240) with numpy dual simplex + FFD, obtaining exactly 3925 FFD-candidates matching draft; exact Fractions simplex on 100/100 random candidates showed float ceil == exact ceil and K=ceil feasible, so sampled Delta=0 holds. Theorem C: regenerated Hamming-1 neighborhoods per definition (demand +-1, size +-1 distinct, N<=30 S<=240) obtaining exactly 7+16+16+15+9=63 neighbors matching claim; exact Fractions simplex + DFS feasibility at exact ceil proved all 63 Delta=0. Boundary conditions N<=30 S<=240 verified by counting; size-1/>C/2 exclusions are explicitly scope choices not proved reductions (honestly flagged in DRAFT Sec 6). No overclaim: maximality over full ~1e8 box explicitly NOT claimed; no-Delta>=2 is labeled Observation/conjecture. Proof (exact rational certificates, exhaustive k<=2, neighbor closure) is distinguished from experimental evidence (random/local search).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Checked claim is Theorems A+B+C for fixed C=24 box (k<=6 sizes 2..12 demands 1..8 N<=30 S<=240, complete knapsack pattern enumeration, exact rational Gilmore-Gomory primal-dual certificates): A: all 3520 k<=2 and 84465 k=3 instances Delta=0; B: five explicit instances E1 (5,8,9,12)x(5,8,7,7) LP 299/30 OPT11, E2 (2,7,8,10,11,12)x(6,3,5,4,5,4) LP9 OPT10, E3 LP8 OPT9, E4 LP6 OPT7, E5 LP4 OPT5 each Delta=1; C: all 63 Hamming-1 neighbors Delta=0. Kartak et al quantifies over n (total unit items) with bi=1 and unbounded L, proving n<=9 IRUP; candidate has N up to 27 (>9) with bounded C=24 and typed multiplicities, so A is not implied and E1-E5 (N=27,23,19,13) lie outside n<=9 scope; Kartak Table 1 L=18 n=12 example differs in capacity/sizes/demands and gap measure (proper gap vs standard Delta). Scheithauer-Terno and Nitsche et al give definitions/sufficient MIRUP conditions with no fixed-C table. Rietz-Dempe and Eisenbrand et al address asymptotic/worst-case growth, opposite scope to small-C exact catalog with per-instance y/lambda Fractions certificates and DFS OPT-1 infeasibility. Crossref capacity-24 query top hits are bin-packing games/discrepancy, none a C=24 catalog; arXiv abs cutting-stock (35 hits) and bin-packing+gap (2 hits) show no capacity-stratified benchmark. Exact constants (C=24, LP fractions, OPT integers, 25/107/61/90/39 patterns, 63 neighbors) and scope (complete pattern DP + duality + branch-and-bound) appear in no retrieved source. Hence no source substantively covers or implies the candidate.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a citable hard-instance benchmark for bin-packing/cutting-stock solvers (arc-flow, branch-and-price, column generation need small-C hard cases), not a textbook restatement: requires full Gilmore-Gomory LP over completely enumerated patterns plus branch-and-bound optimality, beyond FFD/textbook bounds; k<=6, N<=30 non-trivial multi-pattern instances with size-1 and trivial >C/2 excluded. Not mere parameter substitution: first certified capacity-stratum census method + machine-checkable artifacts for C=24 where no table existed, with exact rational dual/primal pairs rerunnable in seconds via stdlib only. Not tiny unmotivated gain: five Delta=1 proper non-IRUP instances selected top-by-OPT-size with k-diversity, plus proved k<=3 IRUP sub-census (87985 instances) and verified strict local maximality (63/63 neighbors Delta=0); honest benchmark labeling (not claimed minimal/unique/classification) with limitations and reproducibility documented. Fallback catalog explicitly allowed by topic as independently valuable even without full maximality closure.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Nearest prior enumeration: stratifies by total unit-demand n via pattern-equivalence and weighted games (n<=9 proper IRUP, n=10 non-IRUP, gap>1 at n=11); orthogonal quantifiers to fixed-C=24 box (k-types<=6, N<=30). No capacity table.",
+      "title": "Minimal proper non-IRUP instances of the one-dimensional Cutting Stock Problem",
+      "url": "https://arxiv.org/abs/1405.5988"
+    },
+    {
+      "outcome": "Foundational definition of MIRUP and sufficient conditions; provides LP_GG language used by candidate but no capacity-stratified catalog or certificates.",
+      "title": "The modified integer round-up property of the one-dimensional cutting stock problem",
+      "url": "https://doi.org/10.1016/0377-2217(95)00022-I"
+    },
+    {
+      "outcome": "Asymptotic large-gap parametric families; complementary to small-C concrete duality-certified benchmarks. No C=24 instances or maximality census.",
+      "title": "Large gaps in one-dimensional cutting stock problems",
+      "url": "https://doi.org/10.1016/j.dam.2007.08.052"
+    },
+    {
+      "outcome": "Sufficient MIRUP cases (theory only); no exhaustive C=24 search, no explicit E1-E5 instances, no primal-dual Fractions artifacts.",
+      "title": "New cases of the cutting stock problem having MIRUP",
+      "url": "https://doi.org/10.1007/s001860050015"
+    },
+    {
+      "outcome": "Asymptotic additive-gap bounds via discrepancy (O(log n) vs O(log^2 n)); different parameter regime and proof scope, no fixed-capacity enumeration.",
+      "title": "Bin Packing via Discrepancy of Permutations",
+      "url": "https://arxiv.org/abs/1007.2170"
+    }
+  ],
+  "decisive_checks": [
+    "recheck.py rerun: ALL 5 ENTRIES VERIFIED (E1 25 pats lb 2248, E2 107/7690, E3 61/7420, E4 90/828, E5 39/97)",
+    "Fractions recomputation: b^T y == LP, max A^T y == 1, primal sum == LP with coverage == b, order equality, packing multiset + capacity, ceil/Delta ==1 for all 5",
+    "k=2 exhaustive exact: 3520/3520 IRUP via Fractions vertex enumeration + DFS feasibility at exact ceil",
+    "k=3 screening reproduction: 84465 instances, 3925 FFD-candidates (exact match to draft) via independent numpy simplex + FFD",
+    "k=3 exact sample: 100/100 random candidates float-ceil==exact-ceil (Fractions simplex) and K=ceil feasible",
+    "neighbor regeneration: 7+16+16+15+9=63 total matching claim; all 63 Delta=0 via Fractions simplex + DFS feasibility",
+    "combinatorial counts: k=2 55*64=3520, k=3 165*512=84480-15(S>240)=84465 verified",
+    "live retrieval: Kartak n-stratification vs capacity census, Scheithauer-Terno MIRUP definition vs table, Rietz asymptotic vs benchmark contrast"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:27:13Z",
+    "queries": [
+      {
+        "query": "id_list=1405.5988",
+        "result_count": 1,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?id_list=1405.5988"
+      },
+      {
+        "query": "ti:\"cutting stock\" AND ti:IRUP",
+        "result_count": 1,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:%22cutting+stock%22+AND+ti:IRUP&start=0&max_results=10"
+      },
+      {
+        "query": "abs:\"cutting stock\"",
+        "result_count": 35,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=abs:%22cutting+stock%22&start=0&max_results=5"
+      },
+      {
+        "query": "abs:\"bin packing\" AND abs:\"integrality gap\"",
+        "result_count": 2,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=abs:%22bin+packing%22+AND+abs:%22integrality+gap%22&start=0&max_results=10"
+      },
+      {
+        "query": "doi:10.1016/j.dam.2015.02.020",
+        "result_count": 1,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works/10.1016%2Fj.dam.2015.02.020"
+      },
+      {
+        "query": "doi:10.1016/j.dam.2007.08.052",
+        "result_count": 1,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works/10.1016%2Fj.dam.2007.08.052"
+      },
+      {
+        "query": "doi:10.1016/0377-2217(95)00022-I",
+        "result_count": 1,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works/10.1016%2F0377-2217%2895%2900022-I"
+      },
+      {
+        "query": "bin packing capacity 24 integrality gap Gilmore-Gomory",
+        "result_count": 3789576,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=bin+packing+capacity+24+integrality+gap&rows=5"
+      },
+      {
+        "query": "New cases cutting stock MIRUP",
+        "result_count": 5567461,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=New+cases+cutting+stock+MIRUP&rows=3"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved full arXiv record plus HTML full text. Proves by pattern-equivalence/weighted-games enumeration that all 1CSP instances with total unit-demand n<=9 are proper IRUP, gives n=10 proper non-IRUP and n=11 gap>1, worst proper gap 1.0625. Stratifies by n (bi=1), not by fixed capacity C; Table 1 smallest L=18 n=12 instance differs in capacity, sizes and demand structure from candidate C=24 box (k<=6, sizes 2..12, demands 1..8, N<=30, LP 4..10, Delta=1). Contains no C=24 catalog, no Theorems A/B/C.",
+        "retrieved_at_utc": "2026-09-07T14:27:13Z",
+        "title": "Minimal proper non-IRUP instances of the one-dimensional Cutting Stock Problem",
+        "url": "https://arxiv.org/abs/1405.5988"
+      },
+      {
+        "comparison": "Retrieved Crossref authoritative metadata: EJOR 84:562-571 (1995) foundational MIRUP definition (OPT<=ceil(LP)+1) and sufficient conditions. Provides the LP_GG framework the candidate operationalizes, but contains no capacity-fixed extremal enumeration, no explicit C=18-30 gap instances, and no per-instance rational primal-dual certificates or Hamming-1 maximality claim.",
+        "retrieved_at_utc": "2026-09-07T14:27:13Z",
+        "title": "The modified integer round-up property of the one-dimensional cutting stock problem",
+        "url": "https://api.crossref.org/works/10.1016%2F0377-2217%2895%2900022-I"
+      },
+      {
+        "comparison": "Retrieved Crossref authoritative metadata plus references: Discrete Appl. Math. 156:1929-1935 (2008) constructs asymptotic parametric families exhibiting large gaps with focus on worst-case growth. Complementary direction to small-capacity concrete benchmarks; does not publish a small-C duality-certified catalog, no C=24 instances, no exhaustive k<=3 census (3520+84465) or 63-neighbor closure.",
+        "retrieved_at_utc": "2026-09-07T14:27:13Z",
+        "title": "Large gaps in one-dimensional cutting stock problems",
+        "url": "https://api.crossref.org/works/10.1016%2Fj.dam.2007.08.052"
+      },
+      {
+        "comparison": "Retrieved Crossref authoritative metadata: Math. Methods OR 48:105-115 (1998) proves new sufficient theoretical cases where cutting-stock instances are guaranteed to have MIRUP. Provides general MIRUP conditions only; contains no exhaustive capacity-stratum search, no explicit C=24 Delta=1 instances (E1-E5 with LP 299/30,9,8,6,4 and OPT 11,10,9,7,5), and no machine-checkable Fractions certificates.",
+        "retrieved_at_utc": "2026-09-07T14:27:13Z",
+        "title": "New cases of the cutting stock problem having MIRUP",
+        "url": "https://api.crossref.org/works/10.1007%2Fs001860050015"
+      },
+      {
+        "comparison": "Retrieved arXiv record and abstract: SODA 2011 bin-packing discrepancy result bounding additive integrality gap of 3-partition LP by discrepancy of 3 permutations, Omega(log n) lower bound for rounding-based techniques. Concerns asymptotic O(log n)/O(log^2 n) gap growth for arbitrary sizes, not fixed-C=24 exact enumeration, not Delta=1 small instances, and implies no capacity-24 maximal-gap table.",
+        "retrieved_at_utc": "2026-09-07T14:27:13Z",
+        "title": "Bin Packing via Discrepancy of Permutations",
+        "url": "https://arxiv.org/abs/1007.2170"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:27:13Z",
+      "queries": [
+        {
+          "query": "id_list=1405.5988",
+          "result_count": 1,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?id_list=1405.5988"
+        },
+        {
+          "query": "ti:\"cutting stock\" AND ti:IRUP",
+          "result_count": 1,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:%22cutting+stock%22+AND+ti:IRUP&start=0&max_results=10"
+        },
+        {
+          "query": "abs:\"cutting stock\"",
+          "result_count": 35,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=abs:%22cutting+stock%22&start=0&max_results=5"
+        },
+        {
+          "query": "abs:\"bin packing\" AND abs:\"integrality gap\"",
+          "result_count": 2,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=abs:%22bin+packing%22+AND+abs:%22integrality+gap%22&start=0&max_results=10"
+        },
+        {
+          "query": "doi:10.1016/j.dam.2015.02.020",
+          "result_count": 1,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works/10.1016%2Fj.dam.2015.02.020"
+        },
+        {
+          "query": "doi:10.1016/j.dam.2007.08.052",
+          "result_count": 1,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works/10.1016%2Fj.dam.2007.08.052"
+        },
+        {
+          "query": "doi:10.1016/0377-2217(95)00022-I",
+          "result_count": 1,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works/10.1016%2F0377-2217%2895%2900022-I"
+        },
+        {
+          "query": "bin packing capacity 24 integrality gap Gilmore-Gomory",
+          "result_count": 3789576,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=bin+packing+capacity+24+integrality+gap&rows=5"
+        },
+        {
+          "query": "New cases cutting stock MIRUP",
+          "result_count": 5567461,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=New+cases+cutting+stock+MIRUP&rows=3"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved full arXiv record plus HTML full text. Proves by pattern-equivalence/weighted-games enumeration that all 1CSP instances with total unit-demand n<=9 are proper IRUP, gives n=10 proper non-IRUP and n=11 gap>1, worst proper gap 1.0625. Stratifies by n (bi=1), not by fixed capacity C; Table 1 smallest L=18 n=12 instance differs in capacity, sizes and demand structure from candidate C=24 box (k<=6, sizes 2..12, demands 1..8, N<=30, LP 4..10, Delta=1). Contains no C=24 catalog, no Theorems A/B/C.",
+          "retrieved_at_utc": "2026-09-07T14:27:13Z",
+          "title": "Minimal proper non-IRUP instances of the one-dimensional Cutting Stock Problem",
+          "url": "https://arxiv.org/abs/1405.5988"
+        },
+        {
+          "comparison": "Retrieved Crossref authoritative metadata: EJOR 84:562-571 (1995) foundational MIRUP definition (OPT<=ceil(LP)+1) and sufficient conditions. Provides the LP_GG framework the candidate operationalizes, but contains no capacity-fixed extremal enumeration, no explicit C=18-30 gap instances, and no per-instance rational primal-dual certificates or Hamming-1 maximality claim.",
+          "retrieved_at_utc": "2026-09-07T14:27:13Z",
+          "title": "The modified integer round-up property of the one-dimensional cutting stock problem",
+          "url": "https://api.crossref.org/works/10.1016%2F0377-2217%2895%2900022-I"
+        },
+        {
+          "comparison": "Retrieved Crossref authoritative metadata plus references: Discrete Appl. Math. 156:1929-1935 (2008) constructs asymptotic parametric families exhibiting large gaps with focus on worst-case growth. Complementary direction to small-capacity concrete benchmarks; does not publish a small-C duality-certified catalog, no C=24 instances, no exhaustive k<=3 census (3520+84465) or 63-neighbor closure.",
+          "retrieved_at_utc": "2026-09-07T14:27:13Z",
+          "title": "Large gaps in one-dimensional cutting stock problems",
+          "url": "https://api.crossref.org/works/10.1016%2Fj.dam.2007.08.052"
+        },
+        {
+          "comparison": "Retrieved Crossref authoritative metadata: Math. Methods OR 48:105-115 (1998) proves new sufficient theoretical cases where cutting-stock instances are guaranteed to have MIRUP. Provides general MIRUP conditions only; contains no exhaustive capacity-stratum search, no explicit C=24 Delta=1 instances (E1-E5 with LP 299/30,9,8,6,4 and OPT 11,10,9,7,5), and no machine-checkable Fractions certificates.",
+          "retrieved_at_utc": "2026-09-07T14:27:13Z",
+          "title": "New cases of the cutting stock problem having MIRUP",
+          "url": "https://api.crossref.org/works/10.1007%2Fs001860050015"
+        },
+        {
+          "comparison": "Retrieved arXiv record and abstract: SODA 2011 bin-packing discrepancy result bounding additive integrality gap of 3-partition LP by discrepancy of 3 permutations, Omega(log n) lower bound for rounding-based techniques. Concerns asymptotic O(log n)/O(log^2 n) gap growth for arbitrary sizes, not fixed-C=24 exact enumeration, not Delta=1 small instances, and implies no capacity-24 maximal-gap table.",
+          "retrieved_at_utc": "2026-09-07T14:27:13Z",
+          "title": "Bin Packing via Discrepancy of Permutations",
+          "url": "https://arxiv.org/abs/1007.2170"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest prior enumeration: stratifies by total unit-demand n via pattern-equivalence and weighted games (n<=9 proper IRUP, n=10 non-IRUP, gap>1 at n=11); orthogonal quantifiers to fixed-C=24 box (k-types<=6, N<=30). No capacity table.",
+        "title": "Minimal proper non-IRUP instances of the one-dimensional Cutting Stock Problem",
+        "url": "https://arxiv.org/abs/1405.5988"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Foundational definition of MIRUP and sufficient conditions; provides LP_GG language used by candidate but no capacity-stratified catalog or certificates.",
+        "title": "The modified integer round-up property of the one-dimensional cutting stock problem",
+        "url": "https://doi.org/10.1016/0377-2217(95)00022-I"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Asymptotic large-gap parametric families; complementary to small-C concrete duality-certified benchmarks. No C=24 instances or maximality census.",
+        "title": "Large gaps in one-dimensional cutting stock problems",
+        "url": "https://doi.org/10.1016/j.dam.2007.08.052"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Sufficient MIRUP cases (theory only); no exhaustive C=24 search, no explicit E1-E5 instances, no primal-dual Fractions artifacts.",
+        "title": "New cases of the cutting stock problem having MIRUP",
+        "url": "https://doi.org/10.1007/s001860050015"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Asymptotic additive-gap bounds via discrepancy (O(log n) vs O(log^2 n)); different parameter regime and proof scope, no fixed-capacity enumeration.",
+        "title": "Bin Packing via Discrepancy of Permutations",
+        "url": "https://arxiv.org/abs/1007.2170"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-013",
+    "originality_rationale": "Checked claim is Theorems A+B+C for fixed C=24 box (k<=6 sizes 2..12 demands 1..8 N<=30 S<=240, complete knapsack pattern enumeration, exact rational Gilmore-Gomory primal-dual certificates): A: all 3520 k<=2 and 84465 k=3 instances Delta=0; B: five explicit instances E1 (5,8,9,12)x(5,8,7,7) LP 299/30 OPT11, E2 (2,7,8,10,11,12)x(6,3,5,4,5,4) LP9 OPT10, E3 LP8 OPT9, E4 LP6 OPT7, E5 LP4 OPT5 each Delta=1; C: all 63 Hamming-1 neighbors Delta=0. Kartak et al quantifies over n (total unit items) with bi=1 and unbounded L, proving n<=9 IRUP; candidate has N up to 27 (>9) with bounded C=24 and typed multiplicities, so A is not implied and E1-E5 (N=27,23,19,13) lie outside n<=9 scope; Kartak Table 1 L=18 n=12 example differs in capacity/sizes/demands and gap measure (proper gap vs standard Delta). Scheithauer-Terno and Nitsche et al give definitions/sufficient MIRUP conditions with no fixed-C table. Rietz-Dempe and Eisenbrand et al address asymptotic/worst-case growth, opposite scope to small-C exact catalog with per-instance y/lambda Fractions certificates and DFS OPT-1 infeasibility. Crossref capacity-24 query top hits are bin-packing games/discrepancy, none a C=24 catalog; arXiv abs cutting-stock (35 hits) and bin-packing+gap (2 hits) show no capacity-stratified benchmark. Exact constants (C=24, LP fractions, OPT integers, 25/107/61/90/39 patterns, 63 neighbors) and scope (complete pattern DP + duality + branch-and-bound) appear in no retrieved source. Hence no source substantively covers or implies the candidate.",
+    "priority_caveat": "This PASS is not an award of academic priority; it reports only that this documented live search on 2026-09-07 via arXiv and Crossref found no source substantively covering or implying the candidate. It does not establish novelty, precedence, or non-existence of unpublished or unindexed prior art.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-013",
+    "residual_uncertainties": [
+      "Paywalled full texts (Elsevier/Springer) inspected via Crossref metadata + arXiv full text for Kartak only; subtle capacity-24 examples buried in theses or non-English reports could be missed.",
+      "OpenAlex unavailable due to rate-limit/budget on 2026-09-07; search relied on arXiv and Crossref, not Scopus/Web of Science.",
+      "Terminology variants (trim loss, duality gap, proper gap vs Delta, bin packing vs cutting stock) partially covered by multiple formulations but full synonym closure not provable.",
+      "Exact E1-E5 demand vectors not searched as literal strings in full-text corpora; non-IRUP coincidence cannot be logically excluded, only rendered unlikely by orthogonal stratification and inspected tables."
+    ],
+    "reviewed_claim": "Certified top-five Delta=1 catalog for 1D bin packing/cutting stock at fixed capacity C=24 in box k<=6 sizes 2..12 demands 1..8 N<=30 S<=240: (A) all k<=2 (3520) and k=3 (84465) instances Delta=0; (B) five explicit instances E1-E5 with LP 299/30,9,8,6,4 and OPT 11,10,9,7,5 (Delta=1) with exact rational Gilmore-Gomory primal-dual certificates and packings; (C) all 63 Hamming-1 neighbors Delta=0.",
+    "run_id": "2026-09-07T1420Z-pre-gate-queued-successes",
+    "search_strategy": [
+      "Exact known-paper lookup: arXiv id 1405.5988 and Crossref DOI 10.1016/j.dam.2015.02.020 for Kartak n-stratification nearest prior",
+      "Phrase search ti:cutting stock AND IRUP and abs:cutting stock on arXiv to test for capacity-stratified or IRUP catalog terminology",
+      "Gap-measure search abs:bin packing AND integrality gap on arXiv for equivalent additive-gap terminology (Karmarkar-Karp/discrepancy regime)",
+      "Foundational MIRUP lookup: Crossref DOI 10.1016/0377-2217(95)00022-I and query New cases cutting stock MIRUP for sufficient-condition priors",
+      "Asymptotic-family check: Crossref DOI 10.1016/j.dam.2007.08.052 for Rietz-Dempe large gaps",
+      "Negative capacity-fixed search: Crossref query bin packing capacity 24 integrality gap Gilmore-Gomory to test for any C=24 benchmark"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Full k=3 stratum (84465 instances) not re-proved exhaustively with exact LP for every instance in audit; only screening reproduced fully plus 100/100 exact sample — remaining risk is a hidden float-ceil mismatch outside sample, mitigated by 1e-7 buffer and denominator-gap argument plus draft's stated exact closure of all 3925 candidates.",
+    "k=4..6 random/local-search coverage (~250k of ~1e8 combos) not re-executed; treated correctly as Observation/conjecture, not theorem, so no correctness risk if read as stated.",
+    "OPT lower bounds rest on item-branching DFS + bin-completion agreement and rerunnable verifier, not a proof-assistant certificate; standard symmetry/memo arguments audited but not formally verified.",
+    "Neighbor definition (size moves re-sorted) regenerated to 63 matching claim; alternative orderings without re-sorting could differ by permutation but denote same multisets, no material risk.",
+    "Catalog is top-by-OPT-size k-diverse selection among 14 found Delta=1 instances, not a uniqueness/minimality classification — honestly disclosed, value depends on benchmark use.",
+    "Originality revalidation: Paywalled full texts (Elsevier/Springer) inspected via Crossref metadata + arXiv full text for Kartak only; subtle capacity-24 examples buried in theses or non-English reports could be missed.",
+    "Originality revalidation: OpenAlex unavailable due to rate-limit/budget on 2026-09-07; search relied on arXiv and Crossref, not Scopus/Web of Science.",
+    "Originality revalidation: Terminology variants (trim loss, duality gap, proper gap vs Delta, bin packing vs cutting stock) partially covered by multiple formulations but full synonym closure not provable.",
+    "Originality revalidation: Exact E1-E5 demand vectors not searched as literal strings in full-text corpora; non-IRUP coincidence cannot be logically excluded, only rendered unlikely by orthogonal stratification and inspected tables."
+  ],
+  "verdict": "PASS"
+}

@@ -1,40 +1,317 @@
 {
-  "verdict": "PASS",
   "axes": {
     "correctness": {
-      "verdict": "PASS",
-      "rationale": "Main existence claim M(12,20)>=1.0 via explicit S* verified exactly by independent re-execution. Provided verifier on provided coordinates outputs n=20 total_triples=1140 D=2 A=1.0 n0=0 n1=0 c2=34 c3=42 PASS in 0.014s (reproduced by auditor). Auditor wrote two additional independent code paths: (i) matrix-determinant form qx*(ry-py)+rx*(py-qy)+px*(qy-ry) over all C(20,3)=1140 triples gives min 2, n0=0, n1=0, c2=34, c3=42; (ii) shoelace difference form gives identical histogram prefix 2:34, 3:42, 4:36, 5:4, 6:44, 7:10, 8:38, 9:18, 10:46. Range check: all 20 points in {0..11}^2, 20 distinct, no duplicates. Hence no three collinear (D=0 absent) and no unimodular/area-0.5 triple (D=1 absent); D(S*)=2, A=1.0 proved by exhaustive integer enumeration, no floats, deterministic. Secondary claim H(S*)=6 verified independently: witness W={(0,1),(0,3),(1,7),(2,3),(3,6),(3,9)} has monotone-chain hull size 6 (strictly convex) and zero S*-points strictly inside conv(W) under exact sign-of-det predicates; exhaustive search over C(20,7)=77520 7-subsets finds zero empty-convex 7-sets (0.3s), and alternative angular-sort convexity test over C(20,8) finds zero empty-convex 8-sets, so by monotonicity (any empty convex k>7 contains an empty convex 7-subset, since subsets of strictly convex position sets are strictly convex and conv(subset) subset conv(parent)) H<=6, hence H=6. This closes the dependence on unprovided scratch/hcalc.py. Search-method description is honest stochastic existence proof with explicit disclaimers (no optimality, gaps are best-found not impossibility, D>=3 open); no proof/experiment conflation. One non-material presentation imprecision noted: DRAFT section 3 tail histogram beyond det=10 lists 11:15, 12:53(? from seed-6 set), max 109-scale, whereas exact full histogram is 11:8, 12:26, max 100 (full table verified by auditor). The decisive bins (D, n0, n1, c2, c3, prefix to 10) are all correct and the uncertain tail is explicitly flagged with '(?' and pointer to sweep JSON, so no false essential inference; corrected exact histogram is published in RESULT.md. Missing scratch/search/sweep files do not affect verifiability of S* since verifier reruns from coordinate list alone in <1s."
+      "rationale": "Main existence claim M(12,20)>=1.0 via explicit S* verified exactly by independent re-execution. Provided verifier on provided coordinates outputs n=20 total_triples=1140 D=2 A=1.0 n0=0 n1=0 c2=34 c3=42 PASS in 0.014s (reproduced by auditor). Auditor wrote two additional independent code paths: (i) matrix-determinant form qx*(ry-py)+rx*(py-qy)+px*(qy-ry) over all C(20,3)=1140 triples gives min 2, n0=0, n1=0, c2=34, c3=42; (ii) shoelace difference form gives identical histogram prefix 2:34, 3:42, 4:36, 5:4, 6:44, 7:10, 8:38, 9:18, 10:46. Range check: all 20 points in {0..11}^2, 20 distinct, no duplicates. Hence no three collinear (D=0 absent) and no unimodular/area-0.5 triple (D=1 absent); D(S*)=2, A=1.0 proved by exhaustive integer enumeration, no floats, deterministic. Secondary claim H(S*)=6 verified independently: witness W={(0,1),(0,3),(1,7),(2,3),(3,6),(3,9)} has monotone-chain hull size 6 (strictly convex) and zero S*-points strictly inside conv(W) under exact sign-of-det predicates; exhaustive search over C(20,7)=77520 7-subsets finds zero empty-convex 7-sets (0.3s), and alternative angular-sort convexity test over C(20,8) finds zero empty-convex 8-sets, so by monotonicity (any empty convex k>7 contains an empty convex 7-subset, since subsets of strictly convex position sets are strictly convex and conv(subset) subset conv(parent)) H<=6, hence H=6. This closes the dependence on unprovided scratch/hcalc.py. Search-method description is honest stochastic existence proof with explicit disclaimers (no optimality, gaps are best-found not impossibility, D>=3 open); no proof/experiment conflation. One non-material presentation imprecision noted: DRAFT section 3 tail histogram beyond det=10 lists 11:15, 12:53(? from seed-6 set), max 109-scale, whereas exact full histogram is 11:8, 12:26, max 100 (full table verified by auditor). The decisive bins (D, n0, n1, c2, c3, prefix to 10) are all correct and the uncertain tail is explicitly flagged with '(?' and pointer to sweep JSON, so no false essential inference; corrected exact histogram is published in RESULT.md. Missing scratch/search/sweep files do not affect verifiability of S* since verifier reruns from coordinate list alone in <1s.",
+      "verdict": "PASS"
     },
     "originality": {
-      "verdict": "PASS",
-      "rationale": "Claim is explicit 20-point 12x12 lattice set with doubled-area minimum >=2, i.e. simultaneously zero collinear and zero area-0.5 triples. Nearest priors compared substantively: (1) Continuous Heilbronn optima (Friedman table to n~35, proved only to n=9; e.g. n=20 best normalized A~0.0129) allow real coordinates and give only scaled upper-bound analogy; lattice quantization to 0.5*Z with exact integer-determinant audit is a disjoint search space and audit protocol. Normalized S* area 1.0/121=0.00826 does not duplicate continuous records. (2) No-three-in-line (Prellberg 2n collinear-free points for n<=60, so 24 points on 12x12 with D>=1) forbids only det==0; it guarantees D>=1 and says nothing about det==1. Auditor baseline confirms parabola 11-point set has (D=1, n0=0, n1=6) and random 20-sets have n0~10-30, n1~16-34, so D>=2 is not implied by D>=1 existence. Parity-scaling trivialization fails by pigeonhole: any even-x (6 values) or even-even (6x6) subset with 20 points forces a vertical collinear triple (ceil(20/6)>=4 on one x), so mixed parities as in S* are required; the 0.5->1.0 step forbidding all lattice-basis triples is qualitative, not relabeling. (3) Asymptotic Heilbronn bounds (Cohen-Pohoata-Zakharov n^{-8/7-1/2000} upper bound improving Komlos-Pintz-Szemeredi, Omega(log n/n^2) lower bounds) are large-n continuous statements providing no explicit small-grid integer configuration or verification protocol. (4) Empty-convex-hole literature (empty pentagons/hexagons, random-set Theta(log n/log log n) largest hole) counts holes in arbitrary position, not max-min area nor grid-restricted H(S); H=6 here is secondary grid-restricted metric, distinct. Topic prior scan zero-hit checks (arXiv lattice+Heilbronn+triangle, Heilbronn+prime+grid; OpenAlex grid-Heilbronn returning only irrelevant carbon-concrete hits) are consistent with auditor baseline experiments showing ~5% SA hit rate (5/96 seeds) versus stall of naive hill-climbing at (0,8): frontier was open and required pure-(n0,n1) objective insight (c2/c3 penalties trap at (0,1)). No prior SCOPE success (001 4-uniform families, 003 J2-free rank, 002 spider mixing) or failure (003 Szemeredi-Trotter 4x4 incidence, 004 Z_197 bases, 002 dicyclic gaps, 001 Polya-Vinogradov) states, covers, or implies this lattice Heilbronn threshold. Hence configurational novelty is substantive, not timestamp/search-failure alone."
+      "rationale": "Claim-level comparison shows disjoint hypotheses and conclusions. Candidate quantifiers: exists explicit integer set of size 20 inside fixed 12x12 lattice with universal quantifier over 1140 triples that doubled area >=2 (exact constants D=2, A=1.0, n0=0, n1=0, c2=34, c3=42). Cohen-Pohoata-Zakharov hypothesis is any n points in continuous unit square for sufficiently large n, conclusion is existential small triangle <n^{-8/7-1/2000} via incidence geometry; parameter range is asymptotic large-n, provides no 12x12 integer witness and no D>=2 audit. Prellberg hypothesis is n x n grid, conclusion is 2n points with D>=1 (no det==0); quantifier forbids only one residue class (0) while candidate forbids two (0 and 1), so D>=2 is a qualitative Pick-quantization step; baseline parabola mod 11 has (n0=0,n1=6) confirming non-implication, and parity-pigeonhole (6 even-x values force vertical collinear triple among 20 points) rules out trivial scaling. Friedman/MONJI/Sudermann-Merx hypotheses are continuous unit-square placements with real coordinates and heuristic or certified optima to n~9-35; conclusions are scaled areas with no integrality constraint, so lattice quantization to 0.5*Z and exhaustive integer-determinant verification over 1140 triples is a disjoint search space and audit protocol. Valtr/empty-hole literature hypothesis is general-position planar sets, conclusion counts k-holes; it does not bound min area and H=6 here is a secondary grid-restricted metric. Live negative searches reinforce: arXiv grid AND Heilbronn 0 hits, Heilbronn AND lattice 2 hits both irrelevant (hep-ex Project X false positive), minimal-determinant AND grid 0 hits, unimodular AND no-three-in-line 0 hits, doubled-area 4 hits all irrelevant cosmology/quantum/cloud titles. No retrieved source exhibits the S* coordinates, the (12,20,D>=2) triple, or any minimal-determinant >=2 table for 12x12.",
+      "verdict": "PASS"
     },
     "value": {
-      "verdict": "PASS",
-      "rationale": "Independently worth finding later as a verifiable lattice-Heilbronn record, not a textbook/parameter/epsilon/enumeration reject. Not textbook: no textbook gives maximal lattice-min-area tables for 12x12 n=20; small-det/record tables are absent. Not parameter substitution: m=11 vs 12 relabeling would preserve D>=1 class, whereas D>=2 eliminates all unimodular pairs (Pick quantization structural step connecting discrete geometry, additive combinatorics, exact verification); impossibility of parity-restricted scaling shown above proves parameters are not interchangeable. Not tiny unmotivated gain: factor-2 doubling of minimal area (0.5->1.0) with 34 det-2 triples as quantified distance to D>=3, plus 5 independent D>=2 sets and new D>=2 configs for (10,12),(10,16),(12,12),(12,16),(12,18) in fallback sweeps, is a motivated quantized jump with explicit gap analysis, not a 1% tweak. Not unexplained enumeration: coordinates plus <1s independent exact verifier, full exact histogram (1140 triples), empty-convex certificate with witness, methodological finding (pure (n0,n1) lexicographic objective finds D>=2 in 3/32 seeds at ~0.5s each where c2/c3-penalized ILS traps at (0,1)), and benchmark/gap table with reuse instructions provide explanation and reuse beyond raw list. Genre-appropriate contribution for exact-combinatorial discrete geometry where explicit checkable configurations are the standard record form; third party can rerun deterministically on laptop. Secondary H=6 and D>=3 openness (min c2=34) give forward research hooks."
+      "rationale": "Independently worth finding later as a verifiable lattice-Heilbronn record, not a textbook/parameter/epsilon/enumeration reject. Not textbook: no textbook gives maximal lattice-min-area tables for 12x12 n=20; small-det/record tables are absent. Not parameter substitution: m=11 vs 12 relabeling would preserve D>=1 class, whereas D>=2 eliminates all unimodular pairs (Pick quantization structural step connecting discrete geometry, additive combinatorics, exact verification); impossibility of parity-restricted scaling shown above proves parameters are not interchangeable. Not tiny unmotivated gain: factor-2 doubling of minimal area (0.5->1.0) with 34 det-2 triples as quantified distance to D>=3, plus 5 independent D>=2 sets and new D>=2 configs for (10,12),(10,16),(12,12),(12,16),(12,18) in fallback sweeps, is a motivated quantized jump with explicit gap analysis, not a 1% tweak. Not unexplained enumeration: coordinates plus <1s independent exact verifier, full exact histogram (1140 triples), empty-convex certificate with witness, methodological finding (pure (n0,n1) lexicographic objective finds D>=2 in 3/32 seeds at ~0.5s each where c2/c3-penalized ILS traps at (0,1)), and benchmark/gap table with reuse instructions provide explanation and reuse beyond raw list. Genre-appropriate contribution for exact-combinatorial discrete geometry where explicit checkable configurations are the standard record form; third party can rerun deterministically on laptop. Secondary H=6 and D>=3 openness (min c2=34) give forward research hooks.",
+      "verdict": "PASS"
     }
   },
   "checked_sources": [
-    "inputs/topic.json (claim, motivation, nearest_known_results, search_queries, internal prior scan with SCOPE success/failure IDs)",
-    "inputs/DRAFT.md (86 lines: definitions, S* coordinates, verification protocol, search method, H certificate, benchmark table, limitations)",
-    "inputs/research_report.json (claim, evidence_summary, limitations, artifact_inventory)",
-    "inputs/artifacts/S_star.txt (20 integer pairs)",
-    "inputs/artifacts/verify_S_star.py (one-file exact integer verifier, shoelace form)",
-    "attempted webfetch of https://erich-friedman.github.io/packing/heilbronn/, https://arxiv.org/abs/2602.07751v1, https://arxiv.org/abs/2305.18253v1 (all transport errors) and curl of arxiv abs page (empty, exit 0) \u2014 network unavailable, recorded as limitation; originality therefore rests on substantive definitional distinctness plus local baseline experiments, not on fresh web hits",
-    "local baseline experiments by auditor: parabola mod-11 set, parabola mod-12 set, 5 random 20-sets, parity-pigeonhole argument"
+    {
+      "outcome": "Continuous large-n Heilbronn upper bound n^{-8/7-1/2000} for points in unit square; asymptotic incidence-geometry proof, no explicit small-grid integer configuration, no determinant audit.",
+      "title": "A new upper bound for the Heilbronn triangle problem",
+      "url": "https://arxiv.org/abs/2305.18253"
+    },
+    {
+      "outcome": "Exhibits 2n points on n x n grid for n<=60 with no three collinear (D>=1, forbids only det==0); says nothing about det==1 unimodular triples, so D>=2 is strictly stronger and not implied.",
+      "title": "Constraint Satisfaction Programming for the No-three-in-line Problem",
+      "url": "https://arxiv.org/abs/2602.07751"
+    },
+    {
+      "outcome": "Lower bounds on minimum number of k-holes (empty convex k-gons) for n points in general position; counts holes in arbitrary position, not max-min triangle area nor grid-restricted H(S).",
+      "title": "On empty pentagons and hexagons in planar point sets",
+      "url": "https://arxiv.org/abs/1111.5656"
+    },
+    {
+      "outcome": "Authoritative continuous heuristic table to n~35 (proved only to n=9); real coordinates in unit square, e.g. n=20 best normalized area ~0.01291 vs lattice-normalized S* 1.0/121~0.00826; no integer-determinant lattice audit.",
+      "title": "The Heilbronn Problem for Squares",
+      "url": "https://erich-friedman.github.io/packing/heilbronn/"
+    },
+    {
+      "outcome": "MINLP symmetry-breaking global optimization for continuous unit-square Heilbronn at n<=9 with epsilon-global optimality in 15 min; real coordinates, not 12x12 lattice n=20 D>=2 configuration.",
+      "title": "From Computational Certification to Exact Coordinates: Heilbronn's Triangle Problem on the Unit Square Using Mixed-Integer Optimization",
+      "url": "https://arxiv.org/abs/2603.11107"
+    }
   ],
   "decisive_checks": [
-    "Ran provided verifier: python3 inputs/artifacts/verify_S_star.py inputs/artifacts/S_star.txt -> n=20 total_triples=1140 D=2 A=1.0 n0=0 n1=0 c2=34 c3=42 PASS; hist_0_10 {0:0,1:0,2:34,3:42,4:36,5:4,6:44,7:10,8:38,9:18,10:46} \u2014 PASS",
-    "Independent auditor verifier (matrix form qx*(ry-py)+rx*(py-qy)+px*(qy-ry), itertools.combinations) over 1140 triples -> min 2, n0=0, n1=0, c2=34, c3=42, C(20,3)=1140 confirmed; range {0..11}^2 and 20 distinct confirmed \u2014 PASS",
-    "Full exact histogram computed: 2:34 3:42 4:36 5:4 6:44 7:10 8:38 9:18 10:46 11:8 12:26 13:18 14:28 15:18 16:42 17:14 18:36 19:22 20:22 21:22 22:28 23:18 24:26 25:8 26:20 27:22 28:16 29:18 30:14 31:20 32:10 33:12 34:22 35:4 36:16 37:22 38:6 39:14 40:4 41:24 42:8 43:14 44:18 45:10 46:6 47:20 48:2 49:6 50:6 51:8 52:10 53:10 54:12 55:12 56:2 57:20 58:6 59:10 60:6 61:8 62:2 63:4 65:2 66:2 67:4 68:8 69:2 70:4 71:14 72:6 73:8 74:6 78:2 79:2 80:4 81:4 83:2 84:2 87:2 90:4 92:2 94:2 98:2 100:4; total 1140, min 2, max 100 \u2014 shows DRAFT tail 11:15/12:53/max109 is inaccurate beyond det=10, non-material",
-    "H(S*) witness check (monotone-chain hull): W hull size 6, 0 S*-points strictly inside \u2014 PASS; exhaustive C(20,7)=77520 7-subsets zero empty-convex (0.30s) \u2014 PASS; alternative angular-sort convexity + ordered half-plane interior test over C(20,8) zero empty-convex (1937 convex 8-sets scanned, none empty, 0.5s) \u2014 PASS; monotonicity lemma gives H=6",
-    "Baseline nontriviality: parabola-11 (x,x^2 mod 11) -> (D=1,n0=0,n1=6); (i,i^2 mod 12) 12-set -> (D=0,n0=15); 5 random 12x12 20-sets -> n0 10-30, n1 16-34, all D=0 \u2014 confirms S* (0,0) far from random/parabola and not implied by D>=1 constructions",
-    "Copied verification-critical artifacts to output/artifacts/ and reran: python3 output/artifacts/verify_S_star.py output/artifacts/S_star.txt -> identical PASS \u2014 PASS"
+    "Ran provided verifier: python3 inputs/artifacts/verify_S_star.py inputs/artifacts/S_star.txt -> n=20 total_triples=1140 D=2 A=1.0 n0=0 n1=0 c2=34 c3=42 PASS; hist_0_10 {0:0,1:0,2:34,3:42,4:36,5:4,6:44,7:10,8:38,9:18,10:46} — PASS",
+    "Independent auditor verifier (matrix form qx*(ry-py)+rx*(py-qy)+px*(qy-ry), itertools.combinations) over 1140 triples -> min 2, n0=0, n1=0, c2=34, c3=42, C(20,3)=1140 confirmed; range {0..11}^2 and 20 distinct confirmed — PASS",
+    "Full exact histogram computed: 2:34 3:42 4:36 5:4 6:44 7:10 8:38 9:18 10:46 11:8 12:26 13:18 14:28 15:18 16:42 17:14 18:36 19:22 20:22 21:22 22:28 23:18 24:26 25:8 26:20 27:22 28:16 29:18 30:14 31:20 32:10 33:12 34:22 35:4 36:16 37:22 38:6 39:14 40:4 41:24 42:8 43:14 44:18 45:10 46:6 47:20 48:2 49:6 50:6 51:8 52:10 53:10 54:12 55:12 56:2 57:20 58:6 59:10 60:6 61:8 62:2 63:4 65:2 66:2 67:4 68:8 69:2 70:4 71:14 72:6 73:8 74:6 78:2 79:2 80:4 81:4 83:2 84:2 87:2 90:4 92:2 94:2 98:2 100:4; total 1140, min 2, max 100 — shows DRAFT tail 11:15/12:53/max109 is inaccurate beyond det=10, non-material",
+    "H(S*) witness check (monotone-chain hull): W hull size 6, 0 S*-points strictly inside — PASS; exhaustive C(20,7)=77520 7-subsets zero empty-convex (0.30s) — PASS; alternative angular-sort convexity + ordered half-plane interior test over C(20,8) zero empty-convex (1937 convex 8-sets scanned, none empty, 0.5s) — PASS; monotonicity lemma gives H=6",
+    "Baseline nontriviality: parabola-11 (x,x^2 mod 11) -> (D=1,n0=0,n1=6); (i,i^2 mod 12) 12-set -> (D=0,n0=15); 5 random 12x12 20-sets -> n0 10-30, n1 16-34, all D=0 — confirms S* (0,0) far from random/parabola and not implied by D>=1 constructions",
+    "Copied verification-critical artifacts to output/artifacts/ and reran: python3 output/artifacts/verify_S_star.py output/artifacts/S_star.txt -> identical PASS — PASS"
   ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:08:43Z",
+    "queries": [
+      {
+        "query": "all:Heilbronn AND all:lattice",
+        "result_count": 2,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:Heilbronn+AND+all:lattice&start=0&max_results=10"
+      },
+      {
+        "query": "all:Heilbronn triangle problem (exact phrase)",
+        "result_count": 15,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22Heilbronn+triangle+problem%22&start=0&max_results=10"
+      },
+      {
+        "query": "all:no three in line (exact phrase)",
+        "result_count": 425,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22no+three+in+line%22&start=0&max_results=5"
+      },
+      {
+        "query": "all:unimodular AND all:no three in line",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:unimodular+AND+all:%22no+three+in+line%22&start=0&max_results=5"
+      },
+      {
+        "query": "all:minimal determinant AND all:grid",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22minimal+determinant%22+AND+all:grid&start=0&max_results=5"
+      },
+      {
+        "query": "all:grid AND all:Heilbronn",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:grid+AND+all:Heilbronn&start=0&max_results=5"
+      },
+      {
+        "query": "all:doubled area (exact phrase)",
+        "result_count": 4,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22doubled+area%22&start=0&max_results=5"
+      },
+      {
+        "query": "all:empty convex AND all:holes",
+        "result_count": 8,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22empty+convex%22+AND+all:holes&start=0&max_results=5"
+      },
+      {
+        "query": "query.title A new upper bound for the Heilbronn triangle problem",
+        "result_count": 4306254,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query.title=A+new+upper+bound+for+the+Heilbronn+triangle+problem&rows=3"
+      },
+      {
+        "query": "query.title On empty pentagons and hexagons in planar point sets",
+        "result_count": 593766,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query.title=On+empty+pentagons+and+hexagons+in+planar+point+sets&rows=2"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved abstract and arXiv API record 2023-05-29: every n-point unit-square configuration has a triangle <n^{-8/7-1/2000} for large n via incidence geometry. Continuous asymptotic upper bound with no fixed-grid hypothesis, no 12x12 or n=20 parameters, no explicit integer coordinates, and no doubled-area D>=2 audit; therefore does not cover or imply the lattice existence claim.",
+        "retrieved_at_utc": "2026-09-07T14:06:11Z",
+        "title": "A new upper bound for the Heilbronn triangle problem",
+        "url": "https://arxiv.org/abs/2305.18253"
+      },
+      {
+        "comparison": "Retrieved abstract and arXiv API record 2026-02-08: 2n points on n x n grid for n<=60 with no three collinear, raising D(n)=2n threshold from 47 to 61. Hypothesis forbids only det==0 (D>=1); candidate additionally forbids det==1 over 1140 triples, a strictly stronger condition confirmed non-implied by parabola baseline (n1=6); therefore does not cover D>=2.",
+        "retrieved_at_utc": "2026-09-07T14:06:11Z",
+        "title": "Constraint Satisfaction Programming for the No-three-in-line Problem",
+        "url": "https://arxiv.org/abs/2602.07751"
+      },
+      {
+        "comparison": "Retrieved abstract and arXiv API record 2011-11-24: improved lower bounds on minimum number of k-holes for k=5,6 in general-position planar sets. Counts empty convex polygons in arbitrary position; has no max-min area quantifier, no lattice-grid restriction, and no 20-point 12x12 D>=2 configuration; therefore disjoint from both main and H=6 claims.",
+        "retrieved_at_utc": "2026-09-07T14:06:11Z",
+        "title": "On empty pentagons and hexagons in planar point sets",
+        "url": "https://arxiv.org/abs/1111.5656"
+      },
+      {
+        "comparison": "Retrieved authoritative table HTML: continuous unit-square placements to n~35 with real-coordinate areas (n=20 value 0.01291+, n=9 proved optimal), symmetries and finders listed. No lattice restriction to {0..11}^2, no integer determinant enumeration, and normalized S* area 1/121~0.00826 is a different regime; therefore does not exhibit or imply the grid D>=2 witness.",
+        "retrieved_at_utc": "2026-09-07T14:06:11Z",
+        "title": "The Heilbronn Problem for Squares",
+        "url": "https://erich-friedman.github.io/packing/heilbronn/"
+      },
+      {
+        "comparison": "Retrieved citation metadata 2026-03-11: MINLP symmetry-breaking model giving epsilon-global optimum for continuous n=9 in 15 min and exact coordinates matching Comellas-Yebra. Scope is continuous unit-square certification at n<=9 with real coordinates; no 12x12 lattice hypothesis, no 20-point set, no unimodular-triple elimination; therefore does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:08:33Z",
+        "title": "From Computational Certification to Exact Coordinates: Heilbronn's Triangle Problem on the Unit Square Using Mixed-Integer Optimization",
+        "url": "https://arxiv.org/abs/2603.11107"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:08:43Z",
+      "queries": [
+        {
+          "query": "all:Heilbronn AND all:lattice",
+          "result_count": 2,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:Heilbronn+AND+all:lattice&start=0&max_results=10"
+        },
+        {
+          "query": "all:Heilbronn triangle problem (exact phrase)",
+          "result_count": 15,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22Heilbronn+triangle+problem%22&start=0&max_results=10"
+        },
+        {
+          "query": "all:no three in line (exact phrase)",
+          "result_count": 425,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22no+three+in+line%22&start=0&max_results=5"
+        },
+        {
+          "query": "all:unimodular AND all:no three in line",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:unimodular+AND+all:%22no+three+in+line%22&start=0&max_results=5"
+        },
+        {
+          "query": "all:minimal determinant AND all:grid",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22minimal+determinant%22+AND+all:grid&start=0&max_results=5"
+        },
+        {
+          "query": "all:grid AND all:Heilbronn",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:grid+AND+all:Heilbronn&start=0&max_results=5"
+        },
+        {
+          "query": "all:doubled area (exact phrase)",
+          "result_count": 4,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22doubled+area%22&start=0&max_results=5"
+        },
+        {
+          "query": "all:empty convex AND all:holes",
+          "result_count": 8,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22empty+convex%22+AND+all:holes&start=0&max_results=5"
+        },
+        {
+          "query": "query.title A new upper bound for the Heilbronn triangle problem",
+          "result_count": 4306254,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query.title=A+new+upper+bound+for+the+Heilbronn+triangle+problem&rows=3"
+        },
+        {
+          "query": "query.title On empty pentagons and hexagons in planar point sets",
+          "result_count": 593766,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query.title=On+empty+pentagons+and+hexagons+in+planar+point+sets&rows=2"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved abstract and arXiv API record 2023-05-29: every n-point unit-square configuration has a triangle <n^{-8/7-1/2000} for large n via incidence geometry. Continuous asymptotic upper bound with no fixed-grid hypothesis, no 12x12 or n=20 parameters, no explicit integer coordinates, and no doubled-area D>=2 audit; therefore does not cover or imply the lattice existence claim.",
+          "retrieved_at_utc": "2026-09-07T14:06:11Z",
+          "title": "A new upper bound for the Heilbronn triangle problem",
+          "url": "https://arxiv.org/abs/2305.18253"
+        },
+        {
+          "comparison": "Retrieved abstract and arXiv API record 2026-02-08: 2n points on n x n grid for n<=60 with no three collinear, raising D(n)=2n threshold from 47 to 61. Hypothesis forbids only det==0 (D>=1); candidate additionally forbids det==1 over 1140 triples, a strictly stronger condition confirmed non-implied by parabola baseline (n1=6); therefore does not cover D>=2.",
+          "retrieved_at_utc": "2026-09-07T14:06:11Z",
+          "title": "Constraint Satisfaction Programming for the No-three-in-line Problem",
+          "url": "https://arxiv.org/abs/2602.07751"
+        },
+        {
+          "comparison": "Retrieved abstract and arXiv API record 2011-11-24: improved lower bounds on minimum number of k-holes for k=5,6 in general-position planar sets. Counts empty convex polygons in arbitrary position; has no max-min area quantifier, no lattice-grid restriction, and no 20-point 12x12 D>=2 configuration; therefore disjoint from both main and H=6 claims.",
+          "retrieved_at_utc": "2026-09-07T14:06:11Z",
+          "title": "On empty pentagons and hexagons in planar point sets",
+          "url": "https://arxiv.org/abs/1111.5656"
+        },
+        {
+          "comparison": "Retrieved authoritative table HTML: continuous unit-square placements to n~35 with real-coordinate areas (n=20 value 0.01291+, n=9 proved optimal), symmetries and finders listed. No lattice restriction to {0..11}^2, no integer determinant enumeration, and normalized S* area 1/121~0.00826 is a different regime; therefore does not exhibit or imply the grid D>=2 witness.",
+          "retrieved_at_utc": "2026-09-07T14:06:11Z",
+          "title": "The Heilbronn Problem for Squares",
+          "url": "https://erich-friedman.github.io/packing/heilbronn/"
+        },
+        {
+          "comparison": "Retrieved citation metadata 2026-03-11: MINLP symmetry-breaking model giving epsilon-global optimum for continuous n=9 in 15 min and exact coordinates matching Comellas-Yebra. Scope is continuous unit-square certification at n<=9 with real coordinates; no 12x12 lattice hypothesis, no 20-point set, no unimodular-triple elimination; therefore does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:08:33Z",
+          "title": "From Computational Certification to Exact Coordinates: Heilbronn's Triangle Problem on the Unit Square Using Mixed-Integer Optimization",
+          "url": "https://arxiv.org/abs/2603.11107"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Continuous large-n Heilbronn upper bound n^{-8/7-1/2000} for points in unit square; asymptotic incidence-geometry proof, no explicit small-grid integer configuration, no determinant audit.",
+        "title": "A new upper bound for the Heilbronn triangle problem",
+        "url": "https://arxiv.org/abs/2305.18253"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Exhibits 2n points on n x n grid for n<=60 with no three collinear (D>=1, forbids only det==0); says nothing about det==1 unimodular triples, so D>=2 is strictly stronger and not implied.",
+        "title": "Constraint Satisfaction Programming for the No-three-in-line Problem",
+        "url": "https://arxiv.org/abs/2602.07751"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Lower bounds on minimum number of k-holes (empty convex k-gons) for n points in general position; counts holes in arbitrary position, not max-min triangle area nor grid-restricted H(S).",
+        "title": "On empty pentagons and hexagons in planar point sets",
+        "url": "https://arxiv.org/abs/1111.5656"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative continuous heuristic table to n~35 (proved only to n=9); real coordinates in unit square, e.g. n=20 best normalized area ~0.01291 vs lattice-normalized S* 1.0/121~0.00826; no integer-determinant lattice audit.",
+        "title": "The Heilbronn Problem for Squares",
+        "url": "https://erich-friedman.github.io/packing/heilbronn/"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "MINLP symmetry-breaking global optimization for continuous unit-square Heilbronn at n<=9 with epsilon-global optimality in 15 min; real coordinates, not 12x12 lattice n=20 D>=2 configuration.",
+        "title": "From Computational Certification to Exact Coordinates: Heilbronn's Triangle Problem on the Unit Square Using Mixed-Integer Optimization",
+        "url": "https://arxiv.org/abs/2603.11107"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-004",
+    "originality_rationale": "Claim-level comparison shows disjoint hypotheses and conclusions. Candidate quantifiers: exists explicit integer set of size 20 inside fixed 12x12 lattice with universal quantifier over 1140 triples that doubled area >=2 (exact constants D=2, A=1.0, n0=0, n1=0, c2=34, c3=42). Cohen-Pohoata-Zakharov hypothesis is any n points in continuous unit square for sufficiently large n, conclusion is existential small triangle <n^{-8/7-1/2000} via incidence geometry; parameter range is asymptotic large-n, provides no 12x12 integer witness and no D>=2 audit. Prellberg hypothesis is n x n grid, conclusion is 2n points with D>=1 (no det==0); quantifier forbids only one residue class (0) while candidate forbids two (0 and 1), so D>=2 is a qualitative Pick-quantization step; baseline parabola mod 11 has (n0=0,n1=6) confirming non-implication, and parity-pigeonhole (6 even-x values force vertical collinear triple among 20 points) rules out trivial scaling. Friedman/MONJI/Sudermann-Merx hypotheses are continuous unit-square placements with real coordinates and heuristic or certified optima to n~9-35; conclusions are scaled areas with no integrality constraint, so lattice quantization to 0.5*Z and exhaustive integer-determinant verification over 1140 triples is a disjoint search space and audit protocol. Valtr/empty-hole literature hypothesis is general-position planar sets, conclusion counts k-holes; it does not bound min area and H=6 here is a secondary grid-restricted metric. Live negative searches reinforce: arXiv grid AND Heilbronn 0 hits, Heilbronn AND lattice 2 hits both irrelevant (hep-ex Project X false positive), minimal-determinant AND grid 0 hits, unimodular AND no-three-in-line 0 hits, doubled-area 4 hits all irrelevant cosmology/quantum/cloud titles. No retrieved source exhibits the S* coordinates, the (12,20,D>=2) triple, or any minimal-determinant >=2 table for 12x12.",
+    "priority_caveat": "This PASS is a literature-search originality check only and is explicitly not an award of academic priority; it does not establish that the candidate is first, only that this documented live search found no source substantively covering or implying it.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-004",
+    "residual_uncertainties": [
+      "OpenAlex API returned rate-limit/budget error and Semantic Scholar API returned 429 Too Many Requests, so those two services could not be used as independent corroboration; review rests on arXiv API plus Crossref API plus direct authoritative pages.",
+      "Crossref totals are fuzzy unfiltered counts (millions) whose top hits were inspected and found irrelevant; a coincident D>=2 (12,20) instance in unpublished Prellberg-type supplementary data or sweep logs cannot be logically excluded.",
+      "Exact-coordinate search (20 integer pairs) was not run as web text search because coordinates are not indexed as literature; coverage inference relies on terminology searches (Heilbronn+lattice/grid, minimal determinant, doubled area, unimodular) all returning zero relevant hits."
+    ],
+    "reviewed_claim": "Existence of explicit 20-point set S* in G12={0,...,11}^2 with min doubled area D(S*)=2 (min Euclidean area 1.0), i.e. zero collinear triples (det==0) and zero unimodular area-0.5 triples (det==1) over all C(20,3)=1140 triples with counts #det==0=0, #det==1=0, #det==2=34, #det==3=42, hence M(12,20)>=1.0; secondary H(S*)=6 (largest empty convex subset).",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "arXiv API: all:Heilbronn AND all:lattice — tests any lattice-restricted Heilbronn publication",
+      "arXiv API: all:grid AND all:Heilbronn — tests grid-restricted Heilbronn terminology",
+      "arXiv API: exact phrase Heilbronn triangle problem — enumerates continuous/asymptotic/computational Heilbronn priors (15 hits)",
+      "arXiv API: exact phrase no three in line — enumerates no-three-in-line priors including Prellberg 2n-points claim (425 hits)",
+      "arXiv API: all:unimodular AND all:no three in line — tests whether D>=1 vs D>=2 distinction already published (0 hits)",
+      "arXiv API: all:minimal determinant AND all:grid — tests minimal-determinant grid table terminology (0 hits)",
+      "arXiv API: exact phrase doubled area — tests doubled-area D>=2 terminology (4 hits, all irrelevant)",
+      "arXiv API: all:empty convex AND all:holes — tests empty-convex-hole overlap with H=6 claim (8 hits)",
+      "Crossref API: query.title A new upper bound for the Heilbronn triangle problem — tests publisher-indexed Heilbronn upper-bound coverage",
+      "Crossref API: query.title On empty pentagons and hexagons in planar point sets — tests publisher-indexed empty-hole coverage"
+    ],
+    "verdict": "PASS"
+  },
   "residual_risks": [
     "Web search unavailable (webfetch transport errors, curl empty) so fresh external prior-art sweep could not be executed; mitigated by substantive threshold/object distinctions (D>=1 vs D>=2, continuous vs lattice, asymptotic vs explicit) and local baselines, but an unindexed coincident D>=2 (12,20) instance in unpublished Prellberg-type data cannot be logically excluded",
-    "scratch/ search scripts, sweep JSONs, hcalc.py, verify.py (first code path) not provided in inputs/artifacts; search reproducibility and sweep-table cells beyond (12,20) not independently re-executed \u2014 mitigated for main claim because verification reruns from coordinates alone and H was independently reimplemented twice; benchmark-table values remain best-found claims conditional on unprovided logs",
+    "scratch/ search scripts, sweep JSONs, hcalc.py, verify.py (first code path) not provided in inputs/artifacts; search reproducibility and sweep-table cells beyond (12,20) not independently re-executed — mitigated for main claim because verification reruns from coordinates alone and H was independently reimplemented twice; benchmark-table values remain best-found claims conditional on unprovided logs",
     "DRAFT histogram tail beyond det=10 inaccurate (11:15 vs 8, 12:53 vs 26, max 109-scale vs 100); essential bins correct and tail flagged uncertain, corrected in RESULT.md, but indicates draft needed proofreading",
-    "H upper-bound relies on monotonicity lemma (empty convex k>7 implies empty convex 7-subset) plus exhaustive k=7 check; lemma proved in rationale and cross-checked at k=8, code-correctness risk shared across two independent implementations but not formally verified"
-  ]
+    "H upper-bound relies on monotonicity lemma (empty convex k>7 implies empty convex 7-subset) plus exhaustive k=7 check; lemma proved in rationale and cross-checked at k=8, code-correctness risk shared across two independent implementations but not formally verified",
+    "Originality revalidation: OpenAlex API returned rate-limit/budget error and Semantic Scholar API returned 429 Too Many Requests, so those two services could not be used as independent corroboration; review rests on arXiv API plus Crossref API plus direct authoritative pages.",
+    "Originality revalidation: Crossref totals are fuzzy unfiltered counts (millions) whose top hits were inspected and found irrelevant; a coincident D>=2 (12,20) instance in unpublished Prellberg-type supplementary data or sweep logs cannot be logically excluded.",
+    "Originality revalidation: Exact-coordinate search (20 integer pairs) was not run as web text search because coordinates are not indexed as literature; coverage inference relies on terminology searches (Heilbronn+lattice/grid, minimal determinant, doubled area, unimodular) all returning zero relevant hits."
+  ],
+  "verdict": "PASS"
 }

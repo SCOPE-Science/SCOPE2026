@@ -1,46 +1,65 @@
-# Certified top-five Delta=1 catalog for one-dimensional bin packing at capacity C=24, with exact Gilmore–Gomory duality certificates
+# Cyclic Hadamard (51,25,12) Orbit Census: Multiplier-13 Nonexistence Certificate
+
+## Statement
+
+There is no cyclic $(51,25,12)$ difference set in $\\mathbb{Z}_{51}$.
+
+Equivalently, among the $924$ multiplier-$13$-fixed $25$-subsets of $\\mathbb{Z}_{51}$ forced by orbit counting (contain $0$, exclude $17,34$, choose $6$ of $12$ four-orbits), none has each non-zero difference exactly $12$ times; equivalently none has ideal periodic autocorrelation $R(t)=-1$ for all $t\\ne 0$. The full $2772$-set fixed census (all three singleton choices) is also empty.
 
 ## Context
-One-dimensional bin packing / cutting stock has LP relaxation LP_GG (Gilmore–Gomory pattern LP) and integer optimum OPT. The integer round-up property (IRUP) is OPT = ceil(LP_GG); the additive gap Delta = OPT − ceil(LP_GG) measures failure. The modified IRUP (MIRUP) is Delta ≤ 1. Prior work stratifies by number of types n (Kartak et al.: n≤9 proper IRUP, n=10 non-IRUP, gap>1 at n=11) or constructs asymptotic large-gap families (Rietz et al.), but publishes no capacity-stratified certified table for small C. Small-C hard instances are directly citable as solver benchmarks for arc-flow, branch-and-price, and column-generation codes.
+
+Hadamard difference sets have parameters $v=4n-1$, $k=2n-1$, $\\lambda=n-1$ and give binary sequences with ideal periodic autocorrelation. The triple $(51,25,12)$ with $n=13$ is the smallest composite Hadamard case in $v=41$--$73$ outside all three known infinite families: $51=3\\cdot 17$ is not prime (Paley), not a twin-prime product, and not $2^m-1$ (Singer). Counting $k(k-1)=600=\\lambda(v-1)$ and Bruck-Chowla-Ryser ($z^2=13x^2-12y^2$, solved by $1=13-12$) both pass, so elementary tests do not eliminate it.
+
+Non-existence is already listed non-constructively in the Baumert-Gordon $k\\le 150$ existence table. The contribution certified here is **not** first knowledge of absence; it is the first explicit, rerunnable multiplier-$13$ union catalog with per-candidate spectra and replay scripts for this boundary triple.
 
 ## Definitions
-Fix C=24. Stratum box: k distinct integral sizes a_1<…<a_k, k≤6, each a_i ∈ {2,…,12}, demands b_i ∈ [1,8], N=∑b_i ≤30, S=∑a_i b_i ≤240. Feasible patterns: {x∈Z_+^k : ∑a_i x_i ≤24}, enumerated completely by knapsack DP (never priced heuristically). LP_GG: pattern LP optimum (primal min ∑λ_p s.t. ∑_p x^{(p)}_i λ_p ≥ b_i, λ≥0; dual max b^T y s.t. A^T y ≤1, y≥0). Delta = OPT − ceil(LP_GG). Sizes 1 and 13…24 are out-of-scope by definition (scope, not proved reduction).
+
+Work in $\\mathbb{Z}_{51}$ additively. $D\\subset\\mathbb{Z}_{51}$, $|D|=25$, is a cyclic $(51,25,12)$ difference set if the multiset of $25\\cdot 24=600$ ordered differences $d_1-d_2$ ($d_1\\ne d_2$) contains each of the $50$ non-zero residues exactly $12$ times.
+
+$m$ with $\\gcd(m,51)=1$ is a multiplier if $\\{md:d\\in D\\}=D+g$ for some $g$. A translate with $mD=D$ is $m$-fixed.
+
+For $s_i=-1$ if $i\\in D$ else $+1$, $R(t)=\\sum_i s_i s_{i+t}$ and $N(t)=|D\\cap(D+t)|$ satisfy $R(t)=v-4k+4N(t)$. For $(51,25,12)$, $N(t)=12$ iff $R(t)=-1$ for all $t\\ne 0$.
 
 ## Result
-**Theorem A (k≤3 IRUP).** Every instance in the box with k≤2 (3,520 instances) and k=3 (84,465 instances) satisfies Delta=0.
 
-**Theorem B (benchmark catalog).** The following five instances each satisfy Delta=1 (proper non-IRUP):
-
-| # | sizes a | demands b | N | S | LP_GG | ceil | OPT | Delta |
-|---|---------|-----------|---|---|-------|------|-----|-------|
-| E1 | 5,8,9,12 | 5,8,7,7 | 27 | 236 | 299/30 | 10 | 11 | 1 |
-| E2 | 2,7,8,10,11,12 | 6,3,5,4,5,4 | 27 | 216 | 9 | 9 | 10 | 1 |
-| E3 | 3,7,8,10,12 | 2,8,5,3,5 | 23 | 187 | 8 | 8 | 9 | 1 |
-| E4 | 2,7,8,10,11 | 3,5,5,3,3 | 19 | 144 | 6 | 6 | 7 | 1 |
-| E5 | 5,6,8,9 | 1,3,8,1 | 13 | 96 | 4 | 4 | 5 | 1 |
-
-**Theorem C (local maximality).** All 63 Hamming-1 neighbors (demand ±1; size ±1 keeping distinctness in 2…12; N,S bounds respected) of E1–E5 have Delta=0; each entry is a strict local Delta-maximum.
-
-**Observation (conjecture, not theorem).** Across ~250k evaluations (exhaustive k≤3, seeded random k=3…6, hill-climbing, neighbors) max observed Delta is 1; no Delta≥2 seen. MIRUP on the stratum (G*(24)=1) is conjectured but not proved (~1e8 combos).
+- Multiplier $13$ partitions $\\mathbb{Z}_{51}$ into $3$ singletons $\\{0\\},\\{17\\},\\{34\\}$ and $12$ four-orbits:
+  $\\{1,4,13,16\\}$, $\\{2,8,26,32\\}$, $\\{3,12,39,48\\}$, $\\{5,14,20,29\\}$, $\\{6,24,27,45\\}$, $\\{7,10,28,40\\}$, $\\{9,15,36,42\\}$, $\\{11,23,41,44\\}$, $\\{18,21,30,33\\}$, $\\{19,25,43,49\\}$, $\\{22,31,37,46\\}$, $\\{35,38,47,50\\}$.
+- Any $13$-fixed $25$-set is one singleton plus six four-orbits ($1+6\\cdot 4=25$). Up to translation by $H=\\{0,17,34\\}$ it suffices to check the $\\binom{12}{6}=924$ unions containing $0$.
+- $0$ of $924$ pass the difference test, cross-checked by autocorrelation. Max-deviation histogram: $2{:}48$, $3{:}96$, $4{:}558$, $5{:}80$, $6{:}36$, $7{:}40$, $8{:}36$, $9{:}16$, $10{:}8$, $12{:}6$. Global min count $7$, max $24$.
+- Closest: combo $(0,1,2,3,8,9)$, block $\\{0,1,2,3,4,5,8,12,13,14,16,18,19,20,21,25,26,29,30,32,33,39,43,48,49\\}$, counts in $[10,14]$, maxdev $2$, $L_2=56$, $n_{\\rm bad}=20$. Furthest: combo $(0,2,3,8,10,11)$, counts in $[8,24]$, maxdev $12$, $L_2=744$, $n_{\\rm bad}=50$.
+- Full $2772$ fixed census: $0$ pass, histogram $2{:}144$, $3{:}288$, $4{:}1674$, $5{:}240$, $6{:}108$, $7{:}120$, $8{:}108$, $9{:}48$, $10{:}24$, $12{:}18$.
 
 ## Proof / Evidence
-*Pattern completeness:* depth-first knapsack DP re-enumeration matches stored lists (25,107,61,39,90 patterns); exact set equality checked.
-*LP exactness:* per-instance rational primal λ and dual y with equal objectives (Fractions), e.g. E1 y=(1/5,1/3,2/5,1/2), b^T y=299/30; primal 7/2·(0,0,0,2)+8/3·(0,3,0,0)+16/5·(1,0,2,0)+3/5·(3,0,1,0) covering (5,8,7,7); A^T y≤1 verified entrywise, hence optimal by strong duality. E2–E5 analogous with LP 9,8,6,4.
-*OPT upper bound:* explicit packings (e.g. E1: [12,12]×3, [12,9], [9,9,5]×3, [8,8,8]×2, [8,8,5], [5]; all loads ≤24) with correct multisets.
-*OPT lower bound:* item-branching DFS with duplicate-load skipping, empty-bin symmetry break, memoization proves K=OPT−1 infeasible (nodes 2248,7690,7420,828,97), cross-confirmed by independent bin-completion brancher and by auditor's independent re-search.
-*k≤2:* auditor exactly re-proved all 3520 via Fractions vertex enumeration + DFS. *k=3:* auditor reproduced 84465-instance screening with independent simplex + FFD (3925 candidates, exact match) and exactly closed 100/100 sampled candidates. *Neighbors:* auditor regenerated 63 neighbors and exactly proved all Delta=0 via Fractions simplex + DFS.
+
+*Proved (modulo cited multiplier theorem):* Prime $13$ divides $n=13$, $13>12$, $\\gcd(13,51)=1$, so by the First Multiplier Theorem (Beth-Jungnickel-Lenz Thm VI.2.5, used as black box) $13$ is a multiplier; some translate of any hypothetical set is $13$-fixed. Multiplication by $13$ has order $4$ (order $1$ mod $3$, order $4$ mod $17$ since $13^2=-1$), fixed set solving $12x=0$ gives $\\{0,17,34\\}$; $13^2x=x$ gives $15x=0$ so $17|x$, already fixed, hence no $2$-orbits and $48/4=12$ four-orbits. Size lemma $s+4t=25$, $s\\le 3$ forces $s=1$, $t=6$. $H$ is pointwise fixed ($13\\cdot 17=17$, $13\\cdot 34=34$), so $13(D+h)=D+h$ and $D-s$ normalises the singleton to $0$ while preserving the difference property. Thus existence implies a witness in $F_0$.
+
+*Computed (replayable, doubly implemented):* Canonical lex enumeration of all $924$ unions via `itertools.combinations` (no RNG), $O(v^2)$ histogram per candidate plus independent autocorrelation loop; the two tests always agree. Independent cold verifier with separate `Counter` path, partition/closure/lex/fixedness checks, $H$-shift check, and group-ring spot check ($N_0=25$, $\\sum N=625$) reproduces $0/924$. Audit replay independently confirmed $0/924$ and $0/2772$, histogram, best/worst, SHA-16 `8a7eae3826de5c31`, and orbit table.
+
+Hence no member of $F_0$ is a difference set; contrapositively no cyclic $(51,25,12)$ exists.
 
 ## Limitations
-1. Full-stratum maximality not proved (partial coverage; k=4 exhaustive alone 1.35M combos).
-2. Size-1 / >C/2 exclusions are scope, not proved reductions for mixed cases.
-3. OPT lower bounds rely on DFS completeness + independent agreement and rerunnable verifier, not a proof-assistant certificate.
-4. Five entries are top-by-OPT-size k-diverse selection among 14 found Delta=1 instances: a benchmark, not an extremal classification; not claimed minimal/unique.
+
+- Bare nonexistence was already table-listed by Baumert-Gordon; novelty is only the explicit rerunnable catalog and scripts.
+- First Multiplier Theorem is cited, not reproved.
+- Computation trusts deterministic Python integer arithmetic via two agreeing implementations, not a proof kernel; joint bug not formally excluded.
+- Covers cyclic $\\mathbb{Z}_{51}$ only, not non-cyclic symmetric $(51,25,12)$ designs.
+- No contracted $w=3,17$ $b$-vector analysis is needed; spectra subsume it.
 
 ## Reproducibility
-Stdlib-only `artifacts/recheck.py` + `artifacts/catalog.json`: re-enumerates patterns, checks dual/primal with Fractions, ceil/Delta integers, packing multiset/capacity, and re-runs OPT−1 DFS. Prints ALL 5 ENTRIES VERIFIED in seconds on a laptop. Search seeds, pattern DP, dual simplex with rational polish, and DFS branchers are documented for independent replay.
+
+Stdlib-only Python 3, ~0.4 s, replayable in minutes:
+
+```
+python3 output/artifacts/enumerate_51_25_12.py
+python3 output/artifacts/verify_independent.py  # expect 0/924
+```
+
+Artifacts: `orbit_table.json`, `summary.json`, `blocks_F0.json` (SHA-16 `8a7eae3826de5c31`), `spectrum_F0.csv`, `spectrum_full2772.csv`, both scripts. Seed `39051` documented; enumeration is canonical seed-free lex order.
 
 ## References
-- Kartak–Kurz–Ripatti–Scheithauer, Minimal proper non-IRUP instances of the 1D Cutting Stock Problem, Discrete Appl. Math. 187:120–129 (2015). arXiv:1405.5988. doi:10.1016/j.dam.2015.02.020 — n-stratification, orthogonal.
-- Scheithauer–Terno, The modified integer round-up property of the 1D cutting stock problem, EJOR 84:562–571 (1995). doi:10.1016/0377-2217(95)00022-I — MIRUP definition.
-- Rietz–Dempe, Large gaps in 1D cutting stock problems, Discrete Appl. Math. 156:1929–1935 (2008). doi:10.1016/j.dam.2007.08.052 — asymptotic families, complementary.
-- Nitsche–Scheithauer–Terno, New cases of the cutting stock problem having MIRUP, Math. Methods OR 48:105–115 (1998). doi:10.1007/s001860050015 — sufficient MIRUP cases.
+
+- T. Beth, D. Jungnickel, H. Lenz, Design Theory, 2nd ed., Thm VI.2.5 (First Multiplier Theorem).
+- L. D. Baumert, D. M. Gordon, On the existence of cyclic difference sets with small parameters, arXiv:math/0304502; publisher record doi:10.1090/fic/041/05 (k<=150 frontier context).
+- H. Y. Song, S. W. Golomb, On the existence of cyclic Hadamard difference sets, IEEE Trans. Inform. Theory 40 (1994) 1266-1268, doi:10.1109/18.335939 (Hadamard-family context).
+- N. A. Carella, Cyclic Difference Sets And Cyclic Hadamard Matrices, arXiv:1110.1322 (global claim, no triple-specific enumeration).
+- Bruck-Chowla-Ryser theorem (odd-order symmetric designs).

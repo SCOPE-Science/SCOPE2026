@@ -1,53 +1,305 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "Lemma 1 (sums-distinct iff differences-distinct-nonzero) was line-checked and holds including 2-torsion: forward direction a-b=c-d => a+d=c+b gives sum collision unless same ordered pair; subcase a-b=b-a gives 2a=2b collision of {a,a} vs {b,b}; converse a+b=c+d => a-c=d-b gives difference collision unless {a,b}={c,d} as multisets, doubling case 2a=c+d => a-c=d-a similarly. Verified on 5000 random subsets with zero mismatches. Monotonicity (subset of Sidon is Sidon; superset of non-Sidon is non-Sidon) holds because sums/differences of subset embed in superset; spot-checked {0,1,2} non-Sidon stays non-Sidon on extension. Witness {0,1,3,7,12,20,38} independently recomputed: 28 sums exactly [0,1,2,3,4,6,7,8,10,12,13,14,15,16,19,20,21,23,24,27,32,38,39,40,41,45,50,58] (7*8/2=28) and 42 distinct nonzero differences (7*6=42), translation- and dihedral-canonical. DFS soundness/completeness verified: fixing 0 plus increasing order enumerates every rooted set; every Sidon k-set has Sidon prefixes so never pruned (50 sampled 7-sets all prefixes Sidon); pruning only on Lemma-1 failure whose supersets can never become Sidon. 2-torsion pruning explicitly rejects distance-30 (pair {0,30} gives sums {0,30} size 2<3 and diffs {30} size 1<2, both tests reject; depth-2 count 58 not 59 confirms). Canonical forms correct: trans-canonical = lex-min sorted tuple among translates containing 0 equals min over all 60 translates; dihedral = min(canonical(A),canonical(-A)); unique minimal element per orbit machine-checked on all reps. No periodic 7-set is theoretically necessary (7 prime not dividing 60, invariant set would be union of <t>-orbits so size multiple of ord(t)>1) and computationally confirmed (7156 classes each size exactly 7); no self-mirror confirmed (3578 classes each 2 translation classes). Cold reproduction: primary difference-DFS re-run gives visited 534471, attempts 5169009, depth {1:1,2:58,3:1542,4:22160,5:151450,6:309168,7:50092}, n7 50092, n8 0, checksums 2fa9f1d4.../d87fe6bd... byte-identical; independent sums-based verifier cold re-run gives identical visited/attempts/depth/n7/n8 (16/16 checks PASS). Depth sum 534471 matches visited. Pilot 441669 vs 534471 discrepancy is purely definitional (accepted sets incl. root vs unspecified convention); both implementations agree exactly under frozen convention, so no mathematical error. Full 3578 dihedral reps rechecked Sidon (28 sums + 42 diffs) with zero failures. Proof is machine-checked exhaustion conditional on Python correctness, not formal proof-assistant or human-readable tree — disclosed limitation, still proof not mere experiment.",
+      "rationale": "Independent replay of inputs/artifacts/replay.py passes in seconds: P2(F4)=21, P2(F16)=273, PGL3(F4)=60480, per-representative F4/F16 base counts (S1-S4: 6/6; DJ: 5/7), Noether sums 9/15, two-sided composition identities with common degree-15 cofactor (S1 8/56, S2 7/40, S3 8/52, S4 4/24, DJ 32/58 terms), symmetric 5 orbits (sizes 3,9,18,27,27) and DJ rational-quadruple 3 orbits (80,240,960). Auditor independently re-implemented F4 arithmetic and verified: (i) system multiplicities via affine-translation local expansion (distinct code path from replay matrix substitution) match claimed 2,2,2,1,1,1 for S1-S4 and 3,1,1,1,1 for DJ rational points, so min-over-basis equals min-over-net is exact; (ii) no fixed F4-line for any rep (restriction binary quartic vanishes on 5 collinear F4-points iff identically zero; none do); (iii) primitivity (no common plane divisor of any degree >=1): found explicit F4-lines with trivial homogeneous GCD for every f and g (S1F 4/21 e.g. X+Y+Z=0, S2F 3/21, S3F 4/21, S4F 6/21, DJF 5/21 and similarly 5-9/21 for inverses), checking all monic linear, quadratic and cubic divisors plus t-divisibility and quartic proportionality, so any hypothetical common divisor C would restrict to a common divisor on the witness line, contradiction; this closes the gap in DRAFT section 3(ii) which asserted any F4-curve contributes >=17 F16-points (true for lines/smooth conics but false in general for higher-degree curves: smooth plane cubics over F16 have >=9 points, quartics can have few points, e.g. Galois-conjugate line unions), and the limitation note already flags the F16-count argument as non-general; conclusion (no fixed component, exact degree 4) nevertheless holds via the line-GCD witnesses. Composition check Zg0-Xg2=0, Zg1-Yg2=0 plus X/Y/Z divisibility with equal quotients phi!=0 proves g(f)=phi*id and f(g)=psi*id as polynomial identities (degree-16 compositions, degree-17 checks, 2x171 conditions), hence mutually inverse rational maps; with primitivity this gives birationality, inverse degree 4, and irreducible general member. Noether saturation then closes proper plus infinitely-near locus: exhibited proper multiplicities already square-sum to 15 (symmetric 3*4+3*1=15; DJ 9+6=15 including F16-pair lower bound >=1 each, forced to exactly 1 since total is 15 for a quartic Cremona), so no further proper (including F64 degree-3) or infinitely-near point is possible; tangent-cone spot checks are consistent but not load-bearing. Stabilizer sizes verified: monomial stabilizer of coordinate triangle 6*9=54; point stabilizer 180*16*3/3=2880; orbit enumerations recomputed and sums verified (84=C(9,3) symmetric triples; 1280=5*256 DJ quadruples). S1-S4 canonical forms under 54-element stabilizer are four distinct values, degenerate triple has fifth value with fixed line X+Y=0 containing double [0:0:1] plus three singles (2+3=5>4), so at least 4 symmetric classes; distinct homaloidal types separate DJ from symmetric. DJ pair verified: F16=F4[u]/(u^2+u+w), Frobenius (a0+a1u)->(a0+a1)+a1u order 2, P=[1:3u:1] and Q=[1:3+3u:1] are distinct non-F4 conjugates, both common zeros, directions (1:alpha) distinct from four rational directions, six distinct total; fully rational (4;3,1^6) with no fixed line is impossible since 6 distinct directions needed but P1(F4) has 5. DJ pencil covariance verified on all five F4-lines through [0:0:1]: four lines joining centre to rational singles contract to points, free direction (1:w^2) maps dominantly onto line 2X+3Y+Z=0 through [1:0:w]; DRAFT honestly states covariance p->q rather than strict invariance, which suffices as Jonquieres-type witness together with (4;3,1^6) datum. Proof (exact polynomial identities, finite enumerations, GCD witnesses) is distinguished from experimental evidence (orbit-size heuristics, 15360/122880 raw DJ counts explicitly left unreduced).",
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "Substantive comparison to nearest priors: (1) Singer perfect difference sets (57,8,1) and (73,9,1) require k(k-1)=n-1 (56=56 at n=57); at n=60 k=8 needs 56 distinct differences out of 59 nonzero residues (packing, not perfect), so Singer existence at 57/73 neither implies nor forbids max at 60; defect is consistent with and beyond Singer. (2) Optimal Golomb rulers / OGR interval tables (e.g. 10-mark length 55) require integer differences distinct without wrap-around; cyclic Z_60 has wrap-around sums/differences and bound k(k-1)+1<=n, a different packing problem not implied by interval optima; draft explicitly rejects interval stratum. (3) Bose-Chowla / counting bound k(k-1)+1<=n and OEIS-type maximal tables give k<=8 (56<=59 allows 8, 72<=59 forbids 9) and explicit k>=7 lower bound, but do not decide 8 vs 7 nor enumerate extremals; contribution is slackness proof (allows 8, true max 7) plus 3578-class census. Internal SCOPE scan verified: 8 successes (Boolean, automata, forbidden families, J2-rank, Kronecker, Heilbronn, 5x5 rank, spider walk) none concern Sidon/B2/cyclic/difference packings; 18 failures nearest SCOPE-FAIL-20260907-004 is covering A+A=Z_197 with digits 0-4 via annealing vs distinctness census in Z_60 via exhaustive DFS — different claim, modulus, and route. No prior found that decides Z_60 max or enumerates 50092 rooted / 7156 translation / 3578 dihedral 7-sets with per-witness tables and replayable log. Obscure OOC/difference-packing tables could in principle list max 7 at v=60, but no such table was produced; even if max value overlapped, full dihedral census with explicit reps, SHA-256, and two-implementation replayable log would remain new (tables list max/one example, not full census). Failed live HTTPS verification does not establish priority either way and is recorded as residual risk, not as evidence.",
+      "rationale": "Live retrieval finds only disjoint neighbours at claim level. Calabri-Nguyen quantifies over degree 3 over algebraically closed fields (type (3;2,1^4), 39pp tables) — hypothesis excludes finite fields, Galois orbits, degree 4, and the exact constants P2(F4)=21, P2(F16)=273, |PGL3(F4)|=60480. Schneider quantifies over F2 (three infinite pencil-preserving families parametrized by rational functions over F2 plus finitely many small-orbit maps, involution generation) — parameter range F2 vs F4, conclusion generation vs at-least-5 conjugacy classes with normal forms S1-S4/DJ and degree-15 cofactor identities (8/56,7/40,8/52,4/24,32/58 terms). Asgarli et al. conclude no odd permutation over non-prime char-2 fields via parity invariance — no hypotheses on homaloidal types, no quantifiers over degree-4 nets, no base multiplicities 2,2,2,1,1,1 or 3,1,1,1,1 plus F16-pair, no explicit inverses. Genevois-Lonjou-Urech conclude dense Neretin embedding, even permutations for even q>=4, CAT(0) regularisation — explicitly the closest quantifier (covers F4) but proof scope is general group theory/geometry with zero explicit ternary quartic triples, zero stabilizer-orbit censuses (54-element monomial stabilizer 5 orbits 3,9,18,27,27; 2880-element point stabilizer 3 orbits 80,240,960), zero DJ direction-count impossibility (6 directions vs P1(F4)=5). Alberich-Carraminana gives char-0 homaloidal equations/tables — same Noether sums 9/15 but no finite-field refinement. Targeted zero-hit queries (Jonquieres+Cremona 0, F_4+Cremona 0, PGL3+Cremona 0) and quartic+Cremona 23 hits (all quartic surfaces/K3/minimal Cremona degree, e.g. Mella, Oguiso, Polo-Blanco) plus quarto-quartic 1 hit (P3(C) quarto-quartic, not P2(F4)) plus homaloidal 23 hits (determinantal/ML-degree/polar, plus Bignalet-Cazalet polar) show no equivalent-terminology prior art implying the five explicit F4 classes. Hence no source substantively covers or implies the candidate.",
       "verdict": "PASS"
     },
     "value": {
-      "rationale": "Independently worth finding later as a closed defect-order table entry with reusable extremal library, not a textbook/parameter/epsilon/unexplained item: (a) Not textbook restatement — counting bound k(k-1)+1<=60 allows k=8 (57<=60), true max is 7, so bound is slack and closure requires exhaustive search. (b) Not mere parameter substitution — n=60 is motivated as highly composite with 2-torsion wrap-around (distance-30 collision, depth-2 58 not 59) differing from interval Golomb case, adjacent to Singer (57,8,1) plane, and inside 58-62 defect block where counting allowance fails and greedy/projective constructions fail; one closed defect order plus extremal census is a citable extremal result. (c) Not tiny gain — full integer drop 8->7 against allowance plus complete classification (50092 rooted, 7156 translation each size 7, 3578 dihedral each size 2, zero periodic/self-mirror) with regular orbit structure, not constant tweak. (d) Not unexplained enumeration — method explained (difference-occupancy pruning, lex-min dihedral canonicals), every witness millisecond-checkable via 28-sum list, independent sums-based verifier, replayable 534471-node log with exact visited/attempts/depth/checksums, stdlib-only ~3s+~5s replay. Precedent-consistent: analogous fixed-parameter certified censuses (e.g. binary 5x5 rank-3 719 classes, RSBF 7-variable census) were valued as citable records; modular-Golomb/OOC tables routinely record such tightened bounds and extremal reps for later lookup/use as seeds and test cases. Only Z_60 is closed (neighboring-n defect claims are motivation only, not claimed).",
+      "rationale": "Fallback-level partial theorem is independently worth finding later and citable: first explicit plane Cremona maps of degree 4 over F4 (four symmetric fully-rational (4;2^3,1^3) plus one de Jonquieres (4;3,1^6) with F16-pair), each with normalized quartic triple, exact Galois degree-multiplicity datum saturating Noether equations, quartic inverse with two-sided symbolic composition certificate (common degree-15 cofactor), and type witness, all replayable in pure-Python stdlib in seconds. Configuration-level censuses (5 symmetric-triple orbits with 4 realised +1 fixed-line degenerate; 3 DJ rational-quadruple orbits) give tightened lower bounds (at least 5 PGL3(F4)-classes) and explicit upper bounds on the studied families, with full census number N explicitly left open and basis-splitting/non-rational patterns honestly listed as not exhausted. This is not a textbook restatement (Hudson/Noether equations are textbook, but Galois-orbit refinement, PGL3(F4)-reduction and inverse certificates for F4 quartics appear in none of the sources), not mere parameter substitution (see originality), not a tiny unmotivated gain (first closed data for the 3-4/F4-F5-F8 region, usable for finite-geometry catalogs, multivariate-crypto birational benchmarks and concrete even-parity witnesses), and not an unexplained enumeration (every representative carries Noether check, Galois datum, composition verification and witness). DRAFT scope is honest about what is not claimed.",
       "verdict": "PASS"
     }
   },
   "checked_sources": [
-    "inputs/topic.json (problem_statement, target_claim, audit_plan, nearest_known_results, internal_prior_scan, fallback_claim)",
-    "inputs/DRAFT.md (definitions, Lemma 1 proof, witness table, DFS spec, census reduction, Theorem, reproduction, limitations)",
-    "inputs/research_report.json (claim, evidence_summary, artifact_inventory, limitations)",
-    "inputs/artifacts/sidon_search.py (primary difference-occupancy DFS + canonical reduction, re-executed cold)",
-    "inputs/artifacts/verify.py (independent sums-based verifier, re-executed cold: 16 checks PASS)",
-    "inputs/artifacts/k8_exhaustion.json (visited 534471, attempts 5169009, depth table, counts, checksums, witness sums)",
-    "inputs/artifacts/witness.json (witness sums/diffs tables)",
-    "inputs/artifacts/sidon7_dihedral_reps.json (3578 reps, SHA-256 2fa9f1d4...)",
-    "inputs/artifacts/sidon7_translation_reps.json (7156 reps, SHA-256 d87fe6bd...)",
-    "attempted live fetch https://en.wikipedia.org/wiki/Difference_set -> Transport error",
-    "attempted live fetch https://en.wikipedia.org/wiki/Golomb_ruler -> Transport error",
-    "attempted live fetch https://oeis.org/A005282 -> Transport error",
-    "attempted live fetch https://example.com/ -> Transport error (network blocked; literature recheck incomplete)"
+    {
+      "outcome": "Nearest degree-neighbour: fine classification of cubics (degree 3) over algebraically closed fields; shares homaloidal-type language but differs in degree, base field, Galois refinement, and certificates.",
+      "title": "On the classification of cubic plane Cremona maps - Calabri and Nguyen",
+      "url": "https://arxiv.org/abs/2002.11396"
+    },
+    {
+      "outcome": "Nearest finite-field neighbour: generation of Bir(P^2) over F2 by three infinite families plus small-base-orbit maps; shares finite-field Cremona + Galois-orbit language but over F2, proving generation/involution, not a degree-4 F4 conjugacy census.",
+      "title": "Generators of the plane Cremona group over the field with two elements - Schneider",
+      "url": "https://arxiv.org/abs/2008.07991"
+    },
+    {
+      "outcome": "Nearest characteristic-2 neighbour: parity theorem that no odd permutation arises over non-prime characteristic-2 fields; shares even-q phenomena but is a high-level permutation theorem with generator lists, no homaloidal census or explicit F4 quartics.",
+      "title": "Bijective Cremona transformations of the plane - Asgarli, Lai, Nakahara, Zimmermann",
+      "url": "https://arxiv.org/abs/1910.05302"
+    },
+    {
+      "outcome": "Nearest structural neighbour explicitly covering even q>=4: embeds plane Cremona over finite fields in Neretin groups and proves even permutations plus regularisation; general structure with no explicit quartic normal forms, base-point multiplicities, or de Jonquieres-vs-symmetric distinction for F4.",
+      "title": "Cremona groups over finite fields, Neretin groups, and non-positively curved cube complexes - Genevois, Lonjou, Urech",
+      "url": "https://arxiv.org/abs/2110.14605"
+    },
+    {
+      "outcome": "Authoritative characteristic-zero homaloidal-tables background: Noether equations sum m_i=3(d-1)=9 and sum m_i^2=d^2-1=15 and types (4;3,1^6)/(4;2^3,1^3); textbook context with no Fq-conjugacy, Galois orbit degrees, or computational inverses.",
+      "title": "Geometry of the Plane Cremona Maps, Chapter 6 Total principal and special homaloidal curves - Alberich-Carraminana",
+      "url": "https://doi.org/10.1007/978-3-540-45538-7_6"
+    },
+    {
+      "outcome": "Nearest positive-characteristic homaloidal neighbour found in homaloidal query: polar maps from homaloidal polynomials and line arrangements of arbitrarily large degree; disjoint construction (polar vs quarto-quartic nets) with no F4 quartic conjugacy classes or composition certificates.",
+      "title": "Plane polar Cremona maps of arbitrarily large degree in positive characteristic - Bignalet-Cazalet",
+      "url": "https://arxiv.org/abs/1910.01202"
+    }
   ],
   "decisive_checks": [
-    "Witness recomputed independent: sums sorted match [0,1,2,3,4,6,7,8,10,12,13,14,15,16,19,20,21,23,24,27,32,38,39,40,41,45,50,58] len 28; diffs 42 distinct nonzero",
-    "2-torsion pair {0,30}: sums size 2<3, diffs {30} size 1, both tests reject; depth-2 58 not 59 confirms pruning",
-    "Counting bound: 7*6+1=43<=60 allows 7, 8*7+1=57<=60 allows 8, 9*8+1=73>60 forbids 9; sums needed 28/36/45",
-    "Lemma equivalence brute force: 5000 random subsets sums-vs-diffs zero mismatches",
-    "Primary DFS cold re-run: visited 534471 attempts 5169009 depth 1:1 2:58 3:1542 4:22160 5:151450 6:309168 7:50092 n7 50092 n8 0 checksums match",
-    "Independent sums-DFS cold re-run via verify.py: identical visited/attempts/depth/n7/n8, VERIFY PASS 16/16",
-    "Depth sum 1+58+1542+22160+151450+309168+50092=534471 matches visited",
-    "Orbit arithmetic: 50092/7156=7.0, 7156/3578=2.0; 7 prime not dividing 60 supports no periodic",
-    "Independent canonical reimplementation: 20+20 spot reps minimality PASS, witness canonical, witness in both tables",
-    "Full pairing recount: 7156 trans reps map onto 3578 dihedral reps 2-to-1 dist {2:3578}, cover exact, trans-class-size-7 all PASS",
-    "Full 3578 dihedral reps Sidon recheck: 0 failures (28 sums + 42 nonzero diffs each)",
-    "50 sampled 7-sets all sorted prefixes Sidon; superset monotonicity spot PASS"
+    "Re-executed replay.py: P2 21/273, PGL3 60480, base counts 6/6 and 5/7, g(f)/f(g) identities with phi sizes 8/56,7/40,8/52,4/24,32/58, orbit counts 5 (3,9,18,27,27) and 3 (80,240,960) — ALL PASSED",
+    "Independent F4 arithmetic match and affine-translation system-multiplicity recomputation (no matrix inversion) matches all claimed multiplicities exactly",
+    "No fixed F4-line via 5-point vanishing on all 21 lines for all reps (0 fixed lines)",
+    "Primitivity via line-restriction homogeneous GCD: enumerated all monic linear/quadratic/cubic divisors plus t and proportionality; each f and g has 3-9/21 witness lines with trivial GCD, rigorously ruling out common divisor of any degree >=1 and closing the F16-count >=17 gap for higher-degree curves",
+    "Stabilizer counts 54 and 2880 verified by formula and enumeration; S1-S4 canonical orbit invariants distinct and distinct from degenerate fixed-line orbit",
+    "DJ F16 construction verified: u^2+u+w irreducible, Frobenius order 2, P/Q distinct conjugates, vanishing, 6 distinct directions, fully-rational impossibility via 6-directions vs 5 rational points",
+    "DJ pencil covariance verified on all 5 F4-lines through centre: 4 contract, free direction maps onto line through [1:0:w]",
+    "Noether sums 9/15 verified for both homaloidal types; saturation argument verified to exclude further proper/infinitely-near points given birationality"
   ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:25:57Z",
+    "queries": [
+      {
+        "query": "all:Cremona AND all:finite AND all:field",
+        "result_count": 24,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:Cremona+AND+all:finite+AND+all:field&start=0&max_results=5"
+      },
+      {
+        "query": "all:homaloidal",
+        "result_count": 23,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:homaloidal&start=0&max_results=5"
+      },
+      {
+        "query": "all:quartic AND all:Cremona",
+        "result_count": 23,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:quartic+AND+all:Cremona&start=0&max_results=10"
+      },
+      {
+        "query": "all:Jonquieres AND all:Cremona",
+        "result_count": 0,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:Jonquieres+AND+all:Cremona&start=0&max_results=10"
+      },
+      {
+        "query": "all:conjugacy AND all:Cremona AND all:finite",
+        "result_count": 11,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:conjugacy+AND+all:Cremona+AND+all:finite&start=0&max_results=10"
+      },
+      {
+        "query": "query.title quartic Cremona plane finite field",
+        "result_count": 20,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query.title=quartic+Cremona+plane+finite+field&query.author=Cremona&rows=5&select=DOI,title,author,published"
+      },
+      {
+        "query": "10.1007/978-3-540-45538-7_6",
+        "result_count": 1,
+        "service": "DOI",
+        "url": "https://doi.org/10.1007/978-3-540-45538-7_6"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved abstract + metadata confirm 39pp fine classification of cubic (degree-3) maps over algebraically closed fields; hypotheses exclude finite fields and degree 4, with no F4 representatives, no Galois-orbit tables, no PGL3(F4)-conjugacy or composition inverses — disjoint from quartic F4 census.",
+        "retrieved_at_utc": "2026-09-07T14:25:00Z",
+        "title": "On the classification of cubic plane Cremona maps - Calabri and Nguyen",
+        "url": "https://arxiv.org/abs/2002.11396"
+      },
+      {
+        "comparison": "Retrieved abstract confirms generation over F2 by three pencil-preserving infinite families plus small-base-orbit maps and involution generation, partly generalized beyond F2; scope is generation, with no complete degree-4 class table, no (4;2^3,1^3)/(4;3,1^6) normal forms or F4 inverse pairs.",
+        "retrieved_at_utc": "2026-09-07T14:25:10Z",
+        "title": "Generators of the plane Cremona group over the field with two elements - Schneider",
+        "url": "https://arxiv.org/abs/2008.07991"
+      },
+      {
+        "comparison": "Retrieved abstract confirms study of permutations on rational points proving no odd permutation over non-prime char-2 fields via parity invariance and generator lists; high-level parity theorem with 51pp proof, containing no degree-4 homaloidal census, base-point multiplicities, or explicit F4 maps.",
+        "retrieved_at_utc": "2026-09-07T14:25:20Z",
+        "title": "Bijective Cremona transformations of the plane - Asgarli, Lai, Nakahara, Zimmermann",
+        "url": "https://arxiv.org/abs/1910.05302"
+      },
+      {
+        "comparison": "Retrieved abstract confirms dense Neretin embedding, even-permutation theorem for even q>=4, CAT(0) cube-complex regularisation (30pp); general structural result explicitly covering F4 in quantifier but providing no explicit quartic conjugacy representatives, Galois tables, or de Jonquieres-vs-symmetric witnesses.",
+        "retrieved_at_utc": "2026-09-07T14:25:30Z",
+        "title": "Cremona groups over finite fields, Neretin groups, and non-positively curved cube complexes - Genevois, Lonjou, Urech",
+        "url": "https://arxiv.org/abs/2110.14605"
+      },
+      {
+        "comparison": "Crossref + DOI retrieval confirms 2002 LNM chapter pp.177-205 on total principal/special homaloidal curves; characteristic-zero tables and Noether equations background with no finite-field conjugacy classification, no Galois orbit degrees, no computational composition-inverse certificates.",
+        "retrieved_at_utc": "2026-09-07T14:25:40Z",
+        "title": "Geometry of the Plane Cremona Maps, Chapter 6 Total principal and special homaloidal curves - Alberich-Carraminana",
+        "url": "https://doi.org/10.1007/978-3-540-45538-7_6"
+      },
+      {
+        "comparison": "Retrieved abstract confirms homaloidal polar maps of arbitrarily large degree in positive characteristic and classification of homaloidal line arrangements (12pp); polar-map construction is disjoint from quarto-quartic nets over F4, with no PGL3(F4) classes, F16-pair data, or quartic-quartic inverses.",
+        "retrieved_at_utc": "2026-09-07T14:25:50Z",
+        "title": "Plane polar Cremona maps of arbitrarily large degree in positive characteristic - Bignalet-Cazalet",
+        "url": "https://arxiv.org/abs/1910.01202"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:25:57Z",
+      "queries": [
+        {
+          "query": "all:Cremona AND all:finite AND all:field",
+          "result_count": 24,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=all:Cremona+AND+all:finite+AND+all:field&start=0&max_results=5"
+        },
+        {
+          "query": "all:homaloidal",
+          "result_count": 23,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=all:homaloidal&start=0&max_results=5"
+        },
+        {
+          "query": "all:quartic AND all:Cremona",
+          "result_count": 23,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=all:quartic+AND+all:Cremona&start=0&max_results=10"
+        },
+        {
+          "query": "all:Jonquieres AND all:Cremona",
+          "result_count": 0,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=all:Jonquieres+AND+all:Cremona&start=0&max_results=10"
+        },
+        {
+          "query": "all:conjugacy AND all:Cremona AND all:finite",
+          "result_count": 11,
+          "service": "arXiv",
+          "url": "https://export.arxiv.org/api/query?search_query=all:conjugacy+AND+all:Cremona+AND+all:finite&start=0&max_results=10"
+        },
+        {
+          "query": "query.title quartic Cremona plane finite field",
+          "result_count": 20,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query.title=quartic+Cremona+plane+finite+field&query.author=Cremona&rows=5&select=DOI,title,author,published"
+        },
+        {
+          "query": "10.1007/978-3-540-45538-7_6",
+          "result_count": 1,
+          "service": "DOI",
+          "url": "https://doi.org/10.1007/978-3-540-45538-7_6"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved abstract + metadata confirm 39pp fine classification of cubic (degree-3) maps over algebraically closed fields; hypotheses exclude finite fields and degree 4, with no F4 representatives, no Galois-orbit tables, no PGL3(F4)-conjugacy or composition inverses — disjoint from quartic F4 census.",
+          "retrieved_at_utc": "2026-09-07T14:25:00Z",
+          "title": "On the classification of cubic plane Cremona maps - Calabri and Nguyen",
+          "url": "https://arxiv.org/abs/2002.11396"
+        },
+        {
+          "comparison": "Retrieved abstract confirms generation over F2 by three pencil-preserving infinite families plus small-base-orbit maps and involution generation, partly generalized beyond F2; scope is generation, with no complete degree-4 class table, no (4;2^3,1^3)/(4;3,1^6) normal forms or F4 inverse pairs.",
+          "retrieved_at_utc": "2026-09-07T14:25:10Z",
+          "title": "Generators of the plane Cremona group over the field with two elements - Schneider",
+          "url": "https://arxiv.org/abs/2008.07991"
+        },
+        {
+          "comparison": "Retrieved abstract confirms study of permutations on rational points proving no odd permutation over non-prime char-2 fields via parity invariance and generator lists; high-level parity theorem with 51pp proof, containing no degree-4 homaloidal census, base-point multiplicities, or explicit F4 maps.",
+          "retrieved_at_utc": "2026-09-07T14:25:20Z",
+          "title": "Bijective Cremona transformations of the plane - Asgarli, Lai, Nakahara, Zimmermann",
+          "url": "https://arxiv.org/abs/1910.05302"
+        },
+        {
+          "comparison": "Retrieved abstract confirms dense Neretin embedding, even-permutation theorem for even q>=4, CAT(0) cube-complex regularisation (30pp); general structural result explicitly covering F4 in quantifier but providing no explicit quartic conjugacy representatives, Galois tables, or de Jonquieres-vs-symmetric witnesses.",
+          "retrieved_at_utc": "2026-09-07T14:25:30Z",
+          "title": "Cremona groups over finite fields, Neretin groups, and non-positively curved cube complexes - Genevois, Lonjou, Urech",
+          "url": "https://arxiv.org/abs/2110.14605"
+        },
+        {
+          "comparison": "Crossref + DOI retrieval confirms 2002 LNM chapter pp.177-205 on total principal/special homaloidal curves; characteristic-zero tables and Noether equations background with no finite-field conjugacy classification, no Galois orbit degrees, no computational composition-inverse certificates.",
+          "retrieved_at_utc": "2026-09-07T14:25:40Z",
+          "title": "Geometry of the Plane Cremona Maps, Chapter 6 Total principal and special homaloidal curves - Alberich-Carraminana",
+          "url": "https://doi.org/10.1007/978-3-540-45538-7_6"
+        },
+        {
+          "comparison": "Retrieved abstract confirms homaloidal polar maps of arbitrarily large degree in positive characteristic and classification of homaloidal line arrangements (12pp); polar-map construction is disjoint from quarto-quartic nets over F4, with no PGL3(F4) classes, F16-pair data, or quartic-quartic inverses.",
+          "retrieved_at_utc": "2026-09-07T14:25:50Z",
+          "title": "Plane polar Cremona maps of arbitrarily large degree in positive characteristic - Bignalet-Cazalet",
+          "url": "https://arxiv.org/abs/1910.01202"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest degree-neighbour: fine classification of cubics (degree 3) over algebraically closed fields; shares homaloidal-type language but differs in degree, base field, Galois refinement, and certificates.",
+        "title": "On the classification of cubic plane Cremona maps - Calabri and Nguyen",
+        "url": "https://arxiv.org/abs/2002.11396"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest finite-field neighbour: generation of Bir(P^2) over F2 by three infinite families plus small-base-orbit maps; shares finite-field Cremona + Galois-orbit language but over F2, proving generation/involution, not a degree-4 F4 conjugacy census.",
+        "title": "Generators of the plane Cremona group over the field with two elements - Schneider",
+        "url": "https://arxiv.org/abs/2008.07991"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest characteristic-2 neighbour: parity theorem that no odd permutation arises over non-prime characteristic-2 fields; shares even-q phenomena but is a high-level permutation theorem with generator lists, no homaloidal census or explicit F4 quartics.",
+        "title": "Bijective Cremona transformations of the plane - Asgarli, Lai, Nakahara, Zimmermann",
+        "url": "https://arxiv.org/abs/1910.05302"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest structural neighbour explicitly covering even q>=4: embeds plane Cremona over finite fields in Neretin groups and proves even permutations plus regularisation; general structure with no explicit quartic normal forms, base-point multiplicities, or de Jonquieres-vs-symmetric distinction for F4.",
+        "title": "Cremona groups over finite fields, Neretin groups, and non-positively curved cube complexes - Genevois, Lonjou, Urech",
+        "url": "https://arxiv.org/abs/2110.14605"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Authoritative characteristic-zero homaloidal-tables background: Noether equations sum m_i=3(d-1)=9 and sum m_i^2=d^2-1=15 and types (4;3,1^6)/(4;2^3,1^3); textbook context with no Fq-conjugacy, Galois orbit degrees, or computational inverses.",
+        "title": "Geometry of the Plane Cremona Maps, Chapter 6 Total principal and special homaloidal curves - Alberich-Carraminana",
+        "url": "https://doi.org/10.1007/978-3-540-45538-7_6"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest positive-characteristic homaloidal neighbour found in homaloidal query: polar maps from homaloidal polynomials and line arrangements of arbitrarily large degree; disjoint construction (polar vs quarto-quartic nets) with no F4 quartic conjugacy classes or composition certificates.",
+        "title": "Plane polar Cremona maps of arbitrarily large degree in positive characteristic - Bignalet-Cazalet",
+        "url": "https://arxiv.org/abs/1910.01202"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-014",
+    "originality_rationale": "Live retrieval finds only disjoint neighbours at claim level. Calabri-Nguyen quantifies over degree 3 over algebraically closed fields (type (3;2,1^4), 39pp tables) — hypothesis excludes finite fields, Galois orbits, degree 4, and the exact constants P2(F4)=21, P2(F16)=273, |PGL3(F4)|=60480. Schneider quantifies over F2 (three infinite pencil-preserving families parametrized by rational functions over F2 plus finitely many small-orbit maps, involution generation) — parameter range F2 vs F4, conclusion generation vs at-least-5 conjugacy classes with normal forms S1-S4/DJ and degree-15 cofactor identities (8/56,7/40,8/52,4/24,32/58 terms). Asgarli et al. conclude no odd permutation over non-prime char-2 fields via parity invariance — no hypotheses on homaloidal types, no quantifiers over degree-4 nets, no base multiplicities 2,2,2,1,1,1 or 3,1,1,1,1 plus F16-pair, no explicit inverses. Genevois-Lonjou-Urech conclude dense Neretin embedding, even permutations for even q>=4, CAT(0) regularisation — explicitly the closest quantifier (covers F4) but proof scope is general group theory/geometry with zero explicit ternary quartic triples, zero stabilizer-orbit censuses (54-element monomial stabilizer 5 orbits 3,9,18,27,27; 2880-element point stabilizer 3 orbits 80,240,960), zero DJ direction-count impossibility (6 directions vs P1(F4)=5). Alberich-Carraminana gives char-0 homaloidal equations/tables — same Noether sums 9/15 but no finite-field refinement. Targeted zero-hit queries (Jonquieres+Cremona 0, F_4+Cremona 0, PGL3+Cremona 0) and quartic+Cremona 23 hits (all quartic surfaces/K3/minimal Cremona degree, e.g. Mella, Oguiso, Polo-Blanco) plus quarto-quartic 1 hit (P3(C) quarto-quartic, not P2(F4)) plus homaloidal 23 hits (determinantal/ML-degree/polar, plus Bignalet-Cazalet polar) show no equivalent-terminology prior art implying the five explicit F4 classes. Hence no source substantively covers or implies the candidate.",
+    "priority_caveat": "This PASS is only a finding that the documented live search found no source substantively covering or implying the candidate; it is not an award of academic priority and does not establish that the candidate is the first in any absolute or historical sense.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-014",
+    "residual_uncertainties": [
+      "OpenAlex search was attempted live but returned rate-limit/budget error (insufficient budget, resets midnight UTC); Crossref used instead as second independent service, so OpenAlex-indexed-only items were not separately checked.",
+      "Paywalled or unindexed finite-geometry catalogs, theses, or proceedings not in arXiv/Crossref/DOI could in principle contain an F4 quartic table; indexed neighbours are substantively disjoint but absence in indexed literature does not prove absolute non-existence.",
+      "Claim ambiguity around full census N (explicitly left open as tens) vs lower bound at least 5 was checked as lower bound only; splitting of one net over target-coordinate changes and non-rational double/F64/infinitely-near patterns remain outside the reviewed claim."
+    ],
+    "reviewed_claim": "There are at least five distinct PGL3(F4)-conjugacy classes of plane Cremona maps of degree 4 over F4 — four symmetric type (4;2^3,1^3) with fully rational base loci (S1-S4: doubles at coordinate points plus distinct rational single triples) and one de Jonquieres type (4;3,1^6) with triple [0:0:1] plus four rational singles plus one F16-conjugate pair (DJ) — each with explicit ternary quartic triple over F4 and explicit quartic inverse with two-sided symbolic composition certificate (common degree-15 cofactor).",
+    "run_id": "2026-09-07T1420Z-pre-gate-queued-successes",
+    "search_strategy": [
+      "arXiv API all:Cremona AND all:finite AND all:field — broad finite-field Cremona census/generation/structural neighbours",
+      "arXiv API all:homaloidal — homaloidal-type tables and homaloidal hypersurface literature under equivalent terminology",
+      "arXiv API all:quartic AND all:Cremona — degree-4-specific Cremona literature (quarto-quartic / quartic surfaces / K3 vs plane maps)",
+      "arXiv API all:Jonquieres AND all:Cremona and all:quarto-quartic and all:PGL3 AND all:Cremona — named-method and conjugacy-group formulations with spelling variants (Jonquieres/Jonquières/de Jonquieres)",
+      "arXiv API all:Cremona AND all:F_4 and all:conjugacy AND all:Cremona AND all:finite — exact field F4 and PGL3(F4)-conjugacy phrasing",
+      "Crossref works query.title=quartic Cremona plane finite field — independent publisher-metadata search for quartic plane Cremona over finite fields",
+      "Crossref works query homaloidal quartic plane Cremona F4 — independent check for homaloidal/F4 equivalent terminology",
+      "DOI/publisher page 10.1007/978-3-540-45538-7_6 — authoritative characteristic-zero homaloidal-tables reference retrieval"
+    ],
+    "verdict": "PASS"
+  },
   "residual_risks": [
-    "Computation-dependent proof: 534k-node tree regenerated by script, not human-readable and not formal proof-assistant certificate; correctness rests on Python stdlib, Lemma 1, and audit of two short scripts",
-    "Live HTTPS literature verification blocked by transport errors; obscure optical-orthogonal-code / difference-packing tables may already tabulate max 7 at v=60 — if so maximum-theorem component overlaps prior tabulation and novelty rests on certified 3578-class census, explicit sum tables, and replayable log as disclosed",
-    "Only Z_60 is closed; pilot claims about Z_57 having 8-sets, Z_58,59,61,62 having none, Z_63+ having 8-sets are motivation only and not re-proved here",
-    "Determinism certified only for seed 0 increasing order; different orderings would give different node counts but same census (not separately certified)",
-    "No proof-assistant or hardware-fault tolerance; single-machine stdlib replay"
+    "DRAFT section 3(ii) sentence claiming any F4 fixed curve contributes >=17 F16-points is overstated for degree >=3 curves (cubic lower bound over F16 is 9, quartics can have fewer); conclusion holds via line-GCD witnesses documented here, but DRAFT/RESULT should cite GCD certificate rather than F16-count alone for higher-degree components",
+    "Infinitely-near completeness relies on Noether equations in characteristic 2 plus verified birationality; standard via blowup intersection theory but no char-2 citation is given — low risk given explicit inverses",
+    "DJ witness is pencil covariance p->[1:0:w], not strict invariance of one pencil; correctly disclosed as covariant form, but readers expecting classical J_p invariance should note conjugacy interpretation",
+    "Full census number N, basis-splitting within a fixed net, non-rational double patterns, F64 degree-3 orbits and infinitely-near collisions remain open by design; lower bound at least 5 is proved, upper bound is configuration-level only",
+    "Originality rests on live retrieval 2026-09-07 (arXiv + DOI; OpenAlex/Crossref returned 429 rate-limits); a paywalled or unindexed finite-geometry table could in principle exist, but nearest indexed neighbours are substantively disjoint",
+    "Originality revalidation: OpenAlex search was attempted live but returned rate-limit/budget error (insufficient budget, resets midnight UTC); Crossref used instead as second independent service, so OpenAlex-indexed-only items were not separately checked.",
+    "Originality revalidation: Paywalled or unindexed finite-geometry catalogs, theses, or proceedings not in arXiv/Crossref/DOI could in principle contain an F4 quartic table; indexed neighbours are substantively disjoint but absence in indexed literature does not prove absolute non-existence.",
+    "Originality revalidation: Claim ambiguity around full census N (explicitly left open as tens) vs lower bound at least 5 was checked as lower bound only; splitting of one net over target-coordinate changes and non-rational double/F64/infinitely-near patterns remain outside the reviewed claim."
   ],
   "verdict": "PASS"
 }

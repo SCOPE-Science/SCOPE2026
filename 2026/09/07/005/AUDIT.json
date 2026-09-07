@@ -1,1 +1,297 @@
-{"axes": {"correctness": {"rationale": "Conventions fixed and verified: n=7, N=128, LSB=x0, rho(v)=((v>>1)|((v&1)<<6))&0x7F, dot parity(a&x), W(a)=sum_x(-1)^{f(x)+a.x}, nl=64-max|W|/2. Independent recomputation confirms G=20 with minima [0,1,3,5,7,9,11,13,15,19,21,23,27,29,31,43,47,55,63,127], sizes 1,1,7x18, formula (128+12)/7=20, weight preservation, and row-mask list with rank 20. Full histogram independently reproduced via batched NumPy FWHT over all 2^20 masks (B=4096, different code path from C): exact match on all 33 values summing to 1048576, max 56. All 33 lex-min ANF representatives independently reproduced via batched Mobius+FWHT (B=8192): truth/ANF masks match best_per_nl.csv for every nl. All 33 reps rechecked with pure-Python FWHT/Mobius: nl, ANF mask, degree, weight, W0=N-2wt, |W| multiset, Parseval 16384 all match representatives_full.csv. Extremal spectra match published files bit-for-bit (128 ints): nl56 mask 194304/0x2f700 ANF 46848/0x0b700 deg4 wt56 W0=16 |W|={0:64,16:64} signed {-16:28,0:64,+16:36} autocorr max16; nl55 mask 718592/0xaf700 ANF 571136/0x8b700 deg7 wt57 W0=14 |W|={2:64,14:36,18:28} autocorr max20; FWHT(W^2)/N divisibility exact and equals naive autocorrelation. Lex-minimality among extremal sets verified (distinct ANFs 11788/22344, unique minimum). Degree/weight distributions rechecked: nl56 2:28,3:560,4:5880,5:4704,6:616 and 56:2793,58:154,64:5894,70:154,72:2793; nl55 all deg7 and 57/63/65/71 each 5586. Bulk clusters collapse verified: 33 fine clusters collapse to exactly 11 distinct (deg,|W|,acmax) for nl56 and 48 to exactly 12 for nl55 after collapsing non-invariant W0, as claimed (>=11/>=12). Invariant theory correct: degree preserved for deg>=2 under x->Ax+b plus affine addition, |W| multiset permuted, |r| magnitudes permuted (r_g(s)=+/-r_f(As)); W0 explicitly not used. Bounded 4x100k search correctly labeled non-probative (group ~5e18). Hex packing verified for extremals. SHA-256 of all 29 artifact files verified OK. Draft honestly separates computed theorem (a-c via enumeration) from invariant lower bounds (d) and disclaims exact class count and priority.", "verdict": "PASS"}, "originality": {"rationale": "Substantive comparison to nearest known results (knowledge-cutoff, live web unavailable): Stanica-Maitra DAM 2008 gives g_n count formula, bounds and constructions but no complete Walsh-certified histogram or affine-sieved extremal table for all 2^20 RSBFs in n=7; Kavut-Maitra-Sarkar-Yucel ePrint 2006/449 heuristic search reports selected high-nl examples (balanced high-nl RSBFs in n=7,8,9) not exhaustive distribution with full spectra and systematic inequivalence sieving; Carlet book/chapters give general Walsh/nonlinearity theory and global covering radii RM(1,7)=56, RM(1,8)=120 but no RSBF-subclass distribution or extremal representatives. None implies exact 33-value histogram, count 11788 maximizers / 22344 next-maximizers, canonical lex-min ANFs with 128-point spectra, or 11/12 affine-class lower bounds. Internal SCOPE scan (3 successes on 4-uniform families, spider walks, J2-free rank; 3 failures on Szemeredi-Trotter, Polya-Vinogradov, dicyclic gaps) covers different objects/methods. Existence of some nl=56 RSBF was likely findable heuristically (density ~1.124%) and is not claimed as sole novelty; delta is completeness plus certificate-backed table. No priority claim is made in DRAFT; originality confidence was capped due to offline search. Failed-search does not establish priority; PASS rests on substantive non-implication, with residual risk of missed thesis/paper noted.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding later as compact checkable reference, not textbook/parameter-substitution/tiny-gain/bare-enumeration: (i) RSBF-restricted covering radius of RM(1,7) equals unrestricted 56, with 11788 explicit maximizers including plateaued/semi-bent type |W|={0:64,16:64} of degree 4 weight 56 — a concrete coding/crypto fact (nonlinearity governs linear-cryptanalysis resistance) directly reusable for design; (ii) full 33-value distribution with per-value canonical ANF representatives, degrees, spectra, hex and orbit-sum expressions provides a lookup table no textbook gives; (iii) structural analysis beyond bare counts: degree distributions, 4 Walsh types and 5 acmax values in maximizers, 4xN types in next-max, 11/12 affine-class lower bounds via genuine invariants, weight symmetries, and gap pattern (steps of 7 below 44) prompting divisibility conjecture (explicitly unclaimed). Heuristic prior examples are subsumed and certified. Reproducible in seconds with published generator plus independent NumPy path.", "verdict": "PASS"}}, "checked_sources": ["inputs/topic.json (audit plan, fingerprint, nearest_known_results, internal_prior_scan)", "inputs/DRAFT.md (conventions Sec1, theorem Sec2, method Sec3, verification Sec4, limitations Sec6)", "inputs/research_report.json (claim, evidence_summary, artifact_inventory with SHA-256)", "inputs/artifacts/nl_histogram.csv, best_per_nl.csv, representatives_full.csv", "inputs/artifacts/orbits_and_map.txt, runlog_phase1.txt, phase2_verify.txt, gen_final_log.txt, runlog_dump.txt", "inputs/artifacts/walsh_nl56_lexmin.txt, walsh_nl55_lexmin.txt, autocorr_nl56_lexmin.txt, autocorr_nl55_lexmin.txt", "inputs/artifacts/bulk_clusters.txt, masks_nl56.txt (11788), masks_nl55.txt (22344)", "inputs/artifacts/generator_rsbf7.c, generator_analyze_bulk2.c, generator_dump_extreme.c, generator_verify_naive1000.c, generator_affine_search.c", "inputs/artifacts/second_impl_verify.py, gen_final_artifacts.py, anf_expressions.txt, SHA256SUMS", "inputs/artifacts/affine_bounded_search_report.txt + 4 single-pair logs", "Live-fetch attempts (all transport errors, no content trusted): https://eprint.iacr.org/2006/449, https://doi.org/10.1016/j.dam.2007.05.029, https://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool.pdf", "Knowledge-cutoff primary sources as cited in triage: Stanica-Maitra 2008, Kavut et al. 2006-2007 series, Carlet book"], "decisive_checks": ["Orbit recomputation (pure Python): G=20, minima match draft table, sizes 1,1,7x18, weight preservation OK, formula (128+12)/7=20", "Histogram sum: 1048576 over 33 values; max|W|=2*(64-nl) mapping verified", "Full independent batched NumPy FWHT over all 1048576 masks (B=4096, vectorized butterfly, different path from C): histogram exact match on every nl:count, sum 1048576", "All-33 lex-min reproduction via batched Mobius (GF2) + FWHT (B=8192): all 33 (truth_mask, anf_mask) match best_per_nl.csv", "All-33 invariant recheck (pure-Python FWHT/Mobius, Counter): nl, ANF mask, degree, weight, W0, |W| multiset, Parseval 16384 all match representatives_full.csv", "Extremal deep check: masks 194304 and 718592 give max|W| 16->nl56 and 18->nl55, W0=N-2wt, ANF masks 0x0b700/0x8b700, degrees 4/7, |W| multisets as claimed, published 128-int W files match bit-for-bit, FWHT(W^2)/128 equals naive autocorrelation, acmax 16/20", "Spot-check random maximizer masks from file: all give nl56", "Lex-min among extremal sets (independent Mobius): minimum over 11788/22344 ANFs by bit0-most-significant order is 46848/571136 as claimed, unique, distinct ANFs = totals (bijectivity)", "Degree/weight distributions recomputed: nl56 2:28,3:560,4:5880,5:4704,6:616 and symmetric weights; nl55 all deg7, 4 weights x5586", "Cluster collapse: parsed bulk_clusters.txt 33+48 fine clusters -> exactly 11 (nl56) and 12 (nl55) distinct (deg,|W|,acmax) after collapsing W0, sums 11788/22344", "Hex packing (LSB-first 16 bytes) recomputed for extremals: matches truth_hex/anf_hex", "SHA-256 verified for all 29 files against research_report inventory: ALL OK (relative to inputs/artifacts)", "Affine-invariant theory checked: degree (deg>=2), |W| multiset permutation, |r| permutation hold under f(Ax+b)+c.x+d; W0 correctly excluded; bounded-search disclaimer correct"], "residual_risks": ["Live-web prior-art search unavailable in this environment (6 triage fetches + 3 audit fetches all transport/502 errors); originality rests on knowledge-cutoff comparison and capped confidence — a thesis/paper with same table missed offline would supersede novelty but not correctness", "Exact number of affine classes not determined (only lower bounds 11/12); full classification with canonical forms/stabilizers remains open and is explicitly not claimed", "RSBF subclass only; no claim about non-symmetric functions beyond equality of restricted/unrestricted covering radii in n=7", "Low-nl gap/divisibility pattern noted as unproven observation/conjecture", "Autocorrelation via FWHT(W^2)/N assumes exact divisibility (verified for extremals and theoretically expected via Wiener-Khintchine; bulk code does not assert remainder)"], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Conventions fixed and verified: n=7, N=128, LSB=x0, rho(v)=((v>>1)|((v&1)<<6))&0x7F, dot parity(a&x), W(a)=sum_x(-1)^{f(x)+a.x}, nl=64-max|W|/2. Independent recomputation confirms G=20 with minima [0,1,3,5,7,9,11,13,15,19,21,23,27,29,31,43,47,55,63,127], sizes 1,1,7x18, formula (128+12)/7=20, weight preservation, and row-mask list with rank 20. Full histogram independently reproduced via batched NumPy FWHT over all 2^20 masks (B=4096, different code path from C): exact match on all 33 values summing to 1048576, max 56. All 33 lex-min ANF representatives independently reproduced via batched Mobius+FWHT (B=8192): truth/ANF masks match best_per_nl.csv for every nl. All 33 reps rechecked with pure-Python FWHT/Mobius: nl, ANF mask, degree, weight, W0=N-2wt, |W| multiset, Parseval 16384 all match representatives_full.csv. Extremal spectra match published files bit-for-bit (128 ints): nl56 mask 194304/0x2f700 ANF 46848/0x0b700 deg4 wt56 W0=16 |W|={0:64,16:64} signed {-16:28,0:64,+16:36} autocorr max16; nl55 mask 718592/0xaf700 ANF 571136/0x8b700 deg7 wt57 W0=14 |W|={2:64,14:36,18:28} autocorr max20; FWHT(W^2)/N divisibility exact and equals naive autocorrelation. Lex-minimality among extremal sets verified (distinct ANFs 11788/22344, unique minimum). Degree/weight distributions rechecked: nl56 2:28,3:560,4:5880,5:4704,6:616 and 56:2793,58:154,64:5894,70:154,72:2793; nl55 all deg7 and 57/63/65/71 each 5586. Bulk clusters collapse verified: 33 fine clusters collapse to exactly 11 distinct (deg,|W|,acmax) for nl56 and 48 to exactly 12 for nl55 after collapsing non-invariant W0, as claimed (>=11/>=12). Invariant theory correct: degree preserved for deg>=2 under x->Ax+b plus affine addition, |W| multiset permuted, |r| magnitudes permuted (r_g(s)=+/-r_f(As)); W0 explicitly not used. Bounded 4x100k search correctly labeled non-probative (group ~5e18). Hex packing verified for extremals. SHA-256 of all 29 artifact files verified OK. Draft honestly separates computed theorem (a-c via enumeration) from invariant lower bounds (d) and disclaims exact class count and priority.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Compared exact hypotheses, quantifiers, parameter ranges, constants and proof scope. Candidate is a computed theorem: exhaustive Walsh-Hadamard census over all 2^20 n=7 RSBFs yielding a specific 33-value histogram summing to 1048576, RSBF-restricted covering radius max nl=56 (11788 maximizers with max|W|=16, 22344 next-maximizers with max|W|=18), plus lex-min canonical representatives (e.g. nl=56 truth 194304/0x2f700 ANF 46848/0x0b700 deg 4 wt 56 |W|={0:64,16:64}; nl=55 truth 718592 ANF 571136 deg 7) and >=11/>=12 affine-class lower bounds. Cusick-Stanica (2000) covers only degree-2 exact formulas and degree-3 conjectures. Stanica-Maitra (2008) gives the G=20 orbit-count formula and general bounds/examples, not the distribution. Kavut-Yucel (2008) is n=9 heuristic search (241/242), not n=7 exhaustive. Zhang et al (2010) and Yang et al (2012) are single-family parametric theorems (degree-3 and quartic monomial), not a census. Mykkeltveit (1980) gives only the unrestricted RM(1,7) radius 56, not the RSBF-restricted equality via enumeration. Crossref/Semantic Scholar queries for 'nonlinearity distribution', 'exhaustive enumeration seven variables', and 'covering radius n=7 56' returned only construction/bound/heuristic papers, no 33-value table, no 11788/22344 counts, no lex-min hex/spectra. No retrieved source substantively covers or implies the candidate table.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as compact checkable reference, not textbook/parameter-substitution/tiny-gain/bare-enumeration: (i) RSBF-restricted covering radius of RM(1,7) equals unrestricted 56, with 11788 explicit maximizers including plateaued/semi-bent type |W|={0:64,16:64} of degree 4 weight 56 — a concrete coding/crypto fact (nonlinearity governs linear-cryptanalysis resistance) directly reusable for design; (ii) full 33-value distribution with per-value canonical ANF representatives, degrees, spectra, hex and orbit-sum expressions provides a lookup table no textbook gives; (iii) structural analysis beyond bare counts: degree distributions, 4 Walsh types and 5 acmax values in maximizers, 4xN types in next-max, 11/12 affine-class lower bounds via genuine invariants, weight symmetries, and gap pattern (steps of 7 below 44) prompting divisibility conjecture (explicitly unclaimed). Heuristic prior examples are subsumed and certified. Reproducible in seconds with published generator plus independent NumPy path.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Foundational RSBF nonlinearity/weight theory: exact only for degree-2 family + conjecture for degree-3; different scope, no exhaustive n=7 distribution.",
+      "title": "Fast Evaluation, Weights and Nonlinearity of Rotation-Symmetric Functions",
+      "url": "https://arxiv.org/abs/math/0010221"
+    },
+    {
+      "outcome": "General RSBF count/cryptographic-properties reference giving orbit count G=20 for n=7 and bounds/examples; no complete Walsh-certified histogram or canonical extremal representatives.",
+      "title": "Rotation symmetric Boolean functions - Count and cryptographic properties",
+      "url": "https://doi.org/10.1016/j.dam.2007.04.029"
+    },
+    {
+      "outcome": "Nearest heuristic nonlinearity-search prior in RSBFs (n=9, nl 241/242); different n and method (heuristic vs exhaustive census), no n=7 distribution table.",
+      "title": "9-variable Boolean Functions with Nonlinearity 242 in the Generalized Rotation Class",
+      "url": "https://arxiv.org/abs/0808.0684"
+    },
+    {
+      "outcome": "Parametric theorem for degree-3 RSBF monomial family; does not imply or contain the full 33-value n=7 census.",
+      "title": "Proof of a Conjecture about Rotation Symmetric Functions",
+      "url": "https://arxiv.org/abs/1001.2942"
+    },
+    {
+      "outcome": "Parametric theorem for quartic monomial RSBFs (nonlinearity equals weight); does not imply the exhaustive distribution or maximizer counts.",
+      "title": "Nonlinearity of quartic rotation symmetric Boolean functions",
+      "url": "https://arxiv.org/abs/1212.1611"
+    },
+    {
+      "outcome": "Background unrestricted covering-radius result RM(1,7)=56; candidate additionally claims RSBF-restricted maximum equals 56 via exhaustive enumeration, which this source neither proves nor enumerates.",
+      "title": "The covering radius of the (128,8) Reed-Muller code is 56",
+      "url": "https://doi.org/10.1109/TIT.1980.1056187"
+    }
+  ],
+  "decisive_checks": [
+    "Orbit recomputation (pure Python): G=20, minima match draft table, sizes 1,1,7x18, weight preservation OK, formula (128+12)/7=20",
+    "Histogram sum: 1048576 over 33 values; max|W|=2*(64-nl) mapping verified",
+    "Full independent batched NumPy FWHT over all 1048576 masks (B=4096, vectorized butterfly, different path from C): histogram exact match on every nl:count, sum 1048576",
+    "All-33 lex-min reproduction via batched Mobius (GF2) + FWHT (B=8192): all 33 (truth_mask, anf_mask) match best_per_nl.csv",
+    "All-33 invariant recheck (pure-Python FWHT/Mobius, Counter): nl, ANF mask, degree, weight, W0, |W| multiset, Parseval 16384 all match representatives_full.csv",
+    "Extremal deep check: masks 194304 and 718592 give max|W| 16->nl56 and 18->nl55, W0=N-2wt, ANF masks 0x0b700/0x8b700, degrees 4/7, |W| multisets as claimed, published 128-int W files match bit-for-bit, FWHT(W^2)/128 equals naive autocorrelation, acmax 16/20",
+    "Spot-check random maximizer masks from file: all give nl56",
+    "Lex-min among extremal sets (independent Mobius): minimum over 11788/22344 ANFs by bit0-most-significant order is 46848/571136 as claimed, unique, distinct ANFs = totals (bijectivity)",
+    "Degree/weight distributions recomputed: nl56 2:28,3:560,4:5880,5:4704,6:616 and symmetric weights; nl55 all deg7, 4 weights x5586",
+    "Cluster collapse: parsed bulk_clusters.txt 33+48 fine clusters -> exactly 11 (nl56) and 12 (nl55) distinct (deg,|W|,acmax) after collapsing W0, sums 11788/22344",
+    "Hex packing (LSB-first 16 bytes) recomputed for extremals: matches truth_hex/anf_hex",
+    "SHA-256 verified for all 29 files against research_report inventory: ALL OK (relative to inputs/artifacts)",
+    "Affine-invariant theory checked: degree (deg>=2), |W| multiset permutation, |r| permutation hold under f(Ax+b)+c.x+d; W0 correctly excluded; bounded-search disclaimer correct"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:09:02Z",
+    "queries": [
+      {
+        "query": "ti:\"rotation symmetric\" AND ti:nonlinearity",
+        "result_count": 2,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:%22rotation+symmetric%22+AND+ti:nonlinearity&start=0&max_results=10&sortBy=relevance"
+      },
+      {
+        "query": "rotation symmetric Boolean functions nonlinearity distribution",
+        "result_count": 10,
+        "service": "Crossref REST API",
+        "url": "https://api.crossref.org/works?query=rotation+symmetric+Boolean+functions+nonlinearity+distribution&rows=10&select=title,DOI,author,published,URL"
+      },
+      {
+        "query": "rotation symmetric Boolean functions nonlinearity distribution seven variables",
+        "result_count": 85,
+        "service": "Semantic Scholar Graph API",
+        "url": "https://api.semanticscholar.org/graph/v1/paper/search?query=rotation+symmetric+Boolean+functions+nonlinearity+distribution+seven+variables&limit=10&fields=title,abstract,url,year,authors,externalIds"
+      },
+      {
+        "query": "Stanica Maitra rotation symmetric Boolean functions count cryptographic",
+        "result_count": 5,
+        "service": "Crossref REST API",
+        "url": "https://api.crossref.org/works?query=Stanica+Maitra+rotation+symmetric+Boolean+functions+count+cryptographic&rows=5&select=title,DOI,author,published,URL"
+      },
+      {
+        "query": "covering radius Reed Muller first order n 7 56",
+        "result_count": 10,
+        "service": "Crossref REST API",
+        "url": "https://api.crossref.org/works?query=covering+radius+Reed+Muller+first+order+n+7+56&rows=10&select=title,DOI,author,published,URL"
+      },
+      {
+        "query": "all:rotation symmetric AND all:covering radius",
+        "result_count": 10,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:rotation+symmetric+AND+all:covering+radius&start=0&max_results=10&sortBy=relevance"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Gives exact nonlinearity/weight only for degree-2 RotS via semi-bent functions plus generating function for degree-3 weight and a conjecture; no exhaustive n=7 census over 2^20 functions, no 33-value histogram, no max-56 or 11788/22344 constants or lex-min spectra.",
+        "retrieved_at_utc": "2026-09-07T14:09:02Z",
+        "title": "Fast Evaluation, Weights and Nonlinearity of Rotation-Symmetric Functions",
+        "url": "https://arxiv.org/abs/math/0010221"
+      },
+      {
+        "comparison": "Provides general orbit-count formula including G=20 for n=7 and general counts, bounds and heuristic high-nonlinearity examples; does not publish a complete Walsh-certified 33-value nonlinearity distribution, extremal counts, or canonical per-nl representatives with full spectra.",
+        "retrieved_at_utc": "2026-09-07T14:09:02Z",
+        "title": "Rotation symmetric Boolean functions - Count and cryptographic properties",
+        "url": "https://doi.org/10.1016/j.dam.2007.04.029"
+      },
+      {
+        "comparison": "Heuristic steepest-descent search reporting n=9 RSBF nonlinearity 241 and generalized 3-RSBF/3-DSBF nonlinearity 242 with covering-radius lower bound >=242 for R(1,9); different n, non-exhaustive heuristic, no n=7 histogram, no 56 maximum or affine-class lower bounds.",
+        "retrieved_at_utc": "2026-09-07T14:09:02Z",
+        "title": "9-variable Boolean Functions with Nonlinearity 242 in the Generalized Rotation Class",
+        "url": "https://arxiv.org/abs/0808.0684"
+      },
+      {
+        "comparison": "Proves the Cusick-Stanica degree-3 conjecture determining nonlinearity for that specific monomial rotation-symmetric family; parametric infinite-family theorem, not an exhaustive 2^20 enumeration for n=7 and contains no distribution table or extremal census.",
+        "retrieved_at_utc": "2026-09-07T14:09:02Z",
+        "title": "Proof of a Conjecture about Rotation Symmetric Functions",
+        "url": "https://arxiv.org/abs/1001.2942"
+      },
+      {
+        "comparison": "Proves nonlinearity equals weight for the quartic monomial family generated by x0*xe*x2e*x3e via recursive formulas; single monomial family result with no complete n=7 histogram, no 33 values summing to 1048576, and no lex-min masks or Walsh/autocorrelation spectra.",
+        "retrieved_at_utc": "2026-09-07T14:09:02Z",
+        "title": "Nonlinearity of quartic rotation symmetric Boolean functions",
+        "url": "https://arxiv.org/abs/1212.1611"
+      },
+      {
+        "comparison": "Proves the unrestricted (128,8) first-order Reed-Muller covering radius is 56; establishes the background constant 56 but says nothing about the RSBF-restricted covering radius, exhaustive RSBF enumeration, histogram, or representatives.",
+        "retrieved_at_utc": "2026-09-07T14:09:02Z",
+        "title": "The covering radius of the (128,8) Reed-Muller code is 56",
+        "url": "https://doi.org/10.1109/TIT.1980.1056187"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:09:02Z",
+      "queries": [
+        {
+          "query": "ti:\"rotation symmetric\" AND ti:nonlinearity",
+          "result_count": 2,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:%22rotation+symmetric%22+AND+ti:nonlinearity&start=0&max_results=10&sortBy=relevance"
+        },
+        {
+          "query": "rotation symmetric Boolean functions nonlinearity distribution",
+          "result_count": 10,
+          "service": "Crossref REST API",
+          "url": "https://api.crossref.org/works?query=rotation+symmetric+Boolean+functions+nonlinearity+distribution&rows=10&select=title,DOI,author,published,URL"
+        },
+        {
+          "query": "rotation symmetric Boolean functions nonlinearity distribution seven variables",
+          "result_count": 85,
+          "service": "Semantic Scholar Graph API",
+          "url": "https://api.semanticscholar.org/graph/v1/paper/search?query=rotation+symmetric+Boolean+functions+nonlinearity+distribution+seven+variables&limit=10&fields=title,abstract,url,year,authors,externalIds"
+        },
+        {
+          "query": "Stanica Maitra rotation symmetric Boolean functions count cryptographic",
+          "result_count": 5,
+          "service": "Crossref REST API",
+          "url": "https://api.crossref.org/works?query=Stanica+Maitra+rotation+symmetric+Boolean+functions+count+cryptographic&rows=5&select=title,DOI,author,published,URL"
+        },
+        {
+          "query": "covering radius Reed Muller first order n 7 56",
+          "result_count": 10,
+          "service": "Crossref REST API",
+          "url": "https://api.crossref.org/works?query=covering+radius+Reed+Muller+first+order+n+7+56&rows=10&select=title,DOI,author,published,URL"
+        },
+        {
+          "query": "all:rotation symmetric AND all:covering radius",
+          "result_count": 10,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:rotation+symmetric+AND+all:covering+radius&start=0&max_results=10&sortBy=relevance"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Gives exact nonlinearity/weight only for degree-2 RotS via semi-bent functions plus generating function for degree-3 weight and a conjecture; no exhaustive n=7 census over 2^20 functions, no 33-value histogram, no max-56 or 11788/22344 constants or lex-min spectra.",
+          "retrieved_at_utc": "2026-09-07T14:09:02Z",
+          "title": "Fast Evaluation, Weights and Nonlinearity of Rotation-Symmetric Functions",
+          "url": "https://arxiv.org/abs/math/0010221"
+        },
+        {
+          "comparison": "Provides general orbit-count formula including G=20 for n=7 and general counts, bounds and heuristic high-nonlinearity examples; does not publish a complete Walsh-certified 33-value nonlinearity distribution, extremal counts, or canonical per-nl representatives with full spectra.",
+          "retrieved_at_utc": "2026-09-07T14:09:02Z",
+          "title": "Rotation symmetric Boolean functions - Count and cryptographic properties",
+          "url": "https://doi.org/10.1016/j.dam.2007.04.029"
+        },
+        {
+          "comparison": "Heuristic steepest-descent search reporting n=9 RSBF nonlinearity 241 and generalized 3-RSBF/3-DSBF nonlinearity 242 with covering-radius lower bound >=242 for R(1,9); different n, non-exhaustive heuristic, no n=7 histogram, no 56 maximum or affine-class lower bounds.",
+          "retrieved_at_utc": "2026-09-07T14:09:02Z",
+          "title": "9-variable Boolean Functions with Nonlinearity 242 in the Generalized Rotation Class",
+          "url": "https://arxiv.org/abs/0808.0684"
+        },
+        {
+          "comparison": "Proves the Cusick-Stanica degree-3 conjecture determining nonlinearity for that specific monomial rotation-symmetric family; parametric infinite-family theorem, not an exhaustive 2^20 enumeration for n=7 and contains no distribution table or extremal census.",
+          "retrieved_at_utc": "2026-09-07T14:09:02Z",
+          "title": "Proof of a Conjecture about Rotation Symmetric Functions",
+          "url": "https://arxiv.org/abs/1001.2942"
+        },
+        {
+          "comparison": "Proves nonlinearity equals weight for the quartic monomial family generated by x0*xe*x2e*x3e via recursive formulas; single monomial family result with no complete n=7 histogram, no 33 values summing to 1048576, and no lex-min masks or Walsh/autocorrelation spectra.",
+          "retrieved_at_utc": "2026-09-07T14:09:02Z",
+          "title": "Nonlinearity of quartic rotation symmetric Boolean functions",
+          "url": "https://arxiv.org/abs/1212.1611"
+        },
+        {
+          "comparison": "Proves the unrestricted (128,8) first-order Reed-Muller covering radius is 56; establishes the background constant 56 but says nothing about the RSBF-restricted covering radius, exhaustive RSBF enumeration, histogram, or representatives.",
+          "retrieved_at_utc": "2026-09-07T14:09:02Z",
+          "title": "The covering radius of the (128,8) Reed-Muller code is 56",
+          "url": "https://doi.org/10.1109/TIT.1980.1056187"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Foundational RSBF nonlinearity/weight theory: exact only for degree-2 family + conjecture for degree-3; different scope, no exhaustive n=7 distribution.",
+        "title": "Fast Evaluation, Weights and Nonlinearity of Rotation-Symmetric Functions",
+        "url": "https://arxiv.org/abs/math/0010221"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "General RSBF count/cryptographic-properties reference giving orbit count G=20 for n=7 and bounds/examples; no complete Walsh-certified histogram or canonical extremal representatives.",
+        "title": "Rotation symmetric Boolean functions - Count and cryptographic properties",
+        "url": "https://doi.org/10.1016/j.dam.2007.04.029"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest heuristic nonlinearity-search prior in RSBFs (n=9, nl 241/242); different n and method (heuristic vs exhaustive census), no n=7 distribution table.",
+        "title": "9-variable Boolean Functions with Nonlinearity 242 in the Generalized Rotation Class",
+        "url": "https://arxiv.org/abs/0808.0684"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Parametric theorem for degree-3 RSBF monomial family; does not imply or contain the full 33-value n=7 census.",
+        "title": "Proof of a Conjecture about Rotation Symmetric Functions",
+        "url": "https://arxiv.org/abs/1001.2942"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Parametric theorem for quartic monomial RSBFs (nonlinearity equals weight); does not imply the exhaustive distribution or maximizer counts.",
+        "title": "Nonlinearity of quartic rotation symmetric Boolean functions",
+        "url": "https://arxiv.org/abs/1212.1611"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Background unrestricted covering-radius result RM(1,7)=56; candidate additionally claims RSBF-restricted maximum equals 56 via exhaustive enumeration, which this source neither proves nor enumerates.",
+        "title": "The covering radius of the (128,8) Reed-Muller code is 56",
+        "url": "https://doi.org/10.1109/TIT.1980.1056187"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-005",
+    "originality_rationale": "Compared exact hypotheses, quantifiers, parameter ranges, constants and proof scope. Candidate is a computed theorem: exhaustive Walsh-Hadamard census over all 2^20 n=7 RSBFs yielding a specific 33-value histogram summing to 1048576, RSBF-restricted covering radius max nl=56 (11788 maximizers with max|W|=16, 22344 next-maximizers with max|W|=18), plus lex-min canonical representatives (e.g. nl=56 truth 194304/0x2f700 ANF 46848/0x0b700 deg 4 wt 56 |W|={0:64,16:64}; nl=55 truth 718592 ANF 571136 deg 7) and >=11/>=12 affine-class lower bounds. Cusick-Stanica (2000) covers only degree-2 exact formulas and degree-3 conjectures. Stanica-Maitra (2008) gives the G=20 orbit-count formula and general bounds/examples, not the distribution. Kavut-Yucel (2008) is n=9 heuristic search (241/242), not n=7 exhaustive. Zhang et al (2010) and Yang et al (2012) are single-family parametric theorems (degree-3 and quartic monomial), not a census. Mykkeltveit (1980) gives only the unrestricted RM(1,7) radius 56, not the RSBF-restricted equality via enumeration. Crossref/Semantic Scholar queries for 'nonlinearity distribution', 'exhaustive enumeration seven variables', and 'covering radius n=7 56' returned only construction/bound/heuristic papers, no 33-value table, no 11788/22344 counts, no lex-min hex/spectra. No retrieved source substantively covers or implies the candidate table.",
+    "priority_caveat": "This PASS reports only that this documented live search found no source substantively covering or implying the candidate; it is not an award of academic priority and does not establish that no other prior art exists.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-005",
+    "residual_uncertainties": [
+      "Record RESULT.md reference URLs contain stale identifiers (ePrint 2006/449 currently resolves to Bellare-Rogaway secret sharing, not Kavut-Maitra-Sarkar-Yucel; Stanica-Maitra DOI in record has digit transposition vs correct 10.1016/j.dam.2007.04.029); corrected identifiers were used for retrieval.",
+      "Paywalled full texts (e.g. Stanica-Maitra 2008, Mykkeltveit 1980) were compared via publisher/Crossref metadata plus arXiv/Semantic Scholar abstracts; full-text tables beyond abstracts could not be exhaustively excluded, but title/abstract-level search plus targeted distribution/exhaustive queries make a hidden identical 33-value table unlikely.",
+      "OpenAlex API returned rate-limit/budget errors during this run, so OpenAlex was not usable; coverage was instead obtained via three independent services: arXiv API, Crossref REST API, and Semantic Scholar Graph API plus DOI/ePrint resolution.",
+      "Possible theses or non-indexed code repositories with the same enumeration were not fully excludable via these APIs; search found no such source."
+    ],
+    "reviewed_claim": "Complete Walsh-Hadamard nonlinearity distribution of all 1048576 (2^20) rotation-symmetric Boolean functions in n=7: exact 33-value histogram summing to 1048576 with max nl=56 equal to unrestricted RM(1,7) covering radius, 11788 maximizers (max|W|=16) and 22344 nl=55 functions (max|W|=18), plus lex-min canonical representatives per nl (e.g. nl=56 truth mask 194304 ANF 46848 degree 4 |W|={0:64,16:64}; nl=55 truth 718592 degree 7) and >=11/>=12 affine-inequivalence lower bounds.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "exact claim phrasing: complete nonlinearity distribution/histogram of rotation-symmetric Boolean functions n=7",
+      "strongest subclaims: RSBF-restricted covering radius 56, 11788 maximizers, 33 values summing to 2^20, lex-min extremal masks/spectra",
+      "named objects/methods: RSBF/RotS, Walsh-Hadamard nonlinearity nl=64-max|W|/2, RM(1,7) covering radius, G=20 orbits",
+      "equivalent terminology: rotation-symmetric vs RotS vs RSBF, nonlinearity vs covering radius, exhaustive enumeration vs complete census vs distribution",
+      "targeted author/title checks: Stanica-Maitra count, Cusick-Stanica weights/nonlinearity, Kavut n=9 search, Mykkeltveit (128,8) radius 56"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Live-web prior-art search unavailable in this environment (6 triage fetches + 3 audit fetches all transport/502 errors); originality rests on knowledge-cutoff comparison and capped confidence — a thesis/paper with same table missed offline would supersede novelty but not correctness",
+    "Exact number of affine classes not determined (only lower bounds 11/12); full classification with canonical forms/stabilizers remains open and is explicitly not claimed",
+    "RSBF subclass only; no claim about non-symmetric functions beyond equality of restricted/unrestricted covering radii in n=7",
+    "Low-nl gap/divisibility pattern noted as unproven observation/conjecture",
+    "Autocorrelation via FWHT(W^2)/N assumes exact divisibility (verified for extremals and theoretically expected via Wiener-Khintchine; bulk code does not assert remainder)",
+    "Originality revalidation: Record RESULT.md reference URLs contain stale identifiers (ePrint 2006/449 currently resolves to Bellare-Rogaway secret sharing, not Kavut-Maitra-Sarkar-Yucel; Stanica-Maitra DOI in record has digit transposition vs correct 10.1016/j.dam.2007.04.029); corrected identifiers were used for retrieval.",
+    "Originality revalidation: Paywalled full texts (e.g. Stanica-Maitra 2008, Mykkeltveit 1980) were compared via publisher/Crossref metadata plus arXiv/Semantic Scholar abstracts; full-text tables beyond abstracts could not be exhaustively excluded, but title/abstract-level search plus targeted distribution/exhaustive queries make a hidden identical 33-value table unlikely.",
+    "Originality revalidation: OpenAlex API returned rate-limit/budget errors during this run, so OpenAlex was not usable; coverage was instead obtained via three independent services: arXiv API, Crossref REST API, and Semantic Scholar Graph API plus DOI/ePrint resolution.",
+    "Originality revalidation: Possible theses or non-indexed code repositories with the same enumeration were not fully excludable via these APIs; search found no such source."
+  ],
+  "verdict": "PASS"
+}
