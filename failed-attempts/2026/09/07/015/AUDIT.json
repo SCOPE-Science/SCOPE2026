@@ -1,0 +1,37 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Existential claim for 18 types verified. Re-ran inputs/artifacts/replay.py: 95/95 PASS in ~0.5s. Independently recomputed all 12 [I4|A] basis families with a fresh permutation-sum determinant (not the audited det_mod) \u2014 exact match on counts 35,39,40,45,46,49,50,51,54,58,60,63 and identity {0,1,2,3} present. Verified Plucker total 56*56=3136 and duality construction [I|A] -> [-A^T|I] reproduces dual bases (checked R35: 35/35 match). Recomputed Vamon rank table independently: A={2,3},B={4,5},C={0,1},D={6,7} gives LHS 2+2+4+4+4=16 vs RHS 3+3+3+3+3=15, genuine Ingleton violation, so V8 non-representable over any field. F7 UNSAT (normalized and unnormalized both 0) is sound: column-scaling normalization (first nonzero=1) preserves zero-pattern, and full search also 0; moreover textbook characteristic argument (Fano needs char 2) makes lemma true independent of code. Minor witnesses verified: coloop/loop deletions recover F7/F7* by identity; binary extensions delete to binary F7* and independent S7 brute-force search rediscovers the claimed perm (0,1,2,4,6,3,5) mapping to combinatorial F7*. All 18 (nb, sorted-degree) keys distinct, so pairwise non-isomorphism implication is sound. Hash/duality/involution checks pass. DRAFT honestly scopes proof vs machine evidence vs conjecture (\u00a76), disclaims completeness, Hydra-5 projective meaning, hash completeness, and U(4,8). No overclaim, no boundary error, no computation mismatch found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No substantive new mathematical delta vs nearest priors. (1) Mayhew-Royle (math/0702316) already gives abstract catalogue to 9 elements; the 18 abstract types are contained therein. (2) F7 non-GF(5) (needs char 2), F7* by duality, V8 via Ingleton (1971) are decades-old textbook facts (Oxley); DRAFT itself claims no novelty for them (\u00a72, \u00a74). (3) Brettell et al. 2307.14614 (564 excluded minors <=9 elements, 2128 on 10) and 2206.15188 (Hydra-5 / six inequivalent GF(5) representations) already cover obstruction counts and representation-multiplicity theory; DRAFT explicitly disclaims testing the six-prediction (fixed-basis column-scaling counts 64-576 are strictly finer, \u00a75 footnote, \u00a76) and uses only F7/F7*/V8, not the 564-list. (4) The 12 [I|A] matrices plus fixed-basis counts/hashes are new strings but routine instances obtainable by standard exact linear algebra; no evidence they close a sought gap, instantiate a named non-trivial class (P8-like/whirl/spike identified in topic rejection_risks but absent here as anonymous Rxx), or were previously unknown/sought. Methods (extension, canonical-hash, determinant enumeration, brute-force iso) are standard. Hence constructive-partial artifact adds no conceptual novelty; timestamp/absence of prior publication of those exact matrices does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. Target in topic.json was complete M(4,8) census (thousands of types per DRAFT \u00a71) with extension closure from 7-element catalogue, canonical-hash dedup, per-matroid GF(5) matrix or (D,C,reference<=9,iso) to published 564-list, inequivalent-representation tallies, and <15min checker; fallback was complete 3-connected (simple+cosimple) rank-4 8-element sub-stratum plus full pending list for remainder. Delivered is 18 arbitrary types (~<5% of stratum) with no completeness, no extension closure, no 564-list use (offline, \u00a71), no 3-connected-core closure, no Hydra-5 tally, U(4,8) deliberately omitted (MDS q+1), Vamon-relaxation not closed \u2014 all disclaimed in \u00a71 and \u00a76. Selection of the 12 Rxx is unmotivated (no natural class, no theoretical consequence, no application beyond generic reusable pipeline). Mitigations claimed in topic (Plucker/duality/counts/minor witnesses) are defused by DRAFT itself: Plucker is sanity consequence, counts are non-projective, duality is routine. This is exactly textbook restatement (Fano/Ingleton/duality) plus unexplained enumeration of routine instances, which must be rejected even if correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: target_claim, fallback_claim, nearest_known_results (3 arXiv), internal_prior_scan resultary/failure lists",
+    "inputs/DRAFT.md \u00a7\u00a71-7: claimed theorem, limitations, prior-work delta, Fano/F7*/Vamos constructions",
+    "inputs/research_report.json: claim, evidence_summary 95/95, limitations (partial, no Mayhew-Royle closure, no 564-list, fixed-basis counts, U(4,8) omitted)",
+    "inputs/artifacts/replay.py (422 lines): axioms, det_mod, solve_count, plucker_check, REP_A, EXT_VEC, hash/duality logic \u2014 executed and independently cross-checked",
+    "Nearest priors compared substantively: Mayhew-Royle math/0702316 (catalogue to 9 elements, no per-stratum GF5 matrices); Brettell et al. 2307.14614 (564 <=9 / 2128 on 10 excluded minors, counts only); Brettell et al. 2206.15188 (Hydra-5/3-regular, six representations theory, no rank-4 8-element enumeration) \u2014 direct webfetch attempted (arxiv 502/transport offline), comparison via topic metadata plus standard textbook knowledge (Oxley duality/characteristic, Ingleton 1971 inequality)"
+  ],
+  "decisive_checks": [
+    "replay.py executed: SUMMARY 95/95 PASS ~0.5s, CATALOGUE 18 (12+6), 18 HASH lines distinct",
+    "independent permutation-sum determinant (prod bug fixed) recomputed all 12 [I|A] bases: exact match nb 35-63, identity basis present",
+    "independent S7 brute-force iso search rediscovers BIN_ISO_P (0,1,2,4,6,3,5) for binary-F7* to combinatorial F7*; coloop/loop deletions verified to F7/F7*",
+    "independent rank-table recomputation confirms Ingleton LHS16 RHS15 on {2,3},{4,5},{0,1},{6,7}; duality [-A^T|I] verified to reproduce dual bases for R35",
+    "normalization soundness reviewed (first-nonzero=1 divides by GF5* per nonzero column, zero-column preserved) plus full unnormalized Fano UNSAT=0; Plucker total 56*56=3136 confirmed; (nb,degree) uniqueness 18/18 confirmed",
+    "scope gap confirmed: DRAFT \u00a7\u00a71,6 explicitly disclaim completeness, Mayhew-Royle closure, 564-list, Hydra-5 projective tally, U(4,8); fallback (3-connected core + pending list) not met"
+  ],
+  "residual_risks": [
+    "Representation counts 64-576 rely on same backtracking solver pruning; reproduced (R35=192, R63=64) but not reimplemented with fully independent branching order \u2014 low risk, and counts are ancillary (explicitly non-Hydra-5)",
+    "Hash is sound-but-incomplete invariant; completeness of non-isomorphism here rests only on observed (nb,degree) separation, acknowledged \u2014 no hidden collision risk for this instance",
+    "No completeness/closure risk because no such claim is made; risk is value gap, not hidden incorrectness"
+  ],
+  "verdict": "REJECT"
+}
