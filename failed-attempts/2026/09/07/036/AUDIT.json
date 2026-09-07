@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetry reduction verified by re-running sym.py: 24 perms, 276 raw pairs, 56 canonical reps, orbit-size distribution 4x1+8x2+24x4+20x8 summing to 276, single-pattern orbits 2,2,2,2,4,4,8, all matching DRAFT Section 2 and symmetry_map.json (Counter 4:24,8:20,2:8,1:4). Hereditary max-insertion lemma (Section 3 Method A) is sound: deleting max n preserves relative order of remaining entries so any forbidden quadruple not using n already lies in the avoiding parent; checking only quadruples containing new n is therefore complete. Method B Lehmer decode (rem.pop) is a bijection C_n->S_n enumerated by odometer covering n! codes; Method C itertools.permutations covers n! perms; both checkers use correct rank definitions (comparison-counts vs sorted-index) for distinct values. File consistency verified: counts.csv SHA-256 462554e9c873c4524ab86330794e02cb54f203530d0df8fadd7a28342180219c matches DRAFT, 56 rows, a0..a3=1,1,2,6 and a4=22 universal, countsABC.json has 56 entries all ok and A==B==C per rep with CSV-consistent vectors, 38 distinct vectors with size distribution 1x10+1x5+1x4+2x2+33x1 and stability 38 at n=8 and 38 at n=9 matching DRAFT. Canon mapping verified: canon(3142,2341)=(1432,2413) so target equality is checked as 1342_2143 vs 1432_2413 vectors [1,1,2,6,22,88,368,1584,6968,31192] equal, Le-second 1243_2134 vs 1342_3124 vectors [1,1,2,6,22,87,354,1459,6056,25252] equal, separation control 1234_1342 [...,7584,34875] vs 1324_1432 [...,7566,34676] diverging at n=7 by 1 as stated. Independent fresh brute (sorted-index rank, itertools.permutations, code distinct from artifacts) reproduced 1342_2143, 1432_2413, 1243_2134, 1234_1342 prefixes to n=7 and 1342_2143 n=8=6968; MethodA.py to n=8 and MethodB/MethodC to n=7 spot checks match CSV. DRAFT honestly distinguishes proof (symmetry, lemma) from computed finite-n evidence, states no infinite-n bijection/rationality, labels 38-class coincidence as conjecture, and documents max-insertion rank/tree-isomorphism failure. No computation error found in load-bearing census.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval decisively anticipates the mathematical content. Le (Electron. J. Combin. 12(1) R25, 2005) proves for ALL n that |S_n(1342,2143)|=|S_n(3142,2341)| and |S_n(1342,3124)|=|S_n(1243,2134)| by block bijections plus a generating function for the former, completing the Wilf-classification of length-4 pairs. The DRAFT fallback finite-n equalities to n<=9 (31192=31192, 25252=25252) are strict corollaries of Le's infinite theorems, not new facts. The 38-vector clustering to n=9 is an empirical truncation implied by Le's classes (DRAFT itself calls coincidence a conjecture, not a theorem). Kremer-Shiu (Discrete Math. 268, 2003) already gives finite transition matrices for a subset of length-4 pairs, the direct predecessor of the transfer-matrix/Code-enumeration cross-check. Vatter (arXiv:0911.2683) and Bean et al. (arXiv:2312.07716) establish the regular-insertion-encoding framework and its limits (height<=2 POPs rational; classical length-4 pairs generally irregular), so the DRAFT's truncated n<=9 use without rationality claim is a deliberately weakened application, not a new encoding theorem. The originally promised novelty (ii) -- an explicit insertion-code profile-preserving isomorphism for the Le-hard pair -- is documented in DRAFT Section 5 as failing (rank maps fail at n=4, max-insertion trees non-isomorphic to depth 6, no general bijection claimed). What remains as arguably new is only the provenance artifact: a triple-agreement CSV+code bundle. A new replay bundle for already-proved equalities is verification, not a substantively new combinatorial result under live-literature comparison.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taking correctness for granted and treating the CSV bundle as new provenance, the result is not independently worth finding later. Le already closed the infinite classification with proofs, bijections, and a generating function; a finite truncation to n<=9 adds no formula, no infinite bijection, no rationality/automaton, and no extension to n>=10 or longer patterns (n=10 explicitly not run). The 38 finite-n clusters are unexplained enumerations by DRAFT's own admission (conjecture, no proof that they equal Wilf-classes; equality to n=9 does not imply equality for all n). The envisioned reusable insertion-encoding certificate failed for max-insertion and other encodings were not searched, so no transferable bijection method is delivered -- the reusable remainder is textbook brute-force enumeration regenerable in seconds (~15s on 32 cores per DRAFT). This falls squarely under the reject categories: unexplained enumeration, tiny unmotivated finite gain over a closed classification, and mere parameter-substitution-style recomputation, which must be rejected even if correct and new. A future researcher seeking Wilf-equivalence would cite Le's theorems, not a n<=9 table.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md (all sections, fallback claim, negative Section 5, limitations)",
+    "inputs/topic.json (target vs fallback, prior scan, live_literature_check)",
+    "inputs/research_report.json (claim, evidence summary, artifact inventory)",
+    "inputs/artifacts/sym.py + census_all.py + methodA.py + methodB.py + methodC.py + replay.sh (logic audit)",
+    "inputs/artifacts/symmetry_map.json (276->56 map, orbit sizes)",
+    "inputs/artifacts/counts.csv (56x a0..a9, sha256)",
+    "inputs/artifacts/countsABC.json (A/B/C vectors, profiles, ok flags)",
+    "live publisher page Le 2005, live arXiv Bean 2023, live arXiv Vatter 2009, live Crossref query metadata for Kremer-Shiu 2003"
+  ],
+  "decisive_checks": [
+    "Re-ran sym.py: S4=24, 7 single orbits [2,2,2,2,4,4,8], 276 raw -> 56 reps Counter 4:24,8:20,2:8,1:4 sum 276, canon(3142,2341)=(1432,2413): PASS, matches DRAFT",
+    "Verified counts.csv sha256 462554e9c873c4524ab86330794e02cb54f203530d0df8fadd7a28342180219c, 56 rows, a0..a3=1,1,2,6 and a4=22 universal: PASS",
+    "Verified countsABC.json 56 entries all ok, A==B==C per rep and CSV-consistent: PASS",
+    "Verified clustering 38 distinct vectors (10+5+4+2+2+33x1), stable 38 at n=8 and n=9; target 31192=31192 and Le-second 25252=25252; separation 34875 vs 34676 diverging at n=7 by 1: PASS",
+    "Independent fresh brute (sorted-index rank, itertools.permutations) reproduced 1342_2143/1432_2413/1243_2134/1234_1342 to n=7 and 1342_2143 n=8=6968; methodA to n=8, methodB/C to n=7 match CSV: PASS",
+    "Audited hereditary lemma and new-max-only optimization: proof sound; n<4 shortcut sound; Lehmer decode bijection sound: PASS",
+    "Live comparison: Le 2005 abstract proves both hard equivalences for all n by block bijections + GF, strictly implying finite-n equalities: originality defeated",
+    "Live comparison: Kremer-Shiu transition matrices predecessor, Vatter/Bean regular-encoding framework shows truncated non-rational use is weakened application; attempted new isomorphism documented as failed: no new theorem"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T16:01:33Z",
+    "queries": [
+      {
+        "query": "Wilf equivalence pairs length four patterns permutations",
+        "result_count": 1154786,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=Wilf%20equivalence%20pairs%20length%20four%20patterns%20permutations&rows=5"
+      },
+      {
+        "query": "insertion encoding permutations",
+        "result_count": 19,
+        "service": "arXiv",
+        "url": "https://arxiv.org/search/?query=insertion+encoding+permutations&searchtype=all&source=header"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Publisher page abstract states Le proves |S_n(1342,2143)|=|S_n(3142,2341)| and |S_n(1342,3124)|=|S_n(1243,2134)| for all n by block bijections with a generating function for the former, completing the length-4 pair classification. This strictly implies the DRAFT finite-n equalities to n=9 (31192, 25252) and uses a different method with no code or n=9 triple census.",
+        "retrieved_at_utc": "2026-09-07T16:01:33Z",
+        "title": "Wilf Classes of Pairs of Permutations of Length 4",
+        "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v12i1r25"
+      },
+      {
+        "comparison": "Crossref record plus DOI landing confirms Kremer-Shiu construct finite transition matrices for permutations avoiding pairs of length-four patterns (Discrete Math. 268, 171-183). This is the direct predecessor of the DRAFT transfer-matrix/code-enumeration cross-check, covering only a subset of pairs with no exhaustive symmetry-reduced census or brute-force replay.",
+        "retrieved_at_utc": "2026-09-07T16:01:33Z",
+        "title": "Finite transition matrices for permutations avoiding pairs of length four patterns",
+        "url": "https://doi.org/10.1016/S0012-365X(03)00042-6"
+      },
+      {
+        "comparison": "arXiv abstract proves every class avoiding a height-at-most-two partially ordered pattern has a regular insertion encoding and rational generating function with specifications for size-5 POPs. Classical length-4 pairs are generally irregular, so this theorem does not cover the DRAFT objects; the DRAFT truncated finite-n use without rationality is a different complementary application.",
+        "retrieved_at_utc": "2026-09-07T16:01:33Z",
+        "title": "Permutations avoiding bipartite partially ordered patterns have a regular insertion encoding",
+        "url": "https://arxiv.org/abs/2312.07716"
+      },
+      {
+        "comparison": "arXiv abstract describes a practical algorithm computing the accepting automaton for the insertion encoding whenever it is regular, with Maple package INSENC for rational generating functions. This establishes the prior regular-encoding framework; the DRAFT explicitly claims no rationality and truncates to n<=9, avoiding but not extending this prior work.",
+        "retrieved_at_utc": "2026-09-07T16:01:33Z",
+        "title": "Finding regular insertion encodings for permutation classes",
+        "url": "https://arxiv.org/abs/0911.2683"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Full n<=9 triple replay (bash replay.sh, ~15s on 32 cores) was not re-executed to avoid overwriting evidence CSVs; reliance is on countsABC.json ok-flags plus spot brute to n=7/n=8 and file-consistency checks",
+    "Negative max-insertion isomorphism failure (rank maps at n=4, AHU 23 vs 25 types to depth 6) cites investigative scripts work/rankmap.py, sortedmap.py, treeiso.py explicitly not in artifacts/ and was not independently replayed; not load-bearing for REJECT but unverified as a standalone claim",
+    "n=9 brute values (e.g. 31192, 25252, 34875) verified only via artifact internal A==B==C agreement and n<=8 independent brute, not by a full independent n=9 recount",
+    "arXiv API endpoint failed via transport error; second-service query uses arXiv HTML search (19 results) which is live but parsed from page text rather than API JSON"
+  ],
+  "verdict": "REJECT"
+}
