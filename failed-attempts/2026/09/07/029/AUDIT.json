@@ -1,0 +1,108 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 1 (|N|=41): verified both analytically and computationally. Each queen has 4 lines of 11 cells; pairwise intersections are exactly {q} because row/col/diag/antidiag share only q and for odd n=11 diag/antidiag meet only at q (2t=0 => t=0 mod 11). Inclusion-exclusion then gives 41; independent predicate recount for all 121 cells confirms 41. Lemma 2 (translation reduction): attack predicates depend only on differences r-r0, c-c0, (r-c)-(r0-c0), (r+c)-(r0+c0) mod 11, preserved by joint translation, so every non-empty dominating set translates to one containing (0,0). Reduction to C(120,2)=7140 triples and C(120,3)=280840 quadruples is therefore complete. Lemma 3 (k=2 impossible): union bound 2*41=82<121 is a valid upper bound, so correct. Lower bound (no 3- or 4-dominator): replayed inputs/artifacts/verifier.py successfully in 0.17s: 7140 canonical triples, 0 dominate, max 92/121 e.g. {(0,0),(1,2),(2,10)}; 280840 canonical quadruples, 0 dominate, max 108/121 e.g. {(0,0),(1,2),(2,4),(3,1)}. Independently re-implemented with attack predicate (r==r0 or c==c0 or r-c==... or r+c==...) rather than line-list bitmasks: same UNSAT verdicts and same maxima 92 and 108 with same extremal examples; set-based recount agrees. Translation invariance spot-checked on 100 random 4-sets. Upper bound (5-witness): W={(4,3),(10,1),(8,5),(7,2),(6,10)} and canonical translate Wc={(0,0),(2,7),(3,10),(4,2),(6,9)} both dominate all 121 cells under independent predicate check. All 121 rows of coverage_table.csv validated: each claimed (queen, line_type) indeed attacks the cell with correct row/col/diag/antidiag condition, indices match W, all 121 cells covered exactly once. DRAFT honestly discloses brute-force (not DRAT) certificate; deviation from audit_plan SAT+DRAT is disclosed, not misrepresented, and deterministic exhaustive enumeration over 280k cases is a valid proof when code is correct, which two independent paths confirm. No floating point or solver trusted; stdlib only. Proof vs experiment distinguished: lemmas are deductive, UNSAT is exhaustive proof (not sampling), random 200k 4-sets and hill-climbing notes are ancillary consistency checks, not part of proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval (arXiv + Crossref, 2026-09-07) finds no prior exact toroidal domination number for T_11 with witness plus minus-one UNSAT. Exact-phrase arXiv query toroidal+queen+domination returns 0 hits; broader toroidal+queen returns 11 hits, all inspected via feed: toroidal 3D spectra, gonality, peaceable queens, n-queens counting, panmagic permutations \u2014 none is a domination census. Crossref query returns Mynhardt 2003 'Upper bounds for the domination numbers of toroidal queens graphs' (bounds only, not exact census), Weakley planar even boards, plus toroidal-mesh domination (different graphs). Retrieved and inspected: (1) Bozoki et al. planar rectangular census gives gamma(11x11)=5 on non-wrapping board with varying diagonal lengths and no translation symmetry \u2014 does not imply toroidal gamma_T(11); (2) Karandikar planar relaxation improves rectangular lower bounds, no toroidal model or per-n UNSAT; (3) Rostami planar SAT framework resolves n=19 and corrects n=16, planar encoding only; (4) Clinch et al. peaceable queens maxima (two-colour non-attacking) on regular/toroidal boards, different objective; (5) Morrison gonality equals nm minus independence, different invariant; (6) Mynhardt upper bounds per title/metadata, no exact n=9-12 witness/table/DRAT. Substantive comparisons confirm disjoint objects/methods/claims. No source gives 5-witness coordinates, 121-cell wrap-around coverage table, or k=3/k=4 UNSAT for T_11.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: single-stratum n=11 exact number by 0.17s trivial exhaustive search is a mere parameter substitution and unexplained enumeration, not independently worth finding later. Method (neighbourhood size 4n-3 for odd n, translation reduction to C(n^2-1,k-1), bitmask enumeration) is generic for any n and textbook group action; no new encoding, canonicalization beyond fixing (0,0), structural theorem, classification, uniqueness/census of 5-dominators (explicitly disclaimed), frequency table, or general gamma_T(n) formula is given. Optimality rests solely on 'checked 280840 cases, none dominate, max 108' without structural reason why 4 insufficient beyond overlap observation (~12 per pair). Result is trivially recomputable by anyone in <1s, so archival value is minimal. Equals long-known planar gamma(11)=5 (Bozoki et al.), so hoped-for planar/toroidal separation does not occur; contribution is one data point coinciding with planar value, not a separation or general bound. Analogous single-parameter SAT+DRAT exact number RT(30,K4,6) was previously AUDIT_REJECT on value despite heavier machinery; this 280k brute-force single number is thinner. Closing one n in infinite family gamma_T(n) without table for 9-12, without general insight, and without hard-to-reproduce artefact falls under 'mere parameter substitution / unexplained enumeration even if correct and new' and 'tiny unmotivated gain'. Correct and new, but not worth finding later as standalone finding.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit_plan, target_claim gamma_T(11)=4-or-3, fallback, live_literature_check)",
+    "inputs/DRAFT.md (gamma_T(11)=5 claim, Lemmas 1-3, exhaustive UNSAT maxima 92/108, witness W/Wc, coverage table, limitations)",
+    "inputs/research_report.json (claim, evidence_summary, artifact_inventory)",
+    "inputs/artifacts/verifier.py (stdlib replay: |N|, k=2 bound, k=3/k=4 canonical loops, witness, table emission)",
+    "inputs/artifacts/witness.json (W and Wc)",
+    "inputs/artifacts/coverage_table.csv (121 rows validated cell-by-cell)"
+  ],
+  "decisive_checks": [
+    "Replayed verifier.py: [1] |N|=41 OK, [2] 2*41<121 OK, [3] 7140 triples 0 dominate max 92 e.g. (0,0),(1,2),(2,10) 0.01s, [4] 280840 quadruples 0 dominate max 108 e.g. (0,0),(1,2),(2,4),(3,1) 0.16s, [5] W dominates OK + Wc dominates OK, [6] 121-row table written; ALL PASSED 0.17s",
+    "Independent predicate recount (attacks iff row/col/diag/antidiag mod 11): |N|=41 for all 121 cells OK; W and Wc dominate OK; k=3 exhaustive UNSAT max 92 OK; k=4 set-based exhaustive UNSAT max 108 with same best quad OK",
+    "Verified claimed maxima examples achieve 92 and 108 respectively under independent predicate",
+    "Validated coverage_table.csv: 121 distinct cells, each queen_index matches W coordinates, each line_type (row/col/diag/antidiag) satisfies corresponding congruence, each cell attacked",
+    "Verified Wc = sorted(W-(4,3) mod 11) equals [(0,0),(2,7),(3,10),(4,2),(6,9)] and dominates",
+    "Translation-invariance spot-check: 100 random 4-sets D vs D+t preserve domination status",
+    "Live retrieval: arXiv exact-phrase 0 hits, queen+domination 21 hits, toroidal+queen 11 hits; Crossref toroidal queen domination total 70303 with top hits inspected; fetched/inspected 6 distinct sources confirming no T_11 exact census"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:52:03Z",
+    "queries": [
+      {
+        "query": "all:toroidal AND all:queen AND all:domination",
+        "result_count": 0,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:toroidal+AND+all:queen+AND+all:domination&start=0&max_results=10&sortBy=relevance&sortOrder=descending"
+      },
+      {
+        "query": "all:queen AND all:domination",
+        "result_count": 21,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:queen+AND+all:domination&start=0&max_results=10&sortBy=relevance&sortOrder=descending"
+      },
+      {
+        "query": "all:toroidal AND all:queen",
+        "result_count": 11,
+        "service": "arXiv",
+        "url": "https://export.arxiv.org/api/query?search_query=all:toroidal+AND+all:queen&start=0&max_results=10&sortBy=relevance&sortOrder=descending"
+      },
+      {
+        "query": "toroidal queen domination",
+        "result_count": 70303,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=toroidal+queen+domination&rows=10&select=DOI,title,author,published,URL"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Planar queen-domination relaxation that is exactly solvable on square/rectangular boards, improving rectangular lower bounds in ~12.5% of cases and simplifying square-board proofs; it has no toroidal wrap-around adjacency model and produces no fixed-n toroidal SAT or exhaustive UNSAT census, so the T_11 exact number is untouched.",
+        "retrieved_at_utc": "2026-09-07T14:50:20Z",
+        "title": "Improved lower bounds for Queen's Domination via an exactly-solvable relaxation",
+        "url": "https://arxiv.org/abs/2304.06620"
+      },
+      {
+        "comparison": "Planar rectangular queen domination census for 4<=m<=n<=18 reporting gamma(Q_11x11)=5 on the non-wrapping board with varying diagonal lengths; toroidal lines are all length 11 with full translation symmetry, so this planar table neither implies nor contains toroidal gamma_T(11)=5 with wrap-around coverage and canonical UNSAT.",
+        "retrieved_at_utc": "2026-09-07T14:50:30Z",
+        "title": "Domination of the rectangular queen's graph",
+        "url": "https://arxiv.org/abs/1606.02060"
+      },
+      {
+        "comparison": "Proof-producing SAT framework for planar queen domination with row/column/diagonal auxiliaries, symmetry breaking and Cube-and-Conquer that corrects the n=16 enumeration and resolves open planar n=19; it addresses only planar boards and contains no toroidal board encoding or T_11 domination witness or optimality certificate.",
+        "retrieved_at_utc": "2026-09-07T14:50:35Z",
+        "title": "Queen Domination by SAT Solving",
+        "url": "https://arxiv.org/abs/2508.11945"
+      },
+      {
+        "comparison": "Peaceable-queens maximum (largest two-colour non-attacking sets) on regular and toroidal boards with odd/even-torus contrast, explicit constructions and nonlinear bounds plus local search; its extremal objective and certificates are disjoint from minimum toroidal dominating sets and per-cell coverage plus minus-one UNSAT proofs.",
+        "retrieved_at_utc": "2026-09-07T14:51:00Z",
+        "title": "Constructions, bounds, and algorithms for peaceable queens",
+        "url": "https://arxiv.org/abs/2406.06974"
+      },
+      {
+        "comparison": "Proves gonality of queen's graphs equals nm minus independence number via chip-firing and maximum independent sets, with identical result for toroidal queen's graphs; this concerns gonality and independence, not domination numbers, witnesses, or exhaustive domination UNSAT for any fixed toroidal stratum.",
+        "retrieved_at_utc": "2026-09-07T14:51:10Z",
+        "title": "The Gonality of Queen's Graphs",
+        "url": "https://arxiv.org/abs/2312.04686"
+      },
+      {
+        "comparison": "Crossref and publisher DOI metadata confirm this is the 2003 Discussiones Mathematicae Graph Theory article titled Upper bounds for the domination numbers of toroidal queens graphs; by title, venue and metadata it provides upper bounds only and contains no exact T_11 census with explicit coordinates, 121-cell coverage table, or k=3/k=4 unsatisfiability certificate.",
+        "retrieved_at_utc": "2026-09-07T14:51:20Z",
+        "title": "Upper bounds for the domination numbers of toroidal queens graphs",
+        "url": "https://doi.org/10.7151/dmgt.1193"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Mynhardt 2003 full text not retrievable (publisher transport error, OpenAlex 429); exact small-n tables inside cannot be 100% excluded, but title 'Upper bounds' plus Crossref metadata and 0-hit exact-phrase arXiv search make hidden T_11 exact witness+UNSAT highly unlikely",
+    "Possible grey literature (theses, OEIS toroidal domination sequence, code repos) outside arXiv/Crossref could contain gamma_T(11); live check across two services mitigates but does not eliminate this",
+    "Correctness rests on Python itertools/bit-int enumeration correctness (low risk, mitigated by two independent implementations agreeing on verdicts, maxima and extremal examples)",
+    "Coverage table uses first-hit line_type priority (row>col>diag>antidiag); alternative valid assignments exist but do not affect domination verdict"
+  ],
+  "verdict": "REJECT"
+}
