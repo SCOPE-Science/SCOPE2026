@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 1 (sums-distinct iff differences-distinct-nonzero) was line-checked and holds including 2-torsion: forward direction a-b=c-d => a+d=c+b gives sum collision unless same ordered pair; subcase a-b=b-a gives 2a=2b collision of {a,a} vs {b,b}; converse a+b=c+d => a-c=d-b gives difference collision unless {a,b}={c,d} as multisets, doubling case 2a=c+d => a-c=d-a similarly. Verified on 5000 random subsets with zero mismatches. Monotonicity (subset of Sidon is Sidon; superset of non-Sidon is non-Sidon) holds because sums/differences of subset embed in superset; spot-checked {0,1,2} non-Sidon stays non-Sidon on extension. Witness {0,1,3,7,12,20,38} independently recomputed: 28 sums exactly [0,1,2,3,4,6,7,8,10,12,13,14,15,16,19,20,21,23,24,27,32,38,39,40,41,45,50,58] (7*8/2=28) and 42 distinct nonzero differences (7*6=42), translation- and dihedral-canonical. DFS soundness/completeness verified: fixing 0 plus increasing order enumerates every rooted set; every Sidon k-set has Sidon prefixes so never pruned (50 sampled 7-sets all prefixes Sidon); pruning only on Lemma-1 failure whose supersets can never become Sidon. 2-torsion pruning explicitly rejects distance-30 (pair {0,30} gives sums {0,30} size 2<3 and diffs {30} size 1<2, both tests reject; depth-2 count 58 not 59 confirms). Canonical forms correct: trans-canonical = lex-min sorted tuple among translates containing 0 equals min over all 60 translates; dihedral = min(canonical(A),canonical(-A)); unique minimal element per orbit machine-checked on all reps. No periodic 7-set is theoretically necessary (7 prime not dividing 60, invariant set would be union of <t>-orbits so size multiple of ord(t)>1) and computationally confirmed (7156 classes each size exactly 7); no self-mirror confirmed (3578 classes each 2 translation classes). Cold reproduction: primary difference-DFS re-run gives visited 534471, attempts 5169009, depth {1:1,2:58,3:1542,4:22160,5:151450,6:309168,7:50092}, n7 50092, n8 0, checksums 2fa9f1d4.../d87fe6bd... byte-identical; independent sums-based verifier cold re-run gives identical visited/attempts/depth/n7/n8 (16/16 checks PASS). Depth sum 534471 matches visited. Pilot 441669 vs 534471 discrepancy is purely definitional (accepted sets incl. root vs unspecified convention); both implementations agree exactly under frozen convention, so no mathematical error. Full 3578 dihedral reps rechecked Sidon (28 sums + 42 diffs) with zero failures. Proof is machine-checked exhaustion conditional on Python correctness, not formal proof-assistant or human-readable tree — disclosed limitation, still proof not mere experiment.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison to nearest priors: (1) Singer perfect difference sets (57,8,1) and (73,9,1) require k(k-1)=n-1 (56=56 at n=57); at n=60 k=8 needs 56 distinct differences out of 59 nonzero residues (packing, not perfect), so Singer existence at 57/73 neither implies nor forbids max at 60; defect is consistent with and beyond Singer. (2) Optimal Golomb rulers / OGR interval tables (e.g. 10-mark length 55) require integer differences distinct without wrap-around; cyclic Z_60 has wrap-around sums/differences and bound k(k-1)+1<=n, a different packing problem not implied by interval optima; draft explicitly rejects interval stratum. (3) Bose-Chowla / counting bound k(k-1)+1<=n and OEIS-type maximal tables give k<=8 (56<=59 allows 8, 72<=59 forbids 9) and explicit k>=7 lower bound, but do not decide 8 vs 7 nor enumerate extremals; contribution is slackness proof (allows 8, true max 7) plus 3578-class census. Internal SCOPE scan verified: 8 successes (Boolean, automata, forbidden families, J2-rank, Kronecker, Heilbronn, 5x5 rank, spider walk) none concern Sidon/B2/cyclic/difference packings; 18 failures nearest SCOPE-FAIL-20260907-004 is covering A+A=Z_197 with digits 0-4 via annealing vs distinctness census in Z_60 via exhaustive DFS — different claim, modulus, and route. No prior found that decides Z_60 max or enumerates 50092 rooted / 7156 translation / 3578 dihedral 7-sets with per-witness tables and replayable log. Obscure OOC/difference-packing tables could in principle list max 7 at v=60, but no such table was produced; even if max value overlapped, full dihedral census with explicit reps, SHA-256, and two-implementation replayable log would remain new (tables list max/one example, not full census). Failed live HTTPS verification does not establish priority either way and is recorded as residual risk, not as evidence.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a closed defect-order table entry with reusable extremal library, not a textbook/parameter/epsilon/unexplained item: (a) Not textbook restatement — counting bound k(k-1)+1<=60 allows k=8 (57<=60), true max is 7, so bound is slack and closure requires exhaustive search. (b) Not mere parameter substitution — n=60 is motivated as highly composite with 2-torsion wrap-around (distance-30 collision, depth-2 58 not 59) differing from interval Golomb case, adjacent to Singer (57,8,1) plane, and inside 58-62 defect block where counting allowance fails and greedy/projective constructions fail; one closed defect order plus extremal census is a citable extremal result. (c) Not tiny gain — full integer drop 8->7 against allowance plus complete classification (50092 rooted, 7156 translation each size 7, 3578 dihedral each size 2, zero periodic/self-mirror) with regular orbit structure, not constant tweak. (d) Not unexplained enumeration — method explained (difference-occupancy pruning, lex-min dihedral canonicals), every witness millisecond-checkable via 28-sum list, independent sums-based verifier, replayable 534471-node log with exact visited/attempts/depth/checksums, stdlib-only ~3s+~5s replay. Precedent-consistent: analogous fixed-parameter certified censuses (e.g. binary 5x5 rank-3 719 classes, RSBF 7-variable census) were valued as citable records; modular-Golomb/OOC tables routinely record such tightened bounds and extremal reps for later lookup/use as seeds and test cases. Only Z_60 is closed (neighboring-n defect claims are motivation only, not claimed).",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (problem_statement, target_claim, audit_plan, nearest_known_results, internal_prior_scan, fallback_claim)",
+    "inputs/DRAFT.md (definitions, Lemma 1 proof, witness table, DFS spec, census reduction, Theorem, reproduction, limitations)",
+    "inputs/research_report.json (claim, evidence_summary, artifact_inventory, limitations)",
+    "inputs/artifacts/sidon_search.py (primary difference-occupancy DFS + canonical reduction, re-executed cold)",
+    "inputs/artifacts/verify.py (independent sums-based verifier, re-executed cold: 16 checks PASS)",
+    "inputs/artifacts/k8_exhaustion.json (visited 534471, attempts 5169009, depth table, counts, checksums, witness sums)",
+    "inputs/artifacts/witness.json (witness sums/diffs tables)",
+    "inputs/artifacts/sidon7_dihedral_reps.json (3578 reps, SHA-256 2fa9f1d4...)",
+    "inputs/artifacts/sidon7_translation_reps.json (7156 reps, SHA-256 d87fe6bd...)",
+    "attempted live fetch https://en.wikipedia.org/wiki/Difference_set -> Transport error",
+    "attempted live fetch https://en.wikipedia.org/wiki/Golomb_ruler -> Transport error",
+    "attempted live fetch https://oeis.org/A005282 -> Transport error",
+    "attempted live fetch https://example.com/ -> Transport error (network blocked; literature recheck incomplete)"
+  ],
+  "decisive_checks": [
+    "Witness recomputed independent: sums sorted match [0,1,2,3,4,6,7,8,10,12,13,14,15,16,19,20,21,23,24,27,32,38,39,40,41,45,50,58] len 28; diffs 42 distinct nonzero",
+    "2-torsion pair {0,30}: sums size 2<3, diffs {30} size 1, both tests reject; depth-2 58 not 59 confirms pruning",
+    "Counting bound: 7*6+1=43<=60 allows 7, 8*7+1=57<=60 allows 8, 9*8+1=73>60 forbids 9; sums needed 28/36/45",
+    "Lemma equivalence brute force: 5000 random subsets sums-vs-diffs zero mismatches",
+    "Primary DFS cold re-run: visited 534471 attempts 5169009 depth 1:1 2:58 3:1542 4:22160 5:151450 6:309168 7:50092 n7 50092 n8 0 checksums match",
+    "Independent sums-DFS cold re-run via verify.py: identical visited/attempts/depth/n7/n8, VERIFY PASS 16/16",
+    "Depth sum 1+58+1542+22160+151450+309168+50092=534471 matches visited",
+    "Orbit arithmetic: 50092/7156=7.0, 7156/3578=2.0; 7 prime not dividing 60 supports no periodic",
+    "Independent canonical reimplementation: 20+20 spot reps minimality PASS, witness canonical, witness in both tables",
+    "Full pairing recount: 7156 trans reps map onto 3578 dihedral reps 2-to-1 dist {2:3578}, cover exact, trans-class-size-7 all PASS",
+    "Full 3578 dihedral reps Sidon recheck: 0 failures (28 sums + 42 nonzero diffs each)",
+    "50 sampled 7-sets all sorted prefixes Sidon; superset monotonicity spot PASS"
+  ],
+  "residual_risks": [
+    "Computation-dependent proof: 534k-node tree regenerated by script, not human-readable and not formal proof-assistant certificate; correctness rests on Python stdlib, Lemma 1, and audit of two short scripts",
+    "Live HTTPS literature verification blocked by transport errors; obscure optical-orthogonal-code / difference-packing tables may already tabulate max 7 at v=60 — if so maximum-theorem component overlaps prior tabulation and novelty rests on certified 3578-class census, explicit sum tables, and replayable log as disclosed",
+    "Only Z_60 is closed; pilot claims about Z_57 having 8-sets, Z_58,59,61,62 having none, Z_63+ having 8-sets are motivation only and not re-proved here",
+    "Determinism certified only for seed 0 increasing order; different orderings would give different node counts but same census (not separately certified)",
+    "No proof-assistant or hardware-fault tolerance; single-machine stdlib replay"
+  ],
+  "verdict": "PASS"
+}
