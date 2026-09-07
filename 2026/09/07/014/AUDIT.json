@@ -1,0 +1,97 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Independent replay of inputs/artifacts/replay.py passes in seconds: P2(F4)=21, P2(F16)=273, PGL3(F4)=60480, per-representative F4/F16 base counts (S1-S4: 6/6; DJ: 5/7), Noether sums 9/15, two-sided composition identities with common degree-15 cofactor (S1 8/56, S2 7/40, S3 8/52, S4 4/24, DJ 32/58 terms), symmetric 5 orbits (sizes 3,9,18,27,27) and DJ rational-quadruple 3 orbits (80,240,960). Auditor independently re-implemented F4 arithmetic and verified: (i) system multiplicities via affine-translation local expansion (distinct code path from replay matrix substitution) match claimed 2,2,2,1,1,1 for S1-S4 and 3,1,1,1,1 for DJ rational points, so min-over-basis equals min-over-net is exact; (ii) no fixed F4-line for any rep (restriction binary quartic vanishes on 5 collinear F4-points iff identically zero; none do); (iii) primitivity (no common plane divisor of any degree >=1): found explicit F4-lines with trivial homogeneous GCD for every f and g (S1F 4/21 e.g. X+Y+Z=0, S2F 3/21, S3F 4/21, S4F 6/21, DJF 5/21 and similarly 5-9/21 for inverses), checking all monic linear, quadratic and cubic divisors plus t-divisibility and quartic proportionality, so any hypothetical common divisor C would restrict to a common divisor on the witness line, contradiction; this closes the gap in DRAFT section 3(ii) which asserted any F4-curve contributes >=17 F16-points (true for lines/smooth conics but false in general for higher-degree curves: smooth plane cubics over F16 have >=9 points, quartics can have few points, e.g. Galois-conjugate line unions), and the limitation note already flags the F16-count argument as non-general; conclusion (no fixed component, exact degree 4) nevertheless holds via the line-GCD witnesses. Composition check Zg0-Xg2=0, Zg1-Yg2=0 plus X/Y/Z divisibility with equal quotients phi!=0 proves g(f)=phi*id and f(g)=psi*id as polynomial identities (degree-16 compositions, degree-17 checks, 2x171 conditions), hence mutually inverse rational maps; with primitivity this gives birationality, inverse degree 4, and irreducible general member. Noether saturation then closes proper plus infinitely-near locus: exhibited proper multiplicities already square-sum to 15 (symmetric 3*4+3*1=15; DJ 9+6=15 including F16-pair lower bound >=1 each, forced to exactly 1 since total is 15 for a quartic Cremona), so no further proper (including F64 degree-3) or infinitely-near point is possible; tangent-cone spot checks are consistent but not load-bearing. Stabilizer sizes verified: monomial stabilizer of coordinate triangle 6*9=54; point stabilizer 180*16*3/3=2880; orbit enumerations recomputed and sums verified (84=C(9,3) symmetric triples; 1280=5*256 DJ quadruples). S1-S4 canonical forms under 54-element stabilizer are four distinct values, degenerate triple has fifth value with fixed line X+Y=0 containing double [0:0:1] plus three singles (2+3=5>4), so at least 4 symmetric classes; distinct homaloidal types separate DJ from symmetric. DJ pair verified: F16=F4[u]/(u^2+u+w), Frobenius (a0+a1u)->(a0+a1)+a1u order 2, P=[1:3u:1] and Q=[1:3+3u:1] are distinct non-F4 conjugates, both common zeros, directions (1:alpha) distinct from four rational directions, six distinct total; fully rational (4;3,1^6) with no fixed line is impossible since 6 distinct directions needed but P1(F4) has 5. DJ pencil covariance verified on all five F4-lines through [0:0:1]: four lines joining centre to rational singles contract to points, free direction (1:w^2) maps dominantly onto line 2X+3Y+Z=0 through [1:0:w]; DRAFT honestly states covariance p->q rather than strict invariance, which suffices as Jonquieres-type witness together with (4;3,1^6) datum. Proof (exact polynomial identities, finite enumerations, GCD witnesses) is distinguished from experimental evidence (orbit-size heuristics, 15360/122880 raw DJ counts explicitly left unreduced)."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Live literature retrieval (arXiv API + DOI publisher page, 2026-09-07) finds only disjoint neighbours, no prior degree-4 over F4 conjugacy census with normal forms, Galois base-point data and composition-inverse certificates. Calabri-Nguyen cubic fine classification (closed field, 39pp, type (3;2,1^4)) gives no finite-field Galois refinement or F4 quartic representatives. Schneider F2 generators (three infinite families plus small-base-orbit maps, generalized partly beyond F2) proves generation/involution over F2, no complete degree-4 class table over F4. Asgarli-Lai-Nakahara-Zimmermann bijective Cremona parity (no odd permutation over non-prime char-2 fields) is a high-level parity theorem with generator lists, no homaloidal census or base-point multiplicities. Genevois-Lonjou-Urech Neretin embedding plus even-permutation for q>=4 even and regularisation is general structure, no explicit quartic representatives or de Jonquieres-vs-symmetric distinction for F4. Alberich-Carraminana LNM homaloidal-curves chapter gives characteristic-0 homaloidal tables/Noether equations with no Fq-conjugacy or computational inverses. arXiv homaloidal query (23 hits) returns only polar/determinantal/ML-degree homaloidal hypersurfaces, no plane quarto-quartic Fq census. Choosing degree-4 over F4 is not parameter substitution: it is the minimal stratum where both homaloidal types coexist with char-2 Frobenius degenerations (orbit sizes 1,2,3,4,6, infinitely-near collisions, even-parity constraint) changing linear conditions and conjugacy; method requires char-2 blowup handling. No timestamp, memory or failed search was used to establish priority."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Fallback-level partial theorem is independently worth finding later and citable: first explicit plane Cremona maps of degree 4 over F4 (four symmetric fully-rational (4;2^3,1^3) plus one de Jonquieres (4;3,1^6) with F16-pair), each with normalized quartic triple, exact Galois degree-multiplicity datum saturating Noether equations, quartic inverse with two-sided symbolic composition certificate (common degree-15 cofactor), and type witness, all replayable in pure-Python stdlib in seconds. Configuration-level censuses (5 symmetric-triple orbits with 4 realised +1 fixed-line degenerate; 3 DJ rational-quadruple orbits) give tightened lower bounds (at least 5 PGL3(F4)-classes) and explicit upper bounds on the studied families, with full census number N explicitly left open and basis-splitting/non-rational patterns honestly listed as not exhausted. This is not a textbook restatement (Hudson/Noether equations are textbook, but Galois-orbit refinement, PGL3(F4)-reduction and inverse certificates for F4 quartics appear in none of the sources), not mere parameter substitution (see originality), not a tiny unmotivated gain (first closed data for the 3-4/F4-F5-F8 region, usable for finite-geometry catalogs, multivariate-crypto birational benchmarks and concrete even-parity witnesses), and not an unexplained enumeration (every representative carries Noether check, Galois datum, composition verification and witness). DRAFT scope is honest about what is not claimed."
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, fallback claim, nearest-known list, search queries)",
+    "inputs/DRAFT.md (abstract, setup, 5 representatives, verification method, type witnesses, configuration censuses, limitations)",
+    "inputs/research_report.json (fallback claim, evidence summary, limitations, artifact inventory)",
+    "inputs/artifacts/replay.py (374-line stdlib verifier, re-executed)",
+    "inputs/artifacts/representatives.json (coefficient vectors, base data, field notes)"
+  ],
+  "decisive_checks": [
+    "Re-executed replay.py: P2 21/273, PGL3 60480, base counts 6/6 and 5/7, g(f)/f(g) identities with phi sizes 8/56,7/40,8/52,4/24,32/58, orbit counts 5 (3,9,18,27,27) and 3 (80,240,960) \u2014 ALL PASSED",
+    "Independent F4 arithmetic match and affine-translation system-multiplicity recomputation (no matrix inversion) matches all claimed multiplicities exactly",
+    "No fixed F4-line via 5-point vanishing on all 21 lines for all reps (0 fixed lines)",
+    "Primitivity via line-restriction homogeneous GCD: enumerated all monic linear/quadratic/cubic divisors plus t and proportionality; each f and g has 3-9/21 witness lines with trivial GCD, rigorously ruling out common divisor of any degree >=1 and closing the F16-count >=17 gap for higher-degree curves",
+    "Stabilizer counts 54 and 2880 verified by formula and enumeration; S1-S4 canonical orbit invariants distinct and distinct from degenerate fixed-line orbit",
+    "DJ F16 construction verified: u^2+u+w irreducible, Frobenius order 2, P/Q distinct conjugates, vanishing, 6 distinct directions, fully-rational impossibility via 6-directions vs 5 rational points",
+    "DJ pencil covariance verified on all 5 F4-lines through centre: 4 contract, free direction maps onto line through [1:0:w]",
+    "Noether sums 9/15 verified for both homaloidal types; saturation argument verified to exclude further proper/infinitely-near points given birationality"
+  ],
+  "residual_risks": [
+    "DRAFT section 3(ii) sentence claiming any F4 fixed curve contributes >=17 F16-points is overstated for degree >=3 curves (cubic lower bound over F16 is 9, quartics can have fewer); conclusion holds via line-GCD witnesses documented here, but DRAFT/RESULT should cite GCD certificate rather than F16-count alone for higher-degree components",
+    "Infinitely-near completeness relies on Noether equations in characteristic 2 plus verified birationality; standard via blowup intersection theory but no char-2 citation is given \u2014 low risk given explicit inverses",
+    "DJ witness is pencil covariance p->[1:0:w], not strict invariance of one pencil; correctly disclosed as covariant form, but readers expecting classical J_p invariance should note conjugacy interpretation",
+    "Full census number N, basis-splitting within a fixed net, non-rational double patterns, F64 degree-3 orbits and infinitely-near collisions remain open by design; lower bound at least 5 is proved, upper bound is configuration-level only",
+    "Originality rests on live retrieval 2026-09-07 (arXiv + DOI; OpenAlex/Crossref returned 429 rate-limits); a paywalled or unindexed finite-geometry table could in principle exist, but nearest indexed neighbours are substantively disjoint"
+  ],
+  "live_literature_check": {
+    "status": "PASS",
+    "checked_at_utc": "2026-09-07T14:05:43Z",
+    "queries": [
+      {
+        "service": "arXiv",
+        "query": "all:Cremona AND all:finite AND all:field",
+        "url": "http://export.arxiv.org/api/query?search_query=all:Cremona+AND+all:finite+AND+all:field&start=0&max_results=5",
+        "result_count": 24
+      },
+      {
+        "service": "arXiv",
+        "query": "all:homaloidal",
+        "url": "http://export.arxiv.org/api/query?search_query=all:homaloidal&start=0&max_results=5",
+        "result_count": 23
+      },
+      {
+        "service": "DOI",
+        "query": "10.1007/978-3-540-45538-7_6",
+        "url": "https://doi.org/10.1007/978-3-540-45538-7_6",
+        "result_count": 1
+      }
+    ],
+    "sources": [
+      {
+        "title": "On the classification of cubic plane Cremona maps - Calabri and Nguyen",
+        "url": "https://arxiv.org/abs/2002.11396",
+        "comparison": "Fine classification of cubics over algebraically closed field with homaloidal type (3;2,1^4) theory; contains no finite-field Galois-orbit refinement, no Fq-conjugacy classes, and no explicit F4 quartic representatives or composition inverses, so disjoint from the F4 quartic census.",
+        "retrieved_at_utc": "2026-09-07T14:02:00Z"
+      },
+      {
+        "title": "Generators of the plane Cremona group over the field with two elements - Schneider",
+        "url": "https://arxiv.org/abs/2008.07991",
+        "comparison": "Proves generation by three infinite families plus small-base-orbit maps over F2 with partial generalization beyond F2; gives generation and involution results but no complete degree-4 conjugacy-class table, homaloidal normal forms, or inverse pairs over F4.",
+        "retrieved_at_utc": "2026-09-07T14:03:00Z"
+      },
+      {
+        "title": "Bijective Cremona transformations of the plane - Asgarli, Lai, Nakahara, Zimmermann",
+        "url": "https://arxiv.org/abs/1910.05302",
+        "comparison": "Studies permutations induced on rational points and proves no odd permutation over non-prime characteristic-2 fields via parity invariance and generator lists; high-level parity theorem with no degree-4 homaloidal census, base-point multiplicity data, or explicit F4 maps.",
+        "retrieved_at_utc": "2026-09-07T14:03:30Z"
+      },
+      {
+        "title": "Cremona groups over finite fields, Neretin groups, and non-positively curved cube complexes - Genevois, Lonjou, Urech",
+        "url": "https://arxiv.org/abs/2110.14605",
+        "comparison": "Embeds plane Cremona over finite fields into Neretin groups and proves even permutations for even q>=4 plus a regularisation theorem; general structural result with no explicit quartic conjugacy representatives, Galois base-point tables, or de Jonquieres-vs-symmetric witness for F4.",
+        "retrieved_at_utc": "2026-09-07T14:04:00Z"
+      },
+      {
+        "title": "Geometry of the Plane Cremona Maps, Chapter 6 Total principal and special homaloidal curves - Alberich-Carraminana",
+        "url": "https://doi.org/10.1007/978-3-540-45538-7_6",
+        "comparison": "Standard characteristic-zero homaloidal-type tables and Noether equations textbook reference; contains no finite-field conjugacy classification, no Galois orbit degrees, and no computational composition-inverse certificates, so the F4 arithmetic refinement is new.",
+        "retrieved_at_utc": "2026-09-07T14:05:00Z"
+      }
+    ]
+  }
+}
