@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Explicit simulation-certified Chernoff and Stein-Chen bounds for the n=m=500 balls-in-bins maximum
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 4
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Probability
+- **Method:** Stein-Chen Poisson approximation plus simulation-certified tail bounds
+
+## Problem
+
+For n=m=500 balls thrown independently uniformly into 500 bins, let M=max_{i<=500} L_i and W_k=#{i: L_i>=k}. Prove and computationally certify: (i) exact-binomial union upper tails, (ii) an explicit Stein-Chen total-variation bound for W_6 to Po(lambda_6), and (iii) a certified coverage interval for M, with all constants verified by exact integer arithmetic and 20000-trial simulation with fixed seeds.
+
+## Attempted claim
+
+For n=m=500 uniform balls-in-bins with lambda_6=500*P(Bin(500,1/500)>=6)=0.29099: (i) P(M>=8)<=0.00491, P(M>=9)<=0.00060, P(M>=10)<=0.00006 via exact-binomial union n*P(Bin>=k) (integer-checked; textbook (em/nk)^k gives 0.08884/0.01046/0.00110, so 18.1x/17.5x/21x tighter); (ii) d_TV(L(W_6),Po(lambda_6))<=0.20 (computed b1+b2=0.1646, b3=0, Arratia-Goldstein-Gordon) hence |P(M<=5)-exp(-lambda_6)|<=0.20 with exp(-lambda_6)=0.7475 matching simulation 0.7465; (iii) P(M<=3)<=0.104 via Chebyshev Var(W_4)<=E[W_4]=9.4327, hence P(4<=M<=7)>=0.89 (empirically ~0.996 from 20k trials: 16.1%/58.6%/21.6%/3.4% for 4/5/6/7).
+
+## Research outcome
+
+Explicit finite-n certificate for M_{500,500}: exact-union upper tails 18-21x tighter than textbook, instantiated Stein-Chen TV<=0.165 (hence middle-point guarantee), exact-covariance lower tail P(M<=3)<=0.084 giving coverage >=0.89, plus 20k seed-1 simulation benchmark agreeing to 0.001. One proposed constant corrected (0.104->0.084/0.105). All checks rerunnable in seconds via two scripts.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: No surveyed source states the exact numbers at n=m=500, but substantive comparison shows each component is a direct corollary of known theorems by plugging n=m=500 with only arithmetic. (a) P(M>=k)<=n*P(Bin(500,1/500)>=k) is textbook union bound with exact binomial definition; replacing loose Chernoff (e/k)^k by exact tail is a standard exercise, and the 18-21x gap is the well-known looseness of Chernoff, not a new inequality or technique. (b) Stein-Chen d_TV<=(1-e^-lambda)/lambda*(b1+b2+b3) is Arratia-Goldstein-Gordon Thm.1 / Barbour-Holst-Janson Ch.2 verbatim; choice B_i=all bins with b3=0 is the trivial maximal neighbourhood taught as the first example, not a new coupling; computing b1=n^2p^2, b2=n(n-1)j via multinomial J is plug-in arithmetic (~1s double sum). (c) Negative association of multinomial and Chebyshev P(W=0)<=Var/E^2 are textbook (Joag-Dev-Proschan, Dubhashi-Ranjan); proving j<=p^2 by brute-force integer inequality J*D<=S^2 verifies a known fact by computation, not a new lemma. Nearest priors substantively imply the claims: Mitzenmacher-Upfal Ch. Balls/Bins gives the general union-Chernoff that yields 0.0888/0.0104/0.00110 at n=500; Raab-Steger RANDOM 1998 gives the asymptotic Theta(log n/log log n) framework whose corollary at fixed n is weaker but same object; Barbour-Holst-Janson 1992 plus AGG Statist.Sci.1990 give the general TV bound instantiated here; Gonnet JACM 1981 gives asymptotic mean context. Candidate adds no new limit theory, no general-n formula, no improved method, no sharp analysis (own limits admit TV 0.165 vs refined 0.143 and Chebyshev 0.084 vs true ~1e-04 are loose). A failed OpenAlex/arXiv/Crossref search for 'n=500 certificate' does not establish priority per audit rules; absence reflects that no one bothered to publish this single-point evaluation, not that it was an open problem. This is mere parameter substitution (n=m=500, k=4..10) plus exact arithmetic and Monte Carlo, i.e. textbook restatement with numbers. value: Result is correct and new-as-numbers but not independently worth finding later. It is n=m=500-specific with no new asymptotics (draft Sec.6 admits this); a researcher with n=501, 1000, or general m,n cannot reuse the numbers, only the textbook method they already know. Analytic certificates are too loose to guide operational hashing/load-balancing decisions: TV +-0.20 on P(M<=5) (interval [0.55,0.95]) vs simulation 0.7465+-0.006; coverage >=0.89 (indeed >=0.911) vs empirical 0.9962; lower tail <=0.084 vs Poisson heuristic e^-9.43~8e-05 (1000x loose). The tight numbers (U8=0.00490, histogram) are recomputable in seconds in one line (scipy.stats.binom.sf or math.comb) and by rerunning simulate.py, so archiving them as a citable benchmark has negligible reuse value. 18-21x 'tightening' over (e/k)^k is not a motivated gain for applications because no application uses the loose Chernoff when exact binomial is trivially computable; the gain measures textbook looseness, not operational…
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: n=m=500-specific; no new limit theory. TV 0.165 not sharp (refined factor gives <=0.143). Chebyshev lower tail loose vs true ~1e-4. Proposed crude 0.104 shown false by 1.4e-5 and corrected to 0.105/0.084. Simulation is evidence only, assumes PRNG correctness. k=9 tightening is 19.7x, not 17.5x (proposal conservative).
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
