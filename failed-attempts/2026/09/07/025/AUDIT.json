@@ -1,0 +1,43 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential computations were independently re-derived and match exactly. Third-path enumeration (stars-and-bars via combinations, w-closure check on i<=j pairs, independent of scripts' composition recursion) reproduces counts N(26,6)=793, N(26,7)=1528, N(26,8)=4035, N(26,9)=6783 (total 13139) and SHA-256 hashes e060df15/m6, 4bb06b44/m7, 203dd36f/m8, 9c1bd907/m9. Full CSV recompute (13139 rows) confirms for every row: sum k=26, k_i>=1, Kunz inequalities, w_i=m*k_i+i, F=max w-m, c=F+1, n=c-26, genus 26 via gap count {x<=F: x<w_{x mod m}}, multiplicity (1..m-1 gaps, m in S), conductor (F gap, [F+1,F+m+10] in S), embedding dimension via exhaustive a+(w-a) split test with e<=m and generator lists matching, exact Fraction Wilf e*n/c>=1. Spot semigroup-closure check (a,b<=max(w)+m implies a+b in S) passes on 200 random rows plus all 8 extremal witnesses. Frobenius frequency tables sum to counts and missing sets equal exactly multiples of m in [lo,hi] ([31,51]/m6 {36,42,48}; [30,51]/m7 {35,42,49}; [29,51]/m8 {32,40,48}; [29,51]/m9 {36,45}). Printed witnesses verified in CSV: maximal-F=51 examples (3,6,9,3,5)/<6,19,22,35>, (4,8,3,2,5,4)/<7,18,24,29,34,40>, (3,4,7,1,2,4,5)/<8,12,21,25,34,38,47>, (1,2,3,4,5,6,2,3)/<9,10,25> and Wilf minima 9/8 at (6,5,5,5,5) F31, 35/31 at (5,5,4,4,4,4) F30, 16/15 at (4,4,4,4,4,3,3) F29, 10/9 at (2,4,2,2,4,4,4,4) F35, each unique, with generator lists and F/c/e/n as stated. Same independent enumerator reproduces OEIS A007323 totals g=0..9 (1,1,2,4,7,12,23,39,67,118). Kunz inequality transcription independently re-derived from w_i+w_j>=w_{(i+j) mod m} (s<m: k_i+k_j>=k_s; s>m: k_i+k_j+1>=k_t; s=m: no constraint) and matches code. Lemma F%m!=0 proved (m|S implies multiples in S). The finite claim 'every non-multiple in range occurs' is a complete exhaustive observation correctly asserted as computed fact, not infinite theorem; draft honestly scopes it and takes textbook Kunz bijection as cited assumption. No overclaim of proof vs evidence; no floating-point in Wilf; methods deterministic.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors substantively compared: (i) OEIS A007323 / Bras-Amoros-Fromentin totals (n_26=770832) give only totals per g, no N(26,m) stratification, no Kunz vectors, no F-distributions or Wilf minima; (ii) GAP numericalsgps package is a tool that can enumerate on demand, not a published closed (26,6-9) certificate with joint Kunz/F/Wilf/witness/replay data; (iii) Rosales-Garcia-Sanchez textbook + Kunz theory prove the verification machinery but contain no genus-26 tables. No Resultary finding covers cofinite submonoids/Kunz/Frobenius/Wilf (12 hits all disjoint domains). Web fetches for OEIS/GAP attempted and failed with transport errors, so priority is NOT established from failed search alone; granted narrow novelty only because cited priors do not contain the joint stratified table. This is weak novelty: counts are routine refinements necessarily computed as intermediates to known totals, method is naive brute force over C(25,m-2)=12650/53130/177100/480700 compositions with textbook inequalities, and F/W data follow by textbook formulas. Treated as narrowly new for audit purposes, with substantive-advance objection reserved for Value.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even if correct and narrowly new, not independently worth finding later. (a) Textbook restatement: method is direct application of cited Kunz bijection plus membership x>=w_{x mod m}, F=max w-m, split-test for e; no new algorithm (exhaustive composition filter, 1.93s total, <1s per m, stdlib). (b) Mere parameter substitution: single genus-26 slice across m=6-9; totals known to g~60+ so no enumeration frontier is advanced; anyone can regenerate in seconds via GAP/stdlib. Per-m breakdown is intermediate data to known n_26. (c) Tiny unmotivated gains: Wilf verification on 13k genus-26 semigroups is subsumed by literature verifications to far larger genus; minima 9/8, 35/31, 16/15, 10/9 are slice-local minima with no global extremality, no counterexample, no bound improvement, and m=8-closest observation is post-hoc on 4 points. F-gap phenomenon is half trivial lemma (F%m!=0) plus finite contiguity observation in narrow intervals [29,51]/[30,51]/[31,51] with no general theorem, conjecture, or explanation. Maximal-F=51 (2g-1 symmetric) witnesses such as <9,10,25> are elementary symmetric constructions. (d) Unexplained enumeration: 13139-row CSV with no infinite-family theorem, no downstream lemma, no motivated benchmark need; static table adds no capability beyond on-demand GAP enumeration. Draft itself states it proves no infinite-family theorem and gap characterization is finite computed fact. Benchmark/baseline citability claim is insufficient: regenerable in seconds, not a theoretical advance. Matches REJECT precedent for correct-but-narrowly-new enumerations with no independent downstream use.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (claim, motivation, nearest_known_results, internal prior scan)",
+    "inputs/DRAFT.md (all theorems, tables, witnesses, replay instructions)",
+    "inputs/research_report.json (claim, evidence_summary, limitations)",
+    "inputs/artifacts/replay_enumerate.py (Method A/B, kunz_ok, invariants)",
+    "inputs/artifacts/cold_verifier.py (independent recheck, SHA, OEIS sanity)",
+    "inputs/artifacts/summary.json + enumeration.log + census_26_m6-9.csv (counts, SHAs, F-dists, witnesses)",
+    "webfetch https://oeis.org/A007323 -> transport error (recorded, not used for priority)",
+    "webfetch https://gap-packages.github.io/numericalsgps/ -> transport error (recorded, not used for priority)",
+    "training-knowledge comparison: OEIS totals, GAP tool capability, Rosales-Garcia-Sanchez Kunz theory, Wilf verification to genus >>26, Fromentin-Hivert tree"
+  ],
+  "decisive_checks": [
+    "third-path stars-and-bars enumeration reproduces 793/1528/4035/6783 and all four SHAs",
+    "full 13139-row recompute: sum, k_i>=1, Kunz, Apery, F/c/n, genus 26 via membership, multiplicity, conductor interval, e via exhaustive split, exact Fraction Wilf>=1, generator equality -> 0 errors",
+    "semigroup-closure sample (200 random + 8 witnesses, bound max(w)+m) passes",
+    "F-dist sums equal counts; missing==multiples-of-m in range for each m",
+    "all 4 maximal-F and 4 Wilf-minimal witnesses plus m9 F-min witness located in CSV with F/c/e/n/W/gens/Apery matching draft",
+    "Wilf minima uniqueness (1 witness per m) and F-min/max counts (1 each min; 22/14/57/28 max) confirmed",
+    "independent OEIS g=0..9 reproduction (1,1,2,4,7,12,23,39,67,118) passes",
+    "Kunz inequalities re-derived from w_i+w_j>=w_{(i+j) mod m}; s=m no-constraint confirmed"
+  ],
+  "residual_risks": [
+    "Correctness rests on cited textbook Kunz bijection (not re-proved); transcription risk mitigated by w-closure checks + OEIS reproduction + third-path agreement, but no GAP-binary recount performed (unavailable in environment)",
+    "External prior search incomplete due to network transport errors; originality PASS is narrow and conditional on cited priors, but value FAIL is robust to any missing prior (additional prior would only strengthen REJECT)",
+    "No artifact copying needed for REJECT; no downstream reproducibility risk beyond cited 2s replay"
+  ],
+  "verdict": "REJECT"
+}
