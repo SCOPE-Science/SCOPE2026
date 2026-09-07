@@ -1,0 +1,119 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Main interval 12<=N_{1/5}(9)<=13 verified independently. Lower bound: 4xK3 Gram (diag 1, -1/5 within triples, +1/5 between) has row sum 12/5, block-constant sum-zero kernel dim 3 eigenvalue 0, within-block sum-zero dim 8 eigenvalue 6/5, constants dim 1 eigenvalue 12/5; exact rational check with Fractions confirms, numpy eigvalsh gives lambda_min -6.7e-16 rank 9 spectrum {2.4,0x3,1.2x8}. Upper bound: DGS relative-bound proof correct - P2=(d t^2-1)/(d-1), S2>=0 via Tr G^2=sum lambda_i^2>=N^2/d, f=t^2-alpha^2=a2 P2+a0 P0 with a2=8/9 a0=16/225>0, sum gives N(1-alpha^2)>=a0 N^2 so N<=d(1-alpha^2)/(1-d alpha^2)=27/2=13.5 so N<=13, boundary 1-d alpha^2=16/25>0 holds. Saturatedness of this one 12-set verified: s in col iff block sums equal b in {-3,-1,1,3}, count 1+81+81+1=164 matches exhaustive 4096 loop, Schur complement 1-s^T G^+ s=(27+b^2)/45>=28/45>0 so extended rank 10, replay confirms 164 PSD best rank 10. verify.py ALL CHECKS PASSED. Side remark on 2-point LP global optimality numerically correct to k=60 (normalized P2=-0.08 minimum, P3=-0.064, P7=-0.01047, others >-0.01, verified by recomputation) but global claim beyond k=60 asserts |P_k|->0 without explicit tail bound; non-essential to main theorem which already proves U=13 by degree-2 polynomial. No essential inference fails; limitations honestly stated (13 undecided, no exhaustive order-13 census, no interval library but integer spectrum makes exact).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Interval endpoints are both prior textbook facts, not new objects. Lower bound N>=12 is Jiang et al. Prop 3.2 instantiation with H=K3 (spectral radius 2=(1-alpha)/2alpha): general bound floor(k(d-1)/(k-1)) for all d gives floor(3*8/2)=12 at d=9; draft itself notes construction is general Jiang lower bound, not new, novelty only explicit instantiation with exact spectrum. Upper bound N<=13 is Delsarte-Goethals-Seidel 1977 relative bound d(1-alpha^2)/(1-d alpha^2)=13.5, textbook degree-2 LP; draft reproduces it self-contained and acknowledges classical. de Laat et al. hierarchy explicitly extends this DGS 2-point bound, Barg-Yu SDP covers n>=24 leaving low d untouched, confirming no new bounding technology. Claimed improvement 165->13 misstates prior best: Lin-Yu max{165,r+6}=165 is loose pillar K=3 bound, DGS 13.5 was always stronger for (9,1/5) since 1977, so no upper-bound advance. Saturatedness (164/4096, rank 10) is inclusion-maximality of one 12-set only, concept of saturated sets already in Lin-Yu, and 2^12 enumeration is trivial; global optimality over Seidel order-13 (2^66) not attempted and gap {13} left open. No substantively new mathematical object, sharp census, or gap closure beyond juxtaposing two known bounds.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Result as stated is textbook restatement plus parameter instantiation, not independently worth finding later. Lower bound is acknowledged Jiang instantiation; upper bound is 1977 DGS substitution d=9 alpha=1/5; combination [12,13] requires no new idea and was knowable by plugging parameters into two published formulas. No prior-best improvement: fixed-angle prior best was already 13 via DGS, not 165. Single-set saturation does not decide N=12 vs 13 and does not provide template for closing neighboring strata beyond stating need for 3+-point SDP with a solver. Heuristic 13-search (annealing, ~64k evals, best w3~0.13) is unexplained enumeration and correctly disclaimed as not proof. Exact census N_star with clique-pruned optimality log required by topic not delivered; remaining single-integer gap is the entire hard problem. Under SCOPE value gates this is textbook restatement / mere parameter substitution / tiny unmotivated gain even though correct.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "comparison": "Prop 3.2 proves N_alpha(d)>=floor(k(d-1)/(k-1)) for all d from disjoint union of copies of spectral-radius graph H; for alpha=1/5 k=3 via K3 gives 12 at d=9, so draft 12-witness is direct prior construction.",
+      "title": "Equiangular lines with a fixed angle",
+      "url": "https://arxiv.org/abs/1907.12466"
+    },
+    {
+      "comparison": "Claims overall M(8,9,10)=28 and K=3 fixed-angle bound max{165,r+6}; draft correctly separates fixed-angle N_{1/5}(9) from overall M(9)=28 but 165 was never best for fixed angle since DGS gives 13.5.",
+      "title": "Equiangular lines and the Lemmens-Seidel conjecture",
+      "url": "https://arxiv.org/abs/1807.06249"
+    },
+    {
+      "comparison": "SDP upper bounds 276 for 24<=n<=41 and 344 for n=43, explicitly high-dimensional, leaves d=9 open; confirms no exact (9,1/5) census there but also shows draft U does not advance SDP technology.",
+      "title": "New bounds for equiangular lines",
+      "url": "https://arxiv.org/abs/1311.3219"
+    },
+    {
+      "comparison": "Hierarchy extending DGS 2-point LP and Bachoc-Vallentin 3-point bound to 4,5,6-point numeric bounds for fixed angle; not sharp-exact at low d, draft exact-rational 2-point U is prior technology in exactness.",
+      "title": "k-point semidefinite programming bounds for equiangular lines",
+      "url": "https://arxiv.org/abs/1812.06045"
+    },
+    {
+      "comparison": "Original DGS spherical LP source; draft N<=13 proof is textbook degree-2 case of this with same Gegenbauer positivity, value knowable since 1977 by substituting d=9 alpha=1/5.",
+      "title": "Spherical codes and designs",
+      "url": "https://doi.org/10.1007/BF03187604"
+    },
+    {
+      "comparison": "Proves Lemmens-Seidel base-size-5 pillar case and shows 57-line 1/5 configs in R18 are counterexamples to Lin-Yu containment and strongly maximal; motivates machine-checked certificates but provides no (9,1/5) interval.",
+      "title": "The Lemmens-Seidel conjecture for base size 5",
+      "url": "https://arxiv.org/abs/2209.08308"
+    }
+  ],
+  "decisive_checks": [
+    "Replayed inputs/artifacts/verify.py (numpy 1.26.4 python 3.12.3): ALL CHECKS PASSED - entries 4xK3, eig [-0.0,0x3,1.2x8,2.4] lambda_min -6.676e-16 rank 9, bound 13.5->13, saturation 164/4096 best rank 10",
+    "Exact rational Fractions check: row sum 12/5, kernel basis (block-constant sum-zero) annihilated exactly, within-block vector gives 6/5, constant gives 12/5 - confirms analytic spectrum {12/5x1,0x3,6/5x8} rank 9",
+    "DGS algebra re-derived: a2=(d-1)/d=8/9, a0=1/d-alpha^2=16/225, bound d(1-alpha^2)/(1-d alpha^2)=216/25 divided by 16/25=27/2=13.5 floor 13, positivity via Tr G^2>=N^2/d verified",
+    "Saturation re-derived: block-sum equality condition, count 1+81+81+1=164, pseudoinverse action 5/12 on span{1} and 5/6 on 6/5-eigenspace gives t^T G^+ t=10-5b^2/9, Schur (27+b^2)/45>=28/45>0 rank 10 - matches machine count",
+    "Normalized Gegenbauer recomputed d=9 lambda=7/2 to k=60: P2=-0.08 global min, P3=-0.064, P7=-0.01047, all others >-0.01, min is P2 - confirms numerical part of 2-point-optimality remark; global inference beyond 60 lacks tail bound (non-essential side remark)",
+    "Inspected Jiang HTML Prop 3.2 and Sec 3 Lemma 3.1: lower-bound construction for all d and Gram PSD-rank equivalence prior; inspected de Laat abstract confirming DGS 2-point LP prior; inspected Lin-Yu abstract confirming saturated-set concept prior"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:40:19Z",
+    "queries": [
+      {
+        "query": "all:equiangular lines fixed angle",
+        "result_count": 351165,
+        "service": "arXiv",
+        "url": "http://export.arxiv.org/api/query?search_query=all:equiangular+lines+fixed+angle&start=0&max_results=5"
+      },
+      {
+        "query": "equiangular lines fixed angle 1/5",
+        "result_count": 541571,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=equiangular+lines+fixed+angle+1%2F5&rows=5"
+      },
+      {
+        "query": "spherical codes designs Delsarte Goethals Seidel",
+        "result_count": 289459,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=spherical+codes+designs+Delsarte+Goethals+Seidel&rows=3"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Prop 3.2 gives general lower bound floor(k(d-1)/(k-1)) for all d from disjoint copies of spectral-radius graph H; for alpha=1/5 k=3 via K3 this yields floor(3*8/2)=12 at d=9, so draft 12-witness with spectrum 12/5,0x3,6/5x8 is direct instantiation of this prior construction, while main theorem is asymptotic for large d with doubly-exponential threshold and gives no finite d=9 exact value.",
+        "retrieved_at_utc": "2026-09-07T14:39:05Z",
+        "title": "Equiangular lines with a fixed angle",
+        "url": "https://arxiv.org/abs/1907.12466"
+      },
+      {
+        "comparison": "Proves Lemmens-Seidel K=3,5 pillar cases and claims overall M(8,9,10)=28 with fixed-angle K=3 bound max{165,r+6}=165 at r=9; draft correctly distinguishes fixed-angle N_{1/5}(9) from overall M(9)=28 but 165 was never the fixed-angle state of art since DGS 1977 already implies 13.5, and saturated-set techniques are already introduced here.",
+        "retrieved_at_utc": "2026-09-07T14:39:20Z",
+        "title": "Equiangular lines and the Lemmens-Seidel conjecture",
+        "url": "https://arxiv.org/abs/1807.06249"
+      },
+      {
+        "comparison": "Uses semidefinite programming to improve upper bounds for 24<=n<=136, showing max 276 for 24<=n<=41 and 344 for n=43; explicitly high-dimensional and leaves d=9 untouched, so no prior exact (9,1/5) census is contained here and draft U=13 does not derive from this technology.",
+        "retrieved_at_utc": "2026-09-07T14:39:35Z",
+        "title": "New bounds for equiangular lines",
+        "url": "https://arxiv.org/abs/1311.3219"
+      },
+      {
+        "comparison": "Gives hierarchy of k-point bounds extending the Delsarte-Goethals-Seidel 2-point LP and Bachoc-Vallentin 3-point bound, with optimized 4-,5-,6-point numeric bounds for fixed-angle equiangular lines; bounds are numeric and not sharp-exact at low d, confirming draft exact-rational degree-2 bound is prior technology in value though distinct in exactness.",
+        "retrieved_at_utc": "2026-09-07T14:39:50Z",
+        "title": "k-point semidefinite programming bounds for equiangular lines",
+        "url": "https://arxiv.org/abs/1812.06045"
+      },
+      {
+        "comparison": "Foundational spherical LP source containing the relative-bound machinery; draft N<=13 proof is the textbook degree-2 Gegenbauer case with identical positivity via Tr G^2>=N^2/d, whose value 13.5 for d=9 alpha=1/5 was knowable since 1977 by direct substitution.",
+        "retrieved_at_utc": "2026-09-07T14:40:10Z",
+        "title": "Spherical codes and designs",
+        "url": "https://doi.org/10.1007/BF03187604"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Exact value 12 vs 13 remains open; no exhaustive order-13 Seidel search over 2^66 graphs attempted, global optimality not proved - correctly disclaimed as open gap {13}, but this is the entire hard problem from the topic",
+    "2-point LP global-optimality remark computes normalized P_k(1/5) only to k=60 and invokes limit |P_k|->0 without explicit tail bound for k>60; side remark only, does not affect main interval U=13 already proved by degree-2 polynomial",
+    "PSD checks use tolerances 1e-8/1e-7 but integer matrix 5G has exact eigenvalues {12,0x3,6x8} and analytic block-symmetry proof, so no interval-arithmetic gap for main PSD-rank claim",
+    "Framing as 165->13 improvement overstates novelty since fixed-angle prior best was already DGS 13; accounted in originality/value FAIL, not correctness"
+  ],
+  "verdict": "REJECT"
+}
