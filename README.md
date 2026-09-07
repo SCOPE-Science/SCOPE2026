@@ -8,6 +8,16 @@ self-contained `RESULT.md`, a retrieval-oriented `SLOGAN.txt`, provenance metada
 an independent audit, and only the compact artifacts needed to verify or reuse the
 finding.
 
+## Time standard
+
+All public dates and timestamps in this repository use Coordinated Universal Time
+(UTC). Machine-readable timestamps use RFC 3339 and end in `Z`, for example
+`2026-09-07T12:34:56Z`. Date-only paths such as `YYYY/MM/DD`, and the dates encoded
+in record identifiers, are derived from the UTC publication date.
+
+Historical records that contain only a calendar date retain that date without an
+invented time of day; the date is interpreted as UTC.
+
 Publication requires independent acceptance on three separate axes:
 
 1. correctness;
