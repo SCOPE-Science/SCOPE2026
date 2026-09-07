@@ -1,0 +1,60 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 1 (cubic-norm c0=1/(1/2+2S)^2=0.02605957...) is correct and was recomputed to 80 digits; finite check min_{max<=200} d*k^2=0.0759 (2.91x margin) confirmed. Theorem 2 as stated (D<=(82+29 log N)/N^{1/3}) is NOT proved: the derivation drops terms and underestimates the shell sum by ~2x. Recomputing the proof's own majorant S_k*k^2/(2NC0) with C0=0.026 gives 32.91 vs claimed closed form 17.13 at N=8000 (ratio 0.52), 1.839 vs 0.968 at N=3e8, and violations on the full [8000,1e12] grid. A correct completion of the same H=floor(N^{1/3}) route needs roughly (372+58 log N)/N^{1/3} (still N^{-1/3} rate, vacuous far beyond 3e8). The outer ETK 9/4 form and N>=8000 min-branch condition check out; the sum-k-log-k lemma and S_k identity check out. Theorem 3 DEM values reproduce exactly at N=128,256 via independent mask+searchsorted code (0.0315385760, 0.0193580172); critical-box 4-variant logic is sound. Values are exact for the float64 point set, 1e-12-close to the true alpha set (disclosed gap argument), not interval-certified for the true reals. The target D<=12(log N)^2/N (N>=100) is honestly downgraded to Conjecture 4, so not overclaimed, but the only proved uniform bound (Thm 2) has a broken constant derivation and is vacuous (RHS>1) for N<3e8 by the draft's own calculation.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "No located source states the exact numerals c0=0.02605957... or the nine DEM values, so they are literally new. Substantively, however, the rate shape for this exact vector is anticipated: Dick et al. (arXiv:2502.06202) explicitly singles out the (n alpha)-sequence with alpha_j=2^{j/(d+1)} as quasi-uniform and low-discrepancy, which for d=2 is exactly (cbrt(2),cbrt(4)) up to integer parts, i.e. the draft's alpha. Classical theory (badly approximable => O((log N)^2/N) in 2D via Bakhvalov/Kuipers-Niederreiter; cubic-field bases badly approximable via Cassels-Swinnerton-Dyer/Davenport-Schmidt, cited in draft) already implies the (log N)^2/N shape for this vector, only without an explicit C. The draft's proved rate is the weaker N^{-1/3} via textbook ETK+H=N^{1/3}, and the explicit C=12 optimal-rate claim is conjectured only. The c0 norm-denominator argument is the standard textbook cubic-norm trick instantiated at this vector. Hence novelty is limited to effectivity/numerals plus a finite-N table, not a new exponent, method, or proved optimal-rate constant.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Judged on what is proved, not the conjectured target. (i) The only proved uniform bound (Thm 2, even if repaired to ~372+58 log N) is an N^{-1/3} rate that is both asymptotically weaker than the long-known optimal (log N)^2/N for badly approximable vectors and numerically vacuous (RHS>1, hence implied by D<=1) for all N<3e8 by the draft's own crossover, so it supplies no usable QMC/Koksma-Hlawka error bar at practical N. (ii) The nine DEM numbers (N=128..20000, fitted Chat=0.344) are correct finite-point computations but, absent the uniform proof, constitute an unexplained enumeration at isolated N: at N<=2048 the C=12 comparison curve itself exceeds 0.34-2.2 (vacuous, >1 at N=128), margins are 35-70x, larger-N spikes are explicitly not ruled out, and the promised fallback two-sided bracket (all dyadic 2^k k=7..14 plus infinitary c_low/N lower bound) is replaced by nine upper points plus the trivial projection sanity N*D>=N/(2(N+1))~0.5. This is a routine effectivization/parameter substitution (canonical cubic vector into standard norm+ETK machinery) plus a small table, not independently worth finding later as a research record.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "id": "arXiv:1611.01288",
+      "note": "Hofer/Puchhammer perturbed Halton-Kronecker: bounded-CF Kronecker hybrid, sharp/metric bounds; different family, no explicit C for pure cubic vector, no DEM certificate.",
+      "url": "https://arxiv.org/abs/1611.01288"
+    },
+    {
+      "id": "arXiv:2006.15842",
+      "note": "Badziahin/Shallit: 1D badly approximable three-gap + inhomogeneous Kronecker, Sturmian diversity; disjoint dimension/functional.",
+      "url": "https://arxiv.org/abs/2006.15842"
+    },
+    {
+      "id": "arXiv:2406.18132",
+      "note": "Clement greedy 1D sequences beating golden-ratio Kronecker numerically; no cubic simultaneous approximation or 2D star-discrepancy constant.",
+      "url": "https://arxiv.org/abs/2406.18132"
+    },
+    {
+      "id": "arXiv:2409.17006",
+      "note": "Chow/Technau smooth discrepancy vs Littlewood; explicitly different (mollified) functional from L_inf star discrepancy.",
+      "url": "https://arxiv.org/abs/2409.17006"
+    },
+    {
+      "id": "arXiv:2502.06202",
+      "note": "DECISIVE nearest prior: Dick et al. states (n alpha) with alpha_j=2^{j/(d+1)} is quasi-uniform and low-discrepancy; for d=2 this is exactly (cbrt(2),cbrt(4)), the draft's vector up to integers. Anticipates rate shape without explicit C.",
+      "url": "https://arxiv.org/abs/2502.06202"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed c0=0.0260595712135128..., M=6.1946442037, S=2.8473221018 at 80 digits; match artifacts/c0_etk.json.",
+    "Recomputed min_{0<max<=200} ||h.a||*max^2=0.0759254 at (-5,-8), ratio 2.914 over c0; confirms Thm 1 margin.",
+    "Verified shell identity S_k=4/k^2+4/k+(8/k)H_{k-1} exactly and majorant <=(4/k)(3+2 log k) for k=1,2,3,5,10,20,50,100.",
+    "Recomputed Thm-2 chain: exact majorant 2.25*(2/(H+1)+sum S_k k^2/(2NC0)) = 32.905 at N=8000, 25.620 at N=20000, 1.839 at N=3e8 vs claimed closed (82+29 log N)/N^{1/3} = 17.131, 13.601, 0.968; closed < majorant everywhere on [8000,1e12] grid, so proof step invalid. Correct completion gives ~(372+57.7 log N)/N^{1/3}, vacuous (2.24) at 3e8.",
+    "Verified closed-form decreasing and closed(3e8)=0.968<1, but moot given underestimation.",
+    "Independently reproduced DEM values at N=128 (0.0315385760507) and N=256 (0.0193580172362) bitwise via separate mask+searchsorted critical-box code; match dem_table.json.",
+    "Checked Thm-2 min-branch condition H^2<=2NC0 holds for N>=8000 (needs N^{1/3}>=19.23); sum-k-log-k lemma holds at H=5,10,20,100,1000.",
+    "Checked fallback vacuity: 12(log N)^2/N = 2.207 at N=128 (>1, trivial), 0.341 at N=2048, 0.069 at N=16384; finite-N 'below curve' therefore weak test of C=12."
+  ],
+  "residual_risks": [
+    "Outer ETK constant 9/4 attributed to Drmota-Tichy Thm 1.21 not independently verified against the book; a different normalisation would shift all ETK constants.",
+    "DEM exactness is for the float64 point set; true-real discrepancy differs by ~1e-12 in volume terms (gap argument, not interval arithmetic); sort-order certification checked only at N=2048,20000, assumed for other N via uniqueness asserts.",
+    "Dick et al. full text not audited for a hidden explicit constant; judgement rests on abstract plus classical non-explicitness claim.",
+    "Large-N behaviour beyond N=20000 entirely open; fitted Chat=0.344 does not preclude spikes violating C=12 later."
+  ],
+  "verdict": "REJECT"
+}
