@@ -1,35 +1,39 @@
 {
-  "verdict": "PASS",
   "axes": {
     "correctness": {
-      "verdict": "PASS",
-      "rationale": "All essential theorems verified independently. Lemma 1 (column disjointness, sum w_i(w_i-1)<=n(n-1)) checked: if two rows share j and l!=j then J2, sets F_i\\{j} disjoint, summation correct. Lemma 2 (weight-1 peeling, rank>=rank(C)+1): restriction argument kills e_n, C inherits diagonal-ones/J2 as principal submatrix; column case by transpose; verified. Lemma 3 (weight-2 peeling, rank>=rank(E0)+1): row0={0,1} forces row1 avoids 0 else share {0,1}; E0 inherits diagonal/J2; independence via zero block on E0 columns; verified. Theorem A hand lower bounds: r2 det 1 on 3 matrices; r3 weight-1 expansion det 1 plus all>=2 forces (2,2,2) via 2+2+6=10>6 counting, no 2-cycles so 3-cycles det 2; r4 weight-1 gives 1+r3, weight-2 gives 1+r2, else 4*6=24>12 impossible; r5 weight-1 gives 1+r4=4, weight-2 gives 1+r3=4, else 5*6=30>20 impossible; residues and induction valid; upper bounds by Theorem B construction. Re-ran enumerate.py: n=2 total 4 survivors 3 min 2 dist {2:3}; n=3 total 64 survivors 21 min 3; n=4 total 4096 survivors 311 min 3 dist {3:6,4:305}; n=5 total 1048576 survivors 8995 min 4 dist {4:390,5:8605} in ~3s, exactly matching DRAFT. Cross-checked Bareiss rank vs Fraction exact rank on tilings n=4,5,8,12 and all n=4 survivors and 2000 random n=5: all match, no float tolerance. Verified every n=4 survivor has nonsingular 3x3 minor and every n=5 survivor has nonsingular 4x4 minor by independent find_minor on same matrix (bad=0 both). Verified minimizer CSVs: 6 rows n=4 all diag-ones J2-free rank 3; 390 rows n=5 all rank 4. Verified orbit counts: n=4 minimizers 1 orbit size 6 (all directed 4-cycles, (4-1)!=6); n=5 minimizers 5 orbits sizes 120,120,60,60,30 sum 390; survivor orbits 107 sum 8995. Verified weight-multiset n=3 split (1,2,2)x9,(1,1,2)x6,(1,1,3)x3,(2,2,2)x2,(1,1,1)x1 dets 1x19,2x2. Theorem B: 4-cycle block supports {a,b},{b,c},{c,d},{d,a} pairwise intersections 1 (adjacent) or 0 (opposite), across blocks 0, block-diagonal J2-free; dependency ra+rc-rb-rd=0 so rank<=3, top-left 3x3 det 1 so exactly 3; total 3*floor(n/4)+(n mod 4)=ceil(3n/4) checked residues 0..3; re-ran construct_upper n=2..12 exact ranks match target. Theorem C: weight<=2 characterization f with no 2-cycles verified (weight-1 rows never cause J2 since size 1; weight-2 pair shares 2 iff equal 2-sets iff 2-cycle); weight-1 case 1+ceil(3(n-1)/4)>=ceil(3n/4) checked residues, C preserves weight<=2; leaf indegree-0 gives column weight 1, C preserves weight<=2 since no one points to leaf; indegree>=1 with sum n forces indegree 1 everywhere so disjoint cycles length>=3 (no fixed points, no 2-cycles), block-diagonal I+P; det(I+P)=1-(-1)^L via lambda^L-1 at -1 gives 2 if L odd (full rank) and 0 if L even with alternating null vector and (L-1)x(L-1) triangular det 1 so rank L-1; L-1>=3L/4 for even L>=4 equality only at 4, L>=3L/4 for odd L; sum >=3n/4 plus integer rounding gives ceil; base n=1 holds. Computationally re-verified weight<=2 exhaustive n=6 valid 28821 min 5, n=7 valid 505876 min 6, n=8 exhaustive 16M valid 10270569 min 6 matching ceil(3n/4). Theorem D: Frobenius rank(G)>= (tr G)^2/||G||_F^2 via Cauchy on eigenvalues, G=MM^T diag w_i off-diag 0/1, denominator Sr+2P=Sr+Sc-W with P=sum C(c_j,2) (each intersecting pair in exactly one column by J2-free) verified; need Sr+Sc<=2W^2/n+W, coarse KST Sr-W<=n(n-1), Sc-W<=n(n-1) gives Sr+Sc<=2W+2n(n-1), suffices W+2n(n-1)<=2W^2/n i.e. 2W^2-Wn-2n^2(n-1)>=0 increasing in W (4W-n>0), minimal W=3n gives n^2(17-2n)>=0 true for n<=8 (n=8 gives 64>0); light row/column peeling ratios 1+ceil((n-1)/2)>=ceil(n/2) and 1+ceil((n-2)/2)>=ceil(n/2) checked even/odd; n=6 all>=3 impossible via 6n>n(n-1); sequential induction 6 then 7 then 8 valid. No overclaim: general n/2 only to n<=8, full 3n/4 as Conjecture E with heuristic support, clearly separated. One non-decisive presentation defect: minors_n5.csv writes canonical rep c but minor rows/cols/det for different member M in same orbit (export_csv.py lines 119-120), so literal check of minor on displayed rep fails (e.g. orbit 19 det 2 vs 1 on rep; orbit 98 minor singular on rep). Underlying existence claim is TRUE by independent per-matrix check (bad=0), and hand induction already proves r5>=4 without CSV, so defect does not falsify any theorem; corrected in RESULT artifacts."
+      "rationale": "All essential theorems verified independently. Lemma 1 (column disjointness, sum w_i(w_i-1)<=n(n-1)) checked: if two rows share j and l!=j then J2, sets F_i\\{j} disjoint, summation correct. Lemma 2 (weight-1 peeling, rank>=rank(C)+1): restriction argument kills e_n, C inherits diagonal-ones/J2 as principal submatrix; column case by transpose; verified. Lemma 3 (weight-2 peeling, rank>=rank(E0)+1): row0={0,1} forces row1 avoids 0 else share {0,1}; E0 inherits diagonal/J2; independence via zero block on E0 columns; verified. Theorem A hand lower bounds: r2 det 1 on 3 matrices; r3 weight-1 expansion det 1 plus all>=2 forces (2,2,2) via 2+2+6=10>6 counting, no 2-cycles so 3-cycles det 2; r4 weight-1 gives 1+r3, weight-2 gives 1+r2, else 4*6=24>12 impossible; r5 weight-1 gives 1+r4=4, weight-2 gives 1+r3=4, else 5*6=30>20 impossible; residues and induction valid; upper bounds by Theorem B construction. Re-ran enumerate.py: n=2 total 4 survivors 3 min 2 dist {2:3}; n=3 total 64 survivors 21 min 3; n=4 total 4096 survivors 311 min 3 dist {3:6,4:305}; n=5 total 1048576 survivors 8995 min 4 dist {4:390,5:8605} in ~3s, exactly matching DRAFT. Cross-checked Bareiss rank vs Fraction exact rank on tilings n=4,5,8,12 and all n=4 survivors and 2000 random n=5: all match, no float tolerance. Verified every n=4 survivor has nonsingular 3x3 minor and every n=5 survivor has nonsingular 4x4 minor by independent find_minor on same matrix (bad=0 both). Verified minimizer CSVs: 6 rows n=4 all diag-ones J2-free rank 3; 390 rows n=5 all rank 4. Verified orbit counts: n=4 minimizers 1 orbit size 6 (all directed 4-cycles, (4-1)!=6); n=5 minimizers 5 orbits sizes 120,120,60,60,30 sum 390; survivor orbits 107 sum 8995. Verified weight-multiset n=3 split (1,2,2)x9,(1,1,2)x6,(1,1,3)x3,(2,2,2)x2,(1,1,1)x1 dets 1x19,2x2. Theorem B: 4-cycle block supports {a,b},{b,c},{c,d},{d,a} pairwise intersections 1 (adjacent) or 0 (opposite), across blocks 0, block-diagonal J2-free; dependency ra+rc-rb-rd=0 so rank<=3, top-left 3x3 det 1 so exactly 3; total 3*floor(n/4)+(n mod 4)=ceil(3n/4) checked residues 0..3; re-ran construct_upper n=2..12 exact ranks match target. Theorem C: weight<=2 characterization f with no 2-cycles verified (weight-1 rows never cause J2 since size 1; weight-2 pair shares 2 iff equal 2-sets iff 2-cycle); weight-1 case 1+ceil(3(n-1)/4)>=ceil(3n/4) checked residues, C preserves weight<=2; leaf indegree-0 gives column weight 1, C preserves weight<=2 since no one points to leaf; indegree>=1 with sum n forces indegree 1 everywhere so disjoint cycles length>=3 (no fixed points, no 2-cycles), block-diagonal I+P; det(I+P)=1-(-1)^L via lambda^L-1 at -1 gives 2 if L odd (full rank) and 0 if L even with alternating null vector and (L-1)x(L-1) triangular det 1 so rank L-1; L-1>=3L/4 for even L>=4 equality only at 4, L>=3L/4 for odd L; sum >=3n/4 plus integer rounding gives ceil; base n=1 holds. Computationally re-verified weight<=2 exhaustive n=6 valid 28821 min 5, n=7 valid 505876 min 6, n=8 exhaustive 16M valid 10270569 min 6 matching ceil(3n/4). Theorem D: Frobenius rank(G)>= (tr G)^2/||G||_F^2 via Cauchy on eigenvalues, G=MM^T diag w_i off-diag 0/1, denominator Sr+2P=Sr+Sc-W with P=sum C(c_j,2) (each intersecting pair in exactly one column by J2-free) verified; need Sr+Sc<=2W^2/n+W, coarse KST Sr-W<=n(n-1), Sc-W<=n(n-1) gives Sr+Sc<=2W+2n(n-1), suffices W+2n(n-1)<=2W^2/n i.e. 2W^2-Wn-2n^2(n-1)>=0 increasing in W (4W-n>0), minimal W=3n gives n^2(17-2n)>=0 true for n<=8 (n=8 gives 64>0); light row/column peeling ratios 1+ceil((n-1)/2)>=ceil(n/2) and 1+ceil((n-2)/2)>=ceil(n/2) checked even/odd; n=6 all>=3 impossible via 6n>n(n-1); sequential induction 6 then 7 then 8 valid. No overclaim: general n/2 only to n<=8, full 3n/4 as Conjecture E with heuristic support, clearly separated. One non-decisive presentation defect: minors_n5.csv writes canonical rep c but minor rows/cols/det for different member M in same orbit (export_csv.py lines 119-120), so literal check of minor on displayed rep fails (e.g. orbit 19 det 2 vs 1 on rep; orbit 98 minor singular on rep). Underlying existence claim is TRUE by independent per-matrix check (bad=0), and hand induction already proves r5>=4 without CSV, so defect does not falsify any theorem; corrected in RESULT artifacts.",
+      "verdict": "PASS"
     },
     "originality": {
-      "verdict": "PASS",
-      "rationale": "Substantive comparison, not timestamp. Fetched and compared three nearest sources. (1) arXiv:2206.04089 Kovacs On Minimally Non-Firm Binary Matrices: studies Boolean rank br(X) vs isolation number i(X) (max 1s with no two sharing row/column/J2) and firm/superfirm equality for all submatrices, four infinite minimally-non-firm classes via rectangle-cover graph. Same J2 configuration but different rank notion (Boolean vs real) and different question (equality vs minimum real rank under diagonal-ones normalization); its infinite families do not give real-rank minima. (2) arXiv:1806.00638 Haviv On Minrank and Forbidden Subgraphs: minrank over fits (diagonal nonzero, zeros on nonedges, entries free) maximized over graphs with H-free complement, Omega(sqrt(n)/log n) and n^delta bounds. Our rank is of the 0-1 matrix itself, diagonal fixed to 1 not just nonzero, forbidden pattern is constant all-ones 2x2 anywhere, minimization over matrices not maximization over graphs; bounds do not imply small-n exact minima. (3) arXiv:2507.05824 Parnas-Shraibman Binary/Boolean rank with small constant real rank d<=4: fixes real rank and bounds binary/Boolean rank above it with tight gaps and extremal circulants plus computer search. Our direction orthogonal: fix J2-free plus diagonal-ones, minimize real rank itself, seek exact r(n) and ceil(3n/4) tiling; their d<=4 classification does not contain diagonal-ones J2-free minima (our n=5 minimizers have real rank 4 but extremal for different property). arXiv search for 'no all-ones 2x2 rank' returned no results, supporting absence of same-objective study. No prior source found studies minimum real (rational) rank over diagonal-ones J2-free matrices, exact table r(2..5)=2,3,3,4 with 6/390 minimizer classification, or 4-cycle tiling upper bound with weight<=2 optimality; delta is (i) real rank as objective, (ii) diagonal-ones normalization making minimum nontrivial, (iii) exact-minimum plus tiling bound. Not parameter substitution of known theorems; methods stay in combinatorial linear algebra (peeling, functional digraphs, Frobenius+KST) as claimed."
+      "rationale": "Live retrieval confirms no source covers or implies the candidate when hypotheses, quantifiers, constants and scope are compared, not just keywords. (1) Kovacs (arXiv abstract + API summary inspected): hypothesis is arbitrary binary X, quantifier is equality i(X)=br(X) for all submatrices; Boolean rank allows Boolean sum of rank-1 binaries, fundamentally different from real rank over Q/R via Bareiss; no diagonal fixed to 1 (so zero-matrix trivialization absent), no minimization over F_n, no parameter r(n), no constants 2,3,3,4 or ceil(3n/4), no 4-cycle tiling or Frobenius/KST lower-bound argument. (2) Haviv (arXiv abstract + Crossref journal record inspected, ACM Trans. Comput. Theory 11(4):1-13): hypothesis is any graph G with complement H-free, matrix may use any field entries subject only to diag nonzero and zeros on nonedges; quantifier is max_G min_M rank, yielding asymptotic Omega(sqrt(n)/log n) for K3 and n^delta for non-bipartite H over R; candidate quantifier is min_M rank with all entries pinned to {0,1} and diag pinned to 1 and forbidden pattern is the constant J2 everywhere — Haviv's free-entry construction cannot be specialized to 0/1 diagonal-ones J2-free matrices and gives no small-n exact values, no 6/390 minimizer classification, no 3-vs-4 residue-specific 4-cycle construction with rank exactly 3 per block. (3) Parnas-Shraibman (arXiv abstract inspected): hypothesis fixes real rank d in 1..4, conclusion bounds binary/Boolean rank above by small constants and characterizes (2d-2)-size extremal circulants; candidate hypothesis fixes combinatorial class F_n and concludes real rank itself is minimized, with exact table and general ceil(3n/4) vs ceil(n/2) bounds — directions are dual and neither implies the other; their extremal matrices are not diagonal-ones J2-free minimizers. Exact-phrase arXiv searches for C4-free+rank, diagonal-ones+J2-free, minimum-real-rank+diagonal, and C4-free+real-rank all returned 0 hits; Crossref fuzzy searches for the full objective and for ceil(3n/4) returned only irrelevant top hits (NIST rank tests, infrared spectra, Seliverstov diagonal-rank bounds which concern lower bounds for matrices with 0/1 outside diagonal without J2 restriction and contain no r(n) table). Therefore this documented search found no substantive covering prior art.",
+      "verdict": "PASS"
     },
     "value": {
-      "verdict": "PASS",
-      "rationale": "Independently worth finding later, not textbook/parameter/tiny-gain/unexplained enumeration. Defines new natural extremal problem (C4-free bipartite condition plus diagonal-ones normalization; without normalization zero matrix trivializes) linking forbidden-pattern combinatorics to rank rigidity/minrank/biclique-cover context. Provides first exact values r(2)=2,r(3)=3,r(4)=3,r(5)=4 with human-checkable inductions plus machine certificates (counts, 1 and 5 minimizer orbits, 107 survivor orbits, explicit nonsingular minors) - explained catalog, not raw table: weight-multisets, canonical forms, J2/rank verification. Provides general theorems for all n: ceil(3n/4) upper bound by explicit 4-cycle block-diagonal tiling (non-obvious 3/4 ratio emerging from 4-cycles) and matching lower bound proving tiling optimal among all row-weight<=2 matrices via leaf+cycle induction - infinite-family result, not just small n. Extends general lower bound ceil(n/2) to n<=8 via peeling+Frobenius+KST with honest open step for n>=9 all>=3 and sharp conjecture r(n)=ceil(3n/4) supported by exhaustive weight<=2 to n=8 and heuristic to n=12, clearly separating theorem vs conjecture. Small-n table plus sharp tiling plus sparse optimality plus conjecture forms coherent reference point for future C4-free rank work; rediscovery would merit recording. Rejects textbook restatement (no textbook contains this table/bound), mere substitution (new objective/normalization), tiny gain (3/4 vs 1/2 gap is substantive, sparse optimality is tight), unexplained enumeration (grouped orbits+minors+hand proofs)."
+      "rationale": "Independently worth finding later, not textbook/parameter/tiny-gain/unexplained enumeration. Defines new natural extremal problem (C4-free bipartite condition plus diagonal-ones normalization; without normalization zero matrix trivializes) linking forbidden-pattern combinatorics to rank rigidity/minrank/biclique-cover context. Provides first exact values r(2)=2,r(3)=3,r(4)=3,r(5)=4 with human-checkable inductions plus machine certificates (counts, 1 and 5 minimizer orbits, 107 survivor orbits, explicit nonsingular minors) - explained catalog, not raw table: weight-multisets, canonical forms, J2/rank verification. Provides general theorems for all n: ceil(3n/4) upper bound by explicit 4-cycle block-diagonal tiling (non-obvious 3/4 ratio emerging from 4-cycles) and matching lower bound proving tiling optimal among all row-weight<=2 matrices via leaf+cycle induction - infinite-family result, not just small n. Extends general lower bound ceil(n/2) to n<=8 via peeling+Frobenius+KST with honest open step for n>=9 all>=3 and sharp conjecture r(n)=ceil(3n/4) supported by exhaustive weight<=2 to n=8 and heuristic to n=12, clearly separating theorem vs conjecture. Small-n table plus sharp tiling plus sparse optimality plus conjecture forms coherent reference point for future C4-free rank work; rediscovery would merit recording. Rejects textbook restatement (no textbook contains this table/bound), mere substitution (new objective/normalization), tiny gain (3/4 vs 1/2 gap is substantive, sparse optimality is tight), unexplained enumeration (grouped orbits+minors+hand proofs).",
+      "verdict": "PASS"
     }
   },
   "checked_sources": [
-    "inputs/topic.json (problem, target claim, nearest-known comparisons, search queries)",
-    "inputs/DRAFT.md (191 lines: Lemmas 1-3, Theorems A-D, Conjecture E, reproducibility, limitations)",
-    "inputs/research_report.json (claimed status, evidence summary, artifact inventory, limitations)",
-    "inputs/artifacts/enumerate.py (Bareiss rank, J2 popcount, exhaustive n<=5)",
-    "inputs/artifacts/classify.py (canonical forms, det, orbit analysis)",
-    "inputs/artifacts/export_csv.py (minimizer/minor CSV emission, contains rep/minor mismatch bug)",
-    "inputs/artifacts/search.py (4-cycle tiling construction, random+local search)",
-    "inputs/artifacts/weight2.py (functional enumeration weight<=2)",
-    "inputs/artifacts/minimizers_n4.csv (6 rows)",
-    "inputs/artifacts/minimizers_n5.csv (390 rows)",
-    "inputs/artifacts/minors_n5.csv (107 rows, packaging bug noted)",
-    "https://arxiv.org/abs/2206.04089 (Kovacs firm matrices abstract)",
-    "https://arxiv.org/abs/1806.00638 (Haviv minrank abstract)",
-    "https://arxiv.org/abs/2507.05824 (Parnas-Shraibman small real rank abstract)",
-    "https://arxiv.org/search/?query=all-ones-2x2-rank (no results)"
+    {
+      "outcome": "Same J2/isolation configuration (1s with no two sharing row/column/J2) but studies Boolean rank br(X) vs isolation number i(X) and firmness/superfirmness for all submatrices with four infinite minimally-non-firm classes; no diagonal-ones normalization, no real-rank minimization, no r(n) table or 3n/4 tiling.",
+      "title": "On Minimally Non-Firm Binary Matrices",
+      "url": "https://arxiv.org/abs/2206.04089"
+    },
+    {
+      "outcome": "Studies g(n,H,F)=max over graphs with H-free complement of min_{M fits G, diag nonzero} rank(M), with Omega(sqrt(n)/log n) and n^delta bounds; candidate fixes entries to 0/1, fixes diagonal to 1 (not just nonzero), forbids constant all-ones 2x2 anywhere, and minimizes over matrices rather than maximizing over graphs — opposite optimization direction, free off-diagonal entries vs fixed bits.",
+      "title": "On Minrank and Forbidden Subgraphs",
+      "url": "https://arxiv.org/abs/1806.00638"
+    },
+    {
+      "outcome": "Fixes real rank d<=4 and bounds binary/Boolean rank above it (tight gaps, extremal circulants, isolation sets); candidate fixes J2-free plus diagonal-ones and minimizes real rank itself seeking r(n) and ceil(3n/4); orthogonal direction — d<=4 classification does not contain diagonal-ones J2-free minima table or weight<=2 optimality proof.",
+      "title": "A Study of the Binary and Boolean Rank of Matrices with Small Constant Real Rank",
+      "url": "https://arxiv.org/abs/2507.05824"
+    },
+    {
+      "outcome": "Found via Crossref as top hit for isolation-number/Boolean-rank lineage underlying Kovacs; compares Boolean rank to isolation number without diagonal-ones normalization and without real-rank objective; does not imply exact real-rank minima r(2..5)=2,3,3,4 or tiling bound.",
+      "title": "Isolation number versus Boolean rank",
+      "url": "https://doi.org/10.1016/j.laa.2011.12.013"
+    }
   ],
   "decisive_checks": [
     "Re-ran enumerate.py: n=2 survivors 3 min 2; n=3 survivors 21 min 3; n=4 survivors 311 (6 rank3,305 rank4); n=5 survivors 8995 (390 rank4,8605 rank5) in ~3s - all match DRAFT",
@@ -44,11 +48,257 @@
     "CSV packaging bug reproduced: orbit 19 det 2 vs 1 on displayed rep; orbit 98 minor singular on displayed rep because rep=c but minor for M!=c - confirms presentation defect, not theorem falsity",
     "Originality fetches: three abstracts confirm different rank notions/directions; arxiv phrase search no hits"
   ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:05:49Z",
+    "queries": [
+      {
+        "query": "all:\"C4-free\" AND all:rank",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22C4-free%22+AND+all:rank&start=0&max_results=5"
+      },
+      {
+        "query": "abs:\"diagonal-ones\" AND abs:\"J2-free\"",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=abs:%22diagonal-ones%22+AND+abs:%22J2-free%22&start=0&max_results=5"
+      },
+      {
+        "query": "abs:\"minimum real rank\" AND abs:diagonal",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=abs:%22minimum+real+rank%22+AND+abs:diagonal&start=0&max_results=5"
+      },
+      {
+        "query": "abs:\"C4-free\" AND abs:\"real rank\"",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=abs:%22C4-free%22+AND+abs:%22real+rank%22&start=0&max_results=5"
+      },
+      {
+        "query": "ti:\"On Minimally Non-Firm Binary Matrices\"",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:%22On+Minimally+Non-Firm+Binary+Matrices%22&start=0&max_results=5"
+      },
+      {
+        "query": "ti:\"On Minrank and Forbidden Subgraphs\"",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:%22On+Minrank+and+Forbidden+Subgraphs%22&start=0&max_results=5"
+      },
+      {
+        "query": "ti:\"Binary and Boolean Rank of Matrices with Small Constant Real Rank\"",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=ti:%22Binary+and+Boolean+Rank+of+Matrices+with+Small+Constant+Real+Rank%22&start=0&max_results=5"
+      },
+      {
+        "query": "minimum real rank C4-free binary matrix diagonal ones",
+        "result_count": 2421343,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=minimum+real+rank+C4-free+binary+matrix+diagonal+ones&rows=5&select=title,DOI,author"
+      },
+      {
+        "query": "ceil 3n 4 rank bound matrix",
+        "result_count": 586168,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=ceil+3n+4+rank+bound+matrix&rows=3&select=title,DOI"
+      },
+      {
+        "query": "query.title=On Minrank and Forbidden Subgraphs",
+        "result_count": 10947,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query.title=On+Minrank+and+Forbidden+Subgraphs&rows=3&select=title,DOI"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Abstract defines Boolean rank as Boolean sum of k rank-1 binaries and isolation as 1s with no shared row/column/J2, studies firmness equality for all submatrices and four infinite minimally-non-firm classes; candidate minimizes real rank over diagonal-ones J2-free matrices with exact r(2..5)=2,3,3,4 and ceil(3n/4) tiling — different rank notion, different normalization, different conclusion, so no coverage.",
+        "retrieved_at_utc": "2026-09-07T14:03:00Z",
+        "title": "On Minimally Non-Firm Binary Matrices",
+        "url": "https://arxiv.org/abs/2206.04089"
+      },
+      {
+        "comparison": "Abstract defines minrank with diag nonzero (not fixed 1) and zeros on nonedges with other entries free, studies max minrank over H-free complements with Omega(sqrt(n)/log n) and n^delta bounds; candidate fixes all entries to 0/1 with diag 1 and forbids constant J2 and minimizes (not maximizes), with exact small-n minima and 4-cycle upper bound — opposite quantifiers and pinned entries, so no implication.",
+        "retrieved_at_utc": "2026-09-07T14:03:30Z",
+        "title": "On Minrank and Forbidden Subgraphs",
+        "url": "https://arxiv.org/abs/1806.00638"
+      },
+      {
+        "comparison": "Abstract fixes real rank d=1..4 and proves tight upper bounds on Boolean/binary rank above it plus unique (2d-2)-size circulant extremals for d=3,4; candidate fixes J2-free diagonal-ones class and minimizes real rank itself with weight<=2 optimality and Frobenius ceil(n/2) argument — orthogonal fixing direction with disjoint extremal objects and constants, so no coverage.",
+        "retrieved_at_utc": "2026-09-07T14:04:00Z",
+        "title": "A Study of the Binary and Boolean Rank of Matrices with Small Constant Real Rank",
+        "url": "https://arxiv.org/abs/2507.05824"
+      },
+      {
+        "comparison": "Crossref publisher record confirms journal version ACM Trans. Comput. Theory 11(4):1-13 with same minrank definition and g(n,H,F) maximization program and Codenotti-Pudlak-Resta context; confirms hypotheses involve free-entry fits and graph maximization, absent any diagonal-ones 0/1 minimization table or 4-cycle tiling bound, corroborating arXiv comparison via independent service.",
+        "retrieved_at_utc": "2026-09-07T14:04:30Z",
+        "title": "On Minrank and Forbidden Subgraphs (Crossref journal record)",
+        "url": "https://api.crossref.org/works/10.1145/3322817"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:05:49Z",
+      "queries": [
+        {
+          "query": "all:\"C4-free\" AND all:rank",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22C4-free%22+AND+all:rank&start=0&max_results=5"
+        },
+        {
+          "query": "abs:\"diagonal-ones\" AND abs:\"J2-free\"",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=abs:%22diagonal-ones%22+AND+abs:%22J2-free%22&start=0&max_results=5"
+        },
+        {
+          "query": "abs:\"minimum real rank\" AND abs:diagonal",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=abs:%22minimum+real+rank%22+AND+abs:diagonal&start=0&max_results=5"
+        },
+        {
+          "query": "abs:\"C4-free\" AND abs:\"real rank\"",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=abs:%22C4-free%22+AND+abs:%22real+rank%22&start=0&max_results=5"
+        },
+        {
+          "query": "ti:\"On Minimally Non-Firm Binary Matrices\"",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:%22On+Minimally+Non-Firm+Binary+Matrices%22&start=0&max_results=5"
+        },
+        {
+          "query": "ti:\"On Minrank and Forbidden Subgraphs\"",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:%22On+Minrank+and+Forbidden+Subgraphs%22&start=0&max_results=5"
+        },
+        {
+          "query": "ti:\"Binary and Boolean Rank of Matrices with Small Constant Real Rank\"",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=ti:%22Binary+and+Boolean+Rank+of+Matrices+with+Small+Constant+Real+Rank%22&start=0&max_results=5"
+        },
+        {
+          "query": "minimum real rank C4-free binary matrix diagonal ones",
+          "result_count": 2421343,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=minimum+real+rank+C4-free+binary+matrix+diagonal+ones&rows=5&select=title,DOI,author"
+        },
+        {
+          "query": "ceil 3n 4 rank bound matrix",
+          "result_count": 586168,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=ceil+3n+4+rank+bound+matrix&rows=3&select=title,DOI"
+        },
+        {
+          "query": "query.title=On Minrank and Forbidden Subgraphs",
+          "result_count": 10947,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query.title=On+Minrank+and+Forbidden+Subgraphs&rows=3&select=title,DOI"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Abstract defines Boolean rank as Boolean sum of k rank-1 binaries and isolation as 1s with no shared row/column/J2, studies firmness equality for all submatrices and four infinite minimally-non-firm classes; candidate minimizes real rank over diagonal-ones J2-free matrices with exact r(2..5)=2,3,3,4 and ceil(3n/4) tiling — different rank notion, different normalization, different conclusion, so no coverage.",
+          "retrieved_at_utc": "2026-09-07T14:03:00Z",
+          "title": "On Minimally Non-Firm Binary Matrices",
+          "url": "https://arxiv.org/abs/2206.04089"
+        },
+        {
+          "comparison": "Abstract defines minrank with diag nonzero (not fixed 1) and zeros on nonedges with other entries free, studies max minrank over H-free complements with Omega(sqrt(n)/log n) and n^delta bounds; candidate fixes all entries to 0/1 with diag 1 and forbids constant J2 and minimizes (not maximizes), with exact small-n minima and 4-cycle upper bound — opposite quantifiers and pinned entries, so no implication.",
+          "retrieved_at_utc": "2026-09-07T14:03:30Z",
+          "title": "On Minrank and Forbidden Subgraphs",
+          "url": "https://arxiv.org/abs/1806.00638"
+        },
+        {
+          "comparison": "Abstract fixes real rank d=1..4 and proves tight upper bounds on Boolean/binary rank above it plus unique (2d-2)-size circulant extremals for d=3,4; candidate fixes J2-free diagonal-ones class and minimizes real rank itself with weight<=2 optimality and Frobenius ceil(n/2) argument — orthogonal fixing direction with disjoint extremal objects and constants, so no coverage.",
+          "retrieved_at_utc": "2026-09-07T14:04:00Z",
+          "title": "A Study of the Binary and Boolean Rank of Matrices with Small Constant Real Rank",
+          "url": "https://arxiv.org/abs/2507.05824"
+        },
+        {
+          "comparison": "Crossref publisher record confirms journal version ACM Trans. Comput. Theory 11(4):1-13 with same minrank definition and g(n,H,F) maximization program and Codenotti-Pudlak-Resta context; confirms hypotheses involve free-entry fits and graph maximization, absent any diagonal-ones 0/1 minimization table or 4-cycle tiling bound, corroborating arXiv comparison via independent service.",
+          "retrieved_at_utc": "2026-09-07T14:04:30Z",
+          "title": "On Minrank and Forbidden Subgraphs (Crossref journal record)",
+          "url": "https://api.crossref.org/works/10.1145/3322817"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Same J2/isolation configuration (1s with no two sharing row/column/J2) but studies Boolean rank br(X) vs isolation number i(X) and firmness/superfirmness for all submatrices with four infinite minimally-non-firm classes; no diagonal-ones normalization, no real-rank minimization, no r(n) table or 3n/4 tiling.",
+        "title": "On Minimally Non-Firm Binary Matrices",
+        "url": "https://arxiv.org/abs/2206.04089"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Studies g(n,H,F)=max over graphs with H-free complement of min_{M fits G, diag nonzero} rank(M), with Omega(sqrt(n)/log n) and n^delta bounds; candidate fixes entries to 0/1, fixes diagonal to 1 (not just nonzero), forbids constant all-ones 2x2 anywhere, and minimizes over matrices rather than maximizing over graphs — opposite optimization direction, free off-diagonal entries vs fixed bits.",
+        "title": "On Minrank and Forbidden Subgraphs",
+        "url": "https://arxiv.org/abs/1806.00638"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Fixes real rank d<=4 and bounds binary/Boolean rank above it (tight gaps, extremal circulants, isolation sets); candidate fixes J2-free plus diagonal-ones and minimizes real rank itself seeking r(n) and ceil(3n/4); orthogonal direction — d<=4 classification does not contain diagonal-ones J2-free minima table or weight<=2 optimality proof.",
+        "title": "A Study of the Binary and Boolean Rank of Matrices with Small Constant Real Rank",
+        "url": "https://arxiv.org/abs/2507.05824"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Found via Crossref as top hit for isolation-number/Boolean-rank lineage underlying Kovacs; compares Boolean rank to isolation number without diagonal-ones normalization and without real-rank objective; does not imply exact real-rank minima r(2..5)=2,3,3,4 or tiling bound.",
+        "title": "Isolation number versus Boolean rank",
+        "url": "https://doi.org/10.1016/j.laa.2011.12.013"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-003",
+    "originality_rationale": "Live retrieval confirms no source covers or implies the candidate when hypotheses, quantifiers, constants and scope are compared, not just keywords. (1) Kovacs (arXiv abstract + API summary inspected): hypothesis is arbitrary binary X, quantifier is equality i(X)=br(X) for all submatrices; Boolean rank allows Boolean sum of rank-1 binaries, fundamentally different from real rank over Q/R via Bareiss; no diagonal fixed to 1 (so zero-matrix trivialization absent), no minimization over F_n, no parameter r(n), no constants 2,3,3,4 or ceil(3n/4), no 4-cycle tiling or Frobenius/KST lower-bound argument. (2) Haviv (arXiv abstract + Crossref journal record inspected, ACM Trans. Comput. Theory 11(4):1-13): hypothesis is any graph G with complement H-free, matrix may use any field entries subject only to diag nonzero and zeros on nonedges; quantifier is max_G min_M rank, yielding asymptotic Omega(sqrt(n)/log n) for K3 and n^delta for non-bipartite H over R; candidate quantifier is min_M rank with all entries pinned to {0,1} and diag pinned to 1 and forbidden pattern is the constant J2 everywhere — Haviv's free-entry construction cannot be specialized to 0/1 diagonal-ones J2-free matrices and gives no small-n exact values, no 6/390 minimizer classification, no 3-vs-4 residue-specific 4-cycle construction with rank exactly 3 per block. (3) Parnas-Shraibman (arXiv abstract inspected): hypothesis fixes real rank d in 1..4, conclusion bounds binary/Boolean rank above by small constants and characterizes (2d-2)-size extremal circulants; candidate hypothesis fixes combinatorial class F_n and concludes real rank itself is minimized, with exact table and general ceil(3n/4) vs ceil(n/2) bounds — directions are dual and neither implies the other; their extremal matrices are not diagonal-ones J2-free minimizers. Exact-phrase arXiv searches for C4-free+rank, diagonal-ones+J2-free, minimum-real-rank+diagonal, and C4-free+real-rank all returned 0 hits; Crossref fuzzy searches for the full objective and for ceil(3n/4) returned only irrelevant top hits (NIST rank tests, infrared spectra, Seliverstov diagonal-rank bounds which concern lower bounds for matrices with 0/1 outside diagonal without J2 restriction and contain no r(n) table). Therefore this documented search found no substantive covering prior art.",
+    "priority_caveat": "This PASS is only a finding that this documented live search found no substantively covering source; it is explicitly not an award of academic priority and does not establish that the candidate is the first discovery.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-003",
+    "residual_uncertainties": [
+      "Full PDFs not line-checked; comparison rests on authoritative abstracts plus API metadata and prior audit's abstract-level differentiation — a buried diagonal-ones J2-free remark inside a full text cannot be fully excluded.",
+      "OpenAlex search unavailable due to service rate-limit/budget error; mitigated by using two independent working services (arXiv API and Crossref API) plus direct publisher-page fetches.",
+      "Crossref fuzzy totals are inflated (millions) and ranking is opaque; absence inferred from top-hit irrelevance and exact-phrase arXiv zero hits, not from exhaustive corpus review.",
+      "Non-English and paywalled sources (e.g., Seliverstov lower bounds for matrices with 0/1 outside diagonal) inspected only via titles/abstracts; title suggests diagonal-adjacent rank bounds but no J2 restriction or r(n) table was evidenced.",
+      "Terminology variants (bipartite C4 vs J2 vs all-ones 2x2 vs rectangle-free) may hide differently-worded prior art; multiple formulations were tried but synonym coverage cannot be proven complete."
+    ],
+    "reviewed_claim": "Let F_n be n×n (0,1)-matrices with M_ii=1 for all i and no all-ones 2×2 submatrix (J2-free / bipartite C4-free, rows/columns not necessarily consecutive); r(n)=min_{M in F_n} rank_R(M). Claims checked: r(2)=2, r(3)=3, r(4)=3, r(5)=4 with survivor counts |F_2|=3, |F_3|=21, |F_4|=311 (6 rank-3), |F_5|=8995 (390 rank-4) and minimizer orbits 1×6 (n=4) and 5 orbits 120/120/60/60/30 (n=5); general upper bound r(n)<=ceil(3n/4) via disjoint directed 4-cycle block-diagonal tiling (4-block rank 3); matching lower bound ceil(3n/4) for all matrices with max row-weight <=2; general lower bound r(n)>=ceil(n/2) for n<=8; conjecture r(n)=ceil(3n/4).",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "Exact forbidden-pattern phrasing: all:\"C4-free\" AND all:rank on arXiv API to test C4-free rank literature",
+      "Candidate normalization terminology: abs:\"diagonal-ones\" AND abs:\"J2-free\" on arXiv API",
+      "Objective phrasing: abs:\"minimum real rank\" AND abs:diagonal on arXiv API",
+      "Equivalent graph-rank phrasing: abs:\"C4-free\" AND abs:\"real rank\" on arXiv API",
+      "Named-object control: ti:\"On Minimally Non-Firm Binary Matrices\" to live-retrieve Kovacs Boolean-rank nearest prior",
+      "Named-object control: ti:\"On Minrank and Forbidden Subgraphs\" to live-retrieve Haviv minrank nearest prior",
+      "Named-object control: ti:\"Binary and Boolean Rank of Matrices with Small Constant Real Rank\" to live-retrieve Parnas-Shraibman nearest prior",
+      "Crossref fuzzy full-text: query=minimum real rank C4-free binary matrix diagonal ones to check for any diagonal-ones extremal-rank paper",
+      "Crossref exact-constant: query=ceil 3n 4 rank bound matrix to check for prior ceil(3n/4) tiling bound",
+      "Crossref title authority check: query.title=On Minrank and Forbidden Subgraphs to verify Haviv via second independent service"
+    ],
+    "verdict": "PASS"
+  },
   "residual_risks": [
     "General ceil(n/2) for n>=9 all rows+cols >=3 remains open; coarse KST+Frobenius provably insufficient (17-2n<0); joint variance bound not closed - draft honestly states this",
     "Full r(n)=ceil(3n/4) is conjecture: weight-3 construction beating tiling for large n not disproved; support is exhaustive weight<=2 to n=8 plus random/local search to n=12 and dense-matrix heuristics, not proof",
     "n=5 counts/orbits and n=6..8 weight<=2 exhaustive rely on Python Bareiss/J2 code correctness; mitigated by Fraction cross-check and ~3s-300s reruns, but no second-language implementation",
     "minors_n5.csv as deposited is mismatched (rep vs minor); RESULT artifacts provide corrected per-rep minors - users must not verify old CSV literally",
-    "Heuristic evidence (5000-20000 trials to n=50, Fano 7x7, clique Gram) supports but does not prove uncovered family; local search from tiling staying put is weak optimality signal"
-  ]
+    "Heuristic evidence (5000-20000 trials to n=50, Fano 7x7, clique Gram) supports but does not prove uncovered family; local search from tiling staying put is weak optimality signal",
+    "Originality revalidation: Full PDFs not line-checked; comparison rests on authoritative abstracts plus API metadata and prior audit's abstract-level differentiation — a buried diagonal-ones J2-free remark inside a full text cannot be fully excluded.",
+    "Originality revalidation: OpenAlex search unavailable due to service rate-limit/budget error; mitigated by using two independent working services (arXiv API and Crossref API) plus direct publisher-page fetches.",
+    "Originality revalidation: Crossref fuzzy totals are inflated (millions) and ranking is opaque; absence inferred from top-hit irrelevance and exact-phrase arXiv zero hits, not from exhaustive corpus review.",
+    "Originality revalidation: Non-English and paywalled sources (e.g., Seliverstov lower bounds for matrices with 0/1 outside diagonal) inspected only via titles/abstracts; title suggests diagonal-adjacent rank bounds but no J2 restriction or r(n) table was evidenced.",
+    "Originality revalidation: Terminology variants (bipartite C4 vs J2 vs all-ones 2x2 vs rectangle-free) may hide differently-worded prior art; multiple formulations were tried but synonym coverage cannot be proven complete."
+  ],
+  "verdict": "PASS"
 }

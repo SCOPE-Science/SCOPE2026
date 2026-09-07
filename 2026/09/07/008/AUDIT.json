@@ -1,1 +1,297 @@
-{"axes": {"correctness": {"rationale": "Re-ran output/artifacts/audit.py independently (1.8s, numpy 1.26.4 + sympy 1.12): 719 reps, distinct canon codes, sizes sum 63015, 713x r=3 + 6x r=4 factors, Bareiss rank 3 for all 719, SymPy rank 3 for all 719, exact Fractions M=W*H>=0 for all 719, fooling-4 witnesses entrywise valid for all six, full 376992-multiset re-enumeration reproduces histogram {0:1,1:155,2:5550,3:63015,4:203985,5:104286} and 719-code set. Canonical invariant verified sound and complete: min_{120 row-perms} sorted base-32 column code minimized over M and M^T equals min(canon(M),canon(M^T)), which is complete for S5xS5+transpose (minima equality implies a cross-equality); recomputed codes match stored codes for 10 sampled orbits including all six gaps and agree with brute-force min over all 120x120x2 row/col/transpose perms; random row/col/transpose perturbations preserve codes; sampled distinct-code pairs verified non-equivalent by exhaustive perm check. Rank exactness: Bareiss (fraction-free integer) + SymPy double proof for all 719; SVD prefilter safety proved by measured separation over all 376992 multisets — min 4th singular value among rank-4 is 0.262, min 3rd among rank-3 is 0.414, max 4th-value noise among rank-3 is 6.17e-16, vs numpy tolerance ~5.5e-15, margin >1e14, plus 500 random Bareiss/SVD agreements. Upper bounds: subset certificates sufficient — W=subset of columns (651 col3, 6 col4) or H=subset of rows (62 row3) verified to be submatrices and Fractions M=W*H>=0 holds exactly (independently re-verified; e.g. M664 W=first-4-cols H=[I4|(1,0,0,1)^T] with col5=col1+col4). Lower bounds: six fooling-4 witnesses verified entry-by-entry (diagonals >0, all 6 cross-products zero per pair; e.g. M664 pairs (0,0),(1,2),(2,1),(3,3)); standard fooling lemma (two positions cannot share a nonnegative rank-1 component) gives rank+>=4, with NMF(4) gives =4; 713 with NMF(3) and rank 3 give =3 via rank<=rank+. Universal NMF(4) for all 719 gives no class needs >=5, so fooling-5/rectcover supplementary checks are not load-bearing. Proof vs evidence correctly distinguished: ANLS residuals (713 <=5e-12 vs 6 >=0.76) described only as discovery; ternary {0,1,2} search (800k random + 30x4000 annealing, best sigma4 0.154) correctly labeled negative heuristic, not a nonexistence theorem; limitations (multiset vs raw counts, exponential rectcover, no nested-polygon prover) explicitly stated. No essential inference, boundary condition, or computation fails.", "verdict": "PASS"}, "originality": {"rationale": "Compared substantively to all four dossier nearest results and internal Resultary. (1) Beasley-Laffey 2009 (Real/complex ranks w.r.t. nonnegative matrices): isolated 4x4 rank-3/rank-4 examples over reals; draft's six 5x5 gaps all contain that 4-cycle on 4 rows/cols (verified: every gap has zero and/or duplicate row/col — 287 zero row+col, 294 zero col+dup rows, 378 zero col, 630 dup col+dup rows, 662 dup col+dup rows, 664 dup rows 3==4) and draft explicitly disclaims novelty for the pattern itself. What is new is completeness: exactly six classes up to monomial+transpose, all degenerate lifts, none primitive — not implied by one 4x4 example. (2) Gillis-Glineur 2012 (geometric interpretation/nested polygons): rank-3 theory and structural bounds only; provides no integer census, no rational certificates, no 719-table; draft bypasses polygons because fooling+subset already close, which is a stratum-specific closure not in the theory paper. (3) Fiorini-Massar-Pokutta-Tiwary-de Wolf pentagon slack (JACM 2015): textbook 5x5 rank-3/rank-5 but irrational (golden-ratio); provides no bounded-integer witness and no census; draft shows binary stratum max is 4, i.e. the gap-2 phenomenon needs irrationals/larger entries — a new small-entry boundary. (4) Cohen-Rothblum 1993: foundational existential bounds (rank<=2 equality, general upper bounds); no explicit 5x5 table or ANLS+exact-rounding pipeline. Internal scan hits SCOPE-20260907-003 (diagonal-ones J2-free real-rank minima and ceil(3n/4) tiling), -001 (4-sets), -002 (spider walks) are disjoint objects/claims/routes; seven SCOPE-FAIL items (A(16,6,7), RT(30,K4,6), Szemeredi-Trotter 4x4, balls-in-bins, Z197 bases, Polya-Vinogradov, dicyclic spectra) differ in object and route. Web DOI fetches were attempted but transport failed offline, so comparison rests on dossier descriptions plus training knowledge; no prior binary 5x5 rank-3 census with exact NMF/fooling certificates is known. Contribution is the integer restriction plus exhaustive certified table, not a parameter tweak (4->5 in a formula) and not a timestamp priority claim.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding later as a sharp certified reference, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. It answers a natural motivated question (where does rank-3 vs rank-5 first appear over small integers? relevant to extension complexity and communication lower bounds): for {0,1}^{5x5} the answer is never — max is 4, attained on exactly 6/719 classes. The table (719 representatives, exact subset factors, fooling witnesses, canon codes, rerunnable <2s audit) is the first bounded-entry census with machine-checkable proofs and is directly reusable for future extension-complexity constructions. Structural insight beyond raw counts: all six gaps are degenerate lifts (zero/duplicate row/col), so no primitive binary 5x5 gap exists — non-obvious without exhaustive search and explicitly interpreted as evidence the pentagon-type gap needs irrationals. Honestly scoped: fallback claim only, no ternary nonexistence claimed, multiset-vs-raw counting disclosed, no novelty claimed for 4-cycle itself. Rejection as 'mere 4x4 padding' would miss completeness (proof that these are the only six and that rank-5 is absent); rejection as 'brute-force enumeration' would miss exact certificates and interpretation. A future worker on small-entry nonnegative rank would want this boundary and artifact.", "verdict": "PASS"}}, "checked_sources": [{"comparison": "Isolated 4x4 rank-3/rank-4 over reals; six 5x5 gaps are lifts of its 4-cycle but completeness (exactly six, all degenerate) is new.", "title": "Beasley and Laffey - Real and complex ranks with respect to nonnegative matrices (Linear Algebra Appl. 2009)", "url": "https://doi.org/10.1016/j.laa.2009.03.050"}, {"comparison": "Rank-3 nested-polygon theory only; no integer census or exact certificates; draft closes stratum with fooling+subset without polygons.", "title": "Gillis and Glineur - On the geometric interpretation of the nonnegative rank (Linear Algebra Appl. 2012)", "url": "https://doi.org/10.1016/j.laa.2012.06.038"}, {"comparison": "Textbook 5x5 rank-3/rank-5 is irrational pentagon slack; draft proves binary max is 4, showing gap needs irrationals/larger entries.", "title": "Fiorini, Massar, Pokutta, Tiwary, de Wolf - Exponential lower bounds for polytopes / Linear vs semidefinite extended formulations (JACM 2015)", "url": "https://doi.org/10.1145/2684068"}, {"comparison": "Foundational existential bounds; no explicit 5x5 small-entry table or ANLS-plus-exact-rounding pipeline.", "title": "Cohen and Rothblum - Nonnegative ranks, decompositions and factorizations (Linear Algebra Appl. 1993)", "url": "https://doi.org/10.1016/0024-3795(93)90560-M"}, {"comparison": "Real-rank minima for diagonal-ones J2-free matrices and tiling bound; disjoint from nonnegative-rank census.", "title": "Internal Resultary SCOPE-20260907-003, -001, -002", "url": null}], "decisive_checks": ["Reran output/artifacts/audit.py: PASS in 1.8s, histogram and 719-code set reproduced.", "Recomputed canon codes independently and cross-checked vs brute-force 120x120x2 enumeration on 10 orbits (including all six gaps): match; random perm/transpose invariance holds; sampled distinct-code pairs proven non-equivalent.", "Measured SVD separation over all 376992 multisets: min nonzero 0.262/0.414 vs noise 6.2e-16 vs tol 5.5e-15 — float rank exact.", "Hand-verified M664: rank 3 (3x3 det -1, all 4x4 dets 0), factor W=first-4-cols H=[I4|(1,0,0,1)^T] exact over Fractions, fooling pairs (0,0),(1,2),(2,1),(3,3) entrywise (diags 1, six crosses 0).", "Verified factor-type distribution 651 col3 / 62 row3 / 6 col4 and subset property (W columns equal M columns) plus Fractions M=W*H for samples; verified foolmax/rectcover distributions {2:34,3:679,4:6} and gap indices [287,294,378,630,662,664].", "Inspected all six gaps for degeneracy: each has zero row/col and/or duplicate row/col; none is primitive — confirms draft's extension claim is lift-type and completeness is the contribution.", "Confirmed proof/heuristic separation: ANLS and ternary annealing correctly excluded from proof; limitations disclosed."], "residual_risks": ["Web fetches for DOIs failed offline; literature comparison relies on dossier summaries plus training knowledge — low risk given disjointness and draft's explicit disclaimer on 4-cycle novelty.", "Exhaustive exact integer rank for all 376992 not run (float rank justified by 1e14 separation + 500 spot-checks + full 719 double-proof) — negligible residual risk.", "Rectangle-covering and fooling-5 absence code not independently re-implemented (not load-bearing: universal NMF(4) already proves max 4) — no proof risk.", "Orbit sizes are column-multiset counts (sum 63015), not raw 2^25 counts; conversion not tabulated but explicitly disclosed — presentation risk only.", "Ternary {0,1,2} gap-5 nonexistence not proved (correctly not claimed); future geometric (non-fooling) witness remains open."], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran output/artifacts/audit.py independently (1.8s, numpy 1.26.4 + sympy 1.12): 719 reps, distinct canon codes, sizes sum 63015, 713x r=3 + 6x r=4 factors, Bareiss rank 3 for all 719, SymPy rank 3 for all 719, exact Fractions M=W*H>=0 for all 719, fooling-4 witnesses entrywise valid for all six, full 376992-multiset re-enumeration reproduces histogram {0:1,1:155,2:5550,3:63015,4:203985,5:104286} and 719-code set. Canonical invariant verified sound and complete: min_{120 row-perms} sorted base-32 column code minimized over M and M^T equals min(canon(M),canon(M^T)), which is complete for S5xS5+transpose (minima equality implies a cross-equality); recomputed codes match stored codes for 10 sampled orbits including all six gaps and agree with brute-force min over all 120x120x2 row/col/transpose perms; random row/col/transpose perturbations preserve codes; sampled distinct-code pairs verified non-equivalent by exhaustive perm check. Rank exactness: Bareiss (fraction-free integer) + SymPy double proof for all 719; SVD prefilter safety proved by measured separation over all 376992 multisets — min 4th singular value among rank-4 is 0.262, min 3rd among rank-3 is 0.414, max 4th-value noise among rank-3 is 6.17e-16, vs numpy tolerance ~5.5e-15, margin >1e14, plus 500 random Bareiss/SVD agreements. Upper bounds: subset certificates sufficient — W=subset of columns (651 col3, 6 col4) or H=subset of rows (62 row3) verified to be submatrices and Fractions M=W*H>=0 holds exactly (independently re-verified; e.g. M664 W=first-4-cols H=[I4|(1,0,0,1)^T] with col5=col1+col4). Lower bounds: six fooling-4 witnesses verified entry-by-entry (diagonals >0, all 6 cross-products zero per pair; e.g. M664 pairs (0,0),(1,2),(2,1),(3,3)); standard fooling lemma (two positions cannot share a nonnegative rank-1 component) gives rank+>=4, with NMF(4) gives =4; 713 with NMF(3) and rank 3 give =3 via rank<=rank+. Universal NMF(4) for all 719 gives no class needs >=5, so fooling-5/rectcover supplementary checks are not load-bearing. Proof vs evidence correctly distinguished: ANLS residuals (713 <=5e-12 vs 6 >=0.76) described only as discovery; ternary {0,1,2} search (800k random + 30x4000 annealing, best sigma4 0.154) correctly labeled negative heuristic, not a nonexistence theorem; limitations (multiset vs raw counts, exponential rectcover, no nested-polygon prover) explicitly stated. No essential inference, boundary condition, or computation fails.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval found theory for rank vs nonnegative-rank gaps but no source stating or implying the exact certified census. Beasley-Laffey gives only an isolated 4x4 rank-3/rank+-4 example whose 4-cycle pattern the record explicitly disclaims as prior; it has no 5x5 enumeration, no 719 total, no 713/6 split, no max-4 theorem. Gillis-Glineur gives continuous rank-3 nested-polygon theory and restricted rank, not a discrete {0,1}^{5x5} classification. Watson is terminologically closest (binary matrices) but studies binary rank = biclique-partition number, not the census of nonnegative rank values; its theorem that total matrices with nonnegative rank <=3 have equal binary rank and its nonnegative-4/binary-5 example use different quantifiers and do not yield 719 classes, rational subset-factor certificates, or the no-rank+-5 conclusion. Fiorini et al concerns large polytopes and irrational slacks (e.g. pentagon golden-ratio rank-3/rank-5), opposite to the bounded-integer table. Shitov's ceil(6(n+1)/7) bound is consistent with rank+ up to 6 for n=5 and therefore neither covers nor implies max-4 for binary 5x5. Zero-hit arXiv searches for 5x5+nonnegative-rank and binary-matrix+nonnegative-rank, and the irrelevant hits for enumeration (Hadamard-product 4x4) and rectangle-covering, further support absence of a prior table with these exact constants, hypotheses (binary, 5x5, rank exactly 3, monomial+transpose equivalence), and proof scope (Bareiss+SymPy rank, Fractions subset NMF, fooling-4 witnesses, 376992-multiset re-enumeration).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a sharp certified reference, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. It answers a natural motivated question (where does rank-3 vs rank-5 first appear over small integers? relevant to extension complexity and communication lower bounds): for {0,1}^{5x5} the answer is never — max is 4, attained on exactly 6/719 classes. The table (719 representatives, exact subset factors, fooling witnesses, canon codes, rerunnable <2s audit) is the first bounded-entry census with machine-checkable proofs and is directly reusable for future extension-complexity constructions. Structural insight beyond raw counts: all six gaps are degenerate lifts (zero/duplicate row/col), so no primitive binary 5x5 gap exists — non-obvious without exhaustive search and explicitly interpreted as evidence the pentagon-type gap needs irrationals. Honestly scoped: fallback claim only, no ternary nonexistence claimed, multiset-vs-raw counting disclosed, no novelty claimed for 4-cycle itself. Rejection as 'mere 4x4 padding' would miss completeness (proof that these are the only six and that rank-5 is absent); rejection as 'brute-force enumeration' would miss exact certificates and interpretation. A future worker on small-entry nonnegative rank would want this boundary and artifact.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Isolated 4x4 rank-3 / nonnegative-rank-4 example and 4-cycle pattern cited by record as Beasley-Laffey extension basis; single small example, not a 5x5 enumeration and no 719/713/6 counts.",
+      "title": "Real rank versus nonnegative rank",
+      "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/J.LAA.2009.02.034?fields=title,abstract,year,authors,url,externalIds,citationCount"
+    },
+    {
+      "outcome": "Rank-3 nested-polygon / restricted-nonnegative-rank theory and counterexamples to Beasley-Laffey conjectures; continuous geometry with no binary 5x5 census, no fooling-4 classification, no exact counts.",
+      "title": "On the Geometric Interpretation of the Nonnegative Rank",
+      "url": "https://arxiv.org/abs/1009.0880"
+    },
+    {
+      "outcome": "Closest binary-matrix prior: studies 0-1 matrices but for binary rank (biclique partition / unambiguous nondeterministic communication), proves equality when nonnegative rank <=3 and gives a nonnegative-4 vs binary-5 separation; different rank notion, no 5x5 rank-3 enumeration, no nonnegative-rank-4 vs 5 distribution.",
+      "title": "Nonnegative Rank vs. Binary Rank",
+      "url": "https://arxiv.org/abs/1603.07779"
+    },
+    {
+      "outcome": "Large-scale extension-complexity lower bounds via slack matrices (including irrational pentagon-type 5x5 rank-3/rank-5 examples); opposite regime to certified bounded-integer census, provides context for gap but no small-entry table.",
+      "title": "Exponential Lower Bounds for Polytopes in Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/1111.0837"
+    },
+    {
+      "outcome": "General upper bound for rank-three matrices implying ceil(6(n+1)/7) inequalities for n-gons (allows up to 6 for n=5); existential bound only, does not determine binary 5x5 distribution or preclude rank+ 5, no enumeration.",
+      "title": "An upper bound for nonnegative rank",
+      "url": "https://arxiv.org/abs/1303.1960"
+    }
+  ],
+  "decisive_checks": [
+    "Reran output/artifacts/audit.py: PASS in 1.8s, histogram and 719-code set reproduced.",
+    "Recomputed canon codes independently and cross-checked vs brute-force 120x120x2 enumeration on 10 orbits (including all six gaps): match; random perm/transpose invariance holds; sampled distinct-code pairs proven non-equivalent.",
+    "Measured SVD separation over all 376992 multisets: min nonzero 0.262/0.414 vs noise 6.2e-16 vs tol 5.5e-15 — float rank exact.",
+    "Hand-verified M664: rank 3 (3x3 det -1, all 4x4 dets 0), factor W=first-4-cols H=[I4|(1,0,0,1)^T] exact over Fractions, fooling pairs (0,0),(1,2),(2,1),(3,3) entrywise (diags 1, six crosses 0).",
+    "Verified factor-type distribution 651 col3 / 62 row3 / 6 col4 and subset property (W columns equal M columns) plus Fractions M=W*H for samples; verified foolmax/rectcover distributions {2:34,3:679,4:6} and gap indices [287,294,378,630,662,664].",
+    "Inspected all six gaps for degeneracy: each has zero row/col and/or duplicate row/col; none is primitive — confirms draft's extension claim is lift-type and completeness is the contribution.",
+    "Confirmed proof/heuristic separation: ANLS and ternary annealing correctly excluded from proof; limitations disclosed."
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:13:15Z",
+    "queries": [
+      {
+        "query": "ti:\"nonnegative rank\"",
+        "result_count": 24,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=ti:%22nonnegative+rank%22&start=0&max_results=20"
+      },
+      {
+        "query": "abs:\"fooling set\" AND abs:\"nonnegative rank\"",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=abs:%22fooling+set%22+AND+abs:%22nonnegative+rank%22&start=0&max_results=20"
+      },
+      {
+        "query": "abs:\"binary matrix\" AND abs:\"nonnegative rank\"",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=abs:%22binary+matrix%22+AND+abs:%22nonnegative+rank%22&start=0&max_results=10"
+      },
+      {
+        "query": "all:\"5x5\" AND all:\"nonnegative rank\"",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=all:%225x5%22+AND+all:%22nonnegative+rank%22&start=0&max_results=10"
+      },
+      {
+        "query": "all:\"rectangle covering number\" AND all:\"nonnegative rank\"",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=all:%22rectangle+covering+number%22+AND+all:%22nonnegative+rank%22&start=0&max_results=10"
+      },
+      {
+        "query": "all:binary AND all:fooling AND all:rank",
+        "result_count": 2,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=all:binary+AND+all:fooling+AND+all:rank&start=0&max_results=10"
+      },
+      {
+        "query": "all:enumeration AND all:\"binary matrices\" AND all:rank",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "http://export.arxiv.org/api/query?search_query=all:enumeration+AND+all:%22binary+matrices%22+AND+all:rank&start=0&max_results=10"
+      },
+      {
+        "query": "Beasley Laffey Real complex ranks nonnegative matrices",
+        "result_count": 14,
+        "service": "Semantic Scholar API",
+        "url": "https://api.semanticscholar.org/graph/v1/paper/search?query=Beasley+Laffey+Real+complex+ranks+nonnegative+matrices&limit=5&fields=title,abstract,url,year,authors,externalIds"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Inspected arXiv abstract + journal ref LAA 437 (2012): defines restricted nonnegative rank and polyhedral equivalence, disproves two Beasley-Laffey conjectures on Euclidean distance matrices; rank-3 theory is continuous nested-polygon geometry with no binary 5x5 enumeration, no 719/713/6 counts, no fooling-4 census.",
+        "retrieved_at_utc": "2026-09-07T14:11:10Z",
+        "title": "On the Geometric Interpretation of the Nonnegative Rank",
+        "url": "https://arxiv.org/abs/1009.0880"
+      },
+      {
+        "comparison": "Inspected arXiv abstract + CJT CS 2016 ref: for total 0-1 matrices proves nonnegative rank <=3 implies binary rank equals it, plus a nonnegative-4/binary-5 separation; binary rank here is biclique-partition/unambiguous-nondeterminism, distinct from nonnegative rank distribution, with no 5x5 rank-3 census or max-nonnegative-4 claim.",
+        "retrieved_at_utc": "2026-09-07T14:11:25Z",
+        "title": "Nonnegative Rank vs. Binary Rank",
+        "url": "https://arxiv.org/abs/1603.07779"
+      },
+      {
+        "comparison": "Inspected Semantic Scholar metadata (Beasley-Laffey 2009, DOI 10.1016/J.LAA.2009.02.034, 45 citations): confirms isolated real-vs-nonnegative-rank example underlying the 4-cycle pattern; metadata shows a single-example paper, not a 376992-multiset enumeration and no 719-class or 713/6 split.",
+        "retrieved_at_utc": "2026-09-07T14:12:05Z",
+        "title": "Real rank versus nonnegative rank",
+        "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/J.LAA.2009.02.034?fields=title,abstract,year,authors,url,externalIds,citationCount"
+      },
+      {
+        "comparison": "Inspected arXiv abstract (Fiorini-Massar-Pokutta-Tiwary-de Wolf, JACM version): proves no polynomial-size LP for TSP/cut/stable-set via quantum-communication connection; concerns large-scale irrational slacks, not a certified {0,1}^{5x5} rank-3 table with exact rational factors.",
+        "retrieved_at_utc": "2026-09-07T14:12:30Z",
+        "title": "Exponential Lower Bounds for Polytopes in Combinatorial Optimization",
+        "url": "https://arxiv.org/abs/1111.0837"
+      },
+      {
+        "comparison": "Inspected arXiv abstract (Shitov 2013): nontrivial upper bound for rank-three matrices yielding ceil(6(n+1)/7) inequalities for n-gons; general existential bound permitting rank+ up to 6 when n=5, so it neither states nor implies the binary-5x5 exact max-4 census with 719 classes.",
+        "retrieved_at_utc": "2026-09-07T14:12:50Z",
+        "title": "An upper bound for nonnegative rank",
+        "url": "https://arxiv.org/abs/1303.1960"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:13:15Z",
+      "queries": [
+        {
+          "query": "ti:\"nonnegative rank\"",
+          "result_count": 24,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=ti:%22nonnegative+rank%22&start=0&max_results=20"
+        },
+        {
+          "query": "abs:\"fooling set\" AND abs:\"nonnegative rank\"",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=abs:%22fooling+set%22+AND+abs:%22nonnegative+rank%22&start=0&max_results=20"
+        },
+        {
+          "query": "abs:\"binary matrix\" AND abs:\"nonnegative rank\"",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=abs:%22binary+matrix%22+AND+abs:%22nonnegative+rank%22&start=0&max_results=10"
+        },
+        {
+          "query": "all:\"5x5\" AND all:\"nonnegative rank\"",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=all:%225x5%22+AND+all:%22nonnegative+rank%22&start=0&max_results=10"
+        },
+        {
+          "query": "all:\"rectangle covering number\" AND all:\"nonnegative rank\"",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=all:%22rectangle+covering+number%22+AND+all:%22nonnegative+rank%22&start=0&max_results=10"
+        },
+        {
+          "query": "all:binary AND all:fooling AND all:rank",
+          "result_count": 2,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=all:binary+AND+all:fooling+AND+all:rank&start=0&max_results=10"
+        },
+        {
+          "query": "all:enumeration AND all:\"binary matrices\" AND all:rank",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "http://export.arxiv.org/api/query?search_query=all:enumeration+AND+all:%22binary+matrices%22+AND+all:rank&start=0&max_results=10"
+        },
+        {
+          "query": "Beasley Laffey Real complex ranks nonnegative matrices",
+          "result_count": 14,
+          "service": "Semantic Scholar API",
+          "url": "https://api.semanticscholar.org/graph/v1/paper/search?query=Beasley+Laffey+Real+complex+ranks+nonnegative+matrices&limit=5&fields=title,abstract,url,year,authors,externalIds"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Inspected arXiv abstract + journal ref LAA 437 (2012): defines restricted nonnegative rank and polyhedral equivalence, disproves two Beasley-Laffey conjectures on Euclidean distance matrices; rank-3 theory is continuous nested-polygon geometry with no binary 5x5 enumeration, no 719/713/6 counts, no fooling-4 census.",
+          "retrieved_at_utc": "2026-09-07T14:11:10Z",
+          "title": "On the Geometric Interpretation of the Nonnegative Rank",
+          "url": "https://arxiv.org/abs/1009.0880"
+        },
+        {
+          "comparison": "Inspected arXiv abstract + CJT CS 2016 ref: for total 0-1 matrices proves nonnegative rank <=3 implies binary rank equals it, plus a nonnegative-4/binary-5 separation; binary rank here is biclique-partition/unambiguous-nondeterminism, distinct from nonnegative rank distribution, with no 5x5 rank-3 census or max-nonnegative-4 claim.",
+          "retrieved_at_utc": "2026-09-07T14:11:25Z",
+          "title": "Nonnegative Rank vs. Binary Rank",
+          "url": "https://arxiv.org/abs/1603.07779"
+        },
+        {
+          "comparison": "Inspected Semantic Scholar metadata (Beasley-Laffey 2009, DOI 10.1016/J.LAA.2009.02.034, 45 citations): confirms isolated real-vs-nonnegative-rank example underlying the 4-cycle pattern; metadata shows a single-example paper, not a 376992-multiset enumeration and no 719-class or 713/6 split.",
+          "retrieved_at_utc": "2026-09-07T14:12:05Z",
+          "title": "Real rank versus nonnegative rank",
+          "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/J.LAA.2009.02.034?fields=title,abstract,year,authors,url,externalIds,citationCount"
+        },
+        {
+          "comparison": "Inspected arXiv abstract (Fiorini-Massar-Pokutta-Tiwary-de Wolf, JACM version): proves no polynomial-size LP for TSP/cut/stable-set via quantum-communication connection; concerns large-scale irrational slacks, not a certified {0,1}^{5x5} rank-3 table with exact rational factors.",
+          "retrieved_at_utc": "2026-09-07T14:12:30Z",
+          "title": "Exponential Lower Bounds for Polytopes in Combinatorial Optimization",
+          "url": "https://arxiv.org/abs/1111.0837"
+        },
+        {
+          "comparison": "Inspected arXiv abstract (Shitov 2013): nontrivial upper bound for rank-three matrices yielding ceil(6(n+1)/7) inequalities for n-gons; general existential bound permitting rank+ up to 6 when n=5, so it neither states nor implies the binary-5x5 exact max-4 census with 719 classes.",
+          "retrieved_at_utc": "2026-09-07T14:12:50Z",
+          "title": "An upper bound for nonnegative rank",
+          "url": "https://arxiv.org/abs/1303.1960"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Isolated 4x4 rank-3 / nonnegative-rank-4 example and 4-cycle pattern cited by record as Beasley-Laffey extension basis; single small example, not a 5x5 enumeration and no 719/713/6 counts.",
+        "title": "Real rank versus nonnegative rank",
+        "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/J.LAA.2009.02.034?fields=title,abstract,year,authors,url,externalIds,citationCount"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Rank-3 nested-polygon / restricted-nonnegative-rank theory and counterexamples to Beasley-Laffey conjectures; continuous geometry with no binary 5x5 census, no fooling-4 classification, no exact counts.",
+        "title": "On the Geometric Interpretation of the Nonnegative Rank",
+        "url": "https://arxiv.org/abs/1009.0880"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Closest binary-matrix prior: studies 0-1 matrices but for binary rank (biclique partition / unambiguous nondeterministic communication), proves equality when nonnegative rank <=3 and gives a nonnegative-4 vs binary-5 separation; different rank notion, no 5x5 rank-3 enumeration, no nonnegative-rank-4 vs 5 distribution.",
+        "title": "Nonnegative Rank vs. Binary Rank",
+        "url": "https://arxiv.org/abs/1603.07779"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Large-scale extension-complexity lower bounds via slack matrices (including irrational pentagon-type 5x5 rank-3/rank-5 examples); opposite regime to certified bounded-integer census, provides context for gap but no small-entry table.",
+        "title": "Exponential Lower Bounds for Polytopes in Combinatorial Optimization",
+        "url": "https://arxiv.org/abs/1111.0837"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "General upper bound for rank-three matrices implying ceil(6(n+1)/7) inequalities for n-gons (allows up to 6 for n=5); existential bound only, does not determine binary 5x5 distribution or preclude rank+ 5, no enumeration.",
+        "title": "An upper bound for nonnegative rank",
+        "url": "https://arxiv.org/abs/1303.1960"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-008",
+    "originality_rationale": "Live retrieval found theory for rank vs nonnegative-rank gaps but no source stating or implying the exact certified census. Beasley-Laffey gives only an isolated 4x4 rank-3/rank+-4 example whose 4-cycle pattern the record explicitly disclaims as prior; it has no 5x5 enumeration, no 719 total, no 713/6 split, no max-4 theorem. Gillis-Glineur gives continuous rank-3 nested-polygon theory and restricted rank, not a discrete {0,1}^{5x5} classification. Watson is terminologically closest (binary matrices) but studies binary rank = biclique-partition number, not the census of nonnegative rank values; its theorem that total matrices with nonnegative rank <=3 have equal binary rank and its nonnegative-4/binary-5 example use different quantifiers and do not yield 719 classes, rational subset-factor certificates, or the no-rank+-5 conclusion. Fiorini et al concerns large polytopes and irrational slacks (e.g. pentagon golden-ratio rank-3/rank-5), opposite to the bounded-integer table. Shitov's ceil(6(n+1)/7) bound is consistent with rank+ up to 6 for n=5 and therefore neither covers nor implies max-4 for binary 5x5. Zero-hit arXiv searches for 5x5+nonnegative-rank and binary-matrix+nonnegative-rank, and the irrelevant hits for enumeration (Hadamard-product 4x4) and rectangle-covering, further support absence of a prior table with these exact constants, hypotheses (binary, 5x5, rank exactly 3, monomial+transpose equivalence), and proof scope (Bareiss+SymPy rank, Fractions subset NMF, fooling-4 witnesses, 376992-multiset re-enumeration).",
+    "priority_caveat": "This PASS is only a finding that the documented live search found no source substantively covering or implying the candidate; it is not an award of academic priority and does not establish that the candidate is first or original in any absolute sense.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-008",
+    "residual_uncertainties": [
+      "Paywalled full texts (Beasley-Laffey, Cohen-Rothblum 1993, Fiorini JACM) inspected via abstracts/metadata only; full-text details could contain additional small examples but abstracts and known results give no indication of a 719-class census.",
+      "OpenAlex and Crossref API queries returned HTTP 429 rate-limit during this run; coverage relies on arXiv API plus Semantic Scholar API plus direct arXiv pages as the two independent services.",
+      "Record cites Beasley-Laffey as https://doi.org/10.1016/j.laa.2009.03.050 while Semantic Scholar resolves the Real-rank-versus-nonnegative-rank paper to 10.1016/J.LAA.2009.02.034; DOI discrepancy does not affect the originality comparison but full bibliographic verification was not completed.",
+      "Cannot logically exclude an obscure thesis, blog, or code repository stating the same 719/713/6 numbers without using those indexable terms; zero-hit 5x5-specific searches reduce but do not eliminate this risk."
+    ],
+    "reviewed_claim": "Up to row/column permutations and transpose there are exactly 719 binary 5x5 matrices of ordinary rank 3, of which exactly 713 have nonnegative rank 3 and 6 have nonnegative rank 4 (with explicit rational subset NMF(3)/NMF(4) upper bounds and explicit size-4 fooling-set lower bounds, e.g. M664=[[1,1,0,0,1],[1,0,1,0,1],[0,1,0,1,1],[0,0,1,1,1],[0,0,1,1,1]]), hence no {0,1}^{5x5} matrix has rank 3 and nonnegative rank 5; all six gaps are degenerate lifts of the 4-cycle with zero/duplicate row/column.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "arXiv API ti:\"nonnegative rank\" (broad recall for rank vs nonnegative-rank theory)",
+      "arXiv API abs:\"fooling set\" AND abs:\"nonnegative rank\" (exact lower-bound method)",
+      "arXiv API abs:\"binary matrix\" AND abs:\"nonnegative rank\" (binary-entry subclaim)",
+      "arXiv API all:\"5x5\" AND all:\"nonnegative rank\" (exact dimension + property)",
+      "arXiv API all:\"rectangle covering number\" AND all:\"nonnegative rank\" (equivalent terminology for binary covering bound)",
+      "arXiv API all:binary AND all:fooling AND all:rank (alternate terminology / biclique / fooling)",
+      "arXiv API all:enumeration AND all:\"binary matrices\" AND all:rank (prior census / enumeration check)",
+      "Semantic Scholar API search Beasley+Laffey Real complex ranks nonnegative matrices (named-object prior art)",
+      "Semantic Scholar API DOI lookups for Beasley-Laffey 10.1016/J.LAA.2009.02.034 and Gillis-Glineur 10.1016/j.laa.2012.06.038 (authoritative metadata inspection)",
+      "Direct arXiv abstract-page inspection for Gillis-Glineur 1009.0880, Watson 1603.07779, Fiorini et al 1111.0837, Shitov 1303.1960"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Web fetches for DOIs failed offline; literature comparison relies on dossier summaries plus training knowledge — low risk given disjointness and draft's explicit disclaimer on 4-cycle novelty.",
+    "Exhaustive exact integer rank for all 376992 not run (float rank justified by 1e14 separation + 500 spot-checks + full 719 double-proof) — negligible residual risk.",
+    "Rectangle-covering and fooling-5 absence code not independently re-implemented (not load-bearing: universal NMF(4) already proves max 4) — no proof risk.",
+    "Orbit sizes are column-multiset counts (sum 63015), not raw 2^25 counts; conversion not tabulated but explicitly disclosed — presentation risk only.",
+    "Ternary {0,1,2} gap-5 nonexistence not proved (correctly not claimed); future geometric (non-fooling) witness remains open.",
+    "Originality revalidation: Paywalled full texts (Beasley-Laffey, Cohen-Rothblum 1993, Fiorini JACM) inspected via abstracts/metadata only; full-text details could contain additional small examples but abstracts and known results give no indication of a 719-class census.",
+    "Originality revalidation: OpenAlex and Crossref API queries returned HTTP 429 rate-limit during this run; coverage relies on arXiv API plus Semantic Scholar API plus direct arXiv pages as the two independent services.",
+    "Originality revalidation: Record cites Beasley-Laffey as https://doi.org/10.1016/j.laa.2009.03.050 while Semantic Scholar resolves the Real-rank-versus-nonnegative-rank paper to 10.1016/J.LAA.2009.02.034; DOI discrepancy does not affect the originality comparison but full bibliographic verification was not completed.",
+    "Originality revalidation: Cannot logically exclude an obscure thesis, blog, or code repository stating the same 719/713/6 numbers without using those indexable terms; zero-hit 5x5-specific searches reduce but do not eliminate this risk."
+  ],
+  "verdict": "PASS"
+}

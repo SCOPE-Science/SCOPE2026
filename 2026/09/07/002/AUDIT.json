@@ -1,1 +1,281 @@
-{"axes": {"correctness": {"rationale": "Independently re-verified every inference. Setup: pi(center)=1/(2L), pi(leaf)=1/(2kL), pi(internal)=1/(kL) normalizes to 1; J_t Markov with stated transitions (move prob 1/2 at every state) and leg-conditional description correct. Lemma 1: jump-chain equations g0=0, g_a=1+(g_{a-1}+g_{a+1})/2, g_L=1+g_{L-1} solved by g_a=a(2L-a) checked algebraically for L in {1,5,10,20}; lazy factor 2 valid because hold/move coin (prob 1/2 everywhere) independent of direction coins, so E[H]=2E[G]; max 2L^2 at leaf; L=1 gives mean 2 = Geometric(1/2), consistent. Cycle lift N=2L with fold f(z)=min(z,N-z) reproduces J transitions at 0 and L (both preimages map to same J move); L=1 N=2 flip interpretation holds. Lemma 2: alternating-selection gives each marginal stay 1/2 + each neighbor 1/4 (for N=2, stay 1/2/flip 1/2), folds faithful; difference D moves +-1 w.p. 1/2 each step with no hold, absorption mean d0(N-d0) standard and max N^2/4=L^2; Z-meet implies fold-meet so tau_J<=tau_Z, E[tau_J]<=L^2; parity/reachability holds. Lemma 3: J-level synchronous rule (common stay/move coin, common +-1 interior, 0->1 and L->L-1 together) preserves equality, has correct marginals, joint J is single J-chain with hitting mean <=2L^2 by Lemma 1; at joint 0 both at unique center so coalesced; early off-center meeting only shortens time so expectation bound safe. Strong Markov composition gives E[tau]<=L^2+2L^2=3L^2<=8kL^2. Markov restart: P(tau>T0)<=1/4 with T0=4M, induction P(tau>(m+1)T0)<=1/4 P(tau>mT0) via Markov property and uniform bound gives 4^-m<=2^-m. Coupling inequality to d(mT0)<=4^-m, t_mix(1/4)<=T0, t_mix(eps)<=T0 ceil(log2(1/eps)) via ceil(log4)<=ceil(log2) for eps<=1/2 all verified. Centered tail: t=mT0+r gives P(tau>t)<=4^-m<=2exp(-t/(64kL^2)) because T0/(64kL^2)=1/2 and 4^-m<=2e^{-(m+1)/2} holds (ratio (e^{1/2}/2)(e^{1/2}/4)^m<=0.824, decreasing); upper deviation subset, lower deviation split t>=E (prob 0) vs t<E (prob<=1<=2exp(...) since t/(64kL^2)<=3/(64k)<=1/64<ln2) gives two-sided bound with c=1/64 without extra union factor. Conductance leg A: pi(A)=(2L-1)/(2kL)<=1/2 for k>=3, Q=1/(4kL), Phi=1/(2(2L-1)), gap>=Phi^2/2=Omega(1/L^2) consistent (sanity only). Simulations are support not proof: hash 0ae11070c214b88b7edb3a3e3c2723a789200abec6d5f9fc0883cfa067bf2de0 matches, independent re-run of leaf->center (k=3,L=5,10) reproduces 2L^2 within ~1%, reported means ~2L^2 within 3L^2 envelope with 1.5x slack and zero T0 exceedances consistent with 48x slack. Minor exposition slips (Z-common-direction phrasing in Lemma 3 does not preserve equality for opposite lifts, but explicitly stated J-increment rule does and suffices; 'worst start' label for equal-distance leaves ignores Stage-1 contribution) do not invalidate any bound.", "verdict": "PASS"}, "originality": {"rationale": "Substantive comparison, not timestamp/search-count. Nearest (1) Feng-Gerencser arXiv:2411.07125: n-cycle plus k random edges, non-reversible biased/lifted walk, asymptotic O(n^{(k+2)/(k+1)}) speedup via drift/lift; different graph family (cycle+edges vs deterministic balanced-spider tree), different reversibility (non-reversible vs reversible lazy simple), different claim (asymptotic order vs non-asymptotic k-L coupling tail + t_mix(eps)<=32kL^2 ceil(log2(1/eps))) and method (lift/drift vs gambler ruin + cycle-fold alternating coupling). Nearest (2) Csaki et al. arXiv:1501.00466: infinite spider (half-lines at origin), Brownian-spider strong approximation and excursion-height asymptotics; no finite stationary pi, no TV mixing, no concentration. Nearest (3) Dembo-Rosen-Zeitouni arXiv:1906.07276: binary tree of depth n cover time GFF limit law for sqrt(C_n 2^{-(n+1)})-m_n; different tree (binary vs starlike), observable (cover limit vs mixing tail) and method (GFF extremal vs elementary coupling). arXiv all-field search 'mixing spider walk' returns no results, confirmed by fetch. Generic Levin-Peres-Wilmer coupling inequality and gambler ruin d(N-d) used as black-box textbook tools (explicitly credited), but instance to S(k,L) with radial reduction, C_{2L} fold, two-stage mean 3L^2, geometric 4^-m tail and centered 1/64 tail is not stated in any source. No prior finite-spider mixing tail found.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding: first explicit non-asymptotic coupling-tail mixing concentration for two-parameter balanced spiders S(k,L) interpolating star (L=1) and path-like extremes, isolating central-branching vs diffusion with checkable rate. Sharper proved mean 3L^2 (independent of k) implies claimed 32kL^2 tail; far below generic tree n^3 (~1e6 at n=101 vs T0=38400 at k=3,L=20) and improves generic n^2=k^2L^2 by factor k^2/k, so not epsilon-shaving. Provides functional form (geometric tail + centered exponential + t_mix(eps) concentration) where none existed, plus seeded falsifiable envelope (mean slack ~1.5x, hitting within 1%) as MCMC benchmark on tree-structured spaces. Not a textbook restatement (textbook inequality is black box; novelty is construction + explicit constants), not mere n-rescaling ((k,L) jointly control branching, stationary and conductance verified k-independent in leading order), not tiny gain, not unexplained enumeration (proof + audit table). Limitations (upper bound only, generous constants, no cutoff/lower bound, balanced symmetry essential) are disclosed and do not erase benchmark value.", "verdict": "PASS"}}, "checked_sources": ["https://arxiv.org/abs/2411.07125 (fetched: cycle+k random edges, non-reversible O(n^{(k+2)/(k+1)}))", "https://arxiv.org/abs/1501.00466 (fetched: infinite spider heights/Brownian spider)", "https://arxiv.org/abs/1906.07276 (fetched: binary-tree cover GFF limit)", "https://arxiv.org/search/?query=mixing+spider+walk (no results)", "Levin-Peres-Wilmer Ch.5 coupling inequality + gambler ruin (textbook black box, credited)"], "decisive_checks": ["Re-derived ruin solution a(2L-a) and max L^2 / 2L^2 lazy for L in {1,5,10,20}, incl. L=1 Geometric check", "Re-derived cycle-fold transitions at 0/L and alternating-selection marginals + D walk mean d(N-d) max L^2", "Verified J-level synchronous coupling preserves equality/marginals; flagged Z-common-s phrasing as inessential heuristic", "Verified Markov-restart 4^-m, coupling to t_mix, and 4^-m<=2exp(-(m+1)/2) ratio 0.824 decreasing", "Verified centered-tail split (t>=E vs t<E) avoids 2x union factor, c=1/64", "Verified pi normalization, conductance Phi=1/(2(2L-1)), T0=4M slack, 3L^2<=8kL^2", "Verified sha256 0ae11070... matches code_hash.txt; independently re-simulated leaf->center means within ~1% of 2L^2"], "residual_risks": ["Simulation grid tests only equal-distance leaves (Stage-1 skipped); sup over differing-distance starts covered by proof but not empirically exercised - tail slack (48x) makes violation implausible but worst-case mean not directly measured", "Lemma 3 Z-lift phrasing misleading if read literally for opposite lifts; J-rule correction needed for future readers (no logical gap)", "Constants deliberately loose (T0 32kL^2 vs sharper 12L^2); lower bounds/cutoff and unbalanced/general trees out of scope as disclosed", "Monte Carlo support only (10k/20k trials, no bootstrap CIs); proof does not rely on it"], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-verified every inference. Setup: pi(center)=1/(2L), pi(leaf)=1/(2kL), pi(internal)=1/(kL) normalizes to 1; J_t Markov with stated transitions (move prob 1/2 at every state) and leg-conditional description correct. Lemma 1: jump-chain equations g0=0, g_a=1+(g_{a-1}+g_{a+1})/2, g_L=1+g_{L-1} solved by g_a=a(2L-a) checked algebraically for L in {1,5,10,20}; lazy factor 2 valid because hold/move coin (prob 1/2 everywhere) independent of direction coins, so E[H]=2E[G]; max 2L^2 at leaf; L=1 gives mean 2 = Geometric(1/2), consistent. Cycle lift N=2L with fold f(z)=min(z,N-z) reproduces J transitions at 0 and L (both preimages map to same J move); L=1 N=2 flip interpretation holds. Lemma 2: alternating-selection gives each marginal stay 1/2 + each neighbor 1/4 (for N=2, stay 1/2/flip 1/2), folds faithful; difference D moves +-1 w.p. 1/2 each step with no hold, absorption mean d0(N-d0) standard and max N^2/4=L^2; Z-meet implies fold-meet so tau_J<=tau_Z, E[tau_J]<=L^2; parity/reachability holds. Lemma 3: J-level synchronous rule (common stay/move coin, common +-1 interior, 0->1 and L->L-1 together) preserves equality, has correct marginals, joint J is single J-chain with hitting mean <=2L^2 by Lemma 1; at joint 0 both at unique center so coalesced; early off-center meeting only shortens time so expectation bound safe. Strong Markov composition gives E[tau]<=L^2+2L^2=3L^2<=8kL^2. Markov restart: P(tau>T0)<=1/4 with T0=4M, induction P(tau>(m+1)T0)<=1/4 P(tau>mT0) via Markov property and uniform bound gives 4^-m<=2^-m. Coupling inequality to d(mT0)<=4^-m, t_mix(1/4)<=T0, t_mix(eps)<=T0 ceil(log2(1/eps)) via ceil(log4)<=ceil(log2) for eps<=1/2 all verified. Centered tail: t=mT0+r gives P(tau>t)<=4^-m<=2exp(-t/(64kL^2)) because T0/(64kL^2)=1/2 and 4^-m<=2e^{-(m+1)/2} holds (ratio (e^{1/2}/2)(e^{1/2}/4)^m<=0.824, decreasing); upper deviation subset, lower deviation split t>=E (prob 0) vs t<E (prob<=1<=2exp(...) since t/(64kL^2)<=3/(64k)<=1/64<ln2) gives two-sided bound with c=1/64 without extra union factor. Conductance leg A: pi(A)=(2L-1)/(2kL)<=1/2 for k>=3, Q=1/(4kL), Phi=1/(2(2L-1)), gap>=Phi^2/2=Omega(1/L^2) consistent (sanity only). Simulations are support not proof: hash 0ae11070c214b88b7edb3a3e3c2723a789200abec6d5f9fc0883cfa067bf2de0 matches, independent re-run of leaf->center (k=3,L=5,10) reproduces 2L^2 within ~1%, reported means ~2L^2 within 3L^2 envelope with 1.5x slack and zero T0 exceedances consistent with 48x slack. Minor exposition slips (Z-common-direction phrasing in Lemma 3 does not preserve equality for opposite lifts, but explicitly stated J-increment rule does and suffices; 'worst start' label for equal-distance leaves ignores Stage-1 contribution) do not invalidate any bound.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval finds no source stating or implying the candidate's specific finite-graph, non-asymptotic, quantified claim. The candidate quantifies over all k>=3, L>=1 for S(k,L) with n=kL+1, lazy chain with stated pi, and asserts four linked quantitative conclusions: mean <=3L^2 (k-independent sharper bound), geometric tail 4^{-m} at scale T0=32kL^2, TV bound d(mT0)<=4^{-m} with t_mix(1/4)<=T0 and t_mix(eps)<=T0*ceil(log2(1/eps)), and two-sided centered exponential tail with rate 1/(64kL^2). Proof scope is elementary two-stage coupling: J_t radial Markov reduction, C_{2L} fold f(z)=min(z,N-z), alternating-selection coupling for distances (E<=L^2 via D-walk d0(N-d0)), synchronous J-sticking to joint center (E<=2L^2 via gambler's ruin a(2L-a) times lazy factor 2), then Markov restart. Nearest retrieved sources differ on hypotheses, quantifiers and conclusions: Feng-Gerencser is asymptotic order on perturbed cycles with non-reversible drift (no S(k,L), no reversibility, no explicit constants); Csaki et al. and Foldes-Revesz companion are infinite-leg excursion heights and Brownian-spider approximation (no stationary distribution, no TV distance); Dembo-Rosen-Zeitouni is cover-time limit law on binary trees via GFF (different tree, observable, method); de la Iglesia-Juarez is infinite-spider spectral Karlin-McGregor theory (no mixing); balanced-spider arXiv hits (2 total) are skew/full throttling propagation games, not random walks; spider+coupling+mixing arXiv hit (1 total) is SPIDER CMB balloon mode coupling, irrelevant; combined spider+mixing+random+walk arXiv query returns 0; star-graph mixing arXiv hits (24) are quantum universal/uniform mixing and unrelated Markov-chain geometry, not classical lazy-walk coupling tails; Crossref top hits are generic mixing surveys and the Révész chapter/dissertation with no mixing bound. Textbook coupling inequality and gambler's ruin d(N-d) are credited black boxes; novelty claimed is only the instance construction plus explicit (k,L) constants, which no source states. Hence within documented search no prior art substantively covers or implies the candidate.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding: first explicit non-asymptotic coupling-tail mixing concentration for two-parameter balanced spiders S(k,L) interpolating star (L=1) and path-like extremes, isolating central-branching vs diffusion with checkable rate. Sharper proved mean 3L^2 (independent of k) implies claimed 32kL^2 tail; far below generic tree n^3 (~1e6 at n=101 vs T0=38400 at k=3,L=20) and improves generic n^2=k^2L^2 by factor k^2/k, so not epsilon-shaving. Provides functional form (geometric tail + centered exponential + t_mix(eps) concentration) where none existed, plus seeded falsifiable envelope (mean slack ~1.5x, hitting within 1%) as MCMC benchmark on tree-structured spaces. Not a textbook restatement (textbook inequality is black box; novelty is construction + explicit constants), not mere n-rescaling ((k,L) jointly control branching, stationary and conductance verified k-independent in leading order), not tiny gain, not unexplained enumeration (proof + audit table). Limitations (upper bound only, generous constants, no cutoff/lower bound, balanced symmetry essential) are disclosed and do not erase benchmark value.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Different graph family, reversibility, claim type and method: n-cycle plus k random edges with non-reversible biased/lifted walk proving asymptotic O(n^{(k+2)/(k+1)}) mixing improvement as n->infinity, vs deterministic finite balanced-spider tree S(k,L) with reversible lazy simple walk and non-asymptotic k-L-explicit coupling tail T0=32kL^2 and centered 1/64 tail.",
+      "title": "Mixing on the cycle with constant size perturbation",
+      "url": "https://arxiv.org/abs/2411.07125"
+    },
+    {
+      "outcome": "Different regime and conclusion: infinite spider (N half-lines at origin), Brownian-spider strong approximation and excursion-height asymptotics in n steps (fixed vs growing legs); no finite vertex set, no stationary pi, no total-variation mixing time, no coupling time or exponential concentration with constants in (k,L).",
+      "title": "Some limit theorems for heights of random walks on spider",
+      "url": "https://arxiv.org/abs/1501.00466"
+    },
+    {
+      "outcome": "Different tree, observable and method: binary tree depth n cover time C_n, distributional limit of sqrt(C_n*2^{-(n+1)})-m_n via Gaussian free field extremal theory, vs starlike S(k,L) mixing-time upper bound and coupling-tail concentration via gambler's ruin plus cycle-fold coupling.",
+      "title": "Limit law for the cover time of a random walk on a binary tree",
+      "url": "https://arxiv.org/abs/1906.07276"
+    },
+    {
+      "outcome": "Closest spider birth-death spectral theory: infinite spider (N discrete half-lines), quasi-birth-death block-tridiagonal analysis, Karlin-McGregor n-step transitions via matrix orthogonal polynomials and Darboux/Geronimus transforms; no finite-leg truncation S(k,L), no TV mixing, no coalescing coupling mean 3L^2 or geometric 4^{-m} tail.",
+      "title": "Birth-death chains on a spider: spectral analysis and reflecting-absorbing factorization",
+      "url": "https://arxiv.org/abs/2111.10450"
+    },
+    {
+      "outcome": "Crossref-confirmed chapter on spider random walk (Révész school, infinite-spider recurrence/excursion context); metadata and book context show no finite balanced-spider S(k,L) lazy-walk mixing concentration with explicit T0, t_mix(eps) or 2*exp(-t/(64kL^2)) bound; full text paywalled but title/venue/scope inconsistent with candidate.",
+      "title": "Random Walk on a Spider (book chapter, Random Walk in Random and Non-Random Environments)",
+      "url": "https://doi.org/10.1142/9789814447515_0037"
+    }
+  ],
+  "decisive_checks": [
+    "Re-derived ruin solution a(2L-a) and max L^2 / 2L^2 lazy for L in {1,5,10,20}, incl. L=1 Geometric check",
+    "Re-derived cycle-fold transitions at 0/L and alternating-selection marginals + D walk mean d(N-d) max L^2",
+    "Verified J-level synchronous coupling preserves equality/marginals; flagged Z-common-s phrasing as inessential heuristic",
+    "Verified Markov-restart 4^-m, coupling to t_mix, and 4^-m<=2exp(-(m+1)/2) ratio 0.824 decreasing",
+    "Verified centered-tail split (t>=E vs t<E) avoids 2x union factor, c=1/64",
+    "Verified pi normalization, conductance Phi=1/(2(2L-1)), T0=4M slack, 3L^2<=8kL^2",
+    "Verified sha256 0ae11070... matches code_hash.txt; independently re-simulated leaf->center means within ~1% of 2L^2"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:04:52Z",
+    "queries": [
+      {
+        "query": "all:spider AND all:mixing AND all:random AND all:walk",
+        "result_count": 0,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all:spider+AND+all:mixing+AND+all:random+AND+all:walk&start=0&max_results=10"
+      },
+      {
+        "query": "all:\"balanced spider\"",
+        "result_count": 2,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all:%22balanced+spider%22&start=0&max_results=10"
+      },
+      {
+        "query": "all:spider AND all:\"random walk\"",
+        "result_count": 10,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all:spider+AND+all:%22random+walk%22&start=0&max_results=20"
+      },
+      {
+        "query": "all:spider AND all:coupling AND all:mixing",
+        "result_count": 1,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all:spider+AND+all:coupling+AND+all:mixing&start=0&max_results=10"
+      },
+      {
+        "query": "all:star AND all:graph AND all:mixing AND all:time",
+        "result_count": 24,
+        "service": "arXiv API (export.arxiv.org)",
+        "url": "https://export.arxiv.org/api/query?search_query=all:star+AND+all:graph+AND+all:mixing+AND+all:time&start=0&max_results=10"
+      },
+      {
+        "query": "spider graph mixing time random walk",
+        "result_count": 10,
+        "service": "Crossref (api.crossref.org)",
+        "url": "https://api.crossref.org/works?query=spider%20graph%20mixing%20time%20random%20walk&rows=10"
+      },
+      {
+        "query": "balanced spider random walk mixing",
+        "result_count": 5,
+        "service": "Crossref (api.crossref.org)",
+        "url": "https://api.crossref.org/works?query=balanced%20spider%20random%20walk%20mixing&rows=5"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved arXiv abs inspected: n-cycle plus k fixed random edges, non-reversible biased walk achieving O(n^{(k+2)/(k+1)}) mixing as n->infinity; differs in graph (cycle+edges vs finite balanced-spider tree), reversibility (non-reversible vs lazy reversible), and conclusion (asymptotic order vs explicit T0=32kL^2, 4^{-m} tail and centered exponential bound). Does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:01:30Z",
+        "title": "Mixing on the cycle with constant size perturbation",
+        "url": "https://arxiv.org/abs/2411.07125"
+      },
+      {
+        "comparison": "Retrieved arXiv abs inspected: simple symmetric walk on infinite spider of half-lines, Brownian-spider strong approximation and height/excursion limit theorems in n steps; has no finite S(k,L), no stationary pi, no TV mixing time, no coupling mean/tail or t_mix(eps) bound. Distinct asymptotic regime, does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:02:00Z",
+        "title": "Some limit theorems for heights of random walks on spider",
+        "url": "https://arxiv.org/abs/1501.00466"
+      },
+      {
+        "comparison": "Retrieved arXiv abs inspected: cover time of binary tree depth n, GFF limit law for normalized sqrt(C_n)-m_n; different graph (binary vs starlike spider), different observable (cover limit distribution vs mixing-time upper envelope), different method (GFF extremal vs elementary gambler's ruin plus C_{2L} fold coupling). Does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:02:20Z",
+        "title": "Limit law for the cover time of a random walk on a binary tree",
+        "url": "https://arxiv.org/abs/1906.07276"
+      },
+      {
+        "comparison": "Retrieved arXiv abs inspected: discrete-time birth-death on infinite spider (N half-lines), block-tridiagonal quasi-birth-death spectral analysis, Karlin-McGregor formula and Darboux transforms; states n-step transitions spectrally but no finite-leg S(k,L) truncation, no TV mixing, no coalescing coupling or 3L^2/4^{-m}/1/64 constants. Does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:02:50Z",
+        "title": "Birth-death chains on a spider: spectral analysis and reflecting-absorbing factorization",
+        "url": "https://arxiv.org/abs/2111.10450"
+      },
+      {
+        "comparison": "Retrieved Crossref DOI record inspected (World Scientific chapter pp.373-376 in Random Walk in Random and Non-Random Environments): confirms spider random-walk chapter in infinite-spider tradition with no finite S(k,L) mixing-concentration metadata; full text paywalled but scope/title and book context exclude explicit coupling-tail mixing bound with T0 and exponential constants. Does not cover candidate.",
+        "retrieved_at_utc": "2026-09-07T14:03:15Z",
+        "title": "Random Walk on a Spider (book chapter)",
+        "url": "https://doi.org/10.1142/9789814447515_0037"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:04:52Z",
+      "queries": [
+        {
+          "query": "all:spider AND all:mixing AND all:random AND all:walk",
+          "result_count": 0,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all:spider+AND+all:mixing+AND+all:random+AND+all:walk&start=0&max_results=10"
+        },
+        {
+          "query": "all:\"balanced spider\"",
+          "result_count": 2,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all:%22balanced+spider%22&start=0&max_results=10"
+        },
+        {
+          "query": "all:spider AND all:\"random walk\"",
+          "result_count": 10,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all:spider+AND+all:%22random+walk%22&start=0&max_results=20"
+        },
+        {
+          "query": "all:spider AND all:coupling AND all:mixing",
+          "result_count": 1,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all:spider+AND+all:coupling+AND+all:mixing&start=0&max_results=10"
+        },
+        {
+          "query": "all:star AND all:graph AND all:mixing AND all:time",
+          "result_count": 24,
+          "service": "arXiv API (export.arxiv.org)",
+          "url": "https://export.arxiv.org/api/query?search_query=all:star+AND+all:graph+AND+all:mixing+AND+all:time&start=0&max_results=10"
+        },
+        {
+          "query": "spider graph mixing time random walk",
+          "result_count": 10,
+          "service": "Crossref (api.crossref.org)",
+          "url": "https://api.crossref.org/works?query=spider%20graph%20mixing%20time%20random%20walk&rows=10"
+        },
+        {
+          "query": "balanced spider random walk mixing",
+          "result_count": 5,
+          "service": "Crossref (api.crossref.org)",
+          "url": "https://api.crossref.org/works?query=balanced%20spider%20random%20walk%20mixing&rows=5"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved arXiv abs inspected: n-cycle plus k fixed random edges, non-reversible biased walk achieving O(n^{(k+2)/(k+1)}) mixing as n->infinity; differs in graph (cycle+edges vs finite balanced-spider tree), reversibility (non-reversible vs lazy reversible), and conclusion (asymptotic order vs explicit T0=32kL^2, 4^{-m} tail and centered exponential bound). Does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:01:30Z",
+          "title": "Mixing on the cycle with constant size perturbation",
+          "url": "https://arxiv.org/abs/2411.07125"
+        },
+        {
+          "comparison": "Retrieved arXiv abs inspected: simple symmetric walk on infinite spider of half-lines, Brownian-spider strong approximation and height/excursion limit theorems in n steps; has no finite S(k,L), no stationary pi, no TV mixing time, no coupling mean/tail or t_mix(eps) bound. Distinct asymptotic regime, does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:02:00Z",
+          "title": "Some limit theorems for heights of random walks on spider",
+          "url": "https://arxiv.org/abs/1501.00466"
+        },
+        {
+          "comparison": "Retrieved arXiv abs inspected: cover time of binary tree depth n, GFF limit law for normalized sqrt(C_n)-m_n; different graph (binary vs starlike spider), different observable (cover limit distribution vs mixing-time upper envelope), different method (GFF extremal vs elementary gambler's ruin plus C_{2L} fold coupling). Does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:02:20Z",
+          "title": "Limit law for the cover time of a random walk on a binary tree",
+          "url": "https://arxiv.org/abs/1906.07276"
+        },
+        {
+          "comparison": "Retrieved arXiv abs inspected: discrete-time birth-death on infinite spider (N half-lines), block-tridiagonal quasi-birth-death spectral analysis, Karlin-McGregor formula and Darboux transforms; states n-step transitions spectrally but no finite-leg S(k,L) truncation, no TV mixing, no coalescing coupling or 3L^2/4^{-m}/1/64 constants. Does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:02:50Z",
+          "title": "Birth-death chains on a spider: spectral analysis and reflecting-absorbing factorization",
+          "url": "https://arxiv.org/abs/2111.10450"
+        },
+        {
+          "comparison": "Retrieved Crossref DOI record inspected (World Scientific chapter pp.373-376 in Random Walk in Random and Non-Random Environments): confirms spider random-walk chapter in infinite-spider tradition with no finite S(k,L) mixing-concentration metadata; full text paywalled but scope/title and book context exclude explicit coupling-tail mixing bound with T0 and exponential constants. Does not cover candidate.",
+          "retrieved_at_utc": "2026-09-07T14:03:15Z",
+          "title": "Random Walk on a Spider (book chapter)",
+          "url": "https://doi.org/10.1142/9789814447515_0037"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Different graph family, reversibility, claim type and method: n-cycle plus k random edges with non-reversible biased/lifted walk proving asymptotic O(n^{(k+2)/(k+1)}) mixing improvement as n->infinity, vs deterministic finite balanced-spider tree S(k,L) with reversible lazy simple walk and non-asymptotic k-L-explicit coupling tail T0=32kL^2 and centered 1/64 tail.",
+        "title": "Mixing on the cycle with constant size perturbation",
+        "url": "https://arxiv.org/abs/2411.07125"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Different regime and conclusion: infinite spider (N half-lines at origin), Brownian-spider strong approximation and excursion-height asymptotics in n steps (fixed vs growing legs); no finite vertex set, no stationary pi, no total-variation mixing time, no coupling time or exponential concentration with constants in (k,L).",
+        "title": "Some limit theorems for heights of random walks on spider",
+        "url": "https://arxiv.org/abs/1501.00466"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Different tree, observable and method: binary tree depth n cover time C_n, distributional limit of sqrt(C_n*2^{-(n+1)})-m_n via Gaussian free field extremal theory, vs starlike S(k,L) mixing-time upper bound and coupling-tail concentration via gambler's ruin plus cycle-fold coupling.",
+        "title": "Limit law for the cover time of a random walk on a binary tree",
+        "url": "https://arxiv.org/abs/1906.07276"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Closest spider birth-death spectral theory: infinite spider (N discrete half-lines), quasi-birth-death block-tridiagonal analysis, Karlin-McGregor n-step transitions via matrix orthogonal polynomials and Darboux/Geronimus transforms; no finite-leg truncation S(k,L), no TV mixing, no coalescing coupling mean 3L^2 or geometric 4^{-m} tail.",
+        "title": "Birth-death chains on a spider: spectral analysis and reflecting-absorbing factorization",
+        "url": "https://arxiv.org/abs/2111.10450"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Crossref-confirmed chapter on spider random walk (Révész school, infinite-spider recurrence/excursion context); metadata and book context show no finite balanced-spider S(k,L) lazy-walk mixing concentration with explicit T0, t_mix(eps) or 2*exp(-t/(64kL^2)) bound; full text paywalled but title/venue/scope inconsistent with candidate.",
+        "title": "Random Walk on a Spider (book chapter, Random Walk in Random and Non-Random Environments)",
+        "url": "https://doi.org/10.1142/9789814447515_0037"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-002",
+    "originality_rationale": "Live retrieval finds no source stating or implying the candidate's specific finite-graph, non-asymptotic, quantified claim. The candidate quantifies over all k>=3, L>=1 for S(k,L) with n=kL+1, lazy chain with stated pi, and asserts four linked quantitative conclusions: mean <=3L^2 (k-independent sharper bound), geometric tail 4^{-m} at scale T0=32kL^2, TV bound d(mT0)<=4^{-m} with t_mix(1/4)<=T0 and t_mix(eps)<=T0*ceil(log2(1/eps)), and two-sided centered exponential tail with rate 1/(64kL^2). Proof scope is elementary two-stage coupling: J_t radial Markov reduction, C_{2L} fold f(z)=min(z,N-z), alternating-selection coupling for distances (E<=L^2 via D-walk d0(N-d0)), synchronous J-sticking to joint center (E<=2L^2 via gambler's ruin a(2L-a) times lazy factor 2), then Markov restart. Nearest retrieved sources differ on hypotheses, quantifiers and conclusions: Feng-Gerencser is asymptotic order on perturbed cycles with non-reversible drift (no S(k,L), no reversibility, no explicit constants); Csaki et al. and Foldes-Revesz companion are infinite-leg excursion heights and Brownian-spider approximation (no stationary distribution, no TV distance); Dembo-Rosen-Zeitouni is cover-time limit law on binary trees via GFF (different tree, observable, method); de la Iglesia-Juarez is infinite-spider spectral Karlin-McGregor theory (no mixing); balanced-spider arXiv hits (2 total) are skew/full throttling propagation games, not random walks; spider+coupling+mixing arXiv hit (1 total) is SPIDER CMB balloon mode coupling, irrelevant; combined spider+mixing+random+walk arXiv query returns 0; star-graph mixing arXiv hits (24) are quantum universal/uniform mixing and unrelated Markov-chain geometry, not classical lazy-walk coupling tails; Crossref top hits are generic mixing surveys and the Révész chapter/dissertation with no mixing bound. Textbook coupling inequality and gambler's ruin d(N-d) are credited black boxes; novelty claimed is only the instance construction plus explicit (k,L) constants, which no source states. Hence within documented search no prior art substantively covers or implies the candidate.",
+    "priority_caveat": "This PASS is only a finding that the documented live search found no substantively covering prior art; it is not an award of academic priority and does not establish that the candidate is first in the literature.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-002",
+    "residual_uncertainties": [
+      "OpenAlex (api.openalex.org) and Semantic Scholar search endpoints returned HTTP 429 rate-limit during this run, so those two services could not be used as independent corroboration; mitigation was two successful independent services (arXiv API + Crossref) with seven documented queries plus direct abs/DOI inspection.",
+      "World Scientific chapter full text paywalled (only Crossref metadata + title/venue inspected); inference that it lacks finite-spider mixing concentration rests on chapter context and Révész-school infinite-spider scope, not full-text search.",
+      "Generic finite-tree/star mixing bounds (e.g., Levin-Peres-Wilmer textbook, tree mixing literature) were not exhaustively enumerated; candidate's exact (k,L)-explicit geometric 4^{-m} and centered 1/64 tail could in principle be a corollary of an unpublished generic-tree constant, but no retrieved generic source states the S(k,L) instance with these quantifiers.",
+      "Terminology variants (starlike tree, subdivided star, spider graph S_{k,L} vs S(k,L), coalescing vs coupled random walks) were covered by multiple formulations but full synonym closure cannot be guaranteed."
+    ],
+    "reviewed_claim": "For all integers k>=3, L>=1, lazy simple random walk (stay 1/2) on finite balanced spider S(k,L) (center degree k, k legs each a path of L edges, n=kL+1) with stationary pi(center)=1/(2L), pi(leaf)=1/(2kL), pi(internal)=1/(kL) admits explicit two-stage coalescing coupling with: (i) E[tau_couple]<=3L^2<=8kL^2=:M uniformly over starts; (ii) geometric tail P(tau_couple>m*T0)<=4^{-m}<=2^{-m} for T0=32kL^2=4M, all m>=1; (iii) d(m*T0)<=4^{-m}, t_mix(1/4)<=T0, t_mix(eps)<=T0*ceil(log2(1/eps)) for eps in (0,1/2]; (iv) centered exponential tail P(|tau_couple-E[tau_couple]|>t)<=2*exp(-t/(64*k*L^2)) (rate c=1/64), via radial chain J_t reduction, C_{2L} fold with alternating-selection coupling (mean<=L^2) plus synchronous sticking to joint center hit (mean<=2L^2), Markov restart and coupling inequality.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "exact combined claim: spider AND mixing AND random AND walk (arXiv API) to test any finite-spider mixing concentration",
+      "exact phrase: \\\"balanced spider\\\" (arXiv API) to test named two-parameter family S(k,L)",
+      "broad spider random-walk family: spider AND \\\"random walk\\\" (arXiv API) to enumerate infinite-spider excursion/occupation/spectral vs finite mixing",
+      "method-specific: spider AND coupling AND mixing (arXiv API) to test coalescing-coupling tail on spiders",
+      "equivalent terminology: star graph mixing time / star-like tree / spider graph via Crossref 'spider graph mixing time random walk' and 'balanced spider random walk mixing'",
+      "finite-tree mixing neighborhood: star graph mixing time (arXiv API) to check classical vs quantum mixing and generic tree bounds",
+      "inspection of three cited neighbors plus two additional closest spider spectral/random-walk sources via arXiv abs and Crossref DOI pages"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Simulation grid tests only equal-distance leaves (Stage-1 skipped); sup over differing-distance starts covered by proof but not empirically exercised - tail slack (48x) makes violation implausible but worst-case mean not directly measured",
+    "Lemma 3 Z-lift phrasing misleading if read literally for opposite lifts; J-rule correction needed for future readers (no logical gap)",
+    "Constants deliberately loose (T0 32kL^2 vs sharper 12L^2); lower bounds/cutoff and unbalanced/general trees out of scope as disclosed",
+    "Monte Carlo support only (10k/20k trials, no bootstrap CIs); proof does not rely on it",
+    "Originality revalidation: OpenAlex (api.openalex.org) and Semantic Scholar search endpoints returned HTTP 429 rate-limit during this run, so those two services could not be used as independent corroboration; mitigation was two successful independent services (arXiv API + Crossref) with seven documented queries plus direct abs/DOI inspection.",
+    "Originality revalidation: World Scientific chapter full text paywalled (only Crossref metadata + title/venue inspected); inference that it lacks finite-spider mixing concentration rests on chapter context and Révész-school infinite-spider scope, not full-text search.",
+    "Originality revalidation: Generic finite-tree/star mixing bounds (e.g., Levin-Peres-Wilmer textbook, tree mixing literature) were not exhaustively enumerated; candidate's exact (k,L)-explicit geometric 4^{-m} and centered 1/64 tail could in principle be a corollary of an unpublished generic-tree constant, but no retrieved generic source states the S(k,L) instance with these quantifiers.",
+    "Originality revalidation: Terminology variants (starlike tree, subdivided star, spider graph S_{k,L} vs S(k,L), coalescing vs coupled random walks) were covered by multiple formulations but full synonym closure cannot be guaranteed."
+  ],
+  "verdict": "PASS"
+}

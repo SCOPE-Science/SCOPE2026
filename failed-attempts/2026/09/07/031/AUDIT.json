@@ -1,0 +1,360 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PROOF vs EVIDENCE: The infinite claim G(n+148)=G(n) for all n>=259 is proved by finite computation plus a self-contained Guy-Smith propagation lemma (Lemma 1), not by extrapolation. Experimental corroboration (stability to 20000, p<=1000 scan) is clearly separated and not load-bearing. RULES VERIFIED: Octal 0.057 has d1=0,d2=5=101,d3=7=111,m=3. Auditor checked standard definition (bit0=take whole heap iff n==k, bit1=leave 1 heap, bit2=leave 2 heaps): d2=5 forbids singleton leave, d3=7 allows singleton+splits, d1=0 gives no moves. Boundary conditions recomputed by hand and code: G0=0, S1=empty=>G1=0, S2={0}=>G2=1, S3={0} (take-2 splits need a+b=1 impossible)=>G3=1, n=4 gives S4={0}=>G4=1. Table G0..40 matches recompute exactly. Sensitivity test: allowing take-2 singleton (digit 7) changes 43/51 values to N=50, so rule interpretation is material and correctly implemented. COMPUTATION VERIFIED INDEPENDENTLY: (1) Re-ran compute_grundy_0057.py to 8000: 0.73s, max 8, uniq {0,1,2,3,4,6,7,8}, byte-identical to logged CSV (diff -q IDENTICAL). (2) Independent pure-Python mex recompute to 2000: 0 mismatches. (3) Full stdlib mex recheck to 8000: 0 mismatches in 2.15s. (4) Extended recompute to 20000: 4.40s, zero mismatches on [259,19852], max still 8, zeros still {0,1}, reachset equality on final block still 148/148. (5) Ran verify_certificate_0057.py: CERTIFICATE PASS, all V1-V7 pass, 0.34s. LEMMA 1 LINE-BY-LINE VERIFIED: T*=2N0+2p+m=817. Hypothesis G(n)=G(n-p) on [N0+p=407,T] with T=8000>=817. Induction step N>T: singletons need N-3 in [N0+p,N-1] — holds since T-2>=N0+p because N0+p+m-2>=0. Splits A(S) with k=2,3, S=N-k>=2N0+2p+1, S'=S-p>=2N0+p+1: (subset) b=max(a,b)>=S/2>=N0+p+0.5 => b>=N0+p+1 integer and b<N, so G(b)=G(b-p) gives same xor in A(S'); (superset) d=max>=S'/2>=N0+1, j=d+p satisfies N0+p<j<N so G(j)=G(d) gives same xor in A(S). Terminal exclusion holds since N-p>=2N0+p+m+1>m=3. Threshold coverage 817<=7852 (=Nmax-p) verified. Suffix equality [259,7852] = 7594 agreements (~51 periods) verified 0 mismatches. REACHSET MECHANISM NOT OVERCLAIMED: V4 final-block S(n)=S(n+148) 148/148 verified; auditor additionally found full-range reachset equality fails at exactly 15 early indices [262,267,268,269,270,272,276,282,283,284,290,297,298,304,311] with max 311, and holds thereafter including final block — consistent with draft claiming equality only on final block. MINIMALITY CLOSES: V6a G258=2 vs G406=1 verified; V6b cycle C=G[259..406] has no cyclic subperiod (all p'<148 break; e.g. p=2:117 breaks, p=4:148, p=37:111, p=74:138) verified. Jointly sufficient: any period of infinite tail must be multiple of 148 (V6b), and any N0'<259 with such multiple fails at n=258 since G(258+k*148)=G406=1!=2 for all k>=1 by tail periodicity — draft's terse sketch is complete when V6a+V6b combined as §5 states. CENSUS VERIFIED: zeros to 8000 exactly {0,1}; cycle listing 148 terms byte-matches CSV; cycle set {1,2,4,7,8} with counts 1x54,4x53,2x17,7x16,8x8 verified; max 8 verified; hence P-positions {0,1} globally follows from periodicity plus preperiod check. No floats, no randomness, timings reproduced. No essential inference, boundary, or computation error found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Claim-level comparison leaves no room for novelty. (1) Identity: comp_octal.txt explicitly reduces candidate's code 0.057 to standard form 0.055; candidate's own rules (d1=0,d2=5,d3=7) and computed prefix 0,0,1,1,1,2,2,2,3,1,1,1,4,4,4,3,2,2,2,1,1,1,4,2,2,2,6,... match Flammenkamp's .055 prefix 001112223111444322211142226444... through n=26 including the diagnostic 6, and Flammenkamp's easy files list 0.055 with max>=8. (2) Exact constants: Flammenkamp octal.html nontrivial table gives for .055 period 148 preperiod 259 except 2, max G 8, lost 2, ultimate 1, depth 20; solved-structure table gives period 148 preperiod 259 miss 129 solved 1976. These are exactly candidate's minimal pair (259,148), max 8, P-positions {0,1} (lost 2 ultimate 1 means last zero at n=1), and tail set {1,2,4,7,8}. (3) Proof scope: candidate's Guy-Smith lemma with T*=817 is the classical finite-window propagation argument from Guy-Smith 1956, acknowledged as classical in the record itself. The record's assertion that 0.057 was 'previously only tabulated as computed-but-unproved' is contradicted by the database's 'solved 1976' label for the identical game. A fresh computation plus standard induction re-proving an already-recorded minimal period/preperiod is a re-derivation, not an original result, even if the certificate code is new. Hence prior art substantively covers and implies the candidate.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "INDEPENDENTLY WORTH FINDING LATER: Result is a durable exact classification of a canonical named game, not a textbook exercise. (1) Not textbook restatement: textbook gives the Guy-Smith lemma as a method; the new content is the exact minimal pair (259,148), 148-term cycle, and census (P={0,1}, max 8, tail values {1,2,4,7,8}) which no cited source proves. Lemma is re-proved self-contained with explicit loose threshold rather than cited. (2) Not parameter substitution: 0.057 is the splitting-dominant neighbour of solved Dawson's Kayles 0.07 (differs by restricting take-2 to no singleton leave), sits below 2.00, listed as computed-but-unproved survey entry; digit change alters move topology (verified material difference), not arbitrary S-vector. (3) Not tiny gain: first exact infinite proof (51-period base + induction to all n), not bound tweak; fallback 20000-table explicitly labelled as fallback, not claimed. (4) Not unexplained enumeration: mechanism explained and machine-checked (mex recomputation full-range 0 mismatches, reachset equality final block 148/148, threshold coverage). Consequence is citable: every heap n>=2 is N-position, all large-heap Grundy values known. Honest scope limits (§6) disclaim neighbours and general conjectures. Comparable octal periodicity closures (e.g. Dawson's Kayles period 34) are standard citable notes; this is of same kind for an unsolved entry.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Authoritative survey database lists .055 with sgv-prefix 0011122231114443..., type 0, rare 6 last 43, max G 8 index 51, lost 2 ultimate 1, period length 148 preperiod 259 except 2, and in solved-structure table period 148 preperiod 259 miss 129 density 0.4980 solved 1976. Candidate's 0.057 prefix, max 8, lost 2 (P={0,1}), and exact pair (259,148) are identical.",
+      "title": "Sprague-Grundy Values of Octal-Games — Nontrivial Octal-Games table and Nontrivial with known Structure table (.055 entry)",
+      "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+    },
+    {
+      "outcome": "Row 0.05d maps d=7 (i.e. 0.057) to standard form 0.055 and d=6 (0.056) to 0.054. Hence candidate's 0.057 is by the field's own equivalence the same game as the solved .055 entry above; naming difference does not create novelty.",
+      "title": "A compendium containing all 2*8^3=1024 at most 3 place octal games to find or match its standard form",
+      "url": "http://wwwhomes.uni-bielefeld.de/achim/comp_octal.txt"
+    },
+    {
+      "outcome": "easy_octal.txt lists 0.57 (two-place game) as p=4 trivial, distinct from 0.055 max>=8 prefix 0011122231114443222111422264441112227111; easy_sgv.txt same. Candidate's computed G(0..40) matches the 0.055 prefix character-for-character through the 6 at n=26, confirming the computed object is the already-tabled .055 sequence, not a newly tabulated sequence.",
+      "title": "Listing of all the 167 standard forms (easy_octal.txt) and listing sorted by sgv-sequences (easy_sgv.txt)",
+      "url": "http://wwwhomes.uni-bielefeld.de/achim/easy_octal.txt"
+    },
+    {
+      "outcome": "Classical octal periodicity (Guy-Smith) theorem whose argument candidate's Lemma 1 re-proves with explicit threshold T*=2N0+2p+m. Provides method, not the specific (259,148) constants; shows candidate's induction method is classical.",
+      "title": "The G-values of various games — Guy and Smith (Proc. Cambridge Philos. Soc. 52, 1956)",
+      "url": "https://doi.org/10.1017/S0305004100031509"
+    },
+    {
+      "outcome": "Peer-reviewed octal-periodicity paper building on Guy-Smith, Austin (1976), Kenyon (1967) theses and Winning Ways; exemplifies that finite-window plus propagation proofs for specific octal codes were already a published method and that several codes were proved periodic in that literature. Does not itself claim (259,148) for .055 but contextualizes the 1976 solved date reported by Flammenkamp.",
+      "title": "A note on periodicity in some octal games — Gangolli and Plambeck (Int. J. Game Theory 18, 1989)",
+      "url": "https://doi.org/10.1007/BF01254294"
+    },
+    {
+      "outcome": "Background octal-games chapter defining octal codes, mex, standard-form equivalences (e.g. 0.6 is 0.37, 0.007 is 0.04) of the same kind that makes 0.057 equivalent to 0.055; tables solved vs unsolved octal games. Method and equivalence framework are prior art.",
+      "title": "Winning Ways for Your Mathematical Plays, Vol.1, Chap.4 Taking and Breaking — Berlekamp, Conway, Guy",
+      "url": "https://doi.org/10.1201/9780429487330-4"
+    }
+  ],
+  "decisive_checks": [
+    {
+      "detail": "V1 integrity Nmax=8000 rows=8001, V2 suffix [259,7852] 0 mism, V3 mex [1,406]+[407,817]+[7705,8000] 0 mism, V4 reachset final block 148/148, V5 817<=7852, V6a G258=2 vs G406=1, V6b no subperiod, V7 zeros {0,1} max 8 cycle {1,2,4,7,8}; 0.34s single-core",
+      "name": "Ran verify_certificate_0057.py on logged CSV",
+      "result": "CERTIFICATE PASS"
+    },
+    {
+      "detail": "Nmax=8000 0.73s maxG=8 uniq [0,1,2,3,4,6,7,8] G0..40 matches; diff -q IDENTICAL to logged CSV",
+      "name": "Re-ran compute_grundy_0057.py to 8000",
+      "result": "PASS"
+    },
+    {
+      "detail": "Pure-Python (no numpy) mex recursion to 2000: 0 mismatches vs CSV; alt rule with take-2 singleton differs in 43/51 positions, confirming rule sensitivity",
+      "name": "Independent pure-Python recompute + rule-sensitivity test",
+      "result": "PASS"
+    },
+    {
+      "detail": "Full stdlib mex recheck 1..8000: 0 mismatches (2.15s); full reachset scan [259,7852]: 15 early mismatches only (max 311), final block [7705,7852] 0 mismatches — draft does not overclaim",
+      "name": "Full-range mex and reachset audit",
+      "result": "PASS"
+    },
+    {
+      "detail": "Recompute to 20000: 4.40s, 0 mismatches on [259,19852], max 8, zeros {0,1}, final-block reachset 148/148",
+      "name": "Extended stability to N=20000",
+      "result": "PASS (corroboration, not proof)"
+    },
+    {
+      "detail": "Only (259,148) and multiples (296,444,592,740,888) with N0<=400 window>=3000; all other p<=1000 first match >=6995 window<=6",
+      "name": "Ran detect_period.py p<=1000 scan",
+      "result": "PASS uniqueness"
+    },
+    {
+      "detail": "148-term cycle string byte-matches G[259..406]; Counter {1:54,4:53,2:17,7:16,8:8}; G258=2 G406=1; subperiods=[]; zeros [0,1]; T*=817",
+      "name": "Cycle/census/minimality/threshold arithmetic",
+      "result": "PASS"
+    },
+    {
+      "detail": "Checked singletons (N-3 bounds), splits both inclusions (S>=2N0+2p+1, b>=N0+p+1, j bounds), terminal exclusion (N-p>m), threshold algebra; loose T* is safe",
+      "name": "Lemma 1 proof line verification",
+      "result": "PASS valid induction"
+    }
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:15:25Z",
+    "queries": [
+      {
+        "query": "octal game Sprague Grundy periodicity",
+        "result_count": 10,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=octal+game+Sprague+Grundy+periodicity&rows=10"
+      },
+      {
+        "query": "octal game 0.057 Flammenkamp",
+        "result_count": 5,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=octal+game+0.057+Flammenkamp&rows=5"
+      },
+      {
+        "query": "octal game 0.055 period 148",
+        "result_count": 10,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=octal+game+0.055+period+148&rows=10"
+      },
+      {
+        "query": "octal game Guy Smith Winning Ways",
+        "result_count": 5,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=octal+game+Guy+Smith+Winning+Ways&rows=5"
+      },
+      {
+        "query": "work lookup DOI 10.1007/BF01254294 Gangolli Plambeck",
+        "result_count": 1,
+        "service": "OpenAlex",
+        "url": "https://api.openalex.org/works/https://doi.org/10.1007/BF01254294"
+      },
+      {
+        "query": "ti:\"octal game\"",
+        "result_count": 1,
+        "service": "arXiv",
+        "url": "http://export.arxiv.org/api/query?search_query=ti:%22octal+game%22&start=0&max_results=5"
+      },
+      {
+        "query": "site octal.html nontrivial and solved-structure tables for .055",
+        "result_count": 99,
+        "service": "Bielefeld Flammenkamp database (authoritative survey)",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+      },
+      {
+        "query": "comp_octal.txt standard-form mapping for 0.057",
+        "result_count": 1024,
+        "service": "Bielefeld Flammenkamp database",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/comp_octal.txt"
+      },
+      {
+        "query": "Guy Smith G-values 1956 DOI landing",
+        "result_count": 1,
+        "service": "Publisher/DOI",
+        "url": "https://doi.org/10.1017/S0305004100031509"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Retrieved nontrivial row .055 with prefix 0011122231114443..., rare 6 last 43 max G 8 lost 2 ultimate 1 period 148 preperiod 259, and solved-structure row .055 period 148 preperiod 259 solved 1976 — identical to candidate's minimal (259,148), max 8, P={0,1} and prefix through n=26.",
+        "retrieved_at_utc": "2026-09-07T14:15:25Z",
+        "title": "Sprague-Grundy Values of Octal-Games (Flammenkamp octal survey)",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+      },
+      {
+        "comparison": "Row 0.05d explicitly maps 0.057 (d=7) to standard form 0.055, proving candidate's named game is the same object as the solved .055 entry; naming variant creates no new claim.",
+        "retrieved_at_utc": "2026-09-07T14:15:25Z",
+        "title": "Compendium of all at most 3-place octal games standard forms",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/comp_octal.txt"
+      },
+      {
+        "comparison": "Lists 0.055 with max>=8 lost>=2 prefix 0011122231114443222111422264441112227111 matching candidate's G(0..40) including 6 at n=26, while 0.57 is listed separately as trivial p=4, confirming the match is to .055 not to a trivial game.",
+        "retrieved_at_utc": "2026-09-07T14:15:25Z",
+        "title": "Listing of all 167 standard forms (easy_octal.txt)",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/easy_octal.txt"
+      },
+      {
+        "comparison": "Publisher/DOI landing confirms 1956 Proc. Cambridge Philos. Soc. 52:514-526 periodicity theorem; candidate's Lemma 1 is acknowledged in-record as a re-proof of this classical argument with explicit threshold, so method is prior art.",
+        "retrieved_at_utc": "2026-09-07T14:15:25Z",
+        "title": "The G-values of various games (Guy-Smith 1956)",
+        "url": "https://doi.org/10.1017/S0305004100031509"
+      },
+      {
+        "comparison": "Crossref and OpenAlex records confirm journal, volume, pages 311-320 and references to Austin 1976 thesis, Kenyon 1967, Winning Ways and Guy-Smith 1956, showing finite-window periodicity proofs for specific octal games were established peer-reviewed method predating candidate by decades.",
+        "retrieved_at_utc": "2026-09-07T14:15:25Z",
+        "title": "A note on periodicity in some octal games (Gangolli-Plambeck 1989)",
+        "url": "https://doi.org/10.1007/BF01254294"
+      },
+      {
+        "comparison": "arXiv primary source defines octal games as heap games where players remove counters and optionally split into two nonempty heaps, confirming terminology and that candidate's ruleset is within the long-studied octal family, not a new family.",
+        "retrieved_at_utc": "2026-09-07T14:15:25Z",
+        "title": "Octal Games on Graphs: The game 0.33 on subdivided stars and bistars (arXiv:1612.05772)",
+        "url": "http://arxiv.org/abs/1612.05772v3"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:15:25Z",
+      "queries": [
+        {
+          "query": "octal game Sprague Grundy periodicity",
+          "result_count": 10,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=octal+game+Sprague+Grundy+periodicity&rows=10"
+        },
+        {
+          "query": "octal game 0.057 Flammenkamp",
+          "result_count": 5,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=octal+game+0.057+Flammenkamp&rows=5"
+        },
+        {
+          "query": "octal game 0.055 period 148",
+          "result_count": 10,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=octal+game+0.055+period+148&rows=10"
+        },
+        {
+          "query": "octal game Guy Smith Winning Ways",
+          "result_count": 5,
+          "service": "Crossref",
+          "url": "https://api.crossref.org/works?query=octal+game+Guy+Smith+Winning+Ways&rows=5"
+        },
+        {
+          "query": "work lookup DOI 10.1007/BF01254294 Gangolli Plambeck",
+          "result_count": 1,
+          "service": "OpenAlex",
+          "url": "https://api.openalex.org/works/https://doi.org/10.1007/BF01254294"
+        },
+        {
+          "query": "ti:\"octal game\"",
+          "result_count": 1,
+          "service": "arXiv",
+          "url": "http://export.arxiv.org/api/query?search_query=ti:%22octal+game%22&start=0&max_results=5"
+        },
+        {
+          "query": "site octal.html nontrivial and solved-structure tables for .055",
+          "result_count": 99,
+          "service": "Bielefeld Flammenkamp database (authoritative survey)",
+          "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+        },
+        {
+          "query": "comp_octal.txt standard-form mapping for 0.057",
+          "result_count": 1024,
+          "service": "Bielefeld Flammenkamp database",
+          "url": "http://wwwhomes.uni-bielefeld.de/achim/comp_octal.txt"
+        },
+        {
+          "query": "Guy Smith G-values 1956 DOI landing",
+          "result_count": 1,
+          "service": "Publisher/DOI",
+          "url": "https://doi.org/10.1017/S0305004100031509"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Retrieved nontrivial row .055 with prefix 0011122231114443..., rare 6 last 43 max G 8 lost 2 ultimate 1 period 148 preperiod 259, and solved-structure row .055 period 148 preperiod 259 solved 1976 — identical to candidate's minimal (259,148), max 8, P={0,1} and prefix through n=26.",
+          "retrieved_at_utc": "2026-09-07T14:15:25Z",
+          "title": "Sprague-Grundy Values of Octal-Games (Flammenkamp octal survey)",
+          "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+        },
+        {
+          "comparison": "Row 0.05d explicitly maps 0.057 (d=7) to standard form 0.055, proving candidate's named game is the same object as the solved .055 entry; naming variant creates no new claim.",
+          "retrieved_at_utc": "2026-09-07T14:15:25Z",
+          "title": "Compendium of all at most 3-place octal games standard forms",
+          "url": "http://wwwhomes.uni-bielefeld.de/achim/comp_octal.txt"
+        },
+        {
+          "comparison": "Lists 0.055 with max>=8 lost>=2 prefix 0011122231114443222111422264441112227111 matching candidate's G(0..40) including 6 at n=26, while 0.57 is listed separately as trivial p=4, confirming the match is to .055 not to a trivial game.",
+          "retrieved_at_utc": "2026-09-07T14:15:25Z",
+          "title": "Listing of all 167 standard forms (easy_octal.txt)",
+          "url": "http://wwwhomes.uni-bielefeld.de/achim/easy_octal.txt"
+        },
+        {
+          "comparison": "Publisher/DOI landing confirms 1956 Proc. Cambridge Philos. Soc. 52:514-526 periodicity theorem; candidate's Lemma 1 is acknowledged in-record as a re-proof of this classical argument with explicit threshold, so method is prior art.",
+          "retrieved_at_utc": "2026-09-07T14:15:25Z",
+          "title": "The G-values of various games (Guy-Smith 1956)",
+          "url": "https://doi.org/10.1017/S0305004100031509"
+        },
+        {
+          "comparison": "Crossref and OpenAlex records confirm journal, volume, pages 311-320 and references to Austin 1976 thesis, Kenyon 1967, Winning Ways and Guy-Smith 1956, showing finite-window periodicity proofs for specific octal games were established peer-reviewed method predating candidate by decades.",
+          "retrieved_at_utc": "2026-09-07T14:15:25Z",
+          "title": "A note on periodicity in some octal games (Gangolli-Plambeck 1989)",
+          "url": "https://doi.org/10.1007/BF01254294"
+        },
+        {
+          "comparison": "arXiv primary source defines octal games as heap games where players remove counters and optionally split into two nonempty heaps, confirming terminology and that candidate's ruleset is within the long-studied octal family, not a new family.",
+          "retrieved_at_utc": "2026-09-07T14:15:25Z",
+          "title": "Octal Games on Graphs: The game 0.33 on subdivided stars and bistars (arXiv:1612.05772)",
+          "url": "http://arxiv.org/abs/1612.05772v3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": true,
+        "relationship": "Authoritative survey database lists .055 with sgv-prefix 0011122231114443..., type 0, rare 6 last 43, max G 8 index 51, lost 2 ultimate 1, period length 148 preperiod 259 except 2, and in solved-structure table period 148 preperiod 259 miss 129 density 0.4980 solved 1976. Candidate's 0.057 prefix, max 8, lost 2 (P={0,1}), and exact pair (259,148) are identical.",
+        "title": "Sprague-Grundy Values of Octal-Games — Nontrivial Octal-Games table and Nontrivial with known Structure table (.055 entry)",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+      },
+      {
+        "covers_candidate": true,
+        "relationship": "Row 0.05d maps d=7 (i.e. 0.057) to standard form 0.055 and d=6 (0.056) to 0.054. Hence candidate's 0.057 is by the field's own equivalence the same game as the solved .055 entry above; naming difference does not create novelty.",
+        "title": "A compendium containing all 2*8^3=1024 at most 3 place octal games to find or match its standard form",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/comp_octal.txt"
+      },
+      {
+        "covers_candidate": true,
+        "relationship": "easy_octal.txt lists 0.57 (two-place game) as p=4 trivial, distinct from 0.055 max>=8 prefix 0011122231114443222111422264441112227111; easy_sgv.txt same. Candidate's computed G(0..40) matches the 0.055 prefix character-for-character through the 6 at n=26, confirming the computed object is the already-tabled .055 sequence, not a newly tabulated sequence.",
+        "title": "Listing of all the 167 standard forms (easy_octal.txt) and listing sorted by sgv-sequences (easy_sgv.txt)",
+        "url": "http://wwwhomes.uni-bielefeld.de/achim/easy_octal.txt"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Classical octal periodicity (Guy-Smith) theorem whose argument candidate's Lemma 1 re-proves with explicit threshold T*=2N0+2p+m. Provides method, not the specific (259,148) constants; shows candidate's induction method is classical.",
+        "title": "The G-values of various games — Guy and Smith (Proc. Cambridge Philos. Soc. 52, 1956)",
+        "url": "https://doi.org/10.1017/S0305004100031509"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Peer-reviewed octal-periodicity paper building on Guy-Smith, Austin (1976), Kenyon (1967) theses and Winning Ways; exemplifies that finite-window plus propagation proofs for specific octal codes were already a published method and that several codes were proved periodic in that literature. Does not itself claim (259,148) for .055 but contextualizes the 1976 solved date reported by Flammenkamp.",
+        "title": "A note on periodicity in some octal games — Gangolli and Plambeck (Int. J. Game Theory 18, 1989)",
+        "url": "https://doi.org/10.1007/BF01254294"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Background octal-games chapter defining octal codes, mex, standard-form equivalences (e.g. 0.6 is 0.37, 0.007 is 0.04) of the same kind that makes 0.057 equivalent to 0.055; tables solved vs unsolved octal games. Method and equivalence framework are prior art.",
+        "title": "Winning Ways for Your Mathematical Plays, Vol.1, Chap.4 Taking and Breaking — Berlekamp, Conway, Guy",
+        "url": "https://doi.org/10.1201/9780429487330-4"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-010",
+    "originality_rationale": "Claim-level comparison leaves no room for novelty. (1) Identity: comp_octal.txt explicitly reduces candidate's code 0.057 to standard form 0.055; candidate's own rules (d1=0,d2=5,d3=7) and computed prefix 0,0,1,1,1,2,2,2,3,1,1,1,4,4,4,3,2,2,2,1,1,1,4,2,2,2,6,... match Flammenkamp's .055 prefix 001112223111444322211142226444... through n=26 including the diagnostic 6, and Flammenkamp's easy files list 0.055 with max>=8. (2) Exact constants: Flammenkamp octal.html nontrivial table gives for .055 period 148 preperiod 259 except 2, max G 8, lost 2, ultimate 1, depth 20; solved-structure table gives period 148 preperiod 259 miss 129 solved 1976. These are exactly candidate's minimal pair (259,148), max 8, P-positions {0,1} (lost 2 ultimate 1 means last zero at n=1), and tail set {1,2,4,7,8}. (3) Proof scope: candidate's Guy-Smith lemma with T*=817 is the classical finite-window propagation argument from Guy-Smith 1956, acknowledged as classical in the record itself. The record's assertion that 0.057 was 'previously only tabulated as computed-but-unproved' is contradicted by the database's 'solved 1976' label for the identical game. A fresh computation plus standard induction re-proving an already-recorded minimal period/preperiod is a re-derivation, not an original result, even if the certificate code is new. Hence prior art substantively covers and implies the candidate.",
+    "priority_caveat": "This FAIL is a literature-coverage finding from the documented live search only; it is not an award of academic priority to any prior author and does not certify correctness or completeness of the prior proofs.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "FLAG",
+    "record_id": "SCOPE-2026-09-07-010",
+    "residual_uncertainties": [
+      "Closed-access full texts (Gangolli-Plambeck 1989, Winning Ways ch.4, Austin 1976 MSc thesis) were confirmed via Crossref/OpenAlex metadata and DOI landings but not line-by-line inspected for the original .055 proof window; FAIL rests on Flammenkamp's explicit solved 1976 attribution plus exact-constant match, not on re-verifying that 1976 proof.",
+      "Flammenkamp database is a maintained survey, not itself a peer-reviewed proof; its 'solved 1976' date is taken as report of prior proof, consistent with Austin-thesis era, but the primary 1976 document was not directly retrieved in this run.",
+      "No independent check of OEIS sequence for .055 was completed (OEIS query timed out); prefix match via easy_octal/easy_sgv and octal.html is sufficient for identity but OEIS would be corroborating."
+    ],
+    "reviewed_claim": "Octal heap game 0.057 (d1=0,d2=5=101,d3=7=111,m=3; G(n)=mex S(n) as defined) is ultimately periodic with minimal preperiod N0=259 and minimal period p=148, i.e. G(n+148)=G(n) for all n>=259; periodic tail values are {1,2,4,7,8} with stated census, global max 8, values to 20000 in {0,1,2,3,4,6,7,8} (5 absent), P-positions exactly {0,1}, and prefix G(0..40)=0,0,1,1,1,2,2,2,3,1,1,1,4,4,4,3,2,2,2,1,1,1,4,2,2,2,6,4,4,4,1,1,1,2,2,2,7,1,1,1,4 proved by 8000-table plus Guy-Smith induction with threshold T*=817.",
+    "run_id": "2026-09-07T1355Z-current-successes",
+    "search_strategy": [
+      "octal game Sprague Grundy periodicity (Crossref broad)",
+      "octal game 0.057 Flammenkamp (Crossref + Bielefeld database)",
+      "octal game 0.055 period 148 (Crossref targeted to equivalent standard form)",
+      "octal game Guy Smith Winning Ways Taking and Breaking (Crossref for background chapter)",
+      "OpenAlex work lookup DOI 10.1007/BF01254294 Gangolli-Plambeck periodicity",
+      "arXiv ti:\"octal game\" exact-title search for octal-game primary sources",
+      "Bielefeld Flammenkamp octal.html / comp_octal.txt / easy_octal.txt / easy_sgv.txt / sparse_.055 direct inspection for 0.057->0.055 equivalence and 148/259 constants",
+      "DOI publisher page 10.1017/S0305004100031509 Guy-Smith G-values theorem"
+    ],
+    "verdict": "FAIL"
+  },
+  "residual_risks": [
+    "Live web literature search unavailable (proxy 502 / SSL errors); exhaustive external priority search beyond cited triad + internal SCOPE scan not possible, but substantive disjointness (method vs conjecture vs textbook) makes hidden identical proof unlikely; future find of overlapping unpublished table would be conjecture, not proof, and would not invalidate this certificate.",
+    "Computational proof trust rests on standard octal-code interpretation (verified against definition and sensitivity-tested) and two independent implementations (numpy + stdlib) plus logged CSV; no formal proof-assistant checking; full mex to 8000 rechecked by auditor to mitigate.",
+    "Grundy bound 64 in compute script is an assertion, not a theorem, but max observed 8 and full independent recheck without bound assumption (set-based mex) confirms no overflow.",
+    "Value judgment assumes community treats single-game Guy-Smith closures as citable (as with Dawson's Kayles); neighbouring codes and general octal conjectures explicitly untouched.",
+    "Originality revalidation: Closed-access full texts (Gangolli-Plambeck 1989, Winning Ways ch.4, Austin 1976 MSc thesis) were confirmed via Crossref/OpenAlex metadata and DOI landings but not line-by-line inspected for the original .055 proof window; FAIL rests on Flammenkamp's explicit solved 1976 attribution plus exact-constant match, not on re-verifying that 1976 proof.",
+    "Originality revalidation: Flammenkamp database is a maintained survey, not itself a peer-reviewed proof; its 'solved 1976' date is taken as report of prior proof, consistent with Austin-thesis era, but the primary 1976 document was not directly retrieved in this run.",
+    "Originality revalidation: No independent check of OEIS sequence for .055 was completed (OEIS query timed out); prefix match via easy_octal/easy_sgv and octal.html is sufficient for identity but OEIS would be corroborating."
+  ],
+  "verdict": "REJECT"
+}

@@ -1,123 +1,48 @@
-# Exact diameter and girth of the 4-regular transvection Cayley graph of PSL(2,13)
+# Exact general-position rectilinear crossing number of K(5,7) is 36
 
 ## Context
-
-Short diameters of `PSL(2,p)` Cayley graphs lie between elementary finiteness
-(Schreier-Sims) and deep asymptotics (Helfgott product growth implying
-`O((log p)^c)` diameter, Babai-conjecture polylog bounds for transvection
-generating sets). Prime-stratified exact tables remain incomplete and are cited
-for diameter benchmarks and Cayley-hash cryptography parameters. The `p=13`
-elementary-transvection graph on 1092 vertices is small enough for exhaustive
-search replayable by `2x2` matrix multiplication mod 13 in seconds, but its exact
-diameter and girth were not in the literature (targeted `arXiv` query
-`PSL2+13+Cayley` returns 0 hits).
+Topological crossing numbers cr(K(5,n)) are settled by Kleitman at the Zarankiewicz number Z(5,n), so cr(K(5,7))=36 is textbook. General-position rectilinear (straight-line) numbers bar-cr(K(5,n)) remain uncertified table entries citable for graph-drawing and VLSI benchmarks. K(5,7) has 12 vertices, 35 edges, 595 edge pairs, with order-type search feasible, while larger strata are harder. Closing K(5,7) bridges Kuratowski planarity and Zarankiewicz-type bounds with a concrete millisecond-recheckable drawing.
 
 ## Definitions
-
-- `p=13`, `G=PSL(2,13)=SL(2,13)/{+-I}`, `|SL(2,13)|=2184`, `|G|=1092`.
-- `a=[[1,1],[0,1]]`, `b=[[1,0],[1,1]]` mod 13,
-  `A=a^{-1}=[[1,12],[0,1]]`, `B=b^{-1}=[[1,0],[12,1]]`.
-- `S={a,A,b,B}`, `Gamma=Cay(G,S)` undirected (S symmetric).
-- Matrices as integer 4-tuples `(x0,x1,x2,x3)=[[x0,x1],[x2,x3]]` mod 13;
-  `mm` is `2x2` multiplication mod 13; `neg(M)=-M` mod 13.
-- Canonical PSL representative: `canon(M)=min(M,-M)` lexicographically,
-  equivalent (13 odd) to first-nonzero-entry in `{1,..,6}`.
-- A word over `{a,A,b,B}` is *reduced* if it contains no substring
-  `aA,Aa,bB,Bb`. Any unreduced word has a strictly shorter reduced form with
-  the same value (cancel one inverse pair), so shortest words and shortest
-  identities are reduced.
-- Graph girth = length of shortest cycle. Since L=1 has 0 reduced identities
-  (no generator is `+-I`, no loops) and L=2 has 0 (no generator squares to
-  `+-I`, no two distinct generators coincide mod `+-I`), there are no loops or
-  multi-edges beyond backtracking, so girth equals length of shortest
-  nontrivial reduced word `=+-I` in `SL(2,13)` (identity in `G`).
+Let K(m,n) have parts A,B with |A|=m, |B|=n and all A-B edges. A rectilinear general-position drawing is a choice of |V| distinct points in R^2, no three collinear, each edge drawn as the open straight segment between endpoints. Its rectilinear crossing number is the number of unordered disjoint edge pairs whose open segments meet; pairs sharing an endpoint are not counted. Let bar-cr be the minimum over such drawings; let cr be the topological minimum over curved drawings. Then bar-cr >= cr. Zarankiewicz number Z(m,n)=floor(m/2)*floor((m-1)/2)*floor(n/2)*floor((n-1)/2). For (5,7), Z=2*2*3*3=36.
 
 ## Result
+Theorem. bar-cr(K(5,7)) = 36.
 
-Let `Gamma` be as above. Then:
+## Proof / Evidence
+Lower bound (cited). Kleitman proves cr(K(5,n))=Z(5,n). For n=7, Z=36. Since every rectilinear drawing is a topological drawing, bar-cr(K(5,7)) >= 36. This audit verifies the citation metadata (Crossref title The crossing number of K5,n, 139 citations, doi:10.1016/S0021-9800(70)80087-4) and the arithmetic Z=36; it does not re-prove Kleitman.
 
-1. **Order/generation.** `|SL(2,13)|=2184`, `|G|=1092`, `Gamma` is connected
-   4-regular on 1092 vertices; i.e. `<a,b>=G`.
-2. **Diameter.** `D(Gamma)=10` with distance distribution from identity
-   `spheres=[1,4,12,25,48,96,180,279,317,120,10]` for distances `0..10`
-   (sum 1092). Exactly 10 vertices attain distance 10. One diametral word is
-   `w_D=aaaaabbbba` (length 10), evaluating in `SL(2,13)` raw to `[[8,0],[4,5]]`
-   whose canonical class is `(5,0,9,8)`, at distance exactly 10.
-   Full diametral set (canonical element -> BFS word, all length 10):
-   `(2,0,0,7)->aaBBBBBBAB`, `(2,2,2,9)->aaaBBBABBB`,
-   `(2,11,11,9)->aaaaBBBABB`, `(4,2,2,11)->aaabaabaab`,
-   `(4,11,11,11)->aaaBBBABBA`, `(5,0,4,8)->aaaBBAABBB`,
-   `(5,0,9,8)->aaaaabbbba`, `(5,4,0,8)->AAAAbababb`,
-   `(5,9,0,8)->aaaabbabab`, `(6,0,0,11)->aaBBBABBAB`.
-3. **Girth.** `girth(Gamma)=6`. The word `w_g=aaBaaB` (`a.a.B.a.a.B`) is reduced
-   and evaluates to `-I=[[12,0],[0,12]]`, hence identity in `G`.
-   No reduced word of length `<=5` is `+-I`. Reduced-word census:
-   L=1:4/0, 2:12/0, 3:36/0, 4:108/0, 5:324/0, 6:972/28 hits.
-   All 28 length-6 identities (sorted):
-   `AAbAAb, ABaBAb, AbAAbA, AbABaB, AbAbAb, AbaBab, AbbAbb, BAbABa, BBaBBa,`
-   `BaBAbA, BaBBaB, BaBaBa, BaaBaa, BabAba, aBAbAB, aBBaBB, aBaBaB, aBaaBa,`
-   `aBabAb, aaBaaB, abAbaB, bAAbAA, bABaBA, bAbAbA, bAbaBa, bAbbAb, baBabA,`
-   `bbAbbA` (12 `+I`, 16 `-I`; both identity in PSL).
-   Auxiliary: L=7:2916/0, L=8:8748/120, L=9:26244/0, L=10:78732/536.
+Upper-bound witness (new, computed, independently verified). Points (integers, bounding box [0,40]^2):
+A (5): (9,24), (16,9), (22,8), (1,40), (29,6)
+B (7): (13,19), (39,3), (4,7), (9,17), (26,7), (20,11), (0,0)
+Stored in coords_K57_rect.json. All 12 points distinct; all C(12,3)=220 orientation determinants orient(p,q,r)=(q_x-p_x)*(r_y-p_y)-(q_y-p_y)*(r_x-p_x) are nonzero by exact integer arithmetic, so no three collinear and no vertex lies on a non-incident edge.
 
-Both words replay by pure `2x2` matrix multiplication mod 13 (stdlib only, <1 s).
+Edges: 35. Total pairs C(35,2)=595. Disjoint pairs (no shared endpoint): 420=C(5,2)*C(7,2)*2. Underlying 2+2 quads: 210, each with at most one crossing. Proper crossing for disjoint (a,b),(c,d) by strict orientation signs: (o(a,b,c)>0)!=(o(a,b,d)>0) and (o(c,d,a)>0)!=(o(c,d,b)>0); in general position no orientation is zero. The witness has exactly 36 crossing disjoint pairs (36 quads with one crossing), listed in crossing_list.csv. Quad-type audit: 36 convex non-alternating (exactly the crossing quads), 42 convex alternating (none cross), 132 non-convex (none cross).
 
-## Proof / evidence (machine-assisted exhaustive)
+Two independent exact counts agree: verify_rect.py (orientation-sign method) and verify_rect_second.py (rational parametric solve a+t(b-a)=c+s(d-c) over Fraction, check 0<t,s<1), both 36. verify_planarity.py recomputes rotation by polar angle, recounts 36, matches stored crossing set, and checks over Fraction that the 36 intersections are pairwise distinct (no triple concurrency).
 
-- **Order.** Theory: `|SL(2,q)|=q(q^2-1)` for prime `q` (ordered bases:
-  `(q^2-1)(q^2-q)` invertible matrices divided by `q-1` determinants).
-  For `q=13`: `13*168=2184`. Center `{+-I}` size 2 (`-I!=I`, `det(-I)=1`), so
-  `|PSL|=1092`. Independently brute-forced: all `13^4=28561` matrices,
-  `det==1` count 2184, canonical classes 1092.
-- **BFS diameter.** Single-source BFS from `canon(I)` over canonical classes
-  using only `mm`. Visited 1092 vertices => connected => `<a,b>=G`. Frontier
-  sizes as above; max depth 10; ball `<=9` has 1082 vertices. Two neighbor
-  orders give identical distributions. Independent word-tree search confirms no
-  reduced word of length `<=9` evaluates to target class `(5,0,9,8)`; `w_D` of
-  length 10 attains it, so distance exactly 10 and diameter exactly 10.
-- **Girth.** Two independent codes plus auditor reimplementation enumerate all
-  `4*3^{L-1}` reduced words per length, testing `==+I or ==-I`: 0 hits for
-  L=1..5 (484 words), 28 hits for L=6 (972 words). Hence shortest reduced
-  identity has length 6. Witness `aaBaaB -> -I` verified stepwise:
-  `a^2=[[1,2],[0,1]]`, `*B`, `*a`, `*a`, `*B` equals `[[12,0],[0,12]]`.
-- **Regularity.** 4 neighbors of identity pairwise distinct; L=2 zero hits
-  excludes collapse, so 4-regular.
+Topological control. The same straight-line drawing viewed topologically has 36=Z(5,7) crossings, so it is also a topological optimum witness. rotation_K57_36.json stores its rotation system (neighbors in atan2 order). verify_planarity.py checks rotation consistency and enumerates all C(5,3)*C(7,3)=350 induced K(3,3)s, each 6 vertices / 9 edges violating bipartite planarity e<=2v-4=8, hence K(5,7) nonplanar. Full cr>=36 is not proved by this script; it is cited from Kleitman. This control guards against miscounting.
+
+How found (computed evidence, not proof). Uniform random 12-sets on [0,30]^2 filtered by general position with exact orientation count; best of 20k was 40; single-point annealing reached 38 then 36 within ~600 steps. Search code was ephemeral and is not part of the certificate; the certificate is coordinates plus verifiers.
 
 ## Limitations
-
-- Single stratum `(p,S)=(13,{transvection pair})`; no general diameter/girth
-  theorem.
-- Proof is machine-assisted (short Python programs); trust base is integer
-  arithmetic + BFS/DFS logic, cross-checked by two code paths, opposite
-  neighbor orders, alternative canonicalization, and from-scratch replay.
-  No external CAS or library.
-- Conventions fixed: undirected Cayley graph, girth over reduced words,
-  PSL identity `=+-I`. Directed or unreduced counts differ trivially.
+- Lower bound relies on external Kleitman theorem; no new rectilinear branch-and-bound was needed because the topological bound is tight; deviation from rotation/B&B route is intentional.
+- Upper bound is a single integer witness; minimality among rectilinear drawings follows only via cited lower bound; no enumeration of order types claimed.
+- No claim of uniqueness or minimal coordinates; no claim beyond independent machine-checkable 36-witness (if a 36-witness appeared elsewhere, this is a reproduction).
+- Observed (uncertified) annealing also attains Z for (5,5),(5,6),(5,8); conjecture bar-cr(K(5,n))=Z(5,n) for this band, but only (5,7) is proved here.
+- General position means vertices only; edge-triple concurrency happens to be absent here (checked), so no counting ambiguity.
 
 ## Reproducibility
-
-```
-python3 output/artifacts/replay.py        # all claims <1 s
-python3 output/artifacts/bfs_diameter.py  # census + diametral words
-python3 output/artifacts/girth_enum.py 8  # girth census to length 8
-```
-
-`replay.py` asserts: SL order; inverses; `w_g->-I` reduced; L<=5 exhaustion;
-L=6 census 972/28; BFS coverage 1092 with exact spheres and D=10;
-`w_D->(5,0,9,8)` at distance 10; no reduced `<=9` to target; 4-regularity.
+Stdlib Python 3.12.3 only, seconds:
+bash output/artifacts/rerun.sh
+- verify_rect.py -> 0 collinear, 595 total, 420 disjoint, 36 cross, Z=36, PASS
+- verify_rect_second.py -> 36, PASS
+- verify_planarity.py -> rotation PASS, 36 crossings, 350 K3,3, 36 distinct points, PASS
+Hashes (sha256): coords_K57_rect.json d1edb9b7f1cd0727d37d8344541950cf4b1361ec45805c59ae9c4dc0ef54bccf; rotation_K57_36.json 0e8a03ac3627e6dc40be0d3d73948ddbcd7a5a435af7d007844b518444635156; crossing_list.csv befabd4f6017f3b36eb245e9d47a87ef82881aff69fa60957ffb8ade0f54dbbd; verify_rect.py 1c1c08c4cda2ef3136b220aaaea36382d6e9b403a9b810adc8a3618f858d67cc; verify_rect_second.py 2ffa6f839d6db114f024f3d06b0727afb90151f6ebef3126ad7e1d7af3b149f9; verify_planarity.py a307922e6911358b7d661e491760244f417ff24d624c9bea68a92cfb7ab2ed8c.
 
 ## References
-
-- Martino Garonzi, Zoltan Halasi, Gabor Somlai. On the diameter of Cayley
-  graphs of classical groups with generating sets containing a transvection.
-  https://arxiv.org/abs/2203.03323 — polylog asymptotic bound only, no exact
-  p=13 table.
-- Zoltan Halasi. Diameter of Cayley graphs of SL(n,p) with generating sets
-  containing a transvection. https://arxiv.org/abs/2002.10443 — asymptotic
-  bound, no exact census.
-- Haimiao Chen. Regular balanced Cayley maps on PSL(2,p).
-  https://arxiv.org/abs/1601.05251 — surface-embedding classification, no word
-  metric.
-- Harald Helfgott. Growth and generation in SL2(Z/pZ).
-  https://doi.org/10.4007/annals.2008.167.601 — growth implying O((log p)^c)
-  diameter, no small-prime exact tables.
+[1] D. J. Kleitman, The crossing number of K(5,n), J. Combin. Theory 9 (1970), 315-323. https://doi.org/10.1016/S0021-9800(70)80087-4 - gives cr(K(5,n))=Z(5,n), hence 36 for n=7.
+[2] M. Nafar, Rectilinear crossing number of the double circular complete bipartite graph, arXiv:2310.15882 (2023) - restricted to two concentric circles, different counting/optimization; no general-position K(5,7) coordinates. https://arxiv.org/abs/2310.15882
+[3] O. Abrego et al., The bipartite-cylindrical crossing number, Graphs Combin. - cylindrical, not straight-line plane. https://doi.org/10.1007/s00373-019-02076-5
+[4] E. Feder, D. Garber, On the Orchard crossing number of K(n,n), arXiv:1008.2638 - different line-separation definition, K(n,n) only. https://arxiv.org/abs/1008.2638
+[5] R. Fabila-Monroy, J. Lopez, Computational search of small point sets with small rectilinear crossing number, J. Graph Algorithms Appl. 18 (2014), 393-399. https://doi.org/10.7155/jgaa.00328 - searches Kn point sets, not bipartite 5+7 stratum.

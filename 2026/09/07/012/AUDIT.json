@@ -1,1 +1,317 @@
-{"axes": {"correctness": {"rationale": "T1 (9 pairwise non-isomorphic stem (7,3) Q-algebras): VERIFIED. Setup V=span(e1..e4), W=span(e5..e7), [ei,ej]=sum (Ak)ij e_{4+k}, W central => [[g,g],g]=0 so Jacobi automatic; verifier enumerates all [[ei,ej],ek]=0 and passes. Derived rank 3: 3x6 matrices have cols 1,2,3 = identity (det 1) for all 9, rank 3 confirmed by sympy and independent Fraction elimination. Center: dim Z=3+dim Rad, Rad={v: Ak v=0 all k}. For G1..G8 A5=[[0,1,0,0],[-1,0,0,0],[0,0,0,1],[0,0,-1,0]] det 1 invertible => Rad 0; for G9 A5v=(v2,-v1,0,0), A6v=(v3,0,-v1,0), A7v=(v4,0,0,-v1) joint zero => v=0. Stacked 12x4 rank 4 confirmed independently. Hence Z=W, stem holds. Pfaffian polys recomputed: G1 x1^2+x2^2+x3^2, G2 x1^2-x2^2+x3^2, G3..G7 x1^2-t x2^2 (t=1,2,3,5,7), G8 x1^2, G9 0; Gram ranks 3,3,2x5,1,0 confirmed. Der dims 19,19,20x5,22,25: verifier 49-unknown 147-equation nullspace (49-rank) re-ran ALL PASS; independently recomputed with Fraction Gaussian elimination (no sympy): ranks 30,30,29,29,27,24 => dims 19,20,22,25 match. CE (r1,r2)=(3,7) => H1=4 H2=11 for 8, (3,6)=>H2=12 for G9, independently recomputed; H1=4 matches g/[g,g] theory. T3 Lemma f'(y)=lambda f(Q*y) with lambda=det(P)^-1: proof checked line-by-line; identity P^T A'(y)P=A(Q*y) holds because W-component of lift drops (central), Pf(P^TBP)=det(P)Pf(B) verified by expansion and 5 random integer trials. Corollaries rank/isotropy preserved via G'=lambda Q^T G Q correct. Rank-3 separation: x1^2+x2^2+x3^2 anisotropic by mod-4 descent (squares 0,1 mod4, sum 0 => all even, contradicts coprimality; scaling argument valid), x1^2-x2^2+x3^2 isotropic at (1,1,0); hence G1 not Q-isomorphic G2 despite same Der/H2. Rank-2 lemma: G_s=lambda Q^T G_t Q with G_t=diag(1,-t,0) forces Q e3 in span e3 (radical preservation), so Q=[[A,0],[c^T,d]], A in GL2, A^T H_t A=lambda^-1 H_s, det => s/t=(lambda det A)^2 square; block/invertibility reasoning verified (det Q=det A * d). For positive ints t/s square iff t*s square (multiply by s^2/t^2 squares); 10 products 2,3,5,7,6,10,14,15,21,35 nonsquare via isqrt, squarefree>1 argument valid. Hence G3..G7 pairwise distinct. Cross-rank separated by rank. All C(9,2)=36 pairs covered. T2 infinitude: family g_t same matrices with t in Q* stem (same A5 invertible + identity minor) and t/s square condition => primes give infinite square classes in Q*/Q*2 (p/q=(a/b)^2 reduced => p b^2=q a^2 forces p=q by unique factorization / exponent parity). Hence no finite list complete; finite census target refuted as stated. Merging over C verified: g_t cong g_s over Q(sqrt(t/s)) via P=diag(l,l^-1,1,1), l=sqrt(t/s): P^T A5 P=A5, P^T M2(t)P=l M2(s), P^T M3 P=l M3 absorbed by Q=diag(1,l,l) (recomputed); G1 cong G2 over Q(i) claimed without matrix but verified by auditor via P=diag(i,1,i,1): transforms G2 6-vectors (1,0,0,0,0,1)->(i,0,0,0,0,i), (0,1,0,0,1,0)->(0,-1,0,0,1,0), (0,0,1,1,0,0)->(0,0,i,i,0,0) = i*v1, -v2, i*v3, so nets equal. No overclaim: draft weakens G_min/G_max to observed minima, disclaims exhaustiveness, C-completeness, orbit closures. Minor gloss (Pbar lift) immaterial. Proof vs computation distinguished: hand lemmas + exact-machine ranks (sympy QQ + Fraction cross-check).", "verdict": "PASS"}, "originality": {"rationale": "Substantive comparison to nearest known from brief + cutoff knowledge. Gong thesis (Waterloo 1998, alg-closed char !=2,3 central-extension classification): existence classification, no Q-rational forms, no dim-Der/center-type table for stem (7,3), no skew witnesses or extremal census. Magnin (arXiv:0805.3380, C-cohomology tables dim<=7): H^1/H^2 over C only, no Q-isomorphism separation, no stem-(7,3)-focused Der spectrum, no Pfaffian-net filter or square-class families. Burde (math/0703802, degenerations over C): rigidity geometry dual to minimal Der, no (7,3) invariant catalog with explicit matrices/rank proofs. Delta is first explicit Q-rational stem-(7,3) extremal catalog (9 integer triples) with exact Jacobi/center/Der-rank certificates, Pfaffian-net pre-filter, isotropy + square-class separation, and written infinitude/moduli correction with quadratic-extension merges. Classical ingredients (Pf(P^TBP)=det Pf(B), binary/ternary quadratic square-class, mod-4 descent) are textbook, but their assembly into stem-(7,3) Lie witnesses + machine certificates + infinitude refutation is not a textbook exercise, parameter substitution, or epsilon improvement. Live-web re-fetch attempted for all three URLs and failed with transport errors (same as triage), so novelty confidence capped as draft honestly states; no priority claim if prior Q-census exists. Failed search not used as proof; PASS rests on substantive disjointness of C-only prior claims vs Q-arithmetic separation (which collapses over C) plus explicit new witnesses.", "verdict": "PASS"}, "value": {"rationale": "Independently worth finding later. (a) Corrects finiteness expectation: proves finite complete census impossible (infinite Q-types via Pf=x1^2-t x2^2), saving future effort and reframing problem as moduli, not table. (b) Reusable benchmark: 9 explicit integer triples with sub-second exact verifier (fractions/sympy, no floats) template for adjacent (7,2)/(7,4) strata; Der spectrum {19,20,22,25} keyed to Pf-rank plus H2 and Pfaffian types gives rigidity/automorphism-dimension data (Der 19 most rigid observed, 25 least). (c) Not textbook restatement: Pfaffian-net invariant + radical-preservation square-class lemma + descent are assembled for Lie classification, not quoted. (d) Not mere parameter substitution: parameter t proved to give distinct isomorphism types via invariant, not relabeling; 5 primes are representatives of infinite moduli, stratified by Pf-rank 3/2/1/0. (e) Not tiny gain or unexplained enumeration: 9 types motivated by Pf-rank stratification and square classes, with full 36-pair separation logic and explicit open questions (Der vs Pf-rank, Q vs C orbits, degenerations, adjoint cohomology over Q). Meets fallback >=8-type citable data-note bar with 9. Any one follow-up (same-rank different-Der, orbit closures) is citable.", "verdict": "PASS"}}, "checked_sources": ["inputs/topic.json (target, motivation, nearest_known Gong/Magnin/Burde, fallback >=8)", "inputs/DRAFT.md (T1-T3, catalog, lemmas, tables, limitations)", "inputs/research_report.json (claim, evidence_summary, limitations)", "inputs/artifacts/verify_partial.py (exact verifier, replayed)", "inputs/artifacts/catalog.json (triples, Der dims, Der bases G1/G9)", "live-web fetch attempts https://arxiv.org/abs/0805.3380, https://arxiv.org/abs/math/0703802, https://uwspace.uwaterloo.ca/handle/10012/133 -- all transport errors, same as triage; treated as unavailable, not as priority evidence", "cutoff knowledge of quadratic-form square classes and 4x4 Pfaffian identity"], "decisive_checks": ["ran inputs/artifacts/verify_partial.py: ALL PASS (Der 19,19,20x5,22,25; H2 11x8,12; Pf ranks 3,3,2x5,1,0)", "recomputed with stdlib Fraction elimination (no sympy): derived 3, stacked rank 4, Der dims 19/20/22/25, CE (3,7)/(3,6) match", "recomputed Pf polys from 6-vectors: x1^2+x2^2+x3^2, x1^2-x2^2+x3^2, x1^2-t x2^2, x1^2, 0 correct", "random integer test Pf(P^TBP)=det(P)Pf(B) 5 trials PASS", "verified A5 det 1 invertible, G9 joint-zero, identity-minor derived argument", "verified mod-4 descent and (1,1,0) isotropy witness; isqrt nonsquare for 10 products", "verified square-class block lemma (b=0, A invertible, det gives square) and t/s iff t*s square", "verified g_t merging via P=diag(l,l^-1,1,1), Q=diag(1,l,l); found and verified G1-G2 merging via P=diag(i,1,i,1)"], "residual_risks": ["live-web unavailable: residual chance a 2024-2026 (7,3) Q-Der census exists; mitigated by capped confidence and no priority claim, but cannot be eliminated without network", "Der/H2 rest on exact QQ elimination (sympy + Fraction agreement); no hand bases displayed except G1/G9 in catalog.json (unchecked bases, but dims cross-checked)", "decomposability untested; does not affect stem/non-isomorphism but leaves structural description incomplete (explicitly noted)", "global minimality of Der 19 not proved (only observed minimum; draft correctly weakens claim)", "C-orbit completeness (Pf-rank sufficiency) and orbit-closure/degeneration classification remain open (explicitly disclaimed)"], "verdict": "PASS"}
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 1 (translation fixing for pairwise-coprime C): proof checked. Pairwise-coprime divisors of L have product dividing L by prime-exponent argument; CRT gives t with a_c+t=0 for all c in C; permutation x->x+t preserves density. Empirically confirmed on [7,8,9,10] (full 5040-combo optimum 1032/2520 equals C-fixed optimum). Lemma 2 (prime peeling): proof checked. Equivalence p prime with no multiples <=> p not dividing L0 holds because p|L0 iff p divides some m in S0. Lift counting uses gcd(L0,p)=1 so y+tL0 runs through all residues mod p; uncovered=(L0-c0)(p-1), D=D0+U0/p independent of a_p. Empirically confirmed on S0=[7,8,9,10] lifted by 11: all 11 residues give 12840/27720=107/231 as predicted. Iteration for distinct new primes valid as removal cannot create multiples. Lemma 3 (prime-max exchange): proof checked with one implicit step made explicit: any 9-set in [7,60] with prime max has max>=17 (7..13 contains only 7 numbers), while smallest unused m* in [7,24] is <=16 (7..16 contains 10 numbers), so m*<m_max; averaging argument Dmax(S')>=D0+U0/m* holds for any divisibility because for fixed S0 pattern each uncovered x is hit by exactly one of m* residues. Hence no optimal set has prime maximum. Union-bound maximizer 7..15 with sum 62575/72072 verified by Fraction; exchange by 1/m monotonicity valid. Witness densities verified by independent stdlib bytearray LCM enumeration: 36340/55440=1817/2772, 3290/5040=47/72, top-5 table rows match. Table completeness verified: 2002 distinct rows equal all C(14,9) subsets of [7,20], sorted descending. Core optima independently re-proved by a different branch-and-bound (union-bound pruning, no affine orbits): best core 3130/5040 (120960 combos brute-forced in 0.9s), runner-up 3290/5040 (2177280 combos in 15.3s), hardest 43M-combo core [8,9,10,12,14,15,16,18,20] proved 3140/5040 in 1.4s with 15783 nodes, 10-core random sample all optimal, and full 2002-set independent B&B in 106.4s found zero cases beating the table. Deterministic replay reproduce_census_7_20.py reran in 27.0s asserting best 1817/2772. Corollary interval for [7,60] follows rigorously from witness (lower) and union bound (upper). Machine-checked enumeration is experimental evidence with two independent implementations agreeing; lemmas are proofs.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Claim-level comparison across hypotheses, quantifiers, parameter ranges, exact constants, method scope, and conclusion. The candidate's hard core is: exact maximum D*(9;[7,20])=1817/2772 (uncovered 955/2772) attained at S*=[7,8,9,10,11,12,14,15,16] with explicit residues, L=55440, 36340 covered; runner-up 47/72 at [7,8,9,10,12,14,15,16,18] with gap 0.002706; certified interval 0.655483<=D*(9;[7,60])<=0.868229 with union-bound maximizer 7..15 (62575/72072); prime-max exchange lemma; [7,60] equality only conjectured. (1) Hough gives a universal bound on least moduli of full coverings, no fixed-stratum exact maximum. (2) Balister et al. give asymptotic uncovered-density lower bounds and structural theorems, no exact finite census or rational constants. (3) Zhang & Zhang solve LCM-minimality for full coverings with min modulus 7; full-text keyword check (1817, 2772, maximal density, nine moduli, [7,20], [7,60] all absent) confirms a different objective whose density-1 solutions cannot imply a 0.65548 partial-density maximum. (4) Agrawal et al. full text classifies only full coverings with min modulus 2 and prime factors <=5, disjoint from a >=7 partial-density optimum involving 7 and 11. (5) Dalton-Jones and Klein et al. give qualitative interval non-existence and j-th-modulus growth bounds, neither stating nor implying any exact density constant. Exact-formulation arXiv search (maximal+covering+density+moduli) returned 0 total results; minimum-modulus-7 search returned only Zhang; Crossref exact-fraction search returned only unrelated records (thermal insulation, dentistry). No retrieved source states, tabulates, or mathematically implies 1817/2772, 955/2772, the S* witness, the 47/72 runner-up, or the [7,60] certified interval.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Independently worth finding later as a citable Erdős-benchmark number with reusable certificate, not a textbook restatement or parameter tweak. Textbook gives only Mirsky-Newman and 2,3,4,6,12 full covering (density 1, min<=2) and union bound 0.868; exact optimum 0.65548 requires handling overlaps and joint modulus+residue optimization, shown non-trivial by gap 0.002706 to runner-up 47/72 and by composite-beats-prime-heavy phenomenon (best union 0.8538 set is not best true density; 7..15 union 0.868 vs true 0.645). Stratum is principled: [7,60]x9 is first reciprocal-sum-impossible stratum (max sum 0.868<1), and [7,20] closure is the largest exactly closed sub-stratum (2002 sets, 544 cores) with honest limitation that full [7,60] (5.3B sets) remains open; prime-max elimination lemma is general reusable progress. Output is not an unexplained enumeration: divisor-lattice peeling + translation fixing + orbit/B&B method, reduced-fraction CRT replay in <2s, full deterministic replay in 27s, 2002-row table with residues and peel chains. Falls outside rejection classes: not mere substitution (threshold-justified), not tiny unmotivated gain (first exact table for min>=7 k=9), not bare dump (method + proofs + verifiers).",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "Shares the 'distinct covering / minimum modulus' theme but proves only a qualitative universal upper bound on the least modulus of a FULL covering (<=1e16, journal version). Candidate instead computes the exact maximum PARTIAL density over 9-modulus subsets of the fixed stratum [7,20]. Different hypotheses (all full coverings vs. 9-sets in [7,20]), different conclusion (existence bound vs. exact rational maximum 1817/2772 with witness). Does not cover or imply the candidate.",
+      "title": "Solution of the minimum modulus problem for covering systems (Hough, Ann. Math. 181 (2015))",
+      "url": "https://arxiv.org/abs/1307.0874"
+    },
+    {
+      "outcome": "Nearest density-themed prior art: general analytic lower-bound framework for uncovered density in [n,Cn]-type regimes plus proofs of Schinzel's conjecture and a simplified Hough bound. Asymptotic/large-n quantifiers and sufficient-condition form; contains no exact finite-stratum census, no D*(9;[7,20]) value, no witness set [7,8,9,10,11,12,14,15,16], and no certified [7,60] interval of the candidate's form. Does not cover or imply the candidate.",
+      "title": "On the Erdos covering problem: the density of the uncovered set (Balister et al., Invent. Math. 228 (2022))",
+      "url": "https://doi.org/10.1007/s00222-021-01087-5"
+    },
+    {
+      "outcome": "Topically closest (minimum modulus 7, computational filtering): determines the minimal LCM (10080) of a FULL distinct covering with minimum modulus 7. Objective is full coverage (density 1) with LCM minimality, proved by sum/IP/partial-sum filters plus Gurobi; candidate's objective is maximal partial density of 9 moduli in [7,20] by LCM-period enumeration. Full-text search confirms absence of 1817/2772, maximal-density, nine-moduli, [7,20]/[7,60] content. Does not cover or imply the candidate.",
+      "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080 (Zhang & Zhang, 2026)",
+      "url": "https://arxiv.org/abs/2607.19029"
+    },
+    {
+      "outcome": "Nearest computational-census prior art: exhaustive classification of FULL distinct minimal coverings with <=10 moduli (all have minimum modulus 2, prime factors <=5). Candidate is a maximal-partial-density census over 9-subsets of [7,20] including moduli 7 and 11 with density <1. Full-text inspection confirms disjoint scope (full vs. partial, min modulus 2 vs. >=7). Does not cover or imply the candidate.",
+      "title": "Computations and observations on congruence covering systems (Agrawal et al., 2022/2023)",
+      "url": "https://arxiv.org/abs/2208.09720"
+    },
+    {
+      "outcome": "Shares bounded-interval covering-system reasoning ([n,10n] non-existence for n>=3). Qualitative universal negative statement; no density maximization, no exact rational constants, no 2002-set enumeration, no optimizer or runner-up. Consistent with the candidate's context but implies nothing about D*(9;[7,20])=1817/2772. Does not cover or imply the candidate.",
+      "title": "On the intervals for the non-existence of covering systems with distinct moduli (Dalton & Jones, 2025)",
+      "url": "https://arxiv.org/abs/2506.11359"
+    }
+  ],
+  "decisive_checks": [
+    "verify_Ustar.py rerun: OK best 36340/55440=1817/2772, runner-ups 3290/5040=47/72, max-sum 62575/72072, top-5 rows (<2s)",
+    "Independent numpy brute force best core [7,8,9,10,12,14,15,16] C=[7,15,16] R 120960 combos: optimum 3130/5040 matches table, residues (4,1,1,2,1) (0.9s)",
+    "Independent brute force runner-up core [7,8,9,10,12,14,15,16,18] 2177280 combos: optimum 3290/5040 matches table (15.3s)",
+    "Independent union-bound B&B on hardest 43M-combo core [8,9,10,12,14,15,16,18,20]: proved 3140/5040 with 15783 nodes in 1.4s, witness verified",
+    "Random 10-core independent B&B sample: all table core optima confirmed optimal",
+    "Full 2002-set independent B&B (different method from draft hierarchical): 106.4s, zero table entries beaten; completeness: 2002 distinct combos equal all C(14,9) subsets of [7,20]",
+    "Lemma 1 empirical check [7,8,9,10]: full 5040-combo optimum equals C-fixed optimum 1032/2520",
+    "Lemma 2 empirical check [7,8,9,10]+11: all 11 lifts give predicted 12840/27720",
+    "reproduce_census_7_20.py deterministic replay: 2002 sets in 27.0s asserting best 1817/2772",
+    "Fraction checks: 36340/55440 reduces to 1817/2772, 3290/5040 to 47/72, gap 0.0027056, union sums verified"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:29:27Z",
+    "queries": [
+      {
+        "query": "all:distinct AND all:covering AND all:system",
+        "result_count": 613,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3Adistinct+AND+all%3Acovering+AND+all%3Asystem&start=0&max_results=10"
+      },
+      {
+        "query": "all:maximal AND all:covering AND all:density AND all:moduli",
+        "result_count": 0,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3Amaximal+AND+all%3Acovering+AND+all%3Adensity+AND+all%3Amoduli&start=0&max_results=5"
+      },
+      {
+        "query": "all:covering AND all:system AND all:distinct AND all:moduli AND all:interval",
+        "result_count": 2,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3Acovering+AND+all%3Asystem+AND+all%3Adistinct+AND+all%3Amoduli+AND+all%3Ainterval&start=0&max_results=5"
+      },
+      {
+        "query": "all:covering AND all:system AND all:minimum AND all:modulus AND all:7",
+        "result_count": 1,
+        "service": "arXiv API",
+        "url": "https://export.arxiv.org/api/query?search_query=all%3Acovering+AND+all%3Asystem+AND+all%3Aminimum+AND+all%3Amodulus+AND+all%3A7&start=0&max_results=5"
+      },
+      {
+        "query": "distinct covering system maximal density",
+        "result_count": 4317076,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=distinct%20covering%20system%20maximal%20density&rows=5"
+      },
+      {
+        "query": "covering system minimum modulus 7 distinct moduli",
+        "result_count": 3960590,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=covering%20system%20minimum%20modulus%207%20distinct%20moduli&rows=5"
+      },
+      {
+        "query": "Erdos covering problem density uncovered set",
+        "result_count": 1407487,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=Erdos%20covering%20problem%20density%20uncovered%20set&rows=5"
+      },
+      {
+        "query": "1817/2772 covering density",
+        "result_count": 683825,
+        "service": "Crossref API",
+        "url": "https://api.crossref.org/works?query=1817%2F2772%20covering%20density&rows=5"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Abstract states only a qualitative upper bound: least modulus of a distinct covering system is at most 1e16 (journal version). No finite-modulus exact density, no fixed-cardinality maximal-partial-density census, no [7,20]/[7,60] stratum, no constants 1817/2772, 955/2772, or 47/72, and no 9-modulus optimizer set. Quantifiers are existential/universal over all full coverings, disjoint from the candidate's exact maximum over a bounded 9-subset stratum.",
+        "retrieved_at_utc": "2026-09-07T14:27:30Z",
+        "title": "Solution of the minimum modulus problem for covering systems (Hough)",
+        "url": "https://arxiv.org/abs/1307.0874"
+      },
+      {
+        "comparison": "Preprint abstract confirms the paper treats asymptotic lower bounds on uncovered density for moduli in [n,Cn] and large-moduli conditions, plus Schinzel's conjecture and a simpler proof of Hough with improved bound. It is a general analytic framework with large-n quantifiers, not an exact enumeration of D*(9;[7,20]) over C(14,9)=2002 sets, and states no exact rational maximum, witness residues, LCM 55440, or runner-up gap 0.002706.",
+        "retrieved_at_utc": "2026-09-07T14:29:10Z",
+        "title": "On the Erdos covering problem: the density of the uncovered set (Balister et al. preprint)",
+        "url": "https://arxiv.org/abs/1811.03547"
+      },
+      {
+        "comparison": "Crossref publisher metadata confirms Inventiones mathematicae 228 (2022), 377-414, DOI 10.1007/s00222-021-01087-5, and it was the top hit for the density query. Metadata scope matches the preprint's asymptotic uncovered-density program, with no bounded-stratum exact census attached to the record and no 1817/2772-type constant.",
+        "retrieved_at_utc": "2026-09-07T14:28:35Z",
+        "title": "On the Erdos covering problem: the density of the uncovered set (publisher record)",
+        "url": "https://doi.org/10.1007/s00222-021-01087-5"
+      },
+      {
+        "comparison": "Abstract and full-text keyword inspection show a different optimization problem: minimize the LCM of a FULL distinct covering with minimum modulus 7 (construction LCM 10080 vs Klein's 15120, proved minimal via reciprocal-sum, integer-programming, partial-sum and Gurobi filters). Full HTML text contains none of 1817, 2772, maximal density, nine moduli, [7,20], or [7,60]. A full covering has density 1 by definition, so it cannot imply a 0.65548 maximal partial density.",
+        "retrieved_at_utc": "2026-09-07T14:27:35Z",
+        "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080 (Zhang & Zhang)",
+        "url": "https://arxiv.org/abs/2607.19029"
+      },
+      {
+        "comparison": "Inspected complete HTML full text: classifies FULL distinct minimal covering systems with at most 10 moduli up to affine and delta equivalence; all classified systems have minimum modulus 2, maximum moduli in a listed set up to 384, and no prime factor above 5. A k=9 full covering there covers density 1 with small moduli, whereas the candidate maximizes partial density (~0.655) over 9 distinct moduli all >=7. No D* table, no 1817/2772 constant, no [7,20] census appears anywhere in the text.",
+        "retrieved_at_utc": "2026-09-07T14:28:30Z",
+        "title": "Computations and observations on congruence covering systems (Agrawal et al., full text)",
+        "url": "https://arxiv.org/html/2208.09720v3"
+      },
+      {
+        "comparison": "Abstract proves a qualitative non-existence theorem: no distinct covering with all moduli in [n,10n] for n>=3, extending Filaseta-Trifonov-Yu type intervals. Conclusion is a universal negative over intervals with parameter n, supplying no exact maximal density value, no optimizer, and no fixed (k=9, [7,20]) enumeration; it is consistent with but does not imply the candidate's 1817/2772 census.",
+        "retrieved_at_utc": "2026-09-07T14:28:10Z",
+        "title": "On the intervals for the non-existence of covering systems with distinct moduli (Dalton & Jones)",
+        "url": "https://arxiv.org/abs/2506.11359"
+      },
+      {
+        "comparison": "Abstract gives an asymptotic upper bound exp(cj^2/log(j+1)) on the j-th smallest modulus of a minimal distinct covering, building on Balister et al. This is a growth estimate over all minimal full coverings, with different hypotheses (minimal full covering), different conclusion (modulus size bound), and no exact constants, witness sets, or density maxima for any fixed stratum.",
+        "retrieved_at_utc": "2026-09-07T14:28:15Z",
+        "title": "On the j-th smallest modulus of a covering system with distinct moduli (Klein et al.)",
+        "url": "https://arxiv.org/abs/2212.01299"
+      }
+    ],
+    "status": "PASS"
+  },
+  "originality_revalidation": {
+    "live_literature_check": {
+      "checked_at_utc": "2026-09-07T14:29:27Z",
+      "queries": [
+        {
+          "query": "all:distinct AND all:covering AND all:system",
+          "result_count": 613,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3Adistinct+AND+all%3Acovering+AND+all%3Asystem&start=0&max_results=10"
+        },
+        {
+          "query": "all:maximal AND all:covering AND all:density AND all:moduli",
+          "result_count": 0,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3Amaximal+AND+all%3Acovering+AND+all%3Adensity+AND+all%3Amoduli&start=0&max_results=5"
+        },
+        {
+          "query": "all:covering AND all:system AND all:distinct AND all:moduli AND all:interval",
+          "result_count": 2,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3Acovering+AND+all%3Asystem+AND+all%3Adistinct+AND+all%3Amoduli+AND+all%3Ainterval&start=0&max_results=5"
+        },
+        {
+          "query": "all:covering AND all:system AND all:minimum AND all:modulus AND all:7",
+          "result_count": 1,
+          "service": "arXiv API",
+          "url": "https://export.arxiv.org/api/query?search_query=all%3Acovering+AND+all%3Asystem+AND+all%3Aminimum+AND+all%3Amodulus+AND+all%3A7&start=0&max_results=5"
+        },
+        {
+          "query": "distinct covering system maximal density",
+          "result_count": 4317076,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=distinct%20covering%20system%20maximal%20density&rows=5"
+        },
+        {
+          "query": "covering system minimum modulus 7 distinct moduli",
+          "result_count": 3960590,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=covering%20system%20minimum%20modulus%207%20distinct%20moduli&rows=5"
+        },
+        {
+          "query": "Erdos covering problem density uncovered set",
+          "result_count": 1407487,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=Erdos%20covering%20problem%20density%20uncovered%20set&rows=5"
+        },
+        {
+          "query": "1817/2772 covering density",
+          "result_count": 683825,
+          "service": "Crossref API",
+          "url": "https://api.crossref.org/works?query=1817%2F2772%20covering%20density&rows=5"
+        }
+      ],
+      "sources": [
+        {
+          "comparison": "Abstract states only a qualitative upper bound: least modulus of a distinct covering system is at most 1e16 (journal version). No finite-modulus exact density, no fixed-cardinality maximal-partial-density census, no [7,20]/[7,60] stratum, no constants 1817/2772, 955/2772, or 47/72, and no 9-modulus optimizer set. Quantifiers are existential/universal over all full coverings, disjoint from the candidate's exact maximum over a bounded 9-subset stratum.",
+          "retrieved_at_utc": "2026-09-07T14:27:30Z",
+          "title": "Solution of the minimum modulus problem for covering systems (Hough)",
+          "url": "https://arxiv.org/abs/1307.0874"
+        },
+        {
+          "comparison": "Preprint abstract confirms the paper treats asymptotic lower bounds on uncovered density for moduli in [n,Cn] and large-moduli conditions, plus Schinzel's conjecture and a simpler proof of Hough with improved bound. It is a general analytic framework with large-n quantifiers, not an exact enumeration of D*(9;[7,20]) over C(14,9)=2002 sets, and states no exact rational maximum, witness residues, LCM 55440, or runner-up gap 0.002706.",
+          "retrieved_at_utc": "2026-09-07T14:29:10Z",
+          "title": "On the Erdos covering problem: the density of the uncovered set (Balister et al. preprint)",
+          "url": "https://arxiv.org/abs/1811.03547"
+        },
+        {
+          "comparison": "Crossref publisher metadata confirms Inventiones mathematicae 228 (2022), 377-414, DOI 10.1007/s00222-021-01087-5, and it was the top hit for the density query. Metadata scope matches the preprint's asymptotic uncovered-density program, with no bounded-stratum exact census attached to the record and no 1817/2772-type constant.",
+          "retrieved_at_utc": "2026-09-07T14:28:35Z",
+          "title": "On the Erdos covering problem: the density of the uncovered set (publisher record)",
+          "url": "https://doi.org/10.1007/s00222-021-01087-5"
+        },
+        {
+          "comparison": "Abstract and full-text keyword inspection show a different optimization problem: minimize the LCM of a FULL distinct covering with minimum modulus 7 (construction LCM 10080 vs Klein's 15120, proved minimal via reciprocal-sum, integer-programming, partial-sum and Gurobi filters). Full HTML text contains none of 1817, 2772, maximal density, nine moduli, [7,20], or [7,60]. A full covering has density 1 by definition, so it cannot imply a 0.65548 maximal partial density.",
+          "retrieved_at_utc": "2026-09-07T14:27:35Z",
+          "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080 (Zhang & Zhang)",
+          "url": "https://arxiv.org/abs/2607.19029"
+        },
+        {
+          "comparison": "Inspected complete HTML full text: classifies FULL distinct minimal covering systems with at most 10 moduli up to affine and delta equivalence; all classified systems have minimum modulus 2, maximum moduli in a listed set up to 384, and no prime factor above 5. A k=9 full covering there covers density 1 with small moduli, whereas the candidate maximizes partial density (~0.655) over 9 distinct moduli all >=7. No D* table, no 1817/2772 constant, no [7,20] census appears anywhere in the text.",
+          "retrieved_at_utc": "2026-09-07T14:28:30Z",
+          "title": "Computations and observations on congruence covering systems (Agrawal et al., full text)",
+          "url": "https://arxiv.org/html/2208.09720v3"
+        },
+        {
+          "comparison": "Abstract proves a qualitative non-existence theorem: no distinct covering with all moduli in [n,10n] for n>=3, extending Filaseta-Trifonov-Yu type intervals. Conclusion is a universal negative over intervals with parameter n, supplying no exact maximal density value, no optimizer, and no fixed (k=9, [7,20]) enumeration; it is consistent with but does not imply the candidate's 1817/2772 census.",
+          "retrieved_at_utc": "2026-09-07T14:28:10Z",
+          "title": "On the intervals for the non-existence of covering systems with distinct moduli (Dalton & Jones)",
+          "url": "https://arxiv.org/abs/2506.11359"
+        },
+        {
+          "comparison": "Abstract gives an asymptotic upper bound exp(cj^2/log(j+1)) on the j-th smallest modulus of a minimal distinct covering, building on Balister et al. This is a growth estimate over all minimal full coverings, with different hypotheses (minimal full covering), different conclusion (modulus size bound), and no exact constants, witness sets, or density maxima for any fixed stratum.",
+          "retrieved_at_utc": "2026-09-07T14:28:15Z",
+          "title": "On the j-th smallest modulus of a covering system with distinct moduli (Klein et al.)",
+          "url": "https://arxiv.org/abs/2212.01299"
+        }
+      ],
+      "status": "PASS"
+    },
+    "nearest_prior_results": [
+      {
+        "covers_candidate": false,
+        "relationship": "Shares the 'distinct covering / minimum modulus' theme but proves only a qualitative universal upper bound on the least modulus of a FULL covering (<=1e16, journal version). Candidate instead computes the exact maximum PARTIAL density over 9-modulus subsets of the fixed stratum [7,20]. Different hypotheses (all full coverings vs. 9-sets in [7,20]), different conclusion (existence bound vs. exact rational maximum 1817/2772 with witness). Does not cover or imply the candidate.",
+        "title": "Solution of the minimum modulus problem for covering systems (Hough, Ann. Math. 181 (2015))",
+        "url": "https://arxiv.org/abs/1307.0874"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest density-themed prior art: general analytic lower-bound framework for uncovered density in [n,Cn]-type regimes plus proofs of Schinzel's conjecture and a simplified Hough bound. Asymptotic/large-n quantifiers and sufficient-condition form; contains no exact finite-stratum census, no D*(9;[7,20]) value, no witness set [7,8,9,10,11,12,14,15,16], and no certified [7,60] interval of the candidate's form. Does not cover or imply the candidate.",
+        "title": "On the Erdos covering problem: the density of the uncovered set (Balister et al., Invent. Math. 228 (2022))",
+        "url": "https://doi.org/10.1007/s00222-021-01087-5"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Topically closest (minimum modulus 7, computational filtering): determines the minimal LCM (10080) of a FULL distinct covering with minimum modulus 7. Objective is full coverage (density 1) with LCM minimality, proved by sum/IP/partial-sum filters plus Gurobi; candidate's objective is maximal partial density of 9 moduli in [7,20] by LCM-period enumeration. Full-text search confirms absence of 1817/2772, maximal-density, nine-moduli, [7,20]/[7,60] content. Does not cover or imply the candidate.",
+        "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080 (Zhang & Zhang, 2026)",
+        "url": "https://arxiv.org/abs/2607.19029"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Nearest computational-census prior art: exhaustive classification of FULL distinct minimal coverings with <=10 moduli (all have minimum modulus 2, prime factors <=5). Candidate is a maximal-partial-density census over 9-subsets of [7,20] including moduli 7 and 11 with density <1. Full-text inspection confirms disjoint scope (full vs. partial, min modulus 2 vs. >=7). Does not cover or imply the candidate.",
+        "title": "Computations and observations on congruence covering systems (Agrawal et al., 2022/2023)",
+        "url": "https://arxiv.org/abs/2208.09720"
+      },
+      {
+        "covers_candidate": false,
+        "relationship": "Shares bounded-interval covering-system reasoning ([n,10n] non-existence for n>=3). Qualitative universal negative statement; no density maximization, no exact rational constants, no 2002-set enumeration, no optimizer or runner-up. Consistent with the candidate's context but implies nothing about D*(9;[7,20])=1817/2772. Does not cover or imply the candidate.",
+        "title": "On the intervals for the non-existence of covering systems with distinct moduli (Dalton & Jones, 2025)",
+        "url": "https://arxiv.org/abs/2506.11359"
+      }
+    ],
+    "original_pre_migration_record_id": "SCOPE-20260907-015",
+    "originality_rationale": "Claim-level comparison across hypotheses, quantifiers, parameter ranges, exact constants, method scope, and conclusion. The candidate's hard core is: exact maximum D*(9;[7,20])=1817/2772 (uncovered 955/2772) attained at S*=[7,8,9,10,11,12,14,15,16] with explicit residues, L=55440, 36340 covered; runner-up 47/72 at [7,8,9,10,12,14,15,16,18] with gap 0.002706; certified interval 0.655483<=D*(9;[7,60])<=0.868229 with union-bound maximizer 7..15 (62575/72072); prime-max exchange lemma; [7,60] equality only conjectured. (1) Hough gives a universal bound on least moduli of full coverings, no fixed-stratum exact maximum. (2) Balister et al. give asymptotic uncovered-density lower bounds and structural theorems, no exact finite census or rational constants. (3) Zhang & Zhang solve LCM-minimality for full coverings with min modulus 7; full-text keyword check (1817, 2772, maximal density, nine moduli, [7,20], [7,60] all absent) confirms a different objective whose density-1 solutions cannot imply a 0.65548 partial-density maximum. (4) Agrawal et al. full text classifies only full coverings with min modulus 2 and prime factors <=5, disjoint from a >=7 partial-density optimum involving 7 and 11. (5) Dalton-Jones and Klein et al. give qualitative interval non-existence and j-th-modulus growth bounds, neither stating nor implying any exact density constant. Exact-formulation arXiv search (maximal+covering+density+moduli) returned 0 total results; minimum-modulus-7 search returned only Zhang; Crossref exact-fraction search returned only unrelated records (thermal insulation, dentistry). No retrieved source states, tabulates, or mathematically implies 1817/2772, 955/2772, the S* witness, the 47/72 runner-up, or the [7,60] certified interval.",
+    "priority_caveat": "This PASS is a literature-search result, not an award of academic priority: it reports that no source found in this documented live search substantively covers or implies the candidate, and does not establish that the candidate is first in any absolute or historical sense.",
+    "priority_notice": "A PASS means no substantive prior result was found in the documented live search; it does not establish or award academic priority.",
+    "recommended_action": "KEEP",
+    "record_id": "SCOPE-2026-09-07-015",
+    "residual_uncertainties": [
+      "Paywalled journal full text of Balister et al. (Inventiones) was not retrieved beyond the publisher metadata record and the arXiv preprint abstract; a hidden exact finite census there is considered highly unlikely given the abstract's asymptotic program, but cannot be excluded from full text alone.",
+      "Zhang et al. full-text check was a keyword/structural inspection of the HTML version, not a line-by-line proof audit; it suffices for originality scoping (different objective) but not for verifying that paper's own claims.",
+      "OpenAlex and Semantic Scholar API queries failed due to service-side rate limits/budget exhaustion, so the two successful independent services were arXiv and Crossref (plus direct DOI/publisher and arXiv HTML retrieval); coverage of obscure or non-indexed sources is inherently incomplete.",
+      "Computational-census novelty depends on the correctness of the record's own enumeration artifacts, which is a verification matter outside this originality review; this review checks only prior-art coverage, not proof validity."
+    ],
+    "reviewed_claim": "Over distinct m1<...<m9 in [7,20], the maximal covered natural density is D*(9;[7,20])=1817/2772 approx 0.655483405 (uncovered 955/2772), attained e.g. at S*=[7,8,9,10,11,12,14,15,16] with residues a*=[0,4,1,1,0,2,1,0,0], L=55440, 36340 covered; runner-up 47/72 at [7,8,9,10,12,14,15,16,18] (gap 0.002706); certified interval 0.655483<=D*(9;[7,60])<=0.868229 with union-bound maximizer 7..15 (sum 62575/72072); prime-maximum 9-sets are never optimal (exchange lemma); exact equality D*(9;[7,60])=1817/2772 is stated only as conjecture.",
+    "run_id": "2026-09-07T1420Z-pre-gate-queued-successes",
+    "search_strategy": [
+      "Exact-claim formulation: maximal covering density for nine distinct moduli in [7,20], constant 1817/2772, uncovered 955/2772",
+      "Subclaim/equivalent terminology: distinct covering system, covering density / density of uncovered set, bounded moduli census, minimum modulus 7",
+      "Named objects/methods: Hough minimum modulus, Balister/Bollobas/Morris/Sahasrabudhe/Tiba uncovered density, prime peeling / prime-max exchange, LCM-period enumeration, union (reciprocal-sum) bound",
+      "Services: arXiv API (multiple phrasings including zero-hit exact-density query), Crossref API (ranked queries plus exact-fraction query), direct arXiv abstract/HTML full-text inspection, DOI publisher metadata retrieval"
+    ],
+    "verdict": "PASS"
+  },
+  "residual_risks": [
+    "Full [7,60] union-competitive counts (4008111 >0.65548, 612378 >0.70) were not independently re-enumerated (5.3B sets infeasible); they are motivational only and not needed for the [7,20] theorem or [7,60] interval.",
+    "Draft hierarchical affine-orbit correctness argument is terse; risk mitigated by full independent B&B re-proof of all 2002 optima (106s) and dual-method agreement on hardest core, but future reusers should rely on the B&B verifier and LCM checker, not solely the orbit code.",
+    "Draft reference URL https://arxiv.org/abs/1904.09667 does not resolve to Balister covering work (live fetch shows a scheduling paper); corrected to Inventiones DOI in RESULT.md. No scientific claim depends on that URL.",
+    "[7,60] full optimality remains conjectured only (1817/2772); RESULT.md states this explicitly as a conjecture with heuristic support, not a theorem.",
+    "Originality revalidation: Paywalled journal full text of Balister et al. (Inventiones) was not retrieved beyond the publisher metadata record and the arXiv preprint abstract; a hidden exact finite census there is considered highly unlikely given the abstract's asymptotic program, but cannot be excluded from full text alone.",
+    "Originality revalidation: Zhang et al. full-text check was a keyword/structural inspection of the HTML version, not a line-by-line proof audit; it suffices for originality scoping (different objective) but not for verifying that paper's own claims.",
+    "Originality revalidation: OpenAlex and Semantic Scholar API queries failed due to service-side rate limits/budget exhaustion, so the two successful independent services were arXiv and Crossref (plus direct DOI/publisher and arXiv HTML retrieval); coverage of obscure or non-indexed sources is inherently incomplete.",
+    "Originality revalidation: Computational-census novelty depends on the correctness of the record's own enumeration artifacts, which is a verification matter outside this originality review; this review checks only prior-art coverage, not proof validity."
+  ],
+  "verdict": "PASS"
+}
