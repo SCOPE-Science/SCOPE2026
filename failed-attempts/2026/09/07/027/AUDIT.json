@@ -1,0 +1,83 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Group setup verified independently: |G|=3*3*6=54, exp=lcm(3,3,6)=6, invariant factors 3|3|6, D*=1+2+2+5=10. Re-ran verify.py: order distribution 1x1,1x2,26x3,26x6 and unique order-2 (0,0,3) confirmed; Aut(G)~=GL(3,3) order 11232 reasoning is correct (C2 x C3^3 Sylow decomposition) but not load-bearing. Lower bound S=e1^2 e2^2 e3^5 length 9: direct-sum proof correct (ae1+be2+ce3=0 iff 3|a,3|b,6|c forcing a=b=c=0); recomputed all 511 nonempty subsums nonzero and 54 distinct subsums incl. empty (=|G|, hence maximal by inclusion); verification_table.csv has 511 rows masks 1..511 complete, zero zero-sum rows, spot-checks match. Upper bound lemmas proved: (i) sorted-multiset reduction is complete because zero-sum is order-independent and sorting breaks n! symmetry; zero excluded correctly because singleton 0 is zero-sum. (ii) Incremental test -g in M is exact for g!=0: new zero-sums must use g as 0=s+g, and prefix zero-sum-free implies 0 only via empty, so test is both necessary and sufficient; pruned branches all contain same witness so safe. Code audit of enumerate.c: 54-bit mask in uint64_t, addtab/negtab built as (a+a2)%3 etc. correct, extend_mask = mask OR {s+g}, dfs over nondecreasing indices from 1..53 enumerates each multiset once. Recompiled with gcc -O2 and reran: nodes=84885582 time=3, depths 0:1,1:53,2:1404,3:24310,4:297804,5:2545946,6:13495872,7:33541872,8:25255152,9:9723168,10:0 NO length-10 COMPLETE, exactly matching enum_log.txt. n<=4 counts match independent brute-force combinations_with_replacement without mask trick (1404/24310/297804). Heuristic annealing and H-experiments are correctly labeled as motivation, not proof. Pivot from SAT/DRAT to DFS is documented; certificate is program+deterministic log replayable in seconds via replay.sh, no randomness or external solver. No essential inference, boundary condition, or computation fails.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval defeats novelty. Nearest prior Bhowmik & Schlage-Puchta (2007) 'Davenport's constant for groups of the form Z3(+)Z3(+)Z_{3d}', CRM Proc. 43 pp.307-326, DOI 10.1090/crmp/043/17, studies the exact infinite family containing the candidate: d=2 gives Z3xZ3xZ6. Biswas & Mazumdar arXiv:2402.09999 (2024, published Math Notes 118:23-34, 2025) 'Davenport constant for finite abelian groups with higher rank', which itself studies G=(Cp)^{d-1}xC_{pq} (p=3,q=2,d=3 is exactly the candidate), states verbatim 'It is already known that D(G)=D*(G) for the groups C3xC3xC_{3s} for any positive integer s ([BP2])' where [BP2] is Bhowmik 2007. With s=2, C3xC3xC_{6} has D*=10, i.e. exactly the candidate theorem D=10=D*. DRAFT Sec.6 omits this family, listing only Olson p-groups, rank-two formula, surveys, and EGZ rank<=2, and claims 'no citable exact entry' and 'flagged open' and 'first certified exact' \u2014 false in light of the 2007 family result as summarized in 2024-2025 literature. Substantive comparison: same group, same invariant, same equality D=D*=10 with same canonical witness type; candidate's 84.9M-node DFS is at most an independent recomputation, not a new object, gap, or method. Therefore originality FAIL.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Counterfactually, if new, an exact Davenport value for a rank-3 mixed group with explicit length-9 witness, full 511-row verification table, and replayable complete length-10 exhaustion in seconds would be independently worth finding later: recognized Davenport/EGZ invariant citable for zero-sum and factorization benchmarks, structural rank-preserving choice (only n=6 preserves rank 3 vs. collapsing siblings C3xC21/C3xC24), not a textbook D* restatement alone (non-textbook direction D<=10 proved), not a mere parameter slide within rank-two formula, not a tiny unmotivated gain (closes exact constant, not bound by 1), and explained enumeration with pruning lemmas and single-command replay, not unexplained. Hence value PASS as a result type; overall REJECT still follows from originality failure.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (claim D=10, audit plan, nearest-known list omitting Bhowmik family)",
+    "inputs/DRAFT.md (Theorem D=10, Sec.2-4 proofs, Sec.7 limitations)",
+    "inputs/research_report.json (claimed 84.9M-node exhaustion, replayable)",
+    "inputs/artifacts/enumerate.c (DFS + 54-bit mask, recompiled and rerun)",
+    "inputs/artifacts/verify.py (group/witness/brute n<=4, rerun)",
+    "inputs/artifacts/witness.json + verification_table.csv (511 rows verified nonzero, masks 1..511 complete)",
+    "inputs/artifacts/enum_log.txt + replay.sh + checksums.sha256"
+  ],
+  "decisive_checks": [
+    "verify.py rerun: group OK |G|=54 exp=6 orders {1:1,2:1,3:26,6:26} D*=10; witness 511/511 nonzero, 54 distinct subsums; brute n=2,3,4 matches 1404/24310/297804",
+    "recompiled enumerate.c with gcc -O2 and reran ./enumerate 600: reproduced nodes=84885582 time=3 depths 0:1 1:53 2:1404 3:24310 4:297804 5:2545946 6:13495872 7:33541872 8:25255152 9:9723168 10:0 COMPLETE",
+    "independent Python recomputation: witness distinct subsums 54 incl. empty, order distribution, D* and sibling D values 23/26 correct",
+    "verification_table.csv audit: 511 data rows, masks exactly 1..511, zero rows with (0,0,0), recomputed spot checks match",
+    "lemma audit: sorted-multiset completeness, -g-in-M exactness for g!=0, safe pruning of already-zero-sum prefixes, zero exclusion all proved; 1ULL shifts <=53 safe",
+    "live retrieval: Crossref + arXiv queries succeeded; retrieved Bhowmik DOI record, AMS volume page, Biswas arXiv abs + PDF text + Springer publisher page, Gao/Girard-Schmid/Zakarczemny records; Biswas PDF text contains decisive 'already known D=D* for C3xC3xC3s for any s' sentence"
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:41:22Z",
+    "queries": [
+      {
+        "query": "Davenport constant abelian group",
+        "result_count": 1225161,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=Davenport%20constant%20abelian%20group&rows=5"
+      },
+      {
+        "query": "all:Davenport constant abelian",
+        "result_count": 184486,
+        "service": "arXiv",
+        "url": "http://export.arxiv.org/api/query?search_query=all:Davenport+constant+abelian&start=0&max_results=10"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Bhowmik-Schlage-Puchta study the exact infinite family Z3xZ3xZ_{3d} (CRM Proc. 43, pp.307-326); with d=2 this is precisely Z3xZ3xZ6, the candidate group, so the candidate D=10 equality is a special case of this previously studied family, not an untouched open entry.",
+        "retrieved_at_utc": "2026-09-07T14:41:22Z",
+        "title": "Davenport's constant for groups of the form Z3(+)Z3(+)Z_{3d}",
+        "url": "https://doi.org/10.1090/crmp/043/17"
+      },
+      {
+        "comparison": "Biswas-Mazumdar state verbatim 'It is already known that D(G)=D*(G) for the groups C3xC3xC_{3s} for any positive integer s ([BP2])' citing Bhowmik 2007; instantiating s=2 gives C3xC3xC6 with D*=10, i.e. exactly the candidate theorem D=10 as already-known prior work.",
+        "retrieved_at_utc": "2026-09-07T14:41:22Z",
+        "title": "Davenport constant for finite abelian groups with higher rank",
+        "url": "https://arxiv.org/abs/2402.09999"
+      },
+      {
+        "comparison": "Publisher page confirms the same Biswas paper (Math Notes 118, 23-34, 2025) and its reference 7 is Bhowmik's Z3xZ3xZ_{3d} family paper, corroborating that the candidate group belongs to a family with prior exact-value literature rather than generic bounds only.",
+        "retrieved_at_utc": "2026-09-07T14:41:22Z",
+        "title": "Davenport Constant for Finite Abelian Groups with Higher Rank (publisher version)",
+        "url": "https://link.springer.com/article/10.1134/S0001434624605483"
+      },
+      {
+        "comparison": "Zakarczemny derives a generic rank-three upper bound D<=D*+(a3-3)(n1-1) with a3<=20369, which for C3xC3xC6 is astronomically slack; this shows generic rank-three bounds do not close the entry and closure must come from family-specific theorems like Bhowmik's, which already exists for this family.",
+        "retrieved_at_utc": "2026-09-07T14:41:22Z",
+        "title": "Note on the Davenport's constant for finite abelian groups with rank three",
+        "url": "https://arxiv.org/abs/1910.10984"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Upper bound has no DRAT/proof-assistant certificate; rests on ~116-line C program correctness, but mitigated by tiny auditable source, two-lemma proof, independent brute cross-checks, and bit-for-bit rerun.",
+    "Bhowmik 2007 full text is paywalled (AMS login wall); decisive 'any s' generality is evidenced via Biswas 2024 PDF text and Springer reference list rather than direct Bhowmik theorem-line inspection, but title-family match (Z3xZ3xZ_{3d} with d=2) plus explicit secondary assertion makes misattribution risk low.",
+    "Computational re-proof remains correct and replayable, but as a replication of a 2007 exact value it is not independently publishable as a new constant."
+  ],
+  "verdict": "REJECT"
+}
