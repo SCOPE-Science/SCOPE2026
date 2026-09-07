@@ -1,0 +1,105 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential computations independently re-verified with fresh implementations distinct from supplied replay.py. Tableau: 10 Pauli strings have pairwise symplectic product 0 (45/45), GF(2) rank 10, |S|=1024, normalizer via ker(GJ) dim 14 |N|=16384, min(N\\S)=4 with exactly 35 weight-4 logicals and no weight 1-3 logicals; weight distributions N {0:1,4:35,5:212,6:652,7:1668,8:3195,9:4220,10:3796,11:2092,12:513}, S {0:1,5:7,6:37,7:123,8:210,9:245,10:231,11:137,12:33}, L matching differences, sums correct; non-CSS dx=dz=0 (no X-only or Z-only non-identity stabilizer), pure (stabilizer min weight 5>=4). Phase argument (+1 Hermitian independent generators cannot generate -I) is standard and sound. Singleton n-k>=2d-2 gives d<=6 (10>=2d-2) verified; Hamming sums 37/631/6571 verified arithmetically, though draft phrasing 'hence necessary' is technically inaccurate for degenerate codes \u2014 non-decisive because Singleton alone already excludes d>=7 and LP excludes d=5,6. MacWilliams Krawtchouk K_j(i)=sum_s (-1)^s 3^{j-s} C(i,s)C(n-i,j-s) and shadow Ks_{j,i}=coeff of x^{12-j}y^j in (x+3y)^{12-i}(y-x)^i = (-1)^i K_j(i) verified by independent polynomial-expansion code; B for candidate matches N distribution and S=[0,0,0,5,55,124,820,1326,3930,3100,4820,1589,615]>=0 verified; [[5,1,3]] cross-check B=[1,0,0,30,15,18] and S=B reproduced. Exact integer Farkas certificates verified with independent K/Ks code: d=5 with shadow scale 21504 (y 21504,11264,9216,3072,2048 on -A1..-A5 plus 24,4,4 on S0..S2, z 39,19,9,3,1) gives y^T Aub+z^T Aeq=0 vector and y^T bub+z^T beq=-21504; d=6 without shadow scale 1351680 similarly gives 0 vs -1351680. LP formulation (A0=1 eliminated, -A<=0, B>=0, B-A>=0 for j>=d, S>=0, equalities B-A=0 for j<d) correctly encodes necessary conditions for pure and degenerate stabilizers (dropping integrality is sound for nonexistence). Monotonicity (d=6 feasible implies d=5 feasible, so d=5 infeasible implies no d>=5) plus Singleton d<=6 correctly closes d*=4 given witness. External dependencies (MacWilliams identities, Rains shadow S>=0) are honestly disclosed as cited not re-proved, with fallback d>=6 exclusion without shadow. Float simplex and hill-climb search correctly labeled as hints/evidence not proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval decisively anticipates the mathematical fact claimed as new. Grassl codetables.de live page https://www.codetables.de/QECC.php?q=4&n=12&k=2 (retrieved 2026-09-07) lists Bounds on [[12,2]]_2 lower bound 4 upper bound 4 with explicit Construction of [[12,2,4]] via ExtendCode from [[10,2,4]] plus 10x24 stabilizer matrix, last modified 2005-06-24, and Notes state most n<=100 upper bounds are based on MAGMA program by Eric Rains (i.e., Rains LP/shadow machinery). Hence optimal distance d*=4 for [[12,2]] has been publicly closed since 2005 with both existence and Rains-bound nonexistence sides. Draft's premise that 'Grassl-type tables leave interval {4,5} uncertified' is false per live lookup (table shows point 4-4). Other retrieved priors confirm method not new: Calderbank-Shor-Sloane quant-ph/9608006 gives GF(4)-additive correspondence, MacWilliams and tables to 30; Rains quant-ph/9611001 / DOI 10.1109/18.796376 introduces quantum shadow enumerators tightening Shor-Laflamme LP (exactly the S>=0 used); Huber-Grassl 1907.07733 gives QMDS/shadow theory for MDS/AME regime; Ezerman-Grassl 2405.15057 gives randomized Construction-X records (existence-only); Gottesman quant-ph/9705052 gives stabilizer formalism. None was found to leave [[12,2]] open; the specific Farkas dual (scale 21504) and alternative pure non-CSS tableau are a reformatting/recomputation of the known Rains LP bound for fixed (n=12,k=2) and a different witness for known parameters (draft itself concedes Pauli strings not claimed as previously unknown). Under SCOPE this is a mere parameter instantiation of known LP plus alternative witness, not a substantively new object, gap, or method.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even though correct, the result as stated is not independently worth finding later. The citable fact d*=4 for [[12,2]] is already directly citable from Grassl tables (4-4 since 2005) with construction and Rains upper bound. Providing a different (pure, strongly non-CSS, dx=dz=0) [[12,2,4]] witness when a degenerate [[12,2,4]] via ExtendCode (verified here to have distance 4 despite weight-1 stabilizers, B-A zero for j<4) already establishes existence, plus an explicit Farkas dual recomputing the known shadow-LP exclusion of [[12,2,5]], is a tiny unmotivated gain / mere parameter substitution and unexplained-enumeration variant: no new fault-tolerance motivation for purity/non-CSS is given beyond avoiding textbook CSS, no new bound or method, no new interval closed (interval already a point). A future researcher looking up [[12,2]] optimal distance would cite the 2005 table, not this replay. This matches SCOPE rejection precedents for narrow single-parameter closures that are correct but not independently citable (e.g., RT(30,K4,6) AUDIT_REJECT for value).",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, fallback, live_literature_check, scores)",
+    "inputs/DRAFT.md (abstract, setup, tableau, LP certificates, proof-vs-computation separation)",
+    "inputs/research_report.json (claim, evidence summary, limitations, artifact inventory)",
+    "inputs/artifacts/replay.py (stdlib-only checker re-executed)",
+    "inputs/artifacts/replay.log (transcript compared)",
+    "inputs/artifacts/tableau.json (weight tables cross-checked)",
+    "inputs/artifacts/lp_certificate_d5_shadow.json and lp_certificate_d6.json (dual vectors re-verified with independent K/Ks)",
+    "live arXiv/Crossref queries and arXiv abs pages + Grassl codetables live page (see live_literature_check)"
+  ],
+  "decisive_checks": [
+    "Re-executed inputs/artifacts/replay.py: ALL CHECKS PASS (45/45 commute, rank 10, |S|=1024, |N|=16384 distance 4, weight tables match, dx=dz=0, pure min 5, Singleton/Hamming d<=6, both Farkas certs exact).",
+    "Independent verifier with different GF(2) rank/nullspace implementation and (x|z) list representation reproduced rank 10, 0 noncommuting pairs, null dim 14, |S|=1024, minL=4, identical N/S/L distributions, x_only=0 z_only=0.",
+    "Independent K/Ks via direct combin and polynomial-expansion convolution verified Ks=(-1)^i K, B for candidate equals N distribution, S=[0,0,0,5,55,124,820,1326,3930,3100,4820,1589,615]>=0, B-A matches L, and [[5,1,3]] A=[1,0,0,0,15,0] gives B=S=[1,0,0,30,15,18] as draft states.",
+    "Independent Farkas check with separate build (Aub/Aeq/bub/beq from K/Ks) confirmed y>=0, 12-column residuals exactly 0, norms -21504 and -1351680 for d5-shadow and d6 certs.",
+    "Singleton/Hamming arithmetic recomputed: 1+36=37, +9*66=631, +27*220=6571; 2d-2<=10 gives d<=6; noted Hamming necessity caveat for degenerate codes but Singleton suffices.",
+    "Phase/independence argument checked: commuting Hermitian Paulis with +1 phases and binary-independent vectors cannot generate -I (only empty product gives identity string with +1 phase).",
+    "Monotonicity checked: any [[12,2,6]] satisfies [[12,2,5]] LP constraints (drop j=5 equality, same shadow), so d5-shadow infeasibility implies no d>=5; with Singleton d<=6 this closes point.",
+    "Live Grassl table lookup https://www.codetables.de/QECC.php?q=4&n=12&k=2 shows lower 4 upper 4 with ExtendCode construction and Rains-program upper bound since 2005-06-24, directly contradicting novelty premise; Grassl construction re-parsed and verified to have distance 4 (degenerate, stabilizer weights 1,2 present but B-A=0 for j<4)."
+  ],
+  "live_literature_check": {
+    "checked_at_utc": "2026-09-07T14:44:47Z",
+    "queries": [
+      {
+        "query": "all:quantum AND all:stabilizer AND all:code",
+        "result_count": 1745,
+        "service": "arXiv",
+        "url": "http://export.arxiv.org/api/query?search_query=all:quantum+AND+all:stabilizer+AND+all:code&start=0&max_results=5"
+      },
+      {
+        "query": "quantum stabilizer code Grassl table",
+        "result_count": 1640111,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=quantum+stabilizer+code+Grassl+table&rows=5"
+      },
+      {
+        "query": "quantum shadow enumerator Rains",
+        "result_count": 831731,
+        "service": "Crossref",
+        "url": "https://api.crossref.org/works?query=quantum+shadow+enumerator+Rains&rows=3"
+      }
+    ],
+    "sources": [
+      {
+        "comparison": "Decisive prior: live page lists lower bound 4 upper bound 4 for [[12,2]]_2 with explicit ExtendCode [[10,2,4]]->[[12,2,4]] stabilizer matrix since 2005-06-24 and notes upper bounds for n<=100 use Rains MAGMA LP program, directly closing d*=4 claimed as new and falsifying the premise that tables leave {4,5} uncertified.",
+        "retrieved_at_utc": "2026-09-07T14:43:50Z",
+        "title": "Bounds on [[12,2]]_2 \u2014 Grassl codetables (lower 4 upper 4 with construction)",
+        "url": "https://www.codetables.de/QECC.php?q=4&n=12&k=2"
+      },
+      {
+        "comparison": "Foundational GF(4)-additive self-orthogonal correspondence, MacWilliams/Krawtchouk identities and tables to length 30 plus LP machinery reused by draft; provides general method and table framework but draft's specific rerunnable [[12,2]] tableau-plus-shadow-Farkas closure is an instantiation of this machinery, while the online successor table already lists the [[12,2]] point closure.",
+        "retrieved_at_utc": "2026-09-07T14:42:10Z",
+        "title": "Quantum Error Correction via Codes over GF(4)",
+        "url": "https://arxiv.org/abs/quant-ph/9608006"
+      },
+      {
+        "comparison": "Introduces Rains shadow enumerator S(x,y)=(1/|C|)A(x+3y,y-x) with S>=0 tightening Shor-Laflamme LP and proving many additive codes optimal among all codes; draft's d=5 exclusion uses exactly this S>=0 with Ks=(-1)^i K verified here, so no new shadow theory, only fixed-(12,2) dual vector.",
+        "retrieved_at_utc": "2026-09-07T14:42:40Z",
+        "title": "Quantum shadow enumerators",
+        "url": "https://arxiv.org/abs/quant-ph/9611001"
+      },
+      {
+        "comparison": "Gottesman thesis defines stabilizer formalism, standard forms, Shor/Steane examples, channel capacity and bounds; contains no optimal-distance census or MacWilliams/shadow closure for n=9-12 k=1-3 intervals, confirming draft is not a textbook restatement but also showing formalism alone is long-known background.",
+        "retrieved_at_utc": "2026-09-07T14:42:20Z",
+        "title": "Stabilizer Codes and Quantum Error Correction",
+        "url": "https://arxiv.org/abs/quant-ph/9705052"
+      },
+      {
+        "comparison": "Proves QMDS length bound n<=D^2+d-2 and Rains-shadow weight distributions for MDS/AME regime; whereas draft targets non-MDS short stratum [[12,2]] via symplectic enumeration and fixed-size shadow LP, so disjoint in regime and method, not a prior [[12,2]] closure.",
+        "retrieved_at_utc": "2026-09-07T14:42:30Z",
+        "title": "Quantum Codes of Maximal Distance and Highly Entangled Subspaces",
+        "url": "https://arxiv.org/abs/1907.07733"
+      },
+      {
+        "comparison": "Uses Construction X from nearly self-orthogonal quasi-twisted classical codes with randomized search to set record entries for codetables.de; complementary existence-only work with no exhaustive nonexistence or shadow-LP Farkas certificate for the single short [[12,2]] stratum closed via deterministic enumeration.",
+        "retrieved_at_utc": "2026-09-07T14:43:10Z",
+        "title": "Characterization of Nearly Self-Orthogonal Quasi-Twisted Codes and Related Quantum Codes",
+        "url": "https://arxiv.org/abs/2405.15057"
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Minor presentation defect: draft calls quantum Hamming bound 'hence necessary' while acknowledging degenerate-free nature; Hamming can be violated by degenerate codes, but conclusion does not depend on it (Singleton+LP suffice).",
+    "External dependency: MacWilliams identities and Rains shadow nonnegativity cited not re-proved; draft honestly discloses fallback to 4-5 interval if shadow false, and verifier only checks formula instantiation not general theorems.",
+    "Search completeness: live retrieval covered arXiv/Crossref/Grassl tables and five inspected sources; full-text tables in Calderbank et al. and Nebe-Rains-Sloane book not exhaustively parsed, but Grassl online table alone suffices to establish prior closure; possibility of even earlier pure [[12,2,4]] witness remains but only strengthens REJECT.",
+    "No independent MILP/LP solver (scipy/pulp unavailable) to confirm 'd5 feasible without shadow' remark; non-decisive since only infeasibility certs are needed and they were exactly verified."
+  ],
+  "verdict": "REJECT"
+}
