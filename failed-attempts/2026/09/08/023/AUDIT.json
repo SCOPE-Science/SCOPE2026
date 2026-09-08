@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Quoted Hutchings formulas (E) sorted m+a*n, (P) min over (m+1)(n+1)>=k+1, (B) ball tiers, (M) monotonicity plus scaling c_k(lambda X)=lambda c_k(X) match Hutchings arXiv:1005.2260 Prop 1.2 / Thm 1.4 / Cor 1.3 / Thm 1.1. Volume identities vol E(1,a)=a/2, vol P(1,beta)=beta and lambda_vol^2=a/(2beta) are correct under stated conventions. Independent recomputation confirms Theorem A: sorted m+5n starts 0,1,2,3,4,5,5 so c5=5; polydisk k=5 minimum is 3 at (1,2)/(2,1); gap (5/3)^2-5/2=5/18>0 exact. Theorem B: sorted m+6n starts 0,1,2,3,4,5,6,6,7,7 so c8=7 and c8(P)=4 at (2,2); gap 49/16-3=1/16>0 exact. Truncation bounds are valid for surveyed beta>=1: ellipsoid (K+1)st value <=K so m,n<=K+2 suffices; polydisk optimum <=k via (k,0) so [0,k+1]^2 suffices since m>k forces value>k. Re-ran inputs/artifacts/ech_census.py: reproduced 39 rows, all best_ratio and vol_sq match exact-Fraction recomputation, packing max-convolution agrees on 4 focused certificates, weight identity sum w^2=a holds. Theorem B hand-proof text omits the duplicate value 6 at (0,1) and miscounts indices (states 7 is indices 7-8; in fact 6 is indices 6-7 and 7 is indices 8-9), but the claimed value c8=7 remains true and is proved by the machine certificate; treated as non-material exposition slip. All volume comparisons are on squares in Q with no floating point; CF float use affects only contextual convergent labels, not capacity values. Theorem C is computational census evidence (k<=80), not a general proof; honestly scoped as scope-relative.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "All numerical claims are mechanically implied by the prior Hutchings lattice formulas by finite exact arithmetic. Given (E) and (P), any skilled reader computes c5(E(1,5))=5, c5(P)=3, c8(E(1,6))=7, c8(P)=4 in minutes; the 39-pair census is direct parameter substitution (13 fixed rationals x 3 betas x k<=80) of the same two formulas. No optimal folding threshold is computed -- construction side is the trivial inclusion E(1,a) subset P(1,a) giving lambda<=max(1,a/beta) -- so the admitted delta of a witness strictly above both volume and folding is absent; draft Sec.4 honestly retreats to strictly above volume inside the volume-vs-crude-inclusion gap. Beyond-volume non-embedding at the headline pairs is already entailed by published optimal functions: Frenkel-Mueller arXiv:1210.2266 completely determines E(1,a)-into-cube function with infinite Pell staircase below sigma^2=3+2*sqrt(2) (hence a=5 optimal>volume known since 2012) and 7 exceptional intervals on [sigma^2,7+1/32] (a=6 must be exceptional since valid ECH bound 7/4>sqrt(3) forces optimal>volume); Usher arXiv:1801.06762 shows C_beta|[1,sigma^2] is determined by Frenkel-Mueller work for arbitrary beta, covering beta=6/5,5/4 cases. Hutchings-Beyond treats the opposite direction and refined criteria but does not make routine forward-direction evaluations new. A failed live search does not establish priority; substantive comparison shows the concrete triples are renamings/instantiations of known formulas and known above-volume steps, not a new claim/boundary.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth finding later? No. Contribution is a textbook application of known formulas plus a finite enumeration: 39 exact ratios with scope-relative labels ECH-decided vs volume-only-in-scope (k<=80). It proves no staircase fact, no sharpness, no embedding existence, and no folding comparison (acknowledged limitations 2-3). The two hand witnesses restate known above-volume steps of the solved Frenkel-Mueller cube function via a different (ECH) route without improving the known optimal threshold; the remaining census rows are unexplained enumerations with no downstream use beyond replaying the same script. Crude inclusion upper bound max(1,a/beta) (e.g. 5 at headline pair) makes inside-the-gap framing trivial. This falls squarely under the excluded categories: textbook restatement of Hutchings computation, mere parameter substitution over a rational window, and unexplained finite enumeration, even though correct. The fallback census does not materially advance the recognized staircase-decidability question because volume-only verdicts are relative to an arbitrary Kmax=80 and folding/beyond-capacity criteria are not evaluated.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Defines ECH capacities, monotonicity, ellipsoid sorted-matrix formula, polydisk min formula, ball tiers, union max-convolution. Provides the exact replay rules; contains no per-rational staircase-window witness table but mechanically implies every census entry by finite arithmetic.",
+      "title": "Quantitative embedded contact homology (Hutchings)",
+      "url": "https://arxiv.org/abs/1005.2260"
+    },
+    {
+      "finding": "Solves ellipsoid-into-ball completely; shows ECH sharp there. Candidate avoids ball leg, so not directly anticipating, but confirms ECH-evaluation route is prior art.",
+      "title": "The embedding capacity of 4-dimensional symplectic ellipsoids (McDuff-Schlenk)",
+      "url": "https://arxiv.org/abs/0912.0532"
+    },
+    {
+      "finding": "Determines E(1,a)-into-cube function completely: infinite Pell staircase below sigma^2, volume except 7 intervals on [sigma^2,7+1/32], volume beyond. Hence beyond-volume at a=5 (staircase) and a=6 (must be exceptional given valid 7/4 bound) already published as optimal-function facts.",
+      "title": "Symplectic embeddings of 4-dimensional ellipsoids into cubes (Frenkel-Mueller)",
+      "url": "https://arxiv.org/abs/1210.2266"
+    },
+    {
+      "finding": "Studies C_beta for E(1,alpha) into dilates of P(1,beta); beta=1 infinite staircase, integer beta>=2 none, general beta finite staircase on [1,sigma^2] determined by Frenkel-Mueller plus irrational infinite staircases. Structural theorems covering surveyed beta range; no per-rational capacity-vector logs but optimal above-volume steps already determined.",
+      "title": "Infinite staircases for ellipsoids into polydisks (Usher)",
+      "url": "https://arxiv.org/abs/1801.06762"
+    },
+    {
+      "finding": "Develops refined beyond-capacity obstructions for polydisk/convex domain into ball/ellipsoid (opposite direction). Not the surveyed direction; does not make forward evaluations novel.",
+      "title": "Beyond ECH capacities (Hutchings)",
+      "url": "https://arxiv.org/abs/1409.1352"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed sorted m+5n and m+6n lists to k=8: confirmed c5(E(1,5))=5, c8(E(1,6))=7 including duplicate 6 at (0,1).",
+    "Recomputed polydisk minima: c5(P(1,1))=3, c8(P(1,1))=4; verified minimality arguments and exact gaps 5/18 and 1/16.",
+    "Re-executed inputs/artifacts/ech_census.py: 39 rows reproduced; independently re-derived every best_ratio and vol_sq in Fractions and matched; packing_agrees true on all 4 certificates.",
+    "Validated truncation: ellipsoid N=K+2 and polydisk [0,k+1]^2 bounds sound for a>=1, beta>=1; verified weight identity and CF convergents 5,6,29/5,35/6,169/29 numerically.",
+    "Confirmed construction side is only crude inclusion lambda<=max(1,a/beta), not a folding threshold; confirmed volume-only labels are Kmax-relative."
+  ],
+  "residual_risks": [
+    "Theorem B hand-proof exposition omits duplicate 6; needs correction before any reuse though value is correct.",
+    "CF terms [5;1,4 repeating] generated via floating point in script; contextual only, but not an exact derivation.",
+    "Reliance on quoted Hutchings/McDuff theorems without re-proof; volume normalizations assumed as stated.",
+    "k<=80 scope means volume-only rows could flip at higher k; classification is not a decidability theorem."
+  ],
+  "verdict": "REJECT"
+}
