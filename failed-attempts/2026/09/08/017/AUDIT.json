@@ -1,0 +1,44 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent third-path verification (brute-force subset-enumeration rim hooks, first-part peeling, centralizer class sizes) reproduced every headline claim in exact integer arithmetic. For n=6,7,8: class counts 11/15/22 with sizes summing to 720/5040/40320; hook-length dimensions matched chi(1^n) for all 11+15+22 partitions; full character orthogonality <chi,chi>=n!*delta held for all pairs (not a spot check). Full Kronecker tables recomputed via g=(1/n!)sum|C|chi chi chi with asserted n!-divisibility and nonnegativity matched stored kronecker_A.json entrywise (0 mismatches at all n). Recomputed maxima/argmax/nonzero/distributions exactly: S6 max 5 unique at (3,2,1)^3, 511/1331 nonzero, dist {0:820,1:422,2:76,3:6,4:6,5:1}; S7 max 9 with 4 ordered argmax ((4,2,1)^3 plus 3 perms of ((4,2,1),(3,2,1,1),(3,2,1,1))), 1599/3375 nonzero, dist {0:1776,1:1031,2:380,3:108,4:36,5:36,8:4,9:4}; S8 max 17 unique ordered at ((4,2,1,1)^3), 5048/10648 nonzero, dist {0:5600,1:2565,2:1156,3:468,4:343,5:178,6:136,7:48,8:35,9:64,10:24,11:12,12:6,13:6,14:6,17:1} with 7 ordered triples >=14 (6 at 14, 1 at 17). The 22-entry (4,2,1,1) square slice recomputed exactly as [1,1,2,2,4,4,4,4,5,5,6,6,6,6,8,12,12,13,13,14,14,17] (min 1, all >=1). Full S3 permutation symmetry verified on stored tables; correct two-transpose identity g(lt,mt,nu)=g verified (triple-transpose differs on 3680/10648 S8 entries, as expected, so the DRAFT conjugation statement is the correct even-transpose form). Contrast counts verified: (7,1)^2 4/22, (4,4)^2 7/22, (6,2)^2 10/22, (2^4)^2 7/22 nonzero. Status is computational proof by exact integer certificates (conditional on correct deterministic execution), replayed by three mutually independent MN code paths; no analytic proof is claimed or needed for these finite identities.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively and do not state or imply the exact claims. Ikenmeyer-Mulmuley-Walter arXiv:1507.02955 proves NP-hardness of Kronecker positivity and asymptotic holes/saturation failure -- complementary complexity result, no fixed-n=8 table. Vallejo arXiv:1310.8362 studies Kronecker squares via Robinson-Taulbee polynomials, staircase-Saxl asymptotics and stability -- no (4,2,1,1) extremal/containment table. Zhao arXiv:2309.00764 treats square x square against three-row/hook families -- candidate shape (4,2,1,1) is self-conjugate near-rectangular, not square, and the full 22-entry slice plus global maximum lie outside that scope. Internal prior SCOPE006 (n=12 census, max 945 at (5,3,2,1,1)^3) is disjoint in n and neither computes nor implies the n=8 table. No source found publishing the S8 maximum 17, its unique ordered maximizer, the 5048/10648 nonzero count, or the 22-entry slice list. PASS is therefore narrow: the specific sentences are new as published statements. Caveat: the numbers are immediate consequences of the long-known S8 character table plus the standard Kronecker inner-product formula, computable in seconds by existing CAS (Sage/GAP); novelty resides only in writing down routine read-offs, which is why the failure is recorded under value rather than originality.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL under the unexplained-enumeration / textbook-method / parameter-substitution bars, even taking correctness and narrow novelty as given. Method is textbook Murnaghan-Nakayama rim-hook recursion plus the standard character inner product (DRAFT Sec.6 concedes method is the audit instrument and proof is purely computational with no analytic explanation of why (4,2,1,1) is extremal). Theorems T1-T4 are direct read-offs from the 10648-entry brute-force table: a global max, a row slice, companion maxima, and neighbour-slice nonzero fractions. The witness shape was selected retrospectively as the computer output, not motivated ex ante; generic GCT/quantum-marginal/Schur-positivity motivation does not single out n=8 or (4,2,1,1). The single n=8 full-containment datum (22/22, min 1) does not advance the staircase-Saxl or square programs it cites: n=8 admits no staircase partition, no infinite family, stability statement, formula, or technique is given, and the contrast data are further read-offs. The work repeats the census pattern of prior internal result SCOPE006 (n=12 vanishing/maximum census) at smaller n with the same instrument, i.e. a parameter-substitution-like smaller instance. Regression-oracle / test-bed utility is engineering convenience, not an independently retrievable research finding; the fallback's own framing as a regression dataset confirms this. This is exactly the 'unexplained enumeration even if correct and new' and 'textbook restatement / mere parameter substitution' category the value gate must reject.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json",
+    "inputs/DRAFT.md",
+    "inputs/research_report.json",
+    "inputs/artifacts/kronecker_A.json",
+    "inputs/artifacts/slice_4211_square.csv",
+    "inputs/artifacts/verify.py (inspected; candidate-internal, treated as untrusted)",
+    "https://arxiv.org/abs/1507.02955 (Ikenmeyer-Mulmuley-Walter hardness/holes abstract + metadata)",
+    "https://arxiv.org/abs/1310.8362 (Vallejo Kronecker squares/Saxl abstract + metadata)",
+    "https://arxiv.org/abs/2309.00764 (Zhao square shapes abstract + metadata)",
+    "Independent from-scratch recomputation (subset-enumeration rim hooks, centralizer class sizes, hook formula, full orthogonality, full-table Kronecker sums) -- decisive over candidate code"
+  ],
+  "decisive_checks": [
+    "Class data: 11/15/22 classes summing to 720/5040/40320",
+    "Hook-length dimensions == chi(1^n) for all 48 partitions across n=6,7,8",
+    "Full orthogonality matrices == n!*I at all n (not sampled)",
+    "Entrywise full-table agreement with stored JSON: 0 mismatches (1331+3375+10648 entries), all class sums n!-divisible and nonnegative",
+    "Maxima/argmax/nonzero/distributions reproduced exactly incl. S8 17-unique, 5048 nonzero, 7 triples >=14",
+    "22-entry (4,2,1,1) slice == claimed list, min 1 max 17, all >=1",
+    "Full S3 symmetry holds; two-transpose identity g(lt,mt,nu)=g holds; contrast slices 4/22, 7/22, 10/22, 7/22 confirmed",
+    "Prior-art comparison: none of 1507.02955 / 1310.8362 / 2309.00764 states or implies the n=8 table, maximizer, or slice"
+  ],
+  "residual_risks": [
+    "Originality search used abstracts/metadata plus the candidate's triage scan, not exhaustive full-text/PDF mining or CAS-manual mining; a buried n=8 table in documentation or a thesis cannot be logically excluded, but no such statement was found",
+    "No Sage SymmetricFunctions/GAP replay was available in this environment; confidence rests instead on three mutually independent from-scratch MN implementations plus overconstraining orthogonality/divisibility/hook/S3/two-transpose checks, which any shared bug would have to satisfy simultaneously",
+    "Computational-proof caveat stands: identities are certified conditional on correct deterministic execution of exact integer code, with no analytic explanation"
+  ],
+  "verdict": "REJECT"
+}
