@@ -1,0 +1,39 @@
+{
+  "attempted_claim": "Let chi be any nonprincipal quadratic Dirichlet character modulo a prime p and S(M,N)=sum_{M<n<=M+N} chi(n). With the log-factor shape pinned to the prior Trevino/Booker r=2 form at runtime, prove |S(M,N)| <= C* N^{1/2} p^{3/16} L(p) for all p >= P0, where C* <= 0.90*C_prior (>=10% below the pinned prior implemented r=2 constant recomputed from cited formulas before optimization), P0 <= 10^6 (finite range discharged by logged verification), and hence n(p) <= C_n p^{1/4} log p for all p >= P0 with C_n improved >=10% over the pinned Trevino corollary and a lowered nontriviality threshold. All auxiliary constants are interval-certified and the margin is verified by a comparison script.",
+  "claim_type": "explicit Burgess constant improvement with least-nonresidue corollary (general theorem)",
+  "created_at": "2026-09-08T14:40:01Z",
+  "decisive_failure": "correctness: Three independent essential-inference failures. (1) Unproved/incorrect Weil-moment coefficient: DRAFT asserts quadratic-only W<=3B^2p+2B^4sqrt(p) ('2r-2=2 instead of 2r-1=3' via 'Trevino Remark 1') with no proof. Pointwise Weil analysis contradicts the derivation: the all-distinct 4-tuple pattern (1,1,1,1) gives odd-part degree d=4, hence per-tuple bound (d-1)sqrt(p)=3sqrt(p), not 2sqrt(p). Pattern-counted bound is W<=3B^2p+[4B(B-1)+6B(B-1)(B-2)]sqrt(p)+3B(B-1)(B-2)(B-3)sqrt(p) ~2.83B^4sqrt(p) at B~68.8, which does NOT imply the claimed 2B^4sqrt(p). Small-p brute-force checks (p=7..10009, various B) show no numerical violation, but that is evidence, not proof, and the per-tuple justification as written is false. Recomputing the fixed point with the correct coefficient 3 (same B,k) gives F0~1.87 vs claimed 1.769 and C~2.69 vs 2.56, i.e. only ~1.8% below prior 2.7381, below the 5% fallback margin; re-optimizing B=p^{1/4} gives ~2.67 (~2.3% cut). So the 6.68% margin depends on the unproved lemma. (2) Corollary exponent algebra error: from |S|<=C*N^{1/2}p^{3/16}(log p)^{1/2} < N/2 one gets N>(2C*)^2 p^{3/8} log p, not p^{1/4} log p. The claimed n(p)<=26.3 p^{1/4} log p does not follow from the r=2 theorem; the 'N>(2C*)^2p^{1/4}log p' step drops a power (p^{3/8} vs p^{1/4}). The Vinogradov-trick paragraph ('prime-density loss absorbed') does not repair the dimensional mismatch. (3) Global monotonicity unproved: coverage of all p>=1e7 is asserted from spot floats at 1e7,3e7,1e8,1e9,1e12, not from a proved monotone majorant; t1/ef/inner/den monotonicity for all p>=p0 is not established with rigorous enclosures. The interval script itself replays (C_UPPER=2.555118, A_low=29.398, den>=0.786) conditional on the formula, and enclosures were verified to contain true log/sqrt/powers values, but that only certifies the closed-form evaluation, not the lemmas above. Prior-baseline replay (2.73807) is asserted without a replay artifact. Hence the headline theorem+corollary are not proved as stated. value: Judging the strongest headline package as stated (6.68% r=2 cut at same threshold p0=1e7 plus n(p)<=26.3 p^{1/4} log p corollary): it is not independently worth retrieving. (i) The advertised downstream payoff is absent because the corollary exponent is wrong (r=2 yields p^{3/8}, not p^{1/4}); with the corollary invalid, the residual is a same-threshold constant tweak. (ii) The residual tweak is obtained by re-tuning two scalars (B multiplier sqrt(3/2), k=1/22 vs prior 2/45) while quoting all other lemmas unchanged; the only claimed new lemma (quadratic W coefficient) is unproved and attributed to a prior remark. That is a mere parameter substitution with a single-digit unmotivated gain at no threshold improvement (main target P0<=1e6 unmet), not a new general boundary, exact invariant of a motivated object, or benchmark advance of the kind the literature publishes with threshold reduction. Certification of a closed-form evaluation alone does not r\u2026",
+  "disposition": "AUDIT_1_REJECT",
+  "domain": "Analytic Number Theory",
+  "failed_attempt_id": "SCOPE-FAIL-20260908-051",
+  "failed_axes": [
+    "correctness",
+    "value"
+  ],
+  "failure_class": "AUDIT_REJECT",
+  "fingerprint": {
+    "claim_type": "explicit Burgess constant improvement with least-nonresidue corollary (general theorem)",
+    "domain": "Analytic Number Theory",
+    "main_method": "explicit Burgess r=2 amplification with optimized auxiliary estimates and interval-certified constants",
+    "primary_object": "nonprincipal quadratic Dirichlet characters modulo primes and their short character sums"
+  },
+  "method_summary": "explicit Burgess r=2 amplification with optimized auxiliary estimates and interval-certified constants",
+  "problem_statement": "Prove a general explicit Burgess r=2 inequality for nonprincipal quadratic characters modulo primes with a certified constant at least 10% below the pinned prior implemented constant and validity threshold P0<=1e6, and derive the improved least-quadratic-nonresidue corollary n(p)<=C_n p^{1/4} log p with correspondingly improved C_n and lowered nontriviality threshold.",
+  "provenance": {
+    "lane": 128,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-08T14:40:01Z",
+  "record_title": "Sharpened explicit Burgess r=2 constant for prime moduli with lowered threshold and improved least-nonresidue corollary",
+  "recovery_conditions": "repair the decisive proof or computational defect and recheck the full claim; supply independent motivation and a materially stronger contribution; address the recorded limitation: Fallback (a) only: 6.68% cut, not the 10% main target; threshold p0=1e7 equals (not beats) prior; quadratic characters only (uses Remark-1 improved Weil moment); lemmas quoted from Trevino, not re-proved; interval script uses hand enclosures + 0.5% margin rather than formal interval arithmetic library.",
+  "scope_lane": 128,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://doi.org/10.1016/j.jnt.2014.12.022",
+    "https://arxiv.org/abs/2007.08119",
+    "https://arxiv.org/abs/2511.17778",
+    "https://arxiv.org/abs/1311.7556"
+  ],
+  "time_standard": "UTC"
+}

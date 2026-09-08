@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Three independent essential-inference failures. (1) Unproved/incorrect Weil-moment coefficient: DRAFT asserts quadratic-only W<=3B^2p+2B^4sqrt(p) ('2r-2=2 instead of 2r-1=3' via 'Trevino Remark 1') with no proof. Pointwise Weil analysis contradicts the derivation: the all-distinct 4-tuple pattern (1,1,1,1) gives odd-part degree d=4, hence per-tuple bound (d-1)sqrt(p)=3sqrt(p), not 2sqrt(p). Pattern-counted bound is W<=3B^2p+[4B(B-1)+6B(B-1)(B-2)]sqrt(p)+3B(B-1)(B-2)(B-3)sqrt(p) ~2.83B^4sqrt(p) at B~68.8, which does NOT imply the claimed 2B^4sqrt(p). Small-p brute-force checks (p=7..10009, various B) show no numerical violation, but that is evidence, not proof, and the per-tuple justification as written is false. Recomputing the fixed point with the correct coefficient 3 (same B,k) gives F0~1.87 vs claimed 1.769 and C~2.69 vs 2.56, i.e. only ~1.8% below prior 2.7381, below the 5% fallback margin; re-optimizing B=p^{1/4} gives ~2.67 (~2.3% cut). So the 6.68% margin depends on the unproved lemma. (2) Corollary exponent algebra error: from |S|<=C*N^{1/2}p^{3/16}(log p)^{1/2} < N/2 one gets N>(2C*)^2 p^{3/8} log p, not p^{1/4} log p. The claimed n(p)<=26.3 p^{1/4} log p does not follow from the r=2 theorem; the 'N>(2C*)^2p^{1/4}log p' step drops a power (p^{3/8} vs p^{1/4}). The Vinogradov-trick paragraph ('prime-density loss absorbed') does not repair the dimensional mismatch. (3) Global monotonicity unproved: coverage of all p>=1e7 is asserted from spot floats at 1e7,3e7,1e8,1e9,1e12, not from a proved monotone majorant; t1/ef/inner/den monotonicity for all p>=p0 is not established with rigorous enclosures. The interval script itself replays (C_UPPER=2.555118, A_low=29.398, den>=0.786) conditional on the formula, and enclosures were verified to contain true log/sqrt/powers values, but that only certifies the closed-form evaluation, not the lemmas above. Prior-baseline replay (2.73807) is asserted without a replay artifact. Hence the headline theorem+corollary are not proved as stated.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The exact headline datum -- prime-modulus quadratic r=2 constant C*=2.56 at p0=1e7 (6.68% below pinned Trevino Table-1 2.7381) -- is not stated in the nearest priors supplied in topic.json (Trevino arXiv:1412.3062 general explicit Burgess baseline; Bordignon-Francis arXiv:2007.08119 explicit PV/Burgess program; Hasanalizade et al. arXiv:2511.17778 cubefree r=2/r>=3 frontier; Bober-Goldmakher long-sum/PV motivation). None states a prime-modulus r=2 inequality with this constant/threshold/corollary. Live arXiv fetch failed (TLS error), so independence rests on the admission's checked sources plus mathematical comparison, not a new live search; within that scope the specific constant evaluation is substantively new, not a rename of a baseline. The caveat -- DRAFT attributes the W improvement to 'Trevino Remark 1', i.e. potentially prior material, and otherwise quotes Lemmas 1-5/PV unchanged -- goes to value (parameter substitution), not to statement novelty. No validated Resultary hit covers prime-modulus Burgess constants. Hence statement-level originality PASSES, separated from the failed proof.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Judging the strongest headline package as stated (6.68% r=2 cut at same threshold p0=1e7 plus n(p)<=26.3 p^{1/4} log p corollary): it is not independently worth retrieving. (i) The advertised downstream payoff is absent because the corollary exponent is wrong (r=2 yields p^{3/8}, not p^{1/4}); with the corollary invalid, the residual is a same-threshold constant tweak. (ii) The residual tweak is obtained by re-tuning two scalars (B multiplier sqrt(3/2), k=1/22 vs prior 2/45) while quoting all other lemmas unchanged; the only claimed new lemma (quadratic W coefficient) is unproved and attributed to a prior remark. That is a mere parameter substitution with a single-digit unmotivated gain at no threshold improvement (main target P0<=1e6 unmet), not a new general boundary, exact invariant of a motivated object, or benchmark advance of the kind the literature publishes with threshold reduction. Certification of a closed-form evaluation alone does not rescue it. Hence FAIL; this is intrinsic low value combined with the correctness failure, not a value-only defect curable by one bounded addition.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Supplies r=2 baseline constant 2.7381 (Table 1, p0=1e7) that candidate pins; no 2.56 cut stated. Direct fetch failed at audit time (TLS error); relied on admission abstract + DRAFT replay claim.",
+      "title": "The Burgess inequality and the least k-th power non-residue -- Trevino (arXiv:1412.3062)",
+      "url": "https://arxiv.org/abs/1412.3062"
+    },
+    {
+      "finding": "General explicit Burgess via Polya-Vinogradov/Dickman inputs; no optimized prime r=2 constant cut with lowered threshold and n(p) corollary. Relied on admission record; direct fetch not retried after initial failure.",
+      "title": "Explicit Improvements to the Burgess Bound Via Polya-Vinogradov -- Bordignon, Francis",
+      "url": "https://arxiv.org/abs/2007.08119"
+    },
+    {
+      "finding": "Active frontier improving explicit r=2 constant and adding r>=3 cubefree bounds; prime-modulus r=2 10% cut with P0<=1e6 not stated. Relied on admission record.",
+      "title": "Explicit Burgess inequalities for cubefree moduli -- Hasanalizade et al.",
+      "url": "https://arxiv.org/abs/2511.17778"
+    },
+    {
+      "finding": "Long-sum/PV route motivation with no explicit prime-modulus Burgess constant or threshold. Relied on admission record.",
+      "title": "Polya-Vinogradov and the least quadratic nonresidue -- Bober, Goldmakher",
+      "url": "https://arxiv.org/abs/1311.7556"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/cert_quad_r2.py: reproduced A_low=29.3978, t1=1.050486, ef32=1.074468, F0=1.769264, inner=0.060775, den=0.786095, C_UPPER=2.555118, cut=6.68%; confirms script-formula evaluation only.",
+    "Verified interval enclosures contain true values (log1e7=16.11809 in [16.118,16.119], sqrt1e7, p^{1/4}=56.2341, p^{1/8}=7.49894, sqrt(3/2)=1.22474) with widths >> float error; arithmetic certificate sound conditional on formula.",
+    "Weil-pattern audit: enumerated multiplicity patterns for 4-tuples ((4),(3,1),(2,2),(2,1,1),(1,1,1,1)); all-distinct gives odd-part degree 4 hence 3sqrt(p) per-tuple bound, contradicting claimed uniform 2sqrt(p) derivation; pattern-counted majorant at B~68.8 is ~3.08B^4sqrt(p), not <=2B^4sqrt(p).",
+    "Brute-force W checks at p=7,11,13,17,19,23,29,31,101 (B<=24) and p=101,1009,10007 (larger B): no numerical violation of claimed W, confirming plausibility but not proof.",
+    "Recomputed fixed point with corrected W=3B^2p+3B^4sqrt(p): F0~1.872 (same B) giving C~2.69 (~1.8% cut); with re-optimized B=p^{1/4}: F0~1.861, C~2.67 (~2.3% cut); both below 5% fallback margin, showing margin depends on unproved lemma.",
+    "Corollary algebra check: C*N^{1/2}p^{3/16}(log p)^{1/2}<N/2 implies N>(2C*)^2 p^{3/8} log p, not p^{1/4} log p; DRAFT exponent wrong by p^{1/8}.",
+    "Monotonicity audit: recomputed C(p) floats decreasing at 1e7..1e15, but DRAFT offers only these spots, no proved monotone enclosure for all p>=1e7."
+  ],
+  "residual_risks": [
+    "Live arXiv verification unavailable (TLS/SSL error); originality comparison relies on admission's source abstracts, not fresh full-text inspection of Trevino Remark 1.",
+    "Small-p W brute force cannot generalize to p>=1e7; claimed W inequality may still be numerically true via cancellation even though the given derivation is invalid -- auditor did not prove its negation, only the proof gap plus margin dependence.",
+    "Prior-baseline value 2.7381/2.73807 not independently recomputed from Trevino (46); no prior-replay artifact supplied."
+  ],
+  "verdict": "REJECT"
+}
