@@ -1,0 +1,42 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Reran both stdlib programs: verify.py passes (PG(2,5)=31, PG(2,7)=57, PG(2,8)=73, PG(2,9)=91 pts/lines, arc+completeness+secants+stabilizers OK, gaps 4/5/7 empty, T blocking and 0 10-arcs OK) and search.py rebuilds in ~2s with identical spectra S(5)=[6], S(7)=[6,8], stabilizers 120; 12/336; 504/1512; 720/1440, secant sums 31/57/73/91. Checked essentials: GF(8)=GF(2)[t]/(t^3+t+1) has no root (0->1,1->1) so irreducible cubic; GF(9)=GF(3)[t]/(t^2+1) has -1=2 non-square mod3 so irreducible. Frame-transitivity argument is valid: PGL(3,q) transitive on ordered frames, so every k-arc k>=4 is equivalent to one containing fixed F; pool=points off F-secants (6 for q=5, 20 for q=7); DFS cover-bitmask invariant (cover=union of secants, new secants are p-a) correctly prunes exactly collinear extensions and enumerates each frame-containing set once in increasing pool order. Small k=1 (cover 0), k=2 (one line q+1<n), k=3 (3 lines union 3q<n: 15<31, 21<57) all incomplete; transitivity on points/pairs/non-collinear triples justifies checking one representative. Upper bound beyond max uses classical Segre bound q+1 (q odd): q=5 max 6, q=7 max 8, correctly applied. Stabilizer counting via unique frame-extension map E->T with diagonal correction b_i/a_i is correct; search counts qualifying ordered frames, verify counts distinct whole-plane images via seen-set, agreement eliminates double-count bug. Numbers coincide with theory: |PGL(2,5)|=120, |PGL(2,7)|=336, |PGL(2,8)|=504, |PGL(2,9)|=720, times Galois 3 and 2 give 1512/1440. Secant data forced: 2-secants=C(k,2) (15,15,28,45,45), hyperoval 1-secants 0, oval 1-secants k=10, all sum to q^2+q+1. T=(X=0|Y=0|Z=0) minus 3 vertices has size 3(q+1)-3-3=21 (q=8),24 (q=9), blocking and lineless machine-checked and theoretically sound. Honesty section correctly withholds PGL-orbit uniqueness. No false inference found; claims are true and machine-checked by two independent code paths.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "All mathematical content is classical/textbook. S(5)={6} and S(7)={6,8}, conic/hyperoval/oval existence via XZ=Y^2 plus nucleus, Segre bounds q+1/q+2, stabilizers PGL(2,q) (120,336,504,720) and secant types (C(k,2) 2-secants, 0 tangents for hyperoval, k tangents for odd oval) are standard finite-geometry folklore (Segre 1955; Hirschfeld PGFF tables; standard group actions). Nearest retrieved priors confirm the space is covered: Davydov et al. arXiv:1004.2817 (small complete arcs, t2 bounds), Bartoli et al. arXiv:1404.0469 (FOP/lexiarc tables for all q<=321007 including q=5,7), Coolsaet-Sticker doi:10.1002/jcd.20211 (exhaustive complete-arc classification method, q=23,25) and Coolsaet PG(2,31) classification \u2014 same method family at disjoint orders. DRAFT Limitations explicitly admits 'S(5),S(7) overlap textbook knowledge; novel contribution is replayable certificate bundle, not a new bound.' A replay bundle/re-implementation does not create priority. Blocking-set separation is trivial: T is subset of union of 3 lines with disjoint T-parts after removing vertices; any 10-set in T has >=4 points on one part by pigeonhole (3*3=9<10), hence 3 collinear, so 'T contains no 10-arc' needs no 6215/19019-node DFS and distinguishes nothing. Frame-containing counts (10/116 sets, 40/5 complete) are coordinate-dependent, not isomorphism classification (draft admits orbit-fusion not logged). No substantively new object, bound, construction, or method vs priors.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Explicit reject categories apply even though correct. (1) Textbook restatement: spectra, hyperoval/oval witnesses, stabilizer orders, secant distributions are all forced classical facts; DRAFT concedes this. (2) Mere parameter substitution / tiny enumeration: exhaustive search over 31- and 57-point planes with standard frame-fixing + collinearity pruning is routine brute force at trivial scale (~2s, 10/116 sets); no new technique, and per-size representatives without orbit classification are unexplained enumeration. (3) Unmotivated/zero gain: triangle-T-no-10-arc is pigeonhole-trivial (see originality) and does not tie arcs to blocking sets in a useful way; secant/stabilizer numbers add no decision relevant to codes beyond standard tables. No independent researcher would need to find this later instead of consulting Hirschfeld/Segre tables or standard PGL(2,q) facts. Certificate bundle (two scripts, CSVs) is good reproducibility practice but does not make a known table independently worth publishing as a new result under SCOPE value bar.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit_plan, fallback_claim, nearest_known_results, live_literature_check)",
+    "inputs/DRAFT.md (theorem, proof, representatives, honesty section, limitations admission)",
+    "inputs/research_report.json (claim, artifact_inventory)",
+    "inputs/artifacts/search.py (377 lines, frame_census, stab_order, pgamma_stab, secant_dist, count_arcs_in_set)",
+    "inputs/artifacts/verify.py (124 lines, independent rebuild + gap recheck)",
+    "inputs/artifacts/witnesses.json + points_q5/q7/q8/q9.csv + lines_q5/q7/q8/q9.csv",
+    "https://arxiv.org/abs/1004.2817v5 (Davydov et al., small complete arcs t2, greedy)",
+    "https://arxiv.org/abs/1404.0469v3 (Bartoli et al., FOP/lexiarc tables all q<=321007)",
+    "https://doi.org/10.1002/jcd.20211 (Coolsaet-Sticker exhaustive complete k-arcs PG(2,23)/PG(2,25))",
+    "Live reruns: verify.py ALL CHECKS PASSED; search.py rebuild identical spectra/stabilizers/secants/T counts"
+  ],
+  "decisive_checks": [
+    "verify.py rerun: 31/57/73/91 pts/lines OK, k=6 stab120 sec10/6/15, q7 k6 stab12 k8 stab336, q8 504/1512 sec28/0/45, q9 720/1440 sec36/10/45, gaps 0 complete extensions at 4,5(,7), T blocking + 0 10-arcs OK",
+    "search.py rerun: pool 6/20, arcs 1/6/3 and 1/20/70/20/5, comp 3 and 40/5, |T|21/24, 6215/19019 DFS nodes both 0 10-arcs \u2014 reproduced",
+    "Field irreducibility: t^3+t+1 rootless over GF2; t^2+1 with 2 non-square over GF3 \u2014 valid GF8/GF9",
+    "Group-order cross-check: 120=|PGL(2,5)|, 336=|PGL(2,7)|, 504=|PGL(2,8)|, 720=|PGL(2,9)|, x3/x2 Galois \u2014 matches claims exactly, confirming textbook nature",
+    "Secant combinatorics: 2-secants=C(k,2) in all cases; sums to q^2+q+1; hyperoval 0 tangents / oval k tangents \u2014 forced theory, no new computation",
+    "Pigeonhole triviality proof for T-no-10-arc: T-parts disjoint, 10 points over 3 lines forces >=4 collinear, so no 10-arc; exhaustive DFS unnecessary"
+  ],
+  "residual_risks": [
+    "No residual correctness risk material: beyond-max non-existence for q=7 relies on Segre q+1 bound (correctly cited as theory); verify gap loop only rechecks k<=max, search census covers beyond, plus theory covers it.",
+    "verify.py trusts CSV schema but re-derives incidence from coordinates and asserts line sizes/counts, so mislabeling would fail loudly \u2014 low risk.",
+    "PGammaL orders assume standard Galois actions (squaring on GF8, a+bt->a-bt on GF9) as stated \u2014 computationally verified, low risk."
+  ],
+  "verdict": "REJECT"
+}
