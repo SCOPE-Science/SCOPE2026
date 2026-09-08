@@ -1,0 +1,59 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Strongest actually-delivered headline (fallback) was checked independently: (i) Reran inputs/artifacts/floor_census.py: d=3 3 diagrams N=12 W=8, d=4 16 diagrams N=620 naive-real 246, hit_cap=False; re-ran with cap=10,15 unchanged, so weight-cap completeness flag is sound. Complex sums match Kontsevich N3=12/N4=620, a strong independent cross-check that the divergence/marking implementation is correct despite a docstring sign inconsistency (outflow-inflow vs inflow-outflow; code uses inflow-outflow matching DRAFT). (ii) Reran verify_all.py: all asserts pass. Cubic y^2-x^3-x^2: F=Fx=Fy=0 only at (0,0) affine, projective closure Y^2Z-X^3-X^2Z smooth at sole infinity point [0:1:0] (dFz=1), Hessian det -4 hyperbolic. Quartic coefficients reconstructed exactly; F=Fx=Fy=0 and Hess -96,-17,-128 at (0,0),(1,1),(2,0) verified in exact arithmetic. (iii) Independently re-implemented mod-7 sweeps: 2401 monic y-linear remainders 0 factors, 16807 monic y-quadratic remainders 0 factors, confirming reported counts. Q-irreducibility conclusion is TRUE but proof as written omits the needed Gauss + leading-y-coeff-unit (-2 prime to 7, so y-degrees preserved) and total-degree additivity degree-bound (linear quotient must have total degree 3 so deg g<=3 superset complete; quadratic must split 2+2 so deg a<=1 deg b<=2 complete) lemmas. Cubic irreducibility parenthetical '(distinct roots)' is false (x^3+x^2=x^2(x+1) has repeated root) though conclusion holds by odd-degree/not-a-square (valuation at x+1 is 1). (iv) Quartic 'exactly 3' global exactness is not proved by the half-integer grid scan alone, but follows from already-certified facts: 3 ordinary nodes (Hess!=0 => delta=1 each) + irreducibility + pa=3 => sum delta=3 so no further singularities anywhere including infinity; DRAFT states the pieces (Theorems C+D) but \u00a76.3 understates this closure. (v) Crucially DRAFT honestly retreats from the admitted target per-diagram real-lift census: d=4 diagram-only sum 246 vs quoted W4=240 is flagged, W4 quoted not recomputed, no Viro sign-vector reconstruction claimed. No false real-liftability claim remains. Hence delivered fallback theorems are true with replayable exact evidence; defects are presentation/lemma gaps, not false conclusions.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Delivered result is the admission fallback, not the admitted target. Target required per-floor-diagram nodal real-lift counts via patchworking sign vectors + non-liftability obstruction + maximal lift linked to a diagram; none delivered (no sign vectors, d=4 real sum wrong under diagram-only rule, explicit polynomials not shown to lift any tropical diagram). Remaining fallback (complex census N3=12/N4=620, W3=8, genus-bound maximality, arbitrary nodal cubic/quartic) is substantively covered by prior work: Kontsevich numbers 12/620 known since 1994; W3=8 Welschinger 2005; floor-diagram method and general GW/Welschinger floor formula are Brugalle-Mikhalkin 0812.3354 and Fomin-Mikhalkin; lattice-path correspondence Mikhalkin math/0209253; maximal node counts 1 and 3 are immediate genus-formula consequences pa=1,3; nodal cubic y^2=x^2(x+1) is a textbook exercise. Per-diagram (edges,weights,nu) breakdown is a mechanical application of the known labeled-floor algorithm to d=3,4, not a new inequality, object, or boundary; the d=4 +6 discrepancy note characterizes failure of a coarse odd-weight proxy, not a new enumerative theorem. No nearest-source search can establish novelty because novelty would require the missing real-liftability inequality, which is absent. Hence originality FAIL; per instructions originality failure is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judging the strongest self-contained fallback headline separately from the unfinished real census: certified N3=12/N4=620 recomputation + W3=8 + explicit 1- and 3-nodal curves with genus maximality. This is textbook restatement + arbitrary witness, not independently retrievable value. N3,N4,W3 values are long-known constants; per-diagram nu/cC values are mechanically implied by running the published floor algorithm and are reproducible in seconds, not unknown invariants motivated before computation that a future researcher would need to look up. Maximality is mechanically implied by pa-delta>=0. The specific quartic coefficients (-6y^2+5y^3-2y^4+3xy^2+xy^3+4x^2-2x^2y^2-4x^3+x^4 at (0,0),(1,1),(2,0)) define an arbitrary rational 3-nodal quartic; any such curve suffices, precise coefficients were not motivated before computation and have no stated downstream use; certification (Hessian/mod-7/grid replay) alone does not rescue an arbitrary object per the value standard. The honest d=4 discrepancy localization and audit-template scripts are useful transparency but are failure documentation and replayability, not a new citable extremal fact. No general criterion or completed census is demanded, but the narrow data offered do not meet the 'motivated natural object + unknown non-mechanical value + foreseeable retrieval need' test for a valuable exact datum.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General floor-diagram formula for GW and Welschinger invariants of toric surfaces; provides the method used. Does not list the claimed per-diagram nodal real-liftability census with maximal witness, but does imply the complex floor method applied here is prior art.",
+      "title": "Floor decompositions of tropical curves: the planar case (Brugalle-Mikhalkin)",
+      "url": "https://arxiv.org/abs/0812.3354"
+    },
+    {
+      "finding": "Foundational lattice-path correspondence giving complex counts (implies N3=12/N4=620 framework); no real signs or per-diagram real-lift census.",
+      "title": "Counting curves via lattice paths in polygons (Mikhalkin)",
+      "url": "https://arxiv.org/abs/math/0209253"
+    },
+    {
+      "finding": "Kontsevich numbers N3=12, N4=620 are classical (1994) complex enumerative values; recomputation via floors is verification, not new constants. Verified via code sums matching these references.",
+      "title": "Kontsevich complex numbers N_3=12, N_4=620 (classical reference values used as calibration)",
+      "url": "https://arxiv.org/abs/math/0209253"
+    },
+    {
+      "finding": "W3=8 is the known Welschinger invariant; W4=240 is the known reference quoted in DRAFT. Diagram-only 246 sum confirms the naive rule is not a recomputation.",
+      "title": "Welschinger invariants W_3=8, W_4=240 (classical reference values)",
+      "url": "https://arxiv.org/abs/0812.3354"
+    },
+    {
+      "finding": "Closest live neighbor studies quartic bitangent lifting (7 classes, 41 types, 0-or-4 lifts), distinct object from nodal real-liftability; confirms delivered work does not advance this neighbor.",
+      "title": "Real Tropical Quartics and their Bitangents: Counting with Patchworking (Geiger)",
+      "url": "https://arxiv.org/abs/2503.22390"
+    }
+  ],
+  "decisive_checks": [
+    "Reran floor_census.py: d=3 3 diagrams N=12 W=8 hit_cap=False; d=4 16 diagrams N=620 W=246 hit_cap=False; recapped at 10 and 15 unchanged, confirming weight-cap completeness.",
+    "Reran verify_all.py: all asserts pass (N3/N4, W3, naive 246 -> 228 illustration, cubic Hess -4, quartic Hess -96/-17/-128, grid scan empty).",
+    "Exact-rational reconstruction of quartic from verify_all pieces matches DRAFT formula; F=Fx=Fy=0 and negative Hessian at three points re-verified with Fractions.",
+    "Independently re-implemented mod-7 division: 2401 y-linear divisors 0 factors; 16807 monic y-quadratics with deg a<=1 deg b<=2 0 factors; identified missing Gauss/leading-coeff-unit and degree-additivity lemmas needed to make sweep exhaustive (leading y-coeff -2 coprime to 7; total-degree 1+3 and 2+2 forcing).",
+    "Checked cubic projective closure smoothness at [0:1:0] and irreducibility via odd-degree valuation (correcting distinct-roots slip); checked quartic global exactness follows from 3x delta=1 + irreducibility + pa=3 without Groebner, closing grid-only gap.",
+    "Confirmed DRAFT \u00a72/\u00a76 honestly withdraws W4 recomputation and Viro sign-vector claims; no false per-diagram real-lift count is asserted."
+  ],
+  "residual_risks": [
+    "Docstring divergence sign typo (outflow-inflow) vs implementation (inflow-outflow); harmless given N-match but should be fixed.",
+    "Cubic 'distinct roots' phrase false; one-line valuation/odd-degree fix needed if ever reused.",
+    "Mod-7 irreducibility implication as written lacks explicit Gauss-unit-degree lemmas; computation correct but proof sketch incomplete.",
+    "Quartic global singularity exactness relies on delta=1 + pa bound synthesis not spelled out in one place; grid scan alone would be insufficient.",
+    "No residual risk that would upgrade originality/value: even with lemma fixes the fallback remains a known-numbers verification plus arbitrary witness."
+  ],
+  "verdict": "REJECT"
+}
