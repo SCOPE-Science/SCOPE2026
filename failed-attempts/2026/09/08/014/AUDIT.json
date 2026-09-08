@@ -1,0 +1,40 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 1 (|Z| in {p,p^2}): PASS. Finite p-group has nontrivial centre; orders p^4 (abelian, excluded) and p^3 (quotient order p cyclic => G abelian by F2, contradiction) excluded. Lemma 2 (top stratum): PASS. G/Z order p^2 abelian; for g noncentral Z <= C(g) < G and <Z,g> <= C(g) has order strictly between p^2 and p^4, hence p^3, forcing |C(g)|=p^3, class size p, k=p^2+(p^4-p^2)/p=p^3+p^2-p. Lemma 3 (degrees): PASS despite meandering exposition. Load-bearing step verified: |Z|=p^2 + nonabelian => G/Z cannot be cyclic (else G=<x,Z> abelian), so G/Z=C_p^2, G class 2, x^p in Z for all x, [x,y]^p=[x^p,y]=1; G 2-generated mod centre => G'=<[x,y]> cyclic of exponent p, nontrivial => |G'|=p, p^3 linears; remainder p^4-p^3 forces p^2-p irreps of degree p (degree p^2 would contribute p^4 > remainder). Lemma 4 (lower stratum): PASS. Size p^3 excluded (centralizer order p would equal Z, forcing g central); class equation p^4=p+a*p+b*p^2 gives a=p^3-1-bp>=0, k=p^3+p-1-b(p-1)<=p^3+p-1. Gap arithmetic (p-1)^2/p^4 verified exactly. Witness H_p x C_p valid (Heisenberg mod p centre order p times C_p gives centre p^2, attains top by Lemma 2). Computational certificate re-executed from scratch: python3 inputs/artifacts/verify_gap.py exits 0; H3xC3 k=33 cp=11/27 |Z|=9 |G'|=3, Sylow3(S9) order 81 |Z|=3 k=17=29-2*6 mixed sizes 1x3/3x8/9x6 satisfying bound, D8xC2 k=10 cp=5/8 all match. Honest limitations (no GAP<=96, b=0 sharpness not claimed, p=2 excluded) do not break main uniform-p^4 proof which needs no library.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Checked the four topic-listed nearest sources by live fetch plus classical Gustafson 5/8 and Rusin 11/32 background. Eberhard 1411.0848 is global/asymptotic (Egyptian fractions, well-ordering) with no finite p^4 spectrum. Burness-Guralnick-Moreto-Navarro 2112.08681 concerns Pr_p over p-elements and normal abelian Sylow threshold (p^2+p-1)/p^3, not full cp=k/|G| for order p^4. Jezernik-Moravec 1307.6533 bounds cp>(2p^2+p-2)/p^5 for trivial Bogomolov multiplier, different threshold/objective. Nath-Yadav 1212.4306 overlaps most: class sizes {1,p} => isoclinic to extraspecial; this anticipates the top-stratum class-size phenomenon but gives commutator probabilities, not the quantitative second-max bound, open interval, joint centralizer/Irr-degree table, or p=3 forbidden numerators. No fetched source states the interval ((p^3+p-1)/p^4,(p^3+p^2-p)/p^4) or the k=p^3+p-1-b(p-1) stratification. Hence narrowly new as packaged finite gap. PASS, with residual risk that standard p-group textbooks/classification implicitly contain the class-number formulas (failed search does not prove priority).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL under independent-worth-finding-later test. The result is two standard class-equation calculations plus division by |G|: centre dichotomy, top-stratum count, lower-stratum count a=p^3-1-bp, subtraction to get width (p-1)^2/p^4, and routine sum-of-squares degree count once |G'|=p is known. Ingredients explicitly admitted classical; proof uses only F1-F5 taught in a first p-group course. This is a textbook exercise / mere parameter specialization of general cp theory to the tiny order p^4, with no new method, no surprising phenomenon, and no demonstrated downstream use: the claimed feeds to recognition algorithms / Eberhard / Burness / Bogomolov programmes are speculative name-dropping with no algorithm, conjecture, or asymptotic consequence delivered. The promised SmallGroups<=96 certificate was not delivered (only five hand-picked witnesses), second-max sharpness (b=0 realizability) is not established, the |Z|=p degree side is only a bound, and anyone needing the p^4 values rederives them in minutes rather than retrieving this record. Falls squarely under textbook restatement / tiny unmotivated gain / single-small-order extremal, the same value defect as SCOPE-FAIL-20260907-014 (order-96 enumeration REJECT on value); adding an elementary parametric subtraction does not repair it. Correct and narrowly new, but not independently worth finding later.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1411.0848 (Eberhard commuting probabilities - abstract/history verified)",
+    "https://arxiv.org/abs/2112.08681 (Burness-Guralnick-Moreto-Navarro p-element probability - abstract verified)",
+    "https://arxiv.org/abs/1307.6533 (Jezernik-Moravec Bogomolov/cp bound - abstract verified)",
+    "https://arxiv.org/abs/1212.4306 (Nath-Yadav commutator/{1,p} class sizes - abstract verified)",
+    "inputs/topic.json (audit plan, fallback, nearest-known list)",
+    "inputs/DRAFT.md (Lemmas 1-4, witness, limitations)",
+    "inputs/research_report.json (claim/evidence summary)",
+    "inputs/artifacts/verify_gap.py + verify_results.json + verify_log.txt (re-executed)"
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_gap.py: exit 0, Part A rationals for p=3,5,7,11,13 and {30,31,32}/81 interior check pass; Part B H3xC3 k=33 |Z|=9, H3/C9rtC3 k=11, Sylow3(S9) order 81 |Z|=3 k=17 mixed 1x3/3x8/9x6 with k=29-2b b=6, D8xC2 k=10 cp=5/8 all pass",
+    "Hand-verified centre exclusion (p^3 quotient cyclic => abelian), centralizer pinch <Z,g>=p^3, p^3-size exclusion (C(g)=Z contradiction), G/Z=C_p^2 vs C_{p^2} cyclic-quotient exclusion, G'=<[x,y]> order p, degree-p^2 impossibility (p^4 > p^4-p^3)",
+    "Verified Heisenberg law associativity/centre and semidirect C9rtC3 via u->u^4 order 3 mod 9; Sylow3(S9) closure yields order 81 as asserted",
+    "Verified iff logic: |Z|=p => cp<=second-max<top, so top <=> |Z|=p^2; abelian cp=1 outside interval so 'any group of order p^4' phrasing harmless",
+    "Confirmed DRAFT Sec.5 honestly discloses no GAP<=96 run, no b=0 sharpness, p=2 convention - scope reduction, not hidden defect"
+  ],
+  "residual_risks": [
+    "Lemma 3 exposition in DRAFT is discursive with false starts before correct cyclic-quotient finish; final inference verified but presentation would need cleanup if ever promoted",
+    "No GAP SmallGroups<=96 certificate: main theorem does not need it, but <=96 corollary in audit plan remains undelivered",
+    "b=0 realizability (exact second-max sharpness) unknown; affects only sharpness, not emptiness of open interval",
+    "Textbook/classification implicit prior cannot be ruled out by failed search; originality PASS is packaging-only"
+  ],
+  "verdict": "REJECT"
+}
