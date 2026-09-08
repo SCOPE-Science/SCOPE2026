@@ -1,0 +1,81 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay confirms the 6 rank-drop witnesses: verify_wlp.py passes in ~1.1s (Fraction + sympy ranks agree), socle/HF correct, square dets 0 with nonzero (n-1)-minors, 1-dim kernel/cokernel, parametric det(a,b,c)==0 and second-ell (1,2,3) failure for all 6; admissible tuples 6975 and raw-tuple counts 3246/579 reproduce. BUT census as described (minimal ideals / S3-orbits of minimal ideals, divisor-poset strata, Hessian witnesses) is not what was computed: (a) census_check keys canon on raw gens without minimal reduction, so 579 = raw 5-tuple S3-orbits, not minimal-ideal orbits. Recomputation: 265/579 orbit reps contain a redundant generator (e.g. [z^2,z^3,...]), distinct minimal ideals among reps only 408, S3-orbits of minimal ideals only 391 (314x5-gen +72x4-gen +5x3-gen), distinct minimal ideals socle 5-6 arising 2159, raw tuples 3246 include 1476 non-minimal. Claim 'reduce to minimal, keep distinct ideals, 579 orbits' is therefore false as stated. (b) 4-generated lemma miscounts the same way: 239 = tuples with socle 5-6, not distinct ideals (192 distinct ideals); 56 = tuple-orbits, not ideal-orbits (45 ideal-orbits: 33 socle-6 +12 socle-5; 4-minimal-only subset 42 orbits). Zero-failure part replays (0 fails), but counts as stated are wrong. (c) 'Hessian/Macaulay-dual witness H=M^T' is just the transpose of the multiplication matrix, so det(H)=0 is tautologically equivalent to det(M)=0; it is not a Hessian in the sense of Almeida et al. higher Jacobians/Hessians or Togliatti Laplace theory, and all cases are non-level type 2-4 where the classical Gorenstein Hessian criterion does not apply. (d) Divisor-poset stratification collapses by authors' own admission (all 5-minimal sets are antichains); S3-canonical tuple used instead, contrary to topic audit plan. Core rank facts are correct; census-completeness/terminology claims are not.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest priors substantively cover the mechanisms; delta is an arbitrary finite box, not a new stratum or theorem. Cook-Nagel 0909.3509/1105.6062 (level monomial ACI have WLP, lozenge correspondence) already implies failing examples must be non-ACI non-level as here; Altafi-Boij 1807.02138 classifies sharp HF bounds and Z/d-invariant equigenerated failures; Altafi-Lundqvist 2306.03188 classifies forcing numbers; Michalek-Miro-Roig 1310.2529 and Miro-Roig-Salat 1710.03579 / Mezzetti-Miro-Roig classify smooth minimal monomial Togliatti systems (minimal mu=2n+1=5 in 3 vars) including the cubic (x^3,y^3,z^3,xyz) analogue the draft cites. F1,F2,F4 are trivial early-socle zero-column failures (socle z^2 in degree 2 kills M_2 column parametrically) \u2014 textbook linear algebra, explicitly acknowledged as trivial. F3 is a 5x5 pigeonhole collision of two degree-2 classes onto one degree-3 class. Only F5/F6 are Laplace-type without low socle, and F6 (5-generated degree-4 equigenerated, mu=5 minimal) sits exactly in the classified minimal-Togliatti range; draft expressly disclaims novelty of individual ideals ('we do not claim each ideal is new... only closed-box table'). A table indexed by a self-invented truncation (3<=a,b,c<=5, deg 2-4, two extras) has no prior-art counterpart precisely because the box is ad hoc; no retrieved source gives the same box, but that is parameter-box substitution, not substantive priority. Timestamp/replay does not establish that F5/F6 are absent from published/unpublished Togliatti lists (smoothness not analyzed, no ideal-by-ideal comparison).",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. Result as framed is a bounded defect table for an unmotivated box, admittedly not a census of all socle 5-6 monomial ideals ('far larger' outside box). Three of six 'failing strata' are trivial socle-zero-columns with unimodal HF, adding no insight beyond 'socle in low degree kills WLP'. The remaining Laplace-type cases (F3/F5/F6) are presented without theory: no infinite family, no threshold theorem, no smoothness/Togliatti classification, no explanation why this box. The 573/579 pass rate (~99%) merely reproduces Nagel-Petrovic high-probability positivity without asymptotics. The 4-generated lemma (zero fails in pure range) is box-specific, miscounted (see correctness), and expected. Hessian 'witnesses' are transposes, divisor-poset labels are S3-tuples, and Hilbert vectors are all unimodal with no new phenomenon. Future Togliatti/failing-locus searches need complete classifications or new families, not a 579-entry (really 391 minimal) table for 3<=a,b,c<=5/deg<=4. This is an unexplained enumeration with tiny unmotivated gain in the SCOPE sense, even if correct and new as a raw table.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "The weak Lefschetz property, monomial ideals, and lozenges",
+      "url": "https://arxiv.org/abs/0909.3509"
+    },
+    {
+      "title": "Enumerations deciding the weak Lefschetz property",
+      "url": "https://arxiv.org/abs/1105.6062"
+    },
+    {
+      "title": "The weak Lefschetz property of equigenerated monomial ideals",
+      "url": "https://arxiv.org/abs/1807.02138"
+    },
+    {
+      "title": "Forcing the weak Lefschetz property for equigenerated monomial ideals",
+      "url": "https://arxiv.org/abs/2306.03188"
+    },
+    {
+      "title": "Smooth monomial Togliatti systems of cubics",
+      "url": "https://arxiv.org/abs/1310.2529"
+    },
+    {
+      "title": "On the classification of Togliatti systems",
+      "url": "https://arxiv.org/abs/1710.03579"
+    },
+    {
+      "title": "The minimal number of generators of a Togliatti system",
+      "url": "https://arxiv.org/abs/1506.05914"
+    },
+    {
+      "title": "On higher Jacobians, Laplace equations and Lefschetz properties",
+      "url": "https://arxiv.org/abs/2311.02178"
+    },
+    {
+      "title": "The Weak Lefschetz property and unimodality of Hilbert functions of random monomial algebras",
+      "url": "https://arxiv.org/abs/2402.17618"
+    },
+    {
+      "title": "arXiv query: Togliatti AND monomial (8 hits)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:Togliatti+AND+all:monomial&start=0&max_results=5"
+    },
+    {
+      "title": "arXiv query: equigenerated AND monomial AND Lefschetz (4 hits)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:equigenerated+AND+all:monomial+AND+all:Lefschetz&start=0&max_results=5"
+    },
+    {
+      "title": "arXiv query: weak AND Lefschetz AND artinian AND three AND variables (4 hits)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:weak+AND+all:Lefschetz+AND+all:artinian+AND+all:three+AND+all:variables&start=0&max_results=5"
+    }
+  ],
+  "decisive_checks": [
+    "Replayed inputs/artifacts/verify_wlp.py: ALL CHECKS PASSED in ~1.1s; 6 fails have stated HF, square det 0, nonzero (n-1)-minor, rank n-1, parametric det(a,b,c)==0, rank drop at (1,2,3).",
+    "Recomputed admissible tuples 6975, socle 5-6 perms 3246, raw S3-orbits 579 \u2014 match draft/code.",
+    "Recomputed with minimal reduction: raw orbits 579 vs S3-orbits of minimal ideals 391; 265/579 reps redundant; distinct minimal ideals among reps 408; distinct minimal ideals overall 2159; non-minimal tuples 1476.",
+    "Checked 4-generated box: 239 tuples socle 5-6, 192 distinct ideals, 56 tuple-orbits vs 45 ideal-orbits (42 if requiring 4-minimal); 0 failing orbits confirmed \u2014 failure part holds, counts as stated conflate tuples with ideals.",
+    "Inspected census_orbits.json: 579 entries all length-5, 265 with redundant generator (e.g. [[0,0,2],[0,0,3],...] -> 4-minimal), 6 fail entries minimal 5-gen as claimed.",
+    "Verified trivial mechanism F1/F2/F4: kernel [1,0,...] = socle z^2 column-zero; F3 kernel [-1,0,1,0,0] = two columns sharing single nonzero row; F5/F6 kernels as logged Laplace-type with no socle <=3/<=4.",
+    "Confirmed H=M^T identity: draft Hessian is transpose, not higher Hessian; det equivalence tautological."
+  ],
+  "residual_risks": [
+    "No full ideal-by-ideal isomorphism check of F5/F6 against published smooth/minimal Togliatti tables (smoothness, apolar geometry not computed); cannot exclude prior occurrence.",
+    "Sympy 1.12 used for rank/det cross-check; parametric det expansion trusted to sympy but confirmed by 5-point ell sampling.",
+    "Completeness outside the ad hoc box entirely open by authors' admission; no inference about full socle 5-6 census."
+  ],
+  "verdict": "REJECT"
+}
