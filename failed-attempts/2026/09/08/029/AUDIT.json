@@ -1,0 +1,41 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "What is actually claimed is correct and honestly scoped. Lemma N (i)-(iv) proofs verified: rank bound, norm-shell necessity, Hadamard via exact rational Cholesky, square-determinant for r=N all standard and valid. Theorem S soundness/completeness holds for stated (P,N) with exact integer checks: PD gate via Sylvester/Bareiss, exhaustive norm-shell enumeration (bound floor(sqrt(norm))+1 covers all coordinates), backtracking keeps exactly inner-product-compatible partial rows and accepts iff MM^T=P; exhaustive flag semantics correct. Computed counts independently reproduced by re-running artifacts/lattice_embed.py (all PASS) and by a separate brute-force product-over-shells enumerator: [2]/I1=0, [2]/I2=4, A2/I2=0, A2/I3=48, I3/I2=0, [[3,1],[1,3]]/I3=24, all exhaustive with MM^T re-verified. Proposition A (six Lost-table labels 139/331/397/414/768/838) is internally consistent and the log quotes a verbatim TeX block; the draft correctly flags the 12n397 Conway-string ambiguity as unresolved and explicitly disclaims any QA decision, any Goeritz construction, and any d-invariant/Turaev-torsion computation. No false knot consequence is drawn. Latent defect noted but non-decisive: bareiss_det swaps rows without tracking sign, so it is wrong in general for matrices needing pivoting; for symmetric positive-definite inputs (the only asserted domain) pivots equal leading principal minors >0 so the swap branch is never taken, confirmed by exhaustive 3x3 and sampled 4x4 comparison against Fraction-exact determinants with zero mismatches on PD verdicts.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No new mathematical fact or method beyond textbook/folklore and transcription. Lemma N is standard linear algebra (rank inequality, sum-of-squares diagonal, Hadamard inequality, square determinant) and the draft itself states 'The method is standard; our contribution is only the certified packaging.' Theorem S is a correctness statement about a straightforward norm-shell + backtracking brute-force enumerator, not a new decision-theoretic result; equivalent finite enumeration is the obvious complete procedure for MM^T=P. Demo lattices (1x1 [2], A2, [[3,1],[1,3]]) are canonical textbook pattern examples with no knot linkage by the draft's own admission. Proposition A is a verbatim transcription audit of six labels/Conway strings from the committed Jablan source, i.e. database confirmation, not a classification closure. Nearest priors subsume the content: Greene 0906.2222 and Greene-Watson 1106.5559 already establish the branched-cover definite-manifold + correction-term route; Manolescu-Ozsvath 0708.3249 QA-implies-thin; Jablan 1404.4965 already tabulates the six Lost candidates as unresolved; Qazaqzeh-Chbili 1406.0279 already delimits the Q-degree obstruction. Nothing closes, extends, or restates these in a non-obvious way.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently not worth finding later under STANDARD axis 3. The admitted topic required deciding QA status of one nominated thin 11-12 crossing Kstar via Goeritz lattice embedding plus d-invariant/Turaev-torsion incompatibility (or symmetric QA-tree closure plus subfamily lemma). None of that was delivered: no Goeritz matrix from any diagram/DT code, no correction terms, no embedding impossibility for any knot, no QA tree, no exclusion lemma. The remaining artifacts are (a) a six-row table transcription with an unresolved 12n397 ambiguity and (b) a small-norm brute-force enumerator demonstrated only on 1-2 dimensional pattern matrices. The draft explicitly states 'No QA status of any knot is decided here' and 'the numbers carry no knot consequences.' This is scaffolding, textbook restatement, and database repackaging, explicitly excluded as sufficient (recomputed width/table checks, implementation logs, failed-search packaging). It does not advance the recognized thin-vs-QA boundary and would not be citable as a classification fact in Floer/categorification work.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md (all sections, Lemma N / Theorem S proofs, separation statement)",
+    "inputs/research_report.json (claim, evidence_summary, limitations)",
+    "inputs/topic.json admission plan and fallback (comparison baseline: Kstar decision + exclusion lemma required)",
+    "inputs/artifacts/lattice_embed.py (full code review + re-execution, exit 0)",
+    "inputs/artifacts/audit_lost_table.py (code review)",
+    "inputs/artifacts/lattice_embed_tests.txt (expected counts)",
+    "inputs/artifacts/lost_table_audit.txt (verbatim Lost-table block and 12n397 context)",
+    "Live web check: https://arxiv.org/abs/1404.4965 (Jablan tables; abstract confirms thin-candidate tables and Greene 11n50 precedent; six Lost candidates recorded as unresolved)",
+    "Live web check: https://arxiv.org/abs/0906.2222 (Greene thin non-QA + pretzel determination via branched-cover definite-manifold obstruction)",
+    "Live web check: https://arxiv.org/abs/1106.5559 (Greene-Watson infinite thin non-QA family via Turaev torsion + correction terms, distinct from Jablan 12-crossing entries)"
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/lattice_embed.py with stdlib Python: all self-tests T1-T5 PASS, exit 0, matching logged counts.",
+    "Independent brute-force verifier (itertools.product over norm shells, direct MM^T check) reproduced counts exactly: 4, 0, 48, 0, 24; det A2=3 nonsquare confirmed.",
+    "Verified Lemma N(iii)-(iv) derivations and enum_vectors bound completeness: max |coordinate| <= sqrt(norm) <= floor(sqrt(norm))+1.",
+    "Analyzed bareiss_det row-swap sign bug: proved harmless on PD domain (pivots are leading principal minors >0, swap never fires); confirmed by exhaustive symmetric 3x3 range(-2,3) and 20000 random symmetric 4x4 PD-verdict comparison vs Fraction-exact elimination with zero mismatches.",
+    "Confirmed draft's explicit disclaimers (no Goeritz, no d-invariants, demos are pattern-scale with no knot linkage) so no overclaim to falsify; value gap is absence of the promised classification certificate."
+  ],
+  "residual_risks": [
+    "Committed source jablan_QATables.tex was not present in audit workspace, so Proposition A transcription relies on the committed log's verbatim block rather than independent re-extraction from source.",
+    "bareiss_det sign-on-swap defect remains latent if the helper is reused outside the PD domain; any future knot-scale use must fix sign tracking or restrict domain.",
+    "Embedding enumerator uses bounded product scan, acknowledged as practical only for small r,N and small diagonal entries; no scaling or knot-scale Goeritz feasibility demonstrated."
+  ],
+  "verdict": "REJECT"
+}
