@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Main 7-config table replays: VERIFY_OK reproduced; independent exact Fraction LDL with correct zero-block handling plus exact fraction-rank confirms all 7 PSD claims, ranks (4,4,5,5,6,6,4), stated pivots, histograms (C1-C6 single-|alpha|, C7 {0:12,1/2:16}) and Gerzon gaps (4,5,9,5,15,5,2) are arithmetically correct; relative-bound 16 at (6,1/3) correct. Maximality as 'attains known maximum' is arithmetically correct conditional on cited classical upper bounds (explicitly not re-proved). Section 4 exclusion proof as stated is FALSE in its certificate: DRAFT+script claim '20/64 bordered patterns PSD, all rank 5'. Independent correct PSD test (full-trailing-block zero check), exact rank, and float eigvalsh all agree the true PSD count is 10/64 (bits [1,6,10,20,24,39,43,53,57,62]), not 20. The 10 extra patterns (e.g. bits 7,11,17,21,30,33,42,46,52,56) have min eigenvalue approx -0.50 to -0.53 (indefinite) but candidate ldl_exact misclassifies them as PSD because its zero-pivot branch only checks row/col j instead of the whole trailing block. Final conclusion 'no 7th 1/3-line extends C1 in R4' remains true (0/64 with rank<=4 under both checkers, and also follows from cited N(4)=6), but the logged PSD enumeration and the soundness of the committed prover are wrong. This is an essential evidence defect.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "No new claim/boundary. DRAFT Sec.5 admits no new upper bound is proved; C1 n=6=N(4), C4 n=10=N(5) appeal to cited van Lint-Seidel/Lemmens-Seidel maxima, and C6 n=16=relative bound at (6,1/3) is the same Clebsch witness already validated as SCOPE023 (N_{1/3}(6)=16 via Clebsch Gram exact LDL rank 6 + relative bound 16). The 7 Gram matrices are standard classical objects (simplexes, Petersen Seidel S=J-I-2A, Clebsch Cayley Seidel, Sylvester-Hadamard MUB pair); their spectra (e.g. C6 0x10/8x6, C4 0x5/6x5, simplex 0/5-6x), single-angle histograms and Gerzon subtractions are mechanically implied by routine exact arithmetic from those matrices, verified by recomputation. The C1 bordered exclusion (no 7th 1/3-line) is mechanically implied by the cited N(4)=6 itself and adds no new boundary. Nearest large-d/SDP priors (Jiang et al. 1907.12466 large-d N_alpha asymptotics; Greaves et al. 1403.2155 d=14,16 bounds; Barg-Yu 1311.3219 n>=24 SDP bounds) indeed lack this bundle, but the relevant low-d classical priors (cited maxima + standard Petersen/Clebsch/simplex/MUB constructions) already record the facts; grouping 7 known facts with fresh LDL logs is textbook/database recomputation, not a new result. A timestamp or failed search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Textbook restatement + mechanically implied enumeration, not an independently retrievable new fact. Objects are classical; invariants (LDL pivots in an arbitrary diagonal-pivoted order, float spectra, entrywise |.| tallies, Gerzon subtractions n vs d(d+1)/2) follow by routine arithmetic and are not shown to have been unknown or needed as a precise narrow datum (pivots are order-dependent logs, not canonical invariants). Maximality reduces to citing known maxima; exclusion reduces to N(4)=6 corollary plus a 64-case check with no downstream use beyond that corollary. No general theorem, new boundary, benchmark, or lemma-grade use beyond what classical references + SCOPE023 already supply. Certification alone does not rescue the slice; the 7-config selection (two trivial simplexes, a 6-line all-+ ladder base with gap 15, a two-distance near-miss) is an arbitrary survey fragment. Falls under reject categories: textbook restatement, mere recomputation, tiny unmotivated gain. The narrow-datum exception does not apply because values were known/mechanically implied.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Determines N_alpha(d) for fixed alpha in all sufficiently large d (e.g. N_{1/(2k-1)}(d)=floor(k(d-1)/(k-1))); spectral-graph large-d asymptotics. No low-d R4-R6 per-config Gram/PSD bundle; complementary, not overlapping.",
+      "title": "Equiangular lines with a fixed angle (Jiang-Tidor-Yao-Zhang-Zhao, arXiv:1907.12466)",
+      "url": "https://arxiv.org/abs/1907.12466"
+    },
+    {
+      "finding": "General lower bounds, 12-vertex two-graphs, three-eigenvalue Seidel matrices, improved upper bounds in d=14,16, nonexistence of certain regular graphs. No unified R4-R6 Gram-spectrum/Gerzon-gap bundle.",
+      "title": "Equiangular lines in Euclidean spaces (Greaves-Koolen-Munemasa-Szollosi, arXiv:1403.2155)",
+      "url": "https://arxiv.org/abs/1403.2155"
+    },
+    {
+      "finding": "SDP upper bounds N=276 for 24<=n<=41 and 344 for n=43. Different dims/method from R4-R6 Gram replay.",
+      "title": "New bounds for equiangular lines (Barg-Yu, arXiv:1311.3219)",
+      "url": "https://arxiv.org/abs/1311.3219"
+    },
+    {
+      "finding": "Already validates N_{1/3}(6)=16 via Clebsch Gram exact LDL rank 6 + relative bound 16, plus N_{1/3}(7)=28. Directly covers candidate C6 maximal witness; candidate DRAFT Sec.3 notes consistency with SCOPE023.",
+      "title": "Internal validated prior SCOPE023 (N_{1/3}(6)=16, N_{1/3}(7)=28 via LP/Delsarte + exact Cholesky)",
+      "url": null
+    },
+    {
+      "finding": "Candidate itself cites van Lint-Seidel / Lemmens-Seidel N(4)=6, N(5)=10 and claims no new upper-bound proof (DRAFT Sec.3, Sec.5). Establishes maximality component is a citation of classical maxima, not a new bound; also makes C1 exclusion a corollary of cited N(4)=6.",
+      "title": "Candidate admission: classical maxima cited, no new bound claimed (DRAFT.md Sec.3/Sec.5)",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_all.py -> VERIFY_OK with stated 7 pivot lists, histograms, Gerzon gaps; confirmed arithmetic.",
+    "Independent exact checker (correct diagonal-pivoted Fraction LDL requiring full trailing block zero when max-diag==0 + exact fraction-rank via Gauss-Jordan + numpy eigvalsh): all 7 PSD/rank/pivot claims confirmed; histograms and Gerzon gaps re-tallied exactly.",
+    "Bordered-Gram recheck over all 64 s in {+-1}^6 for C1: correct checker + eigvalsh give 10/64 PSD (bits 1,6,10,20,24,39,43,53,57,62), each frac-rank 5, 0 with rank<=4; candidate script claims 20/64 PSD. 10 diff bits (7,11,17,21,30,33,42,46,52,56) have min eig ~ -0.50/-0.53, i.e. indefinite, proving candidate ldl_exact zero-pivot test unsound and Sec.4 '20 are PSD' false. Final 'no extension' conclusion still holds (0 rank<=4).",
+    "Relative-bound arithmetic: 6*(1-1/9)/(1-6/9)=16 confirmed; Gerzon numbers 10/15/21 and gaps 4,5,9,5,15,5,2 confirmed; C7 pairs 12+16=28 confirmed.",
+    "Originality comparison: C6 witness overlaps validated SCOPE023; C1/C4 maxima admitted as cited classical bounds; spectra/histograms/gaps shown mechanically implied by recomputation from classical matrices."
+  ],
+  "residual_risks": [
+    "N(4)=6 and N(5)=10 upper bounds are cited, not re-proved; audit relies on candidate citations to van Lint-Seidel/Lemmens-Seidel.",
+    "Float eigenvalues in artifact are cross-checks only, not proofs (proofs are Fraction LDL, which is unsound as coded for the exclusion).",
+    "No exhaustive optimality over all sign patterns for C4/C6 is attempted (admitted); census is an incomplete 7-config survey and cannot be called complete.",
+    "Low-d classical sources (Lemmens-Seidel tables) were compared via candidate citations + standard-construction identity, not full-text re-extraction; but admission of no new bound suffices for originality failure."
+  ],
+  "verdict": "REJECT"
+}
