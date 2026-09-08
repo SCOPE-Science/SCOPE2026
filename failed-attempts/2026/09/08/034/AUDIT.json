@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline claim |G(3,4,5;2)|=360 independently re-verified from committed integers. Auditor re-ran inputs/artifacts/tc.py Enumeration on relators [a^3,b^4,(ab)^5,[a,b]^2]: status DONE, 402 defs, 618 passes, 42 coincidences, 360 live cosets, compact pa/pb byte-identical to cert_G345k2.json; independent checker (perms + relator closure + transitivity) passes. Auditor separately checked V1 permutations, V2 all 4 relators close at all 360 points (1440 traces), V3 transitivity from 0, V4 perm orders |a|=3,|b|=4,|ab|=5 (corrected composition order pb(pa(.))), |[a,b]|=2. Closed transitive relator-satisfying action gives standard TC upper bound |G|<=360 plus transitive-image lower bound N||image|<=|G|, hence |G|=360: proof, not mere experiment. BFS closure of <pa,pb> in S_360 has exactly 360 elements (regular), element orders {1:1,2:45,3:80,4:90,5:144}, center order 1, conjugacy-class sizes [1,40,40,45,72,72,90] summing to 360, all matching DRAFT/structure file. Abelianization: relations 3a=0,4b=0,5a+5b=0 have 2x2 minors 12,15,-20 with gcd 1, so trivial abelianization (perfect) as claimed. Baseline T(3,4,5) infiniteness via 1/3+1/4+1/5=47/60<1 hyperbolic Fuchsian trichotomy is correctly cited as classical background, not re-proved, which is acceptable; committed perms satisfy the three baseline relators so G is a quotient image of T, and finite-vs-infinite gives proper quotient. All five sibling certs also pass V1-V3 relator closure + transitivity (orders 12,3,144,240,504). Non-load-bearing weakness: rs_index_check_G345k2.json is a summary flag (index 120, holds:true) with no committed coset table, so the RS cross-check 360=120x3 is asserted, not independently replayable; headline order does not depend on it. verify_G345k2.py hardcodes a research-workspace absolute path so the literal DRAFT replay command needs path adjustment, but the checks themselves pass when pointed at committed files.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison finds no prior stating or mechanically implying |G(3,4,5;2)|=360 with a coset-table witness. Nearest results are orthogonal in object/method/claim: Caprace-Conder-Kaluba-Witzel arXiv:2011.09276 studies k-fold generalized triangle groups (CAT(0) triangle-complex, edge-stabilizers cyclic of order k) for infiniteness/property (T)/large-rank simple quotients, not ordinary-triangle-plus-[a,b]^k finiteness orders; arXiv all-field search 'triangle group commutator' returns only Parker-Will arXiv:1510.01505 (complex-hyperbolic Riley slice, (3,3,infinity) discreteness) and Isola-Piergallini arXiv:1405.1881 (generic Euclidean triangle, free-metabelian), neither closing this window; classical (l,m,n) spherical/Euclidean/hyperbolic trichotomy does not imply any extra-relator collapse order; deformation-theoretic simple-quotient existence, profinite rigidity, and BS-triangle collapse families address different presentations/methods. Auditor's live fetches confirm Caprace abstract/scope and the two commutator search hits. Hence the specific terminating table is narrowly new as a computational fact. Priority is not established by timestamp alone; it is established here by absence of the concrete order-plus-table in the checked priors. PASS is narrow (new number + table) and does not extend to conceptual novelty, which is assessed under value.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking correctness and narrow novelty as given, the contribution is an unexplained single-window enumeration, not an independently retrievable advance. The window (hyperbolic triples with entries <=6 crossed with k<=5; headline one of 76 presentations, 70 reported inconclusive at a 1500-coset cap with no infiniteness witnesses) is an arbitrary bounded box atop the closed textbook (l,m,n) trichotomy, and the method is routine bounded Todd-Coxeter reporting which cases terminate. No general finiteness criterion, no finite-vs-infinite boundary characterization, no extremal/structural theorem, and explicitly no isomorphism identification (the order-360 datum is left as a bare number; the class/order table in fact matches A6 but this is disclaimed as observation only). Sibling orders include the near-trivial C3 collapse and four more bare numbers with the same deficit. Downstream uses (residual finiteness, growth gaps, benchmarks, hypermap/Hurwitz/property-(T) quotients) are asserted, not demonstrated by any downstream theorem, example, or adopted benchmark. The fallback census also fails its own bar: 70/76 inconclusive is not a complete finite-vs-infinite census with extremal table. Under SCOPE value policy this is textbook-trichotomy-plus-parameter-substitution / unexplained enumeration / tiny unmotivated gain: correct and narrowly new but not worth finding later as mathematics.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "86pp construction of infinite hyperbolic k-fold generalized triangle groups (CAT(0) triangle-complex definition) with property (T) and large-rank simple quotients. No terminating coset-table order for <a,b|a^l=b^m=(ab)^n=[a,b]^k=1> window. Orthogonal family/claim.",
+      "title": "Hyperbolic generalized triangle groups, property (T) and finite simple quotients",
+      "url": "https://arxiv.org/abs/2011.09276"
+    },
+    {
+      "finding": "arXiv all-field query 'triangle group commutator' returns exactly 2 hits, both orthogonal: complex-hyperbolic Riley slice discreteness and generic Euclidean triangle free-metabelian result. No commutator-power extra-relator finiteness order.",
+      "title": "arXiv search: triangle group commutator (2 hits: 1510.01505, 1405.1881)",
+      "url": "https://arxiv.org/search/?query=%22triangle+group%22+commutator&searchtype=all&source=header"
+    },
+    {
+      "finding": "Classical triangle trichotomy (spherical/Euclidean/hyperbolic by 1/l+1/m+1/n); hyperbolic case infinite via Fuchsian representation. Cited as background; does not imply any [a,b]^k collapse order.",
+      "title": "Triangle group trichotomy (classical background, via DRAFT citation)"
+    },
+    {
+      "finding": "Committed integers re-executed: tc.py HLT run reproduces 402 defs/618 passes/360 live cosets with byte-identical pa/pb; V1-V6, BFS closure order 360, element/class/center counts all match.",
+      "title": "Direct recomputation from inputs/artifacts (auditor-run)"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran from-scratch HLT Todd-Coxeter on G(3,4,5;2): DONE, defs=402, passes=618, live=360, compact pa/pb identical to committed cert; independent check_certificate passes.",
+    "Verified V1 permutations, V2 1440 relator traces, V3 transitivity, V4 |a|=3,|b|=4,|ab|=5,|[a,b]|=2 for headline; V1-V3 for all five sibling certs.",
+    "BFS closure of <pa,pb> in S_360 = 360 elements (regular); element orders {1:1,2:45,3:80,4:90,5:144}, center 1, classes [1,40,40,45,72,72,90]; abelianization minors gcd(12,15,-20)=1 confirms perfect.",
+    "Confirmed baseline 1/3+1/4+1/5=47/60<1 hyperbolic and that committed perms satisfy baseline relators (quotient separation); confirmed RS file is summary-only with no replayable table (non-load-bearing).",
+    "Live source checks confirm nearest priors address infinite/property-(T), deformation, rigidity, or different relator families, none giving this order-plus-table."
+  ],
+  "residual_risks": [
+    "RS index cross-check ([G:<a>]=120) relies on an uncommitted run summary; headline proof does not need it but the DRAFT overstates its auditability.",
+    "verify_G345k2.py hardcodes an absolute research-workspace path, so the literal replay command needs editing; substance verified by auditor path-independent recomputation.",
+    "Originality search was bounded (arXiv/API-level plus admission triage); an obscure thesis/table could in principle contain the number 360 for this presentation, but no such source surfaced and value fails regardless.",
+    "tc.py contains an unused/buggy perm_image_order helper; not load-bearing for the certificate path used."
+  ],
+  "verdict": "REJECT"
+}
