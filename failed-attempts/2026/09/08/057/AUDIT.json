@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify_annulus.py in Python 3.12.3: exit 0 ALL PASS. Outer sups [-4.6919,-0.1611,-0.0522,-0.2620]x2 <0 (N=40 Lipschitz grid, exact Fractions, L=3|h3|+2|h2|+|h1| valid); inner infs [0.01722,0.01111,0.00246,0.01053]x2 >0 (N=60); O convex CCW, I convex CCW, origin strictly in I, all I verts strictly in O \u2014 all pass. Hence strict transversality/nesting/forward-invariance/existence (Poincare-Bendixson, equilibrium-free since unique equilibrium (0,0) in hole) are computationally sound, corner cases implicitly covered because bounds are over closed edges. Two essential defects remain. (1) Uniqueness proof note is false as written: with F(x)=x^3/3-x, F(1)=-2/3, not 0; positive zero is sqrt(3)~1.732, not a=1; claim 'F<0 on (0,1), F>0 increasing for x>1' is false (e.g. F(1.5)=-0.375). True Li\u00e9nard conclusion (at most one cycle, a=sqrt(3)) still holds but stated derivation is wrong. (2) Item 5 (every closed trajectory T<=530779/5000) proof is invalid: 'A closed curve in a convex body is no longer than its perimeter' is false in general \u2014 a wiggly/simple-indented closed curve inside a convex body can be arbitrarily longer than the body perimeter (perimeter monotonicity gives perim(hull)<=perim(O), while length(gamma)>=perim(hull), yielding no upper bound on length(gamma)). No convexity of the limit cycle is proved. Hence the 106.16 transit bound is asserted without valid proof (numerically true since true T~6.6, but proof != truth). Minor gaps: gap(x)<=1 used for Lg=2(Sm+1) not logged (provable: |h|<=0.481, |y|<=0.41 so gap<1); continuum h(x) in [L(x),U(x)] for |x|<0.2 needed for |F|^2>=max(x^2,gap^2) only checked on grid, not propagated by explicit Lipschitz margin. Because an essential claimed inequality lacks valid proof and a proof note is false, correctness FAILS.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The strong target (two-sided period U-L<=0.05 plus amplitude width<=0.1 disjoint from harmonic predictions with logged margin via validated Taylor-model integrator) would be substantively new, but DRAFT explicitly disclaims it: 'No two-sided period/amplitude enclosure and no harmonic-separation witness: the validated-integrator leg was not completed.' What is actually proved is the fallback: existence of an explicit forward-invariant octagonal annulus enclosing the unique VdP mu=1 cycle plus a coarse one-sided transit bound. That existence is textbook Lienard theory (Lienard 1928; e.g. Perko/Strogatz/Guckenheimer-Holmes construction of a trapping annulus for Van der Pol to apply Poincare-Bendixson, plus uniqueness). Logging one specific rational octagon (outer ~2.87x3.47, inner ~0.4) whose inward/outward pointing follows from dominant-cubic-at-infinity and unstable-focus-linear-part estimates is an arbitrary instantiation of that textbook construction, not a substantive new object or method. Cited nearest works (Lopez et al. 0806.1634 non-rigorous homotopy amplitude; Gimeno et al. 2111.06391 DDE perturbation assuming ODE cycle; Szczelina-Zgliczynski 1607.01080 Mackey-Glass DDE; Amore 2111.12198 non-validated Taylor-Pade; Jerray-Fribourg 2304.01691 qualitative matrix-measure) are correctly distinguished but are not the true nearest prior for the fallback \u2014 the true nearest prior is the analytic Lienard trapping-region existence, which anticipates it. A phrase search returning zero hits and a timestamp do not establish priority. Hence the proved fallback contributes no substantive novelty over textbook existence; originality FAILS (never repairable).",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judging the actually proved fallback separately from the unfinished survey: a huge outer octagon (perimeter ~21.23) with tiny inner hole and one-sided bound T<106.16 (vs true period ~6.6) is a very coarse, author-arbitrary domain, not a canonical exact invariant. No narrow two-sided period/amplitude interval and no harmonic-gap witness are delivered. Under the value standard, a narrow exact invariant can be worth retrieving when the object+invariant were motivated before computation, the value is not known/mechanically implied, and a future researcher could need the precise fact; conversely certification alone does not rescue an arbitrary object or unexplained number. Here some annulus existence was already known via Lienard theory; this specific vertex list and the number 106.16 are not motivated before computation, not known to be needed, and not reasonably retrievable (any large box/small hole works as a future invariant domain; 106 gives no benchmark information beyond what qualitative theory plus uncertified numerics already give). It is a textbook restatement with specific numbers plus a weak coarse estimate, i.e. intrinsic low value / arbitrary scope / missing substantive result, not a bounded presentation gap. Hence value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Replayed verify_annulus.py: ALL PASS (O_ccw, O_convex, O_inward, I_ccw, I_outward, nesting, S_perim P<=530779/25000, S_gap min-slack 0.040756>=0.04, S_transit). Python 3.12.3.",
+      "title": "inputs/artifacts/verify_annulus.py replay"
+    },
+    {
+      "finding": "Recursive homotopy formulas approximate amplitude over whole epsilon range with <0.1% claim; non-rigorous, no annulus, no validated remainder, no period interval. Does not anticipate certified annulus; but also not nearest prior for fallback.",
+      "title": "Formulas for the amplitude of the van der Pol limit cycle",
+      "url": "https://arxiv.org/abs/0806.1634"
+    },
+    {
+      "finding": "Query 'van der Pol trapping annulus validated' returns no results. Confirms phrase novelty only; does not establish substantive priority against textbook Lienard trapping construction.",
+      "title": "arXiv phrase search no-hits",
+      "url": "https://arxiv.org/search/?query=%22van+der+Pol%22+trapping+annulus+validated&searchtype=all"
+    },
+    {
+      "finding": "Standard Lienard theorem + textbook trapping-region construction for Van der Pol (odd F(x)=x^3/3-x with positive zero sqrt(3), g(x)=x) gives existence/uniqueness of cycle via forward-invariant annulus + Poincare-Bendixson. Anticipates fallback existence claim; DRAFT misstates zero as a=1.",
+      "title": "Lienard theorem / textbook Van der Pol trapping region (Perko, Strogatz, Guckenheimer-Holmes; Lienard 1928)"
+    },
+    {
+      "finding": "DRAFT Sec 'What is NOT claimed' admits no two-sided period/amplitude enclosure (U-L<=0.05 target) and no harmonic-separation witness; transit bound T<106.16 is one-sided and weak.",
+      "title": "inputs/DRAFT.md limitation admission"
+    },
+    {
+      "finding": "Independent Fraction checks: F(1)=-2/3, F(1.5)=-0.375, F zero at sqrt(3); I convex (all 8 crosses >0); h(x) inside hole slice at all grid |x|<0.2, but continuum propagation not logged; gap<=1 provable but not logged; perimeter-vs-length lemma false by wiggly-curve counterexample.",
+      "title": "Independent decisive recomputations"
+    }
+  ],
+  "decisive_checks": [
+    "Exact edge-polynomial derivation g(t) coefficients and h(t)=g*nx-(a+bt)*ny verified; Lipschitz majorant max_grid+L/2N valid in exact Fractions.",
+    "Nesting: O convex CCW, I convex CCW (8/8 crosses >0), origin left of all I edges, all I verts left of all O edges \u2014 implies closure(I) subset interior(O).",
+    "Speed: |F|^2=x^2+(y-h(x))^2; outside strip |x|>=9/20 gives >=0.2025; strip argument requires h in [L,U] when |x|<0.2 (grid holds, continuum margin not logged) and gap<=1 (holds: |h|<=0.481, |y|<=0.41) \u2014 fixable gap.",
+    "Lienard zero check: F(1)=-2/3 falsifies 'a=1, F>0 for x>1'; correct a=sqrt(3) \u2014 proof note false as written though conclusion true.",
+    "Transit lemma refutation: closed curve in convex body need not be shorter than body perimeter (indented/wiggly simple closed curve); no orbit-convexity proved, so T<=P/min-speed unproved."
+  ],
+  "residual_risks": [
+    "Transversality/nesting/existence numerics are robust (worst outer margin -0.0522, worst inner margin 0.00246 after slack); small perturbations of vertices preserve strictness, so items 1-3 are stable.",
+    "Uniqueness conclusion is true under corrected Lienard statement (a=sqrt(3)); only the stated derivation is wrong.",
+    "Transit numerical bound 106.16 is almost surely true (true T~6.6) but unproved by given argument; no validated narrow enclosure exists to replace it."
+  ],
+  "verdict": "REJECT"
+}
