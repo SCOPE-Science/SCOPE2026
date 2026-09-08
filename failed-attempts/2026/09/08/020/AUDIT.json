@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Admissibility verified independently: H mod 2={0}, mod 3={0,2}, mod 5={0,1,2,3}, mod 7={0,1,2,3,4,6} (missing 5); nu table 11->8,13->8,17->7,19->8, 23,29,31,37,41,43 ->9 all <p; for p>43 diam=42<p gives 9 distinct residues so nu=9<p. Competing B covers all 7 classes mod 7, inadmissible. Correct. Primality: all nine values 685124351..685124393 pass independent deterministic MR(2,7,61) replication and sympy.isprime (all True); bases valid below 2^32 and values <2^30. Neighborhood primes in [N0-50,N0+82] replicated exactly: 303,339 | 351,353,357,359 | 381,383,387,389,393 | 399,... lower-4 and upper-5 runs consecutive. Census: reran provided numpy segmented sieve (SEG=5e6, 3401 base primes to 31623, verified pi count) and reproduced exactly one hit 685124351; audited boundary defect (last 42 positions per segment unscanned, 8400 gaps incl. tail [999999958,1e9)) by deterministic MR over all gaps: zero hits, so leastness+uniqueness below 1e9 stands modulo standard segmented-Eratosthenes correctness. Singular series: recomputed partial product to 2000 as 868.16232 matching claim; tail bound logic checked term-by-term (k=1 vanishes, k>=2 negative, k=2 gives -36/p^2, cubic remainder C=243.1 with sums <=1e-5 and <=5.1e-11 giving tail in [0.99964,1]); naive X/(log X)^9=0.00141865 and HL=1.229 recomputed exactly. Selberg: G=2*3*5*7*11/3=770 exact verified; main X/G=1298701.30 verified; subset-sieve logic (hits >11 survive, +11 correction) sound; U=1794235.13 with safe-direction round-up (json 1794236.13, DRAFT 1794237 both >= true U) nontrivial and >=1. Minor safe-direction rounding mismatch only. No essential inference or boundary error found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live checks confirm the 9-point pattern is unrecorded: OEIS exact-offset query seq 0,2,6,8,30,32,36,38,42 returns No results (refetched); value search 685124393 returns No results (refetched); base 685124351 appears only in parent 8-point table A059925 (refetched: lists 1006301,...,685124351,... as twin-quadruplet terms, asserts nothing about +42). Nearest priors compared substantively: A059925 records the 8-point core but not the cap; A007530/A338866 record quadruplets and twin-quad counts without any +42 cap or density bracket; A256842 is a different 10-prime pattern; Prime Pages constellation/k-tuple glossary and Maynard 1311.4600 supply admissibility framework and sieve method family but prove asymptotic theorems, no finite 9-point diamond witness or HL/Selberg numbers for H. Bottom-cap inadmissibility at p=7 shows the +42 extension is not a mechanical consequence of the parent. Claim is new, not recorded, not implied, not a rename.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Correct and new but not independently worth finding later. The package is: (a) a one-point cap extension of the known 8-point twin-quad core to H=(0,2,6,8,30,32,36,38,42); (b) a brute-force segmented-sieve first-occurrence/ uniqueness census below 1e9 (observed count 1 vs HL heuristic 1.23, i.e. exactly as expected, no anomaly); (c) textbook evaluations of classical formulas at this single tuple: singular-series product S(H)~866 (the ~866x HL-vs-naive ratio is just S(H) itself, expected to be large for any dense k=9 cluster) and a Selberg Lambda^2 upper bound U~1.79M sifting only to 11, which is ~10^6x above the truth 1 and brackets the count only in the vacuous sense U>=1. No general theorem, no new sieve weights or method (pipeline is standard segmented sieve plus deterministic 32-bit MR), no sharp bound, no anomaly or calibration that constrains or advances the Hardy-Littlewood/Maynard-Tao program; a single-witness leading-term evaluation does not test or refine sieve constants. The citable content reduces to a first-occurrence database record for an ad hoc 9-tuple plus routine formula plug-ins: a mere parameter substitution (one-point cap) with textbook restatements and an unexplained single-tuple enumeration. Fails the independent worth-finding-later bar even though correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "seq:0,2,6,8,30,32,36,38,42 returns No results; 9-point pattern unrecorded.",
+      "title": "OEIS exact-offset search H",
+      "url": "https://oeis.org/search?q=0%2C2%2C6%2C8%2C30%2C32%2C36%2C38%2C42&fmt=text"
+    },
+    {
+      "finding": "Search 685124393 returns No results; cap prime unrecorded.",
+      "title": "OEIS value search 685124393",
+      "url": "https://oeis.org/search?q=685124393&fmt=text"
+    },
+    {
+      "finding": "Lists 685124351 among 8-point twin-quad terms (1006301,...,685124351,724491371,...) but asserts nothing about +42; confirms parent known, cap new.",
+      "title": "OEIS A059925",
+      "url": "https://oeis.org/A059925"
+    },
+    {
+      "finding": "Candidate scripts and logs inspected and re-executed in part; numpy census rerun reproduced single hit; gap positions MR-checked.",
+      "title": "Candidate artifacts census.py, admissibility_mr.py/py, singular.py, selberg.py and JSON logs",
+      "url": "inputs/artifacts/"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed H residues/nu for p<=43 and B mod 7 full coverage; verified p>43 distinctness argument from diam 42.",
+    "Replicated deterministic MR(2,7,61) and sympy.isprime for all nine values; replicated neighborhood prime list and consecutiveness.",
+    "Reran numpy segmented sieve (SEG 5e6, 3401 base primes) reproducing hit [685124351]; enumerated 8400 unscanned segment-tail gaps and MR-tested each for H-hits: none.",
+    "Recomputed singular partial product to 2000 (868.16232), naive 0.00141865, HL 1.229; checked tail-bound derivation and integral sums.",
+    "Verified Selberg G=770 closed form, main term, divisor support 32, safe-direction rounding; noted DRAFT 1794237 vs json 1794236.13 both safe.",
+    "Refetched OEIS exact-offset, cap-value, and A059925 pages for substantive novelty comparison."
+  ],
+  "residual_risks": [
+    "Full 1e9 segmented sieve not re-implemented from scratch with a second independent prime source; trust rests on rerun of provided code plus gap analysis and 71s audit log.",
+    "Singular product to 1e5 (866.3635) not recomputed in audit; tail interval independently checked but product value taken from script.",
+    "Originality search limited to OEIS/Prime Pages/Maynard context; specialized prime-constellation record tables (e.g. Forbes, Prime Pages k-tuple records) not exhaustively searched, though no evidence they contain H.",
+    "Selberg error-ledger arithmetic (495522.83) not line-by-line re-derived; bound direction checked but weight optimality not re-proved."
+  ],
+  "verdict": "REJECT"
+}
