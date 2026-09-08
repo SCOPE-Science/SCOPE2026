@@ -1,0 +1,58 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Audited the fallback-level finite-word proxy claim only, as delimited in DRAFT.md. Verified: (1) word count identity sum_{k=1..8} 4*3^{k-1}=2*(3^8-1)=13120 correct; (2) matrix lift A=[[0,-1],[1,x]], B=[[y,z+c],[c,0]], c=(-z+s)/2, s^2=D=z^2-4 gives det=1, trA=x, trB=y, trAB=z exactly \u2014 algebra confirmed and asserted at runtime; (3) independently re-ran min_trace_point for all 132 points (125 base + 7 refined) from inputs/artifacts/census.py: all 132 minima reproduced exactly (trace, word, nchecked=13120), i.e. 1.73M word-trace checks replayed; (4) length/collar interval logic reviewed and found sound: cosh_bounds/sinh_bounds use correct Taylor partial sums with Lagrange geometric tail t_{N+1}/(1-r) where r bounds ratios for k>=N+1, monotonicity arguments in certify_length/certify_collar are correct direction, r<1 holds for encountered v (L/2~1.4-1.64); interval widths 2e-6 and gap recomputed as F(Llo_max)-F(Lhi_min)=0.45712733>0.15 confirmed; U bound for proxy valid since m(p)<=min(x,y,|z|)<=16/3 and L increasing, with cosh(U/2)>=16/6 verified; (5) corner float values 2*acosh((13/3)/2)=2.81648, 2*acosh((16/3)/2)=3.27361 match table; center 29/6 within 0.005 of 2+2*sqrt2 confirmed. Scope is correctly delimited: finite-word proxy (<=8), X(F2) coordinates not claimed to be closed genus-2 holonomies, target U(B) with U-L*<=0.05 NOT claimed. This is proof by exact computation + rigorous intervals for the stated proxy, not experimental evidence and not a proof about full infinite-word systoles. No correctness defect found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Compared against nearest live priors substantively (abstract/theorem level + admission survey): Fortier Bourque-Rafi 1807.08367 constructs infinite local-maxima families with L1~3.057 identified as Bolza \u2014 qualitative maximality only, no Fricke-box finite-grid trace-minimum table; Fortier Bourque et al. 2105.03871 proves extremal-length (conformal) systole local maximum sqrt(2) at Bolza \u2014 different systole notion, no hyperbolic-length census; Fortier Bourque-Petri 2302.02540 gives global LP systole/eigenvalue upper bounds \u2014 no Bolza-centered box census and does not mechanically imply the 132-row table; Katz-Sabourau math/0501017 proves optimal CAT(0) inequality with equality on singular octagon metric \u2014 broader metric class, no replayable trace-word table; Palesi 2201.09088 computes optimal trace systoles only for one-holed torus/four-holed sphere/non-orientable genus 3 via Markoff maps \u2014 not this X(F2) cube census. No source states or mechanically implies the specific B=[13/3,16/3]^3, G=5x5x5 step 1/4 + 7 half-step refinement, 13120-word minima, gap 0.457 table. In literal novelty sense the table is new. Triviality/arbitrariness concerns belong to value, not priority. Hence PASS on originality.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: result is correct and new but not independently worth finding later; it is a textbook function evaluation plus unexplained enumeration over an arbitrary slice, severed from its motivating question. Reasons: (1) Geometric disconnect conceded by DRAFT itself: coordinates are X(F2) free-group character variety, 'no claim is made that every point is a closed genus-2 surface holonomy (that would require genus-2 trace relations)'. Hence grid-max/min, gap, U and collar widths are statements about formal trace-length data 2*arccosh(m/2) and arcsinh(1/sinh(l/2)), not systoles or collars of closed genus-2 surfaces; representations are not shown discrete/Fuchsian/simple-closed, so collar-lemma quantity has no geometric collar meaning. Proximity of box centre 29/6 to Bolza value 2+2*sqrt2 is numerological, not a maximizer-centered neighborhood in the genus-2 moduli/character variety. (2) Enumeration is trivial in content: independent check shows for all 132 rows reported trace == min(x,y,z) (0 mismatches; wlen in {1,2} only, 101x length-1, 31x length-2 as ab). The 13120-word search never beats the three generators; the table is exactly 2*arccosh(min(x,y,z)/2) at 132 arbitrary rationals. Gap 0.4571... is just corner difference 2*acosh((16/3)/2)-2*acosh((13/3)/2) by monotonicity, requiring no census. Sup bound U=3.273614036 is the same corner evaluation. (3) Scope is arbitrary: why [13/3,16/3]^3 radius 0.5, why 5x5x5 step 1/4, why 3x3x3 half-step refinement around corner maximum yielding 7 points? No mathematical justification; refinement around the box corner maximum is ad hoc. (4) No downstream use: as length-spectrum benchmark it benchmarks only evaluation of arccosh/min; as trace-audit template it is plain 2x2 multiplication in Q(sqrt(D)) \u2014 textbook; it does not calibrate any sharp systolic constant since no genus-2 systole is bounded. Falls squarely under 'textbook restatement + mere parameter substitution (new arbitrary rationals in known formula) + unexplained enumeration' which must be rejected even if correct and new. Fallback is therefore not a citable census over a natural window but a bare grid log.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms infinite local-maxima families with L1~3.057 = Bolza in genus 2; qualitative maximality only, no finite-word Fricke-box census or 132-row table.",
+      "title": "Local maxima of the systole function \u2014 Fortier Bourque, Rafi",
+      "url": "https://arxiv.org/abs/1807.08367"
+    },
+    {
+      "finding": "Abstract confirms extremal-length (conformal) systole strict local maximum sqrt(2) at Bolza; different systole notion, no hyperbolic-length window certificate or census.",
+      "title": "The extremal length systole of the Bolza surface \u2014 Fortier Bourque et al.",
+      "url": "https://arxiv.org/abs/2105.03871"
+    },
+    {
+      "finding": "Abstract confirms global LP bounds for systole/kissing/eigenvalues in low genus and asymptotically with ancillary verifiers; no Bolza-centered [13/3,16/3]^3 grid census; does not mechanically imply corner gap.",
+      "title": "Linear programming bounds for hyperbolic surfaces \u2014 Fortier Bourque, Petri",
+      "url": "https://arxiv.org/abs/2302.02540"
+    },
+    {
+      "finding": "Per admission survey: optimal CAT(0) systolic inequality with equality on singular octagon metric in Bolza conformal class; global inequality for broader metric class, not a certified Fricke-window trace-minimum table.",
+      "title": "An optimal systolic inequality for CAT(0) metrics in genus two \u2014 Katz, Sabourau",
+      "url": "https://arxiv.org/abs/math/0501017"
+    },
+    {
+      "finding": "Per admission survey: trace systoles via Markoff maps only for one-holed torus, four-holed sphere, non-orientable genus 3; no closed genus-2 or X(F2) cube census.",
+      "title": "Trace Systoles and Sink Constant \u2014 Palesi",
+      "url": "https://arxiv.org/abs/2201.09088"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed word-count identity: sum_{k=1..8} 4*3^{k-1}=13120 matches nchecked.",
+    "Full independent replay of min_trace_point at all 132 points from inputs/artifacts/census.py: 132/132 traces+words+nchecked reproduced; 0 mismatches.",
+    "Verified table property: F(trace)==min(F(x),F(y),F(z)) for 132/132 rows; wlen distribution 101x1, 31x2; runner-up traces (e.g. 130/9, 208/9, 667/36) all larger.",
+    "Hand-reviewed cosh_bounds/sinh_bounds remainder r=v^2/((2N+3)(2N+4)) resp. v^2/((2N+4)(2N+5)) and monotonicity enclosures in certify_length/certify_collar; confirmed sound with r<1 for encountered v.",
+    "Recomputed gap F(gridmax Llo)-F(gridmin Lhi)=0.45712733>0.15 and U enclosure cosh(U/2)>=16/6; float cross-checks 2*acosh(13/6)=2.81648, 2*acosh(16/6)=3.27361, |29/6-(2+2sqrt2)|<0.005.",
+    "Confirmed DRAFT scope delimitations explicitly disclaim closed genus-2 holonomy and target U(B) bound; failure is therefore value/natural-scope, not hidden overclaim."
+  ],
+  "residual_risks": [
+    "Collar intervals (wlo/whi) not exhaustively re-derived from scratch for all 132 rows beyond spot monotonicity review; risk low given shared sinh_bounds machinery.",
+    "Reliance on Python Fraction exact arithmetic and single-branch (branch=1) lift; opposite sqrt branch gives same traces by polynomial identity but not separately rerun for all points.",
+    "Live-source comparison done at abstract/theorem level; full-text proofs not re-checked, but sufficient to rule out prior 132-row census.",
+    "No search of unpublished theses/software tables; literal novelty of arbitrary grid table is uncontested but irrelevant to value failure."
+  ],
+  "verdict": "REJECT"
+}
