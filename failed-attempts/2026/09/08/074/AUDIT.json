@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify.py from scratch: reciprocal census OK ([120,180,360,420,504,840,1260,2520], 8 of 48 divisors), witness density OK (2422 covered, 98 uncovered mod 2520), UNSAT OK L=120 nodes=1433516 and L=180 nodes=1207709, ALL FINAL CHECKS PASSED. Independently recomputed: 18-modulus universe, 48 divisors of 2520, E(120)={4,5,6,8,10,12,15,20,24,30} sum L/m=134>=120, E(180)={4,5,6,9,10,12,15,18,20,30} sum=201>=180, scaled sums 2814/2814/3234/3144/2850/3564/3564/3984 vs 2520. DFS completeness verified by inspection: branch on first uncovered n with forced residue n mod m over all remaining moduli is exhaustive; prune sum(L/m)<uncovered is a sound upper bound; caps (20M nodes/300s) not hit; full-set UNSAT => subset UNSAT by monotonicity (extra modulus arbitrary) is valid. Limitations honestly stated (360/420 timeouts, 504/840/1260/2520 open, no minimal-LCM extremal, witness is lower bound only). Non-essential presentation defect: DRAFT writes density 1211/1260 approx 0.960317; in fact 2422/2520 = 1211/1260 = 173/180 approx 0.961111 (0.960317 is 2420/2520=121/126). Covered count 2422 itself is correct, so essential inferences stand.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Strongest remaining substantive claims (reciprocal 8-class sieve + UNSAT of LCM classes 120 and 180 for min>=4) are substantively anticipated and mechanically implied by prior minimal-LCM theorems combined with elementary counting. Harrington et al. arXiv:2605.18644 states as Theorems 1.1-1.2: Dalton-Trifonov m=4 => L>=360; Klein m=5 => L>=1440, m=6 => L>=5040 (no 2-3-5 restriction on those bounds). L=120 and L=180 are both 2^a3^b5^c (hence inside Harrington universe) and both <360. Any distinct covering with min>=4 and lcm|L has m=min>=4: if m=4 contradicts L>=360; if m=5 contradicts L>=1440; if m=6 contradicts L>=5040; if m>=7 contradicts counting (eligible>=7 sums: L=120 gives 15+12+10+8+6+5+4=60<120; L=180 gives 20+18+15+12+10+9+6=90<180, and larger m only smaller). Hence UNSAT for L=120/180 with min>=4 follows directly from cited prior bounds + reciprocal sum, and prior bounds apply to ALL moduli (stronger) while DRAFT restricts to divisors of 2520 <=30 (weaker). Theorem 1.6(i)(ii)(iv) also directly rules out m=4 for exponents (3,1,1)=120 and (2,2,1)=180. The 8-class sieve is exact integer arithmetic sum(1/m)>=1 over 48 divisors, mechanically implied, not a new invariant. The 2422/2520 residue list is an arbitrary non-optimal lower bound with no maximality, not a substantive prior-overlapping theorem but also not a new exact invariant. Agrawal et al. (cardinality<=10), Hough (analytic min-modulus bound), Balister et al. (density/Schinzel) confirm no LCM-pinned table exists, but the minimal-LCM-table prior already decides the two closed classes. Timestamp/failed search does not establish priority; substantive implication does.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Headline target in topic.json (complete feasible/infeasible table + exact minimal LCM L* for min>=4 with witness and UNSAT for every smaller divisor) is explicitly abandoned: DRAFT Sec.6/research_report limitations state classes 360,420 (12/10 timeouts), 504,840,1260,2520 open, no minimal-LCM extremal, no maximal-density claim, no covering-existence verdict. Judging strongest self-contained remainder separately: (a) 8-class reciprocal sieve is trivial counting (sum 2520/m>=2520), not independently retrievable; (b) L=120/180 UNSAT is a strict corollary of stronger prior general minima (see originality), adding no new benchmark; (c) 2422/2520 (173/180 approx 0.961111) 16-modulus partial cover is a one-sided heuristic lower bound with 98 uncovered, no optimality, no density-1 covering, no motivated precise fact a future researcher would need; certification alone does not rescue an arbitrary unexplained number. No maximal-density table, no density-1 witness, no minimal-LCM extremal achieved. Honest partial census does not erase the absence of an independently valuable exact headline invariant.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract + HTML Thm 1.1 (Dalton-Trifonov m=3 L>=120, m=4 L>=360), Thm 1.2 (Klein m=5 L>=1440, m=6 L>=5040), Thm 1.5-1.8 (2-3-5-smooth quadruples, m<=9 bound Thm 1.12), Thm 1.6(i)(ii)(iv) rule out m=4 for L=120 (3,1,1) and L=180 (2,2,1); minimal-LCM table directly implies L=120/180 UNSAT for m=4,5,6.",
+      "title": "Covering systems where the prime divisors of all moduli are only 2, 3, or 5 (Harrington-Klein-Lowrance-Trifonov)",
+      "url": "https://arxiv.org/abs/2605.18644"
+    },
+    {
+      "finding": "Full classification of distinct coverings with at most 10 moduli, min cardinality 11 when moduli exceed 2; cardinality-bounded not LCM-pinned; gives no 2520-slice minimal-LCM extremal.",
+      "title": "Computations and observations on congruence covering systems (Agrawal et al.)",
+      "url": "https://arxiv.org/abs/2208.09720"
+    },
+    {
+      "finding": "Analytic proof least modulus <=1e16 scale; existence bound with no finite LCM-pinned census or witness table.",
+      "title": "Solution of the minimum modulus problem for covering systems (Hough)",
+      "url": "https://arxiv.org/abs/1307.0874"
+    },
+    {
+      "finding": "Density theorems, Schinzel divisibility proof, Hough-bound improvement; analytic, no finite LCM-pinned classification.",
+      "title": "On the Erdos Covering Problem: the density of the uncovered set (Balister et al.)",
+      "url": "https://arxiv.org/abs/1811.03547"
+    }
+  ],
+  "decisive_checks": [
+    "Reran inputs/artifacts/verify.py: reciprocal census OK, witness 2422/98 OK, UNSAT L=120 nodes=1433516 and L=180 nodes=1207709, ALL FINAL CHECKS PASSED",
+    "Recomputed divisors of 2520 (48), U (18 moduli), U4 (16 moduli), E(L) and sums L/m and scaled 2520/m for 8 classes; verified 40 others fail sum>=L",
+    "Verified Fraction(2422,2520)=173/180 approx 0.961111, exposing DRAFT decimal 0.960317 error (equals 2420/2520); covered count itself correct",
+    "Inspected cover.py DFS: forced-residue branching complete, sum(L/m) prune sound, caps not reached; subset monotonicity valid",
+    "Derived L=120/180 min>=4 UNSAT from prior L>=360 (m=4), L>=1440 (m=5), L>=5040 (m=6) plus m>=7 counting (60<120, 90<180); confirmed strictly weaker scope than priors"
+  ],
+  "residual_risks": [
+    "Decimal/fraction-presentation slip (0.960317, unreduced 1211/1260) suggests possible other minor numerical slips though essential counts replay",
+    "Full text of Klein thesis / Dalton-Trifonov proofs not re-verified beyond Harrington citation; audit relies on quoted minimal-LCM bounds which are standard and mutually consistent",
+    "DFS certificate trusts Python big-int bitmask (1<<L) correctness for L<=180; independently replayed but not formally proved; no issue for witness L=2520 direct enumeration"
+  ],
+  "verdict": "REJECT"
+}
