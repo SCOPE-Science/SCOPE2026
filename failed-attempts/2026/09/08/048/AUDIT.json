@@ -1,0 +1,39 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential inferences re-checked independently and pass. F3/F5/F17 identities proved by elementary algebra (verified: (n+1)/(n(k+1))=4/n when n=4k+3; (n+3)/(2nM)=4/n when n+3=8M; (n+7)/(6nM)=4/n when n+7=24M). Coverage table of 8 primes re-ran via inputs/artifacts/verify.py: ALL CHECKS PASSED; each triple re-checked by exact Fraction arithmetic (e.g. 4/5=1/2+1/5+1/10, 4/17=1/6+1/17+1/102). Prime-list completeness holds: 1-mod-4 numbers <73 are 1,5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69 (DRAFT omits 1, immaterial as non-prime); trial division leaves exactly [5,13,17,29,37,41,53,61]. Elimination for 73 is valid integer-congruence reasoning: 73=1 mod4 fails F3 (needs 3 mod4), 73+3=76=4 mod8 fails F5 (needs 0 mod8), 73+7=80=8 mod24 fails F17 (needs 0 mod24), so no integer k,M exists. Witness 4/73=1/20+1/292+1/730 verified: 4/73-1/20=7/1460=(5+2)/1460=1/292+1/730 with 292=4*73, 730=10*73, all denominators positive integers. Result is proved (finite case analysis + congruences + exact rational identity), not mere experimental evidence. Scoped claim is honestly limited in DRAFT Limitations section. Minor presentation slip (omitting 1 from list) does not affect theorem. Hence correctness PASS.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline fact is substantively anticipated by prior classical reduction to 1 mod 24, not new. Salez 1406.6307 Sec 1.1 explicitly gives identities 4/(4t-1), 4/(8t-3), 4/(3t-1) and concludes 'it is then sufficient to prove that 4/p is 3-Egyptian, for any prime p such that p=1 mod 24.' That is exactly the statement that the classical elementary toolkit covers all primes except 1 mod 24. The least prime =1 mod 24 is 73 (1,25,49 composite; 73 prime), a trivial arithmetic consequence. DRAFT's frozen set {F3=n=4k+3, F5=n=8M-3, F17=n=24M-7} is a candidate-defined variant: F3=F5 coincide with Salez's 4t-1 and 8t-3; F17 (17 mod24) is swapped for Salez's 3t-1 (2 mod3) but covers the same <73 1-mod-4 primes needing it (17=3*6-1, 41=3*14-1 are covered by either). Hence Salez's own classical triple also has least 1-mod-4 failure 73 (5,13,29,37,53,61 via 8t-3; 17,41 via 3t-1; 73 fails all three: 1 mod4, 1 mod8, 1 mod3). The threshold 73 is therefore mechanically implied by the long-published covering lemma, not a new sharp parametric-power boundary. Elsholtz-Tao 1107.1010 Sec 10 / Prop 1.9 plus Schinzel obstruction similarly surveys polynomial-identity limits. No freezing of exactly these 3 equations creates priority: narrowing/broadening a classical covering set and recomputing the same 73 is parameter substitution, and a timestamp/failed search does not establish priority. Originality FAIL.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taken as correct, the scoped 3-identity threshold is not independently worth retrieving. The object M is arbitrary: DRAFT admits it is NOT the exhaustive Mordell(1967)/Ionascu-Wilson/Salez list (Salez proves 7 modular equations are complete for degree-1 prime polynomials; Elsholtz-Tao Prop 1.9 lists 4+3 polynomial families), but 3 hand-picked identities. Proving incompleteness of an arbitrarily narrowed subset does not separate parametric power from the full 1948 conjecture and does not tell identity-designers where new ideas must engage \u2014 a broader frozen list (e.g. adding 3t-1 or the other 4 Salez equations) changes/covers 73. The invariant p*=73 is the least prime 1 mod24, mechanically implied by the classical reduction, not a previously unknown/motivated constant a future researcher would need as 'least failure of this exact 3-set.' This is textbook restatement (1-mod-24 reduction) + arbitrary scope + certification of an unexplained narrow datum. Per value instructions, certification alone does not rescue an arbitrary object, and narrow exact data are valuable only when object/invariant were motivated before computation, not known/mechanically implied, and reasonably needed later \u2014 none holds here. Hence value FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Sec 1.1 gives 4/(3t-1), 4/(4t-1), 4/(8t-3) identities and explicitly concludes it suffices to consider primes p=1 mod24. Directly implies least uncovered 1-mod-4 prime is least prime 1 mod24 =73. Also proves 7 modular equations complete for prime polynomials (Sec 2.3-2.4), showing 3-identity core is arbitrary subset.",
+      "title": "The Erdos-Straus conjecture: New modular equations and checking up to N=10^17 (Salez, arXiv:1406.6307)",
+      "url": "https://arxiv.org/abs/1406.6307"
+    },
+    {
+      "finding": "Surveys parametric vs search landscape, Type I/II parametrizations, Schinzel/Yamamoto vanishing at odd squares (Prop 1.6), and Sec 10 / Prop 1.9 classification of polynomial-solvable congruences. Confirms Mordell-type covering theory is prior and broader than frozen 3-set; no least-failure prime claimed, but shows threshold question belongs to known obstruction theory.",
+      "title": "Counting the number of solutions to the Erdos-Straus equation on unit fractions (Elsholtz-Tao, arXiv:1107.1010)",
+      "url": "https://arxiv.org/abs/1107.1010"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py with stdlib Fractions: primes 1mod4 below 73 = [5,13,17,29,37,41,53,61], all 8 coverage triples satisfy 4/p=1/x+1/y+1/z, elimination congruences (76 mod8=4, 80 mod24=8, 73 mod4=1) and witness 4/73=1/20+1/292+1/730 all pass.",
+    "Independently verified F3/F5/F17 algebra and witness decomposition 7/1460=(5+2)/1460.",
+    "Verified 73=1 mod24 and 1,25,49 composite so 73 is least prime 1 mod24; checked Salez Sec 1.1 reduction to 1 mod24 covers same <73 primes (17=3*6-1, 41=3*14-1 via 3t-1; 5,13,29,37,53,61 via 8t-3), so Salez triple has identical first failure 73.",
+    "Confirmed DRAFT Limitations admits scope is 3-identity core only, not full Mordell/Ionascu-Wilson/Salez family, establishing arbitrary scope."
+  ],
+  "residual_risks": [
+    "Mordell 1967 original and Ionascu-Wilson 1001.1100 not directly fetched (one fetch transport error), but Salez HTML + Elsholtz-Tao HTML suffice for decisive prior; additional fetching would only strengthen REJECT.",
+    "Minor DRAFT omission of n=1 from 1-mod-4 list below 73 noted but immaterial to prime claim."
+  ],
+  "verdict": "REJECT"
+}
