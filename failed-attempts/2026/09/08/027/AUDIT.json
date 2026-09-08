@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay passes for every claim actually made. Ran inputs/artifacts/verify_census.py (stdlib Fraction exact): T0 lower-hull reproduces stored 16 tris; T0 unimodular (all area2=1, 12 boundary segments used 1x, interior 2x, no proper crossings), genus |Eint|-16+1=3, core is K4 (4 nodes/6 simple edges, degree 3 each), edge-conn 3; all 12 rows unimodular genus-3 with core edge-conn matching stored values (10x ec=3, 2x ec=2 with one 2-cut each, 0 bridges); 8/8 regular-certified rows re-induce stored tris from stored heights; 0 failures, 8/12 certified as claimed. Independently re-derived: T0 has 18 interior edges, 6 non-convex quads, hence exactly 12 flippable edges matching the 12 rows; each row differs from T0 by exactly one flip (symdiff 4, 2 removed/2 added); 12 new_tris have pairwise distinct S3-canonical forms and differ from T0 canon (recomputed with independent S3 action on barycentric coordinates). Rows 4,5,8,10 honestly recorded heights=null with no regularity claim. Draft explicitly claims NO bitangent count, NO 41-type label, NO real-lift number, so no overclaim there; Section 4 interpretation correctly declines to convert 2-edge-cuts into 7-vs-infinite verdicts. Stale docstring in honeycomb_flip.py describing a bridge witness is not claimed in DRAFT and does not affect the replayed census.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors (Baker-Len-Morrison-Pflueger-Ren 1404.7568: 7-or-infinite dichotomy, 7422 triangulations/1278 S3-classes, honeycomb/Mickey Mouse/bridge skeletal types; Cueto-Markwig 2004.10891: 41 types with 0-or-4 lifts; Geiger-Panizzut 2112.04433/2112.04447 and Geiger 2503.22390 with polymake TropicalQuarticCurves+polyDB) contain no identical table: no published source records this exact random T0 height vector and its 12 flip-neighbour core edge-connectivity split (10x ec3 / 2x ec2). In that narrow sense the table is new and not implied verbatim by the global dichotomy or 41-type classification. Credit is limited because K4 (honeycomb-type) existence, flip enumeration, and dual-graph edge-connectivity are standard mechanical derivations from known enumerations, but no prior result publishes this instance, so originality narrowly passes.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Fails independently-worth-finding-later standard despite being correct and narrowly new. The admitted problem required: full S3-orbit window W at flip-distance<=2 from the honeycomb triangulation with per-orbit 7-vs-infinite verdicts, Cueto-Markwig 41-type labels, per-class 0-or-4 real-lift vectors, plus a proved honeycomb-boundary flip-to-infinite lemma (fallback: complete certified atlas with replay logs). The draft delivers none of these: distance-1 only, no distance-2 census, no lemma, no shape labels, no lifts, no bridge/infinite witness (explicit limitation 4: no ec=1 at distance 1). What remains is edge-connectivity of 12 dual graphs around one random K4-core representative whose identity as THE honeycomb triangulation is explicitly disclaimed (limitation 3: honeycomb-type representative, uniqueness not proved; 12 classes are geometric flips with distinct canons, not a certified secondary-fan S3 quotient). A 2-edge-cut is a flexibility indicator, not the infinite-bitangent criterion (which needs a bridge/contracted loop), and the draft correctly refuses to invoke the BLMR black box \u2014 leaving an unexplained enumeration of 4V/6E core graphs with a 10/2 split and no reusable bitangent certificate. This is a tiny unmotivated fragment / textbook flip-plus-connectivity computation, not a citable genus-3 benchmark or reusable flip-to-bitangent pipeline, and adds nothing beyond polyDB/secondary-fan data for downstream real-enumerative work.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves every smooth tropical plane quartic has 7 or infinitely many bitangent classes; counts triangulations; no flip-window census, shapes, or lifts. Confirms draft's disclaimed content is the actual missing value.",
+      "title": "Bitangents of tropical plane quartic curves (Baker-Len-Morrison-Pflueger-Ren)",
+      "url": "https://arxiv.org/abs/1404.7568"
+    },
+    {
+      "finding": "41-type classification with 0-or-4 real lifts, occurrence depends on type+metric; no honeycomb-neighbourhood census. Confirms draft delivers no shape/lift component.",
+      "title": "Combinatorics and real lifts of bitangents to tropical quartic curves (Cueto-Markwig)",
+      "url": "https://arxiv.org/abs/2004.10891"
+    },
+    {
+      "finding": "Deformation-independence of lift conditions and tropical Plucker-Zeuthen count; tooling/polyDB for 1278 cones; neither maps 7-vs-infinite across a honeycomb window. Cited from topic admission record; establishes that skeleton edge-connectivity alone is not the required census.",
+      "title": "Geiger-Panizzut tropical count + polymake extension + Geiger patchworking",
+      "url": "https://arxiv.org/abs/2112.04433"
+    },
+    {
+      "finding": "Local replay: verify_census.py 0 failures, 8/12 regular-certified; independent S3-canon/flip-completeness/edge-count checks all agree with stored census.",
+      "title": "Candidate artifacts replay (census_d1.json, honeycomb_flip.py, finalize_d1.py, verify_census.py)"
+    }
+  ],
+  "decisive_checks": [
+    "verify_census.py: T0 lower-hull/unimodular/genus3/K4/ec3 PASS; 12/12 rows unimodular+genus3+core-ec match; 8/8 height-induction PASS; 0 failures.",
+    "Independent flip completeness: 18 interior edges - 6 non-convex quads = 12 flips via candidate all_flips; each stored row is a single-flip neighbour (symdiff 4).",
+    "Independent S3-canonical check (barycentric S3 action): 12/12 distinct, all distinct from T0.",
+    "Scope-gap check: DRAFT Sec 6 limitations 1-4 admit no distance-2 W, no lemma, no 41-types, no lifts, 4/12 uncertified regularity, non-canonical base, no bridge \u2014 i.e. neither main claim nor fallback atlas is delivered."
+  ],
+  "residual_risks": [
+    "Wall-cross tstar/delta certificates verified only by re-induction (lower-hull == stored tris), not by minimality or secondary-fan wall analysis; sufficient for regularity but not for flip-graph distance claims beyond d=1.",
+    "S3-inequivalence uses lattice-automorphism canonical form; full secondary-fan S3-quotient completeness of W is explicitly not certified (draft limitation 3).",
+    "honeycomb_flip.py contains stale bridge-witness main() inconsistent with the no-bridge census; unused for the claimed result but a reuse hazard if executed."
+  ],
+  "verdict": "REJECT"
+}
