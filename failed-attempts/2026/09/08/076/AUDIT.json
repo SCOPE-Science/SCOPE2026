@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Fitted W-ball claim verified by independent replay. Re-enumeration confirms 105 total/21 smooth (n=8) and 10395 total/1485 smooth (n=12); artifact sets match (n=8 sets equal, n=12 1485 unique rows). Reduced-word counts match closed forms (156864 for r=4 W=6; 17568 for r=6 W=4). Independent verifier rebuilds SU(1,1) generators from pairings only and rechecks smoothness, edge-loop residual (max 1.0e-13 g2, 1.3e-12 g3 vs 1e-6 threshold), realizing-word length (1e-9), and exhaustive W-ball minimality: VERIFY_OK 21+1485 rows, reproduced. Bolza value 2*arccosh(1+sqrt2)=3.05714183896... correct; trace 2+2sqrt2. DRAFT honestly downgrades to W-ball minima + realized-word upper bounds, global systole conjectural, collar as consistency check only, no interval certs. Non-essential presentation defects noted (DRAFT top-tier decimal 3.3257716488 vs artifacts 3.3257717821 diff ~1.3e-7; claim of tabulated collar half-widths/area not present in JSON keys; 50-digit mpmath and W=5 spot-check logs absent) do not falsify the core W-ball minima, which have large runner-up margins (g2 gap 0.80, g3 top gap ~0.35) robust to double-precision error.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors substantively different quantifiers. Fortier Bourque-Rafi arXiv:1807.08367 constructs infinite families of local maxima (Bolza L1~3.057) \u2014 existence/maximality structure, no per-gluing Fricke word-BFS table with collar enclosures. Bourque et al. arXiv:2105.03871 proves extremal-length systole local maximum sqrt(2) at Bolza \u2014 different metric/invariant, no hyperbolic word census. CAT(0) optimal inequality (math/0501017) and kissing-number bounds (arXiv:1111.3573) count systoles or treat singular metrics, no regenerated Fricke trace-word spectra. No source tables per-gluing systoles over smooth octagon/dodecagon gluings with word logs. Bolza value itself classical and explicitly replayed as witness, not claimed new. Per-gluing W-ball logs are new as computational artifacts.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest self-contained headline (W-ball minima + Bolza witness) is correct and new as a computation but not independently worth retrieving. Motivated invariant was true systole for systolic/maximal-surface calibration; delivered invariant is cutoff-dependent W-ball minimum (W=6/W=4) plus realized-word upper bounds with no lower-bound proof (collar used only as consistency check; JSON contains no collar/area fields; research_report admits no lower-bound proof). W-ball minima are not geometric invariants (depend on generator choice and W) and a future worker needing exact systoles cannot cite them as systoles. Tier values are mechanically implied: 20/21 g2 rows at 2.2567679299 realized by single generators (cosh(L/2)=1.70710...=1+sqrt2/2, the common side-pairing translation length of the regular octagon); 1214/1485 g3 rows at 2.4718020466 realized by single generators (cosh=1.86602...=1+sqrt3/2). Only distinctive row (opposite/Bolza pairing at 3.05714...) replays the long-known Bolza value, not a new inequality; g3 top tier (7 rows at ~3.32577, length-2 words) is explicitly scope-relative, not a global genus-3 maximum. Census collapses to 2-3 tiers of short-word upper bounds over a regular-polygon Teichmuller slice. Certification (VERIFY_OK) alone does not rescue cutoff-dependent numbers. This is an unexplained enumeration of upper bounds / tiny-slice artifact, not a rigorously established new exact invariant of the motivated object. Rescuing would require global optimality certification beyond cutoff (unbounded search + genuine lower-bound proof), which is a new research direction, not a bounded addition.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Constructs infinite families of local maxima; Bolza is L1~3.057 case. Existence/maximality only; no per-gluing Fricke word-BFS systole table with collar certificates.",
+      "title": "Local maxima of the systole function",
+      "url": "https://arxiv.org/abs/1807.08367"
+    },
+    {
+      "finding": "Proves extremal-length systole attains strict local maximum sqrt(2) at Bolza. Different invariant/metric; no hyperbolic word census over octagon/dodecagon gluings.",
+      "title": "The extremal length systole of the Bolza surface",
+      "url": "https://arxiv.org/abs/2105.03871"
+    },
+    {
+      "finding": "Optimal systolic inequality for CAT(0) genus-2 metrics, equality on flat singular Bolza-conformal metric. Different class/method, no Fricke-trace enumeration.",
+      "title": "An optimal systolic inequality for CAT(0) metrics in genus two",
+      "url": "https://arxiv.org/abs/math/0501017"
+    },
+    {
+      "finding": "Upper bounds on kissing numbers with sub-quadratic growth. Counts systoles rather than enclosing per-surface values via Fricke word spectra.",
+      "title": "Kissing numbers for surfaces",
+      "url": "https://arxiv.org/abs/1111.3573"
+    }
+  ],
+  "decisive_checks": [
+    "Independent fixed-point-free involution enumeration: 105->21 (n=8), 10395->1485 (n=12); artifact set equality (n=8) and uniqueness (n=12 1485/1485).",
+    "Word-count identities: sum_{k=1..6} 8*7^(k-1)=156864; sum_{k=1..4} 12*11^(k-1)=17568, matching counts.hyp.",
+    "Independent verifier replay from pairings only: VERIFY_OK 21 rows (W=6) and 1485 rows (W=4) \u2014 smoothness, relation residual, word-length, W-ball minimality.",
+    "Tier collapse: g2 20x2.2567679299/1x3.0571418390; g3 1214x2.4718020466/264x3.2510592691/7x3.3257717821; majority tiers realized by length-1 generator words with cosh(L/2)=1+sqrt2/2 and 1+sqrt3/2 \u2014 mechanically implied common generator length.",
+    "Artifact audit: no collar/area fields in JSON keys; DRAFT top-tier decimal mismatches artifacts by ~1.3e-7; 50-digit and W=5 logs absent; collar is consistency check, not lower-bound proof per limitations."
+  ],
+  "residual_risks": [
+    "Double-precision without directed-rounding interval certs: low risk given large margins (0.35-0.80) but not a fully rigorous proof; noted honestly in DRAFT.",
+    "Orientation-preserving restriction assumed in enumeration; verifier does not independently check generator hyperbolicity beyond in-ball ell/par counts.",
+    "W=5 stability and 50-digit Bolza enclosure claimed without committed logs \u2014 unverified ancillaries."
+  ],
+  "verdict": "REJECT"
+}
