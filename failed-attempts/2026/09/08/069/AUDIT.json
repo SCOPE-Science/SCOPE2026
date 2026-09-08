@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "The 21-sum (off-diagonal, p<q) computations themselves replay correctly: `verify_dps_spiked7.py` exits VERIFY_OK, and independent rechecks confirm all 29 candidates have exactly 7 lattice points, the claimed 15/14 off-diagonal split, the P* lattice census {(-1,-1,-2),(0,0,0),(0,0,1),(0,0,2),(0,1,0),(1,0,0),(1,1,7)}, facets, normalized volume 19, width 2, and 21 distinct off-diagonal sums. Width claims (all 2 except T3.3(4) = 3) and subfamily-maximal volume 19 among the 15 off-diagonal-distinct classes also recheck correctly. However the essential inference fails: DRAFT defines 'dps' as 21 off-diagonal sums distinct while citing Choi-Lam-Reznick Lemma 1 / Blanco-Santos, whose dps means all N + C(N,2) = 28 sums (including doubles 2v_i) distinct, equivalently no three collinear points and no parallelogram. DRAFT Sec.1's 'iff' characterization of 21-sum distinctness via collinearity/parallelogram is mathematically false (e.g. collinear (0,0,0),(0,0,1),(0,0,2) gives distinct off-diagonal sums 1,2,3; midpoint relations 2b=a+c collide only via a double). Decisively, every one of the 29 classes \u2014 including all 15 claimed 'dps' and the P* witness, which contains (0,0,0),(0,0,1),(0,0,2) \u2014 contains a collinear lattice triple, so under the cited standard definition the true split over these 29 classes is 0 dps / 29 non-dps (independent recount: standard-distinct = 0/29), and P* (27/28 standard sums, since 2*(0,0,1) = (0,0,0)+(0,0,2)) is not a dps polytope. Hence the headline '15 dps' census and 'maximal-volume dps witness' are false as stated under their own citations; only a nonstandard weak-variant computation is correct.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Compared substantively against the cited program: Choi-Lam-Reznick defines standard dps and proves N<=2^n; Blanco-Santos (6-point) reports 44+1 standard dps among 74+2 width>1 classes and states the dim-3 cap of 8; Blanco-Santos (enumeration to 11 points, 216453 classes) stratifies by point count/width via boxed/spiked/merged, never by pair sums. The admitted novelty was a 7-point standard-dps split plus dps extremal. What is delivered is an off-diagonal (weak) 21-sum split: unrecorded as such, but presented under the standard 'dps' name with the standard program's novelty credit (8-point cap, 6-point counts, additive-combinatorics/Ehrhart downstream use). Under the cited standard definition, the paper's headline is not a new true result \u2014 Lemma 1 (2000) already refutes every claimed 'dps' example via their collinear triples, and the true standard split on this fragment (0/29) is read off from collinearity rather than a new census, with no dps extremal existing in the fragment. The weak-variant table has no literature standing and cannot inherit the standard-dps gap; claiming the standard program's open stratum while computing a different predicate is a substantive priority misclaim, not a failed-search technicality.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judging the strongest headline separately and honestly noting the admitted fallback scope (constructive spiked 7-point fragment only; boxed/merged and width-1 untouched; 'maximal volume' restricted to the subfamily): the exactly-computed weak-variant facts (15/14 off-diagonal split; P* volume 19 as subfamily weak-maximum) are rigorous but independently unretrievable-value fails. The object/invariant/motivation chain was established before computation only for standard dps (recognized Blanco-Santos program, 8-point cap, sums-of-squares/additive-combinatorics use); the computed predicate drops the doubles, which voids the cap proof, the Lemma-1 characterization, and the stated downstream uses, and no independent motivation for the off-diagonal-only variant is given. A subfamily-restricted volume maximum (19) of a nonstandard property, alongside a non-dps volume-27 class (T3.3(4)) and a tied-19 non-qualifier (T3.3(7a-1)) in the same fragment, is an unexplained number of an arbitrary slice: certification alone does not rescue it. This is a definitional-variant enumeration plus fragment-restricted extremum without a motivated exact invariant of a natural object, i.e. intrinsic low value / missing substantive standard-dps result, not a bounded presentation gap.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Defines dps via all N+C(N,2) sums (including 2v_i) distinct; Lemma 1: equivalent to no parallelogram vertices and no three collinear points; proves N<=2^n; constructs 2^n-point maximal examples; SOS motivation. P* with collinear triple is non-dps by this definition.",
+      "title": "Lattice polytopes with distinct pair-sums (Choi/Lam/Reznick)",
+      "url": "https://arxiv.org/abs/math/0011068"
+    },
+    {
+      "finding": "Classifies 74 width-2 + 2 width-3 six-point width>1 classes; reports exactly 44+1 dps (standard sense, asterisk = no (2,1)/(2,2) circuit); states dim-3 dps cap 8; dps motivation incl. Reznick questions. No 7-point dps table.",
+      "title": "Lattice 3-polytopes with six lattice points (Blanco/Santos)",
+      "url": "https://arxiv.org/abs/1501.01055"
+    },
+    {
+      "finding": "Boxed/spiked/merged procedure enumerating all width>1 lattice 3-polytopes to 11 points (216453 classes), stratified by point count and width \u2014 no pair-sum stratification; provides the universe the candidate re-tests.",
+      "title": "Enumeration of lattice 3-polytopes by their number of lattice points (Blanco/Santos)",
+      "url": "https://arxiv.org/abs/1601.02577"
+    }
+  ],
+  "decisive_checks": [
+    "Ran inputs/artifacts/verify_dps_spiked7.py -> VERIFY_OK (29 classes, 15/14 off-diagonal split, 406-pair inequivalence, witness vol 19/6 width 2).",
+    "Independent recount: off-diagonal (i<j) distinct-count reproduces claimed 15/14 exactly; standard (i<=j) distinct-count is 0/29 dps \u2014 all 29 contain a collinear lattice triple (has_collinear=True for every class).",
+    "Witness P* replay: lattice census, sorted 21 off-diagonal sums (21 distinct) vs 27/28 standard sums with explicit collision 2*(0,0,1)=(0,0,0)+(0,0,2); facet list, fan volume 19/6, width 2 all confirmed.",
+    "Volume cross-check over 29: weak-distinct max is 19 (unique, P*); fragment also contains non-weak vol-27 (T3.3(4)) and non-weak vol-19 (T3.3(7a-1)), so 'maximal' is predicate-and-fragment restricted.",
+    "Width brute-force recheck over [-6,6]^3 primitive functionals matches claimed widths (2 everywhere except T3.3(4)=3)."
+  ],
+  "residual_risks": [
+    "Completeness of the '29 constructive spiked size-7 classes' against Blanco-Santos Thms 3.2/3.3 was taken as given (fallback scope); only the dps labels, census, inequivalence replay, and witness certificate were re-verified, not a from-scratch derivation from the theorems.",
+    "The 406-pair unimodular-inequivalence check was relied upon via the verifier's VERIFY_OK run, not re-implemented by a second independent equivalence engine.",
+    "Web-source comparison used arXiv abstracts plus full-text HTML for Choi-Lam-Reznick and the 6-point paper; the 11-point enumeration supplement data files were not downloaded."
+  ],
+  "verdict": "REJECT"
+}
