@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Upper bound is valid: Petersen 1-factor theorem for bridgeless cubic graphs (cited classical theorem, not re-proved) implies any independent set meets each matched edge at most once, so alpha(G) <= n/2 for every admissible G. Lower bounds independently re-verified from witnesses.json edge lists only with a separate implementation: all 7 witnesses are simple (no loops/duplicate edges), exactly 3-regular with 3n/2 edges, connected, bridgeless (Tarjan, 0 bridges), bipartite, girth exactly as claimed (12-g4=4, 14-g4=4, 14-g6=6, 16-g4=4, 16-g6=6, 18-g4=4, 18-g6=6), and carry an explicit independent set of size n/2. Brute-force cross-check on n=12 prism gives alpha=6, confirming equality not just >=. Hence for each claimed cell M(n,g) >= n/2 and <= n/2, so = n/2. Boundaries honest: (12,6) emptiness via (3,6)-cage order 14 is correct classical fact and no witness is offered; girth-3 sampling bests and girth-5 observations are explicitly labeled as computed evidence/conjectures with no optimality claimed; abandoned exhaustive generation is disclosed and plays no role in the proof. Proof versus experiment is correctly distinguished.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No prior publishes the stated M(n,g)=max-alpha table for cubic bridgeless 12-18 as a maximum with proof. Nearest priors are substantively different invariants: Balogh-Kostochka-Liu (arXiv:1708.03996) bounds asymptotic infimum i(3,infinity)<=0.454; Perarnau-Perkins (arXiv:1611.01474) proves counting/independence-polynomial extremality of Heawood/Petersen unions; Dvorak-Sereni-Volec (arXiv:1301.5296) proves universal fractional-chromatic 14/5 lower bound (alpha/n>=5/14). None defines or implies per-order exact maxima M(n,g) or a separated gap witness for this window. The witness graphs themselves are classical (prisms, Heawood, GP(8,3)/Moebius-Kantor, Pappus-type) and the two textbook lemmas used are classical, so mechanical implication is a value defect, not a prior-publication defeat; no identical table with maximality certificate was found. Priority is decided by substantive comparison, not by timestamp or failed search.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The 7-cell headline M(n,g)=n/2 is a textbook restatement / mechanically implied ceiling, even if correct and narrowly new as a table. For any (n,g) cell containing one bipartite bridgeless cubic graph, M=n/2 follows in one line: bipartite partite set gives alpha>=n/2; Petersen matching gives alpha<=n/2 for every cell member. The entire content therefore reduces to existence of a bipartite example per cell. Five cells are classical existence: (12,4)/(16,4) hexagonal/octagonal prisms (infinite bipartite prism family, m even); (14,6) Heawood unique (3,6)-cage; (16,6) GP(8,3)=Moebius-Kantor (n even, k odd => bipartite, girth 6); (18,6) 18-vertex bipartite cubic girth 6 (Pappus graph is the textbook 18-vertex cubic bipartite girth-6 example; the committed ring-plus-offset-5 graph is the same stratum). The remaining two witnesses (14,4)/(18,4) are explicitly disclaimed as arbitrary computer-found adjacency data with no canonicity, novelty, or mathematical interpretation claimed. No separated integer gap exists by the authors' own admission (all maxima hit the n/2 ceiling; ties are the rule), so the original gap-witness target failed; no complete M(n,g) table was delivered (girth 3 and 5 explicitly unclaimed). No conjecture is tested, no heuristic needs this precise tabulation beyond consulting standard cage/prism references, and the B&B pipeline is admittedly unused for the final upper bounds. Per the standard, a narrow exact datum can pass only when motivated before computation, not mechanically implied, and reasonably retrievable later; here the value is mechanically implied by cited 1891 + bipartite facts plus known graphs, and certification alone does not rescue arbitrary objects. This is intrinsic low value, not a fixable presentation defect.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves i(3,infinity)<=0.454 asymptotic infimum bound; no finite per-order M(n,g) maxima or gap witness.",
+      "title": "Balogh-Kostochka-Liu, Cubic graphs with small independence ratio (arXiv:1708.03996)"
+    },
+    {
+      "finding": "Heawood unions maximize / Petersen unions minimize counts of independent sets for given girth; different invariant (counts/polynomial), not max alpha/n table.",
+      "title": "Perarnau-Perkins, Counting independent sets in cubic graphs of given girth (arXiv:1611.01474)"
+    },
+    {
+      "finding": "Every subcubic triangle-free graph has fractional chromatic number <=14/5, i.e. universal alpha/n>=5/14 lower bound; not per-order maxima.",
+      "title": "Dvorak-Sereni-Volec, Subcubic triangle-free graphs have fractional chromatic number at most 14/5 (arXiv:1301.5296)"
+    },
+    {
+      "finding": "Petersen 1-factor theorem (bridgeless cubic => perfect matching) via Diestel Cor. 2.2.2; textbook upper-bound lemma used correctly.",
+      "title": "Petersen 1891 / Diestel Graph Theory (classical theorem)"
+    },
+    {
+      "finding": "Prism graphs C_m x K2 bipartite iff m even (covers n divisible by 4, girth 4); Heawood unique (3,6)-cage on 14 vertices; GP(8,3)=Moebius-Kantor bipartite girth 6; Pappus 18-vertex cubic bipartite girth 6 \u2014 classical existence covering 5 of 7 cells.",
+      "title": "Classical cubic families/cages (prisms, Heawood, Moebius-Kantor, Pappus) \u2014 textbook knowledge"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed from witnesses.json with independent code: 7/7 cubic, connected, 3n/2 simple edges, 0 bridges, bipartite, girth matches claim (4,4,6,4,6,4,6), independent witness of size n/2 verified independent.",
+    "Brute-force alpha=6 on 12-prism confirms alpha==n/2 equality; bipartite+Petersen sandwich needs no B&B.",
+    "Verified DRAFT explicitly withholds girth-3, girth-5, and completeness claims; (12,6) emptiness consistent with (3,6)-cage order 14.",
+    "Confirmed no separated gap possible under n/2 ceiling: headline is all-ties, original gap-witness target admitted absent."
+  ],
+  "residual_risks": [
+    "Live web retrieval unavailable in audit sandbox (Wikipedia fetches returned transport errors); originality comparison rests on admission-cited arXiv sources plus textbook classical-graph facts, not on fresh exhaustive web search. Risk is low for the value verdict because mechanical-implication argument does not depend on finding an exact prior table.",
+    "Name identifications (Heawood, GP(8,3), Pappus-type) not isomorphism-checked against canonical references; immaterial because parameter verification (order/girth/bridgeless/bipartite/alpha) alone sustains the M=n/2 inference."
+  ],
+  "verdict": "REJECT"
+}
