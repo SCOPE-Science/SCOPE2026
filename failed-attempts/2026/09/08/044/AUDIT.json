@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All exact subclaims replay from committed integer data and are mathematically valid. (a) f(c)=c*(2a/3)+b on c^2=-a/3 verified; doubly-fixed forces 2b=0 and 2a/3=1, unique fiber (3/2,0), remainder check PASS; swap fiber (-3/2,0) verified f(c)+c vanishes and f(c)-c remainder -2c!=0, uniqueness follows by adding/subtracting the two critical equations (b=0, a=-3/2) though text states it tersely. (b) At (-3,0) integer logs +1->-2->-2 and -1->+2->+2 with fixed endpoints verified exactly. (c) deg Pn=3^{n-1} by induction verified 1,3,9,27; P1|P3 quotient degree 8 and P2|P4 quotient degree 24 verified by exact division; Q3(0)=Q4(0)=1, gcd(Q3,P2)=gcd(Q4,P2)=1, discriminants nonzero, evenness all PASS (recomputed independently); Q3=B^8+3B^6+3B^4+B^2+1 irreducible, Q4 degree-24 irreducible; counts 1,1,4,12 under b~-b via z->-z follow because 0 is not a root so pairing is free. n=1,2 explicit realizers b=0 (0->0) and b=i (0->i->0) exact. n=3,4 existence via FTA+separability/coprimality is a complete existence proof; numeric b3~0.55757+0.54035i, b4~0.58384+0.27022i with residuals ~1e-15 are honestly labeled supplementary, not claimed as proof. (d) Empty fiber e1-e2=4ACc/3 verified symbolically; e1=e2=0 forces A=0 or Cc=0, both collide criticals, so no distinct-critical realizer \u2014 valid. Limitations are stated honestly: partial census only, no list L, no Levy/Thurston-matrix certificate, no isolating boxes for b3/b4, gap pair algebraic-combinatorial. Distinction between proof and numerics is maintained. No boundary error found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The promised delta \u2014 complete period<=4 list L with per-portrait Levy-cycle logs, explicit (a,b) realizers and resultant elimination \u2014 is explicitly absent (DRAFT Sec.3 admits no L, no Levy certificate, no general a!=0 resultants). What remains is substantively implied by prior general theory plus routine algebra, not a new classification. Nearest priors: Poirier math/9305207 gives the critical-portrait framework of which (a)(b)(d) are one-line linear substitutions f(c)=c*2a/3+b; Floyd et al. 2105.10055 proves every abstract polynomial portrait is realized topologically and classifies unobstructed-only cases, so the general realizability criterion already exists and the single linear-incompatible portrait (c fixed, -c->c) is a trivial fiber-emptiness from e1-e2=4ACc/3, not a new Levy obstruction type and not the claimed adjacent Thurston pair; Blokh et al. 2304.11516 and Thurston et al. 1906.05324 give cubic-locus/portrait tools, not a census, but standard unicritical dynatomic theory (deg f^n(0)=3^{n-1}, Moebius quotient, oddness=>evenness) mechanically implies deg Q3=8, deg Q4=24 and counts 4,12 up to b~-b \u2014 a parameter substitution (n=3,4) any expert reproduces in minutes. The symmetric cubics z^3-3z (Chebyshev-type, 1->-2 tails) and z^3+/-1.5z are classical PCF examples, not new witnesses. No source was found publishing the same partial table verbatim, but a failed search does not establish priority; substantive comparison shows textbook restatement + routine dynatomic degrees, not an independent finite-window completeness or new gap extremal.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "The independently valuable headline \u2014 complete realizability table plus certified obstructed-vs-realized Levy gap locating first bicritical obstructions \u2014 is missing by the authors' own admission. The remaining fragment does not advance the recognized Thurston-rigidity/Hubbard-tree/cubic-locus question: (a)(b) are two rational symmetric fibers solvable by linear equations; (c) is standard unicritical degree arithmetic (1,1,4,12) with n=3,4 existence non-constructive and no boxes/minimal polynomials; (d) is linear incompatibility, not a Levy cycle, and paired gap is algebraic-combinatorial, not the targeted Thurston gap. These are mechanically implied exact data any future researcher recomputes instantly from definitions, not precise facts reasonably needing retrieval (e.g., z^3-3z tails and unicritical degree counts are exercises). Certification via sympy replay is correct but does not rescue an arbitrary narrow slice under the stated standard. The partial table plus dynatomic fragment, while honestly described, is an unexplained enumeration fragment / textbook restatement with tiny unmotivated scope (three symmetric points + unicritical line) and no demonstrated downstream calibration use beyond assertion. Intrinsic low value and missing substantive result; no bounded addition without new research (full L, Levy logs, general resultants) would create the claimed value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General effective classification via critical portraits; framework paper. DRAFT (a)(b)(d) are direct linear specializations f(c)=c*2a/3+b of this framework, not a new census.",
+      "title": "On postcritically finite polynomials, part 1: critical portraits (Poirier)",
+      "url": "https://arxiv.org/abs/math/9305207"
+    },
+    {
+      "finding": "Proves every abstract polynomial portrait is realized topologically and classifies unobstructed-only cases. General theorem covers realizability landscape; DRAFT provides no Levy certificate and its empty-fiber example is distinct-critical holomorphic emptiness by linear algebra, not a new Thurston-obstruction classification.",
+      "title": "Realizing polynomial portraits (Floyd-Kim-Koch-Parry-Saenz)",
+      "url": "https://arxiv.org/abs/2105.10055"
+    },
+    {
+      "finding": "Locally connected model of cubic connectedness locus boundary via portrait decomposition; locus structure, no per-portrait period<=4 realizability table. Confirms motivation but DRAFT does not supply the missing table.",
+      "title": "A model of the cubic connectedness locus (Blokh-Oversteegen-Timorin-Wang)",
+      "url": "https://arxiv.org/abs/2304.11516"
+    },
+    {
+      "finding": "Primitive majors / core-entropy tools bypassing Hubbard trees; combinatorial tools, no small-period cubic portrait census with gap pair.",
+      "title": "Degree-d-invariant laminations (Thurston et al.)",
+      "url": "https://arxiv.org/abs/1906.05324"
+    },
+    {
+      "finding": "Replayed inputs/artifacts/audit_portraits.py ALL OK; independently recomputed deg Pn, Q3=B^8+3B^6+3B^4+B^2+1, Q4 degree-24 polynomial, divisibility, gcd=1, disc!=0, evenness, irreducibility over ZZ, and integer orbit logs. Correctness confirmed; originality/value assessed as routine.",
+      "title": "Candidate script + independent recomputation",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Substituted committed (a,b) into f(z)=z^3+az+b and recomputed critical relation f(c)=c*2a/3+b mod c^2+a/3; verified B1/B2 remainders and uniqueness linear algebra, B3 integer orbits, U1/U2 orbits.",
+    "Recomputed P1..P4 degrees 1,3,9,27, exact divisions P1|P3 (Q3 deg 8) and P2|P4 (Q4 deg 24), Q(0)=1, gcds=1, discriminants nonzero, evenness, Q3/Q4 irreducible \u2014 counts 1,1,4,12 under b~-b follow; verified P1|P2 so P2 already contains periods 1-2.",
+    "Verified empty-fiber identity e1-e2=4ACc/3 symbolically; A=0 or Cc=0 both imply colliding criticals, so distinct-critical fiber empty \u2014 elementary, not Levy.",
+    "Compared each subclaim substantively to Poirier/Floyd/Blokh/standard dynatomic theory: all are one-line specializations or Moebius degree substitutions; confirmed DRAFT Sec.3 admits no complete L and no Levy/Thurston-matrix log, erasing the admission-time completeness+gap delta."
+  ],
+  "residual_risks": [
+    "Full Floyd et al. proofs not re-read; comparison at abstract/theorem level plus standard portrait definitions is sufficient to judge that a single linear empty fiber is not a new Levy classification, but a line-by-line portrait-definition mapping was not attempted.",
+    "No exhaustive web search for verbatim '1,1,4,12 unicritical cubic' strings; even if no verbatim table exists, substantive mechanical-implication judgment stands and does not rely on search failure."
+  ],
+  "verdict": "REJECT"
+}
