@@ -1,0 +1,64 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem formula verified line-by-line and computationally. Determinant gives normalized volume q=2k+1. Facet description (1) correctly solves barycentric coordinates. N(y) lemma uses q odd so 2s/q is never integral and floor-minus-ceil equals -1; correct, and the N<0 edge case yields count 0 consistently (minimum N is -1). Hockey-stick summation gives L_k(t)=C(t+3,3)+(q-1)C(t+1,3)=(qt^3+6t^2+(12-q)t+6)/6, hence c1=(11-2k)/6 and cutoff K*=6. Corollaries L_k(1)=4 (empty), width exactly 1 via e3 (values 0,0,1,1, non-constant so at least 1 and at most 1), and h*=(1,0,q-1,0) via the standard Ehrhart-to-h* basis change all follow. Re-ran inputs/artifacts/verify_wk.py: facet==barycentric on 9900 points, brute counts==closed form for k=1..12 t=0..4, reciprocity interior==-L(-t), N(y) lemma, h* convolution identity, emptiness plus width all OK (ALL VERIFY_OK). Proof is complete, not merely experimental.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline closed form and K*=6 are substantively identical to long-known empty-tetrahedron facts, not a new diagonal-specific boundary. Ferroni-Higashitani survey arXiv:2307.10852 Example 2.4 gives the Reeve Ehrhart polynomial with linear coefficient (11-q)/6 and flags negativity at q=12; Remark 2.6 states 3D empty simplices all have h* of the form 1+qx^2 (empty iff h1=hd=0). Via the standard identity E(x)=sum h_j C(x+3-j,3), stated in the same survey, this mechanically implies L(t)=C(t+3,3)+(q-1)C(t+1,3) and c1=(12-q)/6 for ANY empty tetrahedron of normalized volume q. White 1964 (via Iglesias-Santos background) already gives emptiness and width-1 for W_k. Independent check by the auditor: brute lattice counts for apex (p,q,1) with p=1 vs p=2 at the same q coincide for q=3..13, t=1..3, confirming the Ehrhart polynomial sees only q, so the p=2 diagonal adds no Ehrhart content over the classical Reeve ladder. Solving (12-(2k+1))/6<=0 to get K*=6 is elementary algebra on the known volume-determined coefficient, i.e. parameter substitution to the odd subsequence q=2k+1. No prior source prints the integer label K*=6, but a label/timestamp absence does not establish priority; the substance is implied. The nearest HNF, sign-pattern, and multi-width sources are disjoint, but the Reeve/White general facts cover the claim.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Textbook restatement plus mere parameter substitution with no independently retrievable delta. The result is a corollary of the known volume-determinacy of empty-tetrahedron Ehrhart polynomials: once h*=(1,0,q-1,0) is known, c1(k), the monotonicity step -1/3, and the cutoff K*=6 follow by expanding binomials and solving a linear inequality. The object (p=2 diagonal) is natural as an empty class and the positivity program is genuinely motivating, but the invariant value IS mechanically implied by published formulas, so it fails the narrow-datum exception which requires the value to be not known or mechanically implied. A future researcher needing c1 for any empty tetrahedron of volume q would use the general formula, not a p=2-diagonal table. Certification (9900-point agreement, brute recounts, reciprocity) does not rescue a volume-forced number. Falls under reject categories: textbook restatement, parameter substitution (odd-volume subsequence), and relabeling of the classical Reeve q-around-11/12 zero-crossing as K*=6.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Example 2.4: Reeve tetrahedra Ehrhart E=(q+1)/6 x^3+x^2+(11-q)/6 x+1 with negative coefficient at q=12; general Ehrhart/h* change-of-basis background.",
+      "title": "Ferroni-Higashitani Examples and counterexamples in Ehrhart theory (2023) arXiv:2307.10852",
+      "url": "https://arxiv.org/abs/2307.10852"
+    },
+    {
+      "finding": "3D empty simplices characterized via White; h* all of form 1+qx^2 (empty iff h1=hd=0). Directly implies the draft formula via the standard basis change.",
+      "title": "Ferroni-Higashitani Remark 2.6 / White 1964 background",
+      "url": "https://arxiv.org/html/2307.10852v4"
+    },
+    {
+      "finding": "Width-1 multi-width classification; orthogonal to coefficient signs, width-1 background only.",
+      "title": "Hamm Classification of width 1 tetrahedra (2023) arXiv:2304.03627",
+      "url": "https://arxiv.org/abs/2304.03627"
+    },
+    {
+      "finding": "Sign patterns via Reeve-pyramid x hypercube products in dim>=4, d=7,8,9 solution; not a dim-3 White-diagonal cutoff.",
+      "title": "Liu-Tao-Xin Sign Pattern Problem (2025) arXiv:2509.17714",
+      "url": "https://arxiv.org/abs/2509.17714"
+    },
+    {
+      "finding": "Complete sign-pattern solution via S_d(m) x Reeve; general existence, not a sharp c1 threshold on the White p=2 diagonal.",
+      "title": "Liu-Tao-Xin Explicit Construction (2026) arXiv:2605.23544",
+      "url": "https://arxiv.org/abs/2605.23544"
+    },
+    {
+      "finding": "Two HNF families with RUT/h* formulas and positivity; parametrization disjoint from White apex (2,2k+1,1), no c1 cutoff.",
+      "title": "Bruckamp-Caicedo-Juhnke HNF simplices (2026) arXiv:2608.28282",
+      "url": "https://arxiv.org/abs/2608.28282"
+    },
+    {
+      "finding": "White 1964 classification background for empty 3-simplices; classification framework, no positivity cutoff.",
+      "title": "Iglesias-Santos Complete classification of empty 4-simplices (2019) arXiv:1908.08933",
+      "url": "https://arxiv.org/abs/1908.08933"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_wk.py: ALL VERIFY_OK (facet==barycentric 9900 pts, brute==closed k=1..12 t=0..4, reciprocity, N(y) lemma, h* identity, L(1)=4 plus width).",
+    "Hand-verified determinant -q, facet inequalities (1), N(y)=t-a vs t-a-2 via q odd (2s=q impossible), hockey-stick sums, expansion to (qt^3+6t^2+(12-q)t+6)/6.",
+    "Cross-check: brute lattice counts for apex (p,q,1) with p=1 vs p=2 identical for q=3,5,7,9,11,13 and t=1,2,3, proving the Ehrhart polynomial depends only on q; p=2 adds nothing.",
+    "Derived K*=6 as the solution of (12-(2k+1))/6<=0, i.e. a trivial linear inequality on the volume-determined coefficient already in Ferroni Example 2.4 / Remark 2.6."
+  ],
+  "residual_risks": [
+    "Correctness risk negligible after independent proof check plus replay; width argument is terse but valid since e3 is non-constant on the vertices.",
+    "Admission triage in topic.json missed the volume-determinacy implication; the auditor does not defer to it."
+  ],
+  "verdict": "REJECT"
+}
