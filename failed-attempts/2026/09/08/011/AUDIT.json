@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Jones column verified by independent replay: ran inputs/artifacts/verify_offline.py -> OFFLINE VERIFY PASS 249/249 (~11s), requiring exact two-method agreement (state-sum/union-find vs skein-recursion/walk counter in jones_engine.py) and exact term-by-term match to bundled atlas Jones on every row. Spot-checked PD/DT/Jones/volume against live KnotAtlas for 3_1 (X1425 X3641 X5263, V=-q^-4+q^-3+q^-1), 5_1 (X1627 X3849 X5,10,6,1 X7283 X9,4,10,5, V=-q^-7+q^-6-q^-5+q^-4+q^-2, Not hyperbolic) and 10_132 (X4251..., V=q^-2+q^-4-q^-5+q^-6-q^-7, vol 4.05686) \u2014 all match. Exhaustively recomputed Jones-equality classes from full_table.json: exactly 7 classes / 14 knots as in collisions.json. Star witness 5_1 vs 10_132 confirmed: identical jones_dict {-7:-1,-6:1,-5:-1,-4:1,-2:1}, volumes Not hyperbolic vs 4.05686, kh_delta {-5,-3} vs {-3,-1,1}, widths 3 vs 5. Six other pairs confirmed identical Jones with distinct numeric volumes. Chirality: 3_1 and 5_2 Jones-asymmetric (V(q)!=V(q^-1)), amphicheiral controls 4_1,6_3,8_3,8_9,10_99 exactly symmetric \u2014 verified. Non-hyperbolic set exactly {3_1,5_1,7_1,8_19,9_1,10_124} (+0_1 by definition), numeric volumes 243/249. Width formula w=max-min+1 correctly applied to parsed (r,j) support (thin->3, 12 wide->5 with listed labels). DRAFT honestly labels volumes/widths as script-parsed published cross-checks (no triangulation solve, no Bar-Natan complex, no chain dimensions, Gauss schematics not planar projections, 0_1 asserted, Conway 11n34/KT 11n42 not computed). Within those self-limited claims, inferences and computations are correct. This is computational verification of known values, not proof of a new theorem, and volume/width columns are transcription+formula, not independent solves \u2014 as disclosed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors substantively anticipate all mathematical facts. KnotAtlas/KnotTheory (precomputed PD4Knots/Jones4Knots, IndianaData, DTCode data) already publishes for every row the same PD, DT, Jones, hyperbolic volume/tag, Khovanov (r,j) support and 'Similar Knots' lists. Live pages verify: 5_1 page lists Same Jones (up to mirror) {10_132} and Same Alexander {10_132}; 10_132 page lists Same {5_1}; Jones/volume/Khovanov values identical to candidate's table. Candidate's Jones values match oracle exactly by design (calibrated on 3_1/4_1/5_2 then required to match), method is textbook Kauffman bracket state sum (Kauffman 1987), and volume/width columns are parsed \u2014 not recomputed \u2014 oracle values with trivial delta formula. The 7 collision classes and 5_1/10_132 separation (same Jones, different volume/support) are thus database joins, not new discoveries. Hoste-Thistlethwaite-Weeks (1.7M knots through 16 crossings) anticipates DT+volume census; Wehrli (math/0301312) and Morton-Ryder (0708.0514) anticipate same-Jones/different-Khovanov mutant phenomena. Claimed delta of 'joint replayable table with logs' is curation/verification engineering, not a new object, theorem, or value. A timestamp or internal prior-scan PASS does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. Correct but textbook restatement: standard bracket enumeration applied to known census reproducing KnotAtlas exactly, joined with published volume and support-width columns. No new invariant value, no new collision (all 7 pre-listed in oracle), no Conway/KT mutant separation (explicitly not computed), no triangulation volume, no Bar-Natan homology (torsion/differentials unverified, reduced-vs-unreduced unaddressed, w=3-vs-2 convention relabeling). Star witness 5_1 (torus, non-hyperbolic) vs 10_132 (hyperbolic, wide) is readable directly from oracle pages; six other pairs are same-width volume differences only. Teaching-dataset/replay-benchmark utility does not meet publishable-research bar and falls under rejected categories: textbook restatement, database quotation with verification, and unexplained enumeration.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json",
+    "inputs/DRAFT.md",
+    "inputs/research_report.json",
+    "inputs/artifacts/jones_engine.py",
+    "inputs/artifacts/verify_offline.py",
+    "inputs/artifacts/replay_inputs.json (249 rows)",
+    "inputs/artifacts/full_table.json (249 rows)",
+    "inputs/artifacts/collisions.json",
+    "inputs/artifacts/jones_table.json",
+    "inputs/artifacts/table_preview.csv",
+    "inputs/artifacts/jones_run.log",
+    "https://katlas.org/wiki/3_1 (PD, DT, Jones, volume, Khovanov, Similar Knots)",
+    "https://katlas.org/wiki/5_1 (PD, DT, Jones, Not hyperbolic, Khovanov, Similar Knots {10_132})",
+    "https://katlas.org/wiki/10_132 (PD, DT, Jones, vol 4.05686, Khovanov, Similar Knots {5_1})",
+    "Wehrli math/0301312 and Morton-Ryder 0708.0514 as cited motivation (not re-verified beyond citation)",
+    "Hoste-Thistlethwaite-Weeks first-1701936-knots volume census as cited oracle"
+  ],
+  "decisive_checks": [
+    "Reran verify_offline.py: OFFLINE VERIFY PASS 249/249 two-method + atlas agreement",
+    "Parsed full_table.json (249 rows): width distribution 237x w=3 / 12x w=5 with exact wide list; non-hyperbolic exactly 6 required torus labels; 243 numeric volumes",
+    "Exhaustively regrouped jones_dicts: exactly 7 collision classes / 14 knots matching collisions.json; verified star 5_1/10_132 Jones equality + volume and width separation",
+    "Checked Jones mirror-symmetry: 3_1/5_2 asymmetric, 4_1/6_3/8_3/8_9/10_99 symmetric",
+    "Cross-checked PD/DT/Jones/volume for 3_1, 5_1, 10_132 against live KnotAtlas pages including Similar-Knots collision pre-documentation"
+  ],
+  "residual_risks": [
+    "Did not live-scrape all 249 KnotAtlas pages; bulk volume/width transcription correctness relies on bundled distilled inputs plus samples (full independent oracle scrape not done)",
+    "PD inputs assumed to be faithful KnotAtlas transcriptions; independent DT-to-PD derivation not re-verified",
+    "Khovanov support parsing assumed faithful; torsion, differentials, reduced-vs-unreduced distinction unverified (as disclosed)",
+    "No triangulation or homology engine to test; those columns cannot pass topic audit_plan even if transcribed correctly"
+  ],
+  "verdict": "REJECT"
+}
