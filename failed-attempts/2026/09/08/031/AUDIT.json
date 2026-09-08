@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 1 as stated in DRAFT.md is false, and counts are misstated. DRAFT claims every height-2 (4,4) poset with >=7 comparability edges has dim<=3 / none dim>=4. The 8-point crown S4 (Sec.3 of same note) is itself a height-2 (4,4) poset with 12 edges (>=7) and dim exactly 4, so it is a direct counterexample inside the stated scope. The verified artifact only covers the >=8-critical-pair core (census_44 skips len(crit)<8). S4 has 4 ordered critical pairs (recomputed independently), hence is excluded by that filter. The gap is 50643-50235=408 patterns with >=7 edges but <8 critical pairs, never examined in the logged run; the parenthetical that fewer critical pairs need 'at most as many' extensions is false (dim can equal |crit|, e.g. S4 has |crit|=4 and dim=4). Second, '65,519 bipartite patterns in total' misdescribes the >=7-edge slice: sum_{k>=7} C(16,k)=50643 (verified), while 65519=sum_{k>=2} C(16,k)=65536-17. So the denominator is wrong. Core computations that were checked do pass: independent re-run of verify_witness.py --skip-census gives ALL CHECKS PASSED (3 witnesses width 2, dim 3 via complete-LE realizer plus no-2-realizer check; S4 dim 4 and no width-2 decomposition). Code review confirms the dimension-via-critical-pairs duality, complete LE enumeration (8!=40320 < 60000 cap so no truncation possible), path-decomposition check (sound, stronger than needed), and simplicial-elimination tw<=2 test (complete for n=8) are sound. But because the headline census theorem overgeneralizes beyond what was computed and is refuted by the note's own S4, correctness FAILs as stated. Narrowing Theorem 1 to the >=8-critical-pair core would fix the falsity, but that narrowed claim is then an ad-hoc enumeration (see originality/value).",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "No new theorem, extremal, or method. (a) S4 dim=4 is the classical standard-example fact dim(S_n)=n, textbook (Trotter/Stanley); only the routine 8-point brute-force recomputation is new. (b) S4-cover treewidth>2 is a finite 8-vertex, 12-edge elimination check; conceptually the crown-vs-treewidth barrier is already in the cited priors (Biro-Keller-Young: S_5 forces tw>=3; Seweryn/Joret et al. framing). No exhibited minor or structural insight is given (DRAFT explicitly says minor argument 'not claimed'). (c) Three 9-point dim-3 T2 witnesses are random search outputs (seeds logged) for a long-known phenomenon: dimension 3 is attained far below the frontier (largest known in T2 is 4, sought is 5). Attaining dim 3 in T2 is not a sought extremal and no separation from known obstructions is shown. (d) The (4,4)/>=7-edge/>=8-critical-pair census maximum of 3 is an unexplained finite enumeration over thresholds chosen for compute convenience, not a natural parameter scope; DRAFT itself claims 'no originality for toolkit methods' and only 'certified census values and explicit witnesses' as new. A timestamp plus a 50k-case brute-force table does not establish priority of a substantive result. Nearest priors (Joret et al. 1406.3397 bound 1276; Seweryn 1902.01189 bound 12 and largest-known-4 statement; Biro et al. 1308.4877 pathwidth/S_5 barrier; Joret et al. 2308.11950 characterization) already frame the boundary; this note adds no extremal, bound, or lemma to that program.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently not worth finding later. The lane target (dim-5 T2 extremal; D(2)<=10 lemma) and even the fallback (new dim-4 T2 extremal + D(2-connected T2)<=10 lemma) are explicitly admitted as 'not reached' / 'not delivered' (DRAFT Limitations; research_report). What remains is: (i) a negative brute-force fact that dense tiny height-2 crowns (one 8-point slice, crit>=8 core) max out at dim 3, saying nothing about height>=3 or larger sets where dim-4/5 must live (DRAFT Limitations admits this); (ii) random dim-3 witnesses when dim 3 is not the frontier; (iii) a recomputation that the naive crown route is blocked, already understood from the S_5 barrier. This is an arbitrary-slice enumeration plus textbook restatements, exactly the class to reject even if correct and new: unexplained enumeration, textbook fact, and unmotivated finite check with no downstream use (no input to characterization, algorithms, or solver benchmarks beyond what known bounds already give). No recognized gap is closed from either side.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Confirms current best universal bound D(2)<=12 with short proof; abstract states improvement over Joret et al. 1276. Used to confirm frontier against which note admits it 'does not improve either bound.'",
+      "title": "Improved bound for the dimension of posets of treewidth two (Seweryn)",
+      "url": "https://arxiv.org/abs/1902.01189"
+    },
+    {
+      "finding": "Re-ran inputs/artifacts/verify_witness.py --skip-census via symlink: witnesses 0-2 width=2 ncrit 12/9/14 nLE 408/456/1008 dim=3 with realizers+obstructions; S4 dim=4 cover-m=12 cover-tw>2 confirmed; ALL CHECKS PASSED. Full census not re-run; code-reviewed census_44 and exact_dim.",
+      "title": "Local verifier replay (witnesses + S4 barrier)",
+      "url": "inputs/artifacts/verify_witness.py"
+    },
+    {
+      "finding": "2^16=65536; sum_{k>=7}C(16,k)=50643, sum_{k>=2}C(16,k)=65519. Hence DRAFT '65,519 patterns with >=7 edges' is wrong; verified gap 50643-50235=408 unexamined patterns.",
+      "title": "Combinatorial count check (independent python recomputation)",
+      "url": "local computation"
+    },
+    {
+      "finding": "Recomputed S4 ordered critical pairs = 4 ([(0,4),(1,5),(2,6),(3,7)]) with 12 comparability edges, dim 4 per verifier; hence S4 lies in the >=7-edge slice and refutes Theorem 1 as stated.",
+      "title": "S4 critical-pair/edge recomputation",
+      "url": "local computation"
+    }
+  ],
+  "decisive_checks": [
+    "Replayed witness+S4 certificates: PASS (--skip-census, ALL CHECKS PASSED).",
+    "Combinatorial audit: >=7-edge universe is 50643 not 65519; >=8-crit core 50235 leaves 408 patterns unchecked.",
+    "Internal-contradiction check: S4 (12 edges, dim 4) belongs to Theorem-1 scope yet violates its 'max dim exactly 3 / none dim>=4' conclusion; only the unstated crit>=8 filter excludes it.",
+    "Code review: LE cap 60000 > 8!=40320 so no truncation; realizer-intersection + complete-pair no-2-realizer logic sound; TD contiguity check enforces valid path decomposition; tw<=2 elimination search complete for n=8.",
+    "Scope/originality check: methods admitted textbook; outputs are random dim-3 instances + finite-slice table + classical S4 fact; target and fallback explicitly undelivered."
+  ],
+  "residual_risks": [
+    "Full 50235-case census not re-executed in audit (logged as enumerated=50235 dim4=0 maxd=3 in 213.2s); correctness of that table rests on code review plus the 8! cap argument and the shipped full_verify.log, not an independent full replay.",
+    "Treewidth>2 for S4-cover rests on exhaustive search certificate, not an exhibited forbidden minor (as DRAFT discloses); a human-checkable minor is absent.",
+    "Even the narrowed >=8-crit-core census claim, though computationally sound, was not assessed for hidden isomorphism-double-counting issues because dimension maximum is unaffected by duplicates."
+  ],
+  "verdict": "REJECT"
+}
