@@ -1,0 +1,62 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline computations replay correctly from committed edge lists: deletion-contraction polynomials for all 8 graphs re-ran byte-identical in audit (independent brute-force q^n coloring-count interpolation also matches G1/G2/G4; wheel closed-form P(W_n)=q*((q-2)^(n-1)+(-1)^(n-1)*(q-2)) matches G2/G3/G6 exactly); structural identities (monic deg n, coeff n-1 = -m, P(0)=P(1)=0, sum 0) hold; P(2)/P(3)/((-1)^n P(-1)) values verified; Matrix-Tree counts verified for G1/G2/G4/G5 (384/841/3528/1805) with one-edge tau splits summing correctly; ao brute-force 2^m verified for G1/G2 (1862/2184); exact-rational Sturm replay confirms cube V(2)=V(3)=3 with P(2)=2/P(3)=114 nonzero and total distinct real roots 2 (so only 0,1), and antiprism brackets [643/256,645/256] and [871/256,873/256] each with strict sign change + Sturm drop exactly 1 + P'>0 at both ends and P' Sturm count 0 inside (simplicity), gap (645/256,871/256] count 1, total distinct real 6 consistent with 0,1,2,3,r1,r2. 3-connectivity verified by pair-removal. BUT as stated the draft is false on two essential reporting points: (1) Sec.1/8 claims all 8 committed integer straight-line embeddings are crossing-free and 86 checks pass \u2014 audit exact segment test finds 0 crossings for G1-G7 but 10 disjoint-edge crossings/touches for G8 (apex (2,2)-(0,0) diagonal passes through (1,1)=vertex 5, etc.; vertex-on-nonincident-edge degeneracy), so G8 polyhedral membership is not established by the committed evidence (graph is in fact planar, but certificate invalid); (2) Sec.3 recorded one-edge DC splits contradict artifacts/results.json while both sum correctly, e.g. G1 tau 276+108 vs json 160+224, ao 1318+544 vs 1172+690; same mismatch pattern for G2-G8 (all sums match, components differ, no edge identifier given), so the logged splits are unverifiable/inconsistent. verify.py also hardcodes an absolute research-workspace path, so `python3 artifacts/verify.py` does not replay from the committed inputs as claimed. Headline Theorems 1-2 survive, but class-membership and split-log claims fail as written.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive comparison shows the table is recomputation, not a new result. Six of eight polynomials are textbook: wheels G2/G3/G6 follow the classical closed form (verified byte-identical above); cube G1 and prisms G5/G7 are standard examples with published transfer-matrix/deletion-contraction formulas (Read/Biggs; prism family). General Tutte identities T(1,1)=trees, ao=(-1)^n P(-1) are Backman survey theory, and Matrix-Tree/brute-force agreements instantiate rather than extend it. Shrock-Xu gives infinite-family Tutte-ratio asymptotics near tau+1, Royle gives (1,2) counterexamples for 3-connected graphs, Harvey-Royle resolves B10 existence \u2014 none records this 8-graph fragment, but that absence does not establish priority: the per-graph values are direct evaluations of prior formulas/methods on named classical graphs. The genuinely per-graph content (cube [2,3] root-freeness; antiprism r1/r2 brackets) is an immediate corollary of the (known or instantly computable) polynomial via exact Sturm evaluation, i.e. a new certificate format for an old/mechanically-computable value, not a substantively distinct claim. No source was found tabulating the square-antiprism/capped-prism polynomials with these brackets (arXiv chromatic+antiprism query returns 0 hits), but a failed search does not establish priority, and the method (memoized deletion-contraction + Sturm) is the standard textbook procedure applied to another 8-vertex graph.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taken as new, the fragment is not independently worth retrieving. The eight graphs are acknowledged as `classical polyhedral representatives, not an exhaustive census' \u2014 an arbitrary finite slice with no extremality, completeness, or downstream theorem. Cube [2,3] root-freeness follows trivially from its classical polynomial (P(2)=2, P(3)=114) and answers no open zero-freeness question (Royle's (1,2) failure is for non-bipartite 3-connected graphs; cube is bipartite). The two antiprism brackets are certified enclosures with only numerical Beraha proximity (r1 within 0.107 of B5, r2 within 0.012 of B8), explicitly `not a limit/accumulation/exact-equality claim' \u2014 i.e. unexplained numbers: no accumulation theorem, no equality to a Beraha number, no general criterion, no already-used downstream fact. Per the shared standard, certification alone does not rescue an arbitrary object or an unexplained number, and a rigorously established narrow datum passes only when the value was not known/mechanically implied and a future researcher could need the precise fact; here wheel/cube/prism values are known by formula, and no reason is given why a future Birkhoff-Lewis/Jackson/Sokal/Beraha user would need these particular brackets versus any other small polyhedral graph. Honest incompleteness does not erase a headline, but there is no independently valuable exact headline \u2014 only recomputed polynomials plus two proximate real roots with no mathematical interpretation.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Infinite recursive planar-triangulation families; Tutte ratio r=|P(tau+1)|/(tau-1)^(n-5) asymptotics (exponential decay vs nonzero constant); first nonreal closest zero to tau+1. No per-graph deletion-contraction tables with Sturm certificates for fixed 8-12-vertex polyhedral set.",
+      "title": "Chromatic Polynomials of Planar Triangulations, the Tutte Upper Bound, and Chromatic Zeros (Shrock-Xu, arXiv:1110.5883)",
+      "url": "https://arxiv.org/abs/1110.5883"
+    },
+    {
+      "finding": "Infinite family of 3-connected non-bipartite graphs with chromatic roots in (1,2), refuting Jackson's conjecture generally. Shows a [2,3] per-bipartite-graph certificate is not implied by universal bounds, but cube [2,3] itself follows from its classical polynomial.",
+      "title": "Graphs with chromatic roots in the interval (1,2) (Royle, arXiv:0704.2264)",
+      "url": "https://arxiv.org/abs/0704.2264"
+    },
+    {
+      "finding": "B10=(5+sqrt(5))/2 is a chromatic root (completing Beraha determination); q=2 roots of arbitrary multiplicity in 3-connected graphs. General existence, not square-antiprism brackets near B5/B8.",
+      "title": "Chromatic roots at 2 and at the Beraha number B10 (Harvey-Royle, arXiv:1807.08397)",
+      "url": "https://arxiv.org/abs/1807.08397"
+    },
+    {
+      "finding": "Survey of Tutte activity expansions; general identities T(1,1)=spanning trees, T(2,0)=acyclic orientations. Theory instantiated by candidate, not the numerical tables.",
+      "title": "Tutte Polynomial Activities (Backman, arXiv:1906.02781)",
+      "url": "https://arxiv.org/abs/1906.02781"
+    },
+    {
+      "finding": "Zero hits for chromatic+antiprism; generic chromatic-polynomial approximation survey confirms small-graph polynomials are standard computable objects, not per-graph publications.",
+      "title": "arXiv API search: chromatic AND antiprism (0 results); approximating chromatic polynomial survey",
+      "url": "https://export.arxiv.org/api/query?search_query=all:chromatic+AND+all:antiprism&start=0&max_results=5"
+    }
+  ],
+  "decisive_checks": [
+    "Fresh deletion-contraction replay from committed edge lists matches all 8 stored coefficient vectors (audit re-implementation, all match).",
+    "Independent brute-force coloring-count (q^n for q=0..n) + Vandermonde interpolation matches G1/G2/G4 polynomials; wheel closed form matches G2/G3/G6 byte-identical.",
+    "Structural identities verified for all 8: monic deg n, coeff[n-1]=-m, P(0)=P(1)=0, coeff sum 0; P(2)/P(3)/((-1)^n P(-1)) recomputed and match table.",
+    "Matrix-Tree (Bareiss) recomputed for G1/G2/G4/G5 matches tau; first-edge contraction (loop-discard Laplacian) splits sum to tau, confirming identity type though components differ from draft.",
+    "2^m Kahn acyclic-orientation brute force matches ao for G1 (1862) and G2 (2184).",
+    "Exact-Fraction Sturm replay: cube degrees [8,7,6,5,4,3,2,1,0], V(2)-V(3)=0, P(2)=2/P(3)=114, total distinct real 2; antiprism degrees [8,7,5,4,3,2,1,0], both brackets sign-change + Sturm drop 1, P'>0 at all four ends with P'-Sturm interior count 0, gap count 1, total distinct real 6.",
+    "Exact segment-intersection test on committed embeddings: 0 crossings G1-G7, 10 disjoint-edge touches/crossings for G8 (e.g. (5,6)x(10,0) at (1,1)), refuting crossing-free claim.",
+    "Draft Sec.3 vs results.json split comparison: all 8 rows disagree component-wise (e.g. G1 276+108 vs 160+224) while sums agree \u2014 logged splits inconsistent/unidentified.",
+    "3-connectivity pair-removal replay passes for all 8; degree sequences and n/m match draft."
+  ],
+  "residual_risks": [
+    "ao brute force not re-run for m>=15 graphs (G3-G8, up to 2^20 orientations) \u2014 trusted via (-1)^n P(-1) identity already verified plus verifier logic review.",
+    "Full Memo-state counts (573..9148) not re-audited; irrelevant to values.",
+    "Literature search was arXiv/API-level, not exhaustive over textbooks (Biggs/Read/Dong-Koh-Teo) or House of Graphs \u2014 textbook status of wheels/cube/prisms asserted from standard formulas re-derived in audit, but page-level citations not collected.",
+    "G8 planarity itself (existence of some embedding) not disproven \u2014 only the committed straight-line certificate is degenerate; alternative planar embedding likely exists but was not constructed.",
+    "Complex-zero numerics explicitly uncertified per draft and not checked."
+  ],
+  "verdict": "REJECT"
+}
