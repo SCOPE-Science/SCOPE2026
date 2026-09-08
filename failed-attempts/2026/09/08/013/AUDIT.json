@@ -1,0 +1,38 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "The DRAFT claims only a partial theorem: (a) exact torsion for all 60 curves, (b) rank>=1 for 29 curves via explicit points, (c) complete bounded integral census for |x|<=1e6 (65 x-values), (d) box-extremals. All were independently re-derived. (a) Nagell-Lutz is correctly applied: for E_k: y^2=x^3+k, Delta=-432k^2, torsion => integer point with y=0 or y^2|432k^2. Re-derived candidate sets with exact binary-search icbrt (no floats) and Fraction chord-tangent orders: stored torsion subset of Lutz candidates on all 60, every excluded candidate has no nP=O for 1<=n<=16 hence non-torsion by Mazur (orders possible 1..10,12), stored orders exact, counts match 50x trivial/5x Z/2Z/4x Z/3Z/1x Z/6Z. (b) All 29 witnesses verified on-curve exactly with no nP=O to 16, hence infinite order by Mazur; proof, not experiment. (c) Full-box exact census independently recomputed for all 60 curves over |x|<=1e6 with int64 plus exact integer floor-sqrt correction: zero mismatches vs stored table (e.g. k=17: 8 points, k=24: 4 points incl. 8158). The DRAFT's float +-3 window error prose is informal but the result is closed by exact recomputation. (d) Extremals follow from verified table: max |x|=8158 at (24,8158,736844) on-curve, richest box curve k=17 with 8 x-values. Limitations are accurately disclosed: no upper bounds, no heights/saturation, bounded-only census, highest-rank undetermined. No computation error found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest substantive prior is LMFDB per-curve database, which definitionally anticipates the claimed facts. Verified example: 36.a3 is y^2=x^3-27, rank 0, Z/2Z, integral (3,0) -- exactly the DRAFT row for k=-27. By construction LMFDB holds rank/torsion/generators/integral points for every small-k Mordell curve in the slice (27.a4 y^2=x^3+16 etc.), i.e. strictly stronger than the bounded |x|<=1e6 restriction and the rank>=1 lower bounds. No new integral point, new torsion structure, new rank record, height, regulator, or saturation result is claimed beyond what per-curve lookups plus textbook Nagell-Lutz already give. Alpoge-Bhargava-Shnidman (arXiv:2011.01186) studies 2- vs 3-descent statistics asymptotically, and PARI/GP docs provide primitives -- correctly cited as tools/statistics, not anticipated tables. The asserted delta (slice-unified table + replay script) is repackaging/presentation, not a new mathematical object or gap closure. Internal Resultary non-overlap and failed-search timestamps do not establish priority over public LMFDB data.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taken as new, the partial result is not independently worth finding later. (i) Torsion for 60 tiny-k curves by Lutz enumeration is a textbook exercise. (ii) The |x|<=1e6 box is arbitrary and explicitly non-complete; Siegel-completeness (the motivated goal) is disclaimed, so the census is an unexplained bounded enumeration whose entries are subsets of already-published complete integral-point lists. (iii) Rank>=1 for 29/60 with 31 curves undetermined and no upper bounds means the target's main extremal payoff (highest-rank curve in slice) is missing by the DRAFT's own admission. No canonical heights, Gram determinants, or saturation. Box-extremals (largest-box point (24,8158,736844), richest-box k=17) are box artifacts, not theory-motivated records for BSD/Hall. Falls under textbook restatement + arbitrary parameter slice + bounded enumeration without insight.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json",
+    "inputs/DRAFT.md",
+    "inputs/research_report.json",
+    "inputs/artifacts/table.json",
+    "inputs/artifacts/verify_replay.py",
+    "https://www.lmfdb.org/EllipticCurve/Q/36.a3/ (torsion Z/2Z, rank 0, integral (3,0) for y^2=x^3-27)",
+    "https://arxiv.org/abs/2011.01186 (Alpoge-Bhargava-Shnidman descent statistics, no |k|<=30 census)"
+  ],
+  "decisive_checks": [
+    "Exact binary-search icbrt Lutz re-derivation for all 60 k: stored torsion \u2286 candidates, all excluded candidates certified infinite order (no nP=O to 16), all stored orders exact",
+    "Fraction-arithmetic order-16 Mazur sieve on all 29 rank witnesses: all on-curve and infinite order, zero torsion failures",
+    "Independent full-box exact integral census |x|<=1e6 for all 60 k (numpy int64 + exact integer sqrt correction): 65 x-values, zero mismatches vs table; spot curves k=8,9,17,24 matched exactly",
+    "On-curve exact check y^2==x^3+k for every stored integral point and torsion point; y=0 torsion completeness vs cube condition on -k",
+    "Extremal verification: max stored |x|=8158 (k=24) and 8-point k=17 row confirmed as table maxima"
+  ],
+  "residual_risks": [
+    "Only representative LMFDB page (36.a3) fetched live; remaining 59-way anticipation inferred from LMFDB completeness claims plus draft's own spot-consistency note, not 60 live fetches",
+    "Full-box numpy census relies on int64 range (<2^63-1 for |x^3+k|<=1e18+30) plus iterative integer correction loop verified to convergence; independent isqrt-subrange replay to 1e5 also agrees",
+    "DRAFT float-error exposition for \u00b13 window is loose but rendered moot by exact recomputation; future readers should rely on exact isqrt, not the prose bound"
+  ],
+  "verdict": "REJECT"
+}
