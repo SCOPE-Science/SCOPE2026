@@ -1,0 +1,64 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed both committed scripts from inputs/artifacts. compute_all.py: 12/12 Steinberg-vs-shortlex agreement to length 12 (re-executed, OK). verify_poles.py: all Z-factorizations expand correctly, rational root brackets verify (q(lo)>0>q(hi)), winner R lower bound 76393/123607 ~0.61803 exceeds every other exhibited R upper bound (next 1/2); exits 0. Independently verified: Steinberg formula Q(t)=F(t/(1+t)) on known cases (single Z2 -> 1+t; 2 isolates -> (1+t)/(1-t)=1,2,2,...; single edge -> (1+t)^2); W8star factorization -(u-1)^5(u^2-3u+1) expands to [1,-8,26,-45,45,-26,8,-1] exactly; closed form W=(1+t)^7/(1-t-t^2) derived exactly, poles at (sqrt5-1)/2 and -(sqrt5+1)/2, so tau=phi exactly and unique smallest modulus. For ordering, exhibiting one pole per other graph with R<=0.5 suffices (R_min<=R_exhibited => tau>=1/R_exhibited>phi) without proving others' minimality; winner's minimality therefore rigorous up to easily fillable large-root exposition. Full numeric pole-modulus scan confirms all other poles larger (W8star other moduli 1.618 and ~537; cubic complex pair |t|~1.466>0.466; quartic complex |t|~1.20,1.82>0.38). Automaton presented honestly as evidence cross-checked to length 12, not as from-axioms proof; scope honestly limited to 12-graph pool. Minor gaps (large-root bounds not explicit in script, Fibonacci onset n=6 vs stated n=7) do not invalidate within-pool headline.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp/failed-search. Nearest priors: Okun-Scott 1812.07755 gives rational formula G=1/f_L(-t/(1+t)) and reciprocity (tool, no extremal/witness); Pilakkat-Rajendran multivariate/Chiswell-type formulas (tool, no window census); Antolin-Ciobanu 1203.2752 studies geodesic (not spherical) growth and link-regular determination; Bossart-Bucher 2607.01879 proves minimal growth among systems generating fixed even Coxeter group via Mihalik blow-downs (fixed group varying system, different axis from varying RACG defining graph); Bredon hyperbolic-simplex minimal growth (different family); Oh 2606.29397 proves Salem-degree realization every even degree>=4 with a1<=-5 obstruction (Salem realization, not minimal-rate pole-gap witness). None records K8-minus-V graph, its (1+t)^7/(1-t-t^2) series, Fibonacci tail, or phi-vs-2 gap table. No prior minimal spherical-rate extremal with pole-modulus separation over this pool found.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: arbitrary scope + mechanically implied datum. Pool is 12 hand-picked graphs out of ~12k (n=8) + ~274k (n=9) non-isomorphic graphs; admittedly not exhaustive over 7-9 vertices. Winner K8-minus-V (missing {0,1},{0,2}) is the join of K5 with 3-vertex single-edge graph [1,3,1]; F=-(u-1)^5(u^2-3u+1)=(1-u)^5*(1-3u+u^2), W=(1+t)^7/(1-t-t^2)=(1+t)^5 times base W=(1+t)^2/(1-t-t^2). Base already has tau=phi via textbook Steinberg+cone formula (coning multiplies W by (1+t), preserves rate). Thus exact phi/Fibonacci invariant is mechanically implied by 3-vertex textbook computation, not new to 8 vertices. Pool excludes both the smaller same-rate base (3 vertices, outside 7-9 window) and more-complete slower graphs: K8-minus-1-edge has c=[1,8,27,50,55,36,13,2] and series [1,8,29,64,99,120,127,128,128,...] stabilizing (virtually Z, rate 1, subexponential join Dinf x finite); K8-minus-2-disjoint-edges similarly rate ~1 (virtually Z^2). Hence 'minimal exponential in pool' is manufactured by excluding subexponentials and smaller same-rate graphs while padding with cone powers (TRI/C4 families share rates 2 and 1+sqrt2 across n via same (u-1)^k lift). No recognized need for minimality among this specific 12-set; future researcher needing phi RACG would use 3-vertex base, computable in seconds via Steinberg, not retrieve 8-vertex cone or gap-to-2 table. Certification (rational intervals, 12/12 automaton match) does not rescue arbitrary object/unexplained number per standard. This is intrinsic arbitrary scope / textbook cone lift / missing substantive exhaustive extremal, not a bounded presentation defect.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Rational formula Gx=1/f_L(-t/(1+t)) and reciprocity for Davis complexes; foundational tool only, no minimal-growth extremal, no 7-9 vertex census, no phi witness.",
+      "title": "Growth series of CAT(0) cubical complexes (Okun, Scott)",
+      "url": "https://arxiv.org/abs/1812.07755"
+    },
+    {
+      "finding": "Minimal growth among Coxeter systems generating fixed even Coxeter group via Mihalik blow-downs; different axis (fixed group varying system) from varying RACG defining graph pool.",
+      "title": "Exponential growth rates of even Coxeter groups (Bossart, Bucher)",
+      "url": "https://arxiv.org/abs/2607.01879"
+    },
+    {
+      "finding": "Geodesic (not spherical) growth, link-regular determination, same-geodesic-growth examples; distinct growth notion, no spherical minimal-rate extremal.",
+      "title": "Geodesic growth in right-angled and even Coxeter groups (Antolin, Ciobanu)",
+      "url": "https://arxiv.org/abs/1203.2752"
+    },
+    {
+      "finding": "Every even degree>=4 occurs as strongly primitive Salem growth degree with K-free families and a1<=-5 obstruction, Lehmer applications; Salem realization, not phi minimal-rate pole-gap witness (phi is Pisot degree 2).",
+      "title": "Strongly Primitive Salem Growth Polynomials for Right-Angled Coxeter Groups (Oh)",
+      "url": "https://arxiv.org/abs/2606.29397"
+    },
+    {
+      "finding": "Minimal growth among non-cocompact finite-covolume hyperbolic Coxeter simplex groups; hyperbolic-simplex axis, not small-graph RACG window.",
+      "title": "Hyperbolic Coxeter groups of minimal growth rates (Bredon)",
+      "url": "https://arxiv.org/abs/2111.09208"
+    },
+    {
+      "finding": "Multivariate/Chiswell-type RACG growth formulas via independence/chromatic polynomials, chordal explicit; tools only, no extremal census.",
+      "title": "Multivariate growth series of graph products of groups (Pilakkat, Rajendran)",
+      "url": "https://arxiv.org/abs/2607.23668"
+    }
+  ],
+  "decisive_checks": [
+    "Re-executed compute_all.py: 12/12 MATCH to length 12; series W8star [1,8,30,73,138,232,377,610,987,1597,2584,4181,6765] with tail ratios ->phi.",
+    "Re-executed verify_poles.py: factorizations by expansion OK, rational brackets OK, MINIMALITY CERTIFIED W8star R>=76393/123607 > all others.",
+    "Hand-expanded -(u-1)^5(u^2-3u+1) = [1,-8,26,-45,45,-26,8,-1] matches clique counts; derived W=(1+t)^7/(1-t-t^2) exactly.",
+    "Validated Steinberg implementation on controls: n=1 -> [1,1]; 2 isolates -> [1,2,2,...]; edge -> [1,2,1].",
+    "Full complex pole-modulus scan (numpy): winner min|t|=0.618 unique; G08s3 complex |t|~1.466>0.466; G09s4 complex ~1.20,1.82>0.38; TRI/C4/linear families consistent.",
+    "Cone analysis: winner = 5-fold cone over base [1,3,1] (3 vertices, 1 edge); (1-u)^5 lift preserves tau=phi; TRI/C4 families are (u-1)^k lifts preserving tau=2 / 1+sqrt2.",
+    "Counter-scope checks: K8-minus-1-edge series stabilizes at 128 (rate 1, virtually Z); K8-minus-2-disjoint-edges min|t|~1 (virtually Z^2); complete K7/K8/K9 have R>>1 (finite); all excluded from pool yet slower/same-rate.",
+    "Fibonacci check: a6=377=F14, a_n=F_{n+8} for n>=6, tail ratios 1.61803... =phi."
+  ],
+  "residual_risks": [
+    "Web/prior search not formally exhaustive; obscure thesis/computation could contain same (1+t)^7/(1-t-t^2) example, but nearest-program comparison makes overlap unlikely.",
+    "Complex-pole dominance for non-winner cubics/quartics verified numerically only, not in exact Fractions script; irrelevant to within-pool ordering (exhibited pole suffices for lower bound) but full exact tau values for those rows rely on numeric supplement.",
+    "Automaton rule correctness not proved from axioms; treated as cross-check evidence only, series conclusion rests on Steinberg formula which was validated."
+  ],
+  "verdict": "REJECT"
+}
