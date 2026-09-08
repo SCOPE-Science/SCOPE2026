@@ -1,0 +1,45 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent stdlib sieve to 2M reproduced pi=148933, last prime 1999993, all 148932 gaps, per-block (n_k,gmax,first p) for all 20 blocks, multi-achiever lists B8=[736279,794249,795349] and B18=[1761187,1775069], 61 global first occurrences with stated missing gaps 108/116/124/128/130, maximal gap 132 first at (1357201,1357333), merit values g/ln p spot-checked (e.g. 72/ln31397=6.95352, 132/ln1357201=9.34782), quadruplet (5,7,11,13) and sextuplet (7,11,13,17,19,23) primality, offsets and admissibility, and SHA256 of gaps.csv/block_maxima.csv/first_occurrences.csv/mr_certificates.json/constellation.json/block_achievers.json matching replay.log. Miller-Rabin bases 2,7,61 are deterministically correct for n<2^32 (Jaeschke/Sinclair), hence proofs for n<=2M, not heuristics. No computation error found; sieve.log vs replay.log hash appendage is documented and immaterial.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Mathematical content is definitionally anticipated. Prime Pages 'Gaps Between Primes' (Caldwell, t5k.org/notes/gaps.html) tabulates first occurrences through gap 381 including every claimed entry below 2M (e.g. difference-34 at 1327 listed as gap-33 composites, difference-118 at 1349533, difference-132 at 1357201), differing only by g_composites=g_difference-1 convention; exhaustive searches (Nicely to 1e15, Kourbatov to 4e18, Visser beyond 2^64) cover [2,2M]. Candidate's own draft concedes max gap 132 is 'long known' and witnesses are 'classical (5-13 and 7-23)'. The least quadruplet (5,7,11,13) and sextuplet (7,11,13,17,19,23) are textbook least prime k-tuples. Per-100k-block maxima and merit g/ln p are deterministic slices/ratios of the same known prime list using standard definitions discussed on the same Prime Pages page (average gap log n, Cramer merit). SHA256/CSV/MR-certificate/replay packaging is provenance engineering, not a new theorem, extremum, or method. No cited source provides a distinct claim; packaging does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taking correctness for granted, result is not independently worth finding later. It is a textbook segmented-sieve enumeration to an arbitrary bound (2M), arbitrary 100k blocking, standard merit ratio, and trivial least constellation witnesses, with explicitly disclaimed record novelty, no anomaly, no conjecture decision, and no theoretical consequence. Crude Cramer comparison ('merits peak at 9.35 below 211') is descriptive scatter, not a test. This is exactly the excluded class: textbook restatement + mere parameter choice (2M/100k blocks) + unexplained enumeration. A replayable CSV of known gaps to 2M with hashes does not become a citable extremal dataset when authoritative tables to 1e15+ already exist.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "result": "Confirmed standard definitions (g as composites vs prime difference), first-occurrence table through 381 including 132 at 1357201, 118 at 1349533, merit/Cramer discussion, bounds; substantively covers candidate gap content up to +1 convention.",
+      "url": "https://t5k.org/notes/gaps.html"
+    },
+    {
+      "result": "Verified pi, block counts/maxima/first pairs, 61 first occurrences, missing gaps, merit recomputation, constellation primality/admissibility, artifact SHA256 matches.",
+      "url": "local independent recomputation + inputs/artifacts/*"
+    },
+    {
+      "result": "Candidate disavows world-record novelty; concedes witnesses classical; confirms packaging-only novelty claim.",
+      "url": "inputs/DRAFT.md"
+    }
+  ],
+  "decisive_checks": [
+    "Independent sieve pi(2M)=148933, last=1999993, 148932 gaps \u2014 MATCH",
+    "Per-block gmax/first-p all 20 blocks incl. B8 78 at 3 achievers, B18 102 at 2 achievers \u2014 MATCH",
+    "Global 61 first occurrences, max 132 at 1357201, missing 108/116/124/128/130 \u2014 MATCH",
+    "Merit g/ln p recomputed \u2014 MATCH to 1e-9",
+    "Quadruplet/sextuplet primality, offsets, admissibility \u2014 CONFIRMED classical least examples",
+    "MR(2,7,61) deterministic for 32-bit \u2014 PROOF, not heuristic",
+    "Prior-art substantive overlap (Prime Pages + Nicely/Kourbatov coverage) \u2014 NOVELTY DEFEATED",
+    "100k blocking/merit/witness motivation \u2014 NO independent research value"
+  ],
+  "residual_risks": [
+    "MR residue blobs for 148 endpoints not individually re-exponentiated, but independent primality re-verification makes residue transcription risk immaterial to verdict.",
+    "Full gaps.csv row-by-row audit not byte-compared beyond hashes and sampled gaps, but pi/gap/block/first-occurrence agreement from independent code leaves no material correctness risk."
+  ],
+  "verdict": "REJECT"
+}
