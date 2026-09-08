@@ -1,0 +1,36 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Headline theorem G(3,4,5;2)\u2245A6, |G|=360 verified end-to-end by independent re-execution. Upper bound: from-scratch HLT Todd-Coxeter (tc.py, no GAP/Magma/SmallGroups) reproduced DONE/618 passes/402 defs/42 coincidences, 360 live cosets, closed table; committed pa,pb rechecked: permutations (V1), all 4 relators close at all 360 points =1440 traces (V2), transitive from 0 so N=|G:1| (V3), |a|=3,|b|=4,|ab|=5 (both composition and trace conventions), |[a,b]|=2 (V4). Engine validated on controls: trivial group\u21921, T(2,3,5)\u219260, T(2,3,3)\u219212. Standard Todd-Coxeter correctness gives |G|\u2264360. Lower bound: a0=(3 4 5) [0,1,2,4,5,3], b0=(0 1 2 3)(4 5) [1,2,3,0,5,4] independently verified even (in A6), a0\u00b3=b0\u2074=(a0b0)\u2075=[a0,b0]\u00b2=1 with orders 3,4,5,2, a0b0=(0 1 2 4 3), [a0,b0]=(0 5)(3 4); BFS from identity visits exactly 360 even permutations =6!/2, so <a0,b0>=A6, giving surjection G\u2192A6 and |G|\u2265360. Equal finite orders make it an isomorphism. Cross-checks: BFS <pa,pb>\u2264S_360 has order 360 (faithful); element orders {1:1,2:45,3:80,4:90,5:144}, class sizes [1,40,40,45,72,72,90], center 1, abelianization trivial (relation-minor gcd(12,15,20)=1) all agree between cert and A6 model. Separation holds: cert satisfies the three baseline relators so G is a quotient image of T(3,4,5); finiteness (360) vs cited classical infiniteness of hyperbolic T(3,4,5) makes it proper. RS index-120 file is a redundant corollary of |G|=360 and |a|=3 (120 orbits of <pa> of size 3 verified), not load-bearing. Ancillary 70 non-terminating tuples honestly labeled inconclusive; no census claimed and theorem independent of them. Proof vs evidence distinguished: TC+A6 argument is proof; baseline infiniteness is cited background, disclosed.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Substantive nearest-prior comparison, not timestamp/failed-search alone. Admission triage priors re-confirmed orthogonal in claim AND method: Caprace-Conder-Kaluba-Witzel (infinite hyperbolic generalized triangle groups, property (T), large-rank simple quotients \u2014 no finite coset-table order for this commutator-power window); Larsen-Lubotzky-Marion (deformation-theoretic existence/non-existence of simple quotients of ordinary T(a,b,c) \u2014 no terminating table for this 4-relator presentation); Bridson-McReynolds-Reid-Spitler (profinite rigidity via character varieties \u2014 orthogonal); Allcock BS-triangles (conjugacy-power family, different presentation/method); Howie-Williams Tits alternative type (3,4,2) (different boundary). Auditor live arXiv API rechecks: all:commutator AND all:\"triangle group\" \u2192 2 hits (generic triangle group; complex-hyperbolic Riley slice), neither states or implies <a,b|a\u00b3=b\u2074=(ab)\u2075=[a,b]\u00b2=1> or its order; all:A6 AND all:\"triangle group\" \u2192 0 hits; a^3=b^4 query \u2192 unrelated hits only. Standard A6 presentations (involutory/(2,4,5)-flavoured, atlas shapes) use different generator/relator shapes; no source found equates A6 with the (3,4,5)-triangle-plus-commutator-square shape or any stated rewrite ((aba\u207b\u00b9b\u207b\u00b9)\u00b2=1, [a,b] order 2). The familiar group A6 itself is disclosed as known; novelty is the exact collapse statement for this minimal presentation, which no prior implies mechanically.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Strongest self-contained headline judged separately from unfinished surrounding survey per standard: single exact invariant G(3,4,5;2)\u2245A6, order 360, qualifies as rigorously established exact invariant of a specific natural object. Object motivated before computation (representative hyperbolic triple (3,4,5) above closed trichotomy; [a,b] shortest nontrivial word beyond triangle relators; k=2 smallest exponent \u2014 minimal perturbation), value not known or mechanically implied (hyperbolic baseline infinite; whether commutator-square collapses and to what is not deducible without computation), future researcher could reasonably need the precise fact (residual-finiteness/growth/triangle-quotient/coset-benchmark tables). Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration: exact order + identification + logged tables + separating quotient. Incomplete 76-tuple exploration honestly described as ancillary observation, never called complete, so does not erase headline value. No general criterion/completed census/downstream theorem demanded beyond admitted claim.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "inputs/topic.json (admission review + triage: Caprace-Conder-Kaluba-Witzel 2011.09276; Larsen-Lubotzky-Marion 1301.2949; Bridson-McReynolds-Reid-Spitler 2004.07137; Allcock 0808.0934; Howie-Williams math/0603682)",
+  "inputs/DRAFT.md (headline theorem, proof, targeted-search disclosure, ancillary observation, limitations)",
+  "inputs/research_report.json (claim/evidence/limitations summary)",
+  "inputs/artifacts/tc.py, cert_G345k2.json, verify_G345k2.py, a6_identification.json, verify_a6.py, rs_index_check_G345k2.json, structure_G345k2.json",
+  "Auditor live arXiv API: commutator+triangle-group (2 hits, unrelated); A6+triangle-group (0 hits); a^3=b^4 (unrelated); triangle-group+A6 (empty)"
+ ],
+ "decisive_checks": [
+  "Re-ran tc.py HLT enumeration for headline relators: DONE, 618 passes, 402 defs, 360 live, closed \u2014 matches cert tc_stats",
+  "Independent V1-V4 recheck of committed pa,pb: permutations, 1440 relator traces, transitivity, orders 3/4/5 and commutator order 2 under both action conventions",
+  "Engine controls: trivial\u21921, T(2,3,5)\u219260, T(2,3,3)\u219212 (validates engine; infinite C2*C3 correctly non-closed at cap)",
+  "A6 model recheck: evenness, four relator identities, orders (3,4,5,2), BFS subgroup order 360 all-even \u21d2 equals A6, class sizes [1,40,40,45,72,72,90], center 1, order distribution match",
+  "Faithfulness BFS: <pa,pb>\u2264S_360 has order 360; <a>-orbits 120\u00d73 and <b>-orbits 90\u00d74 consistent with 360; abelianization relation-minor gcd=1 (perfect)"
+ ],
+ "residual_risks": [
+  "Baseline T(3,4,5) infiniteness cited from classical Fuchsian trichotomy, not re-proved \u2014 disclosed; failure mode limited to citation, not headline computation",
+  "Literature position rests on targeted exact-presentation searches + triage, not an exhaustive sweep of every textbook \u2014 disclosed with invitation to correct; auditor live checks corroborate but cannot exclude an obscure unindexed match",
+  "RS index-120 cross-check is a corollary of proved |G|=360 and |a|=3 rather than an independent Reidemeister-Schreier presentation replay \u2014 does not weaken proof since upper+lower bounds already close"
+ ],
+ "verdict": "PASS"
+}
