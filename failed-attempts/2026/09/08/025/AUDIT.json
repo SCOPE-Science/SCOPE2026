@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Machine-checkable artifacts verify: independent stdlib verifier re-run passes 2952/2952 in <1s (exit 0). Auditor re-ran verifier, recomputed CF periods for extrema (166:22, 181:21, 199:20, 151:20, 82:1) matching table, verified big-int norms x0^2-d*y0^2=(-1)^l for all rows (spot large units 166/181/199/151 exact), D=d or 4d nonsquare and M=sqrt(D)/2, prime census completeness and Kronecker(D/p) splitting via independent root-counting implementation, L(1,chi) interval half-width max 0.065 (d=195) <0.5 for all 121 so H pinned, H distribution 68/46/2/5 matches artifacts, h=1 norm equations |N|=p rechecked, LMFDB spot checks agree (Q(sqrt2) h=1; Q(sqrt82) h=4 order 4, candidate claims order 4 unresolved C4-vs-C2xC2 so no contradiction). Core table data are correct. DRAFT text contains non-artifact label slips (states H=3 at d=87,167 vs artifacts/table 79,142; states 52 even-period fields vs 86 counted) which do not alter CSV/JSON but indicate presentation carelessness. Remaining proof gaps (tail-bound derivation, m=1 non-existence for 5-mod-8 fields) are residual risks, not demonstrated falsities.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Values h(d), periods, fundamental units/regulators for squarefree d<=200 are classical and already tabulated in public sources (LMFDB/PARI/textbooks), as DRAFT itself admits (\"Values of H(d) overlap scattered LMFDB/PARI/textbook tables\"). LMFDB pages verified contain identical facts (e.g. 2.2.8.1 h=1; 2.2.328.1 h=4 C4, regulator 2.89344). Cited theory (Bernardini arXiv:2412.06351 explicit-CF h>1 families; Cherubini et al. consecutive large-h asymptotics; Lamzouri moments; Mollin-Williams survey) is complementary but does not supply the table; the substantive nearest prior for the *bundle* is internal SCOPE015: certified 91-field census for 201<=d<=350 with same method (CF period, regulator, Minkowski witnesses, rho-cycles, analytic cross-check, stdlib verifier). Re-running the identical pipeline on the adjacent interval [2,200] yields distinct rows but no new method, theorem, or phenomenon\u2014a parameter substitution. Auditability/linkage alone, already demonstrated by SCOPE015, does not make the second interval independently original. Timestamp/failed-search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even if correct and (row-wise) new as a bundle, the result is an unexplained enumeration with no insight: 121 rows with max h=4 (five-way tie 82,130,145,170,195), max period 22 (d=166), no large-h outlier, no period/regulator analysis, and explicit deferral (\"Confrontation with Cohen-Lenstra or cited infinite-family results is left to future work\"). Target claim is not met: invariant-factor decomposition proven only for h<=3 (116/121) with five h=4 recorded unresolved, and maximal-h ideal-multiplication/Smith relation log QUARANTINED with documented obstruction\u2014exactly the claimed delta beyond values. A dependency-free replay benchmark for this slice duplicates SCOPE015's benchmark for 201-350; a second adjacent-interval table with smaller extrema is a tiny unmotivated gain and textbook restatement (values already retrievable via LMFDB/PARI). Not independently worth finding later.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "result": "Q(sqrt2) D=8 h=1 trivial group, regulator 0.88137; confirms candidate d=2 row",
+      "title": "LMFDB Number field 2.2.8.1",
+      "url": "https://www.lmfdb.org/NumberField/2.2.8.1"
+    },
+    {
+      "result": "Q(sqrt82) D=328 h=4 C4, regulator 2.89344; confirms candidate d=82 order 4 (candidate unresolved C4 vs C2xC2, consistent)",
+      "title": "LMFDB Number field 2.2.328.1",
+      "url": "https://www.lmfdb.org/NumberField/2.2.328.1"
+    },
+    {
+      "result": "21-page paper proving h(D)>1 for explicit-CF discriminants with finitely many exceptions; family theorem, no 121-field census",
+      "title": "Bernardini Class number of real quadratic fields of explicit discriminant",
+      "url": "https://arxiv.org/abs/2412.06351"
+    },
+    {
+      "result": "Internal prior: same method family (CF/regulator/Minkowski/verifier) on disjoint interval 201-350, 91 fields; establishes parameter-substitution status",
+      "title": "SCOPE015 Certified class-number census 201-350",
+      "url": "resultary:2026/9/7/SCOPE015"
+    }
+  ],
+  "decisive_checks": [
+    "Ran inputs/artifacts/verifier.py -> VERIFIER: ALL CHECKS PASSED, exit 0 (tail shows extrema/h_dist/h1 list pass)",
+    "Independent CF period loop (stop-at-2a0) for d=166,181,199,151,82,79,142,61,109 matches table periods",
+    "Big-int norm checks x0^2-d*y0^2 for all rows; large units (d=166 10 digits, d=199 11 digits) exact and equal (-1)^l",
+    "Recomputed Lbounds half-widths: max 0.065 at d=195, all <0.5; distribution Counter 68/46/2/5; D nonsquare for all rows",
+    "Cross-checked table_full h/hplus/method: d=79,142 h=3/hplus=6 pinned; d=87 h=2, d=167 h=1 (exposes DRAFT text mislabel H=3 at 87,167)",
+    "Counted period parity: 86 even / 35 odd vs DRAFT claim 52 even-period fields (presentation error)",
+    "LMFDB fetch comparisons for d=2 and d=82 as above"
+  ],
+  "residual_risks": [
+    "Rigorous L(1,chi) tail bound E=D/N+1/(M0+1)+1e-9 re-used by both compute and verifier; human proof sketch not machine-checked, plus 1e-9 float allowance",
+    "m_index=1 for d=5-mod-8 fields (e.g. 37,101) rests on +/-1 float-neighborhood cube-root search plus d=1-mod-8 splitting theorem; no exhaustive non-existence proof; mis-assignment would scale R_field by 3x (analytic pinning would likely have failed, but not proven)",
+    "rho-cycle H+ counting relies on reduction-operator theory and per-form primitivity lemma (verified for this range) plus asserted unique rho successor; replayed but not independently re-proved by auditor",
+    "DRAFT presentation slips (H=3 field IDs, even-period count 52) suggest transcription risk though artifacts themselves verify"
+  ],
+  "verdict": "REJECT"
+}
