@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/certify_window.py: ALL CHECKS PASS (T1-T6). pi via Machin 16*arctan(1/5)-4*arctan(1/239) with Leibniz remainder R=1/((2N+3)q^(2N+3)) is rigorous (monotone decreasing terms); symmetric +-R window valid. E(m)=(pi/2)[1-sum c_n m^n/(2n-1)], c_n=(C(2n,n)/4^n)^2<=1 since C(2n,n)<=4^n, so tail<=m^(N+1)/((2N+1)(1-m)) valid for m=129/529 and 329/729 in (0,1), N=25. All ops Fractions so windows rigorous. Curvature formula K=1/(a^2b^2c^2 S^2), S=x^2/a^4+y^2/b^4+z^2/c^2; on z=0 with u+v=1, S=u/a^2+v/b^2 in [1/b^2,1/a^2], giving [a^2/(b^2c^2),b^2/(a^2c^2)]=[160000/385641,529/729] correct; sqrt via floor(sqrt(pq))/q rigorous. Sturm d1 in [pi/sqrt(Kmax),pi/sqrt(Kmin)], d2 in [2pi/sqrt(Kmax),2pi/sqrt(Kmin)] valid for K(s) in range; gaps d1_hi~4.877<L_lo~6.762 (gap 1.885) and d2_lo~7.364>L_hi~6.762 (gap 0.60) verified as Fractions, so based index exactly 1. Free-loop index >=1 via constant field I=-int K<0, <=1 via sharp Wirtinger int(f')^2>=(2pi/L)^2 int f^2 with L<2pi/sqrt(Kmax)=54pi/23~7.376, same gap. Closure exact via reflection (x,y,z)->(x,y,-z) isometry fixed-set totally geodesic: standard, correctly applied. Beating margin (Mlo-Lhi)/Mhi~0.08905>0.02 verified. Minor presentation defect: DRAFT Sec.1 writes [Llo,Lhi] subset [6.762645991830,6.762645991830] singleton; true Llo=6.76264599182986..., Lhi=6.76264599183005..., so singleton inclusion is literally false (width 1.9e-13); M display [7.423740780724,7.423740781354] does contain true window. Title says 'shortest' but theorem proves only existence of one loop beating M, no lower bound over other loops. These do not break the three enclosed items, so axis passes with noted defects.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No new mathematical object, theorem, or method beyond textbook substitution. Closedness of principal ellipse by reflection isometry is classical (do Carmo/Klingenberg totally-geodesic fixed set). Lengths are standard complete elliptic integrals P=4qE(m); high-precision enclosure via Machin + power-series tail is undergraduate analysis, mechanically implied for any rational axes. Curvature values a^2/(b^2c^2), b^2/(a^2c^2) are direct substitution into classical ellipsoid K formula. Index 1 follows from standard Sturm comparison + Wirtinger with huge non-delicate gaps (1.885, 0.60), not a new Jacobi-enclosure technique; no validated shooting, no interval ODE, no conjugate-point determinant enclosure as audit plan required. Nearest priors confirm gap in opposite direction: Fedorov nlin/0506063 gives explicit non-planar algebraic families with no window/index; Abenda 0705.2112 and Dragovic-Radnovic math-ph/0512092 give transcendence/density/theta closedness theory with no numeric window; Karney Jacobi numerics solve direct/inverse problem with no closed-loop certificate. Absence of a printed 12-decimal window for (1,23/20,27/20) reflects that nobody publishes routine ellipse-perimeter evaluations, not a prior gap; failed title search does not establish priority. Exact-arithmetic interval alone was explicitly not to be counted as novelty at admission. Result is parameter substitution into known formulas.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently not worth finding later; textbook restatement + mere parameter substitution + artificial comparison. The certified loop is the symmetric principal ellipse z=0, i.e. the understood meridional/planar baseline, not the generic asymmetric non-meridional minimizer whose meridional-to-nonmeridional transition motivated the topic. 'Non-meridional' is redefined ad hoc as transverse to an invented comparison spheroid foliation to fit wording. Comparison M is just the perimeter of the larger ellipse (1,27/20) (xz-section of same ellipsoid); that P(1,1.15)<P(1,1.35) by 8.9% follows from monotonicity of ellipse perimeter in semiaxis, not from systolic geometry, and required no geodesic theory. No shortestness proved (no universal lower bound), so no calibration of Lyusternik-Schnirelmann/Loewner/systolic conjectures (Abbondandolo et al. revolution bounds, Ferreira embeddings involve no such ellipsoid datum). Reusable template claimed (validated shooting-plus-Jacobi) was not delivered; actual template (Machin+E-series+isqrt+Sturm on explicit ellipses) does not transfer to non-symmetric loops. Sharpness (2.8e-14 width) is unmotivated overkill for a 2% margin with 8.9% slack. Falls under reject categories: textbook restatement, parameter substitution, tiny unmotivated gain over trivial monotonicity.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Explicit families of non-planar closed geodesics via 3-/4-fold hyperelliptic covers; no length enclosure, no Morse index, no revolution comparison. Confirms candidate's planar principal ellipse is more elementary baseline, not an advance over this theory.",
+      "title": "Algebraic Closed Geodesics on a Triaxial Ellipsoid (Fedorov)",
+      "url": "https://arxiv.org/abs/nlin/0506063"
+    },
+    {
+      "finding": "Fetch failed; relied on admission abstract check: density/transcendence and algebraic period evaluation, no certified numeric window or index for named ellipsoid. Structural theory only.",
+      "title": "Algebraically closed real geodesics on n-dimensional ellipsoids are dense (Abenda)",
+      "url": "https://arxiv.org/abs/0705.2112"
+    },
+    {
+      "finding": "Standard facts used to show mechanical implication: reflection fixed-set totally geodesic; P=4qE(m); K=1/(a^2b^2c^2 S^2); Sturm comparison; Wirtinger inequality. No new theorem needed for substitution (1,23/20,27/20).",
+      "title": "Classical differential geometry textbooks (do Carmo, Klingenberg) - reflection principle, elliptic integral, curvature, Morse index theorem",
+      "url": ""
+    },
+    {
+      "finding": "Direct replay: pi width 8.8e-14, L relwidth 2.8e-14, M in [7.423740780724,7.423740781354], d1 in [3.682027,4.877323], d2 in [7.364055,9.754645], T1-T6 PASS, margin 8.905%. Also exposed singleton display defect for L and verified true Fractions.",
+      "title": "Candidate script inputs/artifacts/certify_window.py - independent replay and Fraction inspection",
+      "url": ""
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran certify_window.py: T1-T6 PASS, margin 0.089051; inspected Fractions to confirm Llo=6.76264599182986... < 6.762645991830 < Lhi=6.76264599183005... (singleton display false) and M window valid.",
+    "Re-derived Kmin=a^2/(b^2c^2)=160000/385641, Kmax=b^2/(a^2c^2)=529/729, sqrt(Kmax)=23/27 exactly, 2pi/sqrt(Kmax)=54pi/23~7.3759; verified S-range argument so Sturm intervals valid.",
+    "Verified tail bound c_n<=1 from C(2n,n)<=4^n and Leibniz remainder monotonicity, and interval pi combination 16*a5-4*a239 preserves enclosure (positive quantities).",
+    "Verified beating is monotonicity: M is perimeter of strictly larger ellipse (1,27/20) vs (1,23/20); 8.9% gap requires no validated ODE/Jacobi work and no proof of shortestness among all loops.",
+    "Compared claim to admission audit plan (validated shooting + interval ODE + Jacobi determinant): none delivered; symmetry bypass makes result textbook exercise, failing value/originality despite correctness."
+  ],
+  "residual_risks": [
+    "Low residual correctness risk: E(m) series identity and Wirtinger sharp constant assumed standard; verified to first order and via circle sandwich T6 but not re-proved from scratch.",
+    "No web re-check of Dragovic-Radnovic/Karney/Ko beyond admission abstracts; unnecessary for verdict since classical-textbook implication alone defeats originality/value.",
+    "Display rounding defect for L could be repaired, but repair would not cure originality/value failure, hence REJECT not REPAIRABLE."
+  ],
+  "verdict": "REJECT"
+}
