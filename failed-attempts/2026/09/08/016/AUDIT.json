@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lower-bound half verifies: re-ran artifacts/verify_n14.py (stdlib only) -> OVERALL PASS. Independently recomputed: RB=129331690000, boundary margin 103710/1e12=1.0371e-07, min pairwise d2=66906851456983982256400 vs (2RB)^2=66906744153024400000000 (diff +107303959582256400), sqrt/1e12=0.258663587420 vs 2rLB=0.25866338 (margin ~2.07e-07), rattler #12 ratio 1.143682, Machin pi width 2.7e-38, density lower 0.7356780757. So r*>=0.12933169 is rigorously proved by explicit feasible witness. Upper-bound half is logically invalid: DRAFT Lemma states feasibility requires v4+3v3>=L with L=1-2R, d=2R, v4=sqrt(d^2-(L/4)^2), v3=sqrt(d^2-(L/3)^2), then proves lower bounds t4<=v4, t3<=v3 with t4+3t3-L=105098954611/687194767360000~0.0001529>=0 (integer checks correct) and claims this excludes packing at R=719/5000. This is backwards: proving a lower bound exceeds L shows the necessary condition is SATISFIED, not violated; exclusion would require an upper bound <L. Numerically at R=0.1438, v4~0.2258, 3*v4~0.677<L=0.7124, so 4-in-band remains strip-feasible; threshold for 3*sqrt(d^2-(L/4)^2)<=L is ~0.14706, above 0.1438. Hence S>=L is compatibility, not infeasibility. Pattern (4,3,3,3) sums to 13 not 14, and enumeration over 'distributions of 13 (19 patterns)' is unexplained. Therefore r*<0.1438 is NOT proved and the Theorem as stated is unproved. Additional presentation defects: DRAFT claims '22 pairs at exactly grid spacing' but recomputation gives 14 pairs at mind2 and 0 contacts at exact equality (2RB)^2; DRAFT states pi in [3.141592653589793,3.141592653589793] (identical endpoints, width 0) while true enclosure width is 2.7e-38.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest priors substantively anticipate the mathematical facts. Packomania csq table (live-fetched) lists N=14 radius 0.129331793710, distance 0.348915260374, density 0.735679255543, 32 contacts, 1 rattler, D1 symmetry in bold (proven optimal) citing Wengerodt [6] \u2014 exact values the DRAFT reproduces to 1e-7. Wengerodt 1987 gives exact analytic optimality proof for n=14 with r_hat=(6-sqrt3)/33; Markot/Csendes SIAM 2005 gives general verified interval B&B demonstrated on n=28; Szabo et al. 2007 surveys codes. The remaining verified content (rational rounding of Packomania coordinates to denominator 1e12 with margin ~2e-7) is a routine transcription implied by the known exact optimum (r_hat=0.1293317937... > rLB=0.12933169), not a new object, method, or gap. Claimed delta of 'one-file witness plus optimized (4,3,3,3) pigeonhole bound 0.1438' is neither correct (see correctness) nor substantive: strip pigeonhole is textbook and threshold ~0.147 is weak. No prior-art gap is narrowed; DRAFT explicitly makes 'no optimality claim' and does 'not re-verify Wengerodt.'",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even the correct half is not independently worth finding later. Achieved two-sided gap is radius [0.12933169,0.1438) width 0.0145, ~24000x wider than target 6.1e-07 and ~120x wider than fallback <1.2e-04; density upper <0.9095 is vacuous (exceeds infinite hexagonal packing 0.906899... and far above putative 0.7356792555). Only density lower bound 0.7356780756 (1.2e-06 below putative) is non-vacuous, but it is 1.04e-07 in radius below a long-known exactly-proven optimum, i.e. a tiny unmotivated epsilon-reproduction of Packomania/Wengerodt. No B&B closure at r_hat+5e-07; boxlog_sample.csv is explicitly schema-only with honest UNDECIDED entries (4 rows, no search progress). DRAFT Limitations correctly concede target NOT proved. This is a feasible-point check plus a vacuous/incorrect analytic bound, not a benchmark record or reusable template.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "N=14 row radius 0.129331793710 distance 0.348915260374 density 0.735679255543 contacts 32 loose 1 D1 ref [6], bold=proven; confirms prior exact optimum and that lower bound is epsilon below known value",
+      "url": "https://packomania.com/csq/"
+    },
+    {
+      "finding": "DRAFT.md Theorem/Lemma/methods/limitations/originality statements read; target 6.1e-07 gap explicitly disclaimed, upper bound 0.1438 claimed via (4,3,3,3) pattern",
+      "url": "inputs/DRAFT.md"
+    },
+    {
+      "finding": "research_report.json claim/evidence/limitations read; confirms partial certificate only",
+      "url": "inputs/research_report.json"
+    },
+    {
+      "finding": "verify_n14.py re-executed -> L1/L2/U1/P1 PASS OVERALL PASS; independently recomputed margins, counts, thresholds confirming lower-bound arithmetic but inverted upper-bound logic",
+      "url": "inputs/artifacts/verify_n14.py"
+    },
+    {
+      "finding": "boxlog_sample.csv 4-row schema with UNDECIDED-sample entries, no B&B closure",
+      "url": "inputs/artifacts/boxlog_sample.csv"
+    }
+  ],
+  "decisive_checks": [
+    "Reran verify_n14.py: L1 PASS margin 1.037e-07, L2 PASS min 0.258663587420 vs 0.25866338 margin 2.07e-07, U1 integer checks t4^2<=v4/t3^2<=v3 and t4+3t3-L=105098954611/687194767360000>0 PASS, P1 pi width 2.7e-38 density lower 0.7356780757 PASS",
+    "Independent Fraction recompute: mind2 count 14 not 22, contacts at exact (2RB)^2 =0, refuting DRAFT census sentence",
+    "Strip-logic audit: feasibility needs 3*v4<=L (0.677<=0.712 true at R=0.1438); proving t4+3t3>=L shows compatibility, not exclusion; threshold scan gives strip feasibility up to ~0.14706, so R=0.1438 not excluded",
+    "Pattern-sum check: 4+3+3+3=13 !=14; enumeration basis unexplained",
+    "Density-vacuity check: claimed upper 0.9094852927 > hexagonal 0.90689968211; gap width 0.0145 radius vs target 6.1e-07"
+  ],
+  "residual_risks": [
+    "Lower-bound witness depends on Packomania txt coordinates as starting point, but fully re-checked by exact integer compares after rounding, so no floating-point trust remains for that half",
+    "Pi enclosure uses Machin alternating-series remainder bound; verifier asserts width <=1e-30 and passes, not independently re-derived term-by-term here",
+    "Upper-bound failure is logical, not arithmetic: integer inequalities t^2<=v^2 and sum>=L are correct but do not imply infeasibility"
+  ],
+  "verdict": "REJECT"
+}
