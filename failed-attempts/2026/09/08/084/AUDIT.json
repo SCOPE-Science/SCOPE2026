@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Strongest subclaim VERIFIED: X*=((4,0),(2,1),(0,2)) lattice c1..c8=2,4,4,6,6,8,8,8 and Y*=((4,0),(1,1),(0,6)) lattice c1..c8=2,3,4,5,6,7,8,9 replay byte-for-byte (268/268 rows); witness weight sequences (2,2) and (2,1x6) satisfy volume identities 4 and 5 and weight-DP agrees 9/9 with lattice on both domains; calibration B(1)=1,1,2,2,2,3,3,3 and E(2,1)=1,2,2,3,3,4,4,4 correct; path-enumeration bound complete (65 paths L<=8 with box k+1=9 identical to box k=12 filtered); omega_length second implementation agrees; c2 4>3 with vol 4<5 and c1 2=2 correct, so plain ECH monotonicity non-embedding holds. FULL 268-TABLE CLAIM FALSE: 139/268 table chains are convex in left-to-right slopes (95 strictly decreasing + 44 weakly decreasing), not concave; concave lattice-path Theorem 1.21 does not apply to them. Correlation is exact: weight volume-identity succeeds on 129 concave-strict/weak+triangle domains and fails on exactly the 139 convex domains, which candidate misattributes to an 'isolated-cut-lens' implementation bug. Those 139 entries are misapplication of concave formula, not ECH capacities. C6 definition incoherent: DRAFT claims integral chains <=2 kinks with strictly increasing slopes and |C6|=268 covering height<=6, but table contains decreasing-slope chains, contains 83 chain-collinear entries, brute enumeration of integral positive-kink chains gives 3172 candidates (not 268) with no stated filter, and rational non-integral vertices excluded despite topic claiming rational class. Hence essential boundary condition (concavity) violated and census completeness false.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive comparison (abstracts + theorem statements via arXiv): Hutchings 1005.2260 gives definition/monotonicity/ellipsoid-polydisk-union formulas but no height<=6 census or this pair; Choi et al 1310.6647 gives concave weight-sequence + lattice-path formulas and selected sharp examples (Gromov width, inclusions, packings) but no exhaustive c1..c8 table over height<=6 stratum and no X*/Y* pair; McDuff-Schlenk 0912.0532 is ellipsoid-into-ball only; Cristofaro-Gardiner 1409.4378 proves concave-to-convex sharpness generally without this table/pair; Beyond-ECH and stabilized-ellipsoid work treat different regimes. No source publishes the exact 268-row tuple set or the specific ((4,0),(2,1),(0,2)) vs ((4,0),(1,1),(0,6)) c2 4>3 tuple. In that narrow sense the numbers are new and not a rename/database copy. Mechanical derivability from prior formulas is a value issue, not an originality defeat here.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Headline witness, though correct and new, is a plain 4D ECH monotonicity obstruction with admitted NO sharpness and NO stabilization (topic required stabilized witness; fallback only). X* is collinear triangle = scaled ellipsoid E(4,2), so its capacities are textbook N(4,2) scaled; Y* weights (2,1x6) give trivial DP sequence 2,3,4,5,6,7,8,9. Beyond-volume-and-width c2 4>3 pairs of this kind are ubiquitous and computable in seconds from prior formulas; no threshold, extremality, staircase, packing-stability, or downstream need is shown for this arbitrary kink choice ((1,1) with intercepts 4,6). Surrounding census is arbitrary/incoherent scope: mixes convex with concave, misses ~90% of integral chains (268 vs 3172 positive-kink brute), excludes rationals, cutoffs k<=8/intercepts<=6/<=2 kinks unexplained, no gap or extremal interpretation. Per standard, certification/replay alone does not rescue an arbitrary object or unexplained enumeration; textbook parameter substitution and unexplained enumeration are rejected even if correct and new. No bounded addition short of a new substantive result (sharp/stabilized/threshold/criterion) would make it retrievable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Defines ECH capacities, monotonicity, ellipsoid/polydisk/disjoint-union formulas; no height<=6 census or X*/Y* pair.",
+      "title": "Quantitative embedded contact homology - Hutchings (1005.2260)",
+      "url": "https://arxiv.org/abs/1005.2260"
+    },
+    {
+      "finding": "Concave weight-sequence + lattice-path capacity formulas (Thm 1.4, Thm 1.21) and selected sharp examples; no exhaustive first-eight table over height<=6 class nor this witness pair.",
+      "title": "Symplectic embeddings into four-dimensional concave toric domains - Choi et al (1310.6647)",
+      "url": "https://arxiv.org/abs/1310.6647"
+    },
+    {
+      "finding": "Ellipsoid-into-ball function c(a) with Fibonacci staircase via ECH lattice count; ellipsoid-only, not concave survey or stabilized concave pair.",
+      "title": "The embedding capacity of 4D symplectic ellipsoids - McDuff-Schlenk (0912.0532)",
+      "url": "https://arxiv.org/abs/0912.0532"
+    },
+    {
+      "finding": "ECH sharp for all concave-into-convex embeddings + convex capacity formula; enables sharpness theory but does not exhibit height<=6 census or this pair.",
+      "title": "Symplectic embeddings from concave toric domains into convex ones - Cristofaro-Gardiner (1409.4378)",
+      "url": "https://arxiv.org/abs/1409.4378"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/lattice_ech.py concave_paths_for_k(8): 65 paths with L-distribution {0:1,1:1,2:2,3:4,4:4,5:7,6:14,7:13,8:19}; re-running with k=12 filtered to L<=8 gives identical 65, proving box bound complete.",
+    "Recomputed lattice capacities for all 268 c6_table.json rows via omega_length max: 0 mismatches; witness X* 2,4,4,6,6,8,8,8 and Y* 2,3,4,5,6,7,8,9 match certificate; B(1) and E(2,1) calibrations reproduce.",
+    "Independent omega_length check with midpoint sampling agrees on all paths for X*,Y*,B(1),E(2,1); lattice_count off-by-one vs naive Pick resolved (distinct on-path = sum gcd +1), confirming candidate L counts origin-inclusive off-path points as intended.",
+    "Weight-DP check: concave_weights gives X* (2,2) area 4 vol 4 and Y* (2,1x6) area 5 vol 5 with disjoint_union_caps agreeing 9/9 with lattice; over full table volume-identity holds 129/268, fails 139/268.",
+    "Convexity audit: left-to-right slopes show 95 convex-strict + 44 convex-weak =139 failures exactly matching weight failures; 54 concave-strict +39 concave-weak +36 triangles =129 successes; X* is collinear triangle (ellipsoid), Y* strictly concave; candidate misdiagnosis as lens bug refuted.",
+    "Scope audit: brute integral positive-kink chains a,b<=6 up to 2 kinks yields 3172 distinct chains vs 268 table rows; selection filter unstated; DRAFT slope-monotonicity definition contradicted by table contents."
+  ],
+  "residual_risks": [
+    "Full PDF proofs of Choi et al Thm 1.21 / weight recursion not machine-checked; relied on code calibration to B(1)/E(2,1) and dual-method agreement for witness only.",
+    "Convex-domain correct ECH values (via convex formula) not computed; extent of numerical error in 139 rows beyond misapplication not quantified.",
+    "Literature search at abstract/theorem level via arXiv; full-text scan for the specific integer pair not exhaustive, but mechanical-derivability argument does not depend on it."
+  ],
+  "verdict": "REJECT"
+}
