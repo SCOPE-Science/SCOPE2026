@@ -1,0 +1,40 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Molien/degree/product/reflection-count/fake-degree core is computationally sound on spot checks, but the hyperplane-count claim is mathematically false and the 'independent' lattice check is circular. (1) Hyperplane undercount for all even m: independent root-line clustering (rank-1 image of M-I, proportionality up to scalar, exact cycle-phase reflection criterion dim==n-1) gives G(2,1,2): 4 hyperplanes vs claimed 3; G(4,2,2): 6 vs claimed 4; G(4,1,2): 6 vs claimed 4; G(6,1,2): 8 vs claimed 5; G(4,4,2): 4 vs predicted fibre 2*1=2+0=2? (script reports ok only because both sides use same wrong fibre). Root cause in inputs/artifacts/replay.py: hyp key ('t',i,j,(av[j]-av[i])%m) with reflection condition av[i]+av[j]==0 identifies a vs -a (difference -2*av[i]), collapsing m mirrors to m/2; fibre dict {1:1,2:1,3:3,4:2,5:5,6:3}[m] in n_hyp_orlik_solomon() is m/2 for even m, contradicting true Orlik-Solomon count coord(n if p<m else 0)+m*C(n,2) (e.g. G(4,1,2) 2+4=6). Hence all hyp_ok=True gates and DRAFT Sec.1 item 5 plus Sec.2 coexponent-adjacent hyperplane formula are wrong. (2) Route-B lattice cross-check is tautological: it counts solutions to sum a_j*(j*m)+b*(nm/p)=d, i.e. partitions in the assumed degrees, which equals molien_predicted() by construction (replay.py:578-654, n_invariants_lattice() stub returns molien_predicted directly); it uses no determinants but also provides no independent evidence for the degrees. (3) Scope downgrade disclosed but target unmet: topic.json demands full character orthogonality sum_g chi(g)conj(chi'(g))=|G|delta; delivered and gated is only Gram on {1,V,Vbar} (DRAFT Sec.4 admits this). (4) Positive checks: independent complex-float recomputation confirms G(4,2,2) order 16, N_ref=6=sum(d_i-1), Molien [1,0,0,0,2,0,0,0,3,...]=1/(1-t^4)^2, F_V=t+t^5, F_V*=2t^3, F(1)=2; G(2,1,2) and G(4,2,3)/G(6,2,3)/G(6,3,3)/G(2,2,4)/G(4,2,4) fake degrees match draft; degrees formula (m,...,mn/p) and product=|G| correct. Molien equality is verified only through t^30 (finite-series evidence, not a rational-identity proof) \u2014 acceptable as computational certificate but must be labeled as such. Because a stated theorem (hyperplane enumeration, 42/42) is false, correctness FAILS.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive content is classical textbook material on an arbitrary bounded slice; no new object, formula, or gap. Degrees (m,2m,...,mn/p) are Shephard-Todd (1954); exponents/coexponents/codegrees are Orlik-Solomon / Lehrer-Taylor tables, available in CHEVIE/GAP; Molien theory for G(m,p,n) is Tanabe; general fake-degree theory is Opdam (math/9808026), Lusztig-Stanley combinatorics is Billey-Konvalinka-Swanson; unipotent vs coinvariant distinction is Malle \u2014 all cited in topic.json itself as nearest known. Replay.py hard-codes predicted_degrees/predicted_exponents/predicted_codegrees (lines 137-223, including explicit case tables for every non-generic fibre) then asserts equality with the series: it verifies known formulas, it does not discover them (DRAFT Sec.4 admits 'fitted to \u2014 and then verified'). The 42-triple slice n=2..4, m<=6 is an arbitrary parameter box (mere parameter substitution). The G(4,2,2) 'non-Coxeter splitting witness' (degrees (4,4), F*=2t^3 vs S_n distinct exponents) is a direct readout of the classical tables \u2014 that S_{k} has distinct degrees 2..k / exponents 0..k-1 is textbook; no S_n-impossibility theorem is proved (DRAFT Sec.4 admits 'not a new structural theorem'). Live-literature PASS in topic.json shows only absence of a single-source replay log for this slice, which per audit rules does not establish priority. Nearest priors already imply every tabulated value. Hence originality FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even if corrected, the result is not independently worth finding later. It is a brute-force recomputation of known formulas on 42 small cases (max order 31104) with no new conjecture, method, application, or reusable anomaly: the 'splitting' at G(4,2,2) is the well-known repeated-degree / non-well-generated phenomenon, the S_4 contrast is trivial distinct-vs-repeated exponents, and the table adds no insight beyond CHEVIE/GAP/Orlik-Solomon lookups. The slice boundary m<=6, n<=4 is unmotivated (rejection_risks in topic.json anticipate this criticism; mitigations claimed \u2014 repeated-degree edge case, theorem-testing framing \u2014 do not create motivation). SCOPE value rejects textbook restatements, mere parameter substitutions, tiny unmotivated gains, and unexplained enumerations even if correct and new. This is exactly that combination: correct Molien/fake-degree recomputation + arbitrary box + certified-but-trivial observation. Hence value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (audit plan, target claim, live-literature queries, internal prior scan)",
+    "inputs/DRAFT.md (42-group table, G(4,2,2) witness, method, limitations)",
+    "inputs/research_report.json (claim, evidence summary, limitations)",
+    "inputs/artifacts/replay.py (666 lines, exact cyclotomic/type-aggregated Molien + fake-degree + Gram + hyperplane keys + lattice Route-B)",
+    "inputs/artifacts/table.csv / table_full.json / witness.json / burnside.json",
+    "arXiv math/9808026 (Opdam Complex Reflection Groups and Fake Degrees) abstract/history \u2014 general Hecke/Galois theory, no bounded census",
+    "Shephard-Todd / Orlik-Solomon / Lehrer-Taylor / Tanabe / CHEVIE background knowledge for degrees, codegrees, hyperplane counts",
+    "Independent recomputations in audit workspace: (a) integer G(2,1,2) enumeration (order 8, 4 reflections, 4 mirrors); (b) complex-float Molien + isotypic fake-degree recomputation confirming G(4,2,2) 1/(1-t^4)^2, F_V=t+t^5, F*=2t^3 and G(2,1,2), G(4,2,3), G(6,2,3), G(6,3,3), G(2,2,4), G(4,2,4) values; (c) root-line hyperplane clustering proving 4/6/6/8 vs claimed 3/4/4/5"
+  ],
+  "decisive_checks": [
+    "Enumerated G(m,p,n) as perm+phase pairs with sum%p==0: orders match m^n n!/p (e.g. 16 for G(4,2,2), 8 for G(2,1,2)).",
+    "Reflection criterion (fixed-space dim = #{cycles with phase-sum 0} == n-1) reproduces N=sum(d_i-1) (G(4,2,2):6, G(2,1,2):4, G(4,1,2):10).",
+    "Root-line clustering (nonzero column of M-I up to scalar, SVD nullspace cross-check) yields true hyperplane numbers 4 (G2,1,2), 6 (G4,2,2; G4,1,2), 8 (G6,1,2), refuting draft fibre m/2 and hyp_ok gates.",
+    "Code inspection: replay.py hyp key uses (av[j]-av[i])%m while reflection requires av[i]+av[j]==0, collapsing a/-a; fibre dict {2:1,4:2,6:3} encodes the same error; n_invariants_lattice/Route-B counts partitions in assumed degrees = molien_predicted by definition (circular).",
+    "Float Molien/isotypic recomputation via eigenvalues and det(I-tM) series inversion matches draft Molien and F_V/F_V* on tested groups, confirming core series code is correct despite hyperplane bug.",
+    "Literature comparison: every degree/coexponent/fake-degree value follows from cited classical formulas/tables; script's predicted_* tables are verbatim encodings of that literature; G(4,2,2) vs S_n contrast uses only distinct-vs-repeated exponents."
+  ],
+  "residual_risks": [
+    "Large-group (orders 5k-31k, e.g. G(6,3,4), G(6,6,4)) exact fake degrees not re-verified with independent exact arithmetic here (float eigenvalue route is numerically unstable at K~40); reliance is on script's exact cyclotomic arithmetic which spot-checks suggest is correct.",
+    "Full 42-row table_full.json not line-by-line re-derived; verdict rests on sampled groups plus systematic hyperplane/code defect.",
+    "No web-exhaustive priority search beyond cited priors and Opdam fetch (Wikipedia fetch failed); but originality failure follows from candidate's own admission that formulas are classical, so deeper search cannot rescue it."
+  ],
+  "verdict": "REJECT"
+}

@@ -1,0 +1,40 @@
+{
+  "attempted_claim": "For all 42 triples the exact Molien expansion to t^30 equals 1/prod(1-t^{d_i}) with d_i=(m,2m,...,(n-1)m,mn/p), product d_i=|G|, codegrees as listed, reflection fake-degree polynomials as tabulated with F_ref(1)=n, and character orthogonality holds exactly; in particular G(4,2,2) has degrees (4,4), Molien series 1/(1-t^4)^2 expanded as sum_{k>=0}(k+1)t^{4k}, and reflection fake degree with repeated-exponent splitting that has no symmetric-group analogue, certified by coefficient log and replay.",
+  "claim_type": "invariant-degree plus fake-degree table with non-Coxeter splitting witness",
+  "created_at": "2026-09-08T05:43:34Z",
+  "decisive_failure": "correctness: Molien/degree/product/reflection-count/fake-degree core is computationally sound on spot checks, but the hyperplane-count claim is mathematically false and the 'independent' lattice check is circular. (1) Hyperplane undercount for all even m: independent root-line clustering (rank-1 image of M-I, proportionality up to scalar, exact cycle-phase reflection criterion dim==n-1) gives G(2,1,2): 4 hyperplanes vs claimed 3; G(4,2,2): 6 vs claimed 4; G(4,1,2): 6 vs claimed 4; G(6,1,2): 8 vs claimed 5; G(4,4,2): 4 vs predicted fibre 2*1=2+0=2? (script reports ok only because both sides use same wrong fibre). Root cause in inputs/artifacts/replay.py: hyp key ('t',i,j,(av[j]-av[i])%m) with reflection condition av[i]+av[j]==0 identifies a vs -a (difference -2*av[i]), collapsing m mirrors to m/2; fibre dict {1:1,2:1,3:3,4:2,5:5,6:3}[m] in n_hyp_orlik_solomon() is m/2 for even m, contradicting true Orlik-Solomon count coord(n if p<m else 0)+m*C(n,2) (e.g. G(4,1,2) 2+4=6). Hence all hyp_ok=True gates and DRAFT Sec.1 item 5 plus Sec.2 coexponent-adjacent hyperplane formula are wrong. (2) Route-B lattice cross-check is tautological: it counts solutions to sum a_j*(j*m)+b*(nm/p)=d, i.e. partitions in the assumed degrees, which equals molien_predicted() by construction (replay.py:578-654, n_invariants_lattice() stub returns molien_predicted directly); it uses no determinants but also provides no independent evidence for the degrees. (3) Scope downgrade disclosed but target unmet: topic.json demands full character orthogonality sum_g chi(g)conj(chi'(g))=|G|delta; delivered and gated is only Gram on {1,V,Vbar} (DRAFT Sec.4 admits this). (4) Positive checks: independent complex-float recomputation confirms G(4,2,2) order 16, N_ref=6=sum(d_i-1), Molien [1,0,0,0,2,0,0,0,3,...]=1/(1-t^4)^2, F_V=t+t^5, F_V*=2t^3, F(1)=2; G(2,1,2) and G(4,2,3)/G(6,2,3)/G(6,3,3)/G(2,2,4)/G(4,2,4) fake degrees match draft; degrees formula (m,...,mn/p) and product=|G| correct. Molien equality is verified only through t^30 (finite-series evidence, not a rational-identity proof) \u2014 acceptable as computational certificate but must be labeled as such. Because a stated theorem (hyperplane enumeration, 42/42) is false, correctness FAILS. originality: Substantive content is classical textbook material on an arbitrary bounded slice; no new object, formula, or gap. Degrees (m,2m,...,mn/p) are Shephard-Todd (1954); exponents/coexponents/codegrees are Orlik-Solomon / Lehrer-Taylor tables, available in CHEVIE/GAP; Molien theory for G(m,p,n) is Tanabe; general fake-degree theory is Opdam (math/9808026), Lusztig-Stanley combinatorics is Billey-Konvalinka-Swanson; unipotent vs coinvariant distinction is Malle \u2014 all cited in topic.json itself as nearest known. Replay.py hard-codes predicted_degrees/predicted_exponents/predicted_codegrees (lines 137-223, including explicit case tables for every non-generic fibre) then asserts equality with the series: it verifies known formulas, it does not disco\u2026",
+  "disposition": "AUDIT_1_REJECT",
+  "domain": "Representation Theory",
+  "failed_attempt_id": "SCOPE-FAIL-20260908-007",
+  "failed_axes": [
+    "correctness",
+    "originality",
+    "value"
+  ],
+  "failure_class": "AUDIT_REJECT",
+  "fingerprint": {
+    "claim_type": "invariant-degree plus fake-degree table with non-Coxeter splitting witness",
+    "domain": "Representation Theory",
+    "main_method": "Molien-series invariant-degree computation with fake-degree character evaluation and orthogonality-relation replay",
+    "primary_object": "imprimitive complex reflection groups G(m,p,n) for small ranks n=2-4 and small parameters m<=6 and their reflection representations"
+  },
+  "method_summary": "Molien-series invariant-degree computation with fake-degree character evaluation and orthogonality-relation replay",
+  "problem_statement": "Enumerate all 42 triples (m,p,n) with 2<=n<=4, 1<=m<=6, p|m. For each, construct the imprimitive reflection representation of G(m,p,n) over Q(zeta_m) (monomial matrices with m-th roots of unity, product constraint for p>1), compute |G|=m^n n!/p, expand the Molien series M(t)=|G|^{-1} sum_{g in G} 1/det(1-t g) to order t^30 by exact group enumeration (max order 31104), and fit M(t)=1/prod_i(1-t^{d_i}) to recover fundamental degrees d_i. Compute codegrees from reflection eigenvalues and the reflection fake-degree polynomial F_ref(t) for the n-dimensional reflection representation via graded coinvariant multiplicity (character-averaged Hilbert series), evaluated with exact cyclotomic arithmetic. Verify (i) product d_i = |G|, (ii) Molien-coefficient agreement to order 30, (iii) F_ref(1)=n, (iv) full character orthogonality sum_{g} chi(g) conj(chi'(g))=|G| delta on the constructed matrices. Isolate G(4,2,2) (order 16, degrees 4,4) as explicit non-Coxeter splitting witness whose Molien denominator (1-t^4)^2 and reflection fake-degree distribution cannot occur for symmetric groups S_k (distinct exponents 1..k) and diverges from the Coxeter hook-content pattern. Deliver table (m,p,n,order,degrees,codegrees,F_ref(t)) plus Molien-coefficient log, orthogonality matrix, and replay script.",
+  "provenance": {
+    "lane": 65,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-08T05:43:34Z",
+  "record_title": "Exact Molien-series degrees, codegrees and reflection fake degrees for G(m,p,n) with n=2..4, m<=6, with a certified non-Coxeter splitting witness at G(4,2,2)",
+  "recovery_conditions": "repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Formulas are classical (Shephard-Todd/Orlik-Solomon); contribution is the checked census + replay, not new formulas. Slice only (n<=4, m<=6). Only V and V* fake degrees; only {1,V,Vbar} Gram, not full tables. m=1 rows are the reducible permutation rep; G(2,2,2) abelian with split V. Dead unused helper count_fixed_monomials retained in script. Witness contrast is certified data, not a new S_n theorem.",
+  "scope_lane": 65,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://api.crossref.org/works/10.2206%2Fkyushujm.50.437",
+    "https://arxiv.org/abs/math/9808026",
+    "https://arxiv.org/abs/1809.07386",
+    "https://api.crossref.org/works/10.1006%2Fjabr.1995.1329"
+  ],
+  "time_standard": "UTC"
+}
