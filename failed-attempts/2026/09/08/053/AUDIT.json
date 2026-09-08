@@ -1,0 +1,61 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed computation independently: staged a scratch copy of inputs/artifacts and ran verify.py -> 'ALL 29 GROUPS VERIFIED. order-32 max=32 [C32,Q32] gap=14; order-64 max=64 [C64,Q64] gap=30.' Verifier re-derives from stored Cayley tables with separately written code: exhaustive associativity/identity/inverse checks, adjunction-closure subgroup enumeration with count match, brute-force core as intersection of ALL conjugates with mask match, witness order/index consistency, family core-intersection=1 (hence coset-action kernel trivial, degree=index sum=mu), independent Dijkstra over normal-intersection lattice matching claimed mu, 14/14 abelian Johnson cross-checks, and maxima/gap arithmetic. Cross-checked independently: abelian mu values equal sum of cyclic invariant factors (Johnson) for all 14 abelian rows; element-order/center diagnostics distinguish D/SD/Q correctly (D32 17 involutions vs SD32 9 vs Q32 1; D64 33 vs SD64 17 vs Q64 1; E+32 12 elements order-4/19 involutions vs E-32 20/11, matching plus/minus types); subgroup/normal counts plausible (e.g. C32 6/6, C2^5 374/374, Eplus32 110/68). Johnson lemma statement (kernel=intersection of cores) is standard and correctly applied. Dijkstra reduction (cheapest index per core, shortest path G->1 over intersections) is sound: any faithful family yields a path of equal cost and vice versa. Scope honestly limited to surveyed 29-group family (15 order-32, 14 order-64); no SmallGroups IDs or full-census claims made. Hence every essential inference within the narrowed claim is proved by exhaustive finite check, not mere experiment.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Searched nearest priors substantively and compared claims. O'Brien-Prajapati-Udeep arXiv:2306.11337 determines mu for order p^6 with p odd only, explicitly excluding p=2, so implies nothing for orders 32/64. Prajapati-Udeep arXiv:2302.06257 gives formulas for normally monomial/metabelian p-groups with cyclic center, not an exhaustive census or maximal witness over all 2-groups of 32/64. Saunders arXiv:0812.0182 covers Coxeter/binary-polyhedral families, disjoint. Fitting-free complexity arXiv:2501.16039 is algorithmic with no small-2-group table. Exceptional p^5 arXiv:1408.1649 plus Easdown-Praeger classifies exceptionality, not a mu table with witnesses. Survey arXiv:2406.13279 establishes mu as recognized but records no 32/64 table. Live arXiv searches for minimal-faithful extraspecial/dihedral-quaternion/order-32 tables returned no exact prior table. No source found recording this exact 29-row certified compilation with witness families. Caveat: 14 abelian rows are mechanically implied by Johnson's abelian formula (verified 14/14 match) and cyclic/quaternion maxima mu=|G| and dihedral mu=|G|/2 follow from elementary core arguments; novelty therefore rests on the compiled certified table including extraspecial and mixed direct-product witnesses, not on a new general theorem. Since no prior table was located and the compilation as such is not definitionally anticipated, originality PASSES as new (textbook-derivability of a subset is treated under value, not as an originality failure without a decisive prior).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: arbitrary tool-limited fragment with no independently retrievable headline. Promised scope was all nonabelian groups of orders 32 and 64 (51+267 SmallGroups census with per-order maximal witness and integer gap); delivered is 15+14 selected groups (only 8 nonabelian of order 32, 7 nonabelian of order 64), explicitly a benchmark fragment because no GAP/SmallGroups was available. Even the abelian part is incomplete: order-64 abelian types require 11 partitions of 6 but only 7 are present (missing e.g. [16,2,2],[8,4,2],[8,2,2,2],[4,2,2,2,2]). Selection is a convenience sample of easy constructions (cyclics, dihedral-like, direct products, 3 extraspecial extensions), not a group-theoretic natural class motivated before computation. Family-relative maxima/gaps (32 at C32/Q32 gap 14; 64 at C64/Q64 gap 30) are not global results: global maxima mu=|G| at cyclic groups are trivial upper bounds, and next-values 18/34 are only within the fragment. 14/29 values are direct Johnson sums; cyclic/quaternion/dihedral cases are elementary textbook exercises; remaining mixed-product/extraspecial values are narrow data without general criterion, interpretation, or downstream use. The reusable stdlib pipeline is tooling, not a substantive result. The saving clause for exact invariants does not apply: the 29-set is not a natural pre-motivated object, much of the table is mechanically implied, and a future researcher needing mu(2-groups 32/64) would need the complete census or a formula, not this fragment. Honest scope limitation does not create headline value. Defect is intrinsic arbitrary scope plus missing substantive result, not a bounded add-on.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Determines mu for every group of order p^6 with p odd only; title/abstract explicitly exclude p=2, leaving 2-groups 32/64 open. Confirms gap.",
+      "title": "Minimal degrees for faithful permutation representations of groups of order p^6 where p is an odd prime",
+      "url": "https://arxiv.org/abs/2306.11337"
+    },
+    {
+      "finding": "Studies mu and c(G) for normally monomial/metabelian p-groups with cyclic center; class formulas generalizing Behravesh, no exhaustive 2-group 32/64 census or maximal witness.",
+      "title": "Minimal Faithful Quasi-Permutation Representation Degree of p-Groups with Cyclic Center",
+      "url": "https://arxiv.org/abs/2302.06257"
+    },
+    {
+      "finding": "Computes mu for irreducible Coxeter and binary polyhedral groups; disjoint family, implies no 2-group table.",
+      "title": "Minimal Faithful Permutation Degrees for Irreducible Coxeter Groups and Binary Polyhedral Groups",
+      "url": "https://arxiv.org/abs/0812.0182"
+    },
+    {
+      "finding": "Survey collects minimal faithful permutation degree alongside other dimensions as recognized invariant; establishes motivation but records no 32/64 table.",
+      "title": "Various Representation Dimensions associated with a Finite Group",
+      "url": "https://arxiv.org/abs/2406.13279"
+    },
+    {
+      "finding": "Classifies exceptional pairs (G,Q) of order p^5 for odd p; cites Easdown-Praeger for p=2. Exceptionality classification, not a mu table with witnesses for 32/64.",
+      "title": "On exceptional groups of order p^5",
+      "url": "https://arxiv.org/abs/1408.1649"
+    },
+    {
+      "finding": "Live arXiv searches for 'minimal faithful permutation degree extraspecial' and 'minimal faithful degree dihedral quaternion' returned no exact prior table.",
+      "title": "arXiv search: minimal-faithful 2-group tables",
+      "url": "https://arxiv.org/search/?query=minimal+faithful+permutation+degree+extraspecial&searchtype=all&source=header"
+    }
+  ],
+  "decisive_checks": [
+    "Ran scratch-staged copy of inputs/artifacts/verify.py: ALL 29 GROUPS VERIFIED with maxima/gaps as claimed.",
+    "Recomputed Johnson sums for 14 abelian rows: all match (e.g. C16xC2 18, C4xC4xC2 10, C32xC2 34).",
+    "Recomputed element-order/center profiles from mul_flat to confirm D vs SD vs Q vs E+/E- identities and construction correctness.",
+    "Checked subgroup/normal counts and family index sums; Dijkstra minimality re-derived by independent code.",
+    "Checked scope completeness: 29 rows vs 51 groups order-32 and 267 order-64; order-64 abelian only 7/11 types; nonabelian coverage 8/44 (order 32) and 7/~256 (order 64); maxima/gaps verified family-relative only."
+  ],
+  "residual_risks": [
+    "Verifier re-derives from stored Cayley tables rather than rebuilding groups from presentations independently; common-mode construction bug possible but mitigated by exhaustive axiom checks, Johnson matches, and order/center diagnostics.",
+    "Originality search covered arXiv and web sources; exhaustive journal/monograph (e.g. theses on small p-group mu) search not performed, but no decisive prior table was found and abelian-subset textbook status is disclosed.",
+    "Dijkstra-over-normal-lattice optimality proof is standard but its soundness was audited by code replay and dominance argument, not by a separate hand proof artifact."
+  ],
+  "verdict": "REJECT"
+}
