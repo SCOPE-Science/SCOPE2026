@@ -1,0 +1,63 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All essential numeric claims replay bit-for-bit. Ran inputs/artifacts/verify.py: 44/44 count files PASS slice identities c_k+n_k=C(m,k), totals 2^m, stored exact probabilities (Fraction recomputation), monotonicity; duality XOR exhaustive on 3x4 (2^19 configs) PASS; all 8 window inequalities PASS as exact Fraction comparisons (e.g. 4x6-H P0.44=0.2355825...<=1/4, P0.56=0.5744110...>=11/20; 5x6-H 0.3106861<=1/3, 0.6893138>=2/3 with P1/2=1/2; 6x6-H 0.3792268<=2/5, 0.7737449>=3/4; 6x7-H 0.2854567<=3/10, 0.7145432>=7/10 with P1/2=1/2). Independently brute-forced crossing-count vectors for 2x2,2x3,3x3,2x6,3x4 (H and V) with independent union-find code: exact match to tm.py. Reviewed tm.py transfer-matrix logic: edge-count accounting A+(C-1)(R+A)=m, flag seeding/merging, crossed-pool (1+B)^E_new handling, base-B polynomial packing with overflow asserts \u2014 sound; slice identities across m=16..85 give strong joint check. Scope deviation (free rectangles, not 8x8 torus; 6x8..6x10 missing; 4x6 outside nominal 6..10) is explicitly disclosed as limitation, not claimed. Minor presentation overstatements do not invalidate theorem: verify.py does NOT recheck witnesses.json despite DRAFT claim of BFS recheck; run*.log absent; census_summary.json holds only 4 rows though 44 count files exist; '(exact symmetry)' gloss for P1/2=1/2 is unproved gloss but numeric equality itself is verified (total_cross=2^(m-1)). Duality XOR proved only for 3x4, but windows depend only on counts, not duality. Witness configs checked to have no H-cross (empty and single-cut full configs \u2014 trivial but valid). Exact enumeration constitutes machine-checked proof conditional on code correctness, cross-validated as above.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp: nearest asymptotic theory (Zeng RSW for Z^2 site, Smirnov/Cardy-SLE scaling limits, Lawler-Schramm-Werner one-arm 5/48) gives n->infinity bounds/exponents, no fixed-n 4x6/5x6/6x6/6x7 two-sided inequalities P0.44<=a, P0.56>=b and no exact crossing-count vectors. Nearest exact-enumeration priors use same transfer-matrix family but different objects: Scullard-Jacobsen critical polynomials P_B(p) for thresholds on Archimedean lattices (bases to 96-243 edges; root estimates p_c, not free-rectangle crossing probabilities); Akhunzhanov-Eserkepov-Tarasevich exact SITE percolation polynomials to L=17 plane / L=12 torus (site vs bond, plane/cylinder/torus vs free-boundary RxC bond rectangles). No covering table of bond crossing counts c_k or P0.44/P0.56 windows for these rectangles found in live arXiv full-text/search checks; values are not mechanically implied by asymptotics or site data. Method (frontier-partition transfer matrix) is prior art, but the specific claimed numbers are new finite certificates.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Correct and new but an unexplained enumeration with post-hoc windows, explicitly rejectable even if correct and new. p_c=1/2 for Z^2 bond is already exactly known (Kesten); finite-size inequalities P0.44<=a<P0.56>=b for monotone crossing events are guaranteed to exist for some a<b and the quoted a,b (1/4,11/20,1/3,2/3,2/5,3/4,3/10,7/10) are just nice roundings of computed values at arbitrarily chosen p=0.44/0.56, with no theoretical consequence (no threshold localization, no RSW-constant improvement, no Cardy-formula comparison performed despite 'benchmarking' claim). Census R=2..6 x C=6..10 at p in {0.40,0.45,0.50,0.55,0.60,0.44,0.56} is an arbitrary computational frontier (6x8..6x10 missing) with no interpretation; dual-blocking 'family' is 8 trivial configs (empty + single vertical cut missing one column of horizontals), and duality XOR is shown only on 3x4, contributing no insight to the windows. Reusable tm.py pipeline is plumbing; certification alone does not create value. Notably the data contain a potentially genuine pattern (R x (R+1)-H has P1/2=1/2 exactly: verified 2x3,3x4,4x5,5x6,6x7) that could have been a theorem, but DRAFT notes two instances en passant as '(exact symmetry)' with no statement, conjecture, or proof \u2014 leaving only raw numbers. No downstream user would independently need to find these specific rectangle/p/threshold triples later.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Asymptotic non-degeneracy of rectangle crossing probabilities as n->infinity; no fixed-n 4x6-6x7 exact counts or two-sided P0.44/P0.56 window.",
+      "title": "A Russo-Seymour-Welsh Theorem for critical site percolation on Z^2",
+      "url": "https://arxiv.org/abs/1309.2273"
+    },
+    {
+      "finding": "Scaling-limit Cardy/SLE(6) convergence on triangular lattice; continuum limit, not finite-size bond-rectangle inequalities.",
+      "title": "Critical Percolation Exploration Path and SLE(6)",
+      "url": "https://arxiv.org/abs/math/0604487"
+    },
+    {
+      "finding": "Asymptotic R^{-5/48} diameter tail as R->infinity; no explicit small-rectangle crossing window.",
+      "title": "One-arm exponent for critical 2D percolation",
+      "url": "https://arxiv.org/abs/math/0108211"
+    },
+    {
+      "finding": "Closest enumeration prior: exact SITE (not bond) polynomials to L=17 plane / L=12 torus via dynamic programming; different object (site vs bond, torus/cylinder vs free RxC bond rectangles); method analogous but does not imply claimed bond counts/windows.",
+      "title": "Exact percolation probabilities for a square lattice: Site percolation on a plane, cylinder, and torus",
+      "url": "https://arxiv.org/abs/2204.01517"
+    },
+    {
+      "finding": "Transfer-matrix method for bond critical polynomials P_B (threshold roots, bases to 96-243 edges) on Archimedean lattices; different object from free-rectangle crossing-count polynomials and P0.44/P0.56 windows; method prior, claim distinct.",
+      "title": "Transfer matrix computation of generalised critical polynomials in percolation",
+      "url": "https://arxiv.org/abs/1209.1451"
+    },
+    {
+      "finding": "No covering finite-size exact bond-crossing table at 4x6-6x7 with dual-blocking witnesses returned; supports novelty of numbers but not value.",
+      "title": "arXiv full-text search: bond percolation crossing finite-size exact enumeration",
+      "url": "https://arxiv.org/search/?query=bond+percolation+crossing+probability+finite+size+exact+enumeration&searchtype=all"
+    }
+  ],
+  "decisive_checks": [
+    "verify.py replay: 44/44 count files PASS (slice + total + stored probs + monotonicity), duality XOR 3x4 PASS, 8/8 window inequalities PASS (exact Fractions)",
+    "Independent brute-force count-vector match for 2x2-H, 2x3-H/V, 3x3-H, 2x6-H/V, 3x4-H/V vs tm.py enumerate_case",
+    "Exact Fraction recomputation of all four H windows and P1/2 halves (5x6-H and 6x7-H total_cross=2^(m-1)); full 44-file P1/2 scan showing only R x (R+1)-H hits 1/2",
+    "Witness no-H-cross recheck by independent BFS (8/8 have no H-cross; configs trivial: empty + single-cut); noted verify.py does not check witnesses.json",
+    "tm.py logic review: m accounting, seed/flag merge, crossed-pool (1+B)^E_new, base-B asserts; bead: H-cross only completable at last column, V-cross early \u2014 handled correctly",
+    "Prior-art comparison distinguishing asymptotic RSW/Cardy/one-arm, site polynomials, and critical polynomials from claimed bond-rectangle windows"
+  ],
+  "residual_risks": [
+    "Large-case (m to 85) correctness rests on slice identities + spot brute force, not full formal verification of tm.py; slice identities are necessary but not sufficient alone",
+    "Dual closed-blocking paths in witnesses.json not independently re-verified (edge-index convention assumed); irrelevant to windows but part of duality-certificate framing",
+    "Unexplored R x (R+1) P1/2=1/2 pattern suggests candidate missed the only potentially theoretical payload; general statement unproved and unclaimed",
+    "Torus/8x8 target abandoned for rectangles; rectangle windows are not comparable 'stronger' replacements despite DRAFT language"
+  ],
+  "verdict": "REJECT"
+}
