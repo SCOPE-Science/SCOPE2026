@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lower bound L=sqrt(5/32) proof is correct as classical Welch/Delsarte degree-2 certificate: P2(t)=(4t^2-1)/3 is correct normalized Gegenbauer for S^3 (lambda=1), f(t)=1+8*P2=(32t^2-5)/3, f<=0 iff t^2<=5/32, f(1)=9, c0=1,c2=8>=0. Contradiction sum_{i,j}f <=81+72*f(mu)<81 vs >=81 via PSD kernels is valid; f even so sign-insensitive, monotonic in t^2. Upper bound replayed independently: all 9 row norms within 5e-11 of 1, row-normalized Gram has min eig -3.08e-16, 5 eigenvalues ~1e-16 and 4 large eigenvalues (1.53,2.45,2.47,2.54), so PSD and rank<=4 up to standard tolerance, max off-diagonal 0.43775813<=0.438 with 2.4e-4 margin far above double-precision rounding error. Rank<=4/PSD follow by construction Vn@Vn.T anyway. DRAFT honestly states bounds do not meet, L is classical Welch, U is above putative catalogue, exact optimality not claimed. No essential inference or boundary error; randomized LP search to degree 12 correctly reported as evidence not proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Strongest headline claim is certified interval mu*(4,9) in [sqrt(5/32),0.438]. Lower side is explicitly a textbook restatement: DRAFT remarks 'No originality is claimed for (L) itself' and it equals the 1974 Welch bound. Upper side 0.438 is numerically weaker than 30-year-old prior numerics: Sloane Grassmann table lists m=4,n=1,N=9 D=0.811419515303501 (CHS96 computer search), which converts via mu=sqrt(1-D) to coherence 0.43425854, strictly better (smaller) than 0.43775813. Sloane page provides downloadable coordinates grassc.4.1.9.txt for the same cell, so the same numpy Gram-max replay applied to prior vectors would yield a stronger upper bound. A different stochastic-search witness with worse value and identical floating-point evidence level (eig>-1e-8, max) is new digits, not a substantively new claim. No new LP lower bound beyond Welch, no exact optimum (L!=U), no exact algebraic/interval certificate qualitatively beyond prior numerics, no structural description. Nearest priors substantively cover the claim: Welch bound, Conway-Hardin-Sloane Exp.Math.1996 packing tables, Fickus-Mixon ETF tables (rules out ETF but gives no new bound), de Laat et al. k-point SDP (different axis). Failed-search timestamp does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Interval [0.39528471,0.438] width ~0.0427 is not independently worth retrieving. Lower equals classical Welch (textbook restatement, explicitly disclaimed). Upper 0.4378 does not improve the recognized benchmark: it is worse than Sloane putative ~0.4343, admitted in DRAFT limitations ('slightly above... contribution is certification, not a numerical record'). It therefore fails its own admission requirement of strictly improving on Welch and putative status. Floating-point PSD/rank replay is same evidence level as prior computer-search numerics, not an exact algebraic order/constant/witness with new mathematical interpretation; stochastic local search (~130 restarts, no symmetry or exact form) yields an unexplained number. Certification alone does not rescue an arbitrary numerical vector set with worse value per shared standard. Future researcher needing mu*(4,9) would retrieve Welch plus Sloane 0.4343, not this weaker interval. No reusable LP pipeline beyond degree-2 Welch, no downstream use enabled. Reject as textbook lower plus tiny negative gain upper.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Table entry m=4 n=1 N=9 D=0.811419515303501 (and N=10 same) from computer search; page states packings found mostly by computer, invites improvements, last modified 1997. Converts to coherence sqrt(1-D)=0.43425854, better than claimed 0.43776.",
+      "title": "Sloane Table of Best Grassmannian Packings",
+      "url": "https://neilsloane.com/grass/grassTab.html"
+    },
+    {
+      "finding": "Home page defines G(m,n) line-packing problem (N subspaces maximizing minimal distance), lists CHS96/Shor-Sloane/Calderbank et al. papers; establishes recognized question but only best-found packings.",
+      "title": "Sloane Packings in Grassmannian spaces",
+      "url": "https://neilsloane.com/grass/"
+    },
+    {
+      "finding": "Dimension-4 index confirms downloadable coordinates grassc.4.1.9.txt for best-known chordal packing of 9 lines in R4; fetch returned empty but existence of prior explicit vector set is confirmed.",
+      "title": "Sloane dim4 packing index",
+      "url": "https://neilsloane.com/grass/dim4/"
+    },
+    {
+      "finding": "Surveys known ETF constructions; Welch-equality cells are known simplices/conference/Tremain instances; integrality rules out ETF at (4,9). No exact mu*(4,9) certificate, but motivates only why Welch unattainable.",
+      "title": "Tables of the existence of equiangular tight frames (Fickus-Mixon arXiv:1504.00253)",
+      "url": "https://arxiv.org/abs/1504.00253"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py: LOWER OK sqrt(5/32)=0.3952847075, UPPER OK mu=0.4377581319<=0.438, min eig -3.08e-16, 4 nonzero eigs.",
+    "Independent numpy recomputation: row norms max deviation 4.6e-11, sorted 36 absolute off-diagonals max 0.4377581319135258, eigvals [-3.08e-16,-1.79e-16,1.55e-16,5.63e-16,7.57e-16,1.533,2.452,2.471,2.544].",
+    "Verified Gegenbauer P2=(4t^2-1)/3 from C2^{(1)}=4t^2-1 normalized, f=(32t^2-5)/3, sign and f(1)=9 algebra exact.",
+    "Converted Sloane D=0.811419515303501 to mu=sqrt(1-D)=0.4342585459 < 0.43775813, proving claimed U is numerically weaker than prior best-known."
+  ],
+  "residual_risks": [
+    "Upper certificate uses floating eig threshold (-1e-8) and floating max, not interval arithmetic; margin 2.4e-4 makes overturn practically impossible but it is not a formal interval proof.",
+    "Sloane grassc.4.1.9.txt coordinates could not be fetched (empty webfetch); comparison uses published D value and coherence conversion, not direct replay of prior vectors.",
+    "Lower-bound Gegenbauer PSD appeal is standard spherical-code LP; verified normalization only for k=2 used here."
+  ],
+  "verdict": "REJECT"
+}
