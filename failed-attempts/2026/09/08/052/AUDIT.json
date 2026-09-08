@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently rebuilt AG(3,4) with a differently-coded verifier: F4 as GF(2)[t]/(t^2+t+1) reproduces candidate mul table [[0,0,0,0],[0,1,2,3],[0,2,3,1],[0,3,1,2]]; pair-generated lines give 336 affine 4-point lines, C(64,2)=2016 pairs each on exactly one line (336*6=2016). All six witnesses verify as caps (no 336-line intersection >=3) and complete (zero uncovered exterior points via secant cover): cube8 (8), C10, C12, C13, C14, C16. Cube secant cover: 56/56 exterior points each collinear with a stored cube pair, rechecked against line set. C12 punctures: C(12,11)=12, C(12,10)=66, C(12,9)=220; all subsets are caps (trivial consequence of subset-of-cap) and 0 are complete, matching claims. DRAFT honestly distinguishes proof (witness/completeness/puncture, machine-checked, two-program separation caps3034.py vs verify.py, verify.log ALL CHECKS PASS) from evidence-only partial 9-search (enum9.py 2M-node pilot, explicitly non-exhaustive, no absence/maximality/gap claimed). No boundary error: distinctness, range 0-63, direction count 21, line count 336 all asserted and replayed. No overclaim of headline (M,g) or full 9-14 table.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp: live arXiv searches for 'AG(3,4) cap' (0 hits), 'complete cap PG(3,4)' / 'cap PG(3,4)' (only 1610.09656), 'small complete caps PG(3,q)' (1610.09656 + 0901.0367), 'caps AG(3,q)' (no relevant hits) found no exhaustive AG(3,4) 9-14 census or listing of these six witnesses plus puncture package. Nearest priors differ in object/method/claim: Bartoli et al. 1610.09656 gives heuristic/FOP smallest-known minima t_2(N,q) for prime q in wide ranges (L3 primes), i.e. upper bounds, not an exact q=4 affine census with incidence replay; Davydov et al. 0901.0367 gives inductive infinite families for PG(N,q) q even N>=4, not a fixed AG(3,4) slice census; Bartoli et al. 1203.0986 classifies caps in PG(4,3) (81 points, q=3), different space/order. None implies existence/completeness of the specific C10/C12/C13/C14/C16 coordinate sets or the C12 12/66/220 puncture-incompleteness counts. Internal prior SCOPE020 (AG(3,3)/PG(3,3) maxima 9/10, spectra {8,9}/{8,10}) is different field/point set (27 vs 64 points) and does not imply q=4 results. 8-cube novelty correctly disclaimed as standard F2^3 embedding. Hence the verified fragment is substantively new to the checked sources.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The admitted headline (explicit C* with |C*|=M in 9-14 and gap |C|<=M-g for all other complete caps, with canonical-pruning logs) is explicitly NOT claimed; DRAFT Sec.4-5 and research_report limitations disclaim maximality, gap, and absence at 9/11/15. The admitted fallback (verified per-size table for every size 9-14 with a witness or replayable absence certificate) is incomplete: witnesses cover 10,12,13,14 inside the window but 9 and 11 are missing (partial 1,057,473 nine-cap pilot with 0 complete, explicitly non-exhaustive) and 15 is open; 8 and 16 lie outside the window. What remains is scattered existence: four in-window examples plus one standard cube and one out-of-window 16, with no maximal size, no gap, no spectrum, no counts/classification, no canonical invariants (stabilizer, orbit, weight distribution) and no demonstrated MDS/quantum-code parameters or other mathematical interpretation \u2014 just coordinate lists (arbitrary representatives among large AGL orbits) plus the local fact that subcaps of this one 12-cap are incomplete (expected; subset-of-cap makes the cap counts 12/66/220 trivial). This is an honestly-described incomplete census fragment and unexplained enumeration, not an independently retrievable extremal invariant a future researcher needing maximal size or per-size completeness could use. Certification alone does not rescue arbitrary representatives per the standard. The narrow-datum exception does not apply: the motivated exact invariants were M, g and the full 9-14 spectrum, none of which is established; opportunistic examples at a subset of sizes with gaps are arbitrary scope and missing substantive result. No bounded motivation/interpretation addition without new exhaustive search could create the missing extremal/census result, so this is intrinsic low value, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Heuristic/FOP smallest-known minima t_2(N,q) and upper bounds for prime q in wide ranges; no exact q=4 AG(3,4) 9-14 census with replay logs.",
+      "title": "Tables, bounds and graphics of the smallest known sizes of complete caps in PG(3,q) and PG(4,q)",
+      "url": "https://arxiv.org/abs/1610.09656"
+    },
+    {
+      "finding": "Inductive infinite families of small complete caps in PG(N,q) q even, N>=4; general construction, not AG(3,4) slice census.",
+      "title": "New inductive constructions of complete caps in PG(N,q), q even",
+      "url": "https://arxiv.org/abs/0901.0367"
+    },
+    {
+      "finding": "Exhaustive computer classification in different space PG(4,3); method precedent only, does not imply AG(3,4) witnesses.",
+      "title": "A computer based classification of caps in PG(4,3)",
+      "url": "https://arxiv.org/abs/1203.0986"
+    },
+    {
+      "finding": "arXiv all-field queries for 'AG(3,4) cap' returned 0 results; 'complete cap PG(3,4)' / 'cap PG(3,4)' returned only 1610.09656; 'caps AG(3,q)' returned no relevant cap census.",
+      "title": "arXiv search checks (AG(3,4)/PG(3,4)/AG(3,q) cap queries)",
+      "url": "https://arxiv.org/search/?query=cap+PG%283%2C4%29&searchtype=all"
+    }
+  ],
+  "decisive_checks": [
+    "Rebuilt F4 mul independently via GF(2)[t]/(t^2+t+1) polynomial arithmetic; matched candidate table exactly.",
+    "Pair-generated line construction gave 21 directions (implicit), 336 lines, 2016/2016 pair uniqueness (336*6=C(64,2)).",
+    "Recomputed is_cap and secant-uncovered for all six witnesses: each cap=True, uncovered=0.",
+    "Replayed 56-entry cube_secant_cover: each exterior point collinear with stored cube pair on a line in the rebuilt set.",
+    "Re-enumerated C12 punctures: k=11:12 caps/0 complete; k=10:66/0; k=9:220/0, matching verify.log.",
+    "Confirmed DRAFT/research_report disclaim maximality/gap/absence at 9/11/15 and fallback incompleteness (missing 9,11); partial-9 pilot correctly labeled evidence-only."
+  ],
+  "residual_risks": [
+    "Textbook/handbook tables for q=4 (e.g. Hirschfeld) not exhaustively checked; a missed classical listing of small AG(3,4)/PG(3,4) complete caps remains possible, though arXiv triage found none.",
+    "Projective-vs-affine completeness nuance: prior PG(3,4) small-cap existence does not imply AG(3,4) secant-completeness, but a classical AG(3,4)-specific table if extant would collapse originality.",
+    "Independent rebuild used same point-id convention (16x+4y+z) and same cap/completeness definitions; a definitional variant (e.g. projective 5-point lines) would change claims, but candidate definitions are explicit and standard for AG."
+  ],
+  "verdict": "REJECT"
+}
