@@ -1,0 +1,49 @@
+{
+ "verdict": "PASS",
+ "axes": {
+  "correctness": {
+   "verdict": "PASS",
+   "rationale": "Independently replayed inputs/artifacts/verify.py: VERIFY_OK (15/15 Ramanujan, matrix agreement <1e-9, 12/15 trivial-certified with the 3 stated exceptions). Independently verified from scratch: A5 permutation-model conjugacy classes have sizes 1,12,12,15,20 and each class is inverse-closed, so symmetric normal sets (1 excluded) are exactly the 15 nonempty unions of {2A,3A,5A,5B}, correcting the admission sketch 7-count, honestly disclosed in DRAFT. Committed character table satisfies exact row orthogonality (rechecked symbolically: all 25 inner products equal 60*delta_ij). Every nonempty normal S generates A5 by simplicity (plus BFS connectedness passes). Normal-Cayley eigenvalue formula with multiplicity chi(1)^2 is standard; exact symbolic re-evaluation of all 60 eigenvalues confirms every Ramanujan inequality strictly (tightest d=12: (2+2*sqrt(5))^2-44=-20+8*sqrt(5)<0; d=27 lam*=3+2*sqrt(5) approx 7.472 vs RB approx 10.198). Trivial per-character bounds recomputed: 12 certify, exactly the 3 named sets (2A+5A,2A+5B d=27; 2A+5A+5B d=39) fail the trivial bound while passing the true bound. D*=12 correctly framed as attained minimum valency with audit-plan forcing-proof hope honestly retracted in favor of exact 12-vs-3 split. No essential inference or computation fails."
+  },
+  "originality": {
+   "verdict": "PASS",
+   "rationale": "Nearest substantive prior Hirano-Katata-Yamasaki arXiv:1503.04075 determines Ramanujan-guaranteeing valency bounds for normal Cayley subsets of Frobenius groups and all subsets of dihedral groups of order 2p, with trivial-estimate coincidence vs quadratic-polynomial exceptions. A5 is nonabelian simple, hence not Frobenius, so outside that theorem scope; it proves bounds for different groups, not A5 spectra or verdict table. Yamasaki arXiv:1611.09977 (generalized quaternion groups) and Lubotzky arXiv:1105.2389 (expander survey) likewise contain no A5 threshold or per-graph normal-Cayley verdict table, verified by fetching records. Live arXiv search for Ramanujan Cayley graphs + A5 returns zero results, confirming no recorded A5 classification. The A5 all-Ramanujan verdict with D*=12, exact spectra, and 12-vs-3 trivial-bound split is substantively new and not mechanically implied by Frobenius/dihedral/quaternion bounds or general LPS/Alon-Boppana background."
+  },
+  "value": {
+   "verdict": "PASS",
+   "rationale": "Headline claim judged on its own: rigorously established exact invariant (full adjacency spectra, Ramanujan verdicts, sharp minimum valency D*=12, trivial-bound coincidence status) of a specific natural object (all symmetric normal Cayley graphs of A5=PSL(2,4), smallest nonabelian simple group). Object and invariant motivated before computation by published Hirano valency-bound/coincidence program; values not known and not mechanically implied by Frobenius/dihedral results; future researcher benchmarking expansion or consulting valency-bound literature could reasonably need this precise closed reference table. Scope is symmetry-closed and exhaustive (all 15 sets), not arbitrary slice; coincidence/exception dichotomy adds structure beyond bare enumeration. Meets narrow-datum eligibility clause and is not textbook restatement, parameter substitution, or tiny unmotivated gain."
+  }
+ },
+ "checked_sources": [
+  {
+   "title": "Ramanujan Cayley graphs of Frobenius groups (Hirano-Katata-Yamasaki)",
+   "url": "https://arxiv.org/abs/1503.04075",
+   "finding": "Valency bounds for normal Cayley subsets of Frobenius groups and all subsets of dihedral 2p groups; A5 simple is not Frobenius; no A5 threshold or verdict table."
+  },
+  {
+   "title": "Expander Graphs in Pure and Applied Mathematics (Lubotzky)",
+   "url": "https://arxiv.org/abs/1105.2389",
+   "finding": "Expository survey; background only; no A5 normal-Cayley threshold or classification."
+  },
+  {
+   "title": "Ramanujan Cayley graphs of the generalized quaternion groups (Yamasaki)",
+   "url": "https://arxiv.org/abs/1611.09977",
+   "finding": "Valency bounds for generalized quaternion groups; different family; no A5 result."
+  },
+  {
+   "title": "arXiv live search: Ramanujan Cayley graphs A5",
+   "url": "https://arxiv.org/search/?query=%22Ramanujan+Cayley+graphs%22+A5&searchtype=all&source=header",
+   "finding": "Exact-phrase query returns zero results, confirming no recorded A5 classification."
+  }
+ ],
+ "decisive_checks": [
+  "Replayed inputs/artifacts/verify.py with numpy only: VERIFY_OK, 15/15 Ramanujan, agreement <1e-9, 12/15 trivial-certified with exceptions 2A+5A, 2A+5B, 2A+5A+5B.",
+  "Exact symbolic recheck (sqrt(5) closed forms): character-table row orthogonality 60*delta_ij holds; all 60 eigenvalue Ramanujan inequalities hold strictly as exact a+b*sqrt(5) comparisons.",
+  "Brute-force permutation-model recheck: class sizes [1,12,12,15,20], each inverse-closed, so 2^4-1=15 symmetric normal sets; generation by simplicity plus BFS connectedness valid.",
+  "Trivial per-character maxima recomputed: 12 certify, exactly the 3 claimed exceptions exceed the Ramanujan bound under the trivial estimate but satisfy it exactly."
+ ],
+ "residual_risks": [
+  "Matrix cross-check agreement is floating-point (<5e-13/<1e-9), not interval arithmetic; minimal risk because spectra are exact closed forms from the verified character table and matrix route is corroboration only.",
+  "Value rests on reuse as closed reference table for one group; no claim made for non-normal Cayley graphs of A5 or other groups; D* sharpness means attained minimum, stated explicitly."
+ ]
+}
