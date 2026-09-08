@@ -1,0 +1,72 @@
+"""Correct Seifert-circle count for braid closure via smoothing trace.
+Model: n strands flowing downward. At crossing k between positions i,i+1,
+oriented (Seifert) smoothing reconnects the two strands: trace circles as
+permutation cycles. Standard result: Seifert circles of closed braid =
+cycles of permutation obtained by replacing each crossing by smoothing.
+Smoothing of sigma_i at a level: strands passing straight through BUT
+with a turnback? No: Seifert smoothing of a positive crossing connects
+incoming strand i to outgoing strand i+1 on the same side... For a braid,
+oriented smoothing makes the two strands turn back (cup/cap pair), i.e.,
+circles = components of 1-manifold after replacing each X by )( rotated.
+Trace: maintain pairing via union-find on 2*m endpoints? Doubling method:
+each crossing introduces a cap below and cup above effectively merging.
+Simplest exact: Seifert circles = n + c - rank over GF? Use known formula:
+for braid closure diagram with n strands and c crossings, writhe c, the
+Seifert circles s = number of cycles in the permutation obtained by
+sending each strand through smoothings. Smoothing at sigma_i means the
+strand labels do NOT swap (they go straight) but the closure connections
+pair them. Hmm.
+
+Robust graph-trace method: build directed 4-regular graph: nodes = crossing
+ports. Each crossing k has 4 half-edges: top-left (TL), top-right (TR),
+bottom-left (BL), bottom-right (BR). Braid edges: TL connects to previous
+level output at position i; TR to position i+1; BL to next level input i;
+BR to next level input i+1. Closure: top of strand s connects to bottom of
+strand perm... Seifert smoothing reconnects TL->TR? No: oriented smoothing
+connects incoming to outgoing preserving orientation: TL->BL? That gives
+back the braid (wrong). Oriented smoothing connects TL->TR?? Let's think:
+two downward strands crossing (over/under). Oriented smoothing pairs the
+two incoming ends together (cup at top) and two outgoing together (cap at
+bottom)? That reverses orientation on one... Standard Seifert: at each
+crossing, reconnect so orientations agree: incoming-left -> outgoing-left
+is the original; smoothing gives incoming-left -> outgoing-right and
+incoming-right -> outgoing-left? For parallel downward strands, both
+options preserve downward orientation. Which is smoothing? Smoothing
+replaces X with two vertical strands (for braid-like crossing) — that's
+TL->BL, TR->BR, giving n circles?? That can't be right either: smoothing ALL
+crossings of a braid closure gives n unlinked circles only if smoothings
+disconnect... yes! For a braid, Seifert smoothing at every crossing yields
+exactly the n strand-circles (plus closure loops)? Hmm, that gives s=n
+always, which contradicts e.g. Hopf link closure of sigma1^2 (s=2=n ok) but
+for more complex braids s>n? Actually for closed braids s >= n? No...
+
+Known fact: for a closed braid diagram, number of Seifert circles s satisfies
+s = n + (number of ... )? Let me recall Bennequin: sl = c - n for braid
+closure. And s for positive braid closure can exceed n? e.g. closure of
+sigma1 sigma2 sigma1 on 3 strands = trefoil? s=2? Hmm trefoil standard diagram
+has s=2 < n=3. So smoothing reduces circles.
+
+Correct approach: implement the actual directed-edge tracing. At a positive
+crossing with both strands oriented downward, there are two oriented
+smoothings-consistent reconnections: (a) straight-through (TL->BL, TR->BR):
+strands continue, this is NOT the smoothing, it's the original minus crossing
+information... no wait, smoothing must change connectivity: the X has TL
+connected to BR (over-strand) and TR to BL (under). Wait no: over-strand goes
+TL->BR? For sigma_i, strand from top-i goes to bottom-(i+1) (it crosses over),
+strand top-(i+1) goes to bottom-i. So X-connections: TL->BR, TR->BL.
+Seifert (oriented) smoothing reconnects preserving orientation: it connects
+TL->TR?? those are both incoming... no. Orientation: all flow downward. At
+the crossing point, 4 ends: two above (inflow), two below (outflow). Oriented
+smoothing pairs each inflow with an outflow so flow continues downward:
+options: (TL->BL, TR->BR) [straight] or (TL->BR, TR->BL) [cross = original].
+Smoothing = straight-through! So smoothing undoes the swap: strands go
+straight down. Then all smoothings give n straight strands; closure connects
+top s to bottom s: circles = n. So s = n ALWAYS for braid closures?!
+
+Yes — this is a classical fact: the Seifert circles of a closed braid
+diagram are exactly the n strands (n concentric circles). E.g., trefoil as
+closure of sigma1^3 on 2 strands: s=2=n. My memory of s=2 trefoil matches n=2.
+So s = n for any braid closure. The earlier DSU code was wrong; correct s = n.
+Then genus formula: chi = s - c; for link with mu components, genus of Seifert
+surface: 2g = 2 - mu - (s - c) ... g = (c - s + mu... let g = (2 - mu - s + c)/2.
+"""
