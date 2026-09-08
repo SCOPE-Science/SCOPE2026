@@ -1,0 +1,43 @@
+# Ingleton-deficit certificates (replay log)
+
+Machine: 32-core, gcc 13.3.0, `gcc -O2 -fopenmp -o ingleton ingleton_scan.c`.
+Each line is the verbatim stdout of one full-enumeration run
+(all (2^n)^4 ordered 4-tuples; rank function = sparse-paving rank with the
+listed nonbasis masks; bit convention: element i = bit i).
+
+## Table 1 — TTT 9-point family: max deficit 0 (all six objects)
+
+All six runs report best=0 npos=0 (deterministic; the printed witness is an
+arbitrary best=0 tie and varies between runs, so only best/npos are claimed):
+- T3 primal (rank 5, 8 nonbases AiBj except A0B0): best=0 npos=0.
+- T13 primal (rank 5, all 9 AiBj nonbases): best=0 npos=0.
+- T1m maximal primal (rank 5, 18 nonbases = 9 AiBj + 9 CiDj): best=0 npos=0.
+- T3 dual (rank 4, 8 complementary nonbases): best=0 npos=0.
+- T13 dual (rank 4, 9 complementary nonbases): best=0 npos=0.
+- Maximal dual (rank 4, 18 complementary nonbases): best=0 npos=0.
+Full per-run output (including the arbitrary witnesses) is in replay_log.txt.
+
+(P8-family spot checks, rank 4 on 8 points, each best=0 npos=0:
+P8, P8,1, P8,2', P8,2'', P8,3 — full 256^4 scans, all zero.)
+
+## Table 2 — Vamos-specimen single/double-relaxation poset (16 members)
+
+Base specimen V (rank 4 on {0..7}, nonbases 0123,0145,2367,4567,2345
+= masks 0x0f 0x33 0xcc 0xf0 0x3c):
+- V (all 5): best=1, npos=4, witness A=0x30 B=0xc C=0x3 D=0xc0,
+  LHS ranks 2 2 4 4 4 / RHS ranks 3 3 3 3 3 (deficit 16-15=1).
+- 5 single-relaxations (drop one nonbasis): best=0 in all 5 cases.
+- 10 double-relaxations (keep three nonbases): best=0 in all 10 cases.
+
+Hence max over the poset = 1, attained at V (npos = 4 attaining tuples).
+
+## Coordinate/element conventions (auditable)
+- 9-point TTT ground set: F3xF3 enumerated (x,y) -> index 3x+y, x,y in {0,1,2}.
+  Ai = {(x,i)}, Bj = {(j,y)}, Ck = {x-y=k}, Dl = {x+y=l} (mod 3).
+  Rank-5 primal nonbases (5-sets): 00:0x04f 01:0x079 02:0x1c9 10:0x097
+  11:0x0ba 12:0x1d2 20:0x127 21:0x13c 22:0x1e4; CD nonbases: 00:0x1b1
+  01:0x11b 02:0x155 10:0x0ad 11:0x18e 12:0x0dc 20:0x0e3 21:0x16a 22:0x076.
+  Rank-4 dual nonbases are the complements (XOR 0x1ff).
+- 8-point Vamos specimen: elements 0..7 = cube vertices (binary triples);
+  the five nonbases above are exactly the paper's Vamos list
+  0123,0145,2367,4567,2345.
