@@ -1,0 +1,45 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem claims mu*(N,4)=1/2 for N=17-20 and mu*(N,5)=1/sqrt(5) for N=26-30. Upper bound verified independently in exact integer arithmetic: reimplemented Z[zeta8]/(x^4+1) and Z[zeta5]/(x^4+x^3+x^2+x+1) with conjugation and reduction, checked ring self-tests (z^8=1, z^5=1, unit norms), then checked every stored vector: all 20 C4 vectors have self-inner numerator [4,0,0,0] (norm 1 after /2) and all 190 pairs have |numerator|^2 in {0,4}, i.e. overlaps {0,1/2}; all 6 C5 bases are orthonormal and across-basis unbiased (numerator norm 1 vs computational basis, 5 vs scaled bases), and all 435 pairs of the 30-set split 60 orthogonal + 375 at 1/sqrt(5). All nine sub-packings inherit mu<=parent mu by subset monotonicity (max over fewer pairs). Lower bound mu>=1/sqrt(d) for N>d^2 re-derived and valid: Q_k=x_k x_k^*-I/d are nonzero (norm^2=1-1/d) in the (d^2-1)-dim real traceless-Hermitian space with HS inner |<x_j,x_k>|^2-1/d; obtuse-family lemma (all pairwise <0 => independent, via positive/negative-support split giving ||u||^2<0 contradiction, then same-sign case contradicting positivity) contraposes dependence (N>=d^2+1>dim) to some pair >=1/d. Boundary holds strictly (17-20>16, 26-30>25). Gram PSD/rank<=d follows structurally from exhibiting vectors (G=M*M); Welch numbers recomputed exactly (e.g. sqrt((N-d)/(d(N-1)))) matching bound_table to 1e-16; frame potentials N^2/d (100, 180) confirmed arithmetically. Minor naming/denominator presentation (orthoplex as '2nd Levenshtein', C5 denom sqrt(5)) does not affect validity. Proof, not mere numerics.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the exact numerical theorem is mechanically implied by two classical results the DRAFT itself concedes are classical. (a) Complete MUB sets in prime-power dimensions with coherence exactly 1/sqrt(d): d=4 gives 5 bases/20 vectors, d=5 gives 6 bases/30 vectors (Ivanovic 1981; Wootters-Fields 1989; standard Fourier/Hadamard MUBs). (b) Rankin/orthoplex bound mu>=1/sqrt(d) for N>d^2 (Rankin 1955; Conway-Hardin-Sloane). Combining them, any N with d^2<N<=d(d+1) has mu*(N,d)=1/sqrt(d) by subset monotonicity with gap 0 -- exactly the nine claimed rungs. This general folklore fact (MUBs saturate the orthoplex bound; orthoplex-achieving subsets) anticipates all nine values at once; listing N=17,18,19,20 and 26,...,30 separately adds no new extremal object. Explicit cyclotomic coordinates are the standard MUB matrices, and exact overlap rechecking is routine verification, not a new theorem statement or boundary. Admission's 'no prior source records this witness package' is a failed-search/packaging claim, which per audit rules does not establish priority over mechanical implication.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: even taken as correct and (narrowly) unrecorded in this exact tabulated form, the result is a textbook restatement plus trivial parameter substitution, explicitly excludable. The entire content is: quote classical MUB coherence, quote classical orthoplex lower bound, observe equality on subsets. No new packing is constructed (parents are textbook MUBs), no bound is improved (gap 0 is the known equality case), no hard case is closed (optimality is one-line, no search/certificate needed beyond citing the bound), and the nine rungs are nine instantiations of one trivial subset observation. The 'certified witness package + audit pipeline' (coordinate files, float replay, Welch-gap table) is routine re-verification scaffolding, not an independently retrievable research advance; Welch gaps 0.03-0.05 merely restate the known strict separation of Welch vs orthoplex regimes. A future reader needs only the two classical theorems, not this enumeration.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Catalogues inequivalent complex Hadamard matrices N=2..16 with families for 12,14,16; confirms Hadamard/MUB-adjacent matrices to N=16 are long-catalogued building blocks, not novel coordinates.",
+      "title": "A concise guide to complex Hadamard matrices -- Tadej & Zyczkowski (arXiv:quant-ph/0512154)",
+      "url": "https://arxiv.org/abs/quant-ph/0512154"
+    },
+    {
+      "finding": "Classical sources (conceded classical in DRAFT Sec 'Originality/attribution'): complete MUBs in prime-power d with |<.|>=1/sqrt(d) (Ivanovic 1981; Wootters-Fields 1989) and Rankin orthoplex bound mu>=1/sqrt(d) for N>d^2 (Rankin 1955; Conway-Hardin-Sloane 1996) jointly imply mu*(N,d)=1/sqrt(d) for d^2<N<=d(d+1), covering all nine rungs. Verified by mathematical deduction, not by timestamp.",
+      "title": "Classical MUB + orthoplex-bound implication (Ivanovic; Wootters-Fields; Rankin; Conway-Hardin-Sloane; Welch)",
+      "url": "https://arxiv.org/abs/quant-ph/0310075"
+    },
+    {
+      "finding": "All 190 C4 and 435 C5 pairwise numerators recomputed exactly; norms, mu values, Welch bounds, frame potentials N^2/d, and orthoplex equality confirmed. Full-vector exact checks for all nine sub-packings pass.",
+      "title": "Local exact recomputation from inputs/artifacts/vectors_exact.json and bound_table.json",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Exact Z[zeta8] recomputation: 20 C4 vectors self-numerator [4,0,0,0]; 190 pairs split 30 at numerator-norm 0 + 160 at 4 => overlaps {0,1/2}.",
+    "Exact Z[zeta5] recomputation: 6 C5 bases orthonormal; across-basis unbiased (norm 1 vs computational basis, norm 5 among scaled bases); 30-set splits 60 zero + 375 at 1/sqrt(5); all nine sub-packings exact-checked with correct mixed-denominator handling.",
+    "Orthoplex lemma and dimension count validated: nonzero Q_k, (d^2-1)-dim space, N>=d^2+1 forces dependence => some pair >=1/d; boundaries 17-20>16, 26-30>25 strict.",
+    "Welch formula sqrt((N-d)/(d(N-1))) recomputed for all nine rungs matching bound_table; FP=N^2/d (100, 180) confirmed; subset monotonicity noted.",
+    "Novelty collapse: general statement mu*(N,d)=1/sqrt(d) for d^2<N<=d(d+1) whenever a complete MUB set exists follows in one line from cited classics; nine values are parameter substitutions with no new object or bound improvement."
+  ],
+  "residual_risks": [
+    "Near-zero correctness risk: two C4 entangled bases were numerically recognized then exactly verified -- verification is exact so recognition method is irrelevant, but provenance is reconstruction rather than derivation.",
+    "No residual originality/value risk relevant to PASS: failure is decisive via mechanical implication conceded classical in the DRAFT itself; further literature search could only strengthen the anticipation case."
+  ],
+  "verdict": "REJECT"
+}
