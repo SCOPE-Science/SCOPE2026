@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Exact arithmetic verifies. Re-ran inputs/artifacts/verify.py (stdlib Bareiss + Gram): ALL CHECKS PASSED for posted_n29, W29, W29b, posted_n33, W33, W33b. Independently cross-checked determinants by modular Gaussian elimination at 4 primes (up to sign): W29/posted_n29 =1188957517256767569920, W29b=1166133779202284978176, W33/posted_n33=8330254475782054156959744, W33b=7744681031906218150461440 \u2014 all match. Squareness and +-1 entries hold; Gram diagonals =n; baseline factorizations check: 2^28*7^12*320=R29, 2^28*7^13*43=K29, 2^32*8^14*441=D33, 2^32*8^15*51=FK33; strict inequalities R29>K29 (ratio 1.06312), W29b>K29, D33>FK33 (1.08088), W33b>FK33 (1.00490) hold. Honest no-overclaim: D*>R29 explicitly NOT claimed. Caveats (not arithmetic failures): (1) 'independence' language in DRAFT 3/ README is misleading \u2014 W29/W33 are signed row/column permutations of the posted records (Hamming 423/578 raw), whose |det| equality is mechanically implied and whose absolute Gram multisets are identical (verified Counter-equal); they are Hadamard-equivalent, not independent extremals. (2) Exhaustive Hamming-1 local-optimality / ~4500-restart negative-search claims have no replay log artifact; headline equalities do not depend on them.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No new inequality over best-known is established; primary target D*>R29 was NOT achieved by admission. The fallback 'beats classical baseline' inequalities were already published in the cited prior itself: Orrick et al. math/0304410 (2003) reports n=29 and n=33 matrices as new world records explicitly superseding the Farmakis-Kounias/Koukouvinos values (posted R29 at 86.5% of Barba vs Koukouvinos 81.4%; n=33 record vs FK value). Hence R29>K29 and D33>FK33 are prior results, not new. W29 (det=R29) and W33 (det=D33) are signed-permutation copies of those published records \u2014 verified same |det| and identical absolute Gram-entry multisets \u2014 so they contribute no new object, value, or method; equality is implied by signed-permutation invariance. The only distinct determinants, W29b (H=1 neighbor, 1.9% BELOW R29) and W33b (H=2 neighbor, ~7% BELOW D33), are sub-record single/double-flip degradations of the published records that beat only the long-superseded baseline while losing to the current posted record at the same order. They do not improve any best-known lower bound, use no 3-normalized-bordering construction (artifacts: permutation / flip logs), and are trivial variations obtainable by anyone holding the posted matrix. A timestamp or exact Bareiss certificate does not establish priority over the 2003 record that already implies the baseline comparison.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth retrieving? No. The program's benchmark form is a strict improvement over best-known (D*>R29 / new D33 record); none is delivered \u2014 best-known values R29, D33 are merely replayed. Remaining witnesses fail the narrow-datum rescue test: W29/W33 values are mechanically implied by Hadamard equivalence to the known records (not unknown before computation), and W29b/W33b are arbitrary 1-2-flip neighbors below best-known with no motivated identity (why (6,6) / (21,0),(0,24)?), no mathematical interpretation, and no downstream use \u2014 D-optimal tables and construction-boundary calibration cite best-known extremals, not sub-record neighbors that are 2-7% worse at the same order while +4.3%/+0.49% above an obsolete pre-2003 baseline. W33b's +0.49% over FK33 while ~7% below D33 is a tiny unmotivated gain against a superseded comparator; certification (Bareiss+Gram) alone does not rescue an arbitrary object or unexplained number. The fallback as executed is a bare failed-record log plus repackaged record copies and degraded neighbors, not two new benchmark lower bounds.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Lists proven largest +-1 determinants only through n=22; n=29/33 maxima open, so benchmark form is beating best-known lower bound.",
+      "title": "OEIS A003433",
+      "url": "https://oeis.org/A003433"
+    },
+    {
+      "finding": "Reports new world records for n=22,23,27,29,31,33,34,35,... as lower bounds with posted matrices; abstract confirms n=29/n=33 values are beatable construction baselines whose improvement is the recognized route. Paper text (pp.5-6 per DRAFT) quotes Koukouvinos/Farmakis-Kounias predecessors, so R29>K29 and D33>FK33 already published there.",
+      "title": "Orrick-Solomon-Dowdeswell-Smith math/0304410 New lower bounds for maximal determinant",
+      "url": "https://arxiv.org/abs/math/0304410"
+    },
+    {
+      "finding": "Defines 3-normalized bordering for 4k+1 orders and new records at 37,49,65,...; delivered witnesses are flips/permutations of 0304410 records, not this pipeline.",
+      "title": "Orrick-Solomon math/0311292 Large-determinant sign matrices of order 4k+1",
+      "url": "https://arxiv.org/abs/math/0311292"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py: ALL CHECKS PASSED; Gram diagonals=n, excess/max-offdiag as reported.",
+    "Independent modular-determinant replay (primes 1000003/1000033/1000037/1000039, sign-insensitive): all six matrices match claimed |det|.",
+    "Baseline integer factorization check: R29/K29/D33/FK33 equal 2^28*7^12*320 etc.; ratios R29/K29=1.06312, D33/FK33=1.08088, W33b/FK33=1.00490 confirmed.",
+    "Hamming distances to posted records: W29=423 (signed perm), W29b=1, W33=578 (signed perm), W33b=2; absolute Gram-entry multisets of W29/W33 identical to posted records (Hadamard-equivalence), so |det| equality mechanically implied.",
+    "Sub-record status: W29b<R29 (gap 22823738054482591744), W33b<D33 \u2014 both beat only superseded baseline, lose to same-order posted record; no D*>R29 artifact exists."
+  ],
+  "residual_risks": [
+    "Exhaustive Hamming-1 optimality sweep and ~4500-restart heuristic negative result have no replay log; unverified but immaterial to headline failure.",
+    "Live Indiana maxdet tables unreachable (404/migration per DRAFT); a newer unpublished record would only strengthen the REJECT (even 2003 record not beaten).",
+    "Barba-bound closed-form factors not re-derived from scratch; ratios reproduce paper's printed fractions and are contextual only."
+  ],
+  "verdict": "REJECT"
+}
