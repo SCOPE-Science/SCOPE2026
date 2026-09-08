@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorems 1-3 as narrowed to the 17 explicit graphs are mathematically correct. Independent re-implementation (fresh deletion-contraction code, fresh backtracking counter, fresh exact-rational Sturm code) confirms: (a) all 17 coefficient lists equal the true chromatic polynomials (full DC match on all 17; state counts 48-31816); (b) P(0)=P(1)=P(2)=0, monic degree n, second coefficient -m, and P(3)/P(4) counts all match brute-force enumeration (spot-checked W8,F8,D8,S9,W11,D11,W12,F12,D12,I12 at q=3,4 byte-for-byte); (c) wheel closed form q*((q-2)^(n-1)+(-1)^(n-1)(q-2)) matches all five W entries; stacked S9 equals q(q-1)(q-2)(q-3)^6 exactly; I12 equals the published MathWorld factored form; (d) exact Sturm variation difference on (10/3,4) is 0 for all 17, i.e. no real root in J; total distinct real-root counts (fans 3, I12 6) confirmed; (e) W8 P(3)=0 confirmed by exhaustive search, all 8 one-vertex deletions colorable with counts 126 (hub deletion to C7) and 6 each x7 (rim deletions to even-rim wheels), so vertex-deletion-minimal non-3-colorability holds. Draft honestly disclaims the full 297-class census, Birkhoff-Lewis logs, complex-disc gaps, and golden identity, so no false completeness claim. Missing verify.py/compute.py scripts (only tables.json and verify_report.json supplied) is a reproducibility limitation, mitigated because bare edge lists plus coefficients suffice for independent replay, which was performed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The delivered 17-graph table is not new as a substantive claim. Nearest priors mechanically imply or already publish its entries: (1) Wheels W8-W12 fall under the textbook closed form pi(x)=x[(x-2)^(n-1)-(-1)^n(x-2)] published on MathWorld Chromatic-Polynomial and Wheel-Graph pages; the five entries were verified to be exact evaluations of that formula, i.e. mere parameter substitutions n=8..12. (2) Icosahedron I12 polynomial is published verbatim on the MathWorld Icosahedral-Graph page as z(z-1)(z-2)(z-3)(z^8-24z^7+...+20170); expansion matches the committed I12 coefficients byte-for-byte, so it is a textbook restatement. (3) Stacked S9 (K4 stellated 5x) equals q(q-1)(q-2)(q-3)^6 by the standard simplex-gluing lemma; verified equal, hence mechanically implied. (4) Fans F8-F12 (K1 plus path joins) and bipyramids D8-D12 (cycle plus 2K1 joins) are standard textbook join families whose polynomials follow by routine deletion-contraction or join formulas; tabulating n=8..12 adds no new method or identity. (5) The (10/3,4) real-root gap and Q(sqrt5) B5 evaluations are direct Sturm/Horner readings of those already-known polynomials, not a new zero-free theorem; Sokal cond-mat/9904146 already gives the general complex-disc program and Tutte golden-identity literature gives the Beraha relations. The admitted target (complete 297-class census with recursion witnesses) would have been new, but the delivered artifact abandons it for 17 highly symmetric members. A failed-search log or generator-layer distinction does not establish priority over closed-form prior art.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "The result is not independently worth retrieving later. It is a textbook restatement plus parameter substitution (wheels via known formula, icosahedron already published, stacked trivial) plus a tiny arbitrary slice (15 join-family members plus 2 extras) explicitly admitted NOT to be the complete 297-class or disk census, so it has neither census completeness nor extremal/witness novelty. The W8 minimal non-3-colorable witness is the elementary odd-rim-wheel parity fact chi(W_n)=4 iff n even (textbook), with minimality by deleting to C7/C6-even-wheel; no future reducibility checker needs this instance certified. The (10/3,4) real-only Sturm gap on this arbitrary 17-set is an unexplained number on an arbitrary object: interval choice is unmotivated relative to Beraha numbers (B7 about 3.247 lies below it, B5 about 2.618 far below), no complex-disc or infinite-family consequence is proved, and no downstream theorem uses it. The narrow-datum exception does not apply because the values were already known or mechanically implied by published closed forms, and certification/replay alone does not rescue an arbitrary scope. Hence intrinsic low value, not a bounded-addition fix.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Publishes general wheel closed form pi(x)=x[(x-2)^(n-1)-(-1)^n(x-2)] and chi(W_n)=3/4 parity; general cycle/path/join formulas. Delivered W8-W12 verified as direct evaluations of this formula.",
+      "title": "MathWorld - Chromatic Polynomial; Wheel Graph",
+      "url": "https://mathworld.wolfram.com/ChromaticPolynomial.html"
+    },
+    {
+      "finding": "Publishes icosahedral chromatic polynomial z(z-1)(z-2)(z-3)(z^8-24z^7+260z^6-...+20170) and chromatic number 4; expansion matches committed I12 coefficients byte-for-byte. Also documents 12 vertices/30 edges, spectrum, |Aut|=120.",
+      "title": "MathWorld - Icosahedral Graph",
+      "url": "https://mathworld.wolfram.com/IcosahedralGraph.html"
+    },
+    {
+      "finding": "Defines fans as K1+P_n joins and dipyramids as C_m+2K1 joins with standard join structure; no per-n tables, confirming the delivered F/D entries are routine join-family instances.",
+      "title": "MathWorld - Fan Graph; Dipyramidal Graph",
+      "url": "https://mathworld.wolfram.com/FanGraph.html"
+    },
+    {
+      "finding": "Proves universal disc bounds C(r)<=7.96r for chromatic zeros via polymer-gas methods; general bound only, confirming zero-program context but no per-graph table.",
+      "title": "Sokal - Bounds on Complex Zeros (cond-mat/9904146)",
+      "url": "https://arxiv.org/abs/cond-mat/9904146"
+    },
+    {
+      "finding": "House-of-Graphs page fetch returned boilerplate only; Wikipedia chromatic-polynomial fetch transport-failed; relied on MathWorld primary formulas plus independent recomputation instead.",
+      "title": "House of Graphs / Wikipedia (fetch attempts)",
+      "url": "https://houseofgraphs.org/graphs/740"
+    }
+  ],
+  "decisive_checks": [
+    "Fresh deletion-contraction re-implementation matched all 17 committed polynomials (W8 87 states through I12 31816 states).",
+    "Degeneracy-ordered brute-force counter matched P(3),P(4) on W8,F8,D8,S9,W11,D11,W12,F12,D12,I12.",
+    "Wheel formula q*((q-2)^{n-1}+(-1)^{n-1}(q-2)) matched all five W coefficients; S9 matched q(q-1)(q-2)(q-3)^6; I12 matched published MathWorld factored form on expansion.",
+    "Exact-rational Sturm counts gave 0 roots in (10/3,4) for all 17; total distinct real counts e.g. fans 3, I12 6.",
+    "W8 exhaustive 3-coloring UNSAT confirmed; deletion counts [126,6x7] confirmed, establishing vertex-deletion minimality.",
+    "Second-coefficient -m, monic degree-n, P(0)=P(1)=P(2)=0 checks passed on all 17; edge-count vs edge-list lengths verified."
+  ],
+  "residual_risks": [
+    "No residual correctness risk on the 17 polynomials, counts, minimality, or real-gap claims after triple-path verification.",
+    "compute.py/sturm.py/verify.py not supplied in inputs/artifacts (only tables.json and verify_report.json); replay depended on auditor-written code, so artifact self-containment is weaker than claimed, but edge lists plus coefficients are sufficient.",
+    "Audit did not exhaustively survey fan/bipyramid closed-form literature beyond MathWorld join definitions; however routine-derivability suffices for the originality failure, which does not hinge on locating every per-n table."
+  ],
+  "verdict": "REJECT"
+}
