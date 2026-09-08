@@ -1,0 +1,43 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorems 1-2 verified independently from scratch: exact integer difference tables for q=7,11,19,23,31 give (q,(q-1)/2,(q-3)/4) with skew D cap -D empty, and for q=5,13,17,29 give (q,(q-1)/2,(q-5)/4,(q-1)/4) with symmetric D=-D; exact integer C^2=qI (deviation 0) replayed; Fourier |S_a|^2=(q+1)/4 and (2S_a+1)^2=q hold to <1e-9/<1e-6 with both signs present; Gram spectra {0 x(q-d), q/d x d} (complex) and {0 x(n-d), 2 x d} (real) and coherences sqrt(q+1)/(q-1), 1/sqrt(q) replayed to <1e-9; Gerzon arithmetic d(d+1)/2 and d^2 gaps match table.csv. These are machine-checked certificates (integer identities + numerics rounded to proven integers with residuals far below spacing), honestly distinguished from proof, and correct. Theorem 3 is false as stated: (a) compute.py census() branches on m=len(cosets): if m<=10 enumerates all 2^m unions, else only single cosets/complements/full set. For prime v with phi(v)>10 (13,17,19,23,29,31) the trivial-subgroup case m=phi(v)>10 is therefore NOT exhaustively searched, contradicting 'every subgroup H, every union S' and 'exhaustive over cyclotomy-based sets'. For composite v<=30 phi(v)<=8 so that slice is exhaustive, but the prime claim is not. (b) The prime-order summary 'only nontrivial proper examples are QR Paley/skew-Hadamard sets and complements/multiples' is factually false on the artifact's own data: results.json census['31'] contains ten (31,6,1) DS sets (e.g. [1,5,11,24,25,27]) with k(k-1)=30=1*30, i.e. classical Singer (31,6,1) perfect difference sets from the order-5 projective plane, plus eight distinct (31,15,7) DS beyond QR/complements. These are nontrivial proper DS distinct from QR (k=6 vs 15) and are omitted from the 'no sporadic' summary. verify.py step 3 only re-tests stored sets, not completeness, so it cannot rescue the completeness claim. Hence an essential inference fails.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Strongest headline identities are textbook: QR Paley skew-Hadamard (q,(q-1)/2,(q-3)/4) and Paley-type PDS (q,(q-1)/2,(q-5)/4,(q-1)/4) parameters (Paley 1933); symmetric conference C^2=qI and real equiangular lines N=q+1 in R^{(q+1)/2} with coherence 1/sqrt(q) and Gram spectrum {0,2} (Goethals-Seidel/conference-ETF correspondence); complex harmonic ETFs N=q in C^{(q-1)/2} with Welch-bound coherence sqrt(q+1)/(q-1); Gerzon bounds d(d+1)/2, d^2 and saturation 6 lines in R^3 (icosahedron, Gerzon/Lemmens-Seidel 1970s). Gaps in table.csv are pure arithmetic from those classical N,d. Gram spectra follow mechanically from C^2=qI (eigenvalues +-sqrt(q) -> 0,2). Singer (31,6,1) DS (Singer 1938) anticipates the extra prime-order census hits. Nearest live priors checked (King-Tang 1606.03259 pillar/SDP bounds; Greaves et al. 2012.13642 finite-field ETFs; Brady 2406.09550 PDS local search to order 147) are complementary methods and do not contain the combined table, but substantive priority comes from the classical priors, not from absence of the exact combined table. Recomputing known parameters with Fourier/Gram logs and arithmetic gaps adds verification, not a new object, method, or invariant. A failed-search/combination claim does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth retrieving later? No. This is a textbook restatement with computational replay: all headline numbers (coherences, spectra, Gerzon gaps) are known or mechanically implied by the classical (v,k,lambda,mu) and C^2=qI identities, not new exact invariants. A future researcher needing Paley coherence/spectrum/Gerzon data would consult Paley/Singer sources, ETF/SRG catalogs, or Barg-Yu tables, not this log. The one Gerzon-saturated witness (6 lines in R^3, coherence 1/sqrt(5)) is classical tightness, not a new extremal. The 392-set census is dominated by trivial singletons (k=1, lam=mu=0), complements, and complete sets, stored without mathematical interpretation \u2014 an unexplained enumeration. Certification (Fourier rounding, eigvalsh residuals) does not rescue an arbitrary re-enumeration per the standard. The special narrow-datum clause fails its own test: object/invariant were motivated before computation, but values WERE known/mechanically implied. No new general theorem, new order/constant/witness, or benchmark improvement beyond arithmetic is offered; sharp maximality is explicitly disclaimed except d=3. Intrinsic textbook restatement, not a bounded value-only fix.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1606.03259 (King-Tang pillar/SDP upper bounds) abstract + history fetched \u2014 bounding technique, no cyclic v<=31 Gram-certificate census",
+    "arXiv:2012.13642 (Greaves-Iverson-Jasper-Mixon finite-field ETFs) abstract fetched \u2014 modular-SRG/finite-geometry analogue, no real cyclotomic-PDS census",
+    "arXiv:2406.09550 (Brady PDS local search, 1254 groups to order 147) abstract fetched \u2014 broad PDS search, no cyclic-v<=31 maximal-vs-Gerzon Gram table",
+    "Classical priors compared substantively: Paley 1933 QR DS/PDS; Singer 1938 (31,6,1) perfect DS; Gerzon d(d+1)/2 / d^2 and Lemmens-Seidel bounds; conference-matrix/ETF correspondence \u2014 anticipate all headline parameters, coherences, spectra",
+    "inputs/DRAFT.md Theorems 1-3, tables, limitations, replay instructions",
+    "inputs/artifacts/compute.py (census m<=10 vs restricted branch, certify_ds/certify_conference), verify.py, table.csv (9 rows), results.json (392 sets, per-order sizes, prime-order DS/PDS lists)",
+    "inputs/topic.json admission review + nearest-known-results (treated as untrusted, re-checked via fetches and independent recomputation)",
+    "inputs/research_report.json fallback claim, evidence summary, limitations"
+  ],
+  "decisive_checks": [
+    "Independent exact diff-count replay: q=7,11,19,23,31 -> k=(q-1)/2, lam=(q-3)/4, all c_g equal, skew verified; q=5,13,17,29 -> k=(q-1)/2, (lam,mu)=((q-5)/4,(q-1)/4), two-valued counts, symmetric verified",
+    "Independent exact C^2=qI replay with integer arithmetic for q=5,13,17,29: deviation 0",
+    "Independent Fourier replay with numpy: |S_a|^2=(q+1)/4 for DS primes to <1e-9; (2S_a+1)^2=q for PDS primes to <1e-6 with both signs present",
+    "Independent Gram-spectrum replay: complex ETFs zero-block <5e-15, nonzero =q/d to <1e-9, coherence matches sqrt(q+1)/(q-1); real lines zero-block <1e-9, nonzero =2, coherence =1/sqrt(q)",
+    "Independent Gerzon arithmetic: real (3,6)->6 gap0, (7,14)->28 gap14, (9,18)->45 gap27, (15,30)->120 gap90; complex (3,7)->9 gap2, (5,11)->25 gap14, (9,19)->81 gap62, (11,23)->121 gap98, (15,31)->225 gap194",
+    "Census code audit: census() m<=10 full 2^m enumeration else single-cosets/complements/full-unit only \u2014 triggers for prime v=13,17,19,23,29,31 trivial subgroup; contradicts exhaustiveness claim",
+    "Census data audit: results.json census['31'] contains (31,6,1) DS (e.g. [1,5,11,24,25,27]) and multiple (31,15,7) DS beyond QR \u2014 refutes 'only QR and complements/multiples, no sporadic' sentence; q=7 eight (7,3,1) DS are multiplier-equivalent but q=31 k=6 family is not",
+    "verify.py path audit: re-tests stored D from scratch (diff counts, Fourier, Gram, C^2) but never re-searches missing unions, so VERIFY_ALL_OK does not certify completeness"
+  ],
+  "residual_risks": [
+    "Full compute.py end-to-end rerun not executed (output-path coupling); reliance on independent spot replays plus artifact inspection \u2014 low risk given exact-identity agreement across two independent implementations",
+    "all_subgroups() closure over <=3 generators not fully audited; abelian unit groups to order 30 have low rank so likely complete, but any missed subgroup would further weaken Theorem 3",
+    "Literature search via arXiv fetches + classical knowledge, not exhaustive full-text/SRG-table check (e.g. Ma survey, Brouwer SRG tables, Lemmens-Seidel originals); sufficient to establish textbook priority but not a complete bibliography",
+    "Float-certification fragility (q=29 Fourier q-error 1.65e-12) noted in draft; spacing to nearest integer still ~9 orders, accepted as certificate not formal proof"
+  ],
+  "verdict": "REJECT"
+}
