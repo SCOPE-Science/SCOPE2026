@@ -1,0 +1,43 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Hand lemmas verified: <Theta> fixes only (7,7,7) so 512=1+73*7; forced L(7,7)=7 because 7 is the unique fixed point of sigma; r,c!=7 else row 7/col 7 constant 7; diagonal parametrization L(k,k+d)=sigma^k(s[d]) and column identity L(i,j)=sigma^j(b_d) with b_d=sigma^{-d}(s[d]) checked algebraically. Centralizer claim verified: sigma=7-cycle+fixed point forces C_S8(sigma)=<sigma> (order 7), so |C_G(Theta)|=343; stabilizer contains <Theta> so orbit sizes divide 49, in {1,7,49}; inequality N7<=M/m is sound because each qualifying isotopy class contains a Theta-invariant isotope (phi Theta phi^{-1} in Atp(L) => phi^{-1}(L) Theta-invariant) and centralizer orbits preserve both invariance and isotopy class. Computations replayed: copied census.py verbatim and ran it, reproducing M=931, N7=8, K=19, nodes=91532 in ~16s (t_enum 0.14s). Uniformities re-derived from census.json: 49 (r,c) pairs x19 completions =931; symbol-7 position distribution 133x7=931. Independent checker verified from params: all 931 squares Latin and Theta-invariant by direct substitution; all 931 member->rep witnesses satisfy B[a[x]][b[y]]==g[A[x][y]]; all 8 order-7 witnesses are genuine autotopisms of combined order 7; all 8 reduced squares Latin and normalized; intercalate numbers match. Soundness of bespoke (a,b,g) backtracker reviewed: leaf over-accept concern dissolves because every leaf is reached only after a full consistent(8,8) symbol-bijection check, and every positive witness is re-asserted by substitution at runtime (surjectivity onto 8 symbols forces g a permutation since squares are Latin); pruning (forward symbol-consistency) is sound, so negative (non-isotopy) results are exhaustive; autotopism totals share the same pre-checked-leaf structure so are not inflated by the overwrite idiom. Five hard same-intercalate rep pairs (0-8,0-18,1-2,6-12,8-18) re-decided non-isotopic with independently written decider (~472k-473k nodes each); remaining 23 pairs distinguished by intercalate invariant (28/21/112/7). Centralizer action formula cact(L,u,v,w)[i][j]=sigma^w(L(sigma^{-u}(i),sigma^{-v}(j))) verified against C(sigma)^3; file shows 19 orbits all size 49 and each orbit single-class. Group-table check: R5 |Atp|=10752=64*168 matches |G|^2*|GL(3,2)| for (Z2)^3. Honest proof-vs-computation separation and missing-SAT disclosure in DRAFT sections 1/6/7 are accurate."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Substantive comparison, not timestamp priority. Stones-Vojtechovsky-Wanless arXiv:1509.05655 determines Atp(n) for n<=17 as 1-bit existence per cycle structure (and diagonal (alpha,alpha,alpha) conditions); it settles that the 7+1 diagonal structure occurs but gives no isotopy-type count, representatives, or certificate. Falcon arXiv:0709.2973 classifies autotopism cycle structures to order 11 (vocabulary, no per-class square counts, no C7 order-8 census). McKay latin data page (verified live) publishes only aggregates 1676267 isotopy / 283657 main / 31833 nontrivial-isotopy with downloadable representatives and no per-autotopism-class breakdown; the 8<=31833 envelope is consistency only. Stones et al. arXiv:1910.10103 is a methods pilot (backtracking vs graph-automorphism, full squares hard) supplying baseline, not the C7 count. Delta existence-of-structure -> exact census N7=8 with canonical reduced representatives, M=931 labelled count, proved bound N7<=19, class-size/autotopism/intercalate table, and replayable witness archive is a new slice: not derivable from cited theorems, not a parameter substitution (prime-order diagonal window with one fixed point per coordinate is the sharpest case with 9-orbit invariant subspace), and not anticipated by transversal censuses SCOPE-FAIL-034/009 (different property, class, and certificate route)."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Independently worth finding later as reference data, not a textbook restatement, parameter tweak, tiny gain, or bare enumeration. Closes the diagonal order-7 symmetry class of order 8 exactly (N7=8) with one reduced representative per class, labelled count M=931, proved orbit-stabilizer bound 19, and per-class invariants (sizes 49,294,294,98,49,49,49,49; intercalates 28/21/112/7; |Atp| 42,42,42,7,7,10752,42,42 including minimal-7 and (Z2)^3 group-table cases) that make the classes re-identifiable. Pipeline (Theta-orbit parametrization + centralizer filtering + witness-substitution replay, ~16s stdlib) generalizes to other prime-order classes per the orbit lemma, as the topic motivation claims. Either a small positive count or certified nonexistence was pre-registered as valuable; the positive 8 with explicit squares, order-7 autotopisms, and fixed-symbol coincidence remark exceeds the fallback (centralizer count + bound + subcase). Replayable artifacts close the stratum for third parties."
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1509.05655 (abstract + submission history: Atp(n) n<=17, diagonal-automorphism conditions)",
+    "https://arxiv.org/abs/0709.2973 (abstract: cycle-structure classification to order 11)",
+    "https://users.cecs.anu.edu.au/~bdm/data/latin.html (order-8 totals 1676267/283657/31833, file list, no per-class breakdown)",
+    "https://arxiv.org/abs/1910.10103 (abstract: autotopism-group computation pilot)",
+    "inputs/topic.json (plan, fallback, nearest-known comparisons)",
+    "inputs/DRAFT.md (hand-vs-computed separation, representatives, limitations)",
+    "inputs/research_report.json (claim M=931/N7=8/K=19, witness inventory, disclosed SAT gap)",
+    "inputs/artifacts/census.py (sha256 f4875ab9eba08bebf04fd44da9c5e7377ed42271899499ac518edbcf71f03f5e; full code review of enumerate/build/decide_wit/autotopisms/cact)",
+    "inputs/artifacts/census.json (sha256 cb351a3c45cf9bd52646f9f61e7775f4197f97d5ebe8e063fed86a33f570033d; params, reps, 931 witnesses, 28 non-isotopy nodes, centralizer orbits)"
+  ],
+  "decisive_checks": [
+    "Verbatim replay of census.py: M=931 N7=8 K=19 nodes=91532 t_enum=0.14s t_all=16.4s; class_sizes {0:49,1:294,2:294,5:98,6:49,8:49,12:49,18:49}",
+    "Uniformity re-derivation: 49 (r,c) pairs each exactly 19 completions; symbol-7 position 133 in each of 7 slots",
+    "Independent substitution audit: 931/931 Latin + Theta-invariant from params; 931/931 member->rep witnesses satisfy isotopy equation; 8/8 order-7 witnesses genuine autotopisms of combined order 7; 8/8 reduced squares Latin+normalized; intercalate recount matches {28,21,112,7}",
+    "Backtracker soundness review: consistent(8,8) full symbol-bijection gate precedes every leaf, so decide_wit/autotopisms leaves cannot inflate; pruning is pure forward-consistency; positives additionally runtime-asserted",
+    "Independent decider (different row-first/column-second DFS code path): confirmed non-isotopy on all 5 same-intercalate hard pairs (0-8,0-18,1-2,6-12,8-18) with 472481-473111 nodes; other 23 pairs separated by intercalate invariant",
+    "Centralizer audit: C_S8(sigma)=<sigma> argument, action formula, 19x49 orbit file with each orbit single-isotopy-class; bound N7<=931/49=19 recomputed; envelope 8<=31833",
+    "Group-table sanity: 10752=64*168=|G|^2*|Aut((Z2)^3)| for R5"
+  ],
+  "residual_risks": [
+    "Bespoke (a,b,g) backtracker rather than nauty canonical hashes: negative certificates are node-counts plus replay; mitigated by runtime witness assertions, sound pruning analysis, and independent re-decision of hard pairs, but a third-party nauty cross-match was not performed",
+    "No SAT CNF/DRAT replay (plan Step 5): honestly disclosed; substituted by stored-witness substitution plus full autotopism re-scan and auditor replay; the N7=8 inference does not depend on SAT",
+    "McKay cross-check is inequality-only (8<=31833); published representative files not downloaded/matched",
+    "|Atp| totals (42/7/10752) rest on the same backtracker family; order-7 existences are independently verified but exact totals were not re-enumerated by a second implementation"
+  ]
+}
