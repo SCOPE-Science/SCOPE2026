@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Determinant/interval subclaims verify: independent Fraction-exact Gaussian elimination gives det(W1)=det(W2)=73728; Gram dets re-derived entry-by-entry are 5435817984=73728^2; Lemma 3 (Hadamard, |det|^2<=10^10) and Lemma 4 (2^9=512 divisibility) proofs are sound and interval arithmetic (73728/512=144, 195*512=99840<=100000<99840+512) checks out; verify.py passes. BUT the draft's distinguishing headline inference (2c/2d) is FALSE: W1 and W2 ARE HT-equivalent. Root cause: hteq.py dephases (forcing row 0/col 0 to +1) then compares only the two transpose branches, i.e. it searches only the subgroup of HT-moves that preserve the distinguished row/column (up to transpose). A general HT-move can send any row/column to position 0, and dephase-signs then erase that choice, so completeness requires a further 10x10 (i0,j0) row/col pre-swap search before dephasing. Fuzzing proves incompleteness: genuine random full-HT images of W1 (e.g. seeds 1,2, transpose+arbitrary signed perms, inverse-recovery verified exact) are rejected by ht_equal (false negatives). The complete decider (transpose branch x i0 x j0 pre-swaps + dephase + deph_equal) returns EQUIVALENT for W1 vs W2 at (no-transpose, i0=0, j0=1), with an explicit checkable certificate: dephase(W1) is carried to dephase(colswap(W2,0,1)) by row perm [0,9,8,5,4,1,3,7,6,2] and col perm [0,2,6,3,1,5,4,8,9,7] entry-by-entry, and the signed lift to W1->W2 verifies over all 100 entries. Hence 'W1 vs W2 HT-inequivalent' and 'K_classes_at_max>=2' are refuted for these witnesses. The 'independent brute-force canonical-minimum over 9! column perms' crosscheck shares the same fixed-row0/col0 flaw (both branches differ only because the distinguishing pre-swap j0=1 was never tried) and therefore falsely corroborates. The positive/negative controls in verify.py pass only because the positive control fixes row 0 and column 0 (rows [0,3,1,...] keep 0 at position 0; cols [0,9,4,...] keep 0 at position 0), i.e. it tests inside the decider's limited subgroup. The fallback's promised 'proved Ehlich-bound lemma' is additionally absent (draft states no Ehlich formula is used; upper bound is Hadamard+divisibility only). An essential inference is false, so correctness FAILS despite correct determinant/interval parts.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "No TRUE new item survives comparison with priors. True subclaims are anticipated: the value 73728 at n=10 is tabulated in OEIS A003433 (b-file: n=10 -> 73728; values proved through n=22); the Hadamard bound n^(n/2) and the 2^(n-1) divisibility argument are classical textbook material (Hadamard 1893; Williamson 1946 relation a(n)=2^(n-1)g(n-1)); the Gram identity det(M M^T)=(det M)^2 is a tautology recomputed, not a finding. The purported novelty (two HT-inequivalent maximizers at n=10, i.e. a partial-census step with K>=2) is false for the exhibited pair, so it contributes no priority; a timestamp or a failed search does not establish priority. Substantive nearest priors structure exactly this space and leave no room for the claim as stated: Brent-Osborn arXiv:1208.3819 defines HT-equivalence and tabulates maxdet minors/classes through order 21 with a SINGLE table at n=10 (Table 15, no (a)/(b)/(c) split, unlike orders 11/16/18/19/21 which are split by HT-class), i.e. the literature already treats the n=10 HT-classification as structured with one class; Orrick (math/0401179) Gram/candidate-decomposition program and Orrick-Solomon maxdet tables supply the maximizer substrate; Zivkovic (math/0511636) classifies small (0,1)-matrices. The specific inequivalence certificate is refuted, not merely absent from these sources. Hence originality FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "After excising the false inequivalence, what remains is: (i) hill-climbed \u00b11 matrices with |det|=73728, (ii) the weak interval 73728<=D(10)<=99840 from Hadamard+divisibility, (iii) recomputed Gram determinants. This is not independently worth retrieving. (i) The value 73728 is the long-known, literature-proved optimum (A003433 through n=22), so exhibiting another matrix attaining it, with no classification progress, is database recomputation; the matrices themselves are arbitrary search outputs, not motivated natural objects. (ii) The upper bound 99840 is ~35% above the known optimum and far weaker than the applicable Ehlich bound the fallback promised but did not deliver; no future researcher needs 'D(10)<=99840' when D(10)=73728 is proved in the literature, and its proof is a first-course exercise (Hadamard inequality + row-subtraction divisibility), i.e. a textbook restatement with a parameter substitution n=10. (iii) The Gram recomputation is certification of a tautological identity, which per the standard does not rescue an arbitrary object or an unexplained number. The narrow-exact-datum clause does not apply: the object was not motivated before computation, the value was already known (not unknown/non-obvious), and no reasonable downstream use needs this precise weak interval or these particular witnesses (design/discrepancy users consult the published maxdet tables). The only piece that could have carried value (a genuine second HT-class / census progress) is false, and recovering it would require new search plus a correct complete decider \u2014 a new research direction, not a bounded fix. Intrinsic low value / missing substantive result: REJECT, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "b-file lists n=10 -> 73728; values proved through n=22 (a(22) proved optimal per Chasiotis et al.). Confirms the determinant VALUE is known substrate, not novelty.",
+      "title": "OEIS A003433 - maximal (+1,-1) determinants",
+      "url": "https://oeis.org/A003433"
+    },
+    {
+      "finding": "Counts of extremal \u00b11 matrices only for n=0..9 (1,4,96,...,7191587192832000); no n=10 count. Gap context only.",
+      "title": "OEIS A188895 - number of extremal \u00b11 matrices",
+      "url": "https://oeis.org/A188895"
+    },
+    {
+      "finding": "Classical bounds (Hadamard n^(n/2), Eblich/Barba context), A003433/A188895 extremal counts only through small n; no n=10 inequivalent-maximizer census with representatives.",
+      "title": "MathWorld - Hadamard's Maximum Determinant Problem",
+      "url": "https://mathworld.wolfram.com/HadamardsMaximumDeterminantProblem.html"
+    },
+    {
+      "finding": "Defines Hadamard/HT-equivalence (signed perms + transpose); minors/full-spectrum/depth tables to order 21; SINGLE table at n=10 (Table 15) vs lettered multi-class tables at 11/16/18/19/21 \u2014 literature already structures n=10 as one HT-class; no support for a second maximizer class.",
+      "title": "Brent-Osborn arXiv:1208.3819 - On minors of maximal determinant matrices",
+      "url": "https://arxiv.org/abs/1208.3819"
+    },
+    {
+      "finding": "a(15) established via Gram-candidate search + decomposition; improved bounds at 29/33/37; determinant spectra at 9/11. Method context showing maximizer substrate comes from published programs, not this draft.",
+      "title": "Orrick arXiv:math/0401179 - maximal \u00b11 determinant of order 15",
+      "url": "https://arxiv.org/abs/math/0401179"
+    },
+    {
+      "finding": "Row/column-permutation classification of small (0,1)-matrices (n<=8 full, D9/S9, a9=103). Nearest classification-style prior on the (0,1) side; nothing at n=10 \u00b11 HT-classes.",
+      "title": "Zivkovic arXiv:math/0511636 - Classification of small (0,1) matrices",
+      "url": "https://arxiv.org/abs/math/0511636"
+    },
+    {
+      "finding": "A003432 confirms the (0,1) side values and the a(n)=2^-(n-1)g(n) correspondence; values known far beyond n=10.",
+      "title": "OEIS A003432 - maximal (0,1) determinants",
+      "url": "https://oeis.org/A003432"
+    },
+    {
+      "finding": "A051752 extremal (0,1)-matrix counts only to n=9; corroborates that counts stop before n=10 on both sides.",
+      "title": "OEIS A051752 - number of extremal (0,1) matrices",
+      "url": "https://oeis.org/A051752"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py: ALL CHECKS PASSED (shows the committed pipeline is self-consistent but does not test decider completeness).",
+    "Independent Fraction-exact determinants: det(W1)=det(W2)=73728; det(gram(W1))=det(gram(W2))=5435817984=73728^2; Gram matrices re-derived entry-by-entry from CSVs (never trusted).",
+    "Interval arithmetic rechecked: 73728=144*512; 99840=195*512<=100000<99840+512; Lemmas 3-4 proofs verified sound.",
+    "Decider soundness fuzz: full-HT random images of W1 (transpose + arbitrary row/col perms + signs, inverse-recovery exact) REJECTED by hteq.ht_equal at seeds 1,2 (also W2 images at seeds 101,102) \u2014 proves false negatives / incompleteness; primitive single moves (row/col negations, swaps, transpose) accepted, and row0/col0-fixing perms accepted, localizing the bug to moves that relocate row 0/column 0.",
+    "Complete decider (transpose x i0 in 0..9 x j0 in 0..9 pre-swap + dephase + deph_equal): W1 vs W2 EQUIVALENT at (no-transpose, i0=0, j0=1) in ~0.1s; random-image cases all return True under the fixed decider.",
+    "Explicit equivalence certificate verified entry-by-entry: dephase(W1)->dephase(colswap(W2,0,1)) via row perm [0,9,8,5,4,1,3,7,6,2], col perm [0,2,6,3,1,5,4,8,9,7] (100/100 entries), plus signed lift W1->W2 through recorded dephase sign vectors \u2014 refutes claims 2c/2d and certificates.json inequivalence entry.",
+    "Crosscheck diagnosis: brute-force canonical minimum over 9! column perms on fixed dephased cores reproduces the flaw (row/col cores differ as multisets only because the j0=1 pre-swap is omitted); pairdot invariant comparison (row/col |dot| multisets both {0:25, 2:20} for W1 and W2) already hinted at equivalence."
+  ],
+  "residual_risks": [
+    "The mathematical proposition 'the true HT-class count K at n=10 satisfies K>=2' is not separately disproved beyond the exhibited pair; Brent-Osborn's single Table 15 suggests K=1 but was not re-derived here. This does not affect the verdict: the draft's certificate for >=2 via W1,W2 is false, and no other second-class witness is exhibited.",
+    "verify.py's Bareiss implementation was cross-validated by an independent Fraction-elimination determinant; a latent Bareiss pivot bug would not change the verdict since both algorithms agree on all witnesses and Grams.",
+    "No web source was treated as proof of maximality; all external texts were used only for originality/value comparison, and the refutation rests on in-artifact computation."
+  ],
+  "verdict": "REJECT"
+}
