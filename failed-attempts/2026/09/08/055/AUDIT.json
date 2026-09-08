@@ -1,0 +1,41 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Strongest combined headline claims (a) zero strict infinite words in bounded morphism/DFAO slices, (b) shortest-strict classification to L=12, (c) length-1500 strict word with exact p(n) table. (b) and finite-word parts of (c) verify: independent stdlib exhaustive scan confirms the 1500-letter file is 7/3-free (all periods, all starts) with overlap witness at (pos 0, period 4, factor 001100110); independent brute force over all 2^L words for L<=12 reproduces 0 for L<=8, exactly 4 at L=9 (001100110, 011001100, 100110011, 110011001), 4 at L=10, 8 at L=11, 4 at L=12, matching shortest_strict.json; naive set-enumeration for p(n) matches strict_p.json at all 14 sampled n (e.g. p(25)=86, p(24)=82, p(50)=168, p(100)=332, p(200)=662). However essential inference (a) is unsound as an infinite-word certificate: 7/3-freeness was tested only on capped prefixes (6000 letters for morphisms, 4000 for DFAOs) and overlap-freeness only for periods <=400 (census) / <=300 (DFAO), per DRAFT Sec 1 and Sec 3. A prefix test cannot certify an infinite fixed point / DFAO word is power-free (a power beyond the prefix or with period >400/300 would be missed; full check needs periods up to (n-1)/2 for prefixes and a Walnut/morphism-preservation proof for infinite words, explicitly absent per Sec 3). Hence 'no strict automatic word with <=3 states / within morphism bounds' is not proved. Presentation defects compound this: DRAFT Table lists p(200)=663 vs archived/naive 662; research_report.json says 'Length-1501' vs measured 1500; non-uniform census '7812 checked' disagrees with the stated bounds (|h| in 1..6 with h(0) 0-initial gives 63*126=7938). Honest scoping of finiteness does not cure the slice-completeness claim.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest substantive priors are Shallit-Shur arXiv:1801.05376 (Thue-Morse minimum over 7/3-free, twisted Thue-Morse maximum 7/2 over overlap-free only, ceiling <=4, no-maximum-word theorem, Open Question 18 on C(7/3) supremum) and Goc-Schaeffer-Shallit per-word k-synchronized computability. Neither records the bounded-slice kept-lists (3+2+2+116 of 43688+7812+32+2916), the length-9 shortest-strict list, or this particular DFS word's finite p(n) table. In that narrow sense the enumerations are not previously published and are not mechanically implied by the overlap-free extremality or per-word computability theorems. No prior was found that states the exact 4-word length-9 classification or this 1500-letter word's counts. Originality therefore passes as 'new', with the caveat that novelty of a tiny brute-force fact (2^12 search) and an arbitrary DFS string does not confer value (assessed separately).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Admitted headline target was limsup p_w(n)/n >=3.6 for an infinite 7/3-free automatic witness (raising C(7/3) above 7/2) or fallback (a) ceiling 4-delta for all infinite words or (b) exact infinite-word constant >10/3. None is delivered; DRAFT Sec 3 honestly concedes no witness above 7/2, no ceiling below 4, and that R3 finite ratios do not certify any infinite-word limsup. What remains is: (R1) a negative search over arbitrary state-count cutoffs (m<=8, |h|<=6, <=3 DFAO states) repackaged as a census -- arbitrary scope and a failed-search log, not the natural infinite class C(7/3); (R2) a 2^12 brute-force shortest-word list (search space 512 at L=9) with no motivated downstream use; (R3) exact p(n) of one lexicographic-DFS finite string of length 1500 -- an arbitrary object (seed+DFS tie-breaking) with unexplained numbers (e.g. p(25)/25=3.44) that cannot bound C(7/3) since finite-word ratios do not imply limsup. Per value standard, certification alone does not rescue an arbitrary object or unexplained enumeration, and a rigorously established datum must be of a motivated natural object with pre-computation motivation and plausible reuse. The DFS word and cutoff slices were the search route, not pre-motivated natural objects; the natural object (C(7/3) supremum / infinite-word constant) is untouched. Intrinsic low value / arbitrary scope / missing substantive result.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms systematic program: Thue-Morse minimum over overlap-free and 7/3-free, twisted Thue-Morse maximum over overlap-free only, no maximum-complexity word over 7/3-free; journal version is the central prior leaving C(7/3) supremum open. Supports gap motivation but does not record any slice census or shortest-strict list.",
+      "title": "Subword complexity and power avoidance \u2014 Shallit & Shur (arXiv abstract)",
+      "url": "https://arxiv.org/abs/1801.05376"
+    },
+    {
+      "finding": "Topic admission record cites Theorem 16 ceiling 6/5*p_t (growth <=4), Theorem 17 no-maximum theorem, Open Question 18, Goc et al. per-word synchronization, Currie period-doubling analogue, OEIS per-word data. Used as untrusted context for nearest-prior comparison; no source implies an infinite-class separation or the claimed finite enumerations.",
+      "title": "Topic admission nearest-known results (untrusted candidate context)",
+      "url": "https://arxiv.org/abs/1801.05376"
+    }
+  ],
+  "decisive_checks": [
+    "Independent stdlib full-period 7/3 scan of strict_001100110.txt (len 1500, alphabet {0,1}): 7/3-free TRUE, overlap witness (0,4) \u2014 finite-word freeness holds.",
+    "Independent naive-set p(n) recomputation matches strict_p.json at n=9,22,23,24,25,26,48,49,50,60,97,100,193,200 (e.g. 86,82,168,332,662); exposes DRAFT typo p(200)=663 vs 662.",
+    "Independent exhaustive 2^L enumeration L=1..12 reproduces shortest_strict.json exactly (0 for L<=8, 4 at L=9 listed words, 4/8/4 at L=10/11/12).",
+    "Enumeration-size audit: uniform sum_{m=2..8} 2^{2m-1}=43688 OK; 2-state 32 and 3-state 2916 DFAO counts OK; non-uniform stated 7812 vs computed 63*126=7938 (126 short) \u2014 counting discrepancy.",
+    "Methodology audit: prefix caps (6000/4000) + period bounds (<=400/<=300) + no Walnut certificate (DRAFT Sec 3) are insufficient to certify infinite-word 7/3-freeness/overlap-freeness; R1 completeness claim therefore unproved."
+  ],
+  "residual_risks": [
+    "Full 54448-object census prefixes were not re-executed; R1 could be factually true as a prefix property but remains uncertified as an infinite-word claim.",
+    "No live full-text verification of Shallit-Shur Theorems 16/17 and Question 18 beyond abstract + admission record; open-gap premise taken from admission triage, but value verdict does not depend on it since no infinite bound is claimed.",
+    "Minor presentation risks (length 1500 vs 1501, p(200) 662 vs 663) suggest artifact/DRAFT drift; verification used files as archived."
+  ],
+  "verdict": "REJECT"
+}
