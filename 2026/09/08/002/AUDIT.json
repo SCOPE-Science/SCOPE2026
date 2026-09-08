@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "All unconditional claims re-verified by independent recomputation. (a) 149 edge lists each cubic (deg 3 x18), connected (BFS 18), bipartite 9+9: re-checked 149/149 pass. (b) Exact polys: SymPy charpoly spot recompute (ids 3,24) matches stored; full Bareiss-at-19-points plus Vandermonde interpolation via verify.py matches all 149/149; even-only parity holds; distinct count 131 = 114x1+16x2+1x3 recomputed from polys.csv and matches cospectral_classes.csv. (c) Float pipeline: numpy eigvalsh recomputed (stored-vs-recomputed <5e-13), exact-vs-float partitions agree (19 pairs both ways, 0 mismatch). (d) Pair ids 3/24 share poly [1,0,-27,0,293,0,-1675,0,5507,0,-10585,0,11463,0,-6273,0,1296,0,0], float agreement <3e-15; non-isomorphism confirmed by verifier exhaustive bipartition-restricted backtracking over full 11026 pairs (re-ran: 0 iso pairs, ~7s) plus auditor independent backtracking (3-24/55-103/55-128/103-128/5-41/22-67 all False; self and permuted-copy True controls). (e) Diameters/girth recomputed 0/149 mismatches; distributions diam {5:98,6:25,4:23,7:3}, girth {4:146,6:3}; diameter-not-spectral witnesses hold (triple 55/103/128 diams 5,5,4; pair 22/67 diam 6 vs 5). (f) Completeness explicitly conditional on published OEIS A006823 a(9)=149 (verified live sequence 1,1,2,5,13,38,149; MathWorld bicubic page concurs); 45765-trial negative tail is corroboration only. Draft separates proved/computed/conditional; no proof-vs-evidence conflation."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Nearest priors compared substantively. Van Dam-Haemers LAA 2003 is a DS/NDS survey with no order-stratified n=18 bipartite cubic census, exact polynomials, or diameter table. Godsil-McKay 1982 gives a switching existence construction, not an exhaustive stratum partition with minimal-pair certificate and dual-pipeline recomputation. Robinson-Wormald/McKay nauty-geng/Meringer/House-of-Graphs provide the enumeration universe and counts (149 bicubic at 2n=18) but no adjacency spectra, cospectral classes, or diameter annotation for this stratum. OEIS A006823 and MathWorld bicubic page publish only counts (verified live), not spectra. No prior complete exact-integer-polynomial cospectral partition plus per-class diameter table for connected cubic bipartite n=18 was found in cutoff triage or live spot checks. The 149 count is credited as external, not claimed new; novelty is the spectral partition, explicit pair certificate, and diameter table. Note: topic.json cites arXiv math/0305217 for van Dam-Haemers, which resolves to an unrelated Helein harmonic-maps paper; DRAFT correctly cites the LAA venue, so this is a metadata URL error, not a priority defect."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Independently worth finding later as a citable reference stratum, not a textbook restatement or bare parameter bump. Delivers: (i) machine-checkable 149-type catalog with exact integer charpolys and dual-pipeline agreement (Berkowitz plus Bareiss-interp plus eigvalsh); (ii) full cospectral partition 131 classes with explicit pair/triple witnesses and shared-polynomial certificates; (iii) per-class diameter/girth/n4 table proving diameter is not a spectral invariant in this stratum (triple 55/103/128 diams 5,5,4; pair 22/67 diam 6 vs 5) plus DS-in-stratum census (114 singletons including all three girth-6 types); (iv) seconds-scale stdlib+numpy+sympy re-verifier. Directly reusable for graph-isomorphism benchmarks, spectral-uniqueness (Haemers-conjecture context), and expander references. Consistent with passed census-type findings (binary 5x5 rank census, Sidon Z_60 census)."
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json, inputs/DRAFT.md, inputs/research_report.json (full read)",
+    "inputs/artifacts/catalog_edges.csv (149 types), polys.csv, spectra_float.csv, cospectral_classes.csv, diameters.csv, minimal_pair.json, verify.py, rerun_log.txt",
+    "Live OEIS A006823 page: Number of connected trivalent bipartite graphs with 2n nodes; sequence 1,1,2,5,13,38,149,703,... (a(9)=149 confirmed)",
+    "Live MathWorld Bicubic Graph page: confirms A006823 counts 1,1,2,5,13,38,149 and named graphs (utility/Heawood/Mobius-Kantor/Pappus/Desargues)",
+    "Van Dam-Haemers Which graphs are determined by their spectrum (LAA 2003) and Godsil-McKay Constructing cospectral graphs (1982) via cutoff triage plus venue check (topic arXiv URL math/0305217 noted as wrong identifier resolving to Helein paper)"
+  ],
+  "decisive_checks": [
+    "Loaded 149 edge lists: 149/149 cubic plus connected plus bipartite 9+9, 27 edges each",
+    "Recomputed distinct exact polys: 131 (114 singletons, 16 pairs, 1 triple) matching stored tables",
+    "Ran inputs/artifacts/verify.py: VERIFY OK (Bareiss 149/149, dual-partition 19 pairs agree, pair non-iso)",
+    "SymPy charpoly spot recompute ids 3,24 matches stored shared vector",
+    "numpy eigvalsh recompute: stored-vs-recomputed <5e-13; pair 3-24 agreement <3e-15",
+    "Re-ran full 11026-pair exhaustive iso check: 0 isomorphic pairs (~7s)",
+    "Independent second backtracking strategy: 3-24/55-103/55-128/103-128/5-41/22-67 all False; self and permuted-copy True",
+    "Recomputed diameters/girth: 0 mismatches; distributions diam {5:98,6:25,4:23,7:3}, girth {4:146,6:3}",
+    "OEIS A006823 live fetch confirms a(9)=149; MathWorld bicubic page concurs"
+  ],
+  "residual_risks": [
+    "Completeness (no 150th type) rests on external enumeration OEIS A006823/Brinkmann-McKay-Faradzev, not reproduced from scratch; if that count were wrong the claim degrades to a 149-type certified catalog (as draft states).",
+    "Isomorphism filtering uses custom bipartition-restricted backtracking, not nauty certificates; soundness rests on perm-copy positives, dual orderings, full-pair check, and auditor independent re-implementation; nauty cross-check unavailable.",
+    "Originality rests on cutoff triage plus live spot checks (OEIS, MathWorld, survey venues), not exhaustive full-text search; a hidden n=18 spectral table cannot be logically excluded but none was found.",
+    "Float tolerance 1e-6 is ample given observed <5e-15 gaps; exact-polynomial equality is decisive so float is corroboration only."
+  ]
+}
