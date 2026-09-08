@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Record and rank claims verified by exact recomputation. k*=197225=5^2*7^3*23 is nonzero sixth-power-free; 735^2=70^3+k*, 441^2=(-14)^3+k*, 147^2=(-56)^3+k* hold; y-set {-735,-441,-147,147,441,735} has all successive diffs 294. Good reduction at 13,19; brute-force counts #E(F13)=19, #E(F19)=27, |3E(F19)|=3 replay to VERIFY_OK. Torsion argument is valid (prime-to-13 torsion injects into order-19 group so order 1 or 19, both excluded except 1 by Mazur; 13-primary excluded by Mazur). The mod-19 3-quotient argument is valid: 9 combos iAbar+jBbar occupy 9 distinct cosets of 3E(F19), so |image(E(Q)->E(F19)/3E(F19))|>=9, forcing |E(Q)/3E(Q)|>=9 and rank>=2 with trivial torsion. Envelope uniqueness/no-7 claim independently recomputed TRUE: full integer scan |x|<=2000,|k|<=2e6 finds max y-AP length 6, exactly one k (197225) with >=6-term AP (sole 6-term AP -735 step 294, non-extendable), zero 7-term APs. Minor non-essential defect: DRAFT states '499,256 values of k with at least one integer point'; independent count is 499,257 total including k=0 (499,256 nonzero), so the stated count is correct only for nonzero k. Envelope search programs/logs are asserted but not archived; verifier artifact covers only R1-R5, so envelope relies on auditor recomputation, not replay from artifacts.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest prior 2607.06998 (abstract plus full HTML Secs 2.1/2.2/Thm 2.4) explicitly leaves rational length-7 y-AP open and gives only length-6 parametric families via C:3U^3-V^3=2 with no minimality, rank-witness, or envelope-exhaustion claims. 1910.14485 is a general fixed-j AP-forces-rank consequence theorem constructing no j=0 length-7 tuple. 1806.01158 concerns x-consecutive-cube patterns on general Weierstrass curves, a different pattern/family. LMFDB stores per-curve rank/torsion/conductor data with no AP-pattern field. The combined certified claim (integer record + mod-19 rank>=2 witness + integer-envelope uniqueness/no-7 cutoff) is absent from these sources. Caveat: the raw tuple itself is the smallest integer specialization of the published P0 family (N0=-63/512, A(P0)=143777025/68719476736, q=64/3 gives k*=197225, d=-56, r=147), so the numbers alone are parameter substitution into Thm 2.4; originality of the headline rests on the added minimality/rank/envelope certificate, which is honestly separated in DRAFT Sec 'What is NOT claimed'/'Prior art'. Lee-Velez 1992 full text not retrieved, so a prior identical numeric illustration cannot be fully excluded, but no prior minimality/envelope/rank certificate was found.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline is the fallback: minimal integer-coordinate length-6 y-AP record k*=197225 with rank>=2 plus no-integer-7 cutoff in box B={|x|<=2000,|k|<=2e6}. It is correct and (as a certificate) new, but not independently worth retrieving. (i) Arbitrary scope: bounds 2000/2e6 have no pre-computation motivation in DRAFT and no mathematical interpretation; envelope-relative 'minimality' follows tautologically from uniqueness in that box and implies no global minimality (a smaller-max|y| integer AP outside the box is not ruled out). (ii) Wrong coordinate restriction for the motivated question: the recognized open boundary is rational length-7 (July 2026 paper), and DRAFT honestly concedes rational status is unchanged and non-integral rational points are outside the certificate; an integer-only no-7 bound does not advance AP-vs-rank or uniform-boundedness uses, which need rational facts. (iii) Mere parameter substitution: k* is the least-q integer member of the known P0 family of Thm 2.4 (verified q=64/3 is the smallest positive rational giving integer d,r), so the tuple is mechanically implied by published parametrization; certification (rank>=2 lower bound only, no exact rank/regulator; box enumeration) does not rescue the arbitrary object per standard. No future researcher reasonably needs the precise fact 'no integer 7-term y-AP with |x|<=2000,|k|<=2e6' or the box-minimal P0 instance for a downstream theorem, textbook, or census. This is intrinsic low value / arbitrary scope / unexplained enumeration, not a narrow-but-natural exact invariant.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms length-7 y-AP 'have not been ruled out'; full HTML Sec 2.1 refutes Dey-Maji Sy<=6 proof as misreading of Bremner Lemma 2.2 (ignoring sporadic/higher-genus families); Sec 2.2/Thm 2.4 gives length-6 families from rational points on 3U^3-V^3=2 via N=(U^3-1)/8, d=Nq^2, r=N^2q^3, k=N^3(N-1)q^6, with P0=(1/4,-5/4) and P1/P2 non-isomorphic examples; no minimality, rank witness, or envelope-exhaustion claims.",
+      "title": "Mordell Curves with Ordinates in Arithmetic Progression (Alkabouss et al.)",
+      "url": "https://arxiv.org/abs/2607.06998"
+    },
+    {
+      "finding": "General theorem: long x- or y-AP on fixed-j family forces large rank; structural consequence only, constructs no concrete j=0 length-7 y-AP tuple and implies none.",
+      "title": "Elliptic curves with long arithmetic progressions have large rank (Garcia-Fritz, Pasten)",
+      "url": "https://arxiv.org/abs/1910.14485"
+    },
+    {
+      "finding": "Infinite family of general y^2=x^3+Kx+L curves with 5 x-consecutive-cube points forcing rank>=5; different coordinate pattern and family, implies no length-7 y-AP Mordell witness.",
+      "title": "Elliptic Curves Containing Sequences of Consecutive Cubes (Celik, Soydan)",
+      "url": "https://arxiv.org/abs/1806.01158"
+    }
+  ],
+  "decisive_checks": [
+    "Ran inputs/artifacts/verify_record.py: R1 sixth-power-free {5:2,7:3,23:1}, R2 six on-curve identities, R3 y-AP diff 294, R4 #E(F13)=19 #E(F19)=27, R5 9 distinct mod-19 3-quotient cosets with |3E(F19)|=3 -> VERIFY_OK.",
+    "Independent full-envelope brute force (|x|<=2000,|k|<=2e6, signed-y scan): 499257 k with >=1 integer point (499256 nonzero); max y-AP length 6; exactly one k with >=6-term AP (197225, AP -735 step 294, y-set size 28, no 7-term extension); zero 7-term APs -- confirms DRAFT uniqueness/cutoff up to k=0 counting.",
+    "Per-k audit of k*=197225: 14 integer x with points; full y-set [-67635..67635] (28 values); brute AP search finds unique 6-term AP (-735,294) with no 7-term extension.",
+    "Torsion/rank logic hand-checked: Mazur + mod-13 injection gives trivial torsion; reduction-induced map on quotients by 3 transfers 9 distinct finite cosets to |E(Q)/3E(Q)|>=9 hence rank>=2.",
+    "Parameter-substitution check: N0=-63/512, A(P0)=143777025/68719476736, q=64/3 gives k*=197225, d=-56, r=147; brute rational scan shows q=64/3 is the smallest positive rational yielding integer d,r in P0 family."
+  ],
+  "residual_risks": [
+    "DRAFT k-count '499,256 values with >=1 integer point' omits k=0 (total 499257); nonzero count matches, so headline uniqueness unaffected but statement is imprecise.",
+    "Envelope 'two independently coded exhaustive enumerations' asserted without archived programs/logs; correctness rests on auditor recomputation, not artifact replay.",
+    "Lee-Velez 1992 and Dey-Maji full texts not retrieved; a prior identical numeric integer illustration cannot be excluded, though no prior minimality/envelope/rank certificate was found.",
+    "July 2026 arXiv paper is very recent (2026-07-08) and was treated as untrusted prior art via abstract+HTML; no peer-review status checked."
+  ],
+  "verdict": "REJECT"
+}
