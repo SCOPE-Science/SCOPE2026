@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Machine facts partially verify but headline inference is false. Re-ran inputs/artifacts/verify.py: VERIFY_OK, Hilbert [1,3,6,8,8,6,3,1,0], rank(x:A3->A4)=8 det 1, rank(x+y+z:A3->A4)=7 det 0, kernel [0,1,0,0,1,1,1,0]. Hand identity independently re-expanded and holds over F2: (x+y+z)*k = y*f1+x*f2 with k=y^2z+xy^2+x^2z+x^2y, and k not in {0,f1,f2,f1+f2}=I_3, so x_ell has nontrivial kernel conditional on (a). Full-degree recomputation from same Macaulay code confirms DRAFT 3(c): x,y,x+z,y+z have full rank in every degree 0..7, while z,x+y,x+y+z fail somewhere. By the standard existential definition of WLP (Harima et al.: there EXISTS ell with maximal rank in every degree), existence of x as a strong Lefschetz element PROVES A' HAS WLP (indeed SLP for x). This directly contradicts Theorem (b)'s 'Hence A' fails WLP' and the target_claim's 'so this CI fails WLP'. What is proved is only that ell=x+y+z is a non-Lefschetz element, not WLP failure. Second independent defect: admitted triple f3 without x^4 is not a CI; recomputed Hilbert tail [1,3,6,8,8,6,3,2,2,2,...] for d=0..11, non-Artinian, so admitted headline is false for admitted object. DRAFT discloses repair f3'=f3+x^4 but headline remains false under correct definition.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Live-checked nearest theorems are scope-restricted and do not imply the computed rank facts for this non-monomial triple. Harima-Migliore-Nagel-Watanabe (math/0208201) is char-0-only (every height-3 CI has WLP), so implies nothing over F2. Li-Zanello (1002.4400) classifies only monomial CIs via primes dividing M(a,b,c); committed f1,f2,f3' contain cross-terms y^2z+yz^2, x^2z+xz^2, xy^3+x^3y+x^4 and lie outside that family. Brenner-Kaid (1003.0824) treats only diagonal monomials (X^d,Y^d,Z^d) via Han's theorem. Boij-Migliore-Miro-Roig-Nagel (2212.09890) treats height-4 equigenerated frontier, no overlapping verdict. Internal prior scan hits (SCOPE035 4-generated non-CI over Q, SCOPE009 Pfaffian over F3, SCOPE055 Perazzo over Q) differ in object/characteristic/degree. No source records these generators or the 7-vs-8 rank. Hence the true computational component (ell-specific rank deficiency) is new; the false WLP-failure headline has no priority to assess.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The admitted headline (first non-monomial mixed-type CI WLP failure showing monomial classification does not extend) is false, and its true correction has no independent retrieval value. Corrected statement is: A' HAS WLP (witness x) and x+y+z is one non-Lefschetz element. An ell-specific non-maximal rank in an algebra that has WLP is not a boundary-changing extremal witness, does not test Li-Zanello/Brenner-Kaid stability (those concern existential WLP), and is not the motivated invariant. Repaired object is post-hoc arbitrary: DRAFT lists three working one-term fixes (f3+x^4, f3+y^4, f3+x^2y^2) with x^4 chosen; it breaks the admitted x/y symmetry and was motivated only to restore Artinianity after computation, failing the 'motivated before computation' standard. No determinantal locus formula or concentration lemma (admitted fallback) is delivered. Certification of one 8x8 rank for one bad form of one ad-hoc point while a good form exists is an unexplained enumeration; certification alone does not rescue it.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract states char K=0 and main result (1) EVERY height-3 CI has WLP via Grauert-Mulich; implies no verdict over F2 and fixes existential WLP definition used to refute headline.",
+      "title": "The Weak and Strong Lefschetz Properties for Artinian K-Algebras - Harima, Migliore, Nagel, Watanabe",
+      "url": "https://arxiv.org/abs/math/0208201"
+    },
+    {
+      "finding": "Abstract confirms full characterization of monomial CIs in three variables via primes dividing M(a,b,c); committed ideal is non-monomial with cross-terms, outside family.",
+      "title": "Monomial Complete Intersections, The Weak Lefschetz Property and Plane Partitions - Li, Zanello",
+      "url": "https://arxiv.org/abs/1002.4400"
+    },
+    {
+      "finding": "Abstract confirms explicit char-p criterion only for diagonal A=K[X,Y,Z]/(X^d,Y^d,Z^d), p=2 corollary d=(2^t+/-1)/3; mixed (3,3,4) non-diagonal non-monomial lies outside.",
+      "title": "A note on the weak Lefschetz property of monomial complete intersections in positive characteristic - Brenner, Kaid",
+      "url": "https://arxiv.org/abs/1003.0824"
+    },
+    {
+      "finding": "Abstract confirms height-4 equigenerated WLP conjecture open (proved d=3,4,5) via Socle Lemma + liaison; confirms active program but no overlapping verdict for this height-3 char-2 point.",
+      "title": "On the Weak Lefschetz Property for height four equigenerated complete intersections - Boij, Migliore, Miro-Roig, Nagel",
+      "url": "https://arxiv.org/abs/2212.09890"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py: VERIFY_OK, Hilbert [1,3,6,8,8,6,3,1,0], rank(x)=8 det1, rank(x+y+z)=7 det0.",
+    "Hand re-expansion over F2: (x+y+z)k and y*f1+x*f2 both equal {006? x^3y,y^3z,y^2z^2,xy^3,x^3z,x^2z^2}; k not in span{f1,f2}.",
+    "Recomputed original triple (f3 w/o x^4) Hilbert d=0..11: [1,3,6,8,8,6,3,2,2,2,2,2], non-Artinian, confirming disclosure.",
+    "Recomputed full profiles for all 7 nonzero F2 forms on repaired A': x,y,x+z,y+z full rank every degree (strong Lefschetz); z,x+y,x+y+z fail somewhere. Hence existential WLP holds via x, refuting 'fails WLP'.",
+    "Monomial (x^3,y^3,z^4) control: all 7 forms fail somewhere, contrasting with repaired case where 4 succeed, confirming failure is ell-specific not systemic."
+  ],
+  "residual_risks": [
+    "Machine Hilbert/CI proof rests on exact Macaulay-matrix ranks (stdlib elimination), not an independent hand Groebner proof; code reviewed and re-run but a hidden indexing bug would affect (a) and exact rank 7 (hand kernel gives <=7 regardless).",
+    "Originality search covered nearest cited theorems live plus topic's internal scan; not an exhaustive search of all char-p non-monomial Lefschetz literature, but no general theorem implying this point was found.",
+    "Value judgment assumes standard existential WLP definition as in Harima; no alternative per-ell definition of 'fails WLP' is standard."
+  ],
+  "verdict": "REJECT"
+}
