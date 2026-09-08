@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Main exact-value claims verify. Lemma 1 is sound: in a linear 3-graph each vertex link is a matching (pairwise intersections <=1 implies link pairs disjoint), so d(v)<=floor((n-1)/2)=4 for n=9,10, hence 3e=sum d<=n*4 and e<=floor(n*4/3)=12 (n=9), 13 (n=10). Independent replay of inputs/artifacts/verify.py PASSED: H9 linear, 36/36 pairs covered, degrees 4^9, max 7-span 5; H10 linear, 39/45 pairs covered, degrees 4^9 3^1, leave graph 6 edges with degrees 3^1 1^9 (K1,3 plus 3 disjoint edges as claimed), max 7-span 5. Fano criterion used (contains F iff some 7-set spans >=7 edges) is correct for linear hosts: F has 7 edges on 7 vertices; any 7 edges on 7 vertices in a linear host cover all 21 pairs exactly once, hence is an STS(7), unique up to iso as the Fano plane; pair bound caps linear 7-vertex graphs at 7 edges, so >=7 means exactly Fano, and <=6 means Fano-free. Threshold 6 vs observed 5 gives margin. Degree-sequence forcing is arithmetic: n=9 e=12 forces 4-regular (sum 36); hence pairwise-balanced STS(9); n=10 e=13 forces sum 39=40-1 with cap 4, hence 4^9 3^1; leave degrees 9-2d give 3^1 1^9. n=9 uniqueness up to iso correctly reduces to classical uniqueness of STS(9)=AG(2,3) after machine-checked forcing (citation-dependent, not re-proved). Deleting any edge preserves linearity and Fano-freeness, so E_n-1 attainable. Ancillary claim of >=2 non-isomorphic 13-edge max packings on n=10 is committed without a second edge list or log (witnesses.json has one H10 only) and is explicitly labelled computed evidence/open, so it is unevidenced but non-essential to E_n. Lagrangian replay is a vacuous restatement of the integer cap at uniform weights (L=e/n^3: 4/243, 13/1000), true but adding no independent bound. No essential inference or boundary condition fails; proof vs computation is honestly separated except the >=2-types remark.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively and do not state or mechanically imply ex_lin(9,F)/ex_lin(10,F) with Fano-free witness. Bellmann-Reiher 1804.07673 proves unrestricted ex(n,F) for n>=8 is the balanced complete bipartite 3-graph, which contains repeated pairs and is inadmissible under linearity, so its numbers do not imply linear-restricted maxima. Gyarfas-Sarkozy 2011.13678 treats linear triangles/s-configurations/wicket and Ramsey in STS, no Fano-free linear maxima or 9-10 census. Hou-Liu-Zhang 2507.12354 treats large-n l2-norm bipartite extremality/stability, different norm and asymptotic regime, no small-order linear exact values. Structured arXiv API query all:\"linear Turan\" AND all:Fano returns totalResults 0, confirming no indexed title/abstract states the claim. Schoenheim pair-packing ceilings (12 for n=9, 13 for n=10) and STS(9) existence/uniqueness are classical but do not by themselves decide Fano-freeness or the Fano-restricted optimum; the 7-set span check (36/120 sets, max 5) was required. Method is textbook (degree cap = Schoenheim proof) but the combined factual statement with certified Fano-free witnesses is literally new. Hence PASS on novelty, narrowly, with value judged separately.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking correctness and literal novelty as given, the result as delivered is not independently worth finding later. The upper bound uses no Fano hypothesis: it is the classical Schoenheim pair-packing bound for ANY linear 3-graph, so the Fano restriction is inert (ex_lin = max linear). Witnesses are classical designs: H9 is STS(9)=AG(2,3) covering all 36 pairs; H10 is a standard 13-triple maximum packing (degrees 4^9 3^1). The only non-textbook step is the 36/120 seven-set scan showing max span 5 <6, a seconds-scale check with margin, equivalent to noting the pair-optimal packings happen to have no Fano (STS(7)) subsystem. Promised advances beyond this \u2014 vertex-link Turan induction, substantive Lagrangian replay, per-order stability census with extremal-type counts and E_n-1 classification \u2014 were not delivered: n=10 iso-type count left open/conjectural, E_n-1 classification left open, >=2-types claim unevidenced, Lagrangian section restates the integer cap. Downstream uses as benchmark for Lagrangian/flag-algebra bounds and Brown-Erdos-Sos/stability conjectures are inflated because the bound is trivial pair-counting with no Fano-specific theory. This is a textbook restatement (Schoenheim + standard packings) plus a tiny inert-property check and an unexplained enumeration fragment, exactly the class value is meant to reject even if correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves unrestricted ex(n,F) for n>=8 is balanced complete bipartite hypergraph; highly non-linear, inadmissible under linearity; states no linear-restricted maxima.",
+      "title": "Turan's Theorem for the Fano plane (Bellmann-Reiher)",
+      "url": "https://arxiv.org/abs/1804.07673"
+    },
+    {
+      "finding": "Studies Turan/Ramsey in linear triple systems for triangles, s-configurations, wicket, sail; no Fano-free linear maxima or 9-10 census.",
+      "title": "Turan and Ramsey numbers in linear triple systems (Gyarfas-Sarkozy)",
+      "url": "https://arxiv.org/abs/2011.13678"
+    },
+    {
+      "finding": "Large-n l2-norm Fano extremality/stability, balanced bipartite optimal; different norm and asymptotic regime; no small-order linear exact values.",
+      "title": "Exact Turan number of the Fano plane in the l2-norm (Hou-Liu-Zhang)",
+      "url": "https://arxiv.org/abs/2507.12354"
+    },
+    {
+      "finding": "Structured query returns totalResults 0; supports no indexed title/abstract states linear-restricted Fano exact census.",
+      "title": "arXiv API query linear-Turan AND Fano (zero hits)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22linear+Tur%C3%A1n%22+AND+all:Fano&start=0&max_results=10&sortBy=relevance&sortOrder=descending"
+    }
+  ],
+  "decisive_checks": [
+    "Ran committed inputs/artifacts/verify.py: H9 linear OK degrees 4^9 max7span 5; H10 linear OK degrees 4,4x9 max7span 5; ALL CHECKS PASSED + LAGRANGIAN REPLAY PASSED.",
+    "Independently recomputed pair coverage (H9 36/36, H10 39/45), degree sums (36,39), leave graph for n=10 (6 edges, degrees 3^1 1^9 = K1,3 + 3 disjoint edges), and exhaustive 7-set max spans (5 both).",
+    "Verified Fano equivalence for linear hosts: >=7 edges on 7 vertices forces STS(7)=Fano via pair-counting (21 pairs) and linear cap 7; hence <=6 iff Fano-free.",
+    "Verified degree forcing arithmetic and STS(9) reduction; noted n=9 uniqueness depends on classical STS(9) uniqueness citation.",
+    "Confirmed promised census/stability not closed (n=10 full iso count open, E_n-1 open) and Lagrangian replay is integer-cap restatement."
+  ],
+  "residual_risks": [
+    "n=9 uniqueness relies on classical STS(9) uniqueness citation, not re-derived from scratch (standard but external).",
+    ">=2 non-isomorphic 13-packings on n=10 claimed as sampled evidence without committed second list/log; cannot be replayed.",
+    "Design-theory tables may already note STS(9) has no Fano (STS(7)) subsystem via subspace orders, which would further narrow the novelty gap, but no explicit ex_lin statement was found."
+  ],
+  "verdict": "REJECT"
+}
