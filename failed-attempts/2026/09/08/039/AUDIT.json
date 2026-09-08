@@ -1,0 +1,44 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Formal arithmetic verified: for d=4 K=1, tan(theta)=-2 tan(theta) gives 3 tan(theta)=0 with unique root theta=pi on (pi/2,pi], yielding B=4-2*sqrt(3)*cos(pi)=4+2*sqrt(3)=7.4641016151. Fiedler ceiling a(G)<=4n/(n-1)<=5 for n>=5 is true and gaps B-4n/(n-1)=3.1784/3.1974/3.2141 at n=15/16/17 recomputed exactly. Re-ran inputs/artifacts/verify.py: reproduced Table 1 checks d=4 D=4->2.0 and D=3->3.0, BFS diameters (K44 D=2, octahedron D=2, Petersen D=2), AC values 4.0/4.0/2.0, exact adjacency charpolys l^6(l-4)(l+4) and l^3(l-4)(l+2)^2, and seeded 15-vertex 4-regular D=2 witness with AC~2.2087. Proof-vs-evidence separation is honest (Sec.4 states witnesses/heuristic SA/Petersen substitution play no role). Boundary-condition caveat noted but not scored as arithmetic failure: Exoo Table 1 starts at D>=3 and Lemma 2.1/M=tri-diagonal proof assumes K>=2 (for K=1 the 1x1 matrix eigenvalue is d=4, not 4+2*sqrt(3), so B is a formal extrapolation, not a proved Exoo bound for D=2). Conditional on the formal extension, the unattainability inequality is valid, so computations pass; the defect is attribution/scope, scored under originality/value.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No new structural result. The deliverable is formal substitution K=1 into published Exoo Eq.(2) plus textbook Fiedler bound a(G)<=n*delta/(n-1). Exoo et al. arXiv:2307.07308 Table 1 deliberately tabulates only D>=3 with no D=2 row; the omission is structural (even-diameter proof needs K>=2 and middle layer). Plugging K=1 to get 4+2*sqrt(3) and noting it exceeds d+1>=any 4-regular AC is immediate parameter substitution visible to any reader, not the promised Moore-defect impossibility lemma, quotient-interlacing, or n=15/16/17 attainability table. Draft admits: no Smith/interlacing lemma (induced-subgraph gap, conjecture only), no Robertson 19-vertex re-verification (Petersen substituted), 16-vertex SA unused. Cakiroglu Higman-Sims bound, Robertson cage, Hoffman-Singleton nonexistence supply only background. A timestamp or failed search does not establish priority for a two-line vacuity observation.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. Showing a formally-extrapolated number 7.46 exceeds the universal Fiedler ceiling 5 (hence exceeds every 4-regular AC, max 5 at K5) is a vacuity note explaining why D=2 is untabulated, not a boundary decision feeding degree-diameter/cage tables or Exoo conjectures. Scope n=15/16/17 is rendered irrelevant by the claim at every order; quantified gaps are just B minus Fiedler ceiling, not per-graph spectral gaps; witnesses are explicitly not needed for the proof. Falls under reject categories: textbook restatement (Fiedler) + mere parameter substitution (d=4,K=1) + unexplained enumeration (octahedron/K44/Petersen/random n=15 records). Neither target (attainable/unattainable table with bound-meeting witnesses) nor fallback (proved defect lemma + Robertson baseline + smallest attaining witness) was delivered.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Theorem 1.2 Eqs.(1)-(3), Lemma 2.1, Theorems 1.3-1.5; diameter Table 1 starts at D=3 (rows 3-13) with no D=2 row; even-diameter proof constructs two K-level Bethe trees plus middle layer requiring K>=2; Sec.3 covers d=3 D=3..9, d=4 D=3,4,5, d=6 D=4 only.",
+      "title": "Exoo et al. arXiv:2307.07308 full text (HTML v1)",
+      "url": "https://arxiv.org/html/2307.07308v1"
+    },
+    {
+      "finding": "Abstract confirms attainable diameter/girth bounds, cubic D<=9 resolved, d-regular D=3,4 and g=6 families, D=10 open; no 4-regular D=2 decision.",
+      "title": "Exoo et al. arXiv abs",
+      "url": "https://arxiv.org/abs/2307.07308"
+    },
+    {
+      "finding": "AC is second-smallest Laplacian eigenvalue; standard Fiedler connectivity/cap background for a(G)<=n*delta/(n-1) check.",
+      "title": "Algebraic Connectivity - MathWorld",
+      "url": "https://mathworld.wolfram.com/AlgebraicConnectivity.html"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed B=4+2*sqrt(3)=7.46410161514 and gaps 3.1783873294/3.1974349485/3.2141016151 matching Draft Sec.2 table.",
+    "Executed inputs/artifacts/verify.py: bound_even(4,1)->7.4641 vacuous, bound_even(4,2)->2.0, bound_odd(4,2)->3.0; K44/octahedron D=2 AC=4.0, Petersen D=2 AC=2.0 girth 5; exact charpolys verified; 15-vertex hill-climb D=2 AC~2.2087 found, 16-vertex SA residual 2.",
+    "Confirmed Table 1 has no D=2 row and Lemma 2.1 KxK matrix with K=1 collapses to [d] with eigenvalue 4, so formal B is extrapolation outside proved domain.",
+    "Confirmed Draft Sec.4 disclaims D>=3, Smith lemma, SA, and Robertson baseline; no defect lemma or bound-meeting witness delivered."
+  ],
+  "residual_risks": [
+    "Did not exhaustively survey all post-2023 follow-ups to Exoo, but D=2 omission is structural in v1 proof/Table, so a follow-up deciding formal D=2 vacuity would only reinforce lack of novelty.",
+    "Fiedler citation page numbers not verified against 1973 original, but inequality itself verified numerically and via standard test-vector argument; no effect on verdict."
+  ],
+  "verdict": "REJECT"
+}
