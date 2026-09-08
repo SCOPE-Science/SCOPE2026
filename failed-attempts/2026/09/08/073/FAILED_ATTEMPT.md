@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** High-connectivity high-girth separator: a cyclically-5-connected girth>=6 snark with perfect-matching index >=5 and circular flow number <5
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 212
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Spectral Graph Theory
+- **Method:** bounded superposition construction with circular-flow assignment and perfect-matching-cover obstruction certificates
+
+## Problem
+
+Construct and certify an explicit cyclically-5-edge-connected snark G with girth>=6 (bounded Kochol-type superposition, under 60 vertices) such that (i) the perfect-matching index pi(G)>=5, i.e. no 4 perfect matchings cover E(G), and (ii) the circular flow number Phi_c(G)<5 (explicit integer (p,q)-flow with p/q<=14/3), each claim accompanied by an independently replayable certificate from the adjacency list alone.
+
+## Attempted claim
+
+There exists an explicit cyclically-5-edge-connected snark G with girth>=6, perfect-matching index pi(G)>=5, and circular flow number Phi_c(G)<=14/3<5, exhibited by adjacency list with certificates: BFS girth log, cycle-separating-cut enumeration, 3-edge-colouring UNSAT log, enumerated perfect-matching 4-cover UNSAT log, and an explicit nowhere-zero integer flow assignment realizing the circular-flow bound with edge-by-edge Kirchhoff verification.
+
+## Research outcome
+
+Fallback datum secured: cyclically-5-connected girth-6 snarks J7/J9 with exact pi=4 and verified Phi_c<=4.5, plus exact pi table incl. a pi>=5 Kochol-26 witness bounding the gap. Headline strengthened separator remains open; honestly reported.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: The fallback joint datum (J7/J9: pi=4, Phi_c<=9/2=4.5, cyclic>=5, girth 6) is not new; both numerical components are substantively recorded or mechanically implied by prior theorems, not merely by failed search. (1) Flow: Goedgebeur-Mattiolo-Mazzuoccolo arXiv:1909.09870 Sec.3 Table 2 reports the Lukotka-Skoviera theorem that Flower snark J_{2k+1} of order 8k+4 has Phi_c=4+1/k. For J7 (28v, 2k+1=7,k=3) this is 4+1/3~=4.333; for J9 (36v,k=4) this is 4+1/4=4.25. Both are strictly stronger than the claimed 4.5 upper bound, which is therefore a weaker corollary, not a new extremal value. An explicit (9,2)-flow is a new certificate for a weaker ratio, not a new mathematical fact. The admission gap analysis omits this source entirely. (2) Covering index: Macajova-Skoviera arXiv:2008.01398 Sec.1 states the Brinkmann et al. exhaustive census of all 64,326,024 cyclically-4-connected girth>=5 snarks to 36 vertices contains only two graphs with pi>=5 (Petersen and one 34-vertex graph). J7 (28v) and J9 (36v) are members of that census class (cyclic>=5 implies cyclic>=4, girth 6, snark), so pi(J7)<=4 and pi(J9)<=4 follow by subtraction; with classical uncolourability (Isaacs) pi=4 follows. Hence pi=4 is census-implied, not a new table entry. Searches for 'perfect matching index flower' returning zero do not establish priority; the census counting theorem is the substantive nearest prior. The strengthened-stratum separator (cyclic-5,girth>=6,pi>=5,Phi<5) itself remains open and is correctly not claimed, so no originality credit attaches to the missed headline. value: Judging the strongest self-contained fallback claim (J7/J9 cyclic-5 girth-6 snarks with pi=4 and Phi<=4.5 plus family pi table) on its own: it is a correct re-certification of classic objects (Isaacs Flower snarks, 1975) at values already known or implied in stronger form. Per the narrow-datum standard, an exact invariant of a natural motivated object is retrievable only when the value is not known or mechanically implied and a future researcher could need the precise fact. Here Phi<=4.5 is implied by the known exact 4+1/3 and 4+1/4 values, and pi=4 is implied by the published to-36-vertex pi>=5 census; the new work weakens the flow optimum and re-derives the covering number by enumeration. Certification alone (explicit (9,2)-flows, PM covers, cut logs) does not rescue a weaker restatement of known numbers, and the incomplete survey around it is honestly described as non-theorem but adds no independent theorem, criterion, or downstream use beyond reusable adjacency lists for already-tabled invariants. This is a textbook-parameter re-verification / weaker-bound substitution, not an independently worth-finding-later datum.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Headline target (cyclic-5, girth>=6, pi>=5, Phi_c<5) NOT achieved and remains open; exact Phi_c(J7/J9) unknown (9/2 is an upper bound only); lower-ratio searches timed out or are recorded as non-theorems; negative survey evidence is slice-specific, not a nonexistence theorem.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
