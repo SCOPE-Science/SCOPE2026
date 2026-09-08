@@ -1,0 +1,61 @@
+{
+ "verdict": "PASS",
+ "axes": {
+  "correctness": {
+   "verdict": "PASS",
+   "rationale": "Independent audit recomputation confirms the headline claim. Re-ran all character tables from scratch with a different code path (beta-set / Maya-diagram Murnaghan-Nakayama, not the candidate's skew-subdiagram rim-hook enumerator) for n=6,7,8: class-size sums equal n!, full orthogonality sum_C |C| chi_a chi_b = n! delta holds for all 11/15/22 irreps, hook-length degrees and n-cycle hook values cross-check (also replayed via candidate dump_tables.py). Recomputed every Kronecker coefficient g(la,la,nu) by exact class-sum inner product with divisibility by n! certified: all 48 square-vectors match candidate square_vectors.json exactly. Conjugate invariance m(la)=m(la^t) holds for all la (consistent with chi_{la^t}=sgn*chi_la, so chi^2 is invariant). Pairwise comparison: the 11/15/22 vectors fall into exactly 6/8/12 distinct values, each fiber exactly one conjugation pair {la,la^t} (self-conjugate singletons included); no cross-class collision. All 15+28+66=109 lex-first separators replay: differing (g1,g2) values verified from class sums and all earlier lex coordinates agree. S3 permutation symmetry of g spot-checked. Candidate code itself re-executed (mn_check, dump_tables, verify): 6/7/8 replay OK, ALL REPLAY CHECKS PASSED. Conjugation-class lists and lex partition orders in DRAFT match the verified tables. The computation is exact integer arithmetic (proof by certified computation, honestly described as such, not a closed-form human proof). No essential inference, boundary condition, or computation fails."
+  },
+  "originality": {
+   "verdict": "PASS",
+   "rationale": "Substantive comparison against nearest priors shows a genuine gap, not a timestamp argument. (1) Bessenrodt-Bowman arXiv:1609.03596 classifies multiplicity-free Kronecker products with decomposition formulas: a sparsity classification, silent on whether square-vectors separate irreps up to sign. (2) Pak-Panova-Vallejo arXiv:1304.0738 proves Saxl-positivity for hooks/two-rows via a character criterion: sufficient containment conditions, not fingerprint injectivity or minimal separators. (3) Zhao arXiv:2309.00764 gives formulas/positivity for square-shape squares on three-row/near-hook families: family positivity, not all-irrep separation at n=6-8. (4) Lecouvey math/0703514 gives symmetric/antisymmetric splitting via Littlewood-Richardson coefficients for classical Lie groups: different groups and question. (5) GAP CTblLib ships character tables but publishes no square-fingerprint separation theorem or separator certificates; candidate recomputes tables from MN rather than reprinting. (6) arXiv full-text search for square-separates/square-determines queries returns no results (verified live). Square equality determines chi^2 as a class function but factor recovery up to sign still requires the exhaustive pairwise check performed here, so the result is not mechanically implied. No prior states or implies m(la)=m(mu) iff mu in {la,la^t} at n=6-8 with lex-first separators."
+  },
+  "value": {
+   "verdict": "PASS",
+   "rationale": "Headline is a rigorously established exact invariant of specific natural objects: the Kronecker-square vectors m(la)=(g(la,la,nu))_nu for every irreducible of S_6,S_7,S_8. Motivation predates computation: whether a tensor square determines its factor up to sign sits beside the Saxl tensor-square conjecture and GCT character-recognition / square-root-uniqueness benchmarks. Scope n=6-8 (p=11/15/22, 6/8/12 conjugation classes) is the first consecutive slice with structurally nontrivial squares while staying exhaustive and hand-replayable, not an arbitrary slice. Values were not known or mechanically implied before the pairwise comparison (a collision was a live possibility with a stated fallback). A future researcher can reasonably need the precise facts: the 6/8/12-way classification, the zero-collision boundary, and the 109 lex-first separating coordinates with class-sum certificates as checkable fingerprints/benchmarks. This is one exact classification datum per n, but under the applicable standard such a narrow exact invariant is independently worth retrieving. It is not a textbook restatement (no textbook states this separation), not a parameter substitution, not a tiny unmotivated gain, and not an unexplained enumeration (every number carries a separator certificate and interpretation). Certification strengthens but does not substitute for the substantive boundary."
+  }
+ },
+ "checked_sources": [
+  {
+   "title": "Multiplicity-free Kronecker products of characters of the symmetric groups (Bessenrodt-Bowman)",
+   "url": "https://arxiv.org/abs/1609.03596",
+   "finding": "Classification of multiplicity-free inner products with decomposition formulas; sparsity result, nothing about square-vector injectivity up to sign or minimal separators at n=6-8."
+  },
+  {
+   "title": "Kronecker products, characters, partitions, and the tensor square conjectures (Pak-Panova-Vallejo)",
+   "url": "https://arxiv.org/abs/1304.0738",
+   "finding": "Saxl tensor-square conjecture: tensor squares of staircase irreps contain hooks and two-row constituents via character positivity criterion; sufficient positivity, not square-distinguishes-factor injectivity."
+  },
+  {
+   "title": "On the Kronecker product of Schur functions of square shapes (Zhao)",
+   "url": "https://arxiv.org/abs/2309.00764",
+   "finding": "Tensor squares of square-shape irreps; formula for two squares plus three-row family and positivity for three-row/near-hook families; family positivity, not general n=6-8 separation."
+  },
+  {
+   "title": "Stabilized plethysms for the classical Lie groups (Lecouvey)",
+   "url": "https://arxiv.org/abs/math/0703514",
+   "finding": "Stabilized plethysms and symmetric/antisymmetric splitting of tensor squares via Littlewood-Richardson coefficients for classical Lie groups; different setting, no symmetric-group fingerprint claim."
+  },
+  {
+   "title": "GAP Packages listing including CTblLib Character Table Library",
+   "url": "https://www.gap-system.org/Packages/ctbllib.html",
+   "finding": "GAP ships CTblLib character-table library; library lists tables but publishes no square-fingerprint separation theorem or separator certificates; candidate recomputes from MN."
+  },
+  {
+   "title": "arXiv search: no hits for square-separates query",
+   "url": "https://arxiv.org/search/?query=Kronecker+square+separates+irreps+symmetric+group&searchtype=all&source=header",
+   "finding": "arXiv full-text search for 'Kronecker square separates irreps symmetric group' returned no results (no-result page), corroborating absence of a recorded square-separation theorem."
+  }
+ ],
+ "decisive_checks": [
+  "Recomputed S_6/S_7/S_8 character tables via independent beta-set Murnaghan-Nakayama path; orthogonality, class-size sums, hook-length and n-cycle checks all pass.",
+  "Recomputed all 48 Kronecker-square vectors by exact class-algebra inner products; byte-exact match to committed square_vectors.json; divisibility by n! certified.",
+  "Verified conjugate invariance m(la)=m(la^t) for all la; every equal-vector fiber is exactly one conjugation pair; distinct class counts 6/8/12 with zero cross-class collisions.",
+  "Replayed all 109 lex-first separators: differing (g1,g2) from class sums plus agreement on all earlier lex coordinates; example (4,2) vs (3,3) at (3,2,1) gives (2,0) with sums 2*720 vs 0.",
+  "Re-executed candidate pipeline (mn_check.py, dump_tables.py, verify.py): 6/7/8 replay OK, ALL REPLAY CHECKS PASSED in seconds."
+ ],
+ "residual_risks": [
+  "Proof is certified exact computation (exact integer arithmetic), not a closed-form general-n argument; scope is exactly n=6,7,8 with no claim beyond.",
+  "Separator minimality is relative to the stated lexicographic partition order; a different order yields different first separators, though separation itself is order-independent.",
+  "Character tables themselves are classical; novelty resides in the separation/collision boundary with certificates, which is honestly scoped in the draft."
+ ]
+}
