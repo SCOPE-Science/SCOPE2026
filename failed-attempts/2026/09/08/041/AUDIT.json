@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Claimed atlas verified; original infinite/algebraic target honestly reported NOT achieved. Formula D=rA+rB+rABC+rABD+rCD-rAB-rAC-rAD-rBC-rBD is standard; sparse-paving oracle r(X)=min(|X|,k) except k-1 on listed sets is lawful: re-checked intersections rank-5 AB max 3, AB+CD max 3, rank-4 duals max 2, V pairs max 2, P8 max 2 (all <=k-2). Masks reconstructed from F3xF3 defs match artifacts exactly (AB 00:0x04f..22:0x1e4; CD 00:0x1b1..22:0x076); duals equal XOR-0x1ff complements incl 0x1b0=A0B0 dual; P8 ten masks match Bamiloshin Sec4 list; V five masks match Sec4 V list. V witness hand-checked: A=0x30,B=0x0c,C=0x03,D=0xc0 gives LHS 2+2+4+4+4=16 (ABC/ABD 6-sets, CD=0xc3 not a nonbasis) and RHS 3*5=15 (AB=0x3c,AC=0x33,AD=0xf0,BC=0x0f,BD=0xcc all listed nonbases), D=1. Code is full (2^n)^4 enumeration, correct OpenMP reductions. Re-ran all 16 V-poset scans (base 1/npos4, 5 singles 0, 10 doubles 0), all 5 P8 scans (0), one full 9-pt 68.7B scan (T13 best 0). Poset covers all 5 one-drops + all C(5,3)=10 triples + base.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No substantive delta. V deficit 1 is textbook (original Ingleton-violating example; Bamiloshin Sec1/4 presupposes it, same nonbasis list). TTT zeros were recorded/implied: Sec5 states T3 satisfies Ingleton (fails GE, not Ingleton); dual fails Ingleton-Main extension, not the inequality. P8 zeros implied by Sec1/4 census: exactly 39 eight-element violators, all AG(3,2) relaxations with V configuration. The V-poset max-1 phrasing is new verbatim but is a mechanical corollary (known violator + 15 small zero scans), no lemma, representation, or propagation. Admitted TTT D*>=1 fallback is refuted by the draft itself; substituted V poset is a different object. Timestamp/replay log confers no priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding. Residual after honest retraction: 6 TTT zeros (expected), 5 P8 zeros (implied by 39-violator census), 1 textbook V=1 plus 15 relaxation zeros. Target payoff (propagation lemma to infinite minor-minimal family + algebraic-yet-nonlinear separation) is absent per DRAFT Sec5: no seed, no assignment, no family. No new boundary, method, or artifact: no Kinser/Mayhew/Zhang-Yeung tests, no isomorphism classification, no solver hard-instance use. Corrects only the admission's own mistaken expectation, already contradicted by literature. Textbook restatement plus routine verification packaged as atlas.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Program scope: iterated GE/CI/AK on 8-9 element matroids, TTT emphasis; finite window, no infinite lift or deficit-max bound.",
+      "title": "Bamiloshin et al., arXiv abs 2306.15085",
+      "url": "https://arxiv.org/abs/2306.15085"
+    },
+    {
+      "finding": "Sec1: 39 eight-element violators all AG(3,2) relaxations with V config. Sec4: V list 0123/0145/2367/4567/2345 and P8 ten hyperplanes match candidate masks; V non-AK proof. Sec5: T3 satisfies Ingleton, fails GE; dual fails IM; TTT construction matches.",
+      "title": "Bamiloshin et al., full text v3 HTML",
+      "url": "https://arxiv.org/html/2306.15085v3"
+    },
+    {
+      "finding": "Fetch failed (transport error); no evidence drawn; violation status via full text + direct arithmetic.",
+      "title": "Vamos matroid reference (fetch failed)",
+      "url": "https://en.wikipedia.org/wiki/V%C3%A1mos_matroid"
+    },
+    {
+      "finding": "Scanner logic, mask lists, replay commands, transcripts; basis for re-execution.",
+      "title": "Candidate artifacts (local inputs/artifacts)",
+      "url": "local:inputs/artifacts"
+    }
+  ],
+  "decisive_checks": [
+    {
+      "detail": "Hand recompute 16-15=1; RHS unions confirmed listed nonbases, CD absent, ABC/ABD 6-sets.",
+      "name": "Vamos witness check",
+      "result": "PASS"
+    },
+    {
+      "detail": "F3xF3 rebuild reproduces AB/CD/dual/V/P8 masks; sparsity bounds hold so oracle lawful.",
+      "name": "Mask/duality/sparsity reconstruction",
+      "result": "PASS"
+    },
+    {
+      "detail": "Base 1/npos4; 5 singles 0; 10 doubles 0; covers all drops and triples.",
+      "name": "16-member V-poset re-execution",
+      "result": "PASS"
+    },
+    {
+      "detail": "All five P8 scans 0; masks equal paper list.",
+      "name": "P8 re-execution",
+      "result": "PASS"
+    },
+    {
+      "detail": "Full-enumeration code reviewed; one 9-pt 512^4 run re-done (best 0); rest via shared pipeline + mask checks.",
+      "name": "TTT zero pipeline check",
+      "result": "PASS with residual"
+    },
+    {
+      "detail": "Zeros and V=1 known/implied per Bamiloshin; TTT fallback refuted by draft; no lemma built.",
+      "name": "Prior-art comparison",
+      "result": "FAIL"
+    }
+  ],
+  "residual_risks": [
+    "Five of six 9-pt 68.7B scans rest on transcript + shared pipeline, not independent re-runs.",
+    "Single-language (C/OpenMP) implementation; no Sage second implementation.",
+    "Maximal 18-nonbasis TTT object checked via construction/sparsity only, not external catalogue lookup."
+  ],
+  "verdict": "REJECT"
+}
