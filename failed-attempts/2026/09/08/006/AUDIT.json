@@ -1,0 +1,59 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed inputs/artifacts/census.py -> CENSUS OK and inputs/artifacts/verify.py -> ALL VERIFICATIONS PASSED (stdlib only, nonzero-exit on any mismatch). Independently checked: |Gi|=24,28,30,33,35,36 by BFS closure; |Sub|=30,28,12,4,4,60 with sorted subgroup-class-size lists summing to |Sub|; |Normal|=4,7,6,4,4,10; element-class sizes summing to |Gi| (S4 1+3+6+6+8=24; D28 1+1+6x2+7+7=28; S3xC5 5x1+5x2+5x3=30; C33 33x1; C35 35x1; S3xS3 1+2+2+3+3+4+6+6+9=36); derived orders [24,12,4,1],[28,7,1],[30,3,1],[33,1],[35,1],[36,9,1] with series reaching 1; centres 1,2,5,33,35,1; Sylow counts {2:3,3:4},{2:7,7:1},{2:3,3:1,5:1},{3:1,11:1},{5:1,7:1},{2:9,3:1}. Completeness argument valid: every H is join of its cyclic subgroups, least join-closed family from all cyclics is full lattice, plus asserted closure of every 1- and 2-subset present and per-subgroup closure/divisor checks; normality by full conjugation; classes as conjugation orbits with sum asserts; Hasse 66 covers re-checked minimal and single-witnessed with reachability==inclusion; normality-failure triple H=[0,1],g=elem2,gHg^-1=[0,5]!=H replays as subgroups; coset action on 4 left cosets of point-stabilizer S3 replays as homomorphism (24x24 checks) with kernel==core=={1}. Minor presentation slips (G36 compact '3x7' should be '3x8' to sum to 60; hasse sha256 string in research_report.json is 67 chars vs true 64-char hash; 'right-coset' header vs left-coset construction) do not alter verified artifact lists. Result is computational certificate, not theoretical proof, but honestly presented as machine-checked census.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Compared substantively to nearest prior: Nash-Betz arXiv:2006.11315 (lower bounds + classification of abelian <=22 / non-abelian <=19 subgroups for OEIS A274847 - threshold classification, not six fixed presentations with normal counts/class equations/Hasse/coset replay); Fusari-Spiga arXiv:2304.14200 (asymptotic |Sub|<c|R|^(log2|R|/4) bound, not exact small-order tables); Lazorec arXiv:1901.06425 (beta=|L|/|G| ratio theory, not per-presentation census with derived lengths); Whitson 1978 ortholattice characterization (structural, not computational census). No cited source publishes the joint six-presentation package with full subgroup-class sizes, class equations, derived lengths plus S4 66-cover witnessed Hasse log and kernel==core coset replay. Components individually are textbook-derivable (S4 30 subgroups classical; D28 28=tau(14)+sigma(14); C33/C35 divisor lattices; S3xC5 12=6x2 by coprime direct product), and S3xS3 60 is routine Goursat/brute-force, but the exact joint certificate bundle as stated was not found in checked sources. Narrow novelty as a bundle therefore passes, without establishing priority by timestamp alone.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking correctness and narrow novelty as given, the result is not independently worth finding later. It is a textbook restatement + mere parameter substitution + unexplained enumeration: S4 30 subgroups with 4 normals and 1+3+6+6+8 class equation is classical textbook knowledge (DRAFT Sec.5 admits this); D28 counts follow from textbook tau+sigma formula; C33/C35 4-subgroup divisor lattices are trivial exercises; S3xC5 12 subgroups / 6 normals follow immediately from coprime direct-product decomposition (6x2); S3xS3 60-subgroup lattice is a seconds-scale brute-force/GAP exercise with no new structure, conjecture, or method advance. Hasse log, normality-failure triple, and coset-action table are automatically generated consequences of the same brute force, not independent insights. Orders were chosen as a fixed parametric sweep (24,28,30,33,35,36) contrasting cyclic/dihedral/product cases without motivating a question that needs this joint table; nilpotency/solvability verdicts use standard Sylow-uniqueness and derived-series-to-1 checks. Reusable route is 'brute-force generator closure sized to tiny orders' with no complexity claim. Prior SCOPE-FAIL-20260907-014 was REJECTed on value for a larger extremal census over 231 groups of order 96; a fortiori a six-tiny-group census with two trivial cyclic cases fails the value gate. Fallback to orders 24,30,36 does not repair this.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "comparison": "Threshold classification abelian<=22/non-abelian<=19 via prime-factorization bounds to extend OEIS A274847; disjoint from fixed six-presentation full normal counts, subgroup-class sizes, class equations, Hasse/coset replay.",
+      "title": "Classifying groups with a small number of subgroups (Nash-Betz)",
+      "url": "https://arxiv.org/abs/2006.11315"
+    },
+    {
+      "comparison": "Asymptotic upper bound |Sub|<c|R|^(log2|R|/4) sharp via elementary abelian 2-groups; disjoint from exact small-order tables with generator-closure logs.",
+      "title": "On the maximum number of subgroups of a finite group (Fusari-Spiga)",
+      "url": "https://arxiv.org/abs/2304.14200"
+    },
+    {
+      "comparison": "Ratio beta(G)=|L(G)|/|G| second minimum/density/ablian p-group classification; disjoint from concrete per-presentation beta/derived-length/class-equation replay.",
+      "title": "A connection between the number of subgroups and the order of a finite group (Lazorec)",
+      "url": "https://arxiv.org/abs/1901.06425"
+    },
+    {
+      "comparison": "Structural characterization of when subgroup/composition/normal lattices are ortholattices; no explicit six-group computational census with Hasse logs.",
+      "title": "Finite groups whose subgroup lattice is an ortholattice (Whitson 1978)",
+      "url": "https://link.springer.com/article/10.1007/BF02485377"
+    },
+    {
+      "comparison": "Internal prior scan lists 19 Resultary findings (Cremona, PSL(2,13) diameter, Lie algebras, caps, etc.) and order-96 extremal failure; all concern disjoint objects/routes. Attempted live fetches of S4 reference and GroupNames S3xS3 page failed on transport; relied on textbook facts verified computationally instead.",
+      "title": "topic.json internal_prior_scan + live_literature_check",
+      "url": "https://api.crossref.org/works?query=subgroup+lattice+finite+groups+enumeration&rows=10"
+    }
+  ],
+  "decisive_checks": [
+    "Ran inputs/artifacts/census.py: all six orders, |Sub|/normal/subclass/element-class/derived/centre/nilpotency/Sylow match DRAFT Sec.1 table; ends CENSUS OK.",
+    "Ran inputs/artifacts/verify.py (separately written re-derivation from generators.json): order, lattice equality, Lagrange, closure, normality recount, element/subgroup classes, derived series all match; Hasse 66 covers minimal+witnessed with no missing cover; normality-failure and coset homomorphism/kernel==core replay; ends ALL VERIFICATIONS PASSED.",
+    "Summation audits: subgroup-class sizes sum to |Sub| (G24 30, G28 28, G30 12, G33/35 4, G36 60); element-class sizes sum to |Gi|; derived series reach 1 (all solvable); normal-by-order distributions recomputed (e.g. G36 1,3x2,6x2,9,18x3,36).",
+    "Found compact-notation error: research_report claim and DRAFT Table abbreviate G36 subgroup-class sizes as [1x10,2,3x7,6,9x2] summing to 57, while verified sorted list is [1x10,2,3x8,6,9x2] summing to 60 (ten 1s, one 2, eight 3s, one 6, two 9s). Full artifact list is correct; abbreviation is wrong.",
+    "Found artifact_inventory sha256 for hasse_G24.txt is 67 hex chars (invalid) and mismatches recomputed 64-char SHA256 3a0fe62e...0c74b7e9; other six hashes match. File content itself verifies.",
+    "Recomputed G36 subgroup-class member orders: size-3 classes are 2x order-2, 4x order-6, 2x order-12; size-9 classes order-2 and order-4; size-2 class order-3; size-6 class order-6; ten singletons (1,3x2,6x2,9,18x3,36) - consistent with DRAFT Sec.3 detail, confirming only the Sec.1 shorthand '3x7' is off."
+  ],
+  "residual_risks": [
+    "Compact-notation and sha256-string typos indicate claim strings were not generated directly from verified lists; if repaired, full strings must be regenerated from artifacts.",
+    "Verifier shares the same cyclic-join-fixpoint family as primary census (separately written but same mathematical route); independence is code-level, not method-level. No GAP/Sage cross-check was performed.",
+    "Coset-action log header says 'right-coset' while code constructs left cosets xH with left action g.(xH)=(gx)H; construction itself is correct and homomorphism-verified, but wording is inconsistent.",
+    "Literature search partially limited by transport errors for encyclopedic S4/S3xS3 pages; originality PASS rests on cited threshold/bound/ratio/ortholattice sources plus textbook status, not exhaustive library search. A GroupNames-style page may tabulate S3xS3 counts without the joint Hasse/coset package.",
+    "Brute-force route has no scaling claim; results apply only to the six stated permutation presentations, not all groups of orders 24-36 (e.g. not all 15 groups of order 24)."
+  ],
+  "verdict": "REJECT"
+}
