@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline fallback claim independently re-derived from scratch (stdlib Python, no import from artifacts): 24 det-1 matrices over F3 closed under mul/inv; orbit-BFS classes [1,1,4,4,4,4,6] sum 24; exhaustive subgroup closure (adjoin-one-generator fixed point, verified subgroups axioms) gives 15 subgroups orders [1,2,3x4,4x3,6x4,8,24], no order 12; commutator-closure equals {g^4=1} size 8 with distribution 1,1,4^6, hence G'=Q8, |G^ab|=3, 3 linears; 4 Sylow-3s, perm-fix minus 1 gives chi values [3,3,0,0,0,0,-1] with sum |C|chi^2=24, hence irreducible degree 3; 7 classes => 7 irreps, sum d_i^2=24 forces remaining degrees {2,2,2}; presentation relations hold on explicit x,y,t, <x,y,t>=24 matrices, and rewriting t-moves (tx=yt, ty=(xy)t, inverses derivable) plus Q8 normal forms (8) plus t^3=1 gives |P|<=24, hence P presents G; degree-2 monomial would require index-2 (order-12) subgroup, none exists, so all three degree-2 irreps non-monomial, G not M-group. All essential inferences, boundary conditions and computations verify. Standard theorems (num Irr = num classes, sum d_i^2=|G|, induced degree = index) are correctly quoted. DRAFT honestly limits scope to SL(2,3) witness and disclaims 15-group census, Dixon-Schneider and minimality proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline mathematical fact is not new. Candidate's own admission concedes it: topic.json motivation calls SL(2,3)=Q8:C3 'the classical minimal example', rejection_risks states 'SL(2,3) non-monomiality is folklore', DRAFT Sec 'Minimality context (quoted background)'. Class sizes, degree multiset {1,1,1,2,2,2,3}, Q8 derived subgroup, abelianization C3, and absence of order-12 subgroup (equivalently A4 quotient has no order-6 subgroup) are standard stored/published facts: CTblLib stores finished ordinary Irr values from which degrees are readable, SmallGrp supplies the 15 order-24 groups, GAP manual documents induction/ScalarProduct/IsMonomialGroup methods. The delivered proof is the textbook index-counting argument (degree 2 needs index 2), not the promised novel exhaustive per-subgroup scalar-product sweep (DRAFT explicitly says 'no per-subgroup induction scalar-product sweep were needed: the index-2-subgroup counting argument subsumes them'). The genuinely new claim in admission \u2014 complete 15-group dichotomy with both-direction certificates \u2014 was not delivered (DRAFT 'What is NOT claimed'). A failed arXiv search and a new replay log do not establish priority. Substantive comparison shows no new theorem, no new (non-)inducibility transcript beyond elementary consequence of known subgroup lattice.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As delivered, the result is a correct machine-checked replay of a textbook extremal witness, not an independently retrievable new finding. The natural object (SL(2,3)) and invariant (non-monomiality, degrees, classes) were motivated before computation, but the precise values are already known, citable from textbooks and readable from CTblLib/SmallGrp, and the index-2 argument is mechanically implied by the known subgroup structure. A future researcher needing SL(2,3) non-monomiality, its degrees or class sizes would cite standard references/libraries, not this certificate. Certification alone does not rescue it per shared standard. The specific presentation/normal-form choice is one among many, not shown to be needed before computation. The value-bearing promise \u2014 complete 15-group threshold dichotomy calibrating Taketa generalizations \u2014 is honestly described as incomplete and therefore cannot confer value on the fallback alone. This is a textbook restatement with verification, which must be rejected even though correct.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Supplies 15 isomorphism representatives/IDs for order 24; stores no Irr values or M-group verdicts, but confirms groups themselves are library inputs, not new objects.",
+      "title": "GAP SmallGrp \u2014 Small Groups Library",
+      "url": "https://gap-packages.github.io/smallgrp/"
+    },
+    {
+      "finding": "Library stores finished ordinary/Brauer/Atlas/CAS/generic Irr values and fusions; degrees {1,1,1,2,2,2,3} for SL(2,3) are readable from stored values. Stores no per-character inducing pairs, but fallback did not deliver such pairs either (used index counting).",
+      "title": "GAP CTblLib \u2014 Contents of the Character Table Library",
+      "url": "https://docs.gap-system.org/pkg/ctbllib/doc/chap4_mj.html"
+    },
+    {
+      "finding": "Documents IrrDixonSchneider, InducedClassFunction, ScalarProduct, IsMonomialGroup as method infrastructure; proves no order-24 dichotomy, publishes no minimal-witness table. Confirms methods are prior infrastructure.",
+      "title": "GAP Reference Manual Ch.71 Character Tables / Ch.72 Class Functions",
+      "url": "https://www.gap-system.org/Manuals/doc/ref/chap71_mj.html"
+    },
+    {
+      "finding": "Query for SL(2,3) non-monomial M-group produced no results; absence of hit does not establish priority for a folklore fact, and general Taketa-type theorems imply no exhaustive order-24 table.",
+      "title": "arXiv search SL(2,3) non-monomial M-group \u2014 no results",
+      "url": "https://arxiv.org/search/?query=SL%282%2C3%29+non-monomial+M-group&searchtype=all&source=header"
+    },
+    {
+      "finding": "Candidate itself calls SL(2,3) 'the classical minimal example', 'folklore', and quotes minimality of order 24 as standard Taketa-line background, conceding prior knowledge of headline fact; value defense rested on COMPLETE 15-group dichotomy, which DRAFT states was not completed.",
+      "title": "Candidate admission (topic.json motivation/rejection_risks) and DRAFT What-is-NOT-claimed",
+      "url": "https://arxiv.org/search/?query=M-group+monomial+characters+Taketa&searchtype=all&source=header"
+    }
+  ],
+  "decisive_checks": [
+    "Independent stdlib replay: order 24, group closure true, class sizes [1,1,4,4,4,4,6].",
+    "Independent subgroup enumeration: 15 subgroups, orders [1,2,3x4,4x3,6x4,8,24], no order 12; each verified closed under inv/mul.",
+    "Commutator closure (8 elements) equals {g^4=1} element-wise; abelianization order 3.",
+    "Sylow-3 count 4; chi3=[3,3,0,0,0,0,-1], norm numerator 24 => irreducible degree 3.",
+    "Presentation relations (x^4=t^3=1, x^2=y^2, y^-1xy=x^-1, txt^-1=y, tyt^-1=xy, t(xy)t^-1=x) hold; <x,y,t>=24; Q8 8-form rewriting associative, t-moves give |P|<=24.",
+    "Degree equation 3*1+9+a^2+b^2+c^2=24 with a,b,c>=2 forces (2,2,2); index argument degree-2 needs order-12 subgroup."
+  ],
+  "residual_risks": [
+    "Correctness relies on quoted standard theorems (num Irr = num classes, sum d_i^2=|G|, induced degree = index, permutation-minus-trivial is a character); all standard, negligible risk.",
+    "Subgroup completeness relies on adjoin-one-generator fixed-point argument (every subgroup is closure of its elements); validated by independent closure implementation, negligible risk.",
+    "No residual originality/value risk relevant: failure is intrinsic (textbook fact), not due to incomplete checking."
+  ],
+  "verdict": "REJECT"
+}
