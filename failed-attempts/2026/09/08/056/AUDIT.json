@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Hochster formula and graph-only reduction are correct; K6=112, uniqueness, flag-max 50 (all 1296 labeled trees; 6 unlabelled tree types), disconnected max 130, and octa/cone values were independently recomputed and match table/census. BUT Theorem (b) as written is false: Draft claims runner-up is code 8191=86 with gap 26 and ranking '112 > 86 > 84 > ...'. Independent brute force over all 32768 labeled graphs and the candidate's own artifacts disprove this: connected code 16383 (K6 minus one edge, 14 edges) has b=98, so true connected ranking is 112 > 98 > 86 > 84. Candidate graph_census.json itself records max 112, runner_up 98, gap 14, n_max_labeled 1; betti_table.csv lists 16383=98 above 8191=86. Hence the stated gap certificate (26) and runner-up identity are wrong. True gap >=1 still holds (14>=1) and unique-maximizer headline survives, but an essential inference is false as stated. Separately: bigraded Tor-rank / Betti-vector table claimed in text is not delivered (CSV gives only total b_ZK; graph_census.json gives only histogram); 2D S2/D2 pool is honestly disclosed as 3 reps, not exhaustion; Massey scan honestly reports ~7400 triples with zero hits as log, not vanishing theorem \u2014 no false Massey claim.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest priors are general structural theorems / large-vertex infinite families, not the finite 6-vertex total-Betti extremal census. Denham-Suciu math/0512497 gives cohomology-ring/triple-Massey theory with obstructions, no vertex-fixed Betti census or named K_max. Grbic-Linton 1908.02222 classifies lowest-degree triple Massey of 3-dim classes (indeterminacy improvement), no 6-vertex extremal table. Grbic-Linton 1911.07083 gives unifying higher-Massey construction with infinite large-polytope nonformal families, leaving small-vertex extremum open. No source names K6=112, runner-up 98, flag-max 50 over 112 connected 6-vertex graph types, nor a 156-row Hochster table for this pool. Internal prior scan hits (SCOPE014 Fox-calculus 2-complex, SCOPE005 monomial-ideal Betti tables, etc.) are different objects/invariants. Hence the true connected-graph extremal datum (K6 unique max 112) is narrowly new and not mechanically implied by general theorems.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Judging the strongest self-contained headline separately (connected-graph total-Betti extremum), it is intrinsic low value / unexplained enumeration with missing substantive result. The admitted target's main value driver was the minimal Massey-nonformal witness (Z_K nonformal via explicit <a,b,c>); none was found \u2014 only a partial ~7400-triple scan log on 5 complexes, explicitly not a vanishing theorem. The fallback as admitted required a complete Betti-vector / bigraded Tor-rank table over P with vanishing certificate; delivered is totals-only (no per-degree b_i, no per-(J,deg) Tor table) over the 1D subpool plus 3 named 2D reps (incompleteness honestly disclosed, but 6-vertex S2/D2 triangulations number in millions and are not typed). Remaining solid fact \u2014 K6 uniquely maximizes total b(Z_K)=1+sum_J(e_J-v_J+2c_J-1) at 112 among 112 connected 6-vertex graphs, all trees tie at 50 (which follows in one line from forest formula sum_J(|J|-e_J-1) depending only on edge count) \u2014 is a seconds-long 32768-case optimization of an elementary graph sum via textbook Hochster, with no specific Buchstaber-Panov bound resolved, no downstream use demonstrated, and scope (n=6, connected graphs, total rather than bigraded invariant) chosen for one-hour feasibility rather than theoretical threshold. Certification/replay alone does not rescue it per the exact-invariant rule: generic programme motivation plus 'calibration datum' claim without a stated conjecture, plus collapsed grading, leaves an arbitrary-slice table that a future researcher would recompute on demand rather than cite. This matches prior REJECT precedent for small finite extremal censuses without structural insight. Narrowness alone is not the reason; lack of motivated, reusable substance beyond the failed Massey goal is.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Foundational cohomology-ring / Massey theory for Z_K with obstructions and nonformal applications; no 6-vertex extremal Betti census, no Tor table, no named K_max.",
+      "title": "Moment-angle complexes, monomial ideals, and Massey products",
+      "url": "https://arxiv.org/abs/math/0512497"
+    },
+    {
+      "finding": "Combinatorial classification of lowest-degree triple Massey of 3-dim classes; general theorem improving indeterminacy, not a finite-vertex Betti census.",
+      "title": "Lowest-degree triple Massey products in moment-angle complexes",
+      "url": "https://arxiv.org/abs/1908.02222"
+    },
+    {
+      "finding": "Unifying higher-Massey construction generalising all examples, infinite large-polytope nonformal families; leaves minimal 6-vertex extremum open.",
+      "title": "Non-trivial higher Massey products in moment-angle complexes",
+      "url": "https://arxiv.org/abs/1911.07083"
+    },
+    {
+      "finding": "No validated Resultary finding covers 6-vertex Z_K Betti extremum + Massey witness; closest SCOPE014 is Fox-calculus 2-complex, SCOPE005 is monomial-ideal Betti tables \u2014 different objects.",
+      "title": "Internal prior scan (topic.json resultary_hits / scope_failed_hits)",
+      "url": ""
+    }
+  ],
+  "decisive_checks": [
+    "Independent brute force over all 2^15=32768 labeled graphs on [6] using Hochster sum b=1+sum_J(e_J-k+2c-1): K6=112, 16383=98 (connected), 8191=86, star 31=50, path=50; global connected max 112 unique (n=1, K6), second distinct value 98 (gap 14) \u2014 refutes Draft (b) 86/gap 26.",
+    "Parsed betti_table.csv (156 rows): connected top 32767=112, 16383=98, 8191=86, 15871=84; flag-connected max 50 on exactly 6 rep codes (trees); global max 130 on empty graph \u2014 confirms table correct, text summary wrong; graph_census.json max 112/runner 98/gap 14 consistent with recomputation.",
+    "Verified tree-shape independence: all 1296 labeled trees (6^4) give b=50 via forest identity h_J=|J|-e_J-1, sum=192-80-63+1=50 \u2014 flag-max claim correct but elementary.",
+    "Fetched live arXiv abstracts for Denham-Suciu and Grbic-Linton x2; confirmed general-theorem / large-family scope, no 6-vertex census or K_max naming.",
+    "Confirmed missing artifacts for headline: no per-degree Betti vectors or per-(J,deg) Tor table in CSV/JSON; Massey reported only as scan log with explicit no-witness disclaimer; 2D pool limited to 3 reps per DRAFT s2 and research_report limitations."
+  ],
+  "residual_risks": [
+    "Iso-canonical labeling code (iso_reps.json) not fully re-audited, but maximality/uniqueness rest only on labeled exhaustion (32768 cases), so iso risk does not affect headline.",
+    "2D rep values (octa-S2=8, stacked=12, cone-disk=12) spot-checked via verify.py logic but not exhaustively re-derived; irrelevant to graph headline and honestly scoped as reps.",
+    "Originality rests on live abstract-level search plus admission queries; full-text mining for a hidden 6-vertex table is impractical, but nearest-theory gap is stark and no contradictory table was found in candidate artifacts."
+  ],
+  "verdict": "REJECT"
+}

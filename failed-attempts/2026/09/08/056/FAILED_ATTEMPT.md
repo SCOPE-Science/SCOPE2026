@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Extremal Betti census and a minimal Massey-nonformal witness for moment-angle complexes over 6-vertex flag vs non-flag complexes
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 162
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Algebraic Topology
+- **Method:** Hochster-formula Tor-algebra computation with cochain-level replay
+
+## Problem
+
+Let P be the set of isomorphism types of simplicial complexes K on vertex set [6] whose geometric realization is homeomorphic to S^2, D^2 (contractible 2-ball triangulation), or a wedge of circles/2-spheres, partitioned into flag vs non-flag. For each K in P compute H^*(Z_K;Z) via the Hochster formula, tabulate Betti vectors and bigraded Tor ranks, certify K_max attaining maximal total Betti number, and certify one K_nonformal in P with nontrivial triple Massey product via explicit cochain witness.
+
+## Attempted claim
+
+Over pool P there exists an explicitly named complex K_max with strictly maximal total Betti number b(Z_K)=sum_i b_i(Z_K) (gap >=1 over runner-up, Hochster-replayed), and there exists an explicitly named complex K_nonformal in P carrying a nontrivial triple Massey product <a,b,c> in H^*(Z_K) with explicit cocycle witness and indeterminacy check, hence Z_{K_nonformal} nonformal.
+
+## Research outcome
+
+Certified maximal-total-Betti census over 112 connected 6-vertex graph types (K6 unique max b=112, gap 26, flag-max 50) with two-path Hochster replay plus 2D representative values and a documented Massey non-witness scan log.
+
+## Why this attempt failed
+
+Failed axes: correctness, value.
+
+correctness: Hochster formula and graph-only reduction are correct; K6=112, uniqueness, flag-max 50 (all 1296 labeled trees; 6 unlabelled tree types), disconnected max 130, and octa/cone values were independently recomputed and match table/census. BUT Theorem (b) as written is false: Draft claims runner-up is code 8191=86 with gap 26 and ranking '112 > 86 > 84 > ...'. Independent brute force over all 32768 labeled graphs and the candidate's own artifacts disprove this: connected code 16383 (K6 minus one edge, 14 edges) has b=98, so true connected ranking is 112 > 98 > 86 > 84. Candidate graph_census.json itself records max 112, runner_up 98, gap 14, n_max_labeled 1; betti_table.csv lists 16383=98 above 8191=86. Hence the stated gap certificate (26) and runner-up identity are wrong. True gap >=1 still holds (14>=1) and unique-maximizer headline survives, but an essential inference is false as stated. Separately: bigraded Tor-rank / Betti-vector table claimed in text is not delivered (CSV gives only total b_ZK; graph_census.json gives only histogram); 2D S2/D2 pool is honestly disclosed as 3 reps, not exhaustion; Massey scan honestly reports ~7400 triples with zero hits as log, not vanishing theorem — no false Massey claim. value: Judging the strongest self-contained headline separately (connected-graph total-Betti extremum), it is intrinsic low value / unexplained enumeration with missing substantive result. The admitted target's main value driver was the minimal Massey-nonformal witness (Z_K nonformal via explicit <a,b,c>); none was found — only a partial ~7400-triple scan log on 5 complexes, explicitly not a vanishing theorem. The fallback as admitted required a complete Betti-vector / bigraded Tor-rank table over P with vanishing certificate; delivered is totals-only (no per-degree b_i, no per-(J,deg) Tor table) over the 1D subpool plus 3 named 2D reps (incompleteness honestly disclosed, but 6-vertex S2/D2 triangulations number in millions and are not typed). Remaining solid fact — K6 uniquely maximizes total b(Z_K)=1+sum_J(e_J-v_J+2c_J-1) at 112 among 112 connected 6-vertex graphs, all trees tie at 50 (which follows in one line from forest formula sum_J(|J|-e_J-1) depending only on edge count) — is a seconds-long 32768-case optimization of an elementary graph sum via textbook Hochster, with no specific Buchstaber-Panov bound resolved, no downstream use demonstrated, and scope (n=6, connected graphs, total rather than bigraded invariant) chosen for one-hour feasibility rather than theoretical threshold. Certification/replay alone does not rescue it per the exact-invariant rule: generic programme motivation plus 'calibration datum' claim without a stated conjecture, plus collapsed grading, leaves an arbitrary-slice table that a future researcher would recompute on demand rather than cite. This matches prior REJECT precedent for small finite extremal censuses without structural insight. Narrowness alone is not the reason; lack of motivated, reus…
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; supply independent motivation and a materially stronger contribution; address the recorded limitation: ['Massey search is a partial scan (~7400 triples on 5 complexes), not a pool-wide vanishing theorem; target Massey witness NOT found, fallback census claimed instead.', 'Integral torsion-freeness rests on QQ-ranks of d2 plus RP2 boundary control, not SNF of every K_J.', '2D pool representatives are named examples, not an exhaustion of 6-vertex S2/D2 triangulations (3.7M labeled dim<=2 complexes counted but not fully typed).']
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
