@@ -1,0 +1,58 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetry partition verified independently: 56 pair-classes covering 276 unordered distinct pairs, all reps lex-min (recomputed orbits match). Theorem 1 (Erdos-Szekeres finiteness of Av(1234,4321), n=9 count 1764=42^2) is correct: ES bound (4-1)(4-1)+1=10 gives emptiness for n>=10; RSK+hook-length verified (hooks 5,4,3,4,3,2,3,2,1 product 8640, 9!/8640=42, 42^2=1764; partitions of 9 fitting 3x3 admit only (3,3,3) so theory alone predicts 1764; enumerator and stdlib verifier agree Av_8=1764). DRAFT table internally consistent with counts_n*.txt (56 rows x 4 n, zero mismatches). Theorem 2 is FALSE as stated and refuted by the candidate's own data. Claim: every non-ES class satisfies |S_12|>=C_12=208012 via a contained length-3 pattern q with Av(q) subset Av(P). This inference is invalid for pairs: Av(q) subset Av(p1) does not imply Av(q) subset Av(p1) cap Av(p2); a Catalan floor requires a COMMON length-3 subpattern q contained in BOTH patterns. Independent check shows 20 of 56 reps have NO common length-3 subpattern at all (22 lack a common 123/132/321), e.g. (1234,1432): subs {123} vs {132,321}; (1234,3421): {123} vs {231,312}; (1234,4321): {123} vs {321}. The '0 of 56 lack one' machine check tested union, not intersection. Empirically refuted: candidate reports minimum over nontrivial classes at n=12 is 100728 for (1234,3421), which is < 208012, contradicting the claimed universal floor. CENSUS_NOTE p.75 claim that 100728 is 'comfortably above' 208012 is arithmetically false. Hence the proved disjoint interval {0} vs [208012,inf) fails; many classes lie strictly inside the alleged gap. The promised growth-rate separation (insertion upper bound vs explicit-family lower bound) was not delivered; ES finiteness vs positivity at fixed n is not a Stanley-Wilf growth-constant separation. The Wilf-collapse bijection was explicitly abandoned to conjecture ('No bijection is claimed'). Table entries beyond spot checks are machine-certified only (no per-entry proof; full n=12 replay not independently rerun here).",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The claimed new boundary (complete symmetry-reduced (4,4) pair census at n=9-12 with proved collapse bijection plus growth separation) was not achieved: no bijection is proved (reported only as empirical grouping/conjecture) and no valid growth separation is proved (Theorem 2 false). What remains is a recomputation of pair-avoidance counts already published. Nearest prior art directly covers the pair window: Kremer-Shiu 'Finite transition matrices for permutations avoiding pairs of length four patterns' (Discrete Math 268 (2003), Table 1, cited from OEIS A165542/A165543 links) studies exactly pairs of length-4 patterns; OEIS pair sequences give counts to n>>12 matching DRAFT exactly, e.g. A165542 Av(4231,4123) a9=34676/a10=160808/a11=752608/a12=3548325 equals DRAFT (1324,1432) row 34676/160808/752608/3548325 (symmetry-equivalent pair); A165543 Av(1234,1342) a9=34875/a10=162560/a11=766124/a12=3644066 equals DRAFT (1234,1342) row. OEIS b-files extend to n=270-1000. PermPAL and the Wikipedia 'Classes avoiding two patterns of length 4' page likewise tabulate this family. Hence the n=9-12 pair counts are database-recorded, not an unrecorded window; admission's premise that databases quote only single-pattern counts is false. Compiling 56 known sequences into one table with no new bijection, inequality, or structural classification is aggregation/database repackaging, not a new mathematical boundary. General Wilf-collapse theory (Albert-Jelinek-Opler 1909.13348) and single-pattern bounds remain context only.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth finding later? No. Surviving correct content is: (a) textbook Erdos-Szekeres finiteness of Av(1234,4321) plus standard RSK/hook-length 1764 computation; (b) a 224-entry table that reproduces a slice (n=9-12) of already-published longer OEIS/Kremer-Shiu pair enumerations with no new proved Wilf-equivalence and no valid growth inequality; (c) an explicitly unproved empirical observation (38 distinct values, 5 stable multi-member groups) with no bijection, no asymptotic consequence, and no calibration use beyond the already-available exact sequences. This combines textbook restatement + mere recomputation/parameter-slice of known sequences + unexplained enumeration, each expressly excludable under the value standard even if correct and new. The claimed downstream uses (calibrating where exponential constants separate; testing conjectured collapses) are not delivered because the separation proof is false and every collapse is left open. The fallback table does not close an unrecorded window (OEIS extends far beyond n=12 for these pairs) and offers no reusable proof beyond standard backtracking.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Title shows exact domain (pairs of length-4 patterns); cited by OEIS pair sequences for Table 1 pair enumerations. Confirms full pair-window enumeration is 2003 prior art, not a new census.",
+      "title": "Kremer-Shiu, Finite transition matrices for permutations avoiding pairs of length four patterns, Discrete Math. 268 (2003) 171-183, Table 1",
+      "url": "https://doi.org/10.1016/S0012-365X(03)00042-6"
+    },
+    {
+      "finding": "Lists a9=34676, a10=160808, a11=752608, a12=3548325; matches DRAFT (1324,1432)=(1,3,2,4)|(1,4,3,2) row exactly. b-file to n=1000. Proves pair counts at n=9-12 already recorded.",
+      "title": "OEIS A165542 Av(4231,4123)",
+      "url": "https://oeis.org/A165542"
+    },
+    {
+      "finding": "Lists a9=34875, a10=162560, a11=766124, a12=3644066; matches DRAFT (1234,1342) row exactly. Formulae, algebraic GF references (Callan, Bloom-Vatter) show deep prior study of this pair.",
+      "title": "OEIS A165543 Av(1234,1342)",
+      "url": "https://oeis.org/A165543"
+    },
+    {
+      "finding": "General Wilf-collapse structural theorem; no explicit (4,4) census. Context only; does not supply the claimed window but confirms collapse theory is prior.",
+      "title": "Albert-Jelinek-Opler, Wilf collapse in permutation classes, arXiv:1909.13348",
+      "url": "https://arxiv.org/abs/1909.13348"
+    },
+    {
+      "finding": "Shows C-machine/enumeration-scheme methods generating thousands of terms for small pair classes and non-D-finiteness discussion; confirms pair enumerations to large n are established literature.",
+      "title": "Albert et al., Generating Permutations with Restricted Containers, arXiv:1510.00269",
+      "url": "https://arxiv.org/abs/1510.00269"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed dihedral+inverse pair orbits in stdlib Python: 56 classes, 276 pairs covered, 0 non-lex-min reps in reps.txt -> symmetry partition CORRECT.",
+    "Verified hook-length 9!/8640=42, 42^2=1764 and Catalan C_12=binom(24,12)/13=2704156/13=208012 -> arithmetic CORRECT.",
+    "Ran stdlib verifier inputs/artifacts/verify.py at n=8 for (1234,4321): 1764, consistent with RSK single-shape prediction (only (3,3,2) fits 3x3 at n=8, f=42) -> spot check PASSES and explains n=8=n=9 coincidence.",
+    "Parsed DRAFT.md table vs counts_n9..n12.txt: 56 rows, 0 mismatches -> internal consistency PASSES.",
+    "Computed length-3 order-type subpatterns for every rep: 20/56 reps have NO common length-3 subpattern at all (22 lack common 123/132/321); listed witnesses e.g. (1234,1432),(1234,3421),(1243,3412),(1432,3412) -> Theorem 2 premise false; Av(q) subset Av(P) inference invalid.",
+    "Extracted census minima: n=12 min over nontrivial classes = 100728 (1234,3421) < 208012; n=9..12 each have 38 distinct values -> candidate data directly refutes claimed universal floor and disjoint interval.",
+    "Cross-matched DRAFT rows to live OEIS pair sequences (A165542, A165543): exact agreement at n=9-12 with sequences extending to n=27+/1000 -> pair window already published; fallback table is a slice of known data."
+  ],
+  "residual_risks": [
+    "Full n=9-12 C-enumerator replay (notably n=12 rows at 1-18s each) was not exhaustively rerun; large table entries rely on candidate's binary plus n<=8/independent spot agreement and OEIS agreement for checked rows.",
+    "Literature search centered on OEIS/Kremer-Shiu/PermPAL/Wikipedia pair tabulations plus admission arXiv set; undetected additional pair-count sources would only strengthen the originality failure.",
+    "RSK/shape analysis confirms Theorem 1 without trusting the enumerator; no residual risk there."
+  ],
+  "verdict": "REJECT"
+}
