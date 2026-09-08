@@ -1,0 +1,33 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Core computations independently re-verified: census.csv has 1044 rows with correct schema; Euler identity n0-n1+n2=b0-b1+b2 holds on all 1044 rows (0 failures); 0/1044 rows have H1 torsion (SNF(d2) entries all in {0,+-1}); K7 row (atlas 1252: ne=21,nt=35,b=(1,0,20),r=(6,15)) and empty-graph row (atlas 209) correct; RP2 witness facets 012,013,024,035,045,125,134,145,234,235 independently re-SNF'd to d1 diag (-1^5,0), d2 diag (1^6,-1,1,1,-2), ranks (5,10), chi=1, all 15 edges in exactly 2 triangles, all vertex stars size 5 with link degree sequence [2]*5 (5-cycles), connected, H1=Z/2,H2=0,H0=Z; no-collapse proof valid (no free edge since every edge degree 2; no maximal-edge/vertex collapse since every edge in a triangle and every vertex in 5 triangles; exhaustive DFS 1 state correct). SNF->torsion reading is valid because C1=Z1(+)F splits (C0 free) and im(d2) lies in Z1. BUT DRAFT.md reporting is materially wrong on essential distribution claims: claims 58 occupied (b0,b1,b2) types vs 57 in distribution.txt/census.csv; claims connected (b0=1) 411 cases vs 853 actual; claims within connected '267 have b1=0 (195 with b2>0), 65 have b1=1' vs actual connected b1=0:411 (227 with b2>0), b1=1:267, b1=2:132, b1=3:32, b1=4:9, b1=5:1, b1=6:1; claims b0=2:130,b0=3:31 vs actual 145 and 32; DRAFT b0-breakdown sums to 586 not 1044 (internally inconsistent). Minimality bullet overstates: 'Torsion first appears at 6 vertices but necessarily outside flag stratum' is unproved because 6-vertex flag 2-skeleta (156 graphs) were never censused (admitted in limitations); only n<=5 flag (53 graphs) torsion-free plus non-flag 6-vertex example is proved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest prior is Adamaszek arXiv:1208.3892 (small flag complexes with torsion, computer-aided classification to 12 vertices) which subsumes the H1-torsion existence question for 7 vertices (H1 depends only on 2-skeleton), plus Chong-Nevo field-coefficient inequalities and chessboard/matching-complex torsion work (different families). RP2 6-vertex 10-triangle triangulation itself is classical (Kuehnel-type), as DRAFT admits. Narrow dataset delta remains: no listed prior publishes the complete 1044-row integral Betti-plus-SNF table with SNF diagonals and greedy-collapse cores for 7-vertex flag 2-skeleta, nor the machine-checked SNF-diagonal plus no-free-face certificate packaging for this RP2 facet list. Treating dataset publication as the claim, there is no substantive prior-table match, so originality narrowly passes; the zero-torsion theorem alone would be a corollary-style rederivation.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking corrected numbers, the contribution is a textbook atlas+SNF enumeration recomputable in ~0.9s with standard libraries, yielding a negative result (0/1044 torsion) with no structural proof, explanation, or conjecture. The Betti histogram (57 types) is reported without distributional insight, extremal characterization, or downstream use; the 1044-row collapse-core census is explicitly disclaimed as rule-dependent raw replay data, not a collapsibility theorem (only witness non-collapsibility is proved, which follows trivially from no free face in a closed surface). The witness object is classical; only its SNF/collapse log packaging is new. This is an unexplained enumeration / parameter census with tiny unmotivated gain that later work would simply recompute rather than retrieve, falling under the reject class even if correct and narrowly new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json live_literature_check sources (arXiv:1208.3892, arXiv:1908.08308, doi:10.1007/s00026-011-0073-x, arXiv:1004.4719) treated as untrusted claims",
+    "direct arXiv fetch of https://arxiv.org/abs/1208.3892 attempted 2026-09-08 (transport error, content not retrieved; assessment uses title/abstract-level comparison plus topic-provided comparisons)",
+    "inputs/DRAFT.md, inputs/research_report.json, inputs/artifacts/{census.csv,census.py,distribution.txt,summary.json,rp2_facets.txt,rp2_snf.txt,collapse_log.txt,collapse_exhaustive.txt,small_vertices.txt,run.sh,run.log} all read and cross-checked"
+  ],
+  "decisive_checks": [
+    "Re-parsed census.csv (1044 rows): Counter(b0)={(1:853),(2:145),(3:32),(4:9),(5:3),(6:1),(7:1)} contradicts DRAFT 411/130/31; connected b1 Counter={(0:411),(1:267),(2:132),(3:32),(4:9),(5:1),(6:1)} contradicts DRAFT 267/65; b1=0 connected with b2>0 =227 contradicts 195; occupied (b0,b1,b2) types =57 contradicts 58",
+    "Euler audit on all 1044 CSV rows: 0 failures; torsion-column audit: 0 rows with h1tors non-empty; SNF(d2) audit: 0 rows with |entry|>1; core (1,0,0) count 184 and commonest cores (4,4,0)x125,(4,6,4)x75 match DRAFT collapse paragraph (that paragraph is correct)",
+    "Independent sympy SNF recomputation of RP2 facets: confirmed ranks (5,10), diags, chi=1, edge-degree 2 everywhere, vertex-link 5-sets, H1=Z/2/H2=0; verified no elementary collapse possible from initial state (free-edge set empty, maxedges empty, every vertex in 5 triangles)",
+    "Atlas-gate spot logic: census.py asserts atlas=1253 and n7=1044 and small<=5=53; networkx unavailable in audit env so atlas enumeration not re-executed, mitigated by CSV atlas_index range check (209-1252) and K7/empty sanity rows"
+  ],
+  "residual_risks": [
+    "sympy smith_normal_form and networkx graph_atlas_g correctness trusted but not formally proved; mitigated by Euler+Q-rank spot checks and sanity rows, not eliminated",
+    "Adamaszek full text not retrieved (fetch failure); overlap judgment rests on abstract-level plus candidate-provided comparisons - a fuller text check could strengthen overlap to show zero-torsion corollary explicitly",
+    "DRAFT distribution errors suggest possible other uncaught reporting slips; artifacts themselves appear self-consistent but full 1044-row SNF re-execution was not performed in audit env (no networkx/sympy rerun of census.py), only CSV-level and witness-level recomputation"
+  ],
+  "verdict": "REJECT"
+}
