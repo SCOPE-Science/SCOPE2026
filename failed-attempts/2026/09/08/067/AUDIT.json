@@ -1,0 +1,60 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified every essential inference by independent recomputation. (1) Enumeration: brute-force re-enumeration of all 78784 ordered cyclically-reduced pairs with total length<=8 confirms all canonical images land in the 343-row CSV; all 343 rows are canonical fixed points, distinct, and satisfy length bound. Scope is explicitly rotation/inversion/swap only (not full Nielsen), honestly stated. (2) Abelianization: recomputed exponent-sum determinants for all 343 rows \u2014 0 mismatches; det==0 => G_ab has rank>=1 => surjects Z (proof, valid even when rows are zero); all 76 infinite_abelianization claims have det==0; no finite claim has det==0; all 23 unresolved have det!=0. (3) Finite tables: replay.py re-run passes 235/235 (closed, deterministic, inverse-consistent, connected, both relators trivial everywhere, |G_ab| divides |G|). Independently computed the permutation-group order <pa,pb> for all 235 tables: equals N in all 235 cases (0 mismatches). Hence |G|=N rigorously: closing over the trivial subgroup gives |G|<=N, and the verified permutations satisfy the relators so G surjects a group of order N, giving |G|>=N. Distribution {1:36,2:52,3:31,4:38,5:16,6:31,7:5,8:9,9:4,10:3,12:2,16:5,21:1,24:1,27:1} recomputed exactly; maxima are id 252 <AAA,ABBaB> order 27, id 250 order 24, id 253 order 21. (4) Free-product infiniteness: all 9 claims verified pure powers in distinct generators with exponents>=2 and det!=0; Zm*Zn m,n>=2 infinite by standard normal-form/dihedral argument (proof, not heuristic). (5) Growth balls: all 3 JSON logs recompute byte-equal by independent BFS; bounds hold; presentations equal the free products so balls are exact symmetric word-metric balls (a=A as group element when m=2 correctly deduped by seen-set). (6) Honesty: 23 unresolved carry no order claim and have no table files; 235 table files match exactly the finite rows; no Knuth-Bendix claim is made. Distinguishes proof (closed tables, ab maps, normal forms, exact BFS) from bounded computation (cap 200 cosets/1.5s). No correctness defect.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Compared substantively, not by timestamp. Nearest priors: (i) Havas math/9406202 is Todd-Coxeter implementation strategy/performance with no 2-generator 2-relator census or dichotomy table; (ii) Bogley-Williams 1607.01951 studies one parametric 2-generator 2-relator family J_n(m,k) via cyclically-presented/resultant methods, classifying finite members and finding virtually-free/metabelian families \u2014 disjoint from a uniform total-length<=8 syntactic census with regenerated TC replay; (iii) Levitt 1308.5122 is pure structural theory of BS quotients/subgroups/embeddings with no enumeration table, coset certificates, or ball replay. Live arXiv checks: title query ti:two-relator returns 18 hits, all unrelated (Banach, SAT, Hecke, PDE topics, verified by fetch); query all:two-generator two-relator AND census returns 0 hits. No prior work tabulates the 343-orbit finiteness verdicts with regenerated closed tables plus ball replay for this scope. Individual abstract groups of orders 1..27 are of course known as abstract groups, but the uniform presentation-to-order table with replayable certificates over this canonical scope is not recorded or mechanically implied by the cited works. Priority is established by substantive disjointness, not by failed search alone. PASS.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: intrinsic low value / arbitrary scope / missing substantive result, even taking correctness and novelty as given. The scope (total relator length<=8 up to renaming/rotation/inversion/swap, explicitly not Nielsen equivalence per DRAFT) is a syntactic cutoff, not an isomorphism-type census; no theorem, conjecture, or recognized program needs the length-8 window (why 8, not 7 or 9). Of 235 finite orders, 220 equal |G_ab| and are thus mechanically forced once the bounded enumerator terminates (ab divisibility + upper bound), leaving bare tiny cyclic orders. The 15 non-abelian cases (notably orders 21, 24, 27) are reported as unexplained numbers with no isomorphism-type identification (e.g. which group of order 27?), no extremal gap, no structural phenomenon, and no pre-computation motivation for those specific presentations beyond membership in the window. The 76 abelianization and 9 Zm*Zn infiniteness certificates are textbook arguments. The three growth balls are textbook free-product normal-form combinatorics with weak fitted bounds (e.g. floor((3/2)^n)+1 for Z2*Z3, floor(phi^n)+1 for Z2*Z4, 2^n+1 for Z3*Z3 over n<=12), not the target-claim finite-index-subgroup Schreier growth witness for a nontrivial infinite \u2014 that substantive witness is absent. Bogley-Williams (parametric families with Mersenne-prime orders) and Levitt (BS quotient/embedding theory) motivate families and structural theory, not retrieval of e.g. the order of <AAA,ABBaB>. No future researcher has a reason to need these precise window-dependent facts; replay certification alone does not rescue an arbitrary object or unexplained number. The incomplete census is honestly marked (23 unresolved, no KB logs), but honesty does not create independent retrieval value. This is an unexplained enumeration with tiny unmotivated data, not a rigorously established exact invariant of a pre-motivated natural object. No bounded topic-preserving addition (e.g. naming one order) would fix the arbitrary-window/missing-result defect without changing the problem or starting a new direction. Hence REJECT, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Method/strategy reference for Todd-Coxeter (Felsch-type strategies, performance). No 2-generator 2-relator length-bounded census or dichotomy table.",
+      "title": "Coset enumeration strategies (Havas)",
+      "url": "https://arxiv.org/abs/math/9406202"
+    },
+    {
+      "finding": "Studies parametric 2-generator 2-relator class J_n(m,k) via relative asphericity / cyclically-presented / resultant methods; infinite virtually-free and finite metabelian families, orders determined. Disjoint from uniform total-length<=8 census with TC replay.",
+      "title": "Efficient Finite Groups Arising in the Study of Relative Asphericity (Bogley-Williams)",
+      "url": "https://arxiv.org/abs/1607.01951"
+    },
+    {
+      "finding": "Pure structural theorem: which GBS groups are quotients of BS(m,n), when BS(r,s) embeds in BS(m,n). No enumeration table, coset certificates, or ball replay.",
+      "title": "Quotients and subgroups of Baumslag-Solitar groups (Levitt)",
+      "url": "https://arxiv.org/abs/1308.5122"
+    },
+    {
+      "finding": "Title search ti:two-relator: 18 hits, all unrelated (Banach-space angles, relation matrices, Latin-squares SAT, logic, linguistics, Hecke algebra, PDE, quantum). No uniform length-bounded finiteness census.",
+      "title": "arXiv API title query ti:two-relator",
+      "url": "https://export.arxiv.org/api/query?search_query=ti:%22two-relator%22&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending"
+    },
+    {
+      "finding": "Query all:two-generator two-relator AND census: 0 results. Supports absence of a recorded uniform census, used only alongside substantive comparison above.",
+      "title": "arXiv API query two-generator two-relator + census",
+      "url": "https://export.arxiv.org/api/query?search_query=all:%22two-generator+two-relator%22+AND+all:census&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/replay.py: 235/235 tables pass, 3/3 balls byte-equal with bounds holding, ALL PASS.",
+    "Independent brute-force canon recheck: 78784 ordered pairs -> all images in 343-set; 343 rows canonical, distinct, length<=8.",
+    "Recomputed exponent-sum determinants for all 343 rows: 0 mismatches; verified status/det consistency (finite=>det!=0, ab-infinite=>det==0, unresolved=>det!=0) and |G_ab| divides |G|.",
+    "Computed permutation-group order generated by the two logged permutations for all 235 tables: equals N in all cases, completing the |G|=N proof (upper bound from closure + quotient of order N).",
+    "Verified all 9 free-product claims are pure powers in distinct generators with exponents>=2.",
+    "Checked unresolved set (23 ids) claims no order and ships no table files; table-file count is exactly 235 matching finite rows.",
+    "Fetched and compared the three nearest priors and both arXiv queries substantively; confirmed disjointness from the uniform length<=8 replayable-table claim.",
+    "Established value failure: 220/235 finite orders equal ab_order (mechanically forced); maxima 21/24/27 shipped as bare orders without isomorphism-type or gap analysis; growth bounds are weak fitted inequalities over n<=12 for textbook free products, not a nontrivial finite-index witness."
+  ],
+  "residual_risks": [
+    "No GAP cross-check available in environment; mitigated by independent permutation-order computation (exact BFS over S_N, N<=27) and full replay of closure/coherence/triviality.",
+    "Custom HLT enumerator not formally verified line-by-line; mitigated because every claimed order is certified by the independently rechecked closed table + quotient-order argument, not by trusting the enumerator's search path.",
+    "Word-metric convention (symmetric generators {a,A,b,B}) matches the BFS; a reader using a 2-element generating set would get different spheres \u2014 noted as a convention, not an error.",
+    "Originality search is arXiv/API-based plus cited priors; a non-indexed catalog could list some of these tiny orders as abstract groups, but that would not amount to the uniform replayable presentation-to-order table claimed. Low risk."
+  ],
+  "verdict": "REJECT"
+}
