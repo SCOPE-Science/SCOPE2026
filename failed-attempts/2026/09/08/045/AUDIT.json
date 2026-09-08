@@ -1,0 +1,60 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay from live KS bytes confirms the numerical identities relative to the published archive. Downloaded https://hep.itp.tuwien.ac.at/~kreuzer/pub/K3/RefPoly.d3 (md5 c9fc314d0191b7ac2d3b7d1cce24c612 as claimed, 4319 records, 17276 non-blank lines). Header M-distribution is exactly 5:1, 6:7, 7:23, 8:54, 9:135, 10:207, 11:314, 12:373, 13:416, 14:413 (sum 1943 for <=14), matching DRAFT Table and final_table.json length 1943. Independent facet-enumeration (all vertex triples, primitive outward normals, centroid orientation) plus bounding-box enumeration reproduces L(0..6), exact Fraction h*-solve from L(0..3) with exact prediction of L(4..6), V as third finite difference, sum(h*)=V, palindromicity and unimodal-peak existence for all 1943 window members (0 failures), and full 4319-scan also 0 failures. Spot recounts from stored facets match stored counts; witness i=167 entry (verts, count 14, V=22, h*=(1,10,10,1), L=(1,14,60,161,339,616,1014)) verified. DRAFT honestly discloses: regular-triangulation leg failed (291/1943) and is excluded, 413-way tie for V*=22 (no uniqueness), rigidity is exhaustive-enumeration certificate not general theory, completeness is relative to KS archive (recount==M header, no new proof of 4319). The Ehrhart-series route used (solve + dilation-6 prediction + independent replay) is a rigorous proof of the stated identities conditional on the archive, not mere experiment. No computation error found. Boundary conditions (k=0..6, integer gap g=2 as 22 vs 20) check out.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the entire headline closed form is mechanically implied by textbook prior theory plus KS headers already containing M. Derivation: for any 3D lattice polytope L(k)=sum_{i=0..3} h*_i C(k+3-i,3) with h*_0=1, so at k=1, L(1)=4*1+h*_1, i.e. h*_1=n-4 where n=|P cap Z^3|, with no computation. Hibi's theorem for reflexive/Gorenstein polytopes gives h* palindromic (h*=(1,a,a,1)), so h*_2=h*_1=n-4 automatically. Hence h*=(1,n-4,n-4,1), V=sum(h*)=2n-6, L(k) rows, palindromicity and unimodality of (1,a,a,1) with a=n-4>=1 (1<=a>=1) are all forced. V is strictly increasing in n, so max on n<=14 is at n=14 (V*=22), runner-up n=13 (V=20), gap g=2, and 413-way tie = exactly the 413 headers with M=14. Verified empirically that V=2n-6 and h*=(1,n-4,n-4,1) hold for all 4319 KS records (0 failures), confirming generality. KS hep-th/9805190 supplies the M-headers/baseline; Braun-Davis 1403.5378 (unimodality open in general) and Bruns-Roemer math/0508392 (conditional g-theorem) plus Hibi palindromicity supply the theory. The per-n window counts are a direct count of KS M-headers, not a new window-completeness proof. Admission claim that palindromicity 'does not mechanically imply V*/g' is false for the reasons above. No prior search or timestamp establishes priority; substantive comparison shows database repackaging + textbook corollary.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: even if correct, the result is a textbook restatement and arbitrary finite slice with no independently retrievable new invariant. Because V=2n-6 and h*=(1,n-4,n-4,1) follow from Hibi + L(1) formula for every reflexive 3-polytope (confirmed on all 4319), restricting to n<=14 adds no new extremal or census insight; the general fact covers the window. The 'maximal witness' is not an extremal discovery: volume is a strictly monotone function of n, so V* just restates '14 is the largest n in the window' and the 413-way tie (all n=14 polytopes share V=22) dissolves headline strength. The ten L-rows are mechanically generated from n via the closed form (recomputed in seconds). No motivated downstream researcher needs this precise table beyond reading KS M-headers + applying Hibi; no new criterion, benchmark separation, or toric-Fano/mirror-symmetry use depends on the 1943-row enumeration. Certification (recount==header, dilation-6 agreement) alone does not rescue an arbitrary cutoff or unexplained number per the standard. The valuable general theorem (Hibi) already exists; this is its parameter substitution.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "4319 reflexive 3-polytopes; baseline only, headers contain M/N data; no window census or volume extremal.",
+      "title": "Classification of Reflexive Polyhedra in Three Dimensions (Kreuzer-Skarke)",
+      "url": "https://arxiv.org/abs/hep-th/9805190"
+    },
+    {
+      "finding": "Classifying unimodal h* is open in general; studies reflexive simplices and operations preserving unimodality; general theory, no <=14-point census.",
+      "title": "Ehrhart series, unimodality, and integrally closed reflexive polytopes (Braun-Davis)",
+      "url": "https://arxiv.org/abs/1403.5378"
+    },
+    {
+      "finding": "Gorenstein + regular unimodular triangulation implies unimodal via g-theorem; conditional theorem, not explicit census.",
+      "title": "h-vectors of Gorenstein polytopes (Bruns-Roemer)",
+      "url": "https://arxiv.org/abs/math/0508392"
+    },
+    {
+      "finding": "Sage/PALP tooling with built-in 3D reflexive sequences; no precomputed <=14-point extremal or h* table.",
+      "title": "Sage reference: Lattice and reflexive polytopes",
+      "url": "https://doc.sagemath.org/html/en/reference/discrete_geometry/sage/geometry/lattice_polytope.html"
+    },
+    {
+      "finding": "Live KS archive bytes fetched and hashed; md5 c9fc314d0191b7ac2d3b7d1cce24c612 matches DRAFT; 4319 records parsed.",
+      "title": "KS RefPoly.d3 live archive",
+      "url": "https://hep.itp.tuwien.ac.at/~kreuzer/pub/K3/RefPoly.d3"
+    },
+    {
+      "finding": "Query for reflexive+14-point volume extremal returns no results, confirming no prior window claim but not establishing novelty given mechanical implication.",
+      "title": "arXiv search: reflexive 3-polytope 14 lattice points volume",
+      "url": "https://arxiv.org/search/?query=reflexive+3-polytope+14+lattice+points+volume&searchtype=all&terms-0-operator=AND&terms-0-term=reflexive+3-polytope+14+lattice+points+volume&terms-0-field=all&size=50"
+    }
+  ],
+  "decisive_checks": [
+    "Live KS download: md5 c9fc314d0191b7ac2d3b7d1cce24c612, 4319 headers, M-histogram exactly 1/7/23/54/135/207/314/373/416/413 for n=5..14 (1943 total).",
+    "Independent facet+bbox recount (separate code path) on all 4319: recount==M everywhere; full L(0..6), exact h* solve, L(4..6) prediction, sum=V, palindrome, unimodal-peak all pass 1943/1943 and rigidity V=2n-6, h*=(1,n-4,n-4,1) holds 4319/4319.",
+    "Stored final_table.json audit: len 1943, V set {4,6,...,22}, 413 with V=22, min max-index 167, witness-167 fields match DRAFT, all facets have c=1 (reflexive form), header-M==count 0 mismatches.",
+    "Closed-form derivation check: L1=4+h1 forces h1=n-4; Hibi palindrome forces h2=h1; sum forces V=2n-6; (1,a,a,1) trivially unimodal; monotonicity forces V*=22/g=2/413-tie; ten L-rows regenerated from n alone exactly.",
+    "Triangulation-leg admission verified as honest exclusion: headline identities do not depend on it; Ehrhart route is sufficient proof conditional on archive."
+  ],
+  "residual_risks": [
+    "Completeness is relative to published KS archive (no independent proof that 4319 is complete); accepted as stated limitation, does not affect originality/value failure.",
+    "Facet-enumeration replay assumes convex-hull correctness; mitigated by 4319/4319 recount==header agreement and cross-check against stored facets."
+  ],
+  "verdict": "REJECT"
+}
