@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact replay from inputs/artifacts/certificates.json + grid_phis.json confirms all claims. Recomputed all 16 pairs by exhaustive 8! permutation enumeration in integers: claimed W1_num8 and W2sq_num8 match global optima in every case (e.g. P03 16,40; P04 20,58; P08 32,128; P11 10,16; P12 32,128; P05S 6,16; M1 16,32). Verified each archived permutation attains claimed numerator, each integer (u,v) satisfies u[i]+v[j]<=c[i][j] for all 64 cells and sum(u)+sum(v)=opt (32/32 checks), i.e. zero duality gap, so LP strong duality proves optimality. Verified token-expansion reduction is valid (uniform 1/8 masses; Birkhoff implies permutation optimum) and integer dual optimum exists. Verified all 16 grid potentials phi are 1-Lipschitz on grid edges and sum phi(mu-nu)=W1_num8. Verified P05S splitting by full constrained enumeration: only doubled demand node is (3,3); constrained minimum with both (1,1) supply tokens pinned to (3,3) tokens is 10/8 (W1) and 36/8 (W2sq), strictly above optima 6/8 and 16/8 (gaps 4/8, 20/8); enumerated all optima (4 W1-optima, 8 W2-optima) and 0 send both supply tokens to same location, so every optimal plan splits. Verified midpoint W1 additivity 16=8+8. DRAFT Sec.5 honestly distinguishes certificate-proof (exact integer replay, no floating point) from search that found witnesses; no conjecture. Minor presentation defect only: verify.py hardcodes output/artifacts/ path, but logic replays correctly from archived JSON.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison to nearest priors shows no prior records or mechanically implies the specific certified artifact. Peyre-Cuturi (arXiv:1803.00567) gives computational OT theory/Sinkhorn/LP methods but no exact 4x4/5x5 Manhattan W1/W2 table with primal plans, dual potentials, or replay logs. Villani (Old and New) proves Kantorovich duality/displacement interpolation but records no small-grid cost table or denominator-8 splitting pair. Ollivier (arXiv:math/0701886) defines W1-based Ricci curvature, motivating ground truth generally, but gives no certified grid table. POT library provides network-simplex/EMD solvers returning bare distances/plans on demand, with no archived exact-rational duality-certified table, complementary-slackness logs, or isolated splitting extremal. General Kantorovich-vs-Monge mass-splitting is textbook-known, but the specific P05S pair with exact numerators 6/8,16/8 and proved nonsplit gaps 10/8,36/8 is not recorded in those sources and requires solving the LP, not reading off a theorem. Several trivial suite entries (unit shifts at 8/8) are visually obvious, but headline gaps are not mechanically implied. Hence the exact paired primal-dual-potential artifact is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking the strongest headline (P05S strict-splitting witness) separately from the surrounding 12-pair survey, the result is an arbitrary object with certification alone and no independent retrieval value. The 4x4/5x5 denominator-8 suite is author-constructed, not a recognized benchmark suite, census, or extremal class: 6+ entries are trivial unit shifts at 8/8=1 obvious without LP; corners-to-center/ corners-cross entries are direct distance reads; midpoint additivity 16/8=8/8+8/8 follows immediately from translation invariance by 1. No completeness, maximality, classification, or general criterion is proved. The P05S pair was invented to exhibit splitting, not motivated as an object before computation by any cited literature demand for this pair; no source asks for W1/W2 of this specific 8-token configuration. General atom-splitting is textbook (discrete source atoms must split when targets are split); P05S is one more instance with no proved extremality within any defined class (not shown minimal, maximal-gap, or unique), no literature position, and no downstream benchmark that needs this precise pair rather than any canonical splitter. Midpoint triple likewise has no geodesic content beyond W1 additivity of repeated shifts. Future researchers benchmarking Sinkhorn error or Ollivier curvature would compute their own pairs, not retrieve P04=20/8,58/8 or P11=10/8,16/8. This is textbook LP application to hand-picked inputs (parameter substitution) plus unexplained enumeration. Per instructions certification alone does not rescue an arbitrary object, and a narrow datum must have pre-computation motivation and plausible future need; neither holds. Defect is intrinsic arbitrary scope, not a bounded prose fix.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Survey of computational OT: LP formulations, entropic/Sinkhorn solvers, applications. No exact certified 4x4/5x5 Manhattan W1/W2 table with primal plans, dual potentials, or complementary-slackness logs.",
+      "title": "Computational Optimal Transport \u2014 Peyre and Cuturi",
+      "url": "https://arxiv.org/abs/1803.00567"
+    },
+    {
+      "finding": "Defines Ricci curvature via W1 contraction; proves spectral-gap/concentration consequences. Motivates W1 ground truth generally but contains no certified grid cost table or splitting extremal.",
+      "title": "Ricci curvature of Markov chains on metric spaces \u2014 Ollivier",
+      "url": "https://arxiv.org/abs/math/0701886"
+    },
+    {
+      "finding": "Library provides exact linear OT (network simplex/EMD), Sinkhorn, barycenters; API returns bare distances/plans on demand. No archived exact-rational duality-certified 4x4/5x5 table with replay logs or non-Monge extremal.",
+      "title": "POT: Python Optimal Transport library",
+      "url": "https://github.com/PythonOT/POT"
+    },
+    {
+      "finding": "Treatise proving Kantorovich duality, Wasserstein geometry, displacement interpolation, Monge-Mather theory. Framework applied by candidate but no small-grid cost table or denominator-8 splitting witness recorded.",
+      "title": "Optimal Transport: Old and New \u2014 Villani",
+      "url": "https://link.springer.com/book/10.1007/978-3-540-71050-9"
+    }
+  ],
+  "decisive_checks": [
+    "Brute-force 8! recomputation matches all 16 claimed W1_num8/W2sq_num8",
+    "32/32 assignment-dual feasibility (u[i]+v[j]<=c) + strong duality sum(u)+sum(v)=opt verified in integers",
+    "16/16 grid phi 1-Lipschitz on edges + value sum phi(mu-nu)=W1_num8 verified",
+    "P05S: demand Counter shows unique doubled node (3,3); constrained nonsplit minima 10 (W1), 36 (W2sq) > optima 6,16; 4 W1-optima and 8 W2-optima enumerated, 0 nonsplit",
+    "Midpoint W1 16=8+8 verified; W2sq 32 vs 8,8 stated without false additivity claim",
+    "POT/docs and theory sources contain methods/framework only, no matching archived table"
+  ],
+  "residual_risks": [
+    "verify.py hardcodes output/artifacts/ path; replay required path adaptation, but logic is sound",
+    "Pair definitions transcribed in certificates.json; verifier re-reads same JSON so transcription error would propagate (mitigated by independent brute-force optimality conditional on definitions)",
+    "Originality rests on live-source comparison and non-implication argument, not exhaustive proof of non-existence"
+  ],
+  "verdict": "REJECT"
+}
