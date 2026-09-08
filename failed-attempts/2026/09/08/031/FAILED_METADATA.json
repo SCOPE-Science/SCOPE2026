@@ -1,0 +1,40 @@
+{
+  "attempted_claim": "Let T2 be posets whose cover graph has treewidth at most 2 with an explicit width-2 tree-decomposition. Then (i) there exists an explicit E in T2 on at most 24 points with dim(E) = 5, witnessed by a 5-realizer and a minimal-pair obstruction to any 4-realizer, with E containing neither S_5 nor a Kelly obstruction as a subposet; and (ii) every P in T2 satisfies dim(P) <= 10 via the ear-unfolding reversible-set partition lemma.",
+  "claim_type": "dimension lower-bound extremal plus improved upper-bound lemma for a natural cover-graph class",
+  "created_at": "2026-09-08T11:03:38Z",
+  "decisive_failure": "correctness: Theorem 1 as stated in DRAFT.md is false, and counts are misstated. DRAFT claims every height-2 (4,4) poset with >=7 comparability edges has dim<=3 / none dim>=4. The 8-point crown S4 (Sec.3 of same note) is itself a height-2 (4,4) poset with 12 edges (>=7) and dim exactly 4, so it is a direct counterexample inside the stated scope. The verified artifact only covers the >=8-critical-pair core (census_44 skips len(crit)<8). S4 has 4 ordered critical pairs (recomputed independently), hence is excluded by that filter. The gap is 50643-50235=408 patterns with >=7 edges but <8 critical pairs, never examined in the logged run; the parenthetical that fewer critical pairs need 'at most as many' extensions is false (dim can equal |crit|, e.g. S4 has |crit|=4 and dim=4). Second, '65,519 bipartite patterns in total' misdescribes the >=7-edge slice: sum_{k>=7} C(16,k)=50643 (verified), while 65519=sum_{k>=2} C(16,k)=65536-17. So the denominator is wrong. Core computations that were checked do pass: independent re-run of verify_witness.py --skip-census gives ALL CHECKS PASSED (3 witnesses width 2, dim 3 via complete-LE realizer plus no-2-realizer check; S4 dim 4 and no width-2 decomposition). Code review confirms the dimension-via-critical-pairs duality, complete LE enumeration (8!=40320 < 60000 cap so no truncation possible), path-decomposition check (sound, stronger than needed), and simplicial-elimination tw<=2 test (complete for n=8) are sound. But because the headline census theorem overgeneralizes beyond what was computed and is refuted by the note's own S4, correctness FAILs as stated. Narrowing Theorem 1 to the >=8-critical-pair core would fix the falsity, but that narrowed claim is then an ad-hoc enumeration (see originality/value). originality: No new theorem, extremal, or method. (a) S4 dim=4 is the classical standard-example fact dim(S_n)=n, textbook (Trotter/Stanley); only the routine 8-point brute-force recomputation is new. (b) S4-cover treewidth>2 is a finite 8-vertex, 12-edge elimination check; conceptually the crown-vs-treewidth barrier is already in the cited priors (Biro-Keller-Young: S_5 forces tw>=3; Seweryn/Joret et al. framing). No exhibited minor or structural insight is given (DRAFT explicitly says minor argument 'not claimed'). (c) Three 9-point dim-3 T2 witnesses are random search outputs (seeds logged) for a long-known phenomenon: dimension 3 is attained far below the frontier (largest known in T2 is 4, sought is 5). Attaining dim 3 in T2 is not a sought extremal and no separation from known obstructions is shown. (d) The (4,4)/>=7-edge/>=8-critical-pair census maximum of 3 is an unexplained finite enumeration over thresholds chosen for compute convenience, not a natural parameter scope; DRAFT itself claims 'no originality for toolkit methods' and only 'certified census values and explicit witnesses' as new. A timestamp plus a 50k-case brute-force table does not establish priority of a substantive result. Nearest pri\u2026",
+  "disposition": "AUDIT_1_REJECT",
+  "domain": "Order Theory",
+  "failed_attempt_id": "SCOPE-FAIL-20260908-031",
+  "failed_axes": [
+    "correctness",
+    "originality",
+    "value"
+  ],
+  "failure_class": "AUDIT_REJECT",
+  "fingerprint": {
+    "claim_type": "dimension lower-bound extremal plus improved upper-bound lemma for a natural cover-graph class",
+    "domain": "Order Theory",
+    "main_method": "series-parallel ear and 2-tree unfolding with reversible-set partition and tree-decomposition certificates",
+    "primary_object": "posets with cover graphs of treewidth at most 2 (series-parallel cover graphs)"
+  },
+  "method_summary": "series-parallel ear and 2-tree unfolding with reversible-set partition and tree-decomposition certificates",
+  "problem_statement": "Determine the exact maximum classical dimension D(2) of posets with cover graphs of treewidth at most 2: exhibit an explicit series-parallel (width-2 tree-decomposition certified) poset E of dimension 5 raising the lower bound, and prove an ear-unfolding reversible-set lemma improving the universal upper bound from 12 to at most 10.",
+  "provenance": {
+    "lane": 117,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-08T11:03:38Z",
+  "record_title": "Exact-maximum attack for treewidth-2 cover-graph dimension: a dimension-5 extremal and a sub-12 unfolding lemma",
+  "recovery_conditions": "repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Covers one finite height-2 (4,4) slice only; nothing about height>=3 or larger posets where dim-4/5 T2 extremals may live. Witnesses attain dim 3, not dim 4; lane fallback (dim-4 T2 extremal, D<=10 lemma) not delivered. S4-cover tw>2 by exhaustive search, not exhibited minor. No claims about D(2).",
+  "scope_lane": 117,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://arxiv.org/abs/1406.3397",
+    "https://arxiv.org/abs/1902.01189",
+    "https://arxiv.org/abs/1308.4877",
+    "https://arxiv.org/abs/2308.11950"
+  ],
+  "time_standard": "UTC"
+}
