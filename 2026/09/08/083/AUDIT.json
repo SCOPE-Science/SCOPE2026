@@ -1,0 +1,66 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Independently re-executed the exact-QQ Hochster pipeline (inputs/artifacts/verify_method.py) for all 7 edge lists from DRAFT.md. All 7 Betti tables reproduce byte-for-byte: G1 (10v, 20e) reg2/pd8, G2 (8v,16e) reg1/pd6 linear, G3 reg2/pd5, G4 reg2/pd7, G5 reg2/pd7, H reg2/pd5, H+e reg3/pd6. Euler/Hilbert identity K(t)=E(t) holds exactly for all 7 (euler_ok True). Induced-matching numbers re-verified by independent brute-force enumeration (itertools combinations with conflict check), confirming im=1,1,2,2,1,2,3 with witnesses as claimed; each witness checked to be induced (no cross edges). Reg/pdim read-offs (max j-i, max i) verified from tables. Calibration C5 -> (1,2)^5,(2,3)^5,(3,5)^1 reg2 and P3 -> linear reproduce textbook values; G2 linearity consistent with Froberg (chordal). Method uses Hochster's theorem (not literal Buchberger/Schreyer logs as in audit plan) but DRAFT honestly discloses this; Hochster over QQ with exact Fraction homology yields the minimal Betti numbers, so the certificate-form substitution does not invalidate the numbers. Stored tables.json contains only G1-G5; H/H+e tables were reproduced from DRAFT edge lists and verified, closing the gap by recomputation.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Substantive comparison (not timestamp): Jacques thesis (math/0410107) gives Betti/pdim only for forests and cycles via recursion - none of G1-G5,H,H+e (C5 blow-ups, chordal K5-attachment, whiskered C5, 9v intermediaries, jump pair) lies in those families. Anand-Roy (2007.02401) gives N-graded Betti/reg/pdim/im only for three dense circulant families; candidate graphs are sparse non-circulant (20,16,8,13,16,9,10 edges) and per-ideal tables plus jump pair are absent. Nguyen-Vu (1506.05769) classifies linearity defect <=1 as weakly chordal with im<=2; G1/G5 lie outside or probe excess, G2 probes the linear boundary but the full numbers (46,59,40,14,2) are not implied by Froberg linearity alone. Hibi et al. (1412.3881) proves general im<=reg<=mmm bounds and dominating-matching case - provides the framing inequality verified here (1<=2,1<=1,2<=2,2<=2,1<=2,2<=2,3<=3) but no per-graph tables and no jump witness. Internal censuses SCOPE066 (5-7v) and SCOPE049 (6v + 7v sample) do not reach 8-10v. The relational fact reg(H+e)=reg(H)+1 alone is elementary disjoint-union additivity (H has isolated vertices 7,8; e={7,8} is a new K2 component, so reg adds by tensor product) and is not counted as novelty; novelty rests on the exact per-ideal graded tables which are not mechanically implied by the general bounds or family formulas.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Headline exact invariants are independently retrievable under the exact-invariant clause: objects were motivated before computation (G1 C5 blow-up probes non-chordal/non-weakly-chordal excess beyond defect<=1; G2 chordal K5-attachment probes linear-resolution boundary/equality; G3 whiskered C5 probes unmixed/CM region; intermediaries span the region; H/H+e probes single-edge behaviour), values were unknown and not mechanically implied (full tables, not just reg bounds), and a future researcher testing Katzman im<=reg, Herzog-Hibi-Zheng, or Kalai-Meshulam programs could need the precise tables as test data (e.g. G1 reg2 vs im1 excess 1 with top b8,10=1; G2 full linear strand 16,46,59,40,14,2; G5 reg2 vs im1; H 9v table; H+e 9v table with b6,9=2). Not a textbook restatement (no textbook lists these tables), not mere parameter substitution, not a bare tiny increment (jump is accompanied by full tables and witnesses, and the trivial additivity mechanism is disclosed as limitation rather than structural discovery). Incomplete-census concern does not erase the headline exact tables; no all-graphs maximality is claimed.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  {
+   "finding": "Explicit Betti numbers and pdim only for cycles and forests plus recursive forest method; no C5 blow-up, chordal K5-attachment, whiskered, intermediary, or jump-pair 8-10v tables.",
+   "title": "Betti Numbers of Graph Ideals (Jacques thesis)",
+   "url": "https://arxiv.org/abs/math/0410107"
+  },
+  {
+   "finding": "N-graded Betti/reg/pdim/im only for three dense circulant families and two C_lm variants; candidate sparse non-circulant graphs and per-ideal tables with jump pair not covered.",
+   "title": "Graded Betti numbers of some circulant graphs (Anand-Roy)",
+   "url": "https://arxiv.org/abs/2007.02401"
+  },
+  {
+   "finding": "Classifies linearity defect <=1 as weakly chordal with im<=2; candidate C5 blow-up lies in higher-defect region, chordal case probes boundary; no committed 8-10v tables or jump witness.",
+   "title": "Linearity defect of edge ideals and Froberg's theorem (Nguyen-Vu)",
+   "url": "https://arxiv.org/abs/1506.05769"
+  },
+  {
+   "finding": "Proves im<=reg<=mmm and studies dominating induced matchings where they coincide; general bounds framing the lower-bound certificates but no full graded tables for the committed graphs.",
+   "title": "Dominating induced matchings and regularity of edge ideals (Hibi-Higashitani-Kimura-Tsuchiya)",
+   "url": "https://arxiv.org/abs/1412.3881"
+  },
+  {
+   "finding": "SCOPE066 covers 986 connected 5-7v ideals (gap max 1); SCOPE049 covers 112 connected 6v ideals plus 7v sample; neither reaches the 8-10v committed set.",
+   "title": "Internal resultary SCOPE066/SCOPE049 (success-first scan)"
+  },
+  {
+   "finding": "All 7 tables re-executed from DRAFT edge lists with exact Fraction Hochster code; Euler identity and brute-force im checks pass; C5/P3 calibration matches textbooks.",
+   "title": "Independent recomputation via inputs/artifacts/verify_method.py"
+  }
+ ],
+ "decisive_checks": [
+  "Recomputed G1 (10v): (1,2)^20,(2,3)^60,(3,4)^65,(3,5)^32,(4,5)^30,(4,6)^80,(5,6)^5,(5,7)^80,(6,8)^40,(7,9)^10,(8,10)^1 reg2 pd8 Euler True",
+  "Recomputed G2 (8v chordal): 16,46,59,40,14,2 linear reg1 pd6 Euler True; im=1 brute-force confirmed",
+  "Recomputed G3: 8;11,4;3,10;6;1 reg2 pd5 im2 witness {[2,3],[5,0]} induced-checked Euler True",
+  "Recomputed G4: 13;26,12;16,44;3,55;32;9;1 reg2 pd7 im2 Euler True",
+  "Recomputed G5 partial blow-up: 16;42;39,16;15,32;2,24;8;1 reg2 pd7 im1 Euler True",
+  "Recomputed H (9v, verts 7,8 isolated): 9;14,5;6,13;1,9;2 reg2 pd5 im2 and H+e (+{7,8}): 10;14,14;6,27,5;1,15,13;3,9;2 reg3 pd6 im3 witness {[2,3],[5,0],[7,8]} Euler True both; reg jump +1 verified in both conventions",
+  "Calibration: C5 -> (1,2)^5,(2,3)^5,(3,5)^1 reg2; P3 -> (1,2)^2,(2,3)^1 linear; Katzman im<=reg holds on all 7 (1<=2,1<=1,2<=2,2<=2,1<=2,2<=2,3<=3)",
+  "Originality: family formulas and general bounds do not mechanically imply the per-ideal tables; jump relation alone is disjoint-union additivity (H+e = H' tensor k[x7,x8]/(x7*x8)), disclosed, novelty rests on tables"
+ ],
+ "residual_risks": [
+  "QQ coefficients only; no characteristic-p or minimality-differential analysis.",
+  "Certificate form differs from audit plan (Hochster exact homology, not literal Buchberger S-pair/Schreyer logs); equivalence rests on Hochster's theorem, honestly disclosed.",
+  "H/H+e jump mechanism is trivial disjoint-component additivity (vertices 7,8 isolated in H), so the jump does not demonstrate connected edge-addition monotonicity; full tables remain valid.",
+  "Stored inputs/artifacts/tables.json contains only G1-G5; H/H+e tables verified by recomputation from DRAFT edge lists, not from a stored table.",
+  "G4/G5/H edge lists are researcher-fixed intermediaries reported verbatim; brief full text unavailable beyond topic.json.",
+  "G3 has only 3 pendants, not the full 5-pendant whiskered C5, so 'Cohen-Macaulay candidate' label is loose; numbers unaffected.",
+  "Homology indexing/boundary-sign code assumed correct; risk mitigated by exact Euler agreement on all 7 plus textbook calibration."
+ ],
+ "verdict": "PASS"
+}
