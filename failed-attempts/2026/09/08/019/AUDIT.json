@@ -1,0 +1,41 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Enumeration (a) verified: re-ran enum_tree.py to n=12 (50s) giving 1,1,2,6,23,102,496,2569,13934,78295,452439,2674769,16115110; fast_tree.py DFS independently to n=12 gives identical c12=16115110; both agree to n=10/11; brute Sym(n) with independent normalizer confirms C to n=8 (2569,13934) and A to n=8 (5768). Checker logic sound: 4123 max-first <=> LIS>=3 in suffix; 31524 max-last (5 at pos3) <=> v2<w1<v1<w2, matches 3,1,5,2,4 profile. (b) n=4 separator arithmetically correct (24-1 vs 24-2). (c) sum-closure correct (both patterns sum-indecomposable, verified), Fekete+Marcus-Tardos applies, 3986^12<c12*10^36 integer certificate replays and 3987^12 fails, c12^{1/12}=3.9866, Regev 9^n upper bound valid. FAIL due to false material claim Sec.4: 'Since C strictly contains Av(4123,1324)' is false. Witnesses: 1324 avoids 4123,31524 so in C\\A; 31524 avoids 4123,1324 so in A\\C (both containments machine-checked). Classes are incomparable, so containment-implied mu>=4 argument is invalid; lower bound 3.986 does not imply mu>4.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "No prior enumeration/GF/recurrence/growth bound for Av(4123,31524). Fetched Miner arXiv:1610.01908: enumerates Av(4123,1324),(1243),(1342) with growth 4,5,~4.17 and mentions 31524 only as typically-avoided remark, never enumerates target pair. Fetched Vatter arXiv:0911.2683 (method INSENC only) and Albert-Atkinson-Brignall arXiv:1206.3183 (bases Av(2143,4321),(4312),(1324,4312), disjoint). Dihedral-orbit computation shows 4123-orbit = {4123,1432,2341,3214}, not containing 1324/1342/1234, so pair not symmetry-equivalent to Miner's/Albert's bases; length mismatch (4,5) vs (4,4) precludes coincidence. OEIS search for 23,102,496,2569,13934 returns no results, supporting new sequence.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Result as achieved is unexplained enumeration + generic bounds, missing its own gates (n=12 not 14; interval [3.986,9] width ~5 not <=0.5 or <=1.0 fallback). Upper bound 9 is textbook Regev for any length-4 basis, lower bound automatic Fekete from counts, no succession lemma/automaton/recurrence/GF. n=4 Wilf-separator is immediate from basis sizes (24-1 vs 24-2) requiring no enumeration and not addressing Miner's asymptotic typical-structure remark (classes are incomparable, not nested). No structural consequence beyond 12 numbers; at best OEIS entry, not independently citable enumerative note. Motivated pair but mere parameter substitution without new tree structure or tight growth control.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1610.01908 (Miner: three (4,4) classes, 31524 only as remark)",
+    "https://arxiv.org/abs/0911.2683 (Vatter: regular insertion-encoding method only)",
+    "https://arxiv.org/abs/1206.3183 (Albert-Atkinson-Brignall: disjoint bases 2143/4321 etc.)",
+    "OEIS search seq 23,102,496,2569,13934 -> No results",
+    "Dihedral-orbit computation for 4123",
+    "Sum-indecomposability check for 4123,31524,1324",
+    "Pattern-containment checks: 31524 contains 1324? No; 1324 in C? Yes; 31524 in A? Yes"
+  ],
+  "decisive_checks": [
+    "verify_bounds.py replays: 3986^12 < c12*10^36, 3987^12 fails, c12<4^12 \u2014 PASS",
+    "enum_tree.py reruns to n=9/10/11/12: 78295,452439,2674769,16115110 \u2014 PASS",
+    "fast_tree.py DFS to n=12 matches c12=16115110 \u2014 PASS (closes single-source gap for n=10-12)",
+    "Brute Sym(n) independent normalizer to n=8 both classes \u2014 PASS",
+    "Checker logic audit vs pattern profiles \u2014 PASS",
+    "Containment audit with witnesses 1324 in C\\A, 31524 in A\\C refutes strict containment \u2014 FAIL",
+    "Gate audit: n=12<14, width ~5>0.5/1.0, Regev generic, n=4 trivial \u2014 value FAIL"
+  ],
+  "residual_risks": [
+    "Enumeration to n=12 rests on insert-max tree code; higher terms not yet triple-checked to n=14 and no succession proof.",
+    "Growth >4 remains heuristic (rising ratios 5.91->6.02, proximity to 4^12) without lower-bound proof >=4.",
+    "OEIS/m literature novelty is search-based, not proof of absence in theses/unpublished tables.",
+    "Miner growth-4 fact for Av(4123,1324) taken from abstract, not re-verified."
+  ],
+  "verdict": "REJECT"
+}
