@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed both stdlib-only programs from scratch. census.py (~8s) reproduced all 18 rows and printed identical Tutte triples; sha256(orbit_table.jsonl)=400bb25946809af3ec3e441b65bedb8c3528a82a3099828c027441abfec421be matches claimed value in DRAFT and run_meta.json. verify.py exited 0 with 348 checks, FAILURES:none. Independently verified: (i) slice completeness: k=0 gives U(4,9); k=1 sizes 4-8 (size 9 impossible, whole set rank 4); k=2 conditions a,b>=4, t<=2 (else a triple in two blocks), a+b-t<=9, a<=b yields exactly the 12 listed triples (re-enumerated); distinct triples non-isomorphic via large-hyperplane multiset+intersection, one orbit per triple by transitivity on partition sizes (t,a-t,b-t,remainder); (ii) matroid validity: per-row basis exchange, rank 4, pairwise block intersection <=2, large-hyperplane recovery equality; (iii) orbits: brute-force 9!=362880 enumeration gives reported sizes (e.g. C(9,4)=126, C(9,6)=84, C(9,8)=9, disjoint-4-4 pairs 315), stabilizer=362880/orbit, lex-least, pairwise disjointness; (iv) Tutte: two pivot orders agree, T11=#bases, T21=130+#bases with 130=C(9,0)+C(9,1)+C(9,2)+C(9,3) (all triples independent since blocks >=4, extension outside block exists), T12=#spanning by direct count; (v) U(2,5) minors: per-row (C,E,D) partition replayed, r_C(E)=2, all singletons rank 1, all 10 pairs rank 2, all triples rank 2, hence M/C|E=U(2,5); normalized [I2|A] exhaustion (2^6=64, 3^6=729) confirms U(2,5) nonrepresentable over GF(2)/GF(3); (vi) global no-binary: exhaustive C(15,9)=5005 check confirms 0 triple-independent 9-sets of F2^4\\{0} (a^b^c=0), and paving rank-4 binary would require 9 distinct nonzero vectors (no loops/parallels); (vii) ternary witness: 9 listed PG(3,3) columns have rank 4, all C(9,3)=84 triples rank 3 (recomputed), 18 rank-3 4-sets, max triple multiplicity 1, max block intersection 2, no rank-3 5/6-sets, hence paving rank-4 ternary with 18 blocks, outside k<=2 slice. Scope limits honestly stated (no full N^pav(4,9) claim). No correctness defect found in what is claimed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No substantive new mathematical object vs nearest priors. (a) Mayhew-Royle 'Matroids with nine elements' (JCTB 2008, doi:10.1016/j.jctb.2007.07.005) catalogues ALL matroids to 9 elements; the 18 k<=2 paving types are a directly filterable subset thereof, and per-orbit Tutte evaluations plus U(2,5)-minor existence are deterministic computations from those matroids, not new theorems. DRAFT itself concedes 'We do not correct or extend their total counts.' (b) Global 'no binary paving (4,9)' is the classical cap bound max-cap(PG(3,2))=8 (15 nonzero vectors of F2^4, lines size 3); 5005-subset exhaustion restates textbook finite geometry, also implied by binary excluded-minor U(2,4). (c) Ternary witness is the classical elliptic-quadric Q-(3,3) 10-cap minus one point (10 points, no 3 collinear); 9-caps in PG(3,3) are standard. (d) Asymptotic paving papers (Pendavingh-van der Pol arXiv:1411.0935; paving-vs-sparse-paving bounds) do not contain finite (4,9) census, but neither does DRAFT deliver the promised full (4,9) census \u2014 it retreats to integer-triple enumeration (a,b,t) for k<=2. The Tutte+verifier packaging is a routine recomputation harness, not a prior-beating result. Timestamp/absence of an explicit 'k<=2 table' does not establish priority for an elementary corollary.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth finding later? No. The delivered slice (at most two large hyperplanes) is an arbitrary tractable restriction that sidesteps the hard full paving (4,9) stratum (arbitrarily many large blocks, non-sparse-paving families) promised in topic.json. Within the slice the census collapses to undergraduate combinatorics: 1+5+12 integer triples, nbases=126-C(a,4)-C(b,4), orbit sizes from binomial coefficients (e.g. 126/84/36/9, 315 for disjoint 4-4), Tutte values from closed forms T21=130+nb. Tutte collisions (e.g. three (4,4,t) rows share (124,254,380)) are resolved by the same (a,b,t) invariants, so the Tutte table adds no separation. Every slice member containing U(2,5) is unsurprising and the certificates are brute-force search outputs. Global lemmas are textbook restatements (cap-8 exhaustion; classical quadric cap) and the ternary witness lies outside the censused slice. Result is a tiny unmotivated gain / parameter-substitution retreat from N^pav(4,9) to k<=2 plus routine computations, with no conjecture resolved, no method advance (brute-force S9, not nauty/bliss as planned), and no citable table beyond an exercise. Rejects under textbook-restatement / tiny-unmotivated-gain rules even though correct and technically unlisted.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "comparison": "Catalogues all matroids to 9 elements; implies the 18 k<=2 paving types as filterable subset. Provides no per-orbit Tutte+U25 package, but that package is routine computation, not a new theorem. DRAFT concedes no correction/extension to totals.",
+      "title": "Matroids with nine elements (Mayhew-Royle, JCTB 2008)",
+      "url": "https://doi.org/10.1016/j.jctb.2007.07.005"
+    },
+    {
+      "comparison": "Asymptotic log-enumeration via Johnson-graph stable sets (sparse paving). No finite (4,9) orbit census; DRAFT also provides no full (4,9) census, only k<=2 triples.",
+      "title": "On the number of matroids compared to the number of sparse paving matroids",
+      "url": "https://arxiv.org/abs/1411.0935"
+    },
+    {
+      "comparison": "Log-scale paving vs sparse-paving gap via prescribed large hyperplanes. No finite (4,9) representatives or Tutte/representability table.",
+      "title": "Paving matroids that are not sparse paving",
+      "url": "https://arxiv.org/abs/2605.11054"
+    },
+    {
+      "comparison": "Ehrhart positivity for panhandle/paving polytopes via chain forests. No S9-orbit census or excluded-minor witness.",
+      "title": "Ehrhart Bounds for Panhandle and Paving Matroids Through Enumeration of Chain Forests",
+      "url": "https://arxiv.org/abs/2311.01640"
+    }
+  ],
+  "decisive_checks": [
+    "Reran output/artifacts/census.py: 18 rows, orbit/stabilizer/Tutte/C/E identical to DRAFT Table, PG(3,2) 0/5005, U(2,5) nonrep GF2/GF3, quadric 18 blocks, sha256 400bb259... matches",
+    "Reran output/artifacts/verify.py: exit 0, FAILURES:none, all per-row exchange/rank/recovery/lex-least/orbit/Tutte/witness plus 4 global lemmas ok",
+    "Independently re-enumerated (a,b,t) with a,b>=4,t<=2,a+b-t<=9: exactly 12 triples listed; nbases formulas match Table",
+    "Recomputed quadric witness rank/mod-3: rank 4, 84/84 triples independent, 18 rank-3 4-sets, triple multiplicity 1, 0 rank-3 5/6-sets, max intersection 2",
+    "Verified U(4,9) T12=382=C(9,4)+...+C(9,9) and T21=130+nb identity; spot orbit sizes C(9,a) and 315 disjoint-4-4 pairs"
+  ],
+  "residual_risks": [
+    "None material to verdict: brute-force S9/Tutte/minor code paths cross-checked by two independent implementations with matching hashes; cap exhaustions are 5005/64/729 cases, fully deterministic.",
+    "Did not re-derive Mayhew-Royle database contents; reliance on its published scope (all 9-element matroids) for originality comparison is from title/abstract/record, sufficient to establish implication."
+  ],
+  "verdict": "REJECT"
+}
