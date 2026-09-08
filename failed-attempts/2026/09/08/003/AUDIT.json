@@ -1,0 +1,63 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Full computational replay passes: replay.py re-derived all 4319 polytopes in ~2.6s with REPLAY OK, 33 distinct h*, V range 4..72, matching committed tables. Auditor independently recomputed: facets of witnesses E1 (KS id 7) and E2 (KS id 11) exactly match DRAFT lists; brute-force half-space counts give L=(1,39,185,511); third finite difference gives V=72; tetrahedron determinant gives 72; origin-cone determinants 12+12+12+36=72 as claimed. All 4319 per-polytope rows satisfy the Ehrhart series identity L(t)=sum h_k C(t+3-k,3) for t=0..3, V=L3-3L2+3L1-L0=sum(h)=Vtri, h0=h3=1, h1=h2, L1=h1+4. Facet enumeration (primitive normals from vertex triples), vertex-bounding-box exhaustive search, and Fraction interpolation are sound; reflexivity (all offsets c=1), #facets==Nvert, and L(1)==Mpts header cross-checks 4319/4319 corroborate containment. 2P spot-check on E1 independently gives |P|=39, |2P|=185, zero failures. Scope is honestly bounded: DRAFT Sec.5 states exhaustive 2P and hierarchical 3P=P+2P are necessary but NOT sufficient for full IDP and claims only tested-level absence, not an IDP theorem; unimodality is correctly described as trivial for length-4 palindromic vectors; no proof is claimed beyond computation. Minor robustness caveat (floating-point angular sort in tri_vol) does not fail empirically. As a verified computation, it is correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The headline mathematical content is implied by prior theorems plus the frozen input itself, not new. (a) Form h*=(1,a,a,1): for any 3D reflexive polytope Hibi's palindromic theorem gives h_i=h_{3-i}, h0=1 always, and h3 = #interior =1 since 0 is the unique interior point; degree<=3. Hence palindromicity, h0=h3=1, V=sum(h)=2a+2, and trivial unimodality (1<=a>=1) are textbook corollaries, not discoveries. (b) Distribution equivalence: auditor verified L1=h1+4 hence V=2a+2=2n-6 where n=|P cap Z^3|=L(1). The committed point-count distribution is therefore an exact shift of the input file's own published Mpts header column (RefPoly.d3 headers 'M:#'), and the h*/V tables are a deterministic relabeling of that column. Extremal witnesses E1/E2 are the input's max-Mpts rows (headers already read 'M:39'), with volume by a single tetrahedron determinant -- standard. Gaps a=33,34 / V=68,70 / n=37,38 are observed absences in that column with no structural explanation. (c) Prior art substantively covers the route and conclusion: Kreuzer-Skarke 1998 classification (the 4319 list, geometry, Hodge/volume data); Hibi/Stanley Ehrhart theory; GRDB/PALP/Sage hosting of reflexive 3-polytope invariants (volumes, point counts); Hegedus-Higashitani-Kasprzyk (arXiv:1503.05739) and Braun-Davis-Solus (arXiv:1608.01614) on reflexive Ehrhart roots and IDP-vs-unimodality; Amendola-Oldekop (arXiv:2311.13572) computing ML degrees of all 4319 classes, establishing that re-tabulating one more invariant over the same 4319 list with a script is an established pattern, not a new result. The candidate's own topic.json admits 'not a new classification theorem' and frames the delta as a 'verification dataset'. A timestamp, frozen hash, or failed prior-art search does not establish priority. No substantively new object, gap theorem, or method beyond standard dilate-count plus fan volume is contributed.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later under SCOPE. The result is a textbook corollary (Hibi palindromicity + Stanley) applied exhaustively to a published list, combined with an unexplained enumeration: 33 h* values as relabels of known point counts, volume range, mode a=9/V=20, gaps a=33,34 stated without proof or structural reason, extremal tetrahedra already identifiable from input headers, certified-empty lists that are theorem-vacuous (unimodality trivial) or partial (k=2,3 decomposition does not decide IDP, as the draft honestly notes). It is a re-derivation/re-display of the KS Mpts column with a replay script and a fan-volume cross-check -- useful engineering hygiene but not a citable mathematical advance for mirror symmetry or Ehrhart positivity, and it tests folklore that the draft itself concedes is already strongly suggested by literature. Falls squarely into reject categories: textbook restatement (palindromic/unimodal form), mere reparameterization (V=2n-6 transform of published counts), and unexplained enumeration (gap absences with no theory).",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "outcome": "retrieved; confirms IDP-unimodality theory for reflexive simplices generalizing Payne counterexamples, not a 4319 census; candidate's k=2,3 check adds no theorem",
+      "title": "Braun-Davis-Solus, Detecting IDP and Ehrhart Unimodality in Reflexive Simplices (arXiv:1608.01614)"
+    },
+    {
+      "outcome": "retrieved; confirms reflexive Ehrhart root/half-strip theory to dim 5-7 with 10D violation, not a 3D h* distribution with triangulation replay",
+      "title": "Hegedus-Higashitani-Kasprzyk, Ehrhart polynomial roots of reflexive polytopes (arXiv:1503.05739)"
+    },
+    {
+      "outcome": "retrieved bibliographic record; confirms 4319 classification is the prior input census, not the candidate's result",
+      "title": "Kreuzer-Skarke, Classification of reflexive polyhedra in three dimensions (doi:10.4310/ATMP.1998.v2.n4.a5)"
+    },
+    {
+      "outcome": "retrieved; confirms precedent of computing a new invariant table over all 4319 classes (ML degrees, gaps) with formulas -- same pattern as candidate, defeating novelty of pattern",
+      "title": "Amendola-Oldekop, Likelihood Geometry of Reflexive Polytopes (arXiv:2311.13572)"
+    },
+    {
+      "outcome": "fetch failed (endpoint error); GRDB hosting of 3D reflexive invariants noted as known database context, not relied on for exact cell comparison",
+      "title": "GRDB toric Fano 3D search endpoint"
+    },
+    {
+      "outcome": "verified present, 4319 entries, sha256 a6cf6278...5dde5b; headers contain Mpts/Npts used as cross-check; max-Mpts rows M:39 are ids 7/11",
+      "title": "Frozen input inputs/artifacts/KS3_RefPoly.d3"
+    },
+    {
+      "outcome": "full replay executed locally: 4319 polys in ~2.6s, distinct h* 33, V range 4..72, tables match; prefix --limit 20 also passes",
+      "title": "inputs/artifacts/replay.py"
+    },
+    {
+      "outcome": "verified 4319 rows, totals sum to 4319, V=2n-6 holds row-wise, missing a=33,34 / n=37,38 / V=68,70 confirmed",
+      "title": "inputs/artifacts/distributions.json + per_polytope_table.json"
+    }
+  ],
+  "decisive_checks": [
+    "Executed full replay.py: REPLAY OK 4319 polys, h* and V tables byte-match committed distributions.",
+    "Independently recomputed E1/E2 facets, L=(1,39,185,511), V=72, tet |det|=72, origin-cone dets 12,12,12,36 -- all match DRAFT.",
+    "Verified Ehrhart identity L(t)=sum h_k C(t+3-k,3) and V=L3-3L2+3L1-L0=sum(h)=Vtri for all 4319 rows; proved L1=h1+4 so h*/V tables are exact transforms of the input Mpts column.",
+    "Verified extremal witnesses are input-header maxima (M:39 at ids 7/11) and minimum (id 0, V=4); volume gaps correspond to absent point counts 37,38.",
+    "Verified unimodality verdict is vacuous for (1,a,a,1) and IDP verdict is explicitly limited to k=2,3, not full IDP -- no overclaim, but no new theorem."
+  ],
+  "residual_risks": [
+    "KS RefPoly.d3 provenance (authentic PALP export vs corrupted copy) rests on single sha256 and header self-consistency, not on byte comparison against an independent mirror fetch performed here.",
+    "tri_vol angular-sort implementation uses floating point; it passed 4319/4319 but lacks an exact-arithmetic proof of facet-fan validity for all facet shapes (mitigated by independent Ehrhart-volume agreement).",
+    "Completeness of prior-art search: GRDB/PALP exact volume/point-count cells were not cell-by-cell diffed here, but the deterministic V=2n-6 reduction makes a hidden-novelty escape implausible."
+  ],
+  "verdict": "REJECT"
+}
