@@ -1,0 +1,63 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "All conditional computations verify. Ran committed verifier: VERIFY_OK rows=19449 forests_rechecked=485; both headline witnesses exact; PAIR_SAMPLE_OK 100. Independently re-derived: per-n class counts 1,2,5,16,63,318,2045,16999 with sums 1,3,14,96,895,11751,214708,5594463 matching DRAFT; per-n emax=n! at id 1 and emin=1 at last id; stored childforms pairwise unique per n; forest count 485 (1,2,4,9,20,48,115,286). Wrote independent closure+DP and brute-force permutation counters: headline 8#14584 e=9 with all four incomparable pairs splitting 6-3 (Pr 2/3, delta=1/3) and 8#558 e=2520 with pair (1,8) 2484-36 (min Pr 1/70) both confirmed by brute force; 5 random forest rows agree with brute force; exhaustive independent pair recomputation for all n=4,5,6 classes confirms e_xy+e_yx=e on every pair, per-n most-lopsided fractions 1/6,1/10,1/20, and min delta 1/3 with every non-chain delta>=1/3. DP, augmented-poset closure stabilization, and forest hook-length code paths reviewed and sound. Universal 'every unlabelled poset' wording depends on external Atlas seed completeness (counts+syntactic uniqueness verified, 18/18 spot standard-form checks reported, exhaustive non-isomorphism not re-proved), which DRAFT Sec.6 honestly discloses; conditional census claims are proved.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Substantive gap vs nearest priors verified live, not by timestamp. OEIS A000112 stores only bare counts 1,1,2,5,16,63,318,2045,16999,... to 16 with no per-poset e(P), sorting probabilities, or replay logs. Brinkmann-McKay JIS 2005 enumerates isomorphism-class counts to 15/16 points (counts only), no per-class e(P) census. FindStat Posets collection definition states database contains all posets of size at most 7 only, so n=8 is outside. FindStat St000100 definition is P.linear_extensions().cardinality() but value file has only 714 rows total (confirmed by download count), hence sparse vs 2045 needed at n=7 and 16999 at n=8. FindStat St000848/St000849 balance statistics likewise sparse samples. Chapel Hill Atlas provides representatives to m=9 plus hook/d-complete lists but no linear-extension or sorting-probability table. No source gives per-class exact e(P) for all 19449 classes to n=8 with full sorting-probability extrema, 1/70 lopsided extremal, and delta=1/3 witness with replay logs; values are not mechanically implied by class counts (e(P) #P-hard in general) and require new computation.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Headline is a rigorously established exact invariant of a natural object class motivated before computation: per-class linear-extension counts e(P), per-n sorting-probability extremes, certified delta=1/3 witness 8#14584 and 1/70 lopsided extremal 8#558 for unlabelled posets n<=8. Motivation predates computation via Kahn-Saks 1/3-2/3 balance program and sorting-under-partial-information benchmarks (FindStat St000848 description cites Kislitsyn/Kahn-Saks/Brightwell-Felsner-Trotter/Olson-Sagan; Atlas/Chapel Hill context). Scope n<=8 is the natural next closed level (FindStat databased to 7; 2^8 ideal DP exactly enumerable). Future researchers can need the precise e(P)/extremal-pair facts as ground-truth benchmarks and conjecture tests. This is not a textbook restatement, parameter substitution, tiny gain, or unexplained number: witness and extrema carry explicit 1/3-2/3 interpretation with exact splits and replay logs. Incomplete-census caveat (seed non-isomorphism inherited) is honestly disclosed and does not erase the independently valuable exact headline.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  {
+   "finding": "Bare counts 1,1,2,5,16,63,318,2045,16999,183231,... to n=16; no per-poset e(P), sorting probabilities, or DP logs.",
+   "title": "OEIS A000112 \u2014 Number of partially ordered sets with n unlabeled elements",
+   "url": "https://oeis.org/A000112"
+  },
+  {
+   "finding": "Enumerates isomorphism classes of transitive relations/topologies to 15-16 points, counts only; no per-class e(P) or sorting-probability census.",
+   "title": "Brinkmann and McKay \u2014 Counting unlabelled topologies and transitive relations (JIS 2005 Art. 05.2.1)",
+   "url": "https://cs.uwaterloo.ca/journals/JIS/VOL8/McKay/mckay170.html"
+  },
+  {
+   "finding": "Collection holds unlabelled posets as canonical (E,n) cover encodings graded by size; database contains all posets of size at most 7 only \u2014 n=8 outside.",
+   "title": "FindStat \u2014 Posets collection",
+   "url": "https://www.findstat.org/CollectionsDatabase/Posets/"
+  },
+  {
+   "finding": "Statistic is linear-extension cardinality; value file has 714 rows total (sparse), not complete 2045 at n=7 / 16999 at n=8; generating functions shown only to n=6.",
+   "title": "FindStat St000100 \u2014 Number of linear extensions",
+   "url": "https://www.findstat.org/StatisticsDatabase/St000100/"
+  },
+  {
+   "finding": "Defines balance-related statistics with 1/3-2/3 conjecture motivation; value table sparse, no complete sorting-probability census.",
+   "title": "FindStat St000848 \u2014 Balance-related statistic",
+   "url": "https://www.findstat.org/StatisticsDatabase/St000848/"
+  },
+  {
+   "finding": "Lists unlabelled/connected/hook-length/d-complete posets to m=9 with standard forms and programs; provides representatives but no e(P) or sorting-probability table.",
+   "title": "Chapel Hill Poset Atlas (Gann-Proctor)",
+   "url": "https://lists-of-posets.math.unc.edu/"
+  }
+ ],
+ "decisive_checks": [
+  "Executed inputs/artifacts/verify.py on census_all.csv --pairs 100: VERIFY_OK rows=19449 forests_rechecked=485, WITNESS_OK both headlines, PAIR_SAMPLE_OK 100.",
+  "Recomputed per-n aggregates from CSV: counts/sums/emax/emin/forests/pair-sums match DRAFT Table and per_n_extrema.json; antichain id 1 e=n!, chain last id e=1; childforms unique per n.",
+  "Independent brute-force permutation recount: 8#14584 e=9, 8#558 e=2520, plus 5 random forest rows \u2014 all agree.",
+  "Independent closure+DP recheck: 8#14584 all 4 incomparable pairs split 6-3; 8#558 pair (1,8) 2484-36 (1/70) \u2014 exact.",
+  "Exhaustive independent pair scan for all n=4,5,6 classes: e_xy+e_yx=e on every pair; most-lopsided 1/6,1/10,1/20 and min-delta 1/3 confirmed; every non-chain delta>=1/3.",
+  "Downloaded St000100.txt and counted 714 value rows, confirming sparseness vs completeness thresholds.",
+  "Exhaustive independent recomputation of ALL n=7 sorting-probability pairs (2045 classes): global most-lopsided minimum 1/35 at 7#59 pair (1,7) 408-12 of 420, matching DRAFT."
+ ],
+ "residual_risks": [
+  "Global non-isomorphism/exhaustiveness of the 16999 Atlas n=8 seeds is inherited, not exhaustively re-proved (counts+uniqueness+18 spot checks only); census completeness claim is therefore conditional on Atlas correctness, as disclosed.",
+  "Auditor exhaustively recomputed all sorting-probability pairs to n=7 (n=4,5,6 earlier plus full n=7 scan confirming 1/35 extremum); n=8 global extrema (1/70, min-delta witnesses) rely on reviewed census.py full scan plus headline-pair verification and 100-pair sample, not a second exhaustive n=8 scan.",
+  "Full 250688-row pair table is not stored; any pair is recomputable from committed scripts but not directly inspected."
+ ],
+ "verdict": "PASS"
+}
