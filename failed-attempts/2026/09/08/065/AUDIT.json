@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed G(0..200) for octal 0.007 from the rule using a differently structured program (unsplit move plus splits into two nonempty parts, exploiting that empty-side splits duplicate the unsplit move) and obtained byte-exact agreement with grundy_007_N200.csv. Prefix 0..15 is 0001112203311104, matching the published Flammenkamp prefix; max 17 at n=177,198; P-positions and value distribution match the draft. Re-ran the full exclusion scan: all 10100 pairs (q,p) in 0<=q<=100, 1<=p<=100 have a failing index in [q,200-p]; zero survivors. Replayed every witness row (range, value equality, inequality) OK. The key inference is valid: infinite (q,p)-periodicity would require G(n)=G(n+p) at every n>=q, so one counterexample inside the computed range refutes the pair. Boundary condition holds: q+p<=200 for every pair in the box, so each pair has >=1 test index (corner (100,100) has exactly one, n=100, with G(100)=0 vs G(200)=12). verify.py exits VERIFY_OK with matching SHA256. The computation is proof-grade finite certification, honestly scoped as box-only with no claim about periodicity itself.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No checked source states a Guy-Smith exclusion bound for 0.007 with per-pair failing witnesses. Flammenkamp octal.html lists .007 among nontrivial games with blank period/preperiod (no proved period); the stat_.007 frequency pages (to 33M/268M/2^30 scales) contain scale/sparsity analysis but no (Qmax,Pmax) exclusion theorem; OEIS A071426 publishes bare Grundy values (table to 10000, covering .007 by offset) with no period claim and no exclusion certificate; Guy-Smith (1956) supplies only the window method and Gangolli-Plambeck (1989) closes only specific other codes, not .007. The candidate regenerated all values from the octal rule (not copied) and produced new witness data. As a packaged stated-and-proved theorem the claim is absent from the prior art, so originality narrowly passes; the concern that the finite check is easily derivable from published tables is recorded here but judged under value, since no prior source states or proves this bound.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The headline exclusion (Q*>100 or P*>100, certified on [0,200]) is a tiny arbitrary-box observation that adds no independently retrievable knowledge. (a) Mechanically implied by long-published data: G(0..200) is a prefix of values published in OEIS A071426 (b-file to 10000, covering .007 by offset) and of Flammenkamp tables computed past 1e9; given those values the 10100-pair scan is a seconds-long trivial check, and no closed-form-free status changes that since the data itself is public. (b) Strictly dominated by existing public computation: Flammenkamp's non-closure through 2^30 with rare values to index ~5M already tells experts far more than a 100-box falsification on 200 heaps; no future periodicity proof, which must operate at the scale of the last rare index plus depth, could cite a 100-box exclusion on N=200 as a lemma. (c) Arbitrary scope: the (100,100) box is set by the N=200 compute budget (q+p<=200) rather than by a literature conjecture -- no source conjectures .007 has a Dawson-34- or Kayles-12-scale period, those being other games' periods, so the 'classical-scale exclusion' motivation is post hoc. This is exactly the 'correct and new but unexplained enumeration / tiny unmotivated gain' case the standard says to reject even when certified: VERIFY_OK certification does not rescue an arbitrary box, per the explicit rule that certification alone does not rescue an unexplained number. No bounded addition (more motivation text, more witnesses at the same scale) can make a 100-box bound on N=200 substantive; reaching a competitive scale would be a new research direction, not a repair. Hence intrinsic low value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Row for .007 shows sgv-prefix 0001112203311104 with blank period/preperiod columns; game listed among 93 nontrivial games (period+preperiod > 250 left blank). No exclusion-bound theorem stated. Prefix matches candidate table, confirming candidate values are consistent with (not copied from) published data.",
+      "title": "Flammenkamp -- Sprague-Grundy Values of Octal-Games (octal.html)",
+      "url": "https://wwwhomes.uni-bielefeld.de/achim/octal.html"
+    },
+    {
+      "finding": "Frequency tables for .007 at 0-33M, 0-268M, and 0-2^30 scales show extensive computation (sparse=22476, last rare ~5029983, max G ~1401-1689) with no period closure. Confirms open status at huge-n scale; contains no certified (Qmax,Pmax) Guy-Smith lower-bound theorem. This scale strictly dominates the candidate's N=200 bound.",
+      "title": "Flammenkamp -- Frequency of Grundy-Values of .007 (stat_.007)",
+      "url": "https://wwwhomes.uni-bielefeld.de/achim/nim/stat_.007"
+    },
+    {
+      "finding": "Entry gives Sprague-Grundy values for .11337 and notes with different offsets also .04, .007 (Treblecross), .0137; bare value table to 10000 with no period claim and no preperiod/period lower bound. Confirms candidate G(0..200) values are previously published data (by offset), so the exclusion scan is mechanically derivable from this public table.",
+      "title": "OEIS A071426 -- Sprague-Grundy values for octal game .11337 (incl. .007 offset)",
+      "url": "https://oeis.org/search?q=Treblecross+grundy&fmt=text"
+    },
+    {
+      "finding": "Octal rule for 0.007 (remove exactly 3, optionally split remainder) as implemented; candidate recurrence R(n)={G(n-3)} U {G(i)^G(n-3-i)} verified correct against this rule including edge cases n=3 and empty-side splits duplicating the unsplit move.",
+      "title": "Candidate artifacts: compute_grundy.py, scan_box.py, verify.py, CSVs, verification_log.txt (local inputs/)",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Independent recomputation with differently structured loop (unsplit + nonempty splits only) matches grundy_007_N200.csv exactly on all 201 entries.",
+    "Prefix 0..15 = 0001112203311104 matches Flammenkamp published prefix; max G=17 at n=177,198; P-position list and distribution reproduced.",
+    "Full (q,p) scan over 101x100 box independently re-run: 10100/10100 pairs excluded, 0 survivors; every witness row replays (q<=n<=200-p, values match, differ).",
+    "Boundary audit: max q+p = 200 so every pair has >=1 test index; corner (100,100) rests on single index n=100 with G(100)=0 != 12=G(200), as honestly disclosed.",
+    "verify.py run exits VERIFY_OK; SHA256 of both CSVs match draft and log (grundy 97bf087c..., witnesses 78122341...).",
+    "Prior-art comparison: no checked source states or proves a (Q,P) exclusion bound with failing witnesses for .007; but OEIS b-file (to 10000, .007 by offset) and Flammenkamp 2^30-scale tables already publish the underlying values at far larger scale, making the N=200 bound mechanically derivable and strictly dominated."
+  ],
+  "residual_risks": [
+    "OEIS offset mapping (a(n-2) = .007) relied on entry comment, not a byte-for-byte diff of the b-file against the candidate CSV; Flammenkamp-prefix agreement plus exact recomputation from the rule covers value correctness regardless.",
+    "Guy-Smith (1956) and Gangolli-Plambeck (1989) full texts not re-fetched during audit; their characterization (method-only / closed-codes-only for this purpose) rests on admission review plus standard knowledge, and does not affect the value verdict.",
+    "Long-range behavior of .007 (periodicity itself) remains open and untouched; the audit's correctness PASS covers only the finite-box certificate, which the draft scopes honestly."
+  ],
+  "verdict": "REJECT"
+}
