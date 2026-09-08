@@ -1,0 +1,42 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Essential computations were independently re-executed and agree. All 60 stored Hamiltonian cycles (1+1+2+5+13+38 classes for n=6,8,10,12,14,16) were re-validated edge-by-edge: 60/60 cover all vertices and use only graph edges. Girth lengths were recomputed by independent BFS for all 60 classes: 60/60 match stored values (parity even >=4; unique girth-6 at n=14 and n=16 confirmed). Spectrum trace identities tr(A)=0 and tr(A^2)=3n hold for all 60; lam2 == 3-second-largest adjacency eigenvalue holds; e.g. n=14 girth-6 gap 1.5857864376 = 2-sqrt(2) and n=16 girth-6 gap 1.2679491924 verified. Bridgelessness (BFS avoiding each edge) re-verified for all 22 classes with n<=14; spot-checked n=16 girth lengths match. verify.py was re-run: small+n=14 fully pass (cubic/connected/balanced-bipartite/girth/spectrum/ham-cycle/bridgeless/pairwise-distinct); n=16 per-graph rows match stored verify_rows.json but full n=16 pairwise (703 pairs) exceeded the 120s audit timeout, so n=16 distinctness relies on filed logs. Enumeration method is sound in principle (Konig 3-edge-colourability + Hall perfect matching; diagonal S_m action; sigma by cycle type; tau by C(sigma)-orbit; residual M1-choice handled by cross-type exact iso dedup) and counts 1,1,2,5,13,38 exactly match the published connected cubic bipartite sequence OEIS A006823 (2n=6..16). Completeness two-route agreement 13/13 both directions was filed only for n=14; n=16 completeness rests on a single transversal plus external-sequence agreement. Held-Karp DP replay filed covers 13 (n=14) + 38 (n=16) = 51 classes, not 'all 60' as DRAFT words it (n<=12 covered only by cycle validation). DRAFT mis-cites the sanity-check sequence as A060851, which is (2n-1)*3^(2n-1) = 3,81,1215,... and does NOT match; the correct match is A006823. That citation error does not falsify the counts but is a factual presentation defect. Hamiltonicity/bridgelessness are computational certificates (explicit cycles, BFS), not theoretical proofs, but valid as such.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The core enumeration counts 1,1,2,5,13,38 for connected cubic bipartite graphs on 6,8,10,12,14,16 vertices were already published (OEIS A006823, offset 2n; Faradzev 1978 constructive enumeration; Brinkmann 1996 fast generation; McKay/Sloane; Howroyd extensions; cf. A008325 Euler transform and A004066 bicolored). DRAFT itself concedes 'New does not mean the counts were unknown' but then mis-cites A060851. The remaining joint layer is routine augmentation of that known list: BFS girth, numpy spectra/lambda2, DFS/Held-Karp Hamiltonian cycles, per-edge bridgelessness. The highlighted extremal witnesses are famous objects: the n=14 girth-6 class with lambda2=2-sqrt(2) is the Heawood (3,6)-cage (edges, girth witness and Hamiltonian cycle as filed are standard properties); the n=16 girth-6 class is the standard 16-vertex girth-6 cubic bipartite type (Mobius-Kantor family), long known Hamiltonian with known spectrum. No prior-Isolation argument was needed: cited priors (Georges-Kelmans minimality at 50 vertices for 3-connected case arXiv:2101.00943; planar Barnette sufficiency arXiv:2309.09578; asymptotic minimum spectral gap arXiv:2209.13758) are correctly distinguished, but the decisive nearest prior is the A006823/House-of-Graphs/Meringer explicit-graph database, which the topic file does not substantively compare against. A timestamp or failed literature search does not establish priority; substantive comparison shows the joint table adds no new mathematical object, gap, or non-Hamiltonian witness (the target-plan witness does not exist <=16). This is repackaging of known enumeration with standard invariants.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taking correctness as given and granting narrow novelty as a joint replayable dataset, the result is not independently worth finding later. It is a downscoped fragment (n<=16 complete, explicitly not 14-26; n=18 with 152 expected classes and n=20 with 449 not attempted) whose headline corollary is negative: no non-Hamiltonian connected cubic bipartite graph exists <=16, so the target minimal-non-Hamiltonian witness is absent and the bridge/2-cut obstruction analysis is vacuous (all graphs verified bridgeless). The positive witnesses are textbook cages already known Hamiltonian. Per-graph girth/6-cycle counts/spectra/lambda2 are standard-computation columns that resolve no Barnette-type weakening and no expansion-vs-Hamiltonicity conjecture, give no theorem beyond 'all 60 small cases are Hamiltonian and bridgeless', and supply no extremal record. This falls squarely under the reject categories: textbook restatement of A006823 counts, routine-parameter augmentation, tiny unmotivated gain, and unexplained enumeration (60 rows with no conjecture or downstream use). A seconds-replayable verifier does not by itself confer citable value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "OEIS A006823 (connected trivalent bipartite, 1,1,2,5,13,38 for 2n=6..16) - matches filed counts",
+    "OEIS A008325 (trivalent bipartite, Euler transform) and A004066 (bicolored) - context",
+    "OEIS A060851 ((2n-1)*3^(2n-1)=3,81,1215,...) - proves DRAFT A060851-prefix claim false",
+    "arXiv:2101.00943 The Minimality of the Georges-Kelmans Graph (50-vertex 3-connected minimum)",
+    "arXiv:2309.09578 sufficient condition for cubic 3-connected plane bipartite Hamiltonicity",
+    "arXiv API query all:cubic bipartite Hamiltonian (totalResults 98995; relevance fetch confirms no per-order 14-26 joint census in top hits)",
+    "Crossref query cubic bipartite connected enumeration A060851 (178679 results; top hits on bipartite maps, not small cubic census)",
+    "inputs/DRAFT.md, inputs/topic.json, inputs/research_report.json",
+    "inputs/artifacts/pipeline.py, verify.py, transversal_check.py, census_verified.json, census14/16/small.json, verify_rows.json, transversal_check.json, backup/keep*.json"
+  ],
+  "decisive_checks": [
+    "Re-validated all 60 Hamiltonian cycles edge-by-edge: 60/60 valid",
+    "Recomputed girth lengths by independent BFS for all 60: 60/60 match (unique girth-6 at n=14 idx11 and n=16 idx35)",
+    "Checked spectrum identities tr(A)=0, tr(A^2)=3n and gap=3-ev[-2]=lam2 for all 60: pass; Heawood gap 2-sqrt2 confirmed",
+    "Re-verified bridgelessness by BFS-avoiding-each-edge for all n<=14 classes (22 classes): pass; n=16 spot girth checks pass",
+    "Re-ran output/artifacts/verify.py: small+n=14 fully verified; n=16 full pairwise (703 pairs) timed out at 120s, per-graph n=16 rows match filed verify_rows.json",
+    "Confirmed filed counts equal A006823 prefix and NOT A060851; confirmed transversal 13/13 both-directions only for n=14 and Held-Karp 13+38=51 (not 60)"
+  ],
+  "residual_risks": [
+    "n=16 pairwise non-isomorphism not re-replayed within audit timeout; relies on filed census and verify_rows.json",
+    "n=16 (and n<=12) completeness rests on single 1-factorization transversal plus A006823 agreement; second-transversal agreement proven only at n=14",
+    "Spectra and c4/tr6 counts use floating numpy with rounding; combinatorial 6-cycle count in verify.py mitigates but exact-integer certificate not fully isolated",
+    "DRAFT overstates Held-Karp coverage ('all 60 agree' vs actual 51) and mis-cites A060851; if repaired, correctness still holds but originality/value would still fail"
+  ],
+  "verdict": "REJECT"
+}
