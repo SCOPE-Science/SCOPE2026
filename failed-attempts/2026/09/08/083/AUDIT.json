@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay from committed Gauss codes confirms the computed core: over all 2048 Kauffman states both diagrams give b1 distribution {5:2,6:30,7:169,8:472,9:698,10:522,11:155} (sum 2048); Seifert mask 0 gives s=4,b1=8; witness masks 1707 (K11n34) and 1435 (K11n42) give s=7,b1=5 with non-bipartite state graph, and no nonorientable state has b1<5. Euler arithmetic chi=s-c, b1=c-s+1 is correct for connected spanning state surfaces. Floor C>=2 (hyperbolic => nontrivial nontorus + classical C=1 iff (2,q) torus including unknot) and ceiling C<=3 (u=1 + Clark crossing-change <=2, with unknot C=1 convention) are valid deductions conditional on cited external data. Live KnotAtlas fetch confirms cited data as cited: Gauss/PD/DT match committed diagrams.json, hyperbolic volume 11.2191, unknotting number 1, determinant 1, signature 0 for both. DRAFT honestly labels result partial, claims no exact values and no separation, parks bracket-Jones bug unused, and restricts minimality to state surfaces of committed diagrams. Verifier logic is mathematically correct; its usage string 'output/artifacts/diagrams.json' does not match inputs/ layout (replay requires path adjustment), a presentation defect not affecting the proved statements. No essential inference or boundary condition fails.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors compared substantively, not by timestamp: Bahena-Kindred-Parsley arXiv:2512.09887 covers only prime alternating links/knots (abstract confirms), so non-alternating 11n34/11n42 excluded; Cohen et al 2-bridge average/formula family excludes bridge-index-3 mutants; Brittenham-Wu math/0011005 is orientable exceptional-filling classification, does not decide non-orientable spanning genus; Jaco et al arXiv:2108.07599 general algorithm reports 196 new crosscaps to 12 crossings but admission-extracted Table 1 new-11n list omits 11n34/11n42 and abstract scope confirms incompleteness; live KnotAtlas K11n34/K11n42 pages list Jones-equal mutant identity, bridge 3, 3-genus 3 vs 2, volume 11.2191, but no crosscap number. The full 2048-state b1 census and witness masks for these two committed diagrams are therefore not recorded in those sources. The tightened interval C in {2,3} itself is mechanically implied by tabulated u=1+hyperbolicity+textbook lemmas and is not counted as an original contribution; originality PASS rests only on the technically new diagram census.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Admitted headline required exact crosscap numbers deciding mutant separation, fallback required exact value for at least one mutant with explicit minimal non-orientable fundamental surface plus matching Clark/Murakami-Yasuhara Goeritz lower-bound certificate. Delivered is C(K11n34),C(K11n42) in {2,3} with no exact value and explicitly no separation. The {2,3} interval is mechanically implied by long-tabulated KnotAtlas data (u=1, hyperbolic) plus classical lemmas, requiring no in-run computation; the in-run computed bound C<=5 is strictly weaker than the cited C<=3. The remaining computed object \u2014 full b1 distribution identical for both mutants and minimal nonorientable-state b1=5 \u2014 is a diagram-dependent enumeration (depends on committed diagram, not a knot invariant), identical across the pair, with no invariant interpretation and no constraining power beyond the already-known C<=3. This is a textbook restatement plus unexplained enumeration, correct and new but not independently worth retrieving. Exact-invariant eligibility clause does not apply: no exact invariant was established, delivered numbers are mechanically implied or diagram-dependent, and future crosscap-tabulation cannot cite an undecided {2,3} interval or a diagram census as a crosscap value. Missing substantive result; closing to exact needs Goeritz bound or Regina normal-surface enumeration, a new research direction unavailable in-run, not a bounded value-add fix.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Confirms K11n34 Gauss 1,-4,2,-1,3,-7,4,-2,-5,11,-6,-3,7,10,-8,5,-9,6,-10,8,-11,9, PD and DT 4 8 12 2 -16 -18 6 -20 -22 -14 -10 matching diagrams.json; lists mutant of K11n42, bridge 3, 3-genus 3, volume 11.2191, unknotting 1, det 1/sig 0, Jones as cited; lists no crosscap number.",
+      "title": "KnotAtlas K11n34 (Conway) page",
+      "url": "https://katlas.org/wiki/K11n34"
+    },
+    {
+      "finding": "Confirms K11n42 Gauss 1,-4,2,-1,3,-7,4,-2,-5,8,-6,-3,7,10,-8,11,-9,5,-10,6,-11,9, PD and DT 4 8 12 2 -18 -20 6 -10 -22 -14 -16 matching diagrams.json; lists mutant of K11n34, bridge 3, 3-genus 2, volume 11.2191, unknotting 1, identical Jones; lists no crosscap number.",
+      "title": "KnotAtlas K11n42 (Kinoshita-Terasaka) page",
+      "url": "https://katlas.org/wiki/K11n42"
+    },
+    {
+      "finding": "Abstract confirms general 0-efficient/fundamental-surface slope-norm algorithm and 196 previously unknown crosscaps to 12 crossings; establishes normal-surface route and incompleteness context for 11-crossing. Full Table 1 not re-parsed; omission of 11n34/11n42 taken from admission extraction.",
+      "title": "Jaco-Rubinstein-Spreer-Tillmann Slope norm and algorithm to compute crosscap number arXiv:2108.07599",
+      "url": "https://arxiv.org/abs/2108.07599"
+    },
+    {
+      "finding": "Abstract confirms method restricted to prime alternating knots/links with data new only for alternating links 10-14 and knots 14-19; non-alternating 11n pair outside scope.",
+      "title": "Bahena-Kindred-Parsley Crosscap numbers of alternating links via state codes arXiv:2512.09887",
+      "url": "https://arxiv.org/abs/2512.09887"
+    }
+  ],
+  "decisive_checks": [
+    "Independently re-ran Gauss state enumeration (union-find circles, b1=c-s+1, state-graph bipartiteness) for both committed Gauss codes: reproduced {5:2,6:30,7:169,8:472,9:698,10:522,11:155}, Seifert s=4/b1=8, K11n34 mask 1707 s=7/b1=5 nonorientable, K11n42 mask 1435 s=7/b1=5 nonorientable, min nonorientable b1=5; cross-masks give s=3/b1=9 confirming witness specificity.",
+    "Verified Euler/Betti arithmetic: c=11, s=7 => chi=-4, b1=5; s=4 => b1=8; distribution sums to 2048=2^11.",
+    "Verified committed PD/Gauss/DT byte-identical to live KnotAtlas presentations; verified external lemma data (volume 11.2191, u=1) present on both pages as cited.",
+    "Checked bound logic: C<=5 from explicit b1=5 nonorientable state surface valid; C>=2 from nontrivial+nontorus + C=1 iff (2,q) torus valid under Clark convention (unknot C=1); C<=3 from u=1 + crossing-change <=2 valid conditionally, strictly stronger than computed C<=5, proving interval itself needs no computation.",
+    "Confirmed DRAFT honesty: states exact values and separation NOT decided, state-surface data coincide, Regina/Goeritz steps unavailable, bracket-Jones unused."
+  ],
+  "residual_risks": [
+    "State-surface orientability iff state-graph bipartite assumed as cited lemma; independent graph check confirms non-bipartiteness but not the topological equivalence proof.",
+    "C=1 characterization and Clark <=2 lemma used as cited classical facts without re-proof; convention requires unknot C=1 for C<=3 step to hold as stated.",
+    "Floor/ceiling depend on tertiary KnotAtlas data (hyperbolicity, u=1) as cited lemmas, not re-proved in-run; if unknotting datum were conjectural the C<=3 step would be conditional.",
+    "Jaco Table 1 omission not re-parsed from full PDF; relies on admission extraction plus abstract scope; low risk given KnotAtlas absence and scope exclusions.",
+    "Verifier usage path outputs output/artifacts/diagrams.json which does not exist in inputs/ layout; logic correct but replay instruction needs path fix."
+  ],
+  "verdict": "REJECT"
+}
