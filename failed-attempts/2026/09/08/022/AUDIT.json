@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/verify_witness.py: ALL-OK (18 checks). Independently recomputed swings via brute force and Shapley via full permutation enumeration (720 and 120 perms): [17,13,11,7,5,3] and phi=(19/60,7/30,1/5,7/60,1/12,1/20) before, [7,7,5,5,1] and phi'=(17/60,17/60,1/5,1/5,1/30) after \u2014 all match. IRV tallies hand-checked: full A:6 B:8 C:7 elim A runoff B14-C7 winner B; abstention A:6 B:8 C:5 elim C runoff A11-B8 winner A with voter 4 (C>A>B) strictly benefiting B->A; raised ballot A:6 B:10 C:5 elim C runoff A11-B10 winner A, so B->A monotonicity failure holds. All rounds distinct FP and strict runoffs (tie-break-free). Quota q=12/21=4/7 in [0.50,0.65]. Penrose interval method (isqrt bounds) is sound here because both indices lie far outside the Penrose interval (~0.2261), so endpoint-distance lower bounds 0.077 and 0.090 >=1/25 are valid. Lemma that fixed-quota referendum is no-show-free is correct. Reproduced 672 tie-break-free no-show profiles over 6^6 census. Presentation slip: DRAFT monotonicity paragraph says '(A eliminated)' and 'runoff B vs C is B:10,C:11. Winner: A' \u2014 actually C eliminated and runoff A vs B is A:11,B:10 per verifier; outcome Winner A still correct, so essential inferences hold.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantively not new. IRV failure of participation/no-show and upward monotonicity are textbook theorems (Moulin 1988 participation; Fishburn-Brams/Doron-Kronick monotonicity), not open problems. Any weighted profile with total weight 21 splits into 21 unit voters, so the 6-voter weighted example is a 21-voter unweighted IRV paradox instance of a known phenomenon \u2014 a parameter substitution, not a new object. Exact Banzhaf/Shapley enumeration for one 6-voter game is a routine 2^6 exercise; deviation ~0.08 from the asymptotic Penrose sqrt-share at n=6 is expected and carries no threshold motivation (1/25 arbitrary). The 'coupling' is artificial: indices play no role in the paradox proof (different rules: paradox in weighted IRV, indices on [w;Q] Yes/No game, openly admitted). Nearest priors subsume it: Bonifacio-Fioravanti general participation incompatibilities, Kurz minimum-sum enumeration infrastructure, Aziz-Paterson/Rushdi computation methods, plus textbook IRV counterexamples. Verbatim triple not recorded, but phenomenon is mechanically implied by textbook results; failed-search/timestamp does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. Falls into explicit reject classes: (1) textbook restatement \u2014 IRV violates no-show and monotonicity, proved decades ago with simpler unweighted 3-candidate examples; this adds a heavier weighted instance with no minimality claim. (2) mere parameter substitution \u2014 weights (6,5,4,3,2,1) and quota 4/7 add no conceptual leverage; any majority quota in [0.5,0.65] qualifies, so 'Penrose window' is a weak relabel, not a design connection (Jagiellonian/optimal-quota theory concerns Yes/No power, not IRV transfers). (3) tiny unmotivated gain \u2014 dual-gap >=1/25 at voter 0 is an arbitrary cutoff on an expected small-n deviation with no downstream theorem, calibration use, or approximation consequence; post-abstention footprint (lightest voter to 1/30) likewise has no stated use. No benchmark need is shown beyond existing paradox examples and power-index tables. Fallback census over n=6-8 window would be database repackaging.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General false-name-proofness/participation incompatibilities; no small-n witness but confirms participation failure is a general theoretical phenomenon, not a new existential claim.",
+      "title": "On voting rules satisfying false-name-proofness and participation",
+      "url": "https://arxiv.org/abs/2503.02740v2"
+    },
+    {
+      "finding": "Classifies minimum-sum representations to 8-9 voters; enumeration infrastructure for same sizes, no paradox profile \u2014 confirms 6-voter enumeration is routine.",
+      "title": "On minimum sum representations for weighted voting games",
+      "url": "https://arxiv.org/abs/1103.1445v2"
+    },
+    {
+      "finding": "Attempted Wikipedia fetch for participation/monotonicity criteria (textbook IRV failure); transport error, relied on established textbook content and candidate's own admission that IRV paradox is the vehicle.",
+      "title": "Participation/monotonicity criteria (textbook)",
+      "url": "https://en.wikipedia.org/wiki/Participation_criterion"
+    }
+  ],
+  "decisive_checks": [
+    "re-ran verify_witness.py: ALL-OK",
+    "independent brute-force swings + permutation Shapley match claimed vectors before/after",
+    "hand-checked IRV full/abstention/raised tallies, strict-benefit ranking, tie-break-free distinctness",
+    "validated Penrose isqrt interval lower-bound logic (indices outside interval, so endpoint distance is valid)",
+    "reproduced 672 tie-break-free no-show census count; flagged monotonicity-paragraph mislabel (A-elim/B-vs-C vs actual C-elim/A-vs-B)",
+    "substantive novelty comparison: weighted IRV paradox reduces to textbook unweighted IRV failure; power-index gap is routine small-n deviation with arbitrary threshold"
+  ],
+  "residual_risks": [
+    "web search limited (two arXiv fetches + failed Wikipedia fetch); full literature sweep not performed, but textbook subsumption does not depend on exhaustive search",
+    "192 joint no-show+monotonicity census count not independently recounted; single-witness verification suffices for verdict",
+    "Penrose-window optimality literature (e.g., Jagiellonian quota) not re-derived; irrelevance to IRV transfers judged on structural grounds"
+  ],
+  "verdict": "REJECT"
+}
