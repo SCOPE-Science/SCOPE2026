@@ -1,0 +1,37 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 1 (E(C)=esC*nC-qC*(mC-jC)+nuC with Rosales cC,gC,nC,mC and generator counts esC,jC) is mathematically correct under the stated validity hypothesis e(C)=eA+eB: minimal generators of a valid gluing are {k1*GA}U{k2*GB}, so splitting at cC / in [cC,cC+mC-1] gives esC/jC, and |dq|=mC-jC follows from window length mC. Rosales identities verified against full gap enumeration on all 255 catalog rows (c,g,delta,m,e all match; independent recompute finds 0 mismatches). E-formula vs enumeration agrees 255/255 (E range 1056-8417, g range 324-2438, all g>100). Eliahou convention [c,c+m-1] (length m) independently confirmed: truncated semigroups <100,170,171,176>_599, <100,270,272,275>_998, <100,170,173,175>_599 give E=-1,-2,-7 exactly under excl convention (plain <gens> give conductors 1620/2894/1798, so subscript denotes truncation; draft's shorthand is terse but numerically correct). Theorem 2 proof (E>=es*nC-cC via q*dq<=cC+nu; es->eA+eB eventually since cC/k1,cC/k2->inf when k1,k2->inf for k>=2; coefficient es/2-1>=1/2 when es>=3 gives quadratic dominance) is sound; A=B=N exception E=0 identically confirmed (e.g. <5,7>,<6,11>,<37,39> all E_excl=0). Toy exclusion (<4,7,9>x<3,5>,5,4 gives e(C)=4<5) confirmed. Single-ray regime honestly left as conjecture with evidence-only (min E=+612 over ~10500 evals), not claimed as proved. No false proof claim; boundary conditions handled.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live arXiv API checks: 'Eliahou number' AND gluing = 0 hits; 'Eliahou number' AND 'numerical semigroup' = 3 hits (2104.03793 concentration paper, trimming paper, On a question of Eliahou); Wilf+gluing+semigroup = only Singh-Srinivasan 2306.09876 whose summary proves Wilf persists under gluing with no Eliahou definition (abs page contains zero 'eliahou' strings). No prior states a closed E-under-gluing identity or a both-growing ray-positivity theorem or a genus>100 glued Eliahou table. Theorem 1 is a one-step combination of known Rosales identities with the known Eliahou definition (definitional, see value axis) but no prior source states or implies the combined expression, so it is new at claim level, not a renamed implementation. Catalog rows are new gluings with proved formula agreement, not OEIS/NumericalSgps reprints (those contain no gluing relation).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Admitted headline required a proved E-gluing propagation formula plus an infinite parametric E<0 glued family past genus 100 with a certified least witness g>100. Delivered is the opposite: both-growing fixed-base rays provably drive E->+infinity (refuting the target ray as stated except the trivial A=B=N E=0 ray), ~10,500 evaluations find zero E<0 (min +612), and the 255-row 'beyond-frontier' table is all-positive (E 1056-8417) with zero flagged negatives. Remaining assets: (a) Theorem 1 is definitional substitution (apply E-definition to known gluing generators + known Rosales data; does not express E(C) in E(A),E(B) as promised, still needs base generator lists) derivable in minutes by anyone knowing both inputs; (b) Theorem 2 is a 5-line quadratic-dominance corollary of (a), unsurprising large-gluing positivity, ruling out one search direction but proving no general E>=0 criterion (explicitly conjectural) and no single-ray result; (c) 255-row sampled (non-exhaustive, k<=40, five arbitrary small bases) all-positive table whose precise entries (e.g. g=2438,E=8417 at <8,11,13>x<9,13,14>,37,39) are arbitrary pairs no future researcher would need as distinguished data, with no negative near-miss test cases for concentration/highly-dense/Farey programs. This is a missing substantive result (no witness, no general positivity proof) plus arbitrary-scope enumeration, not a retrievable exact invariant of a pre-motivated distinguished object. Certification alone does not rescue it.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv API: all:'Eliahou number' AND all:gluing -> 0 hits",
+    "arXiv API: all:'Eliahou number' AND all:'numerical semigroup' -> 3 hits (2104.03793, trimming to higher genus, On a question of Eliahou)",
+    "arXiv API: all:Wilf AND all:gluing AND all:semigroup -> only 2306.09876",
+    "arXiv API id_list=2306.09876 summary: Wilf persists under gluing, no Eliahou formula; abs page grep 'eliahou' = 0 hits",
+    "Independent recompute: truncated-semigroup E=-1,-2,-7 under [c,c+m-1] convention; plain generators give c=1620/2894/1798",
+    "Independent recompute: all 255 catalog rows - admissibility (coprime+membership+eC=eA+eB), Rosales c/g/delta/m/e, E formula vs enumeration, g>100 - 0 fails",
+    "Independent recompute: N-ray E_excl=0 for <5,7>,<6,11>,<37,39>; sample-pair growth (37,39),(100,101),(200,201) matches draft 8417/34784/109484 for <8,11,13>x<9,13,14>; toy (5,4) gives e=4<5 correctly excluded"
+  ],
+  "decisive_checks": [
+    "E-window convention resolved via Ap\u00e9ry conductors + truncated minimal-generator recount: excl gives published -1/-2/-7, incl gives -7/-12/-13",
+    "Full 255/255 catalog replay (not sampling): Rosales + E-formula + genus>100 + E-range verified; no E<0 row",
+    "Theorem 2 inequality chain E>=es*nC-cC and eventual es=eA+eB (cC/k->inf) checked including N edge case (c=0,e=1, k>=2); coefficient es/2-1>=1/2 confirmed",
+    "Originality gap confirmed by live queries plus abs-text check, not by timestamp alone"
+  ],
+  "residual_risks": [
+    "Full texts of 2104.03793 / 2310.07742 / Delgado-2016 infinite-E families not re-fetched beyond API summaries and admission triage; a hidden gluing remark is unlikely given zero-hit gluing queries but not exhaustively excluded",
+    "Single-ray (one multiplier fixed) regime and general E>=0-for-gluings remain open; draft honestly marks them conjectural",
+    "Catalog claimed 345/345 checks (90+255); only the 255 catalog rows plus spot growth points were independently re-enumerated; the 90 <4,7,9>x<3,5> k<=20 set was not separately replayed"
+  ],
+  "verdict": "REJECT"
+}
