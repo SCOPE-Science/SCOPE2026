@@ -1,0 +1,44 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-executed all essential computations from inputs/artifacts code in audit environment (stdlib Python 3.12). B4: brute_force_antichains(4)=168, distinct truths=168, Dedekind recursion D3(20)->pairs f0<=f1 =168 and D4 pairs->7581, S4 orbits=30 with sizes [1x6,3x2,4x9,6x6,12x7] summing to 168 and each dividing 24. Burnside by cycle type reproduced exactly: (1^4):168x1, (1^2 2):50x6, (1 3):15x8, (2^2):28x3, (4):8x6, sum 720=24*30, unanimous per element. Width-all {0:1,1:16,2:55,3:64,4:25,5:6,6:1} and unique width-6 witness (3,5,6,9,10,12)=rank-2 layer reproduced. Self-dual n=4 =12, exact set matches DRAFT list, spanning 3 orbits [(1,),(3,5,6),(3,5,9,14)], majority (3,5,6) truth 59624 verified, separating pair A=(1,2)->Ad=(3,) in distinct canonical orbits verified, duality preserves orbit sizes verified. B5: independent_set_antichains(5)=7581, distinct truths 7581, width hist {0:1,1:32,2:285,3:1090,4:2020,5:2146,6:1380,7:490,8:115,9:20,10:2}, exactly 2 width-10 witnesses = rank-2 and rank-3 middle layers, S5 orbits=210 with hist {1:7,5:14,10:28,12:2,15:14,20:21,30:43,60:74,120:7} summing to 7581 all dividing 120, Burnside reproduced 7581x1+887x10+105x20+309x15+35x30+35x20+11x24=25200=120*210 unanimous, self-dual=81 with width hist {1:5,3:10,4:20,5:35,7:10,10:1}, mid3 self-dual and mid2 not verified, [16] self-dual verified. Empty antichain truth 0 and {0} truth 65535 verified, so DRAFT convention wording is awkward but computationally correct. No essential inference, boundary condition, or computation failed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "All quantitative claims are classically known and the DRAFT concedes this (D4=168, D5=7581 and orbit counts 30/210 are classical, not claimed as new). OEIS A003182 lists inequivalent MBFs 2,3,5,10,30,210,... (n=4 ->30, n=5 ->210); OEIS A001206 lists self-dual MBFs 0,1,2,4,12,81,... (n=4 ->12, n=5 ->81) with pre-2000 references (Mills, Brouwer-Verbeek, Riviere, Knuth). Stephen-Yusun arXiv:1209.4623 counts inequivalent MBFs (490013148 for n=7) by profile-splitting/Burnside; Pawelski arXiv:2305.06346 gives n=9 inequivalent count; Szepietowski arXiv:2205.03868 gives methods to count fixes of permutations acting on MBFs (directly anticipating Burnside fix tables); Jakel arXiv:2304.00895 (D9) and a Campo arXiv:2206.10293 (b5=7581 via poset evaluation) anticipate D5=7581. Remaining delta - lexicographically-minimal sorted-tuple CSV layout, rank-profile/width histograms, and stdlib replay script - is an arbitrary re-encoding of the same known finite sets, not a substantively new theorem, object, or method. A different canonical-hash choice or CSV formatting does not establish priority, and a failed/absent search for that exact formatting does not establish novelty.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taking correctness for granted, the result is a textbook restatement plus unexplained enumeration with no motivated gain. n=4 brute force over 2^16 subsets and n=5 independent-set enumeration over 32 vertices run in seconds; S_n lex-min canonicalization, Sperner bound C(4,2)=6/C(5,2)=10 with middle-layer extremal witnesses, duality f^d(x)=NOT f(NOT x), Burnside orbit-count check, and Dedekind recursion counting f0<=f1 pairs are all standard exercises/identities. The frontier (D8 1991, D9 2023) is untouched; recomputing D4/D5 and their long-known orbit/self-dual counts (30/210, 12/81) provides no new method, no downstream theorem consumes the 30-row table, and width/rank-profile histograms are trivial statistics of a tiny explicitly enumerable set. This is precisely mere recomputation with standard tooling and an enumeration without theoretical use, not independently worth finding later.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1209.4623 (Stephen-Yusun inequivalent MBF counting, n=7 =490013148)",
+    "https://arxiv.org/abs/2304.00895 (Jakel ninth Dedekind number)",
+    "https://arxiv.org/abs/2206.10293 (a Campo down-set enumeration, b5=7581, b6)",
+    "https://arxiv.org/abs/2305.06346 (Pawelski inequivalent MBFs n=9)",
+    "https://arxiv.org/abs/2205.03868 (Szepietowski fixes of permutations on MBFs)",
+    "https://oeis.org/A003182 (inequivalent MBFs: 2,3,5,10,30,210,16353,...)",
+    "https://oeis.org/A001206 (self-dual MBFs: 0,1,2,4,12,81,2646,...)",
+    "inputs/DRAFT.md, inputs/research_report.json, inputs/topic.json",
+    "inputs/artifacts/census.py, orbits.py, generate.py, replay.py, b4_orbits.csv/json, b5_summary.json, certificate.json (re-executed)"
+  ],
+  "decisive_checks": [
+    "Re-enumerated B4=168 by brute force, distinct truths 168, recursion to D5=7581",
+    "Re-partitioned S4 orbits=30, size multiset and histogram match, sum 168, all divide 24",
+    "Recomputed B4 Burnside fix table 168/50/15/28/8, sum 720=24*30, unanimous per element",
+    "Reproduced width hists, unique width-6 witness, 12 self-dual set exactly matching DRAFT, 3 self-dual orbits, separating pair (1,2)->(3,)",
+    "Re-enumerated B5=7581, width hist match, 2 width-10 middle-layer witnesses only",
+    "Re-partitioned S5 orbits=210, hist {1:7,5:14,10:28,12:2,15:14,20:21,30:43,60:74,120:7}, sum 7581",
+    "Recomputed B5 Burnside 7581/887/105/309/35/35/11, sum 25200=120*210",
+    "Recomputed B5 self-dual=81 with width hist, mid3 self-dual / mid2 not, duality preserves orbit sizes",
+    "Confirmed OEIS/classical anticipation of 168/7581/30/210/12/81 and DRAFT admission of classical status"
+  ],
+  "residual_risks": [
+    "Literature search covered arXiv abstracts + OEIS + retrieved sources; full-text comparison of Szepietowski fix tables and Pawelski thesis tables not exhaustively parsed, but OEIS + admissions alone defeat novelty/value.",
+    "Correctness rests on short stdlib code re-executed twice; no formal proof of code-to-math correspondence beyond direct audit of comparable/antichain/truth/dual/perm functions, but agreement of 4 independent identities (direct count, orbit sum, Burnside, recursion) makes hidden compensating bug implausible.",
+    "Timing/checksum metadata (e.g., b5_enum_s=0.003) not independently reproduced exactly; immaterial to verdict."
+  ],
+  "verdict": "REJECT"
+}
