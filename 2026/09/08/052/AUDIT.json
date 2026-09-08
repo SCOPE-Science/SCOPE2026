@@ -1,0 +1,67 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Headline P(t)=t+1 for all t>=0 is proved in closed form, not by interpolation guess. Auditor independently re-ran inputs/artifacts/verify_ray.py: ALL CHECKS PASSED (25 base constituents Steinberg==hive==table; t=0..8 both rays two-method agreement; forcing equalities; t=1 witness). Auditor independently enumerated all 39 partitions of 13 with <=4 parts with the from-scratch Steinberg routine: exactly the 25 listed constituents have c>0, dimension sum equals Weyl product 126*140=17640, confirming completeness; sorted order confirms (4,4,3,2):1,(4,4,4,1):1,(5,3,3,2):1,(5,4,2,2):2 so nu*=(5,4,2,2) is lex-first mult>=2 and (6,4,2,1):4 is unique maximal multiplicity. Auditor reconstructed the 18 hive rhombus forms symbolically and they match DRAFT exactly. For nu*: y-10t>=0 with -y+10t>=0 forces y=10t; z-11t>=0 with -z+11t>=0 forces z=11t for all t>=0; substituting gives 14 remaining forms: six are 0 or t>=0 automatic, and eight are equivalent to x>=8t or x<=9t (x-8t, x-7t implied, -x+9t, -x+10t implied, x-y+z-9t=x-8t, -x+z-2t=-x+9t, x-y+2t=x-8t, -x+y+z-12t=-x+9t, x-z+4t=x-7t, x+y-z-6t=x-7t). Hence fiber exactly {(x,10t,11t):8t<=x<=9t} with t+1 lattice points. By cited Knutson-Tao hive theorem P(t)=t+1 for all t>=0 including t=0. Fulton t0=1 follows since P(1)=2>1 and P(0)=1. Companion Q(t)=(t+1)^2 verified the same way: y=10t still forced; with u=x-8t,v=z-11t the 16 residual forms collapse to 0<=u<=2t,0<=v<=t,u+v>=t,u-v<=t with v-u<=t automatic on the box; count (2t+1)(t+1)-|A|-|B| with |A|=|B|=t(t+1)/2 disjoint gives (t+1)^2 for all t>=0. Two-method t=0..8 values confirm. Dynkin-to-partition maps checked: (2,2,0)->(4,2,0,0),(2,1,1)->(4,2,1,0). Proof vs evidence distinguished: hive theorem cited as black box; all-t identities proved by fiber analysis; finite enumerations are cross-checks only."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Substantive comparison, not timestamp/failed-search. Nearest priors are general theorems: Knutson-Tao saturation (positivity/nonvanishing, no stretched polynomial); Rassart polynomiality on Kostant/Steinberg cones with degree bounds plus KTT nonnegativity recorded as conjecture (no ray coefficients); Thawinrak short polynomiality proof via Steinberg+chamber complex (no explicit polynomial/threshold); Gutschwager weak monotonicity under adding LR tableaux (no closed form); McAllister stretched Kostka degrees + KTT conjecture record (Kostka, not this LR ray); Belkale/Knutson-Tao-Woodward Fulton c=1 rigidity (says nothing about mult>=2 growth); King stretched Newell-Littlewood quasi-polynomiality with example-supported conjectures (different coefficients, no polynomial for this sl4 ray). General existence/polynomiality does not mechanically imply coefficients, degree 1, leading term 1, or threshold 1 for triple (4,2,0,0),(4,2,1,0),(5,4,2,2). Live abstract checks confirm no source tabulates this ray. Per-call Sage/LiE values are individual numbers, not the symbolic infinite-family identity plus forcing-certificate proof. No database stores infinite-family stretched LR polynomials with proofs. Hence explicit P(t)=t+1 / Q(t)=(t+1)^2 with chamber-type certificate is new."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Headline is a rigorously established exact invariant of a specific natural object, motivated before computation. Object: canonical stretching ray t->(t*lam,t*mu,t*nu*) with nu* the lex-first mult>=2 constituent -- the natural one-parameter family of the KTT program. Invariant: exact stretched polynomial, degree, leading coefficient, KTT-nonnegativity instance, Fulton threshold t0=1, plus companion (t+1)^2 on the maximal-multiplicity ray. Motivation pre-exists: KTT polynomiality proved / coefficient-nonnegativity conjectured 2004 (Rassart/McAllister), Fulton rigidity beyond saturation, hive-Ehrhart benchmarks; King 2101.00984 establishes precedent that explicit stretched examples are research test data. Value was not known or mechanically implied by general theorems. A future researcher testing KTT nonnegativity, Fulton behavior at mult>=2, or hive-Ehrhart counting could reasonably need this precise fact. It is not a textbook restatement, parameter substitution, tiny unmotivated gain, or unexplained enumeration: it is an infinite-family identity with full fiber proof and explicit witness, judged as headline separately from any survey. Certification/replayability not counted as value; the polynomial/threshold data carries it."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Knutson-Tao: The honeycomb model of GL(n) tensor products I (saturation)",
+      "url": "https://arxiv.org/abs/math/9807160",
+      "finding": "Proves saturation c>0 iff stretched c>0 via honeycomb/BZ integrality. General positivity only; no explicit stretched polynomial, degree, leading coefficient, or Fulton threshold for any concrete sl4 ray."
+    },
+    {
+      "title": "Rassart: A polynomiality property for Littlewood-Richardson coefficients",
+      "url": "https://arxiv.org/abs/math/0308101",
+      "finding": "Proves LR coefficients are piecewise polynomial on Kostant chamber complex with degree bounds; stretched c(N lam,N mu,N nu) polynomial in N; notes KTT nonnegative-coefficients as conjecture. Verified abstract 2026-09-08. No explicit ray coefficients."
+    },
+    {
+      "title": "Thawinrak: A Short Proof for the Polynomiality of the Stretched Littlewood-Richardson Coefficients",
+      "url": "https://arxiv.org/abs/2211.06810",
+      "finding": "Short alternative polynomiality proof via Steinberg formula and Kostant chamber complex. Verified abstract 2026-09-08. General theorem only; no polynomial or threshold for sl4 ray (2,2,0)x(2,1,1)."
+    },
+    {
+      "title": "Gutschwager: Generalised Stretched Littlewood-Richardson Coefficients",
+      "url": "https://arxiv.org/abs/0904.4778",
+      "finding": "Proves weak increase under adding LR tableaux shapes/contents. Verified abstract 2026-09-08. No closed-form polynomial or Fulton threshold for a concrete ray."
+    },
+    {
+      "title": "McAllister: Degrees of stretched Kostka coefficients",
+      "url": "https://arxiv.org/abs/math/0603173",
+      "finding": "Proves KTT degree conjectures for stretched Kostka via GT-polytopes; records KTT nonnegativity conjecture. Verified abstract 2026-09-08. Kostka, not this LR ray; motivates explicit test data."
+    },
+    {
+      "title": "King: Stretched Newell-Littlewood coefficients",
+      "url": "https://arxiv.org/abs/2101.00984",
+      "finding": "Proves stretched Newell-Littlewood is Ehrhart quasi-polynomial (period <=2) via generating functions and hive analogue; proposes positivity/stability/saturation conjectures supported by examples. Verified abstract 2026-09-08. Precedent for example-as-data; contains no polynomial for candidate sl4 LR ray."
+    },
+    {
+      "title": "Belkale: Geometric Proof of a Conjecture of Fulton",
+      "url": "https://arxiv.org/abs/math/0511664",
+      "finding": "Geometric proof that c=1 implies stretched =1. Says nothing about growth polynomial or threshold for multiplicity>=2 rays."
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran verify_ray.py: ALL CHECKS PASSED (base 25 Steinberg==hive==table; t=0..8 both rays two-method formula agreement; forcing equalities; t=1 witness [(8,10,11),(9,10,11)]).",
+    "Independent completeness: all 39 partitions of 13 with <=4 parts scored by from-scratch Steinberg give exactly the 25 claimed positives; Weyl dimension sum mult*dim=17640 equals 126*140.",
+    "Lex-first and maximality: sorted positives give (4,4,3,2):1,(4,4,4,1):1,(5,3,3,2):1,(5,4,2,2):2 confirming lex-first mult>=2; (6,4,2,1):4 is unique maximum.",
+    "Symbolic reconstruction of all 18 hive forms for both rays matches DRAFT term-for-term; forcing pairs y=10t and z=11t are exact opposites valid for all t>=0.",
+    "Substitution audit: on nu* ray all 14 residual forms are automatic (0, t>=0, 2t>=0) or equivalent to 8t<=x<=9t, giving exactly t+1 points for all t>=0; on companion ray reduction to 0<=u<=2t,0<=v<=t,u+v>=t,u-v<=t with disjoint cut counts t(t+1)/2 each gives (t+1)^2 for all t>=0.",
+    "Dimension/boundary checks: A3 Dynkin (2,2,0)->(4,2,0,0), (2,1,1)->(4,2,1,0) verified; partial-sum boundaries and Weyl dimensions recomputed."
+  ],
+  "residual_risks": [
+    "Knutson-Tao hive theorem c=#hives used as cited black box, not re-proved; mis-citation of its exact normalization would shift counts, but two-method Steinberg-vs-hive agreement on 43 points (25 base + 18 stretched) makes a systematic normalization error highly unlikely.",
+    "Hive enumeration window (-2..tot+3) is finite; sufficiency is empirical (agreement with Steinberg) rather than a proved a priori bound, but the all-t proof does not depend on the window.",
+    "Originality rests on abstract-level live checks plus admission triage; a thesis example computing this exact small ray without abstract indexing cannot be logically excluded, but substantive gap (no indexed source records this ray's coefficients/threshold) was verified across multiple source families."
+  ]
+}
