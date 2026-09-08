@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All actually-claimed partial statements are mathematically correct as conditional statements, and computations replay. (1) Cascade Ub(48,12)<=18 from Ub(29,11)=9: a putative [48,12,19] weight-19 residual would be [29,11,>=10] (length 48-19=29, dim exactly 11 by kernel={0,c} argument, distance >=ceil(19/2)=10), contradicting cited Ub=9 \u2014 valid conditional on external Ub. (2) Residual stratum [30,11,d'] with 9<=d'<=10: length 48-18=30, dim 11 (any nonzero word supported inside 18-set has weight <=18 so must equal c; kernel exactly {0,c}), lower bound ceil(18/2)=9 from 2*wt(y)+18>=36, upper bound from cited Ub(30,11)=10 \u2014 valid conditional. (3) Overlap s<=9 for distinct weight-18 words: wt(x+c)=36-2s must be 0 or >=18, so s<=9 or s=18 (=equality); independently re-verified integer sweep 0..18 gives {0..9,18}. (4) Degeneracy z<=4: G(12,18)=44 independently recomputed via sum ceil(18/2^i)=18+9+5+3+2+1*7=44; 48-z>=44 gives z<=4. (5) Moment system: K1(i)=48-2i and K2(i)=2i^2-96i+1128=2i^2-2n i+n(n-1)/2 verified by brute-force Krawtchouk definition at n=48 and Hamming [7,4,3] dual check (B={0:1,4:7}); B1=z standard; S1=2048(48-z), 2S2-96S1+1128M=M*B2, and z=0 case S1=98304, S2=2408448+2048*B2 all exact. (6) Order-2 witness A0=1,A18=2018/3,A24=8237/3,A30=2030/3: sum=4096, S1=98304, S2=2408448, B1=B2=0 verified in exact Fractions by re-running verify_residual.py (exit 0). So second-order non-elimination claim is correct as stated for formal rational distributions. (7) Hamming pipeline [7,4,3]->[4,3,2] re-ran correctly. Draft honestly marks full nonexistence as NOT proved, marks (2)-(3) dependence on live Ub values as provenance not re-proved, and distinguishes proved vs computed vs conjectured. Minor sketch imprecision (kernel described as 'vanishing on supp(c)' instead of 'vanishing off supp(c)') does not falsify the theorem; correct proof is standard and conclusion holds.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The proved content is a textbook instantiation at parameters (48,12,18), not the advertised new nonexistence theorem. Nearest priors substantively cover each item: (a) residual lemma with dim k-1 and distance >=ceil(d/2) \u2014 standard Hill / Huffman-Pless, cited in draft itself; (b) Griesmer bound G(k,d)=sum ceil(d/2^i) \u2014 standard; (c) Pless/MacWilliams moments B_j=M^-1 sum A_i K_j(i), B1=z \u2014 standard; (d) BKLC provenance Ub(48,12)=18 via one-step Griesmer from Ub(29,11)=9 Ja and Lb via Goppa-shortening \u2014 already on live [48,12] page, so item (1) reprints the table's own inference as a 'residual argument'; (e) Ub(30,11)=10 \u2014 already closed on live page. Items (2)-(5) are one-line corollaries obtained by substituting n=48,k=12,d=18 into (a)-(d). The only numerically new object, the rational order-2 witness, is a solution to 3 linear equations in 3 unknowns with support {18,24,30}; it is non-integral by construction and proves weakness (moments do not suffice), not a new constraint. No higher-order classification, no integral shortlist, no residual elimination is produced \u2014 draft explicitly states 'no exhaustive integer-enumerator classification is claimed' and 'gradient LP search inconclusive'. The empty arXiv phrase search for '[48,12,18]' supports absence of a full nonexistence proof (which is NOT supplied), but does not establish priority for elementary corollaries that follow mechanically from cited lemmas plus table lookups. Hence no substantively new mathematical object, gap closure, or method is contributed.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Independently worth finding later? No. Draft states 'Full nonexistence of [48,12,18] remains open; this report closes nothing' and 'No complete MacWilliams-feasible enumerator shortlist is produced (topic fallback envisioned one); only the exact moment system + one order-2 feasible witness.' The envisioned fallback (complete feasible shortlist + infeasibility logs + verified [48,12,17] witness enumerator + reusable audit pipeline constraining the open entry) was not achieved: no shortlist, no elimination log, no [48,12,17] witness verification, pipeline validated only on textbook Hamming [7,4,3]. What remains is: a restated table bound, a residual interval [9,10] that any specialist derives immediately, elementary overlap/degeneracy arithmetic, a standard moment formula, and a rational non-solution demonstrating that order-2 moments fail \u2014 i.e. textbook restatement + mere parameter substitution + a negative witness. This falls squarely under reject categories (textbook restatements, parameter substitutions, unexplained/unmotivated enumerations) even though correct and narrowly new as numbers. No downstream cascade is advanced because nothing is eliminated.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Live entry OPEN 17/18: Lb [48,12,17] via Goppa [55,16,19]->B2 [49,13,17]->shortening; Ub 18 via one-step Griesmer from Ub(29,11)=9 Ja. Confirms gap source and that item (1) reproduces table's own provenance.",
+      "title": "Grassl BKLC [48,12] over GF(2)",
+      "url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=48&k=12"
+    },
+    {
+      "finding": "Closed 9/9, Ub(29,11)=9 Ja. Confirms conditional premise for cascade; unpublished Jaffe, used as black box.",
+      "title": "Grassl BKLC [29,11] over GF(2)",
+      "url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=29&k=11"
+    },
+    {
+      "finding": "Closed 10/10, Ub via one-step Griesmer from Ub(19,10)=5. Confirms conditional premise for residual upper bound.",
+      "title": "Grassl BKLC [30,11] over GF(2)",
+      "url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=30&k=11"
+    },
+    {
+      "finding": "Exact-phrase query for [48,12,18] binary linear code returns no results. Supports absence of recorded full nonexistence proof, but does not confer originality on partial corollaries.",
+      "title": "arXiv search no prior [48,12,18] nonexistence",
+      "url": "https://arxiv.org/search/?query=%22%5B48%2C12%2C18%5D%22+binary+linear+code&searchtype=all"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_residual.py with stdlib Python: ALL EXACT CHECKS PASS, exit 0; results.json regenerated matching claimed Griesmer numbers, Krawtchouk Hamming check, S1=98304/S2=2408448/B1=B2=0, overlap set {0..9,18}, Hamming residual [4,3,2].",
+    "Independently verified G(12,18)=44, G(12,19)=46, G(12,17)=43, G(11,9)=26, G(11,10)=27 by Griesmer sum; K2 formula 2i^2-2ni+n(n-1)/2 gives 2i^2-96i+1128 at n=48.",
+    "Verified witness arithmetic: (2018+8237+2030)/3+1=4096; (18*2018+24*8237+30*2030)/3=98304; second moment 2408448; hence rational order-2 feasibility holds, proving only non-elimination.",
+    "Verified residual dimension argument: kernel of projection onto complement of 18-set is exactly {0,c} given min distance 18, so dim 11 holds even with zero coordinates; overlap arithmetic 36-2s forces s<=9 for distinct words.",
+    "Confirmed DRAFT limitations section explicitly abandons full claim (d*=17 NOT claimed, no shortlist, j>=3 unresolved, gradient search inconclusive), so audit applies to partial theorem only."
+  ],
+  "residual_risks": [
+    "Conditional on unpublished Jaffe Ub(29,11)=9 and table Ub(30,11)=10 taken as provenance; if those bounds were withdrawn, items (1)-(2) upper bounds would need revision, though lower-bound parts are independent.",
+    "Live BKLC pages could update (e.g. interval closes externally), which would moot gap but not affect conditional correctness.",
+    "Krawtchouk/residual code in artifact is validated only on Hamming example, not on [48,12,18] (which is hypothetical); no risk to partial claims but limits pipeline value."
+  ],
+  "verdict": "REJECT"
+}
