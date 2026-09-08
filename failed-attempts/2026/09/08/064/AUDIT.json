@@ -1,0 +1,60 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed all certificates. bch_witness.py rebuilds BCH [31,11] (P=x^5+x^2+1 irreducible: no linear factor P(0)=P(1)=1, no quadratic factor mod x^2+x+1=1, hence irreducible degree-5; x primitive order 31), measures d=11, extends to [32,11,d>=12] and lengthens to [36,11,d=12] by 2^11 enumeration; verify_witness.py VERIFY OK (rank 11, full support 2^36-1, enumerator sum 2048, dmin 12, 66 min words). Griesmer values rechecked exact: G(11,12)=30, G(11,13)=33, G(11,14)=34, G(10,7)=20, G(10,8)=21, G(10,9)=25, G(9,5)=16, G(9,6)=17, G(10,14)=33, G(10,16)=36, G(10,18)=42 all correct. Lemma B: min-weight-13 word exists by definition; residual length 23 dim 10 via image {0, all-ones} argument standard, lower bound ceil(13/2)=7 standard, upper bound d*<=8 via G(10,9)=25>23 correct. Lemma D: parity-kernel gives even [36,10,>=14] subcode (or C all-even [36,11,>=14] containing such hyperplane), G(10,18)=42>36 with monotonicity excludes d''>=18, odd excluded, leaving {14,16} correct. Second-order cascade consistent-only correct. Interval honestly reported NOT closed; LP failure and hunt honestly logged, no false kill. Minor non-essential defects: DRAFT lists G(7,13)=30 vs true 29 (unused, certs omit it); Lemma D wording 'itself if all-even' slightly imprecise (needs hyperplane to get [36,10]) but mathematical containment holds.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp. Nearest priors live-verified: BKLC [36,11] Lb=12 Ub=13 open, [36,10] Lb=13 Ub=14 open, [33,9] closed 12/12 Heijnen, [34,9] closed 13/13, arXiv '[36,11,13] binary linear code' no results. No prior records Lemma B residual d* in {7,8} for (36,11), Lemma D (36,11)->(36,10) even-subcode implication, or this BCH-witness enumerator. Existence of [36,11,12] itself is anticipated (Morii Lb chain), so Theorem A existence is not new, but Lemmas B/D are new instantiations not contained in Heijnen/Jaffe/Griesmer general theorems. Hence strongest headline lemma is materially new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline judged separately from unfinished survey; still fails independent-retrievability. (a) Witness re-proves known Lb=12 via different route, no new table value; exact enumerator is invariant of investigator-chosen arbitrary representative, not of natural cell object d(36,11), no pre-computation motivation for this distribution, no downstream need; certification alone does not rescue arbitrary object. (b) Lemma B is textbook first-order residual + single Griesmer lookup G(10,9)=25>23, recomputable in seconds, leaves two subfamilies, promised MacWilliams/Krawtchouk feasible-enumerator table missing (float LP failed 195.06 vs 306.34 and removed) and promised Heijnen-cascade kill explicitly reports 'consistent, no contradiction'. (c) Lemma D is elementary parity-kernel + G(10,18)=42 corollary leaving both (36,11) and (36,10) open, no exact order/constant/value determined, tiny gain recomputable instantly. No rigorously established exact invariant of natural object whose value was unknown and reusable (d(36,11) remains 12-vs-13 open). This is textbook restatement / tiny unmotivated gain / unexplained enumeration case: correct and new yet not worth finding later. Missing substantive result is intrinsic, not a bounded presentation gap.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Lb=12 Ub=13 OPEN. Lb chain subcode-of-[36,13,12]<-shortening [37,14,12]<-Morii [36,14,11]; Ub chain shortening-to-[34,9,13]->Heijnen [33,9]=12. Target interval live-open pre-computation.",
+      "title": "CodeTables.de BKLC [36,11] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=36&k=11"
+    },
+    {
+      "finding": "Lb=13 Ub=14 OPEN (BE lower, vT3 upper). Neighbor cell for Lemma D implication itself open, so no cell falls.",
+      "title": "CodeTables.de BKLC [36,10] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=36&k=10"
+    },
+    {
+      "finding": "Lb=12 Ub=12 CLOSED Heijnen thesis no [33,9,13]. Ub anchor real, cited not re-proved.",
+      "title": "CodeTables.de BKLC [33,9] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=33&k=9"
+    },
+    {
+      "finding": "Lb=13 Ub=13 CLOSED, Lb via truncation [35,9,14], Ub via truncation to Heijnen. Shortening [36,11,13]->[34,9,>=13] consistent, no contradiction.",
+      "title": "CodeTables.de BKLC [34,9] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=34&k=9"
+    },
+    {
+      "finding": "Query '[36,11,13] binary linear code' produced no results; no post-2011 closure evidence.",
+      "title": "arXiv search no closure record",
+      "url": "https://arxiv.org/search/?query=%5B36%2C11%2C13%5D+binary+linear+code&searchtype=all&source=header"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_witness.py: VERIFY OK binary [36,11,12] full-support, 66 weight-12 words, enumerator matches.",
+    "Re-ran inputs/artifacts/bch_witness.py from GF(32) arithmetic + 2^11 enumeration: BCH [31,11] d=11, extended [32,11] d>=12 (12:496,16:1054,20:496,32:1), lengthened [36,11] d=12; rank 11, full support.",
+    "Enumerator sum 1+66+192+168+64+61+256+432+256+61+64+168+192+66+1=2048=2^11; max non-36 weight 24 =20+4 consistent with 4 repeated columns.",
+    "Re-ran griesmer.py and structure_lemmas.py: all essential Griesmer numbers match exact ceil-sum recomputation; cert JSONs regenerated.",
+    "Independently recomputed G(7,13)=29 exposing DRAFT typo 30 (non-essential, unused for any kill).",
+    "Verified residual dimension argument (restriction image {0,1^13} by min-distance) and ceil(13/2)=7 lower bound; G(10,9)=25>23 elimination logic sound.",
+    "Verified even-subcode rank-nullity + even-parity + G(10,18)=42 monotonic exclusion leaving {14,16}; hyperplane gives [36,10,>=14] in both forks.",
+    "Confirmed admitted fallback items (i) complete enumerator table and (ii) Heijnen-cascade kill are absent: DRAFT Sec.5 explicitly claims no LP bound, shortening consistent no contradiction, 800-candidate hunt best d=10."
+  ],
+  "residual_risks": [
+    "BCH primitivity/irreducibility verified mathematically; no residual risk to witness validity after replay.",
+    "Heijnen [33,9,13] nonexistence cited from tables, not re-proved; no kill depends on it, so risk contained.",
+    "Shortening-to-[34,9] existence of suitable coordinates assumes full-support-like non-degeneracy; moot because no contradiction claimed.",
+    "No hidden MacWilliams table: LP code removed, WORKLOG-only negative; no risk of false positive."
+  ],
+  "verdict": "REJECT"
+}
