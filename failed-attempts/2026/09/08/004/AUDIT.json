@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/replay.py cleanly (ALL CHECKS PASSED, ~10s): backtracking counts 1,2,7,42,429,7436,218348 for n=1..7 match memoized DP, direct MRR product, and all three Gram-determinant evaluators with matching sha256 stream hashes (n=7 sha 72c68def...). Independently recomputed MRR product via factorials and confirmed against OEIS A005130 values. Verified min/max height formulas C(n+2,3) and sum(kn-k(k-1)/2) for n<=7, leading-principal-minor nesting det G(m)=MRR(m), and MT->ASM map validity plus injectivity on all 218348 n=7 cases (bad=0, distinct=count). Enumerator bounds [max(chain,b_i),b_{i+1}] with strict chaining correctly encode b_i<=u_i<=b_{i+1} plus strict increase; DP upper_rows encodes same condition. Essential computations are correct. Two exposition overclaims noted as non-fatal: (a) Lemma 1 induction text swaps lower/upper labels and is off-by-one (n-k+i vs n-k+1+i) though the lemma statement is true; (b) Dodgson pivot-safety proof claiming every connected minor is a leading principal minor is false in general \u2014 only leading blocks nest \u2014 but guard never fired ex post for n<=7 so determinant values stand as computed evidence, not proved pivot-freedom.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Core equinumeration M(n)=42,429,7436,218348 and MRR product prod (3k+1)!/(n+k)! are fully anticipated: Mills-Robbins-Rumsey conjecture, Zeilberger 1994/96 general proof, Kuperberg 1996 square-ice proof, Fischer 2005 arbitrary-bottom-row operator formula, OEIS A005130 tabulation with product formula. Candidate admits MRR is assumed as oracle and general theorems are cited not reproved. Claimed delta is bundle novelty only: (a) Gram G=L diag(d) L^T with d_k=MRR(k+1)/MRR(k) is circular by construction \u2014 det G=MRR by det-multiplicativity since det L=1 \u2014 so triple-algorithm agreement tests determinant code, not ASM theory; draft admits it is a substituted constructed certificate after the remembered single-binomial determinant failed (det_3=11 vs 7). (b) Backtracker vs memoized DP share the same interlacing recurrence, i.e. software cross-check not mathematical independence. (c) Height H=sum of entries is trivial statistic; staircase extrema and C(n+2,3)/sum formulas are elementary; full per-height tables and palindromicity are raw computed observations without formula, proof, or conjecture; maximal witnesses are upper staircases mapping to identity permutation matrices (minimal to anti-identity) \u2014 trivial. No retrieved source combines this exact bundle, but combination of classical values with circular/trivial constructions is not a substantive mathematical delta. Failed-search/timestamp novelty does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Not independently worth finding later. This is a verification certificate for already-proved classical initial values (general theorems cover all n; OEIS lists values to n>17), reproduced by brute force to n=7 in seconds. Falls squarely into SCOPE reject classes: textbook restatement (MRR numbers), circular parameter construction (Gram defined from MRR), and unexplained enumeration (per-height distributions of trivial sum statistic with no theorem, no closed form, no structural use; palindromicity reported only as observation). Maximal witnesses are trivial staircases/identities offering no insight beyond Lemma 1. Triple-determinant agreement and DP agreement are software-testing redundancies, not transferable methods. Honest limitations section states 'No new mathematics beyond Lemma 1/Corollary (elementary) is claimed.' Useful as a teaching/reproducibility exercise but not a publishable finding, OEIS-grade certificate need, or future retrieval target.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "OEIS A005130 Robbins numbers",
+      "url": "https://oeis.org/A005130"
+    },
+    {
+      "title": "Proof of the Alternating Sign Matrix Conjecture (Zeilberger)",
+      "url": "https://arxiv.org/abs/math/9407211"
+    },
+    {
+      "title": "Another proof of the alternating sign matrix conjecture (Kuperberg)",
+      "url": "https://arxiv.org/abs/math/9712207"
+    },
+    {
+      "title": "The number of monotone triangles with prescribed bottom row (Fischer)",
+      "url": "https://arxiv.org/abs/math/0501102"
+    },
+    {
+      "title": "Local replay artifact mt.py/replay.py/replay.log",
+      "url": "inputs/artifacts/replay.py"
+    }
+  ],
+  "decisive_checks": [
+    "Clean re-execution of python3 inputs/artifacts/replay.py: all n=1..7 lines OK, bijection OK through n=7, height tables OK, total ALL CHECKS PASSED",
+    "Independent factorial MRR recomputation matching 1,2,7,42,429,7436,218348 and OEIS values",
+    "Verified Hmin=C(n+2,3) and Hmax=sum(kn-k(k-1)/2) give 20/30,35/55,56/91,84/140",
+    "Verified leading-principal nesting det G(m)=MRR(m) for m=1,2,3,n; identified connected-minor=leading-minor claim as false generalization",
+    "Inspected gen_mt/upper_rows bounds, mt_to_asm map, is_asm axioms, det_bareiss/gauss/dodgson code; confirmed interlacing+strictness encoding and identity/anti-identity witness maps",
+    "Confirmed Gram circularity: d_k defined from MRR so det equality is by construction, not independent ASM verification",
+    "Confirmed height tables sum to expected counts and are palindromic for n<=7 as computed evidence only"
+  ],
+  "residual_risks": [
+    "Lemma 1 proof exposition has swapped labels and off-by-one typo; statement true but text needs correction if ever published",
+    "Dodgson zero-pivot freedom is empirically observed for n<=7, not proved by the leading-minor argument for all contiguous minors",
+    "Height palindromicity to n<=7 is unverified beyond brute force and unproved in general; correctly stated as observation not theorem",
+    "No audit of wall-time <2h on other machines, but observed ~6-10s so margin is large"
+  ],
+  "verdict": "REJECT"
+}
