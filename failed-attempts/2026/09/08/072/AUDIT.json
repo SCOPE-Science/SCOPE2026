@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replay passes for the stored table (65 rows, ranks, 2^k recounts, enumerators, delta arithmetic, Hamming/puncture kills, both DFS kills at 625654 nodes, headline enumerator 1+15z^4+15z^8+z^12 with MacWilliams dual check). However two headline-level statements are false as written. (1) Abstract says 'Sixty-one cells are Griesmer-tight (delta=0)'; independent recount shows 44 cells have delta=0 and 21 have delta>0 (65 total). 61 is the count of cells with d==gmax(k,n) (max d with g(k,d)<=n), not delta=0. The abstract conflates attaining the Griesmer upper bound on d with meeting the Griesmer bound with equality (n==g(k,d)). Body section 3 correctly lists 21 delta>0 cells, so the abstract contradicts the body. (2) Section 4 claims 'any weight-4 word has support size 4; puncturing it leaves a [8,4,4] residual (computed minimum 4)'. Independent check of the frozen [12,5,4] columns [1,2,4,8,16,1,1,1,14,22,26,28] finds 15 weight-4 words; e.g. u=2 has support {1,8,9,10} whose punctured residual has minimum weight 2, not 4 (only e.g. u=1 gives min 4). replay.py itself only asserts best>=2, not [8,4,4]. The residual sentence is therefore false as a universal claim and the logged check does not certify what the text claims. Lower-bound generators, defect arithmetic, Hamming A(8,3)<=28<32 kill of [8,5,3], puncture A(9,4)<=A(8,3) kill of [9,5,4] (valid since d=4>=2 keeps punctured words distinct), and systematic-DFS infeasibility logic (information-set identity block plus nondecreasing-multiset enumeration with w[u]+r<D pruning) are sound, but the two errors above are essential headline inferences.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The delivered typing collapses to mechanical arithmetic from prior bare distances plus a textbook implication, not the promised exclusion certificates. Grassl BKLC stores bare d(n,k); delta(n,k)=n-sum ceil(d/2^i) is then a deterministic ceil-sum. The DRAFT's sole sporadic rule (Sec.1) is 'SS/Belov meet Griesmer (delta=0), hence optimal delta>0 certifies sporadic with no further isomorphism test' \u2014 exactly the implication already stated in Wang-Chen-Wu 2605.11431 ('positive-defect optima are certainly not SS/Belov'). No per-cell Solomon-Stiffler/Belov shortening-chain attribution and no enumerator-incompatibility argument is actually given for any cell; the topic's required 'residual-plus-MacWilliams enumerator-incompatibility certificate' is replaced by delta>0 alone (Sec.4 residual is only a best>=2 consistency check). Chen 2406.10825 reconstructs many Grassl optimals as (affine) SS codes but the candidate adds no SS-vs-Belov subdivision (explicitly disclaimed: 'no SS-vs-Belov subdivision'). The explicit generators/enumerators (e.g. headline 1+15z^4+15z^8+z^12) are frozen stochastic-search outputs for small (n,k) whose distances are classical; no substantive comparison shows the enumerator or the 'sporadic' label to be a new structural fact beyond Grassl values plus textbook Griesmer/MacWilliams. A failed live search does not establish priority; substantively the defect numbers and the delta>0=>sporadic labels are implied by cited prior art.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taken as correct, the census is a rounding-gap listing, not an independently retrievable structural result. Of 21 delta>0 cells, 17 still attain the Griesmer-max distance d==gmax(k,n); delta>0 there only means n is not exactly equal to a Griesmer number g(k,d) (e.g. [4,2,2]: g=3, n=4, delta=1 while d is maximal). Enumerating such gaps over k<=5,n<=15 is ceil-sum arithmetic mechanically implied by Grassl d values, failing the 'not known or mechanically implied' test for a narrow exact datum. The 'hard case' motivation in Wang-Chen-Wu concerns infinite large-length positive-defect families feeding CM-bound LRCs with locality 2; tiny optima (e.g. [5,3,2], [6,4,2]) and the max-gap [12,5,4] delta=3 are not shown to be base cases, benchmarks, or inputs to any defect conjecture or LRC search \u2014 no pre-computation downstream use needs these precise numbers. The headline enumerator is a property of one arbitrary achiever (multiple non-equivalent optima can share (n,k)), with no uniqueness, interpretation, or use; certification (2^5 recount, MacWilliams) alone does not rescue it per the standard. Judged separately, the headline [12,5,4] witness is one exact datum without mathematical interpretation, and the surrounding survey is an automatic delta>0 relabeling. No general criterion, completed non-trivial census, or downstream theorem is actually delivered or required by the headline, but the headline itself lacks independent retrieval value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms 1990s classification (zero-defect Griesmer codes are SS or Belov), recent Griesmer codes are (affine) SS, and the hard case is optimal positive-defect codes 'certainly not equivalent to SS or Belov'; constructs large-length infinite families with weight/subcode distributions and CM-bound LRCs locality 2. No k<=5,n<=15 per-cell defect/typing census. Establishes that delta>0=>sporadic implication is prior art, not candidate novelty.",
+      "title": "Wang, Chen, Wu \u2014 Optimal Codes with Positive Griesmer Defects (arXiv:2605.11431)",
+      "url": "https://arxiv.org/abs/2605.11431"
+    },
+    {
+      "finding": "Geometric affine/modified-affine SS construction; many Grassl optimals re-constructed as such with weight distributions. No exhaustive SS/Belov/sporadic typing with exclusion certificates over k<=5,n<=15.",
+      "title": "Chen \u2014 Griesmer and Optimal Linear Codes from Affine SS Construction (arXiv:2406.10825)",
+      "url": "https://arxiv.org/abs/2406.10825"
+    },
+    {
+      "finding": "Live BKLC interface stores bounds on d(n,k) over GF(q); verifies Grassl holds bare distance bounds only. Defect arithmetic is derivable from d, confirming mechanical-implication concern.",
+      "title": "Grassl \u2014 Bounds on minimum distance of linear codes (BKLC codetables.de)",
+      "url": "https://www.codetables.de/BKLC/"
+    },
+    {
+      "finding": "Characterizes linear-case Griesmer bound and weaker nonlinear versions. Confirms bound itself is classical background; novelty would have to be the typing layer built on top.",
+      "title": "Bellini et al. \u2014 On the Griesmer bound for nonlinear codes (arXiv:1502.07379)",
+      "url": "https://arxiv.org/abs/1502.07379"
+    }
+  ],
+  "decisive_checks": [
+    "Ran inputs/artifacts/replay.py: VERIFY_OK; 65 rows, 21 delta>0, per-cell rank/weight/enumerator/defect OK; Hamming 256//9=28<32; DFS [12,5,5] and [13,5,6] both infeasible at 625654 nodes.",
+    "Independent recount: 44 delta==0 vs 61 d==gmax(k,n); below-gmax cells exactly (5,8),(5,9),(5,12),(5,13) \u2014 proves abstract '61 Griesmer-tight (delta=0)' false and self-contradictory with Sec.3 21-cell sporadic table.",
+    "Verified Sec.3 sporadic table matches results.json exactly: k2 4 cells, k3 5 cells, k4 4 cells, k5 8 cells, max delta=3 at [12,5,4]; defect arithmetic n-g(k,d) correct in all rows.",
+    "Headline [12,5,4] columns recount to {0:1,4:15,8:15,12:1}, d=4, g(5,4)=9, delta=3; dual recount {0:1,2:6,4:15,6:84,8:15,10:6,12:1} satisfies MacWilliams (recomputed).",
+    "Residual counterexample: weight-4 words u=2 (supp {1,8,9,10}) and u=4 give punctured-residual min weight 2, refuting 'any weight-4 word leaves [8,4,4]'; only some (e.g. u=1, supp {0,5,6,7}) give min 4. replay.py checks only best>=2.",
+    "Puncture kill validated: [9,5,4] punctured at one coordinate gives 32 distinct words length 8 distance >=3 (d>=2 preserves distinctness), contradicting A(8,3)<=28; systematic-DFS information-set + multiset + w[u]+r<D pruning logic sound."
+  ],
+  "residual_risks": [
+    "Systematic-DFS completeness rests on audited code logic (every [n,k] has an information set; multiset enumeration covers column permutations) rather than a formal proof artifact; node-count equality (625654) replayed but independent reimplementation not attempted beyond replay.",
+    "k<=4 generators are frozen seeded-search outputs; re-verify exactly but equivalence class / uniqueness of enumerators not addressed \u2014 enumerator is achiever-specific, not a cell invariant.",
+    "No live-search guarantee of absence of small-(n,k) defect/typing tables elsewhere (e.g. textbooks, theses); judgment rests on substantive mechanical-implication argument, not search completeness."
+  ],
+  "verdict": "REJECT"
+}
