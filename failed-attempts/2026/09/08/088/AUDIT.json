@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify_basins.py: VERIFY_OK. Exact-rational check A^T P+P A+I==0 holds for B1/B3/B5 P (det>0, P>0). Lyapunov logic Vdot<=-1+spread+K|z| is sound; KAPPA upper bounds valid (B1 0.6403<=0.641, B3 1.0469<=1.048, B5 0.8683<=0.869); spread<1, R<r* and V(R)<Vsafe hold with large margins even with 1e-9 padding, so Part A conclusion true. Equilibrium sup-g bounds (-0.3746/-0.6700/-0.8321) verified from box corners; B2/B4 saddle ac ranges [1.1544,1.2464]/[1.9404,2.0604] correct; Dulac base/slope logs for all five boxes and B5 slab -0.63 correct. ESSENTIAL DEFECT in B3 whole-plane uniqueness log: script/DRAFT claim bd in [-0.0576,-0.0416] and disc<=0.0108-0.1227<0. True box product range is [-0.0624,-0.0384] (b in [0.48,0.52], d in [-0.12,-0.08]); true min 4|bd||ac-1|=0.11329 not 0.1227, and true max s^2=0.010816 not 0.0108. Hence two printed intermediate inequalities are false as stated. Final conclusion disc<0 remains true (0.010816-0.11329=-0.10247<0) but the logged derivation is inaccurate. Additional rigor gap: spread/K/eigs use floats not intervals (margins >> eps so conclusion robust, but not formal interval proof as claimed). RK4 survey correctly excluded from proof.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest priors are general/asymptotic and disjoint from the five committed boxes: Giacomini-Neukirch chao-dyn/9705006 (algebraic approximations, no interval certificates), Han-Romanovski 1109.6470 (degree lower bounds, no fixed-box table), Lopez-Lopez-Ruiz nlin/0205027 (strongly-nonlinear asymptotics), Gasull-Giacomini-Grau 1602.00113 (transversal-curve existence for Brusselator/some Lienard/Rychkov, not these coefficients), Gasull-Giacomini 2101.03874 (general Dulac upper bounds). Live abstracts confirm no interval-certified Lyapunov/Dulac table for family dx/dt=y-(a x+b x^2), dy/dt=-x+c y+d x y at B1-B5 radius 0.02. The delivered fragment (disc radii, sup-g uniqueness, B=1 half-plane signs) is not recorded or mechanically implied as an exact box table. Hence new as a finite certificate.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest honestly-claimed headline is a partial exclusion fragment: tiny Lyapunov no-cycle discs (R=0.02/0.04/0.06), uniqueness in [-0.5,0.5]^2 / B3 whole-plane via quadratic discriminant, B=1 divergence sign on x>=0. No limit cycle, trapping annulus, Poincare return, or Floquet interval is claimed; full cycle-freeness open for every box; B2/B4 basins open. This is textbook linear stability + one-line algebra (Lyapunov equation at stable focus, quadratic g(x) bound, div=(c-a)+(d-2b)x sign from box corners with c-a<0, d-2b<0 by construction). Radii and half-plane logs are mechanically implied, not hard invariants; five boxes are arbitrary regime samples with no pre-existing identity as natural objects, and no future researcher would need R=0.02 or div<0 on x>=0 at these points. Gasull-Giacomini-Grau precedent (precise existence/location of detected cycles) does not transfer to tiny stable-focus discs plus open existence. DRAFT honestly flags incompleteness, but honesty does not create substantive result. Certification alone does not rescue arbitrary scope. Fails independent-retrieval test.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Transversal-curve Poincare-Bendixson existence/location method applied to Brusselator, some Lienard, Rychkov; general method, disjoint coefficients, no B1-B5 Lyapunov/Dulac table.",
+      "title": "Proving the existence of numerically detected planar limit cycles (Gasull-Giacomini-Grau)",
+      "url": "https://arxiv.org/abs/1602.00113"
+    },
+    {
+      "finding": "Degree-based lower bounds for maximal cycle counts of arbitrary-degree Lienard systems; no fixed-box existence/hyperbolicity certificates.",
+      "title": "On the number of limit cycles of polynomial Lienard systems (Han-Romanovski)",
+      "url": "https://arxiv.org/abs/1109.6470"
+    },
+    {
+      "finding": "General Bendixson-Dulac upper-bound criteria including curvature Dulac functions; general theorems, not the five committed box sign logs.",
+      "title": "Effectiveness of the Bendixson-Dulac theorem (Gasull-Giacomini)",
+      "url": "https://arxiv.org/abs/2101.03874"
+    }
+  ],
+  "decisive_checks": [
+    "Replayed verify_basins.py end-to-end: VERIFY_OK, reproduced all tables.",
+    "Exact Fractions re-solve: A^T P+P A+I==0 for all three P; P>0 via p11>0 det>0.",
+    "Recomputed KAPPA sqrt(4bb^2+dd^2) upper bounds valid; padded-float check spread<1, R<r*, V(R)<Vsafe still passes.",
+    "Recomputed sup-g, ac ranges, tr/disc signs: B1/B3/B5 uniqueness+stable-focus and B2/B4 saddle hold.",
+    "Recomputed div base/slope maxima and B5 slab: all correct.",
+    "Discovered B3 global-log error: true bd [-0.0624,-0.0384] vs claimed [-0.0576,-0.0416]; true 4|bd||ac-1|min 0.11329 vs 0.1227; true s^2max 0.010816 vs 0.0108. Corrected Dmax -0.10247<0 so conclusion survives but log false as written."
+  ],
+  "residual_risks": [
+    "Float (not interval) eig/Fn/spread/K evaluation: robust given ~1e-3 margins but not formal interval certificate.",
+    "B3 global margin after correction still comfortable (-0.10) but logged numbers must be fixed to avoid false precision.",
+    "RK4 non-existence survey is non-rigorous and correctly excluded; no cycle-freeness inferred from it."
+  ],
+  "verdict": "REJECT"
+}
