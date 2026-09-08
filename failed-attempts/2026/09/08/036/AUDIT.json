@@ -1,0 +1,55 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "The as-stated bounded-range claim (V<=144 slice) is computationally sound; no global conjecture resolution is claimed and none is verified. Verified: (i) raw enumeration size 2,002,829 recomputed combinatorially from sum_{a,c,f} c*f*f and matches stage1.json n_raw; (ii) canon.py selftest passes (left/right HNF invariance, vertex-permutation/GL/translate/reflect invariance); (iii) triangular bounds 0<=b<c, 0<=d,e<f are exactly column-HNF lower-triangular normal-form conditions (0<=L[i][j]<L[i][i]), so the 'triangular presentation lemma' is the standard HNF existence theorem applied to the edge matrix after translating a vertex to origin \u2014 the informal 'rotate shortest direction' sketch in DRAFT sec.2 is not a machine-checked proof but the underlying theorem is standard, and DRAFT sec.6 honestly discloses completeness is modulo this lemma; (iv) stage-1 boxes are supersets (all triangular vertices have nonneg coordinates, box [0,max]x[0,max]x[0,f]; stage-2 uses min..max boxes) and per-tetra counts are exact integer adjugate/barycentric tests; (v) calibration reproduces published values exactly: i=1 -> 225, i=2 -> 471 in depth_dist and in stored k<=3 slice; (vi) independent pure-Python integer recount (det/adjugate/bounding-box code written for this audit, no numpy, no shared code path) of all 741 stage-2 witnesses confirms V, L1 and i=3 with 0 mismatches; L2/Ehrhart recount on 50-case sample plus all V>=128 cases confirms L2/h with 0 mismatches; V==1+d1+d2+3 holds for all 741; 0 reciprocity failures (h3==3); (vii) maxima are unique in-range: exactly one V==144, one d1==67, one d2==73, all the same class key ((1,0,0),(3,6,0),(3,6,24)); canon_key(conv{(0,0,0),(2,0,0),(0,3,0),(0,0,24)}) equals that key and integer det gives V=144, L1=71, i=3, L2=351, h=(1,67,73,3), confirming the S^3_3 identity. Boundary conditions respected: DRAFT sec.6 explicitly disclaims V>144 and second-enumeration cross-check; stage3 (145..200+ violator sweep) produced no output, so no global Vol<=144 / delta verdict at k=3 is established \u2014 correctly scoped as bounded census only. The 94,278 total-class figure itself is not per-class verifiable (only depth_dist summary retained; only the 9,518 k<=3 classes are stored), but all numbers essential to the bounded k=3 claim are stored and re-verified.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively (abstracts + conjecture/bound statements via live arXiv fetches): Balletti-Kasprzyk arXiv:1612.08918 classifies 22,673,449 polytopes with exactly 2 interior points (471 tetrahedra / 548 weights at k=2) and states Conjectures 1.5 (Vol<=(k+1)(s_d-1)^2, i.e. 36(k+1) in 3D) and 6.1 (delta1<=16k+19, delta2<=19k+16) as open beyond k=2 \u2014 no k=3 classification, no W(3,3), no Vol<=144 / 67 / 73 verdict; Averkov-Krumpelmann-Nill arXiv:1309.7967 settles only the k=1 simplicial sharp bound (Hensley); Averkov-Krumpelmann-Nill arXiv:1710.08646 gives only a nearly-optimal (linear-factor-off) volume bound for fixed-k simplices, not the sharp (3,3) bound nor any census; Blanco-Santos 6-point-slice work covers only 23 clean 2-interior tetrahedra among 74+2 six-point polytopes, a different total-point slice. None lists 741 three-point tetrahedra at V<=144, none gives in-range maxima V=144/d1=67/d2=73 with unique S^3_3 extremal, and none mechanically implies them: the counts depend on exhaustive dedup + lattice-point enumeration, not on formulas or on the 4319 reflexive database. The S^3_3 simplex itself and its invariants are prior (Zaks-Perles-Wills extremal), but the 741 in-range census and the verified in-range uniqueness of the extremal are new data. Originality therefore passes for the bounded datum, even though value fails.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The achieved result is a volume-truncated partial enumeration, not the natural-scope theorem the topic admitted and not the fallback complete census. The admitted scope was ALL 3D tetrahedra with exactly 3 interior points (fixed-interior stratum) with a proof-or-counterexample verdict on Vol<=144 and delta1<=67/delta2<=73; the admitted fallback was the first COMPLETE 3-point-tetrahedron census (exact total count, W(3,3), global maxima/maximizers). What is delivered is 'exactly 741 classes with V<=144', with V>144 explicitly left open (DRAFT sec.6; stage3 killed with no output). Consequences: (a) the volume 'verification' in-range is tautological \u2014 every enumerated case satisfies V<=144 by construction of the range, and existence of S^3_3 at V=144 was already the conjectured extremal; the conjecture Vol<=144 for the family remains undecided because a V>144 three-point tetrahedron remains logically possible; (b) the delta verifications d1<=67/d2<=73 are nontrivial in-range (V<=144 permits e.g. d1=100/d2=10) but remain conditional on V<=144, since V=1+d1+d2+3 means any large-V violator would also move d1+d2 \u2014 no global delta verdict is established; (c) '741' is an unstable lower bound on the true total, not a citable total \u2014 it will grow if any V>144 case exists, so a later worker needs the complete classification, not this truncation; (d) the V<=144 cutoff is the conjecture bound itself, i.e. a conjecture-defined window rather than a natural parameter stratum, closely resembling previously-failed fixed-volume h*-censuses (e.g. hollow/once-punctured tetrahedra at volume 20) and Goldbach-to-N style partial evidence: correct, new, honestly disclosed, but not independently worth finding later as a theorem. Either a genuine V>144 violator or a finiteness-bound-backed complete verification (e.g. sweeping to the explicit AKN nearly-optimal bound) would change the boundary; this artifact does neither. Hence fails the value bar (textbook-method enumeration in a truncated range without boundary-changing verdict).",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Classifies 3D polytopes with two interior points (22,673,449 polytopes; 471 tetrahedra / 548 weights at k=2); proves Conjecture 1.5 only for (3,1),(3,2); states Conjectures 1.5 (Vol<=(k+1)(s_d-1)^2) and 6.1 (delta bounds) as open beyond k=2. No k=3 census or Vol<=144 verdict.",
+      "title": "Three-dimensional lattice polytopes with two interior lattice points (Balletti-Kasprzyk)",
+      "url": "https://arxiv.org/abs/1612.08918"
+    },
+    {
+      "finding": "Exact sharp volume bound + maximizer characterization for 1-interior-point simplices in all dimensions (Hensley solution). Precedent for simplicial-case theorems; does not treat k=3 or (3,3).",
+      "title": "Largest integral simplices with one interior integral point (Averkov-Krumpelmann-Nill)",
+      "url": "https://arxiv.org/abs/1309.7967"
+    },
+    {
+      "finding": "Explicit upper volume bound for fixed-k lattice simplices differing from conjectural sharp bound by linear factor in dimension; improves Pikhurko but does not prove sharp Vol<=144 at (3,3) nor classify 3-point tetrahedra.",
+      "title": "Lattice simplices with a fixed positive number of interior lattice points: A nearly optimal volume bound (Averkov-Krumpelmann-Nill)",
+      "url": "https://arxiv.org/abs/1710.08646"
+    },
+    {
+      "finding": "Classifies 3-polytopes with exactly 6 lattice points (74 width-2 + 2 width-3; 23 clean 2-interior tetrahedra). Different total-point slice; no 3-interior-point tetra census or k=3 volume/delta verdict (per topic admission record).",
+      "title": "Lattice 3-polytopes with six lattice points (Blanco-Santos)",
+      "url": "https://arxiv.org/abs/1501.01055"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed raw enumeration size combinatorially (sum c*f*f over acf<=144 = 2,002,829) \u2014 matches n_raw.",
+    "Ran canon.py selftest \u2014 OK (HNF left/right invariance, affine-equivalence invariance).",
+    "Verified depth_dist sums to n_classes 94,278; i=1 count 225 and i=2 count 471 match published calibration exactly.",
+    "Independent pure-integer audit recount of all 741 witnesses (det/adjugate/box code, separate from numpy paths): V, L1, i=3 all match, 0 mismatches.",
+    "Ehrhart L2 recount on 50-case sample plus all V>=128 extremals: L2/h match, 0 mismatches; V==1+d1+d2+3 holds for all 741; 0 reciprocity failures.",
+    "Confirmed uniqueness in-range: one V==144, one d1==67, one d2==73, same key; canon_key(S^3_3)==canon_key(stored maximizer witness); integer recount of S^3_3 gives V=144,h=(1,67,73,3).",
+    "Confirmed limitation: stage3 violator sweep has no output; DRAFT sec.6 disclaims V>144; global conjectural verdicts therefore not established \u2014 volume in-range check is tautological, 741 is range-conditional lower bound."
+  ],
+  "residual_risks": [
+    "Completeness rests on the standard column-HNF existence theorem (not machine-checked); DRAFT proof sketch is informal but disclosed.",
+    "Full 94,278-class dedup not per-class stored (only depth_dist + 9,518 k<=3 classes); total figure relies on logged summary, though k<=3 slice is fully stored and re-verified.",
+    "L2 independently rechecked on subset (50 + V>=128 extremals), not all 741, with pure-int code; full 741 L2 check rests on stage2.json second code path.",
+    "No assessment of unpublished enumerations beyond live-source + admission scans; novelty rests on absence of (3,3) census in cited published record.",
+    "Value failure is structural (truncated range without finiteness closure), not fixable by presentation edits; completion requires bounded violator sweep to an explicit finite volume ceiling plus rerun."
+  ],
+  "verdict": "REJECT"
+}
