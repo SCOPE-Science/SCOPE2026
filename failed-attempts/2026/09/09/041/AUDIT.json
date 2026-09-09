@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "DRAFT.md self-reports a global inconsistency that is fatal under standard Khovanov-Lee theory: E2 survivors after the four Phi-induced ranks (1,1,0,1) on total Kh dim 10 leave E3 of dim 4 at (0,7),(0,9),(4,15),(5,19) with 'no further nonzero bigrading-compatible higher differential', while the same pipeline reports ungraded Lee homology dim 2. Over Q, Lee homology of any knot has dim 2 (Lee), so E_inf must have dim 2. E3=4 with no further differential contradicts Lee=2; hence at least one of the three computed inputs (rational Kh bigradings, Phi-induced E2 ranks, Lee nullity) deviates from the standard theory, as DRAFT sec.4 honestly states. Because the three inputs come from the same code pipeline (kh_stepG/kh_stepH/kh_stepI/kh_stepJ), the error cannot be localized from the logs: every check applied (d^2=0 on 20155 compositions, Euler/chi, trefoil control, global dPhi+Phid=0 mod 1e9+7 on 122866 entries, two-prime rank agreement, spot SNF) passed yet the joint output is mathematically impossible. Evidence is experimental, not proof: all 60 Kh block ranks outside 6 SNF-checked blocks rest on agreement mod two primes (1000000007, 998244353), not exact arithmetic; odd torsion outside two SNF blocks explicitly not excluded; three of four E2 ranks rest on mod-prime quotient computations (only the (4,15)->(5,19) zero is exact over Z); Lee nullity rests on mod-prime ranks; dPhi+Phid checked only mod prime. No collapse page, no E-inf bigradings, and no torsion-to-collapse lemma are claimed. Mirror/orientation ambiguity is flagged in research_report.json (s=+8 computed vs s=-8 admission/KnotAtlas). Therefore no headline claim is proved; the only certified fragments are partial SNF facts conditional on an otherwise-contradicted pipeline.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The parts of the profile that appear correct are already tabled on KnotAtlas 10_124, contradicting DRAFT's gap statement. KnotAtlas 10_124 displays the full bigraded Khovanov table (t^r q^j coefficients with chi column), with nonzero entries at exactly the 10 bigradings DRAFT lists: (0,7),(0,9),(2,11),(3,15),(4,13),(4,15),(5,17),(5,19),(6,17),(7,21), plus Jones -q^10+q^6+q^4, PD X4251..., DT, signature 8, s=-8, and the integral table (Data:10_124/Integral_Khovanov_Homology) showing Z summands and Z2 torsion at r=3 and r=7, i.e. the same Z2 pattern DRAFT re-hosts at (2,13)/(6,19) via UCT excess at (2,13),(3,13),(6,19),(7,19). DRAFT's claim that 'KnotAtlas tabulates ... only as ungraded or chi-level data' and 'records no integral SNF torsion locations per bidegree' is factually false on live fetch. Hence rational Kh dims and Z2-host existence/location are not new and not mechanically separated from the prior table. The only in-principle-new data (Phi-induced E2 ranks 1,1,0,1, Lee-nullity replay logs) cannot be credited as a new exact invariant because correctness FAIL shows the joint computation is inconsistent (E3=4 vs Lee=2), so no reliable new value is established. Rasmussen (math/0402131), Bar-Natan (math/0410495, math/0201043), Turner (math/0606464) and Shumakovitch (math/0405474) define the spectral sequence and integral torsion but table no Lee pages for W, which would have been a gap, but the candidate does not fill it with a correct value.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judging the strongest self-contained headline separately: the admitted headline of topic.json was an 8-knot Lee collapse-page census plus torsion-to-collapse lemma (fallback: one certified single-knot Lee profile with exact collapse page or certified late-collapse witness). DRAFT explicitly delivers neither: only 10_124 of 8 is carried past Jones level (10_128 Jones-matched only), collapse page/E-inf/lemma are 'explicitly NOT claimed', and no late-collapse witness is certified (the tension is an error flag, not a bigraded E3-or-later nonzero differential certificate). The remaining fragment is (a) rational Kh bigradings already on KnotAtlas, (b) SNF Z2 hosts already implied by the KnotAtlas integral table, and (c) mutually-contradictory E2/Lee numbers. Certification/replay logs alone do not rescue already-tabled data as independently retrievable value, and the narrow-datum allowance does not apply because the value is already known and the new numbers are not rigorously established. No transferable lemma, no completed census, no downstream theorem, and no new obstruction is provided. Hence no independently worth-finding-later result survives even if the fragment were corrected without a new substantive finding.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "PD X4251 X8493 ... matches committed PD; Jones -q^10+q^6+q^4, signature 8, s=-8, smooth 4-genus 4; full bigraded Kh table with nonzero entries at the same 10 bigradings DRAFT claims, plus chi column; integral table with Z and Z2 at r=3 and r=7. Proves Kh dims and Z2 pattern already tabled; no Lee E_r pages or Turner ranks tabled.",
+      "title": "KnotAtlas 10_124 knot page",
+      "url": "https://katlas.org/wiki/10_124"
+    },
+    {
+      "finding": "Integral Kh table shows Z summands per (r,i) and Z2 at r=3 and r=7, i.e. per-bidegree torsion data already recorded, contradicting 'no integral SNF torsion locations per bidegree' gap claim.",
+      "title": "KnotAtlas Data:10_124/Integral_Khovanov_Homology",
+      "url": "https://katlas.org/wiki/Data:10_124/Integral_Khovanov_Homology"
+    },
+    {
+      "finding": "Defines s via Lee deformation, proves Lee homology dim 2 over Q and |s|/2<=g4; establishes spectral sequence exists but tabulates no collapse pages or Turner ranks for 10_124-10_131. Used as background and to derive E3=4-vs-Lee=2 contradiction.",
+      "title": "Khovanov homology and the slice genus (Rasmussen)",
+      "url": "https://arxiv.org/abs/math/0402131"
+    },
+    {
+      "finding": "Candidate inputs: DRAFT.md 87 lines, research_report.json claim/limitations, pd_codes.json, kh_ranks_1000000007.json / kh_ranks_998244353.json (byte-identical), kh_ranks_mod2.json, lee_ranks_10_124.json (Lee dim 2), kh_stepG.py/kh_stepJ.py/kh_stepK.py inspected for mod-prime-only ranks and UCT-excess method.",
+      "title": "Candidate artifacts (local inputs)",
+      "url": ""
+    }
+  ],
+  "decisive_checks": [
+    "Compared DRAFT item-1 list (0,7),(0,9),(2,11),(3,15),(4,13),(4,15),(5,17),(5,19),(6,17),(7,21) total 10 against live KnotAtlas 10_124 Kh t^r q^j table: identical support; chi agreement claimed in DRAFT is therefore agreement with already-published table, not new.",
+    "Compared DRAFT item-2 UCT excess at (2,13),(3,13),(6,19),(7,19) and hosts (2,13),(6,19) against KnotAtlas integral table Z2 at r=3 and r=7: same torsion pattern already recorded per bidegree.",
+    "Verified self-contradiction arithmetic: 10 - 2*(1+1+0+1) = 4 survivors at (0,7),(0,9),(4,15),(5,19); DRAFT asserts no further bigrading-compatible higher differential, forcing E_inf=4, contradicting reported Lee dim 2 and Lee's dim-2 theorem; at least one pipeline output is wrong.",
+    "Classified evidence level: 60 Kh ranks = two-prime agreement only; SNF exact only for d(2,13),d(6,19),d(0,9),d(1,9),d(4,19),d(5,19),d(3,15),d(4,15); odd torsion not excluded; 3/4 E2 ranks mod-prime only; dPhi+Phid and Lee nullity mod-prime only; hence experimental, not proof, and globally invalidated by the contradiction.",
+    "Confirmed headline absence: DRAFT sec.4 and research_report.json limitations withhold collapse page, E-inf bigradings, 8-row census (7/8 knots missing past Jones), torsion-to-collapse lemma, and late-collapse witness; fallback criterion of topic.json not met."
+  ],
+  "residual_risks": [
+    "Did not re-execute the stdlib pipeline (time-bounded audit); relied on DRAFT's honest tension disclosure plus KnotAtlas table comparison, which is already decisive.",
+    "Did not exhaustively search all post-2005 Lee-collapse literature for T(3,5)/10_124 E2 ranks; irrelevant because correctness FAIL and KnotAtlas overlap already force REJECT, and any such prior would only strengthen originality FAIL.",
+    "Exact location of the pipeline bug (grading shift, Phi sign/convention, quotient-representative error, mirror/writhe handling) not isolated; isolation would require re-derivation, not a bounded fix given the global inconsistency plus prior-art overlap."
+  ],
+  "verdict": "REJECT"
+}
