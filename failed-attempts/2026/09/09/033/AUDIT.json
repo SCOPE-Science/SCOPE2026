@@ -1,0 +1,55 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed independently with sympy: a1=c, a2=c^3+c, a3=(c^3+c)^3+c = c^9+3c^7+3c^5+c^3+c, so a3-a2 = c^9+3c^7+3c^5 = c^5*(c^4+3c^2+3). Lemma 1 (exactness) is complete: c=0 gives type (0,1) and is excluded since G(0)=3; for c!=0, a3=a2 iff G(c)=0; gcd(G,c)=1, gcd(G,c^2+1)=1 verified, so a1=c!=0, a2-a1=c^3!=0, a2=c(c^2+1)!=0, hence a0,a1,a2 distinct and a3=a2, i.e. exact tail 2 period 1. Smaller types (0,1),(1,1) correspond to t|1, k<=2 and are excluded by same gcds. Converse holds. Lemma 2 (Eisenstein at p=3): G=c^4+3c^2+3 has coefficients [1,0,3,0,3], all non-leading divisible by 3, constant 3 not divisible by 9, hence irreducible over Q, all roots degree 4. Therefore no root has minimal-polynomial degree <=2. Proof is complete elementary proof, not experimental evidence; numeric 50-digit replay and discriminant 432 are surplus. No height bound invoked, honestly disclaimed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline claim (G_{3,2,1}=c^4+3c^2+3 irreducible / no root degree<=2 / no (2,1) realization over quadratic fields) was already recorded and mechanically implied by Hutz-Towsley arXiv:1309.4048 v2 (2013-2014). Theorem 1.1 gives the general primitive Misiurewicz formula G_d(m,n) whose specialization to (d,m,n)=(3,2,1) is exactly c^4+3c^2+3 (verified: Phi^*_{2,1}=(a3-a2)/(a2-a1)=c^2*G, divided by Phi^*_{0,1}^{d-1}=c^2 yields G; degree 4 matches Corollary 3.3 count (d^m-d^{m-1}-d+1)*sum =4). Figure 1 irreducibility table, d=3 row, lists as Irreducible '{(m,n)|0<=m<=3,1<=n<=3} U (4,2)' with Reducible empty, explicitly covering (2,1). An irreducible quartic has no linear or quadratic factor, so 'no root degree<=2' and the quadratic-field non-realization corollary follow mechanically without further work. Admission triage compared only Looper (conditional), Siu (quadratic counting, conditional), Benedetto-Ih (qualitative S-integral), Dunaisky-Krumm (periodic-critical quadratics) and omitted Hutz-Towsley irreducibility data, which is the nearest prior. Candidate's Eisenstein verification is correct but a new one-line proof of an already-tabled irreducibility does not create a new fact. Timestamp/failed search does not establish priority; substantive prior record defeats it.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "In isolation the fact type would be independently worth retrieving under the narrow-datum allowance: object G_{3,2,1} is the natural minimal strictly-preperiodic cubic unicritical Misiurewicz polynomial, motivated before computation by Morton-Silverman / dynamical Andre-Oort portrait program, value (exact irreducibility / degree-4 / quadratic-field obstruction) is not mechanically implied by definitions and a future researcher could need the precise polynomial and degree. It is not a textbook restatement, arbitrary slice, or unexplained enumeration. Value PASS does not rescue originality failure.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Theorem 1.1 gives primitive formula G_d(m,n); specialization to (3,2,1) yields c^4+3c^2+3; Figure 1 d=3 row lists all (m,n) with 0<=m<=3,1<=n<=3 including (2,1) as Irreducible, Reducible empty. Irreducible quartic mechanically implies no degree<=2 root. Directly anticipates headline verdict.",
+      "title": "Misiurewicz Points for Polynomial Maps and Transversality (Hutz-Towsley)",
+      "url": "https://arxiv.org/abs/1309.4048"
+    },
+    {
+      "finding": "Conditional proof of Morton-Silverman for polynomials assuming Vojta-type conjecture; unconditional only for function-field unicritical degree>=5. Does not cover single-portrait verdict but farther than Hutz-Towsley.",
+      "title": "The Uniform Boundedness and Dynamical Lang Conjectures for polynomials (Looper)",
+      "url": "https://arxiv.org/abs/2105.05240"
+    },
+    {
+      "finding": "Asymptotics for quadratic z^2+c with given portrait conditioned on Morton-Silverman. Disjoint: quadratic counting vs cubic (3,2,1) non-realization.",
+      "title": "On the number of quadratic polynomials with a given portrait (Siu)",
+      "url": "https://arxiv.org/abs/2409.18074"
+    },
+    {
+      "finding": "Qualitative S-integral finiteness for PCF unicritical parameters, no explicit (3,2,1) exclusion or factor-degree verdict.",
+      "title": "A finiteness property of postcritically finite unicritical polynomials (Benedetto-Ih)",
+      "url": "https://arxiv.org/abs/2010.15941"
+    },
+    {
+      "finding": "Conjecturally complete lists for quadratic rational maps with periodic critical point periods 2-4; periodic-critical quadratics, not strictly-preperiodic cubic (2,1).",
+      "title": "Portraits of quadratic rational maps with a small critical cycle (Dunaisky-Krumm)",
+      "url": "https://arxiv.org/abs/2404.00731"
+    }
+  ],
+  "decisive_checks": [
+    "Independent sympy replay: factor(c^9+3c^7+3c^5)=c^5*(c^4+3c^2+3), Poly(c^4+3c^2+3).is_irreducible=True, discriminant 432, gcd(G,c)=gcd(G,c^2+1)=1, VERIFY_OK",
+    "Eisenstein check: coeffs 1,0,3,0,3 all non-leading 0 mod 3, const 3 not 0 mod 9 => irreducible, degree 4",
+    "Exactness boundary check: c=0 excluded (type (0,1)), a2-a1=c^3, a2=c(c^2+1), both nonzero on G=0 via gcds; covers all (k,1) with k<=2",
+    "Hutz-Towsley match: (a3-a2)/(a2-a1)=c^2*G, divide by c^{d-1}=c^2 gives G; Corollary 3.3 degree (9-3-3+1)*1=4 matches; Figure 1 d=3 irreducible cell includes (2,1)",
+    "Admission gap: topic.json nearest_known_results omits Hutz-Towsley Figure 1 irreducibility entry"
+  ],
+  "residual_risks": [
+    "Hutz-Towsley Figure 1 is presented as computed irreducibility data rather than a separately proved theorem for each cell, but it is still a published substantive record of the exact invariant plus a formula from which the polynomial is mechanically derivable; originality defeat does not depend on whether their verification was Eisenstein or Sage factoring",
+    "No correctness risk remains; all inferences and boundary conditions checked"
+  ],
+  "verdict": "REJECT"
+}
