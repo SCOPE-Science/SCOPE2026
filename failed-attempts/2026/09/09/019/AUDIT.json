@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify_crossover.py: VERIFY_OK. Exact Fraction layer verified independently: det=1 for XA,YA,XB,YB; ALPHA=[[0,-1],[1,3]], BETA=[[3/2,1],[5/4,3/2]], trace 3 at tau=0; trace coefficients (1/2,2,1/2) and mirror (1/2,1/2,2), so trB(tau)=trA(-tau), D odd, D(0)=0 exactly; FD check <1e-6. Interval layer enclosures replay with huge margins: tr>=2.699>2 hyperbolic; lA' in [0.649,2.403] giving D'>=1.298>0; D(-0.01) in [-0.02683213595914,-0.02683213595904]<0<D(0.01); systole intervals widths ~5e-14 <<0.05 with disjoint leadership margins 0.66 at +/-T and tie at 0 (l*=2arcosh(3/2) in [1.92484730023839,1.92484730023844]); l0 in [3.05712949,3.05722051] giving gap >=1.132>=0.05 vs tracked m(tau)<=l(0) by monotonicity+oddness. Minor logical-order circularity (tight tr-range via endpoints used to prove tr-monotonicity) is closable: tr''>0 proved, tr'(t)=2e^t-0.5e^-t>=2e^-0.25-0.5e^0.25~0.915>0 analytically, and crude ARC enclosure still gives positivity; margins exceed widths by >=6 orders so nextafter+2e-15 libm padding soundness does not affect conclusions. McShane partial sums correctly labelled as enclosed partials with tail <5.5e-9, explicitly NOT claimed as full identity proof. Minimality explicitly limited to two tracked families, honestly stated. Hence the narrow tracked-family calculus headline as written (with limitations) is correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp: fetched and compared nearest priors. An-Ihringer-Irmer 2504.17316 (index/minimal-filling sets, genus-5 example) is qualitative index theory, no twist-arc crossover interval. Irmer 2401.05734 (Morse-Smale Thurston spine) is structural spine theory, no interval-certified leadership crossing. Fortier Bourque et al 2105.03871 (extremal-length systole sqrt(2) local max at Bolza) is qualitative maximality, no hyperbolic-length crossover or gap enclosure. Bhattacharya et al 2512.21463 (FN coordinates of cyclic fixed points orders 10/8/4) is coordinate computation, not systole crossover. None publishes the committed matrices, closed forms 1/2+2e^tau+0.5e^-tau/mirror, or a width-0.02 crossover bracket with gap. Different from blocked 2D Fricke-box sup (FAIL-038) and octagon/dodecagon census (FAIL-076) which use collar-packing/global exclusion; this uses 1D derivative-sign uniqueness. Narrow novelty therefore holds.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest honestly proved headline is pure tracked-family calculus on ad hoc rational matrices: trA=1/2+2e^tau+0.5e^-tau, trB mirror, D odd with unique zero tau*=0, D'>=1.298, tracked minima, and l0-m>=1.132. Natural-object identity, literature position, and mathematical interpretation as Bolza-symmetric FN-twist systole crossover are missing: no proof R(tau) are Fuchsian holonomies of closed genus-2 surfaces, no proof A,B are simple closed geodesics, no proof Tw is FN twist about sigma, no proof tau=0 is Bolza-symmetric, no Wolpert-formula justification, no global word exclusion. Labels 'Bolza-symmetric', 'separating', 'systole', 'Dehn orbits' are therefore unsubstantiated; draft admits minimality only among two tracked families and no spine-stratum claim. Moreover crossing is mechanically implied by construction (swap coefficients 2<->1/2 forces mirror symmetry and odd D), a textbook exponential-monotonicity exercise. Numbers confirm non-Bolza character if interpreted geometrically: tracked centre 1.9248473 << l0 3.05714; a surface carrying a 1.92 geodesic cannot be the Bolza surface whose systole is 3.05714. Hence this is certification of an arbitrary object / unexplained number: correct and narrowly new but not independently worth retrieving; future spine/systole work cannot reuse the crossover words or gap as a systole benchmark because global systole leadership is unproved. No bounded value-only addition can fix this without changing the problem (would require proving Fuchsian/simplicity/Bolza identity and global systole exclusion, i.e. the avoided new research direction). Intrinsic low value + arbitrary scope => REJECT, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Index of systole-function critical points and minimal filling sets (genus-5, m-gon tessellations via ILP); no twist-arc crossover interval or separating-gap enclosure.",
+      "title": "Small genus, small index critical points of the systole function",
+      "url": "https://arxiv.org/abs/2504.17316"
+    },
+    {
+      "finding": "Morse-Smale structure of Thurston spine from systole function; structural theory, not interval-certified leadership crossing on explicit arc.",
+      "title": "The Morse-Smale Property of the Thurston Spine",
+      "url": "https://arxiv.org/abs/2401.05734"
+    },
+    {
+      "finding": "Extremal-length systole strict local maximum sqrt(2) at Bolza; qualitative maximality, no hyperbolic-length crossover or gap.",
+      "title": "The extremal length systole of the Bolza surface",
+      "url": "https://arxiv.org/abs/2105.03871"
+    },
+    {
+      "finding": "FN coordinates of cyclic-action fixed points (genus-2 orders 10/8/4); coordinate algorithm, not systole crossover/gap certificate.",
+      "title": "Fenchel-Nielsen coordinates of the branch loci of cyclic actions",
+      "url": "https://arxiv.org/abs/2512.21463"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran verify_crossover.py -> VERIFY_OK; independently recomputed dets, trace coeffs, trA/trB/D values, lA'(0)=1.5/sqrt(1.25), D'(0)=6/sqrt(5), l0=2arcosh(1+sqrt2)~3.05714, l*~1.92484 with Python math.",
+    "Verified hyperbolicity tr>=2.699>2, derivative lower bound 0.649, D bracket sign reversal, disjoint leadership margins 0.66, gap 1.132, tail 5.47e-9; margins >> widths.",
+    "Confirmed draft honestly limits to tracked families and McShane partials, so correctness judged on that narrow claim.",
+    "Confirmed no prior publishes same matrices/closed forms/bracket; nearest works differ in object, invariant, conclusion, method.",
+    "Confirmed value failure: arbitrary committed matrices, mirror-implied odd crossing, missing Fuchsian/simplicity/Bolza/FN/Wolpert/global-systole proofs; 1.924<<3.057 shows tau=0 is not Bolza if curves are geodesics."
+  ],
+  "residual_risks": [
+    "Interval soundness rests on informal nextafter+LIBM_REL padding rather than formal directed-rounding proof, but margins >=6 orders make mis-enclosure implausible; noted minor endpoint-range circularity closable by two-step crude-then-tight argument.",
+    "No independent check of McShane tail geometric derivation, but draft does not claim it as theorem so not decisive."
+  ],
+  "verdict": "REJECT"
+}
