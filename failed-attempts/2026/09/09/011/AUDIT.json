@@ -1,0 +1,55 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify.py at --half-nblocks=300: VERIFY_OK. Independently verified: 204 total primitive chi (99 even, 105 odd); completeness sum_{d|q}Nprim+1=phi(q) for all q<=32; conductor==q for all 204 (proper divisor test, 0 fails); L(1) box max width ~8e-79 (<=1e-6); min |L|^2 ordering q19 i=4/12 (0.17072881600020...) < runner-up q5 i=1 (0.18525185646175...) with gap ~0.0145; L(1) formulas spot-checked against direct Dirichlet series (even matches to 1e-10, odd to truncation O(q/N)); |L|^2 lower-bound corner logic correct conditional on box not containing origin. Central even nonvanishing passes numerically (min lo/t~5.44, margin/t~4.44 at B=1500; doubled-U check passes). BUT essential inference fails: DRAFT/verify.py claim Emax=max_b|C_b| <= floor(phi(q)/2) with justification 'at most phi(q)/2 nonzero summands of modulus 1'. That justification is false: e.g. q=5, b=3 has 3 coprime residues 1,2,3 (3 nonzero summands > phi/2=2). The verifier assumes Emax=phi//2 without any rigorous per-character certificate of max|C_b|. Hence the as-presented tail majorant U=Emax/sqrt(N+1) lacks a valid proof. The conclusion is salvageable: the trivial bound Emax=phi(q) (|C_b| <= count of coprime a<=b <= phi) is rigorously valid and still yields lo-U_phi>0 for all 99 even chi at B=1500 with min margin 0.162 (checked). Telescoping sum_r(f(N+rq+1)-f(N+rq+q))<=f(N+1) via disjoint integral spans is correct; M=0 for primitive conductor>=3 is classical and numerically re-asserted. L(1) census and minimum disjointness are sound conditional on mpmath iv outward rounding (stated limitation, margins enormous). Because one load-bearing constant has a false proof, correctness FAILs pending a bounded fix.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Live substantive comparison, not timestamp: LMFDB L-page 1-5-5.4-r0-0-0 shows Particular Values with approx sign (L(1)~0.4304089409, L(1/2)~0.2317509475), no rigorous width, no exclusion/disjointness/minimum claim. LMFDB Completeness confirms >20M L-functions including all primitive Dirichlet L with N<=2800 with explicit precision bounds for zeros/rank, but publishes no closed interval-certified L(1) minimum table with extremal witness over q<=32. Platt mcom/3198 is rigorous zero-isolation method precedent, not L(1) enclosures/minimum. Iwaniec-Kowalski coll/053 gives AFE and Siegel-Tatuzawa-type general bounds, not a finite closed enclosure. No prior source records or mechanically implies the exact target: 204 width<=1e-6 L(1) boxes excluding 0 with named q=19 conjugate-pair minimum (chi(2)=exp(2pi i*5/18), exp(2pi i*13/18)) disjoint below all others plus 99 certified nonzero even L(1/2) enclosures recomputed from character sums with remainder bounds and orthogonality cross-check. Formulas are honestly claimed classical; novelty is the closed replayable census + disjointness witness, not database rounding.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline claim judged separately: exact interval-certified minimum of |L(1,chi)| over the complete initial primitive window q<=32 (named q=19 conjugate pair, gap ~0.0145 in |.|^2) plus certified nonzero even central values. Object (primitive Dirichlet L, q<=32) and invariant (extremal size/nonvanishing feeding class-number-formula lower bounds, Siegel-zero repulsion, uniformity tests) were motivated before computation; scope is the complete initial window with every character included, no cherry-picking; value (0.40032619437...+i0.10231204279..., |L|^2 in [0.17072881600020...], runner-up 0.18525..., central minimum [0.208658,0.254844] at q=5) was not known or mechanically implied (floats only in LMFDB, general bounds in textbooks); future researcher could reasonably need the precise fact for formula checks, explicit-bound verification, benchmarking rigorous L-software. Per value guidance this is an eligible exact invariant of a natural object, not a textbook restatement, parameter substitution, tiny tweak, or unexplained enumeration. Certification/replayability strengthen but do not create the claim. PASS.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Particular Values displayed as approximate floats with approx sign: L(1/2)~0.2317509475, L(1)~0.4304089409. No rigorous interval, no width<=1e-6, no disjointness/minimum claim.",
+      "title": "LMFDB L-function 1-5-5.4-r0-0-0",
+      "url": "https://www.lmfdb.org/L/1/5/5.4/r0/0/0"
+    },
+    {
+      "finding": "Database holds >20M L-functions including all 1,448,484 primitive Dirichlet L with N<=2800 with explicit precision bounds for zeros/rank. No published closed interval-certified L(1) minimum table with extremal witness.",
+      "title": "LMFDB Completeness of L-function data",
+      "url": "https://www.lmfdb.org/L/Completeness"
+    },
+    {
+      "finding": "Rigorous interval-verified zeros for zeta/L-functions; method precedent only, does not publish certified L(1) enclosures or extremal-minimum witness over small conductors.",
+      "title": "Platt (2017) Isolating zeros, Math. Comp.",
+      "url": "https://doi.org/10.1090/mcom/3198"
+    },
+    {
+      "finding": "Standard reference for AFE and Siegel-Tatuzawa-type L(1,chi) bounds; asymptotic/effective lower bounds and method background, no finite closed enclosure census over q<=32.",
+      "title": "Iwaniec-Kowalski Analytic Number Theory",
+      "url": "https://doi.org/10.1090/coll/053"
+    }
+  ],
+  "decisive_checks": [
+    "verify.py --half-nblocks=300 replays VERIFY_OK: 204 L(1) boxes widths<=1e-6, min q=19 pair |L|^2<=0.170728816000 < next 0.185251856462; 99 even L(1/2) nonzero.",
+    "Independent count: 204 primitive (99 even/105 odd); completeness identity passes all q<=32; conductor==q for all 204 (0 fails) under correct (a-1)%dd==0 test.",
+    "certL1_table.json max Re/Im width ~8e-79; sorted n2lo confirms q19 i=4/12 identical minima then q5 i=1 runner-up; n2lo>0 throughout.",
+    "L(1) formula spot-check vs truncated Dirichlet series N=200k: even q5/q8/q32 match to ~1e-10, odd q19/q7 match to truncation O(q/N) (~7e-6, ~1.9e-6), confirming cot and Gauss-log identities and conjugation.",
+    "Emax audit: no float violation of max|C_b|<=phi//2 over 99 even chi, but justification 'at most phi/2 nonzero summands' is false (q=5,b=3 has 3 coprime summands >2). Valid trivial bound Emax=phi(q) still gives lo-U_phi>0 for all 99 at B=1500 with min margin 0.162473..., so conclusion salvageable.",
+    "Telescoping inequality sum_r(f(N+rq+1)-f(N+rq+q))<=f(N+1) verified numerically (e.g. q=5,N=1500 sum 0.0195<=0.0258) and proved via disjoint integral spans of -f'.",
+    "Central table certLhalf_table.json has 99 rows [q,i,lo,hi,t] with t=Emax/sqrt(N+1) at N=1500q; min lo/t 5.4377, min (lo-t)/t 4.4377; passes even with doubled constant."
+  ],
+  "repair_instructions": "1. Replace the false Emax<=floor(phi(q)/2) claim with the trivially valid Emax=phi(q): in DRAFT.md central-tail lemma change 'E_max = max_b|C_b| <= floor(phi(q)/2) (crudest valid: at most phi(q)/2 nonzero summands...)' to 'E_max = phi(q) (valid since |C_b| <= number of a<=b coprime to q <= phi(q) by triangle inequality)'; delete the false phi/2 sentence.\n2. In inputs/artifacts/verify.py change '_Emax = _phi // 2' to '_Emax = _phi' (and corresponding comment), keep U=Emax/sqrt(N+1) evaluated in iv arithmetic with upper endpoint.\n3. Regenerate output/artifacts/certLhalf_table.json at default nb=1500 with the corrected U and re-run 'python3 verify.py' (default full B=1500) to VERIFY_OK; confirm all 99 lo-U>0 (expected min margin ~0.16) and update DRAFT computed-evidence central-minimum line if t values changed.\n4. Re-run L(1) section unchanged; no change to enumeration, formulas, or minimum claim. Resubmit with updated lemma text, code, and table.",
+  "residual_risks": [
+    "Containment/width soundness inherits mpmath iv outward-rounding correctness at 50-80 dps (stated limitation, not independently IEEE-audited); mitigated by enormous margins (1e-2 gaps vs 1e-79 widths for L(1); >=1e-1 margins vs 1e-30 noise for central with phi bound) and published endpoints re-checkable in Arb/MPFI.",
+    "Orthogonality cross-check is float (tol 1e-6), not interval; it is not load-bearing for enclosure soundness (completeness identity + conductor filter carry enumeration).",
+    "Originality search was reasonable but cannot prove nonexistence of an obscure certified table; nearest priors compared substantively.",
+    "Central S-box widths at B=1500 are O(1e-2), not <=1e-6; only lower bound lo-U>0 is claimed, which is the correct nonvanishing witness."
+  ],
+  "verdict": "REPAIRABLE"
+}
