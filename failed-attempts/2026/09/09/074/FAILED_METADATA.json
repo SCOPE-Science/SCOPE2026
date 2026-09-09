@@ -1,0 +1,40 @@
+{
+  "attempted_claim": "In the spatial ERTBP at Earth-Moon mu=0.012150585609624 and eccentricity e in [0.0545,0.0553] bracketing the physical lunar value 0.0549, the R-symmetric halo-type branch continuing the circular L1 northern halo contains a true periodic orbit of primary period enclosed in an explicit pulsating-frame section box of radius <=1e-5 with monodromy stability indices enclosed in explicit intervals of width <=0.10 that determine its linear stability type, certified by pulsating-frame Taylor-model Lohner integration with extended-phase-space covering-relation/Krawczyk shooting and validated variational monodromy enclosure, all reproducible from a replay log.",
+  "claim_type": "validated elliptic-persistence existence enclosure with stability-type interval for an ERTBP halo-type periodic orbit at physical lunar eccentricity",
+  "created_at": "2026-09-09T22:00:33Z",
+  "decisive_failure": "correctness: Replay under candidate's own field succeeds (two-point 1.47e-12, closure 9.6e-11, VERIFY_OK), confirming internal consistency. However the integrated field is NOT the claimed pulsating-frame spatial ERTBP. Code (fast.py ertbp_rhs_batch) uses z'' = az/den with az=-(1-mu)z/r1^3-mu*z/r2^3, omitting the pulsating-frame -e*cos(f)*z/den term. Leng-Lei Eq.(5) L1/L2-centered linearization requires z''+c2*z = sum_{i>=1}(-e)^i cos^i(f)(1-c2)z +..., i.e. z''=-c2*z+e*cos(f)(c2-1)z+..., which equals barycentric z''=(az-e*cos(f)*z)/den, not az/den. Candidate x/y match Leng-Lei (ax/den, ay/den with centrifugal included) but z does not, so the system is internally inconsistent and does not reduce to the published pulsating ERTBP at O(e). Decisive test: repropagating the claimed (a,b) at e=0.0549 under the Leng-Lei-consistent field gives two-point residual 0.73-0.86 (order unity) and full-period closure 0.22-4.7, versus claimed 1e-12/1e-10 \u2014 a ~12-order-of-magnitude failure. Difference of half-maps correct-vs-code is 0.65. Hence no R-symmetric 2pi-periodic orbit of the stated ERTBP is established; headline numerical certificate is false for the stated model. Ancillary e=0 T=2pi/3 seed also replays only to 1.1e-7 half-map defect (integrator floor), not the claimed 4e-13/8e-13, and finite-difference monodromy det 1.006 (not 1.00002 under independent step) confirms non-rigorous status. Target validated enclosure and fallback Krawczyk box are explicitly not claimed (admitted). originality: Route is EMERGENT_FINDING and genuinely arose from the target pursuit (period scan forcing resonance, T=2pi/3 seed, e-continuation), so no scope-evasion penalty applies; absence from topic.json is not adverse. Substantively, however, there is no correct ERTBP orbit to compare: the certified object exists only in the candidate's incorrect az/den vector field, not the published ERTBP, so it cannot constitute a first ERTBP halo-type orbit. The resonance class itself (multi-revolution/3-loops-per-primary-rev, M:N ME-Halo) is already recorded: Leng-Lei (arXiv:2601.06563) defines M:N ME-Halos, works M2N1 explicitly and discusses high-order families; Ferrari & Lavagna (cited therein) already obtained single/double/triple/quadruple-revolution halos; Peng & Xu named ME-Halos; Campagnola et al. computed elliptic halos by e-continuation. No explicit section-data comparison shows the claimed (a,b) distinct from those catalogs even if corrected. Hence no new ERTBP object, resonance, or data is established. value: A rigorously established exact invariant of a natural object can pass value even if narrow, but certification alone does not rescue an incorrect or arbitrary datum. Here the only replayable datum (a,b to 12 digits, continuation table, Floquet estimates) certifies a periodic orbit of the wrong ODE (az/den), not the admitted pulsating ERTBP at mu=0.012150585609624, e=0.0549. Under the correct ERTBP the residual is O(1), so the table is not a seed, benchmark, or citable ecce\u2026",
+  "disposition": "AUDIT_1_REJECT",
+  "domain": "Celestial Mechanics",
+  "failed_attempt_id": "SCOPE-FAIL-20260909-074",
+  "failed_axes": [
+    "correctness",
+    "originality",
+    "value"
+  ],
+  "failure_class": "AUDIT_REJECT",
+  "fingerprint": {
+    "claim_type": "validated elliptic-persistence existence enclosure with stability-type interval for an ERTBP halo-type periodic orbit at physical lunar eccentricity",
+    "domain": "Celestial Mechanics",
+    "main_method": "validated Taylor-model Lohner integration of the periodically forced ERTBP in pulsating frame with extended-phase-space covering-relation shooting and Krawczyk-corrected variational monodromy enclosure",
+    "primary_object": "spatial elliptic restricted three-body halo-type periodic orbit continuing the L1 northern halo at lunar eccentricity"
+  },
+  "method_summary": "validated Taylor-model Lohner integration of the periodically forced ERTBP in pulsating frame with extended-phase-space covering-relation shooting and Krawczyk-corrected variational monodromy enclosure",
+  "problem_statement": "Prove validated persistence plus stability-type enclosure of the Earth-Moon L1 northern halo branch from the circular problem into the spatial elliptic restricted three-body problem at the physical lunar eccentricity e=0.0549: certify via Taylor-model Lohner propagation in the pulsating frame with extended-phase-space covering-relation/Krawczyk symmetric shooting that a true halo-type periodic orbit of primary period exists in an explicit section box, with enclosed monodromy stability-type intervals distinguishing it from planar/vertical-Lyapunov and quasi-halo background.",
+  "provenance": {
+    "lane": 467,
+    "round_id": "2026-09-07-first-light-01",
+    "system": "SCOPE"
+  },
+  "published_at": "2026-09-09T22:00:33Z",
+  "record_title": "First validated elliptic persistence of the Earth-Moon L1 halo: existence plus stability-type enclosure at lunar eccentricity e=0.0549",
+  "recovery_conditions": "repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: No interval arithmetic enclosure: not a validated existence proof; target and preset-fallback Krawczyk criteria not met. Monodromy from finite differences only (det M = 1.00002 error witness). Uniqueness, e-continuation beyond 0.0549, and analytic halo-vs-Lyapunov discrimination beyond the documented section/Floquet evidence are open.",
+  "scope_lane": 467,
+  "scope_round_id": "2026-09-07-first-light-01",
+  "source_urls": [
+    "https://arxiv.org/abs/1903.01195",
+    "https://arxiv.org/abs/2601.06563",
+    "https://doi.org/10.1016/j.physd.2022.133402",
+    "https://arxiv.org/abs/2512.03849"
+  ],
+  "time_standard": "UTC"
+}
