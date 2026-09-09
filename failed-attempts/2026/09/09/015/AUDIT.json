@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-executed all exact-rational scripts. enumerate.py gives 11 stable sets (empty, 5 singletons, 5 size-2 nonadjacent pairs), alpha=2. verify.py prints VERIFY_OK: (1) validity of all 11 constraints over all 11 vertices holds; (2) tight counts 8/6/5 with affine rank 4 each rechecked by Gaussian elimination over Fractions, so each constraint is facet-defining for the full-dimensional polytope; (3) completeness: enumeration of all C(11,5)=462 5-constraint subsystems shows Q cut out by the 11 constraints has exactly 11 vertices, all 0/1 stable-set vectors, hence Q=STAB(C5) (bounded via x>=0 and sum<=2, so vertex enumeration is exhaustive); (4) 11 irredundancy witnesses each violate exactly one constraint (rechecked); (5) q0verts.py gives Q0={x>=0,edge<=1} exactly 12 vertices including (1/2)^5 with max 1.x=5/2 vs alpha 2, gap 1/2, ratio 5/4, violation 1/2. No inference error or boundary omission in the C5-only headline. Distinguishes proof (complete) from broader census (explicitly disclaimed).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The mathematical content of the headline is classical and admitted as such in DRAFT.md line 39-41. The H-description of STAB(C5) as 5 nonnegativity + 5 edge/clique + sum<=2 odd-hole facet, and the fractional value 5/2 at (1/2)^5 vs alpha=2 (gap 1/2), is the textbook odd-hole example originating in Chvatal (1975) 'On certain polytopes associated with graphs' and Padberg (1973) 'On the facial structure of set packing polyhedra', reproduced in every integer-programming textbook (e.g. Nemhauser-Wolsey, Schrijver, Grotschel-Lovasz-Schrijver). Nearest prior results substantively contain the claim: Chvatal 1975 introduces odd-hole inequalities including C5; Padberg 1973 gives clique/odd-hole facet conditions; Strong Perfect Graph Theorem work gives the integrality boundary. The only delta is a stdlib exact-rational replay script (tight-vertex logs, witness points, vertex tables) for this single 5-vertex instance. That is a mechanical re-derivation, not a new theorem, classification, residual, extremal-maximality proof, or method. The draft disclaims the originally-admitted novel scope (full n<=7 census, Chvatal-rank residuals, maximal-gap table over slice) and proves no maximality of C5 over any slice. A timestamp or fresh script does not establish priority over a 50-year-old textbook fact.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Textbook restatement even if correctly re-certified. Under the exact-invariant clause, a narrow datum is independently valuable only when motivated before computation, not known or mechanically implied, and reasonably needed later as a precise fact. Here all three fail: the C5 facet list and 5/2-vs-2 gap were known since the 1970s, are mechanically implied by standard odd-hole/clique theory, and are already retrievable from textbooks and surveys. The certificate bundle (tight indices, witness coordinates, JSON vertex lists) is verification packaging, which per standard does not rescue an otherwise known number: 'certification alone does not rescue an arbitrary object or an unexplained number,' and a fortiori does not rescue a textbook fact. No new benchmark need is demonstrated: C5 as a cut example is already the canonical benchmark. No downstream theorem, hierarchy separation, or classification uses the bundle beyond what the textbook statement provides. Hence independently worth finding later = no.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Introduces odd-hole/odd-cycle inequalities for the stable-set polytope, including the C5 sum<=2 facet and edge/clique facets; the C5 H-description and 5/2 fractional vertex are direct instances. General facet-class theory, not a per-graph census, but substantively contains the C5 headline fact.",
+      "title": "Chvatal (1975) On certain polytopes associated with graphs, JCTB 18",
+      "url": "https://doi.org/10.1016/0095-8956(75)90041-6"
+    },
+    {
+      "finding": "Facial structure of set packing / vertex packing polytopes: clique inequalities and facet conditions covering C5 edge facets and odd-hole facet. Contains the mathematical content of the C5 list.",
+      "title": "Padberg (1973) On the facial structure of set packing polyhedra, Math. Prog. 5",
+      "url": "https://doi.org/10.1007/BF01580121"
+    },
+    {
+      "finding": "Proposes small-Chvatal-rank variant; many STAB facet normals appear within two rounds with hypercyclic structure. General theory of facet normals, no per-graph n<=7 census, no C5 tight-vertex table; confirms general theory exists but C5 instance is prior art.",
+      "title": "Small Chvatal rank (Bogart-Raymond-Thomas)",
+      "url": "https://arxiv.org/abs/0705.1027"
+    },
+    {
+      "finding": "Proves graph is perfect iff Berge (no odd hole/antihole); provides conceptual integrality boundary. No explicit C5 facet certificate or gap table; confirms C5 as canonical minimal imperfect example, i.e. textbook status.",
+      "title": "The strong perfect graph theorem (Chudnovsky-Robertson-Seymour-Thomas)",
+      "url": "https://arxiv.org/abs/math/0212070"
+    },
+    {
+      "finding": "Crossref query returns facet-generating procedures, odd-cycle inequalities, critical facets, icosahedral/quasi-line results. All assume C5 odd-hole facet as known baseline; none needs a new C5 certificate, confirming headline is prior art.",
+      "title": "Crossref search: stable set polytope odd hole C5 facet",
+      "url": "https://api.crossref.org/works?query=stable+set+polytope+odd+hole+C5+facet&rows=5"
+    }
+  ],
+  "decisive_checks": [
+    "Reran inputs/artifacts/verify.py -> VERIFY_OK (validity, facet-dim affrank 4 for all 11, completeness 11 integral vertices, 11 irredundancy witnesses, gap 5/2 vs 2).",
+    "Reran enumerate.py -> 11 stable sets, alpha 2; q0verts.py -> 12 Q0 vertices incl (1/2)^5, max sum 5/2; qverts.py -> 11 integral Q vertices, 0 fractional.",
+    "Confirmed boundedness (x>=0 + sum<=2) so C(11,5)/C(10,5) basic-point enumerations are exhaustive for Q/Q0 vertices.",
+    "Textual admission check: DRAFT.md states 'C5 odd-hole inequality itself is textbook' and 'Not claimed: full census'; research_report.json limits to 'Fallback-scope result only' and 'novelty is the replayable certificate bundle'.",
+    "Literature comparison: C5 facet list and 1/2 gap match Chvatal 1975 / Padberg 1973 textbook content; no maximality over n<=7 slice proved in draft."
+  ],
+  "residual_risks": [
+    "None material to verdict: exact Fractions eliminate numerical risk; boundedness argument for completeness is sound; any broader census maximality claim was explicitly disclaimed and therefore not evaluated as proved."
+  ],
+  "verdict": "REJECT"
+}
