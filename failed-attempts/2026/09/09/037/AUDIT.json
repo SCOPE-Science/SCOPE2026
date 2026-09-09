@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Algebraic core is correct and honestly scoped. Re-ran inputs/artifacts/verify_wall.py: VERIFY_OK (fan dets all +1, decompositions W0=C0+y(1+x)+y^-1(1+x^-1), cancellation 1/(y~(1+x))*(1+x)/x=1/(x y~), binomial y~(1+x)^2=y~+2x y~+x^2 y~ with coefficient 2 at (1,1)). Independently recomputed Newton-hull vertex counts with a separate gift-wrapping implementation: dP2 5 vs 4 with area2=5, dP3 6 vs 5 with area2=6, matching the draft; convexity cross-products >0 and (1,1) strictly interior to edge (0,1)-(2,1) verified. Vertex count is correctly used as a GL(2,Z)+translation invariant. Crucially the draft distinguishes proof from assumption: Lemma, mutated potentials, coefficient 2 and polytope inequivalence are proved (machine-checked); Cho-Oh divisor potential, Pascaleff-Tonkonog wall-crossing, existence/monotonicity of the mutated ATF fibre, and FOOO isotopy invariance are explicitly assumed and the Hamiltonian-isotopy reading is stated only as a conditional corollary (Sec 5-6). No unconditional isotopy theorem is claimed; no truncation-error overclaim because identities are exact over Z.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No substantive delta over Pascaleff-Tonkonog 1711.03209 (plus Cho-Oh/Vianna). The 'transferable one-wall lemma' W0=C0+y(1+x)+y^-1(1+x^-1) -> W1=C0+y~(1+x)^2+1/(x y~) is the direct special case of PT Theorem 1.2 / Theorem 4.8 / Theorem 4.20 general wall-crossing (WL'=mu_[dD]^perp WL) for del Pezzo mutation configurations. The toric inputs W0 are the standard Cho-Oh Hori-Vafa sums; for Bl2 the draft's W0 is GL-equivalent to PT Table 1 Bl2 potential (1+x+y)(1+1/(xy))-1 (checked: supports {(1,0),(0,1),(-1,0),(0,-1),(-1,-1)} vs {(1,0),(1,1),(0,1),(-1,-1),(0,-1)} mapped by GL matrices found by brute force), so the input was published. The output W1 follows by one substitution plus (1+x)^2=1+2x+x^2 and an elementary hull count. PT already proves the stronger geometric statement the topic calls open: Corollary 4.28 proves every monotone del Pezzo including Bl2 (=dP2, two-point blow-up) contains infinitely many pairwise non-Hamiltonian-isotopic monotone tori, using Theorem 4.25 (all Table 1 potentials realised) plus wall-crossing; Vianna 1602.03356's exclusion of Bl1/Bl2 is thus closed by PT 2018. A verbatim-printed '5 vs 4' for this one wall was not found, but a 3-line instantiation of a published general formula plus binomial theorem is a mere parameter substitution, not a new claim; failed-search/timestamp does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even taken as fallback-grade exact datum, the record is a textbook instantiation with no independent retrieval need. Given PT's general mutation formula and the toric W0, any researcher can produce W1, coefficient 2, and 5-vs-4 / 6-vs-5 hull counts in minutes; it is mechanically implied, failing the 'not known or mechanically implied' test for narrow exact invariants. Geometrically, PT Corollary 4.28 already separates infinitely many tori in Bl2/dP2, so a conditional one-step Clifford-vs-mutant vertex-count distinction adds no rigidity-boundary movement, no demonstrated mirror-matching/displaceability use, and no general criterion. This is exactly the excluded category: mere parameter substitution of a general wall-crossing formula plus binomial/hull exercise, with VERIFY_OK certification alone not rescuing it. Narrowness per se is not the reason; lack of non-mechanical content and downstream need is.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Vianna constructs ATFs on all del Pezzos but proves triangular infinitude only for k=0,3-8, explicitly excluding Bl1/Bl2 and conjecturing dP2; confirms method precedent, not the dP2 gap as still open after PT.",
+      "title": "Infinitely many monotone Lagrangian tori in del Pezzo surfaces \u2014 Vianna (arXiv:1602.03356)",
+      "url": "https://arxiv.org/abs/1602.03356"
+    },
+    {
+      "finding": "Proves general wall-crossing WL'=mu WL (Thm 1.2/4.8/4.20), realises all 10 del Pezzo seeds including Bl2 Table 1 potential (Thm 4.25), and closes the Bl2 gap with infinitely many non-isotopic tori (Cor 4.28: all monotone del Pezzos including Bl2). Supplies both the general lemma implying the candidate lemma and the stronger geometric separation; one-step W1 is an unprinted direct substitution.",
+      "title": "The wall-crossing formula and Lagrangian mutations \u2014 Pascaleff-Tonkonog (arXiv:1711.03209)",
+      "url": "https://arxiv.org/abs/1711.03209"
+    },
+    {
+      "finding": "Foundational CP2 exotic (10 Maslov-2 families) vs Clifford/Chekanov; different ambient/claim from dP2/dP3, confirms distinguishing philosophy only.",
+      "title": "On Exotic Lagrangian Tori in CP^2 \u2014 Vianna (arXiv:1305.7512)",
+      "url": "https://arxiv.org/abs/1305.7512"
+    },
+    {
+      "finding": "General Floer-theoretic LG mirrors for del Pezzos via gluing/hyperKahler rotation; no per-fibre dP2 isotopy obstruction, but confirms mirror machinery is prior art.",
+      "title": "SYZ mirror symmetry for del Pezzo surfaces \u2014 Lau-Lee-Lin (arXiv:2206.01681)",
+      "url": "https://arxiv.org/abs/2206.01681"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran candidate verifier: VERIFY_OK (fan smoothness, decompositions, mutation identity, coeff 2, verts 5v4/6v5, area2 5/6).",
+    "Independent gift-wrapping hull recomputation matched 5v4 (dP2) and 6v5 (dP3) with area preservation; fan dets all +1; (1,1) interior to edge (0,1)-(2,1).",
+    "Brute-force GL(2,Z) search showed candidate dP2 W0 is unimodularly equivalent to PT Table 1 Bl2 expanded potential, confirming toric input is published.",
+    "Full-text check of PT HTML: Thm 1.2/4.8 general mutation, Table 1 Bl2 seed, Thm 4.25 realisation, Cor 4.28 infinite tori in Bl2 including the 'missing' dP2 case \u2014 directly contradicts admission's open-gap premise."
+  ],
+  "residual_risks": [
+    "Full-text search beyond the four core sources was abstract-level for recent del-Pezzo tori work; but PT alone suffices for the originality/value failure, so deeper census would not change verdict.",
+    "Independent check assumed standard facts (Cho-Oh toric potential, vertex-count invariance, Pick/area sanity) without re-proving analytic Floer inputs, matching the draft's own conditional scope."
+  ],
+  "verdict": "REJECT"
+}
