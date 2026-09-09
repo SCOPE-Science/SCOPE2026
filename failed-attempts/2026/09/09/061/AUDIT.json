@@ -1,0 +1,59 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Route is TARGET per research_report.claim_route; auditing normally with no preset-value presumption. Headline claims (i) N(Z_C^trans(T))<=C0 T^{1/12}, (ii) orbit>=c1 N^{11/12}, (iii) explicit T0(deg,h),B(deg,h) with T0=max(T_triv,((M0 C0)/c1)^{6/5}), B<=C_Bez T0^5. Proof not completed as stated: (a) Projective embedding of M never fixed, so 'deg<=4', Bezout degrees deg(M[N])<=C_M N^4, Chow-height d0-vs-(deg,h) bound, and *-degree poly_F(deg+D0) are undefined; Limitation 2 admits the (deg,h)->d0 inequality is 'not re-proved', so c1=min(1/(2d0),c_Gao) and hence T0/B are not proved as functions of (deg,h) alone. (b) C0(deg)=J*C*(F0,eps0)*(D0+C_eq deg)^Gamma is symbolic with unevaluated oracles C*,Gamma,J,D0,C_eq,c_Gao,C_M; DRAFT Sec.8.1 and counting_lemma.py (Cstar=1e6,D0=50,Gamma=8) state numbers are 'shape illustrations only'/'template consts' with placeholder unwinding constants; full BJST Sec.2-4 unwinding 'not done in one hour'. No numeric C0, T0, B is established. (c) One-compact-box reduction via S3-orbit plus Tate cusp boxes: cusp uniformity and multiplicity J 'absorbed, not replayed' (Limitation 3); F_K compactness grid samples j(K) only, no Pfaffian-domain closure proof for thickening B=F_K x [-delta,1+delta]^4. (d) Applicability of BJST Thm 4.5/Cor 4.6 to semi-rational counting on Z_C via [24,Thm 1] format c1(g),c2(g) is quoted, not verified; quoted text not included in artifacts; *-format/degree chain, semi-rational height definition ('blocks (resp. distinct projections)') and trans-part membership of conjugates are asserted. Step A/B bookkeeping conflates blocks vs points and absorbs M0 without proving distinct conjugates give distinct counted blocks. (e) O2 orbit N/(2d0) uniformity over ALL lambda including CM/j=0,1728/cusps unproved; bad-specialization absorption in T_triv=N_bad unproved; BJST Lemma 5.20/[30]+[28] statement not reproduced. O1 c_Gao(11/12,2) unevaluated. In-lane evidence proves only trivialities: run_counting.log grid max|j(K)|~3906 and run_orbit.log N/(2d)>=N^{1/12} for N>=3 (elementary algebra N^{11/12}>=2), re-ran OK, but these are not the load-bearing effectivity. Honest Limitations Sec.8 separate cited theorems from in-lane computation, but the load-bearing constants remain oracles. Hence (i)-(iii) with explicit T0,B is a proof sketch/assembly, not a proof. Experimental illustration distinguished from proof.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp/failed-search: Gao 1806.01408 proves mixed Ax-Schanuel for Kuga-type/universal abelian varieties with Betti-rank application only, no counting threshold or orbit comparison for Legendre square (verified abstract). Daw-Ren 1703.08967 reduces pure Zilber-Pink to counting via (pure) Ax-Schanuel, no Legendre-square explicit T0/witness (verified abstract). BJST 2301.09883 proves effective Pila-Wilkie for restricted Pfaffian/sub-Pfaffian with CM Manin-Mumford and fiberwise elliptic-surface results; per admission survey and DRAFT Sec.7 it uses fiberwise counting and states no effective constant/exponent for the varying Legendre-square Kuga block Z_box/Z_C (verified via ar5iv HTML: paper states it does not use Pila-Wilkie counting on the Legendre uniformization, only fiberwise; cf. Thms 4.5/Cor 4.6/5.7/5.8/5.11 cited in draft). Mok-Pila-Tsimerman 1711.02189 is pure Ax-Schanuel only. No surveyed theorem states the pair (eps0=1/12,kappa=11/12,C0,T0,B) or atypical-finiteness threshold for M=E x_S E, dominating deg<=4 curves. General BJST Thm 1.1 (any eps>0) implies existence of some c only after family-specific format/degree verification for Z_C, which no prior performs for this block. Choice of 1/12 and 11/12 is arbitrary within continua but the family-specific threshold statement itself is not recorded and not obtained by renaming/parameter substitution. Hence claim as stated fact is new. PASS.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET judged normally. If proved, first effective Pila-Wilkie to Zilber-Pink threshold (counting upper bound plus Galois-orbit exponent comparison forcing finiteness above explicit T0) for the named minimal varying mixed-Shimura Kuga family M=E x_S E over Y(2) would be independently retrievable: it attacks the recognized effective Zilber-Pink/Pila-Zannier/Ax-Schanuel frontier, supplies the counting half for every future attack on this family and template for neighbouring Kuga blocks, without requiring a new general theorem. Object (Legendre square, compact box K away from cusps, restricted Weierstrass block) and invariant (exponent comparison kappa>eps0 with computable T0/B) were motivated before computation; degree<=4 dominating curves are the first open effective atypical case, not an arbitrary slice; scope is natural. Not a textbook restatement, mere renaming, tiny gain, or unexplained enumeration. Arbitrary choice of 1/12 vs any eps<11/12 does not erase value of the comparison structure. Missing numerics and undefined embedding are correctness defects, not value defects; no ADMISSION_DEFECT invoked. PASS.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves mixed Ax-Schanuel for universal abelian varieties/Kuga-type, Betti-map application only; no effective counting threshold, orbit comparison, or Legendre-square T0.",
+      "title": "Gao, Mixed Ax-Schanuel for the universal abelian varieties (1806.01408)",
+      "url": "https://arxiv.org/abs/1806.01408"
+    },
+    {
+      "finding": "Reduces (pure) Zilber-Pink to point-counting via hyperbolic Ax-Schanuel; no Legendre-square explicit threshold or witness.",
+      "title": "Daw-Ren, Applications of the hyperbolic Ax-Schanuel conjecture (1703.08967)",
+      "url": "https://arxiv.org/abs/1703.08967"
+    },
+    {
+      "finding": "Verified via ar5iv HTML: Thm 1.1 gives cd^gamma H^eps for sub-Pfaffian; Sec 5 applications give CM Manin-Mumford and fibre-power Habegger-type Thm 1.3 with exp-complexity; paper states: we do not use Pila-Wilkie-style counting on the uniformization of the Legendre family, but only fiberwise. No effective constant/exponent for varying Legendre-square Kuga block Z_box/Z_C.",
+      "title": "Binyamini-Jones-Schmidt-Thomas, Effective Pila-Wilkie (2301.09883)",
+      "url": "https://ar5iv.org/html/2301.09883v1"
+    },
+    {
+      "finding": "Pure Ax-Schanuel for Shimura varieties; background only, no mixed-family threshold.",
+      "title": "Mok-Pila-Tsimerman, Ax-Schanuel for Shimura varieties (1711.02189)",
+      "url": "https://arxiv.org/abs/1711.02189"
+    },
+    {
+      "finding": "Re-ran counting_lemma.py and orbit_check.py OK; outputs are template illustrations (C0~5e19 with placeholder Cstar/D0/Gamma) and trivial crossover N/(2d)>=N^{1/12}; j(K) grid max~3906 confirms only compactness illustration.",
+      "title": "In-lane artifacts counting_lemma.py, orbit_check.py, run_counting.log, run_orbit.log",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Re-executed inputs/artifacts/counting_lemma.py and orbit_check.py: outputs match logs; C0/T0 numbers use hardcoded placeholders (Cstar=1e6,D0=50,Gamma=8,c1=0.01) flagged as illustrations, not unwindings.",
+    "Checked DRAFT Sec.1 explicit-values formulas: C0,c_Gao,C_M,C_eq,J all unevaluated Turing-machine compositions; T0/B therefore symbolic, contrary to 'stated explicitly'.",
+    "Checked DRAFT Sec.8 Limitations 1-4: admit numerical values not evaluated, d0-vs-(deg,h) inequality not re-proved, cusp/S3 constants absorbed not replayed; essential for T0(deg,h),B(deg,h).",
+    "Checked degree definition: no projective embedding/compactification of M fixed; deg<=4, Bezout M0/C_Bez, Chow-height comparison all undefined.",
+    "Checked Step A/B vs BJST Cor 4.6: no proof that Cor 4.6 semi-rational block bound applies to Z_C with claimed format, or that Galois conjugates lie in distinct counted blocks in trans part.",
+    "Checked O2 claim: generic transitivity to uniform N/(2d0) over all lambda including CM/bad loci not derived; T_triv/N_bad absorption unproved.",
+    "Compared abstracts/theorem scopes of Gao, Daw-Ren, BJST, MPT vs headline: no prior states Legendre-square counting-vs-orbit threshold; gap is substantive, not a timestamp."
+  ],
+  "residual_risks": [
+    "Even with symbolic-effectivity repair, numeric T0/B may be astronomically large (template T0~1e26) with limited downstream use; value assumes Turing-machine effectivity suffices.",
+    "Pink reduction (M embeds after finite etale base change into universal abelian variety) may not preserve BJST effectivity uniformity; needs verification.",
+    "Restricted-Weierstrass Pfaffian format on F_K closure and thickened domain may require additional Ramsey/complexity work beyond quoting [24,Thm 1].",
+    "BJST transport fetch failure means auditor relied on admission survey for BJST scope; independent HTML verification still needed for any repair."
+  ],
+  "verdict": "REJECT"
+}
