@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline claim audited as stated for free-transport principal part T=v dx on T_x x R_v, mode k=1, sigma*=10, Gaussian datum hhat(0,1,eta)=exp(-eta^2/2). Lemma 1 shift hhat(t,k,eta)=hhat(0,k,eta+kt) verified correct under stated Fourier convention (v dx -> -k d_eta, so dt hhat = k d_eta hhat). Lemma 2 discriminant c>0 and (1+a)c-b^2>0 verified correct for strict positivity of Q(eta)=(1+a)+2b eta+c eta^2; implies uniform two-sided bound c'(1+eta^2)<=Q<=C(1+eta^2), hence E defines a positive-definite weighted norm. Proof of (b): substitution u=eta+t gives polynomial of degree 22, Gaussian moments mu_{2q}=sqrt(pi)(2q-1)!!/2^q, leading term c*1/2*mu_0*t^22=c*sqrt(pi)/2*t^22 with c>0, so E(t)->+infinity; dE/dt+lambda E<=0 with lambda>=0 would imply E(t)<=E(0), contradiction. Proof of (c): same expansion gives degree-20 polynomial for Q=1. Independent replay of inputs/artifacts/verify.py succeeded with VERIFY_OK and byte-matched ratios: base N(3)^2/N(0)^2=3405966412872299/5465416811~623185>1000, 36/36 grid ratios>100 with minimum 29059926375156783/59594395469~487629 at (0,1/4,1/8), per-triple leading identity e22=c/2 holds. Scope honestly limited to T only, fixed coefficients only, no echo/nonlinear/full-VP claim. Minor presentation imprecision: DRAFT calls E equivalent to H^10 norm on the mode, while W*Q has degree 22 (~H^11 weight); this mislabels the Sobolev index but does not affect positivity dichotomy or divergence, since E is still a stronger positive-definite norm dominating H^10. No essential inference, boundary condition, or computation fails.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No prior source records the exact fixed-cell certificate as stated: admissibility discriminant (1+a)c-b^2>0 paired with explicit degree-22 Gaussian growth polynomial at sigma*=10, k=1, with leading coefficient c*sqrt(pi)/2 and certified ratios at t=3 over 36 grid triples, framed as fixed-coefficient Villani-twist no-go for the free-transport principal part. Nearest results compared substantively: Mouhot-Villani 0904.2760 proves analytic damping with Newton scheme and no twisted energy; Bedrossian-Masmoudi-Mouhot Gevrey s>1/3 uses paraproducts/gliding regularity with no commutator closure; Villani memoir math/0609050 is purely collisional Fokker-Planck/Boltzmann with no phase-mixing transfer or echo analysis; Bedrossian 1605.06841 rules out uniform Sobolev extension (gravitational fixed-background failure, electrostatic uniform-in-background failure) but leaves fixed-Maxwellian electrostatic cell open and contains no hypocoercivity comparison. Conceptual overlap (free-transport Sobolev growth via eta->eta+kt filamentation) is well known and is counted under value, not as a prior recording of this exact discriminant+polynomial certificate. Hence narrow novelty passes; timestamp alone was not used.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest self-contained headline claim judged alone: fixed-coefficient twist cannot give dE/dt+lambda E<=0 for T, with exact Gaussian ratio at t=3. This is a textbook filamentation corollary with arbitrary instantiations, not an independently retrievable invariant. Free-transport Sobolev growth ||h(t)||_{H^s}~<t>^s from the shift eta->eta+kt is classical motivation for gliding regularity in the cited damping literature; adding a fixed positive quadratic factor Q does not change leading growth, so degree-22 vs degree-20 and leading coefficient c*sqrt(pi)/2 are mechanically implied by degree counting. Exact numbers N(3)^2/N(0)^2~6.23e5 and grid minima~4.88e5 depend on arbitrary choices with no pre-computation motivation: Gaussian datum, k=1, t*=3, 36 grid triples; no future researcher needs that datum-time ratio, and DRAFT claims no echo, no nonlinear, no full-VP result. As conditioned by DRAFT Sec.4, time/eta-dependent gliding multipliers - the standard route around filamentation actually used in Gevrey work - are explicitly not ruled out, and full linearized Vlasov-Poisson coupling is only a heuristic transfer remark. Hence the certificate rules out only a fixed-twist strawman no expert would attempt and constrains no future Sobolev-stability construction. Certification (exact Fraction arithmetic, VERIFY_OK) does not rescue an arbitrary object/number per standard. This is textbook restatement + parameter substitution + unexplained enumeration (specific t, datum, grid) even though correct and narrowly new, and fails the rescue clause because the value is mechanically implied and not reasonably needed precisely. No bounded motivation/interpretation addition without changing the problem to full-VP, time-dependent weights, or echo resonance could make this precise ratio independently valuable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Exponential nonlinear Landau damping in analytic regularity via analytic norms comoving with free transport, echo control, Newton scheme; leaves Sobolev open, uses no fixed twisted Sobolev energy.",
+      "title": "On Landau damping (Mouhot-Villani) 0904.2760",
+      "url": "https://arxiv.org/abs/0904.2760"
+    },
+    {
+      "finding": "Gevrey s>1/3 damping via paraproducts/gliding regularity; Gevrey-only, no hypocoercivity commutator closure or fixed-cell Sobolev certificate; time-dependent weights motivated by fixed-norm filamentation growth.",
+      "title": "Landau damping: paraproducts and Gevrey regularity (Bedrossian-Masmoudi-Mouhot) 1311.2870",
+      "url": "https://arxiv.org/abs/1311.2870"
+    },
+    {
+      "finding": "Systematic Lyapunov/commutator machinery for degenerate diffusive kinetic Fokker-Planck/Boltzmann; purely collisional, no Vlasov-Poisson phase-mixing transfer, no damping threshold, no echo analysis.",
+      "title": "Hypocoercivity memoir (Villani) math/0609050",
+      "url": "https://arxiv.org/abs/math/0609050"
+    },
+    {
+      "finding": "Rules out general Sobolev extension: gravitational fixed-background echoes, electrostatic non-uniform-in-background echoes; fixed-background electrostatic case left as subtle non-resonance-dependent open problem; no hypocoercivity-twist comparison.",
+      "title": "Nonlinear echoes and Landau damping with insufficient regularity (Bedrossian) 1605.06841",
+      "url": "https://arxiv.org/abs/1605.06841"
+    },
+    {
+      "finding": "Independent replay: VERIFY_OK, base ratio 3405966412872299/5465416811~623185, 36/36 grid ratios>100, min 29059926375156783/59594395469~487629, leading identity e22=c/2 holds.",
+      "title": "inputs/artifacts/verify.py (stdlib Fraction exact)",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Re-derived Fourier sign: v dx -> -k d_eta, so hhat(t,k,eta)=hhat(0,k,eta+kt) correct.",
+    "Checked Lemma 2: discriminant 4b^2-4(1+a)c<0 plus c>0 iff strict positivity; implies Q comparable to (1+eta^2), hence positive-definite (index label H^10 vs H^11 imprecise but inessential).",
+    "Checked leading term: W leading eta^20 coeff 1 times Q leading c eta^2 gives c eta^22=c(u-t)^22; only p=0 moment contributes to t^22, giving c*sqrt(pi)/2; verifier asserts e[22]=c/2 exactly.",
+    "Ran verifier: reproduced base and all 36 twisted ratios exactly, confirming (c) computation.",
+    "Confirmed DRAFT honesty: principal-part only, fixed coefficients only, gliding multipliers not ruled out, no echo/nonlinear claim - so headline constrains only fixed-twist strawman.",
+    "Originality comparison: no source states fixed-twist discriminant+degree-22 certificate; conceptual filamentation growth is background knowledge assessed under value."
+  ],
+  "residual_risks": [
+    "Minor Sobolev-index mislabel (H^10 vs H^11-type weight) remains in DRAFT but does not affect divergence; noted, not failed.",
+    "Fourier normalization constants cancel in ratios; absolute E values depend on convention but ratios and leading-coefficient positivity do not.",
+    "No web search beyond cited nearest results; unpublished Gevrey-sharpness work cannot be excluded but would not create identical fixed-cell certificate."
+  ],
+  "verdict": "REJECT"
+}
