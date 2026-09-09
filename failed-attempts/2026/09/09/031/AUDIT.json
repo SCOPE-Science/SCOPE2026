@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Unconditional elementary profile integrals (I=3\u221a3\u03c0\u00b2/4, L=15\u221a3\u03c0\u00b2/64, det=135\u03c0\u2074/256, D(t)=5(t\u00b2-1)/2(1+t\u00b2)^{7/2}, \u222bt\u00b2D\u00b2=75\u03c0/2048, \u222bt\u2074D\u00b2=25\u03c0/2048, ||\u0394\u039bW||\u00b2=|||y|\u0394\u039bW||\u00b2=225\u221a3\u03c0\u00b2/512, E(W)=\u221a3\u03c0\u00b2/4, C_S=I^{-1/6}, (W,\u039bW)_\u1e22\u00b9=0, L_+\u039bW=0 \u21d2 Q(\u039bW)=0) were independently recomputed at 30-digit precision with mpmath and all agree exactly; W solves -\u0394W-W\u2075=0 checked pointwise. However the headline fallback claim \u2014 a 'proved modulation ODE reduction with explicit error bounds' plus a 'virial inequality with every coefficient traced' \u2014 is not proved. Lemma 2 asserts (J+E)(\u03bb\u0307/\u03bb,\u03b3\u0307)=F with ||E||\u2264\u00bdmin(I,L) when \u03b7\u22641/24 via 'sharp Sobolev' but gives no derivation of E, no operator-norm estimate, and no F formula; the threshold 1/24 is admitted convenient not derived. Section 7 is labeled 'proof sketch': Q(\u03c7_R^{1/2}\u03b5)\u2265(c0/2)||\u03b5||\u00b2-CR^{-2}||\u03b5||\u00b2, Err_mod, Err_cubic bounds and C2(R,Qw) are stated with O(\u00b7) and unspecified C, unquantified R\u226b1, no cutoff commutator proof, no Cauchy-Schwarz absorption shown, and C2 never given numerically. verify.py does NOT certify the analysis: it checks algebraic tautologies (0.5-3/6==0, L-L==0, CS\u2076I==1 by definition, Qw==itself) not integral evaluations or PDE estimates. The conditional inequality is therefore not established even conditionally on (H4); only the elementary integrals are proved. Honest labeling of (H4) as assumed and barrier as open does not convert the sketch of Lemma 2/\u00a77 into a proved explicit reduction.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp: (1) Kenig-Merle math/0610266 gives radial threshold scattering/blow-up, no rate quantization \u2014 DRAFT correctly does not reproduce it. (2) Duyckaerts-Kenig-Merle 0910.2594 gives wave-equation type-II profile universality, not NLS rate barrier. (3) Merle-Raphael-Rodnianski 1407.1415 constructs quantized type-II rates for supercritical NLS d\u226511 (existence, disjoint regime), not a 3D critical exclusion \u2014 DRAFT correctly claims consistency. But the actually-proved content \u2014 explicit W norms, best Sobolev constant C_S=I^{-1/6}, E(W), Gram determinant from L\u00b2-critical scaling invariance, L_+\u039bW=0 and Q(\u039bW)=0, and the rational-function virial weight \u2014 is classical or mechanically implied by the explicit Aubin-Talenti formula W=(1+r\u00b2/3)^{-1/2} via Beta integrals; any modulation paper computes these. The claimed novel step \u2014 heat-transferred coercivity (H4) with explicit c0, a certified gap/resonance, or a rate-regime exclusion \u2014 is explicitly assumed/open, and DRAFT \u00a79 admits 'no new spectral fact about L_+ beyond classical L_+\u039bW=0'. A failed-search/timestamp argument cannot make direct integration of an explicit profile a new inequality/certificate. Hence no new theorem, lemma, or certificate beyond textbook/mechanical consequences.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Headline target (quantized 3D radial critical NLS rate barrier or certified spectral/virial obstruction) is admitted open: 'No new quantized rate barrier, no exclusion of any rate regime, and no proof of (H4)'. Predefined fallbacks are not met: (a) needs proved modulation ODE with explicit error bounds \u2014 E/F/C2 not explicit/proved; (b) needs certified gap/resonance number \u2014 c0 assumed unknown, c1=c0/4 vacuous; (c) needs virial no-go excluding one explicit regime \u2014 excludes nothing. Remaining exact numbers (I,L,det,Qw\u22487.5123, C_S\u22480.65365) are textbook restatements/mechanical integrations with a convenient arbitrary \u03b70=1/24 and unspecified C2, imposing no constraint on future type-II constructions and supplying no reusable machinery beyond standard calculus. The narrow-datum exception does not apply: the object (W) is natural and motivated, but the values are mechanically implied by the closed-form W, and without a closed coercivity constant or regime exclusion no future researcher needs to retrieve this precise combination; certification (tautological verify.py + quadrature cross-checks at 1e-6) alone does not rescue an unexplained/arbitrary number per the standard. This is a correctly computed but intrinsically low-value fragment with a missing substantive result.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Threshold scattering vs blow-up around E(W) via concentration-compactness/rigidity; no concentration-rate quantization, modulation ODE barrier, or transferred coercivity certificate. DRAFT does not reproduce or preempt it.",
+      "title": "Global well-posedness, scattering and blow-up for the energy-critical, focusing, non-linear Schrodinger equation in the radial case",
+      "url": "https://arxiv.org/abs/math/0610266"
+    },
+    {
+      "finding": "3D small radial type-II wave blow-up = rescaled W + continuous remainder; wave-equation profile, not NLS rate barrier; no heat-to-Schr\u00f6dinger coercivity transfer.",
+      "title": "Universality of blow-up profile for small radial type II blow-up solutions of energy-critical wave equation",
+      "url": "https://arxiv.org/abs/0910.2594"
+    },
+    {
+      "finding": "Quantized type-II constructions for supercritical NLS d\u226511 via energy method revisiting heat construction; disjoint-regime existence result, consistent with DRAFT's non-exclusion; does not imply 3D critical barrier.",
+      "title": "Type II blow up for the energy supercritical NLS",
+      "url": "https://arxiv.org/abs/1407.1415"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed I=4\u03c0\u221a3\u222bt\u00b2(1+t\u00b2)^{-3}=3\u221a3\u03c0\u00b2/4\u224812.820992204969 and L=4\u03c0\u221a3\u222bt\u00b2(f')\u00b2=15\u221a3\u03c0\u00b2/64\u22484.006560064053 at 30 digits with mpmath \u2014 exact match, relerr 0.",
+    "Symbolically verified D(t)=(f''+2t^{-1}f')/3=5(t\u00b2-1)/2(1+t\u00b2)^{7/2} pointwise and integrals \u222bt\u00b2D\u00b2=75\u03c0/2048, \u222bt\u2074D\u00b2=25\u03c0/2048, hence both norms =225\u221a3\u03c0\u00b2/512\u22487.512300120099 \u2014 exact match.",
+    "Verified -\u0394W-W\u2075=0 pointwise (residual ~1e-16), scaling orthogonality (W_\u03bb,\u039bW_\u03bb)_\u1e22\u00b9=\u00bdd/d\u03c3||W_{\u03c3\u03bb}||\u00b2=0, det=IL=135\u03c0\u2074/256\u224851.36807535, ||J^{-1}||=1/L, L/I=5/16 \u2014 all correct.",
+    "Ran inputs/artifacts/verify.py \u2192 VERIFY_OK, but inspected code: checks are definitional/tautological (Qw==itself, L-L==0, 0.5-3/6==0, CS\u2076I==1 by construction); no integral, Sobolev, commutator, or modulation estimate is certified.",
+    "Confirmed gaps: no derivation of ||E(t)||\u2264\u00bdmin(I,L) from \u03b7\u22641/24; no explicit C2(R,Qw), no quantified R, no commutator/modulation/cubic proofs in \u00a77; (H4)/c0 assumed; no regime excluded \u2014 fallbacks (a)/(b)/(c) all unmet by DRAFT's own \u00a78/\u00a710 admission."
+  ],
+  "residual_risks": [
+    "Full-text depth beyond title/abstract could contain the Qw integral in some modulation paper; even if absent, it remains mechanically implied, so originality conclusion is robust.",
+    "If (H4) with explicit c0 were later proved elsewhere, the conditional inequality template could become usable, but C2/R/Err_mod would still need full proofs; current record supplies no retrievable barrier.",
+    "High-precision recomputation eliminates computational-error risk for Lemmas 1/3 constants; remaining risk is presentational (sketch presented alongside proved lemmas) which the DRAFT mitigates by honest \u00a78/\u00a710 disclaimers but does not cure the missing proofs."
+  ],
+  "verdict": "REJECT"
+}
