@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Route is PRESET_FALLBACK. Exact fallback_claim requires: C, R=2C, compactified-ribbon-Prym pair (Pbar,M0), test cycle sigma, proof of <xi,sigma>=+1 HENCE xi!=0 AND no MCM extension of smooth-locus Poincare kernel. Decision: NOT exactly completed \u2014 partial completion only.\n\nCERTIFIED part (correct): C: y^2=x^6-1 smooth (sympy disc 46656, separable, affine smooth; projective P(1,3,1) model smooth with 2 infinities), g=2 via 6 branch points; R=2C=V(lambda^2) with O_R=O_X/(lambda^2), N=(u)=K^-1, chi(O_R)=-4, p_a=5; sheaf-Ext^1_{O_R}(O_C,K^-1)=K^-1 because Hom differential f|->f o u is 0 (u^2=0); H^0(K^-1)=0, H^1 dim 3 via Serre h^0(K^2)=3, so global Ext^1=H^1(K^-1) dim 3; fiber 0->k->k[u]/(u^2)->k->0 nonsplit (Ann(u)=(u), mult-by-u matrix [[0,0],[1,0]] rank1 kernel span{(0,1)}), so Ext^1_A(k,k)=k generator. Re-ran all 28 artifacts: all print VERIFY_OK. Base-change O_R flat rank2 over O_C preserves exactness, so global ribbon class restricts to fiber generator; hence ribbon structure extension xi=[0->K^-1->O_R->O_C->0] is nonzero. This elementary part is correct.\n\nHEADLINE inference (incorrect/missing): Step 5 claims xi!=0 => no MCM kernel on (Pbar,M0) via S2-uniqueness and 'defect along D is exactly xi|_sigma'. No bridge is constructed: xi lives in Ext^1_{O_R}(O_C,K^-1) on the ribbon curve R, not in Ext on Pbar x M0; P_sm, U (dense line-bundle locus), D (boundary divisor), j_*P_sm, and identification of its S2-defect with xi are never defined or computed. S2-uniqueness is cited without hypotheses (normality, codim, S2 of Pbar/M0) and without proof that U is dense with complement codim>=2. The artifact verify_mcm_depth.py itself states the opposite: '[R] product-kernel MCM <=> splitting xi-twisted extension: REDUCTION (open global step)' and 'global extension not yet proved; whether the twisted kernel (with gerbe tau) splits the defect is remaining global step, NOT claimed here.' Hence twisted MCM kernel is explicitly left open, contradicting DRAFT Step 5 'hence no MCM kernel'. Naive-pushforward non-automatic != impossibility.\n\nAdditional defect: verify_pairing_both.py (non-retired, still relied on for 'both points') claims canonical edge map Ext^1_R(O_C,K^-1)->H^0(C,O_C) with eps(xi0)=1_C. Under corrected sheaf-Ext=K^-1 this map does not exist (H^0(K^-1)=0); direction is reversed (connecting H^0(O_C)->Ext^1). It merely prints, proving nothing. DRAFT Sec.5 retires only two files but leaves this false mechanism in evidence.\n\nTherefore headline 'does not extend to MCM kernel' is unproved. Pairing +1 for ribbon structure does not imply FM non-extension. Exact success criterion's parenthetical 'hence ... no MCM' is logically false as stated. This is partial completion, not preset fallback.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Two layers distinguished.\n\n(1) Claimed novel layer (FM non-extension on ribbon compactified-Prym pair with gerbe twist): if proved it would be outside Franco 2206.12349 (verified abstract: reduced projective planar C, dense reduced singular spectral curves; non-reduced ribbon explicitly excluded), outside Gothen-Oliveira 1012.5541 (verified abstract: A_{m-1} singularities, connectedness; non-reduced ribbon lambda^2=0 is not reduced A_{m-1}; v3 Thm 8.1 reference to fibre over zero does not construct FM kernel or Ext^1 pairing), outside Jordan-strata census and very-stable multiplicities (components/multiplicities, not kernel extension). No prior states named pair/sigma/+1 FM obstruction. But this layer is UNPROVED (see correctness), so earns no originality credit; unproved novelty is not novelty.\n\n(2) Actually proved layer (ribbon extension nonsplit, fiber generator +1, Ext dim 3, Riemann-Roch numerics): textbook, not new. Ext^1_{k[u]/(u^2)}(k,k)=k via periodic ...-u->A-u->A->k->0 with zero Hom differentials is a standard exercise (Eisenbud Commutative Algebra, Weibel Homological Algebra); sheaf-Ext=K^-1 from u*N=0 and global Ext^1=H^1(K^-1) dim 3g-3-? (=3 for g=2) via Serre duality and H^0(K^-1)=0 is routine ribbon cohomology (Bayer-Eisenbud ribbons; Dr\u00e9zet; Ellenberg). The named equation y^2=x^6-1 is unused beyond separability (disc!=0) and existence of rational Weierstrass point (1,0); any genus>=1 curve with rational point gives identical +1. Calling the canonical generator '+1' is normalization, not discovery. No prior citation needed beyond textbooks; timestamp/failed search does not create priority. Hence proved content is parameter substitution of standard algebra.\n\nTherefore no rigorously established new result. Originality FAIL (never repairable).",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "PRESET_FALLBACK assessment: exact fallback NOT completed (partial only), so no Admission conditional value presumption applies; audit normally. (Also ADMISSION_DEFECT: Admission fallback_qualification assumed <xi,sigma>=+1 'hence ... no MCM extension exists' and 'fixes sharp reduced/non-reduced boundary'; artifacts themselves admit twisted-splitting global step remains open, so that hence was materially false and unavailable at Admission.)\n\nProved fragment alone (ribbon structure nonsplit, +1 fiber generator) is textbook restatement / mere parameter substitution: applies standard dual-numbers Ext and Riemann-Roch to one explicit smooth genus-2 curve where the equation plays no role. The '+1' is not a non-trivial invariant that could have been otherwise (for A=k[u]/(u^2) the structure extension is always the generator); certification by linear-algebra printout does not rescue arbitrary scope. Object (central fiber/ribbon) is motivated, but invariant is mechanically implied by general ribbon theory for any ribbon, so fails the motivated-exact-invariant test (value not known/mechanically implied prong fails). No future researcher needs to retrieve '+1 on y^2=x^6-1 at (1,0)' because the general fact covers all cases.\n\nClaimed stop-sign value ('Poincare-kernel route stops at nilpotent cone, start from new method') would be valuable if proved, but requires the missing FM bridge; an unproved stop sign has no retrieval value and cannot be cited to block future attempts. Incomplete census honestly described does not erase headline, but here headline itself is missing. No bounded addition of identity/motivation/interpretation can create substantive FM result without new research direction. Intrinsic low value / missing substantive result. Value FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms finite covering by reduced projective planar curve, FM between fine compactified Pryms, SL/PGL fiber equivalence only for dense class of singular REDUCED spectral curves. Non-reduced ribbon 2C explicitly outside scope; no ribbon Ext^1 kernel pairing stated or implied.",
+      "title": "Fourier-Mukai transform for fine compactified Prym varieties (Franco-Hanson-Ruano)",
+      "url": "https://arxiv.org/abs/2206.12349"
+    },
+    {
+      "finding": "Abstract confirms rank-2 L-twisted singular Hitchin fiber for A_{m-1} spectral singularities and connectedness. Central non-reduced ribbon (lambda^2=0) is not reduced A_{m-1}; no FM kernel extension or xi pairing. v3 adds Prop 3.7 / Thm 8.1 fibre-over-zero reference but still within A_{m-1} framework, not ribbon FM interface.",
+      "title": "The singular fibre of the Hitchin map (Gothen-Oliveira)",
+      "url": "https://arxiv.org/abs/1012.5541"
+    },
+    {
+      "finding": "Standard periodic resolution ...-u->R-u->R->O_C->0, Hom differentials zero because u^2=0, Ext^1_{k[u]/(u^2)}(k,k)=k; sheaf-Ext for ribbons, Riemann-Roch H^1(K^-1) \u2014 textbook, covers proved fragment for any ribbon without reference to named curve.",
+      "title": "Textbook homological algebra / ribbon theory (Eisenbud, Weibel, Bayer-Eisenbud)",
+      "url": ""
+    },
+    {
+      "finding": "All 28 input artifacts re-executed; all print VERIFY_OK. Verified disc 46656, g=2, chi/pa numerics, Ann(u)=(u) rank/kernel, periodic resolution. Also verified verify_mcm_depth.py explicitly labels global MCM extension as open REDUCTION, contradicting DRAFT Step 5; verify_pairing_both.py asserts non-existent edge map Ext^1->H^0(O_C).",
+      "title": "Local artifact replay (inputs/artifacts/*.py)",
+      "url": ""
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed disc(x^6-1)=46656, gcd=1, affine smoothness, g=-1+6/2=2, chi(O_C)=-1, chi(K^-1)=-3, chi(O_R)=-4, p_a=5=4g-3 \u2014 all correct.",
+    "Verified Hom differential zero (u*N=0): sheaf-Ext^1=K^-1, sheaf-Hom=K^-1, H^0=0, global Ext^1=H^1(K^-1) dim h^0(K^2)=3 \u2014 correct elementary part.",
+    "Verified fiber Ann(u)=(u) via mult-by-u matrix rank 1 kernel span{(0,1)}; extension 0->k->k[u]/(u^2)->k->0 nonsplit, Ext^1_A(k,k)=k \u2014 correct.",
+    "Checked missing link: no definition/construction of Pbar, M0, P_sm, U, D, j, no map Ext_R -> Ext_{Pbar x M0}, no S2 hypotheses, no proof defect=xi; artifact itself admits twisted-splitting open \u2014 headline MCM impossibility unproved.",
+    "Checked originality: proved part is dual-numbers textbook for any ribbon; named curve/point play no role beyond separability/rationality; +1 is generator normalization.",
+    "Checked value: mechanically implied invariant on arbitrary representative; no retrievable stop-sign without FM bridge."
+  ],
+  "residual_risks": [
+    "Full texts of Franco, Gothen-Oliveira, Hausel-Hitchin, Jordan-strata census not re-read beyond abstracts/admission triage; abstract-level scope exclusion is decisive for FM claim but full-text could contain incidental ribbon remarks \u2014 still would not state named-pair +1 FM obstruction or supply missing bridge.",
+    "Bai-Fang 2604.01331 cited at Admission could not be live-verified (future-dated ID, fetch not attempted); treated as untrusted per instruction; its described subject (cone component non-reducedness via GIT) is materially different from kernel-extension obstruction in any case.",
+    "Curve/ribbon numerics depend on char 0 (Q); positive-char 2/3 degenerations not examined \u2014 irrelevant to headline failure."
+  ],
+  "verdict": "REJECT"
+}
