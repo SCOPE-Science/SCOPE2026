@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Literal mathematical statements replay. (a) Universal rung: for N=F7 (3-connected, |E|=7, not wheel/whirl) Seymour's splitter gives for any 3-connected M with proper F7 minor an e with M\\e or si(M/e) 3-connected F7-retaining; binarity and M(K5)-freeness are minor-hereditary so preserved; |E| strictly drops (|E|=7 with F7 minor forces =F7) so iteration terminates at {F7}; binary excludes U(2,4) hence U(2,5). Step 2 wheel/whirl discussion is redundant (N not wheel/whirl so exception vacuous) but conclusion true; wheels regular/F7 non-regular and whirls non-binary facts correct as cited. (b) Four witness towers: stdlib verifier replays (ran inputs/artifacts/verify.py -> MINIMALITY_OK [(1001,10),(1002,11),(1003,10),(1001,11)], VERIFY_OK 4 witnesses sizes [11,12]); rank by GF(2) basis insertion, 3-connectivity by exhaustive partition lambda table (all X ni 0, lambda=r(X)+r(Y)-r(E), flags k=1,2; correct after halving fix), F7 models by C (|C|=r-3 independent) + S (|S|=7) + full perm isomorphism to standard 28-base F7 (not just count), contraction/deletion reversal checked per step, simplicity checked. M(K5)-freeness of tops/chain holds by counting lemma n-(r-4)<10 (tops: 8,8,8,9 <10; intermediates same), not by the logged 0-model exhaustive search which is vacuous as honestly noted. Per-element census replayed. One deletion spot-check (W0 e=0) confirmed F7-absence by full minor search beyond the need-sized search. Proof (a, counting) vs computation (b, lambda/F7 replay) distinguished; limitations (no C census, Seymour/wheel facts cited) honestly stated.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest prior Seymour splitter theorem (1980, doi:10.1112/jlms/s2-22-2-236) substantively covers headline (a). Instantiating N=F7 (non-wheel/whirl) immediately yields every 3-connected M with F7 minor reduces by one 3-connected F7-retaining step; adding binary and M(K5)-free heredity and |E|-termination adds no new content -- textbook minor-closed heredity and size induction. Hence O=empty at rank 7 has been known since 1980, not a new obstruction list. Strong Splitter (arXiv:1201.4427), Kingan EX[E4] (arXiv:1408.2377), Kingan-Lemos prism-free (arXiv:1203.3741) indeed list no rank-7 F7-rooted M(K5)-free matrix, but absence there does not make a Seymour corollary new; general existence does mechanically imply the M(K5)-free reduction because M(K5)-freeness is minor-closed. Part (b) four towers (seeds 1001,1002,1003 + one extension, n=11,11,11,12, bases 201,208,201,386) are new strings but arbitrary random coextensions by construction (search.py random.Random(seed), 500 tries), explicitly NOT splitter-minimal (10-11 good moves each; report admits fallback M0 not found). They are illustrations of the guaranteed abundant reductions, not canonical extremals, seeds, or blockers. A failed arXiv search or timestamp does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Headline (a) is textbook restatement / parameter substitution (Seymour with N=F7 plus hereditary flags) with no reusable new lemma: since O=empty there is no terminal case to cite, and witnesses all reduce so provide no decomposition blocker. Headline (b) is unexplained enumeration of arbitrary objects: random tower matrices and their computed invariants (base counts, 10/11 good-move counts, lambda tables) had no pre-computation identity, motivation, or downstream use; certification alone does not rescue an arbitrary object. This is not the eligible narrow-invariant case (natural motivated object + unknown non-implied exact value future work needs). Full C census honestly disclaimed, but the remaining universal existence + 4 building-block chains is exactly the mechanically implied fragment plus illustrations, with no new extremal, obstruction, criterion, or cited reduction lemma.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Splitter states if N 3-connected proper minor of 3-connected M (with wheel/whirl larger-minor proviso) then sequence of 3-connected single-element extensions/coextensions from N to M; Strong form bounds consecutive extensions to two. Confirms general existence, not explicit rank-7 F7/M(K5) list.",
+      "title": "Strong Splitter Theorem",
+      "url": "https://arxiv.org/abs/1201.4427"
+    },
+    {
+      "finding": "EX[E4] extremals spikes Zr, F7, PG(3,2), R17, one 12-elt rank-6 matroid; others have P9/P9* decomposers. No rank-7 F7-rooted M(K5)-free bridging census or obstruction matrix.",
+      "title": "Applications of the Strong Splitter Theorem: decomposition results",
+      "url": "https://arxiv.org/abs/1408.2377"
+    },
+    {
+      "finding": "Prism-free (no M(K5\\e)) class: Dirac graphics + Oxley families, rank bounded by 5 otherwise, one rank-5 17-elt R10 extension. Forbidden minor M(K5\\e) not M(K5); no rank-7 F7-rooted M(K5)-free table.",
+      "title": "A decomposition theorem for binary matroids with no prism minor",
+      "url": "https://arxiv.org/abs/1203.3741"
+    },
+    {
+      "finding": "Seymour 1980 splitter theorem record (DOI). N=F7 proviso vacuous; direct source of universal rung.",
+      "title": "Seymour splitter theorem for 3-connected matroids (1980)",
+      "url": "https://doi.org/10.1112/jlms/s2-22-2-236"
+    }
+  ],
+  "decisive_checks": [
+    "Replayed inputs/artifacts/verify.py -> MINIMALITY_OK [(1001,10),(1002,11),(1003,10),(1001,11)] VERIFY_OK 4 witnesses [11,12]; diffed inputs/artifacts vs research output artifacts identical.",
+    "Verified counting lemma n-(r-4)<10 for all tops/steps (8,8,8,9) so M(K5)-freeness by proof; confirmed mk5_search_stats models_examined=0 vacuous-but-logged as stated.",
+    "Audited conn_check partition-complete scan, gf2_rank, iso_to_std_F7 full-perm bases-set isomorphism (28 bases), find_F7_model need-sized completeness, coext contract-reversal, simplify handling.",
+    "Independent full F7-minor brute force on W0 deletion e=0 confirmed None, supporting census correctness.",
+    "Substantive originality comparison: universal rung + heredity + termination is direct Seymour N=F7 instantiation; four towers random (search.py seeds) and reducible, not minimal/obstruction."
+  ],
+  "residual_risks": [
+    "Seymour theorem and wheel-regular / whirl-non-binary facts cited not re-proved; accepted as classical but si(M/e) F7-preservation via simplification assumed standard.",
+    "verify.py hardcodes research-workspace ART path; mitigated by byte-diff proving inputs/artifacts identical at audit time.",
+    "F7-search completeness (reduction to independent C of size r-3) uses standard minor rewriting; not separately machine-proved but spot-checked by brute force in one case."
+  ],
+  "verdict": "REJECT"
+}
