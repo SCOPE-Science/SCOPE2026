@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Essential computations reproduce. Re-ran output/artifacts/verify.py -> VERIFY_OK (V1 129 cells n<=9 agreement, V2 OEIS marginals n=1..12 + LV Table-2 prefixes n=4..8, V3 231 comparable cells 0 violations, V4 52 cells LV identity n=8..11 k<=2n-7 with exact pentagonal partition arithmetic, V5 sharpness family n=7..12). Recompiled engineA.c with gcc -O2 and diffed output vs committed tableA.txt -> byte-identical (ENGA_REPRO_OK). Independent naive brute-force enumeration (all permutations, direct 1324 quadruple scan, exact inversion counts) to n=8 matches committed rows exactly and matches published Av(1324) totals 1,2,6,23,103,513,2762,15793. Engine lemmas audited by hand and sound: Engine A insert-max child avoids 1324 iff length-p prefix avoids 132 (M=m+1 as max must be '4'/last, so 132-part in prefix; non-M occurrences in avoiding parent; delete-max inverts step; inv increment m-p correct). Engine B append-rank child test ci<ck<cj<last exactly encodes 1324 with last as '4'; only last-using quadruples need testing; inv increment m+1-r correct. DRAFT honestly distinguishes proof from evidence: labels claims 'machine-certified finite census' and explicitly states defect-11 monotonicity, R11 classification, sub-13.5 bound, and |R3| polynomial are NOT proved. Minor non-essential defect: DRAFT cites 'OEIS A061558' but the 1324-avoider totals are OEIS A061552 (A061558 is unrelated prime-AP sequence); hardcoded numbers themselves are correct, so no count is invalidated. verify.py header comment says '68 cells' while code correctly checks 129 cells; DRAFT's 129 figure is correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison vs nearest priors: (i) Bevan et al. 1711.10325 gives standing 10.271-13.5 bounds, not the census; (ii) Linusson-Verkama 2408.15075 Table 2 prints av_n^k only for k<=12 (n<=12) plus closed form P(x)^2 - Rn(x)/(1-x) for n>=(k+7)/2 (k<=2n-7) and difference identity a(n+1,k)-a(n,k)=[x^k]2(2+x)x^{n-1}P(x)^2; (iii) OEIS A061552 b-file gives univariate marginals 1,1,2,6,23,103,513,2762,15793,94776,591950,3824112,25431452 (offset 0), not the bivariate rows; (iv) V5 sharpness permutation 3,6,1,2,7..n,4,5 with 2n-6 inversions as indecomposable non-almost-decomposable obstruction is explicitly the published LV Lemma 2.12 example, and V4 is the published LV theorem - both are audits, not new. The only technically new numbers are the high-k tails beyond LV print/formula (e.g. n=12 k=18..66, n=11 k=16..55) as a replayable dual-to-n=9/OEIS-anchored-to-n=12 artifact; no prior source states those full rows. DRAFT makes no infinite-family novelty claim. Hence narrow artifactual novelty passes, with heavy overlap acknowledged.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Target claim (defect-11 k<=2n+4 monotonicity + proved gr<=13.49) admittedly not proved; none of the predefined valuable fallbacks achieved (DRAFT p.44: F1 |R3| polynomial NOT derived, no R11 classification, no sub-13.5 bound, needs Meng skeleton theory beyond budget). Remaining headline is a finite-window census to arbitrary cutoff n<=12: V3 window monotonicity (231 cells) proves no infinite statement; V4 re-checks the known LV identity on 52 cells; V5 re-certifies the published LV sharpness example; full rows extend LV k<=12 print to k<=66 but without skeleton-sum closed form, cell equation, singularity bound, or downstream use. Table supplies raw residual data but not the motivated invariant (F1 polynomial / F2 cell singularity / F3 simple gridded obstruction). This is an unexplained enumeration / arbitrary scope with missing substantive result under the shared standard: a future researcher testing defect-11 needs arbitrarily large n, not a(12,k) spot values. Certification alone does not rescue it. No bounded value-only addition can supply the missing R3 formula or defect-11 proof without new research direction, so not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves a(n,k)=[x^k](P^2-Rn/(1-x)) for n>=(k+7)/2, monotonicity for k<=2n-7, difference identity Rn=2(2+x)x^{n-1}P^2, Tables 2-3 to k<=12/13, and 36127..n45 2n-6 obstruction showing k<=2n-7 best for method. Confirms V4/V5 are published theorems/examples and low-k rows overlap.",
+      "title": "Linusson-Verkama 2408.15075 Enumerating 1324-avoiders with few inversions",
+      "url": "https://arxiv.org/abs/2408.15075"
+    },
+    {
+      "finding": "Standing proved bounds 10.271 < gr(Av(1324)) < 13.5 via staircase/domino characterisation. Confirms no sub-13.5 bound in this source; candidate's sub-13.5 target would be new but was not achieved.",
+      "title": "Bevan et al. 1711.10325 structural characterisation and 10.271-13.5 bounds",
+      "url": "https://arxiv.org/abs/1711.10325"
+    },
+    {
+      "finding": "Univariate totals 1,1,2,6,23,103,513,2762,15793,94776,591950,3824112,25431452 match committed marginals; identifier is A061552 not A061558 as cited in DRAFT; no bivariate inversion distribution recorded here.",
+      "title": "OEIS A061552 Number of 1324-avoiding permutations",
+      "url": "https://oeis.org/search?q=1%2C2%2C6%2C23%2C103%2C513%2C2762%2C15793&fmt=text"
+    },
+    {
+      "finding": "Committed tableA.txt/tableB.txt/engineA.c/engineB.py/verify.py reproduced: VERIFY_OK, Engine A byte-identical recompilation, naive brute force to n=8 exact row match.",
+      "title": "Local inputs/DRAFT.md research_report.json and artifacts",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "verify.py replay -> V1 129 cells agreement, V2 marginals+LV prefixes, V3 231 cells 0 violations, V4 52 cells LV identity, V5 n=7..12 sharpness -> VERIFY_OK",
+    "gcc -O2 engineA.c recompilation -> diff vs tableA.txt byte-identical (ENGA_REPRO_OK)",
+    "Independent stdlib brute-force all-permutation 1324/inversion census to n=8 -> exact match to tableA rows and totals 1..15793",
+    "Hand audit of Engine A 132-prefix lemma and Engine B ci<ck<cj<last last-anchored test + inversion increments -> sound",
+    "LV HTML Table 2 comparison -> committed n=4..8 prefixes and marginals overlap published values; high-k tails (n=12 to k=66) beyond print/formula are the only new numbers; V5 example verbatim in LV Lemma 2.12 discussion"
+  ],
+  "residual_risks": [
+    "DRAFT OEIS identifier typo A061558 vs correct A061552 (numbers correct, provenance label wrong)",
+    "Rows n=10..12 single-engine (Engine B only to n=9); confidence rests on Engine A proof + OEIS marginal anchors, not dual verification at n=10..12; inversion mis-assignment preserving totals is theoretically possible but excluded by lemma audit + n<=8 brute force + n<=9 dual agreement",
+    "verify.py LV spot-check covers only n=4..8 prefixes, not full LV formula range; V4 covers only n=8..11 k<=2n-7 window"
+  ],
+  "verdict": "REJECT"
+}
