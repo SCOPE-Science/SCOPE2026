@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Fractal small-cap decoupling versus certified vanilla-transfer obstruction for the base-15 symmetric Cantor product
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 398
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Harmonic Analysis
+- **Method:** digit-restricted fractal small-cap decoupling transfer with Liu-Pham distance integral plus certified vanilla-transfer power-loss obstruction
+
+## Problem
+
+Push fractal (digit-restricted) small-cap decoupling, rather than generic averaged-decay conditionals, to a pinned-distance L2 bound for one explicit thin symmetric missing-digit Cantor product in R^2 below the 5/4 threshold; if the standard transfer is the wrong tool, certify the exact scale and fixed power at which the vanilla Bourgain-Demeter plus Liu-Pham route provably breaks on that product's line structure.
+
+## Attempted claim
+
+Let b=15, D={0,1,2,13,14} (symmetric: D=-D mod 15), C the attractor of x->(x+d)/15 in [0,1], nu the uniform self-similar probability measure on C, mu=nu x nu on E=C x C in R^2 with dim_H E = s0=2*log(5)/log(15) below 5/4. Then int ||d^x_* mu||_{L^2(dr)}^2 dmu(x) < infinity, hence |Delta_x(E)|>0 for mu-a.e. pin x, proved via a digit-restricted fractal small-cap decoupling bound applied to frequency caps indexed by D^k through the Liu-Pham distance integral, a route outside Liu's generic averaged-decay conditional.
+
+## Research outcome
+
+Target pinned-L2 bound not proved (vanilla route provably blocked, fractal gain lemma open, M1 unresolved). Consolidated an emergent certified route-separation theorem for the named product: axial spike law + growing digit-energy obstruction + no-atom lemma, all machine/rationally certified, explaining why the vanilla Bourgain-Demeter + Liu-Pham transfer fails and redirecting attacks to fractal decoupling.
+
+## Why this attempt failed
+
+Failed axes: correctness, value.
+
+correctness: Headline has three parts. (i) Axial values |nu_hat(15^k)|^2=c0~0.6735 and resonance nu_hat(15n)=nu_hat(n) for integer n are correct (m(n)=1 from integer digits; re-verified c0 at J=5..30 stable 0.67356406). Lipschitz spike-width certificate A(15^k)>=0.003/15^k re-executed in proofs_cert.py and re-derived: displacements |R-Rcos|<=d^2/2R, |Rsin|<=d, Lipschitz 2pi from supp in [0,1], angular fraction d/(pi R) at d=0.05 gives c*~0.00334>0.003. As a refutation of Liu averaged-decay upper bound with exponent >1 this inference is valid (slow-decay lower bound excludes fast-decay upper bound). BUT two essential defects fail correctness: (a) DRAFT Sec.1 states as exact general identity m(xi)=(1+2cos2pixi+2cos4pixi)/5 for D={0,1,2,13,14}, which is false on R (true m=(1+e^{-2pii xi}+e^{-4pii xi}+e^{-26pii xi}+e^{-28pii xi})/5; they agree only at xi in (1/15)Z, e.g. xi=1/15 where the c0 bound happens to be evaluated, so the numeric bound survives but the stated multiplier lemma is false). (b) Part (ii) proves only integer arithmetic E1=65, E2=5265, E3=438945 (re-executed PASS) versus asserted 'random-heuristic closure budget' 5^4/15=125/3, but provides no lemma, citation, or computation bridging additive energy to Bourgain-Demeter l2-decoupling loss. The report's 'so vanilla full-partition BD + Liu-Pham transfer provably fails at every level' / 'no multiscale closure can recover' therefore does not follow; the admitted preset-fallback bridge (explicit packet/tube ensemble at R0=15^4 proving loss >=R0^{1/24} vs cited vanilla exponent) is entirely absent. (iii) Ahlfors/Frostman C=625 and no-atom conclusion are correct but standard. Because the central 'route separation for BD+LP' conclusion is claimed as proved/certified while only the narrower averaged-decay sub-route is actually excluded, the headline as stated is not established. value: Full ordinary value standard with no presumption (preset fallback R0=15^4 / R0^{1/24} / packet ensemble NOT completed, so no Admission conditional value approval carries over). Strongest rigorous core surviving audit is: for this product, A(R)>=c/R along R=15^k, so Liu averaged-decay hypothesis with exponent >1 fails. This is an elementary resonance+Lipschitz consequence holding for every integer-digit missing-digit product, with arbitrary rationalised constant 0.003 (delta=0.05 choice); the qualitative non-decay is folklore/expected for axial product concentration and was never the claimed closure hypothesis for this thin window. The energies E1/E2/E3 with growing excess 1.56->3.03->6.07 are exact but unexplained enumerations: the 'budget' 5^4/15 mixes integer-sum counts (range 0..28, 12 distinct values, verified list) with a mod-15 uniform heuristic (true mod energy is 85, not 65) and has no proved link to decoupling loss, so it cannot be retrieved as a citable BD+LP obstruction. No-atom lemma is a standard Frostman exercise (C=625 crude). The report expressly concedes M1 finiteness/infinitude NOT proved, spi…
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; supply independent motivation and a materially stronger contribution; address the recorded limitation: Does not prove finiteness or infinitude of the Liu-Mattila integral M1 (hence neither the target pinned-L2 bound nor its negation); spike widths w_k and full block masses beyond k=3 are unresolved; M1(1..60000)~0.49 looks convergent. Claims only the route separation. Numerics use floating point (certified bounds use rationals with pi<=3.1416). Fallback claim text remained WITHHELD in this workspace and was not used.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
