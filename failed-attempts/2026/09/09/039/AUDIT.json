@@ -1,0 +1,56 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/verify_diamond.py -> VERIFY_OK (V1-V9). Checked each inference: (1) Lemma 1 diamond inequality 4S-T=16(t^4+6t^2u^2+6t^2v^2+6u^2v^2)>=0 verified coefficient-by-coefficient over 22 monomials; integration to L^4 norms is linear and valid. (2) Corollary 2 lower bound T>=32l^4, S<=4L^4, T<=4S => D^4>=2 correct; upper-bound rhombus (1,0),(0,1),(-1,0),(0,-1) in l^4_2 has side^4=2, diag=2, rescaled gives sides 1, diags 2^{3/4}, distortion exactly 2^{1/4} (L=1,l=2^{-1/4}) correct; l^4_2 embeds isometrically in L^4. (3) Graph: E12,E13 commute (both = [[1,1,1],[0,1,0],[0,0,1]] mod 5), 4 vertices distinct, steps in symmetric 12-element S, diagonals E12E13 and E12^{-1}E13 outside S U {I} so Cayley distance exactly 2 -> isometric C4 correct. (4) Girth: V1 excludes loops/involutions, V5 checks all 12^3=1728 triples !=I so no triangle by vertex-transitivity; with exhibited 4-cycle girth=4 correct. (5) Order (124*120*100)/4=372000 correct. (6) Enclosure 11892^4<2e16<11893^4 verified, so 1.1892<2^{1/4}<1.1893 correct. (7) Isometric transfer c_Y(G)>=c_Y(H) by restriction correct. (8) Tower remark uniform floor for all m>=2 correct up to noted m=2 degree-collapse nuance (still isometric C4, acknowledged). Proof is proof, not experiment; computation is exact integer/mod-5/symbolic, no floating point, no external gap citation. Honest boundary (no (log N)^delta) explicitly stated.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors compared substantively: (a) Classical Clarkson/Enflo uniform convexity gives sharp L^4 diamond inequality and c_{L^4}(C4)=2^{1/4} - draft explicitly disclaims originality here, correct. (b) Steinberg/commutation relations E12E13=E13E12 folklore gives 4-cycle in SL_n Cayley graphs. (c) Mendel-Naor 1207.4705: qualitative super-expanders, no coarse embedding into uniformly convex spaces, no explicit (log N)^delta or G5 constant. (d) Oppenheim 2207.04407: Banach property (T) makes SL_n(Z/mZ) super-expanders qualitatively, no distortion rate. (e) Li 1404.6751: Markov-convexity distortion for Heisenberg balls/Laakso graphs, disjoint witness family. (f) Gartland-Ostrovskii 2602.14852: sharp Theta(log n) L1-distortion, L1 target only. No live source records c_{L^4}(G5)>=2^{1/4} or girth(G5)=4 for this level/generators. Headline instance as a recorded exact sentence is therefore literally new; failed search alone not relied on, substantive comparison done. Combination is mechanically implied by (a)+(b)+restriction, which is a value defect, not an originality defeat under SCOPE taxonomy (mere parameter substitution / textbook corollary remains new but low-value). Hence originality PASSES narrowly.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline c_{L^4}(G5)>=2^{1/4} (girth 4) is correct and new as a sentence but not independently worth retrieving. Reasons: (1) Textbook restatement + parameter substitution: generic principle 'any graph containing isometric C4 has c_{L^4}>=2^{1/4}' (classical) applied to obvious commuting-transvection 4-cycle (Steinberg relation). Level m0=5 and N=372000 play no role; draft's own tower remark shows identical proof for every m>=2 (flat floor, not growth), so scope is arbitrary. (2) No quantitative boundary update: target was (log N)^delta_p growth; delivered uniform constant floor true of almost any non-tree graph, with no downstream use for coarse Novikov / Lipschitz extension / sparsification beyond what generic C4 principle already gives. Draft honestly admits no growth proved and Holder L2->Lp route blocked. (3) Fallback substance missing: delivered 'sharpness' is sharpness of single-C4 method (rhombus), not certified sharpness of Markov-p-convexity constant for the family; delivered 'transferable lemma' is trivial restriction, not a nonlinear-gap/Markov-convexity lemma with certified constants. (4) Exact-invariant clause does not save: although G5 is natural and distortion motivated, the value 2^{1/4} IS mechanically implied by textbook pieces, and a future researcher needing this bound would cite the general C4 principle plus commuting pair, not retrieve this level-specific record. Girth=4 is an auxiliary unenpowered enumeration (1728-triple check) whose upper bound is the same obvious 4-cycle; certification (VERIFY_OK) alone does not rescue generic number per standard. (5) Not repairable by bounded addition: turning flat C4 floor into growth rate or genuine nonlinear-gap lemma needs certified 372k-vertex spectral gap + Mendel-Naor/Banach-(T) constants - new research direction, not prose/motivation fix. Hence intrinsic low value / arbitrary scope / missing substantive result -> REJECT.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Qualitative 3-regular super-expanders with no coarse embedding into uniformly convex spaces via nonlinear spectral calculus + zigzag; no explicit (log N)^delta rate for SL3 tower, no G5 constant.",
+      "title": "Nonlinear spectral calculus and super-expanders (Mendel-Naor)",
+      "url": "https://arxiv.org/abs/1207.4705"
+    },
+    {
+      "finding": "Banach property (T) for SL_n(Z), n>=3 implies Margulis quotients are super-expanders; purely qualitative, no Lp distortion rate.",
+      "title": "Banach property (T) for SL_n(Z) and applications (Oppenheim)",
+      "url": "https://arxiv.org/abs/2207.04407"
+    },
+    {
+      "finding": "Markov convexity distortion (log n)^{1/p-1/4}/sqrt(log log n) for Heisenberg balls/Laakso graphs; method template, disjoint witness family from SL3 quotients.",
+      "title": "Markov convexity and nonembeddability of Heisenberg group (Li)",
+      "url": "https://arxiv.org/abs/1404.6751"
+    },
+    {
+      "finding": "Sharp Theta(log n) L1-distortion for grids/diamonds/Laakso via Sobolev inequality; L1 target only, complementary side.",
+      "title": "Lower Estimates for L1-Distortion (Gartland-Ostrovskii)",
+      "url": "https://arxiv.org/abs/2602.14852"
+    },
+    {
+      "finding": "Classical uniform convexity / Clarkson inequalities imply sharp L^4 4-point inequality and C4 distortion 2^{1/4}; draft admits no originality here.",
+      "title": "Classical Clarkson/Enflo uniform convexity (background, via draft Remark)"
+    }
+  ],
+  "decisive_checks": [
+    "Re-executed inputs/artifacts/verify_diamond.py: all V1-V9 OK, VERIFY_OK, stdlib-only exact arithmetic.",
+    "Independently verified order arithmetic 124*120*100/4=372000 and enclosure 11892^4=19999521365872896<2e16<20006249265015601=11893^4.",
+    "Verified commuting matrices E12*E13=E13*E12=[[1,1,1],[0,1,0],[0,0,1]] mod5, 4 vertices distinct, diagonals outside 12-element S so isometric C4 and girth 4 logic holds.",
+    "Verified symbolic identity 2(4S-T)=2(2t)^4+12(2t)^2(2u)^2+12(2t)^2(2v)^2+12(2u)^2(2v)^2 and distortion arithmetic D^4>=2; checked rhombus upper bound gives exactly 2^{1/4}.",
+    "Substantive originality comparison: no prior states G5-level bound or girth; classical C4 + commuting-pair pieces identified as textbook sources for value analysis.",
+    "Value test: confirmed N irrelevant, same C4 persists for all m>=2 (flat floor), no (log N)^delta, no nonlinear-gap/Markov constants, fallback second disjunct not substantively met."
+  ],
+  "residual_risks": [
+    "m=2 degree collapse (S has 6 not 12 distinct matrices) - does not break isometric-C4 floor but degree statement needs level restriction; negligible.",
+    "L^4 model dependence (atomless [0,1] vs l^4 vs L^4(mu)) - proof uses only pointwise inequality so transfers; negligible.",
+    "No independent live arXiv API re-query performed beyond admission queries + fetched Mendel-Naor record; residual risk of obscure prior stating same G5 constant judged very low and would only strengthen REJECT."
+  ],
+  "verdict": "REJECT"
+}
