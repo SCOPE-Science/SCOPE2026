@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Index parity core (Thms 1-2, Lemma floor) verified correct against GM92 HTML Sec.3: J={j1,j2,...}, K={j2,j4,...}, L={j1,j3,...}, D_N''=union_{k in K} B_k(D_N), implicit norm sup over k in K only; hence j*=j1 has odd J-index, j1 in L\\K, no length-j1 special enters D/norm. j1>=2^36-1 from f(j1)>=36 correct; j2>>2^144-1 from logloglog gap correct (2*j1~=1.37e11 vs lnlnln(2^144)~1.53). Ratio algebra (k-2)/(2.4k)>=1/3 iff k>=10 correct but vacuous for actual K (all >>2^144). HOWEVER headline part (2) fails: Thm 3 prefix-window claim 'ratio >=(1/4)sqrt(f(n)) requires f(k)/f(n)<=25/9' omits the (k-2)/n factor. Correct condition from the stated bounds is sqrt(Fk/Fn)<=(k-2)/(0.6n), i.e. Fk/Fn<=[(k-2)/(0.6n)]^2. For k>>n (the K-gap regime) RHS is astronomically large (quadratic in k dominates log k), so the condition is SATISFIED not violated; the draft's 'k+1<=(n+1)^2.78' bound and 'violated across gaps' conclusion are reversed. Artifact B5 only checks same-length case (4/2.4)^2 and does not verify cross-length claim. Thm 4 chunk lower bound ||v||>=(s/2-2)/sqrt(F) asserts without proof existence of a 'valid length-k special continuing the first chunk's functionals' with k^-2 cross terms for arbitrary continuation (sigma fixes M_{s+1} but choice/validity/RIS-cross bounds for j>s not proved), and compares ||v|| (k-vector object, scale s/sqrt(F)) against a 'hoped' 1.2n/f(n) bound that is never shown to be needed by any repair (strawman: chunks y_j are not normalized RIS vectors, so Lemma-5 n-scale upper does not apply to v). Stand-in integers (1000/200/1e9 etc.) are explicitly illustrative, not J/K values, so no quantitative violation about the actual construction is proved. Thm 5 repair proof sketches GM HI verbatim but does not verify Lemma-7 [log N,exp N] coverage for each M_i step nor the a_i=(-1)^i unconditional-constant direction; scripts verify only algebra (thresholds, e-cert, tail=1, cross=1/n), not norm estimates. Hence not every essential inference is proved; proof vs arithmetic-demo conflated.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively: GM92 math/9205204 (HTML Secs.1-3 full text) defines K/L/D''/implicit norm and proves the HI estimate with (k/2-1)/sqrt(f(k)) lower and Lemma-5 upper yielding (1/3)f(k)^{1/2} ratio (draft Sec.5 admits Thm 5 is 'Gowers-Maurey's own' with only scope-correction/sharp-boundary audit); Schlumprecht S-space Lemmas 1-5 are background RIS machinery; Argyros-Haydon 0903.3921 is a different HI object (l1-dual scalar-plus-compact). The index fact 'no length-j1 special / dependent lengths only in K' is a one-step definitional read-off from GM's stated 'lengths in K' plus j1 odd-index -- mechanically implied by the prior definitions, not a substantive new theorem (no prior states the negative corollary only because it is immediate). The repaired (1/3)f^{1/2} law along K is prior art. The only candidates for novelty (25/9-window, sqrt(F)/n-violation) are not in priors but are mathematically incorrect/incomplete as above and cannot confer originality. No substantive new correct claim beyond trivial corollary + known theorem.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING route verified as genuinely arising from target work (weight-table attempt revealed parity) and not mere scope evasion -- it proves the literal TARGET (every-n dependent rate) and literal PRESET_FALLBACK (min-J paired special with (2,4)) ill-posed as stated. But under the required ordinary full value standard with no presumption, the surviving correct content is a two-line definitional scope correction (j1 in L\\K) plus an explicitly admitted re-derivation of GM's known (1/3)sqrt(f(k)) HI estimate with vacuous k>=10 sharpness (all actual K>>2^144). This corrects SCOPE's own admission misreading but gives no independently retrievable new invariant, method, or downstream input a future GM researcher could not get by reading GM Sec.3 directly. The claimed quantitative no-go value (diagnosing where iteration breaks) fails because Thm 3 is reversed and Thm 4 defeats an unneeded strawman bound with stand-in numbers. Machine-checked algebra (thresholds, e-cert, concavity grid) certifies arithmetic, not new mathematics, and per policy certification alone does not rescue a trivial read-off plus known theorem. No general criterion, census, or downstream use is established beyond avoiding the flawed SCOPE target itself.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Verified Sec.3 definitions: J sparse with logloglog gaps, f(j1)>=36; K={j2,j4,...}, L={j1,j3,...}; sigma into L; Gamma_k^X/B_k^*(X) special sequences/functionals; D_N''=union_{k in K} B_k(D_N); X_{n+1} and implicit norms take sup over k in K only; Lemma 7 (G(n)=n/f(n) for N in L), Lemma 8 RIS upper, HI construction with k in K, lower f(k)^-1/2(k/2-1), small-special 6/sqrt(f(k)), final ||y+z||>=(1/3)f(k)^{1/2}||y-z||. Confirms parity premise and that Thm-5 estimate is GM's own.",
+      "title": "Gowers-Maurey math/9205204 HTML full text Secs.0-3",
+      "url": "https://arxiv.org/html/math/9205204v1"
+    },
+    {
+      "finding": "Different HI object (dual l1, lambda I+compact); no X_GM RIS growth law or level-j* envelope; confirms HI program active but leaves gap as stated.",
+      "title": "Argyros-Haydon 0903.3921 (abstract + metadata)",
+      "url": "https://arxiv.org/abs/0903.3921"
+    },
+    {
+      "finding": "Via GM Sec.2 Lemmas 1-5 reproduction: S-space lower f-estimates, l1+ averages, RIS, (M,g)-forms; background machinery only, no X_GM dependent-coding envelope.",
+      "title": "Schlumprecht 1991 via GM Sec.2 (primary text paywalled, verified via GM reproduction)",
+      "url": "https://doi.org/10.1007/BF02782845"
+    },
+    {
+      "finding": "All 5 scripts replay OK but verify only algebra/thresholds/bookkeeping (trivial threshold 65534, j1 floor, (k-2)/2.4k boundary, e<2.75, concavity grid, submult grid, tail=1, cross=1/n, stand-in ratios 293.7/39.2/32.1); none verifies norm estimates, continuation existence, or cross-length window.",
+      "title": "inputs/artifacts 5 stdlib scripts (re-executed)",
+      "url": null
+    }
+  ],
+  "claim_route_assessment": "claim_route=EMERGENT_FINDING. Genuinely arose from target investigation (fixing GM92 Sec.3 params, attempting three-case table/iteration, checking admissible lengths in primary source) and explains why literal TARGET and PRESET_FALLBACK fail as stated; not a convenient easier substitute (it is a no-go + corrected-scope repair). Absence from topic.json therefore not adverse. Applied ordinary full correctness/originality/value standard with no presumption and no relaxation.",
+  "decisive_checks": [
+    "Parity confirmed in source: D'' union and norm sup restricted to k in K; j1 index 1 odd => j1 not in K.",
+    "j1>=2^36-1 exact from log2(j1+1)>=36; j2 triple-exp >>2^144 via 2*j1~=1.37e11 vs lnlnln(2^144)~1.53.",
+    "Ratio (k-2)/(2.4k)>=1/3 iff k>=10 sharp (k=9 fails 0.324<1/3); vacuous for actual K.",
+    "Window flaw derived: stated bounds imply Fk/Fn<=[(k-2)/(0.6n)]^2, not <=25/9; for k>>n condition holds, so 'violated across gaps' reversed; 10^16.7 example from false precondition.",
+    "Chunk flaw: continuation existence unproved; hoped 1.2n/f(n) bound for v (k-vector chunk-alternating sum) never shown necessary; stand-ins not J/K values.",
+    "Thm-5 is GM's HI estimate (draft admits); unconditional-constant direction needs a_i=(-1)^i choice, unstated; Lemma-7 interval coverage per step unverified."
+  ],
+  "residual_risks": [
+    "Did not independently re-derive full GM Lemma-5/Lemma-7 proofs beyond quoted statements; relied on arXiv HTML conversion fidelity for Sec.3 formulas.",
+    "Did not exhaustively search paywalled Schlumprecht original beyond GM reproduction; irrelevant to verdict since S-lemmas are background only.",
+    "No live arXiv keyword search re-run beyond admission + abstract checks; originality conclusion rests on substantive containment (definitions + admitted prior estimate), not on search completeness."
+  ],
+  "verdict": "REJECT"
+}
