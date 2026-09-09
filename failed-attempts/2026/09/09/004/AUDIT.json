@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Strongest self-contained headline is DRAFT finite-family theorem for m=0..4 (explicitly NOT the admitted infinite ribbon-gap theorem, which DRAFT honestly disclaims and in fact refutes for m=1,2,3). Every essential computation was independently replayed exactly: seed braid BR(3,[1,1,1,-2,-1,-1,-1,-2]) closure is a 3-cycle knot; unreduced-Burau code reproduces KnotAtlas 8_20 Alexander t^2-2t+3-2/t+1/t^2 and det 9 exactly and trefoil up to documented unit t. For w_m=[1,1,1,-2]+[-1]^{2m}+[-1,-1,-1,-2], exact integer substitution gives dets 9,19,29,39,49 (=10m+9), D(1)=1, spans 4,6,8,10,12 via exponents (lo=-2m,hi=2 for m>=1 after normalization), canonical polynomials exactly as listed, knot closures 3-cycles, factorizations as logged. Classical inferences 2g>=span => g>=2+m and Fox-Milnor det-square => K1,K2,K3 not slice are correctly applied. Minor phrasing defect: 'NOT smoothly (hence not topologically) slice' reverses the implication (smooth=>topological), but the same nonsquare-det obstruction applies in both categories, so the concluded double-nonslice status is still correct. No overclaim: genus equality, g4=0, DT/SNF/ribbon/signature explicitly NOT claimed; failed Wirtinger route logged; range m<=4 and conjectural status beyond honestly stated. Proof vs computation correctly distinguished (Burau exact computation + classical theorems).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked live: KnotAtlas 8_20 page tabulates only m=0 seed row (3-genus 2, smooth/top slice 0, sig 0, Alexander t^2-2t+3-2/t+1/t^2, det 9, DT 4 8 -12 2 -14 -6 -16 -10, BR(3,{1,1,1,-2,-1,-1,-1,-2}), ribbon note) with no twist-family statement; KnotAtlas 9_42 page tabulates isolated neighbor (genus 2, slice 1, sig 2, det 7) with no family; classical Seifert-bound / Fox-Milnor theorems provide tools, not the five exact polynomials/dets. No checked source states Alexander spans 4+2m, dets 10m+9, or nonslice status for the frozen words w_1..w_4. In the narrow sense the four computed values are new as word-level computations. Substantive caveat (goes to value, not scored here as prior): novelty as knot types is not established because DRAFT gives no knot identification, primeness, minimal-crossing proof, or DT codes, and c(m)=braid length is diagram crossing, not minimal (m=1 at 10 crossings lies inside Rolfsen 10-crossing scope). No substantive prior anticipates the specific frozen-word table, so originality PASSES for the word-level facts.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline is a finite enumeration: Alexander polynomials/spans/dets for five explicitly frozen 3-braid words (m=0..4) + textbook lower bounds g>=2+m + determinant-nonsquare nonslice for m=1,2,3. This is intrinsic low value: (a) No exact genus (only 2g>=span lower bound), no slice genus, no ribbon, no infinite theorem; admitted infinite divergence (g=2+m vs g4=0 with ribbon) is explicitly disclaimed and refuted by the same data (19,29,39 nonsquare => not slice). Admitted fallback (Seifert genera 3,4,5 with slice 0 and DT/SNF/ribbon) is not delivered; a different weaker fallback is substituted, so admission value case does not transfer. (b) Mere parameter substitution + unexplained enumeration: objects are ad hoc braid words where the insertion site was selected after a 36-case scan to produce growth (post-hoc), not motivated before computation; no knot names, DT codes, primeness, minimality, or above-range-as-knot-type proof; c(m) is diagram length. Exhibiting three more nonsquare-det nonslice knots (infinitely many exist) and four Burau evaluations does not advance the recognized Seifert-vs-slice gap question, which required large gap WITH sliceness. Pattern beyond m=4 is stated conjecture only. (c) Narrow-datum rescue fails: object/invariant were not motivated before computation independent of the refuted gap, values are mechanically produced by the standard Burau formula, and a future researcher has no reason to retrieve the precise Alexander of these unidentified words. Certification alone does not rescue an arbitrary object. Hence correct and new but independently not worth finding later.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Seed row only: 3-genus 2, smooth/top slice 0, sig 0, det 9, Alexander t^2-2t+3-2/t+1/t^2, DT 4 8 -12 2 -14 -6 -16 -10, BR(3,{1,1,1,-2,-1,-1,-1,-2}), ribbon note; same-Alexander {10_140,K11n73,K11n74}; no twist family, no D_m for m>=1.",
+      "title": "KnotAtlas 8_20 page (live fetch)",
+      "url": "https://katlas.org/wiki/8_20"
+    },
+    {
+      "finding": "Neighbor fixed row only: 3-genus 2, smooth/top slice 1, sig 2, det 7, Alexander -t^2+2t-1+2/t-1/t^2; no family statement.",
+      "title": "KnotAtlas 9_42 page (live fetch)",
+      "url": "https://katlas.org/wiki/9_42"
+    },
+    {
+      "finding": "Classical tools (closed-braid Burau minor up to unit, 2g>=span Alexander, Fox-Milnor det-square for slice) do not state the five frozen-word values; they are the method, not the result.",
+      "title": "Classical Seifert / Fox-Milnor theorems (standard facts, no URL)",
+      "url": ""
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/burau.py: seed Alexander and |Delta(-1)|=9.0 reproduced; trefoil gives t^3-t^2+t = t*(t^2-t+1) up to unit as documented.",
+    "Re-ran family loop exactly: spans 4,6,8,10,12; exact integer D(-1)=9,19,29,39,49; D(1)=1; closures 3-cycles; canonical polys match DRAFT lines 22-26 character-for-character after normalization.",
+    "Exact integer check (no float): D(-1) via sympy subs gives 9,19,29,39,49; isqrt confirms 19,29,39 nonsquare, 9 and 49 square.",
+    "Factor check: m=0 (t^2-t+1)^2; m=1,2,4 irreducible over ZZ as listed; m=3 (t^2-t+1)*(degree-8) - consistent with det 39=3*13 composite but polynomial not of Fox-Milnor form, det test already decisive.",
+    "Boundary check: c(m)=8+2m is braid-word length, not proven minimal crossing; m=1 diagram has 10 crossings, inside Rolfsen 10-crossing scope, so 'outside Rolfsen scope' holds only as diagram length for m>=2, not as knot-type claim (no identification provided)."
+  ],
+  "residual_risks": [
+    "Unreduced-Burau (n-1)-minor formula correctness for all m rests on seed+trefoil calibration plus standard closed-braid theory; no independent PD/Fox verification for m>=1 (abandoned Wirtinger script was wrong), but exact match on seed with same code path makes systematic error unlikely.",
+    "Topological vs smooth Fox-Milnor nuance: DRAFT phrasing implies smooth=>topological; correct justification is that nonsquare det obstructs both categories directly; conclusion unaffected.",
+    "Knot-type novelty (primeness, minimal crossing, HT identification) left open; audit scores word-level novelty only, and value FAIL already accounts for missing identity."
+  ],
+  "verdict": "REJECT"
+}
