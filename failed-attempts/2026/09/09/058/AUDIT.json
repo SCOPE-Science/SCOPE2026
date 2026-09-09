@@ -1,0 +1,45 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline vanishing follows logically IF cited theorems are taken as black boxes. Lemma 1 (Sol(5)~=Sol(3) via v2(24)=v2(8)=3, l=0) is supported by HLL Sec.1.3/Thm 4.1 statement F_Sol(q)~=F_Sol(3^{2^l}) where 2^{l+3}||q^2-1; replayed v2/mod-8 arithmetic is correct. Lemma 2 (HLL Thm 1.1 punctured=>sharp for all i>=1,j>=0 including j=0, plus Thm 1.4 punctured iff q=+/-3 mod 8) accurately describes HLL; 5=-3 mod 8 so F_Sol(5) qualifies directly. Lemma 3 (sharpness transports along fusion-system isomorphism via orbit-category equivalence) is standard and sketch is sound; DRAFT honestly retracts false S-terminal shortcut with counter-witness. SNF artifacts (3x2 Cech toy matrix, 1x1 zero matrices) prove nothing about Sol(5) but DRAFT discloses vanishing is by transport not SNF, so no falsified certificate. Assemblative dependence on unre-verified HLL/COS08/Bova proofs is disclosed as limitation; no essential inference within scope is mathematically invalid.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: headline Sol(5) sharpness is substantively already contained in HLL 2201.07160. HLL Thm 1.1 (punctured=>sharp, all i>=1,j>=0) combined with Thm 1.4/4.1 (F_Sol(q) has punctured group iff q=+/-3 mod 8, with F_Sol(q)~=F_Sol(3^{2^l})) directly entails sharpness for q=5 since 5=-3 mod 8 and l=0 (2-part of 24 is 8). DRAFT itself concedes this direct route (Remark: 'q=5 itself satisfies HLL criterion...with no transport needed'). Absence of string 'Sol(5)' in HLL title/abstract does not establish novelty; substantive theorem covers q=5 as member of infinite l=0 family. Iso-transport Sol(5)~=Sol(3) is therefore proof of the same object twice under different names, not a new case. Admission's premise that Sol(5) lacked punctured group / was first open case is factually wrong (confuses isomorphism type l>0 with parameter q=5); no prior gap existed. Result is mechanical instantiation (q=5) of published general theorem, not a new theorem.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: even taken as correct, result is mere parameter substitution with no independent retrieval value. Future researcher needing Sol(5) sharpness cites HLL Thms 1.1+1.4 directly (q=+/-3 mod 8 family); a note restating it for q=5 adds no lemma, method, computation, or boundary extension. Transport lemma is textbook category equivalence; Bova four-term collapse is automatic given vanishing; SNF fragment is generic toy matrices, not Sol(5)-specific data. Does not satisfy narrow-exact-invariant exception because value was already known/mechanically implied by HLL general theorem, not unknown. The admitted target's value rested on false open-gap premise; with gap closed by HLL, no standalone value remains.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Thm 1.1: punctured group => subgroup decomposition sharp (lim^i H^j=0 all i>=1,j>=0). Thm 1.4/4.1: F_Sol(q) has punctured group iff q=+/-3 mod 8; F_Sol(q)~=F_Sol(3^{2^l}) where 2^{l+3}||q^2-1, so only l=0 type has punctured group; construction gives C_L(Z(S))=Spin7(3). Directly entails Sol(5) (q=5, 5=-3 mod 8, l=0) sharpness. Introduction lists F_Sol(3) as example but theorems cover all q=+/-3.",
+      "title": "Punctured groups for exotic fusion systems \u2014 Henke, Libman, Lynd",
+      "url": "https://arxiv.org/abs/2201.07160"
+    },
+    {
+      "finding": "Lists centric-radicals/outer automorphisms, 12 weights; computes no higher limits. Does not close sharpness; consistent with DRAFT citation.",
+      "title": "Weights in a Benson-Solomon block \u2014 Lynd, Semeraro",
+      "url": "https://arxiv.org/abs/1712.02826"
+    },
+    {
+      "finding": "Thm A: conditional 4-term exact sequence + Ext^n~=lim^{n+2} under amalgam hypotheses; Thm B verifies hypotheses for Benson-Solomon family with q=+/-3 mod 8 (includes q=5). Provides framework only; vanishing still comes from HLL.",
+      "title": "Higher limits over the fusion orbit category via centralizers of amalgams \u2014 Praderio Bova",
+      "url": "https://arxiv.org/abs/2411.01352"
+    }
+  ],
+  "claim_route": "TARGET \u2014 audited normally against admitted target; no preset-value presumption applies.",
+  "decisive_checks": [
+    "Replayed v2(9-1)=3, v2(25-1)=3, 3%8=3, 5%8=5=-3 mod 8, so both q=3 and q=5 satisfy HLL q=+/-3 criterion and share l=0 (2-part 8).",
+    "Verified via HLL HTML that Thm 1.4 states punctured iff q=+/-3 mod 8 and iso classification F_Sol(q)~=F_Sol(3^{2^l}), contradicting Admission claim that Sol(5) lacks punctured group.",
+    "Confirmed DRAFT Remark admits direct HLL route for q=5 with no transport needed, establishing mechanical implication.",
+    "Ran inputs/artifacts/verify_sol5.py => VERIFY_OK (trivial arithmetic only); inspected snf_log.json/verify_snf.py => toy 3x2 and 1x1-zero matrices, no Sol(5)-specific cochain data."
+  ],
+  "residual_risks": [
+    "Cited HLL/COS08/Bova proofs not re-verified; gap in any propagates (disclosed).",
+    "No independent check of Lynd-Semeraro Table 1 orders beyond spot ledger; irrelevant to headline entailment."
+  ],
+  "verdict": "REJECT"
+}
