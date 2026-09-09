@@ -1,0 +1,44 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/verify_aug_twist.py: ALL_PASS, exit 0. Sec A identities hold: under c_odd=c, c_even=-(ab+1), 1+c_{j-1}c_j = 1-(ab+1)c for every j (one factor odd, one even); de0|_{t=-1}=-1+(ab+1)c; de1 (n>3) and n=3 extra factor reduce identically; spot (2,3,1/7) kills equations. Sec B: Bezout -g+(s/m)g'=1 for g=c*s^m-1 is a general identity, samples m=1,2,3,5 correctly checked; char-3 gcd example correct; F5 collision demo is a valid illustration of non-injectivity for constant map, not a proof. Sec C counts correct: |{(a,b):ab!=-1}| = q^2-(q-1) = q^2-q+1, matching 3,7,21,43 for q=2,3,5,7. Sec D membership (0,1),(1,0),(0,0) in V correct; Euler/Hom lines are tautological Python literal checks ((2-1)==1, (1,2)==(1,2)), not computations, but not false. Crucially DRAFT.md Sec 0/3/4 honestly delimits proof status: geometric assembly (projection is iso, UFD/finiteness completion of Prop 4.3) is explicitly cited to Gao-Rutherford Props 4.1/4.3, not claimed as in-lane proof; machine scope is limited to j<=8 with 'pattern general' stated, and m samples stated. No false theorem claimed; admitted 8_1 target explicitly declared NOT proved with missing front/DGA/pinch/X enumerated. Hence what is actually claimed as verified is correct and honestly bounded.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Strongest delivered headline is a machine replay of Gao-Rutherford arXiv:2103.03951 Props 4.1/4.3 for odd Lambda_n: variety (ab+1)c=1, Laurent-unit/separability facts, small-q counts, eps membership. DRAFT itself labels it 'replay of GR Prop 4.1, machine-checked reduction' and 'computational core of GR Prop 4.3'. This is prior-published mathematics, not a new invariant, lemma, or distinction. Finite-field counts q^2-q+1 are mechanically implied by the published equation (q-1 bad pairs). Bezout -g+(s/m)g'=1 is the standard separability witness inside the cited proof. No cluster seed, mutation log, separating function X, 8_1 front/DGA, pinch fillings, transfer lemma, or chart-collision certificate is produced (admitted gap Sec 4). The admitted target's novelty (graded orientable two-filling chart distinction for 8_1) cannot confer originality on an undelivered claim; audit judges delivered content. A timestamp/ALL_PASS log does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Delivered replay has no independently retrievable new fact: future work on twist-knot augmentations cites Gao-Rutherford for the variety and torus obstruction, not a sympy re-evaluation of 1+c_{j-1}c_j, four small-q brute forces, or tautological (2-1)==1 checks. Admission fallback required (a) graded variety + seed/mutation log for max-tb 8_1 and (b) transfer lemma or certified collision for the candidate pair; neither is present -- variety is for the odd family only, no seed/log, no 8_1 transfer, no pair obstruction. Per value standard, rigorous certification alone does not rescue recomputation of a known equation, and textbook-level corollaries (point-count formula, gcd=1) are not independently worth finding later. Honest gap statement (Sec 4) is commendable but does not create value. Headline 8_1 separation remains open.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms published torus-dimension obstruction: filling point must lie in injective torus image; twist-knot augmentations that cannot be so contained are non-fillable. Covers odd-family variety and obstruction replayed in-lane.",
+      "title": "Non-fillable augmentations of twist knots",
+      "url": "https://arxiv.org/abs/2103.03951"
+    },
+    {
+      "finding": "Abstract confirms ungraded An-cluster varieties for 2-bridge links with (possibly non-orientable) Catalan fillings; does not imply graded orientable 8_1 pair distinction, but confirms cluster context cited.",
+      "title": "Augmentations, Fillings, and Clusters for 2-Bridge Links",
+      "url": "https://arxiv.org/abs/2308.11858"
+    },
+    {
+      "finding": "Abstract confirms positive-braid cluster K2 varieties and infinite-filling dichotomy; scope is positive braids, not twist-knot pair separation.",
+      "title": "Augmentations, Fillings, and Clusters",
+      "url": "https://arxiv.org/abs/2008.10793"
+    }
+  ],
+  "decisive_checks": [
+    "Executed verify_aug_twist.py: ALL_PASS exit 0; independently confirmed count formula q^2-q+1 and Bezout identity -g+(s/m)g'=1 generally.",
+    "Compared DRAFT Props A/B against cited GR Props 4.1/4.3 scope: equations, c_j pattern, t=-1, eps1/eps2/eps3 membership all match published family; no 8_1 front/DGA/pinch/seed/X in DRAFT Sec 4 or script.",
+    "Confirmed fallback not met: no 8_1 variety, no seed/mutation log, no transfer lemma, no certified same-chart collision for a named pair.",
+    "Confirmed Sec D dimension lines are literal tautologies, contributing no evidence."
+  ],
+  "residual_risks": [
+    "Full GR PDF not re-checked line-by-line; relied on abstract plus DRAFT equations for attribution, but DRAFT's explicit citation and limited replay claim make misattribution risk low.",
+    "tb=1 and grading coincidence statements taken as cited; error there would not change replay verdict but could affect transfer discussion."
+  ],
+  "verdict": "REJECT"
+}
