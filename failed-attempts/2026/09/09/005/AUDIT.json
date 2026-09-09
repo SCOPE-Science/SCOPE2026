@@ -1,0 +1,64 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 'centrally symmetric reflexive => width exactly 2' is mathematically correct. Lower bound: for primitive u, max_{P}<u,.> is attained at a lattice vertex hence integer; 0 interior => max>0 => max>=1; P=-P => min=-max => w_u=2*max>=2. Draft omits explicit integrality sentence but inference is valid and fillable. Upper bound: any reflexive facet has primitive normal u0 with max=1, symmetry gives min=-1 => w=2. Central-symmetry test 'V=-V as sets' is complete: reflexive unique interior lattice point is origin, any central symmetry must fix it so center is origin, and -Id permutes vertices. Computation replayed: parse yields 4319 entries; symmetry filter yields exactly the 13 claimed KS# (418,419,924,925,974,975,2310,2311,3056,3998,3999,4309,4310); per-class hull shows all facet distances c0=1, unique interior (0,0,0), two centroid-ordered determinant triangulations agree (8,48,16,24,32,12,12,36,20,16,28,20,24), first facet normal attains width 2, bounding-box lattice-point counts match table (7,27,11,15,19,9,9,21,13,11,17,13,15), dual-boundary enumeration gives w2-pairs (13,3,7,5,4,9,10,4,6,8,5,7,6) with all dual boundary points primitive and width-2. Verifier prints VERIFY_OK, reproduced independently. Draft correctly separates proved lemma vs computed census vs no conjecture. GL-distinctness relies on KS one-per-class plus pairwise-distinct invariant signatures (verified from table) and disclosed triple-correspondence check, honestly described as consistent rather than full canonical certification. No essential inference or boundary failure.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No recorded prior states the headline census: complete direction-certified width table with sharp bound over the closed GL(3,Z)-family of centrally symmetric reflexive 3-polytopes. Nearest priors compared substantively: Kreuzer-Skarke hep-th/9805190 gives bare 4319 census with volumes/point counts but no widths, directions, or symmetric-family bound; Iriyeh-Shibata 1706.01749 proves symmetric Mahler product 32/3 in 3D, orthogonal (volume products, not widths); Blanco-Santos 1501.01055 classifies a different family (6-point polytopes: 74 width-2, two width-3) proving width classification is a recognized kind but on different scope; GRDB exposes bare invariants without widths. Live arXiv API queries confirm gap: Kreuzer-Skarke+width 0 hits, reflexive+lattice-width 0 hits, symmetric-reflexive+width 0 hits; centrally-symmetric+reflexive+polytope 7 hits (facet-number, edge-polytope, Weyl, Fano-graph papers) none with width census. Bare volumes do not imply widths. Lemma itself is elementary folklore from standard definitions (draft explicitly disclaims novelty for W*=2, claiming only census layer as new), but no verbatim prior for the 13-row certified census with attaining directions and dual-pair counts was found, so originality passes narrowly; triviality is scored under value, not originality.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Intrinsic low value: textbook restatement plus mechanical database slice, even though correct and new. The sharp bound W*=2 with gap 0 is a 3-line corollary of standard definitions requiring no census: any facet normal attains 2 and symmetry forces >=2. Runner-up gap 0 means no non-trivial flatness boundary; Blanco-Santos precedent is disanalogous (non-trivial 74/2 distribution requiring enumeration vs degenerate uniform 2 provable without enumeration). Census table adds no substantive invariant a future researcher needs to retrieve: normalized volumes and point counts are bare KS/GRDB invariants recomputed to identical numbers; attaining directions are trivial (any facet normal); w2-pair counts (dual boundary lattice points mod sign, 3..13) had no pre-existing demand, motivate no flatness/hollow/Ehrhart question, and support no downstream theorem \u2014 an unexplained enumeration. Motivation (flatness/hollow/Mahler programs) collapses because lemma alone settles the width question in seconds; the 13 KS numbers are obtainable by a seconds-long V=-V filter anyone with the public list can run. Exact-invariant protection does not apply because the value IS mechanically implied by definitions and certification alone (VERIFY_OK, two triangulations) does not rescue a trivial invariant per standard. No bounded addition (motivation paragraph, literature pointer) can make uniform trivial width non-trivial; defect is intrinsic, not presentational.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "4319 reflexive 3-polyhedra census; bare volumes/point counts, no widths or symmetric-family bound; confirms filter source exists but width layer absent.",
+      "title": "Classification of Reflexive Polyhedra in Three Dimensions \u2014 Kreuzer/Skarke",
+      "url": "https://arxiv.org/abs/hep-th/9805190"
+    },
+    {
+      "finding": "Width classification of different family (74 width-2, two width-3 among 6-point polytopes); proves kind is recognized but scope/bound not covered.",
+      "title": "Lattice 3-polytopes with six lattice points \u2014 Blanco/Santos",
+      "url": "https://arxiv.org/abs/1501.01055"
+    },
+    {
+      "finding": "Symmetric Mahler volume-product bound 32/3 in 3D with equality case; volume products only, no width minima or census; orthogonal.",
+      "title": "Symmetric Mahler's conjecture for the volume product in the three dimensional case \u2014 Iriyeh/Shibata",
+      "url": "https://arxiv.org/abs/1706.01749"
+    },
+    {
+      "finding": "Database index exposes toric/Fano/K3 bare invariants; no lattice-width minima or symmetric-reflexive width table.",
+      "title": "Graded Ring Database (GRDB) \u2014 front page",
+      "url": "https://grdb.co.uk/"
+    },
+    {
+      "finding": "Kreuzer-Skarke+width 0 hits; reflexive+lattice-width 0 hits; symmetric-reflexive+width 0 hits; corroborates no recorded width-census headline.",
+      "title": "arXiv API combined-term gap queries (zero-hit results)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22Kreuzer-Skarke%22+AND+all:width&start=0&max_results=10"
+    },
+    {
+      "finding": "centrally-symmetric+reflexive+polytope 7 hits: facet-number, symmetric edge polytope, Weyl, Fano-graph papers; none with width minima or 13-class width census.",
+      "title": "arXiv API centrally-symmetric + reflexive + polytope (7 hits, all orthogonal)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22centrally+symmetric%22+AND+all:reflexive+AND+all:polytope&start=0&max_results=20"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py (stdlib+numpy): total=4319 symmetric=13, all 13 rows match DRAFT table volumes/point counts/widths/w2-pairs, VERIFY_OK reproduced.",
+    "Checked symmetry completeness logic: unique interior lattice point forces any central symmetry center to origin; vertex-set V=-V test therefore exact for this family.",
+    "Checked lemma proof: filled missing integrality step (max at lattice vertex => integer >0 => >=1); lower and upper bounds verified; facet-normal attainment valid.",
+    "Checked volume method: origin-fan vs vertex-fan centroid-ordered triangulations agree; float-det rounding safe at these magnitudes; hexagon-facet ordering fix credible.",
+    "Checked dual w2-pairs logic: D=facet normals, P*=conv(D), bounding-box enumeration of dual lattice points, primitivity and width-2 assertions all pass in replay.",
+    "Checked invariant separation: (nv,nfac,normvol,|P cap Z^3|) pairwise distinct across 13 per replayed table, supporting disclosed one-per-class consistency claim.",
+    "Checked RefPoly.d3: 4319 header lines, PALP 3D format, parse count matches publication; provenance assumed from committed file, not re-downloaded upstream."
+  ],
+  "residual_risks": [
+    "RefPoly.d3 authenticity rests on committed hash and upstream URL, not an independent upstream download+hash comparison in this audit; miscount would propagate but parse count 4319 matches publication.",
+    "Volume triangulation uses floating SVD/det with rounding; theoretically fragile for large coordinates, but mitigated here by small integers and two-method agreement.",
+    "GL-distinctness not fully canonically certified (relies on KS one-per-class + invariant separation + same-nv triple search); disclosed as consistency, low risk for width headline since widths uniform.",
+    "No verbatim prior for width-2 lemma phrasing was located, but lemma is folklore-immediate; originality PASS is narrow for census artifact only and does not endorse lemma novelty."
+  ],
+  "verdict": "REJECT"
+}
