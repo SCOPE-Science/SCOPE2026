@@ -1,0 +1,55 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline numerics replay correctly. An independent auditor recount with fresh barycentric sub-tetra-volume code (not the candidate slice-scaling or facet-scan code) reproduces L=(1,4,11,24,45,76,119) for P_triangle=conv{(0,1,0),(1,0,0),(1,1,0),(0,0,2)} and L=(1,17,66,166,335,591,952) for P_max over the 3x3 square at h=1, hence h*=(1,0,1,0) and (1,13,4,0) by the standard degree-3 Ehrhart inversion, which was re-derived. Width-1 claims are unconditionally certified: an exhibited integer direction attains spread 1, and 1 is the global lower bound for any full-dimensional lattice polytope, so the adjugate-radius lemma is not load-bearing for the headlines. Volume identities sum(h*)=h*area2(Q) hold (2 and 18). Running inputs/artifacts/verify.py reproduces GLOBAL_OK (n=2992, maxdip 9 unique, mindip -20, 1333 positive dips, 9 non-peak vectors) and VERIFY_OK on all 11 headline cases. No correctness defect in the arithmetic; the failure lies in novelty and interpretation, not computation.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Theorem A (first explicit non-unimodal pyramid witnesses, h*=(1,0,1,0),(1,0,2,0),(1,0,3,0)) is a textbook restatement. The auditor exact integer search proves each witness pyramid is unimodularly (GL(3,Z) plus translation) equivalent to the classical Reeve tetrahedron T_h=conv{(0,0,0),(1,0,0),(0,1,0),(1,1,h)} of Reeve 1957: h=2 via U=[[0,-1,0],[1,1,1],[0,0,1]], h=3 via U=[[1,0,0],[0,-1,0],[0,-3,-1]], h=4 via U=[[1,0,0],[0,-1,0],[0,-4,-1]], each determinant +-1 and verified to map vertex sets onto each other. The invariant h*(T_h)=(1,0,h-1,0) is the standard textbook Ehrhart example (Beck-Robins Computing the Continuous Discretely; Betke-McMullen theory), the canonical dimension-3 non-unimodal family with 1>0<m pattern. Hence both the object up to the only equivalence that matters in Ehrhart theory and the number are known and mechanically implied, not a first witness. Narrow window-scoping (over this box window, apex at (0,0,h), translation placements) does not create priority: unimodular equivalence erases those distinctions, and a timestamp or failed keyword search does not establish priority over a 1957 textbook object. The cited nearest priors (Haase-Schicho 2D triples, Batyrev-Nill degree 1, Castryck-Cools width, Braun-Davis-Solus and Payne high-dimensional thresholds) are correctly distinguished, but the decisive nearest prior, the Reeve tetrahedra, was missed, and it substantively anticipates Theorem A. Originality therefore FAILS; per policy this is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judging the strongest headline separately: Theorem A, the only candidate for an independently retrievable exact invariant of a natural object, is the known h*-vector of the Reeve tetrahedron, already available in textbooks, so its value was known and mechanically implied before computation and the exact-invariant clause does not save it. Theorem B (max h1*-h2*=9 at the 3x3-square height-1 pyramid, runner-up 7, gap 2, histogram over 2992 pyramids in box [0,3]^2, triangles and quadrilaterals only, h=1..4) is an unexplained enumeration over an arbitrary committed window: no reason is given why [0,3]^2 rather than any other box, why only triangles and quadrilaterals, or why h<=4; the number 9 has no mathematical interpretation, no general criterion, and no downstream use. The width corollary (extremal and witnesses all have width 1) is trivial, since width 1 is the absolute minimum and the generic value, and it tests no width-versus-unimodality interaction. The package is therefore textbook restatement plus arbitrary-slice enumeration, explicitly excluded even when correct and new. Value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Classifies realizable (area,boundary,interior) triples for lattice polygons; forces 2D h*=(1,i+b-3,i) hence 2D unimodality. No 3D pyramid dip witness or bound.",
+      "title": "Haase-Schicho: Lattice polygons and the number 2i+7",
+      "url": "https://arxiv.org/abs/math/0406224"
+    },
+    {
+      "finding": "Proves IDP-implies-unimodal for a Payne-generalizing reflexive-simplex family; surveys Musta-Payne and Payne non-unimodal Gorenstein counterexamples in dimensions above 5. No 3D pyramid-over-polygon witness or window dip bound.",
+      "title": "Braun-Davis-Solus: Detecting IDP and Ehrhart Unimodality in Reflexive Simplices",
+      "url": "https://arxiv.org/abs/1608.01614"
+    },
+    {
+      "finding": "Structural classification of degree-1 polytopes; context for pyramids but no h1*>h2* witness or sharp dip bound in this window, per admission record and abstract.",
+      "title": "Batyrev-Nill: Multiples of lattice polytopes without interior lattice points",
+      "url": "https://arxiv.org/abs/math/0602336"
+    },
+    {
+      "finding": "Lattice size and minimal-width theory for polygons; no h*-unimodality breakdown for 3D pyramids, per admission record.",
+      "title": "Castryck-Cools: Lattice size of a lattice polygon",
+      "url": "https://doi.org/10.1016/j.jcta.2015.06.005"
+    },
+    {
+      "finding": "DECISIVE: T_h=conv{(0,0,0),(1,0,0),(0,1,0),(1,1,h)} has normalized volume h and h*=(1,0,h-1,0), the canonical non-unimodal 3D family. The auditor proved the candidate witnesses unimodularly equivalent to T_2, T_3, T_4 with explicit determinant +-1 maps, so Theorem A is this textbook fact. Verified via the auditor own equivalence computation plus Ehrhart-formula replay: (1,0,h-1,0) predicts exactly the three claimed L-vectors.",
+      "title": "Reeve (1957) tetrahedra and Beck-Robins textbook Ehrhart theory: h*(T_h)=(1,0,h-1,0)",
+      "url": "https://arxiv.org/abs/math/0406224"
+    }
+  ],
+  "decisive_checks": [
+    "Independent barycentric sub-volume recount: witness L=[1,4,11,24,45,76,119] and extremal L=[1,17,66,166,335,591,952] reproduced exactly; h* inversion re-derived.",
+    "Width lower-bound argument: exhibited directions ((-1,-1,-1) on witness, (0,0,-1) on extremal) attain spread 1, the absolute minimum, so width-1 claims hold regardless of lemma-radius details.",
+    "Unimodular-equivalence proof: exact integer matrices (h=2: [[0,-1,0],[1,1,1],[0,0,1]]; h=3: [[1,0,0],[0,-1,0],[0,-3,-1]]; h=4: [[1,0,0],[0,-1,0],[0,-4,-1]]) map candidate P(Q,h) onto Reeve T_h; determinants +-1, vertex-set images verified.",
+    "Reeve-formula replay: (1,0,h-1,0) predicts exactly the three claimed L-vectors via L(t)=sum h_i C(t+3-i,3).",
+    "Ran inputs/artifacts/verify.py: GLOBAL_OK plus VERIFY_OK on all 11 headline cases; census.json dip histogram and 9-count confirmed as machine facts, which does not rescue novelty."
+  ],
+  "residual_risks": [
+    "Exact-9-in-window completeness rests on the candidate box-enumeration code; the auditor did not independently re-enumerate all 2992 pyramids, only headline recounts plus global-log replay. Irrelevant to the verdict since the headlines themselves are textbook.",
+    "No third-route regular-triangulation h* was used (admitted limit); both routes are lattice-count based. Again irrelevant given the originality collapse."
+  ],
+  "verdict": "REJECT"
+}
