@@ -1,0 +1,58 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Steinberg denominators/numerators for all 7 systems re-derived independently and match: triangle A-E match both direct Steinberg enumeration with longest-element shifts and Terragni infinite-family closed forms (A: [1,3,5,6,5,3,1]/[1,0,-1,-1,-1,0,1]; B: [1,2,3,3,3,2,1]/[1,-1,0,-1,0,-1,1]; C: [1,3,5,6,5,3,1]/[1,0,-1,-2,-1,0,1]; D: [1,2,2,1]/[1,-1,-1]; E: [1,2,2,2,1]/[1,-1,0,-1]). verify.py rebuild prints VERIFY_OK; bfs_check.py re-run matches all series coefficients to length 12 for all 7 systems. Sturm smallest-positive-root lower bounds (omega_lo=1/b) are exact rational and rechecked. Numpy root check confirms smallest-modulus root is real, well separated from second root (modulus gaps 0.28-1.0), so omega_lo side is sound. HOWEVER the headline ordering/gap requires upper bounds omega_hi=1/rho from the argument-principle winding count, which is not a proof: certify_radii.py/verify.py evaluate Q(rho e^{it}) at float midpoints with second-order remainder r=M2*(dth/2)^2/2 plus heuristic float padding 1e-9*sum+1e-12 and float atan/asin/hypot with 1e-9 padding, not rigorous interval arithmetic or certified rounding-error bounds. A sound first-order Lipschitz bound L*(dth/2) is 361x-1204x larger than the claimed radius (e.g. A at Narcs=4096: claimed 4.18e-06 vs sound 3.02e-03; E: claimed 1.04e-06 vs sound 1.25e-03; G: claimed 1.88e-06 vs sound 1.59e-03), and dense sampling shows min|Q| on the circle (~1.81e-05 for A, ~1.73e-06 for E, ~3.12e-06 for G) is below the sound radius, so the tight width<=1.1e-05 and the certified A_hi/E_lo separation depend on the unsound remainder. Thus omega_hi, interval widths, and the 0.064292 gap are experimental evidence with heuristic error accounting, not machine-checked proof as claimed ('certified', 'rigorous', 'disjoint enclosures'). Essential headline inference (A_hi < E_lo and all other gaps) is therefore not proved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Substantive overlap defeats novelty. System A (triangle [3,3,4]) is verbatim in Terragni arXiv:1503.08764 sec 2.1.3 as a <=-minimal hyperbolic system with identical numerator 1+3t+5t^2+6t^3+5t^4+3t^5+t^6, denominator 1-t^2-t^3-t^4+t^6, initial coefficients (1,3,6,10,15,22,31), and growth rate 1.40126836793985... within the claimed [1.40126836,1.40127916]. The per-system table is therefore not wholly new. Further, the same paper p.2 displays closed parametric formulas p_<a,b,c>, p_<a,b,inf>, p_<a,inf,inf>, p_<inf,inf,inf>; B=[3,3,5], C=[3,4,4], D=[3,3,inf], E=[2,4,inf] series were verified to equal direct substitution into those formulas exactly, i.e. mechanically implied parameter instances, not new Steinberg computations. D's rate is the golden ratio phi=(1+sqrt5)/2 from Q=1-t-t^2, classical. Only rank-4 F/G (non-minimal-hyperbolic / non-hyperbolic with inf) lie outside the minimal-hyperbolic dataset scope by definition, but the headline minimum (A<E<B<C<D<G<F) does not depend on them beyond being larger, and the comparative window-minimum over this ad hoc 7-set is not a recognized family, complete census, or general extremal theorem. No prior source was found for that exact 7-comparison, but a self-chosen window comparison built from one verbatim prior value plus formula substitutions is parameter substitution / arbitrary-scope comparison, not a substantive original result. EoM (finite/affine only), Terragni 1312.3437 (universal tau~1.13, monotonicity, mutation invariance), Bredon 2111.09208 (Gamma_n non-cocompact minima) and Bredon-Kellerhals 2008.10961 (G4/G5 cocompact minima) indeed do not give this window minimum, but they do not rescue the triangle overlap.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Headline is a window-relative minimum over 7 self-committed systems, explicitly not global (global hyperbolic minimum is Lehmer ~1.17628 for <2,3,7> in the same dataset, well below A~1.40126). The window mixes three compact-hyperbolic triangles, two inf-triangles, and two ad hoc rank-4 attachments (F=[3,3,4]+pendant-3, G=path [3,4,inf]) with no completeness claim, no general criterion, and no downstream use; it is an arbitrary slice, not a natural closed family. Under the exact-invariant clause: A fails 'not known' (published to 29 digits); B-E fail 'not mechanically implied' (direct instances of published parametric formula); F/G are at most two narrow new rationals without mathematical interpretation, motivation beyond spanning the boundary, or future-need showing. Certification/BFS replayability are evidence only and do not create value. Result is therefore an unexplained enumeration / tiny window comparison with parameter substitutions, not an independently retrievable extremal witness, benchmark from a recognized gap, or usable table.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Tabulates only finite/affine classification, exponents, Gram-matrix positivity criterion. No growth series or rates for infinite/inf systems.",
+      "title": "Encyclopedia of Mathematics -- Coxeter group",
+      "url": "https://encyclopediaofmath.org/wiki/Coxeter_group"
+    },
+    {
+      "finding": "Proves monotonicity under <=, universal lower bound tau~1.13 (Perron deg 127), mutation invariance. No exact window minimum or gap.",
+      "title": "Terragni -- On the growth of a Coxeter group (arXiv:1312.3437)",
+      "url": "https://arxiv.org/abs/1312.3437"
+    },
+    {
+      "finding": "For each <=-minimal hyperbolic system gives Poincare series and omega via Magma. Sec 2.1.3 is exactly triangle <3,3,4> with same N/D/coeffs/omega 1.40126836793985...; p.2 gives parametric formulas for all <a,b,c> including inf cases, implying B-E series by substitution. Scope minimal-hyperbolic only, so F/G rank-4 non-minimal/non-hyperbolic outside scope.",
+      "title": "Terragni -- Data about hyperbolic Coxeter systems (arXiv:1503.08764)",
+      "url": "https://arxiv.org/abs/1503.08764"
+    },
+    {
+      "finding": "Proves Gamma_n minimal among non-cocompact finite-covolume Coxeter groups in Isom H^n. Restricted family, no mixed rank-3/4 inf window.",
+      "title": "Bredon -- Minimal growth rates in higher dimensions (arXiv:2111.09208)",
+      "url": "https://arxiv.org/abs/2111.09208"
+    },
+    {
+      "finding": "Proves G4=[5,3,3,3] and G5 prism minimal among cocompact in H^4/H^5. Restricted simplex/prism families, no inf rank-3/4 window.",
+      "title": "Bredon-Kellerhals -- Minimal growth rates in dimensions four and five (arXiv:2008.10961)",
+      "url": "https://arxiv.org/abs/2008.10961"
+    }
+  ],
+  "decisive_checks": [
+    "Re-derived triangle Steinberg series with longest-element shifts; matched series.json N/Q for A-E exactly; matched Terragni parametric formulas p_<a,b,c> and p_<a,b,inf> exactly for all five triangles.",
+    "Copied series.json+omega.json to output/artifacts and ran verify.py -> VERIFY_OK (rebuild, Sturm counts, winding at fresh Narcs=3072, gap recheck).",
+    "Ran bfs_check.py to length 12 -> all 7 systems OK with exact Tits representation over Q(sqrt2)/Q(sqrt2,sqrt5).",
+    "Exact-fraction gap check: E_lo-A_hi=0.06429207...>0 and all other gaps larger; widths <=1.08e-05 as claimed numerically.",
+    "Numpy root audit: smallest-modulus root real and well-separated (modulus gap 0.28-1.0); claimed rho_lo/R_hi bracket it numerically.",
+    "Soundness audit of winding radius: claimed second-order r vs rigorous Lipschitz L*(dth/2) ratio 361-1204x; min|Q| on circle below sound radius, so tight certificate depends on unsound remainder + heuristic float padding.",
+    "Spherical-subset audit: verified rank-3 finite path criterion (A3/B3/H3), inf exclusion, F/G triple types (A2xA1/B3/A3, B3/I2xA1), full-set infinitude via hyperbolic-triangle/inf parabolic; counts 7/7/7/6/6/14/12 consistent; hyperbolicity via 1/a+1/b+1/c<1 for all triangles."
+  ],
+  "residual_risks": [
+    "Rank-4 F/G non-membership in 72 exceptional minimal-hyperbolic types argued structurally (contain hyperbolic-triangle parabolic / inf edge) rather than by exhaustive matrix-by-matrix comparison.",
+    "Sturm lower-bound soundness inherits sympy sturm/exact-rational correctness, not independently re-proved.",
+    "BFS Tits-representation faithfulness and Q2/QB arithmetic assumed standard; cross-check is corroborating evidence, not a growth-rate proof."
+  ],
+  "verdict": "REJECT"
+}
