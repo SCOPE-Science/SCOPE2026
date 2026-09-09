@@ -1,0 +1,74 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed all exact computations: n=799657 prime by trial division to 894 (verified); D=n^2=639451317649, 32*D=20462442164768 (verified); v_n(c4)=2, v_n(Delta)=6, v_n(j)=0 and P(T)=T(T-1)(T+1) splitting mod n (verified via tate_odd.py); v2(c4)=4, v2(Delta)=6, D=1 mod 8/16 (verified); #E(F3)=#E(F5)=4 at good primes 3,5 (verified by brute enumeration, 3 and 5 do not divide conductor); P1=(-94381225/289,2049376840680/4913) satisfies y^2=x^3-Dx exactly via Fraction (verified) and is nontorsion (x not in {-n,0,n}); integral x with |a|<=1e6 gives exactly {-n,0,n} (re-ran integral_search_d1.py to completion: hits [-799657,0,799657]); duplication-limit quotients h/4^N = 18.9889, 19.07553779, 19.07553780, 19.07553782 for N=1..4 (reproduced, matches claimed stability ~1e-8; correctly fenced as numerical, not enclosure). Minimality argument at 2 (v2=6<12) and odd u (u=n^k, 12k<=6 => k=0 given n prime) is sound. Reduction at p=n to I0* c=4 f=2 is sound for p>3 and matches sibling 800.d3 at p=5. DEFECT: reduction at p=2 to Kodaira III c2=2 f2=5 is not proved. Valuations v2(c4)=4, v2(Delta)=6 are exact, but the Kodaira-symbol step is by analogy to sibling 32.a3 ('same 2-adic invariants give same type') plus a promise that a line-by-line Tate trace 'can be appended'. At p=2 Tate depends on higher congruences beyond (v(c4),v(Delta)), not just valuations; D mod 16 differs between siblings (ours 1 mod 16 vs 25=9 mod 16) and v2(a6) differs (4 vs 3 for D=25), so analogy is insufficient. Conductor N=32*D is then justified only by digit-match to LMFDB lookup, not independently (circular with f2=5), though the general squarefree-odd formula N=32n^2 stated on the LMFDB page makes the numerical value true. Statement likely true (consistent with 32.a3, 800.d3, 1568.e3 all showing III with (f2,v2)=(5,6)), but inference as presented is incomplete. Hence correctness FAILs on an essential inference despite all replayable computations passing.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Target headline (second independent generator + regulator closing LMFDB open entry n=799657) is admittedly NOT obtained; fallback (certified 2-Selmer structure, saturation index, Tate log plus rigorous H0 lower bound for missing point) is also NOT obtained (selmer2.py explicitly incomplete, no Selmer bound, no saturation, no H0 claimed). What remains and is actually proved is: (a) primality/minimality/valuations/conductor/torsion for E_799657, (b) exact on-curve verification of the LMFDB-known P1, (c) bounded integral-x search to arbitrary |a|<=1e6, (d) numerical (non-enclosed) canonical height ~19.0755. None is new substantively: (a) is the standard congruent-twist instance of known general theorems (odd squarefree n => N=32n^2; odd p=n => I0* c=4; all E_n have torsion V4; primality to 1e6 is table lookup) already exemplified by database siblings 32.a3, 800.d3 (n=5, I0* at 5 + III at 2), 1568.e3 (n=7, I0* at 7 + III at 2); live LMFDB CongruentNumbers overview + /CongruentNumber/799657 already publish the gap, P1 coordinates, conductor 20462442164768 and 'other not yet computed'. (b) transcribes that published P1. (c) is a finite isqrt enumeration with unmotivated bound 1e6, not the promised height-range/saturation log. (d) is a direct duplication-quotient computation from known P1 without interval enclosure; LMFDB heights file already supplies heights to 38 digits for the dataset (and regulator/Sha unknown only because second generator missing), so an 8-digit numerical recomputation is mechanically implied, not a new invariant. ArXiv query '799657' returning no results does not establish priority for these routine facts. Nearest prior results compared substantively: LMFDB CongruentNumbers dataset (gap + P1 + conductor formula), LMFDB Completeness (conductor ~2e13 outside complete ranges, irrelevant to these routine local facts), Feng et al. tiling twists (disjoint family), plus in-database congruent curves 800.d3/1568.e3 (same 2-adic and odd-prime reduction pattern). No prior-failure/success in Resultary covers E_799657, but that does not create originality for restating known local data. Hence originality FAIL. Per instruction originality failure is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judged on strongest actually proved self-contained claim (local invariants + P1 verification + bounded integral search + numerical height), not the unachieved second-generator/regulator target which is honestly fenced as missing. Object E_799657 is literature-pinned (smallest of three LMFDB open rank-2 entries), satisfying motivation prong, but no exact invariant proved here meets the other prongs (unknown, not mechanically implied, reasonably needed later). Conductor/reduction/torsion/primality are either already published (LMFDB per-n conductor, general 32n^2 formula) or immediate from general theorems/textbook 2-descent torsion argument; on-curve check replays dataset input; |a|<=1e6 integral search is an unexplained enumeration with arbitrary bound that determines no complete integral-point set and supplies no H0, Selmer, or saturation to guide large-height search (the admitted fallback payoff); numerical hhat without enclosure is not a rigorous exact invariant and duplicates standard computation/LMFDB height precision. Certification alone (stdlib VERIFY_OK) does not rescue arbitrary scope or unexplained number. An incomplete census honestly described does not erase a headline exact result, but here there is no independently valuable exact headline result left: no second point, no regulator, no Selmer structure, no saturation index, no rigorous height lower bound. Hence value FAIL (intrinsic low value for this partial, not a fixable presentation gap).",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "States first 1M congruent curves, rank distribution, and explicitly 'In three cases (n=799657, 937121, and 998617), all of rank 2, only one generator is known, and hence neither the regulator nor Sha are known'; generators file gives second as [?,?]; conductor formula for squarefree n is 32n^2 (odd) or 16n^2 (even). Confirms gap and general conductor theorem.",
+      "title": "LMFDB - Congruent numbers and congruent number curves",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/CongruentNumbers"
+    },
+    {
+      "finding": "799657 is congruent, E_799657 rank 2, one generator (-94381225/289, 2049376840680/4913), 'the other is not yet computed', conductor 20462442164768, not in main database. Confirms P1, conductor numerical value, and open status.",
+      "title": "LMFDB - Is 799657 a congruent number?",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/CongruentNumber/799657"
+    },
+    {
+      "finding": "Main EC/Q database complete only for conductor <500000, 7-smooth, prime <=3e8; E_799657 conductor ~2.05e13 far outside, so missing generator not transcribable - relevant to target novelty but not to routine local facts.",
+      "title": "LMFDB - Completeness of elliptic curve data over Q",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/Completeness"
+    },
+    {
+      "finding": "Query all:799657 produced no results. Confirms no arXiv title/abstract indexed on n, but does not establish priority for routine local computations.",
+      "title": "arXiv search - query 799657 no results",
+      "url": "https://arxiv.org/search/?query=799657&searchtype=all&source=header"
+    },
+    {
+      "finding": "32.a3 (y^2=x^3-x): conductor 32=2^5, discriminant 64=2^6, Kodaira III c2=2 at 2, torsion V4. Same (v2(c4),v2(Delta))=(4,6) as E_799657; used by draft as analogy for III.",
+      "title": "LMFDB 32.a3",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/32/a/3"
+    },
+    {
+      "finding": "800.d3 (y^2=x^3-25x, n=5): local data at 2 is III c=2 f=5 v=6, at 5 is I0* c=4 f=2 v=6; torsion V4; regulator/height known. Shows family pattern for odd n: III at 2 + I0* at p=n.",
+      "title": "LMFDB 800.d3",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/800/d/3"
+    },
+    {
+      "finding": "1568.e3 (y^2=x^3-49x, n=7): local data at 2 is III c=2 f=5 v=6, at 7 is I0* c=4 f=2 v=6; torsion V4. Second family instance confirming pattern despite D mod 16 and v2(a6) varying.",
+      "title": "LMFDB 1568.e3",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/1568/e/3"
+    },
+    {
+      "finding": "n=5 and n=7 per-n pages link congruent curves to 800.d3 and 1568.e3, confirming congruent-number to main-database correspondence used for sibling comparison.",
+      "title": "LMFDB CongruentNumber 5 and 7",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/CongruentNumber/5"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_all.py -> VERIFY_OK (primality trial to 894, 32*D arithmetic, v_n divisibility, v2, #E(F3)=#E(F5)=4, P1 Fraction on-curve).",
+    "Re-ran inputs/artifacts/tate_odd.py -> v_n(c4)=2, v_n(c6)=inf, v_n(Delta)=6, P splits at 0,+-1 mod n => I0* c=4 f=2; independently recomputed vp values and D mod 8/16/32.",
+    "Re-ran inputs/artifacts/tate2_torsion.py -> v2(c4)=4, v2(Delta)=6, D mod 16=1, #E(F3)=#E(F5)=4; independently brute-forced E(F3),E(F5) point lists and good-reduction (3,5 not dividing 32*D).",
+    "Re-ran inputs/artifacts/hhat_p1_exact.py -> h/4^N for N=1..4 matches table (18.9889, 19.07553779, 19.07553780, 19.07553782); extended to N=5 (19.07553790) confirming numerical stability but no enclosure; verified duplication formula (x^2+D)^2/(4(x^3-Dx)) for A=-D.",
+    "Ran full inputs/artifacts/integral_search_d1.py with AMAX=1e6 to completion -> hits [-799657,0,799657] exactly, confirming bounded claim; verify_all.py subset to 1e5 plus endpoints consistent.",
+    "Fetched live LMFDB CongruentNumbers overview, /CongruentNumber/799657, Completeness, arXiv 799657 search, and siblings 32.a3/800.d3/1568.e3 + CongruentNumber 5/7 to verify gap, P1, conductor, family reduction pattern and general 32n^2 formula; confirmed D odd square => D=1 mod 8 but D mod 16 and v2(1-D) vary across family (ours v2=4 vs 25's v2=3) undermining valuations-only analogy at 2.",
+    "Checked research_report.json limitations: second generator, regulator, saturation, rank equality, Sha, 2-Selmer bound, H0 explicitly NOT obtained; selmer2.py Q2 table incomplete; hhat explicitly non-enclosure; type-III-at-2 explicitly cites sibling rather than trace - fencing honest but leaves essential inference unproved."
+  ],
+  "residual_risks": [
+    "2-adic Kodaira III c2=2 f2=5 numerical claim is almost certainly true given three family instances + general 32n^2 conductor theorem, but no line-by-line Tate trace at 2 was supplied or independently completed here; a strict referee would still demand it.",
+    "Heights-file 38-digit values for n=799657 were not directly downloaded (33M file); if LMFDB already tabulates h(P1) to 38 digits, the numerical-height novelty deficit is even larger than stated.",
+    "No PARI/GP-Sage-magma available in audit env, so no independent Selmer/height-pairing cross-check beyond stdlib replay; irrelevant to verdict since those results are absent, not disputed.",
+    "Target second generator could in principle have been found elsewhere outside checked sources, but live LMFDB 'not yet computed' plus arXiv null plus conductor outside complete ranges makes this low risk; in any case draft does not claim it."
+  ],
+  "verdict": "REJECT"
+}
