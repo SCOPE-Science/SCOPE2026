@@ -1,0 +1,58 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Unconditional Cauchy ceilings PROVED from scratch and arithmetically correct. Neighborhood lemma sum_{x in N(v)} d_x <= n-1 is correct: N(x)\\{v} for x in N(v) are pairwise disjoint (common vertex would create C4 x-v-y-w) and disjoint from N(v) U {v} (would create triangle), hence sum(d_x-1) <= n-1-d_v. Summation gives sum d_v^2 <= n(n-1) (each d_x counted d_x times), Cauchy gives 4m^2 <= n^2(n-1). Integer deductions independently recomputed: 4*196^2=153664<=154548<155296=4*197^2 (n=54); 4*202^2=163216<=163350<164836=4*203^2 (n=55); 4*207^2=171396<=172480<173056=4*208^2 (n=56) \u2014 tight for that inequality. DRAFT line 58 contains a non-essential typo '393^2=153661' (true 393^2=154449) but immediately corrects to the 4m^2 form which carries the proof. Conditional induction lemma a(n)<=floor(n*a(n-1)/(n-2)) is correct by standard vertex-deletion averaging (each edge counted n-2 times, each G-v girth>=5). Chain from trusted anchor a(53)=181 recomputed: floor(9774/52)=187 (187*52=9724<=9774<9776), floor(55*187/53)=floor(10285/53)=194 (194*53=10282<=10285<10335), floor(56*194/54)=floor(10864/54)=201 (201*54=10854<=10864<10908) \u2014 valid by monotonicity. KST sanity 210/216/222 verified holds-at-U/fails-at-U+1. Witness checker logic is sufficient for girth>=5 (triangle iff N(i)&N(j) nonempty on an edge; C4 iff |N(i)&N(j)|>1 for some pair) and `python3 inputs/artifacts/verify.py` independently re-ran to VERIFY_OK with edge counts 184/188/188. Conditional status honestly disclosed (187/194/201 depend on external a(53)=181; only 196/202/207 from scratch); witnesses honestly disclosed as 1/1/5 short of recorded 185/189/193 with no new lower bound claimed. Proof distinguished from machine-checked existence. No boundary error (all n>=3).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live substantive comparison confirms no prior table records these per-n ceilings. OEIS A006856 fetched 2026-09-09 lists values 0..181 ending at n=53=181 with COMMENTS 'a(53) is exactly 181. a(54)-a(56) are at least 185,189,193. - Brendan McKay, Jan 07 2023' \u2014 exact through 53, lower-bounds-only at 54-56, no finite upper bound listed. Backelin arXiv:1511.08128 determines Turan-type girth-5 numbers only for 40-49 inclusive, five orders below window, different structural-census method. Miller-Codish arXiv:1708.06576 covers 20-32 only. Ma-Yang arXiv:2107.11601 proves asymptotic C4-only upper bounds disproving Erdos conjecture, no per-n girth>=5 (C3+C4-free) table at 54-56. No prior source states U=196/202/207 or U=187/194/201 at these orders; forbidden family (C3+C4-free) and window (54-56) are disjoint from C4-only n<=18 / n=41-48 failure strand. Hence narrowly new as instantiated integers; failed-search alone not relied upon. Method admitted classical (neighborhood-disjointness + Cauchy + deletion induction), so mechanical derivability is flagged under value, not as prior containment. Own adjacency lists are new strings but claim no lower-bound novelty (sub-record).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest self-contained headline (unconditional 196/202/207; conditional 187/194/201; sub-record witnesses 184/188/188) is correct and narrowly new but not independently worth retrieving: textbook restatement + mere parameter substitution. Unconditional ceilings are direct substitution of n=54,55,56 into classical 4m^2<=n^2(n-1), reproducible by integer sqrt in seconds with no new method (research_report admits 'Method is classical; contribution is only the instantiated numeric ceilings'). Conditional ceilings are three integer divisions from the published anchor a(53)=181 via folklore averaging lemma, equally seconds-scale for any reader with the anchor. Witnesses at 184/188/188 fall short of already-recorded 185/189/193 by 1/1/5, so no new lower bound, no exact value, no structural claim; sub-record graphs have no retrieval need when better existence is already recorded. Target_claim promised L>=185/189/193 and audit-plan fallback required witnesses 'at least matching recorded lower bounds' \u2014 both unmet on the delivered artifacts. Remaining intervals ([185,187]/[189,194]/[193,201] conditional; wider unconditional) are loose one-sided textbook corollaries with no demonstrated downstream use requiring these precise loose numbers; 'Moore stability / LDPC benchmarks' is generic motivation, not a use of these widths. Exact-invariant carve-out does not rescue: result is not an exact invariant (loose upper bounds + sub-record witnesses), values ARE mechanically implied once anchor/formula known, and certification (VERIFY_OK) alone does not rescue a trivial instantiation. This is the 'correct and new but tiny unmotivated / parameter-substitution' rejection class.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Sequence 0..181 ending n=53=181; COMMENTS: 'a(53) is exactly 181. a(54)-a(56) are at least 185,189,193. - Brendan McKay, Jan 07 2023'; b-file/table to 53 only; no finite upper bound at 54-56.",
+      "title": "OEIS A006856 - Maximal edges in n-node graph of girth at least 5",
+      "url": "https://oeis.org/A006856"
+    },
+    {
+      "finding": "Abstract: Turan-type numbers for C3,C4-free graphs determined for 40-49 inclusive; 43 of first 50 A006856 numbers then known. Stops below 54-56.",
+      "title": "Backelin - Sizes of the extremal girth 5 graphs of orders 40-49",
+      "url": "https://arxiv.org/abs/1511.08128"
+    },
+    {
+      "finding": "Proves asymptotically optimal C4-only upper bounds, disproves Erdos 1970s conjecture; no per-n girth>=5 table at 54-56; different forbidden family.",
+      "title": "Ma and Yang - Upper bounds on the extremal number of the 4-cycle",
+      "url": "https://arxiv.org/abs/2107.11601"
+    },
+    {
+      "finding": "Proves properties for orders 20-32 only, far below window (cited via topic + OEIS links; not re-fetched).",
+      "title": "Miller and Codish - Graphs with girth at least 5 with orders 20-32",
+      "url": "https://arxiv.org/abs/1708.06576"
+    },
+    {
+      "finding": "McKay extremal H={C3,C4} table fetch timed out; relied on OEIS live + admission citations for lower-bounds-only status at 54-56.",
+      "title": "McKay Extremal Graphs and Turan numbers - fetch attempted",
+      "url": "https://users.cecs.anu.edu.au/~bdm/data/extremal.html"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed Cauchy integers: N=154548/163350/172480; 4U^2<=N<4(U+1)^2 holds at U=196/202/207, fails at U+1 \u2014 tight for that inequality.",
+    "Recomputed anchored chain: 54*181/52->187, 55*187/53->194, 56*194/54->201 with two-sided quotient certificates q*div<=num<(q+1)*div.",
+    "Verified neighborhood lemma and induction lemma proofs step-by-step; induction reuse of derived upper bounds valid by monotonicity.",
+    "Re-ran inputs/artifacts/verify.py: KST 210/216/222 hold/fail, anchored divisions, full C3/C4 audit -> VERIFY_OK, edges 184/188/188; audited checker logic (edge-triangle + pair-common-neighbor<=1) sufficient for girth>=5.",
+    "Confirmed DRAFT/research_report honestly disclaim first-finite, exact values, and meeting 185/189/193 (short by 1/1/5); target fallback criterion L>=recorded therefore unmet.",
+    "Confirmed no prior checked source tabulates U(54-56); nearest priors differ in window (40-49, 20-32) or family (C4-only)."
+  ],
+  "residual_risks": [
+    "Anchor a(53)=181 trusted from OEIS/McKay comments, not independently re-derived; conditional ceilings inherit that trust (explicitly disclosed).",
+    "McKay DB not directly fetched (timeout); lower-bounds-only status rests on OEIS live + admission citations.",
+    "Unpublished tighter general bounds evaluated at 54-56 could dominate 187/194/201, but none found in checked sources; would only strengthen value rejection.",
+    "DRAFT typo 393^2=153661 (true 154449) is non-essential but should be corrected if ever reused."
+  ],
+  "verdict": "REJECT"
+}
