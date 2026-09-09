@@ -1,0 +1,68 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Arithmetic as stated replays bit-for-bit. Independent re-execution: s1_gleason.py reproduces unique putative W72* (A16=249849, A20=18106704, A24=462962955, A28=4397342400, A32=16602715899, A36=25756721120, symmetric, sum 2^36, MacWilliams self-dual, support 0 mod 4); s2b_shorten.py gives 68 nontrivial MW equations, rank 5 on 5 unknowns, consistent, unique solution equal to balanced t_w=w*A_w/72 (residual 0, box-feasible); f1_gap.py Q_j=t_{j+1} on odd weights, Q_total=2^35, g=sum_{3mod4}Q=2^35, g_{1mod4}=0; verify.py ends VERIFY_OK. Lemma Q>=0/g>=0 proof is valid (A_odd=0 forces t_odd=0; Q_j=t_{j+1}>=0). Self-shadow S=A follows from 0-mod-4 support plus self-duality. No false arithmetic. Scope is enumerator-level conditional on putative W72* (no code existence claimed; DRAFT limitations state no exclusion). The disclaimer that g is puncture excess B'-A' and NOT the Conway-Sloane shadow enumerator of the shortened code is honored in checking correctness of what was computed, but it means the admitted fallback's shadow-gap component was not delivered (see value/originality).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors substantively imply the delivered table and g. (1) W72* coefficients are classical (Gleason basis + A0=1,A4=A8=A12=0; Rains-Sloane survey math/0208001). (2) For a putative extremal Type-II [72,36,16], Assmus-Mattson gives codewords of each weight a 5-design (hence a 1-design), forcing fixed-coordinate shortening counts t_w=w*A_w/72 for every coordinate without solving any MacWilliams system; the rank-5 MW uniqueness merely re-derives this textbook consequence. A' =A-t and B' formulas are standard shortening/puncturing identities. (3) Q_j=B'_j-A'_j=t_{j+1}, Q supported on 3-mod-4 plus 71, Q_total=g=2^35=sum t is an identity holding for ANY binary [72,36] code containing all-ones shortened anywhere (half the codewords have 1 at the coordinate). No prior need publish the exact printed table for this to be mechanically implied; a failed search / absence of the table in codetables, Magma, Rains-Sloane, Feulner-Nebe (1110.6012), Borello (1304.7162), Aksu et al. (2208.00299), Bouyuklieva-Willems (1106.5936) does not establish priority. Substantive comparison: table = one-line plug of known W72* into wA/72; g = constant 2^35. This is parameter substitution / textbook corollary, not a new obstruction.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT + independent value failure. Route is PRESET_FALLBACK but exact fallback NOT completed, so no conditional value presumption applies. Admitted exact_claim/exact_success_criterion required a 'verified Conway-Sloane shadow-gap integer g for one residual cell'; delivered claim explicitly states g is 'puncture-excess (Q=B'-A', NOT the Conway-Sloane shadow enumerator of the shortened code)'. A partial completion with a concededly different invariant is not the preset fallback. Admission's qualification rationale ('shortening distributions are not uniquely fixed by parent enumerator and require enumerating MacWilliams-compatible possibilities plus per-cell shadow evaluation') was materially false: Assmus-Mattson 1-design fixes t_w=wA_w/72, and Q>=0/g=2^35 is a definitional counting identity, not a shadow evaluation. Audited normally, the headline has no independent retrieval value: g=2^35 is constant for any such shortening (report itself notes 'g>0 satisfied, no exclusion claimed'), the A' table is recomputable in one line from published W72*, and no residual cell is eliminated or newly constrained (all enumerator tests pass by construction). This is a textbook restatement / mechanical plug-in with a replay log, explicitly excluded from value even if correct and new. No bounded addition within same problem (e.g., citing the formula) would create a substantive result; failure is intrinsic.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "136pp survey: Gleason-Pierce, Gleason theorems, shadow codes, enumerators, bounds, extremal codes, open problems. Gives W72* framework and general shadow theory; no fixed-coordinate shortened [71,35] table with per-cell gap and replay logs. Confirms frontier status only.",
+      "title": "Self-Dual Codes - Rains and Sloane survey",
+      "url": "https://arxiv.org/abs/math/0208001"
+    },
+    {
+      "finding": "Standard Gleason basis f=x^8+14x^4y^4+y^8, g=x^24+759x^16y^8+2576x^12y^12+759x^8y^16+y^24; unique W72* from A0=1,A4=A8=A12=0 verified by exact rational re-execution (coeffs match DRAFT).",
+      "title": "Gleason recomputation (local replay s1_gleason.py -> w72.json)",
+      "url": "inputs/artifacts/s1_gleason.py"
+    },
+    {
+      "finding": "Assmus-Mattson theorem: codewords of fixed weight in extremal Type-II codes form 5-designs (hence 1-designs), forcing t_w=wA_w/n at any coordinate. Makes shortened table a one-line corollary of known W72*; MW rank-5 solve is redundant confirmation.",
+      "title": "Assmus-Mattson / design consequence (textbook prior)",
+      "url": "https://arxiv.org/abs/math/0208001"
+    },
+    {
+      "finding": "Magma exclusion of D10, Z3xZ3, Z7; automorphism-restriction route orthogonal to shortening route; no shortening table or gap certificate.",
+      "title": "Feulner-Nebe automorphism restrictions",
+      "url": "https://arxiv.org/abs/1110.6012"
+    },
+    {
+      "finding": "Aut not elementary abelian of order 8; no W72* shortening/shadow-gap table.",
+      "title": "Borello automorphism result",
+      "url": "https://arxiv.org/abs/1304.7162"
+    },
+    {
+      "finding": "Involutory automorphism structure for putative [72,36,16]; not a shortening enumeration.",
+      "title": "Aksu-Hafezieh-Tuvay involutions",
+      "url": "https://arxiv.org/abs/2208.00299"
+    },
+    {
+      "finding": "Minimal-shadow non-existence for singly-even family; different parameters, no length-72 cell table.",
+      "title": "Bouyuklieva-Willems minimal shadow",
+      "url": "https://arxiv.org/abs/1106.5936"
+    }
+  ],
+  "claim_route_assessment": "claim_route=PRESET_FALLBACK. Exact fallback_claim required complete MacWilliams-compatible shortened [71,35,>=15] table from W72* at coordinate 1 PLUS verified Conway-Sloane shadow-gap integer g with hash-match replay. Delivered: one-cell table (satisfies table half) plus g=2^35 puncture excess with explicit disclaimer it is NOT the Conway-Sloane shadow enumerator. Hence exact_success_criterion not met; partial completion is not the preset fallback; no Admission conditional value approval attaches. Audited correctness on what was computed, originality/value de novo with ADMISSION_DEFECT noted.",
+  "decisive_checks": [
+    "Re-ran s1_gleason.py: coeffs (-1081/3087,-989/4116,3151/2058,733/12348), A16=249849, A36=25756721120, sum 2^36, self-dual OK.",
+    "Re-ran s2b_shorten.py: 68 nontrivial equations, rank 5, free=[], balanced t=wA/72 residual 0, box-feasible.",
+    "Re-ran f1_gap.py: Q=t-shift, support {15,19,...,55,71}, Q_total=2^35, g=2^35, g_{1mod4}=0.",
+    "Ran verify.py to VERIFY_OK (all steps rc=0).",
+    "Proved triviality: sum t=2^35 for any shortening (half codewords); Q_j=t_{j+1} so g=Q_total identically; support 3mod4 forced by 0mod4 parent support.",
+    "Confirmed design forcing: 5-design => t_w=wA_w/72, so table mechanically implied; S=A follows from support+self-duality without new content."
+  ],
+  "residual_risks": [
+    "Negligible replay risk (stdlib exact rational arithmetic, deterministic, hash-logged).",
+    "Remaining risk is interpretive, not computational: readers might mistake enumerator-level feasibility + trivial g>=0 for a code-level obstruction; DRAFT limitations mitigate by stating no exclusion.",
+    "No code with parameters [72,36,16] or [71,35,16] is constructed or excluded; all claims conditional on putative W72*."
+  ],
+  "verdict": "REJECT"
+}
