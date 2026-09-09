@@ -1,0 +1,67 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay passes: PYTHONPATH=inputs/artifacts python3 inputs/artifacts/verify.py reproduces all 16 certificates (VERIFY_OK) via a different lattice route (cyclic-join closure to fixpoint vs single-element adjunction) with brute-force centralizers, m(G) scan, membership-set equality, and brute-force max-antichain width recheck. Associativity/identity/inverses are brute-force checked (n^3). Spot values are correct: S4 nsub=30, m=24, CD orders [1,24]; D8/Q8 nsub=10/6, m=16, M_3 orders [2,4,4,4,8]; D64 nsub=69, Q64 nsub=37, SD64 nsub=53 each m=1024 singleton CD order 32; D8xC8 nsub=89 m=1024 |CD|=5 orders [16,32,32,32,64]; C27sem3 n=81 nsub=14 m=729 |CD|=6 orders [9,27,27,27,27,81]; C3^4 rank sizes [1,40,130,40,1] sum 212 match Gaussian binomials ([4,1]_3=40, [4,2]_3=130). Abelian lemma proof (C(H)=G so m(H)=|H||G| strictly increasing, CD={G}) is valid. Two non-fatal presentation defects: (i) DRAFT calls |CD|=2 'CD-minimal' whereas McCulloch 1706.01431 defines CD-minimal as indecomposable+trivial CD-subgroup and CD-simple as CD={1,G} (S4 is CD-simple, hence CD-minimal, so numeric claim CD(S4)={1,S4} is still correct); (ii) C9sem3 has n=27 but Sec.3 groups it under 'orders 81' rows. Neither alters the verified per-table numbers. Result is computational certification (exhaustive enumeration + independent replay), not a general proof, and is honestly scoped as partial.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Strongest self-contained headline claims are previously known or mechanically implied, not new. (1) S4 CD={1,S4} (|CD|=2): McCulloch 1706.01431 explicitly cites 'the symmetric group on 4 elements is the smallest nontrivial example' of CD-simple groups; numeric fact is textbook prior. (2) D8/Q8 M_3 (m=16, orders [2,4,4,4,8], width 3) and S3 CD={A3}: admitted calibration from Brewster-Hauck-Wilcox / standard literature. (3) Abelian CD={G}, C3^4 Gaussian ranks [1,40,130,40,1] total 212, subgroup-lattice width 130: trivial lemma + textbook Gaussian/Sperner combinatorics. (4) D64/Q64/SD64 singleton CD: Tarnauceanu 1611.04155 proves CD of dihedral D_{2m} with m!=4 is a chain of length 0 (singleton), so shape is a prior theorem; exact m=1024 is instantiation. (5) D8xC8 M_3 size 5: mechanically implied by direct-product theorem CD(GxH)=CD(G)xCD(H) (Brewster-Wilcox, Lemma 2.5 in Burrell et al 2211.14910) combined with known CD(D8)=M_3 and CD(C8)={C8}. (6) Widths 3=1+2^1 and 4=1+3^1 conform to Brewster-Hauck-Wilcox/An 1407.6215+1705.06456 theorem that quasi-antichain widths are 1+p^a; no new width realization. No prior complete 267+15 census exists, but the draft explicitly abandons it (12 named groups, one of which C9sem3 is order 27, C2^6 omitted), so remaining per-group numbers for C27sem3/C9sem3 are an arbitrary fragment, not a new claim/boundary/classification fragment. A timestamp/failed search does not establish priority; substantive comparison shows overlap.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Planned value (first complete CD-measure/subgroup/size/width/shape census over 267 groups order 64 + 15 order 81 testing quasi-antichain bounds and An's abelian-atom converse) was not delivered. Admitted scope is: 12-group fragment (6/267 order-64, 3/15 order-81 plus order-27 C9sem3 and 4 calibrations), S4 witness outside the 64/81 window, 'maximal-width within computed set' only, and C3^4 subgroup-lattice (not CD) width. This is arbitrary scope / unexplained enumeration: 'widest among groups I happened to compute' has no natural boundary, no global extremality, no test of the open converse, and widths 3,4 were already known realizable. Per instruction, certification alone does not rescue an arbitrary object or unexplained number, and textbook restatements / parameter substitutions / mechanically implied values (abelian lemma, Gaussian counts, direct-product corollary, dihedral singleton shape, D8/Q8/S4 calibrations) are rejected even if correct and new. No independently retrievable exact invariant is established whose object+invariant were motivated before computation, whose value was unknown and not mechanically implied, and which a future researcher would need. Hence intrinsic low value and missing substantive result.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "arXiv search returns 18 CD-lattice hits; no complete CD census at orders 64/81, but family/threshold results cover headline shapes.",
+      "title": "arXiv search: Chermak-Delgado lattice (18 hits)",
+      "url": "https://arxiv.org/search/?query=Chermak-Delgado+lattice&searchtype=all&terms-0-term=Chermak-Delgado+lattice&terms-0-field=all&size=50&order=-announced_date_first"
+    },
+    {
+      "finding": "Defines CD-minimal (indecomposable + trivial CD-subgroup) vs CD-simple (CD={1,G}); gives 12 CD-minimal examples; states S4 is smallest nontrivial CD-simple example. Defeats novelty of S4 |CD|=2 witness and shows DRAFT conflates terms.",
+      "title": "Finite Groups with a Trivial Chermak-Delgado Subgroup (McCulloch, 1706.01431)",
+      "url": "https://arxiv.org/html/1706.01431v1"
+    },
+    {
+      "finding": "Proves quasi-antichain CD widths are 1+p^a; An proves a=b or 2b for abelian-atom counts, converse open. Draft widths 3,4 conform but add no realization.",
+      "title": "Groups whose Chermak-Delgado lattice is a quasi-antichain (An, 1705.06456)",
+      "url": "https://arxiv.org/abs/1705.06456"
+    },
+    {
+      "finding": "Proves CD of ZM-groups is chain length 0 and same for dihedral D_{2m} with m!=4. Covers D64 singleton shape.",
+      "title": "The Chermak-Delgado lattice of ZM-groups (Tarnauceanu, 1611.04155)",
+      "url": "https://arxiv.org/abs/1611.04155"
+    },
+    {
+      "finding": "Proves quasi-antichain interval forces H/L elementary abelian p-group and atom count 1+p-power; constructs examples. Covers M_3/M_4 background.",
+      "title": "Quasi-Antichain CD Lattices (Brewster-Hauck-Wilcox, 1407.6215)",
+      "url": "https://arxiv.org/abs/1407.6215"
+    },
+    {
+      "finding": "Lemma 2.5: CD(GxH)=CD(G)xCD(H); Theorem B + delta analysis. Direct-product formula makes D8xC8 (|CD|=5) mechanically implied from CD(D8)xCD(C8). Also clarifies S4 delta=28 (not small-delta), so no contradiction.",
+      "title": "On groups with few subgroups not in CD (Burrell-Cocke-McCulloch, 2211.14910)",
+      "url": "https://arxiv.org/html/2211.14910v1"
+    },
+    {
+      "finding": "Determines groups with |CD|=|L|-k for k=1,2; threshold, not per-group 64/81 census.",
+      "title": "Finite groups with large CD lattices (Fasola-Tarnauceanu, 2209.00705)",
+      "url": "https://arxiv.org/abs/2209.00705"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran independent verifier: PYTHONPATH=inputs/artifacts python3 inputs/artifacts/verify.py -> all 16 groups OK + VERIFY_OK (matches verify.log).",
+    "Checked subgroup totals against known values: S4 nsub=30, D8 nsub=10, Q8 nsub=6, A4 nsub=10 all standard; C3^4 total 212 = 1+40+130+40+1.",
+    "Verified Gaussian numbers: [4,1]_3=(81-1)/2=40, [4,2]_3=130; middle-rank Sperner width 130 consistent.",
+    "Verified semidirect validity: 4^3=1 mod 9 and 10^3=190=1 mod 27, so C9sem3 (order 27) and C27sem3 (order 81) tables are groups; noted C9sem3 misgrouped under order 81.",
+    "Substantive prior comparison: S4 CD-simple known; D8/Q8 M_3 known; dihedral singleton theorem covers D64; direct-product theorem covers D8xC8; abelian/Gaussian cases are textbook.",
+    "Scope check: draft Sec.3 explicitly disclaims full 267+15 census, in-window CD-minimality, and global maximal-width; fallback complete table downgraded to 12-group fragment."
+  ],
+  "residual_risks": [
+    "Semidihedral/generalized-quaternion product formulas (tables.py) share the same committed table in both routes; a systematic mislabeling of Q64/SD64 vs standard presentations would preserve internal VERIFY_OK while misnaming the group, subgroup counts (37/53) mitigate but do not eliminate this.",
+    "Width-130 Sperner claim for C3^4 relies on subspace-lattice Sperner theorem plus explicit middle-rank witness; pairwise incomparability is machine-checked but full maximality beyond Sperner was not independently brute-forced over 212-subspace lattice in verify.py.",
+    "No GAP/SmallGroups cross-check possible in this environment; isomorphism types of D64/Q64/SD64/D8xC8 rest on formula constructors, not external library IDs."
+  ],
+  "verdict": "REJECT"
+}
