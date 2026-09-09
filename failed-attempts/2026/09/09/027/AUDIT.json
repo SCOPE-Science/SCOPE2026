@@ -1,0 +1,56 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent stdlib replay (fresh Gaussian elimination, independent nullspace solver, full 2^k tally, exact Krawtchouk-MacWilliams, Griesmer recomputation) confirms all 10 witnesses: generator rank k, Gram rank k (h=0) or k-1 (h=1), distances LCD 6,9,8,10,9 and one-dim 6,9,8,10,8, MacWilliams PASS 10/10, syndrome distinct-error PASS at n<=20. Griesmer UBs 8,9,8,11,10 and widths 2,0,0,1,1/2 recomputed correctly. Logic that [20,5] and [20,6] meet Griesmer bound and are hence optimal among all binary linear codes is valid. Gap-interval logic ([ach,UB] widths <=2 implies true |d_LCD-d_one|<=2) is valid. Limitations honestly stated: exact pins only at Griesmer-optimal cells, no building-up link, n=24 distance rests on tally+MacWilliams, bare distances not claimed new. No proof/computation confusion: distance claims are computational (exhaustive tally for k<=7), correctly distinguished from general theorems.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Strongest headline existential facts are substantively anticipated by conjunction of prior exact tables. Bouyuklieva 2010.13399 Table 1 gives exact d_LCD at committed cells (16,5)=6, (20,5)=9, (20,6)=8, (24,6)=10, (24,7)=9 with no intervals; Li-Shi-Kim 2211.02480 Table 1 gives exact d_one at same cells (16,5)=6, (20,5)=9, (20,6)=8, (24,6)=10, (24,7)=10 with no intervals (intervals only appear n>=25); abstract confirms d_one(n,k) determined for 14<=n<=24. Jointly these imply both hulls {0,1} occur at optimum distance with gap 0 at four cells and gap -1 at [24,7] \u2014 mechanically, without new computation. Sogang CICAGO site publishes explicit one-dim generators achieving optima including [20,5,9], [20,6,8], [24,6,10], [24,7,10]. Candidate's new content is alternative stochastic-search matrices plus textbook Gram-rank (Lemma 2.3), standard tally, and MacWilliams/syndrome logs as one bundle, plus a width-<=2 gap row that is weaker than known exact gaps. No building-up linkage (admitted success criterion unmet), no equivalence/inequivalence analysis, no new enumerator or structural property. Candidate's [24,7] one-dim witness (d=8) is 2 below the published optimum (10), so it does not even reproduce the known fact. A failed API triage or new certificate format does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even if certificates are correct, result is not independently worth retrieving. Bare distances reproduce known hull-constrained optima at 4 cells and are suboptimal at [24,7] one-dim (8 vs known 10). The paired gap bound |gap|<=2 is strictly weaker than exact gaps implied by prior tables (0,0,0,0,-1) and follows trivially from [ach,UB] widths; general LCD/one-dim inequalities already in Li-Shi-Kim Lemmas 3.1-3.2 and Bouyuklieva. Witness matrices are arbitrary hull-constrained stochastic-search outputs with no canonical property (no building-up link, no extremal enumerator, no completed census \u2014 5 cells, admitted incomplete). Per standard, certification alone does not rescue an arbitrary object: future researcher needing [20,5,9]/[20,6,8]/[24,6,10] LCD/one-dim codes can use Bouyuklieva classified values plus Sogang explicit generators; candidate alternatives add no distinguishing invariant. This is unexplained enumeration / repackaging of known optima with replay logs, plus one suboptimal witness, not a narrow exact invariant whose value was unknown and motivated.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract + HTML confirm d_one(n,n-k) for k<=5 and d_one(n,k) for k<=4 or 14<=n<=24 determined; Table 1 gives exact (non-interval) values at [16,5]=6, [20,5]=9, [20,6]=8, [24,6]=10, [24,7]=10; building-up converse and Lemmas 3.1-3.2 general bounds.",
+      "title": "Li-Shi-Kim 2211.02480 characterization and construction of optimal binary linear codes with one-dimensional hull",
+      "url": "https://arxiv.org/abs/2211.02480"
+    },
+    {
+      "finding": "Abstract confirms building-up census of all optimal codes with hull dims 1,2 only to length 13 (dims 3-5 to 12); method section and Tables 1/3 show Magma exhaustive basis for n<=13, strictly below 16-24.",
+      "title": "Kim 2210.14549 binary optimal linear codes with various hull dimensions and EAQECC",
+      "url": "https://arxiv.org/abs/2210.14549"
+    },
+    {
+      "finding": "Abstract + HTML Tables 1-2 give exact (non-interval) d_LCD at committed cells: (16,5)=6, (20,5)=9, (20,6)=8, (24,6)=10, (24,7)=9; intro confirms d_LCD for n<=24 determined; shortening/puncturing monotonicity and G_ G^T nonsingularity standard.",
+      "title": "Bouyuklieva 2010.13399 Optimal Binary LCD Codes",
+      "url": "https://arxiv.org/abs/2010.13399"
+    },
+    {
+      "finding": "Abstract confirms disjoint periodic regime n>=51 for [n,6] LCD; no 16-24 short-chain overlap.",
+      "title": "Liu-Li 2406.02065 largest minimum distances of [n,6] LCD codes",
+      "url": "https://arxiv.org/abs/2406.02065"
+    },
+    {
+      "finding": "Lists explicit one-dim generators achieving optima: [20,5,9], [20,6,8], [24,6,10], [24,7,10], [16,5,6]; candidate [24,7] one-dim d=8 is 2 below published optimum.",
+      "title": "Sogang CICAGO one-dimensional-hull code tables n=2.. (Li-Shi-Kim companion site)",
+      "url": "https://cicagolab.sogang.ac.kr/cicagolab/2660.html"
+    }
+  ],
+  "decisive_checks": [
+    "Independent replay with fresh rank/nullspace/tally/Krawtchouk code: 10/10 OK, Griesmer UBs 8,9,8,11,10 widths <=2, hull ranks k/k-1 confirmed.",
+    "Griesmer-optimality cross-check: [20,5] 9+5+3+2+1=20 and [20,6] 8+4+2+1+1+1=17 with next-d infeasible, so exact optimality among all binary linear codes holds.",
+    "Prior-table conjunction check: Bouyuklieva exact d_LCD plus Li-Shi-Kim exact d_one at 16-24 cells mechanically imply {0,1} realization at optimum distance and exact gaps 0,0,0,0,-1, anticipating candidate's weaker |gap|<=2 and achieved gaps 0,0,0,0,1.",
+    "Suboptimality check: candidate [24,7] one-dim d=8 vs tabled/website optimum 10; candidate does not realize best-known distance there.",
+    "Bundle check: no building-up transformation, no equivalence analysis, no new enumerator reported; Gram-rank/MacWilliams/syndrome are standard mechanical verifications."
+  ],
+  "residual_risks": [
+    "Did not parse every Bouyuklieva LCD generator explicitly from Generation outputs; relies on tabled exact values plus classification claims for anticipation of LCD existence (sufficient for existential originality test).",
+    "Did not run permutation-equivalence test between candidate matrices and Sogang/Bouyuklieva representatives; alternative representatives without new invariant would not restore originality in any case.",
+    "Li-Shi-Kim Table 1 parsed from HTML/text extraction; abstract's '14<=n<=24 determined' plus non-interval table entries corroborate exactness at committed cells."
+  ],
+  "verdict": "REJECT"
+}
