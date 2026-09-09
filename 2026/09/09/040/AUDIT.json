@@ -1,0 +1,67 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Independently replayed all computed claims. verify.py PASSES: rebuilt PG(2,13) (183 pts/183 lines), exact direction sets N=8/10/11 matching DRAFT, |B|=21/23/24, |B cap l_inf|=N, blocking over all 183 lines, all points essential (21/21, 23/23, 24/24), line spectra {1:126,2:18,3:36,8:3}/{1:96,2:52,3:32,6:1,10:2}/{1:91,2:59,3:16,4:14,6:2,11:1} each summing to 183, Redei divisibility for all y not in D. Independently validated all 68 listed tangents meet B exactly once and f-value vectors match x^7, x^9+x^5, x^7+2x^3. polylog.py PASSES in ~6s: monomial N in {1,8,12,13}, binomial in {1,8,10,11,12,13}, trinomial in {8,10,11,12,13}, deg<=6 normalized in {1,11,12,13}, N=9 count 0 in all families, controls N=8/10/11 OK. Normalization lemmas verified: f->a*f+m*x+c sends slopes s->a*s+m (bijection preserving N), so monic trinomials cover all 3-term and normalized x^d+...+c2*x^2 cover all deg<=6; complement of (<=3 terms OR deg<=6) is (>=4 terms AND deg>=7), so Theorem 2 implication holds for graph-type Redei sets. Finite exact certificates (proof by exhaustive exact arithmetic), honestly scoped: size 22 open, no PGL-uniqueness claimed. Minor scope nuance (graph-type vs cardinality-only Redei where vertical point in B could allow non-graph affine part) does not falsify any computed exclusion; recorded as limitation."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Substantive comparison, not timestamp: nearest live results are general programs on different objects/windows. Curve-union constructions give existence without PG(2,13) 21-24 spectrum or Redei certs; minimal t-fold/small-blocking linearity theory gives bounds/structure without per-size occurrence table; minimal-code/cutting-set correspondence is a downstream bridge consuming such extremals; small 3-fold PG(2,p^n) and PG(2,11) blocking semioval concern different multiplicity/order/property; double-blocking 3q-1 touches q=13 only for 2-fold sets near 3q. ArXiv exact-phrase searches for blocking-set PG(2,13), Redei direction spectra, and number-of-directions returned no hits disclosing W21/W23/W24 coordinates, direction sets {1,3,4,5,8,9,10,12}/{0,1,2,3,4,5,9,10,11,12}/{0,1,2,3,4,6,7,9,10,11,12}, line spectra, or N=9 family exclusion. Blokhuis 3(p+1)/2=21 bound does not mechanically imply which of 21-24 occur, their direction spectra, minimality, or Redei status. No prior source records or implies the headline witness package."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Headline judged separately from unfinished survey: three rigorously certified exact minimal Redei-type blocking sets in PG(2,13) at sizes 21 (Blokhuis-bound-attaining smallest), 23, 24 with explicit polynomials, direction spectra, per-point tangents, line spectra, Redei divisibility, plus a computed narrowing lemma forcing >=4 terms and deg>=7 on any graph-type 9-direction (size-22 Redei) candidate. Object (small minimal blocking sets in prime plane PG(2,13), head window 21-24) and invariants (occurrence, direction spectra, Redei status) were motivated before computation via Blokhuis/Ball direction/lacunary-polynomial program and cutting/minimal-code correspondence, values not known or mechanically implied, and future researchers can reuse the precise extremals. Narrow exact data explicitly allowed when motivated, certified, and reusable. Incomplete census honestly disclosed (size 22 open, no PGL-classification) does not erase headline value."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Blocking sets from a union of plane curves",
+      "url": "https://arxiv.org/abs/2510.15332",
+      "finding": "General curve-union constructions; no exact PG(2,13) 21-24 minimal spectrum or Redei classification."
+    },
+    {
+      "title": "Minimal multiple blocking sets",
+      "url": "https://arxiv.org/abs/1703.07843",
+      "finding": "Bounds/structure for t-fold blocking sets; not the 1-fold 21-24 PG(2,13) spectrum with slope certificates."
+    },
+    {
+      "title": "Full Characterization of Minimal Linear Codes as Cutting Blocking Sets",
+      "url": "https://arxiv.org/abs/1911.09867",
+      "finding": "Downstream minimal-code bridge, not a PG(2,13) small-blocking-set census."
+    },
+    {
+      "title": "Double blocking sets of size 3q-1 in PG(2,q)",
+      "url": "https://arxiv.org/abs/1805.01267",
+      "finding": "Touches q=13 for double (2-fold) sets near 3q, not 1-fold sizes 21-24."
+    },
+    {
+      "title": "Small 3-fold blocking sets in PG(2,p^n)",
+      "url": "https://arxiv.org/abs/2512.24689",
+      "finding": "3-fold sets in PG(2,p^n); different multiplicity and parameters."
+    },
+    {
+      "title": "On the minimum blocking semioval in PG(2,11)",
+      "url": "https://arxiv.org/abs/2305.04907",
+      "finding": "Blocking semiovals in PG(2,11); different order and property."
+    },
+    {
+      "title": "arXiv exact-phrase searches: blocking set PG(2,13) Redei / number of directions Redei",
+      "url": "https://arxiv.org/search/?query=%22blocking+set%22+PG%282%2C13%29&searchtype=all",
+      "finding": "No results disclosing the claimed witnesses, direction sets, spectra, or N=9 exclusion."
+    }
+  ],
+  "decisive_checks": [
+    "Ran inputs/artifacts/verify.py: OVERALL PASS (W21/W23/W24 blocking, minimal, spectra, D-sets, Redei divisibility)",
+    "Ran inputs/artifacts/polylog.py: OVERALL PASS ~6s, N=9 count 0 in monomial/binomial/trinomial/deg<=6 families, controls 8/10/11 OK",
+    "Independent tangent audit: all 21+23+24 listed (point,line) pairs satisfy point-in-B, point-on-line, |B cap line|=1",
+    "Independent f-vector check: W21/W23/W24 f-values match x^7, x^9+x^5, x^7+2x^3 over F_13; W21 is permutation (13 distinct), W23/W24 take 9 values",
+    "Spectrum row sums 183/183/183; max intersection below 14 so no line contained (nontrivial); W21 attains Blokhuis bound 21",
+    "Verified normalization logic: scaling/affine slope maps are bijections preserving N; monic and normalized representatives exhaust claimed families; >=4-term AND deg>=7 complement logic holds"
+  ],
+  "residual_risks": [
+    "Monograph or printed table of PG(2,13) blocking sets missed at web-triage depth could contain one witness coordinate set without the certificate package; arXiv full-text/monograph coverage incomplete.",
+    "Graph-type vs cardinality-only Redei definitional nuance: a size-22 set with |B cap l|=9 containing the vertical point could have non-graph affine part outside Theorem 2 functional scope; DRAFT defines Redei via graph form so internal logic holds, but broader reading needs the stated caveat.",
+    "Classical existence of a Blokhuis-bound attaining example at q=13 may be folklore without explicit spectra/minimality/divisibility package; abstract existence would not disclose the reusable exact invariants certified here."
+  ]
+}
