@@ -1,0 +1,56 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay confirms the raw coding computations: all four matrices have claimed shapes, full row rank, systematic form, tallies summing to 2^k (1024/1024/2048/1024) and minima d=12,12,12,13 matching claimed distributions via both committed verify.py (VERIFY_OK: dual-enumerated d_perp=4 for C35/C36, MW-integral-only for others) and a separate brute-force binary-counting recount, plus exact-rational Krawtchouk dual sums 2^(n-k) and coefficient-wise dual equality where claimed. Griesmer needs (32/33/33 for upper ends; defects 6/7/6 for attaining claims) and residual needs (19/19/20) recompute correct and admissible. 37/37 puncture census of C37 re-run independently: all 37 punctures have d=12, so no [36,10,13] induced \u2014 as claimed. However essential boundary-status inferences are FALSE: (a) Theorem 1/title claim of 'attaining the lower bounds at (35,10),(36,10),(36,11)' is false for C36 which is [36,10,12] while live BKLC Lb(36,10)=13, interval 13-14 \u2014 it is strictly suboptimal, not attaining; (b) Abstract/Sec.2 claim that C37 '[37,10,13] meets the BKLC lower bound 12-13 at (37,10) and is a first/record witness there' is false: live summary table shows (37,10)=[14] singleton and detail page BKLC [37,10] shows Lb=Ub=14 with explicit [37,10,14] construction (shortened [39,12,14]), so [37,10,13] is suboptimal by one, not attaining/record. Draft correctly limits duals of dim 25/27 to integrality-only and correctly calls failed searches logged effort not proof. Because attaining/record status is an essential boundary condition of the headline theorems, correctness FAILS despite verified enumerations.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest prior sources compared substantively, not by timestamp: live Grassl summary n=30-38 confirms (35,10)=12-13, (36,10)=13-14, (36,11)=12-13 open and (37,10)=14 closed; detail pages [35,10],[36,10],[36,11] publish only [n,k,d] bounds plus stored lower-bound matrices with construction chains and no weight enumerator or feasible-enumerator classification; [37,10] publishes a [37,10,14] construction, anticipating and defeating any [37,10,13] novelty-as-record. Method lineage Nouh & Belkasmi (lengths 192/200 QR enumerators) and Yorgov (self-dual/Golay derivatives) differ in object/window and do not imply these distributions. No prior source records the four exact distributions (A12=26; A12=5; even-weight A12=84; A13=34) or the dual vectors/37-puncture census. Existence per se of [35,10,12],[36,11,12],[36,10,13],[37,10,14] was already known from BKLC, so existence is not new \u2014 only the exact enumerators of these new stochastic matrices are literally new. That suffices for originality PASS (not anticipated/mechanically implied as same distributions), with value judged separately.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest self-contained headline is exact full weight enumerators with MacWilliams certificates for explicit codes, with no interval closed and no complete feasible-enumerator survivor census (explicitly abandoned: 'combinatorial explosion'). This fails independent-retrievability: (1) Two of four witnesses are arbitrary suboptimal objects with no pre-computation motivation \u2014 [36,10,12] lies below Lb=13 at its cell, [37,10,13] lies below optimum 14 at closed cell (37,10) outside topic scope \u2014 no future search needs their enumerators when superior [36,10,13]/[37,10,14] existence is already tabled. (2) Remaining attaining instances [35,10,12] and [36,11,12] certify existence already known from BKLC; a single stochastic instance's distribution among many inequivalent optima, with large Griesmer defects (6,6), no uniqueness/optimality/elimination, and no upper-end feasible-enumerator targets (the admitted census missing), gives no constraining power for the open upper ends [35,10,13],[36,10,14],[36,11,13]. Griesmer/Plotkin/residual data are textbook admissibility calculations showing no elimination; failed stochastic search is logged effort, not evidence. This is unexplained enumeration plus certification alone. The narrow-exact-invariant clause does not rescue it: suboptimal objects were not motivated, attaining instances are arbitrary among many with no shown need, and the admitted headline itself required the census. Restoring value would need a true ascending witness ([35,10,13]/[36,10,14]/[36,11,13]), a closure, or the complete survivor census \u2014 new research, not a bounded addition. Intrinsic missing substantive result => REJECT.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Summary n=30-38 confirms (35,10)=12-13, (36,10)=13-14, (36,11)=12-13 open; crucially (37,10)=[14] singleton (closed), refuting any [37,10,13] attaining/record claim.",
+      "title": "Grassl codetables.de \u2014 Bounds on binary linear codes n=30-38 k=10-12",
+      "url": "http://www.codetables.de/BKLC/Tables.php?q=2&n0=30&n1=38&k0=10&k1=12"
+    },
+    {
+      "finding": "Lb=12 Ub=13; construction chain via subcode/shortening; stored matrices for lower end only; no weight enumerator published.",
+      "title": "Grassl codetables.de \u2014 Bounds [35,10] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=35&k=10"
+    },
+    {
+      "finding": "Lb=13 Ub=14 (shortened [38,12,13] from [39,12,14]); proves candidate [36,10,12] d=12 is suboptimal, not attaining.",
+      "title": "Grassl codetables.de \u2014 Bounds [36,10] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=36&k=10"
+    },
+    {
+      "finding": "Lb=12 Ub=13; subcode of shortened [37,14,12]; no enumerator; candidate [36,11,12] does attain Lb.",
+      "title": "Grassl codetables.de \u2014 Bounds [36,11] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=36&k=11"
+    },
+    {
+      "finding": "Lb=14 Ub=14 with explicit [37,10,14] construction (shortening of [39,12,14]); proves candidate [37,10,13] suboptimal, not meeting lower bound; (37,10)=12-13 claim false.",
+      "title": "Grassl codetables.de \u2014 Bounds [37,10] over GF(2)",
+      "url": "http://www.codetables.de/BKLC/BKLC.php?q=2&n=37&k=10"
+    }
+  ],
+  "decisive_checks": [
+    "Ran committed inputs/artifacts/verify.py: C351012 OK [35,10,12] tally=1024 MWsum=33554432 dual-enumerated d_perp=4; C361012b OK [36,10,12] tally=1024 MWsum=67108864 dual-enumerated d_perp=4; C371013a OK [37,10,13] tally=1024 MWsum=134217728 MW-integral-only; C361112 OK [36,11,12] tally=2048 MWsum=33554432 MW-integral-only; VERIFY_OK.",
+    "Independent brute-force binary-counting recount (distinct from Gray-code path): shapes/systematic-I/rank/histograms/minima all match cert.json exactly; odd-weight sum for C361112 = 0; B36=1 and B symmetric.",
+    "Exact Griesmer recompute: needs 32/33/33 for [35,10,13]/[36,10,14]/[36,11,13] (all admissible, defect 3); needs 29/29/30/32 for witnesses (defects 6/7/6/5 as stated); residuals [22,9,>=7]/[23,10,>=7] need 19/19/20 admissible \u2014 arithmetic correct, no elimination.",
+    "Independent 37-position puncture re-enumeration of G_37_10_13: all 37 punctured codes have d=12, confirming no [36,10,13] induced.",
+    "Live-table cross-check: (37,10)=14 closed and Lb(36,10)=13 decisively falsify 'attaining/record/meets lower bound' status for C36 [36,10,12] and C37 [37,10,13]."
+  ],
+  "residual_risks": [
+    "Duals of dimensions 25 ([36,11,12]) and 27 ([37,10,13]) rely on MacWilliams integrality only, not word-by-word enumeration \u2014 correctly scoped in DRAFT, no hidden claim.",
+    "Monomial inequivalence (or equivalence) of candidate matrices to BKLC stored matrices not checked; irrelevant to verdict since enumerators alone lack constraining value either way.",
+    "No complete MacWilliams-feasible survivor census exists to audit \u2014 explicitly undelivered; no residual risk of overlooked elimination within this audit."
+  ],
+  "verdict": "REJECT"
+}
