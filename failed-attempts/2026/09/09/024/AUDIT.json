@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact recomputation confirms all essential numbers. Re-enumeration of restricted integer solutions (51<=v<=100, 2<=k<=v-2, 0<=lam<k, 0<=mu<=k, k(k-lam-1)=(v-k-1)mu) gives 10098 rows. Independent stdlib Fraction spectrum classifier gives 277 feasible (266 integral, 11 conference) and 9821 excluded. Independent plain-Fraction Krein computation from (r,s,f,g) reproduces the 15 Krein-FAIL quadruples exactly and the 18 absolute-bound FAIL quadruples exactly; ledger lists match bit-for-bit as sets. Headline (69,20,7,5): t=2, D=64, r=5, s=-3, f=23, g=45 verified; Fraction q-formula gives q11^1=299/32, q11^2=207/32, q12^1=405/32, q12^2=529/32, q22^1=1035/32, q22^2=879/32, all >0; abs bounds f(f+3)/2=299, g(g+3)/2=1080, non-binding \u2014 matches DRAFT. All 266 integral crosschecks and 277 sqrt-leftover flags reported true; spot-check of (55,48,42,40) gives q11^1=-40/9 confirming FAIL logic. Conference rows are exactly the 11 Paley-type (v,(v-1)/2,(v-5)/4,(v-1)/4) with v=53,57,61,65,69,73,77,85,89,93,97, all primitive and PASS. Primitive double-PASS count 106 reproduced. D<=0 occurs 0 times in window, so that exclusion branch is vacuous but harmless. The DRAFT prose omits explicit k/lam/mu bounds when stating 'exactly 10098' \u2014 the bounds are explicit in code docstring and method (triple loop) and are the standard nontrivial SRG domain, so this is a presentation imprecision, not a mathematical error. No elimination is claimed, honestly matching the computed PASS verdicts for (69,20,7,5), (85,30,11,10), (99,14,1,2), (100,33,8,12). Evidence is computational proof by exact rational arithmetic (not heuristic/experimental), corroborated by an independent implementation.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest prior work definitionally anticipates the fallback census content. The live Brouwer catalogue table srgtab51-100 already tabulates for every feasible tuple in 51<=v<=100 the spectrum r^f s^g and the classical obstruction marks (Krein1/Krein2/Absolute bound) or '?' for open cases. Spot comparison: ledger Krein-FAIL (56,22,3,12) = Brouwer 'Krein2; Absolute bound'; (56,33,22,15) = 'Krein1; Absolute bound'; (63,22,1,11) = 'Krein2; Absolute bound'; (63,40,28,20) = 'Krein1; Absolute bound'; (64,21,0,10) = 'Krein2; Absolute bound'; (64,42,30,22) = 'Krein1; Absolute bound'; absolute-only (64,30,18,10), (64,33,12,22), (81,40,13,26), (81,40,25,14), (100,33,18,7), (100,66,39,52) all already marked 'Absolute bound' in Brouwer; headline (69,20,7,5) already listed as '? 69 20 7 5 5^23 -3^45' with blank obstruction column (survives Krein/absolute). Thus PASS/FAIL verdicts are not new. Exact Krein fractions (e.g. 299/32) and counts (10098/277/15/18/106) are direct substitutions into long-known Delsarte/Bose-Mesner formulas (q_ij^k = 1/(v m_k) sum_l k_l Q_li Q_lj Q_lk with weights (1,k,v-k-1)) and trivial divisibility enumeration \u2014 mechanically implied, not a new boundary, witness, or criterion. The admitted headline elimination of (69,20,7,5) yielded no witness by the report's own statement, leaving only the recomputation. Single-tuple eliminations for different tuples (Azarija-Marc (75,32,10,16); Bondarenko-Prymak-Radchenko (76,30,8,14)) confirm the recognized-advance form but are different tuples/methods and do not confer priority on this ledger. A timestamp or stdlib replay log does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Strongest self-contained headline after failure is the classical-feasibility census over 51<=v<=100; it is not independently worth retrieving later. It is a textbook restatement (count equation, integral/conference spectrum, Krein, absolute bound) plus an unexplained enumeration over a catalogue-pagination window (51-100 is the Brouwer HTML page block, not a mathematical boundary), with no new elimination, no tight absolute case (0 tight), no conference failure, and no sharpened criterion. Exact Krein fractions and exclusion-reason tallies are mechanically implied by plugging parameters into known formulas and are computable in seconds; a future existence-search researcher has no need to retrieve 10098 rows or fractions like 299/32, and the claimed downstream prune/replay use can be achieved by running the same seconds-long script rather than citing stored numbers. The four open cases are all certified unobstructed, so no boundary is moved. Per the shared standard, certification alone (exact Q(sqrt(D)) arithmetic, crosschecks, replay.log) does not rescue an arbitrary scope or mechanically implied numbers, and a rigorously established narrow datum is valuable only when the object/invariant was motivated, the value was not known or mechanically implied, and future retrieval is plausible \u2014 here verdicts were already known via Brouwer marks and values are mechanically implied. Honest limitation statements do not create value. Intrinsic low value and arbitrary page-boundary scope require REJECT, not a bounded addition.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Live table shows '? 69 20 7 5 5^23 -3^45' with empty obstruction column (survives Krein/absolute); neighboring rows '-' 75 32 10 16 (Azarija-Marc) and '-' 76 30 8 14 (Bondarenko et al.); rows marked 'Krein1/Krein2/Absolute bound' match ledger FAIL lists, e.g. (56,22,3,12) Krein2+Absolute, (56,33,22,15) Krein1+Absolute, (63,22,1,11) Krein2+Absolute, (64,30,18,10) Absolute, (81,40,13,26) Absolute, (100,33,18,7) Absolute.",
+      "title": "Parameters of Strongly Regular Graphs - Brouwer catalogue table v=51-100",
+      "url": "https://www.win.tue.nl/~aeb/graphs/srg/srgtab51-100.html"
+    },
+    {
+      "finding": "Proves nonexistence of SRG(75,32,10,16) via star-complement/interlacing/clique computation; different tuple and method family from candidate; establishes single-tuple elimination precedent only.",
+      "title": "Azarija & Marc - There is no (75,32,10,16) strongly regular graph",
+      "url": "https://arxiv.org/abs/1509.05933"
+    },
+    {
+      "finding": "Proves nonexistence of SRG(76,30,8,14) via Euclidean representation + 4-clique bound (Linear Algebra Appl. 527 (2017) 53-72); different tuple/route; precedent only.",
+      "title": "Bondarenko, Prymak & Radchenko - Non-existence of (76,30,8,14) strongly regular graph",
+      "url": "https://arxiv.org/abs/1410.6748"
+    }
+  ],
+  "decisive_checks": [
+    "Re-enumerated restricted count solutions from integer inputs only: 10098 rows reproduced; D<=0 count 0.",
+    "Independent Fraction-only spectrum classifier: 277 feasible (266 integral + 11 conference), 9821 excluded reproduced.",
+    "Independent Fraction Krein from (r,s,f,g) for all integral rows: 15 Krein-FAIL set exactly matches ledger list; absolute-bound FAIL 18 set exactly matches ledger list; 0 tight reproduced; 106 primitive double-PASS reproduced.",
+    "Headline (69,20,7,5) Fraction check: r=5,s=-3,f=23,g=45, six Krein fractions 299/32,207/32,405/32,529/32,1035/32,879/32 all >0; abs bounds 299/1080; q11^0=23,q22^0=45 consistency holds.",
+    "Conference rows enumerated: exactly 11 Paley-type tuples listed, all v=1 mod 4, all PASS/PASS with leftover-zero true.",
+    "Brouwer comparison: ledger FAIL/PASS verdicts coincide with catalogue Krein/Absolute marks; headline open status ('?'/blank) coincides with ledger PASS \u2014 no new verdict.",
+    "Ledger internal flags: krein_sqrt_leftover_zero true 277/277, krein_crosscheck_fraction_agrees true 266/266 (as stored); open cases (69,20,7,5),(85,30,11,10),(99,14,1,2),(100,33,8,12) all integral PASS/PASS in ledger."
+  ],
+  "residual_risks": [
+    "Full byte-for-byte replay of ledger.json/replay.log via bundled verify.py was not executed in this audit environment (external /tmp writes restricted); aggregate-set equality via independent reimplementation gives high but not byte-level confidence.",
+    "Conference Krein rationality check relies on the same textbook Q-matrix/weight formula as the candidate; no fully independent symbolic derivation of conference Krein theory was performed, though integral crosscheck and weight inspection support correctness.",
+    "Absolute-bound primitivity uses mu not in {0,k}; connectivity/disconnected edge cases beyond this standard criterion were not separately audited but do not affect reported counts.",
+    "DRAFT prose scope bounds (2<=k<=v-2 etc.) are implicit; any future RESULT must state them explicitly to make '10098' literally true."
+  ],
+  "verdict": "REJECT"
+}
