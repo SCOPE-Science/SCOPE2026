@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lower bound C*>=14 is a valid proof: D has 66 divisors >=7 of 10080 (recomputed, matches draft list). Max reciprocal sum over k-subsets is attained at k smallest divisors since 1/d decreasing. Exact Fractions recomputed: sum 13 smallest = 1669/1680 ~=0.99345 <=1, sum 14 smallest = 115/112 ~=1.02679 >1, total 29/20=1.45. Density <= sum and strict sum>1 necessary for distinct cover (Mirsky-Newman); k<=13 max <=1 so impossible. Upper bound C*<=65 is verified by computation: 65 moduli distinct, all divide 10080, min exactly 7, LCM exactly 10080, all residues 0<=a<m valid, exhaustive replay over Z_10080 covers 10080/10080 (ran inputs/artifacts/verify.py -> VERIFY_OK). Histogram recomputed: 1:5926, 2:3785, 3:365, 4:4, sum 10080, all 65 classes have >=1 private residue (min 1 for 2016/3360/10080, max 736 for mod 8), missing modulus vs D is exactly 1120, consistent with claimed deletion of (233 mod 1120). Covering mod L0 implies covering Z since all moduli divide L0. Draft honestly limits scope: C* not closed, gap open, no claim 64 impossible, irredundancy only for stated residues not global minimality, heuristic re-optimization 9524-9796/10080 explicitly labeled heuristic not proof. No essential inference error or boundary violation; proof (density + exhaustive replay) distinguished from heuristic.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp: Harrington et al. arXiv:2605.18644 (directly fetched) treats LCMs 2^a3^b5^c with a>=b>=c, classifies m=2..6 (except one m=6 case), proves m<=9, gives m=8 example; prime universe excludes 7 so L0=10080=2^5*3^2*5*7 is outside its scope, no m=7 divisor-of-10080 cardinality optimum. Zhang et al. arXiv:2607.19029 per admission proves Lmin(7)=10080 and exhibits one 66-class feasible system optimizing LCM, not number of congruences, with no smaller-k exclusion or cardinality table; draft credits Zhang and claims only single-class redundancy (1120 removable) plus exact 14-pairing as new. Balister 2211.01417 (distortion bounds) and 1904.04806 (asymptotic counts) give general/asymptotic results, no fixed-window exact C* witness. arXiv API queries for cardinality/minimal-cardinality returned no competing table. The 65-subsystem covering claim (remaining 65 still cover) is factually distinct from the published 66-system and not implied by LCM minimality; reciprocal-sum 14 computation alone is standard but paired interval is not previously tabulated. Hence headline interval/witness is new relative to nearest priors.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline actually delivered is C* in [14,65] with an irredundant 65-cover; exact C* and promised fallback complete minimal-size table over divisors of 2520 are both admittedly undelivered (draft Sec.3: gap 14..65 open, no 64-impossibility). Lower bound 14 is textbook density arithmetic over fixed divisors, mechanically reproducible. Upper bound 65 is a one-class deletion from the published Zhang 66-system (missing modulus exactly 1120); testing all 66 single deletions by CRT replay over 10080 residues is milliseconds and mechanically discoverable by anyone holding the published system, verified here in one replay run. Gap width 51 leaves no exact invariant: C* undetermined, no minimality certificate, no census, no located gaps. Irredundancy proved is inclusion-minimality for fixed residues (each class owns a private residue), explicitly not global cardinality minimality, so not the promised cheapest-cover benchmark. Heuristic trials after dropping large moduli are admitted non-proofs. A future researcher already possessing Zhang's 66-system gains only 66->65 saving with no closure toward C*, reusable only as a marginally smaller feasible example, not a citable extremal optimum or atlas anchor. Certification (VERIFY_OK) alone does not rescue a tiny incremental tweak plus textbook bound. This is a missing substantive result / tiny unmotivated gain, not a narrow-but-exact motivated invariant whose value was unknown and non-mechanical.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Classifies (m,a,b,c) for 2-3-5-smooth LCMs for m=2..6, proves m<=9, gives m=8 example. No m=7 / 10080-universe cardinality optimum. Directly fetched abstract + full HTML text.",
+      "title": "Covering systems where the prime divisors of all moduli are only 2, 3, or 5",
+      "url": "https://arxiv.org/abs/2605.18644"
+    },
+    {
+      "finding": "Per admission triage: proves Lmin(7)=10080 with one 66-class feasible system; optimizes LCM not cardinality. Direct fetch failed (HTTP 502 / ar5iv 503 on 2026-09-09); reliance on admission summary noted as residual risk. No evidence of 65-subsystem or C*>=14 claim.",
+      "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080",
+      "url": "https://arxiv.org/abs/2607.19029"
+    },
+    {
+      "finding": "General distortion-method bounds and asymptotic enumeration of minimal systems; no exact minimal-cardinality witness in fixed m=7/10080 window. Per admission triage, not directly refetched.",
+      "title": "Erdos covering systems / The structure and number of Erdos covering systems",
+      "url": "https://arxiv.org/abs/2211.01417"
+    },
+    {
+      "finding": "arXiv API phrase queries returned only irrelevant recent papers, no competing minimal-cardinality table for m=7/10080 universe.",
+      "title": "arXiv API search: covering minimum modulus 7; distinct covering cardinality",
+      "url": "https://export.arxiv.org/api/query"
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify.py -> VERIFY_OK: 65 distinct, min 7, LCM 10080, 10080/10080 covered, 1669/1680, 115/112, 29/20, 65/65 private.",
+    "Independent recomputation: D==66-element draft list; Counter({1:5926,2:3785,3:365,4:4}); per-class private min 1 max 736 all positive; residues 0<=a<m pass; LCM 10080; missing modulus exactly 1120.",
+    "Verified lower-bound logic: k-smallest maximizes sum; k<=13 max <=1 so density+Mirsky-Newman rules out covering; strictness correctly not needed since weak bound already fails.",
+    "Verified honesty provisos: draft Sec.3 disclaims exact C*, 64-impossibility, uniqueness, and labels re-optimization heuristic only."
+  ],
+  "residual_risks": [
+    "Zhang et al. 2607.19029 could not be directly fetched (502/503); redundancy novelty relies on admission live review plus internal consistency (missing 1120). If Zhang already noted the 1120 redundancy, upper-bound novelty would collapse further, strengthening REJECT.",
+    "Mirsky-Newman strict >1 necessity taken from standard theorem + Zhang Lemma 1 citation without independent proof; weak <=1 bound suffices here so risk is minimal.",
+    "No check of Zhang's original 66-system residues performed (source file not in workspace); 65-system verified standalone, provenance claim taken as credited assertion."
+  ],
+  "verdict": "REJECT"
+}
