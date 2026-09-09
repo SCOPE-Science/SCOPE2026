@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Route is PRESET_FALLBACK (explicit claim_route in research_report.json). Exact fallback_claim requires closed-form alpha_std and alpha_pi plus exact closed-form numbers H_std and H_pi each proved by antiderivatives/integral evaluations checkable by differentiation, plus H_pi != H_std. This exact criterion is NOT completed; the submission is a partial completion. H_std = -1/(4pi^2) via F=cos2s/(8pi^2) replays exactly (sympy diff 0, FTC correct) and is proved. H_pi = -0.0188237 +/-1e-6 is NOT an exact closed-form proved by antiderivatives: only the twist-layer indefinite integrals P,Q are exhibited and diff-checked (replayed: P'=wA, Q'=wB exact; layer integrals -3.7431e-05, -9.2042e-04 correct); the six claimed layer antiderivatives are not exhibited (match/standard analogues only asserted sympy-derived) and the outer assembly is trapezoidal quadrature at N=6001/24001 (-0.0188240604 -> -0.0188236538, diff 4.1e-7, replayed). The +/-1e-6 bound is a two-grid Richardson heuristic, not a proved enclosure: no interval certificate, no quadrature error theorem for the piecewise-smooth integrand with kinks at delta,d2, and the global potentials used in quadrature are cumulative-trapz, not the exact FTC pieces. Second, the certified H_pi belongs to a Lipschitz/C0 profile (rho=1 constant twist, h2~m0*s at core, C0 match), which is not a smooth global contact form: contact D=m0>0 holds only on open pieces; at core/knots the form is only Lipschitz, so alpha_pi^dalpha_pi !=0 cannot be asserted classically there. The smooth C1 model (verify_target.py) is contact on (0,pi/2) (replayed B/C PASS) but has a different value H_pi~-0.0219277665 (3-grid converged, replayed), differing by 0.0031 (~50% of claimed gap). Hence headline mixes contactness from one model with the number from another. Third, mu0=ds dphi1 dphi2/(4pi^2) is misstated as total mass 1; its mass is pi/2 (~1.57), not the round volume 2pi^2, so helicity normalization and round-metric curl claims are inconsistent as stated. The inequality |H_pi-H_std|~0.00651 >> discretization is numerically credible, but as a proved exact inequality for a canonical smooth pair it fails. Proof vs evidence: H_std is proof; H_pi and H_pi != H_std for the smooth canonical pair are experimental. Partial completion is not the preset fallback.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively: Etnyre-Ghrist 1997 (dg-ga/9708011) proves Reeb=Beltrami up to scaling and Weinstein-Seifert transfer with no helicity values for any Lutz pair; Enciso-Peralta-Torres 2015 (1505.01605) proves large-odd-eigenvalue knotted Beltrami existence up to diffeomorphism with no pair comparison or fixed-pair values; Cardona metric-varying existence likewise gives no fixed round-metric pair values (per Admission triage; Peralta-Salas-Slobodeanu 2004.10185 fetch failed but Admission abstract-level finding of no Lutz-Hopf helicity pair is consistent with its weak-compatibility existence scope). No source states H_pi~-0.0188 or H_pi~-0.0219 for delta=0.35/d2=0.70 profiles or H_std=-1/(4pi^2) in this mu0 normalization, and general correspondence plus large-lambda existence do not mechanically imply these numbers. A timestamp/failed search alone was not used; comparison is on content (general theorems vs no values). Hence the specific numerical pair is new. PASS on originality alone; this does not cure regularization-dependence, which is assessed under value.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Audited normally with no preset-value presumption because exact fallback was not completed (partial completion carries no Admission conditional approval). The headline number is not a rigorously established exact invariant of the claimed natural object. The canonical minimal pair (standard tight plus one full 2pi Lutz twist along Hopf unknot, common volume) does not determine the reported H_pi: hybrid Lipschitz model gives -0.0188237 while companion smooth model with same winding gives -0.0219277, difference 0.0031 comparable to the gap itself. Value therefore depends on arbitrary regularization choices (delta=0.35, d2=0.70, rho=1 vs sqrt-profile vs chi(t)=3t^2-(2+eta)t^3+eta t^4, linear vs Hermite match), i.e. an arbitrary parameter slice, not a canonical invariant. Certification (diff-checked P,Q) does not rescue the arbitrary profile. Moreover the admitted downstream use is invalid on the draft's own analysis (Sec.4): H(cX)=c^2 H(X) with same sign (both negative, ratio ~0.74) means rescaling absorbs nonzero values and bare H_pi != H_std cannot obstruct Phi_*R_pi=fB realization; the numbers are not shown to be reusable obstruction inputs. A future query for Lutz-pair helicity would retrieve a profile-dependent quadrature value with heuristic error, requiring recomputation for any other regularization. This is intrinsic low value / arbitrary scope / missing substantive exact result, not a narrow-but-canonical exact datum eligible under the exact-invariant clause. The honestly described orbit-link table is an unfinished survey fragment and does not supply an independent exact headline.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms Reeb=Beltrami up to scaling, Weinstein reformulation; no helicity values for any named Lutz-twisted Hopf pair.",
+      "title": "Etnyre-Ghrist Contact Topology and Hydrodynamics (1997)",
+      "url": "https://arxiv.org/abs/dg-ga/9708011"
+    },
+    {
+      "finding": "For any finite link/tube set, high odd-lambda Beltrami realizing it up to diffeomorphism; existence at large lambda only, no tight-vs-overtwisted pair comparison or fixed-pair helicity values.",
+      "title": "Enciso-Peralta-Torres Knotted structures in high-energy Beltrami fields (2015)",
+      "url": "https://arxiv.org/abs/1505.01605"
+    },
+    {
+      "finding": "Fetch failed (transport error); relied on Admission triage summary that it constructs tight/overtwisted weakly-compatible Beltrami structures with no helicity pair for the named Lutz-Hopf pair. Not used as positive evidence.",
+      "title": "Peralta-Salas-Slobodeanu Contact structures and Beltrami fields (2020) \u2014 fetch failed",
+      "url": "https://arxiv.org/abs/2004.10185"
+    },
+    {
+      "finding": "Topic Admission fallback assessment, exact_claim and exact_success_criterion (binary antiderivative certificate), and nearest-prior gap analysis used only as claim definition, not as evidence.",
+      "title": "topic.json admission_review and fallback_qualification",
+      "url": "local:inputs/topic.json"
+    }
+  ],
+  "decisive_checks": [
+    "Replayed inputs/artifacts/fallback_cert.py: P'=wA, Q'=wB sympy diff 0 exact; int wA=-3.743088974e-05, int wB=-9.204182287e-04; H_std=-1/(4pi^2)=-0.02533029591; H_pi hybrid N=6001 -0.0188240604 -> N=24001 -0.0188236538 (Richardson 4.1e-7) \u2014 confirms numerics but also confirms outer assembly is quadrature, not exact FTC.",
+    "Replayed inputs/artifacts/verify_target.py sections A-D (write failed on hardcoded OUT path, computation passed): H_std exact ok; twist D_min>0; match psi'_min 0.8976>0; smooth-model H_pi -0.0219277635->-0.0219277663->-0.0219277665 converged \u2014 proves model-dependence: 0.0031 shift vs hybrid.",
+    "Verified H_std antiderivative F=cos2s/(8pi^2), F'-J=0 exactly, FTC -1/(4pi^2) correct; verified mu0 mass = pi/2 not 1 (integral ds dphi1 dphi2/(4pi^2) = pi/2), contradicting DRAFT mass-1 statement and round-volume identification.",
+    "Verified rescaling obstruction admitted in DRAFT Sec.4: both H values negative (ratio ~0.743), so H(cX)=c^2H(X) absorbs same-sign nonzero gap; bare inequality is not an obstruction input, defeating fallback retrieval case.",
+    "Confirmed exact-success-criterion failure: DRAFT Sec.3c exhibits only twist P,Q; match/standard closed forms asserted but not stated; final H_pi rests on two-grid trapz heuristic without proved enclosure; certificate profile is C0/Lipschitz at core/knots, not a smooth contact form globally."
+  ],
+  "residual_risks": [
+    "Peralta-Salas-Slobodeanu source not directly fetched (transport error); originality PASS rests on Admission triage plus scope mismatch, with small risk of an overlooked helicity value in full text, though large-lambda/weak-compatibility scope makes exact Lutz-pair values unlikely.",
+    "Helicity variational formula H=(2pi)^2 int(F1 wA+F2 wB) assumed as given; full metric/curl-adjoint derivation against mu0 vs round volume not independently re-derived \u2014 affects interpretation of normalization but not the exactness/model-dependence verdicts.",
+    "Gauss-link orbit data (link_cert.py, trefoil brackets) not replayed; excluded from headline verdict but would need independent check if ever promoted to headline."
+  ],
+  "verdict": "REJECT"
+}
