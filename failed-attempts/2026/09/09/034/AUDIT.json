@@ -1,0 +1,65 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently replayed every essential computation from the word data with fresh code paths (not just running verify.py): Nielsen history [(0,2),(3,0),(2,3),(1,3)] + perm (1,2,0,3) replays exactly to [bad,cd,ad,db], so phi is an automorphism; transition matrix M=[[1,0,1,0],[1,0,0,1],[0,1,0,0],[1,1,1,1]] confirmed; M^3=[[2,1,1,1],[4,3,3,2],[2,1,2,1],[7,4,5,4]]>0 confirmed by independent multiplication, so M is primitive; column sums are 3,2,2,2 (all >=2), so expanding; det(M)=+1 confirmed by two independent methods (fraction-LU determinant and explicit permutation expansion: even perms (0,3,1,2),(2,0,1,3) contribute +1+1, odd perm (2,3,1,0) contributes -1). Characteristic polynomial x^4-2x^3-x+1 confirmed by two independent methods (permutation expansion of det(xI-M) and Lagrange interpolation through x=0..4 giving values [1,-1,-1,25,125]). Enclosure rigorous: exact fractions give p(2.117)=-6934933279/10^12<0 and p(2.118)>0; p''(x)=12x(x-1)>0 for x>1 so p' is strictly increasing there and p'(2.117)=10.06...>0, hence exactly one simple root in (2.117,2.118); Collatz-Wielandt ratios for the logged positive vector are exactly [24923/11769, 29495/13928, 13928/6577, 100000/47221] approx [2.117682,2.117677,2.117683,2.117702], all inside (2.117,2.118), which pins the Perron root itself to the interval. Gate/derivative data re-derived independently: D={0:1,1:2,2:0,3:3,4:7,5:7,6:7,7:5}, 6 gates, illegal turns exactly {(4,5),(4,6),(5,6)}; taken turns exactly {(0,5),(1,7),(3,4),(3,6)} with empty intersection against illegal turns; D-orbit closure has exactly 10 turns and is connected on all 8 directions. Abelian screen re-implemented with a fresh Fraction-polynomial gcd: gcd(p,x^k-1)=1 (degree 0) for all 1<=k<=12. Positivity of all images (lengths 2-3) implies no cancellation in any iterate, so the train-track claim for the rose map holds. The draft honestly disclaims full irreducibility, full PNP/ageometric status, full atoroidality, and minimality, so no overclaim on those points. Minor blemish (not affecting the headline): item 4 states p is 'irreducible over Q (no rational root; checked +-1 fail)' \u2014 absence of a rational root does not by itself rule out a quadratic-times-quadratic factorization of a quartic. The conclusion is nevertheless TRUE, confirmed independently here by exhaustive integer-quadratic search (no (a,b,c,d) with a+c=-2, ac+b+d=0, ad+bc=-1, bd=1) and by factoring mod 2 (no linear root and no monic-quadratic factorization mod 2, hence irreducible over Q). Since every essential inference and computation for the stated certificate is true and the only gap is the parenthetical justification of an ancillary true fact, correctness PASSES.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The delivered headline datum is the exact tuple phi=(bad,cd,ad,db) with M=[[1,0,1,0],[1,0,0,1],[0,1,0,0],[1,1,1,1]], M^3>0 certificate, p(x)=x^4-2x^3-x+1, lambda in (2.117,2.118) with Collatz-Wielandt witness, 6-gate derivative data with no taken illegal turn, and order-<=12 abelian root-of-unity screen. Substantive comparison against nearest priors: (1) Pfaff 1205.5320 settles rank-3 ageometric ideal-Whitehead classification (18 of 21 five-vertex graphs) with methods valid in any rank but logs no rank-4 word/matrix/lambda tuple \u2014 different rank and no such certificate. (2) Pfaff II 1301.6645 constructs, per rank, an ageometric fully irreducible with COMPLETE-graph ideal Whitehead graph K_{2r-1} plus a PNP criterion \u2014 a different graph stratum from anything established here (no ideal Whitehead graph is computed in the draft) and no atoroidal-plus-enclosed-lambda tuple for this word. (3) Pfaff IV 1511.08933 builds cut-vertex ideal-Whitehead examples per rank \u2014 again a different stratum with no such logged word/matrix. (4) 1210.5762 gives non-realization obstructions for some (2r-1)-vertex graphs, not a positive realization implying this tuple. (5) 2405.03681 settles shortest stretch factor in Out(F_3) principal stratum \u2014 different rank and stratum, and the draft claims no minimality. (6) Bestvina-Handel / Handel-Mosher / Dowdall-Kapovich-Leininger supply the general criteria and downstream payoff, not this specific word and eigenvalue. Internal prior scan (20 Resultary findings, nearest failure SCOPE-FAIL-20260909-006 on Coxeter growth series) is in disjoint object/method families. No source records this word, matrix, polynomial, or enclosure; the datum is new and not mechanically implied by any cited theorem. Originality PASSES.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The strongest self-contained headline is one short positive word phi=(bad,cd,ad,db) with its transition matrix, PF eigenvalue enclosure lambda approx 2.1177, gate/turn fragment, and order-<=12 abelian screen \u2014 while the draft explicitly disclaims every property that would give the object mathematical distinction: full irreducibility is NOT proved (only primitive-matrix plus connected-closure input is supplied), PNP-free/ageometric status is NOT established (only 'no taken illegal turn,' i.e. no period-1 iNP on a taken turn), the 7-vertex ideal Whitehead graph is NOT computed, atoroidality is NOT proved (only the abelian eigenvalue screen), and minimality in any stratum is NOT claimed. What remains is therefore an arbitrary member of the bounded short-word family (one of thousands of equivalent routine positive words, selected with no proved distinguishing feature) carrying an unexplained number: lambda approx 2.1177 is exactly enclosed but has no proved interpretation \u2014 it is not shown minimal, not shown to separate geometric from ageometric strata, and not shown to decide any open question. The computations themselves (M^3>0, charpoly, sign-change plus Collatz-Wielandt enclosure, gate tabulation, polynomial gcds) are standard textbook exercises applied to routine parameters. Under the governing standard this is the conjunction the instructions direct auditors to reject: a mere parameter substitution on a routine example yielding an arbitrary object with an unexplained number, where certification alone (VERIFY_OK) does not rescue value. The three conditions of the exact-invariant clause are not jointly met: although the rank-4 train-track/stretch-factor theme was motivated before computation and the digits were not previously known, no future researcher could reasonably need THIS precise fact as stated, because without iwip/PNP/atoroidal/minimal status the word cannot serve as a stratum witness, extremal input, or classification entry. The draft's honesty about its limitations is commendable but does not create value. The defect is intrinsic (arbitrary scope, missing substantive result), not a presentation gap: the only additions that could confer value \u2014 proving full irreducibility, running the complete Pfaff PNP test with ideal Whitehead graph, proving atoroidality, or establishing stratum minimality \u2014 are the original hard research program itself, not a bounded topic-preserving addition. Value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms rank-3 ageometric ideal-Whitehead classification (18 of 21 five-vertex graphs), methods valid in any rank; no rank-4 word/matrix/lambda tuple logged.",
+      "title": "Constructing and Classifying Fully Irreducible Outer Automorphisms of Free Groups",
+      "url": "https://arxiv.org/abs/1205.5320"
+    },
+    {
+      "finding": "Abstract confirms per-rank construction of ageometric fully irreducible with COMPLETE graph K_{2r-1} plus PNP criterion; different stratum, no atoroidal rank-4 enclosed-lambda tuple for the candidate word.",
+      "title": "Ideal Whitehead Graphs in Out(F_r) II: The Complete Graph in Each Rank",
+      "url": "https://arxiv.org/abs/1301.6645"
+    },
+    {
+      "finding": "Abstract confirms per-rank cut-vertex ideal-Whitehead examples and non-lone-axis bundles; different stratum, no such rank-4 word/matrix certificate.",
+      "title": "Ideal Whitehead Graphs in Out(F_r) IV (cut vertices / higher ranks)",
+      "url": "https://arxiv.org/abs/1511.08933"
+    },
+    {
+      "finding": "Admission record summarizes obstruction paper (some (2r-1)-vertex graphs never occur), lone-axis criterion, folded-mapping-torus payoff, and rank-3 minimal-stretch-factor result; none logs the candidate tuple (abstracts not refetched; relied on admission summaries for these four).",
+      "title": "Admission-review source summaries: 1210.5762, 1311.6855, 1301.7739, 2405.03681",
+      "url": "https://arxiv.org/abs/1210.5762"
+    },
+    {
+      "finding": "No Resultary finding covers Out(F_n) train-track stratification; nearest failure (Coxeter growth series via Steinberg poles) is a disjoint object/method family.",
+      "title": "Internal prior scan (Resultary + scope_failed_hits)",
+      "url": "inputs/topic.json"
+    },
+    {
+      "finding": "Local stdlib verifier replays Nielsen history, M/M^3, charpoly enclosure, gates/taken turns, closure connectivity, and k<=12 gcd screen; prints VERIFY_OK (exit 0). Verifier checks computations, not novelty or value.",
+      "title": "inputs/artifacts/verify.py replay",
+      "url": "inputs/artifacts/verify.py"
+    }
+  ],
+  "decisive_checks": [
+    "Nielsen-history replay from [(0,2),(3,0),(2,3),(1,3)] + perm (1,2,0,3) yields exactly [bad,cd,ad,db] (fresh implementation).",
+    "M and M^3 recomputed by independent multiplication: M^3=[[2,1,1,1],[4,3,3,2],[2,1,2,1],[7,4,5,4]]>0; column sums 3,2,2,2.",
+    "det(M)=+1 by fraction-LU and by explicit signed permutation sum (+1+1-1); draft's +1 confirmed (an initial Bareiss-script sign discrepancy was traced to a bug in the check script's pivot-sign handling, not the draft).",
+    "charpoly x^4-2x^3-x+1 by permutation expansion AND by Lagrange interpolation through det(xI-M) values [1,-1,-1,25,125] at x=0..4.",
+    "Enclosure: exact p(2.117)<0<p(2.118); p''>0 on x>1 with p'(2.117)>0 gives uniqueness in interval; Collatz-Wielandt ratios exactly in (2.117,2.118), pinning the Perron root.",
+    "Irreducibility of p over Q (draft's parenthetical insufficient): confirmed via exhaustive integer-quadratic search (no solutions) and no factorization mod 2.",
+    "D map, 6 gates, illegal turns {(4,5),(4,6),(5,6)}, taken turns {(0,5),(1,7),(3,4),(3,6)}, empty intersection, 10-turn connected D-orbit closure \u2014 all re-derived with independent code.",
+    "gcd(p,x^k-1)=1 for k<=12 via fresh Fraction-polynomial Euclid (spot-checked k=1,2,3,4,6,12; full 1..12 covered by verify.py).",
+    "Substantive prior comparison (not timestamp-based): nearest constructions differ in stratum (complete-graph, cut-vertex, rank-3) or give obstructions/criteria rather than this tuple; no source logs the candidate word/matrix/polynomial/enclosure."
+  ],
+  "residual_risks": [
+    "Prior-art search was abstract- and admission-record-level; a thesis or code repository logging this exact short word cannot be logically excluded, though coincidence is vanishingly unlikely and the value verdict does not depend on it.",
+    "The 'irreducible over Q' parenthetical justification in the draft is incomplete as stated (rational-root test alone); truth was confirmed independently, so no correctness risk remains, but a future revision should cite the mod-2 or exhaustive-quadratic argument.",
+    "Value judgment turns on the 'arbitrary object / unexplained number' reading of the shared standard; if a downstream consumer (e.g., a certified rank-4 stretch-factor database) were demonstrated to need exactly this entry, the assessment could change \u2014 no such consumer is shown in the draft."
+  ],
+  "verdict": "REJECT"
+}
