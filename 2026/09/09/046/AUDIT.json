@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Independently re-derived everything from the two committed bracket tables. Symbolic eps-polynomial Jacobi check: all Jacobiator coefficients (degrees 0,1,2 in eps) are identically zero for both families, so the brackets define Lie algebras for every eps over every field. Re-derived all 8 (L6,22) plus 10 (L6,24) nonzero d2 cocycle rows as eps-polynomials; they match the DRAFT equations exactly. L6,22 certificate 5x5 submatrix is exactly diagonal diag(1,1,-1,-1,-1), det -1, with zero eps-dependence; remaining 3 nonzero rows are scalar multiples (scalars -1, -eps, +1) of the pivot row, so rank(d2)=5 exactly for all eps and dim Z2=10. L6,24 certificate 7x7 submatrix is lower-block-triangular with diagonal (1,1,1,-1,-1,-1,-1), det +1 for all eps (sole eps entry sits strictly below diagonal); remaining 3 rows are multiples (-eps,-1,+1) of the t56=0 row, so rank(d2)=7 exactly and dim Z2=8. Coboundaries: L6,22 only d(x5*),d(x6*) nonzero with identity 2x2 minor on (t12,t13), det 1, so rank 2; L6,24 only d(x3*),d(x5*),d(x6*) nonzero with identity 3x3 minor on (t12,t13,t23), det 1, so rank 3. Hence dim H2 = 8 and 5 for every eps. Unit determinants (+-1) are nonzero in every characteristic, so the argument holds over any field. Re-ran inputs/artifacts/verify_h2.py: Jacobi OK, anchor dims (10,2,8)/(8,3,5) at eps=0,1,-1,2, minor dets +-1, row-span redundancy confirmed: ALL VERIFY_OK. Uniform cocycle bases have correct free-variable counts and satisfy the relations. This is proof by exact parametric rank certificate, not experimental evidence."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Nearest priors checked substantively. Cicalo-de Graaf-Schneider (arXiv:1011.0361) classifies 6-dim nilpotent algebras over arbitrary fields via Aut-orbits on H2 of smaller algebras and uses Gram determinant / Arf invariant to separate descendant orbits (counts 26+4s, brackets for L6,22(eps)/L6,24(eps)); it publishes no dim-H2-vs-eps function for the 6-dim algebras themselves. Degrijse (arXiv:1007.5150) gives a general filtration, second-Betti expression, bounds, and extension criterion, not the exact parametric H2 law for these two families. del Barco (arXiv:1204.4123) computes spectral-sequence and Betti data for each real (2 square-class) algebra of dim<=6, which cannot imply constancy across infinite Q*/(Q*)^2. Live arXiv API queries confirm the gap (0 hits for square-class plus second-cohomology; only Cicalo for six-dim plus cohomology). The constancy theorem with eps-independent unit-minor certificates and uniform cocycle bases is not a rename, textbook plug-in, or mechanical consequence of the cited sources."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Headline is a rigorously proved exact invariant of specific natural objects: dim H2 = 8 for L6,22(eps) and 5 for L6,24(eps) for every eps, with uniform cocycle bases and eps-independent unit-minor certificates. Object (named Skjelbred-Sund step-2 descendant families indexed by square classes) and invariant (H2) were motivated before computation by the Cicalo-classification gap (Gram/Arf separates isomorphism types; whether H2 sees eps was open); the values are not in Cicalo/Degrijse/del Barco nor mechanically implied (real tables cover 2 classes; general bounds do not pin exact values; constancy across infinite Q*/(Q*)^2 is not obvious). The theorem decides two things extension/degeneration users need: H2 separates the two families at every class (8 vs 5) but separates no members within either family (empty jump locus). A future researcher can reasonably need this precise fact with reusable anchor bases. Narrow exact-datum form does not disqualify it under the stated value standard; certification does not rescue an arbitrary object, but this object is not arbitrary."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Six-dimensional nilpotent Lie algebras - Cicalo, de Graaf, Schneider",
+      "url": "https://arxiv.org/abs/1011.0361",
+      "finding": "Full classification over arbitrary field via Aut-orbits on H2 of smaller algebras; step-2 descendant brackets L6,22(eps), L6,24(eps) with Gram/Arf orbit separation and counts 26+4s; no table or theorem giving dim H2 of the 6-dim algebras as a function of eps. Full HTML text fetched and checked."
+    },
+    {
+      "title": "On a filtration of the second cohomology of nilpotent Lie algebras - Degrijse",
+      "url": "https://arxiv.org/abs/1007.5150",
+      "finding": "General filtration of H2, second-Betti expression, bounds and central-extension criterion; no exact per-square-class H2 law for L6,22/L6,24."
+    },
+    {
+      "title": "On a spectral sequence for the cohomology of a nilpotent Lie algebra - del Barco",
+      "url": "https://arxiv.org/abs/1204.4123",
+      "finding": "Spectral-sequence grading plus computation for each real nilpotent algebra of dim<=6 (2 square classes only); cannot imply infinite Q square-class behavior."
+    },
+    {
+      "title": "arXiv API live search - square-class cohomology gap check",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22nilpotent+Lie+algebra%22+AND+all:%22second+cohomology%22+AND+all:%22square+class%22",
+      "finding": "0 results for nilpotent Lie algebra + second cohomology + square class."
+    },
+    {
+      "title": "arXiv API live search - six-dimensional nilpotent + cohomology",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22six-dimensional+nilpotent%22+AND+all:cohomology",
+      "finding": "Only Cicalo 1011.0361 returned; no prior per-square-class H2 law."
+    }
+  ],
+  "decisive_checks": [
+    "Re-ran inputs/artifacts/verify_h2.py from scratch: Jacobi OK both families at eps=0,1,-1,2; anchor (Z2,B2,H2)=(10,2,8) and (8,3,5); certificate minor dets -1/+1 at every anchor; all d2 rows in span of certificate rows; ALL VERIFY_OK.",
+    "Independent symbolic eps-polynomial Jacobi check: every Jacobiator coefficient (degrees 0,1,2 in eps) is exactly 0 for both families, so Jacobi holds for all eps over any field.",
+    "Independent eps-polynomial re-derivation of all d2 rows: reproduced all 8 L6,22 and 10 L6,24 nonzero cocycle equations verbatim; confirmed L6,22 5x5 cert is diagonal det -1 with no eps entries and residual rows are multiples; confirmed L6,24 7x7 cert is lower-triangular det +1 with the single eps entry strictly sub-diagonal and residual rows are multiples.",
+    "Verified d1 claims: only d(x5*),d(x6*) nonzero for L6,22 with identity minor det 1 on (t12,t13); only d(x3*),d(x5*),d(x6*) nonzero for L6,24 with identity minor det 1 on (t12,t13,t23).",
+    "Substantive prior comparison via fetched abstracts and Cicalo full HTML: none tabulates dim H2 of L6,22/L6,24 vs eps; live API searches confirm the gap."
+  ],
+  "residual_risks": [
+    "Bracket transcription fidelity vs Cicalo Section 3 char!=2 lists is assumed; the proof is relative to the committed bracket tables (verifier builds from them). Spot-check matches the published (4/1)-(4/2) tables.",
+    "Square-class indexing of isomorphism types (eps up to F*/(F*)^2) is cited from Cicalo, not reproved; only the H2 dimensions are proved here.",
+    "Claim is trivial-coefficient Chevalley-Eilenberg H2 only; no statement about adjoint coefficients, ring structure, deformations, or degenerations beyond dimension and bases.",
+    "Characteristic-2 exceptional families L6,7(2), L6,8(2) are explicitly excluded; the unit-certificate argument itself is characteristic-free for the two stated bracket tables.",
+    "No downstream use (extension/degeneration/Schur-multiplier application) is demonstrated in this artifact; value rests on the exact invariant answering the pre-identified gap."
+  ]
+}
