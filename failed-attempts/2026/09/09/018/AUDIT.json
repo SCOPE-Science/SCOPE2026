@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent recomputation from scratch confirms the exact enumeration. Fresh bytearray sieve to X=5,000,000 gives pi(X)=348513, class counts 174193 (4,1), 174319 (4,3), 174190 (6,1), 174321 (6,5) with correct exclusion of 2 (and 3 for mod 6) and exact match to archived filtered lists. Re-extracted within-class record sequences match records.json term-by-term (21/23/18/15 records, terminals [260,4874717,4874977], [272,3358151,3358423], [282,3975721,3976003], [258,2339039,2339297]). All 154 endpoints prove prime by trial division to sqrt (complete for n<=5e6); residue membership and gap divisibility by q verified; gaps strictly increasing. All 1777 interior in-class integers verify composite with minimal smallest-prime-factor (spf_td match, f<tt, f prime). CERTS alignment (seen==want) and spf run-length identity (b-a)/q-1 hold. Maximality by exhaustive scan holds: no within-class gap exceeds terminal record. Kourbatov b=0 empirical bound G<2log^2(x) holds for every record; terminal ratios 0.548/0.602/0.611/0.600 recomputed. Trend T0 values recomputed with fine-step li differ by only ~0.2-0.35 from DRAFT (e.g. 248.83 vs 248.60) due to coarse Simpson h=1000 \u2014 immaterial diagnostic difference, honestly labeled as diagnostic with no Gumbel claim. No inference error or boundary error found. Proof (trial-division certificates + exhaustive scan) correctly distinguished from heuristic trend evidence.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline claim \u2014 the four closed within-class record-gap tables with witness pairs to 5e6 \u2014 is verbatim already published in OEIS as n-indexed record sequences with companion lower/upper witness sequences, authored by the same Kourbatov program (and Sven Simon for 1 mod 4), computed far beyond 5e6. Term-by-term match: (4,1) gaps A084162: 3,8,12,16,24,32,48,56,60,68,72,88,108,128,148,152,200,224,240,248,252,260,272,... \u2014 candidate's 21 records from 8 to 260 are an exact prefix (offset shift due to excluding prime 2; lower ends A084161: 2,5,17,73,113,... and upper ends A268963: 5,13,29,89,137,... match candidate's pairs). (4,3) gaps A268799: 4,8,12,20,24,36,40,56,60,64,68,112,120,132,144,156,168,176,184,200,240,256,272,... exact match; lowers A268800 and uppers A268801 (e.g. b-file up to 1.3e11) match. (6,1) gaps A268925: 6,12,18,30,54,60,78,84,90,96,114,162,174,192,204,252,270,282,312,... exact match; lowers A268926 / uppers A268927 (b-files to ~2e11) match. (6,5) gaps A268928: 6,12,18,30,36,42,54,60,84,126,150,162,168,246,258,318,... exact match; lowers A268929 / uppers A268930 match. OEIS entries include PARI programs computing to 1e7/1e8 and b-files/tables to 1e11, so X-closedness to 5e6 is already implied (next record upper end >X in each class: e.g. 7856713 for 1 mod 4, 9287939 for 3 mod 4, 11962963/11962651 for mod 6). Admission's decisive claim that 'no live source publishes closed G_{4,r}/G_{6,r} tables with witnesses' and that 'OEIS gives all-prime only' is factually false; it missed Kourbatov's own OEIS residue-class record sequences. New MR/BPSW transcripts, spf logs, replay scripts, and b=0 trend residuals are different certificates/diagnostics on the same known integer sequences, not a different mathematical object, boundary, or witness set. Timestamp/failed-search does not establish priority; substantive comparison shows identity. Originality therefore FAILS and is not repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As a type, closed exact residue-class maximal-gap witness tables for the smallest multi-class moduli (q=4 Chebyshev-bias prototype, q=6 primorial case) testing the Kourbatov trend/Gumbel/open-limit program would be independently worth retrieving if new: object and invariant motivated before computation, values not mechanically implied by all-prime P(g) tables alone, future researcher could need precise pairs. Per the narrow-datum rule this is not rejected merely for being one cutoff/witness set. Hence value-type PASS. This does not rescue the attempt: the concrete 5e6 prefix is already published to much larger bounds with witnesses, so incremental retrieval value is nil \u2014 which is scored under originality (FAIL -> overall REJECT), not as an additional value FAIL.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Defines G_{q,r}(x), trend T(q,x) with b=O_q(1), Gumbel rescaling, open limiting distribution; computations x<1e12, example Table q=1000 r=1, Figs q=1000/10007/20011, PARI maxgap.gp. Heuristics/plots/trends only \u2014 not the conflicting prior for the tables.",
+      "title": "Kourbatov \u2014 On the distribution of maximal gaps between primes in residue classes (arXiv:1610.03340)",
+      "url": "https://arxiv.org/abs/1610.03340"
+    },
+    {
+      "finding": "Derives G_c trend formulas, computations to 1e14, Gumbel discussion; no closed q=4,6 censuses to 5e6. Background only.",
+      "title": "Kourbatov and Wolf \u2014 Predicting maximal gaps in sets of primes (arXiv:1901.03785)",
+      "url": "https://arxiv.org/abs/1901.03785"
+    },
+    {
+      "finding": "Publishes R(n,q,r) nth-record statistics (first ~14 records for q<=2000, median/mean/quadratic fits, Table q=50 n=10), not X-closed census with maximality replay. Background only.",
+      "title": "Kourbatov \u2014 On the nth record gap between primes in an arithmetic progression (arXiv:1709.05508)",
+      "url": "https://arxiv.org/abs/1709.05508"
+    },
+    {
+      "finding": "Publishes all-prime P(g) plus counts to 4e18, top-50 gaps; no residue-class-split sequences. Confirms all-prime tables do not imply G_{q,r} records alone.",
+      "title": "Oliveira e Silva \u2014 Gaps between consecutive primes",
+      "url": "https://sweet.ua.pt/tos/gaps.html"
+    },
+    {
+      "finding": "All-prime record lower ends only (2,3,7,23,89,...); no residue-restricted tables.",
+      "title": "OEIS A002386 \u2014 Primes with record gaps (lower ends)",
+      "url": "https://oeis.org/A002386"
+    },
+    {
+      "finding": "DECISIVE: Record gaps 1 mod 4: 3,8,12,16,24,32,48,56,60,68,72,88,108,128,148,152,200,224,240,248,252,260,272,280,... Candidate's 8..260 is exact prefix. Companion lowers A084161 and uppers A268963 b-file (e.g. 4874977 then 7856713) match witnesses and prove closure to 5e6 already.",
+      "title": "OEIS A084162 / A084161 / A268963 \u2014 Record gaps 1 mod 4 and witnesses",
+      "url": "https://oeis.org/A084162"
+    },
+    {
+      "finding": "DECISIVE: Record gaps 3 mod 4: 4,8,12,20,24,36,40,56,60,64,68,112,120,132,144,156,168,176,184,200,240,256,272,280,... exact match; lowers A268800 / uppers A268801 b-file (3358423 then 9287939) match candidate pairs.",
+      "title": "OEIS A268799 / A268800 / A268801 \u2014 Record gaps 3 mod 4 and witnesses",
+      "url": "https://oeis.org/A268799"
+    },
+    {
+      "finding": "DECISIVE: Record gaps 1 mod 6: 6,12,18,30,54,60,78,84,90,96,114,162,174,192,204,252,270,282,312,... exact match; lowers A268926 (7,19,43,241,...) / uppers A268927 (13,31,61,271,...,3976003 then 11962963) match.",
+      "title": "OEIS A268925 / A268926 / A268927 \u2014 Record gaps 1 mod 6 and witnesses",
+      "url": "https://oeis.org/A268925"
+    },
+    {
+      "finding": "DECISIVE: Record gaps 5 mod 6: 6,12,18,30,36,42,54,60,84,126,150,162,168,246,258,318,... exact match; lowers A268929 (5,29,113,197,...) / uppers A268930 (11,41,131,227,...,2339297 then 5522039) match.",
+      "title": "OEIS A268928 / A268929 / A268930 \u2014 Record gaps 5 mod 6 and witnesses",
+      "url": "https://oeis.org/A268928"
+    }
+  ],
+  "decisive_checks": [
+    "Fresh sieve to 5e6: pi=348513; class counts 174193/174319/174190/174321; filtered lists bit-identical to artifacts; records re-extracted 21/23/18/15 with terminals as claimed.",
+    "Trial-division proof of all 154 endpoints prime; residue/divisibility (g%q==0, p%q==r) and strict record increase verified.",
+    "All 1777 spf-log entries verified minimal (spf_td match, f<tt, f prime) with run-length identity (b-a)/q-1 and endpoint alignment; CERTS seen==want with mr_ok+bpsw_ok.",
+    "Exhaustive scan confirms maximality: every within-class gap <= terminal record; G<2log^2(x) holds for all 77 records.",
+    "OEIS prefix comparison: all four gap sequences and lower/upper witness b-files match candidate pairs term-by-term to 5e6, with published next records beyond X (7856713; 9287939; 11962963/11962651; 5522039) establishing prior closure and computation to 1e7-1e11, far beyond candidate bound."
+  ],
+  "residual_risks": [
+    "Trend T0 discretization (~0.2-0.35 from Simpson h=1000 vs fine integration) \u2014 immaterial; trend is labeled diagnostic only and G<2log^2(x) re-verified with exact logs.",
+    "BPSW/Lucas implementation not line-audited \u2014 no risk to correctness because complete trial-division proof to sqrt covers all n<=5e6 independently.",
+    "No residual doubt on originality verdict: identity is term-by-term including witnesses, not similarity of heuristics."
+  ],
+  "verdict": "REJECT"
+}
