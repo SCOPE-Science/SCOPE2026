@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Deciding three live-open binary BKLC intervals at (35,10), (36,10), (36,11) via MacWilliams-feasible enumerator census and attaining-witness enumerators
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 271
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Coding Theory
+- **Method:** MacWilliams/Krawtchouk integer-feasibility enumerator census plus syndrome-coset witness enumeration
+
+## Problem
+
+Decide or constrain the three live-open binary BKLC strata (35,10)=12-13, (36,10)=13-14, (36,11)=12-13: commit explicit generators attaining the lower bounds ([35,10,12], [36,10,13], [36,11,12]) with full syndrome-coset weight enumerators and dual MacWilliams zero-residual certificates, and compute the complete MacWilliams/Krawtchouk integer-feasible enumerator census for the open upper ends ([35,10,13], [36,10,14], [36,11,13]) — closing any interval by elimination or ascending witness, otherwise publishing the pruned survivor lists with Griesmer-defect typing.
+
+## Attempted claim
+
+For each of (35,10), (36,10), (36,11): the committed generator attains the BKLC lower bound with the stated exact weight enumerator (tally sums to 2^k, dual MacWilliams residual zero); and for the open upper ends the complete list of MacWilliams/Krawtchouk integer-feasible weight enumerators is exactly the published survivor list — empty (hence interval closed downward) or shortened to the tabulated survivors, with any ascending explicit [36,10,14]/[36,11,13]/[35,10,13] witness closing the interval upward.
+
+## Research outcome
+
+Fallback-value claim: four certified attaining/record witness enumerators at the live-open BKLC boundary block ([35,10,12], [36,10,12], [36,11,12], plus a new [37,10,13] record obtained by exhaustive single-column extension), each with exact tally and MacWilliams certificate replayable via verify.py, together with exact negative data (37/37 puncture census, Griesmer/Plotkin/residual admissibility) showing the upper ends remain open.
+
+## Why this attempt failed
+
+Failed axes: correctness, value.
+
+correctness: Independent replay confirms the raw coding computations: all four matrices have claimed shapes, full row rank, systematic form, tallies summing to 2^k (1024/1024/2048/1024) and minima d=12,12,12,13 matching claimed distributions via both committed verify.py (VERIFY_OK: dual-enumerated d_perp=4 for C35/C36, MW-integral-only for others) and a separate brute-force binary-counting recount, plus exact-rational Krawtchouk dual sums 2^(n-k) and coefficient-wise dual equality where claimed. Griesmer needs (32/33/33 for upper ends; defects 6/7/6 for attaining claims) and residual needs (19/19/20) recompute correct and admissible. 37/37 puncture census of C37 re-run independently: all 37 punctures have d=12, so no [36,10,13] induced — as claimed. However essential boundary-status inferences are FALSE: (a) Theorem 1/title claim of 'attaining the lower bounds at (35,10),(36,10),(36,11)' is false for C36 which is [36,10,12] while live BKLC Lb(36,10)=13, interval 13-14 — it is strictly suboptimal, not attaining; (b) Abstract/Sec.2 claim that C37 '[37,10,13] meets the BKLC lower bound 12-13 at (37,10) and is a first/record witness there' is false: live summary table shows (37,10)=[14] singleton and detail page BKLC [37,10] shows Lb=Ub=14 with explicit [37,10,14] construction (shortened [39,12,14]), so [37,10,13] is suboptimal by one, not attaining/record. Draft correctly limits duals of dim 25/27 to integrality-only and correctly calls failed searches logged effort not proof. Because attaining/record status is an essential boundary condition of the headline theorems, correctness FAILS despite verified enumerations. value: Strongest self-contained headline is exact full weight enumerators with MacWilliams certificates for explicit codes, with no interval closed and no complete feasible-enumerator survivor census (explicitly abandoned: 'combinatorial explosion'). This fails independent-retrievability: (1) Two of four witnesses are arbitrary suboptimal objects with no pre-computation motivation — [36,10,12] lies below Lb=13 at its cell, [37,10,13] lies below optimum 14 at closed cell (37,10) outside topic scope — no future search needs their enumerators when superior [36,10,13]/[37,10,14] existence is already tabled. (2) Remaining attaining instances [35,10,12] and [36,11,12] certify existence already known from BKLC; a single stochastic instance's distribution among many inequivalent optima, with large Griesmer defects (6,6), no uniqueness/optimality/elimination, and no upper-end feasible-enumerator targets (the admitted census missing), gives no constraining power for the open upper ends [35,10,13],[36,10,14],[36,11,13]. Griesmer/Plotkin/residual data are textbook admissibility calculations showing no elimination; failed stochastic search is logged effort, not evidence. This is unexplained enumeration plus certification alone. The narrow-exact-invariant clause does not rescue it: suboptimal objects were not motivated, attaining instances are arbitr…
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; supply independent motivation and a materially stronger contribution; address the recorded limitation: No BKLC interval closed; no complete MacWilliams-feasible survivor-list census of the upper ends (planned but not delivered); duals of dimensions 25 ([36,11,12]) and 27 ([37,10,13]) certified by exact MacWilliams integrality only, not word-by-word dual enumeration; failed-search effort for [36,10,13]/[35,10,13]/[36,11,13] is logged effort, not nonexistence evidence; enumerators are witnesses from stochastic search, not optimality or uniqueness claims.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
