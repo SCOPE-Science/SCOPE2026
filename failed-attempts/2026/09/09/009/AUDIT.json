@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify_panel.py (stdlib Fraction only): ALL VERIFY_OK, exit 0. Verified every essential inference: (1) Facet enumeration yields counts 6,8,4,4,4,6,8 matching geometry; reflexivity via all levels==1 plus unique interior origin (0,0,0) is valid criterion for integral V. (2) Lattice census via bounding-box + facet inequalities is exhaustive. (3) Roots defined as boundary points on exactly one facet = facet-relative-interior points, which equals Demazure roots for reflexive P per Nill Sec.3; S=R cap -R, U=R\\S, reductive iff U empty (Nill Prop.2.2) and dim=|R|+3 correctly applied. Table values independently re-derived: cube |R|=6 dim9; octahedron/E3 |R|=0 dim3; E3* |R|=12 dim15 (3 interior points per side-4 triangle facet); W |S|=4 |U|=6 dim13 matching Nill Ex.2.16 text; prismQ |R|=2 dim5 (only top/bottom facets carry the single interior point of Q; 4 side facets have gcd-1 edges so no roots); prismH |R|=2 dim5. Barycenters via origin-fan determinant triangulation with independent V0-fan agreement: cube/octa/E3/E3*/prismH 0 (required by central symmetry, verified), W (-1/2,-3/4,0) equals simplex vertex average ((1+1+1-5)/4 etc.), prismQ (0,0,-1/6) equals (0 x Q-centroid) where Q area-weighted centroid is (0,-1/6) re-computed by shoelace. Dual barycenters likewise cross-checked. Theory citations verified against Nill HTML: Prop.2.2, Thm.4.2(2)(i) bP=0 sufficient, Thm.2.21 dim<=d^2+2d, Cor.3.3 <=2d root facets, Ex.2.16 data all present. Minor presentational defect: field called vol6 is Euclidean volume (cube 8 not 48) but values correct and consistently cross-checked. Float atan2 used only for cyclic order of convex facet polygons, volumes/centroids remain exact Fractions; dual-fan agreement mitigates ordering risk. Result is computation-certified per-polytope facts, not a general proof; draft honestly limits to panel and credits theory to Nill.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors compared substantively: (1) Nill math/0407491 proves bP=0 sufficient (Thm.4.2(2)(i)), Prop.2.2 equivalence, bounds, and Ex.2.16 root data (|S|=4,|U|=6 for W), plus Remark 4.3 claiming sufficient conditions i.-v. pairwise independent via KS data up to dim 4 without publishing per-polytope barycenter/root tables in the paper. That remark existentially implies a reductive-with-b!=0 example, so abstract non-necessity is NOT new -- draft correctly disclaims 'not the first theoretical observation'. (2) Kreuzer-Skarke hep-th/9805190 publishes 4319 types/counts, no barycenters/Demazure partition. (3) Amendola-Oldekop 2311.13572 computes different full-4319 invariant (ML degrees), no barycenter/Demazure data. No prior publishes the exact committed table: prismQ b=(0,0,-1/6) with |R|=2 RED dim5, prismH b=0, W b=(-1/2,-3/4,0) and dual barycenters, etc. Hence explicit per-polytope exact data are new. PASS for narrow explicit-data novelty, with the caveat that conceptual existence was already implied by Nill Remark 4.3.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Strongest headline (Theorem B: prismQ reductive with b!=0, plus 7-row certified table) is correct and new as explicit data but independently low value. Reasons: (1) Abstract sharpness 'bP=0 not necessary' is already implied by Nill Remark 4.3 pairwise independence (ii holds => reductive with b!=0 exists); draft admits this, so no new theoretical layer. (2) Panel scope is arbitrary: 7 chosen polytopes, not the admitted complete 4319 census nor the fallback natural simplicial subfamily; no KS IDs, no argument why Q=conv((1,0),(0,1),(-1,-1),(0,-1)) or H are natural beyond yielding desired b!=0/b=0 contrast. Product E1xQ is explained but not pre-motivated as a needed object. (3) Most entries mechanically implied or textbook: b=0 for 5 symmetric cases by symmetry; simplex barycenters are vertex averages; W root counts reproduce Nill Ex.2.16; E3* dim15 and cube 6 root-facets are standard P^3/(P^1)^3 illustrations of Nill bounds. Only new numbers are routine centroids (-1/6, duals) of ad-hoc prisms. (4) No downstream need shown for these specific numbers; K-stability/G-Fano programs need verdicts for concrete classes but draft cites no use of prismQ/H. This is textbook illustration plus unexplained enumeration: certification alone does not rescue an arbitrary object. Honest panel-only limitation is respected but does not create value. Intrinsic low value / arbitrary scope => FAIL, not a presentational gap.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract + Thm: bP=0 sufficient for reductive Aut of Gorenstein toric Fano; sharp Demazure-root dimension bound. Journal Math.Z.252 (2006).",
+      "title": "Nill - Complete toric varieties with reductive automorphism group (arXiv abs)",
+      "url": "https://arxiv.org/abs/math/0407491"
+    },
+    {
+      "finding": "Verified Prop.2.2 (reductive iff R=S, dim=|R|+d), Ex.2.16 W data (dim S=2,|S|=4, F3/F4 each 3 unipotent, weights (1,1,2,2)), Thm.2.21 n<=d^2+2d, Cor.3.3 <=2d root facets, Thm.4.2(2)(i)-(vii) sufficient incl. bP=0, Remark 4.3 pairwise independence i.-v. via KS classification, Def.4.1 barycenter.",
+      "title": "Nill HTML full text (Sections 1-4)",
+      "url": "https://arxiv.org/html/math/0407491v1"
+    },
+    {
+      "finding": "Live arXiv API query barycenter+Demazure timed out on fetch; gap instead established via Nill/KS/Amendola coverage comparison; no published barycenter/Demazure census found in those sources.",
+      "title": "arXiv API barycenter AND Demazure (timeout, fallback to HTML)",
+      "url": "http://export.arxiv.org/api/query?search_query=all:barycenter+AND+all:Demazure&start=0&max_results=10"
+    },
+    {
+      "finding": "Replayed verifier: ALL VERIFY_OK; independently re-derived Q centroid (0,-1/6), W vertex-average barycenter, root counts via edge-gcd and facet-interior reasoning.",
+      "title": "inputs/artifacts/verify_panel.py + independent centroid/root rechecks",
+      "url": null
+    }
+  ],
+  "decisive_checks": [
+    "Ran python3 inputs/artifacts/verify_panel.py -> ALL VERIFY_OK (cube RED dim9 b0; octa RED dim3 b0; E3 RED dim3 b0; E3star RED dim15 b0; W NONRED dim13 b(-1/2,-3/4,0) |S|4|U|6; prismQ RED dim5 b(0,0,-1/6) |R|2; prismH RED dim5 b0).",
+    "Independent shoelace: Q=[(-1,-1),(0,-1),(1,0),(0,1)] area 2 centroid (0,-1/6) => prismQ barycenter (0,0,-1/6) confirmed; simplex W centroid = vertex mean confirmed.",
+    "Root audit: Q edges all gcd1 so side facets root-free; top/bottom give exactly 2 antipodal roots => prismQ S=2 U=0 RED; E3star side-4 triangle gives 3 interior points x4=12 confirmed; cube 6x1=6 confirmed.",
+    "Nill HTML confirms all cited theory and that Ex.2.16 root data are reproduced not new; Remark 4.3 confirms abstract non-necessity already implied, limiting novelty to explicit coordinates."
+  ],
+  "residual_risks": [
+    "Facet triangulation ordering uses float atan2 for order only; wrong cyclic order could in principle corrupt non-simplicial facet volumes, but two-fan agreement plus matching closed-form volumes/centroids makes residual risk negligible.",
+    "Nill thesis (not fetched) may contain explicit coordinates for an independence example possibly coinciding with prismQ; if so originality of even explicit instance would weaken, but verdict already REJECT on value so no change to outcome.",
+    "Dual barycenters (e.g. bW*=(1/4,0,-1/4), prismQ b*=(0,-1/16,1/8)) accepted from same verified script without separate hand recomputation; error there would not affect headline Theorems B-D."
+  ],
+  "verdict": "REJECT"
+}
