@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Strongest headline (DRAFT Sec.2): for each even V=4..48 there is an explicit centrally symmetric lattice 3-polytope P_V of normalized volume V, width exactly 1 at u*=(0,0,1), hollow; hence per-volume attained minimum is 1; P48 has 22 points, 0 interior, L(0..3)=(1,22,111,316). Verified: (i) all 23 committed vertex sets satisfy z in {0,1}, so conv lies in slab 0<=z<=1 with both levels attained, giving w<=1 via u*=(0,0,1); (ii) all rows full-dimensional (4 affinely independent vertices found) with integer vertices, so max-min over vertices is a positive integer, giving w>=1 rigorously -- exact width 1 proved without any search bound; B=8 exhaustive primitive search is correctly presented only as corroboration. (iii) Hollowness proved: only integer planes meeting slab are z=0,1, each meeting P in a 2D facet (non-degenerate triangle/quadrilateral bottom/top), so every lattice point lies on boundary; machine ninterior=0 agrees. (iv) Central symmetry: pairing x -> 2c-x with 2c=(0,0,1) (family T) or (1,1,1) (family Q) verified to permute each committed vertex set, hence preserves conv. (v) Normalized volumes independently recomputed via a second exact interior-fan determinant implementation: all 23 agree with committed V and cover 4,6,...,48 exactly. (vi) Lattice/dilate counts spot re-enumerated independently (T48,Q06,T28,Q46 at t=1,2,3) and match; bundled verify.py replays VERIFY_OK 23/23. DRAFT honestly separates proved (width/volume/symmetry/hollow from vertices) vs computed (fan volumes, enumerations, B=8 search) vs open (per-volume maxima, global hollow maximality explicitly disclaimed). No essential inference or boundary error.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Searched nearest prior work and compared substantively. Iglesias-Valino/Santos empty 4-simplex classification (1x3-param width-1 family, 2x2-param, 46x1-param, 2461 sporadics vols 29-419) concerns empty 4-simplices, not per-volume minima for centrally symmetric 3-polytopes. Iglesias-Valino/Santos width>2 list (one width-4 det-101, 178 width-3 det 41-179, bound 5058) is a different object and a maxima list, not a width-1 minima table. Averkov et al. local maximizer (width 2+sqrt(2) hollow tetrahedron, counterexample volume window [2.653,19.919]) and Codenotti-Santos large-width hollow polytopes (dim 14 width 15, dim ~404 width ~408) concern large-width hollow bodies, not width-1 minima. Codenotti-Hall-Hofscheier flatness framework computes 2D constants, not a 3D per-volume table. No source records the same 23 matrices, per-volume width-1 claims, or dilate rows; the table as an artifact is not copied and not mechanically implied as a table. Triviality of the slab idea is a value question, not a priority collision. Hence originality PASSES.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Judging the strongest self-contained headline separately from the admittedly unfinished max-side survey (DRAFT Sec.3 disclaims maxima and global hollow maximality): the delivered headline is 'minimum attained width is 1 at each even V=4..48 via explicit slab prisms, all hollow, with L(0..3) rows.' This fails the exact-invariant clause. The value 1 is the universal lower bound for any full-dimensional lattice polytope (w>=1) and the upper bound is an elementary slab construction conv(Tx0 union (-T)x1) / quadrilateral twist with parameters (b,h)/k varied to hit volumes -- a textbook exercise and mere parameter substitution, not a sought invariant whose value was unknown. Width 1 implies hollow automatically (no integer plane strictly inside 0<=z<=1), so the 'hollow witness' adds nothing; P48 is only the largest member of its own table, not a maximal hollow body in any literature sense. The L(0..3) counts for these ad hoc witnesses had no pre-computation motivation and no plausible future retrieval need: flatness-constant calibration needs large-width hollow maxima, not width-1 minima; no downstream use, gap, or classification needs these specific dilate numbers. The 4-48 cutoff is arbitrary (all 0-mod-4 T plus 2-mod-4 Q extend indefinitely by the same formulas). Certification (exact fan sums, bbox enumerations) is real but per instructions does not rescue an arbitrary object or unexplained numbers. The missing substantive result (per-volume maxima / obstruction certificates / true maximal hollow witness) cannot be supplied by a bounded interpretive addition; it would require beginning the max-side classification. Hence intrinsic low value: textbook restatement + parameter substitution + unexplained enumeration. FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Complete classification of empty 4-simplices: one 3-param width-1 family, two 2-param families, 46 one-param families, 2461 sporadics vols 29-419. Different dimension/objects (empty 4-simplices vs centrally symmetric 3-polytopes); no per-volume width-1 minima table for even vols 4-48 and no matching Ehrhart rows.",
+      "title": "The complete classification of empty lattice 4-simplices - Iglesias-Valino, Santos",
+      "url": "https://arxiv.org/abs/1908.08933"
+    },
+    {
+      "finding": "Conjectured global maximizer hollow tetrahedron width 2+sqrt(2); local maximality proved; counterexamples restricted to width <3.972 and volume in [2.653,19.919]. Concerns large-width hollow bodies, not width-1 minima; no per-volume centrally symmetric census.",
+      "title": "A local maximizer for lattice width of 3-dimensional hollow bodies - Averkov et al.",
+      "url": "https://arxiv.org/abs/1907.06199"
+    },
+    {
+      "finding": "Hollow lattice polytope dim 14 width 15 and hollow simplex dim ~404 width ~408; asymptotic ~1.14d/~1.01d. High-dimensional large-width existence, not bounded 3D width-1 minima table.",
+      "title": "Hollow polytopes of large width - Codenotti, Santos",
+      "url": "https://arxiv.org/abs/1812.00916"
+    },
+    {
+      "finding": "Target/originality delta reviewed: no prior per-volume exact min/max width table with Ehrhart vectors for centrally symmetric 3-polytopes vols 4-48 in cited triage; confirms novelty of table as artifact but does not supply motivation for width-1 minima or L(0..3) retrieval need.",
+      "title": "Admission triage nearest-known-results (topic.json)",
+      "url": "https://arxiv.org/abs/1704.07299"
+    }
+  ],
+  "decisive_checks": [
+    "Ran bundled replay inputs/artifacts/verify.py -> VERIFY_OK 23/23 (symmetry+volume+width B=8+lattice/hollow+dilates).",
+    "Independent exact recheck: slab z in {0,1} for all rows; vertex-set pairing symmetry for 2c=(0,0,1)/(1,1,1); full-dimensionality via affinely independent quadruples; second exact interior-fan (Fraction) volume implementation agrees on all 23 vols covering 4..48 even.",
+    "Independent bbox lattice recount on T48,Q06,T28,Q46 for t=1,2,3 matches committed counts; strict-interior count 0 at t=1.",
+    "Proof-vs-evidence separation checked: width=1 and hollowness follow from slab+full-dimensionality+facet slices without the B=8 bound; DRAFT states this correctly.",
+    "Value check: confirmed any width-1 lattice polytope in slab 0<=z<=1 is automatically hollow, so hollow claim is corollary; confirmed max-side and global-maximality explicitly disclaimed in DRAFT Sec.3; confirmed volume formulas extend past 48 by same parameters, showing arbitrary cutoff."
+  ],
+  "residual_risks": [
+    "Exhaustive web search cannot prove absence of an obscure width-1 exercise; originality PASS rests on substantive comparison of nearest classified families, not on a failed-search timestamp.",
+    "Bundled verifier facet-merging logic assumed correct but was cross-checked by an independent fan implementation and spot recounts; residual risk of shared misinterpretation of hollow (strict vs non-strict boundary) is negligible given slab proof.",
+    "Value judgment follows the shared STANDARD exact-invariant clause; a reader valuing checkable width-1 calibration rows for their own sake could disagree, but no pre-motivated retrieval need was evidenced."
+  ],
+  "verdict": "REJECT"
+}
