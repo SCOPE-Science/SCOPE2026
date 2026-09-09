@@ -1,0 +1,61 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline P* claim reproduces exactly. Box combinatorics: 12 two-term supports x4 =48 plus 19 three-term supports x8 =152 gives 200 polys, C(200,2)=19900 \u2014 verified by re-enumeration; strs[0]='-y^2-y-1', strs[60]='-x^2-x-1' confirmed. Both lex bases = {x^2+x+1, y^2+y+1} verified via sympy 1.12 groebner under both variable orders; structural non-shape verdict correct (two univariate nonlinear polys, no monic-linear top element). Zero-dimensionality: both Sylvester resultants nonzero of degree 4, grevlex staircase LTs {(2,0),(0,2)} giving quotient dim 4 \u2014 rechecked. Eliminant-resultant divisibility and squared factorizations (y^2+y+1)^2, (x^2+x+1)^2 verified via Poly.rem and factor_list. Variety: discriminants -3, two distinct primitive-cube roots per factor, 2x2 grid =4 distinct points, multiplicity sum 4 (separable, radical). Prefix minimality: independently re-ran all 59 pairs (0,1)-(0,59) with same zd_status/shape_xy/shape_yx logic: 6 INC, 1 POS (0,7), 52 ZD each shape in >=1 order, zero earlier double-fails \u2014 matches pstar_cert.json. Lex-least logic sound because any pair preceding (0,60) in (i,j) order with i<j is exactly (0,j), j<60. Shape-test definitions correctly encode {x-h(y),m(y)} / {y-h(x),m(x)} for reduced bivariate lex bases; variable-order calls (x,y vs y,x) correct. DRAFT honestly limits scope to P*+prefix and disclaims corrupted stratification.csv/summary.json as non-evidential. No computation error or boundary-condition failure in admitted claim.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest prior results compared substantively: Cox-Little-O'Shea (elimination/Shape Lemma theory, isolated examples), Lazard 1992 (triangular/lex solving method), Dube 1990 (general degree bounds), Faugere-Mou 1304.1238/JSC2017 (sparse-FGLM change of order, generic sparsity estimates), Berthomieu-Neiger-Safey El Din 2202.09226 (change of order under shape+stability), Demin-Rouillier-Ruiz 2402.07141 (RUR from lex bases incl. non-shape case). None records, implies, or renames a complete shape stratification or box-least double-non-shape witness over the exact {+1,-1} 2-3-term sparse-quadratic box in Q[x,y], nor the ordered statement '(0,60) is first double-fail'. Verified Faugere-Mou abstract directly (generic/bottleneck methods, no finite-box census). The abstract ideal <x^2+x+1,y^2+y+1> is elementary, but the ordered-minimality statement relative to the stated canonical enumeration is not recorded or mechanically implied as an ordered statement. Hence literally new; triviality is a value defect, not a priority collision. PASS.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Headline P* alone, judged separately from the unfinished full census per standard, is a textbook restatement wrapped in an order-artifact enumeration, not an independently retrievable invariant. P*={-y^2-y-1,-x^2-x-1} is decoupled univariate quadratics: reduced lex bases {x^2+x+1,y^2+y+1}, double-non-shape, quot-dim 4, eliminants degree 2 vs resultants (y^2+y+1)^2/(x^2+x+1)^2 degree 4, 4-point variety \u2014 all visible by inspection/hand algebra (Res_x = f^{deg_x g} for x-constant f) with discriminants -3; no computation needed and known to anyone knowing the Shape Lemma. It fails the narrow-datum exception: value IS mechanically implied, not unknown before computation, and no future researcher would query index '(0,60)' \u2014 minimality is relative to the candidate's implementation sort key (support-tuple, coefficient-tuple sign order), not a natural mathematical order (degree, sparsity, Bezout number). A different sign ordering gives a different 'first' decoupled pair (e.g. {x^2-1,y^2-1} equally simple). The 59-row prefix is a cutoff artifact, and the full 19900-row stratification that might have constituted a citable finite classification is explicitly NOT claimed (inherited files disclaimed as corrupted). Certification (VERIFY_OK) alone does not rescue an arbitrary object/unexplained number. Intrinsic low value + arbitrary scope + missing substantive result.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Textbook elimination/Shape Lemma theory with isolated examples only; no exhaustive shape stratification or minimal witness over any {+-1} sparse-quadratic box.",
+      "title": "Cox, Little, O'Shea \u2014 Ideals, Varieties, and Algorithms (4th ed.)",
+      "url": "https://link.springer.com/book/10.1007/978-3-319-16721-3"
+    },
+    {
+      "finding": "Zero-dimensional solving via triangular/lex decompositions; general method, no finite sparse-box census or minimal non-shape witness.",
+      "title": "Lazard \u2014 Solving zero-dimensional algebraic systems (JSC 1992)",
+      "url": "https://doi.org/10.1016/0747-7171(92)90039-T"
+    },
+    {
+      "finding": "Fetched and confirmed: deterministic/probabilistic sparse-FGLM change of order, generic sparsity estimates; confirms shape-position bottleneck but contains no {+-1} sparse-quadratic box census or (0,60) witness.",
+      "title": "Faugere, Mou \u2014 Sparse FGLM algorithms (arXiv:1304.1238, JSC 2017)",
+      "url": "https://arxiv.org/abs/1304.1238"
+    },
+    {
+      "finding": "Faster DRL-to-lex under shape+stability assumptions; general algorithm, no box stratification or minimal witness.",
+      "title": "Berthomieu, Neiger, Safey El Din \u2014 Faster change of order under shape assumptions (arXiv:2202.09226)",
+      "url": "https://arxiv.org/abs/2202.09226"
+    },
+    {
+      "finding": "RUR from lex bases even in non-shape case; confirms non-shape interest but no sparse-box census.",
+      "title": "Demin, Rouillier, Ruiz \u2014 Reading RUR on lex bases (arXiv:2402.07141)",
+      "url": "https://arxiv.org/abs/2402.07141"
+    },
+    {
+      "finding": "General structural Groebner degree bounds; no shape verdicts, elimination table, or sparse witness for any concrete box.",
+      "title": "Dube \u2014 Structure of polynomial ideals and Groebner bases (SIAM J. Comp. 1990)",
+      "url": "https://doi.org/10.1137/0219053"
+    }
+  ],
+  "decisive_checks": [
+    "Re-enumerated box from definition: 200 polys, 19900 pairs; confirmed strs[0]='-y^2-y-1', strs[60]='-x^2-x-1'.",
+    "Recomputed both lex Groebner bases of P* = {x^2+x+1, y^2+y+1}; verified structural double-non-shape.",
+    "Recomputed Res_x=(y^2+y+1)^2 deg 4, Res_y=(x^2+x+1)^2 deg 4; verified eliminant divisibility, factor_list squared cyclotomic, discriminants -3, grevlex staircase dim 4, 2x2 root grid.",
+    "Independently reproduced full 59-row prefix audit (6 INC, 1 POS, 52 ZD each shape in >=1 order, BAD=[]), matching pstar_cert.json; confirmed lex-least logic covers all predecessors of (0,60).",
+    "Confirmed DRAFT/research_report honestly disclaim full 19900-row census; corrupted stratification.csv/summary.json carry no evidential weight."
+  ],
+  "residual_risks": [
+    "Relies on sympy 1.12 exact QQ groebner/resultant/factor_list correctness (standard, cross-checked by hand for decoupled P*).",
+    "Shape-test assumes reduced lex basis with exactly 2 elements in shape case \u2014 valid for bivariate zero-dimensional ideals; spot-checked near-misses (0,16)-(0,23),(0,36)-(0,37) agree with claimed directions.",
+    "Enumeration order canonicality taken as stated; different sign ordering would move the 'first' witness \u2014 this is the core value defect, not a correctness risk."
+  ],
+  "verdict": "REJECT"
+}

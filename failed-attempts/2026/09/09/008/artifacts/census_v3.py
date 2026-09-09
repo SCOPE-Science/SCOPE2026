@@ -1,0 +1,327 @@
+#!/usr/bin/env python3
+"""Lean correct census v3: shape verdicts, eliminant/resultant degrees,
+staircase quot-dim, fiber variety counts. Per-pair try/except -> HARD rows.
+"""
+import csv, itertools, json, time
+from fractions import Fraction
+from sympy import QQ, Poly, factor_list, groebner, symbols
+
+x, y = symbols('x y')
+MONS = [(2, 0), (1, 1), (0, 2), (1, 0), (0, 1), (0, 0)]
+MSTR = {(2, 0): 'x^2', (1, 1): 'xy', (0, 2): 'y^2', (1, 0): 'x',
+        (0, 1): 'y', (0, 0): '1'}
+QUADS = {(2, 0), (1, 1), (0, 2)}
+
+def enum_items():
+    polys = []
+    for k in (2, 3):
+        for supp in itertools.combinations(range(6), k):
+            if not any(MONS[m] in QUADS for m in supp):
+                continue
+            for signs in itertools.product((1, -1), repeat=k):
+                d = {}
+                for mi, s in zip(supp, signs):
+                    d[MONS[mi]] = s
+                polys.append(d)
+    polys.sort(key=lambda d: (tuple(sorted(d.keys())),
+                              tuple(d[m] for m in sorted(d.keys()))))
+    out = []
+    for d in polys:
+        expr = 0
+        for (a, b), c in d.items():
+            expr = expr + c * (x ** a) * (y ** b)
+        out.append((d, expr))
+    return out
+
+def pstr(d):
+    parts = []
+    for m in MONS:
+        if m in d:
+            c = d[m]; s = MSTR[m]
+            parts.append(('+1' if c > 0 else '-1') if s == '1'
+                         else ('+' + s if c > 0 else '-' + s))
+    t = ''.join(parts)
+    return t[1:] if t.startswith('+') else t
+
+def shape_of(polys_xy, top):
+    ps = [p.as_dict() for p in polys_xy]
+    if len(ps) != 2:
+        return False
+    uni = topc = None
+    for t in ps:
+        is_uni = (all(a == 0 for (a, b) in t) if top == 'x'
+                  else all(b == 0 for (a, b) in t))
+        if is_uni:
+            if uni is not None: return False
+            uni = t
+        else:
+            if topc is not None: return False
+            topc = t
+    if uni is None or topc is None: return False
+    if top == 'x':
+        if (1, 0) not in topc or topc[(1, 0)] != 1: return False
+        if any(a not in (0, 1) for (a, b) in topc): return False
+        if sum(1 for (a, b) in topc if a == 1) != 1: return False
+    else:
+        if (0, 1) not in topc or topc[(0, 1)] != 1: return False
+        if any(b not in (0, 1) for (a, b) in topc): return False
+        if sum(1 for (a, b) in topc if b == 1) != 1: return False
+    return True
+
+def staircase_dim(polys_xy):
+    lts = []
+    for g in polys_xy:
+        d = g.as_dict()
+        lts.append(max(d.keys(), key=lambda e: (e[0] + e[1], e[0], e[1])))
+    xs = [a for (a, b) in lts if b == 0]
+    ys = [b for (a, b) in lts if a == 0]
+    if not xs or not ys: return None
+    A, B = min(xs), min(ys)
+    n = 0
+    for a in range(A):
+        for b in range(B):
+            if not any(e[0] <= a and e[1] <= b for e in lts):
+                n += 1
+    return n
+
+# ---- stdlib Q[t]/(q) gcd ----
+def unorm(p):
+    p = list(p)
+    while len(p) > 1 and p[-1] == 0: p.pop()
+    return p
+def uis0(p): return all(c == 0 for c in p)
+def umul(a, b):
+    if uis0(a) or uis0(b): return [Fraction(0)]
+    r = [Fraction(0)] * (len(a) + len(b) - 1)
+    for i, ca in enumerate(a):
+        for j, cb in enumerate(b): r[i + j] += ca * cb
+    return unorm(r)
+def umodrem(a, b):
+    a = unorm(list(a)); b = unorm(list(b))
+    r = list(a); db = len(b) - 1; cb = b[-1]
+    while len(r) - 1 >= db and not uis0(r):
+        dd = len(r) - 1 - db; q = r[-1] / cb
+        for i in range(len(b)): r[dd + i] -= q * b[i]
+        r = unorm(r)
+    return r
+def uquo_rem(a, b):
+    a = unorm(list(a)); b = unorm(list(b))
+    r = list(a); db = len(b) - 1; cb = b[-1]
+    q = [Fraction(0)] * max(len(r) - db, 0)
+    while len(r) - 1 >= db and not uis0(r):
+        dd = len(r) - 1 - db; t = r[-1] / cb; q[dd] = t
+        for i in range(len(b)): r[dd + i] -= t * b[i]
+        r = unorm(r)
+    return unorm(q), unorm(r)
+def kadd(a, b, q):
+    n = max(len(a), len(b))
+    return umodrem([(a[i] if i < len(a) else Fraction(0)) + (b[i] if i < len(b) else Fraction(0)) for i in range(n)], q)
+def ksub(a, b, q):
+    n = max(len(a), len(b))
+    return umodrem([(a[i] if i < len(a) else Fraction(0)) - (b[i] if i < len(b) else Fraction(0)) for i in range(n)], q)
+def kmul(a, b, q): return umodrem(umul(a, b), q)
+def kinv(a, q):
+    r0, r1 = unorm(list(q)), unorm(list(a))
+    s0, s1 = [Fraction(0)], [Fraction(1)]
+    while not uis0(r1):
+        qq, rr = uquo_rem(r0, r1); r0, r1 = r1, rr
+        prod = umul(qq, s1); n = max(len(s0), len(prod))
+        s0, s1 = s1, unorm([(s0[i] if i < len(s0) else Fraction(0)) - (prod[i] if i < len(prod) else Fraction(0)) for i in range(n)])
+    c = r0[0]
+    if len(r0) > 1: raise ArithmeticError('nontrivial gcd')
+    return unorm([v / c for v in umodrem(s0, q)])
+def kx_norm(P, q):
+    d = -1
+    for i, c in enumerate(P):
+        if not uis0(unorm(c)): d = i
+    if d == -1: return [[Fraction(0)]]
+    return [umodrem(list(c), q) for c in P[:d + 1]]
+def kx_is0(P, q): return all(uis0(unorm(c)) for c in P)
+def kx_modrem(A, B, q):
+    A = kx_norm(A, q); B = kx_norm(B, q); R = list(A)
+    db = len(B) - 1; inv = kinv(B[db], q)
+    while len(R) - 1 >= db and not kx_is0(R, q):
+        dd = len(R) - 1 - db; coeff = kmul(R[len(R) - 1], inv, q)
+        for i in range(len(B)): R[dd + i] = ksub(R[dd + i], kmul(coeff, B[i], q), q)
+        R = kx_norm(R, q)
+    return R
+def kx_monic(A, q):
+    A = kx_norm(A, q)
+    if kx_is0(A, q): return A
+    inv = kinv(A[-1], q)
+    return kx_norm([kmul(c, inv, q) for c in A], q)
+def kx_gcd(A, B, q):
+    A = kx_norm(A, q); B = kx_norm(B, q)
+    while not kx_is0(B, q): A, B = B, kx_modrem(A, B, q)
+    return kx_monic(A, q)
+def kx_deriv(A):
+    if len(A) <= 1: return [[Fraction(0)]]
+    return [unorm([v * i for v in A[i]]) for i in range(1, len(A))]
+def kx_divmod(A, B, q):
+    A = kx_norm(A, q); B = kx_norm(B, q); R = list(A)
+    db = len(B) - 1; inv = kinv(B[db], q)
+    Q = [[Fraction(0)]] * max(len(R) - db, 0)
+    while len(R) - 1 >= db and not kx_is0(R, q):
+        dd = len(R) - 1 - db; coeff = kmul(R[len(R) - 1], inv, q); Q[dd] = coeff
+        for i in range(len(B)): R[dd + i] = ksub(R[dd + i], kmul(coeff, B[i], q), q)
+        R = kx_norm(R, q)
+    return kx_norm(Q, q), R
+def kx_sqdeg(G, q):
+    G = kx_monic(kx_norm(G, q), q)
+    if len(G) - 1 <= 0: return 0
+    D = kx_deriv(G)
+    if kx_is0(D, q): return 0
+    H = kx_gcd(G, D, q)
+    if len(H) - 1 <= 0: return len(G) - 1
+    Q, R = kx_divmod(G, H, q)
+    assert kx_is0(R, q)
+    return len(Q) - 1
+
+def fiber_orbit(fd, gd, qfac_poly, elim, fib):
+    qpoly = qfac_poly if isinstance(qfac_poly, Poly) else Poly(qfac_poly, elim)
+    qq = [Fraction(c) for c in reversed(qpoly.all_coeffs())]
+    dq = len(qq) - 1
+    proj = (lambda e: e[0]) if fib == x else (lambda e: e[1])
+    pw = (lambda e: e[1]) if fib == x else (lambda e: e[0])
+    dx = 0
+    for e in list(fd) + list(gd): dx = max(dx, proj(e))
+    A = [[Fraction(0)]] * (dx + 1); B = [[Fraction(0)]] * (dx + 1)
+    for e, c in fd.items():
+        t = [Fraction(0)] * pw(e) + [Fraction(c)]
+        A[proj(e)] = kadd(A[proj(e)], umodrem(t, qq), qq)
+    for e, c in gd.items():
+        t = [Fraction(0)] * pw(e) + [Fraction(c)]
+        B[proj(e)] = kadd(B[proj(e)], umodrem(t, qq), qq)
+    G = kx_gcd(A, B, qq)
+    if kx_is0(G, qq) or len(G) - 1 <= 0: return 0, 0
+    return dq * kx_sqdeg(G, qq), dq * (len(G) - 1)
+
+def main():
+    t0 = time.time()
+    items = enum_items()
+    dicts = [d for d, _ in items]; exprs = [e for _, e in items]
+    strs = [pstr(d) for d in dicts]
+    npairs = len(items) * (len(items) - 1) // 2
+    print(f'polys={len(items)} pairs={npairs}', flush=True)
+    rows = []; Pstar = None; bfstore = {}
+    counts = {'ZD': 0, 'POS': 0, 'INC': 0, 'HARD': 0, 'shape_x': 0,
+              'shape_y': 0, 'either': 0, 'both': 0, 'both_fail': 0,
+              'res_div_fail': 0, 'zd_mismatch': 0, 'fiber_mismatch': 0,
+              'mult_mismatch': 0}
+    n = 0
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            n += 1
+            try:
+                fi, fj = exprs[i], exprs[j]
+                Gxy = groebner([fi, fj], x, y, order='lex', domain=QQ)
+                if list(Gxy) == [1]:
+                    counts['INC'] += 1
+                    rows.append((i, j, 'INC', 1, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, -1, 0, 1))
+                    continue
+                Gyx = groebner([fi, fj], y, x, order='lex', domain=QQ)
+                Ggr = groebner([fi, fj], x, y, order='grlex', domain=QQ)
+                Pxy = [Poly(g, x, y, domain=QQ) for g in Gxy.polys]
+                Pyx = [Poly(g, x, y, domain=QQ) for g in Gyx.polys]
+                Pgr = [Poly(g, x, y, domain=QQ) for g in Ggr.polys]
+                sx = shape_of(Pxy, 'x'); sy = shape_of(Pyx, 'y')
+                Ix = Poly(fi, x, y).resultant(Poly(fj, x, y), x)[0]
+                Iy = Poly(fi, x, y).resultant(Poly(fj, x, y), y)[0]
+                stair = staircase_dim(Pgr)
+                zd = (not (Ix.is_zero or Iy.is_zero)) and (stair is not None)
+                if (not (Ix.is_zero or Iy.is_zero)) != (stair is not None):
+                    counts['zd_mismatch'] += 1
+                if not zd:
+                    counts['POS'] += 1
+                    rows.append((i, j, 'POS', len(Pxy), len(Pyx), len(Pgr), int(sx), int(sy), -1, -1,
+                                 -1 if Ix.is_zero else Ix.degree(), -1 if Iy.is_zero else Iy.degree(),
+                                 -1, -1, -1, 0, 1))
+                    continue
+                counts['ZD'] += 1
+                uy = [Poly(sum(c * y**b for (a, b), c in g.as_dict().items()), y, domain=QQ)
+                      for g in Pxy if all(a == 0 for (a, b) in g.as_dict())]
+                ux = [Poly(sum(c * x**a for (a, b), c in g.as_dict().items()), x, domain=QQ)
+                      for g in Pyx if all(b == 0 for (a, b) in g.as_dict())]
+                assert uy and ux
+                myg = uy[0]
+                for q_ in uy[1:]: myg = myg.gcd(q_)
+                mxg = ux[0]
+                for q_ in ux[1:]: mxg = mxg.gcd(q_)
+                edy, edx = myg.degree(), mxg.degree()
+                divok = 1
+                if not Ix.rem(myg).is_zero: divok = 0; counts['res_div_fail'] += 1
+                if not Iy.rem(mxg).is_zero: divok = 0; counts['res_div_fail'] += 1
+                Ixq = Poly(Ix.as_expr(), y, domain=QQ)
+                sqy = Ixq.sqf_part()
+                fy = factor_list(sqy, domain=QQ)[1]
+                nd = nm = 0
+                for (qe, _) in fy:
+                    qp = qe if isinstance(qe, Poly) else Poly(qe, y)
+                    qf = Poly(qp.as_expr(), y, domain=QQ).monic()
+                    if qf.degree() == 1:
+                        b = -qf.nth(0)
+                        A = Poly(fi.subs(y, b), x, domain=QQ); Bc = Poly(fj.subs(y, b), x, domain=QQ)
+                        G = A.gcd(Bc)
+                        if G.is_zero or G.degree() == 0: continue
+                        nd += G.sqf_part().degree(); nm += G.degree()
+                    else:
+                        dd, mm = fiber_orbit(dicts[i], dicts[j], qf, y, x)
+                        nd += dd; nm += mm
+                # x-side cross-check of distinct count
+                Iyq = Poly(Iy.as_expr(), x, domain=QQ) if set(Iy.as_expr().free_symbols) <= {x} else None
+                if Iyq is not None:
+                    ndx = 0
+                    for (qe, _) in factor_list(Iyq.sqf_part(), domain=QQ)[1]:
+                        qp = qe if isinstance(qe, Poly) else Poly(qe, x)
+                        qf = Poly(qp.as_expr(), x, domain=QQ).monic()
+                        if qf.degree() == 1:
+                            a = -qf.nth(0)
+                            A = Poly(fi.subs(x, a), y, domain=QQ); Bc = Poly(fj.subs(x, a), y, domain=QQ)
+                            G = A.gcd(Bc)
+                            if not (G.is_zero or G.degree() == 0): ndx += G.sqf_part().degree()
+                        else:
+                            dd, _ = fiber_orbit(dicts[i], dicts[j], qf, x, y)
+                            ndx += dd
+                    if ndx != nd: counts['fiber_mismatch'] += 1
+                if nm != stair: counts['mult_mismatch'] += 1
+                if sx: counts['shape_x'] += 1
+                if sy: counts['shape_y'] += 1
+                if sx or sy: counts['either'] += 1
+                if sx and sy: counts['both'] += 1
+                bf = (not sx) and (not sy)
+                if bf:
+                    counts['both_fail'] += 1
+                    if Pstar is None:
+                        Pstar = {'i': i, 'j': j, 'f': strs[i], 'g': strs[j],
+                                 'Gxy': sorted(str(e) for e in Gxy.polys),
+                                 'Gyx': sorted(str(e) for e in Gyx.polys),
+                                 'Ggr': sorted(str(e) for e in Ggr.polys),
+                                 'elim_deg_y': edy, 'elim_deg_x': edx,
+                                 'res_y_deg': Ix.degree(), 'res_x_deg': Iy.degree(),
+                                 'n_distinct': nd, 'quot_dim': stair}
+                    if len(bfstore) < 80:
+                        bfstore[f'{i},{j}'] = {'f': strs[i], 'g': strs[j],
+                            'Gxy': sorted(str(e) for e in Gxy.polys),
+                            'Gyx': sorted(str(e) for e in Gyx.polys)}
+                rows.append((i, j, 'ZD', len(Pxy), len(Pyx), len(Pgr), int(sx), int(sy), edy, edx,
+                             Ix.degree(), Iy.degree(), stair, nd, nm, int(bf), divok))
+            except Exception as e:
+                counts['HARD'] += 1
+                rows.append((i, j, 'HARD', -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0))
+            if n % 2000 == 0:
+                print(f'  {n}/{npairs} {time.time()-t0:.0f}s ZD={counts["ZD"]} BF={counts["both_fail"]} HARD={counts["HARD"]}', flush=True)
+    with open('output/artifacts/stratification.csv', 'w', newline='') as fh:
+        w = csv.writer(fh)
+        w.writerow(['i', 'j', 'status', 'n_lex_xy', 'n_lex_yx', 'n_grevlex', 'shape_xy', 'shape_yx',
+                    'elim_deg_y', 'elim_deg_x', 'res_y_deg', 'res_x_deg', 'quot_dim', 'n_distinct',
+                    'n_mult', 'both_fail', 'res_div_ok'])
+        w.writerows(rows)
+    summary = {'n_polys': len(items), 'n_pairs': npairs, 'counts': counts, 'Pstar': Pstar,
+               'seconds': round(time.time() - t0, 1)}
+    with open('output/artifacts/summary.json', 'w') as fh: json.dump(summary, fh, indent=1)
+    with open('output/artifacts/both_fail_bases.json', 'w') as fh: json.dump(bfstore, fh, indent=1)
+    print(json.dumps(summary, indent=1)[:3000], flush=True)
+    print(f'done {time.time()-t0:.0f}s stored={len(bfstore)}', flush=True)
+
+if __name__ == '__main__':
+    main()
