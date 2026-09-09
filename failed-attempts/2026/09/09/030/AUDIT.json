@@ -1,0 +1,56 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "DRAFT Lemma (1)-(3) is a correct conditional corollary of G. Szabo arXiv:1610.05939. Theorem C as stated in the paper's Introduction and proved as Theorem 5.5 says: for countable discrete amenable G, for every action alpha on a unital Kirchberg algebra, alpha tensor delta is strongly cocycle conjugate to delta; if alpha is pointwise outer then alpha tensor id_O2 is strongly cocycle conjugate to delta. Section 7 proves pointwise-outer actions of amenable residually-finite groups on Kirchberg algebras have dim_Rok <= 1 (dim_Rok(alpha,H)<=1 for finite-index H, hence <=1 if residually finite). S3 is finite of order 6, hence countable discrete amenable (F=G Folner) and residually finite (finite groups are), verified by replay of inputs/artifacts/verify_s3_inputs.py (order, dihedral relation, generation all VERIFY_OK; reran successfully). O2 is a unital Kirchberg algebra. Therefore instantiating the cited theorems at G=S3, A=O2 yields (1) dim_Rok <=1 hence <=2 and (2) delta-absorption as claimed. K_*(O2)=0 remark, Kirchberg-Phillips A tensor O2 ~= O2 identification, and finite-G pointwise-outer equivalence are standard and correctly used. The DRAFT honestly labels this as 'by citation + hypothesis check; no new analysis claimed,' does not claim new towers or K-theory mismatch, and flags the delta-vs-Rokhlin-model identification caveat. No essential inference, boundary condition, or computation is wrong conditional on the cited peer-reviewed theorems (CMP 361 (2018)). Proof is distinguished from computation: deduction is hypothesis-checking; C*-theorems themselves are cited, not re-proved; script only checks finite-group inputs.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: strongest headline claim is definitionally anticipated by prior general theorem. Szabo arXiv:1610.05939 proves the claimed absorption and Rokhlin-dimension bound for ALL countable discrete amenable (resp. amenable residually-finite) groups on Kirchberg algebras, which strictly contains the S3-on-O2 instance. DRAFT (1) is Sec.7 instantiated at S3; DRAFT (2) is Theorem C / Theorem 5.5 instantiated with beta=alpha and alpha=delta, where Example 5.6 establishes delta is pointwise-outer and equivariantly O2-absorbing. No new object, invariant, obstruction, tower, or lemma is produced: DRAFT states 'no new analysis claimed' and 'bound comes from Sec.7, not from an ansatz.' Plugging G=S3 into a published all-amenable-groups theorem is a mere parameter substitution / textbook restatement. Admission's assessment that 1610.05939 'does not mechanically imply the Rokhlin-model S3-on-O2 dichotomy' is substantively false on comparison of theorem statements; a failed search or timestamp does not establish priority. The delta-vs-Izumi-Rokhlin-model identification caveat does not create novelty: even relative to Szabo delta the result is prior, and Szabo Introduction/[76] Sec.5 explicitly presents delta/gamma as the finite-group model actions generalizing Izumi/Goldstein-Izumi.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: even taken as correct, the S3 instantiation is not independently worth retrieving as a new finding. It records no exact invariant, bound, or lemma beyond what the general theorem already states and a future researcher would find by reading Szabo Thm C + Sec.7. The prompt's narrow-datum allowance requires the object/invariant be motivated before computation, the value not known or mechanically implied, and reasonably needed later; here the S3 values (dim<=1, delta-absorption, no counterexample in pointwise-outer class) are mechanically implied by direct substitution and have been known since v1 2016 / CMP 2018. Certification of trivial finite-group inputs (order 6, amenability, residual finiteness, C*(S3) degrees [1,1,2]) does not rescue an arbitrary instantiation per 'certification alone does not rescue.' This is exactly the reject class: textbook restatement / mere parameter substitution, with admitted 'elementary hypothesis-checking' only. The positive collapse of the conjectured counterexample is useful as a correction of the admission gap analysis, but does not constitute a new publishable boundary update.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract + journal ref confirm peer-reviewed equivariant absorption paper. Intro states Theorem C verbatim as DRAFT (2) and Sec.7 dim<=1 claim; Example constructs delta=otimes_N Ad(v) on O2 from C*(G)->O2 representation.",
+      "title": "G. Szabo, Equivariant Kirchberg-Phillips-type absorption for amenable group actions, arXiv:1610.05939 (CMP 361 (2018))",
+      "url": "https://arxiv.org/abs/1610.05939"
+    },
+    {
+      "finding": "HTML full text verified: Theorem 5.5 (pointwise-outer equivariantly O2-absorbing alpha on O2 absorbs any beta), Example 5.6 (delta model is pointwise-outer, equivariantly O2-absorbing, delta~=cc delta tensor id), Lemma 5.1/5.2, Prop 5.3/Cor 5.4 chain, Sec.7 Lemma 7.2 + Theorem 7.3 dim_Rok(alpha,H)<=1 and <=1 if residually finite. Matches DRAFT citations; no new S3-specific theorem present in prior work, but general theorem strictly contains S3.",
+      "title": "arXiv HTML 1610.05939v3 full text (Secs 1-7)",
+      "url": "https://arxiv.org/html/1610.05939v3"
+    },
+    {
+      "finding": "DRAFT Lemma claims (1) dim<=1, (2) alpha tensor delta ~=scc delta and pointwise-outer alpha tensor id ~=scc delta, (3) no finite-dim non-absorbing pointwise-outer example. Proof section admits by-citation + hypothesis check only.",
+      "title": "Candidate DRAFT.md",
+      "url": "inputs/DRAFT.md"
+    },
+    {
+      "finding": "Script only checks S3 permutation model, amenability, residual finiteness slogan, sum d_i^2=6. Reran: all VERIFY_OK. Verifies no C*-analytic content.",
+      "title": "Candidate verify_s3_inputs.py",
+      "url": "inputs/artifacts/verify_s3_inputs.py"
+    },
+    {
+      "finding": "Topic admission cited Szabo 1804.04411 (commuting towers), Hirshberg-Phillips 1410.6581, Gardella 1407.1277 but mis-assessed 1610.05939 as not deciding S3-on-O2 boundary.",
+      "title": "topic.json admission review",
+      "url": "inputs/topic.json"
+    }
+  ],
+  "decisive_checks": [
+    "Reran inputs/artifacts/verify_s3_inputs.py with python3: S3 order 6, dihedral relation, amenability Folner, C*(S3) degrees all VERIFY_OK, exit 0 \u2014 confirms only trivial group inputs, not C* theorems.",
+    "Compared DRAFT Lemma (1)-(2) line-by-line to Szabo HTML Intro Theorems C/A, Theorem 5.5, Example 5.6, Sec.7 header and Theorem 7.3: statements coincide up to setting G=S3, A=O2.",
+    "Verified S3 meets cited hypotheses: finite => countable discrete amenable + residually finite; O2 unital Kirchberg \u2014 so conditional deduction is valid.",
+    "Verified originality defeat: general quantifier 'every countable discrete amenable G' in Theorem C/Sec.7 logically entails S3 instance; no additional construction or invariant distinguishes DRAFT from prior art.",
+    "Checked value gate: DRAFT self-describes as 'no new analysis claimed' and 'bound via Sec.7, not ansatz'; falls under mere parameter substitution / textbook restatement."
+  ],
+  "residual_risks": [
+    "Reliance on correctness of published Szabo theorems (not re-proved); risk minimal given CMP peer review and DRAFT's explicit conditional framing, and does not affect FAIL on originality/value.",
+    "Possible nuance of 'Rokhlin model' meaning a specific Izumi representative vs Szabo delta: DRAFT caveat handles this, and Szabo Intro/[76] Sec.5 documents delta as the finite-group model generalizing Izumi/Goldstein-Izumi; any residual identification gap would narrow the claim further, not create novelty.",
+    "No independent computation of equivariant K-theory or towers was attempted; none needed for verdict since headline is citation-only."
+  ],
+  "verdict": "REJECT"
+}
