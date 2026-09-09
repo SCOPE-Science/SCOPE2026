@@ -1,0 +1,72 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline fallback claim (a) verified as rigorous proof, not mere numerics. (1) Airy box: DLMF 9.7.5/9.7.6 + 9.7(iii) alternating remainder with factor 1 applies at x=5 because Leibniz decrease holds: u1*zeta>=u2 (Ai, n=1) and (13/11)u2*zeta>=(19/17)u3 (Ai', n=2), both true since zeta~7.45, u1=5/72, u2=385/10368, v2=-13/11 u2; coefficient recurrences match DLMF 9.7.2 and remainder signs/intervals [-u1/zeta,0], [v2/zeta^2,0] correctly encode same-sign bound. zeta=(2/3)x^{3/2} enclosed via exact-rational isqrt interval (sound: gl^2<=lo, gh^2>=hi preserved); pi via Machin + Leibniz atan (sound), exp via Taylor lower + Lagrange upper with etop=e_hi^8 for t<=8 (sound). Division/multiplication/addition are outward-rounded exact Fractions. Auditor re-ran inputs/artifacts/verify.py -> VERIFY_OK, Ai5~[1.0827e-4,1.0929e-4], Api5~[-2.4758e-4,-2.4739e-4] containing 80-digit references. (2) Picard tube: for M0=1/5000, M1=1/2000, B2=2M0^3+5M0 sup bound valid for x<=5; Lipschitz L=6M0^2+5=max(1,6M0^2+5) correct for sup-norm; h=1/10 gives hL=0.500000024<1 exact rational; self-mapping Ai5+-hM1 in [-M0,M0], Api5+-hB2 in [-M1,M1] verified rationally, so Banach gives existence+uniqueness in the box on whole closed [4.9,5] (forward/backward estimate identical), hence pole-free C2. Reference containment is explicitly a cross-check, not part of proof; floats display-only. DRAFT limitations honestly disclaim HM membership, Stokes interval, sector extension. No essential inference gap.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively: Huang-Xu-Zhang 1410.3338 (analytic quasi-solution pole-free sectors, no validated tube/logs/multiplier interval); Bertola-Cafasso 1101.3997 (noncommutative Riemann-Hilbert, no commutative interval witness); Cleri-Dunne 2002.06270 (formal trans-series, non-rigorous); Dai-Xu-Zhang 1908.01532 (analytic Stokes-parametrised integrals, no enclosure); Costin-Huang-Tanveer 1209.1009 (P-I analytic, not P-II tube). Live arXiv searches for validated/Taylor-model Painleve enclosures returned no hits (validated-search only Boussinesq/Painleve-Gullstrand false positives; interval+enclosure search zero results). No prior records this exact rational tube endpoints/remainder logs on [4.9,5]. Analytic HM pole-freedom on R+ implies abstract existence but does not record or mechanically imply the machine-checkable interval witness. Hence exact witness is new. Triviality/generality concerns belong to value, not originality.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "No preset-value presumption applies: report claims PRESET_FALLBACK clause (a) but topic.json contains fallback_claim text yet no fallback_qualification.exact_success_criterion object, so per route policy this legacy topic was not qualified under this policy; audit value normally. Judged normally, the self-contained headline is an elementary short-time Picard enclosure: tiny data (~1e-4) at x=5 propagated 0.1 backwards staying in |w|<=2e-4, |w'|<=5e-4. DRAFT explicitly concedes it does NOT prove Hastings-McLeod membership (HM datum-in-box fixed point on [5,inf) left open), does NOT extract any Stokes-multiplier interval, and does NOT extend toward any maximal tritronquee angle. Thus the Airy identity of the datum is incidental; mathematically it is 'small-data ODE solutions exist briefly without blow-up' plus a textbook DLMF Airy enclosure \u2014 a textbook restatement / mechanically implied consequence of standard Picard + DLMF bounds on an arbitrary slice h=1/10 chosen only to make hL~0.5. Object (homogeneous PII) is natural and pre-motivated, but the invariant (this 0.1 tube) was not motivated before computation, is not a canonical sector/multiplier/connection value, and no future Tracy-Widom/integrable-PDE user could reasonably need to cite this precise 0.1 tube. Per value standard, a narrow exact datum is retrievable only when motivated, non-mechanical, and needed; conversely certification alone does not rescue an arbitrary object or unexplained number. This is intrinsic low value + arbitrary scope + missing substantive result (no connection formula, no sector), not a presentational gap curable by a bounded addition (HM membership or Stokes extraction would be a new research direction, not a bounded fix). Hence FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "9.7.5/9.7.6 expansions, 9.7.2 coefficients, and 9.7(iii) rule: nth error bounded by first neglected term with same sign if following term opposite sign (n>=0 for Ai, n>=1 for Ai'). Confirms authority and Leibniz proviso used.",
+      "title": "DLMF 9.7 Airy asymptotic expansions and error bounds",
+      "url": "https://dlmf.nist.gov/9.7"
+    },
+    {
+      "finding": "Proves HM pole-free in arg sectors via explicit quasi-solutions + analytic errors. No validated tube, replay logs, or multiplier interval.",
+      "title": "Huang-Xu-Zhang 1410.3338",
+      "url": "https://arxiv.org/abs/1410.3338"
+    },
+    {
+      "finding": "Analytic Riemann-Hilbert for noncommutative PII Tracy-Widom analogue. No commutative interval/sector witness.",
+      "title": "Bertola-Cafasso 1101.3997",
+      "url": "https://arxiv.org/abs/1101.3997"
+    },
+    {
+      "finding": "Formal trans-series for generalized HM, non-rigorous, no enclosure/certificate.",
+      "title": "Cleri-Dunne 2002.06270",
+      "url": "https://arxiv.org/abs/2002.06270"
+    },
+    {
+      "finding": "Analytic tronquee integrals/Hamiltonians parametrised by Stokes multipliers incl HM at omega=0. No validated enclosure.",
+      "title": "Dai-Xu-Zhang 1908.01532",
+      "url": "https://arxiv.org/abs/1908.01532"
+    },
+    {
+      "finding": "P-I tritronquee Dubrovin proof via analytic quasi-solutions. Different equation/method, no P-II tube.",
+      "title": "Costin-Huang-Tanveer 1209.1009",
+      "url": "https://arxiv.org/abs/1209.1009"
+    },
+    {
+      "finding": "14 hits, none a validated Painleve ODE enclosure (Boussinesq Painleve region, Painleve-Gullstrand GR, etc.). Supports absence of machine-checkable PII tube.",
+      "title": "arXiv search validated+Painleve",
+      "url": "https://arxiv.org/search/?query=%22Painleve%22+%22validated%22&searchtype=all&source=header"
+    },
+    {
+      "finding": "Zero results for Painleve II + interval + enclosure.",
+      "title": "arXiv search Painleve II interval enclosure",
+      "url": "https://arxiv.org/search/?query=%22Painleve+II%22+%22interval%22+%22enclosure%22&searchtype=all&source=header"
+    }
+  ],
+  "decisive_checks": [
+    "Re-executed inputs/artifacts/verify.py: VERIFY_OK, Ai5 + Api5 intervals as claimed, hL=0.500000024.",
+    "Checked DLMF coefficient values u1=5/72, u2=385/10368, v2=-13/11 u2, u3 factor 221/216 and Leibniz inequalities u1*zeta>=u2, (13/11)u2*zeta>=(19/17)u3 hold at zeta~7.45.",
+    "Audited interval.py: isqrt/pi/exp/add/mul/div sound (outward rounding, invariants gl^2<=lo/gh^2>=hi, Leibniz atan, Lagrange exp remainder with etop for t<=8).",
+    "Checked Picard constants B2=2M0^3+5M0, L=6M0^2+5, self-mapping expansions and hL<1 in exact rationals; contraction in sup-norm covers backward segment.",
+    "Confirmed remainder_log.json rational endpoints reproduce inside committed boxes and contain high-precision references; DRAFT scope honestly limits to clause (a).",
+    "Confirmed topic.json has fallback_claim string but no fallback_qualification object -> no ADMISSION presumption; value audited normally."
+  ],
+  "residual_risks": [
+    "Interval-library soundness established by manual code review + replay, not by formal proof assistant; hidden overflow/logic bug beyond reviewed paths remains low-probability but non-zero.",
+    "DLMF error-bound authority trusted without re-proving Olver/Nemes analytic estimates.",
+    "Originality rests on arXiv/DLMF searches and admission triage; obscure non-indexed validated-Airy tables could exist but would not supply the PII tube witness."
+  ],
+  "verdict": "REJECT"
+}
