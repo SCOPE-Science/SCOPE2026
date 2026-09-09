@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "L1 proof verified line-by-line: V_m = fiber-swaps has order 2^(2^m); commutation g\u00b7s=s\u00b7g forces fiber-bits f constant (carry vs non-carry comparison), so Stab={id,s^{2^m}} (s^{2^m} is global fiber-swap), orbit size 2^(2^m)/2=2^(2^m-1). Lifts psi(c,e)=(s_m(c),e+f(c)): bijectivity forces this affine form; psi^{2^m}(c,e)=(c,e+sum f) because M steps visit each block once, so single 2^{m+1}-cycle iff sum f odd; exactly half of 2^(2^m) lifts. Conjugation by block-preserving g preserves cycle type and quotient, so V-orbit subset of single-cycle lifts; equal finite cardinalities give equality. General count holds for all m. Exact instances replayed: B3 m=2 8/8 coverage (attack6), m=3 128/128 covers_all true (attack8 replay OK), m=4 32768==2^15 equality covers_all true (attack10 replay OK, V size 65536). L2 proof verified: psi^M(b,j)=(b,j+1) since M-tour under single M-cycle visits b0 exactly once from any start; psi^M has order K, block period M, so orbit size M*K=N, single N-cycle lifting tau. Log12 replay OK: 12/12 divisor pairs ALL OK, exhaustive for M<=6, sampled 12/12 for M in {10,15,8}. Corollary (odometer H-orbit meets cyclic-factor opens at divisor levels) follows from S_N-transitivity on N-cycles and lifting finite perms to Homeo(2^N); correct but weak. P3(a)(b) are standard facts (cyclic clopen partition gives Koopman eigenvalue; binary-odometer eigenvalues dyadic; cyclic quotient of 2^n-cycle divides 2^n; 2^n mod 3 !=0) \u2014 correct, replayed logs 6/4. 0/60 same-fiber single-swap failure at level 30 replayed OK (attack9: n_single_preserving 0). DRAFT honestly marks infinite-level gaps (no turbulence, no density, no meagreness cover, no E0-ergodicity, no non-reducibility; preset fallback explicitly NOT met). No mathematical falsehood in headline finite claims; computations are evidence for instances, general proofs cover all m (L1) / all M|N (L2).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Route is EMERGENT_FINDING (as declared); it genuinely arose from the target audit-plan test (ii) finite-level Baire coding, not a post-hoc substitute \u2014 but under policy it receives no presumption and full ordinary originality standard. Headline L1/L2/P3 fail that standard. L1 is a direct orbit-stabiliser exercise: centralizer of a lifted 2^{m+1}-cycle inside the elementary-abelian fiber-swap group, plus parity-sum single-cycle criterion. L2 is the standard cyclic-extension construction (twisted product), immediate from S_N-transitivity on N-cycles. P3 is textbook: Koopman eigenvalue invariance and dyadic eigenvalue group of the binary odometer (standard topological-dynamics/ergodic-theory fact), plus trivial divisor arithmetic and 2^n mod 3 table; 0/60 is a failed naive-search log, not a result. Nearest priors checked substantively: Doucha-Melleray-Tsankov (comeager universal odometer/Fraisse limit, no second orbit), Lupini-Panagiotopoulos (game-theoretic Hjorth proof + CLI obstruction for countable-sets/operators, not applied to H-conjugacy on M), Kaya 1508.07699 (pointed bireducible Delta_R^+, Delta_R^+ classifiable by countable structures, no above-S_infinity bound), Kaya 1602.08179 (Toeplitz growing-block hyperfiniteness, opposite direction). None records L1/L2 counts, but absence of a trivial lemma from the literature does not establish priority: L1/L2 are mechanically implied by undergraduate permutation-group theory (cf. Dixon-Mortimer centralizer/orbit-stabiliser; any text on odometer/addition-machine eigenvalues for P3) and the DRAFT itself concedes 'elementary, but previously unrecorded.' A failed admission-scan search / timestamp does not establish priority. No substantive delta beyond textbook exercises and finite instances of the same proved formula.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Ordinary full value standard with no fallback presumption (fallback qualification required proved dense+meagre orbit with explicit closed-nowhere-dense cover; DRAFT concedes it is NOT met; its retrieval clause for a completed witness does not transfer to finite shadows). Strongest self-contained headline is finite Hjorth-shadow data only. L1 instances 8/8, 128/128, 32768/32768 are not independent data: they are instances of the same general formula proved in the note, mechanically implied, not a motivated unknown invariant a future researcher would need to retrieve. L2 divisor meetings follow immediately from S_N-transitivity and do not locate complexity or supply the Hjorth base point the target needs (no dense orbit, no meagreness, no turbulence transfer). P3 restates a standard eigenvalue obstruction (binary odometer misses 3-factor opens) known to any dynamicist; 2^n-mod-3 and divisor tables are trivial arithmetic; 0/60 twist census is an unexplained enumeration of a failed naive perturbation (all single same-fiber swaps break the 30-cycle), constraining only that naive route, with no mathematical interpretation as an invariant of a natural object. No publishable lemma/note in the Hjorth-Kechris-Foreman-Weiss line: no new invariant, no dense-meagre point, no reduction, no obstruction beyond textbook facts. Falls under reject categories: textbook restatements, mechanically implied enumerations, and unexplained/failed-search census, even though correct. Honest gap-marking does not create independent retrieval value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Comeager minimal Z-action is universal odometer; Fraisse-limit/profinite for free groups; no comeager for non-finitely-generated amenable; dense-class iff virtually cyclic for hyperbolic/virtually polycyclic. Names generic orbit to avoid; constructs no dense-meagre turbulent orbit, no finite local-transitivity count (but that absence does not make elementary count original).",
+      "title": "Dense and comeager conjugacy classes in zero-dimensional dynamics",
+      "url": "https://arxiv.org/abs/2507.05474"
+    },
+    {
+      "finding": "Game-theoretic Hjorth turbulence proof + CLI obstruction applied to countable sets of reals and unitary/selfadjoint conjugacy; method source only, not applied to Homeo(2^N) on minimal Cantor homeomorphisms.",
+      "title": "Games orbits play and obstructions to Borel reducibility",
+      "url": "https://arxiv.org/abs/1612.08284"
+    },
+    {
+      "finding": "Pointed Cantor minimal conjugacy bireducible Delta_R^+; Delta_R^+ lower bound for unpointed case. Delta_R^+ is S_inf-permutation equivalence hence classifiable by countable structures; does not imply above-S_infinity bound.",
+      "title": "The complexity of topological conjugacy of pointed Cantor minimal systems",
+      "url": "https://arxiv.org/abs/1508.07699"
+    },
+    {
+      "finding": "Toeplitz with separated holes/growing blocks hyperfinite (partial Sabok-Tsankov answer); low-complexity subclass, neither implies nor precludes turbulent witness.",
+      "title": "The complexity of the topological conjugacy problem for Toeplitz subshifts",
+      "url": "https://arxiv.org/abs/1602.08179"
+    },
+    {
+      "finding": "Replayed attack6 B3 (8/8), attack8 (128/128 covers_all), attack10 (32768 equality), attack12 (12/12 ALL OK), attack9 (0/60, pure coherence true). All stdlib, exit 0. General proofs checked by hand; instances match general formulas.",
+      "title": "Local artifact replay (inputs/artifacts)",
+      "url": "file:inputs/artifacts/lane403_attack6.py, lane403_attack8.py, lane403_attack10.py, lane403_attack12.py, lane403_attack9.py + finite_level_logs"
+    }
+  ],
+  "claim_route": "EMERGENT_FINDING: declared as such; verified as genuinely arising from target audit-plan clause (ii) finite-level Hjorth local-density coding, not scope evasion. Absence from topic.json not adverse. Applied ordinary full correctness/originality/value standard with no presumption and no relaxation.",
+  "decisive_checks": [
+    "L1 stabiliser equation f(c+1)=f(c) verified (carry vs non-carry); s^{2^m}=global swap verified; lift parity criterion psi^{2^m}=(c,e+sum f) verified; inclusion+cardinality equality valid.",
+    "Attack8 replay: U_cyclic_lifts 128, distinct 128, covers_all true. Attack10 replay: 32768==2^15, covers_all/equal true, coverage 1.0. Attack6 B3: 8 lifts, 8 distinct, coverage 1.0.",
+    "L2 identity psi^M=(b,j+1) verified for arbitrary start (single-cycle tour hits b0 once); order argument M*K=N verified. Log12: canonical all-b0 true, exhaustive M<=6 full, sampled 12/12 for larger M; all_ok true on replay.",
+    "P3 standard facts correct; divisor/mod-3 tables trivial and correct; 0/60 census replays (n_single_preserving 0); withdrawn v4/v5 claims properly retracted, no reliance.",
+    "Originality comparison substantive (not timestamp): L1/L2 are textbook exercises mechanically implied by symmetric-group theory; admission-scan absence does not confer novelty. Value: finite instances are corollaries of proved general formula; no dense/meagre/turbulence invariant supplied."
+  ],
+  "residual_risks": [
+    "No risk to correctness verdict: general proofs cover all m / all M|N; samplings for L2 at M in {10,15,8} are illustrative only, proof is general.",
+    "Originality risk of missing obscure combinatorics note stating L1 count explicitly is immaterial: even if unrecorded verbatim, it remains a textbook exercise with no substantive delta.",
+    "Value risk: future Hjorth program may cite finite transitivity as background, but that prospective-use claim does not meet the independent-retrieval standard (motivated unknown non-mechanically-implied invariant)."
+  ],
+  "verdict": "REJECT"
+}
