@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline deduction s(n)=ex(n)-1 for 2<=n<=18 is logically valid CONDITIONAL on the taken-as-given ex(n) inputs: (i) s(n)<=ex(n)-1 by strict inequality of integers; (ii) s(n)>=ex(n)-1 by deleting one edge from a C4-free extremal H (hereditary: subgraph of C4-free is C4-free), yielding ex(n)-1 edges. No integer lies strictly between ex-1 and ex, so no-between certificate is vacuous. Boundary n=1 correctly excluded (single graph, no second tier); n=2 edge case works (K2 minus edge = empty graph). Premise ex(n)=0,1,3,4,6,7,9,11,13,16,18,21,24,27,30,33,36,39 independently confirmed against McKay exact table (no '>=' for n<=18) and OEIS A006855. Computations independently replayed in stdlib Python: all 18 committed witnesses have exactly ex(n) edges and are C4-free by no-pair-shares-2-neighbours check; ER_3 rebuilds to 13v/24e C4-free; GF(4) ER_4 rebuilds to 21v/50e C4-free; N=14..18 induced keep-sets yield 27,30,33,36,39 edges C4-free; KST floor values floor(n/4*(1+sqrt(4n-3))) reproduce the table and residuals 0..2; F2 embedding edges verified. Pair-count sum C(d,2)<=C(n,2) correctly used only as a necessary check, not as an upper-bound proof of ex. Limitations honestly disclosed: ex extremality rests on cited tables, n=15 C(21,15) maximality scan is session evidence not re-run by verifier. No false proof claim. Hence correctness PASSES as a conditional exact deduction with verified witnesses.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline s(n)=ex(n)-1, g(n)=1, G=1 is substantively, not just literally, anticipated: it is mechanically implied by the known exact ex(n) plus the textbook hereditary property of C4-freeness and integrality of edge counts. Any worker knowing ex(n) for n<=18 (McKay/Afzaly exact top tier; OEIS A006855) immediately derives s(n)=ex(n)-1 by the one-edge-deletion argument without any branch-and-bound enumeration, polarity construction, KST log, or witness search -- indeed the DRAFT proof uses none of the advertised machinery. Nearest priors compared substantively: (1) McKay/Afzaly H={C4} table gives exact (ne,ng) taken as premise, e.g. n=18 ne=39 ng=1, n=13 ne=24 ng=2; subtracting 1 is arithmetic, not a new spectrum. (2) OEIS A006855/A335820 record the same top tier and extremal counts; absence of a literal 's(n)' column does not make ex-1 new. (3) Ma-Yang arXiv:2107.11601 is asymptotic and complementary, but the hereditary corollary is in the standard textbook base (Kovari-Sos-Turan 1954; Aigner-Ziegler Proofs from THE BOOK Ch.20 proof of n/4*(1+sqrt(4n-3)); Clapham-Flockhart-Sheehan; Furedi). (4) KST residuals r(n) are ex plus closed-form floor, acknowledged as supporting only. Polarity-embeddable single witnesses per order do not rescue headline originality: the theorem does not depend on them, and existence of one induced extremal subgraph per n is not the admitted stability-spectrum delta. Admission's 'not mechanically implied' and negative-search claims are formalistic: a timestamp or failed OEIS/arXiv text search does not establish priority. Substantive delta over priors is nil. Hence originality FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Headline G=1 / s=ex-1 is a textbook restatement with zero stability content, not an independently retrievable invariant. For ANY monotone (edge-deletion-hereditary) graph property with an extremal, the second-maximum edge count is ex-1 by the same one-line argument; it therefore cannot test conjectured stability around polarity constructions, calibrate solvers beyond ex itself, or answer a question motivated before computation -- a future researcher knowing ex derives s without retrieval. The DRAFT itself concedes the headline 'collapses to G=1 by the one-edge-deletion argument... not a deep stability census.' This is exactly the reject class: textbook corollary, mere subtraction of 1, tiny unmotivated gain. The narrow-datum exception does not apply because the value WAS known/mechanically implied before computation (ex-1), even though rigorously established. The accompanying polarity keep-sets (e.g. arbitrary 14-sets of 21 ER_4 vertices) and KST-residual table are unexplained enumerations/certification without mathematical interpretation, general criterion, classification of all extremals (ng>1 for most n, only one witness shown), or downstream use; certification alone does not rescue an arbitrary keep-set or a formulaic residual. Judged on its strongest self-contained headline (s=ex-1, G=1), the result is not worth finding later even though correct. Hence value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Sequence 0,1,3,4,6,7,9,11,13,16,18,21,24,27,30,33,36,39,42,46,... confirms ex(n) inputs for n<=18; FORMULA gives KST bound n/4*(sqrt(4n-3)+1); refs to Kovari-Sos-Turan, Furedi, Clapham/Flockhart/Sheehan, Ma-Yang. No s(n)/G column.",
+      "title": "OEIS A006855 -- Maximum edges in n-node C4-free graph",
+      "url": "https://oeis.org/A006855"
+    },
+    {
+      "finding": "H={C4} table gives exact (nv,ne,ng) for n<=18 (e.g. n=13 ne=24 ng=2 through n=18 ne=39 ng=1) with no '>=' so exact; provides sparse6 extremals but no second-maximum, gap, polarity status, or proof logs. Confirms premise and that s=ex-1 is arithmetic.",
+      "title": "McKay/Afzaly -- Extremal Graphs and Turan numbers",
+      "url": "https://users.cecs.anu.edu.au/~bdm/data/extremal.html"
+    },
+    {
+      "finding": "Asymptotic upper bounds on f(n)=ex(n,C4), disproof of Erdos linear-term conjecture; operates asymptotically, not small-n second tier. Complements but does not anticipate; hereditary corollary remains textbook.",
+      "title": "Ma-Yang arXiv:2107.11601 -- Upper bounds on ex of 4-cycle",
+      "url": "https://arxiv.org/abs/2107.11601"
+    },
+    {
+      "finding": "Independent stdlib replay: all 18 witnesses have exactly ex(n) edges and are C4-free; ER_3=13v/24e C4-free; GF(4) ER_4=21v/50e C4-free; n=14..18 keep-sets yield 27,30,33,36,39 C4-free; KST floors/residuals match table.",
+      "title": "Direct verification of inputs/artifacts (c4tools.py, gf.py, witnesses.json)",
+      "url": ""
+    }
+  ],
+  "decisive_checks": [
+    "Verified ex(n) inputs 0..39 against McKay exact entries and OEIS A006855 -- match.",
+    "Replayed C4-freeness (no pair shares >=2 common neighbours) and edge counts for all n=1..18 witnesses -- all PASS with correct counts.",
+    "Rebuilt ER_3 from prime-field definition (13v/24e C4-free) and ER_4 from GF(4)=GF(2)[t]/(t^2+t+1) construction (21v/50e C4-free); induced keep-sets reproduce claimed extremal counts.",
+    "Recomputed KST floors floor(n/4*(1+sqrt(4n-3))) for n=1..18 -- residuals 0,0,0,0,0,1,1,1,2,1,2,2,2,1,2,2,2,2 match DRAFT.",
+    "Confirmed headline proof uses only hereditary edge-deletion + integrality and is independent of branch-and-bound logs, polarity search, or KST table -- hence mechanically implied by priors.",
+    "Confirmed n=1 boundary (single graph, no second tier) and n>=2 population via edge deletion -- logic valid but trivial."
+  ],
+  "residual_risks": [
+    "Polarity-embeddability existence per order verified only for the committed single keep-set per n, not for all ng extremals; wording 'every extremal order is polarity-embeddable' means per-order existence, not classification -- no correctness risk to headline but limits any standalone polarity value.",
+    "n=15 ER_4-induced maximality (exhaustive C(21,15) scan) cited as session evidence and not re-run by verifier; extremality for all n rests on external exact tables, honestly disclosed.",
+    "Literature on small polarity-subgraph extremality not exhaustively searched, but moot: headline originality/value fail on mechanical implication regardless."
+  ],
+  "verdict": "REJECT"
+}
