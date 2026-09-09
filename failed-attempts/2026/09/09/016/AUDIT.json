@@ -1,0 +1,68 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Core lower-bound mathematics re-verified independently: all 64 infinite entries in nontorsion.json satisfy y^2=x(x-9d)(x-729d) and 24P!=O under exact Fraction arithmetic (reimplemented addition/doubling, no fails); Mazur exponent logic sound (groups containing Z/2xZ/2 are Z/2xZ/2N N=1..4, exponents 2,4,6,8 all divide 24; E_d has full rational 2-torsion (0,0),(9d,0),(729d,0)). Five rank>=2 Kummer 16-class certificates (d=-17,38,91,-65,-77) re-derived independently to 16 distinct classes with self-validating empirical torsion (4 distinct + subgroup-closed); e.g. E_-17 P=(-833,80920),Q=(-729,69984) satisfy 80920^2=6548046400, 69984^2=4897760256 on curve. BUT headline census count is wrong and evidenced incompletely: DRAFT claims '39 of 122' with rank>=1 certified via nontorsion.json, while artifacts contain 34 d with infinite entries in nontorsion.json plus 6 deep d (-29,-39,55,-70,-82,-97) with on-curve squares in pts_deep.json but NO entries in nontorsion.json, totalling 40 d with rank>=1 (41 point-bearing d minus d=-1 torsion-only). Independent 24P checks show the 6 deep points are nontorsion, so true found count is 40 not 39, and the cited certificate file does not cover them. Rank2 replay script rank2emp.py/indep.py hardcode absolute research-workspace paths, so 'python3 output/artifacts/rank2emp.py' as documented does not replay in-place. Target gap census, root numbers, |d|<=200 explicitly NOT achieved (honestly disclaimed). Essential headline number therefore fails verification as stated.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Strongest headline exact fact E_-17 rank>=2 is already published in LMFDB. LMFDB 69360.n2 (conductor 69360=2^4*3*5*17^2) records: minimal quadratic twist 15.a2, twist by -68, rank 2, torsion Z/2xZ/2, generators (176,9248),(546,3402). Since -68=-17*2^2, twist by -68 is Q-isomorphic to twist by -17 (twist depends only on squarefree kernel); our E_-17 y^2=x(x+153)(x+12393) is the same Q-class. Hence 'quadratic twist of 15.a2 by -17 has rank>=2' is database-recorded, not new. Same holds for the other four witnesses: d=38 (N~21660),91 (124215),-65,-77 (88935) all have twist conductors <500k (odd-coprime max 15*97^2=141135), therefore inside LMFDB completeness (<500k) with per-curve ranks/generators tabled. The family frequency is mechanically derivable by filtering the 163 j=272223782641/164025 twists by conductor/rank (LMFDB jinv search shows 8 rank-2 twists already). Admission claim that '|d|<=100 largely escapes LMFDB' is false for fallback (15*100^2=150k). Nearest theorems Smith arXiv:1702.02325 (asymptotic Delaunay/o(N) rank>=2) and Bhargava-Skinner (height-ordered rank 1) do not give explicit tables, but LMFDB does give explicit per-twist ranks, which anticipates the lower-bound facts. New generators on a known rank-2 curve and empirical Kummer re-derivation do not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Target gap census (closed Sel2 vs rank, gap>=2 frequency, rank>=2 frequency to |d|<=200, root-number agreement) admitted NOT achieved. Achieved fallback is naive-search lower bounds only: 40/122 found points, 82 undecided (rank 0 vs large generator), Selmer UB admitted weak (e.g. d=1 gives 4 not sharp 2), no gap statistic, no root numbers. The 40-count is search-dependent (x=p/q bounds q<=8,|p|<=1500 etc.), not a closed mathematical invariant; incompleteness honestly noted but leaves no exact frequency. Per-twist rank>=1/>=2 lower bounds are exact but already tabled in LMFDB for this conductor range and mechanically implied by LMFDB query, so exact-invariant eligibility clause fails ('value is not known or mechanically implied' not met). Search-minimality for d=-17 is explicitly bounded/honest ('minimal found, large-height generator below 17 not excluded'), not a proven global minimal, and LMFDB already contains the rank-2 fact. No new general theorem, criterion, benchmark, or downstream use beyond re-logging known curve ranks. Certification alone does not rescue an arbitrary search-bound enumeration.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Base E0 15.a2: conductor 15, rank 0, torsion Z/2xZ/2, minimal model [1,1,1,-135,-660], discriminant 3^8*5^2. Confirms base setup.",
+      "title": "LMFDB Elliptic curve 15.a2",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/15.a2/"
+    },
+    {
+      "finding": "Twist by 17: label 4335.c2, conductor 3*5*17^2=4335, rank 0, minimal twist 15.a2. Shows |d|<=100 twists well inside completeness.",
+      "title": "LMFDB 4335.c2",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/4335.c2/"
+    },
+    {
+      "finding": "Decisive anticipation: minimal twist 15.a2, twist by -68 (squarefree kernel -17), conductor 69360, rank 2, generators (176,9248),(546,3402). Same Q-class as E_-17; rank>=2 already published.",
+      "title": "LMFDB 69360.n2",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/69360.n2/"
+    },
+    {
+      "finding": "j=272223782641/164025 search yields 163 twists including 8 rank-2 twists (27075.f2,69360.n2,167445.e2,etc.). Family ranks tabled conductor-ordered.",
+      "title": "LMFDB j-invariant twist search rank 2",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/?jinv=272223782641%2F164025&rank=2"
+    },
+    {
+      "finding": "Database contains all curves conductor <500000 plus 7-smooth/prime extensions. Fallback max 15*100^2=150k (odd coprime 141135) inside range.",
+      "title": "LMFDB Completeness",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/Completeness"
+    },
+    {
+      "finding": "Asymptotic Delaunay distribution and o(N) rank>=2 for full-2-torsion twists; no explicit |d|<=200 table. Not anticipating per-twist ranks, but LMFDB does.",
+      "title": "Smith arXiv:1702.02325",
+      "url": "https://arxiv.org/abs/1702.02325"
+    },
+    {
+      "finding": "Height-ordered positive proportion rank one; not twist-ordered census.",
+      "title": "Bhargava-Skinner arXiv:1401.0233",
+      "url": "https://arxiv.org/abs/1401.0233"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed y2=x(x-9d)(x-729d) squareness for all pts_pos/neg/deep entries: all True; all 64 nontorsion infinite entries on-curve, zero bad.",
+    "Exhaustively recomputed 24P!=O with independent Fraction add/doubling for all 64 infinite entries: zero fails; verified Mazur exponent divisibility (2,4,6,8 |24) and full 2-torsion models; verified d=-1 points killed at 4.",
+    "Independently recomputed sqf/sqfmul via sympy factorint and empirical torsion cosets tors_emp (P0+Ti quotient, 4 distinct + closure) for d=-17,38,91,-65,-77: all 16 distinct, PASS.",
+    "Enumerated squarefree |d|<=100 signed count =122, matches dlist.json; union of point-bearing d =41 including -1 torsion-only, so rank>=1 found =40 not 39; nontorsion.json covers only 34 d, 6 deep d uncertified in artifacts though independently nontorsion.",
+    "Mapped -68=-17*4 square equivalence to prove 69360.n2 anticipates E_-17 rank>=2; bounded twist conductors (15*97^2=141135) to prove fallback inside LMFDB <500k, refuting beyond-completeness claim.",
+    "Inspected rank2emp.py/indep.py hardcoded /research/ absolute paths, breaking documented output/artifacts replay."
+  ],
+  "residual_risks": [
+    "No Sage/Magma for independent rank upper bounds; not needed for lower-bound falsification but full closure not independently attempted.",
+    "Did not fetch all 122 LMFDB twist pages individually; decisive witness (-17) plus conductor-bound argument suffices for originality failure, but exhaustive per-twist LMFDB rank cross-check not logged.",
+    "sympy factorint trusted for squarefree kernels; independent reimplementation agrees with candidate code but shares same number-theoretic homomorphism assumption (standard for full-2-torsion 2-descent).",
+    "Smaller-|d| rank-2 twist with large height missed by search remains possible (candidate honestly disclaims global minimality); does not affect REJECT."
+  ],
+  "verdict": "REJECT"
+}
