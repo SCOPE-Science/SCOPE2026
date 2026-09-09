@@ -1,0 +1,56 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Strongest headline (DRAFT Thm Sec.4, N=2): eta=eps*L>=150 => Ent<0.02, TV<0.1 to product, Monge-tube mass <0.11 at d/L=0.1; eps*rs>73.9 suffices. Verified chain: (1) Lemma1 existence/uniqueness via narrow compactness of Pi on compact Q_L^2, l.s.c. of C=sup_M int c_M with c_M=min(c,M) continuous (value M on diagonal), l.s.c. + compact sublevels + strict convexity of relative entropy, finite competitor product => attainment + uniqueness. Sound; full Gamma-convergence explicitly NOT claimed (Sec.2 Remark honest). (2) Lemma2 C>=1/(sqrt3 L): |x-y|<=sqrt3 L a.e. => c>=1/(sqrt3 L). Enclosure 1.732^2=2.999824<3<3.003289=1.733^2 => 1/sqrt3>1/1.733=0.57703...>0.577 verified (1.733*0.577=0.999941<1). Correct. (3) Lemma3 I_L<=3.571/L: for fixed x, int_Q1 dy/|x-y| <= int_{|z|<a} dz/|z|+1/a =2*pi*a^2+1/a via subset inclusion; at a=1/2 gives pi/2+2 <3.142/2+2=3.571 using pi<3.142. Scaling I_L=I_1/L correct. Finite product cost justifies entropic existence. (4) Entropy bound S<=(I_L-Cmin)/eps=G1/eta with G1<2.99397<3 verified; at eta>=150 S<0.01996<0.02; Pinsker TV<=sqrt(S/2)<0.0999<0.1 (0.1^2*2=0.02>0.01996) with TV as sup-deficit, consistent with coupling bound gamma(U)<=prod(U)+TV. Correct. (5) Tube: prod(U_{d,T})<=(4/3)pi(d/L)^3 uniformly in T via ball-volume cap (intersection only smaller); at 0.1 gives 0.004189...<0.0042; +TV=0.10408...<0.11 verified. Since gamma_T(U)=1, TV-distance >=0.89 correct. (6) rs conversion: L^3/2=4/3 pi rs^3 => f2=(8pi/3)^{1/3}; 2.03^3=8.365427<8*3.14/3=8.37333 and 8*3.142/3=8.37866<8.40257=2.033^3 => f2 in [2.03,2.033] verified; 73.9*2.03=150.017>150 so eps*rs>73.9 suffices. Arithmetics replayed; compute_bounds.py asserts pass; Monte-Carlo labeled illustration only and unused in proofs. No proof/computation error. Boundary conditions (null diagonal, scaling, units eta dimensionless) handled.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors checked substantively; none states or mechanically implies the numeric one-cell diffuse certificate eta>=150 / eps*rs>73.9 with TV<0.1 and uniform Monge-tube <0.11 for N=2 uniform cube Coulomb: (i) Friesecke-Gerolin-Gori-Giorgi review arXiv:2202.09760 formulates SCE as Coulomb multi-marginal OT, surveys solubles/approximations/numerics, no entropic diffuse threshold; (ii) Cotar-Friesecke-Kluppelberg smoothing/HK->SCE semiclassical limit gives plan-smoothing technique but no explicit rs/eta density regime; (iii) Seidl et al. arXiv:1702.05022 shows radial co-motion not always optimal, leaves deterministic/Monge existence open, no quantitative threshold; (iv) Gerolin-Grossi-Gori-Giorgi arXiv:1911.05818 uses entropic SCE for kinetic-correlation functionals at large coupling, not a crystallization-vs-diffuse density certificate with tube exclusion; (v) Lewin-Lieb-Seiringer arXiv:2203.12473 improves LO constant to 1.58 (lower 1.44) but no entropic-crystallization regime. Draft Sec.8 boundary is accurate that none implies its constants. Generic entropic-OT folklore (eps->inf => product) does not state this Coulomb-cube numeric bound. Hence literally new as a numeric instantiation. PASS on novelty of exact stated numbers, leaving textbook-generality concern to value axis.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Headline judged alone, honestly delimited as one-sided N=2 diffuse lemma (full rs* crystallization, N-marginal reduction, Gamma recovery all explicitly open) \u2014 honesty does not rescue value. FAIL as textbook restatement + arbitrary-scope loose sufficient condition, not an exact invariant worth retrieving: (1) Proof is generic 3-line Pinsker argument applicable to any cost with finite product cost + pointwise lower bound: V_eps<=I, S<=(I-Cmin)/eps, TV<=sqrt(S/2). No Lieb-Oxford constant (1.58) used despite brief; lower bound is trivial diameter 1/(sqrt3 L), not LO-type density bound; product cap pi/2+2 at arbitrarily chosen a=1/2 with crude pi<3.142 is far from sharp (replayed MC mean ~1.883 vs cap 3.571, interval [1.877,1.890] inside [0.577,3.571]); tube cap is crude ball volume. (2) Thresholds eta>=150, tau=0.1, d/L=0.1, TV<0.1/<0.11, 73.9 are arbitrary sufficient-condition artifacts, not intrinsic exact order/constant/witness; varying tau/d gives continuum of equally trivial bounds. Mechanically implied once gap is bounded; future researcher needing diffuse control would re-derive sharper bound in minutes, not retrieve 150/73.9. (3) No transferable crystallization obstruction: N=2 symmetrization vacuous, no exchange-symmetric 2-body reduction proved, no lattice ansatz upper bound, no two-point symmetry-breaking witness beyond ball volume, no Gamma-convergence, regime is regularization-dominated (large eps*L) not low-density Wigner order. Falls under STANDARD reject categories: textbook Pinsker instantiation, mere parameter substitution (Coulomb cube plugged into generic bound), arbitrary slice of (tau,d/L) choices, certification of loose numbers does not rescue per instructions. Narrow-datum allowance does not apply because value is mechanically implied, not exact, and not reasonably needed later.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Review derives SCE as Coulomb multi-marginal OT, surveys rigorous results/approximations/numerics; no entropic diffuse threshold with tube witness.",
+      "title": "The strong-interaction limit of density functional theory",
+      "url": "https://arxiv.org/abs/2202.09760"
+    },
+    {
+      "finding": "Proves HK->SCE limit via smoothing of plans; semiclassical technique nearby but no explicit eta/rs crystallization-vs-diffuse threshold.",
+      "title": "Smoothing of transport plans with fixed marginals and rigorous semiclassical limit of the Hohenberg-Kohn functional",
+      "url": "https://arxiv.org/abs/1706.05676"
+    },
+    {
+      "finding": "Radial co-motion maps not always optimal yet near-optimal; deterministic/Monge 3D existence explicitly open; no uniform-density threshold.",
+      "title": "The strictly-correlated electron functional for spherically symmetric systems revisited",
+      "url": "https://arxiv.org/abs/1702.05022"
+    },
+    {
+      "finding": "Entropic SCE for kinetic-correlation approximations at large coupling, not an rs*/eta diffuse certificate with Pinsker+tube exclusion.",
+      "title": "Kinetic correlation functionals from the entropic regularisation of the strictly-correlated electrons problem",
+      "url": "https://arxiv.org/abs/1911.05818"
+    },
+    {
+      "finding": "LO constant 1.58 (improved from 1.64, lower 1.44), HF reduction 1.25; correlation-bound tool not used in draft's diameter bound.",
+      "title": "Improved Lieb-Oxford bound on the indirect and exchange energies",
+      "url": "https://arxiv.org/abs/2203.12473"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed sqrt3 enclosure, 1/sqrt3>0.577, product cap 3.571, gap 2.99396<3, threshold 149.698<150, S=0.01996 TV=0.09989<0.1, tube 0.004189 tube+TV 0.10408<0.11, f2 in [2.03,2.033], 73.9*2.03=150.017>150 \u2014 all pass.",
+    "Verified Lemma3 splitting int<=2*pi*a^2+1/a and scaling; Lemma2 null-diagonal handling; Lemma1 c_M continuity and entropy compact-sublevel attainment; Pinsker normalization vs TV coupling inequality consistent.",
+    "Inspected inputs/artifacts/compute_bounds.py + results.json: deterministic asserts replay constants; Monte-Carlo M=4e5 mean 1.883 SE 0.00224 consistent inside bounds, correctly labeled non-proof.",
+    "Confirmed originality gap: none of 5 live sources states eta>=150/eps*rs>73.9 TV/tube certificate; draft Sec.7-8 honestly marks crystallization side, general N, Gamma recovery as open \u2014 incomplete census not misrepresented.",
+    "Value test: identified genericity (product competitor + diameter + Pinsker + ball volume), arbitrary tau=0.1/d/L=0.1/a=1/2 choices, far-from-sharp gap, absence of LO constant / Gamma / N-marginal / lattice witness \u2014 textbook instantiation with arbitrary scope."
+  ],
+  "residual_risks": [
+    "Pi enclosure 3.140<pi<3.142 taken as classical certified bound without re-proof; standard but external.",
+    "TV convention (sup vs L1) verified consistent but future readers must preserve same normalization for Pinsker constant.",
+    "True sharp V0 and I1 for uniform cube (~1.88 product) not established; loose bounds suffice for correctness but underscore non-sharpness for value."
+  ],
+  "verdict": "REJECT"
+}
