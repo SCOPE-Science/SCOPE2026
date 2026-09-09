@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** An effective Pila-Wilkie to Zilber-Pink threshold for atypical curves in the Legendre-square Kuga family
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 430
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Model Theory
+- **Method:** o-minimal Pila-Wilkie counting transferred to Diophantine geometry via Ax-Schanuel functional transcendence and Galois-orbit lower bounds
+
+## Problem
+
+Transfer o-minimal counting to an unlikely-intersection fragment for the Legendre-square Kuga family M=E x_S E over S=Y(2): with R_an,exp-definable fundamental-domain block, Pila-Wilkie upper bound, Gao mixed Ax-Schanuel, and a Galois-orbit lower bound, prove finiteness of the atypical locus above an explicit threshold T0 for dominating curves, or isolate the precise counting-threshold obstruction where the transfer breaks.
+
+## Attempted claim
+
+Let M=E x_S E be the relative square of the Legendre elliptic family over S=Y(2) (Kuga-type mixed Shimura variety). There exist explicit effectively computable constants C0, kappa>0 and eps0=1/12 such that for every irreducible curve C in M defined over Qbar, dominating S, of degree <=4 and not contained in any proper special subvariety, with Gao mixed Ax-Schanuel as transcendence input: (i) the R_an,exp preimage block satisfies N(Z_C^{trans}(T)) <= C0 T^{eps0}, (ii) every maximal atypical point of complexity >=T carries Galois orbit >= c1 T^kappa with kappa>eps0, hence (iii) C contains only finitely many maximal atypical special points of complexity > T0(deg(C),h(C)) with total bound B(deg,h) stated explicitly; the exponent comparison is the checkable witness.
+
+## Research outcome
+
+Full target claimed: explicit Pila-Wilkie to Zilber-Pink threshold (eps0=1/12, kappa=11/12, T0=((M0 C0)/c1)^{6/5}, B<=C_Bez T0^5) for degree<=4 dominating curves in the Legendre-square Kuga family, proved via effective semi-rational counting + Gao mixed Ax-Schanuel + two Galois-orbit inputs, with honest proof-vs-citation separation and reproducible in-lane checks.
+
+## Why this attempt failed
+
+Failed axes: correctness.
+
+correctness: Route is TARGET per research_report.claim_route; auditing normally with no preset-value presumption. Headline claims (i) N(Z_C^trans(T))<=C0 T^{1/12}, (ii) orbit>=c1 N^{11/12}, (iii) explicit T0(deg,h),B(deg,h) with T0=max(T_triv,((M0 C0)/c1)^{6/5}), B<=C_Bez T0^5. Proof not completed as stated: (a) Projective embedding of M never fixed, so 'deg<=4', Bezout degrees deg(M[N])<=C_M N^4, Chow-height d0-vs-(deg,h) bound, and *-degree poly_F(deg+D0) are undefined; Limitation 2 admits the (deg,h)->d0 inequality is 'not re-proved', so c1=min(1/(2d0),c_Gao) and hence T0/B are not proved as functions of (deg,h) alone. (b) C0(deg)=J*C*(F0,eps0)*(D0+C_eq deg)^Gamma is symbolic with unevaluated oracles C*,Gamma,J,D0,C_eq,c_Gao,C_M; DRAFT Sec.8.1 and counting_lemma.py (Cstar=1e6,D0=50,Gamma=8) state numbers are 'shape illustrations only'/'template consts' with placeholder unwinding constants; full BJST Sec.2-4 unwinding 'not done in one hour'. No numeric C0, T0, B is established. (c) One-compact-box reduction via S3-orbit plus Tate cusp boxes: cusp uniformity and multiplicity J 'absorbed, not replayed' (Limitation 3); F_K compactness grid samples j(K) only, no Pfaffian-domain closure proof for thickening B=F_K x [-delta,1+delta]^4. (d) Applicability of BJST Thm 4.5/Cor 4.6 to semi-rational counting on Z_C via [24,Thm 1] format c1(g),c2(g) is quoted, not verified; quoted text not included in artifacts; *-format/degree chain, semi-rational height definition ('blocks (resp. distinct projections)') and trans-part membership of conjugates are asserted. Step A/B bookkeeping conflates blocks vs points and absorbs M0 without proving distinct conjugates give distinct counted blocks. (e) O2 orbit N/(2d0) uniformity over ALL lambda including CM/j=0,1728/cusps unproved; bad-specialization absorption in T_triv=N_bad unproved; BJST Lemma 5.20/[30]+[28] statement not reproduced. O1 c_Gao(11/12,2) unevaluated. In-lane evidence proves only trivialities: run_counting.log grid max|j(K)|~3906 and run_orbit.log N/(2d)>=N^{1/12} for N>=3 (elementary algebra N^{11/12}>=2), re-ran OK, but these are not the load-bearing effectivity. Honest Limitations Sec.8 separate cited theorems from in-lane computation, but the load-bearing constants remain oracles. Hence (i)-(iii) with explicit T0,B is a proof sketch/assembly, not a proof. Experimental illustration distinguished from proof.
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; address the recorded limitation: C0, c_Gao, C_M, C_eq, J explicit as computable functions (fixed Turing machines from cited effective theorems); numerical values not fully unwound in one hour (artifact numbers are shape illustrations). c1,T0 depend on K0 via d0=[K0:Q], packaged as T0(deg,h) via Chow-height comparison (inequality not re-proved). Cusp Tate-box uniformity + S3-cover multiplicity absorbed, not replayed. All inputs are theorems (nothing conjectural); gaps are numerical-effectivity, not logical.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
