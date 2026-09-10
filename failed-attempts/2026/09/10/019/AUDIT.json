@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently replayed from committed adjacency lists with stdlib Python (no trust in candidate scripts). H: 15 vertices, symmetric adjacency, all degrees 8 (8-regular, 60 edges); exhaustive center-plus-triple scan finds no claw; C(15,3) scan finds 0 independent triples so alpha=2; K6 exhibited on F0+F1 {0..5} and C(15,7) scan finds no K7 so omega=6 exactly; committed 8-coloring has 0 edge conflicts so chi<=8, combined with chi>=ceil(15/2)=8 gives chi=8 by exact integer arithmetic (no UNSAT relied upon; timed-out DSATUR honestly excluded). All 15 deletions H-v verified: each committed 7-coloring has 0 conflicts, each retains max-degree 8 and contains a K6, and each has a non-edge so chi>=2 (upper bound 7 is what drops chi). Q: 13 vertices, all degrees 8, symmetric; C(13,3) scan finds 0 independent triples so alpha=2 (hence claw-free analytically); K4 (0,1,2,3) exhibited, C(13,5) scan finds no K5 so omega=4; committed 7-coloring 0 conflicts + ceil(13/2)=7 gives chi=7; all 13 deletions verified 6-colorable with 0 conflicts and retain Delta=8/omega=4. Deduction alpha=2 => claw-free is a one-line proof (alpha(K1,3)=3). Boundary conditions (Delta exactly 8, omega<=6/<=4, chi exactly 8/7) all checked exactly.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Route is TARGET (report declares claim_route TARGET satisfying the target's witness disjunct). The headline witness H=C5[K3]=C5 boxtimes K3 with (Delta,omega,chi)=(8,6,8) and alpha<=2 is verbatim prior art, not a new existence claim. Cranston-Rabern exposition (arXiv:1305.3526 / Graphs with chi=Delta have big cliques) explicitly constructs 'five disjoint copies of K3 ... adding edges ... i-j=1 mod 5' and states '8-regular with omega=6 and chi>=15/2=8 ... so chi=8' -- that is exactly H. Open Problem Garden BK page states 'requirement Delta>=9 is necessary, as one can see by looking at the strong product of C5 and K3'. Recent BK correspondence-coloring paper (arXiv:2603.14427v1) states 'C5 boxtimes K3 ... is 8-regular and has clique number 6, yet chromatic number 8 (since |V|=15 and every independent set has size at most two). This shows Delta>=9 is necessary.' Christofides-Edwards-King (arXiv:1109.3092) cites C5 boxtimes K3 as the tightness example for BK and Reed. Since priors record alpha<=2 ('each color used on at most 2 vertices' / 'independent set at most two'), claw-freeness (alpha<3=alpha(K1,3)) is a mechanically implied one-liner, not a substantive new observation. Hence the refutation 'not every (claw-free) Delta=8 omega<=6 graph is 7-colorable' was already implied by the canonical sharpness example plus one line. The added '8-vertex-critical' packaging (explicit H-v 7-colorings retaining Delta/omega) is a routine 14-vertex coloring check, not a new theorem, and does not create priority. DRAFT itself concedes 'C5 boxtimes K3 ... BK literature cites C5 boxtimes K3 as showing Delta>=9 hypothesis is necessary ... The graph H itself is therefore not claimed as new.' Admission's PASS missed this because it searched exact cell phrasing ('claw-free Delta 8') instead of recognizing the canonical example is itself claw-free. A failed search does not establish priority. Q=Circ(13;{1,2,3,5}) does not rescue headline originality.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Correct but textbook restatement with mechanically implied qualifier. The retrieval value of '(8,6,8) needs Delta>=9' is already captured by the BK-sharpness citations above; adding 'and alpha=2 so claw-free' plus routine deletion colorings contributes no new reusable lemma, criterion, or boundary: general BK literature already teaches Delta>=9 is necessary via this exact graph, and Reed value ceil((8+1+6)/2)=8 tightness on H is likewise cited as known. This is the policy's 'textbook restatement / mere parameter substitution / unexplained enumeration' exclusion even if verified. Vertex-critical certificates are exact but routine verifications of a known object, not a motivated unknown invariant: the object and triple were known before computation, and the extra criticality check is not a future-research bottleneck. Does not meet the narrow-datum rescue (motivated before computation, not known/mechanically implied) because the datum was known and claw-freeness is mechanically implied.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract proves every claw-free G without a clique on Delta>=9 vertices is (Delta-1)-colorable; Delta=8 explicitly excluded. Establishes proved range but not the witness.",
+      "title": "Coloring claw-free graphs with Delta-1 colors -- Cranston & Rabern (arXiv:1206.1269 / SIAM JDM 27, 2013)",
+      "url": "https://arxiv.org/abs/1206.1269"
+    },
+    {
+      "finding": "Explicitly constructs H: 'five disjoint copies of K3 ... i-j=1 mod 5. This graph is 8-regular with omega=6 and chi>=15/2=8 ... so chi(G)=8.' Verbatim (Delta,omega,chi)=(8,6,8) plus alpha<=2 argument.",
+      "title": "Graphs with chi=Delta have big cliques -- Cranston & Rabern (arXiv:1305.3526)",
+      "url": "https://arxiv.org/abs/1305.3526"
+    },
+    {
+      "finding": "States Delta>=9 necessary 'as one can see by looking at the strong product of C5 and K3.' Canonical sharpness attribution.",
+      "title": "The Borodin-Kostochka Conjecture -- Open Problem Garden (King posting)",
+      "url": "https://www.openproblemgarden.org/op/the_borodin_kostochka_conjecture"
+    },
+    {
+      "finding": "States 'C5 boxtimes K3 ... is 8-regular and has clique number 6, yet its chromatic number is 8 (since |V|=15 and every independent set has size at most two). This shows Delta>=9 is necessary.'",
+      "title": "On Borodin-Kostochka conjecture for correspondence coloring (arXiv:2603.14427v1)",
+      "url": "https://arxiv.org/html/2603.14427v1"
+    },
+    {
+      "finding": "Cites 'C5 boxtimes K3 ... as proof of tightness of the Borodin-Kostochka conjecture, Reed's conjecture' and characterizes strong products of odd holes and cliques.",
+      "title": "A note on hitting maximum and maximal cliques with a stable set -- Christofides, Edwards, King (arXiv:1109.3092)",
+      "url": "https://arxiv.org/abs/1109.3092"
+    }
+  ],
+  "decisive_checks": [
+    "Recomputed degree sequences from artifacts: [8]x15 (H) and [8]x13 (Q); adjacency symmetric.",
+    "Exhaustive claw scan (every center, all neighbor triples): no claw in H or Q; C(n,3) independence census: 0 independent triples so alpha=2 exactly (non-edge exhibited).",
+    "Clique census: H has K6 {0..5}, no K7 over C(15,7); Q has K4 (0,1,2,3), no K5 over C(13,5); omega=6/4 exact.",
+    "Edge-by-edge coloring verification: H 8-coloring 0 conflicts + ceil(15/2)=8 gives chi=8; Q 7-coloring 0 conflicts + ceil(13/2)=7 gives chi=7.",
+    "All single-vertex deletions rechecked: 15x H-v 7-colorings and 13x Q-v 6-colorings each 0 conflicts; each deletion retains Delta=8 and omega (K6/K4 present).",
+    "Prior-art textual match: H triple and alpha<=2 reasoning found verbatim in Cranston-Rabern exposition and BK sharpness citations; alpha<=2 => claw-free is immediate, so witness disjunct mechanically implied."
+  ],
+  "residual_risks": [
+    "Q=Circ(13;{1,2,3,5}) novelty not fully censused, but irrelevant since headline H fails originality and overall verdict is REJECT.",
+    "Whether Cranston-Rabern 2013 claw-free paper itself names C5[K3] as claw-free Delta=8 obstruction was not text-verified (ar5iv conversion failed); audit relies on the strictly stronger fact that general-BK sources publish the exact triple plus alpha<=2, which already implies the claw-free refutation.",
+    "No independent SAT/ILP chi-lower-bound check beyond alpha-counting was needed; alpha-counting is exact and sufficient here."
+  ],
+  "verdict": "REJECT"
+}
