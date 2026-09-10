@@ -1,0 +1,72 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed verify_triple.py exit 0: S1 UB 0.00702, S2 UB 0.00669, S3 UB 0.00947 <=0.01 confirmed (S2 cancellation dx+0.5dy=sqrt(5)/2 dB verified analytically; random-pair search sups 0.0065/0.0024/0.0090 consistent). Junction witness pairs sympy-exact 0.044960/0.012223/0.010849 >0.01 confirmed. Small-ball grid ratio 1.7320 on B_0.05/B_0.02 confirmed. BUT three essential inferences fail: (1) Overlap>=3 forcing is false as stated. Pi tail packets are pairwise disjoint, each Pi subset Si hence (phi,0.01)-flat, so {P1,P2,P3} is itself a disjoint flat cover of P1uP2uP3 with overlap 1. Junction pairs (e.g. (0,0.5) and wpt(-0.10,0)) lie outside Pi, so they prove Si-unions non-flat, not that Pi cannot be disjointly covered. Any union of crossing strips can be partitioned into small flat squares with overlap 1. (2) Ratio scale mismatch: decoupling constant D(delta) requires ball radius delta^-1=200 for delta=0.005; ratio proved only at r<=0.05 where ANY 3 disjoint packets give sqrt(3) by coherence (trivial, mechanically implied). At required scale the report's own MC shows decay to 0.9765<sqrt(3/2). So no decoupling lower bound proved. (3) Fan-rigidity logic fallacy: Sec6a infers non-flatness from general-pair UPPER bound exceeding budget (0.016-0.039>0.01); UB>budget proves nothing (S2 itself has loose UB 0.0393 yet is flat, per T1rot off=0 row). Only endpair lower bounds count, and they pass (flat) for off 0-15deg. Hence 'no transverse fan exists' not proved. (4) Maximality overclaimed: only listed dilations checked, not all; 'maximal' unproved. Large-ball 'washout proof' is seed-7 Monte Carlo (n=60000 in huge oscillatory ball), i.e. experimental evidence, not proof, yet presented as killing TARGET leg. Honest limitations are stated but headline inferences still asserted.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused live retrieval (SerpBase 10 + OpenAlex 15 + Crossref 15 per query, all providers ok, no partial) over (a) literal triple+sqrt(3/2), (b) perturbed-saddle flat-cap lower-bound/null-ruling equivalents, (c) GMO log-overlap dominance found no prior BMV triple witness or N=3 ratio. Nearest sources checked: GMO Thm 2.2 is O(log)-overlap SUFFICIENCY with delta^-eps, App.5 is qualitative partition-insufficiency for unperturbed saddle with no triple/ratio; BMV is linear restriction only; Bourgain-Demeter elliptic/cone explicitly false for hyperbolic; Guo et al quadratics exclude genuine cubic. See decisive_checks for adversarial encodings/databases. Hence exact coordinates/ledger not previously recorded. PASS on novelty alone; this does not rescue correctness/value.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING judged under ordinary full value standard with no presumption. Strongest headline (committed-scale triple + sqrt(3) on B_0.05) is not independently worth retrieving: (a) Scale delta*=0.005, A0=2, H=0.007, a=0.10/b=0.004 etc. are arbitrary committed numbers, admitted NOT the literature-pinned c3^2=1/9, GMO A0, theta0=33.08deg, B_9 (S1-S3 separation 14.04deg<33.08deg). (b) Flatness of three sufficiently small crossing strips through a point follows from continuity (D=dx dy+uy dy^2+dy^3/3 ->0 as diameter->0); the tight UBs are replayable arithmetic, not a new obstruction. (c) Ratio sqrt(3) on B<=0.05 is mechanically implied for any N=3 disjoint packets on a sufficiently small ball (coherence), not a decoupling gain; the decoupling-scale ratio fails by the report's own washout curve. (d) Negative companions (rigidity/washout/literal-no-go) are failure logs from fallacious UB reasoning and seed-7 MC, not citable obstructions; they close off only the authors' own shape family/route, explicitly 'not for all shapes/f'. Hence textbook continuity + trivial small-ball coherence + arbitrary-scope enumeration + unexplained numbers, even though correct at committed scale and new. A rigorously established exact invariant of a natural object can pass value, but here the invariant (decoupling overlap) was not established at the motivated scale/ball, and the value that was established is known/mechanically implied.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Thm 2.2 O(log)-overlap sufficiency with delta^-eps; App.5 qualitative partition-insufficiency for unperturbed saddle, no triple/ratio; Conj 1.6 open. Does not imply lower bound.",
+      "title": "l2 decoupling theorem for surfaces in R3 (Guth-Maldague-Oh, arXiv:2403.18431v2 / APDE 2026)",
+      "url": "https://arxiv.org/abs/2403.18431"
+    },
+    {
+      "finding": "Phase xy+gamma y^3/3, linear restriction p>3.25 via partitioning; no l2 decoupling, no flat-overlap analysis, no packet ratio.",
+      "title": "A Fourier restriction theorem for a perturbed hyperbolic paraboloid (Buschenhenke-Muller-Vargas)",
+      "url": "https://arxiv.org/abs/2003.01619"
+    },
+    {
+      "finding": "Sharp l2 decoupling for positive-definite hypersurfaces and cone only; false for hyperbolic paraboloid, leaving perturbed-saddle necessity open.",
+      "title": "The proof of the l^2 Decoupling Conjecture (Bourgain-Demeter)",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n1-p09-p.pdf"
+    },
+    {
+      "finding": "Sharp decoupling for tuples of quadratic forms via Brascamp-Lieb; excludes genuine cubic, no implication for BMV cell.",
+      "title": "Decoupling inequalities for quadratic forms (Guo-Oh-Zhang-Zorin-Kranich, arXiv:2011.09451)",
+      "url": "https://arxiv.org/abs/2011.09451"
+    },
+    {
+      "finding": "Fused top-20: no BMV triple, no sqrt(3/2)/sqrt(3) flat-triple ratio, no log-overlap lower bound; remaining hits are unrelated wave-packet physics/engineering.",
+      "title": "scope_literature_search fused results (3 queries, all providers ok, no partial)",
+      "url": ""
+    }
+  ],
+  "claim_route_assessment": "Report declares EMERGENT_FINDING. Discovery context (TARGET j=3 base case pursued at committed computational scale with recovery probes) is credible and genuinely arose from target investigation, not an unrelated substitution. However scale pins were changed (0.005 vs c3^2=1/9, A0=2 vs GMO constant, 14.04deg vs 33.08deg, B_0.05 vs B_9/B_200) and literal fallback declared NOT_WORTH_PURSUING after three bounded repairs failed. Hence no preset-fallback value presumption attaches; audited under ordinary full correctness/originality/value standard with no relaxation, as done above.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "GMO Thm 2.2 proves every function can be decoupled with O(log) overlap (sufficiency); App.5 proves some function needs overlap>1 (partitions fail) for unperturbed saddle; App.7 sharpness is p-range 2-4; App.6 is higher-dimensional impossibility. BMV Thm 1.1 is linear restriction. Bourgain-Demeter and Guo et al cover disjoint curvature classes. None states a triple of explicit maximal flat rectangles through one BMV point with ratio >=sqrt(3/2), let alone at delta=0.005/B_0.05.",
+      "search": "Dominance query 'GMO Conj 1.6 log overlap necessity decoupling lower bound hyperbolic paraboloid sharpness' + full-text GMO/BMV checks via admission + fused results ranks 1-4, 11.",
+      "why_not_cover": "Stronger/broader theorems are all upper bounds or wrong curvature; a lower-bound triple with ratio does not follow mechanically from sufficiency (upper-bound family R_delta does not imply necessity). App.5 rules out overlap 1 qualitatively but exhibits no BMV perturbed triple, no energy ratio, no sqrt(3/2). No broader census subsumes the committed-scale triple as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Triple coordinates, sympy-exact junction/maximality ledger values (0.044960/0.012223/0.010849; dilations >0.01), UBs 0.00702/0.00669/0.00947, small-ball ratio 1.7320 appear in none of GMO/BMV/Bourgain-Demeter/Guo or fused hits. Prior works contain no N_cell/N_wall log that implies them.",
+      "search": "Compared theorem hypotheses/conclusions literally (not titles/embeddings): GMO overlap/eps-loss hypotheses are sufficiency; BMV hypothesis is restriction; elliptic/quadratic hypotheses exclude cubic cell by definition.",
+      "why_not_cover": "Claim is not a recomputation, certificate, corollary, or repackaging of a known stronger fact: lower bounds do not follow from crude fixed-scale upper bounds, and sup-norm flatness at balance scale plus closed-form ratio required new (if routine) computation. Originality PASSES for this reason; correctness/value fail on independent grounds above."
+    },
+    "equivalent_formulations": {
+      "evidence": "No hit on literal 'xy+y^3/3 triple flat rectangles sqrt(3/2)', and no hit under synonyms: saddle=hyperbolic paraboloid=xy surface; flat rectangles=caps/boxes; l2=(l^2,L^p) decoupling; extension E_BMV; Hessian null vectors w_xi,v_xi; null rulings; overlapping caps. Fused query-0 hits were pure noise (Bloch/billiard/box wave packets, FERgram); query-1/2 hits were exactly GMO/BMV/small-cap sources above.",
+      "search": "Three consolidated scope_literature_search queries: (a) literal triple+ratio, (b) perturbed-hyperbolic flat-cap lower-bound/null-ruling/cubic-perturbation equivalents, (c) GMO log-overlap dominance; SerpBase/OpenAlex/Crossref all ok.",
+      "why_not_cover": "No synonymous-notation, dual/complement/incidence-graph/matrix/algebraic recoding of the triple exists in the candidate set. Hessian-null language in the draft is itself a misnomer (det Hessian=-1, no null vector; w is the direction with w0+uy w1=0 at y=1/2), so no prior null-vector encoding covers it either."
+    },
+    "exact_database_or_table": {
+      "evidence": "No specialist table, census, or database (OEIS-style decoupling tables, Kreuzer-Skarke-type censuses, SCOPE resultary SCOPE010/SCOPE018/SCOPE038) lists a BMV flat triple or sqrt(3/2) ratio. Internal prior scan already distinguishes SCOPE010 (D=3 wall datum R=100 p=3.25), SCOPE018 (fold-degenerate K=0 L^7/2 obstruction), SCOPE038 (elliptic 64-cap bush): different objects, norms, scales.",
+      "search": "Fused retrieval + admission database check + internal SCOPE success/failure scan (resultary_hits/failure_gate) for exact parameter/object rows.",
+      "why_not_cover": "Exact committed parameters (delta=0.005, budget 0.01, S1=[0,1]x[0.4965,0.5035], a=0.10/b=0.004, c=0.085/e=0.004, B_0.05) appear nowhere prior; no table row implies them. Novelty is genuine but the parameters are arbitrary committed choices, which goes to value failure, not originality failure."
+    }
+  },
+  "residual_risks": [
+    "Flatness/junction/ratio numerics at committed scale verified; risk of hidden arithmetic error low (sympy-exact + independent random-pair recheck).",
+    "Value judgment relies on triviality of small-ball coherence and continuity-smallness; a future reader might still want the exact UB numbers as a worked example, but that is pedagogical, not retrievable research value.",
+    "Originality PASS rests on live retrieval + admission full-text checks; an obscure thesis/table with the same three strips cannot be logically excluded, but fused providers all returned ok with no partial gap."
+  ],
+  "verdict": "REJECT"
+}
