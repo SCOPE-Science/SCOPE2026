@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Low-index second-area-gap rigidity in S^4: index at most four and area below Clifford forces the equator
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 532
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Riemannian Geometry
+- **Method:** min-max minimal-surface theory with Morse-index bounds and curvature-pinching comparison
+
+## Problem
+
+Decide low-index second-gap rigidity for closed embedded minimal hypersurfaces in the round unit 4-sphere: does Morse index at most 4 together with area strictly below the Clifford hypersurface area force the hypersurface to be the equatorial 3-sphere, via an Almgren-Pitts min-max index bound combined with a Simons-type curvature-pinching comparison?
+
+## Attempted claim
+
+Every closed embedded minimal hypersurface Sigma^3 in the round unit 4-sphere S^4(1) with Morse index ind(Sigma) <= 4 and area(Sigma) < 16pi^2/(3sqrt(3)) is isometric to the equatorial 3-sphere (hence area 2pi^2 and index 1).
+
+## Research outcome
+
+TARGET claimed: proved the exact area-index rigidity (ind<=4 + area below Clifford forces the equator in round S^4) via a self-contained coordinate-function index gap (non-equator => ind>=6) plus machine-checked reference values (VERIFY_OK). Prior-art core (Simons/El Soufi) explicitly attributed; no overclaim of a new method.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: Strongest proven statement (non-equatorial closed embedded Sigma^3 in S^4 implies ind>=6) is classical prior art, admitted in DRAFT Remarks: Simons 1968 stability form plus El Soufi Compositio 85 (1993) Thm 2.2 (index 1 or >=n+2, i.e. >=6 for n=4). That prior implies TARGET with only the elementary area comparison equator 2pi^2 < Clifford area. A redundant area hypothesis plus machine certificate is presentation, not a new theorem or method. Admission triage omitted Simons/El Soufi, so its novelty finding carries no weight. TARGET is a corollary of prior art. value: Correct but textbook restatement with redundant hypothesis. The gap fact is important yet already retrievable from Simons/El Soufi; repackaging as ind<=4 plus area-below-Clifford adds no new extremal, method, or downstream use beyond the prior. No independent retrieval value as a new finding.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: The proof in fact shows the stronger index-only statement (ind<=4 alone forces the equator; area hypothesis redundant but consistent). The index-gap core reproduces the classical Simons/El Soufi gap (El Soufi, Compositio 85 (1993), Thm 2.2); originality of the submission is limited to the explicit area-index window packaging plus machine-checked certificate, as documented in DRAFT.md and WORKLOG.md. No claim is made about indices 5-6 beyond Clifford (index 6) or about removing embeddedness.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
