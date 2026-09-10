@@ -1,0 +1,88 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline is a pure-probability trilogy about M=N^2 i.i.d. standardized symmetric Pareto-4.5 variables at T*=N^{34/81}, w=N^{-5/9}. Checked each leg independently. (T1) PASS: B~Binomial(M,p), p=c0*T^{-4.5}, mu=c0*N^{1/9}, threshold 3N^{1/9} gives 1+d=3/c0=11.2586, K1=c0*((1+d)ln(1+d)-d)=4.52986; g(y)=K1*y-9ln y has minimum 2.82>0 at y=9/K1=1.987, re-ran verify_trilogy.py grid including N=2: T1_OK. (T3) PASS on stated route: Z=|x|1_{bad}; E[Z]=(9/7)c0 T^{-7/2} (k=1<4.5 finite), E[Z^2] has k=2<4.5 finite, E[Z^3] has k=3<4.5 finite (C=3c0 T^{-1.5}=0.799T^{-1.5}); third-moment expansion E[(sumZ)^3]=M E[Z^3]+3M(M-1)E[Z^2]E[Z]+M(M-1)(M-2)E[Z]^3<=1.33256 N^{129/81} uses only convergent moments; Markov against (N^{3/2}w)^3=N^{229.5/81} gives 1.33256 N^{-100.5/81}<=N^{-1} iff N^{19.5/81}>=1.33256, N0=4 sharp for majorant (3^{19.5/81}=1.3028<1.33256<=4^{19.5/81}=1.3962). (T2) FAIL fatally: proof sets Y=x^2 1_{bad} and claims E[Y^3]=3c0 T^{+3/2}=0.799 T^{1.5}. But Y^3=|x|^6 1_{|x|>T} corresponds to k=6>alpha=4.5, whose Pareto integral diverges: int_T^R 4.5 c0 t^{0.5} dt=3c0(R^{1.5}-T^{1.5})->infinity (R=10:19.7, 100:793.8, 1000:25273, 10000:799383). The formula C_k=4.5c0/|k-4.5| is valid only for k<4.5 (convergent upper tail); applying it at k=6 has no mathematical basis. Hence A2=4.36045 N^{231/81} and the N0=22 Markov chain are unproved; verify_trilogy.py only asserts the finite constants, it does not detect divergence. Consequences: the 'm=2 majorant 2.628 N^{-80/81} misses by N^{1/81}, third moments necessary and sufficient' comparison is invalid (m=3 object is infinite, not a tighter finite bound); 'N0 sharpness' for T2 refers to an invalid majorant. Correct finite-moment tools do not close the stated N0 on inspection: with only convergent EY=1.8c0 T^{-2.5}, EY2=9c0 T^{-0.5}, one-sided Chebyshev Var/ (thr-mean)^2 at N=22 gives 0.1001 > 1/22=0.04545; at N=100 gives 0.0168>0.01; at N=1000 gives 0.00125>0.001 (only N>=10000 passes). So T2 as stated is unproved and not repaired by the obvious finite-moment fallback. Monte Carlo (200k trials, exact Pareto sampler |X|=x_m U^{-1/4.5}) gives empirical P(sumY>Mw)=0.0078 at N=22 (below 0.045) and 0.00096 at N=100, so the inequality may be true, but that is experimental evidence, not proof \u2014 distinguished per audit standard. Calibration (xm^2=5/9, EX^2=1, EX^4=25/9, c0=0.2664629696, tau=37/81 identities) re-ran CALIBRATE_OK and is correct; criticality algebra tau_count=34/81 > tau_first=19/63 > tau_quad=2/9 is correct as algebra but inherits T2's unproved premise as a 'binding' claim. DRAFT Sec.5 is truncated ledger, not a proof of target/fallback. Report honestly disclaims target N^{-1/18} rate and fallback rigidity (good-matrix local law open). One of three headline legs is mathematically invalid; headline correctness FAILS.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Claim route is EMERGENT_FINDING (research_report.claim_route='EMERGENT_FINDING'). Discovery context (truncation/Lindeberg bookkeeping, tau=37/81 coincidence, E1 gap N^{103/162}, minute-30 rebalancing to T*=N^{34/81}) shares ensemble, window N^{-5/9}, and truncation architecture with the admitted target, so it genuinely arose from target lineage rather than a post-hoc substitute; absence from topic.json is therefore not adverse. Applied ordinary full originality standard with no presumption. Normalized headline to (a) literal trilogy inequalities at T*=N^{34/81}, (b) equivalent forms (Pareto alpha=9/2 tail, xm=sqrt(5)/3, binomial large-deviation / truncated-second-moment bounds, 34/81=0.41975), (c) dominance queries (quantitative TW rate at finite 4+eps moment, heavy-tail Wigner rigidity, sparse-matrix truncation). Searched Serpbase page-1 literal/equivalent forms (Pareto Wigner TW rate; 'Pareto Wigner 34/81'); OpenAlex+Crossref for 'quantitative Tracy-Widom rate finite fourth moment Wigner', 'Pareto Wigner edge universality', 'sparse large entry truncation Wigner heavy tail rigidity', 'Lee Yin necessary sufficient edge universality'. Union candidate set: Lee-Yin 2014 (qualitative iff s^4P->0, no rate), Schnelli-Xu CMP2022/EJP2023 (O(N^{-1/3+w}) rates under all-moments/subexponential assumptions), EYY 2010 rigidity (subexponential tails), Gotze-Naumov-Tikhomirov 2019 (fourth-moment local law; edge only 1-log^{-1} prob / 8th moment), Ruzmaikina 2006 (polynomial-decay edge universality, qualitative), Aggarwal 2016 (bulk with few moments), Lee-Schnelli sparse 2017. None states the exact 34/81 trilogy, constants c0/N0, or m=2/m=3 comparison; no table/database entry covers it. Tested failure modes: synonymous notation (alpha=4.5 vs 9/2), complement/encoding (rescaled entries sqrt(N)H_ij vs M=N^2 copies), broader theorem covering as special case (none implies explicit N^{-1} polynomial tail trilogy), recomputation of known stronger fact (no stronger fact implies it). Hence the specific inequalities/exponent are new as stated. Originality PASSES (novelty of statement; does not cure correctness/value defects).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING: no Admission conditional-value presumption; applied ordinary full value standard. Even if T2 were repaired, the trilogy is elementary i.i.d. Pareto tail calculus (tail integrals C_k T^{k-4.5}, binomial Chernoff, Markov on sums) with author-chosen thresholds (3N^{1/9}, w=N^{-5/9}, N^{-1} level) and elementary tau algebra ((2-1/9)/4.5=34/81). It proves no random-matrix statement: no bound on lambda_N, no rigidity, no TW rate; report explicitly disclaims target and literal fallback (good-matrix local law at support N^{34/81}-N^{37/81} remains open). The 'criticality/binding' proposition compares three linear inequalities, not a matrix phenomenon; the 'first explicit large-entry input' is a reusable tail estimate any researcher derives in minutes from the Pareto density, with constants tied to the chosen majorants rather than canonical invariants. This is textbook computation plus parameter-specific thresholds, not a new general theorem and not a motivated exact invariant whose precise value a future worker would need to retrieve (a different window/threshold recomputes trivially). Certification (verify_trilogy.py asserts constants) does not rescue an arbitrary threshold ledger per policy. An incomplete census honesty disclaimer does not erase the gap here because there is no independently valuable exact headline matrix result left standing \u2014 the strongest self-contained claim is the i.i.d. lemma itself. Intrinsic low value / missing substantive matrix result. Value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Qualitative edge universality iff s^4 P(|x|>=s)->0; no Kolmogorov rate, no explicit rigidity exponent. Pareto-4.5 lies in universal class but no quantitative bound stated or mechanically implied.",
+      "title": "A necessary and sufficient condition for edge universality of Wigner matrices (Lee-Yin, Duke 2014)",
+      "url": "https://doi.org/10.1215/00127094-2414767"
+    },
+    {
+      "finding": "O(N^{-1/3+w}) TW rate under Assumption 1.1 requiring all moments uniformly bounded; Pareto-4.5 (moments only <4.5) excluded; cumulant-expansion apparatus unavailable at 4+eps.",
+      "title": "Convergence Rate to the Tracy-Widom Laws for the Largest Eigenvalue of Wigner Matrices (Schnelli-Xu CMP 2022)",
+      "url": "https://doi.org/10.1007/s00220-022-04377-y"
+    },
+    {
+      "finding": "Generalized-Wigner quantitative TW extension; same strong-moment apparatus; no finite-(4+eps) rate.",
+      "title": "Quantitative Tracy-Widom laws for the largest eigenvalue of generalized Wigner matrices (Schnelli-Xu EJP 2023)",
+      "url": "https://doi.org/10.1214/23-ejp1028"
+    },
+    {
+      "finding": "Rigidity under uniform subexponential decay; polynomial Pareto tail violates assumption; no Pareto-4.5 polynomial rigidity stated.",
+      "title": "Rigidity of Eigenvalues of Generalized Wigner Matrices (EYY 2010)",
+      "url": "http://arxiv.org/abs/1007.4652"
+    },
+    {
+      "finding": "Fourth-moment local law; edge control only with 1-log^{-1} probability / stronger moments; does not imply N^{-1}-probability N^{-5/9} window.",
+      "title": "Local semicircle law under fourth moment condition (Gotze-Naumov-Tikhomirov 2019)",
+      "url": "https://arxiv.org/abs/1904.08723"
+    },
+    {
+      "finding": "Edge universality for polynomially decaying entries \u2014 qualitative universality only, no explicit 34/81 trilogy, no N^{-1} tail constants. Confirms heavy-tail edge universality is known qualitatively, so trilogy's only candidate novelty is elementary tail inequalities.",
+      "title": "Universality of the Edge Distribution with Polynomially Decaying Entries (Ruzmaikina CMP 2006)",
+      "url": "https://doi.org/10.1007/s00220-005-1386-6"
+    },
+    {
+      "finding": "Bulk universality with few moments; edge/TW rate and Pareto-4.5 trilogy not addressed.",
+      "title": "Bulk Universality for Generalized Wigner Matrices With Few Moments (Aggarwal 2016)",
+      "url": "http://arxiv.org/abs/1612.00421"
+    },
+    {
+      "finding": "Local law and TW limit for sparse matrices; different object class (sparsity, not Pareto-4.5 dense Wigner); no 34/81 statement.",
+      "title": "Local law and Tracy-Widom limit for sparse random matrices (Lee-Schnelli 2017)",
+      "url": "https://doi.org/10.1007/s00440-017-0787-8"
+    }
+  ],
+  "claim_route_inference": "Report declares claim_route=EMERGENT_FINDING with pre-unlock WORKLOG lineage (tau=37/81 coincidence, E1 N^{103/162} gap, minute-30 rebalancing). Genuine target-lineage derivation verified by shared ensemble/window/architecture; absence from topic.json not adverse. No preset-fallback value presumption granted; audited under ordinary full three-axis standard.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched dominance forms: 'quantitative Tracy-Widom rate finite fourth moment Wigner' (OpenAlex top hit Schnelli-Xu 2022; Crossref Schnelli-Xu 2022/2023), 'sparse large entry truncation Wigner heavy tail rigidity' (OpenAlex top hit EYY rigidity; Crossref sparse-Wigner large deviations, Male heavy Wigner). Fetched/identified assumptions in full via admission record and abstracts: all quantitative rates require all-moments/subexponential; fourth-moment work gives no N^{-1} edge window; sparse/heavy-tail results concern different ensembles or qualitative limits.",
+      "reasoning": "No broader theorem, census, classification, or database exhaustively covers the exact 34/81 trilogy as a special case. Coverage FAILS (i.e., no covering prior found), supporting novelty but not value.",
+      "search": "Serpbase canonical + dominance queries; OpenAlex/Crossref 'quantitative Tracy-Widom rate finite fourth moment Wigner' and 'sparse large entry truncation Wigner heavy tail rigidity' (20 each)."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Lee-Yin gives convergence without rate; Schnelli-Xu rates exclude Pareto-4.5 by moment assumption; EYY/Gotze rigidity does not yield the stated N^{-1} binomial/mass inequalities; Ruzmaikina gives qualitative polynomial-tail universality only. None implies P(#bad>3N^{1/9})<=N^{-1}, mass bounds, or tau*=34/81 minimality.",
+      "reasoning": "Claimed inequalities are not corollaries, recomputations, certificates, or repackagings of a known stronger fact. Implication coverage FAILS (no prior implies claim), so originality passes on this leg; correctness still fails independently due to divergent-moment proof error.",
+      "search": "Compared theorem hypotheses/conclusions literally for Lee-Yin, Schnelli-Xu 2022/2023, EYY, Gotze et al., Ruzmaikina 2006."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal ('standardized symmetric Pareto Wigner largest eigenvalue Tracy-Widom rate' -> Schnelli-Xu pages only, no Pareto hit), identifier form ('Pareto Wigner 34/81 truncation edge rigidity' -> zero relevant hits, only unrelated 34-81 page numbers), and synonyms (alpha=9/2 vs 4.5, xm=sqrt(5)/3, c0=0.26646, M=N^2 rescaled entries). OpenAlex 'Pareto Wigner edge universality' returned only unrelated/heavy-covariance items; Crossref returned Lee-Yin necessity/sufficiency and Ruzmaikina polynomial-decay papers, both qualitative.",
+      "reasoning": "No synonymous-notation, dual/complement, incidence/matrix/algebraic recoding, or author-page/theses source states the trilogy. Title/embedding similarity (Schnelli-Xu TW rates) does not establish coverage once assumptions compared literally.",
+      "search": "Serpbase (a) literal trilogy/Pareto Wigner TW rate, (b) 34/81 identifier + alpha=9/2/xm/c0 synonyms; OpenAlex/Crossref 'Pareto Wigner edge universality'."
+    },
+    "exact_database_or_table": {
+      "evidence": "No GOE/TW table, eigenvalue histogram, or official database implies Stieltjes/DBM lemmas or the Pareto tail trilogy; SCOPE internal prior scan nearest hit SCOPE019 is a fixed-seed GOE finite-N KS audit (N=10/20/50), not a Pareto-4.5 analytic bound. No table lists 34/81, 3N^{1/9}, or N0=2/22/4 for Pareto-4.5.",
+      "reasoning": "Exact-parameter/table coverage FAILS (nothing in a table or database already contains the claimed datum). Supports originality PASS; does not establish value since the datum is an author-chosen threshold ledger, not a canonical invariant.",
+      "search": "Database-oriented queries via Serpbase + OpenAlex/Crossref; internal Resultary prior scan (SCOPE019 GOE audit distinguished)."
+    }
+  },
+  "residual_risks": [
+    "One Serpbase dominance query ('quantitative Tracy-Widom ... heavy tail') hit provider rate limit; mitigated by successful Serpbase literal/identifier searches plus full OpenAlex+Crossref cross-checks on canonical and dominance forms and direct DOI-identified priors \u2014 one unavailable query never establishes priority.",
+    "Full-text re-fetch of Schnelli-Xu/EYY/Gotze not repeated in-session; relied on Admission full-text verification (Springer Sec 1.1, ar5iv) plus abstracts/OpenAlex metadata; assumption comparison is literal on the decisive point (all-moments vs moments<4.5).",
+    "T2 empirical Monte Carlo (200k trials) suggests the inequality may hold numerically but is small-N experimental evidence only and was not used to pass correctness.",
+    "Value judgment on 'reusable lemma' involves degree of future-use forecasting; rationale anchored to absence of any matrix conclusion and textbook nature of computations."
+  ],
+  "verdict": "REJECT"
+}
