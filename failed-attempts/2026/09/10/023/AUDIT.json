@@ -1,0 +1,72 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Constants verified independently: re-ran inputs/artifacts/verify_target.py and verify_qtilde.py -> VERIFY_OK. Exact rationals correct: I0=4pi/15, Gamma0=4pi/3, E0,H=8pi/315, relative moment M0=16pi/23625, decaying-psi moment Qtilde_H=16pi/945 (interior 8pi/1575 + exterior 8pi/675), kappa0^2=E0/Qtilde=3/2, sharp positivity threshold 3. Quadrature relerr <4e-3, Stokes FD defect ~5e-4, W=2/15 match exact. These are correctly computed moments of the known explicit Hill stream function. Essential PDE inferences FAIL: (1) Lemma 5.2 W_kappa=0 exclusion is incomplete. Case (i) graft adds mass with Delta I>0, hence is not an admissible circulation-only variation preserving the impulse equality I=I0; inferring contradiction with Kuhn-Tucker at W=0 requires proving the value function s_kappa(I) has strictly positive derivative at I0, which is asserted via (5.3)-(5.5) with undefined uniform interior constants c0, r_*, osc(phi) and strict Phi-gap across the free boundary (unproved). Case (ii) swap argument similarly asserts existence of outward pair with Phi-gap without construction. (2) Uniform lower bound inf_[0,barkappa] W>=bar w>0 via contradiction is invalid as written: it invokes kappa_j^2/2 D Qtilde ->0 in L^infty_loc to force limit EL to Hill EL with W*=W_H=2/15, which holds only if kappa_j->0, not for a sequence with kappa_j->kappa_*>0 in (0,barkappa]; pointwise positivity on (0,kappa0) therefore not established, and uniform support radius (5.6) depending on bar w is not established. (3) Convergence claims assume W_kappa->W_H and gamma_kappa->0 and uniform Phi_kappa convergence on compacts by the same cluster argument, but multiplier convergence/compactness is not proved and is circular with (2); Hausdorff support convergence therefore not proved. (4) Headline/target mismatch: admitted target requires L psi = r^2 H'(psi)+(1/2r^2)(C_kappa^2)'(psi) local Bragg-Hawthorne/GS steady Euler equation. DRAFT Sec.4 expressly disclaims the pointwise local semilinear identity at fixed kappa>0 beyond the distributional patch identity S psi_kappa=r^2 xi_kappa (which holds by definition psi=K xi) with indicator of the nonlocal swirl-shifted Phi_kappa containing K(psi_+/r^2). The nonlocal term is not a local function of psi, so no exact fixed-kappa Euler steady state in the admitted local sense is proved. Proof vs citation distinguished: FT kernel/decay/tightness/bathtub/Amick-Fraenkel uniqueness cited as black boxes (acceptable in principle) but the new penalty-specific multiplier analysis that must close the argument has the above gaps.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "claim_route=TARGET per research_report; audited normally against admitted fixed-impulse small-swirl Hill target. Live retrieval performed for (a) literal, (b) equivalent/dual, (c) dominance forms via exa_web_search_advanced_exa (numResults<=10, no category restriction) plus scope-literature-search openalex/crossref cross-checks and full fetch of decisive sources. Nearest priors compared literally: Choi 2011.06808 is kappa=0 swirl-free Hill maximizer/stability only, no swirl profile, no kappa0/kappa1; Cao-Wan-Zhan 1909.00355 and Cao-Zhan 2009.13210 are thin-core epsilon->0 filament desingularizations with different constraints, no fixed Hill-impulse window; Turkington 1989 Vortex Rings with Swirl (SIAM JMA, helicity-invariant variational principle, bounded-domain/translating rings, large-swirl filament desingularization) is the broadest swirl-existence framework but prescribes different invariants, does not fix impulse to Hill-ball I0, does not define quadratic penalty Qtilde=b^2 int (Kxi)_+^2/r^2 over R^3, does not state kappa0=sqrt(3/2)/b, Qtilde_H=16pi/945, or kappa->0 Hill-ball Hausdorff limit. Failure modes tested: synonymous Bragg-Hawthorne/Long-Squire/Grad-Shafranov notation, helicity vs penalty encodings, subset/special-case dominance by Turkington/Cao general f,g frameworks, exact table/database appearance of I0/E0/Qtilde_H/kappa0, and recomputation/corollary status. No source states or substantively implies the exact penalized-window headline; Qtilde_H evaluation is elementary calculus from known Hill psi, but the combined penalized-window statement is absent. Originality PASSES (novel as penalized-surrogate statement), which does not rescue value.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route carries no preset-fallback value presumption (fallback Pohozaev cutoff explicitly abandoned in DRAFT Sec.7 as unprovable; research_report confirms fallback NOT claimed). Judged on admitted TARGET headline alone under ordinary value standard. FAIL as intrinsic low value / arbitrary scope / missing substantive Euler result: (1) Objects proved at fixed kappa>0 are nonlocal penalized FT patches, not exact local Bragg-Hawthorne Euler states (disclaimed in Sec.4/6 and limitations), so downstream stability/filament/leapfrogging uses cited in value_case, which require exact steady Euler solutions, do not follow. (2) Explicit kappa0=sqrt(3/2)/b is not an intrinsic bifurcation: b>0 is author-chosen penalty shape (kappa0 scales 1/b), and sqrt(3/2) is author-chosen half-energy margin E0,H/2; DRAFT Sec.6 admits sharp positivity of the same Hill-competitor bound is 3, so the stated number is a conservative convention, not physics-forced. The alternative relative-psi moment gives kappa0^2=75/2, confirming definition-dependence (interior vs decaying-plus-exterior-dipole integral). (3) Apart from routine verification that Qtilde is finite/C1/weakly continuous, the argument is a small continuous perturbation re-running FT compactness plus uniqueness to get kappa->0 limit; no sharp threshold, no completed census, no new exact swirling Hill family, no obstruction (fallback gone). This is a tiny unmotivated gain / parameter-substitution envelope around known FT/Choi Hill theory with an unexplained-number flavor despite honest numerics. A bounded addition (motivation paragraph, database citation) cannot convert a nonlocal surrogate with conventional cutoff into an exact Euler existence window; requires new research direction. Hence REJECT, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Swirl-free only: FT energy maximizer matched to Hill via Amick-Fraenkel uniqueness, stability up to translation. No swirl profile, no kappa0 window, no Pohozaev cutoff.",
+      "title": "Stability of Hill's spherical vortex (Choi 2011.06808)",
+      "url": "https://arxiv.org/abs/2011.06808"
+    },
+    {
+      "finding": "Thin-core epsilon->0 desingularization of circular filament with swirl via variational method; localization depends on circulation/far-field; impulse not fixed to Hill-ball value; no Hill-branch continuation threshold.",
+      "title": "Desingularization of vortex rings with swirl (Cao-Wan-Zhan 1909.00355)",
+      "url": "https://arxiv.org/abs/1909.00355"
+    },
+    {
+      "finding": "General semilinear Grad-Shafranov framework -L psi=eps^-2 g+f/r^2 covering with/without swirl in thin-core limit; leaves fixed-impulse Hill-branch persistence open; no explicit kappa0 window at I0.",
+      "title": "On the steady axisymmetric vortex rings (Cao-Zhan 2009.13210)",
+      "url": "https://arxiv.org/abs/2009.13210"
+    },
+    {
+      "finding": "Broadest swirl-existence variational principle from helicity/generalized impulse invariants; bounded-domain and translating rings; large-swirl filament desingularization. Different invariants from quadratic penalty Qtilde; no fixed I0 Hill window, no kappa0=sqrt(3/2)/b, no Hill-ball limit.",
+      "title": "Vortex Rings with Swirl: Axisymmetric Solutions with Nonzero Helicity (Turkington 1989, SIAM JMA)",
+      "url": "https://doi.org/10.1137/0520005"
+    },
+    {
+      "finding": "Structured auxiliaries returned no fixed-impulse swirling-Hill threshold: OpenAlex top hits are unrelated swirl/combustion/vortex-tube literature; Crossref top hits are Hill 1894, Amick-Fraenkel uniqueness report, and unrelated swirl-metering literature; FT 1981 existence paper identified but contains no swirl penalty or kappa0.",
+      "title": "scope-literature-search openalex+crossref: Hill spherical vortex swirl existence; Friedman Turkington maximization",
+      "url": "local-tool: scope-literature-search"
+    }
+  ],
+  "claim_route_inference": "research_report.claim_route=TARGET explicitly; route_justification retains target and declines fallback/emergent substitute. Audited normally against admitted target with no preset-value presumption (fallback NOT claimed).",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched dominance: classification/existence of axisymmetric rings with swirl, Bragg-Hawthorne continuation, Turkington helicity framework, Cao general f,g Grad-Shafranov framework, filament desingularization census. Fetched Cao-Zhan introduction confirming general -L psi = g+f/r^2 thin-core program; fetched Turkington 1989 abstract confirming helicity-invariant family, bounded/translating construction, large-swirl filament limit.",
+      "what_searched": "Exa dominance query + OpenAlex Friedman-Turkington maximization + Crossref FT maximization + full fetch of Turkington 1989 and Cao-Zhan 2020",
+      "why_not_cover": "Broader frameworks are broader in nonlinearity class but narrower in constraint: none fixes impulse exactly to Hill-ball I0 with quadratic penalty Qtilde and proves attainment plus kappa->0 Hill-ball limit with explicit kappa0. A general existence theorem for some B,H does not substantively imply the submitted fixed-I0 penalized window with its constants and limit."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Compared submitted E_kappa maximizer + kappa0 + Hausdorff-to-B1 headline against literal theorems: Choi maximizer=Hill at kappa=0; Cao et al. desingularized thin rings as eps->0; Turkington swirling rings from helicity invariants; Keller-Cheviakov/Scase-Terry formal swirling Hills (per Admission triage, different physics/settings).",
+      "what_searched": "Literal headline and standard equivalent (Grad-Shafranov/Bragg-Hawthorne/Long-Squire, C(s) swirl, fixed impulse) via Exa + arXiv fetches",
+      "why_not_cover": "No prior implication chain yields the headline without adding the new penalty definition, fixed-I0 class P, Qtilde continuity lemmas, and kappa0 energy comparison. The headline is therefore new as stated (originality PASS), but its fixed-kappa content is nonlocal, so novelty does not entail Euler-value."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal kappa0/swirl-penalized Hill maximizer plus synonymous Bragg-Hawthorne/Long-Squire/Grad-Shafranov, azimuthal velocity/helicity, Stokes stream function Kxi formulations.",
+      "what_searched": "Exa queries: Hill spherical vortex swirl fixed-impulse variational maximizer; Grad-Shafranov swirl-penalized energy Hill vortex; Bragg-Hawthorne Hill continuation (numResults 8/8/8)",
+      "why_not_cover": "No source under alternate names states the same penalized window, Qtilde_H=16pi/945, or kappa0=sqrt(3/2)/b. Synonymy does not create coverage."
+    },
+    "exact_database_or_table": {
+      "evidence": "Hill-ball I0=4pi/15, Gamma0=4pi/3, E0=8pi/315 are standard known Hill values (re-derived, not new); Qtilde_H=16pi/945 and kappa0=sqrt(3/2)/b depend on author penalty definition (decaying psi over R^3 incl. exterior dipole 8pi/675) and half-energy convention; sharp positivity threshold is 3. No official database/table (e.g., vortex-ring tables, DLMF-type compilations) lists this penalty moment or cutoff.",
+      "what_searched": "Exa specialist/database queries + OpenAlex/Crossref sweeps; verified constants by independent exact-rational + quadrature replay (both VERIFY_OK)",
+      "why_not_cover": "The exact number is absent from tables precisely because it is definition- and convention-dependent, not a canonical invariant; absence confirms originality but also arbitrariness for value."
+    }
+  },
+  "residual_risks": [
+    "FT cited estimates (kernel bounds, decay, tightness, bathtub, Amick-Fraenkel uniqueness, free-boundary regularity) taken as correctly invoked black boxes; full line-by-line re-verification of FT 1981/Choi 2020 not performed.",
+    "Exa result payloads truncated to files; screening used highlights/abstracts plus full fetch of three decisive arXiv sources and Turkington abstract/refs; a non-indexed thesis could in principle state Qtilde_H integral, but would not supply the penalized-window theorem.",
+    "Scripts verify only Hill moments and linear Stokes identity, not the nonlinear multiplier/support/convergence analysis; VERIFY_OK does not certify Secs.5-6."
+  ],
+  "verdict": "REJECT"
+}
