@@ -1,0 +1,89 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "EMERGENT_FINDING route verified as genuinely target-derived (wall-equation + scans + slice isolation per discovery_context), so audited on full standard with no presumption. Replayed: central-charge wall equation y=2(M*sv-N*sa)/(Q(Mr-N)) confirmed via derive_wall.py sympy output; spherical specialization and b^2 identity b^2=r*D2-2*CDOT+(v2+2S+2r-2) confirmed (b^2-expected=0). Slice (r=2,C=H,S=0,N=Q,S=0) den>0 same-phase emptiness proof is correct: Y>0 forces D2<=-2, M>Q/2, then b^2=2D2-2M+Q+2<-2 strictly; fuzz-tested on 500 random hyperbolic lattices/box-12 (30098 den>0 walls, 0 violations) plus logged 498/451/829-wall checks. Closed forms Y=(D2+2)/(Q-2M) and anti-phase ray Y=(k^2+1)/(2k+1), b^2=4k^2+4k+4 (Q=2) verified exactly. BUT two essential inferences fail as written: (i) the uniform bound derivation claims max over real 0<M<Q/2 of (M^2/Q+2)/(Q-2M) equals Q/4+2 \u2014 false; over reals the function diverges to +infinity as M->Q/2-. The conclusion Y<Q/4+2 is true only after using integrality (M,Q integers, Q even for K3 so Q-2M>=2; odd-lattice case >=1), which the draft never states. The stated calculus is wrong, not just terse. (ii) anti-phase 'never destabilizing' is asserted without the required heart-membership argument (Im Za=xM<0 so a cannot lie in the large-volume heart as subobject/quotient); closed forms are proved but the destabilization inference is not. Hence headline not fully proved as written.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Live-retrieval contract executed: Exa general (no category restriction, numResults<=8/<=5) for literal slice statement, Bayer-Macri actual-vs-numerical schema, Maciocia bounds, Mukai-vector bound, and uniform-census dominance queries; structured auxiliaries scope-literature-search openalex+crossref for Bayer-Macri, Maciocia, and spherical-wall queries (20 each); direct arXiv fetches of 1202.4587 and 1301.6968 abstracts/history. Nearest priors: Bayer-Macri 1301.6968 (numerical wall schema via hyperbolic lattice, MMP; no effectivity inequality), Maciocia 1202.4587 (fixed-surface nested/bounded walls, C0/R0; no slice den>0 formula or B=Q/4+2), Bottini/Bridgeland/Yoshioka/Liu/Li-Liu-Ouchi (generic existence, Stab construction, rank-1 algorithm; disjoint). Failure modes tested (see decisive_checks): no synonymous/dual encoding, no broader theorem, no database table, and no prior implication states or implies the exact slice den>0 emptiness plus Y/B closed forms. The slice formulas are novel as stated, though elementary. Originality PASSES.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING assessed under ordinary full value standard with no presumption. The surviving headline is a single Mukai-shape slice (r=2,C=H,S=0) two-line substitution into the standard wall + Mukai-square formulas: den>0 emptiness is immediate algebra, den<0 'candidates' are only b^2-passing (necessary, explicitly not sufficient, so no actual wall is established), and the anti-phase tail is a phase-ordering observation. This is a mere parameter substitution / textbook exercise relative to the admitted target (all v), with arbitrary scope (no pre-computation motivation for v=(2,H,0) as a distinguished moduli problem; discovery was scan-driven post hoc). The claimed 'machine-checkable pre-filter' adds nothing over directly computing b^2, has no named downstream user or theorem, and no census is completed. Honest falsifications (218 counterexamples, fallback counterexample) delimit scope but do not create independent retrieval value. A rigorously established narrow datum can pass, but only when the object/invariant was motivated before computation and a future researcher could need the precise fact; neither holds here, and certification alone does not rescue an arbitrary slice. Intrinsic low value / arbitrary scope => FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms general-surface wall boundedness/finiteness program; no slice den>0 emptiness or B=Q/4+2 formula. Supports originality gap.",
+      "title": "Computing the walls associated to Bridgeland stability conditions on projective surfaces \u2014 Maciocia (arXiv:1202.4587)",
+      "url": "https://arxiv.org/abs/1202.4587"
+    },
+    {
+      "finding": "Abstract confirms numerical-wall schema + wall-crossing MMP (nef/movable/effective cones, Lagrangian fibrations); actuality left to existence, no uniform effectivity inequality or slice bound.",
+      "title": "MMP for moduli of sheaves on K3s via wall-crossing \u2014 Bayer, Macri (arXiv:1301.6968)",
+      "url": "https://arxiv.org/abs/1301.6968"
+    },
+    {
+      "finding": "OpenAlex structured search for Bayer-Macri wall-crossing returned only numerical-schema/chamber/MMP-adjacent works (Lo-Qin mini-walls, Minamide-Yanagida-Yoshioka, Bertram-Martinez, Toda, etc.); none states slice rank-one emptiness or closed-form bound.",
+      "title": "scope-literature-search openalex 'Bayer Macri wall crossing moduli sheaves K3 numerical walls' (20)",
+      "url": "openalex:query=Bayer Macri wall crossing moduli sheaves K3 numerical walls"
+    },
+    {
+      "finding": "Crossref structured search returned Bottini, Oberdieck, Feyzbakhsh, Minamide-Yanagida-Yoshioka, Bayer-Manin, Bayer-Macri MMP; generic existence / wall-behavior works only, no slice effectivity theorem.",
+      "title": "scope-literature-search crossref 'Bayer Macri wall crossing K3 numerical walls' (20)",
+      "url": "crossref:query=Bayer Macri wall crossing K3 numerical walls"
+    },
+    {
+      "finding": "OpenAlex/Crossref structured searches for Maciocia and spherical-wall queries returned Maciocia 2014, Bayer-Macri projectivity, Arcara-Bertram-Coskun-Huizenga, Bridgeland Stab, Kawatani, Li-Liu spherical bundles; fixed-surface bounds and generic/spherical-bundle results only.",
+      "title": "scope-literature-search openalex+crossref 'Maciocia computing walls' / 'spherical objects/bundles K3 Bridgeland walls' (20 each)",
+      "url": "openalex+crossref:queries=Maciocia computing walls; spherical K3 Bridgeland walls"
+    },
+    {
+      "finding": "Exa general high-recall searches (literal slice den=2M-Q/b^2<-2, actual-vs-numerical effectivity, dominance/uniform-census queries; numResults<=8/<=5, no category restriction) returned only general wall-crossing literature; no source stating the slice theorem or B=Q/4+2.",
+      "title": "Exa general searches: literal, equivalent, and dominance forms",
+      "url": "exa:queries=slice spherical wall den=2M-Q; actual-vs-numerical K3 rank-2; uniform bound census"
+    },
+    {
+      "finding": "Internal replay: derive_wall.py sympy wall numerator and b^2 identity verified; verify_lemmaR2_general.py three-lattice loop and emergent_replay.py ray closed forms re-executed (write-to-output path fails only due to audit sandbox CWD; numeric assertions all pass before file write).",
+      "title": "Inputs artifacts replay (derive_wall, verify_lemmaR2_general, emergent_replay, scan/brute-force logs)",
+      "url": "inputs/artifacts/"
+    },
+    {
+      "finding": "Logged brute_force_summary (28128 den>0 same-phase walls, 218 counterexamples outside slice) and fallback_counterexample (D=(0,5), Delta=525>2 yet effective, b^2=54) confirm honesty limitations; they falsify universal/literal-fallback claims, not the slice.",
+      "title": "brute_force_summary.json + fallback_counterexample.json",
+      "url": "inputs/artifacts/brute_force_summary.json"
+    }
+  ],
+  "claim_route": "EMERGENT_FINDING: genuinely arose from target route (wall equation + discriminant scans collapsing to r=2,C=H,S=0 slice), not a convenient replacement; absence from topic.json not adverse. Audited under ordinary full correctness/originality/value standard with no presumption and no relaxation.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Maciocia 1202.4587 proves nested walls, boundedness in half-planes, explicit C0/R0 for fixed v/surface via Bogomolov+Hodge, plus no-wall criteria and ray finiteness; Bayer-Macri proves numerical classification + MMP. OpenAlex/Crossref dominance searches (uniform actual-vs-numerical bound, exhaustive census over rank-2 lattices) returned no covering census or classification.",
+      "what_searched": "Dominance queries (Exa + openalex/crossref): uniform actual-vs-numerical decision over all Picard-rank-2 K3s, exhaustive wall census, Maciocia covering theorem.",
+      "why_not_cover": "Both are fixed-surface/v or numerical-schema results quantified differently; neither states nor mechanically yields the slice den>0 emptiness over ALL rank-2 lattices or the closed forms Y=(D2+2)/(Q-2M), B=Q/4+2. Specialization to r=2,C=H,S=0 with the two-line b^2 argument is not present and not a routine instantiation of C0/R0."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Bayer-Macri gives Im(Za/Zv)=0 schema; K3 stable-factor necessary condition b^2>=-2 is folklore/standard. No prior combines them in this slice to state den>0 same-phase emptiness, the den<0 closed form + bound, or the anti-phase tail classification. Random 30k-wall audit check confirms the slice implication is valid but unstated.",
+      "what_searched": "Prior theorem conclusions read literally (Bayer-Macri wall schema, Maciocia bounds, Bottini generic existence) against the slice headline; tested whether any result logically entails den>0 b^2<-2 in-slice.",
+      "why_not_cover": "A general schema plus a folklore necessary condition does not substantively imply the submitted headline until the slice specialization is stated and proved; implication requires the new two-line combination. Hence originality passes, but the same triviality drives the value failure (mere substitution)."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched Mukai/Chern dual notations (a=(1,D,s) vs (r,c,s), Z_{beta,omega} at beta=0 vertical ray, den=Mr-N, Y=x^2), complement/incidence encodings (b=v-a, b^2 formula E), and Hodge-defect phrasings. Hits were only the general Bayer-Macri/Maciocia schema and spherical-bundle literature (Liu, Li-Liu-Ouchi).",
+      "what_searched": "Exa literal + equivalent-form queries (rank-one spherical wall, vertical ray beta=0 omega=xH, den=2M-Q, b^2<-2, Mukai pairing forms) with numResults<=8.",
+      "why_not_cover": "No synonymous-notation or dual/complement/matrix reformulation in the retrieved set states the slice den>0 emptiness, Y=(D2+2)/(Q-2M)/B=Q/4+2, or anti-phase closed forms. Title/embedding similarity to wall-crossing works does not establish coverage."
+    },
+    "exact_database_or_table": {
+      "evidence": "No GRDB/Kreuzer-Skarke-style census, wall database, thesis table, or author-page table retrieved contains the slice (r=2,C=H,S=0) wall list, the den>0 emptiness statement, or the B=Q/4+2 bound. Artifacts are computation logs (wall_scan.json, ray_demo.json, lemmaR2.json), not official databases.",
+      "what_searched": "Exa queries including exact objects/identifiers/databases/repositories/theses/author pages; openalex/crossref auxiliaries; direct official-database consideration.",
+      "why_not_cover": "The exact parameter slice and closed-form bound do not appear in any table or official database; the claim is not a database reprint. This supports originality but does not confer value (unexplained enumeration/certification alone)."
+    }
+  },
+  "residual_risks": [
+    "K3 realizability of abstract rank-2 hyperbolic lattices for the stated ample H is assumed (Torelli caveat noted in draft); lattice-arithmetic filter itself needs no existence, but any geometric 'actual wall' reading would.",
+    "den<0 same-phase 'candidates' satisfy only necessary b^2>=-2; Bridgeland stability/effectivity of factors (e.g., OSV-type effectivity of D) unproved \u2014 draft states this honestly.",
+    "Uniform-bound conclusion depends on unstated integrality (M,Q integers; Q even => denominator >=2); proof as written omits it and misstates the real maximization.",
+    "Anti-phase 'never destabilizing' relies on an unstated heart-membership (Im<0) argument.",
+    "One Exa fetch channel returned truncated payloads stored to tool-output files; coverage completed via remaining Exa results plus both structured auxiliaries and direct arXiv fetches \u2014 no single-provider failure used to establish priority."
+  ],
+  "verdict": "REJECT"
+}
