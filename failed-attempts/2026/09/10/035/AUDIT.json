@@ -1,0 +1,71 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "EMERGENT_FINDING route verified as genuine sub-goal package of admitted target (same pair {F7,K4^(3)}, same flag-plus-symmetrization method, lower-bound + preservation + small-order arms; not a substitute). All three headline components verified true with proof vs computation distinguished. (1) Template theorem: independently re-enumerated all 3^7 Fano and 3^4 K4 part-maps into multisets {012,001,112,022} \u2014 0 good in both cases (matches t1_certificate.json); edge formula n0*n1*n2+C(n0,2)*n1+C(n1,2)*n2+C(n2,2)*n0 verified, balanced n=3q gives (5q^3-3q^2)/2 over C(3q,3) -> 5/9 exactly (e.g. (3,2,2)->23, (3,3,3)->54); hence pi>=5/9 proved. Blow-up containment logic (copy iff part-map sends every edge into template) is sound. (2) Cloning preservation: proof logic M1/M2/M3 + case split verified sound. M1 (no {u,v} edge) holds by construction; M2 pair-coverage independently verified 21/21 for Fano (each pair exactly once, STS(7)) and 6/6 for K4, so copy holds at most one of u,v; M3 u|->v replacement is injective and sends H'-edges to H-edges, so copy transfers. Generic but correct. Supporting 210 labelings/35 4-sets and exhaustive n=6 K4 check are consistent. (3) ex(7)=23: lower bound Turan (3,2,2)=23 verified F-free by template check; upper bound <=23 independently re-proved by auditor via hitting-set search (35 vars, 65 constraints = 35 K4-quads + 30 Fano copies; verified 30 distinct Fano copies = 7!/168): no hitting set of size <=11 (i.e. no >=24-edge F-free graph), UNSAT in 1.6s/1.55M nodes. Submitted t4_ex7.json alone is assertion-only (OPTIMAL flag, 40.1M nodes, no replay script/log) so not independently replayable as submitted, but mathematical claim is true via auditor re-proof. Supporting 477965 labeled K4-free on 6 vertices re-enumerated exactly (2^20 check, 0.55s). Order<=6 blindness lemma (F7 needs 7 vertices, so pair-free=K4-free) is sound. n=8,9,10 shape search (36/54/75 vs 34/49/69) and 13080-step cloning spot-check correctly labeled heuristic/spot-check, not optimality. Asymptotic 5/9 upper bound and stability honestly stated as NOT proved; preset <=0.56 certificate honestly stated as NOT delivered.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval contract executed: three normalized forms submitted in ONE scope_literature_search call (literal pair + template + ex7; dual/symmetrization/covering formulation; dominance/census/classification query). Fused 20 results, coverage SerpBase ok, OpenAlex ok (0 hits), Crossref ok (15 each, all graph-K4 noise), partial=false. No prior states the package. Nearest priors inspected in full (Baber-Talbot arXiv:1110.4287v3 HTML fetched; Keevash-Sudakov, Razborov, Falgas-Ravry/Vaughan via admission full-text + snippets): Fano-alone pi=3/4, K4-alone conjectured 5/9 ceiling 0.561666, induced {K4,E1} 5/9, Baber-Talbot pi(K4,Hi)=5/9 for ten 6-vertex Hi (max vertex 6 in every Hi definition, e.g. H1 12 edges on 6 vertices), H-densities pi_{K4-}(K4)=16/27 \u2014 none equals 7-vertex 7-edge Fano and none gives pi({F7,K4}), ex(7,{F7,K4}), or all-n template/preservation for this pair. Component (ii) in isolation is a direct instance of the standard covering-family Zykov principle, but the full package (finite 3^7/3^4 verification + certified ex7=23) is not recorded or mechanically implied. See decisive_checks for adversarial checklist.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING judged under ordinary full value standard with no preset presumption (fallback <=0.56 NOT completed, so no Admission conditional approval; no ADMISSION_DEFECT alleged). Package leaves admitted frontier interval [5/9,0.561666] entirely unchanged: no upper-bound inequality, no slack, no narrowing, no stability classification. (i) pi>=5/9 is verification that the classical 1941 Turan construction Tn (known K4-free, known density 5/9) is also Fano-free via 2187-case check \u2014 a routine finite check on a known object, recomputable in milliseconds, not a new construction or benchmark step. (ii) cloning preservation for two covering hypergraphs is the textbook covering-family symmetrization corollary (5-line proof), enables symmetrization but by the report's own admission yields no numeric ceiling alone and excludes no extremal shape. (iii) ex(7)=23 is one isolated small-n exact number at the Fano order, explained only as equals-Turan, with n=8 B&B TIMEOUT (51.1M nodes, incumbent 36 unproved) and n=8-10 heuristic-only, i.e. an incomplete census honestly described but with no general criterion, no completed census, and no demonstrated downstream use; recomputable in ~1.6s, cheaper to recompute than retrieve. Collectively this is a textbook baseline verification + generic lemma + single tiny enumeration without substantive density advance, falling under textbook restatement / unexplained-enumeration / missing-substantive-result even though correct and new. The narrow-datum carve-out does not rescue it because the datum's future-retrieval need is not shown beyond serving as scaffold for the still-blocked 5/9 retry, and certification alone does not rescue it. Intrinsic low value / missing substantive result => REJECT, not repairable by bounded literature/motivation addition (rescue would require a new density ceiling, i.e. a new research direction).",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves pi(K4,Hi)=5/9 + stability for ten explicit Hi; all Hi definitions use vertices 1..6 only (6-vertex, 10-12 edges, e.g. H1 pi=3/4); 964 K4-free order-6 types, 962 H1-free. None equals 7-vertex Fano; Lemma 9 (covering => blow-up containment iff subgraph) blocks transfer since 7-vertex Fano cannot embed in 6-vertex Hi. Leaves {Fano,K4} open.",
+      "title": "New Turan densities for 3-graphs \u2014 Baber & Talbot (arXiv:1110.4287v3, full HTML fetched)",
+      "url": "https://arxiv.org/html/1110.4287v3"
+    },
+    {
+      "finding": "Solves Fano alone pi=3/4 with extremal B_n; B_n contains K4 so adding K4 drops density into undecided territory; does not imply pair value, template Fano-freeness, or ex7.",
+      "title": "The Turan number of the Fano plane \u2014 Keevash & Sudakov",
+      "url": "https://people.maths.ox.ac.uk/keevash/papers/fano-journal.pdf"
+    },
+    {
+      "finding": "Induced pi_ind(K4,E1)=5/9 and flag SDP method; distinct covering problem from non-induced {Fano,K4}; K4-alone flag ceiling 0.561666 remains above 5/9.",
+      "title": "On 3-Hypergraphs with Forbidden 4-Vertex Configurations \u2014 Razborov; Bohman et al. AIM-SIAM survey",
+      "url": "https://doi.org/10.1137/090747476"
+    },
+    {
+      "finding": "Fused retrieval: literal/equivalent/dominance queries returned only Fano-alone, K4-alone/graph-K4 noise, Fano-plane geometry, and H-density papers; zero hits for pi({F7,K4}), ex(7,{F7,K4})=23, or cyclic-template {012,001,112,022} pair theorem. No table or database entry found.",
+      "title": "scope_literature_search fused Top-20 (SerpBase 10 + OpenAlex 15 + Crossref 15 per query, deduplicated)",
+      "url": "internal-tool-fused-2026-09-10"
+    }
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "covers": false,
+      "evidence": "Searched dominance query for stronger theorem / broader class / census / classification covering {F7,K4} as special case (query 3) plus full-text Baber-Talbot Sections 1,4,5 and admission triage. Baber-Talbot Theorem 25 covers {K4,Hi} for ten 6-vertex Hi only; Corollary 8 blow-up transfer examined: Fano is covering (verified 21/21 pairs, each once), so by Lemma 9 F<=G iff F subset G; 7-vertex Fano cannot be subgraph of any 6-vertex Hi, so no transfer. Keevash-Sudakov (Fano-alone), Razborov (K4-alone/induced), Falgas-Ravry/Vaughan (H-densities) are different problems and do not imply pair density, template freeness, or ex7.",
+      "search": "Dominance query: 'Turan number ex(n,{Fano,K4}) exact values census classification Turan density Fano plus tetrahedron pair stability' via SerpBase/OpenAlex/Crossref + Baber-Talbot full-text Sections 1/4/5 + Corollary 8 / Lemma 9 transfer analysis.",
+      "why": "No broader exact 5/9 pair theorem, infinite-family Lagrangian result, or completed small-n census was found that has {F7,K4} as subset/special case; nearest broader results use different partners or induced/H-density settings."
+    },
+    "claim_vs_prior_implication": {
+      "covers": false,
+      "evidence": "Compared hypotheses/conclusions literally (not title similarity): Fano-alone 3/4 + K4-alone conjectured 5/9/ceiling 0.561666 do not imply pair lower bound 5/9 with Fano-freeness, nor ex7=23, nor all-orders preservation; induced 5/9 does not imply non-induced pair; K4-alone ceiling above 0.56 does not imply anything about pair; Baber-Talbot 5/9 pairs with different Hi do not imply via blow-ups per Lemma 9 failure above. Auditor independently verified the three implications do not go through.",
+      "search": "Literal comparison of prior theorems' hypotheses/conclusions against submitted (i)(ii)(iii); verified Fano vertex count 7 vs Hi vertex count 6, covering property, and density-interval logic.",
+      "why": "No prior result substantively implies or exhaustively covers the submitted package even though it does not state it verbatim; but no prior was found that does imply it, so originality not defeated on this leg."
+    },
+    "equivalent_formulations": {
+      "covers": false,
+      "evidence": "Searched synonymous names/notations: Fano=F7=PG(2,2)=STS(7)=7-vertex 7-triple Steiner system; K4^(3)=tetrahedron=complete 3-graph on 4 vertices=K4^{(3)}; template=Tn=balanced complete 3-partite cyclic blow-up {012,001,112,022}; symmetrization=Zykov cloning/symmetrization, covering/pair-covering/2-covering, link-graph induction. Queries 1-2 bundled exact objects, identifiers, and symmetrization synonyms. Fused hits were Fano-alone papers, graph-K4 noise, and symmetrization expositions (e.g. Zykov proof, Mubayi no-stability example) \u2014 none states all-blow-ups F-free, all-orders preservation for this pair, or ex7=23.",
+      "search": "Consolidated queries 1-2: literal pair + template multisets + ex7=23; equivalent: Zykov symmetrization cloning preserves Fano-free K4-free 2-covering/pair-covering 3-uniform hypergraph. SerpBase Top10 + OpenAlex Top15 + Crossref Top15 fused, plus specialist sources (Keevash-Sudakov, Baber-Talbot, Razborov).",
+      "why": "No dual/complement/incidence-graph/matrix/algebraic encoding or synonymous-notation source was found that states the same facts under different names."
+    },
+    "exact_database_or_table": {
+      "covers": false,
+      "evidence": "Searched for exact parameter/object in tables/databases via dominance query + fused snippets (AIM-SIAM survey, ARCC hypergraph Turan workshop page, Semantic Scholar/ResearchGate Fano pages, recent Fano l2-norm/exact-number papers). No chart, OEIS entry, or Turan-number table gives pi({F7,K4}), the {012,001,112,022} blow-up freeness, or ex(7,{F7,K4})=23. Admission union search similarly found no <=0.56 pair bound and no pair table.",
+      "search": "Exact-database/table leg of dominance query across SerpBase/OpenAlex/Crossref + direct workshop/survey pages; looked for ex(n,{Fano,K4}) tables and 0.56/5/9 pair bounds.",
+      "why": "The exact pair invariant does not already appear in an official database or table; not a recomputation/repackaging of a tabulated fact. Originality passes this leg (value still fails independently)."
+    }
+  },
+  "residual_risks": [
+    "Submitted ex7 optimality evidence is assertion-only JSON (no branch-and-bound trace or replay script in inputs/artifacts); correctness relies on auditor independent re-proof, not on submitted replay. Future audit must require checkable UNSAT log.",
+    "Heuristic n=8,9,10 support (simulated annealing bests 34/49/69 vs Turan 36/54/75) is correctly labeled non-proof but could be misread as stability evidence; no weight placed on it.",
+    "Preservation theorem in isolation is standard covering-family folklore; novelty rests on instantiation + ex7, not on new method.",
+    "Concurrent-preprint numeric-race risk (a <=0.56 K4-alone bound covering the pair) not observed in retrieval but cannot be logically excluded; OpenAlex returned 0 hits which reflects query specificity, not global absence."
+  ],
+  "verdict": "REJECT"
+}
