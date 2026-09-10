@@ -1,0 +1,92 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Essential inferences verified by independent replay and hand checks; proof vs computation distinguished. (1) Geometry Lemma G: PASS. Re-ran verify_geometry.py -> GEOMETRY_OK; separation dist(Fbar+,K-)>=1/2 by x1 gap and K_- normal bound x1<=-1/2 exact; caps/edges in Gamma_acc confirmed. (2) Linearized identity <f2,DL[h]f1>=int h grad u1.grad u2 with conormal correction: proof sketch correct (Green both directions, dropped boundary term cancels conormal term); standard and honestly labeled proved. (3) Gauge formula L_V=dV+dV^T-(divV)I symmetric trace -divV: PASS (re-ran CGO_ALGEBRA_OK; random-matrix check). (4) Gauge inclusion G subset ker via L_V:(p tensor q)=div W, W=(V.q)p+(V.p)q-(p.q)V: PASS as formal identity. Hand-verified: div W expands to p^T DV q + q^T DV p -(p.q)divV plus Hessian terms p^T Hess(u2)V + q^T Hess(u1)V minus grad(p.q).V which cancel by Hessian symmetry; harmonicity removes (V.q)Delta u terms; W|dO=0 when V|dO=0 (compact support) so integral vanishes. Monte Carlo replay re-ran -> GAUGE-KERNEL-MC_OK (pair integrals -0.0015, +0.00036 within 5e-3 MC tolerance, N=4e5). This is the easy gauge-invariance direction; proof is correct. (5) Null-vector/weight algebra: PASS (NULL-VECTOR_OK for 3 (tau,k) pairs; limiting weight {a,b}=0 from Hess phi=0 trivially correct). (6) Opposite-sign amplitude completion (plane+linear dim exactly 5, full rank 6 via quadratic escape ik(2tau^2-k^2)/8tau^3): COMPUTATIONALLY SUPPORTED, analytically plausible. Re-ran verify_amplitude_completion.py -> full=6 linear=5 on all 5 xi x 2 seeds; extended sweep by auditor to k=0.01..19.9 (10 magnitudes) holds uniformly. Independently verified cokernel n=(-iR/t,it/R,0,1,0,0) annihilates plane pairing (0j exactly) and random transport-constrained linear pairings (~1e-15) across k=0.5..5, and escape pairing equals formula and nonzero for k!=0. By rotation about e1 any xi perp e1 reduces to (0,0,k), so finite-magnitude sweep plus analytic escape formula covers the transverse cone up to the uncommitted sympy nullspace step. Tolerance-based Gaussian elimination (1e-9) without interval bounds and sympy derivation cited as interactive (WORKLOG not filed) mean the universal 'for every xi' quantifier rests on finite samples + symmetry argument rather than a closed proof, and same-sign trace bound <=e^{-tau/2} has no replay (verify_samesign.py checks only ranks/null condition; bound itself is elementary e^{tau x1}<=e^{-tau/2} on K_- for +tau factors only). Opposite-sign growing factor e^{-tau x1} limitation is honestly disclosed via open remainder (R). Tilt/shadow margins re-ran -> SHADOW_OK (0deg -0.501, 30deg -0.001, 45deg +0.258); 30-degree cap correct as stated. Modulus alpha=1/24 is explicitly conditional arithmetic (MODULUS-BALANCE_OK), not claimed as estimate. Overall: no false computation found; limitations honestly stated in DRAFT Sec 2c/6; residual universal-quantifier/interval gap is a presentation narrowness, not a falsification. Correctness PASSES as a certified symbol-level + proved-identity package.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Union search (Exa general x3 forms + OpenAlex + Crossref + direct prior comparison) finds no record of the cell-specific amplitude-completion rank package. Nearest priors substantively compared and none implies the headline: (a) DSSF et al IMRN 2018 full-data linearized transversally-anisotropic injectivity (FBI/transversal singularities) - no partial vanishing CGOs on Omega\\Gamma_acc, no ker=G for conductivity matrix on this finite cylinder; (b) Kenig-Salo APDE 2013 / KSU Annals 2007 / BU2002 partial-data Schrodinger/isotropic Carleman templates - scalar potential, not symmetric-matrix h up to flow gauge, no rank-6 completion or escape pairing; (c) DKN Forum Sigma 2020 nonuniqueness (Holder non-UCP counterexamples, concedes C^2 quotient) - proves nonlinear gauge invariance, not linearized symbol ranks or same-sign linear-6; (d) Foschiatti-Gaburro-Sincich 2021 restricted gamma-A stability and Ouhabaz JST 2018 milder version - different a priori class, no front-face rank package; (e) Lin-Nakamura-Zimmermann 2026 transversally-anisotropic Schrodinger partial-data (Crossref hit) - Schrodinger, not conductivity-system gauge ranks. No source records plane-wave rank <=4/=3 on-axis, opposite-sign linear-5/full-6 with cokernel/escape formula, same-sign linear-6, or 30-degree tilt cap for Omega={r<1,0<x3<1}, phi=x1, Gamma_acc=dO\\K_-. Exa queries returned only irrelevant landscape/measure-data/MO hits, confirming absence. Failure modes tested: synonymous notation (linearized DN / Frechet derivative / Lie-derivative gauge), dual/complement encodings (conductivity vs Schrodinger, matrix vs potential), broader census (CTA/transversally-anisotropic partial-data theorems do not cover matrix ker or rank package as special case; restricting full-data to partial data weakens hypothesis so no implication), exact table/database (no official database records this rank datum), recomputation/corollary (escape pairing and rank counts are not corollaries of qualitative Carleman existence). Originality PASSES.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING assessed under ordinary value standard with no presumption; judged on strongest headline separately from honestly-disclosed open survey. The package consists of: (a) finite-matrix rank counts for a chosen CGO parametrization on one cell (plane<=4/=3, opposite linear 5/full 6, same-sign linear 6 over tested frequencies/seeds, 30-degree shadow arithmetic), plus (b) the easy-direction gauge inclusion G subset ker via standard div-W integration-by-parts. It does not close TARGET or FALLBACK (both admitted unmet) and supplies no PDE injectivity: without the missing boundary Carleman (C) and two-term-WKB remainder with K_- vanishing (R) plus quantitative axis leg, symbol ranks do not imply ker subset G, quotient estimate, or stability, as DRAFT Sec 2c concedes. (a) is an unexplained enumeration, not a rigorously established exact invariant of a natural object: ranks depend on arbitrary parametrization choices (test magnitudes, random seeds, 8 amplitude rows, tolerance 1e-9) rather than an intrinsic property; same-sign linear-6 has no analytic explanation (pure numerics); plane<=4 is immediate dimension counting (3 div-free rows + 1 plane row); 30-degree cap is elementary dot-product geometry; escape pairing ik(2tau^2-k^2)/8tau^3, while exact, is a 3x3 algebraic identity any worker on this route recomputes instantly with no demonstrated downstream citation need. It is not the protected kind of narrow datum (exact order/constant/witness/presentation of a canonical object motivated before computation that a future researcher must retrieve): a future quotient attempt cannot cite these sample ranks to impose gauge, benchmark invisibility, or attempt stability without redoing the analysis with (C)+(R). (b) is a textbook restatement: L_V formula and diffeomorphism-gauge invariance (hence linearized invariance) are standard in the anisotropic program; the div-W proof is a routine exercise, and only the trivial inclusion is shown. No new general theorem, no intrinsic invariant, no reusable lemma with standalone citation use; honest disclosure of incompleteness does not create value. Intrinsic low value / arbitrary-scope enumeration: must be REJECT, not repairable by bounded addition, since converting ranks into a PDE lemma requires constructing (C)+(R) and closing ker=G - a new research direction, not a bounded identity/motivation addition. Certification alone (8 OK replays) does not rescue an arbitrary parametrization-dependent number.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Full-data linearized injectivity via FBI/transversal singularities; no partial vanishing CGOs on named finite cylinder, no ker=G for conductivity matrix with front-face data. Does not cover rank package.",
+      "title": "The Linearized Calderon Problem in Transversally Anisotropic Geometries (DSSF et al, IMRN 2018)",
+      "url": "https://doi.org/10.1093/imrn/rny234"
+    },
+    {
+      "finding": "Schrodinger/isotropic partial-data via ray transform; does not treat anisotropic matrix up to diffeomorphism quotient, no amplitude-completion ranks.",
+      "title": "The Calderon problem with partial data on manifolds and applications (Kenig-Salo, APDE 2013)",
+      "url": "https://doi.org/10.2140/apde.2013.6.2003"
+    },
+    {
+      "finding": "Qualitative linear/nonlinear Carleman existence for Schrodinger/isotropic on cylinders; no finite-cylinder front-face rank-6 completion or escape formula.",
+      "title": "BU2002 / KSU Annals 2007 partial-data Carleman templates",
+      "url": "https://doi.org/10.4007/annals.2007.165.567"
+    },
+    {
+      "finding": "Holder non-UCP counterexamples; states nonlinear gauge invariance, concedes C^2 quotient formulation; no linearized symbol ranks or same-sign linear-6.",
+      "title": "ON NONUNIQUENESS FOR THE ANISOTROPIC CALDERON PROBLEM WITH PARTIAL DATA (DKN, Forum Math Sigma 2020)",
+      "url": "https://doi.org/10.1017/fms.2020.1"
+    },
+    {
+      "finding": "Restricted sigma=gamma A class with known anisotropy; different class and full/local data, no front-face rank package.",
+      "title": "Stability for a class of anisotropic conductivities via ad hoc misfit (Foschiatti-Gaburro-Sincich 2021)",
+      "url": "https://doi.org/10.1088/1361-6420/ac349c"
+    },
+    {
+      "finding": "Milder partial-data variant; no ker-equals-gauge or amplitude-completion ranks on named cell.",
+      "title": "A milder version of Calderon's inverse problem for anisotropic conductivities and partial data (Ouhabaz, JST 2018)",
+      "url": "https://doi.org/10.4171/jst/201"
+    },
+    {
+      "finding": "Schrodinger (not conductivity-matrix) partial-data; does not imply matrix gauge rank package.",
+      "title": "Partial data Calderon problem for transversally anisotropic Schrodinger equation (Lin-Nakamura-Zimmermann, 2026 preprint via Crossref)",
+      "url": "https://doi.org/10.2139/ssrn.7398821"
+    },
+    {
+      "finding": "Returned only irrelevant hits (landscape functions, measure-data BVPs, MathOverflow PDE system). No covering theorem, table, thesis, or database entry for the rank package.",
+      "title": "Exa general searches (3 forms, numResults<=10): literal linearized-anisotropic-partial-ker-gauge; equivalent CGO-amplitude-completion-rank; dominance broader census/database",
+      "url": "exa_web_search_advanced_exa"
+    },
+    {
+      "finding": "Union candidate set = known priors above (Kenig-Salo, DSSF, DKN, Foschiatti, CTA/Mawell partial-data). None records the submitted rank/escape formulas. No provider failure; Exa+OpenAlex+Crossref treated as union.",
+      "title": "OpenAlex 'anisotropic Calderon partial data stability diffeomorphism' (20) + Crossref 'anisotropic Calderon partial data cylinder' (20)",
+      "url": "scope-literature-search openalex/crossref"
+    }
+  ],
+  "claim_route_inference": "Report declares claim_route EMERGENT_FINDING. Accepted as stated: TARGET nonlinear quotient log-stability and PRESET_FALLBACK binary ker=G proof are both explicitly reported as unmet with gap list (missing Carleman (C), two-term WKB remainder (R), quantitative axis leg, nonlinear closure). The filed headline (amplitude-completion rank package + G subset ker) genuinely arose from pressing the target's single-linear-weight clause (withdrawn interim no-go corrected) rather than a convenient replacement. No preset-value presumption granted; ordinary full correctness/originality/value standard applied.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "found": "Stronger partial-data theorems exist only for Schrodinger/isotropic (KSU/BU/Kenig-Salo) or restricted gamma-A class; full-data anisotropic linearization (DSSF) is strictly weaker hypothesis-wise for partial data (less data = stronger claim). DKN nonuniqueness concedes rather than covers the quotient formulation.",
+      "searched": "Dominance queries: quotient uniqueness/log-stability for near-constant anisotropic conductivities on finite cylinder with front-face observation; CTA/transversally-anisotropic partial-data theorems; exhaustive census/classification/database that could contain rank package as special case.",
+      "why_not_covering": "Restricting a full-data or scalar theorem to partial matrix data weakens the hypothesis; partial-data matrix injectivity/ranks need new vanishing-CGO construction and are not special cases or corollaries of the broader statements."
+    },
+    "claim_vs_prior_implication": {
+      "found": "Priors prove: full-data linearized injectivity (DSSF), scalar partial-data uniqueness (KSU/BU/Kenig-Salo), nonlinear gauge invariance with counterexamples (DKN), restricted-class stability (Foschiatti). None proves or implies plane-wave deficiency restoration via amplitude gradients, same-sign linear-6, or G subset ker via div-W on this cell as a corollary.",
+      "searched": "Fetched decisive priors in full (admission fetches of DSSF, DKN, Kenig-Salo, BU/KSU, Foschiatti); compared hypotheses/conclusions literally, not by title similarity.",
+      "why_not_covering": "A prior need not state the headline verbatim to defeat originality, but none here substantively implies or exhaustively covers it: the hard analytic steps (vanishing-CGO remainder, axis leg) are absent from priors, and the rank identities are new computations, so originality passes while value still fails for lack of PDE consequence."
+    },
+    "equivalent_formulations": {
+      "found": "Only qualitative Carleman/CGO existence templates and scalar-potential results; no equivalent statement of plane-5/full-6 ranks, cokernel n, or escape pairing under any notation.",
+      "searched": "Exa: CGO amplitude completion / transverse-cone rank deficiency / plane-wave transport-gradient Calderon; OpenAlex/Crossref: linearized transversally anisotropic, Calderon partial-data cylinder; synonymous notations: Frechet derivative kernel, Lie-derivative gauge, L_V divergence identity, DN map.",
+      "why_not_covering": "Prior results concern scalar q (Schrodinger/isotropic) or full data; matrix-conductivity symbol with flow gauge is a different operator/object, and none states or implies the explicit rank/escape identities."
+    },
+    "exact_database_or_table": {
+      "found": "No table, database, thesis, or code repository records these cell-specific ranks, cokernel, escape pairing, or tilt cap.",
+      "searched": "Official databases/repositories/theses/author pages via Exa general (exact objects: finite cylinder Omega, Gamma_acc=dO\\K_-, phi=x1, escape pairing formula, tilt 30deg) and Crossref/OpenAlex metadata.",
+      "why_not_covering": "The exact parameter/object combination and numeric/symbolic rank datum appear nowhere in the retrieved candidate set; no mechanical lookup implies them."
+    }
+  },
+  "residual_risks": [
+    "Universal 'for every transverse xi' rank claim rests on finite magnitude samples + rotation symmetry + tolerance rank; no interval-arithmetic certificate - accepted here as presentation narrowness since body qualifies 'uniformly over tested xi' and escape formula is analytic, but a strict proof audit would require committed sympy nullspace proof.",
+    "Same-sign <=e^{-tau/2} trace decay has no replay script; bound is elementary for +tau factors but not machine-checked.",
+    "Literature search cannot exhaust synonymous theses/author pages; residual risk of an overlooked note recording the same 6x6 rank observation is low but nonzero; dominance check relies on honest scope of CTA/Schrodinger vs matrix-conductivity distinction."
+  ],
+  "verdict": "REJECT"
+}
