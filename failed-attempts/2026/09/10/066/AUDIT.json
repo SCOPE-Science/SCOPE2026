@@ -1,0 +1,66 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: headline as restated in research_report.json was checked literally. Lemma 1 (4s letters, <=12^n): valid superset counting assuming Vatter injectivity (standard). M_3 entries verified: from 1: [2,1,0] (l1,r1 stay, m1 up, f1 exits to 0); from 2: [2,4,2] sum 8; from 3: [0,3,6] sum 9 (3 m-exits dropped). Row sums (3,8,9), column sums (4,8,8) recomputed independently. Lemma 2 prefix-walk argument valid: only f from state 1 terminates, so length-(n-1) prefix stays in {1,2,3}, counted by superset walks e1*M_3^{n-1}; final letter <=3 choices. Induced 1-norm = max col sum 8 gives |E_3 cap S_n| <=3*8^{n-1} <=8^n, limsup <=8 <=12 and rho<=8. Lemma 3: det expansion gives p(x)=(2-x)((4-x)(6-x)-6)-2(6-x)=-x^3+12x^2-36x+24, monic q=x^3-12x^2+36x-24 verified. Integer values q(0)=-24,q(1)=1,q(3)=3,q(6)=-24,q(7)=-17,q(8)=8 independently recomputed. q'=3(x-2)(x-6)>0 on [6,inf), strictly increasing there, so exactly one root >6 in (7,8); IVT gives roots in (0,1) and (3,6), hence three distinct real roots, largest in (7,8) is Perron. M_3^2=[[6,6,2],[12,24,20],[6,30,42]] recomputed, all >0 so primitive, Perron applies. Scripts compute_M3.py and verify_F.py both exit ALL CHECKS PASSED on replay. F_0={id_n}: identities avoid 1324 for all n because any 4-subsequence is 1234 (finite check to n=8 illustrative, general proof trivial); decoder l1^{n-1}f1 -> 1..n with trace <=1 verified to n=12, general induction evident from decoder step ([1..k,D]->[1..k+1,D]); convention swap l1/r1 would not break depth<=1 membership. Stability with eps0=1 threshold 10: since every G subset E_3 has limsup <=8<10, antecedent 'growth>10' never holds, implication 'contained in F_0 up to finite deviations' is vacuously true; draft discloses vacuousness transparently. Localization: {1,2}-block [[2,1],[2,4]] char poly lambda^2-6lambda+6, root 3+sqrt(3)=4.732...<5 verified, so >5 cannot be confined to {1,2} under same superset counting \u2014 valid. Limitations honestly stated (superset one-sided only, no exact automaton, no full-class claim, F_0 growth 1). No false inequality or enclosure. Hence headline as written (including disclosed vacuousness) is mathematically correct. Target's substantive non-vacuous stability with lift-of-lower-bound F is not delivered in substance \u2014 judged under value, not as logical falsehood.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: headline bound uses zero 1324-specific filtering. M_3 counts all slot-count walks with depth<=3 for any permutation class (m/l/r/f counts per slot), dropping 1324-avoidance entirely; draft admits 'M_3 counts a rigorous superset' and 'M_3 bounds a superset (one-sided only); not an exact E_3 automaton'. Therefore |E_3|<=3*8^{n-1} follows by subset monotonicity from the generic bound for ALL depth<=3 permutations, which is immediate from Vatter's generic definitions (4s letters, slot transitions s->s+1/s/s-1). Vatter arXiv:0911.2683 provides the general insertion-encoding alphabet and accepting-automaton method; instantiating its slot-transition counts at s=1,2,3 yields M_3 with no new 1324 idea. No fused source states the number 8 for E_3, but a prior source need not state headline verbatim: generic definitions substantively imply it as a one-step corollary/repackaging of a stronger generic fact. F_0 avoidance (increasing avoids 1324) is textbook; localization is generic linear algebra on the same generic submatrix. Full-class uppers (Claesson-Jelinek-Steingrimsson <=16, Bona (7+4sqrt3)~13.93, Bevan et al. 13.5) indeed imply only E_3<=13.5, not <=8, so they do not cover \u2014 but generic slot counting does. Hence claim is a corollary/repackaging, not a new 1324 lemma. Failed search alone does not establish priority; mechanical implication defeats novelty.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: textbook restatement + vacuous classification. (1) Bound <=8<=12 is generic alphabet/slot counting ignoring 1324, applicable to any pattern; no 1324 structure, no refined state splitting tracking increasing subsequences as hypothesized, no transfer-matrix singularity analysis of a true E_3 automaton. Crude universal cap, far above true E_3 growth, gives no 1324 insight. (2) Stability: admitted target required classification of >11-eps subclasses into explicit extremal family F (lift of current ~10-growth lower-bound construction). Delivered eps0=1 threshold 10 above proven cap 8, so antecedent empty; any F (including growth-1 identities) vacuously satisfies. F_0={id_n} growth 1 is not the ~10-growth lift; draft's 'shared monotone spine' relabel does not supply it, and admits 'no ~10-growth family can live in E_3'. Non-vacuous lemma (>5 forces state 3) uses threshold 5, not 11-eps, and is again generic. Thus no near-extremal region localized, no extremal mass explanation, no reusable 1324 template beyond generic counting, no sharpened target interval for full constant (slice bound does not improve full-class bound; 'extremal mass cannot live in E_3' is generic: any >8-growth family must use depth>=4 for any pattern). Narrow-datum test fails: object motivated, but value mechanically implied and not needed as precise 1324 fact. Honest disclosure of vacuousness does not create value. Intrinsic low value, not a bounded presentation fix.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General insertion-encoding algorithm + accepting automaton when regular, Maple INSENC, rational GFs. Provides method and alphabet/slot framework but no 1324 depth<=3 slice matrix, constant, or stability. Generic definitions (letters per slot, slot transitions) substantively imply draft M_3 as superset count with no 1324 filtering.",
+      "title": "Finding regular insertion encodings for permutation classes (Vatter arXiv:0911.2683)",
+      "url": "https://arxiv.org/abs/0911.2683"
+    },
+    {
+      "finding": "Proves L(1324)<=16 via merge; conditional ~13.002 requires unproven conjecture. Implies only E_3<=16, not <=8. Different route, no slice matrix.",
+      "title": "Upper bounds for the Stanley-Wilf limit of 1324 and other layered patterns (Claesson-Jelinek-Steingrimsson arXiv:1111.5736)",
+      "url": "https://arxiv.org/abs/1111.5736"
+    },
+    {
+      "finding": "Proves <(7+4sqrt3)^n ~13.93^n by word-pair injection. Strictly weaker on slice than <=8, does not imply headline.",
+      "title": "A new upper bound for 1324-avoiding permutations (Bona arXiv:1207.2379)",
+      "url": "https://arxiv.org/abs/1207.2379"
+    },
+    {
+      "finding": "Best rigorous full-class ~13.5 via domino/staircase, lower 10.271; numerics ~11.6 stretched-exponential. Motivates gap, proves no slice transfer-matrix bound or stability of claimed form. Slice cap 8 would place E_3 below lower-bound family, but via generic counting only.",
+      "title": "Structural characterisation of Av(1324) / 1324 revisited (Bevan et al.; Conway-Guttmann-Zinn-Justin)",
+      "url": "https://doi.org/10.1016/j.ejc.2020.103115"
+    },
+    {
+      "finding": "Official counts 1,1,2,6,23,103,513,... to n=50. Records no insertion-depth slice, automaton, transfer matrix, or growth constant. Confirms not count-database repackaging, but does not supply novelty.",
+      "title": "OEIS A061552 Number of 1324-avoiding permutations",
+      "url": "https://oeis.org/A061552"
+    }
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": "Searched dominance direction: stronger theorem / broader object class / larger parameter range / census / classification / database that could cover E_3<=8 as special case (query 3: Stanley-Wilf 13.5/13.9, growth census, domino/staircase, insertion encoding). Evidence: full-class uppers (16, 13.93, 13.5) imply only E_3<=13.5, not <=8, so they do NOT cover. However broader class 'ALL permutations with slot-depth<=3' with same M_3 superset counting implies growth<=8 for any subclass including E_3; draft's M_3 is exactly that generic matrix (rows from letter counts, no 1324 condition). Hence headline is a strict subset/special case of a broader generic counting fact implied by Vatter definitions. Coverage holds via generic implication, defeating novelty despite no literal prior slice statement.",
+    "claim_vs_prior_implication": "Compared hypotheses/conclusions literally (not titles/embeddings). Vatter: hypothesis = any class with regular insertion encoding; conclusion = finite automaton + rational GF via slot letters. Draft: hypothesis = E_3 subset of all depth<=3 walks; conclusion = <=8 via M_3 superset. Draft uses no 1324-avoidance hypothesis beyond subset monotonicity; M_3 entries equal generic letter counts. Therefore draft conclusion is a direct corollary/recomputation of Vatter generic definitions, not a new 1324 singularity result. Prior full-class theorems have hypothesis = all Av(1324), conclusion >=13.5 upper, strictly weaker on slice, so no implication either way. F_0: hypothesis = increasing perms, conclusion = avoids 1324, textbook (1234 vs 1324). Stability: prior requires non-vacuous >11-eps classification into ~10-growth lift; draft proves vacuous >10 implication for arbitrary F, so no substantive implication from/to prior stability. Overall headline is repackaging of known stronger generic fact.",
+    "equivalent_formulations": "Searched literal headline (slot-depth<=3 slice E_3 growth <=8<=12, M_3 Perron) plus standard equivalents: insertion code/slots, Wilf class L(1324), active sites, dual/complement/inversion-table/merge-coloring/domino/staircase/Lukasiewicz encodings, specialist DBs/theses/author pages (queries 1-2 in one fused scope_literature_search call; SerpBase/OpenAlex/Crossref all ok, no partial; 20 fused results screened, decisive primaries fetched: Vatter, Claesson, Bona, OEIS). Evidence: no source states a depth<=3 transfer matrix or <=12/<=8 slice constant; Vatter gives only general algorithm. Title/embedding similarity alone not used. However synonymous-notation check shows M_3 is generic slot-count matrix, not 1324-filtered automaton, so equivalence to generic depth<=3 walk count \u2014 not a distinct 1324 encoding \u2014 is the covering fact (see broader_coverage).",
+    "exact_database_or_table": "Searched exact parameter/object in tables/official DBs: OEIS A061552, Bevan tables to n=50, PermPAL implicitly via literature. Evidence: OEIS holds only full-class counts (1,1,2,6,23,103,513,2762,...), references Bevan/Conway-Guttmann/Bona, records no insertion-depth slice, automaton, transfer matrix, or growth constant. No table contains E_3 counts, M_3, rho in (7,8), or F_0 encoding census. Hence headline is not a database excerpt/repackaging of counts. This check PASSES (no coverage), but does not rescue originality/value because covering generic fact is definitional, not tabular."
+  },
+  "live_retrieval": {
+    "coverage": "all providers ok, no partial failure; SerpBase Top10 + Crossref Top15 per query fused (20 deduplicated); OpenAlex returned 0 hits but status ok",
+    "queries_submitted": [
+      "insertion slot-depth <=3 slice Av(1324) growth rate <=8 <=12 transfer matrix M3 Perron",
+      "1324-avoiding permutations insertion encoding slots transfer matrix growth constant Stanley-Wilf limit Vatter regular language",
+      "Stanley-Wilf limit 1324 upper bound 13.5 13.9 growth rate census classification domino staircase insertion encoding"
+    ]
+  },
+  "residual_risks": [
+    "Single-slot decoder fidelity to Vatter convention (l1 vs r1 labeling) not checked against full Vatter text; risk low because any single-slot labeling keeps depth<=1 and bound uses only slot counts, not labels.",
+    "F_0 infinitude relies on induction beyond finite script checks (n<=8 avoidance, n<=12 decoding); risk negligible because increasing-avoids-1324 and l1-iteration are elementary.",
+    "Slot-depth definition variant (whether final 0 counts, starting state) could shift walk length by 1; bound 3*8^{n-1} robust to O(1) shifts, limsup unaffected.",
+    "No independent full-text verification of Bevan 13.5 lower 10.271 beyond abstracts/ admission record; not needed for verdict since generic-implication argument does not depend on exact full-class numbers."
+  ],
+  "route_note": "claim_route=TARGET present; audited normally against admitted target (bound <=12 via explicit M_3 with rho<=12 plus stability >11-eps into explicit lift F). Bound numerically exceeded (<=8) but via generic counting; substantive stability with correct F not delivered (vacuous with unrelated F_0).",
+  "verdict": "REJECT"
+}
