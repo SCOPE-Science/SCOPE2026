@@ -1,0 +1,62 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 2.1 verified: for p>D, (a,b)->a+bp is injective on {a+b<=D} because |a1-a2|<=D<p forces equality; hence F!=0 implies G(X)=F(X,X^p)!=0 of degree max(a+bp)<=Dp (max at (0,D)), so |S_F|<=Dp over a field. Under p>D and l>=2, q=p^l>Dp so nonzero G cannot vanish on all of K; S_F=K iff F=0 holds. Proof works for general K-coefficients, not only Fp-slice. Lemma 2.2 verified: DNF with <=2^m clauses; clause with a small literal has size <=Dp, all-co-small clause has complement <=mDp; union bound gives 2^mDp-small or -co-small (m<=2^m). Corollary 2.3 verified: B_n=2^mDp_n, q_n=p_n^l_n; B_n<q_n^delta iff 2^mD<p_n^{l_n delta-1} eventually true since p_n,l_n->inf; q_n-B_n>q_n^{1-delta} eventually since B_n/q_n->0 and q_n^delta->inf; uses p_n>D eventually. Lemma 3.1 verified: N(sig x)=N(x)^p=N(x) on Fp^*, so sig(T)=T and T subgroup gives T.sig(T)=T; Tr(sig x)=Tr(x) by cyclic shift, so sig(V)=V and V+V=V. Machine replay independently re-executed: inputs/artifacts/verify_emergent.py -> VERIFY_OK (E1 3 spots, E2 728+15624 polys BAD=0, E3 exact integer spots, E4 exact set equalities). Interpretive sentence 'neither horn alone suffices' is heuristic shape commentary, not a formal single-horn refutation (T,V not shown in-window/in-class/outside-STRUCT for general l), but the proved identities themselves are correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Route is EMERGENT_FINDING (explicit claim_route in report); emergence genuine: same objects (F_{p^l},Frob, Phi_D, window, STRUCT families), discovered while formalizing Phi_D per WORKLOG, not an unrelated substitute. Substantive prior comparison: Zou 1806.10026 (SOP/TP2 + integer-valued definable coarse dimension, no twisted growth, no qf window, no horn pairing), Hrushovski 0909.2190 (untwisted |XX^{-1}X| stabilizer, no sigma-twist), BGT 1005.1881 (linear approximate subgroups, no ultraproduct/difference transfer), Chernikov-Starchenko 1507.01482 (distal regularity, no growth dichotomy) all verified to omit the exact combined qf-vacuity + horn-necessity packaging; internal SCOPE scan finds no overlap. Nearest covering prior is Hrushovski 2004 / Hils et al. difference Lang-Weil 'trivial upper bound' deg M_q(P1) (=Dp for one order-1 polynomial) plus Zou integrality (coarse dimension 0/1), which covers the single-polynomial degree idea conceptually but does not state the exact finitary 2^mDp Boolean closure, the explicit [q^delta,q^{1-delta}] window corollary, or the paired T/V horn identities. Hence the literal combined headline is new, though modestly (report itself concedes ingredients standard). Grant PASS on novelty of formulation.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Fails independent-retrieval standard despite correctness and narrow novelty. (a)-(b) is a textbook restatement: injectivity (p>D) + Schwartz-Zippel degree bound + DNF union bound + elementary asymptotics B_n=O(p_n) vs q_n=p_n^{l_n}. DRAFT itself concedes ingredients standard. The Dp bound is mechanically implied by deg F(X,X^p) (exactly the 'trivial upper bound' noted in Hrushovski/Hils), and window vacuity is the finitary restatement of the known 0/1-dimensional phenomenon for one-variable qf sets (Zou integer-valued coarse dimension). It proves no growth exponents, no dichotomy, and by its own limitation says nothing about quantified formulas where the target/fallback live; it is a negative vacuity observation, not a reusable bridge lemma with growth-vs-structure content. (c) horn identities are immediate subgroup closures (norm-1 torus multiplicative subgroup, trace kernel additive subgroup, plus Galois invariance); certification of T.sig(T)=T and V+V=V does not establish formal horn-necessity for the exact target (T,V are order-(l-1) definable, not bounded order-1, and for fixed delta eventually |T|,|V|~q/p exceed q^{1-delta}, so not in-window; for l=2 they lie in the STRUCT horn). Narrow-datum rescue does not apply: the precise constants B_n=2^mDp and the equalities are mechanically implied by definitions/degree, not an unknown invariant a future researcher would need to retrieve; replay certifies but does not rescue textbook content per policy. Even if correct and new, this is a textbook/elementary packaging with no substantive result toward the admitted target or fallback.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Same Frobenius ultraproduct class; proves SOP, TP2, definable integer-valued coarse dimension and discusses transformal transcendence degree. No twisted sum-product growth, no qf window with explicit 2^mDp bound, no T/V horn pairing.",
+      "title": "Pseudofinite difference fields and counting dimensions - Zou (1806.10026)",
+      "url": "https://arxiv.org/abs/1806.10026"
+    },
+    {
+      "finding": "Proves untwisted stabilizer/approximate-subgroup dichotomy (|XX^{-1}X|/|X| bounded forces subgroup/algebraic-subgroup proximity). No Frobenius twist, no difference formulas, no Fix-definable alternative, no qf vacuity.",
+      "title": "Stable group theory and approximate subgroups - Hrushovski (0909.2190)",
+      "url": "https://arxiv.org/abs/0909.2190"
+    },
+    {
+      "finding": "Classifies approximate subgroups of linear groups. Finite-field expansion input only; no ultraproduct transfer, no A*sig(A), no qf window.",
+      "title": "Approximate subgroups of linear groups - Breuillard-Green-Tao (1005.1881)",
+      "url": "https://arxiv.org/abs/1005.1881"
+    },
+    {
+      "finding": "Distal regularity decomposition with generically stable measures; no sum-product growth, no difference fields, no qf vacuity.",
+      "title": "Regularity lemma for distal structures - Chernikov-Starchenko (1507.01482)",
+      "url": "https://arxiv.org/abs/1507.01482"
+    },
+    {
+      "finding": "General difference Lang-Weil estimate; explicitly notes transformal-dimension-zero upper bound for a single difference polynomial is 'simply the degree of M_q(P1)' - the same Dp degree idea as Lemma 2.1. No explicit qf Boolean window corollary or horn pairing stated.",
+      "title": "Counting in finite difference fields / Difference Lang-Weil (Hils et al.)",
+      "url": "https://www.uni-muenster.de/imperia/md/content/logik/hils/hihryezo24.pdf"
+    },
+    {
+      "finding": "Norm-1 torus as subgroup (kernel of norm, order (q-1)/(p-1)) and trace kernel as additive subgroup are standard finite-field textbook facts; Galois/Frobenius invariance standard. No twisted-sum-product horn-necessity packaging.",
+      "title": "Standard finite-field norm/trace subgroup facts (e.g. torus literature, Conrad trace/norm notes)",
+      "url": "https://kconrad.math.uconn.edu/"
+    }
+  ],
+  "claim_route": "EMERGENT_FINDING: report declares EMERGENT_FINDING; verified it genuinely arose from target work (Phi_D formalization + STRUCT stress-test on same (F_{p^l},Frob) objects), not a convenient replacement. Absence from topic.json not adverse. Applied ordinary full correctness/originality/value with no presumption and no relaxation.",
+  "decisive_checks": [
+    "Re-executed inputs/artifacts/verify_emergent.py -> VERIFY_OK (E1 injectivity, E2 728+15624 exhaustive BAD=0, E3 exact integer window, E4 exact horn equalities).",
+    "Hand-verified injectivity (a,b)->a+bp for p>D, degree max Dp at (0,D), field-size comparison q>Dp for l>=2/p>D, DNF union bound 2^mDp, and window asymptotics B_n<q^delta / q-B_n>q^{1-delta}.",
+    "Hand-verified N(sig x)=N(x), Tr(sig x)=Tr(x), hence sig(T)=T, T.sig(T)=T, sig(V)=V, V+V=V.",
+    "Live-checked Zou/Hr short splash pages plus Hils trivial-bound passage and standard torus/trace facts; confirmed no source states the exact combined qf window + horn claim.",
+    "Confirmed limitations: qf-only, no exponents 25/24 or 11/12, no target/fallback dichotomy; supporting phase1f/1g censuses illustrative only."
+  ],
+  "residual_risks": [
+    "General-coefficient Lemma 2.1 rests on proof, not machine replay (replay covers Fp-coefficient slice only); risk minimal as proof is coefficient-agnostic.",
+    "Hils/Hrushovski trivial-bound proximity means a stricter originality reader could view (a) as folklore; audit grants formulation novelty but value still fails, so outcome robust to that reclassification.",
+    "No downstream use of the vacuity lemma demonstrated; quantified case where target lives remains entirely open."
+  ],
+  "verdict": "REJECT"
+}
