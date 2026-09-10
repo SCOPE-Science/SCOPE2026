@@ -1,0 +1,77 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "HEADLINE vs EVIDENCE. The emergent claim has four components; two verify, two fail. (1) May E1 core REPRODUCED: re-running inputs/artifacts/may_window.py gives 517 E1 monomials, d1^2=0 on single-generator monomials, anchors E2(1,1)=E2(1,4)=E2(2,12)=1; my independent reimplementation of the E1 enumeration (same stated conventions) confirms n_E1=517 and spot E1 counts E1(1,5)=1 ({a1}), E1(2,5)=1 ({a0*h10}), E1(6,40)=7, E1(8,41)=6. (2) H^*V(1)/Steenrod low-degree checks REPRODUCED: check_ext.py exits 0 with Poincare dims 0..9 = 1,1,0,0,1,2,1,0,1,2, matching my independent admissible-basis enumeration to degree 12. (3) CENSUS FALSE (headline component): enumerate.py claims 1,552,353 admissible monomials of degree<=41 with dim A_40=328,962, dim A_41=473,119. Its is_adm() has `return True` indented INSIDE the `while i<n:` loop (inputs/artifacts/enumerate.py line 55), so only the first factor-block is ever checked (demonstrated: the triple (P3,P1,B,P1), inadmissible at the beta-P1 triple, passes the buggy predicate). My independent full-admissibility DFS (prefix-pruned, verified against check_ext.py's correct predicate at low degrees) gives the TRUE census: 105 admissible monomials total of degree<=41, dim A_40=3, dim A_41=8. The reported figures are wrong by 4-5 orders of magnitude, and the downstream 'measured infeasibility wall / 10^5-10^6 matrices' conclusion (DRAFT 3.4, target_exit.json blocking obstacle) is therefore unsupported by the code's own output once corrected. (4) TWIST 'CERTIFICATE' IS ASSERTION, NOT COMPUTATION: twist_check.py computes nothing \u2014 it prints a hardcoded JSON string (no import of May data, no homology computation). The underlying E1 facts it cites (E1(1,5)={a1}, d1(a1)=0, E2(2,5) dim 1) are true under the script's conventions (confirmed via (1)), so the inference 'naive twist has d^2(e0)=-a0*h10*e5 with no canceling source in-window' follows, but the file itself verifies nothing and the 'obstruction' is a property of the authors' own ad hoc naive twist definition, not of V(1). (5) UNDISCLOSED BOUNDARY EFFECT: may_window.py drops products with s>8 (mul truncation). d1 raises s by 1, so all E2 dims at s=8 \u2014 including headlined E2(8,41)=6 \u2014 have outgoing differentials to s=9 silently discarded and are upper bounds, yet DRAFT claims them as exact 'full E2 page' entries with no caveat. A false headline number plus an overstated exactness claim plus an assertion-only certificate = correctness FAIL.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route: the package genuinely arose from the target's May-log leg (R1a/R1b/R1d) plus the twist attempt (R1e), documented in target_exit_request.json before any fallback was pursued, so it is not a swapped-in replacement; judged on the ordinary standard with no presumption. Fused live search (3 consolidated directions, full provider coverage, partial=false, 20 deduplicated results) plus the admission record's two-round search surfaces only: general machinery (Belmont-Kong 2025 multiplicative Moss/Toda convergence; Dugger-Isaksen 2010 and Hu-Kriz-Ormsby motivic ASS construction/convergence), a different spectral sequence (Shimomura 1997 L2-localized V(1) ANSS E10=Einf with d5/d9; Shimomura 1996 beta-family; Carrick-Davies 2024 synthetic v2 nonvanishing), and background pages (nLab May/ASS, theses). No surfaced source tabulates a from-scratch p=3 May E2 table to t=41 with these entries, no source states the authors' naive-twist a0*h10 observation (it concerns their own definition, so no prior could), and no database row records these artifacts. The May E2 mathematical method is of course classical (May 1964; Ravenel), but no retrieved prior substantively implies or exhaustively covers the exact submitted artifacts, so originality narrowly PASSES; the recomputation-without-novelty concern is decided under value, where it belongs.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING gets no value presumption. The admitted target (classical d2 at (34,6)) and the preset fallback (motivic d2=0 at (34,6,17)) are both explicitly NOT achieved \u2014 DRAFT states this honestly. What remains is: (i) a machine table of sphere May E2 dims to t=41 at p=3 with only 3 textbook anchors checked and no comparison against any published May/Ext chart, i.e. an unvalidated recomputation of classical data and an unexplained enumeration; (ii) the observation that the authors' own naive tensor-product twist definition fails d^2=0 \u2014 an expected consequence of V(1) not being a ring, i.e. an implementation-log failure of a self-made definition, not an exact invariant of a natural object established for future retrieval; (iii) low-degree algebra self-consistency checks (Poincare to degree 9, 40 associativity spot checks), i.e. textbook/implementation material; (iv) a census that is both false (see correctness) and, once corrected (105 monomials), trivial rather than a quantified wall. No new theorem, no reusable lemma constraining any open differential, no chart correction, no downstream use is demonstrated; the 'redirect future attacks' moral restates the known fact that V(1) May computations need the cofiber extension data. This is textbook restatement + unexplained enumeration + implementation log even taken as correct and new, and the single potentially load-bearing component (the measured wall) is false. Intrinsic low value / missing substantive result => value FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Confirms L2-localized V(1) at p=3 via ANSS with d5/d9, E10=Einf. Different SS from May-ASS sphere window and from any naive-twist claim; gives no May E2 table to t=41 and no twist-obstruction statement. Does not cover the emergent artifacts.",
+      "title": "The homotopy groups of the L2-localized Toda-Smith spectrum V(1) at the prime 3 (Shimomura, 1997)",
+      "url": "https://doi.org/10.1090/S0002-9947-97-01710-8"
+    },
+    {
+      "finding": "General multiplicative Moss/Toda convergence theorem; records no p=3 May E2 entries and no V(1)-twist differential. Machinery only.",
+      "title": "A Toda Bracket Convergence Theorem for Multiplicative Spectral Sequences (Belmont-Kong, 2025)",
+      "url": "https://doi.org/10.1007/s42543-025-00099-x"
+    },
+    {
+      "finding": "v2-periodic nonvanishing at p=3 via tmf/synthetic methods; no May E2 table, no twist obstruction. Complementary, non-covering.",
+      "title": "Nonvanishing of products in v2-periodic families at the prime 3 (Carrick-Davies, 2024)",
+      "url": "https://arxiv.org/abs/2410.02564"
+    },
+    {
+      "finding": "General motivic ASS construction/convergence with May discussion; no V(1) cell table, no twist statement. Methodological prior only.",
+      "title": "The motivic Adams spectral sequence (Dugger-Isaksen, 2010)",
+      "url": "https://doi.org/10.2140/gt.2010.14.967"
+    },
+    {
+      "finding": "Background definition of the May SS (May 64/74, Ravenel 86). Confirms the method is classical; tabulates no p=3 E2 entries to t=41 and no twist claim.",
+      "title": "May spectral sequence in nLab",
+      "url": "https://ncatlab.org/nlab/show/May+spectral+sequence"
+    },
+    {
+      "finding": "Fused retrieval over SerpBase Top-10 + OpenAlex Top-15 + Crossref Top-15 for three consolidated directions (literal May-window/twist claim; equivalent Toda-Smith/Ext-chart terminology; broader May/Ext-chart covering results). 20 deduplicated results, full coverage, partial=false. No result records the submitted May E2 table entries or the naive-twist observation.",
+      "title": "scope_literature_search fused round (this audit)",
+      "url": null
+    }
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched direction 3 for stronger/broader covering results: Ravenel/May odd-primary Ext charts, general May E2 theory, motivic/synthetic V(1) programs, completed censuses. Retrieved: Belmont-Kong (general Moss theorem, no V(1)-at-3 cells), Dugger-Isaksen + Hu-Kriz-Ormsby (general motivic ASS convergence, no cell tables), Shimomura L2 ANSS (different SS, localized), Carrick-Davies (synthetic nonvanishing, no May table). Classical May E2 theory (May 1964/Ravenel) provides the METHOD but no surfaced source tabulates the claimed entries to t=41.",
+      "what_was_searched": "Dominance query for textbooks, completed Ext censuses, specialist databases, and general theorems that could contain the May-window entries or the twist observation as special cases.",
+      "why_it_does_or_does_not_cover": "No broader theorem or census found that records or mechanically implies the exact submitted entries. General convergence theorems do not yield specific E2 dims; the L2 ANSS computes different groups via a different SS. Does not cover => does not defeat originality; the recomputation aspect is a value defect instead."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Compared hypotheses/conclusions literally. No prior states a V(1)-twisted May d1 or an a0*h10 twist obstruction, because the twisted differential is the authors' own ad hoc definition introduced in twist_check.py. No prior's theorem implies a fact about that definition. For the May table: E2 dims are outputs of the authors' truncated program, not logical consequences of any retrieved general theorem (convergence theorems imply the SS exists/converges, not the entry values).",
+      "what_was_searched": "Whether any retrieved source, without stating the headline verbatim, logically implies or exhaustively covers it (recomputation/corollary/repackaging test).",
+      "why_it_does_or_does_not_cover": "Nothing retrieved implies the submitted artifacts as theorems. HOWEVER, the twist artifact is self-referential (a fact about the authors' own wrong definition, not about V(1)), which is why it passes originality yet fails value. The May entries are new-as-artifacts but recomputed classical content, likewise a value defect."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal headline terms (May E2 sphere p=3, E2(6,40), V(1) twisted May, a0 h10 obstruction) and synonymous encodings (mod-3 May SS, Ext_Adams charts, h10/a0/b10, Toda-Smith V(1) cohomology, beta/P1 Steenrod action). Fused results contain no May E2 table to t=41 and no a0*h10 twist statement under any notation; nearest hits are background pages (nLab, theses, MathOverflow) and unrelated 2-primary May literature (Lin 2022, Lin thesis).",
+      "what_was_searched": "Literal statement plus standard equivalent representations, duals, synonymous notation (May E1/E2, h_ij/a_n/b_ij, Ext over A at p=3, Smith-Toda V(1), cofiber twist).",
+      "why_it_does_or_does_not_cover": "No equivalent formulation of the submitted artifacts found in any provider. Does not cover => originality not defeated on this leg."
+    },
+    "exact_database_or_table": {
+      "evidence": "Searched for specialist tables/databases that could already contain the exact entries: odd-primary Ext charts (Ravenel/Andrews thesis data), Nassau-style computer Ext data (2-primary), Isaksen/Wang-Xu atlases (2-primary sphere), Shimomura V(1) charts (ANSS, not May). None surfaced a p=3 May E2 table with (6,40)/(8,41) entries or any twist-obstruction row. The authors' own table is the only source of these exact numbers \u2014 which is consistent with its being an unvalidated recomputation rather than a database hit.",
+      "what_was_searched": "Exact-parameter/database leg: published May E2 tables, computer Ext charts, theses, and author pages for a row matching the claimed dims or obstruction.",
+      "why_it_does_or_does_not_cover": "No exact table row or database entry found. Does not cover => originality not defeated; absence of validation against any such table is a correctness/value weakness, not an originality win."
+    }
+  },
+  "residual_risks": [
+    "E2 homology dims (e.g. E2(6,40)=5) were reproduced only at the E1-enumeration level plus anchors; the full per-(s,t) homology computation including Koszul signs was not independently reimplemented, so additional sign or truncation bugs beyond the s=8 boundary effect cannot be excluded.",
+    "May conventions (generator degrees, d1 formula, polynomial-vs-exterior structure) were checked for plausibility and anchor agreement only, not line-by-line against a published reference; a convention error would shift the whole table.",
+    "True admissible census (105 total; A_40=3, A_41=8) rests on my independent DFS implementing the standard admissibility predicate (cross-validated against check_ext.py's correct predicate at degrees<=9); a subtle excess-condition subtlety for P^a-beta-P^b triples could perturb counts, but cannot bridge the 4-order-of-magnitude gap to the claimed 1.55M.",
+    "Originality PASS is narrow (no covering source surfaced); a published p=3 May E2 chart to stem 34+ that the fused search missed would convert the table entries into textbook recomputation, reinforcing the REJECT via originality as well."
+  ],
+  "verdict": "REJECT"
+}
