@@ -1,0 +1,82 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All proved items replay and cross-check. (1) disc(f)=-259019 verified twice: sympy resultant in artifact plus independent Bareiss Sylvester determinant (-259019); primality verified by trial division to 509 and Miller-Rabin; disc mod 7=2 (good reduction at 7); separability mod 3,5,7,11,13 confirmed by no common root of f,f'. (2)-(3) N1/N2 independently recomputed with a different Fp2 construction (t^2-nonsquare vs generic quadratic) matching exactly: N1=7,6,11,19,17 and N2=15,46,55,135,181; Weil formula #J=P(1) arithmetic rechecked (e.g. p=3: s1=-3,S2=-5,e2=7,#J=29). (4) Cantor script replays CANTOR_OK; independent audit shows k*D!=0 for 1<=k<=28 and 29*D=0, associativity/identity spot checks pass, so D has exact order 29 mod 3; lift argument valid because reduction is good at 3 and 5 and 29 does not divide #J(F5)=36, so D has infinite order and rank>=1. (5) Torsion chain valid: prime-to-3 torsion injects mod 3 (good reduction), 29-part excluded mod 5, leaving a 3-group; a 3-group injects mod 5 and mod 11, forcing |T| divides 9 and 237=3*79, hence {1,Z/3}. (6) Box search |x|<=5000 replays to exactly (-1,+-2),(0,+-1),(2,+-5); correctly framed as box certificate only. (7) (1/4,+-1/32) verified by exact Fraction arithmetic: (1/32)^2=1/1024=(1/4)^5-4(1/4)+1. Proof vs evidence properly separated: rank=1 equality, Coleman bound, completeness explicitly NOT claimed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route: genuinely arose from target work (audit-plan Step 1 plus Cantor rank-lower step on the same named curve C, same Chabauty+sieve method family) after target/fallback engines were shown blocked; same object, not a parametric variant or different problem, so route legitimacy holds with no value presumption. Fused live retrieval (3 consolidated queries, full provider coverage, 20 deduped results) returns only general Chabauty/sieve machinery and other curves; no source names y^2=x^5-4x+1 or states any rank, torsion, J-order, disk, or (1/4,1/32) datum for it. Closest internal prior SCOPE026 concerns distinct curve y^2=x^5-5x^3+4x+1 rank>=2. Direct LMFDB checks attempted (jump-page fetch returned generic index; API query 404 on guessed endpoint) so no LMFDB row was demonstrated to state or imply the headline; database-construction paper stores invariants/conditional data, not from-scratch Cantor proofs, J(Fp) tables, or this rational point. Hence no prior source substantively implies the exact computed/proved facts; originality PASSES narrowly (see residual risk about a possible LMFDB row).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING carries no preset-value presumption and fails the ordinary value standard. What is proved is a routine arithmetic anchor: prime discriminant, five J(Fp) orders by brute force, rank>=1 lower bound from one reduction, torsion restricted only to {1,Z/3} (not pinned), a box search to an unexplained cutoff |x|<=5000, and one small-height point (1/4,1/32). Nothing closes a residue class, determines rank, bounds any Coleman disk, or completes any list -- the admitted valuable fallback's defining feature (permanent Strassman-1 exclusion reusable as a lemma) is absent. J(Fp) orders are recomputable in milliseconds by any CAS and have negligible retrieval value; the rank-lower/torsion lemmas are textbook reduction exercises; the |x|<=5000 bound is an arbitrary scope with no mathematical interpretation (classic unexplained enumeration); (1/4,1/32) is a single denominator-4 point with no interpretation, tiny unmotivated gain. Generic 'reusable by any future determination' does not distinguish this from any intermediate computation. The exact-invariant clause does not rescue it: the invariants are mechanically implied by seconds-scale counting and the object/parameter choices (5 primes, box 5000) are not motivated before computation. Intrinsic low value + arbitrary scope + missing substantive result => value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Stores geometric/arithmetic invariants for 66158 genus-2 curves; does not log from-scratch Cantor rank-lower proofs, J(Fp) order tables as stated, or the (1/4,1/32) point; no row demonstrated to imply headline.",
+      "title": "A database of genus 2 curves over Q (Booker-Sijsling-Sutherland-Voight-Yasaki 2016)",
+      "url": "https://doi.org/10.1112/s146115701600019x"
+    },
+    {
+      "finding": "Method for integral points when r=g via quadratic Chabauty + sieve; worked examples are different curves; states no rank/torsion/J-order datum for y^2=x^5-4x+1.",
+      "title": "Computing integral points on hyperelliptic curves using quadratic Chabauty (Balakrishnan-Besser-Muller)",
+      "url": "https://doi.org/10.1090/mcom/3130"
+    },
+    {
+      "finding": "General Chabauty + Mordell-Weil sieve method notes; different example curves; no determination for the named model.",
+      "title": "Chabauty and the Mordell-Weil Sieve (Siksek Ohrid notes)",
+      "url": "https://samirsiksek.github.io/siksek.github.io/papers/ohrid.pdf"
+    },
+    {
+      "finding": "Rank-2 bielliptic LMFDB census (411 curves); disjoint family from rank-1 quintic cell; leaves headline untouched.",
+      "title": "Rational points on rank 2 genus 2 bielliptic curves in the LMFDB (Bianchi-Padurariu)",
+      "url": "https://doi.org/10.1090/conm/796/16003"
+    },
+    {
+      "finding": "Fused top-20 screening: MathOverflow/MathSE/YouTube/Church-1964 hits are unrelated (y^2=x^5-x+1 torsion thread, sextic threads, quintic-solving video); no hit names the model or implies its list/rank/J-orders.",
+      "title": "Live fused retrieval screening (3 queries, SerpBase/OpenAlex/Crossref full coverage, 20 results)",
+      "url": "https://www.lmfdb.org/Genus2Curve/Q/"
+    },
+    {
+      "finding": "Jump-page fetch returned generic index only; API guess returned 404; recorded as inconclusive direct-database check, not evidence of absence.",
+      "title": "Direct LMFDB lookup attempt (jump + api, 2026-09-10)",
+      "url": "https://www.lmfdb.org/Genus2Curve/Q/"
+    },
+    {
+      "finding": "Closest internal prior concerns distinct curve y^2=x^5-5x^3+4x+1 with 17-point floor and rank>=2; remaining hits are unrelated models; no validated finding states or implies the headline.",
+      "title": "Internal prior scan (Resultary + failed attempts)",
+      "url": "inputs/topic.json"
+    }
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused queries included dominance formulation (LMFDB census / Chabauty+sieve database / y^2=x^5+ax+b family). Returned general theorems (Stoll pipeline, Bruin-Stoll sieve, Balakrishnan-Besser-Muller quadratic Chabauty, Siksek notes) and a rank-2 bielliptic census; all state methods with different example curves and none exhausts the y^2=x^5-4x+1 cell.",
+      "what_searched": "Stronger-theorem / broader-class / completed-census queries covering the headline as a special case.",
+      "why_not_cover": "Method-only sources prove no determination for this C; the only census (Bianchi-Padurariu 411 rank-2 bielliptic) is a disjoint family. No broader result substantively implies rank>=1, torsion, J-orders, or (1/4,1/32) for this model."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No source computes an annihilating differential, Coleman expansion, sieve modulus, Selmer bound, or integral list for y^2=x^5-4x+1; the headline itself claims no disk bound and no completeness, so there is no shared conclusion to be implied. The proved facts require new per-curve reduction/counting specific to this f.",
+      "what_searched": "Whether the headline is a corollary, recomputation, parameter substitution, or repackaging of a known stronger fact.",
+      "why_not_cover": "Headline is new computed/proved data for this cell, not a corollary or substitution of any surveyed result. (This preserves originality but does not confer value.)"
+    },
+    "equivalent_formulations": {
+      "evidence": "Literal quintic query plus discriminant (-259019) query plus synonymous-notation screening (MathOverflow y^2=x^5-x+1 thread, sextic/completed-model threads, Elkies torsion page, Poonen counting-points survey). No hit states the model y^2=x^5-4x+1 or any rank/disk/J-order datum under shifted/scaled/completed notation.",
+      "what_searched": "Literal statement, dual/complement/Jacobian/mod-p/LMFDB-label encodings, shifted/scaled/completed (sextic) and historical synonymous notations.",
+      "why_not_cover": "No source under any encoding states or implies the discriminant-primality, J-order table, Cantor rank-lower, torsion restriction, or (1/4,1/32) point for this curve."
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB currently holds 66158 curves of abs disc to 1e6; database paper confirms it stores invariants/conditional point data, not Coleman disk expansions or from-scratch Cantor certificates. Direct lookup inconclusive (generic page + 404 on guessed API endpoint). Even if a row for abs disc 259019 existed, polynomial disc vs minimal disc was not shown equal and no row was shown to list J(Fp) orders, the Cantor proof, or (1/4,1/32); conditional analytic rank would not prove algebraic rank>=1.",
+      "what_searched": "LMFDB genus-2 database rows/tables and identifier queries that could already list the exact parameters or imply the claim.",
+      "why_not_cover": "No exact row/table was found stating the headline; LMFDB-type invariants do not mechanically imply the proved certificate. Residual risk noted below."
+    }
+  },
+  "residual_risks": [
+    "LMFDB direct lookup inconclusive (bot-gate history at Admission; generic page + 404 here): a row for this curve (abs disc 259019 < 1e6) cannot be fully excluded; if present, its conditional rational-point list might contain (1/4,1/32) or its Euler factors might yield #J(Fp). Polynomial-vs-minimal discriminant equality was not proved, so inclusion is speculative.",
+    "Originality PASS is narrow: the facts are seconds-scale recomputations any CAS reproduces, so 'new' means 'no source found stating them', not deep novelty.",
+    "Cantor/Weil steps rely on standard odd-degree hyperelliptic theory (unique reduced representatives, one point at infinity, P(1) formula) as cited; scripts assume but do not re-prove that theory.",
+    "Box search bound |x|<=5000 and prime set {3,5,7,11,13} are arbitrary and unmotivated; integral-search code trusts Python isqrt over a finite box (correct) but proves no completeness."
+  ],
+  "verdict": "REJECT"
+}
