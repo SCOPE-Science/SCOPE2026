@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem verified as exact computer-assisted proof, not experiment. Definitions match Bauer Sec 4: dimT_d=#{4a+6b+14c=d}, cond_n(m)=#{2i+nj<=m-1}, D.B=28d-42m4-140m3, B^2=d^2-21m4^2-28m3^2, D^2=0 and D.A_K=0 both recomputed as 0. Reduction lemmas are rigorous: cond_n monotonicity by lattice-region inclusion (covers unbounded m3/m4 tails, including m=0 edge 0->1); for fixed (d,m4) raw edim nonincreasing in m3 so checking minimal m3min (0 if 28d-42m4<0 else floor(need/140)+1, asserted D.B<0) suffices; for fixed d, M(d)=least M with cond4(M)>=dimT_d (max 437 at d=2000) kills all m4>=M(d) regardless of m3. Independent stdlib recomputation over d=0..2000 (221019 boundary triples) gives 0 counterexamples; D-orthogonal completeness via 2d=3m4+10m3 forcing m4<=1333,m3<=400, loop 0..1334 x 0..400 visits every class with d<=2000, gives 0 with B^2<0 and edim>0. Spot checks: dimT(42)=9, cond3(8)=8 recovering 42H-8E3 with actual 1=edim 1; critical ray (28t-2,2t,5t) has D.B=-56 throughout. Supporting files correctly excluded from theorem: exact_triple.py and klein_cell.py (numeric) labelled non-theorem evidence. Original verify.py is exact-integer but slow (>120s timeout in audit); optimized exact recomputation confirms same result.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Substantive comparison, not timestamp. Bauer et al. arXiv:1609.08648 supplies edim formula, proves actual>=edim (Thm 4.11), checks SHGH-type for d<144 and classifies G-irreducible negative curves to degree 200, leaving D=28H-2E4-5E3 nef as unproved Conjecture 5.8 and Klein wh in [661/102,6.5]; it never states or tests D.B<0=>edim=0 to degree 2000. Calvo-Huizenga-Szemberg arXiv:2507.11888 (July 2025) confirms plane reflection Waldschmidt cases remain incomplete with Klein still open, recording no such vanishing. Nguyen Fermat initial-degree table and Szpond survey concern distinct n^2+3-point Fermat cell vs 49-point Klein locus and imply no such bound. The specific bounded universal inequality over 221k triples is not mechanically implied by D7 floor, 6.5 cap, or Lemma 3.3 formula. Hence new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING route verified as genuinely target-derived (exhaustive hunt for edim>0 invariant obstructions to Conjecture 5.8 divisor D, with trapdoor reduction), not a convenient unrelated substitute; it claims no Waldschmidt bound and no nefness, honestly limited to d<=2000. Nevertheless fails ordinary value: the certified statement constrains only the heuristic lower bound (actual>=edim), so edim=0 has zero geometric force toward D-nefness \u2014 draft itself admits it proves neither D nef nor D14 nef nor any wh bound, and a Wiman-type unexpected (edim-0-but-effective) counterexample remains fully possible inside d<=2000. It therefore provides no retrievable progress unit for the recognized Waldschmidt/resurgence/interpolation program (no floor replacing 661/102, no rho-hat/Chudnovsky/Demailly/Seshadri input), only negative guidance that the naive count is futile. The scope d<=2000 is an unexplained compute-budget cutoff with no geometric motivation (unlike qualified k=14 rung giving 6.49); critical-ray deficit growing linearly negative suggests the natural fact would be an all-degree analytic inequality, of which this is a truncated enumeration. Pure combinatorics of dimT/cond recomputable in seconds; certification alone does not rescue the arbitrary bound per policy. Incomplete census honestly described, but headline itself lacks independent retrieval value \u2014 missing substantive result with arbitrary scope, not a narrow exact invariant a future researcher would reasonably need as a bound/certificate.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Studies Klein/Wiman blowups, invariant negative curves, resurgence/Waldschmidt; leaves Klein wh in [661/102,6.5] with D nef as unproved Conjecture 5.8; gives D_k ladder, Lemma 3.3, edim formula, degree-200 classification, SHGH check d<144. No D.B<0=>edim=0 vanishing to 2000.",
+      "title": "Negative curves on symmetric blowups of the projective plane, resurgences and Waldschmidt constants (Bauer et al.)",
+      "url": "https://arxiv.org/abs/1609.08648"
+    },
+    {
+      "finding": "Plane reflection Waldschmidt constants described as most-but-not-all known; paper moves to P^3 (D4/B4/F4/H4). Confirms Klein gap still recognized open; records no edim-vanishing certificate.",
+      "title": "Waldschmidt constants of symmetric sets of points in P^3 (Calvo-Huizenga-Szemberg)",
+      "url": "https://arxiv.org/abs/2507.11888"
+    },
+    {
+      "finding": "Decides distinct Fermat n^2+3-point cell, not 49-point Klein locus; no implication for Klein edim vanishing.",
+      "title": "The Initial Degree of Symbolic Powers of Ideals of Fermat Configuration of Points (Nguyen)",
+      "url": "https://arxiv.org/abs/2101.12308"
+    },
+    {
+      "finding": "Survey fixing Klein 21-line locus as 49 singular points (21 quadruple + 28 triple) vs Fermat counts; collects motivation, no edim vanishing.",
+      "title": "Fermat-type arrangements (Szpond survey)",
+      "url": "https://arxiv.org/abs/1909.04089"
+    }
+  ],
+  "claim_route": "EMERGENT_FINDING",
+  "decisive_checks": [
+    "Independent exact recomputation: max dimT=12048, max M(d)=437, D-negative boundary fails=0, D-orthogonal B^2<0 edim>0 count=0.",
+    "Intersection/formula checks: D^2=784-84-700=0, D.A_K=588-168-420=0, dimT(42)=9 with cond3(8)=8, critical-ray D.B=-56 identically.",
+    "Exhaustiveness proof checked: m3min closed form minimal with D.B<0 asserted; m4-tail cutoff M(d) exact; orthogonal equivalence 2d=3m4+10m3 with bounds m4<=1333,m3<=400 fully looped; (0,0) exclusion correct.",
+    "Monotonicity lemma holds generally by set inclusion including m=0 edge; explicit ranges (cond4 to 500 covering 437, cond3 to 1200 covering max m3min 401) sufficient as defense-in-depth; unbounded tails covered by lemma.",
+    "Original verify.py timed out at 120s in audit (heavy exact loops) but optimized exact replay confirms VERIFY-class result; supporting exact_triple/klein_cell correctly segregated as non-theorem evidence."
+  ],
+  "residual_risks": [
+    "Dependence on Bauer Sec 4 definitions (generator independence in degrees 4,6,14; cond formulas; Lemma 4.1 reduction) taken as stated, not re-derived from scratch.",
+    "Original artifact runtime heaviness (>120s) may hinder direct replay without optimization or longer timeout.",
+    "klein_cell.py is numeric (NumPy) provenance only, not a certificate; exact Q(zeta7) coordinates not re-verified.",
+    "All-degree extension suggested by spot checks to t=5000 is unproved; unexpected-curve loophole means result has no sufficiency force even in range."
+  ],
+  "verdict": "REJECT"
+}
