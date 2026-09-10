@@ -1,0 +1,67 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Headline lower bound C*>=8 via i.i.d. shifted-exponential witness verified line-by-line and by replay. For Y~Exp(1), E[Y^m]=m! is standard; E[(Y-1)^4]=24-24+12-4+1=9, E[X1]=1-1=0, E[X1^2]=2-2+1=1, so Var(X1)=1 and Var(X1^2)=9-1=8 \u2014 all exact integer arithmetic. Replay of inputs/artifacts/verify_sharpness.py PASS confirms E4=9, mean 0, var 1, Var(X1^2)=8 plus Gaussian 2 and cube 4/5 sanity checks. Isotropy follows from i.i.d. mean-0 var-1 (E X=0, Cov=Id). Log-concavity holds: 1D density f(x)=e^{-(x+1)}1_{x>=-1} has convex support [-1,inf) and affine log-density, hence log-concave; product on convex [-1,inf)^n with linear log-density is log-concave. Variance sums by independence: Var(|X|^2)=sum Var(Xi^2)=8n exactly for every n>=1. No boundary error; density is absolutely continuous w.r.t. Lebesgue as required. The DRAFT honestly disclaims the target/fallback upper bounds and 1D maximality, so no overclaim infects the headline.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL. Claim route is EMERGENT_FINDING (research_report.claim_route='EMERGENT_FINDING'); discovery context (logged EMERGENT_CANDIDATE E1 while auditing KL tightness examples, same universal scope, constrains target constant) verifies it genuinely arose from target work rather than scope evasion, so ordinary full originality standard applies with no presumption. Under that standard the exact witness is anticipated by Chen-Klartag arXiv:2607.23307 (submitted 25 Jul 2026, before audit), which proves the strictly stronger sharp thin-shell theorem. Abstract and Theorem 1.1 state Var(|X|^2)<=8n for all isotropic log-concave X AND 'The constant 8 is optimal: equality is attained when X1,...,Xn are i.i.d. standard, centered exponential random variables' with density e^{-x-1}1_{x>=-1} \u2014 literally the submitted X_i=Y_i-1, Y_i~Exp(1) i.i.d. witness and the submitted value 8n. The submitted lower-bound-only certificate is therefore a strict subset/corollary of a published stronger fact. Elementary-derivation honesty in DRAFT s7 does not restore priority; a timestamp/failed search never establishes priority, and here the prior timestamp affirmatively defeats it. Originality failure is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS (intrinsic; does not rescue originality). As a standalone exact invariant it meets the narrow-datum value bar: object (isotropic log-concave product law) and invariant (Var(|X|^2)=8n) were motivated before computation by the admitted target constant 8, the value 8 was not known or mechanically implied at Admission (which framed floor as Gaussian 2, cube 4/5), and a future constant-tracking researcher could reasonably need the precise sharpness floor to avoid aiming below 8. It is not an arbitrary scope, tuned window, parameter substitution, or unexplained enumeration; n=1 alone forces universality. Elementary computation does not by itself make it a textbook restatement under the narrow-datum rule. Value PASS is intrinsic only; retrieval value as a separate record is now subsumed by the stronger prior, which is why overall verdict is REJECT via originality.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract + Theorem 1.1 prove Var(|X|^2)<=8n for all isotropic log-concave X AND state constant 8 optimal with equality for i.i.d. standard centered exponentials, density e^{-x-1}1_{x>=-1}. This is literally the submitted witness and value. Submitted 25 Jul 2026. Strictly stronger (upper+lower) than submitted lower-only claim.",
+      "title": "Digesting the proof of the sharp thin-shell inequality (Chen-Klartag, arXiv:2607.23307)",
+      "url": "https://arxiv.org/abs/2607.23307"
+    },
+    {
+      "finding": "Theorem 1.1 proves Var<=C n with unspecified C; tightness noted only via Gaussian (C=2) and cube (C=4/5). Confirms covering O(n) prior that leaves constant open but does NOT state 8-floor; does not cover submitted witness.",
+      "title": "Thin-shell bounds via parallel coupling (Klartag-Lehec, arXiv:2507.15495)",
+      "url": "http://arxiv.org/abs/2507.15495"
+    },
+    {
+      "finding": "Guan E Tr[A_t^2]<=C n with unspecified C and 'absurdly large' extractable constant. No 8 stated. Confirms usable-constant gap but not the witness.",
+      "title": "Affirmative Resolution of Bourgain's Slicing Problem Using Guan's Bound (Klartag-Lehec, GAFA 2025)",
+      "url": "https://doi.org/10.1007/s00039-025-00718-w"
+    },
+    {
+      "finding": "OpenAlex 'thin-shell variance conjecture log-concave Klartag Lehec' returns covering priors plus Chen-Klartag digest (rank 13, arxiv 2607.23307). Crossref 'thin-shell variance conjecture log-concave' returns thin-shell lineage with no competing single-digit floor. Union corroborates that the only source stating 8-optimality is the defeating prior itself.",
+      "title": "OpenAlex + Crossref structured auxiliaries on thin-shell/log-concave",
+      "url": "https://arxiv.org/abs/2607.23307"
+    }
+  ],
+  "claim_route": "EMERGENT_FINDING: verified as genuinely arising from target investigation (auditing KL tightness examples during target-directed phase, same universal scope, constrains target constant 8); absence from topic.json is not adverse. Applied ordinary full correctness/originality/value standard with no presumption and no relaxation.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Chen-Klartag 2607.23307 Theorem 1.1 proves universal upper bound Var<=8n plus optimality via same extremizer; also Theorem 1.2 (third-moment tensor <=4n) and Corollary 1.3 (simplex maximizer for convex bodies). Fetched in full via arXiv page + Exa fetch.",
+      "reasoning": "Submitted claim (C*>=8 via exponential witness) is a strict subset/special case of this broader theorem. A prior need not state headline verbatim: its result substantively implies and exhaustively covers the claim (lower-bound half). Hence originality FAILS by dominance.",
+      "search": "Dominance query: stronger theorem / broader class / exhaustive sharp-constant census covering Var<=8n optimality. Exa general 'Var(|X|^2)<=8n optimal centered exponential equality' + OpenAlex 'thin-shell variance conjecture log-concave Klartag Lehec' + Crossref 'thin-shell variance conjecture log-concave'."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior abstract: 'constant 8 is optimal: equality is attained when X1..Xn are i.i.d. standard, centered exponentials'; Theorem 1.1: 'Equality holds when ... density e^{-x-1}1_{x>=-1}'. Submitted claim: 'X_i=Y_i-1, Y_i~Exp(1) i.i.d., isotropic log-concave, Var(|X|^2)=8n exactly, hence C*>=8'. Densities, moments (9-1=8), and independence step identical.",
+      "reasoning": "Literal comparison of hypotheses (isotropic log-concave in R^n, all n>=1) and conclusions (value 8n attained) shows substantive implication: prior's equality case IS the submitted witness. Recomputation/certificate/repackaging of this known equality case cannot pass originality.",
+      "search": "Fetched decisive primary source in full (arXiv abs + Exa full-text); compared theorem hypotheses/conclusions literally, not by title/embedding similarity."
+    },
+    "equivalent_formulations": {
+      "evidence": "Exa searches 'isotropic log-concave Var(|X|^2) exponential lower bound 8n', 'centered exponential isotropic log-concave variance 8 extremizer', and 'Var<=8n optimal centered exponential equality' all return Chen-Klartag 2607.23307 as top hit with identical density e^{-x-1}1_{x>=-1} and moment identities. No synonymous-notation escape: 'shifted Exp(1)', 'standard centered exponential', 'e^{-(x+1)}1_{x>=-1}' are the same law; 'C*>=8' vs 'constant 8 optimal with equality' are the same sharpness assertion.",
+      "reasoning": "Synonymous names/notation, dual/complement/matrix encodings tested; none distinguishes the submission. The witness is identical under standard equivalent representations.",
+      "search": "Exa high-recall (no category restriction, numResults<=10) on literal statement and standard equivalents; OpenAlex/Crossref cross-checks."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table/database (OEIS, DLMF, Gruenbaum-type census) is the covering source here; the covering source is a theorem paper, not a table. Checked that no prior table states the witness separately \u2014 irrelevant because the theorem paper already states it explicitly.",
+      "reasoning": "Exact-parameter-in-table failure mode tested and not the vehicle of anticipation; anticipation is via published theorem, which is stronger ground for FAIL.",
+      "search": "Included specialist identifiers (arXiv:2507.15495, arXiv:2607.23307, GAFA DOI) and author pages in queries; no separate database hit needed."
+    }
+  },
+  "residual_risks": [
+    "Chen-Klartag upper-bound proof (Monge-Ampere/moment-measure) was not independently audited here; irrelevant to originality defeat, since defeat rests on its stated equality case whose computation was independently re-verified.",
+    "Exa result payloads were truncated in transport but decisive abstract/Theorem text was recovered via full fetch and OpenAlex record; no provider was wholly unavailable, so no gap-based priority claim arises.",
+    "1D maximality (E Z^4<=9 for all isotropic log-concave Z) remains unproved and is honestly disclaimed; it does not affect headline lower-bound correctness."
+  ],
+  "verdict": "REJECT"
+}
