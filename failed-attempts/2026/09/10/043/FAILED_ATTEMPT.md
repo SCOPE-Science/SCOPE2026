@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Uniform super-expander distortion via Markov-type gap amplification, with a Heisenberg snowflake witness
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 607
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Banach Space Geometry
+- **Method:** Markov type/cotype estimation with nonlinear spectral gaps and metric differentiation
+
+## Problem
+
+Separate one named Heisenberg-vs-expander distortion cell: for an explicit d-regular Mendel-Naor super-expander family {G_k} with |G_k|=n_k, prove a uniform distortion lower bound into all 2-uniformly convex targets depending explicitly on the convexity constant; failing that, log an explicit 1/2-snowflake embedding witness for the base Heisenberg quotient H_3(Z_5) narrowing the optimal window from above.
+
+## Attempted claim
+
+Let {G_k} be the explicit d-regular Mendel-Naor super-expander levels with vertex counts n_k -> infinity. There is a universal c*>0 such that for every 2-uniformly convex Banach space X with power-type-2 constant K, any embedding f: G_k -> X satisfies distortion c_X(G_k) >= c*·K^{-1}·(log n_k)^{1/2}/(1+log K) for all large k, via one heat-semigroup Poincare inequality plus one differentiation-to-Lipschitz lift.
+
+## Research outcome
+
+Certified distortion-1.84 (<=8) 1/2-snowflake embedding of H_3(Z_5) into l_2^64 via L^-1/4 eigenmap; independent verifier PASSES over all 7750 pairs with 4.34x margin. TARGET lower bound remains BLOCKED.
+
+## Why this attempt failed
+
+Failed axes: value.
+
+value: ADMISSION_DEFECT: exact fallback completion (N=64, ratio 1.8414<=8) is verified, which normally carries Admission's conditional value approval. Value is reopened because objective evidence shows the qualification was materially false. Admission's fallback_qualification.originality_if_completed ('not a mechanical substitution'), admission_review.fallback_originality ('achieving 8 requires new finite witness, not parameter substitution'), and fallback_value ('first upper-bound anchor narrowing optimal window', 'value exists before computation', 'not mechanically implied') are falsified by: (i) the authors' own inputs/artifacts/build_fallback.py lines 20-27 'Fallback C (guaranteed): ... even the trivial equidistant embedding PASSES the criterion', and inputs/target_exit.json fallback_assessment 'even equidistant images give distortion sqrt(diameter)~3.2<=8'; (ii) independent verification that diameter=6 so sqrt(6)~2.449<8, leaving ~3.27x headroom before any geometry; (iii) independent triviality test: five independent 64x125 standard-Gaussian tables achieve max/min ratios 3.59-4.41<=8, and a sphere-normalized random table achieves 3.40<=8 — i.e. arbitrary structure-blind matrices satisfy the admitted success criterion with large margin, so no Heisenberg-specific witness was needed. Under the ordinary value standard the result therefore fails: the object H_3(Z_5) is natural and motivated, but the certified invariant 'distortion<=8' was mechanically implied (random tables pass) and does not narrow any optimal window (generic ~4 already passes; Tao/Assouad give O(1) existence), while the precise number 1.8414 is a method-dependent property of one truncated L^-1/4 eigenmap (64 modes, specific scaling), not a canonical invariant of H_3(Z_5) such as optimal distortion, and no future researcher searching Heisenberg snowflake distortion needs this eigenmap-specific ratio. Certification alone does not rescue it. No bounded value-only addition can fix vacuous-threshold triviality without changing the problem or starting a new direction (e.g. proving optimality or a sharp window), so REJECT, not REPAIRABLE.
+
+## Conditions for a legitimate retry
+
+supply independent motivation and a materially stronger contribution; address the recorded limitation: Upper-bound witness only; does not resolve TARGET lower bound (remains BLOCKED per target_exit.json) and does not claim optimality of constant 1.84.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
