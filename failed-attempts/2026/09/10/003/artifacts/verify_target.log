@@ -1,0 +1,34 @@
+== committed inputs ==
+joint lengths [1,1,1]; loops: 2/vertex, mu_loop=0; d=4 r=1 g=6
+== (A) twisting / multivanishing ==
+b_{a,b}=0; D0 deg 0; D1 deg 3; a^a=a^b=(0,0); cond (I) holds w/ equalities (refined)
+== (A2) regular sections ==
+f0=1: (f0)+2(inf)=2(inf)>=0, regular
+f1=1-t/2: (f1)=(2)-(inf), so div0(f1)=(f1)+2(inf)=(2)+(inf)>=0, regular
+section evaluations at (P1,P2,P3)=(0,1,inf), fixed trivialization: f0 (1,1,1), f1 (1,1/2,0); support of f1 = {0,1}
+== (B) weak glueing ==
+attained supports (each side): ['{0,1,2}', '{0,1}', '{0,2}', '{1,2}']
+row combos: {0,1} f1 itself; {1,2} row0-row1; {0,2} row0-2*row1; {0,1,2} row0
+nonempty-iff-nonempty for every torus orbit (He Rmk 3.4); g_0=2=full dim => PASS
+joint edge e1: critical j=0 both sides, g_0=2, torus-pattern match => PASS (P=0: f0=1,f1=1 both nonzero; combo row0-row1 vanishes at P1)
+joint edge e2: critical j=0 both sides, g_0=2, torus-pattern match => PASS (P=1: f0=1,f1=1/2 both nonzero; combo row0-2*row1 vanishes at P2)
+joint edge e3: critical j=0 both sides, g_0=2, torus-pattern match => PASS (P=inf: f0=1,f1=0 simple zero; f1 itself gives support {0,1})
+no violating edge; verdict PASS
+explicit Osserman data: phi=id, s0=f0,s1=f1 / s'0=f1,s'1=f0 (He Def 2.15(II) holds)
+codim datum recorded (jump deg(D1-D0)=3, g_0=2, c=3-1=2); sufficiency via Lemma 4.9/Thm 4.8 NOT invoked (see (D))
+== (C) graph rank / weights ==
+D=2(a)+2(b) is a-reduced and b-reduced (burning)
+D-(a): {'a': 1, 'b': 2, 'm1': 0, 'm2': 0, 'm3': 0} effective
+D-(b): {'a': 2, 'b': 1, 'm1': 0, 'm2': 0, 'm3': 0} effective
+D-(m1): {'a': 0, 'b': 0, 'm1': 3, 'm2': 0, 'm3': 0} effective
+D-(m2): {'a': 0, 'b': 0, 'm1': 0, 'm2': 3, 'm3': 0} effective
+D-(m3): {'a': 0, 'b': 0, 'm1': 0, 'm2': 0, 'm3': 3} effective
+D-(a)-(m1) a-reduced: {'a': 1, 'b': 2, 'm1': -1, 'm2': 0, 'm3': 0}
+=> tropical rank(D_Gamma) exactly 1 (all deg-1 winnable; (a)+(m1) unwinnable)
+vertex weights: mu(a)=1 mu(b)=1
+global AGR sum: d-r+r*g = 4-1+1*6 = 9 (balance on loop/joint interiors)
+== (D) smoothing limitation (no gonality claim) ==
+He Thm 4.3(II) with n=(1,1,1): x=(1,-1,0) sums to 0 with unique positive entry,
+giving floor-sum 1+1+1=3, so d'<3, i.e. d'<=2; with d=4, d<=d' FAILS.
+Hence Thm 4.8 / Cor 4.10 are NOT invoked; headline is the binary PASS verdict only.
+VERIFY_TARGET_OK: WEAK-GLUEING PASS + slope-weight log (no smoothing claim)
