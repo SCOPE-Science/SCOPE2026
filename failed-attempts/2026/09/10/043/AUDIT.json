@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PRESET_FALLBACK exact-completion check: criterion requires N<=64, a 64x125 real matrix Phi, and recomputed max(L)/min(L)<=8 with min denominator>0 over all 7750 pairs. All hold. Independent recomputation (stdlib+numpy, group law (x,y,z)(x',y',z')=(x+x',y+y',z+z'+xy'), S={a,b,a^-1,b^-1}, BFS from each vertex): order 125 confirmed, 4-regular, diameter 6, distance multiset {1:250,2:750,3:2000,4:3875,5:750,6:125}, inputs/artifacts/H3Z5_distances.npy byte-identical to recomputed D. Reloaded inputs/artifacts/Phi_64x125.csv (64x125): min ||Phi diff||=0.8608312521273522>0 (injective), L=d_H^{1/2}/||diff|| in [1.0729533556926494,1.975743165181033], max/min=1.8414063898477526<=8 (margin 8/1.8414~=4.34x), literal two-sided (1/8)d^{1/2}<=||diff||<=8d^{1/2} holds without rescaling. Laplacian check L=I-A/4, evals[0]~-2.2e-15, evals[1:5]~0.258>0, so L^-1/4 scaling well-defined. Equivalence max(L)/min(L)<=8 <=> distortion<=8 (up to global scale) proved correctly. Floating-point risk immaterial given 4.34x margin and 0.86 denominator floor. No proof claimed beyond elementary lemma + replayable computation; DRAFT separates proved vs computed honestly; TARGET correctly reported BLOCKED. Correctness PASSES as a certified computation.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live retrieval (one scope_literature_search call, three normalized forms: literal H_3(Z_5) distortion-8 N<=64 1/2-snowflake; synonymous/alternate-encoding form UT(3,Z_5)/extraspecial-5-group/finite-Heisenberg/Assouad/doubling/bi-Lipschitz; dominance/covering form quantitative Assouad dimension-distortion/census/table; partial=false, all providers ok: SerpBase 10+10+0, Crossref 15+15+15, OpenAlex 0+0+0 with ok status) plus Admission's five triaged primaries. Nearest priors fetched/screened: Tao arXiv:1811.09223 (optimal O(eps^{-1/2}) into R^D, corollary O(log^{1/2}R) for discrete Heisenberg balls, hidden O-constant, unspecified D), Naor-Neiman arXiv:1012.2307 (N(K), D(K,eps) existence, constants unspecified), Mendel-Naor 1207.4705 / Li 1304.6633 / Ryoo 2207.11305 (existence or lower-bound direction, no finite table). None logs a 64x125 coordinate matrix or a max/min ratio over 7750 pairs for H_3(Z_5); literal-title search correctly finds no match and adversarial checklist (see decisive_checks) finds no synonymous, dual/encoding, broader-theorem, or database source that literally states or mathematically implies N<=64 with ratio<=8 for this quotient (hidden constants prevent mechanical implication of the exact numbers). Hence priority/coverage narrowly PASSES: the exact logged table is not previously recorded. This is a priority verdict only; it does not endorse substantive novelty, since the threshold is satisfied by structure-blind tables (see value rationale).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: exact fallback completion (N=64, ratio 1.8414<=8) is verified, which normally carries Admission's conditional value approval. Value is reopened because objective evidence shows the qualification was materially false. Admission's fallback_qualification.originality_if_completed ('not a mechanical substitution'), admission_review.fallback_originality ('achieving 8 requires new finite witness, not parameter substitution'), and fallback_value ('first upper-bound anchor narrowing optimal window', 'value exists before computation', 'not mechanically implied') are falsified by: (i) the authors' own inputs/artifacts/build_fallback.py lines 20-27 'Fallback C (guaranteed): ... even the trivial equidistant embedding PASSES the criterion', and inputs/target_exit.json fallback_assessment 'even equidistant images give distortion sqrt(diameter)~3.2<=8'; (ii) independent verification that diameter=6 so sqrt(6)~2.449<8, leaving ~3.27x headroom before any geometry; (iii) independent triviality test: five independent 64x125 standard-Gaussian tables achieve max/min ratios 3.59-4.41<=8, and a sphere-normalized random table achieves 3.40<=8 \u2014 i.e. arbitrary structure-blind matrices satisfy the admitted success criterion with large margin, so no Heisenberg-specific witness was needed. Under the ordinary value standard the result therefore fails: the object H_3(Z_5) is natural and motivated, but the certified invariant 'distortion<=8' was mechanically implied (random tables pass) and does not narrow any optimal window (generic ~4 already passes; Tao/Assouad give O(1) existence), while the precise number 1.8414 is a method-dependent property of one truncated L^-1/4 eigenmap (64 modes, specific scaling), not a canonical invariant of H_3(Z_5) such as optimal distortion, and no future researcher searching Heisenberg snowflake distortion needs this eigenmap-specific ratio. Certification alone does not rescue it. No bounded value-only addition can fix vacuous-threshold triviality without changing the problem or starting a new direction (e.g. proving optimality or a sharp window), so REJECT, not REPAIRABLE.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Optimal O(eps^{-1/2}) 1/2-snowflake (eps=1/2) embedding of continuous H into bounded-dimensional R^D; corollary O(log^{1/2}R) for discrete Heisenberg balls. Hidden O-constant, unspecified D; states no 64x125 matrix and no max/min<=8 certificate for H_3(Z_5). Does not imply exact numbers.",
+      "title": "Embedding the Heisenberg group into a bounded dimensional Euclidean space with optimal distortion (Tao, arXiv:1811.09223)",
+      "url": "https://arxiv.org/abs/1811.09223"
+    },
+    {
+      "finding": "For doubling constant K and eps in (0,1/2), (X,d^{1-eps}) embeds into R^{N(K)} with distortion D(K,eps). Existence with unspecified N(K),D(K,eps); does not state D<=8,N<=64 for H_3(Z_5).",
+      "title": "Assouad's theorem with dimension independent of the snowflaking (Naor-Neiman, arXiv:1012.2307)",
+      "url": "https://arxiv.org/abs/1012.2307"
+    },
+    {
+      "finding": "Super-expander existence / per-X nonlinear spectral gaps; Carnot/polynomial-growth lower bounds (log r)^{1/q} with inexplicit constants. Lower-bound/existence direction only; no finite-quotient snowflake upper-bound table. Neither implies nor covers the fallback witness.",
+      "title": "Mendel-Naor 1207.4705; Li 1304.6633; Ryoo 2207.11305 (via Admission triage + fused snippets)",
+      "url": "https://arxiv.org/abs/1207.4705"
+    },
+    {
+      "finding": "Full fused set (20 dedup results) screened: remaining hits are Assouad-dimension, projection-distortion, or expository sources; none logs H_3(Z_5) word-metric table, Phi matrix, or 7750-pair ratio. Confirms no exact-database/table coverage.",
+      "title": "scope_literature_search fused Top-20 across three normalized queries (SerpBase/Crossref ok, OpenAlex ok with zero hits, partial=false)",
+      "url": "local-tool-output"
+    },
+    {
+      "finding": "Admits Fallback C is guaranteed: trivial equidistant embedding passes since ratio=sqrt(D)<=sqrt(10)<8; target_exit rationale likewise admits equidistant gives ~3.2<=8. Direct evidence the admitted criterion is vacuous, contradicting 'requires new finite witness'.",
+      "title": "Author artifacts: build_fallback.py + target_exit.json fallback_assessment (inputs/artifacts/)",
+      "url": "local-inputs"
+    }
+  ],
+  "claim_route": "PRESET_FALLBACK: exact fallback_claim (N<=64, (1/8)d^{1/2}<=||Phi diff||<=8d^{1/2} i.e. max(L)/min(L)<=8 over 7750 pairs) and exact_success_criterion both completed (N=64, ratio 1.8414063898477526<=8, min denom 0.8608>0, VERIFY_PASS). Conditional value presumption invoked then defeated via ADMISSION_DEFECT documented in value rationale.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "covers": false,
+      "evidence": "Dedicated dominance query (query 3: Assouad quantitative dimension/distortion, finite Heisenberg census/table) returned Assouad/Naor-Neiman/Tao-type existence results only. Tao gives SOME D with optimal rate but hidden constant and unspecified dimension; Naor-Neiman gives SOME N(K),D(K,eps) with unspecified values. Neither states D<=8 and N<=64 jointly for H_3(Z_5).",
+      "what_searched": "Stronger-theorem / broader-class / census coverage: quantitative Assouad embeddings, doubling-space snowflake bounds, Heisenberg-ball O(log^{1/2}R) corollary, any exhaustive finite-Heisenberg table that could contain the claim as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "covers": false,
+      "evidence": "Literal hypothesis-conclusion comparison: Tao hypothesis is continuous H (or radius-R discrete ball), conclusion asymptotic O(eps^{-1/2})/O(log^{1/2}R) with hidden constant \u2014 cannot be instantiated to max/min<=8, N<=64. Naor-Neiman conclusion D(K,eps) may exceed 8 for Heisenberg doubling constant. Mendel-Naor/Li/Ryoo are lower-bound/existence direction (opposite inequality) and give no upper-bound witness. Hence no prior result mathematically implies the exact admitted numbers, though generic probabilistic reasoning (not a prior source) shows they are routine \u2014 which is a value defect, not prior coverage.",
+      "what_searched": "Whether any prior theorem's hypotheses instantiated to H_3(Z_5) with 4-generator word metric deductively entail the (N<=64, ratio<=8) conclusion, including hidden-constant and unspecified-dimension gaps."
+    },
+    "equivalent_formulations": {
+      "covers": false,
+      "evidence": "Query 2 consolidated UT(3,Z_5), extraspecial 5-group order 125, discrete/finite Heisenberg mod 5, Heisenberg quotient, snowflake d^{1/2}/Assouad/doubling/bi-Lipschitz/vertical-vs-horizontal/nonlinear spectral gap. Fused hits: Tao, Tyson, Naor-Neiman, Ryoo-type items; zero hits log a coordinate matrix or pairwise-ratio certificate under any synonymous name. No dual/complement/incidence/matrix/algebraic recoding found that restates the table.",
+      "what_searched": "Synonymous names and notation (discrete Heisenberg mod 5, UT(3,Z5), extraspecial 5-group order 125, H(Z5), finite Heisenberg), dual/complement/encoding variants (snowflake exponent 1-eps vs 1/2, Assouad/bi-Lipschitz/doubling/gamma formulations)."
+    },
+    "exact_database_or_table": {
+      "covers": false,
+      "evidence": "Fused results contain no ATLAS/GroupNames/LMFDB/Sage/GAP-type table entry, thesis, or repository logging Phi_64x125.csv, H3Z5_distances.npy, or a 7750-pair distortion number for this quotient. Author table is the only such file. Hence no exact-identifier coverage \u2014 but the identifier is novel only because no database bothers to log arbitrary passing random tables for a vacuous threshold.",
+      "what_searched": "Specialist databases, repositories, theses, author pages, and table censuses for an existing H_3(Z_5) snowflake/distortion matrix or 7750-pair certificate; screened all 20 fused results plus Admission's 40-candidate/5-primary triage."
+    }
+  },
+  "residual_risks": [
+    "Eigendecomposition and verifier use floating point; residual risk of ratio mis-certification is negligible given 4.34x margin and denominator floor 0.86, confirmed by independent recomputation. No interval arithmetic needed.",
+    "Group presentation risk (left- vs right-invariant convention, lexicographic ordering) is immaterial: verifier rebuilds metric from the same stated law and checks all pairs of the logged table as ordered; diameter-6 Cayley graph is 4-regular and connected as required.",
+    "Originality PASS is priority-only (no prior literally records the table); substantive-triviality risk is intentionally carried under value FAIL rather than inflating originality into a FAIL without a covering prior source.",
+    "No downstream theorem or completed census was required: headline judged as self-contained finite witness; TARGET remains honestly BLOCKED per target_exit.json."
+  ],
+  "verdict": "REJECT"
+}
