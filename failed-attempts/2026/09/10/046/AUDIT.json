@@ -1,0 +1,77 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline is FALSE. Independent re-enumeration over all 128 subsets confirms 27 vertex covers, but finds 7 inclusion-minimal covers, not 6: the draft omits C7 = {p,q1,q2,r1,r2}, exponent (0,0,1,1,1,1,1), of size 5. C7 is a genuine vertex cover (p covers a-p,p-b; q1 covers a-q1; q2 covers q2-b; r1 covers a-r1; plus internal edges) and is inclusion-minimal (deleting p uncovers a-p; deleting q1 uncovers a-q1; deleting q2 uncovers q2-b; deleting r1 uncovers a-r1; deleting r2 uncovers r2-b). The draft's claim 'every minimal cover meets {a,b}' and 'it suffices to test minimal covers' with only the six size-4 covers is therefore wrong: the size-5 cover is a minimal generator of J(Theta). With the full 7-generator set, the witness w=(1,1,3,3,3,3,3) IS in J^3: C1+C7+C7 = (1,1,0,1,0,1,0)+2*(0,0,1,1,1,1,1) = (1,1,2,3,2,3,2) <= w coordinatewise, i.e. w = C1*C7*C7*p*q2. The committed verifier only tested the 6 incomplete generators (216 triples), so its 'dividing_triples=0' is an artifact of the truncated generator list; with all 7 generators 25 of 343 ordered triples divide w. Stronger: exhaustive enumeration of all 6067 exponent vectors in [0,4]^7 satisfying edge sums >= 4 shows every one lies in J^3 under the full generator set (0 outside). The capping argument extends this to ALL monomials: for any e with edge sums >= 4, e'_i=min(e_i,4) still has all edge sums >= 4 (capped coordinate contributes 4), lies in the checked box hence in J^3, and divides x^e, so x^e in J^3. Thus J^(4) subseteq J^3 is proved, and no (4,3) witness exists at all. Parts (i) (edge sums) and (iii) (coordinate-minimality) of the draft Theorem are correct as stated, but part (ii), the load-bearing non-membership claim, is false, so rho >= 4/3 via this witness fails. The alpha ladder values (4,7,11,14,18,21) re-verified correctly but do not rescue the containment claim.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Live fused retrieval (SerpBase Top-10 + OpenAlex + Crossref per query, all providers ok, no partial coverage) over (a) literal Theta(2,3,3) resurgence/(4,3) claim, (b) equivalent Alexander-dual / edge-ideal / Waldschmidt / bicyclic-theta formulations, and (c) dominance queries for broader cactus/clique-sum/chromatic-bound theorems returns no prior source stating or implying any (4,3) or (6,5) (non-)containment, Waldschmidt value, or resurgence value for Theta(2,3,3). Nearest priors (JKM single odd cycles rho=(2n+2)/(2n+1), clique-sum max-of-pieces, cactus formula; Lu-Wang single-odd-cycle regularity decomposition; Chakraborty-Mandal edge-ideal single-vertex clique-sum; Nanduri general regularity/Waldschmidt-LP bounds) decide only configurations Theta(2,3,3) violates (non-clique 2-vertex separator {a,b}, path-sharing cycles), confirmed by abstract- and scope-level comparison. Hence the submitted headline as a literal string is new. This novelty is moot because the claim is false (see correctness): no true prior implies a false headline, and falsity, not priority, decides the audit. No prior-source coverage defect is asserted.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The submitted headline, if true, would have met the admitted value case (first interacting-cycle witness attaining the chromatic bound). But correctness audit proves J^(4) subseteq J^3, so the claimed non-containment witness does not exist and the rho >= 4/3 lower bound is not established by this work. A refuted headline has no retrievable value under its stated form. The audit's own verified containment fact (J^(4) subseteq J^3 for this cell) is a different headline from the submitted one, was not claimed, motivated, or interpreted in the draft, and cannot be substituted as value for the rejected claim. No independently valuable exact headline survives in the submission as written.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms study of resurgence/asymptotic resurgence of cover ideals; scope per admission record: exact rho for single odd cycles, clique-sum max-of-pieces, cactus formulas. No theta-graph Theta(2,3,3) result; Theta configuration violates clique-gluing/cactus hypotheses.",
+      "title": "On the resurgence and asymptotic resurgence of homogeneous ideals (Jayanthan-Kumar-Mukundan), arXiv:2106.15261",
+      "url": "https://arxiv.org/abs/2106.15261"
+    },
+    {
+      "finding": "Regularity equality and J^(s) decomposition proved only for single odd cycles; confirms Alexander-dual notation J(G)=intersect (xi,xj); not applicable to theta graphs with interacting cycles.",
+      "title": "On powers of cover ideals of graphs (Lu-Wang), arXiv:2211.15796",
+      "url": "https://arxiv.org/html/2211.15796v4"
+    },
+    {
+      "finding": "Edge-ideal side, clique-sum of two odd cycles at a single vertex (cactus-type); different object and separator from Theta(2,3,3) non-clique {a,b} path-sharing configuration.",
+      "title": "Invariants of the symbolic powers of edge ideals (Chakraborty-Mandal), arXiv:1904.07717",
+      "url": "https://arxiv.org/html/1904.07717v2"
+    },
+    {
+      "finding": "General linear regularity upper bounds and Waldschmidt-LP machinery for vertex cover ideals; no exact resurgence or (m,r) witness for any theta cell.",
+      "title": "On regularity of symbolic Rees algebras and symbolic powers of vertex cover ideals of graphs (Nanduri)",
+      "url": "https://doi.org/10.1090/proc/15824"
+    },
+    {
+      "finding": "Fused Top-20 across three normalized queries (all providers ok): only single-cycle/cactus/clique-sum, unicyclic edge-ideal, vertex-decomposable, chordal/bipartite cover-ideal sources; no Theta(2,3,3) resurgence, Waldschmidt, or (4,3)/(6,5) containment record.",
+      "title": "scope_literature_search fused results (SerpBase/OpenAlex/Crossref, no partial coverage)",
+      "url": ""
+    },
+    {
+      "finding": "VERIFY_OK on the draft's truncated 6-generator set (reproduced); independent full-generator recheck finds 7 inclusion-minimal covers and w in J^3, plus exhaustive 6067-candidate box check proving J^(4) subseteq J^3 via capping.",
+      "title": "Independent recomputation: verify_target.py replay + full-generator audit script",
+      "url": ""
+    }
+  ],
+  "claim_route": "TARGET (research_report.json declares claim_route TARGET with a complete TARGET resolution statement; audited normally against the admitted target with no preset-value presumption issues).",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Dominance query returned JKM clique-sum/cactus/max-of-pieces theorems, chromatic upper bound rho<=2-2/chi, and subhypergraph monotonicity (rho>=6/5 via induced C5). None implies the (4,3) non-containment: upper bounds and 6/5 monotonicity do not force J^(4) subset J^3 either way; clique-sum/cactus hypotheses inapplicable to non-clique separator {a,b}.",
+      "search": "Query (c): 'resurgence cover ideals cactus clique-sum theta bicyclic graphs chromatic bound classification census' via fused providers; screened JKM scope and admission decisive reasons.",
+      "verdict": "No broader theorem covers or implies the submitted (4,3) witness claim."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior source states J^(4) not-subset J^3 (or subset) for Theta(2,3,3). The draft's log is the only source asserting non-membership, and it is refuted by the C1*C7*C7*p*q2 factorization. Prior JKM/Lu-Wang/Chakraborty-Mandal/Nanduri results neither state nor entail this cell's (4,3) status.",
+      "search": "Compared submitted headline hypotheses/conclusions literally against all fused candidates and admission-record scope boundaries; fetched JKM abstract record for hypothesis check.",
+      "verdict": "Claim is literally new but mathematically false; no prior implication either establishes or rescues it."
+    },
+    "equivalent_formulations": {
+      "evidence": "Dual/equivalent query (Alexander-dual edge ideal, Waldschmidt, bicyclic/theta, symbolic-power non-containment phrasings) returned unicyclic edge-ideal decompositions, vertex-decomposable linear-quotients results, chordal/bipartite cover-ideal results, and the single-vertex odd-cycle clique-sum paper. None concerns cover ideals of Theta(2,3,3) or its (4,3) pair under any synonymous name (theta/bicyclic/figure-eight churches are single-vertex gluings, distinct from two-branch-vertex Theta(2,3,3)).",
+      "search": "Query (b): 'symbolic powers vertex cover ideal theta graph non-containment Alexander dual edge ideal Waldschmidt resurgence' via fused providers; screened snippets/metadata of all Top-20 fused hits.",
+      "verdict": "No synonymous-notation or dual/complement/matrix encoding of the claim found in prior literature."
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused hit points to a Macaulay2 catalog, monomial-ideal table, or census deciding Theta(2,3,3) resurgence or (4,3)/(6,5) containment. Admission record independently notes cover-ideal catalogs record generators/charts but no theta-cell containment rows; fused search corroborates with zero database hits for the exact parameter/object.",
+      "search": "Exact-object terms (Theta(2,3,3), J^(4) vs J^3, rho>=4/3) in query (a) plus specialist-database/repository/thesis directions; all-provider coverage ok so absence is informative.",
+      "verdict": "Exact parameter/object appears in no table or official database; not a recomputation or table copy."
+    }
+  },
+  "residual_risks": [
+    "Negligible: the refutation is an exact finite integer computation (128 subsets; 6067-element box; 343 ordered triples) reproduced in two independent scripts plus a general capping lemma; no floating point, solver, or field-dependent step involved.",
+    "Chromatic upper-bound remark (rho<=4/3) in DRAFT Section 4 was cited-not-proved and is unaffected by this audit; it is not relied upon for the REJECT verdict.",
+    "The audit's stronger verified containment J^(4) subseteq J^3 is itself machine-checked but is not the submitted headline and is recorded here only to establish non-repairability, not as an approved replacement result."
+  ],
+  "verdict": "REJECT"
+}
