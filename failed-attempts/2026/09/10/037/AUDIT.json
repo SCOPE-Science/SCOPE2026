@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent verification of DRAFT.md Lemmas 1-4 and Theorem. Lemma 1: |vi|=2(3^i-1) and |ti|=2(3^i-1) are even (checked i=1..6: 4,16,52,160); monomial sums of evens are even, so BP_* and BP_*BP even-concentrated. Lemma 2: V(0)=cof(3) LES with BP_odd=0 and BP_* torsionfree (Z_(3)[v...]) gives x3 injective, so BP_odd(V0)=0 and BP_even(V0)=coker(x3)=BP_even/3. Lemma 3: V(1)=cof(v1: Sigma^4 V0->V0), |v1|=4; BP_*(V0)=F3[v1,v2,...] is a domain so xv1 injective; LES parity casework (k odd => BP_k(V1)\u2245ker(injective)=0; k even => coker) gives BP_odd(V1)=0. Lemma 4: normalized cobar C^s=barGamma^{otimes s}otimes M with Gamma even-free and M=BP_*(V1) even => C^{s,t}=0 for t odd, so Ext^{s,t}=0 for t odd. Applied to t=55,59 (both odd): E2^{3,55}(V1)=0 and E2^{8,59}(V1)=0. d5 degree (s,t)->(s+5,t+4): (3,55)->(8,59) correctly computed, so claimed nonzero d5(g)=h with g,h nonzero is impossible; vacuous 0->0 correctly excluded as not satisfying claim. Re-ran inputs/artifacts/verify_parity.py -> VERIFY_OK (generators even, both t odd, d5 degree, truncated v1-injectivity). Proof is self-contained deductive proof; script is auxiliary parity check only, not load-bearing for LES/domain facts. Minor typo (missing brace in Lemma 2) does not affect logic. claim_route is stated TARGET; audited normally against admitted target as a falsity proof. No boundary-condition or computation error found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline audited: E2^{3,55}(V1)=0 and E2^{8,59}(V1)=0 at p=3 by even concentration, hence no nonzero d5(g)=h. Normalized into three forms and searched in one scope_literature_search call (literal bidegree/differential; equivalent BP_*/(3,v1)/Ext/cobar/beta-family forms; dominance/broader census/classification/database). Fused 20 results; coverage partial=true (OpenAlex q1 error 'key pool unavailable HTTP 400', OpenAlex q0/q2 zero hits but status ok; SerpBase and Crossref ok) \u2014 recorded and continued with available providers plus direct nLab/Ravenel sources; one failure never establishes priority. Nearest priors (Shimomura 1997 L2-V1 d5/d9 to E10, Shimomura 2000 L2-V0, Isaksen et al. 2302.09123 prime-2 motivic mmf/tmf, MRW 1977 periodic phenomena) do not record the exact bidegrees, but that absence does not confer priority because a strictly stronger textbook theorem substantively implies the headline: BP_* even, BP_*BP even, BP_*(V1)=BP_*/(p,v1) even => Ext^{s,t}=0 for all s and all odd t (Ravenel Green Book; nLab Toda-Smith page confirms BP_*(V1)=BP_*/(p,v1) and |vi|=2(p^i-1)). Instantiation at t=55,59 yields the claim mechanically. Title/embedding similarity was not used; hypothesis-conclusion comparison shows prior implies claim. Hence the finding is a corollary/repackaging/recomputation of a known stronger fact. Adversarial checklist (synonyms, encodings, subset-of-broader-theorem, table row, recomputation) was tested \u2014 see decisive_checks. Originality FAILS; per policy never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Correct disproof of an admitted-target premise, but not independently worth retrieving. The general even-vanishing lemma (Ext^{s,t}(V1)=0 for t odd) is textbook and future researchers cite the general lemma, not the instantiation at (3,55),(8,59). The two bidegrees have no pre-computation motivation except the admitted target, whose premise (nonzero beta-generator at t=55,59 odd) is false on elementary parity checkable at Admission \u2014 i.e. an ADMISSION_DEFECT context: target E2 existence contradicts even concentration. Value requires object+invariant motivated before computation, value not known/mechanically implied, and future need for the precise fact; here value is mechanically implied by evenness and scope is two arbitrary odd-t points among infinitely many. Falls under textbook restatement / mere instantiation / recomputation with no new differential witness, survivor, extension, method template, or downstream constraint beyond '0->0 vacuous'. Correcting the admission error is useful for this lane but does not create a citable invariant for chromatic/motivic/surgery programs. Value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Confirms BP_*(V(n))=BP_*/(p,...,vn); in particular BP_*(V1)=BP_*/(p,v1); confirms |vi|=2(p^i-1) even at p=3 (|v1|=4). Stronger evenness theorem implies headline by instantiation; does not record exact (3,55),(8,59) row.",
+      "title": "toda-smith complex in nLab",
+      "url": "https://ncatlab.org/nlab/show/toda-smith+complex"
+    },
+    {
+      "finding": "Standard reference for BP_*, BP_*BP even degrees, cobar/Ext construction, chromatic SS, and BP_*(V(n)) quotient by regular sequence. Supplies broader theorem covering odd-t vanishing; no (3,55)->(8,59) nonzero d5 recorded.",
+      "title": "Complex Cobordism and Stable Homotopy Groups of Spheres (Ravenel Green Book)",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/mybooks/ravenel.pdf"
+    },
+    {
+      "finding": "Computes L2-localized (not unlocalized) V1 at p=3 with d5/d9 to E10 after inverting v2. Confirms localized environment differs from unlocalized parity argument; records no unlocalized (3,55)->(8,59) nonzero classes.",
+      "title": "The homotopy groups of the L2-localized Toda-Smith spectrum V(1) at the prime 3",
+      "url": "https://doi.org/10.1090/S0002-9947-97-01710-8"
+    },
+    {
+      "finding": "Derives L2 V0 from L2 V1 via Bockstein; localized only. Leaves unlocalized odd-t parity vanishing untouched; no exact bidegree row.",
+      "title": "The homotopy groups of the L2-localized mod 3 Moore spectrum",
+      "url": "https://doi.org/10.2969/jmsj/05210065"
+    },
+    {
+      "finding": "Provides C-motivic ANSS machinery at prime 2 for mmf/tmf; different prime and object. No mod-3 V1 (3,55),(8,59) classes; does not imply or cover parity disproof except as comparison background.",
+      "title": "The C-motivic Adams-Novikov spectral sequence for topological modular forms",
+      "url": "https://arxiv.org/html/2302.09123v1"
+    },
+    {
+      "finding": "Foundational E2 computation (MRW): E2 described algebraically as cohomology of cobar; supports that E2 charts alone plus evenness decide odd-t cells without new shuffle. No named stem-52 subcell nonzero claim.",
+      "title": "Periodic Phenomena in the Adams-Novikov Spectral Sequence (MRW 1977)",
+      "url": "https://math.jhu.edu/~wsw/papers2/math/14-periodic-M5R5W-1977.pdf"
+    }
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "conclusion": "COVERS \u2014 headline is a strict subset/special case (s=3,t=55 and s=8,t=59) of the broader theorem. Originality therefore FAILS.",
+      "evidence": "Ravenel/nLab establish for all s and all odd t: Ext^{s,t}_{BP_*BP}(BP_*,BP_*(V1))=0 because all of BP_*, BP_*BP, BP_*(V1) are even-concentrated. Fused results contain no larger-range census contradicting this; Shimomura L2 results are localized (invert v2) and do not lift to unlocalized odd-t non-vanishing.",
+      "search": "Dominance query: stronger theorem / broader object class / larger parameter range / exhaustive census / classification / database covering unlocalized V1 E2 (query 3). Searched Ravenel book, MRW, Shimomura L2-V1/V0, motivic ANSS, plus nLab Toda-Smith definition."
+    },
+    "claim_vs_prior_implication": {
+      "conclusion": "PRIOR IMPLIES CLAIM \u2014 textbook evenness with LES domain/injectivity literally entails both vanishings. No new juggling, weight check, or chart lookup adds content beyond universal instantiation. Classified as recomputation/certificate/corollary/repackaging of known stronger fact.",
+      "evidence": "Prior: (i) BP_*=Z_(3)[v_i], |vi|=2(3^i-1) even; (ii) BP_*(V1)=BP_*/(3,v1) even via two cofiber LESs; (iii) cobar C^{s,t}=0 for t odd => Ext=0 for t odd. Headline: same with (s,t)=(3,55),(8,59), t odd. Implication is direct modus ponens; DRAFT proof reproduces textbook steps verbatim.",
+      "search": "Compared theorem hypotheses/conclusions literally (not titles/embeddings): prior universal 'for all odd t' vs submitted existential-instantiation 't=55,59'. Checked that no extra hypothesis (localization, motivic weight, indeterminacy) is needed for the vanishing."
+    },
+    "equivalent_formulations": {
+      "conclusion": "DOES NOT RESCUE \u2014 all synonymous/dual encodings collapse to the same even-degree fact; no alternative encoding creates a nonzero class at odd t.",
+      "evidence": "nLab confirms BP_*(V1)=BP_*/(p,v1) (synonyms: S/(3,v1), Smith-Toda V1, Toda-Smith V1, BP_*/(3,v1)); |vi|=2(p^i-1) even; cobar/Ext/chromatic-SS encodings all preserve internal parity. Dual/complement/incidence-graph/matrix encodings N/A to this chromatic claim; stem vs (s,t) notation checked (52=55-3, 51=59-8) with same odd-t parity.",
+      "search": "Searched literal statement plus standard equivalents: Toda-Smith/Smith-Toda V1, S/(3,v1), BP_*/(3,v1), Ext_{BP_*BP}, chromatic SS, cobar, beta-family/generator, d5 degree (s+5,t+4), stem-vs-(s,t) notation (queries 1-2). Fetched nLab in full; screened Ravenel/MRW/Shimomura snippets."
+    },
+    "exact_database_or_table": {
+      "conclusion": "NO EXACT ROW \u2014 but absence does not establish priority because broader theorem exhaustively covers the cells as empty. Not a database discovery.",
+      "evidence": "No fused source or official table records nonzero E2^{3,55}(V1) or E2^{8,59}(V1) or a (3,55)->(8,59) d5; MRW/Shimomura charts leave odd-t cells empty consistent with vanishing. The claim is the observation that two table cells are empty for the textbook reason, not a new table entry.",
+      "search": "Searched exact parameters/objects in tables/databases: (3,55),(8,59), stems 51-52, V1 p=3 E2 charts, Shimomura/MRW tables, L2-localized rows (queries 1-3 plus Crossref/OpenAlex metadata)."
+    }
+  },
+  "residual_risks": [
+    "Correctness residual risk negligible: parity argument uses only standard gradings; alternative ANSS grading conventions preserve t-parity, so no hidden odd-class loophole.",
+    "Originality search had partial coverage (OpenAlex q1 HTTP 400 after internal retries; OpenAlex q0/q2 zero hits). Mitigated by full SerpBase+Crossref coverage plus direct fetch of decisive primary (nLab) and Ravenel reference; one unavailable source never establishes priority.",
+    "Value risk: none material \u2014 even if Admission intended the bidegrees as canonical lane scope, odd-t emptiness makes scope arbitrary; no future retrieval path would query these two cells except to repeat the parity check."
+  ],
+  "verdict": "REJECT"
+}
