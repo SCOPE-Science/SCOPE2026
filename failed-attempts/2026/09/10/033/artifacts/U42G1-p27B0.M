@@ -1,0 +1,13 @@
+/*
+www-ATLAS of Group Representations.
+U4(2) represented as permutations on 27 points.
+*/
+
+G<x,y>:=PermutationGroup<27|\[
+2,1,5,7,3,10,4,13,15,6,18,17,8,14,9,23,12,11,19,25,26,24,16,22,20,
+21,27]
+,\[
+3,4,6,8,9,11,12,14,16,17,19,20,21,22,15,10,5,24,1,13,7,2,23,27,18,
+25,26]
+>;
+print "Group G is U4(2) < Sym(27)";
