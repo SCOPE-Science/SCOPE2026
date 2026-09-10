@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** SW basic-class decision for a Teng infinite-order Stein cork twist in a Dolgachev-type rational surface
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 503
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Differential Topology
+- **Method:** Seiberg-Witten basic-class comparison with Stein handle-calculus cork-twist surgery
+
+## Problem
+
+Decide one explicit Mazur-type Stein cork twist on a small simply-connected 4-manifold cell via Seiberg-Witten basic-class comparison plus Stein handle calculus, recording basic classes, intersection forms, and cork-boundary involution data.
+
+## Attempted claim
+
+Let W_1 be the first member of the Teng (2026) infinite-order Stein cork family with boundary involution f, embedded in the Dolgachev-type rational surface X = E(1)_{2,3} via the fixed Akbulut-Yasui nucleus embedding. Then the cork twist X_f = (X minus int W_1) union_f W_1 is homeomorphic but NOT diffeomorphic to X, witnessed by Seiberg-Witten basic classes: with Q_X = -E8 (+) H (+) specified nucleus summand logged, K_X a basic class with SW(X,K_X) = +/-1 while the corresponding class K_f on X_f satisfies SW(X_f,K_f) = 0.
+
+## Research outcome
+
+Target SW twist-or-trivial certificate not closable (twist-side SW=0 + embedding gaps; knot-surgery no-go proved) and fallback d3 pair honestly FAILS on the f_*xi side; consolidated the target work into an emergent obstruction + exact-pin package (chamber-clean K_X=-F, formal twist inheritance, vanishing no-go, d3(xi)=-1/2 + dilemma, Q repair, embedding gap) with 13 replayable artifacts.
+
+## Why this attempt failed
+
+Failed axes: correctness, originality, value.
+
+correctness: Route is EMERGENT_FINDING (claim_route present). Genuine-derivation check passes: 11 target audits + honest fallback FAIL log show work grew out of admitted cell/diagram, not a post-hoc substitute. Correctness still assessed at full standard with no presumption. Machine algebra re-checked independently and is correct as algebra: det(Q)=-1, K_X^2=0, 10/10 characteristic rows match, d=(0-24+24)/4=0, diagonal wall-empty implication x0=x1 => x^2=-sum_{2..9}x_i^2<=0 verified, d3=(0-2-0)/4=-1/2 verified, twist-knot Alexanders k*t-(2k-1)+k/t pairwise distinct for k=0..8 with only k=0 giving 1 verified, c1^2=3*(-8)+2*12=0 verified, N=[[0,1],[1,-1]] det -1 with e.g. P=[[-1,0],[-1,-1]] giving P^TNP=diag(1,-1) verified. BUT headline claims overstate conditionals as categorical facts about the cell: (1) 'K_X=-F exact pin for X=E(1)_{2,3}' is PROVED-CONDITIONAL on quoted geometric representatives (torus fiber, (-1)-section, E8 root spheres) that are never sourced/verified in-record; DRAFT's own limitation admits '(-1)-section representative is needed' and logs that a (-2)-section variant collapses the label to 0, so the exact label is not established unconditionally. (2) is a correct general MV/VK lemma but vacuous for the cell because the Teng-into-E(1)_{2,3} embedding premise is OPEN (B1). (3) 'proved mechanism obstruction' proves only the elementary Alexander algebra; the inference that the Teng-W1 twist can NEVER vanish via FS mechanism requires the unsourced identification of that twist as knot surgery plus the b2+>1-sharp FS formula applied in a b2+=1 chamber-sensitive setting (own audits flag B4/B5, chamber version flagged) — calling it a proved cell-level no-go is an overclaim. (4) d3(xi)=-1/2 algebra is correct given contractibility/homology-sphere/Gompf-formula quotes, but presented as cell pin while disclosed universal. In short: algebra correct, cell-level exactness not established; proof vs quote vs open honestly listed in body but headline (1)/(3) assert more than the open premises allow. originality: Nearest priors compared substantively, not by timestamp/search: Teng 2608.17462 (verified live: 18 Aug 2026, infinite family of infinite-order Stein corks answering Akbulut-Gompf) supplies contractibility/diagrams but no SW/d3 values — correctly cited as background; Gompf 1998 tb-1 criterion and d3 formula (c1^2-2e-3sig)/4; Fintushel-Stern 1998 knot-surgery formula + Alexander distinction; Freedman classification + Serre odd-indefinite classification + O(1,9) Lorentz facts; Akbulut 0805.1524 positron/Wbar_1 vanishing twist E(1)_{2,3}->E(1); Karakurt-Oba-Ukida older-Mazur OS work. Against these, no component is substantively new: Dolgachev numerics e=12/sig=-8/c1^2=0 and odd rank-10 form are textbook; -E8(+)N repair/diagonalization is elementary lattice algebra fixing the proposal's own defective literal clause (parity even vs odd, rank >=11>10); K_X=-F via adjunction + characteristic/d=0/wall-empty is standard textbook application con…
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Conditional on quoted standard theorems (Freedman, Serre, O(1,9) transitivity, Taubes, FS98, log-invariance, Gompf criteria/formulas) and Teng/Akbulut diagram pins as cited; (-1)-section representative needed for -F label; no claim on SW(X_f,K_f), Teng embedding into E(1)_{2,3}, X_f identification, d3(f_*xi), contactomorphism status, or any exotic distinction. d3(xi)=-1/2 is universal for all contractible compact Stein 4-manifolds (chi=1 => e=1; H2=0 => sig=0, c1=0), so its novelty is as a fixe…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
