@@ -1,0 +1,5 @@
+// Singular replay (execute where Singular available; mirrors verify_cert.py)
+ring R=0,(x,y),lp;
+poly f=x2+x3y; poly g=x+y;
+ideal J=f,g; option(redSB); groebner(J);
+// expected: [x+y, y4-y2] ; torus saturation: sat(J,xy) -> [x+y, y2-1], vdim 2
