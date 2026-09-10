@@ -1,0 +1,73 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "TARGET route (research_report.claim_route=TARGET). Headline is refutation plus stronger emptiness: (i) E1(Q) empty affine and projective, so clause (a) ill-posed; (ii) U_3(Z/8) empty hence U_3(Z_2) and U_3(Z) empty. Replayed mod8_emptiness_proof.py: 0/512 U_3 classes, 0/64 E1 classes, PROOF_OK. Replayed e1_rational_search.py to B=3000: 0 hits, SEARCH_OK. Independently verified every hand step: y^2=(2-5x^2)/(5-12x^2); N=60a^4-49a^2b^2+10b^4=(12a^2-5b^2)(5a^2-2b^2), discriminant 1; degeneracies need 5/12 or 2/5 square in Q, false since 60 and 10 nonsquare; 5v-2u=a^2 and 12v-5u=b^2 so gcd(u,v)=1 from coprime (a,b); uv positive square forces both +-squares; both sign branches die mod 8 (squares {0,1,4}): neg b-even t^2=3 mod 8, neg b-odd forces a odd then t^2=5, pos b-even v=5, pos b-odd u in {3,7,3}, all nonsquares, checked exhaustively. Projective boundary needs 12/5 (equiv 5/12) square, false. Theorem 2: -16 term 0 mod 8; c=0 case values {0,1,4,5,6} never 3; all-nonzero total 12-3n1+4*C(n1,2) gives 7,2,1,4 never 3. Finite searches are corroboration only; infinitary steps are hand proofs."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Fused live retrieval (SerpBase Top10 + OpenAlex Top15 + Crossref Top15 per query, 3 normalized directions, no partial-coverage failure) returns Dao 2023 (F3 family Thm 1.3 k<0 congruence obstruction), Dao 2025 (different product equation), Fuchs dynamics, Dao thesis, plus background. Fetched Dao 2023 full HTML and compared hypotheses literally: Thm 1.3 needs k=-(1+27l^2)/4<0, disjoint from k=3; local-solubility proposition needs k=1 mod 4, failed at k=3, so no promise of adelic points and no conflict with proved emptiness. No source states, tabulates, or implies E1(Q) emptiness, U_3(Z_2) emptiness, or any k=3 evaluation/height window, in any synonymous notation or encoding. The mod-8 obstruction and coprime-factor +-square argument are fresh elementary computations, not a recomputation or repackaging."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Exact invariants of motivated natural objects: U_3 is the minimal positive smooth Picard-18 F3 member, z=1 fibre the natural next smooth (2,2) fibre, A1 the canonical generator, all motivated before computation per topic.json. Values were not known or mechanically implied (admission expected local points; Dao sufficient conditions do not decide k=3). Future integral-Hasse counting, strong-approximation, and Chabauty-Brauer work needs to know U_3(Z) is unconditionally empty 2-adically and E1 admits no elliptic-curve structure over Q. Strictly stronger than the claimed sieve-plus-window, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration; self-contained proofs with stdlib replay."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Brauer-Manin obstruction for Wehler K3 surfaces of Markoff type (Dao, arXiv:2302.11515)",
+      "url": "https://arxiv.org/html/2302.11515v1",
+      "finding": "Thm 1.3 F3 obstruction only for k=-(1+27l^2)/4<0 with l congruences via A1=(4x^2+1,-2(4k+1)); k=3 positive disjoint. Local solubility needs k=1 mod 4; k=3 fails it. No E1 rank, no k=3 evaluation, no height window."
+    },
+    {
+      "title": "Rational and integral points on Markoff-type K3 surfaces (Dao, arXiv:2504.10992)",
+      "url": "https://ui.adsabs.harvard.edu/abs/arXiv:2504.10992",
+      "finding": "Different product MK3 equation and large-modulus regime; disjoint from F3 k=3; no E1 or U_3 mod-8 statement."
+    },
+    {
+      "title": "Orbits on K3 Surfaces of Markoff Type (Fuchs et al.)",
+      "url": "http://www.math.ucdavis.edu/~efuchs/K3Markoff1.pdf",
+      "finding": "Dynamics/G-orbit context; no Brauer table for F3 k=3, no fibre rank bound."
+    },
+    {
+      "title": "inputs/artifacts/mod8_emptiness_proof.py (replayed)",
+      "url": null,
+      "finding": "0 U_3 mod-8 solutions of 512, 0 affine E1 of 64; PROOF_OK."
+    },
+    {
+      "title": "inputs/artifacts/e1_rational_search.py (replayed)",
+      "url": null,
+      "finding": "Exhaustive N=square search to B=3000 finds 0 hits; SEARCH_OK, corroborates Theorem 1."
+    }
+  ],
+  "residual_risks": [
+    "Projective-boundary phrasing cites 5/12 where reciprocal 12/5 appears; equivalent (reciprocal of a square is a square), verified, no gap.",
+    "E1 search to 3000 is corroboration only; infinitary proof does not depend on it.",
+    "W_3 smoothness/Picard-18 and A1 Brauer status not re-verified; explicitly out of scope and unaffected by refutation."
+  ],
+  "decisive_checks": {
+    "equivalent_formulations": {
+      "search": "Literal query: exact affine equation 5x^2+5y^2-12x^2y^2-2=0 plus F3=3 fibre z=1 emptiness; synonymous forms (MK3/Wehler/(2,2,2), quaternion Azumaya, Br1/Br0, integral Hasse/strong approximation, Edwards/Weierstrass fibre models, Hilbert symbols) via fused search.",
+      "evidence": "No hit states the curve, its (2,2) closure, transforms, symbol (4x^2+1,-26), or Br1/Br0 at k=3. Closest: Dao F3 definition, Fuchs dynamics, no fibre/mod-8 statement.",
+      "why_not_cover": "No synonymous name, dual/complement/matrix/incidence encoding, or notation variant covers the claim."
+    },
+    "broader_coverage": {
+      "search": "Dominance query: Brauer-Manin Wehler K3 MK3 F3 Dao integral Hasse census classification quaternion Azumaya; all providers ok.",
+      "evidence": "Dao 2023 forces k<0; Dao 2025 different equation/regime; Ghosh-Sarnak only degenerate cubics; Lyczak order-5 log-K3 different class. No broader theorem, census, classification, or database covers F3 k=3.",
+      "why_not_cover": "All broader results disjoint in equation, parameter range, or class; none implies E1(Q) or U_3(Z_2) emptiness."
+    },
+    "exact_database_or_table": {
+      "search": "Exact-object query: full F3 polynomial =3, k=3, integral points, 2-adic/mod-8 emptiness; specialist sources (Dao thesis, NSF PAR K3 counting, journal DOIs) screened.",
+      "evidence": "No database row, table, thesis appendix, or author page tabulates E1 rank, U_3 integral points, or (M,S) at k=3. LMFDB-type tables inapplicable (no Q-point).",
+      "why_not_cover": "Exact parameter/object absent from every table; not a recomputation or repackaging of a tabulated fact."
+    },
+    "claim_vs_prior_implication": {
+      "search": "Fetched Dao 2023 abstract plus full HTML (Thm 1.3, Prop 3.5, F3 definition, A1/A2); compared hypotheses/conclusions literally.",
+      "evidence": "Dao Thm 4.6 hypothesis k<0 fails at k=3; Prop 4.3 needs k=1 mod 4, fails at k=3 (3 mod 4), so no adelic-point promise. No prior states E1 has a Q-point, gives a rank, or evaluates A1 at k=3.",
+      "why_not_cover": "No prior states or implies the emptiness; target mechanism shown impossible, mod-8 obstruction is fresh."
+    }
+  },
+  "claim_route": "TARGET as declared in research_report.json; headline is rigorous refutation of target conjunction plus strictly stronger unconditional emptiness, judged as strongest self-contained headline per audit policy.",
+  "overall_rationale": "Correct refutation with two complete elementary proofs (replayed), new against fused live retrieval over literal, equivalent, and dominance directions, and independently valuable as first effective integral-point datum for named smooth Picard-18 MK3 U_3, correcting admission's local-point expectation and blocking wasted descent/Chabauty work."
+}
