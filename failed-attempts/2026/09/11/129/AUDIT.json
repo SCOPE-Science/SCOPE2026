@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Proof verified step-by-step: (1) all fixed-point-free involutions on 10 points conjugate so normalization to diagonal tau(n)=n+5 is valid and preserves OA property; (2) C2-action has no fixed 5-tuple so 50 orbits of size 2; (3) CRT map Z10->Z2xZ5 is bijection (checked 10 distinct pairs) and tau flips Z2-bit fixes Z5-part; (4) strength-2 projection gives 4 rows above each of 25 Z5-pairs, partitioned into 2 complementary orbits with opposite xor (lemma exhaustively true over Z2^2); (5) summing gives Cj+Ck=1 for all 10 pairs; (6) 3-column subsystem UNSAT (8/8 fail, 32/32 for 5). Replay script verify_parity.py passes all checks. OA(5,10)<->3-MOLS(10) dictionary standard. No gap found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "ADMISSION_DEFECT: Admission preflight claimed no table covers five-transposition profile, but Falcon arXiv:0709.2973 (Ars Combinatoria 103, 2012) Table 5 / Final Remarks explicitly lists cycle structure (0,5,0,0,0,0,0,0,0,0) x3 for n=10 as satisfying all Section-3 necessary conditions yet exhaustive computation proves Delta=0, i.e. no Latin square of order 10 admits autotopism (tau,tau,tau) with tau five transpositions. Any OA(5,10) with diagonal tau^5 projects on any 3 coordinates to an OA(3,10) with tau^3 (distinctness preserved because sharing 3 coords implies sharing 2 coords, forbidden by strength 2), hence a Latin square with that forbidden autotopism. Therefore published stronger triple result substantively implies the submitted 5-coordinate headline as a corollary. Headline is not new despite correct elegant parity proof. General m-odd remark does not rescue narrow headline.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Intrinsically the parity obstruction would be valuable: it decides the flagship fixed-point-free involution symmetry ansatz for 3-MOLS(10), prunes all future symmetric searches, and gives a reusable CRT+xor counting template generalizing to OA(k,2m) with m odd k>=3. Admission value case correctly identifies pruning of most popular symmetry. Value PASS on intrinsic merit, but value does not overcome prior coverage; certification alone does not create originality.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Falcon R.M. arXiv:0709.2973v2 Cycle structures of autotopisms of Latin squares of order up to 11 (Ars Combinatoria 103, 2012): Section 3 theory plus Tables 1-6 and Final Remarks table for n=10 listing (0,5,0,0,0,0,0,0,0,0)x3 as verifying necessary conditions but exhaustive computation proves Delta=0.",
+    "Dukes-Howard Group divisible designs in MOLS of order ten (Des Codes Cryptogr 71, 2014) abstract and references: GDD classification for 4-MOLS(10), does not decide involution profile but confirms active symmetry program.",
+    "Egan-Wanless Enumeration of MOLS of small order (Math Comp, doi:10.1090/mcom/3010): classifies to order 9 and closest triple order 10, no involution-type triple decision.",
+    "Independent replay: inputs/artifacts/verify_parity.py executed locally ALL CHECKS PASSED (CRT flip/fix, 5-transposition profile, orbit-xor lemma, 3- and 5-column UNSAT, order-2 base case, m^2 oddness).",
+    "Fused scope_literature_search over literal OA(5,10) FPF involution claim, equivalent OA/MOLS autotopism wording, and broader autotopism census/GDD/Egan-Wanless directions (20 fused results, full provider coverage, no partial failure) screened for synonymous notation and dominance."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Falcon classifies ALL non-trivial autotopism cycle structures for Latin squares to order 11 (Tables 1-6) plus exhaustive exclusion list; Dukes-Howard GDD and Gill-Wanless relation censuses target blocks/relations not global involution; Egan-Wanless gives proximity not symmetry census.",
+      "reasoning": "Falcon broader census of all single-square cycle types strictly dominates the headline: it decides the projected 3-coordinate case from which the 5-coordinate case follows by restriction, while GDD/relation/proximity results do not imply it.",
+      "search": "classification autotopisms MOLS order 10 OA(5,10) automorphism census GDD obstructions Egan-Wanless enumeration"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Assume OA(5,10) with FPF involutory autotopism exists; normalize to diagonal tau^5 by coordinate conjugacy; project to any 3 coordinates: 100 distinct triples (agreement on 3 implies agreement on 2, impossible) forming OA(3,10)=Latin square invariant under tau^3 of type (0,5)x3, contradicting Falcon Final Remarks Delta=0 for that type.",
+      "reasoning": "Prior triple non-existence deductively entails headline 5-coordinate non-existence via elementary projection; headline is a corollary of known stronger fact, not an independent advance, so originality fails even though new parity proof is correct.",
+      "search": "No OA(5,10) admits fixed-point-free involutory autotopism five disjoint transpositions 3-MOLS(10) projection to Latin square autotopism"
+    },
+    "equivalent_formulations": {
+      "evidence": "OA(5,10) with tau^5 equivalently 3-MOLS(10) with fixed-point-free involution; in Falcon notation this is cycle structure (0,5,0,0,0,0,0,0,0,0) per coordinate; fetched Falcon HTML shows vectors (0,5,0...) and Final Remarks triple (0,5)x3 for n=10.",
+      "reasoning": "Synonymous OA vs MOLS vs cycle-structure wording converges on same profile; checking both wordings does not evade coverage because 5-coordinate claim restricts to 3-coordinate forbidden type.",
+      "search": "orthogonal array OA(5,10) autotopism involution C2 action equivalent 3 MOLS order 10 autotopism fixed-point-free cycle structure (0,5)"
+    },
+    "exact_database_or_table": {
+      "evidence": "Falcon Section 4 Table 5 enumerates realizable n=10 types and Section 5 table lists three n=10 types including (0,5)x3 that pass Section-3 filters but exhaustive computation proves unrealizable (Delta=0). No Sloane/Wanless OA table decides OA(5,10) 5-coordinate case directly, but Falcon table decides the implied triple case.",
+      "reasoning": "Exact table entry for the projected triple profile already records non-existence; headline 5-coordinate decision follows by projection without fresh search, so it is a lookup plus mechanical corollary, not fresh evidence.",
+      "search": "OA(5,10) autotopism table MOLS order 10 involution census Falcon Table 5 Final Remarks (0,5) triple"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
