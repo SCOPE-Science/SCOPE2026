@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS because the headline theorem is rigorously proved in closed form and independently replayed. If L[i][i]=c for all i then transpose-superposition pairs at (i,i) are all (c,c), repeated n times, violating pairwise distinctness for every n>=2; n=1 boundary is correctly excluded. The transversal-diagonal lemma (diagonal pairs (d_i,d_i) distinct forces d_i distinct) and SO-preserving isotopism invariance are also correct. stdlib verify.py replays VERIFY_OK: lemma instances n=2,3,4,5,10, exhaustive censuses n=2 (2 squares), n=3 (12 squares, 0 SOLS), n=4 (576 squares, 48 SOLS all transversal-diagonal), explicit SOLS(5) L=i+2j mod 5 verified Latin+self-orthogonal+transversal diagonal. Proof stands alone; computation is corroboration only.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL because the headline is a one-step mechanical consequence of the standard textbook definition of orthogonality/self-orthogonality, i.e. a textbook exercise, not a new theorem, boundary or classification. Fused retrieval confirms the standard definition everywhere (Cao-Li 2011, Cook, Budshaw, Bright reports): SOLS means n^2 pairs (L[i][j],L[j][i]) pairwise distinct. Constant diagonal immediately repeats (c,c) n times. No prior paper states this verbatim precisely because it is too trivial to publish, but under the shared STANDARD a prior source need not state the headline verbatim: if its result substantively implies it, originality FAILS. A failed verbatim-title search therefore does not establish priority. Triple/OA(5,10) context adds nothing; the claim collapses to single-square definitional vacuity.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as vacuity / type-normalization error with ADMISSION_DEFECT. Topic audit_preflight cheap-falsification checks explicitly claimed as PASS that constant-diagonal transpose-orthogonality is realizable at single-square level for order 10 and that diagonal pinning is a non-degenerate isotopism normalization, so the constrained model is nonempty before triple orthogonality. That premise is false at every n>=2 by the one-line theorem itself, as DRAFT Sec. Correction admits. Per TARGET route policy, when the negative/exclusion resolution is only vacuity, normalization error, cheap small-instance mismatch or arbitrary parameter fact, value fails even if literally true. The DRAFT also concedes it decides nothing about the scientifically interesting neighbours (transversal-diagonal self-orthogonal member, general 3-MOLS(10) existence, symbol-permuted transpose variants). No future researcher needs to retrieve the fact that (c,c) repeated n times violates distinctness; there is no downstream construction use beyond pruning a subtype that never existed definitionally. ADMISSION_DEFECT: admission triviality_preflight and target_integrity PASS verdicts were materially false.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Theorem proof lines 25-32 checked line-by-line: constant diagonal c forces n copies of (c,c) in L vs L^T superposition, hence not orthogonal for n>=2. Boundary n>=2 sharp (n=1 would have single pair). No Latin property or triple orthogonality used.",
+    "inputs/artifacts/verify.py executed with python3 -> VERIFY_OK. Replayed lemma for n=2,3,4,5,10, exhaustive Latin enumerations (2,12,576 squares), 0 SOLS(3), 48 SOLS(4) all transversal-diagonal, SOLS(5) witness L=i+2j mod5, and SO-preserving isotopism sanity. Counts match known Latin numbers.",
+    "Fused scope_literature_search (3 queries, full coverage, no partial failure): standard SOLS definition from Cao-Li Disc.2011 doi:10.1016/j.disc.2011.02.003, John D. Cook SOLS blog, Budshaw LatinSquares page, Bright ZVC-JIS report \u2014 all define self-orthogonal as orthogonal to transpose requiring n^2 distinct pairs, which in one step entails constant-diagonal impossibility.",
+    "Brayton-Coppersmith-Hoffman 1974 Bull.AMS existence of SOLS for all n !=2,3,6 (Project Euclid) plus Bennett-Du-Zhang diagonal SOLS literature: confirms single-square self-orthogonality is real but always with transversal diagonal context, never constant diagonal; cited as background, consistent with transversal lemma.",
+    "MathOverflow 309010 Has the existence of a 3-MOLS(10) containing a self-orthogonal Latin square: poses transversal-diagonal self-orthogonal member question as open. The submitted constant-diagonal qualifier is a vacuous restriction of that question, not the posed open problem; resolving it answers nothing about the open variant.",
+    "Topic audit_preflight vs DRAFT comparison: preflight outcome claimed self-orthogonal Latin squares with constant diagonal are a consistent single-square class at order 10; DRAFT disproves this for all n>=2. Admission decisive_checks and target_integrity therefore rest on a false nonvacuity premise."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Brayton-Coppersmith-Hoffman 1974 covers all SOLS existence n!=2,3,6; Egan-Wanless closest triples, McKay-Meynert-Myrvold censuses, Parker order-25 group result scope proximity/census/group properties; but the broader object class that actually dominates the claim is the standard definition of orthogonality for all orders n itself, which already contains the diagonal-counting argument and subsumes the n=10 special case without any triple theory.",
+      "reasoning": "The target is a strict special case of a broader definitional fact valid for all n>=2: any constant-diagonal array repeats a transpose pair. Triple context, OA(5,10) encoding and order-10 specialization add no content. Broader definitional coverage therefore entails the headline as a corollary.",
+      "search": "self-orthogonal Latin squares survey Brayton Coppersmith Hoffman existence 3-MOLS(10) orthogonal triple member"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior source states constant-diagonal self-orthogonal impossibility verbatim because it follows in one line from the definition: constant diagonal c gives n copies of (c,c) among the n^2 superposition pairs, violating distinctness for n>=2; equivalently SOLS diagonals must be transversals. Standard definitions in Cao-Li, Cook, Budshaw and Bright reports state the antecedent that implies this.",
+      "reasoning": "Prior definitional result substantively implies the submitted headline by a single mechanical inference. Under the live-retrieval contract a verbatim statement is not required; substantive implication suffices for coverage, so originality FAILS and a failed literal-title search cannot establish priority.",
+      "search": "self-orthogonal Latin square constant diagonal orthogonal to transpose impossibility"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused snippets uniformly define: Latin square self-orthogonal iff orthogonal to its transpose, i.e. n^2 pairs (L[i][j],L[j][i]) distinct; SODLS literature defines diagonal Latin as diagonal a transversal; transversal-diagonal lemma (diagonal pairs (d_i,d_i) distinct => d_i distinct) is the synonymous/transpose-dual encoding of the same constraint. All wordings (square-orthogonal-to-transpose, autotopism-with-transpose, OA symmetry) converge on this definition.",
+      "reasoning": "Under every synonymous notation or dual/complement encoding, the constant-diagonal conjunction is immediately contradictory: diagonal cells alone witness repetition. The equivalent-formulation check therefore shows the claim is a definitional restatement, not a new subtype decision.",
+      "search": "Latin square orthogonal to its transpose diagonal transversal distinct symbols self-orthogonal definition"
+    },
+    "exact_database_or_table": {
+      "evidence": "MOLS data pages, species tables and OA directories index pairs, closest triples and small arrays but contain no row for constant-diagonal self-orthogonal-member triples, as Admission noted. Direct queries for MOLS order-10 self-orthogonal triple catalogs return only pair/closest-triple data and the open MathOverflow thread, never a constant-diagonal decision table.",
+      "reasoning": "Absence from a table does not rescue originality here because no table lookup was ever needed: the subtype is empty by definition before any census. Database silence reflects vacuity (nothing to tabulate), not an open gap requiring fresh solver evidence, so this check does not support novelty.",
+      "search": "MOLS order 10 self-orthogonal triple database catalog table exact decision row"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
