@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline claims Lipschitz (W1,inf) uniqueness via O(tau^-1) CGO remainder cited as Kenig-Salo Sec.4 type bound ||r||<=C|zeta|^-1||grad log mu||_inf. Re-ran artifacts: phase_algebra OK for generic xi to 1e-12 but vertical case gives zeta.zeta=-0.5 (reused s bug); ellipticity/collar OK; rl_decay_demo coarse run gives |I(160)|=0.008461 non-decaying (aliasing admitted, refined 7.3e-08 claim not produced by script); transport_parity only prints citation, no proof. The cited uniform O(1/tau) L2 bound for Lipschitz drift is false as stated: div(mu grad u)=0 gives (Delta+2 zeta.grad)r=-(grad log mu).(zeta(1+r)+grad r) with RHS O(tau), so standard resolvent gain gives O(1) not o(1); Lipschitz full-data uniqueness needs Haberman-Tataru Bourgain/averaged spaces, not cited estimate. Even extension preserves Lipschitz but with kink; odd/even reflection vanishing, lateral/top boundary cancellation via collar, and xi=0 factor (zeta1.zeta2=-|xi|^2/2 vanishes at xi=0) are hand-waved. Hence Euclidean Lipschitz theorem not proved; smooth case would follow from prior Isakov. FAIL.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING genuinely arose from target route (same cylinder, same linear-weight reflection, Euclidean instantiation plus proved non-flat obstruction), so no scope evasion. But proved content does not exceed prior: Kenig-Salo survey Sec.2.2 Theorems 2.3-2.4 (Isakov 2007) proves local-data uniqueness when inaccessible part is hyperplane/sphere: Omega subset {xn>0}, Gamma0 subset {xn=0}, for L-inf Schrodinger and by reduction conductivities with boundary agreement. Cylinder B(0,1)x(0,2) with flat base B(0,1)x{0} and Gamma_acc=lateral+top is literal instance. Draft adds extra collar hypothesis mu1-mu2 compactly supported off {r>0.85}U{x3>1.7}, making claim strictly weaker than Isakov (which needs no collar). With G0=I the class sigma=mu I is isotropic, not new CTA. DSF-KLLS full-data/simple-transversal and Lin-Nakamura-Zimmermann different data-type do not help. Exact 3/13 residual E=0.3r^2/(1+0.3r^2) sup 3/13 is undergraduate algebra, not a new lemma. Lipschitz upgrade over Isakov C^2 corollary is unproved (see correctness), so contributes no established novelty. Substantive implication/coverage => FAIL.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judged headline separately from unfinished arbitrary-g0 survey. Proved Euclidean isotropic flat-cap uniqueness with extra collar on fixed dimensions B(0,1)x(0,2), {r>0.85}U{x3>1.7} is a narrower, weaker special case of Isakov flat-face table entry already fixing one-inaccessible-face geometries; fixed radii/heights/collar are arbitrary parameters, not natural new boundary. It does not close Bukhgeim-Uhlmann to Kenig-Salo gap beyond Isakov, supplies no new citable reflection lemma beyond standard Isakov reflection, and claims no stability rate. The 3/13 eikonal computation E(r)=0.3r^2/(1+0.3r^2) is a trivial parameter fact on one chosen conformal g0=(1+0.3r^2)I2, not a transferable obstruction lemma; certification/replayability does not create value per STANDARD. No downstream imaging design needs this weaker corollary when stronger Isakov result exists. FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Kenig-Salo Recent progress in Calderon problem with partial data (arXiv:1302.4218) Sec.2.2 Theorems 2.3-2.4: Isakov flat-face local-data uniqueness Omega subset {xn>0}, Gamma0 subset {xn=0}, plus Kelvin sphere version; reduction conductivity-Schrodinger discussion and limiting Carleman weight taxonomy.",
+    "Dos Santos Ferreira-Kurylev-Lassas-Salo The Calderon problem in transversally anisotropic geometries (arXiv:1305.1273): CTA full-data/simple-transversal uniqueness via Gaussian beams, infinite-cylinder transversal determination; requires simplicity for general transversal, confirming non-flat obstruction is known framework.",
+    "Kenig-Sjostrand-Uhlmann Annals 2007 Calderon problem with partial data (front/back faces) and survey context for complementary data vs Isakov reflection approach.",
+    "Artifact replay 2026-09-11: phase_algebra.py generic xi zeta.zeta~1e-12, mixed |m|=71.71 at tau=60, vertical zeta.zeta=-0.5 bug from reused s; ellipticity_check.py mu2 in [1,1.1997], collar max 0.00e+00, Lip~1.24 NONVACUITY_AND_COLLAR_OK; rl_decay_demo.py coarse |I(160)|=0.008461 aliasing vs claimed refined 7.3e-08 not in script output; exact_residual_and_gauge.py E=3r^2/(10(1+0.3r^2)) sup 3/13, gauge off-diag 0.71; transport_parity.py prints citation only.",
+    "Live fused scope_literature_search 20 results (SerpBase/Crossref/Serpent OK, OpenAlex 0, no partial failure): no source states flat-cap cylindrical Lipschitz CTA threshold; nearest are Isakov/KSU/DSF-KLLS/Lin-Nakamura-Zimmermann, disclosing gap for arbitrary-g0 but covering Euclidean isotropic flat-face."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kenig-Salo survey Theorems 2.3-2.4 quotes Isakov: n>=3, Omega subset {xn>0}, Gamma0=partial Omega\\Gamma subset {xn=0} => local-data C^{Gamma,Gamma} determines L-inf q; conductivity follows under sufficient regularity+boundary agreement. DSF-KLLS proves CTA full-data/simple-transversal; KSU proves complementary front/back data.",
+      "reasoning": "Cylinder B(0,1)x(0,2) with inaccessible flat base is a strict instance of Isakov flat-face class; draft adds stronger collar agreement, so its smooth-content conclusion is subsumed by broader Isakov theorem, not broader than it. Non-flat CTA needs simplicity per DSF-KLLS, so arbitrary-g0 target remains uncovered but Euclidean headline adds nothing beyond Isakov.",
+      "search": "broader CTA partial-data covering full-data Sylvester-Uhlmann Haberman-Tataru Kenig-Salo Isakov flat-face cylinder reflection survey"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Isakov reflection + full-data Sylvester-Uhlmann/Haberman gives flat-face uniqueness; survey Sec.2 notes conductivity reduction needs regularity and boundary agreement, exactly draft collar. Draft CGO remainder ||r||=O(1/tau) for W1,inf drift via Kenig-Salo Sec.4 mis-cites: true Lipschitz theory needs Haberman-Tataru spaces; equation gives RHS O(tau) so uniform O(1/tau) false.",
+      "reasoning": "Smooth (C^2/W2,inf) version of headline is mechanically implied by Isakov+reduction; Lipschitz version as stated is not proved here because remainder step invalid, so no new implication is established. Either way no novel proved implication exceeds prior.",
+      "search": "prior implication Isakov reflection plus full-data CGO implies flat-base cylinder conductivity uniqueness collar agreement regularity check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched front-side determination, partial DN determination flat inaccessible base, linear Carleman weight reflection Isakov Bukhgeim-Uhlmann, isotropic Lipschitz cylinder B(0,1) reflection CGO. Hits return Isakov flat-face, KSU front/back, DSF-KLLS CTA, Lin-Nakamura-Zimmermann Schrodinger partial ND; none states flat-cap Lipschitz CTA threshold with collar, but Isakov local-data with Gamma0 flat is synonymous to front-side with one flat face.",
+      "reasoning": "Synonymous names (front-side/local-data/flat inaccessible cap/reflection) all map to Isakov Theorem 2.3 geometry; literal parameter choice B(0,1)x(0,2), collar {r>0.85}U{x3>1.7} is arbitrary renaming/slice, not a distinct formulation. Dual/complement/matrix encodings do not apply (scalar isotropic).",
+      "search": "partial-data anisotropic uniqueness front-side determination flat inaccessible cap linear-weight reflection isotropic Lipschitz cylinder equivalent"
+    },
+    "exact_database_or_table": {
+      "evidence": "No DN-eigenvalue enclosure table, FEM ledger, resistor-network catalog, or eigenvalue database encodes quantified uniqueness implication over infinite-dimensional Lipschitz CTA pair class; searched tables concern finite spectra or discrete networks. Fused search returned zero database hits for exact threshold.",
+      "reasoning": "Finite lookup cannot prove/disprove universal uniqueness over Lipschitz function class; exact-table coverage absent and cannot decide claim, so this failure mode is tested and excluded, leaving Isakov theorem (not a table) as decisive coverage.",
+      "search": "exact DN eigenvalue enclosure FEM resistor-network database table lookup for flat-cap cylinder Lipschitz CTA uniqueness query"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
