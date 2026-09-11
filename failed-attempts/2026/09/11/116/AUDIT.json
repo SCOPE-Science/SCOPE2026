@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET proof ledger is formally valid as a derivation from cited Gray laws. Re-ran inputs/artifacts/verify_hexagon.py: VERIFY_OK, all six whiskered steps have correct sources/targets, P and Q are parallel ABC=>CBA, H1/H2/N sides are well-typed with matching junctions, and substitution of H1/H2 into N yields P=Q syntactically. H1/H2 are the standard Gray compatibility of chi_{XY,C} with horizontal composition and N is standard pseudonaturality of chi_{-,C} at Gamma=chi_{A,B}. Machine check verifies only typing/substitution, not the axioms themselves, but the axioms are standard Gray laws holding in the free construction. The I=id_* wording is harmless sloppiness. No boundary or inference error; proof (not experiment) is correct conditional on standard axioms.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL with ADMISSION_DEFECT. Admission preflight claimed no equivalent formulation and no broader coverage; fused live retrieval plus direct nLab primary sources falsify both. The submitted P=Q is the Joyal-Street Yang-Baxter equation transported verbatim: nLab Yang-Baxter page states plain YBE (R\u2297id)(id\u2297R)(R\u2297id)=(id\u2297R)(R\u2297id)(id\u2297R) as Joyal-Street 1985 diagram B7 p7, nLab braided-monoidal page states the two hexagon identities B_{X\u2297Y,Z}, B_{X,Y\u2297Z} plus naturality, and nLab Gray-category page states a doubly-degenerate Gray-category is essentially a braided monoidal category (Gurski-Cheng). Under that standard equivalence chi<->braiding and whiskering<->tensor, H1/H2 are hexagon axioms and N is naturality, and the 4-step ledger is the textbook YB derivation. Draft Sec.6 admits this transport. A prior source need not state P=Q verbatim for three distinct labels; the universally quantified braided YB theorem substantively implies and exhaustively covers the free 3-generator instance as a strict special case/renamed implementation. Timestamp or failed literal-title search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. The headline P=Q, though correct, is a textbook restatement/renamed implementation of the Joyal-Street Yang-Baxter consequence of hexagon+naturality, not an independently retrievable new coherence lemma. STANDARD rejects results already known or mechanically implied, textbook exercises, mere parameter substitutions, and renamed implementations even if machine-certified. Certification (VERIFY_OK) strengthens evidence but does not create value. Future researchers needing the triple-interchanger YB would cite Joyal-Street/Kassel or the general braided coherence theorem, not this three-generator ledger; no new boundary, obstruction, census, benchmark, or downstream use beyond the already-known general law is established. ADMISSION_DEFECT: Admission value preflight treated the ledger as a new Yang-Baxter law, but objective prior literature unavailable/misstated at Admission shows it is the standard derivation.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "nLab Gray-category page (fetched full): definition as category enriched over Gray; coherence theorem Gordon-Power-Street; Examples: 'A doubly-degenerate Gray-category is the same as a category with two monoidal structures satisfying an exchange law. This is essentially the same as a braided monoidal category. (Gurski & Cheng)'.",
+    "nLab Yang-Baxter equation page (fetched full): plain quantum YBE (R\u2297id)(id\u2297R)(R\u2297id)=(id\u2297R)(R\u2297id)(id\u2297R) in End(V\u2297V\u2297V), stated as equality of string diagrams and 'in full this is diagram B7 in Joyal & Street 1985 p7'.",
+    "nLab braided monoidal category page (fetched full): Definition with braiding B_{x,y} and two hexagon identities for B_{x,y\u2297z} and B_{x\u2297y,z} with associators, plus remark that doubly-degenerate tricategory identifies with braided monoidal via Eckmann-Hilton/Joyal-Street 1986.",
+    "scope_literature_search fused 20 results (SerpBase/OpenAlex/Crossref, no partial failure): top hits Forest-Mimram arXiv:2109.05369 rewriting in Gray categories, Gurski Coherence in Three-Dimensional Category Theory, nLab Gray-category/braided/YBE pages; no source states the literal P=Q ledger but the fused set surfaces the covering braided-YBE theory.",
+    "DRAFT.md Sec.6 admission by authors: 'The argument is the Joyal-Street Yang-Baxter derivation (hexagons + naturality of the braiding/interchanger at itself), transported to the Gray interchanger family' \u2014 direct evidence of repackaging.",
+    "Independent replay: python3 inputs/artifacts/verify_hexagon.py prints P ABC=>CBA, Q ABC=>CBA, (N)+(H1)+(H2) substitution P=Q, VERIFY_OK \u2014 confirms typing/substitution only, not novelty."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Joyal-Street braided coherence: every braided monoidal category satisfies hexagon identities plus naturality, which imply the Yang-Baxter equation for all triples of objects; via Gurski-Cheng every doubly-degenerate Gray-category is a braided monoidal category, so the universal theorem strictly generalizes the free (A,B,C) instance. No cited Gray strictification source needed beyond this.",
+      "reasoning": "Because the broader universally-quantified YB theorem holds for arbitrary triples in any braided/doubly-degenerate Gray setting, the submitted three-generator equality is a strict special case mechanically implied by the stronger theorem, so broader coverage FAILS originality.",
+      "search": "Gray tricategory strictification Gurski Forest-Mimram rewriting Gray tensor product braid relations census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior axioms H1/H2/N are exactly the braided hexagon/naturality axioms; Joyal-Street derivation shows P=Q follows by substituting H1/H2 into N in three steps, which DRAFT steps 1-4 replay verbatim without new critical-pair analysis, Squier condition, or model construction.",
+      "reasoning": "The derivation uses only prior axioms and the standard textbook implication step, requiring no new finite consequence work; the claim is therefore a corollary/recomputation/certificate of a known stronger fact, not a new consequence, so implication FAILS originality.",
+      "search": "Gray interchanger compatibility naturality imply Yang-Baxter hexagon equality derivation"
+    },
+    "equivalent_formulations": {
+      "evidence": "nLab YBE eq.(2) (R\u2297id)(id\u2297R)(R\u2297id)=(id\u2297R)(R\u2297id)(id\u2297R) and check-R form R23 R13 R12 = R12 R13 R12, plus braided hexagon diagrams, match submitted P=(chi_AB*C)(B*chi_AC)(chi_BC*A) and Q=(A*chi_BC)(chi_AC*B)(C*chi_AB) under standard degenerate dictionary objects<->2-cells A,B,C, tensor<->concatenation, braiding<->chi, whiskering<->tensor-with-identity.",
+      "reasoning": "The literal headline differs only by synonymous notation/encoding (chi vs B, * vs tensor, ABC words vs tensor products) and distinct-vs-identical labels, which the universal YB statement already covers; title dissimilarity does not avoid coverage, so equivalence FAILS originality.",
+      "search": "Joyal Street Yang-Baxter braided hexagon naturality proof doubly-degenerate Gray-category equivalence"
+    },
+    "exact_database_or_table": {
+      "evidence": "No Gray pasting table tabulates P=Q, but none is needed: the covering theorem is universally quantified over all objects/2-cells, so the exact parameter triple (A,B,C) is already included as an instance of the general law in textbooks (Kassel, Joyal-Street) and nLab hexagon/YBE pages, not an unlisted enumeration.",
+      "reasoning": "Because a proven universal theorem exhaustively covers every parameter instance including the exact (A,B,C) triple, direct instantiation replaces lookup; the absence of a database row does not confer novelty, so exact-table check FAILS originality.",
+      "search": "Gray category coherence table database pasting equality enumeration proof assistant library"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
