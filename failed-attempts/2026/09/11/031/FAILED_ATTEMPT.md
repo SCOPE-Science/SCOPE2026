@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** A surface-group Borel chromatic gap: Marks-game transfer to the genus-2 shift with toast-analysis certificate
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 748
+- **Disposition:** NO_RESULT
+- **Domain:** Descriptive Set Theory
+- **Method:** Borel determinacy games with Marks symmetric-gluing and distributed-toast versus ergodic-measure separation
+
+## Problem
+
+Does the Marks determinacy-game strategy transfer from free groups to the genus-2 surface-group shift, forcing Borel chromatic number Delta+1 on an explicit bounded-degree acyclic surface-symmetric Borel graph where the measurable chromatic number stays small — and if the transfer fails, does its failure yield a new toast-based Borel coloring algorithm? Formalize one fixed game direction with logged certificates and bank the separation diagram.
+
+## Attempted claim
+
+Let Gamma_2 = <a,b,c,d | [a,b][c,d] = 1> with symmetric generating set S of size 8 (degree Delta = 8), X = Free(2^Gamma_2) the free part of the Bernoulli shift, and G_2 the explicit acyclic 8-regular Marks-type Borel quotient specified in the record. Then chi_B(G_2) = 9 (= Delta+1) while chi_mu(G_2) <= 3 for the product measure (hence a Borel-vs-measurable gap of 9 vs <=3), witnessed by a logged closed-game strategy with symmetric gluing plus a toast-analysis certificate.
+
+## Research outcome
+
+Target (acyclic 8-regular chi_B=9 vs chi_mu<=3) blocked by relator-cycle + depth-6 gluing collision; revealed preset fallback (depth-2 finite win forcing chi_B>=4 on acyclic H_2) concretely attempted and blocked (window parity-2-colorable; every depth<=2 gluing identification forces a cycle). Clean exit with replayable obstruction certificates banked.
+
+## Why this attempt failed
+
+Failed axes: no independent audit (NO_RESULT).
+
+Target chi_B=9 vs chi_mu<=3 not established; preset H_2 chi_B>=4 finite certificate not established (attempted and blocked). Measurable side (chi_mu<=3) never reached because the blocker is on the Borel/acyclicity/gluing side. Certificates are bounded word-level checks (length<=6 census, depth<=2 probe, relator chord census), not general theorems. An earlier WORKLOG draft overstated Route A as 'embedded 8-cycle through every vertex'; corrected here to 'relator closes a length-8 loop at every vertex' per the chord census (baBA=[a,b]!=1 survives). No DRAFT.md (no CLAIMED result).
+
+## Conditions for a legitimate retry
+
+introduce a materially new method or a justified, still-valuable revised claim; address the recorded limitation: Target chi_B=9 vs chi_mu<=3 not established; preset H_2 chi_B>=4 finite certificate not established (attempted and blocked). Measurable side (chi_mu<=3) never reached because the blocker is on the Borel/acyclicity/gluing side. Certificates are bounded word-level checks (length<=6 census, depth<=2 probe, relator chord census), not general theorems. An earlier WORKLOG draft overstated Route A as 'embedded 8-cycle through every vertex'; corrected here to 'relator closes a length-8 loop at every ve…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
