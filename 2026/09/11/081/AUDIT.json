@@ -1,0 +1,83 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET negative resolution verified. Bertrand gives prime q with Q0=(log N)^A<q<=2Q0; for large N q<<N/3-h so E0=0 exactly. Orthogonality sum_a S(a/q)=qE0=0 with S(0)=T gives max_{a!=0}|S(a/q)|>=T/(q-1)>=T/(2Q0). Huxley short-interval PNT at theta=5/6>7/12 gives T=(1+o(1))2h, so bound is (1+o(1))h/(log N)^A. Spacing 1/(qq')>1/(2Q0^2)>>W(N)=(log N)^B/N proves every such a/q lies on minor arcs m(N) for large N, and R(N)=N^{1/150}/(2(log N)^A)->infinity defeats hN^{-1/150} and indeed every fixed delta. Stdlib verify_obstruction.py replayed Parseval, orthogonality, E0=0, lower bound, spacing spot-checks at (60000,127),(120000,139), and crossover audit -> VERIFY_OK (re-ran in audit). Finite data illustrate identities only; contradiction is asymptotic via cited Huxley, honestly disclosed. No ADMISSION_DEFECT: preflight cheap screens (trivial vs zero scale, alpha=0/small-q major-arc capture) remain true; witness uses q just above threshold with spacing proof, not a type error.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live search (SerpBase+Serpent+OpenAlex+Crossref, no partial failure) for literal sup hN^{-1/150} at h=N^{5/6}, equivalent large-value/orthogonality phrasing h/(log N)^A with prime q in (Q0,2Q0], and dominance/Huxley-Siegel-Walfisz coverage returned only upper-bound literature (Matomaki-Shao o(H) discorrelation theta>2/3, Liu-Zhan/Kumchev short Weyl sums, Huang survey, Wooley mean value, Rakhmonov large-denominator estimate, Harper smooth minor arcs) plus Matomaki-Shao-Tao-Teravainen log-saving uniformity. No source states the uniform minor-arc lower bound sup_{m(N)}|S_h|>=h/(log N)^A defeating every fixed power saving at this width and arc system, nor the Bertrand+orthogonality pigeonhole assembly. Upper-bound theorems cannot imply a lower-bound disproof. Hence the negative resolution is new beyond nearest priors.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Rigorous infinite-family disproof defeating every fixed delta>0, not just 1/150, for the natural lane object (short prime sum at Huxley scale N^{5/6} with standard Dirichlet threshold (log N)^A). It decides the admitted noise bottleneck: power-saving minor-arc suppression with polylog major arcs is impossible, redirecting effort to wider arcs or log-saving bounds and supplying a concrete extremal frequency family a*/q for large-sieve benchmarks. This is not a type/normalization error (witness proved on minor arcs via spacing lemma), vacuity, small-N mismatch (asymptotic for all large N), lookup, or arbitrary-parameter fact. It matches the admitted negative-resolution value case and survives STANDARD filters (not textbook, parameter substitution, tiny gain, or unexplained enumeration).",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md proof replayed line-by-line: Bertrand prime q, exact E0=0, orthogonality transfer, spacing 1/(qq') vs width W(N), Huxley T~2h, crossover R(N)->infinity.",
+    "output/artifacts/verify_obstruction.py re-executed in audit workspace -> VERIFY_OK with T/2h~0.996-0.998, Parseval/orthogonality/lower-bound/spacing checks and crossover decades k=505/1062/2916 for A=1/2/5.",
+    "Matomaki-Shao arXiv:1902.04708 discorrelation for H=N^theta theta>2/3 against polynomial phases: qualitative little-o, different norm/quantifier, no explicit minor-arc sup power saving and opposite (upper-bound) direction.",
+    "Huang expsum2015 survey of short prime exponential sums (Liu-Zhan, Kumchev inputs for almost-equal Goldbach-Vinogradov): records upper-bound estimates only, no hN^{-1/150} sup package and no (Q0,2Q0] lower-bound barrier.",
+    "Fused scope_literature_search (3 normalized forms, 20 results, full provider coverage): Rakhmonov large-denominator short prime sum estimate, Harper smooth minor-arc/moment bounds, Matomaki-Shao-Tao-Teravainen higher uniformity theta=5/8 log-saving, Siegel-Walfisz/PNT-short-interval sources; none states the submitted lower-bound disproof.",
+    "Standard Huxley short-interval PNT (theta=5/6>7/12) as cited major-arc/total-mass input giving T=(1+o(1))2h; only positive-proportion lower bound T>=c h needed for contradiction."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Wooley nested efficient congruencing proves sharp Vinogradov mean-value upper bounds; Matomaki-Shao gives o(H) discorrelation for theta>2/3; Matomaki-Shao-Tao-Teravainen gives log-saving uniformity at theta=5/8. All are upper-bound inputs in the opposite direction; none states a uniform minor-arc lower bound h/(log N)^A at h=N^{5/6} with threshold (log N)^A.",
+      "reasoning": "Broader mean-value/discorrelation theorems are upper-bound machinery to be assembled for suppression claims; they cannot imply a lower-bound obstruction defeating every fixed power saving, so broader coverage does not subsume the disproof.",
+      "search": "Vinogradov mean value Wooley Matomaki Shao discorrelation implies short prime minor arc sup power saving"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Liu-Zhan and Kumchev bound short prime Weyl sums from above in various theta ranges; Siegel-Walfisz-type fixed-q major-arc asymptotics give large values only at fixed q, not the uniform Bertrand (Q0,2Q0] pigeonhole family with proved minor-arc membership and T/(q-1) transfer for all large N at h=N^{5/6}.",
+      "reasoning": "Prior upper bounds point the wrong way and fixed-q asymptotics lack the uniform threshold-crossing assembly (Bertrand existence, exact E0=0, orthogonality transfer, spacing vs width); the disproof is not a mechanical corollary or recomputation of any cited estimate.",
+      "search": "Liu Zhan Kumchev short prime exponential sum upper bound Siegel-Walfisz fixed q implies uniform minor arc lower bound"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over literal sup phrasing sup|S_h|<=hN^{-1/150}, covering sixth-moment phrasing, and large-value dual phrasing max_{a!=0}|S(a/q)|>=T/(q-1)~h/(log N)^A with prime q in (Q0,2Q0] returned only general minor-arc/mean-value literature and the Huang survey, with no statement of this suppression or its pigeonhole defeat at h=N^{5/6}.",
+      "reasoning": "Searching sup, moment, von Mangoldt/Lambda-weighted, e(alpha p), and residue-class E_r wordings guards against renamed recordings; absence in all synonymous/dual encodings supports novelty of both the admitted target package and the disproof assembly.",
+      "search": "sup short prime exponential sum minor arcs h N^{-1/150} sixth moment covering large value a/q h/(log N)^A"
+    },
+    "exact_database_or_table": {
+      "evidence": "No database (prime tables, LMFDB, computed exponential-sum samples) tabulates suprema of prime exponential sums over minor arcs asymptotically; finite tables sample bounded N and finitely many alpha values only.",
+      "reasoning": "A table lookup cannot prove or disprove a uniform asymptotic sup bound for all large N; the claim requires analytic Vaughan-free exact-identity plus Huxley plus spacing estimates, so it is not database repackaging.",
+      "search": "prime exponential sum minor arc supremum table LMFDB computed values uniform bound"
+    }
+  },
+  "residual_risks": [
+    "Total-mass asymptotic T~2h relies on the cited Huxley short-interval PNT (theta=5/6>7/12) rather than a self-contained proof; standard and citable, but an external theorem.",
+    "Crossover R(N)>1 occurs at astronomically large N (decades 10^505/10^1062/10^2916 for A=1/2/5), so finite replay at N~1e5 illustrates identities only and cannot exhibit a finite-N counterexample; contradiction is asymptotic by design."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "e8bc5173145d7f8c2d79c9b386d80b444184cfa486eb3e39a78637b072f9a5b2",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Discorrelation between primes in short intervals and polynomial phases",
+        "url": "https://arxiv.org/abs/1902.04708",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Upper-bound discorrelation paper for short prime sums (H=N^theta, theta>2/3) proving little-o suppression against polynomial phases; hypothesis and conclusion point opposite to the submitted uniform lower-bound barrier sup_{m(N)}|S_h|>=T/(q-1)~h/(log N)^A with a Bertrand prime q in (Q0,2Q0] and proved minor-arc membership, so it neither states nor implies the disproof.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "K. Matom\u00e4ki and X. Shao (2021) \u201cDiscorrelation Between Primes in Short Intervals and Polynomial Phases,\u201d",
+        "url": "https://academic.oup.com/imrn/article-pdf/doi/10.1093/imrn/rnz188/42296685/rnz188.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Published Matomaki-Shao version whose snippet states a large-value converse (a sum >=H/(log N)^A forces a small-denominator Diophantine approximation q<=(log N)^{O(A)}) plus a Huxley-based major-arc formula; this is a necessary condition for largeness and an upper-bound input, not the submitted existence of a threshold-crossing minor-arc witness with exact E_0=0 and orthogonality transfer T/(q-1) for all large N at h=N^{5/6}.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Large values of exponential sums with multiplicative coefficients",
+        "url": "https://arxiv.org/html/2604.02306",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Granville-Lamzouri pretentious large-value theory for long sums sum_{n<=x}f(n)e(n alpha) with 1-bounded multiplicative f (Montgomery-Vaughan x/log x + x/sqrt(phi(q)) bounds); verified in full text, it treats a different object, length, and arc normalization and never states the short prime sum at width N^{5/6}, the (Q0,2Q0] Bertrand family, or the E_0=0 orthogonality lower bound on minor arcs.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check (4 queries, 20 results, check e8bc5173145d7f8c2d79c9b386d80b444184cfa486eb3e39a78637b072f9a5b2) added no covering prior. Seventeen URLs were new versus the base set, but the families mostly duplicate base providers (Matomaki-Shao discorrelation, Huxley short-interval PNT, higher-uniformity background). The closest leads were compared literally: Matomaki-Shao (arXiv abstract and OUP full-text converse) are upper-bound/discorrelation inputs pointing the wrong way and state no Bertrand (Q0,2Q0] minor-arc witness with T/(q-1) transfer at h=N^{5/6}; the new Granville-Lamzouri 2026 large-values paper was opened and verified in full and concerns long multiplicative sums under a different arc normalization, with no short prime-sum barrier. No returned source states the headline in literal, synonymous, dual, broader, or database form, and none implies it without its wording. Originality PASS is therefore preserved; correctness and value are untouched."
+  }
+}
