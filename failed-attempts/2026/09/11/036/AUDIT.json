@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay confirms the refutation core. Standard representation rho(s1)=[[1,1],[0,1]], rho(s2)=[[1,0],[-1,1]] satisfies braid relation (both products = [[0,1],[-1,0]]) with det 1. For w*=s1^3 s2^-1 s1 s2^-2: s1^3=[[1,3],[0,1]], s2^-2=[[1,0],[2,1]]; left-to-right product = [[18,7],[5,2]], right-to-left = transpose [[2,7],[5,18]]; both trace 20, det 1. Hence |tr|=20>2 so pseudo-Anosov under standard B3->SL(2,Z) trace classification (|tr|>2 pA, =2 reducible, <2 periodic; center maps to +/-I with |tr|=2 so does not affect pA determination; trace invariant under transpose/inverse/cyclic permutation so convention-independent). Charpoly x^2-20x+1, discriminant 396=20^2-4, 361<396<400 so non-square, irreducible degree 2 not 6. Roots 10+/-3*sqrt(11). Integer bounds 3316^2=10995856 < 11000000 < 3317^2=11002489 give 3.316<sqrt(11)<3.317, hence lambda=10+3*sqrt(11) in (19.948,19.951), conjugate in (0.049,0.052); product 1, both real positive reciprocal, no unit-circle conjugate, so quadratic Pisot not Salem (Salem needs degree>=4 with all-but-two conjugates on unit circle). f(1.401)=-25057199/1000000 !=0; gaps >17 (large root) and >1.3 (small root). Calibration rho(s1*s2^-1)=[[2,1],[1,1]] trace 3 -> (3+sqrt(5))/2~2.618 confirms conventions. General bound: integer |tr|>=3 for pA 3-braid gives lambda>=(3+sqrt(5))/2>2.618>1.401, quadratic. All steps exact integer arithmetic; decimals display-only. Script 23/23 PASS replayed. Proof distinguished from experiment. Scope honestly limited: face/polynomial/tolerance absent so clause (d) unaudited; no M_s/marking so higher-genus re-reading untestable. Core (a) TRUE, (b)-(c) FALSE, conjunction FALSE \u2014 correctly proved.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval with three normalized forms in one scope_literature_search call (literal word+trace+value; SL(2,Z)/Burau/Pisot-vs-Salem encodings; dominance minima/census coverage). Fused 20 results; coverage ok on serpbase+crossref, openalex 0 hits but status ok, no partial failure. Literal-word search returns only sigma1/sigma2 receptor biology noise, no mathematical record of w* or trace 20 / 10+3*sqrt(11). Equivalent-formulation check: SL(2,Z) trace method is textbook, but no source states this word's image or value verbatim. Broader-coverage check: Lanneau-Thiffeault (arXiv:1004.5344, minimum dilatations n=3..8), Hironaka-Kin (small-dilatation braids, 3/4/5-strand minima), Hironaka genus-3 fibered-face minima, Leininger Lehmer example concern different words/faces and do not imply exact trace 20; they imply only the general lower bound >=2.618 which the DRAFT correctly re-derives but does not claim as new. Exact-database/table check: no census/table lists w* with this polynomial. Claim-vs-prior-implication: no prior theorem exhaustively covers the specific word-to-matrix value without performing the multiplication; general classification is a method, not a prior statement of the value. Hence the specific numeric refutation is new in the narrow verbatim sense. Originality PASSES narrowly; the general obstruction component itself is known and not original, but the headline's specific component is unpublished.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: admitted target required w* pseudo-Anosov with ~1.401 degree-6 Salem dilatation and face-minimal sharpness. Submission proves the opposite for the literal core (19.95 quadratic Pisot) and concedes clause (d) unauditable (no face name, no polynomial, no tolerance, no M_s/marking). The remaining exact invariant (trace 20 / 10+3*sqrt(11)) is a textbook SL(2,Z) multiplication on a failed low-dilatation candidate. Under the exact-invariant rule, a narrow datum is valuable only when object+invariant were motivated before computation, value not mechanically implied, and future work could need the precise fact. Here motivation (low Salem face-sharp anchor, Lehmer adjacency, entropy-rigidity citation) attaches to the claimed 1.401 Salem value, not to the actual 19.95 Pisot value which has no sharpness/Lehmer/downstream use; DRAFT cites no future use for 19.95. The value is mechanically implied by 2x2 integer multiplication. The only reusable part (D3 minimum >=2.618, quadratic-only) is already-published textbook (Lanneau-Thiffeault/Hironaka-Kin) and correctly presented as obstruction, not as new citable advance. This is a correct disproof of an ad-hoc false target, not an independently retrievable extremal witness, template, or gap theorem. No bounded addition (identity, literature position, interpretation) without changing the object or starting a new direction can make this arbitrary large-dilatation word independently worth finding later. Intrinsic low value / arbitrary scope after refutation. Hence value FAILS and, per policy, requires REJECT not REPAIRABLE.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Replayed 23/23 PASS; verified matrices, trace 20, enclosures, discriminant, f(1.401)!=0.",
+      "title": "inputs/artifacts/verify_target_refutation.py + output/artifacts copy"
+    },
+    {
+      "finding": "States conjunction (a)-(d); only word-to-dilatation core auditable; claims refutation with lambda=10+3*sqrt(11) in (19.948,19.951), Pisot not Salem, D3 bound 2.618.",
+      "title": "inputs/DRAFT.md lane-763 refutation"
+    },
+    {
+      "finding": "TARGET claim w* ~1.401 degree-6 Salem face-minimal sharp; audit plan allows proved obstruction as recordable; admission cites Hironaka-Kin/Leininger/Lanneau-Thiffeault as adjacent not covering.",
+      "title": "inputs/topic.json target_claim + admission_review"
+    },
+    {
+      "finding": "Finds minimum dilatations for n=3..8 punctured discs; implies D3 minimum (3+sqrt5)/2~2.618 >1.401; does not list w* or trace 20.",
+      "title": "Lanneau-Thiffeault On the minimum dilatation of braids on punctured discs arXiv:1004.5344"
+    },
+    {
+      "finding": "Small-dilatation braid families with 3/4/5-strand minima; w* outside listed family words, no 1.401 face-sharp certificate.",
+      "title": "Hironaka-Kin A family of pseudo-Anosov braids with small dilatation"
+    },
+    {
+      "finding": "Fused 20 results; literal-word query only biology noise; minima/family papers adjacent distinct; openalex 0 hits status ok, no partial failure.",
+      "title": "scope_literature_search three-form query (literal / equivalent / dominance)"
+    }
+  ],
+  "claim_route": "TARGET (research_report.claim_route=TARGET; audited normally against admitted target; refutation evaluated as submitted headline, not as target success)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Lanneau-Thiffeault 2011 (n=3..8 minima), Hironaka-Kin 2006 (3/4/5-strand small braids), Hironaka 0909.4517 single-manifold minima, Leininger Lehmer two-multitwist example retrieved and screened; snippets/metadata show different words/faces, closed-genus or family minima, no w* certificate.",
+      "verdict": "NOT_COVERING_SPECIFIC_VALUE; COVERS_GENERAL_BOUND",
+      "what_searched": "Dominance query: minimal-dilatation 3-braid theorems, Hironaka-Kin families, Lanneau-Thiffeault minima, punctured-torus face minima, Salem censuses that could cover w* as special case.",
+      "why": "Broader minima theorems imply 1.401 impossible for any D3 pA braid (supporting refutation's obstruction) but do not state or imply trace 20 / 10+3*sqrt(11) for w*; they cover the general lower-bound component (hence that component not original) but do not exhaustively cover the specific word-to-value headline."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No source states w* dilatation, trace, charpoly, or face membership; general SL(2,Z) classification + matrix definition deterministically yields trace 20 only after performing the computation; no prior result states the conclusion.",
+      "verdict": "NOT_IMPLIED_VERBATIM",
+      "what_searched": "Whether any prior theorem/census/table substantively implies the headline (trace 20, x^2-20x+1, 10+3*sqrt(11), Pisot-not-Salem, target false) without new work.",
+      "why": "A deterministic computation is mechanically implied by definitions+method but not substantively implied by a prior published result in the originality sense; headline's specific numeric conclusion is new, while its general D3-bound corollary is implied by known minima and correctly treated as known."
+    },
+    "equivalent_formulations": {
+      "evidence": "Queries for SL(2,Z)/Burau trace, reduced Burau at t=-1, punctured-torus/branched-cover Anosov spectral radius, quadratic Pisot vs Salem encodings returned only general minima/family papers; no source with this word's image [[18,7],[5,2]]/transpose or polynomial x^2-20x+1.",
+      "verdict": "NOT_COVERED",
+      "what_searched": "Standard equivalent representations: B3->SL(2,Z) reduced Burau, PSL(2,Z) trace classification, dual/complement/incidence encodings, Perron-root/charpoly/Salem-reciprocal phrasings, punctured-torus monodromy stretch factor.",
+      "why": "Method is textbook and convention-independent (transpose/inverse/cyclic invariance checked), but the instantiated value for w* appears in no equivalent phrasing in the fused set or admission nearest-known list."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table/census/database hit lists sigma1^3 sigma2^-1 sigma1 sigma2^-2, trace 20, or dilatation 19.94987; literal-identifier query returned only sigma-receptor/chemistry noise (provider noise, discounted as non-evidence); specialist sources checked are family/minima papers, not exhaustive word tables containing w*.",
+      "verdict": "NOT_IN_DATABASE",
+      "what_searched": "Exact parameter/object in tables or official databases: w* word string, trace 20, polynomial x^2-20x+1, value 10+3*sqrt(11)~19.95, degree-6 Salem 1.401 censuses.",
+      "why": "Absence from tables supports narrow novelty of the specific computation; one unavailable source or failed literal query never establishes priority alone, but combined with family/minima screening it confirms no exact prior record."
+    }
+  },
+  "residual_risks": [
+    "B3->SL(2,Z) trace classification correctness relies on standard textbook theorem (finite-cover lift to punctured torus); edge risk negligible and mitigated by calibration to known D3 minimum word.",
+    "Center/kernel ambiguity (B3 center -> +/-I) does not affect |tr| or pA determination; both conventions checked.",
+    "Higher-genus M_s lift re-reading explicitly excluded by DRAFT due to absent marking data; a future specification of M_s/marking could in principle attach a different dilatation to a lift, but cannot rescue the literal D3 word-to-dilatation claim as stated.",
+    "Face-sharpness clause (d) unaudited by necessity (no face/polynomial/tolerance logged); refutation scope honestly limited to core (a)-(c)."
+  ],
+  "verdict": "REJECT"
+}
