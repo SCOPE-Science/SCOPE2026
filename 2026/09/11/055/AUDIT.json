@@ -1,0 +1,109 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline is a negative TARGET resolution: C(3)=1 != 0=[q^3]P kills the product for any prefactor q^a, and C(4)=1 kills c(5n+4)=0 at n=0. Hand proof verified independently: [3] is the unique partition of 3 with parts>=2 and satisfies the gap condition vacuously, so C(3)=1; to O(q^3) P(q)=1/(1-q^2)+O(q^7) since numerator is 1 mod q^18 and only allowed part <=3 is 2, so [q^3]P=0. Both series have constant term 1 (empty partition; empty product), so any a>=1 fails at n=0; a=0 fails at n=3. Hence all a>=0 fail, a fortiori a=0..10. C(4)=1 checked: candidates [4] admissible, [2,2] gap 0<2 excluded. Independent brute-force re-enumeration (own generator, n<=10) reproduces C=[1,0,1,1,1,1,2,2,3,3,3] matching verify_results.json. Machine expansion to O(q^80) is corroborating evidence, not the proof: verify.py computes C by DP cross-checked by brute force to n=30 (A1==A2) and P by two opposite-order series constructions (B1==B2), finding 77 mismatches in 0..80, first at 3, no shift a=0..10 matching. DP skip 'rem-curr==1' is sound (remainder 1 unpartitionable with parts>=2). Dissection first-nonzero entries verified against C table: r=0:(0,0,1), r=1:(1,6,2) since C1=0,C6=2, r=2:(0,2,1), r=3:(0,3,1), r=4:(0,4,1). TARGET alternative branch ('exact failing residue class and first witness as logged') is satisfied with r=4, witness C(4)=1. Proof vs evidence distinguished: falsification is hand-proved at n<=4; O(q^80) log is experimental benchmark.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route: audited normally. One consolidated scope_literature_search with three normalized forms was issued: (a) literal exact-product plus c(5n+4) statement, (b) equivalent/dual gap-condition plus residues 2,7,12 mod 18 Bailey-pair formulation, (c) dominance/census query for expanded Slater list / mod-18 classification / RRSDB covering result. All providers succeeded (serpbase/serpent/openalex/crossref ok, 20 fused hits, partial=false), so no fail-closed priority. No exact, synonymous (q-shift/complement/dual/incidence), or stronger-covering source was returned: literal query returned only generic partition-congruence pages; equivalent query returned the MSZ survey, bilateral-Bailey and mod-18/24 family papers as neighboring categories, not this triple product; census query returned the survey second edition, RRSDB landing page, Schlosser bilaterals. Fetched RRSDB homepage (project in progress, no identity table covering this product) and survey landing metadata. Since the conjectured identity was admitted as absent from those tables, its elementary falsity at n=3 cannot be a recomputation/corollary of a known stronger fact; no prior source states or implies C(3) vs P(3) for this pair. See decisive_checks for adversarial checklist.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET negative resolution with logged obstruction, explicitly admitted as valuable partial ('product plus c(5n+4)=0 family, or certified residue log showing which progression fails'). Object and invariant were motivated before computation: Slater-list dual gap flagged by McLaughlin-Sills-Zimmer survey, natural level 18 of the dual pair, prime 5 smallest dissection prime not dividing level, downstream modular-benchmark / Bailey-chain classification use stated in topic. Result is a rigorously established exact datum (first mismatch n=3 with C=1/P=0; failing progression r=4 with witness C(4)=1; full mod-5 dissection to O(q^80) showing every class inhabited from its first term) that was not known or mechanically implied and that a future researcher needs to avoid re-proposing the same dual product and to benchmark any corrected residue set. Per value policy a narrow exact invariant of a motivated natural object is not rejected merely for being one datum, and an honestly-described incomplete census does not erase the headline. Certification alone is not rescuing an arbitrary object here: scope is natural, not a parameter substitution, with stated downstream use. Limitations honestly scoped (no corrected-residue classification, Bailey lift moot). Independently worth retrieving.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (target_claim, admission review, MSZ survey + McLaughlin mod-18/24 + Bailey-lemma triage)",
+    "inputs/DRAFT.md (headline disproof + hand argument + dissection log)",
+    "inputs/research_report.json (TARGET route, evidence summary, limitations)",
+    "inputs/artifacts/verify.py (DP + brute-force + two-order product construction, stdlib only)",
+    "inputs/artifacts/verify_results.json (C_dp, P to 80, 77 mismatches first at 3, shifts empty, dissection rows)",
+    "independent brute-force re-enumeration n<=10 by auditor reproducing C(0..10)=1,0,1,1,1,1,2,2,3,3,3 and P(n)=1_{n even} for n<=6",
+    "scope_literature_search 3-direction fused call (20 hits, all providers ok, partial=false): MSZ survey, bilateral Bailey pairs, mod-18/24 families, RRSDB, DLMF Bailey pairs, Sills-type multiparameter papers",
+    "https://rrsdb.github.io/ fetched (project in progress, no covering identity table)",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/view/DS15 fetched (expanded Slater list survey metadata, no {2,7,12} entry in snippets/metadata)"
+  ],
+  "claim_route": "TARGET (research_report.claim_route=TARGET; exact target_claim resolved in the negative via its built-in product-or-certified-obstruction branch; audited normally with no preset-value presumption beyond the admitted obstruction-log value)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Dominance query for expanded Slater census, Sills multiparameter derivations, McLaughlin mod-18/24 families, RRSDB classification returned only the survey category and neighboring families (McLaughlin-Sills mod 18/24; Bowman-McLaughlin-Sills derivations; Liu-Sun bilateral pairs; Schlosser bilaterals). Snippets confirm neighboring residues closed there differ from {2,7,12}; no broader theorem, multiparameter family, or completed census lists or implies this dual product or its 5-family.",
+      "search": "Query (c): 'McLaughlin Sills Zimmer expanded Slater list census Rogers-Ramanujan mod 18 Bailey pair classification' via fused SerpBase/OpenAlex/Crossref; screened all 20 fused hits; fetched RRSDB and survey landing pages.",
+      "why_not_covering": "A prior source need not state the headline verbatim to fail originality, but none here exhaustively covers modulus-18 dual products in a way that includes triple (2,7,12) or its dissection; the returned censuses establish the gap category and disjoint neighboring residues, not coverage."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior results imply at most the method (Bailey lemma) and the existence of a gap category (unlisted duals) plus disjoint mod-18/24 products. They do not imply the specific equality C=P nor its negation; the negation follows from definitions at n=3 ([3] admissible; no {2,7,12}-mod-18 partition of 3) and C(4)=1, which no cited theorem states. Hence not a corollary, certificate of a known stronger fact, or repackaging.",
+      "search": "Compared hypotheses/conclusions literally: survey/neighboring-family theorems take different residue sets and gap conditions; title/embedding similarity alone rejected as coverage.",
+      "why_not_covering": "The computational falsification is logically independent of the neighboring positive theorems; it neither repeats their proof nor follows from them."
+    },
+    "equivalent_formulations": {
+      "evidence": "No hit for synonymous encodings: complement/q-shift of {2,7,12} mod 18, dual/complement gap predicate, incidence-matrix or theta-quotient restatement, or c(5n+4) congruence. Literal query returned only generic pages (partition-congruence survey arXiv:2208.07065; Ono harmonic Maass forms); equivalent query returned survey + bilateral-pair literature with no matching product.",
+      "search": "Queries (a) literal product+congruence and (b) 'Rogers-Ramanujan Slater Bailey pair mod 18 product residues 2 7 12 gap condition mod 3' in one fused scope_literature_search call.",
+      "why_not_covering": "No synonymous name, dual/complement/q-shift, or algebraic encoding of this triple product was found; the only matches are category-level (Slater list, Bailey pairs), which do not substantively imply the claim."
+    },
+    "exact_database_or_table": {
+      "evidence": "RRSDB site is a project in progress with no searchable identity entry covering (2,7,12) mod 18; MSZ survey tables per admission contain no such residue set; verify_results.json is the new log itself. No OEIS/Slater-table entry for this C(n) or P(n) pair implying the mismatch was returned.",
+      "search": "Included 'Rogers-Ramanujan-Slater Data Base', survey PDFs, and exact-identifier product query; fetched https://rrsdb.github.io/ and survey landing page; screened fused snippets for table/database hits.",
+      "why_not_covering": "The exact parameter triple and gap predicate do not already appear in an official table or database that would exhaustively cover the claim as a special case."
+    }
+  },
+  "residual_risks": [
+    "Full O(q^80) shift-scan and dissection rows rely on the submitted stdlib artifact's internal cross-checks (A1==A2 to 30, B1==B2 to 80); auditor independently re-verified only to n<=10, so a latent bug beyond n=30 affecting later dissection coefficients cannot be logically excluded, though the headline falsification does not depend on it.",
+    "Literature non-coverage rests on fused top-10/15 retrieval plus survey/RRSDB landing checks, not a full-text scan of every Slater-table line; a mis-indexed synonymous entry remains unlikely but possible.",
+    "Naturalness of the dual-pair scope (which named Slater pair, level 18) is taken from Admission/topic motivation; the DRAFT does not ledger the Bailey pair because the n=3 obstruction moots it, so future reuse depends on Admission's gap attribution."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "fbc3e7885e63649719c58f29aee9af7e515812733c4be1bc5546b3ec928c1da1",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Ramanujan--Slater type identities related to the moduli $18$ and $24$",
+        "url": "https://arxiv.org/abs/1812.07542",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest neighboring positive census: new mod-18/24 Rogers-Ramanujan families at the same level as the submitted dual product; dominance/stronger-coverage candidate already considered in base search. Hypotheses use different residue sets from submitted triple (2,7,12) mod 18; conclusions are disjoint positive identities, not the submitted C=P equality nor its n=3 negation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Rogers-Ramanujan-Slater Type Identities - arXiv",
+        "url": "https://arxiv.org/pdf/1901.00946",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Expanded Slater-list census/survey including Bailey-pair duality table (dual of a Bailey pair is a Bailey pair; Slater BP vs dual-pair table). Establishes the gap category and the Bailey-lemma method, not the specific submitted gap predicate (parts>=2, gaps>=2, >=3 when larger part 0 mod 3) with product (q18)/((q2)(q7)(q12)) or its falsification at n=3.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Ramanujan-Slater Type Identities Related to the Moduli 18 ...",
+        "url": "https://sites.math.rutgers.edu/~asills/RamSlat/RamSlatRevJMAA.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Full-text counterpart-family source for the mod-18/24 census (Slater Eq.107 lineage, Bailey-pair definition, Bailey lemma). Same assessment as rank 1: neighboring residue families disjoint from (2,7,12); no statement about submitted C(3) vs [q^3]P or c(5n+4) for this C.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] integers 24 (2024) modular relations for the rogers-ramanujan-slater ...",
+        "url": "https://math.colgate.edu/~integers/y103/y103.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Potentially closest incremental broader-coverage lead: order-18 Rogers-Ramanujan-Slater-type functions analogues. Snippet gives only modulus-18 analogues with no residue triple, gap predicate, or (2,7,12) product; direct URL open returned unparseable PDF bytes with no extractable identity table. Title/snippet alone cannot establish coverage of the submitted triple product or its n=3 falsification.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "DOUBLE SERIES REPRESENTATIONS FOR SCHUR’S PARTITION",
+        "url": "https://personal.science.psu.edu/lxv1/alg/antheory/preprint/andrews/301-041514.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Closest equivalent-formulation neighbor on gap predicates: Schur set S with gaps>=3, strict if either part is a multiple of 3. Submitted predicate differs literally (gaps>=2, >=3 only when the LARGER part is 0 mod 3, smallest>=2) and product side differs from Schur moduli; direct URL open returned unparseable PDF bytes. Related method/category, not the submitted (C,P) pair or its mismatch.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] From crank to congruences - Mathematics - Tulane University",
+        "url": "https://www.math.tulane.edu/~tamdeberhan/From_crank_to_congruences_II.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Notation-collision neighbor only: proves C(5n+4)=0 mod 5 for a crank-difference function C (and ce/co refinements) via 5-dissection of Ramanujan theta functions. Its object C is the even-minus-odd crank difference, not submitted gap-condition C(n); hypotheses and generating functions are disjoint, so its congruence does not state or imply anything about submitted C(4)=1 or the (2,7,12) product. Rank-4 crank note is the same line with a shorter snippet.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal paid check (4 queries, 20 results, 3 overlaps, 17 new) added no decisive prior. Ranks 1-3 merely duplicated base-provider coverage (mod-18/24 families; expanded survey/Bailey-dual table) and were already adjudicated as neighboring categories with disjoint residues. Of 17 incremental results, the only substantively comparable leads were the order-18 modular-relations paper (rank 12), the Schur mod-3-sensitive gap paper (rank 18), and the crank C(5n+4) paper (rank 7, plus rank-4 same line); the rest are generic partition-congruence pages, theses, bibliographies, and author pages with no matching triple, predicate, or table entry. Literal hypothesis/conclusion comparison: no source states the submitted equality C=P, its negation C(3)=1 vs [q^3]P=0, the C(4)=1 witness against c(5n+4)=0 for THIS C, or an exhaustive census/table containing residue triple (2,7,12) mod 18 with this gap predicate under any synonymous, dual/complement, q-shift, or theta-quotient encoding. Candidate URL opens for ranks 12 and 18 returned unparseable PDF bytes, so per protocol their suggestive titles/snippets remain leads, not proof of coverage. Originality PASS therefore stands; correctness and value untouched."
+  }
+}
