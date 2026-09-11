@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Front-side uniqueness for transversally anisotropic conductivities in a cylinder with flat inaccessible cap
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 986
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Inverse Problems
+- **Method:** Carleman estimates with complex geometrical optics and reflection extension
+
+## Problem
+
+Let Omega in R^3 be the finite cylinder B(0,1)x(0,2) with accessible face Gamma_acc = lateral surface union top, and inaccessible flat base Gamma_inacc = B(0,1)x{0}. Let A_cyl be conductivities sigma(x)=mu(x)*blockdiag(g0(x'),1) with fixed smooth transversal metric g0, unknown Lipschitz scalar mu bounded between fixed positive constants with Lipschitz norm at most M. Assume sigma1=sigma2 to first order in a fixed collar of Gamma_acc. Decide whether equality of front-side partial Dirichlet-to-Neumann maps on Gamma_acc forces sigma1=sigma2 throughout Omega.
+
+## Attempted claim
+
+For every pair sigma1, sigma2 in the named Lipschitz transversally anisotropic class A_cyl on the cylinder with matching first-order jet in the accessible collar, equality of the front-side partial Dirichlet-to-Neumann maps on Gamma_acc implies sigma1=sigma2 identically in Omega; equivalently no distinct admissible pair shares the same front-side partial data.
+
+## Research outcome
+
+Proved flat-cap front-side uniqueness for Lipschitz CTA conductivities with Euclidean transversal metric on B(0,1)x(0,2) via linear-weight reflection CGO, plus a sympy-exact 3/13 eikonal obstruction localizing the arbitrary-g0 gap.
+
+## Why this attempt failed
+
+Failed axes: correctness, originality, value.
+
+correctness: Headline claims Lipschitz (W1,inf) uniqueness via O(tau^-1) CGO remainder cited as Kenig-Salo Sec.4 type bound ||r||<=C|zeta|^-1||grad log mu||_inf. Re-ran artifacts: phase_algebra OK for generic xi to 1e-12 but vertical case gives zeta.zeta=-0.5 (reused s bug); ellipticity/collar OK; rl_decay_demo coarse run gives |I(160)|=0.008461 non-decaying (aliasing admitted, refined 7.3e-08 claim not produced by script); transport_parity only prints citation, no proof. The cited uniform O(1/tau) L2 bound for Lipschitz drift is false as stated: div(mu grad u)=0 gives (Delta+2 zeta.grad)r=-(grad log mu).(zeta(1+r)+grad r) with RHS O(tau), so standard resolvent gain gives O(1) not o(1); Lipschitz full-data uniqueness needs Haberman-Tataru Bourgain/averaged spaces, not cited estimate. Even extension preserves Lipschitz but with kink; odd/even reflection vanishing, lateral/top boundary cancellation via collar, and xi=0 factor (zeta1.zeta2=-|xi|^2/2 vanishes at xi=0) are hand-waved. Hence Euclidean Lipschitz theorem not proved; smooth case would follow from prior Isakov. FAIL. originality: EMERGENT_FINDING genuinely arose from target route (same cylinder, same linear-weight reflection, Euclidean instantiation plus proved non-flat obstruction), so no scope evasion. But proved content does not exceed prior: Kenig-Salo survey Sec.2.2 Theorems 2.3-2.4 (Isakov 2007) proves local-data uniqueness when inaccessible part is hyperplane/sphere: Omega subset {xn>0}, Gamma0 subset {xn=0}, for L-inf Schrodinger and by reduction conductivities with boundary agreement. Cylinder B(0,1)x(0,2) with flat base B(0,1)x{0} and Gamma_acc=lateral+top is literal instance. Draft adds extra collar hypothesis mu1-mu2 compactly supported off {r>0.85}U{x3>1.7}, making claim strictly weaker than Isakov (which needs no collar). With G0=I the class sigma=mu I is isotropic, not new CTA. DSF-KLLS full-data/simple-transversal and Lin-Nakamura-Zimmermann different data-type do not help. Exact 3/13 residual E=0.3r^2/(1+0.3r^2) sup 3/13 is undergraduate algebra, not a new lemma. Lipschitz upgrade over Isakov C^2 corollary is unproved (see correctness), so contributes no established novelty. Substantive implication/coverage => FAIL. value: Judged headline separately from unfinished arbitrary-g0 survey. Proved Euclidean isotropic flat-cap uniqueness with extra collar on fixed dimensions B(0,1)x(0,2), {r>0.85}U{x3>1.7} is a narrower, weaker special case of Isakov flat-face table entry already fixing one-inaccessible-face geometries; fixed radii/heights/collar are arbitrary parameters, not natural new boundary. It does not close Bukhgeim-Uhlmann to Kenig-Salo gap beyond Isakov, supplies no new citable reflection lemma beyond standard Isakov reflection, and claims no stability rate. The 3/13 eikonal computation E(r)=0.3r^2/(1+0.3r^2) is a trivial parameter fact on one chosen conformal g0=(1+0.3r^2)I2, not a transferable obstruction lemma; certification/replayability does not create value per…
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: The proved theorem instantiates the canonical Euclidean transversal metric g0=I_2 explicitly; the arbitrary smooth-g0 extension is blocked by the proved 3/13 residual obstruction and needs a simplicity or Hamilton-Jacobi hypothesis outside the admitted claim. The CGO resolvent bound is cited in standard form (Kenig-Salo 2013 Sec 4), and no stability rate is claimed (qualitative uniqueness only).
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
