@@ -1,0 +1,99 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: audited directly against admitted target 'No 4-atom degree-5 cubature for 2D fBm H=3/8'. Lemma 1 sym(S_k)=x^{otimes k}/k! verified by cube dissection and independent numeric replay (maxerr ~2.8e-16). Section 3 sym(E S_k)=E[B_1^{otimes k}]/k! uses only H>1/4 geometric lift (Coutin-Qian/Friz-Wik) plus linearity and B_1~N(0,I_2) since Var=1^{2H}=1; standard and correctly applied. Reduction to exact degree-5 Gaussian quadrature is a valid necessary condition. Dimension count dim P_{<=2}(R^2)=6>5 forces nonzero quadric p vanishing at all atoms; q=p^2 gives 0=E[p(Z)^2] contradicting Lemma 2 E[p(Z)^2]>0 via Gaussian density positivity. Gram matrix verified positive-definite (det 4) and artifact replay VERIFY_OK. Covers n<=5/degree-4 hence n<=4/degree-5. No boundary error; proof analytic, script illustrative only. Admission preflight (typing, nontriviality, no lookup) confirmed, no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live fused search (SerpBase/Crossref/OpenAlex, no partial failure) plus direct primary-source fetches show no prior source states or implies the headline. Passeggeri arXiv:1609.07352 is explicitly H>1/2 with convergence rates and one special cubature, not H=3/8 minimality. Litterer 2026 (Springer 10.1007/978-3-032-03914-9_5) generalises Moeller to Wiener space for Brownian motion and constructs optimal degree-5 Brownian measures; hypotheses require Brownian motion, different expected signature, so does not cover fractional H=3/8. Ferrucci et al. arXiv:2411.13707 is Brownian degree-7 construction. Classical Moeller/Stroud N>=dim P_2=6 covers only R^2 Gaussian quadrature, not path-space fractional cubature; the shuffle-to-endpoint link for H=3/8 is not drawn in any prior source. No database/table lists a degree-5 four-atom H=3/8 formula. Short elementary proof does not equal mechanical implication by a covering theorem.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET positive resolution (rigorous impossibility) of admitted target. Not a type/normalization error, vacuity, small-instance mismatch, lookup, or arbitrary-parameter fact: degree 5 first non-Gaussian level, 4 atoms first open boundary above rank-trivial 1-2, H=3/8 canonical rough regime, 2D minimal noncommutative setting. Establishes sharp necessary condition >=6 atoms for degree-4 (hence degree-5) fractional cubature, H-independent, citable as minimal-cost benchmark for weak simulation and signature-kernel quadrature. Narrow exact lower bound but motivated before computation, not known or mechanically implied, reasonably needed by future cubature designers. No paper-level general theorem required per STANDARD for exact invariants.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Sections 1-7: Lemma 1 shuffle proof, Section 3 rough-path symmetrization, Section 5 dim-6-vs-5 p^2 obstruction, Section 7 scope remarks \u2014 verified line by line",
+    "inputs/artifacts/verify_obstruction.py replay: Part A sym(S2)/sym(S3) maxerr 2.78e-16/5.55e-17 VERIFY_OK; Part B exact sympy E[p^2] in {2, 5498/2209, 8/3} >0 VERIFY_OK; Gram matrix [[1,0,0,1,0,1],[0,1,0,0,0,0],[0,0,1,0,0,0],[1,0,0,3,0,1],[0,0,0,0,1,0],[1,0,0,1,0,3]]",
+    "Independent sympy check by auditor: Gram det=4 positive-definite, generic 5-point evaluation rank 5 nulldim>=1 with E[p^2]>0, Var(B_1)=1^{2H}=1 regardless of H",
+    "arXiv:1609.07352 (Passeggeri) full page: title/abstract explicitly H>1/2, rate 2H, cubature framework/error bound and one special formula for H>1/2 only \u2014 no H=3/8 degree-5 four-atom verdict",
+    "Springer 10.1007/978-3-032-03914-9_5 (Litterer 2026) page: abstract generalises Moeller to Wiener-space lower bound plus optimal degree-5 Brownian constructions smaller than Lyons-Victoir; references list Lyons-Victoir, Moeller 1979, Ferrucci et al.; hypotheses Brownian, not fractional H=3/8",
+    "arXiv:2411.13707 (Ferrucci-Herschell-Litterer-Lyons) page: high-degree cubature on Wiener space via unshuffle, first explicit degree-7 Brownian formula \u2014 different process and degree, no fractional minimal-support theorem",
+    "Springer 10.1007/978-3-0348-6288-2_17 (Moeller 1979) page: lower bounds for nodes in R^n cubature formulae (classical Gaussian/Stroud setting) \u2014 covers endpoint quadrature step only, not path-space fBm cubature implication"
+  ],
+  "claim_route_inference": "research_report.claim_route=TARGET; audited as TARGET against admitted target_claim with no preset-fallback presumption; no ADMISSION_DEFECT found",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Litterer 2026 abstract: Moeller generalization gives Wiener-space path-count lower bound and optimal degree-5 Brownian measures; Passeggeri gives H>1/2 fractional cubature framework/rates; Ferrucci et al. gives degree-7 Brownian formula. All hypotheses are Brownian or H>1/2, with different expected-signature moment vectors at non-symmetric levels.",
+      "reasoning": "General existence with many atoms and Brownian lower bounds do not decide the 4-atom feasibility at H=3/8. No broader theorem, census, or classification exhaustively covers rough-regime fractional cubature; resolving nonexistence via symmetric-part rank obstruction adds a sharp boundary beyond broad coverage.",
+      "search": "Moller lower bound minimal number points cubature Wiener space degree 4 degree 5 Lyons-Victoir Litterer Tchakaloff Gaussian quadrature"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Boutaib/Passeggeri H>1/2 convergence tools, Chevyrev-Oberhauser signature-moment framing, and Wiener-chaos moment formulas motivate moment matching but state no degree-5 feasibility verdict with 4 paths at H=3/8; classical shuffle sym(S_k)=x^{otimes k}/k! is known but never combined with dim-6-vs-5 to rule out this fractional cubature.",
+      "reasoning": "Prior work supplies tools without entailing the exact verdict. The new inference is the combination (symmetrization reduces path-space cubature to Gaussian quadrature, then p^2 contradiction); no single stronger prior fact has this as a mechanical corollary for H=3/8.",
+      "search": "expected signature cubature fractional Brownian Hurst less than 1/2 implication for minimal support"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search under cubature/moment-matching/finite-support weak approximation returned only H>1/2 and Brownian instances; classical R^2 Gaussian degree-4 N>=6 (Stroud/Moeller dim P_2=6) covers the endpoint quadrature lemma but no source phrases the path-space claim under dual/complement/incidence/matrix/algebraic encoding.",
+      "reasoning": "No synonymous, dual, or algebraic rephrasing discloses the headline as renamed prior art. Classical Gaussian bound has different hypotheses (integrals on R^2) and conclusion; the headline additionally asserts the rough-path-to-Gaussian reduction for fBm at H=3/8, which is absent from equivalents.",
+      "search": "No 5-point degree-4 positive-weight quadrature cubature for standard Gaussian N(0,I_2) dimension lower bound dim P_2=6"
+    },
+    "exact_database_or_table": {
+      "evidence": "No cubature database, signature-package table, or Stroud-type table publishes a degree-5 four-atom formula for 2D fBm at H=3/8; listed Lyons-Victoir/Litterer formulas target Brownian or H>1/2 with non-transferable full moment vectors; Gaussian tables cover R^2 quadrature only.",
+      "reasoning": "Lookup cannot supply or refute the path-space formula because the H=3/8 rough-path constraints differ from tabulated cases. The verdict required fresh solvability analysis (symmetric reduction plus rank argument), not repackaging of a table entry.",
+      "search": "cubature formula table fractional Brownian signature database degree 5 four-atom H=3/8"
+    }
+  },
+  "residual_risks": [
+    "Full text of paywalled Litterer 2026 chapter inspected via abstract, metadata, and reference list only; abstract explicitly scopes to Brownian Wiener space, so risk of hidden H=3/8 coverage is minimal",
+    "Geometric rough-path lift and shuffle-continuity for H=3/8 invoked via standard Coutin-Qian/Friz-Wik theorems without re-derivation; endpoint law B_1~N(0,I_2) independently verified"
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "00804fad16d7c59eef00abacb8edb7964867c7c94f6d36939cadaee082b7edce",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] Lower Bounds for the Support of Cubature Measures on Wiener ...",
+        "url": "https://eprints.whiterose.ac.uk/id/eprint/237651/1/lower_bounds_for_cubature_on_wiener_space.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Full-text PDF of the Litterer Wiener-space lower-bound paper already considered at base stage via its Springer chapter page; hypotheses are explicitly d-dimensional Brownian motion cubature of degree 5 with Gaussian-cubature implementation, and the Moller-type bound of Theorems 13/15 governs Brownian path counts, so it states no feasibility verdict for 2D fractional Brownian motion at H=3/8.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "High-degree cubature on Wiener space through unshuffle ...",
+        "url": "https://arxiv.org/pdf/2411.13707",
+        "base_search_overlap": false,
+        "relationship_to_claim": "PDF version of the Ferrucci-Herschell-Litterer-Lyons Brownian degree-7 construction already considered at base stage via its arXiv abstract page; it bounds Wiener-space support by Gaussian-cubature support for d-dimensional Brownian motion with drift and constructs Brownian formulas, with no fractional H=3/8 minimal-support theorem.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "New Constructions of Cubature Formulas on Wiener Space - arXiv",
+        "url": "https://arxiv.org/html/2509.05236v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Herschell thesis-derived construction of explicit Brownian degree-3/5/7 cubature on Wiener space (degree 7 in R^3, S_d(5)=2N_d(5) sizing); the driving process is stated to be standard Brownian motion in R^d throughout, so its hypotheses and conclusions do not touch rough-regime fractional cubature at H=3/8.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Cubature on Wiener space",
+        "url": "https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.2003.1239",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Foundational Lyons-Victoir Brownian cubature framework defining degree-m matching of expected Stratonovich iterated integrals with degree-3/5 Brownian constructions; the expected-signature target is the Brownian tensor exponential, a different moment vector from the H=3/8 fractional one, so it neither states nor implies the 4-atom fractional nonexistence claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Some results on the Signature and Cubature of the Fractional Brownian motion for H>1/2",
+        "url": "https://arxiv.org/abs/1609.07352",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Passeggeri fractional cubature paper restricted by title and abstract to Hurst parameter H in (1/2,1), giving convergence rates 2H, coefficient bounds, and a cubature framework with error bound plus one special-setting formula; it excludes the rough regime H=3/8 and states no degree-5 four-atom minimality verdict there.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity search (20 results, 4 overlapping base set) added no covering prior. The only incrementally new substantive items were the WhiteRose full-text PDF of the already-considered Litterer Brownian lower-bound paper, the PDF variant of the already-considered Ferrucci et al. Brownian degree-7 paper, and the new Herschell arXiv:2509.05236v1 Brownian degree-3/5/7 construction; all three state Brownian-motion hypotheses (Lyons-Victoir expected signature, Gaussian-cubature support sizing such as S_d(5)=2N_d(5)) and no H=3/8 fractional statement, confirmed by opening the Herschell HTML and the returned snippets. Remaining hits were generic Gaussian-quadrature expositions, Brownian error-estimate/particle-filter papers, or duplicates of base sources (RSPA article, WhiteRose Ferrucci PDF, Springer book TOC). Nothing states, implies, or exhaustively covers nonexistence of a 4-atom degree-5 cubature for 2D fBm at H=3/8 or the stronger 5-atom degree-4 ban for H>1/4, so provisional originality PASS is preserved with no verdict change."
+  }
+}
