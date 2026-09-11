@@ -1,0 +1,115 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: universal vanishing implies admitted 7/8 Diophantine bound. Verified from scratch: residual identity sum|N-R^2|^2 m_N = r_h^2/(4pi^2h^2)^2 ->0 is exact; single-shell tail ||w||^2 <=4 eta_h ->0 holds even with tied minimizers since every N!=N_* has |N-R^2|>=1/2; fiber lemma J<=2 per k1 is exact lattice geometry (k2^2=N_*-k1^2 has <=2 integer roots); Parseval in x1 gives tube mass = sum_k1 int_{I_h}|g_{k1}|^2, Cauchy-Schwarz gives sup|g|^2<=J*mass so single-shell mass <=|I_h|*2*||v||^2=4h^{1/2}||v||^2 for h<1/4 where |I_h|=2h^{1/2}; final 2|v|^2+2|w|^2 inequality gives total <=8h^{1/2}+8eta_h->0. Normalization, o(h^2) width vs 4pi^2h^2 shell spacing, H^2 domain, and h<1/4 disjoint-tube condition all checked. Replayed verify_tube_bound.py: ALL CHECKS PASS including 232 fiber cases and 9 random single-shell tube masses consistent with <=4sqrt(h). Compared with topic.audit_preflight cheap screens (uniform O(h^{1/2}) baseline, residual/cone validation): both confirmed correct; no false preflight, so no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live retrieval with full coverage after retry (second scope_literature_search: serpbase+openalex+crossref all ok, 20 fused results) shows no prior statement of h^{1/2}-tube vanishing or 7/8 limsup for o(h^2) torus quasimodes. Nearest prior work screened in full/snippet: Bourgain-Rudnick nodal/restriction (lattice-count restriction to geodesics/hypersurfaces, no shrinking-tube mass limit), Canzani-Galkowski geodesic beams (general L^inf/L^p/dynamical bounds with tubes shrinking slightly slower than lambda^{-1/2}, no flat-torus Diophantine 7/8 rate), Kurlberg-Lester-Rosenzweig superscars (perturbed point-scatterer momentum scarring, V!=0, distinct mechanism), Huang-Zhang-type toral restriction to totally geodesic submanifolds (exact-eigenfunction L^2 restriction, not narrow-quasimode tube mass). No equivalent fiber-concentration phrasing, no broader census/database, and no logical implication from those theorems yields the tube-mass limit; proof uses only Fourier shell selection plus exact J<=2 fiber geometry, not repackaging of a known stronger fact.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET positive resolution with stronger headline: every o(h^2) normalized torus quasimode has h^{1/2}-tube mass ->0 (hence Diophantine subclass limsup 0<=7/8). Object and threshold were motivated before computation (horizontal primitive geodesic, uncertainty scale h^{1/2}, optimal exponent-2 badly approximable class, fixed 7/8 strong-scarring threshold) to delimit scarring/restriction; value is not known or mechanically implied by nodal/restriction or beam toolkits per Admission and audit searches. This is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration: it is the first uniform shrinking-tube non-concentration law for narrow unperturbed torus quasimodes with explicit 4sqrt(h) single-shell rate, directly reusable for observability, damped-wave, and solver-certification benchmarks. Elementary proof does not erase value under STANDARD exact-invariant clause; Diophantine hypothesis proving unnecessary strengthens rather than vacuities the target, and preflight nonvacuity (plane-wave O(h^{1/2}) vs concentrated baselines) is confirmed.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bourgain-Rudnick Restriction of Toral Eigenfunctions to Hypersurfaces and Nodal Sets (2012, arxiv 1105.0018) \u2014 uniform L2 restriction for exact eigenfunctions, no h^{1/2}-tube mass limit for o(h^2) quasimode sequences.",
+    "Bourgain-Rudnick On the nodal sets of toral eigenfunctions (Invent. 2011) \u2014 nodal vanishing via lattice counts in 2D, no 7/8 shrinking-tube upper bound.",
+    "Canzani-Galkowski Eigenfunction concentration via geodesic beams (arxiv 1903.08461v3) \u2014 general dynamical L^inf/L^p/beam toolkit with tubes shrinking slightly slower than lambda^{-1/2}; fetched full HTML abstract/theorems, no flat-torus Diophantine tube rate.",
+    "Kurlberg-Lester-Rosenzweig Superscars II (FMS 2023) \u2014 perturbed point-scatterer momentum superscars, distinct V!=0 mechanism, does not imply V=0 position-tube bound.",
+    "DRAFT.md spectral proof re-verified line-by-line (residual identity, tie-safe tail, J<=2 fiber, Parseval+CS tube bound, h<1/4 measure) plus replay of output/artifacts/verify_tube_bound.py ALL CHECKS PASS (8 h-values shell uniqueness, 232 fiber cases worst 0<=2, analytic decay table, N=65/325/4225 random single-shell masses).",
+    "Fused live search coverage: first scope_literature_search error database is locked on all providers (recorded, retried); second call full ok coverage across serpbase/openalex/crossref with 20 results screened \u2014 no covering theorem, census, or table found."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Canzani-Galkowski beam theory gives general L^p/tube/L^inf bounds via non-looping dynamics on manifolds with elliptic/hyperbolic geometry, with no uniform 7/8 or vanishing h^{1/2}-tube rate for unperturbed flat-torus o(h^2) Diophantine quasimodes around horizontal geodesic.",
+      "reasoning": "General beam machinery controls sup-norms via dynamical tube masses but does not mechanically entail the numerical tube-mass limit in this natural flat-torus narrow class; the submitted elementary shell+fiber proof lies outside its hypotheses and conclusions, so broader coverage leaves the claim open.",
+      "search": "eigenfunction concentration geodesic beams tube bounds flat torus semiclassical defect measure observability estimates"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Bourgain-Rudnick nodal/restriction theorems and Huang-Zhang-type totally-geodesic restriction bounds characterize exact-eigenfunction restriction via lattice counts; Wunsch-type sharpness and Kurlberg superscars concern perturbed operators or momentum limits, none proving a V=0 narrow-quasimode tube-mass inequality.",
+      "reasoning": "Nodal vanishing, exact-mode L^2 restriction norms, and perturbed-operator sharp examples do not logically imply the unperturbed o(h^2) tube-mass vanishing or 7/8 limsup; the implication would require the new shell-selection plus J<=2 fiber step, so prior work does not subsume the claim.",
+      "search": "toral eigenfunctions restriction geodesic beams concentration Bourgain Rudnick nodal implication vs shrinking tube bound"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal tube-mass phrasing and synonymous fiber-concentration / lattice-shell / uncertainty-tube encodings; fused results return only restriction-to-submanifold, nodal-set, and quantum-chaos surveys, none stating h^{1/2}-tube 7/8 bound or vanishing limit for narrow quasimodes or equivalent resonant-lattice fiber form.",
+      "reasoning": "Tube-mass around {x2=0} and equivalent per-k1 fiber-mass (at most 2 k2 values per shell) encode the same threshold under Fourier duality, and no prior source captures it under renaming, complement/incidence duality, or matrix/algebraic encoding; literal and equivalent searches both leave the claim uncovered.",
+      "search": "flat torus o(h^2) quasimode h^{1/2} tube mass around horizontal closed geodesic limsup 7/8 scarring bound"
+    },
+    "exact_database_or_table": {
+      "evidence": "Lattice-point censuses on circles/spheres and torus restriction tables record counts and exact-mode L^2 restriction norms, not h^{1/2}-tube mass ratios with certified o(h^2) residuals over decreasing h_j sequences.",
+      "reasoning": "Direct lookup of lattice data or eigenfunction tables cannot return the tube-mass limsup for narrow superpositions; fresh phased multi-mode residual certificates and tube quadrature are required, so the finding is not database repackaging or recomputation.",
+      "search": "torus lattice points circle table eigenfunction restriction norms database vs quasimode tube mass ratio lookup"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "086e96c570e1696113ba2ed6bcc7cd2460b9a0f6ae8268e0e7c9dd13d39d9b4e",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "arXiv:0903.3420v1  [math.AP]  19 Mar 2009",
+        "url": "https://arxiv.org/pdf/0903.3420",
+        "URL": "https://arxiv.org/pdf/0903.3420",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Zelditch survey states geodesic-restriction bounds and Theorem 13.2 non-concentration outside tubes around hyperbolic closed geodesics (mass >= C/log lambda outside); hypotheses require hyperbolicity and exact eigenfunctions, conclusions give no h^{1/2}-tube vanishing upper bound for o(h^2) quasimodes on the flat torus horizontal geodesic.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Problems related to the concentration of eigenfunctions",
+        "url": "https://arxiv.org/html/1510.07723v1",
+        "URL": "https://arxiv.org/html/1510.07723v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Sogge survey develops Kakeya-Nikodym tube norms, lambda^{-1/2}-tube mass, and Theorem 3.2 sup-tube bounds c(lambda) under nonpositive curvature plus ball estimates; all results concern exact eigenfunctions or curvature hypotheses and never the unperturbed flat-torus o(h^2) quasimode h^{1/2}-tube limit.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Trace and Observability Inequalities for Laplace Eigenfunctions on the Torus",
+        "url": "https://arxiv.org/html/2507.16599v1",
+        "URL": "https://arxiv.org/html/2507.16599v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Burq-Germain-Sorella-Zhu proves uniform trace and observability inequalities for exact toral Laplace eigenfunctions against measures via Fourier decay, decoupling, and lattice-cluster counting; hypotheses and conclusions are uniform-in-lambda eigenfunction bounds, not shrinking-tube mass vanishing for narrow o(h^2) quasimode sequences.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Semiclassical scarring on tori in KAM Hamiltonian systems",
+        "url": "https://ems.press/content/serial-article-files/32683",
+        "URL": "https://ems.press/content/serial-article-files/32683",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Title concerns semiclassical scarring on tori in KAM Hamiltonian systems (perturbed-system positive mass on KAM-type sets); snippet gives no flat unperturbed V=0 o(h^2) tube-mass upper bound, direct fetch failed with transport error, and perturbed positive-mass direction cannot imply the submitted vanishing upper bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Restriction of toral eigenfunctions to hypersurfaces and nodal sets",
+        "url": "https://ar5iv.labs.arxiv.org/html/1105.0018",
+        "URL": "https://ar5iv.labs.arxiv.org/html/1105.0018",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Bourgain-Rudnick toral restriction/nodal paper gives uniform L^2 restriction bounds for exact eigenfunctions on hypersurfaces and nodal sets via lattice counts; it states no h^{1/2}-tube mass ratio, no o(h^2) residual class, and no 7/8 limsup, so hypotheses and conclusions are disjoint from the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "RECENT DEVELOPMENTS IN MATHEMATICAL QUANTUM CHAOS",
+        "url": "https://sites.math.northwestern.edu/~zelditch/CDMNov22.pdf",
+        "URL": "https://sites.math.northwestern.edu/~zelditch/CDMNov22.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Zelditch quantum-chaos survey reports that scarring integrable eigenfunctions carry shrinking-tube mass of order (1-2delta) around stable/unstable structures; this is a positive-mass scarring example in a different dynamical setting, not a vanishing upper bound for unperturbed flat-torus narrow quasimodes.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Semiclassical scar on tori in high dimension",
+        "url": "https://arxiv.org/html/2502.11445v1",
+        "URL": "https://arxiv.org/html/2502.11445v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Yuan-Li proves perturbed elliptic h-operators Ph(t) on high-dimensional tori admit semiclassical measures with positive mass on almost all KAM tori under sigma-Bruno-Russmann via exponentially accurate quasimodes; this is a perturbed-operator existence-of-scar result whose hypotheses exclude the unperturbed Laplacian and whose conclusion is opposite to the submitted V=0 non-scarring limit.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check (check_id 086e96c570e1696113ba2ed6bcc7cd2460b9a0f6ae8268e0e7c9dd13d39d9b4e, 20 results, 4 overlaps) added useful incremental recall beyond the base serpbase/openalex/crossref fuse: new leads included the Zelditch 0903.3420 survey with hyperbolic-tube Theorem 13.2, the Sogge 1510.07723 Kakeya-Nikodym tube survey, the 2025 Burq-Germany trace/observability paper for exact toral eigenfunctions, and the Yuan-Li 2502.11445 perturbed KAM scar paper (verified in full HTML). Each was compared literally on hypotheses and conclusions: all concern exact eigenfunctions, hyperbolic or nonpositively-curved geometries, perturbed operators, or positive-mass scar existence, and none states or implies vanishing h^{1/2}-tube mass for o(h^2) unperturbed flat-torus quasimodes or the 7/8 Diophantine corollary. Four results duplicated base titles (toral restriction, nodal sets, quantum-chaos survey); the remaining keyword hits (quantum graphs, thin tubes, arithmetic limits, Han problems) were not substantively relevant. No decisive prior found; provisional originality PASS preserved."
+  }
+}
