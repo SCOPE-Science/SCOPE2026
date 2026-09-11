@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Verified exact recombination f0(z)=(1+z)^{1/2} a.e. on T under standard FH convention: (2cos(t/2))^{1/2}e^{it/4} matches principal sqrt of 1+e^{it} for t in (-pi,pi). Summability |c_k|<=1/(2k^{3/2}) proved by induction (k>=1/3 condition) gives absolute uniform convergence so Fourier coeffs equal binom(1/2,k) for m>=0 and 0 for m<0. Hence T_n(f0) lower-triangular with unit diagonal so D_n(f0)=1, and (w)_k=(f0)_{k-1}=0 for k<=0 so first row of T_n(w) identically zero and D_n(w)=0 for all n. Re-ran verify_disproof.py: VERIFY_OK (D_n(w)=0,D_n(f0)=1 for n=1..8, exact Fraction elimination, claimed C~0.737 vs actual 0, D1=0 single-point falsification). Re-ran fourier_support_table.py with mpmath 30-digit: negative modes ~1e-38 zero, nonnegative modes match binom exactly. Global sign flip preserves zero. ADMISSION_DEFECT noted: preflight claims (f0)_{-1}!=0 and infinitely many negative coeffs are false.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "PASS for the final headline D_n(w)=0 for all n. Fused search (SerpBase/Serpent Top10/20 + Crossref Top15, OpenAlex returned 0) over literal vanishing, analytic one-sided FH support, and FH winding-ladder tables returned only general zero-winding FH theory (Ehrhardt one-singularity, Deift-Its-Krasovsky, Fahs uniform), smooth-winding reviews, and unrelated Toeplitz coefficient literature. No source states D_n(z(1+z)^{1/2})=0, no table lists this scalar winding-plus-singularity case, and no broader theorem with kappa=1 plus singular base exhaustively covers it as a special case. Title similarity alone rejected; hypothesis-conclusion comparison shows broader theorems assume zero winding or smooth symbols.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL. ADMISSION_DEFECT: topic.audit_preflight cheap-falsification checks claimed Fourier support with infinitely many nonzero negative coefficients, D1=(f0)_{-1} nonzero hypergeometric value, winding bookkeeping independent of conventions, and quote not reducible to triangular vanishing or normalization mismatch. All false: exact (f0)_{-1}=0, all negative modes vanish, D1=0 vs claimed |D1|~0.737, D_n(f0)=1 vs claimed E0=2^{-1/8}, first row identically zero. The negative resolution is therefore only triangular vanishing plus first-coefficient/tiny-instance mismatch and vacuous identically-zero sequence of the type STANDARD and TARGET policy explicitly require Admission to rule out. It exposes the alpha=beta degenerate diagonal, not the promised nonzero Gamma-Barnes ladder. Framing as winding obstruction does not create independent retrieval value; curing it requires different parameters/new direction, so intrinsic low value => REJECT, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-executed inputs/artifacts/verify_disproof.py -> VERIFY_OK: exact Fraction Gaussian elimination D_n(w)=0 and D_n(f0)=1 for n=1..8, w_k=0 for k<=0, claimed product C=0.737159 vs actual 0",
+    "Re-executed inputs/artifacts/fourier_support_table.py (mpmath 30-digit) -> SUPPORT_TABLE_OK: analytic modes -4..-1 ~1e-38 zero, modes 0..4 =1,1/2,-1/8,1/16,-5/128; flipped conjugate has opposite one-sided support",
+    "DRAFT.md Secs 2-4 analytic recombination proof with hand-checked induction bound |c_k|<=1/(2k^{3/2}) and first-row vanishing argument, plus Sec 7 branch-convention limitation",
+    "scope_literature_search fused 20 results: Fahs uniform FH (zero-winding), Deift-Its-Krasovsky Annals 2011 (zero-winding singular), Ehrhardt one-singularity JFA 1997 (zero winding, supplies base constant only), Bottcher-Silbermann, Basor reviews; none states kappa=1 ladder factor or D_n=0 vanishing",
+    "topic.json audit_preflight and admission_review triviality_preflight/target_integrity/negative_resolution claims compared line-by-line to exact Fourier facts to identify false preflight"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Retrieved Ehrhardt one-singularity theorem, Deift-Its-Krasovsky single-term/uniform FH asymptotics, Fahs uniform non-negative FH case, and Bottcher winding reviews all assume either zero winding of smooth part or smooth symbols; none evaluates scalar kappa=1 shift of singular base or states W-star/n^{-1/2} law or all-n vanishing.",
+      "reasoning": "Broader smooth-winding and zero-winding singular theories frame the object but do not supply the shifted-section conclusion; they neither imply the false positive ladder nor state the vanishing headline, so broader coverage does not subsume the audited disproof.",
+      "search": "Toeplitz determinant nonzero winding Fisher-Hartwig singularity explicit ladder factor broader coverage"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior theorem combines FH alpha=beta recombination with shifted Toeplitz triangularity to state D_n(w)=0; general ladder identities express D_n(z f0) via OPUC values but retrieved FH sources supply only base constant E0, not the singular polynomial input, and textbook triangularity alone never mentions this FH symbol.",
+      "reasoning": "As a recorded claim the vanishing headline is not mechanically implied by any cited prior result, hence originality passes; the post-hoc elementary derivability from definitions goes to cheapness under the value axis (first-coefficient triangular vacuity) rather than prior coverage.",
+      "search": "winding Toeplitz determinant orthogonal polynomial value Fisher-Hartwig weight whether implied precision"
+    },
+    "equivalent_formulations": {
+      "evidence": "Consolidated search over Borodin-Okounkov winding-section determinant, Wiener-Hopf winding factor, and (1+z)^{1/2} analytic Toeplitz viewpoints returned 20 fused results with no evaluated W-star and no statement D_n(z(1+z)^{1/2})=0 under any synonymous notation, dual/complement, or incidence-matrix encoding.",
+      "reasoning": "Absence of the vanishing headline across Toeplitz, winding-section, and OPUC-ratio formulations confirms it is not already recorded under an alternative name; synonymous notation does not create coverage.",
+      "search": "Borodin Okounkov winding section Toeplitz determinant orthogonal polynomial singular base equivalence"
+    },
+    "exact_database_or_table": {
+      "evidence": "Szego-Widom zero-winding tables and Fisher-Hartwig zero-winding compilations plus smooth-winding tables contain no scalar winding-plus-singularity entry listing W-star, the n^{-1/2} law, or the all-n zero record for w=z(1+z)^{1/2}.",
+      "reasoning": "Direct lookup across both table families cannot yield the headline by construction (they exclude nonzero winding or exclude singularities), so the disproof is not a database recomputation; this supports originality while not rescuing value from cheap-defect status.",
+      "search": "Toeplitz determinant winding number table explicit factor database Szego Widom Fisher-Hartwig"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
