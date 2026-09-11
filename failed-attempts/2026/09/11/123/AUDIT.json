@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: independently re-ran compute_invariant.py (P2 N1=1,N2=1,N3=12,N4=620; P4 <4,4>_1=1; target <pt^7>_{0,4}=1, CLAIM 231733 MISMATCH), verify_residuals.py (8/8 exact WDVV residuals vanish including three insertion choices at target, divisor check passes), and verify_perm.py (gamma=max vs min both give 1, SPLIT_AGREE_PASS). Axiom implementation checked line-by-line: dimension filter, d=0 triple, 2-point line base, 3-point value 1, fundamental/divisor axioms all correct. LHS same-(d,n) skip is rigorous (exactly one d1=0,S1=empty term survives with classical factor 1). Exhaustive sweep shows the only same-(d,n) all>=2 RHS survivor for d<=5 is (3,(3^8)), and the 6 visited all>=2 tuples on the target path contain zero such cycles, so recursion terminates correctly. Classical uniqueness of the rational normal quartic through 7 points is consistent with 1.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the surviving headline after disproof is <pt^7>_{0,4}=1 on P4, which is substantively implied by the classical textbook theorem that r+3 general points in P^r lie on a unique rational normal curve (Castelnuovo's lemma; Harris, Eisenbud-Harris 3264 & All That), acknowledged in DRAFT section 2 via the line/conic/twisted-cubic analogues. For general points in convex P4 the enumerative count equals the primary genus-0 GW invariant, so the classical uniqueness result exhaustively covers the corrected integer without needing WDVV. Fused live search (20 results, full provider coverage) found only general GW/quantum-cohomology/mirror machinery and no isolated seven-point quartic table, but absence of 231733 does not establish priority because 231733 is simply false and the true value 1 was already known in equivalent enumerative encoding. A prior source need not state the GW bracket verbatim. ADMISSION_DEFECT: topic audit_preflight triviality/originality preflight claimed no cheap falsification and a first-published closed value, missing this textbook uniqueness implication.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: under STANDARD an exact invariant of a natural object is valuable only when the value is not already known or mechanically implied and a future researcher could need the precise new fact. Here the corrected value 1 is a textbook restatement of Castelnuovo uniqueness (unique rational normal quartic through seven general points), not a new benchmark. Certification (exact integer arithmetic, 8/8 residuals, split-independence, 405-entry cache) strengthens evidence but by STANDARD does not create value. The disproof that 231733 is off by five orders is literally true but resolves only into a long-known small integer, i.e. a cheap textbook mismatch rather than an independently quotable new P4 benchmark or downstream lemma. ADMISSION_DEFECT: Admission positive/negative value cases promised a first-published P4 integer and calibration fix, which is materially false because the calibration point 1 is classical.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/compute_invariant.py: P2 calibration N1=1 N2=1 N3=12 (plus N4=620 verified separately), P4 base <4,4>_1=1, TARGET <pt^7>_{0,4}=1 with CLAIM 231733 -> MISMATCH; exact integer arithmetic, no floating point.",
+    "Re-ran inputs/artifacts/verify_residuals.py: 8/8 exact WDVV residuals vanish including three independent insertion choices at (d=4,n=7), divisor-axiom spot check passes, ALL_PASS.",
+    "Re-ran inputs/artifacts/verify_perm.py: independent reconstruction gamma=max vs gamma=min both give target 1, SPLIT_AGREE_PASS.",
+    "Independent dependency audit: LHS same-(d,n) analysis proves exactly one surviving target term; exhaustive d<=5 n<=9 sweep finds sole all>=2 RHS survivor (3,(3^8)) not on path; 6 visited all>=2 tuples on target path have zero cycles, so WDVV recursion terminates soundly.",
+    "scope_literature_search fused results (SerpBase Top10 + Serpent + OpenAlex Top15 + Crossref Top15 per query, 20 deduplicated results, full coverage no partial): Kontsevich-Manin hep-th/9402147, toric/mirror and quantum-cohomology surveys, Muratore toric computations, AtiyahBott-adjacent sources; none isolates a seven-point degree-4 P4 primary number 231733 or 1 as a GW table entry.",
+    "Classical prior covering the corrected value: unique rational normal curve through r+3 general points in P^r (Castelnuovo lemma; e.g. Harris Algebraic Geometry, Eisenbud-Harris 3264 and All That), explicitly invoked in DRAFT section 2 as line-through-2 / conic-through-5 / twisted-cubic-through-6 analogue for quartic-through-7.",
+    "topic.json admission and audit_preflight plus inputs/STANDARD.md sky-survey-target-only-contract-v8 and inputs/DRAFT.mdTARGET claim, compared to expose the admission miss of textbook uniqueness."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched quantum cohomology P4 Gromov-Witten numbers degree 4 table mirror theorem toric AtiyahBott; fused hits are Givental-style toric mirror theorems, toric-stack mirror theorem, Kontsevich-Manin axioms and Muratore toric computations, which determine all genus-0 P4 invariants in aggregate, plus the all-r Castelnuovo classification of rational normal curves through r+3 points with r=4 as a special case.",
+      "reasoning": "The headline is a strict special case of a broader established classification (rational normal curves for all r) and of general P4 quantum-cohomology recursion; it is therefore subsumed rather than new, and computing it is a corollary execution, not an original theorem.",
+      "search": "quantum cohomology P4 Gromov-Witten numbers degree 4 table mirror theorem toric AtiyahBott"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Searched Kontsevich Manin WDVV recursion P4 rational quartics point insertions; prior axioms plus divisor/string equations plus the classical uniqueness theorem jointly force <pt^7>_{0,4}=1 for general points in convex P4, and DRAFT itself derives 1 from uniqueness plus a WDVV certificate with P2 values 1,1,12,620.",
+      "reasoning": "The submitted corrected finding is a recomputation and GW-bracket repackaging of the known stronger enumerative fact of uniqueness; prior work substantively implies the headline even though no source writes the exact bracket <H^4 x7>_{0,4}=1 verbatim, so originality fails.",
+      "search": "Kontsevich Manin WDVV recursion P4 rational quartics point insertions divisor axiom"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched rational normal quartic P4 seven points unique Castelnuovo lemma Gromov-Witten point invariant; fused snippets show only generic GW machinery, but the domain-standard equivalent formulation is that seven general points determine a unique rational normal quartic (Veronese [s:t]->[s^4:s^3t:s^2t^2:st^3:t^4] up to reparametrisation, stabiliser quotient multiplicity 1).",
+      "reasoning": "Under standard virtual-class with 1/|Aut| normalisation and general-point transversality, this enumerative uniqueness statement is synonymous with the GW headline I=1; changing encoding to Bott residue, stable-map, or WDVV output does not make the integer unknown or new.",
+      "search": "rational normal quartic P4 seven points unique Castelnuovo lemma Gromov-Witten point invariant"
+    },
+    "exact_database_or_table": {
+      "evidence": "Searched P4 Gromov-Witten degree 4 point insertions numbers database seven points 231733; no paper, mirror table, quintic instanton table, or code output lists 231733, and quintic tables store twisted unmarked totals while P4 sources log only lines/conics/low-degree numbers.",
+      "reasoning": "Lookup absence cannot confer priority here because the literal target 231733 is false and the true value 1 lives in textbooks rather than a database; one unavailable or empty table never establishes priority, and the decisive prior is the classical theorem, not a missing row.",
+      "search": "P4 Gromov-Witten degree 4 point insertions numbers database seven points 231733"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
