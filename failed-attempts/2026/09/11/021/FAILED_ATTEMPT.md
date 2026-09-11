@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** First new 2-torsion differential beyond the Marino-Salvatore d3 in the Sinha tower for long knots in R^3
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 728
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Homotopy Theory
+- **Method:** Goodwillie-Weiss calculus with mod-2 operadic non-formality comparison
+
+## Problem
+
+Decide the first open 2-torsion differential beyond the Marino-Salvatore d3 in the mod-2 Sinha/Goodwillie-Weiss spectral sequence for oriented long knots in R^3: either exhibit a nonzero d^4 in total degree 4/5 exiting filtration -4 (equivalently a stage-4 F2 universality failure witnessed by two long knots with equal T_4 class but distinct mod-2 type-4 invariant), or certify its vanishing with an explicit surviving torsion class and knot witness.
+
+## Attempted claim
+
+In the mod-2 homology Sinha (Goodwillie-Weiss Bousfield-Kan) spectral sequence for oriented long knots modulo immersions Embbar_3 in R^3, with bidegrees and d^r indexing exactly as in Marino-Salvatore (2025), the explicitly logged E^4 source cycle a surviving the known d3 in total degree 4 exiting filtration -4 supports a nonzero differential d^4(a)=b with explicitly logged nonzero target cycle b; equivalently, the stage-4 evaluation ev_4 is not universal over F2, witnessed by explicit long knots K1, K2 with equal H_*(T_4; F2) class but distinct listed mod-2 type-4 invariant values.
+
+## Research outcome
+
+Target disproved: the claimed nonzero mod-2 Sinha d^4 in total degree 4/5 at filtration -4 cannot exist. Chain-level Fox-Neuwirth bound kills the named source groups, and parity kills every even differential including d^4.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: Literature search executed as one scope_literature_search call with three normalized forms: (a) literal d^4 total-degree-4/5 filtration -4 Embbar_3, (b) equivalent/parity form E^r=E^{r+1} unless r=1 mod (m-1), Fox-Neuwirth even degrees, (c) dominance/census form Marino-Salvatore truncated multicomplex, Turchin E2, Boavida-Horel range. Full coverage (serpbase ok, openalex ok with 0 hits, crossref ok, partial=false). Fetched Marino-Salvatore 2504.16785 full HTML. The headline negative (no nonzero d^4 in that window; d^4=0 everywhere) is substantively implied by the same paper that defines the conventions: Sec 2.3 vanishing lemma E^1_{p,q}=0 unless (m-1)|q and E^r~=E^{r+1} unless r=1 mod (m-1) or r=0, Sec 1 d^2=0 by dimension, Sec 5.2 even concentration. For m=3 this is exactly 'all even differentials vanish,' with r=4 as mere substitution. Likewise E^1_{-4,8}=0 follows from max dim 2(n-1)=6 already in Def 2.1/Thm 2.3 and H_*(Conf_4(R^3)) even support. No source states the verbatim headline, but policy requires FAIL when prior result substantively implies or exhaustively covers the claim. This is a corollary/repackaging of a known stronger fact (general even-vanishing), not a new differential, witness, or method. Timestamp or 648-tree certificate does not establish priority. value: TARGET has no preset-value presumption; audited normally. Strongest headline is 'E^1_{-4,8}=E^1_{-4,9}=0 so no d^4 exits filtration -4, and d^4=0 everywhere by parity.' This is a textbook restatement + mere parameter substitution (plug n=4, r=4 into published dimension bound and parity lemma). It does not decide the recognized question: DRAFT explicitly disclaims proving ev_4 universal over F2, produces no K1/K2 pair, no weight system, no new differential. Admission thought total-degree-4/5 at filtration -4 was the first open F2 window; the audit shows it was never open, so admission natural-scope justification was materially false, but exposing a trivial indexing impossibility is not independently worth retrieving. The narrow-datum exception does not apply because the value was mechanically implied by Sec 2.3(1)+Sec 5.2 before computation and no future researcher needs a separate record for 'd^4 from an empty group is zero.' 648-tree enumeration certifies a one-line bound sum<=6 without new interpretation; certification alone does not rescue it. Hence intrinsic low value.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Refutes only the claimed d^4 witness as stated under pinned Marino-Salvatore conventions; does not prove ev_4 universal over F2 (failure could come from elsewhere) and produces no K1/K2 pair. Lemma 2 relies on the published even-concentration theorem for H_*(Conf_n(R^3)) (Cohen, cited as [27]); Lemma 1 is self-contained combinatorics replayed in verify.py.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
