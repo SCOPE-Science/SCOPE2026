@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: verified every essential inference. H1 gives |E|>= (d-eps)C(n,2); H2 gives |B|<=eps n^2 so |E\\B|>= (d-eps)C(n,2)-eps n^2 ~2.747e11>0 at n=2^20 (replayed VERIFY_OK, and algebraically >0 for all n>=2). Any uv in E\\B has codeg>=d^2 n-eps n=0.2499n. Need 0.2499n>=n/(200 ln n) <=> ln n>=1/(200*0.2499)~0.02001; n>=2^20 gives ln n~13.86, margin ~693x, replayed with 1% safety. Book pages on spine edge equal codegree, so B_2(m) with m>=n/(200 ln n) holds. Nonvacuity holds via Paley graphs (density 1/2, deviations 5/4,1/4<<eps q, B empty). Minor off-by-one: DRAFT/verify.py quote book (q-1)/4=262147 for q=1048589 while true adjacent codegree is (q-5)/4=262146; immaterial (both >>378). ADMISSION preflight random-graph satisfiability claim is false (G(n,1/2) fluctuations ~sqrt(n)>>eps n, correctly noted in DRAFT Remark), but hypothesis remains satisfiable via Paley so implication is nonvacuously true.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "PASS (narrowly, on exact-constant novelty): fused live retrieval over literal, equivalent-formulation, and broader-coverage directions returns no prior stating the explicit dichotomy with n>=2^20, eps=1e-4, pages n/(200 ln n) versus gain 1/(50 ln n) on |S|>=n/8. Conlon-Fox-Wigderson (book Ramsey dichotomy, Ramsey Numbers of Books and Quasirandomness), Chung-Graham-Wilson quasirandom equivalences, Fox-Sudakov DRC survey, and Mattheus-Verstraete R(4,t) asymptotics are qualitative or asymptotic with different tradeoffs and contain no such paired constants. No Ramsey table or database tabulates this one-step ledger. The stronger linear bound 0.2499n follows definitionally, so this is not a repackaging of a stronger published theorem; no prior substantively implies the exact paired-constant headline without the new (trivial) counting step.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: correct and literally new but intrinsically low value as a textbook weakening with arbitrary scope. The proof shows the first disjunct always holds with ~693x slack (0.2499n vs n/(200 ln n)~378), using only pigeonhole edge-minus-bad-pairs plus threshold comparison; no second-moment count, no neighbourhood-averaging density extraction, and the second (density-gain) arm is never used. Constants 200/50, eps=1e-4, n>=2^20 are unmotivated slices far from sharp (DRAFT Sec.5 admits 700x looseness and disclaims any R(4,t) statement, weaker-hypothesis result, or constant improvement). The headline is thus a mere parameter-weakened corollary of the definitional codegree bound, i.e. a textbook exercise, not a reusable induction lemma. ADMISSION_DEFECT: Admission preflight/qualification anticipated a fresh second-moment plus averaging ledger yielding an explicit log-power R(4,t) saving and cited random graphs as hypothesis witnesses; the submitted proof needs neither arm, yields no saving, and random G(n,1/2) violates H2 at n=2^20. No bounded addition can supply sharpness, a live second arm, or downstream use without changing the problem, so not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md target statement (H1)(H2) and two-step proof: good-edge bound (d-eps)C(n,2)-eps n^2 plus codegree-vs-threshold ln n>=1/(200(d^2-eps))",
+    "inputs/artifacts/verify.py replayed locally -> VERIFY_OK: good-edge bound 2.747e11>0, codegree 2.62e05 vs threshold 378.2, Paley(13) sanity, Paley(1048589) params; independent trial-division primality check of 1048589 and q%4==1 confirmed",
+    "topic.json target_claim, audit_preflight, admission_review and value_case (claimed R(4,t) log-saving and random-graph witnesses) compared against DRAFT Sec.5 disclaimers",
+    "Conlon-Fox-Wigderson 'Ramsey Numbers of Books and Quasirandomness' (Combinatorica 42, 309-363, 2022) abstract/references: book Ramsey asymptotics and quasirandom extremal colourings, no explicit n/(200 ln n) vs 1/(50 ln n) ledger",
+    "Conlon-Fox-Wigderson 'Off-diagonal book Ramsey numbers' (CPC 32(3), 2023): small-c vs bounded-away book-vs-book dichotomy, not R(4,t) density increments on quasirandom hosts",
+    "Chung-Graham-Wilson 'Quasi-random graphs' (Combinatorica 9, 1989): equivalence class of quasirandom properties including codegree concentration; gives context for definitional triviality but no such dichotomy",
+    "Fused scope_literature_search (3 queries, SerpBase+Serpent+OpenAlex+Crossref, 20 fused hits, full coverage, no partial failure): literal, codegree/common-neighbourhood/DRC, and Mattheus-Verstraete/book-algorithm directions \u2014 only qualitative book lemmas and asymptotics returned"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Mattheus-Verstraete Annals 2024 gives Omega(t^3/log^4 t) lower bound for r(4,t); Conlon-Fox-Wigderson gives book-vs-book dichotomy; Fox-Sudakov surveys qualitative DRC cores; Conlon book-algorithm work gives asymptotic upper bounds. None states a stronger theorem with n/(200 ln n) pages versus 1/(50 ln n) gain on n/8 sets.",
+      "reasoning": "No broader covering theorem implies or subsumes the exact paired-constant ledger; priors are qualitative/asymptotic with different tradeoffs, so the headline is not a special case or corollary of a known stronger fact.",
+      "search": "Mattheus Verstraete R(4,t) book algorithm upper bound Conlon Fox Wigderson off-diagonal book Ramsey density increment quasirandom"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Known DRC lemmas and quasirandom codegree facts yield qualitative linear common neighbourhoods but never the paired page-count plus density-gain constants (200, 50) with set size n/8 and threshold n>=2^20; DRAFT derivation uses only hypothesis arithmetic, not substitution into any cited prior.",
+      "reasoning": "The exact pairing cannot be obtained by mechanical substitution from cited priors, and no prior result substantively implies it; originality therefore passes on literal novelty while value still fails because the implication from definitions is trivially weak.",
+      "search": "Fox Sudakov dependent random choice dense subset book pages versus density increment comparison"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searches for spine-edge common-neighbourhood size, codegree discrepancy book pages, and density-increment phrasings returned only Chung-Graham-Wilson equivalences, quasirandom surveys, and qualitative book-finding lemmas with no identical explicit dichotomy with constants 200 and 50.",
+      "reasoning": "Absence under literal, common-neighbourhood, codegree-discrepancy, and density-gain synonymous notations shows the claim is not a renamed known lemma; no dual/complement/matrix encoding covers it.",
+      "search": "epsilon-quasirandom graph density 1/2 codegree discrepancy book B_2(m) pages n/(200 ln n) subset n/8 density gain 1/(50 ln n)"
+    },
+    "exact_database_or_table": {
+      "evidence": "Small-Ramsey tables list only values like R(4,5)=25 and intervals for R(4,6); no Ramsey table, textbook exercise table, or official database tabulates one-step quasirandom book-density increments with these logarithmic thresholds.",
+      "reasoning": "No exact table entry or database recomputation decides this asymptotic dichotomy, so resolution is not a direct lookup; this check passes, leaving value failure to rest on trivial weakening rather than repackaging.",
+      "search": "small Ramsey numbers table R(4,5) R(4,6) database versus book density increment ledger"
+    }
+  },
+  "residual_risks": [
+    "Paley(1048589) book quoted as (q-1)/4=262147 instead of adjacent codegree (q-5)/4=262146 (1-page overstatement; threshold ~378 so nonvacuity unaffected)",
+    "verify.py Miller-Rabin with bases 2..37 used for 1048589 primality; independently confirmed by full trial division to sqrt (~1024) in audit",
+    "Second disjunct (density-gain arm) proved dead under stated hypothesis (first arm always holds by ~693x); dichotomy true but one-sided, limiting reuse"
+  ],
+  "verdict": "REJECT"
+}
