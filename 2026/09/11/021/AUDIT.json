@@ -1,0 +1,77 @@
+{
+  "verdict": "PASS",
+  "route": "TARGET",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Independent stdlib replay confirms every essential computation. (1) Monotone-triangle generator: small counts 1,2,7,42 validated; live n=7 re-enumeration gives 218348 triangles to 2630 symmetric ASMs in about 1.9s, exactly matching committed J7_enum.json (116 cells, sum 2630). Row and column sums validated on the fly. (2) Statistics: per-object direct I=sum Aij*Aiprimejprime and M=N_-1 agree with structural I=2P+(7-S)/2, M=R+(S-7)/2 on all 2630 DSASM(7) (checked 2630, bad 0). DRAFT row tables and M/I marginals recomputed exactly from joint list. (3) Totals: BFK numDSASM Pfaffian re-implemented independently; matching-sum vs Bareiss-det sqrt agree and equal 1,2,5,16,67,368,2630,24376,293770,4610624 for n=1..10 (P7=2630). Abs-det sign handling is sound because Pf^2=det and sign is fixed by matching-sum route. (4) Refined agreement: Xprs7_full.json has 132 terms, sum 2630, all coefficients nonnegative, S-support {1,3,5,7} (odd as required); projection (P,R,S)->(I,M) equals J7 cell-for-cell; PRS7_enum.json (132 entries, sum 2630) projects identically and equals Xprs as (P,R,S) multiset. Forward xprs7_full.py rerun reproduces terms=132 total=2630 with identical marginals. (5) Witnesses: all 6 matrices in witnesses.json independently verified as ASMs, symmetric, with (I,M) matching keys: (0,0) identity, (21,0) anti-identity, (6,9) dense max-M, plus (8,6),(18,0),(19,0). (6) Lemma: classical Stembridge/Okada antisymmetrizer-to-Pfaffian reduction; proof sketch is standard tail-swap involution, honestly scoped as instantiation plus machine check not invention. Artifact lemma_check.py prints LEMMA_CHECK_OK; auditor probes also give equality. Limitations honestly stated: Xprs formula used as stated (BFK Sec.10 proofs omitted); Pfaffian route is exact evaluation plus agreement, not a re-proof of BFK six-vertex argument."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Three-form fused retrieval (literal J7, equivalent BFK-Xbar/Stembridge-LGV encodings, dominance/database coverage) in one scope_literature_search call (SerpBase plus Crossref fusion; OpenAlex 0 hits but status ok; partial=false) plus direct fetches of BFK abstract/ToC, OEIS A005163 text, OEIS A005156, FindStat. Nearest prior is BFK arXiv:2309.08446 v2: Pfaffian for totals plus (R,S,T) and Sec.10 generalized Xbar Pfaffian equations, but no evaluated order-7 (I,M) or (P,R,S) table. OEIS and FindStat hold only totals and small-order data. Other-class refined and product results (ordinary-ASM, VSASM, DASASM, OSASM) are materially different objects and do not imply the DSASM-restricted law. Decisive checks (equivalent_formulations, broader_coverage, exact_database_or_table, claim_vs_prior_implication) each tested adversarially; none covers the 116-cell J7, 132-term Xprs projection, marginals, or witnesses. Lemma is explicitly claimed only as classical Stembridge instantiation plus check, so its textbook status does not defeat J7 novelty."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "TARGET route judged against admitted target. Result is a rigorously established exact invariant of a specific natural object: joint (Robbins-Rumsey inversion I, N_-1 count M) distribution over DSASM(7), the last major ASM symmetry class without a product formula (FindStat/BFK/OEIS gap pre-dates computation). Object (DSASM order 7, 2630 matrices) and statistics (I,M via standard BFK relations to P,R,S) were motivated before computation to constrain the open formula search and serve square-ice and representation-theory uses. Value is not known or mechanically implied: totals Pfaffian does not determine joint law; extraction required nontrivial signed evaluation plus dual-route enumeration with per-object agreement. Future researcher can reasonably need the precise fact: 116-cell J7, M-marginal {0:232,1:350,2:672,3:538,4:482,5:217,6:104,7:28,8:6,9:1}, I-marginal, 132-term nonnegative (P,R,S) refinement, extremal witnesses (identity (0,0), anti-identity (21,0), dense (6,9) with 9 minus-ones). Not a textbook restatement, mere parameter substitution, tiny unmotivated gain, or unexplained enumeration: census is complete over natural scope, certified by two independent routes, with interpretation. Lemma instantiation accompanies rather than carries the headline. Passes the narrow-exact-datum standard."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Diagonally symmetric alternating sign matrices (Behrend-Fischer-Koutschan, arXiv:2309.08446) abstract + full-text ToC",
+      "url": "https://arxiv.org/abs/2309.08446",
+      "finding": "Pfaffian for |DSASM(n)|, Pfaffians for (R,S,T) (Thms 4.1/4.3), Sec.10 generalized Xbar with P and S+/S- (Thms 10.1/10.2, proofs omitted); totals to n=1000/131; no order-7 (I,M) or (P,R,S) coefficient table listed."
+    },
+    {
+      "title": "OEIS A005163 text",
+      "url": "https://oeis.org/search?q=id%3AA005163&fmt=text",
+      "finding": "DSASM totals only: 1,2,5,16,67,368,2630,24376,293770,4610624,... b-file to 131; no refined vectors."
+    },
+    {
+      "title": "OEIS A005156",
+      "url": "https://oeis.org/A005156",
+      "finding": "VSASM/OSASM totals only; different class."
+    },
+    {
+      "title": "FindStat Alternating sign matrices collection",
+      "url": "https://www.findstat.org/CollectionsDatabase/AlternatingSignMatrices/",
+      "finding": "Eight symmetry classes; DSASM among those lacking product formulae; database contains all ASMs only to size 6; no DSASM(7) refined census."
+    },
+    {
+      "title": "Fused literature search (3 queries, SerpBase+Crossref+OpenAlex)",
+      "url": "",
+      "finding": "20 fused results; top hits BFK, FindStat, DASASM, OSASM/Kumari, VSASM, Behrend multiply-refined; no hit discloses DSASM(7) joint inversion/N_-1 table. OpenAlex 0 hits per query (status ok), SerpBase+Crossref ok, partial=false."
+    }
+  ],
+  "residual_risks": [
+    "Lemma machine check is degenerate (Pf=0 on artifact and auditor probes); lemma truth depends on classical Stembridge theorem rather than the brute-force check, but scope note is honest so risk is to lemma strength, not J7.",
+    "Xprs Pfaffian route depends on BFK Sec.10 stated formula whose proofs are omitted in BFK; auditor verified exact evaluation and agreement but did not re-derive BFK six-vertex/Yang-Baxter proof -- honestly disclosed as evaluation certificate.",
+    "OpenAlex returned 0 hits per query (status ok); originality relies on SerpBase+Crossref fusion plus direct OEIS/FindStat/BFK fetches; a niche thesis outside fused top ranks could in principle be missed, mitigated by direct specialist-database checks.",
+    "verify.py uses exec-split harness and xprs7_full.py hardcodes output/artifacts path; auditor bypassed harness with independent re-implementation, so replay robustness risk is minor."
+  ],
+  "decisive_checks": {
+    "equivalent_formulations": {
+      "verdict": "NOT_COVERED",
+      "search": "Literal query: DSASM order-7 joint inversion N_-1 J7 census; Equivalent query: DSASM symmetric triangles BFK Xbar R/S/T/P Stembridge Pfaffian LGV; one fused scope_literature_search call (SerpBase Top10 + OpenAlex Top15 + Crossref Top15 per query).",
+      "evidence": "Fused hits: BFK, FindStat, OEIS A005156, DASASM, Kumari OSASM, VSASM, Behrend multiply-refined. No title/snippet discloses DSASM(7) joint (inversion,N_-1) table, 116-cell census, or 132-term (P,R,S) polynomial. BFK defines I, M, R, S, P and relations but publishes no evaluated J7/C7.",
+      "reasoning": "Synonymous encodings considered (DSASM/symmetric ASM, symmetric monotone triangles, triangular six-vertex, Stembridge-LGV/Okada Pfaffian, DPP/FPL). None publishes the (I,M) joint law at n=7 under alternate notation. Literal-title failure not relied on alone; snippet/metadata plus direct fetches confirm absence."
+    },
+    "broader_coverage": {
+      "verdict": "NOT_COVERED",
+      "search": "Dominance query: diagonally symmetric ASM broader refined census classification database OEIS A005163 FindStat Pfaffian theorems covering DSASM enumeration; screened BFK, DASASM, VSASM/OSASM, FindStat, OEIS; fetched BFK abstract/ToC and FindStat/OEIS directly.",
+      "evidence": "BFK gives totals and (R,S,T)/generalized Pfaffians with no order-7 refined coefficients listed. DASASM odd product, VSASM refined, ordinary-ASM multiply-refined, OSASM odd product cover different symmetry classes by definition. No broader theorem, census, or classification exhaustively lists DSASM(7) refined coefficients.",
+      "reasoning": "A general Pfaffian formula determining J7 in principle does not exhaustively cover it as a published special case. Extraction at n=7 needs exact trivariate series, prefactor sign resolution, and 6x6 Pfaffian -- new computation, not a listed read-off. Different-class theorems do not restrict to transpose-symmetric matrices."
+    },
+    "exact_database_or_table": {
+      "verdict": "NOT_COVERED",
+      "search": "Database directions naming OEIS A005163/A005156, FindStat, BFK companion data; direct fetches of OEIS A005163 text, OEIS A005156, FindStat ASM collection.",
+      "evidence": "OEIS A005163 holds only DSASM totals with b-file to n=131. OEIS A005156 holds only VSASM/OSASM totals. FindStat holds all ASMs only to size 6 and lists DSASM among classes lacking product formulae. BFK companion data holds only totals.",
+      "reasoning": "Exact object (n=7 DSASM refined distribution, 116 cells / 132-term polynomial / M-marginal 0:232..9:1) appears in no table row or official database. Totals-only entries do not cover refined joint law."
+    },
+    "claim_vs_prior_implication": {
+      "verdict": "NOT_IMPLIED",
+      "search": "Compared literal hypotheses/conclusions of top fused hits (BFK, DASASM, OSASM/Kumari, VSASM, Behrend multiply-refined, FindStat, OEIS) against submitted J7 claim; title/embedding similarity alone not used.",
+      "evidence": "BFK formula left unevaluated at (I,M) order-7 coefficients; OEIS/FindStat hold only totals/small data. Ordinary-ASM/VSASM/DASASM/OSASM laws concern unrestricted or differently-symmetric matrices and cannot imply the transpose-restricted joint law.",
+      "reasoning": "Prior results do not substantively imply the exact 116-cell table, its 132-term (P,R,S) refinement, marginals, or extremal witnesses. The Xprs evaluation is an agreement certificate for a new census plus honestly-scoped classical-lemma instantiation, not a repackaging of a known stronger evaluated fact."
+    }
+  }
+}
