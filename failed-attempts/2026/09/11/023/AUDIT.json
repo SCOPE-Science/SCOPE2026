@@ -1,0 +1,71 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reproduced all three finite claims. (a) k=12: re-ran word evaluation on archived base_k12.json (Pa=12-cycle, Pb=[3,10,8,9,1,0,11,4,5,6,7,2]): all 52 reduced |w|<=3 words fixed-point-free (max fixed 0), so group-word defects exactly 0 < delta0=1/100. Mixed-moment lemma valid: tr(U_w V)=(1/k)sum over fixed points of d_i; since every |w|<=2 word is fixed-point-free, every mixed trace vanishes for EVERY balanced sign pattern and tr V=0 by balance. Count C(12,6)=924 >= exp((ln2)/16*144)=512 exact. Separation valid: distinct balanced diagonals differ in m>=2 coords, HS distance-squared=4m/12>=8/12=2/3, so sqrt(2/3)>>eps0=1/10. (b) k=6 no-go: independently re-ran class-reduced exhaustive check (11 S6 cycle-type reps x 720 Pb = 7920 pairs): 0 all-zero pairs, per-class best totals matching proof_k6_nogo.json exactly (global best 12). Reduction sound (simultaneous conjugation preserves fixed-point counts). delta0=1/100<1/6 forces exact fixed-point-freeness since one fixed point gives defect >=1/6. (c) crossover verified: 2^{k-1}<2^{k^2/16} iff k^2-16k+16>0, true for k>=15 (threshold 8+4*sqrt(3) about 14.93); C(k,k/2)<=2^{k-1} so balanced-sign family cannot supply all-k extension. verify_k12.py analytic counting justified by verified all-free premise. LIMITATION (disclosed in DRAFT): microstate is relative to frozen finite datum D0 (52 group words, V trace, mixed |w|<=2, exact relations by construction), not a genuine Hayes (delta0,k)-microstate requiring all star-moments and general unitaries. As D0-relative finite combinatorics the claims are correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route verified genuine: target_exit.json documents dichotomy arising inside direct fallback attempt (orbit-count fix, replay script, random-search failure forcing exhaustive k=6 check), using exactly frozen objects, tuple, scale, word datum, not a convenient replacement. Live scope_literature_search attempted twice with three consolidated directions each and timed out both times (recorded coverage failure); originality rests on (i) Admission documented fused 10-query search plus full-text screening of Hayes/Popa-Vaes/Chifan-et-al/Ding (topic.json), (ii) direct fetch of Hayes arXiv:1505.06682 this audit (confirms 1-bounded-entropy/spectral-regularity program paper with no lamplighter tuple, no explicit fixed-scale numbers, no Bernoulli-vs-profinite gap for G0), (iii) extreme specificity (one explicit S12 pair; exhaustive S6 fact over project-frozen 52-word datum; arithmetic crossover). No checked prior states or implies the pair, the S6 no-go, or the 924>=512 certificate; existential Hayes positivity cannot entail a specific pair or finite exhaustive no-go. PASS with residual risk from live-tool outage, mitigated by claim specificity.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL for intrinsic low value / arbitrary scope, not mere narrowness. Proved: (a) one 12-point permutation pair with all short words fixed-point-free giving arithmetic observation C(12,6)=924>=512 over balanced signs at project-frozen arbitrary scale (eps0=1/10, delta0=1/100, c1=(ln2)/16); (b) no such pair on 6 points in permutation matrices; (c) textbook inequality 2^{k-1} vs 2^{k^2/16}. This certifies no 1-bounded-entropy rate for (M0,X): single-k, permutation-ansatz, D0-relative count; DRAFT concedes required all-k extension fails for this family and general (non-permutation) k=6 microstates untouched, yet general unitaries are the standard microstate class, so (b) closes only a self-imposed restricted ansatz. The reusable Bernoulli-side anchor claim does not survive: future rigidity/sofic-entropy researcher could not plug single-k perm-ansatz 924>=512 into any Bernoulli-vs-profinite separation and would never query this frozen scale/datum; S6 lemma pins no minimal threshold (k=7..11,13,14 unclassified); k=12 witness unsurprising (random search trial 2272/20000). This is route-closure information for the attempt log, not an independently retrievable exact invariant with downstream reuse. Certification alone does not rescue arbitrary frozen-scale count. No bounded addition (motivation paragraph, literature positioning) creates reuse value without new research (genuine rate, general-unitary analysis, natural threshold), so defect not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "detail": "Independent recomputation: all 52 reduced |w|<=3 words fixed-point-free on archived pair; C(12,6)=924>=512; sep^2=8/12. Confirms DRAFT (a).",
+      "title": "inputs/artifacts/base_k12.json + verify_k12.py + cert_k12.json"
+    },
+    {
+      "detail": "Independent recomputation of 11 class reps x 720 Pb = 7920 checks: 0 all-zero pairs, per-class best totals exactly matching log (global best 12). Confirms DRAFT (b) and reduction argument.",
+      "title": "inputs/artifacts/proof_k6_nogo.json (+ replay.py, stepB.py as route context)"
+    },
+    {
+      "detail": "Fetched this audit: Hayes 1-bounded-entropy / spectral-regularity program paper; no lamplighter Bernoulli tuple, no explicit (eps0,delta0,k0,c1) numbers, no Bernoulli-vs-profinite gap for G0.",
+      "title": "Hayes arXiv:1505.06682 abstract/history page"
+    },
+    {
+      "detail": "10 consolidated fused queries (literal + equivalent/dual + stronger-coverage) with full provider coverage per Admission record; found no explicit lamplighter rate and no Bernoulli-vs-profinite gap for G0. Relied upon after live-tool timeouts.",
+      "title": "topic.json admission fused literature search + prior screening"
+    },
+    {
+      "detail": "Establishes EMERGENT_FINDING genuineness, SUBMIT_EMERGENT_FINDING decision, and honest limitations (perm-ansatz only, profinite side untouched, no fallback/full-gap claim).",
+      "title": "inputs/DRAFT.md, research_report.json, target_exit.json"
+    }
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence_found": "Hayes existential positivity (some rate, never explicit numbers); Popa-Vaes concerns F_n actions not wreath G0; Chifan et al requires property (T), excluding amenable-base lamplighter; Ding compares Bernoulli vs algebraic not vs named profinite model. None states k=12 pair, S6 no-go, or fixed-scale count.",
+      "verdict": "NOT_COVERED",
+      "what_was_searched": "Dominance query: stronger theorems / broader classes / censuses that could imply headline as special case (Admission fused search, live direction 3 before timeout, direct Hayes fetch).",
+      "why_not_covering": "Broader theorems are existential or different families; none implies the explicit finite certificate or exhaustive no-go."
+    },
+    "claim_vs_prior_implication": {
+      "evidence_found": "Only bridge offered (Hayes existential positivity to specific certificate) is invalid: existence of some rate cannot entail explicit pair, exact count 924>=512, or exhaustive 0/7920 fact. No prior implies S6 universal statement over frozen datum.",
+      "verdict": "NO_IMPLICATION",
+      "what_was_searched": "Whether any checked prior substantively implies submitted finite facts without stating them verbatim; tested existential-to-explicit bridge.",
+      "why_not_covering": "Existential theorem does not mechanically entail verified explicit pair or finite exhaustive no-go."
+    },
+    "equivalent_formulations": {
+      "evidence_found": "Admission covered equivalents and Jung/packing-covering/Fuglede-Kadison encodings; headline core is one explicit S12 pair plus S6 exhaustive fact over project-frozen datum, no synonymous restatement of a known theorem.",
+      "verdict": "NOT_COVERED",
+      "what_was_searched": "Literal statement, synonymous names (lamplighter=(Z/2)^{(F2)} rtimes F2 = Z/2 wr F2 = C2 wr F2), dual microstate encodings (sofic vs 1-bounded, packing/covering), matrix/permutation formulations via Admission 10-query record plus repeat live attempts.",
+      "why_not_covering": "No known theorem is about this pair/datum; no equivalent formulation in checked priors yields these finite facts."
+    },
+    "exact_database_or_table": {
+      "evidence_found": "Admission reports no census/database row listing entropy rates or parameter rows for G0; claim objects (specific perms, frozen eps0/delta0/c1, 52-word datum) are project-internal and in no official table.",
+      "verdict": "NOT_COVERED",
+      "what_was_searched": "Official databases, specialist von Neumann censuses, tables, theses, author pages for lamplighter microstate packing rows (Admission fused search and database check).",
+      "why_not_covering": "No exact parameter row or table entry covers the submitted finite facts."
+    }
+  },
+  "residual_risks": [
+    "scope_literature_search timed out on both calls (all three consolidated directions each); fused SerpBase/OpenAlex/Crossref evidence unavailable, so originality leans on Admission documented fused search + direct Hayes fetch + claim specificity. Synonymously-notated prior missed by both cannot be excluded, but risk low given headline is one explicit pair plus frozen-datum finite fact.",
+    "k=12 script justifies 924 count analytically via verified all-free lemma rather than enumerating all mixed traces; premise independently re-verified, so no residual gap.",
+    "k=6 no-go covers permutation-matrix ansatz only; general-unitary k=6 microstates open (honestly disclosed; bounds headline, does not falsify it).",
+    "Microstate in headline is D0-relative (finite frozen test set), not Hayes (delta0,k)-microstate; certified statements true as scoped but establish no entropy rate - basis of value FAIL, not hidden correctness defect."
+  ],
+  "verdict": "REJECT"
+}
