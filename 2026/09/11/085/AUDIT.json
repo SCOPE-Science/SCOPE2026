@@ -1,0 +1,93 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: verified every inference by exact integer replay. N=8386560, cap 4361011, missing 4025549, C(2837,2)=4022866<missing so r<=1259, each container covers <=2^1258 cuts vs >=2^4095/4097 cuts giving |C|>=2^2837/4097 with ln>=1958.14 vs target 26.2144. verify.py returns VERIFY_OK. Lemmas 1-4 and counting inequality C(2m,m)>=4^m/(2m+1) all correct. No boundary collapse or type error; matches audit_preflight, no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live search over literal, equivalent biclique/component, and general container-coverage formulations returns only general upper-bound container theory (Balogh-Morris-Samotij, Saxton-Thomason, efficient lemma) and unrelated counts. No source states the fixed-parameter lower bound at n=4096, B_2(64), defect 0.02, exp(n^1.5/10^4), nor implies it via broader theorem, dual encoding, or database. Adversarial checklist in decisive_checks all negative for coverage.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET positive resolution proved: exponential container-count stall certificate at the admitted critical density, with proved 2^2837/4097 far above e^26.2. It pins where pure counting must explode and forces induction/algebraic methods, the exact downstream use admitted for the R(4,t) container-induction tradeoff. Interior threshold far from one and far from all graphs, motivated before computation, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. No ADMISSION_DEFECT; generality via triangle-freeness strengthens rather than narrows value.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md Lemmas 1-4 and counting section: verified N=8386560, M_cap=4361011, missing=4025549, C(2837,2)=4022866, r<=1259, <=2^1258 cuts per container, >=2^4095/4097 balanced cuts, |C|>=2^2837/4097, ln>=1958.14 vs 26.2144",
+    "inputs/artifacts/verify.py replayed locally with stdlib only: N=8386560 missing=4025549 r_max=1259 ln|C|>=1958.1405 vs target 26.2144 margin 1931.93 nats -> VERIFY_OK",
+    "scope_literature_search fused 20 results across 3 normalized queries (literal B_2(64)/4096/defect, balanced-biclique component encoding, general container lower-bound census): top hits are ICM containers survey, Container method Wikipedia, TU Delft thesis, MIT OCW Lecture 27, Balogh-Samotij efficient lemma; none states the fixed-parameter obstruction",
+    "Direct fetch of Balogh-Samotij An efficient container lemma (Discrete Analysis 2020): confirms general upper bound |G|<=n^{C n^{3/2}} with few triangles plus supersaturation route, i.e. opposite direction from submitted lower bound, so no implication",
+    "inputs/topic.json audit_preflight and admission_review: type/normalization, interior e^26 threshold, and two-sided value cases checked; final proof satisfies same typing and interiority, so no false Admission preflight"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "ICM containers survey, Saxton-Thomason / Balogh-Morris-Samotij theorems, and Balogh-Samotij efficient lemma give general upper bounds of form n^{C n^{3/2}} containers with small triangle excess;RIS search returned only these methods plus Gallai-coloring counts, with no fixed-parameter exponential lower bound for B_2(64) at order 4096 defect 0.02.",
+      "reasoning": "A general upper-bound method does not imply a fixed-parameter lower bound; the submitted 2^2837/4097 necessity at defect 0.02 is logically opposite and numerically specific, so no broader theorem covers it as a special case.",
+      "search": "hypergraph container lower bound counting triangle-free book-free graphs general theorem census number of containers"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior container lemmas bound the number of containers from above under larger defect or sparser regimes and count triangle-free graphs from above by 2^{(1/4+o(1))n^2}; no prior lemma lower-bounds the number of defect-0.02 containers by exp(n^1.5/10^4) or by 2^2837/4097 at n=4096.",
+      "reasoning": "Neither the standard counting upper bound nor the n^{C n^{3/2}} container upper bound mechanically yields the submitted necessity; the biclique-versus-component double count is a new implication direction, so the claim is not a corollary or recomputation.",
+      "search": "number of book-free graphs container bound Ramsey defect lower bound comparison"
+    },
+    "equivalent_formulations": {
+      "evidence": "Covering-family phrasing versus counting/entropy phrasing searched via balanced complete bipartite K_{2048,2048} triangle-free book-graph container covering complement components; hits concern balanced bipartite distance of K4-free graphs and generic container surveys, with no identical obstruction at these numbers.",
+      "reasoning": "Persistence of the gap under covering-vs-counting and cut-vs-component rephrasing shows the result is not a renamed known enumeration under synonymous notation or incidence/matrix encoding.",
+      "search": "balanced complete bipartite K_{2048,2048} triangle-free book-graph B(64) container covering complement components lower bound"
+    },
+    "exact_database_or_table": {
+      "evidence": "No enumeration database reaches order 4096 for book-free or triangle-free graphs; Ramsey tables stop at tiny orders and small-graph censuses far below 4096, and no table lists minimal container families at defect 0.02.",
+      "reasoning": "Exhaustive lookup at 2^{8386560} graphs is impossible, so the claim cannot be a direct lookup or table repackaging; it required the component-count proof.",
+      "search": "database number of H-free graphs n equals 4096 book-free enumeration table minimal containers"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "d41cb2779ccb492016ddfde134446a492ef4e1171252cd6491d6e81726214bbe",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] Lecture 16. The number of maximal triangle-free graphs",
+        "url": "https://www.ibs.re.kr/ecopro/wp-content/uploads/2022/03/topic-comb-lecture16.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Source counts maximal triangle-free graphs as 2^{n^2/8+o(n^2)} via a matching-plus-independent-set construction and container upper bounds; its hypotheses concern maximality and asymptotics with no fixed order n=4096, no forbidden book B_2(64), no defect 0.02, and no lower bound of exp(n^1.5/10^4) or 2^2837/4097 containers, so it is a different enumeration in the same family and does not imply the submitted covering-family necessity.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "the method of hypergraph containers",
+        "url": "https://www.math.tau.ac.il/~samotij/papers/ICM-containers-final.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Source states the general Balogh-Morris-Samotij container upper bound: for each epsilon there are at most n^{C n^{3/2}} graphs with fewer than epsilon n^3 triangles covering all triangle-free graphs; its conclusion bounds containers from above in the asymptotic regime, whereas the submitted claim lower-bounds defect-0.02 containers by 2^2837/4097 at fixed n=4096 for B_2(64), which is logically opposite and numerically specific and is not implied as a special case.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Containers - MIT OpenCourseWare",
+        "url": "https://ocw.mit.edu/courses/18-226-probabilistic-methods-in-combinatorics-fall-2022/mit18_226_f22_lec27.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Source gives the standard containers-for-triangle-free upper bound with at most (1/4+epsilon)n^2 edges per container and at most n^{C n^{3/2}} containers, then counts triangle-free graphs from above by 2^{n^2/4+o(n^2)}; its edge-cap regime and upper-bound direction differ from the submitted fixed defect-0.02 lower bound at n=4096, so neither its hypotheses nor its counting corollary yield the 2^2837/4097 necessity for B_2(64)-free covering families.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "AN EFFICIENT CONTAINER LEMMA",
+        "url": "http://www.math.tau.ac.il/~samotij/papers/efficient-containers-revised.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Source proves an efficient container lemma bounding the number of containers from above by exp(p N^2/256 R^2) with large independent-set remnants; its hypotheses are general hypergraph degree conditions and its conclusion is again an upper bound on container count, whereas the submitted claim is a concrete exponential lower bound at n=4096, B_2(64), defect 0.02 via balanced-biclique versus complement-component double counting, so it does not cover or imply the finding.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Triangle-free Subgraphs of Hypergraphs",
+        "url": "https://arxiv.org/html/2004.10992v2",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Source counts T^r-free r-graphs and gives container collections for 3-uniform linear triangles with upper bounds of form (n^2/m)^{O(m)}; its objects are uniform hypergraphs and forbidden configurations T^3/T^r with varying m, not graph containers at fixed order 4096 covering B_2(64)-free graphs with defect 0.02, so its hypotheses and conclusions are disjoint from the submitted 2^2837/4097 lower bound and cannot imply it.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity search returned 20 results with 6 URL/title overlaps with the base providers and 14 new URLs. The overlapping hits (ICM containers survey, MIT OCW Lecture 27, arXiv 1801.04584, Discrete Analysis efficient lemma, Cambridge notes, Wikipedia container method) merely duplicated the base general upper-bound container theory already screened. The 14 incremental hits add only the same genre in different packaging \u2014 lecture notes on maximal triangle-free counts, efficient-lemma preprints, book-free Turan papers, blogs and frontmatter \u2014 with no fixed-parameter statement at n=4096, B_2(64), defect 0.02, or exp(n^1.5/10^4)/2^2837/4097. Literal comparison of hypotheses and conclusions shows every close source proves an upper bound or a different asymptotic count, opposite to the submitted lower-bound necessity, so no source covers the claim and originality PASS is preserved with no verdict change."
+  }
+}
