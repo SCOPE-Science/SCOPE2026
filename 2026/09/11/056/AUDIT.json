@@ -1,0 +1,138 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route (research_report.claim_route=TARGET): audited against admitted target_claim verbatim. Re-ran inputs/artifacts/compute_interval.py: VERIFY_OK. Independently rechecked |HN|=273030912000000=2^14*3^6*5^6*7*11*19 (True); all 14 order*index=|G| asserted in-script and passed; S=sum 1/m_i=6979253/4266108000000~=1.6359766e-06 asserted and independently recomputed equal; L=1-S=4266101020747/4266108000000~=0.999998364023, U=1-1/1140000^2=1299599999999/1299600000000~=0.999999999999, width=S-1/m1^2~=1.6360e-06<0.05 and L>0.85 verified; outward 1e-9 rounding floor(L)/ceil(U)=[0.999998364,1.000000000] asserted to contain [L,U] and passed. Logic verified: (i) every non-generating pair lies in a maximal (finite-group maximal containment), each maximal is a conjugate of one of 14 reps; (ii) per-class union bound Q<=sum_i n_i/m_i^2 with n_i=[G:N_G(H_i)]<=m_i=[G:H_i] uses only H_i<=N_G(H_i), no self-normalizing assumption, and per-conjugate probability 1/m_i^2 is exact for uniform ordered pairs; (iii) fixed A12 conjugate gives Q>=1/1140000^2 since proper-subgroup pairs never generate. Transcription verified against archived snapshot and live ATLAS https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/HN fetched 2026-09-11: all 14 (order,index) pairs match including two distinct M12:2 rows counted separately (correct for distinct G-classes). Completeness of the 14-class list is taken from the published Wilson et al. maximal-subgroup classification as represented by ATLAS, not re-proved in-script; order*index checks catch transcription error but not omission. That external-theorem reliance is logged as residual risk, standard for this admitted route.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "One consolidated scope_literature_search call submitted three normalized forms: (a) literal P2(HN) interval/certified claim, (b) equivalent/synonymous Q(G,H)/fixed-point-ratio/P(G,2)/base-size/probabilistic-generation encodings for HN/sporadics, (c) dominance/covering stronger theorems, censuses, tables and databases (Liebeck-Shalev/Burness, sporadic generation tables, ATLAS/GAP). Fused set 20 results screened; most decisive primaries fetched (live ATLAS HN page; Burness-Liebeck-Shalev 2013). No source publishes explicit certified P2(HN) endpoints or S=6979253/4266108000000 ledger. General P2 machinery and asymptotic strong bounds do not mechanically imply the logged exact endpoints with rounding control; ATLAS stores order/maximals/representations but no P2(HN); (l,m,n)-generation and rank papers concern different invariants. See decisive_checks for adversarial checklist. Tool reported partial coverage (google query_index 1 'database is locked' after internal retries); recorded and mitigated by available SerpBase/Serpent+Crossref+OpenAlex results plus direct official ATLAS fetch. Title/embedding similarity alone did not establish coverage; hypotheses/conclusions compared literally.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET claim is the admitted canonical global invariant: P2 of full HN, motivated before computation by the Liebeck-Shalev random-generation program, with stated downstream uses (product-replacement sampling, black-box timings, sporadic P2 tables). Exact interval [0.999998364,1.000000000] (exact rationals logged) of width ~1.64e-06 with L>0.85 was not known or stored and is not mechanically implied by general asymptotics; fresh summed 14-class ledger with rounding control was required. A future researcher can reasonably need this precise benchmark. Crude union bound is not a defect: smallest maximal index 1140000 makes it already far inside gates and yields strong substantive lower bound ~0.999998364. Not a textbook restatement, parameter substitution, tiny unmotivated gain, or unexplained enumeration. Judged headline alone; no completed census demanded.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Live official source: Order 273030912000000, 14 maximal rows with orders/indices identical to DRAFT ledger including A12 239500800/1140000 through 3^1+4:4.A5 58320/4681600000 and two M12:2 rows; stores no P2(HN). Confirms transcription and that P2 requires fresh computation.",
+      "title": "ATLAS v3: Harada-Norton group HN (live fetch)",
+      "url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/HN"
+    },
+    {
+      "finding": "Archived snapshot matches live page row-for-row; used as source-audit input for script.",
+      "title": "ATLAS HN page snapshot (input artifact)",
+      "url": "inputs/artifacts/atlas_hn_page_snapshot.html"
+    },
+    {
+      "finding": "Exact-arithmetic certificate re-executed to VERIFY_OK; asserts factorisation, 14 order*index equalities, exact S, containment, width/threshold gates, outward rounding.",
+      "title": "compute_interval.py (input artifact, stdlib Fractions)",
+      "url": "inputs/artifacts/compute_interval.py"
+    },
+    {
+      "finding": "Develops general P2 machinery maximal-subgroup method without publishing certified HN interval/endpoints. Method family only; does not imply logged HN ledger.",
+      "title": "Burness-Liebeck-Shalev: Generation and random generation: from simple groups to maximal subgroups (2013)",
+      "url": "https://www.ma.imperial.ac.uk/~mwl/maxgenfinal.pdf"
+    },
+    {
+      "finding": "Asymptotic P2->1 and general estimates for simple groups; no explicit HN endpoints with rounding control.",
+      "title": "Liebeck-Shalev: The probability of generating a finite simple group (1995)",
+      "url": "https://link.springer.com/article/10.1007/BF01263616"
+    },
+    {
+      "finding": "Survey of random/(a,b)-generation and spread; no exact HN probability interval.",
+      "title": "Burness survey: Simple Groups, Generation and Probabilistic Methods",
+      "url": "https://research-information.bris.ac.uk/files/167260457/2019_Simple_groups_generation_and_probabilistic_methods.pdf"
+    },
+    {
+      "finding": "Concerns (l,m,n)/complementary generations of HN, a different prescribed-type invariant, not uniform random P2(HN).",
+      "title": "Complementary generations of the Harada-Norton group",
+      "url": "https://eudml.org/doc/23869"
+    },
+    {
+      "finding": "Determines ranks for HN via GAP; rank (minimal number of generators / generation property) is not P2 interval and gives no S ledger.",
+      "title": "On the ranks of the Harada-Norton sporadic simple group HN",
+      "url": "https://www.m-hikari.com/imf-password/1-4-2006/ibrahimIMF1-4-2006.pdf"
+    },
+    {
+      "finding": "Fused Top-20 across SerpBase/Serpent+OpenAlex+Crossref for three consolidated queries; partial=true due to one provider/query failure (see residual_risks). Candidate set screened for coverage.",
+      "title": "scope_literature_search fused results (search_call_id c1e2396522a741659d2db22c2bfe4654)",
+      "url": "tool:scope_literature_search"
+    }
+  ],
+  "claim_route": "TARGET (research_report.claim_route=TARGET; audited against admitted target_claim with no preset-value presumption)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused dominance-query hits were Burness-Liebeck-Shalev 2013 general theorem, Liebeck-Shalev 1995 asymptotic theorem, Burness survey of strong uniform bounds, and sporadic-group generation literature. None states an HN-specific numeric interval. General theorems assert P2->1 or uniform lower bounds for classes of simple groups; they do not compute sum_{HN maximals} 1/m_i, do not log 6979253/4266108000000, and do not certify the submitted rational endpoints with outward rounding. A general lower bound (even if >0.85) would not substantively imply the exact claimed ledger/width.",
+      "searched": "Dominance form (query 3): sporadic simple group generation probability table/census/database, Liebeck-Shalev/Burness random generation; screened all 20 fused hits for any stronger theorem, exhaustive census, classification or database covering P2(HN) as special case.",
+      "why_not_covering": "No broader theorem exhaustively computes or implies the exact HN endpoints; claim is not a strict subset/special case of a published numeric result."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Literal comparison: prior conclusions are (i) general inequalities/methods, (ii) prescribed-type (2,3,7)/(l,m,n) generation or rank results for HN, (iii) ATLAS maximal orders/indices. None has hypothesis 'G=HN, uniform ordered pair' concluding 'P2 in [4266101020747/4266108000000,1299599999999/1299600000000]'. In particular ATLAS maximal data are inputs, not the summed probabilistic conclusion; union-bound step plus fixed-conjugate step are fresh and not performed in any prior.",
+      "searched": "Compared submitted headline hypotheses/conclusions literally against each nearest prior (general P2 machinery, (l,m,n)-generation of HN, ranks of HN, ATLAS maximal table).",
+      "why_not_covering": "No prior result substantively implies the claimed interval; prior facts are either different invariants or uncombined inputs. Not a recomputation, certificate-only repackaging, corollary, or repackaging of a known stronger fact."
+    },
+    "equivalent_formulations": {
+      "evidence": "Query 2 used synonymous/dual encodings: probabilistic generation, fixed-point-ratio contributions, maximal-subgroup Q(G,H), P(G,2), base-size-adjacent random-generation language for HN/sporadics. Hits returned general fpr/burness-guralnick-type machinery and HN generator/rank papers, but no HN P2/Q value, no sum 1/m_i ledger, no 0.999998364 endpoint in snippets/metadata. Direct ATLAS fetch confirms no P2 field under synonymous headings.",
+      "searched": "Equivalent-formulation search (query 2) plus screening of all fused snippets for P(G,2)/Q(G,H)/fpr/base-size/spread terminology applied to HN.",
+      "why_not_covering": "No synonymous-notation or dual/complement/incidence/matrix/algebraic encoding of the claim found; target not hidden under alternate name."
+    },
+    "exact_database_or_table": {
+      "evidence": "Live ATLAS HN page fetched full maximal-subgroup table (orders+indices) and representation/class data; no P2(HN) entry. GAP CharacterTable library analogously stores tables, not P2. Fused search returned no table/database row with P2(HN), S, or [L,U]. Script's exact S therefore not a lookup.",
+      "searched": "Official databases/tables: live ATLAS v3 spor/HN maximal-subgroup and class pages, archived snapshot, and database-oriented query (query 3) for sporadic P2 tables/censuses/GAP/ATLAS stores.",
+      "why_not_covering": "Exact parameter/object absent from tables/databases; not database repackaging."
+    }
+  },
+  "residual_risks": [
+    "Maximal-class completeness relies on published Wilson et al. classification via ATLAS; auditor verified transcription and live-page agreement but did not independently re-derive completeness from primary classification papers.",
+    "Upper exact endpoint U=1-1/1140000^2 is extremely close to 1 (decimal ceiling 1.000000000); interval strength resides in lower bound L. Decimal U=1.0 is valid outward rounding but trivial as a decimal; exact rational U remains the certified nontrivial upper bound.",
+    "scope_literature_search partial coverage: google provider query_index 1 error 'database is locked' after internal retries; OpenAlex returned 0 hits on all queries. Mitigated by successful SerpBase/Serpent+Crossref coverage and direct official ATLAS verification; one unavailable source never treated as priority evidence."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "0a3ad3a43dc62db652e8e30d3e5d4bed767248b35d946f7a00492783e62a26e2",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] The (2,p)-generation of sporadic simple groups - arXiv",
+        "url": "https://arxiv.org/pdf/1507.01875",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Most dangerous incremental hit: concerns conditional prescribed-order probabilities pi_{2,p}(HN) (random involution x random order-p element generate HN) with maximal-subgroup lower-bound table row HN: 0.74712 (p=3), 0.92483, 0.98583, 0.99574, 0.99995 (p=19). Hypothesis is ordered pairs conditioned on o(x)=2,o(y)=p, not uniform ordered pairs; conclusion is per-p lower bounds, not the submitted uniform P2(HN) exact interval [4266101020747/4266108000000, 1299599999999/1299600000000]. Does not compute sum 1/m_i=6979253/4266108000000, gives no upper bound, and no exact endpoints.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "GENERATIONS OF THE SPORADIC GROUP HN Ali Reza Ashrafi",
+        "url": "https://projecteuclid.org/journalArticle/Download?urlId=10.11650/twjm/1500403850",
+        "base_search_overlap": false,
+        "relationship_to_claim": "(lX,mY,nZ)-generation / Hurwitz-type prescribed-class generation of HN via structure-constant Delta^*(G) criterion. Different invariant (existence of generating triples of prescribed classes) from uniform random-pair probability P2(HN); no P2(HN) value, no S ledger, no [L,U].",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Porting notes",
+        "url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/HN",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Official ATLAS v3 HN page (same database already used in base audit): stores |HN|, 14 maximal-subgroup orders/indices (A12 239500800/1140000 etc.), representations and classes. Provides inputs to the union-bound computation but stores no P2(HN), no sum 1/m_i, no interval endpoints. Input, not conclusion.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Simple groups, generation and probabilistic methods",
+        "url": "https://mathshistory.st-andrews.ac.uk/Groups/2017/slides/burness_t.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "General theorems for all non-abelian simple G: P2(G)>=53/90 and P2(G)->1 as |G|->infinity (Liebeck-Shalev 1995), plus 4-generation of maximal subgroups (Burness-Liebeck-Shalev 2013). Uniform weak lower bound 53/90~=0.588 does not imply the submitted HN-specific lower bound 0.999998364023, gives no upper bound and no exact rational ledger with rounding control.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "GENERATION AND RANDOM GENERATION: FROM SIMPLE",
+        "url": "https://www.ma.imperial.ac.uk/~mwl/maxgenfinal.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "General P2 machinery / maximal-subgroup method for simple groups. Develops the method family without publishing any certified HN-specific interval, HN endpoint, or S=6979253/4266108000000 sum. Method, not the HN numeric result.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check (20 results, 5 overlapping base set) added useful incremental recall but no decisive prior. The only substantively new near-miss is Craven arXiv:1507.01875 (rank 8, overlap false) with an HN pi_{2,p} lower-bound row; verified via abstract (arXiv:1507.01875: (2,p)-generation of sporadics) and snippet table to concern conditional prescribed-order probabilities, not uniform P2(HN), with no exact [L,U] or S ledger and no upper bound, so CLOSE_BUT_NOT_COVERING. Other incremental hits (Ashrafi (l,m,n)-generations; ATLAS v3/v2 maximal pages, perm-rep and A12 program pages; base-size, maximal-count, second-maximal, pairwise-generating papers) are inputs, different invariants, or general P2>=53/90 / P2->1 machinery already screened in base search; none states, computes, or implies P2(HN) in [4266101020747/4266108000000, 1299599999999/1299600000000]. Exact-number query (\"4266101020747\" OR \"6979253/4266108000000\") returned zero snippet hits. Five overlaps (Burness slides, Wikipedia HN maximals, BLS ScienceDirect/imperial PDF, Liebeck-Shalev classical (2,3) paper) merely duplicate base providers/method family. No returned source meets COVERS_CLAIM; hypotheses/conclusions compared literally, title similarity not treated as coverage. Originality PASS, overall PASS, and correctness/value preserved."
+  }
+}
