@@ -1,0 +1,71 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma U correct: for e transcendental >1, e^p-e^q=e^n-e^m=c!=0 forces (p,q)=(n,m) via clearing denominators to P in Z[X] and multiset matching of +1/-1 coefficients; zero case p=q correct. Cell correctness verified: single-diff line x1+w2=x2+w1 trace-correct and entails phi^b; two-diff existential with u+w1_2+w2_1=v+w1_1+w2_2 (v=u-delta) and x1+u+w1_2=t+x2+w1_1 (t=x1-x2+u-d1) globally equivalent to phi(x;b) via unique u=e^{n1} from Lemma U; empty perp correct; cases exhaust T. +-only rearrangements checked. Corollary phi0 K=2 same engine correct. VC(phi0)=2 correct: {1,e} shattered by a=-10,e^2-1,e^2-e,0 where singleton misses hold algebraically for all e>1 (e^2+e-1 in (e^2,e^3) via (e-1)^2(e+1)>0; e^2-e+1 in (e,e^2) via (e-1)^2>0 and e>1); no 3-set shatters via pair-uniqueness forcing full witness to equal pair-only witness. Machines replay PASS (verify.py VERIFY_OK on 83521 quadruples + 4 trace classes; recovery_test.py RECOVERY_OK), general case by proof. Presentation gap: DRAFT claims single SHD but exhibits 3-cell finite honest family and confuses phi vs phi^opp partition note; finite-family-to-distal step needs one-side indiscernibility argument but is closable and entailments themselves are correct. No global NIP assumed. Boundary cases (c!=0, d1!=d2, A empty with 0-param perp, 0 not in G) handled.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline distal decision for phi(x1,x2;y)=G(x1-x2+y) in (R,<,+,e^Z) is substantively implied by prior broader field-distal theorem. Hieronymi-Nell Thm 3.1 proves T_disc distal for (Rtilde,lambda) with lambda for 2^Z; abstract claims general discrete multiplicative subgroup distal; HWX Thm A + survey remark states (Rbar,lambda^Z) NIP/distal for general lambda citing Hieronymi-Nell/Miller. Same proof works for lambda=e with reps 1,e,..,e^{p-1} and monomials e^t, i.e. mechanical 2->e substitution. (Rbar,e^Z) distal implies reduct (R,<,+,e^Z) distal (fewer formulas), hence phi distal. Explicit N=2 formulas/VC=2 are certificate/corollary of known stronger fact, not independent novelty under adversarial checklist.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "TARGET value was dividing-line distal-vs-nondistal decision for transcendental additive-reduct cell. That decision is already implied by broader field (Rbar,e^Z) distal + reduct, so standalone dividing-line payoff evaporates. Remaining explicit N=2/K=2 certificate and VC=2 corollary are certifications/corollaries of known distal fact, not independently motivated before computation in topic (VC not in admission target/fallback qualification as exact invariant goal) and do not meet exact-invariant retrieval clause which requires pre-motivated object+invariant; they are tiny gains/repackaging of known stronger distal theory. Hence no independent retrieval value as TARGET.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Lemma U proof, three-cell entailments, +-only forms, VC=2 intervals verified by algebra; bounded windows replay PASS, general proof analytic.",
+      "title": "DRAFT.md + verify.py + recovery_test.py (local)",
+      "url": null
+    },
+    {
+      "finding": "Abstract: tame pairs and real field with discrete multiplicative subgroup distal; Sec2 distal criterion Thm2.1; Sec3 Thm3.1 T_disc distal for (Rtilde,lambda) with lambda for 2^Z, proof via QE, finite cosets G^[p] reps 1,2,..,2^{p-1}, monomials 2^t*a^q*b^r. Same structure works for e with reps 1,e,..,e^{p-1}.",
+      "title": "Distal and Non-Distal Pairs (Hieronymi-Nell, arXiv:1511.00130)",
+      "url": "https://arxiv.org/abs/1511.00130"
+    },
+    {
+      "finding": "Thm A classifies discrete Gamma<GL_n(C) to defines-Z or interdefinable with (Rbar,lambda^Z); text states (Rbar,lambda^Z) has decidable theory, QE, NIP and distality citing Hieronymi-Nell/Miller, and discusses virtually abelian case. Implies (Rbar,e^Z) distal (e^Z abelian).",
+      "title": "Expansions of real field by discrete subgroups of GL_n(C) (Hieronymi-Walsberg-Xu, arXiv:1809.02273)",
+      "url": "https://arxiv.org/html/1809.02273v1"
+    },
+    {
+      "finding": "Fused retrieval SerpBase Top10 + OpenAlex Top15 + Crossref Top15 x3 queries, no partial, 20 fused results screened; nearest priors are Hieronymi-Nell, HWX, tetrachotomy, discrete-set expansions; no verbatim e^Z additive-reduct cell but broader field-distal covers via reduct.",
+      "title": "scope_literature_search three normalized directions",
+      "url": null
+    }
+  ],
+  "claim_route": "TARGET (as filed; audit normally, no preset-value presumption)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Hieronymi-Nell Thm3.1 distal for (Rtilde,2^Z) + abstract general discrete-subgroup claim; HWX Thm A + remark that (Rbar,lambda^Z) distal for general lambda. Field language strictly richer than (+,<,G).",
+      "reasoning": "Broader theorem covers target as special case: take lambda=e (mechanical 2->e: same finite-index cosets, monomials, QE), get (Rbar,e^Z) distal; reduct to (R,<,+,e^Z) preserves distality; phi is a reduct formula, so distal implied. No larger census needed; this dominance alone defeats novelty of distal decision.",
+      "search": "Dominance query: distal expansions ordered groups sparse predicates classification discrete subgroups Hieronymi Nell NIP census; fetched HWX + Hieronymi-Nell full text.",
+      "verdict": "COVERS"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusion: all formulas of (Rbar,e^Z) distal. Submitted conclusion: phi(x1,x2;y)=G(x1-x2+y) distal in reduct + explicit N=2 cells + VC(phi0)=2. Hypotheses: prior assumes field + discrete cyclic group (superset of additive reduct hypotheses).",
+      "reasoning": "Prior literally implies qualitative distal part: every reduct formula distal. Explicit N=2 is only a certificate (existence already guaranteed) and VC finiteness already guaranteed; exact VC=2 not implied but as corollary of same Lemma U it is a narrow recomputation attached to known distal fact, i.e. certificate/corollary/repackaging of known stronger fact per checklist, not independent theorem.",
+      "search": "Compared theorem hypotheses/conclusions literally (field vs additive reduct, all formulas vs single cell); verified reduct preservation and 2->e mechanical transfer.",
+      "verdict": "IMPLIES"
+    },
+    "equivalent_formulations": {
+      "evidence": "No verbatim (R,<,+,e^Z) G(x1-x2+y) SHD found; alternate names lambda^Z/geometric/cyclic/discrete multiplicative searched; field monomial h=2^t*a^q*b^r vs additive translate x+y checked.",
+      "reasoning": "Different encoding does not escape coverage: field monomial proof uses multiplication unavailable in reduct, but reduct implication goes the other way (rich distal implies poor distal). Dual/complement/incidence/matrix/algebraic recodings do not create novelty; additive translate is reduct special case of field-distal theory.",
+      "search": "Literal: distal SHD (R,<,+,e^Z) G(x1-x2+y) G(x+y) transcendental geometric; Equivalent: alpha^Z/lambda^Z discrete multiplicative geometric honest definitions distal cell VC G(x+y).",
+      "verdict": "NOT_COVERED_VERBATIM_BUT_COVERED_BY_REDUCT"
+    },
+    "exact_database_or_table": {
+      "evidence": "No modnet/arXiv/Crossref/OpenAlex table, OEIS, or official database row records e^Z additive-reduct translate-cell bound or VC=2; search returned only field+2^Z, (Z,<,+,R), (R,<,+,alphaZ) papers.",
+      "reasoning": "No exact database row anticipates the numerical N=2/VC=2 datum, but absence of table row does not establish priority where broader theorem substantively implies qualitative claim and remaining numbers are certificates/corollaries thereof.",
+      "search": "Specialist DBs/repositories/theses/author pages via fused SerpBase/OpenAlex/Crossref + direct arXiv fetches; checked for parameter row for e^Z additive cell.",
+      "verdict": "NO_EXACT_ROW"
+    }
+  },
+  "residual_risks": [
+    "QE/distality proof for 2^Z transfers to e^Z by mechanical 2->e (cosets/monomials); not verbatim published for e but asserted as general lambda^Z distal in HWX survey remark - low risk that e-transcendence breaks discreteness/QE (e^Z still discrete cyclic, virtually abelian so HWX tame case).",
+    "Finite honest family vs single SHD presentation gap: DRAFT does not exhibit single psi; distal follows via one-side indiscernibility pigeonhole argument not spelled out - closable, does not affect originality defeat.",
+    "Machine verifiers check bounded exponent windows (-8..8, -6..6) and representative trace classes; general case by transcendence proof - correctly distinguished, no hidden float dependence."
+  ],
+  "verdict": "REJECT"
+}
