@@ -1,0 +1,83 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline is per-parent inclusion-maximality of F1..F4 plus exact counts. Verified independently: (1) Filed 18x57 integer matrices all have column squared-norm 10 and all pairwise dots +-2, i.e. normalized angle arccos(1/5) \u2014 checked entrywise for all four parents. (2) Method equations correct: with c=sqrt(2/5)=sqrt(10)/5, B^T u=c*s; norm gives c^2 s^T(BB^T)^-1 s=1, i.e. 2 s^T adj(M) s=5 det(M) with M=BB^T; extension gives |s^T adj(B) f|=|det B|. (3) Completeness holds: B invertible (dets 1572864/-786432/786432/1572864, all nonzero) so u=B^-T t unique per sign pattern; enumerating all 2^18 s exhausts all real candidates. Lines-vs-vectors correct: vector non-existence implies line non-extendability. (4) Fresh replay `verify_noext.py ALL` from filed matrices reproduced dets and counts F1 304/0, F2 174/0, F3 224/0, F4 154/0 with VERIFY_OK in ~53s, matching DRAFT and noext_cert.json. Seidel spectra spot-checked (39 eigenvalues -5; maxima 15/14.56/... consistent with published Char polynomials). Zero-extension verdict is basis-independent. Positive 56->57 recovery control not re-replayed but not needed for headline. No floats in verdict path (sympy integer adjugates). PASS.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route: genuinely arose from target 58-extension work (triple-correlation route) per report; absence from topic.json not adverse; judged under ordinary full standard with no presumption. Headline per-parent R18 non-extendability of the four Greaves-Syatriadi-Yatsyna 57-sets is substantively covered by a known stronger theorem. Lin-Munemasa-Taniguchi-Yoshino arXiv:2503.06377 (Mar 2025, published LAA 2025) proves every maximal affine equiangular set in X is strongly maximal (Thm 8.4 via Lemmas 2.6,7.2,8.3) and Appendix explicitly lists I1..I4 whose omega(Ii) induce the four sets corresponding to Seidel matrices Si from Fi in Greaves et al. [13] for i=1..4. Introduction states Yoshino [24] already proved the four sets are strongly maximal and not contained in the 276-set. Strong maximality (no extension even in higher dimension) strictly implies submitted R18 maximality (no real 58th vector in R18). Hence claim is a corollary/repackaging of a known stronger fact under different (switching-root/affine) encoding. New proof method (direct 2^18 integer enumeration) and basis-dependent unit-pattern counts do not establish priority. FAIL, never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As an abstract fact, per-parent maximality of the R18 record parents would be motivated, but retrieval value fails here: (1) The core fact is already retrievable via a strictly stronger prior (Lin et al. Thm 8.4 + Appendix: F1..F4 strongly maximal), so an independent record for the weaker R18-only corollary has no incremental retrieval need. Report's 'first maximality data' premise is materially false. (2) The only arguably new data \u2014 unit-norm pattern counts 304/174/224/154 \u2014 are basis-dependent (fixed bases [35..51,54] etc.), unexplained enumerations with no canonical meaning, no interpretation, and no demonstrated downstream use; certification alone does not rescue them per policy. Fails the exact-invariant clause which requires the value be not known: here it is known and implied by stronger prior. FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Four 18x57 integer matrices F1..F4 (Figs 1-4), col norm sqrt(10), Seidel spectra e.g. Char S1=(x+5)^39(x-4)(x-7)(x-9)^2(x-11)^9(x-13)^4(x-15); record 57 baseline; no maximality claim for F1..F4.",
+      "title": "Equiangular lines in Euclidean spaces: dimensions 17 and 18 \u2014 Greaves, Syatriadi, Yatsyna (arXiv:2104.04330)",
+      "url": "https://arxiv.org/abs/2104.04330"
+    },
+    {
+      "finding": "Thm 1.1/Cor 1.2: >=246896 57-line R18 sets in overlattice of A9+A9+A1; Thm 8.4: every maximal affine set in X is strongly maximal; Sec 1: Yoshino [24] proved the four Greaves sets strongly maximal; Appendix gives I1..I4 inducing Si from Fi in [13] for i=1..4. Direct stronger cover of headline.",
+      "title": "Sets of equiangular lines in dimension 18 constructed from A9+A9+A1 \u2014 Lin, Munemasa, Taniguchi, Yoshino (arXiv:2503.06377)",
+      "url": "https://arxiv.org/abs/2503.06377"
+    },
+    {
+      "finding": "Further 57-sets from A5^3+A1^4 are maximal in R18 but NOT strongly maximal; notes previously known examples (including Greaves/Lin families) ARE strongly maximal. Confirms prior strong-maximality status of F1..F4.",
+      "title": "Sets of equiangular lines in dimension 18 constructed from A5^3+A1^4 \u2014 Munemasa, Szollosi, Yoshino (arXiv:2606.10421)",
+      "url": "https://arxiv.org/abs/2606.10421"
+    },
+    {
+      "finding": "Graph-theoretic saturated/maximal results for then-known max constructions (14<=d<=20, d!=15) plus 56-line R18 construction; predates 57-record, does not cover F1..F4.",
+      "title": "Saturated configuration and new large construction of equiangular lines \u2014 Lin, Yu (arXiv:1801.04502)",
+      "url": "https://arxiv.org/abs/1801.04502"
+    },
+    {
+      "finding": "Proves Lemmens-Seidel claims via pillars/two-graphs; determines maxima exactly in r=8,9,10; generic large-d technology, no R18 57-parent maximality row.",
+      "title": "Equiangular lines and the Lemmens-Seidel conjecture \u2014 Lin, Yu (arXiv:1807.06249)",
+      "url": "https://arxiv.org/abs/1807.06249"
+    },
+    {
+      "finding": "Snippet confirms thesis Ch.8 shows four 57-sets cannot be extended to 276-set; cited by Lin et al. as proving four sets strongly maximal. Primary thesis PDF not fetched (406) but secondary citation in peer-reviewed chain suffices for coverage lead.",
+      "title": "Maximal sets of equiangular lines in Euclidean spaces \u2014 Yoshino thesis (Tohoku)",
+      "url": "https://tohoku.repo.nii.ac.jp/record/138459/files/220325-Yoshino-767-1.pdf"
+    }
+  ],
+  "claim_route": "EMERGENT_FINDING: arose from triple-correlation-constrained 58-extension attempt on documented 57-parents; fragment of target program, not convenient replacement. Absence from topic.json not adverse. Judged under ordinary correctness/originality/value standard with no presumption and no relaxation.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Lin et al. Thm 1.1/Cor 1.2 census of >=246896 57-sets + Thm 8.4 universal strong maximality; Munemasa et al. 2026 confirms previously known examples strongly maximal. Submitted four parents are a 4-element subset.",
+      "reasoning": "A broader object class (all maximal affine sets in X, >=246896) with a stronger conclusion (strong maximality) exhaustively covers the 4-element headline as a special case. Dominance query satisfied: prior broader theorem implies headline.",
+      "search": "Dominance queries: 'N_{1/5}(18) census classification maximum 57 58 59', 'strongly maximal equiangular lines dimension 18', 'Lin Munemasa Taniguchi Yoshino A9 strongly maximal affine equiangular'; fused SerpBase/OpenAlex/Crossref, full coverage, no partial failure.",
+      "verdict": "COVERS \u2014 FAILS originality"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusion: F1..F4 strongly maximal (no extension in any dimension). Submitted conclusion: F1..F4 not extendable in R18 by any real vector. Former entails latter by definition (Lemmas 2.4-2.6 equivalence of affine/line languages).",
+      "reasoning": "Prior need not state headline verbatim. Substantive implication suffices per contract. New integer-enumeration certificate is a recomputation/repackaging of the known stronger fact, not an independent discovery. Counts 304/174/224/154 are new as numbers but are basis-dependent intermediates, not the headline invariant.",
+      "search": "Compared theorem hypotheses/conclusions literally (not title similarity): fetched full HTML of 2503.06377 (Thm 8.4 proof, Lemma 8.3 dual bound, Appendix I1..I4) and 2606.10421 (maximal vs strongly maximal distinction).",
+      "verdict": "IMPLIED \u2014 FAILS originality"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched saturated/saturated configuration, maximal, strongly maximal, switching root, affine equiangular set, Seidel/two-graph/two-distance +-1/5 encodings. Hits: Lin-Yu 1801.04502 saturated configurations; Cao et al. switching-root framework via Lin et al. 2503.06377 Sec 2; Yoshino thesis maximal sets.",
+      "reasoning": "Headline 'no real unit vector with dots +-1/5' = 'maximal/saturated' = 'affine set maximal in R-span' = 'not strongly maximal' weakened to same dimension. Synonymous/dual encodings all lead to same prior cover (Lin et al. Thm 8.4). No encoding escapes implication.",
+      "search": "Queries: literal 57-line R18 maximal/non-extendable Greaves F1-F4; synonymous maximal/saturated/Seidel/two-graph/spherical two-distance +-1/5; fused search full coverage.",
+      "verdict": "COVERS \u2014 FAILS originality"
+    },
+    "exact_database_or_table": {
+      "evidence": "Lin et al. 2503.06377 Appendix lists I1..I4 (45 triples each, 10=0 notation) and states omega(Ii) induce the four R18 57-sets corresponding to Si from Fi in Greaves et al. [13] i=1..4. Filed F1..F4 Seidel spectra match published Char polynomials (39x -5, maxima 15/14.56...).",
+      "reasoning": "Exact objects (the four parents by identifier Fi/Si) already appear in an official table mapping them into the prior classification. Headline is not an unlisted parameter; it is the listed Fi rows' maximality corollary.",
+      "search": "Searched exact identifiers F1 F2 F3 F4 Greaves, Si Seidel matrices, I1..I4 appendix, A9+A9+A1 overlattice tables; fetched appendix text.",
+      "verdict": "LISTED \u2014 FAILS originality"
+    }
+  },
+  "residual_risks": [
+    "Filed matrices assumed correctly parsed from Greaves arXiv source; validated indirectly via norms/dots/spectra but not byte-compared to source TeX.",
+    "Positive 56->57 recovery control not independently re-replayed; affects validation narrative only, not headline zero-results which were replayed.",
+    "Yoshino thesis [24] primary PDF not directly fetched (HTTP 406); coverage rests on Lin et al. peer-reviewed citation + Appendix mapping, which is sufficient but indirect for the thesis itself.",
+    "Preset-fallback infeasibility analysis (three-point optimum 61 vs <58) not audited; irrelevant to emergent headline verdict.",
+    "Basis-dependent unit counts depend on fixed bases; different bases would give different counts \u2014 documented as intermediates, not canonical invariants."
+  ],
+  "verdict": "REJECT"
+}
