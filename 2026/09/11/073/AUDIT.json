@@ -1,0 +1,109 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed both exact-integer auditors: verify_integers.py ALL_INTEGER_CHECKS_OK (T1-T9) and verify_siegel_range.py SIEGEL_RANGE_OK for all 39997 cases 3<=q<40000; independently re-ran scan to 20000 with worst ratio 0.2959 at q=46 and zero violations. Hand-checked Lemma 1 norm/determinant and conjugate bound, Lemma 2 pigeonhole, tail polynomial F(s) expansion, Lemma 3 P(q) domination, transfer Delta>=q/(2K^2H^3), squaring to (5), tail 2A/s<=2.26 and T8 envelope, q=1/q=2/Delta>1 edge cases, and both Dani simultaneous (c^{2/3}>1/63 via T5) and dual (psi>=1/K^4 via K=1+S, K^4<=1000 via T4) derivations; all boundary conditions and sign-absorption for negative q verified. One inessential transcription typo in DRAFT Sec 6 (77^4 numerator written 35152921 vs true 35153041) leaves inequality 77^4<=160M true with large margin and does not affect the headline.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live search (SerpBase/OpenAlex/Crossref, full coverage on first 3-query call) plus full-text fetch of the nearest prior Briggs math/0211143 establishes novelty: Briggs computes explicit badly approximable pairs only in the totally real field Q(2cos(2pi/7)) with dual constants ~0.2857 for different integral-basis pairs, not the cubic vector (2^{1/3},2^{2/3}) in Q(cbrt2) nor constant 1/500 nor any Dani ledger. Broader HAW/Schmidt-winning theorems and Dani+subspace work are qualitative/ineffective and compute no pointwise constant; Basalov-type Cn lower-bound work concerns sup over all vectors, not this vector. No database, continued-fraction table, or synonymous/dynamical reformulation covers the certified 1/500 gap and 1/63,1/10 minima.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: exact 1/500 simultaneous badly approximable gap for the canonical cubic pair (2^{1/3},2^{2/3}) with explicit Dani excursion ledger (1/63 simultaneous, 1/10 dual) was fully proved for all q>=1. Object and invariant were motivated before computation (effective singular-vs-bad boundary, auditable bounded-orbit calibration, reusable Dani-transfer witness); value was not known or mechanically implied (subspace ineffective, HAW existential, 1D continued fractions do not imply joint 2D bound); future dynamicists/approximators can reuse the precise certificate. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration; non-optimality is disclosed and does not erase the first effective witness. No ADMISSION_DEFECT: preflight tiny-q scan and normalization audit confirmed by independent replay.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Re-executed inputs/artifacts/verify_integers.py: PASS T1-T9 ALL_INTEGER_CHECKS_OK (126^3=2000376, 1259^3=1995616979, 1260^3=2000376000, K<=77/20, 63^3=250047>250000, T6, det==norm on 500 triples, T8 136878981008<=200000000000, F coeffs positive).",
+    "Re-executed inputs/artifacts/verify_siegel_range.py: SIEGEL_RANGE_OK checked=39997 in ~0.5s covering every q in [3,40000) with minimal Siegel A(q) and exact inequality 4*385^4*H^6<=250000*q^3*100^4 plus tail anchor T8.",
+    "Independent float corroboration via verify_scan.py to Q=20000: worst q=46 R=0.295925 margin 147.96x over 1/500, zero violations; reported 10^6 run identical per DRAFT.",
+    "Full-text primary source Briggs arXiv:math/0211143 (J. Number Theory 103(1) 71-76, doi:10.1016/S0022-314X(03)00104-5): explicit badly approximable pairs only for integral bases of Q(2cos(2pi/7)) with c*~0.2851-0.2857 at stated CF positions; construction, field, vectors, and constant definition all disjoint from (cbrt2,cbrt4) with 1/500.",
+    "Fused scope_literature_search call 1 (3 queries, 20 results, full provider coverage, partial=false): Dani correspondence, HAW/winning, subspace, Basalov Cn-estimation sources are qualitative or sup-over-all-vectors with no pointwise 1/500 certificate for (2^{1/3},2^{2/3}); snippets screened and decisive sources fetched.",
+    "Basalov arXiv:1804.05385 abstract + full HTML: estimates of best-approximation constant Cn lower bounds for n=5,6 via critical parallelepipeds (sup over all vectors), not a pointwise badly approximable constant or Dani ledger for the named cubic pair.",
+    "Kristensen-Thorn-Velani math/0405433 framework: Bad and Bad(i,j) sets have full Hausdorff dimension via general resonant-set machinery; existential dimension result names no vector and computes no numeric gap, so no implication of 1/500."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Beresnevich Badly approximable points on manifolds, An 2D winning, Bad(w) HAW, Kristensen-Thorn-Velani full-dimension framework, and Basalov Cn lower-bound program prove existential/winning/full-dimension or sup-over-all-vectors bounds with no named algebraic pair and no numeric uniform constant for (2^{1/3},2^{2/3}).",
+      "reasoning": "Qualitative abundance and uniform suprema neither compute nor imply the pointwise certified 1/500 gap with successive-minima ledger, and are not implied by it; the explicit witness stands apart as an independent effective contribution.",
+      "search": "weighted badly approximable HAW covering theorem explicit constant for named cubic vector"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Dani 1989 correspondence plus Schmidt subspace theorem imply only qualitative badly approximable membership with some ineffective c>0 for algebraic vectors; Briggs 2003 computes c*~0.2857 only for Q(2cos(2pi/7)) integral-basis pairs (different field/disciminant from Q(cbrt2)), and Cassels/Davenport transference is a method, not a prior numeric value for this pair.",
+      "reasoning": "No prior theorem mechanically yields max|q theta^i-p_i|>=q^{-1/2}/500 for all q or the 1/63 and 1/10 Dani minima; the submitted proof supplies the first effective number and ledger rather than repackaging a known stronger fact.",
+      "search": "Dani correspondence plus Schmidt subspace implication versus explicit 1/500 certificate for (cbrt2,cbrt4)"
+    },
+    "equivalent_formulations": {
+      "evidence": "Literature states simultaneous Bad(R^2) equivalently as bounded g_t u_alpha Z^3 trajectories and uniform first-minima lower bounds (Dani; Kleinbock-Weiss; Einsiedler-Ghosh-Lytle); fused search returned no source instantiating either the Diophantine inequality or the dynamical minima side at constant 1/500 (or 1/63, 1/10) for theta=2^{1/3}.",
+      "reasoning": "Checked both inequality paraphrase max||q alpha_i||>=c q^{-1/2} and dynamical paraphrases (simultaneous and dual sup-norm minima); the claim is one literal two-sided target with no already-settled synonymous/dual/complement/matrix reformulation deciding it.",
+      "search": "Dani correspondence simultaneous approximation bounded orbit g_t u_alpha Z^3 first minimum cubic vector cbrt(2) cbrt(4) successive minima"
+    },
+    "exact_database_or_table": {
+      "evidence": "No continued-fraction table, LMFDB class/discriminant table, or Bad-number list yields a joint two-dimensional simultaneous constant or Dani excursion ledger; 1D partial quotients of cbrt(2) cannot imply the R^2 sup-norm bound, and Briggs tables list only Q(2cos(2pi/7)) pairs with different constants.",
+      "reasoning": "Direct lookup cannot resolve the target because the needed joint excursion data for (2^{1/3},2^{2/3}) does not exist in any official database or table; fresh Siegel/Liouville/Cassels computation plus finite-range audit was required.",
+      "search": "LMFDB continued fraction table simultaneously badly approximable constant lookup for cubic pair"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "715b85cdbe0adf483dc7ba8bebcc08b49a91c1db13da852c683e06054c6b5c1c",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] Bounded orbit conjecture and diophantine approximation - Brandeis",
+        "url": "https://people.brandeis.edu/~kleinboc/Pub/india.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "States the general Dani equivalence that a matrix or vector is badly approximable if and only if its diagonal lattice trajectory is bounded, with no named cubic vector (2^{1/3},2^{2/3}), no explicit constant 1/500, and no uniform first-minimum values 1/63 or 1/10; it supplies only the qualitative framework the headline instantiates.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Some explicit badly approximable pairs",
+        "url": "https://arxiv.org/abs/math/0211143v1",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Computes explicit badly approximable pairs only as integral bases of the totally real field Q(2cos(2pi/7)) with dual constants near 0.2857 for different vectors and a different discriminant and field from Q(2^{1/3}); it names neither (2^{1/3},2^{2/3}) nor constant 1/500 nor any Dani excursion ledger, so its hypotheses and conclusions are disjoint from the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] The generation of badly approximable pairs for ... - Lancaster EPrints",
+        "url": "https://eprints.lancs.ac.uk/id/eprint/126933/1/Briggs_Hadley_IMA_11thICMSP_final.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Surveys the two-dimensional simultaneous constant c2 with folklore value 2/7 and cites Briggs 2003 value about 0.28571 as the highest known for other pairs; it states no lower bound 1/500 for the specific cubic pair (2^{1/3},2^{2/3}) and no Dani minima, hence does not imply or subsume the certified pointwise gap.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "The two-dimensional Diophantine approximation constant. II",
+        "url": "https://msp.org/pjm/1983/105-1/pjm-v105-n1-p05-s.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies dual versus simultaneous constants c_x and c2 restricted to pairs where 1,alpha,beta is an integral basis of a real cubic field, giving equality of suprema and a 2/7 criterion; it proves no pointwise explicit inequality for (2^{1/3},2^{2/3}) at 1/500 and no 1/63 or 1/10 orbit minima, so it cannot cover the submitted effective witness.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "paper5.dvi",
+        "url": "https://personal.math.ubc.ca/~bennett/paper5.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves explicit simultaneous lower bounds only for different vectors (sqrt(2),sqrt(3)) with exponent about 1.8161 and for binomial fourth-root families, with different numbers, different exponent, and tiny constants like 1e-10; its hypotheses name neither 2^{1/3} nor 2^{2/3} and its conclusion with q^{-1.8161} neither implies nor contains the q^{-1/2}/500 bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Keith Briggs: : worst approximable pair",
+        "url": "https://keithbriggs.info/worst_approximable_pair.html",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Author page reporting the largest-known explicit pair constant 0.285710526941 for sup-norm simultaneous approximation of other irrational pairs near 2/7; it concerns maximizing pairs in a different field and states no uniform 1/500 lower bound for (2^{1/3},2^{2/3}) nor any Dani ledger, so it is a disjoint extremal record.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Bounded orbits of diagonalizable flows on ⁢ / ⁢ SL 3 ( R ) ...",
+        "url": "https://arxiv.org/html/1501.05409v3",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Restates the Dani correspondence with the same Kleinbock-Margulis normalization g_t=diag(e^{t/2},e^{t/2},e^{-t}) that bounded F^+ orbit equals badly approximable, including weighted versions; it computes no explicit constant for any named algebraic vector and no first-minimum thresholds, so the equivalent formulation remains uninstantiated at 1/500, 1/63, and 1/10.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with overlap_result_count 2 of base_candidate_count 40. The only overlaps were the already-audited Briggs explicit-pairs paper and its semantic-scholar mirror, both previously fetched in full and found disjoint in field, vector, and constant. Incremental novelties beyond the base fused providers were the Kleinbock bounded-orbit survey, Cusick II on cubic-field constants, Bennett explicit bounds for (sqrt2,sqrt3), the Briggs-Hadley generation survey, the Briggs worst-pair page, and the SL3(R) bounded-orbits exposition; each was compared literally on hypotheses and conclusions and each is either a qualitative Dani equivalence, a sup-over-all-vectors or different-field result, or an explicit bound for different vectors and exponents. No returned source states, implies, or tabulates max(|q2^{1/3}-p1|,|q2^{2/3}-p2|)>=q^{-1/2}/500 for all q or first minima 1/63 and 1/10 for this pair in any synonymous, dual, complement, matrix, or database encoding. Hence the terminal search adds useful corroborating recall but no decisive prior; originality PASS is preserved and correctness and value are untouched."
+  }
+}
