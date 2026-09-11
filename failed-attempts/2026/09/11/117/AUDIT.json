@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified by independent replay: certify_disproof.py prints DISPROOF_OK (18/18); derive_s22.py reproduces n1=2875 and N2=4876875/8 at three weight sets. Midpoint identity (3+11)/2=7 forces degree-2 edge factor (li+lj)/2-lk=0 for edge (2,4)/(4,2) identically in (l0,l1); quintic numerators Q=42455111372548875 nonzero so genuine poles not 0/0. Smoothing identity (3-7)+(11-7)=0 forces S=0 for chains (2,3,4),(4,3,2) with nonzero numerators. Census 16/80 verified by enumeration (7+7 edge plus 2 smoothing, disjoint). Hence S22 undefined near diagonal, target Laurent claim void. Secondary 64-term exactly-double-pole fit assumes max order 2 but scaling shows order >=6 at t=5, so exact-double characterization is overstated; the essential target falsification does not depend on it.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused scope_literature_search over literal (-125/96, S22, 2+2 diagonal), equivalent (GP edge/node-smoothing/quintic twist chain), and dominance (quintic degree-4 GW, Aspinwall-Morrison, equivariant partial-sum database) found no prior 2+2 diagonal pole/residue lemma, no S22 singularity census at (3,7,11), and no equivariant partial-sum residue table. Graber-Pandharipande and relative localization give general denominators and full-sum regularity only; they do not sum the 2+2 labelings or evaluate this diagonal. The singularity statement is new as a recorded claim even though its arithmetic core is elementary.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: topic.audit_preflight claimed spectators (3,7,11) keep transverse denominators nonzero and diagonal analysis legitimate; replay proves this false via (3+11)/2=7 and (3-7)+(11-7)=0. The negative resolution is therefore vacuity plus an arbitrary-parameter fact: a non-generic integer triple makes 16 fixed loci non-isolated so S22 is undefined, with explicit disclaimer of any generic-spectator claim. It does not establish the envisioned diagonal-cancellation diagnosis, transferable simple-pole rule, or higher-pole obstruction for generic chains; it only shows this parameter choice was inadmissible. Per STANDARD and TARGET policy, a disproof consisting only of vacuity/cheap mismatch/arbitrary parameter fact fails value even when literally false. No independently retrievable invariant, boundary, or method remains.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Replayed inputs/artifacts/certify_disproof.py -> DISPROOF_OK 18/18 (calib n1 x3, N2 x3, AM identity, E24/E42 zero at two (l0,l1) points, midpoint identity, Q nonzero 42455111372548875, smoothing identity, 16/80 census, h^-2 nonzero at t=0,5)",
+    "Replayed inputs/artifacts/derive_s22.py -> n1=2875 at three weight sets and total_N2=4876875/8 at three weight sets, confirming localization assembly signs and 1/|Aut| routing",
+    "Independent check: edge (2,4) d=2 factor (3+11)/2-7=0 identically in (l0,l1) in H^0(O(2)) Euler table; quintic edge weights (110-8c)/2 never zero for c=0..10; chain (2,3,4) S=-((3-7)/2+(11-7)/2)=0 with V,w1,u nonzero at generic diagonal t!=7",
+    "Independent check: census algebra 7 triples per resonant edge (4+4-1 overlap) x2 edges =14 plus 2 smoothing chains =16/80; smoothing chains verified nonzero numerators; sample chain_term raises ZeroDivisionError confirming singularity",
+    "Fused scope_literature_search (SerpBase+Serpent+OpenAlex+Crossref, 20 results, full coverage): Graber-Pandharipande Localization of virtual classes (alg-geom/9708001), Virtual localization revisited, quintic GW papers (Wu, Zinger-type), no 2+2 S22 residue or singularity census; literal -125/96 query returns only irrelevant records"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Graber-Pandharipande virtual localization and relative/virtual localization revisited prove general smoothing denominators and full-sum regularity, but perform no diagonal pole-order analysis for the degree-4 2+2 quintic subfamily and state no residue.",
+      "reasoning": "Full-sum regularity does not imply proper-subfamily cancellation or undefinedness; however the actual undefinedness here comes from transverse spectator resonance, not diagonal structure, so no broader theorem is needed and none covers the singled-out (3,7,11) census.",
+      "search": "relative virtual localization node smoothing denominator pole order chain graphs quintic"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Degree-2 edge/quintic formulas give (li+lj)/2-lk denominators and nonzero quintic numerators as inputs; plugging (3,11,7) yields zero mechanically, with Q nonzero confirmed by exact arithmetic.",
+      "reasoning": "Prior factor formulas mechanically imply each individual zero once weights are substituted, but no prior work performs the 80-triple 2+2 summation or records S22 undefined at these spectators; the disproof is new as a record yet derives from direct substitution rather than new structural summation.",
+      "search": "degree 2 edge denominator quintic numerator 2+2 chain diagonal residue S22"
+    },
+    "equivalent_formulations": {
+      "evidence": "Capped, relative, Hodge-integral and normalization-subtraction rewritings of node/edge contributions exist in localization literature but contain no 2+2 diagonal residue or singularity evaluation at spectators (3,7,11).",
+      "reasoning": "Any synonymous node-smoothing or Euler-sequence encoding contains the same (3+11)/2-7 zero factor, so an equivalent formulation would reproduce the same vacuity rather than provide a prior record covering the claim.",
+      "search": "node smoothing contribution equivalent formulations capped relative Hodge 2+2 quintic diagonal"
+    },
+    "exact_database_or_table": {
+      "evidence": "Consulted quintic/GW references and instanton tables store non-equivariant totals (n1=2875, N2=4876875/8, n2=609250); none tabulates equivariant partial-sum pole orders, diagonal residues, or S22 singularity data for any splitting type.",
+      "reasoning": "The residue -125/96 and the 16/80 singularity census cannot be obtained by lookup; database absence is confirmed, but absence does not confer value on an arbitrary-parameter vacuity finding.",
+      "search": "equivariant partial sum diagonal pole residue database quintic localization instanton table"
+    }
+  },
+  "residual_risks": [
+    "Secondary 64-term remainder exact-double-pole claim is misspecified: fits assuming exponents -2..4 while per-term valuation and h-scaling at t=5 show dominant order ~h^-6 (ratio ~64 on halving h); true Laurent order exceeds 2, so quoted h^-2 fractions are aliased and exact-double characterization unproved (weaker no-simple-pole moral still holds).",
+    "Calibration inherits accepted totals n1=2875, N2=4876875/8 (n2=609250 via Aspinwall-Morrison) without independent geometric re-derivation; sign/Aut routing validated only by matching those totals.",
+    "No generic-spectator conclusion: disproof leaves open whether a generic 2+2 subfamily has simple pole with some residue; future work must choose transverse-generic spectators and redo denominator ledger."
+  ],
+  "verdict": "REJECT"
+}
