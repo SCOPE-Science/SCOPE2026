@@ -1,0 +1,67 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: submitted headline is disproof H3(UConf_n(Theta_(2,3,4));Z)=0 for all n, hence s_*:0->0, coker 0, no Z/2, rational map vacuously surjective. Verified step-by-step: (1) Theta_(2,3,4) subdivided model inventory 8V/9E/chi=-1/valences (3,3,2^6) correct, replayed VERIFY_OK. (2) Smoothing to minimal theta (2 vertices, 3 parallel edges) is a homeomorphism of underlying 1-complexes, so B_n homeomorphic and integral homology identical; graph-morphism discussion unnecessary but harmless. (3) Reduced Swiatkowski complex degree bound: each vertex contributes at most one degree-1 factor (empty vs h_i-h_j), so degree <= |V|. Applied to Gamma_min with |V|=2 gives C_d=0 for d>=3 in every weight, hence C_3=0 at weights 5,6 and H_3=ker/im=0/0=0. Transferred by (2) to Theta_(2,3,4). Holds for any coefficients. Stabilization-cokernel logic 0->0 correct; choice of edge irrelevant. Evidence type is PROOF modulo cited standard quasi-isomorphism H_*(B)\u2245H_*(~S) (ADK Thm 2.10 / Prop 4.9) and homeomorphism-invariance, both correctly cited not re-proved; script only certifies trivial combinatorics C(2,3)=0 and chi inventory. No boundary error: bound independent of weight n, covers all n including small n. Ordered configs explicitly excluded. No computation defect.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Submitted vanishing H3=0 for a 2-essential-vertex graph is substantively implied by prior stronger theorems. It is a direct corollary of the known homological-dimension bound and of the Theta_n homology tables, not a new map-level fact. Fails adversarial coverage: synonymous encodings, broader theorems, and exact family tables all cover it. See decisive_checks. Timestamp/failed search cannot establish priority; prior need not state Theta_(2,3,4) verbatim.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Correct disproof that admitted target conjunction is impossible, but as a standalone retrieval it is a textbook restatement / immediate corollary of the standard Swiatkowski degree bound with no new invariant, method, or downstream use. The object (theta graph) is natural and was motivated by the target, but the value H3=0 is mechanically implied by the 2-essential-vertex bound and already contained in Theta_n Betti formulas (only i=0,1,2 non-zero). No general theorem, no new witness (witness clause is unsatisfiable by definition once C_3=0), no motivated exact datum a future researcher would need to retrieve beyond the standard bound. Correcting an ill-posed target premise does not by itself create independently retrievable value under the narrow-datum standard. Intrinsic low value / textbook corollary => REJECT, not repairable via bounded addition.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract confirms edge-stabilization, Swiatkowski complex S(Gamma), reduced variant, and functorial model H_*(B)\u2245H_*(S). Sec 2.3 Def 2.11 reduced complex uses empty + differences h_ij degree 1 per vertex; Sec 3 Example 3.5 Theta_n Betti numbers listed only for i=0,1,2 (implying H_{>=3}=0) with degree formula matching Delta invariant. Theta graph is large-graph example; smoothing/subdivision invariance discussed.",
+      "title": "Edge stabilization in the homology of graph braid groups (An-Drummond-Cole-Knudsen, arXiv:1806.05585)",
+      "url": "https://arxiv.org/abs/1806.05585"
+    },
+    {
+      "finding": "States homological dimension of configuration space of graph bounded above by number of vertices of valence greater than 2 (snippet). For Theta_(2,3,4) that number is 2, directly implying H_3=0 for all n. Stronger general theorem covering claim.",
+      "title": "Estimates for homological dimension of configuration spaces of graphs (Swiatkowski, Colloq. Math. 89(1))",
+      "url": "https://doi.org/10.4064/cm89-1-5"
+    },
+    {
+      "finding": "Thesis treats unordered configuration spaces of graphs, theta graphs Theta_n (2 vertices, n edges), Swiatkowski complex, and edge stabilization; confirms theta family is standard studied object with existing homology treatment. PDF text extraction failed but TOC/metadata sufficient as candidate lead; not needed for implication which already follows from above two sources.",
+      "title": "On the homology of configuration spaces of graphs (thesis, AMS Laurea 23348)",
+      "url": "https://amslaurea.unibo.it/id/eprint/23348/1/On%20the%20homology%20of%20configuration%20spaces%20of%20graphs.pdf"
+    },
+    {
+      "finding": "Fused retrieval (SerpBase Top10 + OpenAlex Top15 + Crossref Top15 x3 queries, no partial failure) returned homological-dimension bound, Theta_n asymptotics, and configuration-space surveys as top hits; no source records integral H3 edge-cokernel Z/2 at Conf_5->Conf_6 \u2014 consistent with vanishing. Retrieval confirms broader covering theorems exist.",
+      "title": "scope_literature_search fused results (3 queries)",
+      "url": "local:tool_scope_literature_search"
+    }
+  ],
+  "claim_route_inference": "research_report.claim_route=TARGET stated; audited normally against admitted target with no preset-value presumption for the disproof. Disproof headline judged separately from admitted target's value.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Swiatkowski 2001 bound: h-dim(B(\u0393)) <= #{v:val(v)>2}; ADK Sec 2-3: reduced-complex degree <= |V| on minimal model + Degree Theorem D^i=Delta^i-1; Example 3.5 Theta_n homology concentrated in degrees 0,1,2.",
+      "search": "Dominance query 'graph braid group homology dimension classification census homological vanishing stable range' + equivalent query on Swiatkowski reduced-complex degree bound; screened fused Top-20 and fetched ADK abstract/HTML.",
+      "why_not_covering_or_covering": "COVERS and defeats originality: any graph with 2 essential vertices has H_3=0 for all n/k in any coefficients. Theta_(2,3,4) has exactly 2 essential vertices, so submitted H_3=0 for all n is a strict special case of this broader theorem. No new parameter range or object class beyond it."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior: C_d(~S(\u0393_min))=0 for d>=3 when |V_min|=2; H_*(B)\u2245H_*(~S); B_n homeomorphism-invariant under smoothing/subdivision. Submitted: same count C(2,3)=0 applied to same minimal theta, same transfer, same conclusion H_3=0 and coker 0.",
+      "search": "Compared DRAFT Sec 1-4 Lemma/proof literally against ADK Defs 2.7/2.11 and Swiatkowski bound; ran replay script confirming only trivial combinatorics.",
+      "why_not_covering_or_covering": "SUBSTANTIVELY IMPLIED: submitted proof is verbatim application of prior definitions/count with no additional argument. Prior implies headline by one-step instantiation; recomputation/certificate of C_3=0 does not add originality. FAIL."
+    },
+    "equivalent_formulations": {
+      "evidence": "Unordered B_n=UConf_n=Conf_n/Sym = graph braid group K(\u03c0,1) homology; minimal vs subdivided theta homeomorphic; Swiatkowski vs Abrams vs singular chains quasi-isomorphic models; cohomology/UCT duals equivalent for vanishing.",
+      "search": "Literal query 'H3 unordered configuration space theta graph Theta_(2,3,4) vanishing' + equivalent query on Swiatkowski/essential-vertex encodings; screened snippets/metadata and ADK Sec 2.1-2.3.",
+      "why_not_covering_or_covering": "No synonymous-notation escape: Theta_(2,3,4) with lengths (2,3,4) is homeomorphic to minimal Theta_3 (2 vertices, 3 edges); B_n/UConf_n/graph-braid homology coincide; reduced vs unreduced complex give same homology. Prior results stated in any of these encodings still cover the claim."
+    },
+    "exact_database_or_table": {
+      "evidence": "ADK Example 3.5 gives dim H_i(B_k(Theta_n)) for i=0,1,2 only (polynomial growth degree 0/0/n-1), implying H_3=0 for Theta_n family which contains Theta_(2,3,4) up to homeomorphism; thesis TOC lists theta-graph homology treatment; no exact table lists length triple (2,3,4) separately because subdivision irrelevant.",
+      "search": "Searched exact object Theta_(2,3,4) H3 table/census and Theta_n Betti tables; inspected ADK examples and thesis metadata.",
+      "why_not_covering_or_covering": "COVERED AS SPECIAL CASE: exact length triple needs no separate table \u2014 homeomorphism class determines B_n homology, and Theta_n tables exhaust that class with H_3=0. Absence of a row labeled '(2,3,4)' is not novelty."
+    }
+  },
+  "residual_risks": [
+    "Correctness relies on cited ADK quasi-isomorphism and homeomorphism-invariance without re-proof; both are standard and correctly applied, risk negligible.",
+    "Script verifies only trivial identity C(2,3)=0 and chi inventory, not the cited isomorphism; classified as proof-with-citation, not experimental evidence \u2014 no hidden computational risk.",
+    "Originality conclusion does not depend on inaccessible thesis full text; Swiatkowski bound + ADK Theta_n formulas alone suffice for implication."
+  ],
+  "verdict": "REJECT"
+}
