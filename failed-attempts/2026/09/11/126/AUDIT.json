@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently re-executed inputs/artifacts/verify_A3.py; prints OVERALL: ALL_PASS. Verified s3=max is semilattice (comm/assoc/idem), m3=median is global majority (3x16 cases), theta blocks {0,1}|{2,3} is congruence for s3 (16/16) and m3 (64/64) because blocks are chain intervals and threshold map preserves max and median, quotient is 2-element max-semilattice plus 2-element majority, c3=m3 symmetric idempotent, Jonsson d0=x,d1=m3,d2=z satisfies d1(x,x,z)=x, d1(x,z,z)=z, d1(x,y,x)=x (hence CD), e(x1..x4)=m3(x2,x3,x4) satisfies all five checked edge identities (each reduces to majority with >=2 x among last three args), theta-preservation over 65536 pairs and quotient coherence 256/256 hold, two-generated census correct, exhaustive 4096 loop-free digraph census yielding 0 survivors replays. Inferences are sound; Jonsson/edge are deductive proof, census is exhaustive finite proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL (ADMISSION_DEFECT): Report claim_route=TARGET, audited as TARGET. Delivered A3=({0,1,2,3},max,median) is the textbook 4-element chain distributive lattice with global majority, not a hard square instance with only block-local majority. Admission preflight claimed general lifting/edge theory decides no 4-element square instance and multi-formulation search found no hit; that is false for this instantiation because classical majority=>CD (Jonsson) and majority(NU)=>edge (Markovic-McKenzie 2008, Berman et al. 2010) mechanically imply the headline. Specifically e(x1,x2,x3,x4)=m(x2,x3,x4) is the standard dummy-variable NU-to-edge construction; all five edge identities collapse to m(y,x,x)=m(x,y,x)=m(x,x,y)=x. Title/embedding difference does not avoid coverage: prior result substantively implies the claim. No new table, obstruction, or lifting lemma beyond textbook chain lattice.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL (ADMISSION_DEFECT): Correct and exhaustive but intrinsically textbook restatement with no independent retrieval value under STANDARD. Admission preflight claimed both term and obstruction spaces nontrivial and neither resolution reduces to cheap defect; delivered instance refutes that because global chain-median majority makes 3-edge existence and CD immediate by standard lemmas, and zero-obstruction census is then expected corollary. This is mere parameter substitution (k=3 edge from 3-ary majority on 4-chain), textbook exercise (every lattice reduct has majority hence CD and edge), and certification alone per STANDARD does not create value. It is not the motivated open lifting boundary (block-local majority without global majority); it fixes the trivial chain family where answer is mechanically implied, so future researcher needs no exact 256-row table. No new boundary, lemma, or downstream use beyond restating majority implies edge.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-executed inputs/artifacts/verify_A3.py in audit workspace: OVERALL: ALL_PASS; confirmed 64/64 associativity, 3x16 majority, 16/16 and 64/64 congruence, Jonsson 16/16 each, 5x16/16 edge identities, 65536-pair preservation, 256/256 coherence, 4096-digraph census count 0.",
+    "Berman-Idziak-Markovic-McKenzie-Valeriote-Willard, Varieties with few subalgebras of powers, Trans. AMS 362 (2010) 1445-1473: defines k-edge terms and few-subpowers Maltsev class (fused search rank 1).",
+    "Markovic-McKenzie, Few subpowers, congruence distributivity and near-unanimity terms, Algebra Universalis (2008): edge+Jonsson iff near-unanimity; hence 3-ary majority (NU) yields k-edge for all k (fused search rank 3).",
+    "Jonsson term (Wikipedia) + Lemma 1 Any variety with majority term is congruence-distributive (majority is n=2 Jonsson); Bergman majterm.pdf: any variety possessing majority is CD, any lattice reduct has majority (fused search ranks 10-11,16).",
+    "DRAFT.md + topic.json audit_preflight/target_claim comparison: target required quotient-coherent 3-edge or quotient-compatible obstruction for square type; DRAFT instantiates chain max/median with global majority, collapsing open lifting question to trivial lattice case."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Berman et al. 2010 defines edge terms for few-subpowers; Markovic-McKenzie 2008 proves NU iff edge+Jonsson. Chain median m3 is 3-ary NU (global majority verified 48/48). Hence broader theorem yields 3-edge terms for every algebra with majority, covering 4-chain as special case with no extra quotient work.",
+      "reasoning": "Broader coverage subsumes the claim: instantiate general NU=>edge theorem at the verified global majority m3 with dummy-variable e=m(x2,x3,x4). No quotient-lifting argument is needed; admission claim that general theory does not imply instance verdict is false for this chain instance.",
+      "search": "Berman Idziak Markovic McKenzie Valeriote varieties with few subpowers edge term theorem majority implies edge"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior lemmas: (i) majority => CD via Jonsson d0=x,d1=m,d2=z; (ii) majority (NU) => k-edge via e ignoring one argument; both verified line-by-line in verify_A3.py. Headline conjuncts (CD variety, 3-edge term, hence no smooth loop-free obstruction) are direct substitutions into those lemmas.",
+      "reasoning": "Claim is mechanical corollary, not new consequence: assuming verified global majority, conclusion follows by universally quantified textbook inference with no novel lifting derivation. A prior source need not list the 256-row table verbatim to imply it.",
+      "search": "majority term implies congruence distributivity Jonsson chain and near-unanimity implies edge term construction"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched majority-to-edge dummy-variable formulation and Jonsson n=2 formulation; found majority is special case n=2 Jonsson and NU=>edge equivalence. Submitted e(y,y,x,x)=x, e(y,x,y,x)=x, e(y,x,x,y)=x, e(x,x,y,x)=x, e(x,x,x,y)=x each equal m with two x among last three args, i.e. synonymous restatement of m(x,x,y)=m(x,y,x)=m(y,x,x)=x.",
+      "reasoning": "Under synonymous notation (median=majority=3-ary NU, 3-edge with first variable dummy), headline is literally the majority identities rewritten. Title similarity is irrelevant; hypothesis-by-hypothesis comparison shows equivalence to textbook majority exercise.",
+      "search": "majority operation yields k-edge term distributive lattice Berman edge identities e(y,y,x,x)"
+    },
+    "exact_database_or_table": {
+      "evidence": "No UACalc/minimal-Taylor census entry needed: the table is chain max (max(x,y)) and chain median (sorted middle) on {0,1,2,3} plus e=m(x2,x3,x4). Chain lattices, their max/min/median tables, interval congruences {0,1}|{2,3}, and 2-element max-semilattice quotients are textbook, not catalogue gaps; minimal-Taylor census exclusion is irrelevant because object is distributive lattice.",
+      "reasoning": "Exact-table search confirms repackaging, not absence: the 256-row edge_table.json is generated by closed-form m3(x2,x3,x4) from standard chain operations. A future lookup for chain-lattice majority/edge finds it in textbooks, so no new exact witness is recorded.",
+      "search": "4-element chain median majority 3-edge term e(x1,x2,x3,x4) congruence distributive variety"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
