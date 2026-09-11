@@ -1,0 +1,78 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent stdlib replays PASS. Ledger SHA-256 f08040927748263c528ae0981726da1cf7653d264b1575dad16ee673c77b6293 matches. 84 distinct vertices, symmetric simple 3-regular (126 edges, no loops). All-pairs BFS from committed table re-run independently: connected, D=8, radius 7, hist {7:61,8:23}, 30 unordered diametral pairs, committed pair (11,59) distance 8 with 9-node path whose consecutive pairs are edges. Independent Fp2 Phi_2 evaluator (integer-coefficient implementation, separate code path) gives (0,0) on all 8 path links and symmetric. Seed y^2=x^3+x+7 direct point count =1010 (trace 0, supersingular), j recompute =155, on path position 3. QNR check: 2..10 residues, 11 nonresidue, so F=Fp[s]/(s^2-11) correct. Phi_2(0,Y)=(Y-54000)^3 and Phi_2(1728,Y)=(Y-1728)(Y-287496)^2 and symmetry verified over Z. All 16 Velu steps replayed (kernel on curve, translated-Velu formulas Bp-3t^2 / 2t^3-tBp reproduce codomain, domain/codomain j match path links forward and reversed). p=1009=1 mod 12 so j=0 (needs 2 mod 3) and j=1728 (needs 3 mod 4) correctly absent; count 84=floor(1009/12) matches theory. Full 84x1M Fp2 rescan not repeated; closure completeness rests on BFS+count+reciprocity, residual risk negligible. verify.py BASE path hardcodes research workspace (not portable) but audit replayed without it.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL. Core headline integer D=8 at p=1009, l=2 is already published in the official Isogeny Database table (isogenies.enricflorit.com/graphs/g1/577-1259.html, section p=1009: 84 nodes, l=2 diameter 8, c_ell 7, lambda values). Database Glossary defines Gamma_1(ell;p) as supersingular j vertices + ell-isogeny edges, i.e. the same Phi_2 graph under synonymous notation. Admission claim that 'no exact full-graph diameter at p=1009 is published' and 'database publishes no diameter' is factually false. Stronger logarithmic/Ramanujan/spine results do not imply exact D, but the database table literally states it, so equivalent-formulation and exact-table checks cover the claim. Histogram {7:61,8:23}, 30 pairs, and one diametral j-pair are BFS corollaries mechanically derivable in seconds from the public downloadable adjacency (npz to 30000, covers p=1009); Velu chains certify one arbitrary pair among 30, i.e. recomputation/certificate/repackaging, not a new invariant. Prior source need not state histogram verbatim: public adjacency + published diameter substantively covers the headline. Route is TARGET (report states TARGET and matches target_claim), so no preset presumption applies.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as independent retrieval. The natural object (full 2-isogeny graph at p=1009) and diameter question are motivated, but the precise value D=8 is already tabulated and the remaining data (eccentricity histogram, diametral-pair count, one pair) are mechanically implied by the public adjacency matrix via stdlib BFS. Per value policy, an exact invariant must be not known and not mechanically implied to be independently worth retrieving; here both fail. One of 30 diametral pairs with bidirectional Velu chains is an arbitrary selection with certification only, serving the already-known diameter rather than a new downstream benchmark need. This is database repackaging: fresh BFS/Velu computation that does not add a non-mechanical fact beyond the published table+adjacency. Correctness PASS does not rescue it.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Section p=1009: 84 nodes, 10 spinal nodes; row l=2: diameter 8, c_ell 7, lambda2 2.7464, lambdan -2.8110. Directly publishes the claimed D=8 and node count. Page also links downloadable full-database Zenodo zip with j-invariants + adjacency npz to 30000.",
+      "title": "Isogeny Database: 577-1259 (p=1009 table)",
+      "url": "https://isogenies.enricflorit.com/graphs/g1/577-1259.html"
+    },
+    {
+      "finding": "Defines Gamma_1(ell;p) vertices/edges, spine, diameter (largest minimal distance, log p expander implication), node-count formula [p/12]+eps. Confirms database object = Phi_2 graph under synonymous notation.",
+      "title": "Isogeny Database: Glossary",
+      "url": "https://isogenies.enricflorit.com/glossary.html"
+    },
+    {
+      "finding": "States database contains all graphs to 30000, degrees 2-11, with j-invariants, adjacency npz, metadata/invariants; confirms public adjacency covers p=1009 from which histogram/pairs are BFS-mechanical.",
+      "title": "Isogeny Database: Home",
+      "url": "https://isogenies.enricflorit.com/"
+    },
+    {
+      "finding": "Abstract: describes spine diameter + center counts/plots; spine-only, not full-graph D/histogram at p=1009. Stronger-bound check: does not imply exact D.",
+      "title": "The Spine of a Supersingular l-Isogeny graph (arXiv:2502.03613)",
+      "url": "https://arxiv.org/abs/2502.03613"
+    },
+    {
+      "finding": "Fused search over 3 normalized queries (literal D=8 p=1009; equivalent Phi_2/Fp2/Gamma_1 formulations; stronger census/database coverage) across SerpBase/Serpent/OpenAlex/Crossref: 20 fused results; no source publishing histogram/witnesses, but official database table publishing D=8 found by direct fetch. OpenAlex returned 0 hits on all queries (no missing-provider gap; partial=false).",
+      "title": "scope_literature_search fused results (3 queries)",
+      "url": "https://abhayg11.github.io/pcmi22/lauter/2.pdf"
+    },
+    {
+      "finding": "Committed ledger: 84 vertices, adjacency, D=8, hist, 30 pairs, path, sha256 f080...6293. Independently replayed (BFS, Phi_2 links, seed count, Velu) - correctness evidence.",
+      "title": "inputs/artifacts/ledger.json + verify.py/compute_graph.py/velu_chain.py",
+      "url": "local:inputs/artifacts/ledger.json"
+    }
+  ],
+  "claim_route_seen": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Spine paper (Arpin/Hedayat/Scheidler) gives spine-only diameters + center statistics; expander/Ramanujan literature gives O(log p) upper bounds and lambda1=l+1 spectral bounds; Eisentraeger/AWS notes and encyclopedia state expander heuristics. None states exact full-graph D, hist, or pair at p=1009.",
+      "what_was_searched": "Dominance query: stronger theorem / broader class / larger range / exhaustive census / classification / established database that could subsume p=1009 l=2 full-graph diameter; logarithmic-diameter, Ramanujan, spine-diameter, center-count literature.",
+      "why_it_does_or_does_not_cover": "Does NOT cover as a theorem: logarithmic upper bounds do not imply exact integer 8. But this does not save originality because the exact-table check below does cover it. Stronger-in-theorem sense fails; stronger-in-database sense succeeds."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior database row: (p=1009, l=2, 84 nodes) -> diameter 8. Submitted headline: (p=1009, full 2-isogeny graph, 84 vertices) -> D=8. Objects identical under Phi_2=Gamma_1(2;p) identification (verified: same vertex count, same degree 3, same prime, no loop ambiguity at 1 mod 12). Histogram/pair/Velu are deterministic BFS/Velu consequences of the public adjacency, not independent theorems.",
+      "what_was_searched": "Literal comparison of hypotheses (prime, field, adjacency rule, symmetrization, loop handling) and conclusions (node count, regularity, diameter, histogram, witness path) between ledger/DRAFT and database table+glossary+downloadable adjacency.",
+      "why_it_does_or_does_not_cover": "COVERS: prior table substantively implies the headline integer; remaining histogram/pair data are recomputation/certificate/corollary of the known stronger fact (public full adjacency + published diameter). Originality FAILS."
+    },
+    "equivalent_formulations": {
+      "evidence": "Database notation Gamma_1(ell;p) with vertices supersingular j and edges ell-isogenies = Phi_2(j,j')=0 symmetrized graph; PCMI exercise Sheet 2 defines G2 for p=1 mod 12 with j=0/1728 absent so graph undirected - same convention as DRAFT. No dual/complement/matrix encoding changes distances at this prime (no loops/multi-edges).",
+      "what_was_searched": "Synonymous names/notation: 'supersingular 2-isogeny graph', 'Gamma_1(2;p)', 'G2', 'Fp2 j-invariants', 'Phi_2 adjacency', 'spine vs full graph', directed vs symmetrized; dual/complement/incidence encodings; j=0/1728 loop conventions.",
+      "why_it_does_or_does_not_cover": "COVERS under synonymy: database Gamma_1(2;1009) is the same object as submitted full Phi_2 graph at p=1009; congruence condition (1 mod 12) removes the only convention ambiguity. Search confirms identity, not distinction."
+    },
+    "exact_database_or_table": {
+      "evidence": "Official Isogeny Database page 577-1259, p=1009 block: '[84 nodes] [10 spinal nodes]; l=2 diameter 8 c_ell 7 lambda2 2.7464 lambdan -2.8110'. Home page confirms downloadable Zenodo zip with j-invariants + adjacency npz to 30000 including p=1009. Glossary confirms diameter definition = graph diameter.",
+      "what_was_searched": "Official specialist database: isogenies.enricflorit.com range page 577-1259 (covers 1009), home/Zenodo download scope, glossary diameter definition; direct fetch and grep for 'p = 1009' block.",
+      "why_it_does_or_does_not_cover": "COVERS: exact parameter (p=1009, l=2) appears in table with exact claimed value D=8 and node count 84. Histogram and witnesses are not separately tabulated but are mechanically implied by the published adjacency; exact-table failure mode triggered."
+    }
+  },
+  "residual_risks": [
+    "Full 84x1018081 Fp2 Phi_2 rescan not re-executed in audit; vertex completeness relies on BFS closure + count formula + reciprocity rather than independent Schoof enumeration - risk negligible given count match and link-level Phi_2 checks.",
+    "Only one of 30 diametral pairs carries Velu chains; other 29 counted via BFS only - honestly disclosed, does not affect headline D.",
+    "Database adjacency convention (directed vs symmetrized, multiplicities) not byte-compared to ledger; equality inferred from matching (n,D,degree) + Phi_2 link checks + glossary definition - residual mismatch risk minimal at 1 mod 12 with no loops.",
+    "OpenAlex returned 0 hits on all three queries; SerpBase/Serpent/Crossref succeeded (partial=false), plus direct official-database fetch, so no coverage gap from the zero-hit provider."
+  ],
+  "verdict": "REJECT"
+}
