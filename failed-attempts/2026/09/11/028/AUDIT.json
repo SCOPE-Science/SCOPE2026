@@ -1,0 +1,72 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify_fallback.py -> VERIFY_OK (re-ran independently, EXIT 0). Checked each inference: Vol10(S)=sqrt(11)/10! correct; Dirichlet moments E Xi=1/11, E Xi^2=2/(11*12), E XiXj=1/(11*12) correct; Cov|H0=1/132 I10 correct so Cov(Delta10)=lambda^2/132 I10 with lambda^10=10!/sqrt(11) (~4.017) correct; sign pattern <W11,W11>=10/11 lambda^2, <Wj,W11>=-1/11 lambda^2 correct so exactly 10 edges (11,j) cross at t=10/11; pj=(1/11)W11+(10/11)Wj lie in u_*^perp (inner product 0, exact Fractions) and sum to 0 (mean-zero, script-verified); pj-p10=(10/11)lambda(ej-e10) gives 9 independent vectors so 9-simplex, regular edge mu*sqrt2 mu=10/11 lambda; Vol9=mu^9 sqrt(10)/9! is correct scaling of standard regular 9-simplex; S10 symmetry forces Cov=sigma^2 I9 with sigma^2=mu^2/110=10 lambda^2/1331 (exact cancellation verified); L^2=sigma^2/Vol^{2/9}=(9!)^{2/9}/(110*10^{1/9}), L^18=(9!)^2/(10*110^9)=5143824/921073316796875 ~5.58e-09, L~0.3479361; integer cross-multiplication checks L<=11/5 and 0.347<=L<=0.349 pass with exact arithmetic (bit-lengths as logged). Minor non-material typo: DRAFT says '11I-J has eigenvalue 1 on 1' should be 0 on span{1} (11 on H0); restricted covariance 1/132 is still correct since support lies in H0. Items (i)-(iii) of fallback exact_success_criterion are all exhibited with no missing constants.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Route is PRESET_FALLBACK; exact fallback certificate (i)-(iii) is completed, so scope is exact fallback. Live fused search (three consolidated queries in one scope_literature_search call; SerpBase+Crossref ok, OpenAlex query0 error recorded as partial coverage, continued with available providers) found decisive prior: Kipp arXiv:2407.01353v2 (2024, now Adv.Math) Eq.(1.3) states closed-form isotropic constant of n-simplex L_{Delta_n}=n!^{1/n}/((n+1)^{(n+1)/2n} sqrt(n+2)) as known value. For n=9 this evaluates to 0.34793614..., identical to claimed L (independently recomputed match to 1e-16). DRAFT itself concedes 'affine invariance: every 9-simplex shares this L' (line 114-115). Since K*_10 is proved in DRAFT to be a (regular) 9-simplex by elementary single-vertex separation, the headline L<=2.2 and sharp 0.347-0.349 are direct substitution n=9 into the known general formula plus elementary simplex-section fact. No new spectrum/covariance: scalar covariance and value are mechanically implied by symmetry + known simplex moments. Prior need not state 'K*_10' verbatim; broader theorem substantively implies claim. Admission's fallback_originality checklist missed this synonymous/encoding and broader-coverage failure mode, so originality FAILS. Originality failure is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: Admission granted conditional value approval on premise that 'value is not known or mechanically implied' and 'no prior logs explicit numeric constant or spectrum for K*_10; universal C huge; volume alone does not imply L'. Objective prior evidence unavailable/misstated at Admission (Kipp Eq.1.3 closed-form L_{Delta_n} for all n, classical simplex constant) shows qualification materially false: exact L for any 9-simplex was known, and DRAFT's own reduction to 'every 9-simplex shares this L' makes the single-section number a mechanical n=9 evaluation. Under ordinary standard this is textbook restatement / mere parameter substitution (plug n=9 into known formula) with a loose 2.2 cutoff at >6x the true value (~0.348) plus recomputation of known value by exact integer arithmetic. Certification (VERIFY_OK script) does not rescue an arbitrary-threshold corollary of a known stronger fact per audit policy. Hence value FAILS; reopened only on ADMISSION_DEFECT grounds, not on narrowness alone.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Eq.(1.3) gives closed-form L_{Delta_n}=n!^{1/n}/((n+1)^{(n+1)/2n} sqrt(n+2)} as known simplex value; for n=9 equals 0.34793614... covering headline L<=2.2 and sharp enclosure. Qualitative extremality only, no numbers.",
+      "title": "Isotropic constants and regular polytopes (Kipp, arXiv:2407.01353v2)",
+      "url": "https://arxiv.org/html/2407.01353v2"
+    },
+    {
+      "finding": "General volume formula for regular n-simplex k-subspace sections; maximal-section characterization. Volumes only, no L or spectrum \u2014 does not cover claim but confirms section-volume literature is volume-only.",
+      "title": "Sections of the regular simplex \u2014 Volume formulas and estimates (Dirksen, arXiv:1509.06408)",
+      "url": "https://ui.adsabs.harvard.edu/abs/arXiv:1509.06408"
+    },
+    {
+      "finding": "Qualitative: simplicial polytope maximizing L_K must be simplex via hinging. No numeric bound, no section spectrum.",
+      "title": "A simplicial polytope that maximizes the isotropic constant must be a simplex (Rademacher)",
+      "url": "https://doi.org/10.1112/s0025579315000133"
+    },
+    {
+      "finding": "Webb 1996 central-slice volumes; maximal-section results. Volumes/moments only, no isotropic constant.",
+      "title": "Central slices of the regular simplex (Webb, Geom. Dedicata 1996)",
+      "url": "https://doi.org/10.1007/bf00149416"
+    },
+    {
+      "finding": "Stability estimates for volume of central hyperplane sections of regular simplex. Volumes only.",
+      "title": "Stability of Simplex Slicing (Myroshnychenko-Tang-Tatarko-Tkocz)",
+      "url": "https://link.springer.com/article/10.1007/s00454-025-00758-x"
+    }
+  ],
+  "claim_route": "PRESET_FALLBACK: exact fallback_claim L_{K*_10}<=2.2 with three-part certificate and exact_success_criterion IS completed (items i-iii present, replay passes). Conditional value presumption therefore attached but reopened as ADMISSION_DEFECT per policy because prior closed-form simplex-L evidence was missed at Admission.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kipp Eq.(1.3) gives L for ALL n-simplices. Instantiating n=9 yields L=362880^{1/9}/(10^{10/18} sqrt(11))=0.34793614..., verified by independent float recomputation matching DRAFT's L^18 rational to 1e-16. DRAFT's K*_10 is a 9-simplex, so it is a strict special case of this broader exact theorem/known formula.",
+      "search": "Query (c) dominance query: 'regular simplex central hyperplane sections classification volumes Webb Dirksen maximal section isotropic constant census' via scope_literature_search (SerpBase 3 hits, Crossref 15 hits, OpenAlex 0 hits) plus full fetch of top decisive hit Kipp 2407.01353v2.",
+      "verdict": "COVERS \u2014 broader exact formula subsumes headline; originality fails."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior formula + elementary fact 'hyperplane separating one vertex of simplex cuts a simplex' + affine invariance of L_K (conceded in DRAFT) logically entails L_{K*_10}=L_{Delta_9}~0.348<=2.2 and 0.347-0.349 enclosure. Threshold checks are pure integer arithmetic evaluation of known rational, not new inequality. No stochastic-localization, thin-shell, or new spectral input is used (DRAFT Sec.4 honestly states none invoked).",
+      "search": "Compared literal hypotheses/conclusions: prior hypothesis 'K is n-simplex' is satisfied by DRAFT's own conclusion 'K*_10 is regular 9-simplex'; prior conclusion 'L_K equals closed form' entails submitted 'L<=2.2 (in fact 0.347-0.349)'. Title similarity not relied upon.",
+      "verdict": "IMPLIED \u2014 claim is corollary/recomputation of known stronger fact; originality fails."
+    },
+    "equivalent_formulations": {
+      "evidence": "Headline object K*_10=Delta_10 cap u_*^perp with u_* vertex axis is, by DRAFT Sec.2, affinely equivalent to mu*S_9 (regular 9-simplex, edge mu sqrt2). Isotropic constant is affine invariant, so L_{K*_10}=L_{S_9}=L_{Delta_9}. Spectrum {sigma^2 x9} with sigma^2=mu^2/110 is the standard simplex covariance scaled by mu^2. No dual/complement/matrix encoding escapes this: any 9-simplex representative gives same L.",
+      "search": "Query (b) equivalent representations: 'isotropic constant of regular simplex formula covariance hyperplane section' via scope_literature_search (SerpBase 10, OpenAlex 15, Crossref 15, all ok) + fetch Kipp Sec.1.",
+      "verdict": "COVERS \u2014 synonymous object (9-simplex) under affine equivalence; literal 'K*_10' name is not a distinct invariant."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database of isotropic constants was found, but no table lookup is needed: closed-form rational L^18=(9!)^2/(10*110^9) is the n=9 case of the closed-form L_{Delta_n} formula stated in Kipp and classical literature. The 'full eigenvalue list' is nine copies of one scalar determined by mu^2/110, i.e., evaluation of known moments, not a new table row.",
+      "search": "Queries (a)+(b) literal: 'isotropic constant L_K vertex-axis central hyperplane section regular 10-simplex K*_10 bound 2.2' (SerpBase 10 ok, Crossref 15 ok, OpenAlex error partial) found no paper logging 'K*_10'; checked Kipp, Dirksen, Webb, Rademacher primary sources in full/snippets for any L/spectrum table.",
+      "verdict": "No exact table row for 'K*_10' string, but exact closed form covers the number \u2014 absence of string match does not establish priority."
+    }
+  },
+  "literature_coverage": "scope_literature_search one call with three consolidated queries; fused 20 results; per-provider: q0 SerpBase ok(10)/OpenAlex error(HTTP400)/Crossref ok(15); q1 all ok (10/15/15); q2 SerpBase ok(3)/OpenAlex ok(0)/Crossref ok(15); partial=true due to OpenAlex q0 failure after internal retries; recorded and continued with available providers + direct fetch of decisive primary source (Kipp).",
+  "residual_risks": [
+    "Slicing-survey PDF (Giannopoulos) could not be parsed as markdown (binary PDF fetch); Kipp alone suffices as decisive prior, but additional classical citations for simplex L formula (e.g., standard textbooks) were not exhaustively fetched.",
+    "Minor DRAFT typo (eigenvalue 1 vs 0 on span{1}) noted; no residual correctness risk after correction since restricted covariance verified."
+  ],
+  "verdict": "REJECT"
+}
