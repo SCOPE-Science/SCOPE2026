@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Verified transplant trig cos(theta(phi))=cos^2(phi/2) giving tildeV=log|1+e^{iphi}|-0.5log2, mean integral -0.5log2 via classical log-cos integral, Fourier tail (-1)^{k+1}/2|k| via Abel L1 limit with dominating majorant |1+re^{iphi}|>=0.5|1+e^{iphi}|, Szego divergence 0.25H_M, pushforward lemma dtheta/dphi calculation equating transplant mean to arc-equilibrium mean, and majorants T_k>=h_k>=log w plus Widom (1.3) for analytic positive g_k plus Toeplitz monotonicity yielding limsup Y_n/n<=L<0 contradicting Y_n=-1/8log n+e*+O(n^{-1/2}). Computation is labeled corroboration only. Stdlib verify.py replayed VERIFY_OK with mean diff 8.7e-06 and fit a=-0.34747~=L.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: Headline limsup Y_n/n<=L is substantively implied by prior stronger theorem Krasovsky math/0401256 (2004, v2 2006) Asymptotics for Toeplitz determinants on a circular arc, which proves general arc FH formula D_{n-1}(f)~gamma^{(n+sum alpha)^2}H(Psi)^n... for endpoint root singularities alpha_r>-1/2. With rotation to [pi/2,3pi/2], gamma=cos(pi/4)=sqrt2/2, alpha1=alpha2=1/4, psi=1, Psi=1, it gives Y_n=nL+O(log n) hence Y_n/n->L implying limsup<=L. Disproof is strict special-case corollary/recomputation of known stronger fact, not new. ADMISSION_DEFECT: topic.audit_preflight and admission_review claimed root endpoints outside broader coverage and unevaluated, missing Krasovsky arc-FH coverage.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: As negative TARGET resolution the linear-divergence fact itself would be valuable if new, but here it is direct parameter substitution into Krasovsky 2004 general arc-FH formula (quarter-arc, alpha=1/4) and direct lookup of its (n+sum alpha)^2 term. Exact-invariant eligibility requires value not already known or mechanically implied; here O(n) coefficient nL is mechanically implied. Hence no independently retrievable new benchmark beyond citing Krasovsky special case. ADMISSION_DEFECT: admission positive/negative value case claimed first root-endpoint benchmark and unexpected interaction, but interaction and O(n) term were already published in Krasovsky general constant.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md proof sections 1-3 verified line-by-line: transplant identity, mean L=-0.34657359, Fourier tail, pushforward density u=1/(2pi)sqrt((1+cos theta)/cos theta), majorant plus Widom plus monotonicity chain",
+    "inputs/artifacts/verify.py stdlib replay executed in audit: transplant mean diff 8.76e-06, ck tail diff <1e-05 for k=1,2,3,4,8,16, Szego S(2000)=2.04459=0.25H_2000, fit a=-0.34747 vs L, b=0.0045 vs -0.125, prints VERIFY_OK",
+    "Krasovsky arXiv:math/0401256v2 Asymptotics for Toeplitz determinants on a circular arc: general FH-on-arc formula (7) D_{n-1}(f)~gamma^{(n+sum alpha)^2}H(Psi)^n... with gamma=cos(alpha/2), endpoint singularities alpha1 at arc ends, G-function constants",
+    "Charlier-Claeys arXiv:1409.0435 Asymptotics for Toeplitz determinants: perturbation of symbols with a gap: Widom arc formula (1.3) ln D_n=n^2 ln sin(theta0/2)+n tildeW0-1/4 ln n+... for analytic symmetric W, plus equilibrium density Prop 3.1(a) u^{(infty)} used in lemma",
+    "scope_literature_search 3-query fused results (20 hits, full coverage serpbase+serpent+crossref+openalex, partial=false): top hits include Fahs uniform FH, Deift-Its-Krasovsky Annals FH, Krasovsky arc-FH snippet explicitly stating arc-supported FH asymptotics"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Krasovsky math/0401256v2 proves for f supported on arc [alpha,2pi-alpha] with FH singularities (6) including endpoint roots alpha1> -1/2 the expansion (7) D_{n-1}~gamma^{(n+sum alpha)^2}H(Psi)^n... with gamma=cos(alpha/2). For alpha=pi/2, gamma=sqrt2/2, sum alpha=1/2, psi=1 gives log D=n^2L+nL+O(log n).",
+      "reasoning": "Plugging distinguished quarter-arc parameters into broader theorem yields O(n) term nL, strictly stronger than submitted limsup Y_n/n<=L. Target omission and disproof inequality both lie inside prior broader coverage; Bessel vs jump distinction does not escape Krasovsky which treats roots.",
+      "search": "Widom Krasovsky arc Toeplitz determinant Fisher-Hartwig endpoint root singularity general formula broader coverage"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Krasovsky (7) implies Y_n=log D_n-n^2L=nL+O(log n) so Y_n/n->L=-0.34657, hence limsup Y_n/n=L<=L and Y_n->-infinity linearly, contradicting Y_n=-1/8log n+e*+O(n^{-1/2}). The submitted headline is logical corollary of prior stronger asymptotic.",
+      "reasoning": "Prior source need not state limsup verbatim; its stronger limit substantively implies submitted inequality. Disproof is therefore recomputation/certificate of known stronger fact, failing originality even though proof route via majorants is independently written.",
+      "search": "quarter-arc alpha=1/4 Toeplitz determinant O(n) term n log gamma whether implied by Krasovsky arc Fisher-Hartwig formula"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched transplanted symbol tildeV=log|1+e^{iphi}|-0.5log2, entanglement-entropy kernel, arc orthogonal-polynomial and Hankel determinants. No alias hides the object: rotation by pi preserves Toeplitz determinant via diagonal unitary conjugation, mapping quarter-arc to Krasovsky symmetric arc form.",
+      "reasoning": "Synonymous notation (theta vs phi, D_n vs D_{n-1}, rotation, dual incidence/matrix encodings) does not avoid coverage; transplanted mean L and divergent Szego ledger are exactly the data entering Krasovsky Psi/H terms. Alias search confirms same object.",
+      "search": "arc Toeplitz transplanted symbol log|1+e^{iphi}| entanglement entropy orthogonal polynomial equivalent formulation alias search"
+    },
+    "exact_database_or_table": {
+      "evidence": "No finite O(1) table lists e4-star, but general Krasovsky formula functions as exhaustive table for all arcs/exponents: inserting theta0=pi/2, alpha1=alpha2=1/4, psi=1 outputs capacity, n-coefficient L, log powers and Barnes-G O(1). No new table lookup needed beyond instantiating formula.",
+      "reasoning": "Claimed finding is parameter substitution into known closed-form census over arcs and FH exponents, not new database entry. Lookup plus arithmetic supplies missing O(n) term, so value is repackaging of established classification.",
+      "search": "Toeplitz arc determinant constant table endpoint root singularity database Barnes G quarter-arc exact table"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}

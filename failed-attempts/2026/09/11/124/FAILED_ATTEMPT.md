@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Widom endpoint constant with power-law error for the quarter-arc Toeplitz determinant with root singularities
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1009
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Operator Theory
+- **Method:** Widom localization with Bessel endpoint parametrix and arc Riemann-Hilbert matching
+
+## Problem
+
+Let A = {e^{i theta} : |theta| <= pi/2} be the closed quarter-arc with endpoints z = +-i, and let f(e^{i theta}) = 1_A(e^{i theta}) |e^{i theta} - i|^{1/2} |e^{i theta} + i|^{1/2}, i.e. an arc-supported symbol with symmetric root singularities of exponent alpha = 1/4 at each endpoint. Let D_n(f) be its n-by-n Toeplitz determinant. Determine the large-n asymptotic of log D_n(f) through constant order, identifying the Widom capacity term, the endpoint logarithmic correction, and the exact O(1) endpoint constant.
+
+## Attempted claim
+
+For the quarter-arc symbol f above, log D_n(f) = n^2 log(sqrt(2)/2) - (1/8) log n + e4-star + O(n^{-1/2}) as n -> infinity, where e4-star = (1/4) log 2 - (1/2) log pi + 2 log[G(5/4)/Gamma(3/4)] + (1/8) log(2 + sqrt(2)) is an explicit nonzero constant combining the capacity logarithm, the two symmetric Bessel endpoint contributions, and their phase interaction.
+
+## Research outcome
+
+Rigorous TARGET disproof: the claimed quarter-arc log D_n expansion is false; Y_n/n has nonpositive limsup bounded by L<0, so a whole O(n) term is missing and the -1/8/e4-star ledger collapses.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: FAIL: Headline limsup Y_n/n<=L is substantively implied by prior stronger theorem Krasovsky math/0401256 (2004, v2 2006) Asymptotics for Toeplitz determinants on a circular arc, which proves general arc FH formula D_{n-1}(f)~gamma^{(n+sum alpha)^2}H(Psi)^n... for endpoint root singularities alpha_r>-1/2. With rotation to [pi/2,3pi/2], gamma=cos(pi/4)=sqrt2/2, alpha1=alpha2=1/4, psi=1, Psi=1, it gives Y_n=nL+O(log n) hence Y_n/n->L implying limsup<=L. Disproof is strict special-case corollary/recomputation of known stronger fact, not new. ADMISSION_DEFECT: topic.audit_preflight and admission_review claimed root endpoints outside broader coverage and unevaluated, missing Krasovsky arc-FH coverage. value: FAIL: As negative TARGET resolution the linear-divergence fact itself would be valuable if new, but here it is direct parameter substitution into Krasovsky 2004 general arc-FH formula (quarter-arc, alpha=1/4) and direct lookup of its (n+sum alpha)^2 term. Exact-invariant eligibility requires value not already known or mechanically implied; here O(n) coefficient nL is mechanically implied. Hence no independently retrievable new benchmark beyond citing Krasovsky special case. ADMISSION_DEFECT: admission positive/negative value case claimed first root-endpoint benchmark and unexpected interaction, but interaction and O(n) term were already published in Krasovsky general constant.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: This is a disproof only: it certifies the stated expansion, including its missing O(n) term, -1/8 log coefficient, e4-star constant, and O(n^{-1/2}) remainder, is false, but does not establish the true next-order log coefficient or O(1) term (the numerical suggestion nL+0.087 with log coefficient near 0 is conjecture). The proof cites Widom's arc formula for smooth positive symmetric symbols from Charlier-Claeys (1.3) rather than re-proving it, and the determinant fits are corroboration rather…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
