@@ -1,0 +1,141 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: claim is exact (3,4) F0 n=14 elliptic ledger G(q) with G(1)=87612 and N_1..N_5 table. Reran inputs/artifacts/census.py: prints 30 labeled acyclic connected orientations, 61 divergence triples, 105 iso classes, max bounded weight 4, G(1)=87612, symmetric support +-5 with the exact claimed coefficients. Independent brute-force check (weights 1..6 exhaustive over all 30 orientations x 61 divergences, canonical dedup of parallel-edge weights, S3 quotient) reproduces 105 classes and max weight 4, so no truncation. Recomputed unrefined sum sum nm*prod w^2 = 87612 from ledger.json and recomputed E(u)*T(u) series with independent Fraction code: N_1=87612, N_2=-94913, N_3=3306499/60, N_4=-8097139/360, N_5=308342441/43200 exactly as claimed. Per-class marking integrality (nl % ao == 0), per-class palindromicity, global symmetry, mixed-sign-null finiteness are asserted in code and the replay passed them. Part (d) is honestly scoped as exact consequences of G(q) via cited Bousseau Thm 5.12, not a new proof of the correspondence; degeneration-side substitution exponents check (u^-6 * u^14 = u^8 = u^{2*1+6}). No essential inference, boundary condition, or computation fails.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Single fused scope_literature_search with three normalized forms (literal (3,4)/87612 ledger; equivalent elliptic Block-Gottsche/one-cycle/Bousseau-Thm-5.12 formulation; dominance census/classification/database query) returned 20 fused results with full provider coverage (no partial). Nearest results are general theorems only: Bousseau 1904.10311 higher-genus lambda-class correspondence for P2/Hirzebruch, Ding-Hu Caporaso-Harris recursion for higher-genus refined counts, Blomme-Mevel genus-0/1 asymptotics, Blomme Fock-space floor algorithm, Block q-floor Severi. None states the (3,4) elliptic G(q) polynomial, the 105-class count, G(1)=87612, or the N_1..N_5 rationals. Decisive adversarial checks (equivalent formulations, broader coverage, exact database/table, claim-vs-prior implication) all documented as not covering. Hence first explicit (3,4) genus-1 ledger is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET audit against admitted target. Result is a rigorously established exact invariant of a specific natural object: genus-1 refined floor sum for F0 bidegree (3,4), the minimal scope where a genuine cycle appears. Object and invariant were motivated before computation (Bousseau lambda-class program calibration, elliptic weight-rule test, genus-1 log-GW calibration data), the value is not known or mechanically implied by general theorems or asymptotics, and a future researcher can reasonably need the precise G(q)/N_g table. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration: full per-class ledger with orientations/weights/markings is published. Meets the narrow-exact-datum value standard.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General theorem: refined floor diagrams for P2/Hirzebruch compute higher-genus relative GW lambda-class series after q=e^{iu}; states no explicit (3,4) ledger, coefficient table, or 105/87612 values.",
+      "title": "Refined floor diagrams from higher genera and lambda classes (Bousseau, arXiv:1904.10311 / Selecta 2021)",
+      "url": "https://arxiv.org/abs/1904.10311"
+    },
+    {
+      "finding": "Caporaso-Harris-type recursion for higher-genus refined floor counts and higher-genus BPS polynomial proposal; general recursion, no (3,4) elliptic G(q) value.",
+      "title": "Refined floor diagrams relative to a conic and Caporaso-Harris-type recursion (Ding-Hu)",
+      "url": "https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/jlms.70514"
+    },
+    {
+      "finding": "Asymptotic genus-0/1 refined invariants via floor diagrams; asymptotic/quasi-modular statements do not imply exact (3,4) polynomial.",
+      "title": "Asymptotic computations of tropical refined invariants in genus 0 and 1 (Blomme-Mevel)",
+      "url": "https://doi.org/10.5802/jep.288"
+    },
+    {
+      "finding": "Floor-diagram algorithm for refined invariants of P1-bundles over elliptic curves with Fock-space interpretation; different geometry, no F0 (3,4) ledger.",
+      "title": "Floor diagrams and enumerative invariants of line bundles over an elliptic curve (Blomme)",
+      "url": "https://doi.org/10.1112/s0010437x23007285"
+    },
+    {
+      "finding": "q-floor diagram description of refined Severi degrees, polynomiality for fixed delta; plane-curve (P2) setting, no Hirzebruch (3,4) genus-1 ledger.",
+      "title": "q-Floor Diagrams computing Refined Severi Degrees (Block)",
+      "url": "https://doi.org/10.46298/dmtcs.3093"
+    },
+    {
+      "finding": "Replayed census.py end-to-end: 30 orientations, 61 divergences, 105 classes, G(1)=87612, symmetric ledger; matches DRAFT.",
+      "title": "inputs/artifacts/census.py replay (stdlib-only)",
+      "url": null
+    },
+    {
+      "finding": "Independent exhaustive weights-1..6 brute force over all orientations/divergences with S3 quotient reproduces 105 classes, max weight 4; no truncation.",
+      "title": "Auditor independent brute-force cross-check",
+      "url": null
+    },
+    {
+      "finding": "Independent Fraction-series recomputation of E(u)*T(u) reproduces N_1..N_5 rationals exactly.",
+      "title": "Auditor independent series recomputation",
+      "url": null
+    }
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused search returned Bousseau general correspondence, Ding-Hu general recursion, Blomme-Mevel asymptotics, Blomme Fock-space algorithm. Screened snippets/metadata; fetched Bousseau arXiv abstract/full record confirming general-theorem scope. No broader theorem states any (3,4) value; asymptotics concern large-class limits and quasi-modularity, not the fixed (3,4) polynomial.",
+      "reasoning": "A general correspondence implies the form of the check, not the concrete (3,4) G(q) coefficients. The submitted claim is the exact value, which no broader result computes or implies.",
+      "search": "Dominance query: tropical refined genus-one F0/Hirzebruch census, classification, database, Gottsche-Schroeter, Blomme-Mevel; plus Bousseau higher-genus correspondence as covering theorem."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Bousseau Thm 5.12 equates the floor sum to the relative-with-lambda series; it does not supply G(q) for (3,4). The N_g table is a substitution into that cited identity, explicitly scoped as such in DRAFT section 3 ('cited, not reproduced'). Ding-Hu recursion could in principle generate values but no (3,4) instance is published. No prior source mechanically yields 6q^-5+...+6q^5 or the five rationals.",
+      "reasoning": "Prior results supply the machine; the submitted result supplies the first evaluated output at (3,4). Citation of the machine does not make the output a corollary already in the literature.",
+      "search": "Compared hypotheses/conclusions literally: prior conclusions are existence/correspondence/recursion/asymptotic formulas; submitted conclusion is the evaluated (3,4) ledger plus evaluated series coefficients."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched elliptic/one-cycle Block-Gottsche floor multiplicity, F0=P1xP1 marked floor diagrams, Bousseau lambda-class Thm 5.12 encoding, q=e^{iu} generating-series form. Top hits: Bousseau 1904.10311, Ding-Hu conic refinement, Blomme elliptic-bundle floors, Block q-Severi. None lists bidegree (3,4) genus-1 data, G(1)=87612, or the palindromic degree-5 polynomial under any synonymous notation (h-transverse, (h,d)=(3,4), Delta with |Delta|=14, b1=1).",
+      "reasoning": "No synonymous-name, dual/complement, incidence-graph, or q-vs-u encoding of the claim appears in the candidate set with the (3,4) parameters.",
+      "search": "Query 2: elliptic refined Block-Gottsche floor multiplicity F0 P1xP1 one-cycle marked floor diagrams Bousseau lambda class Theorem 5.12 (SerpBase/Crossref/Serpent+OpenAlex fused)."
+    },
+    "exact_database_or_table": {
+      "evidence": "No database hit in fused results; topic admission records no database holding elliptic refined q-weights or genus-1 (3,4) ledgers. Auditor searched for census/classification/database coverage (query 3) and found only papers and asymptotic theory, no table containing G(q)=6q^-5+96q^-4+798q^-3+4416q^-2+17274q^-1+42432+... or N_2=-94913 etc. Ledger (105 classes with orientation/weights/(a_V,b_V)/marking data) is a fresh enumeration artifact.",
+      "reasoning": "The exact parameter/object and its coefficient table do not already appear in any table or official database found.",
+      "search": "Query 3 dominance/database direction plus queries containing exact identifiers 87612, 105 classes, (3,4); screened all 20 fused results for tables."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "afce480bf7c8218a13e5f59fe61221a83ac0904efdcc44bbe1527b39c3339f7e",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "General correspondence theorem equating refined floor sums for P2/Hirzebruch to higher-genus relative GW lambda-class series after q=e^{iu}; provides the cited machine for part (d) but states no fixed (3,4) ledger, no 105-class count, no G(q) coefficients, and no N_1..N_5 values.",
+        "title": "Refined floor diagrams from higher genera and lambda ...",
+        "url": "https://arxiv.org/abs/1904.10311"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies refined floor counts for line bundles over an elliptic curve with Fock-space interpretation and different target geometry; defines marked floor diagrams of bidegree (d1,d2) but contains no F0 bidegree (3,4) elliptic ledger, no G(1)=87612, and no N_g table.",
+        "title": "Floor diagrams and enumerative invariants of line bundles ...",
+        "url": "https://www.cambridge.org/core/journals/compositio-mathematica/article/floor-diagrams-and-enumerative-invariants-of-line-bundles-over-an-elliptic-curve/036E64A82B901B78BD7D8DF26320C353"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General theory of combinatorial Gottche-Schroeter invariants in any genus via marked floor diagrams with refined S-multiplicity; gives structural formulas and codegree machinery but no evaluation at Hirzebruch F0 bidegree (3,4) and no 105-class or 87612 values.",
+        "title": "[PDF] Combinatorial G\u00f6ttsche-Schroeter invariants in any genus",
+        "url": "https://alco.centre-mersenne.org/item/10.5802/alco.444.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Computes large-degree asymptotic genus-0 and genus-1 refined invariants via genus-0 diagrams plus an added edge, yielding AR^X_1=p(x)^chi(gmax-12E2); this asymptotic/quasi-modular limit does not compute or imply the fixed (3,4) exact polynomial G(q) or the N_1..N_5 rationals.",
+        "title": "Asymptotic computations of tropical refined invariants in genus 0 and 1",
+        "url": "https://jep.centre-mersenne.org/item/10.5802/jep.288.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Proposes Caporaso-Harris type recursion for higher-genus q-refined floor counts relative to a conic; states a general recursion for N_q type invariants but publishes no evaluated F0 (3,4) genus-1 instance, no G(q) coefficients, and no N_g values.",
+        "title": "Refined floor diagrams relative to a conic and Caporaso-Harris type formula",
+        "url": "https://arxiv.org/pdf/2509.06004"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Shows one illustrative Hirzebruch floor diagram of bidegree (a,b)=(3,4) with genus 1 and unrefined multiplicity mu(D)=6, plus tables of double-GW functions F; this single-diagram double-invariant example is not the 105-class refined Block-Gottsche sum G(q), not G(1)=87612, and not the lambda-class N_g series.",
+        "title": "Double Gromov\u2013Witten Invariants of Hirzebruch Surfaces are ...",
+        "url": "https://academic.oup.com/imrn/article/2017/2/614/2949642?guestAccessKey="
+      }
+    ],
+    "rationale": "Terminal Perplexity check returned 20 results with 6 base overlaps and 14 new URLs. The overlaps merely duplicated base providers (Bousseau arXiv/HAL, Blomme elliptic PDF, Blomme-Mevel asymptotics html/pdf, Ding-Hu conic). Among the 14 new URLs, most are author pages, CVs, theses, slides, or expository/general floor-diagram papers with only keyword similarity. The only substantively relevant new items are the ALCO any-genus Gottche-Schroeter paper and the IMRN double-GW Hirzebruch paper containing a (3,4) genus-1 single-diagram illustration with multiplicity 6. Literal hypothesis/conclusion comparison shows that illustration is an unrefined double-invariant example, not the 105-class refined ledger G(q) with G(1)=87612 nor the N_1..N_5 table. No returned snippet or metadata states the exact palindromic degree-5 polynomial, 105, 87612, or -94913 etc. Direct OUP fetch was 403, but the snippet alone suffices to distinguish a single-diagram example from the full ledger. Hence no decisive prior; originality PASS is preserved with no verdict change.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [
+    "Lambda-class reading (d) depends on cited Bousseau Theorem 5.12, whose proof is not reproduced; declared as a limitation, so residual risk is mis-citation of theorem number/statement rather than census error.",
+    "Weight/divergence/marking conventions are fixed verbatim in DRAFT; a reader using a different elliptic refined-weight convention could obtain a different ledger, but the claim is internally consistent and replayable under the stated convention.",
+    "Absolute (non-relative) genus-1 log-GW numbers are not separately computed; comparison is at the relative-with-lambda level per the correspondence theorem, as declared."
+  ],
+  "route_justification": "research_report.json declares claim_route TARGET with direct completion (exact ledger + symmetry + q=1 recomputation + stated-order series table); audited normally against the admitted target with no preset-fallback presumption.",
+  "verdict": "PASS"
+}
