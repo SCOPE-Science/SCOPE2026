@@ -1,0 +1,72 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "PRESET_FALLBACK exact criterion requires five artifacts; all independently re-verified with a fresh exact-rational implementation (not just re-running supplied scripts). (1) 3-uniform: all 14 listed triples have size 3 on V={0..8}, n=9<=10. (2) tau=4: claimed cover {0,4,7,8} hits all 14 edges (checked edge-by-edge); exhaustive enumeration of all C(9,3)=84 triples finds zero covers, so tau>=4; hence tau=4 exactly. (3) nu=1: C(14,2)=91 pairs, 25 disjoint; every disjoint pair has a third edge contained in the 6-vertex union (full 25-entry witness map re-checked: each witness edge subset of union), so no induced 2-matching; non-empty edge set gives nu=1. Witness map in DRAFT covers exactly the disjoint set. (4) reg lower bound: exact Fraction signed boundary ranks on W=511 (full set): 3-faces 57, r(d3)=42, r(d4)=14, so dim H~_3=57-42-14=1; on W=383: 33-26-6=1. Hence beta_{5,9}>=1 / beta_{4,8}>=1 in Hochster grading, reg>=4. (5) reg upper bound: exact-QQ scan of all 511 nonempty subsets finds max nonzero homology degree h=3, zero subsets with h>=4, so reg<=4; hence reg(S/I;Q)=4. Full exact Betti table recomputed and matches claimed table entry-for-entry {(1,2):14,(2,2):15,(2,3):27,(3,2):4,(3,3):47,(4,2):1,(4,3):24,(4,4):1,(5,3):3,(5,4):1}, max j=4. Proof vs evidence: tau/nu are exhaustive finite proofs; reg rests on Hochster's theorem (an equality giving exact Tor Betti numbers) plus exact Fraction ranks over Q -- a proof, not a mod-p proxy. Large-prime (1e9+7, 10007) and F2 replays agreeing at 4 are corroborating evidence only. Collage check: min 2-collage size 5 independently recomputed (cap 10), claimed 5-set {e1,e3,e4,e5,e14} verified valid, so reg=4 is strictly interior. H0 strand correctly absent (all 2-subsets are faces, 1-skeleton complete). The stated limitation (no explicit minimal differentials) does not weaken the claim because Hochster's formula is exact. Note: DRAFT.md mislabels mask 383 as {0,1,2,3,4,5,7,8} (mask 447, which carries no H~_3); the correct vertex set for mask 383 is {0,1,2,3,4,5,6,8}, verified dim H~_3=1 (33-26-6=1). The mask itself and H1_cert.json witQ entry (383,3,1) are correct, and W=511 alone suffices for reg>=4, so the headline is unaffected; RESULT.md records the corrected set.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Live fused retrieval (3 consolidated queries, full per-provider coverage, no partial: serpbase 10+10+10, openalex 2+1+0, crossref 15+15+15, 20 fused results) plus admission-cited primaries and direct reasoning show no prior source states, tabulates, or mechanically implies this (tau,nu,reg)=(4,1,4) cubic record. Closest records are different objects/parameters: 6-vertex RP2 ideal (tau,nu)=(3,1), quadratic Katzman 11-vertex graphs, Bolognini et al. 2022 Klein-bottle/dunce-cap/random-monomial studies (no tau=4 nu=1 3-uniform reg=4 table), 5-7-vertex graph Betti censuses (quadratics only). Graph sandwich is quadratic-only by degree; collage/Stillman bounds are characteristic-free upper/existence bounds leaving the interior point open; Katzman stability covers only first six Betti numbers. See decisive_checks for adversarial checklist. No source substantively implies or exhaustively covers the claim.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Route is PRESET_FALLBACK and the exact fallback_claim plus its fallback_qualification.exact_success_criterion were completed exactly (9<=10 vertices, full 3-edge list, 4-cover + exhaustive no-3-cover proof, full 25-pair no-induced-2-matching certificate, exact-QQ Betti table with two attaining H~_3 classes; PASS iff all five verify -- all five verify per correctness). Exact completion therefore carries Admission's conditional value approval; no ADMISSION_DEFECT found (objective facts confirm qualification: min 2-collage=5 cap 10 strictly above 4, induced-matching lower bound at 2 strictly below 4, <=10-vertex human-auditable window above Katzman stable range, recognized post-Stillman/characteristic-dependence demand per Bolognini et al./Morey-Villarreal/Katzman). Value is not re-litigated merely because the result is narrower than the two-field target (for which reg_F2=4, honestly reported as no gap). Independently, the result also satisfies the narrow-exact-invariant standard: natural motivated object (3-uniform clutter edge ideal, first degree where graph sandwich fails) and invariant (tau,nu,reg) motivated before computation, value not known or mechanically implied, strictly interior extremal point reusable for shifting/polarization, Alexander duality, and power-bound tests.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  {
+   "finding": "No fused result states or tabulates a 3-uniform clutter with (tau,nu,reg)=(4,1,4); hits are generic hypergraph matching theory, edge-balanced designs, spectral hypergraph papers, and general edge-ideal surveys.",
+   "title": "scope_literature_search fused Top-20 (3 queries, full coverage, no partial)"
+  },
+  {
+   "finding": "States general characteristic-dependence phenomenon (RP2 ideal changes Betti numbers in char 2; Klein-bottle ideal char-dependent in all powers; edge-ideal square can gain dependence; Katzman 11-vertex minimal graphs; asymptotic regularity can be made char-dependent) but records no 3-uniform clutter with fixed tau=4 nu=1 and reg(Q)=4; confirms demand, leaves bounded-height extremal open.",
+   "title": "Bolognini-Macchia-Strazzanti-Welker (2022), Powers of monomial ideals with characteristic-dependent Betti numbers (fetched full text)"
+  },
+  {
+   "finding": "Proves first six Betti numbers of quadratic graph ideals are characteristic-independent; forces any torsion witness above that threshold without recording the claimed tau=4 nu=1 cubic gap.",
+   "title": "Katzman, Characteristic-independence of Betti numbers of graph ideals (JCTA 2006)"
+  },
+  {
+   "finding": "Survey criterion/toolkit for regularity of R/I(C) for clutters; characteristic-free covering/collage upper bounds leave interior room rather than implying exact (4,1,4).",
+   "title": "Morey-Villarreal survey, Edge Ideals: Algebraic and Combinatorial Properties"
+  },
+  {
+   "finding": "Reg of edge ideal of simple hypergraph bounded above by multiple of minimum 2-collage size; characteristic-free cap only, does not pin interior exact value at tau=4.",
+   "title": "Ha-Woodroofe collage bound line, Regularity of Square-free Monomial Ideals"
+  }
+ ],
+ "claim_route_inference": "Report declares claim_route PRESET_FALLBACK; verified exact fallback_claim and exact_success_criterion completed (all five artifacts), so Admission conditional value approval applies.",
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Graph sandwich reg<=min-match<=tau is quadratic-only by degree and cannot imply a cubic value; Ha-Morey/Lin-McCullough 2-collage bound is an upper bound (here cap 10 with collage 5) leaving interior room, not an exact value; Stillman/Ananyan-Hochster gives existence of uniform bounds, not the (4,1,4) point; Katzman stability forces torsion witness above homological threshold 6 without recording this window. Searched via dominance query (query 3) plus admission primaries.",
+   "covers": false,
+   "searched": "Dominance query: regularity 3-uniform hypergraph edge ideal collage bound census classification Betti tables characteristic dependence; screened fused hits (Ha 2206.04913 powers/matchings lower bounds, HHT monomial-ideals survey, Katzman entry, Mohammadi Betti numbers of some hypergraphs).",
+   "why": "All covering results are strict upper/existence bounds strictly above 4 or restricted to quadratics; none pins reg=4 at fixed (tau,nu)=(4,1), so the headline is not a corollary, substitution, or special-case readout."
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "No prior theorem with matching hypotheses/conclusions found; the claim requires a new exact Hochster computation (attaining H~_3 classes on W=511 and W=383, full 512-subset upper bound) strictly inside the collage window plus new exhaustive cover/matching certificates for this edge list. Fused results contain no such argument for these parameters.",
+   "covers": false,
+   "searched": "All three fused query directions plus fetched Bolognini et al. full text (lcm-lattice/Betti-splitting/Klein-bottle/Kimura-Terai-Yoshida constructions) compared literally on hypotheses and conclusions.",
+   "why": "The finding is not a recomputation, certificate, corollary, or repackaging of a known stronger fact; it is a new extremal boundary point requiring object-specific exact homology."
+  },
+  "equivalent_formulations": {
+   "evidence": "No hit under alternate names/encodings records this object: fused results contain only generic hypergraph matching papers, facet-ideal survey (math/0604301), labeled-hypergraph talk, Miller-Sturmfels Ch.1 primer, and Katzman/Ha surveys. Direct check of the exact 14-triple edge list against cited holdings finds no match; dual/complement/incidence encodings would preserve (tau,nu,reg) invariants and likewise have no record.",
+   "covers": false,
+   "searched": "Consolidated query 2 (cubic squarefree / clutter / facet ideal / Stanley-Reisner / Hochster Betti table / covering transversal / induced matching) across SerpBase/OpenAlex/Crossref; screened all snippets and fetched Bolognini et al. full text for encoding variants (Alexander dual, lcm-lattice, Betti splitting, polarization).",
+   "why": "Synonymous notation (edge ideal / Stanley-Reisner ideal of independence complex / facet ideal / clutter / cubic squarefree monomial ideal) and dual/complement/matrix encodings yield no prior statement of the (4,1,4) witness."
+  },
+  "exact_database_or_table": {
+   "evidence": "No table or database entry contains this 14-edge 9-vertex clutter or its Betti table: 5-7-vertex graph censuses are quadratics only; 6-vertex RP2 torsion census is (tau,nu)=(3,1) (distinct parameters); Katzman 11-vertex graphs are quadratics; Bolognini et al. examples are different ideals (Klein-bottle SR ideal, dunce-cap edge ideals, random monomials); Macaulay2 EdgeIdeals/GradedBetti holdings contain scattered rows but no bounded (tau,nu)-fixed cubic certificate. The Betti table {(1,2):14,...,(5,4):1} has no prior record.",
+   "covers": false,
+   "searched": "Exact-object/database direction via query 3 plus admission database checks (EdgeIdeals/GradedBetti holdings, RP2 census, Katzman graphs, Bolognini et al. examples) and direct comparison of the submitted edge list/Betti table.",
+   "why": "The exact parameter/object does not already appear in any table or official database; it is a new citable extremal record."
+  }
+ },
+ "residual_risks": [
+  "Exact-QQ ranks use signed simplicial boundary matrices and Fraction elimination in an independent reimplementation; a sign-convention error would affect all ranks uniformly, but agreement of two attaining classes, full-table Euler consistency, and two-large-prime plus F2 agreement at reg=4 make a hidden exact-QQ error negligible.",
+  "Induced-matching definition for 3-uniform clutters (witnessed-disjoint-pair) matches the admitted audit plan; a nonstandard alternative definition of induced matching could in principle differ, but the full 25-pair witness list makes the certificate definition-transparent and replayable under either standard variant.",
+  "Literature search is federated Top-N per provider plus cited primaries; an obscure thesis table containing this exact 14-triple list cannot be logically excluded, but the exact-database check plus distinctness from all nearest censuses makes undiscovered coverage unlikely.",
+  "DRAFT.md second-witness vertex label typo (mask 383 = {0,1,2,3,4,5,6,8}, not {0,1,2,3,4,5,7,8}); corrected in RESULT.md; masks and homology dimensions verified correct."
+ ],
+ "verdict": "PASS"
+}
