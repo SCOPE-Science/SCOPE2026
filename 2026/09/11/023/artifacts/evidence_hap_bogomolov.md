@@ -1,0 +1,10 @@
+# HAP official docs excerpt (About: The Bogomolov Multiplier)
+# URL: https://gap-packages.github.io/hap/www/SideLinks/About/aboutBogomolov.html
+
+## Moravec isoclinism-invariance theorem (verbatim, tags stripped)
+
+: H/Z(H)  -->  H to the quotient H-->H/Z(H), the function G x G  --->  [H,H],    (g, g')  --->  [ i(F(gZ(G))), i(F(g'Z(G))) ] induces the isomorphism FF. Isoclinism is an equivalence relation on groups. Primoz Moravec has observed the following. Theorem If G is isoclinic to H then B 0 (G) is isomorphic to B 0 (H) The HAP function IsoclinismClasses(L) uses a naive algorithm to partition a list L of groups into isoclinism classes.  The following commands l
+
+## Exhaustive census code + output head (verbatim)
+
+ollowing HAP commands use a method based on free ZG-resolutions to show that B 0 (M 24 ) is trivial and that the group G with number 1550 in GAP's list of groups of order 128 has B 0 (G)=Z 2 + Z 2 . gap&gt; BogomolovMultiplier(MathieuGroup(24)); [  ] gap&gt; BogomolovMultiplier(SmallGroup(128,1550)); [ 2, 2 ] The following commands determine all groups G of order dividing 128 for which B 0 (G) is non-trivial. The computation time, shown in milliseconds, is about 8 minutes. gap&gt; NonTrivial:=[];; gap&gt; for n in [2,4,8,16,32,64,128] do &gt; for G in AllSmallGroups(n) do &gt; if not BogomolovMultiplier(G)=[] then Add(NonTrivial,IdGroup(G)); fi; &gt; od;od; gap&gt; time; 488158 gap&gt; NonTrivial; [ [ 64, 149 ], [ 64, 150 ], [ 64, 151 ], [ 64, 170 ], [ 64, 171 ],   [ 64, 172 ], [ 64, 177 ], [ 64, 178 ], [ 64, 182 ], [ 128, 36 ],   [ 128, 37 ], [ 128, 38 ], [ 128, 39 ], [ 128, 40 ], [ 128, 41 ],   [ 128, 138 ], [ 128, 139 ], [ 128, 144 ], [ 128, 145 ], [ 128, 227 ],   [ 128, 228 ], [ 128, 229 ], [ 128, 242 ], [ 128, 243 ], [ 128, 244 ],   [ 128, 245 ], [ 128, 246 ], [ 128, 247 ], [ 128, 265 ], [ 128, 266 ],   [ 128, 267 ], [ 128, 268 ], [ 128, 269 ], [ 128, 287 ], [ 128, 288 ],   [ 128, 289 ], [ 128, 290 ], [ 128, 291 ], [ 128, 292 ], [ 128, 293 ],   [ 128, 301 ], [ 128, 324 ], [ 128, 325 ], [ 128, 326 ], [ 128, 417 ],   [ 128, 4
