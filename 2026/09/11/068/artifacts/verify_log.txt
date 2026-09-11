@@ -1,0 +1,32 @@
+=== lane-969 target verification ===
+phi = 1.618033988750
+xi_* = (0.52573111, 0.85065081), s_* = 0.85065081
+
+[d] cone-gap constant c0 = s_*/2 = 0.42532540 > 0: OK
+
+[a] Fibonacci exact modes k_n=(F_n,F_{n+1}), h_n=1/(2|k_n| pi):
+ n | k_n | |k_n|^2 | h_n | dir_err | h_n^{1/2} | cone? | resid | strip
+  3 | (  3,  5) |     34 | 0.027295 | 1.32e-02 | 0.1652 | PASS | 0.0 | 0.2500
+  4 | (  5,  8) |     88 | 0.016870 | 5.02e-03 | 0.1299 | PASS | 0.0 | 0.2500
+  5 | (  8, 13) |    232 | 0.010427 | 1.92e-03 | 0.1021 | PASS | 0.0 | 0.2500
+  6 | ( 13, 21) |    609 | 0.006444 | 7.33e-04 | 0.0803 | PASS | 0.0 | 0.2500
+  7 | ( 21, 34) |   1597 | 0.003983 | 2.80e-04 | 0.0631 | PASS | 0.0 | 0.2500
+  8 | ( 34, 55) |   4181 | 0.002461 | 1.07e-04 | 0.0496 | PASS | 0.0 | 0.2500
+  9 | ( 55, 89) |  10946 | 0.001521 | 4.09e-05 | 0.0390 | PASS | 0.0 | 0.2500
+ 10 | ( 89,144) |  28657 | 0.000940 | 1.56e-05 | 0.0307 | PASS | 0.0 | 0.2500
+ 11 | (144,233) |  75024 | 0.000581 | 5.96e-06 | 0.0241 | PASS | 0.0 | 0.2500
+ 12 | (233,377) | 196417 | 0.000359 | 2.28e-06 | 0.0190 | PASS | 0.0 | 0.2500
+min admissible strip mass = 0.2500 >= 1/8 = 0.1250 + margin 0.1250: OK
+
+[q] midpoint area(omega), N=1999: 0.24962481 (exact 0.25, err 3.75e-04, bound 1/N=5.00e-04)
+[q] plane-wave strip mass on mesh: 0.24962481 (exact 0.25): OK
+
+[b] uniform baseline strip mass = 0.25 >= 1/8: OK
+
+[c1] vertical cos beam m=3: analytic strip mass = 0.196948, mesh = 0.196574
+     direction (0,+-1): cone error = 0.5465 >> h^{1/2} -> REJECTED by cone screen (out of class, not a counterexample).
+[c2] Gaussian scar sigma=0.05: strip mass = 2.621e-26 (< 1/8: deliberately evasive),
+     golden-cone Fourier fraction = 0.0, residual/h^2 = 5.657e+02 >> 1
+     -> REJECTED by cone screen AND residual screen (out of class, not a counterexample).
+
+=== VERIFY_OK: admissible strip masses = 1/4 (>= 1/8 + 1/8 margin); all sub-threshold trials out of class ===
