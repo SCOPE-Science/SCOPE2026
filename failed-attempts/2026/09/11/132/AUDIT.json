@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "EMERGENT_FINDING route verified as target-generated (same S3 model, kernel/group methods) so absence from topic.json is not adverse. Reran all four stdlib scripts: GROUP_WORD_OK, TRACEPOLY_OK, GENUS_OK, BOUNDS_OK all reproduce. Sympy cross-check confirms Res_z(f,w-(z^3-2))=T, T irreducible, disc(C)=-16t^3h, disc(E)=-256t^7h, det/tr identities hold mod f. However Theorem 1 proof is incomplete as written: [Q(tau):Q]=5 forces phi(m)=10, i.e. m in {11,22} with DISTINCT minimal polynomials M11=w^5+w^4-4w^3-3w^2+3w+1 and M22=w^5-w^4-4w^3+3w^2+3w-1. Submission checks only Res(T,M11)=3056498369 and claims it excludes both 2cos(2pi/11) and 2cos(pi/11) types, which is false as stated. Res(T,M22)=-67621991909 (nonzero) repairs it, but archived certificate lacks this case. Additionally the claimed rigorous excursion/total separation is invalid: two upper bounds rho_exc<3.61 and rho_tot<3.8285 cannot prove regime separation. Claim is true but proof incomplete and interpretation overstated.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING assessed under ordinary full standard with no presumption. Fused search (BMM 79-model classification, Dreyfus difference-Galois work, Mishna-Pulido 2026 survey reporting 21 proved infinite-group cases with remainder conjectured, comb_walks database) finds no prior S3-specific Theta word, fixed-point quintic f=x^5-x^4+x^3+2x^2-1, trace polynomial T=w^5+18w^4+120w^3+367w^2+527w+289, resultant 3056498369, discriminant identity -16t^3h(t), or rational fractions 1700772859/471379000 and 135354041/35355000. Broader BMM infiniteness (finite in exactly 23 cases) covers G(S3) infinite abstractly but does not imply this specific Theta has infinite order, nor the exact T/h/fractions. Database genus/infinite flags are abstract, not exact certificates. Hence exact headline certificates are new; originality passes narrowly on the exact witness, separate from value.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING must independently pass value; narrow exact datum can pass only if motivated, not mechanically implied, and reasonably needed later. This ledger fails that test. Infiniteness and genus-one reprove the known BMM/Dreyfus classification for S3 (finite in exactly 23 cases; remainder infinite/elliptic) with a new certificate, and certification alone does not create value per STANDARD. The two growth bounds are one-line textbook Cramer evaluations e_n<=S(x,y)^n and q_n<=S(x,y)^n at arbitrary rationals (0.634,1.487) and (1,1.4142); upper-only bounds with no lower bound or exponent, and upper-vs-upper comparison cannot rigorously separate regimes as claimed. No non-D-finiteness, exponent, or transfer is proved (explicitly disclaimed). The specific T/resultant/fractions are proof artifacts, not downstream-needed invariants; no material benchmark or classification advance beyond the 13 proved polar cases is established.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Bousquet-Melou & Mishna arXiv:0810.4387: 79 models, group finite in exactly 23 cases (Gessel 23rd algebraic), 56 infinite conjectured non-D-finite",
+    "Dreyfus-Hardouin-Roques-Singer arXiv:1702.04696 (Inventiones 2018): difference-Galois hypertranscendence for quarter-plane walks, genus-one elliptic setting",
+    "Mishna-Pulido arXiv:2605.16688 (May 2026): 21 of 56 infinite-group models proved (5 singular, 3 zero-drift, 13 polar); 9 differentially algebraic via decoupling; 21 remain numerically conjectured for boundary series",
+    "comb_walks discretewalks database (Inria GitLab): per-model finite-group / singular genus-zero / elliptic genus-one flags and docs",
+    "Reran inputs/artifacts/verify_group.py -> GROUP_WORD_OK, verify_tracepoly.py -> TRACEPOLY_OK, verify_genus.py -> GENUS_OK, verify_bounds.py -> BOUNDS_OK with exact Fractions",
+    "Independent sympy verification: resultant equals T, T irreducible, M11 vs M22 distinct with Res(T,M11)=3056498369 and Res(T,M22)=-67621991909, disc identities -16t^3h and -256t^7h, det-1 and tr-(x^3-2) numerators divisible by f"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "BMM proves group finite in exactly 23 of 79 models (rest infinite) and Dreyfus et al. treat elliptic genus-one kernels; Mishna-Pulido proves 13 polar cases. None supplies the S3-specific Theta word, quintic f, trace polynomial T, discriminant identity h, or rational bound fractions.",
+      "reasoning": "Broader classification covers abstract infiniteness/genus but does not exhaustively cover the exact S3 witness certificates; however abstract coverage confirms the ledger reproves known classification content, which defeats value even though exact numbers keep originality narrowly alive.",
+      "search": "BMM 79 models finite group classification elliptic genus-one kernel broader coverage S3"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "BRS excursion asymptotics plus Denisov-Wachtel/Duraj estimates imply non-D-finiteness for 13 polar models per Mishna-Pulido; Melczer-Mishna singular iterated-kernel covers disjoint singular regime. Neither implies Theta infinite order, genus-one identity on (0,1/4), or Cramer bounds for S3={SW,N,E,SE}.",
+      "reasoning": "No prior excursion-only or singular implication mechanically yields the submitted S3-specific word, trace polynomial, discriminant identity, or bound fractions; implication failure lets originality pass but does not rescue textbook-level value.",
+      "search": "Melczer Mishna singular walks Bostan Raschel Salvy excursion implication total series S3"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal S3={SW,N,E,SE} Theta=Psi o Phi infinite order, quintic x^5-x^4+x^3+2x^2-1, trace w^5+18w^4+120w^3+367w^2+527w+289, plus dual/complement/incidence and synonymous walk-group notation; only generic BMM/Dreyfus/Mishna-Pulido classification hits, no S3-specific word or trace polynomial record.",
+      "reasoning": "Absence of synonymous or dual encodings of the exact word and trace certificate confirms the precise witness is not a restatement, so originality on the exact numbers is not defeated by notation.",
+      "search": "S3 SW N E SE quarter-plane walk Theta Psi Phi infinite order trace polynomial equivalent"
+    },
+    "exact_database_or_table": {
+      "evidence": "comb_walks database schema lists per-model finite-group (FG-BMM), singular genus-zero (NE-DHRS), and elliptic flags, but no table entry was found containing S3 trace polynomial T, resultant 3056498369, h(t)=91t^5+96t^4+30t^3-t^2-t-1, or fractions 1700772859/471379000 and 135354041/35355000.",
+      "reasoning": "Lookup of abstract flags cannot produce the exact certificates, so the submission is not direct database repackaging; nevertheless the certificates are routine evaluations of standard criteria, supporting a value failure rather than an originality failure.",
+      "search": "comb_walks database quadrant walk growth constant table S3 exact lookup"
+    }
+  },
+  "residual_risks": [
+    "Even after adding missing Res(T,M22) check, ledger remains a reproof of known infinite/elliptic classification plus weak upper-only Cramer bounds with no exponent or transfer."
+  ],
+  "verdict": "REJECT"
+}
