@@ -1,0 +1,112 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay in this audit (stdlib-only check on inputs/artifacts/witness.json) confirms: both 10x10 grids are Latin (all rows/columns are permutations of 0..9), SIG=[1,2,0,4,5,3,7,8,6,9] has cycle profile [1,3,3,3] and satisfies SIG^3=id, G[SIG[r]][SIG[c]]==SIG[G[r][c]] holds at all 100 cells for both G in {A,B} (diagonal order-3 autotopism), fixed cell (9,9)->9 in both squares, and the 100 superimposed pairs (A[r][c],B[r][c]) are pairwise distinct (100/100 orthogonality). The OA(4,10) reading (r,c,A[r][c],B[r][c]) is therefore valid and closed under (sigma,sigma,sigma,sigma). TARGET route (claim_route=TARGET in research_report.json) matches topic target_claim literally, so no fallback logic applies. No ADMISSION_DEFECT: cycle arithmetic is consistent and non-vacuous.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live search (SerpBase+Serpent/OpenAlex/Crossref, 9 provider calls, partial=false) over literal, equivalent OA/autotopism, and broader census wordings found no prior decision on an OA(4,10) with order-3 3+3+3+1 autotopism on all four coordinates. Egan-Wanless (arXiv:1406.3681) exhausts only n<=9 plus a near-triple at 10; Wanless MOLS data page catalogues species only to order 9 with random/relation samples at 10; Gill-Wanless relation-pair census counts relation-satisfying pairs (templates 4444/44222) without cycle-profile autotopism classification; Sloane OA library row oa.100.4.10.2 records existence of some OA(4,10) (Parker phenomenon), not this symmetric subtype. No database row, theorem, or construction substantively implies the refined joint-symmetry existence. DRAFT's honest Parker-corpus-diff limitation does not weaken the headline, which claims existence with the prescribed profile, not corpus-wide isotopic novelty.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET positive resolution admitted as independently valuable: first explicit order-10 orthogonal pair carrying the minimal-fixed-point semiregular C3 action (3+3+3+1) jointly on rows, columns, and both symbol sets. Object (OA(4,10)) and invariant (joint order-3 autotopism profile) were motivated before computation as symmetric seeds for triple-extension attacks and as a test of whether order-3 symmetry survives orthogonality at the critical order 10; the value is not known or mechanically implied and a future triple-hunter or symmetry-guided SAT builder could reasonably need this exact witness. This is a rigorously verified exact datum about a natural object, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration, and the incomplete surrounding census (full group, full corpus diff) is honestly disclosed without erasing the headline.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Independent stdlib replay of inputs/artifacts/witness.json in this audit: Latin A,B verified, SIG profile [1,3,3,3] and SIG^3=id verified, diagonal equivariance at 100/100 cells per grid, orthogonality 100/100 distinct pairs, fixed cell (9,9)=9; output/artifacts/verifier.py prints INDEPENDENT_VERIFY_OK.",
+    "Egan & Wanless, Enumeration of MOLS of small order (arXiv:1406.3681, Math. Comp. 85 (2016) 799-824): exhaustive classification only for n<=9; order-10 contribution is a closest near-triple, no 3+3+3+1 pair-autotopism decision. https://arxiv.org/abs/1406.3681",
+    "Wanless MOLS data catalogue page (Monash): exhaustive species files only for k-MOLS(n) with n<=9; order-10 holdings are random MOLS10.txt samples, a near-triple, crimped examples, and relation-pair files Omega.gz/OmegaPrime.gz with templates \u2014 no order-3 autotopism-profile census. https://users.monash.edu.au/~iwanless/data/MOLS/",
+    "Sloane Library of Orthogonal Arrays: lists oa.100.4.10.2 (some OA(4,10) exists) among 100-run arrays; stores parameters/exemplars, not a classification of order-3 3+3+3+1 autotopism subtypes. http://neilsloane.com/oadir/",
+    "Gill & Wanless, Pairs of MOLS of order ten satisfying non-trivial relations (Des. Codes Cryptogr. 2023, doi:10.1007/s10623-022-01149-6): 18526320 species of relation-satisfying pairs via 4444 templates; counts relation types and non-extendability, does not classify joint cycle-profile autotopisms, so does not imply the semiregular C3 subtype.",
+    "Topic admission preflight and audit_plan (inputs/topic.json): pins diagonal C3 generator per OA(4,10) coordinate with canonical novelty procedure; preflight cycle-consistency and nonvacuity checks confirm the subtype is a live restricted existence problem, not arithmetic vacuity."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Egan-Wanless classifies pairs only to order 9 (plus near-triple at 10); Gill-Wanless 18.5M census counts relation-satisfying pairs via templates 4444/44222 with non-extendability claims; Youden/rectangle and DCLS programs stop at small orders or single-square symmetry. None states a theorem covering all order-10 pair autotopisms or the 3+3+3+1 joint profile.",
+      "reasoning": "A broader pair census defeats originality only if it substantively implies or exhaustively covers the named subtype. Relation counts and small-order classifications do not propositionally entail existence or nonexistence of a semiregular order-3 pair at order 10, so broader coverage does not subsume the headline.",
+      "search": "MOLS order 10 autotopism group classification census Parker pair automorphism Egan Wanless enumeration"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Parker (1959-60) constructions prove some order-10 pairs exist; single-square automorphism theory (e.g., diagonally cyclic squares, cycle-structure autotopism papers) constrains one Latin square, not joint orthogonality; parity-of-MOLS files exhibit parities, not this autotopism. No source exhibits or refutes a 3+3+3+1 joint autotopism pair.",
+      "reasoning": "Prior existence of some pair and single-square symmetry lemmas do not logically imply the refined joint claim: orthogonality plus simultaneous equivariance of both squares is an extra constraint, and orbit-level assignments exist before orthogonality bites (nonvacuous). Hence the witness adds new propositional content.",
+      "search": "orthogonal pair Latin squares order 10 autotopism order 3 new Parker pair symmetry construction"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched OA(4,10) automorphism/isotopism wording, orthogonal-array language, and MOLS(10) symmetric-pair language in one fused call; top hits were Sloane OA tables, Wanless data, Egan-Wanless, and single-square autotopism papers. No hit states an OA(4,10) with C3 generator (0 1 2)(3 4 5)(6 7 8)(9) on all four coordinates or a synonymous incidence-graph/matrix encoding of it.",
+      "reasoning": "Dual/complement/incidence-graph/matrix/algebraic relabelings (OA rows vs Graeco-Latin squares vs 4-dimensional permutation array) were covered by issuing both pair and OA wordings; all converge on the same undecided subtype rather than revealing a hidden prior answer under synonymous notation.",
+      "search": "OA(4,10) orthogonal array automorphism order 3 semiregular autotopism MOLS(10) symmetric pair"
+    },
+    "exact_database_or_table": {
+      "evidence": "Wanless MOLS data (exhaustive only to order 9; order-10 files are samples/relation pairs), Sloane OA directory (oa.100.4.10.2 exemplar without symmetry annotation), and McKay-Meynert-Myrvold small-order tables contain no row keyed by 3+3+3+1 joint autotopism at order 10. Omega.gz stores raw relation-pair species without autotopism-profile index, so no lookup decides the subtype.",
+      "reasoning": "Exact-table failure mode requires a stored entry that decides the claim by lookup or trivial recomputation. With no profile-indexed row, exhibiting the witness cannot be reduced to re-presenting a catalogued pair, and even hypothetical raw-grid coincidence in an 18M unindexed sample would not constitute a recorded symmetry decision.",
+      "search": "OA(4,10) order 10 orthogonal pair autotopism database table Sloane Wanless MOLS10 species file"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "27498a78aefa1d206d93e87dc0b907f05d985c59a70bafe45680290e22fe6d93",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Exhaustive species catalogues stop at order 9; order-10 holdings are random samples, a near-triple, and relation-pair files with no joint 3+3+3+1 C3 autotopism decision, so its hypotheses do not cover the claimed symmetric pair.",
+        "title": "Data on mutually orthogonal Latin squares (MOLS)",
+        "url": "https://users.monash.edu.au/~iwanless/data/MOLS/"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves 18,526,320 relation-satisfying order-10 pairs with no triple extension; an F2-relation hypothesis is logically independent of a joint C3 autotopism profile, and its conclusion exhibits no 3+3+3+1 diagonal pair.",
+        "title": "Pairs of MOLS of order ten satisfying non-trivial relations",
+        "url": "https://arxiv.org/abs/2204.10996"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Triple-level symmetry exclusion (any 3-MOLS(10) has only trivial single-square symmetry) constrains triples, not pairs; it neither exhibits nor forbids an orthogonal pair with joint order-3 autotopism, so it does not imply the pair headline.",
+        "title": "Small Latin Squares, Quasigroups and Loops",
+        "url": "https://users.cecs.anu.edu.au/~bdm/papers/ls_final.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Manual for prescribed-autotopy MOLS search tooling plus a 1-diagonally cyclic self-orthogonal order-10 example invariant under transpose-conjugation; this is a different symmetry type and exhibits no diagonal (sigma,sigma,sigma,sigma) C3 pair with 3+3+3+1 on four coordinates.",
+        "title": "Prescribed Automorphism Groups 0.2.5",
+        "url": "https://web.math.pmf.unizg.hr/acco/PAGmanual.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Defines autotopism groups for Latin rectangles and cites the McKay triple-symmetry exclusion and self-orthogonal order-10 enumeration; it contains no construction or classification of an order-10 orthogonal pair with the claimed joint C3 cycle profile.",
+        "title": "Enumeration of Sets of Mutually Orthogonal Latin Rectangles",
+        "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v31i1p53/pdf/"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Complete enumeration of 91 order-10 pairs with two F2-relations; a relation-count hypothesis differs from an autotopism-profile hypothesis and it reports no C3-symmetric witness, so no table lookup decides the claim.",
+        "title": "Orthogonal Latin Squares of Order Ten with Two Relations",
+        "url": "https://cs.uwaterloo.ca/~cbright/reports/delisle-mols.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Classifies possible single-quasigroup and single-Latin-square autotopism cycle structures; single-square admissibility does not lift to joint orthogonality of two squares, and it exhibits no OA(4,10) with the diagonal order-3 profile.",
+        "title": "[PDF] Cycle structure of autotopisms of quasigroups and Latin squares",
+        "url": "https://www.cs.du.edu/~petr/data/papers/cycle_structure_of_autotopisms_of_quasigroups_and_latin_squares.pdf"
+      }
+    ],
+    "rationale": "Terminal Perplexity check (20 results, 7 URL-overlaps with the base providers) added useful adjacent recall but no decisive prior. Incremental leads \u2014 the Gill-Wanless arXiv abstract, PAG prescribed-autotopy manual, MOLR autotopism framework, single-square cycle-structure theory, and Delisle two-relation enumeration \u2014 were compared literally on hypotheses versus conclusions: each concerns a different invariant (F2-relations), object level (single squares or triples), symmetry type (transpose-conjugation rather than diagonal C3), or general tooling, and none exhibits, classifies, or implies an OA(4,10) with diagonal autotopism (sigma,sigma,sigma,sigma) of profile 3+3+3+1 on all four coordinates. Overlapping hits duplicated base evidence (Wanless data, Egan-Wanless, McKay counts). Originality PASS therefore stands; correctness and value are untouched and the public package is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [
+    "Full Parker-corpus isotopism diff not run offline: headline claims existence with prescribed profile, not corpus-wide isotopic novelty, so this limits a stronger novelty gloss, not the audited existence fact.",
+    "Full autotopism group beyond the exhibited C3 subgroup not enumerated: headline requires at least the order-3 autotopism, which is verified; a larger group would strengthen but not invalidate the claim.",
+    "Construction route (oasolver.py seed 4) uses randomized backtracking: witness validity is deterministic and independently replayed, so search nondeterminism is not a correctness risk."
+  ],
+  "verdict": "PASS"
+}
