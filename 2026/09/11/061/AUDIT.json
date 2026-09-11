@@ -1,0 +1,68 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "TARGET route. Auditor independently re-executed enumerate.py logic: 113 total diagrams (A50/E15/F15/D12-11/D23-11/D13-11), 80 connected; recomputed connected L(q) exactly matches claimed coefficients 1,16,140,868,4222,16396,44258 (symmetric), L(1)=87544 with splits A65208/E11168/F11168, L(-1)=18424, sum nu 26422. Tree-pattern exhaustiveness verified: undirected trees on {1,2,3} with 2 edges are exactly chain 12+23, star-at-1 12+13, star-at-3 13+23. Weight/divergence bounds match Def 5.1 (m=0); t>=0 asserted per row; marking poset (L<f<R, f_i<m_ij<f_j, f1<f2<f3) faithfully encodes Def 5.4 Steps 1-4; LE divisible by prod s!t! asserted; no parallel edges in A/E/F so aut=1 correct. mult(D;1)=prod w^2 rechecked per row. calib.py rerun prints CALIBRATION_PASS with N(1,1)=1,N(2,1)=1,N(2,2)=12 plus brute-force cross-checks. Arithmetic genus (3-1)(4-1)=6, dim|L|=19, n=13 all correct. C4 scope honestly narrowed to same-chamber-datum determinism plus floor-order fixity (Thm 5.7); limitation disclosed so no misrepresentation. Core ledger is proof by exhaustive scripted census, not mere experiment.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "One consolidated scope_literature_search in three normalized forms (literal (3,4) ledger; synonymous Goettsche/q-floor/refined-Severi/F0/Sigma_0/P1xP1 encodings; broader Fock-space/polynomiality/database dominance query) returned only general theory: Block-Gottsche 2016, Block q-floor 2012, CJMR Fock space, Bousseau lambda-class, Itenberg-Mikhalkin, Brugalle-Jaramillo Puentes. No source states or implies the exact 80-diagram table, coefficient vector, L(1)=87544, or L(-1)=18424. Full-text check of Block-Gottsche 1407.2901 confirms it proves invariance/polynomiality for fixed delta and computes only delta<=10 node polynomials for P2, with no (3,4)-on-F0 ledger. Adversarial checklist (synonyms, duals, broader census, tables, corollary-repackaging) tested in decisive_checks; no covering result found.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Rigorously established exact refined invariant of a specific natural object (F0=P1xP1, class 3H+4F) motivated before computation by the recognized refined tropical/log correspondence gap: explicit Hirzebruch q-ledgers needed as log-GW, scattering, and real q=-1 benchmarks. Value is not known or mechanically implied by general invariance/polynomiality theorems; per-diagram q-weights, nu table, symmetric L(q), and q=1/q=-1 specializations give citable downstream calibration for adjacent bidegrees. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration: Newton/divisor data, chamber, axioms, limitations, and reproducibility are fixed and the ledger is complete for its chamber. Independently worth retrieving.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "Block-Gottsche arXiv:1407.2901 full text (Title/Abstract/Sections 2 and 5): tropical refined Severi degrees for all toric surfaces plus refined floor diagrams for Hirzebruch/rational-ruled surfaces; Defs 5.1/5.2/5.4 and Thm 5.7 give the axioms used; proves polynomiality/invariance for fixed delta and computes P2 node polynomials for delta<=10 with no explicit F0 (3,4) q-ledger or diagram table.",
+  "scope_literature_search (3 consolidated queries, SerpBase/Serpent+OpenAlex+Crossref fused, 20 results, full coverage no partial failure): literal (3,4)-ledger query, synonymous Goettsche/q-floor/refined-Severi/F0/Sigma_0/P1xP1 query, and broader Fock-space/polynomiality/database dominance query; hits are only general frameworks (Block-Gottsche, Block q-floor, CJMR 1706.05401, Bousseau, Cooper Fock space, Itenberg-Mikhalkin, Brugalle-Jaramillo Puentes) with snippets confirming no (3,4)-specific polynomial or table.",
+  "Independent recomputation: re-executed enumerate.py counting logic from inputs/artifacts yielding 113 total / 80 connected diagrams and byte-identical L(q) coefficients, L(1)=87544 (A65208/E11168/F11168), L(-1)=18424, sum nu=26422; verified weight/divergence/t-nonnegativity bounds and mult(D;1)=prod w^2 per row.",
+  "calib.py rerun in inputs/artifacts prints CALIBRATION_PASS: same generic subset-DP plus brute-force permutation counter reproduces classical P1xP1 counts N(1,1)=1, N(2,1)=1, N(2,2)=12; ledger_conn.json (80 rows, L_q/L1/Lm1) and ledger.json (113 rows) inspected directly."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Third consolidated query on Hirzebruch refined floor census, polynomiality/invariance, Fock space, databases, and log-GW tables returned general theorems (Bousseau lambda-class series; CJMR Fock-space framework; Brugalle-Jaramillo Puentes polynomiality; Cooper Fock approach; Ardila-Brugalle piecewise polynomiality) whose snippets state results for all toric/Hirzebruch surfaces at fixed delta or descendant/relative classes, but none publishes the (3,4) genus-0 q-coefficients, the 80-row table, or L(1)=87544/L(-1)=18424.",
+   "reasoning": "A broader theorem covers the claim only if it substantively implies the exact value. Polynomiality/invariance and Fock-space recursions are methods that still require the (3,4) enumeration to be run; they do not mechanically yield the coefficient vector. Hence no broader result subsumes the headline ledger.",
+   "search": "Hirzebruch refined floor diagram census polynomiality invariance Fock space database refined Severi tropical log GW table bidegree"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Block-Gottsche Thm 1.1/1.2 and Corollaries 1.3-1.5 prove refined Severi equals tropical refined count and give P2 refined node polynomials for delta<=10 (d>=delta/2+1) plus y=-1 Welschinger values; the F0 (3,4) case has cogenus delta=6 with its own rectangle polygon and floor data, and no corollary lists its L(q). The submitted L(q) is consistent with symmetry and specialization structure but is not deduced from any prior closed form.",
+   "reasoning": "Prior general equalities (refined Severi = tropical refined = floor sum) are the framework the submission correctly uses, not a source of the (3,4) numbers. Since no prior table or formula outputs 1,16,140,868,4222,16396,44258 with L(1)=87544, the claim is not a corollary, certificate, or repackaging of a known stronger fact.",
+   "search": "Prior Block-Gottsche theorems vs submitted (3,4) implication test: refined node polynomials delta<=10, tropical-floor correspondence Thm 1.1/5.7, Welschinger y=-1 specialization"
+  },
+  "equivalent_formulations": {
+   "evidence": "Second consolidated query using synonymous notation (Goettsche spelling, q-floor diagrams, refined Severi degree, P1xP1, F0/Sigma_0, bidegree 3 4) returned the same general papers with no (3,4)-specific hit; full-text Defs 5.1/5.2/5.4 confirm the submission uses standard conventions (s sum c=4, div<=s_j, mult=prod[w]_y^2, nu via Steps 1-4), so an equivalent-notation prior would have matched had it existed.",
+   "reasoning": "No dual/complement/incidence-graph/matrix/algebraic encoding hides the result: floor-diagram language is already the standard encoding shared by Block-Gottsche, Brugalle-Mikhalkin, and Fock-space sources searched. Absence across all synonymous forms shows the exact (3,4) ledger is not recorded under another name.",
+   "search": "refined Severi degree P1xP1 bidegree 3 4 q-floor diagram Goettsche multiplicity Hirzebruch F0 Sigma_0"
+  },
+  "exact_database_or_table": {
+   "evidence": "Fused results contain no exact-identifier hit: no table row with coefficients 1,16,140,868,4222,16396,44258, no mention of L(1)=87544 or L(-1)=18424, and no thesis/appendix/database (unrefined GW databases store complex numbers for low degrees, not refined q-ledgers with per-diagram q-weights). Admission triage likewise found no (3,4) table; the submission itself notes no published closed-form (3,4) number was found.",
+   "reasoning": "The headline is a precise numerical ledger plus 80-row per-diagram table. An official database or appendix covering it would have to contain these exact numbers. None does, so the finding is not database repackaging or lookup.",
+   "search": "Exact (3,4) q-ledger lookup: coefficients 1 16 140 868 4222 16396 44258, L(1) 87544, L(-1) 18424, marked floor-diagram table database thesis"
+  }
+ },
+ "residual_risks": [
+  "Unpublished thesis appendix containing a (3,4) refined table cannot be logically excluded, but triage plus three-direction live retrieval across synonymous and broader forms found no trace of it.",
+  "L(1)=87544 has no independent published closed-form cross-check; confidence rests on recomputed floor sum plus small-bidegree calibration, which is disclosed.",
+  "Within-chamber invariance rests on floor-order combinatorial fixity (Thm 5.7) plus determinism rerun rather than an independent geometric re-derivation; scope is honestly narrowed and no broader chamber claim is made."
+ ],
+ "verdict": "PASS",
+ "perplexity_final_check": {
+  "status": "COMPLETE",
+  "check_id": "26dc338a78296a1081408ebf38eb3e2b4e4b80a0607c13db502f6720851fabb7",
+  "decisive_prior_found": false,
+  "incremental_prior_found": false,
+  "verdict_changed": false,
+  "material_sources": [
+   {
+    "title": "Double Gromov-Witten Invariants of Hirzebruch Surfaces are ...",
+    "url": "https://academic.oup.com/imrn/article/2017/2/614/2949642?guestAccessKey=",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Returned snippet exhibits a single Hirzebruch floor diagram of bidegree (a,b)=(3,4) with genus g=1 and classical multiplicity 6 as a double Gromov-Witten example, whereas the headline claims the genus-0 connected Block-Gottsche refined 80-diagram q-ledger L(q) with L(1)=87544 and L(-1)=18424; different genus, different invariant (unrefined double-relative multiplicity versus refined q-multiplicity sum), and a single illustrative diagram versus a complete chamber census, so it does not imply or contain the claimed ledger.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   }
+  ],
+  "decisive_sources": [],
+  "rationale": "Terminal Perplexity search (20 results, 4 title/URL overlaps with base) added no decisive prior: 4 overlapping hits duplicate the base general frameworks (Bousseau refined floor diagrams, Block-Gottsche Fock spaces, elliptic floor diagrams, Itenberg-Mikhalkin) with hypotheses at general delta/bidegree and no F0 (3,4) ledger; 16 incremental hits are general refined/long-edge/Fock/elliptic/thesis methods or plane-curve tables, none publishing the 80-row table, coefficient vector 1,16,140,868,4222,16396,44258, L(1)=87544, or L(-1)=18424. The closest incremental recall, the Ardila-Brugalle double-GW (3,4) single-diagram genus-1 multiplicity-6 example, was literally compared and fails on genus, invariant, and completeness, so originality PASS is preserved with no verdict change."
+ }
+}
