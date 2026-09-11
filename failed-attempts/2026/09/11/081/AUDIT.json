@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/verify_target.py -> VERIFY_OK: G=[1,0,0,1,1,1,1,1,2,2,2,3,4,4] to n=13 by two agreeing methods (descending-part DFS plus exhaustive partition filter vs memoized DP F(rem,prev)), P=[1,0,1,1,...]. Hand checks confirm: G(2)=0 because all parts must be >=3; P(q)=(q8;q8)/((q2;q8)(q3;q8)(q6;q8))=1+q2+q3+... so P(2)=1; both constant terms 1 force prefactor q^c c=0. G(6)=1 from single partition [6] ([3+3] gap 0 fails, [4+2] has 2) refutes g(11n+6)=0 at n=0. Residue witnesses r0->0,r1->12,r2->13,r3->3,r4->4,r5->5,r6->6,r7->7,r8->8,r9->9,r10->10 verified; G(1)=G(2)=0 explains r1,r2 delay. DP predicate and product convolution code inspected and correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The combinatorial predicate G (gaps >=2, >=4 between evens, smallest >=2 with no 2, i.e. all parts >2) is literally the classical second Gollnitz-Gordon class, whose generating function is 1/((q3;q8)(q4;q8)(q5;q8)) per MathWorld/Slater/Andrews. The submitted product with residues {2,3,6} is disjoint from classical {1,4,7} and {3,4,5}. Live fused search retrieved classical statements and He-Zhao 2023 companions but no {2,3,6} identity. Crucially, the classical second identity already implies the headline's first half: it fixes G's series (0 at q^2) while P_{2,3,6} has 1 at q^2, so G!=P is a direct corollary/recomputation of a known stronger theorem, not a new companion. The mod-11 non-vanishing census (all witnesses <=13 with values <=4 <11) is mechanically implied by small values and was never a stated prior gap. Hence the headline is covered as corollary/repackaging and fails adversarial coverage.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "TARGET route audited normally with no preset presumption. The headline falsification fails at the first checkable coefficient (n=2: [2] counted by P, excluded by G) and the congruence fails at its first term (G(6)=1 from [6]); both are visible without any Bailey-chain or 11-dissection work claimed in the topic. The 11-class census is automatic because all cited G-values are 0-4, so non-zero implies non-zero mod 11; residue 0 is trivially obstructed by G(0)=1. The object G is not new: it is the classical second Gollnitz-Gordon sequence (OEIS A036015), so comparing it to a different known product {2,3,6} and logging small-value non-vanishing provides no benchmark, classification datum, or downstream fact a future researcher would need to retrieve. Short proof is not the issue; mechanical immediacy plus pre-classified object with no new method or insight is intrinsic low value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Wolfram MathWorld Gollnitz-Gordon Identities: first identity gap>=2, >=4 between evens = parts 1,4,7 mod 8; second identity same gaps plus all parts >2 = parts 3,4,5 mod 8; analytic counterparts sum=q-series =1/((q;q8)(q4;q8)(q7;q8))=1+q+q2+... and =1/((q3;q8)(q4;q8)(q5;q8))=1+q3+q4+q5+q6+q7+2q8+... (OEIS A036016/A036015). Establishes G is classical GG2 and {2,3,6} disjoint.",
+    "He-Zhao 2023 Ramanujan J 61:1077-1120 'New companions to the generalizations of the Gollnitz-Gordon identities' (abstract + references: Andrews 1967 generalization, Bressoud 1980 even moduli, Bailey lattice). Retrieved via scope_literature_search rank 2-3 and direct Springer fetch. Contains Andrews/Bressoud companions but no {2,3,6} shifted-initial-condition product or mod-11 family; confirms gap but classical coverage remains.",
+    "Independent re-execution of inputs/artifacts/verify_target.py in audit workspace: V1 brute==DP to 13, V2 G[2]=0 vs P[2]=1, V3 G(6)=1 kills 11n+6 at n=0, V4 full residue log r0->0,r1->12,r2->13,r3->3,r4->4,r5->5,r6->6,r7->7,r8->8,r9->9,r10->10, divergence 190/201 to N=200, VERIFY_OK. DP recursion and product convolution logic inspected line-by-line and found correct.",
+    "Fused live search scope_literature_search call with three normalized queries (literal product+11n+6, equivalent gap/smallest-part/Bailey residues 2,3,6, dominance Andrews/Bressoud/He-Zhao/quintuple dissection). 20 fused results, full provider coverage (serpbase/serpent/crossref ok, openalex 0 hits, partial=false). Screened snippets: classical products, Chu 2007 quintuple p(11n+6), Marivani 2013 p(11n+6), Kim-Yee parity, Russell 2026 companions \u2014 none states {2,3,6} shifted product or G mod-11 family."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "He-Zhao 2023 abstract: Andrews 1967 combinatorial generalization + Bressoud 1980 even-moduli extension + new companions; Andrews 1967 Proc AMS; Bressoud Mem AMS 227; Russell 2026 SIGMA companions to Andrews-Gordon/Bressoud. None lists predicate smallest>=2/no-2 with product {2,3,6} or g(11n+6)=0 for G.",
+      "reasoning": "Broader theorems do not assert the submitted false identity, but the classical level-8 second theorem inside that broader family already fixes G's generating function to {3,4,5}, which differs from {2,3,6} at order 2. Hence the submitted falsification is a strict corollary of the broader classical coverage, not a new boundary datum; the Bailey/11-dissection apparatus adds no coverage beyond that corollary.",
+      "search": "Andrews Bressoud Gollnitz-Gordon even modulus companions classification He-Zhao new companions quintuple product dissection"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Classical analytic second GG identity: sum =1/((q3;q8)(q4;q8)(q5;q8))=1+q3+q4+q5+q6+q7+2q8+... so coefficient of q2 is 0. Submitted P(q)=(q8;q8)/((q2;q8)(q3;q8)(q6;q8))=1+q2+q3+... coefficient of q2 is 1. Classical combinatorial side is exactly G (gaps >=2, >=4 evens, parts >2).",
+      "reasoning": "Prior classical theorem substantively implies headline half (a): G's series is known to be {3,4,5} product, therefore it cannot equal {2,3,6} product, with explicit mismatch at n=2. No verbatim prior statement of 'G!=P_{2,3,6}' is needed; implication suffices per contract. Headline is thus recomputation/certificate of a known stronger fact, failing originality.",
+      "search": "Gollnitz-Gordon second identity analytic product 1/((q3;q8)(q4;q8)(q5;q8)) Slater 34 coefficient q2 vs submitted (q8)/((q2)(q3)(q6)) coefficient"
+    },
+    "equivalent_formulations": {
+      "evidence": "MathWorld: first GG = parts 1,4,7 mod 8; second GG = parts >2 with even-gap>=4 = parts 3,4,5 mod 8. Search for residues {2,3,6}, complement/dual relabelings, incidence/matrix encodings returned only classical triples and generic separable-class pages. No synonymous notation yields {2,3,6} from {1,4,7} or {3,4,5} by complement (8-r), dilation, or conjugation.",
+      "reasoning": "Literal triple {2,3,6} is disjoint from both classical triples, so not a synonymous restatement. However the sum-side predicate (gaps >=2, >=4 evens, parts >2) is identical to classical second GG sum side, so the 'shifted' object is not distinct. The falsity therefore does not come from a new equivalence but from pairing a known sum side with the wrong known product side.",
+      "search": "Gollnitz-Gordon companion product (q^8;q^8)/((q^2;q^8)(q^3;q^8)(q^6;q^8)) congruence g(11n+6)=0 mod 11"
+    },
+    "exact_database_or_table": {
+      "evidence": "MathWorld/OEIS A036015 (second GG, 3,4,5) series 1,0,0,1,1,1,1,1,2,... matches audit G[:8]=[1,0,0,1,1,1,1,1]; A036016 (first GG, 1,4,7) series 1,1,1,... differs. Truncated P_{2,3,6} computed as [1,0,1,1,1,1,3,1,...]. Table comparison at n=2 gives 0 vs 1.",
+      "reasoning": "Exact tables already contain G's initial values via classical GG2 enumeration, so G(2)=0 and G(6)=1 are table lookups, not new data. The claimed product's coefficients are fixed eta-quotient data. The mismatch is therefore already present in official tables/databases combined with the classical theorem; no new table entry is created beyond restating that two tabulated series differ.",
+      "search": "OEIS A036015 A036016 Gollnitz-Gordon q-series coefficients table parts 3 4 5 mod 8 vs residues 2 3 6"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
