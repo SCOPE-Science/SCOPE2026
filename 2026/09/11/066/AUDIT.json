@@ -1,0 +1,104 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Replayed output/artifacts/verify_counterexample.py: ALL CHECKS PASSED with delta in [0.1525932,0.1525934], lambda1>=0.0823037, lambda1*A>=2.360250 > 1.220747>=8*delta. Independently cross-checked: FD Neumann ground energy ~0.0847 lies inside certified [0.0823,0.0853] Rayleigh upper bound; quadrature mu~0.08521 and residual~24.2 lie inside certified intervals; J-recursion matches quadrature to 5e-10. Verified maximality (divergence of phi-only shift vanishes), MOTS identification, BCK operator (22)/reduction (26) against arXiv:2010.01682 full text, rotation-symmetry/Krein-Rutman simplicity lemma reducing full principal eigenvalue to self-adjoint ground energy, and Temple chain (comparison nu=2/S2+Vmin with V-decreasing proved on 64 exact panels, mu<nu, rigorous atan/sqrt/pi enclosures, residual upper bound). Margin is large (factor ~1.93), not a rounding artifact.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "TARGET route (claim_route TARGET present; no fallback; target-only batch). Fused live search found only slow-rotation MOTS spectra (|a|<<M, BCK arXiv:2010.01682), base inequality A>=8pi|J| (Dain-Reiris), throat-rigidity equality characterization (Reiris), and mass-side bounds controlling ADM mass rather than lambda1. None states or implies a near-extremal eigenvalue-versus-deficit rate, and none tabulates lambda1 at a/M=0.99. The certified lower bound lambda1>=0.0823 at deficit ~0.1526 contradicting lambda1*A<=8*delta by factor ~1.9 is therefore substantively new, not a recomputation, corollary, or repackaging of a stronger fact.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Rigorous TARGET disproof: Kerr M=1, a=0.99 horizon MOTS satisfies every hypothesis (axisymmetric vacuum maximal asymptotically flat, stable, J=0.99, delta~0.1526 in (0,1]) yet violates the conjectured C=8 linear vanishing law by factor ~1.93 (lambda1*A/delta>=15.4 vs claimed <=8). This is not a type/normalization error, vacuity, cheap small-instance mismatch, lookup, or arbitrary-parameter fact: the cell is a natural near-extremal Kerr datum, deficit is order-unity fraction, and gap exceeds 1.1 absolute. Consistent with Admission preflight (both proof and rigid-witness disproof pre-approved as valuable) with no ADMISSION_DEFECT. It converts a conjectured quantitative rigidity threshold into a refuted rate, exhibits unexpected near-extremal spectral rigidity, and gives numerical-relativity/initial-data diagnostics a concrete benchmark.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "inputs/DRAFT.md: full disproof text, operator formula, symmetry lemma, Temple certificate, deficit computation, limitations",
+  "inputs/artifacts/verify_counterexample.py replayed locally (also as output/artifacts/verify_counterexample.py): ALL CHECKS PASSED; r+ in [1.1410673,1.1410674], A in [28.67730,28.67822], delta in [0.1525932,0.1525934], mu in [0.0852044,0.0852166], nu~0.5618133, Temple lambda1>=0.0823037",
+  "Independent numeric cross-checks: uniform-grid Rayleigh ~0.08521, residual norm ~24.2, J-recursion vs quadrature agreement to ~5e-10, Neumann FD ground eigenvalue ~0.0847 consistent with certified [0.0823,0.0853]",
+  "arXiv:2010.01682 full text (Bussey-Cox-Kunduri): operator (22), axisymmetric reduction (26), L2 setup, slow-rotation |a|<<M scope only; spectrum-independence of hypersurface",
+  "scope_literature_search fused results (SerpBase/Serpent + OpenAlex + Crossref, 20 fused hits, full coverage, no partial failure): top hits BCK slow-rotation paper, Dain-Reiris area-angular-momentum inequality, Reiris throat rigidity, Gabach Clement-Reiris-Simon cosmological extension; remainder unrelated lambda1 biology hits confirming no eigenvalue-deficit bound in corpus"
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Mass-angular-momentum inequality m>=sqrt(|J|) and Dain-Reiris A>=8pi|J| plus Reiris throat-rigidity (equality only for extreme Kerr-throat spheres) retrieved; all bound mass or area against J, never the MOTS principal eigenvalue against deficit.",
+   "reasoning": "A bound on ADM mass or area at fixed J is compatible with both small and large lambda1 at the same deficit, so no broader theorem mechanically implies the C=8 spectral rate or its negation; the Kerr a=0.99 Temple lower bound fills a genuine gap.",
+   "search": "mass angular momentum inequality axisymmetric vacuum maximal data Dain near extreme Kerr throat rigidity"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "BCK proves analyticity and first/second variation of MOTS eigenvalues only for |a|<<M near Schwarzschild (principal eigenvalue ~1/(4M^2) with small-a corrections); Dain-Reiris proves delta>=0 and Reiris strict delta>0 on horizons; none gives a lower bound ~0.08 at a/M=0.99 or any lambda1-vs-delta rate.",
+   "reasoning": "Slow-rotation expansions do not extend to a/M=0.99 and nonnegativity/strictness give no rate; the certified violation lambda1*A>=2.36 vs 8*delta<=1.22 is therefore not implied by prior work and instead refutes the conjectured linear control.",
+   "search": "Bussey Cox Kunduri MOTS stability eigenvalue slow rotation versus near-extremal a=0.99 lower bound implication"
+  },
+  "equivalent_formulations": {
+   "evidence": "Searched deficit as A-8pi|J|>=0, A/(8pi|J|)-1, area-ratio form, and operator as full non-selfadjoint L(a) vs axisymmetric SL reduction H=-d/dz[((1-z^2)/R)d/dz]+V; BCK confirms reduction and hypersurface-independence of spectrum; no source states lambda1*A<=C*delta for any explicit C near extremality.",
+   "reasoning": "Canonical, dual area-ratio, and throat-rigidity reformulations plus both operator encodings were tested; since none yields the eigenvalue bound, the disproof is not a renamed implementation and the symmetry-reduction step is a legitimate equivalence, not a coverage source.",
+   "search": "axisymmetric vacuum stable MOTS area angular momentum deficit equivalent throat formulation versus eigenvalue bound"
+  },
+  "exact_database_or_table": {
+   "evidence": "No Kerr-parameter table or MOTS database lists principal stability eigenvalues against near-extremal deficits; Kerr tables give closed-form A=4pi(r+^2+a^2) and J=aM but no lambda1 near a=M, and literature census covers only a<<M perturbation coefficients.",
+   "reasoning": "Without tabulated eigenvalue-deficit pairs the claim cannot be settled by lookup or recomputation of Kerr parameters; the exact rational-interval Temple certificate is new computational content, ruling out database repackaging.",
+   "search": "Kerr MOTS stability eigenvalue table database near-extremal principal eigenvalue values"
+  }
+ },
+ "residual_risks": [
+  "BCK operator formula (22) and AMS/Krein-Rutman simplicity/positivity cited from literature rather than re-derived; risk mitigated by full-text retrieval and standard status, but a transcription error in V would propagate (counter-checked numerically).",
+  "Maximality (tr K=0 via phi-independent shift) sketched by divergence argument; standard for Boyer-Lindquist t=const slices but not machine-checked.",
+  "Numerical trend toward extremality (ratios 1.37-2.19 for a=0.90-0.999) is explicitly supporting evidence only; certified claim covers the single cell M=1, a=0.99."
+ ],
+ "verdict": "PASS",
+ "perplexity_final_check": {
+  "status": "COMPLETE",
+  "check_id": "cf23fe3495e0bc475176e08408df0f73e708c0fee7eb0a70c16083e800213212",
+  "decisive_prior_found": false,
+  "incremental_prior_found": false,
+  "verdict_changed": false,
+  "material_sources": [
+   {
+    "title": "[2010.01682] Eigenvalues of the MOTS stability operator ...",
+    "url": "https://arxiv.org/abs/2010.01682",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Same MOTS-stability-operator object and Kerr-horizon setting, but its hypotheses are restricted to the slow-rotation regime |a|<<M near Schwarzschild with analytic perturbation formulas; its conclusions give eigenvalue splitting and first/second variation at a=0 and no lower bound or deficit rate at the submitted a/M=0.99 cell, so it neither states nor implies the certified violation.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Spectrum of the MOTS stability operator for self-dual ...",
+    "url": "https://s3.cern.ch/inspire-prod-files-c/cc538518e04a9176189eb853da8381a4",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Nearest spectral cousin giving an explicit closed-form principal eigenvalue for a self-dual/cohomogeneity-one rotating-horizon family (lambda_{0,0} formula reducing to 3/R_+^2 at a=0); its object class, homogeneous-metric reduction, and parameter family differ from 4D Kerr at a/M=0.99, and it states no lambda1-versus-area-angular-momentum-deficit bound covering the submitted Kerr-cell Temple lower bound.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Extreme throat initial data set and horizon area--angular momentum inequality for axisymmetric black holes",
+    "url": "http://arxiv.org/abs/1008.0019",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Proves the extreme Kerr-throat area is a minimum at fixed angular momentum via first variation zero and positive-definite second variation, motivating the base inequality A>=8pi|J|; it bounds area against J and characterizes the throat minimizer but states no MOTS principal-eigenvalue-versus-deficit rate and gives no lower bound at the submitted near-extremal Kerr cell.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "The Angular Momentum Penrose Inequality: A Proof via Extended Jang\u2013Conformal\u2013AMO Method",
+    "url": "https://arxiv.org/html/2512.06918v1",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Stronger-coverage candidate proving the mass-side inequality M_ADM>=sqrt(A/16pi+4piJ^2/A) with Kerr saturation and invoking only the sign condition lambda1>=0 for Jang barriers; it controls ADM mass rather than the size of lambda1 at fixed deficit and is consistent with both small and large lambda1, so it neither implies the conjectured C=8 spectral rate nor anticipates its Kerr a=0.99 violation.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Area-angular-momentum inequality for axisymmetric black holes - PubMed",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21867056/",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Records the Dain-Reiris base theorem that every axisymmetric closed stable minimal/MOTS surface satisfies A>=8pi|J|, i.e. delta>=0, including dynamical horizons; nonnegativity of the deficit alone yields no rate at which lambda1*A must vanish with delta and no eigenvalue lower bound at deficit ~0.1526, so it does not cover the submitted quantitative violation.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "On extreme Kerr-throats and zero temperature black holes",
+    "url": "https://www.cmat.edu.uy/docentes/reiris-ithurralde-martin/on-extreme-kerr-throat-spheres-and-zero-temperature-black-holes.pdf",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Proves the strict inequality A>8pi|J| on regular apparent horizons with equality only for extreme Kerr-throat spheres, i.e. delta>0 with throat rigidity; strictness plus equality characterization give no eigenvalue-versus-deficit conversion rate and no certified lambda1 value at a/M=0.99, so the submitted Temple disproof of the linear C=8 law is not implied.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   }
+  ],
+  "decisive_sources": [],
+  "rationale": "Terminal Perplexity search (20 results, 7 overlapping the base set of 40) added useful incremental recall but no decisive prior: the only same-operator sources are BCK slow-rotation perturbation theory (|a|<<M, no a/M=0.99 bound) and a self-dual/cohomogeneity-one spectral paper whose explicit lambda formula belongs to a different object class; the remaining incremental hits (extreme-throat minimum-area paper, Dain-Reiris base inequality record, throat-rigidity strictness paper, Jang-based angular-momentum Penrose inequality) all bound area or mass against J or characterize equality, never the size of lambda1 at fixed deficit. Literal hypothesis/conclusion comparison shows none states lambda1*A<=C*delta, no table lists lambda1 at a/M=0.99, and no stronger theorem implies the certified lower bound lambda1>=0.0823 at deficit ~0.1526. Originality PASS is therefore preserved with verdict unchanged; correctness and value untouched by this originality-only phase."
+ }
+}
