@@ -1,0 +1,72 @@
+{
+ "verdict": "PASS",
+ "axes": {
+  "correctness": {
+   "rationale": "TARGET route: explicit signing sigma* (mask 6995) on archived 12v/24e Chvatal edge list with rho<2.57<=2*sqrt(3). Independently replayed inputs/artifacts/certify.py -> VERIFY_OK. Verified: (a) base identity: 4-regular, connected, triangle-free (all edge neighborhoods disjoint), girth-4 witness 0-1-5-4-0, chi=4 by exhaustive 3-color UNSAT plus verified 4-coloring; unsigned numpy spectrum {4,1.56155,1^4,0^2,-1,-2.56155,-3^2} matches MathWorld formula (-3)^2,(1/2(-1-sqrt17)),-1,0^2,1^4,(1/2(-1+sqrt17)),4. (b) charpoly x^12-24x^10+226x^8-1056x^6+2549x^4-2976x^2+1280 via Bareiss at 13 nodes + exact Fraction interpolation, re-verified at 3 fresh nodes, Newton p2=48=2*24, Cayley-Hamilton zero matrix over ZZ; even polynomial so spectrum symmetric and rho=max|eig|. (c) LDL leg: M=33I-5A^2 exact integer; rational LDL all 12 pivots >0 (min 224/323), so eig(A^2)<33/5=6.6 and rho<sqrt(6.6)~2.569<2.57; 33/5<12 over ZZ gives rho<2*sqrt(3), margin ~0.9, no straddle. (d) Sturm leg: exact Sturm sequence gives 0 roots on [257/100,inf) and (-inf,-257/100]; 257^2*5=330245>330000=100^2*33 certifies 257/100>sqrt(33/5); chi(2)=-48, chi(3)=8192 brackets a root in (2,3) so signing is nontrivial. numpy cross-check rho~2.5616 consistent and below 2.57. Matching counts (1,24,204,752,1175,628,52) are log-only, not needed for headline. Proof (exact certificate), not mere experiment: no floating point in certificate steps.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Fused live retrieval in one scope_literature_search call with three normalized forms (literal Chvatal Ramanujan-signing certificate; equivalent signed/signature/Seidel/2-lift/spectral-radius forms; dominance census/database/switching-class coverage query) returned 20 fused results with full provider coverage (SerpBase ok, Crossref ok, OpenAlex ok with 0 hits, no partial failure). No result records or implies a signed Chvatal spectrum or two-sided Ramanujan signing. Nearest priors are generic: Bilu-Linial conjectures/existence, MSS interlacing (bipartite / one-sided only for general graphs), Hall-Puder-Sawin one-sided coverings, near-Ramanujan families, unsigned Chvatal data (MathWorld/House of Graphs spectrum only). Adversarial checklist (decisive_checks) explicitly excludes synonymous notation, Seidel/two-graph confusion, broader theorems, and database/table coverage. Hence the exact signing datum (mask 6995, charpoly, rho<2.57) is new and not a corollary/recomputation of a stronger fact.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "TARGET route audited against admitted target; no preset-fallback presumption invoked. The result is a rigorously established exact invariant (explicit signing + exact charpoly + certified rho<2.57) of a specific natural object motivated before computation: the Chvatal graph, smallest triangle-free 4-regular 4-chromatic graph (Chvatal 1970), the canonical minimal extremal non-bipartite base where MSS/Hall-Puder-Sawin give only one-sided coverings and two-sided Bilu-Linial remains open. The value (rho bound with ~0.9 margin, interior optimum per 8192-class scan context) was not known or mechanically implied; a future researcher needs exactly this witness/charpoly/enclosure for the constructive two-sided frontier, deterministic expanders, signing-search benchmarks, and LDPC/amplification use. Not a textbook restatement, parameter substitution, tiny tweak, or unexplained enumeration: edge-sign list, polynomial, pivots, and Sturm counts are fully explained and replayable. Narrow exact datum explicitly qualifies under the value policy without a new general theorem.",
+   "verdict": "PASS"
+  }
+ },
+ "claim_route_inference": "research_report.claim_route='TARGET' stated explicitly; audited normally against admitted target with no preset-value presumption.",
+ "checked_sources": [
+  {
+   "finding": "Chvatal graph is quartic on 12 nodes/24 edges, chi=4, girth 4, spectrum (-3)^2,(1/2(-1-sqrt17)),-1,0^2,1^4,(1/2(-1+sqrt17)),4. Confirms natural object and unsigned spectrum; lists no signing data.",
+   "title": "Chvatal Graph -- Wolfram MathWorld",
+   "url": "https://mathworld.wolfram.com/ChvatalGraph.html"
+  },
+  {
+   "finding": "House of Graphs entry graphs/972 is the canonical database record for the Chvatal graph (unsigned data only). Fetch returned JS shell; identity confirmed via MathWorld + admission record; no signing census present.",
+   "title": "Chvatal Graph - House of Graphs (graphs/972)",
+   "url": "https://houseofgraphs.org/graphs/972"
+  },
+  {
+   "finding": "Survey states Bilu-Linial two-sided signing conjecture as open; MSS-type results bound only the largest eigenvalue, not spectral radius (Sec 3.5); Seidel matrices are signed complete graphs (Sec 3.8). Confirms target not implied and Seidel census disjoint. PDF fetch truncated but snippet + admission full-text verification relied upon.",
+   "title": "Open problems in the spectral theory of signed graphs - Belardo, Cioaba, Koolen, Wang",
+   "url": "https://sites.udel.edu/cioaba/files/2019/07/SignedGraphsSurveyJuly09.pdf"
+  },
+  {
+   "finding": "Fused retrieval over literal/equivalent/dominance queries returned only generic Ramanujan/lift/signed-graph results (Bilu-Linial papers, interlacing slides, near-Ramanujan constructions, theses) and zero Chvatal-signing records.",
+   "title": "scope_literature_search fused Top-20 (SerpBase+Crossref+OpenAlex, full coverage)",
+   "url": "https://arxiv.org/html/1909.06988v3"
+  },
+  {
+   "finding": "Independent replay: certify.py -> VERIFY_OK; numpy cross-check unsigned spectrum matches MathWorld and signed rho~2.5616<2.57; diameter 2; chi(2)=-48/chi(3)=8192 confirmed.",
+   "title": "Local verification (certify.py replay + numpy spectrum cross-check)",
+   "url": null
+  }
+ ],
+ "residual_risks": [
+  "Graph identity tied to archived 12v/24e edge list; isomorphism to other Chvatal labellings not separately certified, though degree/girth/chi-4/spectrum fingerprints agree with published object. Bounded presentation limitation, honestly disclosed; does not affect the existential certificate on the archived (standard) adjacency.",
+  "Exhaustive 8192-class scan distribution (min rho~2.5616, 7274/8192 Ramanujan) is numpy evidence only, not part of the certificate; headline does not depend on it.",
+  "Matching-polynomial largest-root figure (~3.465) is a numeric log, not a certified enclosure; Heilmann-Lieb analytic bound 2*sqrt(3) is the only certified part. Not needed for rho<2.57."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Searched dominance direction: Ramanujan 2-lift covering census, signed 4-regular switching-class exhaustive spectra, near-Ramanujan families, interlacing-family existence theorems. Hits: MSS Interlacing I (bipartite Ramanujan all degrees), Hall-Puder-Sawin (one-sided r-covering every graph; fully Ramanujan only if bipartite), explicit near-Ramanujan graphs of every degree (family construction), Bilu-Linial FOCS/CPC papers (conjecture + one-sided tools).",
+   "verdict": "No broader theorem or census covers the claim: all general theorems guarantee at most one-sided bounds for non-bipartite bases; family constructions tabulate no per-signing Chvatal optimum. No source implies rho<2.57 for this signing as a special case.",
+   "what_was_searched": "Query (c) dominance: 'Ramanujan 2-lift covering census signed 4-regular graphs switching classes exhaustive spectra database House of Graphs' via SerpBase/Crossref/OpenAlex plus admission full-text checks of MSS and HPS."
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Strongest priors prove existence of one-sided signings/coverings or bipartite two-sided lifts; none exhibits or bounds this Chvatal signing. The submitted charpoly, mask 6995, LDL pivots (min 224/323), and Sturm exclusion are absent from all retrieved sources. Deriving rho<2.57 would require the exact signed matrix, which no prior publishes.",
+   "verdict": "Not a recomputation, certificate, corollary, or repackaging of a known stronger fact. No prior result substantively implies the headline even without stating it verbatim.",
+   "what_was_searched": "Compared headline hypotheses/conclusions literally against Bilu-Linial, MSS, HPS, near-Ramanujan, and unsigned Chvatal sources; title/embedding similarity rejected as coverage test."
+  },
+  "equivalent_formulations": {
+   "evidence": "Searched synonymous names/notation: Chvatal/Chv\u00e1tal, signing/signature/signed graph/2-lift/double cover, A_sigma/rho/2sqrt(d-1)=2sqrt(3)/spectral radius, Seidel matrix/two-graph/switching class. Fused results contain no Chvatal-specific signed spectrum; only generic signed-graph theory and unsigned Chvatal data (MathWorld spectrum).",
+   "verdict": "No equivalent formulation covers the claim. Dual/complement/incidence/matrix/algebraic recodings do not create hidden coverage.",
+   "what_was_searched": "Query (b) equivalent: 'signed Chvatal graph adjacency spectrum Bilu-Linial signing 2-lift spectral radius Chvatal signature Seidel' across SerpBase Top10 + OpenAlex Top15 + Crossref Top15, deduplicated and fused."
+  },
+  "exact_database_or_table": {
+   "evidence": "Checked official databases/tables: House of Graphs graphs/972 (unsigned Chvatal entry, no signing census), MathWorld Chvatal page (unsigned spectrum only), Seidel/two-graph census order<=13 (domain is signed complete graphs S=J-I-2A, disjoint from sparse 24-edge Chvatal signings), 8192 switching classes unclassified in literature (zero base-specific hits on Chvatal-signing legs).",
+   "verdict": "Exact parameter/object appears nowhere tabulated: no table lists mask 6995, the charpoly x^12-24x^10+226x^8-1056x^6+2549x^4-2976x^2+1280, or rho<2.57 for the Chvatal base.",
+   "what_was_searched": "Official-database direction: House of Graphs fetch, MathWorld spectrum comparison, Seidel census domain check via survey Sec 3.8, plus exact charpoly/mask lookup implicit in zero-hit Chvatal-signing queries."
+  }
+ }
+}
