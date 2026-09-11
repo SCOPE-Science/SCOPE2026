@@ -1,0 +1,93 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify_target.py (VERIFY_OK 6/6) and verify_fallback.py (FALLBACK_VERIFY_OK); independently re-enumerated cable-genus equation 2p*gC+(p-1)(|q|-1)=6 yielding exactly {(2,-3,1),(2,3,1),(3,-1,1),(3,1,1)} for gC>=1, confirmed Hom q/p<2gC-1 kills for all but (2,3,trefoil), and recomputed survivor mismatches t0/V0=1 vs 2, det 3 vs 7, a2 5 vs 6, d0 -1 vs -3, plus d(Y)=(-3,-9/5,-11/5,-11/5,-9/5) via Ni-Wu. R0 (Krcatovich primeness), R2 cable kills, and R1 Whitehead-specific Delta=1 kill (V0 0 vs 2, d0 +1 vs -3) are correct. Spin^c relabeling gloss was closed by independent affine check: no monotone V' with g<=3 other than [2,1,1,0] yields d-vector affine-equivalent to d(Y). FATAL GAP: universality over ALL satellites is not proved. (a) R1 claims 'General winding-0 satellites are never L-space knots (Hedden arXiv:0806.2172)' \u2014 Hedden 0806.2172 studies (p,pn+1) cables only (verified in full-text fetch: Theorems 1.1/1.2, Cor 1.9, Thm 1.10 concern cables); it contains no winding-0 exclusion theorem. (b) R3 claims 'Outermost companion of a satellite L-space knot is an L-space knot (Hom-Lidman-Vafaee arXiv:1406.1597)' for general/iterated JSJ \u2014 HLV Theorem 1.3 (verified in full-text fetch) covers ONLY Berge-Gabai patterns (torus or 1-bridge braid in solid torus), not arbitrary patterns. The general satellite L-space classification is open: Hom arXiv:1601.05696 states necessity as Conjecture 3.1, proved only conditionally on the Rasmussen-Rasmussen conjecture (Prop 3.3), and exhibits non-cable satellite L-space knots (1-bridge-braid patterns, Ex 1.4; Motegi families). Hence hyperbolic-pattern and 1-bridge-braid winding>=2 satellites of genus 3 (e.g. w=2 pattern of genus 1 over trefoil totaling g=3) are never analyzed; R3's 'outermost piece is cable or composite' is false. The scripts assert these steps by print statements, not proof. Therefore the exact fallback criterion (proof covering ALL satellite patterns with per-case kills) is NOT met; this is a partial (composite+cable+Whitehead) reduction misrepresented as universal.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused live search (SerpBase Top10 + OpenAlex Top15 + Crossref Top15 per query, 3 consolidated queries, no partial failure, 20 deduplicated results) plus full-text/abstract fetches of Ni-Zhang 2014 (1206.5577), Ni-Zhang II (2106.02806), McCoy (1610.03283), Sorya (2307.00739), Hedden (0806.2172), HLV (1406.1597), Hom cabling (0912.4046) and Hom satellites (1601.05696) found no source stating or implying universal no-satellite-impostor exclusion at (T(2,7), slope 5). Ni-Zhang II headline is T(5,2)-only (p/q>-1 minus {0,1,+-1/2,+-1/3}); Ni-Zhang 2014 bound 30(r^2-1)(s^2-1)/67 gives ~64.5 for (2,7), leaving 5 open; McCoy covers all but finitely many non-integral slopes, leaving integral 5 open; Sorya is source-side largeness (|q| large, non-integral for composites), opposite direction; Hedden/Hom/HLV give cable/Berge-Gabai L-space criteria (method), not the target-cell conclusion, and Hom 2016 shows non-cable L-space satellites exist, so no stronger theorem subsumes the claim. Alternate names T(2,7)=T(7,2)=7_1 and Moser lens slopes 13/15 checked; no database row decides characterization. Originality therefore PASSES (claim is new), though correctness fails.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Route is PRESET_FALLBACK but exact fallback was NOT completed (partial completion only, see correctness), so no Admission conditional-value presumption applies; auditing value normally. The INTENDED universal no-satellite-impostor lemma at the threshold L-space slope 2g-1=5 for T(2,7)=7_1 (smallest two-bridge torus L-space knot outside Ni-Zhang II, non-lens since Moser slopes are 13/15) is independently motivated within the Gordon characterizing-slope program, has a natural scope (first JSJ class any characterization must eliminate), and would be a citable Dehn-surgery-table reduction transferable to adjacent T(2,2n+1) cells. It is not a textbook restatement, parameter substitution, or bare enumeration: it quantifies over infinitely many patterns and requires JSJ-plus-Floer argument with concrete d-vector/V0 invariants. Hence the claim type is independently worth retrieving (value PASSES on merits); this does not rescue correctness, and the actually-proved partial (cable/composite/Whitehead) fragment alone was not submitted as the headline.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract + full-text Thm 1.1 confirm T(5,2)-only scope: nontrivial p/q>-1 minus {0,1,+-1/2,+-1/3} characterizing for T(5,2); all nontrivial L-space slopes of T(5,2) characterizing. No statement about T(2,7) or slope 5.",
+      "title": "Characterizing slopes for torus knots, II (Ni-Zhang, arXiv:2106.02806)",
+      "url": "https://arxiv.org/abs/2106.02806"
+    },
+    {
+      "finding": "General bound p/q > 30(r^2-1)(s^2-1)/67 characterizing for T(r,s); for (2,7) equals 4320/67 ~= 64.5, leaving slope 5 wide open.",
+      "title": "Characterizing slopes for torus knots (Ni-Zhang 2014, arXiv:1206.5577)",
+      "url": "https://arxiv.org/abs/1206.5577"
+    },
+    {
+      "finding": "Each torus knot has all but finitely many non-integral slopes characterizing; integral slope +5 left undecided for every torus knot including T(2,7).",
+      "title": "Non-integer characterizing slopes for torus knots (McCoy, arXiv:1610.03283)",
+      "url": "https://arxiv.org/abs/1610.03283"
+    },
+    {
+      "finding": "Studies characterizing slopes OF satellite knots (source-side) with |q| large; every non-integral slope characterizing for composite knots. No target-side universal satellite-impostor exclusion at integral slope 5 for T(2,7).",
+      "title": "Characterizing slopes for satellite knots (Sorya, arXiv:2307.00739)",
+      "url": "https://arxiv.org/abs/2307.00739"
+    },
+    {
+      "finding": "Full-text verified: studies (p,pn+1) cables, tau-behavior, Cor 1.9 / Thm 1.10 on cable L-space surgeries. No theorem that winding-0 satellites are never L-space knots. Citation in DRAFT R1 therefore unsupported.",
+      "title": "On knot Floer homology and cabling II (Hedden, arXiv:0806.2172)",
+      "url": "https://arxiv.org/abs/0806.2172"
+    },
+    {
+      "finding": "Full-text verified: Theorem 1.3 covers ONLY Berge-Gabai patterns (torus or 1-bridge braid in solid torus): P(K) L-space iff K L-space and (b+tw)/w^2 >= 2g(K)-1. Does not prove outermost-companion-is-L-space for general JSJ/hyperbolic patterns. DRAFT R3 overgeneralizes it.",
+      "title": "Berge-Gabai knots and L-space satellite operations (Hom-Lidman-Vafaee, arXiv:1406.1597)",
+      "url": "https://arxiv.org/abs/1406.1597"
+    },
+    {
+      "finding": "Proves (p,q)-cable admits L-space surgery iff companion does and q/p >= 2g-1. Supports R2 Hom kills; does not cover general satellites.",
+      "title": "A note on cabling and L-space surgeries (Hom, arXiv:0912.4046)",
+      "url": "https://arxiv.org/abs/0912.4046"
+    },
+    {
+      "finding": "Gives sufficient (not necessary) conditions for satellite L-space knots; necessity is Conjecture 3.1, proved only conditionally (Prop 3.3); exhibits non-cable satellite L-space knots (1-bridge braids Ex 1.4, Motegi families). Confirms general satellite L-space classification is open and non-cable cases exist, defeating R3 exhaustiveness.",
+      "title": "Satellite knots and L-space surgeries (Hom, arXiv:1601.05696)",
+      "url": "https://arxiv.org/abs/1601.05696"
+    },
+    {
+      "finding": "Replayed both scripts successfully (exit 0). Independently re-enumerated cable-genus solutions, Ni-Wu d-vector, survivor Alexander product (t0=1, det=3, a2=5), and affine Spin^c-relabeled V-uniqueness check (only [2,1,1,0] matches).",
+      "title": "Local artifacts verify_target.py, verify_fallback.py, floer_blindness.py",
+      "url": null
+    }
+  ],
+  "claim_route": "PRESET_FALLBACK (research_report.claim_route); exact fallback_claim and fallback_qualification.exact_success_criterion NOT completed \u2014 partial (composite/cable/Whitehead-specific) only, so no conditional value presumption; audited normally on all three axes.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched dominance queries for stronger theorem / broader class / census covering (T(2,7),5) as special case via scope_literature_search query 3 plus admission triage (Ni 2020 4g+4=16, Wakelin 2026, Lackenby, Baldwin-Sivek). Ni-Zhang 2014 (~64.5) and Ni 2020 (>=16) lie strictly above 5; McCoy 2016/2023 leave integral q=1 open; Sorya/Wakelin are source-side largeness; HLV/Hom cable criteria are pattern-restricted methods. No broader theorem implies the cell conclusion; conversely Hom 2016 shows broader satellite L-space world extends beyond cables, so claim is not a corollary.",
+      "searched": "Stronger characterizing-slope bounds, L-space-knot satellite classification (HLV, Hom), JSJ/exceptional-surgery bounds, and census/database coverage that could subsume the cell.",
+      "why_not_cover": "All broader bounds leave slope 5 open; all satellite classifications are pattern-restricted (cable/Berge-Gabai) or conditional/conjectural in general, hence cannot imply the universal exclusion \u2014 and they demonstrate uncovered pattern families remain."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Compared hypotheses/conclusions literally (not titles/embeddings): Ni-Zhang II hypothesis names T(5,2); McCoy hypothesis requires non-integral q; Sorya conclusion is about slopes OF satellites with large |q|; Hedden/Hom/HLV conclusions are 'if companion L-space and slope/twist large then cable/Berge-Gabai satellite is L-space' (existence/direction opposite to exclusion). None has hypothesis 'J satellite with S^3_5(J)~=S^3_5(T(2,7))' or conclusion 'no such J'. The DRAFT's own cited tools do not imply its headline; they leave hyperbolic/1-bridge patterns open.",
+      "searched": "Whether any prior result substantively implies or exhaustively covers the submitted universal exclusion even without stating it verbatim.",
+      "why_not_cover": "No prior theorem has matching hypotheses or a conclusion that logically yields 'for every satellite J, S^3_5(J) not ~= S^3_5(T(2,7))'. Method overlap (mapping-cone, V0, cable genus) is not implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results screened for T(2,7)=T(7,2)=7_1 (septfoil), slope 5=5/1=2g-1 L-space onset, Moser lens slopes 13/15 (so 5 non-lens), mirror/complement/Seifert S^2(2,7,9) encodings. Hits returned Ni-Zhang I/II, McCoy, Sorya, HLV/Hom/Hedden, Lackenby, Varvarezos \u2014 all verified T(5,2)-specific, large-slope, or non-integral/source-side. No hit states +5 characterizes T(2,7) or excludes its satellite impostors under any synonymous notation.",
+      "searched": "Literal statement plus standard equivalents: T(7,2), 7_1/septfoil, 5/1 integral slope, 2g-1 threshold, Moser Seifert S^2(2,7,9), mirror and orientation-preserving variants.",
+      "why_not_cover": "No equivalent formulation appears in any retrieved source or fetched full text; closest hits differ in knot (T(5,2)), slope regime (>64.5 / non-integral / large |q|), or direction (source-side)."
+    },
+    "exact_database_or_table": {
+      "evidence": "No KnotInfo/SnapPy/Regina-style row decides Dehn-surgery characterization; those resources tabulate Alexander/Floer/volume data, not characterizing-slope theorems. Literature-search queries covering census/database directions returned only papers, no table entry for (T(2,7),5) satellite exclusion. DRAFT itself relies on computed scripts, not a database lookup.",
+      "searched": "Official databases, tables, theses, and repositories for a pre-existing (T(2,7), slope 5) satellite-exclusion row or recomputed certificate.",
+      "why_not_cover": "No exact parameter/object row exists; the claim is not a recomputation of one tabulated pair vector but (purportedly) a universal quantification \u2014 hence not covered, and not rescued by certification alone."
+    }
+  },
+  "residual_risks": [
+    "Krcatovich primeness and Ozsvath-Szabo L-space-surgery genus bound used without re-proof; accepted as standard cited tools.",
+    "Ni-Wu integer-surgery formula application assumes standard Spin^c labeling; independent affine-permutation check mitigates relabeling risk for covered cable cases.",
+    "No additional web search beyond the single fused three-query call plus decisive full-text fetches; OpenAlex returned 0 hits per query (SerpBase+Crossref succeeded, no partial failure declared) \u2014 priority rests on primary-source comparison, not on search completeness.",
+    "Value PASS assesses the intended universal lemma's retrieval worth; it does not certify the misrepresented partial fragment as the admitted fallback."
+  ],
+  "verdict": "REJECT"
+}

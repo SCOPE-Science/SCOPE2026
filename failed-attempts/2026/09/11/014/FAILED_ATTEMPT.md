@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Does the threshold L-space slope +5 characterize the two-bridge torus knot T(2,7)?
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 695
+- **Disposition:** AUDIT_2_REJECT
+- **Domain:** Low-Dimensional Topology
+- **Method:** Heegaard Floer mapping-cone d-invariant calculus with involutive correction-term comparison plus JSJ satellite-surgery exclusion
+
+## Problem
+
+Decide the threshold L-space-slope characterization cell for the two-bridge torus L-space knot T(2,7) (knot 7_1, genus 3): does +5 Dehn surgery characterize T(2,7)? Attack by Ozsvath-Szabo mapping-cone d-invariants with Hendricks-Manolescu involutive rigidity for the characterization, with a first structural leg excluding all satellite impostors via JSJ winding-number and satellite-surgery constraints.
+
+## Attempted claim
+
+If K is a knot in S^3 with S^3_5(K) orientation-preservingly homeomorphic to S^3_5(T(2,7)), then K equals T(2,7) (i.e., the threshold L-space slope +5 is characterizing for the two-bridge L-space knot T(2,7)=7_1).
+
+## Research outcome
+
+Proved the universal no-satellite-impostor theorem at slope 5 for T(2,7): every satellite J is excluded by a logged 4-row JSJ pattern-case table with per-row d-vector/V0 kills (repaired: |q| cable genus, corrected sets, Hom kills, Whitehead-scoped involutive claim, R3 genus monotonicity), reducing the threshold L-space cell to hyperbolic-or-torus impostors.
+
+## Why this attempt failed
+
+Failed axes: correctness.
+
+correctness: Replayed inputs/artifacts/verify_target.py (VERIFY_OK 6/6) and verify_fallback.py (FALLBACK_VERIFY_OK); independently re-enumerated cable-genus equation 2p*gC+(p-1)(|q|-1)=6 yielding exactly {(2,-3,1),(2,3,1),(3,-1,1),(3,1,1)} for gC>=1, confirmed Hom q/p<2gC-1 kills for all but (2,3,trefoil), and recomputed survivor mismatches t0/V0=1 vs 2, det 3 vs 7, a2 5 vs 6, d0 -1 vs -3, plus d(Y)=(-3,-9/5,-11/5,-11/5,-9/5) via Ni-Wu. R0 (Krcatovich primeness), R2 cable kills, and R1 Whitehead-specific Delta=1 kill (V0 0 vs 2, d0 +1 vs -3) are correct. Spin^c relabeling gloss was closed by independent affine check: no monotone V' with g<=3 other than [2,1,1,0] yields d-vector affine-equivalent to d(Y). FATAL GAP: universality over ALL satellites is not proved. (a) R1 claims 'General winding-0 satellites are never L-space knots (Hedden arXiv:0806.2172)' — Hedden 0806.2172 studies (p,pn+1) cables only (verified in full-text fetch: Theorems 1.1/1.2, Cor 1.9, Thm 1.10 concern cables); it contains no winding-0 exclusion theorem. (b) R3 claims 'Outermost companion of a satellite L-space knot is an L-space knot (Hom-Lidman-Vafaee arXiv:1406.1597)' for general/iterated JSJ — HLV Theorem 1.3 (verified in full-text fetch) covers ONLY Berge-Gabai patterns (torus or 1-bridge braid in solid torus), not arbitrary patterns. The general satellite L-space classification is open: Hom arXiv:1601.05696 states necessity as Conjecture 3.1, proved only conditionally on the Rasmussen-Rasmussen conjecture (Prop 3.3), and exhibits non-cable satellite L-space knots (1-bridge-braid patterns, Ex 1.4; Motegi families). Hence hyperbolic-pattern and 1-bridge-braid winding>=2 satellites of genus 3 (e.g. w=2 pattern of genus 1 over trefoil totaling g=3) are never analyzed; R3's 'outermost piece is cable or composite' is false. The scripts assert these steps by print statements, not proof. Therefore the exact fallback criterion (proof covering ALL satellite patterns with per-case kills) is NOT met; this is a partial (composite+cable+Whitehead) reduction misrepresented as universal.
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; address the recorded limitation: ['Uses cited satellite-L-space classification tools (Krcatovich primeness, Hedden arXiv:0806.2172 winding-0/cabling Floer results, Hom arXiv:0912.4046 slope bound, Hom-Lidman-Vafaee arXiv:1406.1597 outermost-companion result, Ghiggini/Ni genus-1 L-space rigidity, Moser/Ozsvath-Szabo/Ni-Wu) without reproving them.', 'Orientation-preserving homeomorphism only, as stated.', 'Says nothing about hyperbolic impostors: full +5 characterization of T(2,7) remains open (Floer-blindness certified in floer…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
