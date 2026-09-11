@@ -1,0 +1,85 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified Lemmas 1-3 and blow-up step independently. Lemma1: E-normalization c_eps and H-lower bound c_H=(2pi)^{3/2}/(64 sqrt(4pi/3))~0.12024>=0.12 reproduced by rerunning disproof_ledger.py. Lemma2: x-homogeneous data gives S_{B0}(t)psi=e^{-nu t}psi with nu<=|v|+sqrt(8/pi)<=2.5957<=2.6 on |v|<=1, reproduced. Lemma3: Duhamel remainder B(t)=t||K||_{E->H}sup||S|| finite eps-uniform given K:E->H and K:E->E finiteness (Grad/Povzner, Alonso-Carneiro-Gamba Young, Mouhot-Strain, GMM memoir) plus S_{B0} contractions on E and H; Pi bounds via m0=1, m1=11^{-1/2}(12/11)^{-6}~0.1789, m4=sqrt(3/2) and Gaussian moments giving ||Pi||_{E->H}<=1374.2, ||Pi||_{E->E}<5.6e8 reproduced. Triangle then gives ||S(t)(I-Pi)psi_eps||_H>=e^{-2.6t}0.12 eps^{-3/2}-B(t)-C'(t)->inf for each fixed t>0, hence operator norm +inf and 60 t^{-5/2} false, indeed no finite (C,alpha) works. Mollification extends to smooth data via E- and H-convergence and E->H continuity. ADMISSION_DEFECT: topic audit_preflight/triviality claim that E embeds continuously into H is false (E not subset H already at t=0, as witness shows); the disproof goes essentially beyond t=0 by proving persistence under dynamics, so it is not a definitional vacuity.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live fused search over literal (12,5/2,60) ledger, equivalent ultracontractivity/enlargement/factorization phrasings, and broader GMM census returned only abstract factorization (Gualdani-Mischler-Mouhot 1006.5523, symbolic powers/constants), non-cutoff regularization in different norms/regimes, and unrelated cutoff spectral work. No source states the exact weight-12 E->H envelope, its negation, or an infinite-norm theorem for this pairing. The transport-ball obstruction is not mechanically implied by abstract enlargement (which leaves blow-up symbolic) nor by non-cutoff theory, and no table/database tabulates this operator norm. Hence the qualitative no-finite-envelope disproof is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The headline is a rigorous negative resolution of the admitted target that is stronger than falsifying (60,5/2): it proves ||S(t)(I-Pi)||_{E->H}=+inf for every t>0 with explicit transport-dominated v-ball witnesses, showing cutoff hard-sphere short-time L1_v L_inf_x to L2 ultracontractivity is qualitatively impossible (contrast Fokker-Planck). This is an independently retrievable sharpness benchmark that blocks the smoothing route, guides splitting/weight choice, and prevents over-claiming in nonlinear stability bootstraps. ADMISSION_DEFECT noted above (false E-embeds-into-H preflight) does not reduce this to cheap vacuity/type error: the t>0 persistence requires the Duhamel uniform-remainder ledger, as Admission's own negative-resolution rationale anticipated as PASS-worthy enlargement science.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gualdani-Mischler-Mouhot arXiv:1006.5523 (Factorization for non-symmetric operators and exponential H-theorem): abstract enlargement with symbolic weights/powers/constants; applied to linearized Boltzmann torus and nonlinear stability in L1_v L_inf_x(1+|v|^k) k>2 with sharp rate but no (12,5/2,60) E->H short-time ledger and no infinite-norm statement.",
+    "Rerun of inputs/artifacts/disproof_ledger.py (stdlib, deterministic): reproduced c_H=0.120239>=0.12, nubar=2.5957<=2.6, m0=1, m1=0.17888, m4=1.22474, |T^3|=248.05, L1_0=214024, ||Pi||_{E->H}<=1374.19, ||Pi||_{E->E}<5.6e8, and eps-thresholds defeating any finite cap R up to 1e9.",
+    "Fused scope_literature_search (3 queries, SerpBase/Serpent + OpenAlex + Crossref, 20 results, full coverage no partial): nearest hits are GMM factorization, Bobylev-Mossberg hard-sphere collision properties, cutoff L2/boundary and pointwise hard-potential papers; none states weight-12 60 t^{-5/2} bound or its infinite-norm negation.",
+    "Standard kinetic boundedness inputs cited for finiteness only (Grad 1963 weighted-L1, Alonso-Carneiro-Gamba Young Q+: L1xL2->L2, Mouhot-Strain, GMM splitting): imply ||K||_{E->E}<inf and ||K||_{E->H}<inf for gain + mu-weighted loss terms, sufficient for eps-uniform B(t),C'(t) without numeric values."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "GMM memoir proves abstract enlargement/exponential decay with unspecified weight exponents, blow-up powers and splitting-dependent constants; Alexandre-Morimoto-Ukai-type non-cutoff papers prove short-time regularization in Holder/dissipative norms for a different singularity regime.",
+      "reasoning": "These broader smoothing theorems frame the method but neither state the (12,5/2,60) triple nor imply infinite E->H norm for cutoff hard spheres; fresh transport-peak ledger is required.",
+      "search": "Gualdani Mischler Mouhot factorization enlargement short-time regularization power constant"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior enlargement plus Nash arguments imply some polynomial short-time bound in other pairings with exponent/constant depending on weight and splitting cutoffs not fixed for normalized cutoff hard-sphere torus E->H; no prior derives 60 t^{-5/2} for weight 12 nor the transport-ball lower bound e^{-2.6t}0.12 eps^{-3/2}.",
+      "reasoning": "Hence no prior result substantively implies or exhaustively covers the submitted infinite-norm claim; the numeric obstruction ledger is the original contribution.",
+      "search": "Boltzmann L1 to L2 regularization t power explicit constant hard spheres torus implies 60"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searches under ultracontractivity, enlargement estimate, factorization bound, and L1-L2 Nash regularization returned GMM factorization, Evans phi-entropy, and non-cutoff regularization sources; none records the E=L1_v(<v>^12)L_inf_x to H=L2 pair with 60 t^{-5/2} on (0,1] or its infinite-norm negation.",
+      "reasoning": "Synonymous notation and dual/complement encodings do not reveal the claimed ledger, confirming it is not recorded elsewhere under another name.",
+      "search": "Boltzmann short-time regularization L1 L2 Nash enlargement torus hard spheres cutoff ultracontractivity"
+    },
+    "exact_database_or_table": {
+      "evidence": "No kinetic regularization database or collision-kernel table tabulates ||S(t)(I-Pi)||_{E->H} for weight-12 cutoff hard spheres on the torus as a function of t; available tables concern homogeneous spectral gaps or non-cutoff Holder bounds.",
+      "reasoning": "Direct lookup cannot decide the claim, so the disproof is not database repackaging and demands the iterated-Duhamel uniform-bound argument.",
+      "search": "kinetic regularization operator norm table Boltzmann torus L1 weighted to L2 constants"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "06b8d390bc829ab97f75d339b8457015caec0ec175a61910b4882330138b472f",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] arXiv:1006.5523v3 [math.AP] 19 Nov 2013",
+        "url": "https://arxiv.org/pdf/1006.5523",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same Gualdani-Mischler-Mouhot factorization memoir already in base search: proves abstract enlargement and E-to-E exponential decay with symbolic weights, blow-up powers and splitting-dependent constants, plus nonlinear stability in L1_v L_inf_x(1+|v|^k) k>2. States no weight-12 E-to-H short-time ledger 60 t^{-5/2} and no infinite E-to-H operator-norm theorem, so it frames but does not cover the submitted transport-ball disproof.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Cauchy theory and exponential stability for inhomogeneous boltzmann equation for hard potentials without cut-off",
+        "url": "https://hal.science/hal-01599973v2/file/InhomogeneousBoltzmann8.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Treats inhomogeneous non-cutoff hard potentials with pseudo-differential regularization and E-to-E semigroup decay via GMM enlargement. Different singularity regime (without cutoff), different admissible spaces and long-time E-to-E conclusion; states no cutoff hard-sphere weight-12 L1_v L_inf_x to L2 short-time envelope and no infinite-norm lower bound, so it neither states nor implies the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "SPECTRAL STUDY OF THE LINEARIZED BOLTZMANN",
+        "url": "https://hal.science/hal-02962516v1/file/Spectral_study_v5.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves dissipativity and spectral-gap estimates for the cutoff linearized Boltzmann operator in polynomially weighted L2(<v>^k) spaces of B_delta splitting type. Hypotheses and conclusions live entirely in weighted-L2 coercivity, not in the E=L1_v(<v>^12)L_inf_x to H=L2 short-time operator norm, and contain no velocity-ball non-embedding or Duhamel persistence argument covering the claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "HYPOCOERCIVITY FOR PERTURBATION THEORY AND ...",
+        "url": "https://marcbriant.wordpress.com/wp-content/uploads/2021/10/hdr_en.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Displays a short-time L2-to-Linf weighted estimate on an explicit [0,T0] bounding Linf by initial Linf plus integrated L2, i.e. the opposite regularization direction from the claimed E=L1-to-L2 ultracontractivity. Its hypotheses require L2/Linf data and its conclusion controls Linf, so it states no E-to-H bound and implies nothing about the infinite E-to-H norm or the 60 t^{-5/2} falsification.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with 2 base overlaps and 18 incremental URLs. The only exact prior (arXiv:1006.5523 GMM factorization) duplicates the base-provider set already audited and leaves weights/powers/constants symbolic. All incremental hits are keyword-similar but substantively distinct: non-cutoff Cauchy/regularization theory in a different singularity regime, weighted-L2 spectral-gap/dissipativity papers, L2-to-Linf hypocoercivity fragments in the opposite direction, and hydrodynamic/Boltzmann-Grad limits. Compared literally against the headline infinite E-to-H norm for weight-12 cutoff hard spheres on T^3, none states the (12,5/2,60) ledger or its negation under any synonymous, dual, broader-census, or database encoding, and none implies the transport-ball eps^{-3/2} persistence conclusion. Hence no decisive prior found, no incremental decisive recall, and provisional originality PASS is preserved with verdict unchanged."
+  }
+}
