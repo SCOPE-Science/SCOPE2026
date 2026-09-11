@@ -1,0 +1,85 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Numeric core verified independently. Caps inside unit disc (far corners 0.0221, 0.5159<1). Central transversality det=1/2 exactly (recomputed 0.5); corner minimum over 64 triples recomputed 0.450718>=0.45 as claimed. 32x32 tiling gives 1024=R packets/cap, 3072 total; all assigned axes pass through origin by construction so overlap 3072=3R in B_32(0), per-cap R, is geometrically true. Direction duality holds up to O(R^-1/2) (max tile deviation 0.0214<=s/sqrt2); draft honestly scopes that per-tile spatial concentration is NOT claimed and L6 bound uses only full f_k=sum tiles. L6 lower bound: denominator s=1/32 correct; phase bound |psi|<=20a sqrt2+20a^2=10(sqrt2/32+1/2048)<=0.4487<=0.449 with sqrt2<=1.42 correct; draft text writes '100a^2 =' for the second term which is a literal false equality (100a^2=0.0244 vs 10/2048=0.00488) \u2014 should be 20a^2 \u2014 but the numeric majorant actually asserted and script-checked (0.448633<=0.449) uses the correct 20a^2 value, so essential inequality holds. cos floor 1-Phi^2/2>=0.899, |B_10|>=4186.7>=4096, numerator>=0.899 s^2*4, L>=0.112375>=0.112 all recomputed true. Upper envelope L<=s|B_R|^1/6<=(4.2)^1/6<=1.28 via 1.28^6=4.398>=4.2 true. Factor<=11.43<=12, L>=8(log2R)^-2U (0.112>=0.1024) and >=4(lnR)^-2U (0.112>=0.1066) true. Quadrature spot checks correctly labeled illustration only, not part of proof. Interpretive leap from trivial envelope U to 'cell step sharp' is disclosed as trivial envelope (Sec.6/limitations) and is assessed under value/originality, not as false computation. No hidden experimental-evidence-as-proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route: audited normally, no preset presumption. Fused live retrieval (SerpBase 10 + OpenAlex 15 + Crossref 15 per query, 20 deduplicated results, no partial failure) finds the exact prior sharpness theory the claim repackages. Bennett 2004 sharp trilinear paraboloid inequality, Bennett-Carbery-Tao 2006 d-linear restriction/Kakeya, Guth 2010 endpoint + 2014 short multilinear Kakeya proof, Demeter Ch.10 almost-extremizers (Knapp/transverse), and Ponce-Vanegas sharp transversality dependence together prove O(1) trilinear upper bound for all transverse sets and exhibit sharpness via the standard transverse indicator example (coherent phase on O(1) ball). Draft's L in [0.112,1.28] is that standard transverse-indicator calculation evaluated at one scale R=1024 with elementary cos/volume bounds; 3072 'tubes through origin' are assigned by fiat (origin_dist 0 in table) with no concentration proved, adding no new geometric content beyond drawing lines through a point. A prior source need not state 'R=1024, 3072 tubes, 0.112' verbatim: BCT/Bennett sharpness substantively implies Theta(1) ratio for transverse indicators, exhaustively covering the headline as a special case up to explicit constants. Exact table absence does not establish priority because the table is trivial assignment. Hence recomputation/certificate/corollary/repackaging of a known stronger fact. FAIL.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "TARGET, so no admission presumption. Strongest self-contained headline is one-scale interval L in [0.112,1.28] for indicators of three fixed transverse caps plus by-construction 3R line overlap. Object (transverse caps) is natural and pre-motivated, but invariant is mechanically implied by textbook transverse sharpness example: coherent-phase lower bound on B_10 and trivial L-inf envelope give Theta(1) with no new idea; precise numbers 0.112/1.28 and arbitrary 32x32 (R^-1) tiling / 3072-row table are not needed by any future researcher beyond the known O(1) sharpness, and tube table carries no wave-packet mass (draft admits analytic bound uses only full f_k). Upper side U=1.28 is disclosed as trivial pointwise envelope, not a named literature cell constant, so 'any finite cell bound matched' and 'partitioning cell step sharp' mislabels a trivial bound as the deep cell term; no asymptotics, no log-power optimality, no wall term, no downstream theorem uses the exact datum. This is textbook restatement + parameter substitution (R=2^10) + unexplained enumeration (3072 assigned lines) even if correct and new as numbers. Certification alone (rerunnable asserts) does not rescue arbitrary scope/unexplained number under the stated policy. FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Proves d-linear restriction/Kakeya analogues; upper O(1) bound whose sharpness is via transverse example. Covers R=1024 transverse-indicator Theta(1) as special case.",
+      "title": "On the multilinear restriction and Kakeya conjectures \u2014 Bennett, Carbery, Tao (Acta 2006)",
+      "url": "https://webhomes.maths.ed.ac.uk/~carbery/analysis/papers/Carbery/MRKbct_revised7.pdf"
+    },
+    {
+      "finding": "Establishes sharp trilinear paraboloid inequality in R3 via Loomis-Whitney; sharpness means transverse indicators achieve O(1) ratio \u2014 direct prior implication for L in [0.112,1.28].",
+      "title": "A trilinear restriction problem for the paraboloid in R^3 \u2014 Bennett (2004)",
+      "url": "https://doi.org/10.1090/s1079-6762-04-00134-9"
+    },
+    {
+      "finding": "Short proof of multilinear Kakeya via Loomis-Whitney multiscale; gives optimal tube-overlap geometry. Assigned 3072 lines through origin add nothing beyond this known geometry.",
+      "title": "A short proof of the multilinear Kakeya inequality \u2014 Guth (arXiv:1409.4683)",
+      "url": "https://arxiv.org/html/1409.4683v2"
+    },
+    {
+      "finding": "Catalogs Knapp/transverse almost-extremizers illustrating sharpness at critical exponent via coherent phase on small ball \u2014 same calculation as B_10 lower bound.",
+      "title": "Fourier Restriction, Decoupling, and Applications \u2014 Demeter Ch.10 Almost Extremizers",
+      "url": "https://dokumen.pub/fourier-restriction-decoupling-and-applications-cambridge-studies-in-advanced-mathematics-series-number-184-1nbsped-1108499708-9781108499705.html"
+    },
+    {
+      "finding": "Sharp dependence on transversality for trilinear restriction (hyperbolic; cites Ramos elliptic sharpness). Shows transverse O(1) sharpness theory already exists with optimal transversality constant.",
+      "title": "A Trilinear Restriction Estimate for the Hyperbolic Paraboloid with Sharp Dependence on Transversality",
+      "url": "https://doi.org/10.1093/imrn/rny178"
+    },
+    {
+      "finding": "Endpoint multilinear Kakeya (sharp, no S^eps) \u2014 stronger covering theorem for overlap claims.",
+      "title": "The endpoint case of the Bennett-Carbery-Tao multilinear Kakeya conjecture \u2014 Guth",
+      "url": "https://doi.org/10.1007/s11511-010-0055-6"
+    },
+    {
+      "finding": "Independent recomputation: central det 0.5, corner min 0.450718, L_lo 0.112375, 1.28^6=4.398, (lnR)^2=48.045 \u2014 confirms numeric steps; also exposes draft 100a^2 vs 10/2048 slip with correct bound intact.",
+      "title": "Direct Python recomputation by auditor (no URL)"
+    }
+  ],
+  "claim_route_seen": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Dominance query 'Bennett Carbery Tao multilinear restriction Kakeya theorem polynomial partitioning cell estimate sharpness decoupling extremizers' returned BCT 2006, Guth endpoint 2010, Guth short proof 2014, Tao sharp curved multilinear bounds. These are theorems for all scales R, all transverse frequency sets, with sharp (endpoint, no-eps or R^eps) upper bounds. R=1024 with three fixed R^-1/2 caps is a strict special case. Their sharpness discussion (transverse indicators) already asserts existence of Theta(1) example.",
+      "search": "Submitted as query 3 in single scope_literature_search call (all three forms in one call per contract). Screened fused ranks 1,4,6,7,9,10,14,16,20.",
+      "why_covers": "A prior source need not state R=1024 verbatim: a theorem for all R and all transverse caps that is sharp up to logs/constants substantively implies and exhaustively covers a one-scale Theta(1) interval. The draft's U/L<=12 is weaker than known sharpness.",
+      "why_not_novel": "No broader census/database was found that the draft escapes; instead the draft is inside the broader theorem's scope."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Hypotheses: prior sharp trilinear theory assumes transverse caps on paraboloid (det bounded below) \u2014 draft assumes three caps with det 1/2, corner min 0.45, a textbook instance. Conclusions: prior concludes upper bound O(1) and sharpness (lower Theta(1) via indicators, coherent phase on unit ball). Draft concludes L>=0.112 and L<=1.28 via identical coherent-phase integral (cos>=0.899 on B_10) and trivial L-inf bound (weaker than BCT upper bound). Tube claim: prior multilinear Kakeya bounds arbitrary transverse tube families; draft assigns 3072 axes through origin (origin_dist 0) with radius 32, so overlap 3R is tautological, not a proved concentration.",
+      "search": "Compared literal hypotheses/conclusions of BCT/Bennett/Guth/Demeter (snippets, abstracts, Guth HTML full proof of Loomis-Whitney + multiscale) against DRAFT Secs 1-4 and certify_target.py.",
+      "why_covers": "Theorem-to-theorem comparison shows draft lower bound = standard transverse sharpness calculation; upper bound = weaker corollary of known upper bound (indeed weaker than BCT, since trivial envelope implies no new estimate); overlap = trivial assignment covered by known overlap geometry. Hence recomputation/certificate/corollary/repackaging of known stronger fact. Originality FAILS."
+    },
+    "equivalent_formulations": {
+      "evidence": "No synonymous-notation escape. Trilinear L6 ratio ||(prod|Ef_k|)^1/3||_6 / prod||f_k||_2^1/3 equals ||prod Ef_k||_2^{1/3}?/ product norms and ||prod Ef_k||_1 variants in BCT/Bennett via Loomis-Whitney; extension vs restriction adjoint are duals; paraboloid normals (-2eta,1)/|..| vs frequency caps are standard dual encodings; plate-bush / wave-packet bush / Kakeya bush / concurring tubes are synonymous. Fused results match across these wordings (ranks 2,3,5,8,15,17).",
+      "search": "Submitted as queries 1 (literal: transverse three-cap plate bush elliptic paraboloid trilinear L6 ratio cell estimate R=1024 overlap) and 2 (equivalent: multilinear restriction extension operator transverse caps Knapp trilinear L6 constructive interference) in one scope_literature_search call.",
+      "why_covers": "Prior sharp transverse-indicator example uses identical object under equivalent names; changing 'bush' to 'plates through origin' or 'L6 geometric mean' to 'L1 product' does not create a new object.",
+      "why_not_novel": "Title/embedding similarity alone was not used; hypothesis/conclusion equivalence was checked."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, census, table, thesis, or repository lists the exact 3072-row tube_table.csv / all-ones coefficients.csv at R=1024 (fused search returns only theorems and expository PDFs, plus unrelated elliptic-paraboloid dictionary pages). Direct official-database implication: none applicable (no finite-geometry or decoupling-datum registry claims this configuration).",
+      "search": "Literal query 1 plus inspection of all 20 fused results for tables/databases; checked artifacts overlap_table.csv and ratio_certificate.csv provenance (generated by certify_target.py, not extracted from literature).",
+      "why_covers": "Absence from a table does not establish priority here because the table is generated by fiat (every row has origin_dist 0, direction = tile normal, radius 32) \u2014 any auditor can reproduce it by drawing lines through the origin. It is an unexplained enumeration, not a discovered census; exact-parameter novelty of an arbitrary 32x32 subdivision is parameter substitution.",
+      "why_not_novel": "This check therefore does NOT support originality PASS; it is consistent with FAIL via recomputation."
+    }
+  },
+  "residual_risks": [
+    "Full PDFs of BCT/Demeter could not be text-extracted (binary PDF via webfetch); relied on verified abstracts, DOI metadata, Guth HTML full proof, and mathematical equivalence reasoning \u2014 low risk because sharp transverse example is undisputed textbook material.",
+    "Draft Sec.3 writes 100a^2 where 20a^2 is correct; numeric conclusion unaffected but text needs correction if ever reused.",
+    "Corner-minimum 0.4507 asserted in DRAFT but only stdout (not certify_log.txt) in provided artifacts; independently recomputed 0.450718 \u2014 no risk to truth but provenance gap noted.",
+    "Multilinear Kakeya overlap optimality vs assigned-line tautology distinguished by reasoning, not by executing a wave-packet decay check \u2014 appropriate since draft disclaims concentration."
+  ],
+  "verdict": "REJECT"
+}
