@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Part (a) is a correct rigorous textbook proof: leading coefficient (-lambda)^n omega^{n(n-1)/2} has modulus (3/2)^n, Jensen-Mahler identity gives (1/n)int log||M_n||>=log(3/2) for every n and E, Kingman limit preserves it, hence L(E)>=log(3/2) uniformly. Part (b) as a finite-grid statement was independently replayed: python3 inputs/artifacts/verify.py prints Herman edge 0.355465, grid 41x400=16400 resonant 140 frac 0.00854 worst slice 13/400 good 96.75%, VERIFY_OK, matching DRAFT and resonant_log.csv (140 rows, max per-E 13). Code correctly forms H-E with V=3cos(2pi(n alpha+theta)) and C=max(log|G|+0.30|x-y|). DRAFT honestly limits (b) to grid level with no interval arithmetic and no continuum enclosure, distinguishing proof (a) from computed witness (b).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Part (a) alone is textbook Herman 1983 (admitted in DRAFT section 5 remark): L>=log(3/2) for 3cos=2*(3/2)cos uniformly, stronger than claimed log(3/2)-0.05. Originality therefore rests on the conjunction with the explicit N=80 Green-decay ledger (rate 0.30, C*=8.0, 41x400 grid, 140 explicitly listed resonant pairs). Fused three-direction search (literal N=80/0.30 claim, equivalent 2lambda/Aubry-dual/Harper encodings, dominance via Bourgain-Goldstein-Schlag avalanche/LDT/Green monographs and databases) found no source tabulating this window, threshold, scale, or resonance log. General avalanche/LDT/Green theorems give asymptotic N0 without explicit N=80 constants and do not imply the grid ledger. Hence the exact conjunction/ledger is literally new, though (a) alone is a corollary of known stronger fact.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Value FAILS as textbook restatement plus unexplained enumeration. Conjunct (a) is admitted classical Herman bound, reproved, not new. Conjunct (b) is a 10-second double-precision enumeration on an arbitrary grid (41 E x 400 theta, N=80 not Fibonacci, rate 0.30, C*=8.0 large, 1.5% gate) with no interval arithmetic and explicitly no grid-to-continuum enclosure. It therefore does not constitute the claimed multiscale-analysis input for localization, which requires uniform continuum bounds off a small-measure set; between grid points resonances are unenclosed. The thresholds and grid are post-hoc tuned to pass VERIFY_OK, not motivated before computation, and the resulting statistic (140/16400 resonant) is grid-dependent, not a reusable exact invariant of the natural operator that a future researcher could need. Recomputation is trivial. Certification alone in double precision does not rescue an arbitrary scope. This is precisely mere parameter substitution and unexplained enumeration, even though correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Replayed inputs/artifacts/verify.py in workdir: Herman edge log(3/2)-0.05=0.355465>0.35, grid 41x400=16400 resonant=140 frac=0.00854 worst E-slice 13/400 min-good 0.9675 VERIFY_OK, matching DRAFT section 2 and research_report claim.",
+    "Checked inputs/artifacts/resonant_log.csv: 140 data rows, per-E counts max 13 at E=0.100000 and 12 at E=0.375000, consistent with every slice >=387/400 good; header E,theta,Cstar,rate.",
+    "DRAFT.md sections 3-6: Herman Jensen-polynomial proof, dense-inversion method, limitations stating finite-grid witness not continuum proof, no interval arithmetic, C*=8.0 large constant, classical nature of (a).",
+    "scope_literature_search three queries fused (20 results, full coverage, no partial): literal lambda=3 log(3/2) N=80 rate 0.30; equivalent Herman/2lambda/Aubry-dual/Harper; dominance avalanche/LDT/Green/census. Top hits: Jitomirskaya-Kruger-Liu exact dynamical decay (Lyapunov rate, no N=80 ledger), Jitomirskaya metal-insulator transition (localization, no explicit window), Figotin-Pastur positivity, arXiv 1611.10028 Herman subharmonicity bounds, arXiv 2112.03216 Herman-type lower bound, Bourgain-Goldstein-Schlag avalanche/LDT/Green monograph material (general method, AMS meeting abstract, arXiv 2212.05988 bridge, Springer avalanche principle) \u2014 none tabulates explicit [0,0.5] N=80 rate-0.30 C*=8.0 ledger.",
+    "Admission topic.json: target_claim, audit_plan (Herman plus avalanche to N=80 with angle/gap checks), and admission_review originality/value rationales screened; admission found no explicit window ledger, Herman covers Lyapunov conjunct only."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General avalanche/LDT/Green machinery (Bourgain-Goldstein-Schlag, Goldstein-Schlag, Bourgain monograph, AMS abstract on LDT+avalanche linking Holder regularity, arXiv:2212.05988 bridge, Springer 10.1007/s11464-022-0054-x avalanche principle) states only asymptotic existence of large N0 with unspecified constants and small-measure exclusion, with no numeric uniform window bound L>=log(3/2)-0.05 on [0,0.5] at lambda=3 golden mean and no N=80 decay certificate with rate 0.30 and C*=8.0.",
+      "reasoning": "A broader general theorem does not substantively imply the submitted narrow explicit ledger because it supplies no explicit N=80 constants, window, or resonant list; the grid computation is not a corollary or recomputation of the general estimate, so broader coverage does not defeat originality but also does not confer value.",
+      "search": "Bourgain Goldstein Schlag avalanche principle large deviation Green function estimates quasiperiodic Schrodinger finite-volume multiscale N=80"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Strongest prior Herman bound gives L(E)>=log(3/2)=0.405465 uniformly for all real E at 3cos coupling, strictly stronger than claimed log(3/2)-0.05 on [0,0.5]; DRAFT admits (a) alone is textbook Herman 1983. No prior source states the conjunction with N=80 Green ledger (rate 0.30, C*=8.0, 16260/16400 good, worst slice 13/400, explicit 140-row log).",
+      "reasoning": "Prior result substantively implies conjunct (a) alone, making (a) a repackaging/corollary with no independent originality; it does not imply conjunct (b) or the conjunction, so the submitted headline as a conjunction is literally new but inherits textbook status for its Lyapunov half, leaving value to be decided by (b).",
+      "search": "almost Mathieu lambda=3 Lyapunov log(3/2) uniform window [0,0.5] N=80 Green decay rate 0.30 resonant set ledger"
+    },
+    "equivalent_formulations": {
+      "evidence": "Synonymous normalizations searched: potential 3cos vs 2lambda cos with lambda=3/2, Aubry-dual Harper form, rotation-number/IDS encodings. Hits confirm Herman subharmonicity bounds (arXiv:1611.10028, arXiv:2112.03216 unitary AMO Herman-type estimate, Figotin-Pastur positivity) universally record only the mean/uniform bound L>=log|lambda|=log(3/2), with no N=80 Green-decay witness, no [0,0.5] window ledger, no rate 0.30 or C*=8.0 table.",
+      "reasoning": "Dual/complement/matrix encodings do not reveal hidden coverage: they all cover only the classical Lyapunov conjunct (indeed stronger), not the explicit finite-volume Green ledger or the conjunction that carries the claimed novelty.",
+      "search": "Herman subharmonic lower bound Lyapunov exponent almost Mathieu 2lambda cos normalization Aubry dual Harper equation L(E) bound"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database or table (spectral eigenvalue tables, periodic-approximant censuses, OEIS-type constants, quasiperiodic operator repositories) was found containing the exact 41x400 Green-constant ledger, N=80 rate-0.30 C*=8.0 values, or 140-row resonant list; spectral databases store eigenvalues, which imply neither uniform cocycle growth nor Green decay, as admission notes.",
+      "reasoning": "Exact-parameter search confirms the specific grid ledger is not already tabulated, so originality is not defeated by a table lookup; however absence from a database does not make an arbitrary grid enumeration independently valuable, since the numbers are grid-dependent and trivially recomputable.",
+      "search": "almost Mathieu periodic approximant eigenvalue table spectral database N=80 Green function decay ledger census"
+    }
+  },
+  "residual_risks": [
+    "Control half-step-shifted grid (158/16000, 0.99%) cited in DRAFT section 4 has no replay script in inputs/artifacts (robust.py missing), so that corroboration was not independently verified.",
+    "Inversion residual bound ||MG-I||<=9.1e-13 cited from work/robust.py was not in evidence; near-resonant (ill-conditioned) matrices could have larger floating-point error, though threshold gap to C*=8.0 makes misclassification unlikely for the grid claim.",
+    "Grid-to-continuum gap is acknowledged limitation, not residual risk for the grid statement, but precludes any downstream multiscale/localization use without interval arithmetic and Cartan-type exclusion."
+  ],
+  "verdict": "REJECT"
+}
