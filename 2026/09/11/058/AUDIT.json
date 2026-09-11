@@ -1,0 +1,113 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently replayed all essential computations. p=1031 prime, p=3 mod 4, (-1/p)=-1 verified. Point count #E0(Fp)=1032 (trace 0, supersingular) re-counted independently (1031 affine + infinity); j=1728=697 mod p verified. Fp2 relation a^2=-1, a^p=-a verified, hence iota and Frobenius act on E0[2] as the same transposition, so (1+i*pi) and (i+pi) kill E0[2]; division-by-[2] lemma applies since char !=2 and [2] is separable central with kernel E0[2], so (1+k)/2 and (i+j)/2 are endomorphisms. Z-module R=Z+Zi+Zj+Zk has Gram det 16p^2; transition to O1={1,i,(1+k)/2,(i+j)/2} has abs det 1/4, so disc(O1)=p^2, maximal; with Deuring maximality End(E0)=O1 is proved. Norm form 4N=(2x1+x3)^2+(2x2+x4)^2+p(x3^2+x4^2) verified by expansion; if (x3,x4)!=(0,0) then 4N>=p, so N>=ceil(1031/4)=258=(1+p)/4>256=2^8. A length-l 2-isogeny loop based at j=1728 gives, after identifying terminal curve via a j-preserving isomorphism (degree 1), an endomorphism of degree 2^l<=256; hence all length<=8 loops lie in Q(i) (a2=a3=0 characterization), so any two commute and their Q-span has dim<=2, cannot generate a rank-4 order. Velu identity (t+1)^2-4t=(t-1)^2 and numeric spot check verified; Phi_2(697,Y) roots {697,878} re-computed independently. Non-material presentation slip: DRAFT sharpness witness tuple (-1,0,0,1) transposes x1/x2; correct minimizers include (0,0,0,1) [=(i+j)/2, norm 258] and (0,-1,0,1) [=(i+j)/2-i]; minimum value 1032=4*258 itself is correct and the analytic bound does not depend on the witness. Verify script replays VERIFY_OK (log-write path aside, all checks pass); script box-search formula swaps x3/x4 in the square terms but P-term symmetric so minimum value unchanged. Core impossibility proof unaffected.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live fused search (SerpBase/Serpent + OpenAlex + Crossref, no partial failure) for literal p=1031 length-8 non-commuting claim, equivalent quaternion-order/norm-form phrasing, and broader End-ring/Brandt/database coverage returned only general theory: KLPT/Deuring-for-the-people ideal-to-isogeny, Eisentrager two-cycle strategy, Wesolowski equivalence, Le Merdy-Wesolowski, Eriksen-Leroux orientations, Chevyrev-Galbraith, Fuselier et al., and Stange j=1728 Frobenius note. No source states or tabulates the p=1031 length<=8 impossibility, a non-commuting pair, ideal words, or generation discriminant at p=1031. General j=1728 maximal-order theory is cited by DRAFT as standard background, not claimed as novel; the novel headline is the prime-specific norm gap 258>256 applied to 2-isogeny loops, which no prior source publishes for p=1031. See decisive_checks for adversarial coverage tests.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: DRAFT is a rigorous impossibility resolution of the admitted target (two short non-commuting generating loops), not a scope exit. An exact, replayable End-ring determination End(E0)=Z+Zi+Z(1+k)/2+Z(i+j)/2 with sharp norm gap 258>256 at the motivated symmetric vertex j=1728, p=1031 is independently retrievable: it closes the target conjunction, corrects the feasibility assumption, and is directly reusable for End-ring/SQIsign benchmarking and minimal-length questions. Not a textbook restatement (full maximality + gap + loop translation at this prime), not a mere substitution (requires E0-specific 2-torsion analysis and discriminant audit), not an unexplained enumeration. Longer loops (deg>=512) correctly left open.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md (all sections)",
+    "inputs/research_report.json (TARGET claim_route)",
+    "inputs/topic.json (admission, target_claim, nearest_known_results)",
+    "inputs/artifacts/verify_disproof.py + verify.log (re-executed; all checks pass)",
+    "Independent recomputation: point count 1032, Phi_2(697,Y)={697,878}, norm minimum 4N=1032, Velu identity",
+    "scope_literature_search fused Top-20: Deuring for the people (Eriksen-Panny-Sotakova-Veroni), Eisentrager et al. OBS 2020, Wesolowski FOCS 2021, Le Merdy-Wesolowski 2025, Eriksen-Leroux orientations, Chevyrev-Galbraith, Fuselier et al., Stange 1728 note, MathOverflow j=1728 thread; screened snippets/metadata; Stange PDF fetch attempted (binary, snippet-only)",
+    "Standard facts cited as background (Deuring maximality, [m]-factorization, Hilbert reciprocity) treated as tools, not novelty claims"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused results contain only general polynomial-time reductions, O((log p)^2 sqrt p) two-cycle strategy with adjacency lower bounds, split-prime loop constructions near j=1728/j=0, and orientation algorithms. None exhibits a length<=8 (degree<=256) classification at p=1031; general loop-construction papers prove existence of some (longer) cycles, consistent with DRAFT's remark that generation resumes at degree>=512. No exhaustive census of short based loops at p=1031 was found.",
+      "search": "Dominance query: stronger theorem / broader object class / larger parameter range / exhaustive census / classification / database covering supersingular End rings, j=1728 loops, Brandt matrices, LMFDB quaternion data.",
+      "why_not_cover": "Broader theorems imply existence of generators of unspecified (large) degree, not the falsity of short (<=8) generation at p=1031. A general theorem does not state the prime-specific inequality 258>256 or its loop-theoretic consequence."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "The general j=1728 order shape for p=3 mod 4 and its (p+1)/4 minimal norm outside Q(i) are classical background; DRAFT explicitly cites Deuring/Hilbert facts as tools. No prior source found computes the chain End(E0) discriminant p^2 + norm gap 258 + degree<=256 loop translation specifically at p=1031 to conclude all length<=8 loops commute and cannot generate rank 4.",
+      "search": "Compared headline (every 2-isogeny loop length<=8 at j=1728/p=1031 lies in Q(i); no non-commuting generating pair) literally against each candidate's hypotheses/conclusions; title/similarity not used as coverage.",
+      "why_not_cover": "Implication requires the prime-specific arithmetic (1031+1)/4=258>256 plus the j-preserving-identification degree argument at this vertex, which no prior source performs. Classical background does not itself publish the p=1031 impossibility verdict."
+    },
+    "equivalent_formulations": {
+      "evidence": "Candidates use Z[i], Hurwitz-type orders, HNF ideal bases, oriented vs non-oriented models, different maximal orders, Frobenius-included vs excluded generation. None states the same norm gap or loop-commutativity verdict at p=1031 under any synonymous notation (Q(i) cap End, (-1,-p|Q) norm form, 2-power-degree commutativity).",
+      "search": "Equivalent phrasings: End(j=1728) quaternion maximal order Z[i],(1+k)/2,(i+j)/2 norm form for p=3 mod 4; Q(i)-containment of low 2-power-degree endomorphisms; dual/complement/incidence encodings of 2-isogeny loops.",
+      "why_not_cover": "No equivalent formulation of the p=1031 length<=8 commutativity/generation impossibility was found; general order descriptions lack the prime-specific length bound."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table entry found listing p=1031/j=1728 based loops, kernel directions, Velu chains, quaternion-ideal words, or generation discriminants. Databases/j-lists give j-invariants and sometimes neighbors (consistent with Phi_2 roots {697,878} context), not based-generator or norm-gap certificates.",
+      "search": "Exact object search: p=1031, j=1728=697 mod 1031, B_{1031,infty}, Brandt/LMFDB/supersingular tables for precomputed generators or ideal words.",
+      "why_not_cover": "Exact parameter/object does not appear in any found table or database with the claimed certificate; neighbor lists do not imply the commutativity/generation verdict."
+    }
+  },
+  "residual_risks": [
+    "DRAFT sharpness-witness coordinates (-1,0,0,1) transpose x1/x2; correct minimizers are (0,0,0,1) and (0,-1,0,1); minimum value 4N=1032 unaffected and analytic bound independent of witness.",
+    "Verify script box-search squares use (2x1+x4),(2x2+x3) instead of (2x1+x3),(2x2+x4); symmetric P-term leaves minimum value 1032 unchanged; analytic bound in script is stated correctly.",
+    "DRAFT 'a fortiori ... with Frobenius' sentence is ambiguous in isolation; valid reading is that loops alone cannot generate an order containing Frobenius (since Q(i) does not contain pi); {loops}+pi as a triple was not claimed to fail to generate.",
+    "Stange 1728 PDF could only be screened via snippet (binary fetch); its snippet concerns Frobenius model-dependence generally, with no p=1031 length-8 claim."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "50d1a1628fe96b2d3e1f7de70c590ec8c6cce496c084ec54247b7f0a2fc62ec0",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Structural results for maximal quaternion orders",
+        "url": "https://eprint.iacr.org/2025/042.pdf",
+        "URL": "https://eprint.iacr.org/2025/042.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Closest equivalent-formulation background: states the general maximal order O_1728 isomorphic to End(E_1728) for p = 3 mod 4. Contains no prime-specific statement for p=1031, no norm minimum 258, no 2-isogeny length<=8 (degree<=256) loop classification, and no commutativity/generation impossibility verdict.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Supersingular isogeny graphs and endomorphism",
+        "url": "https://eprint.iacr.org/2018/371.pdf",
+        "URL": "https://eprint.iacr.org/2018/371.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "States the general p = 3 mod 4 fact that y^2=x^3+x (j=1728) is supersingular and corresponds to a maximal order O0 with Z-basis {1,i,(1+k)/2,...}. General order shape only; no p=1031 computation, no (p+1)/4=258>256 gap, no short-loop commutativity or rank-4 generation verdict.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Deuring for the People: Supersingular Elliptic Curves with ...",
+        "url": "https://app.icerm.brown.edu/assets/381/5437/5437_4005_Sotakova_071320231130_Other.pdf",
+        "URL": "https://app.icerm.brown.edu/assets/381/5437/5437_4005_Sotakova_071320231130_Other.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Uses the same general base order O0 = Z + Zi + Z(i+j)/2 + Z(1+k)/2 in (-1,-p|Q) for E0: y^2=x^3+x when p = 3 mod 4 as a KLPT/Deuring starting point. Confirms the order shape as standard background; states no p=1031 short-2-isogeny-loop theorem and does not imply that all length<=8 loops lie in Q(i).",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Frobenius and the endomorphism ring of j = 1728.",
+        "url": "https://math.colorado.edu/~kstange/papers/1728.pdf",
+        "URL": "https://math.colorado.edu/~kstange/papers/1728.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Gives the endomorphism ring of the supersingular j=1728 curve over Fp generally and studies non-canonical placement of Frobenius across models. General j=1728 theory with no p=1031 specialization, no 2-power-degree bound, and no non-commuting-pair impossibility claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Constructing Cycles in Isogeny Graphs of Supersingular Elliptic Curves",
+        "url": "https://arxiv.org/html/1912.03073v1",
+        "URL": "https://arxiv.org/html/1912.03073v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General construction of loops/2-cycles near j=1728/j=0 via split-prime embeddings with length bounds (p>59 regime). Proves existence of some (longer) cycles; does not classify degree<=256 loops at p=1031 and is consistent with generation resuming at degree>=512. Does not state or imply the length<=8 commutativity/generation impossibility at p=1031.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Endomorphism ring of $y^2=x^3-x$ over $\\Bbb F_p$",
+        "url": "https://math.stackexchange.com/questions/3594224/endomorphism-ring-of-y2-x3-x-over-bbb-f-p",
+        "URL": "https://math.stackexchange.com/questions/3594224/endomorphism-ring-of-y2-x3-x-over-bbb-f-p",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Informal Q&A guessing an Fp2-endomorphism-ring shape for y^2=x^3-x, explicitly hedged as unproved in the snippet. No p=1031 statement, no discriminant/norm-gap computation, no loop-length theorem; a suggestive snippet, not a proof of coverage.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check (20 results, 2 URL-overlaps with base set) added useful incremental recall of the general j=1728 maximal-order background (2018/371 O0 basis, 2025/042 O_1728 formula, Deuring-for-People O0 slides, Stange Frobenius note) plus the general Xiao et al. cycle-construction paper and an MSE guess, but no source states, tabulates, or implies the submitted prime-specific headline: End(j=1728) discriminant-p^2 determination at p=1031 with sharp norm gap 258=(1031+1)/4>256 forcing every length<=8 (degree<=256) 2-isogeny loop into Q(i), hence no non-commuting pair and no rank-4 generation. Literal hypothesis/conclusion comparison: general O_1728 maximality and general loop-existence theorems lack the (p+1)/4 vs 2^8 arithmetic and the j-preserving-identification degree argument at p=1031; the MSE post is explicitly unproved. The two overlapping URLs (Stange, 2025/042) merely duplicated base-provider coverage. Remaining 14 results (theses, surveys, CSIDH/CSURF, Brandt-matrix background, Adventures in Supersingularland, etc.) are keyword-similar only with no j=1728/p=1031 loop verdict and were screened out as not materially relevant. No decisive prior found; provisional originality PASS preserved; correctness and value untouched."
+  }
+}
