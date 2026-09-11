@@ -1,0 +1,123 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed output/artifacts/verify_target.py -> VERIFY_OK. Checks A-F verified: even det -128 signature (1,1); no (-2) by mod-8 (0 mod 4 vs 2 mod 4) plus scan; no nonzero isotropic y^2=2x^2 plus scan; D.H=16x so window 0<D.H<16 globally empty with per-class table and x=1 slice mu=8y^2-2; all Cliff<=2 contributors at g=9 have rho<0; primitive embedding H=e+8f in U and L=sum of four orthogonal E8(-1) roots with L/2 not in E8, hence primitive embedding and K3 realization via period map with H ample up to sign since no (-2) walls. Saint-Donat (i) excluded by no isotropic, (ii) by primitivity of H. Genus 9 triangular exclusion (6 and 10 bracket 9) rules out smooth plane models so hypothetical Cliff<=2 has Clifford dimension one. Pencil layer solid via Pal Lemma 4.2 and Lemma 3.1(6): every degree<=5 pencil has rho<0, non-simple LM bundle 0->M->E->N tensor I_Z->0 with M+N=H forcing window element, impossible. General r>=2 bridge via cited Green-Lazarsfeld/Knutsen/Lelli-Chiesa/Donagi-Morrison divisor formula plus gon=Cliff+2/+3 for dimension one gives same contradiction. Proof vs computation vs cited tools separated in DRAFT section 6.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route. Live fused retrieval with three normalized forms (literal diag(16,-8) genus-9 Cliff>=3; equivalent gonality/LM/Donagi-Morrison/Knutsen/Lelli-Chiesa phrasing; broader census/database/Noether-Lefschetz direction) returned 20 fused hits with full provider coverage. Screened decisive primaries: Pal 2005.09208, Knutsen 10.1007/s00013-003-0793-1, Ramponi 10.1007/s00013-016-0879-1 and thesis tel-01981485, Haburcak 2306.11664, Lelli-Chiesa stability, arXiv 1810.10825. None publishes the named diag(16,-8) lattice or its empty Cliff<=2 window. Lattice distinct: det -128, H.L=0, no isotropic, so disjoint from Ramponi U(m) elliptic family (which has isotropic, det -m^2) and from Pic=ZH results. General LM criteria are tools, not the per-lattice certificate. No database table stores this obstruction list. Adversarial checklist documented in decisive_checks.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Exact invariant Cliff>=3 of a specific moduli-natural Noether-Lefschetz rank-2 genus-9 K3 linear system, motivated before computation as the linear-series half of Green's conjecture pinning the Green-critical strand and supplying a standalone Brill-Noether obstruction lemma for any syzygy computation. Value not known or mechanically implied; requires fresh Hodge-window enumeration plus LM-stability bridge. Future researcher can reasonably need this precise bound and empty-window log. Not a textbook exercise, mere parameter substitution, tiny unmotivated gain, or unexplained enumeration: per-class log, Hodge-bounded natural window, and downstream syzygy use are explicit. Under STANDARD narrow-object eligibility, no new general theorem required. No ADMISSION_DEFECT: admission constancy/database claims confirmed.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Replayed inputs/artifacts/verify_target.py -> VERIFY_OK (A: even det -128 signature (1,1); B: no (-2); C: no isotropic; D: empty window D.H=16x with per-class table; E: all Cliff<=2 (d,r) have rho<0; F: primitive U+E8(-1) embedding)",
+    "Pal arXiv:2005.09208 Lemma 3.1(6) rho<0 => non-simple, Lemma 3.2 structure 0->M->E->N tensor I_Z->0, Lemma 4.2 Z-empty when Cliff<floor((g-1)/2) giving M+N=C decomposition - tool, not lattice certificate",
+    "Knutsen doi:10.1007/s00013-003-0793-1 Gonality and Clifford index of curves on K3 surfaces - general existence/constancy background, no diag(16,-8) certificate",
+    "Ramponi doi:10.1007/s00013-016-0879-1 and thesis tel-01981485 Clifford/gonality on elliptic K3s with Pic=U(m) - disjoint: U(m) has isotropic, det -m^2, ours det -128 no isotropic",
+    "Haburcak arXiv:2306.11664 Curves on Brill-Noether special K3 surfaces - Donagi-Morrison lifts/Lelli-Chiesa background, no genus-9 diag(16,-8) obstruction list",
+    "arXiv:1810.10825 Clifford index of curves on K3 surfaces with Pic=ZH - rank-one case, disjoint from rank-two diag(16,-8)",
+    "Lelli-Chiesa Stability of rank-3 LM bundles / Donagi-Morrison Theorem 5.1' background - general lift criteria, not the named lattice window"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Knutsen 2003 shows every possible Clifford/gonality value occurs and constancy background; Ramponi thesis and 2016 paper compute Clifford for U(m) elliptic rank-two family; Haburcak 2306.11664 studies Donagi-Morrison lifts on BN-special K3s; Lelli-Chiesa/Pal/Watanabe give LM stability criteria. None states a per-class Cliff<=2 exclusion for H^2=16, L^2=-8, H.L=0.",
+      "reasoning": "Broader theorems are general tools or different subfamilies (elliptic U(m) has isotropic vectors; Pic=ZH is rank one). They do not exhaustively cover or imply the specific orthogonal genus-9 lattice window; the headline requires the new D.H=16x emptiness computation plus application, so broader coverage does not subsume it.",
+      "search": "classification gonality Clifford index curves on K3 surfaces census Noether-Lefschetz Picard lattice database genus 9; Knutsen Lelli-Chiesa Haburcak Ramponi elliptic U(m)"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Pal Lemma 4.2 and Watanabe ACM criterion prove: pencil computing Cliff<floor((g-1)/2) has non-simple LM bundle fitting 0->M->E->N->0 (or N tensor I_Z) forcing surface decomposition M+N=H; Green-Lazarsfeld/Knutsen give divisor computation for Clifford dimension one with Cliff<floor((g-1)/2). These are conditional implications requiring a window element.",
+      "reasoning": "Prior implication is a general conditional (IF low series THEN decomposition). It does not assert the antecedent fails for diag(16,-8). The submitted finding proves the antecedent impossible via the new empty-window theorem D.H=16x and indecomposability. Hence prior work does not imply the headline; it is used as a tool applied originally here.",
+      "search": "Lazarsfeld-Mukai bundle pencil computing Clifford index semistable Donagi-Morrison Lemma 4.4 Pal Lemma 4.2 Watanabe ACM Green-Lazarsfeld Knutsen constancy"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results contain no Gram matrix diag(16,-8), no H^2=16 L^2=-8 H.L=0 system, no determinant -128 rank-two Clifford certificate. Nearest rank-two family is U(m)=[[0,m],[m,0]] with det -m^2 and isotropic vectors; -128 is not a square so no isomorphism. No dual/complement/incidence/matrix relabeling matches.",
+      "reasoning": "Synonymous notation, dual/complement, or change-of-basis cannot hide coverage because lattice invariants det -128, signature (1,1), no (-2), no isotropic, and orthogonal splitting distinguish it from U(m) elliptic and Pic=ZH families. Literal and equivalent-form searches both return only general tools.",
+      "search": "Clifford index >=3 genus 9 K3 Picard lattice Gram diag(16,-8) H^2=16 L^2=-8 H.L=0 determinant -128 orthogonal rank-2"
+    },
+    "exact_database_or_table": {
+      "evidence": "Coverage included Crossref/OpenAlex/SerpBase census/database direction; hits were papers and theses, no LMFDB K3 lattice table, no Shimada/Brandhorst Noether-Lefschetz table, no Brill-Noether table publishing a per-class Cliff<=2 obstruction log for this polarization. Admission value case notes lattice databases do not store such certificates.",
+      "reasoning": "Exact parameter already tabulated would defeat originality, but no official database or paper table lists diag(16,-8) with its empty Hodge window or Cliff>=3 conclusion. The claim is not a recomputation or certificate of a tabulated entry; it requires fresh enumeration plus stability argument.",
+      "search": "Noether-Lefschetz Picard lattice database LMFDB K3 genus 9 polarization table Clifford obstruction diag(16,-8)"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "b2adecf2ff71202ce6eab2f7c4f3ef66cfa210641f55a6e28c861bf3b39bacaf",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Unstable Lazarsfeld-Mukai bundles of rank 2 on a certain K3 surface of Picard number 2",
+        "url": "https://ar5iv.labs.arxiv.org/html/1707.00643",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest rank-2 LM paper: its lattice is ZH+ZF with F^2=0 elliptic pencil and H.F=d (Gram [[2g-2,d],[d,0]]), whereas the headline lattice is orthogonal diag(16,-8) with det -128 and provably no nonzero isotropic class; verified in full text (Theorems 1.3, 3.1, Lemma 3.1). It gives a necessary/sufficient LM non-stability criterion for that elliptic family, not the D.H=16x empty-window Cliff>=3 certificate for diag(16,-8).",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "green's conjecture for curves on arbitrary k3 surfaces",
+        "url": "https://www.ms.u-tokyo.ac.jp/~kazushi/kinosaki2010/farkas.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Aprodu-Farkas slides prove the syzygy side of Green for arbitrary K3s (constancy/non-vanishing and DM-extension dimension counts). General theorem with no named diag(16,-8) genus-9 lattice, no per-class Cliff<=2 obstruction log, and no D.H=16x indecomposability computation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Generalized Lazarsfeld-Mukai bundles and a conjecture of Donagi ...",
+        "url": "https://pure.mpg.de/rest/items/item_3119766_1/component/file_3119768/content",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Lelli-Chiesa generalized LM-bundle theorem proving a Donagi-Morrison-type lift under numerical hypotheses. It is a general conditional tool (IF low series THEN surface divisor) and states no hypothesis or conclusion about the H^2=16, L^2=-8, H.L=0 lattice or its empty Hodge window.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "arXiv:1511.01732v2  [math.AG]  9 Apr 2018",
+        "url": "http://arxiv.org/pdf/1511.01732",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves the Donagi-Morrison lift conjecture for K3s without (-2)-curves (rank-1 LM bundle cut out by rank-1 sheaf with Cliff(c1(G)|C)<=Cliff(A)). General bridge result; contains no primitive diag(16,-8) embedding, no 0<D.H<16 emptiness theorem, and no Cliff>=3 conclusion for genus 9.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] arXiv:1704.02753v1 [math.AG] 10 Apr 2017 Moduli of Lattice ...",
+        "url": "https://arxiv.org/pdf/1704.02753v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General moduli theory of lattice-polarized K3 surfaces for even non-degenerate lattices of signature (1,r). Moduli/counting framework with no Brill-Noether table, no Clifford-index computation, and no per-class exclusion for the specific orthogonal determinant -128 genus-9 polarization.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "On two conjectures for curves on K3 surfaces",
+        "url": "https://ar5iv.labs.arxiv.org/html/0705.0302",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves constancy of gonality in |L| except the Donagi-Morrison example and classifies exceptional (Clifford-dimension >1) cases. General classification background; its examples have different genera/lattices and it never states the diag(16,-8) indecomposability or Cliff>=3 bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Curves on Brill\u2013Noether special K3 surfaces",
+        "url": "https://d-nb.info/1344303587/34",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Haburcak thesis/paper on Donagi-Morrison lifts and BN-special K3s: defines Clifford index, DM lifts, and lift-existence hypotheses. Already screened in base search; general lifting theory with no named H^2=16/L^2=-8 orthogonal lattice and no empty-window log covering the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Brill--Noether theory via K3 surfaces",
+        "url": "https://digitalcommons.dartmouth.edu/cgi/viewcontent.cgi?article=1163&context=dissertations",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Thesis defining rank-2 Noether-Lefschetz lattices Lambda^g_{r,d} with matrix [[2g-2,d],[d,2r-2]] and NL divisors K^g_{r,d}. The headline lattice diag(16,-8) would require off-diagonal 0 and 2r-2=-8 (r=-3), outside that studied BN-special family; it provides no Clifford table implying Cliff>=3 for diag(16,-8).",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Canonical Curves, Scrolls and K3 surfaces",
+        "url": "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/26917/1/phd_bopp.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Bopp thesis on genus-9 canonical curves and K3 scrolls whose computed Picard lattices have rank >=4 (e.g. classes with H^2=14, C.H=16 and (-2)-curves). Different Picard rank, different Gram matrix, and no 0<D.H<16 emptiness or Cliff>=3 theorem for the rank-2 orthogonal diag(16,-8) system.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check COMPLETE (20 results, 3 title/doi overlaps with base, 17 overlap-false). Incremental recall added general LM/Donagi-Morrison tools (Farkas slides, Lelli-Chiesa, 1511.01732, two-conjectures), lattice-polarized moduli/census directions (1704.02753, BN-via-K3 thesis, Bopp genus-9 thesis), all screened literally. The most dangerous lead (Watanabe 1707.00643, overlap-true) was verified in full primary text: its Picard lattice contains an elliptic pencil F^2=0 with Gram [[2g-2,d],[d,0]], incompatible with the headline diag(16,-8) which has det -128 and no isotropic vector, so no change-of-basis, dual, or synonymous-notation hiding is possible. No returned source states the Gram matrix diag(16,-8), the D.H=16x empty Hodge window, or a Cliff>=3 conclusion for that polarization; broader theorems are conditional tools requiring a window element, and census sources use different lattice families (Lambda^g_{r,d} needs r=-3; Bopp rank>=4). Useful incremental results therefore duplicate or extend only background tools, and none covers the headline. Originality PASS preserved; correctness and value untouched."
+  }
+}
