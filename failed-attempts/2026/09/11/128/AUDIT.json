@@ -1,0 +1,55 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "FAIL: the shipped proof chain does not close as a rigorous proof. Verified exactly and independently: F/S matrices from Gaussian moments, P=S-F^2 spectrum {0,1,1,4/3,5/3}, ||A||<=1/2 by AM-GM giving equivalence [0.9375,1.0625], joint Gram J (found rank-8 singular since u_1==w_0 micro, so the stated J^{-1} constraint as written is ill-posed and only the regularized superset argument saves sufficiency), and float PSD of G_28 (min eig 0.007787, residuals ~1e-15). But (i) both shipped verify scripts begin exec(open('scratch/lmi15.py')...) and that file is absent from inputs/artifacts, so the documented reproduction cannot run and the F/S/B/J reconstruction plus K-block derivation (complex skew terms) cannot be checked from the package; (ii) the LMI 'certificate' is plain floating-point eigendecomposition with no interval/rational enclosure, i.e. experimental evidence, while DRAFT Step 3 overstates it as certifying lambda_min>=0.007787. Independent exact-restriction Galerkin checks (degrees<=6, Qmax=-0.02236) support truth but do not repair the shipped proof gap.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "PASS: the exact numeric instance (BGK fiber at k=e1, eps=1/8, kappa=1/120, micro-only RHS, equivalence inside [0.9,1.1]) is not recorded in the fused retrieval set. Nearest priors -- DMS 2009 linear-relaxation note (whose headline illustration IS the BGK model), DMS 2015 mass-conservation paper, Arnold-Dolbeault-Schmeiser-Woehrer Fourier sharpening, and multi-D BGK entropy-functional literature -- state twisting parameters symbolically/existentially or use different functionals, and none logs this per-mode pair; synonymous phrasings (mode-wise Lyapunov, micro-macro dissipation) and table/database searches reveal no covering entry. Prior work does not mechanically imply these exact numbers without the fresh matrix computation, so the instance is new and not a corollary. Emergent-route genuineness verified: same fiber, same functional form, same admitted numbers as the hard-sphere target, with the target-exit documenting the quantified HS block (Baranger-Mouhot gap 0.0281 vs cross-term demand, failing HS LMI scans).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: new but not independently worth retrieving; judged with no preset-value presumption as required for EMERGENT_FINDING. The conceptual content -- DMS twisted-L2 hypocoercivity of the linearized BGK relaxation operator -- is textbook (it is the headline illustration of DMS 2009, arXiv:0810.3493), and the submission only fills the hard-sphere target's leftover numbers (eps=1/8, kappa=1/120) into that known framework at one mode. The concluded bound dH/dt<=-(1/120)||micro||^2 is micro-only (no macroscopic coercivity, implies no decay by itself) and 120x lossy against the unit BGK micro gap, with constants arbitrary from any BGK perspective. No benchmark, classification boundary, sharpness, or downstream BGK use is demonstrated; the claimed bottleneck-direction and LMI-template significance points to future hard-sphere work, i.e. a new research direction, which cannot carry an emergent finding's value. This is a textbook restatement plus arbitrary parameter fact, explicitly rejected by the shared standard even when correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0810.3493 (Dolbeault-Mouhot-Schmeiser 2009, Hypocoercivity for kinetic equations with linear relaxation terms) -- abstract confirms the method's headline illustration is the linear BGK model with an adapted Lyapunov functional and Gronwall inequality, stated generally without any (1/8,1/120) per-mode pair.",
+    "arXiv:1005.1495 (Dolbeault-Mouhot-Schmeiser 2015, Hypocoercivity for linear kinetic equations conserving mass) -- general single-conservation-law framework with abstract/existence-form twisting parameters; no hard-sphere or BGK unit-mode numeric ledger.",
+    "DOI 10.1007/978-3-030-82946-9_1 (Arnold-Dolbeault-Schmeiser-Woehrer Fourier sharpening) -- mode-by-mode L2 hypocoercivity for Fokker-Planck/BGK-type models via Nash ideas; frames the method without recording the submitted (1/8,1/120) BGK fiber certificate.",
+    "scope_literature_search fused Top-20 over literal (DMS twisted pair at k=e1), equivalent (BGK Fourier micro-macro Lyapunov), and dominance (explicit BGK hypocoercivity constants/census) forms -- full coverage on all providers, no source stating the submitted numeric inequality; nearest hits are the DMS/Arnold BGK-hypocoercivity family above.",
+    "Independent recomputation from Gaussian moments: F, S, P=S-F^2 spectrum {0,1,1,4/3,5/3}, B=(I+S)^{-1} eigs, ||A||<=1/2 exact with equivalence [0.9375,1.0625], Qmm eigs, cross-norm ||B-2FB||~1.17 -- confirms the exact 5x5 fiber algebra claimed in DRAFT Step 1.",
+    "Independent joint-Gram recomputation: u_a=(I-Pi)V phi_a, w_a=(I-Pi)V^2 phi_a from exact polynomial moments; found u_1 and w_0 micro parts identical so J is 9x9 singular (eigs include 0; rank 8), meaning the DRAFT J^{-1} constraint as written is ill-posed and only a regularized-superset reading preserves sufficiency.",
+    "Shipped-matrix check: inputs/artifacts/Gmat_bgk_complex.csv is 28x28 symmetric with float min eig 0.0077870774, off-diagonal radius ~1.2e-15, orthogonality error ~6.4e-15 -- confirms numerical PSD but as non-rigorous float evidence only.",
+    "Missing-dependency check: both shipped scripts exec(open('scratch/lmi15.py')...) while inputs/artifacts contains only the two scripts and two CSVs -- documented reproduction cannot run as shipped, breaking the evidence chain for the K-block/infinite-dimensional reduction.",
+    "Independent exact-restriction Galerkin tests (orthonormal Hermite, total degree N=4 and N=6, transport V represented exactly into degree N+1): full quadratic form Q=(L-T)*W+W(L-T)+kap(I-Pi) has Qmax=-0.02236<0 on both subspaces with macro-dominated worst vector -- supports truth of the inequality as numerical evidence while leaving the shipped infinite-dimensional proof gap unclosed."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "DMS 2009 proves hypocoercivity for linear BGK/relaxation models and DMS 2015 plus Arnold et al. sharpening extend the Fourier mode-by-mode method, but all state twisting size and dissipation rate symbolically or for different models/functionals; none publishes the (eps=1/8, kappa=1/120) BGK unit-mode ledger, and no census, classification, or spectral-gap database subsumes a per-mode DMS twisted pair.",
+      "reasoning": "The broader theorems cover the BGK-DMS method in general but do not decide the literal numeric instance: inserting the unit-mode geometry still requires the fresh finite-dimensional computation, so the claim is not a strict special case already covered -- hence no broader-coverage originality failure, even though this same generality is what defeats independent value.",
+      "search": "explicit hypocoercivity constants BGK linearized torus decay rate classification census database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior DMS/Arnold sources imply existence of some (eps,kappa) and, in stronger forms, full decay via different entropy functionals; the submitted claim is instead one specific weak micro-only differential inequality dH/dt<=-(1/120)||micro||^2 with the DMS functional at eps=1/8. No retrieved source exhibits constants that mechanically force this exact pair, and homogeneous BGK gap tables (micro gap 1) alone do not imply the twisted cross-term bounds.",
+      "reasoning": "Because no prior result with explicit constants literally yields (1/8,1/120) for this functional without the new matrix/LMI computation, the claim is not a recomputation, certificate, corollary, or repackaging of a known stronger fact -- originality passes on implication, while the weakness of the conclusion (micro-only, 120x lossy) is a value, not implication, defect.",
+      "search": "Fourier mode BGK hypocoercivity twisted functional implies kappa 1/120 epsilon 1/8 micro dissipation rate"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched synonymous and dual encodings -- mode-by-mode Lyapunov inequality, micro-macro dissipation estimate, BGK relaxation hypocoercivity entropy, twisted energy at unit wavevector -- retrieving the DMS relaxation/BGK family (0810.3493, 1005.1495), Arnold Fourier sharpening, and linearized BGK torus-decay papers; none states the (1/8,1/120) micro-only fiber inequality, and the retrieved BGK works use different functionals or symbolic parameters.",
+      "reasoning": "Alternate terminology, complement/incidence encodings, and relaxation-vs-BGK naming variants do not reveal the exact numeric ledger in the literature, so synonymous-notation coverage does not defeat the claim; the nearest equivalent source (DMS 2009 BGK illustration) establishes the method's textbook status, which bears on value rather than coverage.",
+      "search": "BGK linearized relaxation Fourier hypocoercivity mode-by-mode Lyapunov micro-macro dissipation inequality torus"
+    },
+    "exact_database_or_table": {
+      "evidence": "No hypocoercivity-constant table, Boltzmann/BGK gap database, or torus-mode census lists a per-mode DMS dissipation pair (epsilon, kappa, equivalence interval) for any collision model at |k|=1; the only relevant tabulated number is the trivial homogeneous BGK micro gap 1, which does not decide the twisted inequality with eps=1/8 cross terms.",
+      "reasoning": "Direct table or database lookup therefore cannot decide the claim, so this is not a database-repackaging originality failure; closing the numbers genuinely requires the finite-dimensional coercivity computation rather than copying a recorded entry.",
+      "search": "hypocoercivity constant table BGK Fourier mode k=1 dissipation kappa epsilon database"
+    }
+  },
+  "residual_risks": [
+    "Float-only LMI evidence: even the verified 0.007787 margin carries no rigorous rounding-error enclosure, so a pathological rounding artifact, while implausible at 1e-15 residuals, is not formally excluded.",
+    "Unverifiable K-block assembly as shipped: the complex skew/cross-term derivation lives in the missing scratch/lmi15.py and undescribed worklog analysis, so an assembly error in the 28x28 certificate cannot be ruled out from the package despite supporting Galerkin evidence.",
+    "Value-side risk is resolved adversely rather than residually: the BGK substitution inherits unmotivated HS numbers into a textbook framework, so no bounded addition within this topic converts it into an independently retrievable record."
+  ],
+  "verdict": "REJECT"
+}
