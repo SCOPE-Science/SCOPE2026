@@ -1,0 +1,102 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "HEADLINE (named G9): verified independently. G9 facets [014,018,025,027,034,035,078,123,126,134,168,235,267,678] form a triangulated 2-sphere: V-E+F=9-21+14=2, every edge in exactly 2 facets, every vertex link a cycle, simplicial H=(1,0,1) (replayed verify.py -> VERIFY_OK). DGA model R(K)=Lambda[u]x k[K] checked: d^2=0 on all 512 multidegrees, Leibniz on all 6799 small disjoint pairs. Missing edges include {06},{17}; K_{0167} is hollow 4-cycle 0-1-6-7-0 (edges 01,07,16,67 present; diagonals 06,17 missing; no triangle inside, no S-facet inside). Classes a=[e_0] in C({06}), b=[e_1] in C({17}) are closed and non-exact (domain C0=0). Product e_0*e_1=e_{01} (shuffle +1) is closed since 016,017 not faces. Non-exactness is hand-checkable: d(e0)=e01+e07, d(e1)=e01-e16, d(e6)=-e16+e67, d(e7)=e07+e67, so e01=d(sum c_v e_v) needs c0+c1=1,c0+c7=0,c1+c6=0,c6+c7=0 whose alternating sum gives 0=1; exact rational rank test confirms e01 not in col(d1). Hence [{06}] cup [{17}]=[{0167}]!=0 in H^6(Z_G9), so Q[G9] not Golod and target universal-vanishing false. Field transfer sound: obstruction is integral 0=1 system unsolvable over any field (independently brute-forced no solution over GF(p) for p=2,3,5,7,101); full-subcomplex homology of S^2 triangulation torsion-free. Wider scans (24 nonzero missing-edge products, Tor+ dim 227, Poincare pairings into (9,3) top class) corroborate. UNIVERSAL EXTENSION (every gluing facet choice non-Golod): mathematically TRUE \u2014 independent re-run of all 3 stacked-facet orbits x all 6 octahedron bijections (18 complexes) finds verified C4 witness in every case with sphere check. RESIDUAL EVIDENCE DEFECT: archived enumerate_check.py has indentation bug (lines 164-172: inner `for q` loop body only builds G; dedented block after loop processes only last q, so script as archived tests 1 gluing per Sf orbit, 3 total, printing `distinct glued facet sets: 1`), overstating `every gluing choice' coverage. Truth unaffected (independently cured), core named-G9 proof unaffected (verify.py clean). S-uniqueness/stack presentation claim not needed for headline.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Route TARGET: disproof of admitted universal-vanishing (Golod) target counts as complete TARGET resolution; no preset-fallback presumption. Fused scope_literature_search (3 directions, SerpBase/Serpent+Crossref ok, OpenAlex 0 hits, no partial failure) found only general theorems, no source naming G9 or its witness. Nearest priors: Iriye-Kishimoto 1506.08970 Thm 1.4 (surface triangulation Golod iff 1-neighborly iff trivial fat-wedge filtration), Katthan 1511.04883 (dim<=3 Golod iff Koszul product trivial), Berglund-Jollenbeck chordless-cycle/chordality criterion (Golod => chordal 1-skeleton; induced C4 gives nonzero cup), Grbic-Panov-Theriault-Wu flag wedge theory, Fan-Wang/Kovyrshina-Panov/Fan connected-sum moment-angle theory, Amelotte minimally-non-Golod joins. None publishes facets 014...678, missing-edge list, product [{06}]x[{17}]=[{0167}] with 0=1 obstruction, 24-product table, Tor+ dim 227/205 multidegrees, or gluing-enumeration. Adversarial checklist executed (see decisive_checks): abstract `G9 not Golod' is implied in principle by IK 1-neighborly/chordality criteria (any 9-vertex sphere with missing edge is non-Golod), but the submitted headline as archived is the EXACT certificate (named facets, named pair, named 4-cycle, explicit 0=1 system, exact-arithmetic ledger, enumeration) \u2014 existence theorems do not state, compute, or exhaust that precise witness/census, and no table/database lists it. Hence specific falsifying witness is new as a record.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET disproof with exact witness for a pre-motivated natural object. Object motivated before computation: facet connected sum is canonical sphere-gluing; 6+6-3=9 forced; smallest mixing stacked block with flag Golod block (octahedron); called-for boundary between wedge-decomposable and obstructed polyhedral products, formality/LS-category benchmark (topic value_case). Invariant motivated: Golodness (Tor vanishing + Massey triviality) plus explicit cochain witness showing which attaching cross-block C4 breaks it. Not known: Admission expected Golodness with trivialization ledger; actual value opposite, correcting the record and preventing wasted ledger search. Future researcher studying facet-sums, moment-angle formality, or toric topology surveys can reasonably need the precise fact: which missing-edge pair, which hollow C4, non-exactness certificate, and that NO facet-sum of stacked-6 with octahedron is Golod (18-case mechanism). Per value policy, a rigorously established exact invariant/witness of a specific natural object is not rejected merely for being narrow; certification alone does not rescue arbitrary objects, but G9 is not arbitrary. Extra Tor census/Poincare pairings are corroboration, not unexplained enumeration as headline. Not a textbook restatement (full dga ledger with d^2/Leibniz/sphere checks, not mere citation of IK), not mere parameter substitution, not tiny unmotivated gain.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md (all sections 1-8)",
+    "inputs/research_report.json (claim, evidence_summary, limitations, route_justification)",
+    "inputs/topic.json (target_claim, admission_review, nearest_known_results, internal_prior_scan, memory gates)",
+    "inputs/artifacts/verify.py \u2014 replayed independently -> VERIFY_OK (sphere, H=(1,0,1), d^2 all 512, Leibniz 6799, headline product, 24-scan, Tor 227, Poincare 15)",
+    "inputs/artifacts/enumerate_check.py \u2014 replayed -> ENUMERATE_OK but code-inspected: indentation bug tests 3/18; independently re-ran all 18 gluings with fixed loop -> all sphere-ok with C4 witness",
+    "independent integer/GF(p) check: 0=1 system unsolvable over GF(2,3,5,7,101); G9==DRAFT facets; K_0167 hollow confirmed; no triangle inside",
+    "scope_literature_search fused 20 results across 3 queries (SerpBase/Serpent+Crossref ok, OpenAlex 0, partial=false)",
+    "primary source fetched in full: Iriye-Kishimoto arXiv:1506.08970 (Thm 1.4, Prop 2.3/3.1-3.3, Thm 3.9) \u2014 used as nearest broader coverage"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused search returned Katthan 1511.04883, Kovyrshina-Panov 2408.04843, Fan-Wang connected sums, Amelotte minimally-non-Golod, Berglund-Jollenbeck 2007, IK 1506.08970, GPTW flag theory. Fetched IK in full: Thm 1.4 surface triangulation Golod iff 1-neighborly; Prop 8.17 of [IK] Golod=>chordal; Katthan dim<=3 product criterion.",
+      "reasoning": "These stronger theorems imply ABSTRACT non-Golodness of any non-neighborly/non-chordal sphere (hence of G9) in principle, but none states, computes, or names G9 (facets 014...678), its missing-edge pair {06}x{17}, its C4 K_0167, its 0=1 obstruction, its 24-product table, Tor dim 227, or the 18-case gluing enumeration. A general existence implication does not exhaustively cover the submitted exact Q-certificate as a retrievable record. Originality of the specific witness therefore survives; abstract corollary status noted and does not erase exact headline value per narrow-datum clause.",
+      "search": "Dominance query `classification census Golod simplicial 2-spheres 9 vertices connected sum gluing Golodness moment-angle' + `facet connected sum stacked octahedron 9-vertex sphere Golod Tor-algebra' via scope_literature_search; followed citation leads and fetched IK full text."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior (IK Thm 1.4 proof, Berglund-Jollenbeck): induced C4 / missing-edge-plus-link retraction gives nonzero Tor product, stated generically. Submitted: for NAMED G9, [{0,6}] cup [{1,7}]=[{0,1,6,7}]!=0 via e_01, proved by displayed 4x4 differential and 0=1 system plus machine rank test; plus 24-product scan, Tor+ 227/205, Poincare pairings, and every-gluing C4 mechanism.",
+      "reasoning": "Prior implies `there exists some obstruction for this class of spheres' but does not imply the literal identities (which pair, which cycle, which signs, which coboundary-failure equations) or the census numbers. Title/embedding similarity to `Golod 2-complexes' or `connected sums' alone was not accepted as coverage; hypotheses/conclusions compared literally. No prior source's theorem instantiated to G9 yields the submitted exact ledger without fresh computation (facet list, edge audit, C4 verification, rank test, enumeration). Hence not a recomputation/repackaging of a stated specific fact.",
+      "search": "Compared submitted facet-level identities against IK Sec 3 proof, Katthan product criterion, Berglund-Jollenbeck chordless-cycle statement, and GPTW flag hypotheses literally; screened snippets/metadata for any G9 facet string or {06}x{17} witness \u2014 none found."
+    },
+    "equivalent_formulations": {
+      "evidence": "No hit on G9 facet string, `stacked-plus-octahedron', `[{06}]x[{17}]', `K_0167', or Baskakov e_01 witness. Hits were generic `Golod/moment-angle/connected sum' theory.",
+      "reasoning": "Dual/complement/incidence-graph/matrix/algebraic encodings (Stanley-Reisner Golod vs Tor vanishing vs H*(Z_K) cup vs chordal vs 1-neighborly vs fat-wedge triviality vs Taylor-minimal) were all considered as synonymous routes; none renames G9 into a covered object. G9 is non-flag facet-gluing, not a multiwedge/substitution, not Taylor-minimal, so those synonymous criteria do not mechanically decide its explicit Q-witness.",
+      "search": "Literal query `facet connected sum stacked octahedron 9-vertex sphere Golod Tor-algebra moment-angle nonzero product' plus equivalent query `Stanley-Reisner non-Golod induced 4-cycle chordless C4 cup product Hochster Baskakov missing edges' in one scope_literature_search call (SerpBase Top10, OpenAlex Top15, Crossref Top15 per query, fused)."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table entry for G9 facets, missing-edge product, or trivialization/certificate ledger. Resultary hits SCOPE003/SCOPE007/SCOPE027/SCOPE014 etc. concern different objects (Pogorelov 4-fold, K0 order-3 boundary, 73 angle-defect census combinatorial types only, cup-trivial 2-complex); 73-sphere census enumerates defects, not Tor/Massey/Golod ledgers. No specialist database (plantri census, moment-angle tables, SR-ideal tables) lists this witness.",
+      "reasoning": "Exact-parameter/table coverage fails: the precise 9-vertex 14-facet complex and its Tor witness do not already appear in any official table or database. Prior censuses do not imply the Tor product without material extension.",
+      "search": "Database/census query direction plus screening of topic internal_prior_scan resultary_hits and scope_failed_hits; searched for 9-vertex sphere Tor/Golod tables and 73-type census implications."
+    }
+  },
+  "residual_risks": [
+    "enumerate_check.py indentation bug (tests 3 gluings, not 18 as claimed); universal truth independently confirmed for all 18 but archived artifact overstates its own coverage \u2014 future reproducer must fix loop indent and re-run",
+    "Q-to-arbitrary-field transfer rests on torsion-freeness of S^2 full-subcomplex homology plus integral 0=1 obstruction (spot-checked over GF(2,3,5,7,101)), not a separate machine run per field",
+    "Stacked-6 uniqueness/facet-orbit presentation (sizes 2,2,4;Aut order 12) taken from DRAFT/enumerate construction, not independently re-proved; immaterial to named-G9 headline",
+    "IK broader theorem implies abstract non-Golodness in principle; exact-witness novelty/value judgment depends on narrow-datum clause \u2014 a strict corollary-only reading could still discount the specific certificate",
+    "Tor dim 227 / 24-product / Poincare scans are corroborating computation, not needed for disproof; sign conventions in Baskakov shuffle verified only via Leibniz sweep and headline product"
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "6878fa774ad432bd6f52d2b1d72c32ab4c8da0173f9d85378ba5b90cb4642585",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] TWO-DIMENSIONAL GOLOD COMPLEXES 1. Introduction",
+        "url": "https://intlpress.com/api/bgcloud-front/resource/pdf/volume/1805805721197363201-1805805721197363201-7fd741312fd55d7debbe94b23999689f.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Broader 2-dimensional Golod classification (Iriye-Kishimoto follow-up to 1506.08970): Theorem 1.7 states a 2-dimensional complex is Golod iff its 1-skeleton is chordal and every full subcomplex with vertex-breakable H2 is 1-neighborly; Theorem 1.3 recalls surface-triangulation Golod iff 1-neighborly. Hypotheses are generic over all 2-complexes/surface triangulations; conclusion is an abstract Golod/non-Golod criterion. Applied to G9 it implies abstract non-Golodness (G9 has missing edges {06},{17} and induced C4 K_0167, hence non-chordal/non-neighborly), but it does not name the 9-vertex facet list 014...678, the pair [{06}]x[{17}], the cycle K_0167, the 0=1 non-exactness system, the 24-product table, Tor+ dim 227/205, or the 18-gluing enumeration.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Golodness and polyhedral products for two dimensional simplicial complexes",
+        "url": "https://arxiv.org/abs/1506.08970v2",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Base-analysis nearest prior already fetched in full: Golodness of 2-dimensional complexes/surface triangulations via polyhedral products; surface triangulation Golod iff 1-neighborly iff trivial fat-wedge filtration; rationally-Golod vs Z/p distinction. Same hypothesis/conclusion scope as rank 1 predecessor. Does not state, compute, or table the named G9 facets, missing-edge product identity [{06}] cup [{17}]=[{0167}], or any stacked-plus-octahedron gluing census.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Tight Complexes Are Golod",
+        "url": "https://academic.oup.com/imrn/article-abstract/2024/8/6471/7280098",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Tight-complexes-are-Golod theorem: a triangulation of a closed connected orientable manifold is Golod iff it is tight. Hypothesis is tightness of a manifold triangulation; conclusion is Golodness. G9 is a 2-sphere triangulation whose tightness is not established in the source and whose exact Tor witness (named facets, C4, 0=1 obstruction) is never mentioned. At most implies abstract non-Golodness conditional on a further tightness check, not the submitted exact Q-certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] the homotopy types of moment-angle complexes for flag complexes",
+        "url": "https://eprints.soton.ac.uk/396695/1/gptw_revised1.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Grbic-Panov-Theriault-Wu flag-complex theory: for flag K, Golodness is the criterion for Z_K a wedge of spheres (via Berglund-Jollenbeck cup-product reformulation), and minimally-non-Golod flag rings correspond to connected sums of two-sphere products. Hypothesis explicitly requires flag; G9 is non-flag (missing edges {06},{17} plus 14 facets including cross-block triangles), so the theorem does not apply to G9. Provides only contrast/background, no G9 facet, product, or enumeration coverage.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] arXiv:2408.04843v1 [math.AT] 9 Aug 2024",
+        "url": "https://arxiv.org/pdf/2408.04843",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Kovyrshina-Panov 2408.04843: for 3-dimensional simplicial spheres, H*(Z_K) is a connected-sum-of-sphere-products ring iff (a) boundary of 4-cross-polytope, (b) 1-skeleton chordal, or (c) exactly two missing edges forming a chordless 4-cycle. Hypothesis dimension is 3-spheres, so it does not literally cover the 2-sphere G9 (9 vertices, 14 facets, many more than two missing edges). Shares chordal/C4 vocabulary but states no G9-specific facet, witness pair, or Tor ledger.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check (check_id 6878fa774ad432bd6f52d2b1d72c32ab4c8da0173f9d85378ba5b90cb4642585, 20 results, 6 overlapping base candidates) added no decisive prior. Scanned all 20 titles/snippets for the literal headline identifiers (G9 facet string 014...678, stacked-plus-octahedron, [{06}]x[{17}], K_0167, e_01/0=1 obstruction, 24-product/Tor-227/18-gluing census): zero hits; no returned source names, tables, or computes G9. The substantively relevant recalls (ranks 1, 2, 8, 18, 20) are broader Golod/classification theorems already considered in the base audit (IK 1-neighborly/chordal criteria, tight-manifold criterion, flag wedge theory, 3-sphere chordal/C4 criterion). They imply abstract non-Golodness of a non-neighborly/non-chordal sphere in principle but do not state the exact submitted certificate and therefore do not cover the claim under the narrow-datum/exact-witness standard documented in decisive_checks. Incremental recall was real but non-decisive: ranks 1 and 8 (overlap false) are new URLs/versions (IntlPress Two-Dimensional Golod Complexes PDF with Thm 1.7 vertex-breakability/chordal statement; Tight Complexes Are Golod abstract page) that duplicate the same IK/tightness research line already fetched and adjudicated at base, adding no new hypothesis that names G9. Remaining 15 results are keyword-similar background only (Japanese meeting slides restating IK Thms 5.6/5.8, Fields slides, LS-category/discrete-Morse/survey slides, Heawood, TAMS journal page, Preface) with no literal claim comparison possible. Hence decisive_prior_found=false, incremental_prior_found=false (no decisive source with overlap false), verdict_changed=false; provisional PASS on all three axes and the public package are preserved."
+  }
+}
