@@ -1,0 +1,76 @@
+{
+ "verdict": "PASS",
+ "axes": {
+  "correctness": {
+   "rationale": "Independently recomputed every essential inference. (1) Square+center is a CC for every mu>0: direct force assembly gives U1=(2.7677,2.7677) at mu=1 and (4.1820,4.1820) at mu=2 with U5=0, matching c(mu)=2*(-(1+sqrt2/4)-sqrt2*mu) to 1e-15; CC residual |U+cMq|~1e-15. (2) T-blocks T12,T14,T13,T24,T15,T25 match direct (|d|^2I-3dd')/|d|^5 to 1e-15. (3) Draft elimination formula (5) verified against direct COM elimination (v5=-(s1+..+s4)/mu): max entry error 8.9e-15 and constrained quadratic-form agreement 3.4e-13 over 200 random vectors at mu=1,2. (4) Even/odd contractions match closed forms (6)-(7) to 1e-8/1e-6; cross even-odd couplings ~1e-15; all six basis vectors exactly I- and rotation-transverse; dimensions 2+4=6 complete the transverse space (8 COM-eliminated minus I minus rotation). (5) Z-factorization verified symbolically (sympy: Z-Zfact=0). (6) Full-space constrained Hessian (tangent null of COM+dI, rotation quotiented) has quotient eigenvalues all positive at mu=1 (1.1167x2,6,10.6066,20.4396x2), mu=1.5 and mu=2 (0.2465x2,6,19.0919,38.2197x2): index 0, nondegenerate, consistent with draft odd/even values up to the expected overall scale from different I-normalisation. (7) stdlib replay certify_isolation.py exits PASS: Eaa-Eab=24, Eaa+Eab>=66.426, p>=55.25, L(1/2)>=6.281 with slope>=78.74 via rigorous 1.4142<sqrt2<1.4143. Sign convention checked: rotation vector satisfies H R - c M R ~1e-16 (null of H-cM), so S=Hbar-cM is the correct constrained operator and PD claims are sign-consistent. Isolation inference is sound: uniform transverse PD on compact [1,2] implies no transverse zero eigenvalue, so by the IFT the square+center branch continues uniquely mod rotation with no symmetry-breaking bifurcation point in (1,2). Limitations are stated honestly (local to this family; only [1,2]; local Morse contribution; position-form reduction). Result is proof (exact Fraction+enclosure certificate), not mere numerics.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "verdict": "PASS",
+   "rationale": "Fused scope_literature_search with three normalized forms (literal square-with-center Morse-index mu=1 vs 2 isolation; synonymous 1+4-gon/centered-square/square-RE/relative-equilibrium/central-mass formulations; broader census/Morse-index/Albouy-Chenciner/4+1 table direction): 9/9 provider-query pairs ok (no partial), 20 fused results screened, decisive primaries fetched in full (Hu-Long-Ou arXiv 1903.10270; Meyer-Schmidt DSS-19 PDF with 451-line extraction; Oliveira 1207.1305 PDF; Scholarpedia/Moeckel survey). Nearest prior is Meyer-Schmidt DSS-19 Sec.5: same square family (four unit masses + centroid mass m), determinant nonzero except m*=(13+11*sqrt2)/12 approx 2.3797 with nullity 2 and sign change, plus local kite (m>m*) and trapezoid (m<m*) branches. Draft threshold mu*=1/nu*, nu*=(84-36*sqrt2)/(25+38*sqrt2), equals (13+11*sqrt2)/12 identically (verified to 1e-15): degeneracy locus coincides, so DSS-19 implies mere nondegeneracy on [1,2] as a corollary. But DSS-19 states no Hessian eigenvalue signs or Morse indices on [1,2] (nullity/sign-change only, in distance/multiplier coordinates), so endpoint index 0 at mu=1,2 with uniform PD (closed-form even/odd blocks, commuting-block Schur identity, factored Z=2(4nu+1)L(nu)/nu with L affine increasing, L(1/2)>=6.281) is not stated, computed, or mechanically implied by it. Broader (1+n)-gon spectral-stability results (Hu-Long-Ou, Roberts/Moeckel n>=7 large-m stability), infinitesimal-mass 1+4 counts (Oliveira), generic-finiteness theorems (Albouy-Kaloshin, Moeckel Dziobek), and count-only censuses (Lee-Santoprete, Shoaib, Deng-Hampton, Hampton stacked) are disjoint in regime, stratum, or quantity (spectral/monodromy or counts vs CC Hessian inertia) and supply no endpoint-index certificate. No table/database records the exact index-0/PD datum. Hence originality PASSES: not covered, implied, or repackaged even without verbatim-match requirement."
+  },
+  "value": {
+   "rationale": "TARGET second horn of an admitted disjunctive target on a recognized Smale-adjacent frontier (planar 5-body finiteness geography after Albouy-Kaloshin/Moeckel/Hampton-Moeckel). Object and interval are canonical, not arbitrary: the 4+1 section (four unit masses plus variable center mass) with its square-symmetric locus, at natural endpoints mu=1 (equal mass) and mu=2 (first integer doubling). Invariant is exact and was not known or mechanically implied: transverse Morse index 0 at both endpoints with uniform positive-definiteness over [1,2] (hence constant local degree +1 and IFT isolation from this family). Although DSS-19 implies mere nondegeneracy on [1,2], it supplies no index signs; the index certificate is the independently retrievable datum a future finiteness/bifurcation worker could need (e.g. endpoint anchor for degree counts, reusable even/odd reduction template, certified threshold mu*=(13+11*sqrt2)/12 re-derived). Honestly limited (local to this family, [1,2] only, local degree, position-form reduction) rather than oversold as a global census. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  {
+   "title": "Bifurcations of relative equilibria in the 4- and 5-body problem (Meyer-Schmidt, DSS-19)",
+   "url": "https://homepages.uc.edu/~schmiddr/My_Papers/DSS-19.pdf",
+   "finding": "Square family (four masses 1 + centroid mass m): det(dW/dz) nonzero except m*=(13+11*sqrt2)/12 approx 2.3797; nullity 2 with two eigenvalues changing sign at m*; local kite (m>m*) and isosceles-trapezoid (m<m*) branches; no Hessian eigenvalue signs/Morse indices on [1,2]; no uniform-PD certificate."
+  },
+  {
+   "title": "Linear stability of the elliptic relative equilibrium with (1+n)-gon CCs (Hu-Long-Ou, arXiv 1903.10270)",
+   "url": "https://arxiv.org/html/1903.10270v1",
+   "finding": "Maslov/Morse-index analysis of ERE monodromy (dynamical stability): stable for n>=8 at large m; hyperbolicity intervals for n=3,4,5 at small m. Spectral/monodromy quantity, not the constrained CC Hessian Morse index at mu=1,2."
+  },
+  {
+   "title": "Symmetry, bifurcation and stacking of the CCs of the planar 1+4 body problem (Oliveira)",
+   "url": "https://arxiv.org/pdf/1207.1305",
+   "finding": "Infinitesimal-mass coorbital (1+4) angle formulation; 1-3 symmetric counts; bifurcation ratio 3*sqrt2/7. Disjoint (epsilon->0) regime from finite-mass 4+1 section mu in [1,2]."
+  },
+  {
+   "title": "Central configurations - Scholarpedia (Moeckel)",
+   "url": "http://www.scholarpedia.org/article/Central_configurations",
+   "finding": "Confirms centered regular polygon is a CC for any center mass; generic 5-body finiteness; Morse-theory lower bounds; regular N-gon instability and large-m (1+N)-gon stability for N>=7. No certified reduced-Hessian index for square+center at equal masses and no mu=1 vs 2 table."
+  },
+  {
+   "title": "Finiteness of central configurations of five bodies in the plane (Albouy-Kaloshin)",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v176-n1-p10-p.pdf",
+   "finding": "Generic planar 5-body finiteness; exceptional varieties do not decide endpoint degrees/indices on the 4+1 Z2 section at mu=1 vs 2."
+  }
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Albouy-Kaloshin Annals 2012 proves generic planar 5-body finiteness with exceptional varieties but computes no endpoint Hessian indices on the 4+1 Z2 section. Moeckel generic Dziobek finiteness likewise gives no section degree. Hu-Long-Ou (arXiv 1903.10270, fetched in full) studies linear/spectral stability of (1+n)-gon elliptic relative equilibria via Maslov/Morse index of the ERE monodromy operator: for n>=8 stability at large m, and hyperbolicity intervals for n=3,4,5 at small m. This is dynamical (monodromy) stability, not the Morse index of the constrained CC Hessian at finite masses mu=1,2; it gives no transverse-Hessian eigenvalue signs at those points. Roberts/Moeckel (1+n)-gon RE linear-stability thresholds (stable iff m>h_n, only for n>=7) are likewise spectral, not CC Morse-index certificates. Oliveira 1+4 (arXiv 1207.1305, PDF fetched) is the infinitesimal-mass (coorbital, epsilon->0) angle formulation with 1-3 counts and bifurcation ratio 3*sqrt2/7: disjoint mass regime from the finite-mass section mu in [1,2]. None of these broader theorems, censuses, or stability criteria computes or mechanically implies index 0 at mu=1 and mu=2 on this section.",
+   "reason": "Target is not a special case or corollary of a broader theorem, census, or stability criterion.",
+   "searched": "Fused search query 3 (census/Morse-index/Albouy-Chenciner/4+1 table) plus full fetch of Hu-Long-Ou reduction and Oliveira PDF; admission sources (Albouy-Kaloshin, Lee-Santoprete counts, Shoaib trapezoidal strata, Deng-Hampton cyclic stratum) re-screened for section-index content.",
+   "verdict": "PASS"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Meyer-Schmidt DSS-19 computes det(dW/dz)(a,m) in mutual-distance+multiplier coordinates, nonzero for all positive m except m*=(13+11*sqrt2)/12 approx 2.3797, with nullity 2 and two eigenvalues changing sign at m*, and constructs local kite (m>m*) and trapezoid (m<m*) branches via Liapunov-Schmidt. The draft's transverse-zero formula gives nu*=(84-36*sqrt2)/(25+38*sqrt2), i.e. mu*=1/nu*=(13+11*sqrt2)/12 identically (verified numerically to 1e-15), so the degeneracy locus coincides. DSS-19 therefore implies nondegeneracy at every m != m*, hence on [1,2], as a corollary. It does NOT compute Hessian eigenvalue signs or Morse indices on [1,2]: it states only nullity 2 and sign change at m*, without resolving which side is definite, and its determinant is in different (distance/multiplier) coordinates, not a transverse-Hessian inertia certificate. The submitted headline's new content is exactly that missing inertia: closed-form even/odd blocks, commuting-block Schur identity, factored Z=2(4nu+1)L(nu)/nu with L affine increasing and L(1/2)>0, yielding uniform PD and index 0 at both endpoints and degree contribution +1. Nondegeneracy alone does not supply the index; the index plus uniform PD does not follow by lookup from DSS-19. Local kite/trapezoid existence near m* does not contradict the headline, which forbids only branching points in (1,2), consistent with DSS-19's unique degeneracy at ~2.38 outside [1,2].",
+   "reason": "Nearest prior (Meyer-Schmidt square-family bifurcation) shares the degeneracy locus but does not state or imply the endpoint Morse indices / uniform-PD certificate; headline is not a recomputation, corollary, or repackaging.",
+   "searched": "Direct PDF fetch of Meyer-Schmidt 'Bifurcations of relative equilibria in the 4- and 5-body problem' (DSS-19), full-text extraction (451 lines), Section 5 and determinant formula (5.6) read; threshold compared algebraically/numerically to draft (9).",
+   "verdict": "PASS"
+  },
+  "equivalent_formulations": {
+   "evidence": "No source states transverse-Hessian index 0 at mu=1 and mu=2 on the 4+1 square-symmetric section. Fused query 1 (literal: square-with-center Morse index mu=1 vs 2 isolation) returned only generic-finiteness, Morse-theory, and unrelated PDE hits. Query 2 (synonyms: 1+4-gon / centered square / square RE / relative equilibrium / central-mass bifurcation) surfaced the dual vocabulary: 'square family of RE' (Meyer-Schmidt), '(1+n)-gon' (Hu-Long-Ou, Roberts, Moeckel), 'centered N-gon' (Scholarpedia/Moeckel survey). Each was fetched or snippet-screened and compares differently: dynamical linear stability (spectral) vs CC Hessian Morse index; infinitesimal-mass coorbital vs finite-mass section. Scholarpedia confirms centered polygons are CCs for any center mass but gives no Hessian-index table. No dual/complement/incidence/matrix/algebraic encoding was found that restates the endpoint-index certificate.",
+   "reason": "Synonymous names, dual RE/CC vocabulary, and 1+4-gon/centered-square encodings do not cover the endpoint-index claim.",
+   "searched": "Fused scope_literature_search with three normalized forms (literal headline; 1+4-gon/centered-square/relative-equilibrium synonyms plus critical-mass/bifurcation terms; census/Morse-index/Albouy-Chenciner table direction); 9/9 provider-query pairs ok, 20 fused results screened; decisive primaries fetched (Hu-Long-Ou arXiv full text, Scholarpedia, Oliveira PDF).",
+   "verdict": "PASS"
+  },
+  "exact_database_or_table": {
+   "evidence": "Lee-Santoprete equal-mass 5-body classification publishes counts of isolated CCs, not Hessian determinant-plus-Morse-index on the Z2-symmetric reduced section and no cross-mu degree comparison. Shoaib et al. trapezoidal/triangular strata, Deng-Hampton equilateral-pentagon strata, Hampton stacked families are disjoint strata with count-only results. No official database, table, thesis, or author page found in fused results records a reduced-Hessian index for the square+center point at equal masses on this section, let alone at mu=1 and mu=2 with uniform [1,2] PD. The replay script certify_isolation.py is the only source of the exact integers (even eigenvalues 24 and Eaa+Eab; odd p+/-sqrt(b^2+q^2) values 3.24x2/140.72x2 at mu=1, 0.594x2/126.89x2 at mu=2 in draft normalisation).",
+   "reason": "Exact parameter/object (square+center, mu=1,2, index 0, uniform PD) appears in no table or database.",
+   "searched": "Query 3 plus Scholarpedia, Lee-Santoprete, Shoaib, Deng-Hampton, Hampton-Moeckel census directions from admission triage re-checked; fused-result metadata/snippets screened for index/determinant tables.",
+   "verdict": "PASS"
+  }
+ },
+ "residual_risks": [
+  "DSS-19 (Meyer-Schmidt) already implies the nondegeneracy-on-[1,2] corollary via its determinant formula; the audit's originality PASS rests on the endpoint Morse-index/uniform-PD content being absent from that prior, which full-text comparison supports but cannot exclude an obscure thesis table recording the same index.",
+  "The 'no asymmetric branch' conclusion is local to bifurcations from the square+center family; disjoint asymmetric families elsewhere on the section are explicitly not excluded (stated as a limitation).",
+  "Mutual-distance Albouy-Chenciner ideal was not separately eliminated; equivalence is at the nondegenerate-point fixed-point-section level, as disclosed."
+ ],
+ "route": "TARGET (admitted target is explicitly disjunctive: degree-jump-forces-branch OR constant-degree-plus-nondegeneracy-proves-isolation; report claims the second horn with no route substitution)."
+}
