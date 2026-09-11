@@ -1,0 +1,74 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: admitted target is exact equality C1(Q)={inf,(0,+-1),(1,+-1),(-1,+-1)} for C1: y^2=x^5-2x^3+x+1. Draft disproves it by exhibiting points outside the set. Independently rechecked: f(7)=16807-686+7+1=16129=127^2 so (7,+-127) on curve; for x=17/16, N=17^5-2*17^3*16^2+17*16^4+16^5=1067089=1033^2 and 16^5=1048576=1024^2 so f(17/16)=(1033/1024)^2, giving (17/16,+-1033/1024) on curve. Separability: Bareiss 9x9 Sylvester determinant Res(f,f')=2869=19*151 !=0, so affine model smooth; odd-degree quintic gives smooth genus-2 projective model with one infinity point. Distinctness: 7 and 17/16 not in {0,1,-1}, y!=0 so +- pairs distinct and affine, distinct from infinity. inputs/artifacts/verify.py re-executed -> VERIFY_OK (stdlib only). Proof, not experimental evidence. Limitations honestly scoped to disproof only.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: headline witnesses are already recorded in the official database for the identical object. LMFDB 91808.b.734464.1 has simplified equation y^2=x^5-2x^3+x+1 and lists Known points (1:0:0),(0:+-1:1),(-1:+-1:1),(1:+-1:1),(7:+-127:1),(17:+-4132:16), i.e. the 7 claimed points plus exactly the four witnesses (17/16,+-1033/1024 since 4132/16^3=1033/1024). A prior source need not state the headline verbatim: this table substantively implies the 7-point equality is false and exhaustively covers the claimed extra points. Fused tri-provider search found only method templates and disjoint curves, but direct official-database check is decisive. Independent rediscovery by substitution does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: no independently retrievable new fact beyond the official database. C1 is natural and motivated, but the exact witnesses and the rank-2 invariant (Z+Z, analytic rank 2) are already retrievable at LMFDB 91808.b.734464.1 as Known points / MW group data. The submission is recomputation/certificate of database-known points by elementary substitution, not the admitted payoff (new Coleman bound at p=5 + sieve elimination at 29/43 closing a new census). Certification alone does not rescue database repackaging. A future researcher needing these points or the falsity of the 7-point census would find them directly in LMFDB; the refutation is not a citable downstream advance.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Re-executed -> VERIFY_OK; discriminant Res=2869 rechecked by Bareiss; identities hold.",
+      "title": "inputs/artifacts/verify.py + auditor recomputation"
+    },
+    {
+      "finding": "Identical simplified equation y^2=x^5-2x^3+x+1; Known points include (7:+-127:1) and (17:+-4132:16)= (17/16,+-1033/1024) plus the 7 claimed points (11 total); MW group Z+Z, analytic rank 2, 2-Selmer rank 2. Substantively implies headline and covers witnesses.",
+      "title": "LMFDB Genus 2 curve 91808.b.734464.1",
+      "url": "https://www.lmfdb.org/Genus2Curve/Q/91808/b/734464/1"
+    },
+    {
+      "finding": "General rank-1 genus-2 Chabauty+sieve template; does not treat C1 and does not state C1(Q).",
+      "title": "Stoll - Determining the Rational Points on a Curve of Genus 2 and Mordell-Weil Rank 1",
+      "url": "https://epubs.siam.org/doi/full/10.1137/25M1804650"
+    },
+    {
+      "finding": "General Mordell-Weil sieve machinery; no C1 closure or witnesses.",
+      "title": "Bruin-Stoll - The Mordell-Weil Sieve",
+      "url": "https://arxiv.org/pdf/0906.1934"
+    },
+    {
+      "finding": "Rank-2 bielliptic quadratic-Chabauty scope; disjoint from this quintic; no implication for C1 witnesses except as method background.",
+      "title": "Bianchi-Padurariu - Rational points on rank 2 genus 2 bielliptic curves in the LMFDB",
+      "url": "https://arxiv.org/html/2212.11635v1"
+    },
+    {
+      "finding": "Three normalized forms (literal polynomial+witnesses; synonymous hyperelliptic/Jacobian/Chabauty; dominance LMFDB/census/sieve); all providers ok, no partial failure; only method templates and disjoint curves returned.",
+      "title": "scope_literature_search tri-form query"
+    }
+  ],
+  "claim_route_seen": "TARGET (research_report.claim_route=TARGET): audited normally against admitted 7-point equality; no preset-value presumption.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Checked Faltings finiteness, Stoll uniform bounds, Stoll rank-1 method, Bruin-Stoll sieve, quadratic-Chabauty rank-2 programs, Hast 7692-curve dataset, Booker-Sijsling-Sutherland-Voight-Yasaki census, Elkies torsion table. General theorems give only finiteness/bounds/templates, no explicit C1 witnesses. LMFDB census entry does cover the object and reports rank 2, contradicting the admitted rank-1 hypothesis.",
+      "search": "Dominance query: LMFDB genus-2 census / rank-1 Chabauty / Mordell-Weil sieve plus broader-theorem leads; inspected LMFDB BSD invariants.",
+      "why_not_cover": "No broader theorem publishes the refutation, but the LMFDB database entry itself covers the object as a special case and already records the witnesses and rank, so broader/database coverage FAILS originality (i.e. establishes coverage)."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "LMFDB Known-points table lists exactly f(7)=127^2 and N(17,16)/16^5=(1033/1024)^2 witnesses without proof narrative; draft supplies independent substitution proof + replay but no stronger C1(Q) determination exists. The headline is a recomputation/certificate of database-known arithmetic facts, not a corollary of a published stronger C1(Q) theorem.",
+      "search": "Compared headline (7-point census false via two witnesses) against all fused leads for corollary/certificate/repackaging; checked for any published complete C1(Q) determination (none).",
+      "why_not_cover": "It IS covered as recomputation/repackaging: prior database already implies the falsity; supplying a new certificate for known points does not create originality. Full C1(Q) remains undetermined in both prior and submission."
+    },
+    "equivalent_formulations": {
+      "evidence": "No paper under synonymous names (Y^2=F(X), hyperelliptic quintic, odd-degree one-infinity, Jacobian rank, Coleman mod 5, sieve 29/43) treats this C1. Fused hits are genus-3 experiments, Flynn-Poonen-Schaefer period-5 curve, Atkin-Lehner quotients, Magma handbook - all different objects by literal hypothesis comparison.",
+      "search": "Literal 'y^2=x^5-2x^3+x+1 rational points (7,127) (17/16,1033/1024)'; synonymous 'hyperelliptic quintic Y^2=X^5-2X^3+X+1 genus 2 Jacobian rank rational points Chabauty' via SerpBase Top10/OpenAlex Top15/Crossref Top15 fused.",
+      "why_not_cover": "No synonymous-notation/dual/complement/encoding source states or implies C1 witnesses; title/embedding similarity rejected. This check alone does not rescue originality because exact-database check covers the claim."
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB 91808.b.734464.1, simplified equation y^2=x^5-2x^3+x+1, lists Known points (1:0:0),(0:+-1:1),(-1:+-1:1),(1:+-1:1),(7:+-127:1),(17:+-4132:16) - exactly the 7 claimed points plus the four submitted witnesses (4132/4096=1033/1024). Admission's claim of 'no isomorphic census entry' is factually incorrect.",
+      "search": "Exact-polynomial/identifier search plus direct LMFDB jump for y^2=x^5-2x^3+x+1; checked LMFDB, Booker et al. database, Elkies table.",
+      "why_not_cover": "It DOES cover: the exact parameters/objects appear in the official table, which substantively implies the headline (7-point census false). Per contract this is an adversarial coverage hit, so originality FAILS. Database listing is not mere corroboration here; it is prior recording of the claimed points."
+    }
+  },
+  "residual_risks": [
+    "Full C1(Q) undetermined in both LMFDB (Known points only) and submission; no overclaim provided submission limitations retained.",
+    "Admission originality triage incorrectly reported no isomorphic census entry; future triage should query LMFDB by exact polynomial."
+  ],
+  "verdict": "REJECT"
+}
