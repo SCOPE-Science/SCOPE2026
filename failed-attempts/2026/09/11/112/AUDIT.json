@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed inputs/artifacts/verify.py -> VERIFY_OK: all 15 pairs commute, group has 64 symplectic vectors, A=[1,0,0,0,4,12,24,20,3], normalizer size 1024 with B=[1,0,0,28,86,216,320,268,105], all nine Krawtchouk-MacWilliams identities hold, distance min{A!=B}=3, wmin=4 with four weight-4 stabilizers on distinct supports, all 6561 axis frames have m>=1. Reviewed Sections 2-3: support-preservation (I stays I, non-I stays non-I), 2^m distinct branches, projector orthogonality argument is sound; both C_iT/T C_i orderings range over same 3^8 unsigned frames. Minor overstatement ('all branches outside' should be 'at least one') does not break inequality since coefficient 2^{-6-m/2}<2^{-6} or zero vs 2^{-6}; histogram 648 m=1 claim is not replayed but inessential to the no-go.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Normalized headline into (a) literal [[8,2,3]] C8 transversal-T no-go with stated enumerators, (b) equivalent triorthogonal/CSS-T/divisibility/hierarchy encodings, (c) dominance census/classification/database coverage; ran one scope_literature_search call with all three directions (20 fused results, full provider coverage, no partial failure). Screened snippets and fetched ECZoo transversal list, Bravyi-Haah 1209.2426, Anderson-Jochym-OConnor 1409.8320, Jain-Albert 2408.12752 in full. No source states, implies, or tabulates transversal-T status for this explicit tableau; general classifications frame but do not evaluate its weights/frames; censuses/tables have no covering row. See decisive_checks for adversarial checklist.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: topic.audit_preflight target_integrity required the LC-permutation Cross-Vandeth census representative, but DRAFT Sec.5 openly discloses LC-permutation equivalence of the submitted random-search C8 tableau to that representative is unproven. Hence the proved object lacks the admitted pre-motivated natural identity, canonical census ID, and literature position; a future researcher cannot retrieve it as the named benchmark. The quantitative witness is per-branch Hilbert-Schmidt leakage 2^{-m}, not the admitted magic monotone (extent/robustness). Under STANDARD, certification/replay alone does not rescue an arbitrary object or unexplained tableau; a narrow exact invariant is valuable only when object+invariant were motivated before computation. Value therefore FAILS pending bounded identity repair.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Local replay: python3 output/artifacts/verify.py -> commutation OK, group order 64 OK, A=[1,0,0,0,4,12,24,20,3], B=[1,0,0,28,86,216,320,268,105], MacWilliams OK, distance 3 OK, 4 unique-support weight-4 stabilizers on supports (0,1,5,6),(0,2,3,4),(1,2,4,7),(1,3,6,7), 6561/6561 frames eliminated, VERIFY_OK",
+    "Error Correction Zoo /list/quantum_transversal (fetched full): lists [[8,1,2]] lego T, [[15,1,3]] RM T, [[8,3,2]] CCZ, [[12,2,2]] CS, SS-LP ((7,2,3))/((8,2,3)) BD groups, etc.; no [[8,2,3]] stabilizer transversal-T decision row for the submitted tableau",
+    "Bravyi-Haah arXiv:1209.2426 (fetched): introduces triorthogonal matrices as sufficient for transversal T on all logical qubits with distillation overhead; does not exhibit the submitted [[8,2,3]] tableau or evaluate its enumerator/frames",
+    "Anderson & Jochym-OConnor arXiv:1409.8320 (fetched): classifies diagonal transversal gates as diag(1,exp(i pi c/2^k)) in Clifford hierarchy via Zeng et al. form; abstract instance-level constraints only, no evaluation of the named eight-qubit tableau or logical action",
+    "Jain-Albert arXiv:2408.12752 (fetched): constructs smallest known doubly-even/triorthogonal codes for transversal Clifford/T up to distance 31; single-logical-qubit focus, no [[8,2,3]] two-logical-qubit representative T decision with witness"
+  ],
+  "claim_route": "TARGET (declared; audited against admitted target; ADMISSION_DEFECT flagged under value)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Anderson-Jochym-OConnor proves all diagonal transversal gates have entries exp(i pi c/2^k) in the hierarchy; Kobayashi-Zhu-Hsin and Hu-Liang-Calderbank extend to CSS/diagonal families; Reed-Muller family realizes fine angles. None computes stabilizer weights, unique supports, or 6561-frame elimination for the submitted eight-qubit tableau.",
+      "reasoning": "A broader abstract classification frames the attack but does not mechanically decide this instance: the verdict requires computing this code's A/B spectra, wmin=4 unique supports, and per-frame mismatch m(s,Q), which no broader theorem performs. Hence no broader coverage implies or subsumes the headline.",
+      "search": "classification transversal gates qubit stabilizer codes diagonal hierarchy Anderson Jochym-OConnor Reed-Muller"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Bravyi-Haah Lemma 2 gives triorthogonality as sufficient for transversal T (with CZ/S corrections); Nezami-Haah classifies small triorthogonal codes; Pfister discusses CSS-T optimality. The submitted C8 is not exhibited as triorthogonal and no prior work computes its enumerator A=[1,0,0,0,4,12,24,20,3] or frame elimination.",
+      "reasoning": "Prior work states general sufficient/necessary criteria, but neither the positive construction nor its contrapositive was evaluated on this tableau. Applying the criterion still needs fresh weight and support computation, so the instance no-go is not a corollary, certificate, or recomputation of a known stronger fact.",
+      "search": "Bravyi Haah triorthogonal transversal T criterion Nezami Haah small triorthogonal classification CSS-T"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search for literal [[8,2,3]] transversal T, triorthogonal [[8,2,3]], CSS-T weight-divisibility, and Shor-Laflamme enumerator no-go returned neighboring-code rows ([[8,1,2]] T, [[15,1,3]] T, [[8,3,2]] CCZ), triorthogonal theory, and short-length T-code surveys, but no decision on the submitted generators XXIIZZIY/XYZXIIXZ/YXIIXIXXI/XYIZZZYZ/YYYIZIYY/ZYZIXZYZ.",
+      "reasoning": "No synonymous notation (triorthogonal, CSS-T, divisible, Doppelganger ((8,2,3)) SS-LP non-stabilizer code), dual/complement, or matrix-algebraic encoding was found already resolving this tableau. Title/embedding similarity to neighboring codes does not establish coverage; hypotheses and conclusions differ literally.",
+      "search": "[[8,2,3]] stabilizer code transversal T gate triorthogonal CSS-T Shor-Laflamme enumerator divisibility"
+    },
+    "exact_database_or_table": {
+      "evidence": "Cross-Vandeth n<=9 census tabulates equivalence classes without transversal-gate or monotone columns; ECZoo transversal list covers [[8,1,2]] T and [[8,3,2]] CCZ but has no [[8,2,3]] transversal-T row; SS-LP ((8,2,3)) BD64 entry is a different (non-stabilizer-search) code/gate, not this stabilizer tableau and ansatz.",
+      "reasoning": "Absence from exact censuses and specialist tables means the verdict requires new tableau computation rather than quotation. The exact parameters/object do not already appear with this gate decision in any table, so this is not database repackaging or lookup.",
+      "search": "Cross Vandeth n<=9 stabilizer census database ECZoo transversal gates table [[8,2,3]]"
+    }
+  },
+  "repair_instructions": "Without changing the problem: (1) establish the natural object's identity by proving LC-permutation equivalence of the submitted C8 tableau to the admitted Cross-Vandeth [[8,2,3]] census representative \u2014 cite the census ID/section, give the explicit qubit permutation plus 8 single-qubit Cliffords (or stabilizer-tableau isomorphism), and extend output/artifacts/verify.py to check the mapping sends generators to the census tableau up to stabilizer equivalence, re-printing VERIFY_OK; alternatively replace C8 with the canonical census tableau and re-run the identical enumerator plus 6561-frame proof; (2) correct Lemma wording from 'all 2^m branches lie outside S' to 'at least one (in fact >=2^m-1) lies outside S' with coefficient comparison, and either replay the {1:648,2:1953,3:2628,4:1332} histogram in the verifier or drop the 648-specific >=2^{-1} sentence; (3) rename HS leakage as codespace-leakage witness or compute one actual magic monotone (extent/robustness) as admitted.",
+  "residual_risks": [
+    "Lemma wording overstates 'all branches outside S': at most one branch could coincide as a Pauli string with s* (phase-sensitive); at least one outside branch still forces UPiUdag != Pi, so no-go survives after wording fix",
+    "m=1 histogram counts (648 frames >=2^{-1}) not emitted by verify.py; core 6561/6561 elimination is replayed but the distribution-specific leakage sentence is not independently replayed",
+    "Phases tracked only as magnitudes: projector comparison uses Hilbert-Schmidt orthogonality of Pauli strings; valid because -I absent (64 distinct symplectic vectors, only trivial combination gives zero vector), but verifier ignores phases explicitly",
+    "Ansatz covers only T^{pm1} on all 8 qubits with single-qubit Clifford corrections; subset-T, non-Clifford-corrected, or permuted-transversal gates are explicitly out of scope and not ruled out"
+  ],
+  "verdict": "REPAIRABLE"
+}
