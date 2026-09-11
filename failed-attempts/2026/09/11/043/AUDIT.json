@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline inequalities verified. Pfaffian format (n,r,alpha,beta,s)=(4,2,2,1,2): df1=f1 dx degree 1, df2=(y f2)dx+(x f2)dy max total degree 2, leaf equations degree 1 \u2014 correct. Vanishing Lemma 4 correct: domain (0,1)^2 excludes x=0, so any Q-point needs nonzero rational x, hence exp(x) transcendental by cited Hermite-Lindemann, so L_exp(Q)=empty and N=N_trans=0. Replay script re-run independently: VERIFY_OK. Counting inequality N_trans=0 <= C0*T^{1/8} holds for every C0>=0 and T>=1, so witness C0=1 satisfies it; effectivity pedigree C0=max(1,C_BJST(4,2,2,1,2,1/8)) is conditional on cited BJST theorem but honestly separated (DRAFT Sec.7, Remark: numeral not recomputed, existence by citation). No circularity: upper bound uses BJST, vanishing uses only LW. Dependence locus Prop 5 correct on x>0: real exp injective gives e^{x(a+by)}=1 iff x(a+by)=0 iff a+by=0; b=0 case gives no solution since a!=0, handled. Prop 6 correct: image in (1,e)^2 avoids (1,1), the only positive-real torsion point. Theorem B 0-points-off-W follows: positive-real root of unity must be 1, reducing translates to subgroups, then Prop 5 forces y in Q. Height/Dobrowolski explicitly non-load-bearing and positivity-only replay. Boundary conditions checked. Non-load-bearing auxiliary gap noted: Lemma 2 claims no containment in any proper REAL hypersurface but proof fixes one transcendental x0 and concludes R_jk=0 from R_jk(x0,e^{x0})=0, which suffices over Q (e^{x0} trans over Q(x0) + x0 trans over Q) but not over R with real coefficients (e.g. X-x0 vanishes at x0 without being zero). Fix needs uniform vanishing for all x in interval plus second Lemma-3 induction R(x,e^x)=0 => R=0. This does not affect headline because N=0 holds regardless and trans-part bound uses N<=0.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route (report claim_route=TARGET); audited normally with no value presumption. Three normalized forms submitted in ONE scope_literature_search call: (a) literal leaf+bound N<=C0 T^{1/8} L_exp={(x,y,exp(x),exp(xy))}; (b) equivalent/dual G_m Ax-Schanuel multiplicative-dependence atypical locus exponential-algebraic surface toric finiteness Pfaffian chain; (c) dominance broader effective Pila-Wilkie BJST Wilkie-conjecture Pila surface census. Fused 20 results; coverage partial (OpenAlex 400 pool error on query 0, OpenAlex zero hits on queries 1-2) after internal retries; continued with SerpBase+Crossref plus direct fetch of two decisive primaries in full (BJST DOI 10.4171/jems/1761 metadata; Pila AIF 2010 landing + refs). Title/embedding similarity not used as coverage. No source records this leaf, its (2,(2,1)) format threshold at eps=1/8, or its {x=0} U {y=q} locus plus 0-point transfer. See decisive_checks for adversarial checklist. Hence literally new as leaf-instance synthesis, even though components are classical (see value).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: textbook restatement + mere parameter substitution with vacuous threshold and arbitrary scope, even though correct and literally new. Load-bearing content is: (i) N=0 from Hermite-Lindemann (nonzero rational x => exp(x) transcendental, hence irrational) \u2014 undergraduate textbook corollary, mechanically implied for any similar leaf, strictly stronger than the claimed T^{1/8} bound; (ii) locus y=-a/b from real e^t=1 iff t=0 and x>0 \u2014 elementary algebra; (iii) torsion avoidance from positivity \u2014 elementary. The framed machinery is decorative: effective Pila-Wilkie invoked but never needed (any C0 works once N=0; numeral of C_BJST explicitly not computed by design); Ax-Schanuel cited only to certify completeness already proved elementarily; Dobrowolski explicitly confirmatory only. eps=1/8 is arbitrary (any eps>0 holds with same proof); leaf (exp(x),exp(xy)) has no pre-computation literature identity or recognized-question necessity beyond being constructed as a convenient vanishing example \u2014 (0,1)^2 and rational-line locus are intrinsic only after the arbitrary leaf choice. No complexity-explicit numeral, no non-vanishing counting, no height-comparison finiteness, no census, no downstream theorem uses the threshold; claimed reusable threshold lemma saves only differentiation (format logging) and does not transfer to adjacent non-vanishing leaves where work would actually be needed. This is exactly the excluded class: textbook implication + arbitrary single-leaf parameter instantiation + unexplained narrow datum whose value is already superseded by N=0. Narrow-datum allowance does not rescue it: object was not motivated before computation in the literature, value was mechanically implied by LW/real-exp facts, and no future researcher needs C0*T^{1/8} when N=0 is proved in the same draft. Intrinsic low value / arbitrary scope, not a presentation gap.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "General effective Pila-Wilkie with polynomial degree dependence + CM Manin-Mumford/Habegger applications; no L_exp leaf, no C0 at eps=1/8 for format (4,2,2,1,2), no toric atypical transfer for (e^x,e^{xy}). Confirms black-box existence but not leaf instance.",
+      "title": "An effective Pila-Wilkie theorem for sets definable using Pfaffian functions, with some diophantine applications",
+      "url": "https://doi.org/10.4171/jems/1761"
+    },
+    {
+      "finding": "Counts rational points on a different exponential-algebraic surface, proves Wilkie conjecture there (AIF 60 (2010) 489-514). Leaf (e^x,e^{xy}) and torus-atypical deduction absent; refs list confirms different surface + general PW context.",
+      "title": "Counting rational points on a certain exponential-algebraic surface",
+      "url": "https://aif.centre-mersenne.org/articles/10.5802/aif.2530/"
+    },
+    {
+      "finding": "General subpolynomial Pila-Wilkie theorem; instantiation on L_exp plus vanishing/locus synthesis not supplied.",
+      "title": "The rational points of a definable set (Pila-Wilkie)",
+      "url": "https://people.maths.ox.ac.uk/pila/PilaWilkie.pdf"
+    },
+    {
+      "finding": "Effective Pila-Wilkie bounds for unrestricted Pfaffian surfaces (Jones-Thomas); general surfaces only, no L_exp instance.",
+      "title": "Effective Pila\u2013Wilkie bounds for unrestricted Pfaffian surfaces",
+      "url": "https://www.semanticscholar.org/paper/10e27c1bfcba6c1fd306dcaab284f77bdd196cc8"
+    },
+    {
+      "finding": "Effective Wilkie conjecture for restricted sub-Pfaffian structures (Annals); general bound, no leaf threshold or atypical transfer.",
+      "title": "Wilkie's conjecture for Pfaffian structures",
+      "url": "https://annals.math.princeton.edu/2024/199-2/p05"
+    },
+    {
+      "finding": "General Ax-Schanuel differential framework for uniformizers; no L_exp weakly-special list {x=0} U {y=q}.",
+      "title": "A differential approach to Ax-Schanuel, I",
+      "url": "https://arxiv.org/html/2102.03384v5"
+    },
+    {
+      "finding": "Local replay re-run: chain degrees, 0<=C0 T^{1/8} witness C0=1, locus solve examples, torsion avoidance, Dobrowolski-shape positivity all pass; prints VERIFY_OK. Verifies computations, not theorems cited as black boxes.",
+      "title": "inputs/artifacts/verify_target.py (local replay)",
+      "url": "file:inputs/artifacts/verify_target.py"
+    }
+  ],
+  "claim_route_seen": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence_found": "Dominance query returned only general theorems: BJST JEMS 2026, Jones-Thomas Pfaffian surfaces, Binyamini-Novikov Wilkie conjecture, Pila-Wilkie Duke 2006. None states a leaf-level threshold, locus list, or 0-point transfer. General statements do not mechanically yield the logged format (differentiation still needed) nor the LW vanishing nor the real locus solve.",
+      "what_searched": "Query (c): stronger theorem / broader object class / larger parameter range / exhaustive census / established database that could cover L_exp as special case (effective Pila-Wilkie Pfaffian, Wilkie conjecture, Pila exponential surface census).",
+      "why_not_cover": "General effective PW implies some C exists for any Pfaffian set, but does not record this leaf, this format, eps=1/8 instantiation, sharp N=0, or atypical locus. Covering would require the broader result to substantively imply the headline transfer; it does not \u2014 vanishing and locus need LW + elementary real analysis outside the general theorem. No exhaustive census of exponential leaves found.",
+      "why_or_why_not_cover": "Does not cover; synthesis beyond general theorem is literally new."
+    },
+    "claim_vs_prior_implication": {
+      "evidence_found": "Hermite-Lindemann (Waldschmidt Chap.1, cited) implies N=0 for this leaf; real exp injectivity/positivity implies locus and torsion claims. These classical facts imply the sharp counts but no prior source applies them to THIS leaf to state the logged T^{1/8} bound with format (4,2,2,1,2) plus W-list plus 0-point finiteness. Pila 2010 proves Wilkie conjecture on a different surface; BJST proves general effectivity without leaf instance.",
+      "what_searched": "Whether headline is only recomputation / certificate / corollary / repackaging of a known stronger fact: tested LW alone, BJST alone, Pila 2010, Pila-Zannier surveys as implying sources via fused results + full fetches.",
+      "why_not_cover": "Prior results imply the METHODS but do not state the leaf-level SYNTHESIS. Under originality rules this counts as new (no verbatim or substantive prior record), even though the synthesis adds no new mathematics \u2014 the latter is a value defect, not an originality cover. Originality therefore PASSES while value FAILS.",
+      "why_or_why_not_cover": "Implied in method, not recorded as claim; no prior implication of the combined leaf+threshold+transfer statement."
+    },
+    "equivalent_formulations": {
+      "evidence_found": "No hits for L_exp, (exp(x),exp(xy)), order-2 degree-(2,1) chain, N<=C0 T^{1/8} at eps=1/8, or {x=0} U {y=q} weakly-special list. Query (b) returned only general Ax-Schanuel differential papers, positive-characteristic torus notes, Schanuel-conjecture background \u2014 all different hypotheses/conclusions. Literal-title search failure is not relied on alone (see broader/database checks).",
+      "what_searched": "Query (a) literal headline + Query (b) standard equivalents: G_m multiplicative dependence, atypical locus, graph exp(x)/exp(xy), exponential-algebraic surface torus finiteness, Pfaffian chain duals/complements/encodings; screened all 20 fused snippets/metadata.",
+      "why_not_cover": "No synonymous-notation, dual/complement, incidence/matrix/algebraic-encoding source states the same leaf bound or locus. Nearest exponential-surface work (Pila AIF 2010) is a different surface with Wilkie-conjecture conclusion, not this leaf or transfer.",
+      "why_or_why_not_cover": "Does not cover; no equivalent formulation found."
+    },
+    "exact_database_or_table": {
+      "evidence_found": "No table, atlas, LMFDB-style database, thesis table, or census lists N(L_exp^trans,T), C0 at this format, or atypical points for (e^x,e^{xy}). Fused results contain no database hit; direct reasoning: Pfaffian-leaf bounds are not databased per-leaf, and this leaf has no recognized identifier (unlike e.g. modular curves, DSASM(7), PG(2,4) censuses).",
+      "what_searched": "Official databases/repositories/tables that could already contain the exact parameter/object: searched via dominance query + general web metadata for leaf bound tables, Pfaffian atlases, toric Manin-Mumford tables, theses.",
+      "why_not_cover": "Exact object/parameter absent from any table; not database repackaging.",
+      "why_or_why_not_cover": "Does not cover."
+    }
+  },
+  "residual_risks": [
+    "Lemma 2 real-vs-Q scope gap (non-load-bearing; headline unaffected but proof as written overstates).",
+    "BJST applicability to restricted exp leaf on neighbourhood of [0,1]^2 assumed via citation; numeral never recomputed (honestly disclosed, but C0 explicitness is format-logging only).",
+    "LW, Ax-Schanuel, Dobrowolski used as black boxes without re-verification; finiteness load-bears only on LW + elementary real analysis.",
+    "Partial retrieval: OpenAlex 400 pool error on query 0 and zero OpenAlex hits on queries 1-2 after internal retries; mitigated with SerpBase+Crossref full coverage plus direct DOI/primary fetches; one unavailable provider never taken as priority evidence."
+  ],
+  "verdict": "REJECT"
+}
