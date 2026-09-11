@@ -1,0 +1,78 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Headline has two parts: (i) primitive-point log BPS m^P_{-K}=10 with eta=0, (ii) w_out=1<2 mixing/ill-posedness. Numerics replayed: K^2=9-7=2, w=(-K).E=2, p_a=(-K.0)/2+1=1, e(P2)+7=10, all exact; scripts verify_emergent.py -> EMERGENT_VERIFY_OK and check_dP2_numerics.py -> VERIFY_OK replayed locally. eta=0 proof is correct: any line l has l^2=-1, p_a=0, so by adjunction -2=-1+l.K, l.K=-1, (-K).l=1 !=0 for every line, so no line orthogonal to beta=-K. Hence eta=0 without enumerating 56 lines. Existence of beta-primitive P for general (X,E): w=2, Z/2xZ/2 has order-2 elements; matches Choi et al. Prop existence / Lemma 4.10-4.11. Since beta=-K is primitive as a class, for general pair every P in E(beta) is primitive (no k>1 splitting). Applicability citation is to Choi-van Garrel-Katz-Takahashi Thm 5.2(2)/Thm 1.11: del Pezzo S, beta line/conic/nef-big, p_a=1, beta != -K_S8 => m^P=e(S)-eta. S7=dP2 is del Pezzo, beta=-K ample hence nef-big with integral member, p_a=1, not S8, so hypothesis satisfied on statement level; e-eta=10. DRAFT honestly withholds total N=40 (needs unproven Conj 1 P-independence for this class) and withholds any scattering computation. w_out=1 arithmetic is correct (lines have E.l=1). Qualitative mixing gloss (global log f_out sums over all classes, local KS order-2 commutator c=|det| always resolvable) is directionally true and no false integer is asserted. Distinction: scripts prove only integer identities; enumerative content is by citation to peer-reviewed theorem, not by computation. No essential computation error found. Very-ample edge (beta=-K_S7 ample but not very ample, excluded from Lemma 4.5/Cor 4.19) is a residual proof-dependence risk but does not falsify the stated formula, which is the published theorem conclusion. Hence correctness PASSES as correct corollary + correct arithmetic.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route verified as genuinely target-derived (same pair (dP2,E), same class beta=-K, invariant side of audit step 4 + structural reason steps 1-3 blocked), not a convenient replacement; no preset-value presumption applied. Fused live search (3 normalized forms in one scope_literature_search call, no partial failure) + full-text comparison shows headline count is substantively implied by strictly stronger prior theorem. Choi et al. arXiv:1810.02377 Thm 5.2(2) (summarized as Thm 1.11): for any del Pezzo S, smooth anticanonical E, beta line/conic/nef-big with p_a=1 and beta != -K_S8, m^P=e(S)-eta at primitive P. S7 with beta=-K satisfies all hypotheses (ample=>nef-big, p_a=1, not S8), e=10, eta=0 by adjunction above, so m^P=10 follows by substitution. Prior need not state 'S7 -K 10' verbatim; it exhaustively covers it. DRAFT's novelty claim ('not tabulated, Thm 1 covers only line/conic/dh') confuses Thm 1.4 (P-independence/Conj 1.3, proved only for multiples of lines/conics/dh) with Thm 5.2/1.11 (primitive-point calculation, proved for all nef-big p_a<=1). The mixing part (w_out=1, x^2 mixes 2l/conics/-K) is standard wall-sum structure plus trivial line intersection, not a new lemma. See decisive_checks.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judged strongest headline separately from blocked target survey. The exact datum m^P=10 is a mere parameter substitution into published general formula e(S)-eta: e=10 textbook, eta=0 one-line adjunction. It is mechanically implied, computable in seconds by any future researcher from the stronger theorem, not a previously unknown invariant requiring new computation. Fails the exact-invariant test (motivated object yes, but value mechanically implied, no new method). Mixing observation w_out=1<2 is a target-failure explanation (why literal single-class chamber equation cannot isolate N_{-K}), not an independently retrievable enumerative benchmark; global wall formula already sums over all classes, and no new scattering object is constructed. No downstream DT/cluster use needs the isolated '10' beyond the general formula; no correction term with coefficient is proved. Hence textbook restatement / corollary repackaging with no independent retrieval value. FAIL.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "finding": "Abstract explicitly degree >=3; degree-2 smooth case outside statement. Confirms target boundary but does not imply emergent count.",
+      "title": "Graefnitz - Tropical correspondence for smooth del Pezzo log Calabi-Yau pairs (JAG 2022, arXiv:2005.14018)",
+      "url": "https://doi.org/10.1090/jag/794"
+    },
+    {
+      "finding": "Defines log BPS via multiple-cover formula, primitive points, Conjectures 1.3/1.6; Thm 1.4 proves P-independence only for multiples of lines/conics/dh (d<=4). Thm 1.11 + Thm 5.2 prove primitive-point calculation for all line/conic/nef-big with p_a=0,1 (and p_a=2 general): (2) p_a=1, beta != -K_S8 => m^P=e(S)-eta; S7 -K gives 10. Thm 1.12 gives local n with same e-eta structure. Full HTML v5 fetched and compared literally.",
+      "title": "Choi-van Garrel-Katz-Takahashi - Log BPS numbers of log Calabi-Yau surfaces (arXiv:1810.02377v5)",
+      "url": "https://arxiv.org/html/1810.02377v5"
+    },
+    {
+      "finding": "Warwick PDF version confirms same definitions/theorems; fetch truncated but abstract/HTML sufficient for literal hypothesis comparison.",
+      "title": "Choi et al. Warwick PDF logbps190228",
+      "url": "https://warwick.ac.uk/fac/sci/maths/people/staff/vangarrel/logbps190228.pdf"
+    },
+    {
+      "finding": "Scripts replay exact integer identities only (K2,w,p_a,e,eta,mP,w_out); do not prove enumerative geometry. Replayed locally: EMERGENT_VERIFY_OK, VERIFY_OK, RECOVERY_FAIL as logged.",
+      "title": "Lane artifacts verify_emergent.py, check_dP2_numerics.py, recovery_test.py",
+      "url": null
+    }
+  ],
+  "claim_route_assessment": "research_report.claim_route=EMERGENT_FINDING. Verified genuinely arose from target investigation: same pair (dP2,smooth E), same class beta=-K, derived while fixing invariant side of audit step 4 after steps 1-3 blocked (no Graefnitz-form degeneration, recovery RECOVERY_FAIL). Not a convenient unrelated substitution. Absence from topic.json not adverse. Applied ordinary full correctness/originality/value standard with no presumption and no relaxation.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Choi et al. Thm 5.2(2)/Thm 1.11 quantifies over ALL del Pezzo S and ALL nef-big beta with p_a=1 except -K_S8; Thm 1.12 same for local n. Graefnitz degree>=3 does not cover S7 count but Choi general del Pezzo theorem does. No broader scattering census needed: the count is already a special case of broader log-BPS theorem.",
+      "reason_why_not_covering_or_covering": "COVERS: the broader class (all del Pezzo, all nef-big p_a=1) strictly contains (S7,-K). The headline is a strict special case, so originality FAILS by dominance.",
+      "what_was_searched": "Dominance query: Graefnitz tropical correspondence degree-2 / canonical wall structure / scattering anticanonical class; fetched Graefnitz abstract + Choi full text to test whether stronger theorem or census implies claim."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Published: if p_a=1 and beta != -K_S8 then m^P=e(S)-eta. Submitted: for S7 beta=-K, m^P=10 with eta=0, e=10. Substitution yields 10-0=10. Mixing claim restates standard log f_out=sum (D.beta)N_beta structure + w_out=1 (lines). No new coefficient proved.",
+      "reason_why_not_covering_or_covering": "COVERS: prior result substantively implies submitted count by elementary substitution; synonymous S7=dP2/blowup-7-pts; mixing is corollary/repackaging of known wall-sum form, not new theorem. Originality FAILS.",
+      "what_was_searched": "Literal headline (m^P_{-K}=10 dP2 primitive maximal tangency) + equivalent (S7, blowup P2 7pts, e-eta formula) via fused SerpBase/OpenAlex/Crossref; screened 20 fused hits; fetched decisive primary source (Choi HTML v5) and compared hypotheses/conclusions literally, not by title similarity."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal 'log BPS m^P_{-K}=10 dP2 smooth anticanonical primitive' and equivalent 'Choi van Garrel Katz Takahashi S7 blowup 7 points e-eta primitive formula'. Found Choi Thm 5.2(2): m^P=e(S)-eta for p_a=1, beta != -K_S8. S7 is S_7 in their notation (blowup P2 at 7 pts); dP2 synonymous. No source states '10' verbatim, but formula + e=10 + eta=0 yields it.",
+      "reason_why_not_covering_or_covering": "COVERS despite no verbatim '10': synonymous names (dP2=S7=Bl_7 P2) denote same object; general formula implies exact value. Prior need not state headline verbatim per contract.",
+      "what_was_searched": "Query (a) literal count + (b) synonymous/encoded forms (S7, degree-2 del Pezzo, blowup 7 pts, e-eta, primitive point, maximal tangency) in one scope_literature_search call."
+    },
+    "exact_database_or_table": {
+      "evidence": "No isolated table entry 'S7 -K 10' found in snippets; but Theorem 5.2 is an exhaustive formula for this parameter cell (p_a=1, nef-big, not S8), not a lookup table. Value is mechanically computable from theorem + textbook e=10 and one-line eta=0, so lack of explicit tabulation does not confer originality.",
+      "reason_why_not_covering_or_covering": "COVERS as recomputation: absence from a table does not establish priority when a proved general formula exhaustively determines the cell. Instant substitution is not original.",
+      "what_was_searched": "Searched for tabulated S7 -K value and Choi Thm 1 line/conic/dh limitation claim; verified limitation applies to P-independence (Thm 1.4), not to primitive-point formula (Thm 5.2/1.11) which explicitly includes this cell."
+    }
+  },
+  "residual_risks": [
+    "Published proof dependence: -K_S7 ample but not very ample, excluded from Lemma 4.5/Cor 4.19 blowdown-to-very-ample step; DRAFT invokes Thm 5.2 conclusion without reproducing pencil Euler analysis for this edge. Statement-level coverage is clear, but independent re-proof would need to verify pencil count without very-ampleness.",
+    "Generality/primitivity hypotheses (general (X,E), primitive P, smoothness at P) assumed via citation; not independently certified beyond scripts checking integers.",
+    "Mixing/ill-posedness phrasing is interpretive (no existent (dP2,E) scattering object); arithmetic w_out=1<2 verified, but 'any order-2 coefficient mixes' not formalized as a lemma with quantified diagram. Does not affect count correctness.",
+    "Live retrieval: all providers returned ok (partial=false); OpenAlex 0 hits for queries 0-1 is a coverage gap but Crossref+SerpBase/Serpent supplied decisive source, fetched in full; one unavailable source never taken as priority."
+  ],
+  "retrieval_coverage": {
+    "fused_result_count": 20,
+    "partial": false,
+    "per_provider": "serpbase ok (10+9), openalex ok (0+0+9), crossref ok (15+15+15), serpent ok (20 for query 2); deduplicated/fused, no internal retry failure reported",
+    "queries_submitted": [
+      "log BPS number m^P_{-K}=10 del Pezzo dP2 smooth anticanonical primitive point maximal tangency",
+      "Choi van Garrel Katz Takahashi log BPS numbers log Calabi-Yau surfaces S7 blowup P2 7 points e(X) minus eta primitive point formula",
+      "Graefnitz tropical correspondence smooth del Pezzo log Calabi-Yau degree 2 canonical wall structure scattering diagram anticanonical class"
+    ]
+  },
+  "verdict": "REJECT"
+}
