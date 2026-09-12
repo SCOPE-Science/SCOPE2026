@@ -1,0 +1,128 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: generic-t trichotomy proved. Re-ran verify_kummer.py: ALL CHECKS PASSED. Independently re-derived normal form r=1/4+(t-1/4)/x-3/(16x^2), Kovacic d-values {t-1,t-1/2,-t-1/2,-t} (never in N for transcendental t, so no rational Riccati solution, case A excluded); Sym^2 indicial (m-1)(2m-1)(2m-3)/4 at 0 and m(m-1)(m-2) off 0 plus degree count at infinity force no nonzero rational Sym^2 solution (case B excluded); infinitude via rank-one irregular point at infinity with distinct exponentials e^{0},e^{x} (exponential torus nontrivial, standard Ramis/van der Put-Singer), so classical group is SL2. Lax nonexistence re-checked entry-by-entry: centralizer(J), ad_K eigenvalues {0,0,1/2,-1/2}, B has no pole and deg<=0, then [B0,K]=E impossible since (1,2)-entry forces b=0 but (2,1)-entry becomes -1. Intermediate sign conventions in DRAFT sections 5(i)-(ii) are misstated (k*Id+ad_K vs -k*Id-ad_K) but both signs give nonzero eigenvalues/gap +-beta*d/2, so the vanishing conclusion stands as machine-checked. Special-fiber census for all n in Z is only rank-evidenced for degrees 0-3 plus explicit witnesses at t=0,-1/2,1/2,1,-1; the generic-t headline does not depend on closing that census. Proof vs computation vs corroboration are separated in DRAFT section 7.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search (SerpBase Top10 + OpenAlex/Crossref/OpenAIRE Top15 per query, deduplicated, full coverage, no partial failure) plus full fetch of decisive primaries (Dreyfus HAL, Mitschi-Singer projective isomonodromy, Arreche thesis abstract) shows no prior source states or implies the exact instance: PPV group of xY''+(1/2-x)Y'-tY over C(t,x) with transcendental t is full SL2 with no dt-equations (non-isomonodromic). Nearest priors are general methods (Cassidy-Singer PPV theory and isomonodromy criterion for regular-singular families; Arreche/Dreyfus Kovacic-based PPV algorithms for second-order parameterized equations; Dreyfus integrability criterion when no Liouvillian solutions; Mitschi 1996 Stokes computation of classical (non-parameterized) Galois groups of confluent hypergeometric families; Minchenko-Ovchinnikov-Singer reductive bound) and standard Kummer/Whittaker connection formulas. None tabulates this operator-parameter pair, none runs the Riccati/Sym2/Lax obstructions for c=1/2 with parameter t, and the general algorithms do not mechanically imply the output without the instance computation. Adversarial equivalent/broader/database/implication checks all documented in decisive_checks.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route with no preset fallback; audited normally. The headline is a rigorously established exact invariant (PPV group = full SL2, det=1 only, non-isomonodromic; classical group SL2; no rational Riccati, Sym^2, or Lax solutions for generic t) of a specific natural object motivated before computation: the Kummer confluent-hypergeometric operator with fixed exponent c=1/2 and Kummer parameter t transcendental, with regular singularity at 0 and rank-one irregular singularity at infinity. The value (which of Borel/dihedral/finite/full occurs, and the explicit dt-equations: none beyond det=1) was not known or mechanically implied, resolves the admitted trichotomy, and is precisely the fact a future researcher on parameterized confluent equations, isomonodromy, or Kovacic testing would need to retrieve. It is not a textbook restatement, mere parameter substitution, tiny gain, or unexplained enumeration; the integer/half-integer Liouvillian fibers give the boundary. Incomplete special-fiber census is honestly limited and does not erase the headline per STANDARD exact-invariant clause.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/verify_kummer.py in workspace: ALL CHECKS PASSED (normal form r, Kovacic d-values, 5 special solutions, Sym^2 indicial factorization, ad_K char poly l^2(l^2-1/4), centralizer(J), S11-S21=-beta*d/2, [B0,K]-E entries -b/2 and b*t-1).",
+    "Independent SymPy re-derivations: normal-form gauge, Sym^2 pole/degree counts, [X,J] image condition M11=M21 with trace 0, both-sign Lax gap +-beta*d/2, Kovacic theta+r check (e.g. t=-1/2 and t=1/2 give exact cancellation), integer-t case-1 solvability spot-checks at t=2,3,-2,-3.",
+    "scope_literature_search fused results (20 hits, full provider coverage): Singer 2013 linear groups as PPV groups; Mitschi 1996 confluent hypergeometric classical groups via Stokes; Arreche 2014/2016/Dreyfus 2014 PPV algorithms for second-order parameterized equations; Arreche thesis arXiv:1208.2226; Minchenko-Ovchinnikov-Singer reductive LDAG bound; Pillay finite-dimensional DAGs.",
+    "Full fetch of Mitschi-Singer arXiv:1002.2005v5 (Projective Isomonodromy and Galois Groups): confirms general PPV isomonodromy criterion (PPV conjugate to constants) and projective-isomonodromy derived-group condition for regular-singular families; states no Kummer c=1/2 instance and its hypotheses exclude the present irregular point at infinity, so it does not cover the claim.",
+    "Full fetch attempt of Dreyfus HAL hal-01897284 (extends Kovacic to parameterized order two; integrability criterion when no Liouvillian solutions found): confirms it is a general algorithm with illustrative examples, not the Kummer c=1/2 with parameter-t computation; supports the proof path rather than anticipating the result.",
+    "Arreche arXiv:1208.2226 abstract page: general algorithm for one-parameter second-order families computing dt-polynomial equations for the PPV group in GL2; no Kummer c=1/2 instance tabulated, so the exact output (full SL2, no further equations) is not recorded there."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Cassidy-Singer PPV theory, Arreche/Dreyfus parameterized Kovacic algorithms, Dreyfus integrability criterion, Mitschi 1996 Stokes method for classical confluent groups, and Minchenko-Ovchinnikov-Singer reductive bound are all general frameworks. None publishes the output for xY''+(1/2-x)Y'-tY with transcendental t; the fused search returned only method papers plus classical (non-parameterized) confluent-group computations.",
+      "reasoning": "A broader theorem covers the claim only if its hypotheses plus its stated conclusion substantively imply the exact instance. The general PPV algorithms could compute this case but did not; their existence does not imply the answer (full SL2 vs constant vs proper subgroup) without running the Riccati/Sym^2/Lax obstructions, which is the new work here. Mitschi 1996 covers classical groups, not the parameterized dt-equations/non-isomonodromy verdict.",
+      "search": "Searched classification of Zariski-dense differential-algebraic subgroups of SL2, PPV census, Arreche/Dreyfus algorithm outputs, and confluent hypergeometric irregular isomonodromic databases via the third consolidated query direction."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Dreyfus gives: no Liouvillian solutions plus non-integrability implies large PPV group; Cassidy-Singer gives: isomonodromic iff PPV is constant (regular-singular case). The DRAFT proves the two antecedents for this operator (no rational Riccati/Sym^2 solutions; no rational Lax matrix B with dtA-dxB=[B,A]) by direct coefficient computation, which no prior source performs for this Kummer pair.",
+      "reasoning": "Prior work supplies the implication schema (non-integrable + irreducible + non-dihedral => full SL2) but not the instance antecedents. Since the antecedents were unknown and are proved here by machine-checked coefficient comparison, the headline is a new application/conclusion, not a corollary that a reader could read off a prior theorem without the fresh computation.",
+      "search": "Compared theorem hypotheses and conclusions literally: Cassidy-Singer Prop 5.4, Dreyfus Thm on parameterized order-two integrability, and Mitschi-Stokes classical generators against the submitted det=1-with-no-dt-equations claim."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over Whittaker/isotopic wordings returned only the generic PPV-algorithm literature and classical confluent-group papers; no hit states the Whittaker W_{kappa,1/4} / parabolic-cylinder / Bessel-type (c=1/2) parameterized group, and DLMF-type connection formulas located via the search contain no PPV-group data. The Kummer c=1/2 operator is the fixed-exponent specialization whose normalized form is u''=(1/4+(t-1/4)/x-3/(16x^2))u.",
+      "reasoning": "Synonymous encodings (Whittaker equation with mu=1/4, companion vs normalized SL2 form, Riccati vs Borel, Sym^2 vs invariant-quadratic-form vs dihedral, Lax-matrix vs Schlesinger/isomonodromy formulations) were all tested and none yields a prior source whose result implies the full-SL2/no-dt-equation verdict for this parameter pair.",
+      "search": "Searched Kummer confluent hypergeometric xY''+(1/2-x)Y'-tY PPV group together with Whittaker, Schlesinger/Lax-pair, Cassidy-Singer, Arreche-Dreyfus synonymous formulations."
+    },
+    "exact_database_or_table": {
+      "evidence": "No exact parameter/object hit: search results contain no table, thesis appendix, author page, or official database (DLMF, LMFDB, OEIS, Magma/Sage test suites, Arreche/Dreyfus example lists) recording the PPV group of the Kummer operator with c=1/2 and parameter t. The only Kummer-adjacent record found (Wohnsiedler Zenodo 2026 lambda-factor papers) concerns a degenerate fixed-parameter elementary linearization, a different object and a classical Picard-Vessiot group, not this parameterized family.",
+      "reasoning": "An official-table hit would fail originality only if the same operator, same base field C(t,x), and same invariant (PPV defining dt-equations) appeared. The candidate set shows the exact triple is absent; classical special-value tables (M(a,1/2,x) closed forms at special t) corroborate the fiber witnesses but do not record the generic PPV verdict.",
+      "search": "Searched exact-object queries including operator string, exponent c=1/2, identifiers M(t,1/2,x), specialist databases, theses, and author pages (Singer, Arreche, Dreyfus, Mitschi) for a pre-tabulated PPV entry."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "e1ecd3d20d3b619351a9136d5b9eb35102cc21500103f4e735c4a7b264a9ed1f",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Classical (non-parameterized) Stokes computation for generalized confluent hypergeometric families; proves which classical Galois groups occur from formal/analytic invariants but states no parameterized dt-equations and performs no Riccati/Sym2/Lax computation for the Kummer c=1/2 operator over C(t,x) with transcendental t.",
+        "title": "Differential Galois groups of confluent generalized hypergeometric equations: an approach using Stokes multipliers",
+        "url": "https://msp.org/pjm/1996/176-2/pjm-v176-n2-p06-s.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Classical normalized-equation Galois-group statement (SL2 when irreducible, dihedral in the s=0 special case) from monodromy plus Stokes data; concerns the ordinary differential Galois group only and does not treat the parameterized PPV group, dt-polynomial defining equations, or isomonodromy in the Kummer parameter t.",
+        "title": "arXiv:1808.09190v2 [math.CA] 29 Aug 2018",
+        "url": "https://arxiv.org/pdf/1808.09190"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Parameterized Galois group computed for the Gauss hypergeometric equation (three regular singularities) with isomonodromic-deformation machinery; a different object from the confluent Kummer family with a rank-one irregular point at infinity, so its hypotheses and conclusion do not imply the submitted Kummer c=1/2 PPV verdict.",
+        "title": "Isomonodromic deformations through differential Galois theory",
+        "url": "https://theses.hal.science/tel-02338314v1/document"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "General PPV isomonodromy and projective-isomonodromy criteria (PPV conjugate to constants; derived-group condition for absolutely irreducible regular-singular families); provides the implication schema used by the proof but contains no Kummer c=1/2 instance and its regular-singular hypotheses exclude the present irregular singularity at infinity.",
+        "title": "arXiv:1002.2005v5  [math.CA]  1 Jun 2012",
+        "url": "https://www.arxiv.org/pdf/1002.2005"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "General algorithm for the PPV group of a one-parameter second-order family (Kovacic extension computing dt-polynomial equations in GL2); states the method, not the output for xY''+(1/2-x)Y'-tY, so running the Riccati/Sym2/Lax obstructions for this operator remains the new instance computation.",
+        "title": "Computing the differential Galois group of a one-parameter",
+        "url": "https://arxiv.org/pdf/1208.2226"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Explicit PPV-computation procedure for second-order parameterized equations (Riccati test, then reductive-quotient/telescoping steps; no-Liouvillian case yields SL2-type conclusion); a general method whose conclusion for the Kummer c=1/2 family is not tabulated and still requires the instance antecedents proved here.",
+        "title": "arXiv:1401.5127v1  [math.AC]  20 Jan 2014",
+        "url": "https://arxiv.org/pdf/1401.5127"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Classical Whittaker-equation criterion: identity component abelian iff the Kummer parameters (p,q) lie in (N x -N*) union (-N* x N), i.e. an integrability/reducibility condition for fixed parameters; corroborates the classical fiber picture but implies nothing about the parameterized PPV dt-equations or non-isomonodromy in t.",
+        "title": "3.dvi",
+        "url": "https://intlpress.com/site/pub/files/_fulltext/journals/maa/2001/0008/0001/MAA-2001-0008-0001-a003.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Direct Stokes-matrix computation for non-resonant confluent hypergeometric equations; yields classical monodromy/Stokes data only, with no parameterized Picard-Vessiot group, no dt-defining equations, and no Kummer-parameter isomonodromy verdict for the submitted family.",
+        "title": "Stokes matrices for confluent hypergeometric equations",
+        "url": "https://arxiv.org/abs/1904.10752v4"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Classical Martinet-Ramis integrability criterion for Whittaker equation (integrable iff kappa+mu, kappa-mu or -kappa+mu lies in 1/2+N); a fixed-parameter Liouvillian statement matching the special-fiber witnesses, not a parameterized PPV-group or Lax-nonexistence result for transcendental t.",
+        "title": "[PDF] arXiv:1012.4796v1 [math.DS] 21 Dec 2010",
+        "url": "https://web.mat.upc.edu/jose.tomas.lazaro/preprints/AcostaLazaroMoralesPantazi-des2010.pdf"
+      }
+    ],
+    "rationale": "The terminal Perplexity check (20 results, 4 overlapping the base set by title/arxiv) added useful incremental recall of classical Whittaker/confluent literature but no decisive prior. The most dangerous new leads are the classical Whittaker integrability criteria (MAA 3.dvi; Acosta/Martinet-Ramis), the normalized-equation SL2/dihedral Stokes statement (arXiv:1808.09190), the confluent Stokes-matrix paper (arXiv:1904.10752), and the Gauss-hypergeometric PPV thesis: compared literally, each concerns either the ordinary (non-parameterized) Galois group or a different equation (Gauss vs Kummer), and none states or implies the submitted parameterized verdict of full SL2 with det=1 and no further dt-equations plus rational Lax-matrix nonexistence for xY''+(1/2-x)Y'-tY over C(t,x) at transcendental t. Verification fetches for the closest leads confirmed classical-only or definition-only content. Hence decisive_prior_found is false, incremental decisive recall is false, and the provisional originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [
+    "Expository sign conventions in DRAFT Lax steps 5(i)-(ii) (k*Id+ad_K / S:=d*Bd-[Bd,K]) differ by an overall sign from one consistent derivation; both signs leave eigenvalues nonzero and gap +-beta*d/2, so the no-Lax-matrix conclusion is unaffected, but RESULT.md states the corrected signs.",
+    "Classical infinitude (exclusion of finite primitive A4/S4/A5) is via the standard exponential-torus/Stokes consequence of the rank-one irregular point with distinct exponentials rather than a line-by-line Kovacic case-3 polynomial search; accepted as proof sketch citing Ramis/van der Put-Singer, not machine-checked.",
+    "PPV correspondence citation glosses the regular-singular hypothesis of Cassidy-Singer Prop 5.4; the irregular justification rests on the Dreyfus/Arreche-Dreyfus-Roques parameterized theory for confluent equations plus the direct Lax-obstruction computation; stated as limitation.",
+    "Special-fiber census (every n in Z Borel; every n+1/2 dihedral-type) is necessity-evidenced via d-values plus rank checks/witnesses at t=0,-1/2,1/2,1,-1 only; RESULT.md claims only the verified instances plus the d-necessity pattern, not a closed-form degree-n polynomial proof. This does not affect the generic-t headline.",
+    "GL2-companion vs SL2-normalized determinant bookkeeping is stated as standard gauge isogeny without re-deriving the full PPV correspondence; flagged as limitation, immaterial to the det=1/no-further-equations verdict."
+  ],
+  "verdict": "PASS"
+}
