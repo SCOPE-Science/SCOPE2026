@@ -1,0 +1,110 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed output/artifacts/verify_census.py successfully (VERIFY_OK, exit 0): exact big-int certificate e^14<1202605 via N=22 remainder 1/(N*N!) gives B=1202604; independent Decimal check e^14~1202604.284 confirms tightness. Trial-division sieve 1..B independently reproduced 1349 S1-smooth integers; triple loop reproduced 66 primitive 0<a<=b<c<=B with a+b=c, unique symmetric (1,1,2) so 6*66-3=393 ordered, and independent coprime unit-pair loop also gave 393. Named triples (1,1,2),(1,2,3),(1,8,9),(1,24,25),(1,48,49) verified present; three 50021-triples factor correctly (e.g. 300125=5^3*7^4, 300126=2*3*50021) and 63 non-large triples exactly reproduce the known {2,3,5,7} census of 63. 50021 verified prime. The bounded count 393!=1269 rigorously refutes the conjunction '212 triples AND all h<=14'. No ADMISSION_DEFECT: preflight witnesses, 6N-3 conversion, nonvacuity, and no-lookup findings all confirmed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route: target claimed new 212/1269 census with h<=14 for open S1={2,3,5,7,50021}. Fused tri-provider search plus direct von Kanel-Matschke data-page fetch confirm no prior S1 census: Table 1 covers only first-n primes to n=16, Table 2 only radical<=1e7 (432408 triples) while S1 radical 2*3*5*7*50021=10504410 exceeds it, and no solutions_2_3_5_7_50021.txt exists. Generic Baker-Wustholz/Yu/LLL solver references and Siegel-Mahler finiteness imply no exact 66/393 bounded count. The certified height-capped ledger (66 triples including three 50021-triples all of radical >1e7) is therefore new computed content, not a rename, subset lookup, or mechanical corollary.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET negative resolution judged on its own merit: this is not a type/normalization error, vacuity, tiny-instance mismatch, direct lookup, or arbitrary slice. Types and 6T-3 conversion verified exact, dozens of solutions show nonvacuity, S1 file absence plus radical exceedance rule out lookup, and B=1202604 is target-generated from the claimed h<=14 cap. The rigorously established exact bounded invariant 'S1-units with Weil height<=14 are exactly 66 triples / 393 ordered' for the motivated just-above-tableau frontier set, with full ledger including three new large-prime witnesses outside all published tables, is independently retrievable for Thue-Mahler/Pillai-Catalan solvers and corrects the conjectured census. No ADMISSION_DEFECT in preflight value case.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Direct fetch of von Kanel-Matschke data page https://bmatschke.github.io/solving-classical-diophantine-equations/ : Table 1 first-n primes n=1..16 (63 triples at n=4 for {2,3,5,7}, 190 at n=5), Table 2 radical<=1e7 with 432408 triples, N(S)=6N'(S)-3 rule, no S1={2,3,5,7,50021} file listed.",
+    "Sage S-unit solver docs https://doc.sagemath.org/html/en/reference/number_fields/sage/rings/number_field/S_unit_solver.html : generic Baker-Wustholz plus Yu plus LLL method returning all x+y=1 solutions, no census table for any set containing 50021.",
+    "Fused scope_literature_search (3 queries, 20 deduplicated results, all providers ok, no partial): Poonen Skolem finiteness, S-unit Wikipedia/u+v=1 phrasing, MathBases arXiv:1605.06079 data mirror, generic lower-bound papers; zero hits record 212/1269, 66/393, or any S1 ledger.",
+    "Independent replay: python3 inputs/artifacts/verify_census.py -> VERIFY_OK (height-cap cert PASSED, 1349 smooth, 66 triples, 393 ordered both counts, witnesses present, three 50021-triples as listed). Separate audit recomputation confirmed smooth count 1349, N=30 height cert, e^14~1202604.284, zero missed u+v-smooth candidates, prime factorisations of the three large triples, and 63 non-large triples matching the closed {2,3,5,7} census with max c 4375.",
+    "Ledger inputs/artifacts/ledger_66.txt (66 lines): each line verified a+b=c, primitive, S1-smooth; spot-checks (1,300125,300126),(21,50000,50021),(400,50021,50421) have radical 10504410 >1e7, hence outside Table 2 coverage."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Siegel-Mahler finiteness, Evertse-type bounds, and Poonen Skolem proof give only qualitative finiteness or astronomical caps; von Kanel-Matschke Table 1 stops at first-16 primes and Table 2 at radical 1e7 with 432408 triples, while S1 radical is 10504410 and S1 is not first-n. Fused search returned only generic method/finiteness papers with no S1 numbers.",
+      "reasoning": "No broader theorem specializes to the exact bounded integers 66/393 for S1 under h<=14; deriving them requires executing the B=1202604 smooth sieve to completion, so broader coverage does not subsume the disproof ledger.",
+      "search": "von Kanel Matschke S-unit equation data tables radical 1e7 complete census database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior Baker-Wustholz bounds plus Sage AKMRVW solver establish only the method template (Baker plus Yu plus LLL) and finiteness for S1; none records the numeric outcome 66 triples / 393 ordered under h<=14 or any S1 witness ledger beyond the inherited {2,3,5,7} subset of 63.",
+      "reasoning": "Computing 393 requires the certified e^14 bound, full 1..1202604 sieve, and dual triple/pair enumeration; since no prior text records that run for a set containing 50021, the refutation adds information beyond mechanical implication of any height theorem.",
+      "search": "S-unit equation x+y=1 S={2,3,5,7,50021} 212 triples 1269 ordered census height 14"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results confirm synonymous encodings: unit equation u+v=1, S-integral points on P1 minus {0,1,infinity}, and abc-triples a+b=c with S-smooth terms (Sage solver, Wikipedia S-unit, Poonen Siegel-for-Q). All appear only as generic method/finiteness descriptions with no instantiation of 66/393 or 212/1269 for S1={2,3,5,7,50021}.",
+      "reasoning": "The equivalences establish recognized-problem status, while the absence of any S1-specific count under renaming shows the height-capped 66-triple ledger is new rather than a relabelled closed-set result.",
+      "search": "S-unit equation u+v=1 S-integral points P1 minus three points a+b=c 50021-smooth triples census"
+    },
+    "exact_database_or_table": {
+      "evidence": "Data page serves Table 1 files solutions_2.txt through first-16-primes and Table 2 radical files to 1e7; no solutions_2_3_5_7_50021.txt exists (admission 404 check), and the 1e7 radical file cannot contain the three S1 large-prime triples whose radical 10504410 exceeds 1e7 whenever 50021 divides a, b, or c.",
+      "reasoning": "Hence the 66-ledger cannot be a download-and-count lookup; it needs newly computed height certificate plus fresh exhaustive sieve for an uncovered set, satisfying non-repackaging for the disproof direction.",
+      "search": "S-unit solutions_2_3_5_7_50021.txt file absence radical 10504410 table lookup check"
+    }
+  },
+  "residual_risks": [
+    "Global S1 census without the h<=14 cap remains open: solutions of Weil height above 14 (numerator or denominator above 1202604) are outside the certified box; the audit confirms only the conjunction refutation, not the true unbounded total.",
+    "Weil-height interpretation fixed as h(p/q)=log max(|p|,|q|) in lowest terms per DRAFT; alternative normalizations (e.g. max(h(x),h(y)) vs h(x) alone) do not affect the refutation because the enumerated x-bounded superset already contradicts 1269, but future reuse should cite the stated definition."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "c56b0920b5d6dbc1cb4ffa17f07df3b9364cab937430c74ca64950c4c8992e57",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Data for elliptic curves and classical diophantine equations",
+        "url": "https://bmatschke.github.io/solving-classical-diophantine-equations/",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Submitted headline is the height-capped S1={2,3,5,7,50021} ledger (66 triples / 393 ordered refuting 212/1269); this is the exact von Kanel-Matschke database whose Table 1 covers only first-n primes to n=16 and Table 2 only radical <= 1e7, so its hypotheses exclude S1 (radical 10504410) and it records no S1 file or count.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Solving S-unit and Mordell equations via Shimura\u2013Taniyama",
+        "url": "https://www.math.u-bordeaux.fr/~bmatschke/reportVonKaenelMatschke3.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Submitted headline requires the exact S1={2,3,5,7,50021} census under h<=14; this report proves the general Shimura-Taniyama plus Baker sieve method for x+y=1 and cites only the closed de Weger set {2,3,5,7,11,13}, recording no S1 constants, no S1 ledger, and neither the 66/393 nor the 212/1269 integers.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "A general S-unit equation solver and tables of elliptic curves  over number fields",
+        "url": "https://www.birs.ca/workshops/2020/20w5005/files/BIRS-Matschke.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Submitted headline is an exact S1={2,3,5,7,50021} height-capped enumeration; these slides give only generic solver timings for small sets {2} through {2,3,5,7,11} and radical-bound remarks, with no S1 instantiation, no 50021 witness, and no 66/393 count.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Solver for the \\(S\\)-unit equation \\(x + y = 1\\)",
+        "url": "https://doc.sagemath.org/html/en/reference/number_fields/sage/rings/number_field/S_unit_solver.html",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Submitted headline is the executed S1={2,3,5,7,50021} census outcome under h<=14; this documents the generic Baker-Wustholz plus Yu plus LLL algorithm returning all x+y=1 solutions for any S, publishing no census table or integer for any set containing 50021.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "COUNTING SOLVABLE S-UNIT EQUATIONS",
+        "url": "https://uwaterloo.ca/pure-mathematics/sites/default/files/uploads/documents/countingsunitsr.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Submitted headline is the exact S1={2,3,5,7,50021} ledger in a+b=c / S-normalized 0<a<=b<=c form; this paper studies the equivalent au+bv=cw normalization and counting of solvable equations in general, proving no exact census integer for S1 and listing no 50021 triple.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "A ROBUST IMPLEMENTATION FOR SOLVING THE",
+        "url": "https://www.arxiv.org/pdf/1903.00977",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Submitted headline requires the completed S1={2,3,5,7,50021} sieve to 66 triples / 393 ordered; this AKMRVW paper implements the LLL lattice-reduction step of the solver pipeline and contains no S1 run, no S1 ledger, and no 66/393 or 212/1269 outcome.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Powers from products of k terms in progression: finiteness ...",
+        "url": "https://personal.math.ubc.ca/~bennett/Be-AA-2018.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Submitted headline concerns S1={2,3,5,7,50021}, a non-first-n set with large prime 50021; this cites only the completed first-16-primes census (1663449 triples with 0<a<=b<c) for a different set S, whose hypotheses do not include 50021 and whose conclusion implies no S1 integer.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results (3 URL-overlaps with the base fused search, 17 incremental URLs). The 3 overlaps (data page, Sage solver, TIB video page) merely duplicate base-provider coverage already audited. The 17 new URLs are generic method, survey, number-field, function-field, or different-equation sources (x+y=z^2/z^3, Thue-Mahler, elliptic-curve tables) or small-set instances ({2,3,5,7,11,13}, first-16 primes); none states, tabulates, or implies the S1={2,3,5,7,50021} height-capped ledger (66 triples/393 ordered) or the 212/1269 integers under any synonymous notation (u+v=1, a+b=c, P1 minus three points). Literal hypothesis/conclusion comparison therefore finds no decisive prior; originality PASS is preserved and no axis changes."
+  }
+}
