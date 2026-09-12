@@ -1,0 +1,59 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-ran inputs/artifacts/verify_theta.py (ALL CHECKS PASSED) and recomputed all valuations by hand. Disc disjointness holds: |0-1|=1, |0-2|=1/2, |1-2|=1 all >1/4, and points of the three affine discs have |.|=1,1/2,<=1/4 respectively, hence disjoint from {|z|>=4}. gamma1=diag(1,16) is hyperbolic with eigenvalues 1,16, translation length 4; gamma2=h gamma1 h^{-1} has trace 17 det 16, characteristic (t-1)(t-16), fixed points 1,2 verified. Ping-pong identities h(z)-1=z/(z+1) and h(z)-2=-1/(z+1) give exact valuation equalities h(B(0,1/4))=B(1,1/4) and h({|z|>=4})=B(2,1/4); the second surjectivity z=(1-w)/(w-2) was filled by auditor. Conjugation transfers Schottky pairing so Gamma is free rank 2 with good domain. Berkovich spine [zeta_{0,4},zeta_{0,1/4}] has length 4 split as 2+1+1 by Gauss point y=zeta_{0,1} and x=zeta_{0,1/2}=zeta_{2,1/2}; pendants [y,q-] length 2 and [x,q+] length 1 glue to theta edges 1,3,3 with overlap 1<min(4,4). Genus 2 follows from Mumford uniformization, cited not reproved.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live search over SerpBase/OpenAlex/Crossref/OpenAIRE plus full fetch of decisive sources shows general Schottky/Mumford theory (Gerritzen-van der Put, Mumford, Morrison-Ren arXiv:1309.5243, Poineau-Turchetti arXiv:2107.07884, Teitelbaum, Li notes) but no prior record of the exact headline: matrices [[1,0],[0,16]] and [[-14,30],[-15,31]], discs B(0,1/4),{|z|>=4},B(1,1/4),B(2,1/4) over Q_2 with theta skeleton of lengths 1,3,3. Closest lead (Li notes Example 5, p=2 genus-2 with two P1s meeting in three points via Cornelissen-Kato) states existence pictorially without these matrices, discs, or edge lengths, and Morrison-Ren examples are over C_3 with different data. No database table or broader census lists this triple, and no stronger theorem mechanically implies these exact valuations. See decisive_checks for adversarial coverage tests.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET asked for proof or rigorous counterexample deciding whether a rank-two Schottky group over Q_2 can have theta-type genus-2 Mumford quotient, e.g. residue-field obstruction forcing dumbbell versus explicit matrices with certified disjointness and computed positive edge lengths. The report delivers the constructive side: explicit hyperbolic pair, certified good domain, genus 2, theta type with all lengths 1,3,3 derived from 2-adic valuations. This settles the admitted two-sided question, rules out an F_2 obstruction, and gives a concrete natural exact invariant (object and metric motivated before computation, value not known or mechanically implied) that future work on Berkovich skeleta, tropical realizations, and Mumford-curve algorithms can retrieve and build on. It is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md full proof rechecked line by line; recomputed matrix product, trace/det, fixed points, disc distances, and spine/pendant lengths independently",
+    "inputs/artifacts/verify_theta.py executed independently: g2=(-14,30,-15,31), tr=17 det=16, affine discs pairwise disjoint, h disc-image identities on 400 randomized exact rational points, g1 valuation shift 4, theta edges (1,3,3) ALL CHECKS PASSED",
+    "Chao Li Columbia notes 'Mumford curves' (Trivial Notions 2012): general Schottky/Mumford dictionary, Bruhat-Tits tree, Theorem 4-5, Example 5 p=2 genus-2 quotient graph with two rational curves meeting in three points but without the submitted matrices/discs/edge lengths",
+    "Morrison-Ren arXiv:1309.5243 'Algorithms for Mumford curves': good fundamental domains, Schottky criteria, period/tropical/canonical algorithms; worked examples over C_3 (not Q_2 theta (1,3,3))",
+    "Poineau-Turchetti arXiv:2107.07884 'Schottky spaces and universal Mumford curves over Z': universal parameter space S_g and comparison with tropical moduli; abstract existence, no explicit Q_2 matrices or (1,3,3) triple",
+    "Gerritzen-van der Put 'Schottky Groups and Mumford Curves' LNM 1980 via Crossref/OpenAlex, Teitelbaum J. reine angew. 1988 on genus-two p-adic periods, van der Put Toulouse 1992, Poineau-Turchetti 2021 Berkovich uniformization II: general theory only"
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Gerritzen-van der Put proves every Schottky group has some good-domain basis and Mumford proves genus=rank with split-degenerate reduction; Poineau-Turchetti construct universal Schottky space S_g over Z and compare Out(F_g)\\S_g with tropical M_g; Morrison-Ren give algorithms to compute any skeleton from good generators. None publishes a theorem stating that over Q_2 theta type occurs, nor a census of attainable (l1,l2,overlap) or edge triples covering (1,3,3).",
+      "reasoning": "A broader existence framework does not substantively imply the submitted exact witness. The claim is a specific valuation-realized triple over the smallest residue field where disjointness is nontrivial; the general theorems leave open which graphs/lengths occur over Q_2 and supply no matrices. Hence broader coverage does not subsume the headline.",
+      "search": "broader Schottky space, universal Mumford curve genus 2, tropical moduli M_2 theta locus, complete census of Mumford curves over Q2 or classification of attainable theta edge lengths"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Li Example 5 describes a p=2 rank-2 action with quotient two P1s crossing at three points (theta combinatorial type) citing Cornelissen-Kato p-adic icosahedron for explicit alpha,beta, but gives no matrices, no discs B(0,1/4)/{|z|>=4}/B(1,1/4)/B(2,1/4), and no metric lengths 1,3,3. Morrison-Ren Examples 2.3 give good domains over C_3 with radii 1/9 and different centers/generators. Teitelbaum computes genus-2 p-adic periods, not this Berkovich skeleton.",
+      "reasoning": "Prior work implies theta combinatorics can occur p-adically in general, but does not imply the exact submitted matrices, disjoint-disc certificate, or computed metric triple (1,3,3) over Q_2. Title/similarity-level closeness is not literal theorem implication; hypotheses and conclusions differ, so the headline is not a corollary, certificate, or repackaging of a known stronger fact.",
+      "search": "nearest prior genus-2 Mumford theta example over Q2: Li notes Example 5, Cornelissen-Kato p-adic icosahedron, Morrison-Ren C_3 good-domain examples, Teitelbaum genus-two periods implication test"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results returned only general Schottky/Mumford literature and tropical theta-vs-dumbbell discussions; no hit under PGL(2,Q2) versus SL(2,Q2) conjugation, disc-complement notation {|z|>=4} versus B(infinity), Berkovich versus rigid-analytic wording, theta graph versus two vertices joined by three edges / two P1s meeting in three nodes, or translation-length/axis-overlap encoding gives the matrices [[1,0],[0,16]],[[-14,30],[-15,31]] or lengths 1,3,3.",
+      "reasoning": "Synonymous names (Mumford curve / Schottky-uniformized curve / totally split degenerate curve), dual tropical language (theta / figure-eight dual graph), and matrix-conjugacy encodings were all considered; none reveals a differently-notated record of the same explicit discs, generators, and metric triple. Literal-title failure is therefore not an artifact of notation.",
+      "search": "equivalent wordings: p-adic Schottky group PGL(2,Q2) conjugate forms, good fundamental domain four discs complement notation, Berkovich skeleton versus dual graph versus tropicalization, theta graph versus two P1s meeting in three nodes"
+    },
+    "exact_database_or_table": {
+      "evidence": "No LMFDB, tropical-geometry database, Schottky-space table, or paper table found listing Q_2 Schottky generators with discs B(0,1/4), B(1,1/4), B(2,1/4) or theta edge lengths (1,3,3). Morrison-Ren supplementary Sage files concern C_3 examples; LMFDB genus-2 curves over Q_2 are tabulated by equation, not by Mumford uniformization data, and no entry was found encoding this uniformization.",
+      "reasoning": "The exact parameter set (centers 0,infinity,1,2; radius 1/4; eigenvalue gap 4; overlap 1; edges 1,3,3) does not already appear in any official table or database census that would decide the target by lookup. Hence the result is not a direct lookup or known-database recomputation.",
+      "search": "exact lookup: LMFDB genus-2 curve over Q2 Mumford uniformization table, tropical M_2 theta edge-length database, Morrison-Ren supplementary data, matrices [-14,30;-15,31] and discs B(0,1/4) B(1,1/4) B(2,1/4)"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "808620c77fb03e9a07d3ab3d3d19e54baf54b3116e4ea8a167dde6e18598876a",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check (20 results, 3 URL-overlaps with the base set) added useful incremental recall but no decisive prior. Overlaps merely duplicated base providers: Morrison-Ren Algorithms for Mumford Curves (HAL PDF/document and ScienceDirect cookie page) and Poineau-Turchetti universal Mumford curves, all general Schottky criteria, good-domain and skeleton algorithms with no Q_2 matrices, no discs B(0,1/4)/{|z|>=4}/B(1,1/4)/B(2,1/4), and no (1,3,3) triple. The 17 non-overlapping hits were screened literally: Cueto/Brandt/Morales tropical genus-two theta-vs-dumbbell Igusa and skeleton-length tables give general (L0,L1,L2) formulas, not this valuation-realized witness; Ren/Brandt theses restate the same general moduli background; Masdeu/Muller slides give only the generic Schottky recipe; Milione-Amoros Shimura-covering tables concern different genera/parameters (genus (p+1)/2, quaternionic generators); and the new hyperelliptic-Mumford uniformization paper explicitly restricts to p != 2, so it cannot cover a Q_2 headline. No returned source states the exact generators [[1,0],[0,16]] and [[-14,30],[-15,31]], the exact four discs, or theta lengths 1,3,3 under any synonymous, dual, tropical, matrix-conjugate, or database encoding, and no broader census implies them. Hence decisive_prior_found=false, incremental_prior_found=false, verdict_changed=false; provisional originality PASS and overall PASS stand."
+  }
+}
