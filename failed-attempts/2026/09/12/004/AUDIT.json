@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Deductive disproof is logically valid. Datta-Shao Theorem 1 (arXiv:2504.06795, full text fetched) proves Bad_theta(w) is HAW for every Lipschitz theta(x)=(theta_i(x_i)) and every weight w; constant theta=gamma=(e-2,sqrt(3)-1) is Lipschitz (constant 0) and w=(1/2,1/2) is a valid weight, so Bad^gamma is HAW. Definitions coincide up to squaring: max|.|^{2}|q|=(q^{1/2}max|.|)^2. Lemma B HAW(beta'=1/24)->Schmidt(1/12,1/2) verified exactly: bp=1/24<1/3 (C1), clearance 11/12>=1/12+1/24=1/8 (C2), containment equality (C3), Bob radius identity 1/24 (C4); both scripts replay PASS. Supporting resonant geometry is correctly labelled as non-essential orientation, not proof. ADMISSION_DEFECT noted under originality/value: preflight claimed HAW decides neither endpoint.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: Headline 'Bad^gamma IS (1/12,1/2)-winning for gamma=(e-2,sqrt(3)-1)' is substantively implied by a known stronger theorem, not new. Datta-Shao Theorem 1 proves HAW for ALL Lipschitz theta including every constant shift and every weight, hence covers this gamma and w=(1/2,1/2) as a strict special case; standard HAW=>Schmidt-winning plus the elementary 5-line transfer (C1-C4) mechanically yields (1/12,1/2). A prior source need not state the headline verbatim. No new strategy, constant, or census is contributed; certification does not create originality. ADMISSION_DEFECT: topic.audit_preflight decisive_checks claimed HAW gives only unspecified-alpha winning and the 1/12 upper half is logically independent of HAW; Lemma B refutes that preflight because HAW at 1/24 directly implies (1/12,1/2)-winning.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Even though literally false as a conjunction, the target is refuted only by direct lookup plus textbook transfer, which TARGET policy explicitly denies value. Plugging the named shift into Datta-Shao's all-shifts HAW theorem and applying elementary ball-avoidance geometry (move 11R/12, clearance 11/12>=1/8) is a mere parameter substitution / recomputation of a known stronger fact, with DRAFT itself stating 'no computation needed for the logic'. No shift-adapted separation, cluster analysis, or threshold computation decides the tail game; exploratory q=2..8000 statistics are unnecessary. ADMISSION_DEFECT: admission negative_resolution value case promised a threshold-crossing requiring new strategy-plus-counterstrategy computation, but the delivered refutation is a cheap lookup, so value fails per cheap-defect rule despite literal falsity.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Datta-Shao arXiv:2504.06795 full text via ar5iv: Theorem 1 states for theta(x)=(theta_i(x_i)) with theta_i Lipschitz and any weight w, Bad_theta(w) is hyperplane absolute winning, in particular winning; covers constant theta=gamma and w=(1/2,1/2). Introduction + Section 3 game setup consulted.",
+    "scope_literature_search fused results (SerpBase/Serpent + Crossref, OpenAlex zero hits, no partial failure): Datta-Shao 2504.06795 rank 1, BNY Bad(w) is HAW (GAFA 2021), An-Nesharim-Simmons homogeneous, Datta-Shao curves paper; no source states the (1/12,1/2) instance for this gamma, but broader HAW theorems subsume it.",
+    "inputs/artifacts/disproof_certificate.py replayed: 5/5 PASS (C1 bp=1/24<1/3, C2 11/12 vs 1/8, C3 equality, C4 1/24==1/24, C5 Lipschitz/weight); transfer_constants.py replayed: TRANSFER VERIFIED including general-alpha caps.",
+    "BNY/BFKRW HAW definition background via search snippets: HAW means beta-HAW for all beta<1/3 and implies Schmidt (alpha,beta)-winning; bp=1/24 is in range, so transfer is standard implication, not a new theorem."
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Datta-Shao Theorem 1: for every Lipschitz theta: R^d->R^d of split form and every weight vector w, Bad_theta(w) is HAW. Constant maps have Lipschitz constant 0, so every constant shift gamma in R^2 including (e-2,sqrt(3)-1) with w=(1/2,1/2) is covered. HAW at beta'=1/24<1/3 then yields (1/12,1/2)-Schmidt-winning by Lemma B.",
+      "reasoning": "The submitted positive half is a strict subset/special case of a broader published theorem. Instantiating a universal quantifier over all shifts at one named shift plus a standard HAW=>Schmidt implication does not add content; broader coverage therefore subsumes the headline and originality fails.",
+      "search": "Datta Shao Winning nullity inhomogeneous bad hyperplane absolute winning Lipschitz theta theorem"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior HAW (Datta-Shao for inhomogeneous, BNY 2021 for homogeneous) is strictly stronger than (1/12,1/2)-Schmidt-winning; Lemma B inequalities are exact rational identities (11/12>=1/8, 1==1, 1/24==1/24) with no new dynamics. The claimed non-existence of a Bob 12-cluster strategy follows immediately because Alice has a winning strategy.",
+      "reasoning": "The headline is a direct corollary/repackaging of the known stronger HAW fact via mechanical transfer. Title similarity is not relied upon; hypothesis-conclusion comparison shows prior implies submitted claim, so originality fails and certification alone cannot rescue it.",
+      "search": "hyperplane absolute winning Bad_theta weight HAW implies Schmidt alpha beta winning transfer"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched both Schmidt (alpha,beta)=(1/12,1/2) phrasing for this shift and hyperplane-absolute-game phrasing. No source states the (1/12,1/2) numbers for this gamma, but HAW formulation is the standard dual/stronger encoding: HAW(beta'=1/24) with deletion eps<=R/24 replayed at Schmidt scales gives identical balls and the same limit point in Bad^gamma.",
+      "reasoning": "Synonymous notation does not save the claim: the Schmidt-parameter instance and the HAW statement are equivalent via the proved transfer, and the HAW version was already published for all shifts. Absence of the literal numbers in prior titles does not establish priority.",
+      "search": "Bad gamma inhomogeneous badly approximable (1/12,1/2) Schmidt winning shift e-2 sqrt3-1"
+    },
+    "exact_database_or_table": {
+      "evidence": "No Schmidt-game parameter table or Bad-constant database lists a two-sided interval for this shift; e-digit and sqrt(3) continued-fraction tables carry no game-tree information. The refutation does not depend on any table: it follows from the general Datta-Shao theorem instantiated at gamma, so table absence is irrelevant to coverage.",
+      "reasoning": "Exact-table lookup is not the covering mechanism; the covering mechanism is the general theorem subsuming the parameter instance. Therefore lack of a database entry does not establish originality, and the finding remains a recomputation of a known stronger fact.",
+      "search": "Schmidt game parameter table Bad constant database continued fraction e sqrt3 shift winning interval"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
