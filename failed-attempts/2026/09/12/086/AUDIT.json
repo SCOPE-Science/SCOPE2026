@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "FAIL: the headline KP-II threshold k_c=1 is not established and the linearization sign is wrong for KP-II. From (u_t+6uu_x+u_xxx)_x+3u_yy=0 with exp(iky+lambda t)v, lambda v'+(L0 v)''-3k^2 v=0, so lambda D a=-D^2 L a+s a and the true Hill operator is M_true=-D L+s D^-1 (s=3k^2), not M=D L+s D^-1 stated. The report's zero condition (DLD+sI)w=0 and high-k Hamiltonian H=L-sQ^-1 inherit this sign; the independently verified exact pair DLD[sn dn]=-3 sn dn (sympy reduction gives (6cn^2+d_xx)cn^3=3cn exactly, hence DLD w2=-3w2, and F1/s=-3/4) therefore pins a zero of -DLD-sI=0, i.e. the KP-I operator M_KPI=-D L-s D^-1, not KP-II. Numerics showing closure at k=1 and gamma>0 on (0,1) match the wrong-sign operator and reproduce the expected KP-I long-wave instability, contradicting KP-II stability consensus. Separately, global KP-II stability on (1,sqrt(3)] rests on 6 sampled k values and dense-grid scans with noise floor 5e-10, not interval enclosures, so the two-sided exact cutoff lacks rigorous certification despite honest limitations.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "PASS: fused live retrieval (SerpBase/OpenAlex/Crossref/OpenAIRE, all ok, no partial failure) finds no prior exact k_c=1 for the m=1/2 cnoidal wave under either KP sign. Nearest works \u2014 Klein-Sparber arXiv:1108.3363 (KP-II stable for localized/y-periodic deformations, no spectral cutoff), Haragus 2011 small-amplitude KP transverse theory, Johnson arXiv:0905.4553 ZK long-wave index, Hakkaev-Stanislavova-Stefanov KP-I instability criterion, Jin Li 2017 KP-II bounded-perturbation stability thesis \u2014 state qualitative stability/instability without the genus-1 m=1/2 exact value, dual/sn-cn-dn encoding, or threshold curve covering it. No table, census, or database lists this cutoff; prior KP-II stability claims contradict rather than imply the submitted instability, so the literal headline is not mechanically implied or recorded.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "PASS on the question's significance: the admitted TARGET asks for the exact KP-II transverse cutoff versus no positive threshold for the natural genus-1 cnoidal at m=1/2 via Baker-Akhiezer/Floquet analysis. An exact k_c for that motivated object-invariant pair, unknown and not mechanically implied, is the STANDARD-eligible form of exact invariant of a specific natural object that a future researcher could need, not a textbook restatement, mere parameter substitution, tiny gain, or unexplained enumeration. Value is judged on the target type; correctness failure is recorded separately and drives REJECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: TARGET is exact k_c>=0 vs no positive threshold for m=1/2 cnoidal via Baker-Akhiezer KP-II Floquet analysis",
+    "inputs/DRAFT.md: Hill matrix M=D L+sD^-1, DLD eigenvalue s*=3/k=1, numerics k_c=1.000000+-1e-6, analytic k>sqrt(3) bound, admitted dense-grid (not interval) limitations",
+    "inputs/research_report.json claim_route=TARGET with same k_c=1 claim and Hill/Fourier/sympy evidence summary",
+    "inputs/STANDARD.md sky-survey-admission-depth-gate-v12 exact-invariant eligibility and four-check originality contract applied",
+    "inputs/artifacts/gamma_of_k.npz inspected: 161-point ks 0..1.6, gamma(0)=1.9e-9, gamma(0.99)=0.412, gamma(1.0)=1.4e-6, gamma>1 noise ~5e-10, peak 1.285 at k~0.79 \u2014 matches wrong-sign closure",
+    "independent sympy check: (6cn^2+d_xx)cn^3=3cn exactly, DLD[sn dn]=-3sn dn, DLD[cn dn]=-(3/4)cn dn at m=1/2; K=1.8540746773, L=3.7081493546, kap=1.6944261696 confirmed",
+    "arXiv:1108.3363 Klein-Sparber full text: KP-II stable for all amplitudes to localized perturbations; KP-I threshold behavior; y-periodic deformation cos(4y/Ly) at k=2 stable \u2014 no m=1/2 spectral k_c=1",
+    "Haragus 2011 doi:10.1111/j.1467-9590.2010.00501.x: small-amplitude KP-I unstable / KP-II spectrally stable to long transverse waves \u2014 qualitative only",
+    "Johnson arXiv:0905.4553: gKdV-ZK long-wave transverse index, no KP-II cnoidal cutoff",
+    "Jin Li 2017 McMaster thesis + Pelinovsky IMACS slides: claimed KP-II periodic-wave linear stability to bounded 2D perturbations \u2014 contradicts submitted KP-II instability, does not imply it"
+  ],
+  "claim_route_inference": "research_report.claim_route is explicitly TARGET; audited normally against admitted target with no preset-fallback value presumption",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched classification/census of transverse stability over all genus-1 moduli, stability-boundary curve k_c(m), exhaustive cnoidal census; results return only small-amplitude Haragus theory, KP-I instability criteria, soliton thresholds kappa_c=3^-1/4, and Klein-Sparber numerics with no k_c(m) curve or m=1/2 special case.",
+      "reasoning": "No broader theorem, larger parameter range, census, or classification was found whose hypotheses substantively imply the m=1/2 exact value; the claim is not a strict subset or special case of a covering result.",
+      "search": "Searched broader genus-1 transverse-stability classifications, stability-boundary curves k_c(m), and exhaustive cnoidal censuses that could subsume m=1/2"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior substantive results point the other way: Klein-Sparber finds KP-II stable for all amplitudes to localized perturbations; Jin Li thesis claims KP-II periodic-wave linear/bounded stability; Haragus proves small-amplitude KP-II spectral stability. None states or entails instability on 0<|k|<1 with edge k_c=1.",
+      "reasoning": "Title/embedding similarity does not establish coverage; comparing conclusions literally, no prior result implies the submitted two-sided cutoff, and the closest KP-II stability results contradict it, supporting novelty but exposing the sign/correctness defect.",
+      "search": "Searched whether any prior KP-II stability or KP-I instability theorem literally implies the submitted two-sided k_c=1 cutoff for m=1/2"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched transverse spectral instability of periodic KdV waves under KP-II Floquet-Hill formulation with synonymous notation (cnoidal/sn/cn/dn, transverse wavenumber cutoff, linearized operator, zone-boundary Bloch xi=kappa/2, DLD symmetric form) across SerpBase/OpenAlex/Crossref/OpenAIRE; hits are Haragus, Johnson-Zumbrun, Hakkaev et al., b-KP extensions, with only long-wave/sufficient instability criteria.",
+      "reasoning": "No dual/complement/incidence/matrix encoding or synonymous-name source states the same s*=3 / k=1 zone-boundary eigenvalue or threshold; the analytic pair DLD[sn dn]=-3 verified here has no prior record, so equivalent-formulation coverage fails.",
+      "search": "Searched synonymous Floquet-Hill and transverse-wavenumber formulations plus sn/cn/dn dual encodings of the m=1/2 cnoidal KP-II cutoff claim across SerpBase, OpenAlex, Crossref and OpenAIRE"
+    },
+    "exact_database_or_table": {
+      "evidence": "Searched for the exact parameter object in tables and official databases: KdV cnoidal m=1/2, L=2K(1/2), Fourier coefficients c0=0.45694, threshold k_c=1 / s=3, elliptic-integral handbooks, theta-function/KP solution databases; no table or database entry records this cutoff.",
+      "reasoning": "The exact m=1/2 threshold value does not already appear in any table or established database, so this is not a direct lookup or known-database recomputation.",
+      "search": "Searched official elliptic-function tables, theta-function and KP solution databases, and Fourier-coefficient records for the exact m=1/2 k_c=1 parameter object"
+    }
+  },
+  "residual_risks": [
+    "output/code/*.py scripts listed in artifact_inventory were not present under inputs/artifacts, so the sign implemented in code is inferred from the stated M/DLD formulas plus the gamma(k) closure at k=1 rather than direct code inspection",
+    "global (k,xi)-plane certification remains absent (dense grids only); even after sign correction a full interval-arithmetic enclosure would still be needed",
+    "KP-I versus KP-II normalization/scaling conventions vary across literature (coefficient 1 vs 3, y-scaling); audit normalizes to the draft's stated PDE (u_t+6uu_x+u_xxx)_x+3u_yy=0"
+  ],
+  "verdict": "REJECT"
+}
