@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Hand proof verified line-by-line. Lemma 1 (line meets unit circle at most twice) is standard quadratic argument and correct. Lemma 2 correctly classifies rich lines as exactly the 8 origin diameters: any 3-point line must contain origin plus two antipodal circle points, and no fourth point is possible. Lemma 3 correctly shows non-antipodal root pairs span ordinary lines and root-origin pairs lie on diameters. Pair accounting C(17,2)=136, 8*3=24 rich pairs, remainder 112 ordinary pairs each on a distinct ordinary line (two different pairs sharing a line would create a rich line) is exact. Independent replay of inputs/artifacts/verify_b17.py in exact Z[zeta16] arithmetic prints 120 lines, 8 rich diameters [k,k+8,16], 112 ordinary, 136/136 pairs covered, VERIFY_OK; float triple sweep confirms exactly 8 collinear triples. Degree-3 cell polynomial avoidance and counts disk:1, exterior x<1/2:11, x>1/2:5 also verified.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "PASS on strict prior-recording test for TARGET route (claim_route=TARGET, audited normally against admitted B17 >=9 claim). Fused live search over literal (16 roots plus origin 112 ordinary), equivalent (regular 16-gon with center Sylvester-Gallai Dirac-Motzkin n=17), and dominance (orchard/Green-Tao small-n census) directions found no source recording the B17 ledger. Green-Tao (arXiv:1208.4714) proves n/2 only for large n beyond a huge threshold; Csima-Sawyer 6n/13 gives only 7 at n=17 and does not imply 9 or 112; orchard tables cover small-n maxima plus asymptotics with no n=17 roots-plus-origin ledger. Hence the exact 112-line count is not previously recorded nor implied by the nearest substantive theorems. Trivial derivability from the generic circle lemma is a value defect, not prior recording, so originality passes under the shared standard.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL: ADMISSION_DEFECT. The admitted triviality/value preflight (topic.audit_preflight triviality_preflight PASS, positive-resolution value case as first exact stability data point in 15-19 window with reusable polynomial-cell ledger) is materially false on the proved facts. The exact ledger 112 vs threshold 9 exceeds Dirac-Motzkin by 13x: B17 is highly non-extremal and teaches nothing about few-ordinary-line stability, which concerns sets with ~n/2 ordinary lines, not 112. The count follows in three lines from the textbook fact that a line meets a circle at most twice, i.e. a standard undergraduate exercise applied to n=16, generalizing immediately to C(n,2)-n/2 for any even n-gon plus center with no new idea. The degree-3 polynomial (x^2+y^2-1/4)(x-1/2) plays no logical role in forcing the quota; the hand proof never uses it. No future researcher needs this precise non-extremal count for orchard-planting (which maximizes 3-point lines; B17 has only 8) or Green-Tao casework. Under STANDARD, textbook restatements, mere parameter substitutions, and certification alone without benchmark significance fail value even if correct and new. No bounded addition can repair this intrinsic triviality without changing the problem, so REJECT not REPAIRABLE.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Replayed inputs/artifacts/verify_b17.py in exact cyclotomic arithmetic Z[x]/(x^8+1) with conjugation x->-x^7: n=17, distinct lines=120, rich=8 exactly diameters [k,k+8,16], ordinary=112 exactly non-antipodal root pairs, pairs covered=136, VERIFY_OK; cell distribution disk:1, exterior x<1/2:11, x>1/2:5, f avoids B17.",
+    "Independent float determinant sweep over all 680 triples: exactly 8 collinear triples, all origin diameters, smallest nonzero determinant ~0.058, confirming nondegeneracy and Lemma 2.",
+    "Green-Tao On sets defining few ordinary lines (arXiv:1208.4714 / doi:10.1007/s00454-013-9518-9): proves >=n/2 ordinary lines and near-cubic structure only for large n beyond explicit huge threshold; snippet confirms large-n scope, leaving n=17 without certificate.",
+    "Terry Tao blog and orchard-planting problem survey (Wikipedia) plus MathWorld Ordinary Line / Csima-Sawyer 6n/13 bound: universal bound gives floor(6*17/13)=7 at n=17, below threshold 9; orchard tables tabulate small-n maxima and asymptotics with no 17-point roots-plus-origin ledger.",
+    "Live scope_literature_search fused results (SerpBase Top 10 + OpenAlex Top 15 + Crossref Top 15 per query, 3 queries, 20 fused hits, full coverage, partial=false): literal, equivalent (regular 16-gon with center / Sylvester-Gallai / Dirac-Motzkin n=17), and dominance (orchard / Green-Tao census) directions all return only Green-Tao structural sources, roots-of-unity background, and orchard surveys with no B17 112-line record."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Green-Tao proves n/2 and near-cubic classification only for n beyond a double-exponential threshold; Csima-Sawyer proves 6n/13 unconditionally (7 at n=17). No classification of all 17-point few-ordinary-line sets or finite Green-Tao extension to n=17 was found in fused results.",
+      "reasoning": "No broader theorem or completed census covers B17 as a special case: the large-n theorem explicitly excludes n=17 and the universal bound falls below threshold 9, so broader coverage does not subsume the headline.",
+      "search": "classification of all n=17 few-ordinary-line sets finite Green-Tao extension threshold"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior substantive bounds (Green-Tao large-n n/2, Csima-Sawyer 6n/13=7 at n=17) do not compute the B17 ledger and do not imply 112 or even 9. However the generic textbook lemma that a line meets a circle at most twice implies the 112 count in three lines once B17 is written down.",
+      "reasoning": "The claim is not implied by the nearest substantive prior theorems, so it is not a repackaged corollary of them; but it is mechanically implied by elementary geometry, which is why originality narrowly passes while value fails as a textbook exercise with no stability content.",
+      "search": "Green-Tao Dirac-Motzkin large-n threshold versus Csima-Sawyer 6n/13 small-n bound implication at n=17"
+    },
+    "equivalent_formulations": {
+      "evidence": "Consolidated searches under Boroczky 17-point fragment, Dirac-Motzkin n=17 instance, regular 16-gon with center plus Sylvester-Gallai ledger, and ordinary-line blocking-polynomial phrasings all returned the same Green-Tao sources and generic roots-of-unity pages with no instance-specific B17 112-line count.",
+      "reasoning": "Agreement across synonymous, dual, and encoding variants shows the missing ledger is genuinely unrecorded rather than hidden under alternate notation, but the derivation remains a textbook circle exercise.",
+      "search": "Boroczky 17-point ordinary lines Dirac-Motzkin instance ledger regular 16-gon with center"
+    },
+    "exact_database_or_table": {
+      "evidence": "OEIS orchard records, MathWorld ordinary-line tables, and textbook Sylvester-Gallai examples tabulate small-n maxima (n<=12) plus asymptotic formulas; fused OpenAlex/Crossref/SerpBase results contain no table entry for 16 roots plus origin with 120 lines / 112 ordinary.",
+      "reasoning": "The exact parameter set does not already appear in an official database or census table, so the finding is not database recomputation; it is instead an unrecorded but trivial enumeration with no benchmark need.",
+      "search": "OEIS orchard maximum ordinary-line tables n=17 census regular polygon plus center ledger"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
