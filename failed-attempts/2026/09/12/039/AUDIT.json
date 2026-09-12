@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness of the two certified equalities was independently replayed. verify.py passes: A1-A4 each have 57 blocks with 171 pairs covered exactly once; partition10_A1.txt is 10 disjoint partial parallel classes covering A1 with sizes 6x7+5x3=57; partition12_A4.txt is 12 disjoint classes covering A4 with sizes 3,4,5x10=57. An independent re-check confirmed the 12-partition and, with a differently ordered branch-and-bound, that A4 has maximum matching size 5 (no 6 disjoint blocks), so 11 classes cover at most 55<57 blocks and chi(A4)>=12, hence chi(A4)=12. For A1, ceil(57/6)=10 gives chi(A1)>=10, so the verified 10-partition pins chi(A1)=10. The A2/A3 10-status is honestly left as heuristic evidence only. EMERGENT_FINDING route is genuine (same target objects and exact-cover methodology), so no scope-evasion discount applies to correctness.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The headline chi(A4)=12 via no-6-matching plus a 12-partition is already recorded and substantively implied by Colbourn et al., Properties of the STS(19), EJC 17:R98 (2010, DOI 10.37236/370). Theorem 6 states the chromatic-index census of all 11,084,874,829 STS(19)s is 10/11/12 in counts 11084870752/4075/2, and expressly that exactly the two STS(19)s with no almost parallel class have index 12. Section 2.7 identifies those two as A4 (cyclic system A4 in Mathon-Phelps-Rosa notation, Aut order 171, Netto system) and the unique Aut-432 design. Since an almost parallel class in STS(19) is exactly 6 pairwise-disjoint blocks, prior 'A4 has no almost parallel class and has index 12' literally covers the submitted 'A4 has no 6 disjoint blocks so 11 classes cover at most 55, and a 12-partition exists'. The new explicit partition files and stdlib verifier are a recomputation/certificate of a known stronger census fact, which under the shared STANDARD does not create originality. A timestamp or de novo computation does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As an exact invariant of a natural motivated object the question is well posed, and the EMERGENT_FINDING genuinely arose from the admitted target investigation, so no evasion penalty applies. But under the shared STANDARD an exact invariant is eligible only when the exact value is not already known or mechanically implied, and certification alone does not create value. Here chi(A4)=12 and its counting obstruction (no almost parallel class) were published in the completed 2010 STS(19) census (Theorem 6 plus Section 2.7 naming A4), and chi(A1)=10 is the generic census outcome shared by 11,084,870,752 designs. A future researcher needing the precise fact would retrieve the prior census record, not a recomputation. Hence the submission is a known-database recomputation with no new boundary, datum, or downstream use, and fails the independent-retrieval value threshold.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-executed inputs/artifacts/verify.py: A1-A4 STS(19) OK (57 blocks, 171 pairs); partition10_A1.txt 10-partition sizes [5,5,5,6x7]; partition12_A4.txt 12-partition sizes [3,4,5x10]; A4 no-6-matching confirmed, ALL CHECKS PASSED.",
+    "Independent re-verification with a differently ordered branch-and-bound: A4 max matching size = 5; 12-partition disjointness/coverage re-checked against developed blocks; A1 ceil(57/6)=10 lower bound confirmed; classify.py reproduced 864 ordered families fusing to 4 classes with Aut orders 19/57/57/171.",
+    "Colbourn, Forbes, Grannell, Griggs, Kaski, Ostergard, Pike, Pottonen, Properties of the Steiner Triple Systems of Order 19, Electron. J. Combin. 17 (2010) R98, DOI 10.37236/370 (verified via journal page and abstract: all STS(19) have chromatic index 10 except 4075 with 11 and two with 12). Full-text content extracted from the publisher PDF download stream confirming Theorem 6 and Sections 2.7-2.8.",
+    "Publisher PDF text: Theorem 6 numbers with chromatic index 10/11/12 are 11084870752/4075/2, consequently exactly the two STS(19)s with no almost parallel classes have index 12; Section 2.7: exactly two STS(19)s with no almost parallel classes, namely A4 and the unique design with automorphism group order 432; Section 2.8: minimum index 10, no-APC implies index at least ceil(57/5)=12; A1-A4 defined as the cyclic systems as listed in Mathon-Phelps-Rosa, A4 (Aut 171) both cyclic and 2-rotational (B8, Netto system).",
+    "Bryant-Colbourn-Horsley-Wanless, Steiner triple systems with high chromatic index, arXiv:1702.00521 / SIAM J. Discrete Math. 31 (2017) 2603-2611, confirming the post-2010 literature position: only 2 of the 11,084,874,829 STS(19)s have index m(v)+2=12, citing Colbourn et al. R98 as reference [9].",
+    "Kaski-Ostergard-Pottonen official STS(19) classification database page http://pottonen.kapsi.fi/sts19/ (11,084,874,829 systems classified 2004, compressed catalogue 2009) plus Kaski-Ostergard Math. Comp. 73 (2004) classification paper: establishes the exhaustive census/database that subsumes any per-system cyclic-STS(19) chromatic claim."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Colbourn et al. R98 Theorem 6 gives the chromatic-index distribution over the entire exhaustive classification of all 11,084,874,829 STS(19)s: 11084870752 with index 10, 4075 with index 11, 2 with index 12. The four cyclic systems A1-A4 are a 4-element subset of that classified universe.",
+      "reasoning": "The submitted A4-equals-12 claim is a strict special case of this broader completed census theorem. A prior source need not restate the headline verbatim: exhaustive coverage of the whole class with A4 identified as one of the two index-12 cases substantively implies the headline, so originality fails and the new work is a corollary/repackaging of the stronger fact.",
+      "search": "Full STS(19) census chromatic-index distribution over all 11 billion systems: Colbourn et al. 2010 Theorem 6 counts for indices 10/11/12 and any stronger classification subsuming the four cyclic systems"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior: (i) A4 is one of exactly two STS(19)s with zero almost parallel classes (R98 Section 2.7: A4 and the Aut-432 design); (ii) exactly those two have chromatic index 12 (R98 Theorem 6). Submitted: A4 contains no 6 pairwise-disjoint blocks so 11 classes cover at most 55<57, plus an explicit 12-partition, hence chi(A4)=12. An almost parallel class of STS(19) is defined in R98 as 6 pairwise-disjoint blocks, identical to the submitted obstruction.",
+      "reasoning": "Hypotheses and conclusions match literally up to synonymy: no-APC equals no-6-matching, and index 12 equals the claimed exact value. The prior result therefore implies the headline in both directions (lower bound via the same counting, upper bound implicit in index exactly 12), leaving only a new certificate, which the STANDARD says cannot create originality or value.",
+      "search": "Literal hypothesis-conclusion comparison: submitted A4 no-6-matching plus 12-partition equals 12 versus prior A4 no almost parallel class and chromatic index 12"
+    },
+    "equivalent_formulations": {
+      "evidence": "R98 Sections 2.7-2.8 use: chromatic index = smallest number of block colours with intersecting blocks different (i.e. partition into partial parallel classes); almost parallel class = partial parallel class with floor(19/3)=6 blocks; no-APC design needs at least ceil(57/5)=12 colours. The submission uses identical notions under the names partial parallel class, 6 pairwise-disjoint blocks, and block chromatic index.",
+      "reasoning": "Searching synonymous notation (block colouring, edge-colouring of 3-uniform linear hypergraph, almost parallel class, maximum matching/packing number 5 vs 6) does not escape the prior: the vocabularies are inter-translatable and the R98 census explicitly tabulates almost-parallel-class counts (Table 8, zero-count 2) and line-graph colourings, so the equivalent-formulation failure mode confirms coverage rather than novelty.",
+      "search": "Synonymous and dual encodings searched: block colouring versus chromatic index, almost parallel class versus 6 disjoint blocks, partial parallel class versus matching, line-graph chromatic number, upper chromatic index"
+    },
+    "exact_database_or_table": {
+      "evidence": "The exact object A4 appears by name in the official record chain: Mathon-Phelps-Rosa cyclic listing A1-A4 (adopted explicitly in R98: A1-A4 are the cyclic systems as listed in [35], A4 Aut order 171 = B8 Netto system); Kaski-Ostergard 2004 classification and Pottonen compressed catalogue of all STS(19)s; R98 Table 8 almost-parallel-class distribution and the compact supplement of the 104 highly symmetric systems including A4.",
+      "reasoning": "Because the exact parameter/object (cyclic A4 with base triples (0,1,8),(0,2,5),(0,4,13)) is already present in established tables and the complete classified database, and its index-12 value is fixed there, the claim is a direct table/database lookup recomputation, not a new census fact, so both originality and database-novelty fail.",
+      "search": "Exact object in official tables searched: Mathon-Phelps-Rosa cyclic STS(19) A1-A4 base triples, Kaski-Ostergard-Pottonen STS(19) database, R98 Table 8 and A4/Aut-432 listings"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
