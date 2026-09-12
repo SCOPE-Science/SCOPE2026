@@ -1,0 +1,93 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Replayed output/artifacts/verify_separator.py: VERIFY_OK. Part A is an exact sympy polynomial identity: with q^D_g = A B C D E_{g1+g2}(L F_{g1}H_{g1+g2}+(1-L)K_{g1}H_{g2}), the pairs (0000,0011) share M(0,0) and (1111,1100) share M(1,1), so f0=q0000 q1111-q0011 q1100 cancels identically; hence f0 vanishes on the D image and on its Zariski closure, so f0 in I(D). The (2 3) leaf-transposition transport from Brits split 13|24 to 12|34 is algebraically correct (E_{g1+g3}->E_{g1+g2}). Part B independently recomputed in exact Fraction arithmetic: at the Theta0 stochastic point (all Fourier 0-params 1, 1-params 1/2,1/3,1/4,1/5, L=1/2) the Cummings 4-sunlet parametrization gives q0000=1, q1111=23/28800, q0011=1/120, q1100=11/240, so f0=23/28800-22/28800=1/2400 != 0 with all eigenvalues in (0,1); hence this S-variety point witnesses f0 not in I(S). f0 uses only even-weight variables so lies in the CFN Fourier ring R, not a JC/K2P/K3P ring. Therefore I(D) != I(S) is rigorously proved; this is a genuine disproof of the admitted target I(D)=I(S), not a normalization/vacuity/tiny-instance artifact. No ADMISSION_DEFECT: topic audit_preflight type, normalization, vacuity, and table checks are confirmed correct.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Headline is the CFN ideal inequality I(D)!=I(S) with explicit separator f0=q0000 q1111-q0011 q1100 (CFN Z2 ring) for single-triangle D (split 12|34, hybrid 1) versus 4-sunlet S (order (1,2,3,4), hybrid 1). No source records this pair comparison. Cummings et al. (arXiv:2102.03431) characterizes CFN sunlet quadrics (quadratic in sunlet ideal iff in both displayed-tree ideals) and conjectures generation, but never compares a triangle network against the 4-sunlet and never evaluates this f0 pairing. Brits et al. (arXiv:2607.12919) Lemmas 4.3/4.5/4.6 and Theorem 4.9 prove full identifiability on Theta0 for JC/K2P/K3P: Lemma 4.6 shows Q_{12|34} vanishes on split-12|34 quarnets (with a CFN-embedding remark as a proof device) but its non-vanishing argument explicitly excludes the 4-sunlet topology (deferred to Lemma 4.5 topology separation on Theta0 restricted images, which does not imply CFN ideal inequality). Gross-Krone-Martin dimensions are triangle-free only. The Pfaffian paper (arXiv:2312.07450) describes an affine CFN sunlet patch, not a triangle-versus-sunlet ideal comparison. No database row (OscarDB/MathRepo/Macaulay2 docs/tutorials) certifies this CFN pair. The synthesis of a triangle-side factorization with a sunlet-side stochastic non-vanishing witness is a new cross-skeleton boundary fact, not a mechanical single-source corollary, renaming, or recomputation.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "TARGET route: rigorous disproof of the exact admitted target I(D)=I(S). Per policy this is a complete resolution, and it is not a cheap defect: same CFN ring, proper nonzero ideals, positive-dimensional varieties, no linear separator, stochastic interior witness (all 1-eigenvalues in (0,1), L=1/2), no database lookup. Admission preflight correctly ruled out type/normalization/vacuity/tiny-instance/table falsification; no ADMISSION_DEFECT. Substantively, this is the first exact CFN 3-cycle versus 4-cycle separator for the canonical triangle-versus-sunlet quarnet pair, deciding whether binary CFN data retains cycle-length information where JC/K2P/K3P split arguments are unavailable. It is immediately usable: CFN quartet puzzling must not merge these signals and can deploy f0 as a cycle-length diagnostic (zero on all of D, nonzero on an open subset of S). Natural minimal scope (four taxa, one reticulation, fixed hybrid leaf), motivated before computation, precise fact a future researcher could need. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "Brits/Holtgrefe/van Iersel/Martin, On Tree-Network Distinguishability and Full Identifiability of Phylogenetic Networks, arXiv:2607.12919v3 \u2014 Lemmas 4.3/4.5/4.6, Theorem 4.9/Corollary 4.10: JC/K2P/K3P full identifiability on Theta0; Lemma 4.6 proves Q_{12|34} vanishes on split-12|34 quarnets (CFN embedding as proof device) but excludes the 4-sunlet from the Q non-vanishing argument; Lemma 4.5 separates topologies via trinet inequalities on restricted model images, not CFN ideals.",
+  "Cummings/Hollering/Manon, Invariants for level-1 phylogenetic networks under the CFN Model, arXiv:2102.03431v1 \u2014 Theorem: quadratic is CFN sunlet invariant iff invariant for both displayed trees; complete quadric enumeration with generation left as conjecture; Sections 2-5 (Examples 2.6/2.8, Section 5.1 J4) give tree ideals and the 4-sunlet quadric structure but state no triangle-versus-sunlet ideal comparison or separator.",
+  "Cummings/Gross/Hollering/Martin/Nometa, The Pfaffian Structure of CFN Phylogenetic Networks, arXiv:2312.07450 \u2014 affine open CFN sunlet patch factoring via Pfaffians, explicit Groebner basis in binomial(n,2) coordinates for network inference; no triangle-network comparison and no D12|34 versus 4-sunlet ideal certificate.",
+  "Gross/Krone/Martin, Dimensions of Level-1 Group-Based Phylogenetic Networks (triangle-free dimension formula) plus live fused search (SerpBase/OpenAlex/Crossref, all providers ok, 20 fused results) and MathRepo Pfaffian page \u2014 confirms no published CFN triangle-versus-sunlet variety equality or separator and no database certificate row deciding the pair.",
+  "Independent replay: output/artifacts/verify_separator.py prints VERIFY_OK (Part A exact sympy identity f0 o psi_D = 0; Part B exact Fraction witness q0000=1, q1111=23/28800, q0011=1/120, q1100=11/240, f0=1/2400; Part C numeric D sanity); manual Fraction recomputation of the S bracket confirmed."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Brits Theorem 4.9/Corollary 4.10 and Lemmas 4.5-4.6 prove JC/K2P/K3P model-image disjointness on the stochastic Theta0 parameter space (Lemma 4.5 via trinet inequalities for distinct topologies; Lemma 4.6 via Q_{12|34} excluding the 4-sunlet case); Gross-Krone-Martin dimensions assume triangle-free networks. None states a CFN complex-ideal inequality for D versus S.",
+   "reasoning": "Restricted-image disjointness in larger JC/K2P/K3P models does not imply CFN Zariski-ideal inequality, and the only CFN-adjacent remark (Lemma 4.6 vanishing on split networks) is one-sided and explicitly leaves the sunlet side to topology separation. Hence no broader theorem subsumes or mechanically yields I(D)!=I(S) in the CFN ring.",
+   "search": "level-1 group-based network ideal classification CFN triangle versus sunlet Gross Cummings Brits broader theorem"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Cummings quadric criterion (sunlet quadratic iff in both displayed-tree ideals) plus textbook CFN tree minors implies f0 is not a 4-sunlet invariant, and Brits split-12|34 vanishing implies f0 is a D invariant \u2014 but no prior source performs this cross-paper triangle-versus-sunlet pairing, states the separator, or exhibits the stochastic CFN witness with value 1/2400.",
+   "reasoning": "Each side alone is a lemma/criterion; the pairwise CFN cycle-length separator combining the triangle factorization with the sunlet non-membership plus an explicit Theta0 certificate is new logical content, not a verbatim corollary or repackaging of either paper, so prior work does not substantively imply the headline.",
+   "search": "CFN sunlet quadratic invariants generate ideal versus triangle sunlet pair separator implication"
+  },
+  "equivalent_formulations": {
+   "evidence": "Searched CFN triangle versus 4-cycle quarnet identical variety and separating invariant formulations; retrieved sources state only JC/K2P/K3P skeleton-equality or split-separation (Brits Q_{12|34} for K3P/JC/K2P) and CFN sunlet-only quadrics (Cummings). No source states the CFN varieties of D12|34 and the 4-sunlet coincide or exhibits a CFN polynomial vanishing on exactly one.",
+   "reasoning": "The equivalent geometric claim (equal vs distinct CFN varieties) is likewise unrecorded, and JC Q_{12|34} lives in the Z2xZ2 Fourier ring while f0 lives in the CFN Z2 ring, so this is not a synonymous-notation or dual-encoding restatement of a known result.",
+   "search": "CFN triangle versus 4-cycle quarnet identical variety separating invariant equivalent formulation"
+  },
+  "exact_database_or_table": {
+   "evidence": "Four-leaf repositories, Macaulay2 phylogenetics documentation, tutorial invariant lists, algebraicphylogenetics.org notation pages, MathRepo Pfaffian page, and OscarDB (CFN trees/networks) were screened via fused search; they provide JC/K2P scores, tree ideals, selected CFN quadrics, or patch Groebner bases, with no certified two-sided CFN Groebner comparison row asserting I(D)=I(S) or a separator for D12|34 against S.",
+   "reasoning": "Without a database certificate row deciding this exact pair, direct lookup cannot resolve the target, so independent symbolic-plus-witness computation was required; the finding is not database repackaging.",
+   "search": "4-leaf network invariant database CFN triangle sunlet ideal certificate table lookup"
+  }
+ },
+ "perplexity_final_check": {
+  "check_id": "90c564dffa16da4f1f5f14328986d2feda60394d488120baaeccd4a285d93681",
+  "decisive_prior_found": false,
+  "decisive_sources": [],
+  "incremental_prior_found": false,
+  "material_sources": [
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Gross-Krone-Martin Theorem 1.2 gives the CFN dimension formula m-(c>=5+2c4+3c3)+1 and Section 6 gives only triangle-free (Prop 6.9) and sunlet-vs-sunlet (Props 6.7-6.8) distinguishability; verified in full text. It never states that the explicit CFN quadric f0=q0000 q1111-q0011 q1100 lies in I(D) but not I(S) for the exact D12|34 versus 4-sunlet pair, and gives no stochastic Theta0 witness with value 1/2400. The remark that a 3-cycle variety has lower dimension than a 4-cycle variety is scoped to JC/K2P/K3P DNA models, not a CFN ideal separator.",
+    "title": "arXiv:2307.15166v2  [q-bio.PE]  12 Sep 2023",
+    "url": "https://arxiv.org/pdf/2307.15166"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Thesis Lemma 1(iii)-(vi) and Lemma 2 state that k1-cycle versus smaller-cycle and triangle versus 4-cycle 4-leaf networks are distinguishable, explicitly under JC, K2P, or K3P constraints (summarized as K2P/K3P 4-cycle versus triangle distinguishability). The hypotheses never include the CFN Z/2 Fourier ring, and the snippet states no CFN polynomial vanishing on exactly one of D12|34 and the 4-sunlet and no stochastic CFN witness, so it cannot imply the submitted CFN separator claim.",
+    "title": "Distinguishing level-1 phylogenetic networks on the basis ...",
+    "url": "https://d-nb.info/1246602687/34"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Paper describes scoring the twelve 4-leaf semi-directed topologies by Fourier-transforming empirical pattern distributions and evaluating stored invariants, noting JC large-cycle generic identifiability and group-based 3-cycle reticulation-vertex non-identifiability. It is an inference pipeline with JC-focused identifiability discussion, not an exact theorem that the CFN ideals of D12|34 and the 4-sunlet differ via the certified quadric f0 with a 1/2400 Theta0 witness.",
+    "title": "Algebraic Invariants for Inferring 4-Leaf Semi-Directed Phylogenetic ...",
+    "url": "https://academic.oup.com/sysbio/advance-article/doi/10.1093/sysbio/syaf071/8285810"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Paper states CFN quartet-tree invariants including q0000 q1111 = q1100 q0011 and internal-edge parameter inequalities. Its hypotheses and conclusions concern phylogenetic trees only, so it supports at most the D-side background (split-tree minors) and never addresses the 4-sunlet side non-membership, the triangle-versus-sunlet pair comparison, or any stochastic sunlet witness.",
+    "title": "Fourier transform inequalities for phylogenetic trees",
+    "url": "https://arxiv.org/pdf/0711.3492"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "relationship_to_claim": "ArXiv PDF of the same Pfaffian CFN sunlet paper already reviewed in the base audit (arXiv:2312.07450): an affine sunlet patch factoring through skew-symmetric matrices via Pfaffians with a Groebner basis in binomial(n,2) coordinates and n>=6 sunlet identifiability. It studies sunlet networks only, with no triangle-network comparison and no D12|34 versus 4-sunlet ideal separator, so it duplicates base coverage rather than adding a prior.",
+    "title": "The Pfaffian Structure of CFN Phylogenetic Networks",
+    "url": "https://arxiv.org/pdf/2312.07450"
+   }
+  ],
+  "rationale": "Terminal Perplexity check (20 results, 4 overlapping the base set) added no decisive prior. The most dangerous new lead, Gross-Krone-Martin arXiv:2307.15166 Theorem 1.2, was verified in the primary full text: it is a CFN dimension formula plus triangle-free and sunlet-vs-sunlet identifiability, with the 3-cycle versus 4-cycle dimension remark scoped to JC/K2P/K3P DNA models; it never states or implies the explicit CFN separator f0 in I(D)\\I(S) with a 1/2400 Theta0 witness, so a non-constructive dimension difference does not cover the certified headline. The d-nb thesis (JC/K2P/K3P triangle-vs-4-cycle lemmas), the 4-leaf invariants inference paper/thesis (JC-focused scoring pipeline), and the tree-inequalities paper (CFN tree minors only) are likewise close in keywords but differ in model hypotheses or objects and state no CFN D-versus-S certificate. Remaining hits were keyword-similar only (clock models, theses generalities, tutorials, level-2 work, corrupted PDF) or duplicates of base sources (Cummings 2102.03431, Pfaffian 2312.07450, Brits 2607.12919). Hence no source meets COVERS_CLAIM; originality PASS is preserved with no verdict change.",
+  "status": "COMPLETE",
+  "verdict_changed": false
+ },
+ "residual_risks": [],
+ "verdict": "PASS"
+}
