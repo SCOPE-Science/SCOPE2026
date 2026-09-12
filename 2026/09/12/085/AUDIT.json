@@ -1,0 +1,93 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route (claim_route=TARGET): disproof of exact fixed target K=Q(zeta_8), S={p2,r7}, coeff 4. Verified: Q(zeta_8) degree 4, h=1, N(1-zeta8)=Phi_8(1)=2 so p2=(1-zeta8) unique above 2 with F2; 7 has order 2 mod 8 giving 2 primes with F49. Re-ran compute_tame_symbol.py and independent F49 check: x^4+1=(x^2+3x+1)(x^2+4x+1) mod 7, disc 5 nonsquare, u=1-x gives u^12=[1,3]/[1,4], u^24=-1, u^48=1, u^12!=+-1 in BOTH fields, so exact order 4. Kummer order argument (v=1 implies order 4), tame formula u^{(49-1)/4} up to inversion (order-preserving), product formula forcing wild symbol to inverse-primitive, and AV trace = sum of cancelling locals =0 are all standard and correctly applied. Both choices of r7 covered; order conclusions (0 vs primitive vs 2 mod 4) invariant under mu4~=Z/4 and inversion. No computation error or boundary gap.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Submitted three normalized forms in one scope_literature_search call (literal wild Z/4 AV cup-trace at p2,r7 over Q(zeta_8); equivalent 4th-power Hilbert/tame-symbol u^12 formulation; dominance query for general reciprocity/AV-duality/LMFDB census). Tool returned 20 fused results with full provider coverage (partial=false). Screened snippets/metadata; fetched LMFDB NumberFields scope and attempted primary Hilbert/explicit-reciprocity/AV sources. Nearest priors are only general theory: Hilbert norm-residue definition, explicit reciprocity laws, Deninger/Zink/Mazur AV duality, McCallum-Sharifi cup product for K=Q(mu_p) odd-p single-prime case, Ihara/Morishita arithmetic-topology program. None states or computes the exact pair ((1-zeta8),pi_7) tame value, wild value, or cup-trace w for this S. LMFDB records fields/splitting/class numbers, not Hilbert symbols or cup-traces. General product formula implies w=0 given the two locals cancel but does not imply the specific primitive order-4 value, which required the F49 computation. No synonymous-notation, dual-encoding, broader-theorem, table, or recomputation coverage found. Timestamp/failed-fetch never used as priority evidence.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET disproof is a complete two-sided resolution and is independently retrievable under STANDARD. Object and invariant were motivated before computation: minimal mu4-containing cyclotomic field, wild prime above 2, tame prime above 7 with F49 admitting nontrivial 4th-power symbols, AV trace vs norm-residue symbol in arithmetic topology. Exact values (tame primitive order 4 both r7 choices, wild inverse-primitive, literal trace 0, linking normalization primitive) were unknown and not mechanically implied by general reciprocity, and a future researcher testing any linking-equals-symbol conjecture needs this precise datum. The negative outcome is not a cheap defect: order statements survive all standard mu4~=Z/4 and inversion normalizations (2 mod 4 is fixed by inversion while 0/primitive are distinct), both normalizations checked, no vacuity, no direct lookup, no arbitrary slice. Hence no ADMISSION_DEFECT; value passes without requiring a new general theorem or completed census.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Theorem disproof (Sections 2-6) and research_report.json claim/evidence/limitations, read in full",
+    "Re-executed inputs/artifacts/compute_tame_symbol.py (pure Python mod-7 arithmetic) and independent F49 reimplementation: factorization, discriminant 5 nonsquare, u^12 order-4 in both residue fields confirmed; output matches tame_symbol_output.txt",
+    "scope_literature_search fused set of 20 results across SerpBase/OpenAlex/Crossref/OpenAIRE with partial=false; screened all titles/snippets/provenance including Hilbert-symbol, Artin-Verdier duality, cup-product in Galois cohomology, arithmetic topology Ihara II, LMFDB NumberFields",
+    "LMFDB NumberFields database fetched in full (22,444,816 fields degree<=47; records fields, splitting, class numbers \u2014 no Hilbert-symbol or cup-trace tables)",
+    "Standard references for cited background facts: Washington cyclotomic class number h(Q(zeta_8))=1, tame Hilbert formula u^{(q-1)/4} for v not dividing 2, Hilbert product formula, Artin-Verdier local-invariant sum; verified order-invariance under inversion/automorphism of Z/4"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused results returned only general statements: Deninger/Zink Artin-Verdier duality, McCallum-Sharifi cup product for K=Q(mu_p) with p odd and S={prime above p}, Morishita/Ihara arithmetic-topology Milnor programme, and general explicit reciprocity laws. None treats n=4 wild pair with S={p2,r7} over Q(zeta_8). General reciprocity relates wild to tame but does not determine their common order.",
+      "reasoning": "A broader theorem would need to entail that this specific tame symbol is primitive order-4 or that w=2 mod 4 fails. The general product formula plus AV duality imply literal trace 0 conditional on the local values, but the decisive primitive-order datum still requires the F49 computation, so no broader theorem subsumes or implies the headline disproof.",
+      "search": "Searched dominance query: general fourth-power reciprocity, Artin-Verdier duality, cyclotomic census/classification, and established databases that could cover wild Z/4 linking at p2,r7 over Q(zeta_8) as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Compared hypotheses/conclusions literally: prior explicit-reciprocity formulas give the shape (u,pi)=u^{(q-1)/4} up to convention, and AV duality gives trace=sum of local invariants. Neither prior computes u=1-x to the 12th power in the two F49 fields nor evaluates this wild pair. The submitted headline adds the certified order-4 values for both residue fields, the inverse-primitive wild value, and the 0-vs-primitive-vs-order-2 table under both normalizations.",
+      "reasoning": "Title or embedding similarity to Hilbert-symbol or AV-duality literature does not establish coverage. Because no prior source derives the exact F49 order or the resulting failure of the order-2 value, the headline is not a corollary, certificate, or repackaging of a known stronger fact.",
+      "search": "Compared literal claim (both Hilbert symbols primitive order 4, literal trace 0, linking term primitive, never 2 mod 4) against the conclusions of the nearest Hilbert-symbol and Artin-Verdier prior works."
+    },
+    "equivalent_formulations": {
+      "evidence": "Screened synonymous encodings: norm-residue/Hilbert/power-residue/tame symbol, mu_4 vs Z/4 identification via zeta_4=i, linking-number vs literal AV-trace normalization, and inversion/automorphism conventions. General pages define the tame symbol as u^{(q-1)/4} up to inversion; inversion preserves element order, and 2 mod 4 is fixed by inversion while primitive roots {1,3} swap, so no convention converts 0 or primitive into 2 mod 4.",
+      "reasoning": "No equivalent formulation found in prior literature computes this exact pair or yields 2 mod 4. The order-based disproof is invariant under all standard equivalent representations, so synonymous notation, dual/complement, or matrix/algebraic encodings do not create hidden coverage.",
+      "search": "Searched equivalent representations: fourth-power Hilbert norm-residue symbol, tame symbol u^12 in F49, mu_4 versus Z/4 Kummer classes, and arithmetic-topology linking-number normalizations with inversion conventions."
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB NumberFields page confirms the database records number fields, splitting data, and class groups (including class-number-1 fields like Q(zeta_8)) but contains no tables of Hilbert-symbol values, cup products, or Artin-Verdier traces for specific S-unit pairs. Washington tables record h(Q(zeta_8))=1, not the symbol. The exact F49 values u^12=[1,3] and [1,4] with square -1 appear only in the submitted computation artifacts.",
+      "reasoning": "Because no official table or database tabulates the exact parameter pair ((1-zeta_8),pi_7) symbol or the cup-trace w, the headline is not a direct lookup or known-database recomputation; the certified script output is the primary evidence.",
+      "search": "Searched exact-parameter coverage: LMFDB number-field tables, cyclotomic class-number tables, and any F49 tame-symbol table for (1-zeta_8, pi_7) at primes above 7."
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "449e164697763e4f5e44f11a455e69386bb7c963bf1fcde1761e194b13020817",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "A cup product in the Galois cohomology of number fields",
+        "url": "https://www.math.ucla.edu/~sharifi/pairing.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "States the general Kummer cup-product pairing on S-units with values in H^2(G_K,S, mu_n^otimes2) for general n,K,S; it computes no exact Q(zeta_8) pair ((1-zeta_8),pi_7), no F49 u^12 order, and no Artin-Verdier trace w, so its general hypotheses cannot imply the headline disproof.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "A Cup Product in the Galois Cohomology of Number Fields",
+        "url": "https://arxiv.org/abs/math/0202161",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Abstract restricts primary focus to K=Q(mu_p) with n=p an odd prime and S the unique prime above p plus a formula when one entry is a p-th root of unity; headline uses K=Q(zeta_8), n=4, two-prime S={p2,r7} with wild-plus-tame entries, so hypotheses are disjoint and the conclusion cannot cover the exact primitive order-4 datum.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Modular curves and cyclotomic fields Romyar T. Sharifi",
+        "url": "https://swc-math.github.io/aws/2018/2018SharifiNotes.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Expository notes restating the McCallum-Sharifi pairing for Fn=Q(mu_{p^n}) with S the primes over p, restricted to cyclotomic p-units and landing in class-group eigenspaces; treats only odd-prime cyclotomic single-prime setting and never the n=4 wild pair at p2,r7 over Q(zeta_8) or its F49 tame value.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Computation of Hilbert symbol of order 4",
+        "url": "https://mathoverflow.net/questions/211645/computation-of-hilbert-symbol-of-order-4",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General question-and-answer thread giving only the abstract local definition of the Hilbert symbol via Galois action on m-th roots; snippet shows no Q(zeta_8) specialization, no ((1-zeta_8),pi_7) tame computation u^12 in F49, and no cup-trace or order-2-value statement, so keyword match does not imply the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Number fields",
+        "url": "https://www.lmfdb.org/NumberField/",
+        "base_search_overlap": true,
+        "relationship_to_claim": "LMFDB NumberFields portal indexes fields by degree, discriminant, Galois group and class number; it tabulates no Hilbert-symbol values, cup products, or Artin-Verdier traces for specific S-unit pairs, so the exact ((1-zeta_8),pi_7) symbol and trace w cannot appear as a database entry covering the claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity search returned 20 results (4 overlapping the base set by title/URL). The substantively nearest items are the McCallum-Sharifi cup-product program and its expositions, one general order-4 Hilbert-symbol thread, and LMFDB field tables. All fail literal hypothesis/conclusion comparison: McCallum-Sharifi hypotheses require n=p odd prime with S the unique prime above p, disjoint from headline K=Q(zeta_8), n=4, S={p2,r7}; the Hilbert-symbol thread gives only general definitions with no F49 u^12 computation; LMFDB records fields and class groups, not symbols or traces. Incremental recall therefore added only duplicates and background variants of sources already screened in the base search, plus keyword-similar generalities. No source states, computes, or implies the exact primitive order-4 tame/wild values or the vanishing/linking trace table, so originality PASS is preserved with no decisive prior and no verdict change."
+  }
+}
