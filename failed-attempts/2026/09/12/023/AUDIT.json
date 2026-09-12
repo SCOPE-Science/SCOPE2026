@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified Lemmas 1-3 end-to-end and replayed both stdlib certificates. q=3329 prime by trial division; x^256+1 roots have exact order 512, 512 divides q^2-1 but not q-1 so 128 distinct irreducible quadratics and R_q=(F_{q^2})^128 with separability. CRT gives 128 independent GL_2 blocks over F_{q^2}; exact Fraction gives union singular mass 1.155e-05 so P(invertible)>=0.999988, replayed CERTIFICATE_OK. If M invertible then M^T w=0 forces w=0 mod q so L=qZ^512 and <v,b>=0 mod q for all v,b, Fourier statistic identically 1 in both worlds, advantage exactly 0 any sample count; overall <=1.155e-05<0.20. Explicit A0=I_2 has det 1, dual qZ^512, lambda1=3329. TARGET route negative disproof logic is sound.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the actual negative headline (square 512-dim dual generically qZ^512, advantage exactly 0, overall <=1.2e-5) is substantively implied by prior textbook plus spec facts without new mathematics. Standard q-ary definition Lambda_q^perp(A)={x:A^T x=0 mod q} immediately gives triviality when square M is invertible; Kyber/Bogdanov et al. and FIPS 203 already publish q=3329, n=256,k=2 and the NTT factorization of x^256+1 into 128 quadratics; GL_2 counting plus union bound is mechanical parameter substitution. No prior states the beta=64+0.20 pair verbatim, but a prior source need not do so when its stronger general lemma exhaustively covers the claim as a special case.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: ADMISSION_DEFECT. Admission target_integrity and triviality_preflight claimed standardized full-dimension scope with no type confusion, vacuity, or sublattice artifact requiring genuine analysis. The refutation instead exposes a type/normalization error: the literal square dual (m=n=512) is generically trivial qZ^512, while the cryptographically relevant duals used by estimator/dual-attack literature are rectangular (e.g. lattice-estimator Kyber512 dual d=1024, beta~387-424). The exact-zero therefore says nothing about deployed ML-KEM-512 hardness, BKZ budgets, or fine-grained LWE gaps; it is a textbook exercise plus known NTT table plus mechanical counting, with rectangular case explicitly left open. Per TARGET policy a negative resolution that is only a type error fails value even if literally false.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md three-lemma proof (splitting, typicality 0.999988, trivial dual + exact zero) with explicit instance A0=I_2 and scope limitation to square dual",
+    "inputs/artifacts/main_certificate.py replay: q prime, 128 quadratics, union bound 1.155e-05, delta_64=1.011204, L_pred~9.996e5, CERTIFICATE_OK",
+    "inputs/artifacts/toy_triviality.py replay at (q,m)=(5,3): trivial kernel enumeration plus identically-1 Fourier statistic, VERIFY_OK",
+    "scope_literature_search fused 20 results: lattice-estimator README (Kyber512 n=512,m=512, dual beta 387-424 d=1024, heuristic bit-costs), ePrint 2017/047 Lemma 1 dual advantage formula, 2021/152 hybrid dual BKZ heuristics, BKZ 2.0 root-Hermite methodology; no proved beta=64+0.20 square certificate",
+    "lattice-estimator GitHub README direct fetch: schemes.Kyber512 LWEParameters(n=512,q=3329,m=512) with dual beta 424 d=1024 and dual_hybrid beta~387-395, proving relevant dual dimension is ~1024 not square 512",
+    "Admission nearest prior URLs: CRYSTALS-Kyber ePrint 2017/634 (parameters + NTT split into 128 quadratics), Estimate-All-the-LWE ePrint 2015/046 (heuristic costs), Chen-Nguyen BKZ 2.0 (simulator), FIPS 203 ML-KEM-512 parameters; combined standard q-ary definition mechanically implies square-triviality"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General q-ary lattice theory and dual-attack framework (Micciancio-Regev definitions, ePrint 2017/047 Lemma 1, hybrid-dual papers) state the duality relation for all m,n; the invertible-square case is a strict special case. Estimator README shows real Kyber512 dual uses d=1024 beta~400, confirming square m=512 is a degenerate subset.",
+      "reasoning": "A broader theorem need not mention ML-KEM-512 beta=64 to cover the claim: the general lemma 'invertible square A implies dual=qZ^m and zero Fourier advantage' substantively implies the submitted exact-zero headline upon substituting the admitted parameters, so originality FAILS by broader coverage.",
+      "search": "LWE dual attack cost estimator BKZ blocksize lattice-estimator Kyber512 distinguishing advantage textbook q-ary lattice"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior toolkit: q-ary dual definition plus linear algebra (M^T invertible => kernel trivial), Kyber NTT factorization giving 128 F_{q^2} blocks, and |GL_2|/Q0^4=(1-1/Q0)(1-1/Q0^2) counting. Instantiating at Q0=3329^2 with union bound yields the 0.999988/1.155e-05 numbers by arithmetic alone.",
+      "reasoning": "The headline follows mechanically from plugging admitted parameters into known stronger facts; no new per-instance tail computation, simulator profile, or duality-gap argument was needed (no BKZ run performed). Hence the finding is a recomputation/corollary/repackaging of a known stronger fact, so originality FAILS.",
+      "search": "Micciancio Regev q-ary lattice dual invertible matrix trivial Fourier distinguisher zero advantage implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over literal (ML-KEM-512 Kyber512 BKZ-64 advantage 0.20), synonymous (q-ary Fourier/characteristic distinguisher, short dual vector, Lambda_q perpendicular), and dominance queries returned only heuristic estimator rows and generic duality formulas, no identical beta=64+0.20 pair. However under synonymous notation Lambda_q^perp with invertible M=qZ^m the zero-advantage statement is the same theorem.",
+      "reasoning": "Title/embedding dissimilarity does not save originality: under dual/complement/matrix encodings (M^T w=0 mod q vs CRT GL_2 blocks vs coefficient lattice) the submitted exact-zero is literally the textbook trivial-kernel fact renamed to ML-KEM-512 square parameters, so equivalent-formulation coverage holds and originality FAILS.",
+      "search": "ML-KEM-512 Kyber512 BKZ-64 dual lattice Fourier distinguisher advantage 0.20 equivalent q-ary notation"
+    },
+    "exact_database_or_table": {
+      "evidence": "FIPS 203 and CRYSTALS-Kyber spec tables publish ML-KEM-512 (n=256,k=2,q=3329,eta1=3,eta2=2) and the NTT fact that x^256+1 splits as 128 irreducible quadratics mod 3329 (256|q-1, 512 not|q-1, 512|q^2-1). LWE estimator publishes Kyber512 m=512 row. Lemma 1 is a direct replay of that table entry.",
+      "reasoning": "Direct lookup plus standard finite-field order argument decides the splitting shape without new computation; the exact parameter/object already appears in official tables, and the probability is mechanical GL arithmetic from that table, so exact-database recomputation applies and originality FAILS.",
+      "search": "FIPS 203 ML-KEM-512 parameters Kyber NTT x256+1 128 quadratics LWE estimator table lookup"
+    }
+  },
+  "residual_risks": [
+    "Singular branch (prob <=1.155e-05) bounded by advantage 1 rather than analyzed; does not affect falsification of >=0.20.",
+    "Rectangular duals with m>512 samples (the cryptographically relevant objects, d~1024) explicitly not decided; scope honestly limited to literal square dual.",
+    "No BKZ binary executed; unnecessary for trivial lattice but means no empirical BKZ-profile log beyond closed-form GSA numbers."
+  ],
+  "verdict": "REJECT"
+}
