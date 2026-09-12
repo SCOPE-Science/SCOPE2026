@@ -1,0 +1,83 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route (report declares TARGET; audited against admitted target). Headline exact identity log Z_n(a)=F0(a)n^2+F1(a)n+C_{n mod 4}(a) with F0=(1/4)ln(2a(1+a^2)), F1=(1/2)ln(2a), C_0=C_2=0, C_3=F1-F0, C_1=F1-F0+ln a, and 4-step factor K_n(a)=(4a^2)^{n-1}(1+a^2)^{2n-4} was independently re-executed: kasteleyn.py reproduces EKLP 2^{n(n+1)/2} at a=1; verify_closedform.py worst err 7.11e-14 for a in {0.2,0.3,0.5,0.7,0.9,1.3}, n<=12; verify_Kn2.py and verify_double_step.py telescoping pass; T^2=lambda*id verified symbolically; homogeneity degree m(m+1) via Kasteleyn dimensions; base values Z1=2a^2, Z2=4a^2(1+a^2), Z3=16a^4(1+a^2)^2 match determinants; brute-force Z matches determinants for n=1,2 and spider Z=Delta Z' holds; general_shuffle.py preserves Z (Dp*f*Zr=Z); auditor proved coefficient-level monomial identity for all n=4..39 and induction summation identity, and verified Kuo-type form Zn*Z_{n-2}/Z_{n-1}^2=R_{n mod 4}. Lemma 1/2 reduction cascade (f=1, E(m)/O(m) counts, cross-face Delta=p^2+q^2) is a proof sketch supplemented by face-census/isomorphism checks (iso2/twostep2/outer/fam2); this is adequate support, recorded as residual risk, not a failure. F0/F1 are explicitly scoped to closed-form constants (Ronkin/arctic derivations not undertaken); that scoping is disclosed and does not falsify the proved expansion, which implies the claimed two-term asymptotics with O(1/n^2) remainder.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TERMINAL UPDATE: the paid final check returned a decisive prior that substantively covers the headline. Robert-Ruelle, GUE-corners process in two-periodic Aztec diamonds (arXiv:2509.14071, v1 17 Sep 2025, v2 1 Sep 2026), Proposition 3.2 / equation (3.26), states exactly Zn=(2ab)^{floor((n+1)^2/4)}(a^2+b^2)^{floor(n^2/4)} times (1 if n!=1 mod 4, a/b if n=1 mod 4) for the two-periodic Aztec diamond with face weights a,b, and notes it was already computed via the octahedron recurrence (Di Francesco-Soto-Garrido 2014, ref [24]) and lambda-determinants (ref [29]). The primary source was verified in full (HTML v2, Sections 3.1-3.2, eqs. (3.24)-(3.26) plus GGI-slide corroboration). Under the specialization b=1 this formula is algebraically and numerically identical to the submitted closed form: auditor verified zero difference (to ~1e-15) for n=0..15, with F0=(1/4)ln(2a(1+a^2)) and F1=(1/2)ln(2a) matching as the n^2 and n coefficients and the C_{n mod 4} pattern (including the n=1 mod 4 a/b factor matching C_1=F1-F0+ln a) coinciding. The weight conventions coincide up to the stated specialization (checkerboard face weights (a,b) vs (1,a) with b=1; both give face-uniform edge weights and identical partition numbers, confirmed by determinant agreement). Hence the submitted exact finite-n identity, and therefore its F0/F1/K_n/C_r consequences, is a strict special case (b=1) of a broader prior theorem published before this audit, and is substantively implied without needing the submitted wording. A new domino-shuffle proof does not make the known formula a new mathematical claim under the shared STANDARD. Originality therefore FAILS; correctness and value are unchanged per the terminal-gate rule.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "TARGET audit: the admitted target (two-term free energy for the fixed 2-periodic Aztec diamond) is a recognized, motivated question; the result proves it in stronger exact finite-n form, not merely asymptotically. The object (order-n Aztec, face-checkerboard (1,a) weights in Chhita-Johansson convention) and invariants (F0,F1) were motivated before computation by the target itself; values were not known or mechanically implied (general surface-tension theory gives existence, not these closed forms or the C_r pattern); a future researcher could reasonably need the precise K_n/F0/F1/C_r facts, and the a=1 EKLP recovery plus Kuo-type recurrence show integration, not an isolated number. This is not a textbook restatement, mere parameter substitution, tiny unmotivated gain, or unexplained enumeration: it is a proved exact identity with verification scripts. The explicitly disclosed scoping (no separate Ronkin-integral or arctic-curve derivation) is a limitation, not an admission defect and not value failure; per STANDARD an exact invariant of a natural object needs no new general theorem, and an incomplete surrounding derivation does not erase the headline exact result.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: TARGET two-term expansion with F0 as surface-tension integral and F1 as arctic/boundary constant, no pre-approved fallback",
+    "inputs/DRAFT.md: Theorem with F0=(1/4)ln(2a(1+a^2)), F1=(1/2)ln(2a), exact C_{n mod 4}, corrected (star)/K_n, Lemmas 1-2, T^2=lambda*id, homogeneity, induction, EKLP check, explicit Ronkin/arctic scoping",
+    "inputs/research_report.json: status CLAIMED, claim_route TARGET, exact claim/evidence_summary/limitations/artifact_inventory",
+    "inputs/STANDARD.md (sky-survey-admission-depth-gate-v12): shared originality/value/feasibility contract applied exactly",
+    "inputs/artifacts/kasteleyn.py + re-execution: a=1 matches 2^{n(n+1)/2} for n=1..6",
+    "inputs/artifacts/verify_closedform.py re-execution: worst err 7.11e-14, a in {0.2,0.3,0.5,0.7,0.9,1.3}, n<=12",
+    "inputs/artifacts/verify_Kn2.py re-execution: all n=4..12 errors <6.4e-14, ALL OK",
+    "inputs/artifacts/verify_double_step.py re-execution: telescoping + monomial K_n + symbolic T^2 + homogeneity degree m(m+1), ALL PASSED",
+    "inputs/artifacts/validate_ops.py + general_shuffle.py re-execution: brute Z matches determinants; single-spider Z=Delta Z'; full shuffle Dp*f*Zr=Z (n=3)",
+    "Auditor coefficient-level proof: log K_n monomial identity holds exactly for n=4..39; induction sum + base values imply closed form for all n; Kuo-type ratio verified",
+    "scope_literature_search (3 consolidated queries, 20 fused results, full coverage, no partial failure): Chhita-Johansson 2016, Chhita-Young 2014, Borodin-Duits 2023 (PMC10465688), Duits-Kuijlaars 2020, Ruelle tangent method, Bain mesoscopic, Berggren-Russkikh t-embeddings, Nordenstam-Young shuffling, Keating-Nicoletti coupled tilings",
+    "Full primary-source fetches: Chhita-Johansson arXiv:1410.2385 (kernel asymptotics, no partition product); Borodin-Duits biased 2x2 periodic (elliptic-curve kernel, torsion-4/6 cases, no F0/F1/K_n); Durham two-periodic survey page (phases only)"
+  ],
+  "claim_route_inference": "Report declares claim_route TARGET; audited normally against admitted target with no preset-value presumption.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused dominance-query results (spectral curve, Ronkin free energy, arctic curve, census/classification, Borodin-Duits elliptic-curve flow, Duits-Kuijlaars Riemann-Hilbert, Kenyon-Okounkov-Sheffield-type general theory by reference) contain only kernel/limit-shape/phase results; none states a stronger theorem whose specialization yields K_n(a), F0, F1, or C_r.",
+      "reasoning": "A broader free-energy existence theorem or kernel formula does not mechanically imply these evaluated closed forms or the exact period-4 remainder pattern; since no covering theorem was found despite the dominance query, broader-coverage failure mode is cleared.",
+      "search": "Dominance query: two-periodic dimer Aztec exact partition census classification spectral curve Ronkin free energy arctic curve database; screened all 20 fused hits plus Borodin-Duits and Duits-Kuijlaars primaries."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Chhita-Young period-4 weight orbit T^2=lambda*id is acknowledged prior; Chhita-Johansson/Chhita-Young give inverse-Kasteleyn/kernel recurrences, Borodin-Duits gives Wiener-Hopf/elliptic-curve kernel flow, EKLP gives only the a=1 product 2^{n(n+1)/2}. None derives Z_n(a) for general a, K_n(a), or F0/F1 closed forms.",
+      "reasoning": "Prior orbit periodicity and kernel recurrences do not imply the exact partition prefactors (especially corrected cross-face Delta=p^2+q^2, E/O counts, gauge absorption) or the summed closed form; the claim is not a corollary, certificate, or repackaging of any cited stronger fact, so implication failure mode is cleared.",
+      "search": "Compared claim hypotheses/conclusions literally against Chhita-Young coupling-function recurrences, Chhita-Johansson kernel asymptotics, Borodin-Duits kernel flow, and EKLP uniform enumeration; searched for any partition-function product or F0/F1 evaluation."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused literal + equivalent-formulation results use alternate wordings (biased/unbiased 2x2 periodic, 2-periodic weights, domino shuffling, urban renewal/spider, octahedron recurrence, Kasteleyn-Pfaffian) but all concern kernels, correlations, arctic boundaries, or tangent method; DRAFT convention note (face-checkerboard (1,a), other normalizations differ by monomial gauge) was considered and no gauge-equivalent statement of K_n/F0/F1/C_r was found.",
+      "reasoning": "Because no synonymous, dual/complement, incidence/matrix, biased-vs-checkerboard, or gauge-transformed prior source states the same evaluated constants or 4-step product, the claim is not covered under an equivalent representation.",
+      "search": "Equivalent-formulation query: Aztec domino shuffling 2-periodic weights urban renewal partition recurrence exact product Chhita Johansson Young; plus biased 2x2 periodic and checkerboard-gauge variants."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official table, database, census, or repository entry (OEIS-style table, tiling census, Aztec partition table, or Kasteleyn determinant compilation) appears in the 20 fused results or the fetched primaries; verification artifacts compute determinants de novo via kasteleyn.py rather than looking values up.",
+      "reasoning": "Since the exact parameters (face-checkerboard (1,a), K_n(a), F0/F1/C_r for all fixed 0<a<1) do not already appear in any found table or database, the exact-database failure mode is cleared; a transient-source gap is not invoked because all providers reported ok.",
+      "search": "Exact-database query across SerpBase/OpenAlex/Crossref/OpenAIRE for Aztec partition-function tables, censuses, and specialist tiling/dimer repositories at the claimed parameters."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "927dce790134b0c7c5779d436bbe233844eacc222017f3a1734515041f81f62e",
+    "decisive_prior_found": true,
+    "decisive_sources": [
+      {
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object (two-periodic Aztec diamond, face weights a,b) and same conclusion (exact finite-n partition function): under specialization b=1 the prior formula gives F0=(1/4)ln(2a(1+a^2)), F1=(1/2)ln(2a), the identical C_{n mod 4} pattern including the n=1 mod 4 a/b correction, and hence the same K_n and two-term expansion, so it substantively implies and exhaustively covers the submitted headline as a strict special case of a broader prior theorem.",
+        "title": "[PDF] GUE-corners process in two-periodic Aztec diamonds - arXiv",
+        "url": "https://arxiv.org/pdf/2509.14071"
+      }
+    ],
+    "incremental_prior_found": true,
+    "material_sources": [
+      {
+        "assessment": "COVERS_CLAIM",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object (two-periodic Aztec diamond, face weights a,b) and same conclusion (exact finite-n partition function): under specialization b=1 the prior formula gives F0=(1/4)ln(2a(1+a^2)), F1=(1/2)ln(2a), the identical C_{n mod 4} pattern including the n=1 mod 4 a/b correction, and hence the same K_n and two-term expansion, so it substantively implies and exhaustively covers the submitted headline as a strict special case of a broader prior theorem.",
+        "title": "[PDF] GUE-corners process in two-periodic Aztec diamonds - arXiv",
+        "url": "https://arxiv.org/pdf/2509.14071"
+      }
+    ],
+    "rationale": "The terminal paid search added decisive incremental recall the base providers missed: of 20 returned results only 2 overlapped the base set, and rank 8 (Robert-Ruelle arXiv:2509.14071, base_search_overlap false) states the exact two-periodic partition function in full, verified in the primary HTML source at equations (3.24)-(3.26) with attribution to the 2014 octahedron-recurrence computation. Auditor-verified algebra and numerics show it coincides exactly with the submitted closed form at b=1, including F0, F1, K_n, and the period-4 remainder, so it covers the headline as a broader prior theorem and overturns the provisional base-search originality PASS. All other returned hits were kernel, arctic-curve, slide, or survey material with no evaluated partition product and were judged not materially covering.",
+    "status": "COMPLETE",
+    "verdict_changed": true
+  },
+  "residual_risks": [
+    "General-m domino-shuffle surgery cascade is a proof sketch plus small-size face-census/isomorphism verification (iso2/twostep2/outer/fam2); no fully machine-checked all-m graph-surgery formalization, though prefactor telescoping, symbolic T^2, homogeneity, and coefficient-level identities were independently verified.",
+    "F0/F1 proved as closed-form free-energy constants with a=1 EKLP check; their separate identification with the Ronkin surface-tension integral and arctic-curve boundary constant is explicitly scoped out and remains for future derivation."
+  ],
+  "verdict": "REJECT"
+}
