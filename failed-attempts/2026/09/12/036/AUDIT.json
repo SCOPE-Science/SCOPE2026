@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: re-ran output/artifacts/verify.py -> VERIFY_OK (V1 48 distinct normalized triples covering [19]; V2 144 distinct pairs = partial STS; V3 exhaustive C(48,4)=194580 census finds 0 Pasches under 4-blocks-on-6-points-degree-2 definition; V4 leave exactly 27 edges with 0 triangles). Lemma verified by hand: a triple addable without pair-repeat is a leave triangle, so triangle-free leave gives linear-maximality (hence Pasch-tolerant maximality); STS(19) has 57 blocks so any extension adds 9 blocks partitioning 27 leave pairs into leave triangles, impossible. No SAT needed; boundary conditions and counting exact.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, equivalent (packing/leave-graph/anti-Pasch/quadrilateral-free/D(19,3,2)), and dominance (Lindner/Doyen-Wilson/quasi-embedding/STS(19) census/MMPTS spectrum/database) directions found no prior source exhibiting a maximal Pasch-free 48-block partial on 19 points with same-order completion verdict. Nearest priors: Colbourn-Rosa-Znam maximal spectrum (attainable sizes generally, no Pasch-free 48-block witness), Lindner 6n+3 and >2u embeddings (larger orders only), Demirkale et al. MMPTS(16/17) enumerations (different orders), Kaski-Ostergard STS(19) census of 11084874829 complete systems (no partials), 101 anti-Pasch STS(19) (complete, not maximal partials). Exact block list and triangle-free 27-edge leave conjunction is unrecorded and not mechanically implied by those theorems. Originality PASSES on the narrow witness-conjunction standard.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: Admission credited a lane-requested hard obstruction template requiring fresh SAT solving at a canonical near-complete tier. The submitted proof exposes the opposite: non-completability is a trivial corollary of linear-maximality (any incomplete linear-maximal partial is automatically uncompletable), so no SAT certificate or Fano-residue obstruction is present; the leave-triangle census decides everything. The object is arbitrary (seeded greedy output seed 285, with DRAFT admitting seeds 11,94,285,298 of first 300 all give 48-block triangle-free-leave witnesses and greedy routinely reaches 43-51 blocks), and the number 48 is an unexplained slice within that routine band, not a proved cutoff, extremum, classification, or named structure. DRAFT disclaims any count or universality. Certification (VERIFY_OK) does not create value per STANDARD: certification alone does not rescue an arbitrary object or unexplained number. A future researcher has no reason to retrieve this specific random list versus millions of equivalent greedy outputs; it changes no stated boundary (no prior theorem asserted all such fragments complete) and supplies no reusable obstruction pattern beyond elementary pair counting. Hence independently not worth finding later: value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-executed output/artifacts/verify.py (copied from inputs/artifacts): V1 OK 48 distinct normalized triples covering [19]; V2 OK 144 distinct pairs; V3 OK 0 Pasches over C(48,4)=194580; V4 OK 27 leave edges 0 triangles; C1/C2 corollaries print VERIFY_OK \u2014 independent correctness replay.",
+    "Hand-checked DRAFT.md Lemma: triple addable without pair-repeat <=> leave triangle; 57-48=9 blocks must partition 27 leave pairs; triangle-free leave rules out one addition and full extension; STS(19) block count 19*18/6=57 confirmed \u2014 proof valid, SAT correctly noted as unnecessary.",
+    "Fused scope_literature_search (3 consolidated queries, SerpBase+Serpent+Crossref+OpenAlex, 20 fused results, no partial failure): top hits Colbourn-Rosa-Znam spectrum, Lindner 6n+3 embedding, Prince STS(19) constructions, Demirkale-Donovan-Grannell MMPTS(16/17) enumeration, MathOverflow completion survey, 101 anti-Pasch STS(19), Kaski-Ostergard STS(19) 11084874829 census \u2014 none exhibits the claimed 48-block maximal Pasch-free partial or its verdict.",
+    "Fetched Demirkale et al. arXiv:1708.07646 full text: confirms MPTS/MMPTS terminology, leave-triangle maximality notion, MMPTS(17)=35810097 and MMPTS(16)=47744568 enumerations for non-admissible orders, Pasch/mitre censuses \u2014 different orders from v=19 admissible case; no 48-block STS(19)-fragment table.",
+    "Colbourn-Rosa-Znam spectrum record (doi:10.1007/BF01388482) snippet plus MathOverflow survey direction: spectrum determines attainable maximal-partial sizes generally without deciding Pasch-free 48-block same-order completability; Lindner-type theorems embed into much larger orders (6n+3, >2u) and quasi-embedding concerns different orders \u2014 no broader same-order completion theorem covering this tier.",
+    "DRAFT.md abundance admission (seeds 11,94,285,298 all yield 48-block triangle-free-leave witnesses; greedy band 43-51) combined with Lemma triviality (maximal-incomplete => uncompletable) \u2014 evidence for arbitrary-object / unexplained-number value failure."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Lindner 6n+3 embedding, Doyen-Wilson/>2u embeddings, and quasi-embedding results guarantee embeddings only into far larger admissible orders; no located theorem states every linear-maximal Pasch-free 48-block partial on 19 points completes to STS(19). Fused dominance-query hits return STS(19) census and MMPTS(16/17) enumerations, not a same-order completion theorem.",
+      "reasoning": "Without a broader same-order theorem covering the maximal 48-block tier, the existential witness is not swallowed as a special case; this supports originality PASS but does not supply value, since the witness's own obstruction is elementary.",
+      "search": "Steiner triple system order 19 census classification Colbourn Rosa maximal partial spectrum Lindner embedding completion same order theorem database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Maximal-partial spectrum work lists attainable sizes generally; anti-Pasch STS(19) papers exhibit complete 57-block systems; Lindner/Doyen-Wilson point to larger orders. None implies existence of a Pasch-free linear-maximal 48-block partial, and none decides its STS(19)-containment. Within the submission, by contrast, non-completability IS mechanically implied by linear-maximality plus 57-48=9 counting.",
+      "reasoning": "Prior work neither implies nor precludes the witness conjunction, so originality PASS; but the internal mechanical implication (maximality => uncompletable) collapses the advertised two-part verdict into one routine packing fact, grounding value FAIL.",
+      "search": "maximal partial Steiner triple system order 19 completability same order embedding spectrum attainable sizes Lindner Doyen-Wilson implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "Equivalent-phrasing queries (maximal packing D(19,3,2) with 27-edge triangle-free leave; anti-Pasch/quadrilateral-free linear 3-uniform hypergraph with 48 triples; leave-graph plus SAT-unsatisfiability wording) returned high-girth STS theory, MMPTS(16/17) enumerations, anti-Pasch STS(19) complete systems, and generic Steiner-system background \u2014 not this 48-block maximal Pasch-free partial with leave census.",
+      "reasoning": "No synonymous, dual, complement, incidence-graph, or packing/leave encoding of the exact witness was found recorded; the claim is not a restatement of a known extremal example, so originality PASS on this axis.",
+      "search": "maximal packing triples order 19 D(19,3,2) leave graph triangle-free anti-Pasch quadrilateral-free linear 3-uniform hypergraph 48 triples"
+    },
+    "exact_database_or_table": {
+      "evidence": "STS(19) census (11084874829 complete systems, Kaski-Ostergard) covers only full systems; Demirkale et al. tables cover MMPTS(16) and MMPTS(17) non-admissible orders with Pasch/mitre distributions; maximum-partial enumerations cover small orders and attainable sizes. No table lists a maximal Pasch-free 48-block partial on 19 points with completion verdict, and the exact block list / leave edge list are new strings.",
+      "reasoning": "The verdict is not a direct lookup, so database-repackaging originality exclusion does not trigger (originality PASS); however novelty of an arbitrary greedy list without extremal or structural standing does not establish independent retrieval value.",
+      "search": "maximum partial triple systems order 19 table Pasch-free completion status STS(19) 11 billion census MMPTS(16) MMPTS(17) database"
+    }
+  },
+  "residual_risks": [
+    "Full text of Colbourn-Rosa-Znam spectrum paper not re-fetched beyond metadata/snippet, but Demirkale full-text fetch plus fused search snippets confirm it concerns attainable maximal sizes generally, not a Pasch-free 48-block STS(19) fragment; insufficient to overturn originality PASS.",
+    "STS(19) census (11B systems) cannot be exhaustively searched for a superset containing P, but linear-maximality lemma makes such containment logically impossible given verified triangle-free leave, so no residual correctness risk.",
+    "Obscure thesis or table could in principle contain an isomorphic maximal packing, but the value verdict rests on arbitrariness/abundance rather than uniqueness, so any such omission would strengthen rather than weaken the REJECT."
+  ],
+  "verdict": "REJECT"
+}
