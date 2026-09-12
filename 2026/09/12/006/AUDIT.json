@@ -1,0 +1,95 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: independent re-execution passes. census.py re-ran: 81 pairs, (leg,N,r4) counts (-1,-1,0)x46,(+1,+1,0)x22,(+1,-1,1)x8,(+1,+1,1)x5, per-field rho closure/bijectivity asserts hold. verify.py replays ALL 81 FIELDS REPLAY OK / VERIFY_OK with Legendre recomputation, norm-identity substitution, parity and completeness. validate_known.py reproduces 8 known narrow numbers ALL OK. Crucially, an independent analytic class-number-formula check (chi via Jacobi/Kronecker, L(1,chi) via digamma/Hurwitz, regulator from CF convergents including half-integer (x+y\u221aD)/2 units) matches all 81 claimed h values to <0.02 after using correct R=log(eps) with minimal half-integer units (e.g. D=85 half-unit (9+\u221a85)/2 explains the naive integer-only discrepancy). Norm signs match minimal-unit search for all 81. No ADMISSION_DEFECT: discriminant normalization (pq=1 mod 4 => disc=pq), tiny instances show both Legendre outcomes, and 2-rank=1 => r4 in {0,1} holds with all h even.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live fused search (SerpBase+Serpent+OpenAlex+Crossref, 20 results, full coverage, no partial failure) finds only general theory: Redei-matrix method, Gerth criteria, Fouvry-Kluners/Milovic 4-rank densities, Smith governing fields, LMFDB portal. No source states, tabulates, or implies the exact 13/81 witnessed 4-rank vector for p<q both 1 mod 4, pq<2500 with per-field Redei logs and integer norm/obstruction certificates. Equivalent norm-equation/Hilbert-symbol phrasings, broader density theorems, and LMFDB bare class numbers were explicitly tested and do not cover the claim: densities constrain proportions without computing any finite exact witnessed table, and LMFDB lists at most isolated class numbers without the claimed Redei logs or unramified-extension generator certificates. The work is an independent from-scratch proof, not a database download.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Exact witnessed census of a natural object motivated before computation by the recognized Cohen-Lenstra-Gerth 4-rank program for real quadratics. The all-positive two-prime window (discriminant shape pq, bound 2500) is natural, non-vacuous (both Legendre outcomes and both r4 values occur: 13 rank-1 vs 68 rank-0), and non-constant. Result is not a textbook restatement, parameter substitution, or tiny gain: it refutes the naive subtract-1-for-N=+1 reading with 5 proved counterexamples (D=505,905,2005,689,793 with h+=8,h=4,r4=1), gives the correct per-field rho rule, and supplies reusable integer witnesses (5 generator-norms, 8 square-norms, 68 obstructions) calibrating conjectural densities and future 8-rank/governing-field work. A future researcher can reasonably need this precise citable vector. No ADMISSION_DEFECT in value preflight.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/census.py: 81 fields, counts (-1,-1,0)x46,(+1,+1,0)x22,(+1,-1,1)x8,(+1,+1,1)x5, N=-1 mismatches 0, 27 N=+1 correction cases, 13 r4=1.",
+    "Re-ran inputs/artifacts/verify.py: ALL 81 FIELDS REPLAY OK; r4=1: 13; r4=0: 68; VERIFY_OK (Legendre recomputation, norm substitution, parity, completeness).",
+    "Re-ran inputs/artifacts/validate_known.py: D=5,12,13,29,316,65,85,145 reproduce expected narrow numbers; VALIDATION_ALL_OK.",
+    "Independent analytic cross-check (auditor): L(1,kronecker(D,.)) via digamma/Hurwitz plus minimal regulator including half-integer units; 81/81 h values agree to <0.02 (e.g. D=65 h=2, D=85 h=2 via half-unit (9+\u221a85)/2 with R=2.209, D=145 h=4, D=2305 h=16); norm signs match for all 81.",
+    "Fused scope_literature_search (3 consolidated queries, SerpBase+Serpent+OpenAlex+Crossref, 20 results, coverage ok on all providers): nearest hits are Redei-matrix theory, Fouvry-Kluners/Milovic densities, Smith governing fields, Osburn thesis, LMFDB portal; none tabulates the 81-field witnessed vector.",
+    "Primary sources screened via snippets/metadata: Milovic thesis/density work (asymptotics only), generalized Redei-matrix formula (method m-1-rank(R), no finite table), real-quadratic (2,2) and pure-quartic 4-rank papers (different families), LMFDB NumberField portal (per-field data only, no window 4-rank vector with witnesses).",
+    "inputs/DRAFT.md, inputs/topic.json audit_preflight/admission_review, inputs/research_report.json (TARGET route), inputs/STANDARD.md, and full artifact scripts (census/certify_norms/build_witnesses/verify) inspected literally for hypotheses, boundary pq<2500, and witness semantics."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Milovic/Fouvry-Kluners 4-rank density theorems, Smith governing-field 4-Selmer/8-class statistics, and Gerth-Cohen-Lenstra heuristics located by search prove asymptotic proportions and governing-field laws but state no finite exact per-field 4-rank vector for pq<2500 with witnesses.",
+      "reasoning": "A density or governing-field theorem constrains limiting proportions without computing any bounded exact table with Redei logs and integer certificates; it therefore cannot imply, subsume, or mechanically yield the claimed 13/81 witnessed vector.",
+      "search": "governing field 4-rank density real quadratic Cohen-Lenstra Gerth Milovic Smith census table LMFDB 4-rank"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Redei-Reichardt rank formula (r4_narrow=t-1-rank Redei) plus Gerth narrow-vs-wide unit-norm correction is a general method; no located source applies it to enumerate this 81-field window with certified rho-cycle class numbers and explicit norm-solution/obstruction integers.",
+      "reasoning": "Prior work supplies the rank formula as a tool while the submission supplies new exact per-field values, the 5-field correction to the naive N=+1 rule, and fresh integer certificates; the table is a genuine application record, not a logical corollary or repackaging of the known formula.",
+      "search": "Redei-Reichardt formula implies finite 4-rank table mechanical implication unit-norm correction check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Consolidated search paired literal 4-rank census phrasing with Redei-matrix rank, Gerth norm-equation x^2-Dy^2=\u00b14p/\u00b14q, fundamental-unit and unramified-C4-extension phrasings; hits were general Redei/Gerth theory and unrelated families (pure quartic, K2 tame kernels) with no exact all-positive pq<2500 table.",
+      "reasoning": "Neither the matrix-rank nor the norm-solvability/Hilbert-symbol dual formulation is recorded for this bounded congruence window, so synonymous notation or dual encoding does not cover the submitted headline.",
+      "search": "Redei matrix 4-rank real quadratic two prime discriminant Gerth norm equation fundamental unit criterion unramified C4 extension"
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB NumberField portal and paper tables provide at most isolated class numbers (e.g. small D) but no table quoting exact ordinary 4-ranks with Redei logs and generator/obstruction witnesses for all 81 pairs pq<2500 in this 1-mod-4 class; bare h download lacks parity-checked norm identities and per-field Redei logs.",
+      "reasoning": "A bare class-number lookup does not state the 4-rank vector and does not reproduce the claimed witness column recomputable from integers; the submission is an independent rho-cycle plus CF proof, not a database download, so exact-table coverage fails.",
+      "search": "LMFDB real quadratic pq class number 4-rank table unramified extension witness PARI download exact census"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "c186805f653a8ea8419bb03c9d143e2d02abccd28e8c2bb67764412621570ee2",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "States the general Redei-map identity 1+r4 = t-rank(R4), i.e. r4 = r2-rank, for quadratic class groups with no enumeration of the 81-field pq<2500 window, no per-field Legendre logs, and no integer norm witnesses; it is the method the submission uses, not the claimed finite table.",
+        "title": "arXiv:1806.06250v3 [math.NT] 12 Apr 2021",
+        "url": "https://arxiv.org/pdf/1806.06250"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "States the general Redei-matrix 4-rank formula t-1-rank(M_E) over F2 for quadratic fields with no finite census of Q(sqrt(pq)) with p,q both 1 mod 4 and pq<2500 and no 13-field witnessed vector; general method only, so it cannot imply the headline table.",
+        "title": "Can. J. Math.Vol. 46 (1), 1994 pp. 169-183",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4736CC74E1CD49862EB84FBD9E32B73D/S0008414X00045041a.pdf/circulant_graphs_and_4ranks_of_ideal_class_groups.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Quotes Redei theorem that the narrow 4-rank equals t-1-rank(R) in full generality within a Chevalley-Gras framework, with no application to the bounded all-positive pq window and no exact per-field table or witness column covering the claim.",
+        "title": "The Chevalley\u2013Gras formula over global fields",
+        "url": "https://arxiv.org/html/2001.11413v3"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Treats the same discriminant shape Delta=pq with p,q both 1 mod 4 but only the q=p+4 diagonal subfamily, proving narrow 4-rank one there; that covers at most two of the 81 window fields and states narrow rank without the unit-norm correction, ordinary 13/81 vector, or integer certificates, so it does not imply the headline.",
+        "title": "The classification of real quadratic fields which satisfy Hammarhjelm's ...",
+        "url": "https://arxiv.org/html/2606.31544v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies the narrow class group of Q(sqrt(dpq)) with d in {-4,-8,8}, a three-prime-factor family containing the prime 2, with a rk4=2 criterion under 1-mod-8 conditions; this adjacent family does not state or imply ordinary 4-ranks for the real two-prime pq window with pq<2500.",
+        "title": "arXiv:1512.08034v2  [math.NT]  13 Apr 2018",
+        "url": "http://arxiv.org/pdf/1512.08034"
+      }
+    ],
+    "rationale": "The terminal Perplexity check returned 20 results, of which 2 duplicate the base fused set (the Redei-map general formula and the Qin-type quadratic-extension formula) and 18 are novel URLs. The novel results are general Redei-matrix/4-rank theory restatements, adjacent-family criteria (the q=p+4 diagonal with narrow rank one, the dpq family with d in {-4,-8,8}, imaginary -pq 2-class results, pure-quartic and tame-kernel formulas), governing-field/heuristic discussions, or unrelated D4/elliptic-fibration material. The closest lead, the Hammarhjelm q=p+4 narrow-rank-one subfamily, touches at most two of the 81 window fields and supplies neither the ordinary 13/81 vector with the N=+1 correction nor any witness column, so literal hypothesis/conclusion comparison rules out coverage. No returned source states, tabulates, or substantively implies the exact witnessed 81-field headline; the provisional originality PASS is therefore preserved with no change to correctness or value.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "verdict": "PASS"
+}
