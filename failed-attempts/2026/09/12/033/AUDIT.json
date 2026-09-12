@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Reran inputs/artifacts/verify_x9.py: all 19 stdlib checks PASS (det L=+1, rank(S)=7 nullity 2, Sw0=Sw1=0, isotropic L(w,w)=0, saturation d1=1 minor-gcd 1, covectors L^Tw0=(0,1,0,1,0,-1,0,-1,0) and L^Tw1 exact with gcd 1, universal closed-form L^Tv=(-b,a-b,b,a-b,b,b-a,b,b-a,-b) verified on grid, all s_i fix R pointwise). Model L=U3 tensor U3 gives expected mu=9 radical rank 2, consistent with X9. Reflection fixing follows rigorously from S symmetric and Sv=0 so S(v,e_i)=0. Convention-independence via unimodular congruence P preserving entry-gcds is correct. Orbit claim is honestly limited to Picard-Lefschetz reflection group Gamma, not full O(M); divisibility falsification alone suffices to falsify target conjunction.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL. Fused scope_literature_search (3 directions, 20 results, full provider coverage) finds no explicit X9 Seifert-gcd statement, but headline is mechanically implied by standard prior facts: Seifert forms of isolated hypersurface singularities are unimodular (AGV/Ebeling textbook, verified det=+1 here), and any unimodular L preserves primitivity so every primitive vector has divisibility 1. Vector w0=(0,1,1,1,2,1,1,1,0) has content 1 by inspection, hence d(w0)=1 without any X9-specific 9x9 Seifert arithmetic. Likewise Gamma fixing ker(S) pointwise follows from symmetry of S for any lattice. ADMISSION_DEFECT: topic.audit_preflight nonvacuity claimed both divisibility values 1 and 2 are live for primitive isotropics and need genuine Seifert computation; that preflight is false because unimodularity rules out 2 for primitives a priori. Prior work substantively implies the claim even though no source states the covector verbatim.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. ADMISSION_DEFECT: the TARGET negative resolution does not deliver the admitted primitivity-plus-transporter lemma; instead it exposes a cheap structural defect missed at Admission. Divisibility 2 was impossible for a primitive vector under a unimodular Seifert pairing, and singleton Gamma-orbits follow trivially from reflections fixing the symmetric kernel. The corrected theorem (all primitives have d=1, Gamma fixes R pointwise) is therefore a textbook corollary of unimodularity plus symmetric-kernel linear algebra, with basis-dependent covector entries and no demonstrated portable Torelli/period use beyond standard facts. Per STANDARD and TARGET policy, a rigorous disproof that merely exposes a type/normalization or mechanically-implied impossibility fails value even though the literal conjunction is false. Certification and VERIFY_OK replay strengthen evidence but do not create value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Reran inputs/artifacts/verify_x9.py -> VERIFY_OK (19 checks: det L=+1, rank(S)=7, ker(S)=Qw0+Qw1, saturation SNF 1,1, covectors and universal primitive lemma, reflections fix R pointwise).",
+    "Ebeling 1985 'The Milnor lattices of the elliptic hypersurface singularities' (MPIM preprint / PLMS s3-53.1.85): provides X9 intersection data, rank-2 radical and longest-root-plus-extra isotropic description used as inputs; computes no Seifert divisibility gcd and no u0-vs-u1 orbit decision.",
+    "scope_literature_search 3-direction fused review (literal X9 isotropic Seifert divisibility; Gabrielov/radical/Seifert-gcd/Weyl-orbit equivalent; simple-elliptic classification/census dominance): 20 results across SerpBase/Crossref/Serpent with full coverage, OpenAlex zero hits; nearest hits are orbifold Milnor lattice, Satake tE6, HMS elliptic singularities, Seifert-form theory - none computes named X9 gcds, confirming literal gap but not mechanical-implication gap.",
+    "Standard singularity facts (AGV vol II / Ebeling): Seifert form of isolated hypersurface singularity is unimodular; independent check that unimodular L preserves content (tested e.g. content-2 vectors keep divisibility 2, primitive vectors keep 1), so d=1 for primitive w0 is immediate.",
+    "DRAFT.md explicit vectors and closed-form covector verified by direct matrix multiplication; in_span and minor-gcd saturation checks confirm R=Zw0+Zw1 for this model."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Standard theorem that every isolated hypersurface Seifert form is unimodular, combined with Ebeling rank-2 radical data, yields that every primitive lattice vector - including every primitive X9 radical vector - has Seifert divisibility 1 and every reflection fixes ker(S) pointwise.",
+      "reasoning": "The broader unimodular-lattice plus symmetric-kernel theory strictly dominates the submitted X9 instance: the headline is a special-case corollary requiring no X9-specific Seifert computation, so broader coverage subsumes the claim.",
+      "search": "simple elliptic singularity Seifert form unimodular radical monodromy Weyl elliptic root census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior premises det(L)=+1, content(w0)=1, content(w1)=1, and S symmetric with Sw=0 jointly entail divisibility 1 for all primitive aw0+bw1 and singleton Gamma-orbits on R, verified by unimodular content-preservation and S(v,e_i)=0.",
+      "reasoning": "The gap between abstract isotropic existence and exact divisibility claimed at Admission collapses: standard linear algebra mechanically implies d=1 and trivial action without fresh X9 Seifert arithmetic, so prior work substantively implies the headline although no prior source prints the covector verbatim.",
+      "search": "Seifert divisibility primitive vector unimodular implies gcd 1 reflection fixes kernel"
+    },
+    "equivalent_formulations": {
+      "evidence": "No fused hit states the covectors (0,1,0,1,0,-1,0,-1,0) or divisibility 1 versus 2 for X9; however the synonymous encoding divisibility(v)=content(v) for unimodular L decides the question immediately from content(w0)=1, and Picard-Lefschetz formula s_i(v)=v+S(v,e_i)e_i decides the orbit trivially.",
+      "reasoning": "Title or embedding similarity alone was not used; instead the standard synonymous unimodular-content and kernel-fixing formulations were tested and they cover the claim, so literal-title absence does not establish priority.",
+      "search": "X9 isotropic Seifert divisibility gcd vanishing-cycle orbit Picard-Lefschetz radical"
+    },
+    "exact_database_or_table": {
+      "evidence": "Ebeling tables and characteristic-polynomial lists tabulate X9 Gram data, radical rank 2 and isotropic vectors but no Seifert divisibility column; the table vector w0 visibly has entry-gcd 1, which together with unimodularity fixes d=1 by inspection.",
+      "reasoning": "Tables supply only lattice inputs, but unlike the Admission claim that fresh Seifert computation is needed, the conclusion follows by a trivial content check plus a standard theorem, so it is a direct mechanical consequence of table plus textbook fact rather than new computation.",
+      "search": "X9 Gabrielov Seifert matrix Ebeling table radical basis isotropic vector"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
