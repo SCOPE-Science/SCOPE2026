@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: prove-direction claim of small-time local approximate controllability with explicit (T*,delta,q,C)=(0.1,0.02,12,1e6) is not established. Analytically correct fragments (simplicity/parity/selection rule, commutators [H0,x]=-2ip, Gram invertibility form) do not compose into the headline. Fatal gaps: (1) First-order Duhamel/moment analysis with ||u||<=C T^-q leaves nonlinear remainder O(||u||^2 T)=O(T^{-2q+1}) diverging as T->0, never bounded; larger budget does not imply achievability. (2) Impulsive kick K(a)=exp(-iax) via large pulse ignores H0 drift with unbounded H0 and unbounded x; no Trotter/commutator error uniform on D(H0)-ball. (3) Finite N-mode Lie-rank/Hermes-Kawski invocation does not transfer to infinite-dimensional unbounded-drift PDE; truncation breaks commutators, nearest-coupling growth and 9% off-tridiagonal leakage unaddressed, even-mode cascade cost unproved. (4) Tail estimate only for e^{-iax}phi0 at N=6, not for targets uniformly nor for trajectories pumped by large controls; compactness of target ball does not control driven high-mode excitation. (5) Strict gap increase, nonzero couplings, Gram exponents, steering demo are mesh-converged FD numerics (L=8,h=0.01) and linear moment solves only, explicitly admitted as non-interval evidence; no full nonlinear Schrodinger steering simulation. Proof versus experimental evidence is therefore conflated. This is a correctness/evidence defect, not a bounded presentation fix.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "TARGET claim audited against live fused retrieval (3 normalized directions, SerpBase/OpenAlex/Crossref/OpenAIRE). Nearest priors identified and compared literally: Chambrion-Mason-Sigalotti-Boscain discrete-spectrum approximate controllability (large-time, no small-time polynomial bound), Beauchard-Pozzoli 2410.02383/Ann.H.Poincare 2025 small-time approximate controllability via phases+diffeomorphisms on T^d/R^d (different control operators, multiple potentials, no discrete-spectrum quartic-dipole instance), Beschastnyi-Boscain-Sigalotti small-time obstruction (necessary WKB condition, not sufficiency for x^2+x^4 with single x), Morancey-Nersesyan exact-controllability lines. No source states, tabulates, or substantively implies small-time local approximate STLC with C T^-q bound for H0=-dxx+x^2+x^4, B=x around ground orbit. Synonymous notation, complement/encoding, and dominance checks performed; no broader census or database covers this exact object and cost qualifier. Statement-level novelty therefore PASSES, independent of correctness failure.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Under TARGET policy and shared STANDARD, the headline if proved would be independently worth retrieving: small-time locally approximate controllability with explicit polynomial cost for the natural anharmonic x^2+x^4 dipole system addresses a recognized hard benchmark in bilinear Schrodinger control (small-time versus large-time, minimal-time obstructions, return method, non-resonant spectrum), motivated before computation. It is not a textbook restatement, mere parameter substitution, tiny unmotivated gain, or unexplained enumeration; explicit (T*,delta,q,C) are illustrative sufficient constants for a concrete theorem form, and a future researcher could need the precise small-time polynomial-cost fact. No ADMISSION_DEFECT is exposed; value is judged on the strongest self-contained headline separate from the incomplete surrounding numerics. Hence value PASSES even though correctness FAILS.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md TARGET prove-direction theorem with (0.1,0.02,12,1e6), Lemmas 1-2, kick-cascade and compactness argument, and Sec.6 admission that spectral data are mesh-converged numerics and Hermes/Kawski estimates are invoked",
+    "research_report.json claim_route TARGET, evidence_summary and limitations confirming FD numerics and absorbed constants",
+    "inputs/artifacts/spectrum.json lambda0=1.3923 gaps and b/c couplings; coupling_matrix.json; moment_scaling.json lambda_min scaling; steering_demo.json linear 2-mode cost exponent 4.07",
+    "scope_literature_search fused Top results: Chambrion et al discrete-spectrum controllability CDC 2008/2009; Beauchard-Pozzoli 2410.02383 small-time via Diff_c^0 and phases; Beauchard-Carle-Pozzoli log-Schrodinger; Pozzoli bilinear waves; Beschastnyi-Boscain-Sigalotti obstruction",
+    "arXiv abs 2410.02383 Beauchard-Pozzoli abstract: boundaryless manifold, radial/angular control via diffeomorphisms and phases, two examples on T^d/R^d with recently proved phase control; hypotheses distinct from single-dipole quartic trap",
+    "DOI 10.4171/aihpc/162 Beauchard-Pozzoli 2025 record confirming small-time method publication venue"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Chambrion et al. give approximate controllability for discrete non-resonant chain systems without small-time polynomial bound; Beauchard-Pozzoli 2410.02383/AIHP 2025 give small-time global L2-approximate controllability on T^d/R^d via control of Diff_c^0(M) and phases using Thurston simplicity and Moser transitivity, requiring phase control and multiple vector fields; Beschastnyi et al. give WKB necessary conditions for small-time controllability; Morancey-Nersesyan treat 1D exact controllability with different potentials.",
+      "reasoning": "Broader theorems do not subsume the submitted single-input quartic-dipole small-time polynomial-cost claim: large-time results lack the arbitrarily-small-T plus C T^-q qualifier, and small-time diffeomorphism results require richer control action than multiplication by x alone (linear phases only) and different free Hamiltonians. Hypotheses compared literally, not by title similarity, so no dominance coverage.",
+      "search": "general theorem small-time approximate controllability bilinear Schrodinger discrete spectrum connectedness chain Chambrion Boscain Beauchard Morancey Nersesyan quartic oscillator census and dominance query"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusions: (i) for non-resonant chain, reachable approximately in unspecified large time with small controls; (ii) for torus/R^d models with suitable potentials, reachable in arbitrarily small time via phase+flow control; (iii) classical non-controllability implies quantum obstruction. Submitted conclusion: for H0=-dxx+x^2+x^4, B=x, every D(H0) delta-neighbour of ground orbit reachable within L2 delta/2 in every T<=0.1 with cost <=1e6 T^-12.",
+      "reasoning": "No prior conclusion logically implies the submitted time-cost qualifier for this operator pair: large-time does not imply small-time polynomial cost, torus/R^d multi-control sufficiency does not imply single-dipole quartic sufficiency, and a necessary obstruction does not imply sufficiency. The DRAFT's linear moment-scaling polynomial observation is compatibility evidence, not implication of full nonlinear small-time controllability.",
+      "search": "does Chambrion large-time or Beauchard-Pozzoli small-time torus/Rd theorem logically imply quartic x^2+x^4 single-dipole C T^-q small-time STLC comparison"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused snippets use terminology discrete-spectrum bilinear Schrodinger, bounded/unbounded control potential, dipole/position operator, return method, Lie bracket, moment problem, non-resonant spectrum. No hit mentions anharmonic x^2+x^4 oscillator with dipole x ground-orbit small-time STLC, nor synonymous phrasings such as quartic oscillator, x^4-perturbed harmonic trap, position-operator control, or ground-state orbit polynomial-cost steering.",
+      "reasoning": "Checked literal headline plus synonymous names, dual/complement/incidence encodings, and matrix/algebraic reformulations. Absence is not taken as proof alone, but combined with full-text screening of the most decisive small-time and discrete-spectrum sources, no equivalent formulation was found to state or imply the exact operator pair and cost qualifier.",
+      "search": "anharmonic oscillator H0=-dxx+x^2+x^4 dipole control u(t)x ground state orbit small-time locally approximately controllable; equivalents quartic oscillator position-operator bilinear Schrodinger"
+    },
+    "exact_database_or_table": {
+      "evidence": "Artifacts provide computed FD tables: eigs/gaps/b/c in spectrum.json, X matrix in coupling_matrix.json, Gram lmin/cond in moment_scaling.json, steering costs in steering_demo.json. External search returned no official database, census, or table recording small-time controllability quadruples, quartic-dipole coupling nonvanishing proofs, or exhaustive classification covering this system; standard references (DLMF, OEIS, spectral tables) contain eigenvalues only, not the controllability claim.",
+      "reasoning": "The headline quadruple and controllability assertion do not already appear in any table or established database as a special case. The submitted JSON numbers are new numerics, but recomputation/certification alone is evidence property and does not create the missing infinite-dimensional proof; database non-coverage supports novelty while leaving correctness failed.",
+      "search": "quartic oscillator eigenvalues couplings table database census of bilinear Schrodinger controllable systems exact small-time quadruple lookup"
+    }
+  },
+  "residual_risks": [
+    "Beauchard-Pozzoli full PDF could contain an R^d example whose hypotheses are closer than the abstract indicates; abstract plus DOI metadata were screened but PDF bytes were not machine-readable in this environment",
+    "Asymptotic gap monotonicity for x^2+x^4 to all k was not independently verified by interval methods; failure of eventual monotonicity would further weaken non-resonance but does not affect the REJECT",
+    "Classical small-time controllability of the corresponding quartic-dipole system was not separately decided; a classical obstruction if present would reinforce rejection but was not needed given the proof gaps"
+  ],
+  "verdict": "REJECT"
+}
