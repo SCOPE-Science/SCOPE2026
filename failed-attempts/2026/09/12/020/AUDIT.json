@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Core computations verified by two independent implementations: exhaustive n=3 (6 violators) and n=4 (474 violators) with all generated lattices nondistributive, and the 8-point triple violating at (1,0),(5,0) with an 8-element distributive generated lattice (artifact replay VERIFY_OK in 0.2s, independently re-implemented with set-based relations: identical results). However DRAFT Section 1's essential supporting derivation that length 2 implies length 3 via s=(t0,t1,t1,t2) is FALSE as stated: bridge i=2 (even) requires s2(x,x,y)=s3(x,x,y), i.e. t1(x,x,y)=t2(x,x,y), but t1(x,x,y)=x while t2(x,x,y)=y, so it demands x=y. Hence the proof record does not establish the claimed 'no length-3 hence none of length <=3' extension as written (the conclusion is true via a semantic route -- 2-factor inclusion implies 3-factor inclusion by reflexivity plus Jonsson's converse -- but that argument is not given). An essential inference is therefore incorrect, so correctness FAILS despite correct headline computations.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused live search (SerpBase/Serpent + OpenAlex + Crossref, full coverage, partial=false) over the literal inclusion-failure claim, Day/Alvin/Gumm/CD(3) equivalent formulations, and Lipparini-spectrum / distributive-lattice-census dominance queries returned only general-variety spectra (Lipparini 1702.05353, distributivity spectrum, Baker's variety), directed-Jonsson/terms surveys, and generic distributive-lattice representation results. None records the <=4-point exhaustive absence counts (6/474), the specific 8-point triple alpha=(0,0,0,0,1,0,1,1), beta=(0,1,2,2,1,1,0,1), gamma=(0,1,1,0,0,2,0,1) with witnesses (1,0),(5,0), or any minimal-universe census for distributive failures of the length-3 Jonsson inclusion. The datum is new relative to prior implications; no broader theorem or table mechanically implies or covers it.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even taking correctness of the enumerations and novelty as given, the headline is an unexplained enumeration over an arbitrary finite slice with blocked downstream use, not an independently retrievable result under the shared STANDARD. The absence half (no distributive violator on <=4 points, counts 6/474 with no structural interpretation) is a raw exhaustive output; the witness half is a single random-search triple (9-point hit compressed to 8 points) with no mathematical identity, no reason the labels/blocks are natural, and only lineage-local minimality. The report itself documents that this exact triple cannot serve the motivating purpose (discrete triple intersection forces rigid quotient tables with 900+ congruences containing M3; realization blocked), that the committed replay stops at 4 while 5 is uncommitted and 6-7 are mere samples, so the 'bracket' [absent <=4, witness at 8] leaves the 5-7 gap open. Certification and replayability (0.2s stdlib script) are evidence properties that do not create value by themselves. No future researcher could reasonably need this precise arbitrary triple, and the counts alone calibrate nothing beyond what a 0.2s rerun reproduces. This is textbook inclusion derivation plus unexplained enumeration, i.e. intrinsic low value and arbitrary scope: REJECT, not a bounded exposition fix.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Committed artifact inputs/artifacts/verify_core.py replayed: n=3 violating=6 all-nondistributive, n=4 violating=474 all-nondistributive, n=8 violation with witnesses [(1,0),(5,0)] distributive size 8, VERIFY_OK in 0.2s.",
+    "Independent from-scratch reimplementation (set/boolean-matrix relations, Floyd transitive closure, separate lattice-closure and distributivity check): identical counts 6/474, identical 8-point witnesses, lattice size 8, distributive True.",
+    "DRAFT.md Sections 1-4 read in full: Jonsson inclusion derivation standard and correct; length-2=>length-3 duplication argument checked symbolically and found false (bridge i=2 requires x=y); Claims A/B and honest limitation statements (n=5 uncommitted, 6-7 sampled, lineage-only minimality, blocked algebra realization) noted.",
+    "research_report.json (EMERGENT_FINDING, discovery context, independent_value_case, limitations) and target_exit.json (blocked-target evidence, rigid quotient-forced tables with M3) read in full.",
+    "Live scope_literature_search (3 consolidated queries, full provider coverage, 20 fused results): Lipparini Jonsson distributivity spectrum arXiv:1702.05353 (variety-level J(m) spectrum, no small relational census), directed-Jonsson/Gumm surveys, distributive-lattice representation/classification sources -- none records or implies the <=4 absence or the 8-point triple."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Lipparini 'On the problem of the Jonsson distributivity spectrum' (arXiv:1702.05353) bounds J_V(m) for general congruence-distributive varieties; distributivity-spectrum and Baker's-variety papers likewise treat variety-level inclusions. None states a fixed-universe (<=4 point) relational census or forces every 8-point distributive lattice of equivalences to satisfy the 3-factor inclusion.",
+      "reasoning": "A broader covering source would need to imply the exact finite census or subsume the 8-point witness as a special case. The spectrum theorems constrain varieties, not the exhaustive partition landscape on a fixed 3/4-point set, so they neither imply the absence counts nor preclude the witness.",
+      "search": "distributive lattice of equivalence relations classification census small sets congruence lattice minimal failure Jonsson spectrum Lipparini"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Jonsson's theorem (length-n terms => n-factor congruence inclusion and converse) and NU/edge-term lemmas constrain term existence from inclusions, but no prior implication derives the concrete facts: zero distributive violators among 6 (n=3) / 474 (n=4) violators, or the existence of the stated 8-point distributive violator.",
+      "reasoning": "Prior work gives the general inclusion-to-terms bridge used to interpret a violation as an obstruction, but certifies no specific small-universe counts and forbids no specific triple; the submitted finite datum adds information beyond those lemmas rather than restating them.",
+      "search": "Jonsson terms CD(3) 3-distributive Day Alvin Gumm congruence distributive variety small algebra minimal"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched Day/Alvin/Gumm/directed-Jonsson reformulations, dual/complement and incidence encodings of the 3-factor inclusion, and synonymous '3-distributive / CD(3) / Jonsson length 3' notation across fused results; only general surveys (directed Jonsson terms, categorical congruence-distributivity) returned, with no equivalent small relational obstruction census.",
+      "reasoning": "No synonymous notation or algebraic encoding was found to rename the claimed <=4-point absence or the 8-point triple; the headline is not a disguised restatement of a known Day/Alvin/Gumm fact.",
+      "search": "length-3 Jonsson congruence inclusion alpha beta gamma failure distributive lattice equivalence relations"
+    },
+    "exact_database_or_table": {
+      "evidence": "No specialist database, UACalc-style table, partition-census repository, or published small-lattice-of-equivalences catalog entry recording the 6/474 violator counts or the explicit 8-point triple with witnesses (1,0),(5,0) was found in fused results or the admission record's UACalc/Malcev checks.",
+      "reasoning": "The property (inclusion failure coexisting with a distributive meet/join-closure) is not a stored lookup row; it required fresh enumeration. Lookup alone neither decides nor repackages the claim, so this is not database recomputation -- though novelty alone does not confer value.",
+      "search": "UACalc small algebra library Jonsson terms certified length table finite idempotent CD witness partition census"
+    }
+  },
+  "residual_risks": [
+    "DRAFT's false length-2=>length-3 syntactic duplication must not be reused: any future use of the witness as a 'no length <=3' certificate needs the semantic argument (2-factor inclusion implies 3-factor by reflexivity plus Jonsson converse), not term duplication.",
+    "The 5-point exhaustive scan (35730 violators, 0 distributive, per DRAFT) was not part of the committed replay and was not independently verified here; 6- and 7-point claims rest on random samples only.",
+    "Lineage-local minimality of the 8-point witness (no identification within its own compression lineage preserves violation) must not be cited as global minimality over all 8-point or 5-7-point triples."
+  ],
+  "verdict": "REJECT"
+}
