@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: independently re-ran the exact integer sum. With chi(a)=(a/13), omega(a)=(a/3), psi=chi*omega of conductor 39, the 24 units mod 39 give S=sum a*psi(a)=-156, so B_{1,psi}=S/39=-4 and by Washington Cor. 5.13 L_3(0,chi)=-B=4. Parity (chi even, omega odd, psi odd), gcd(13,3)=1, splitting chi(3)=1, and Euler factor (1-psi(3))=1 since 3|39 are all correct. v_3(4)=0 so F_chi(0) is a 3-adic unit, forcing Weierstrass degree 0. The Main Conjecture/Ferrero-Washington bridge for the algebraic corollary is cited not proved, which the DRAFT discloses as a limitation.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the headline lambda_an=0 at (conductor 13, p=3) is already decided by the Delbourgo-Knospe Math.Comp. 2023 census (Appendix A + lambda3-1000.txt), which lists all primitive chi=theta*omega^i with cond(theta)<1000, p not dividing cond(theta), p not dividing ord(chi), f<10 having lambda_3>0 (rank-zero case). The present chi is theta=chi (cond 13), twist i=0, ord 2, f=1, rank-zero since psi(3)=0, hence inside scope; its absence from the table is by the appendix's explicit completeness rule a positive assertion lambda_3=0. The fused literature search found only method papers for the literal wording but the dominance/census direction discloses this covering source. ADMISSION_DEFECT: topic.audit_preflight equivalent_formulations/exact_database_or_table preflight claimed no database stores the (13,3) degree and only tooling exists, which is materially false given the appendix omission rule and data file.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as a new record: the exact invariant (natural object, motivated split pair, Main Conjecture bridge) would be independently retrievable if new, but it is a known-database recomputation. The appendix census already publishes lambda_3=0 for this pair via its completeness rule, so the DRAFT adds no new vanishing fragment, benchmark, or downstream calibration beyond a replay certificate. Certification and stdlib replay strengthen evidence but do not create value per STANDARD. ADMISSION_DEFECT: admission/topic value case claimed a 'new analytic vanishing fragment / first certificate at this pair', which is false given prior census coverage.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md headline claim lambda_an=0, L_3(0,chi)=4, Washington Cor.5.13 plus Weierstrass/Ferrero-Greenberg route",
+    "inputs/artifacts/verify_degree_zero.py replayed plus independent bash recomputation confirming S=-156, B=-4, L=4, 24 units, parity/split checks",
+    "Knospe 2026 'Special values of p-adic L-functions and Iwasawa lambda-invariants' Thm 4.1 rank-zero criterion v_p(B_{1,theta})>0 <=> lambda>0; method context",
+    "Delbourgo-Knospe Math.Comp. 2023 Appendix A PDF statement: tables list all chi=theta*omega^i with cond(theta)<1000, p|cond excluded, p|ord excluded, f<10 with lambda>0 (resp. >1 in trivial-zero case); 'If a character is not listed then lambda=0 (resp. 1)'",
+    "lambda3-1000.txt data file fetched live (406 lines, 55816 bytes); regex search for 'modulo 13' returns zero lines, confirming conductor-13 even twist-0 character is omitted and hence asserted lambda=0",
+    "inputs/topic.json audit_preflight/admission_review claiming no database stores (13,3) series or degree, compared against appendix evidence"
+  ],
+  "claim_route": "TARGET (research_report.claim_route=TARGET; audited as literal admitted target with no value presumption)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Delbourgo-Knospe Appendix A scope: p=3, all primitive chi=theta*omega^i with cond(theta)<1000, p not dividing cond(theta), p not dividing ord(chi), f<10; completeness rule 'not listed => lambda=0 (resp. 1 in trivial-zero case)'. Present case theta cond 13, twist 0, ord 2, f=1 satisfies all filters and is rank-zero (psi(3)=0 so no trivial zero).",
+      "reasoning": "The target pair is a strict special case of this completed census up to conductor 1000. The census therefore exhaustively covers the claim; no fresh computation was needed to decide the degree.",
+      "search": "Delbourgo Knospe Iwasawa lambda invariants appendix census conductor <1000 p=3 completeness rule"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior census asserts lambda_3=0 for this chi by omission; Knospe Thm 4.1 gives the same Bernoulli-unit criterion used by the DRAFT; Zhao sums and Washington interpolation supply only the standard method. The DRAFT's B=-4/L=4 computation reproduces the criterion value without changing the decided outcome.",
+      "reasoning": "The submitted headline is a recomputation/certificate and corollary repackaging of a known stronger fact (the up-to-1000 census). A prior source need not print 'L_3(0,chi)=4' verbatim; its lambda=0 assertion substantively implies the constant term is a unit, so originality fails.",
+      "search": "p-adic L lambda Q(sqrt13) p=3 prior evaluation implies degree-zero certificate recomputation check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Literature equates analytic lambda=0 with L_p(0,chi) a p-adic unit, with B_{1,chi*omega^{-1}} a unit (Knospe Thm 4.1(i)), and with Iwasawa series having unit constant term; census notation chi=theta*omega^i with theta cond 13, twist 0, ord 2, f=1 is the same object as DRAFT chi conductor 13 / Q(sqrt13) plus-branch with gamma=1+3.",
+      "reasoning": "Searching both Weierstrass-degree and special-value/Bernoulli wordings does not escape coverage: the synonymous quadratic/Kronecker (./13), theta-twist, and psi conductor-39 encodings all denote the same pair, which the census decides under its own notation.",
+      "search": "Kubota-Leopoldt Weierstrass degree zero equivalent B_{1,psi} unit even character conductor 13 twist notation"
+    },
+    "exact_database_or_table": {
+      "evidence": "Live fetch of knospe/iwasawa lambda3-1000.txt (406 lines): zero lines match 'modulo 13' by exact regex; repository README/appendix states characters not listed have lambda=0 (resp. 1 in trivial-zero case). The (13,3) even twist-0 character is therefore stored as an implicit zero entry.",
+      "reasoning": "The exact parameter is already in an official table via the stated omission rule, not merely computable by tooling. The claim can be settled by downloading the census plus its completeness statement, so it is database repackaging.",
+      "search": "knospe iwasawa lambda3-1000.txt conductor 13 table lookup omission rule"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
