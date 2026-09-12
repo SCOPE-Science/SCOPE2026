@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness PASSES as exact verification: the stdlib-only script was re-executed by the auditor and printed ALL EXACT CHECKS PASSED with L0=6, 25 differing entries, chi=[1,-1,0,1,-1,0,-1,1,0,-1,1], det(Q)=0 rank(Q)=8, transporter [(2,False),(5,False),(9,False)] length 3, BFS 295 visited. Entrywise identities S_b=P^T S_a P, M_b=P^{-1}M_a P, Q_b=P^T Q_a P, M_a=M2 kron M5, upper-ones-diagonal normal forms, det=1, unimodular P det -1, and charpoly interpolation via Bareiss plus QQ rank are mathematically sound exact proof, not experimental evidence. Lemma A algebra M'=P^{-1}MP is correct. The DRAFT overstates the lemma as voiding any mismatch certificate (mismatch would validly imply distinct orbits by contrapositive), but the computed same-orbit and spectrum-equality facts themselves verify.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Originality FAILS: the headline same-orbit plus identical-spectrum fact is mechanically implied by the researcher's own construction plus textbook general identities, not a new theorem. S_b was defined as sigma_2 sigma_5 sigma_9(S_a), so same-orbit membership within L0=6 holds by definition of a Hurwitz translate; spectrum equality follows from the general similarity identity M'=P^{-1}MP and the Sebastiani-Thom tensor law M_a=M2 tensor M5, both standard Picard-Lefschetz/Seifert-form theory covered by Balnojan-Hertling distinguished-matrix orbit theory and Hertling monodromy work. No prior source states the arbitrary word sigma_2 sigma_5 sigma_9 verbatim, but a literal-title miss does not establish priority: the exact word is an arbitrary researcher-chosen parameter, the charpoly follows mechanically from known A2/A5 factors, and Lemma A restates a known braid invariant. The result is a corollary/repackaging of a known stronger fact.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Value FAILS under the TARGET negative-resolution rule and the narrow-datum rule. The disproof decides only a self-constructed arbitrary-parameter fact: applying a chosen 3-move word to S_a trivially yields an orbit mate, so finding the same word back with 25 entry differences and equal spectra has no independent retrieval value. S_a=S(A2) tensor S(A5) is natural, but the word sigma_2 sigma_5 sigma_9, the bound L0=6, and the resulting S_b were not motivated before computation by J10 geometry, the Stokes charpoly t^10-t^9+t^7-t^6-t^4+t^3-t+1 is mechanically implied by the tensor product of known A2/A5 spectra, and no concrete downstream wall-crossing or moduli use needs this precise transporter. ADMISSION_DEFECT: Admission certified both transporter-existence and mismatch-separation as live for two independently documented path systems with compatible diagonals, but the research instantiated S_b as an explicit Hurwitz translate of S_a, making mismatch dead on arrival for this pair and reducing the rigorous disproof to vacuity/construction tautology rather than a substantive Stokes-region decision. Certification and exactness do not create value for an arbitrary scope.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Auditor re-execution of inputs/artifacts/verify_j10_orbit.py (copied to output/artifacts and run): output L0=6, differing entries 25, chi(Stokes)=[1,-1,0,1,-1,0,-1,1,0,-1,1], chi(M2)=[1,-1,1], chi(M5)=[1,-1,1,-1,1,-1], det(Q)=0 rank(Q)=8, transporter [(2,False),(5,False),(9,False)] length 3 <= L0, BFS depth<=3 visited 295, ALL EXACT CHECKS PASSED.",
+    "inputs/artifacts/results.json: archived 10x10 S_a (Kronecker S(A2) tensor S(A5)), S_b, cumulative word matrix P1 det -1, chi coefficients, Seifert det/rank, move sequence [1,4,8] 0-indexed, 25 differences, BFS counts \u2014 confirms matrices upper-triangular ones-diagonal det 1 and claimed identities.",
+    "inputs/DRAFT.md Sections 1-6 and inputs/research_report.json (claim_route TARGET, status CLAIMED): S_a tensor construction, word sigma_2 sigma_5 sigma_9, same-orbit plus identical Stokes/Seifert claims, Lemma A M'=P^{-1}MP proof, and stated limitation to named pair \u2014 audited as construction-tautological disproof.",
+    "inputs/topic.json target_claim (distinct Br_10 orbits certified by Stokes mismatch up to L0), audit_plan, admission_review and STANDARD.md TARGET two-sided-resolution rule plus narrow-exact-invariant eligibility rule \u2014 applied without paper-level or record-packaging relaxation.",
+    "scope_literature_search fused results (20 hits, partial coverage: google query_index 2 error 'attempt to write a readonly database', OpenAlex 0 hits per query, Crossref/SerpBase ok): nearest priors Hertling mu-constant monodromy/GZ (AIF 2011, Gauss-Hertling J.Sing 2018), Balnojan-Hertling distinguished-matrix characterization (J.Sing 2026.30b), Stokes-matrix braid-orbit finiteness, Hurwitz-equivalence literature; snippets screened \u2014 all operate at general distinguished-basis/monodromy-invariant level with no named J10 sigma_2 sigma_5 sigma_9 transporter, confirming the instance is uncovered verbatim yet implied by general theory."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Hertling mu-constant/GZ work and Balnojan-Hertling distinguished-matrix theory plus standard Sebastiani-Thom and Picard-Lefschetz Hurwitz theory operate at the general level: Hurwitz moves preserve distinguishedness by definition and conjugate the Stokes operator as M'=P^{-1}MP, and tensor-product distinguished bases are standard. No source tests the named sigma_2 sigma_5 sigma_9 pair, but the general theorems substantively cover it as a special case.",
+      "reasoning": "Because the claimed same-orbit membership and spectrum/congruence equalities are direct instantiations of broader covering theorems (orbit definition plus similarity/congruence identities plus tensor law), the headline is a strict special case of known stronger facts and therefore not original despite the verbatim word being absent.",
+      "search": "Hertling mu-constant monodromy GZ simple elliptic J10 distinguished basis braid orbit classification Stokes regions database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior general facts \u2014 (i) S_b defined as word-translate of S_a implies same-orbit membership tautologically, (ii) S'=P^TSP implies M'=P^{-1}MP and Q'=P^TQP, (iii) M_a=M2 kron M5 implies Stokes charpoly from A2/A5 factors \u2014 jointly entail every clause of the headline (length-3 transporter, identical charpoly t^10-t^9+t^7-t^6-t^4+t^3-t+1, congruent Seifert rank 8) without any new argument.",
+      "reasoning": "The gap between general orbit theory and this instance is filled entirely by substituting the researcher's arbitrary word and Kronecker matrix into textbook identities, so prior work substantively implies the claim and the remaining computation is mechanical verification, not new content.",
+      "search": "J10 distinguished matrices braid orbit general theory implies instance membership transporter spectrum"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched synonymous/dual encodings: Hurwitz-move Stokes operator S^{-1}S^t similarity, Seifert-form congruence Q=S+S^t, Sebastiani-Thom tensor Stokes matrix, and Stokes-region/wall-crossing orbit language. Fused hits return only general Hurwitz-equivalence, Seifert-matrix, and Stokes-matrix braid-orbit theory with no J10 sigma_2 sigma_5 sigma_9 instance decision or separating invariant.",
+      "reasoning": "Absence of an equivalent-notation prior instance does not confer originality here because the found equivalent formulations show spectrum equality is the standard braid invariant restated: the instance's Stokes conjugacy is a synonymous renaming of known monodromy invariance applied to self-chosen parameters.",
+      "search": "distinguished matrices Hurwitz move Stokes operator S^{-1} S^t braid invariant similarity Seifert congruence Balnojan-Hertling"
+    },
+    "exact_database_or_table": {
+      "evidence": "No Gabrielov table, characteristic-polynomial list, or official singularity/Stokes database was found listing a distinguished-matrix orbit representative or Stokes decision for this named Kronecker pair and word; J10 Gram inputs and A2/A5 eigenvalues are tabulated inputs only. The Stokes charpoly was recomputed from the tensor law rather than looked up.",
+      "reasoning": "The claim is therefore not a direct table lookup, but that does not save it: the exact word/pair identifier is researcher-invented arbitrary scope with no prior table entry expected, and the invariant value is mechanically implied recomputation rather than an independently motivated exact datum a future researcher would retrieve.",
+      "search": "J10 Sebastiani-Thom Stokes matrix S(A2) tensor S(A5) braid orbit sigma_2 sigma_5 sigma_9 Stokes spectrum table"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
