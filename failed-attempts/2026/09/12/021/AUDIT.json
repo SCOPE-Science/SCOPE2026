@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Re-ran inputs/artifacts/verify_h4.py -> VERIFY_OK (classical 3, quantum 3*sqrt6/2=3.6742346142, SoS residual 7.7e-16, Gram det 25/1024). Independently re-derived SoS identity: T0^2=5I+2S, T1^2=2I-S, S-cancellation exact, scalar remainder 3*sqrt6/4-9/(2*sqrt6)=0 via sympy; primal bias =|T0|+|T1| with s=1/4 globally optimal (df/ds root 1/2 in transformed variable, f=3.67423). Rank loop valid: 9 vectors in C^4 with nonzero 4x4 minor => rank 4, level-2 extension rank 4. DRAFT Sec3a grouping text mis-writes first case as beta*(3a0+a1) instead of 3*a0*beta, but exhaustive 16-case enumeration covers classical value so result stands; tracial phrasing is loose but finite-dimensional attainment holds. Proof is analytic, numerics only confirm.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: Literal string (3/2)*sqrt6 for M=[[2,1],[1,-1]] has no verbatim table hit, but that does not establish priority. Substantively the claim is a special case of the textbook Tsirelson correlator/XOR-game theorem: every 2x2 correlator functional has its commuting-operator (Tsirelson) bound given by the 1+AB SDP, attained by qubits, with the standard SoS certificate lam*I-B=sum E_x^2/(2l_x) and E_x in span(S_{1+AB}). The DRAFT proof is that generic biased-CHSH proof with l0=sqrt6, l1=sqrt6/2 and s=1/4 optimization. ADMISSION_DEFECT: topic.audit_preflight broader_coverage claimed no broader theorem decides 1+AB exactness, but the general 2x2-correlator exactness (Tsirelson-Landau-Masanes SDP, Ishizaka 1+AB=level-2 for correlations, QETLAB NPAHierarchy 1+ab documentation) does imply collapse for any such M including (2,1,1,-1). Hence recomputation/corollary of a known stronger fact, not a new finite-level exactness fact.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The headline exact number 1/2+3*sqrt6/20 for weights (2,1,1,-1) is an arbitrary in-report slice, not an independently motivated natural object. ADMISSION_DEFECT: topic.audit_preflight target_integrity and cheapest checks presupposed a fixed natural H4-GRAPH predicate with no table entry, but lane inputs supplied only shape (4-input binary BCS at 1+AB) and DRAFT Sec1 admits fixing G=[[2,1],[1,1]], signs [[+,+],[+,-]] in-report with doubled edge multiplicity 2 to make the surds work. No recognized benchmark (CHSH, magic square, odd cycle) asks for this weight combination; no downstream compiled-game or certification task needs this precise constant; method is textbook biased-CHSH calculus. Narrow-datum rescue fails because object+invariant were not motivated before computation and value is mechanically implied by the general XOR formula. Certification/replayability (VERIFY_OK) does not create value per STANDARD.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-executed inputs/artifacts/verify_h4.py: classical bias 3, correlators 0.918559/0.612372/0.612372/-0.612372, bias 3*sqrt6/2=3.6742346142, gap 0.6742, SoS residual 7.772e-16, ||E0 psi||=1.1e-16, Gram det 25/1024, RANK LOOP CLOSED VERIFY_OK",
+    "Symbolic re-derivation: T0=2A0+A1, T1=A0-A1, T0^2=5I+2S, T1^2=2I-S, S=A0A1+A1A0 cancels as -1/sqrt6+1/sqrt6=0, scalar 3*sqrt6/4-5/(2*sqrt6)-2/sqrt6=0; Alice overlap s=1/4 uniquely maximizes sqrt(5+4s)+sqrt(2-2s) giving lam=l0+l1",
+    "DRAFT.md Secs 1-7 and research_report.json claim/evidence_summary/limitations: instance fixed in-report, weights (2,1,1,-1), SoS identity, Phi+ X-Z strategy, rank-4 loop",
+    "scope_literature_search fused 20 results full coverage (serpbase/serpent/openalex/crossref all ok): Fanizza et al. arXiv:2510.04943 non-attainment BCS game; Ishizaka Entropy 27:182 NPA 1+AB vs level-2 for correlations; Tsirelson-bound/CHSH SoS literature; QETLAB NPAHierarchy docs defining level '1+ab' for Bell functionals",
+    "Primary-source fetches: arXiv:2510.04943 abstract (large-game non-attainment, undecidability, does not decide small 2x2 correlator); QETLAB NPAHierarchy page (NPA levels including '1+ab', BellInequalityMax Tsirelson upper bounds, CVX usage)",
+    "topic.json audit_preflight/admission_review: admitted shape-only target without predicate file, claimed no table entry and nontrivial strict inequality, value/originality PASS at admission \u2014 compared and found false presupposition of fixed natural predicate"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General Tsirelson correlator/XOR theorem plus Ishizaka result that 1+AB and level-2 coincide for correlations in simplest Bell scenario, and QETLAB NPAHierarchy docs treating 1+ab as standard Tsirelson SDP; asymptotic NPA reviews prove only limit behavior while large-BCS non-attainment targets different large games.",
+      "reasoning": "The submitted 2x2 correlator functional M=[[2,1],[1,-1]] is a strict special case of the broader class for which 1+AB is already known exact by the Tsirelson SDP. A general exactness theorem covering all 2x2 correlators substantively implies this instance's collapse, so broader coverage FAILS originality even though large-game counterexamples do not apply.",
+      "search": "NPA hierarchy finite-level exactness classification 2x2 Bell scenario commuting-operator value census magic rectangle graph game table 1+AB certificate database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Fanizza et al. 2510.04943 constructs a large BCS game where NPA never attains qc; tilted-CHSH Motzkin results show no finite level characterizes full quantum set; neither decides a specific small correlator, while the positive Tsirelson XOR SDP (upper bound lam plus qubit attainment) directly yields lam=(3/2)sqrt6 for this M.",
+      "reasoning": "Negative non-exactness counterexamples do not imply failure here, but the positive general implication does: plugging M into the known Tsirelson formula mechanically yields the claimed value and 1+AB certificate. The headline is therefore a corollary/repackaging of a known stronger fact, so prior implication FAILS originality.",
+      "search": "NPA does not attain commuting-operator value BCS counterexample scope versus Tsirelson XOR exact SDP implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "Weighted/biased CHSH Tsirelson bound literature uses identical SoS form lam*I-B=E0^2/(2l0)+E1^2/(2l1) with Ex=lx*By-Tx, Phi+ X-Z-plane correlators <AxBy>=ux.vy, and flat-extension rank via finite-dimensional GNS; draft's identity and vectors match this standard encoding up to weights (2,1,1,-1).",
+      "reasoning": "Under synonymous notation (bias vs game value w=1/2+B/10, correlators vs probabilities, incidence G=[[2,1],[1,1]] as weight matrix) the certificate is the textbook CHSH-type SoS with tuned lx. Equivalent formulation therefore covers the claim as a routine weight substitution, not a new algebraic coincidence.",
+      "search": "weighted biased CHSH Tsirelson bound sum-of-squares certificate E0 E1 qubit strategy Phi+ X-Z plane correlators exact NPA duality tracial representation"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused search found no published table entry listing 1+AB optimum (3/2)sqrt6 with rank-loop data for incidence [[2,1],[1,1]] signs [[+,+],[+,-]]; surveyed magic-rectangle and odd-cycle tables list different uniform-weight sizes, and NPA reviews list only asymptotic bounds.",
+      "reasoning": "Literal table absence is confirmed but does not rescue originality: the exact number is mechanically obtained by evaluating the known general XOR/Tsirelson formula at M=[[2,1],[1,-1]], so absence from a table reflects only that no one wrote down this arbitrary weight choice, not that a covering theorem is missing.",
+      "search": "NPA table magic rectangle graph game level 1+AB exact value database H4-GRAPH (2,1,1,-1) rank loop"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
