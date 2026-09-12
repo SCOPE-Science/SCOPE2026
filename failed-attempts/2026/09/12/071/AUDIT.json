@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route (claim_route=TARGET in research_report.json): audited as complete target resolution via alternative (ii). The deduction is logically valid: with at most one group-carrying regular J-class, group-depth d(S)<=1, so Rhodes Depth Theorem c(S)<=d(S) gives c(S)<=1; the aperiodic case (no group-carrying regular J-class implies H-trivial hence c=0) is correctly proved via idempotent identities. Re-ran inputs/artifacts/verify_T2_scope.py successfully: T2 has 4 elements, J-classes {id,swap} and {c0,c1}, all regular, H(id) size 2 and H(c0),H(c1) singletons, so exactly two nonzero regular J-classes with only C2 nontrivial group, i.e. in scope; non-aperiodic gives c>=1 (c=0 iff aperiodic, standard) hence c(T2)=1 with the upper bound. Cited-not-proved items (Depth Theorem, holonomy indexing, regular-J Schutzenberger facts) are accurately described textbook results; the holonomy citation is unnecessary for the depth argument but harmless.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The headline (at most one group-carrying regular J-class implies c<=1, hence no in-scope monoid has c=2) is mechanically implied by the strictly stronger 1968 Rhodes Depth/Depth-Decomposition Theorem c(S)<=d(S) found in Eilenberg Vol.B Ch.VII and Rhodes-Steinberg q-theory Ch.4 and restated in the retrieved Margolis-Rhodes-Schilling decidability survey. Substituting depth<=1 for general depth is a one-step parameter instantiation, not a new theorem, boundary, or counterexample. Synonymous terminology (essential J-class = regular J-class with nontrivial subgroup) and the known Tk complexity table (Tk has complexity k-1, hence T2 has complexity 1) cover the strengthened general claim and the sharpness witness respectively. A prior source need not state the headline verbatim; substantive implication suffices, which holds here.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: the admitted target asked whether a depth<=1 restricted class (|S|<=24, two nonzero regular J-classes, cyclic prime groups) contains complexity 2, but any such S has depth<=1 so the 1968 textbook bound c<=d already forces c<=1 for arbitrary size and arbitrary groups. The negative resolution is therefore a direct textbook instantiation (depth parameter n=1) plus the standard facts c=0 iff aperiodic and c(T2)=1 from the known Tk complexity k-1 table. It is a textbook restatement / mere parameter substitution with no new boundary, classification, witness changing a known boundary, or independently retrievable exact invariant whose value was unknown or non-mechanical. The draft itself notes the scope hypotheses are unneeded. Sharpness via T2 does not add value since c(T2)=1 was already known. Value FAILS even though the literal target alternative (ii) is correctly proved.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md + inputs/research_report.json (claim_route=TARGET): universal bound c<=1 for at most one group-carrying regular J-class, no in-scope c=2, sharpness c(T2)=1; proof cites Rhodes Depth Theorem c<=d and holonomy indexing.",
+    "Independent re-execution of inputs/artifacts/verify_T2_scope.py: reproduced multiplication table, principal ideals, two J-classes, all-regular, idempotents c0,id,c1 with H-sizes 1,2,1, scope checks pass, 90 Rees-size triples; confirms T2 scope membership and c>=1 lower bound.",
+    "Margolis-Rhodes-Schilling arXiv:2406.18477 (retrieved full text): 'A nice example of an upper bound for complexity is the Depth Decomposition Theorem. It states that the complexity of a semigroup is bounded by its depth, which by definition is the longest chain of J-classes that contain non-trivial groups.' plus 'The full transformation monoid Tk on k-elements has depth and complexity equal to k-1.'",
+    "Auinger 'Krohn-Rhodes complexity of Brauer type semigroups' snippet (SerpBase/Crossref): 'A J-class of a semigroup is essential if it contains a non-trivial subgroup. The depth of a semigroup is the length n of the longest chain J1>J2>...>Jn of ...' \u2014 confirms synonymous essential/group-carrying terminology and depth definition.",
+    "MathWorld 'Krohn-Rhodes Complexity': complexity is smallest number of groups in a wreath product of finite groups and finite aperiodic semigroups of which S is a divisor; confirms c=0 iff aperiodic framework used for T2 lower bound."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Margolis-Rhodes-Schilling survey states the Depth Decomposition Theorem bounds complexity by depth for every finite semigroup with an explicit decomposition achieving it; Eilenberg Vol.B Ch.VII / Rhodes-Steinberg Ch.4 are cited as the textbook sources. The submitted theorem drops the order, two-J-class, and cyclic-prime hypotheses entirely, proving the claim is strictly weaker in hypotheses and conclusion than the prior theorem.",
+      "reasoning": "The broader theorem with arbitrary depth n>=0 exhaustively covers the submitted depth<=1 special case: counting at most one group-carrying regular J-class gives d(S)<=1, then c(S)<=d(S)<=1 in one step. Stronger-theorem subsumption therefore holds; the headline is a corollary/repackaging of the known stronger fact, not an independent result.",
+      "search": "Rhodes Depth Decomposition Theorem Krohn-Rhodes complexity bounded by depth holonomy prime decomposition Eilenberg Tilson Rhodes Steinberg"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior hypothesis/conclusion: for all finite semigroups S, c(S)<=d(S) where d(S) is the longest chain of J-classes containing nontrivial groups. Submitted hypothesis/conclusion: if S has at most one regular J-class with nontrivial maximal subgroup then c(S)<=1 (hence no in-scope S has c=2); plus c(T2)=1 from non-aperiodicity and the upper bound.",
+      "reasoning": "Literal comparison shows substantive implication: at most one group-carrying regular J-class entails d(S)<=1 (regularity qualifier redundant since a subgroup forces regularity), so the prior yields the submitted bound directly; the T2 equality uses only the standard c=0-iff-aperiodic fact and the known Tk complexity k-1 table. No additional mathematical work beyond instantiation is present.",
+      "search": "Compare literal hypotheses and conclusions: universal c<=d bound versus at-most-one-group-J-class c<=1 corollary and T2 sharpness claim"
+    },
+    "equivalent_formulations": {
+      "evidence": "Auinger defines an essential J-class as one containing a nontrivial subgroup and depth as the longest chain of such classes; the survey defines depth identically as the longest chain of J-classes containing nontrivial groups. No retrieved source states the depth-1 corollary verbatim, but the synonymous encodings (essential = group-carrying regular, depth<=1 = at most one such class, group-depth one, single-nontrivial-Schutzenberger-level) all denote the same hypothesis.",
+      "reasoning": "Under every synonymous notation the submitted hypothesis is exactly depth<=1, so the equivalent-formulation screen does not rescue originality: all reformulations collapse to the n=1 case of the same Depth Theorem and are covered by it. Dual/complement/matrix encodings are inapplicable to this J-class-counting claim.",
+      "search": "Semigroup with single essential J-class group depth one single group-carrying regular J-class Schutzenberger group complexity one"
+    },
+    "exact_database_or_table": {
+      "evidence": "Retrieved survey records the established table value that the full transformation semigroup Tk on k elements has complexity k-1, hence T2 (order 4, units C2) has complexity 1; the artifact computation reproduces only this known value and a routine 90-triple Rees-size arithmetic enumeration consistent with |S|<=24.",
+      "reasoning": "The only exact datum (c(T2)=1) already appears in the standard complexity table and is mechanically implied by Tk theory plus aperiodicity testing, so it is a known-database recomputation/certificate, not a new exact invariant. No official census or table contains a complexity-2 example in this scope because the broader theorem precludes it.",
+      "search": "Full transformation monoid T2 complexity 1 Tk complexity k-1 table of Krohn-Rhodes complexity examples database"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
