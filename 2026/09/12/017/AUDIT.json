@@ -1,0 +1,94 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Independently replayed the labelled (isomorphism-free) certificate in this audit: C1=[[1,4],[2,9],[5,11]] and C2=[[1,8],[2,5],[4,10]] each develop to 57 blocks satisfying the STS(19) pairwise-balance check; fast counters give J(C1)=(19,57) and J(C2)=(38,0), exactly matched by independent 6-subset Pasch and 7-subset degree-sequence mitre brute-force censuses. Generic Pasch-trade completion yields 19 distinct labelled switches from C1 and 38 from C2 (59 labelled designs total), pairwise distinct, distinct from both seeds, zero cross-seed overlap. Dual recount agrees on all 59 designs with 0 mismatches: every C1 switch has J=(22,48); C2 switches split 19x(29,16)+19x(30,7). Since J is an isomorphism invariant, {J(S):S in N} is a subset of {J(D):D in L}, so |J(N)|<=|J(L)|=5<10 with no isomorphism test in the argument. The iso-class reduction (5 classes) is consistent supplementary evidence. No ADMISSION_DEFECT: the preflight vacuity check (both seeds contain Pasches, N strictly larger than seeds) and direct-table check both verify true.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Fused literature search over the literal 5-value ledger, equivalent trade/quadrilateral/mitre formulations, and stronger covering theorems plus databases found no prior source stating or implying the joint Pasch-mitre distribution over the one-step Pasch neighbourhoods of the two Pasch-containing cyclic STS(19)s. Kaski-Ostergard (2004) records only global automorphism orders and Pasch numbers; Colbourn et al. properties census (2010) records global maxima (e.g. 144 mitres) and samples, not per-neighbourhood rows; Erskine-Griggs arXiv:2405.07750 studies cycle-switching graph connectivity/components, not configuration counts; the Pottonen 39GB store contains systems but no J-ledger table; Forbes/Grannell-Griggs configuration and trade theory gives methods and linear relations, not these census values. The exact tuples (19,57),(22,48),(29,16),(30,7),(38,0) appear in no located table, and no broader theorem mechanically implies them.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "TARGET route: the negative resolution is a complete disproof of the admitted at-least-10 threshold and independently passes the shared value standard. It is not a cheap defect: vacuity is excluded (59 labelled designs, 5 iso classes), definitions are classical with dual-counter agreement, no table lookup decides the joint distribution, and the scope (two Pasch-containing cyclic seeds plus complete one-step ball with the two most classical configurations) is the canonical symmetric-seeded trade ball motivated before computation by the order-15 to order-19 gap and the lane switching-ledger hypothesis. The certified 5-value concentration ledger (exact tuples plus 19/19/19 switch multiplicities) is the audit-approved publishable negative benchmark: it shows coarse Pasch-mitre profiles do not diversify near symmetric seeds and redirects invariant design toward finer trade-closed polynomials, while supplying a reusable replayable ledger for isomorphism-search pruning. No ADMISSION_DEFECT: both preflight positive and negative value cases remain sound.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "Kaski & Ostergard (2004) The Steiner triple systems of order 19 (Math. Comp. 73) \u2014 classified 11,084,874,829 systems; records automorphism-group orders and Pasch numbers globally and lists the four cyclic systems, but computes no joint Pasch-mitre distribution over any one-step neighbourhood of the named cyclic starters.",
+  "Colbourn, Forbes, Grannell, Griggs, Kaski, Ostergard, Pike & Pottonen (2010) Properties of the Steiner Triple Systems of Order 19 (EJC R98) \u2014 reports global configuration maxima (incl. 144 mitres for the most symmetric systems), sparsity, chromatic and resolvability data; abstract and tables give no per-neighbourhood Pasch-mitre rows for the cyclic starters.",
+  "Erskine & Griggs (arXiv:2405.07750, 2024) Cycle switching in Steiner triple systems of order 19 \u2014 abstract and metadata screened: studies full and fixed-cycle-length switching-graph connectivity and symmetric components for v=19; contains no Pasch-count/mitre-count ledger and no (19,57)/(22,48)/(29,16)/(30,7)/(38,0) tuples.",
+  "Pottonen STS(19) classification data page (http://pottonen.kapsi.fi/sts19/) \u2014 documents the 39GB compressed store of all STS(19)s and small-order files; holds raw systems, not a computed one-step cyclic-neighbourhood J table; confirms the ledger is new data production, not a download reprint.",
+  "Independent audit replay (stdlib only, inputs/artifacts/sts19_lib.py): rebuilt both seeds (STS check PASS), enumerated 19+38 distinct labelled switches with zero cross-seed overlap, and dual-recounted J on all 59 labelled designs \u2014 fast shared-pair/root-transversal counters vs 6-subset quadrilateral and 7-subset degree-sequence brute force agree with 0 mismatches; J(L)={(19,57),(22,48),(29,16),(30,7),(38,0)}.",
+  "Supplementary iso-class reduction (inputs/artifacts/neighbourhood.json): 5 isomorphism classes with (J,|Aut|)=(19,57;38),(38,0;114),(22,48;2),(29,16;6),(30,7;6), consistent with the labelled ceiling and confirming the equal-automorphism-order separation conjunct is moot."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Erskine-Griggs cycle-switching paper proves fixed-cycle-length switching graphs on STS(19) are disconnected with symmetric components; Colbourn configuration-polytope work gives linear relations among configuration counts. Neither states a per-neighbourhood joint-distribution ceiling, and neither was found to tabulate J over the seeded one-step Pasch ball.",
+   "reasoning": "No broader classification, connectivity theorem, or count-polytope result covers the seeded one-step distribution as a special case; the 5-value ceiling does not follow as a corollary of switching-graph (dis)connectivity or of linear configuration identities, which do not determine mitre counts from Pasch counts.",
+   "search": "Steiner triple system cycle switching graph STS(19) configuration count ceiling covering theorem"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Kaski-Ostergard gives group orders and per-system Pasch numbers; Colbourn et al. give global maxima and samples; Forbes/Grannell-Griggs give counting methods and trade classifications. None lists J=(p,m) rows over the 59 labelled one-step neighbours, and maxima plus group orders do not determine the five observed pairs.",
+   "reasoning": "The prior results do not substantively imply the headline: knowing global Pasch numbers, maxima such as 144 mitres, or trade-enumeration methods does not mechanically yield that C1 switches are uniformly (22,48) and C2 switches split 19/19 into (29,16)/(30,7); the ceiling required fresh enumeration.",
+   "search": "cyclic STS(19) one-step Pasch neighbours Pasch mitre joint counts implication"
+  },
+  "equivalent_formulations": {
+   "evidence": "Screened Pasch-trade / quadrilateral / opposite-trade and mitre / 5-block 7-point / root-plus-transversal phrasings via the fused search; hits return global Pasch counts, full-graph connectivity, trade sets of volume <=10, and general counting methods, with no source stating the five J values for these seeded neighbourhoods.",
+   "reasoning": "No synonymous, dual, complement, incidence-graph, or algebraic encoding of the claim was found in the literature; the target is not a renamed known fact, and title/embedding similarity of switching papers does not establish theorem-level coverage.",
+   "search": "cyclic STS(19) Pasch trade quadrilateral opposite switch mitre count distinct values"
+  },
+  "exact_database_or_table": {
+   "evidence": "Searched the Pottonen STS(19) catalogue pages, properties-census tables, survey appendices, and the fused exact-tuple query (19,57) (22,48) (29,16) (30,7) (38,0); the public record holds enumeration totals, automorphism orders, Pasch numbers, and global maxima, but no table of per-system Pasch and mitre counts over the one-step neighbourhoods of C1/C2.",
+   "reasoning": "Since the exact neighbour ledger does not exist publicly, computing it from hand-typed seeds plus fresh switch enumeration is original data production, not database repackaging or lookup; the threshold is decided by the new table rather than any printed row.",
+   "search": "STS(19) cyclic starter Pasch-switch neighbour configuration ledger database table"
+  }
+ },
+ "perplexity_final_check": {
+  "check_id": "192e01cb3810955ff6f141a8fdfced37792a7b8142ecbc82822b9fa79a75fb75",
+  "decisive_prior_found": false,
+  "decisive_sources": [],
+  "incremental_prior_found": false,
+  "material_sources": [
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Classifies small trade sets by volume and tabulates Pasch (6,4) and mitre (7,5) definitions, but computes no joint Pasch-mitre rows over the one-step Pasch-switch neighbours of the named cyclic STS(19) starters, so its general trade theory does not imply the five observed J values.",
+    "title": "[PDF] Configurations and trades in Steiner triple systems",
+    "url": "https://ajc.maths.uq.edu.au/pdf/29/ajc_v29_p075.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Draft of the STS(19) properties census reporting population-level Pasch tables, the maximum-84 result, and mitre/hexagon/crown discussion, but no per-system Pasch-mitre ledger over the seeded one-step neighbourhoods of C1/C2, so it cannot decide the five-value ceiling.",
+    "title": "sts19temp.dvi",
+    "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=decec8139b5cf78489a80ea16c05b318f748c031"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Documents the compressed store of all 11,084,874,829 STS(19)s (~39GB) plus small-order files; it archives raw uncomputed systems rather than a derived one-step cyclic-neighbourhood joint-count table, so the submitted ledger is new computation, not a lookup.",
+    "title": "Classification of Steiner Triple Systems of order 19",
+    "url": "https://pottonen.kapsi.fi/sts19/"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Full Kaski-Ostergard census recording per-design automorphism-group order and Pasch number with 2,591 anti-Pasch systems and maximum 84 Pasch, but no joint Pasch-mitre distribution over any one-step neighbourhood of the named cyclic starters, so it does not imply the five J tuples.",
+    "title": "[PDF] THE STEINER TRIPLE SYSTEMS OF ORDER 19 1. Introduction A ...",
+    "url": "https://aaltodoc.aalto.fi/server/api/core/bitstreams/cc849197-ff67-4d67-ba32-3dd34942d966/content"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Studies full and fixed-cycle-length switching-graph connectivity and small symmetric components for STS(19), including Pasch 4-cycle switches, but tabulates component structure rather than Pasch/mitre configuration counts, and states none of the (19,57)/(22,48)/(29,16)/(30,7)/(38,0) tuples.",
+    "title": "Cycle switching in Steiner triple systems of order 19",
+    "url": "https://arxiv.org/html/2405.07750v1"
+   }
+  ],
+  "rationale": "The terminal paid check returned 20 results with 7 overlapping the base set and added no decisive prior coverage. Its closest hits merely duplicate base providers in different URLs (properties-census draft, Kaski-Ostergard census PDF, Pottonen data page, Erskine-Griggs switching paper, Grannell-Griggs trade classification) or supply generic Pasch/mitre definitions and global maxima (84 Pasch, anti-Pasch counts, mitre bounds). Snippet-level literal comparison confirms none states the seeded one-step joint distribution, none tabulates the exact tuples (19,57)/(22,48)/(29,16)/(30,7)/(38,0) over the 59 labelled neighbours, and no broader theorem implies them; the remainder are keyword-similar only (other orders, theses, handbooks). Originality PASS is therefore preserved with no change to correctness or value.",
+  "status": "COMPLETE",
+  "verdict_changed": false
+ },
+ "residual_risks": [],
+ "verdict": "PASS"
+}
