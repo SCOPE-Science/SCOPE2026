@@ -1,0 +1,111 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified end-to-end. Starter counts |P0|=r^3, |Pi0|=r^3+r^2+r, K0=r^5+r^4+r^3 and F-line loads (r points, r+1 planes) checked; only-F-lines lemma holds by F-vector cross-product argument. Thinning at rate 1/r gives means r^2, r^2+r+1, E>=r^3 and per-line means 1 and 1+1/r. Chernoff size term 4exp(-r^2/48), Chebyshev term 16/r from Var<=4r^5 (four-factor independence gives Cov=0 for disjoint indices; d-classes bounded by 1/r^4 as valid majorant), and cap union term 6r^4 2^{-c sqrt(r)} with c=2^{-1/4} are all valid upper bounds. Reran output/artifacts/check_bounds.py: M(6561)=2.47e-03<1 with A_lower=68.11>5.44 and monotone decrease for sqrt(r)>13.73, so a good sample exists for every r=3^k>=6561. Greedy low-degree deletion to Ndet=floor(3r^2/4) keeps I'>=I/4>=r^3/8 with m=n=Ndet<=r^3=q^{3/2} and caps Ndet^{1/4} intact. Then I'/(C Ndet^{3/2-1/20})>=r^{1/10}(r^2/Ndet)^{1.45}/(8C)->infinity, defeating every delta>0. Constant-factor phrasing slack (r^{1/10} vs N^{1/20}) was checked to be a valid sufficient lower bound, not an error.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live three-form literature search (literal line-capped N^{3/2-delta} with N^{1/4} cap; equivalent K_{2,t}/max-collinear/k-plane duality phrasings and thinned-subfield sampling; dominance query for stronger Rudnev/Vinh/VC-dimension theorems and extremal censuses) fused 20 results. Nearest priors are general UPPER bounds: Rudnev O(m sqrt(n)+m k) with n<p^2, de Zeeuw short proof, Vinh spectral and Stevens-de Zeeuw bounds. With k=N^{1/4} these give O(N^{3/2}), compatible with the disproved saving and not implying it. The classical full-subfield extremal example (F_r^3, r^5 incidences) violates the N^{1/4} cap (load r vs r^{3/4}) so does not imply the capped lower bound. No source states or implies the thinned capped Omega(N^{3/2}) construction with random 1/r sampling plus greedy equalization. Title similarity alone was not counted as coverage; hypotheses and conclusions compared literally.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route with OPEN decision phase and no preset fallback: a rigorous disproof is a complete two-sided resolution. The result is an infinite family (r=3^k, q=r^2) with capped m=n=Ndet and I>=N^{3/2}/8, so I/(C N^{3/2-1/20})->infinity for every absolute C, indeed defeating every delta>0. This exposes that the N^{1/4} line cap is too weak to force the conjectured polynomial-partitioning saving, a substantive boundary fact for finite-field incidence geometry, motivated before computation. It is not a type/normalization error, vacuity, cheap small-instance mismatch, direct lookup, or arbitrary parameter fact: Ndet<=q^{3/2} holds, thresholds are arbitrarily large, and the ratio diverges. Independently worth retrieving as an exact extremal witness.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: TARGET prove-or-disprove N^{3/2-1/20} under N^{1/4} line cap, OPEN phase, no fallback",
+    "inputs/DRAFT.md Sections 1-7: subfield starter counts, only-F-lines lemma, thinning, Chernoff/Chebyshev/cap bounds, greedy equalization, variance detail",
+    "inputs/research_report.json claim_route TARGET with evidence summary and limitations (probabilistic-existential, loose Var majorant)",
+    "inputs/artifacts/check_bounds.py rerun: M(6561)=2.473e-03 (size 0, cheb 2.439e-03, cap 3.48e-05), monotone for sqrt(r)>13.73, thresholds C=1/10/1000, Ndet<=q^{3/2} OK",
+    "Independent recomputation: variance decomposition, Chernoff bases A>=68.11>5.44, deletion survival factor >=1/2 per phase, direct violation ratio r^3/(8 C N^{1.45})>=r^{1/10}/(8C) verified at k=19/40/82",
+    "scope_literature_search three-form fused 20 results: Vinh point-line, Rudnev point-plane O(m sqrt(n)+m k), Kong-Tamo point-variety, Stevens-de Zeeuw, VC-dimension improvements",
+    "Direct fetch of arXiv:1806.03534 abstract: point-plane theorem O(m sqrt(n)+m k) with n<p^2 condition, confirming it is an upper bound that does not imply the capped lower-bound disproof"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Dominance query returned general theorems: Rudnev point-plane upper bound O(m sqrt(n)+m k), Vinh spectral incidences, Stevens-de Zeeuw Szemeredi-Trotter-type bounds, and VC-dimension improvements. All are upper bounds; with k=N^{1/4} they yield O(N^{3/2}), which is consistent with Omega(N^{3/2}) and cannot subsume a lower-bound witness. No exhaustive census, classification of extremal capped configurations, or database covering all N^{1/4}-capped families was found.",
+      "reasoning": "A broader result covers the claim only if its hypotheses are weaker and its conclusion implies I<=C N^{3/2-delta} under the cap (to anticipate the disproof) or already exhibits the capped Omega(N^{3/2}) witness. The retrieved stronger/broader theorems do neither: they permit but do not construct the capped extremal family, so they do not dominate or anticipate the submitted disproof as a special case.",
+      "search": "point-plane incidence theorem finite fields F_q^3 Rudnev Vinh bound line restriction K_{2,t}-free classification extremal subfield Hermitian variety census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior extremal fact in snippets and literature: full subfield P0=F_r^3 with Pi0=F_r-planes gives K0=r^5+r^4+r^3 (~N^{3/2} with N=r^3). DRAFT Section 2 computes per-F-line loads of r points and r+1 planes, versus the admitted cap N^{1/4}=r^{3/4}. Hence the classical example violates the cap and cannot serve as a counterexample to the capped conjecture. The new step is 1/r thinning plus Chernoff/Chebyshev existence plus two-sided greedy deletion preserving caps while keeping I>=r^3/8.",
+      "reasoning": "Substantive implication requires the prior result plus routine steps to yield the capped Omega(N^{3/2}) witness. Here the cap-satisfying property is the entire difficulty and is absent from the full-subfield example; the thinning, variance majorant, cap union bound, and equalization argument are not mechanically implied by stating the subfield counts. Therefore no prior result substantively implies the headline disproof.",
+      "search": "finite field point-plane subfield example F_r^3 planes incidence lower bound N^{3/2} line load cap routine corollary check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over literal line-capped point-plane N^{3/2-delta} language plus dual/complement/matrix encodings (max collinear points k, at most N^{1/4} points per line, K_{2,t}-free incidence graph, point-plane duality, subfield/thinning/sampling synonyms) returned only general incidence upper-bound papers and no capped lower-bound construction. Rudnev/de Zeeuw/Vinh snippets state upper bounds with a collinearity parameter k, never the 1/r-thinned capped Omega(N^{3/2}) witness or the N^{1/4}-cap disproof.",
+      "reasoning": "Synonymous names (max collinear set, line-richness cap, K_{2,t}-freeness) and dual plane-point swapping do not change the mathematical content: the claim is existence of N^{1/4}-capped configurations with Omega(N^{3/2}) incidences. None of the retrieved sources under any of these phrasings states or proves that capped extremal fact, so equivalent reformulation does not create coverage.",
+      "search": "line-capped point-plane incidences F_q^3 N^{3/2-delta} max collinear points K_{2,t}-free duality thinned subfield sampling synonyms"
+    },
+    "exact_database_or_table": {
+      "evidence": "No exact-parameter table or official database entry was returned for Ndet=floor(3r^2/4) capped configurations with I>=r^3/8, nor for any finite-geometry census listing thinned-subfield point-plane incidence graphs. Results contain only journal papers, arXiv preprints, and surveys; no OEIS entry, finite-field incidence table, polar-space or Hermitian-variety database, or thesis table states this infinite family.",
+      "reasoning": "An exact-database hit would require the precise object (q=r^2, m=n=floor(3r^2/4), line loads <=N^{1/4}, incidence count >=N^{3/2}/8) to already appear as a recorded entry. The searched specialist directions (incidence tables, extremal censuses, variety databases) produced no such entry, and random thinned configurations are not table-lookup objects, so database anticipation fails.",
+      "search": "finite geometry incidence database table thinned subfield point-plane Ndet floor(3r^2/4) incidence count census lookup"
+    }
+  },
+  "residual_risks": [
+    "DRAFT says 'explicit infinite family' while the proof is probabilistic-existential per r (existence certified by M(r)<1, no derandomized construction); this wording overstates constructiveness but does not affect the existence headline, which is fully proved."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "0ffd3ed1c899a2c3d6d24f3663cd79ab30d1edf5a9cc0d0880f536dbd9fe397d",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Point-plane incidences and some applications in positive characteristic",
+        "url": "https://ar5iv.labs.arxiv.org/html/1806.03534",
+        "base_search_overlap": true,
+        "relationship_to_claim": "States Rudnev upper bound I << |Pi|(|P|^{1/2}+k) for |P| << p^2 with max-collinear parameter k; at k=N^{1/4} it yields O(N^{3/2}), an upper bound compatible with the submitted Omega(N^{3/2}) capped witness rather than a construction of that witness.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "On the number of incidences between planes and points in three dimensions",
+        "url": "https://arxiv.org/abs/1407.0426v3",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Original Rudnev point-plane upper bound O(m sqrt(n)+m k) for m>=n points and planes; same hypothesis and conclusion family as the survey, hence it permits but does not exhibit the N^{1/4}-capped Omega(N^{3/2}) thinned-subfield family at q=r^2.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "A short proof of Rudnev's point-plane incidence bound",
+        "url": "https://arxiv.org/html/1612.02719v1",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Short proof of the same Rudnev upper bound I=O(|P|^{1/2}|Q|+k|Q|) assuming no line contains k points of P and |P|=O(p^2); proves an upper bound and contains no random 1/r thinning plus greedy equalization capped lower-bound witness.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "An improved point-line incidence bound over arbitrary fields",
+        "url": "https://ar5iv.labs.arxiv.org/html/1609.06284",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Proves a point-line bound O(m^{11/15}n^{11/15}) and restates the Rudnev point-plane bound; its only tightness example needs k>=r^{1/2} collinear points on one line contained in all s planes, which violates the N^{1/4} cap and therefore does not imply the capped construction.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "UC San Diego",
+        "url": "https://escholarship.org/content/qt7x94t2rj/qt7x94t2rj.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Thesis restatement of Rudnev with the closest two-sided hypothesis that no line contains k points of R and lies in k planes of S, concluding I << |R|^{1/2}|S|+k|S|; at k=N^{1/4} this is an O(N^{3/2}) upper bound, not a capped Omega(N^{3/2}) extremal example.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "An improved point-line incidence bound over arbitrary finite fields via the VC-dimension theory",
+        "url": "https://ar5iv.labs.arxiv.org/html/2303.00330",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Surveys the Vinh spectral bound and restates Rudnev I << |P|^{1/2}|Pi|+k|Pi| as background; an upper-bound discussion with no thinned-subfield capped extremal family at parameters q=r^2 and N=floor(3r^2/4).",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Incidence Theorems and Their Applications",
+        "url": "https://www.cs.princeton.edu/~zdvir/papers/Dvir-survey.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Dvir survey notes the Cauchy-Schwarz N^{3/2} barrier and an N^{3/2-epsilon} improvement only when F_q lacks large subfields such as q prime; it identifies the subfield as the obstruction but does not construct the N^{1/4}-capped thinned Omega(N^{3/2}) witness.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with 5 overlapping the base provider set. The overlaps duplicated the already-screened Rudnev upper bound, de Zeeuw short proof, Stevens-de Zeeuw bound, VC-dimension improvement, and Kong-Tamo point-variety bound. The 15 nominally new items add the original Rudnev paper arXiv:1407.0426, thesis and course-note restatements of the same O(m sqrt(n)+m k) upper bound including one two-sided line-hypothesis variant, general extremal-graph and real-geometry bounds, and the Dvir survey noting that large subfields block N^{3/2-epsilon} savings. Every substantively relevant item is an upper bound that at k=N^{1/4} gives O(N^{3/2}), which is compatible with rather than covering the submitted capped Omega(N^{3/2}) lower-bound witness at q=r^2 with N=floor(3r^2/4) via 1/r thinning and greedy equalization. No returned source states, tabulates, or implies that capped family, so no decisive prior was found and provisional originality PASS is preserved."
+  }
+}
