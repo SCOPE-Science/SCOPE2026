@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: re-executed inputs/artifacts/compute_braiding.py exactly over QQ. Yang-Baxter holds; ranks S1..S4 = 4,8,12,14 exact; ker S2 dim 8 exact; q-matrix and Cartan A2xA2 exact; 8 logged quadrics have rank 8 (independently re-checked); Serre ad^2 in ker S3, root vectors nonzero in B2 with squares in ker S4 and self-braiding -1, cross q-commutators in ker S3/S4 all pass exact kernel tests; factor A2 ranks 1,2,2,2,1,0 exact. Tail B5..B7 float/mod-prime ranks are corroboration only: once diagonal A2xA2 with qii=-1 is established exactly, dimension 64 and Hilbert series (1+t)^4(1+t^2)^2 follow from the established diagonal-type classification, so headline dimension is mathematically correct in char 0 with divisions by 2 and n! noted.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET with no value presumption; ADMISSION_DEFECT: the admitted target was already covered by the published rank-two classification. Heckenberger-Vendramin JEMS 2017 (arXiv:1311.2881) Example 1.2 / Theorem 2.1 classifies all finite-dimensional B(V+W) over non-abelian epimorphic images of Gamma2 with rho(g)=sigma(h)=-1 and rho(eps h^2)sigma(eps g^2)=1, giving dim 64 and H=(1+t1)^2(1+t1t2)^2(1+t2)^2. D8 with a=s,b=rs,nu=r^2 is such a quotient (relations verified), and psi_+(s)=phi_+(rs)=-1, psi_+(r^2)=phi_+(r^2)=1 satisfy the character condition (r^2*1=r^2). Specializing t1=t2=t gives exactly the claimed (1+t)^4(1+t^2)^2 and dim 64. The diagonal A2xA2 ledger is likewise mechanically implied by the diagonal-type theory. A timestamp or failed search does not establish priority; substantive implication defeats novelty, so originality FAILS and is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "The headline is a correct special-case recomputation and certificate of an already-classified infinite family, i.e. a mere parameter substitution (D8 instance of the Gamma2 family) with an explicitly logged but mechanically implied diagonal ledger. Certification, replayability, and explicit PBW/relation rewriting strengthen evidence but do not create value per STANDARD. No new boundary, benchmark, downstream use, or exact invariant unknown from the broader theorem is established; the object/invariant were already known and the value is implied by standard diagonal results. Hence value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: D8 reflection-pair target claiming dim 64 with Nichols/PBW ledger",
+    "inputs/DRAFT.md: diagonal q-matrix, Cartan A2xA2, relation ledger, Hilbert series (1+t)^4(1+t^2)^2",
+    "inputs/artifacts/compute_braiding.py re-executed exactly over QQ: Yang-Baxter, S1-S4 ranks, q-matrix, Cartan, kernel memberships all pass",
+    "inputs/artifacts/ledger.json: ker S2 dim 8, q-matrix, factor ranks 1,2,2,2,1,0",
+    "Heckenberger-Vendramin arXiv:1311.2881 (JEMS 2017) full HTML: Table 1 rank-4 Gamma2 dim 64, Example 1.2 with dim 64 and H=(1+t1)^2(1+t1t2)^2(1+t2)^2, Theorem 2.1 classification of all such pairs",
+    "Heckenberger-Vendramin arXiv:1302.0213 (rank two II) full HTML: Theorem 4.5 that non-abelian groups with finite rank-two root system are quotients of Gamma_n or T; Gamma2 enveloping group of Z2^{2,2} dihedral quandle",
+    "Heckenberger-Vendramin arXiv:1309.4634: central extensions appearing in rank-two classification; confirms Gamma/T framework",
+    "Heckenberger Invent. Math. 2006 diagonal-type Weyl-groupoid / arithmetic root system classification and Angiono diagonal relations: A2 components with qii=-1 and perks product -1 have dim 8 each, total 64"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "JEMS 2017 Theorem 2.1 plus Example 1.2: for every non-abelian epimorphic image of Gamma2 with rho(g)=sigma(h)=-1 and rho(eps h^2)sigma(eps g^2)=1, B(V+W) is finite-dimensional of dim 64 with H=(1+t1)^2(1+t1t2)^2(1+t2)^2; Table 1 records rank-4 Gamma2 dim 64 as a classified family.",
+      "reasoning": "The submitted D8 datum satisfies the hypotheses of that broader theorem (explicit quotient map and character check), so the prior result exhaustively covers the headline as a special case; a prior source need not name D8 verbatim to defeat originality.",
+      "search": "classification finite-dimensional Nichols algebras over dihedral groups Heckenberger Vendramin rank two Gamma2 quotient census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Explicit quotient Gamma2->D8 via a->s, b->rs, nu->r^2 satisfies hg=nu*g*h relations using r^2 central; h^2=g^2=1 so eps*h^2=eps*g^2=r^2 with rho=sigma=1 there, and rho(g)=psi_+(s)=-1, sigma(h)=phi_+(rs)=-1; prior H with t1=t2=t equals (1+t)^4(1+t^2)^2 with graded ranks 1,4,8,12,14,12,8,4,1.",
+      "reasoning": "Substituting the D8 parameters into the prior Hilbert series yields literally the claimed single-variable series, dimension 64, and A2xA2 root data, so the prior theorem substantively implies the submitted headline rather than merely resembling its title.",
+      "search": "D8 dihedral group 8-element Yetter-Drinfeld reflection classes V2 W2 dimension 64 explicit quotient of Gamma2"
+    },
+    "equivalent_formulations": {
+      "evidence": "Exact q-matrix [[-1,-1,+1,-1],...] with qii=-1, q03*q30=q12*q21=-1 and other off-diagonal products +1; Heckenberger 2006 diagonal Weyl-groupoid classification plus Angiono presentation give dim 8 per A2 factor, total 64, with squares, disconnected q-commutators, Serre ad^2 and root-vector squares as standard consequences.",
+      "reasoning": "Under synonymous diagonal notation the submitted e-basis is ordinary diagonal type A2xA2, so its dimension, Hilbert series and relation shapes are mechanically implied by the established diagonal theory and do not constitute a new theorem.",
+      "search": "diagonal type Nichols algebra braiding matrix qii=-1 Cartan A2 x A2 Yetter-Drinfeld Weyl groupoid relations"
+    },
+    "exact_database_or_table": {
+      "evidence": "Table 1 of arXiv:1311.2881 lists rank 4, group Gamma2, dimension 64 (and 1296 in char 3), support Z2^{2,2}; Example 1.2 records the exact Hilbert series and dimension for this entry.",
+      "reasoning": "The claimed invariant (dimension 64 and its bigraded refinement) already appears in an official classification table for the covering object class, so the exact parameter is a known-database entry, not a new exact value.",
+      "search": "Nichols algebras with finite root system rank two Table 1 Gamma2 dimension 64 Hilbert series database"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
