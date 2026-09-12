@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: enumeration numbers are factually correct and lemmas are sound. Independent Python brute-force recomputation to n=8 reproduces A: 1,1,2,6,22,88,363,1508,6255 and B: 1,1,2,6,22,87,352,1428,5768, matching census_n15.csv and verify_n12.csv. Witness pair 6.5.4.3.2.7.1 vs 6.5.4.3.7.2.1 independently recomputed as avoiders with identical length<=3 profiles but futures (3,11) vs (4,17). Lemma 1 (new maximum must play value-role 4) and Lemma 2 (distinct (children,grandchildren) forces distinct insertion-encoding states) are valid. Limitations are honestly stated. Correctness does not imply originality or value.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the headline census core is exact-database recomputation, not a first enumeration. OEIS A165535 (Av(4231,3124)) and A165532 (Av(4231,3214)) list the exact claimed sequences since 2009, cite Kremer-Shiu Discrete Math. 268 (2003) Table 1, give explicit algebraic generating functions, and provide b-files to n=1000 (Blomberg added a(13)-a(15) in 2018). The claimed new terms n=9..15 (e.g. A12 1782733 vs 1451780, A15 120707058 vs 88566290) appear verbatim in those tables and follow mechanically from the published g.f. series expansion. Admission's preflight claim that no OEIS/Wilf table lists this pair is objectively false: ADMISSION_DEFECT. Route is EMERGENT_FINDING genuinely arising from the blocked DFA target, so no evasion, but it receives no value presumption and the database coverage is fatal. The coarse-profile witness concerns an author-invented quotient with no prior standing and does not rescue headline originality.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: judged on the strongest self-contained headline, there is no independently retrievable contribution. Recomputing two OEIS sequences to n=12-15 when 1000 terms plus closed-form algebraic generating functions and the Kremer-Shiu finite-transition-matrix source are already public adds no benchmark, constant, classification, or growth-rate decision; the draft itself disclaims any Stanley-Wilf inequality or regularity theorem. The length<=3-profile impossibility rules out only the authors' own ad-hoc quotient, not a recognized conjecture or published automaton candidate, and the >=112 signature lower bound neither decides (non-)regularity nor supplies matrices, radii, or enclosures the target required. Certification and triple-engine replayability are evidence properties that do not create value under the shared STANDARD for database-recomputed numbers and an unexplained ad-hoc obstruction.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "OEIS A165535 text search seq:363,1508,6255,25842 -> 'Number of permutations of length n which avoid the patterns 4231 and 3124', S: 1,1,2,6,22,88,363,1508,6255,25842,106327,435965,1782733,7275351,29648647,120707058,491113791... with algebraic g.f. 1+(1-8x+...-(1-4x+2x^2)sqrt(1-4x))/(2(1-3x+x^2)(-1+5x-4x^2+x^3)), ref Kremer-Shiu 2003 Table 1, Vatter 2009/2012, Heinz b-file to n=1000.",
+    "OEIS A165532 text search seq:352,1428,5768,23156 -> 'Number of permutations of length n which avoid the patterns 4231 and 3214', S: 1,1,2,6,22,87,352,1428,5768,23156,92416,367007,1451780,5725959,22535868,88566290,347742688... with g.f. (2-13x+...-x(1-2x-x^2)sqrt(1-4x))/(2sqrt(1-4x)(1-3x+x^2)^2), asymptotic 2^(2n+4)/(25 sqrt(pi n)), refs Kremer-Shiu 2003, Miner arXiv:1610.01908, Greubel b-file to n=1000; Blomberg added a(13)-a(15) 2018.",
+    "OEIS A165535 b-file b165535.txt rows n=0..15+ verified: 88,363,1508,6255,25842,106327,435965,1782733,7275351,29648647,120707058, matching census_n15.csv class A exactly; continuation to n=1000+ confirms public table strictly extends the claimed census.",
+    "Kremer-Shiu 'Finite transition matrices for permutations avoiding pairs of length four patterns', Discrete Math. 268 (2003), 171-183, cited by both OEIS entries as Table 1 source: broader length-4-pair transition-matrix census covering the exact pair.",
+    "arXiv:1610.01908 Miner 'Enumeration of several two-by-four classes' (2016), cited on A165532: confirms two-by-four enumeration literature for this family.",
+    "Independent audit recomputation (stdlib Python brute force over all index quadruples): A to n=8 = 1,1,2,6,22,88,363,1508,6255; B = 1,1,2,6,22,87,352,1428,5768; witness w1=(6,5,4,3,2,7,1), w2=(6,5,4,3,7,2,1) both avoid Av(4231,3124), identical prof3 size 6, kids futures (3,11) vs (4,17). Confirms correctness while OEIS match refutes novelty.",
+    "scope_literature_search fused results (serpent+serpbase+crossref, openalex zero hits, no partial failure): only generic hits (Wikipedia enumerations page, PermPAL, Le Wilf-classes of pairs, Callan-Mansour) for literal/equivalent/broader queries; decisive OEIS/database evidence obtained by direct OEIS sequence search, which Admission missed."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kremer-Shiu (2003) 'Finite transition matrices for permutations avoiding pairs of length four patterns', Table 1, as cited by both OEIS entries, provides finite transition matrices/enumeration for pairs of length-4 patterns including the 4231-anchored pairs.",
+      "reasoning": "The submitted census is a strict subset of this broader published length-4-pair matrix census; a completed broader enumeration covering the exact objects as special cases defeats first-census originality.",
+      "search": "Kremer Shiu finite transition matrices permutations avoiding pairs of length four patterns Table 1"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Published algebraic generating functions for both classes (quotients involving sqrt(1-4x)) mechanically yield every claimed count by series expansion; the 1000-term b-files already instantiate n=9..15. The profile-quotient witness is not implied by priors but concerns a non-standard author-defined quotient.",
+      "reasoning": "Census is a corollary/recomputation of a known stronger closed form, hence fails as new; the residual witness alone is an ad-hoc negative observation with no prior conjecture to overturn and no downstream theorem.",
+      "search": "whether published generating functions and transition matrices for Av(4231,3124) Av(4231,3214) imply the claimed census counts"
+    },
+    "equivalent_formulations": {
+      "evidence": "OEIS records explicit algebraic generating functions for both classes: A165535 g.f. with sqrt(1-4x) denominator (1-3x+x^2)(-1+5x-4x^2+x^3), A165532 g.f. over sqrt(1-4x)(1-3x+x^2)^2, plus asymptotic 2^(2n+4)/(25 sqrt(pi n)) for the latter.",
+      "reasoning": "These equivalent analytic encodings already determine the enumeration sequence to all orders; re-expanding them to n=15 is repackaging, and no new spectral/singularity ordering is supplied to go beyond them.",
+      "search": "algebraic generating functions and growth asymptotics for Av(4231,3124) versus Av(4231,3214) transfer-matrix spectral form"
+    },
+    "exact_database_or_table": {
+      "evidence": "Direct OEIS sequence searches return exact hits: '363,1508,6255,25842' -> A165535 Av(4231,3124) and '352,1428,5768,23156' -> A165532 Av(4231,3214), each with full rows through n=15 identical to census_n15.csv and b-files continuing to n=1000.",
+      "reasoning": "The exact parameter pair already appears in official tables with longer coverage, so the 'first census / new terms n=9..15' headline is discharged by lookup; Admission lookup-immunity preflight is false.",
+      "search": "OEIS sequence lookup 363 1508 6255 25842 and 352 1428 5768 23156 Av 4231 3124 3214 b-files"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
