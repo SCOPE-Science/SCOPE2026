@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "CORRECTNESS PASS: The opposite-sign lemma was re-derived by hand and machine-checked for all 161 pairs. For p,q=3 mod 4, (-1/p)=(-1/q)=-1 and (p/q)=-(q/p) by reciprocity, so A=(-p/q)=- (p/q)=(q/p) and B=(-q/p)=-(q/p), hence A=-B always; independent Python check confirms A=-B for all 161 pairs and count 161 with least (3,7) and D distinct 1 mod 4. Redei matrix [[x,x],[y,y]] then has exactly one nonzero row, rank 1, so narrow 4-rank=(2-1)-1=0 by Redei-Reichardt; ordinary 4-rank 0 follows as quotient monotonicity. The verifier was rerun: VERIFY_OK, 161 fields, h distribution 143x1/13x3/4x5/1x7 at D=1761, max h=7, 4 divides no h, calibration D=21,33,57,69,77 h=1 holds. Reduced-form completeness bound |a|<sqrt(D) and rho-permutation assertion per D plus CF-period parity for h+->h are standard theorems correctly applied; computation is corroboration, proof leg is analytic.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "ORIGINALITY FAIL: The headline negative claim -- no pq<2500 all-negative field has 4-rank 1 -- is a window-wide universal vanishing that is mechanically implied by textbook quadratic reciprocity plus the standard Redei-Reichardt formula 4-rank=(t-1)-rank. The opposite-sign computation A=-B is a 3-line reciprocity exercise ((p/q)=-(q/p), (-1/p)=-1) known for 200 years; substituting t=2 gives rank 1 and 4-rank 0 for EVERY such pq with no bound needed. General sources found in fused search (generalized Redei-matrix formula, Lemmermeyer 1310.6607 Scholz theory, Benjamin cyclicity criteria) state the broader theorem that substantively implies the claim; verbatim window statement is not required. The 161-row odd-class-number table is a recomputation of known values (D=21,33 h=1 etc. in LMFDB/standard tables). No new generator, obstruction, or census beyond mechanical substitution was produced.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "VALUE FAIL -- ADMISSION_DEFECT: The resolution is explicitly false-by-vacuity (DRAFT: 'false by vacuity of its presupposition'). It exposes a cheap falsification defect that Admission certified as passing: topic.audit_preflight.cheap_falsification_checks expected 'early pairs already split between forced-zero and ambiguous cases' and target_integrity claimed a populated ambiguous class with a least rank-1 field. ADMISSION_DEFECT: that preflight is false -- the opposite-sign lemma proves ambiguous cases are impossible for any p,q=3 mod 4, so rank is pinned at 1 window-wide and no least exemplar can exist at any bound. Under TARGET policy a negative resolution that is only vacuity, cheap small-instance mismatch, or arbitrary-parameter fact fails value even if literally false. Here bound 2500 is irrelevant (lemma holds for all bounds), no C4 witness, obstruction method, or reusable downstream fact is delivered beyond a textbook exercise, and the envisioned substantive disproof (certified (2,2) obstruction for an existing rank-1 field) was not produced.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Reran inputs/artifacts/verify.py independently: fields 161, least pair (3,7) h=1, max h=7, all narrow 4-ranks zero, 4|h nowhere, VERIFY_OK (<1s stdlib)",
+    "Independent reciprocity re-derivation: leg(-p,q)=-leg(-q,p) verified for all 161 pairs (primes 3 mod 4, pq<2500 distinct, all pq=1 mod 4); count 161 and sample rows D=21 hn=2 h=1, D=1761 hn=14 h=7 confirmed from table.json",
+    "Lemmermeyer arXiv:1310.6607 The 4-class group of real quadratic number fields -- elementary proof of Scholz 4-class structure, abstract background that plus Redei-Reichardt implies the vanishing without certifying any window exemplar",
+    "Generalized Redei-matrix (Springer 10.1007/s00209-008-0311-z) -- standard formula 4-rank=m-1-rank(R) returned by fused search; with t=2 this is the broader theorem covering the claim",
+    "Benjamin cyclic 2-class criteria and capitulation papers cited in topic.json admission_review -- abstract cyclicity conditions naming no least-field generator, confirming no window-specific prior but also that general theory supplies the implication",
+    "topic.json target_claim (least 4-rank-1 field has C4 with beta), audit_preflight cheap-falsification expectation of split forced-zero/ambiguous cases, and DRAFT opposite-sign lemma section admitting window vacuous -- compared to establish ADMISSION_DEFECT"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused search returned the standard Redei-Reichardt theorem in generalized form: 4-rank of class group = m-1-rank(R) where m is number of ramified primes (ResearchGate/Springer generalized Redei-matrix, Lemmermeyer survey, circulant-graph/4-rank formulation). With t=2 prime discriminants this gives narrow 4-rank=1-rank.",
+      "reasoning": "The broader theorem strictly covers the submitted claim as a special case: inserting the 2x2 symbol pair for d1=-p,d2=-q and the one-line A=-B computation yields rank 1 and 4-rank 0 for every admissible pq at any bound. The 2500 cutoff adds nothing; broader coverage therefore subsumes and defeats novelty.",
+      "search": "generalized Redei-matrix 4-rank formula m-1-rank(R) two-prime discriminant real quadratic broader theorem"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Textbook quadratic reciprocity for p,q=3 mod 4 gives (p/q)=-(q/p) and (-1/p)=(-1/q)=-1, whence A=(-p/q)=- (p/q) and B=(-q/p)=-(q/p) satisfy A=-B identically. Combined with the cited Redei-Reichardt rank formula this mechanically forces narrow 4-rank 0 and hence ordinary 4-rank 0.",
+      "reasoning": "Prior work implies the headline without new Diophantine or ideal-theoretic work: no norm equation, unramifiedness verification, or obstruction certificate was needed. The implication is a direct substitution any expert performs in minutes, so the claim is mechanically implied and originality fails.",
+      "search": "quadratic reciprocity (p/q)=-(q/p) both 3 mod 4 opposite-sign Redei symbols imply narrow 4-rank zero"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal 'no 4-rank-1 field / narrow 4-rank 0' together with synonymous narrow-vs-ordinary 4-rank, unramified-C4-lift, second-order norm-solvability, and Hilbert 2-class formulations; fused results returned only general tower/capitulation/4-class papers stating the same Redei rank criterion in equivalent Hilbert-symbol language.",
+      "reasoning": "The disproof phrased as ordinary 4-rank 0, narrow 4-rank 0, absence of unramified C4 lift, or unsolvability of the second-order norm equation are the same statement under standard equivalences. None is recorded for the window, but all follow from the identical rank-1 computation, so reformulation does not escape the mechanical implication.",
+      "search": "literal no 4-rank-1 field plus synonymous narrow 4-rank unramified C4 lift norm-equation Hilbert 2-class forms"
+    },
+    "exact_database_or_table": {
+      "evidence": "Searched two-prime discriminant censuses, LMFDB real-quadratic class numbers, and Benjamin/Lemmermeyer tables; standard values D=21,33,57,69,77 h=1 reproduced by the verifier calibration, and table.json rows (e.g. D=1761=3*587 h=7, four h=5 fields) match downloadable class numbers. No table names a least 4-rank-1 field because none exists.",
+      "reasoning": "The 161-row table is a recomputation of already-tabulated odd class numbers plus a textbook rank column identically zero. Class-number downloads alone already show 4 divides no h in the window; the added Redei column is the one-line reciprocity corollary, so the table is database repackaging plus textbook derivation, not a new census.",
+      "search": "two-prime discriminant LMFDB real quadratic class numbers D=21 33 1761 census table lookup comparison"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
