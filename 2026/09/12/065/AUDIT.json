@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Propositions 1-2 verified: void probability and Slivnyak-Mecke give E[A]=1/lambda and the stated two-point integral with correct 1/(2pi) Jacobian from dv=2pi sinh r dr. Envelope 0<=J<=min implies e^{-max} majorant with integral 2, giving 0<=V<=1 and strict >0 on overlap set of positive measure. Lemma 3 verified: for fixed w_i>0 and theta!=0, d-(R1+R2)->log((1-cos theta)/2) finite, Fermi-coordinate box shows lens I uniformly bounded so J=lambda I->0 a.e.; DCT then gives M->1 and V->0, disproving any uniform a>0. Strict positivity plus V->0 also rigorously refutes strict decrease. Numeric V(1)=0.2566+-0.01 independently smoke-recomputed at coarse grid (M~1.2555, Eucl~1.2799) inside the wide interval; tail bound T(18)=6.09e-7 dominates exact 5.79e-7 and gaps in trio (0.2387/0.2566/0.2675) exceed ~3e-4 error budget by >30x.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search across SerpBase/OpenAlex/Crossref/OpenAIRE found only first-order hyperbolic results (Isokawa means; Godland-Kabluchko-Thale expected f-vector; D'Achille et al. ideal tessellation convergence, face intensities, zero-cell deposition/hole probability; D'Achille-Thale face volume densities) and Euclidean second-moment work (Muche-Ballani, Yao). No prior source states or implies the hyperbolic typical-cell area variance, the V(lambda)->0 low-intensity limit, the uniform-lower-bound impossibility, or V(1)~0.2566. Full-text check of the nearest ideal-tessellation paper confirms it treats convergence and first-order intensities, not second area moments. The hyperbolic lens DCT argument is not mechanically implied by Euclidean scaling.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route rigorous disproof is substantive, not a cheap type/normalization/vacuity/small-instance defect: it requires the hyperbolic lens estimate and DCT and overturns the admitted Euclidean-style scaling for all lambda>0. The corrected picture 0<V<=1, V->0 at low intensity, V->V_eucl~0.280 at high intensity, with certified Var(area(C_1)) in [0.2466,0.2666], is a natural exact invariant of a pre-motivated object (Palm typical cell area) that was unknown, is not mechanically implied, and is retrievable for stochastic geometry. No ADMISSION_DEFECT: the failure was not obvious at admission given the subtle low-intensity ideal limit.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: admitted target requiring uniform 0<a<b, strict decrease of V, and V(1) within half-width 0.01",
+    "inputs/DRAFT.md: Propositions 1-2, envelopes, Lemma 3 Fermi-coordinate lens bound, Theorem 4 DCT disproof, Euclidean limit, Section 5 quadrature controls",
+    "inputs/research_report.json (claim_route TARGET): disproof headline plus corrected 0<V<=1 and trio V(0.5)/V(1)/V(2)",
+    "inputs/STANDARD.md sky-survey-admission-depth-gate-v12 applied as shared threshold",
+    "inputs/artifacts/compute_moment.py + bounded_test_results.json: beta-integral lens, production M values 1.256621/1.256633/1.256639 and trio 1.238742/1.256639/1.267480, Eucl 1.280152",
+    "scope_literature_search fused 20 results (SerpBase/OpenAlex/Crossref/OpenAIRE, all providers ok, partial=false): D'Achille-Thale face densities, Godland et al beta-star, D'Achille et al ideal tessellation, Isokawa 3D means, Muche-Ballani Euclidean second moment, Yao variances",
+    "Full fetch of arXiv:2303.16831v3 ideal Poisson-Voronoi on hyperbolic spaces: convergence, ideal construction, face intensities, zero-cell deposition model, hole probability - no second area moment",
+    "Independent smoke recomputation: tail exact 2(W+1)e^-W=5.79e-7 vs claimed conservative 6.09e-7; coarse-grid M_hyp~1.2555 and M_eucl~1.2799 reproduce production values inside 0.01 interval"
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Candidate broader results are D'Achille-Thale face volume densities for all k, Godland et al beta-star expected f-vector/intrinsic volumes, and D'Achille et al ideal-tessellation face intensities via lambda->0 limits. All state first-order means/intensities, not second moments or variances, and concern either fixed-lambda means or the ideal limit object with unbounded cells.",
+      "reasoning": "A broader theorem would need to bound or compute Var(area(C_lambda)) or its scaled limit for all lambda>0. None of the broader censuses does so; first moments do not imply second moments, and the ideal-limit existence does not yield the quantitative V->0 DCT result. Hence no broader theorem subsumes the claim.",
+      "search": "Searched stronger theorems, broader object classes, larger parameter ranges, exhaustive censuses and classifications: hyperbolic Voronoi moments census, stochastic geometry hyperbolic space classification, Moller Isokawa coverage, ideal tessellation face intensities"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior implications checked: (i) first-moment identity E[area]=1/lambda, (ii) Euclidean second-moment formula M_eucl~1.28 / V~0.28 of Muche-Ballani/Tanemura, (iii) ideal-limit convergence Vor(X(lambda))->V_d. None derives V(lambda)->0, the impossibility of uniform a>0, the corrected b=1 upper bound, or V(1) in [0.2466,0.2666].",
+      "reasoning": "Substantive implication would require the prior result to entail the headline with only mechanical steps. First moments cannot give variances; Euclidean constants cannot give hyperbolic lambda-dependence; ideal-limit topology cannot give the scaled second-moment limit without the new lens estimate J->0 plus integrable majorant. The claim is therefore not a corollary, certificate, or recomputation.",
+      "search": "Compared literal hypotheses and conclusions of nearest priors versus submitted headline: mean area vs variance, Euclidean lens vs hyperbolic lens, ideal cell topology vs scaled second-moment limit"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results screened for synonymous names: Palm typical cell vs zero cell vs Crofton cell, area vs volume, variance vs second volume moment, scaled variance V=lambda^2 Var, intensity scaling vs curvature scaling, dual Delaunay and beta-star polytope encodings. Hits were CalkaTypical-cell disks, Muche-Ballani second volume moment (Euclidean), Yao partial-volume variances (Euclidean R^d), and beta-star typical-cell representations.",
+      "reasoning": "None of the synonymous-notation hits states a hyperbolic typical-cell area variance. Euclidean second-moment papers use the same Slivnyak-Mecke structure but with Euclidean lens and constant scaling, which does not imply the hyperbolic J=lambda I->0 vanishing result. Dual/complement/matrix encodings do not change this: the hyperbolic union-area kernel is distinct.",
+      "search": "Searched literal statement plus duals/complements/encodings/synonyms: hyperbolic Poisson-Voronoi typical cell area variance, second volume moment Palm cell, beta-star typical cell variance, Delaunay dual area moments"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, table, thesis appendix, or author page returned lists Var(area(C_lambda)) for hyperbolic intensity lambda, V(0.5)/V(1)/V(2), or V_eucl~0.280 in the hyperbolic context. Euclidean simulation tables (e.g. Tanemura generalized-gamma fits) concern planar Euclidean cells, not H^2 with curvature -1 and intensity parameter lambda.",
+      "reasoning": "Exact-parameter coverage would require the triple (H^2, Palm typical cell, area variance at lambda=0.5/1/2) to appear in a table. The fused search plus direct screening of stochastic-geometry surveys found no such entry; the numeric interval [0.2466,0.2666] is therefore not a direct lookup or database recomputation.",
+      "search": "Searched exact parameter/object tables and databases: hyperbolic Voronoi area variance numeric table, Poisson-Voronoi cell area variance database, Isokawa tables, Tanemura distributions, stochastic geometry repositories and theses"
+    }
+  },
+  "residual_risks": [
+    "Monotonicity-trio increasing evidence uses controlled quadrature with empirical inner-quadrature error propagation (~1e-4) rather than machine-checked interval arithmetic; immaterial to PASS because strict decrease is already rigorously refuted by V>0 plus V->0, and the 0.01 half-width has >30x margin.",
+    "Lemma 3 Fermi-coordinate bound is a concise proof sketch; uniform s-bound constants are not fully expanded, but the asymptotic d-(R1+R2)->log((1-cos theta)/2) and bounded t-interval structure were verified and are standard hyperbolic geometry.",
+    "Euclidean high-intensity limit DCT sketch omits uniform-on-compacts rate details; it is a consistency check only and not load-bearing for the impossibility theorem or the V(1) interval."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "d6828ab45ef63f90f59bf4488905879a548e12533e27a2242f4fdcce5c1a9202",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Ideal Poisson–Voronoi tessellations on hyperbolic spaces - arXiv.org",
+        "url": "https://arxiv.org/html/2303.16831v3",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest prior on low-intensity hyperbolic Poisson-Voronoi tessellations: proves distributional convergence of Vor(X_d(lambda)) to the ideal tessellation V_d, gives face intensities and expected k-volumes of typical faces, and describes the zero cell via a hemispherical deposition model with hole probability. Its hypotheses concern weak convergence of diagrams and first-order intensities; its conclusions state no second area moment, no scaled variance V(lambda), no V(lambda)->0 limit, and no numeric V(1) interval, so it does not imply the submitted variance disproof.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] The volume of hyperbolic Poisson zero cells: critical divergence and ...",
+        "url": "https://publikationen.bibliothek.kit.edu/1000193160/181000256",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Concerns second volume moments, but for the zero cell of hyperbolic Poisson hyperplane (not Poisson-Voronoi) tessellations at critical and supercritical hyperplane intensities: cubic growth of the restricted second moment at criticality and an exact Meijer-G second moment above criticality. Its object class (hyperplane zero cell) and parameter regime differ from the submitted Palm typical Poisson-Voronoi cell area variance across lambda>0, so its exact formula cannot be specialized to V(lambda), V(lambda)->0, or V(1) in [0.2466,0.2666].",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "A Survey of Typical-Cell Volume Distributions in Poisson– ...",
+        "url": "https://arxiv.org/html/2608.13615v1",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Survey of typical-cell volume laws for Euclidean Poisson-Voronoi and Poisson-Delaunay tessellations, including exact one-dimensional moment formulae, two-dimensional integral representations, and CV^2 approx 0.2801 in 2D. Its hypotheses are Euclidean stationary tessellations at fixed intensity; it states no hyperbolic H^2 area variance, no intensity-dependent scaled variance V(lambda), and no low-intensity vanishing limit, so the submitted hyperbolic disproof is not a corollary of its Euclidean tables.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with 9 base overlaps. It added one useful incremental second-moment lead absent from the base set (hyperbolic Poisson hyperplane zero-cell volume, rank 11, base_search_overlap false) alongside already-seen nearest priors (ideal tessellation convergence and face intensities, beta-star polytopes, face densities, Euclidean volume survey). Literal hypothesis/conclusion comparison shows no returned source states or implies the submitted headline: ideal-tessellation and face-density sources give only convergence and first-order intensities; the hyperplane zero-cell exact second moment concerns a different tessellation model and intensity parameter and cannot specialize to V(lambda), V(lambda)->0, or V(1) in [0.2466,0.2666]; Euclidean survey tables concern R^d cells, not H^2 intensity scaling. Hence all material sources are CLOSE_BUT_NOT_COVERING, decisive_sources is empty, and originality PASS plus overall PASS are preserved with the public package unchanged."
+  }
+}
