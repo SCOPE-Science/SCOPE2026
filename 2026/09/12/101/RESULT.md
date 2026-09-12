@@ -1,0 +1,29 @@
+# Dimension-free W2 Stability of Entropic Plans for Commuting Gaussians
+
+## Context
+
+The admitted target asked for an explicit dimension-free threshold kappa0(eps) and constant C(kappa,eps), independent of dimension n, such that quadratic-cost entropic optimal couplings of kappa-strongly log-concave marginals on R^n satisfy W2(pi_eps(mu,nu),pi_eps(mu',nu'))^2 <= C [W2(mu,mu')^2+W2(nu,nu')^2], with sharpness up to universal factors. The full target over all non-commuting covariances and all non-Gaussian strongly log-concave marginals remains open (BLOCKED after Gaussian-scan, Schrodinger/semiconcavity, and degenerate-disproof routes). This record states the strongest self-contained headline proved along that investigation: the complete explicit bound for Gaussian marginals with simultaneously diagonalizable (commuting) covariances.
+
+## Definitions
+
+Cost c(x,y)=|x-y|^2/2 on R^n with entropic penalty eps*KL(.|mu x nu), eps>0. Let pi_eps(mu,nu) be the entropic coupling. Consider Gaussian marginals with commuting covariances (simultaneously diagonalizable by one orthogonal matrix) and spectra in (0,M]. Put r=M/eps. Under kappa-strong log-concavity M=1/kappa so r=1/(kappa eps). Let s*=(3+sqrt(33))/6 and F*=sqrt(s*-1)/(sqrt(2) s* (s*+1))=0.13352988... Define C1(r)=1+(1+4F*^2)r^2<=1+1.0719r^2 and C2(r)=2C1(r)<=2+2.1438r^2. For scalar variances a,b>0 write D=sqrt(eps^2+4ab), c(a,b)=(D-eps)/2=2ab/(D+eps), beta=c/a, g(u)=beta u with a=u^2, s(a,b)^2=b-c^2/a.
+
+## Result
+
+For all n>=1, all eps>0, all M>0, and all Gaussian marginals with commuting covariances with eigenvalues in (0,M]: one-sided W2(pi_eps(mu,nu),pi_eps(mu',nu))^2<=C1(r) W2(mu,mu')^2 with second marginal fixed, and two-sided W2(pi_eps(mu,nu),pi_eps(mu',nu'))^2<=C2(r)(W2(mu,mu')^2+W2(nu,nu')^2). Both constants are dimension-free and require no threshold on kappa (kappa0=0). Sharpness retained: as r->0, C1(r)->1, matching the exact product-coupling limit (ratio->1). No exact-r^2-coefficient claim is made.
+
+## Proof / Evidence
+
+Lemma 1 (scalar EOT cross-covariance): for scalar variances a,b>0 the entropic plan is jointly Gaussian with cross-covariance c(a,b)=(D-eps)/2=2ab/(D+eps) with D=sqrt(eps^2+4ab) (Janati et al. closed form; equality by rationalization). Since 0<c<sqrt(ab), the joint covariance [[a,c],[c,b]] is strictly positive definite. Lemma 2 (regression Lipschitz bounds) for 0<a,b<=M: (i) 0<beta<=r since beta=2b/(D+eps)<=b/eps<=r; (ii) 0<=dg/du<=r where dg/du=2beps/(D(D+eps)), derived from g=(D-eps)/(2u), D'=4ub/D via dg/du=2b/D-2b/(D+eps), bounded by D>=eps, D+eps>=2eps; (iii) |ds/du|<=2F*r<=0.2672r: with y=4ab/eps^2=x^2, x=2u sqrt(b)/eps, h(y)=y/(sqrt(1+y)+1)^2, s^2=b(1-h(y)), ds/du=-(2b/eps)F(x), F(x)=x h'(x^2)/sqrt(1-h(x^2)); with s=sqrt(1+x^2), h=(s-1)/(s+1), 1-h=2/(s+1), h'(y)=1/(s(s+1)^2), so F(x)=sqrt(s-1)/(sqrt(2)s(s+1)); maximizing F^2=(s-1)/(2s^2(s+1)^2) gives d/ds log=1/(s-1)-2/s-2/(s+1)=0, i.e. 3s^2-3s-2=0 with unique maximizer s*=(3+sqrt(33))/6 on [1,inf), sup F=F*=0.13352988<0.1336. Simultaneous diagonalization reduces the problem to coordinates. For one coordinate with X~N(ma,u^2), X'~N(ma',u'^2), fixed second marginal N(mb,b), condition on correctly centered residuals Y=mb+beta(X-ma)+sZ, Y'=mb+beta'(X'-ma')+s'Z with common Z~N(0,1) independent of common G, X=ma+uG, X'=ma'+u'G. This couples the two plans, so W2(pi,pi')^2<=E|X-X'|^2+E|Y-Y'|^2=[(ma-ma')^2+(u-u')^2]+[(g(u)-g(u'))^2+(s-s')^2]. By Lemma 2 the bracket is bounded by C1(r)W2(mu_i,mu'_i)^2 with C1(r)=1+(1+4F*^2)r^2 using 1D W2^2=(ma-ma')^2+(u-u')^2. Summation over coordinates (joint W2^2 subadditive over this product coupling, marginal W2^2 additive) gives the n-dimensional one-sided bound; the two-sided bound follows from W2^2(pi,pi'')<=2W2^2(pi,pi')+2W2^2(pi',pi''). Sharpness (a): r->0 gives c->0, product limits, exact ratio->1 while C1->1. Sharpness (b): 1+r^2 is only the triangular-coupling cost in the a->0 mean-shift limit, not a lower bound: with b=M, a=a'->0 and pure mean shift the common-noise cost tends to 1+r^2 but both plans share identical covariances so the true Bures-Wasserstein ratio is exactly 1. Numerical audit output/artifacts/numeric_check.py (2000 randomized commuting trials, n=1..16, r in [1e-3,1e3], exact Bures-Wasserstein evaluation, nonzero exit on violation): worst one-sided ratio/C1=0.999999, worst two-sided ratio/C2=0.499999, plus mean-shift regression test asserting ratio 1.
+
+## Limitations
+
+Commuting-diagonal hypothesis essential (coordinatewise decoupling); non-commuting covariances and non-Gaussian strongly log-concave marginals not covered, so the full target remains open. C1(r) grows like r^2=1/(kappa eps)^2 as regularization vanishes, consistent with discontinuous unregularized OT. Two-sided constant carries factor-2 triangle-inequality looseness (audit suggests ~2x headroom). Retained sharpness is only r->0 asymptotic exactness; no exact-r^2-coefficient claim.
+
+## Reproducibility
+
+Run python3 output/artifacts/numeric_check.py (numpy only); exits nonzero on any bound violation and asserts the mean-shift-limit ratio equals 1. All constants recomputable from s*=(3+sqrt(33))/6, F*=sqrt(s*-1)/(sqrt(2)s*(s*+1)), C1(r)=1+(1+4F*^2)r^2.
+
+## References
+
+Janati-Muzellec-Peyre-Cuturi, Entropic Optimal Transport between Unbalanced Gaussian Measures has a Closed Form, NeurIPS 2020 (arXiv:2006.02572) — scalar Gaussian EOT closed form used as background; Ghosal-Nutz-Bernton, Stability of Entropic Optimal Transport and Schrodinger Bridges, J. Funct. Anal. 2022 — general qualitative EOT stability; Del Moral, A contraction theory for Sinkhorn and Schrodinger bridges via log-Sobolev inequalities, Stoch. Anal. Appl. 2026 — Sinkhorn-bridge contraction with linear-Gaussian specialization; Divol-Niles-Weed-Pooladian, Tight Stability Bounds for Entropic Brenier Maps, IMRN 2025 — bounded-support map stability.
