@@ -1,0 +1,51 @@
+=== coarse-profile quotient is not an exact automaton (class A) ===
+Two inequivalent quotients already disagree with the exact count
+A_7 = 1508: pooling all perms per profile is ill-defined (it counts
+with pooled multiplicities, not a quotient walk count), while the
+first-representative quotient undercounts (1266); both computed
+below. The rigorous core is the divergence certificate: two
+avoiders with IDENTICAL length-<=3 profiles but different futures,
+so no well-defined deterministic quotient transition exists.
+
+pooled-quotient walk count at n=7: computed (pooled multiplicities,
+not a valid quotient count; shown only to illustrate that pooling
+all perms per profile is ill-defined).
+representative-quotient walk count at n=7: 1266 (exact: 1508 -> UNDERCOUNTS by 242)
+Both natural quotients miss 1508: no deterministic profile-quotient
+transition function can be exact.
+QUOTIENT_INEXACTNESS_CERTIFIED
+
+=== minimal hand-checkable witness pair (class A, n=7) ===
+6.5.4.3.2.7.1: identical prof3, (e1,e2) = (3, 11)
+6.5.4.3.7.2.1: identical prof3, (e1,e2) = (4, 17)
+WITNESS_PAIR_CERTIFIED: same profile, futures (3,11) vs (4,17)
+
+profile with 4 members splits into 4 futures:
+  e1=3 grandchild-multiset=(3, 4, 4) eg 6.5.4.3.2.7.1
+  e1=4 grandchild-multiset=(3, 4, 5, 5) eg 6.5.4.3.7.2.1
+  e1=5 grandchild-multiset=(3, 4, 5, 6, 6) eg 6.5.4.7.3.2.1
+  e1=6 grandchild-multiset=(3, 4, 5, 6, 7, 7) eg 6.5.7.4.3.2.1
+profile with 3 members splits into 3 futures:
+  e1=4 grandchild-multiset=(3, 4, 5, 5) eg 3.4.5.6.7.2.1
+  e1=5 grandchild-multiset=(3, 4, 5, 6, 6) eg 4.5.6.7.3.2.1
+  e1=6 grandchild-multiset=(3, 4, 5, 6, 7, 7) eg 5.6.7.4.3.2.1
+profile with 44 members splits into 5 futures:
+  e1=3 grandchild-multiset=(3, 4, 4) eg 5.6.4.3.2.7.1
+  e1=4 grandchild-multiset=(3, 4, 5, 5) eg 5.6.4.3.7.2.1
+  e1=5 grandchild-multiset=(3, 4, 5, 6, 6) eg 5.6.4.7.3.2.1
+  e1=6 grandchild-multiset=(3, 4, 5, 6, 7, 7) eg 5.4.6.3.2.1.7
+  e1=7 grandchild-multiset=(3, 4, 5, 6, 7, 8, 8) eg 5.6.4.3.2.1.7
+class A: 1508 perms, 45 profiles, 29 divergent profiles
+DIVERGENCE_CERTIFIED
+
+=== Myhill-Nerode signature growth (replay of sig_table.txt) ===
+which,n,perms,distinct_sig2,distinct_prof3
+A,5,88,20,42
+A,6,363,33,45
+A,7,1508,50,45
+A,8,6255,71,45
+B,5,87,25,41
+B,6,352,44,45
+B,7,1428,73,45
+B,8,5768,112,45
+SIGNATURE_TABLE_REPLAYED
