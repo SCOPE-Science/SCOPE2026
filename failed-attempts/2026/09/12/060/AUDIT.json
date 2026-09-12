@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Reran both committed stdlib scripts successfully and independently rechecked the arithmetic. Discriminant Delta=-51931=-11*4721 (4721 prime by trial division), c4=496=16*31 coprime to Delta, hence semistable conductor 51931 and j=-122023936/51931 are correct; sign-flip -20 gives Delta=-11^5 and full trace match to 11.2.a.a, confirming the typo diagnosis. Traces a3=2,a7=-1,a13=1, N(E/F17)=16 with a17=2 ordinary, Borel exclusion at l=7,23,31 with discriminants 7,11,10 non-residues mod 17, infinite-order proof for P=(0,4) via #E(F2)=5 versus #E(F3)=2, and F83 Kummer certificate (#E=85, 5P and 17P nonzero, |17E|=5, Pbar outside) all reproduce exactly. One non-essential witness is misstated: (-19 mod 4721)=4702, not 1, so '1^2' is not a root; the Kronecker value +1 itself is still true (actual roots 1676,3045), so the essential inferences stand.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING genuinely arose from the target investigation, so absence from topic.json is not adverse. Substantively, however, the core mathematical facts are already recorded or implied by the official database and a stronger known theorem. LMFDB 51931.a1 lists verbatim the same minimal equation y^2+y=x^3-x^2-10x+20 with conductor 51931=11*4721, discriminant -51931, j=-122023936/51931, rank 1 with generator (0,4) and height 1.38274, and states the l-adic Galois representation has maximal image for all l, which strictly implies the claimed mod-17 irreducibility. Hence the conductor/discriminant/j, the infinite-order point identity, and irreducibility are database recomputation or corollary of a stronger fact, not new claims. The only computationally novel fragment (order-85 Kummer check at the arbitrarily chosen split prime 83) is a mechanical finite-field enumeration with no prior motivation. A timestamp or in-lane derivation does not establish priority over this coverage.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As an EMERGENT_FINDING it is judged under the ordinary full value standard with no presumption. The headline is essentially the negative resolution of the admitted target via a single-sign +20/-20 normalization typo plus routine certifications of the resulting arbitrary typo curve: discriminant via textbook b-formulas, point counts by brute force, a standard two-reduction infinite-order argument for the already-catalogued generator (0,4), Borel/Dedekind-style irreducibility checks, and a local 17-indivisibility check at an arbitrarily selected split prime 83 (with four more arbitrary primes). The object was not motivated before computation, the exact values were already in LMFDB 51931.a1, the chosen prime 83 has no independent motivation, and certification/replayability alone does not create value under the shared STANDARD. Internal protective use (stopping a mistyped input from entering level-11 Kolyvagin arguments) is useful workflow hygiene but not an independently retrievable public-record result; it is the classic cheap type/normalization-error plus direct-lookup plus arbitrary-parameter-fact pattern the STANDARD rejects even when correct.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Reran inputs/artifacts/lane1196_target_audit.py: discriminant/conductor, traces vs 11.2.a.a, P infinite order, N17=16, Borel sets, Kronecker splits, O_K box search all reproduce as quoted.",
+    "Reran inputs/artifacts/lane1196_kummer_irred.py: triple Borel-plus-discriminant irreducibility at l=7,23,31, F83 order-85 Kummer certificate, Kronecker witnesses all reproduce as quoted.",
+    "Independent recomputation: b2=-4,b4=-20,b6=81,b8=-181 gives Delta=-51931, c4=496; gcd(496,51931)=1; 4721 prime; -19 mod 4721 =4702 with sqrt roots 1676,3045 (correcting the 1^2 witness) and Legendre value +1.",
+    "scope_literature_search fused results (SerpBase/Serpent/OpenAlex/Crossref, no partial failure): nearest hits are LMFDB 11.a3/11a1, Cremona/ecdata references, Elkies course example ellinit([0,-1,1,-10,-20]), and Sage Heegner documentation; no publication claims the submitted composite certificate.",
+    "LMFDB primary source fetched in full: https://www.lmfdb.org/EllipticCurve/Q/51931/a/1 (label 51931.a1, Cremona 51931c1) lists exact equation y^2+y=x^3-x^2-10x+20, conductor 51931=11*4721, discriminant -51931, j=-122023936/51931, rank 1 generator (0,4), maximal l-adic image for all l, modular form 51931.2.a.a.",
+    "LMFDB primary source fetched in full: https://www.lmfdb.org/EllipticCurve/Q/11/a/1 (conductor 11, discriminant -11) and related newform 11.2.a.a coefficients confirming the true 11a1 model is the -20 sign variant."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "LMFDB 51931.a1 Galois-representations section states the l-adic representation has maximal image for all primes l, with adelic image of level 103862 and empty non-surjective list; BSD section gives analytic and Mordell-Weil rank 1, regulator 1.38274, Tamagawa product 1; modular form 51931.2.a.a q-expansion matches the recomputed traces (a3=2, a7=-1).",
+      "reasoning": "Maximal l-adic image for all l strictly implies mod-17 irreducibility, so the triple-witness irreducibility claim is a corollary/special case of this broader established classification and cannot confer novelty. Rank-1 with the same generator likewise subsumes the infinite-order claim at a stronger level.",
+      "search": "Searched dominance queries for stronger theorem, broader object class, larger parameter range, exhaustive census, and established database covering the claim: modular form 51931.2.a.a, LMFDB 51931.a1 Galois image and rank classification, X0(51931) level versus X0(11) parametrization."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior art (LMFDB) implies: conductor/discriminant/j/rank/generator/height/Galois-maximality for the exact equation; in-lane work adds only the typo framing (stated equation is not 11a1) and the F83 computation N=85 with 5P=(33,18), 17P=(56,21), 85P=O and Pbar outside 17E. No prior source states the lane-specific sentence about blocking the X0(11) Heegner route, but every mathematical ingredient it depends on is implied by the database plus standard formulas.",
+      "reasoning": "A prior source need not repeat the headline verbatim to defeat originality. Because the database plus standard Tate/semistable-conductor and reduction theory mechanically imply the conductor, non-membership in the 11a1 class, infinite order, and irreducibility, the composite claim is a recomputation plus certificate and corollary of known stronger facts, with only an arbitrary-prime enumeration added. Originality therefore fails.",
+      "search": "Compared headline claim literally against nearest priors: LMFDB 51931.a1 entry versus 11a1/newform 11.2.a.a, testing whether prior hypotheses and conclusions substantively imply or exhaustively cover each component rather than relying on title similarity."
+    },
+    "equivalent_formulations": {
+      "evidence": "LMFDB confirms the two neighboring models: true 11a1 uses [0,-1,1,-10,-20] with Delta=-11^5 and newform 11.2.a.a traces a3=-1,a7=-2, while 51931.a1 uses the literal [0,-1,1,-10,20] with Delta=-51931 and traces a3=2,a7=-1,a13=1. Cremona labels 51931c1 versus 11a1 and simplified/short models y^2=x^3-13392x+785808 were inspected for synonymous notation or dual encodings.",
+      "reasoning": "No hidden equivalent formulation, dual, complement, incidence-graph, or matrix encoding changes the comparison: the literal model and the sign-flipped model are distinct isogeny classes with different conductors and Frobenius traces, so the typo diagnosis is literally correct. This check confirms correctness of the distinction but also confirms both models were already separately catalogued, so it does not rescue novelty.",
+      "search": "Searched literal statement y^2+y=x^3-x^2-10x+20 with discriminant -51931 and conductor 51931, plus synonymous forms [0,-1,1,-10,20] versus [0,-1,1,-10,-20], Cremona labels 11a1/11a3 and 51931c1, LMFDB labels 11.a1 and 51931.a1, and short Weierstrass encodings."
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB 51931.a1 page lists verbatim: minimal equation y^2+y=x^3-x^2-10x+20, conductor 51931=11*4721, minimal discriminant -51931=-11*4721, j=-122023936/51931, rank 1, torsion trivial, generator P=(0,4) with canonical height 1.3827420667, integral points (0,4),(0,-5), Tamagawa product 1, analytic order of Sha 1. The exact parameter set of the headline already appears in this official table.",
+      "reasoning": "The central discriminant/conductor/j and explicit-point components are therefore known-database recomputation, explicitly rejected by the STANDARD as an originality basis. Certification by exact integer arithmetic strengthens evidence but does not create originality, and the F83 local fact is an arbitrary-slice enumeration not present in the table but mechanically derivable and unmotivated.",
+      "search": "Searched exact database/table coverage: LMFDB elliptic curves over Q conductor 51931=11*4721, Cremona ecdata, Sage Cremona tables, LMFDB 51931.a1 minimal model, discriminant, j-invariant, Mordell-Weil generator, and integral-point tables."
+    }
+  },
+  "residual_risks": [
+    "Explicit Kronecker witness for (-19/4721) is misstated as 1=1^2 mod 4721; correct value is -19=4702=1676^2=3045^2 mod 4721, verified by brute force. Conclusion +1 unaffected but the printed witness should be corrected.",
+    "Claim that X0(51931) Jacobian dimension exceeds 1000 was not exactly verified in-lane; order-of-magnitude genus estimate (~N/12) makes it plausible but the precise genus number was not certified.",
+    "Bounded O_K search (|a|,|b|<=4) evidences only absence of a second tiny generator and is not a rank or saturation proof over K=Q(sqrt(-19)); report correctly disclaims Heegner/BSD/Sha/tower consequences, so this remains a limitation not a headline defect."
+  ],
+  "verdict": "REJECT"
+}
