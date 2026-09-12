@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Midpoint-retraction Dirac integrator with representation independence
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1320
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Dirac variational integration
+- **Method:** midpoint-retraction Lagrange-Dirac discretization
+
+## Problem
+
+For the planar Cartesian double pendulum DAE family with masses m1=m2=1, rod lengths L1=L2=1, gravity g=9.81, holonomic constraints g1(q)=|q1|^2-1=0 and g2(q)=|q2-q1|^2-1=0, separable Hamiltonian H(q,p)=|p1|^2/2+|p2|^2/2+U(q), and consistent librational initial data with energy H0 in [-12,-8] and angular velocities bounded by 2, let D_h be the midpoint-retraction discrete Dirac integrator obtained by applying the retraction discretization map R(q,v)=(q-v/2,q+v/2) to the continuous Dirac structure induced by g(q)=0 and G(q)M^{-1}p=0 with midpoint discrete Lagrange-Dirac equations: prove or disprove that D_h is well-defined for all h in (0,0.005] on the stated librational set, exactly preserves g=0 and G(q)M^{-1}p=0, is second-order accurate in (q,p), and is representation-independent in the sense that replacing the constraint Jacobian G(q) by T(q)G(q) with any smooth pointwise-nonsingular T(q) leaves every iterate unchanged, while the naive multiplier discretization with the same step and retraction yields distinct iterates on some nonempty open subset of the librational data. A complete answer is either a rigorous proof of well-definedness, exact preservation, order 2 with remainder bounds, and representation-independence plus an explicit open subset where the naive scheme fails it, or an explicit consistent datum and step-size sequence where D_h fails well-definedness, exact preservation, order 2, or representation-independence, with certified expansions and remainders.
+
+## Attempted claim
+
+For the planar Cartesian double pendulum DAE family with masses m1=m2=1, rod lengths L1=L2=1, gravity g=9.81, holonomic constraints g1(q)=|q1|^2-1=0 and g2(q)=|q2-q1|^2-1=0, separable Hamiltonian H(q,p)=|p1|^2/2+|p2|^2/2+U(q), and consistent librational initial data with energy H0 in [-12,-8] and angular velocities bounded by 2, let D_h be the midpoint-retraction discrete Dirac integrator obtained by applying the retraction discretization map R(q,v)=(q-v/2,q+v/2) to the continuous Dirac structure induced by g(q)=0 and G(q)M^{-1}p=0 with midpoint discrete Lagrange-Dirac equations: prove or disprove that D_h is well-defined for all h in (0,0.005] on the stated librational set, exactly preserves g=0 and G(q)M^{-1}p=0, is second-order accurate in (q,p), and is representation-independent in the sense that replacing the constraint Jacobian G(q) by T(q)G(q) with any smooth pointwise-nonsingular T(q) leaves every iterate unchanged, while the naive multiplier discretization with the same step and retraction yields distinct iterates on some nonempty open subset of the librational data. A complete answer is either a rigorous proof of well-definedness, exact preservation, order 2 with remainder bounds, and representation-independence plus an explicit open subset where the naive scheme fails it, or an explicit consistent datum and step-size sequence where D_h fails well-definedness, exact preservation, order 2, or representation-independence, with certified expansions and remainders.
+
+## Research outcome
+
+Affirmative TARGET proof: midpoint-retraction Dirac integrator D_h is well-defined on the librational set for all h in (0,0.005], exactly preserves both constraints, is second-order with certified remainders, is exactly representation-independent, and the naive scheme provably differs on an explicit open subset.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: ADMISSION_DEFECT: admitted TARGET is a renamed instantiation mechanically implied by established stronger theorems. DRAFT itself states D_h (midpoint-retraction discrete Dirac = RATTLE with midpoint retraction). Well-definedness, exact g=0/Gp=0 preservation, symmetry/second order for RATTLE/SHAKE under full-rank GG^T and small h are textbook: Leimkuhler-Skeel 1994 convergence theorem, Leimkuhler-Reich 1994, Reich 1996 composition, Hairer-Lubich-Wanner Geometric Numerical Integration Ch.VII (SHAKE/RATTLE), McLachlan-Modin-Verdier-Wilkins geometric SHAKE/RATTLE. Representation/equivalence independence via range((TG)^T)=range(G^T) is the general equivalence-preservation criterion proved in Parks-Leok arXiv:1703.03045 Secs 3.2-4 (forced/Dirac variational integrators preserving continuous equivalence, same quadrature/bvp recipe, strong equivalence of discrete Legendre transforms). The double-pendulum numbers (m=L=1, g=9.81, H0 in [-12,-8], |w|<=2, h<=0.005) and the frozen-eta naive comparator are topic-stipulated arbitrary slices/strawman with no prior independent standing; the naive gap is elementary algebra (h^2/2)|eta1||G^T e1|. A prior source need not state the headline verbatim since general theorems substantively imply every conjunct as a special case. No new claim, boundary, classification or counterexample beyond corollary/repackaging. Hence originality FAILS and is never repairable. value: Even taken as correct and new, the headline is not independently worth retrieving under the shared STANDARD. It restates textbook RATTLE properties (solvability under nonsingular GG^T, exact constraint projection by construction, symmetric second order) for one prescribed parameter point (unit masses/lengths, g=9.81, H0 slice [-12,-8], rate box <=2, cutoff h<=0.005) plus a trivially non-invariant frozen-multiplier strawman. This is a mere parameter substitution / arbitrary finite slice / known-database recomputation pattern: certification (contraction majorants, 2000-step roundoff run, order slopes, box Lipschitz margins) strengthens evidence but does not create value. The loose global majorants (lammax 62.04, B2 228.85, B3 27039.2, Cq 4506.5) are not sharp usable bounds, the energy drift 4.5e-03 is incidental, and no downstream use, new boundary, benchmark improvement, or exact natural invariant beyond the stipulated slice is established. The narrow-datum proviso does not rescue an arbitrary method-parameter cutoff and an invented comparator. Hence value FAILS.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Remainder constants (B3=27039.2, Cq=4506.5) are rigorous but loose global majorants, not sharp estimates; exact preservation and representation independence are exact in exact arithmetic and verified at roundoff level numerically (residuals ~1e-15); global order-2 slopes are measured against a fine projected-RK4 reference (constraint ~2e-16) combined with the proved symmetry argument rather than a fully analytic Lady Windermere constant; the theorem covers exactly the stated librational set and…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
