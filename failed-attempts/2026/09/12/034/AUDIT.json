@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the PINNED presentation S0 only. Re-ran inputs/artifacts/replay.py: VERIFY_OK dimA=10 C=(10,18,46,102) HH2=0 HH3=0 diag=d(g:a1->a2) controlDUAL_HH2=1. Independently reimplemented E-relative normalized bar differentials with standard signs (d1: y1f-f(y1y2)+fy2; d2/d3 analogous) and reproduced dimA=10, C dims, d2d1=0, d3d2=0, ker d2 dim 5 = rank d1 5, ker d3 dim 13 = rank d2 13, hence HH2=HH3=0; every 2- and 3-cocycle solved as coboundary with zero residual in replay.py. Controls pass (dual numbers HH2=1, mod-1000003 ranks 5/13 agree) and sibling truncations give HH2=2/1, so code is not biased to zero. With HH2=0 the Gerstenhaber-square vanishing is convention-independent. Scope is strictly the pinned quiver {a1,a2:1->2,b:2->3,c:3->1}/<a1b,bc,ca1>; whether this S0 is the topic's intended A0 is a value/identity defect, not a computational error.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused scope_literature_search over literal, equivalent (Maurer-Cartan/HH2-square/HH3-obstruction with parallel arrows and oriented cycles), and broader-coverage (HH census, formality, Bocklandt/Chaparro/Schroll/Redondo) directions returned 20 results with full provider coverage and no partial failure. Fetched decisive primaries: Bocklandt-van de Kreeke arXiv:2304.10223 (formality only without loops or two-cycles), van de Kreeke arXiv:2308.09533 (explicit cocycles including single-puncture case), Chaparro et al. arXiv:2311.08003 (general Tamarkin-Tsygan calculus, no named S0 square), Maurer-Cartan arXiv:2309.02582 (hypothesis: no parallel arrows and no oriented cycles, violated by S0 which has a1||a2 and 1->2->3->1 cycle). No source names S0 or its HH2=HH3=0; general dimension formulas do not record this presentation and no table/database lists it. Hence the exact S0 vanishing computation is literally new. Novelty alone does not create value (see value axis).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "FAIL. ADMISSION_DEFECT: topic.audit_preflight cheap_falsification_checks and target_integrity explicitly required HH2(A0) and HH3(A0) both nonzero (\"expected nonzero\") so that either verdict is substantive and vacuity is ruled out; the delivered result is HH2=HH3=0, i.e. exactly the vacuous outcome Admission certified would not occur. Per TARGET policy a negative resolution that is only vacuity on an arbitrary parameter fact fails value even if literally correct. The object is arbitrary: DRAFT admits the lane topic carried no machine-readable A0 block and S0 was fixed post hoc as \"canonical,\" but uniqueness is asserted without proof and is contradicted by the report's own sensitivity controls (S1/S3 finite-dimensional gentle truncations on 3 vertices have HH2=2; S2 has HH2=1), so rigidity is a property of the chosen 4-arrow truncation, not of punctured-torus geometry. The full Markov-type 6-arrow quiver is set aside by an unproved hand-wave. A future researcher needing the once-punctured-torus gentle algebra's deformation theory would not retrieve this ad hoc truncation's vacuous vanishing. Certification and exact arithmetic do not rescue an arbitrary object or a vacuous number. The defect is intrinsic (choice of object + HH2=0 vacuity), not a bounded missing-motivation paragraph, so not repairable without changing the problem.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/replay.py -> VERIFY_OK dimA=10 C=(10,18,46,102) HH2=0 HH3=0 diag=d(g:a1->a2) controlDUAL_HH2=1",
+    "Independent exact-rational bar-complex reimplementation reproducing S0 HH2=0, S1/S3 HH2=2, DUAL HH2=1; d^2=0 and standard bar signs verified",
+    "inputs/artifacts/verification.json (S0 kerD2=5 rankD1=5 HH2=0; mod-p S0 ranks 5/13 HH2=0; S1 mod-p HH2=2) and results.json (dimHH2=0 dimHH3=0)",
+    "arXiv:2304.10223 Bocklandt-van de Kreeke: formality only for arc collections without loops or two-cycles",
+    "arXiv:2308.09533 van de Kreeke: explicit cocycles including single-puncture case, different algebra, no S0 vanishing",
+    "arXiv:2311.08003 Chaparro-Schroll-Solotar-Suarez-Alvarez: general Tamarkin-Tsygan calculus for gentle algebras, no named S0 obstructed/vanishing square",
+    "arXiv:2309.02582 Maurer-Cartan for gentle algebras: requires no parallel arrows and no oriented cycles, violated by S0"
+  ],
+  "claim_route": "TARGET (as stated in research_report.json; audited as rigorous-disproof negative resolution, which must still pass all three axes)",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bocklandt-van de Kreeke arXiv:2304.10223 proves dgla formality only when arc collection has no loops or two-cycles; Maurer-Cartan arXiv:2309.02582 restricts to quivers with no parallel arrows and no oriented cycles; S0 has parallel pair a1||a2 and oriented 3-cycle, so hypotheses are violated and neither implies S0 HH2=HH3=0.",
+      "reasoning": "No broader formality or Maurer-Cartan theorem covers S0, so the exact vanishing is not a corollary or special case of a stronger published result; originality is not defeated on this ground.",
+      "search": "Hochschild cohomology HH2 HH3 gentle algebras census classification formality Bocklandt Chaparro Schroll Redondo"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Chaparro et al. arXiv:2311.08003 gives general cup/bracket calculus without naming any S0 class; Valdivieso-Diaz treats unpunctured Jacobian algebras; van de Kreeke 2308.09533 treats single-puncture cocycles for surface algebras distinct from the ad hoc 4-arrow truncation S0.",
+      "reasoning": "Applying general HH-dimension formulas to S0 still requires the fresh S0 computation; no prior implication yields S0 HH2=HH3=0 without doing it, so the computation is new but its value fails for vacuity/arbitrariness reasons.",
+      "search": "Maurer-Cartan obstruction Hochschild cohomology HH2 HH3 gentle algebra quiver with parallel arrows oriented cycle"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched Maurer-Cartan obstruction, HH^2 self-bracket in HH^3, Gerstenhaber square, and non-formal deformation witness language for punctured-torus gentle algebras; hits return only generic deformation theory and the general gentle-algebras calculus papers with no S0 theta or S0 vanishing.",
+      "reasoning": "No synonymous Maurer-Cartan or Gerstenhaber-square formulation records HH2=HH3=0 for this exact presentation, so no equivalent prior settles the pinned claim.",
+      "search": "gentle algebra HH^2 Gerstenhaber square HH^3 obstructed infinitesimal deformation punctured torus"
+    },
+    "exact_database_or_table": {
+      "evidence": "No census, table, or official database (including Ladkani/Redondo-Roman dimension formulas as published tables and AG-invariant tables) tabulates Gerstenhaber squares or HH2/HH3 values for the exact presentation with vertices {1,2,3}, arrows a1,a2:1->2,b:2->3,c:3->1, relations <a1b,bc,ca1>.",
+      "reasoning": "The exact S0 datum cannot be obtained by direct lookup; it required fresh computation, so originality passes this check while value independently fails.",
+      "search": "gentle algebra Maurer-Cartan obstruction table Gerstenhaber square database HH dimensions"
+    }
+  },
+  "residual_risks": [
+    "Bar-sign conventions verified standard and immaterial given HH2=0; remaining risk is not computational but interpretive: S0 is one of several finite-dimensional gentle truncations, so the headline must not be read as rigidity of the punctured-torus surface algebra generally."
+  ],
+  "verdict": "REJECT"
+}
