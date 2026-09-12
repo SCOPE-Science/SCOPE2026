@@ -1,0 +1,88 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET affirmative existence proof independently re-derived and machine-checked. Conjugation phi*g1=g2*phi verified (phi*g1=[[54,1],[27,1]]=g2*phi); det 27 trace 28 confirmed; fixed points g1:{0,inf}, g2:{1,2} confirmed by direct Mobius evaluation (53-52)/(26-25)=1, (106-52)/(52-25)=2, with conjugacy forcing exactly two fixed points each. Multipliers via det/(cz+d)^2 and det/a^2 at inf are 27 at 0,1 (v3=+3, attracting) and 1/27 at inf,2 (v3=-3, repelling), hence purely loxodromic. Residues 0,inf,1,2 are integral and distinct in P^1(F3). Disc disjointness follows from |a-b|_3=1>1/3 for distinct finite centres and D_inf disjoint from the unit disc. Ping-pong inclusions verified: g1(P^1\\D_inf)={|w|<=1/27} strictly inside D0; g1^{-1}(P^1\\D0)={|z|>=27} strictly inside D_inf; transfer phi(D0)=D1, phi(D_inf)=D2 proved in full by the exact identities phi(z)-1=z/(z+1) and phi(z)-2=-1/(z+1) plus the ultrametric valuation argument in both directions (also checked for phi^{-1}(w)=(w-1)/(-w+2)), so conjugation transfers strict inclusions to gamma2. Witness z=3 lies in the fundamental domain complement. Re-ran inputs/artifacts/verify_schottky.py: ALL CHECKS PASSED. This is proof with a certificate, not mere experimental evidence; boundary cases (inf chart, strictness, surjectivity, nonemptiness guaranteeing rank exactly two) all close.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Normalized headline into literal, equivalent-encoding, and dominance forms and ran one fused scope_literature_search (all providers ok, not partial). Nearest priors are general theory, not this witness: Gerritzen-van der Put Schottky Groups and Mumford Curves (1980) gives the Schottky criterion used as a tool, not an explicit Q3 four-residue pair; Morrison-Ren Algorithms for Mumford curves (2015) solves good generators generally and its cited pair is confined to two residue classes {1,2}, the contrast motivating the target; Poineau-Turchetti, Hidalgo, van der Put-Top Whittaker preprints concern moduli/uniformization, not these matrices. No source states or implies fixed points 0,inf,1,2 with generators diag(27,1) and [[53,-52],[26,-25]]; synonymous/dual encodings (Mumford curve, non-archimedean Schottky, Whittaker good position, reduction graph) were screened via the fused snippets and none covers the maximal-spread residue configuration. General rank-two existence over Q3 does not mechanically imply four distinct P^1(F3) classes. Hence the explicit maximal-spread witness is new under the shared STANDARD.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route affirmative resolution of the admitted two-sided question: whether a rank-two Schottky group over Q3 can occupy four distinct residue classes, in contrast to the published Morrison-Ren pair confined to two. The result exhibits explicit matrices, a certified ping-pong fundamental domain on the four maximal residue discs, and computed fixed-point valuations \u2014 a rigorously established exact configuration of a natural object (genus-2 Mumford uniformization over Q3) motivated before computation. Going from 2 to all 4 points of P^1(F3) is the maximal spread, not a tiny gain, parameter substitution, textbook restatement, or unexplained enumeration; a future researcher needing an integral-disc good domain or a maximal-residue example can directly retrieve and reuse it. Existence-only scope is honestly limited without claiming classification or minimality. Passes the shared STANDARD eligibility for exact invariants without demanding a new general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: TARGET claim asking for proof or rigorous counterexample on four-distinct-residue rank-two Schottky over Q3 vs Morrison-Ren two-class pair",
+    "inputs/DRAFT.md: self-contained valuation proof with explicit matrices, multiplier formula, phi identities, ping-pong inclusions, and witness z=3",
+    "inputs/artifacts/verify_schottky.py re-executed locally: conjugation, dets/traces, fixed points, multipliers/valuations, residues, disjointness, transfer identities, domain witness \u2014 ALL CHECKS PASSED",
+    "inputs/research_report.json (claim_route TARGET) and inputs/STANDARD.md (shared admission/audit threshold applied exactly)",
+    "scope_literature_search fused results (20 hits, all providers ok): Gerritzen-van der Put book 1980; Morrison-Ren Algorithms for Mumford curves 2015; Poineau-Turchetti universal Mumford curves; Hidalgo noded Schottky; van der Put-Top Whittaker groups; van der Put discrete groups/Mumford curves \u2014 screened for literal, equivalent, and dominance coverage; none states the submitted matrices or four-residue witness",
+    "Direct fetch of Morrison-Ren DOI metadata confirming general good-generators algorithm, distinct from the submitted maximal-spread example"
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Gerritzen-van der Put (1980) proves general Schottky/Mumford-curve theory and the ping-pong criterion; Morrison-Ren (2015) gives a general algorithm for good generators of Mumford curves; Poineau-Turchetti build universal Schottky moduli; van der Put-Top (2026) classify Whittaker/Mumford data in genus 2-3. None publishes an exhaustive census of Q3 rank-two pairs or a theorem stating every/some pair attains four distinct P^1(F3) residues, and none lists the submitted matrices.",
+      "reasoning": "A broader existence or algorithmic framework does not subsume the claim as a special case: general Schottky existence is compatible with all examples living in two residue classes, so the maximal-spread configuration requires the new explicit witness. The criterion is used as a proof tool; the result is not an instance read off from a covering theorem or completed census.",
+      "search": "stronger-theorem and census dominance query: Mumford curve genus 2 over Q3 Schottky classification census Gerritzen van der Put Morrison Ren universal Schottky spaces Whittaker good position"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior Morrison-Ren discs B(4,1/9),B(1,1/9),B(5,1/9),B(2,1/9) reduce mod 3 to {1,2} only (4=1, 5=2 mod 3), while the new fixed points 0,inf,1,2 reduce to all four points {0,1,2,inf}=P^1(F3) with multipliers 27/1/27 pattern and disjoint radius-1/3 pairing discs; general Schottky lemmas state hypotheses (disjoint discs plus strict inclusions imply freeness) but do not supply this residue configuration.",
+      "reasoning": "Compared literally, no prior hypothesis-conclusion pair implies the submitted conclusion: the two-class example cannot imply a four-class example, and the abstract ping-pong implication runs from the newly verified disc data to freeness rather than from prior work to the new disc data. The finding is a new extremal witness, not a corollary, certificate-only replay, or repackaging of a stronger fact.",
+      "search": "literal hypothesis-conclusion comparison: does any prior Schottky good-generators theorem or the Morrison-Ren two-class pair imply a Q3 rank-two witness with fixed-point residues 0,1,2,inf"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search across Mumford curve, non-archimedean Schottky uniformization, Whittaker good-position fixed points, Berkovich skeleton, and good fundamental domain terminology returned only general-theory sources (Gerritzen-van der Put, Morrison-Ren, Poineau-Turchetti, Hidalgo, Charette) with no matching residue-disc configuration, matrix entries, or fixed-point set {0,inf,1,2} in any synonymous notation; reduction of phi mod 3 swaps 0<->1 and inf<->2, confirming the disc permutation has no hidden alias.",
+      "reasoning": "Synonymous names (Mumford vs p-adic Schottky vs Whittaker index-2 subgroup), dual/complement encodings (pairing discs vs limit set complement vs reduction graph), and mod-3 residue notation were all considered; none of the retrieved sources states the same four-residue witness under different language, so equivalent-formulation coverage fails and originality stands.",
+      "search": "equivalent representations: p-adic Schottky good fundamental domain residue discs P^1(F3) Mumford uniformization Whittaker good position fixed points dual reduction-graph encoding"
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused hit contains the exact matrices diag(27,1), [[2,1],[1,1]], [[53,-52],[26,-25]], the fixed-point tuple (0,inf,1,2), or a table of Q3 Schottky generators with P^1(F3) residues; there is no established official database or census table for p-adic Schottky generators analogous to LMFDB entries, and the Morrison-Ren paper's tables/algorithms concern different two-class examples.",
+      "reasoning": "An exact parameter, table-row, or database-record match would defeat originality, but the concrete search over specialist sources, theses, and algorithm papers shows the precise object is absent from any table or repository; the result is therefore not a direct lookup or known-database recomputation.",
+      "search": "exact object and table search: matrices [[27,0],[0,1]] [[53,-52],[26,-25]] fixed points 0 infinity 1 2 Q3 Schottky generator table database LMFDB-style census"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "43a5b1c745d5962ebd6144845adeb31860fa90698f1fee1ea44582e9093b1699",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Algorithms for Mumford Curves",
+        "url": "https://hal.science/hal-01022891/document",
+        "base_search_overlap": true,
+        "relationship_to_claim": "States the general Schottky good-fundamental-domain criterion and exhibits the motivating two-residue-class example B(4,1/9),B(1,1/9),B(5,1/9),B(2,1/9) reducing to {1,2} mod 3; its hypotheses cover arbitrary Schottky groups and its conclusions never assert a Q3 rank-two pair with fixed-point residues {0,1,2,infinity} nor list the submitted matrices diag(27,1) and [[53,-52],[26,-25]].",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Whittaker groups and hyperelliptic curves dedicated to the memory of Harm H. Voskuil",
+        "url": "https://arxiv.org/html/2605.22406",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Develops general Whittaker-group good-position theory and rigid moduli Fix_{P,m} to Branch_{P,m} for hyperelliptic Mumford curves; hypotheses concern order-two generators and branch loci in general, and no conclusion exhibits an explicit Q3 rank-two Schottky pair with integral-disc fixed points 0,infinity,1,2 in four distinct P^1(F3) classes.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Mumford curves covering p-adic Shimura curves and their ... - arXiv",
+        "url": "https://arxiv.org/pdf/1608.04891",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Gives general p-adic Schottky definitions and a Shimura-type family whose displayed domain removes p+1 discs of radius 1/sqrt(p) over Cp; the field, radius value group, group family, and residue data differ from Q3 integral radius-1/3 discs, and it states no rank-two Q3 witness with fixed points 0,infinity,1,2 or the submitted explicit matrices.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "From modular curves to Shimura curves: a p-adic approach",
+        "url": "https://orbilu.uni.lu/bitstream/10993/29872/1/From_modular_curves_to_Shimura_curves.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Presents the Shimura-type domain Fp(xi)=P1 minus discs B-(a,1/sqrt(p)) for a in {0,...,p-1,infinity}; hypotheses concern Shimura groups over Cp with non-integral radius 1/sqrt(p), not a rank-two Schottky group over Q3, and conclusions do not imply existence of generators with four distinct P^1(F3) residues or the claimed matrices.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with 4 base overlaps; the 16 new items are general definitions, slides, Shimura families, or unrelated Schottky topics that merely duplicate base-provider theory. The most dangerous new candidate (Shimura p+1-disc family of radius 1/sqrt(p) over Cp) was compared literally and fails dominance coverage because its field, radius value group, group family, and fixed-point data differ from the Q3 integral-disc radius-1/3 witness with fixed points 0,infinity,1,2 and matrices diag(27,1), [[53,-52],[26,-25]]. The Morrison-Ren two-class example confirms contrast rather than implication, and Whittaker/hyperelliptic sources state only abstract criteria. No returned source lists the exact matrices, fixed-point tuple, table entry, or four-residue existence claim, so no decisive prior was found and the provisional originality PASS is preserved with correctness and value unchanged."
+  }
+}
