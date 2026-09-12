@@ -1,0 +1,96 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET vanishing-branch proof audited: the explicit Redei norm identity a^2-(1+zeta)b^2=pi3*z^2 with a=-(1+zeta+zeta^2), b=-(1+zeta-zeta^3), z=zeta^3+zeta^2-1 was re-verified by independent exact integer arithmetic in Z[t]/(t^4+1) (N=[-5,-3,1,4]=pi3a*z^2, confirmed equal), and absolute norms N(z)=1, N(pi2)=2, N(pi3)=9, N(piq)=17 confirm the prime factorizations. The Hilbert-grid method for pairwise cup vanishing is sound: K=Q(zeta_8) is totally complex and the three uniformizers are supported only above 2, 3, 17, so checking the 9 listed finite places (plus extra place above 5) covers all places where symbols can be nontrivial. An independent mod-17 residue-field check corroborates the headline [2,2] splitting: t^4+1 has roots {2,8,9,15} mod 17 with q at t=8; K1 model m1(y) has roots {3,4,13,14} with the two lifts of t=8 at y=3,14 where A(y)=8,16 are both nonzero quadratic residues mod 17, i.e. x^2-A splits unramified with e=f=1 at both K1-primes above q. Class numbers, irreducibility of x^2-A over K1, and discriminant support are reproducible PARI computations honestly labeled as such with script plus log; the D8 closure uses the standard Redei norm-relation lemma (no polgalois claimed). A second independent defining system giving the same splitting guards against defining-system artifacts.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live retrieval over literal, equivalent-formulation, and dominance queries found only general frameworks, never this exact value: Morishita 2003 (Massey-Redei dictionary, no Q(zeta_8) (2,3,17) instance), Amano-Mizusawa-Morishita mod-3 Eisenstein program (different field and coefficient), Minac-Tan / Hopkins-Wickelgren Galois-cohomology vanishing (different cohomology; and classical rational Redei symbols demonstrably take both signs, so no mechanical implication of mu2=0 here), Kuramoto 2026 real-quadratic symbols, and LMFDB (no degree-32 D8 splitting datum for this triple). No table, census, classification, or database records the stated uniformizers, the explicit alpha, or the [2,2] splitting at q. The general dictionary supplies the method, not the value; the exact vanishing plus explicit defining system is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route complete resolution (vanishing branch proved with explicit defining system and indeterminacy quotient addressed via two corroborating defining systems and the trace-Frobenius identification). The result is an exact invariant (mu2(123)=0, equivalently the [2,2] unramified splitting of q in the Redei D8 extension) of a natural motivated object: the cyclotomic field Q(zeta_8) with the smallest primes satisfying the admitted pairwise-vanishing hypothesis, distinguished by a scan showing most neighboring prime choices fail the hypothesis, so the scope is hypothesis-distinguished rather than arbitrary. The value 0 was not predetermined (Redei symbols take both values classically) and the explicit norm solution plus splitting law is precisely the reusable datum a future researcher needs. This matches the shared STANDARD's exact-invariant eligibility with no paper-level general-theorem requirement; it is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. No ADMISSION_DEFECT: the negative branch would not have been a cheap type/vacuity/lookup artifact.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md: explicit triple (pi2=1+zeta, pi3=-1-zeta^2-zeta^3, piq=2-zeta^3), Hilbert grids, norm solution (a,b,z), absolute models m1(y) and A(y), [2,2] splitting claim, scope and uncertainty discussion",
+    "inputs/artifacts/verify_all.py plus inputs/artifacts/results.txt: PARI/cypari script and log (class number 1, three all-+1 Hilbert rows, N/pi3a square via nffactor, alpha nonsquare, [2,2] e=f=1 splitting, second defining system agreement)",
+    "Independent exact re-computation in Z[t]/(t^4+1): N=a^2-pi2*b^2=[-5,-3,1,4]=pi3a*z^2 with z^2=[0,-2,-3,-2]; norms N(z)=1, N(pi2)=2, N(pi3)=9, N(piq)=17",
+    "Independent mod-17 residue check: t^4+1 roots {2,8,9,15} (q at t=8); m1(y) roots {3,4,13,14}; lifts of q at y=3 (A=8, QR) and y=14 (A=16, QR), both nonzero, corroborating unramified [2,2] splitting with e=f=1",
+    "Morishita 2003, Compositio Math., 'Milnor invariants and Massey products for prime numbers' (doi:10.1112/s0010437x03000137): general Massey-Redei dictionary, no such Q(zeta_8) instance",
+    "Amano-Mizusawa-Morishita, Res. Number Theory 2018 / arXiv:1412.6894: mod-3 triple symbols over the Eisenstein field Q(sqrt(-3)) via degree-27 Heisenberg extensions; different field, coefficient, and primes",
+    "Minac-Tan 'Triple Massey products over global fields' (2015) and Hopkins-Wickelgren splitting varieties: Galois-cohomology vanishing results in a different cohomology setting; classical rational Redei symbols attain both signs, so they do not imply the submitted U-cohomology value",
+    "Kuramoto 2026 'On Triple Quadratic Residue Symbols in Real Quadratic Fields' and Efrat 2024 linking invariants: neighboring general programs, no overlapping triple",
+    "LMFDB NumberField/Field databases (lmfdb.org): no degree-32 Redei D8 splitting record or Q(zeta_8) Redei-symbol table covering this claim",
+    "inputs/topic.json (TARGET claim, hypothesis, scope) and inputs/STANDARD.md (shared admission/audit thresholds incl. exact-invariant eligibility) applied as binding standard"
+  ],
+  "claim_route": "TARGET: audited as literal two-sided target; vanishing branch proved with explicit defining system; no fallback or emergent-finding inference needed.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Minac-Tan/Hopkins-Wickelgren vanishing theorems live in Galois cohomology H*(G_F, Fp); the submitted invariant lives in etale cohomology H*(U, Z/2) with Artin-Verdier trace and restricted ramification. Classical Redei triple symbols over Q are documented to take both values +1 and -1, and the mod-3 Eisenstein and real-quadratic programs compute values case by case, confirming no blanket theorem fixes every triple to 0.",
+      "reasoning": "No broader theorem, classification, census, or object class exhaustively covers or implies mu2(123)=0 for this triple; the headline is not a special case of a proven stronger vanishing result, so broader-coverage originality failure does not occur.",
+      "search": "Massey vanishing conjecture theorems Minac Tan Hopkins Wickelgren global fields triple Massey contains zero; Redei symbol classification census over cyclotomic fields Q(zeta_8)"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Morishita 2003 and successors prove the dictionary: defining system corresponds to a D8 Redei extension and the Artin-Verdier trace value corresponds to the Frobenius/decomposition of q. None of these sources states or computes the value for uniformizers (1+zeta, -1-zeta^2-zeta^3, 2-zeta^3), the solution (a,b,z), or a [2,2] splitting at the prime above 17.",
+      "reasoning": "Prior work implies the method (how a defining system yields a splitting law), not the submitted conclusion (that this triple's value is 0 with this explicit witness). The claim is therefore not a corollary, certificate, or repackaging of a known stronger fact.",
+      "search": "Morishita Massey-Redei dictionary defining system dihedral extension trace Frobenius implication versus exact computed value mu2(123)=0 Q(zeta_8)"
+    },
+    "equivalent_formulations": {
+      "evidence": "Retrieved sources use synonymous language (Redei symbol, Redei triple symbol, triple quadratic residue symbol, triple Massey product, D8 decomposition law) only for general theory or for rational-prime, Eisenstein, or real-quadratic instances. No source under any of these names records primes (1+zeta, -1-zeta^2-zeta^3, 2-zeta^3) over Q(zeta_8), the norm solution alpha=a+b*sqrt(1+zeta), or a complete splitting of the prime above 17.",
+      "reasoning": "Under every applicable equivalent encoding (Redei symbol, Massey trace value, dihedral splitting law, Kummer-meridian linking triple), the fused results contain no prior record of this exact triple and value, so synonymous-notation coverage fails and originality survives.",
+      "search": "Redei symbol triple quadratic residue symbol triple Massey product Artin-Verdier trace dihedral D8 splitting law Q(zeta_8) primes above 2 3 17 synonyms duals encodings"
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB number-field holdings do not tabulate this absolute degree-32 Redei extension with its decomposition datum, and no Redei-symbol table, Milnor-invariant census, or Q(zeta_8) prime table in the retrieved set lists mu2 for (p2, p3, q) above (2,3,17). The PARI prime-ordering labels are pinned by explicit uniformizers, so table-lookup ambiguity is excluded.",
+      "reasoning": "The exact parameter set and computed value do not already appear in any official database or published table; this is not a direct lookup or known-database recomputation.",
+      "search": "LMFDB number fields degree 32 D8 extension Q(zeta_8) tables Redei symbols Milnor invariants primes above 3 17 decomposition data"
+    }
+  },
+  "residual_risks": [
+    "PARI/cypari computations (nfhilbert grids, bnfinit class numbers, nffactor irreducibility, rnfidealprimedec splitting, discriminant support) were reviewed via the archived script plus log and partially corroborated by independent exact checks, but not re-executed inside this audit environment where cypari/PARI is unavailable.",
+    "The D8 Galois-closure identification rests on the standard Redei norm-relation lemma rather than an explicit polgalois computation (as honestly disclosed); a fully computed Galois group would further harden but is not required for the splitting-law headline.",
+    "PARI idealprimedec ordering labels ('first prime') are version-dependent; mathematical identity is pinned by the explicit uniformizers, which future users must employ rather than the ordinal labels."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "e653032a2c37fe5edbb247c6dedd5e706b9e20982e5a0594d88777390f264b52",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "On Rédei's dihedral extension and triple reciprocity law",
+        "url": "https://scispace.com/pdf/on-redei-s-dihedral-extension-and-triple-reciprocity-law-25ek1fw6wk.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Classical Redei theory over Q for rational primes p1,p2,p3 congruent 1 mod 4 defines the triple symbol by complete decomposition in a D8 extension of Q ramified only at p1,p2. The submitted claim is over the cyclotomic field Q(zeta_8) with prime ideals above 2,3,17, Artin-Verdier U-cohomology, and an explicit norm solution; base field, hypotheses, and computed instance do not coincide.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "triple symbols in arithmetic",
+        "url": "https://arxiv.org/html/2407.02063v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General cohomological triple symbols [chi1,chi2,chi3]_n for a field F containing mu_n, shown to recover the known cases F=Q n=2 and F=Q(sqrt(-3)) n=3. The paper states a general framework and recovers prior cases only; it computes no value for Q(zeta_8), the uniformizers (1+zeta, -1-zeta^2-zeta^3, 2-zeta^3), or the [2,2] splitting at the prime above 17, so it supplies method rather than the headline value.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "On Triple Quadratic Residue Symbols in Real ...",
+        "url": "https://arxiv.org/html/2509.00667v1",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Mod-2 arithmetic triple Milnor invariants mu2(123) with triple symbol [p1,p2,p3]=(-1)^mu2(123) as the decomposition law in a Redei-type D8 extension over a real quadratic base field k for primes of norm 1 mod 4. Same invariant language but a disjoint base field (real quadratic k versus totally complex Q(zeta_8)), different prime set and ramification, and no Q(zeta_8) (2,3,17) instance or value.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Redei symbols and arithmetical mild pro-2-groups - Institute for ...",
+        "url": "https://www.mathi.uni-heidelberg.de/fg-sga/Preprints/gaertner_redei_symbols_2013_06_14.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Explicit triple Massey products on G_S(2) over Q expressed via Redei symbols for S={2, li=1 mod 8}, the closest 2-adic analogue in the terminal set. It lives in Galois cohomology over Q with rational primes, not etale cohomology H*(U,Z/2) over Q(zeta_8) with the stated prime ideals and Artin-Verdier trace, and it computes no value for the submitted (p2,p3,q) triple.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with 4 overlapping the base set by title/arxiv (classical Redei reciprocity, Kuramoto real-quadratic program, Efrat linking invariants, Amano mod-3 program). The 16 incremental hits are classical rational-prime Redei theory (Tokyo Journal of Mathematics modular-forms paper, RIMS Bessatsu B44 nilpotent extensions, Borromean density, Kyushu thesis, genus-two two-descent, Fouvry D8 counts), the general Kim triple-symbol framework recovering only Q n=2 and Eisenstein n=3, Gaertner G_S(2) Massey-via-Redei over Q, and general Massey-vanishing notes (Sharifi, IAS lectures). Compared literally on hypotheses (base field Q(zeta_8), prime ideals above 2,3,17 with explicit uniformizers, F2 U-cohomology with Artin-Verdier trace, ramification inside {p2,p3}) versus conclusions (mu2(123)=0 with explicit alpha and [2,2] unramified splitting at q), none of the returned sources states, tabulates, or substantively implies the submitted value under any synonymous encoding; the nearest sources supply the dictionary or framework, not the computed instance. No decisive prior found, so originality PASS is preserved and correctness and value are untouched."
+  }
+}
