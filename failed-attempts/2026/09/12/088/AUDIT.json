@@ -1,0 +1,55 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET required a rigorous squared-Baker-Akhiezer Floquet-Hill computation with certified enclosure (stability or explicit off-axis eigenvalue). The submission explicitly disclaims rigor: +-3e-6 is an empirical Cauchy-ladder heuristic, NOT an interval certificate, with eigenvalue condition number ~3e13 making a posteriori bounds vacuous (O(1) tail bounds). The 3L profile is only C0 with derivative jump ~2 from the BJT background phase shift, so the Hill discretization has only algebraic convergence and the operator itself is an artificial periodization of a non-3L-periodic infinite-line BJT wave. The linearization is a lab-frame t=0 snapshot of a non-stationary moving hump with no established convective-vs-absolute interpretation. Hence the headline 'spectrum NOT confined' is a plausible numerical indication, not a proved spectral fact; the target success criterion is unmet.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused live search (SerpBase/OpenAlex/Crossref/OpenAIRE, all providers ok, no partial failure) finds the BJT construction paper arXiv:2210.01350, Bottman-Deconinck KdV cnoidal stability, Hoefer-Mucalica-Pelinovsky KdV breathers on cnoidal background, and many soliton-cnoidal existence papers, but none states, tabulates, or implies a 3-subharmonic Floquet eigenvalue +-0.402037 for the even bright BJT N=1 midpoint-pinch (beta1=1/4) soliton on m=3/4 background at mu=0. Background-only stability theorems and breather construction formulas do not imply this soliton-on-background Floquet number. As a numerical datum the value appears new and not mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET value depended on a rigorous decision (confinement vs certified off-axis eigenvalue). What is delivered is an explicitly non-rigorous convergence estimate on an artificially periodized C0 ring with O(1) seam kink and without dynamical stability meaning for the moving BJT snapshot. Under STANDARD an unresolved target remains NO_RESULT, and an exact invariant of a natural object is retrievable only when rigorously established, motivated, unknown, and precisely needed; certification strengthens but non-certified heuristics do not create value. With condition ~3e13 the +-3e-6 spread cannot be trusted as a bound, and heavy mollification moves the pair by ~3%. This uncertified indication, however suggestive, is not independently worth finding later as a public record.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "BJT arXiv:2210.01350 (Bertola-Jenkins-Tovbis partial degeneration: Theorem 1.1 N=1 hot-soliton Kay-Moses determinant construction, group velocity and phase shifts; verified it contains construction and soliton-gas equations of state but no linearized Floquet-Hill stability eigenvalues).",
+    "Bottman-Deconinck 'KdV cnoidal waves are spectrally stable' DCDS 2009 + PDF (squared-eigenfunction proof that bare cnoidal Floquet spectrum lies on imaginary axis; confirms background-only control, does not cover soliton-on-background or m=3/4 3-subharmonic soliton eigenvalue).",
+    "Hoefer-Mucalica-Pelinovsky 'KdV breathers on a cnoidal wave background' JPhysA 2023 (Darboux bright/dark breathers, nonlinear dispersion relations; no linearized subharmonic Floquet spectrum or stability eigenvalues).",
+    "Deconinck-Kapitula orbital/subharmonic cnoidal stability line and soliton-cnoidal interaction existence literature from fused search (20 results screened; all concern existence/formulas or bare-cnoidal stability, none tabulates m=3/4 BJT-midpoint 3L Floquet eigenvalues).",
+    "inputs/artifacts/spectrum_evidence.json convergence ladder (M=2048..8192, N=25..60: 0.40203374->0.40203719, doubling shifts <=1.4e-6, rest maxRe ~1e-12..1e-11) inspected for Cauchy behaviour and non-rigor disclaimer.",
+    "inputs/artifacts/ub_profile.dat 8193-point ring grid verified: even symmetry to ~1e-15, value seam 1.1e-15, hump 3.62543820 vs background max 1.5, min 0.00127; confirms C0 construction but not spectral proof.",
+    "inputs/artifacts/seam_mollification.json and bloch_scan.json inspected: narrow mollifier 0.402037->0.402086, wide ->0.414675; Bloch scan off-axis pairs at most mu except mu=0.15; supports soliton-mode plausibility but leaves rigor and periodization-model gaps open."
+  ],
+  "claim_route_inference": "research_report.claim_route is TARGET; audited normally against admitted target_claim (rigorous 3-subharmonic confinement vs certified off-axis eigenvalue). No fallback was pre-approved; no preset-value presumption applies. No ADMISSION_DEFECT: Admission correctly demanded a rigorous certificate.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bottman-Deconinck theorem: full-line/bounded-perturbation spectrum of any KdV cnoidal wave confined to imaginary axis, plus Deconinck-Kapitula subharmonic orbital stability of bare cnoidal waves; BJT soliton-gas limit theorems. Fused search returned these as nearest broader results with full snippets.",
+      "reasoning": "Broader theorems cover only the bare cnoidal background, not the dressed BJT soliton-on-background operator Lambda=-D^3-6D M_{u_b}. Adding a soliton changes the potential non-compactly on the ring and can create point spectrum, so background stability does not subsume or imply the claimed soliton-induced pair; no dominance coverage.",
+      "search": "Searched dominance query: KdV cnoidal subharmonic spectral stability classification Deconinck Kapitula Floquet Hill spectrum and soliton-gas census results that could cover the BJT soliton as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior source implies lambda=+-0.402037: BJT gives u_b formula and velocities, not eigenvalues; bare-cnoidal theory predicts purely imaginary spectrum (opposite sign for background); breather papers give velocities and NLS approximations, not Floquet-Hill numbers. The ladder value 0.402037 with imag parts <2e-13 appears in no retrieved table or theorem.",
+      "reasoning": "Prior results do not substantively imply the headline even non-verbatim: neither construction formulas nor background-stability theorems entail this specific off-axis number, and background theory points the other way. Hence no corollary/recomputation/repackaging coverage; originality passes as a datum even though correctness/value fail for lack of rigor.",
+      "search": "Compared literal headline (real pair +-0.402037 at mu=0, 3L Floquet about even bright BJT midpoint soliton m=3/4) against hypotheses and conclusions of BJT, Bottman-Deconinck, Hoefer et al., and soliton-cnoidal existence papers."
+    },
+    "equivalent_formulations": {
+      "evidence": "Checked synonymous and dual encodings: soliton on elliptic background / breather on cnoidal wave / hot soliton / nodal degeneration / Kay-Moses determinant / Darboux dressing / Floquet-Bloch vs Hill vs subharmonic (3L, mu=0) vs squared-eigenfunction. Fused queries used both terminologies and retrieved BJT, Hoefer breathers, and Bottman-Deconinck under alternate names.",
+      "reasoning": "Even under synonymous names and dual Hill/Floquet descriptions, no source states a 3-subharmonic linearized KdV eigenvalue for the m=3/4 even bright midpoint soliton. Hoefer bright breathers are the closest equivalent object but that work contains no spectral-stability computation, so equivalence search does not defeat novelty.",
+      "search": "Searched literal claim plus equivalent representations: Bertola-Jenkins-Tovbis soliton on elliptic background, hot soliton beta1=1/4, KdV breather on cnoidal background, Darboux/Kay-Moses dressing, Floquet-Bloch/Hill subharmonic instability formulations."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database or table (DLMF/NIST elliptic values, theta-function tables, KdV cnoidal stability tables, soliton-gas tables) lists a 3L Floquet eigenvalue 0.402037 for this BJT soliton; artifacts are author-generated JSON/DAT, not an established database; fused search over tables and specialist repositories returned only construction papers.",
+      "reasoning": "The exact parameter-plus-observable (m=3/4, N=1 midpoint pinch, P=3L, mu=0, lambda=+0.402037) does not already appear in any table or database that would make the finding a direct lookup or known-database recomputation. Database-lookup failure mode is tested and absent.",
+      "search": "Searched for exact parameter or object in tables or official databases: m=3/4 cnoidal period, BJT N=1 midpoint beta1=1/4 eigenvalue tables, Floquet-Hill KdV soliton-cnoidal spectrum databases and repositories."
+    }
+  },
+  "residual_risks": [
+    "Pseudospectrum risk from severe non-normality (condition ~3e13): unconverged Hill discretization could mimic a real pair even with shrinking Cauchy shifts.",
+    "Model risk from artificial 3L periodization: true BJT soliton on infinite cnoidal background is not 3L-periodic (Remark 1.2 phase-shift kink, derivative jump ~2); ring eigenvalues need not correspond to genuine subharmonic spectrum.",
+    "Dynamical-interpretation risk: lab-frame t=0 snapshot of moving hump; real ring eigenvalue does not by itself establish temporal instability of the travelling wave.",
+    "No independent reproduction: single code lineage with prior transcription error history; no second implementation or validated enclosure to rule out coding artifact."
+  ],
+  "verdict": "REJECT"
+}
