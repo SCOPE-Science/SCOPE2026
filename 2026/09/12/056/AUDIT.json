@@ -1,0 +1,128 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "TARGET disproof checked end-to-end. Bisection fixed-point branch (NV=120/240/360) is smooth monotone 14.0->28.8 Hz with <2% heterogeneous-point grid/quadrature agreement; Delta=0 steep-gain sensitivity 13.87-14.39 bounded and disclosed. Full coupled-matrix spectra (1320x1320, NV=120 NQ=11, 11 Deltas at bisection nu*) give least-stable Re in [-84.9,-69.0]/s with gamma-band (30-120 Hz) modes all Re<=-70/s, margin >=69/s from Hopf; supporting chi-scan minima |S|>>0 corroborate no crossing. Direct N=10000/K0=150 Euler sims (2 seeds, dt=20us, T=0.6s) match mean-field rates to 2-7% (within 25% spec) with gamma power falling 0.6%->0.1% and only finite-size fluctuations. Method is computational (one eigenvalue grid, tails clipped at |eta|=30, short T) not analytic proof, but margin plus triple cross-check makes absence of Delta_ind in [0,5] rigorously established as computational disproof for the stated admissible instance.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Fused 20-result search (SerpBase/Serpent/OpenAlex/Crossref/OpenAIRE, no partial failure) plus full fetch of Pietras-Montbrio 2409.18278, Pyragas q-Gaussian 2201.11493, Bi-di Volo-Torcini gamma, Goldobin shot-noise spectra shows no prior stating or implying the exact headline: sparse single-population inhibitory QIF at N=10000, K0=150, tau_m=10ms, Vth=+12/Vreset=-12, g=0.2, I0=4.0, Lorentzian Delta in [0,5] with Delta=0 stable async baseline and fixed-K shot-noise closure 1=K0*chi_bar has no Delta_ind Hopf to 30-120 Hz gamma. Nearest prior is at different hypotheses: dense all-to-all MPR reductions, q-Gaussian Hopf-vs-n results, sparse E-I or homogeneous spectra, and existence proofs of oscillations elsewhere. Those do not cover this operating point and, where they show oscillations are possible, point opposite to this absence result. Synonym/dual encodings, broader theorems, tables/databases, and recomputation risks explicitly tested; none covers the claim.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "TARGET route: negative resolution is not a cheap defect. Baseline satisfies topic admissibility (Delta=0 stable async ~13.6-14 Hz, gamma <1%, N>=10000, K0=150) so no vacuity, type/normalization error, tiny-instance mismatch, direct lookup, or arbitrary-parameter fact; no ADMISSION_DEFECT. Result answers the admitted two-sided question (heterogeneity-magnitude-at-fixed-sparseness axis) with Delta-parametrized branch, closed stability condition, eigenvalue no-crossing, and simulation agreement to spec. It is independently retrievable: motivated object/invariant before computation, value not known or mechanically implied, future sparse-QIF/gamma work can need this exact absence (heterogeneity is pro-rate anti-synchrony here, least-stable frequency pushed 67->217 Hz while damped). Scoped honestly to (g,I0,K0) point; other regimes excluded.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "inputs/topic.json: TARGET sparse inhibitory QIF N>=10000 K0=150 Delta in [0,5] heterogeneity-at-fixed-sparseness axis",
+  "inputs/DRAFT.md: admissible instance g=0.2 I0=4.0 tau=10ms Vth/reset +-12, branch table, 11 spectra Re<=-69/s, sims 2 seeds gamma falling",
+  "inputs/research_report.json claim_route TARGET with evidence_summary and scoped limitations",
+  "inputs/artifacts/branch_bisect.json: 3 grids x 11 Deltas monotone branch (e.g. NV240 13.999->28.812 Hz)",
+  "inputs/artifacts/branch_convergence.json + mf_branch.json: Picard vs bisection Delta=0 sensitivity disclosed",
+  "inputs/artifacts/eig_bisect.json: 11 least-stable pairs Re -84.9..-69.0/s, f 66.6->217.1 Hz, recomputed frequencies",
+  "inputs/artifacts/eig_frozen.json / lin_scan.json / relax.json: superseded chi-scan minima |S|~28k-600k far from zero, relax flagged unstable-dt not relied upon",
+  "inputs/artifacts/spike_metrics.json: sim rates 13.60/15.80/22.67/28.34 Hz, gamma 0.59%->0.10%, CV 0.61->0.42",
+  "scope_literature_search 20 fused results across Serpent/SerpBase/OpenAlex/Crossref/OpenAIRE, coverage ok on all 12 provider-query cells",
+  "Primary source full fetch: Pietras-Montbrio arXiv:2409.18278 Lorentzian generality (dense global coupling, gap-junction nonuniversality only)",
+  "Primary source full fetch: Pyragas arXiv:2201.11493 q-Gaussian inhibitory MPR Hopf-vs-n (all-to-all, synaptic-time model, dimensionless j/tau/delta)",
+  "Search leads screened: Bi-Segneri-di Volo-Torcini single-inhibitory-population fast/slow gamma coexistence; Clusella-Montbrio Cauchy noise/heterogeneity exact FRM; Ageeva-Goldobin sparse shot-noise kinetics; Goldobin 2025 perturbation spectra DA vs CMF (no oscillations K<~200 DA, oscillations to K~10 CMF); Ratas-Pyragas bimodal QIF"
+ ],
+ "claim_route_inference": "research_report.claim_route is TARGET; audited normally against admitted target with no preset-value presumption; negative computational disproof is a complete TARGET resolution subject to full originality/value thresholds; no ADMISSION_DEFECT found.",
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Fused results include Bi-di Volo-Torcini balanced E-I/sparse classification for any finite K, Goldobin perturbation spectra for homogeneous sparse inhibitory QIF (shot-noise vs diffusion), Ageeva-Goldobin sparse balanced shot-noise kinetics, and MPR/q-Gaussian Hopf diagrams. None states a K0=150-fixed Delta-sweep theorem, exhaustive census over (g,I0,Delta), or classification covering all inhibitory regimes; Bi/Goldobin show oscillations exist somewhere (e.g. CMF down to K~10) but at different couplings/drives/delays, not this point.",
+   "reasoning": "A broader theorem covers the claim only if its hypotheses include this exact admissible instance and its conclusion decides the Delta_ind question here. The found broader works vary K, use different synaptic/delay models, or classify other slices; none entails stability for all Delta in [0,5] at (g=0.2,I0=4.0,K0=150). Hence no dominance/special-case coverage; originality stands.",
+   "search": "Dominance query: sparse inhibitory QIF mean-field bifurcation collective gamma census classification Devallet di Volo Torcini Montbrio-Pazo-Roxin shot-noise diffusion mean field; screened 20 fused hits plus full-text bifurcation sections."
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Literal comparison: Pyragas Fig.2-3 shows n=1 Cauchy equilibrium stable at tau=2 delta=0.2 for all j while n>=2 Hopf-unstable; Pietras Sec.4.1 shows chemical-only inhibitory Lorentzian generic dynamics with rational/q-Gaussian comparisons; Bi et al. shows single inhibitory population CAN produce slow/fast gamma via tonic vs fluctuation mechanisms. None uses N=10000/K0=150/g=0.2/I0=4.0/Vth=12 shot-noise fixed-K Delta sweep or concludes absence of 30-120 Hz Hopf across Delta in [0,5] at that point.",
+   "reasoning": "Prior need not restate headline verbatim to defeat originality, but substantive implication is required. The closest stability statement (Cauchy n=1 always stable in Pyragas dimensionless all-to-all model) has disjoint hypotheses (different connectivity, synaptic kinetics, parameter slice) and does not logically imply the sparse fixed-K shot-noise stability margin >=69/s found here; existence-of-oscillation papers point the other way. Therefore the submitted absence claim is not a corollary, certificate, or repackaging of a known stronger fact.",
+   "search": "Claim-vs-prior implication test: compared headline hypotheses/conclusions literally against Pyragas q-Gaussian Hopf diagrams, Pietras Lorentzian-generality dynamics, Bi slow/fast gamma mechanisms, Clusella-Montbrio exact FRM, and Goldobin DA-vs-CMF spectra."
+  },
+  "equivalent_formulations": {
+   "evidence": "Fetched Pietras-Montbrio Sec.1-4 (QIF Udot=U^2+etatilde with Lorentzian/rational/q-Gaussian, gap-junction vs chemical-only), Pyragas Sec.III-IV (theta/QIF all-to-all with q-Gaussian MTI n, order parameters Wk, Hopf in j-tau-delta), Clusella-Montbrio exact FRM with Cauchy noise/heterogeneity, and Bi et al. sparse balanced inhibitory collective oscillations. All use dense all-to-all MPR/Ott-Antonsen reductions or E-I networks with synaptic-time/delay parameters, not the sparse fixed-in-degree K0=150 non-diffusion shot-noise finite-volume closure 1=K0*chi_bar(Delta) with Vth=+12/Vreset=-12/g=0.2/I0=4.0 units.",
+   "reasoning": "Synonymous notation (eta/Delta/d/HWHM, QIF vs theta, MPR firing-rate equations), dual/complement encodings, and matrix/incidence formulations were tested. The dense MPR pole-residue reductions are mathematically distinct from the sparse shot-noise jump-operator closure at fixed K0; results in one encoding do not transfer mechanically to the other. No equivalent formulation found that decides the fixed-sparseness Delta sweep at this operating point.",
+   "search": "Equivalent-formulation sweep: heterogeneous inhibitory QIF Hopf gamma Lorentzian excitability, theta-neuron Ott-Antonsen/Montbrio-Pazo-Roxin form, q-Gaussian/rational/uniform heterogeneity, sparse balanced shot-noise vs diffusion encodings."
+  },
+  "exact_database_or_table": {
+   "evidence": "No official database, table, thesis, or author-page entry returned for the exact tuple (N=10000, K0=150, g=0.2, I0=4.0, tau_m=10ms, Vth=+12, Vreset=-12, Lorentzian Delta 0-5, 30-120 Hz gamma). Fused providers returned only papers/preprints (arXiv/journal/ResearchGate) with generic figures, not a parameter table or established QIF census covering this instance; OpenAlex/OpenAIRE returned zero on the literal query, Crossref returned only generic QIF papers.",
+   "reasoning": "Exact-parameter coverage requires the object appearing in a table or database row with the same units and stability/rate conclusion. A generic gamma-oscillation figure or MPR formula does not constitute that row. Concrete search for the tuple plus K=150/Delta/gamma identifiers found nothing, so the finding is not a direct lookup or known-database recomputation.",
+   "search": "Exact-object search: N=10000 K0=150 g=0.2 I0=4.0 tau_m=10ms Lorentzian Delta heterogeneity gamma 30-120 Hz; specialist QIF/sparse-network tables, theses, and author pages via literal-claim query across SerpBase/OpenAlex/Crossref/OpenAIRE."
+  }
+ },
+ "residual_risks": [
+  "Eigenvalue stability rests on one spatial/quadrature grid (NV=120 NQ=11, 1320x1320 dense); no eigenvalue grid-refinement shown, mitigated by >=69/s margin and corroborating chi-scan minima |S|>>0.",
+  "Lorentzian tails clipped at |eta|=30 understates far-tail mass at Delta=5 (~10% beyond 6 HWHM, not 2%); mitigated by NQ=15/25/41 rate convergence <2% but tail-sensitive Hopf cannot be excluded analytically.",
+  "Delta=0 fixed point has steep-gain Picard sensitivity (13.87-16.34 Hz across grids/methods); bisection branch used for spectra, bounded and disclosed, but analytic uniqueness not proved.",
+  "Direct sims short (T=0.6s, 2 seeds, one Euler-step delay, fixed digraph); finite-size gamma floor and 0.6s window could miss very slow/weak cycles, mitigated by falling gamma power and large linear margin.",
+  "Linearization is numerical frozen-nu coupled-matrix computation, not a certified analytic Hopf-exclusion proof; interval between 11 sampled Deltas relies on smoothness/monotonicity, not interval arithmetic."
+ ],
+ "verdict": "PASS",
+ "perplexity_final_check": {
+  "status": "COMPLETE",
+  "check_id": "608727efffb0ab8cbf9106397b623671a9ffd72d58e1719339af7e5c80caca58",
+  "decisive_prior_found": false,
+  "incremental_prior_found": false,
+  "verdict_changed": false,
+  "material_sources": [
+   {
+    "title": "Heterogeneous populations of quadratic integrate-and-fire ...",
+    "url": "https://arxiv.org/html/2409.18278v1",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Dense globally coupled QIF with Lorentzian/rational/q-Gaussian excitability; Sync region needs strong mean input and inhibition with gap-junction nonuniversality. Different hypotheses from sparse fixed-K0=150 shot-noise closure at (g=0.2,I0=4.0,Vth=+12) and no Delta-in-[0,5] sweep conclusion; generic dynamics discussion does not entail stability at this operating point.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Coherent oscillations in balanced neural networks driven ...",
+    "url": "https://perso.u-cergy.fr/~atorcini/ARTICOLI/vsgpa_chaos2022.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Sparse inhibitory QIF with Lorentzian structural (in-degree/coupling) heterogeneity; Hopf tuned in connectivity K (K_HB~=54, K_SN~=35 at i0=0.006,g0=1) under balanced sqrt-K scaling. Different heterogeneity axis from fixed-K0=150 excitability-Delta sweep at fixed g,I0 and unscaled units; K-tuning result cannot imply absence of Delta_ind in [0,5] at K0=150.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Synaptic shot noise triggers fast and slow global oscillations in balanced neural networks",
+    "url": "https://perso.u-cergy.fr/~atorcini/ARTICOLI/gavtt_pre2025.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Homogeneous sparse balanced inhibitory QIF with shot-noise CMF vs diffusion approximation; reentrant Hopf line in in-degree K (GOs at low/high K, async at intermediate K, delta/gamma by rescaling drive). Varies K with no Lorentzian excitability-Delta sweep at fixed K0=150,g=0.2,I0=4.0; consistency with intermediate-K asynchrony is not a prior decision of the Delta_ind question here.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Collective phenomena in networks",
+    "url": "https://eprints.lancs.ac.uk/id/eprint/138908/1/devallephdthesis.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Globally coupled QIF-FRE with Lorentzian currents, delay and heterogeneity-shrunk Hopf regions with critical ratio Delta/etabar=1/sqrt(3). Dense all-to-all hypotheses with synaptic-delay kinetics, not sparse fixed-in-degree K0=150 non-diffusion shot-noise finite-volume model; generic Delta-suppresses-oscillations trend does not state or imply the exact (g,I0,K0,Vth) absence across Delta in [0,5].",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Coexistence of fast and slow gamma oscillations in one population of inhibitory spiking neurons",
+    "url": "https://www.biorxiv.org/content/10.1101/687624v2.full",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Sparse balanced inhibitory QIF at median K=1000 (N=10000,I0=0.25,J0=1.0) with Lorentzian structural in-degree heterogeneity; sub/super-critical Hopf to coexisting slow/fast gamma via tonic vs fluctuation mechanisms. Existence of oscillations in that balanced-scaling slice points opposite to and does not imply the submitted absence at fixed K0=150,g=0.2,I0=4.0 across excitability Delta in [0,5].",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Low dimensional dynamics of a sparse balanced synaptic network ...",
+    "url": "https://arxiv.org/html/2508.06253v1",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Homogeneous sparse balanced inhibitory QIF shot-noise kinetics with 2-cumulant reduction; Hopf curve on (K,i0/g0^2) plane separating global oscillations from async. No excitability-heterogeneity Delta sweep at fixed K0 and no (g=0.2,I0=4.0,Vth=12) instance; a K-plane dominance claim would need to entail this point, which no stated curve or table does.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Discrete Synaptic Events Induce Global Oscillations in Balanced Neural Networks",
+    "url": "https://perso.u-cergy.fr/~atorcini/ARTICOLI/gdt_prl2024.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Homogeneous sparse inhibitory QIF showing shot-noise-induced global oscillations vs diffusion approximation (DA only K>200, CMF down to low K). Existence result at other drives/connectivities (e.g. low-K gamma GOs) uses different parameters and no fixed-K0=150 Lorentzian-Delta sweep; it does not decide stability for all Delta in [0,5] at the submitted operating point.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   },
+   {
+    "title": "Exact Reduction of Multiscale Neural Dynamics",
+    "url": "https://theses.hal.science/tel-03276711v1/file/91172_SEGNERI_2020_diffusion.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Thesis snippet reports a super-critical Hopf at Hc~=2.4 from async to collective oscillations (N=8000) with CO frequency-vs-K scaling. Parameters, connectivity, and meaning of H differ from the submitted N=10000/K0=150/g=0.2/I0=4.0/Vth=12 excitability-Delta instance; an existence-of-Hopf elsewhere is logically compatible with and cannot cover the submitted absence across Delta in [0,5] here.",
+    "assessment": "CLOSE_BUT_NOT_COVERING"
+   }
+  ],
+  "decisive_sources": [],
+  "rationale": "Terminal Perplexity search (20 results, 7 overlapping base set by arxiv/title) added useful incremental recall on the dangerous axes: sparse structural-heterogeneity Hopf (K_HB), homogeneous shot-noise reentrant Hopf/GOs (CMF vs DA), dense QIF-FRE heterogeneity-suppressed Hopf with Delta/etabar critical ratio, and a thesis Hopf at Hc~=2.4. Each was compared literally: all differ in hypotheses (structural vs excitability heterogeneity, K-tuning vs fixed-K0=150 Delta sweep, balanced sqrt-K scaling vs fixed g=0.2/I0=4.0/Vth=12 units, dense/delay vs sparse shot-noise closure) or conclude existence elsewhere, which cannot imply the submitted absence. No returned source states the exact tuple, an exhaustive census covering it, or a stronger theorem entailing no 30-120 Hz Hopf for Delta in [0,5] at this point. Hence no decisive prior; provisional originality PASS and full PASS package preserved."
+ }
+}
