@@ -1,0 +1,58 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran exact certificates: det M1=1/16, det M2=9/16; transversality Groebner {1} in all 4 charts (lex recheck, correcting script's grlex print); smoothness of X_{1/100} Groebner {1} in all 4 charts with properness extension to small t!=0 valid; Segre identity G|Q1=(s0^4+s1^4)(t0^4+t1^4) verified (difference 0); Disc_t=-4(s^2-s+1)(s^2+s+1), 8 exact Z points with b=t^4+1=0, mult 2 each totalling 16, rank-2 gradient defect at all 8 points, no points at infinity, j=35152/9 exact (35152/9*9=35152). Computational lemmas 1-3 are correct. However the headline asserts as PROVED that after base change s^m=t the Kulikov limit satisfies N'!=0, (N')^2=0 rank two with weights (2,18,2) and Gr1=H^1(E'). Minimal m, unipotency of original T, resolved central-fibre census, resolved normal-bundle degrees and triple-point/d-semistability check are all explicitly deferred; the Type II inference is stated as plausible ('cannot create K3/abelian or S^2 without non-crepant blow-ups') and the draft invites the auditor to treat it as conditional. A proved Kulikov Type II conclusion cannot rest on a deferred census. Hence the headline overclaims: the computational core is proved but the asserted Kulikov weight theorem is not rigorously established. Correctness FAILS for the headline as stated.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The substantive headline content N'!=0, (N')^2=0 rank two with weight table (2,18,2) and Gr1=H^1(E) for a Tyurin (two rational surfaces along smooth elliptic) degeneration is textbook: Clemens-Schmid, Schmid nilpotent/SL2-orbit, Friedman-Scattone Type II (Invent. Math. 1986), Kulikov-Persson-Pinkham. Fused retrieval found Jones arXiv:2502.04301 (2025/2026) explicitly constructing the 'Two quadrics intersecting transversally' degree-4 Tyurin family Bl16(P1xP1) U (P1xP1) with lattice A15+A1^2, covering this geometry as a special case of an 18-dimensional family with d-semistability and period-map relations. No prior source records the exact ad hoc triple (F1,F2,G=sum xi^4) or j=35152/9, but that novelty is only an arbitrary parameter computation on a non-canonical choice, while the weight/rank claim is mechanically implied by the broader theorems. A prior source need not state the headline verbatim to cover it. Originality FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "The only fully proved new datum is j(E)=35152/9 for the arbitrarily chosen F1=x0x3-x1x2, F2=x0^2+x1^2+x2^2+x3^2-x0x3-x1x2, G=sum xi^4, plus the 8 double-point cA census and smooth-fibre check. The object and invariant were not motivated before computation by any recognized question, benchmark, classification boundary, or downstream use; they are an arbitrary parameter fact. The generic (2,18,2) weight table is a textbook restatement for any Tyurin degeneration. The potentially valuable part of the admitted TARGET \u2014 nonsplit Carlson extensions recovering the modulus of E \u2014 is explicitly WITHDRAWN as conditional/unproved, as are unipotency, minimal base-change degree, and resolved degrees. Per STANDARD, certification and replayability strengthen but do not create value, and an exact invariant of an arbitrary object with unexplained number is rejected even if correct and new. No ADMISSION_DEFECT is invoked; this is a target shortfall. Value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md (repaired headline, Lemmas 1-3, qualified Kulikov model, withdrawn E^2=8 argument, conditional extensions) read in full",
+    "inputs/topic.json TARGET claim requiring N!=0,N^2=0 rank two, weights (2,18,2), nonsplit Carlson recovering modulus on explicit integral basis",
+    "inputs/research_report.json claim_route=TARGET, evidence_summary, limitations (no T/N matrix, no F_lim, m uncomputed, extensions conditional)",
+    "inputs/STANDARD.md sky-survey-clean-task-boundary-v11 applied exactly",
+    "Reran inputs/artifacts/verify_geometry.py: det 1/16, 9/16; Res_t=4(s^2+1)(s^2-s+1)(s^2+s+1); infinity gradient check OK",
+    "Reran inputs/artifacts/verify_Z8.py: Disc_t=-4(s^2-s+1)(s^2+s+1), 8 exact points with t^4+1=0 and b=0",
+    "Reran inputs/artifacts/j_invariant.py: numeric lambda=0.25, j=3905.7777, exact j=35152/9",
+    "Reran inputs/artifacts/check_Z_all8.py: all 8 points rank 2, residual 0, dG in span(dF1,dF2) nonzero",
+    "Independent lex Groebner recheck: transversality {F1,F2,minors,xi-1} = {1} in all 4 charts; smoothness of X_{1/100} = {1} in all 4 charts",
+    "Verified Segre identity G|Q1-(s0^4+s1^4)(t0^4+t1^4)=0 by direct expansion",
+    "Jones arXiv:2502.04301v2 'Type II Degenerations of K3 Surfaces of Degree 4' fetched in full: Table 1 two-quadrics case, Table 2 relations, Construction 1.1, Theorems 1-2, period map via Friedman/Carlson",
+    "Fused scope_literature_search (3 queries, SerpBase/OpenAlex/Crossref, no partial failure): Friedman-Scattone Type II/III 1986, Kulikov-Persson-Pinkham classification, Harder, Kerr-Laza, Alexeev-Engel lambda-families, Scattone genus results"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Jones arXiv:2502.04301v2 constructs for each of Scattone's 9 degree-4 boundary lattices an explicit Tyurin degeneration, including 'Two quadrics intersecting transversally' -> Bl16(P1xP1) U (P1xP1), lattice A15+A1^2 (Table 1, Section 3.1), plus 18-dim families, stable models (Theorem 2), and period relations. Kulikov-Persson-Pinkham, Friedman 1984, Scattone 1987, Alexeev-Engel 2023 give the general Type II framework.",
+      "reasoning": "The submitted two-quadric Tyurin geometry is a strict special case (one coefficient choice plus Fermat G) of Jones's already-constructed two-quadrics Tyurin family and of the Kulikov-Persson-Pinkham Type II class. A prior broader theorem/census need not use the same coefficients to cover the rank/weight claim; the general result substantively implies the headline weights, so broader coverage defeats originality.",
+      "search": "Searched dominance query: Kulikov Persson Pinkham classification Type II K3 census database elliptic double curve j-invariant, plus Jones degree-4 Tyurin families and Scattone 9 boundary components"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior theorems state: any Type II Kulikov K3 has N!=0, N^2=0, weight filtration W(N)[2] with dim Gr 1,2,3 = 2,18,2 and Gr1=H^1(double elliptic curve), N:Gr3~>Gr1(-1) rank 2 (Friedman-Scattone 1986, Clemens-Schmid, Schmid; restated in Jones Sections 2-4). The submission's weight table is identical with no additional hypothesis or computation of T/N/F_lim.",
+      "reasoning": "The headline weight/rank conclusion follows mechanically from applying the known stronger general fact to any Tyurin input. It is a corollary/repackaging, not a new theorem, lemma, or boundary change. The only non-implied datum (j=35152/9 for this ad hoc E) is a direct sympy evaluation, not a result the prior work needed to state to imply the weights.",
+      "search": "Compared headline hypotheses/conclusions literally against Friedman-Scattone Type II limit MHS, Clemens-Schmid sequence, and Jones period-map sections; title similarity was not used, only theorem-statement implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "Synonyms tested: Tyurin degeneration = semistable K3 with central fibre V0 U V1 rational glued along smooth elliptic E = Type II Kulikov with 2 components; monodromy weight filtration W(N)[2]; Carlson extension = Friedman/Carlson period morphism Hom(Lambda,E); d-semistability N_{E/V0} x N_{E/V1}=O_E; dual/complement encodings via Clemens-Schmid and weight spectral sequence. Sources: Friedman 1984, Carlson 1985, Scattone 1987, Alexeev-Engel 2023, Jones Sections 2.1-2.2.",
+      "reasoning": "Under every synonymous notation or dual encoding, the (2,18,2) weight claim is the standard Type II limit MHS, not a distinct new statement. No reformulation escapes the prior general theorem; the submission's Gr1=H^1(E') is exactly the known Clemens-Schmid identification. Equivalent-formulation search therefore confirms coverage rather than novelty.",
+      "search": "Searched literal claim plus equivalents: Tyurin K3 rank-two N Carlson extension modulus elliptic double curve; Friedman-Scattone limit MHS Gr 2 18 2 Clemens-Schmid d-semistability; dual/incidence/matrix formulations"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, table, or prior paper was found recording the exact triple F1=x0x3-x1x2, F2=x0^2+x1^2+x2^2+x3^2-x0x3-x1x2, G=sum xi^4 or the number 35152/9 attached to it. The fused search returned only general Tyurin/Type II literature and unrelated elliptic-curve records. LMFDB-style lookup is inapplicable to this ad hoc pencil.",
+      "reasoning": "Absence from a table does not establish originality or value for an arbitrary parameter choice. The specific j is unrecorded only because the coefficient choice is non-canonical and unmotivated; it is a recomputation-ready evaluation, not a census entry a future researcher would retrieve. Exact-table non-coverage therefore does not rescue the headline.",
+      "search": "Searched exact objects and identifiers: named quartic F1 F2 G pencil, j=35152/9 elliptic double curve of two quadrics, Tyurin quartic databases and degree-4 K3 tables"
+    }
+  },
+  "residual_risks": [
+    "Kulikov Type II status, minimal base-change degree m, original-pencil unipotency, and resolved d-semistability remain unproved by the submission's own admission",
+    "Carlson nonsplit extensions and modulus-via-extension recovery remain conditional with no invariant computed",
+    "No independent verification of small/crepant resolution preserving trivial canonical bundle and normal-crossings beyond citation"
+  ],
+  "verdict": "REJECT"
+}
