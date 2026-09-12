@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Rigid S1xS2 associative from named mixed TCS gluing pair
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1358
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** calibrated geometry / TCS associatives
+- **Method:** Bera transverse ACyl gluing with index and calibration check
+
+## Problem
+
+Let M be the compact ordinary twisted connected sum G2-manifold from the perpendicular Donaldson matching of the asymptotically cylindrical Calabi-Yau 3-folds built from the semi-Fano pair Y-plus (blow-up of P^3 in a line plus an elliptic curve) and Y-minus (blow-up of P^1 x P^2 in a (1,2) curve), with K3 divisors Sigma-plus/Sigma-minus matched by r, and let C-plus be the proper transform of a rigid P^1 with normal bundle O(-1)+O(-1) in Y-plus meeting Sigma-plus transversely in 2 points and C-minus be a rigid special Lagrangian cylinder asymptote in Y-minus meeting Sigma-minus transversely in 2 points identified under r. Does the glued integral class A in H_3(M;Z) contain a closed embedded rigid associative 3-fold diffeomorphic to S^1 x S^2 calibrated by the glued closed G2-structure and its torsion-free perturbation? A complete answer is either construction of such P with calibration equality vol(P)=int_P phi and Fredholm rigidity via Bera transverse-intersection gluing, or a proof that no closed associative represents A via volume-bound, intersection-number, or deformation-index obstruction.
+
+## Attempted claim
+
+Let M be the compact ordinary twisted connected sum G2-manifold from the perpendicular Donaldson matching of the asymptotically cylindrical Calabi-Yau 3-folds built from the semi-Fano pair Y-plus (blow-up of P^3 in a line plus an elliptic curve) and Y-minus (blow-up of P^1 x P^2 in a (1,2) curve), with K3 divisors Sigma-plus/Sigma-minus matched by r, and let C-plus be the proper transform of a rigid P^1 with normal bundle O(-1)+O(-1) in Y-plus meeting Sigma-plus transversely in 2 points and C-minus be a rigid special Lagrangian cylinder asymptote in Y-minus meeting Sigma-minus transversely in 2 points identified under r. Does the glued integral class A in H_3(M;Z) contain a closed embedded rigid associative 3-fold diffeomorphic to S^1 x S^2 calibrated by the glued closed G2-structure and its torsion-free perturbation? A complete answer is either construction of such P with calibration equality vol(P)=int_P phi and Fredholm rigidity via Bera transverse-intersection gluing, or a proof that no closed associative represents A via volume-bound, intersection-number, or deformation-index obstruction.
+
+## Research outcome
+
+Disproved the target by showing the posited (-1,-1) rigid rational curve meeting the anticanonical K3 divisor twice is impossible by adjunction versus intersection positivity.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: Originality FAILS. The three normalized search forms (literal rigid S1xS2 Bera gluing impossibility; equivalent (-1,-1)/O(-1)^2 adjunction c1.C=0 versus positivity formulations; dominance query for stronger TCS associative theorems, broader threefold curve theory, censuses and databases) were submitted in one scope_literature_search call covering SerpBase, OpenAlex, Crossref and OpenAIRE with fused results. Nearest priors found were Bera IMRN rnag070 / arXiv:2209.00156 transverse gluing theorem, Bera thesis, Corti-Haskins-Nordstrom-Pacini semi-Fano TCS theory, and standard (-1,-1)-curve literature. No prior states the named-pair headline verbatim, but verbatim novelty is insufficient: the headline is mechanically implied by textbook adjunction deg N=c1.C-2 plus positivity, i.e. a corollary/repackaging of a known stronger general fact. Synonymous notation, dual/encoding variants, and broader-class coverage all collapse to the same c1.C=0 versus >=2 contradiction. See decisive_checks for adversarial checklist. value: Value FAILS with explicit ADMISSION_DEFECT. The TARGET permitted a complete negative answer via volume-bound, intersection-number or deformation-index obstruction for a well-defined glued class A, but the result shows the posited C+ is contradictory on its face by elementary adjunction (-2+2=0!=2) in any smooth anticanonical block, so the glued class A never forms and the compound existence claim is vacuous. Per STANDARD and TARGET policy, a negative resolution that is only a type/normalization error, vacuity, cheap small-instance mismatch, direct lookup, or arbitrary parameter fact fails value even if literally false, and Admission was required to rule out exactly such cheap defects before research. This is a textbook exercise mechanically implied by standard results, not a new theorem, boundary, census, benchmark, or motivated exact invariant of a natural object that a future researcher would need to retrieve; certification/replayability does not create value. No bounded topic-preserving addition can supply a substantive result without changing the problem, so not repairable. ADMISSION_DEFECT: admitted target hypothesis violated c1.C=0 versus >=2 on its face.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: This disproof targets exactly the stated configuration (rigid O(-1)+O(-1) rational curve meeting the anticanonical K3 divisor twice); it does not rule out associatives in the TCS manifold M from different gluing data, nor does it evaluate the special Lagrangian cylinder piece, since the holomorphic piece alone is already impossible.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
