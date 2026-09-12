@@ -1,0 +1,96 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: claim is ball radius<=2 around Netto anti-Pasch cyclic STS(19) in hexagon-switch graph G6 contains >=30 isomorphism classes, certified 57/32. Independently replayed: classify.py gives 864 raw cyclic difference families, 216 anti-Pasch, 2 multiplier types (162+54), covering A4 under any MPR ambiguity. Recomputed every roster entry from roster_cert.json: all 57+32 systems satisfy exact Steiner pairwise-balance (57 blocks, 171 pairs), all recorded hexagon switches re-apply (3+3 exchange asserted) to the claimed child, and all invariant triples (Pasch, hex-record count, mitre) recompute exactly and are pairwise distinct. Distinct exact isomorphism-invariant triples rigorously imply pairwise non-isomorphism; enumeration incompleteness can only undercount, so lower bound is sound. Distance<=2 follows by construction from explicit recorded switches.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused retrieval (SerpBase/OpenAlex/Crossref, all providers ok, no partial failure) finds nearest prior work is Erskine-Griggs arXiv:2405.07750 on S_l(19) connectivity plus Kaski-Ostergard STS(19) census and Colbourn et al. properties census. None states or mechanically implies a radius-2 hexagon ball of >=30 classes around the Netto anti-Pasch cyclic starter. Theorem 4 of Erskine-Griggs gives only global S6(19) component orders (1; 24; 284433; giant), not a local depth-2 branching count around A4, and the full 11-billion census does not tabulate this ball. Equivalent 6-cycle/hexagon notation, complement (10-cycle) duality, cyclic/Netto/5-sparse synonyms, and Pottonen sts19 database tables were all screened without coverage. The explicit certified roster of 57/32 invariant-distinct neighbours is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET benchmark admitted in topic.json: decide whether hexagon surgery diversifies the order-19 landscape from Pasch-free symmetric ground, with pre-registered threshold >=30 classes in radius<=2 around named Netto system A4. Object (Netto anti-Pasch cyclic STS(19)), operation (Erskine-Griggs hexagon switch), and invariant (isomorphism-class count in G6 ball) were motivated before computation by the recognized switch-connectivity program (minimum connecting sets, S6 disconnectedness). Result 57 for the 5-sparse starter and 32 for the second anti-Pasch cyclic type exceeds the benchmark, is exactly certified and replayable, and is the kind of precise branching fact a future researcher needs. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Independent recomputation: ball.py gen/hex_records/do_switch on starters [(0,1,8),(0,2,5),(0,4,13)] and [(0,1,4),(0,2,12),(0,5,13)] gives starter keys (0,171,0) and (0,57,114), child keys (2,108,16) and (4,46,94); full roster_cert.json replay verified 57 and 32 pairwise-distinct Steiner-valid systems with legal recorded switches.",
+    "classify.py rerun: 864 raw cyclic STS(19) difference families, 216 anti-Pasch, exactly 2 multiplier-equivalence types (sizes 162 and 54), so both-starters coverage captures A4.",
+    "Erskine-Griggs arXiv:2405.07750 full HTML (Sections 1-3): definitions of cycle graph C_ab and cycle switch, Lemma 1 on Hamiltonian/complementary cycles, Theorem 4 giving four S6(19) components (orders 1, 24, 284433, remainder) with no local radius-2 ball count around Netto.",
+    "Erskine-Griggs STS(19) properties census (arXiv metadata/DOI 10.1016/j.disc.2024.114158, arXiv:2401.13356 for STS(21) analogue): exactly one 5-sparse STS(19), 2591 anti-Pasch STS(19), 11,084,874,829 total isomorphism classes; supports 5-sparse uniqueness used for A4 identification but contains no hexagon-ball roster.",
+    "Kaski-Makinen-Ostergard cycle-switching connectivity (Graphs Combin. 27 (2011), and Pottonen sts19 database reference): full switching graph S(19) connected; single-length graphs disconnected; no explicit depth-2 hexagon ball table around the Netto starter."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Erskine-Griggs Theorem 4: S6(19) has components of orders 1, 24, 284433, and 11084590371; Kaski-Ostergard census: 11,084,874,829 STS(19) classes with S(19) connected. Both are global statements with no per-vertex radius-2 neighbourhood size around the Netto starter.",
+      "reasoning": "A large or connected ambient component does not mechanically imply that 30 distinct classes lie within distance 2 of the specific Netto vertex; distance-bounded branching requires explicit local enumeration, which prior work does not provide. Hence broader censuses do not subsume the headline bound.",
+      "search": "Searched stronger/broader coverage: full STS(19) census 11084874829 classes, S(19) connectivity, S6(19) four-component theorem, 5-sparse uniqueness, and anti-Pasch counts (2591) as potential subsuming results."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior Theorem 4 lists only global component cardinalities and one 6-cycle-free isolated system plus one order-24 component; it publishes no starter-anchored depth-2 roster, no Pasch/hex-record/mitre triple list for Netto neighbours, and no >=30 radius-2 claim.",
+      "reasoning": "Comparing hypotheses and conclusions literally, the submitted claim (explicit certified radius<=2 roster with pairwise-distinct invariant triples around A4) is not a corollary, recomputation, or repackaging of the component-order theorem; it adds a new local branching certificate. Originality therefore holds.",
+      "search": "Compared literal claim (radius<=2 hexagon ball around Netto A4 has >=30 classes; certified 57/32) against conclusions of Erskine-Griggs Theorems 3-8 and Kaski et al. connectivity results for any logical implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fetched Erskine-Griggs Section 1-2 definitions: hexagon switch equals 6-cycle switch on cycle graph C_ab (3 a-blocks + 3 b-blocks exchanged); anti-Pasch equals Pasch-free (4-cycle-free); Netto equals unique 5-sparse STS(19); complement of a 6-cycle in v=19 is a 10-cycle per Lemma 2. Search across 6-cycle/hexagon/Pasch/mitre/switch-graph synonyms returned only the global S6(19) component theorem, no local ball result.",
+      "reasoning": "Even under synonymous names (hexagon/6-cycle), dual/complementary (6 vs 10-cycle) encoding, and Netto/5-sparse/anti-Pasch-cyclic renamings, no prior source states or implies the certified 57/32 radius-2 counts around A4. Title similarity of the switching papers does not constitute coverage.",
+      "search": "Searched equivalent representations: hexagon equals 6-cycle switch (Erskine-Griggs C_ab), Pasch equals 4-cycle, Netto equals 5-sparse anti-Pasch cyclic STS(19) A4, complementary 6/10-cycle duality, and Mathon-Phelps-Rosa numbering synonyms."
+    },
+    "exact_database_or_table": {
+      "evidence": "Checked Pottonen sts19 compact database reference, Colbourn et al. STS(19) properties tables (Pasch counts, automorphism orders, 2591 anti-Pasch systems), and Erskine-Griggs representative strings/figures for S6 components. They tabulate global properties and selected representatives, not a Netto-anchored hexagon radius-2 roster with (Pasch, hex-count, mitre) keys.",
+      "reasoning": "The exact parameters (starter bases, child switches, 55+30 novel depth-2 invariant triples, totals 57/32) do not appear in any official table or database entry found; a direct lookup does not yield the headline fact, so database coverage fails.",
+      "search": "Searched exact-object tables and databases: Pottonen STS(19) classification database, Colbourn-Forbes-Grannell-Griggs-Kaski-Ostergard-Pike-Pottonen properties tables, and Erskine-Griggs S6(19) component representative strings."
+    }
+  },
+  "residual_risks": [
+    "MPR-notation identification of A4 with the 5-sparse starter rests on the published uniqueness fact plus both-starters coverage rather than an independently re-verified literal MPR triple transcription; mitigated because the bound is proved for both anti-Pasch cyclic types.",
+    "Scripts use a hardcoded absolute sys.path to the research workspace; replay succeeded in this environment but portable reproduction should run from output/artifacts with adjusted path."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "4d0097d95377ca30214d886dd332970b987b74d12491823da895a926bebcb052",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "sts19temp.dvi",
+        "url": "https://grannell.net/Papers/sts19.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Paper proves a global sparsity census for STS(19) with 2591 4-sparse, a unique 5-sparse system A4, zero 6-sparse, plus unique hexagon-free S5, and defines hexagon/crown configurations; it publishes no Netto-anchored radius-2 hexagon-switch neighbourhood size and no certified 57/32 roster, so its hypotheses and conclusions do not imply the headline >=30 ball bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Classification of Steiner Triple Systems of order 19",
+        "url": "https://pottonen.kapsi.fi/sts19/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Database page documents the complete Kaski-Ostergard classification of 11,084,874,829 STS(19) isomorphism classes and its compression/storage method; it is the ambient census that could in principle contain the ball as raw data but tabulates no per-vertex hexagon-switch radius-2 count around the Netto anti-Pasch cyclic starter and states no >=30 theorem.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "arXiv:2405.07750v1  [math.CO]  13 May 2024",
+        "url": "https://www.arxiv.org/pdf/2405.07750",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Erskine-Griggs preprint studies cycle-switching graphs S_c(19), giving the general distance-k discarding, BFS exploration and component-connectivity method plus global S6(19) component orders; it states no starter-anchored depth-2 branching count around the Netto anti-Pasch cyclic system and no 57/32 invariant-distinct roster, so it does not imply the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Properties of the Steiner Triple Systems of Order 19",
+        "url": "https://scispace.com/pdf/properties-of-the-steiner-triple-systems-of-order-19-2bbebr1sm0.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Properties census records global per-system invariants such as Pasch counts, automorphism orders and the unique hexagon-free STS(19); it is a whole-class property table, not a Netto-centred hexagon-switch ball enumeration, and states no radius<=2 bound of >=30 classes around A4.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Graphs and Combinatorics manuscript No.",
+        "url": "http://users.ics.aalto.fi/pkaski/19switch.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Manuscript defines the cycle-switching graph with vertices as isomorphism classes and edges for cycle switches and recalls Pasch-switch connectivity for STS(15) and total STS(19) counts; it gives no local radius-2 hexagon-ball theorem, no Netto-anchored branching count, and no certified neighbour roster.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity search returned 20 results with 3 overlaps to the base set. The overlapping hits duplicate the already-screened Erskine-Griggs S6(19) switching-graph work and STS(19) properties census, adding no new local ball result. The 17 incremental hits add only background context already considered in substance: global sparsity counts (2591 anti-Pasch, unique 5-sparse A4, unique hexagon-free S5), the full 11-billion STS(19) census and Pottonen database, and general switching-graph definitions. Compared literally, including hexagon/6-cycle synonyms, Netto/5-sparse/anti-Pasch-cyclic renamings, complement duality, and broader-census/database dominance, no source states, tabulates, or logically implies a Netto-anchored radius<=2 hexagon-switch ball of >=30 classes or the certified 57/32 roster. Hence no decisive prior was found, incremental decisive recall is false, and the provisional originality PASS and overall PASS are preserved."
+  }
+}
