@@ -1,0 +1,47 @@
+# Verification log: fine-obstruction data for K=Q(sqrt(-83)), p=3
+# All commands run with cypari2 (PARI 2.x), /tmp/venv1440/bin/python, from workspace root.
+# Uncertified (GRH-conditional) K2 outputs are marked [GRH]. Everything else certified via bnfcertify=1.
+#
+# ---- K = bnfinit(x^2+83) [CERTIFIED, bnfcertify=1] ----
+# K.clgp      = [3, [3], [[3, 1; 0, 1]]]        # Cl(K) = C3
+# K.no        = 3
+# idealprimedec(K,3) = two primes, each e=1, f=1  # 3 splits in K
+#   P3a = [3, [-1,-1]~, 1, 1, ...], class [1]~   # order 3, nonprincipal
+#   P3b = [3, [0,-1]~,  1, 1, ...], class [2]~   # order 3, nonprincipal
+# bnflog(K,3) = [[], [], []]                     # trivial logarithmic 3-class group
+# 7 splits, classes [1]~,[2]~ (generate Cl); 5,13,19 inert, principal.
+#
+# ---- K1 = bnfinit(x^6+243*x^4+2*x^3+20676*x^2-504*x+613869, 1) [CERTIFIED, bnfcertify=1] ----
+# K1.clgp = [63, [63], [generator matrix]]       # Cl(K1) = C63 = C9 x C7
+# K1.no   = 63 ; factor 63 = 3^2 * 7
+# bnrinit(K1,1).clgp = [63, [63]]                # independent confirmation
+# idealprimedec(K1,3) = two primes, each e=3, f=1 (totally ramified over K's split primes)
+#   P3a class [7]~  : 3*7=21 (order 3), 9*7=63=0 -> exact order 9
+#   P3b class [56]~ : 3*56=42 (order 3), 9*56=0  -> exact order 9
+#   56 = -7 mod 63, so <7> = <56> = unique subgroup of order 9 = full 3-Sylow C9.
+# Capitulation: idealadd(K1, 7, lift(em(y)+2)) = unit ideal, bnfisprincipal -> [[0]~, ...]
+#   (lift of nonprincipal degree-1 prime P7 of K) => Cl(K) capitulates in K1.
+# Order-63 witnesses (17/37/109-layer primes): e.g. (17,1): x9=45, x7=49, x21=21, x63=0.
+# bnflog(K1,3) = [[], [], []]                    # trivial
+# K1.sign = [0,3]; K1.tu = [2,-1]; reg = 3.39714980258477; v_3(disc K1) = 8.
+#
+# ---- K2 = degree-18 layer [GRH-CONDITIONAL: bnfinit ok, bnfcertify NOT finished] ----
+# poly: x^18+729*x^16+239175*x^14+46336113*x^12+5840207892*x^10+2*x^9
+#       +496545240618*x^8-5994*x^7+28474853493801*x^6+1767456*x^5
+#       +1061984381299947*x^4-100445166*x^3+23373938989409508*x^2
+#       +928169928*x+231328546685761389
+# K2.no = 10774323 = 3^3 * 7 * 109 * 523 ; K2.cyc = [10774323] (cyclic)
+# idealprimedec(K2,3) = two primes (e,f not re-extracted; same pattern expected)
+#   P3a class [9178127]~ : gcd(10774323,9178127)=399049 -> exact order 27
+#   P3b class [1596196]~ : gcd(10774323,1596196)=399049 -> exact order 27
+#   3-part coords mod 27: 20 and 7 (both units mod 27) -> each generates the C27.
+#   DLP self-checks: 3*m mod N and 9*m mod N match reported bnfisprincipal coords
+#     (5985735, 4788588, 7182882, 3591441); 27*m = 0 mod N confirmed by PARI x27=[0]~.
+# bnflog(K2,3) = [[], [], []]                    # trivial [GRH]
+#
+# ---- derived S-class (fine-quotient) readings ----
+# S = {primes above 3}. S-class group Cl^S = Cl / <[P3a],[P3b]>:
+#   K:  Cl=C3, <[P3a]> = whole group            -> Cl^S(K)  = 1
+#   K1: Cl=C63, <[7],[56]> = <7> of order 9     -> 3-part of Cl^S(K1) = 1
+#   K2: Cl=C10774323, <[P3a]> has order 27 = full 3-Sylow -> 3-part of Cl^S(K2) = 1 [GRH]
+# Hence e^S_0 = e^S_1 = 0 certified; e^S_2 = 0 conditional on GRH for K2.
