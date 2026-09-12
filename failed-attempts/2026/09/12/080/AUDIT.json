@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Existence half verifies: the stated representative face-traces (two independent tracers) to exactly 16 faces of length 4 covering all 64 darts, hence genus (2-12+32-16)/2=3, minimum by the F<=16 degree argument. Completeness (N=1) is FALSE. Step 2 invalidly promotes the pointwise quad-closure identity sigma_a(sigma_{a1}(b))=b at the single label b to the permutation identity sigma_a o sigma_{a1} = id over all 8 points; the fiber/involution/2+2 reduction and the 256-family normalization therefore do not follow. Explicit counterexample (orientation-preserving rotation systems): rotA=[[6,3,1,4,7,5,2,0],[6,0,1,3,2,7,4,5],[1,0,7,2,5,4,3,6],[3,4,1,6,5,7,0,2]], rotB=[[0,3,2,1],[1,2,3,0],[2,1,3,0],[1,0,2,3],[2,1,0,3],[3,1,2,0],[2,0,1,3],[0,1,2,3]] face-traces under both faceutil.faces and an independently coded dart tracer to 16 faces all of length 4 (proper 4-cycles, 64 darts covered), hence a second minimum-genus quadrangular embedding. It is not Aut-equivalent to the representative: the number of distinct A-successor perms (exact equality) is 4 versus 2 for the representative, an invariant under (pa,pb) since pb acts by simultaneous conjugation and pa only permutes labels; a pruned exhaustive isomorphism search over all 24 pa x 8 pb-shifts determined by the A0 row finds no map, and its B-rotations realize four cyclic classes outside {gamma,gamma^-1}. Hence at least two classes exist and N=1 is disproved. TARGET route: target question is well-formed, no ADMISSION_DEFECT.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused search over literal (K(4,8) minimum-genus/quadrangular census N), equivalent (quadrangular rotation-system embeddings of K_4,8 up to automorphism), and dominance (censuses/classifications of minimum-genus embeddings of K_m,n, Ringel-type theorems, embedding databases) returned 20 results with full provider coverage and no partial failure. The nearest prior is the enumeration of minimum-genus orientable embeddings of K_{m,n} for 2<=m,n<=7 except (7,7), which by its stated scope excludes K(4,8). General results found (Ringel/Bouchet genus formula, regular/reflexible embedding classifications of K_{n,n}, Korzhik quadrangular work on K_n, Conder-Stokes search methods, Shao-Liu-Li genus-embedding counts) give existence/formulas or restricted symmetric classes, not the exact unrestricted census count N for K(4,8). No table, database, or theorem found states or substantively implies N=1 (or any exact N) for K(4,8). Hence the headline census claim is not previously recorded or mechanically implied; originality PASSES even though the claim is false (falsity is scored under correctness, not priority).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The target question itself meets the STANDARD value threshold: an exact census count N with representatives for minimum-genus orientable embeddings of the natural, pre-motivated object K(4,8) is an eligible complete-classification/census finding form, the exact number is not known or mechanically implied by the genus formula, and a future researcher could reasonably need the precise count and rotation systems. The verified existence half (an explicit quadrangular genus-3 embedding with full face list) is of that motivated type. Value therefore PASSES as a question/form axis; this does not rescue the submission because the submitted exact answer N=1 is false, so there is currently no correct retrievable record, forcing overall REJECT on correctness grounds.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md: representative rotation systems, 16 listed quad faces, Steps 1-6 fiber/normalization/enumeration argument",
+    "inputs/artifacts/faceutil.py + census_full.py + ilp_exact.py + census.json + representative.json: rotation convention, 256/4096-family enumeration reporting 4 quads, Aut-order-32 claim",
+    "Independent re-execution: representative gives 16 faces all length 4 covering 64 darts, genus 3; normalized-family recount gives 4 quads; Aut size 32 recomputed; Step-3 permutation checks (no 4-cycle of S4 squares to id; exactly two 4-cycles swap {0,1}/{2,3}) confirmed",
+    "Counterexample verification: hill-climb rotation systems above give 16 proper 4-cycle faces under two independent tracers with 64-dart coverage; Step-2 identity holds pointwise 32/32 but full composition sigma_a o sigma_{a1} != id on 32/32 pairs; distinct-sigma invariant 4 vs 2 plus 24x8 pruned iso search with no map",
+    "scope_literature_search (3 consolidated queries, 20 fused results, all providers ok, no partial coverage): nearest leads screened \u2014 enumeration of K_{m,n} for 2<=m,n<=7 except (7,7); Shao-Liu-Li genus embeddings; Kwak-Kwon/Nedela-Skoviera/Jones regular embeddings; Korzhik quadrangular embeddings; Conder-Stokes methods; Ringel/Bouchet genus formula sources"
+  ],
+  "claim_route_inference": "research_report.claim_route is TARGET; audited normally against the admitted target with no preset-value presumption and no ADMISSION_DEFECT found in the target itself",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Searched classifications/censuses of minimum-genus embeddings of complete bipartite graphs K_m,n (Ringel genus theorem, Bouchet orientable/nonorientable genus, regular/reflexible embedding classifications, Conder-Stokes search methods). They yield the genus value 3 or infinite symmetric families, never the exact unrestricted isomorphism count N for K(4,8).",
+      "reasoning": "A broader theorem covering K(4,8) as a special case would have to entail its exact census number; the genus formula and regular-embedding classifications constrain symmetry classes only and do not imply any exact N, so no dominance coverage exists.",
+      "search": "enumeration classification minimum genus embeddings complete bipartite graphs K_m,n census theorem Ringel House of Graphs embeddings database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No retrieved source states N for K(4,8) or gives premises (e.g. a table entry, formula specialization, or corollary) from which N=1 follows; the only count-type census found explicitly stops at 7x7 minus (7,7). The submitted N=1 is additionally false by direct counterexample, so no true prior can imply it.",
+      "reasoning": "Originality fails only if a prior result substantively implies or exhaustively covers the claim; since no prior even addresses the (4,8) census and the claim is false, there is no implicational coverage. Originality therefore passes while correctness fails independently.",
+      "search": "comparison of the submitted N=1 census claim against every retrieved count, classification, and table to test substantive implication rather than title similarity"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched quadrangular rotation-system embeddings of K_4,8 up to automorphism, dual/complement/matrix/incidence encodings via quadrangular-embedding and rotation-system terminology, and synonymous K(4,8)/K_4,8/Kn,n notation. Hits concerned K_{n,n} regular embeddings, K_n quadrangular embeddings, or genus values, none giving a (4,8) census.",
+      "reasoning": "A synonymous or dual encoding (rotation vs embedding vs voltage-graph vs current-graph presentation) could in principle state the same census under different words; screening snippets/metadata showed none of the equivalent-formulation hits addresses the asymmetric K(4,8) unrestricted census, so no equivalent-notation coverage.",
+      "search": "quadrangular rotation-system embeddings K_4,8 unique embedding up to automorphism orientable genus embeddings complete bipartite"
+    },
+    "exact_database_or_table": {
+      "evidence": "Searched for the exact parameter (4,8) in embedding tables and official databases (House of Graphs / LMFDB-style graph databases, census tables in the K_{m,n} enumeration paper). The only exact table found covers 2<=m,n<=7 except (7,7) and hence omits (4,8); no database record for minimum-genus embeddings of K(4,8) was found.",
+      "reasoning": "An exact table/database entry for K(4,8) would directly subsume the claim regardless of phrasing; the concrete scope check shows the nearest table excludes this parameter, and no other official database entry was located, so exact-table coverage fails.",
+      "search": "exact K(4,8) / K_4,8 minimum-genus embedding table or database record within complete-bipartite embedding censuses"
+    }
+  },
+  "residual_risks": [
+    "True census number N for K(4,8) is unknown except N>=2; the 256-family enumeration scope is unsound so census.json counts cannot be trusted",
+    "Any downstream use of the claimed uniqueness or Aut order 32 as a classification fact would inherit the false completeness proof",
+    "A correct census will require a new reduction or a search far larger than the 256/4096 family, outside a bounded repair"
+  ],
+  "verdict": "REJECT"
+}
