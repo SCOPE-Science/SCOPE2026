@@ -1,0 +1,78 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed inputs/artifacts/cubic_critical_loci.py and independently re-derived every essential identity in sympy: W0+6=S0^3/(xy), W1+6=S1^3/(xy^2(y+1)^2), W2+6=S2^3/(xy^2(x+1)^2(x+y+1)^2), and cancelled W3+6=S3^3/(x^3y^2(x+y)^2) with S3=x^2y+x^2+2xy+y^2 all match the DRAFT exactly (raw W3 pullback minus cancelled form simplifies to 0). Gradient numerators factor as S^2 times transverse factors in each case. Tracked Morse points (1,1)->(2,1)->(2,3)->(2,2) all satisfy gradient zero, value exactly 21, Hessian determinants 243, 243/4, 27/4, 243/16 (all nonzero, rechecked). Curve samples (1,-2), (1,-3/2+/-sqrt(5)/2), (1,-3+/-sqrt(5)), (2,-4+/-2sqrt(3)) all satisfy gradient zero, Hessian-determinant zero, value -6 (rechecked, including the W3 samples the script's degeneracy helper mislabels). Exhaustiveness of isolated critical points was verified beyond the script: W0 and W1 follow from linear/transverse factor solves, W2 from an exhaustive factor-pair solve (only (2,3) admissible, all other combos on S2=0 or poles), and W3-cancelled from Groebner/resultant solves (V&(x-y) gives only pole (0,0) and (2,2); V&U2 gives only (0,0)). The S=0-is-critical and Hessian-vanishes mechanism follows rigorously from dW=S^2(3M dS-S dM)/M^2, so Hessian entries carry an overall S factor. Pearl samples W0(1,1)=21 critical vs W0(-1,-1)=-7 with gradient (2,2) noncritical are correct. The headline as stated in research_report.json is bounded to the four examined potentials, and DRAFT section 5 honestly limits the arbitrary-depth extension to a mechanism-backed expectation, so the broader 'no torus in this class' sentence is properly qualified and does not falsify the proved headline.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live retrieval (SerpBase, OpenAlex, Crossref, OpenAIRE, all ok, no partial failure) plus full-text inspection of the decisive primary source Pascaleff-Tonkonog arXiv:1711.03209 shows the nearest prior work establishes only the seed ingredients: Table-1 cubic seed W0=(1+x+y)^3/(xy)-6 with its direction multiset, the two quantum-cohomology eigenvalues -6 and 21 with 21 simple, Proposition 4.29 ((1,1) Morse, value 21, Clifford self-Floer, split-generation of the w=21 Fukaya summand), Proposition 4.30 (one-dimensional critical locus {1+x+y=0} of value -6 with order-3 vanishing and exterior self-Floer), and wall-crossing as cluster pullback W'=W o mu_v. None of the retrieved sources computes the critical schemes of the mutants W1, W2, W3, tracks Hessian degeneracy through iterated mutation, states cubed-form preservation W+6=S^3/M with at-most-one-Morse-point, or states constant {21,-6} spectral rigidity across mutants. Vianna arXiv:1602.03356 distinguishes tori by Newton polytopes, not by this cubed critical-scheme analysis; Lunts-Przyjalkowski, Sheridan, and mirror-symmetry sources address eigenvalues/Hodge data, not the submitted four-potential computation. The four factored potentials, Hessian evaluations, and preservation mechanism are therefore substantively new and not implied by prior theorems.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING route verified: the obstruction genuinely arose from attempting the admitted target (routes A-D sought the target's two-nondegenerate-point configuration and spectral pair; the cubed structure was discovered when mutations failed to create a second Morse point), so it is not a convenient replacement. The object (monotone cubic del Pezzo X3, its Vianna/mutation-class tori) and invariant (disk-potential critical scheme: Morse count, Hessian degeneracy, critical-value multiset) were motivated before computation by the target conjunction, the exact values (S1..S3, transverse factors, Hessians 243->243/4->27/4->243/16, constant {21,-6}) were not known or mechanically implied, and a future researcher deciding whether to seek the target configuration inside the Vianna class or to separate cubic Vianna tori by critical values reasonably needs exactly this fact. This is a rigorously established exact structural obstruction with a reusable preservation lemma and four reproducible factored schemes, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. Judged as the strongest self-contained headline separately from the honestly-flagged incomplete general-depth census, it passes the shared STANDARD including its exact-invariant clause.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pascaleff-Tonkonog arXiv:1711.03209 abstract page (wall-crossing formula and Lagrangian mutations; del Pezzo mutation application; cubic-surface Fukaya application noted).",
+    "Pascaleff-Tonkonog full text (arXiv HTML v3): Table 1 del Pezzo seeds including Bl6 = (1+x+y)^3/(xy)-6 with directions (1,0)x3,(0,1)x3,(-1,-1)x3; Definitions 4.1-4.2 cluster map and pullback; Theorem 4.6 Laurent phenomenon; Theorem 4.8/4.20 wall-crossing; Propositions 4.29 (Morse point (1,1), values 21/69/669, Cl_2, split-generation, answers Sheridan Conjecture B.2) and 4.30 (1-dim critical locus {1+x+y=0}, order 3/4/6 vanishing, exterior self-Floer, infinite toric family).",
+    "Vianna arXiv:1602.03356 (infinitely many monotone Lagrangian tori in del Pezzo surfaces via almost-toric diagrams; Newton-polytope distinction) \u2014 screened, uses different invariant, does not compute cubic mutant critical schemes.",
+    "scope_literature_search fused results (20 records; SerpBase/OpenAlex/Crossref/OpenAIRE all status ok, no partial coverage): screened snippets/metadata for cubed-form, mutant critical loci, Hessian degeneracy, cubic Vianna spectral rigidity \u2014 no covering source found; nearest hits are the PT wall-crossing paper, Vianna, LG Hodge-number and mirror-symmetry records.",
+    "Independent sympy re-execution: reproduced script output for W0..W3 factored W+6 forms and gradient numerators; verified Morse values/Hessians, degenerate-curve samples, W3 cancellation identity, W2 exhaustive factor-pair solve, and W3 Groebner/resultant uniqueness ((2,2) only admissible); pearl samples (1,1) vs (-1,-1)."
+  ],
+  "claim_route": "EMERGENT_FINDING",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Retrieved mirror/LG census records (Lunts-Przyjalkowski LG Hodge numbers; Gross-Hacking-Keel/Gamma-conjecture and oscillatory-integral records; SYZ/hyperKaehler del Pezzo records; higher-genus LG wall-crossing records) address eigenvalues, Hodge data, or unrelated wall-crossing theories. None states a theorem covering all Vianna-mutant potentials on the cubic surface, let alone the constant-{21,-6} spectral rigidity with Hessian degeneracy.",
+      "reasoning": "A broader classification or stronger theorem that substantively implied the headline would defeat originality even without verbatim wording. No retrieved broader result implies that every examined cubic mutant has cubed form with exactly one Morse point of value 21 and an otherwise Hessian-degenerate value-(-6) curve; PT's own HMS application splits the Fukaya category by the two eigenvalues but never computes mutant critical schemes. Hence no dominance coverage.",
+      "search": "Searched dominance queries for stronger theorems, broader object classes, larger parameter ranges, exhaustive censuses, classifications, and databases covering cubic del Pezzo Vianna tori, degree-3 mirror LG models, and quantum-cohomology eigenvalue results."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "PT Propositions 4.29/4.30 plus Table 1 and Theorem 4.8 give: seed potential, Morse point (1,1) value 21, degenerate line value -6 order-3 vanishing, and pullback rule W'=W o mu_v. The submission adds: explicit S1,S2,S3 and denominators M1,M2,M3; factored gradient numerators S^2 times transverse factors; Morse Hessians 243/4, 27/4, 243/16 at (2,1),(2,3),(2,2); exhaustive admissibility solves excluding S=0 and poles; Hessian-vanishes-on-S=0 mechanism; constant-{21,-6} spectra across four potentials.",
+      "reasoning": "Prior seed-level facts do not logically imply the mutant-level cubed preservation, the Hessian-degeneracy tracking, or the inter-torus spectral non-separation: each mutant requires its own pullback computation and admissibility analysis (e.g. W2's four factor-pair systems, W3's Groebner uniqueness), which PT never performs. The headline is therefore not a recomputation, certificate, corollary, or repackaging of PT; it is a new consequence verified by new computation.",
+      "search": "Compared the submitted four-potential cubed-form plus one-Morse-point plus constant-spectra conclusion literally against PT Sections 4.8-4.14 hypotheses and conclusions to test whether any prior result substantively implies or exhaustively covers it."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over Landau-Ginzburg potential / disk potential / superpotential / LG seed / wall-crossing / cluster-mutation synonyms and Bl6CP2 / Bl_6 P2 / cubic-surface / del Pezzo degree-3 notations returned PT 1711.03209, Vianna 1602.03356, Nadler toric-mutation note, and unrelated LG wall-crossing records. Full-text PT check confirms the seed formula (1+x+y)^3/(xy)-6 and mutation rule appear only under this synonymous terminology, and still only at seed level.",
+      "reasoning": "No synonymous name, dual/complement/incidence-graph/matrix/algebraic encoding, or notation variant conceals a prior statement of the four-potential cubed preservation with Hessian degeneracy: the only terminological matches (PT Table 1, FOOO cubic computation, Sheridan HMS setup) cover the seed potential and eigenvalue pair, not the iterated-mutant critical schemes. Equivalent-formulation coverage therefore fails.",
+      "search": "Searched literal headline plus synonymous representations: disk potential Landau-Ginzburg superpotential LG seed, cubic del Pezzo Bl6CP2 degree-3 surface, (1+x+y)^3/(xy)-6, Lagrangian mutation cluster wall-crossing pullback, critical locus Morse Hessian degenerate values 21 and -6."
+    },
+    "exact_database_or_table": {
+      "evidence": "PT Table 1 (Galkin-Usnich seeds) lists exactly the cubic seed potential and direction multiset but no mutant potentials, no S1..S3, no Hessian data, and no critical-value multisets for mutants. No official database record (no OEIS-style table, no Fano/LG database entry, no del Pezzo mirror table in the retrieved set) tabulates the W1/W2/W3 factored forms or their Morse/degenerate loci.",
+      "reasoning": "The exact parameters and objects (S1=xy+(y+1)^2, S2, S3, points (2,1),(2,3),(2,2), Hessians, curve samples) do not already appear in any table or database; the only tabulated exact object is the seed W0 itself, which the submission cites rather than claims. Hence exact-database coverage fails.",
+      "search": "Searched exact objects and tables: Table-1 cubic seed, S1 S2 S3 polynomials, critical points (1,1) (2,1) (2,3) (2,2), Hessian values 243 243/4 27/4 243/16, Galkin-Usnich seeds, FOOO cubic potential table, and del Pezzo mirror databases."
+    }
+  },
+  "residual_risks": [
+    "DRAFT wording calls each denominator 'monomial-type', but M1..M3 contain binomial factors (y+1), (x+1), (x+y+1), (x+y) from absorbed (1+t) powers; the explicit denominators are correct as written, so this is a wording imprecision only, not a computational error.",
+    "W3's direction (0,-1) lacks full LG-seed bookkeeping under Theorem 4.6 in the draft, and cancelled W3+6=S3^3/M3 retains a non-monomial (x+y)^2 denominator, so W3 is best read as a formal pullback recovery test rather than a certified torus potential; the headline result for W0..W2 plus the formal W3 check is unaffected.",
+    "The bundled script's degeneracy_sample helper picks the (x+1) factor rather than S3 for W3 and prints no W3 curve rows; the underlying W3 curve samples were verified independently here ((2,-4+/-2sqrt(3)): grad 0, Hdet 0, value -6), so this is a display-helper limitation, not a result error.",
+    "Floer-theoretic consequences (Clifford vs exterior self-Floer, split-generation, HF dichotomy) are cited from PT/Sheridan rather than reproved; the audit treats them as cited background, with the original contribution restricted to the potential-theoretic critical schemes."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "a76ec8cc13ae5089a687a0633e00c8fa1c818022e9b1c39c7691b4f69a93fa26",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "The wall-crossing formula and Lagrangian mutations",
+        "url": "https://jpascale.web.illinois.edu/papers/wall-crossing-mutations.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same cubic seed W0=(1+x+y)^3/(xy)-6, same eigenvalues w=-6 and w=21, same Proposition 4.29 Morse point (1,1) value 21 and Proposition 4.30 degenerate line {1+x+y=0} value -6, plus the wall-crossing pullback rule; but it proves these only at seed level and never computes the mutant potentials W1, W2, W3, their S1..S3 factored cubed forms, Hessian values 243/4, 27/4, 243/16, or constant {21,-6} spectra across mutants.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Tropical disk potential for almost toric manifolds - Rutgers Math",
+        "url": "https://sites.math.rutgers.edu/~ctw/dp.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Independent tropical computation tabulating Bl6 P2 mirror data as E6 root system with critical values (-6) and 21 and noting isolated critical-point counts; it does not state or compute the wall-crossing mutants W1, W2, W3 cubed forms W+6=S^3/M, the S^2-factored gradients, Hessian degeneracy along {S=0}, or the inter-torus spectral non-separation headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "The terminal Perplexity check queried the literal cubic-mutant claim, the cubed-form equivalent, and the broader del Pezzo LG/eigenvalue dominance directions, returning 20 results with 4 overlapping the base set. The only substantively relevant hits were the Pascaleff-Tonkonog wall-crossing paper and the Venugopalan-Woodward tropical disk potential note, both already screened in the base fused search (base_search_overlap true for each), and both cover only seed-level ingredients (Table-1 seed, eigenvalues -6/21, Props 4.29/4.30) or eigenvalue/count data, not the submitted four-potential cubed preservation with Hessian degeneracy and constant {21,-6} spectra. All 16 non-overlapping results were keyword-similar only (CP2 Vianna tori, Grassmannians, quartic del Pezzo, Hodge numbers, Gamma conjecture, theses on mirror symmetry) with different objects, hypotheses, or conclusions. No returned source states, implies, or exhaustively covers the W1/W2/W3 mutant critical schemes, so no decisive prior was found, no incremental decisive recall was added, and the provisional originality PASS stands unchanged."
+  }
+}
