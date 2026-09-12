@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: claim requires certified Lambda plus proof of logarithmic-window shadowing for h in (0,0.005] and H0 in [-12,-8]. Evidence is high-accuracy numerics only, not proof. Cone hyperbolicity rests on 5x5 grid-max |E|=0.00954 with ad-hoc x2 margin, finite-difference DP (det=1.00068 vs symplectic 1, error 6.8e-4), RK4 without enclosure, and adapted-norm inverse-perturbation lemma with measured variation. Shadowing constants rho=1e-4, eps0=1e-6, C=8 are asserted from Palmer/Katok-Hasselblatt Thm 18.1.2 without quantitative derivation. RATTLE-to-map transfer is inconsistent: eps_map<=K0*eps with K0=(T/h)*80 is then dropped and eps0_map=1e-6 used as if K0=1; raw RATTLE defect 39*h^2 is 9.75e-4 at h=0.005 >> eps0, so certified window directly covers only h<=1.6e-4. Certification is at single H0=-10, not interval [-12,-8]. This is experimental evidence, not the required rigorous obstruction/certification.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Exact headline tuple -- librational orbit at H0=-10 through x*=(-0.86787713,3.29962198), T=2.87125, multipliers 8.22039/0.12173, cone slopes 0.0058/0.3596 with expansions 8.19/6.08, and RATTLE defect shadowing with eps0=1e-6, S=1.6, C=8, rho=1e-4 -- is not previously recorded. Fused search over literal, equivalent/synonymous, and dominance queries found no source giving these coordinates or this RATTLE log-window: Yao et al 2609.05337 uses normalized g=1 and surveys families without RATTLE shadowing; Hairer constrained-integrator and Katok-Hasselblatt/Palmer shadowing provide general lemmas but do not imply this specific orbit. No table or database lists the point. Hence literally new, not a verbatim copy, though the method is textbook.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even if correct and literally new, the headline is an arbitrary scan-found periodic orbit with textbook shadowing corollary, lacking independent retrieval value under STANDARD. The object was not motivated before computation (one Newton-found orbit among infinitely many in a chaotic sea, not symmetric/named/extremal/boundary-changing), the invariant (generic lemma constants S=T/log6, C=8, tiny eps0=1e-6) is mechanically implied once hyperbolicity is assumed, and future need for this precise random tuple is implausible. Coverage is a tiny slice: single H0=-10 vs required [-12,-8], and eps0 covers only h<=1.6e-4 vs target up to 0.005. Certification/replayability alone do not create value. Fails the exact-invariant eligibility (pre-motivated object, non-implied value, plausible future need) and constitutes mere parameter substitution plus textbook restatement with unexplained enumeration.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md Sec 2-7: x*, DP, T, cone margins, shadowing constants, honest limitations (non-interval, grid x2, h<=1.6e-4, H0=-10 only)",
+    "inputs/artifacts/constants.json, polish.py, cone5.py, meas2.py, rattle7.py: RK4+finite-difference Newton, 5x5 grid variation, flow bound sup||DPhi||<=79.6, RATTLE order ratio 39.0-39.4 vs RK4 dt=1e-5 reference",
+    "Independent recomputation: DP eigenvalues 0.12173/8.22039 det 1.00068; 39*h^2=9.75e-4 at h=0.005 vs 9.98e-7 at h=1.6e-4 confirming eps0 gap",
+    "scope_literature_search fused results (SerpBase/OpenAlex/Crossref/OpenAIRE, no partial failure): Yao et al arXiv:2609.05337 variational continuation double-pendulum survey (g=1, no RATTLE shadowing); Hairer 2003 global modified Hamiltonian for constrained integrators; generic shadowing-lemma sources (Katok-Hasselblatt/Palmer textbook level); double-pendulum periodic-orbit/Poincare literature with no matching x*/T/multipliers",
+    "STANDARD.md sky-survey-admission-depth-gate-v12: originality/value thresholds, exact-invariant eligibility, certification-does-not-create-value rule, TARGET two-sided resolution rule"
+  ],
+  "claim_route": "TARGET as stated in research_report.json; audited normally against admitted target with no preset-value presumption",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General theorems found: Katok-Hasselblatt Thm 18.1.2 / Palmer hyperbolic shadowing (infinite-time C*eps shadowing for any uniformly hyperbolic set) and Hairer-Lubich Reich backward-error / modified-Hamiltonian theory for constrained symplectic integrators including RATTLE, plus Yao et al systematic double-pendulum family survey. None lists this x*/T/defect/eps0/S/C tuple.",
+      "reasoning": "Broader theorems cover the METHOD (shadowing follows from hyperbolicity) but do not exhaustively cover or imply the CLAIM as a special case because the specific Lambda existence and its numeric cone/defect constants are not instances of those theorems alone; a new orbit datum would still be needed. Hence broader coverage does not subsume the exact headline, but it does reduce its contribution to a textbook corollary once the orbit is assumed, which bears on value not originality.",
+      "search": "dominance query: shadowing lemma symplectic constrained integrator RATTLE Hamiltonian pseudo-orbit logarithmic time Hairer Lubich Reich plus hyperbolic periodic orbit census/classification/database covering librational double-pendulum orbit"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Draft Sec 4 explicitly invokes standard hyperbolic fixed-point shadowing to get C=7-8, S=T/log6=1.6; Sec 5 RATTLE defect 39h^2 and flow bound 79.6 are generic estimates. No prior implies the numeric x*, T=2.87125, or multipliers 8.22039/0.12173; product matches det 1.00068 showing finite-difference error, not textbook value.",
+      "reasoning": "Prior work implies the FORM (any hyperbolic periodic orbit is shadowed on log windows) but not the CONTENT (that this particular librational orbit exists with these multipliers and cone margins). The headline is therefore not a recomputation or corollary of a known stronger fact in the strict implication sense, so originality narrowly passes while value fails as textbook restatement applied to an arbitrary new example.",
+      "search": "claim-vs-prior implication test: does Palmer/Katok-Hasselblatt quantitative shadowing plus known double-pendulum hyperbolicity mechanically imply the stated eps0=1e-6 S=1.6 C=8 rho=1e-4 for this Lambda"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched literal RATTLE log-window phrasing, synonymous double-pendulum Poincare/multiplier/cone/librational/energy-10 phrasings, and g-scaling equivalence (submitted g=9.81 vs normalized g=1 literature). Yao et al 2609.05337 with m1=m2=l1=l2=g=1 surveys In-Phase/Out-Phase/Down-Up families and bifurcations but reports different periods, no section point (-0.8678,3.2996), no multipliers 8.22/0.12, no RATTLE defect or eps0/S/C. No dual/complement/incidence/matrix encoding alters the comparison.",
+      "reasoning": "No synonymous notation, time-rescaling, angle-vs-Cartesian map, section-coordinate change, or dual encoding was found that transforms a prior record into this orbit. The exact point, period, and defect definition remain unmatched after testing equivalent representations, so equivalence does not defeat originality.",
+      "search": "literal headline plus standard equivalents: double pendulum periodic orbit Poincare return multipliers cone hyperbolicity librational H0=-10 interchanged angle/Cartesian and g=9.81 vs g=1 scalings"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused providers returned no periodic-orbit table, double-pendulum database, RATTLE benchmark table, or thesis appendix containing x*=(-0.86787713,3.29962198), T=2.87125, DP=[[-0.6596,0.7966],[-8.7098,9.0017]], or eps0/S/C/rho=1e-6/1.6/8/1e-4. Yao Fig.1 Poincare survey, ComPADRE/Stein clicker toys, and three-body/retrograde-orbit tables are different objects. All provider routes reported ok without partial failure.",
+      "reasoning": "Absence from exact tables supports narrow novelty of the numeric tuple, but per contract a failed search does not establish priority alone; combined with the broader/implication checks it shows the numbers are new yet arbitrary. No official database exhaustively censuses this parameter slice, so database coverage does not defeat originality, while arbitrariness defeats value.",
+      "search": "exact object query in specialist stores: double-pendulum periodic-orbit tables, Poincare-section databases, RATTLE shadowing benchmarks, theses and author pages for the stated xstar DPstar T and eps0 S C rho"
+    }
+  },
+  "residual_risks": [
+    "Non-rigorous DP variation: interior of r=2e-4 box and inter-grid points unverified; x2 factor is heuristic, true Lipschitz L<=40 unproved",
+    "Finite-difference Jacobian and RK4 reference errors (det error 6.8e-4) may shift multipliers/cone slopes beyond quoted margins under rigorous enclosure",
+    "RATTLE constant C_R=40 measured against RK4 dt=1e-5 reference, not a proven uniform bound; constraint drift and long-time accumulation not enclosed",
+    "Map-to-flow and section-hit transfer factors (K0, M_flow<=79.6, C_1) lack derivation; continuous-time C*eps bound not proved",
+    "Single-energy single-orbit evidence leaves structural-stability persistence over [-12,-8] and full h-interval coverage unaddressed"
+  ],
+  "verdict": "REJECT"
+}
