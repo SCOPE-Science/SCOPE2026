@@ -1,0 +1,195 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified head-to-tail. Baseline s_B^2=L/pi with L=ln(2048(1+2^128)) matches Micciancio-Regev Lemma 3.3 form for lambda1=1, eps=2^-128. Z^1024 is R=Z[x]/(x^1024+1) under coefficient embedding, self-dual, hence a valid dual of a power-of-two cyclotomic ideal lattice. First-shell lower bound tail>=2048*exp(-pi s'^2) with s'=0.85 s_B gives pi s'^2=(289/400)L exactly. Interval certificate (289/400)L_HI<=101*ln2_LO checked with certified ln2 enclosures yields tail>=2^11*2^-101=2^-90, 38 bits above 2^-128. Replay of output/artifacts/verify_counterexample.py prints VERIFY_OK. Embedding-scale objection fails: coefficient member has lambda1=1 so dimension-only and per-lattice baselines coincide; canonical scaling would only strengthen violation. Compared with topic.audit_preflight cheap checks, no normalization-shift, vacuity, or tiny-instance defect; no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route: admitted target was novel and both resolutions were pre-qualified as original. Fused live search over literal, equivalent (theta/smoothing/Z^n tightness), and broader (Banaszczyk/MR generic, cyclic-lattice bounds, databases) directions returns only generic upper-bound literature (Guo et al. 2025 PLOS, Peikert smoothing problem, Zheng et al. cyclic/ideal bounds, Espitau et al.) with no uniform 15% cyclotomic claim at N=1024 eps=2^-128 and no recorded tail>=2^-90 lower bound for Z^1024 at 0.85 width. Prior upper bounds cannot imply a lower-bound refutation; no broader census or table exhaustively covers it. The two-line first-shell derivation is the proof itself, not a prior recorded result, and no prior source states the exact 38-bit violation. Hence the negative resolution is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Complete negative TARGET resolution with sharpness value beyond mere falsity. It exhibits an explicit extremal family member (unit-ideal dual Z^1024) violating the claimed uniform 15% improvement by 38 bits (factor >=2^38) and in fact proves no constant factor c<1 can work uniformly (needs c^2>=139 ln2/L=1-O(2^-128)). This maps the true optimal-constant boundary, blocks wasted tightening attempts, and tightens understanding of every downstream dual-Fourier / worst-case-to-average-case analysis that pays smoothing cost. N=1024 and 2^-128 are standard cryptographic targets, motivated before computation, not an arbitrary slice; first-shell simplicity does not make it a cheap type/normalization/vacuity defect. Matches admitted negative-resolution value case; no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md refutation: Z^1024 first-shell lower bound tail>=2048 exp(-pi s'^2)=2048 exp(-(289/400)L)>=2^-90 vs 2^-128, margin 38 bits",
+    "inputs/artifacts/verify_counterexample.py replay: exact Fraction interval certificate with LN2 enclosures prints VERIFY_OK; float x-check s_B~5.5379 s'~4.7072 first-shell~1.2e-27 ratio ~4.1e11 over 2^-128",
+    "Guo-Liu-Wang-Tian PLOS One 2025 'New bounds of the smoothing parameter for lattices' (doi:10.1371/journal.pone.0328688): generic upper-bound improvements for Z and general lattices, no uniform 15% cyclotomic N=1024 2^-128 tail lemma and no Z^1024 lower-bound refutation",
+    "Peikert/Chung-Dadush et al. 'On the Lattice Smoothing Parameter Problem' smoothing framework: generic smoothing definition and bounds, no pinned cyclotomic specialization",
+    "Zheng-Liu-Lu-Tian 'Cyclic Lattices, Ideal Lattices and Bounds for the Smoothing Parameter' (arXiv:2112.13185): explicit upper bounds for cyclic lattices, not a lower-bound tightness result covering the 0.85-factor impossibility at N=1024",
+    "topic.json admission_review + audit_preflight: target integrity, triviality preflight, and negative-resolution qualification explicitly admit verified shell lower-bound refutation as complete valuable TARGET resolution"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused results show broader theorems (Banaszczyk transference, Micciancio-Regev smoothing, Guo et al. 2025, Zheng cyclic-lattice bounds) are generic upper bounds, strictly weaker at this specialization and directed the wrong way: they upper-bound smoothing width, while the claim needs a lower-bound tail violation. None states uniform cyclotomic tightness.",
+      "reasoning": "A broader upper-bound theorem cannot substantively imply the submitted lower-bound refutation (tail>=2^-90 at 0.85 width); a counterexample to the 15% claim does not contradict those upper bounds, so broader coverage does not subsume the headline.",
+      "search": "Banaszczyk Gaussian tail bound smoothing parameter cyclotomic ideal lattices broader theorem census database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior published constants (MR Lemma 3.3 upper bound L=ln(2048(1+2^128)), Banaszczyk tails) imply some finite width for 2^-128 tail with larger constant, leaving the 0.85 window open; no prior inequality with N=1024 eps=2^-128 parameters derives tail>=2^-90 at s'=0.85 s_B. The first-shell union-bound computation is the submitted proof, not a prior record.",
+      "reasoning": "Prior work does not mechanically imply the exact 38-bit violation, and the violation does not contradict prior upper bounds (upper vs lower direction). No corollary, recomputation, or repackaging of a known stronger fact covers it; generic Z^n tightness remark was never pinned to these cryptographic parameters.",
+      "search": "Banaszczyk Gaussian tail constant implies smoothing width prior implication Z^n lower bound tightness"
+    },
+    "equivalent_formulations": {
+      "evidence": "Consolidated search over cyclotomic Gaussian tails, theta-function majorants, smoothing widths eta_eps, and Z^1024 lower-bound tightness returned only generic smoothing literature with no exact uniform 15%-sharper cyclotomic bound and no recorded 2^-90-at-0.85-width lower bound under any synonymous rho/eta/theta phrasing.",
+      "reasoning": "No dual, complement, theta-function, eta-epsilon, or coefficient-vs-canonical rephrasing states the submitted extremal lower bound; title/embedding similarity to generic smoothing papers does not establish hypothesis-conclusion coverage, so the claim is not a restatement.",
+      "search": "cyclotomic dual lattice smoothing width 15% improvement 1024 dimension Gaussian tail 2^-128 theta majorant"
+    },
+    "exact_database_or_table": {
+      "evidence": "No lattice database, theta-value table, LWE estimator sheet, or census tabulates proved Gaussian-tail lower-bound constants for 1024-dimensional cyclotomic duals; searched official smoothing/theta sources contain only generic bounds and sampling parameters, not this proved inequality.",
+      "reasoning": "Direct lookup cannot decide the target because the object is a proved analytic tail inequality with constant tracking verified by interval arithmetic, not a tabulated numeric value; database-repackaging exclusion holds.",
+      "search": "Gaussian tail table cyclotomic lattice smoothing constant database lookup Z^1024 theta values"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "9610a8624fa20c2d603841bc2b0463d656b46d2e5577ebbad07330709d94dae1",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Discrete Gaussian Measures and New Bounds of the",
+        "URL": "https://eprint.iacr.org/2018/786.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same object (eta_eps(Z), eta_eps(L)) but proves generic upper bounds eta_eps(Z)<=sqrt(ln(eps/44+2/eps)/pi) and eta_eps(L)<=sqrt(ln(n-1+2n/eps)/pi)*bl_tilde; hypothesis is all lattices/eps small, conclusion is an upper width, opposite direction from submitted lower-bound tail>=2^-90 at 0.85 width for Z^1024, N=1024, eps=2^-128, so does not imply the 38-bit violation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://eprint.iacr.org/2018/786.pdf"
+      },
+      {
+        "title": "Discrete Gaussian measures and new bounds of the smoothing ...",
+        "URL": "https://link.springer.com/article/10.1007/s00200-020-00417-z?error=cookies_not_supported&code=bb3f2e2b-b0c0-46b2-af39-72875e107098",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Springer version of the same Guo et al. upper-bound paper: same hypotheses (Z and general n-dimensional L, small eps) and same upper-bound conclusions for eta_eps; contains no uniform 15% cyclotomic-dual improvement claim at N=1024 and no Z^1024 first-shell lower bound 2^-90 at s'=0.85 s_B, so it cannot cover or imply the refutation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://link.springer.com/article/10.1007/s00200-020-00417-z?error=cookies_not_supported&code=bb3f2e2b-b0c0-46b2-af39-72875e107098"
+      },
+      {
+        "title": "[PDF] Lattices: From Worst-Case, to Average-Case, to Cryptography",
+        "URL": "https://sites.cc.gatech.edu/fac/cpeikert/pubs/slides-amsterdam1.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Expository slides defining smoothing parameter smooth(L)=min s with rho(sL*\\{0})<=negl and proving generic smooth(Z^n)<=omega(sqrt(log n)) via Banaszczyk tail bound; hypothesis is asymptotic negligible error, conclusion is an existence upper bound, with no pinned N=1024, eps=2^-128, 0.85-factor or 2^-90 lower-bound statement.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://sites.cc.gatech.edu/fac/cpeikert/pubs/slides-amsterdam1.pdf"
+      },
+      {
+        "title": "New bounds of the smoothing parameter for lattices - PMC",
+        "URL": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12289070/",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Recent generic upper-bound improvements for eta_eps(Z) when 0<eps<=4m-1/72m^6 and for general L when 24n+1/n^2-1<=eps, plus Peikert l_inf bound; hypotheses are ranges of eps/n and conclusions are smaller upper widths, never a lower-bound tail>=2^-90 for Z^1024 at 0.85 of the Micciancio-Regev baseline with L=ln(2048(1+2^128)).",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12289070/"
+      },
+      {
+        "title": "On the Gaussian Measure Over Lattices",
+        "URL": "https://cs.nyu.edu/media/publications/stephens-davidowitz_noah.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "PhD-thesis smoothing framework with Corollary eta_eps(L)*lambda1(L*) between sqrt(log(2/eps)/pi) and sqrt(n/2pi)+sqrt(log(2/eps)/pi) and remark rho_{sqrt(pi/log n)}(Z^n)>=3/2 showing tightness up to O(sqrt(log n)) factor; asymptotic/order-tightness only, with no exact N=1024, eps=2^-128, c=0.85 constant tracking or 2^-90 certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://cs.nyu.edu/media/publications/stephens-davidowitz_noah.pdf"
+      },
+      {
+        "title": "On the smoothing parameter and last minimum of random ...",
+        "URL": "https://eprint.iacr.org/2020/057.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Probabilistic upper bounds on eta_eps(Lambda_perp(X)) and minima for random q-ary lattices with m=Omega(n log n), using MR Lemma 3.5 eta<=sqrt(ln(2d(1+1/eps))/pi)/lambda1^inf; hypothesis is random ensemble, conclusion is an upper width holding with probability 1-2^-Omega(n), not a worst-case cyclotomic-dual lower bound at the submitted parameters.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://eprint.iacr.org/2020/057.pdf"
+      },
+      {
+        "title": "On Ideal Lattices and",
+        "URL": "https://eprint.iacr.org/2012/230.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Defines eta_eps via rho_{1/r}(Lambda*\\{0})<=eps and recalls MR bounds eta_{2^-2n}<=sqrt(n)/lambda1* and eta_eps<=sqrt(ln(n/eps))*lambda_n, then specializes to cyclotomic R=Z[x]/<x^n+1> with lambda_n(R^vee)=1/sqrt(n) to get an O(...) upper bound; upper-bound direction for ideal lattices only, no 15% uniform improvement and no 0.85-factor impossibility at N=1024.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://eprint.iacr.org/2012/230.pdf"
+      },
+      {
+        "title": "On the Lattice Smoothing Parameter Problem",
+        "URL": "https://ar5iv.labs.arxiv.org/html/1412.7979",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Foundational smoothing-problem paper: formal definition eta_eps(L)=smallest s with rho_{1/s}(L*\\{0})<=eps and generic reductions/bounds; hypothesis is arbitrary Euclidean lattices, conclusion is problem hardness/framework, with no cyclotomic specialization to N=1024, eps=2^-128, or first-shell 2^-90 lower bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://ar5iv.labs.arxiv.org/html/1412.7979"
+      },
+      {
+        "title": "Gaussian Sums",
+        "URL": "https://cseweb.ucsd.edu/classes/fa25/cse206A-a/LecGaussian.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Lecture notes proving for all eps>0 sqrt(ln(2/eps)/pi)<=eta_eps(Z)<=sqrt(ln(1+2/eps)/pi) and eta_eps(Lambda)<=eta_eps(Z^n)*tilde_lambda_n plus Banaszczyk transference; generic 1D tightness and upper-bound transfer only, with no evaluation at n=1024, eps=2^-128, factor 0.85, and no stated 2^-90 violation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://cseweb.ucsd.edu/classes/fa25/cse206A-a/LecGaussian.pdf"
+      },
+      {
+        "title": "Discrete Gaussian Leftover Hash Lemma over",
+        "URL": "https://www.iacr.org/archive/asiacrypt2013/82710350/82710350.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Recalls Banaszczyk 1<=lambda_i(L)lambda_{n-i+1}(L*)<=n and defines eta_eps(L) as smallest s with rho_{1/s}(L*\\{0})<=eps, then bounds eta_eps(A)<=4wm^{3/2}n^{1/2}ln(1/eps) for the constructed family; hypothesis is full-rank L subset Z^n with negligible eps, conclusion is an upper width, not the submitted extremal lower bound for dual Z^1024.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://www.iacr.org/archive/asiacrypt2013/82710350/82710350.pdf"
+      },
+      {
+        "title": "A Reverse Minkowski Theorem",
+        "URL": "https://par.nsf.gov/servlets/purl/10526531",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves reverse-Minkowski-type Gaussian-mass bounds with remark rho_{sqrt(pi/log n)}(Z^n)>=3/2 showing Theorem 1.2 tight for Z^n up to C sqrt(log n) factor in t; asymptotic tightness up to logarithmic factors only, hypotheses/conclusions are order-level for general n, not the exact 0.85-width, 2^-128-vs-2^-90 constant-level refutation at n=1024.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://par.nsf.gov/servlets/purl/10526531"
+      },
+      {
+        "title": "arXiv:1907.09020v1  [math.MG]  21 Jul 2019",
+        "URL": "http://arxiv.org/pdf/1907.09020",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Improves Banaszczyk transference by ~20% to mu(L)lambda1(L*)<(0.1275+o(1))n and corollary eta(L)<(sqrt(2 beta_n/2pi e)+o(1))sqrt(n)/lambda1*; hypothesis is arbitrary n-dimensional L asymptotically, conclusion is a smaller universal upper constant, opposite direction and asymptotic, with no pinned N=1024, eps=2^-128, 0.85 lower-bound analysis.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "http://arxiv.org/pdf/1907.09020"
+      },
+      {
+        "title": "[PDF] Lattices that Admit Logarithmic Worst-Case to Average-Case ...",
+        "URL": "https://web.eecs.umich.edu/~cpeikert/pubs/ideal_lattices.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies ideal lattices over number fields with constant discriminant, noting smoothing ~lambda1/sqrt(n) vs ~lambda_n worst case and Lemma 6.5 eta_eps(I)<=N^{1/n}(I)D_K for eps=2^-n; hypothesis is fractional ideals over K, conclusion is an upper bound, not a uniform 15% cyclotomic-dual tail lemma and not a Z^1024 2^-90 lower-bound counterexample.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://web.eecs.umich.edu/~cpeikert/pubs/ideal_lattices.pdf"
+      },
+      {
+        "title": "Random Walks",
+        "URL": "https://ir.cwi.nl/pub/32136/32136D.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Thesis background recalling Banaszczyk tail bound rho_s((Lambda+t)\\B_r)<=beta(r/s)rho_s(Lambda) when r/s>=sqrt(n/2pi) and MR bounds eta_eps(Lambda)<=sqrt(log(2n(1+1/eps)))lambda_n and eta_{2^-n}<=sqrt(n)/lambda1*; generic upper-bound toolkit with ideal-lattice corollary s>=n lambda_n(O_K)Vol^{1/n}, no 0.85-factor N=1024 tail lower bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://ir.cwi.nl/pub/32136/32136D.pdf"
+      },
+      {
+        "title": "Trapdoors for Lattices: Simpler, Tighter, Faster, Smaller",
+        "URL": "https://sites.cc.gatech.edu/fac/cpeikert/pubs/efftrap.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Practical trapdoor paper using smoothing r=4.5 for 1D Z corresponding to statistical error <2^-90 per randomized rounding; hypothesis is one-dimensional integer lattice with concrete sampler, conclusion is an upper-bound correctness parameter, not a 1024-dimensional dual-lattice lower bound tail>=2^-90 at s'=0.85 s_B~=4.707 versus 2^-128 target.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://sites.cc.gatech.edu/fac/cpeikert/pubs/efftrap.pdf"
+      },
+      {
+        "title": "On Lattices, Learning with Errors, Random Linear Codes, ...",
+        "URL": "https://cims.nyu.edu/~regev/papers/qcrypto.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Survey recalling transference 1<=lambda1(L)lambda_n(L*)<=n and MR smoothing lemmas eta_eps(L)<=sqrt(n)/lambda1(L*) at eps=2^-n; hypotheses are general n-dimensional L, conclusions are standard upper bounds, with no cyclotomic-dual uniform-improvement statement and no exact-parameter first-shell refutation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://cims.nyu.edu/~regev/papers/qcrypto.pdf"
+      },
+      {
+        "title": "Smoothing Codes and Lattices: Systematic Study and New ...",
+        "URL": "https://arxiv.org/html/2205.10552v2",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Systematic smoothing-factor study improving worst-case Gaussian factor to C_KL/(2pi sqrt(2e))~=0.09013 via PI+CS+LP for random codes/lattices ensembles; hypothesis is random ensembles/expected smoothing, conclusion is an average-case upper factor, not a worst-case uniform cyclotomic-dual lower bound at N=1024, eps=2^-128, factor 0.85.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "url": "https://arxiv.org/html/2205.10552v2"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check executed 3 queries (literal 15%-improvement/N=1024/2^-128 claim, rho/theta/s=0.85 equivalent, and Banaszczyk/cyclotomic-census dominance) returning 20 results with 5 overlapping the base providers by URL. All substantively relevant hits are generic lattice-smoothing upper-bound literature (Guo/Zheng/Peikert/Regev/Stephens-Davidowitz, reverse-Minkowski, smoothing-codes factors, ideal-lattice upper bounds, trapdoor r=4.5 for 1D Z). None states the submitted uniform 15% cyclotomic-dual tail lemma, none evaluates rho_{1/s'}(Z^1024\\{0}) at s'=0.85 s_B with L=ln(2048(1+2^128)), and none derives tail>=2^11*2^-101=2^-90. Upper-bound direction cannot imply the lower-bound 38-bit violation; asymptotic/O(sqrt(log n)) tightness remarks do not pin the exact cryptographic constants. Three hits were excluded as merely keyword-similar: smooth theta sums with rational parameters (analytic number theory), Dickman rho smooth integers, and an ideal-lattice thesis fragment without a smoothing-tail conclusion. No COVERS_CLAIM source was found, so originality remains PASS and no axis changes."
+  }
+}
