@@ -1,0 +1,54 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent recomputation confirms the exact integer core: R2 membership holds at both scalings; Bareiss determinants equal +Ca and -Cb so Gram determinants equal C^2; exact-Fraction LLL(0.99) size coefficients all <=1/2 and all five Lovasz inequalities hold; b1 squared norms 9263853538132 and 280049086125351522524051798 verified; brackets L=3043657/Uhi=3043658 and L=16734667194938/Uhi=16734667194939 are valid floor/ceil bounds with min-GS-norm equal to b1-norm; integer stall certificates 45*907444^2>=4*3043658^2 (margin 41507264, sharp: B-1 fails) and Cb analogue both true; Lemma (1) proof is sound up to an immaterial sign typo (lattice vector is (e,+S), norm identical); the necessary stall condition kappa^2=45/4 logic is valid; R1 margins (max 0.1504 Ca, 0.4630 Cb) pass with large slack at 120 dps; B=96 numbers 3.043417e-34 and 1.6734667194698e-67 match (s-240)/C with rigorous s=floor(sqrt(low2-46080)); DRAFT text misdescribes s as floor(sqrt(L^2-46080)) (off by one from L^2) but the quoted integers match the verifier's rigorous low2-based s, so headline numbers are correct. Proof (lemma, threshold deduction) vs computed exact certificates is properly separated.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route verified as genuine: it reuses the TARGET's own set S2={2,3,5,11,50033}, scalings Ca=10^40/Cb=10^80 and delta=0.99, and reports the TARGET one-step route as blocked with recovery test, not a substituted easier subject. On substance, no prior source records any archimedean LLL transcript, reduced 6x6 basis, Gram certificate, or short-vector bracket for S2 at any scaling: the exact S2 solution-file identifier 404s, Hajdu arXiv:0905.0745 gives only the generic optimal-systems template with no S2 instantiation, and von Kanel/Matschke theory plus database D1 cover only NS<=1e7 and S subset S(16) while S2 radical is 16510890, so the dual integer bases and brackets are fresh computed content not mechanically implied by the de Weger lemma template. Live fused retrieval was attempted but returned partial coverage (all providers database-locked); alternative primary-source checks above supply the material-gap evidence, so originality passes with the tool failure recorded.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Even though correct and new, the headline is not independently worth retrieving under the shared STANDARD. The TARGET's C-independent optimum B*=96 is explicitly NOT claimed; what remains is C-dependent log data for two Topic-chosen round scalings (Ca=10^40, Cb=10^80): two short-vector lengths, quality ratios L/C^{1/6}, tiny C-scaled linear-form lower bounds at B=96, and the arithmetic restatement T=L/kappa (~9.07e5, ~4.99e12). The one-step stall 'theorem' is the generic de Weger necessary condition instantiated at those L values and stalls for every lattice whenever B>>L, so without a computed explicit Baker-Wustholz B0 or any multi-step iteration it only records that the chosen C values lie far below any astronomical B0 -- an arbitrary-parameter mismatch, not a structural obstruction that resets the named x^3-2y^3 Thue-Mahler consumer (no import is shown). No reduced exponent upper bound, census, classification, improved cutoff, or reusable canonical invariant is established; certification and VERIFY_OK replay strengthen evidence but do not create value for an arbitrary C-pair and an evasively large-prime set. No bounded motivation-only addition can supply the missing substantive result without a new research direction, so this is intrinsic low value, not repairable.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/artifacts/verification.json with VERIFY_OK, per-scaling R1-R7 flags, determinants, GS norms, thresholds and B=96 bounds",
+    "inputs/artifacts/reduced_Ca.json and reduced_Cb.json: 6x6 integer bases independently rechecked for b1 squared norms, Bareiss determinants +Ca/-Cb, Fraction LLL(0.99) size and Lovasz, and sharp stall integers",
+    "inputs/artifacts/lattice_inputs.json plus 120-dps mpmath recomputation of rounding margins (max 0.1504 Ca, 0.4630 Cb)",
+    "Direct fetch of S2 solution-file identifier solutions_2_3_5_11_50033.txt returns HTTP 404, confirming no completed-census row for S2",
+    "arXiv:0905.0745 (Hajdu optimal systems for LLL-reduction): generic parameter-sensitivity theory with no S2 transcript or B*=96 instantiation",
+    "arXiv:1605.06079 (von Kanel/Matschke): S-unit architecture, refined sieve, and database D1 scope NS<=1e7 and S subset S(16); S2 radical 16510890 lies outside, no S2 reduced bound",
+    "scope_literature_search three-query call (literal transcript, equivalent linear-form/dual encoding, dominance census/database) returned zero results with partial coverage, all providers reporting database is locked"
+  ],
+  "claim_route_inference": "research_report.json declares claim_route EMERGENT_FINDING; audited under emergent policy with no preset-value presumption, genuineness check passed, ordinary correctness/originality/value standard applied",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "De Weger/Smart/von Kanel/Baker-Wustholz theory promises some archimedean reduction for every S but publishes no numeric optimum for S2; Hajdu proves only generic parameter sensitivity; the fused literal search plus direct fetches returned zero S2-specific transcripts and the tool reported database-locked partial coverage.",
+      "reasoning": "No broader theorem fixes the two short-vector lengths, the stall integers 907444 and 4989313790496, or any B*=96 optimum for S2; those numbers depend on fresh LLL runs at the stated Ca/Cb for an uncovered set, so the claim is not subsumed as a special case of a stronger result.",
+      "search": "S-unit equation census S={2,3,5,11,50033} von Kanel Smart Thue-Mahler x^3-2y^3 Baker-Wustholz reduced bound database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior work supplies only the de Weger norm template sum e_i^2+(sum e_i a_i)^2, Baker constants architecture, and seconds-scale LLL timing; no prior text records the two S2 reduced bases, Gram determinants Ca^2/Cb^2, brackets [3043657,3043658] and [16734667194938,16734667194939], or the evaluated R7 inequalities.",
+      "reasoning": "Because the headline integers are outputs of new exact computation on an open set rather than inputs of the theory, prior lemmas cannot mechanically imply them; independent replay is the only route, so this is not a recomputation, certificate, corollary or repackaging of a known stronger fact.",
+      "search": "de Weger LLL reduction S-unit linear form e1 log2+e2 log3+e3 log5+e4 log11+e5 log50033 Gram determinant"
+    },
+    "equivalent_formulations": {
+      "evidence": "Rephrasings as uniform linear-form lower bounds over e1 log2+...+e5 log50033, dual short-vector bounds, or incidence/matrix encodings appear in literature only as generic Baker/de Weger templates; Hajdu abstract and von Kanel text contain no S2 instantiation with Ca=10^40, Cb=10^80, lambda brackets, or stall thresholds.",
+      "reasoning": "Synonymous notation, dual/complement encodings and log-form restatements preserve the standard reduction shape but no source instantiates them at S2 with the claimed integers, so renaming or recoding does not cover the submitted dual-transcript numbers.",
+      "search": "certified dual de Weger LLL transcript S={2,3,5,11,50033} Ca=10^40 Cb=10^80 lambda1 bracket short vector"
+    },
+    "exact_database_or_table": {
+      "evidence": "Direct HTTP fetch of the exact S2 solution-file identifier returns 404; von Kanel database D1 scope is NS<=1e7 while S2 radical is 16510890; no lattice-transcript database stores S2 reduced bases at any scaling and Sage/NTRG implementations compute other sets on the fly.",
+      "reasoning": "The Gram pair, short-vector brackets, quality invariants and B=96 bounds cannot be looked up or recomputed from a quoted table row; they must be computed anew, ruling out exact database repackaging for either resolution direction.",
+      "search": "Matschke S-unit solutions_2_3_5_11_50033.txt database lattice transcript table lookup"
+    }
+  },
+  "residual_risks": [
+    "Live fused retrieval reported database-locked partial coverage on all providers, so originality rests on direct primary-source fetches plus admission fused evidence rather than a fresh clean fused result",
+    "R1 rounding margins rely on 120-digit mpmath evaluation with >=0.03 slack rather than fully rigorous interval arithmetic, though the error scale (~1e-38) is negligible against the slack",
+    "DRAFT Section 4 describes s as floor(sqrt(L^2-46080)) while the verifier rigorously uses floor(sqrt(low2-46080)); the quoted s values match the rigorous definition, leaving a one-unit textual imprecision with no numeric effect"
+  ],
+  "verdict": "REJECT"
+}
