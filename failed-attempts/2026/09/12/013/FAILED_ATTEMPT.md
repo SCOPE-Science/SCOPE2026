@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Least-field C4 exemplar with certified unramified generator in the all-negative window
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1082
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Arithmetic Statistics
+- **Method:** second-order Redei norm equation with unramifiedness verification
+
+## Problem
+
+In the all-negative window Q(sqrt(pq)) with p<q both 3 mod 4 and pq below 2500, identify the least field with ordinary 4-rank 1, prove its full 2-class group is cyclic of order 4, and exhibit an explicit integer generator of the unramified quadratic extension witnessing the C4 climb, with unramifiedness verified.
+
+## Attempted claim
+
+The least field K0=Q(sqrt(pq)) with p<q both 3 mod 4 and pq below 2500 attaining ordinary 4-rank 1 has 2-class group exactly cyclic C4, witnessed by an explicit integer beta with logged norm equation N(beta) a square up to the fundamental unit such that K0(sqrt(beta))/K0 is unramified at all finite primes, and the full-window 4-rank vector is as tabulated.
+
+## Research outcome
+
+Target disproved: all 161 all-negative pq fields below 2500 have 4-rank 0 with odd class numbers, so no least 4-rank-1 C4 exemplar exists.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: ORIGINALITY FAIL: The headline negative claim -- no pq<2500 all-negative field has 4-rank 1 -- is a window-wide universal vanishing that is mechanically implied by textbook quadratic reciprocity plus the standard Redei-Reichardt formula 4-rank=(t-1)-rank. The opposite-sign computation A=-B is a 3-line reciprocity exercise ((p/q)=-(q/p), (-1/p)=-1) known for 200 years; substituting t=2 gives rank 1 and 4-rank 0 for EVERY such pq with no bound needed. General sources found in fused search (generalized Redei-matrix formula, Lemmermeyer 1310.6607 Scholz theory, Benjamin cyclicity criteria) state the broader theorem that substantively implies the claim; verbatim window statement is not required. The 161-row odd-class-number table is a recomputation of known values (D=21,33 h=1 etc. in LMFDB/standard tables). No new generator, obstruction, or census beyond mechanical substitution was produced. value: VALUE FAIL -- ADMISSION_DEFECT: The resolution is explicitly false-by-vacuity (DRAFT: 'false by vacuity of its presupposition'). It exposes a cheap falsification defect that Admission certified as passing: topic.audit_preflight.cheap_falsification_checks expected 'early pairs already split between forced-zero and ambiguous cases' and target_integrity claimed a populated ambiguous class with a least rank-1 field. ADMISSION_DEFECT: that preflight is false -- the opposite-sign lemma proves ambiguous cases are impossible for any p,q=3 mod 4, so rank is pinned at 1 window-wide and no least exemplar can exist at any bound. Under TARGET policy a negative resolution that is only vacuity, cheap small-instance mismatch, or arbitrary-parameter fact fails value even if literally false. Here bound 2500 is irrelevant (lemma holds for all bounds), no C4 witness, obstruction method, or reusable downstream fact is delivered beyond a textbook exercise, and the envisioned substantive disproof (certified (2,2) obstruction for an existing rank-1 field) was not produced.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: The disproof is scoped strictly to the stated window (both primes 3 mod 4, pq below 2500) and shows vacuity of the least-4-rank-1-field presupposition there; it makes no claim about other congruence families, larger bounds, or 8-rank phenomena. The class-number leg relies on the standard theorem that rho-cycles on reduced indefinite forms count narrow classes plus CF-period parity for the narrow-to-ordinary passage, both machine-asserted per field in the replay script rather than re-proved from…
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
