@@ -1,0 +1,39 @@
+== base ==
+q = t*x**2 + x**4 + 1 | qx = 2*t*x + 4*x**3 | qt (=dtA lower-left) = x**2
+
+== (R) Riccati: Q = s*x^2 + a*x + b, s^2 = 1 ==
+coeff of x^3 in Q'+Q^2-q: 2*a*s
+coeff of x^2 in Q'+Q^2-q: a**2 + 2*b*s - t
+coeff of x^1 in Q'+Q^2-q: 2*a*b + 2*s
+with a=0: coeff x^2 = 2*b*s - t -> b = s*t/2; then coeff x^1 = 2*s
+residue at oo of tail E (= coeff of x^1): 2*k*s
+constant term of tail E: 2*a*k + 2*m1*s
+=> total x^1 coeff of u'+u^2-q is 2*s*(1+k) = 0  <=>  k = -1, impossible (k>=0).
+formal series check: coeff of x^1 in u'+u^2-q: 2*c*s + 2*s -> c = -1, incompatible with rational k >= 0.
+
+== (S) L(P) = P'''-4*q*P'-2*qx*P for monomials ==
+d=0: deg=3, LC=-8  (expect deg d+3, LC -(4d+8))
+d=1: deg=4, LC=-12  (expect deg d+3, LC -(4d+8))
+d=2: deg=5, LC=-16  (expect deg d+3, LC -(4d+8))
+d=3: deg=6, LC=-20  (expect deg d+3, LC -(4d+8))
+d=4: deg=7, LC=-24  (expect deg d+3, LC -(4d+8))
+d=5: deg=8, LC=-28  (expect deg d+3, LC -(4d+8))
+d=6: deg=9, LC=-32  (expect deg d+3, LC -(4d+8))
+
+== (B) Lax pair: A=[[0,1],[q,0]], B=[[a,b],[c,-a]] ==
+E11 = 0 | E12 = 0 | E21 + L(b)/2 + x^2 = 0
+=> (2,1)-entry vanishes iff L(b) := b'''-4*q*b'-2*qx*b = -2*x^2.
+
+== (B) pole obstruction: b = c0*(x-a0)^(-k), k=1..3 ==
+k=1: lim (x-a0)^(k+3)*L(b) = -6*c0 (expect -k(k+1)(k+2)*c0 = -6*c0)
+k=2: lim (x-a0)^(k+3)*L(b) = -24*c0 (expect -k(k+1)(k+2)*c0 = -24*c0)
+k=3: lim (x-a0)^(k+3)*L(b) = -60*c0 (expect -k(k+1)(k+2)*c0 = -60*c0)
+
+== (B) degree obstruction: generic polynomial b of degree d ==
+d=0: deg L(b)=3, LC=-8*b0  (RHS deg 2; never equal)
+d=1: deg L(b)=4, LC=-12*b1  (RHS deg 2; never equal)
+d=2: deg L(b)=5, LC=-16*b2  (RHS deg 2; never equal)
+d=3: deg L(b)=6, LC=-20*b3  (RHS deg 2; never equal)
+d=4: deg L(b)=7, LC=-24*b4  (RHS deg 2; never equal)
+
+ALL CHECKS DONE
