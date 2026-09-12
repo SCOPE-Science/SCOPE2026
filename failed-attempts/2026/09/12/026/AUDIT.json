@@ -1,0 +1,48 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Finite-dimensional Ito identity verified. Wick constant killed by gradient exactly since (e.grad)c_N=0 and Pi_N kills k=0 mode. Trilinear pairing <v,Pi_N(e.grad)(v^2/2)>=<v,(e.grad)(v^2/2)> vanishes by divergence theorem on T^2; DRAFT writes 1/6 vs correct 1/3 for (e.grad)(v^3) factor but zero remains exact. Poincare gap gamma=(2pi)^{5/2}~98.96 correctly computed as (4pi^2)^{5/4}. Gronwall sup_N sup_t E||u_N||^2<=K(1+||u0||^2), K=max(1,tau/2gamma) holds (loose but valid); time-integrated bound (5) has factor-2 looseness (V0/T vs V0/2T) still uniform. H^{5/4} moment plus H^{5/4} compact into C^{-kappa} via s-d/2=1/4>-kappa gives Krylov-Bogoliubov tightness uniformly in N,T>=1. Global Galerkin existence follows a posteriori from energy bound preventing explosion. Numerical replay (cancellation 2.5e-17, gamma/K checks, 20-trial energy 0.17 vs bound 1.25) consistent; numerics not part of proof. Lemma gives boundedness+tightness only, no invariant-measure limit, uniqueness or gap, honestly limited.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: Headline is textbook Galerkin energy ledger mechanically implied by standard skew-symmetric SPDE theory, not new. Exact cancellation <v,partial_x(v^2/2)>=0 is undergraduate integration-by-parts underlying all Burgers/Navier-Stokes energy estimates (Da Prato-Debussche-Temam 1994 stochastic Burgers; E-Khanin-Mazel-Sinai 2000 1D Burgers invariant measures; Goldys-Maslowski 2005 1D Burgers/2D Navier-Stokes ergodicity; Brzezniak-Debbi-Goldys 2011 FSBE Lemmas 3-4 prove harder 1D white-noise L2 bounds with interpolation). With trace-class noise and any coercive A the Ito bound d/dt E||u||^2<=-2gamma E||u||^2+tau and Krylov-Bogoliubov tightness via compact Sobolev-Besov embedding are routine exercises; sigma=5/2, e=(1,0), K=max(1,tau/2gamma) are mere parameter substitutions. Wick ordering is vacuous here since gradient kills constant, so no renormalization content. No source needs to state sigma=5/2 verbatim: broader textbook theorem substantively implies it. ADMISSION_DEFECT: Admission originality preflight claimed no broader theorem implies 2D tightness lemma, missing that generic dissipative skew-symmetric Galerkin theory does.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Correct but textbook restatement plus arbitrary parameter slice with no independent retrieval value. Bound holds for any sigma>0 and any divergence-form skew-symmetric Galerkin truncation with additive trace-class noise; sigma=5/2, unit torus, e=(1,0) add no boundary. Trace-class noise makes system classical function-valued, so 2D singular-transport/Wick narrative is vacuous (renormalization does nothing, nonlinearity cancels entirely, linear OU gives same bound). Explicit K is Poincare ratio tau/2gamma, mechanically computable, not a needed exact invariant; tightness is standard Krylov-Bogoliubov input with no limit passage, uniqueness, mixing or sampling benchmark demonstrated. Certification via 16^2-grid Euler-Maruyama does not create value per STANDARD. ADMISSION_DEFECT: Admission triviality/value preflight passed non-vacuity and two-sided value, but positive resolution is 3-line exercise and negative resolution (growth/mass escape) was impossible given exact cancellation, so TARGET two-sided value premise was materially false; audit plan itself expected interpolation but none was needed.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Sections 2-4: exact trilinear cancellation lemma, Ito-Gronwall with gamma=(2pi)^{5/2}, H^{5/4} into C^{-kappa} tightness argument \u2014 verified line-by-line, factors 1/6 vs 1/3 and V0/T vs V0/2T noted as immaterial",
+    "inputs/artifacts/verify.py + ledger.json replay: gamma=98.9577, K checks, cancellation inner 2.46e-17, 20-trial Galerkin Kc=5 TrQ=50 mean-energy 0.173 vs bound 1.25, linear-theory 0.196 \u2014 consistency check only",
+    "Brzezniak-Debbi-Goldys, Ergodic properties of Fractional Stochastic Burgers Equation, arXiv:1106.1918 (2011): 1D FSBE on (0,1) with 3/2<alpha<2, white noise, existence/uniqueness of invariant measure via strong Feller+irreducibility, Lemmas 3-4 L2 a priori estimates with interpolation \u2014 harder white-noise bound whose method mechanically implies trace-class 2D Galerkin bound",
+    "Wang-Chen, Invariant measure of stochastic fractional Burgers equation with degenerate noise on 1D bounded domain, CPAA 2019, doi:10.3934/cpaa.2019140: 1D weighted-space/asymptotically strong Feller uniqueness; references list includes Bertini-Cancrini-Lasinio 1994, Da Prato-Debussche-Temam 1994 stochastic Burgers, E-Khanin-Mazel-Sinai Ann.Math.2000 invariant measures for Burgers, Goldys-Maslowski JFA 2005 exponential ergodicity for 1D Burgers/2D Navier-Stokes \u2014 establishing textbook skew-symmetric energy/ergodicity lineage",
+    "E-Khanin-Mazel-Sinai, Invariant measures for Burgers equation with stochastic forcing, Ann.Math.151 (2000) 877-960 and Goldys-Maslowski, Exponential ergodicity for stochastic Burgers and 2D Navier-Stokes, JFA 226 (2005): general dissipative Burgers/Navier-Stokes Galerkin energy + Krylov-Bogoliubov tightness theory that substantively covers submitted lemma as special case",
+    "scope_literature_search fused Top-20 (SerpBase/Serpent + Crossref + OpenAlex, all coverage ok, partial=false): literal, equivalent-formulation, and dominance queries returned only 1D/non-singular fractional Burgers, control/numerics, and KPZ/Cole-Hopf surveys; no 2D sigma=5/2 Wick Lyapunov-tightness record \u2014 absence does not establish priority where broader textbook theorem implies claim"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General dissipative SPDE Galerkin theory (Da Prato-Debussche-Temam 1994 1D Burgers; E et al. 2000 Burgers invariant measures; Goldys-Maslowski 2005 1D Burgers/2D Navier-Stokes exponential ergodicity; Brzezniak et al. 2011 FSBE a priori Lemmas 3-4) proves L2 bounds via skew-symmetric cancellation plus Ito-Poincare-Gronwall and Krylov-Bogoliubov tightness via compact Sobolev embedding for any coercive A and trace-class noise.",
+      "reasoning": "Broader textbook energy method substantively implies headline: plug A=(-Delta)^{5/4}, use <v,(e.grad)(v^2/2)>=0, get identical uniform bound and H^{5/4} tightness. Sigma=5/2 is strict special case of any sigma>0 (any sigma>2 gives same compactness); no extra renormalization or interpolation needed. Hence broader coverage defeats novelty.",
+      "search": "invariant measure ergodicity stochastic Burgers 2D fractional dissipation existence classification database fractional stochastic Burgers equation"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior FSBE literature proves stronger facts in harder settings: Brzezniak-Debbi-Goldys existence+uniqueness+mixing for 1D white-noise FSBE with 3/2<alpha<2 via full strong-Feller/irreducibility; Wang-Chen uniqueness under degenerate noise; E et al. and Goldys-Maslowski invariant-measure/ergodicity theorems. Submitted claim is weaker (Galerkin boundedness+tightness only, no limit measure, no uniqueness/gap) in easier trace-class setting.",
+      "reasoning": "Headline is recomputation/certificate of known method at reduced difficulty: any reader of prior a priori estimates derives the trace-class Galerkin bound in two lines since noise is smoother and cancellation is exact. It adds no new boundary or obstruction and does not advance beyond prior implication; repackaging a corollary of stronger prior theory fails originality.",
+      "search": "stochastic Burgers divergence-form skew-symmetric trilinear cancellation Ito energy estimate Krylov-Bogoliubov tightness H^{5/4} into C^{-kappa} Besov embedding gradient transport KPZ Cole-Hopf"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched KPZ height vs Burgers gradient equivalence, Hopf-Cole transform, divergence-form vs advective (u.grad)u, Wick vs Fourier-truncation, zero-mode/mean-zero conventions, C^{-kappa}=B^{-kappa}_{infty,infty} Besov encoding. No source records sigma=5/2 Wick Lyapunov-tightness under any synonym; but all synonyms share identical trilinear zero.",
+      "reasoning": "Synonymous/dual encodings do not rescue novelty nor create coverage: height-function, Cole-Hopf, incidence/matrix rewrites inherit the same trivial cancellation and the same textbook bound. Equivalence checklist confirms there is no hidden distinct formulation that is new \u2014 all forms collapse to the same exercise.",
+      "search": "KPZ height versus Burgers gradient invariant equivalence torus zero mode tightness Cole-Hopf divergence-form Wick ordering synonyms"
+    },
+    "exact_database_or_table": {
+      "evidence": "Searched Lyapunov-bound tables, invariant-measure databases, SPDE benchmark/census repositories for fractional Burgers sigma=5/2 T^2 uniform constant K and H^{5/4} tightness certificate. No table lists K=max(1,tau/2gamma) or the Cesaro family; tabulated cases are 1D white-noise Burgers and Phi4/exp-Phi Gibbs measures.",
+      "reasoning": "Absence from tables does not establish originality here because K is closed-form Poincare ratio (2pi)^{5/2} computable in one line and the tightness is generic compact-embedding consequence, not a tabulated census value. A mechanically implied formula need not be tabulated to count as known; lookup failure is not priority.",
+      "search": "Lyapunov bound tables stochastic Burgers KPZ time-average tightness constants database uniform Galerkin H^{5/4} C^{-kappa} certificate"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
