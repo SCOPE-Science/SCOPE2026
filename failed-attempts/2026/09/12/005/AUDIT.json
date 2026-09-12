@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Enumeration engines are structurally sound and cross-agree to n=10 (auditor re-ran all three to n=10 with identical 224352/206098) and gen_full to n=12 matches counts_n12; min-insertion (new-min role 1, exact 4-tuple test) and max-insertion (triples-left plus t1<t2<g<t3 logic) are correctly derived. However Section 4 is mathematically false: all three forbidden patterns ARE sum-decomposable (1324=1+213, 1234=1+123, 1243=1+132), and sum-decomposable bases imply the class is NOT sum-closed (counterexample 1 in C, 213 in C since n=3, but 1(+)213=1324 not in Av(1324,1234); similarly 1(+)132=1243 not in Av(1324,1243)). Hence a_{m+n}>=a_m a_n and Fekete sup formula do not follow; spot checks in verify14.py do not prove general supermultiplicativity. The Arratia/Fekete existence justification via sum-closure is therefore invalid and the certified lower bounds 3.8817/3.8222 are unproved as stated (numerically plausible but not derived). The state-growth obstruction is only a computed datum, not a non-regularity proof, as the DRAFT admits.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route is genuine (same sibling pair, methods and growth question as the target investigation, in the survey valuable-partial-target form), so no scope evasion; it is assessed under the ordinary full standard with no presumption. It still FAILS originality: both exact n=14 integers already appear verbatim in official databases. Class A row equals OEIS A053617 (Av(1234,1324)) whose fetched entry lists 1,1,2,6,22,90,396,1837,8864,44074,224352,1163724,6129840,32703074,176351644,959658200,... with b-file to n=600 (Baxter/Pantone). Class B row equals the large Schroder numbers OEIS A006318 (shifted by one: B_n=A006318_{n-1}), whose fetched b-file lists ...27297738,142078746,745387038... and literature explicitly states Av(1324,1243) is enumerated by the large Schroder numbers (Kremer 2000; Claesson et al. thesis Table 5.8; Kremer-Shiu Table 1). The n=9..14 counts, and any root lower bounds derived from them, are therefore database recomputation/corollary of a known stronger exact enumeration and algebraic generating function, not new material. Fused literature search (two scope_literature_search calls, full provider coverage, no partial failure) plus direct OEIS fetches confirm coverage.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Because both rows to n=14 (and far beyond: A to n=600, B to arbitrary n via Schroder algebraic generating function (1-x-sqrt(1-6x+x^2))/(2x) with growth 3+2*sqrt(2)\u22485.828) are already published with exact formulas, the dual census to n=14 is known-database recomputation which the STANDARD explicitly rejects even if correctly certified. The Fekete bounds are both unproved (see correctness) and dominated by the known exact growth data (Schroder rate 5.828; A053617 600-term asymptotics), adding no new benchmark. The gap-mask/future-type numbers are an unexplained computed datum without a theorem (no non-regularity proof, no upper bound, no rate separation), and finite counts cannot decide the rate ordering as the DRAFT concedes. Hence no independently retrievable new invariant, witness, or classification advance remains.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "OEIS A053617 fetched text: Number of permutations avoiding 1234 and 1324, listing 1,1,2,6,22,90,396,1837,8864,44074,224352,1163724,6129840,32703074,176351644,959658200,5262988330,... with b-file to n=600 (Baxter/Pantone) \u2014 covers every Class-A headline integer to n=14 and beyond.",
+    "OEIS A006318 fetched search (seq 394,1806,8558,41586): large Schroder numbers 1,2,6,22,90,394,1806,8558,41586,206098,1037718,5293446,27297738,142078746,745387038,... \u2014 covers every Class-B headline integer (shifted offset B_n=A006318_{n-1}) with closed-form G.F. and rate 3+2sqrt2.",
+    "Second fused scope_literature_search ranks 6-7: arXiv 2604.01143 and thesis smash record stating 'The class Av(1324,1243) is enumerated by the large Schroder numbers, entry A006318' \u2014 substantive implication covering the B census and growth claim.",
+    "Kremer-Shiu (Discrete Math 268, 2003) Table 1 + Kremer (Discrete Math 218, 2000) generalized Schroder paper + A053617 links (Zeilberger enumeration schemes depth 4; Albert et al. 1510.00269) \u2014 broader census/transition-matrix coverage of both pairs.",
+    "First fused scope_literature_search (20 results, all providers ok): Bevan-Brignall-Elvey Price-Pantone Av(1324) bounds, Marcus excluded-matrices, Mansour-Stanley-Wilf surveys \u2014 nearest priors treating single patterns/general theory, confirming no gap but database hits elsewhere decide the issue.",
+    "Auditor independent re-execution: gcc min-insertion enum_sep.c, max-insertion enum_max.c and dual gen_full.c all agree byte-identically to n=10 (224352/206098); gen_full to n=12 reproduces 6129840/5293446; verify14.py logic inspected; Fekete roots recomputed as 3.8817459/3.8222889 \u2014 confirms engine agreement but also the invalid sum-closure step."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kremer-Shiu Finite transition matrices Table 1 plus Baxter-Pantone 600-term enumeration (A053617 b-file) and Schroder algebraic class results cover both pairs as special cases of completed pair-censuses with explicit matrices/generating functions.",
+      "reasoning": "The headline n=14 table is a strict prefix of a broader published census (A to 600, B to 2000 via closed form), so it is subsumed as a special case and cannot pass as an independent new enumeration.",
+      "search": "Kremer Shiu finite transition matrices pairs length-four Table 1 plus Baxter Pantone 600-term census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior exact results (Schroder G.F. for Av(1324,1243) with rate 3+2sqrt2; A053617 enumeration scheme depth 4 with 600 terms) substantively imply every headline count and dominate the claimed weak one-sided roots 3.8817/3.8222; the Fekete derivation itself is invalid due to reversed sum-closure direction.",
+      "reasoning": "A prior source need not state the headline verbatim: the known stronger enumeration and generating functions mechanically yield the n=14 numbers and better growth information, so the claim is a recomputation/corollary, and its only purportedly new inference (Fekete bounds) is unproved.",
+      "search": "whether known Schroder generating function and A053617 enumeration scheme imply n=14 counts and growth lower bounds"
+    },
+    "equivalent_formulations": {
+      "evidence": "Av(1324,1243) under shifted offset equals the large Schroder sequence A006318 (B_n = A006318_{n-1}: 394,1806,8558,41586,206098,...,142078746); Av(1324,1234) under identical offset equals A053617; both identities confirmed by verbatim OEIS term match and explicit literature statement that Av(1324,1243) is enumerated by the large Schroder numbers.",
+      "reasoning": "Under standard synonymous encodings (Schroder-path/lattice-path numbering, offset-by-one convention, POP/separable-class descriptions) the submitted rows are already-recorded sequences, so a literal-pattern-name search miss would not establish priority; the equivalent-formulation check affirmatively covers the claim.",
+      "search": "Av(1324,1243) as large Schroder numbers A006318 and Av(1324,1234) as A053617 with offset and synonymous encodings"
+    },
+    "exact_database_or_table": {
+      "evidence": "Direct OEIS fetch A053617 lists exactly 1,1,2,6,22,90,396,1837,8864,44074,224352,1163724,6129840,32703074,176351644 with extension to 959658200... and b-file to n=600; direct OEIS search for 394,1806,8558,41586 returns A006318 listing ...5293446,27297738,142078746,745387038... Both n=14 headline integers appear verbatim with many further terms.",
+      "reasoning": "An exact table hit makes the target database repackaging: success required creating new certified numbers, but every number 0..14 was already tabulated with far longer continuation, so originality fails by direct lookup.",
+      "search": "OEIS exact rows for 396,1837,8864,44074 and 394,1806,8558,41586 with b-files and extensions"
+    }
+  },
+  "residual_risks": [
+    "Auditor re-ran engines only to n=10/12 (n=13/14 runs not repeated due to combinatorial cost), but risk is moot because OEIS already tabulates those rows and beyond.",
+    "True Stanley-Wilf limits likely exist via deeper theorems despite the invalid sum-closure argument; the defect is the proof as given, not necessarily the numeric inequalities.",
+    "No partial-provider failure occurred; all scope_literature_search providers returned ok, so no missing-source risk needs recording."
+  ],
+  "verdict": "REJECT"
+}
