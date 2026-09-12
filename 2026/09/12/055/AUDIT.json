@@ -1,0 +1,93 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "The no-switch disproof is algebraically exact given the admitted model: with fixed EE/II delays the linearized 2x2 rate matrix has off-diagonal delay factors exp(-iwd_EI), exp(-iwd_IE) whose product is exp(-iwT*) with T*=4ms fixed, so D(w;r)=(1-chiE*AEE)(1-chiI*AII)-chiE*AEI*chiI*AIE*exp(-iwT*) is exactly r-independent. Zero set, Hopf frequencies, growth rates and dominance ordering therefore cannot cross in r; eigenvector phase vE/vI proportional to exp(+iwd_IE(r)) rotates continuously. Numerics confirm structure: fixed point nuE=9.08/nuI=7.27 Hz fluctuation-driven (means below threshold), FP-vs-Siegert ~4%, chi(0)-vs-dnu/dmu ~5%, zero negative densities, determinant scans at r=0.2,0.5,1,2,5 identical to 9.2e-16 with common gamma minimum 30.10 Hz and monotone phases 1.304->0.800 rad; second point 33.85 Hz to 1.4e-15. Spiking sims show r-independent stationary rates (6.2/31.5 Hz) and seed-level PSD-peak noise (23 Hz shift at fixed r=0.5) with smooth lags, supporting no bistability. Proof and numerical/spiking evidence are correctly separated; boundary caveat on fixed EE/II delays is stated.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused live retrieval (SerpBase/Serpent Top 10/20, OpenAlex/Crossref/OpenAIRE Top 15 per query, 20 deduplicated results, full coverage, no partial failure) finds no prior stating or implying the fixed-total-loop-delay r-invariance no-switch result for this admitted E-I LIF configuration. Nearest works concern PING/ING mechanisms generally (Liu-Han-Wang 2022 review), PING-to-ING transitions via external drive (Keeley et al., QIF E-I forum), and delay-dependent Hopf bifurcations varying total delay (Fields-type, Tao-Xiao-Sun 2017, Li et al. 2005, Rozier-Bondarenko 2022), none fixing T*=d_EI+d_IE and varying the split r. Equivalent-notation, dual-encoding, broader-theorem, and database checks (below) find no covering theorem, census, or table entry; the exp(-iw(d_EI+d_IE))=exp(-iwT*) algebra is elementary only after the admitted closed two-delay FP determinant is derived, and its consequence (no >=15 Hz jump, continuous phase) was not recorded. Negative resolution is therefore new, not a recomputation or corollary of a stated stronger fact.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "As a TARGET route rigorous disproof it completely resolves the admitted two-sided question and is not a cheap defect: it is not a type/normalization error, vacuity, small-instance mismatch, direct lookup, or arbitrary parameter fact, so no ADMISSION_DEFECT arises. The result is a structural, operating-point-independent invariance theorem (all fixed points, loop gains, frequency bands) answering the required determinant, r_c to 20%, frequencies to 5 Hz, phase lags, bistability, and spiking-validation components, advancing the recognized PING-vs-ING gamma-mechanism question by showing a genuine asymmetry-driven switch requires breaking fixed-T* (e.g. r-dependent EE/II delays/gains). Validated mean-field minima, continuous phase rotation, and r-independent spiking rates give independently retrievable exact facts a future researcher could need. This exceeds textbook restatement or tiny-gain thresholds.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md sections 2-7: closed determinant derivation, no-switch theorem with fixed EE/II caveat, fixed-point/moment values, validation tolerances, per-r minima/phases, spiking summary",
+    "inputs/artifacts/meanfield_results.json: primary operating point L=1.0/nue=18 rates 9.077/7.274 Hz, per-r f*=30.101 Hz min|D|=1.099 identical, phases 1.304/1.178/1.052/0.926/0.800 rad, invariance maxabs 9.16e-16 rel 3.68e-16, zero-delay f*=88.18 Hz",
+    "inputs/artifacts/meanfield_L15_nue18.json: second point L=1.5 rates 9.029/13.010 Hz, f*=33.848 Hz identical, phases 1.351->0.784 rad, invariance 1.35e-15",
+    "inputs/artifacts/sim_r_sweep.json: Bruno CUBA LIF NE=2000/NI=500 T=2500ms rates ~6.2/31.5 Hz identical across r, PSD-peak argmax varies but 23 Hz seed shift at fixed r=0.5, lags +0.3/-0.1/-0.9/-1.6/-2.3 ms",
+    "inputs/artifacts/meanfield2.py analyze(): coupling product AEI*AIE construction, band_min, invariance norm computation; inputs/artifacts/spikesim.py run_net()/analyze_trace(): delayed exponential PSCs, rate/PSD/cross-correlation pipeline",
+    "scope_literature_search fused set of 20 results with full provider coverage: Liu-Han-Wang Nonlinear Dynamics 2022 gamma-model review; Keeley et al. firing-rate PING-to-ING via drive; QIF E-I PING/weak-ING transition note; synaptic-delays PING phase/amplitude study; Tao-Xiao-Sun 2017 two-neuron delays; Li et al. 2005 two-neuron different delays; Rozier-Bondarenko 2022 two-delay Hopfield; Brunel-Hakim 1999/2008; Wang-Buzsaki 1996; Laing paired E-I delayed feedback note",
+    "Springer review page fetched in full (Liu et al. 2022): confirms PING/ING literature concerns mechanisms, resonance, cross-frequency coupling and mass-vs-spiking modeling, with no fixed-loop-delay-split switch claim"
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Delay-Hopf literature retrieved (two-neuron/two-delay Hopf papers, Hopfield two-delay resonances, E-I multiple-population dynamics, global Hopf with total delay as bifurcation parameter) always varies total delay or individual delays, never fixes the E-I loop sum T* while splitting it; no broader theorem stating loop-sum-only dependence for the 2x2 E-I FP determinant was found.",
+      "reasoning": "A broader result would need to imply the submitted r-invariance for the admitted FP susceptibilities and synaptic filters. The retrieved general delay-differential Hopf theory does not supply the admitted determinant structure, so it does not subsume or imply the headline disproof; originality is not defeated by generic Hopf theory.",
+      "search": "Searched stronger/broader coverage: two-delay Hopf bifurcation theorems, larger E-I object classes, exhaustive PING/ING censuses and classifications that could contain fixed-T* asymmetry as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior PING-to-ING transitions are driven by external drive to I (Keeley firing-rate models, QIF forum post) or synaptic weight changes; prior delay studies show total-delay-induced Hopf sequences. None derives D(w;r)=D(w;T*) for the admitted LIF FP model and none reports the 30.10/33.85 Hz minima or 1.30->0.80 rad rotation. The submitted negative >=15 Hz-jump exclusion therefore adds a new implication.",
+      "reasoning": "Implication requires that a prior hypothesis-conclusion pair logically yields the headline. Drive-induced transitions and total-delay Hopf crossings have different hypotheses (varying drive or total delay) and do not entail fixed-T* r-independence; title/embedding similarity on PING/ING/delay alone does not establish coverage.",
+      "search": "Compared literal hypotheses and conclusions of nearest PING/ING-transition and delay-Hopf priors against the submitted no-r_c claim to test substantive implication versus superficial topic overlap."
+    },
+    "equivalent_formulations": {
+      "evidence": "Retrieved snippets use synonymous PING (Pyramidal-Interneuron Network Gamma) / ING (Interneuron Network Gamma) naming, Wilson-Cowan / neural-mass / firing-rate encodings, and delay-characteristic-equation language; screened full review page and metadata show these concern drive-dependent transitions or total-delay stability, not a fixed-sum cross-delay split r=d_EI/d_IE at T*=4 ms.",
+      "reasoning": "Synonymous notation (E-I vs EI, PING vs pyramidal-interneuron gamma, delay vs conduction lag, determinant vs characteristic equation) does not reveal a hidden duplicate: no equivalent formulation states that Hopf spectra depend only on d_EI+d_IE for the admitted model, so the claim survives the adversarial synonym/encoding check.",
+      "search": "Searched literal headline plus synonymous PING/ING names, E-I rate/Fokker-Planck/Hopf notations, and delay-characteristic-equation encodings for the fixed-loop-delay asymmetry switch."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official table, census, or database entry (no model-archive, brain-model database, or parameter-table source among fused results or the fetched review reference list including Brunel-Hakim, Wang-Buzsaki, Borgers-Kopell) lists the admitted parameter tuple (tau_m 20/10 ms, tau_s 3/2 ms, T*=4 ms, r in [0.2,5]) with its Hopf frequencies or a critical r_c; the reported per-r minima, phases, and invariance norms appear only in the submitted artifacts.",
+      "reasoning": "Exact-parameter coverage would require the same object and invariant in a table. Its absence means the headline is not a direct lookup or recomputation of a tabulated value; the two operating-point JSON/NPZ artifacts are new primary evidence rather than database repackaging.",
+      "search": "Searched exact admitted parameters, identifiers, specialist computational-neuroscience databases, model repositories, theses and author pages for a tabulated critical ratio or Hopf frequency covering T*=4 ms and r in [0.2,5]."
+    }
+  },
+  "residual_risks": [
+    "Finite-volume susceptibility accuracy (~4-5% absolute) limits absolute Hopf-margin calibration but cannot affect the exact r-invariance zero-set conclusion, which is structural",
+    "Spiking validation uses smaller K than mean-field C with matched means but larger fluctuations and one drive; absolute rates differ (6/31 vs 9/7 Hz) though predicted r-independence holds",
+    "Only two mean-field operating points scanned 2-150 Hz at five r values; chaotic-transient misclassification risk is mitigated but not logically eliminated by the seed-control test"
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "c8c4f5f5fa6d4dcca9477c364ceb432bf7b35700640d9317914368fc3db1ac10",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Dynamics of Networks of Excitatory and Inhibitory Neurons in ...",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3103906/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Closest E-I delay/Hopf prior verified in full text: two-population E-I Wilson-Cowan and LIF transfer functions with E-I and I-I Hopf mechanisms and E-vs-I phase relations, but delays/connectivity/drive are varied rather than splitting a fixed cross-delay sum T* with fixed EE/II delays, so no r_c exclusion is stated or implied.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Mean field approximation of two coupled populations of excitable units",
+        "url": "https://ar5iv.labs.arxiv.org/html/1209.0073",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Two delay-coupled mean-field populations whose characteristic equation contains an exp(-lambda(tau_c,1+tau_c,2)) loop-sum term, verified in full text; but it treats FitzHugh-Nagumo excitable units with arctan cross-coupling, not the admitted LIF Fokker-Planck susceptibilities, and states no fixed-loop-sum PING-ING no-switch claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Firing rate models for gamma oscillations | Journal of Neurophysiology | American Physiological Society",
+        "url": "https://journals.physiology.org/doi/full/10.1152/jn.00741.2018",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Keeley et al. firing-rate PING/ING analysis where oscillations arise via Hopf as excitatory drive increases; it addresses drive-induced mechanism identity, not redistribution of cross-delays at fixed total loop delay, so its hypotheses differ and it does not imply the submitted invariance.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Stability, bifurcation and phase-locking of time-delayed",
+        "url": "https://www.aimspress.com/aimspress-data/mbe/2020/6/PDF/mbe-17-06-403.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Time-delayed E-I network stability/bifurcation and phase-locking study already screened in the base search; it varies delays to induce bifurcations rather than fixing the E-I loop sum and excluding a >=15 Hz PING-ING jump under fixed EE/II delays, so it does not state or imply the submitted result.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results (2 overlapping the base set by title/URL, 18 new). The incrementally new recall was genuinely useful: Ledoux-Brunel 2011 E-I transfer-function/Hopf analysis and Franovic et al. 1209.0073 two-population mean-field characteristic equation with a cross-delay-sum term are the closest structural cousins and were verified in full primary text, plus the Keeley firing-rate gamma paper. None states, tabulates, or logically implies the submitted headline: none fixes total cross-loop delay T*=d_EI+d_IE=4 ms with fixed EE/II delays and excludes a finite r_c with >=15 Hz PING-ING jump for the admitted LIF Fokker-Planck determinant; Ledoux-Brunel varies delays/connectivity and drive, Franovic treats FitzHugh-Nagumo arctan-coupled populations. Hence no COVERS_CLAIM source exists, originality PASS is preserved, and verdict remains PASS with the public package unchanged."
+  }
+}
