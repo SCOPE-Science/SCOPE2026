@@ -1,0 +1,83 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Reran inputs/artifacts/certify.py independently: T1=0 nine-sums in S16 over C(16,9)=11440 subsets; T2=0 bad of 65 one-point extensions; T3=1832 nine-sums in S20 over C(20,9)=167960 subsets with no two disjoint; T4=0 bad of 61 extensions. Lemma C (g^2(H)<=g(H)+exp(H)) is proved by the standard two-step deletion argument and is sound. T4 reduction is valid because T3 certifies old zero-sums pairwise intersect, so any disjoint pair in an extension must use the new point; the script then exhaustively checks all (K-1)-subsets through the new point against old masks. Boundary conditions (distinctness, sizes 16/20, S16 subset S20, moduli 9, K=9) all assert and pass.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search (SerpBase/OpenAlex/Crossref/OpenAIRE) plus full fetch of the decisive k-Harborth paper (Lemos et al. arXiv:2209.14784) and Harborth literature shows no prior S16/S20, no C_9^2 two-fold bound, and no 1832-sum census. Bare inequality g(C_9^2)>=17 is implied by the 1983 Kemnitz elementary bound (n-1)2^{d-1}+1=17, which is disclosed and does not carry novelty; novelty rests on the explicit extension-maximal witnesses, the 1832-member pairwise-intersecting 9-sum family with no two disjoint, the g^2>=21 bound, and the 65/61 maximality sweeps, none of which is stated, tabulated, or implied by Kemnitz, Reiher/Gao prime-case theorems, C3xC3p results, or the differently-defined Lemos g^k (k-term, not k disjoint sums). No broader census, classification, or database covers C_9^2 disjoint 9-sums as a special case.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING genuinely arose from the target investigation: the p=3 base case of the admitted all-odd-p two-fold Harborth target, using the target's exact objects (9-term zero-sums in C_9^2, disjoint pairs), after the uniform Chevalley-Warning route stalled. The natural group C_9^2 and invariants g/g^2 were motivated before computation, exact values are not known, and the two-fold bound 21 materially advances the trivial bound 18 as the first rigorous foothold future all-p proofs must respect. The 1832-sum pairwise-intersecting census plus chain-maximality gives mathematical interpretation beyond unexplained enumeration, and Lemma C frames the exact-value problem via 21<=g^2<=g+9. DRAFT honestly disclaims exactness, p>=5, classification, and Chevalley-Warning, so the narrow exact witness is judged on its own per STANDARD without demanding a general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Independent rerun of inputs/artifacts/certify.py (T1=0 sums; T2=0 bad of 65; T3=1832 sums, disjoint=False; T4=0 bad of 61) reproducing verification.log exactly; reviewed certify.py T4 reduction logic against T3 pairwise-intersection certificate.",
+    "inputs/DRAFT.md Theorems A/B plus Lemma C proof and Section 4 non-claims disclaimer; inputs/research_report.json EMERGENT_FINDING context and limitations; inputs/target_exit.json blocked all-p routes and recovery probes.",
+    "Lemos-Moriya-Moura-Silva arXiv:2209.14784 (A Variant of Harborth Constant) fetched in full: defines g^k as k-term zero-sum (not disjoint-pair two-fold), studies Cp/C2^r/Cn for k=3,4; Kemnitz bound (n-1)2^{d-1}+1<=g(C_n^d) quoted, giving 17 for C_9^2 as bare-number implication only; no C_9^2 disjoint-pair result.",
+    "Fused scope_literature_search (3 consolidated queries; SerpBase/OpenAlex/Crossref/OpenAIRE) top results: Marchan et al. 2013 Harborth constants for C2+C2n; Guillot et al. 2020 g(C3+C3p)=3p+3 (p!=3), g(C3+C9)=13 (different group, exponent 9 but rank C3xC9 not C9^2); Kravitz metacyclic/dihedral; no C_9^2 exact value, table, or two-fold census covering S16/S20."
+  ],
+  "claim_route_seen": "EMERGENT_FINDING",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General theorems found: Kemnitz bounds (n-1)2^{d-1}+1<=g(C_n^d)<=(n-1)n^{d-1}+1; Kemnitz p=3,5,7 prime squares, Gao-Thangadurai p>=47/67 prime squares, Reiher prime Kemnitz theorem, Meshulam bound, plus Lemos general g^k lower bounds. None states a disjoint-pair (two-fold) theorem for C_9^2 or any census of 9-sums in a 20-set.",
+      "reasoning": "A broader theorem covers the claim only if it substantively implies the 20-point pairwise-intersecting family, the 1832 count, or g^2>=21. The located broader results bound only the one-fold constant or prime-square cases and do not entail any two-disjoint-sum fact; hence no broader coverage subsumes headline (B).",
+      "search": "Harborth constant C_n^2 exact value classification k-fold multiple Harborth EGZ squarefree Davenport; Kemnitz conjecture Reiher g(C_p^2)=2p-1 prime-square theorems and Meshulam/Gao bounds"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Lemos et al. Theorem 3.11/Prop 3.4 concern g^k = smallest l with a k-term zero-sum in a set (k=3,4,6,8 over Cp/Cn/C2^r); Kemnitz lower-bound construction is an existential size-17 witness class, not the coordinates of S16/S20, not the 1832 census, not maximality sweeps. Lemma C (g^2<=g+exp) is elementary two-step deletion and is framed as auxiliary, not the headline novelty.",
+      "reasoning": "Prior work implies at most the bare number 17 via parameter substitution n=9,d=2 into Kemnitz, which is why bare (A)-number alone is not novel; it does not imply the specific S20 disjointness property, the exact count 1832 with pairwise intersection, the 61-extension maximality, or g^2>=21, because those involve disjoint pairs of 9-sets, a different predicate from any prior k-term theorem. Hence the headline is not a recomputation, corollary, or repackaging of a known stronger fact.",
+      "search": "Comparison of submitted disjoint-pair 9-sum claim in C_9^2 versus Lemos k-term g^k theorems and Kemnitz (n-1)2^{d-1}+1 construction: does any prior proof entail 1832 sums with no two disjoint or g^2>=21"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results contain only C2+C2n, C3+C3p/C3+C9, dihedral/metacyclic, and cyclic Cp/Cn k-term papers; snippets and fetched Lemos text use squarefree/Kemnitz/Reiher/EGZ language but no candidate states a 16- or 20-point configuration in C9^2, a 9-term zero-sum-free or pairwise-intersecting family, or synonyms (centroid, lattice-point, p-term zero-sum, 2-fold/2-disjoint) covering S16/S20.",
+      "reasoning": "Title or embedding similarity to Harborth papers is insufficient; literal comparison of hypotheses shows prior groups are C3+C3p, C2+C2n, Cp, or prime squares, not C9^2 with two disjoint 9-sums, and prior predicates are single k-sums, not disjoint pairs. No synonymous notation or dual/complement/incidence encoding was found that restates S16/S20.",
+      "search": "Literal Harborth g(C_9^2) and C9 x C9 9-term zero-sum plus synonymous forms: squarefree Kemnitz centroid lattice-point p-term zero-sum over C9^2, Reiher g(C_n^2)=2n+1 extremal sets"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, table, OEIS entry, thesis census, or repository in the fused top-20 or in fetched references tabulates Harborth witnesses for C_9^2, let alone the coordinates of S16/S20, the count 1832, or 65/61 extension sweeps. Existing tables cover C2+C2n, C3+C3p (including g(C3+C9)=13), cyclic cases, and C2^r small ranks only.",
+      "reasoning": "The exact 20 coordinates, the 1832 nine-sum list property, and the maximality sweeps do not appear in any located table; a direct lookup therefore does not decide the claim, and the finding is not a known-database recomputation. The bare Kemnitz number 17 is a formula value, not a database record of these sets.",
+      "search": "Exact Harborth tables and databases for C_9^2 witnesses: constant tables, extremal-set censuses, theses, author pages, and repositories listing 9-term zero-sum configurations"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "456ea2c2f207cd34eb7958302bb79aab4eb3b4a2e06bfedba6c090ee4fe54e78",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same exponent 9 but a different abelian group (C3+C9, invariant factors 3|9) and a one-fold constant g=13; hypotheses and conclusion concern single 9-sums in C3+C9, not two disjoint 9-sums, S16/S20 coordinates, the 1832 census, or g^2(C_9^2)>=21.",
+        "title": "[PDF] On the Harborth constant of C3 C3p - Numdam",
+        "url": "https://www.numdam.org/item/JTNB_2019__31_3_613_0.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest terminological neighbor defining g^k(G) but with a different predicate: one k-term zero-sum in Cp/Cn/C2^r for k=3,4,6,8, not two disjoint 9-sums in C_9^2; contains no S16/S20, no 1832-count, and no g^2>=21 result.",
+        "title": "arXiv:2209.14784v1 [math.CO] 29 Sep 2022",
+        "url": "https://arxiv.org/pdf/2209.14784"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": " surveys one-fold Harborth values g(p)=2p-1 for primes p=3,5,7 and bounds 2p-1<=g(p)<=4p-3 over Z_p^2; the composite group C_9^2 and any disjoint-pair two-fold predicate lie outside its stated hypotheses and conclusions.",
+        "title": "Gao's conjecture on zero-sum sequences",
+        "url": "https://www.isibang.ac.in/~sury/surythanga.pdf"
+      }
+    ],
+    "rationale": "The terminal Perplexity check returned 20 results with 5 overlaps duplicating the base providers (metacyclic, weighted-Harborth, C3+C3p, Lemos k-Harborth papers) and 15 incremental URLs. The incremental recall is theses, Kemnitz/EGZ surveys (s(Z_n^2)=4n-3 with repetitions), Chevalley-Warning and higher-EGZ papers, all using a different predicate (repeated terms, single sums, or prime moduli) or a different group (C3+C9, cyclic, metacyclic/dihedral). Compared literally, none states the S16/S20 coordinates, the 1832-member pairwise-intersecting 9-sum family, the 65/61 extension-maximality sweeps, or g^2(C_9^2)>=21, so no source covers the headline and originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [
+    "Bare number g>=17 alone is Kemnitz-implied and must not be presented as a new numeric record; novelty rests on explicit maximal witnesses and the two-fold bound, as RESULT.md states.",
+    "Exact values of g(C_9^2) and g^2(C_9^2), optimality of S16/S20, p>=5, classification, and Chevalley-Warning certificate remain open; annealing-based tightness hints are heuristic only and are excluded from the certified headline.",
+    "Machine enumeration covers only the listed S16/S20 and their one-point extensions; correctness of any reuse depends on rerunning the pinned certify.py without modifying the sets."
+  ],
+  "verdict": "PASS"
+}
