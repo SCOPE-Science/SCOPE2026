@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Reflection-pair rank-two Nichols finiteness of dimension 64 over D8
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1151
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** Noncommutative Algebra
+- **Method:** Weyl-groupoid reflection ledger with PBW-basis and Hilbert-series verification
+
+## Problem
+
+Let D8 = <r, s | r^4 = s^2 = 1, srs = r^-1> over an algebraically closed field of characteristic zero, with reflection classes O_s = {s, r^2 s} and O_rs = {rs, r^3 s}. Let psi_+ be the character of C(s) = {1, r^2, s, r^2 s} with psi_+(r^2) = 1 and psi_+(s) = -1, and phi_+ the character of C(rs) = {1, r^2, rs, r^3 s} with phi_+(r^2) = 1 and phi_+(rs) = -1, defining simples V2 = M(O_s, psi_+) and W2 = M(O_rs, phi_+). Decide whether B(V2 (+) W2) is finite-dimensional of dimension 64 with an explicit Nichols-relation and PBW ledger, or infinite with a certified obstruction.
+
+## Attempted claim
+
+The Nichols algebra B(V2 (+) W2) of the named symmetric reflection-pair Yetter-Drinfeld datum over D8, with Klein-four characters psi_+(r^2) = 1, psi_+(s) = -1 and phi_+(r^2) = 1, phi_+(rs) = -1, is finite-dimensional of vector-space dimension exactly 64, with a finite rank-two Cartan graph and an explicit logged Nichols-relation and PBW-basis ledger.
+
+## Research outcome
+
+Proved B(V2+W2) over D8 is finite-dimensional of dimension exactly 64, diagonal type A2xA2, with explicit logged Nichols-relation and PBW ledger and verified Hilbert series (1+t)^4(1+t^2)^2.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: TARGET with no value presumption; ADMISSION_DEFECT: the admitted target was already covered by the published rank-two classification. Heckenberger-Vendramin JEMS 2017 (arXiv:1311.2881) Example 1.2 / Theorem 2.1 classifies all finite-dimensional B(V+W) over non-abelian epimorphic images of Gamma2 with rho(g)=sigma(h)=-1 and rho(eps h^2)sigma(eps g^2)=1, giving dim 64 and H=(1+t1)^2(1+t1t2)^2(1+t2)^2. D8 with a=s,b=rs,nu=r^2 is such a quotient (relations verified), and psi_+(s)=phi_+(rs)=-1, psi_+(r^2)=phi_+(r^2)=1 satisfy the character condition (r^2*1=r^2). Specializing t1=t2=t gives exactly the claimed (1+t)^4(1+t^2)^2 and dim 64. The diagonal A2xA2 ledger is likewise mechanically implied by the diagonal-type theory. A timestamp or failed search does not establish priority; substantive implication defeats novelty, so originality FAILS and is never repairable. value: The headline is a correct special-case recomputation and certificate of an already-classified infinite family, i.e. a mere parameter substitution (D8 instance of the Gamma2 family) with an explicitly logged but mechanically implied diagonal ledger. Certification, replayability, and explicit PBW/relation rewriting strengthen evidence but do not create value per STANDARD. No new boundary, benchmark, downstream use, or exact invariant unknown from the broader theorem is established; the object/invariant were already known and the value is implied by standard diagonal results. Hence value FAILS.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Characteristic zero is essential (divisions by 2 for the diagonal basis and by n! in symmetrizers); positive-characteristic analogues are not covered. Tail ranks at n=5..7 rest on float SVD cross-checked by mod-prime elimination (three primes at n=5, single prime plus float agreement at n=6,7) rather than full rational nullspace certificates, and the PBW completeness argument uses the matching of the 64-word spanning set against those computed ranks plus exact factor Hilbert series.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
