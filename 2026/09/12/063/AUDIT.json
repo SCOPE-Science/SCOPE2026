@@ -1,0 +1,82 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently rebuilt the witness from scratch in a fresh computation: rotations are well-formed (rotA permutes Z_10, rotB permutes A); g=(phi=(a0 a1), +1 on Z_10) preserves rotations up to cyclic rotation at every vertex; independent face-tracer gives F=20 faces each of length 4 with dart-sum 80=2E; V-E+F=14-40+20=-6 so genus 4, matching ceil((4-2)(10-2)/4)=4 minimum; dart-permutation order of g is 10 and its B-action is a 10-cycle. Re-ran the symmetric enumeration logic: 5896 systems total with 24 (transposition) + 16 (double-transposition) minimum-genus systems, confirming the DRAFT census and order_analysis.json. The stored inputs/artifacts/enumeration_10cycle.json with all-zero counts is stale and superseded by census_k410_fdist.json, order_analysis.json, and direct recomputation; it does not affect the headline witness, which verifies independently.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Full live retrieval per contract: three normalized queries (literal K(4,10) cyclic order-10 minimum-genus embedding; equivalent voltage-graph/Z_10/quadrilateral-rotation-system formulations; dominance query for stronger classifications, censuses, and databases) executed in one fused call across SerpBase, OpenAlex, Crossref, and OpenAIRE with no partial-coverage failure. Nearest priors screened substantively: Bouchet genus formula (genus value only, no symmetry), Flapan et al. spatial-graph symmetries in S^3 (different category from surface rotation-system automorphisms), regular/reflexible embeddings of K_{n,n} (require m=n, inapplicable to K_{4,10}), quadrilateral-existence theorems, and the K_{m,n} (m,n<=7) minimum-genus enumeration (does not include K_{4,10}). None states, implies, or tabulates this symmetric genus-4 rotation system. The conjunction of minimum genus with the order-10 10-cycle symmetry is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: the admitted two-sided question (exhibit a cyclically symmetric minimum-genus embedding of K(4,10) or rigorously rule it out) is resolved affirmatively by an explicit, verifiable witness. This is an exact invariant of a specific natural object (K(4,10), motivated before computation by the genus formula and symmetry question) whose value was not known or mechanically implied, and a future researcher studying symmetric quadrangulations, voltage constructions, or embedding automorphisms could reasonably need this precise rotation system. It is not a textbook restatement, mere parameter substitution, tiny unmotivated gain, or unexplained enumeration: the rotations, symmetry, and genus are all explicit and certified. The incomplete surrounding census is honestly bounded and does not erase the headline witness.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json: TARGET claim asking for cyclically symmetric minimum-genus embedding of K(4,10) or rigorous nonexistence proof",
+    "inputs/DRAFT.md: explicit witness rotations, symmetry check, genus computation, and enumeration context",
+    "inputs/research_report.json: TARGET route, claim, evidence summary, limitations",
+    "inputs/artifacts/verify_witness.py + verification.json: independent from-scratch verifier, F=20 quads, g order 10",
+    "inputs/artifacts/enumerate.py, validate2.py, order_analysis.py, census_k410_fdist.json, order_analysis.json: symmetric census and order data",
+    "Auditor independent recomputation: rebuilt rotations, symmetry, face trace (F=20 quads), Euler genus 4, g-order 10, B-action 10-cycle; re-ran enumeration slice confirming 5896 total with 24+16 minimum-genus systems",
+    "scope_literature_search fused results (20 records, all providers ok): Shao-Liu-Li genus embeddings; Lv/Singh-Sun nonorientable nearly-complete bipartite; Mohar; Flapan et al. arXiv:1205.4052 spatial symmetries (fetched in full); Kwak-Kwon regular/reflexible embeddings of K_{n,n}; Jones regular embeddings of K_{n,n}; Anderson quadrilateral embeddings; Bouchet genus formula; K_{m,n} m,n<=7 minimum-genus enumeration notice",
+    "Primary-source fetch of Flapan-Lehle-Mellor-Pittluck-Vongsathorn 'Symmetries of Embedded Complete Bipartite Graphs' confirming S^3 spatial setting, not orientable-surface rotation-system automorphisms"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused search returned classifications of regular, reflexible, and edge-transitive orientable embeddings of complete bipartite graphs (Kwak-Kwon, Jones, Du-Jones-Kwak-Nedela-Skoviera), all stated for K_{n,n} with m=n, plus Flapan et al. classification of automorphisms realizable in S^3. Full-text check of Flapan et al. confirms the S^3 spatial-graph setting and hypotheses incompatible with the submitted surface-embedding claim.",
+      "reasoning": "The broader theorems do not cover K_{4,10} as a special case: the regular-embedding classifications exclude m!=n by hypothesis, and the S^3 realizability theorem concerns homeomorphisms of pairs (S^3, Gamma), not orientation-preserving automorphisms of a genus-4 cellular rotation system. Hence no broader theorem substantively implies the headline witness.",
+      "search": "Searched stronger/broader coverage: regular/reflexible/edge-transitive embeddings of K_{m,n}, cyclic group actions, quadrilateral classification, exhaustive census, and established databases that could subsume K_{4,10} as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "The genus formula ceil((4-2)(10-2)/4)=4 (Bouchet 1978) fixes only the genus number; quadrilateral-existence results guarantee some quadrangulation without the Z_10 symmetry; spatial-symmetry results guarantee some S^3 embedding realizing abstract automorphisms without fixing the surface genus. The submitted record conjoins all three: genus exactly 4 AND cellular AND orientable AND order-10 automorphism acting as a 10-cycle on the large part, with explicit rotations.",
+      "reasoning": "No single prior result and no combination of them mechanically yields the joint symmetric minimum-genus witness; constructing the rotation system required search and verification rather than deduction from known theorems, so the claim is not a corollary, certificate, or repackaging of a known stronger fact.",
+      "search": "Compared the literal headline hypotheses and conclusions against each nearest prior result to test whether any prior theorem, construction, or census substantively implies the joint symmetric minimum-genus claim."
+    },
+    "equivalent_formulations": {
+      "evidence": "Queries using voltage graphs over Z_10, symmetric rotation systems, quadrilateral embeddings of K_{4,10}, cyclic automorphisms, and 10-cycle actions returned only general genus-formula records, nonorientable-genus papers, K_{n,n} regular-embedding papers, and the S^3 spatial-symmetry paper. No source under alternate notation states or constructs a genus-4 Z_10-symmetric orientable embedding of K_{4,10}.",
+      "reasoning": "Synonymous names (K(4,10) vs K_{4,10} vs K_{4,10} bipartite), dual/complement/incidence encodings, and voltage-graph formulations were all covered by the fused queries; none of the returned records states the same rotation system or an isomorphic symmetric quadrangulation, so equivalent-formulation coverage fails.",
+      "search": "Searched literal claim plus standard equivalent representations: K_{4,10} symmetric rotation system, Z_10 voltage graph, quadrilateral embedding genus 4, cyclic automorphism and 10-cycle action synonyms."
+    },
+    "exact_database_or_table": {
+      "evidence": "The only enumeration record found covers nonisomorphic minimum-genus orientable embeddings of K_{m,n} for 2<=m,n<=7 except (7,7), which excludes K_{4,10} (n=10 out of range); no combinatorial atlas, topological graph-theory database, thesis table, or repository entry lists the submitted rotations rot(b_0)=(a0,a2,a1,a3), rot(a0)=(0..9), rot(a1)=(1..0), rot(a2)=rot(a3)=(0,9,..,1).",
+      "reasoning": "The exact parameter set and object do not already appear in any located table or official database; the stale inputs/artifacts/enumeration_10cycle.json (all-zero counts) is an internal intermediate file, not a prior publication, and is superseded by recomputation confirming 24+16 solutions.",
+      "search": "Searched exact-parameter and table coverage: K_{4,10} minimum-genus embedding tables, K_{m,n} censuses for m,n up to 7, thesis and repository tables, and specialist topological graph theory databases."
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "cd388130b426bfba664634c5c396d20f20b8ff439059e2a74cd36960a8d10163",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Regular embeddings of complete bipartite graphs: classification and ...",
+        "url": "https://academic.oup.com/plms/article-abstract/101/2/427/1445815",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Classifies regular (arc-transitive) orientable embeddings only for balanced graphs K_{n,n}; its hypotheses require equal part sizes and maximal automorphism order 4n^2, so the unbalanced K_{4,10} with a single order-10 cyclic symmetry falls outside its scope and its conclusions cannot imply the submitted witness.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "An enumeration of minimum genus orientable embeddings of some complete bipartite graphs",
+        "url": "https://scispace.com/pdf/an-enumeration-of-minimum-genus-orientable-embeddings-of-43inb5h8k6.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Enumerates nonisomorphic minimum-genus orientable embeddings of K_{m,n} only for 2<=m,n<=7 except (7,7); K_{4,10} with second part 10 lies strictly outside the enumerated parameter range, so its tables cannot contain, tabulate, or imply the submitted symmetric genus-4 rotation system.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Regular embeddings of complete bipartite graphs",
+        "url": "https://arxiv.org/html/0911.4340v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Preprint of the Jones classification of regular orientable embeddings of K_{n,n} via isobicyclic triples; restricted by hypothesis to balanced complete bipartite graphs with arc-transitive orientation-preserving groups, which excludes the unbalanced K_{4,10} order-10 cyclic witness entirely.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "The terminal Perplexity check returned 20 results with only 1 DOI overlap against the 20 base candidates, so 19 URLs were incrementally new at the URL level, but all substantively useful items merely duplicated or extended the already-screened K_{n,n} regular-embedding literature (Jones 2010 and its arXiv preprint, Du, Kwak-Kwon, multipartite extensions) plus one out-of-range enumeration. Snippet-level literal comparison is decisive: the regular-embedding theorems require balanced K_{n,n} and arc-transitivity, while the enumeration covers only 2<=m,n<=7 except (7,7), explicitly excluding K_{4,10}. No returned source states, tabulates, or substantively implies a genus-4 orientable embedding of K_{4,10} with an order-10 10-cycle symmetry under any synonymous, voltage-graph, or dual encoding. Originality PASS is therefore preserved with no verdict change."
+  }
+}
