@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS because the proof is internally valid for DRAFT's own game formalization. View identity holds: P sees uniform A (S's uniform challenge forwarded) and uniform independent simulated answers, so wins with probability exactly eps. Programming legality holds: S makes zero real-oracle queries before step 4, so (w*,M*) with fresh lambda-bit M* is undefined; single PROGRAM succeeds under both overwrite-allowing and write-once ROM and defeats simulated locking queries which never touched real H. Win preservation holds: Phi_zeta carries over verbatim and H(w*,M*)=c* by construction, giving Adv_Self=eps up to negligible freshness term, hence >=eps/(Q+1). Norm preservation holds by byte-identical forwarding of z*. Toy demo re-executed locally (200 trials each, fresh/locking) reproduces 1.0->1.0 conversion with 1.0 programs/run and max norm 3<=8. Proof is distinguished from illustrative toy (DRAFT Sec.8); toy uses planted short-kernel harness, not a hardness claim.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the headline one-program straight-line reduction is mechanically implied by the standard programmable-ROM planting lemma and is a textbook exercise specialized to fixed ML-DSA-44 parameters without using any property of q=8380417, n=256, (k,l)=(4,4), B_39 or zeta beyond nonemptiness. Any PPT finder for a relation R without hash binding yields a hash-bound finder by private simulation plus post-hoc programming of a fresh point with loss 1; DRAFT instantiates this with R=Phi_zeta. No new boundary, classification, or parameter-specific argument is given. The fused retrieval (SerpBase/OpenAlex/Crossref/OpenAIRE, no partial failure) plus direct primary sources (Lattice Zoo SelfTargetMSIS definition, Barbosa et al. 2023/246 Fiat-Shamir with aborts ROM/QROM proofs, StackExchange 117390/JMW24 quoting real Plain vs Self definitions) show the general lemma and the real matrix-distribution question predate and subsume the claim. Timestamp or literal-title absence does not establish priority; substantive implication defeats novelty.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL (ADMISSION_DEFECT): as formalized, the admitted target is vacuous/textbook. Plain as defined has no hash-binding win condition (RO unconstrained and irrelevant), Self adds only H(w,M)=c satisfiable by one post-hoc program on a fresh point, so the positive side is a one-line ROM programming observation with loss 1 independent of Q and identical zeta, using none of the ML-DSA-44 specifics. This is a mere parameter substitution of a textbook exercise and an arbitrary finite slice (q,k,l,tau fixed but unused), with no demonstrated downstream need for this exact datum, no new structural insight, and no separation analysis of the substantive literature question (uniform A vs systematic [I|A'] with hash in both games, cf. JMW24/StackExchange opposite-direction row-reduction). Certification (toy replay with planted solver at n=8,q=257) strengthens replayability but does not create value per STANDARD. The result exposes that Admission failed to rule out vacuity/textbook triviality before research: ADMISSION_DEFECT.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json target_claim with (q=8380417,(k,l)=(4,4),B_39,zeta) and resample+one-program linear-loss no-zeta-change clauses",
+    "inputs/DRAFT.md Secs.2-6 formalization around Phi_zeta(A,w,c,z), reduction pseudocode, view-identity/programming/norm arguments, Sec.7-8 toy scope and limitations",
+    "inputs/research_report.json TARGET-route headline claim and evidence_summary",
+    "inputs/STANDARD.md sky-survey-admission-depth-gate-v12 originality/value/reject-textbook/parameter-substitution rules",
+    "inputs/artifacts/reduction_demo.py + results.json, locally re-executed: 200 trials fresh/locking each 1.0->1.0, 1.0 programs/run, max norm 3<=8",
+    "scope_literature_search fused results (20 hits, full provider coverage, no partial): ePrint 2023/246 Fixing/Mechanizing Fiat-Shamir with Aborts and Dilithium, ePrint 2022/1601 Revisiting Concrete Hardness of SelfTargetMSIS, Lattice Zoo SelfTargetMSIS page, Fiat-Shamir literature",
+    "Direct fetch: https://latticeassumptionzoo.org/selftargetmsis/ definition (hash-embedded assumption from Dilithium/TCHES DKLLSSS18) and hardness via M-SIS/Module-ISIS in ROM",
+    "Direct fetch: https://eprint.iacr.org/2023/246 abstract (CMA-to-NMA gap, fixed ROM/QROM proofs for Dilithium) and https://eprint.iacr.org/2022/1601 abstract (SelfTargetMSIS vs MSIS/MISIS, sel-MISIS)",
+    "StackExchange API Q117390 + A117411 bodies: JMW24 Plain (general A) vs Self ([I|A']) both with H(M||Ay)=y_l condition, full-rank probability (1-1/q^k), row-reduction simulation H_sim(M,v)=H(M,P^{-1}v) opposite direction Self=>Plain"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General programmable-ROM theorem used in every Fiat-Shamir with aborts ROM proof (e.g., Barbosa et al. 2023/246 ROM/QROM CMA-to-NMA fixes; Dilithium TCHES DKLLSSS18 M-SIS-to-SelfTargetMSIS sketch via independence of H) applies to any relation, any modulus/ring/dimensions, any challenge set, with one program and loss 1; JMW24/StackExchange row-reduction result addresses the broader uniform-vs-systematic matrix class for the real Plain/Self pair.",
+      "reasoning": "DRAFT's ML-DSA-44 instance (fixed q=8380417, (4,4), tau=39) is a strict special case of that broader theorem with no additional hypotheses used; a broader result therefore substantively covers the headline as a corollary, and the real broader question (matrix resampling via Gaussian elimination) is not addressed by identity forwarding.",
+      "search": "Searched dominance query: broader Fiat-Shamir with aborts ROM/QROM security theorems, Dilithium ML-DSA SelfTargetMSIS hardness classification, census, systematic-vs-uniform matrix reductions, and textbooks covering programmable-ROM planting for arbitrary relations."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior hypothesis: any PPT algorithm finding (w,c,z) satisfying algebraic relation Phi. Prior conclusion: PPT algorithm finding same triple plus H(w,M)=c by simulating H privately and programming one fresh point, same witness/norm, advantage preserved. DRAFT hypothesis/conclusion are literally these with Phi=Phi_zeta and B=B_39. StackExchange A117411 steps 1-4 show the substantive prior implication for the real definitions runs opposite (Self solver => Plain solver via P, H_sim) with norm-sensitive mapping, which DRAFT does not replicate.",
+      "reasoning": "Comparing hypotheses and conclusions literally (not titles/embeddings), the standard planting lemma substantively implies DRAFT's headline with no extra work; DRAFT is therefore a recomputation/certificate/repackaging of a known stronger fact, and under real Plain/Self definitions it does not imply the required uniform-to-systematic conversion.",
+      "search": "Compared literal hypotheses/conclusions of prior programmable-ROM planting lemmas and JMW24/StackExchange Plain-vs-Self row-reduction against DRAFT Phi_zeta reduction; checked whether prior result implies headline even without verbatim ML-DSA-44 statement."
+    },
+    "equivalent_formulations": {
+      "evidence": "Retrieved general ROM programming/planting formulations (private lazy simulation + fresh-point program defeats locking), dual view of hash-locking as simulated-vs-real oracle separation, and synonymous SelfTargetMSIS/PlainSelfTargetMSIS notation from StackExchange 117390 (H(M||Ay)=y_l) and Lattice Zoo (H([I A]y||M)=c). No source states DRAFT's exact one-line ML-DSA-44 corollary, but all state the general form from which it follows by substitution.",
+      "reasoning": "The general formulation with arbitrary relation and fresh programmed point is synonymous up to encoding (w vs Ay, c in B_39 vs B_60, M* fresh); substituting Phi_zeta yields DRAFT's theorem mechanically with no use of q,k,l,tau specifics, so equivalent-formulation coverage defeats novelty.",
+      "search": "Searched literal headline (PlainSelfTargetMSIS to SelfTargetMSIS one-program black-box reduction), synonymous encodings (Fiat-Shamir with aborts programmable ROM planting, hash-locking/locking solver, fresh-message programming, w/Ay/c/y_l notation variants), and specialist sources (Lattice Zoo, ePrint 2023/246, theses, Dilithium specs)."
+    },
+    "exact_database_or_table": {
+      "evidence": "Lattice Assumption Zoo SelfTargetMSIS page records the assumption (introduced with Dilithium/DKLLSSS18, standardized as ML-DSA) with general parameters (n,m,q,beta,H,h,R); ML-DSA-44 parameters q=8380417, n=256, (k,l)=(4,4), tau=39 are standardized in FIPS 204/Dilithium docs. Toy table (n=8,q=257,k=l=2,tau=3,zeta=8,200 trials, win rates 1.0, max norm 3) is a fresh illustrative run, not an official table.",
+      "reasoning": "The exact standardized object/parameters were already recorded before computation; DRAFT adds no new exact invariant, cutoff, census entry, or table value a future researcher would need to retrieve, and the toy numbers carry no hardness claim by DRAFT's own limitation section.",
+      "search": "Searched exact ML-DSA-44 identifiers (R_q q=8380417 X^256+1, (k,l)=(4,4), B_39 tau=39, zeta) in official databases and tables (Lattice Zoo, FIPS 204/ML-DSA, Dilithium specs, ePrint) to test whether headline datum was already tabulated."
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
