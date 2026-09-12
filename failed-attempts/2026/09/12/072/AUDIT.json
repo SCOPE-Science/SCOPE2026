@@ -1,0 +1,56 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: audited normally against the admitted target; no value presumption applies. Independently recomputed from the three generators (right-action convention (f*g)(i)=g(f(i))): monoid closure has exactly 53 elements including identity; generator a satisfies a^2=id with a!=id and is the unique non-identity involution (15 elements are non-aperiodic witnesses), so c(S)>=1 is proved. Image sets: 21; mutual-subduction classes: 7 with the stated membership; bricks/stabilizer/permutation checks confirm nontrivial holonomy groups C2 at reps {0,2}, {0,6} and top Q (7 singleton bricks), all others trivial, so holonomy height exactly 3 is verified. BUT the complexity upper bound c(S)<=1 via claimed division S | U2 wr C2 wr U2 (972 elements on 8 states) is mathematically invalid: the certificate supplies only pointwise per-(generator,state) wreath elements w(g,q) with w(phi(q))=phi(g(q)), whereas transformation-semigroup division requires ONE uniform w_g per generator with w_g(phi(q))=phi(g(q)) for ALL q simultaneously (even for a Tilson relational morphism with singleton fibres). Exhaustive audit proves the stated route impossible: for phi(q)=q+1, each generator has 0 uniform covers in W; over ALL 20160 injective maps Q->X(8) zero admit simultaneous uniform covers for all three generators; over all 8^7 maps zero non-constant maps admit them. The verify.py 'word-lift consistency' check (following q-dependent covers along words) does not entail a divisor morphism and is unsound: pointwise covers exist trivially whenever W is transitive, so it proves nothing. Hence c(S)=1 is NOT established; the headline dichotomy answer 'Yes' is unproven. Minor corroborating defect: DRAFT Table claims singleton stabilizer size 53 while certificate.json says 8 (independently recomputed value is 8). No ADMISSION_DEFECT: the target question itself is sound; the failure is in the research proof.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused retrieval (SerpBase/SERP Top-10/20, OpenAlex, Crossref, OpenAIRE; all providers ok, not partial) returned only general background: Egri-Nagy-Nehaniv computational holonomy decomposition (arXiv:1508.06345), the SgpDec GAP package and its documentation/papers, the 'Bestiary of Transformation Semigroups' instructional examples, the Margolis-Rhodes-Schilling complexity survey (2025), and classical Krohn-Rhodes references. None states, tabulates, or implies the exact submitted witness: the specific degree-7 generators a=(1,0,2,3,5,4,6), b=(3,3,5,5,3,3,5), c=(2,3,1,1,6,6,3) with |S|=53 and the claimed height-3/complexity-1 invariant. Adversarial coverage checks (synonymous holonomy/complexity terminology, dual/complement/matrix encodings, broader degree-<=7 censuses, GAP/SmallSemi/SgpDec databases, recomputation/corollary repackaging) found no broader theorem, completed census, table entry, or stronger fact substantively implying this exact instance. The general phenomenon that holonomy height can strictly exceed group complexity does not imply this specific degree-7 boundary witness. The exact object is therefore new in the literature; originality PASSES even though correctness fails (axes are independent).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The admitted TARGET question -- whether holonomy height 3 can coexist with Krohn-Rhodes complexity 1 in faithful degree <=7 -- is a natural, pre-motivated classification boundary between two standard invariants (Eilenberg holonomy decomposition versus Krohn-Rhodes complexity), not an arbitrary parameter fact, textbook restatement, tiny unmotivated gain, or unexplained enumeration. A rigorously established explicit degree-7 witness with certified height 3 and exact complexity 1 would be independently worth retrieving: a future researcher could reasonably need that precise boundary fact, and an exact invariant of an explicitly presented natural object needs no additional general theorem under the shared STANDARD. Judged as a claimed finding, its significance exists before computation. Value therefore PASSES, independent of the proof failure documented under correctness.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json (TARGET claim: holonomy height 3 vs complexity 1 in degree <=7)",
+    "inputs/DRAFT.md (headline witness, skeleton table, U2 wr C2 wr U2 divisor argument, verify.py description)",
+    "inputs/research_report.json claim/evidence_summary/limitations (claim_route TARGET)",
+    "inputs/STANDARD.md (shared admission/audit thresholds, applied exactly)",
+    "inputs/artifacts/certificate.json (53 elements, skeleton, phi, 21 pointwise wreath covers with labels/actions)",
+    "inputs/artifacts/verify.py (recompute script; encodes unsound pointwise word-lift check)",
+    "Independent recomputation (no toolkit import): |S|=53, a^2=id unique involution, 21 images, 7 subduction classes, holonomy groups C2/C2/C2 => height 3, singleton stabilizer size 8 (not 53), H-class sizes all <=2",
+    "Exhaustive wreath-cover audit: W=U2 wr C2 wr U2 has 972 distinct actions and is transitive; uniform covers for phi(q)=q+1 are 0/0/0 per generator; 0 of 20160 injective Q->X(8) maps admit simultaneous uniform covers; 0 of all non-constant 8^7 maps admit them",
+    "scope_literature_search fused results (20 hits): Egri-Nagy-Nehaniv arXiv:1508.06345, Krohn-Rhodes Wikipedia definition, Bestiary of Transformation Semigroups, SgpDec GAP package page, SgpDec cascade-decompositions paper (arXiv:1501.03217), Margolis-Rhodes-Schilling complexity survey (2025), Holcombe holonomy paper, Brauer-type complexity paper, Margolis-Rhodes degree-2 complexity paper, Krohn-Rhodes 1968; full coverage, no partial failure",
+    "Fetched in full: arXiv abs page for 1508.06345 (constructive holonomy proof/method, no such witness) and SgpDec official GAP package page (implementation of cascade/holonomy methods, no degree-7 census covering the claim)"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Deduplicated search returned no completed classification, census, or theorem covering all degree-<=7 transformation monoids' holonomy-vs-complexity pairs; the nearest items are the SgpDec computational framework, the instructional Bestiary examples, and general Krohn-Rhodes complexity papers (Brauer-type, degree-2 graph maps, 2025 history/decidability survey), none of which decides the degree-7 height-3/complexity-1 boundary.",
+      "reasoning": "Because no broader theorem, larger parameter range, exhaustive census, or established classification was found that contains the submitted degree-7 instance as a special case, broader-coverage originality failure does not apply; the absence of such a result is consistent with the witness being new.",
+      "search": "Searched dominance directions: 'classification census transformation semigroups degree 7 group complexity holonomy SgpDec GAP semigroups database' plus stronger-theorem/broader-class queries for any census or theorem subsuming a degree-7 height-3 complexity-1 monoid."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "The closest prior facts are generic: holonomy decomposition yields a wreath-product upper bound on complexity, and the Bestiary/literature note that the number of group levels in a holonomy decomposition is an upper bound that can differ from true complexity. No prior source exhibits or deduces the specific 53-element degree-7 monoid or its exact invariants; the H-class data recomputed here (all maximal subgroups C2, 18 idempotents) also appears nowhere in the retrieved prior work.",
+      "reasoning": "A general gap phenomenon between holonomy levels and complexity does not substantively imply the existence or the exact parameters of this particular degree-7 witness, so the claim is not a corollary, certificate, or repackaging of a known stronger fact; implication-based originality failure does not hold (the proof failure is separate, under correctness).",
+      "search": "Compared the literal headline (explicit degree-7 witness with height 3 and complexity exactly 1) against the nearest priors: holonomy-decomposition upper-bound theorems, SgpDec/Bestiary examples, and Krohn-Rhodes complexity literature for substantive implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "Retrieved sources use the standard synonymous vocabulary (Eilenberg/Zeiger holonomy decomposition, cascade/wreath product, Krohn-Rhodes group complexity, SgpDec transformation semigroups) and describe only methods and general theory; none, under any synonymous name, dual/complement/incidence-graph/matrix encoding, or alternative notation, records the submitted generator triple, the 53-element monoid, or a height-3/complexity-1 degree-7 witness.",
+      "reasoning": "Since the fused candidate set contains no statement that coincides with the headline under relabeling, complement/dual transformation, or algebraic/matrix recoding, synonymous-notation coverage does not defeat originality; the exact witness remains unrecorded.",
+      "search": "Searched literal and equivalent formulations: 'holonomy height 3 Krohn-Rhodes group complexity 1 transformation monoid degree 7' and 'Eilenberg holonomy decomposition nontrivial levels versus Krohn-Rhodes group complexity gap SgpDec transformation semigroup'."
+    },
+    "exact_database_or_table": {
+      "evidence": "No retrieved database, table, thesis catalog, SgpDec example set, or GAP/SmallSemigroups-type listing contains the submitted generators, the 53-element enumeration, or the height-3/complexity-1 parameter combination; the SgpDec official page points to software and papers, not to a table holding this object, and OpenAIRE/OpenAlex returned zero records for the exact query.",
+      "reasoning": "Because the exact parameter set and object do not already appear in any official table or database entry, the submission is not a direct lookup or known-database recomputation; database-coverage originality failure does not apply.",
+      "search": "Searched exact-object directions including specialist repositories and databases: SgpDec/GAP package materials, semigroup databases and tables, theses and author pages for a degree-7 height-3 complexity-1 transformation monoid entry."
+    }
+  },
+  "residual_risks": [
+    "True Krohn-Rhodes complexity of the submitted 53-element S is now unknown (verified >=1; upper bound unproven; could be 1 via a different wreath shape or >=2); the audit refutes only functional uniform embeddings into the stated W, not every conceivable general (multi-valued) relational morphism into W.",
+    "Holonomy height 3 was verified under the documented Eilenberg subduction/brick conventions; alternative textbook conventions for counting singleton-trivial levels could renumber levels, though under the stated convention the value 3 is confirmed.",
+    "DRAFT.md Table stabilizer entry (53) disagrees with certificate.json and independent recomputation (8); any resubmission must reconcile all tables with the certificate."
+  ],
+  "verdict": "REJECT"
+}
