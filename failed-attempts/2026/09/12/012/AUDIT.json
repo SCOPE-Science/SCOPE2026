@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Correctness PASS: independent re-execution confirms the finite census. itertools brute force to n=8 gives 1,1,2,6,22,90,394,1806,8558; n=9 gives 41586 vs 41586 with balanced differences 16074 vs 16074; recompiled census.c reproduces counts to n=12 (206098,1037718,5293446) and naive.c agrees to n=9; all 14 archived witnesses n=8..14 verified by independent O(n^4) pattern test to lie in exactly one class with both-avoiding parent; dihedral exclusion re-verified (no map sends {1342,1423} to {1342,1432}). The DRAFT honestly labels growth-rate equality and Wilf-equivalence as conjectures, distinguishing evidence from proof. Residual single-engine dependence for n=13..14 is mitigated by exact Schr\u00f6der/OEIS match.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Originality FAIL. EMERGENT_FINDING genuinely arose from target work on the same pair (deeper census after blocked separation), not a convenient replacement, so route is legitimate \u2014 but the headline is not new. ADMISSION_DEFECT: Admission claimed no database/theorem covers Av(1342,1423) vs Av(1342,1432), yet Kremer (2000) via Homberger Ch.9 proves Av(1342,1423) is counted by the large Schr\u00f6der numbers with gf (1-x-sqrt(1-6x+x^2))/2, and the public TileScope/PermPAL record (June 2019) explicitly lists BOTH Av(1342,1432) and Av(1342,1423) among 2x4 classes enumerated by the Schr\u00f6der numbers, with PermPAL claiming all 56 two-pattern length-4 classes have specifications. Same Schr\u00f6der gf implies identical counts for ALL n, so coincidence to n=14, balanced differences (|A\\B|=|B\\A| follows automatically from equal finite totals), and routine witnesses are a recomputation/certificate of a known stronger infinite enumeration, not a new boundary. A timestamp or failed OEIS literal-title search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Value FAIL under the shared STANDARD with no preset presumption for EMERGENT_FINDING. The object pair was motivated, but the invariant (exact counts to n=14: 1,1,2,6,22,90,394,1806,8558,41586,206098,1037718,5293446,27297738,142078746) is already known and mechanically implied: termwise it equals the large Schr\u00f6der sequence OEIS A006318 (verified: submitted[n]=A006318[n-1] for n>=1, b-file to n=2000 contains 142078746 and beyond). This is known-database recomputation / arbitrary finite slice of a known infinite enumeration, explicitly rejected by the STANDARD. Certification (dual engines, witnesses, symmetry check) strengthens evidence but does not create value by itself, and no new general theorem, boundary, redirect, or downstream use survives once Schr\u00f6der coverage is recognized \u2014 the redirect was already available from Kremer/TileScope.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Homberger thesis (arXiv:1410.2657) Ch.9 text: 'Kremer [63,64] showed that [Av(1342,1423)] is counted by the large Schroder numbers, sequence A006318, gf f(x)=(1-x-sqrt(1-6x+x^2))/2'; refs [63] Kremer Discrete Math.218 (2000) 121-130 and [64] Postscript Discrete Math.270 (2003) 333-334.",
+    "PermutaTriangle TileScope blog 17 Jun 2019 (Henning Ulfarsson): 'Several 2x4 classes enumerated by the Schroder numbers: Av(1342,1432), Av(1342,3142), Av(2413,3142)' and 'The remainder of the 2x4 classes enumerated by the Schroder numbers: ... Av(1342,1423), Av(1342,2341)...'; PermPAL landing text: database contains 24,454 classes including 'all 56 symmetry classes avoiding two patterns of length 4'.",
+    "OEIS A006318 (large Schroder, OFFSET 0,2): 1,2,6,22,90,394,1806,8558,41586,206098,1037718,5293446,27297738,142078746,745387038,...; b-file to n=2000; OEIS text searches 'seq:394,1806,8558,41586' and 'seq:206098,1037718,5293446' both return A006318; OEIS 'av 1342 1423'/'av 1342 1432' return no separate entry (covered by Schroder).",
+    "Vatter survey arXiv:1409.5159 and Gil-Lopez-Weiner arXiv:2603.25528 confirming Schroder-class context; Kremer-Shiu 2003 metadata (DOI 10.1016/S0012-365X(03)00042-6, Table 1) and Vatter-Zezula enumeration-scheme paper math/0510044 Fig.3 discussing Av(1342,1432) schemes.",
+    "Independent audit recomputation: itertools to n=9, diff-balance n=9 16074/16074, witness membership+minimality for all archived n=8..14 witnesses, recompiled census.c to n=12, naive.c to n=9, dihedral-group check (8 maps, none A->B); submitted counts verified termwise equal to A006318 shift."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kremer 2000 abstract via Semanticscholar: 'exactly 10 classes enumerated by the large Schroder numbers'; Homberger cites Kremer for Av(1342,1423)-Schroder; TileScope June 2019 explicitly places both Av(1342,1432) and Av(1342,1423) in the Schroder 2x4 list; PermPAL/Combinatorial Exploration (arXiv:2202.07715) claims all 56 two-pattern length-4 classes specified. Together these constitute a broader classification covering the submitted pair as a special case.",
+      "reasoning": "A broader theorem/database exhaustively covering the pair as Schr\u00f6der members logically entails identical enumeration for every n, hence the finite n<=14 coincidence is a strict special case/corollary of that coverage, not an independent discovery.",
+      "search": "Kremer exactly 10 classes large Schroder numbers list; TileScope Schroder 2x4 classes Av(1342,1432) Av(1342,1423); Combinatorial Exploration all 56 two-pattern length-4 specifications"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior Av(1342,1423) Schroder gf f(x)=(1-x-sqrt(1-6x+x^2))/2 (Kremer via Homberger) plus prior Av(1342,1432) Schroder enumeration (TileScope/PermPAL) share one generating function, therefore identical coefficients for all n; equal finite totals automatically force balanced one-sided differences and make explicit witnesses routine brute-force certificates.",
+      "reasoning": "The submitted headline (identical counts, balanced differences, witnesses) is mechanically implied by the conjunction of the two prior Schroder enumerations; it is a recomputation/certificate/repackaging of that known stronger infinite fact, so prior implication defeats novelty even though no prior states the n=14 table verbatim.",
+      "search": "whether known Av(1342,1423) and Av(1342,1432) Schroder enumerations imply identical counts and balanced differences to n=14"
+    },
+    "equivalent_formulations": {
+      "evidence": "Homberger/Kremer give the analytic form f(x)=(1-x-sqrt(1-6x+x^2))/2 for Av(1342,1423); TileScope gives the same Schroder enumeration for Av(1342,1432); hence transfer-matrix spectral radii, dominant singularities (3-2*sqrt(2)), and insertion-language entropies coincide. No separate spectral/singularity ordering exists to discover.",
+      "reasoning": "Checking dual spectral, singularity, and entropic phrasings closes the renaming loophole: all equivalent formulations collapse to one shared Schroder singularity, so the claim cannot be novel under synonymous notation or encoding.",
+      "search": "Av(1342,1423) versus Av(1342,1432) spectral radius singularity generating-function entropy Schroder equivalence"
+    },
+    "exact_database_or_table": {
+      "evidence": "OEIS A006318 b-file (n=0..2000, Fung Lam) contains 206098,1037718,5293446,27297738,142078746 at shifted indices; audit verified submitted n=0..14 equals A006318[n-1] termwise; OEIS text search for the submitted tails returns only A006318. No separate Av(1342,1423)/Av(1342,1432) table is needed because both are rows of the Schroder table.",
+      "reasoning": "The exact parameters appear in an official database table, so the census is known-database recomputation rather than a new table; extending the admitted n<=9 anchor to n=14 adds only further known Schroder terms already stored to n=2000.",
+      "search": "OEIS A006318 large Schroder b-file terms 206098 1037718 5293446 27297738 142078746; OEIS search 394,1806,8558,41586"
+    }
+  },
+  "residual_risks": [
+    "n=13..14 counts rest on the single OpenMP engine plus Schr\u00f6der/OEIS agreement; independent naive/itertools engines only reach n=9..10 in-audit due to factorial cost (archived detector had 5000-case randomized validation).",
+    "Kremer 2000 full Table 1 class list not directly inspected (paywalled); Av(1342,1432) Schr\u00f6der status rests on the public TileScope/PermPAL record plus exact coefficient match to A006318, not on a fetched Kremer page image.",
+    "One scope_literature_search batch returned provider 'database is locked' partial failure; audit continued with successful fused batches plus direct OEIS/PermPAL/thesis fetches, so no axis relies on the failed batch alone."
+  ],
+  "verdict": "REJECT"
+}
