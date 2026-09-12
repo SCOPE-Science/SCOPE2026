@@ -1,0 +1,96 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified Lemma, decomposition and family analytically and by re-running check_norms.py (all checks passed). R commutes with H0, exp(-itH0) and B=cos on S1; applying R to mild equation (1) plus uniqueness for bounded B and u in L1 preserves evenness for all T and all L_inf controls. L2 even/odd orthogonality gives dist(f,E)=||odd part||. Family psi_{f,eps}=(phi0+eps eta)/N with eta=pi^-1/2 sin is normalized, smooth, H3-distance <=4eps (weights (1+k^2)^3, modes 0,+-1) yet odd-part L2 norm eps/N>0, hence outside E and unreachable. This refutes STLC at every T; cost bound irrelevant. Well-posedness/unitarity invocation via Dyson/Kato for bounded perturbation is standard and sufficient. No gap found; TARGET disproof complete as conserved-quantity obstruction explicitly invited by topic.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "REVISED AFTER TERMINAL CHECK: decisive prior found. Boscain-Caponigro-Chambrion-Sigalotti arXiv:1101.4313v4 (verified in full) studies the same S1 system i psi_t=(-d^2+u1 cos+u2 sin)psi and explicitly records that fixing one control to zero leaves a single-cos system that is not controllable by parity: cos does not couple odd with even wave functions. Section 8 formalizes H=H^alpha_e(+)H^alpha_o with cos/sin bases and Lemma 8.1 preserving even/odd L2 norms under the restricted single-direction control, i.e. the same even-subspace invariant from the constant ground state. That globally (approximately) non-controllable parity obstruction substantively implies the submitted H3-local STLC failure; the normalized sine family psi_{f,eps} at H3-distance O(eps) with odd-part eps/sqrt(1+eps^2)>0 is then a routine corollary/repackaging of the known stronger fact, not a new boundary. Originality therefore FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "TARGET asked prove-or-disprove; conserved-quantity disproof is an explicitly invited complete resolution, not a type/normalization error, vacuity, tiny-instance mismatch, lookup or arbitrary-parameter fact, so no ADMISSION_DEFECT. Object (circle dipole around ground state) and invariant (parity/STLC status) were motivated before computation, value not known or mechanically implied, and future work reasonably needs the precise fact plus redirection to the even subspace. DRAFT honestly limits scope and strengthens to all-time, all-bounded-control unreachability plus L2-approximate failure. This is a boundary-changing counterexample/structural lemma under STANDARD, not a textbook restatement, parameter substitution or tiny gain.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md full proof read and line-checked (parity lemma, E+O decomposition, H3 estimate, theorem)",
+    "inputs/artifacts/check_norms.py re-executed: ||[P,U]||=0, ||[P,B]||=0, ||eta||_H3=2.828427, eps-family H3 and odd-part formulas confirmed",
+    "scope_literature_search fused 20 results across 3 consolidated queries with full provider coverage (serpbase/openalex/crossref/openaire all ok, partial=false)",
+    "Full fetch of Bournissou arXiv 2203.03955v2 (interval Dirichlet STLC via cubic term, hypotheses Hreg/Hlin/Hquad/Hcub, lost direction phi_K)",
+    "Full fetch of Morancey AIHPC 2014 simultaneous local exact controllability (interval N-particle, return method; N>=2 small-time failures are for coupled systems, not circle parity)",
+    "Screened Ball-Marsden-Slemrod obstruction records (Boussaid-Caponigro-Chambrion 2019, SIAM topological obstruction 1809.07107) and Beauchard-Morancey 2014 minimal-time snippets",
+    "Terminal verification: full fetch of Boscain-Caponigro-Chambrion-Sigalotti arXiv:1101.4313v4, Introduction single-input parity remark plus Section 8 He/Ho decomposition and Lemma 8.1"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Ball-Marsden-Slemrod (Ball-Marsden-Slemrod 1982; Boussaid-Caponigro-Chambrion extension; Turinici adaptation) says L1/L2 reachable set is meagre / countable union of compacts. Beauchard/Beauchard-Laurent positive local-exact results in higher Sobolev spheres coexist with it because an H^s-neighbourhood is not L2-open. Quadratic-drift papers (Beauchard-Morancey, Bournissou, Gherdaoui) deny STLC under H^{2n-3}/W^{-1,inf} smallness via coercive H^{-n} drift for interval Dirichlet models with degenerate mu. Simultaneous-control census (Morancey 2014) concerns N>=2 coupled interval equations.",
+      "reasoning": "None of these broader theorems exhaustively covers or implies the submitted circle-cos parity claim. BMS meagreness does not imply failure of an H3-ball exact reachability and is compatible with STLC; drift obstructions use a different mechanism, geometry and regularity class; the N-particle census does not contain the single-equation circle model as a special case. Hence broader-coverage does not subsume the headline.",
+      "search": "Searched dominance query: Beauchard Morancey Ball Marsden Slemrod bilinear Schrodinger obstructions, census, classification and stronger theorems that could cover circle STLC as special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusions: (i) interval models are locally controllable under nondegeneracy <mu phi1,phij> lower bounds; (ii) under vanishing <mu phi1,phiK>=0 plus AK^p conditions there is H^{-n} quadratic drift denying regular-STLC; (iii) BMS reachable set is meagre. None states that evenness is conserved for S1 cos control, that every H3-ball around phi0 contains unreachable normalized states, or that reachability from phi0 stays in E at every T for every bounded control.",
+      "reasoning": "No prior theorem's hypotheses and conclusions literally imply the headline. A source need not be verbatim to defeat originality, but here implication fails: interval nondegeneracy results do not apply to doubly-degenerate circle spectrum; drift inequalities do not yield exact parity confinement; BMS does not yield H3-local failure. The parity disproof is therefore not a recomputation, certificate, corollary or repackaging of a known stronger fact.",
+      "search": "Compared each nearest prior theorem hypothesis-conclusion literally against headline: no T*,C,q,delta exist for S1 cos model; reachable set from phi0 subset of even subspace; explicit H3-close unreachable family."
+    },
+    "equivalent_formulations": {
+      "evidence": "Query returned only generic parity pedagogy (even/odd functions, symmetric potentials, physics Q&A) and no controllability paper phrasing the result as reflection symmetry, even-subspace invariance, cosine/sine selection rule, Fourier k->-k symmetry, or incidence/matrix encoding. Fetched Bournissou and Morancey sources use lost-direction phi_K language for interval Dirichlet models with entirely different eigenfunctions and mu hypotheses, not S1 Fourier parity.",
+      "reasoning": "No synonymous name, dual/complement, incidence-graph, matrix or algebraic encoding covers the claim. The circle reflection R:f(theta)->f(-theta), even=cosine modes versus odd=sine modes, is the only equivalent form, and no prior source applies it to exact reachability from the constant ground state under cos control to deny STLC.",
+      "search": "Searched equivalent representations: bilinear Schrodinger parity invariant, even subspace, reflection symmetry cos potential, sine/cosine selection rule, k to -k Fourier symmetry."
+    },
+    "exact_database_or_table": {
+      "evidence": "No established database, table, thesis repository or author page lists the circle-dipole STLC status, the even-subspace confinement, or the exact parameter family psi_{f,eps}=(phi0+eps pi^-1/2 sin)/sqrt(1+eps^2) with H3 distance O(eps) and L2-odd distance eps/sqrt(1+eps^2). OpenAIRE returned zero records on all three directions; OpenAlex/Crossref hits are journal papers on interval models, not tables. The computation is analytic (Fourier weights (1+k^2)^3 on modes 0,+-1) plus a compact exact-commutator check, not a database lookup.",
+      "reasoning": "The exact object and invariant do not already appear in a table or official database, and the finding is not a recomputation of a tabulated value. A future researcher could not retrieve this precise H3-close unreachable family or the all-time parity theorem by direct lookup.",
+      "search": "Searched for exact parameter or object in tables and official databases: S1 cos dipole STLC table, sin-target family, even-subspace census, theses and specialist control repositories."
+    }
+  },
+  "perplexity_final_check": {
+    "base_search_overlap": true,
+    "check_id": "d5d920cd78d863fdc5a8c96268e367054565e3b3f34632943450680a65ab2d9f",
+    "decisive_prior_found": true,
+    "decisive_sources": [
+      {
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object and mechanism with stronger conclusion: hypotheses are S1 drift -d^2/dtheta^2, single control potential cos(theta) obtained by fixing u2=0 in their two-input system, and constant ground state 1/sqrt(2pi); conclusions are that cos preserves the even/odd splitting, even/odd L2 norms are conserved (Lemma 8.1), and the single-input system is not controllable by parity. That global approximate non-controllability substantively implies the submitted H3-local exact STLC failure, and the sine-perturbed H3-close family is a direct corollary.",
+        "title": "A weak spectral condition for the controllability of the bilinear ... - arXiv",
+        "url": "https://arxiv.org/html/1101.4313v4"
+      }
+    ],
+    "incremental_prior_found": true,
+    "material_sources": [
+      {
+        "assessment": "COVERS_CLAIM",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object and mechanism with stronger conclusion: hypotheses are S1 drift -d^2/dtheta^2, single control potential cos(theta) obtained by fixing u2=0 in their two-input system, and constant ground state 1/sqrt(2pi); conclusions are that cos preserves the even/odd splitting, even/odd L2 norms are conserved (Lemma 8.1), and the single-input system is not controllable by parity. That global approximate non-controllability substantively implies the submitted H3-local exact STLC failure, and the sine-perturbed H3-close family is a direct corollary.",
+        "title": "A weak spectral condition for the controllability of the bilinear ... - arXiv",
+        "url": "https://arxiv.org/html/1101.4313v4"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same STLC-obstruction topic but different geometry and mechanism: hypotheses are interval (0,1) Dirichlet bilinear Schrodinger with degenerate dipole mu and multi-input quadratic drifts; conclusions are H^{-n}-norm drift obstructions to regular STLC. No circle S1, no cos parity invariant, no even-subspace confinement, so it does not imply the submitted headline.",
+        "title": "Quadratic obstructions to Small-Time Local Controllability for the multi-input bilinear Schr\u00f6dinger equation",
+        "url": "https://arxiv.org/html/2502.14999v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same bilinear-Schrodinger STLC vocabulary but different model and direction: interval (0,1) system where cubic terms restore controllability despite quadratic drift under Hreg/Hlin/Hquad/Hcub hypotheses. Hypotheses require non-degenerate interval spectrum and conclusions are positive STLC, opposite to the circle parity negative claim, so no coverage.",
+        "title": "Small-time local controllability of the bilinear Schr\u00f6dinger equation with a nonlinear competition",
+        "url": "https://www.esaim-cocv.org/articles/cocv/abs/2024/01/cocv220084/cocv220084.html"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest interval minimal-time analysis: hypotheses are 1D Dirichlet bilinear Schrodinger around the interval ground state with a distinguished lost direction phi_K; conclusions are large-time versus small-time local controllability via second-order sign/drift. Different domain, spectrum, and obstruction mechanism from S1 reflection parity, so it does not cover the claim.",
+        "title": "Local controllability of 1D Schr\u00f6dinger equations with bilinear control and minimal time",
+        "url": "https://ar5iv.labs.arxiv.org/html/1208.5393"
+      }
+    ],
+    "rationale": "The paid terminal search added decisive incremental recall beyond the base providers: rank 19 (arXiv:1101.4313v4, overlap false) records the same S1 single-cos parity invariant and single-input non-controllability, verified in full including Introduction remark and Section 8 He/Ho decomposition with Lemma 8.1 norm preservation, which substantively implies the H3-STLC headline. Other useful terminal hits (ranks 1, 10, 15) merely duplicated base-search Crossref/Google records on interval quadratic/cubic and minimal-time obstructions and, after literal hypothesis/conclusion comparison, do not cover the circle claim.",
+    "status": "COMPLETE",
+    "verdict_changed": true
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
