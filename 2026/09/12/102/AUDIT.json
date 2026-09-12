@@ -1,0 +1,113 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-ran both scripts (PASS, exit 0) and recomputed everything from scratch: sigma/sigma' share M by column abelianizations; M^4=[[2,4,9],[1,2,4],[4,9,20]]>0 so M is primitive; det M=1 and char poly x^3-2x^2-1 verified; irreducibility by rational-root test, unique real root bracketed (corrected exact values f(2.2)=-4/125, f(2.21)=25661/1000000; DRAFT's -31/1000 and 25431/1000000 are harmless fraction typos with correct signs, so 2.2<beta<2.21 stands); conjugate modulus 1/sqrt(beta)<0.68 gives Pisot. Independent BFS from 3 diagonal seeds closes at exactly the 9 listed minimal blocks (all balanced, no interior cuts), every Phi-image splits exactly as tabled (all 9 rows matched), max word length 7, N^8 min entry 1 (Phi primitive), Phi^3(B2) starts with B2 (prolongable). Power-iteration frequencies match reported pi to 6dp; coincidence letter density ~0.350051 and block density ~0.592015 reproduced. Pair-coincidence exponent <=2 verified block by block. Pure-point step explicitly invokes (not re-proves) the published same-matrix Pisot overlap/pair-coincidence criterion, honestly disclosed as a limitation; conditional on that accepted theorem the certificate follows from finite closing plus positive coincidence density.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Single fused scope_literature_search with literal, equivalent-formulation, and dominance queries returned the genuine nearest prior art (Sellami 2010 CRAS / 2012 Publ. Math. Debrecen / arXiv:1002.3559 general balanced-block theory; Sellami 2015 Turk. J. Math. balanced-pair algorithm for the class x^3-ax^2-bx-1 with a>=b>=1; Sing-Sirvent flipped-Pisot common dynamics; Sirvent-Starosta 2017 no-initial-balanced-pair pair; Akiyama-Lee overlap/strong-coincidence equivalence; Scheicher-Sirvent-Surer 2021 disjoint-fractal conditions). None states or tabulates the submitted pair sigma:3->133 vs sigma':3->313 with M=[[0,0,1],[1,0,0],[0,1,2]], the 9-block length-7 Phi, matrix N, or the exact densities (-3-9b+7b^2)/32 and (-3-104b+90b^2)/347. The closest class result (Sellami 2015, a>=b>=1) excludes b=0 i.e. x^3-2x^2-1, and the general existence theorems give a method plus a conditional (0 interior) hypothesis, not this pair's exhibited termination data. Full texts/abstracts of the decisive sources were screened; title similarity was not used as coverage. Adversarial synonymous-notation, dual-encoding, broader-theorem, and table/database checks (see decisive_checks) all fail to cover the claim, so the exact termination, primitivity, frequencies, and coincidence-exponent data are new and not mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Claim route is TARGET (research_report.claim_route=TARGET): the topic demanded either an explicit finite balanced-block substitution with termination bound, intersection frequency, and pure-point certificate, or a rigorous non-closure proof with witness. The report delivers the first horn exactly: primitive 9-block Phi with bound 7, exact Q(beta) coincidence letter density ~0.350 and block density ~0.592, coincidence exponent <=2, and a pure-point certificate via the standard coincidence criterion. The object (same-matrix cubic Pisot pair differing only by 133 vs 313) and invariant (termination/frequency/certificate) were motivated before computation by the admitted target; the values were not known and are not mechanically implied by the general theory; a future researcher on common Pisot dynamics / Rauzy-intersection / model sets could reasonably retrieve this precise datum. This is an exact invariant of a specific natural object of the kind STANDARD explicitly deems eligible without a new general theorem, not a textbook restatement, parameter variant of an admitted batch, tiny gain, or unexplained enumeration. No ADMISSION_DEFECT: the negative horn would not have been a cheap defect, and the positive horn is substantive. Value PASSES on the shared standard.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/verify_blocks.py: shared-matrix PASS, closure 9 blocks maxlen 7 PASS, N^8 min=1 PASS, M^4 min=1 PASS, Phi^3(B2) prolongability PASS, blocks.json consistency PASS.",
+    "Re-ran inputs/artifacts/exact_freq.py: (N-betaI)v=0 exact residual PASS, positivity on [2.2,2.21] PASS, closed forms (-3/32,-9/32,7/32) and (-3/347,-104/347,90/347) asserted equal PASS.",
+    "Independent from-scratch recomputation: BFS closure, minimality (no interior cuts), all 9 Phi-images, N^8 min=1, M^4=[[2,4,9],[1,2,4],[4,9,20]], power-iteration pi matching reported values, coin densities ~0.350051/~0.592015, coincidence exponent <=2 block-by-block.",
+    "Exact rational checks: det M=1, f(2.2)=-4/125<0, f(2.21)=25661/1000000>0 (correcting DRAFT's -31/1000 and 25431/1000000 typos; signs and bracket unaffected), Perron vector (beta,1,beta^2) verified against beta^3=2beta^2+1.",
+    "scope_literature_search (3 consolidated queries, fused SerpBase/OpenAlex/Crossref/OpenAIRE, 20 results): nearest hits Sellami 2015 balanced-pair for cubic class; Sellami 2010/2012 common dynamics with same incidence matrix (arXiv:1002.3559); Sing-Sirvent flipped Pisot; Sirvent-Starosta arXiv:1711.10167; Akiyama-Lee overlap coincidence; Scheicher et al. 2021 disjoint fractals.",
+    "Full-text screening: arXiv:1711.10167 (different pair abc/a vs cba/a, proves NO initial balanced pair); arXiv:1002.3559 abstract (conditional substitution-generation theorem, not this pair); TUBITAK page for Sellami 2015 (abstract restricts to x^3-ax^2-bx-1, a>=b>=1, excluding b=0); DOI 10.1007/s00605-021-01515-x (termination iff nonempty interior intersection under strong coincidence, different question)."
+  ],
+  "claim_route_seen": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Sellami 2015 covers beta-substitutions for x^3-ax^2-bx-1 with a>=b>=1 and gives a general intersection-substitution formula; Sellami 2010/2012 proves same-matrix common points are generated by a balanced-block substitution if 0 is interior to the Rauzy fractal; Scheicher et al. 2021 gives spectral necessary conditions and a termination-iff-nonempty-interior theorem. None instantiates the (a,b)=(2,0) polynomial or the 133-vs-313 pair.",
+      "reasoning": "A broader method or conditional existence theorem does not cover a claim that exhibits a specific finite closure with exact block list, matrix N, frequencies, and densities. The report's data (9 blocks, bound 7, N^8>0, closed-form densities) are not instances read off from those general formulas, and the (2,0) parameters fall outside Sellami 2015's stated class, so no broader theorem subsumes or mechanically implies the headline.",
+      "search": "Searched classification/census/dominance coverage: general balanced-pair termination theorems, cubic Pisot same-matrix census, Sellami 2015 beta-substitution class x^3-ax^2-bx-1 a>=b>=1, and Rauzy-intersection spectra that could subsume pair (133 vs 313)."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior work supplies the balanced-pair method and the coincidence-criterion interpretation (finite closing coincidence graph + positive density => model-set pure-point diffraction, cf. Akiyama-Lee, Sing, Qiao-Schmieding), which the report cites without re-proving. But no prior source runs the algorithm on this M and pair, and termination is pair-dependent (cf. Sirvent-Starosta's pair where it fails at the initial-pair stage).",
+      "reasoning": "Reusing a known method does not make its output known: the claim's substance is the computed outcome (terminates, 9 blocks, bound 7, exact densities, exponent <=2), which cannot be deduced from the method's existence. The pure-point conclusion is a cited-theorem application to new verified hypotheses, i.e. a new certificate, not a repackaging of an old certificate.",
+      "search": "Compared the literal headline (termination + 9-block Phi + exact densities + pure-point certificate for sigma/sigma' with M) against what each prior theorem concludes, asking whether any prior result logically entails this pair's termination or frequencies."
+    },
+    "equivalent_formulations": {
+      "evidence": "Screened the fused results under alternate names: balanced pair vs balanced block, coincidence vs overlap coincidence, strong coincidence, common dynamics vs common points vs intersection substitution, alphabet renamings {1,2,3}~{a,b,c}~{0,1,2}, reversed words 133/331 and 313, and transposed (row-vs-column) incidence conventions. The only same-matrix cubic hits concern other pairs (e.g. abc/a vs cba/a) or the a>=b>=1 beta family.",
+      "reasoning": "Balanced-block closure data is invariant under letter renaming and transpose conventions up to relabeling, so a renamed prior would still show the same block abelianizations and N-pattern; no screened source shows the (1,0,0),(0,1,0),(0,0,1),(1,0,1),(0,1,1),(1,0,2),(1,1,1),(1,1,2),(2,1,4) signature or the 133/313 images, hence no synonymous-notation prior covers the claim.",
+      "search": "Searched synonymous and dual encodings: 'balanced pair' versus 'balanced block', 'overlap/common dynamics/intersection substitution', letter renamings 1,2,3 to a,b,c, reversals 133/331 and 313, and row/column transpose conventions for M."
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused hit tabulates M=[[0,0,1],[1,0,0],[0,1,2]] with images 133 versus 313, the 9-block table, matrix N, or densities (-3-9b+7b^2)/32 and (-3-104b+90b^2)/347. The TUBITAK abstract, arXiv records, and Crossref/OpenAlex metadata for the nearest papers contain no such table; no established substitution/Rauzy census or database entry for this pair surfaced in the three consolidated directions.",
+      "reasoning": "Because the exact parameters, block list, Phi images, and closed-form densities appear in no table or database found through the literal plus specialist-database queries, the claim is not a direct lookup or recomputation of a recorded entry; the verification scripts constitute the first auditable record of this datum.",
+      "search": "Searched exact-object queries: incidence matrix [[0,0,1],[1,0,0],[0,1,2]], polynomial x^3-2x^2-1 with beta~2.205569, substitution images 1->2,2->3,3->133 versus 3->313, and specialist substitution/Rauzy/census databases and tables."
+    }
+  },
+  "residual_risks": [
+    "DRAFT.md states f(2.2)=-31/1000 and f(2.21)=25431/1000000; exact values are -4/125 (-32/1000) and 25661/1000000. Signs and the bracket 2.2<beta<2.21 are unaffected; RESULT.md records the corrected fractions.",
+    "The pure-point diffraction conclusion is conditional on the published same-matrix Pisot overlap/pair-coincidence criterion, which is cited rather than re-proved; if that criterion's hypotheses needed narrowing, the finite-closure and positive-density facts remain but the final implication would need re-examination.",
+    "Frequencies are exact Q(beta) closed forms evaluated via the interval 2.2<beta<2.21 for positivity; numerical decimals (~0.350051, ~0.592015, pi vector) are roundings of those exact forms."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "6f70715904b868d500afb91f2ef1e377b41d6260d9385d402b014373bbc8086e",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Balanced pair algorithm for a class of cubic substitutions",
+        "url": "https://journals.tubitak.gov.tr/math/vol39/iss1/9/",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest class-level prior: states a general intersection-substitution formula for beta-substitutions of x^3-ax^2-bx-1 with a>=b>=1, which excludes the submitted (a,b)=(2,0) polynomial x^3-2x^2-1; it supplies the method, not the 133-vs-313 pair data.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "5007-Sellami.dvi",
+        "url": "https://publi.math.unideb.hu/load_doc.php?p=1681&t=pap",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same Sellami common-dynamics paper via alternate host: gives the generic minimal-balanced-pair iteration (U,V)->(sigma1(U),sigma2(V)) and finiteness under return-time/interior hypotheses, with no instantiation to M=[[0,0,1],[1,0,0],[0,1,2]] or images 133 versus 313.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "[PDF] Common dynamics of two Pisot substitutions with the same ...",
+        "url": "https://publi.math.unideb.hu/paper/1681/download/",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Sellami 2012 full text already screened in base search: conditional theorem that common canonical broken-line points are generated by a balanced-block substitution when interiors intersect; states no 9-block table, matrix N, or exact densities for the submitted pair.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Geometry of the common dynamics of Pisot substitutions with the same incidence matrix",
+        "url": "https://www.numdam.org/item/10.1016/j.crma.2010.07.030.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Sellami 2010 CRAS conditional existence result for irreducible unimodular same-matrix Pisot pairs assuming 0 is an exclusive inner point of R1; proves positive-measure substitutive intersection in general, not termination or frequencies for the concrete 133-vs-313 pair.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Common dynamics of two Pisot substitutions with the same incidence matrix",
+        "url": "https://arxiv.org/abs/1002.3559",
+        "base_search_overlap": true,
+        "relationship_to_claim": "arXiv record of the same Sellami conditional balanced-block generation theorem already assessed in base search; abstract confirms it addresses the method under an interior-point hypothesis and reports no computation on polynomial x^3-2x^2-1 or the submitted substitutions.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Universite de la Mediterranee",
+        "url": "https://theses.fr/2012AIXM4030.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Sellami doctoral thesis restating the generic intersection/balanced-pair substitution construction in Chapter 6; a general-method document that does not compute, tabulate, or imply the 9-block length-7 closure and closed-form densities of this specific pair.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "On a conjecture about the absence of an initial balanced pair for Pisot substitutions",
+        "url": "https://arxiv.org/abs/1711.10167v1",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Sirvent-Starosta pair (abc/a vs cba/a) proving NO initial balanced pair exists for a different same-matrix cubic pair; confirms termination is pair-dependent and does not state or entail termination, blocks, or densities for the 133-vs-313 pair with M=[[0,0,1],[1,0,0],[0,1,2]].",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "The terminal Perplexity check returned 20 results with 5 title/identifier overlaps against the 20 base candidates. All overlapping hits (Sellami 2015 class formula, Sellami 2010/2012 conditional common-dynamics theorem, Sirvent-Starosta 2017 different-pair non-existence) duplicate sources already screened in full in the base audit and were re-compared literally: the class result excludes (a,b)=(2,0), the conditional theorems state a method plus interior hypothesis rather than this pairs exhibited 9-block Phi, N, and exact densities (-3-9b+7b^2)/32 and (-3-104b+90b^2)/347, and the 2017 paper concerns a different pair with the opposite outcome. The 15 non-overlapping hits add no decisive prior: two are alternate hosts/thesis restatements of the same Sellami method, and the rest are generic Pisot/balanced-pair background (single-substitution coincidence, Rauzy surveys, beta-shift, continued fractions) with no table or theorem instantiating M=[[0,0,1],[1,0,0],[0,1,2]] with 3->133 versus 3->313. No snippet states the headline data under any synonymous notation, and no broader theorem, census, or database entry was shown to imply it, so originality PASS is preserved and no verdict changes."
+  }
+}
