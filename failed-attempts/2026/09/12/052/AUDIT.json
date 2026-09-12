@@ -1,0 +1,52 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent verification passes: u=x1^2-xn^2 is even, u|_H=x1^2>=0, Delta u=2-2=0 classically hence 0 in B1\\Lambda and distributionally <=0, smooth so H1-bounded. For x0=(0,x0'',0), u(x0+ry)/r^2=y1^2-yn^2 exactly for all r>0, giving Almgren frequency 2 and unique 2-homogeneous blow-up u0. Contact cone {y1=0} in H has punctured set smooth conical hypersurface with equator link S^{n-3}, literally satisfying the topic's isolated-conical definition. E=closed 1/2-ball in {x1=xn=0} is an (n-2)-ball with H^{n-2}(E)=omega_{n-2}2^{-(n-2)}>0 hence H^{n-3}(E)=+inf and dim_H=n-2, violating <=n-4. Sympy/numeric recheck confirmed harmonicity, evenness, and exact blow-up identity.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The headline disproof is mechanically implied by long-standing prior classification and is a renamed repackaging: the flat quadratic u=x1^2-xn^2 is the canonical rank-one case of the ACS08 Theorem 3 classification p=sum a_i(x_i^2-x_{n+1}^2), a_i>=0, quoted verbatim in Fernandez-Real/Torres-Latorre Lemma 2.1(c) and Petrosyan lecture notes Sec 4.3. Garofalo-Petrosyan 0804.2508 defines singular points by vanishing (n-1)-density, proves frequency 2m and structural containment, and explicitly states the whole free boundary can be singular when u is harmonic symmetric touching zero obstacle. Under the topic's literal definition that counts the flat equator S^{n-3} as isolated-conical, the (n-2)-dimensional flat singular set is therefore a direct corollary/special case of that stronger known theory under synonymous notation (quadratic blow-up, flat solution, singular/degenerate point). No new object, boundary, or implication beyond the textbook example; a timestamp or failed literal-title search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "TARGET-route negative resolution exposes an ADMISSION_DEFECT: as written the isolated-conical definition counts the smooth flat hyperplane (punctured plane smooth, equator link closed hypersurface) so S_iso contains the classical flat stratum whose (n-2)-dimensionality is textbook. The claimed n-4 bound is then trivially false on the first canonical example any expert would try, i.e. a type/normalization over-inclusion, vacuity, cheap small-instance mismatch and direct lookup. Per TARGET policy such a negative resolution fails value even though literally false, and per STANDARD it is a textbook restatement / mere parameter substitution / known-database recomputation with no new boundary, motivation, or downstream use. ADMISSION_DEFECT: admission should have excluded flat links or ruled out this cheap defect; the untouched genuinely-curved stratum question remains open. Certification and exact algebra do not create value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/topic.json TARGET claim dim_H S_iso<=n-4 for n>=5",
+    "inputs/DRAFT.md Lemmas 1-3 with u=x1^2-xn^2, exact blow-up and equator link",
+    "inputs/research_report.json claim_route TARGET with limitations admitting flat-link dependence",
+    "inputs/STANDARD.md shared originality/value thresholds and cheap-defect rule",
+    "inputs/artifacts/verify_counterexample.py symbolic+randomized checks",
+    "scope_literature_search fused 20 results across SerpBase/OpenAlex/Crossref (no partial failure) for literal, equivalent, and dominance queries",
+    "Fernandez-Real/Torres-Latorre arXiv:2209.01063 Sec 1-2: degenerate set can have same dimension as free boundary; Lemma 2.1(c) quoting ACS08 Theorem 3 classification sum a_i(x_i^2-x_{n+1}^2); Prop 2.8-2.10 quadratic blow-ups",
+    "Garofalo-Petrosyan arXiv:0804.2508: Almgren frequency, singular points by vanishing density, even frequencies, structural theorem in countable C1 manifolds up to n-2, harmonic symmetric example where whole free boundary is singular",
+    "Petrosyan MSRI lecture notes Sec 4.1-4.3 Almgren frequency, rescalings/blow-ups, homogeneous global solutions; Fernandez-Real survey arXiv:2011.03299",
+    "Independent sympy recheck: Laplacian 0, evenness, u|_H=x1^2, exact blow-up identity diff 0.0 for n=5,6"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Garofalo-Petrosyan structural theorem plus explicit harmonic-symmetric example where whole free boundary is singular; Fernandez-Real/Torres-Latorre introduction stating degenerate/non-regular points can have same dimension (n-1 in their notation) as the free boundary, citing GP09/FR21; generic bounds n-2 for Deg.",
+      "reasoning": "The broader singular/degenerate-set theory already allows (n-2)-dimensional singular strata for a single solution. Restricting to the topic's flat-inclusive isolated-conical sub-stratum is a strict subset/special case, so the known broader coverage substantively implies the submitted n-2 lower bound and subsumes it.",
+      "search": "Signorini thin obstacle global homogeneous solutions classification singular set stratification Hausdorff dimension Garofalo Petrosyan; generic degenerate set dimension n-1 n-2"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior definition: singular means vanishing H^{n-1} density of coincidence set; flat coincidence {x1=0} has zero density, frequency 2, blow-up exactly the flat quadratic classified in ACS08. Hence prior theory implies every point of E has frequency 2 with only flat blow-ups.",
+      "reasoning": "A prior source need not use the novel phrase isolated-conical verbatim. Because the topic literally counts the equator as qualifying, the prior classification plus singular-set definition logically implies the headline disproof of <=n-4, so the claim is a corollary/recomputation of a known stronger fact and originality FAILS.",
+      "search": "thin obstacle frequency-2 singular points flat coincidence zero density harmonic symmetric whole free boundary singular implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "ACS08 Theorem 3 via 2209.01063 Lemma 2.1(c): any 2-homogeneous Signorini solution with monotone direction is sum a_i(x_i^2-x_{n+1}^2), a_i>=0; rank-one case is x1^2-xn^2 up to rotation. Petrosyan notes Sec 4.3 lists same homogeneous global solutions; Garofalo-Petrosyan uses even harmonic quadratics p with p>=0 on thin space.",
+      "reasoning": "The submitted u0(y)=y1^2-yn^2 and contact hyperplane {y1=0} with equator S^{n-3} are the same object as the classified rank-one flat quadratic under synonymous names (2-homogeneous global minimizer, quadratic harmonic even polynomial, flat solution, spine dimension n-2). Equivalent-formulation search therefore covers the claim.",
+      "search": "thin obstacle Signorini 2-homogeneous global solution frequency 2 classification flat solution x1^2-xn^2 singular set spine"
+    },
+    "exact_database_or_table": {
+      "evidence": "The exact polynomial x1^2-xn^2 appears as the canonical example of a 2-homogeneous even harmonic global solution nonnegative on H in lecture notes, surveys (2011.03299 survey of known thin-obstacle results), and ACS08-type classification tables with parameters a_i>=0; equator S^{n-3} is the standard flat link.",
+      "reasoning": "The exact parameter/object was already recorded as the textbook flat profile, not a new extremal witness. The submission only evaluates its coincidence dimension and relabels its link as isolated-conical, which is direct lookup/repackaging and does not create originality.",
+      "search": "exact object x1^2-xn^2 thin Signorini table homogeneous solutions equator link S^{n-3} flat coincidence {x1=0}"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
