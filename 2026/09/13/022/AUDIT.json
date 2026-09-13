@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified end-to-end. Re-ran verify_disproof.py: both sympy master residuals identically 0 with terminal 0; closed-form N*err=T/2-(1-e^{-4T})/8>=T/2-1/8 confirmed; MC N=2 T=3 agrees within 0.02. Independently checked covariance identity E[1*m]=(pE[m]+p(1-p)/N), gap (2/N)p(1-p)>=0, mean flow E[m]=mdet, integral evaluation, sup>=t=0 value, singleton Nash uniqueness, strict Lasry-Lions monotonicity, and T=2C+1 defeating any C.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 20-result search across SerpBase/OpenAlex/Crossref/OpenAIRE found only fixed-horizon convergence with T-dependent constants and separate ergodic/discounted theory. No prior states, implies, or tabulates the T-uniform 1/N bound or its failure, nor the exact uncontrolled variance lower bound N*sup>=T/2-1/8. Nearest finite-state master-equation convergence works are compatible upper bounds, not coverage of this disproof.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Direct TARGET resolution in the exact requested form: fixed data (d=2, rate 1, F(x,m)=m_x strictly monotone, G=0) with growing T at fixed N=2 gives unbounded scaled error. It is not a type error, vacuity, tiny mismatch, lookup, or arbitrary fact; it exposes structural non-uniformity via accumulated idiosyncratic variance while preserving the classical fixed-T 1/N bound. Independently worth retrieving for any future T-uniform claim.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cecchin-Pelino arXiv:1707.01819: finite-state N-player to MFG convergence via master equation at fixed horizon with T-dependent regularity; no T-uniform 1/N claim or lower bound.",
+    "Cohen-Zell ergodic master equation (arXiv:2204.05373 / Springer 2022): discounted/ergodic infinite-horizon stationary theory, different regime from finite-horizon T-uniform bound.",
+    "Gomes-Mohr-Souza 2013 continuous-time finite-state MFG: early N+1 convergence without uniform-in-T rate.",
+    "Bertucci-Cecchin 2024 discrete-to-continuous state master equations: state-space limit, not N/T uniformity.",
+    "Cardaliaguet-Delarue-Lasry-Lions 2019 book: continuous-state master equation and fixed-T convergence with T-growing constants.",
+    "verify_disproof.py re-executed in audit: sympy residuals 0, closed-form growth table, C=10 defeated at T=21, MC 2.18765 vs exact 2.18750."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Broader results found are fixed-T upper bounds with constants growing in T (typically exponential) and separate ergodic/discounted stationary equations; none asserts a finite-horizon constant independent of T>=1.",
+      "reasoning": "A broader upper bound with T-dependent constant does not imply failure of T-uniformity, and ergodic theory addresses a different limit; neither substantively implies or exhaustively covers the linear-in-T lower bound.",
+      "search": "Searched uniform-in-horizon MFG bounds, long-time and ergodic finite-state master equations, and classifications that could subsume a T-uniform 1/N estimate as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusions are upper bounds O(1/N) at each fixed T; the submitted claim is a lower bound N*sup>=T/2-1/8 growing without bound in T at fixed N=2 with explicit monotone data.",
+      "reasoning": "The two directions are logically compatible: fixed-T O(1/N) holds here with constant proportional to T while T-uniformity fails. No prior upper bound implies the disproof, and the disproof does not contradict fixed-T theory.",
+      "search": "Compared hypotheses and conclusions literally between fixed-T convergence theorems and the submitted T-uniform negation over N>=2 and T>=1."
+    },
+    "equivalent_formulations": {
+      "evidence": "Nearest two-state models (e.g. Cecchin et al. {-1,1} formulation) study fixed-horizon convergence under uniqueness/monotonicity; snippets and abstracts show convergence of values and equilibria, CLT/LDP, with no T-uniform constant or variance-accumulation lower bound.",
+      "reasoning": "Changing state labels {1,2} vs {-1,1}, incidence/matrix encodings, or uncontrolled/controlled vocabulary does not create coverage: those works prove upper-bound convergence, not unbounded scaled error in T.",
+      "search": "Searched two-state finite MFG N-player limit, uncontrolled constant-rate variance, covariance gap (2/N)p(1-p), and synonymous {-1,1} vs {1,2} notation."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, census, table, or repository entry lists a T-uniform constant or the exact gap formula T/2-(1-e^{-4T})/8; literature search returned theorems and surveys only.",
+      "reasoning": "There is no precomputed table from which the unbounded growth could be read off; the exact invariant was derived and symbolically certified here, not recomputed from a database.",
+      "search": "Searched specialist MFG literature, theses, and database-like surveys for tabulated T-uniform N-player error constants or the exact d=2 gap formula."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "95831fa676e717353c824b15709302f8569fa227ee66eaf418bacc1f965b2105",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Both concern uniform-in-time 1/N finite-state limits, but Cohen-Huffman bounds the marginal weak error |E[Phi(mu^N_t)]-Phi(m(t))| at each fixed t under exponential stability, while the headline is a lower bound on the integrated finite-horizon value gap V-U accumulated over [0,T]; verified in full text including its ergodic-MFG application.",
+        "title": "Uniform-in-Time Convergence Rates to a Nonlinear Markov Chain ...",
+        "url": "https://arxiv.org/html/2502.20262v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "States the fixed-horizon upper bound sup_t|v^N_i-U|<=C/N for given T, which is logically compatible with the headline: the submitted example satisfies O(1/N) at each fixed T with T-growing constant while T-uniformity fails via the linear-in-T lower bound.",
+        "title": "The Convergence Problem in Mean Field Games with ...",
+        "url": "https://repository.kaust.edu.sa/server/api/core/bitstreams/f6818b81-a0f6-4e11-bdb9-963cdf00415b/content"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nearest two-state N-player/MFG analysis, but its mechanism is anti-monotone terminal cost producing three MFG solutions and no regular master solution, opposite to the headline data with strictly monotone F(x,m)=m_x, unique smooth classical U, and variance-accumulation growth.",
+        "title": "On the Convergence Problem in Mean Field Games: A Two State Model without Uniqueness | SIAM Journal on Control and Optimization | Vol. 57, No. 4 | Society for Industrial and Applied Mathematics",
+        "url": "https://www.research.unipd.it/retrieve/e14fb26e-e575-3de1-e053-1705fe0ac030/Cecchin-DaiPra-Fischer-Pelino%20SICON57-2019.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies long-time convergence of the continuous-state master equation U(t)+lambdabar*t to an ergodic limit as t->-infinity, with no N-player rate and no lower bound on N*sup|V-U| over growing horizon T at fixed N.",
+        "title": "Long time behavior of the master equation in mean field game theory",
+        "url": "https://msp.org/apde/2019/12-6/apde-v12-n6-p01-p.pdf"
+      }
+    ],
+    "rationale": "Terminal search added useful incremental recall beyond the base providers, notably the Cohen-Huffman uniform-in-time propagation-of-chaos paper verified in full text, plus fixed-T sup<=C/N text and two-state/ergodic-limit sources. Each was compared literally on hypotheses and conclusions: uniform marginal error under stability, fixed-T upper bounds, non-uniqueness examples, and ergodic limits are all compatible with, and imply nothing about, the submitted T-uniform negation with exact linear-in-T lower bound under strictly monotone data. No source covers the claim, so originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "verdict": "PASS"
+}
