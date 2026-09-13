@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "FAIL: a systematic sign error in the strict non-comparability encoding invalidates the entire certificate corpus. For q<p the positive Apery-order criterion is (k_q-k_p-k_d>=1), whose exact integer negation is (<=0); but rowsutil.rows/sysrows and DRAFT.md impose (<=-2), i.e. RHS -1-off instead of off-1. Submitted cells are therefore strict subsets of the true cells. Independent exact replication of rows(): the genuine type-3 semigroup k=(1,1,2,1,1) with true maxima (3,4,5) lies in 0 of the 29700 submitted cells (e.g. pair (4,2): code demands -1<=-2, false, while true maximality holds), and 487 of the 690 box type-3 tuples fail the submitted strict rows. run_verify.py/run_verify_e5.py pass only because they check internal consistency with the wrong rows, and coverage.py never checks strict rows, so neither detects the hole. All 214 bound, 15 branch-tree, 29471 infeasibility and 800 Lemma-A certificates certify the wrong regions and do not establish W>=3. Route is TARGET with the exact admitted claim; the defect is in research execution, not an ADMISSION_DEFECT.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "PASS: fused literature search over all providers with no partial failure, plus a full-text fetch of the nearest prior work, shows the exact conditioned gap is new. Bruns-Garcia-Sanchez-O'Neill-Wilburne (2019) prove Wilf (W>=0) for m<=18, strictly weaker than W>=3 on the (m=6,t=3) locus; Wilf-function/concentration (Almiron-Moyano), high-embedding-dimension (Sammartano), e>t-implies-Wilf, and genus-bounded censuses likewise conclude only W>=0 or restrict types, and no GAP/table entry records this universal gap. Equivalent phrasings, broader theorems, exact databases, and prior-implication were each tested in decisive_checks; no source states or substantively implies W>=3 for all multiplicity-6 type-3 semigroups.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "PASS (TARGET route): the admitted target is a natural infinite-family cutoff advancing the recognized Wilf problem, a type-conditioned gap W>=3 for all multiplicity-6 type-3 semigroups, motivated before computation. It is not a textbook restatement, parameter substitution, tiny unmotivated gain, or unexplained enumeration. Box exhaustion (690 type-3 tuples, min W=4) and random sampling show a non-vacuous boundary with one unit of slack; the unexhibited extremal W=3 witness is an honestly disclosed limitation, not a value defect under the shared standard.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bruns-Garcia-Sanchez-O'Neill-Wilburne 2019 'Wilf's conjecture in fixed multiplicity' (arXiv:1903.04342, full text fetched): proves W>=0 for m<=18 via Kunz faces; strictly weaker than W>=3 on (m=6,t=3); no type-conditioned gap stated.",
+    "Almiron-Moyano-Fernandez (2021/2022) Wilf function, concentration and Eliahou number: bounds minimal positive Wilf values via concentration; different conditioning; does not imply the (6,3) gap.",
+    "Sammartano large-embedding-dimension (2e>=m implies Wilf) and e>t implies Wilf: yield W>=0 only; no W>=3 gap for the (6,3) locus.",
+    "GAP numericalsgps tables, Fromentin-Hivert genus<=60 census, Normaliz Kunz-face data: finite enumerations for W>=0; do not cover the infinite (m=6,t=3) family.",
+    "Local exact re-execution: both verifiers pass on submitted rows (internal consistency only); independent strict-row audit finds true type-3 point k=(1,1,2,1,1) in 0/29700 submitted cells and 487/690 box type-3 points uncovered by the full strict-row check."
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fetched Bruns et al. full text: Theorem 4.3 gives W>=0 for m<=18; Sammartano and e>t results give W>=0; genus<=60 census is finite; none asserts W>=3 for all type-3 multiplicity-6 semigroups.",
+      "reasoning": "A broader result covers the claim only if it implies W>=3 on the (6,3) locus. W>=0 does not imply W>=3, and bounded-genus censuses do not imply an infinite-family gap, so no broader theorem subsumes the claim.",
+      "search": "Stronger Wilf theorems that could subsume (m=6,t=3): fixed-multiplicity m<=18, high embedding dimension 2e>=m, e>t implies Wilf, bounded-genus verifications"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusions are W>=0 or type restrictions (e=3 implies t<=2 supports Lemma A's statement but not the gap); computed box minimum W=4 is consistent with but does not imply the theorem.",
+      "reasoning": "No prior theorem's hypotheses yield the conclusion W>=3 on this locus, so the gap is neither a corollary, a recomputation, a certificate of a known stronger fact, nor a repackaging of the weaker W>=0 results.",
+      "search": "Literal comparison of prior conclusions (W>=0; e=3 implies t<=2; maximal-embedding-dimension cases) against W>=3 for all multiplicity-6 type-3 semigroups"
+    },
+    "equivalent_formulations": {
+      "evidence": "Almiron-Moyano bound the minimal positive Wilf function by concentration; Bruns et al. use Apery posets with a W>=0 conclusion; no retrieved source phrases a W>=3 bound for the (6,3) locus in any notation.",
+      "reasoning": "Synonymous encodings (Wilf number versus Wilf function, pseudo-Frobenius versus maximal Apery elements, Kunz coordinates) change only language; none of the differently phrased results concludes W>=3 on this locus, so no equivalent formulation covers the claim.",
+      "search": "Wilf function and Eliahou number and concentration formulations, pseudo-Frobenius as Apery maxima, Kunz-coordinate phrasings of the (m=6,t=3) W>=3 gap"
+    },
+    "exact_database_or_table": {
+      "evidence": "Retrieved censuses enumerate semigroups up to bounded genus or list Kunz-face data for Wilf (W>=0); no table or database entry records the universal W>=3 gap for the (6,3) locus.",
+      "reasoning": "The claim is a universal gap over an infinite family, not a finite lookup; no exact parameter or object entry in any official table states or exhaustively covers it.",
+      "search": "GAP numericalsgps tables, Fromentin-Hivert genus<=60 data, Normaliz Kunz-face repositories for a listed (m=6,t=3,W>=3) entry"
+    }
+  },
+  "repair_instructions": "Fix the strict-row RHS sign error (q<p case): in rowsutil.py rows() maximality and minimality loops and run_verify_e5.py sysrows(), change RHS -1-off to off-1 (and correct the same formula in DRAFT.md, where negation of (k_q-k_p-k_d>=o) must be (<=o-1)); regenerate maincerts.json for all 29700 cells and e5certs.json for all 800 Lemma-A cells fresh from the LP pipeline on the corrected rows; extend coverage.py to assert every box type-3 tuple satisfies the FULL corrected strict-row system of at least one decided feasible cell with matching (e,F,W); re-run both exact verifiers to pass; recheck the hand-proof sketches against the corrected rows.",
+  "residual_risks": [
+    "Corrected (larger) cells may have lower LP minima, so regeneration could require deeper branching or reveal a genuine counterexample; repair success is not guaranteed by this audit.",
+    "The literature search had full provider coverage with no partial failure but cannot logically exclude an unindexed prior source.",
+    "Sharpness is unexhibited (proved bound 3 versus computed minimum 4); tightness of the gap remains open."
+  ],
+  "verdict": "REPAIRABLE"
+}
