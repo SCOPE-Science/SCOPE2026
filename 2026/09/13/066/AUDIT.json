@@ -1,0 +1,142 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET asks for a rigorous census or certified counterexample. The 5-pair chain with exact W0=floor(1e12^0.53)=2290867 (W0^100<=X0^53<(W0+1)^100) plus covering inequalities b0<=X0, b_{k+1}<=a_k+W0+1, a4+W0>=X0+L is a complete proof: re-ran inputs/artifacts/verify_chain.py -> CERTIFICATE VALID; independently re-verified all 10 primalities (deterministic Miller-Rabin + trial-division completeness since n<(1000005)^2 with 1000003 prime), all gaps <=80, and all covering inequalities. Monotonicity lemma (x>=X0 implies x^0.53>=W0) is exact integer arithmetic. Chain proof is distinguished from the supporting segmented-sieve census (444785 primes, sliding-window zero bad x), which is consistent evidence, not load-bearing.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest prior is Alweiss-Luo (2018) 'Bounded gaps between primes in short intervals': full arXiv HTML body inspected; its Theorem 1.1/Corollary 1.2 is an asymptotic density result (unspecified k,d, sufficiently large x) and does not state, list, or imply the explicit finite certificate (X0=1e12,L=1e7,theta=0.53,C=80 with these 5 pairs). BHP-type theorems give one prime per interval / gap O(x^0.525), not a close pair with gap <=80 in every window; maximal-gap tables near 1e12 record gaps exceeding 80 and cannot imply the claim. No fused source records this exact parameter tuple or pair chain. Google/Serpent failed (recorded) but OpenAlex/Crossref/OpenAIRE succeeded plus direct primary-source fetch, so priority is assessed on available evidence, not on the failure.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route complete positive resolution: every integer x in [1e12,10^12+10^7] has a prime pair with gap <=80 inside [x-x^0.53,x], proved by a 5-pair auditable chain. Object and invariant (bounded gaps at exponent 0.53, height 1e12) were motivated before computation as a recognized short-interval benchmark; the exact finite-range truth was not known or mechanically implied (asymptotic theorems and max-gap tables do not settle C=80 here); a future researcher can reuse the precise certificate. This is a substantive finite cutoff/benchmark verification, not a textbook restatement, parameter triviality, tiny unmotivated gain, or unexplained enumeration, and not a cheap negative-resolution defect.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/verify_chain.py: W0 floor inequalities OK, all 10 chain primes OK, gaps 28/8/10/6/6 OK, covering reach 1000011454208>=1000010000000, CERTIFICATE VALID; plus independent deterministic Miller-Rabin cross-check of all 10 integers and base-sieve count 78499 with 1000003 prime.",
+    "inputs/artifacts/chain_certificate.json + census_sha256.txt: X0/L/W0/C, LO=999997709133, HI=1000010000000, pi=444785, sha256 62d9f42a...; census is supporting evidence only.",
+    "Alweiss-Luo 2018 full arXiv HTML body (1707.05437v1, Sections 1-5, Thm 1.1/Cor 1.2): asymptotic bounded-gap density for delta in [0.525,1], sufficiently large x, unspecified k,d.",
+    "scope_literature_search (EMERGENT_ORIGINALITY, 3 normalized queries, 20 fused results): OpenAlex/Crossref/OpenAIRE ok; Google Serpent errored on all 3 queries (ReadTimeout/HTTP429, partial=true recorded); nearest substantive lead Alweiss-Luo; remainder unrelated (twin-prime heuristics, PDB entries, preprints)."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "BHP gives primes in [x-x^delta,x] for delta>=0.525 and gap bound O(x^0.525); Alweiss-Luo full body gives >>h/(log x)^k bounded-gap pairs for sufficiently large x with unspecified k,d; neither fixes X0=1e12, L=1e7, C=80 nor lists explicit pairs.",
+      "reasoning": "A broader asymptotic theorem covers the claim only if it substantively implies the exact finite-range certificate; existence of some d at large x does not imply C=80 at 1e12 in every sliding window, so no broader coverage.",
+      "search": "Searched Baker-Harman-Pintz short-interval exponent 0.525/0.53 theorems and Alweiss-Luo full text for any fixed-height C=80 finite-range corollary."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Submitted headline is an explicit 5-pair covering proof machine-verified (CERTIFICATE VALID); closest prior corollary states only asymptotic existence of some k,d for large x.",
+      "reasoning": "The finite certificate is not a recomputation, corollary, or repackaging of the asymptotic prior: prior implies no concrete C=80 covering at 1e12, and the proof method (exact W0 chain) is independent of the prior sieve argument.",
+      "search": "Compared submitted headline claim against Alweiss-Luo Corollary 1.2 hypotheses and conclusions literally to test mechanical implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search returned no synonymous record (admissible-tuple density language, maximal-gap/complement tables, wheel/mod encodings) stating these 5 pairs or an equivalent finite cover at 1e12 with width 2290867 and gap bound 80.",
+      "reasoning": "No dual, complement, incidence, matrix, or synonymous-notation formulation was found that records the same explicit covering fact; asymptotic density statements are a different object from a fixed-height certificate.",
+      "search": "Searched literal claim plus equivalent forms: prime constellations / admissible k-tuples / maximal prime gaps near 1e12 / small-gap pairs with gap<=80 around 1000000000000."
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused result or official table (maximal-gap census, prime databases) lists this exact (theta=0.53,X0=1e12,L=1e7,C=80) certificate or the 5 chain pairs; maximal gaps near 1e12 exceed 80, so gap tables cannot state or imply the covering claim.",
+      "reasoning": "The exact parameter tuple and pair chain are absent from tables; re-sieving reproduces primes but no database states the per-x covering conclusion, so this is not a known-database recomputation.",
+      "search": "Searched maximal-prime-gap tables around 1e12, prime-list databases, and the exact integers 999999999961/1000002290813/1000004581663/1000006872517/1000009163341 for prior tabulation."
+    }
+  },
+  "decisive_sources": [],
+  "perplexity_final_check": {
+    "check_id": "dfe1e2d77aadad7f535e59002603bed0af5c81077be2feb67d3fa355fed484e0",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "SECTION_TABLE_EXAMPLE_INSPECTION of full page body: intro defines maximal gaps as first occurrences of gaps of at least this length with columns gap/following-prime/reference; inspected table rows through gap 1853 (e.g. gap 879 after 277900416100927, gap 905 after 218209405436543) and linked gaps.html exposition; no theorem/proposition and no 'by the above proposition'/'with these properties'/'further examples' antecedent chain on page. Instantiated implication: each row asserts only one large gap exists at its location, which is logically compatible with (neither states nor implies) the submitted universal claim that every width-2290867 window at 1e12 contains a pair with gap<=80; parameter search for 1e12-range integers, 2290867, and chain primes returns no matching example row.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Same object (prime gaps) and terminology family, but the source records sparse maximal/first-occurrence gaps, not the submitted claim that every sliding x^0.53 window at 1e12 contains a pair with gap at most 80.",
+        "title": "Table of Known Maximal Gaps between Primes",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://t5k.org/notes/GapsTable.html"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full body Sections 1-5 plus Table 1 of first occurrences through gap 381: table lists small gaps and following primes (e.g. 4652353, 10726904659); searched for 1e12 window, W0=2290867, C=80 covering statement; absent; bounds discussion cites only asymptotic g(p)<<p^0.535-type results.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Same object and expository scope (gaps between primes, record tables, upper bounds), but it gives only small-gap first occurrences and asymptotic bounds, not the explicit five-pair finite-range certificate at 1e12.",
+        "title": "The Gaps Between Primes",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://t5k.org/notes/gaps.html"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full arXiv HTML body (base audit) Sections 1-5: Theorem 1.1 proves density >>h/(log x)^k of n with >>log k prime linear forms in [x-h,x] for large x with unspecified k,d; Corollary 1.2 states some unspecified d; no fixed X0=1e12, L=1e7, C=80 statement and none of the five chain pairs appear.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Directly the same topic (bounded gaps in short intervals with delta in [0.525,1]) but an asymptotic existence theorem with unspecified constants and large-x quantifier, which does not state or imply the concrete C=80 covering certificate at height 1e12.",
+        "title": "Bounded gaps between primes in short intervals",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/abs/1707.05437"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Fetched full arXiv HTML v8 Sections 1-7: Theorem 1 states [x-x^0.52,x] contains prime numbers for large x; Theorem 2 gives LB/UB prime-count bounds for theta in [0.52,0.525]; scope is one prime per interval, never a prime pair with gap<=80, and no fixed-height 1e12 certificate or chain integers.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same object (primes in short intervals at exponent ~0.52) but the theorems conclude a single prime per interval for large x, which is strictly weaker than and does not imply the submitted every-window close-pair (gap<=80) claim at 1e12.",
+        "title": "The number of primes in short intervals and numerical ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/2308.04458v8"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full body: exhaustive prime-gap computation to 4e18 with P(g) table and Top-50 large gaps (1292-1476, all far above 80); page states raw first-occurrence/large-gap records and Goldbach-verification byproduct; searched for x^0.53 window, C=80 per-x covering conclusion and chain primes; absent.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Same object (prime gaps census, first occurrences up to 4e18 covering 1e12) but it publishes raw gap records and large-gap extremes, never the submitted universal claim that each x^0.53 window at 1e12 holds a pair with gap at most 80.",
+        "title": "Gaps between consecutive primes",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://sweet.ua.pt/tos/gaps.html"
+      }
+    ],
+    "rationale": "Terminal Perplexity check added 17 non-overlapping URLs (3 overlaps: Alweiss-Luo twice and Li 2308) consisting of prime-gap databases, expositions, and record tables. The most decisive bodies were fetched in full: t5k maximal-gap tables, Oliveira e Silva exhaustive gaps to 4e18, MathWorld summary, pzktupel merit tables, plus the two theory papers. None states, lists, or implies the explicit (theta=0.53, X0=1e12, L=1e7, C=80) five-pair covering certificate; large-gap records are compatible with the per-window close-pair claim rather than covering it, and the theory papers remain asymptotic or single-prime results. The new recall usefully strengthened the exact-database check but duplicated the base nearest leads, so originality PASS is preserved with no decisive prior.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full arXiv HTML body inspected: Thm 1.1/Cor 1.2 prove asymptotic density >>h/(log x)^k of bounded-gap pairs for sufficiently large x with unspecified k,d; no fixed X0=1e12, L=1e7, C=80 statement and none of the 5 chain pairs appear.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Bounded gaps between primes in short intervals",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/1707.05437v1"
+    }
+  ],
+  "verdict": "PASS"
+}
