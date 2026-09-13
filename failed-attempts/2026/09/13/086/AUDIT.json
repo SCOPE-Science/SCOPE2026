@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: upper bound and Koksma lemma verify, but headline lower bound is unproved. Lemma 1 congruence proof, Weil+Erdos-Turan upper D_p<<log p/sqrt(p), Remark on p=3 mod 4 avoiding atom at 0, and Lemma 2 D_p>=|K(1,1;p)|/2pi(p-1) were checked line-by-line and reproduced numerically (1105 pairs pass; Koksma holds for p=3 mod 4 <=200). Lemma 3 claims Katz vertical Sato-Tate over p=3 mod 4 gives equidistribution of theta_p for diagonal K(1,1;p) and hence infinitely many |K|>=sqrt(p). Cited Katz Ch.9 and Fouvry-Kowalski-Michel Duke 2014 do not prove diagonal equidistribution as modulus varies in a progression; they give horizontal equidistribution (vary a, fixed p) and power-saving for sums over primes of fixed-modulus trace functions. Diagonal vertical Sato-Tate as p varies is not an established black box. Hence infinitely-often lower bound and two-sided headline remain unproved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused search plus full fetches of nearest priors shows no prior states or implies the fixed-prime two-sided D_p rate for p=3 mod 4 with infinitely-often c/sqrt(p)log p lower bound. Nearest works are Vardi/Myerson averaged equidistribution, Banks-Shparlinski general-set uniformity arXiv:1411.1820, Jun-Lee averaged equidistribution arXiv:1303.2331, Katz horizontal Sato-Tate, FKM fixed-modulus sums over primes, and Dunn-Zaharescu fixed-modulus sums in progression. Upper rate alone is a standard Weil+Erdos-Turan corollary acknowledged in Banks-Shparlinski comments, but the conjunction with the diagonal large-value lower bound is not recorded, mechanically implied, or covered as a special case.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "If true, the two-sided fixed-ensemble discrepancy rate for the natural object {{12s(h,p)}} over full reduced residues at primes 3 mod 4 would be independently retrievable: object and invariant were motivated before computation by Rademacher, Vardi, Myerson and Banks-Shparlinski programs, the infinitely-often 1/sqrt(p) scale lower bound is not known or mechanically implied, and a future researcher could reasonably need the precise rate. This is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md upper proof, Lemma 1 induction, Lemma 2 Koksma proof, Remark on -1 nonresidue; re-executed lemma_congruence_check.py (1105 pairs, 0 failures) and kloosterman_numerics.py (Koksma holds to 200; 9 primes with |t|>=1/2)",
+    "Banks-Shparlinski arXiv:1411.1820 full HTML: Lemma 5 Hickerson congruence, general Delta_D bound, Sec6 comment that Weil gives stronger bound for long intervals",
+    "Jun-Lee arXiv:1303.2331 full HTML Sec2: Rademacher Thm 2.1, K(m,m;q) relation (5), Weyl criterion averaged over moduli",
+    "Fouvry-Kowalski-Michel arXiv:1211.6043/Duke 163 (2014) full HTML: Thm 1.5/1.16/1.17 sums over primes q of fixed-modulus trace weights, Cor 1.13 Kl_2(nq;p); requires X>>p^{3/4}, not diagonal K(1,1;p) with varying modulus",
+    "Dunn-Zaharescu arXiv:1801.05880: sums of Kl(p;q) over p<=X in progression with fixed modulus q; not diagonal",
+    "Katz 1988 Ch13 doi:10.1515/9781400882120-014 horizontal equidistribution of Kloosterman angles (vary a, fixed p); no p-varying diagonal equidistribution in progression"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "FKM proves power-saving for sums over primes of fixed-modulus trace functions; Dunn-Zaharescu sums Kl(p;q) with fixed q over p in progression; Katz proves horizontal (vary a) equidistribution. None proves equidistribution of diagonal angles theta_p as modulus p varies in 3 mod 4.",
+      "reasoning": "Draft conflates fixed-modulus/varying-argument sums with varying-modulus diagonal values; no broader theorem found substantively implies infinitely many p=3 mod 4 with |K|>=sqrt(p), so coverage fails and Lemma 3 citation is invalid.",
+      "search": "vertical Sato-Tate Kloosterman K(1,1;p) over primes p=3 mod 4; FKM algebraic trace functions over primes; Dunn-Zaharescu sums in progression"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusions are averaged over moduli or restricted to M,N ranges with N^{3/4}<=M, plus explicit comment that long-interval Weil+ET is standard; none states a fixed-prime D_p upper rate plus diagonal infinitely-often lower bound for p=3 mod 4.",
+      "reasoning": "Upper half is a standard corollary of known ingredients, but the two-sided headline with i.o. c/sqrt(p)log p via diagonal large Kloosterman values is not logically implied by any prior hypotheses/conclusions; hence novel as a claim though unproved.",
+      "search": "Banks-Shparlinski uniformity for general m,n sets; Vardi averaged Weil bound x^{3/2+o(1)}; Jun-Lee classical equidistribution via Weil"
+    },
+    "equivalent_formulations": {
+      "evidence": "Banks-Shparlinski Lemma 5 and Jun-Lee Thm 2.1 state the same integrality and K(m,m;q) identity; they use it for averaged equidistribution, not fixed-prime D_p rate.",
+      "reasoning": "Synonymous notation and Kloosterman-fraction encoding were checked; they establish only the known reduction step, not the submitted fixed-prime two-sided discrepancy headline.",
+      "search": "Rademacher congruence 12s(h,k)-(h+hbar)/k integer; Hickerson lemma; Kloosterman fractions e((hm+hm*)/n)"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused results contain no database or table giving D_p or fixed-prime discrepancy bounds; artifacts compute D_p only illustratively to 200 with no claimed completeness.",
+      "reasoning": "No exact parameter table or official database was found containing the claimed C,c,P0 rate, so the headline is not a direct lookup or recomputation of a tabulated fact.",
+      "search": "tables of Dedekind-sum discrepancies D_p for prime moduli; LMFDB or Dedekind-sum databases with star-discrepancy rates"
+    }
+  },
+  "residual_risks": [
+    "Upper bound, congruence, and Koksma inequality verified; diagonal large-value existence may still be true but is unproved here",
+    "No exhaustive guarantee against an obscure table entry, but fused providers plus direct primary fetches found no fixed-prime D_p rate table"
+  ],
+  "verdict": "REJECT"
+}
