@@ -1,0 +1,101 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-verified: witness 70 blocks form a valid STS(21) (210 pairs unique), are sigma-closed, carry exactly 7 blocks on {0..6} covering all 21 pairs (Fano plane), brute-force 6-subset scan gives exactly 7 Pasches and 7-subset scan exactly 1 Fano set, matching pasch_find/fano_find. Rebuilt orbit matrix: 190 block-orbits of size 7, 30 pair-orbits, 181 admissible rows. All 135128 raw solutions are distinct exact covers of the 30 columns. Census aggregates recomputed: 61040 Fano-containing, minimum Pasch 7 over them attained by 1764, overall minimum 0. Random 12-solution sample: cached census equals fresh library counts equals independent brute-force counts in all cases. Algorithm X code is standard exhaustive branching; fano_find skipping block triples is complete since every Fano set contains non-block triples. Iso-invariance of Pasch/Fano under relabeling is elementary, so labeled minimum numerically equals type-level minimum.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING genuinely on the TARGET route (same tricyclic family, same Pasch/Fano invariants; iso-split stalled so labeled extremal value with witness/certificate reported with per-type table honestly disclaimed). Live fused search over literal, equivalent (anti-Pasch/quadrilateral/(6,4)/sub-STS(7)/Fano subplane), and dominance (MPR classification, 62M symmetric census, sparse enumeration, databases) directions found only nearest priors with strictly different claims: MPR 1981/1995 tricyclic enumeration (resolvability/subsystems, no Pasch minimum), Kaski symmetric enumeration, Kokkala-Ostergard sparse census (anti-Pasch/5-sparse counts), Erskine-Griggs 2024 symmetric survey (max Pasch 117, anti-Pasch/mitre/crown/hexagon/grid/prism extremes, no Fano-restricted tricyclic minimum). No table or database lists the joint figures 61040/135128, minimum 7, or 1764 attainers. The claim is a new computed exact census, not a restatement, corollary, or lookup.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Exact invariant of a natural motivated object under the shared STANDARD: the tricyclic STS(21) family (MPR) and the Fano-restricted Pasch minimum were fixed before computation as the admitted TARGET core. The labeled-level minimum 7 with prevalence 61040/135128, explicit 70-block witness with marked Fano set and full 7-Pasch list, and exhaustive rerunnable certificate is not known or mechanically implied, is distinguished from the overall labeled minimum 0, and a future researcher could need the precise extremal value, witness, and prevalence. The unfinished 95-row per-type attribution is explicitly disclaimed; the headline is judged separately per policy and the numerical type-level value follows by elementary isomorphism-invariance. Certification strengthens rather than substitutes for this substantive extremal fact.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md labeled theorem, witness block list, 7-Pasch list, and explicit partial-type disclaimer",
+    "research_report.json EMERGENT_FINDING claim, discovery context, and limitations",
+    "sts_lib.py orbit-matrix, Algorithm X, pasch_find (6-fold assertion), fano_find (triple closure) inspected",
+    "verify_labeled.py independent-rebuild verifier logic inspected",
+    "witness.json 70-block design re-validated by brute force (STS, sigma-closed, Fano plane, 7 Pasches, 1 Fano set)",
+    "raw_solutions.json all 135128 solutions checked distinct exact covers; labeled_census.json aggregates recomputed (61040/1764/min 7/min-all 0); 12-sample triple cross-check vs brute force",
+    "Mathon-Phelps-Rosa 1981 tricyclic enumeration (95 types incl. 7 cyclic) plus 1995 addendum correcting total to 97 (resolvability focus, no Pasch-minimum table)",
+    "Erskine-Griggs arXiv:2401.13356 (2024) survey of 62M symmetric STS(21)s fetched in full: max Pasch 117, anti-Pasch/mitre/crown/hexagon/grid/prism extremes, no Fano-restricted tricyclic minimum",
+    "Kaski symmetric enumeration; Kokkala-Ostergard sparse STS(21) census (83M anti-Pasch, 958 symmetric anti-Pasch, 3 5-sparse); STS(21)-with-subsystems paper (arXiv:2104.06825) as subsystem background"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Erskine-Griggs 2024 analyzes all 62,336,617 symmetric STS(21)s (parallel classes, colourings, configurations, Pasch trades, cycle structures) and reports global extremes (e.g. max Pasch 117, 958 symmetric anti-Pasch, 20 anti-mitre, 21 crown-free); MPR classifies tricyclic iso types with resolvability/subsystem data. Neither states a Fano-restricted minimum over the tricyclic family.",
+      "reasoning": "A broader census does not cover the claim unless its result implies the exact joint restriction. The symmetric-wide extremes and tricyclic resolvability data use different hypotheses (no Fano restriction) and different conclusions (maxima, counts of avoiders), so they neither imply nor exhaust the minimum-7 extremal value over Fano-containing tricyclic designs.",
+      "search": "Searched stronger/broader coverage: full STS(21) enumeration (Heinlein-Ostergard), all 62M symmetric STS(21)s with nontrivial automorphisms, tricyclic Mathon-Phelps-Rosa classification, and anti-Pasch/sparse STS(21) censuses for any theorem subsuming the Fano-restricted tricyclic Pasch minimum."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Nearest priors conclude: MPR tricyclic list with 6 (later 7) resolvable systems; Kaski 958 symmetric anti-Pasch STS(21)s with one cyclic (C2); Kokkala-Ostergard 83,003,869 anti-Pasch STS(21)s with three 5-sparse; Erskine-Griggs symmetric maxima (117 Pasches, 252 mitres/hexagons, 396 crowns, 798 grids, 1773 prisms). The submitted claim concludes minimum exactly 7 over Fano-containing sigma-invariant designs with 61040/135128 prevalence and 1764 attainers.",
+      "reasoning": "Literal comparison of hypotheses and conclusions shows no implication: prior avoider counts concern Pasch count 0 without the Fano-containing restriction, and maxima concern upper extremes, while the claim is a lower extremum under a joint Fano-plus-tricyclic restriction with witness inside the Fano set. Anti-Pasch systems do not contradict it because they lie outside the Fano-containing restricted class (overall labeled minimum 0 vs restricted minimum 7).",
+      "search": "Compared submitted hypotheses (sigma-invariant STS(21), Fano-containing, Pasch count) and conclusion (exact minimum 7, prevalence, witness) literally against each nearest prior theorem conclusion to test corollary, recomputation, or repackaging."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results consistently use Pasch as (6,4) quadrilateral, anti-Pasch/quadrilateral-free wording, and sub-STS(7)/Fano subplane/Fano plane terminology, but report unrelated statistics (Pasch maxima, numbers of avoiders, subsystem enumerations). No hit states a minimum Pasch value over Fano-containing tricyclic systems under any synonym (Pasch number, quadrilateral count, (6,4) configurations, Fano subsystems).",
+      "reasoning": "Synonymous names (Pasch/quadrilateral/(6,4)), dual or complement encodings, and sub-STS(7)/Fano-subplane wording variants were all screened. Since no source states the same extremal value over the same restricted class in any notation, the claim is not a renamed or re-encoded prior result.",
+      "search": "Searched literal claim plus standard equivalents: Pasch vs quadrilateral vs (6,4) configuration vs K4-minus-edge, Fano plane vs sub-STS(7) vs Fano subplane/subsystem, tricyclic vs three disjoint 7-cycles vs order-7 fixed-point-free automorphism, Pasch number vs quadrilateral count."
+    },
+    "exact_database_or_table": {
+      "evidence": "Checked candidate stores: Kaski 62M symmetric STS(21) library (made available for Erskine-Griggs analysis, no public per-system Pasch+Fano table stating this minimum), Kokkala-Ostergard Zenodo sparse dataset (anti-Pasch systems only), MPR invariant tables (resolvability/subsystem data, no Pasch-minimum column found), and STS(19) Pottonen-style database analogue. None contains the entries [61040 Fano-containing of 135128], [minimum 7], or [1764 attainers] with the explicit witness.",
+      "reasoning": "The exact parameters do not appear in any table or official database, so the finding is not a direct lookup, arbitrary finite slice, or known-database recomputation. The sparse dataset covers only Pasch count 0 and hence cannot yield the Fano-restricted minimum 7 by filtering.",
+      "search": "Searched exact-parameter and table coverage: tricyclic STS(21) invariant tables, Kaski symmetric STS(21) data files, Kokkala-Ostergard sparse STS(21) Zenodo dataset, per-system Pasch/Fano tables, and compact STS(21) string listings for Pasch 7 with Fano set {0..6}."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "207626bd6e6578e2e3f4a3bdde9cbe70d87094cc6502e82413e4eedbd242f2f1",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Counts all STS(21) isomorphism classes containing a sub-STS(7) (116,635,963,205,551 with Wilson-type split) with no tricyclic restriction and no Pasch-count conclusion, so it cannot imply the joint 61040/135128 prevalence or the minimum 7.",
+        "title": "[PDF] Steiner Triple Systems of Order 21 with Subsystems - arXiv",
+        "url": "https://arxiv.org/pdf/2104.06825"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Surveys 62,336,617 symmetric STS(21)s for parallel classes, colourings, Pasch/mitre/crown/hexagon/grid/prism extremes including max 117 Pasches, with no Fano-containing tricyclic minimum, so hypotheses and conclusions both differ.",
+        "title": "arXiv:2401.13356v1  [math.CO]  24 Jan 2024",
+        "url": "https://arxiv.org/pdf/2401.13356"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Reports three 5-sparse and zero 6-sparse STS(21)s among classified systems, i.e. Pasch-plus-mitre avoidance counts, without the Fano-containing and tricyclic hypotheses and without any minimum-7 conclusion.",
+        "title": "Sparse Steiner triple systems of order 21 | Lund University",
+        "url": "https://www.lunduniversity.lu.se/publication/19fdb21b-9937-43c0-8625-05eeb1bca045"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Discusses Kirkman and resolvability structure of STS(21)s with a three-7-cycle automorphism following Mathon-Phelps-Rosa, concerning resolvability rather than Pasch counts, and states no Fano-restricted Pasch minimum or witness.",
+        "title": "MATHEMATICS OF COMPUTATION",
+        "url": "https://www.ams.org/journals/mcom/2002-71-238/S0025-5718-01-01372-2/S0025-5718-01-01372-2.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "States the global enumeration of 14,796,207,517,873,771 STS(21) isomorphism classes with no Pasch, Fano, or tricyclic restriction, a strictly broader universe whose total cannot imply the restricted exact minimum 7.",
+        "title": "THE MAIN RESULT",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/jcd.21906"
+      }
+    ],
+    "rationale": "Terminal Perplexity check returned 20 results with 2 overlapping the base set (subsystems census and Erskine-Griggs survey, both already fully reviewed) and 18 novel URLs. Novel hits concern global STS(21) totals, sparse and anti-Pasch counts, colourings, general configuration theory, twin trades, Kirkman resolvability, and generic databases. None states the joint tricyclic Fano-restricted figures (61040 of 135128, minimum 7, 1764 attainers) or the explicit witness in any notation, and no broader theorem implies them. No decisive prior found; provisional originality PASS and overall PASS are preserved with no verdict change.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [
+    "Exhaustive enumeration completeness rests on Algorithm X correctness (inspected, standard) without a second from-scratch enumeration in audit; mitigated by structural re-verification and sample brute-force agreement.",
+    "The report and topic cite 95 MPR types while the 1995 addendum corrects the tricyclic total to 97; the labeled-level headline is unaffected (fixed-sigma enumeration covers all types either way) but per-type framing is stale.",
+    "The verifier shares sts_lib counting routines; independence is partial, mitigated by assert-checked 6-fold Pasch multiplicity and independent brute-force 6-/7-subset cross-checks on the witness plus 12 random solutions."
+  ],
+  "verdict": "PASS"
+}
