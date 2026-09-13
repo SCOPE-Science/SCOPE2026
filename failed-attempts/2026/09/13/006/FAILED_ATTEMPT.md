@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Clock-versus-jump MDT improvement-or-no-gain on the Koru delay benchmark
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1487
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** switched linear delay systems under minimum dwell time
+- **Method:** clock-dependent Lyapunov-Krasovskii LMI family with gridding/SOS audit versus jump-condition bound
+
+## Problem
+
+For the published two-mode constant-delay minimum-dwell-time example of the clock-dependent Lyapunov-Krasovskii programme of Koru-Delibasi-Ozbay (Dwell time-based stabilisation of switched linear delay systems using clock-dependent Lyapunov-Krasovskii functionals), with its stated delay, decay rate, and subsystem data, decide whether a clock-dependent Lyapunov-Krasovskii linear matrix inequality family with stated gridding/sum-of-squares time-discretization audit certifies a minimum dwell time strictly smaller than the best jump-condition (Morse/Geromel-Colaneri type) bound reported for the same example. Either exhibit the gridded feasible family with explicit matrices and mesh/audit Recorder achieving a strictly smaller certified tau_d, or prove a no-gain lemma that the clock-dependent class cannot improve the jump-condition bound on this benchmark via dual infeasibility over the stated gridding plus an admissible period-two uniform-dwell switching signal between the bounds whose monodromy spectral radius exceeds one. Downstream use is quantifying the conservatism of clock-dependent versus jump-condition certificates for delay switch stabilization. A complete answer gives the improved tau_d with audit mesh or the no-gain certificate plus the witness dwell, period, and initial function.
+
+## Attempted claim
+
+For the published two-mode constant-delay minimum-dwell-time example of the clock-dependent Lyapunov-Krasovskii programme of Koru-Delibasi-Ozbay (Dwell time-based stabilisation of switched linear delay systems using clock-dependent Lyapunov-Krasovskii functionals), with its stated delay, decay rate, and subsystem data, decide whether a clock-dependent Lyapunov-Krasovskii linear matrix inequality family with stated gridding/sum-of-squares time-discretization audit certifies a minimum dwell time strictly smaller than the best jump-condition (Morse/Geromel-Colaneri type) bound reported for the same example. Either exhibit the gridded feasible family with explicit matrices and mesh/audit Recorder achieving a strictly smaller certified tau_d, or prove a no-gain lemma that the clock-dependent class cannot improve the jump-condition bound on this benchmark via dual infeasibility over the stated gridding plus an admissible period-two uniform-dwell switching signal between the bounds whose monodromy spectral radius exceeds one. Downstream use is quantifying the conservatism of clock-dependent versus jump-condition certificates for delay switch stabilization. A complete answer gives the improved tau_d with audit mesh or the no-gain certificate plus the witness dwell, period, and initial function.
+
+## Research outcome
+
+TARGET claimed: clock-dependent LKF certifies TD=7.6e-5 s on Koru Example 2.1, strictly below jump bound 3.4 s, with explicit audited matrices.
+
+## Why this attempt failed
+
+Failed axes: originality, value.
+
+originality: FAIL: the submitted headline that clock-dependent Theorem 2.2 certifies TD=7.6e-5 s strictly below Caliskan 3.4 s and Koru-2018 1.11 s on Example 2.1 data (A1,Abar1,A2,Abar2,h=0.6,d=0,gamma=1.757) is already recorded in Koru-Delibasi-Ozbay Int. J. Control 93(5):1172-1179 (DOI 10.1080/00207179.2018.1500036) Sec. 2.3 text ('resulting dwell time is TD=7.6x10-5 s for gamma=1.757') and Table 1 row (Yan-Ozbay 6.51, Caliskan 3.4, Koru et al. 2018 1.11, present paper 7.6x10-5) plus abstract prose that the novel approach outperforms previous ones. DRAFT Sec.6 and report limitations explicitly admit re-verification of the paper's reported point, not a new smaller bound or method, claiming verification not a new method. A timestamp or numpy recomputation does not establish priority. ADMISSION_DEFECT: the TARGET improvement answer was already published with identical data, method, and numeric outcome, so Admission should have failed the not-already-recorded test; the finding is a known-table recomputation/certificate repackaging of that stronger prior fact. value: FAIL: under the shared STANDARD, certification and replayability are evidence properties that do not create originality or value by themselves, and known-database recomputation, direct table lookups, and mechanically implied corollaries are rejected even if correct. Here the exact invariant TD=7.6e-5 s for the named natural benchmark was motivated and published before computation, the value is already known, and the strict inequality follows by arithmetic from the published table. A future researcher needing the precise fact would retrieve and cite the 2018 Koru paper, not this replay. No new theorem, boundary movement, extremal witness, classification, cutoff, or materially advancing benchmark improvement is contributed; the constant-slice common-LKF witness (which would imply near-arbitrary switching) does not advance the downstream conservatism question beyond the paper's own comparison. Hence not independently worth finding later as a new record.
+
+## Conditions for a legitimate retry
+
+state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: Re-verification of the paper's reported point (not a new smaller bound or method); numpy double-precision eigvalsh audit, not interval arithmetic; no SDP solver available so search was hill-climbing (sound witness, not completeness); psi audited in stronger Lemma 2.1 form (documented); scope limited to Example 2.1 stability case.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
