@@ -1,0 +1,102 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET-route proof verified step by step: cof(R)=R on SO(3) and cof(alpha Q)=alpha^2 Q=alpha F hold; cof entries are quadratic quasiaffine hence Jensen equality is admissible at p=2 for compactly supported homogeneous gradient Young measures; M1+M2=t0 I and M1+alpha M2=t0^2 I solve to M1=M2=(t0/2)I=(9/16)I; tr(R)<=3 gives lambda>=9/16 and 1-lambda>=9/20 summing to 81/80>1, contradiction including edge cases lambda in {0,1}. Exact Fractions artifacts reproduce all numbers. The supplementary rank remark overstates intra-well ranks as {0,2,3} instead of {0,2}, immaterial to S3.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The exact headline (alpha=1.25, barycenter 9/8 I, no homogeneous W^{1,2} gradient Young measure on SO(3) U 1.25 SO(3)) is substantively implied by stronger published results, so it is a corollary/recomputation rather than a new claim. Ball-James 2015 proves general incompatibility of dilatational wells k1 SO(3), k2 SO(3) for compact disjoint k1,k2 with p-transfer via Lemma 1, instantiated at {1},{1.25}; Zhang 1997 Thm 1.1 (n>=2, body-verified) gives QCH(SO(3))=SO(3), which by dilation-invariance excludes 9/8 I from each single well. Their conjunction implies the headline. D-K-M-S 2000 scope, delimited via body-inspected Ball-James account, is restricted sufficient conditions and does not itself cover this dilatational pair.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the TARGET S3 question is proved in vacuous form by a correct short argument at a motivated symmetric midpoint, the exact datum is mechanically implied by the stronger recorded dilatational-incompatibility plus single-well-hull theorems, so it fails the 'not known or mechanically implied' condition for a narrow exact invariant. Instantiating a general published rigidity result at {1},{1.25} plus standard scaling adds no independent retrieval value beyond citing those stronger facts, even though the elementary cof-at-p=2 route is elegant.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "scope_literature_search with three consolidated directions (literal 9/8 hydrostatic claim; dilatational/cofactor/Kinderlehrer-Pedregal equivalents; broader two-well rigidity census/database), fused SerpBase/OpenAlex/Crossref/OpenAIRE results, 20 deduplicated hits, no partial-provider failure.",
+    "Zhang 1997 Ann. IHP 14:759-785 OA pdf body inspected via pdftotext: Thm 1.1 assumes n>=2 with Qdist^2 lower bound; Cor 1.2 two-well part explicitly requires n>3; condition (1.3) evaluates to 27/64>0 at H=1.25I but n=3 falls outside Cor 1.2 scope.",
+    "Ball-James 2015 ARMA (arXiv:1407.5929) pdf body inspected: Sec 6.2 asserts general dilatational incompatibility for compact disjoint k1,k2 in (0,infty) with polyconvex-W0 plus Reshetnyak proof sketch and Ball-1990-Thm-4.4-plus-Lemma-1 route; Lemma 1 gives compact-support L-infinity transfer; Defs 7-9 give p-independence for compact wells.",
+    "Dolzmann-Kirchheim-Mueller-Sverak 2000 Calc.Var. 10:21-40 abstract and landing page only (body paywalled; OpenAlex closed with no repository fulltext): near-identity quasiconvex-hull triviality in an unspecified large neighbourhood, plus polyconvex nontriviality when far.",
+    "Matos zbMATH 1419766 snippet screened without escalation: object reads as one well plus a point with H near identity, a different object from the two-dilatational-well hydrostatic claim, so it cannot imply it.",
+    "Zhang 2001 COCV pdf body inspected: M2x2 quasiconvex exposed points, planar scope only, no SO(3)/dilatational/hydrostatic content.",
+    "Bhattacharya-Dolzmann 2001, Fonseca-Fusco-Marcellini 2002, and Crossref/OpenAlex metadata: 2D equal-determinant/thin-film scope or citation context only; no exact-parameter table or database entry for alpha=1.25 with barycenter 9/8 I was found."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Ball-James 2015 Sec 6.2 states general dilatational incompatibility for any compact disjoint k1,k2, proved via polyconvex W0 plus Reshetnyak and via Ball-1990 plus Lemma 1; D-K-M-S 2000 abstract claims only near-identity triviality with unspecified radius and is paywalled.",
+      "reasoning": "The general 2015 dilatational-incompatibility theorem strictly subsumes whatever near-identity two-well rigidity D-K-M-S covers for dilatations, and instantiated at {1},{1.25} it reduces the headline to the single-well hull exclusion, so the broader-coverage failure mode is decisive against originality.",
+      "search": "Searched broader two-well rigidity: SO(3) union SO(3)H quasiconvex hull, neighbourhood-of-identity triviality, dilatational incompatibility, and full censuses or classifications covering alpha=1.25."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Instantiated premises: every homogeneous W^{1,2} gradient Young measure on SO(3) U 1.25 SO(3) lives on one well (Ball-James plus Lemma 1); QCH(SO(3))=SO(3) (Zhang Thm 1.1) scales to QCH(1.25 SO(3))=1.25 SO(3); 9/8 I lies in neither well.",
+      "reasoning": "These published premises jointly entail exactly the submitted nonexistence conclusion, so the headline is a corollary/certificate of known stronger facts even though no prior source prints 9/8 verbatim; implication suffices for originality failure.",
+      "search": "Tested whether prior theorems jointly imply the exact hydrostatic nonexistence: incompatibility plus single-well hull plus dilation scaling at t0=9/8 versus wells {1, 1.25}."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results show SO(3)H with H=1.25I coincides with 1.25 SO(3); hydrostatic/arithmetic-mean barycenter, minor/cofactor relations, incompatible-wells, and homogeneous gradient Young measure phrasings all retrieve the same two-well literature led by Zhang 1997 and Ball-James 2015.",
+      "reasoning": "No synonymous, dual, complement, incidence, matrix, or algebraic encoding escapes the covering chain, because the object identity (dilatational pair) and the hydrostatic point are preserved under these rewrites and the general theorems apply to all of them.",
+      "search": "Searched equivalent encodings: SO(3)H versus alpha SO(3) with H=1.25I, hydrostatic and arithmetic-mean barycenter, cofactor and minor relations, and incompatible-wells terminology."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table, census, classification entry, or official database in the fused results records the exact fact alpha=1.25 with hydrostatic barycenter 9/8 I; the relevant priors are general theorems (incompatibility; QCH(SO(3))=SO(3)), not parameter tables.",
+      "reasoning": "Absence of an exact-parameter table entry does not rescue originality, because the general theorems substantively imply the exact datum, which is the operative failure mode here rather than database recomputation.",
+      "search": "Searched exact-parameter coverage: alpha 1.25 with barycenter 9/8 identity in tables, censuses, classifications, and established databases or repositories."
+    }
+  },
+  "residual_risks": [
+    "D-K-M-S 2000 primary body not directly retrievable (paywalled, metadata-only ORA deposit, license-blocked review); scope exclusion rests on the body-inspected Ball-James delimitation of its theorem, which is verdict-sufficient alongside the covering Ball-James plus Zhang chain.",
+    "Supplementary numerical rank-one audit (2000 random rotations) is illustrative only and unneeded for the proof; no risk to the exact arithmetic contradiction."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Sec 6.2 states K1=k1 SO(3), K2=k2 SO(3) incompatible for compact disjoint k1,k2, covering the exact pair {1},{1.25}; Lemma 1 transfers compactly supported Lp (hence W^{1,2} homogeneous) gradient Young measures to L-infinity generation; Defs 7-9 make compact incompatibility p-independent, reducing the headline to the prior single-well hull exclusion.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Ball-James 2015: Incompatible sets of gradients and metastability (ARMA; arXiv:1407.5929)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1007/s00205-015-0883-9"
+    },
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full-text search found no 1.25/9/8/hydrostatic statement, but Thm 1.1 (n>=2, hence n=3) yields QCH(SO(3))=SO(3); by dilation-invariance QCH(1.25 SO(3))=1.25 SO(3), excluding 9/8 I from each well; Cor 1.2 two-well part requires n>3 so it alone does not cover n=3.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Zhang 1997: Quasiconvex functions, SO(n) and two elastic wells (Ann. IHP)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1016/S0294-1449(97)80132-1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text parameter search for SO(3), dilatation, hydrostatic, cofactor, 1.25, 9/8, and barycenter returned only unrelated 2x2 coordinate uses; theorems concern M2x2 exposed points, so 2D scope affirmatively excludes the 3D dilatational claim.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Zhang 2001: On the quasiconvex exposed points (COCV)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1051/cocv:2001101"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Primary body unobtainable after exhaustive attempts (Springer PDF/fulltext/TDM, ORA files/OAI-PMH metadata-only deposit, zbMATH review license-blocked, MPI preprint repo, author pages, SemanticScholar/OpenAlex/OpenAIRE all closed); scope resolved from body-inspected Ball-James 2015: Example 9 delimits D-K-M-S to stronger sufficient conditions with general U1,U2 left open, Sec 6.2 proves the dilatational pair by a different general theorem, Sec 6.3 cites only Condition (ii) of D-K-M-S Thm 1.2 for a non-dilatational material; hence D-K-M-S as scoped does not cover the alpha=1.25 hydrostatic claim, whose coverage comes from Ball-James plus Zhang.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Dolzmann-Kirchheim-Mueller-Sverak 2000: The two-well problem in three dimensions",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1007/PL00013455"
+    }
+  ],
+  "verdict": "REJECT"
+}
