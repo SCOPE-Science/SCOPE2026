@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route audited normally. Re-ran inputs/artifacts/numerics.py successfully: D1+D2=-K, D1.D2=2, K^2=8, c1=a, c2=2a-k, vdim 2 and m=0 for all 33 classes a<=7 verified. Closed-form m=0 proof is correct: log CY gives vdim 2 for n=3, point codim 2 forces psi^0; the displayed (2-3)+3-1=2 line has an arithmetic typo but the alternative relative formula and standard log formula both give 2, so conclusion stands. Geometry (smoothness, 2 nodes, nef/effective beta) checks out. Equality itself is not computed but follows schematically by composing cited established correspondences in psi^0 sector; hypotheses claimed are plausible for this toric-model pair. No counterexample needed for affirmative proof. Hence correctness PASSES as proof modulo cited theorems.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 3-direction live search (20 results, full provider coverage, no partial failure) finds no prior record of the exact (F1,H+2H-E, aH-kE) equality, but finds broader theorems that substantively imply it. Arguz-Bousseau proves Frobenius structure for blow-ups of toric varieties; Gross-Siebert Intrinsic Mirror Symmetry proves general punctured-invariant mirror ring; Bousseau-Brini-van Garrel treats nef Looijenga pairs; Mandel/Mandel-Ruddat treat descendant/log-tropical correspondence. Draft itself reduces headline to primary (m=0) ordinary correspondence and cites these as established. A prior source need not state headline verbatim: the general toric-model primary correspondence exhaustively covers this subfamily, so headline is a corollary/repackaging of a known stronger fact. Originality FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Even though correct, the result is not independently worth retrieving under STANDARD. The only new computation is vdim/m=0 trivialization, i.e. the advertised descendant problem is vacuous on this subfamily (psi^0 sector). No exact invariant value Db_beta is computed, no boundary changed, no classification/census completed, no downstream use shown. What remains is application of already-published general correspondence to one natural-but-arbitrary subfamily aH-kE, a textbook corollary/parameter instance mechanically implied by standard results. The narrow-exact-datum allowance does not apply because no precise value, witness, or constant is established for future use. Value FAILS.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Sec 1-2,6-8: setup, m=0 derivation, theorem statement and proof-vs-citation separation",
+    "inputs/artifacts/numerics.py re-executed: all divisor, contact, vdim, m=0 checks pass (33 classes)",
+    "scope_literature_search 3-query fused set: 20 deduplicated hits, all providers ok, no partial coverage",
+    "arXiv:2206.10584 ArguZ-Bousseau: Frobenius for blow-ups of toric varieties, enumerative cluster scattering",
+    "arXiv:1909.07649 Gross-Siebert Intrinsic Mirror Symmetry: punctured-invariant mirror ring associativity",
+    "Bousseau-Brini-van Garrel Stable maps to Looijenga pairs (2024): nef-pair correspondences and toric models",
+    "Mandel Theta bases (2021) + Mandel-Ruddat descendant toric correspondence: psi-sector background"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Arguz-Bousseau proves Frobenius for blow-ups of toric varieties; Gross-Siebert proves general intrinsic-mirror ring via punctured invariants; Bousseau-Brini-van Garrel proves correspondences for nef Looijenga pairs. Pair here (F1 blow-up of P2, D=-K nef, toric model) falls in those classes.",
+      "reasoning": "The broader theorems conclude exactly that theta/broken-line structure constants equal maximal-contact log GW invariants with point insertion. Applied to this pair in psi^0 sector they yield the headline equality, so the claim is a strict special case of already-proved stronger results.",
+      "search": "Frobenius structure conjecture toric-model Looijenga pairs Bousseau Gross-Siebert intrinsic mirror symmetry classification"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Draft proves m(beta)=0 identically (verified by script and closed form) and states descendant walls/broken lines specialize to ordinary ones, then invokes ACGS decomposition, Nishinou-Siebert toric vertex, KS/GS consistency, GHK dictionary and Frobenius statement without new enumerative input.",
+      "reasoning": "Given m=0, both sides are by draft's own reduction the ordinary primary correspondence, which prior work already establishes. The submission is therefore a recomputation/certificate/corollary of that known fact for one subfamily, not a new theorem.",
+      "search": "descendant versus primary log GW psi^0 specialization tropical scattering coefficient implication check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search returned Mandel-Ruddat descendant toric correspondence, Mandel theta bases via descendant invariants, Johnston punctured/log-mirror comparisons, but no record using F1/Bl_pt P2/Hirzebruch Sigma1, punctured/maximal-contact, or theta-function language for classes H, 2H-E, aH-kE.",
+      "reasoning": "No synonymous-notation or dual/encoding prior states this exact family, so failure is not by literal restatement; it is by substantive implication from broader theorems using punctured/theta language for the same psi^0 invariants.",
+      "search": "descendant two-contact log Gromov-Witten scattering F1 Hirzebruch H plus 2H-E maximal contact psi insertion"
+    },
+    "exact_database_or_table": {
+      "evidence": "No table, database, thesis, or repository in fused results lists Db_beta values or scattering coefficients for (F1,H+2H-E) at beta=aH-kE; draft script checks only intersection numbers and m=0, and claims no brute-force Db_beta values.",
+      "reasoning": "Absence of an exact table means no direct lookup anticipates numeric values, but it does not confer originality because the claimed equality (not a numeric value) is already covered by the broader correspondence theorems.",
+      "search": "Hirzebruch F1 log GW table database Looijenga pair H 2H-E curve class aH-kE invariant census lookup"
+    }
+  },
+  "residual_risks": [
+    "Equality relies on correctness of cited published theorems, explicitly outside lane scope",
+    "Toric-model smoothing identification and relative-vs-punctured dictionary asserted without full detail",
+    "Minor vdim display typo immaterial to m=0 conclusion"
+  ],
+  "verdict": "REJECT"
+}
