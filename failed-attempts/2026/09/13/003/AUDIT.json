@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: all essential inferences verified. Step 1 marginal inheritance C_P(pi)>=C_P(mu) is standard and correct for exact-marginal couplings including quadratic entropic couplings. Step 2 first-coordinate marginal of centred multivariate Student-t is exactly univariate t_nu; change of variables y=sqrt(nu+t^2)z is correct up to an irrelevant constant. Steps 3-4 Dirichlet bound Dbar(nu)=gamma^2 c_nu(1/nu+nu^{(nu+1)/2}) uniform in R and variance bound Var>=K(nu)R/2 with K(nu)=c_nu(1+4/nu)^{-(nu+1)/2} via P0=1/2, P1>=K R^{-nu} and 2gamma-nu=1 are arithmetically correct; f_R is bounded Lipschitz since gamma=(nu+1)/2>1. Ratio >=K R/(2Dbar)->infinity defeats any finite, even n-dependent, constant. Hessian radial eigenvalue (2a/nu)(1-s)/(1+s)^2<0 for |x|^2>nu correctly shows non-log-concavity; Holley-Stroock contrapositive for bounded-oscillation claim is valid. Re-ran output/artifacts/witness_check.py: quadrature ratios 2.7,9.0,26.0,93.5 and MC 2.7,9.3,26.7 confirm growth. ADMISSION_DEFECT: the topic parenthetical premise that each marginal in the W kappa0-convex class with kappa0>=0 satisfies Poincare is materially false, since the admitted W=0 member (multivariate-t) has infinite Poincare constant as proved here.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the headline joint infiniteness C_P(pi_eps)=infinity for Student-t couplings is substantively implied by long-standard prior facts and is a mechanical corollary, not a new boundary. It is textbook that a Poincare (spectral-gap) inequality implies exponential tails/concentration and that on the line Muckenhoupt/Bobkov-Gotze criteria decide the inequality; polynomial-tailed laws such as Student-t / generalized Cauchy / Pearson / kappa-concave laws fail standard Poincare and satisfy only weighted Poincare. Saumard arXiv:1804.03926 explicitly treats Student t_alpha / generalized Cauchy via Stein kernels and weighted Poincare, Muckenhoupt criteria, and sub-gamma (not exponential) concentration, and the Bobkov-Ledoux kappa-concave program proves weighted, not standard, Poincare for Cauchy-type tails. The only joint step, C_P(pi)>=C_P(mu) for exact-marginal couplings tested on G_R(x,y)=f_R(x_1), is an immediate one-coordinate reduction. Hence prior results on equivalent formulations (Cauchy/Pearson/kappa-concave), broader exponential-tail necessity theorems, and the exhaustive 1D Muckenhoupt criterion jointly imply the claim; no new threshold, census, or boundary is changed. A literal-title search miss does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: even taken as a rigorous disproof, the result is a textbook restatement/mechanical corollary plus exposure of a cheap admission defect, with no independently retrievable new boundary. ADMISSION_DEFECT: the target presupposed marginal Poincare for the whole class including W=0, so the negative resolution merely falsifies that false presupposition by picking W=0 and invoking the standard polynomial-tails-vs-exponential-tails obstruction at every nu>2. It does not classify which kappa0>0 pairs might still admit bounds, does not address weak/super-Poincare alternatives beyond a disclaimer, and the explicit linear-ratio witness is the standard Muckenhoupt two-point-mass witness, not a new extremal boundary. Under the shared STANDARD a TARGET whose likely negative resolution merely exposes a type/normalization error, vacuity, or false premise fails admission, and certification/numerics alone do not create value. A future researcher needs only the textbook fact that Student-t lacks Poincare, not this repackaged joint threshold record.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md Steps 1-6 proof chain re-verified line by line, including Jacobian, upper/lower density bounds, Dirichlet/variance arithmetic, and Hessian non-log-concavity computation",
+    "inputs/artifacts/witness_check.py re-executed: univariate-t3 quadrature Var/Dir 2.7, 9.0, 26.0, 93.5 at R=5,20,100,1000; n=5 Monte Carlo 2.7, 9.3, 26.7; Hessian eigenvalues +1.63,+0.023,0,-0.0215,-0.257 confirming sign change",
+    "Saumard arXiv:1804.03926 Weighted Poincare inequalities related to Stein kernels: Student t_alpha / generalized Cauchy satisfy weighted Poincare with Stein-kernel weight, Muckenhoupt criteria characterize (weighted) Poincare on the line, bounded Stein kernel gives sub-Gaussian/Cheeger but heavy tails give only sub-gamma/weighted bounds",
+    "scope_literature_search fused results (SerpBase/OpenAlex/Crossref/OpenAIRE directions on joint entropic-coupling Poincare, Student-t spectral gap/Muckenhoupt necessity, and Schrodinger-bridge/HP joint-law census): no prior finite dimension-free joint constant found; instead nearest priors state weighted-only inequalities and exponential-tail necessity, which imply the failure",
+    "Standard Poincare necessities: Poincare implies exponential concentration/tails (Bakry-Emery, Bobkov-Ledoux, Boucheron-Lugosi-Massart textbook theory) and Holley-Stroock bounded-oscillation stability used in DRAFT Step 6 contrapositive"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Standard theorem: finite Poincare constant implies exponential tails and exponential concentration; Muckenhoupt/Bobkov-Gotze criteria exhaustively characterize 1D Poincare; Bobkov-Ledoux kappa-concave/Cauchy program establishes only weighted Poincare with polynomial weights and sub-gamma concentration for heavy tails, never a finite standard constant.",
+      "reasoning": "This broader theorem class strictly subsumes the submitted claim: every univariate t_nu with nu>2 has polynomial tails P(|X|>=R)~R^{-nu} and hence cannot satisfy standard Poincare; the joint law with exact t marginals inherits infiniteness via the one-coordinate test function. The headline is therefore a special case of a known stronger necessity, so originality fails.",
+      "search": "stronger theorem covering claim: Poincare implies exponential tails, Muckenhoupt criterion on R, Bobkov-Ledoux weighted Poincare for generalized Cauchy/kappa-concave, Schrodinger-bridge joint Poincare census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "DRAFT Step 1 inequality Var_mu(g)=Var_pi(g o proj)<=C int|grad g|^2 dmu for any exact-marginal coupling pi, plus G_R(x,y)=f_R(x_1) giving identical variance and Dirichlet under pi_eps and mu; Saumard/Muckenhoupt priors already imply C_P(mu)=infinity for univariate t_nu.",
+      "reasoning": "Given prior implication C_P(mu)=infinity, the joint conclusion C_P(pi_eps)=infinity follows in three lines with no new joint analysis, Gaussian-conditional/Gamma-calculus input, or eps-dependent argument. The claimed joint threshold disproof is thus a direct recomputation/corollary of the known marginal failure, not an independent joint theorem.",
+      "search": "joint-vs-marginal implication: exact-marginal coupling Poincare inheritance C_P(pi)>=C_P(mu) and one-coordinate witness G_R for quadratic entropic coupling at every epsilon>0"
+    },
+    "equivalent_formulations": {
+      "evidence": "Saumard 1804.03926 Section 1/3 treats Student t_alpha as the generalized Cauchy example, proves weighted Poincare Var<=E[tau (f')^2], recovers Bobkov-Ledoux Cauchy weights, and links finiteness to Muckenhoupt criteria and Stein-kernel boundedness; synonymous terms include Pearson class, kappa-concave, q-Gaussian, spectral gap, Cheeger constant, exponential tails.",
+      "reasoning": "Searching under synonymous names (Student-t = generalized Cauchy = Pearson/Student example = kappa-concave heavy tail; Poincare = spectral gap = exponential concentration) still yields only weighted-Poincare results and Muckenhoupt failure for polynomial tails. A different name or dual/complement/incidence encoding does not evade this coverage; the object and inequality are identical.",
+      "search": "equivalent formulations search: Student-t synonyms generalized Cauchy Pearson kappa-concave q-Gaussian, Poincare synonyms spectral gap Cheeger exponential concentration, Stein-kernel weighted Poincare"
+    },
+    "exact_database_or_table": {
+      "evidence": "No table or official database lists a finite standard Poincare constant for multivariate or univariate Student-t at any nu>2; the citable tables/criteria (Muckenhoupt constant B on the line, Bobkov-Gotze log-Sobolev criterion, Stein-kernel boundedness tables for Pearson laws) evaluate to infinity/unbounded for t_nu and instead record finite weighted-Poincare weights growing like |x|^2/nu.",
+      "reasoning": "The exact-parameter check therefore confirms prior coverage rather than novelty: plugging t_nu into the established 1D Muckenhoupt functional is a direct lookup yielding infiniteness, and the joint parameter (n, nu, eps) adds nothing because the witness lives in one fixed coordinate. There is no new exact invariant to tabulate beyond the textbook infiniteness.",
+      "search": "exact database/table check: Poincare-constant tables and Muckenhoupt-criterion evaluations for univariate Student-t_nu at parameters nu>2, n>=1, epsilon>0"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
