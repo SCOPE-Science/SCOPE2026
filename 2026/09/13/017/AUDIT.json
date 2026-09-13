@@ -1,0 +1,79 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independent recomputation confirms the exact core. Q=a^2+a'+1 with a=2x+1/(2x)+1/x^2 equals 4x^2+5+4/x-1/(4x^2)-1/x^3+1/x^4; s=16x^6+20x^4+16x^3-x^2-4x+4, t=4x^4, so the only finite pole is x=0 of order 4 and o(inf)=-2. Gauge check (P=[[1,0],[a,1]], W=PY) gives exactly the companion [[0,1],[Q,0]], so system reducibility is equivalent to a rational Riccati solution. Case 1: from R=w'+w^2-Q with w=l/x^2+m/x+q0+px, coefficients give l^2-1=0, 2lm-2l+1=0, p^2-4=0, 2pq0=0 and t1=(5-p)/(2p); all four combos give d=t1-m in {1/4,-9/4,-3/4,-13/4}, none a nonnegative integer, so no invariant line. E-sets E_0={4}, E_inf={-2} give Case-2 d=-3 and Case-3 d=-2,-3,-6 for n=4,6,12, all inadmissible; necessary-condition gates already exclude Cases 2 and 3. Permissive Case-2 pair (2,2),d=0 fails step 3 since S(1/x)=-32x-20/x-8/x^2-2/x^4+4/x^5 != 0 (recomputed exactly). Hence Kovacic Case 4 holds and G^0=SL(2,C), so G=SL(2,C). The Stokes trace relation tr(M_0)=-(2+s1*s2) is correct for formal monodromy -I, and the numerics are kept only as corroboration. The DRAFT's correction that there are no formal logarithms (central -I resonance) is accurate and does not disturb the density argument.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused retrieval over literal, equivalent-formulation, and dominance queries finds no prior source stating or implying the Galois group of this exact symmetric system/scalar operator. Nearest hits are general DLMF confluent-Heun classification, Buchstaber-Tertychny symmetry categories of a special doubly-confluent Heun equation, Levai solvable potentials from DHE/BHE/THE, Mitschi Stokes computation for confluent generalized hypergeometric families D_{pq}, and Duval/Loday-Richaud Kovacic studies of special functions. None contains the parameters Am1=diag(1,-1), A2=diag(2,-2), A1=[[0,1],[1,0]], A0=diag(1/2,-1/2), the exact Q above, or its Kovacic E-set tables. No census, table, or database entry covers this point as a special case, and no broader theorem mechanically implies G=SL(2,C) here because the central formal monodromy defeats generic density arguments. The finding is therefore new under the shared STANDARD.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "This is a TARGET-route complete resolution of the admitted dichotomy: the topic pre-approved either a Liouvillian closed form or a Kovacic no-Liouvillian plus Stokes certificate as independently valuable, and the work delivers the second horn with a full exact Case-1/2/3 elimination plus an independent Stokes product witness. The object (symmetric doubly-confluent Heun resonant boundary point with central formal monodromy -I) and the invariant (full SL(2,C) versus Borel) were motivated before computation, the value was not known or mechanically implied, and a future researcher Meeting this resonance needs exactly this fact. It is not a textbook exercise, parameter substitution, tiny gain, or unexplained enumeration, and the honest correction of the logarithmic misnomer strengthens rather than weakens the record.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Sections 1-8: system definition, scalar reduction Q, pole inventory, formal data with logarithmic-misnomer correction, Case-1 table, Cases-2/3 E-set tables, Stokes relation, Ramis closing",
+    "inputs/artifacts/kovacic_case2.py and kovacic_certificate.json / kovacic_stdout.txt: exact rational Case-1 elimination, pole recomputation, permissive Case-2 step-3 quantity",
+    "inputs/artifacts/kovacic_cases23.py and kovacic_cases23.json: cited Kovacic 1986 reference, necessary-condition gates, E_0={4}/E_inf={-2}, Case-2 d=-3, Case-3 d=-2,-3,-6",
+    "inputs/artifacts/stokes_monodromy.py and stokes_monodromy.json: 50-digit RK4 loop monodromy tr(M_0)\u2248-263.9932152548, det\u22481, radius/mesh independence (corroboration only)",
+    "Independent recomputation in audit shell: Q expansion match, s/t degrees (6,4) with s(0)=4, gauge P=[[1,0],[a,1]] to companion [[0,1],[Q,0]], Case-1 coefficient hierarchy, sqrt series, S(1/x) nonzero, Case-3 permissive scan",
+    "scope_literature_search fused results (SerpBase/OpenAlex/Crossref/OpenAIRE, all ok, 20 fused hits): Buchstaber-Tertychny special DCHE symmetries; Levai DHE/BHE/THE potentials; Mitschi confluent hypergeometric Galois groups via Stokes; Duval/Loday-Richaud Kovacic; DLMF 31.12 confluent forms",
+    "DLMF 31.12 fetched in full: confluent/doubly-confluent/biconfluent/triconfluent Heun normal forms (31.12.1-31.12.4); general classification only, no Galois group for the submitted parameters"
+  ],
+  "claim_route": "TARGET: audited normally against the admitted SL(2,C)-vs-Borel dichotomy. No ADMISSION_DEFECT: the retained correction (no formal logarithms; resonance is central monodromy -I) is a minor terminological fix that leaves the target, witness criterion, and value rationale intact.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Mitschi 1996 computes Galois groups for confluent generalized hypergeometric families D_42, D_51, D_71 and self-dual D_{2q,2q-2} via Stokes multipliers; Duval/Loday-Richaud treat Kovacic for special-function families; Chiang-Law-Yu treat biconfluent Heun/Painleve-IV degenerations; none states a theorem covering all doubly-confluent Heun parameters or this rank-1 plus rank-2 symmetric point.",
+      "reasoning": "A broader theorem would need hypotheses whose instantiation at Am1=diag(1,-1), A2=diag(2,-2), A1=[[0,1],[1,0]], A0=diag(1/2,-1/2) yields G=SL(2,C). No retrieved classification has that scope; the general Ramis density machine alone does not imply it because formal monodromy is central -I, which is why the submission proves it by hand.",
+      "search": "Classification of differential Galois groups of confluent and doubly-confluent Heun equations, Stokes phenomenon census, Dettweiler-Reiter, van der Put-Singer tables, and any general theorem subsuming the symmetric rank-1 plus rank-2 point"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Buchstaber-Tertychny describes symmetry-group categories of a special doubly-confluent Heun equation, not its Picard-Vessiot group; Levai classifies solvable potentials from BHE/DHE/THE; Mitschi treats hypergeometric D_{pq}, a different singularity class; Ulmer-Calmet/Singer treat Liouvillian-degree bounds generally. None exhibits a rational Riccati solution or E-set table for Q=4x^2+5+4/x-1/(4x^2)-1/x^3+1/x^4.",
+      "reasoning": "Implication requires that a prior theorem plus routine specialization yields the headline G=SL(2,C). The prior works neither compute this Q nor supply a lemma that discharges its Kovacic tables; obtaining the conclusion still requires the submitted exact elimination, so the claim is not a corollary or repackaging.",
+      "search": "Whether any prior Galois-theoretic result on Heun, confluent hypergeometric, or Kovacic special-function literature substantively implies G=SL(2,C) for this exact system without new computation"
+    },
+    "equivalent_formulations": {
+      "evidence": "Queries covered the scalar form y''=Qy with Q=4x^2+5+4/x-1/(4x^2)-1/x^3+1/x^4, rational Riccati equation w'+w^2=Q, companion matrix [[0,1],[Q,0]], traceless system M=[[a,1],[1,-a]] with a=2x+1/(2x)+1/x^2, Borel/reducible versus dihedral/finite Kovacic Cases 1/2/3 language, and Stokes-multiplier/Ramis-density phrasing. No hit contains this Q, its pole data (order 4 at 0, o(inf)=-2), or E-sets {4},{-2}.",
+      "reasoning": "Synonymous encodings (system vs scalar vs Riccati vs companion vs symmetric/Bocher form) all reduce to the same Q and pole inventory, which was searched literally as a rational function. Absence across all encodings means the result is not hidden under dual, complement, incidence, or algebraic notation.",
+      "search": "Scalar operator u'' = (4x^2+5+4/x-1/(4x^2)-1/x^3+1/x^4)u, Riccati w'+w^2=Q, companion and traceless-system forms, Kovacic Borel/dihedral/finite and Stokes-torus terminology"
+    },
+    "exact_database_or_table": {
+      "evidence": "DLMF 31.12 gives only the four confluent Heun normal forms (31.12.1 confluent, 31.12.2 doubly-confluent with rank-1 at 0 and infinity, 31.12.3 biconfluent, 31.12.4 triconfluent) with parameters gamma/delta/epsilon/alpha/q; no Galois-group table. NIST/DLMF, Heun-project pages, and standard references contain no entry for this coefficient tuple or a precomputed Liouvillian certificate for it.",
+      "reasoning": "A database hit would need the exact parameter point or its Q/E-set row tabulated with the Galois outcome. Only generic normal forms exist, and the submitted system has rank 2 at infinity (outside the standard DLMF doubly-confluent rank-1+rank-1 template), so no table lookup decides it; direct recomputation was required.",
+      "search": "DLMF 31.12 confluent Heun forms, Heun function databases and code pages, and any table of Kovacic certificates or doubly-confluent Heun Galois groups containing this exact parameter tuple"
+    }
+  },
+  "residual_risks": [
+    "Stokes loop value is high-precision numerics (50-digit RK4 with det/radius/mesh checks), not an interval-arithmetic enclosure; retained strictly as corroboration since Section 5 already proves G=SL(2,C) exactly.",
+    "inputs/artifacts/kovacic_case2.py contains a non-load-bearing Case-3 formula variant d=(e_inf-e_0)/n giving {-3/2,-1,-1/2} instead of the cited (n/12)(e_inf-e_0) giving {-2,-3,-6}; both are negative and impossible, and the authoritative correct tables are in kovacic_cases23.py/kovacic_cases23.json and DRAFT Section 5, which were independently verified.",
+    "Permissive-union Case-3 d=0 candidate (E_0=2, E_inf=2) step-3 recurrence is not displayed; not required because the strict E-sets {4},{-2} already leave no admissible row, and the Case-2 permissive step-3 check was verified exactly."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "2a74cc0b449e7b95dbe5b90375b34914a8ce8f144ad9ec4c427bcaa3b9f93dc2",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Liouvillian solutions for second order linear differential equations with Laurent polynomial coefficient",
+        "url": "https://link.springer.com/article/10.1007/s40863-023-00359-7",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General parametric classification of Picard-Vessiot integrable Laurent-polynomial operators y''=L(x)y into spectral varieties S_(r,m) with explicit Delta_d equations and doubly-confluent/biconfluent Heun applications; its DCHE reduced form (Eq.27, no x^2 term, type (6,2) after transform) differs literally from the submitted Q=4x^2+5+4/x-1/(4x^2)-1/x^3+1/x^4 of type (4,2), and it characterizes the integrable locus rather than deciding non-integrability at this exact numeric point with E_0={4}, E_inf={-2}.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "THE REDUCIBLE DOUBLE CONFLUENT HEUN EQUATION AND A",
+        "url": "http://arxiv.org/pdf/2210.02817",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies monodromy and Stokes-matrix limits for an unfolded reducible double-confluent Heun equation with a regular resonant singularity at the origin realized as a limit of monodromies around split resonant points; its hypotheses (regular-plus-irregular confluence, reducible setting) differ literally from the submitted irregular rank-1 at 0 plus rank-2 at infinity irreducible system, so its conclusions cannot specialize to or imply the headline G=SL(2,C).",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with overlap_result_count 0, so all 20 are incrementally new relative to the base fused set, but none decisively covers the headline. The only substantively adjacent hits are the Acosta-Humanez et al. Laurent-polynomial spectral-variety classification and the reducible-DCHE unfolding paper; both were compared literally (Springer full text Section 4.2 fetched for the former: its DCHE family Eq.27/28 has different Laurent type and parameters alpha/beta/gamma/delta and gives integrability criteria, never the exact Q, E-sets {4},{-2}, or d-values of this claim; snippet-level hypothesis comparison suffices for the latter given its regular-singularity reducible setting). The remaining 18 hits are generic Kovacic expositions, general Galois theory (van der Put-Singer, Singer, Hoeij-Weil), or unrelated ODE problem pages with no Heun-parameter instantiation. No stronger theorem, census, table, or database entry subsumes the symmetric point Am1=diag(1,-1), A2=diag(2,-2), A1=[[0,1],[1,0]], A0=diag(1/2,-1/2). Provisional originality PASS is therefore preserved with no verdict change."
+  }
+}
