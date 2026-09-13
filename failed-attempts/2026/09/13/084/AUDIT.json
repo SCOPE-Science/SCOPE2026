@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route audited as claimed rigorous disproof. Independently re-executed verify_nodal_flex.py and extended checks in all three affine charts: N=V(y^2*z-x^3-x^2*z) irreducible by Eisenstein at (x+1), unique singularity P=[0:0:1] with Hessian diag(-2,2) det -4 and split tangents, hence ordinary node; Q=[0:1:0] smooth with tangent z=0 and F(x,1,0)=-x^3, exact contact order 3, so d=1 problem non-vacuous. Log CY vdim=(2-3)+2=1 for n=2, minus point-insertion codim 2 gives virtual degree -1, hence M_d=0 for all d including M_1=0 under topic's presumption that M_d defined. Scattering nonvanishing at lowest order 3 follows from exhibited flex line realizing weight-3 leg with multiplicity 1; higher consistent-completion walls contribute higher order by standard filtration and cannot cancel minimal term. Arithmetic and geometry verified; remaining formalization gaps do not overturn inequality.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline disproof is mechanically implied by standard tools, not a new theorem. Log-side vanishing M_d=0 follows immediately from textbook log CY virtual-dimension grading taught in Gross-Siebert/Abramovich-Chen theory. Flex line Q,L for this classical nodal cubic is elementary projective geometry. Fused literature search (Graefnitz smooth del Pezzo correspondence, Bousseau smooth (P2,E), Gross-Pandharipande-Siebert tropical vertex, Gross-Hacking-Keel) shows correct correspondence literature always uses unpointed maximal-tangency invariants; no source states this pointed nodal equality, but standard grading plus classical flex substantively implies its falsity without new insight. This is textbook corollary/repackaging, failing originality threshold.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: negative resolution exposes only a type/normalization error that Admission should have ruled out. Target compares a pointed invariant of virtual dimension 1-2=-1 (identically zero for all d) against an unpointed scattering coefficient (virtual dimension 0), guaranteeing mismatch a priori by elementary dimension count. Per STANDARD and TARGET policy, vacuity, normalization errors, and cheap small-instance mismatches fail value even if literally false. Exhibited flex line only confirms non-vacuity required by topic; it does not create downstream use, new boundary, lemma, or retrievable exact invariant. No future researcher needs this pointed-vs-unpointed mismatch as a record.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "inputs/artifacts/verify_nodal_flex.py re-executed plus independent all-charts singular-locus solve: confirms irreducibility, unique node P, smooth flex Q with order-3 line L",
+    "Graefnitz 2022 JAG Tropical correspondence for smooth del Pezzo log CY pairs: maximal-tangency unpointed invariants generate consistent wall structure; shows correct pointing contrasts target",
+    "Bousseau arXiv:1909.02992 proof for (P2,smooth E) maximal contact: smooth cubic case with tropical/sheaf methods, not nodal pointed case",
+    "Gross-Pandharipande-Siebert 2010 The tropical vertex: full-tangency relative invariants at unspecified point equal tropical vertex/scattering, no interior point insertion",
+    "Gross-Hacking-Keel 2015 Mirror symmetry for log CY surfaces I: requires anticanonical cycle of rational curves, excluding irreducible nodal cubic; confirms no broader theorem covers claim"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Gross-Hacking-Keel requires cycle of rational curves; Graefnitz requires smooth anticanonical divisor; GPS tropical vertex is toric-surface case. Nodal irreducible cubic falls outside each hypothesis. No broader census, classification, or canonical/punctured scattering theorem lists pointed nodal (P2,cubic) equality as special case.",
+      "reasoning": "Target is not a strict subset or special case of a proven broader theorem. Broader results instead show the correctly-pointed (unpointed) correspondence, which implies the pointed version as stated is mis-normalized and must fail.",
+      "search": "Gross-Hacking-Keel cycle vs nodal, Graefnitz smooth del Pezzo wall structure, canonical and punctured scattering classification coverage"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Standard log GW vdim (dimX-3)(1-g)+c1log.beta+n gives vdim 1 for n=2, so point class codim 2 forces M_d=0 for all d. Classical flex Q=[0:1:0], L={z=0} with -x^3 contact gives nonzero lowest-order wall term multiplicity 1. Prior GPS/Graefnitz wall functions preserve lowest-order initial term under completion.",
+      "reasoning": "Headline M_1=0 != nonzero scattering is an immediate corollary of textbook grading plus classical flex geometry and standard order-filtration persistence. It is a recomputation/certificate of known stronger facts, not a new structural result, so originality fails.",
+      "search": "log CY virtual dimension formula with point insertion plus nodal cubic flex line tropical multiplicity and initial-wall order filtration"
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched maximal tangency/contact, broken lines/theta functions, tropical vertex/wall-crossing, dual/complement and log/relative/orbifold encodings. Nearest hits use unpointed invariants: GPS full tangency at unspecified point, Graefnitz log of unbounded-wall product, Bousseau maximal contact without interior point.",
+      "reasoning": "No synonymous notation or dual encoding covers the pointed equality. Equivalent formulations confirm the literature correspondence is for differently-pointed invariants, so target's pointed-vs-unpointed comparison is a normalization mismatch, not a covered theorem.",
+      "search": "maximal tangency versus maximal contact, broken lines versus theta functions, pointed versus unpointed log invariants, tropical leg weight 3d encodings"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused SerpBase/OpenAlex/Crossref/OpenAIRE search returned no table, database, thesis table, or author page listing M_d for (P2,nodal cubic) with point insertion or single-wall monodromy coefficients. No LMFDB, mirror, or GW database entry matches exact parameters.",
+      "reasoning": "Exact-parameter table lookup does not establish or preempt the claim. Absence of database entry does not confer originality because log-side zero is mechanically implied and needs no table; scattering nonzero is structural lowest-order fact.",
+      "search": "databases and tables for log GW P2 nodal cubic maximal contact invariants and scattering coefficients including theses and author pages"
+    }
+  },
+  "residual_risks": [
+    "Nodal divisor is not log smooth, so topic's presumption that M_d exists with standard vdim is granted for audit; formal log theory gap strengthens ADMISSION_DEFECT rather than rescuing claim",
+    "Scattering order-3 persistence uses standard filtration that higher walls contribute higher order; no explicit wall functions shown, but minimal-order cancellation would contradict standard scattering formalism"
+  ],
+  "verdict": "REJECT"
+}
