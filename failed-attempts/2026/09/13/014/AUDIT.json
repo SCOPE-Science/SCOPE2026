@@ -1,0 +1,51 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET-route proof fails on its essential geometric inference. Independently recomputed: J rank 2 and J/B analytic formulas check out (numeric Jacobian matches; mixed-stencil gives 2B confirming the corrected B=sin/4; in-plane Hessian is zero; angle sums/genericity margins check out). But the closed sign cone C={Jw=0, s.w>=0} for s=(--+++++-) is NOT the ray R+{r}. Full vertex enumeration over all 56 five-active-bound systems (2 Jacobian + section + 5 zeros) yields 6 feasible section vertices, e.g. zero-sets (0,1,3,4,5),(0,1,3,4,7),(0,1,3,5,7),(0,1,4,5,7),(0,3,4,5,7),(1,3,4,5,7), all with |Jw|~1e-16 and s.w=1. The claimed wstar is a strict convex combination of them (coeffs ~0.14,0.16,0.20,0.14,0.17,0.19, residual ~2e-15). Facet sections are not all {0}: e.g. the (0,1,3,4,5) vertex has w0=0 and lies in the facet-0 section, so facet-0 is nonempty. Q is indefinite on C: Q/unit is -0.124 to +0.128 across vertices and attains both signs (up to +0.17 and -0.09) at interior points with strict-sign margin, versus claimed uniform Q(r)~0.0256. Hence the Lyapunov-Schmidt domination and compactness step (limit direction must be a multiple of r) is invalid. The interval certificate enumerated the wrong family (28 pin-6-coordinate systems, which indeed has 1 feasible point) instead of true polytope vertices, so its cone=ray and facet-kill claims certify nothing about C.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused search (SerpBase/OpenAlex/Crossref/OpenAIRE) over literal, equivalent-formulation, and dominance queries found no prior source stating, computing, or implying this exact generic degree-8 angle vector with assignment (--+++++-) as a first-order-versus-finite gap witness. Nearest prior work (Farnham-Hull-Rumbolt 2022 second-order rigid-foldability criterion Eq.2.4; Zimmermann-Shea-Stankovic degree-n conditions; Tachi quadrilateral-mesh program; Hull duality; rigid-origami vertices/forcing-sets literature) supplies the general Jacobian plus second-order-obstruction method, not the specific admitted-dichotomy resolution. No table, database, census, or broader theorem was found that exhaustively covers or mechanically implies this exact instance. The general phenomenon of second-order locking is known, but this particular witness instance is not recorded; originality therefore passes on its own axis even though the proof is incorrect.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Under the TARGET route, the admitted dichotomy (does first-order flexibility imply finite rigid foldability for generic flat-foldable degree-8 vertices, or does an explicit second-order-locked witness exist) is a motivated natural classification boundary in rigid-origami local rigidity theory, not a textbook exercise, parameter substitution, tiny gain, or unexplained enumeration. A rigorously established explicit gap witness of this form would be independently worth retrieving (exact angles, assignment, infinitesimal velocity, and certified obstruction radius). Value therefore passes conditionally on truth; this does not rescue the failed correctness axis, so the overall verdict is still REJECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md Sections 1-7: headline theorem, J/B derivations, interval-certificate claims (rank minor, 28-system uniqueness, 8x56 facet-kill, Q interval, gap radius 8.4e-4)",
+    "inputs/research_report.json (claim_route TARGET) and inputs/topic.json admitted dichotomy plus inputs/STANDARD.md shared thresholds",
+    "inputs/artifacts/certificate.json: theta, pattern --+++++-, ray_box, section_feasible_count 1, facet kills, Q_interval_point [0.025585331905838633, 0.02558533190586059], genericity margins",
+    "Independent recomputation (numpy, no external deps): angle sums (sum=2pi exact, alt~0), rank-2 minor 0.82488571333845, numeric rotation-product Jacobian vs analytic J, in-plane Hessian ~0, B=sin(a_l-a_k)/4 with stencil factor 2 confirmed, path fit gz(hr)/h^2 -> 0.0255853 along claimed ray",
+    "Independent cone audit: exhaustive 56-system vertex enumeration giving 6 feasible section vertices; pin-6-scheme replication giving exactly the 1 reported point (diagnosing the certificate's wrong family); facet-0 nonempty witness; convex-hull coefficients for wstar; Q sign-indefiniteness scans over vertices and 20000 interior Dirichlet samples",
+    "Fused scope_literature_search (3 consolidated queries across SerpBase/OpenAlex/Crossref/OpenAIRE, 20 fused results) plus full fetch of decisive primary source Farnham-Hull-Rumbolt 2022 (PMC9006121) on second-order rigid foldability; screening of Zimmermann et al. degree-n results, Tachi (2009) quadrilateral-mesh generalization, Hull (2025) vertex duality, and rigid-origami vertices/forcing-sets (JoCG) snippets"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Retrieved broader results give only general frameworks: Zimmermann-Shea-Stankovic intrinsic necessary/sufficient degree-n conditions, Tachi quadrilateral-mesh finite-motion identities, Farnham-Hull-Rumbolt symmetric degree-6 configuration-space analysis built on the general second-order test. None states a degree-8 generic first-order-vs-finite gap dichotomy, let alone decides it with these angles and assignment.",
+      "reasoning": "A broader theorem defeats originality only if it substantively implies or exhaustively covers the exact claim as a special case. These frameworks supply the method (Jacobian plus second-order obstruction) but do not compute, imply, or census-cover this witness; they neither establish nor preclude it. Hence no broader-coverage defeat; the instance would be new if it were true.",
+      "search": "Searched dominance queries for stronger theorems, broader object classes, larger parameter ranges, exhaustive censuses, classifications, and databases that could subsume a generic degree-8 single-vertex gap witness (degree-n rigid/flat foldability, Tachi program, Hull duality, configuration-space classifications)."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Closest prior implication is the general principle that second-order Taylor vanishing guarantees a finite rigid-folding branch (Farnham-Hull-Rumbolt Eq.2.4 and antecedents), i.e. first-order flexibility plus a uniform positive second-order obstruction implies local locking. No prior source applies this to the submitted angle vector or assignment or asserts this dichotomy outcome.",
+      "reasoning": "Prior work implies the proof strategy, not the submitted headline: the exact witness (angles, assignment, ray velocity, certified radius) is a logically independent instance that prior results neither state nor entail. Originality therefore passes on implication grounds, while correctness fails because the instance itself is mathematically false (cone not a ray, obstruction not uniform).",
+      "search": "Compared the literal headline (exact degree-8 angles plus (--+++++-) first-order-flexible but finitely locked) against the conclusions of the nearest prior second-order rigid-foldability results to test whether any prior theorem or computation substantively implies it."
+    },
+    "equivalent_formulations": {
+      "evidence": "Numeric central-difference Jacobian of the rotation-product closure F(rho) reproduces analytic columns (cos a_k, sin a_k, 0) to ~1e-13 with zero out-of-plane linear part; in-plane second derivatives vanish to ~3e-13; mixed second-derivative stencil returns exactly 2*B_ana, confirming the corrected Hessian B_kl=sin(a_l-a_k)/4 with B_kk=0 and the direct path fit 0.0255853 along the claimed ray.",
+      "reasoning": "Equivalent parametrizations and dual/incidence encodings confirm the J and B formulas (up to the documented factor-2 stencil normalization), so the failure is not a notation or encoding artifact: with the correct B the claimed ray still has Q~0.0256, but the cone over which uniformity is claimed is misidentified, and Q takes both signs on the true cone.",
+      "search": "Searched synonymous and dual formulations: infinitesimal rigid-foldability versus first-order flexibility versus kernel of the rigidity Jacobian; rotation-vector versus product-of-rotations closure; out-of-plane Hessian normalization (B versus 2B) and sign-cone versus mountain-valley-parity encodings."
+    },
+    "exact_database_or_table": {
+      "evidence": "No hit contains the submitted 8-tuple (0.62, 0.97, 0.58, 1.02, 0.71, 0.88, 1.231592653589793, 0.27159265358979295), the assignment string (--+++++-), the velocity vector, or the values 0.02558533 / 8.4e-4. The only exact-match source is the submission's own certificate.json and draft tables (including the raw doubled-Hessian table requiring division by 2).",
+      "reasoning": "Because the exact parameter object appears in no table, census, or official database and is not a direct lookup, there is no exact-database originality defeat. This check does not repair correctness: the object is new but the theorem stated about it (ray cone with uniform obstruction and no finite branch) is false on independent recomputation.",
+      "search": "Searched for the exact angle tuple, the MV pattern --+++++-, the Q value 0.02558533, and the gap radius 8.4e-4 across fused results, specialist rigid-origami literature, theses, and database-like tables for single-vertex folding data."
+    }
+  },
+  "residual_risks": [
+    "The from-scratch interval-arithmetic scripts (assemble_cert, qfix, gapradius, verifyM3) were diagnosed via their claimed system counts and outputs rather than line-by-line re-execution; this leaves no residual doubt about the verdict because the defect is established by exact re-enumeration in ordinary floating arithmetic with ~1e-16 residuals.",
+    "Literature search relied on fused provider snippets plus one full primary-source fetch; partial provider coverage cannot establish priority and was not used as such \u2014 originality PASS rests on absence of any covering source plus the positive cone-falsification, not on a failed search."
+  ],
+  "verdict": "REJECT"
+}
