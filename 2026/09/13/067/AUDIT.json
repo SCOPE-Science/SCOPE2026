@@ -1,0 +1,187 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified: Lemma1 two-component separator and connectivity holds for large w (computation re-ran: 8x8 comps 32/24, 12x12 72/60, clean ladders [0,1]); Lemma2 O(n) path decomposition valid and Omega(n) grid-minor lower bound is standard minor-monotone fact; bramble existence via Seymour-Thomas duality correct; Lemma3 anchor forcing correct; Lemma4a clean adjacent-row counting (2K<s-1) and ladder connectivity correct; Lemma4 twist-shift identity outside Q is classical CFI fact and application uses Q fully inside A avoiding stay-cops and S; main Duplicator/robber-in-A strategy correctly localizes (K+1)-pebble game to A with <=K stay-cops, S/B pebbles answered identically, requiring Omega(n) cops. Minor interior-vs-full avoidance wording does not break application. No proof/experiment confusion: computation limited to structural certificates.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search (20 results; Google serpent 429 partial, OpenAlex/Crossref/OpenAIRE ok) plus full-body inspection of nearest priors shows no coverage: compressed-CFI iteration lower bound reuses/identifies gadgets periodically and proves Omega(n^{k/2}) iterations, opposite operation to row individualization with unique anchor colours and constant-K dimension question; planar WL-dimension<=3 applies only to planar graphs while CFI blow-ups are non-planar; bounded-genus O(g) bound does not fix g for growing CFI family; standard CFI/cops correspondence is background that does not mechanically imply the row-pinned Omega(n) dimension without the strip-treewidth plus stay-in-A argument. No table/database hit for exact parameters.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route direct disproof of admitted question: no absolute K works, distinguishing needs K=Omega(n) despite Theta(n) individualized gadgets. This is a substantive structural boundary (1D row cannot cut 2D wall treewidth; bounded cops lose on strips), not a type/normalization error, vacuity, small-instance mismatch, lookup, or arbitrary parameter fact. Object (cubic wall, full row, CFI pair) and invariant (WL dimension) were motivated before computation, value not known or mechanically implied, and future work on individualization vs WL needs the precise fact. No ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "scope_literature_search EMERGENT_ORIGINALITY 3-query fused set: 20 results, Google serpent 429 partial failure recorded, OpenAlex/Crossref/OpenAIRE ok",
+    "Grohe-Lichter-Neuen-Schweitzer Compressing CFI Graphs FOCS2023/JACM2025 arXiv:2308.11970 full HTML Sections 1-5 inspected",
+    "Kiefer-Ponomarenko-Schweitzer WL dimension planar at most 3 LICS2017/JACM2019 arXiv:1708.07354 full HTML inspected",
+    "Grohe-Kiefer bounded-genus WL-dimension upper bound 4g+3 identified via search metadata, class-scope excluded",
+    "wall_separator.py re-executed: 8x8 maxdeg<=3 comps [32,24] ladder [0,1] big 27/32; 12x12 comps [72,60] ladder [0,1] big 68/72; write-only path permission error irrelevant"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Planar WL-dim<=3 (Kiefer et al.) and bounded-genus O(g) (Grohe-Kiefer) state upper bounds for fixed planar/bounded-genus classes; CFI blow-ups over growing walls have unbounded genus and are non-planar, so hypotheses exclude the submitted pair; compressed-CFI gives iteration lower bound, not a dimension upper bound subsuming row case.",
+      "reasoning": "A broader theorem covers the claim only if its hypotheses include the row-individualized CFI wall pair; the identified broader upper bounds explicitly exclude it by planarity/genus hypotheses, and the broader CFI lower bound is a different parameter, so no dominance coverage.",
+      "search": "CFI lower bound classification census database WL-dimension treewidth wall graphs Grohe Marino Dawar Richerby Neuen Schweitzer"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Standard Cai-Furer-Immerman plus Seymour-Thomas/Grohe-Marino/Dawar-Richerby gives linear WL-dimension for unindividualized CFI walls and a cops-robber correspondence; submitted proof adds anchored-separator forcing, strip treewidth Theta(n) after row deletion, clean-ladder connectivity, and twist paths proved to stay inside A avoiding S and stay-pebbles.",
+      "reasoning": "Prior implication would require the row-pinned Omega(n) bound to follow mechanically; it does not without the new separator/strip localization, so the finding is not a corollary, certificate, or repackaging of the known stronger fact.",
+      "search": "Weisfeiler-Lehman WL dimension CFI Cai-Furer-Immerman treewidth cops robber pebble game individualized vertices separator"
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text scope of compressed-CFI (periodic identification/contraction of gadgets) versus submitted unique-colour individualization (rigid anchors) shows opposite operations; no dual/complement/incidence/matrix encoding was found that renames the full-row anchor to a known construction; planar 2-vertex individualization result concerns planar 3-connected graphs, not CFI walls.",
+      "reasoning": "Synonymous notation or dual encoding would need same pinned-row object under different names; the closest same-term-family sources use different objects and operations, so they do not substantively imply the row-individualized Omega(n) dimension claim.",
+      "search": "Weisfeiler-Lehman WL dimension CFI Cai-Furer-Immerman treewidth cops robber pebble game individualized vertices separator"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused results contain no census, table, or official database entry listing WL-dimension or K-WL outcome for the exact row-individualized CFI wall pair (Theta(n) anchors, cubic brick wall, K constant); computation artifacts certify only separator sizes and ladder connectivity, not a looked-up value.",
+      "reasoning": "Exact-parameter coverage would require the same object and parameters in a table/database; none was returned by the three consolidated directions and no such database was identified in primary sources, so direct lookup is excluded.",
+      "search": "CFI graphs over cubic brick wall row individualization constant Weisfeiler-Leman WL dimension lower bound"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full arXiv HTML Secs 3-5: k x n grid base, periodic partition reusing/contracting gadgets, Omega(n^{k/2}) iteration lower bound; no full-row unique-colour individualization, no constant-K dimension collapse question; opposite operation (identification vs anchoring).",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Compressing CFI Graphs and Lower Bounds for the Weisfeiler-Leman Refinements",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2308.11970"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full arXiv HTML Thm1/Secs 3-6: WL-dimension at most 3 for planar graphs via 2-vertex individualization of 3-connected planar graphs; CFI expansions over walls are non-planar and outside the class; no CFI wall row-anchor theorem.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The Weisfeiler-Leman Dimension of Planar Graphs is at most 3",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1708.07354"
+    }
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "217f7b73bab217528c2f89036ad145f048e84a760be231e8fe6ad78845c9b625",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] The Power of the Weisfeiler-Leman Algorithm to Decompose Graphs",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol138-mfcs2019/LIPIcs.MFCS.2019.45/LIPIcs.MFCS.2019.45.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same terminology family and background correspondence: WL dimension, separators, treewidth, and unindividualized grid CFI lower bound giving dimWL(Tk) in [ceil(k/2)-3,k]; it has no full-row unique-colour anchors and no constant-K collapse question, so its hypotheses exclude the submitted anchored-row pair.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Full PDF text extracted: Lemma24 bounds tw(CFI(Gn,n))<=2n+5; Theorem25/Corollary26 build Gk,Hk as unindividualized CFI grid pair via Dawar-Richerby; lower-bound section contains no anchor/row-pinning construction."
+      },
+      {
+        "title": "[PDF] An Upper Bound on the Weisfeiler-Leman Dimension - arXiv",
+        "url": "https://arxiv.org/pdf/2403.12581",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same invariant and CFI lower-bound machinery: general 0.15n upper bound plus WLdim(CFI(G))>=tw(G) on random cubic base graphs; that pair is unindividualized, not the cubic-wall full-row anchored pair, so it neither states nor implies the row-individualization Omega(n) resistance claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full PDF text inspected: Section15 Theorem15.2/Corollary15.3 use random cubic expanders; individualization hits are only single-vertex coherent-configuration steps for the upper bound; no wall-row anchor section, table, or example."
+      },
+      {
+        "title": "arXiv:2411.06944v1  [cs.LO]  11 Nov 2024",
+        "url": "https://arxiv.org/pdf/2411.06944",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nearest logical relative with CFI over grids, reusable/non-reusable cops, and C(2,2)/C(2,3) identification of 3-connected planar graphs via 2-3 individualized vertices; its individualization is at most 3 variables on planar graphs, not Theta(n) wall-row anchors, and its barrier lemmas separate reusability classes rather than decide constant-K collapse.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full HTML body inspected: Definition4.3 grid-barrier Lemmas4.4-4.5 plus Section6 Lemma6.4/Corollary6.5/Theorem6.8 individualize at most 3 planar vertices; antecedent chains checked; no cubic wall, full-row anchors, or pinned-row dimension example."
+      },
+      {
+        "title": "Computational Complexity of the Weisfeiler-Leman Dimension",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol326-csl2025/LIPIcs.CSL.2025.13/LIPIcs.CSL.2025.13.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same objects including CFI over wall-like base graph Bk with WL-dim(CFI(G))=tw(G) and a one-way-switch gadget individualizing one output vertex; that is a single-vertex reduction gadget, not a full wall row of Theta(n) anchors with a constant-K question, so its theorems do not imply the submitted headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full PDF text inspected: Lemma25/26 plus Lemma27 Ok construction fixes/splits one output/input pair over Bk; surrounding proof and figure confirm only 1-vertex individualization; no full-row anchor family and no constant-K row theorem."
+      },
+      {
+        "title": "On the Combinatorial and Logical Complexities of ...",
+        "url": "https://michaellevet.github.io/mythesis.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Dissertation covering WL, CFI groups/graphs, and individualize-and-refine paradigms; its individualization content concerns group generators and refinement algorithms, not a CFI-over-wall full-row anchor pair with a constant-K WL-dimension question, so no chapter states or implies the claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Full thesis text extracted and searched for individuali/CFI/treewidth/cops/wall: hits are group-theoretic refine steps and CFI-group background; no wall-row unique-colour anchor construction and no pinned-row dimension theorem."
+      },
+      {
+        "title": "[PDF] Counting logic and homomorphism indistinguishability over graphs ...",
+        "url": "https://fis.uni-bamberg.de/server/api/core/bitstreams/8235778a-5df1-40e7-be6d-d4f01e5b3a28/content",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same machinery family with CFI-like graphs and cops-and-robber analysis on grids Ghxl for treewidth/treedepth logics; its grid-separator lemmas concern unindividualized escape space and its CFI-like part concerns homomorphism indistinguishability, not an anchored CFI wall pair, so it does not instantiate the submitted implication.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full PDF text inspected: Lemmas4.25-4.30 grid escape-space analysis on Ghxl without anchors; individualization search returns no anchor construction; CFI-like sections address homomorphism counts, not pinned-row WL dimension."
+      },
+      {
+        "title": "Supercritical Size-Width Tree-Like Resolution Trade-Offs for Graph ...",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol345-mfcs2025/html/LIPIcs.MFCS.2025.18/LIPIcs.MFCS.2025.18.html",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same compressed-CFI machinery with compressions, precompressed graphs, and blocking cops-robber games, but applied to resolution size-width trade-offs; it uses periodic gadget identification, opposite to unique-colour row anchoring, and states no row-individualized dimension bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Full HTML body searched for individuali/wall/brick/row-individual/anchor: no anchored-row object; scope confirmed as compressed-CFI plus twinned/blocking games for resolution bounds, not the submitted claim."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal check returned 20 candidates with 1 base overlap (compressed-CFI, duplicative). Seven plausibly-covering candidates plus the one obtainable dissertation were opened in full body text (PDF/HTML extraction with parameter and section inspection); the rest are keyword-similar background (tutorials, slides, overviews, pattern-counting, CQ/homomorphism parameters, benchmarks) sharing no material parameter subset and carrying no dissertation flag. No source states the headline cubic-wall full-row uniquely-anchored CFI pair or its constant-K/Omega(n) conclusion under any synonymous, dual, or encoded form, and no broader class bound, census, table, or database covers it: planar/bounded-treewidth/vertex-cover bounds exclude the non-planar anchored pair by hypothesis, and compressed-CFI uses the opposite gadget operation for iteration number. Hence no decisive prior, no verdict change; originality PASS preserved with correctness and value untouched."
+  }
+}
