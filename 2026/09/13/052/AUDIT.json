@@ -1,0 +1,80 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: target allows rigorous energy-rate violation as complete disproof. Upper bound limsup(1-s)m_s<=omega*T uses fixed disjoint unit balls plus BBM/Davila pointwise convergence, valid with no existence needed. Lower bound uses sharp fractional isoperimetric inequality per chamber; since balls exactly minimize each P_s, c_{3,s}=P_s(B) for unit ball B, so (1-s)c_{3,s}=(1-s)P_s(B)->omega*P(B) by BBM on fixed ball, giving liminf>=omega*T with no compactness or regularity. Combined limit (star) is rigorous. Lemma 3 identities T^3=288pi, S0^3=1000pi/3, C0^3=243pi verified by exact algebra and re-running verify_gaps.py (ALL CHECKS PASSED, floats match, rational bounds S0-T>=0.47 and T-C0>=0.50 hold). Hence |(1-s)m_s-omega*P0|->omega*|T-P0|>=0.47*omega>0, falsifying (E) for every C,beta,s0 and hence the joint conjunction; no L1 analysis needed.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 20-result search across SerpBase/OpenAlex/Crossref/OpenAIRE found only single-set BBM/Gamma-convergence (Ambrosio-De Philippis-Martinazzi 2011), ball-minimality (Frank-Seiringer), and classical cluster double-bubble (Hutchings-Morgan) sources. None states the two-chamber sum-functional limit (1-s)m_s->omega*T, the exact T-vs-P0 gap identities, or the polynomial-rate falsification. ADM plus cluster minimality do not mechanically imply the headline without the per-chamber synthesis and exact gap computation, which is new as applied to this target.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Rigorous TARGET disproof via the explicitly allowed every-polynomial-energy-rate violation, establishing the limit value omega*T and quantitative gap >=0.47*omega under either reading of P0. It exposes a substantive variational misidentification (sum functional decouples to tangent balls, not the cluster double bubble), motivated before computation and reusable by future fractional-bubble work. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. No ADMISSION_DEFECT: the target anticipated energy-rate disproof as complete resolution.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ambrosio-De Philippis-Martinazzi 2011 Gamma-convergence of nonlocal perimeters (ar5iv 1007.3770): single-set Gamma-liminf/limsup to omega*P, equi-coercivity; supports BBM constant and limit structure, does not treat two-chamber sum infimum.",
+    "Frank-Seiringer / Frank-Lieb-Seiringer fractional isoperimetric inequality: balls minimize P_s at fixed volume; searched snippets confirm ball minimality, used per chamber with |Ei|=1.",
+    "Hutchings-Morgan double-bubble proof and cluster-vs-sum geometry: standard double bubble minimizes cluster energy (interface once), while disjoint balls minimize sum energy; supports C0<T<S0 ordering.",
+    "Ludwig anisotropic fractional perimeters and BBM/Davila pointwise convergence: corroborate (1-s)P_s(B)->omega*P(B) on fixed smooth balls.",
+    "Re-ran inputs/artifacts/verify_gaps.py unchanged: ALL CHECKS PASSED; floats T=9.671952 C0=9.139422 S0=10.154913, cubes/pi 288, 243, 1000/3, ratio 125/108, rational bounds confirm gaps."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "ADM gives single-set Gamma-limit omega*P and minimizer convergence; Hutchings-Morgan gives cluster double-bubble minimality. Neither treats the two-chamber sum infimum m_s, its limit omega*T, or any polynomial rate to D0.",
+      "reasoning": "A dominating result would need hypotheses covering disjoint sum pairs and conclusion implying (1-s)m_s->omega*T with T!=P0. The found broader theorems concern different functionals (single perimeter, cluster energy) and do not subsume the sum-problem disproof as a special case.",
+      "search": "fractional double-bubble cluster versus sum Gamma-limit classification census covering two-chamber sum functional"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Nearest priors state: (i) fixed-set BBM convergence, (ii) per-s ball minimality, (iii) classical cluster optimality. None computes T^3=288pi, S0^3=1000pi/3, C0^3=243pi, ratio 125/108, difference 45pi, or the resulting energy-rate failure.",
+      "reasoning": "Headline requires synthesis: per-chamber sharp inequality with exact ball constant plus BBM on balls to get limit omega*T, plus exact double-bubble geometry to get gap >=0.47. This combination is not stated in any prior and is not a mechanical corollary without that work, so prior implication fails.",
+      "search": "does Ambrosio-De Philippis-Martinazzi plus Frank-Seiringer plus double-bubble theorem imply fractional sum m_s limit and rate failure"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results returned nonlocal/s-fractional perimeter, BBM-Mazya-Shaposhnikova formulae, and anisotropic fractional perimeters. Snippets address single-set s-to-1 limits and ball stability, with no two-chamber sum rate or T-versus-P0 comparison.",
+      "reasoning": "Synonymous names (nonlocal perimeter, s-perimeter, Gagliardo seminorm) and dual/complement encodings change notation only; the decisive content is the two-chamber infimum value versus double-bubble energy, which no equivalent-formulation source states or implies.",
+      "search": "fractional s-perimeter versus nonlocal perimeter (1-s) limit BBM Davila isoperimetric equivalent notation"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, table, or census entry was found recording (1-s)m_s, the constants T, S0, C0 comparison, or the polynomial-rate failure. Classical values were recomputed from cap geometry and machine-checked, not looked up.",
+      "reasoning": "Since no table or database entry records the two-chamber sum limit or the exact T-versus-P0 gap, the headline cannot be a direct lookup or recomputation of a tabulated value; the gap was proved from geometry.",
+      "search": "official tables of equal-volume double-bubble areas versus disjoint balls perimeter constants database"
+    }
+  },
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "dc9dee1005841bb91b56bcfed2e0662f5dc72f3cf131455946c09942b4224fea",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies planar (2D) nonlocal minimal clusters with shared-interface cluster energy; the headline concerns the R3 disjoint-chamber sum functional, its infimum limit omega*T, and polynomial-rate falsification, so hypotheses and conclusions differ with no implication.",
+        "title": "NONLOCAL MINIMAL CLUSTERS IN THE PLANE",
+        "url": "https://people.dm.unipi.it/novaga/papers/annalisa/fractionalpartitions4.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Proves single-set rescaled Gamma-convergence (1-s)P_s to omega*P and minimizer convergence; does not define the two-chamber sum infimum m_s, compute its limit omega*T, compare T with double-bubble P0, or state any polynomial-rate falsification.",
+        "title": "Gamma-convergence of nonlocal perimeter functionals",
+        "url": "https://arxiv.org/abs/1007.3770"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Proves the classical cluster-energy double bubble minimizes enclosing-separating area in R3 with the interface counted once; the headline concerns the fractional sum functional with the interface counted twice whose limit is disjoint balls, so it is background geometry only.",
+        "title": "Proof of the Double Bubble Conjecture",
+        "url": "https://math.berkeley.edu/~hutching/pub/bubble/bubble.pdf"
+      }
+    ],
+    "rationale": "Terminal Perplexity check returned 20 results with 7 overlapping the base set. The 13 new items are anisotropic, Gaussian, fractal, and single-set Gamma-convergence variants plus classical double-bubble sources; none states the two-chamber R3 sum infimum m_s, its limit omega*T, the exact T-versus-P0 identities, or the every-polynomial-rate falsification. The closest lead, planar nonlocal minimal clusters, uses a different dimension and the shared-interface cluster energy rather than the disjoint sum functional, so it cannot imply the headline. Originality PASS is therefore preserved with no decisive prior.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "verdict": "PASS"
+}
