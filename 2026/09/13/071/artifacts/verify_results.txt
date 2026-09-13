@@ -1,0 +1,49 @@
+B. D_j containment in V_3 (zero-factor per monomial):
+  D_0: all 12 monomials vanish: True
+  D_1: all 12 monomials vanish: True
+  D_2: all 12 monomials vanish: True
+A. C_i restrictions:
+  f1|C_0 = [((1, 0), (('X', 1), ('Y', 0), ('Z', 2))), ((1, 0), (('X', 1), ('Y', 2), ('Z', 0)))]
+  f1|C_0 = f2|C_0 = Z0*Y2 + Y0*Z2  ->  E_0: V(Y0Z2+Z0Y2), smooth (1,1).
+  f1|C_1 = [((0, 1), (('X', 0), ('Y', 1), ('Z', 2))), ((0, 1), (('X', 2), ('Y', 1), ('Z', 0)))]
+  f1|C_1 = w*(X0Z2+Z0X2), f2|C_1 = w^2*(X0Z2+Z0X2)  ->  E_1.
+  f1|C_2 = [((-1, -1), (('X', 0), ('Y', 2), ('Z', 1))), ((-1, -1), (('X', 2), ('Y', 0), ('Z', 1)))]
+  f1|C_2 = w^2*(Y0X2+X0Y2), f2|C_2 = w*(Y0X2+X0Y2)  ->  E_2.
+C. P = (q1,q0,q1) on V_3:
+  all 6 pair quadrics vanish: True
+  f1(P) = f2(P) = 0: True
+D. component membership of P:
+  P in E_0: mid_ok=True ends_ok=True eq=True -> True
+  P in E_1: mid_ok=False ends_ok=False eq=True -> False
+  P in E_2: mid_ok=False ends_ok=True eq=True -> False
+  P in D_0: ends_ok=False mid_ok=False -> False
+  P in D_1: ends_ok=True mid_ok=True -> True
+  P in D_2: ends_ok=False mid_ok=True -> False
+E. pairwise incidence:
+  E_0 cap D_0 = empty (middle q_0 not in L_0): True
+  E_0 cap D_1 = {(q_1,q_0,q_1)} (bilinear=0): True
+  E_0 cap D_2 = {(q_2,q_0,q_2)} (bilinear=0): True
+  E_1 cap D_0 = {(q_0,q_1,q_0)} (bilinear=0): True
+  E_1 cap D_1 = empty (middle q_1 not in L_1): True
+  E_1 cap D_2 = {(q_2,q_1,q_2)} (bilinear=0): True
+  E_2 cap D_0 = {(q_0,q_2,q_0)} (bilinear=0): True
+  E_2 cap D_1 = {(q_1,q_2,q_1)} (bilinear=0): True
+  E_2 cap D_2 = empty (middle q_2 not in L_2): True
+  E_i cap E_j = empty (i!=j, middles q_i!=q_j): True
+  D_i cap D_j = empty (i!=j, ends q_i!=q_j): True
+  incidence graph = K_{3,3} minus perfect matching: CONNECTED.
+F. chart Jacobian at P (vars a0,b1,c0,c1,a2,c2):
+  d(X0X1)|_P = [('a0', (1, 0))]
+  d(Y0Y1)|_P = [('b1', (1, 0))]
+  d(Z0Z1)|_P = ['zero']
+  d(X1X2)|_P = [('a2', (1, 0))]
+  d(Y1Y2)|_P = [('b1', (1, 0))]
+  d(Z1Z2)|_P = ['zero']
+  d(F1)|_P = [('c0', (1, 0)), ('c2', (1, 0))]
+  d(F2)|_P = [('c0', (1, 0)), ('c2', (1, 0))]
+  4x4 minor (rows X0X1,Y0Y1,F1,X1X2; cols a0,b1,c0,a2) = identity, det = +/-1.
+  rows Z0Z1, Z1Z2 are zero; row F2 = row F1; Y1Y2 duplicates Y0Y1.
+  rank = 4 exactly; tangent dim = 6 - 4 = 2 > local dim 1: P SINGULAR.
+  P lies on exactly two components (E_0, D_1), both smooth curves: done.
+
+ALL EXACT CHECKS PASSED.
