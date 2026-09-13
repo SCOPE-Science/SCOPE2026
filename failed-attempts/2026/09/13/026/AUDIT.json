@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: the PMP collinearity argument is essentially correct and all computations were independently re-executed. Both symbolic scripts pass: BCH-derived left-invariant frame, brackets [X1,X2]=-X3,[X1,X3]=-X4,[X2,X3]=-X5 with central X4,X5, factorizations x3'=w/2, x4'=x1*w/12-u1*x3/2, x5'=x2*w/12-u2*x3/2, and constant-control ray invariance of P. The adjoint zero-set (h1=h2=0, constant (h4,h5)=(a,b), u*h3=0, h3'=-(u.(a,b))) forces every nonconstant abnormal control to be a.e. collinear u=alpha(-b,a) with (a,b)!=0 (the (a,b)=0 case forces either a constant curve or a trivial lift, a fillable one-line detail), hence s=a*x1+b*x2 is conserved at 0, w=0, x3=x4=x5=0 along every abnormal curve. Conversely constant-control rays reach every point of P abnormally (including e by a go-and-return collinear loop), so Abn(e)=P up to the trivial e-qualification, cut out by three coordinate equations of codimension 3 with Lebesgue measure zero. Sign conventions affect only signs, never the zero sets used.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "FAIL: the exact determination was already published by Ardentov-Le Donne-Sachkov (arXiv:1810.03869, 2018; Steklov Proc. 2019) Theorem 3, which proves abnormal trajectories of the Cartan rank-2 step-3 group are exactly the one-parameter subgroups tangent to span(X1,X2) with projections to the (x,y)-plane straight lines and explicit parametrization x=u1*t, y=u2*t, z=0, v=u2*(u1^2+u2^2)/6*t^3, w=-u1*(u1^2+u2^2)/6*t^3, i.e. manifold A={z=0,v=y(x^2+y^2)/6,w=-x(x^2+y^2)/6}. Up to the polynomial change between their graded coordinates and first-kind exponential coordinates, A is exactly the plane {x3=x4=x5=0}: both are the union of the same horizontal one-parameter subgroups, both cut out by three polynomial equations of codimension 3. The collinearity lemma (u orthogonal to fixed (h4,h5)) and endpoint set are therefore mechanically implied; restating them in first-kind coordinates with the measure-zero corollary is a recomputation/certificate/repackaging of a known stronger classification, not a new claim. A timestamp or failed literal-title search does not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "PASS (intrinsic): an exact determination of the full abnormal endpoint set Abn(e) of the natural Cartan group with an explicit codimension-3 algebraic Sard containment and measure-zero conclusion addresses the recognized major open Sard problem for the endpoint map, concerns a motivated object and invariant fixed before computation, is not mechanically implied by textbook material, and a future researcher could reasonably need the precise fact. The claim therefore has the STANDARD value form of an exact invariant of a specific natural object. It is rejected only because originality independently fails, not for intrinsic low value.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Theorem Abn(e)={x3=x4=x5=0}, PMP/collinearity proof and Sard conclusion, read in full",
+    "Executed inputs/artifacts/verify_abnormal.py: ALL VERIFICATIONS PASSED (brackets, centrality of X4/X5, ODE factorizations through w, adjoint zero-set, ray invariance)",
+    "Executed inputs/artifacts/cartan_abnormal.py: BCH group law, left-invariant frame X1/X2/X3, horizontal ODEs and P-tangency/substitution checks reproduced",
+    "Ardentov-Le Donne-Sachkov arXiv:1810.03869 full HTML: Theorem 3 abnormal controls u=const, abnormal manifold A={z=0,v=y(x^2+y^2)/6,w=-x(x^2+y^2)/6}, abnormal trajectories are one-parameter subgroups, projections straight lines; Hamiltonian system (3.5)-(3.9) and singular/abnormal analysis",
+    "Le Donne-Montgomery-Ottazzi-Pansu-Vittone arXiv:1503.03610: Sard for step-2 Carnot groups and some classes only; Cartan step-3 not covered (delimits broader coverage)",
+    "Ottazzi-Vittone arXiv:1709.02854: codimension-3 abnormal set for step-2 classes only; confirms no step-3 Cartan coverage from that line",
+    "scope_literature_search fused 20 results across SerpBase/OpenAlex/Crossref/OpenAIRE with full coverage (partial=false): nearest hits are Cartan sub-Finsler/geodesic papers and step-2 Sard papers; no new Cartan Sard source beyond Ardentov et al."
+  ],
+  "claim_route_inference": "research_report.claim_route is TARGET and the claim directly resolves topic.json target_claim (explicit codimension>=2 algebraic containment plus measure zero, here sharpened to equality/codimension 3); audited as TARGET with no preset-value presumption issues and no ADMISSION_DEFECT.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Le Donne et al. arXiv:1503.03610 abstract and theorem: strong Sard (abnormal set in a proper analytic subvariety) proved for all step-2 Carnot groups and several other classes; Ottazzi-Vittone arXiv:1709.02854 extends codimension>=3 within step 2. Neither states or implies the free step-3 rank-2 Cartan case, and no fused result exhibits a general step-3 census, classification, or database covering Cartan as a special case.",
+      "reasoning": "The broader-coverage dominance query does not subsume the claim: the known general Sard theorems are step-2, while Cartan is step 3. This check alone is negative, but it does not rescue originality because a narrower specific prior (Ardentov et al.) already covers the exact endpoint set.",
+      "search": "Sard property endpoint map Carnot groups step 3 abnormal set contained in proper analytic subvariety codimension classification"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior Theorem 3: every (optimal, hence every nonzero) abnormal extremal satisfies h1=h2=h3=0 with constant (h4,h5) and u perpendicular to (h4,h5); trajectories are one-parameter subgroups x=u1*t,y=u2*t,z=0,v=u2*(u1^2+u2^2)/6*t^3,w=-u1*(u1^2+u2^2)/6*t^3 filling A. Submitted claim: every L^2 abnormal has collinear control u=alpha(-b,a) and endpoint in plane {x3=x4=x5=0}, and every plane point is so reached. Under the polynomial coordinate diffeomorphism these are the same union of horizontal lines; both descriptions use three polynomial equations (codimension 3) and both have 5D measure zero.",
+      "reasoning": "The prior classification substantively implies the submitted headline: varying-alpha collinear curves have the same image lines and endpoints as constant-control rays, so the full endpoint set coincides with A, i.e. the plane in first-kind coordinates. The submitted codimension>=2 containment, exact equality, and measure-zero corollary are direct corollaries/repackaging of that known stronger fact, so originality FAILS even though the headline wording is not verbatim in the prior.",
+      "search": "Ardentov Le Donne Sachkov Cartan sub-Finsler abnormal controls constant collinear Theorem 3 endpoint set manifold"
+    },
+    "equivalent_formulations": {
+      "evidence": "Ardentov et al. Theorem 3 in (x,y,z,v,w) graded coordinates: A={z=0, v=y(x^2+y^2)/6, w=-x(x^2+y^2)/6}, three polynomial equations, one-parameter subgroups tangent to distribution, straight-line (x,y) projections. DRAFT in first-kind exponential coordinates: P={x3=x4=x5=0}, three coordinate equations, same straight rays (T*v1,T*v2,0,0,0). Fused search also returned Sachkov/Ardentov follow-ups describing the same abnormal/singular arcs.",
+      "reasoning": "These are synonymous notations for one abstract 2D surface: the union of horizontal one-parameter subgroups through e. The polynomial diffeomorphism between the two coordinate models preserves being a proper algebraic subvariety of codimension 3 and having measure zero, so the equivalent formulation already records the submitted finding.",
+      "search": "Cartan group abnormal trajectories one-parameter subgroups z=0 v=y(x^2+y^2)/6 versus first-kind plane x3=x4=x5=0"
+    },
+    "exact_database_or_table": {
+      "evidence": "No standalone official database (Carnot-group atlas, classification table, or OEIS-style record) was found listing Cartan Abn(e)={x3=x4=x5=0}; the fused search returned only journal/arXiv sources. However Ardentov et al. contains an explicit parametrized table of abnormal trajectories (formulas above) and defining equations of A, which functions as the exact parameter/object table for this object.",
+      "reasoning": "The database/table check is negative for an independent registry but positive for a primary-source table: the exact object and parameters already appear explicitly in the published abnormal-manifold formulas, so the claim is already tabulated in the literature and cannot pass as a new exact datum.",
+      "search": "Cartan group abnormal endpoints table database exponential coordinates x3=x4=x5=0 endpoint classification"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
