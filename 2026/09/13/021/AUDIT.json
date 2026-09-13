@@ -1,0 +1,95 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified every essential inference. Inclusion B((-1/2,1),1/16) in W_pi holds: |z2-1|<=1/16 gives |L|<=2/15<1/2 so eta=0, and |z1+e^{i theta}|<=1/16+1/2+2pi/15<0.9825 giving rho<=-0.03 (numeric 0.9680<1 confirmed by re-running ledger.py). Dilation scaling is exact: dVw=delta^{-3}dVz, ||u||^2=delta^{-2}||a||^2, ||dbar u||^2=||dbar_z1 a||^2, ||dbar* u||^2=delta^{-1}||dz2 a||^2, so Q=delta^2 A+delta B. Beta integrals checked: ||psi||^2=pi^2*B(2,7)=pi^2/56, each derivative (9/2)pi^2*B(3,5)=3pi^2/70, ratio 12/5, scaled by 1/r^2 with r=1/16 gives A=B=3072/5, hence Q<=6144/5*delta for delta<=1. Interior compact support (C_c^2 bump, H^1 approximable/smoothable) lies in Dom(dbar) cap Dom(dbar*) so variational principle gives inf spec<=Q even on unbounded Omega_delta. No proof/experiment confusion; computation is machine-checked.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "TARGET route: report claims exact target prove-side (C=6144/5, delta0=1, ledger Q<=C delta). Fused live search over literal, equivalent/synonymous, and dominance forms (SerpBase/Serpent + OpenAlex + Crossref + OpenAIRE, all ok, partial=false) returned 20 results; nearest priors are Christ global C^1-irregularity for worm domains, Barrett Sobolev failure, Fu-Straube compactness/Property(P), recent analytic-disc compactness example (arXiv:2609.01561), and unrelated Kohn-Laplacian/Neumann eigenvalue works. None states or implies the blow-up eigenvalue bound lambda_1(delta)<=C delta for Omega_delta=D_delta(W_pi) with anisotropic weights (1,1/2), no table/database entry contains it, and no broader theorem/census covers it as special case. Elementary scaling technique does not equal mechanical implication from a prior recorded theorem; synonymous/dial and dual encodings tested with no coverage.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the admitted TARGET prove-side completely with explicit C, delta0 and tabulated ledger plus closed-form Beta constants and reproducible script. Object (smooth worm W_pi blow-ups) and invariant (lowest Kohn eigenvalue collapse rate) were motivated before computation as quantitative Barrett-scaling benchmark; value is not known or mechanically implied and a future researcher on worm scaling limits, subelliptic/compactness spectra, or spectral stability could reasonably need the precise O(delta) upper bound. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration: it is a rigorous exact order with explicit constant for a natural object. That the Levi-flat structure is unused for an upper bound is honestly disclosed and does not create vacuity, type error, or arbitrary-parameter defect; no ADMISSION_DEFECT found.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/ledger.py: r=1/16, C=6144/5=1228.8, ||psi||^2/pi^2=1/56, deriv/pi^2=3/70, A=B=3072/5, |L|<=0.1291, |z1+e^{itheta}|<=0.9680<1, ledger Q<=C delta verified.",
+    "inputs/DRAFT.md Sections 0-5: worm representative rho=|z1+e^{i pi L}|^2-1+eta(L), D_delta(z)=(z1/delta,(z2-1)/sqrt(delta)), trial a(z)=psi((z-q)/r) with psi=(1-|zeta|^2)^3_+, pushforward u_delta, exact scaling Q=delta^2 A+delta B, Beta-integral constants, variational principle.",
+    "inputs/topic.json target_claim (linear collapse lambda_1<=C delta vs slower-collapse lower bound) and inputs/research_report.json TARGET route with artifact_inventory and limitations.",
+    "inputs/STANDARD.md sky-survey-admission-depth-gate-v12 applied as binding threshold for originality/value.",
+    "scope_literature_search fused 20 results, coverage all providers ok partial=false: queries (a) worm W_pi Kohn blow-up lambda_1<=C delta, (b) Barrett scaling quasimode Rayleigh quotient, (c) Kohn essential spectrum/compactness/Fu-Straube/Barrett classification.",
+    "Primary sources fetched in full: M. Christ worm.pdf GLOBAL C^1 IRREGULARITY (Barrett Sobolev failure + a-priori estimate for Neumann operator, no blow-up eigenvalue rate) and arXiv:2609.01561 Analytic discs and compactness (C^3 Reinhardt compact N1 with disc, opposite mechanism, no Omega_delta rate)."
+  ],
+  "claim_route_seen": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused dominance query returned only general compactness/global-regularity theory (Christ, Barrett, Fu-Straube, Catlin Property(P), tower multitype) and unrelated magnetic/Neumann eigenvalue asymptotics; no theorem over broader domain class, larger parameter range, census, or classification states a collapse rate for anisotropically dilated worm blow-ups.",
+      "reasoning": "A prior source need not state the headline verbatim to defeat originality, but no broader result found implies or exhausts lambda_1(delta)<=C delta for Omega_delta; general subelliptic/compactness criteria concern fixed domains, not this D_delta family, so the claim is not a strict subset or corollary of a stronger recorded fact.",
+      "search": "Dominance query: Kohn Laplacian worm essential spectrum compactness failure subelliptic estimates Christ Fu-Straube Barrett global regularity classification across SerpBase/OpenAlex/Crossref/OpenAIRE."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Barrett proves Bergman/Neumann failure to preserve Sobolev spaces on fixed worms; Christ proves global C^1 irregularity via a-priori estimate contradicting Barrett for large s; Fu-Straube/mat? compactness characterizations concern property(P) and analytic discs. None computes Rayleigh quotients or inf-spec scaling under D_delta, and the draft honestly notes Levi-flat unused for upper bounds.",
+      "reasoning": "Comparing hypotheses/conclusions literally, prior work implies qualitative irregularity/noncompactness on fixed worms, not the quantitative O(delta) upper bound on the dilated family with explicit C=6144/5; the new ledger is not a recomputation, certificate, or repackaging of a known stronger fact, so prior implication does not cover the claim.",
+      "search": "Compared literal claim Q_delta=delta^2 A+delta B<=C delta against Barrett/Christ/Fu-Straube theorems and recent compactness-with-disc construction; searched quasimode Rayleigh quotient small eigenvalues on worm blow-ups."
+    },
+    "equivalent_formulations": {
+      "evidence": "Searched Barrett scaling, dbar-Neumann Laplacian, quasimode Rayleigh quotient, Levi-flat annulus, noncompactness synonyms; hits were generic dbar-Neumann surveys, Heisenberg Kohn-Laplacian Choquard problems, and anisotropic p-Laplacian Steklov problems, none using synonymous notation (Box_delta/inf spec vs Neumann operator/compactness estimate) to state the same bound.",
+      "reasoning": "Title/embedding similarity alone cannot establish coverage; literal comparison of objects (Omega_delta=D_delta(W_pi), delta weights 1 and 1/2, (0,1)-forms, lambda_1=inf spec) shows no synonymous-name, dual/complement, incidence/matrix, or algebraic-encoding variant in prior literature states this collapse rate.",
+      "search": "Equivalent-form query: Barrett scaling worm domain dbar-Neumann Laplacian quasimode Rayleigh quotient small eigenvalues noncompactness Levi-flat annulus."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, table, census, or repository entry was returned or found by direct reasoning: LMFDB-type spectral tables, OEIS-style constants, worm-domain parameter tables, and eigenvalue ledgers contain no entry lambda_1(delta) for W_pi blow-ups with C=6144/5; ledger.py constants B(2,7)=1/56, B(3,5)=1/105 are standard Beta values but their assembly into A=B=3072/5 is new.",
+      "reasoning": "The exact parameter/object (W_pi, p0=(0,1), D_delta weights, q=(-1/2,1), r=1/16, C=6144/5) does not already appear in any table or database; the claim is therefore not a direct lookup or known-database recomputation.",
+      "search": "Exact object/database query: worm domain W_pi Kohn Laplacian blow-up Omega_delta anisotropic dilation lowest eigenvalue lambda_1(delta) C delta upper bound including specialist databases and theses."
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "623179d5ab77c33784e9fff0ac42a0d5c01aae15d22b9e1073cdf93e58758a7c",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Analysis and geometry on worm domainsThanks: 2000 Mathematics Subject Classification: 32A25, 32A36Thanks: Key Words: Worm domain, Bergman kernel, Bergman projection, automorphism group, ∂¯\\overline{\\partial}-Neumann problem. Thanks: Thanks: First author supported in part by a grant from the Dean of the Graduate College at Washington University and a grant from the National Science Foundation; second author supported in part by the 2005 Cofin project Analisi Armonica. The first author also thanks the American Institute of Mathematics for its hospitality and support during this work.",
+        "url": "https://arxiv.org/html/0710.4087v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object family (smooth Diederich-Fornaess worm, Barrett/Christ irregularity, Bergman projection and kernel) but conclusion is expository qualitative non-regularity on the fixed worm; hypotheses involve no anisotropic dilation D_delta, no blown-up family Omega_delta, and no inf-spec or Rayleigh-quotient bound, so it cannot imply lambda_1(delta)<=C delta with C=6144/5.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "GLOBAL C∞IRREGULARITY OF THE",
+        "url": "https://math.berkeley.edu/~mchrist/Papers/worm.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Direct nearest prior already cited and fetched in the base audit: proves global C^1 irregularity of the dbar-Neumann operator via an a-priori estimate contradicting Barrett Sobolev bounds for large s on the fixed worm; hypotheses and conclusions contain no dilated domains Omega_delta, no quasimode family u_delta, and no quantitative O(delta) eigenvalue collapse rate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Spectral Stability of the Complex Laplacians",
+        "url": "https://www.templemathematics.us/sites/default/files/2024-12/Fu.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Concerns spectral stability of Kohn and dbar-Neumann Laplacians under C^2 boundary perturbations, typically under uniform subelliptic or strictly pseudoconvex hypotheses; the object is perturbation of a fixed spectrum, not the worm blow-up sequence Omega_delta=D_delta(W_pi), and it states no explicit linear rate or Beta-integral constants A=B=3072/5.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "SPECTRAL STABILITY OF THE ∂−NEUMANN LAPLACIAN",
+        "url": "https://par.nsf.gov/servlets/purl/10341500",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Fu 2022 spectral-stability program studies how the dbar-Neumann Laplacian spectrum varies when the underlying bounded domain is perturbed; its hypotheses require a stability framework incompatible with worm Levi-flat degeneracy and its conclusions are abstract stability estimates, not the headline concrete ledger Q_delta=delta^2 A+delta B<=6144/5 delta.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Irregularity of the Bergman projection on Worm Domains in ℂ^𝑛",
+        "url": "https://ar5iv.labs.arxiv.org/html/1007.5513",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Extends Bergman-projection Sobolev irregularity thresholds to worm domains in higher dimensions; the conclusion is failure of Sobolev boundedness on fixed worms with no dilation parameter delta, no Kohn Laplacian eigenvalue lambda_1, and no Rayleigh-quotient quasimode construction, so it does not state or imply the submitted collapse rate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with only one URL overlap (Christ worm.pdf, already fetched in the base audit). Incremental recall usefully added the Krantz-Peloso expository worm survey, the Fu spectral-stability program for perturbed domains, and Bergman-irregularity extensions to C^n, alongside unrelated general-relativity wormhole, shock-wave, and garbled-PDF noise. Compared literally, every worm-relevant source concerns qualitative irregularity or abstract spectral stability of fixed-domain Neumann/Bergman operators and states no anisotropic blow-up family Omega_delta, no Rayleigh quotient delta^2 A+delta B, and no explicit constant C=6144/5; stability hypotheses exclude the worm degeneracy. Hence the terminal search added background but no decisive prior and no coverage of the headline, so originality PASS and overall PASS are preserved."
+  }
+}
