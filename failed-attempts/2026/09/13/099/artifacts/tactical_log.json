@@ -1,0 +1,27 @@
+{
+ "orbit_type": [
+  1,
+  0,
+  1,
+  3
+ ],
+ "weights": [
+  1,
+  7,
+  21,
+  21,
+  21
+ ],
+ "row0": "support weights sum to 21 from {1,7,21,21,21} with 0/1 entries -> exactly one 1 in a weight-21 column (masks [4, 8, 16]); label it j=2; row0 saturation forces A[0,j]=0 for j!=2",
+ "col2": "cross rows(0,i): A[i,2]*21 = 6*w_i -> col2 = (1,2,6,6,6)^T; col-sum = 21 = k OK",
+ "col0": "fixed block is a union of point orbits summing to k=21 -> single free orbit; permute point rows 2..4 -> col0 = (0,0,21,0,0)^T",
+ "col1": "weight-7 block orbit, stabilizer H=C3; H fixes exactly 1 point on each 7-pt orbit and acts freely on 21-pt orbits -> entries in {0,1}x{0,1,3,4,6,7}x{0,3,...,21}^3 summing to 21 (85 candidates, a01=0 forced by row0)",
+ "row1_certificate": "system a10+7a11+21(2+a13+a14)=147, a10+7a11^2+21(4+a13^2+a14^2)=399, a10 in {0,1}, a11,a13,a14 in [0,7] has NO solution (checked 1024 cases); hence no 5x5 orbit matrix exists",
+ "D2_backtrack": "exhaustive col1 x free-col pair backtrack with all 10 cross-Gram + col-sum constraints -> 0 solutions",
+ "gram_targets": {
+  "diag": "w_i*(6*w_i+15)",
+  "offdiag": "6*w_i*w_k",
+  "colsum": 21
+ },
+ "conclusion": "orbit type (1,7,21,21,21) admits no symmetric 2-(71,21,6) orbit matrix; no such design admits F21 with 5 orbits"
+}
