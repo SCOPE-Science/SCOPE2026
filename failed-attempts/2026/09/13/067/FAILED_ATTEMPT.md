@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** SL(3,Z) Bernoulli orbit versus c0-equality
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1621
+- **Disposition:** NO_RESULT
+- **Domain:** descriptive set theory / ergodic theory
+- **Method:** property-T superrigidity and c0-dichotomy
+
+## Problem
+
+Let Gamma=SL(3,Z) act by Bernoulli shift on X=[0,1]^Gamma with product measure and product Polish topology, with countable aperiodic orbit equivalence E_Gamma: x E_Gamma y iff exists g in Gamma with y=g.x. Let E_{c0} on R^N be c0-equality: x E_{c0} y iff x-y in c0 iff lim_n |x_n-y_n|=0. Decide: is E_Gamma Borel reducible to E_{c0}, i.e. does there exist a Borel map f:[0,1]^Gamma->R^N with x E_Gamma y iff f(x) E_{c0} f(y)? A complete answer is either such an explicit Borel reduction with proof, or a rigorous proof that no Borel reduction exists, e.g. via Popa/Zimmer measurable cocycle superrigidity transfer combined with Hjorth-turbulence generic ergodicity.
+
+## Attempted claim
+
+Let Gamma=SL(3,Z) act by Bernoulli shift on X=[0,1]^Gamma with product measure and product Polish topology, with countable aperiodic orbit equivalence E_Gamma: x E_Gamma y iff exists g in Gamma with y=g.x. Let E_{c0} on R^N be c0-equality: x E_{c0} y iff x-y in c0 iff lim_n |x_n-y_n|=0. Decide: is E_Gamma Borel reducible to E_{c0}, i.e. does there exist a Borel map f:[0,1]^Gamma->R^N with x E_Gamma y iff f(x) E_{c0} f(y)? A complete answer is either such an explicit Borel reduction with proof, or a rigorous proof that no Borel reduction exists, e.g. via Popa/Zimmer measurable cocycle superrigidity transfer combined with Hjorth-turbulence generic ergodicity.
+
+## Research outcome
+
+Target BLOCKED: deciding Borel reducibility of the SL(3,Z) Bernoulli orbit equivalence to c0-equality needs c0-scope cocycle superrigidity that could not be verified in-lane; coordinatewise routes were proved insufficient. CLEAN_EXIT with no result claimed.
+
+## Why this attempt failed
+
+Failed axes: no independent audit (NO_RESULT).
+
+All five concrete routes on the admitted target were attempted: cocycle superrigidity transfer blocked on c0-target scope; spectral-gap coordinatewise argument proved insufficient via a verified moving-bump barrier; torus compactification loses the needed information; pinned/turbulence invariants inconclusive locally with literature retrieval down; no explicit reduction found. No independently valuable emergent increment was produced, and no preset fallback exists for this target-only topic.
+
+## Conditions for a legitimate retry
+
+introduce a materially new method or a justified, still-valuable revised claim; address the recorded limitation: All five concrete routes on the admitted target were attempted: cocycle superrigidity transfer blocked on c0-target scope; spectral-gap coordinatewise argument proved insufficient via a verified moving-bump barrier; torus compactification loses the needed information; pinned/turbulence invariants inconclusive locally with literature retrieval down; no explicit reduction found. No independently valuable emergent increment was produced, and no preset fallback exists for this target-only topic.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
