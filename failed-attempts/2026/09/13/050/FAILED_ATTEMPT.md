@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Finite-state vanishing-discount power rate
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1539
+- **Disposition:** AUDIT_2_REPAIR_EXHAUSTED
+- **Domain:** finite-state mean-field games
+- **Method:** discounted-to-ergodic stability and linearized stationary estimates
+
+## Problem
+
+Let d>=3 and S_d be the probability simplex. Consider the finite-state infinite-horizon discounted mean-field game master equation with discount r in (0,1], controlled jump rates in a compact set bounded away from zero, smooth convex Hamiltonian, and smooth Lasry-Lions strictly monotone coupling F with modulus c>0, and let (V_r,m_r) be its stationary discounted equilibrium with normalized value r*V_r, alongside the stationary ergodic triple (ubar,mbar,lambdabar) characterized by the finite-state ergodic MFG system under the same data. Prove or disprove that there exist finite C>0, r_0 in (0,1] and exponent alpha>0 depending only on d,c,Lipschitz bounds and rate bounds such that for all 0<r<=r_0, |r*V_r-lambdabar*1|+|m_r-mbar|<=C*r^alpha. A complete answer is either a rigorous proof of the power-rate vanishing-discount limit with explicit C,r_0,alpha, or an explicit admissible data set and sequence r_k->0 violating every such power bound with all monotonicity and regularity hypotheses verified.
+
+## Attempted claim
+
+Let d>=3 and S_d be the probability simplex. Consider the finite-state infinite-horizon discounted mean-field game master equation with discount r in (0,1], controlled jump rates in a compact set bounded away from zero, smooth convex Hamiltonian, and smooth Lasry-Lions strictly monotone coupling F with modulus c>0, and let (V_r,m_r) be its stationary discounted equilibrium with normalized value r*V_r, alongside the stationary ergodic triple (ubar,mbar,lambdabar) characterized by the finite-state ergodic MFG system under the same data. Prove or disprove that there exist finite C>0, r_0 in (0,1] and exponent alpha>0 depending only on d,c,Lipschitz bounds and rate bounds such that for all 0<r<=r_0, |r*V_r-lambdabar*1|+|m_r-mbar|<=C*r^alpha. A complete answer is either a rigorous proof of the power-rate vanishing-discount limit with explicit C,r_0,alpha, or an explicit admissible data set and sequence r_k->0 violating every such power bound with all monotonicity and regularity hypotheses verified.
+
+## Research outcome
+
+Repaired TARGET proof: O(r) vanishing-discount rate with corrected Lemma 3 energy, Fredholm+cited injectivity, quantified constants, converged illustration.
+
+## Why this attempt failed
+
+Failed axes: correctness.
+
+correctness: TARGET route: normalization Psi(z;r)=0 with O(r) residual, Lemma1 bounds, Lemma2 duality identity, Lemma3(a) corrected energy with insufficiency acknowledged, Lemma3(b) Fredholm index-0 reduction, and Lemma4 quantitative IFT are coherent conditional on invertibility. The essential inference Lemma3(c) injectivity is not proved here but delegated to 'Cohen-Zell Sec.5 linearized ergodic well-posedness' without theorem number or statement. Direct inspection of Cohen-Zell arXiv:2404.11695 shows Sec.5 concerns asymptotic Nash/auxiliary discounted systems, not a linearized ergodic invertibility theorem, and Props.2.1-2.2 give only nonlinear well-posedness plus time-exponential stability. Stationary discounted global uniqueness is likewise quoted without exact source. Hence the crux is unverified and correctness cannot pass as stated.
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; introduce a materially new method or a justified, still-valuable revised claim; address the recorded limitation: Kernel triviality delegated to cited linearized theorem with verified hypotheses; constants proved finite/data-dependent not numerically evaluated; global uniqueness quoted; without it rate attaches to constructed branch.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
