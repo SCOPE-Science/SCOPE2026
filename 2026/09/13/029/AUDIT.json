@@ -1,0 +1,93 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All eight polynomial identities were machine-verified (reran verify_identities.py: ALL OK) and independently spot-checked numerically, including P4 recovery of q12 and regular-slice triangle/diamond recovery of (c,ab). Step 1 degree-law inversion via variance/skewness with sign rule is complete (mu3=0 with v>0 forces a=b=1/2, handled). Step 2 division is safe for d1!=d2; Step 3 cube-root uniqueness plus diamond division (denominator u^5/(ab)!=0 when u!=0) pins (c,ab); u=0 gives a.e.-constant graphons, correctly identified up to weak isomorphism. Only defect is a trivial count typo ('five' for six listed graphs), immaterial to the proof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, SBM-identifiability, and finite-forcibility directions with full provider coverage found no prior statement of the uniform m=4 forcing claim with the six named graphs. The nearest broader result (Lovasz-Szegedy/Lovasz-Sos: every stepwise graphon is finitely forcible) gives only existence of some parameter-dependent finite forcing family, not the explicit uniform bound, graph list, or regular-slice P4/diamond reconstruction, so it does not imply the headline. SBM literature concerns statistical recovery thresholds, not exact determination by <=4-vertex connected densities. See decisive_checks.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: the admitted target asked for a universal m<=6 forcing cutoff or explicit counterexamples. The report delivers a complete positive resolution with m=4 and a full uniform reconstruction proof over all (a,q11,q12,q22), a meaningful finite cutoff advancing the recognized finite-forcibility/SBM-identifiability question. It is not a type error, vacuity, small-instance mismatch, table lookup, or arbitrary parameter fact, and no ADMISSION_DEFECT arises.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Reran inputs/artifacts/verify_identities.py: I1,I2,I3,I4,R1,R2,M-var,M-skew all OK; confirms exact density identities.",
+    "Independent numeric audit: 287 random non-regular trials recovered q12 via P4 identity; 84 regular-slice trials recovered (c,ab) via triangle+diamond identities; boundary values consistent by polynomial continuity.",
+    "Lovasz-Szegedy arXiv:0901.0929 (Finitely forcible graphons) fetched in full: defines finite forcibility, states Lovasz-Sos result that every stepfunction is finitely forcible in W0; forcing family is parameter-dependent and large, not a uniform <=4-vertex bound.",
+    "scope_literature_search call d3458076 (EMERGENT_ORIGINALITY): 20 fused results, full provider coverage (serpbase/openalex/crossref/openaire all ok, no partial failure); nearest hits are general finite-forcibility theory and SBM detection/recovery surveys, none stating the m=4 six-graph reconstruction."
+  ],
+  "claim_route_seen": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Lovasz-Szegedy 0901.0929 and follow-ups (Noel-Kral-Lovasz-Sosnovec 2020; Cooper-Kral-Martins 2018; Glebov-Kral-Volec 2019) establish that stepwise graphons are finitely forcible and that finitely forcible graphons can be complex; forcing families there are parameter-dependent, large, and built via labelled quantum-graph machinery.",
+      "reasoning": "A general existence theorem for some finite forcing family per stepfunction does not imply the submitted uniform claim (m=4 with exactly K2,P3,S3,P4,K3,diamond for all 2-block parameters). The explicit bound, graph list, and regular-slice reconstruction are absent from the broader theorem, so no subsumption or corollary relation holds.",
+      "search": "finitely forcible step graphons SBM finite forcibility Lovasz Borgs Chayes SBM moment identifiability classification census"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior hypotheses/conclusions: (i) for each stepfunction there exists some finite forcing set; (ii) SBM papers give asymptotic detection/recovery thresholds. Submitted hypotheses/conclusions: for every 2-block graphon over all continuous parameters, agreement on six specific connected graphs on at most 4 vertices forces weak isomorphism, with exact inversion formulas.",
+      "reasoning": "Compared literally, no prior conclusion yields the uniform m=4 inversion (P4 affine-linearity in q12; triangle cube-root plus diamond quotient on the regular slice). The headline is not a recomputation, certificate, or repackaging of a known stronger fact; the implication runs from headline to a special explicit case of finite forcibility, which is new.",
+      "search": "2-block step graphon determined by homomorphism densities connected graphs at most 4 vertices universal forcing cutoff m=4"
+    },
+    "equivalent_formulations": {
+      "evidence": "Equivalent-direction hits were SBM detection/recovery works (Abbe-style community detection survey; Lee-Lee two-community BBP transition; sparse SBM inference preprints) concerning weak/exact recovery thresholds and spectral methods, plus degree-distribution asymptotics; none states exact determination of 2-block graphons by star/path/triangle/diamond homomorphism densities.",
+      "reasoning": "These sources use different objects (sparse sampled graphs, estimators, thresholds) and different conclusions (high-probability recovery) rather than exact density-equality forcing weak isomorphism for all continuous 2-block parameters. Synonymous SBM notation therefore does not cover the claim.",
+      "search": "stochastic block model two communities identifiability from homomorphism densities star path triangle diamond moments block swap weak isomorphism"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused results contain no census, table, or official database entry recording a 2-block forcing cutoff, the six-graph forcing set, or the (a,q11,q12,q22) inversion formulas; graphon/SBM sources found are theorems and surveys, not parameter tables.",
+      "reasoning": "The claim is a universal theorem over a continuum of parameters with exact inversion formulas, not a finite-table entry; absence of any database record plus the continuum scope means no direct-lookup or database-recomputation coverage exists.",
+      "search": "2-block graphon forcing cutoff table census database homomorphism density star triangle diamond reconstruction formulas"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "368430b6e67136e39f121eded294d2fa2259865f81277d6e1d33bf4be6303efa",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Combinatorics, Probability and Computing (2024), 33, pp. 16\u201331",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D7E760183F9FBE00D96D2721DB83C87C/S0963548323000263a.pdf/forcing_generalised_quasirandom_graphs_efficiently.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "States every q-step graphon is forced by graphs on at most 4q^2-q vertices (14 for q=2; 2q+1 only under distinct block degrees), a strictly weaker uniform bound than the headline m=4 with its explicit six-graph set and exact inversion formulas.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "The Graph Pencil Method:",
+        "url": "https://discovery.ucl.ac.uk/id/eprint/10181235/1/12523_the_graph_pencil_method_mappin.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Shows degree-separated K-block SBMs are determined by finitely many star/bistar densities for inference, but explicitly excludes the regular equal-degree slice that the headline resolves via triangle plus diamond identities, and gives no uniform 4-vertex forcing set.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Random graphs and network statistics",
+        "url": "https://math.aalto.fi/~lleskela/papers/Leskela_2019-03-27_Random_graphs_and_network_statistics.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Gives consistent statistical estimation of a large sparse doubly-stochastic 2-community block model from empirical star covering densities; its conclusion is asymptotic consistency of estimators, not exact determination of every 2-block graphon by six small densities.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "arXiv:1302.2684v4  [cs.LG]  24 Oct 2013",
+        "url": "https://arxiv.org/pdf/1302.2684v4",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Proves MMSB/SBM identifiability from third-order 3-star tensor moments under full-rank connectivity and size conditions; a statistical tensor-decomposition result, not exact uniform forcing by connected graphs on at most 4 vertices for all parameters.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Graph limits and their applications in extremal combinatorics",
+        "url": "https://www.ime.usp.br/~spschool2016/wp-content/uploads/2016/07/Kral.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Survey restatement of the Lovasz-Sos theorem that every step graphon is finitely forcible by some unspecified finite family; it supplies no uniform m=4 bound, no six-graph list, and no P4/triangle/diamond inversion, so it is strictly weaker than the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity search returned 20 results, of which 2 duplicated base-set items (Lovasz-Szegedy 0901.0929 and the Noel-Kral-Lovasz-Sosnovec article). Useful incremental leads were the CPC-2024 4q^2-q forcing bound, the graph-pencil degree-separated SBM determination, Leskela star-moment estimation notes, and MMSB 3-star identifiability. Compared literally, the strongest uniform bound gives 14 vertices for q=2 (5 only with distinct degrees), weaker than the headline m=4; the SBM leads prove statistical consistency or full-rank tensor identifiability, or exclude the regular slice, rather than exact forcing of all continuous 2-block parameters by the six named graphs. No returned source covers the headline, so the provisional originality PASS is preserved."
+  }
+}
