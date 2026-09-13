@@ -1,0 +1,78 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-verified the 84-row computational core: all 12 SPLIT identities (t-1)(t-b)^(l-1)(t-b+1) hold symbolically; all 72 NON_SPLIT rows carry valid divisor-exhaustion certificates (66 kind-A, 6 kind-B; nonzero constants; SymPy Z-factor lists confirm no linear factor); spot recomputation with chi_count.py reproduces the full-arrangement formula and deletion fits; the Terao non-freeness direction is valid. FATAL DEFECT: the S_l symmetry lemma (DRAFT 1bis) is FALSE. Counterexample: in cShi(B_3,2) with S={-1,0,1,2}, the swap x1<->x2 sends H={x1-x2=2z} in A to {x1-x2=-2z}, not in A since -2 is not in S (verified: permuted set differs with |B-A|=1). Position dependence confirmed numerically (deleting x1-x3=2z vs x1-x2=2z differs at p=29: 146132 vs 145656). Hence the 6k+1 reps do NOT determine chi/freeness for all 2kl^2+1 hyperplanes, and all 'hence for every H' and l(l-1) count claims are unproven as stated.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Route is EMERGENT_FINDING, genuinely derived from the blocked all-k target via the same Crapo-Rota method on six certifiable blocks (per target_exit.json), not a convenient replacement. Fused 3-direction literature search (20 results; OpenAlex/Crossref/OpenAIRE ok, one Google query error) plus full-text inspection of the two nearest priors shows no source tabulating single-deletion chi values of cone extended Shi type B or the extreme-translate splitting rule; the nearest theorem (SRB Thm 3.3) decides only freeness for extreme deletions and implies no chi polynomial. The 84-row certified table is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The 84-row certified table answers the admitted target's three questions (exact chi, integral factorization, freeness obstruction) on six (l,k) blocks for a translate-complete slice of deletions of the natural object cShi(B_l,k), motivated before computation; the values are not known or mechanically implied; the extreme-splitting dichotomy versus proven non-splitting, plus residual invariants (e.g. t^2-37t+353) and the sign-flip counterexample, are directly reusable for arrangement-theory follow-up, and every row reproduces deterministically. The false S_l lifting overstates scope but does not erase the computed core's retrieval value once narrowed.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Abe-Terao, The freeness of Shi-Catalan arrangements (arXiv:1012.5884): full text inspected; freeness of full equivariant cones only, no deletion chi.",
+    "Abe-Terao, Simple-root bases for Shi arrangements (arXiv:1111.3510): full text inspected; Thm 3.3 decides freeness only for extreme single addition/deletion, no chi values.",
+    "Nakashima-Tsujie, Freeness for restriction arrangements (arXiv:2111.03585): abstract/metadata screened; type-A restrictions and hereditary freeness, different object from type-B deletions.",
+    "Athanasiadis, Deformations of Coxeter arrangements and their characteristic polynomials: metadata screened; chi of full deformations, not deletions.",
+    "Fused scope_literature_search over 3 normalized directions (20 results; OpenAlex/Crossref/OpenAIRE ok, one Google query error/partial): no source tabulating type-B deletion chi values.",
+    "Independent verification: chi_count.py spot recomputation plus complete SymPy re-verification of all 84 rows in chi_table.json (12 SPLIT identities, 66 kind-A and 6 kind-B divisor-exhaustion certificates)."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Abe-Terao Shi-Catalan freeness theorem, Nakashima-Tsujie type-A restriction classification, and Yoshinaga survey classify freeness of full cones or restrictions; none enumerates single-deletion chi values.",
+      "reasoning": "A broader freeness classification subsumes at most the non-freeness corollary direction, and even SRB Thm 3.3 covers only extreme translates; the exact 84-row chi table is not a special case of any broader tabulated result.",
+      "search": "Classification of freeness of Shi and Catalan arrangements and hereditary freeness covering all type-B deletions"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "SRB Thm 3.3 implies freeness for simple-root top deletions (consistent with our SPLIT rows) and non-freeness for non-simple extreme deletions, but yields no chi formula; most of the 72 interior-translate rows lie outside its hypotheses.",
+      "reasoning": "Prior results constrain at most the freeness direction for extreme rows and are consistent with, but do not imply, the certified chi polynomials; the splitting rule and divisor-exhaustion certificates add substance beyond any prior implication.",
+      "search": "Whether Abe-Terao SRB Theorem 3.3 plus known full-cone exponents mechanically imply the 84 deletion chi values"
+    },
+    "equivalent_formulations": {
+      "evidence": "Query-2 fused results (SRB deleted/added Shi, Shi-Ish symmetry, between-Shi-and-Ish freeness) address freeness and invariants of Shi families but none states a deletion chi polynomial for cone extended Shi type B.",
+      "reasoning": "Synonymous phrasings (deleted Shi, single-hyperplane deletion) lead to the same nearest priors whose theorems decide freeness, not chi values; none implies or tabulates the 84 certified polynomials.",
+      "search": "Deleted and added Shi arrangements, arrangement deletion Terao factorization, gain-graph encodings of type-B Shi deletion chi"
+    },
+    "exact_database_or_table": {
+      "evidence": "No arrangement chi database entry or published table of these deletion polynomials surfaced in fused results or OpenAlex/Crossref metadata; the only existing table is the lane's own chi_table.json.",
+      "reasoning": "With no prior table or database entry for these exact deletion polynomials, the claim is not a recomputation or lookup of recorded data.",
+      "search": "Official tables or databases of arrangement characteristic polynomials with extended Shi type-B deletion values"
+    }
+  },
+  "repair_instructions": "Remove or correct the false S_l transport lemma (DRAFT section 1bis): coordinate permutations do not preserve cShi(B_l,k) because S={-k+1..k} is asymmetric (counterexample: x1<->x2 sends x1-x2=kz to x1-x2=-kz, not in A). Restrict Theorem section 2 to the 84 directly computed deletions (fixed x1, pair (1,2), z=0); delete 'hence for every H', the l(l-1) splitting-hyperplane counts, and all S_l-orbit lifting language; keep the Terao non-freeness corollary for computed rows only. Optionally extend chi_count.py and cert_table.py enumeration to all 2kl^2+1 hyperplanes per block and re-certify to restore full scope.",
+  "residual_risks": [
+    "Full chi_count.py enumeration was spot-checked only, not completely re-run for all 84 rows over all good primes; symbolic certificate re-verification covered all rows.",
+    "Good-prime validity rests on the standard Crapo-Rota theorem plus full-arrangement gating; small primes were shown to fail the gate and were excluded, leaving negligible residual risk."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text Theorem 3.3 decides freeness of S^k+{cH_{a,-k}} and S^k-{cH_{a,k}} iff a is a simple root; it states no deletion chi polynomial and covers only extreme translates, so the 84 chi values and interior-translate certificates lie outside its scope.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Simple-root bases for Shi arrangements (Abe-Terao, arXiv:1111.3510)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1111.3510"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text Theorem 1.2 proves freeness of cones of W-equivariant Shi-Catalan deformations; hypotheses concern full arrangements only, with no single-deletion chi computation or non-freeness obstruction, so it neither states nor implies the headline table.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The freeness of Shi-Catalan arrangements (Abe-Terao, arXiv:1012.5884)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://ar5iv.labs.arxiv.org/html/1012.5884"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
