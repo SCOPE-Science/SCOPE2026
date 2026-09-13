@@ -1,0 +1,12 @@
+Proof skeleton (TARGET, upper bound 8/5), verified pieces:
+(P1) Config-LP feasible at T=1 => assignment-LP feasible at T=1 (projection y_ij=sum_{C ni j} x_iC; loads<=1).
+(P2) Single value a=b: integral <= floor(1/p)*p <= 1 via TU b-matching (+matching when p>1/2).
+(P3) beta<=3/5: ST GAP rounding => <=1+beta<=8/5.
+(P4) alpha>1/2: T=1 configs singletons; support digraph row<=1/col=1 => integral perfect matching of all jobs, makespan<=max size<=1.
+OPEN: alpha<=1/2 < 3/5 < beta<=1. Two-size mixing with beta>1/2: configs contain <=1 big.
+Approach for OPEN: big-job matching (bipartite, one big/machine, from config-LP big-marginals:
+row sums<=1 since each machine config holds <=1 big; column sums=1 ... needs care since smalls
+also cover) then small-job flow with residual caps 1.6-beta_i. 1.6-beta>=0.6>=... residual per
+machine >=0.6, smalls<=0.5 pack with slack; fractional small-mass per machine <=1 (minus big mass).
+Knapsack-flow rounding adds < max small <=0.5 overflow beyond fractional small-mass... total<=?
+Need: fractional small mass on machine i <= 1.6 - beta_i - 0.5? Not established. BLOCKED here.
