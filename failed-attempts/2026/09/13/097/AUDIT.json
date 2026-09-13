@@ -1,0 +1,49 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET side-A proof is not rigorous. Step 2 rho identity (2) is false as stated: Livsic coboundary gives rho_f = rho_g*(P(x)/P(y)), not equality; telescoping argument omits surviving -u(y)+u(x) term and confuses coboundary rho with matching. Step 1 leafwise C-infinity bootstrap is circular because phi|Ws = a_f^s - a_g^s o h is only Holder (h only Holder a priori), so phi is not C^r along contracting foliation. Step 3 conformal bootstrap is hand-waving: no proof that h|Wu is quasiregular/ACL with bounded dilatation, no Beltrami estimate from (3), single matching function insufficient for inverse-function-theorem, Weyl/Ahlfors-Bers invoked without Sobolev regularity. Step 4 Journe hypotheses (uniform C^r along both foliations) never established. Artifacts verify only linear-model telescoping and O(|u||s|) quad bound, not nonlinear rigidity.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Headline claims unconditional stable-Jacobian-only C-infinity rigidity for complex T^3 pair with no very-non-algebraic and no SRB!=MME exception. Nearest prior Gogolev-Rodriguez Hertz arXiv:2105.10539 proves only conditional version: matching Jacobian => smooth OR SRB=MME, and Corollary 1.3 for stable-only with same alternative plus very-non-algebraic open-dense hypothesis. Kalinin-Sadovskaya/Gogolev require full periodic data or real-spectrum bootstrap. No prior states or implies the unconditional stable-only claim; it is strictly stronger than GRH and not a recomputation, table lookup, or synonymous restatement. Hence statement-novelty passes though proof fails.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET dichotomy is motivated before computation: whether 1D stable periodic data alone forces smooth conjugacy for C1-close complex T^3 Anosov pair, with sharp complex-vs-real boundary and Livsic/matching-function attack. An unconditional rigidity theorem would advance recognized Anosov rigidity program beyond GRH conditional result and clarify sharpness. This is a new theorem form, not textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. Value holds independently of proof defect.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GRH arXiv:2105.10539v3 (Gogolev-Rodriguez Hertz): conditional Jacobian/stable-Jacobian rigidity with very-non-algebraic + SRB!=MME alternative; defines matching functions via PCFs",
+    "Gogolev 2017 Bootstrap + Gogolev 2008 + GKS11 Local Rigidity + Kalinin-Sadovskaya conformal: full-periodic-data rigidity; real-spectrum vs complex distinction",
+    "DRAFT.md Steps 0-5 plus Remarks: inspected rho (2), quad double-ratio (3), Journe gluing claims",
+    "inputs/artifacts linear_model.py/flexibility.py/quadrilateral.py: linear telescoping err 1e-9, rho err 6e-11, quad O(|u||s|); first-order stable stationarity only"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "GRH Thm 1.1/1.2/Cor 1.3: near complex L, very-non-algebraic f1,f2 with matching Jacobian/stable-Jacobian are C^r* conjugate OR SRB=MME; Problem 1.6 leaves full removal open",
+      "reasoning": "Broader theorems do not subsume the headline as special case; they are strictly weaker (extra genericity + exceptional alternative). A stronger unconditional theorem covering it was searched for and not found; prior work explicitly stops short.",
+      "search": "Gogolev-Rodriguez Hertz very non-algebraic Anosov T^3 complex eigenvalues matching functions; Kalinin-Sadovskaya conformal rigidity; GKS11 generic local rigidity dominance query"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "GRH requires (f1,phi1)~(f2,phi2) plus phi non-almost-coboundary (SRB!=MME) to get smoothness along Wu; remark states unstable perturbations give non-smooth examples under Jacobian-only data",
+      "reasoning": "Prior result does not substantively imply the headline; implication runs opposite (headline would imply prior without exceptions). Dropping the exception is the novel but unproved step; Steps 2-3 fail to eliminate the almost-coboundary/SRB=MME case, so no corollary/repackaging passes.",
+      "search": "Compared headline hypotheses/conclusions literally against GRH Corollary 1.3 and Thm 1.2: no unstable matching, no very-non-algebraic, no almost-coboundary exception claimed"
+    },
+    "equivalent_formulations": {
+      "evidence": "GRH Sec 1 defines matching stable Jacobian periodic data vs Jacobian vs full periodic data; Yu-Gu center exponents; Saghin-Yang Lyapunov rigidity all use distinct hypotheses",
+      "reasoning": "No synonymous renaming covers the claim: prior stable-exponent results either assume both stable+unstable Jacobians or add very-non-algebraic/SRB!=MME. The submitted stable-only unconditional form is not a relabelled known theorem.",
+      "search": "stable Jacobian periodic data = stable Lyapunov exponents / log|det Df^n|Es| matching; unstable/stable Jacobian vs full Jacobian vs periodic eigenvalues"
+    },
+    "exact_database_or_table": {
+      "evidence": "Search fused 20 results contain no classification table or database entry for exact pair (f,g,h); linear_model.json/flexibility.json/quadrilateral.json record only spectrum, telescoping errors, slopes for model L",
+      "reasoning": "Exact parameter/object does not already appear in an official table; artifacts are illustrative linear computations, not a lookup that decides the nonlinear rigidity claim.",
+      "search": "No finite census/table/database records conjugacy regularity for T^3 Anosov pairs; checked arXiv/OpenAlex/Crossref hits and artifact JSON tables contain only synthetic linear-model numbers"
+    }
+  },
+  "residual_risks": [
+    "Unconditional headline may be false: GRH Remark notes unstable-foliation perturbations break smoothness under Jacobian-only data and SRB=MME exceptional case is left open, suggesting counterexample to side A exists",
+    "Linear-model numerics do not transfer to nonlinear C1-close f,g; no verification of bunching/C1 splitting regularity actually used"
+  ],
+  "verdict": "REJECT"
+}
