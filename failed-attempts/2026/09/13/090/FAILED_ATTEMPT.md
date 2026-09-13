@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Quantum refined correspondence for (P^1xP^1, two (1,1) curves)
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1665
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** log Gromov-Witten theory and mirror symmetry
+- **Method:** refined tropical correspondence and quantum wall-crossing
+
+## Problem
+
+Let X=P^1xP^1 and D=H1+H2 where H1 and H2 are smooth curves of bidegree (1,1) meeting transversely in two points, so D is anticanonical. For integers a>=1, b>=1 let beta=(a,b) with maximal contacts c=beta.H1=beta.H2=a+b. For each genus g>=0 let N_{g,a,b} be the genus-g log Gromov-Witten invariant of (X,D) of class beta with two relative markings of maximal contact orders (c,c), one interior point insertion, and insertion (-1)^g lambda_g, and let F_{a,b}(hbar)=sum_{g>=0} N_{g,a,b} hbar^{2g}. Prove or disprove that for every (a,b), F_{a,b} equals the q-refined wall-crossing coefficient with q=e^{i hbar} in the consistent completion of the explicit q-refined (quantum) two-initial-wall scattering diagram on the dual intersection complex of (X,D), equivalently the Block-Gottsche refined weighted count of rigid tropical curves with two unbounded legs of weights (c,c) and the associated quantum broken-line product, via refined tropical correspondence and quantum wall-crossing. The (1,1) genus-zero term is enumeratively non-vacuous. A complete answer is a proof for all a,b>=1 or a rigorous counterexample at one explicit pair (a0,b0) with the series computed to positive genus order on both sides and unequal.
+
+## Attempted claim
+
+Let X=P^1xP^1 and D=H1+H2 where H1 and H2 are smooth curves of bidegree (1,1) meeting transversely in two points, so D is anticanonical. For integers a>=1, b>=1 let beta=(a,b) with maximal contacts c=beta.H1=beta.H2=a+b. For each genus g>=0 let N_{g,a,b} be the genus-g log Gromov-Witten invariant of (X,D) of class beta with two relative markings of maximal contact orders (c,c), one interior point insertion, and insertion (-1)^g lambda_g, and let F_{a,b}(hbar)=sum_{g>=0} N_{g,a,b} hbar^{2g}. Prove or disprove that for every (a,b), F_{a,b} equals the q-refined wall-crossing coefficient with q=e^{i hbar} in the consistent completion of the explicit q-refined (quantum) two-initial-wall scattering diagram on the dual intersection complex of (X,D), equivalently the Block-Gottsche refined weighted count of rigid tropical curves with two unbounded legs of weights (c,c) and the associated quantum broken-line product, via refined tropical correspondence and quantum wall-crossing. The (1,1) genus-zero term is enumeratively non-vacuous. A complete answer is a proof for all a,b>=1 or a rigorous counterexample at one explicit pair (a0,b0) with the series computed to positive genus order on both sides and unequal.
+
+## Research outcome
+
+TARGET proved: all-genus lambda series equals the q-refined wall coefficient for every bidegree via Bousseau quantum correspondence, with reproducible (1,1) non-vacuity certificate.
+
+## Why this attempt failed
+
+Failed axes: correctness, originality, value.
+
+correctness: TARGET route audited normally. Vdim g+2 and point+lambda_g count check, and check_11.py re-ran PASSED for classical fully-tangent (1,1) count, are correct as far as they go. But all-genus equality for all (a,b) is not proved: the stated Bousseau theorem with l maximal contacts plus l-1 points does not exist in cited sources; Bousseau 2020 uses 1-leg no-point N_{g,beta}, Bousseau 2019 uses toric boundary. Toric-model/corner-blowup pushforward, invariance for 2-leg+point invariants, and equivalence of q-wall coefficient with Block-Gottsche count on singular 2-component B are asserted without proof. Log-versus-classical identification for N_{0,1,1}=2 is also incomplete. Heavy lifting is cited, not established for this setup. originality: Fused retrieval found Bousseau 2019 refined toric correspondence, Bousseau 2020 canonical quantum scattering for all Looijenga pairs, and Kennedy-Hunt et al 2026 q-refined Frobenius with lambda+point+psi invariants equal to quantum broken-line brackets. Target (P1xP1, two (1,1), s=2 maximal contacts plus one point) is either uncovered by the cited theorem as stated, or, to the extent Kennedy-Hunt plus corner-blowup/deformation could cover it, a strict special case of a known stronger theorem. No new boundary, object, or method is introduced; timestamp and failed exact-title search do not establish priority. value: Strongest headline is all-genus F_{a,b} equality for every (a,b). As presented it is a direct instantiation/repackaging of a general Looijenga quantum-correspondence package with no new computation beyond one genus-zero number, no new structural insight, and no demonstrated downstream use. N_{0,1,1}=2 alone is a single small exact count whose certification does not create headline value. This is mere parameter substitution and certification without substantive advance under the shared standard.
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: The all-genus identification cites Bousseau's quantum correspondence theorem and the GHK toric-model plus quantum scattering framework rather than re-proving the degeneration and refined tropical correspondence; local verification covers the hypothesis match and the explicit (1,1) genus-zero non-vacuity computation only, not independent higher-genus enumerations. No preset fallback exists or was used.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
