@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** Jump locus of H^1_f for P^1 family of filtered phi-modules at p=11
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1773
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** local Galois cohomology / families of filtered phi-modules
+- **Method:** Bloch-Kato exponential plus Euler characteristic and weak-admissibility inequalities
+
+## Problem
+
+Let p=11 and K=Q_{11^2} be the fixed unramified quadratic extension of Q_11 with embeddings sigma_0, sigma_1 and Galois group G_K. Fix distinct Teichmuller Frobenius eigenvalues zeta_1, zeta_2 and consider the one-parameter family D_t, t in P^1(Qbar_11), of rank-two weakly admissible filtered phi-modules over K tensor Qbar_11 with fixed labelled Hodge-Tate weights {0,2} at sigma_0 and {0,2} at sigma_1, Frobenius phi=diag(11^2*zeta_1, 11^2*zeta_2), and filtrations Fil^2_0 = span(e_1), Fil^1_0(t) = span(e_1 + t*e_2) (with Fil^1_0(infinity) = span(e_2)), and fixed generic Fil^1_1 = span(e_1 + 3*e_2), Fil^2_1 = span(e_1), e_1,e_2 the phi-eigenbasis. Let V_t be the associated crystalline representation and ad^0(V_t) its trace-zero adjoint. Determine the exact jump locus J = {t in P^1 : dim H^1_f(G_K, ad^0(V_t)) exceeds its generic value} together with the generic value g = dim H^1_f at t not in J, and decide whether H^2(G_K, ad^0(V_t)) vanishes for all t. A complete answer states g, states J explicitly (possibly empty) with full proof from the Bloch-Kato exponential, Euler-characteristic formula, and explicit D_t-data, exhibiting bases of crystalline cocycles at generic and jump points or an explicit nonzero obstruction class wherever H^2 is nonzero.
+
+## Attempted claim
+
+Let p=11 and K=Q_{11^2} be the fixed unramified quadratic extension of Q_11 with embeddings sigma_0, sigma_1 and Galois group G_K. Fix distinct Teichmuller Frobenius eigenvalues zeta_1, zeta_2 and consider the one-parameter family D_t, t in P^1(Qbar_11), of rank-two weakly admissible filtered phi-modules over K tensor Qbar_11 with fixed labelled Hodge-Tate weights {0,2} at sigma_0 and {0,2} at sigma_1, Frobenius phi=diag(11^2*zeta_1, 11^2*zeta_2), and filtrations Fil^2_0 = span(e_1), Fil^1_0(t) = span(e_1 + t*e_2) (with Fil^1_0(infinity) = span(e_2)), and fixed generic Fil^1_1 = span(e_1 + 3*e_2), Fil^2_1 = span(e_1), e_1,e_2 the phi-eigenbasis. Let V_t be the associated crystalline representation and ad^0(V_t) its trace-zero adjoint. Determine the exact jump locus J = {t in P^1 : dim H^1_f(G_K, ad^0(V_t)) exceeds its generic value} together with the generic value g = dim H^1_f at t not in J, and decide whether H^2(G_K, ad^0(V_t)) vanishes for all t. A complete answer states g, states J explicitly (possibly empty) with full proof from the Bloch-Kato exponential, Euler-characteristic formula, and explicit D_t-data, exhibiting bases of crystalline cocycles at generic and jump points or an explicit nonzero obstruction class wherever H^2 is nonzero.
+
+## Research outcome
+
+TARGET disproved: the stated P^1 family at p=11 contains no weakly admissible filtered phi-module at any t (sigma_1 filtrations never nest; phi-stable span(e1) violates t_H<=t_N), so no crystalline V_t, H^1_f generic value, jump locus, or H^2 question exists.
+
+## Why this attempt failed
+
+Failed axes: value.
+
+value: FAIL as ADMISSION_DEFECT: negative resolution exposes only a type/normalization error and vacuity barred by STANDARD: sigma1 Fil^2_1=span(e1) vs Fil^1_1=span(e1+3e2) never nests for any t since 3 is a unit, so the presupposed P^1 family was empty by elementary linear algebra before any Bloch-Kato theory. This is a cheap specification defect plus arbitrary parameters (p=11, offset 3), not a natural object, boundary, or benchmark. Certification via script does not rescue an invalid arbitrary datum.
+
+## Conditions for a legitimate retry
+
+supply independent motivation and a materially stronger contribution; address the recorded limitation: This is a rigorous negative TARGET resolution: it proves the stated family is empty and its Bloch-Kato invariants undefined. It does not construct a corrected nearby family, compute jump loci for modified filtration or slope data, or address conventions that drop decreasing filtrations or the subobject weak-admissibility inequality.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.
