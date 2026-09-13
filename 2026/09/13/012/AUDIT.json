@@ -1,0 +1,98 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 1 verified line-by-line: v=(y,1) has below-neighbour on axis e5 (infected by hypothesis) and above-neighbour on the same axis e5, so under the >=2-distinct-axes rule v fires iff >=1 of its 8 in-layer neighbours (axes e1..e4) is infected; above-layer state provably contributes no new axis, so L1 dynamics is closed r=1 bootstrap in the full dynamics with no idealization. On the connected periodic 4D torus fill-iff-initially-nonempty follows (spread within diam<=2n for n>=3; degenerate n=1,2 irrelevant to n->infinity scope). Corollary (1-p)^A follows exactly from S=empty under product initialization; -logP/(pA)->1 verified numerically. S-rule (1-p)^{2A} correctly stated as exact only under frozen-above idealization and as an upper bound in full dynamics (more help can only lower failure probability), so the bound direction is correct. Surface arithmetic recomputed independently: 18*2^{-4/5}=10.33828 vs cube 10.0, +3.38%, refuting the gamma=2 optimizer clause. Monte Carlo is honestly labeled evidence-not-proof with Wilson intervals; spot predictions fall inside intervals. DRAFT scope limits are explicit; no window or expansion overclaim.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route verified: the lemma arose necessarily from attacking the target droplet-expansion clause (which neighbours supply the second axis) plus checking the gamma=2 parenthetical, documented in target_exit.json, and is reported honestly as strictly weaker than the blocked window with no window claim. Fused literature search (SerpBase/OpenAlex/Crossref/OpenAIRE, all providers ok, 20 results) finds only standard r-neighbour sharp-threshold work (Balogh-Bollobas-Morris-Duminil-Copin arXiv:1010.3326/0907.3097, Balogh-Bollobas hypercube, Holroyd 2D, Schonmann 1992 generalized rules) \u2014 none states the 5D 2-distinct-axes rule, the closed-layer r=1 reduction, the exact (1-p)^A vs (1-p)^{2A} split, or the 10.0-vs-10.338 correction. Monotone domination P_D<=P_S goes the wrong way and does not imply the exact face law. No database, census, table, dual/complement encoding, or broader theorem was found that substantively implies or exhaustively covers the headline. Adversarial checks below record the concrete searches and why each fails to cover the claim.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The headline is a rigorously proved exact local law for the admitted target's own novel rule plus an exact arithmetic refutation of its gamma=2 optimizer clause \u2014 not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. Object and invariant were motivated before computation by the target droplet-expansion clause; the exact (1-p)^A law and 1-vs-2 exponent split were not known or mechanically implied by standard r-neighbour results (which concern a different, easier rule); any future droplet/threshold analysis of this rule must use this one-step face law, and the 3.38% correction prevents wasted effort on the wrong geometry. The report further interprets the lemma by diagnosing the target blockage (per-slab constant gap 1-exp(-A^4 c), transverse rescue missing) and honestly scoping the open multi-slab problem. Judged as a self-contained headline separately from the unfinished census, it is the kind of exact invariant of a specific natural object the STANDARD expressly deems eligible without demanding a new general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md Lemma 1 / Corollary 2 / S-comparison / surface-correction proofs read and line-checked, including Remark on slab-iteration blockage and Section 5 scope limits",
+    "inputs/artifacts/compute_costs.py + results_costs.json: helper counts 8 vs 9, surface coefficients 10.0 vs 10.338285194973313 recomputed independently (18*2^{-4/5}); face-cost exponents 1.0 vs 2.0 confirmed",
+    "inputs/artifacts/mc_faces.py + results_faces.json: six configs (A=16/81/256) with Wilson 95% CIs; D predictions inside intervals (e.g. A=81 D p=0.03 MC 0.0860 in [0.0745,0.0991] vs 0.0848; A=256 D p=0.015 MC 0.0212 vs 0.0209); exponent column ~1.0 D vs ~2.0 S",
+    "inputs/artifacts/mc_torus.py + results_torus.json: n=5,6 sweep saturates at 1.000 with wide CIs, confirming small-torus numerics cannot pin the window (bounded recovery test, not headline evidence)",
+    "scope_literature_search fused Top-20 (all providers ok): nearest priors are Balogh-Bollobas-Duminil-Copin-Morris sharp r-neighbour threshold arXiv:1010.3326, Balogh-Bollobas hypercube, Holroyd sharp 2D threshold, Balogh-Bollobas-Morris 3D, Schonmann 1992 generalized cellular automata; screened snippets/metadata \u2014 all concern standard r-neighbour or unrelated percolation models, none the 2-distinct-axes slab law",
+    "arXiv:1010.3326 abstract fetched in full: confirms standard r-neighbour threshold pc= [(L(d,r)+o(1))/log_{r-1} n]^{d-r+1}, a different rule and conclusion that does not imply the submitted face law",
+    "inputs/topic.json, research_report.json (EMERGENT_FINDING with discovery context, value case, limitations), target_exit.json / target_exit_request.json (four blocked routes) read to verify genuine target-derivation and honest scoping"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Sharp-threshold program (BBDM arXiv:1010.3326 covering all d>=r>=2 with constant L(d,r); Holroyd 2D pi^2/18; Hartarsky-Morris second term) and Schonmann 1992 classification (pc=0 vs 1 for l<=d vs l>d; oriented rules with 0<pc<1) all target the standard counting rule or qualitative critical points, never the exact finite-face conditional law (1-p)^A for the harder distinct-axes rule.",
+      "reasoning": "A broader theorem covers the headline only if it substantively implies it; asymptotic counting-rule thresholds do not imply an exact conditional slab identity for a different update rule, and no classification or census of slabs/faces at these parameters was found, so broader coverage does not defeat originality.",
+      "search": "Searched dominance query for stronger theorems, broader object classes, exhaustive census/classification/database subsuming the 5D 2-distinct-axes slab law (query 3 plus BBDM/Holroyd/Schonmann full-record screening)."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Domination P_D<=P_S and helper counts 8 (D) vs 9 (S) show D is strictly harder; the S upper bound (1-p)^{2A} is one-sided and cannot yield the exact D identity (1-p)^A. Standard-threshold asymptotics give window scalings, not the closed-layer r=1 reduction or the above-neighbour-uselessness mechanism.",
+      "reasoning": "No prior result found implies the headline even non-verbatim: prior inequalities point the wrong way or are asymptotic/one-sided, while the claim is an exact finite-A identity with a proved mechanism; hence the claim is not a corollary, certificate, or recomputation of a known stronger fact.",
+      "search": "Compared theorem hypotheses and conclusions literally for each nearest prior (standard-rule thresholds, frozen-helper idealization, domination coupling) against the submitted exact D face law and 1-vs-2 split."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results contain no hit for 'distinct axes/directions' slab or layer-cascade law; hits are standard r-neighbour, majority bootstrap, Hamming torus, FA-2f KCM, and conformal-bootstrap (unrelated physics usage). Schonmann 1992 treats orientation-important generalizations abstractly with no 5D 2-distinct-axes instance, no e5-axis-uselessness reduction, and no (1-p)^A formula.",
+      "reasoning": "Title/embedding similarity to generic 'bootstrap percolation torus/layer' is insufficient; literal comparison shows no synonymous notation, dual/complement/incidence-graph/matrix encoding, or anisotropic reformulation states the same closed-layer mechanism, so equivalent-formulation coverage fails.",
+      "search": "Searched literal headline plus synonymous forms: 'distinct coordinate directions/axes rule', 'anisotropic bootstrap r=1 layer growth', 'same-axis help useless closed layer' across SerpBase/OpenAlex/Crossref/OpenAIRE (queries 1-2)."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table, OEIS-style record, simulator database, thesis table, or census lists the 5D 2-distinct-axes face-failure value (1-p)^A, the 8-vs-9 helper counts, or the 10.0-vs-10.338285 surface coefficients; the only numeric records are this lane's own results_costs.json / results_faces.json with fixed seeds.",
+      "reasoning": "Because the exact parameters and coefficients appear nowhere else, the headline is not a direct lookup, arbitrary-parameter fact, or known-database recomputation; certification/Monte Carlo here supports rather than substitutes for the proof.",
+      "search": "Searched exact objects and numbers: (1-p)^A face failure, helper counts 8 vs 9, surface coefficients 10.0 vs 10.338 and ratio 1.0338, 5D torus n=5,6 percolation tables, bootstrap databases and theses."
+    }
+  },
+  "residual_risks": [
+    "No machine-checked proof; correctness rests on human verification of a short elementary argument (mitigated by independent recomputation and in-interval Monte Carlo).",
+    "Originality rests on literature search through major providers plus direct screening; an obscure thesis covering the identical custom rule cannot be logically excluded, but no lead was found and the rule appears target-specific."
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "b576a402fdfee6a21d410959bce5028189e1fa4152963f7a6545bb23a51af11c",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] The Metastability Threshold for Modified Bootstrap Percolation in d ...",
+        "url": "http://aeholroyd.org/papers/mb.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same rule family under the synonymous name 'modified bootstrap percolation' (needs one active neighbour in each of d dimensions); its Theorem 1 gives the asymptotic metastability scaling for cubes Q_d(L), L vs exp^{d-1}((lambda+-eps)/p) with lambda=pi^2/6, not the submitted exact finite-area periodic-slab identity: closed r=1 dynamics above a full layer, fill-iff-nonempty, (1-p)^A vs (1-p)^{2A} split, or 10.0-vs-10.338 surface correction. Hypotheses (free cubes, joint L,p limits) and conclusions (asymptotics) differ literally from the exact slab law.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "polluted bootstrap percolation with threshold two in all ...",
+        "url": "http://aeholroyd.org/papers/polluted2.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Explicitly defines the same modified rule (for at least r directions i, either x-ei or x+ei occupied) but studies the polluted model with independently closed sites (parameters p,q) and threshold-two critical scaling on Z^d; hypotheses include pollution obstacles and conclusions concern polluted thresholds, not the unpolluted 5D torus exact single-face failure law (1-p)^A or the cube-beats-gamma-2 correction.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "arXiv:1405.0152v3  [math-ph]  3 Feb 2015",
+        "url": "https://www.arxiv.org/pdf/1405.0152",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Survey/review defining the 'modified' bootstrap model (one occupied neighbour along each lattice axis) and the anisotropic (1,2)-model with balanced vs unbalanced directional speeds; provides broad context and sharp/sharper-threshold discussion but states no periodic-layer cascade lemma, no exact (1-p)^A vs (1-p)^{2A} face-failure law, and no 10.0-vs-10.338285 isoperimetric coefficients.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "the sharp threshold for bootstrap percolation in all ...",
+        "url": "https://www.unige.ch/~duminil/publi/the%20sharp%20threshold%20for%20bootstrap%20percolation%20in%20all%20dimensions.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Standard r-neighbour sharp threshold pc([n]^d,r)=((lambda(d,r)+o(1))/log_{r-1} n)^{d-r+1} for the counting rule on grids [n]^d; different update rule (counts neighbours ignoring axes, easier than the distinct-axes rule) and an asymptotic window conclusion. Monotone domination P_D<=P_S runs the wrong way and cannot imply the exact distinct-axes finite-slab identity or mechanism.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Bootstrap Percolation on the Hamming Torus with Threshold 2 - arXiv",
+        "url": "https://arxiv.org/html/1407.2317v5",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Threshold-2 bootstrap on the d-dimensional Hamming torus where edges join any pair differing in a single coordinate (long-range graph, not the nearest-neighbour torus T_n^5); studies critical exponents and Poisson limits for d'-dimensional subtori becoming open, not the nearest-neighbour slab fill-iff-initially-nonempty law with exact probability (1-p)^A.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 results with only 3 overlapping the base fused set, so it contributed 17 incrementally recalled sources including the most dangerous synonymous-name literature absent from the base search: Holroyd modified-bootstrap threshold (rank 4), Gravner-Holroyd polluted threshold-two (rank 3), and the van Enter review defining the modified model (rank 2), plus the BBDM sharp-threshold PDF and Hamming-torus work. Literal hypothesis/conclusion comparison shows every new lead concerns a different rule variant (standard counting, polluted, two-way, Hamming long-range, anisotropic 2D) or an asymptotic metastability/threshold conclusion (lambda=pi^2/6, lambda(d,r), critical exponents), and none states, implies, or exhaustively covers the submitted exact 5D 2-distinct-axes periodic-layer closed-r=1 reduction, the (1-p)^A vs (1-p)^{2A} face law, or the 10.0-vs-10.338 correction. No suggestive title or snippet was treated as coverage; decisive_sources is therefore empty and the provisional originality PASS is preserved with correctness and value untouched."
+  }
+}
