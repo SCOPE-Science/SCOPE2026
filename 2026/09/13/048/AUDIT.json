@@ -1,0 +1,57 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: verified full two-sided proof. Upper: indicator identity and Gauss formula (1) re-derived and numerically confirmed, |tau|=sqrt(p) gives |S_k|<=4/sqrt(p), Erdos-Turan with m=floor(sqrt(p)) yields O(log p/sqrt(p)). Lower: Koksma gives E_p>=|S_h|/(8|h|), chi(-1)=1 makes periods real, sum-of-squares identity t^2+u^2+v^2=3r^2/2 yields max(|NS_1|,|NS_2|)>=r/4 when 2 is cubic non-residue, Chebotarev in Q(zeta_12,cbrt(2)) of degree 12 gives infinitely many p=7 mod 12 with 2 non-residue; constants c=1/200 valid. Re-ran verify_numerics.py: 108 primes, E_p sqrt(p) in [0.43,1.19], Koksma/dichotomy pass.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, equivalent (Gaussian periods / power residues / Paley), and dominance (subgroup discrepancy theorems/databases) found no prior stating or implying the two-sided headline. Upper shape alone is routine via Weil+Erdos-Turan, but the conjunction with the infinitely-often Omega(1/sqrt(p)) lower bound via the k=1 vs k=2 cosine dichotomy plus Chebotarev family (p=7 mod 12, 2 non-residue) is not recorded, tabulated, or mechanically implied by any located broader theorem. Decisive checks below test each failure mode adversarially.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET resolution proves both admitted halves, lower in stronger c/sqrt(p) form without log loss. Object (normalized cubic residues for p=7 mod 12) and invariant (star-discrepancy rate) were motivated before computation by topic.json; exact two-sided sqrt-rate was unknown, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. A future researcher on uniform distribution of power residues could reasonably retrieve this precise rate and witness family.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Sections 1-6: complete two-sided proof with explicit identities, dichotomy lemma, and Chebotarev infinitude lemma",
+    "inputs/artifacts/verify_numerics.py re-executed locally: 108 primes p=7 mod 12 below 3000, E_p*sqrt(p) in [0.426,1.190], Koksma and dichotomy checks pass, ~65% have 2 as non-residue",
+    "Independent recomputation of Gauss-sum identity (1) and |tau|=sqrt(p) for p=19,31,43: agreement to 1e-15",
+    "scope_literature_search fused set (Serpent/OpenAlex/Crossref/OpenAIRE all ok): discrepancy surveys, Gaussian-period definition, Jordan 1968 power-residue distribution, Paley-graph survey, Bourgain-type approximate-subgroup equidistribution \u2014 screened, none states the headline",
+    "Kuipers-Niederreiter Erdos-Turan/Koksma standard forms cited in draft: constants immaterial to rate, usage verified"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Located broader items concern general QMC discrepancy, metrical digital sequences, and Bourgain-type equidistribution of f(I)H; none states a fixed-index-3 star-discrepancy rate O(log p/sqrt(p)) with matching Omega(1/sqrt(p)) infinitely often for p=7 mod 12.",
+      "reasoning": "No broader theorem, census, classification, or survey located exhaustively covers the admitted parameter family and two-sided rate; the infinitude family via 2-nonresidue Chebotarev condition is absent from the general statements.",
+      "search": "Searched discrepancy of multiplicative subgroups of finite fields, k-th power residue uniform distribution bounds, and census/classification coverage of cubic-residue discrepancy."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Standard Weil/Gauss plus Erdos-Turan machinery yields the upper-bound shape routinely, but located sources stop at method; none derives the k=1 vs k=2 period dichotomy with the reality condition chi(-1)=1 and the Chebotarev infinitude to obtain E_p>=c/sqrt(p) infinitely often.",
+      "reasoning": "The headline conjunction is not a corollary, certificate, or recomputation of a known stronger fact: the lower half requires the new dichotomy plus arithmetic infinitude, and its proved form is strictly stronger than the target required.",
+      "search": "Compared headline hypotheses and conclusions literally against nearest prior methods to test whether standard character-sum plus discrepancy inequalities already imply both halves."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results returned only the generic Gaussian-period definition, Erdos-Turan inequality statement, and generalized Paley-graph spectral survey; none phrases or bounds the star-discrepancy E_p of normalized cubic residues for p=7 mod 12.",
+      "reasoning": "Fourier duality (periods as S_k) is exactly the draft interior mechanism, but no prior source under synonymous notation states the two-sided discrepancy rate; title or embedding similarity does not establish coverage.",
+      "search": "Searched cubic Gaussian periods uniform distribution, multiplicative-subgroup Fourier coefficients, Paley-type encodings, and complement/non-residue phrasings of the cubic-residue discrepancy."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official table, database, OEIS entry, or thesis tabulation of E_p or its sqrt(p) rate for cubic residues was returned; the only numerics are the draft supporting verification for p below 3000.",
+      "reasoning": "The exact constants, rate, and infinite witness family do not already appear as a tabulated or database fact; draft numerics are verification-only and do not replace the proof.",
+      "search": "Searched for tabulated star-discrepancy values of cubic residues, Gaussian-period tables, and specialist uniform-distribution databases covering p=7 mod 12."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "a5cf26c0d614132485b45027579d4205f99a4c35fb81fb362df938a3c1bc07ed",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [],
+    "rationale": "Terminal Perplexity search returned 20 results (1 overlapping the base set as an arXiv duplicate, 19 incremental). Screened all titles and snippets literally: general QMC/star-discrepancy surveys, additive combinatorics of multiplicative subgroups, the index-3 sumset theorem G+G=F, Chebotarev expositions, cubic-residue criteria, and Gaussian-period moment/polynomial papers. None states the headline two-sided star-discrepancy rate for normalized cubic residues at p=7 mod 12, and none under equivalent Gaussian-period, power-residue, or subgroup language implies the conjunction of the O(log p/sqrt(p)) upper bound with the infinitely-often Omega(1/sqrt(p)) lower bound via the k=1 vs k=2 dichotomy. The incremental recall therefore adds method background only and no decisive prior; provisional originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "verdict": "PASS"
+}
