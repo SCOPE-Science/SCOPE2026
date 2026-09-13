@@ -1,0 +1,53 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: re-executed inputs/artifacts/verify_c0_vinberg.py exactly, exit 0 with no floating point. Charpoly, rank 5, signature (4,1), all 16 cube-vertex 4x4 minors positive definite, minpolys x^2-7x+9 for 4a^2 and 3t^2-20t+16 for 4c^2, Norm(4c^2)=16/3 non-integral, and the conjugate-PSD integer discriminant/product/sum certificates all reproduce. The pendant-vertex field argument giving k0=Q(sqrt13) is sound for the stated adjacency, and the dotted lengths match JT Table 4 entry ((2,2),3). Non-arithmeticity needs only this single non-integral cyclic product, so the TARGET disproof stands; the extra properly-quasi-arithmetic conjunct contradicts JT Remark 9 and is left as disclosed residual risk.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "ADMISSION_DEFECT: Jacquemet-Tschantz (2018), Remark 9, verified in the published PDF, already records this exact graph Sigma_1^{2,2,3} as non-arithmetic via Vinberg's arithmeticity criterion, so the TARGET verdict itself was published before Admission. Fused retrieval (20 results, all providers ok) found the JT/MZ classifications and no per-cube certificate, but verdict-level coverage suffices since a prior source need not state the headline verbatim. The new explicit failing product 4c^2 of norm 16/3 is a recomputation/certificate of that known verdict, an explicit originality failure mode. Originality failure is never repairable.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As an exact Vinberg invariant of a natural object drawn from two complete classifications (JT cubes; MZ 8-facet 4-polytopes), the certified field k0=Q(sqrt13) and failing product 4c^2 with norm 16/3 were motivated before computation by the admitted Vinberg-criterion target, and the precise norm/field/minpoly triple is a fact a future researcher could reasonably need (JT Remark 9 states the verdict but no invariant). Per the shared standard, such a narrow exact datum is independently worth retrieving and is not rejected merely for narrowness. The failure of this submission is priority, not intrinsic low value.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "JT2018 (PDF verified): Remark 9 verdict that Sigma_1^{2,2,3} is non-arithmetic and not quasi-arithmetic via Vinberg; Table 4 dotted lengths for ((2,2),3): cosh d=sqrt((5+sqrt13)/6), cosh e=(1+sqrt13)/4; Fig.1 compact 4-cube graphs.",
+    "MZ2024 (search metadata/abstract): complete classification of 348 compact hyperbolic Coxeter 4-polytopes with 8 facets; DRAFT cross-identifies C0 with P_{34,1}; full text not fetched.",
+    "Re-execution of inputs/artifacts/verify_c0_vinberg.py: claims (A)-(D) reproduced exactly, exit 0, exact sympy arithmetic only.",
+    "Felikson-Tumarkin polytopes page and Bogachev arithmetic-reflection page (fetched): survey links plus CoxIter/Vinberg-algorithm tooling; no per-cube arithmeticity verdict for Sigma_1^{2,2,3}.",
+    "Bogachev-Guschin-Vesnin hybrids review (fetched): Vinberg V1-V3 criterion statement used to check the V1/V2-vs-V3 logic.",
+    "scope_literature_search EMERGENT_ORIGINALITY fused set: 20 deduplicated results, all providers ok, no per-cube Vinberg certificate for C0 found."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "JT Remark 9 decides every compact 4-cube graph including Sigma_1^{2,2,3} as non-arithmetic; the MZ census is combinatorial with no arithmeticity verdicts; surveys and tool pages list methods but no dominating per-cube arithmetic table beyond JT.",
+      "reasoning": "JT Remark 9 is a broader result covering the headline's non-arithmeticity half as a special case, so the submitted disproof is a certificate of an already-covered verdict and fails originality as recomputation of a known fact.",
+      "search": "Stronger theorem or broader census deciding arithmeticity of all compact hyperbolic Coxeter 4-cubes and 8-facet 4-polytopes: Jacquemet-Tschantz, Ma-Zheng 348, Felikson-Bogachev surveys, CoxIter database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "JT states the identical graph's group is non-arithmetic, matching the submitted disproof, and additionally not quasi-arithmetic, contradicting the submitted properly-quasi-arithmetic conjunct, citing Vinberg's criterion, the same standard as the submission.",
+      "reasoning": "The prior verdict substantively implies and covers the non-arithmeticity half, so that half is not original; the quasi-arithmetic half is either false if JT is right or an unproven correction of peer-reviewed literature since the DRAFT offers no proof JT erred, so the conjunctive headline cannot pass as a new correct contribution.",
+      "search": "Literal comparison of JT Remark 9 ('groups with Coxeter graph Sigma_1^{2,2,3} are non-arithmetic and not quasi-arithmetic') against the submitted C0 headline (NOT arithmetic; conjugate PSD so properly quasi-arithmetic)"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results and fetched pages state no such invariant for C0; JT Remark 9 gives only the verdict 'non-arithmetic' with no cyclic product, field, or norm, and no equivalent-encoding source (trace-field, Gram 2-cycle, CoxIter record) for C0 was found.",
+      "reasoning": "Alternative encodings disclose no prior record of the specific norm-16/3 certificate, but verdict-level coverage established in claim_vs_prior_implication still subsumes the coarse non-arithmeticity claim, so the equivalent-formulation search does not rescue originality.",
+      "search": "Vinberg 2G cyclic products and adjoint trace field Q(sqrt(13)) for Sigma_1^{2,2,3}: (2cosh d)^2 integrality, norm 16/3, minpoly 3t^2-20t+16"
+    },
+    "exact_database_or_table": {
+      "evidence": "JT Table 4 records only the dotted-length inputs cosh d and cosh e; MZ tables record combinatorics and lengths; no official table or database was found recording an arithmeticity verdict with certificate for this cube.",
+      "reasoning": "No exact table pre-records the norm-16/3 certificate itself, but the published tables plus JT Remark 9 pre-record the verdict it certifies, and certificate-only novelty without a new claim does not meet the originality threshold.",
+      "search": "JT Table 4 and MZ Table 17 plus CoxIter, Bogachev arithmetic-reflection database, and Felikson tables for a per-cube arithmeticity entry on Sigma_1^{2,2,3} P_{34,1}"
+    }
+  },
+  "residual_risks": [
+    "G0 solid-edge (-1/2) placement was reconstructed from published figures, not byte-compared to the authors' Coxeter vectors; identity-sensitive parts (notably the conjugate-PSD corollary) rest on that reconstruction, while non-arithmeticity depends only on the verified dotted length.",
+    "The properly-quasi-arithmetic conjunct directly contradicts JT Remark 9 ('not quasi-arithmetic') under the same Vinberg criterion; the DRAFT's 'finer terminology' explanation is unverified, so that half of the headline is not established (TARGET disproof unaffected).",
+    "PARI/GP was unavailable and sympy exact arithmetic was substituted; exact, so low risk.",
+    "MZ P_{34,1} full text/figure not independently fetched, so the Sigma_1^{2,2,3}=P_{34,1} cross-identification relies on the DRAFT's table match."
+  ],
+  "verdict": "REJECT"
+}
