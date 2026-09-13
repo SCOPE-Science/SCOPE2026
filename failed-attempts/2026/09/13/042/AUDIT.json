@@ -1,0 +1,46 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Section 2 divergence proof is rigorous and verified: M=xI+Y decomposition with constant Jacobian, transverse unit ball eigenvalue bounds |x|-1<=|x+lambda_i|<=|x|+1, lower bound E>=N^2[-(|x|+1)^2/2+|g|(|x|-1)^4/4]->+inf, Tonelli restriction gives Z=+inf for all N>=1, g<0 including gc=-1/12 with explicit X0=12. N=1 case is elementary divergent integral. Planar value 4/3 and R1~(1/12)(1-t)^-2 non-integrability recomputed correctly and reproduced by verify_disproof.py. Section 4 N^-6/5 count is explicitly labeled formal heuristic and does not affect the rigorous Sections 2-3 disproof.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The headline divergence Z=+inf for negative quartic coupling is elementary calculus and mechanically implied by prior work, not a new theorem. Bender-Moshe-Sarkar 1206.4943 explicitly states the integral representation ceases to exist for negative g and the conventional double-scaling limit is inconsistent because the critical coupling is negative, requiring PT/contour regularization. Hermitian N>1 follows by restriction to scalar matrices M=xI. Planar 4/3 and (1-t)^-2 singularity are standard genus-zero/one formulas. No prior source needed to state gc=-1/12 verbatim: the known stronger fact covers it.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: the TARGET as stated defines a fixed-g Lebesgue Gibbs measure at gc=-1/12<0 where no finite-N measure exists, so the claimed limit is meaningless at every N. This negative resolution is only vacuity/type-error exposure via the one-line fact int exp(+|g|x^4)=+inf, the exact cheap-defect class STANDARD and TARGET policy exclude from value even when literally false. Admission should have ruled out non-confinement before admitting. Formal N^-6/5 power count is heuristic about no specified regularized model and adds no independently retrievable exact invariant.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Secs 2-3: Fubini-Tonelli tube proof, planar R(t) and R1 singularity formulas",
+    "inputs/artifacts/verify_disproof.py + verify_results.json: re-executed, all asserts pass, thresholds and tails confirmed",
+    "Bender-Moshe-Sarkar arXiv:1206.4943v2: integral ceases to exist for negative g; conventional double-scaling inconsistent because gcrit<0; PT contour remedy",
+    "Fused literature set: Bleher-Its, Bleher-Eynard, Duits-Kuijlaars-Mo, Ghosh, Brezin-Kazakov/Douglas-Shenker/Gross-Migdal lineage treating gc as formal analytic continuation with g>0 confinement"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Double-scaling classics and reviews treat gc=-1/12 as formal singularity of R(1+3gR)=t with Borel/continuum analysis, requiring analytic continuation or contour since real-axis integral diverges.",
+      "reasoning": "The broader formal-critical-point theory already presupposes no convergent fixed-g Lebesgue measure at gc<0; the headline is a strict special case corollary of that established framework, not a stronger result.",
+      "search": "Quartic matrix model double-scaling classification Brezin-Kazakov Douglas-Shenker Gross-Migdal Eynard formal genus expansion versus convergent fixed-g measure"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusion: for g<0 real-axis partition integral diverges and conventional double-scaling partition function does not exist; submitted conclusion: same divergence for Hermitian matrices at gc=-1/12 hence mean and N^4/5 limit undefined.",
+      "reasoning": "Prior hypotheses (negative quartic on real axis) substantively imply submitted hypotheses and conclusions via scalar-matrix restriction; the submission is a recomputation/certificate of that known stronger fact, so originality fails.",
+      "search": "Prior theorem that negative-coupling quartic integral does not exist compared literally to claim Z_{N,gc}=+inf and mean undefined at every N"
+    },
+    "equivalent_formulations": {
+      "evidence": "Bender et al states integral representation ceases to exist when g is negative and energy appears unbounded below; snippet confirms critical coupling negative makes conventional limit inconsistent.",
+      "reasoning": "Upside-down quartic, non-confining potential, and Z=+inf are synonymous descriptions of the same fact; prior wording covers the submitted Hermitian divergence claim despite different model language.",
+      "search": "Negative quartic upside-down potential divergent partition function Gibbs measure undefined for g<0 in vector and matrix models"
+    },
+    "exact_database_or_table": {
+      "evidence": "Standard one-matrix references require positive leading coupling for convergence; planar formula R=[-1+sqrt(1+12gt)]/6g and value R(1)=2 at gc are textbook entries, while divergence needs no table.",
+      "reasoning": "No database records elementary divergence as a discovery; the exact-parameter confinement requirement in official sources already implies Z=+inf at gc, so no exact-table novelty remains.",
+      "search": "Exact object gc=-1/12 quartic Hermitian V=x^2/2+g x^4/4 confinement condition g>0 in textbooks and planar R(t) tables"
+    }
+  },
+  "residual_risks": [],
+  "verdict": "REJECT"
+}
