@@ -1,0 +1,93 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified end-to-end. Factorization (Phi-x)(Phi-1)=Phi^2-(1+x)Phi+x checked by hand and by re-run of verify_L1.py (all pass). Lemmas 1-2 constants description, Lemma 3 identities, Lemma 4 solution space {a+bF}, Lemma 5 rationality exclusion via pole-orbit counting, and Lemma 6 hypertranscendence via cited Becker theorem are all sound with boundary cases handled. Galois embedding G->Ga and differential-dimension <=1 bound contradicts the universal dimension-2 clause. L1 is admissible and in the otherwise branch.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused tri-form search over literal, equivalent (Fredholm series/Becker/Ga-unipotent), and dominance (parametrized Mahler reducible order-two classification) directions found only general tool literature (DHR 2018, Roques survey, HMO, ADR, ADH), none stating the lane's triangular dimension-2 classification or this L1 counterexample. Classical hypertranscendence of -sum x^{2^k} is prior art used as a cited lemma, but the conjunction-refuting combination with the Ga dimension bound against this specific target is not implied or covered by any prior source.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Direct TARGET resolution in the exact format demanded: explicit admissible L0 plus certified Puiseux solution violating the universal conjunction, isolating the false dimension clause while confirming the transcendence half. Not a cheap defect (no type error, vacuity, tiny mismatch, lookup, or arbitrary parameter): L1=(Phi-x)(Phi-1) is the natural diagonal-trivial triangular case and F is the classical Fredholm series; the obstruction is structural with a stated correction direction. No ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Lemmas 1-6 plus Proposition: verified line by line including exponent ascent/descent, order argument, pole-orbit rationality proof, and Ga-embedding.",
+    "output/artifacts/verify_L1.py: re-executed, all checks passed (factorization coefficients; F(x^2)-F(x)=x and L1(F)=0 to order 199).",
+    "Dreyfus-Hardouin-Roques JEMS 2018 (Hypertranscendence of solutions of Mahler equations): confirms parametrized Galois framework and Becker-type hypertranscendence context for Lemma 6.",
+    "Roques survey (On the algebraic relations between Mahler functions): confirms difference Galois groups, factorization/triangularization, and order-two Mahler background; no triangular dimension-2 classification stated.",
+    "Hardouin-Minchenko-Ovchinnikov Math Ann 2017 and Arreche-Dreyfus-Roques JEP 2021 plus ADH JAMS 2021: screened as nearest parametrized/differential-transcendence background; provide tools only, not the headline disproof."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Retrieved works give general hypertranscendence criteria and Galois-group methods (DHR 2018, ADR 2021, HMO 2017, Roques survey) but assert no universal dimension-2 rule for the otherwise branch; the unipotent diagonal-trivial case is consistent with dimension <=1.",
+      "reasoning": "No broader theorem or completed census states or implies the lane's false universal clause, and none publishes this L1 counterexample; the general theory is a tool cited by the proof, not a strictly stronger fact covering the headline, so dominance fails.",
+      "search": "Parametrized difference Galois theory for reducible order-two Mahler equations, Dreyfus-Hardouin-Roques criteria, triangular/unipotent differential-dimension classification dominance query across all providers."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior conclusions imply the components used as lemmas (lacunary non-rationality, Becker hypertranscendence, subgroups of Ga have differential dimension <=1) but none draws the target-level inference that the stated triangular classification is false via L1.",
+      "reasoning": "Implication runs one way only: prior theorems enable the proof but do not contain its conclusion; a reader of the prior literature would not already know this target is false, so the finding is a genuine recomputation-free refutation, not a corollary or repackaging.",
+      "search": "Compared headline (L1 admissible, otherwise-branch, dimension <=1 vs claimed 2) literally against hypotheses and conclusions of DHR, Roques, HMO, ADR, and Becker-line results from snippets and full fetches."
+    },
+    "equivalent_formulations": {
+      "evidence": "Prior art establishes hypertranscendence of the Fredholm/automatic-series class and Ga subgroup classification, but no source phrases L1=(Phi-x)(Phi-1) with solution -sum x^{2^k} as a refutation of a uniform differential-dimension-2 triangular claim.",
+      "reasoning": "Synonymous names (Fredholm/Thue-Morse-adjacent lacunary series, Becker vs Nishioka attribution, Ga vs additive group) change only the lemma vocabulary; none converts a prior hypertranscendence fact into the submitted target-refuting conjunction, so no equivalent-formulation coverage.",
+      "search": "Fredholm series -sum x^{2^k}, F(x^2)-F(x)=x, Becker/Nishioka hypertranscendence, additive group Ga unipotent Mahler synonyms searched via fused queries and full-source screening."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database or table entry records L1 together with its Puiseux solution space, hypertranscendence certificate, and Galois dimension bound as a classification counterexample; series tables record the coefficients only, without the verdict.",
+      "reasoning": "A raw series or coefficient listing without the differential-algebraic certificate and dimension refutation does not establish or imply the headline claim, so exact-database coverage fails.",
+      "search": "Searched for exact operator (Phi_2-x)(Phi_2-1) with coefficients x,-(1+x),1 and Fredholm solution in OEIS-style tables, LMFDB-type databases, and Mahler equation tabulations via literature-search dominance direction."
+    }
+  },
+  "residual_risks": [],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "1a5179bbea69f1eba6d41996c343a82ba6057952a985b62bd0a4596fe08e233c",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "HYPERTRANSCENDENCE OF SOLUTIONS OF MAHLER",
+        "url": "https://perso.math.univ-toulouse.fr/hardouin/files/2020/03/mahlerhypertr.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Provides general parametrized-Galois hypertranscendence criteria for Mahler equations used as the Lemma 6 tool; its hypotheses concern broad Mahler systems and it states no uniform triangular differential-dimension-2 rule and no L1=(Phi-x)(Phi-1) counterexample.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Calculating differential Galois groups of parametrized ...",
+        "url": "https://perso.math.univ-toulouse.fr/hardouin/files/2020/03/paramradunip-second-revision.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Develops defining equations and unipotent-radical methods for parametrized differential Galois groups; relevant to the Ga dimension bound as background method but proves no reducible 2-Mahler triangular dimension-2 classification and never instantiates L1 with its Fredholm solution.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "On the computation of the difference Galois groups of order ...",
+        "url": "https://arxiv.org/html/2208.13448v2",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Treats reducibility via right factors and triangular forms for order-three difference operators; its reducibility criterion is a general Galois-group tool and its conclusion does not assert the lane's false universal dimension-2 clause nor give the L1 dimension refutation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "an introduction to difference galois theory",
+        "url": "https://math.univ-lyon1.fr/~roques/AITDGT.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Expository account of difference and parametrized difference Galois groups including GL2 subgroup classification and Zariski-density; states only general framework definitions and examples such as SL2 cases, not the submitted triangular dimension-2 claim or its L1 refutation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      },
+      {
+        "title": "Algebraic independence properties of the Fredholm series",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5952B1E3E53C5871D99ECBF5172B1D70/S1446788700011472a.pdf/algebraic_independence_properties_of_the_fredholm_series.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Studies algebraic independence of values of the Fredholm series, overlapping only the classical solution object -sum x^{2^k}; it does not treat the Mahler operator L1, the Puiseux solution-space description, differential transcendence over C(x), or any Galois dimension-2 assertion.",
+        "assessment": "CLOSE_BUT_NOT_COVERING"
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity search added 16 overlap-false URLs but no decisive prior. Useful hits duplicated base-provider literature (DHR hypertranscendence, unipotent-radical methods, Dreyfus-Poulet reducibility) under new URLs, plus generic expositions and Fredholm-value results. Literal comparison of hypotheses and conclusions shows each covers at most one lemma component (hypertranscendence tool, Ga subgroup fact, or Fredholm object) and none states, implies, or tabulates the headline conjunction refutation via L1 with dimension at most 1 versus claimed 2. Originality PASS therefore stands; correctness and value untouched."
+  }
+}
