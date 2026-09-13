@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-derived every essential inference with sympy/numpy: S_t triangular det-1 and A_b det-1 preserve Lebesgue; A_b symmetric with eigenvalues -0.17008649, 1.68889218, 3.4811943 (topic moduli corrected); p2=(1/2,0,1/2) fixed since S_t(p2)=p2 and A_b p2=p2+(1,1,0); DS_t(p2) gives s=4 pi t; M(s)-I matrix and det=s^2+2s-2 verified symbolically with transverse root s*=sqrt(3)-1, t*=(sqrt(3)-1)/(4pi); charpoly at s* factors as -(lam-1)(lam^2-4lam-1) giving simple spectrum {1,2+sqrt(5),2-sqrt(5)}; non-hyperbolic fixed point implies f_{t*} not Anosov so t_c<=t* by sup definition; exact left/right nullvectors give d mu/ds=-sqrt(3)/2, d mu/dt=-2 pi sqrt(3). Numeric eigenvalue tracking is illustrative only and clearly separated from the proved claims.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING route: finding genuinely arose from fixed-point analysis while pursuing the admitted critical-slowing disproof route, and directly advances the target via a concrete t_c upper bound. One scope_literature_search call submitted all three normalized forms (literal closed-form t* and matrix/shear; equivalent neutral-fixed-point/transverse-bifurcation phrasing; dominance query for uniform-mixing/spectral-gap census/database). All 20 fused results are generic Anosov surveys or unrelated mixing work with no same matrix, same shear family, same t*, or same determinant identity. The family f_t=A_b o S_t is bespoke to this topic; no prior source states or implies the exact identity, crossing, spectrum, or slope. No escalation candidate could cover the claim, so source_inspections is empty.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Headline is a rigorously proved exact threshold upper bound t_c<=(sqrt(3)-1)/(4pi)~0.05825 with explicit transverse neutral-fixed-point mechanism, closed-form spectrum, corrected A_b eigenvalues, and quantitative weak-multiplier slope -2 pi sqrt(3) predicting critical slowing. Object and invariant were motivated before computation by the admitted uniform-mixing-vs-slowing target; value was not known or mechanically implied; future uniform-mixing or slowing proofs for this family must build on this threshold. Honestly scoped: does not claim t_c=t* or non-uniform mixing, leaving those as open conjecture. Meets STANDARD eligibility for an exact invariant of a specific natural object without requiring a new general theorem; not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Theorem (a)-(e): persistent fixed point p2, determinant identity s^2+2s-2, transverse crossing t*, spectrum {1,2+sqrt(5),2-sqrt(5)}, t_c<=t*, slope -2 pi sqrt(3); remarks honestly withhold t_c=t* and mixing non-uniformity.",
+    "inputs/artifacts/bifurc.py: symbolic det for four shear-cosine classes, charpoly, numeric eigenvalue tracking, fixed-point checks, slope via left/right eigenvectors.",
+    "Independent sympy/numpy re-computation: det(M-I)=s^2+2s-2, factored charpoly, exact nullvector ratio -sqrt(3)/2, A_b eigenvalues and det -1, all reproduced.",
+    "scope_literature_search EMERGENT_ORIGINALITY (3 consolidated queries, 20 fused results from SerpBase/OpenAlex/Crossref/OpenAIRE): only generic Anosov-flow surveys, toral-automorphism background, and unrelated mixing papers; no same object/parameters/identity.",
+    "STANDARD.md sky-survey-admission-depth-gate-v12 exact-invariant eligibility and four-coverage-check rule applied as binding threshold."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused results contain only general Anosov structural-stability, Anosov-flow survey, and fixed-system exponential-mixing theorems; none states a threshold upper bound or bifurcation value for any shear-perturbed family.",
+      "reasoning": "General openness/stability gives only t_c>0 and per-system mixing, not the exact t*<=0.05825 bound or its mechanism; no broader theorem substantively implies or subsumes the submitted closed-form claim.",
+      "search": "Stronger-theorem query on uniform exponential mixing, resonance-free gaps, critical slowing at loss of hyperbolicity, and Anosov census/classification coverage."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No retrieved source contains the matrix [[3,1,0],[1,1,1],[0,1,1]] with triangular sine shear, the identity det=s^2+2s-2, or the values t*=(sqrt(3)-1)/(4pi) and spectrum {1,2+sqrt(5),2-sqrt(5)}.",
+      "reasoning": "Prior mixing/resonance results for fixed Anosov systems do not mechanically yield this family-specific bifurcation computation; the finding is a new derivation, not a recomputation, certificate, or corollary of a known stronger fact.",
+      "search": "Prior-implication check: whether any known mixing, resonance, or rigidity result for Anosov diffeomorphisms on T^3 implies the exact p2 bifurcation data."
+    },
+    "equivalent_formulations": {
+      "evidence": "Equivalent-formulation queries on neutral fixed point eigenvalue-one, transverse bifurcation, loss of hyperbolicity, and determinant identity returned only generic Anosov background with no matching shear-cosine class or parameter value.",
+      "reasoning": "No synonymous notation, dual/complement/incidence encoding, or shear-parameter reparametrization in the literature covers this bespoke computation; the closed-form t* and factored spectrum have no equivalent prior statement.",
+      "search": "Neutral fixed point with eigenvalue 1 in shear-perturbed Anosov diffeomorphism on T^3, transverse bifurcation and determinant identity for loss of hyperbolicity."
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused result points to an official table, census, or database entry listing this family, matrix, shear class, or threshold value; the four shear-cosine classes and roots were computed de novo in bifurc.py.",
+      "reasoning": "The exact parameter t*~0.0582548 and spectrum do not already appear in any table or database as a recorded fact; this is not a lookup or recomputation of a tabulated value.",
+      "search": "Exact database/table query for toral automorphism [[3,1,0],[1,1,1],[0,1,1]] with sine-shear perturbation threshold, bifurcation table, or dynamical database record."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "00c081e97b0edd74774ec8d2bca50455e70ff667aa329cd47d2241f61a0185bd",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Opened arXiv HTML v3 full text (sections 1-5, Theorems 1-3, Corollaries 1.1-1.2): results concern general f in A_+^infty(T^3) with expanding center — unstable entropy e^{h^u_top}=lambda_u, Margulis uu/cs systems, first Ruelle resonance on 2-forms. Full-body scope contains no matrix [[3,1,0],[1,1,1],[0,1,1]], no sine shear S_t, no point p2=(1/2,0,1/2), no value (sqrt(3)-1)/(4pi), no identity s^2+2s-2, and no spectrum {1,2+-sqrt(5)}.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Shares broad class (Anosov diffeomorphisms on T^3) and terminology (unstable entropy, mixing, resonances) but studies general expanding-center systems, not the bespoke shear family f_t=A_b o S_t, its persistent fixed point, or its closed-form bifurcation data.",
+        "title": "[PDF] Unstable entropy for Anosov diffeomorphisms on the 3-torus - arXiv",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/pdf/2509.09520"
+      }
+    ],
+    "rationale": "Terminal Perplexity check returned 20 results with only 1 base overlap (rank 2, Anosov-subgroups mixing, already covered by base generic-mixing bucket). The 19 incremental items are generic hyperbolic-dynamics background: problem lists, lecture notes on toral automorphisms, slides on almost-Anosov polynomial mixing, and fixed-system exponential-mixing papers/flows. None contains the bespoke matrix, sine shear, point p2, closed-form t*, determinant identity, or spectrum, and no returned dissertation/thesis shares a material parameter subset. The single closest title (Humbert unstable entropy on T^3) was opened in full HTML body and its theorems cover only general expanding-center systems, so no decisive prior was added and originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [],
+  "verdict": "PASS"
+}
