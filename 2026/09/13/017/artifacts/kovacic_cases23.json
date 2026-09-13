@@ -1,0 +1,104 @@
+{
+  "Q": "4*x**2 + 5 + 4/x - 1/(4*x**2) - 1/x**3 + x**(-4)",
+  "reference": {
+    "author": "J. J. Kovacic",
+    "title": "An algorithm for solving second order linear homogeneous differential equations",
+    "journal": "Journal of Symbolic Computation 2 (1986) 3-43",
+    "doi": "10.1016/S0747-7171(86)80010-4",
+    "record_check": "OpenAlex W2067358142: title/journal/year/DOI match"
+  },
+  "pole_data": {
+    "num_deg": 6,
+    "den_deg": 4,
+    "num_at_0": "4",
+    "finite_poles": [
+      {
+        "point": "0",
+        "order": 4
+      }
+    ],
+    "ord_inf_deg_diff": -2,
+    "pole_order_at_inf": 0,
+    "note": "Only finite pole is x=0 (order 4, since x^4*Q->1, x^5*Q->0 and num(0)=4<>0). At infinity o(inf) = deg(den)-deg(num) = -2, i.e. an ordinary point of Q (pole order 0 there)."
+  },
+  "necessary_conditions": {
+    "case1_gate_pass": true,
+    "case1_note": "pole order 4 (even), o(inf)=-2 (even): full Case-1 test required; run exactly in kovacic_case2.py, fails on d.",
+    "case2_gate_pass": false,
+    "case2_note": "pole orders are {0: 4, inf: 0}: no pole of order 2 or of odd order > 2, so Case 2 is already impossible.",
+    "case3_gate_pass": false,
+    "case3_note": "pole of order 4 > 2 (and o(inf)=-2 < 2), so Case 3 is already impossible."
+  },
+  "E_sets": {
+    "E_0": [
+      4
+    ],
+    "E_0_rule": "finite pole of order 4 > 2 -> {4}",
+    "E_inf": [
+      -2
+    ],
+    "E_inf_rule": "o(inf) = -2 < 2 -> {-2}",
+    "vacuous_branches": "order-1 and order-2 E-set branches do not occur (no such poles of Q)"
+  },
+  "case2_table": {
+    "n": 2,
+    "formula": "d = (e_inf - e_0)/2",
+    "rows": [
+      {
+        "e_0": 4,
+        "e_inf": -2,
+        "d": "-3",
+        "admissible": false
+      }
+    ],
+    "possible": false
+  },
+  "case3_tables": {
+    "4": {
+      "n": 4,
+      "formula": "d = (n/12)(e_inf - e_0)",
+      "rows": [
+        {
+          "e_0": 4,
+          "e_inf": -2,
+          "d": "-2",
+          "admissible": false
+        }
+      ],
+      "possible": false
+    },
+    "6": {
+      "n": 6,
+      "formula": "d = (n/12)(e_inf - e_0)",
+      "rows": [
+        {
+          "e_0": 4,
+          "e_inf": -2,
+          "d": "-3",
+          "admissible": false
+        }
+      ],
+      "possible": false
+    },
+    "12": {
+      "n": 12,
+      "formula": "d = (n/12)(e_inf - e_0)",
+      "rows": [
+        {
+          "e_0": 4,
+          "e_inf": -2,
+          "d": "-6",
+          "admissible": false
+        }
+      ],
+      "possible": false
+    }
+  },
+  "case3_possible": false,
+  "verdict": {
+    "case2_possible": false,
+    "case3_possible": false,
+    "no_liouvillian_cases23": true,
+    "meaning": "With Case 1 already ruled out exactly (kovacic_certificate.json), no Liouvillian solution exists; Kovacic Case 4 holds, so the Galois group is SL(2,C)."
+  }
+}
