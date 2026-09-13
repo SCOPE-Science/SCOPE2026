@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route audited normally. Vdim g+2 and point+lambda_g count check, and check_11.py re-ran PASSED for classical fully-tangent (1,1) count, are correct as far as they go. But all-genus equality for all (a,b) is not proved: the stated Bousseau theorem with l maximal contacts plus l-1 points does not exist in cited sources; Bousseau 2020 uses 1-leg no-point N_{g,beta}, Bousseau 2019 uses toric boundary. Toric-model/corner-blowup pushforward, invariance for 2-leg+point invariants, and equivalence of q-wall coefficient with Block-Gottsche count on singular 2-component B are asserted without proof. Log-versus-classical identification for N_{0,1,1}=2 is also incomplete. Heavy lifting is cited, not established for this setup.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused retrieval found Bousseau 2019 refined toric correspondence, Bousseau 2020 canonical quantum scattering for all Looijenga pairs, and Kennedy-Hunt et al 2026 q-refined Frobenius with lambda+point+psi invariants equal to quantum broken-line brackets. Target (P1xP1, two (1,1), s=2 maximal contacts plus one point) is either uncovered by the cited theorem as stated, or, to the extent Kennedy-Hunt plus corner-blowup/deformation could cover it, a strict special case of a known stronger theorem. No new boundary, object, or method is introduced; timestamp and failed exact-title search do not establish priority.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Strongest headline is all-genus F_{a,b} equality for every (a,b). As presented it is a direct instantiation/repackaging of a general Looijenga quantum-correspondence package with no new computation beyond one genus-zero number, no new structural insight, and no demonstrated downstream use. N_{0,1,1}=2 alone is a single small exact count whose certification does not create headline value. This is mere parameter substitution and certification without substantive advance under the shared standard.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Bousseau 2019 Invent Math 215:1-79 (arXiv 1706.07762): toric refined correspondence, lambda-inserted higher-genus log GW equals Block-Gottsche q-count; toric boundary only.",
+    "Bousseau 2020 Compositio 156:360-411 (arXiv 1808.07336): canonical quantum scattering Def 4.1 via 1-leg N_{g,beta} with (-1)^g lambda_g, consistency Thm 4.4, quantization Thms 2.7-2.9 for any Looijenga pair; no 2-leg plus point equality.",
+    "Kennedy-Hunt/Shafi/Kumaran 2026 Epiga (arXiv 2502.17236): Thm A/Cor B q-refined Frobenius, descendant lambda+point+psi^{s-2} invariants equal symmetrized quantum broken-line brackets for Y_m; s=2 matches shape but for blowup-of-toric class.",
+    "GHK 2015 Mirror symmetry I plus Bousseau Lemma 4.3: toric models after corner blowups, classical limit; used to test toric-model claim.",
+    "Local artifact inputs/artifacts/check_11.py re-executed in workspace: 3 projective solutions, reducible excluded, 2 smooth with Jacobian -64 and ad-bc +-8i, tangency away from nodes; confirms classical count only."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bousseau 2020 Thms 2.7-2.9 apply to every Looijenga pair; Kennedy-Hunt Prop 1.1.1 plus Thm A/Cor B apply to all Y_m hence all Looijenga up to corner blowups with arbitrary tangency tuple; GHK gives toric model after corner blowups. Target is one pair with s=2.",
+      "reasoning": "Target is a strict subset/special case of these broader classes. If the unstated corner-blowup/deformation translation were completed, the headline would be a corollary of the stronger result, not a new theorem. Draft asserts the translation without proof, so it gains no novelty from the broader coverage.",
+      "search": "Searched broader Looijenga quantum scattering, toric-model/corner-blowup classification, and Kennedy-Hunt general Frobenius covering all Y_m and arbitrary s-leg tangency."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior invariants differ: Bousseau 2020 has one marking and no point; Bousseau 2019 has toric boundary; Kennedy-Hunt has s markings plus interior point plus psi^{s-2} for Y_m with >=3 boundary components. Draft merges them into an l-marking plus l-1-point theorem found in neither source.",
+      "reasoning": "As written the cited implication does not exist, so correctness fails. Conversely any valid implication via Kennedy-Hunt plus invariance would make the headline mechanically implied repackaging, so originality fails. Either branch defeats the submission; no independent proof is supplied.",
+      "search": "Compared hypothesis-by-hypothesis: contact orders, point insertions, lambda normalization q=e^{ihbar}, toric-model use, and two-wall versus canonical-diagram definitions against prior theorem statements."
+    },
+    "equivalent_formulations": {
+      "evidence": "Found synonymous encodings: lambda_g/Hodge insertion, q=e^{iu} versus q=e^{ihbar}, Block-Gottsche q-multiplicity versus refined tropical versus quantum tropical vertex, canonical scattering versus broken-line product versus quantization structure constants.",
+      "reasoning": "None states verbatim the 2-maximal-contact plus one-point equality for (P1xP1, two (1,1) curves). Closest match is Kennedy-Hunt s=2 descendant formula for Y_m, but boundary-component count and toric-model translation differ, and Block-Gottsche on singular 2-component B is not the toric R^2 count.",
+      "search": "Searched literal all-genus lambda series for P1xP1 two (1,1) q-wall correspondence plus equivalents: Hodge class, q=e^{iu}, refined tropical, quantum vertex, broken lines, dual/complement encodings."
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused SerpBase/OpenAlex/Crossref/OpenAIRE results contain no table, census, or database entry recording F_{a,b} or N_{g,a,b} for (P1xP1, two (1,1) curves), and no entry for N_{0,1,1}=2 for this pair.",
+      "reasoning": "This failure mode does not save originality: absence from a table never establishes priority where a broader theorem exhaustively covers the claim as a special case, and the draft supplies no exhaustive census itself.",
+      "search": "Searched exact objects and parameters: P1xP1 two (1,1) curves, bidegree (a,b), N_{0,1,1}=2, and Gromov-Witten/refined-tropical databases or tables."
+    }
+  },
+  "residual_risks": [
+    "Log-versus-classical identification for N_{0,1,1} not fully closed even as standalone count.",
+    "Precise deformation/corner-blowup translation to Kennedy-Hunt Y_m class left unverified; either incompleteness or mechanical implication persists."
+  ],
+  "verdict": "REJECT"
+}
