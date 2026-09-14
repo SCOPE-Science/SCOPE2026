@@ -1,0 +1,71 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Proof is valid and complete for the headline and stronger claim: every n>=3 with 4|n is even, n=2t gives W=y^t with W^2-x^2=178, W>|x| forces positive same-parity factor pair a=W-|x|, b=W+|x| with ab=178, but same-parity even product is 0 mod 4 while 178=2 mod 4; pairs (1,178),(2,89) confirm. Independent recomputation verified D%4, pairs, and brute-force consistency.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No fused source records D=178 literally, but the claim is mechanically implied by the classical difference-of-squares obstruction for any D=2 mod 4: no integer 2 mod 4 is a difference of two squares. D=178 is a mere parameter substitution into that broader theorem, which substantively implies and exhaustively covers the headline without any new idea; the draft itself notes generality.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: result is a textbook parity exercise and arbitrary finite slice with no pre-existing motivation for D=178 beyond D=2 mod 4, no new method, boundary, or downstream use. The target's negative resolution merely exposes this cheap parity defect that Admission should have blocked under STANDARD; certification and brute force do not create independent retrieval value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "scope_literature_search with 3 normalized queries (literal D=178 quartic slice; LRN/parity equivalent; broader census/database dominance): 20 fused results, full provider coverage, no D=178 exact record, nearest LRN papers concern other D values",
+    "Wikipedia Ramanujan-Nagell equation full-page fetch: Lebesgue-Nagell definition x^2+D=Ay^n and Bugeaud-Mignotte-Siksek census scope A=1, 1<=D<=100",
+    "Wikipedia Difference of two squares full-page fetch: factorization identity and parity structure of square differences",
+    "Independent recomputation: 178%4==2, factor pairs [(1,178),(2,89)] both mixed parity, verify_empty.py brute force y<200 n in {4,8,12} and n=4 y<5000 empty, all OK"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Full body of difference-of-squares source states even-even square difference is 0 mod 4 and odd-odd difference is 0 mod 8, so a same-parity product 2 mod 4 is impossible",
+      "reasoning": "Every target triple yields such a square difference equal to 178, so D=178 is a strict special case of the broader theorem; the broader result exhaustively covers the headline as an instance.",
+      "search": "Searched broader theorem that any D congruent 2 mod 4 admits no even-exponent solution and general difference-of-squares characterization"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Draft proof uses no property of 178 beyond 178=2 mod 4 and explicitly remarks it applies to any such D; factor-pair enumeration adds no new mathematics",
+      "reasoning": "Prior lemma therefore substantively implies the headline by direct substitution without additional argument; the finding is a recomputation/corollary and textbook restatement, so originality fails.",
+      "search": "Compared headline empty-list census for D=178 against scope of prior parity lemma requiring only D=2 mod 4"
+    },
+    "equivalent_formulations": {
+      "evidence": "20 fused results contain no D=178 quartic-slice record; nearest hits are LRN papers for unrelated D values and general surveys, identified from snippets and metadata without same parameters",
+      "reasoning": "Literal absence does not establish priority because the equivalent square-difference formulation collapses to a classical parity obstruction; the reformulation itself shows mechanical implication rather than novelty.",
+      "search": "Searched literal x^2+178=y^n with 4|n plus equivalents W=y^t, W^2-x^2=178 and difference-of-squares/parity encodings across fused providers"
+    },
+    "exact_database_or_table": {
+      "evidence": "Inspected census scope A=1, 1<=D<=100 explicitly excludes D=178, and no fused result tables D=178; exact-table gap confirmed by section inspection",
+      "reasoning": "An exact-table absence cannot confer originality here because the claim follows from a one-line general proof; the database gap reflects arbitrariness of the slice, not an unrecorded discovery.",
+      "search": "Searched LRN censuses, Bugeaud-Mignotte-Siksek tables for x^2+D=y^n, surveys, and Ramanujan-Nagell references for an exact D=178 entry"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Body gives difference of two even squares is a multiple of 4 and difference of two odd squares is a multiple of 8, hence no same-parity pair has product 2 mod 4; this directly implies W^2-x^2=178 is impossible.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Difference of two squares - Wikipedia",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Difference_of_two_squares"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Relevant section states Bugeaud-Mignotte-Siksek solved A=1 with 1<=D<=100 and lists only D=7 example; D=178 is outside that finite census scope, so the table does not contain the claim.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Ramanujan-Nagell equation - Wikipedia",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Ramanujan%E2%80%93Nagell_equation"
+    }
+  ],
+  "verdict": "REJECT"
+}
