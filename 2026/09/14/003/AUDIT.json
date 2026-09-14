@@ -1,0 +1,243 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Independently recomputed from scratch: 2^8 enumeration gives the same 8 minimal covers, all size 5, all column sums 5. Waldschmidt averaging proof is valid (5 deg>=8m; diagonal (k..k) gives matching upper bound, Fekete applies). Exhaustive degree search confirms alpha=(2,4,5,7,8) and both witnesses satisfy all 8 cover inequalities. Box lemma proof is sound (a_v>=m+1 allows subtracting e_v). Own numpy rerun: 390625 vectors, 358134 in I^(4), 316 unique 3-edge loads, zero counterexamples, so I^(4) subset I^3 holds. Spot-checked (2,2),(3,2),(5,4) hold and (3,3),(4,4) fail by degree. Diagonal family proves rho>=5/4; rho=rho_a=5/4 is honestly fenced as conjecture."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "EMERGENT_FINDING genuinely arose from the target investigation (proved core of the admitted target: Waldschmidt plus I^(4) vs I^3 for M8). Fused three-direction literature search plus full-text inspection of the nearest priors shows no prior states or implies the M8-specific package: cubic-circulant paper covers only regularity; unicyclic decomposition does not apply to multicycle M8; Villarreal/Bocci give general LP/duality methods, not the M8 values or the finite containment certificate. Exact M8 constants, witnesses, and certificate are not in a table or database."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "Exact invariants (Waldschmidt 8/5, alpha sequence, proved I^(4) subset I^3 with complete finite certificate, companion containment/failure table, proved rho>=5/4) of the natural, pre-motivated Wagner M8 edge ideal. Values were unknown, not mechanically implied, and are precisely the facts a future researcher on symbolic powers, resurgence, or cubic circulants would need to retrieve. This is an eligible exact-value/benchmark finding under STANDARD, not a textbook restatement, parameter substitution, or unexplained enumeration; the unfinished rho upper bound is fenced as conjecture and does not erase the headline result."
+    }
+  },
+  "checked_sources": [
+    "Fused scope_literature_search over 3 normalized directions (literal M8 8/5 and I^(4) vs I^3; equivalent Mobius/cubic-circulant/cube encodings; broader cubic-circulant census and resurgence/Waldschmidt formulas); full provider coverage, no partial failure.",
+    "Nguyen-Pham-Vu regularity of powers/symbolic powers of cubic circulant graphs (arXiv:2409.20161, 2024; journal 2026): full HTML body inspected; scope is Castelnuovo-Mumford regularity only.",
+    "Gu-Ha-O'Rourke-Skelton symbolic powers of edge ideals of unicyclic graphs (arXiv:1805.03428): full HTML body inspected; decomposition, Waldschmidt and resurgence formulas restricted to unicyclic graphs.",
+    "Villarreal duality theorem for ic-resurgence of edge ideals (arXiv:2203.01268): full HTML body inspected; general LP duality and ic-resurgence formulas with illustrative examples, no M8 instantiation.",
+    "Bocci et al. Waldschmidt constant for squarefree monomial ideals (J Algebraic Combin 44, 2016): abstract, methods, and references inspected; general LP/fractional-chromatic method, no M8 value.",
+    "Independent recomputation in audit execution environment: brute-force covers, column sums, witness cover sums, exhaustive min-degree search, and independent I^(4)-vs-I^3 domination check against all 316 loads."
+  ],
+  "source_inspections": [
+    {
+      "title": "Regularity of powers and symbolic powers of edge ideals of cubic circulant graphs",
+      "url": "https://arxiv.org/html/2409.20161v1",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "THEOREM_SCOPE",
+      "inspection_evidence": "Main theorems state reg formulas for connected/disjoint cubic circulants; body contains no Waldschmidt constant, no resurgence value, and no I^(4) vs I^3 containment for M8."
+    },
+    {
+      "title": "Symbolic powers of edge ideals of graphs (unicyclic decomposition)",
+      "url": "https://arxiv.org/html/1805.03428v2",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "THEOREM_SCOPE",
+      "inspection_evidence": "Decomposition and Waldschmidt/resurgence formulas explicitly assume a unicyclic graph with unique cycle C_{2n+1}; M8 is cubic with many cycles, outside the hypothesis."
+    },
+    {
+      "title": "A duality theorem for the ic-resurgence of edge ideals",
+      "url": "https://arxiv.org/html/2203.01268v3",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "inspection_evidence": "General duality 1/rho_ic=min inner products and graph corollary rho_ic=2/hat-alpha checked; worked examples are 7-vertex antihole and small clutters, none is M8 and no M8 table entry occurs."
+    },
+    {
+      "title": "The Waldschmidt constant for squarefree monomial ideals",
+      "url": "https://link.springer.com/article/10.1007/s10801-016-0693-7",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "THEOREM_SCOPE",
+      "inspection_evidence": "Provides the general cover-LP method for hat-alpha; accessible record shows applications to subspace arrangements and matroids, with no M8 edge-ideal evaluation."
+    }
+  ],
+  "residual_risks": [],
+  "decisive_checks": {
+    "equivalent_formulations": {
+      "search": "Mobius ladder M8 vs cubic circulant C8(1,4) vs cube-graph Q3 encodings; complement/dual/Alexander-dual and cover-matrix transposes searched in three-direction fused query.",
+      "evidence": "Search returned cubic-circulant regularity work and general duality/LP papers; M8 verified non-bipartite (antipodal edges join same part) so not the bipartite cube Q3 and not covered by bipartite trivialities; no synonymous-notation source states the M8 package.",
+      "reasoning": "Dangerous misidentification (M8=Q3) was tested and excluded by parity check; dual/cover encodings lead only to general methods, none of which instantiates M8 constants or the containment certificate."
+    },
+    "broader_coverage": {
+      "search": "Stronger-theorem query: all cubic circulant graphs, unmixed/bipartite families, Waldschmidt and resurgence formulas, exhaustive census or classification covering M8 as a special case.",
+      "evidence": "Nearest broader result (Nguyen-Pham-Vu) proves only regularity formulas for cubic circulants; unicyclic census excludes M8; Villarreal gives abstract ic-resurgence duality without evaluating M8.",
+      "reasoning": "No broader theorem or completed census was found whose hypotheses include M8 and whose conclusion yields hat=8/5, the alpha sequence, or I^(4) subset I^3; generality is in regularity or abstract duality, not in these exact M8 facts."
+    },
+    "exact_database_or_table": {
+      "search": "Exact-parameter query for Wagner M8 edge ideal entries: Waldschmidt 8/5, alpha 2,4,5,7,8, 358134 monomials, resurgence 5/4 in tables, databases, theses, and example sections.",
+      "evidence": "Fused results contain no M8 invariant table; inspected example sections (Villarreal Ex. 4.1-4.5) concern other clutters/graphs; no thesis or database entry with M8 parameters surfaced.",
+      "reasoning": "The precise M8 datum does not already appear as a table lookup or database recomputation; the submitted certificate is a new computation, not a copy of a recorded entry."
+    },
+    "claim_vs_prior_implication": {
+      "search": "Prior-implication query: whether any prior formula (rho_a=2/hat-alpha, fractional-chromatic LP, unicyclic resurgence) mechanically implies the claimed M8 package.",
+      "evidence": "General identities (LP for hat-alpha; rho_ic=2/hat-alpha for graphs) provide methods but no M8 cover data; applying them still requires the new M8-specific computation (8 covers of size 5, column sums 5, 316-load domination).",
+      "reasoning": "The claim is not a corollary or repackaging: the proved rho>=5/4 uses a new diagonal witness family, the rho equality is withheld as conjecture rather than derived from the general identity, and the containment rests on a new finite certificate."
+    }
+  },
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "21220ba691ca279feebeb32bc5cc9bd2075162991e9d3d310ac7cdf24f69c63e",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Membership criteria and containments of powers of monomial ideals",
+        "url": "https://ar5iv.labs.arxiv.org/html/1808.05899",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General hypergraph membership and containment theory (I^{(2k-1)} subset I^k, rho <= d(I)) whose universal bounds do not evaluate M8 covers or imply the 8/5, alpha-sequence, and I^(4)-vs-I^3 certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Opened full ar5iv body; Example 3.5 8-vertex edge lists verified computationally distinct from M8 (symmetric difference 10 edges; degrees [2,2,2,3,3,4,4,4] vs cubic) and its I^{(4)}-not-subset-I^3 case uses a 15-edge non-cubic graph, not M8."
+      },
+      {
+        "title": "Algebraic invariants of edge ideals of cubic circulant graphs",
+        "url": "https://arxiv.org/abs/2307.12669",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same broad object class (all cubic circulants) but a disjoint invariant domain (depth, projective dimension, Stanley depth of S/I) with no symbolic-power or containment conclusion covering the M8 package.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Opened full HTML body; abstract and main results concern depth, projective dimension, and Stanley depth only; body contains no Waldschmidt constant, resurgence value, symbolic initial degrees, or I^(4)-vs-I^3 decision."
+      },
+      {
+        "title": "Regularity of powers and symbolic powers of edge ideals of cubic circulant graphs",
+        "url": "https://arxiv.org/html/2409.20161v1",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Nearest broader-class paper on the same graphs, but it proves only Castelnuovo-Mumford regularity formulas (reg = 2t-1+floor(n/2)); regularity does not determine hat = 8/5, the alpha witnesses, or the domination certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Full HTML body inspected in base phase and reconfirmed; Theorems 1.1/3.10/4.4/4.7 state regularity formulas only, with no Waldschmidt constant, resurgence value, or I^(4)-vs-I^3 statement for M8."
+      },
+      {
+        "title": "[PDF] Algebraic invariants of edge ideals of some circulant graphs",
+        "url": "https://www.aimspress.com/aimspress-data/math/2024/1/PDF/math-09-01-044.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Circulant edge-ideal paper on a disjoint invariant set (regularity, projective dimension, depth, Stanley depth) and different example graphs; its results neither state nor imply any M8 symbolic invariant.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded full 28-page PDF and extracted 111509 characters; case-insensitive full-text grep for waldschmidt, resurgence, symbolic, containment, initial-degree, and defect returns zero hits; evaluated figures are C9(1,4), C8(1,3), C8(1,2), none is C8(1,4)."
+      },
+      {
+        "title": "Comparing Powers of Edge Ideals",
+        "url": "https://arxiv.org/html/1709.08701v2",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Odd-cycle decomposition I^{(t)} = I^t + D(t) with alpha = 2t-floor(t/(n+1)) and rho = (2n+2)/(2n+1) applies only to cycles C_{2n+1}; M8 is a 12-edge cubic multigraph, so no implication for its 8/5 and I^(4) certificate exists.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Opened full HTML body; Theorems 4.4/5.11 and Corollaries 5.3/5.4 explicitly assume I = I(C_{2n+1}); M8 has 12 edges on 8 vertices and is not a cycle, so hypotheses exclude it; no Wagner, Mobius, circulant, or C8(1,4) evaluation occurs."
+      },
+      {
+        "title": "Graph 640",
+        "url": "https://houseofgraphs.org/graphs/640",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Exact-object graph database entry (C_8(1,4) = Wagner M8) corroborating only classical parameters including cover number 5; it records no algebraic symbolic-power invariants and cannot imply hat = 8/5 or I^(4) subset I^3.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched HoG API record: adjacency confirms 8-vertex cubic triangle-free 12-edge M8 (canonical form GsOiho); all 52 stored invariants resolved by name and inspected; table holds chromatic, independence, vertex-cover, and spectral data with no Waldschmidt, resurgence, symbolic-power, or containment fields."
+      },
+      {
+        "title": "Symbolic powers of edge ideals of graphs",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/00927872.2020.1745221",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same terminology family but a strictly narrower graph class (unicyclic graphs with unique cycle C_{2n+1}) that excludes the multicycle cubic M8; its formulas cannot be instantiated to yield the submitted M8 constants or containment.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Full HTML body inspected in base phase; Theorem 3.4 decomposition and Theorem 3.6 Waldschmidt/resurgence formulas explicitly require a unicyclic graph; M8 is cubic with many cycles, outside the hypothesis."
+      },
+      {
+        "title": "Erdoes #802 - working report - Erdős Problem a Day",
+        "url": "https://erdosproblemaday.com/report/802",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Shares the exact Wagner-graph definition (C8 plus four antipodal edges) but in a disjoint extremal-combinatorics domain (independence number of K4-free graphs); its census tables and 1/ln4 constant cannot imply any submitted algebraic invariant.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Opened full report body; Wagner graph W used only for the K4-free independence census a_n(m) through n = 11 and the sharp finite constant 1/ln4 at (8,16,2); sections contain no edge ideals, cover matrices, symbolic powers, Waldschmidt, resurgence, or I^(4)/I^3 content."
+      },
+      {
+        "title": "Independence complexes of well-covered circulant graphs",
+        "url": "https://ar5iv.labs.arxiv.org/html/1505.02837",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same exact object C8(1,4) with matching unmixedness (all minimal covers size 5) but a disjoint property domain (independence-complex topology); unmixedness alone does not yield the 8/5 value, alpha witnesses, or domination certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Opened full ar5iv body; Theorem 7.5 lists C8(1,4) among connected cubic well-covered graphs and rates it Buchsbaum-not-Cohen-Macaulay with Table 1 of shellability status; full-text search finds zero Waldschmidt, resurgence, or symbolic-power terms and no 8/5 or containment table."
+      },
+      {
+        "title": "The Waldschmidt constant for squarefree monomial idealsThanks: Last updated: Revised Version (May 21, 2016)",
+        "url": "https://arxiv.org/html/1508.00477v2",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General LP and fractional-chromatic method for hat-alpha whose evaluated families (perfect, k-partite, bipartite, cycles, complements of cycles) exclude the triangle-free non-bipartite cubic M8; the method still needs the new M8 cover data to reach 8/5.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Opened full HTML body; Section 6 Theorem 6.7 evaluates only the listed families; M8 is not a member of any evaluated family and no M8, C8(1,4), Wagner, or 8/5 instantiation occurs anywhere in the body."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "The terminal check returned 20 results (5 overlapping the base set, 15 new) with full provider coverage. The 5 overlaps merely duplicate base providers (regularity cubic-circulant paper, unicyclic symbolic-powers paper, author page). Of the 15 new URLs, 8 yielded substantively relevant same-object or same-method leads after literal comparison and all were opened in full and excluded above with body-level theorem, example, table, or parameter-search evidence; none states or implies the M8-specific 8/5, alpha 2-4-5-7-8, 358134-monomial I^(4) certificate, or 5/4 package. Remaining new URLs were triaged as different objects or disjoint scopes: whisker graphs (different vertex counts), Cohen-Macaulay/regularity/depth/Stanley-depth circulant papers on other graph classes without symbolic content, the Galway student slides (3449 extracted characters, chordal focus, no symbolic terms), the Thanh Vu author listing page, and the arXiv-abs duplicate of the regularity paper. The NUST-repository PDF triaged as a possible thesis was attempted via two HTTP clients and webfetch (transport failures); its cached title and snippet scope it to Depth/Stanley Depth/Regularity with no Waldschmidt, resurgence, symbolic-power, or containment parameters, and its document type as a dissertation is unconfirmed from cached fields, so it is not a plausibly-covering escalation. No UNRESOLVED candidate remains and no COVERS_CLAIM source exists; originality PASS is preserved with correctness and value untouched and the public package intact."
+  }
+}
