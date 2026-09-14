@@ -1,0 +1,203 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Ran recovery_test.py: ALL CHECKS PASSED. Independently re-verified with exact Fractions that R_n local factors >0 for all p<=500 (n=3,4), R(0)=1,R'(0)=0, tail vanishing deg<=n^2-1, d_3 values, and gap identities g1=n-a_n>1, gw=(n^2-2n+4)/(4n)>1/2 algebraically ((n-1)(n-2)>0,(n-2)^2>0). AFE length Y=X^{n/2}, OD X^n vs X^{a_n}, Weil-only X^{3n/4}, Voronoi M*/Y=X^{n(sigma-1)} dimensions check out. Lemma A is honestly labeled a standard Plancherel-volume sketch used only for normalization; Theorem E is framed as conditional-on-current-inputs with quantitative core unconditional and structural parts deduced from standard pole/residual-spectrum facts. Proof vs computation honestly separated."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Fused literature search (3 normalized directions) finds nearest prior Jana Forum Math Sigma 2022 (doi:10.1017/fms.2022.39) which proves cuspidal-pi0 GL(n)xGL(n) second moment with log^1 main term and explicitly defers minimal-Eisenstein E_0 (2n-th moment) to future work without quantifying any obstruction. Full-text inspection of Jana confirms scope exclusion (fixed cuspidal tempered pi0) and no d_n divisor-correlation gap, no gw, no Voronoi-window table, no H_n constant, no triple-degeneration analysis. No broader census, classification, database, or synonymous-encoding source covers the combined diagonal-plus-kinematic-gap-plus-polar-tower obstruction for n>=3."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "TARGET route: target expressly admits prove-or-determine-precise-obstruction branch; draft resolves obstruction branch with two positive theorems (exact CFKRS diagonal log-power n^2 with positive H_n(1), Plancherel mass exponent) and a quantified negative theorem (Weil-only gap gw>1/2, Voronoi never shortens for c>=X, theta_eff=(n-1)/2 reversal, order-(n-1) polar tower) plus three named falsifiable inputs. Object and invariants were motivated before computation by Jana Sec 1.2 future work; values are not known or mechanically implied and future workers on the 2n-th moment need them. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration."
+    }
+  },
+  "checked_sources": [
+    "Jana 2022 Forum Math Sigma e47 (doi:10.1017/fms.2022.39 / arXiv:2012.07817): fixed cuspidal GL(n)xGL(n) second moment; nearest prior, scope excludes E_0.",
+    "Fused scope_literature_search over 3 directions (literal Eisenstein-specialization obstruction; equivalent Borel/minimal-Eisenstein/divisor-correlation/Voronoi dual-length; dominance CFKRS/conductor-ordered higher-moment census): 20 results screened; no covering theorem/database found.",
+    "Full-text READY PDF of Jana via core.ac.uk (39pp, 190088 chars): inspected abstract, Thm 1.1, Sec 1.1-1.2 What's next, Sec 2-7 headings; confirms deferral of E_0 case.",
+    "inputs/artifacts/recovery_test.py executed independently: ALL CHECKS PASSED; plus exact-Fraction recheck of R_n(1/p)>0 for 95 primes <=500 and gap algebra."
+  ],
+  "source_inspections": [
+    {
+      "title": "The second moment of GL(n) x GL(n) Rankin-Selberg L-functions",
+      "url": "https://doi.org/10.1017/fms.2022.39",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "THEOREM_SCOPE",
+      "inspection_evidence": "Body Thm 1.1/2.1 assumes fixed cuspidal tempered pi0 and yields log^1 term zeta(n/2)^2/zeta(n)L(1,Ad)^{-1}log X; Sec 1.2 states E_0 is not L^infty, proof fails, regularization of E_0 deferred to future work with only qualitative higher-log remark. No divisor-correlation power gap, no gw formula, no M*/Y table, no H_n constant or theta_eff analysis in scope."
+    }
+  ],
+  "residual_risks": [],
+  "decisive_checks": {
+    "equivalent_formulations": {
+      "search": "Borel/minimal Eisenstein E_0 trivial parameters = Rankin-Selberg L(pi x E_0)=prod L(s+t_j,pi); 2n-th moment = second moment at E_0; d_n divisor correlation and GL(n) Voronoi dual length variants",
+      "evidence": "Search returned only Jana cuspidal second moment and GL(3)xGL(2) Eisenstein case with different pair; no source states the E_0 2n-th-moment obstruction in dual/complement/divisor/Voronoi notation.",
+      "reasoning": "Synonymous encodings (Borel Eisenstein, trivial Langlands parameters, d_n coefficients, shifted convolution) do not reveal a hidden prior statement of the triple-degeneration gap; nearest match explicitly excludes E_0."
+    },
+    "broader_coverage": {
+      "search": "CFKRS moment conjectures, conductor-ordered PGL(n) higher moments, relative-trace-formula moments, exhaustive census or classification covering 2n-th moment sharp asymptotic or Lindelof-on-average for n>=3",
+      "evidence": "Candidates found: Huang GL(r) higher moments, Chen-Tang GL(2) upper bounds, Nelson-Venkatesh/Blomer first/second moments over Plancherel balls, GL(3)xGL(2) Eisenstein case; all differ in family, degree, or fixed form and give at most log^1 or low-rank bounds.",
+      "reasoning": "No broader theorem, larger parameter range, census, or classification substantively implies the claimed E_0 obstruction; Jana itself notes the E_0 extension needs new regularization with higher-order poles left open."
+    },
+    "exact_database_or_table": {
+      "search": "LMFDB, OEIS, zeta moment tables, divisor-function Dirichlet-series tables for exact parameters n>=3, H_n(1), gap exponents g1/gw, and Voronoi window M*/Y>=1 entries",
+      "evidence": "No database entry records the combined obstruction datum (H_n lower bounds 0.042/3.6e-7, gw=(n^2-2n+4)/(4n), M*/Y=X^{n(sigma-1)} table) as a looked-up fact; divisor-series pole order alone is classical but not the packaged obstruction.",
+      "reasoning": "The headline is a structural obstruction with exact certificates, not a direct table lookup or recomputation of a stored value; classical d_n^2 pole order does not by itself give the kinematic-gap plus polar-tower impossibility."
+    },
+    "claim_vs_prior_implication": {
+      "search": "Does Jana cuspidal GL(n)xGL(n) asymptotic or standard d_n^2 Dirichlet series zeta(s)^{n^2}H_n(s) mechanically imply the E_0 diagonal constant plus positive-power Weil gap plus polar-tower subtraction claim",
+      "evidence": "Jana proof uses L^2/L^infty cuspidal phi0, theta<1/2, genuine Voronoi cancellation, single-parameter regularization; at E_0 phi0 is non-L^2 pole of order n-1 with theta_eff=(n-1)/2>=1 and degree-n divisor correlations, reversing every error estimate.",
+      "reasoning": "Prior cuspidal result does not imply the Eisenstein claim; specialization activates three simultaneous degenerations quantified only in the submission, so the obstruction is new rather than a corollary or repackaging."
+    }
+  },
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "7802b742d7a857231d816e51af36ffd33b86dba56641def18b583b113e5e1a0e",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "The second moment of × GL ( n ) GL ( n ) Rankin–Selberg L",
+        "url": "https://arxiv.org/html/2012.07817v2",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same GL(n)xGL(n) conductor-family second moment with E_0 identity stated, but fixed cuspidal tempered pi0 only; Sec 1.2 defers E_0 extension without any gap quantification.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Full HTML body inspected: Thm 1 gives log^1 main term for cuspidal pi0; Sec 1.2 says E_0 not in L^infty so proof fails and E_0 regularization with higher-order poles left to future work. No gw, M*/Y, H_n, or theta_eff analysis present."
+      },
+      {
+        "title": "The second moment of $\\mathrm {GL}(n)\\times \\mathrm {GL}(n)$ Rankin–Selberg L-functions | Forum of Mathematics, Sigma | Cambridge Core",
+        "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/second-moment-of-mathrm-glntimes-mathrm-gln-rankinselberg-lfunctions/3B0D1DBDEB2C02FF6271273EE4420C5E",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Published duplicate of the same Jana cuspidal second-moment work; states the 2n-th moment equals the E_0 second moment but proves only the cuspidal case.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Same-work duplicate of arXiv v2 already inspected at theorem scope: cuspidal-pi0 hypotheses, log^1 conclusion, qualitative E_0 deferral only; no triple-degeneration quantification."
+      },
+      {
+        "title": "A hybrid asymptotic formula for the second moment of Rankin-Selberg L-functions",
+        "url": "https://arxiv.org/pdf/1011.1961",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nearest lower-rank E_0 precedent: GL(2) holomorphic/t-aspect second moment with fixed form g, including Eisenstein E_r/E_0 cases giving fourth moments with log^2/log^4 terms.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full text inspected: Thms 1-3 concern GL(2) family with hybrid range K^{3/4}<=T<=K^{5/4} and E_0 log^4 fourth moment; rank, family, and aspect differ from PGL(n) n>=3 conductor-ordered 2n-th moment; no gw, M*/Y>=1, or order-(n-1) polar tower."
+      },
+      {
+        "title": "Spectral Moment Formulae for GL(3)×GL(2)\\hbox{GL}(3)\\times\\hbox{GL}(2) L-functions II: The Eisenstein Case",
+        "url": "https://arxiv.org/html/2310.09419v3",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Eisenstein-case spectral reciprocity for the different pair GL(3)xGL(2), linking cubic GL(2) and fourth zeta moments with CFKRS main-term analysis.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full v3 HTML inspected: Thm 1.3 reciprocity and Sec 5-6 CFKRS swap analysis concern GL(3)xGL(2) periods and minimal Eisenstein of GL(3); pair and family differ from GL(n)xGL(n) E_0 n>=3; no conductor-ordered 2n-th-moment gap formulas."
+      },
+      {
+        "title": "Moments of LL-functions via a relative trace formula",
+        "url": "https://arxiv.org/html/2309.06461",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Conductor-aspect second moment for the adjacent pair GL(n)xGL(n-1) with fixed cuspidal form, plus non-vanishing; explicitly not the GL(n)xGL(n) E_0 case.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Full HTML inspected: Thms 1-4 assume fixed cuspidal tempered pi on GL(n-1) with log^1 main term; Sec 1.3 distinguishes k>=n versus k<=n-1 regimes; no minimal-Eisenstein specialization, no d_nxd_n gap, no polar tower."
+      },
+      {
+        "title": "THE SHIFTED CONVOLUTION OF DIVISOR FUNCTIONS",
+        "url": "https://academic.oup.com/qjmath/article/67/2/331/1753060",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nearest uniform shifted-convolution input for the degree-3 factor: asymptotic with power saving for the mixed correlation d_3(n)d(n+h), uniform in the shift.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Same-work OA full text arXiv:1506.02608 (44629 chars) searched: Thm 1.1 treats only mixed D^pm=sum d_3(n)d(n+h) for h<<x^{2/3} with x^{8/9} error; zero same-index d_nxd_n statements and no Kuznetsov-modulus uniformity, so required input (i) not supplied."
+      },
+      {
+        "title": "The Shifted Convolution of Generalized Divisor Functions",
+        "url": "https://academic.oup.com/imrn/article-abstract/2018/24/7681/3868065?redirectedFrom=fulltext",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nearest k>=4 shifted-convolution input: uniform power-saving asymptotic for mixed correlations d_k(n)d(n+h), improving Fouvry-Tenenbaum and Drappeau.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Same-work OA full text arXiv:1605.02364 (41530 chars) searched: Thm 1.1 treats only mixed D_k^pm=sum d_k(n)d(n+h) k>=4 in short shift range; no d_nxd_n same-index result and no full-range h<<Y Kuznetsov uniformity needed for input (i)."
+      },
+      {
+        "title": "Correlations of the von Mangoldt and higher divisor functions II. Divisor correlations in short ranges",
+        "url": "https://ar5iv.labs.arxiv.org/html/1712.08840",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Most dangerous same-index divisor input: d_k(n)d_l(n+h) correlations, but only averaged over shifts with tiny logarithmic saving and no uniform power saving.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full ar5iv body inspected: Thm 1.1 gives sum_{|h|<=H}|sum d_k(n)d_l(n+h)-C X log^{k+l-2}|=o(HX log...) for H>=(log X)^{10000k log k} with (log)^{-eps(X)} saving; authors state no power saving and no new zeta-moment consequences, so uniform input (i) not supplied."
+      },
+      {
+        "title": "Analytic Newvectors for and Applications",
+        "url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/7717d65a-97cb-4971-a238-72d5920953c9/content",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Jana doctoral dissertation supplying the analytic-newvector foundations and the standard-L second moment, not the E_0 2n-th-moment obstruction with its gap formulas.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Direct 103-page PDF body inspected (171478 chars): TOC and Thm 10 give sum|L(1/2,pi)|^2<<X^{n-1} standard second moment; full-text search finds no minimal-Eisenstein E_0 chapter, no 2n-th moment, and zero hits for polar tower or CFKRS obstruction."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal search added 14 incremental candidates beyond the 6 overlaps but no covering prior. Overlaps (Jana x2, analytic newvectors record, Kwan Eisenstein, relative-trace moments) duplicate the base set; the new divisor cluster (Topacogullari x2, function-field x2, Nguyen, Drappeau-HAL, Exeter thesis record, Smith record) addresses only mixed or averaged divisor correlations, and the new GL(2) E_0 hybrid plus Kowalski level-aspect records are lower-rank families. Every plausibly covering body was opened (arXiv HTML/PDF or same-work OA where OUP blocked); function-field, author-page, generic, and bot/challenge-walled records share no material parameter subset and carry no cached dissertation label, so exclusion is not a silent omission. No source states or implies the n>=3 E_0 triple-degeneration gap package."
+  }
+}
