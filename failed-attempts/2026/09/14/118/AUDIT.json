@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "C5 checks replicate: connected, triangle-free, planar, n=5, no separating vertex/edge, zero induced C4 so non-CFS by Dani-Thomas square-graph criterion. Square-free triangle-free RACG is hyperbolic by Moussong, one-ended, non-elementary with exp global divergence. Finite-index torsion-free kernel argument (index 32, chi_orb=-1/4, chi=-8, genus 5) gives QI to H^2; polar detour pi*sinh(r)~exp and Tran QI-invariance transfer Spec={[exp]}. Inferences are proof, computations verified; cited black boxes used legitimately.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline Spec(G_C5)={[exp]} is mechanically implied by prior stronger facts: Moussong hyperbolicity for square-free C5 plus Tran Example 4.7 that a one-ended hyperbolic group has exp-only spectrum. Tran's general theorem substantively implies the C5 instance without stating C5 verbatim, so under the substantive-implication rule originality FAILS. The C5 non-CFS/hyperbolic facts are standard criteria applications, not new boundaries.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: the admitted universal two-point wording presupposed non-empty CFS peripherals realizing [r^2], but the Standing-Assumptions class contains hyperbolic empty-peripheral members with C5 the smallest (n=5) case. Refuting the universal by C5's vacuous peripheral clause is vacuity/cheap small-instance mismatch, not a substantive spectral advance. The singleton itself is a direct corollary of Tran's hyperbolic principle and the coarse non-blindness was already shown by Tran's infinite exp-divergence family with distinct spectra.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Tran 2017 Divergence spectra and Morse boundaries of relatively hyperbolic groups (doi:10.1007/s10711-017-0268-3 / arXiv:1611.05005): defines divergence spectrum, QI-invariance, Thms 1.1-1.3, Example 4.7 hyperbolic exp-only spectrum; nearest covering prior.",
+    "Nguyen-Tran 2019 On the coarse geometry of certain RACGs (doi:10.2140/agt.2019.19.3075 / arXiv:1712.01079): Standing Assumptions, CFS vs relative-hyperbolic-over-CFS structure, visual trees; premise source, no spectrum computation.",
+    "Dani-Thomas divergence in RACGs and Levcovitz classification (fused search hits): linear/quadratic iff CFS background for non-CFS criterion; supports non-CFS reading, does not compute spectra.",
+    "Independent recomputation without networkx: C5 connectivity, triangle-freeness, separating vertex/edge emptiness, induced-C4 emptiness, chi_orb=-1/4 and pi*sinh(r) asymptotics confirmed."
+  ],
+  "claim_route": "TARGET",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Tran Thm 1.1 gap plus Example 4.7: every one-ended hyperbolic group's spectrum contains only exponential functions; Nguyen-Tran Thm 1.6 places C5 in the hyperbolic (empty-peripheral) subcase.",
+      "reasoning": "The headline is a strict special case of Tran's broader hyperbolic-spectrum theorem, so broader coverage subsumes it and originality fails.",
+      "search": "Searched stronger theorems: one-ended hyperbolic spectrum, relatively hyperbolic gap, Nguyen-Tran planar RACG classification."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "C5 has zero induced C4 so Moussong gives hyperbolic; one-ended hyperbolic plus Tran Example 4.7 gives Spec={[exp]}; QI-invariance already in Tran Section 3.",
+      "reasoning": "Conjunction of two standard prior results mechanically implies Spec(G_C5)={[exp]} and the absence of [r^2], so prior work implies the claim.",
+      "search": "Searched implication chain: C5 square-free hyperbolicity plus hyperbolic lower-divergence exponential plus QI-invariance transfer."
+    },
+    "equivalent_formulations": {
+      "evidence": "Tran defines ldiv_alpha, lower divergence, Morse geodesics, Gersten equivalence; H^2 detour pi*sinh(r) is the same exp class; no dual/complement/matrix encoding changes the comparison.",
+      "reasoning": "Synonymous notation (ldiv, Div, Morse, contracting, exp class) still reduces to Tran's exp-only hyperbolic case, so no hidden novelty.",
+      "search": "Searched equivalent forms: lower divergence ldiv Morse geodesic, contracting geodesic, H^2 detour, surface-group spectrum."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table was found explicitly listing Spec(G_C5); fused results contain no C5 spectrum table, and full-text search in Nguyen-Tran for C5/pentagon returns no instance.",
+      "reasoning": "Exact-table absence does not establish priority because the general theorem already exhaustively covers the C5 parameter; recomputation of a covered instance is not original.",
+      "search": "Searched exact C5/pentagon RACG spectrum tables, census entries, and thesis data for Spec(G_C5)={[exp]}."
+    }
+  },
+  "residual_risks": [],
+  "route_inference": "Report declares claim_route TARGET; audited as TARGET complete disproof against admitted target with no preset-value presumption.",
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Example 4.7: one-ended hyperbolic spectrum only exponentials since all bi-infinite geodesics Morse with exponential ldiv; Section 3 QI-invariance; combined with C5 hyperbolicity this yields singleton {[exp]}.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Divergence spectra and Morse boundaries of relatively hyperbolic groups",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1007/s10711-017-0268-3"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Abstract and Thm 1.6 give relative hyperbolicity over CFS subgroups and linear/quadratic/exponential divergence trichotomy; full-text parameter search for C5/pentagon/five-cycle/spectrum found no C5 instance and no Tran-spectrum computation.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "On the coarse geometry of certain right-angled Coxeter groups",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.2140/agt.2019.19.3075"
+    }
+  ],
+  "verdict": "REJECT"
+}
