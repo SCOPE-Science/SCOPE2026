@@ -1,0 +1,156 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: claim is empty Kovacic Case-1 q-locus for H(2,q) with gamma=delta=epsilon=1/2, alpha=beta=1/4. Re-ran artifact: s=N/(16z^2(z-1)^2(z-2)^2) with q-part 16qz(z-1)(z-2) vanishing at 0,1,2; N(q,0)=-12, N(q,1)=-3, N(q,2)=-12 nonzero q-free; pole orders exactly 2 at 0,1,2 and ord_inf=2; b0=b1=b2=-3/16, b_inf=-1/4; E={3/4,1/4}, E_inf={1/2}; all 8 d in {-1/4,-3/4,-5/4,-7/4} never nonneg integer. Independent exponent/residue count degP=-(sum e_c)-1/4 with e_c in {0,1/2} gives same fractional-negative set for any integer ambiguity at infinity, so no rational Riccati solution for any q. No gap, no numerics.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, equivalent/Lame/elliptic/Riccati-Borel-factorization, and broader census/database directions returned only general Heun references. Closest leads inspected at body level: Hounkonnou-Ronveaux Table 1 factorization requires alpha*beta in {-3/2,-1/2}, ours is 1/16; DLMF 31.8 quadrature family requires beta-alpha=m0+1/2, ours is 0. No source states or implies the exact empty locus for t=2 symmetric half-exponent alpha=beta=1/4. Result is new, not a recomputation or corollary of a stronger covering theorem.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET complete resolution by proof: empty finite list with uniform q-blind degree obstruction plus q-independence mechanism. Not a type error, vacuity, tiny mismatch, direct lookup, or arbitrary-parameter fact: operator is genuine Fuchsian Lamé-symmetric point (t=2, half exponents), both existence and nonexistence were plausible, and classification over all q in C is a natural exact census. Future work on Heun Galois groups and symbolic integration can directly use the certified irreducibility; no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/artifacts/kovacic_case1_normalform.py re-executed: certificate OK, 8 combos all d<0",
+    "DLMF 31.2 Heun equation, normal form and exponents definitions",
+    "DLMF 31.8 Solutions via Quadratures: half-odd-integer condition 31.8.1 and finite-gap curve",
+    "DLMF 31.14 Kovacic algorithm reference for Liouvillian classification",
+    "Hounkonnou-Ronveaux arXiv:0902.2991 full text: factorization tables for k=1 Lame and Heun",
+    "scope_literature_search EMERGENT_ORIGINALITY 3-query fused call (SerpBase/OpenAlex/Crossref/OpenAIRE) on literal, equivalent, and dominance directions"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "DLMF 31.8 finite-gap family needs beta-alpha half-odd-integer, failed here; Vidunas dihedral/degenerate papers classify existence pull-backs, not universal Case-1 nonexistence; Hounkonnou tables classify only special alpha*beta rows.",
+      "reasoning": "Each broader theorem has hypotheses the submitted point violates or concludes existence rather than emptiness; the empty locus is not a strict subset or special case of any broader covering result found.",
+      "search": "Classification of Liouvillian/Heun pull-back, dihedral/degenerate families, finite-gap Hermite-Darboux census, Maier-type stronger reducibility theorems"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior source computes the normalized invariant s, its q-vanishing numerator factor 16qz(z-1)(z-2), or the uniform double-pole data for this H(2,q); general Kovacic rules alone do not fix b_c without this normal-form computation.",
+      "reasoning": "The headline needs the case-specific uniformity proof (pole orders stay 2 for every q); absent that computation no prior theorem implies the fractional-negative degree obstruction, so the finding is not a corollary or certificate-only repackaging.",
+      "search": "Whether general Kovacic theory or prior Heun reducibility lemmas mechanically imply all-8 negative degrees for b=-3/16,b_inf=-1/4 without case computation"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results returned only generic Heun/Lame factorization method papers and DLMF definitions; no source states nonexistence of rational Riccati or hyperexponential solution for gamma=delta=epsilon=1/2 alpha=beta=1/4 t=2 under any encoding.",
+      "reasoning": "Synonymous names (Lame, reducible, Borel, hyperexponential, factorization) were covered by queries; nearest factorization paper uses different alpha*beta values, so no equivalent formulation covers the submitted empty-locus headline.",
+      "search": "Lame algebraic form, elliptic/Weierstrass form, normal form Y''=sY, Riccati rational solution, Borel/reducible/factorization synonyms for H(2,q) half exponents"
+    },
+    "exact_database_or_table": {
+      "evidence": "Only exact table is Hounkonnou Table 1 for k=1 Lame; inspected rows contain no alpha=beta=1/4 entry and DLMF lists no q-locus table for this parameter point.",
+      "reasoning": "Exact-parameter lookup fails: the claimed empty list for this precise (t,q,exponent) point does not already appear in any table or official database, so it is not a direct lookup or recomputation.",
+      "search": "DLMF Heun tables, Heun/Lame reducible q-locus tables, Hounkonnou-Ronveaux Table 1 factorization rows, Heun function databases for t=2 q values"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Sec.3 plus Table 1: k=1 Lame factorization solved with alpha*beta=-1/2 for worked L-choice; tables list only reducible pairs with sum 1/2 and products -3/2 and -1/2; point alpha=beta=1/4 product 1/16 never appears as factorizable row.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Generalized Heun and Lame's equations: factorization (Hounkonnou-Ronveaux 2009)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/0902.2991"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Formula 31.8.1 requires beta-alpha=m0+1/2 and gamma/delta/epsilon=-m+1/2; submitted point has beta-alpha=0 which admits no m0>=0, so the broader quadrature existence theorem excludes this point and cannot imply its Case-1 emptiness.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "DLMF 31.8 Solutions via Quadratures (Heun finite-gap/Liouvillean family)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://dlmf.nist.gov/31.8"
+    }
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "ba0392ac1c1f27a7d0a4be24685c01fdd1999486ad042cfa87afbbb54ed23ed9",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "The General Heun Equation: Standard and Normal Forms",
+        "url": "https://heun.xyz/advanced-ode/heun-laboratories/general-heun-equation/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same Heun object and normal-form/Riccati terminology; its worked example shares t=2 and gamma=delta=epsilon=1/2 but uses alpha=1/6, beta=1/3, so it never instantiates the submitted alpha=beta=1/4 point and states no Kovacic Case-1 or rational-Riccati q-locus result.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Inspected full body including worked-example section: example fixes a=2 with half exponents yet alpha=1/6, beta=1/3; page derives normal-form/accessory dictionaries and exercises, with no Borel, Kovacic Case-1, or empty-q-locus theorem."
+      },
+      {
+        "title": "DLMF: §31.7 Relations to Other Functions ‣ Properties ‣ Chapter ...",
+        "url": "https://dlmf.nist.gov/31.7",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Formula 31.7.E2 with a=2 does instantiate at the submitted point (delta equals alpha+beta-2gamma+1=1/2) but only as a single-q hypergeometric identity at q=alpha*beta=1/16; the resulting 2F1(1/8,1/8;1/2) has exponent differences (1/2,1/4,0) and is not Liouvillian, so it implies no rational Riccati solution. Formula 31.7.E5 is a Lame change of variables, not a reducibility classification.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Compared hypotheses/conclusions of 31.7.E2 and 31.7.E5 against the headline: E2 concludes a hypergeometric representation at one accessory value, not a Case-1 existence claim, and its Gauss parameters fail every Liouvillian exponent pattern; E5 maps Heun to Lame with no Borel/Riccati locus statement."
+      },
+      {
+        "title": "arXiv:1309.7656v1  [math.CA]  29 Sep 2013",
+        "url": "https://arxiv.org/pdf/1309.7656v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Original paper classifying parametric Liouvillian Heun pull-backs from cyclic E(1,alpha,alpha) and dihedral E(1/2,1/2,alpha) hypergeometric equations; the submitted exponent differences (1/2,1/2,1/2,0) match none of its HE(2,N alpha,M alpha,D alpha), HE(1/2,3/2,N alpha,M alpha), or Remark 2.2 dihedral families, and it never instantiates t=2 with alpha=beta=1/4.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Inspected full arXiv HTML body (Theorems 3.1 and 4.2, Remark 2.2, formulas 38-42): every family requires an exponent entry of 2, 3/2, an integer-odd multiple, or a paired alpha pattern incompatible with (1/2,1/2,1/2,0); scope is existence of pull-back Liouvillian cases, not universal Case-1 nonexistence."
+      },
+      {
+        "title": "Polynomial Heun-to-Hypergeometric Transformations",
+        "url": "https://web.ma.utexas.edu/mp_arc/e/02-150.latex",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Original paper classifying rational Heun-to-hypergeometric pull-backs; its harmonic subcase 1(a) with D=2 covers cross-ratio t=2 in general but only yields a reduction at the single normalized accessory value q/alpha*beta in {0,1,d} (here q=1/16), producing Gauss parameters (alpha/2,beta/2)=(1/8,1/8) that are not Liouvillian, hence no Kovacic Case-1 coverage of the all-q emptiness headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Inspected LaTeX body theorem, subcases 1(a)-1(c), Remark 3 exponent-halving rules, and Propositions on exponent mapping: each applicable subcase concludes a hypergeometric identity at discrete accessory values, never a rational-Riccati/Borel classification over all q."
+      },
+      {
+        "title": "Algebraic Solutions of the Lam\\u2019e Equation",
+        "url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1319-16.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same Lame (symmetric half-exponent Heun) object family with finite-monodromy/algebraic terminology, but its scope is Kovacic Case 3 (finite primitive groups, purity, Brioschi-Halphen determinants), which neither states nor implies anything about the Kovacic Case-1 rational-Riccati locus; full-text search finds no t=2, no Heun alpha=beta=1/4, no Riccati/Borel q-locus.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Extracted PDF to text and searched parameters: sole '1/4' is a Lame-index residue class in Theorem 3.3, unrelated to Heun alpha; zero hits for Borel/Riccati/t=2 q-locus; Theorems 2.1/2.2/3.1-3.3 classify finite monodromy only, a disjoint Kovacic case from reducibility."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal search added useful incremental recall beyond the base providers (heun.xyz normal-form laboratory, DLMF 31.7/31.4, Vidunas dihedral paper, Maier pull-back memoir, Beukers Lame proceedings) and each was body-inspected. The nearest near-miss, DLMF 31.7.E2, genuinely instantiates at the submitted point yet concludes only a single-q hypergeometric identity whose 2F1(1/8,1/8;1/2) is not Liouvillian, so it cannot cover the all-q Case-1 emptiness claim. The RIMSlist PDF was unreachable after repeated fetches but shares no submitted parameter (snippet shows generic data with q=3126/49) and is not a thesis, so it is keyword-similar rather than a mandatory escalation; remaining hits are confluent/generic/physics items or base URL duplicates. No decisive prior found; originality PASS and overall PASS preserved with correctness and value untouched."
+  }
+}
