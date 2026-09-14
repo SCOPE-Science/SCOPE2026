@@ -1,0 +1,294 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified. Lemma 1 (V4 regular representation from traces (4,0,0,0)) is elementary character theory and was re-executed. Lemma 2 degree count 2a+7b=7 forcing (0,1) is exact given admitted Smith-Tate generation pattern; Gamma-stability follows from graded automorphisms preserving center and degree. Reynolds collapse to at most one degree-7 generator follows from Lemma 1+2. Growth step is analytic: dim A_m=(m+1)(m+2)(m+3)/6 cubic vs dim C_m<=dim P_m for weights (2,2,7) quadratic (verified coefficients [1,0,2,0,3,0,4,1,5,2,6,3,7,4], ratio 1761 at m=200, diverging ~(14/3)m); fixed-rank domination with arbitrary shifts is impossible, and all degenerate fewer-generator cases are strictly smaller (checked to partial sums). The Smith-Tate pattern and equivariant section model are the admitted structural inputs named in the topic fingerprint, so reliance on them is legitimate for a TARGET negative resolution; only C-finiteness is refuted, not PI-ness of A, as stated.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search (SerpBase/Serpent + OpenAlex + Crossref + OpenAIRE, all ok, no partial coverage) returned the nearest priors: Smith-Tate center, Chirvasitu-Smith exotic algebras (2015/2017/2018), De Laet center reproof, Walton-Wang-Yakimov Poisson/PI work, Smith finite-order simples. Full-body inspection of the decisive exotic-algebra paper and center literature shows none states or implies the order-7 Reynolds-averaged-C non-finiteness collapse: Chirvasitu-Smith treat generic tau module/line geometry, quadrics, Hilbert series, not finite-order centers or averaged Smith-Tate generators; Smith-Tate/De Laet describe Z(S) generation, not Gamma-Reynolds collapse or (S tensor M2)^Gamma finiteness; Walton et al. study S finite over its own full center, a different algebra and subalgebra. The headline is the conjunction of order-7 center degrees with V4 Reynolds collapse and GK growth obstruction, which no prior source covers.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: a rigorous disproof is a complete resolution. This is not a cheap defect (not a type/normalization error, vacuity, small-instance mismatch, direct lookup, or arbitrary parameter fact): it gives explicit invariant generators y1,y2,w, a certified growth obstruction valid at every rank and degree bound, the Reynolds-collapse mechanism (averaging generators vs monomials, Noether-bound moral), and the GKdim 4 vs <=3 diagnosis. It settles PI-finiteness over the explicit C for the motivated order-7 exotic case and redirects the bounded invariant attack, which is independently worth retrieving. No ADMISSION_DEFECT: the negative outcome is substantive, not an admission mistake.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Smith-Tate center of 3- and 4-dim Sklyanin algebras (1994) - Z(S) generation pattern prior",
+    "Chirvasitu-Smith Exotic Elliptic Algebras of dim 4, arXiv:1509.01634 (2015/2017) full-body inspected - generic-tau A geometry, Hilbert series, line scheme deg 20; no order-7 Reynolds-C claim",
+    "Chirvasitu-Smith Exotic Elliptic Algebras, Trans AMS 2018 - twist construction prior",
+    "De Laet on center of Sklyanin algebras, arXiv:1612.06158 - Heisenberg reproof of quadric centers only",
+    "Walton-Wang-Yakimov Poisson geometry of PI 4-dim Sklyanin algebras (2021) - S finite over own center, different algebra/subalgebra",
+    "Smith simples over 4-dim Sklyanin at finite order, arXiv:1802.06023 - S finite over full center, PI degree n; no averaged-C obstruction",
+    "Davies cocycle twists of 4-dim Sklyanin algebras (2016) - related twist prior, no Reynolds finiteness claim",
+    "Executed inputs/artifacts/check_obstruction.py - reproduced character, Sym^2, Hilbert ratios, exponents"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Smith 1802.06023 proves S finite over its full center with PI degree n at finite order; Walton et al. construct Poisson orders on S finite over Z(S). Both concern S and its full center, not A=(S tensor M2)^Gamma over Reynolds-averaged C=k[y1,y2,w]. A prior source covering only a broader full-center theorem does not imply the averaged-subalgebra collapse.",
+      "reasoning": "Theorem-scope comparison excludes coverage: full-center finiteness of S neither implies nor contradicts non-finiteness of A over the much smaller explicit C; the claim's mechanism (Reynolds collapse of four septics to one) lies outside these theorems' hypotheses and conclusions.",
+      "search": "Searched Sklyanin finite-over-center PI-degree classification, Azumaya locus, census/database coverage for exotic A at order 7."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior result states non-finiteness of A over averaged C, Reynolds collapse of Z(S)_7 to dimension 1, or the (2,2,7) vs 1/(1-t)^4 growth obstruction. Chirvasitu-Smith give Hilbert series and line scheme degree 20; Smith-Tate give center generators; neither combines them into the C-finiteness disproof.",
+      "reasoning": "The headline is a new conjunction: admitted order-7 center degrees + V4 character collapse + GK growth contradiction yielding certified C-non-finiteness. Since no prior work states or mechanically implies this conjunction, the claim is not a recomputation, certificate, corollary, or repackaging of a known stronger fact.",
+      "search": "Searched literal claim plus combinations of exotic A, order 7, Reynolds invariants, module-finite over averaged center, PI-degree bound."
+    },
+    "equivalent_formulations": {
+      "evidence": "V4=(Z/2)^2 action as 2-torsion translations / Heisenberg H4 quotient / cocycle-twist and (S tensor M2)^Gamma coinvariant descriptions all retrieved (Chirvasitu-Smith secs 2.6-3.1, Davies twists). None discusses Gamma-Reynolds-averaged Smith-Tate generators, the regular-representation collapse of Z(S)_7, or GK growth comparison.",
+      "reasoning": "Synonymous encodings (twist vs invariants, H4 vs V4 notation, dual/complement line-module language) were tested and all lead to the same geometric papers, whose theorem scopes concern point/line modules and quadrics, not the averaged-center finiteness question.",
+      "search": "Searched dual/complement/synonymous encodings: Heisenberg H4 vs V4 Klein actions, cocycle twist vs invariant subalgebra, line scheme and quadric terminology."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table or database entry records the order-7 exotic invariant subalgebra C, its (2,2,7) generator weights, or a finiteness verdict: arXiv/OpenAlex/Crossref/OpenAIRE fused results contain no classification table, OEIS-style invariant entry, or thesis table deciding C-finiteness at tau order 7.",
+      "reasoning": "Exact-parameter search (tau order 7, weights 2,2,7, Hilbert data 1/(1-t)^4, line scheme degree 20) finds only the generic geometric data, never the specific averaged-C generator count or growth obstruction, so no direct lookup or database recomputation covers the claim.",
+      "search": "Searched exact parameters tau order 7, weights (2,2,7), Hilbert series 1/(1-t)^4, degree-20 line scheme, Reynolds invariants tables and theses."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "ad411c05f574856f5a8d632f12cab6e6d2f50754dbbc256a618c4c3054759b36",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Converted PDF to text (8pp); full-text parameter search for order-7/Reynolds/exotic/Gamma/averaged/weights/collapse/septics found only generic finite-vs-infinite-order center theory, no exotic A, no Gamma action, no averaged generators.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Gives general finite-order center construction for S, the admitted Smith-Tate input, but states nothing about Gamma=(Z/2)^2 Reynolds averaging, collapse of four septics to one, or finiteness of A=(S tensor M2)^Gamma over averaged C.",
+        "title": "The center of the 3-dimensional and 4-dimensional Sklyanin ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://sites.math.washington.edu/~smith/Research/tate.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Inspected full page sections Relations/Parameters/Point scheme/Line scheme/Centre: centre recorded as k[Omega1,Omega2] GK-dim 2 with generic tau; no finite-order n=7 center, no Reynolds operator, no averaged C, no finiteness verdict.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Describes the generic-tau cocycle-twist exotic algebra (20 points, quadric pencil) but only the quadric center at generic parameters, not the order-7 Smith-Tate septics, their Reynolds collapse, or the (2,2,7) growth obstruction.",
+        "title": "Sklyanin twist",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://4d-as.ncag.info/families/sklyanin-twist/"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full arXiv HTML body text search: zero hits for Reynolds/averaged/degree-7/order-7/weights/collapse/module-finite; finite-order hits only note no order assumption; centers section covers only degree-2 Theta/Omega, point/line modules generic tau.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Constructs A=(S tensor M2)^Gamma with its generic homological/module geometry, but assumes no finite-order tau and never forms Gamma-averaged Smith-Tate septics or asks C-finiteness, so it cannot imply the order-7 collapse disproof.",
+        "title": "[1502.01744] Exotic Elliptic Algebras",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/abs/1502.01744"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Theorem-scope comparison: Hypothesis 4.1 imposes sigma of infinite order for the whole twist/module analysis (Thm 4.25, Sec 5); Prop 1.2 finite-order remark is only a one-line twist identification with no center, Reynolds, or finiteness content.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Studies the same (S tensor M2)^Gamma twist construction and its 20-point/fat-point geometry, but explicitly restricts to infinite-order sigma, hence excludes the tau-order-7 Smith-Tate center and averaged-C finiteness question by hypothesis.",
+        "title": "Cocycle twists of 4-dimensional Sklyanin algebras",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/1512.05717v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Publisher page body unavailable (403) but work is the journal version of the arXiv exotic-elliptic papers fully inspected above; abstract/metadata confirm same generic-tau twist scope with no order-7 or Reynolds-averaged-center content.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Journal version of the same Chirvasitu-Smith exotic construction treating generic-tau point/line geometry and quadric centers; its theorem scope contains no finite-order septics, Reynolds averaging, or C-finiteness verdict covering the headline.",
+        "title": "Exotic elliptic algebras of dimension 4",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.sciencedirect.com/science/article/pii/S0001870815301444"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full thesis text (9128 lines) parameter search: zero hits for exotic/Chirvasitu/Reynolds/averaged/cocycle/order-7/weights; finite-order hits concern 3-dim Sklyanin PI-degree/degenerations generally, no (S tensor M2)^Gamma or averaged-C construction.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Dissertation on degenerations/deformations of (mostly 3-dim) Sklyanin algebras and PI degree; shares Sklyanin/finite-order vocabulary but contains no exotic invariant subalgebra, Gamma averaging, or order-7 collapse mechanism.",
+        "title": "[PDF] On Degenerations and Deformations of Sklyanin Algebras",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://math.rice.edu/~notlaw/thesis.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Inspected Problems 12.1-12.3 in full: question is whether R_Omega=A/(Omega) factors are domains (Artin conjecture context); no Reynolds operator, no order-7 center, no averaged generator weights, no module-finiteness comparison.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Poses the same-object twist A=(M2(S))^K4 and its quadric factors, but asks a domain/Artin-conjecture question at generic (non-PI) parameters, not the order-7 Reynolds-averaged-C finiteness obstruction.",
+        "title": "12. Sklyanin algebras and cocycle twists",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "http://aimpl.org/ncsurfaceartin/12/"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 60pp PDF text search (195k chars): no Reynolds/averaged/collapse/weights/order-7 hits; exotic mention is one related-work sentence; Smith-Tate z_i/g_i quoted only for S over its full center Z(S), object is S not A, subalgebra is full center not averaged C.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Proves S finite over its full center Z(S) with Poisson/Azumaya structure at finite order, a different algebra (S vs exotic A) and different subalgebra (full center vs Reynolds-averaged C), so its scope neither states nor implies the averaged collapse.",
+        "title": "Poisson geometry and representations of PI 4-dimensional ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://par.nsf.gov/servlets/purl/10332727"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full HTML body inspected: Gamma action (sec 2.6), twist construction (sec 3.1), centers sec 3.3 only quadric k[Omega] tensor 1, line scheme deg-20 Thm 1.1/7.1; no finite-order tau, no degree-7 generators, no Reynolds averaging, no C-finiteness.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Definitive exotic-algebra reference sharing exact object A=(S tensor M2)^Gamma, but treats generic tau module/line geometry and quadric centers only, without the order-7 Smith-Tate input or the Reynolds-averaged collapse at the heart of the claim.",
+        "title": "Exotic Elliptic Algebras of dimension 4 (with an Appendix by Derek Tomlin)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/abs/1509.01634v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full survey text search: only generic finite-vs-infinite-order center dichotomy (Thms 10.2/11.1-11.4, quadrics vs large center); zero hits for exotic/Reynolds/averaged/Gamma/Klein/weights/collapse/order-7.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Surveys 4-dim Sklyanin centers and finite-order finiteness over the full center, supplying background for the admitted Smith-Tate pattern, but contains no exotic twist, Gamma averaging, or averaged-C obstruction.",
+        "title": "[PDF] The four-dimensional Sklyanin algebras - UW Math Department",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://sites.math.washington.edu/~smith/Research/Skly-survey.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full HTML body inspected: Heisenberg H4 reproof of quadric centers (Lemma 6.4, Thm 6.5: two degree-2 central elements); no finite-order degree-n description, no Gamma/V4 action, no exotic A, no averaged-C question.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Reproves only the generic quadric-center generation for S via Heisenberg representations; its theorem scope excludes finite-order septics, Gamma Reynolds averaging, and finiteness of A over averaged C.",
+        "title": "On the center of 3-dimensional and 4-dimensional Sklyanin algebras",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/1612.06158"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full topic page; text search for Reynolds/averaged/order-7/weights/collapse found zero; page is a tertiary aggregator restating Smith-Tate/Davies/Walton generic-tau and finite-order summaries with garbled placeholders, stating no averaged-C proposition.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Tertiary summary of 4-dim Sklyanin PI/twist/exotic literature restating known full-center and Davies-twist facts; aggregates but adds no Reynolds-averaged invariant subalgebra, order-7 collapse, or growth obstruction.",
+        "title": "4D Sklyanin Algebras - Emergent Mind",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.emergentmind.com/topics/four-dimensional-sklyanin-algebras"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full slides text search: only generic criterion finite-module-iff-tau-finite-order plus Chirvasitu-Kanda-Smith mention; zero hits for order-7/Reynolds/averaged/Gamma/Klein/weights/collapse/C-finiteness.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Expository slides on elliptic/Sklyanin algebras and Feigin-Odesskii context stating the generic finiteness criterion; contain no order-7 Smith-Tate septics, Gamma averaging, or averaged-C finiteness analysis.",
+        "title": "Elliptic Algebras",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.ring-theory-japan.com/cjk2019/pdf/slides/Smith.pdf"
+      }
+    ],
+    "rationale": "Terminal Perplexity returned 20 results with 5 overlapping base providers. The 15 incremental URLs were screened; all 13 plausibly-covering candidates (same-object/parameter/term-family triggers plus the one mandatory dissertation) were opened and body-inspected as recorded above. New hits merely duplicated base coverage (Smith-Tate center, Chirvasitu-Smith generic-tau exotic geometry, Davies infinite-order twists, Walton full-center Poisson theory, surveys/slides/aggregators) or were unrelated (Bloch, commutative surfaces, generic AS tables). None states or implies Reynolds collapse of four order-7 septics to one, the (2,2,7) averaged subalgebra, or the GK growth obstruction. Excluded ranks 9/10/11/14/17/19/20 share no material parameter subset (different objects, navigation tables, or orders) after literal comparison. No decisive prior found; provisional originality PASS preserved with no verdict change.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full HTML body inspected: Gamma action table (sec 2.6), twisting construction (sec 3.1), centers sec 3.3 covers only quadric subalgebra k[Omega0,Omega1] tensor 1 in Z(A); line scheme degree-20 classification (thm 1.1/7.1); no finite-order tau, no Smith-Tate degree-7 generators, no Reynolds averaging, no module-finiteness over averaged C.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Exotic Elliptic Algebras of dimension 4 (Chirvasitu-Smith, arXiv:1509.01634)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/1509.01634"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full HTML body inspected: reproves quadric centers via Heisenberg reps (Lemma 6.4, Thm 6.5: two degree-2 central elements); no finite-order degree-n center description, no Gamma/V4 Reynolds action, no exotic A or averaged-C finiteness question.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "On the center of 3-dimensional and 4-dimensional Sklyanin algebras (De Laet, arXiv:1612.06158)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/html/1612.06158v1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Abstract plus body sections inspected: S finite over full center at finite order, PI degree n, Azumaya locus, fat-point classification; object is S not A=(S tensor M2)^Gamma and subalgebra is full center not Reynolds-averaged C. Theorem scope excludes the averaged-subalgebra collapse.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Simple modules over the 4-dimensional Sklyanin Algebras at points of finite order (Smith, arXiv:1802.06023)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/1802.06023v1"
+    }
+  ],
+  "verdict": "PASS"
+}
