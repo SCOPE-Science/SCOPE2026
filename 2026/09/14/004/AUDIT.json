@@ -1,0 +1,175 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently recomputed r=P^2/4+P'/2-Q as -2(z^2+1)^2/(9z^2(z^2-1)^2) and re-ran kovacic_verdict.py (exit 0). Pole orders exactly 2 at 0,1,-1,infty with b=-2/9 and sqrt(1+4b)=1/3 verified by limits. Case 1 max d=-1/3<0 over all 16 tuples; Case 2 E={2} everywhere with unique d=-2<0; Case 3 maxima -4/3,-2,-4<0 for n=4,6,12. Halting at negative degrees is correct Kovacic procedure, yielding no Liouvillian solution and Galois group SL(2,C), hence no dihedral symmetric-square solution.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Single scope_literature_search call submitted literal, equivalent (normalized r / symmetric-square / exponent 1/3), and dominance (Heun Galois classification, Vidunas/Maier/Ronveaux census) queries. Fused 20 results contain only general differential-Galois books, a polynomial dihedral paper, Heun references, and unrelated records; no source states this parameter point or its Kovacic verdict. Three escalation candidates inspected at body level (DLMF 31.8, Tsvetkov 1998, MathWorld) and affirmatively excluded. One provider shard (google q2, HTTP 429) failed but remaining providers plus direct DLMF/MathWorld inspection cover the gap, so absence is not inferred from that failure.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: topic admitted either an explicit symmetric-square certificate or a nonexistence proof with Borel/finite separation, and the draft delivers exactly the second alternative. The point t=-1 with uniform 2/3 and 1/3 exponents is a natural symmetric object satisfying the Fuchs relation, not a type error, vacuity, tiny mismatch, lookup, or arbitrary slice. The headline is a rigorously established exact invariant (SL(2,C), no Liouvillian/dihedral solution) motivated before computation, not mechanically implied, and reusable as a precise Galois-group datum. Under STANDARD an exact invariant of a natural object needs no new general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fused scope_literature_search (20 results: differential-Galois monographs, Tsvetkov 1998, Heun references, DLMF-adjacent leads); no exact parameter match.",
+    "DLMF Ch.31 Heun Functions, esp. 31.8 Solutions via Quadratures: general Heun reference; quadrature family needs half-odd-integer exponents.",
+    "Tsvetkov 1998 'On an equation with dihedral Galois group' (Springer page + abstract): polynomial inverse-Galois result, not differential Heun.",
+    "MathWorld 'Heun's Differential Equation': defines general Heun equation; states no Galois/Kovacic verdict for this point.",
+    "Executed inputs/artifacts/kovacic_verdict.py and independent sympy recomputation of r, pole orders, and Kovacic degree bounds."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "No census or classification in results covers this point: DLMF 31.8/31.14 give only conditional quadrature/Kovacic criteria; books (van der Put-Singer, Magid, Crespo-Hajto, Morales-Ruiz) state general theory; google q2 shard returned HTTP 429 but openalex/crossref/openaire for q2 succeeded.",
+      "reasoning": "A broader theorem would need hypotheses (e.g. half-integer exponents) that this point satisfies or a census row with these parameters; inspected general sources impose conditions the point fails, and no census row was found, so no broader result subsumes the claim.",
+      "search": "Heun differential Galois group classification Kovacic census finite dihedral imprimitive database Vidunas Maier Ronveaux; plus direct DLMF 31.8/31.14 inspection."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior art gives only the Kovacic algorithm and conditional Liouvillian families; none computes Cases 1-3 at t=-1, gamma=delta=epsilon=2/3, alpha=1/3, beta=2/3, q=0 or states SL(2,C) there.",
+      "reasoning": "Applying the known Kovacic procedure to this previously unevaluated natural point is the new contribution; the negative verdict is not a mechanical corollary of any cited theorem since the degree obstructions (-1/3,-2,-n/3) had not been recorded for this r.",
+      "search": "Prior Kovacic/Heun quadrature theorems (DLMF 31.8, van der Put-Singer, Morales-Ruiz) compared against the submitted SL(2,C) verdict for this exact r."
+    },
+    "equivalent_formulations": {
+      "evidence": "Equivalent-form query (normalized r, symmetric square, rational logarithmic derivative, exponent differences 1/3) returned only general Galois-theory books and unrelated records; DLMF 31.8 was the nearest Heun match and its conditions were inspected and excluded.",
+      "reasoning": "Re-encoding via xi''=r xi, incidence/pole data, or symmetric-power language does not match any prior source: the specific rational function r=-2(z^2+1)^2/(9z^2(z^2-1)^2) with uniform b=-2/9 appears nowhere in the fused set or inspected bodies.",
+      "search": "xi''=r xi with r=-2(z^2+1)^2/(9z^2(z^2-1)^2), Kovacic symmetric square exponential solution rational logarithmic derivative, exponent differences 1/3."
+    },
+    "exact_database_or_table": {
+      "evidence": "Checked DLMF Ch.31 (31.2/31.8/31.14), MathWorld Heun page, and fused results for any table row with t=-1, 2/3 and 1/3 exponents, q=0; DLMF examples are m=(1,1,0,0) and (1,-2,0,0), MathWorld lists no parameter table at all.",
+      "reasoning": "No official database or table records this exact parameter tuple or its Galois group, so the claim is not a recomputation of a tabulated entry; the negative dihedral verdict had to be computed.",
+      "search": "DLMF 31, MathWorld Heun equation, and fused search results scanned for exact tuple t=-1 gamma=delta=epsilon=2/3 alpha=1/3 beta=2/3 q=0."
+    }
+  },
+  "perplexity_final_check": {
+    "base_search_overlap": 0,
+    "check_id": "6be23c9d2c87df725a8012b42e7d768e2421c7ee6e17bdc567cc6318817734c2",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full body; 31.8.1 requires beta-alpha, gamma, delta, epsilon in m+1/2, which the submitted 1/3 and 2/3 exponents fail; worked examples only m=(1,1,0,0) and (1,-2,0,0); full-text parameter search finds no t=-1, no 2/3 or 1/3 tuple, no q=0, and no SL(2,C) or dihedral verdict for this point.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "States the general Heun quadrature/Liouvillian family requiring half-odd-integer exponent parameters, while the submitted point has uniform 1/3 differences with q=0 and t=-1, so its hypotheses fail and no verdict for this point is stated.",
+        "title": "31.8 Solutions via Quadratures",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://dlmf.nist.gov/31.8"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched arXiv HTML full text and converted the 10-page pdf to text; searched for 2/3, t=-1, q=0 with zero relevant hits (sole 1/3 is an unrelated P19 polynomial example); listed HE families are HE(2,...) and HE(1/2,3/2,...) with half-integer entries, incompatible with uniform 1/3 differences; paper scope is Liouvillian pullbacks only, so a negative SL(2,C) verdict lies outside its conclusions.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Classifies only Heun equations with Liouvillian solutions arising as pullbacks from cyclic or dihedral hypergeometric equations with a continuous parameter; it never evaluates the submitted non-Liouvillian SL(2,C) point, and its HE notation explicitly leaves (t,q) undetermined.",
+        "title": "arXiv:1309.7656v1  [math.CA]  29 Sep 2013",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/1309.7656v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Duplicate draft of the same section: identical half-integer condition 31.8.1 and identical Psi examples; full-text parameter search finds no t=-1, 2/3 or 1/3 tuple, q=0, or Galois-group verdict for the submitted point.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Duplicate draft of the live DLMF quadrature section with the same half-odd-integer hypotheses and examples, hence equally inapplicable to the uniform-1/3 submitted point and stating no verdict for it.",
+        "title": "\u00a731.8 Solutions via Quadratures",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://dlmf.nist.gov/draft1/31.8"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Converted the 38-page pdf to text; zero hits for 2/3, t=-1, or q=0; body confirms Tables 1-3 skip the cyclic/dihedral types (1) and (2,2) and exclude infinite Liouvillian families realized by 48 Belyi coverings; no Kovacic Case 1-3 computation and no SL(2,C) verdict for this tuple.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Classifies 61 parametric hypergeometric-to-Heun pullbacks explicitly excluding Liouvillian cyclic/dihedral cases; the submitted Kovacic non-existence verdict for a single q=0 point is neither stated nor implied, and its HE notation leaves q unspecified.",
+        "title": "The University of Osaka Institutional Knowledge Archive : ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ir.library.osaka-u.ac.jp/repo/ouka/all/50975/ojm51_04_867.pdf"
+      },
+      {
+        "title": "DLMF: Chapter 31 Heun Functions",
+        "url": "https://dlmf.nist.gov/31",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Parent chapter index of the DLMF Heun reference whose quadrature section states only the general half-odd-integer Liouvillian family; the index itself states no parameter tuple and no Galois-group verdict for the submitted point.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched full chapter body: it contains only author credits, reference notes, and the section-title index 31.1-31.18 with no parameter values (no t=-1, no 2/3 or 1/3 tuple, no q=0), no Kovacic computation, and no dihedral or SL(2,C) verdict."
+      },
+      {
+        "title": "Chapter 31 Heun Functions",
+        "url": "https://dlmf.nist.gov/draft1/31",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Draft mirror of the same DLMF Heun chapter index, listing identical sections without any parameter instantiation; it states no Kovacic result and no verdict covering the submitted t=-1, q=0, uniform-1/3 point.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched full draft chapter body: identical section-title index 31.1-31.18 with author and reference notes only; no parameter values, no worked example matching the submitted tuple, and no Galois-group verdict."
+      }
+    ],
+    "rationale": "Terminal Perplexity search returned 20 results with zero URL overlap with the base set but thematic duplication: DLMF quadrature pages and chapter indexes, Vidunas dihedral/parametric pullback classifications, and general Kovacic/Heun references. The six plausibly covering leads (DLMF 31.8 live and draft, DLMF Chapter 31 live and draft indexes, Vidunas 1309.7656, Osaka parametric paper) were opened and inspected at body level via full-text parameter search and section/table checks; none states the exact tuple or its SL(2,C) verdict, and the Liouvillian-only scope of the pullback papers cannot cover a negative non-Liouvillian finding. No decisive prior was found, so originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body states quadrature solutions only when beta-alpha and gamma,delta,epsilon are half-integers m+1/2 (31.8.1); submitted exponents 1/3,2/3 fail this; worked examples Psi_1,2 and Psi_1,-1 use m=(1,1,0,0),(1,-2,0,0), not this point; no q=0/t=-1 verdict.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "DLMF 31.8 Solutions via Quadratures",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://dlmf.nist.gov/31.8"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Abstract/scope: polynomial in one variable for odd-order dihedral inverse Galois problem, completeness theorem, irreducibility, cubic irrationalities via Tchirnhausen; object is classical polynomial Galois theory, not a Heun differential operator, Kovacic case, or symmetric power.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "On an equation with dihedral Galois group",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1007/BF02355866"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full page gives only the general Heun equation and Fuchsian constraint plus bibliography (Heun, Ronveaux, Slavyanov-Lay); full-text parameter search finds no t=-1, no 2/3 or 1/3 tuple, no q=0, and no Galois/Kovacic/dihedral verdict.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Heun's Differential Equation - MathWorld",
+      "trigger_reasons": [
+        "SAME_OBJECT"
+      ],
+      "url": "https://mathworld.wolfram.com/HeunsDifferentialEquation.html"
+    }
+  ],
+  "verdict": "PASS"
+}
