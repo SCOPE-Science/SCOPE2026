@@ -1,0 +1,75 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "EMERGENT_FINDING genuinely arose from symmetric-first K43 witness search, so scope is legitimate. Proof fails: cyc.c, cyc_verify.c and verify_cyclic.py all use d[k]=(mask>>(k-1)) for k=2..21, so bit20 is always 0 and bit0 unused; only 2^19 distinct d-vectors are visited (direct check: 524288 distinct, d21 identically 0), not the claimed 2^20. Complement-fixing and translation-to-vertex-0 reductions are valid and C(42,4)=111930, C(43,5)=962598 are correct, and a fresh recompile reproduces the logs, but logs count loop iterations not distinct colorings; the two C programs share the identical mapping bug so agreement gives no independence. Exhaustion is therefore unproved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Normalized headline into literal, equivalent (circulant/cyclic/difference-set/Cayley on Z43), and dominance (exhaustive census/classification/database) queries in one fused search with full provider coverage. Prior Ivanov Zenodo v2 (2026-09-03) Theorem 3 states no S subset of {1..21} makes C(43,S) Ramsey(5,5;43)-valid, proved by exhaustive 1,048,575-representative check. Full-text theorem-scope comparison shows identical object, parameters, and conclusion to the submitted headline. Prior substantively covers the claim verbatim, so the submission is a recomputation; originality FAILS.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "As a bare fact, nonexistence of a cyclic K5-free coloring of K43 would be independently retrievable: circulant/difference colorings are a natural pre-motivated Ramsey construction family (Paley pattern, Exoo Cyclic(43)), the invariant was not known or mechanically implied, and pruning the symmetric subfamily constrains any future R(5,5)>=44 search. Judged separately from the unfinished general K43 census per the STANDARD exact-invariant clause, the headline clears the value threshold despite covering only 2^20 of 2^903 colorings; certification alone was not counted as value.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Submitted enumerators cyc.c, cyc_verify.c, verify_cyclic.py: identical bit-shift d[k]=(mask>>(k-1)) leaves d21=0 and bit0 unused, yielding 524288 distinct vectors not 1048576; complement and translation reductions otherwise valid",
+    "Fresh recompile and run of submitted cyc_verify.c reproduced checked=1048576 K5free_cyclic=0; combinatorial identities C(42,4)=111930, C(43,5)=962598, 2^20=1048576 verified numerically",
+    "Ge et al. arXiv:2212.12630 Study of Exoo lower bound: defines one Cyclic(43) coloring table, proves its 43 red K5s and no blue K5s; single construction, not an exhaustive cyclic census",
+    "Ivanov Zenodo DOI 10.5281/zenodo.22272633 v2 Sept 2026: exhaustive nonexistence of circulant Ramsey(5,5;42/43) colorings, Theorem 3 for K43, bitmask K5 detection, 585.6s validation run",
+    "Radziszowski Small Ramsey Numbers DS1 survey context: cyclic/circulant graphs standard for Ramsey constructions; R(5,5) bounds 43-46/48 with full K43 decision open, so no broader decision theorem covers the target"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "No broader theorem decides full K43 (R(5,5) remains open, bounds 43-48); Ivanov Theorems 1 and 3 together form an exhaustive circulant census for K42 and K43 that strictly dominates the submitted lemma at the same scope.",
+      "reasoning": "Dominance query shows no wider classification subsumes the full target, but the narrower Ivanov circulant census already exhaustively covers the submitted cyclic subfamily, so broader-coverage screening yields a covering prior rather than clearance.",
+      "search": "Stronger census query: Ramsey R(5,5) exhaustive census, classification, or database covering all K43 colorings or all circulant Ramsey(5,5;42/43) colorings"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Ivanov Theorem 3: for every S subset {1..21}, at least one of C(43,S) or its complement contains K5, checked over 1,048,575 nontrivial representatives plus analytic empty/full pair; submitted DRAFT claims every Z43 difference coloring of K43 contains monochromatic K5 over 2^20 classes.",
+      "reasoning": "Hypotheses coincide (red=C(43,S), blue=complement; cyclic distance definition identical) and conclusions coincide (no K5-free instance); prior result substantively implies the headline verbatim, so the submission is only a recomputation/certificate of a known stronger-class fact.",
+      "search": "Literal comparison of submitted headline hypotheses and conclusions against Ivanov Theorem 3 proof scope and enumeration parameters"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results confirm circulant C(n,S), cyclic difference coloring on Z43, and Cayley coloring denote the same object; Ge et al. Cyclic(43) table and Ivanov Definition 1 use identical cyclic-distance definition min(|i-j|,n-|i-j|).",
+      "reasoning": "Synonymous notation does not evade coverage: Ivanov circulant formulation is literally the submitted cyclic/difference formulation with the same parameter set {1..21}, so equivalent-formulation screening collapses to the same claim.",
+      "search": "Equivalent-formulation query: circulant Ramsey coloring Z43, Paley-type difference set, cyclic Ramsey number, Cayley graph on Z43"
+    },
+    "exact_database_or_table": {
+      "evidence": "No Radziszowski-survey table lists all 2^20 cyclic K43 outcomes; the exact parameter match is Ivanov enumeration itself: floor(43/2)=21, 2^20 complement pairs, 1,048,575 checked representatives, bitmask K5 detection on all five-sets.",
+      "reasoning": "Submitted exact parameters (n=43, 21 difference classes, 2^20 classes, K5) appear verbatim in the prior exhaustive enumeration, so the exact-database/table check confirms prior coverage rather than novelty.",
+      "search": "Exact-parameter query: K43 cyclic colorings table, 2^20 difference colorings, C(43,5)=962598 verification, Ramsey R(5,5) circulant database"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full PDF text extracted via pdftotext: Theorem 3 with identical S subset {1..21} scope, red=C(43,S) blue=complement validity criterion, and 1,048,575-representative exhaustive proof in 585.6s concurrent validation run.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Exhaustive Nonexistence of Circulant Ramsey(5,5;42/43) Colorings and Exploratory Symmetry-Constrained Search",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.5281/zenodo.22272633"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full ar5iv text inspected: analyzes the single Exoo Cyclic(43) red/blue length table, proves its 43 red K5s and absence of blue K5s; no enumeration over 2^20 colorings and no nonexistence claim for all cyclic colorings.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Study of Exoo's lower bound for Ramsey number R(5,5)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://ar5iv.labs.arxiv.org/html/2212.12630"
+    }
+  ],
+  "verdict": "REJECT"
+}
