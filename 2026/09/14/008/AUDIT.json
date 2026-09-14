@@ -1,0 +1,184 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: all three target components checked. Re-ran m4_setup (20 edges, triangle-free, 16 covers in orbits 5/5/5/1) and m4_dual (primal (3,2,4)/19 and dual (3,2,0,4)/19 both 29/19, all vertex loads exactly 1). Symmetric monomials k*a_sym verified deg 29k symb 19k for k=1,3,5,7. Saturated-cover lemma symb<=2nu verified logically (T saturated incl. zero-capacity vertices is a cover; loads sum <=2nu). Witness a0 verified: cover sums min 7 and nu=5 by solver-free DP (85 states) plus independent branch-and-bound nu=5. Lemma-1: 474 canonical half-integral edge-covers re-enumerated; 473 certs re-verified stdlib-only (loads<=x, sum>=29/38); x=1/2 by hand. Lemma-2 pseudoforest/half-integrality/rounding argument scrutinized step-by-step and odd-packing (594 sets, 0 disjoint pairs) re-verified stdlib-only. Field-independence holds (combinatorial throughout).",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Three normalized queries (literal 29/19+38/29+M4; equivalent Mycielski/Groetzsch/11-vertex/triangle-free-4-chromatic edge-ideal/symbolic-power phrasing; dominance census/classification/fractional-chromatic/database query) submitted in one scope_literature_search call with full provider coverage and no partial failure. Fused candidates screened; three decisive primary sources escalated to full text and all found NOT_COVERING at theorem scope. No prior source states or implies the M4 exact triple; nearest results are general LP method and unicyclic/r-partite families that provably exclude M4.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET audit against admitted target: exact Waldschmidt constant plus full stable-Harbourne decision plus exact resurgence for the natural extremal object (smallest triangle-free 4-chromatic graph), motivated before computation. This is an eligible exact-invariant benchmark under STANDARD: object and invariants pre-motivated, values not known or mechanically implied, future researchers can need the precise facts. It is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration; proof plus certified witnesses are provided.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bocci et al. 1508.00477 (J. Algebraic Combin. 2016): general LP/duality and fractional-chromatic formula; Sec.6 families are bipartite/perfect/cycles/complements/bipyramid only.",
+    "Gu-Ha-O'Rourke-Skelton 1805.03428: unicyclic edge-ideal decomposition, Waldschmidt (2n+1)/(n+1), resurgence (2n+2)/(2n+1); M4 (20 edges, 11 vertices) is not unicyclic.",
+    "Alilooee-Banerjee 2103.06468: r-partite Waldschmidt=r and cubic path-ideal formulas; scope excludes the M4 edge ideal.",
+    "OpenAlex fulltext query 'edge ideal + Grotzsch Mycielski': zero results; query 'fractional chromatic number Mycielski Grotzsch': only unrelated scheduling paper.",
+    "Graph-identity references (Wikipedia/Mycielskian, MathWorld Mycielski/Groetzsch graphs): confirm M4 = 11 vertices, 20 edges, triangle-free 4-chromatic; contain no ideal invariants."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bocci Sec.6 lists only bipartite/perfect/k-partite/cycles/complements/bipyramid; Gu Thm 3.4/3.6 require a unique cycle; Alilooee requires r-partite or path hypergraphs. M4 has cyclomatic number 10 and is not r-partite-path, so no broader theorem subsumes it.",
+      "reasoning": "Each broader family was compared at hypothesis level, not title level; M4 fails every hypothesis (non-unicyclic, non-bipartite, non-perfect, not a listed family), so no stronger theorem implies or covers the exact triple.",
+      "search": "Searched edge-ideal Waldschmidt/resurgence classification, census, survey and general-formula directions across SerpBase, OpenAlex, Crossref, OpenAIRE."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior exact values use different graphs/parameters: odd-cycle C5 gives 5/3 and 6/5; complete/bipartite give 2; n-bipyramid gives n/(n-2). None equals 29/19 or 38/29, and no prior derivation mechanically yields the M4 LP optimum or the 38/29 rounding bound.",
+      "reasoning": "Substantive implication test: knowing the LP method or unicyclic formulas does not produce the M4 numbers without the new cover enumeration, dual certificate, and gap lemmas; the claim is not a corollary or recomputation of a known stronger fact.",
+      "search": "Compared submitted ratios 29/19 and 38/29 against all fused prior exact Waldschmidt/resurgence values and their deriving formulas."
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text inspection of Bocci (HTML v2), Gu (ar5iv full text), Alilooee (arXiv HTML): zero Mycielski/Grotzsch/M4 content; dual/complement/incidence encodings not present as covering results (complements treated only for cycles; Alexander-dual example is K_{s,s}). OpenAlex fulltext search for edge-ideal plus Grotzsch/Mycielski returned zero works.",
+      "reasoning": "Synonymous names (Grotzsch/Groetzsch/Goetzsch, Mycielski/Mycielskian/M4, Grötzsch graph, 11-vertex triangle-free 4-chromatic) and dual/complement/matrix encodings were tested; no source under any encoding states the M4 ideal invariants.",
+      "search": "Searched Mycielski construction M4, Groetzsch/Mycielskian spellings, triangle-free 4-chromatic 11-vertex 20-edge edge ideal, symbolic powers, Waldschmidt and resurgence phrasings."
+    },
+    "exact_database_or_table": {
+      "evidence": "No database hit for the exact parameters: fused results contain no table or record with Waldschmidt 29/19 or resurgence 38/29 for M4; graph references give only (11 vertices, 20 edges, chi=4) with no ideal invariants; 474-cover enumeration and 473+1 certificates are new computation artifacts.",
+      "reasoning": "Exact-parameter lookup fails: the precise pair (29/19, 38/29) tied to the M4 edge ideal does not appear in any returned table, census, or official database entry, so this is not a known-database recomputation.",
+      "search": "Searched exact strings 29/19 and 38/29 with Grotzsch/M4/edge-ideal terms plus specialist database, thesis, and author-page directions."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "7caa7b08dfdd848adfa51b541098d64717077d6ab495c0af43769b253336255c",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full arXiv HTML v2 body inspected: Sec.3 theorems require a clique-sum of two odd cycles (Waldschmidt (2n+1)/(n+1)); Sec.4 theorems require a complete graph (Waldschmidt n/(n-1), resurgence (2n-2)/n); full-text search finds no Mycielski/Grotzsch/M4 terms and no 29/19 or 38/29 values.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same invariant family (edge-ideal symbolic powers, Waldschmidt, resurgence) but different objects: clique-sum of two unequal odd cycles and complete graphs; M4 is neither, so the M4 exact triple falls outside both theorem scopes.",
+        "title": "Invariants of the symbolic powers of edge ideals",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/1904.07717v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full thesis body via DOI alternate download (641328 bytes, pdftotext 7685 lines): TOC Ch.2 F-pure/strongly F-regular rings, Ch.3 height-2 ideals in 3 variables, Ch.4 stable Harbourne, Ch.5 symbolic Rees algebras, Ch.6 reduction mod p, Ch.7 algorithms. Full-text counts: Mycielski/Grotzsch/M4/29/19/38/29/edge-ideal/fractional-chromatic/triangle-free 0; Waldschmidt 1 (bibliography only). Antecedent chain traced: Def 4.13 defines resurgence rho(I)=sup{a/b: I^(a) not subset I^b}; Rem 4.14-4.15 give 1<=rho<=h and a/b>rho implies containment; Lemma 4.16 instantiates to (rho(I)<h) => (I^(hn-C) subset I^n for n>>0); Ex 4.18 instantiates to Fermat/Klein/Wiman point-configs with rho=3/2 (h=2) => I^(2n-2) subset I^n; Thm 4.2 instantiates to space monomial curve P with P^(4) subset P^3 => I^(2n-2) subset I^n for n>=6. Searched 'by the above proposition/with these properties/further examples' chains: all terminate at monomial curves, F-pure quotients, or named point-configs; none terminates at any graph edge ideal, M4, or 29/19/38/29 values. So no broader construction projects onto the M4 triple.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "General containment-theory dissertation (symbolic versus ordinary powers over regular rings, space monomial curve application) whose full body contains no M4 object, no edge-ideal construction, and neither exact ratio, so it cannot state or imply the submitted triple.",
+        "title": "Symbolic Powers and the Containment Problem",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://libraetd.lib.virginia.edu/downloads/8k71nh59c?filename=Elo%C3%ADsa_Grifo_2018_PhD.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Same paper as returned PDF URL; full body inspected via the same-work HTML v2 text: Thm 1.4/5.5/5.9 hypotheses require a clique-sum of bipartite graphs and odd cycles with resurgence (2n+2)/(2n+1) or (kn+k)/(kn+1); M4 is 3-vertex-connected and triangle-free so admits no such clique-sum decomposition; full-text search of that body finds no Mycielski/Grotzsch/M4 terms and no 29/19 or 38/29 values.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Nearest prior on edge-ideal resurgence with exact formulas, but restricted to clique-sums of bipartite graphs and odd cycles; M4 cannot be so decomposed, hence the scope excludes the submitted claim.",
+        "title": "On the resurgence and asymptotic resurgence of homogeneous ideals",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2106.15261"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Same work as base source_inspections[0]; THEOREM_SCOPE over full HTML body: Thm 3.2 gives the general LP, Thm 4.6 gives hat-alpha=chi*/(chi*-1) as a method requiring per-graph chi* computation, Thm 6.3 gives chi/(chi-1)<=hat-alpha<=omega/(omega-1), Thm 6.7 instantiates only (i) perfect, (ii) k-partite/complete k-partite, (iii) bipartite, (iv) odd cycle C_{2n+1}, (v) complement of odd cycle, Thm 6.10 instantiates only the n-bipyramid (n/(n-2)), Sec.7 instantiates only unions of general linear subspaces, uniform matroids, and monomial stars. Instantiated implication check: applying Thm 4.6 to M4 would require computing chi*(M4); the paper never computes chi* for M4, lists no 11-vertex/20-edge/Mycielski/Grotzsch example, and no 'by the above proposition / with these properties / further examples' chain terminates at M4; full-text search of that body for Mycielski/Grotzsch/M4/29/19/38/29 returns zero hits, confirming no hidden instantiation.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Base-search general LP/duality method paper, duplicated by the terminal check; its exact-value families never instantiate M4, so it neither states nor implies the M4 triple.",
+        "title": "[PDF] arXiv:1508.00477v2 [math.AC] 26 May 2016",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/1508.00477"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Same work as base source_inspections[1]; Thm 3.4/3.6 hypotheses require a unicyclic graph with a unique cycle C_{2n+1}; M4 has 20 edges on 11 vertices (cyclomatic number 10), so the theorem scope excludes it; no M4/Grotzsch terms in body.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Base-search unicyclic edge-ideal decomposition paper, duplicated by the terminal check; M4 with cyclomatic number 10 lies strictly outside the unique-cycle hypothesis.",
+        "title": "Symbolic powers of edge ideals of graphs",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "http://arxiv.org/abs/1805.03428"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Journal version of the same unicyclic work as the arXiv record above; scope resolved via full-body inspection of the identical arXiv text (Thm 3.4/3.6 unique-cycle C_{2n+1} hypotheses that exclude M4 with 20 edges on 11 vertices); no M4/Grotzsch terms in that body.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Journal version of the same unicyclic paper duplicated by the terminal check; identical scope exclusion applies to M4, adding no incremental recall.",
+        "title": "Symbolic powers of edge ideals of graphs",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.tandfonline.com/doi/full/10.1080/00927872.2020.1745221"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full ar5iv body inspected: main Thm 3.7 is a general min-inner-product duality formula for ic-resurgence requiring explicit vertex computation; corollaries cover perfect graphs and uniform matroids and examples use a 7-vertex odd antihole; no Mycielski/Grotzsch/M4 object and no 29/19 or 38/29 parameters anywhere in the body.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "General ic-resurgence duality formula for clutters with perfect-graph and matroid corollaries; it states no M4 instantiation and computes no 29/19 or 38/29 values, so it does not cover the claim.",
+        "title": "A duality theorem for the ic-resurgence of edge ideals",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/2203.01268"
+      }
+    ],
+    "rationale": "The terminal Perplexity check returned 20 results: 17 non-overlapping and 3 duplicates of base sources. Full bodies were opened for every incremental same-family original paper (1904 two-odd-cycle clique-sum and complete-graph exact values; 2106 clique-sum resurgence formulas; 2203 ic-resurgence duality): each scope-excludes M4 at theorem level and none mentions Mycielski/Grotzsch/M4 or the 29/19 and 38/29 parameters. The one mandatory dissertation (Grifo 2018) was obtained in full via the DOI alternate download (641328 bytes, 7685 text lines) and full-text searched: zero hits for Mycielski/Grotzsch/M4/29/19/38/29/edge-ideal, confirming no M4 content. Remaining hits concern different invariants (depth, regularity), general surveys and meeting abstracts, a MaRDI duplicate record, or an opaque semanticscholar link with an empty snippet and no parameter or dissertation signal. No decisive prior was found, so originality PASS and the full PASS verdict are preserved unchanged.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full HTML body Sec.6 covers only bipartite/perfect/k-partite/cycles/complements/bipyramid; full-text search finds no Mycielski/Grotzsch/M4 terms and no 29/19 or 38/29 values.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "The Waldschmidt constant for squarefree monomial ideals",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/html/1508.00477v2"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full ar5iv body: Thm 3.4/3.6 hypotheses require unicyclic graph with unique cycle C_{2n+1}; M4 has 20 edges on 11 vertices (cyclomatic number 10), so theorem scope excludes it; no M4/Grotzsch terms in body.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Symbolic powers of edge ideals of graphs",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://ar5iv.labs.arxiv.org/html/1805.03428"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full arXiv HTML body: main results are r-partite Waldschmidt=r criterion, bad-hypergraph I^(2)=I^2 criterion, and cycle path-ideal formula; no Mycielski/Grotzsch/M4 object and no 29/19 or 38/29 parameters.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Symbolic powers of multipartite hypergraphs and Waldschmidt constant",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/html/2103.06468v1"
+    }
+  ],
+  "verdict": "PASS"
+}
