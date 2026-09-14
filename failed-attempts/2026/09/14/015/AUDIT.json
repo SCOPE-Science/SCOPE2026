@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed recovery_test_v2.py and rescue_v4.py: slopes 1.000 iff q|k else ~2.00 (q=4) / ~3.00 (q=6), k=10 R4/e^2=2.828427 stable, corrected R4(2e-3) 1.13e-5->2.8e-12 with slope ~3.9, q6 slope ~3.00 unchanged. First-variation divisor argument is sound. Convexity h+h''>0 holds at tested e. Corrected residual lies far below C*e^3 so O(e^3) upper bound holds even though smallest-e values sit near discretization/noise floor. Frozen-vs-pinned limitation and discarded pinned numerics are stated honestly; no exact caustic is claimed. EMERGENT_FINDING genuinely derives from target linearization.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 3-direction search retrieved the nearest exact-caustic rigidity line (Bialy-Mironov 2022, Kaloshin-Sorrentino 2018, Huang-Kaloshin-Sorrentino 2018, Kaloshin-Koudjinan-Zhang 2024, Koval). Their hypotheses require exact rational caustics/foliations and prove ellipseness, strictly stronger than finite-order frozen-diagnostic flattening, so they neither record h*=1+e*cos10t-(e^2/4)*cos20t nor imply its coefficient -1/4. First-order q|k rule overlaps the known linear Ramirez-Ros preservation condition, but the explicit second-order frozen joint rescue and divisor-class decoupling for the proxy functional are not in any retrieved source, table, or database.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Headline is finite-order flattening of the frozen equal-spaced q-gon range, explicitly necessary but not sufficient for a true smooth rational caustic (needs pinned-minimal perimeter, reflection law, smoothness, all-orders convergence). It is neither a rigidity proof nor a certified coexistence table. The q|k rule restates standard linear theory; the -1/4 coefficient is a fitted proxy parameter for modes 20/40 vs 30/60 at k=10 with only a numerically tiny proxy-residual improvement and no demonstrated downstream use for true 1/4+1/6 caustics. Under STANDARD this is a textbook restatement plus parameter fit on an artificial object, not an independently retrievable exact invariant of a natural object.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/recovery_test_v2.py: reproduced slope table (1.000 iff q|k; 2.0/3.0 otherwise), joint even survivors [2,10,14], k10 R4/e^2=2.828427.",
+    "Re-ran inputs/artifacts/rescue_v4.py: reproduced R4c slope 3.918 with R4(2e-3)=2.83e-12, q6 slope 3.0002 unchanged; q4 residual harmonics at noise floor.",
+    "Read rescue_v3.py/results_v3.json, perturb_analysis.py, results.json: confirms grid optimum (a,c)=(-0.25,0), v3 q6 slope anomaly from injecting b, discarded pinned-minimizer attempt.",
+    "scope_literature_search 3-direction fusion (20 results, full provider coverage, partial=false): nearest line is exact-caustic rigidity, no frozen second-order flattener record.",
+    "Fetched Kaloshin-Koudjinan-Zhang 2024 GAFA body (Thm 2: exact 3-caustic + 4-rational integrability near central symmetry => ellipse) and Bialy-Mironov 2022 Annals abstract (C0 foliation between 4-periodic curve and boundary => ellipse).",
+    "Fetched snippets: Huang-Kaloshin-Sorrentino Thm 2.1 (Ramirez-Ros linear Fourier condition) and Koval linear caustic-preservation formula (1.2); used for first-order overlap assessment."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bialy-Mironov 2022: C0 foliation between 4-periodic invariant curve and boundary => ellipse; KKZ 2024 Thm 2: exact 3-caustic plus exact 4-rational integrability near central symmetry => ellipse; KS18/HKS18: exact q0-rational weak integrability near circle/ellipse => ellipse.",
+      "reasoning": "All broader results assume exact caustics/foliations with true reflection law at all orders. The submission assumes only finite-order vanishing of a frozen equal-spaced proxy through O(e^2). Stronger exact hypotheses do not exhaustively cover or imply the proxy coefficient; no completed census of frozen residuals exists.",
+      "search": "Searched coexistence of two exact rational caustics implying ellipse, Bialy-Mironov classification, nearly centrally symmetric integrable billiard census, and official databases."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior linear theory determines only first-order vanishing (modes divisible by q); the O(e^2) frozen-profile matching with modes 20/40 and coefficient -1/4 was found by in-session grid search (R4 1.13e-5->2.8e-12) and confirmed by re-execution, not quoted from prior.",
+      "reasoning": "Linear prior does not determine the second-order proxy coefficient and does not predict joint non-interference at orders 2-3 for the frozen functional; the rescue is not a corollary, certificate, or recomputation of a known stronger exact fact.",
+      "search": "Searched whether linear caustic-preservation theorems or Bialy-Mironov integral identities determine explicit second-order frozen correction -1/4 for k=10."
+    },
+    "equivalent_formulations": {
+      "evidence": "Huang-Kaloshin-Sorrentino Thm 2.1 (Ramirez-Ros): exact 1/q caustic preservation gives linear Fourier conditions; Koval: preservation formula linear over deformation; KKZ body confirms this linear framework. No source records frozen equal-spaced perimeter range, modes 10/20/40, or coefficient -1/4.",
+      "reasoning": "First-order q|k selection rule coincides with the known linear condition for true caustics (standard), but the headline's novel part is the second-order frozen-proxy rescue, which uses a different functional than the pinned-minimal criterion and is therefore not the same statement in synonymous notation or dual encoding.",
+      "search": "Searched linearized rational-caustic preservation Fourier vanishing q-divides-k, support-function deformation, isospectral and dual/projective billiard encodings."
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused results contain only general rigidity theorems and surveys; no parameter table, census, or specialist database entry records frozen 4-gon/6-gon ranges, joint survivor k=10, or correction (a,c)=(-1/4,0).",
+      "reasoning": "The exact proxy parameter h*=1+e*cos(10t)-(e^2/4)*cos(20t) does not appear in any table or database; the claim is not a direct lookup or arbitrary-slice recomputation of a tabulated fact.",
+      "search": "Searched exact parameter tables and databases for support-function modes cos(10t)/cos(20t), frozen q-gon ranges, and second-order flattener coefficients."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Abstract theorem scope: requires C0 foliation of phase region between 4-periodic invariant curve and boundary (or foliation by caustics with rotation numbers in (0,1/4]) and concludes exact ellipse. Headline claims only O(e^3) frozen-proxy residual for one near-circle family; hypotheses and conclusions are disjoint and no proxy coefficient is stated.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Bialy-Mironov 2022: Birkhoff-Poritsky for centrally-symmetric tables",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://annals.math.princeton.edu/2022/196-1/p02"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Fetched body Thm 2: exact 3-rationally-integrable caustic plus exact 4-rational integrability/C0-integrability near a centrally symmetric domain forces an ellipse; Sec 2-3 use Bialy-Mironov generating function and 4-loop analysis for exact orbits. Scanned sections show only exact-caustic analysis with no frozen equal-spaced diagnostic, no mode-10/20/40 computation, and no -1/4 coefficient.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Kaloshin-Koudjinan-Zhang 2024: Birkhoff for nearly centrally symmetric domains",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://link.springer.com/article/10.1007/s00039-024-00695-6"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Ramirez-Ros/Huang-Kaloshin-Sorrentino linear condition and Koval linear preservation formula govern first-order Fourier vanishing for true rational caustics; this matches the q|k rule but the cited scope stops at linear order for exact caustics and contains no second-order frozen-profile matching, no joint 1/4+1/6 proxy decoupling, and no -1/4 rescue coefficient.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Kaloshin-Sorrentino 2018 / Huang-Kaloshin-Sorrentino 2018 local Birkhoff line",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v188-n1-p06-p.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
