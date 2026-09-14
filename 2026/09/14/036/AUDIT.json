@@ -1,0 +1,305 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route. VE1/VE2 coefficients re-derived and re-executed in sympy: NVE1 y1''=0, NVE2 y2''+3a x0^3 y1^2=0, tangent L=D^2+5x0^4. Factorization L=(D+b)(D-b) with b=x0''/x0' in K verified using w''=-5x0^4 w, so VE1 reducible and VE2 is integrals-only tower, hence G2^0 solvable: part (A) proved. Heisenberg commutator N1N2-N2N1 central entry U1T2-U2T1 verified entry-by-entry. Period-rank lemma proved by 2P v'+P'v=2R impossibility with polynomial leading term -2b(d/3+1), generic-pole -2mp0c, branch-pole 2p1c(1/2-m), all re-executed, plus independent tau eigenvalue check and nonzero numeric det -4.991-2.882i at h=1/2 as corroboration. MRS applied as black box from non-abelian G2^0 to meromorphic non-integrability for all a!=0. Presentation defects: DRAFT says genus 4 and holomorphic omega3; correct genus is 2 and x^3dx/w is meromorphic with vanishing residues, corrected in RESULT.md without affecting rank argument. Remark calling a^2=1 integrable conflicts with proof covering all a!=0, but harmless for admissible a. Literal ADMISSION_DEFECT in target wording ('non-solvable' demanded where solvable extension is necessary) does not defeat proof; true obstruction is non-abelian.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "One scope_literature_search with literal, equivalent/dual, and dominance queries returned 20 fused results with full provider coverage and no partial failure. Three decisive primary sources fetched in full: MRS 2007 general higher-VE theorem, Morales-Ramis 2001 homogeneous-potential table, AGK 2018 quartic study. Full-text parameter searches for x^6, sextic, Heisenberg, x^3y^3 found no H6 object; theorem-scope comparison shows none states or implies the H6 second-VE Heisenberg result. First-order data here is (k=6,lambda=0), an integrable Kimura case, so prior first-order tables do not imply the claim; obstruction genuinely requires order two. No table, census, or database entry for H6=x^6/6+y^6/6+a x^3y^3 was found. Hence headline is new and not a recomputation or corollary of a stronger recorded fact.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET audit: result completely answers admitted question for all admissible a (a^2 not in {0,1}) by proving meromorphic non-integrability via non-abelian G2^0, while correcting literal 'non-solvable' wording (ADMISSION_DEFECT in wording only, not a cheap vacuity/type-error resolution). Object and invariant were motivated before computation, exact Heisenberg non-abelianity was unknown and not mechanically implied since first order passes, and future researchers can reuse the precise obstruction. It is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. Narrow exact invariant of a natural Hamiltonian family is independently retrievable under STANDARD without requiring a new general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "MRS 2007 Ann. Sci. ENS 40:845-884 (numdam PDF, 40pp): general higher-VE commutativity criterion; method black box, examples cubic only.",
+    "Morales-Ramis 2001 MAA 8:113-120 (intlpress PDF, 8pp): first-order homogeneous-potential Kimura table Theorem 3 plus collinear and Umeno examples.",
+    "Acosta-Humanez et al. AGK quartic 2018 arXiv:1710.00227 (19pp): quartic Vmin+Vmax analysis, Theorem 9 integrable cases b=0,2a,-a; Bostan algorithm to degree 9 discussed but no H6 record.",
+    "Fused literature search 3 queries x 4 providers (20 results, no partial failure): no sextic H6 x^3y^3 second-VE record; nearest hits are quartic/cubic/degree-minus-1 classifications.",
+    "Re-executed inputs/artifacts/verify_ve.py and periods.py: VE coefficients, factorization, commutator, pole coefficients, and period det magnitude ~5.76 confirmed."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "MRS 2007 proves only a general necessary condition with cubic illustrations; Morales-Ramis 2001 proves a first-order table; AGK/Bostan discuss homogeneous potentials up to degree 9 as a method, with no computed H6 x^3y^3 entry found in full texts or fused results.",
+      "reasoning": "A broader theorem covers the claim only if its hypotheses instantiated to H6/Gamma imply non-abelian G2^0. The general MRS criterion does not decide any specific potential by itself, and no broader sextic classification or census was found that already decides this family; the H6 obstruction still required the new period-rank computation.",
+      "search": "classification integrable homogeneous sextic potentials Morales-Ramis census database homogeneous degree 6 non-integrability theorem"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Morales-Ramis 2001 Theorem 3 body: first-order admissible pairs include case (1) lambda=p+p(p-1)k/2; for k=6, lambda=0 corresponds to p=0, hence integrable at order one. Full-text searches in MRS 2007 and AGK for x^6, sextic, and x^3y^3 returned no match.",
+      "reasoning": "Prior first-order work does not imply the headline; it implies the opposite at order one (no obstruction), so the second-order Heisenberg non-abelianity is not a corollary or repackaging but a new order-two obstruction that first-order theory misses.",
+      "search": "Morales-Ramis second normal variational equation Heisenberg non-abelian monodromy homogeneous degree 6 genus-2 curve w^2=2h-x^6/3"
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text searches for synonymous encodings (sextic, x^6, degree 6, Heisenberg, x^3y^3) in all three fetched PDFs returned no H6 match; MRS 2007 contains only cubic potentials V=ax1^3+x1^2x2+cx2^3 and Henon-Heiles, MR 2001 contains collinear and Umeno families, AGK contains quartic potential only.",
+      "reasoning": "No dual, complement, incidence, matrix, Darboux-point, Yoshida-coefficient, or degree-6 renaming was found that restates the same H6 second-VE Heisenberg claim; the specific coupling a x^3y^3 with straight-line Gamma y=0 does not appear under another notation in the inspected bodies.",
+      "search": "sextic Hamiltonian H6 x^6 y^6 a x^3 y^3 second variational equation Morales-Ramis-Simo straight-line solution y=0"
+    },
+    "exact_database_or_table": {
+      "evidence": "No exact H6 parameter record found in fused results, OpenAlex/Crossref/OpenAIRE metadata, or the three full-text bodies; Bostan-style tables are per-potential computations, and the only exact tables inspected list quartic AGK cases and Kimura/Schwarz families without an H6 x^3y^3 line.",
+      "reasoning": "The claim is not a direct lookup or recomputation of a tabulated value: the precise fact (solvable but Heisenberg non-abelian G2^0 for H6 along y=0, period det nonzero) has no identified database row, and certification scripts corroborate rather than create value.",
+      "search": "Bostan Morales-Ramis integrability table homogeneous potentials degree 6 Darboux points eigenvalue database x^6 y^6 coupling"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body-level theorem-scope comparison plus full-text parameter searches for x^6, sextic, Heisenberg, x^3y^3 with zero matches; paper proves general Gk^0-commutativity criterion illustrated only by cubic/Henon-Heiles cases, and states no H6 family result.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Integrability of Hamiltonian systems and differential Galois groups of higher variational equations",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://www.numdam.org/item/10.1016/j.ansens.2007.09.002.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Inspected Theorem 3 table and both examples in body: collinear three-body and Umeno (n,r,s) families only; no degree-6 two-degree potential with x^3y^3 coupling; H6 first-order datum (k=6,lambda=0) falls in integrable case (1) p=0, so this source cannot imply order-two non-integrability.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "A note on the non-integrability of some Hamiltonian systems with a homogeneous potential",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/maa/2001/0008/0001/MAA-2001-0008-0001-a005.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body sections and Theorem 9 inspected: object is quartic mu/a/b potential with integrable cases b=0,2a,-a; full-text search for sextic returned zero matches; degree-9 Bostan algorithm is described as a method for quartic Darboux points, with no computed H6 entry.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Nonintegrability of the Armbruster--Guckenheimer--Kim Quartic Hamiltonian Through Morales--Ramis Theory",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1137/16m1080689"
+    }
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "dada1d4ece781a39721cf4d06a12f9322f0e7f2f8a9fe49f9695463e89ea9e5d",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Computing necessary integrability conditions",
+        "url": "https://www-polsys.lip6.fr/~safey/Articles/BoCoSa14.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General first-order Morales-Ramis necessary-condition algorithm for planar parametrized homogeneous potentials; its degree-6 eigenvalue-candidate row {0,30},{48,5/2} (Bostan normalization, trivial eigenvalue 30) is a broader-coverage lead for the k=6 H6 family, but the paper never writes the H6 potential x^6/6+y^6/6+a x^3y^3, never computes any second variational equation, and never evaluates the axis Darboux point used by the headline.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched ar5iv full body of the ISSAC14 paper (same paper as rank 7): first-order Morales-Ramis table, Diophantine eigenvalue relation, and candidate eigenvalue sets per degree including k=6 row {0,30},{48,5/2}; full-text parameter scan for sextic/x^6/x^3y^3/H6/Heisenberg/second-variational returned no H6 object; degree-6 sentence states only that remaining cases are already known, singular, or Darboux-free, with no H6 instantiation and no order-2 computation along Gamma."
+      },
+      {
+        "title": "Combot_These.pdf",
+        "url": "https://www.imcce.fr/content/medias/publications/publications-recherche/theses-habilitations/docs/Combot_These.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Doctoral dissertation on higher variational equations for homogeneous potentials (mandatory dissertation escalation); its order-2/3 machinery concerns degree -1 potentials, n-body central configurations, and E1-E4 families, while the H6 sextic coupling a x^3y^3, the curve w^2=2h-x^6/3, and the Heisenberg period-rank lemma do not occur in its text.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "DISSERTATION",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded 3MB thesis PDF via proxy and extracted full text (506KB): full-text searches for Heisenberg (0 hits), sextic/x^6/H6/x^3y^3/q1^6 (0 hits), degree-6/sextique (only unrelated degree-3/4/-1 discussion); order-2 chapters concern degree -1 and n-body problems; the one potential integrable-at-order-2-near-all-Darboux-points example is a (1-cos)^n flat family, not H6; no antecedent proposition instantiates to H6/Gamma."
+      },
+      {
+        "title": "Higher variational equation techniques for the integrability of homogeneous potentials",
+        "url": "https://ube.hal.science/hal-01514112/document",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same-method-family survey/method paper on higher variational equations for homogeneous potentials (overlaps base search); its worked content covers Kepler/parabola/circle examples, degree -1 eigenvalue sets {2,5,44}, and collinear n-body eigenvalue bounds, with no sextic H6 potential and no second-VE Heisenberg computation along y=0.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded HAL PDF via proxy and extracted text: parameter scan for sextic/x^6/degree-6/x^3y^3/Heisenberg found no H6 match; inspected sections show 2D worked example with arcsin monodromy, first-order table Theorems 3.2-3.3, order-m series method Proposition 4.1, and n-body Theorems 4.5-4.6; no example states or implies the H6 NVE2 non-abelianity."
+      },
+      {
+        "title": "Computing necessary integrability conditions for planar parametrized homogeneous potentials",
+        "url": "https://ar5iv.labs.arxiv.org/html/1405.5342",
+        "base_search_overlap": false,
+        "relationship_to_claim": "ar5iv full-text version of the same Bostan-Combot-Safey ISSAC14 paper as rank 1; same relationship: first-order degree-6 candidate table only, no H6 potential and no second variational equation along the straight-line orbit y=0.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Fetched ar5iv HTML body (570KB) and scanned stripped text: degree-6 context sentence and eigenvalue-timing table row k=6 verified in body; scans for sextic/H6/x^3y^3/Heisenberg/second-variational returned no H6 object; the paper's order-2 content is absent (first-order Diophantine method plus collinear-three-body application), so no antecedent implies the headline."
+      },
+      {
+        "title": "Jordan obstruction to the integrability of Hamiltonian systems with homogeneous potentials",
+        "url": "https://www.numdam.org/item/10.5802/aif.2510.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General first-order-plus-Jordan-block obstruction theory for homogeneous potentials (Duval-Maciejewski AIF 2009); proves non-abelian/solvable criteria for Jordan blocks of size >=2/3 at a proper Darboux point, but treats no sextic example and never forms the H6 second variational system, so its theorems do not instantiate to the Gamma NVE2 Heisenberg claim.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Downloaded numdam PDF via proxy and extracted text (142KB): theorems state Jordan-block criteria (Theorems 1.2-1.3, 3.1) for general k; parameter scan for sextic/x^6/degree-6/Heisenberg empty; H6 Hessian at axis Darboux point is diagonalizable with eigenvalues {30,0}, so the Jordan-block hypotheses do not even engage, and no section/table/example computes H6 VE2."
+      },
+      {
+        "title": "Meromorphically integrable homogeneous potentials with multiple Darboux points",
+        "url": "https://ar5iv.labs.arxiv.org/html/1301.6621",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Classification of integrable potentials with a multiple Darboux point (rotation-invariant case) plus general first-order table; H6 at generic admissible a has simple/isolated Darboux points (24 computed solutions with distinct orbits), so the multiple-Darboux-point hypothesis does not hold for the headline family and the paper names no H6 example.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Fetched ar5iv HTML body: Theorem 1 forces rotation-invariant V=a(q1^2+q2^2)^{k/2} under a multiple Darboux point; H6 with a!=0 is not rotation-invariant and its Darboux-point computation shows distinct simple points; body contains no sextic H6, no x^3y^3 coupling, and no second-VE analysis, so no theorem/example implies the claim."
+      },
+      {
+        "title": "Integrability conditions for homogeneous potentials Third order",
+        "url": "http://www.koutschan.de/publ/CombotKoutschan12/Thirdorder3.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Order-3 integrability analysis restricted to degree -1 potentials (Combot-Koutschan JMP 2012) with families E1-E4 and eigenvalue sets around -1; different degree class and different variational order from the submitted degree-6 order-2 Heisenberg result, and no H6 family appears.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded PDF via proxy and extracted text (106KB): Theorem 5 families E1-E4 and Theorem 10 are all degree -1 polar forms r^{-1}(...); scans for sextic/x^6/degree-6/x^3y^3 empty; inspected sections confirm the only variational computations are order-3 at degree -1, which cannot imply a degree-6 NVE2 commutator."
+      },
+      {
+        "title": "arXiv:1205.4395v1 [nlin.SI] 20 May 2012",
+        "url": "https://arxiv.org/pdf/1205.4395v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General Darboux-point/first-order-table analysis for homogeneous rational potentials (Studziinski-Przybylska) with Jordan-block extensions and negative-degree examples; states no degree-6 H6 result and performs no second variational computation, so it cannot imply the order-2 Heisenberg non-abelianity along Gamma.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Fetched ar5iv HTML body (811KB stripped to 122KB text): Theorems 1.1/1.3 are first-order eigenvalue-table plus Jordan criteria; full-text scans for sextic/degree-6/Heisenberg/second-variational/order-2/collinear all empty; worked examples are negative-degree families (k=-3,-4 etc.), none with x^6/y^6/x^3y^3 structure."
+      },
+      {
+        "title": "arXiv:0903.5069v1 [nlin.SI] 29 Mar 2009",
+        "url": "https://arxiv.org/pdf/0903.5069v1",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nongeneric-case classification for homogeneous polynomial potentials of degree k>2 in n>=3 variables (Przybylska); H6 is a two-degree-of-freedom (planar) family, outside the paper's n>2 scope, and the paper's residue-relation analysis never mentions a sextic x^3y^3 coupling or any second variational monodromy.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded arxiv PDF via proxy and extracted text (165KB): abstract and sections confirm nongeneric n>=3 classification with universal eigenvalue relations and n=k=3 worked analysis; scans for sextic/x^6/degree-6/Heisenberg/x^3y^3 empty; planar H6 with straight-line Gamma y=0 is outside the treated object class and no example implies it."
+      },
+      {
+        "title": "[PDF] UNIVERSIDADE DE SAO PAULO - USP",
+        "url": "https://web2.icmc.usp.br/SCATUSU/RT/Serie_Matematica/BIBLIOTECA_158_Nota%20Serie%20Mat%20415.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Polynomial-integrability note for homogeneous potentials of degree -K (Oliveira-Valls ICMC 415); treats negative-degree polynomial first-integral obstructions with low-degree tables, a disjoint degree class from the submitted degree +6 Hamiltonian, and contains no second-VE Galois computation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded PDF via proxy and extracted text (34KB): head confirms degree -K subject; scans for sextic/degree-6/Heisenberg/order-2/second empty; inspected proposition/lemma tables list low-degree potentials only, with no x^6/y^6/x^3y^3 entry and no variational-Galois section that could imply the headline."
+      },
+      {
+        "title": "1 Introduction",
+        "url": "https://ar5iv.labs.arxiv.org/html/0903.5063",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Companion/first-part Darboux-point paper for homogeneous polynomial potentials of degree k>2 (Maciejewski-Przybylska 0903.5063 ar5iv); general first-order eigenvalue theory with concluding remarks on higher variational equations as future global analysis, but no computed sextic example and no H6 second-VE result.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Fetched ar5iv HTML body (1.5MB, 271KB text): full-text scans for sextic/degree-6/Heisenberg/second-variational/order-2/order-3/collinear empty; higher-variational mentions are methodological remarks (logarithmic-term criterion, open questions on global Galois groups and eigenvalue relations), never instantiated to H6/Gamma, so no covering implication exists."
+      },
+      {
+        "title": "Integrable planar homogeneous potentials of degree",
+        "url": "https://www.numdam.org/article/AIF_2016__66_6_2253_0.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Numdam PDF version of Combot's degree -1 classification article (same paper as the arXiv preprint and item-mirror results); its main theorems classify meromorphically integrable homogeneous potentials of degree -1 with small eigenvalues {-1,0,2}, a disjoint degree class from the submitted degree +6 sextic H6 family, and it performs no second-variational Heisenberg computation along Gamma.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded numdam PDF via proxy (801KB) and extracted full text (125KB): Theorems A/B inspected in body and confirmed to classify only degree -1 potentials (Theorem A: V=a/r; Theorem B: a/q1+b/q2-type families); full-text scans for sextic/x^6/Heisenberg/x^3y^3/H6/degree-6/w^2 returned zero hits; the 16 order-2 hits are generic higher-VE method discussion and the single straight-line mention is generic; no section, table, or example writes the H6 potential or computes its NVE2 monodromy."
+      },
+      {
+        "title": "Integrable planar homogeneous potentials of degree -1 with small eigenvalues",
+        "url": "https://www.numdam.org/item/10.5802/aif.3063.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Numdam item-mirror PDF of Combot's degree -1 classification article (byte-identical to the inspected article PDF, md5 792449e89ef8bd5e4c9eed2af5265f4c); same degree -1 Theorems A/B classifying V=a/r-type families, disjoint from the degree +6 H6 claim, with no H6 second-VE computation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded item-mirror PDF via proxy (801KB) and verified byte-identical md5 with the inspected article PDF; extracted-text head confirms the same degree -1 abstract and Theorems A/B scope; the same zero-hit scans for sextic/x^6/Heisenberg/x^3y^3/H6/degree-6 apply to this identical body, so no section, table, or example covers H6/Gamma."
+      },
+      {
+        "title": "[PDF] Integrable homogeneous potentials of degree - arXiv.org",
+        "url": "https://arxiv.org/pdf/1110.6130",
+        "base_search_overlap": false,
+        "relationship_to_claim": "arXiv preprint version of Combot's degree -1 classification article (same paper as the inspected numdam PDF, 40 pages); its theorems classify integrable degree -1 potentials with small eigenvalues, a disjoint degree class from the submitted sextic H6 result, with no Heisenberg NVE2 analysis along y=0.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded arXiv PDF via proxy (390KB, 40 pages) and confirmed the same degree -1 classification paper by head/abstract inspection; no sextic H6 potential, x^3y^3 coupling, curve w^2=2h-x^6/3, or NVE2 commutator occurs, consistent with the zero-hit parameter scans on the identical published body; no antecedent implies the headline."
+      },
+      {
+        "title": "Integrable planar homogeneous potentials of degree",
+        "url": "https://aif.centre-mersenne.org/item/AIF_2016__66_6_2253_0/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Centre-mersenne landing page for Combot's degree -1 classification article (links to the same byte-identical PDF, md5 792449e89ef8bd5e4c9eed2af5265f4c, already inspected); page title confirms degree -1 scope, disjoint from the degree +6 H6 claim, with no H6 or second-VE content.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Opened landing page via proxy (60KB HTML): title confirms degree -1 article; its only PDF link resolves to the byte-identical inspected PDF (md5 match verified after download); the same zero-hit parameter scans and Theorems A/B section evidence therefore apply, so no table or example covers H6/Gamma."
+      },
+      {
+        "title": "Integrable planar homogeneous potentials of degree",
+        "url": "https://aif.centre-mersenne.org/articles/10.5802/aif.3063/",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Centre-mersenne article page for Combot's degree -1 classification article (same landing content and same byte-identical PDF as above); degree -1 scope only, with no sextic H6 potential and no NVE2 Heisenberg computation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Opened article page via proxy (60KB HTML, byte-identical page to the item page): same degree -1 title and same PDF link to the inspected identical body; identical zero-hit scans and Theorems A/B evidence apply, so nothing covers the headline."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check returned 20 candidates (3 overlapping base). All plausibly-covering leads were body-inspected via proxy. This repair adds the flagged numdam article PDF (rank 4, Combot degree -1 classification) plus its byte-identical mirrors (ranks 5 preprint, 8/10 landing pages, 12 item PDF, all md5 792449e89ef8bd5e4c9eed2af5265f4c): Theorems A/B classify only degree -1 potentials (V=a/r-type families), a disjoint degree class from degree +6 H6, with zero hits for sextic/x^6/Heisenberg/x^3y^3/H6/degree-6 and no NVE2 computation, so no coverage. Bostan ISSAC14 degree-6 rows ({0,30},{48,5/2}) are first-order necessary-condition candidates that never instantiate H6 (no x^3y^3 coupling, no order-2 Gamma computation) and cannot imply the order-2 commutator, especially since H6 passes first order at Gamma (lambda=0, Kimura case 1). Excluded as non-material after literal comparison: two dead Rennes URLs (verified HTTP 404 HTML, no PDF body, generic-theory titles with no H6 snippet params), the scribd general-theory book mirror (inaccessible body, no H6 tie), and the two-line Equadiff conference abstract (n-body talk, no H6/degree-6/Heisenberg content). No decisive prior found; provisional originality PASS preserved, verdict unchanged."
+  }
+}
