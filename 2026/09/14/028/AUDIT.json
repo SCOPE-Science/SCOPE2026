@@ -1,0 +1,333 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: claim is the admitted target itself. I re-executed the memoized misere recursion independently and reproduced P=[2,3,4,10,11,12,18,24,25,26,32,33,34] exactly; verified every certificate.json entry option-by-option (P positions: all distinct options N; N positions: cited winning move lands on a P-sum); ran bottom-up DP over all 99133 multisets totaling <=36 pins with identical singles P-set; checked move arithmetic L+R+removed==n for every (n,k) and the misere terminal convention (0,1 terminal -> N). Three-way agreement plus arithmetic check leaves no essential inference unverified.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Nearest priors found by fused search were escalated to full text: Plambeck-Siegel misere-quotient analysis of 0.07 reaches heap size 33 only and omits the presentation as too messy (no explicit singles census); Ferguson unpublished reaches heap 24 only; Plambeck 1992 covers Kayles/Daisies and period-two octals, not Dawson's Kayles (period 34); Flammenkamp database is normal-play Grundy values only; OEIS exact-sequence search returned no results; computed normal-play P-set {0,1,7,13,23,31,33} differs sharply from the misere set, ruling out mechanical implication. The explicit certified census to n=36, including new values at 34/35/36, is not recorded or implied by any inspected prior.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Complete TARGET census over the admitted scope 0<=n<=36 for a natural, pre-motivated object: misere Dawson's Kayles (octal 0.07), first cousin of Dawson's Chess whose misere analysis resisted solution for 70+ years. The exact singles P-set was not known or in any database, extends the prior partial frontiers (heap 24 Ferguson, heap 33 Plambeck-Siegel) with machine-checkable per-n certificates, and is the precise boundary datum a future researcher in misere octal games would need to retrieve. It is neither a textbook restatement, parameter substitution, tiny unmotivated gain, nor unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Independent re-execution: memoized misere recursion reproduced P=[2,3,4,10,11,12,18,24,25,26,32,33,34]; option-by-option certificate verification and bottom-up DP over all 99133 partitions totaling <=36 pins agree identically.",
+    "Plambeck-Siegel 'Misere Quotients for Impartial Games' full text (arxiv math/0609825): Dawson's Kayles section states misere analysis of 0.07 extended only to heap size 33 with partial quotient order 638, presentation omitted as too messy.",
+    "Plambeck-Siegel Supplementary Material full text (arxiv 0705.2404): status chart marks .07 misere unsolved; detailed quotient figures cover only 0.115/0.152/0.77/0.26/4.7, no 0.07 pretending function.",
+    "Plambeck 1992 'Daisies, Kayles, and the Sibert-Conway decomposition' full text: solves misere Kayles (0.77), Daisies (4.7), and period-two-nim-sequence octals; Dawson's Kayles (period 34) outside its theorem scope.",
+    "Flammenkamp octal-games database page plus OEIS exact-sequence searches (claimed P-sequence and 'Dawson Kayles misere'): normal-play Grundy tables only, no misere singles census; OEIS returned no results.",
+    "Retrieval caveat recorded: scope_literature_search reported partial=true (Google provider failed on the third query after internal retries); OpenAlex/Crossref/OpenAIRE succeeded on all three queries and every decisive lead was escalated to full text, so the gap was mitigated and is not used as priority evidence."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Main-paper body states Ferguson (unpublished, genus theory) analyzed 0.07 misere only to heap size 24, and the authors extend only to heap size 33 with partial quotient Q33 order 638; supplement Figure 1 marks .07 misere unsolved; no classification, census, or theorem found covering single-row misere outcomes to n=36.",
+      "reasoning": "Every located broader result has strictly narrower heap scope (24, 33) than the submitted census (36) and none publishes the explicit singles P-list; a narrower partial quotient cannot exhaustively cover the wider certified census, and the new head values at 34/35/36 lie outside all prior scopes.",
+      "search": "Searched dominance forms: misere periodicity census, classification, established database, Guy-Smith solution to large n, plus full-text scope statements in Plambeck-Siegel main paper and supplement."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior outputs are quotient presentations (order-638 partial quotient, P-portion size 109, presentation omitted) or normal-play Grundy sequences; computed normal-play singles P-set is {0,1,7,13,23,31,33}, disjoint in structure from the misere set; no prior states the 13-element misere list or certifies n=34/35/36.",
+      "reasoning": "No prior result substantively implies the headline: quotient data without the explicit outcome table does not state the census, normal-play values contradict rather than imply the misere values, and the extension beyond heap 33 requires fresh exhaustive computation that was performed and triple-checked here.",
+      "search": "Compared submitted P-list against normal-play recomputation, Plambeck-Siegel Q33 quotient form, Ferguson heap-24 scope, and Flammenkamp normal-play tables for substantive implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "Octal code 0.07 (remove exactly 2, split remainder into 0-2 heaps) confirmed as Dawson's Kayles with Dawson's Chess (0.137) first-cousin relationship; Ferguson genus-theory note and MisereSolver/CGSuite quotient framing use the same heap outcome semantics; no equivalent-notation source states the singles P-list to 36.",
+      "reasoning": "Under synonymous names (Dawson's Kayles, 0.07, Dawson's Chess cousin) and dual quotient/genus encodings, the located analyses stop at heap 24/33 or omit the outcome table entirely, so none covers the submitted exact census under any equivalent formulation.",
+      "search": "Searched literal P-list query plus equivalent forms: octal 0.07 misere outcome, misere quotient cold/P-positions, Dawson Chess cousin heap outcomes, MisereSolver/CGSuite Dawson data."
+    },
+    "exact_database_or_table": {
+      "evidence": "OEIS exact search for sequence 2,3,4,10,11,12,18,24,25,26,32,33,34 returned no results; OEIS 'Dawson Kayles misere' search returned no results; Flammenkamp tables list normal-play Sprague-Grundy values/periods only; the Q33 quotient presentation is explicitly omitted from the paper body.",
+      "reasoning": "The exact parameter-indexed object (singles misere P-list to 36) appears in no table or official database consulted; the only adjacent database (Flammenkamp) records a different invariant (normal-play Grundy values), which does not determine misere outcomes.",
+      "search": "Queried OEIS for the exact P-sequence and Dawson Kayles misere, and inspected Flammenkamp octal database and the misere-quotient online/supplement tables for an exact outcome listing."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body section states analysis of 0.07 extended only 'to heap size 33' with partial quotient Q33 order 638 and P-portion 109, adding the 'full presentation is too messy to justify its inclusion here' and pointing to external solver output; no explicit singles P-list to 33 or 36 appears anywhere in the body.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Misere Quotients for Impartial Games (Plambeck-Siegel)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/pdf/math/0609825"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Figure 1 status chart marks .07 misere as unsolved-in-misere (star symbol: normal known, misere not); detailed quotient/pretending-function figures solve only 0.115, 0.152, 0.77, 0.26, 4.7; no 0.07 pretending function or singles outcome table is present.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Misere quotients for impartial games: Supplementary material (Plambeck-Siegel)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/pdf/0705.2404"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Abstract and theorem scope: extends Sibert-Conway method to Daisies (4.7) and more generally to finite octal games with period-two nim sequence; Dawson's Kayles (0.07, period-34 normal sequence) falls outside that class and is never analyzed; single-row misere P-census absent.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Daisies, Kayles, and the Sibert-Conway decomposition in misere octal games (Plambeck 1992)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1016/0304-3975(92)90343-e"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Page body presents normal-play Sprague-Grundy values, periods/preperiods, and sparse/common-set statistics for octal games including .007; no misere outcomes, misere P-positions, or quotient data appear in the inspected sections.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Sprague-Grundy Values of Octal-Games (Flammenkamp database)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html"
+    }
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "35ce697454bc287c8ecb3cc4c07fa28044b31074cacc71e519881ae56b5dcc1a",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Mis`ere Quotients for Impartial Games",
+        "url": "https://www.ias.edu/sites/default/files/math/csdm/06-07/ansiegel_misere_quotients_for_impartial_games.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same Plambeck-Siegel paper as the base full-text inspection (IAS copy); its Dawson's Kayles 0.07 misere analysis reaches heap size 33 only (Q33 order 638, P-portion 109, presentation omitted as too messy) and cites Ferguson to heap 24, stating no explicit singles P-list to 36.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body Dawson's Kayles section gives only partial-quotient orders up to heap 33 and states the full presentation is too messy for inclusion; no per-heap outcome table or singles P-list appears in the body."
+      },
+      {
+        "title": "Mis`ere Games and Mis`ere Quotients",
+        "url": "https://www.ias.edu/sites/default/files/math/csdm/06-07/asiegel_misere_games_and_misere_quotients.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Siegel lecture notes defining Dawson's Kayles (remove exactly two adjacent boxes, last move loses) with normal-play 0.07 period 34, declaring misere Dawson's Kayles still open after 70 years; its only pretending function to heap 120 (Figure 5) is for Kayles 0.77, a different game.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full-text body: Dawson passages are definitional plus the open-problem statement; the heap-120 quotient presentation is explicitly labelled for misere Kayles; no Dawson's singles outcome census is present."
+      },
+      {
+        "title": "Generalized mis\u00e8re play",
+        "url": "https://library.slmath.org/books/Book70/files/1023.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "General lattice framework for misere play using Dawson's Chess (octal 0.137) solely as a worked example of move encoding (remove 1 isolated, 2 from an end, 3 anywhere with split); it proves no heap outcomes and tabulates no P-positions for 0.07 or 0.137.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full-text body: the Dawson passage is Example 1 describing legal moves; the paper's theorems concern the lattice framework and quotient algorithm, with no Dawson outcome table at any heap size."
+      },
+      {
+        "title": "A Note on Dawson\u2019s Chess",
+        "url": "http://miseregames.org/docs/DawsonChess.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Ferguson genus-theory note on Dawson's Chess (0.137, first cousin of 0.07): complete P-condition proved only for sums with all piles below 20 (Tables 1-3), plus isolated n=43 (20+20) and n=32 winning moves; the cited Flanigan extension to pile 36 is a simplified-position (genus) table, not a misere singles census.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body Tables 1-3 tabulate simplified positions and genera only to pile 20; the proven P-position criterion is explicitly restricted to positions with all piles under 20; no singles P-list to 36 is stated."
+      },
+      {
+        "title": "The genus-table generator",
+        "url": "https://www.combinatorial-game-theory.com/figures/genus-table/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Computed genus figure page giving per-heap genus symbols and implied misere outcomes only for Dawson's chess heaps 1-14 and octal .007 heaps 1-9; its coverage ends at heap 14 and never reaches the claimed range head at 24-36.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Page body table enumerates Dawson's chess heaps 1 through 14 and .007 heaps 1 through 9 with genus symbols; no rows exist for heaps 15-36, so the submitted head values are absent."
+      },
+      {
+        "title": "Dawson\u2019s Kayles: an Interactive Gizmo",
+        "url": "https://www.cut-the-knot.org/Curriculum/Games/DawsonKayles.shtml",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Expository page whose 0-99 value table is explicitly normal-play Grundy numbers computed by the Mex rule (P defined as Grundy 0 under last-move-wins framing); its normal zeros differ structurally from the submitted misere set and it contains no misere outcome column.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Page body labels the table as Grundy numbers via the Mex rule with the normal-play P-position definition; no misere outcomes or misere P-list appear anywhere on the page."
+      },
+      {
+        "title": "Misere quotients for impartial games: Supplementary material",
+        "url": "https://arxiv.org/abs/0705.2404",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Supplement to the base Plambeck-Siegel paper whose status chart marks .07 misere as unsolved (normal known, misere not) and whose detailed quotient and pretending-function figures solve only 0.115, 0.152, 0.77, 0.26 and 4.7, with no 0.07 pretending function or outcome table.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full-text body inspected at base: Figure 1 star symbol for .07 plus Figures 2-9 covering other codes only; no 0.07 pretending function or singles census is present."
+      },
+      {
+        "title": "[PDF] IMPARTIAL COMBINATORIAL MIS`ERE GAMES",
+        "url": "http://www.miseregames.org/docs/meghan.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Allen MSc thesis on general impartial misere quotient theory (indistinguishability quotients, Knuth-Bendix presentations); it never analyzes Dawson's Kayles and therefore cannot state the submitted heap-36 census.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Full-text parameter search over the extracted thesis body returns zero hits for Dawson, Kayles, 0.07 and 0.137; its examples and chapters concern the general quotient method, not the claimed object."
+      },
+      {
+        "title": "[PDF] arXiv:math/0603027v1 [math.CO] 1 Mar 2006",
+        "url": "https://arxiv.org/pdf/math/0603027",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Plambeck Advances in Losing survey whose Dawson's Chess section tabulates only misere partial-quotient orders for 0.07 (24->24 through 33->638, 34->infinity?) and poses heap-34 infiniteness as an open question; it publishes no per-heap outcomes and no singles P-list.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body Figure 17/18 lists quotient orders by heap size with 34 marked infinity(?); surrounding text asks whether 0.07 is infinite at heap 34 and calls for new ideas; no outcome table is given."
+      },
+      {
+        "title": "Unsolved problems in combinatorial games - SLMath",
+        "url": "https://library.slmath.org/books/Book70/files/1005.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Nowakowski unsolved-problems survey recording the Dawson's Kayles frontier as partial quotient order 638 at heap 33, asking whether it is infinite at heap 34 (D34, D35, D36 presentations) with a $500 prize; it confirms the census head was open and states no P-list.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body passage states the order-638-at-33 fact and the heap-34 infiniteness question verbatim with prize note; no singles outcome table accompanies it."
+      },
+      {
+        "title": "Misere Spiele am Beispiel von Chomp",
+        "url": "https://staff.fim.uni-passau.de/kreuzer/abschlussarbeiten/Ditschinger-Misere_Spiele-Chomp.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "German Chomp thesis mentioning Dawson's Kayles only in Chapter 1 as a motivating still-open misere problem with its rules definition; its overlapping integer sequences (1,3,4,6,8,10,... and 2,5,7,9,...) are 3xn Chomp diagonal and constant-row sequences, not Dawson's Kayles heap outcomes.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body context: Dawson passage is definitional in section 1.1.3; the overlapping sequences sit in sections on the Chomp f(b,c) table under Satz 3.4.9/3.4.11/3.4.18 characterizing Chomp P-positions (a,b,c), so the instantiated implication concerns Chomp, not Dawson rows."
+      },
+      {
+        "title": "Two- and Three-Digit Octals",
+        "url": "http://miseregames.org/solutions/summary.php?name=3by8",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Official misere-quotient solution index whose 0.07 row gives only partial-quotient metadata (MaxHeap 33, Q-Size 638, P-Size 109); it has no per-heap outcome column and its MaxHeap stops three heaps short of the claimed census.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Live table row for code 0.07 shows MaxHeap 33 with quotient and P-portion sizes only; linked detail pages give monoid data, not a singles P-position list, and nothing reaches heap 34-36."
+      },
+      {
+        "title": "arXiv:math/0603027v1 [math.CO] 1 Mar 2006",
+        "url": "https://arxiv.org/pdf/math.CO/0603027",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Plambeck Advances in Losing survey (distinct cached URL of the same survey inspected under rank 13): its Dawson's Chess section tabulates only misere partial-quotient orders for 0.07 (heaps 24->24 through 33->638, 34->infinity?) and poses heap-34 infiniteness as an open question; it publishes no per-heap outcomes and no singles P-list to 36.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body Figure 17/18 lists quotient orders by heap size with heap 34 marked infinity(?); surrounding text asks whether 0.07 is infinite at heap 34 and states the heap-34 presentation is still sought with new ideas needed; no per-heap outcome or singles P-list table is given."
+      },
+      {
+        "title": "imp.dvi",
+        "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=ee1abde9ccd4898da57454275cea2709ad924c7e",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Normal-play survey of octal and related games whose Dawson entries (0.137 table with period 34; 0.07 shifted one term) report only normal-play Grundy/nim values; the full body contains zero occurrences of misere and no misere outcome or P-position census for Dawson's Kayles.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full-text body: Dawson passages give the normal-play nim-value table (period 34) and sparse-space remarks; parameter search finds 8 Dawson and 12 Kayles hits but zero misere hits; no misere P-list or outcome table appears in any section."
+      },
+      {
+        "title": "Kayles - Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kayles",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Encyclopedia page for Kayles (octal 0.77, remove one or two pins), a different game from Dawson's Kayles (octal 0.07, remove exactly two, misere); its value table is the normal-play Kayles nim table (period 12) and its misere note cites only Sibert's Kayles solution, with no 0.07 heap outcomes.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Body Analysis section table is explicitly Kayles nim-values K_n with period 12; History section attributes misere Kayles (0.77) to Sibert; Dawson's Kayles appears only as a See-also link; no 0.07 misere outcome data is present."
+      },
+      {
+        "title": "The discovery of the solution to misere Kayles",
+        "url": "https://miseregames.wordpress.com/2003/09/21/the-discovery-of-the-solution-to-misere-kayles/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Expository account of the Sibert-Conway solution to misere Kayles (octal 0.77): normal nim table of period 12, PN/NP position forms over row sizes 1,4,5,9,12,17,20,25, and quotient of order 40; Dawson's Kayles (0.07) is never mentioned and no 0-36 singles census is stated.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full body inspected: all tables, PN/NP forms, and the order-40 quotient statement concern Kayles 0.77; the text explicitly identifies Kayles as octal 0.77; Dawson's Kayles 0.07 does not occur and no heap-36 outcome list is given."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal search returned 20 results (3 overlapping the base set) and added useful incremental recall: Ferguson genus note full text, Siegel lecture notes, SLMath open-problem statement, Advances-in-Losing quotient table, the official 0.07 solution-index row, genus-table heap rows, both theses (Allen; Chomp), plus the four validator-flagged candidates (Advances-in-Losing alternate URL, normal-play imp.dvi survey, Kayles encyclopedia page, misere-Kayles solution blog), each opened and inspected at body level. All stop at heap 33 or below, give quotient/genus metadata or normal-play tables, or concern different games (Kayles 0.77, Guiles, Chomp, normal-play octals); none states or implies the certified misere singles P-list to 36. No decisive prior exists, so originality PASS and the PASS verdict stand."
+  }
+}
