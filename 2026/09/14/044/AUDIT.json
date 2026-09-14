@@ -1,0 +1,255 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran all three scripts: trace sums are 1, Weyl blocks traceless, min-K formula (a1+b1)/2 gives 0.025>0 with sorted 3-sum -0.05<0; exact Fraction family F(t) gives F(1/5): sec 1/15>0, 3-sum -1/15<0 and F(1/6): sec 1/12, 3-sum 0 with Berger checks passing; optimality interval argument (1/6,1/3-2m) is valid for any m<1/12. Duality-block trace condition is necessary and sufficient for Einstein algebraic tensors, so spectra are realizable. Robustness counts reproduced (46554/1081). Baselines S4/CP2 correct. DRAFT honestly disclaims any closed-metric realization.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 3-direction search (literal, equivalent-notation, dominance/database) returned Wu/Cao-Wu rigidity cluster as nearest prior work. Full-text inspection of Wu arXiv:1903.11817 shows Theorem 1.1 proves only the sufficient K>1/12 implies 3-positive direction plus 3-positive implies K>1/30, with Table 1 one-way arrows and Question (2) explicitly left open; no pointwise sec>0-but-not-3-positive spectrum and no 1/12 sharpness attainer. Full-text parameter search of Cao-Wu Cornell PDF Proposition 2.4 confirms the same one-way statement with no sharp/optimal/counterexample content. No broader classification, synonymous encoding, table, or database covers the exact spectra or the t=1/6 boundary attainer.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "EMERGENT_FINDING genuinely arose from the admitted target via the natural pointwise algebraic reduction (documented in target_exit files), so its absence from topic.json is not adverse. It converts the pointwise reading of Wu Question (2) into a sharp quantitative picture: explicit strict failure plus exact extremal family F(t) proving the published K>1/12 constant pointwise best possible, with robustness as an open region (~2.3% of random sec>0 spectra). The object (Ric=g Einstein algebraic tensor) and invariant (3-positivity threshold) were motivated before computation, the value was unknown, and future work on the closed-target classification needs exactly this pointwise-vs-global separation. It is an extremal witness changing a known boundary, not a parameter substitution or unexplained enumeration, and scope is honestly limited.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wu arXiv:1903.11817 (NYJM 2017) full text read (28435 chars): Thm 1.1 items (2)-(3), Table 1 one-way chain, Questions (1)-(3) with Q2 left open; nearest sufficient-direction prior.",
+    "Cao-Wu Cornell PDF 3nonnegative.pdf (13pp, pdftotext 27008 chars): Prop 2.4 proves K>1/12=>3-positive and 3-positive=>K>1/30; full-text keyword search for sharp/optimal/example/extremal/sharpness returned no counterexample or 1/12 attainer.",
+    "Fused scope_literature_search, 3 queries x (SerpBase/Serpent + OpenAlex + Crossref + OpenAIRE), 20 deduplicated results, all providers ok, no partial failure: nearest cluster Wu, Cao-Wu, Cui-Sun, Cao-Tran, Bohm-Wilking, Hamilton, Costa, LeBrun; screened by snippet/metadata.",
+    "Independent recomputation: re-ran verify_algebraic_counterexample.py, sharp_threshold_certificate.py, recovery_search.py; reproduced sec_min 0.025, 3-sum -0.05, F(1/5)/F(1/6) exact values, Berger ok flags, and 46554/1081 robustness counts."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bohm-Wilking (2-positive=>space form), Tachibana (positive curvature operator), Brendle (PIC), Yang/Costa (pinched-K rigidity), Cao-Wu Thm 1.1 (classification under 3-nonnegative) all assume hypotheses at least as strong as 3-positivity or pinched K; the submitted tensors violate 3-positivity (3-sum -0.05, -1/15) so lie outside every such hypothesis, and none claims an exhaustive census of sec>0 algebraic Einstein tensors.",
+      "reasoning": "A broader theorem covers the claim only if the claim's instances satisfy its hypotheses or its census exhausts them; here the instances deliberately violate the stronger hypotheses, so no broader classification subsumes or implies the failure/sharpness package.",
+      "search": "Stronger/broader coverage: Bohm-Wilking 2-positive space forms, Tachibana positive operator, Brendle PIC rigidity, Yang Costa pinched sectional Einstein 4-manifold classification, Cao-Wu 3-nonnegative classification, S2xS2 Page Chen-LeBrun-Weber survey."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior art proves one-way sufficiency K>1/12=>3-positive (pointwise Berger estimate 2a1+a2-|b2|>=4a1-1/3) and converse quantitative bound 3-positive=>K>1/30; neither direction computes a sec>0 non-3-positive spectrum nor a K=1/12 3-sum-0 attainer. Submitted exact values F(1/5): 1/15 vs -1/15 and F(1/6): 1/12 vs 0 are new computations consistent with but not contained in the old inequalities.",
+      "reasoning": "A one-way sufficient condition does not imply its own sharpness or a counterexample below its threshold; establishing the optimal constant requires the new extremal family, so the claim is complementary to, not a corollary or recomputation of, Wu/Cao-Wu.",
+      "search": "Implication test: does Cao-Wu Proposition 2.4 or Wu Theorem 1.1 (K>1/12 implies 3-positive; 3-positive implies K>1/30) mechanically imply a sec>0-not-3-positive tensor or 1/12 optimality?"
+    },
+    "equivalent_formulations": {
+      "evidence": "Wu full text uses k-positive as sum of k smallest eigenvalues, duality blocks R=diag(R+,R-) with R+-s/12+W+, and Berger form R=[[A,B],[B,A]] with orderings a1+-b1<=a2+-b2<=a3+-b3 and 3-positivity 2a1+a2+-b2>0; Cao-Wu text uses identical notation. Searched variants returned the same cluster with no counterexample under alternate phrasing; submitted spectra a=(-0.2,-0.1,1.3), b=(0.25,0.3,0.45) and F(t) with 3-sums -0.05/-1/15/0 found nowhere in those bodies.",
+      "reasoning": "Coverage under synonymous notation would require the same spectra or threshold attainer expressed via A+-/Berger/PIC language; body-level inspection shows prior work states only the sufficient implication in that language and leaves the converse question open, so no equivalent formulation covers the claim.",
+      "search": "Equivalent-formulation sweep: k-positive curvature operator as sum of smallest eigenvalues, duality blocks A+ A- self-dual anti-self-dual Weyl, Berger a_i b_i sectional bounds, positive isotropic curvature PIC, Ric=g s=4 normalization variants."
+    },
+    "exact_database_or_table": {
+      "evidence": "Wu Table 1 lists the one-way chain R positive=>R 2-positive=>K>1/12=>R 3-positive=>K>1/30=>K>0 with no converse arrows and no extremal row; Cao-Wu has no table of sec>0-but-not-3-positive tensors; fused search surfaced no official database, census, or repository of Einstein algebraic curvature spectra containing (-0.2,-0.1,1.3)/(0.25,0.3,0.45) or the F(1/5)/F(1/6) rows.",
+      "reasoning": "Table/database coverage would require the exact parameter rows or an exhaustive census of the relevant spectra; the only tables found state implications without extremal examples, so the submitted exact spectra and boundary attainer are not recorded entries.",
+      "search": "Exact table/database sweep: Wu Table 1 curvature-conditions table, Cao-Wu Proposition 2.4 constants 1/12 1/30, Berger eigenvalue tables, Einstein 4-manifold censuses and curvature-operator databases for spectra (-0.2,-0.1,1.3) and F(1/5) F(1/6)."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "a6b26271cd6a28bc3e4aabb0be1ab4555d52f0b42815353e574d283ecf55e68b",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Base-phase full-text read of this exact PDF (28435 chars, 7pp): Theorem 1.1(2) proves only K>lambda/12=>3-positive and 3-positive=>K>lambda/30; Table 1 draws one-way arrows; Questions list leaves (2) sec>0=>3-positive open; no sec>0 with 3-sum<=0 spectrum and no K=1/12 boundary attainer in body.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Direct prior art for the same object (Ric=lam g Einstein 4-manifold), same constants (1/12, 1/30) and same k-positivity language; states the sufficient direction whose pointwise sharpness the claim establishes.",
+        "title": "New York Journal of Mathematics (Wu curvature decompositions PDF)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://nyjm.albany.edu/j/2017/23-78p.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Base-phase full-text parameter search of this exact PDF (pdftotext 27008 chars, 13pp): Prop 2.4 states K>(>=)1/12=>3-positive (3-nonnegative) and 3-positive=>K>1/30; keyword sweep sharp/optimal/best possible/extremal/counterexample/does-not-imply returned only Kato-optimality and unrelated discriminant equalities; no sec>0-not-3-positive tensor, no F(t), no 1/12 attainer.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same object, same 1/12 and 1/30 constants, same Berger/duality notation; proves the one-way sufficiency the submitted extremal family shows to be best possible, without giving any extremal example itself.",
+        "title": "[PDF] einstein four-manifolds of three-nonnegative curvature operator (Cao-Wu)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://pi.math.cornell.edu/~cao/3nonnegative.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Downloaded returned URL body (204598-byte PDF, pdftotext 25138 chars): full-text counts 3-positive 0, 1/12 0, 1/30 0, k-positive 0, Berger 0; body proves Theorem A (sec>=0 plus positive intersection form => CP2 Fubini-Study) via Hitchin/Freedman/Seiberg-Witten; no duality spectra, no 3-sum computation, no threshold-sharpness example.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same object class (compact Einstein 4-manifold with nonnegative/positive sectional curvature) and rigidity context, but proves a closed-manifold classification under an extra intersection-form hypothesis, not the pointwise algebraic implication or its sharpness.",
+        "title": "On Einstein Manifolds of Positive Sectional Curvature (Gursky-LeBrun)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.math.stonybrook.edu/~claude/gl2.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded returned dissertation body (1705403-byte PDF, pdftotext 323437 chars): full-text counts 3-positive variants 0, 1/12 0, 1/30 0; Wu/detW+ hits concern twistor/Kahler-Einstein characterization (Thm 2.7.4, S4/CP2); Berger hits are Berger 1961 Kahler-Einstein CP2 plus bibliography; Sec 2.7 states the sec>0 conjecture with S4/CP2 as only known examples; appendices are twistor local computations with no duality-block spectra or F(t).",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Mandatory dissertation escalation sharing the exact object (compact Einstein four-manifolds with positive sectional curvature and its classification conjecture) and Wu/detW+ terminology, but containing no k-positivity threshold analysis or pointwise counterexample.",
+        "title": "Dottorato in Scienze Matematiche (XXXVII ciclo) (Milano twistor/Einstein dissertation)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "https://air.unimi.it/retrieve/5f4cf80c-a1c4-4109-9e08-9b0892ddf8bf/phd_unimi_R13256.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded returned thesis body (1338833-byte PDF, pdftotext 279423 chars): counts Einstein-four 0, 1/12 0, 1/30 0; Ch.8 studies strongly positive curvature (Thorpe R+omega positive-definite), equivalent to sec>0 in dim<=4 but distinct from 3-positivity of R; CaP2/W24/S4n+3 examples concern strongly-positive gap, not Ric=g 3-sum threshold; counterexample/extremal hits are Cheeger-deformation and Wallach-moduli contexts.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Mandatory dissertation escalation in the same curvature-positivity terminology family (sec>0 versus curvature-operator positivity, Berger decompositions), but about Thorpe strongly-positive curvature on general/homogeneous manifolds, not the Einstein Ric=g 3-positivity threshold.",
+        "title": "[PDF] on different notions of positivity of curvature (Bettiol thesis)",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "https://www.lehman.edu/faculty/rbettiol/files/Bettiol-Thesis.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Fetched returned URL body (page HTML 41251 chars): content is an aggregator mirror listing mixed abstracts (detW+ Hermitian Einstein, K>= pinched note, second-kind operators) under the Cao-Wu title; no duality-block spectra (-0.2,-0.1,1.3)/(0.25,0.3,0.45), no F(t) family, no 1/12 boundary attainer; underlying paper is the Cao-Wu primary already fully searched at body level.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Exact-title mirror page for the Cao-Wu three-nonnegative paper whose abstracts restate classification results only; adds no spectra, example, table row, or sharpness claim beyond the already-inspected primary.",
+        "title": "Einstein Four-Manifolds of Three-Nonnegative Curvature Operator (Bohrium mirror)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://bohrium.dp.tech/paper/arxiv/5cd4c4eeced107d4c6e88e3d"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded returned URL body (211164-byte PDF, pdftotext 36227 chars): full-text count 3-positive 1, whose sole occurrence is the Section 3 remark that the space of 3-positive curvature operators is not Ricci-flow invariant for n>=4; no Einstein-four Ric=g analysis, no 1/12/1/30, no Berger threshold, no spectra or extremal example.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Original paper in the same curvature-operator positivity language proving 2-positive space-form rigidity, but its only 3-positive content is a Ricci-flow non-invariance remark with no Einstein-four sectional-threshold analysis.",
+        "title": "arXiv:math/0606187v1 [math.DG] (Bohm-Wilking space forms)",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.uni-muenster.de/imperia/md/content/theoretische_mathematik/diffgeo/bcwb2008.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded returned URL body (195722-byte PDF, pdftotext 39425 chars): counts Berger 3, Einstein-four 6, 3-positive 0; body proves closed-manifold pinching classification (S4/CP2/quotients) via harmonic-Weyl/Derdzinski-Bochner machinery; no pointwise sec>0-not-3-positive tensor, no F(t) family, no 1/12 pointwise-optimality claim.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same object (closed Einstein four-manifolds) and pinching-rigidity program citing Cao-Wu, but proves global classification under pinching hypotheses rather than the pointwise algebraic non-implication or its sharp constant.",
+        "title": "four-manifolds of pinched sectional curvature (Cao-Tran NSF copy)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://par.nsf.gov/servlets/purl/10329200"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched returned URL body (arXiv HTML normalized 48580 chars): three-positive hits (2) are all curvature operator of the second kind on trace-free symmetric 2-tensors, explicitly distinguished from the standard Lambda-2 operator (first kind named once); Einstein hits (5) concern second-kind rigidity; counts 1/12 0, 1/30 0, Berger 0, Wu 0; sharpness claims concern CP2/S3xS1 second-kind, not the submitted first-kind spectra.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Shares k-positivity vocabulary but studies a different operator (second kind on S^2_0 versus the submitted standard curvature operator on Lambda^2), so its theorems and sharp examples cannot imply the submitted first-kind threshold result.",
+        "title": "Manifolds with 4 1/2-positive curvature operator of the second kind (Li)",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/2206.15011"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded returned URL body (247975-byte PDF, pdftotext 57997 chars): 3-nonnegative hits (2) are both curvature operator of the second kind (Nishikawa/X.Li context); Berger hits (2) are Berger-Ebin decomposition references; sharp hit is Lemma 3.7 weight sharpness; does-not-imply hit concerns (n+1)-nonnegative second-kind versus Ricci; no Einstein-four first-kind 1/12 threshold or spectra.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same k-nonnegativity vocabulary applied to the curvature operator of the second kind with Betti-number rigidity, a different operator and different conclusions from the submitted standard-operator 3-positivity threshold.",
+        "title": "Betti numbers and the curvature operator of the second kind (Petersen et al.)",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.math.ucla.edu/~petersen/Papers/64.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Fetched returned URL body (arXiv HTML normalized 55700 chars): 1/12 occurs only as classification lineage (bounds improved to 1/12 by first author and Wu [7]); Berger Prop 2.1 plus Lemmas 3.1-3.4 derive closed-manifold pinching (K<=beta, a3-a2 bounds); Remark 3.2 notes 6alpha+delta-4<=3 implies 3-nonnegative (sufficient direction only); no sec>0-not-3-positive spectrum, no F(t), no pointwise-optimality statement.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Same object and pinching program that consumes the Wu/Cao-Wu 1/12 constant as a classification input, but proves global rigidity under pinching rather than exhibiting the pointwise failure family or the optimal constant.",
+        "title": "Einstein four-manifolds of Pinched Sectional Curvature (Cao-Tran)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/1612.06023v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded returned URL body (169964-byte PDF, pdftotext 30444 chars): counts Berger 6, Einstein-four 2, 3-positive/1/12-as-threshold 0 in body grep; snippet 1/12 line is a literature pointer (K>=1/12 => S4/CP2 via [26]); body proves delta-pinching/biorthogonal rigidity toward S4/CP2/connected sums; no duality spectra, no 3-sum computation, no F(t) or optimality example.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same object (compact Einstein four-manifolds) and same 1/12 constant as a cited classification corollary, but a pinching-rigidity note whose body contains no k-positivity threshold analysis, spectra, or sharpness construction.",
+        "title": "FOUR-MANIFOLDS WITH POSITIVE CURVATURE (Diogenes-Ribeiro-Rufino)",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/928301E27753120D640912A5B22CE569/S0017089520000130a.pdf/fourmanifolds_with_positive_curvature.pdf"
+      }
+    ],
+    "rationale": "Terminal check returned 20 results (5 overlapping the base set, 15 novel). Every plausibly covering result was opened at body level, including both returned dissertations as mandatory escalations: Wu NYJM and Cao-Wu Cornell confirm only the one-way K>1/12=>3-positive sufficiency with Wu Question (2) left open; Gursky-LeBrun, Cao-Tran (both copies), and Diogenes et al. prove closed-manifold pinching/classification with no duality spectra or F(t) family; the Milano and Bettiol dissertations concern twistor/Kahler-Einstein and Thorpe strongly-positive curvature respectively with no 3-positivity threshold; Bohm-Wilking, Li second-kind, and Petersen second-kind concern different operators or a non-invariance remark. No returned body states a sec>0-not-3-positive Einstein spectrum or a K=1/12 3-sum-0 attainer, so nothing covers the submitted spectra or the pointwise sharpness; the remaining unlisted hits are keyword-similar only (weakly Einstein, publication list, Hamilton R>0, Weyl-Bochner, Q-curvature, course notes) sharing no exact spectra, constants, or question. Originality PASS is preserved with no change to correctness or value.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text read: Theorem 1.1(2) proves K>lambda/12=>3-positive and 3-positive=>K>lambda/30; Table 1 draws only one-way arrows; Questions list asks (2) sec>0 => 3-positive and states (p.2) the latter two remain open; no spectrum with sec>0 and 3-sum<=0 and no K=1/12 boundary example occurs in the 7-page body.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Curvature decompositions on Einstein four-manifolds (Wu, NYJM 2017 / arXiv:1903.11817)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1903.11817"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body inspection: Proposition 2.4 states K>(>=)1/12=>3-positive (3-nonnegative) via pointwise Berger estimate and 3-positive=>K>1/30 via global max principle; full-text search for sharp/optimal/best possible/extremal/equality/does-not-imply/counterexample returned only refined-Kato optimality and unrelated discriminant equality cases, no sec>0-not-3-positive tensor and no 1/12 attainer.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Einstein four-manifolds of three-nonnegative curvature operator (Cao-Wu, Cornell preprint 2013)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "http://pi.math.cornell.edu/~cao/3nonnegative.pdf"
+    }
+  ],
+  "verdict": "PASS"
+}
