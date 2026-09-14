@@ -1,0 +1,170 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route audited normally. Monotonicity reduction of the increasing crossing event to the two rational endpoints is standard and correct. Both endpoint rationals with denominator 200^144 were independently reproduced digit-for-digit by rerunning dp_engine.py (n=8 row order), with exact conservation crossed+uncrossed==200^144 and both gap integers 4*Clo-T>0 and 3T-4*Chi>0 verified in exact integer arithmetic (P_lo~0.53403840, P_hi~0.58235603). DP logic sound: independent brute-force agreement at n=1,2,3 over multiple (a,b) weights and row/col order-independence at n=2 confirm the transfer-matrix counting; margins (~0.28/~0.17) leave no boundary risk.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "One fused scope_literature_search call with literal, equivalent-encoding, and dominance queries returned 20 deduplicated results with full provider coverage and no partial failure. No source states the 8x8 bond LR crossing exact values at p=0.495/0.505 or the 200^144 endpoint rationals. The two most dangerous primaries (Nolin 2008; Borgs-Chayes-Kesten-Spencer finite-size scaling) were inspected at body level: both are asymptotic scaling-window theories with no n=8 exact table, so neither covers the claim.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET resolution proving the admitted finite-scale Kesten-window stability bound uniformly over |p-1/2|<=0.005 on the natural 8x8 bond box. The exact endpoint invariants (~0.53403840, ~0.58235603) were motivated before computation, are not known or mechanically implied by RSW/asymptotic theory, and a future researcher can reasonably need the precise certified fact. This is an eligible exact-value/benchmark finding under STANDARD, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "dp_engine.py + run_lo/hi.log: auditor reran n=1,2,3 DP vs --brute digit-for-digit (incl. n=2 2752/4096, n=3 10575744/2^24) and row/col order agreement; reproduced both n=8 endpoint integers exactly with conservation and gap certificates.",
+    "Fused literature search (3 normalized queries; SerpBase/OpenAlex/Crossref/OpenAIRE all ok, 20 results, partial=false): no same-object same-parameter exact 8x8 crossing value; nearest hits are asymptotic RSW/finite-size-scaling works.",
+    "Nolin 2008 EJP 13 (READY 71pp full text): Kesten near-critical scaling relations, triangular lattice asymptotics; parameter search for 8x8/0.495/0.505 found no match.",
+    "Borgs-Chayes-Kesten-Spencer finite-size scaling paper (proxy PDF + pdftotext body): asymptotic scaling-window/largest-cluster theory; full-text search for 8x8/0.495/0.505/enumeration exact values found no covering table."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Borgs-Chayes-Kesten-Spencer and Nolin give asymptotic window characterizations and largest-cluster orders, verified at body level to contain no fixed-n=8 exact crossing table.",
+      "reasoning": "Asymptotic window theorems bound crossing probabilities away from 0/1 qualitatively but never instantiate the claimed [1/4,3/4] certificates or the ~0.5340/~0.5824 endpoint values, so dominance does not cover the claim.",
+      "search": "Stronger near-critical theorems, broader box classes, Kesten-window correlation-length results, and finite-size-scaling censuses that could subsume n=8 as a special case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Located RSW/box-crossing works assert only qualitative uniform positivity/boundedness for rectangles, with no instantiation at n=8, p=0.495/0.505 or quantitative [1/4,3/4] endpoint certificates.",
+      "reasoning": "Qualitative uniform-crossing theorems do not imply the specific numerical certificates; the exact DP computation adds the quantitative content, so the claim is not a corollary or repackaging.",
+      "search": "Whether any located RSW, box-crossing, or near-critical result mechanically implies P_p in [1/4,3/4] over [0.495,0.505] or the exact endpoint values."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused 20 results contain no same-parameter exact value under any encoding; both escalated full texts contain zero occurrences of the key parameter strings 8x8/0.495/0.505.",
+      "reasoning": "No dual, complement, incidence-graph, or partition-notation reformulation in the retrieved primaries states or computes the two 200^144 endpoint rationals; prior work stays at qualitative RSW bounds.",
+      "search": "Literal 8x8 bond LR crossing at p=0.495/0.505 plus dual vacant-crossing complement and transfer-matrix frontier-partition synonymous encodings."
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused result is a small-box exact-value table or database entry; full-text parameter searches in the two nearest primaries show no such table, and the 332-digit gap integers are novel artifacts.",
+      "reasoning": "The submitted rationals with denominator 200^144 do not appear in any located table or database; the claim is not a recomputation of a tabulated record.",
+      "search": "Exact percolation tables, small-box crossing-probability censuses, and repositories that could already list P_0.495/P_0.505 on the 8x8 bond square."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "READY 71-page extracted text searched for 8x8, 0.495, 0.505 and box-window exact-value strings: zero matches; body gives asymptotic arm-exponent/scaling-relation theory, no 200^144 endpoint rationals.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Near-critical percolation in two dimensions",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1214/ejp.v13-565"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full PDF via proxy, pdftotext -layout (178822 chars): zero hits for 0.495, 0.505, 200^144, 8x8 variants, 144 edges, 0.534038, 0.582356. The two '1/4' occurrences are generic-scale steps: (6.35) P(large size and diameter)>=1/4 from Theorem 3.3 plus Lemma 4.4/(4.14) toward a rectangle-crossing cluster at scale L0(p), and a section-7 choice C1 with sigma^(1)(1/4,1/2)<=1 applying (5.40) to get P(W>=C1 s(r))>=1/2 and (7.5)-(7.6). No antecedent chain instantiates fixed-(n=8,p=0.495/0.505) crossing rationals; Theorems 3.1-3.7 are n-to-infinity largest-cluster scalings.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The Birth of the Infinite Cluster: Finite-Size Scaling in Percolation",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "http://jenniferchayes.com/Papers/IICbirth.pdf"
+    }
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "5d957b4c46c3d847b2eb988e9d34704e5e6886f5c510a10893b3ee0829538c15",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] the birth of the infinite cluster: finite-size scaling in percolation",
+        "url": "http://jenniferchayes.com/Papers/IICbirth.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same finite-box bond-percolation scaling-window topic, but its theorems give only asymptotic largest-cluster orders inside/outside the window, whereas the claim gives exact n=8 crossing rationals at p=0.495/0.505; no hypothesis instantiates fixed-n exact values.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Fetched full PDF via proxy, pdftotext -layout (178822 chars). Specific instantiated parameters absent: zero hits for 0.495, 0.505, 200^144, 8x8 variants, 144 edges, 0.534038, 0.582356. Generic words (bond/crossing/box) occur, and '1/4' occurs twice, so scope resolved via antecedents: (i) (6.35) gives P(largest cluster with size>=K0^-1 s(L0(p)) and diam>=y0 L0(p))>=1/2-C1...>=1/4, instantiated from Theorem 3.3 (inside-window largest-cluster tail lower bound) plus Lemma 4.4/(4.14) (small-diameter upper bound), as a stepping-stone toward locating a rectangle-crossing large cluster at scale L0(p), not P_p(Cross) on fixed n=8; (ii) section-7 '1/4' is the choice C1 small with sigma^(1)(1/4,1/2)<=1 to apply bound (5.40) via (5.10)/(7.4), yielding P(W>=C1 s(r))>=1/2 then one-arm bound (7.5)-(7.6), a generic-scale estimate, not the 144-edge 8x8 rational. Phrases 'with these properties'/'by the above proposition'/'further examples' have zero occurrences. All headline theorems (3.1-3.7) state n-to-infinity largest-cluster scalings, so no antecedent chain instantiates fixed-(n=8,p=0.495/0.505) crossing values."
+      },
+      {
+        "title": "arXiv:cond-mat/9911070v1  [cond-mat.stat-mech]  4 Nov 1999",
+        "url": "http://arxiv.org/pdf/cond-mat/9911070",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same square-lattice bond crossing topic, but its conclusions are continuum-limit Cardy crossing formulas as rectangle sides tend to infinity at fixed aspect ratio, whereas the claim is a fixed 8x8 finite-box probability at off-critical p; neither implies the other numerically.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Fetched PDF body (23061 chars) searched for 0.495, 0.505, 8x8 and 200^144: zero hits; scope is the L,L'-to-infinity conformal crossing formula Pi_h(r), which cannot instantiate a fixed-8x8 off-critical rational."
+      },
+      {
+        "title": "Exact percolation probabilities for a square lattice",
+        "url": "https://arxiv.org/pdf/2204.01517",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Overlapping exact-polynomial form on the square lattice, but its object is site (not bond) percolation spanning polynomials on plane/cylinder/torus used to estimate the site threshold near 0.5927, whereas the claim is bond P_p(Cross) on the 8x8 box at 0.495/0.505; different object and parameter regime.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched body (36885 chars): title and abstract restrict to site percolation; the '0.582' and '332' hits sit inside site-threshold estimator tables converging to about 0.5927, i.e. pc estimates with antecedent site spanning polynomials, not bond crossing weights at 0.495/0.505; zero hits for 0.495, 0.505, 8x8 or 200^144."
+      },
+      {
+        "title": "Physics",
+        "url": "http://math.bme.hu/~balint/oktatas/perkolacio/percolation_papers/kesten_1.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same bond-on-square-lattice crossing-probability object Sp(m,n), but its theorem proves the critical value equals 1/2 via RSW-type inequalities, whereas the claim certifies exact off-critical 8x8 crossing rationals; the 1980 proof contains no fixed-(n,p) exact evaluation.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Fetched body (layout extraction about 48k chars) searched for 0.495, 0.505, 8x8 and 200^144: zero hits; theorems prove pH=1/2 and crossing-probability inequalities in n, with no exact 144-edge endpoint computation."
+      },
+      {
+        "title": "Exact Percolation Probability on the Square Lattice",
+        "url": "http://arxiv.org/pdf/2109.12102",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Overlapping exact transfer-matrix enumeration on the square lattice up to n=24, but its object is site-percolation spanning counts An,m(k) and threshold estimators, whereas the claim is bond crossing weights C(a,b)/200^144 at p=0.495/0.505; its Table-4 '0.582...' entry is a site-pc estimator, not P_0.505(Cross).",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched body (about 47k chars): object is site spanning counts with Rn,m(p)=(1-p)^nm F(z); the '8x8' hit states only the prior brute-force limit, and the '0.582...' hit is a Table-4 site-pc estimator whose antecedent is site spanning polynomials solving median/cell conditions, instantiated as a threshold estimate rather than bond C(101,99)/200^144; zero hits for 0.495, 0.505 or 200^144."
+      },
+      {
+        "title": "On the universality of crossing probabilities in two- ...",
+        "url": "https://sunsite.ubc.ca/DigitalMathArchive/Langlands/pdf/universality-ps.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same bond crossing-probability observable, but its tables are Monte-Carlo universality measurements at p=0.50000 on large rectangles, whereas the claim is exact certified 8x8 values at p=0.495/0.505; simulation estimates at criticality do not cover off-critical exact rationals.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched body (37669 chars): tables report measured pi_h/pi_v/pi_hv at p=0.50000 on large lattices such as 186x215 and 558x644 for universality; searched 0.495, 0.505, 8x8 and 200^144 with zero exact-value hits; no off-critical exact table."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "The paid terminal search returned 20 results, of which 2 duplicated base providers (IICbirth, Kesten 1980) and 18 were new, with no partial failure. The only incrementally useful new leads were the two exact square-lattice polynomial papers (ranks 7 and 13); both were fetched and inspected at body level and found to concern site (not bond) percolation threshold estimators, with their near-coincidence strings ('0.582...', '8x8') resolved via table inspection to pc estimates and a brute-force-limit remark rather than the claimed bond rationals. No returned result is a dissertation or thesis (the repository-hosted rank-16 file is the Feng-Deng-Blote journal paper on thresholds), no source shares the claim's (8x8 bond, p=0.495/0.505, 200^144) parameter set, and the remaining hits are asymptotic, continuum-limit, large-lattice numerical, or different-model works excluded by theorem scope or table inspection. The terminal check therefore added useful recall but no covering prior, so the provisional originality PASS and overall PASS verdict are preserved with the public package unchanged."
+  }
+}
