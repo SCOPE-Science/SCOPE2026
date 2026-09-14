@@ -1,0 +1,233 @@
+{
+  "verdict": "PASS",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "TARGET route: explicit even R(x)=P(x^2)/Q(x^2) has deg 6/2 so type (6,3) with Q>=1. U=P'Q-PQ' cubic formulas verified; U''min>0 so U'>0 and U>0 on [0,1], giving interval-local Lipschitz M_k. Midpoint-plus-Lipschitz over M=8000 exact Fraction intervals is sound. Re-ran verifier: certified sup 0.01653276<=0.02, worst k=583, matching certificate fraction."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Fused search over literal, equivalent sqrt(t) (3,1), and dominance/table directions found only diagonal/asymptotic prior work (Varga-Ruttan-Carpenter diagonal to n=40, Stahl diagonal limit, Filip et al (80,80) and other functions). No source states or implies the explicit rectangular (6,3) threshold 0.02 or the submitted coefficients. Theorem-scope and table inspection affirmatively exclude coverage."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "TARGET resolution of admitted rectangular threshold E_{6,3}(|x|)<=0.02 via certified explicit approximant with margin 0.01653 vs 0.02. Object |x| and rectangular (m,n) benchmark are recognized and motivated before computation (Newman/Stahl/Varga lineage; nondiagonal methods). Value is not known or mechanically implied, is independently verifiable, and a future researcher could need this precise low-type bound. Not a textbook restatement or arbitrary slice."
+    }
+  },
+  "checked_sources": [
+    "Re-ran inputs/artifacts/verify_certificate.py in exact Fraction arithmetic: PASS sup 0.01653276<=0.02, worst k=583, matching certificate.json fraction.",
+    "Filip-Nakatsukasa-Trefethen-Beckermann arXiv:1705.10132 full HTML: barycentric Remez, Sec7/Fig4 type (80,80) |x| error 4.39e-12, Table 1 five other functions, Sec4.4 nondiagonal method only.",
+    "Stahl arXiv:math/9301217 full HTML: Theorem limit e^{2pi sqrt(an)}E_{nn}(x^a)=4^{1+a}|sin pi a| for diagonal n->inf; remarks transfer to |x| via E_{2n,2n}(|x|)=E_{nn}(sqrt).",
+    "Varga-Ruttan-Carpenter 1993 Math USSR-Sb 74:271-290 (doi:10.1070/sm1993v074n02abeh003347): OpenAlex/Crossref metadata plus abstract Enn diagonal numbers at 200 digits; scope described in Filip Sec7 as diagonal E_{2n,2n}(|x|)=E_{nn}(sqrt) to n=40 Table 1.",
+    "Chebfun example RationalAbsx (Filip et al May 2017): type (n,n) |x| minimax demo to (80,80); no rectangular (6,3) 0.02 instance."
+  ],
+  "source_inspections": [
+    {
+      "title": "NUMERICAL RESULTS ON BEST UNIFORM RATIONAL APPROXIMATION OF |x| ON [-1,+1]",
+      "url": "https://doi.org/10.1070/sm1993v074n02abeh003347",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "THEOREM_SCOPE",
+      "inspection_evidence": "Abstract plus Filip Sec7: VRC Table 1 reports diagonal E_{n,n} numbers to 200 digits via E_{2n,2n}(|x|)=E_{nn}(sqrt) to n=40. Diagonal upper bounds satisfy E_{6,6}<=E_{6,3} so cannot imply rectangular (6,3)<=0.02; no (6,3) coefficients or threshold in scope."
+    },
+    {
+      "title": "Best uniform rational approximation of x^alpha on [0,1]",
+      "url": "https://arxiv.org/html/math/9301217v1",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "THEOREM_SCOPE",
+      "inspection_evidence": "Full HTML Theorem 1 is diagonal asymptotic limit for E_{nn} as n->inf with constant 4^{1+a}|sin pi a|; no finite (3,1)-sqrt or (6,3)-|x| table and no 0.02 threshold. Asymptotics do not imply the finite rectangular certificate."
+    },
+    {
+      "title": "Rational minimax approximation via adaptive barycentric representations",
+      "url": "https://arxiv.org/html/1705.10132v3",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "inspection_evidence": "Full HTML Sec7 inspected: Table 1 covers five other functions at stated (m,n) with errors, none |x| (6,3); Fig4 is |x| (80,80) levelled error 4.39e-12; Sec4.4 gives nondiagonal method generally without this threshold instance."
+    },
+    {
+      "title": "Rational approximation of abs(x) with minimax (Chebfun example)",
+      "url": "https://www.chebfun.org/examples/approx/RationalAbsx.html",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "assessment": "NOT_COVERING",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "inspection_evidence": "Full page inspected: demonstrates diagonal (n,n) |x| minimax to (80,80) and cites VRC Table 1 to (50,50); no rectangular (6,3) approximant, coefficients, or 0.02 decision."
+    }
+  ],
+  "residual_risks": [],
+  "decisive_checks": {
+    "equivalent_formulations": {
+      "search": "Newman Zolotarev even |x| on [-1,1] as sqrt(t) on [0,1], type (3,1) minimax error 0.02",
+      "evidence": "Stahl Sec1 gives E_{2m,2n}(|x|)=E_{mn}(x^a) symmetry; even R maps to type (3,1) for sqrt. No retrieved source states E_{3,1}(sqrt)<=0.02 or lists such coefficients.",
+      "reasoning": "The synonymous sqrt encoding was explicitly searched and only yields diagonal asymptotics and algorithms; absence of any (3,1) 0.02 bound means the equivalent form does not cover the claim."
+    },
+    "broader_coverage": {
+      "search": "Stahl limit theorem, Varga-Ruttan-Carpenter census to n=40, Filip minimax to (80,80) as stronger covering results",
+      "evidence": "Stahl is n->inf diagonal limit 8e^{-pi sqrt n}; VRC is diagonal Enn to n=40; Filip Fig4 is diagonal (80,80) 4.39e-12. All are diagonal or asymptotic, not finite rectangular (6,3).",
+      "reasoning": "Monotonicity E_{6,6}<=E_{6,3} blocks implication: a stronger diagonal degree gives a smaller error, so diagonal upper bounds or limits cannot imply the weaker-denominator (6,3) threshold."
+    },
+    "exact_database_or_table": {
+      "search": "Varga Table 1, Filip Table 1, Chebfun/Trefethen tables of best |x| errors for exact (6,3) 0.02 entry",
+      "evidence": "VRC Table 1 holds diagonal errors only; Filip Table 1 holds five unrelated functions; Chebfun demo holds diagonal curve to (80,80). None tabulates rectangular (6,3) or threshold 0.02.",
+      "reasoning": "Direct table lookup therefore fails: the exact parameters (6,3) vs 0.02 do not appear in any official table, and diagonal entries are a different parameter point."
+    },
+    "claim_vs_prior_implication": {
+      "search": "Whether any prior explicit approximant, bound, or corollary already implies E_{6,3}(|x|)<=0.02",
+      "evidence": "Prior work provides methods and diagonal values but no explicit (6,3) coefficients; submitted R has new decimals with rerun certificate 0.01653276<=0.02 and positivity/Lipschitz proof.",
+      "reasoning": "The claim is a new constructive certificate, not a recomputation or corollary: no prior theorem with its hypotheses yields this rectangular threshold without the new coefficients and exact interval proof."
+    }
+  },
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "1074dbdbc23a32c0c1ed174ef0c5eec6745279aac9ead5fd17fff1838fdde696",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "Rational approximation of abs(x) with minimax",
+        "url": "https://www.chebfun.org/examples/approx/RationalAbsx.html",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same object |x| on [-1,1] and same minimax-rational terminology, but every worked example is diagonal type (n,n) up to (80,80); the rectangular (6,3) threshold 0.02 and the submitted coefficients never appear.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full page body inspected in base phase: diagonal (80,80) demo with 4.39e-12-level errors and citation of VRC Table 1 to (50,50); section/example scan finds no (6,3) instance, no 0.02 threshold, and no matching coefficients."
+      },
+      {
+        "title": "[PDF] Rational minimax approximation via adaptive barycentric ... - People",
+        "url": "https://people.maths.ox.ac.uk/trefethen/minimax_published.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Published version of the same Filip et al. barycentric-Remez paper: same |x| object and general (m,n) method, but its only |x| value is the diagonal (80,80) 4.39e-12 and Table 7.1 covers five other functions, so it cannot imply the finite (6,3) 0.02 certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full PDF converted to text (1886 lines): Sec 7 / Fig 7.1 give diagonal (80,80) |x| levelled error 4.39e-12; Table 7.1 lists (22,22),(17,71),(45,23),(38,38),(8,8) for five other functions only; text search finds no (6,3), no 0.02, no submitted coefficients."
+      },
+      {
+        "title": "Notes on Approximation Theory",
+        "url": "https://zavala92.github.io/files/Notes%20on%20Approximation%20Theory.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Defines the same Emn error for |x| on [-1,1] and states the same diagonal asymptotics En0~beta/n and Enn~8e^{-pi sqrt n}; it is theory background with no finite rectangular (6,3) value or 0.02 decision.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+          "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+          "inspection_evidence": "128-page PDF to text (8704 lines); inspected Ch.7-9 sections, Thms 7.1/7.2/8.1/8.4, Eq 8.2-8.3, Figs 7.1/8.1/9.3/9.4 and every with-these-properties/by-above-proposition/further-examples antecedent: Thm 8.1 instantiated gives only n-to-inf diagonal limits En0~beta/n and Enn~8e^{-pi sqrt n}; Eq 8.2 at n=6 gives only diagonal type-(6,6) O(e^{-pi sqrt n/2}) so by R63 subset R66 (E66<=E63) cannot imply E63<=0.02; Sec 8.2 Zolotarev (2n-1,2n) sign degenerates to same diagonal limit; Sec 9 (100,4)/(5,5)/(100,100) are log/exp examples; grep for 0.02/(6,3) has no |x| threshold hit."
+      },
+      {
+        "title": "The AAA Algorithm for Rational Approximation",
+        "url": "https://people.math.ethz.ch/~hiptmair/Seminars/RAP_22/NST18.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same AAA/minimax rational terminology with a dedicated |x| on [-1,1] application section, but all |x| results are diagonal (n,n) up to (80,80) plus AAA approximants; no rectangular (6,3) error value or 0.02 threshold is stated.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full slides converted to text (2023 lines): Sec 6.7 treats |x| diagonal approximation (VRC 200-digit history, new minimax to (80,80), AAA even/odd-n behavior); section scan finds only diagonal types (2,2),(6,6),(12,12),(14,14),(80,80) and no (6,3) or 0.02 entry."
+      },
+      {
+        "title": "Approximating the square root by polynomials and rational functions",
+        "url": "https://www.chebfun.org/examples/approx/MinimaxSqrt.html",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Directly tests the equivalent sqrt(t) formulation of the claim, but only for diagonal (n/2,n/2) approximants on truncated intervals [a,1] with a->0 convergence plots; it never computes the singular [0,1] type-(3,1) value or any 0.02 bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Full page body inspected: experiments cover sqrt on [a,1] for a=0.8,0.1,1e-3,1e-5,0 with diagonal minimax(f,n/2,n/2) convergence curves and non-convergence warnings; example scan finds no (3,1) instance, no error value near 0.02, and no transfer to the (6,3) |x| threshold."
+      },
+      {
+        "title": "Can. J. Math. Vol. 49 (5), 1997 pp. 1034–1065",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/22495A557F7BE0FEB8CBDE797D55064C/S0008414X00034210a.pdf/ray_sequences_of_best_rational_approximants_for_x.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object |x|^alpha on [-1,1] over the full rectangular Walsh table R_{mn}, which strictly generalizes the (6,3) parameter point; however all theorems are large-(m+n) ray asymptotics, pole/zero distributions, and overconvergence, with no finite (6,3) error value or 0.02 implication.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Full PDF converted to text (1982 lines) and theorems compared literally: Thm 1.1 gives two-sided ray bounds only for large m+n; Thms 1.2/1.4/1.6/1.7 concern Green-function limits, overconvergence, and extremal/pole distributions; no theorem instantiates the finite index (6,3) or yields E_{6,3}<=0.02."
+      },
+      {
+        "title": "Best uniform rational approximation of ^{} on [0,1]",
+        "url": "https://scispace.com/pdf/best-uniform-rational-approximation-of-on-0-1-b5ek0wh5oz.pdf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Same Stahl diagonal x^alpha program whose alpha=1/2 case is equivalent to diagonal |x| approximation, but its theorem is the n->infinity limit 4^{1+alpha}|sin pi alpha|, which constrains no finite rectangular (6,3) error and states no 0.02 bound.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Snippet plus base-phase full-HTML inspection of the identical paper: Theorem 1 limit (2.1) and transferred formulas (2.2)-(2.5) are diagonal n->infinity asymptotics; hypothesis/conclusion comparison shows no finite (3,1)-sqrt or (6,3)-|x| instance and no threshold."
+      },
+      {
+        "title": "Num´",
+        "url": "https://people.irisa.fr/Silviu-Ioan.Filip/files/thesis.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Mandatory dissertation escalation on rational minimax algorithms whose Chapter 6 treats |x| on [-1,1]; its only |x| instances are diagonal (10,10) error 2.69e-4, (12,12), (2,2), and (6,6) failure, while the sole (4,3) instance belongs to log(x+2.005), so no antecedent implies the (6,3) 0.02 claim.",
+          "assessment": "CLOSE_BUT_NOT_COVERING",
+          "trigger_reasons": [
+            "SAME_OBJECT",
+            "SAME_TERM_FAMILY",
+            "DISSERTATION"
+          ],
+          "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+          "inspection_evidence": "137-page thesis to text (10303 lines); Sec 6.3 examples plus antecedents Thm 6.1 (alternation), Thm 6.2 (de la Vallee Poussin lower bound), Thms 6.5-6.6 (interpolation linear algebra) inspected: instantiated they give only general existence/characterization with no finite (6,3) |x| value; |x| runs are (10,10) err 2.69e-4, (12,12), (2,2), failed (6,6); sole R4,3/R4,4 are log(x+2.005) Fig 6.3; Fig 6.4 is R40,40 sqrt; diagonal Stahl/VRC limits only; phrases 'with these properties/by the above/further examples' have no hits so no hidden antecedent chain yields E63(|x|)<=0.02; R63 subset R66 monotonicity blocks diagonal implication."
+      },
+      {
+        "title": "Best Uniform Rational Approximation of xα on [0, 1]",
+        "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=b162dd58a2271446b0f13a34a6eece5af1716acf",
+        "base_search_overlap": true,
+        "relationship_to_claim": "Duplicate copy of the same Stahl diagonal-limit paper as the scispace result above: identical hypothesis (diagonal E_{nn}, n->infinity) and identical limit constant, hence equally unable to imply the finite rectangular (6,3)<=0.02 certificate.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Snippet abstract states the same limit e^{2pi sqrt(alpha n)}E_{nn}->4^{1+alpha}|sin pi alpha| for diagonal approximants; theorem-scope comparison identical to the base Stahl inspection: asymptotic diagonal conclusion with no finite rectangular instantiation."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal paid search returned 20 results (4 URL/title overlaps with base). Incremental recall beyond the base providers consisted of the Filip minimax published PDF, a general approximation-theory lecture note, AAA slide deck, Chebfun sqrt/minimax demos, the Saff-Stahl ray-sequences paper, and the mandatory Filip dissertation. Every parked candidate with same object, shared parameters, terminology, original-paper, or highly relevant title was opened and inspected at body level (full-text parameter grep, section/table/example scan, or theorem-scope comparison). All are diagonal, asymptotic, different-function, or method-only sources: none states the rectangular E_{6,3}(|x|)<=0.02 threshold, lists the submitted coefficients, or implies the finite certificate (diagonal bounds run E_{6,6}<=E_{6,3} the wrong way). No COVERS_CLAIM source and no UNRESOLVED_CANDIDATE remain, so provisional originality PASS is preserved with no new decisive prior."
+  }
+}
