@@ -1,0 +1,227 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: DRAFT proves route A for explicit E=k<x,y,z>/(x^2,y^2,zx+zy). Re-ran verify.py: all checks pass. M(c) has zero third column so e2=[0:0:1] is a global section giving lift (a,b,c)->(a,b,c,e2); projectivity promotes closed-point surjectivity to scheme surjectivity. Fibers Proj k[d]/Jc with Jc linear are P^r, r=2-rank>=0, always containing e2, hence nonempty connected. At P affine ideal and Jacobian rank exactly 2 (minor 1, char-free) give tangent dim 4>dim 3; decomposition (x1)cap(x0,y0,x2) gives A^3+A^1 intersection, so singular. Char!=2 needed for sym rank; char!=3 harmless. Distinctness counts correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Three-form fused search (literal triple, multilinearization/point-scheme synonyms, Hwang/degenerate-Sklyanin/classification dominance) returned 20 results with full provider coverage. No source states or implies surjectivity/connected P^r fibers for E=(x^2,y^2,zx+zy). Nearest prior Chirvasitu-Kanda proves generic flatness/counts 20/19/17 on open-dense locus and was full-text inspected: it excludes this degenerate exceptional case and contains no such triple. Database/table checks (4d-AS census, Macaulay2 doc) list only regular/4-generator families. Hence claim is new and not mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-admitted motivated question: geometry of Hwang exceptional-divisor truncation phi:W4->W3 at degenerate Sklyanin point. Headline is an exact invariant (surjectivity plus scheme-fiber classification P^r r=0/1 plus certified singular component intersection) of a specific natural object, motivated before computation, not known or mechanically implied, and reusable by future researchers needing the precise point-scheme geometry. Per STANDARD this needs no new general theorem. It is not a textbook exercise, parameter variant, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chirvasitu-Kanda arXiv:1709.08757 flat families of truncated point schemes: generic open-dense flatness and Chow counts 20/19/17; full HTML inspected, no degenerate E triple.",
+    "4d-AS point-scheme database table (4d-as.ncag.info): census of 4-generator regular families (Sklyanin, skew, Vancliff, Clifford, etc.); no 3-generator E entry.",
+    "Macaulay2 pointScheme doc + MathSE connected-fibers thread: general multilinearization/connected-fiber background, no such fiber theorem.",
+    "Lozano 2024 UTA dissertation landing page (Vancliff advisor): quantum P3 line/point modules for 4-generator algebras; scope excludes 3-generator E.",
+    "inputs/artifacts/verify.py re-executed in audit env: section, rank strata, Jacobian rank 2 minor 1, sym-3/skew-1 all pass."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Chirvasitu-Kanda Thms 1.3/1.6 plus Rogalski AS-regular survey and Lu-Palmieri-Wu-Zhang regular classification concern generic/open-dense or regular families with counts 20/19/17; Hwang/degenerate-Sklyanin/De Laet-Heisenberg literature concerns regular or Heisenberg presentations with skew-rank>=2.",
+      "reasoning": "A generic or regular-family theorem cannot cover this degenerate exceptional E with skew-rank 1 outside the open-dense locus; no broader statement implies the explicit global section or P^r fiber classification.",
+      "search": "Hwang exceptional divisor blow-up degenerate Sklyanin AS-regular classification flat families generic locus Walton Smith Conner-Goetz"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior work gives generic nonemptiness/dimension lower bounds and zero-dimensional counts via Chow rings, but no source computes M(c) zero column, the e2 section, Jc=(c0d0,c1d1,c2(d0+d1)) linearity, or the P=([0:0:1]^3) Jacobian-rank-2 singularity for this E.",
+      "reasoning": "The headline follows only from the specific zero-column elimination and chart computation, which no prior theorem instantiates; it is therefore not a corollary, certificate, or repackaging of a known stronger fact.",
+      "search": "truncation phi:W4->W3 surjectivity global section linear P^r fibers Jacobian singularity prior implication check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results for multilinearization/quadratic-algebra/point-variety synonyms returned only generic point-scheme theory, Macaulay2 method docs, and unrelated Nichols/Fomin-Kirillov truncated schemes; full text of the lead paper contains no x^2, y^2, zx+zy triple or dual/complement encoding of it.",
+      "reasoning": "No synonymous notation, dual incidence-graph, matrix, or complement encoding in the candidate set states the same fiber data; title similarity alone was not counted as coverage.",
+      "search": "truncated point modules multilinearization quadratic algebra x^2 y^2 z(x+y) point variety (P^2)^d dual incidence encodings"
+    },
+    "exact_database_or_table": {
+      "evidence": "Inspected 4d-AS point-scheme overview table (all families with dimensions and loci) and Macaulay2 pointScheme doc; entries cover 4-generator regular families only, with no (x^2,y^2,zx+zy) row, and thesis/dissertation abstracts list disjoint quantum-P3 families.",
+      "reasoning": "The exact parameter triple and the W3/W4 fiber datum do not already appear in any official table or database entry, so this is not a direct lookup or recomputation.",
+      "search": "4d-AS point-scheme census table Macaulay2 pointScheme exact triple x^2 y^2 zx+zy thesis tables"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "8b18a0edd7b5d5f63d538cfcc25aa9111049235916685ca0469037369fa58175",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded the 53-page PDF, extracted full text, and ran parameter grep: zero hits for zx+zy, Sklyanin, Hwang, W_3/W_4, x^2; 6 hits for multilinearization and 11 for truncated, all in the general moduli-functor exposition (Def 2.9-2.11, Prop 2.10: Gamma_d as fine moduli space). No explicit algebra, no truncation-morphism fiber theorem.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Both concern multilinearized truncated point schemes Gamma_d, but the thesis proves only general moduli-functor background for arbitrary algebras while the claim computes the explicit W4->W3 surjectivity, P^r fibers, and singularity for the specific triple (x^2,y^2,zx+zy), which never occurs in the body.",
+        "title": "thesis.dvi",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://webdoc.sub.gwdg.de/ebook/serien/e/mpi_mathematik/2005/5.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded the dissertation PDF, extracted full text, and searched the exact triple (zx+zy: 0 hits; Hwang: 0; W_3/W_4: 0) plus surjectivity/truncation contexts. Body relations are the Sklyanin family ayz+bzy+cx^2 etc.; monomial degenerates are S(1,0,0)=k{x,y,z}/(yz,zx,xy), disjoint from (x^2,y^2,zx+zy). Surjectivity hits concern H^0 restriction maps and point-parameter-ring generation in degree one, never a W4->W3 morphism; Vd theory (Thm III.3, Prop III.26) describes alternating P1/point patterns for Sdeg with no P^r-fiber or ([0:0:1]^3) singularity claim.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Shares the degenerate-Sklyanin setting and truncated-point-scheme Vd machinery, but studies only the Sklyanin relations S(a,b,c) and their (P1)-product/point Vd strata; it never states the relation triple (x^2,y^2,zx+zy), the e2-section lift, or any W4->W3 surjectivity/connected-fiber result, so its theorems do not imply the headline.",
+        "title": "[PDF] On Degenerations and Deformations of Sklyanin Algebras",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://math.rice.edu/~notlaw/thesis.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read the full corrigendum body: Lemma 1-2 correct Vd lemmas, Prop 5 describes Vd for S(1,1,1) as length-d quiver paths (P1_A/B/C vertices and pa/pb/pc points), Cor 6 gives Vd=Wd for d=1,2,3 and Vd strictly larger for d>=4, Lemma 7 computes dim B4=24 vs dim P4=18. Component tables contain only Sklyanin-line/point factors; no (x^2,y^2,zx+zy) triple, no truncation-morphism surjectivity, no P^r fiber classification, no Jacobian singularity computation.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "The closest prior on degenerate truncated schemes: it corrects the Vd component census for S(1,1,1), but every component is built from the Sklyanin lines P1_A/B/C and points pa/pb/pc, whereas the claim concerns the unrelated relation triple (x^2,y^2,zx+zy) and its W4->W3 morphism, so neither the d=3 coincidence of indices nor the component tables imply the submitted fiber theorem.",
+        "title": "Corrigendum to “Degenerate Sklyanin algebras and Generalized Twisted Homogeneous Coordinate rings”, J. Algebra 322 (2009) 2508-2527",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/1112.5211"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read the full body: X is a separated finite-type scheme, Ln(X) are jet schemes, L(X) the arc space, and truncation maps pi^m_n:Lm(X)->Ln(X) are studied as piecewise/locally trivial fibrations with affine-space fibers (Props 1-3,5-7) to bound poles of motivic/topological zeta functions (Thms 4,8-10). No graded algebras, no multilinearized point schemes, no W3/W4 objects appear anywhere.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Title words (fibers of truncation morphisms) coincide but the object is disjoint: jet/arc truncation pi^m_n for commutative schemes in motivic integration versus the graded-algebra truncated-point-scheme morphism phi:W4->W3; its fibration theorems hypothesize Jacobian-order strata and conclude affine-space fibers, which neither state nor imply the explicit P^r fiber classification for E.",
+        "title": "arXiv:1101.0678v1  [math.AG]  4 Jan 2011",
+        "trigger_reasons": [
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/pdf/1101.0678v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded the 35-page PDF, extracted full text, and searched claim parameters (zx+zy, x^2/y^2 triples, W_3/W_4, Hwang: all 0). Body theorems characterize a different morphism tau_A:A->B(A) via local cohomology of Ud(A) (Thm 4.2) and compute examples for twisted tensor products K[x,y] otimes K[z] (relations include xy-yx; e.g. Thm 6.10: A=K<x,y,z>/(xy-yx,yz-zy,zx) with ker tau_A=(xyz)) and a neither-injective-nor-surjective example A/(x^2-xy+ayx,...). No occurrence of the submitted triple, e2 section, or W4->W3 statement; the Section 6 algebras are enumerated explicitly and exclude E.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Shares the truncated-point-system framework Upsilon_d and a surjectivity vocabulary, but its surjectivity theorem concerns the canonical ring map tau_A:A->B(Upsilon_A), not the scheme morphism phi:W4->W3; its worked examples are twisted tensor products with xy-yx-type relations, so neither its general criterion nor its examples instantiate or imply the explicit P^r-fiber result for E=(x^2,y^2,zx+zy).",
+        "title": "arXiv:2406.17139v1  [math.AG]  24 Jun 2024",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2406.17139"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded the full PDF and extracted text: Thm 1.1 proves every degenerate S(a,b,c) is monomial (u^2=v^2=w^2=0 if a=b; uv=vw=wu=0 otherwise), Cor 1.2 gives Zhang-twist equivalences, Thm 1.3 gives QGr equivalences with a quiver algebra. Zero hits for fiber/truncation/W_3/W_4; the paper studies quotient module categories, never truncated point schemes Wd or morphisms between them.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Directly relevant to the distinctness clause (degenerate Sklyanin presentations are monomial), and its monomial normal forms differ from R=span{x^2,y^2,zx+zy}, which corroborates rather than covers the claim; it contains no truncated-scheme geometry, hence no W4->W3 surjectivity or fiber-connectivity statement to imply the headline.",
+        "title": "Degenerate 3-dimensional Sklyanin algebras are ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://sites.math.washington.edu/~smith/Research/Degen-Skly.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read the full body (Sections 1-6): classification of quadratic twisted tensor products K[x,y] otimes K[z] with relations built on xy-yx (Thm 1.1 types P,S,T,EC); elliptic family T(g,h) with point scheme Z(hy^3+x^2z-yz^2+gy^2z) and sigma formulas (Props 3.2-3.6, Thm 3.5); exceptional means ATV line-plus-conic with interchanged components (non-AS-regular). Sklyanin EC results (Thms 1.3-1.4) concern K_{-1}[x,y] subalgebras. No (x^2,y^2,zx+zy) triple, no Wd schemes, no truncation-morphism fiber theorem appears.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Shares point-scheme/degenerate terminology and its ATV-exceptional (line+conic) discussion is the nearest distinctness neighbor, but all its algebras contain the xy-yx relation and its types/EC/Sklyanin theorems classify regular twisted tensor products; none of its hypotheses match E and none of its conclusions state W4->W3 surjectivity or P^r fibers, so it does not imply the claim.",
+        "title": "arXiv:2107.03612v1  [math.RA]  8 Jul 2021",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2107.03612"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read the full body Sections 1-4: Thm 1.7 describes Vd for Sdeg as unions of (P1)-products (three copies each for d odd, six for d even); Sec 3.2 computes V2 as six P1xpoint components and Vd inductively via Lemmas 3.9-3.10; Sec 4 builds the point parameter ring B with Hilbert series (1+t^2)(1+2t)/((1-2t^2)(1-t)). All components involve only the Sklyanin lines/points; the exact triple, any W4->W3 map, fiber classification, and Jacobian singularity are absent.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "The primary prior for degenerate-Sklyanin truncated schemes, but its Vd census is proved solely for the Sklyanin relations ayz+bzy+cx^2 etc. with (P1)-product components, while the claim proves surjectivity plus linear P^r fibers and a certified singular point for the different triple (x^2,y^2,zx+zy); different hypotheses and disjoint conclusions, hence no implication.",
+        "title": "Degenerate Sklyanin algebras and Generalized Twisted Homogeneous Coordinate ringsThanks: The author was partially supported by the NSF: grants DMS-0555750, 0502170.",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/0812.0609v3"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read the abstract and full-text Sections 1-3: the main theorem parameterizes Zhang twists of geometric noncommutative P^n via subsets of Aut(E uparrow P^n)sigma x (ker Res_E)^N using point-scheme geometry, applied to quantum spaces and Sklyanin algebras. The paper studies twist equivalence of regular geometric algebras; it computes no truncated-scheme example, no explicit relation triple, and no morphism between consecutive truncated schemes.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Shares point-scheme and Sklyanin vocabulary, but its theorem classifies Zhang twists (graded Morita equivalences) of regular geometric algebras via point-scheme automorphisms, whereas the claim is a concrete surjectivity plus P^r-fiber computation for the degenerate triple E; the scopes (twist groupoids vs. explicit W4->W3 fibers) do not intersect, so no implication holds.",
+        "title": "arXiv:1807.06383v1  [math.RA]  17 Jul 2018",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://eprints.lancs.ac.uk/id/eprint/169105/1/1807.06383.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded the 10-page PDF and extracted full text: the object is the naive blowup algebra R(X,Z_I,L,tau) on a surface with point modules studied via stable schemes Yn and surjectivity of T=R up to finite dimension (Thm 9.2). Parameter grep for the triple, W_3/W_4, Hwang, S(1,1,1), degenerate Sklyanin: all zero. No quadratic 3-generator relation triple and no consecutive-truncation morphism occur.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Shares point-module moduli and large-degree surjectivity language, but its theorems concern naive blowup algebras R(X,Z_I,L,tau) of surfaces and stabilization of Yn, not multilinearized Wd schemes of an explicit quadratic triple; different algebras, different morphisms, hence its conclusions cannot imply the W4->W3 fiber classification.",
+        "title": "Moduli spaces for point moduleson naïve blowups",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/16722685/Moduli_spaces_for_point_modules_on_naive_blowups.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded the 50-page PDF and extracted full text: the objects are birationally commutative noetherian domains with relevant subschemes Yn of Wn and birational (hence surjective) restricted maps phi_n, psi_n for n>>0 (Cor 3.5), plus Stein-factorization/connected-fiber arguments (Sec 4) and naive-blowup surjectivity T=R (Thm 9.2). Parameter grep for the triple, Hwang, degenerate Sklyanin: zero. Surjectivity is proved only asymptotically for stable birational maps of surfaces, never for an explicit low-degree W4->W3 map with P^r fibers.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "The nearest snippet-level neighbor (truncation maps Wn->Wn-1 that are birational hence surjective), but its maps are the ATV projections restricted to stable subschemes Yn of birationally commutative surface algebras in large degree, whereas the claim is exact surjectivity plus linear P^r fibers at degrees 3->4 for the specific degenerate triple; the hypotheses and conclusions are disjoint, so no coverage.",
+        "title": "ptschemes-final.dvi",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://api.newton.ac.uk/website/v0/events/preprints/NI06058"
+      }
+    ],
+    "rationale": "The terminal check returned 20 results (3 overlapping the base set, 17 incremental). The 3 overlaps (FK 2410.16578, Rogalski survey 2307.03174v2, Chirvasitu-Kanda 1709.08757) merely duplicate base-provider recall and add no new bearing on the triple. All 11 mandatory/body-level candidates above were fetched and inspected in full (PDF extraction plus parameter grep or section/theorem-scope reading): the two dissertations are general surveys or Sklyanin-relation Vd theory, the corrigendum/Walton/Smith sources concern only Sklyanin monomial or (P1)-product Vd data, Conner-Goetz/Rogalski-groupoid/naive-blowup sources prove tau_A or twist or large-degree stabilization theorems for different algebras, and the jet-space paper studies arc/jet fibrations. None contains the (x^2,y^2,zx+zy) triple or any W4->W3 statement. Excluded as non-material: Fu-Hwang InventMath (different Hwang, VMRT fixed points), SLMath preface (expository front matter), quadratic-form wiki (background), and the UBC item (snippet shows a disjoint ATV line-plus-conic point scheme with zero shared relation parameters and unestablished document type; its media endpoint is bot-blocked, and with no shared parameter subset it is not a mandatory escalation). No decisive prior found; originality PASS is preserved with no verdict change.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full arXiv HTML body inspected: main theorems concern generic open-dense locus U with flatness and counts 20/19/17 for regular types; examples are Brazfield/Van den Bergh generic algebras; no occurrence of the degenerate triple or W4->W3 section/fiber claim.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Flat families of point schemes for connected graded algebras",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/html/1709.08757v1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full overview table inspected row by row: every entry is a 4-generator regular family with its point locus (elliptic curve, tetrahedron, 20 points, quadric, etc.); no 3-generator exceptional algebra and no matching relation triple or truncation-fiber datum.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Point scheme -- 4d Artin-Schelter regular algebras database",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://4d-as.ncag.info/explained/point-scheme/"
+    }
+  ],
+  "verdict": "PASS"
+}
