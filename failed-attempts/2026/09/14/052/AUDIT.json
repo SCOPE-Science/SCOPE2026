@@ -1,0 +1,61 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET proof route is incomplete and contains a false moment claim. Under only E[Z]=mu<inf, E[Z^2] may be inf, so step-2 two-jump bound O(r_n^{-1} n Fbar) and Fuk-Nagaev maximal bound are asserted without proof; union-pair expectation can be infinite. Step-4 states spine size-biased mean 'still requiring only mu<inf', but E[Z^*]=E[Z^2]/mu needs second moment and is infinite when Var=inf. The core KS gap is bypassed by assertion: prior BEJ proof uses UI of W_n=Z_n/mu^n and sup W_k integrability for dominated convergence and K->inf residual, which fails when W_n->0 a.s. under E Z log Z=inf. Then E[1-(1-p_n)^{Z_{n-K}}]/(E[Z_{n-K}]p_n)->1 needs tail E[W 1_{W>T_n}] with T_n~r_n->0 control that is not shown; saturation on huge families can break r_n rate. Artifact sh_check.py verifies only deterministic identities Pareto rate, geometric sum, toy c_n/mu^n, not the M0 limit. Hence experimental evidence, not proof.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "TARGET route: no preset presumption. Three-form fused search found nearest prior Bhattacharya BEJ 2023 large-deviation BRW theorem, which assumes E Z log+ Z<inf in Assumption 1.1 Eq.1.2 and explicitly leaves KS-violation with Seneta-Heyde scaling as open in Sec.2.4, stating belief picture might be different. Other hits (Bhattacharya-Hazra-Roy point-process limits, Biggins-Kyprianou SH norming) assume KS or treat a different object (martingale norming, not large-deviation M0 limit). Full-text parameter search of BEJ confirms no theorem for E Z log Z=inf and no (*) with (1-q)^{-1} and ordinary Z_l. The submitted KS-failure formula is therefore not recorded or mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "If true, the headline would resolve an explicitly motivated open boundary: BEJ Sec.2.4 asks how the heavy-tailed BRW large-deviation one-big-jump picture changes when KS fails and SH scaling is needed. Same-rate persistence versus changed intensity with decoupling of c_n is a natural classification question motivated before computation, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. A rigorous exact M0 limit m*_SH would be independently retrievable. Value is judged on the target's standing; correctness failure does not make the question arbitrary.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bhattacharya BEJ 2023 (doi:10.3150/22-bej1488 / arXiv:1802.05938): full text inspected; assumes KS Eq.1.2, proves r_n=(mu^n Fbar)^{-1} M0 limit under KS, Sec.2.4 leaves KS-failure open.",
+    "Bhattacharya-Hazra-Roy SPA 2018 / AIHP 2017 / AAP 2019 BRW heavy-tail point-process results: snippets state supercritical GW satisfying Kesten-Stigum; different hypothesis, no SH case.",
+    "Biggins-Kyprianou 1997 AoP Seneta-Heyde norming in BRW + He-Liu-Zhang stable BRW SH scaling: different object (Laplace/additive martingale norming), no large-deviation N_n M0 limit."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused hits all condition large-deviation BRW conclusions on KS (BEJ Assump 1.1; BHR snippets 'satisfies Kesten-Stigum'); SH-norming sources treat martingale convergence only. No broader census, classification, or database covering KS-failure large deviations was returned.",
+      "reasoning": "No stronger theorem, broader object class, larger parameter range, or completed census was found that would contain the KS-failure M0 limit as a special case; the dominance query fails to cover the claim.",
+      "search": "Searched stronger/broader coverage: BRW heavy-tail large-deviation theorems, supercritical GW census/classification, Bhattacharya-Hazra-Roy program, Seneta-Heyde BRW literature."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "BEJ Assumption 1.1 requires E Z log+ Z<inf; proofs use sup W_k integrability and UI for Props 3.3-3.4; Sec.2.4 says KS-violation case needs SH scaling, W has no finite expectation used in Prop 3.4, and authors believe whole picture might be different.",
+      "reasoning": "Prior KS result does not substantively imply the KS-failure formula; proof ingredients break without UI and prior discussion points away from mechanical extension, so no corollary/recomputation coverage.",
+      "search": "Compared submitted rate r_n and Laplace functional (*) against BEJ Theorems 1.3-1.4, 2.4-2.5 and Corollaries 2.7-2.9 hypothesis-by-hypothesis for implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text search for Kesten-Stigum/Seneta-Heyde/W log W in BEJ returned KS assumed throughout and SH mentioned only as open scaling; SH-norming hits use Heyde-Seneta/Seneta-Heyde martingale language with no N_n, r_n, M0, or one-big-jump limit.",
+      "reasoning": "No synonymous notation, dual/complement/incidence encoding, or alternate norming representation was found that restates (*) under E Z log Z=inf; terminology variants do not cover the claim.",
+      "search": "Searched equivalent forms: Seneta-Heyde/Heyde-Seneta scaling, X log X fails, W_n->0, Kesten-Stigum violated, one-single-big-jump M0 limit."
+    },
+    "exact_database_or_table": {
+      "evidence": "No official table, database, thesis table, or repository entry lists the exact KS-failure rate r_n=1/(mu^n Fbar) with limit (*) and Z_l clusters; artifact sh_check.py contains only toy Pareto/geometric checks, not an external database record.",
+      "reasoning": "Exact-parameter lookup does not cover the claim; it is not a direct table/database recomputation but an asserted new theorem, so this failure mode does not establish coverage.",
+      "search": "Searched exact objects/parameters: mu^n P(|X1|>gamma_n), Psi_SH Laplace functional, Z_l cluster law, (1-q)^{-1} prefactor in literature and databases."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Assump 1.1 Eq.1.2 imposes mu in (1,inf) and E Z log+ Z<inf; Thms 1.3-1.4 and 2.4-2.5 proved under that hypothesis; Sec.2.4 open-questions paragraph states KS-violation with SH scaling is unanswered and picture might be different; parameter search confirms no KS-failure limit theorem.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Large deviations of extremes in branching random walk with regularly varying displacements",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.3150/22-bej1488"
+    }
+  ],
+  "verdict": "REJECT"
+}
