@@ -1,0 +1,256 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Independently recomputed all 11 sweep_v2.json records under GF(1000000007) and GF(1000000009) via fast_ag.py: 11/11 pass H=(1,3,6^5,3,1), identical rank matrices across primes, corrected diagonal-constancy Toeplitz admissibility under both primes, nonnegative JDT matrix, Lemma-2.2 symmetry, and stored (r,Delta,JDT) match. Spot checks confirm diag(M)=H, total dim 38 with JDT part-size sum 38, row monotonicity, and plausible Toeplitz centers (e.g. record 1 r=(6,4,2,1,0)). Lemma-2.15 correction (diagonal not column constancy) matches AAIY Lemma 2.15 text. Finite-field scope is explicitly claimed; no char-0 theorem is asserted, and QQ timeout is disclosed.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Fused 3-direction literature search (20 results, no partial failure) finds AAIY as nearest prior. AAIY full text proves occurrence only for Sperner s<=5 and explicitly states s=6 potentials from Theorem 3.9 were not verified as occurring, leaving occurrence as conjectural Question 4.13. Full-text inspection of AAIY and of Altafi 2022 (parameter search: zero 'Sperner number 6' hits) excludes coverage of the 11 explicit (F,l,JDT,r,Delta) finite-field certificates at j=8/k=5. No table, database, thesis lead, or broader census found covers these computed realizations; potentials do not imply occurrence.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "EMERGENT_FINDING arising genuinely from target work (engine, Gor(T) sweep, filter same-model review). Object T=(1,3,6^5,3,1) with k=5 minimal for Table-6 k>=5 hypothesis and invariant JDT realizability were motivated before computation by AAIY Question 4.13; the 11 values were unknown and not mechanically implied. Explicit reusable (F,l) certificates plus exact missing-row map (15 rows/54 variants) and the documented diagonal-vs-column filter pitfall convert the open conjecture into a delimited residual problem a future worker can directly need. Narrow exact witnesses are eligible per STANDARD; the honestly delimited incomplete census does not erase the headline.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "AAIY arXiv:2406.06322v2 (DOI 10.1016/j.laa.2025.08.018) full text: Thm 3.9/Table-6 potentials, Lemma 2.15 diagonal constancy, s=6 explicitly unverified, Question 4.13 conjecture, Tables 7+ only for s<=5.",
+  "Altafi 2022 DOI 10.1016/j.laa.2022.03.013 full text (arXiv:2008.02338v2): small-parts Jordan-type classification; full-text parameter search for Sperner-6 returns nothing.",
+  "scope_literature_search fused 20 results across 3 normalized queries (SerpBase/OpenAlex/Crossref/OpenAIRE, coverage ok, partial=false): nearest prior is AAIY; no s=6 realization census, table, or database.",
+  "Independent recomputation of inputs/artifacts/sweep_v2.json 11 records under GF(1000000007)/GF(1000000009) with inputs/artifacts/fast_ag.py: 11/11 ALL_OK (H=T, M1==M2, Toeplitz both primes, JDT-ok, symmetry, r/Delta match)."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "AAIY full text: occurrence proved only for s<=5; for s=6 T=(1,3,6^k,3,1) the authors state they did not construct tables of actually occurring JDT and have not verified each Thm-3.9 potential occurs; Q4.13 conjectures (i)-(iii) including that all potentials occur. Search returned no stronger theorem, exhaustive census, or classification covering s=6 realizations.",
+   "reasoning": "No broader theorem or completed census subsumes the 11 records as a special case; the only covering-shaped result (Thm 3.9) is potential-only by its own statement, so occurrence evidence remains new.",
+   "search": "Dominance query: stronger theorem, broader object class, larger k range, exhaustive JDT census, or classification covering s=6 (1,3,6^k,3,1) realizations."
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Prior work supplies at most 65 potential rank matrices/JDT subject to Lemma 2.7(iv), Lemma 2.15, and O-sequence constraints; AAIY states realization is unverified for s=6. The 11 records add explicit (F,l) witnesses with two-prime recomputed ranks, which no potential-list computation mechanically implies.",
+   "reasoning": "A potential list does not imply occurrence; the new computational certificates are not a corollary, recomputation, or repackaging of Thm 3.9 but the exact missing existence evidence Q4.13 calls for, at finite-field level.",
+   "search": "Tested whether AAIY potentials, O-sequence/convexity constraints, or s<=5 constructions logically imply the 11 s=6 occurrences."
+  },
+  "equivalent_formulations": {
+   "evidence": "AAIY establishes rank matrix simeq Jordan degree type via Definition-2.19 second differences; records store both M-derived (r,Delta) and JDT parts with symmetry eta(p,nu)=eta(p,j+1-nu-p). Literature search over Jordan type, rank matrix, Hessians, Macaulay dual, and Delta/r encodings returned only the same AAIY family, with no synonymous-notation source realizing s=6.",
+   "reasoning": "Dual/complement/matrix/algebraic recodings do not reveal hidden coverage: the same AAIY potentials are the only match, and they are potential-only for s=6, so the computed realizations survive under all tested synonymous formulations.",
+   "search": "Literal claim plus equivalents: rank matrix vs Jordan degree type vs Jordan type, Macaulay dual F, Delta/r center encoding, Hessian and Lefschetz synonyms for T=(1,3,6^5,3,1)."
+  },
+  "exact_database_or_table": {
+   "evidence": "AAIY appendix tables realize JDT only for s<=5 (Tables 7+); s=6 has potentials (Table 6, 22 Delta rows summing to 65) with no occurrence table. No official database, repository, or thesis table in search results lists the 11 exact (F,l,JDT) tuples; sweep_v2.json is the first store of them.",
+   "reasoning": "The exact parameters (j=8, H=(1,3,6^5,3,1), seven Delta rows, eleven JDT variants) appear in no prior table or database entry, so this is not a known-database recomputation or lookup.",
+   "search": "Exact-parameter search: T=(1,3,6^5,3,1), j=8, Table-6 Delta rows, the eleven JDT part-lists, and Macaulay-dual/linear-form databases."
+  }
+ },
+ "perplexity_final_check": {
+  "check_id": "2c9904037b27280c92d9e519aa2389c9fe2693ba0f6a1254f7add10dfba293a1",
+  "decisive_prior_found": false,
+  "decisive_sources": [],
+  "incremental_prior_found": false,
+  "material_sources": [
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Downloaded 39-page Elsevier version via proxy, pdftotext, parameter grep: abstract states 'For s=6 we delimit the potential JDT, without verifying that each occurs'; Section 4.3 states 'For Sperner number 6 we did not construct tables of the actually occurring JDT so have not verified that each potential JDT from Theorem 3.9 actually occurs'; Theorem 3.9 hypothesis is k>=5 potential count (65), not occurrence.",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "Same object T=(1,3,6^k,3,1), same Table-6/65-potential parameters and JDT/rank-matrix terminology, but its conclusion for s=6 is explicitly potential-only while the claim adds 11 two-prime-verified occurrence certificates the paper says are unverified.",
+    "title": "Jordan degree type for codimension three Gorenstein ...",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER",
+     "HIGHLY_RELEVANT_TITLE"
+    ],
+    "url": "https://www.diva-portal.org/smash/get/diva2:2007445/FULLTEXT01.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "inspection_evidence": "Downloaded Beamer slides via proxy, pdftotext: JDT section states 'at most 65 occurring JDT for s=6' then 'For s=6 we list the potential sequences Delta and bound above for each Delta the number of related JDT'; no (F,l) certificates, no j=8 computed records, no occurrence tables beyond potentials.",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "Same almost-constant s=6 family and 65-bound parameters with identical JDT/rank-matrix/Delta terminology, but slides present only potential Delta bounds for s=6, not the 11 explicit verified (F,l,JDT,r,Delta) realizations at T=(1,3,6^5,3,1).",
+    "title": "Jordan type for Artinian Gorenstein algebras, and punctual schemes.=1arXiv:math.AC/2406.06322 (June 10, 2024)",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "HIGHLY_RELEVANT_TITLE"
+    ],
+    "url": "https://uniwersalizm.uken.krakow.pl/wp-content/uploads/sites/122/2024/06/S5-Iarrobino-Jordan-type-for-Artinian-Gorenstein-algebras-almost-constant-HF-June26.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "inspection_evidence": "Downloaded full thesis via proxy, pdftotext (2082 lines): full-text parameter search for '2406.06322/Table 6/65 potential/Sperner number 6' returns only generic rank-matrix/JDT background; Papers C/D concern codimension-two CI types and Paper F concerns l^3=0 classification, with no T=(1,3,6^5,3,1) j=8 occurrence records.",
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "relationship_to_claim": "Dissertation shares rank-matrix/Jordan-degree-type object and terminology family, but its classified results concern codimension-two types and l^3=0 small-part cases, containing no s=6 Table-6 occurrence certificates matching the claim.",
+    "title": "Lefschetz properties and Jordan types of Artinian algebras",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "DISSERTATION"
+    ],
+    "url": "https://www.diva-portal.org/smash/get/diva2:1459823/FULLTEXT01.pdf"
+   },
+   {
+    "title": "jordan types with small parts for artinian gorenstein ...",
+    "url": "https://www.diva-portal.org/smash/get/diva2:1459820/FULLTEXT01.pdf",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Shares the codimension-three rank-matrix/Jordan-degree-type object and terminology, but its theorem scope is restricted to linear forms with vanishing third power and small-part cases, containing no s=6 Table-6 or T=(1,3,6^5,3,1) j=8 occurrence data.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY"
+    ],
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "inspection_evidence": "Downloaded full text via proxy, pdftotext (2469 lines): classifies rank matrices only for l^3=0 and Jordan types with parts of length at most four; full-text search finds no 'Sperner number 6', no 'Table 6', no Delta center sequence, and no T=(1,3,6^5,3,1)/j=8 records."
+   },
+   {
+    "title": "Jordan types with small parts for Artinian Gorenstein ...",
+    "url": "https://arxiv.org/abs/2008.02338",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Same l^3=0 small-part classification work as the inspected full-text copy (its arXiv abstract record); shares rank-matrix/JDT terminology but no s=6 Table-6 parameters, so it cannot cover the 11 computed j=8 realizations.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "inspection_evidence": "Same work as the inspected diva2:1459820 full text: abstract states 1-1 rank-matrix/JDT correspondence and classification only for linear forms with vanishing third power; body parameter search confirms no s=6, Table-6, Delta, or (1,3,6^5,3,1) content."
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Downloaded full abstracts volume via proxy, pdftotext: inspected complete Iarrobino entry (pp.10) which states 'we determine the JDT given T for s<=5 and delimit the possibilities for s=6'; entry lists no dual generators, linear forms, rank matrices, or j=8 records.",
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "relationship_to_claim": "Same almost-constant s<=6 JDT problem and terminology, but the contribution summary claims only determination for s<=5 and delimitation for s=6, supplying no explicit occurrence witnesses for the 11 claimed Table-6 variants.",
+    "title": "[PDF] Abstracts - Lefschetz Properties",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "HIGHLY_RELEVANT_TITLE"
+    ],
+    "url": "https://lefschetz.uken.krakow.pl/wp-content/uploads/sites/122/2024/06/abs-1.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Downloaded school notes via proxy, pdftotext (7228 lines): full-text search finds (1,3,6,6,3,1) only in WLP discussion (k=2, j=5 case with char-3 exception); no Table 6, no Delta/r center, no rank-matrix occurrence data, no T=(1,3,6^5,3,1) or j=8 records.",
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "relationship_to_claim": "Shares only the (1,3,6,...) Hilbert-function prefix in a WLP analysis of the short k=2 case, with different socle degree and no Jordan-degree-type occurrence claim, so it cannot imply the 11 j=8 Table-6 realizations.",
+    "title": "Lefschetz properties in algebra, geometry and ...",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS"
+    ],
+    "url": "https://uniwersalizm.uken.krakow.pl/wp-content/uploads/sites/122/2024/05/Lefschetz-Preparatory-School-Notes-by-Migliore-and-Favacchio-v2.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Downloaded arXiv PDF via proxy, pdftotext (788 lines): proves SLP for Sperner<=6 and classifies Gorenstein sequences including (1,3,6^k,3,1) in Corollary 2.11; full-text search for JDT/Table-6/65/Delta/rank-matrix occurrence returns only Jordan-type SLP/WLP equivalences, no s=6 JDT realization tables.",
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "relationship_to_claim": "Same Hilbert-function family (1,3,6^k,3,1) and Lefschetz/Jordan-type Kabel, but its theorems concern strong Lefschetz property and sequence classification, not rank-matrix/JDT occurrence, hence imply none of the 11 computed realizations.",
+    "title": "arXiv:2203.01258v1  [math.AC]  2 Mar 2022",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://arxiv.org/pdf/2203.01258"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "inspection_evidence": "Fetched ar5iv HTML body: proves WLP for h-vector (1,3,6,6,3,1) (k=2, socle degree 5) via P2-to-P3 geometry; body contains no 'Jordan degree type', no Table 6, no 65 count, no Delta sequence, and no (1,3,6^5,3,1)/j=8 algebra-linear-form pairs.",
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "relationship_to_claim": "Shares codimension-three Gorenstein object and (1,3,6,6,...) Hilbert prefix but treats the short k=2 WLP question only, with different socle degree and no JDT occurrence content, so it does not cover the s=6 Table-6 realizations.",
+    "title": "On the Weak Lefschetz Property for Artinian Gorenstein Algebras of Codimension Three",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://ar5iv.labs.arxiv.org/html/1302.5742"
+   },
+   {
+    "title": "Artinian Gorenstein algebras with Macaulay dual generator with fixed Waring rank",
+    "url": "https://arxiv.org/pdf/2608.12621",
+    "base_search_overlap": true,
+    "relationship_to_claim": "Shares Macaulay-dual/Waring-sum and Jordan-type terminology (base_search_overlap true), but studies power-sum algebras A_{Fs} with h-vectors such as (1,5,5,5,5,5,5,1) and (1,3,5,5,5,5,3,1), proving SLP and generic linear Jordan type; body contains no T=(1,3,6^5,3,1), no Table-6 Delta/r parameters, and no j=8 occurrence records.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "inspection_evidence": "Downloaded arXiv PDF via proxy, pdftotext (1113 lines): full-text parameter search finds no (1,3,6^5,3,1), no Table 6, no 65 count, no Delta/rank-matrix center; worked h-vectors are codimension-n power-sum families, never the s=6 almost-constant j=8 case."
+   },
+   {
+    "title": "Jordan type of Full Perazzo algebras",
+    "url": "https://arxiv.org/html/2506.23904v1",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Concerns Full Perazzo algebras with h-vector (1,5,5,1) and dim-12 Jordan-type analysis, a different codimension/Hilbert-function family from the claim; body has no (1,3,6^5,3,1) parameters, no rank-matrix/Delta Table-6 content, and no j=8 certificates.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY"
+    ],
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "inspection_evidence": "Fetched ar5iv HTML body: h-vector is (1,5,5,1) with Jordan-type strings analysis; parameter grep finds no (1,3,6...), no Table 6, no Delta/r center, and no T=(1,3,6^5,3,1) occurrence data."
+   },
+   {
+    "title": "Jordan degree type for codimension three Gorenstein ...",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0024379525003611",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Publisher page of the same AAIY article (Linear Algebra and its Applications 728 (2026) 82-120, DOI 10.1016/j.laa.2025.08.018) already inspected in full via its Elsevier PDF copy; same s=6 potential-only scope, so it adds no occurrence data beyond the inspected copy.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER",
+     "HIGHLY_RELEVANT_TITLE"
+    ],
+    "inspection_method": "THEOREM_SCOPE",
+    "inspection_evidence": "Same article as the inspected 39-page Elsevier full text (identical journal, volume, pages, DOI): abstract and Section 4.3 state s=6 JDT are delimited as potentials without verifying each occurs; Theorem 3.9 is a 65-potential count, not an occurrence result."
+   }
+  ],
+  "rationale": "Terminal search returned 20 candidates (7 overlapping base, 13 incremental). All mandatory escalations were fetched in full via proxy and body-inspected: the s=6-sharing sources (journal-version AAIY, Iarrobino slides, Krakow abstracts, SLP/WLP papers) state potentials/delimitation or treat different (k=2, WLP/SLP) questions, and the one dissertation (Altafi thesis) classifies only codimension-two and l^3=0 cases. Remaining hits concern Perazzo/Waring-rank cases, surveys, school notes, author pages, and software docs with no Table-6 s=6 occurrence data. No source supplies the 11 explicit j=8 (F,l) certificates, so no decisive prior was added and originality PASS is preserved. Also inspected the Macaulay-dual/Waring-rank SLP paper (power-sum h-vectors, no s=6 Table-6 data) and the Full Perazzo Jordan-type paper (h-vector (1,5,5,1), different family); neither contains the claim parameters.",
+  "status": "COMPLETE",
+  "verdict_changed": false
+ },
+ "residual_risks": [],
+ "source_inspections": [
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Body states s=6 potentials from Thm 3.9 not verified as occurring and poses occurrence as conjectural Q4.13(iii); occurrence tables cover only s<=5. Potentials-only scope excludes the 11 computed occurrence certificates.",
+   "inspection_method": "THEOREM_SCOPE",
+   "title": "Jordan degree type for codimension three Gorenstein algebras of small Sperner number (AAIY arXiv:2406.06322v2)",
+   "trigger_reasons": [
+    "SAME_OBJECT",
+    "SAME_PARAMETERS",
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER",
+    "HIGHLY_RELEVANT_TITLE"
+   ],
+   "url": "https://arxiv.org/abs/2406.06322"
+  },
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Full-text parameter search for 'Sperner number 6' returns zero matches; work predates Table-6 s=6 potentials and treats small-parts classification, not T=(1,3,6^5,3,1) realizations.",
+   "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+   "title": "Jordan types with small parts for Artinian Gorenstein algebras of codimension three (Altafi 2022)",
+   "trigger_reasons": [
+    "SAME_OBJECT",
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER"
+   ],
+   "url": "https://doi.org/10.1016/j.laa.2022.03.013"
+  }
+ ],
+ "verdict": "PASS"
+}
