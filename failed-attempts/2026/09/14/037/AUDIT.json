@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Reran SymPy verification: maxdeg 4, gcd(P,Q)=1, singular locus Groebner {x^4,y} giving only (0,0), X(f_c)=10x^4y-10x^4y=0 with cofactor 0 for c=0,1,2, each deg 5 totaling 15. Irreducibility over C holds: f_c monic quadratic in y over C[x], reducible iff x^5+c is a square, impossible since 5=2deg h has no integer solution; Gauss lifts this. Distinctness holds since f_c-f_c' is a nonzero constant. Proof is self-contained; SymPy output is confirmatory, not load-bearing.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The exact triple P=-2y,Q=-5x^4,H=y^2-x^5 is not tabled verbatim, but the headline falsity of any unconditional degree-sum bound is mechanically implied by inspected prior work: Darboux/Jouanolou integrable-fiber theory (XH=0 gives infinite H-c fibers with zero cofactor) plus Christopher-Llibre's proved no-uniform-N(m) result with explicit infinite families. Choosing a degree-5 Hamiltonian to exceed 12 is a routine parameter substitution among infinitely many equivalent witnesses, not a new boundary or counterexample type.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: the target omits the standard rational-first-integral/dicritical exception that Jouanolou, Carnicer, Cerveau-Lins Neto and Christopher-Llibre all require. The submitted disproof uses textbook Hamiltonian fibers (H-c with zero cofactor by definition) and an arbitrary degree-5 choice H=y^2-x^5 to exceed the ad-hoc threshold 12/13. This is a cheap small-instance mismatch and arbitrary parameter fact exposing the missing hypothesis, with no new technique, boundary, or motivated invariant. SymPy certification does not create value. Per STANDARD and TARGET cheap-defect policy, value fails.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Independent SymPy rerun of verify_counterexample.py: maxdeg 4, gcd 1, Groebner {x^4,y}, X(f_c)=0, deg 5 each total 15, QQ factor_list irreducible.",
+    "Christopher-Llibre 2002 Proc AMS 130(7) full text via OpenAlex paid PDF: Sec1 no uniform N(m), infinite family x'=rx,y'=sy H=y^r/x^s; Sec2 XH=0 first-integral and Xf=kf cofactor definitions.",
+    "Garcia 2005 Rocky Mountain J Math 35(2) full text via OpenAlex paid PDF: Poincare N(m) survey, cites Christopher-Llibre nonexistence, Thm 3 structure result, van der Pol/Dolov examples.",
+    "Fused scope_literature_search call bf8907c8 (20 results, all providers ok, partial false): literal quartic-sum-bound, Hamiltonian y^2-x^5 fiber, and Jouanolou-Carnicer dominance queries; no record with same parameters found."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Christopher-Llibre full text proves no uniform N(m) exists for fixed degree and exhibits infinite invariant-curve families; Garcia p504 confirms this nonexistence result; Jouanolou theory states enough invariant curves force a rational first integral with all trajectories algebraic.",
+      "reasoning": "An unconditional quartic sum bound <=12 is a strict special case of the already-defeated uniform-bound claim. The submitted infinite Hamiltonian family is subsumed by the broader known phenomenon, so broader coverage implies the headline falsity.",
+      "search": "Jouanolou Carnicer bound sum degrees invariant curves foliation degree m dicritical rational first integral classification"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Christopher-Llibre Sec2: H is a first integral iff XH=0; invariant curve means Xf=kf; linear system x'=rx,y'=sy has H=y^r/x^s and curves for all h. Submitted H=y^2-x^5 satisfies XH=0 identically, giving fibers H-c with cofactor 0 by the same definition.",
+      "reasoning": "The submitted computation is a direct corollary/recomputation of the known stronger fact that integrable fields carry infinitely many invariant fibers and defeat unconditional bounds; no new implication beyond applying the textbook definition to one degree-5 Hamiltonian.",
+      "search": "polynomial Hamiltonian first integral implies infinitely many invariant algebraic fibers zero cofactor Darboux Jouanolou"
+    },
+    "equivalent_formulations": {
+      "evidence": "Garcia Def1 requires P f_x+Q f_y=Kf with deg K<=m-1; Christopher-Llibre Sec2 requires XH=0 for a first integral. Submitted X(f_c)=0 with K=0 satisfies both verbatim; H=y^2-x^5 fibers are the standard polynomial-first-integral encoding.",
+      "reasoning": "Under synonymous notation (first integral vs zero-cofactor Darboux polynomials, foliation vs vector field), the claim is a re-encoding of the textbook statement that a polynomial Hamiltonian's level sets are invariant curves.",
+      "search": "Hamiltonian vector field y^2-x^5 polynomial first integral infinitely many invariant algebraic curves foliation Darboux"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused 20 results contain no y^2-x^5, -2y/-5x^4, or bound-12 record; full-text parameter searches in Christopher-Llibre and Garcia return no such parameters, and the Chavarriga-Llibre 2001 paywalled paper yielded no usable content.",
+      "reasoning": "Exact-triple absence in tables does not establish priority because the witness is mechanically generated from the known general construction; any degree>=5 Hamiltonian gives the same defeat, so table lookup is the wrong level of novelty.",
+      "search": "exact quartic field -2y -5x^4 invariant curves y^2-x^5-c total degree 12 13 15 table database"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Sec1: no uniform N(m) exists; explicit infinite family x'=rx,y'=sy with H=y^r/x^s and curves for all h. Sec2: XH=0 defines first integral; Xf=kf defines invariant curve. Scope comparison shows unconditional sum bound is already defeated by this stronger phenomenon.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "A family of quadratic polynomial differential systems with invariant algebraic curves of arbitrarily high degree without rational first integrals",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://www.ams.org/proc/2002-130-07/S0002-9939-01-06253-0/S0002-9939-01-06253-0.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text search for y^2-x^5, -2y, -5x^4, and bound 12 yields no hit; relevant sections are Thm 3 generic homogeneous-component structure and van der Pol/Dolov nonalgebraicity examples, whose scope excludes the submitted quartic witness.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Transcendental Limit Cycles Via the Structure of Arbitrary Degree Invariant Algebraic Curves of Polynomial Planar Vector Fields",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://projecteuclid.org/journals/rocky-mountain-journal-of-mathematics/volume-35/issue-2/Transcendental-Limit-Cycles-Via-the-Structure-of-Arbitrary-Degree-Invariant/10.1216/rmjm/1181069742.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
