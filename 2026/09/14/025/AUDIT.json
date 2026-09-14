@@ -1,0 +1,253 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-executed the witness: cycle types (4,2,1^6),(5,4,3),(7,3,2) confirmed, v0*v1*vinf=id holds under compose(a,b)[i]=b[a[i]], group action transitive, RH gives 8+3+3=14 parts and g=0. Ran 01_triple.py and 02_group_id.py: vinf^6 is a 7-cycle, sympy reports order 479001600=12!, transitive and primitive, so L=S12 with trivial centralizer (Aut=1). Brute-force enumeration of all 83160 elements of class (4,2,1^6) against fixed vinf gives N=4088, confirming the character sum; re-ran census.py and nielsen_correct.py yielding 142 classes (66 transitive) and pure-braid singleton for our class. No field-of-definition claim is made, matching the honest limitation.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, equivalent (dessin/Hurwitz/S12 xyz=1), and dominance (database/census/classification) directions returned no prior record of passport ([4,2,1^6],[5,4,3],[7,3,2]). Full-text inspection shows the Musty et al. Belyi database covers degrees only through 9, LMFDB Belyi maps cover degrees only through 9, and the Wang et al. Hurwitz-exceptional catalogue lists only non-realizable triples with no parameter match for this passport. Malle's selective fields-of-definition sample is explicitly non-exhaustive ('some passports with restrictions'), not a census covering this passport. No synonymous encoding, dual, broader theorem, table, or database was found that states or implies this exact realizability witness.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: the admitted target asked for exactly this decidability \u2014 an explicit transitive triple with group/centralizer data or a rigorous obstruction for the fixed genus-0 degree-12 passport. The delivered connected S12 cover over C with trivial Aut plus exact census invariants (N=4088, 142/66 Nielsen classes, braid orbits 1 and 6) resolves the target constructively. The object and invariant were motivated before computation, the value was not known or mechanically implied (RH is only necessary), and a future researcher can reuse the precise witness. Honestly scoped with no Q-descent claim; not a textbook restatement, parameter variant, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Musty-Schiavone-Sijsling-Voight, A database of Belyi maps (OBS 2019 / arXiv:1805.07751): full text read; scope table (1.3.1) covers degrees 1-9 only; parameter search for 5,4,3 and 7,3,2 returns no match.",
+    "LMFDB Belyi maps section (lmfdb.org/Belyi): official database page states 1111 maps of degree up to 9; degree-12 passport therefore outside its scope.",
+    "Wang et al., The Hurwitz existence problem and prime-degree conjecture (arXiv:2512.06545): full text read; catalogues only non-realizable triples to degree 31; full-text parameter search finds no entry for this passport; a non-realizability list cannot imply this constructive realizability.",
+    "Malle, Fields of definition of some three-point ramified extensions (1994): screened via database-paper summary as selective sample of some primitive genus-0 passports with restrictions to degree 13, not an exhaustive census; no same-parameter evidence; not an escalation candidate.",
+    "Independent recomputation evidence: 01_triple.py, 02_group_id.py, census.py, nielsen_correct.py, braid_correct.py re-executed; brute-force class enumeration (83160 elements, N=4088) independently repeated."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "BelyiDB table caps at degree 9; LMFDB caps at degree 9; Malle covers only a selective restricted sample to degree 13, not an exhaustive census; Wang et al. cover only exceptional (non-realizable) triples; no general S_n Hurwitz theorem decides a specific passport.",
+      "reasoning": "No broader theorem, census, classification, or database exhaustively covers degree-12 passports as a special case; generic existence results do not imply this exact ramification triple, so broader coverage does not subsume the claim.",
+      "search": "Searched Belyi database scope tables, LMFDB degree caps, Malle primitive passport sample to degree 13, Wang exceptional-triple census to degree 31, and general Hurwitz existence theorems."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Riemann-Hurwitz is necessary only; Frobenius count N=4088 was computed here and confirmed by direct enumeration; the explicit permutations, S12 order certificate, and Nielsen/braid numbers appear in no prior source found.",
+      "reasoning": "Realizability required exhibiting a transitive triple, which cannot be mechanically inferred from RH or character nonvanishing alone; the supplied witness plus machine certificates constitute the new implication, not a repackaging of a known stronger fact.",
+      "search": "Searched whether Riemann-Hurwitz, Frobenius character sums, Jordan theorems, or any prior triple publication already imply the existence of this exact transitive witness."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results for dessin, Hurwitz-triple, and S12 xyz=1 phrasings returned only a genus-1 degree-12 passport with different partitions, Hurwitz-exceptional enumeration with no parameter match, and general dessin literature with no matching monodromy types.",
+      "reasoning": "No synonymous passport ordering, dessin, Hurwitz-data, or permutation-triple convention variant was found stating this ramification data; the constructive witness is independent of convention.",
+      "search": "Searched dessin d'enfant degree-12 monodromy variants, Hurwitz existence S12 triple xyz=1 encodings, and synonymous passport orderings for types 4-2-1^6, 5-4-3, 7-3-2."
+    },
+    "exact_database_or_table": {
+      "evidence": "LMFDB passport search is degree-capped at 9; Musty et al. Table (1.3.1) lists degrees 1-9; Birch/Shabat/clean catalogues cap at lower degrees; full-text search of the Belyi database paper for the exact partitions returns nothing.",
+      "reasoning": "The exact parameter triple does not appear in any official table or database entry inspected; no direct lookup decides this passport.",
+      "search": "Searched LMFDB Belyi passport tables, Musty et al. BelyiDB degree tables, Birch catalogue, and Malle passport lists for the exact partition triple."
+    }
+  },
+  "perplexity_final_check": {
+    "base_search_overlap": "Three of twenty terminal results overlapped the base set (Belyi database arXiv version, Jones Hurwitz-dessins paper, LMFDB stats); all three were re-inspected at body level and remain non-covering, so incremental recall came only from the seventeen new URLs.",
+    "check_id": "e5447987d6956fc6f24b3e2c126ae71447e1958f1ed13ea4fd5ef0847bdfcc93",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full text read in base audit and rechecked terminally: scope table (1.3.1) enumerates degrees 1-9 only; body parameter search for 5,4,3 and 7,3,2 returns no match; cited Malle work is a selective restricted sample, not a census.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Same Belyi-passport framework and enumeration methods as the submitted witness, but its computed catalogue covers degrees 1-9 only, so the degree-12 passport cannot be listed or implied.",
+        "title": "A database of Belyi maps - MSP",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://msp.org/obs/2019/2-1/obs-v2-n1-p23-s.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Same paper as the MSP version; arXiv HTML confirms the identical scope table (degrees 1-9) and the Malle selective-sample description; no degree-12 passport entry exists in the body.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Duplicate URL of the same Belyi-database paper: identical degree-capped catalogue that cannot contain or imply the submitted degree-12 realizability witness.",
+        "title": "A Database of Belyi Maps - arXiv",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/1805.07751v3"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Extracted full 32-page body: Example 2.5 states its degree-12 passport explicitly with different partitions; body search for 5,4,3 and 7,3,2 finds no occurrence; sections 3-7 concern (3,2,7) Hurwitz generation in groups such as PSL2(q), not the submitted partitions.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Degree-12 dessin example with adjacent Frobenius/character methods, but its passport is (6,3,2,1 / 2^6 / 6,3,2,1) and the main results concern (3,2,7) generation, never the submitted partitions.",
+        "title": "[PDF] Hurwitz groups as monodromy groups of dessins: several examples",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.labri.fr/perso/zvonkin/Research/hurwitz-arXiv.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Fetched statistics page body: states 1111 Galois orbits in 1007 passports of degree at most 9 with a full degree distribution table; no degree-12 entry is possible in this database.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Official Belyi-map database whose passport tables could in principle subsume the claim, but its holdings stop at degree 9, excluding the submitted degree-12 passport.",
+        "title": "Belyi maps: statistics - LMFDB",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://www.lmfdb.org/Belyi/stats"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Inspected the full 66-page thesis body (extracted text) at section/table level: the antecedent method is the Frobenius character-sum estimate for triples, instantiated in the Maple tutorial only at ((1,3,3,5),(1,3,8),(2,5,5)) with estimate 4496 and at ((3^4),(2^6),(1^4,4^2)) with answer 72 plus a Maple conjugacy-class bug discussion; the exhaustive dessin census with tables covers degrees 1-5 only; no example, table row, or 'with these properties / further examples' chain is instantiated at (4,2,1^6)/(5,4,3)/(7,3,2), and scattered numerals elsewhere belong to S12 character-table setup code and unrelated triples, so no theorem/proposition implication in the thesis yields the submitted witness.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Doctoral thesis on dessins and Belyi computation sharing the object and terminology family; its only degree-12 computations are tutorial Frobenius estimates for unrelated triples, with exhaustive census only to degree 5.",
+        "title": "dessin.dvi",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://fse.studenttheses.ub.rug.nl/8416/1/Jeroen_Sijsling_MW_2006.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Extracted full 44-page body: section 4.3 degree-12 triples are (5331,222222,5322) and (642,2222211,5322); the sole 7,3,2 occurrence lies in the degree-40 row of Table 9.4 and equation (9.10) with braid triple parts (12,8^2,7,3,2) and monodromy A40, a different degree and different full partitions; no (4,2,1^6) or (5,4,3) fiber occurs.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Genus-0 degree-12 Hurwitz-Belyi maps in section 4.3 share degree and genus with the claim, and a degree-40 table entry contains 7,3,2 among five parts of one fiber, but every full triple in the paper differs from the submitted passport.",
+        "title": "[PDF] Hurwitz-Belyi maps - Publications Mathematiques de Besancon",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://pmb.centre-mersenne.org/item/10.5802/pmb.21.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read section 3.6 body: the genus-1 passport list (3.1) and correspondent-passport analysis place every 5,4,3 example in genus 1 with companion fibers 5,4,3 and 2^6; the genus-0 antecedent is [5,4,3/2^4 1^4/4^3]; the paper states no genus-0 maps exist for [5,4,3/2^6/2^4 4]; partitions 4,2,1^6 and 7,3,2 never occur.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Shares the exact 5,4,3 partition and degree 12, but only inside genus-1 passports [5,4,3/5,4,3/2^6] built by quadratic correspondence; its genus-0 correspondent [5,4,3/2^4 1^4/4^3] lacks the submitted 4,2,1^6 and 7,3,2 fibers and differs in genus.",
+        "title": "Contents",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/1706.04258"
+      },
+      {
+        "title": "[PDF] Hurwitz-Belyi maps",
+        "url": "https://personal.morris.umn.edu/~roberts/dpr/Research_files/HBM2.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Author draft of Roberts Hurwitz-Belyi maps paper sharing the degree-12 genus-0 setting; its snippet sentence matches the published version verbatim, whose section 4.3 triples are (5331,222222,5322) and (642,2222211,5322), both different from the submitted passport.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Direct fetch of the draft URL returned HTTP 403 on repeated attempts; inspected the full 44-page body of the published version of the same paper (pmb.21.pdf): section 4.3 degree-12 triples differ from the claim and Table 9.4 only 7,3,2 occurrence is a degree-40 A40 entry; draft snippet sentence appears verbatim in the published body."
+      },
+      {
+        "title": "Belyi map orbit 9T34-6.1.1.1_4.4.1_4.2.2.1-a - LMFDB",
+        "url": "https://www.lmfdb.org/Belyi/9T34/6.1.1.1/4.4.1/4.2.2.1/a/",
+        "base_search_overlap": false,
+        "relationship_to_claim": "LMFDB database entry for a genus-0 degree-9 passport with partitions (6,1,1,1),(4,4,1),(4,2,2,1); it differs from the submitted claim in degree (9 versus 12) and in every ramification partition.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Fetched the full LMFDB orbit page body: the Degree field reads 9, the conjugacy-class table lists partitions 6,1,1,1 over 4,4,1 over 4,2,2,1 with monodromy S9; no fiber matches the submitted degree-12 partitions."
+      },
+      {
+        "title": "On computing Belyi maps - arXiv",
+        "url": "https://arxiv.org/html/1311.2529v3",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Methods survey for Belyi computation sharing the object and terminology family; its only degree-12 discussion concerns Beauville-type maps with all ramification indices 3 above 0 and 2 above 1, not the submitted (4,2,1^6)/(5,4,3)/(7,3,2) triple.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Read the full arXiv HTML body including the applications passage: the sole degree-12 mention covers genus-0 maps of type (3^4)/(2^6) for Beauville fibrations; body-wide scan finds no (4,2,1^6), (5,4,3), or (7,3,2) passport, and the paper offers methods illustrations rather than a passport census."
+      },
+      {
+        "title": "_03_hoshino.dvi",
+        "url": "https://www.math.okayama-u.ac.jp/mjou/mjou52/_03_hoshino.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Original paper tabulating Belyi functions for non-normal triangle-group inclusions, including degree-12 cases D and F whose monodromy types are (2^6)/(3^4)/(8,2,1,1) and (2^6)/(3^4)/(9,1,1,1), disjoint from the submitted partitions.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded the 16-page PDF and extracted its full text: section 5 gives case D monodromy types 2^6/3^4/8-2-1-1 and case F types 2^6/3^4/9-1-1-1, and the ramification-type table lists only triangle-inclusion fibers; full-text scan finds no 4,2,1^6 / 5,4,3 / 7,3,2 triple."
+      }
+    ],
+    "rationale": "The terminal check returned 20 results with 3 base overlaps, all re-inspected at body level and still non-covering, so useful recall duplicated the base providers. All 17 new URLs were screened; every mandatory escalation was body-inspected: the Sijsling dissertation (full-text parameter search, unrelated degree-12 tutorial triples), the Vidunas-He paper sharing the 5,4,3 partition (section 3.6 shows genus-1 context with different companion fibers and genus), and the Roberts Hurwitz-Belyi paper with degree-12 genus-0 maps (section 4.3 triples differ; its only 7,3,2 occurrence sits in a degree-40 A40 table row, resolved by table inspection, not parameter grep). The HBM2 draft URL returned HTTP 403, but its published version (same Roberts paper, same n=7/n=12 examples) was inspected in full, so nothing was adjudicated from a snippet. The remaining 13 results are generic expositions, surveys, slides, or capped database entries with no shared partition and no dissertation status, hence keyword-similar only. No source states or implies the submitted triple, so no decisive prior exists and the provisional PASS stands on all three axes. Repair adds the four flagged URLs after body-level inspection: the Roberts HBM2 draft (HTTP 403 on the draft URL, adjudicated via the full published version of the same paper whose degree-12 triples differ), the LMFDB degree-9 orbit page (degree and all partitions differ), the Sijsling-Voight computing survey (only Beauville-type degree-12 discussion), and the Hoshino triangle-inclusion paper (degree-12 cases carry types 2^6/3^4/8,2,1,1 and 2^6/3^4/9,1,1,1). None states or implies the submitted passport, so no decisive prior exists.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Scope table (1.3.1) enumerates degrees 1-9 only; full-text search of extracted body for 5,4,3 and 7,3,2 returns no match; degree-12 passport outside stated scope.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "A database of Belyi maps (Musty-Schiavone-Sijsling-Voight)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://jvoight.github.io/articles/belyidatabase-082420.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Official index page states database contains 1111 Belyi maps of degree up to 9; passport search filters confirm degree cap; degree-12 triple cannot be listed.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "LMFDB Belyi maps database",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://www.lmfdb.org/Belyi/"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text parameter search over extracted body finds no 4,2 / 5,4,3 / 7,3,2 entry for this passport; paper scope is enumeration of non-realizable (exceptional) triples, which cannot state the submitted constructive realizability.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "The Hurwitz existence problem and the prime-degree conjecture (Wang et al.)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://dx.doi.org/10.48550/arxiv.2512.06545"
+    }
+  ],
+  "verdict": "PASS"
+}
