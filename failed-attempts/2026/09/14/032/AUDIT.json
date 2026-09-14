@@ -1,0 +1,78 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Core triple reproduces: cycle types (4,3,2,2,1)/(5,3,2,1,1)/(4,3,3,2), product identity under stated left action, transitivity (orbit 12), centralizer order 1, signs -1/-1/+1, Riemann-Hurwitz (14 parts, defect 22), and sympy group order 12! transitive primitive were independently re-run. But the headline as stated is not fully established: (a) the primitivity word certificate as written is false under the stated composition convention, since U0^2\u2218U1 sends 0 to 10, not 0 (a fixing pair exists only in path-application order, confirmed by BFS pair AAB/aBBB); (b) defined-over-Q is inferred from a singleton pure-braid orbit among 923 transitive classes plus trivial Aut, which does not imply field of moduli Q since Galois can permute singleton orbits, so Q-definition is unproved and no model is exhibited; (c) census counts (111680/88608/1277/923) cannot be reproduced because censusA/B and braid scripts are absent from inputs/artifacts, with only rate-level sampling support.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused three-direction search found no prior record of this exact degree-12 passport or triple. Body-level inspection of the nearest bases affirmatively excludes coverage: the Musty-Schiavone-Sijsling-Voight database paper computes maps only to degree 9 and passport representatives only to degree 11, and the live LMFDB Belyi statistics/browse cap at degree 9. No broader theorem, census, or table found implies or exhaustively contains this S12 triple, so the explicit witness is substantively new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The admitted TARGET passport was motivated before computation and its affirmative realizability via an explicit transitive primitive S12 triple is a reusable exact monodromy datum, not a textbook restatement, parameter substitution, or tiny gain. The missing Q-model is disclosed as a limitation and the census/braid data add context; the existence decision itself is independently worth retrieving under the shared standard.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/artifacts/verify1.py re-run: types, product identity, transitivity 12, centralizer 1 all reproduce",
+    "inputs/artifacts/group_order_sympy.py re-run: order 479001600=12!, transitive, primitive, symmetric true",
+    "Independent recomputation: Riemann-Hurwitz parts/defect, signs, intertwiner checks t1/t2 simultaneously conjugate to triple, BFS stabilizer-orbit check",
+    "scope_literature_search three-direction fused results (SerpBase/OpenAlex/Crossref/OpenAIRE), all providers ok, partial=false",
+    "Musty-Schiavone-Sijsling-Voight arXiv:1805.07751 full-text body inspection (scope table and degree caps)",
+    "Live LMFDB Belyi front and stats pages body inspection (degree cap 9, 1111 orbits, 1007 passports)"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Musty body caps passport representatives at degree 11 and maps at degree 9; clean/Shabat catalogs cap at degree 8; no retrieved broader census exhibits this S12 passport triple.",
+      "reasoning": "The claim is not a strict special case of any retrieved broader theorem or completed census; an explicit witness is still required and is supplied by the draft triple.",
+      "search": "stronger classifications that could subsume degree 12: Malle primitive genus-0 fields to degree 13, Musty passport enumeration, clean and Shabat catalogs, Hurwitz-space connected-component theorems"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Riemann-Hurwitz gives only necessary conditions (14 parts, defect sum 22); random-class sampling hit rate about 0.0336 shows hits are sparse and transitivity/primitivity/S12 generation are not automatic.",
+      "reasoning": "Prior general results do not imply the existence of a transitive primitive S12 triple of these types; the verified explicit triple adds the missing sufficient witness.",
+      "search": "whether Riemann existence plus Riemann-Hurwitz counting or S12 generation lemmas mechanically imply realizability of this passport"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results returned only general theory (Ellenberg braid-dessin notes, Hurwitz-component papers, Belyi-degree and computation surveys) with no matching triple, dessin, or Nielsen-class record.",
+      "reasoning": "No synonymous-notation or dual/complement encoding source states or implies this exact triple; title similarity alone was not counted as coverage.",
+      "search": "dessin d'enfant / Nielsen class / Hurwitz braid orbit / permutation-triple encodings of passport ([4,3,2,2,1],[5,3,2,1,1],[4,3,3,2]) with slot permutations"
+    },
+    "exact_database_or_table": {
+      "evidence": "Live LMFDB stats and browse cap at degree 9 (1111 orbits); Musty summary table caps computed maps at degree 9 with only unenriched passport lists to degree 11.",
+      "reasoning": "The exact parameter combination does not already appear in an official table or database record, so this is not a recomputation or lookup.",
+      "search": "LMFDB Belyi passport search and statistics plus Musty BelyiDB tables for exact degree-12 partitions 4-3-2-2-1, 5-3-2-1-1, 4-3-3-2"
+    }
+  },
+  "repair_instructions": "Keep the degree-12 passport and existence headline but fix three bounded points without changing the problem: (1) correct the primitivity-word statement to the verified convention, e.g. state words in path-application order (B after A after A) or replace it by the sympy S12-equals-primitive argument already verified; (2) either drop defined-over-Q from the headline to existence over C with field of definition unknown, or prove Q by a genuine Galois-orbit/field-of-moduli computation or an exhibited Q-model, since a singleton pure-braid orbit among 923 classes plus trivial Aut does not suffice; (3) either deposit work/censusA.py, work/censusB.py, work/braid_repaired.py and cert_repaired.py as verification-critical artifacts so counts 111680/88608/1277/923 and braid sizes 1/6 reproduce, or weaken those sentences to sampled/claimed status.",
+  "residual_risks": [
+    "Exact census counts (111680/88608/1277/923) and braid-orbit sizes (1/6) rely on scripts absent from inputs and were not exactly re-enumerated",
+    "Field of definition of the exhibited cover remains open: Q claimed but only C-existence plus braid data established",
+    "Primitivity word-order wording must be corrected to match the verified fixing pair convention"
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body table (1.3.1) tabulates computed maps only to degree 9; text states passport representatives computed without equations only for d<=11; degree-12 triple outside both scopes.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "A database of Belyi maps (Musty, Schiavone, Sijsling, Voight)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/1805/1805.07751v3.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Stats body states 1111 Galois orbits in 1007 passports with degree at most 9; browse-by-degree lists only 1..9, so degree-12 passport absent.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "LMFDB Belyi maps statistics",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://www.lmfdb.org/Belyi/stats"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
