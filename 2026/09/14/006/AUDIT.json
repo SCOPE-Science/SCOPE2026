@@ -1,0 +1,191 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "TARGET witness verified independently: exact degrees are 5/5 with nonzero leading coefficients; Q>=0.9401 proved by exact 40001-node grid plus Q' majorant 2178.78; kink t=0 falls on cell boundary (index 1500 of 2000) so each cell interior is C^2 with E''=U/Q^4 exact deg-18; independent exact-Fraction replay gives maxend 0.0087808627 at t=0.139 and maxcorr 4.09e-6, total 0.00878495<=0.01 with 12% margin. Cell inequality max|E|<=max endpoints+M2 rho^2/2 and shifted majorants are sound.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Fused search (SerpBase/OpenAlex/Crossref/OpenAIRE, no partial failure) returns only symmetric-|x| theory: Newman/Stahl asymptotics, Varga tables, Chebfun minimax/AAA demos. No source states or implies the shifted-kink exact certificate E55(|x-1/2|,[-1,1])<=0.01 with this explicit (5,5) witness. Full-page inspection of both Chebfun leads and theorem-scope comparison of Stahl asymptotics affirmatively exclude coverage of the finite-n shifted bound.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "TARGET-route exact threshold decision on a natural object: E55 of shifted kink |x-1/2| on [-1,1] vs 0.01, motivated before computation by Newman/Stahl approximation theory. The certified 0.008785 upper bound with named exact rational witness is non-vacuous, non-lookup, and reusable as a benchmark cutoff; margin 0.0012 is robust. Standard permits a rigorously established exact invariant of a motivated object without a new general theorem.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "DRAFT.md plus research_report.json TARGET witness: explicit P/Q fractions, Lemmas A-B, total 0.00878495.",
+  "inputs/artifacts/candidate_exact.json + verify_certificate.py + certificate.json/bounds.json: exact coefficients replayed.",
+  "Independent exact-Fraction recomputation: minQ 0.994605, m 0.940136, maxend 0.0087808627 at t=0.139, maxcorr 4.09e-06, total below 0.01; float 200k scan agrees.",
+  "scope_literature_search EMERGENT_ORIGINALITY fused 20 results, all providers ok, no partial coverage.",
+  "Chebfun RationalAbsx full page: symmetric |x| minimax to (80,80), no shifted (5,5) bound.",
+  "Chebfun AbsoluteValue full page: Newton iterates for symmetric |x|, no shifted certificate.",
+  "Stahl 1993 x^alpha asymptotic limit theorem: non-explicit, cannot imply finite-n shifted bound.",
+  "Terminal Perplexity check 84de78a5: 20 results, 19 incremental; bodies/pages inspected for all mandatory escalations, none covers shifted (5,5)<=0.01 claim."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Stahl limit theorem and Newman O(exp(-C sqrt n)) rate plus Varga/Carpenter/Ruttan symmetric tables were retrieved; all concern symmetric |x| on [-1,1] asymptotically or at large n, with no explicit shifted-interval n=5 certificate.",
+   "reasoning": "A broader asymptotic or symmetric-interval result does not subsume this claim: asymptotics give no rigorous n=5 number, and the shifted interval [-3/2,1/2] in t is not a subset of the symmetric case, so no covering implication exists.",
+   "search": "Stahl asymptotics Newman rational approximation |x| minimax error table database Chebfun minimax type (5,5) explicit error bound"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Prior work predicts error near 0.007 (Stahl symmetric n=5 rate 8e^{-pi sqrt5}) but states no theorem or table entry yielding E55(|x-1/2|,[-1,1])<=0.01, and no prior explicit (5,5) shifted rational with certified error was found.",
+   "reasoning": "Heuristic consistency with the predicted scale is not implication: the submitted contribution is the explicit witness plus exact certificate, which no prior result mechanically yields, so the claim is new and not a recomputation or corollary.",
+   "search": "Prior minimax values and Stahl rate vs claimed explicit (5,5) shifted witness: does any known theorem or computed value imply E55<=0.01"
+  },
+  "equivalent_formulations": {
+   "evidence": "Fused results for t-shifted, asymmetric-interval, |x-a|, complement and minimax/AAA phrasings returned only symmetric |x| pages and unrelated records; full Chebfun pages inspected contain no |x-1/2| or [-3/2,1/2] (5,5) bound.",
+   "reasoning": "Under shift t=x-1/2 the claim is |t| on [-3/2,1/2]; no retrieved source treats this asymmetric shifted kink at type (5,5), so synonymous notation, duals, and shifted encodings do not uncover coverage.",
+   "search": "Newman Stahl rational approximation absolute value |x| type (n,n) error n=5 uniform error shifted interval |x-a| asymmetric"
+  },
+  "exact_database_or_table": {
+   "evidence": "No database, table, or Chebfun example lists the submitted P/Q fractions, the 0.00878 value, or an E55 entry for |x-1/2| on [-1,1]; Chebfun pages compute symmetric cases on demand and Varga tables cover symmetric |x|, not this shifted parameter.",
+   "reasoning": "The exact parameter tuple (shifted kink 1/2, interval [-1,1], type (5,5), threshold 0.01, this witness) does not appear in any table or official repository, so exact-database coverage fails.",
+   "search": "E55(|x-1/2|) on [-1,1] <= 0.01 rational approximation shifted kink type (5,5) explicit witness table"
+  }
+ },
+ "perplexity_final_check": {
+  "check_id": "84de78a5cd9c4ec40987da0da07671a2c3a8ebbc3e6a8304e7ea475d4e7109ab",
+  "decisive_prior_found": false,
+  "decisive_sources": [],
+  "incremental_prior_found": false,
+  "material_sources": [
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Body Sec7/Table7.1/Fig7.1 inspected incl. antecedents: core |x| theorem is Enn(|x|,[-1,1])~8e^{-pi sqrt(n)} instantiated only at kink 0 on [-1,1] (e.g. (80,80) error 4.39e-12); Table 7.1 f2=|x||x| on [-0.7,2] type (17,71) is a different function/type with no 'with these properties' chain to |x-1/2|; no example instantiates shifted kink 1/2 on [-1,1] at (5,5) or threshold 0.01, so no antecedent proposition implies the headline.",
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "relationship_to_claim": "Same terminology family (rational minimax of absolute value) and original paper, but its theorems and Table 7.1 examples instantiate only symmetric kink at 0 on [-1,1] or other functions/types such as |x||x| on [-0.7,2] at (17,71); none has hypotheses matching shifted kink |x-1/2| on [-1,1] at type (5,5) with threshold 0.01.",
+    "title": "SIAM J. SCI. COMPUT.",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://people.maths.ox.ac.uk/~trefethen/minimax_published.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Body Sec2-Sec4/Fig2/Tables1-4 inspected incl. antecedents: Sec2 defines Em,n(|x|;[-1,1]) in (6) with kink at 0; Sec3.2-3.4 Loewner/AAA/minimax and Sec3.5 error computation (44)-(45) all instantiate f=|x| on [-1,1]; Fig2 plots best (n,n) errors for 1<=n<=40 vs Newman/Bulanov/Stahl bounds, i.e. symmetric-kink values only. Tables1-4 vary Loewner order/truncation, no |x-1/2| object. The only 'shifted' hits are the shifted Loewner matrix Ls in Sec3.2 (linear-algebra term, checked surrounding definition), not a shifted kink, and no 'by the above proposition / with these properties / further examples' chain transfers a symmetric approximant to kink 1/2, since shifting to t in [-3/2,1/2] breaks symmetry; hence no antecedent proposition implies E55(|x-1/2|,[-1,1])<=0.01.",
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "relationship_to_claim": "Same object family (rational approximation of |x|) and overlapping minimax-error terminology, but the interval, kink location, and finite-n certificate differ: symmetric kink at 0 versus submitted shifted kink at 1/2 with explicit threshold 0.01.",
+    "title": "Rational approximation of the absolute value function from ...",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://pure.mpg.de/rest/items/item_3230416/component/file_3230417/content"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "HAL API metadata resolves the record to a filter-design dissertation on weighted Chebyshev/FIR/IIR methods; abstract scope is digital filters, not shifted-kink rational minimax; thesis PDF blocked by bot wall so body unobtainable, but catalog-level identity already excludes the submitted finite-n certificate.",
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "relationship_to_claim": "Mandatory dissertation escalation sharing only the broad rational-approximation terminology; its documented object is weighted Chebyshev filter design, which does not instantiate E55(|x-1/2|,[-1,1])<=0.01 or any shifted-kink type-(5,5) witness.",
+    "title": "HAL Id: tel-01447081",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY",
+     "DISSERTATION"
+    ],
+    "url": "https://theses.hal.science/tel-01447081/file/FILIP_Silviu_Ioan_2016LYSEN063_These.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Abstract-level theorem is root-exponential convergence near polygon corners generalizing Newman 1964 plus conformal-map results; application is AAA approximation of conformal maps, with no E55 entry for |x-1/2| on [-1,1].",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "Same terminology family (Newman-type root-exponential rational approximation) in an original paper, but its hypotheses concern conformal maps of polygons/smooth domains, which do not imply the submitted shifted-kink finite-type threshold.",
+    "title": "Representation of conformal maps by rational functions",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://arxiv.org/html/1804.08127v3"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Full page body treats x^{1/p} on [0,1] with Stahl rate and a (5,5) minimax example for the cube root only; no |x-1/2| object and no (5,5) shifted-kink bound.",
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "relationship_to_claim": "Shares the exact parameter pair type (5,5) and minimax terminology, but on a different object (cube root on [0,1]); a different function at the same type does not cover E55(|x-1/2|,[-1,1])<=0.01.",
+    "title": "Approximating the pth root by composite rational functions",
+    "trigger_reasons": [
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY"
+    ],
+    "url": "https://www.chebfun.org/examples/approx/PthComposite.html"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Abstract and references show the object is |x|^alpha on [-1,1] along ray/paradiagonal sequences with asymptotic pole/zero distributions; no shifted kink |x-1/2| and no finite (5,5)<=0.01 certificate.",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "Same object family (best uniform rational approximants of |x|^alpha on [-1,1]) in an original paper, but conclusions are asymptotic along ray sequences, which cannot yield the submitted explicit finite-n shifted-kink threshold.",
+    "title": "Ray Sequences of Best Rational Approximants For |x|alpha | Canadian Journal of Mathematics | Cambridge Core",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/ray-sequences-of-best-rational-approximants-for-x/22495A557F7BE0FEB8CBDE797D55064C"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Abstract states a survey of Gonchar-Stahl rho^2 theorem for analytic functions with free poles; hypotheses exclude the non-analytic kink |x-1/2|, so no implication chain reaches the submitted bound.",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "Shares rational-approximation theory terminology (Gonchar-Stahl rates) but its theorem scope is analytic functions, whereas the submitted object is the non-smooth shifted kink, so coverage is impossible.",
+    "title": "arXiv:1503.06620v1 [math.CV] 23 Mar 2015",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://arxiv.org/pdf/1503.06620"
+   }
+  ],
+  "rationale": "Terminal Perplexity search added 20 results (19 incremental, 1 overlapping Stahl x^alpha already adjudicated). All mandatory escalations were opened: full-text parameter search of the minimax paper and the MPG absolute-value survey, HAL metadata for the blocked Filip dissertation, plus theorem-scope/section inspection of the conformal-map, pth-root, ray-sequence, and rho^2 sources. Every result concerns symmetric |x|, a different function or interval, or asymptotic theory, and none states or implies E55(|x-1/2|,[-1,1])<=0.01; the useful incremental recall (minimax Table 7.1, MPG Fig 2 bounds) only duplicates the base finding that prior work is symmetric/asymptotic. No decisive prior found; originality PASS preserved.",
+  "status": "COMPLETE",
+  "verdict_changed": false
+ },
+ "residual_risks": [],
+ "source_inspections": [
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Full page body concerns symmetric |x| on [-1,1], minimax/AAA to (80,80); no shifted kink, no (5,5)<=0.01 entry.",
+   "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+   "title": "Rational approximation of abs(x) with minimax \u00bb Chebfun",
+   "trigger_reasons": [
+    "SAME_OBJECT",
+    "SAME_TERM_FAMILY",
+    "HIGHLY_RELEVANT_TITLE"
+   ],
+   "url": "https://www.chebfun.org/examples/approx/RationalAbsx.html"
+  },
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Full page body is Newton iteration r:=(r^2+x^2)/2r for symmetric |x| with 1/n max-error; no shifted interval or (5,5) certificate.",
+   "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+   "title": "Absolute value approximations by rationals \u00bb Chebfun",
+   "trigger_reasons": [
+    "SAME_OBJECT",
+    "SAME_TERM_FAMILY"
+   ],
+   "url": "http://www.chebfun.org/examples/approx/AbsoluteValue.html"
+  },
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Theorem conclusion is asymptotic limit for E_nn(x^alpha,[0,1]); scope gives no explicit finite-n (5,5) shifted-kink bound.",
+   "inspection_method": "THEOREM_SCOPE",
+   "title": "Best uniform rational approximation of x^{alpha} on [0,1]",
+   "trigger_reasons": [
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER"
+   ],
+   "url": "https://doi.org/10.1090/s0273-0979-1993-00351-3"
+  }
+ ],
+ "verdict": "PASS"
+}
