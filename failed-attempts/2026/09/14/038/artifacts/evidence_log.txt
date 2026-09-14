@@ -1,0 +1,70 @@
+PARI [2, 17, 2]
+
+>>> mf=mfinit([42,2],1); mfdim(mf)
+5
+
+>>> mf=mfinit([42,2],1); B=mfbasis(mf); mfcoefs(B[5],20)
+[0, 1, 1, -1, 1, -2, -1, -1, 1, 1, -2, -4, -1, 6, -1, 2, 1, 2, 1, -4, -2]
+
+>>> mf=mfinit([42,2],1); [mfheckemat(mf,2)[5,5], mfheckemat(mf,3)[5,5], mfheckemat(mf,7)[5,5]]
+[1, -1, -1]
+
+>>> mf=mfinit([42,2],1); W2=mfatkininit(mf,2); W2[2][5,5]
+-1
+
+>>> mf=mfinit([42,2],1); W3=mfatkininit(mf,3); W3[2][5,5]
+1
+
+>>> mf=mfinit([42,2],1); W7=mfatkininit(mf,7); W7[2][5,5]
+1
+
+>>> E=ellinit([1,1,1,-4,5]); ellglobalred(E)
+[42, [1, 0, 0, 0], 16, [2, 1; 3, 1; 7, 1], [[1, 12, 0, 8], [1, 6, 0, 2], [1, 5, 0, 1]]]
+
+>>> E=ellinit([1,1,1,-4,5]); ellrootno(E)
+1
+
+>>> E=ellinit([1,1,1,-4,5]); ellanalyticrank(E)
+[0, 0.868861864374205]
+
+>>> E=ellinit([1,1,1,-4,5]); ellrank(E)
+[0, 0, 0, []]
+
+>>> E=ellinit([1,1,1,-4,5]); elltors(E)
+[8, [8], [[-1, 3]]]
+
+>>> E=ellinit([1,1,1,-4,5]); ellmoddegree(E)
+4
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); ellglobalred(ED)
+[15162, [1, 8, 1, -5], 8, [2, 1; 3, 1; 7, 1; 19, 2], [[1, 12, 0, 2], [1, 6, 0, 2], [1, 5, 0, 1], [2, -1, 0, 2]]]
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); ellrootno(ED)
+-1
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); ellanalyticrank(ED)
+[1, 3.05904911868116]
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); ellrank(ED)
+[1, 1, 0, [[457, 9699]]]
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); elltors(ED)
+[2, [2], [[57, 19]]]
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); [ellheegner(ED), ellheight(ED,ellheegner(ED))]
+[[457, 9699], 4.22771015427673]
+
+>>> E=ellinit([1,1,1,-4,5]); ED=ellinit(elltwist(E,-19)); ellisdivisible(ED,ellheegner(ED),2)
+0
+
+>>> default(realbitprecision, 128); mf=mfinit([42,2],1); B=mfbasis(mf); F=B[5]; L=lfunmf(mf,F); LK=lfuntwist(L,-19); [lfun(L,1), lfun(LK,1), lfun(LK,1,1), lfun(LK,1,2)]
+[0.86886186437420487794429665753048885554, 0.E-58, 3.0590491186811612614263464767369132981, -14.672307297690563921833604772941676729]
+
+>>> K=bnfinit(x^2+19); K.disc
+-19
+
+>>> idealfactor(nfinit(x^2+19),2); idealfactor(nfinit(x^2+19),3); idealfactor(nfinit(x^2+19),7)
+[[7, [-3, 2]~, 1, 1, [-2, -10; 2, -4]], 1; [7, [-2, 2]~, 1, 1, [-3, -10; 2, -5]], 1]
+
+>>> qfbclassno(-19)
+1
