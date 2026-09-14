@@ -1,0 +1,60 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 1 verified: k=1,l=0 gives omega>=c, so horn empty for Q*>1/c; instance c=0.01 verified. Theorem 2 verified line-by-line: Liouville bound via f(x)=x^2+x-1 gives |kg-p|>=g/(2k), scaling by 1/M gives |kw-l|>=g/(2Mk) which dominates c*w/k for c<=1/2; edge cases l<=0, p=0, denominator-zero all covered. Scripts reproduced: min k|kg-l|=0.3819>=0.309, 0 violations, Q*=5.77e48. Numerics correctly labeled corroboration only.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Headline is mechanically implied by classical badly-approximable theory. That g=(sqrt5-1)/2 is badly approximable with optimal constant 1/sqrt5 is standard; scaling by 1/M gives D_rel membership with stronger constant than claimed c<=1/2. Vacuity omega>=c is immediate substitution. No new claim, boundary, or counterexample beyond textbook corollary and target-specific diagnosis.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "No uniform KAM existence and no converse-KAM counterexample is claimed; conditional Q* chain is explicitly disclaimed with two assumed constants. Remaining content is a one-line vacuity observation exposing an ADMISSION_DEFECT (admission should have ruled out vacuity/empty-horn per STANDARD) plus a textbook Liouville corollary for an ad-hoc repaired class D_rel invented post hoc. This is a textbook restatement and cheap-defect diagnosis, not an independently retrievable theorem, benchmark, or exact invariant of a pre-motivated natural object.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "MathWorld Badly Approximable full page: definition c(x)=liminf q|qx-p|, badly approximable iff bounded partial quotients, max 1/sqrt5 at (sqrt5-1)/2; directly implies witness claim with stronger constant.",
+    "Fused scope_literature_search (3 queries, 20 results): Kristensen-Thorn-Velani badly approximable sets, German Diophantine exponents survey, Burger quadratics, MathWorld; no source states D_rel verbatim but classical theory covers it substantively.",
+    "DRAFT.md Sections 2-3 proofs plus inputs/artifacts/verify_witness.py and compute_Qstar.py rerun locally confirming min 0.3819, 0 violations, Q* 5.77e48.",
+    "STANDARD.md sky-survey-admission-depth-gate-v12 and topic.json target wording confirming absolute D(c,tau) horn and admission vacuity rule."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Crossref/OpenAlex hits: Kristensen et al. badly approximable full-dimension framework, German badly-approximable matrices/exponents survey, Burger quadratics; classical theorem all quadratic surds have bounded partial quotients hence badly approximable.",
+      "reasoning": "Broader class theorem (every quadratic irrational is badly approximable) strictly subsumes the single family g/M. The submitted witness is a special case with weaker constant, so broader coverage defeats originality.",
+      "search": "badly approximable sets survey quadratic surds bounded partial quotients Lazutkin billiard KAM classification coverage"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior optimal constant 1/sqrt5\u22480.447 for g implies |kg-p|>=c0/k, hence |k(g/M)-l|>= (c0/g)w/k with c0/g\u22480.72, strictly stronger than claimed c<=0.5 with elementary 0.309; vacuity follows by one substitution k=1,l=0.",
+      "reasoning": "Submitted headline does not need verbatim prior statement: stronger known constant plus trivial algebra substantively implies both (i) and (ii). The finding is therefore a recomputation, certificate, and corollary repackaging of a known stronger fact.",
+      "search": "golden ratio conjugate badly approximable constant implies scaled family g/M relative Diophantine membership implication check"
+    },
+    "equivalent_formulations": {
+      "evidence": "MathWorld body: badly approximable defined by q|qx-p|>=c>0, equivalent to bounded continued-fraction terms; D_rel condition |kw-l|>=c w/k is exactly scaled badly-approximable condition for w with constant scaled by w.",
+      "reasoning": "Under synonymous notation (Bad, bounded partial quotients, scaled margin c*omega) the witness claim is the same object as classical badly approximability of g. Equivalent-formulation search therefore covers the claim rather than distinguishing it.",
+      "search": "relative scaled Diophantine |k omega-l|>=c omega/|k|^tau versus badly approximable bounded partial quotients golden ratio g/M"
+    },
+    "exact_database_or_table": {
+      "evidence": "MathWorld reference table entry gives exact object x=(sqrt5-1)/2 with exact extremal value 1/sqrt5; local rerun confirms weaker bound g/2\u22480.309 suffices for claimed c<=0.5, so no new exact parameter is established.",
+      "reasoning": "The exact parameter and object already appear in a standard reference with a stronger certified value. The submitted concrete constant is weaker and mechanically implied, not a new database entry or cutoff.",
+      "search": "exact badly approximable constant table golden ratio conjugate (sqrt5-1)/2 1/sqrt5 MathWorld reference database"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full page defines c(x) via liminf q|qx-p|, states badly approximable iff c(x)>0 with bounded partial quotients, and max 1/sqrt5 attained at (sqrt5-1)/2; dividing classical bound by M yields D_rel(c,1) membership with c up to ~0.72, stronger than claimed 0.5.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Badly Approximable -- from Wolfram MathWorld",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://mathworld.wolfram.com/BadlyApproximable.html"
+    }
+  ],
+  "verdict": "REJECT"
+}
