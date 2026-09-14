@@ -1,0 +1,215 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Verified hand wall-crossing both steps by exact polynomial identity W1*(1+y)=N1 and W2*(1+y^{-1})=N2 (recomputed coefficients), tropical V1/V2 updates match generic code, and independent rerun gives cross-check OK with n(S0)=2 vs n(S2)=1 so no joint bijection exists; unique W-only SL map ((1,0),(1,1)) provably fails on V. Lemma 4.19 plus Theorem 4.24 legitimately give L_{()} Hamiltonian-isotopic to L_{(2,2)} for the multi-disk seed. Draft has a non-material typo in the printed V0-image set, but the invariant proof and checked code output are correct, so the disproof stands.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Live fused search (Serpent/OpenAlex/Crossref/OpenAIRE, all ok, 20 fused hits) found only the PT foundation paper and Vianna-type distinguishing-tori works; no source states reverse double-mutation label non-invariance. Full-text inspection of Pascaleff-Tonkonog v3 (54pp) confirms Lemma 4.19 gives isotopy and Remark 4.4 gives W-only return up to GL for a single direction, but nowhere states joint (W,V) return for the 5-direction Bl2 seed, and the exact W2/V2 parameters appear in no table. The joint inequivalence therefore is not recorded or mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route rigorous disproof of an admitted motivated question: labelled LG mutation data is not a Hamiltonian-isotopy invariant on Bl_2 CP^2. This is a structural boundary change (only W up to GL survives; full labels are path-dependent), not a type/normalization error, vacuity, tiny coefficient mismatch, lookup, or arbitrary slice. The Bl2 toric seed and joint SL-equivalence were motivated before computation, the 2-vs-1 invariant was not known, and future work on mutations/mirrors must not use full labels as invariants.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pascaleff-Tonkonog arXiv:1711.03209 v3 full text (54pp, 169810 chars): Lemma 4.19 reverse-mutation isotopy, Remark 4.4 W-only GL return, Table 1 Bl2 seed, Theorems 4.8/4.20/4.24 disk-carrying",
+    "Fused literature search id b381af72 (20 results, all providers ok): Vianna del-Pezzo infinite tori, Gadbled/Chekanov exotic tori, Hicks tropical Lagrangians, Castronovo Grassmannians; all distinguish distinct tori, none compares reverse-word labels on same torus",
+    "Independent recomputation: inputs/artifacts/mut2.py full single+double mutation scan and verify_counterexample.py cross-check OK; re-ran polynomial identities N1,N2 and exhaustive SL enumeration confirming unique W-map fails on V"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Vianna 1602.03356/1409.2850 and related del-Pezzo census works prove infinitely many pairwise non-isotopic tori distinguished by potentials up to GL; snippets and metadata show opposite direction (different tori) with Markov/ATF language and no (2,2) reverse-word or V-label comparison.",
+      "reasoning": "A broader classification distinguishing different tori does not subsume a claim that one torus carries two inequivalent labels; the directions of implication are opposite, so no covering theorem or census implies this disproof.",
+      "search": "classification monotone Lagrangian tori del Pezzo Vianna Chekanov exotic infinite families Markov ATF bases up to SL(2,Z)"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "PT Lemma 4.19 yields the isotopy premise and Remark 4.4 yields W-only return up to GL for single-direction seeds; neither states joint (W,V) behaviour for the 5-direction seed, and explicit computation gives n=2 vs 1 plus exhaustive SL failure, contradicting any W-implies-joint expectation.",
+      "reasoning": "Prior work supplies premises but not the conclusion; the finding is not a recomputation, certificate, or corollary of a stronger known fact because the known stronger-looking W-return would suggest equivalence, while the proved joint inequivalence goes the other way via V dynamics.",
+      "search": "Pascaleff-Tonkonog Lemma 4.19 reverse mutation plus Remark 4.4 GL-return: does joint labelled seed return follow mechanically"
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text searches for faithful, SL(2, GL(2, twice-repeated, reverse mutation found only W-only GL-return for single-direction seeds and Clifford/Chekanov single-disk examples; no cluster-seed, Newton-polytope, or tropical-label statement asserts joint (W,V) involution for multi-disk seeds.",
+      "reasoning": "Synonymous encodings (cluster variables, Newton polytopes, tropical disks, wall-crossing involutions) cover only potential-level return; none asserts simultaneous W-plus-all-V equivalence, so the submitted joint-inequivalence is not restated elsewhere.",
+      "search": "LG seed mutation involution cluster algebra Newton polytope GL-action tropical disk labels wall-crossing mu_{-v} mu_v joint equivalence"
+    },
+    "exact_database_or_table": {
+      "evidence": "PT Table 1 lists only the initial Bl2 seed W=x+y+x^{-1}+y^{-1}+(xy)^{-1} with V={(1,-1),(-1,1),(-1,0),(0,-1),(1,1)}; no table, database, or appendix lists the double-mutant parameters W2={(1,1),(0,1),(-1,-1),(-1,-2),(0,-1)} and V2={(2,-1),(-2,1),(-1,0),(1,-1),(0,1)}.",
+      "reasoning": "Exact-parameter lookup fails: the claimed W2/V2 pair is absent from the official seed table and no established database records reverse-word labelled mutants, so this is not a direct table lookup or database recomputation.",
+      "search": "Bl_2 CP^2 del Pezzo seed Table 1 potential directions database double-mutant W2 V2 exact exponents (1,1) (-1,-2) (2,-1)"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "793b0d7ab4e058dd5819badfbcc021e5f92dcc608943778f8ce3a58f13f94b67",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Downloaded publisher PDF body (149721 chars) and ran full-text searches for reverse/involutive/joint/faithful/multi/five-direction: only Remark 4.4 single-direction W return up to GL via mu_-v mu_v transvection matrix [[1,0],[1,1]] and Lemma 4.19 geometric isotopy; Table 1 lists only the initial Bl2 seed; no section lists W2/V2 or asserts joint (W,V) SL-return for the 5-direction seed.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Foundation paper supplying the isotopy premise (Lemma 4.19), the W-only return remark (Remark 4.4), and the initial Bl2 seed table; its single-direction GL-return is the closest statement but governs W alone, not joint (W,V) equivalence for the (2,2) reverse word.",
+        "title": "[PDF] The wall-crossing formula and Lagrangian mutations",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://jpascale.web.illinois.edu/papers/wall-crossing-mutations.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Inspected full arXiv HTML body: Definition 2.1 note gives only the general algebraic non-involutivity formulas mu_-v mu_v w = w+{w,v}v; Theorem 2.3 table reproduces just the initial Bl2 seed; Theorem 2.5/Corollary 2.6 and Theorem 4.3 concern seed-to-cluster-character compatibility and Floer potentials as cluster characters; no (2,2) reverse word, no n-invariant, no joint SL-equivalence or faithfulness question is stated or proved.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Reproduces the exact Bl2 initial seed and states general LG-seed non-involutivity as an algebraic formula, but never instantiates the (2,2) reverse word on Bl2, never compares labels on Hamiltonian-isotopic tori, and proves a cluster-character correspondence rather than the faithfulness disproof.",
+        "title": "Floer potentials, cluster algebras and quiver representations",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/2309.16009v2"
+      },
+      {
+        "title": "Algebraic and symplectic viewpoint on compactifications of cluster varieties",
+        "url": "https://www.matrix-inst.org.au/wp_Matrix2016/wp-content/uploads/2019/2019_12_Parker/MATRIX_Annals_Articles/Vianna.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Shares seed/mutation/ATF terminology and discusses del Pezzo compactifications of finite-type cluster varieties, but works with A2-type examples and polytope-level ATF mutations distinguishing distinct tori; it never states the Bl2 five-direction seed, any reverse (2,2) word, or a joint (W,V) SL-equivalence comparison on one Hamiltonian-isotopy class.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded full PDF body (68510 chars) and searched Bl2/two-point/del Pezzo plus reverse/double-mutation/non-involutive/faithful/labelled-seed/same-torus/joint/SL(2: del Pezzo hits concern cluster-compactification examples and ATF polytope mutations up to SL relating distinct tori; no Bl2 toric seed vectors, no reverse-word parameters, no W2/V2 pair, no joint label-equivalence statement."
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Downloaded deposited PDF body (118490 chars) and searched reverse/double-mutation/SL/faithful/labelled/Bl2: sole reverse hit is unrelated tropical-genus isotopy direction; sole labelled hit concerns dimer vanishing-cycle labels; no Bl2 double-mutant parameters, no joint SL-equivalence discussion, no reverse-word faithfulness claim.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same terminology family (Lagrangian mutation seeds, tropical Lagrangians in toric del Pezzos) and overlapping seed language, but its results concern dimer-model tropical constructions, with no reverse-word labelled-seed comparison on Bl2.",
+        "title": "Tropical Lagrangians in toric del-Pezzo surfaces",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "DISSERTATION"
+        ],
+        "url": "https://d-nb.info/122667044X/34"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Downloaded arXiv PDF body (63848 chars): abstract scope explicitly excludes triangular-shape infinite classification for Bl1 and Bl2 (conjecturing Bl2 only); body searches for reverse/faithful/labelled-seed/same-torus/double-mutation return zero; SL hits concern ATF base-diagram equivalence for distinguishing distinct tori, the opposite implication direction.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same object class (del Pezzo tori including Bl2 discussion) and the broader census that could in principle subsume the claim, but its theorems distinguish pairwise non-isotopic tori and expressly exclude the Bl2 triangular case rather than comparing two labels on one Hamiltonian-isotopy class.",
+        "title": "Infinitely many monotone Lagrangian tori in del Pezzo surfaces",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/abs/1602.03356"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Downloaded slides PDF and extracted full text (1170 chars: Markov triples, Vianna T(a^2,b^2,c^2) tori in CP2, ATF material): no Bl2 seed, no V-labels, no reverse word, no SL joint-equivalence content; talk predates and does not address the labelled-faithfulness question.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same terminology family (Vianna Markov-triple tori, almost toric fibrations) but confined to CP2 exotic-tori construction with no Bl2 labelled-seed data and no reverse-mutation comparison.",
+        "title": "[PDF] infinitely many monotone lagrangian tori in del pezzo surfaces",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.mathi.uni-heidelberg.de/~walcher/environment/physmath/Vianna.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Downloaded full PDF body (199050 chars) and searched reverse/double-mutation/non-involutive/faithful/labelled-seed/same-torus/joint-SL: only hits are reversed-orientation cobordism moduli and reverse-inclusion Newton-polytope argument; no LG-seed reverse word, no W2/V2 parameters, no joint equivalence claim.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same object and method family (tropical disk potentials, Newton polytopes, mutation formulas for almost toric del Pezzo fibres) but proves potential/Newton-polytope relations, never a reverse-word joint (W,V) inequivalence on one Hamiltonian-isotopy class.",
+        "title": "[PDF] Tropical disk potential for almost toric manifolds - Rutgers Math",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://sites.math.rutgers.edu/~ctw/dp.pdf"
+      },
+      {
+        "title": "Infinitely many exotic Lagrangian tori in higher projective spaces",
+        "url": "https://d-nb.info/1357356919/34",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Shares only the broad Vianna-mutation/Newton-polytope terminology for distinguishing distinct exotic tori in higher projective spaces via lifted Markov triples; it never treats Bl2, the five-direction toric seed, any reverse word, or joint (W,V) SL-equivalence on one Hamiltonian-isotopy class.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "DISSERTATION"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded deposited PDF body (46281 chars) and searched Bl2/two-point/#2, reverse/double-mutation/non-involutive, labelled-seed/SL/faithful: zero hits on all claim-specific patterns; 38 Markov/Newton/tropical hits concern Newton simplices of lifted Vianna T(a,b,c) distinguishing distinct tori, never a reverse-word label comparison."
+      },
+      {
+        "title": "[PDF] arXiv:2004.13232v2 [math.SG] 16 May 2020 - UC Davis Mathematics",
+        "url": "https://math.ucdavis.edu/~casals/CasalsViannaArXiv.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Mentions Bl1/Bl2 only as toric domains for ellipsoid-embedding staircases and SL(2,Z) only for ATF monodromy matrices; its Hamiltonian-isotopy statement concerns the CP1xCP1 anti-diagonal, with no Lagrangian-seed W/V data, no reverse mutation word, and no joint label-equivalence question.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded PDF body (165918 chars): 5 Bl2 hits concern toric domains/staircases and blow-down identifications, SL hits concern node monodromy matrices, reverse hit is prose logic wording; searches for reverse-word/double-mutation/labelled-seed/joint-SL/same-torus-labels return no claim-relevant discussion."
+      },
+      {
+        "title": "Infinitely many monotone Lagrangian tori in del Pezzo ...",
+        "url": "https://people.math.harvard.edu/~auroux/schms2015-2020/Berkeley2016/R.%20Vianna%20-%2024-03-16%20-%20Infinitely%20many%20monotone%20Lagrangian%20tori%20in%20del%20Pezzo%20surfaces.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Same object class and highly relevant title: infinite del Pezzo tori via Markov triples and ATFs distinguishing distinct tori; slides contain no Bl2 five-direction seed, no V-labels, no reverse (2,2) word, and no joint SL-equivalence comparison, so the scope is the opposite distinguishing direction.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded slides PDF and extracted full text (16094 chars): Markov-triple T(a^2,b^2,c^2) construction and ATF material only; full-text searches for reverse/double-mutation/non-involutive/faithful/labelled-seed/joint/same-torus return zero; no W2/V2 parameters or faithfulness question present."
+      }
+    ],
+    "rationale": "Terminal check returned 20 results with 5 base overlaps, adding 15 incremental URLs. I opened and body-inspected every plausibly covering candidate: the PT foundation PDF, the Albers cluster-character paper (closest lead: general LG-seed non-involutivity formula), the Hicks deposited paper, Vianna 1602.03356, both Vianna slide decks, the Cheung-Vianna cluster-compactification paper, the Venugopalan-Woodward tropical potential paper, plus full-text screens of the Chanda higher-projective, Casals ellipsoid-staircase, Brendel local-exotic-tori, and AGT-cobordism bodies (different objects: higher projective spaces, CP1xCP1 staircases, R6, general cobordisms). Nothing states or implies the submitted headline: no source computes the Bl2 (2,2) reverse-word pair (W2,V2), forms the 2-vs-1 joint invariant, or pairs it with Lemma 4.19 isotopy to disprove labelled faithfulness. Albers states non-involutivity only as a general algebraic identity without the Bl2 instantiation, isotopy premise, or inequivalence proof, so it does not cover the claim. Useful recall therefore duplicated base providers plus near-miss leads; no decisive prior found and originality PASS is preserved with no unresolved candidates.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text parameter search plus sections 4.1-4.10: Remark 4.4 proves only single-direction W return up to GL via mu_{-v}mu_v matrix [[1,0],[1,1]]; Lemma 4.19 proves geometric reverse isotopy; Table 1 gives only initial Bl2 seed; no section/table/example lists W2/V2 or asserts joint (W,V) SL-return for multi-disk seeds.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "THE WALL-CROSSING FORMULA AND LAGRANGIAN MUTATIONS",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/1711/1711.03209v3.pdf"
+    }
+  ],
+  "verdict": "PASS"
+}
