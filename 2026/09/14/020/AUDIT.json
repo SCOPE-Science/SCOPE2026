@@ -1,0 +1,176 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "TARGET proof verified end-to-end. DFE by forward substitution is unique; F block-diagonal and V block lower-triangular give K block lower-triangular with diagonal R0(j)=beta_j S0_j sigma_j/(a_j b_j) and rho(K)=max R0(j); DFE LAS iff max<1 / unstable if >1 via van den Driessche-Watmough applied blockwise plus triangular S/R blocks. Patch 1 is exactly autonomous with closed-form endemic point. Downstream scalar quadratic A I^2+B I+C=0 with A>0, C=-cD<=0 yields exactly one admissible root; monotone depletion Stilde<=S0 gives Rtilde<=R0, ruling out self-sustained doubles under R0(2),R0(3)<=1; positivity iff D>0 (link carries infectives), edge case documented. No-source-free nonexistence follows by induction D2=0 -> I2=E2=0 -> D3=0. LAS of source-endemic holds blockwise: independently re-derived a2=(c+bI)(a+bb)+D/I>0, a3=a bb b I+cD/I>0, a1a2>a3 (plus I=0/Rtilde<1 edge), confirmed numerically (endemic max Re ~-0.078, residual ~5e-16; DFE unstable +0.34; stable-DFE case -0.011; zero-driving case -0.022). Newton scans are honestly presented as uniqueness evidence, not proof; only LAS (not GAS) is claimed.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "TARGET route (claim_route=TARGET in report); audited normally with no preset-value presumption. Three-direction fused search (literal one-way 3-chain source-endemic claim; triangular/block-Frobenius/upstream-autonomy equivalents; broader n-patch/multi-group/census dominance) returned 20 results with full provider coverage and no partial failure. No same-parameter source (one-way 3-chain SEIR with R0(1)>1>=R0(2),R0(3) boundary classification) was found. Nearest leads escalated and excluded by literal theorem-scope comparison: Meng-Zhu 2021 is a general n-patch SEIR with unique DFE plus scalar R0/fitting scope, not a triangular boundary classification; Cui-Qiu-Ding 2017 is SIR (not SEIR) with an n=2 sufficient boundary condition, a different object and weaker conclusion; standard irreducible multi-group theory proves interior-endemic results under connectivity hypotheses that the reducible chain violates. Equivalent-notation, broader-coverage, table/database, and prior-implication checks all documented; no prior result substantively implies or exhaustively covers the headline.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "Complete TARGET resolution: full ordered source-endemic boundary-equilibrium classification with upstream autonomy and downstream driving made explicit, exactly as the admitted target demanded. It advances the natural reducible-metapopulation boundary (block-triangular NGM, max-patch threshold, recursive quadratic construction, sharp driven-positivity qualifier, nonexistence of source-free endemics), motivated before computation. It is an eligible new-theorem/classification form under the shared standard, not a textbook restatement (standard theory covers irreducible/single-patch cases), not a parameter substitution, tiny gain, arbitrary slice, table lookup, or unexplained enumeration. The zero-driving edge case is characterized rather than hidden, and the narrow exact invariants (closed-form patch-1 point, recursive downstream roots) are precisely the motivated facts a future researcher would need.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "scope_literature_search fused set: 20 results across SerpBase/OpenAlex/Crossref/OpenAIRE, full coverage, no partial failure; nearest leads Meng-Zhu 2021 n-patch SEIR, Cui-Qiu-Ding 2017 SIR patchy, plus multi-group irreducible theory (Guo-Li-Shuai / Li-Shuai-van den Driessche JDE 2010).",
+  "Meng-Zhu 2021 metadata (OpenAlex W4200110633 + Crossref 10.1155/2021/5401253): general n-patch SEIR COVID model; abstract scope unique DFE, scalar R0, data fitting, migration simulations. PDF fetch attempted via 3 routes (Hindawi, OpenAlex content, XML) and blocked by challenge/401/403; scope assessed from authoritative metadata.",
+  "Cui-Qiu-Ding 2017 metadata (OpenAlex W2619885744, doi 10.3934/mbe.2017059): SIR patch model with vaccination; DFE GAS if Rv<1; sufficient boundary-equilibrium conditions only for n=2. Different compartments and weaker conclusion than submitted SEIR 3-chain classification.",
+  "Independent correctness recomputation: re-derived downstream quadratic numerator, Routh-Hurwitz coefficients (a2, a3, a1a2-a3) with driving D/I terms, depletion Rtilde<=R0 chain, and no-source-free induction; recomputed scenario spectra/residuals from verify_results.json (A: R0~(3.0,0.50,0.95), res ~5e-16, endemic -0.078, DFE +0.34; B: -0.011; C: downstream zeros with LAS -0.022).",
+  "van den Driessche-Watmough Theorem 2 (blockwise 2x2 Hurwitz iff rho(Fjj Vjj^-1)<1) and Routh-Hurwitz criterion as cited proof rules; irreducibility hypothesis of standard multi-group global-stability theory as dominance-scope delimiter."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "General n-patch/multi-group theories found (Meng-Zhu scalar-R0 DFE analysis; irreducible multi-group results proving interior-endemic GAS when scalar R0>1; JDE 2010 graph-theoretic coupled-systems result). Their hypotheses require general or irreducible/connected movement; their conclusions are scalar thresholds or interior equilibria.",
+   "reasoning": "These stronger-looking results do not subsume the claim: the submitted chain is reducible (triangular) and the regime is mixed (R0(1)>1, others <=1) producing a boundary\u800c\u975e interior equilibrium. Irreducible-interior theory is hypothesis-excluded; general DFE-threshold theory concludes nothing about the exact boundary point, its LAS, driven positivity, or no-source-free nonexistence.",
+   "search": "Broader n-patch SEIR/multi-group/census dominance query: reducible migration, irreducible multi-group global stability, multi-city Arino-type models, exhaustive patch censuses."
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Nearest priors conclude: (Meng-Zhu) unique DFE + scalar R0 + simulations; (Cui) unique DFE GAS + n=2 SIR sufficient boundary-stability condition. Submitted headline concludes exact existence/uniqueness + LAS of the source-endemic point, sharp per-link driven-positivity equivalence, and nonexistence (hence non-stability) of any source-free endemic for SEIR 3-chain.",
+   "reasoning": "No prior conclusion implies the submitted conjunction. Sufficient n=2 SIR conditions do not yield exact SEIR 3-chain uniqueness/LAS/nonexistence; scalar-R0 DFE theory does not yield the recursive quadratic construction or positivity qualifier. The finding is not a recomputation, certificate, corollary, or repackaging of a known stronger fact.",
+   "search": "Headline-vs-prior implication test: does any found DFE/R0 or n=2 boundary result logically yield exact 3-chain source-endemic uniqueness, LAS, driven positivity, and no-source-free claim."
+  },
+  "equivalent_formulations": {
+   "evidence": "Queries using triangular/reducible/Frobenius-normal-form/next-generation block-triangular/upstream-autonomy/cascade/driven-infective synonyms returned only generic n-patch, two-patch, diffusive, or triangular-norm (unrelated) hits; none states a one-way-chain SEIR boundary classification with per-patch R0 max and recursive quadratics.",
+   "reasoning": "No synonymous, dual, complement, incidence-graph, matrix, or algebraic recoding of the claim was found in prior work. The distinctive combination (block-triangular K with isolated R0(j) blocks, upstream autonomy, D>0 positivity equivalence) has no equivalent-formulation match.",
+   "search": "Equivalent-formulation sweep: triangular/reducible/block lower-triangular next-generation matrix, Frobenius normal form, one-way/acyclic/cascade metapopulation, upstream autonomy, downstream driving, driven boundary equilibrium."
+  },
+  "exact_database_or_table": {
+   "evidence": "No official database, table, census, or repository record was found containing the one-way 3-chain SEIR object with R0-triplet regimes or the constructed equilibria. The claim is a parameterized theorem (arbitrary nonnegative per-class link rates) verified at sample parameters, not a numeric lookup; fused results contain no matching table entry.",
+   "reasoning": "The result cannot be a direct table/database lookup or arbitrary parameter fact: it proves existence, uniqueness, stability, and nonexistence for a parameter class with an explicit sharp positivity qualifier, rather than reporting an isolated tabulated value.",
+   "search": "Exact-object database/table sweep: one-way 3-patch SEIR parameter tables, R0-triplet records, equilibrium compilations, epidemic-model repositories and theses indices."
+  }
+ },
+ "residual_risks": [],
+ "source_inspections": [
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Crossref/OpenAlex abstract scope is unique DFE plus scalar R0 with COVID fitting and migration simulations for a general n-patch model; hypotheses lack one-way triangular structure and mixed-regime boundary setup; conclusions lack per-patch R0 max, recursive quadratics, driven-positivity equivalence, LAS of boundary point, and no-source-free nonexistence. Publisher PDF blocked by challenge, but the identical-content ResearchSquare preprint full text was extracted and searched (one-way/triangular/boundary terms absent; body is transmission-diagram and R0-effect figure captions only); exclusion rests on this full-text search plus stated theorem scope.",
+   "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+   "title": "Generalized SEIR Epidemic Model for COVID-19 in a Multipatch Environment",
+   "trigger_reasons": [
+    "SAME_OBJECT",
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER"
+   ],
+   "url": "https://doi.org/10.1155/2021/5401253"
+  },
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "OpenAlex abstract scope: SIR (no E class) patch model with vaccination; unique DFE GAS and only sufficient boundary-equilibrium stability conditions for n=2. Different object from SEIR 3-chain with triangular NGM, and strictly weaker conclusion than exact existence/uniqueness/LAS/nonexistence with sharp positivity qualifier.",
+   "inspection_method": "THEOREM_SCOPE",
+   "title": "An SIR epidemic model with vaccination in a patchy environment",
+   "trigger_reasons": [
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER"
+   ],
+   "url": "https://doi.org/10.3934/mbe.2017059"
+  },
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Representative broader theory (coupled multi-group systems on networks, e.g. JDE 2010 graph-theoretic result and Guo-Li-Shuai multi-group line) assumes irreducible movement/contact graphs and concludes interior-endemic global stability for scalar R0>1. Submitted object is reducible triangular with a mixed-regime boundary equilibrium, hypothesis-excluded from that theory; conclusions are disjoint (interior vs boundary).",
+   "inspection_method": "THEOREM_SCOPE",
+   "title": "Global-stability problem for coupled systems of differential equations on networks (irreducible multi-group theory)",
+   "trigger_reasons": [
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER"
+   ],
+   "url": "https://doi.org/10.1016/j.jde.2009.09.003"
+  }
+ ],
+ "verdict": "PASS",
+ "perplexity_final_check": {
+  "status": "COMPLETE",
+  "check_id": "a43cee83bac62698c30f24555a902ef3c0386f4482e8ac0b8d079b37af14de68",
+  "decisive_prior_found": false,
+  "incremental_prior_found": false,
+  "verdict_changed": false,
+  "material_sources": [
+   {
+    "title": "Transmission Dynamics of Some Epidemiological Patch Models (Daozhou Gao, 2012 dissertation, Ch.4 one-way 3-patch vector-host chain)",
+    "url": "https://www.mobt3ath.com/uplode/book/book-62629.pdf?ver=accessable",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Same structural family (one-way 3-patch chain, block-triangular form, per-patch R_i0, recursive downstream quadratics, R10>1 persistence pattern) but a different compartmental object: vector-host SIR/SIRS-plus-mosquito system with square-root vector R0 formulas, not the submitted ODE SEIR chain; its theorems therefore cannot imply the SEIR headline.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "DISSERTATION"
+    ],
+    "inspection_method": "THEOREM_SCOPE",
+    "inspection_evidence": "Full dissertation body inspected (5759-line extraction): Ch.4 system (4.2.2) is host-vector (S/I/R plus mosquito V) with movement rate c; per-patch R_i0 are square-root vector quantities; Thm 4.5 gives a persistence pattern, Thm 4.6 gives a unique (fully) endemic equilibrium iff R10>1 with LAS via quadratic (4.3.5) whose coefficients (a2<0<a0) differ from the submitted SEIR quadratics, and Thm 4.7 classifies only the zeta=0 SIR restriction (4.3.6). Antecedent chain resolved: Thm 4.3 implies (4.3.4)/(4.3.5) implies Thm 4.6, instantiated as R10(vector)>1 yields downstream I*>0 in the VECTOR model; no mapping of (alpha,beta,M,nu) to SEIR (beta,sigma,a,b) preserves the submitted hypotheses (E class, mass-action SEIR NGM blocks, Rtilde<=R0 depletion, D>0 equivalence), so the SEIR boundary LAS, driven-positivity equivalence, and no-source-free theorems are neither stated nor implied."
+   },
+   {
+    "title": "Dynamics of an epidemic model with non-local infections for diseases with latency over a patchy environment (J. Math. Biol. 60:645-686)",
+    "url": "https://www.uwo.ca/apmaths/faculty/zou/repr/jmb09.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Shares R10/R20/max-threshold and boundary-equilibrium vocabulary and contains a unidirectional-travel 2-patch sub-case, but the object is a delay-differential SIR-type model with fixed latency and non-local infection terms, and its reducible analysis is explicitly restricted to n=2 illustrations; it states no 3-chain SEIR recursive-quadratic classification, driven-positivity equivalence, or no-source-free theorem.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "THEOREM_SCOPE",
+    "inspection_evidence": "Full body obtained after retry (4584-line extraction) and inspected: main results (Sects.4-5, Thms 4.1/5.1) assume irreducible travel matrices; Sec.6 restricts reducible analysis to n=2 delay system (6.1)/(6.8)/(6.49); sub-case 6.2 (unidirectional infected 2->1, upper-triangular B, Eq.6.48) proves Thms 6.6-6.8 (DFE threshold max{R10,R20'}, boundary E(1) iff R10>1 with LAS iff Rhat20'<1, interior bifurcation) for the 2-patch delay model with latency tau and b_ij(tau) kernels and R0=max (6.56). No 3-patch chain, no SEIR E-class NGM blocks, no C=-cD quadratics, no D>0 equivalence. The n=2 delay conclusions cannot imply the n=3 ODE SEIR headline."
+   },
+   {
+    "title": "Global dynamics for an SIR patchy model with susceptibles dispersal",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7099918/",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Shares R01/R02/max-threshold and boundary-equilibrium structure (P1*/P2* with conditional stability), but the object is a 2-patch SIR model with susceptibles-only dispersal and no E class; its boundary results are conditional local-stability statements plus an interior GAS theorem, not a one-way 3-chain SEIR existence/uniqueness/LAS/nonexistence classification.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "THEOREM_SCOPE",
+    "inspection_evidence": "Full PMC body inspected: system (1) moves only susceptibles (a12/a21 on S); Sec.3 defines R0=max{R01,R02} with diagonal F/V; Thms 4.2/4.3 give boundary stability only under S* comparisons (S21*<S22* etc.), Thm 4.4 gives interior GAS only when both R0i>1. No third patch, no one-way chain, no E compartments, no recursive quadratics, no D>0 qualifier, no source-free nonexistence. Different hypotheses and disjoint conclusions."
+   },
+   {
+    "title": "Revisiting a two-patch SIS model with infection during transport (doi:10.1093/imammb/dqv001)",
+    "url": "https://julien-arino.github.io/assets/pdf/papers/2016_ArinoSunYang-MMB33.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Shares boundary-equilibrium form EBE=(0,(1-1/R0,2)N2^BE,...) with max-threshold R0 and a one-way (perfect exit-screening) 2-patch regime, but the object is SIS with infection during transport and standard-incidence coupling, not SEIR; Thm 5.1 gives BE stability under screening, which neither states nor implies the 3-chain SEIR recursive classification.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_PARAMETERS",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "THEOREM_SCOPE",
+    "inspection_evidence": "Full body (2097-line extraction) inspected: model (2.1) is SIS with transport infection alpha_i and travel m_i; Sec.5 imposes perfect exit screening (m2 I2=0) yielding one-way system (5.1) with R0=max{R0,2,R0,1^T}; boundary EBE (5.2)-(5.3) and Thm 5.1 (BE GAS if R0,2>1 and R0,1^T<1) concern the screened SIS 2-patch case only, with prior results cited as sufficient/numerical. No SEIR compartments, no third patch, no triangular NGM blocks, no driven-positivity equivalence."
+   },
+   {
+    "title": "Quarantine in a multi-species epidemic model with spatial dynamics (doi:10.1016/j.mbs.2005.09.002)",
+    "url": "https://julien-arino.github.io/assets/pdf/papers/2007_ArinoJordanPvdD-MBS206.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "Shares multi-patch SEIR-type language with a next-generation R0, and its Sec.3 studies one-way migration, but that migration is on a closed ring (patch n -> patch 1) and hence irreducible circulation, and its equilibrium principle is all-or-nothing (endemic in one patch implies endemic in all); this excludes rather than implies the open-chain boundary classification.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "inspection_evidence": "Body sections inspected: recalled result for Mi irreducible gives all-or-nothing equilibria (endemic in patch p implies endemic in all patches); Sec.3 ring model defines one-way migration with first subdiagonal plus (1,n) entry nonzero (closed ring, strongly connected) with n=15 simulation setup. An irreducible ring cannot yield the reducible open-chain boundary regime; no per-patch R0 max, recursive quadratics, or source-free nonexistence appears."
+   },
+   {
+    "title": "Multi-patch epidemic models with partial mobility, residency, and demography (preprint)",
+    "url": "https://users.oden.utexas.edu/~tanbui/PublishedPapers/Multipatch23.pdf",
+    "base_search_overlap": false,
+    "relationship_to_claim": "The only returned source addressing the reducible case directly, but its reducible result (Prop 3.2) is a one-line DFE implication (all patch R<1 implies R0<1), while all boundary/endemic theorems assume irreducible P*P*^T; it contains no one-way-chain boundary existence, uniqueness, stability, or nonexistence result covering the SEIR headline.",
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+    "inspection_evidence": "Full-text searched (3503-line extraction) for one-way/triangular/boundary-chain terms: the only reducible content is Prop 3.2 (R_i,i0<1 for all i implies R0<1) with Frobenius normal-form proof; Thms 4.1/4.2 explicitly assume P*P*^T irreducible for DFE GAS/instability. No one-way chain, no boundary-equilibrium construction, and no SEIR 3-chain classification occur anywhere in the body."
+   }
+  ],
+  "decisive_sources": [],
+  "rationale": "Terminal Perplexity check returned 20 results with zero overlap with the base set, adding genuine incremental recall: a 2012 vector-host dissertation with a one-way 3-patch block-triangular chapter, the Li-Zou JMB delay paper with n=2 reducible sub-cases, 2-patch SIR/SIS boundary papers, and general irreducible multi-patch theory. Every mandatory escalation (shared R-pair/triple parameters, same terminology family, and the dissertation) was opened in full body: the Gao thesis PDF (111pp), the Li-Zou PDF obtained after a retry (42pp), the Liu PMC article, the Arino SIS PDF, plus the Arino quarantine ring sections and a full-text parameter search of the Akuno reducible-case preprint. Each was excluded by literal theorem-scope comparison: different compartments (vector-host/SIR/SIS/delay vs ODE SEIR), different dimensions (n=2 or ring vs open 3-chain), different R formulas, or irreducibility hypotheses that exclude the reducible boundary regime. The remaining hits are keyword-similar background (NGM recipe, single-population KM models, tables, saturated-incidence papers) with no same-parameter trigger. No source states or implies the 3-chain SEIR boundary classification with recursive quadratics, driven-positivity equivalence, and no-source-free theorem, so no decisive prior was found and the provisional originality PASS stands unchanged."
+ }
+}
