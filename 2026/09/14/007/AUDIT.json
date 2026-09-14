@@ -1,0 +1,132 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/verify_target.py: all symbolic residuals are 0 (H_t identity, H'_t, H''_t, cubic discriminant 12Q, y-discriminant 9(t-1)(t+3)^3, Q(t,t^2) factorization, G' numerator -3w^4-1) and all numeric checks pass (interior positivity grids, t=3/2 zero set, blow-up ratio ->1). Independently re-derived: G_mu, F_mu, H_t closed form; H'' zeros {0,+-i} so the only degenerate critical point with t>1 is (3/2,0) with H'''=-18; atom criterion gives masses 1-2t/3 at -t,0,t for t<3/2; band inequalities (vertex gap disc -108, R(t^2)>0); edge preimages in (-1,1)\\{0} with G_mu regular/nonzero and G' nonzero on R; pole constant 3^{5/6}/(6pi)=3^{-1/6}/(2pi) re-derived via w_+=(x/3)^{1/3}e^{ipi/3}. The classification is analytic proof; numerics are corroboration only. No gap found.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search (SerpBase/OpenAlex/Crossref/OpenAIRE, 20 results, full coverage, no partial failure) surfaced only general free-convolution regularity/support theory. The nearest lead, Moreillon arXiv:2209.15607, was inspected in full text: its semigroup theorems require a Jacobi absolutely-continuous part (Assumption 2.1, n_ac>=1), which the purely atomic (delta_{-1}+delta_0+delta_1)/3 violates, and it contains no three-point-uniform example, band formula, or 3^{5/6}/(6pi) constant. General atom/support results (Huang, Belinschi/Bercovici, Bao-Erdos-Schnelli) give no exact three-point cusp classification and do not imply it. The exact bands, unique cubic point (3/2,0) as pole, and constant are new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: the admitted target explicitly demanded either an explicit (t,x0) +1/3 cusp or a proof of nonexistence with classification of all zeros. The draft delivers the full negative resolution for all t>=1 (two-band/square-root-edge/atom picture for 1<t<3/2, |x|^{-1/3} pole with exact constant at t=3/2, single band for t>3/2), which is a nontrivial subordination/discriminant analysis, not a type error, vacuity, small-instance mismatch, lookup, or arbitrary parameter fact. Under the shared STANDARD this is an exact invariant of a natural object, motivated before computation and reusable (critical t=3/2, bands, pole constant). No ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Moreillon, Density of the free additive convolution of multi-cut measures, arXiv:2209.15607 (2022, v2 2024): full HTML body inspected; same semigroup object and cubic-root terminology but Jacobi-AC hypotheses exclude the purely atomic three-point law; no such example or constant.",
+    "Huang, Supports of Measures in a Free Additive Convolution Semigroup, IMRN 2015 (rnu064): general support-component monotonicity and density formula for mu^{boxplus t}; screened as adjacent scope with no exact three-point cusp/band computation.",
+    "Belinschi, The Lebesgue decomposition of the free additive convolution (2007): general at-most-atomic singular part and analyticity where positive; no exact three-point classification.",
+    "Bao-Erdos-Schnelli, On the support of the free additive convolution (2018/2020): single-interval support and square-root edges under power-law hypotheses; inapplicable to the purely atomic three-point law.",
+    "Re-executed inputs/artifacts/verify_target.py (sympy 1.12): all symbolic identities residual 0; numeric positivity, zero-set, and blow-up-constant checks pass; outputs copied to output/artifacts/."
+  ],
+  "claim_route_inference": "research_report.json declares claim_route TARGET; audited as TARGET against the admitted two-sided question.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Huang/Belinschi/Bercovici/Bao-Erdos-Schnelli give only general facts: singular part at most atomic, atom criterion mu({a})>1-1/t, analyticity where density is positive/finite, component monotonicity, square-root edges under power-law hypotheses.",
+      "reasoning": "None of these general theorems computes the three-point H_t, its discriminant bands, the uniqueness of (3/2,0), or the pole constant; instantiating them still requires the full exact computation, so the claim is not a special case or corollary of a broader recorded theorem.",
+      "search": "General free convolution power regularity: Huang support semigroup, Belinschi/Bercovici atoms and analyticity, Bao-Erdos-Schnelli single-interval square-root edges."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior work permits cubic-root vanishing in other settings (Moreillon multi-cut endpoints; interior cusps in the infinitely-divisible setting cited therein), so no blanket theorem rules out an interior +1/3 zero for this atomic power; conversely no prior source states this three-point nonexistence-plus-pole classification.",
+      "reasoning": "The submitted claim is neither stated nor mechanically implied by any prior result found; establishing it required the exact H_t'/H_t'' analysis and discriminant band computation, so it is not a recomputation, certificate, or repackaging of a known stronger fact.",
+      "search": "Whether any prior square-root/cubic-root universality result implies no interior +1/3 zero for (delta_{-1}+delta_0+delta_1)/3 free powers."
+    },
+    "equivalent_formulations": {
+      "evidence": "Moreillon full text: two-sided cubic-root decay occurs at merging exterior endpoints for Jacobi-type absolutely-continuous measures, and inverse cubic-root blow-ups occur at critical atoms; no interior +1/3 zero of a purely atomic three-point power is stated.",
+      "reasoning": "Dual/complementary phrasings (cusp zero vs pole, endpoint merger vs interior zero, H'=H''=0 degeneracy language) were tested against the nearest source; its cubic phenomena live in a disjoint hypothesis class and at endpoints/atoms, so they neither state nor imply the submitted interior-zero nonexistence plus exact pole constant.",
+      "search": "Equivalent dual forms: cubic degeneracy H_t'=H_t''=0, two-sided |x|^{1/3} cusp zero versus |x|^{-1/3} pole, interior versus endpoint singularities in free convolution powers."
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused results contain no table, census, or database entry for the (delta_{-1}+delta_0+delta_1)/3 free power density, bands, critical t=3/2, or the constant 3^{5/6}/(6pi); no OEIS/spectral-database/official free-probability table lead appeared.",
+      "reasoning": "The exact parameters (three-point law, t=3/2, constant) appear in no table or database found, so the finding is not a direct lookup or known-database recomputation.",
+      "search": "Exact-parameter lookup: three-point uniform free power density bands, critical t=3/2, constant 3^{5/6}/(6pi), free probability census or spectral database tables."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "cdb1f07c5b4f267a29b716fbf3c7e6a1ae63f8cc73bcf54feae1326dd7b07a0f",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full HTML body of arXiv 2201.05582v2 Sections 1-2: Assumption 1.1 requires n_ac>=1 AC intervals with Jacobi power law plus pure points; Theorem 1.2 bounds It+Ct0 via zeros of m_mu; introduction states only Bernoulli (1/2 delta_{-1}+1/2 delta_{+1}) to arcsine illustration; body-wide search for three-point/delta_{-1}/delta_0/C=3^{5/6} finds no (-1,0,1)/3 example, band formula, t=3/2 pole, or constant.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same free-convolution semigroup object and interior-zero counting terminology, plus predecessor support bounds, but hypotheses require an absolutely continuous Jacobi part and state only generic component bounds with no three-point power analysis.",
+        "title": "1Introduction and statement of results - arXiv",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/2201.05582v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "OUP URL fetch returned 403; identical work inspected via full arXiv HTML v2 (Sections 1-2, Assumptions 2.1/2.7, Theorems 2.3/2.5/2.8/2.10): Jacobi-AC hypotheses (n_ac>=1) exclude the purely atomic three-point law; no delta_{-1}/delta_0/delta_1 example, band formula, t=3/2 pole, or 3^{5/6}/(6pi) constant in body.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Identical published version of the nearest density paper: same semigroup object and square-root/cubic-root endpoint terminology, but same disjoint Jacobi hypothesis class and no exact three-point classification.",
+        "title": "Density of the Free Additive Convolution of Multi-cut Measures",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://academic.oup.com/imrn/article/2024/23/14178/7831141"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full arXiv HTML v2 body searched for three-point/Dirac/delta_{-1}/Bernoulli/atomic-example terms: no match; Section 2 hypotheses (Assumption 2.1, n_ac>=1 Jacobi AC part) exclude the purely atomic three-point law; Theorems 2.3/2.5/2.8/2.10 address Jacobi endpoints and atoms with no (-1,0,1)/3 band, t=3/2 pole, or 3^{5/6}/(6pi) computation.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Nearest prior on the same semigroup object with cubic-root density analysis, but its theorems live in a disjoint Jacobi-AC hypothesis class and contain no three-point band, critical-pole, or constant result.",
+        "title": "Density of the free additive convolution of multi-cut measures",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "http://arxiv.org/abs/2209.15607"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Alphaxiv page is a mirror of arXiv 2209.15607v2 abstract for the same paper; full-text evidence taken from the identical arXiv HTML v2 body as above: Jacobi-AC assumptions exclude the purely atomic law, and no three-point/band/t=3/2-pole/constant material occurs.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "URL mirror of the same nearest density paper, hence same object and terminology overlap but identically no exact three-point interior-cusp classification.",
+        "title": "Density of the free additive convolution of multi-cut measures ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.alphaxiv.org/abs/2209.15607v2"
+      }
+    ],
+    "rationale": "Terminal Perplexity returned 20 results with 7 overlaps; 13 are incremental URLs but all are generic free-probability background (Meixner gamma, scaling limits, lectures, subordination, Bondesson, polynomial roots, Brown measure of a different model, topic pages) sharing no material three-point/t=3/2/constant parameters and no dissertation, so they are not substantively relevant and were excluded. The only plausibly covering leads are the Moreillon support/density family, inspected at body level: the predecessor support paper and the density paper (arXiv plus OUP/Alphaxiv URL duplicates) both require a Jacobi AC part that excludes the purely atomic law and contain no three-point band, t=3/2 pole, or constant. Hence the terminal search adds useful confirmation but no decisive prior; originality PASS is preserved with no verdict change.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text HTML searched for three-point/Dirac/delta_{-1}/Bernoulli/atom-example terms: no match; Section 2 hypotheses (Assumption 2.1, n_ac>=1 Jacobi AC part) exclude the purely atomic three-point law, and Theorems 2.3/2.5/2.8/2.10 address Jacobi endpoints and atoms with no (-1,0,1)/3 band, t=3/2 pole, or 3^{5/6}/(6pi) computation.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Density of the free additive convolution of multi-cut measures (Moreillon)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2209.15607"
+    }
+  ],
+  "verdict": "PASS"
+}
