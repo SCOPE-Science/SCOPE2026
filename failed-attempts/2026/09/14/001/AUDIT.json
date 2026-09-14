@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Combinatorial data verified by re-running verify_hulls.py: fans complete primitive CCW, dets 4,1,5 and 1,1,2,3, anticanonical degree 5, T-witnesses, hull areas 10 vs 7, (B,I) (8,2) vs (7,1) all reproduce. The geometric core fails: the neck-stretching lemma asserts minimal Maslov-2 boundaries are exactly the fan rays for BOTH triangular and quadrilateral limits, with hull Hamiltonian-invariant up to GL(2,Z). Vianna Theorem 5.1 proves this only for triangular ATBDs, explicitly warning positivity is lost if the limit moment polytope is not a triangle and that non-triangular hulls cannot be described. The draft applies the triangular positivity/Reeb/minimal-orbit argument to a 4-ray limit (H2 rank 2) without addressing self-intersection, extra disk classes, or smoothing/ATF compatibility beyond a rank count, and its supporting wall-crossing sentence is false (algebraic mutation changes Newton polygons beyond GL+translation). The quadrilateral exact-hull identification, on which non-isotopy depends, is therefore unproved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused 3-direction search plus full-body inspection of the two decisive priors shows the exact tri-vs-quad dP5 pair is not recorded or implied. Vianna classifies triangular ATBDs and proves triangular hulls only, expressly excluding non-triangular limits; Pascaleff-Tonkonog proves general wall-crossing/mutation and infinite families with a 7-direction Bl4 seed, not these 3-ray vs 4-ray fans with areas 10 vs 7. No fused result contains the exact ray tuples, potentials, or hull census, and no broader census, dual encoding, or mutation corollary mechanically yields the claimed exact quadrilateral hull. The specific comparison is new under the shared standard.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "If proved, the headline would be independently retrievable: exact Maslov-2 hulls distinguishing monotone Vianna fibres from two non-isomorphic toric degenerations of the natural object dP5, directly answering the admitted target and giving the first quadrangular instance of Vianna Conjecture 1.4 beyond triangular-triangular comparisons. Object and invariant were motivated before computation, values are not known or mechanically implied, and future work on ATF fibres, mutations, and qG degenerations could need the precise hulls. It is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vianna 1602.03356 full HTML body: Theorem 5.1 triangular hull computation, triangularity hypothesis, positivity caveat, k=1,2 non-triangular failure, Conjecture 1.4.",
+    "Pascaleff-Tonkonog 1711.03209 abstract plus full-HTML sections 4.12-4.13: mutation wall-crossing theorems, Table 1 del Pezzo seeds, infinite-tori application.",
+    "Fused scope_literature_search 20 results across SerpBase/OpenAlex/Crossref/OpenAIRE: no exact ray-set, potential, or hull-area match for the submitted pair.",
+    "Independent re-execution of inputs/artifacts/verify_hulls.py: reproduced fan completeness, degree-5 polytopes, T-options, hull extremality, areas, edge gcds, lattice census."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Vianna Theorem 1.1(a)/5.1 and HP/KN cover triangular ATBDs and weighted-plane limits only, with explicit non-triangle exclusion; PT covers mutation-related infinite families via wall-crossing, not an exhaustive tri-vs-quad census.",
+      "reasoning": "Because the quadrilateral limit falls outside the triangular hypotheses and the mutation theorems do not decide this specific pair, no broader theorem substantively implies or exhausts the claim.",
+      "search": "Searched Vianna infinite-family theorems, Hacking-Prokhorov qG smoothings, Karpov-Nogin triangular classification, and Pascaleff-Tonkonog mutation classification for a stronger covering theorem."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Vianna requires triangular positivity which the draft does not re-establish for four rays; PT algebraic mutation changes Newton data beyond GL(2,Z)+translation, so distinct areas do not follow from and are not refuted by known mutation relations without computing this pair.",
+      "reasoning": "Prior results neither compute the quadrilateral exact boundary set nor imply the stated GL-inequivalence for these two fibres, so the headline is not a repackaged corollary; its proof is missing rather than already implied.",
+      "search": "Tested whether the exact quadrilateral hull follows as a corollary, certificate, or mechanical mutation consequence of Vianna triangular computation or PT wall-crossing."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results and Vianna/PT bodies contain only triangular hull identities and general mutation formulas; none states the (-3,-2),(-1,-2),(2,3) vs (-2,-1),(-1,-1),(1,0),(1,2) fan pair or the W_tri/W_quad potentials under any synonymous notation.",
+      "reasoning": "No dual, complement, incidence-graph, matrix, potential, or seed reformulation in the prior art expresses these exact hulls, so synonymous notation does not cover the submitted headline.",
+      "search": "Searched Newton polygons, disk/LG potentials, boundary Maslov-2 hulls, mutation/seed encodings, and dual fan descriptions of the two dP5 fibres."
+    },
+    "exact_database_or_table": {
+      "evidence": "No fused record contains those tuples or census values; PT Table 1 Bl4 entry uses 7 seed directions, structurally distinct from the submitted 3-ray and 4-ray fans.",
+      "reasoning": "The exact parameters do not already appear in an official table or database, so the claim is not a direct lookup or recomputation of tabulated data.",
+      "search": "Searched fused metadata/snippets and PT Table 1 plus toric/qG tables for the exact ray tuples, cone orders 4,1,5 vs 1,1,2,3, and hull data areas 10 vs 7 with (B,I) (8,2) vs (7,1)."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Theorem 5.1 states hull equals fan-ray hull only for triangular ATBDs; body states positivity may be lost when limit polytope is not a triangle and hulls of non-triangular k=1,2 fibres cannot be described, so the 4-ray quadrilateral exact-hull claim lies outside its scope.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Infinitely many monotone Lagrangian tori in del Pezzo surfaces",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/1602.03356v1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Inspected sections 4.12-4.13 and Table 1 discussion: Bl4 seed carries k+3=7 directions with upper-bound/mutation machinery, and the application proves infinite mutation families, with no section computing the submitted 3-term vs 4-term potentials or stating this tri-vs-quad dP5 non-isotopy.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "The wall-crossing formula and Lagrangian mutations",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/html/1711.03209v3"
+    }
+  ],
+  "verdict": "REJECT"
+}
