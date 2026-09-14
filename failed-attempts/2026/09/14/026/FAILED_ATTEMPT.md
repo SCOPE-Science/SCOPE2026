@@ -1,0 +1,43 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+> This record documents an unsuccessful SCOPE investigation. Its proposed claim
+> is not an established finding and must not be cited as one.
+
+## Attempt
+
+- **Title:** SRG eigenvalue -3 with 6-regular star complement
+- **Round:** 2026-09-07-first-light-01
+- **Lane:** 1869
+- **Disposition:** AUDIT_1_REJECT
+- **Domain:** spectral graph theory
+- **Method:** star complement parameter enumeration
+
+## Problem
+
+Let G be a connected primitive strongly regular graph with least eigenvalue -3 that is neither complete multipartite nor of Steiner type. Determine with proof the complete finite list of feasible parameter sets (v,k,lambda,mu) for such a G that can admit a regular star complement of degree 6 for the eigenvalue -3, and for each listed set give either an explicit realizing graph or a rigorous proof of non-realizability. A complete answer is an explicit finite parameter list with a completeness proof plus a realizability verdict with witness for every entry.
+
+## Attempted claim
+
+Let G be a connected primitive strongly regular graph with least eigenvalue -3 that is neither complete multipartite nor of Steiner type. Determine with proof the complete finite list of feasible parameter sets (v,k,lambda,mu) for such a G that can admit a regular star complement of degree 6 for the eigenvalue -3, and for each listed set give either an explicit realizing graph or a rigorous proof of non-realizability. A complete answer is an explicit finite parameter list with a completeness proof plus a realizability verdict with witness for every entry.
+
+## Research outcome
+
+Complete TARGET resolution: finite list {(26,15,8,9),(30,27,24,27)} with one witness each, hence empty non-excluded sublist.
+
+## Why this attempt failed
+
+Failed axes: correctness, originality, value.
+
+correctness: TARGET route: the headline completeness proof is mathematically wrong. DRAFT Sec.2 defines t=f+1 as the star-set size, but for eigenvalue -3 the star-set size is the multiplicity g=13, while f+1=13 is |H|; the derivation then concludes g(K-6)=9t, i.e. |X|(K-6)=9|H|, which swaps X and H. The correct contraction gives 9|X|=|H|(K-6). It coincides at (26,15,8,9) only because |X|=|H|=13 there. Under the correct identity the DRAFT's r=0 solution (30,27,24,27) fails (81 vs 441; correct r=0 solution is (12,9,6,9)), feasible set (35,18,9,9) with r=3,f=14,g=20 satisfies 9*20=15*12 yet is excluded by DRAFT Sec.3, the r>=4 exclusion r(K-6)<27 collapses, and brute force finds 134 counting-feasible solutions with K<2000 (mu=9 infinite family) versus DRAFT's claimed exactly two. The script encodes the same swapped equation so it does not independently verify the theorem. Local STS(13) adjacency checks are fine but do not rescue completeness. originality: The submitted headline (exactly two counting-feasible sets; empty non-excluded sublist) is false under the correct star-complement identity, so no new true classification is established. The only true fragment, existence of SRG(26,15,8,9) as an STS(13) block graph, is listed in the fetched Brouwer table body as S(2,3,13), i.e. known-database material. The on-point prior Rowlinson (2012): the official repository record body scopes its parameter investigation to s<=5 while the submitted claim is degree 6, and its general finiteness statement yields no exact two-set list, so theorem-scope comparison excludes coverage of the exact headline. Originality therefore FAILS: nothing new and true is established. value: The headline retrieval fact (complete list of two sets; empty non-excluded list) is false, hence has no record value. The surviving true fragment, that SRG(26,15,8,9) exists as a Steiner block graph, is a known-database existence fact, i.e. certification/recomputation that does not create value by itself under STANDARD.md. No independently valuable exact invariant of a natural object beyond known tables is established, and the error is structural (whole classification must be redone under the swapped identity), not a narrow valuable datum.
+
+## Conditions for a legitimate retry
+
+repair the decisive proof or computational defect and recheck the full claim; state a substantive result not covered by the identified prior work; supply independent motivation and a materially stronger contribution; address the recorded limitation: The proof invokes the standard star-complement Reconstruction theorem as the single external result; uniqueness of the (26,15,8,9) realization is not claimed or needed (only existence of one Steiner witness per listed set, which is proved); no statement is made about star complements for other eigenvalues or degrees; numerical-linear-algebra residuals (<1e-8) support only the witness identities, while the classification itself is exact integer arithmetic.
+
+## Epistemic status
+
+This is negative research memory, retained to prevent accidental repetition and
+to make future recovery attempts more informed. It is intentionally segregated
+from validated SCOPE findings. Similarity to this record is not a permanent ban:
+a future attempt may proceed only when it records a material change that addresses
+the failure above.

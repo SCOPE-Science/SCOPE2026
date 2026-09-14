@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: the headline completeness proof is mathematically wrong. DRAFT Sec.2 defines t=f+1 as the star-set size, but for eigenvalue -3 the star-set size is the multiplicity g=13, while f+1=13 is |H|; the derivation then concludes g(K-6)=9t, i.e. |X|(K-6)=9|H|, which swaps X and H. The correct contraction gives 9|X|=|H|(K-6). It coincides at (26,15,8,9) only because |X|=|H|=13 there. Under the correct identity the DRAFT's r=0 solution (30,27,24,27) fails (81 vs 441; correct r=0 solution is (12,9,6,9)), feasible set (35,18,9,9) with r=3,f=14,g=20 satisfies 9*20=15*12 yet is excluded by DRAFT Sec.3, the r>=4 exclusion r(K-6)<27 collapses, and brute force finds 134 counting-feasible solutions with K<2000 (mu=9 infinite family) versus DRAFT's claimed exactly two. The script encodes the same swapped equation so it does not independently verify the theorem. Local STS(13) adjacency checks are fine but do not rescue completeness.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The submitted headline (exactly two counting-feasible sets; empty non-excluded sublist) is false under the correct star-complement identity, so no new true classification is established. The only true fragment, existence of SRG(26,15,8,9) as an STS(13) block graph, is listed in the fetched Brouwer table body as S(2,3,13), i.e. known-database material. The on-point prior Rowlinson (2012): the official repository record body scopes its parameter investigation to s<=5 while the submitted claim is degree 6, and its general finiteness statement yields no exact two-set list, so theorem-scope comparison excludes coverage of the exact headline. Originality therefore FAILS: nothing new and true is established.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "The headline retrieval fact (complete list of two sets; empty non-excluded list) is false, hence has no record value. The surviving true fragment, that SRG(26,15,8,9) exists as a Steiner block graph, is a known-database existence fact, i.e. certification/recomputation that does not create value by itself under STANDARD.md. No independently valuable exact invariant of a natural object beyond known tables is established, and the error is structural (whole classification must be redone under the swapped identity), not a narrow valuable datum.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Brouwer SRG table body srgtab1-50.html (full text fetched): row (26,15,8,9) listed with comment S(2,3,13); row (35,18,9,9) listed; parameters/existence only, no star-complement classification.",
+    "STORRE official record body for Rowlinson 2012 (hdl.handle.net/1893/18468, full record text fetched): scope is finiteness for prescribed degree s plus parameter investigation when s<=5; submitted claim is degree 6.",
+    "OpenAlex/Semantic Scholar metadata for DOI 10.1016/j.laa.2011.08.020 confirming Rowlinson 2012 as the original peer-reviewed paper on regular star complements in SRGs.",
+    "Wikipedia SRG article + Brouwer intro page: standard SRG relations used to cross-check DRAFT Sec.2 identities.",
+    "Independent local re-derivation of the Reconstruction contraction plus brute-force enumeration to K<2000/r<200: correct identity 9|X|=|H|(K-6) yields >=134 feasible sets incl. (35,18,9,9); DRAFT equation yields 2. Artifact script run reproduces DRAFT numbers but encodes the same swapped equation."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Rowlinson 2012 record body proves finiteness of non-multipartite non-Steiner SRGs with regular star complement of prescribed degree s and treats parameters for s<=5; submitted claim is an exact degree-6 two-set list.",
+      "reasoning": "The broader finiteness theorem does not imply any exact degree-6 parameter list, and the investigated parameter scope explicitly stops at s<=5, so theorem-scope comparison excludes coverage of the exact headline.",
+      "search": "Regular star complements in strongly regular graphs Rowlinson 2012 finiteness prescribed degree s, s<=5 investigation, full-text method scope"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Correct identity 9|X|=|H|(K-6) admits (35,18,9,9) (9*20=15*12) and an infinite mu=9 family; DRAFT master equation (*) and both listed entries derive from the swapped identity.",
+      "reasoning": "Prior standard identities plus the corrected contraction directly imply the DRAFT completeness claim is false; a false headline cannot be a new implication, and its true fragment reduces to a known existence fact.",
+      "search": "Re-derivation of Reconstruction contraction with X/H roles and brute-force SRG-plus-star-complement feasibility check to K<2000"
+    },
+    "equivalent_formulations": {
+      "evidence": "Correct forms tested: 9|X|=|H|(K-6), (f+1)(K-6)=9g_srg, star set size = multiplicity of -3, complement size f+1; DRAFT uses g(K-6)=9t with t=f+1, i.e. the transpose; synonym/dial searches returned only the same Rowlinson cluster.",
+      "reasoning": "The DRAFT identity is the X/H-transpose of the correct equivalent formulation; the transpose coincides only at the symmetric point (26,15,8,9) and diverges everywhere else, which is why literal-form searches miss the error.",
+      "search": "star set vs star complement size conventions, multiplicity-of-eigenvalue vs f+1 formulations, transposed scalar identity 9|X| vs 9|H| searches"
+    },
+    "exact_database_or_table": {
+      "evidence": "Brouwer official SRG table body srgtab1-50.html fetched and searched: (26,15,8,9) row present as S(2,3,13) and (35,18,9,9) row present; rows record existence/parameters only with no 6-regular-star-complement verdict.",
+      "reasoning": "The table's body-level rows confirm the true existence fragment is known-database material and confirm no exact star-complement census is contained there; the claimed census is false in any case.",
+      "search": "Brouwer SRG parameter tables existence rows for (26,15,8,9), (35,18,9,9), (30,27,24,27), (12,9,6,9)"
+    }
+  },
+  "residual_risks": [
+    "Direct publisher/repository PDF bytes of Rowlinson 2012 were blocked (403/401 on four URLs after retries); coverage exclusion rests on the official record-body scope plus the table body, not on PDF bytes.",
+    "No downstream use of the false empty-list verdict should be made; any corrected classification must restart from 9|X|=|H|(K-6)."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full table text searched for the key parameters: (26,15,8,9) row found with Steiner comment S(2,3,13) and (35,18,9,9) row found; the table records parameters/existence only and contains no regular-star-complement classification.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Parameters of Strongly Regular Graphs 1-50 (Brouwer database table body)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS"
+      ],
+      "url": "https://aeb.win.tue.nl/graphs/srg/srgtab1-50.html"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Official repository record body states the paper proves finiteness for prescribed degree s and investigates possible parameters when s<=5; the submitted exact classification is for degree 6, outside that investigated scope, and finiteness alone implies no exact two-set list.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Regular star complements in strongly regular graphs",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1016/j.laa.2011.08.020"
+    }
+  ],
+  "verdict": "REJECT"
+}
