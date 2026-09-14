@@ -1,0 +1,74 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "The Laplace-functional reduction is standard, but the truncation in DRAFT Sec.4 is internally inconsistent and Lemma D is false as stated. Lemma C gives max a_u = -(3/2theta)log t_n+O_P(1) -> -infinity, so for fixed K, P(all a_u < -K) -> 1 and the bulk sum over [-K,K] is empty w.h.p., not converging to Z^{(1)}-R_K. Lemma D claims lim_K limsup_n E[sum_{a_u<-K} e^{theta a_u}]=0, but by many-to-one E[sum_{a<-K}e^{theta a}]=P(S_{t_n}-v_1 t_n<-K) -> 1/2 by CLT, not 0. Hence deep-block negligibility via crude first moment fails, compact-uniform Lemma B does not cover the logarithmic drift regime, and the claimed limit (2) is unproved. Simulation is explicitly illustration only.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The literal headline (two-speed BRW mean-regime SDPPP with C_m Z^{(1)} and L_2 decoration, centering v_1 t_n+v_2 s_n-(3/2theta)log n) matches Luo arXiv:2503.05994 Conjecture 1.3 verbatim, but that source explicitly labels the mean regime as an unproved conjecture ('we give a conjecture', 'has not been studied in BBM setting') and proves only slow/fast regimes (Theorems 1.1-1.2). No fetched source proves the BRW mean-regime extremal convergence; Bovier-Hartung 2014 covers Gaussian two-speed BBM, and Mallein/Fang-Zeitouni cover tightness/first order only. A conjecture does not cover a theorem, so the claimed theorem statement is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: the admitted target is the mean-regime extremal process left open by Mallein tightness and Luo Conjecture 1.3, a recognized gap in time-inhomogeneous BRW extremes with SDPPP limit, explicit constant (1-t)^{3/2}C_2^*, derivative-martingale shift and decoration identification. This is a natural motivated theorem advancing a known classification boundary, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. No ADMISSION_DEFECT: the target itself satisfies the shared value threshold.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Luo (2025) arXiv:2503.05994 'The extremal process of two-speed BRW' \u2014 full-text Sec.1-1.3: proves slow/fast regimes, states mean regime as Conjecture 1.3; nearest prior, does not prove claim.",
+    "Bovier-Hartung (2014) EJP 'The extremal process of two-speed BBM' (arXiv:1308.1868) \u2014 variable-speed BBM with sigma1/sigma2, Gaussian F-KPP setting; different object from discrete BRW.",
+    "DRAFT.md Secs.1-6 plus topic.json/research_report.json \u2014 audited proof sketch, lemmas A-D, Laplace reduction (2), constant computation, and stated limitations.",
+    "inputs/artifacts/sim_two_speed.py + summary.json \u2014 binary-Gaussian illustration n=8..16, tightness/KS fit; declared not part of proof."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Mallein proves only tightness with mn in three regimes; Fang-Zeitouni/Ouimet give first-order/log corrections; Bovier-Hartung proves two-speed BBM (continuous); Luo proves BRW slow/fast extremes only.",
+      "reasoning": "None of these broader results implies BRW mean-regime extremal convergence with Z^{(1)} shift and D^{(2)} decoration; tightness and BBM analogues do not substantively imply the discrete mean-regime SDPPP limit.",
+      "search": "stronger time-inhomogeneous BRW/BBM extremal theorem, Mallein tightness, Fang-Zeitouni maxima, variable-speed census covering mean regime"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Luo Conjecture 1.3 matches centering m_n, Gumbel mixture E[exp(-Cm Z^{(1)}e^{-theta y})], and SDPPP(Cm Z^{(1)} theta e^{-theta y}, D^{(2)}), but is labeled conjecture with proofs deferred; homogeneous tail/decoration lemmas are inputs, not the two-speed combination.",
+      "reasoning": "A conjecture plus homogeneous inputs does not logically imply the two-speed mean-regime combination; the submitted combination would be new if proved, but the DRAFT proof is invalid per correctness, so there is no prior implication covering it.",
+      "search": "Luo Conjecture 1.3 versus submitted theorem: does prior conjecture or homogeneous ABBS/Madaule decoration imply the mean-regime claim"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search top hits use 'two-speed', 'time-inhomogeneous', 'variable-speed' interchangeably; only Luo states the mean-regime SDPPP in identical notation, explicitly as conjecture; no dual/complement/matrix encoding yields an alternate proved statement.",
+      "reasoning": "No synonymous formulation in prior work proves the claim; the single literal match is an unproved conjecture, so equivalent-formulation coverage does not hold.",
+      "search": "time-inhomogeneous / variable-speed BRW, theta1*=theta2* mean regime, SDPPP decorated Poisson synonymous notation"
+    },
+    "exact_database_or_table": {
+      "evidence": "No database, table, or thesis entry records the claimed SDPPP limit or Cm=(1-t)^{3/2}C_2^* for the two-speed BRW mean regime; the only artifact is the submission's own small-n simulation illustration.",
+      "reasoning": "The claim is a limit theorem, not a table lookup or recomputation of a tabulated value; exact-database coverage is excluded.",
+      "search": "exact two-speed BRW mean-regime constant and decoration in official database, table, thesis appendix, or codebase"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Inspected Sec.1 Eq.(1.1) regime centering and Sec.1.3 'Mean regime': text states 'we give a conjecture about the limit law' and 'has not been studied'; Conjecture 1.3 proposes identical max/SDPPP law with Cm Z^{(1)} and D^{(2)} without proof, while proved Theorems 1.1-1.2 are restricted to fast/slow regimes.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "The extremal process of two-speed branching random walk (Luo, 2025)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/2503.05994v1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body theorems concern variable-speed BBM with piecewise diffusivities sigma1/sigma2 over time horizon t; hypotheses and centering are Gaussian-speed objects, with no discrete reproduction laws L1/L2, kappa/theta-star conditions, or BRW mean-regime SDPPP theorem.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The extremal process of two-speed branching Brownian motion (Bovier-Hartung, 2014)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://projecteuclid.org/journals/electronic-journal-of-probability/volume-19/issue-none/The-extremal-process-of-two-speed-branching-Brownian-motion/10.1214/EJP.v19-2982.full"
+    }
+  ],
+  "verdict": "REJECT"
+}
