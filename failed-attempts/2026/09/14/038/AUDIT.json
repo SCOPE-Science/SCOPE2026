@@ -1,0 +1,82 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "All checkable headline numbers verified. Exact integer checks: (457,9699) and (57,19) satisfy ED, (-1,3) satisfies E; Lutz-Nagell (y^2=94070601 does not divide D=-758755968768) proves P of infinite order; exact group law gives 2P=(1,-3), 4P=(-3,1), 8P=O confirming Z/8 torsion; discriminant, j-invariant, conductor 15162=2*3*7*19^2, and Kronecker(-19;2,3,7)=(-1,-1,+1) verified. LMFDB independently corroborates q-expansion, Atkin-Lehner signs, ranks 0/1, L'=3.05904911868116, regulator 4.22771015427673, and generator. L'-nonvanishing rests on multiprecision numerics plus an independent pipeline, honestly disclosed as trusted numerics rather than interval proof. The pari_transcript Kronecker line is truncated, but the fact was re-verified. The JL/Shimura-divisor identification is asserted via cited standard theorems, not computed: a disclosed limitation, not a numerical falsehood.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The exact numerical payload is already tabulated in the official LMFDB database: 15162.j5 records the -19 twist of 42a1 with conductor 15162, analytic and Mordell-Weil rank 1, generator (449,9255) (same point as (457,9699) on the draft's model), regulator 4.22771015427673, L'=3.05904911868116, and minimal twist 42a1; 42.2.a.a records dimension 1, the identical q-expansion, and Atkin-Lehner signs -1,+1,+1; 42.a records the isogeny class, torsion, and modular degree. Given these tabulations plus the general Gross-Zagier/Kolyvagin theorems cited by the draft itself, nonzero height and analytic rank one follow mechanically. No new local YZZ computation was performed: the 'explicit constant' is the arithmetic ratio of two tabulated numbers.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL with ADMISSION_DEFECT: topic.json premises value on this derivative being 'not tabulated', but full-page LMFDB inspection shows L'(E^D,1)=3.05904911868116, the regulator, generator, and ranks are tabulated for exactly this curve and twist, so the admission qualification was materially false. What remains is a known-database recomputation: re-deriving tabulated invariants with PARI and relabeling their ratio as a YZZ constant, with no new theorem, boundary, or downstream fact a future researcher could not already retrieve from LMFDB. Certification and replayability strengthen evidence but do not create value under the shared STANDARD.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "LMFDB 15162.j5 (15162l1) full page: twist of 42a1 by -19, conductor 15162, analytic/MW rank 1, generator (449,9255), regulator 4.22771015427673, L'=3.05904911868116, analytic Sha 1, BSD closure.",
+    "LMFDB 42.2.a.a newform full page: dimension 1, q-expansion matching draft a_p through q^19, Atkin-Lehner signs -1/+1/+1 at 2/3/7.",
+    "LMFDB 42.a isogeny-class full page: six curves including 42.a5=[1,1,1,-4,5] with torsion [8], modular degree 4, Gamma0-optimal.",
+    "scope_literature_search, 3 directions fused (20 results, all providers ok, partial=false): nearest hits are YZZ theory book/chapters, Vatsal X0(19) twists (different curve), and LMFDB 42a3 page; no prior disc-6/level-7/K=-19 instance beyond the database entries above.",
+    "Independent exact integer re-verification without PARI: curve-equation residuals 0, Lutz-Nagell non-divisibility proving infinite order, 8P=O torsion confirmation, discriminant/j/conductor/Kronecker checks, ratio recomputation h/Lp=1.38203408649398 exact."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Fused search returns the YZZ book and chapters as general theory with no instance parameters; draft cites YZZ Theorem 1.2 and JL/Kolyvagin as standard black boxes and performs no local integral computation.",
+      "reasoning": "The general YZZ/Gross-Zagier/Kolyvagin theorems combined with the tabulated L'(E^D,1)!=0 mechanically imply nonzero height and rank one for this pair; the draft instantiates rather than extends the stronger covering theorem.",
+      "search": "Yuan-Zhang-Zhang Gross-Zagier formula on Shimura curves as general theorem plus Kolyvagin machinery applied to any tabulated rank-one twist."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "LMFDB records L(E,1)!=0 with rank 0 and L'(E^D,1)!=0 with rank 1 and generator of height 4.22771015427673; rank additivity over K and height nonvanishing are the standard theorems the draft invokes.",
+      "reasoning": "Every numerical consequence in the headline is substantively implied by prior tabulated facts plus cited standard theorems; the only additions are the uncomputed JL-divisor identification and the ratio relabeled as a YZZ constant, neither of which is an independent new result.",
+      "search": "Headline consequences (analytic rank one, infinite order, nonzero height, h/L' ratios) compared against LMFDB-recorded facts plus standard Gross-Zagier/Kolyvagin implication."
+    },
+    "equivalent_formulations": {
+      "evidence": "LMFDB minimal model [1,0,1,-1452,-47126] shares discriminant -758755968768 and j=-7189057/16128 with draft ED; generator (449,9255) carries the same height 4.22771015427673 as draft (457,9699); draft itself identifies P_A with the classical Heegner point via functoriality.",
+      "reasoning": "The Shimura-curve divisor, twist-model point, and minimal-model generator are synonymous encodings of one classical Heegner point; restating it in YZZ/Shimura language does not create a new object or result.",
+      "search": "LMFDB minimal model 15162.j5 versus draft twist model ED; classical X0(42)/twist Heegner-point formulation versus Shimura-curve divisor framing."
+    },
+    "exact_database_or_table": {
+      "evidence": "Exact object and parameters tabulated: -19 twist of 42a1, conductor 15162, rank 1, generator, regulator 4.22771015427673, L' 3.05904911868116, unique rational level-42 newform with matching a_p and signs, isogeny class data.",
+      "reasoning": "The precise curve, twist, conductor, ranks, point, height, L-values, newform, and signs appear in the established official database, so the headline is a known-database recomputation excluded by the STANDARD.",
+      "search": "LMFDB conductor-15162 search and full pages 15162.j5, 42.2.a.a, 42.a, plus 42a3 property page, all fetched in full."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full body inspected: BSD table gives r_an=1, MW rank 1, Reg=4.22771015427673, L'=3.05904911868116, Sha_an=1 with BSD closure; MW generators list (449,9255) plus 2-torsion; twist section states minimal twist 42a1 by -19; conductor 2*3*7*19^2. Covers rank-one, generator, height, and L'-nonvanishing headline.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "LMFDB 15162.j5 (Cremona 15162l1)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS"
+      ],
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/15162l1/"
+    },
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full body inspected: dimension 1 (unique orbit), coefficient field Q, q-expansion identical to draft a_p, Atkin-Lehner signs -1/+1/+1 at 2/3/7, Hecke polynomials T-1/T+1/T+2/T+1. Covers uniqueness, rationality, and sign headline.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "LMFDB newform orbit 42.2.a.a",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS"
+      ],
+      "url": "https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/42/2/a/a/"
+    },
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full body inspected: class table lists 42.a5=[1,1,1,-4,5] with torsion [8], modular degree 4, Gamma0-optimal; shared q-expansion and L-factors match draft. Covers curve-identification headline.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "LMFDB isogeny class 42.a",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS"
+      ],
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/42/a/"
+    }
+  ],
+  "verdict": "REJECT"
+}
