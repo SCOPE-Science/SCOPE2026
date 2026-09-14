@@ -1,0 +1,115 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-ran output/artifacts/verify_counterexample.py: all exact Fraction assertions pass (Riso=(1/5,2/9), H(1)=[[1/10,1/20],[1/5,19/90]], trace 14/45, det 1/90, disc 106/2025, rho~0.26995>2/9 by 106>36) plus float eigendecomposition cross-check. Hand-verified Q-matrix construction, column-sum preservation, M-matrix/nonnegative-inverse step, F/V reduction R0(m)=rho(H(m)), both inverses, H(1) product, and the rho>max inequality. Hypotheses satisfied: n=2, fixed epi parameters, joint scalar m scaling both Q^E and Q^I with zero column sums. Disproof of the conjunctive universal package via one violated conjunct is logically valid.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused retrieval over literal, equivalent-formulation, and dominance queries returned only general multipatch/NGM methodology (Arino/van den Driessche, Diekmann/Heesterbeek/Roberts, van den Driessche primer, Gao travel-frequency bounds, Meng-Zhu multipatch SEIR). No source states the admitted universal bracketing/monotonicity/limits package, let alone this exact 2-patch E-vs-I churn counterexample with beta=(1,2), sigma=(3,1), mu=(2,2), gamma=(1,1) and rates 3. Full-text inspection of the escalated methodology source excludes coverage; the nearest bounds result (Gao 2019) uses a different object (frequent/unfrequent traveler classes, no E/I opposite churn with joint scalar m) and different parameters, so it neither states nor implies this exact witness. The specific rational-matrix witness is new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: the admitted target explicitly invites exactly this form of resolution (explicit parameter set plus two coupling values with verified spectral radii violating bracketing/monotonicity). The violation margin exceeds 20% (0.26995 vs 0.22222), is proved by exact rational arithmetic rather than floating-point suggestion, satisfies every stated hypothesis, and exposes a mechanism (oppositely directed E/I movement forming an amplifying cycle) that delimits where bracketing could be restored. This is a boundary-changing counterexample, not a type/normalization error, vacuity, cheap small-instance mismatch, direct lookup, or arbitrary parameter fact, and DRAFT honestly scopes it as a universal-statement disproof only.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Diekmann-Heesterbeek-Roberts 2009/2010 NGM construction (PMC2871801) full body via webfetch: T/Sigma recipe, large/small-domain NGMs, SEI examples; no movement-coupled bracketing theorem.",
+    "Gao 2019 Travel Frequency and Infectious Diseases (SIAM J Appl Math 79:1581-1606) OpenAlex metadata plus abstract: frequent/unfrequent traveler multipatch model with its own lower/upper R0 bounds; screened and distinguished by object and parameters.",
+    "Arino-van den Driessche 2003 A multi-city epidemic model (Crossref metadata, 267 citations): general multi-city SEIR framework; no record of the admitted bracketing conjecture or this parameter witness.",
+    "Meng-Zhu 2021 Generalized SEIR in a Multipatch Environment (OpenAlex metadata): n-patch SEIR existence/stability and simulations; no bracketing/monotonicity theorem or E/I-churn counterexample.",
+    "van den Driessche 2017 Reproduction numbers primer plus Wikipedia next-generation matrix page: background F/V and spectral-radius definitions only."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Gao 2019 proves lower/upper bounds for its own frequent/unfrequent-traveler multipatch R0 and notes endemicity can differ from isolated patches; Arino/van den Driessche give a general multi-city framework; neither states a theorem quantifying R0(m) against max isolated-patch R0 under joint scalar E/I coupling with preserved column sums.",
+      "reasoning": "A broader result covers the claim only if its hypotheses include this target model and its conclusion implies the universal bracketing (or its falsity with this witness). Gao's object lacks latent-class opposite churn and joint scalar m; Arino's framework states no such bracketing theorem. Hence the submitted disproof is not a corollary, special case, or recomputation of a known stronger fact.",
+      "search": "Searched dominance queries for stronger multipatch R0 bound theorems, completed censuses, classifications, and Arino/Brauer/van den Driessche program results that could subsume a 2-patch SEIR bracketing claim."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior work implies only the standard F/V identity R0(m)=rho(H(m)) used as a lemma; no retrieved source implies rho(H(1))>2/9 for these parameters or asserts/denies the universal bracketing package. The violation inequality 106>36 after clearing denominators appears nowhere in the retrieved set.",
+      "reasoning": "Mechanical implication would require the exact rational-matrix spectral computation to follow from standard results without new parameter-specific work. It does not: the standard NGM recipe must be instantiated with the novel opposite-direction Q^E/Q^I pair and evaluated at m=1, which is the new contribution.",
+      "search": "Compared the submitted H(1) spectral-radius computation against prior NGM-method implications from Diekmann et al., van den Driessche-Watmough, and multipatch examples."
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search across literal bracketing phrasing and synonymous forms (multipatch/metapopulation/multi-city, isolated-patch/patch-specific R0, next-generation spectral radius bounds, E/I movement vs travel/dispersal/diffusion, Allen/van den Driessche/Arino terminology) returned methods papers and applied multipatch studies but no dual, complement, incidence-graph, matrix, or algebraic restatement of this bracketing conjecture or its disproof.",
+      "reasoning": "No retrieved source formulates the same joint-scalar-coupling bracketing/monotonicity package in alternate notation, so the explicit E/I-churn witness cannot be a rename or re-encoding of a known result.",
+      "search": "Searched literal claim plus equivalents: coupled SEIR R0(m) min/max isolated-patch bracketing, monotonicity in movement rate, next-generation spectral-radius bounds, and Arino/Allen/van den Driessche multipatch synonyms."
+    },
+    "exact_database_or_table": {
+      "evidence": "No established database, table, census, or thesis repository in the fused results lists patch SEIR parameters beta=(1,2), sigma=(3,1), mu=(2,2), gamma=(1,1) with E 2->1 and I 1->2 rate-3 coupling, the matrix H(1)=[[1/10,1/20],[1/5,19/90]], or R0 values 2/9 and 0.26995. OpenAlex/Crossref/OpenAIRE coverage was complete with no partial-provider failure.",
+      "reasoning": "The headline is a proved exact rational-matrix witness, not a table lookup: it cannot be recovered by querying a database of known R0 values because the object-parameter combination and its verification computation are absent from those sources.",
+      "search": "Searched for exact parameters, H(1) entries, R0 values 1/5, 2/9, 0.26995, and any official multipatch-R0 table, census, classification, thesis, or author-page record covering them."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "00c27c32f32fe860e8aeb6f3ff39c3f7f670e4a43dbf9379c8dd81acb93f942a",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded 29-page arXiv PDF via proxy and extracted full text. Theorem 3.2 bounds R0(u,v) by group-specific Ri0=R0(1,v) (single-group system spread over v patches), not isolated-patch values, in a Lagrangian residence-time (M/P mobility matrices) SEIRS framework. Proof uses Frobenius column-sum inequality on Z matrix under M P^T irreducibility. Full-text search finds no joint scalar m, no separate E/I movement generators, no opposite-direction churn, and none of beta=(1,2), sigma=(3,1), H(1) entries, 106/2025, or 0.26995.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same multipatch R0 min/max-bounding terminology and a monotone-mobility theorem, so the closest bound-style prior; but its Ri0 are group-specific quantities in a Lagrangian residence-time model, not the submitted isolated-patch Riso under joint scalar Eulerian E/I coupling, and it contains no such counterexample witness.",
+        "title": "Multi-Patch and Multi-Group Epidemic Models",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/pdf/1703.04554"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded JMB 2023 PDF via proxy and extracted full text. Remark 3.9 plus Sec 5 state R0<=max{R01,R02} may fail with R0 nonmonotonic in dispersal, but the object is a two-patch SIRS model with nonlinear incidence beta_i(1+nu_i I_i)I_i S_i and prevalence-based/constant dispersal b12/b21; evidence is numerical (Table 3 cases, Figs 3-5, e.g. R0~3.03 vs 0.97) with no E or latent class, no separate E/I movement, and no beta=(1,2)/sigma=(3,1)/H(1)/106>36 exact SEIR witness.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Only returned source that itself reports a max-bracketing failure with nonmonotonic R0, hence phenomenologically closest; but its violations are numerical SIRS examples with nonlinear incidence and prevalence-based dispersal, not the submitted exact rational 2-patch SEIR E/I-churn counterexample with joint scalar coupling.",
+        "title": "[PDF] Relative prevalence-based dispersal in an epidemic patch model",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.math.ualberta.ca/~hwang/LuGaoHuangWang-JMB2023.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded arXiv SEIR metapopulation PDF via proxy and extracted full text. Section 3.2.1 gives R0=max R(i)0 only at M=0 (block-diagonal, no movement); Theorem 3.2 proves min<=R0<=max only under full homogeneity (beta_i=beta, gamma_i=gamma, equal removal sums) AND ME=MI=0, via column-sum/Perron-Frobenius argument. The submitted witness has heterogeneous epi parameters and nonzero opposite E/I movement at m=1, outside those hypotheses; body contains no E 2->1 / I 1->2 churn pair or matching numeric witness.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same SEIR object with the same isolated-patch formula family R(i)0=beta_i gamma_i/((gamma_i+mu_i)(sigma_i+mu_i+delta_i)) and an explicit min/max bound theorem, so the closest SEIR-scope prior; but its bound requires homogeneous parameters with zero E/I movement, whereas the submitted disproof operates with heterogeneous parameters and active joint coupling.",
+        "title": "Metapopulation dynamics of a respiratory disease with infection during travel",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2107.02430v1"
+      }
+    ],
+    "rationale": "The paid terminal check added 19 non-overlapping candidates (only rank 19 overlapped the base set) but no decisive prior. The three plausibly-closest leads were fetched in full via proxy and inspected at body level: a Lagrangian multi-group bound (group-specific Ri0, not isolated-patch), a numerical SIRS bracketing-failure report (different object, no exact SEIR witness), and an SEIR bound valid only under homogeneity with zero E/I movement. Remaining ranks are SIS/malaria/tick/SIAR or single-class-movement bracketing theorems that assert restricted bounds rather than anticipate this exact heterogeneous SEIR E/I-churn disproof, share none of the submitted parameters or matrix entries, include no dissertation/thesis, and therefore add useful recall without covering the headline witness. Originality PASS is preserved with no verdict change.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Fetched PMC2871801 full body: sections 1-4 cover T/Sigma decomposition, KL/K/KS recipes, SEI two-latency and two-host-category examples, sexual-transmission and vertical-transmission examples; full-text scope contains no patch-coupling scalar m, no isolated-patch min/max bracketing theorem, and no 2-patch E/I opposite-movement parameters.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The construction of next-generation matrices for compartmental epidemic models",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2871801/"
+    }
+  ],
+  "verdict": "PASS"
+}
