@@ -1,0 +1,137 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-executed inputs/artifacts/verify_cert.py: Q(t)=1-1.30905t+3.71923t^2 has negative discriminant and Qmin~0.8848>0 on [0,1], so R(x)=P(x^2)/Q(x^2) is real type-(4,4) and pole-free. All 11 ordered nodes show |f2-R|>0.025 with strictly alternating signs (+,-,+,-,+,-,+,-,+,-,+), each an exact Fraction identity. The dVLP proof in DRAFT.md is valid: if ||f-s||<rho then s-r has m+n+1 zeros while (uq-pv) has degree<=m+n, forcing s=r, contradiction. With N=11>10=m+n+2, E44>=0.025>0.02 rigorously disproves the TARGET.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Single scope_literature_search with literal, equivalent (t=x^2 |t-1/4| type (2,2)), and dominance (Stahl/Newman/Varga census) queries returned 20 fused results. No result states E44 for |x^2-1/4| or a 0.02/0.025 threshold. Nearest prior (Varga/Chebfun |x| tables, Filip et al barycentric Remez method) differs in object and states no such finite threshold. Full-text inspection of the closest Chebfun |x| page confirms no coverage. Google/Serpent query-2 failed HTTP429 after retries, but OpenAlex/Crossref/OpenAIRE covered that direction plus direct fetch, so no evidentiary gap remains.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: rigorous disproof via certified lower bound 0.025 decides the admitted E44-vs-0.02 threshold. Object (|x^2-1/4|, two interior cusps) and invariant (type-(4,4) minimax vs 0.02) were motivated before computation; value is not known or mechanically implied by Stahl/Newman asymptotics or |x| tables. The 11-point exact alternation certificate is a meaningful finite cutoff with independent retrieval value (near-optimal ~0.0291, margin 0.004). Not a textbook exercise, parameter substitution, tiny gain, or unexplained enumeration; no ADMISSION_DEFECT.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md dVLP theorem proof + certificate definition (R coefficients, 11 nodes, Q positivity argument) \u2014 proof checked line by line.",
+    "inputs/artifacts/verify_cert.py re-executed locally: 11/11 nodes alternate with |e|~0.02908>0.025; Qmin 0.8848 \u2014 exact Fraction evidence.",
+    "scope_literature_search EMERGENT_ORIGINALITY call (3 queries, 20 fused results; providers ok except Google Q2 HTTP429) \u2014 candidate set screened.",
+    "Chebfun RationalAbsx example page (full-text fetch): type-(80,80) |x| demo + Varga tables to (50,50); different object, no |x^2-1/4| threshold.",
+    "Filip-Nakatsukasa-Trefethen-Beckermann 2018 barycentric rational minimax method + Varga-Carpenter-Ruttan |x| tables via snippets: general methods/asymptotics, no finite E44(|x^2-1/4|) value."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Stahl/Newman theory gives root-exponential asymptotics for |x|; Varga tables and Chebfun demo tabulate |x| (e.g. types to (50,50)/(80,80)); no theorem or census tabulates E44(|x^2-1/4|).",
+      "reasoning": "Asymptotic or |x|-specific results do not imply the exact finite threshold E44(|x^2-1/4|)>=0.025; hypotheses (object, shift 1/4, two cusps, type (4,4)) are not a special case of those conclusions.",
+      "search": "Stahl Newman rational approximation |x| minimax error table census broader theorem covering |x^2-c| cusp errors"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "No prior hypothesis-conclusion pair matches object |x^2-1/4|, type (4,4), threshold 0.02/0.025; nearest methods papers prove algorithms, not this numeric lower bound.",
+      "reasoning": "The claim is not a corollary, recomputation certificate, or repackaging of a known stronger fact: no stronger stated fact entails E44>=0.025, and the certificate supplies new exact alternation data.",
+      "search": "rational de la Vallee Poussin lower-bound certificates implying E44(|x^2-1/4|)>=0.025 in prior theorems or software docs"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused results for the t=x^2 reduction (|t-1/4| on [0,1] vs type-(2,2)) contain only general minimax-LP, matrix-valued, and minimaxApprox package records; none states a 0.025 alternation bound for this g.",
+      "reasoning": "Even-symmetry reduction to (2,2) for g(t)=|t-1/4| was searched under synonymous notation; no prior threshold, table entry, or alternation certificate for this g covers the claim.",
+      "search": "rational minimax approximation absolute value cusp |t-1/4| on [0,1] type (2,2) de la Vallee Poussin alternation certificate"
+    },
+    "exact_database_or_table": {
+      "evidence": "No entry for E44(|x^2-1/4|) or g(t)=|t-1/4| type-(2,2) error in minimaxApprox docs, Chebfun |x| page, Varga tables, or fused metadata; only unrelated Pade/cosmology and generic Remez records appeared.",
+      "reasoning": "Direct table/database lookup fails: the precise object-parameter-threshold triple is absent, so the result is not a known-database recomputation or strict-subset readout.",
+      "search": "minimax rational type (4,4) approximation error |x^2-1/4| on [-1,1] lower bound 0.025 database table"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "66d4804d943bcc0b677ada9b16d4bf0f842fccc0faead10c217b33dbc292f93d",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 137-page thesis text extracted via pdftotext (379320 chars, 10303 lines): full-text search finds 0 hits for 0.025, |x^2, t-1/4, E44 or E4,4; '1/4' has 6 hits only in LLL size-reduction inequality and filter spec labels; '(4,4)' has 2 hits only for Ex6.4 |x-0.4|sin(|x-0.2|) convergence note and Maple (4,4) failure note; Ch6 treats only |x| to (10,10) err 2.69e-4, sqrt(x) (40,40) curve, e^x Table6.1 n=1..60, and Ex6.3 x^2 on [a,1] m=n=1 degeneracy; no |x^2-1/4| object or 0.02/0.025 threshold.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same terminology family (rational minimax/Remez) in a dissertation, but object is FIR filter design plus generic |x| asymptotics, sqrt(x) and e^x tables, not E44(|x^2-1/4|)>=0.025 on [-1,1].",
+        "title": "HAL Id: tel-01447081",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://theses.hal.science/tel-01447081/file/FILIP_Silviu_Ioan_2016LYSEN063_These.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full arXiv HTML (abstract through sections 1-10): method for generic f in R_{m,n} via barycentric Remez/AAA-Lawson/DC; numerical examples only |x| on [-1,1] to types (80,80)/(82,82) and x^n; parameter search over full text shows no |x^2-1/4|, |t-1/4|, 0.025 or 0.02 threshold.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same terminology family and highly relevant method title for rational minimax, but proves algorithms not the finite object-specific lower bound E44(|x^2-1/4|)>=0.025.",
+        "title": "Rational minimax approximation via adaptive barycentric ...",
+        "trigger_reasons": [
+          "ORIGINAL_PAPER",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/1705.10132v3"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full page body inspected: type-(80,80) |x| demo with error ~1e-11, Varga-Carpenter-Ruttan 200-digit tables to (50,50) cited; no |x^2-1/4|, no |t-1/4|, no type-(4,4)/(2,2) value 0.02 or 0.025 in text, examples, or references.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Same terminology family (|x| rational minimax tables) but different object: single cusp |x| at high types, which does not imply the two-cusp E44(|x^2-1/4|) threshold.",
+        "title": "Rational approximation of abs(x) with minimax",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.chebfun.org/examples/approx/RationalAbsx.html"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full PDF body extracted via pdftotext (254996 chars): object is BURA r_{k,alpha}(t) for t^alpha with alpha in (0,1) on [delta,1] for fractional elliptic operators; 160 tables of coefficients/poles/partial fractions; full-text parameter search for |x^2-1/4|, |t-1/4|, 0.025, 0.02, (4,4) returns no hits; tables contain no E44 threshold.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Same terminology family (best uniform rational approximation tables) but different object t^alpha on [delta,1] for PDE applications, not the cusp function |x^2-1/4| threshold.",
+        "title": "The Best Uniform Rational Approximation",
+        "trigger_reasons": [
+          "ORIGINAL_PAPER",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://arxiv.org/pdf/1910.13865"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full encyclopedia page inspected: states polynomial de la Vallee-Poussin alternation bound for Chebyshev-system approximants and prime-number theorem; no rational m+n+2 version applied to |x^2-1/4|, no numeric threshold.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same terminology family (de la Vallee-Poussin alternation lower bound) but theorem hypotheses cover polynomial Chebyshev systems, not the rational type-(4,4) certificate for |x^2-1/4|.",
+        "title": "De la Vall\u00e9e-Poussin theorem",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://encyclopediaofmath.org/wiki/De_la_Vall%C3%A9e-Poussin_theorem"
+      }
+    ],
+    "rationale": "Terminal Perplexity check returned 20 results (19 new, 1 overlap with base Chebfun page). All 20 snippets screened; the dissertation and four most plausibly covering candidates were opened in full. Full 137-page Filip thesis text (379320 chars, 10303 lines) was extracted and parameter-searched: 0 hits for 0.025, |x^2, t-1/4 or E44; only generic |x| asymptotics, e^x Table6.1, and unrelated (4,4) notes. Other full bodies (barycentric-Remez HTML, BURA PDF, Chebfun page, dVLP encyclopedia) show different objects or general methods with no |x^2-1/4| threshold. No decisive prior; incremental recall duplicates base coverage and originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full page body treats only f(x)=|x| on [-1,1]: type-(80,80) demo error ~1e-11 and Varga tables to (50,50) cited from Trefethen p.192; no |x^2-1/4|, no |t-1/4|, no type-(4,4)/(2,2) value 0.02 or 0.025 appears.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Rational approximation of abs(x) with minimax (Chebfun example)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://www.chebfun.org/examples/approx/RationalAbsx.html"
+    }
+  ],
+  "verdict": "PASS"
+}
