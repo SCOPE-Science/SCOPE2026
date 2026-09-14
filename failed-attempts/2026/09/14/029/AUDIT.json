@@ -1,0 +1,86 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET proof of complete census fails at the p=5 gap it claims to close. Sections 1-2 verify: parity/y-odd, coprime ideals via ramified prime above 2, p=3 impossibility, even-n factor pairs (104,105),(4,15) non-powers, killer moduli for p=7..29 independently re-verified empty over all residues, and BHV reduction to p<=29 is legitimate modulo Lucas-pair check. Fatal gap: (x+s)=a^5 with 5|h=20 gives [a]=[P]^r, but writing (x+s)=eps*g^5*beta^k with integral g=u+vs and reducing to H_k(u,v)=+-1 assumes g in O. When r>t=v_5(y), g is fractional (v_P(g)=t-r<0); denominators require S-integral/Thue-Mahler H_k=+-5^e analysis, never done. Thus H_2..H_4=+-1 integral emptiness does not rule out fractional classes, and t=0/r!=0 cases are uncovered. The 'k mod 5 absorbs quotient' note does not prove integrality. Separately, the artifact claim qfbsolve(Qfb(1,0,209),5^j)=[] for j<=4 is false: 25=5^2+209*0^2 and 625=25^2+209*0^2 are solutions, confirmed by enumeration. PARI thue evidence therefore covers only the integral subcase; full uniqueness is unproved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused retrieval plus full-body inspection shows D=209 quintic uniqueness is not previously recorded and no broader result implies it. BMS2006 solves only D<=100; Bennett-Siksek solves only P(D)<13 (primes <=11) while 209=11*19 has P=19; CHS2021 treats S={2,11,19} including d=209 but explicitly excludes the subcase 2|k,2!|lm with 5|n, i.e. exactly x^2+209=y^n with 5|n, assuming gcd(p,h(d))=1 which fails for d=209,h=20,p=5. Tables contain no (54,5,5)/D=209 uniqueness entry. Existence example 54^2+209=5^5 does not imply uniqueness. The gap is documented and open prior to this attempt.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The TARGET census itself is independently valuable: a complete coprime solution list for the natural Lebesgue-Nagell equation x^2+209=y^n closing the documented 5-divisible exception left open by CHS2021. It is a motivated exact classification over a natural scope, not a textbook exercise, parameter substitution, arbitrary slice, database recomputation, or tiny gain. A future researcher could reasonably need the precise uniqueness fact (54,5,5). Value is assessed for the claimed census; the present proof gap is a correctness failure, not a value defect.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "BMS2006 full PDF body (Bugeaud-Mignotte-Siksek, Compositio 2006): Theorem 1 scope D=1..100; full-text parameter search for 209 finds only log constant 1.209, no D=209 census.",
+    "Bennett-Siksek arXiv:2109.09128 full PDF body: Theorem 2 scope D>0 with P(D)<13 on S={2,3,5,7,11}; full-text search finds zero 209; D=209 contains prime 19 outside scope.",
+    "CHS2021 RMJ 51(2) full PDF body pp.464-470: equation x^2+2^k11^l19^m=y^p with d-list containing 209; proof assumes gcd(p,h(d))=1 and explicitly excludes 2|k,2!|lm with p=5/5|n; Tables 1-4 list Y in {3,9,55} etc. with no D=209/p=5 uniqueness entry.",
+    "Independent Python re-verification: all killer moduli have empty +-1 residue sets; G3/F-mod-5/disc=3494500 nonsquare checks hold; beta powers and H_k coefficients match; even-n pairs are exactly (4,15),(104,105); norm enumeration refutes qfbsolve emptiness (25 and 625 represented with b=0)."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "BMS2006 Theorem 1 restricted to 1<=D<=100; Bennett-Siksek Theorem 2 restricted to P(D)<13 with S={2,3,5,7,11}; CHS2021 Theorem 2.1/Proposition 3.4 explicitly exclude 2|k,2!|lm with 5|n and assume gcd(p,h(d))=1.",
+      "reasoning": "Each broader census or theorem expressly stops short of the submitted subcase: D=209 exceeds 100, contains prime 19 outside S<=11, and falls in the CHS-excluded 5-divisible class with h(-209)=20. Hence no stronger theorem covers the claim as a special case.",
+      "search": "Searched dominance queries for stronger Lebesgue-Nagell censuses, broader S-unit classes, larger D ranges, and classifications that could subsume D=209 quintic case."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "CHS2021 reduces covered cases to Y in {3,9,55} and tabulated small solutions, none with (x,Y,D)=(54,5,209); its d=209/p=5 branch is deferred by the gcd assumption. The identity 54^2+209=5^5 shows existence only.",
+      "reasoning": "No prior theorem, corollary, table entry, or computation substantively implies non-existence of other triples for D=209. Uniqueness is new content beyond the known example, so the claim is not a recomputation, certificate, or repackaging of a known stronger fact.",
+      "search": "Compared submitted uniqueness claim against prior theorems, tables, and solution lists to test whether any prior result already implies no other triple exists."
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text PDF searches: BMS2006 has no 209 object except 1.209 constant; Bennett-Siksek has zero 209 hits; CHS2021 hits for 209 occur only in the d-list and the excluded-case discussion with p!=5 assumption.",
+      "reasoning": "No synonymous notation, dual/complement/incidence/matrix encoding, or S-unit reformulation was found that proves D=209 with 5|n. The only same-object source explicitly leaves that residue class open, so equivalence does not create coverage.",
+      "search": "Searched literal x^2+209=y^n with (54,5,5), Ramanujan-Nagell/Lebesgue-Nagell D=209 variants, and Thue/BHV/Lucas-sequence equivalent encodings."
+    },
+    "exact_database_or_table": {
+      "evidence": "Bennett-Siksek solution-list URL covers only S<=11 equations; CHS2021 Tables 1-4 enumerate n in {3,4,5,6,10,12} and p>=5 covered cases with no D=209/p=5 row; LMFDB number-field pages list no exponential-Diophantine solution census.",
+      "reasoning": "The exact parameters D=209, y=5, n=5 with uniqueness do not appear as a completed row in any official table or database; CHS absence is consistent with its stated exclusion rather than implicit coverage.",
+      "search": "Searched established databases and paper tables including Siksek solution list, CHS2021 Tables 1-4, and LMFDB field data for an exact D=209 census entry."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body scope is D=1..100 per Theorem 1; full-text search of complete PDF for parameter 209 returns only a logarithm constant, no D=209 equation or table entry.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Classical and modular approaches to exponential Diophantine equations II. The Lebesgue-Nagell equation",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1112/s0010437x05001739"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body Theorem 2 covers D>0 with P(D)<13 on primes <=11; full-text search of complete PDF for 209 is empty; D=209=11*19 lies outside the prime-support hypothesis.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Differences between perfect powers: The Lebesgue-Nagell Equation",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "http://arxiv.org/abs/2109.09128"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body proves Proposition 3.4 only under gcd(p,h(d))=1 and states exception for 2|k,2!|lm with p!=5 / Theorem 2.1 excludes 5|n there; for d=209 h=20 so p=5 is excluded; Section tables list only Y=3,9,55-type solutions, no D=209/p=5 census.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "On the solutions of certain Lebesgue-Ramanujan-Nagell equations",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1216/rmj.2021.51.459"
+    }
+  ],
+  "verdict": "REJECT"
+}
