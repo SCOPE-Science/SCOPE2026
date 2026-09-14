@@ -1,0 +1,47 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Claim route is TARGET and the DRAFT is assessed as a disproof attempt. Re-ran virial_gaussian.py: Gaussian integrals, threshold A^4 > 108, E = -108.20011 and T_vir ~ 0.213561 at A = 4, and analytic-quadrature agreement all check out. The virial identity V'' = 16E - 8||v||_6^6 <= 16E < 0 and the critical scaling v_N(x,t) = N^{1/2}v(Nx,N^2t) with T*_N = T*/N^2 are correct, so the literal O(1) convergence T*_{alpha,N} -> T* is dimensionally excluded for critically rescaled N^{-1} bubbles under the natural reading of Phi_N. Numbers are analytic proof cross-checked by quadrature, not experimental evidence. The universal quantifier over all Phi_N amplitudes and the endpoint-contradiction step are heuristic rather than fully formalized, but they do not overturn literal falsity.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "One scope_literature_search call covered the literal headline, the scaling/virial equivalent formulation, and the broader torus-Strichartz dominance query across serpent, crossref, and openaire (openalex returned 429 errors; audit continued on the available providers). Fused top-20 results show nearest works on conditional supercritical scattering, critical torus LWP, irrational-torus growth bounds, and Gaussian thresholds, each with different hypotheses and conclusions from the admitted O(1) torus blowup-time embedding. No source records this target or its refutation, and title similarity was never used as coverage. No escalation candidate met the could-cover bar, so source_inspections is legitimately empty.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: the negative resolution exposes only the target's missing N^{-2} time normalization, i.e. a type/normalization error of exactly the kind Admission should have ruled out. The DRAFT concedes the defect is the missing rescaling, claims no torus arrest, and leaves the substantive corrected shrinking-window embedding (T*_{alpha,N} ~ T*/N^2) unproved. The established content is textbook Glassey virial plus a routine scaling substitution with no new theorem, lemma, witness, census, or motivated exact invariant a future researcher would need. Per the TARGET route policy, a literally-false verdict via a cheap normalization defect still FAILs value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "DRAFT.md Secs 2-4: Gaussian virial premise (A = 4, E = -108.20011, T_vir ~ 0.213561), critical scaling T*/N^2, and endpoint-uniformity obstruction; math verified except heuristic universal-Phi_N formalization.",
+    "inputs/artifacts/virial_gaussian.py re-executed: analytic versus quadrature agreement to 5dp, threshold 108^{1/4} ~ 3.2237, N = 100 window ~2.1e-5; confirms Euclidean premise numbers only.",
+    "topic.json literal target: O(1) convergence T*_{alpha,N} -> T* with Diophantine-only profile errors up to T* for N^{-1}-concentrated truncations; the statement audited literally.",
+    "scope_literature_search call 5df585d5222e445db39261c9be7c7ace: 20 fused results; serpent/crossref/openaire ok, openalex 429 partial; nearest Killip-Visan 2010, Kwak-Kwon torus LWP, Deng irrational-torus bounds, Duyckaerts-Roudenko thresholds screened by snippet/metadata as different claims."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kwak-Kwon proves critical LWP on tori and Deng/Bourgain-Demeter line gives long-time Strichartz and polynomial growth bounds on generic irrational tori; snippets address well-posedness and growth, not finite-time torus blowup-time convergence or profile approximation up to Euclidean blowup time.",
+      "reasoning": "Broader torus-Strichartz theorems govern LWP and growth on fixed or shrinking windows, not O(1) blowup-time tracking past Euclidean T*; they neither imply nor subsume the headline disproof, and the corrected shrinking-window embedding remains unproved by the DRAFT's own admission.",
+      "search": "long-time Strichartz irrational torus Euclidean profile embedding; Kwak-Kwon critical torus LWP; Deng irrational-torus growth bounds"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Virial identity V'' = 8||grad||^2 - (32/3)||u||_6^6 = 16E - 8||u||_6^6 <= 16E < 0 and scaling v_N = N^{1/2}v(Nx,N^2t) with T*_N = T*/N^2 were verified analytically and by re-running the artifact script; prior sources state these general facts on R^d, not the admitted torus-embedding conclusion.",
+      "reasoning": "General scaling plus Glassey virial make the dimensional objection immediate to an expert, which is why value FAILS as an ADMISSION_DEFECT normalization catch; but no prior source applies them to record this specific target's falsity, so originality still PASSes while value FAILs.",
+      "search": "whether standard Glassey virial plus NLS scaling symmetry substantively implies O(1) torus blowup-time convergence is impossible"
+    },
+    "equivalent_formulations": {
+      "evidence": "Killip-Visan conditional scattering assumes a priori critical bounds and Duyckaerts-Roudenko studies Gaussian scattering/blowup thresholds; snippets show threshold and scattering analysis, never a torus O(1) blowup-time embedding with Diophantine-uniform profile approximation up to T*.",
+      "reasoning": "Synonymous scaling and virial formulations confirm the ingredients are standard textbook facts, but none states or entails the admitted torus-embedding headline as a recorded result, so no equivalent prior formulation covers the submitted claim.",
+      "search": "energy-supercritical focusing quintic NLS critical scaling blowup-time law T*/lambda^2 with Gaussian negative-energy virial blowup on R^4"
+    },
+    "exact_database_or_table": {
+      "evidence": "Artifact script recomputes threshold 108^{1/4} ~ 3.2237, E = -108.20011 and T_vir ~ 0.213561 at A = 4 with analytic-quadrature agreement to 5dp; the literature search returned no table or official database recording torus blowup times T*_{alpha,N} or the admitted O(1) convergence values.",
+      "reasoning": "No exact database or table contains the claimed torus embedding parameters, so the headline is not a direct lookup; the certified numbers support only the textbook Euclidean premise, not any torus embedding fact a future researcher would retrieve.",
+      "search": "exact Gaussian mass energy variance threshold A^4 greater than 108 and N^{-2} blowup-time table values in an official NLS database"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [],
+  "verdict": "REJECT"
+}
