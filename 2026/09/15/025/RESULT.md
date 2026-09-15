@@ -1,0 +1,22 @@
+# Tilting reduction of the first double-divisibility bihook Specht summand
+
+## Context
+The admitted target concerns graded decomposition numbers and Loewy (direct-summand) structure of level-2 bihook Specht modules S((ke),(je)) for the cyclotomic quiver Hecke algebra of type A^{(1)}_{e-1} (e >= 3, kappa = (0,0), Lambda = 2 Lambda_0, characteristic p > 0) when p divides at least two of the 2j-1 integers k+j, ..., k-j+2. Muth-Speyer-Sutton (MSS, arXiv:2101.11175) classify semisimplicity (Theorem 5.2) and settle the single-divisibility regime (Theorems 5.19-5.20), but explicitly leave the double-divisibility regime open, with Example 5.21 (p=3, k=7, j=3) as the first case: two candidate Alperin diagrams are drawn, one eliminated by a Donkin quotient argument, the other left standing.
+
+## Definitions
+Let F be algebraically closed of characteristic 3, n = k+j = 10, S(n,n) the classical Schur algebra, Delta(lambda)/L(lambda)/T(lambda) the Weyl, simple, and indecomposable tilting modules. Write L_x = L(2^x, 1^{n-2x}), Delta(1^a) = L(1^a) for exterior powers. Write M for the Morita equivalence S((ke),(je)) <-> Delta(1^k) tensor Delta(1^j) (MSS Lemma 3.10, Corollary 3.11) and T for the label map of MSS Definition 5.3. Let U denote the non-simple block summand of Delta(1^7) tensor Delta(1^3).
+
+## Result
+For p=3, k=7, j=3: the tensor product Delta(1^7) tensor Delta(1^3), hence the graded Specht module S((7e),(3e)) up to the Morita label map T and uniform shift <3>, has exactly two indecomposable summands: the simple L(2,1^8) in its own 3-block, and a five-factor summand U with Weyl filtration {Delta(1^10), Delta(2^2,1^6), Delta(2^3,1^4)} and composition content L(1^10)^{x2}, L(2^2,1^6)^{x2}, L(2^3,1^4). The summand U is the indecomposable tilting module T(2^3,1^4) for S(10,10) in characteristic 3. Additionally, explicit Rule-15 witnesses (including p=3,n=15,m=6 with a four-factor Weyl module Delta(2^6,1^3) and p=3,n=12,m=3 with a three-factor Weyl module) show the pair-stacking N_r method of MSS Theorem 5.19, which presupposes at most two factors per Weyl module, cannot extend to the double-divisibility regime by the same method.
+
+## Proof / evidence
+Rule-15 (MSS Theorem 2.15) recomputation gives Delta(1^10), Delta(2,1^8) simple, Delta(2^2,1^6) = L(1^10)+L(2^2,1^6), Delta(2^3,1^4) = L(2^2,1^6)+L(2^3,1^4) (verify_target.py). Henke's formula (MSS Theorem 3.12) gives summands exactly for m=1,3, hence two summands. Abacus 3-core computation splits {L(1^10),L(2^2,1^6),L(2^3,1^4)} with core (1) from L(2,1^8) with core (2,1,1). Donkin [Don98, Lemma A3.1] forces Delta(1^10)=L(1^10) as a quotient of the tilting-filtered tensor product, eliminating the MSS diagram whose head is L(2^2,1^6) only (verify2.py). Tilting closure (MSS Lemma 3.13 proof; Props 3.8, 3.14): the tensor product of exterior-power tilting modules decomposes as a sum of T(nu); with two summands, one simple in its own block, the other summand U is Delta-filtered with highest Weyl factor Delta(2^3,1^4) and self-dual, hence tilting, hence T(2^3,1^4) by highest-weight uniqueness. Transport by M and T carries the uniform shift <3> (MSS Theorem 3.5, Lemma 3.10). Exhaustive Rule-15 scan over p in {3,5,7}, n <= 30 finds 50 triples with Weyl modules of at least three factors at in-scope double-divisibility positions (verify6.py), falsifying the at-most-two-factors presupposition of the N_r stacking argument.
+
+## Limitations
+The Loewy layers of T(2^3,1^4) in characteristic 3, hence the q-shifts within U beyond the uniform <3> and the dependent F_{a,b}-transported bihook structures, are not decided here; they require Ext^1_{S(10,10)} data or injectivity of alpha_{7,3} on the n=30 KLR basis. The two-diagram exhaustiveness of MSS Example 5.21 is not proved in MSS and is not repaired here; symmetric uniserial gluings with the same Weyl filtration satisfy the stated constraints. Computed obstruction claims are limited to the scanned range but the exhibited witnesses suffice.
+
+## Reproducibility
+Preserved scripts output/artifacts/verify_target.py (matrix, Henke count, cores), verify2.py (diagram reconstruction, Donkin analysis), verify4.py (auxiliary S((8e),(2e)) structure), verify6.py (50-triple scan) re-execute with standard Python 3 and reproduce all stated numbers.
+
+## References
+MSS = R. Muth, L. Speyer, L. Sutton, Decomposable Specht modules indexed by bihooks II, arXiv:2101.11175. Cited: Mathas Rule 15 (Thm 2.15), Pieri filtration (Lemma 2.14), KM17 Thms 9-10 / MSS Thms 3.5-3.6, Henke formula (Thm 3.12), Donkin Lemma A3.1.

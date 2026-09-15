@@ -1,0 +1,156 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran verify_target.py (Rule-15 matrix, Henke count m=1,3, 3-cores (1) vs (2,1,1)), verify6.py (50 triples incl. p=3,n=15,m=6 four-factor and p=3,n=12,m=3 three-factor), verify4.py (auxiliary count 2): all match DRAFT. Tilting step is sound: MSS Lemma 3.13 proof gives tensor of exterior-power tiltings is a sum of tiltings, Henke gives 2 summands, block split isolates L(2,1^8), highest Weyl factor (2^3,1^4) fixes indecomposable T(2^3,1^4); self-duality via MSS Props 3.8/3.14. Donkin elimination reproduces MSS Example 5.21 text. Obstruction reading is method-local (same N_r stacking needs <=2 factors) and honestly marks Loewy layers open. Proof vs computation correctly distinguished.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING genuinely target-generated (admitted target explicitly names p=3,k=7,j=3 Example 5.21). Fused search over literal, equivalent-tilting, and broader-census forms returned only MSS II, its predecessor, and generic background. Full-text inspection of MSS II Example 5.21 shows two diagrams with one eliminated by Donkin and no T(2^3,1^4) identification (zero hits for T(2 string; tilting only in general Props 3.8/3.13/3.14); predecessor has zero tilting hits. Specific highest-weight synthesis, Donkin-gap note, and 50-triple witnesses are absent from prior work and not mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Exact invariant of a pre-motivated natural object: MSS explicitly leaves Example 5.21 open and calls further progress unclear. Fixing the five-factor summand U as T(2^3,1^4) gives a precise finite goal (Loewy layers of one tilting module, GAP/MAGMA-checkable), corrects the two-diagram reading as incomplete without Ext data, and supplies reusable three/four-factor witnesses closing the natural uniform N_r route. Honestly scoped (Loewy shifts excluded), not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration; judged as headline separately from unfinished census per STANDARD.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "MSS II arXiv:2101.11175 / doi:10.1007/s10468-021-10093-3: sole prior source with same object S((7e),(3e)) and parameters p=3,k=7,j=3; Example 5.21 leaves structure open.",
+    "MSS predecessor arXiv:1808.00949: bihook decomposability families in type B; no graded tilting reduction or Example 5.21 analysis.",
+    "Cited background theorems via MSS: Mathas Rule 15 Thm 2.15, Henke Thm 3.12, Donkin Lemma A3.1, Morita Lemma 3.10/Thm 3.5, Props 3.8/3.14; recomputed in-session.",
+    "In-session scripts verify_target.py, verify2.py, verify4.py, verify6.py: re-executed; outputs match DRAFT matrices, counts, cores, witnesses.",
+    "Fused literature search 3c0a4227 (Serpent/OpenAlex/Crossref/OpenAIRE, no partial failure): ranks 4+ generic only (one-dim summands, Schur functors, tilting textbooks, A10 Loewy paper); screened by snippet, no same-object candidate."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "MSS Thms 5.19/5.20 headings require exactly one of k+j..k-j+2 divisible by p; Example 5.21 paragraph states relevant Weyl modules have at most two factors yet difficult structures appear and it is unclear how far to push; general tilting-closure (Lemma 3.13 proof, Prop 3.8) states sums of tiltings are tilting without naming T(2^3,1^4).",
+      "reasoning": "No broader theorem covers the double-divisibility regime: the only uniform Loewy theorems explicitly exclude it, and the general tilting-closure theorem does not identify the specific highest weight, so the claim is not a special case of a known stronger fact.",
+      "search": "Searched broader bihook Loewy classification, Henke Young-module census, Donkin tilting tensor-product theorems, and MSS Theorems 5.19/5.20 scope conditions."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "MSS Example 5.21 ends with one surviving diagram under an unproved two-option dichotomy and states future progress is unclear; no tilting label, no Donkin-gap remark, no Rule-15 obstruction scan appear in the 152936-char extraction.",
+      "reasoning": "The lane adds non-mechanical synthesis (Henke count plus block split plus highest-weight pinning) with a new gap observation and new computed witnesses; MSS tools do not substantively imply the specific T(2^3,1^4) reduction, so it is not a recomputation, certificate, or repackaging.",
+      "search": "Compared submitted tilting-plus-witnesses headline against MSS II conclusions to test corollary, certificate, or recomputation coverage."
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text finds: Example 5.21 section gives only Alperin diagrams with Weyl content L(1^10)x2, L(2^2,1^6)x2, L(2^3,1^4); find for T(2 zero hits; tilting hits only general Props 3.8/3.13/3.14; predecessor find for tilting zero hits; fused search on Schur-algebra tilting phrasing returned only generic background.",
+      "reasoning": "No synonymous encoding (two-column/conjugate/transpose notation, Delta(1^7) tensor Delta(1^3), S((7e),(3e)), signed Young modules) states the U-is-T(2^3,1^4) identification; prior work uses the same objects without drawing this conclusion.",
+      "search": "Searched equivalent phrasings: S((7e),(3e)) vs Delta(1^7) tensor Delta(1^3), T(2^3,1^4) vs two-column and conjugate notation, signed Young modules, and Schur-algebra tilting terminology."
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused search returned no decomposition-matrix database, GAP/Lubeck tilting table, or KLR official record stating U-is-T(2^3,1^4) or the 50-triple obstruction set; MSS remark after Lemma 5.10 gives graded numbers only, and lane scripts recompute matrices/cores from first principles.",
+      "reasoning": "The exact parameter-to-object fact does not already appear in a table or database; graded numbers alone do not encode the tilting identification or the extension-method obstruction, so no exact-record coverage exists.",
+      "search": "Searched exact-parameter tables and databases: graded decomposition matrices, Schur-algebra tilting data, KLR/Specht records, and the Rule-15/Henke computed values."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Section inspection: Example 5.21 lists two Alperin diagrams for the five-factor summand, eliminates the first via Donkin quotient, leaves the second; states unclear how far Theorems 5.19/5.20 push. Full-text parameter search: T(2 zero hits; tilting only in general Props 3.8/3.13/3.14 with no T(2^3,1^4) label; no Donkin-gap or witness scan.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Decomposable Specht modules indexed by bihooks II",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2101.11175"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text parameter searches return zero hits for tilting and for the Example 5.21 parameters; paper proves type-B decomposability families and conjectures completeness, with no graded KLR Morita reduction, no T(2^3,1^4) statement, and no double-divisibility obstruction witnesses.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Decomposable Specht modules indexed by bihooks",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1808.00949"
+    }
+  ],
+  "verdict": "PASS",
+  "perplexity_final_check": {
+    "status": "COMPLETE",
+    "check_id": "8fec8b9a41d39fcd34bb1121972ca8dc547137fa0867ad703eb196b68ee22408",
+    "decisive_prior_found": false,
+    "incremental_prior_found": false,
+    "verdict_changed": false,
+    "material_sources": [
+      {
+        "title": "[PDF] Decomposable Specht modules for level 2 ... - Louise Sutton",
+        "url": "https://louisesuttonblog.wordpress.com/wp-content/uploads/2020/12/manchester-algebra-seminar-june-23-2020.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Author slides for the same MSS bihook program sharing the objects S((ke),(je)), Delta(1^k) tensor Delta(1^j), Pieri/Henke ingredients and self-duality language, but presenting only generic theorems with no p=3,k=7,j=3 instantiation and no T(2^3,1^4) tilting identification.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Downloaded PDF via proxy; pdftotext full body inspected (54918 chars). Antecedent chain traced: (1) Morita proposition M S((ke),(je))=Delta(1^j)\u2297Delta(1^k); (2) Pieri corollary filtering the tensor by Delta(1^{k+j})..Delta(2^j,1^{k-j}); (3) irreducibility corollary iff p divides none of n..n-2j+2; (4) semisimplicity theorem for S((ke),(je)); (5) sketch-of-proof implication assuming all filtering Weyls irreducible, concluding a direct sum of simples via self-duality; (6) closing non-semisimple slide giving only the generic Henke-count plus stack-Weyls-whilst-preserving-self-duality instruction. Instantiated at (p,k,j)=(3,7,3): (2) gives four Weyl factors, (3)-(4) give the non-semisimple case (3 divides 9 and 6), so the antecedent of (5) fails and its consequent does not fire; (6) states the method without any highest-weight pinning, worked p=3/k=7/j=3 example, Example 5.21/5.23 diagrams, Donkin-gap note, or obstruction-witness scan. The preserving-self-duality phrase is the generic stacking direction, not an implication yielding U=T(2^3,1^4). Full-text parameter check confirms zero tilting/T(2^3,1^4)/Example-5.21/k=7 hits; hence no antecedent implies the submitted headline."
+      },
+      {
+        "title": "Decomposable Specht Modules Indexed by",
+        "url": "https://oist.repo.nii.ac.jp/record/2385/files/Muth-Decomposable%20Specht%20Modules%20Indexed%20by%20Bi.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "OIST thesis-chapter PDF of the same MSS II paper: Example 5.23 is the same p=3,k=7,j=3 five-factor summand with two diagrams and Donkin elimination, ending unclear how far Theorems 5.21/5.22 push; body has no T(2^3,1^4) label and no Donkin-gap or witness scan.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "inspection_evidence": "Downloaded PDF via proxy; inspected Example 5.23 section in full: same two configurations and Donkin-quotient elimination as MSS II Example 5.21, no tilting identification of U, and explicit statement that further progress is unclear."
+      },
+      {
+        "title": "[PDF] City Research Online",
+        "url": "https://openaccess.city.ac.uk/id/eprint/14050/1/newyarf5.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "Chuang-Tan paper on enforced-scope defect-2 blocks of symmetric groups and the corresponding Schur-algebra blocks SB: general tilting-module theory (Weyl filtration, T(lambda) highest-weight characterization, Loewy-length-3 description for p-singular labels) that never treats bihook Specht modules, KLR algebras, Henke summand counts, or the p=3,k=7,j=3 parameters.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Downloaded PDF via proxy; pdftotext body inspected in full (635 lines). Antecedent chain traced: (1) Section 2 fixes B a defect-2 block of kSr (w=2, p>2) and SB the corresponding S(n,r)-block, with blocks labelled by p-cores; (2) Theorem 2.2 gives [Delta(lambda):L(mu)] for lambda,mu in PB via Richards delta-values; (3) Section 5 characterizes T(lambda) by Delta(lambda) subset T(lambda) with other Weyl factors Delta(mu), mu<lambda, multiplicities [Delta(mu-prime):L(lambda-prime)], and derives Loewy length 3 for p-singular labels using that Weyl modules there have Loewy length 2 and PIMs length at most 5. Instantiated at the claim: the tilting module T(2^3,1^4) has Weyl factors Delta(1^10), Delta(2^2,1^6), Delta(2^3,1^4), all of 3-core (1), so r-|core|=9=3w gives block weight w=3, outside the paper fixed scope w=2; hence hypotheses of (2)-(3) fail and no consequent fires on the claim object. All eight by-Theorem-2.2 references occur inside defect-2 Loewy proofs (Sections 3-5); the phrases with-these-properties/further-examples have zero hits and the single by-the-above-lemma hit concerns Young-module notation bounds, not tilting identification. Body parameter check: no bihook/Muth/Speyer/Sutton/S((ke))/(7e)/Example-5.21/T(2^3,1^4) occurrences, so no example, table, or proposition instantiates U=T(2^3,1^4) or the obstruction witnesses."
+      },
+      {
+        "title": "[PDF] Representations of Symmetric Groups William David O Donovan ...",
+        "url": "https://pure.royalholloway.ac.uk/ws/files/31436674/2018odonovanwdphdrevised.pdf",
+        "base_search_overlap": false,
+        "relationship_to_claim": "127-page 2018 Royal Holloway PhD thesis on symmetric-group representation theory; mandatory dissertation escalation. Full body has zero occurrences of bihook, Muth/Speyer/Sutton, KLR bihook families, S((ke)), Example 5.21/5.23, or T(2^3,1^4); Henke mentions are type-A only and tilting count is zero.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "THEOREM_SCOPE",
+        "inspection_evidence": "Downloaded 127-page PDF via proxy; pdftotext 6209 lines/244566 chars. Full-text counts: bihook 0, muth/speyer/sutton 0, S((ke) 0, (7e) 0, Example 5.21/5.23 0, T(2^3,1^4)/2^3 0, tilting 0, Delta(1^7)/1^7/1^10 0, k=7/j=3/n=10 0. Antecedent chain traced: (i) sole 'with these properties' hit at line 1601 applies Lemma 1.33 to an elementary abelian p-subgroup R of maximal rank in Q, yielding a centralizer inclusion for Brauer-quotient vertices, not a tilting/Weyl statement, so instantiated at the claim it gives no Delta/T/S((7e),(3e)) consequent; (ii) 'by the above proposition' 0 hits, and nearest by-theorem antecedents are Thm 2.1 Young-module summand/vertex properties, Thms 2.20-2.23 signed-Young/Brauer-correspondent classification, and the Henke two-part direction at lines 2148-2152, none defining Schur-algebra tilting T(2^3,1^4) or bihook S((ke),(je)); (iii) 'further example(s)' 0 hits and p=3 hits are sign regularisation, 3-restricted abacus, and NS9 example only. Henke/Donkin/Schur hits are type-A p-Kostka background with explicit non-use of Schur algebra. Hence no proposition with these properties implies U=T(2^3,1^4)."
+      },
+      {
+        "title": "Structure theory",
+        "url": "https://elib.uni-stuttgart.de/server/api/core/bitstreams/0bd439ee-51fb-4bbb-b048-210d8d0af751/content",
+        "base_search_overlap": false,
+        "relationship_to_claim": "2015 Stuttgart dissertation on cellularly stratified diagram algebras (Brauer/partition algebras); mandatory dissertation escalation. Body concerns Specht filtrations and Young modules in that setting with no bihook KLR program, no Muth/Speyer/Sutton objects, and no p=3,k=7,j=3 tilting identification.",
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "inspection_evidence": "Downloaded PDF via proxy and ran pdftotext (5890 lines); grep finds no bihook/Muth/Sutton/KLR/S(( or T(2^3,1^4) hits; Specht/Young hits are cellular-stratification theory, not the submitted bihook claim."
+      }
+    ],
+    "decisive_sources": [],
+    "rationale": "Terminal Perplexity check added 19 non-overlapping candidates plus 1 overlap (S(p,2p) Schur paper, already in base set). Fetched and body-inspected every mandatory escalation: Sutton MSS slides, OIST MSS thesis-chapter PDF (Example 5.23 = Example 5.21), Chuang-Tan defect-2 paper, OD Donovan symmetric-group thesis, and Paul Stuttgart dissertation. None states the U-is-T(2^3,1^4) identification, the Donkin-gap note, or the obstruction witnesses; remaining ranks are generic tilting/Young/SL3 theory by snippet and share no claim parameters. Provisional originality PASS therefore stands; no decisive or incremental prior found."
+  }
+}
