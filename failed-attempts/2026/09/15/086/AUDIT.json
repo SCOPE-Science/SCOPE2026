@@ -1,0 +1,65 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Numeric core verifies: W0 order 12 and Qpoly division check out in engine.py; independent rerun of modp.py gave Burnside image 144 at generic, (1,1) and (1,-1), and 81 at (i,1)-type before timeout, matching decomp_data.json; exact-spin [12] at resonant points is consistent with Kato P(t)-empty under the correct q^{+-2}=+-i criterion, and (-1,1) lies in the W0-orbit of (1,-1) so its simplicity adds no independent inference. Limitations are honestly separated (block vectors beyond simplicity are evidence-only). The 'obstruction' framing attacks a naive +-1 resonance criterion rather than the actual Kato/\u03c4-operator theorems, but the headline simplicity facts themselves are computationally sound.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Davis arXiv:1104.4826 (J. Algebra 2012), inspected in full text, already classifies crystallographic rank-two affine Hecke algebras at all q including G2. Under the standard parameter translation q_sub=q_D^2, the submission's q_s^2=-1 is Davis's q^8=1 column, whose G2 table rows read t1,1=12 and t1,-1=12 (simple), t1,q2-type distinct irreps 1,1,2,3,3 (M(t) composition 1,1,2,2,3,3 with the 2-dimensional factor doubled), and t1,+-q 6,6 \u2014 exactly the submitted numbers. Kato's criterion (Davis Thm 3c) implies the (1,1) simplicity and the orbit theorem (Thm 3a) makes (-1,1) redundant. The exact-integral engine, mod-17 Burnside certificates, and KL tables are new verification technology, but per the shared STANDARD certification and recomputation do not create originality. Prior work substantively implies the headline.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "No new theorem, boundary, or counterexample results: every headline number is already in Davis's classification, and the claimed 'obstruction' refutes only a misdefined +-1 resonance test while the true reducibility locus P(t) (values +-i) is empty at exactly these points, so the uniform-formula program is not actually blocked. An exact invariant of a natural object can pass value when unknown, but here the values are known. The engine and certified KL dataset are reusable infrastructure, yet the STANDARD states certification strengthens but does not create value. This is a known-classification recomputation with certificates: independently correct, but not worth retrieving as a new record.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Davis arXiv:1104.4826 / J.Algebra 2012 full text (G2 Section 6, Theorems 3/4/5, Propositions 24-33, summary table pp50-51 with orbit-merging notes): decisive prior classification at all q.",
+    "Kato 1982 irreducibility/calibration criterion as reproduced in Davis Theorem 3 (M(t) irreducible iff P(t) empty; orbit constancy 3a; 2-dim module structure Prop 4): implies (1,1) simplicity and (-1,1) redundancy.",
+    "Ram 2003 rank-two non-root-of-unity analysis and Xi 2009 Type-G2 representations plus Elias-Williamson Soergel/KL surveys: screened as background; root-of-unity coverage comes from Davis, not these.",
+    "Independent artifact verification: reran inputs/artifacts/modp.py subset (144 at generic/(1,1)/(1,-1), 81 at (i,1)-type); inspected decomp_data.json, kl_data.json, engine.py, exactM2.py, exact2.py, klproof2.py, burnside.py."
+  ],
+  "claim_route_inference": "Report declares claim_route EMERGENT_FINDING arising from target engine work on Davis resonant characters; absence from topic.json is therefore not adverse. Audited under the emergent policy with full correctness, originality, and value standard and no presumption.",
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Davis introduction states full description of rank-two (C2, G2) representations for all q; Sections 2-6 build calibration graphs, tau operators, and case-by-case composition series culminating in the G2 summary table; Kato/Ram/Xi geometric results frame the same program.",
+      "reasoning": "A complete classification over all q and all central characters strictly dominates a three-point simplicity claim at one parameter; the headline is a special case of the broader theorem and needs no verbatim restatement to be covered.",
+      "search": "Searched for stronger classifications covering G2 affine Hecke modules: Davis all-q rank-two classification, Kato irreducibility criterion, Ram non-root-of-unity analysis, Xi G2 representations, Soergel KL character formulas."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Root-value computation: at q_s=i the Kato set is q^{+-2}=+-i while t=(1,+-1) root values are +-1, so P(t) is empty and Kato predicts simplicity; W0 action sends (1,-1) to (-1,1); Davis q8=1 rows confirm 12 at both.",
+      "reasoning": "Prior theorems mechanically imply each headline simplicity fact, and the intertwiner-vanishing narrative targets a naive +-1 pole test rather than the actual tau-operator criterion, so no new structural obstruction is established.",
+      "search": "Compared headline implication against prior theorems: computed Kato P(t)/Z(t) sets at (1,1)/(1,-1), checked W0-orbit membership of (-1,1), and tested whether any correct-formula P(1)>1 prediction is actually refuted."
+    },
+    "equivalent_formulations": {
+      "evidence": "Davis relations T^2=(q-q^-1)T+1 versus submission (T-q_s)(T+1)=0 give q_s=q_D^2; submission q_s^2=-1 is Davis q_D^8=1, with t-coords (X^{alpha1},X^{alpha2}), M(t) principal series, and P(t)/Z(t) calibration language identical on both sides.",
+      "reasoning": "After translating the square-root parameter convention, the objects, parameters, and terminology coincide exactly, so Davis's q^8=1 rows are the same mathematical claim in synonymous notation, not merely similar text.",
+      "search": "Searched equivalent encodings: Davis-q versus submission-q parameter translation, weight/root-lattice coordinates, principal series M(t), calibration graphs, P(t)/Z(t) sets, tau/intertwiner poles, and KL/Soergel multiplicity language."
+    },
+    "exact_database_or_table": {
+      "evidence": "Davis G2 table q8=1 column: t1,1=12, t1,-1=12; t1,q2-type distinct irreps 1,1,2,3,3 whose M(t) composition is 1,1,2,2,3,3; t1,+-q 6,6; plus p50 orbit-merging notes explaining N/A entries at q^2=-1 in Davis notation.",
+      "reasoning": "The exact parameter rows list precisely the submitted simplicity facts and block dimensions (reading the 1,1,2,3,3 row as distinct irreps with the 2-dimensional factor occurring twice in M(t)), so the headline numbers already appear in the official classification table.",
+      "search": "Searched Davis G2 dimension-of-irreducibles table across q-generic, q12/q10/q8/q6/q4/q=-1 columns and the orbit-identification notes for t1,-1=t1,q2 merger at fourth roots."
+    }
+  },
+  "residual_risks": [
+    "Full nine-representative exact-spin sweep was not independently rerun (mod-17 subset plus JSON/table inspection only); non-headline block vectors remain author-reported evidence as the DRAFT itself states."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "G2 Section 6 with full-text finds for G2, Dims. of Irreds., and q^2=-1; pp50-51 table under q_sub=q_D^2 mapping gives q8=1 rows t1,1=12, t1,-1=12, t1,q2-type 1,1,2,3,3 (M-composition 1,1,2,2,3,3), t1,+-q 6,6; Thm 3a orbit sameness and Thm 3c Kato criterion supply the implication.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Representations of Rank Two Affine Hecke Algebras at Roots of Unity",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/pdf/1104.4826.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
