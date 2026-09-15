@@ -1,0 +1,132 @@
+{
+ "axes": {
+  "correctness": {
+   "rationale": "Reproduced the Section 10 residual algebra from Dodson (10.41)-(10.44) and re-ran artifacts/check_barrier.py: literal exponents 2.10095 at d=15 versus 1.83906 at d=16 match the 2^{-2kn} threshold crossing. Generalized delta analysis is valid up to a dropped O(1/d) correction (exact bound is (77-5d)/39-7/(78d)); since both forms are negative exactly for d>=16, the infeasibility and sole-obstruction conclusions are robust. Framework boundaries (truncation deficit, sigma<1+4/d, Young absorption) are explicitly stated and no rigidity/counterexample is claimed.",
+   "verdict": "PASS"
+  },
+  "originality": {
+   "rationale": "Fused literature search over literal, equivalent-fractional-calculus, and dominance/classification directions returned only Dodson d<=15 rigidity plus background threshold-mass work; no quantitative deficit bound appeared. Full-text inspection of Dodson arXiv:2106.02723v2 (61pp) confirms Section 10 ends at delta=0 with 'Dimensions d>=16 remain unresolved' and contains no deficit parameter, no (77-5d)/39 inequality, and no isolation of the 1+8/d remainder as sole obstruction. OpenAlex was rate-limited but Serpent/Crossref/OpenAIRE plus direct primary-source read carry the check.",
+   "verdict": "PASS"
+  },
+  "value": {
+   "rationale": "EMERGENT_FINDING genuinely arose from target repair attempts (direct extension then deficit optimization) and shares the target objects. It upgrades Dodson Remark 8 from qualitative 'purely technical' to a quantified sharp method-no-go: exact dimensional threshold, computed residual table, and proof that only the second-order 1+8/d remainder fails while the 1+4/d term stays feasible. This is a checkable structural lemma directing future d>=16 work toward new fractional-calculus or Morawetz tools, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+   "verdict": "PASS"
+  }
+ },
+ "checked_sources": [
+  "Dodson 2023 Determination of Blowup Solutions (doi:10.1007/s40818-022-00142-5 / arXiv:2106.02723v2): full-text Sections 1,10-11 inspected; Theorem 25 limited to 2<=d<=15, Remark 8 and closing line leave d>=16 unresolved with no deficit bound.",
+  "Fused scope_literature_search call 96ae32c1 (3 queries; Serpent+Crossref+OpenAIRE ok, OpenAlex 429): 20 results screened; only Dodson d<=15, Dodson quintic/d=1, KLVZ radial, and background mass-critical items; no (77-5d)/39 or truncation-deficit result.",
+  "Killip-Li-Visan-Zhang radial threshold-mass rigidity and Dodson d=1/quintic records (snippets): radial or fixed-dimension scope, no Section 10 energy-bootstrap deficit analysis; cannot imply the submitted inequality.",
+  "Reproduced computation inputs/artifacts/check_barrier.py -> barrier_check.json: literal residual table d=8..30 verified by independent re-evaluation. provisionally noted O(1/d) simplification does not move the d=16 threshold."
+ ],
+ "decisive_checks": {
+  "broader_coverage": {
+   "evidence": "Fused dominance query returned no d>=16 nonradial rigidity theorem, census, or classification; nearest broader items are KLVZ radial-only and Merle finite-time-only results, both strictly narrower in hypotheses per snippets and Dodson citations.",
+   "reasoning": "No broader theorem or completed census covers the d>=16 nonradial infinite-time case, so the barrier lemma is not a special case or corollary of a stronger known fact; the target itself remains open.",
+   "search": "Dodson determination blowup solutions focusing NLS mass equal soliton classification dimensions d>=16 stronger theorem census database mass-critical threshold rigidity"
+  },
+  "claim_vs_prior_implication": {
+   "evidence": "Dodson proves sufficiency of delta=0 for d<=15 via (10.43)-(10.44) but states only qualitative non-coverage for d>=16 ('remain unresolved'); it never states or implies the generalized necessity bound delta<=(77-5d)/39 or sole-obstruction isolation.",
+   "reasoning": "Prior work implies neither the exact inequality nor the computed threshold table; the submitted lemma adds a new quantified necessity direction over the natural deficit family within the stated framework, so it is not a recomputation or repackaging.",
+   "search": "Whether Dodson (10.41)-(10.44) or any cited prior result already implies the delta<=(77-5d)/39 deficit bound and sole-obstruction claim"
+  },
+  "equivalent_formulations": {
+   "evidence": "Equivalent-query hits (pseudoconformal, fractional chain rule sigma<1+4/d, truncated Morawetz/virial epsilon bootstrap) returned only Dodson, KLVZ radial, Li-Zhang, and background items; none contains a deficit parameter delta, a 1+8/d Young-feasibility inequality, or residual exponents 2.10 vs 1.83.",
+   "reasoning": "Under synonymous notation (threshold/minimal mass, epsilon remainder, Holder 1+8/d, truncation P<=kn(1-1/10d-delta)) no prior source states the same bound; Dodson full text uses only delta=0 and leaves d>=16 unresolved.",
+   "search": "mass-critical focusing NLS threshold mass soliton pseudoconformal fractional chain rule sigma<1+4/d truncated Morawetz virial epsilon bootstrap d>=16"
+  },
+  "exact_database_or_table": {
+   "evidence": "No table or database entry in fused results or in Dodson body contains the deficit bound, the (77-5d)/39 formula, or the residual-exponent table (2.10095/1.83906/1.63529/1.2275); Dodson Tables-equivalent (10.43)-(10.44) stop at the delta=0 check for d<=15.",
+   "reasoning": "The precise numbers and feasibility table are not a lookup in any official database or published table; they originate from the in-session derivation plus reproducible sweep code.",
+   "search": "Official NLS databases, Dodson tables (10.41)-(10.44), and any published residual-exponent or deficit-bound table for d>=16 threshold-mass bootstrap"
+  }
+ },
+ "perplexity_final_check": {
+  "check_id": "1c0c8ca1e421b846971c1a00e8d060844facf1004f6bc63e9cdb178cad46add1",
+  "decisive_prior_found": false,
+  "decisive_sources": [],
+  "incremental_prior_found": false,
+  "material_sources": [
+    {
+     "assessment": "CLOSE_BUT_NOT_COVERING",
+     "base_search_overlap": true,
+     "inspection_evidence": "THEOREM_SCOPE body check of Dodson 2106.02723v2 Sections 1,10-11: Theorem 3 and Theorem 25 state rigidity only for 2<=d<=15 at fixed truncation P<=kn(1-1/10d); traced antecedent chain Theorem 6 (threshold-mass blow-up + eta*-closeness) via Theorems 16/23/24 to (10.35) epsilon(0)=0, then finite-time reduction (10.45)-(10.55) back to Theorem 25, ending 'Dimensions d>=16 remain unresolved'. Instantiated implication is only: (Theorem 6 conditions + sup(I)=inf + d<=15 + delta=0) => u is soliton; no delta>0 family, no necessity delta<=(77-5d)/39, no sole-obstruction isolation is stated or implied, and parameter searches for '77-5'/'deficit' return zero hits.",
+     "inspection_method": "THEOREM_SCOPE",
+     "relationship_to_claim": "Identical Dodson threshold-mass paper as the base primary source; states Theorem 25 only for 2<=d<=15 at delta=0 and leaves d>=16 unresolved, directly adjacent to but containing none of the submitted deficit parameter, (77-5d)/39 bound, or sole-obstruction isolation.",
+     "title": "arXiv:2106.02723v2  [math.AP]  24 Jan 2022",
+     "trigger_reasons": [
+      "SAME_OBJECT",
+      "SAME_PARAMETERS",
+      "SAME_TERM_FAMILY",
+      "ORIGINAL_PAPER",
+      "HIGHLY_RELEVANT_TITLE"
+     ],
+     "url": "https://par.nsf.gov/servlets/purl/10421117"
+    },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "inspection_evidence": "Inspected readable ar5iv HTML body Sections 1-3: Theorems 4-6 limited to 1D quintic with smooth nonlinearity; modulation/Strichartz argument has no high-dimensional non-smooth remainder, no truncation P<=kn(1-1/10d-delta), and no (77-5d)/39 or residual-exponent table. Rank 8 MSP PDF is the duplicate journal version of this same paper.",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "Same-author threshold-mass rigidity program but for the one-dimensional quintic case with smooth nonlinearity; shares soliton and pseudoconformal terminology yet differs in dimension and lacks the Section 10 high-dimensional 1+8/d remainder analysis behind the submitted bound.",
+    "title": "A determination of the blowup solutions to the focusing, quintic NLS with mass equal to the mass of the soliton",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER",
+     "HIGHLY_RELEVANT_TITLE"
+    ],
+    "url": "https://ar5iv.labs.arxiv.org/html/2104.11690"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": true,
+    "inspection_evidence": "Same duplicate-publication evidence as the ar5iv twin above: journal PDF fetch returned unextractable binary, so scope adjudicated via the identical paper body showing 1D quintic Theorems with no Section 10 deficit analysis; listed separately only to avoid silent omission of a duplicate URL.",
+    "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+    "relationship_to_claim": "Duplicate journal-PDF version of the same Dodson 1D quintic threshold-mass paper as the ar5iv twin; identical scope restriction to d=1 with no d>=16 truncation-deficit bound, hence equally non-covering.",
+    "title": "A determination of the blowup solutions to the focusing, quintic NLS with mass equal to the mass of the soliton",
+    "trigger_reasons": [
+     "SAME_OBJECT",
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER",
+     "HIGHLY_RELEVANT_TITLE"
+    ],
+    "url": "https://msp.org/apde/2024/17-5/apde-v17-n5-p04-s.pdf"
+   },
+   {
+    "assessment": "CLOSE_BUT_NOT_COVERING",
+    "base_search_overlap": false,
+    "inspection_evidence": "Inspected ar5iv HTML body Sections 1.1-1.4 and Proposition 2.1: equation is 1D L2-critical NLS with delta potential, recall of Dodson 1<=d<=15 finite-time classification is background only, and new results are Theorems 1.2 (repulsive global) and 1.4 (|t|^{-2/3} attractive blow-up); no Section 10 bootstrap, deficit delta, or 1+8/d Young bound appears.",
+    "inspection_method": "THEOREM_SCOPE",
+    "relationship_to_claim": "One-dimensional delta-perturbed L2-critical NLS recalling Dodson 1<=d<=15 classification as background; different equation with broken translation and scaling symmetries and different blow-up construction, containing no Section 10 truncation-deficit inequality.",
+    "title": "[PDF] arXiv:2110.07834v1 [math.AP] 15 Oct 2021",
+    "trigger_reasons": [
+     "SAME_TERM_FAMILY",
+     "ORIGINAL_PAPER"
+    ],
+    "url": "https://arxiv.org/pdf/2110.07834"
+   }
+  ],
+  "rationale": "Terminal Perplexity search (20 results, 4 overlapping base) added no decisive prior: 16 of 20 are different equation classes (intercritical scattering, energy-critical, Chern-Simons, dispersion-managed), expository or database items (Clay notes, REU survey, DispersiveWiki, reviews), or fixed low-dimensional and radial results with no Section 10 deficit analysis. The four plausibly adjacent hits (Dodson v2 copy, two duplicate Dodson quintic URLs, Tang-Xu delta paper) were body-inspected and contain no deficit parameter, (77-5d)/39 inequality, or residual-exponent table. Ranks 8 and 9 are duplicate versions of one paper inspected once. No dissertation or thesis appeared. Hence no COVERS_CLAIM source and no unresolved candidate remains; provisional originality PASS is preserved with zero incremental recall.",
+  "status": "COMPLETE",
+  "verdict_changed": false
+ },
+ "residual_risks": [],
+ "source_inspections": [
+  {
+   "assessment": "NOT_COVERING",
+   "inspection_evidence": "Full-text parameter search for '77-5' and 'deficit' returns zero hits; inspected (10.41)-(10.44) uses only delta=0 truncation and Young exponent 2d/(d-8); proof closes with 'Dimensions d>=16 remain unresolved' plus Remark 8 qualitative comment only.",
+   "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+   "title": "A Determination of the Blowup Solutions to the Focusing NLS with Mass Equal to the Mass of the Soliton",
+   "trigger_reasons": [
+    "SAME_OBJECT",
+    "SAME_PARAMETERS",
+    "SAME_TERM_FAMILY",
+    "ORIGINAL_PAPER",
+    "HIGHLY_RELEVANT_TITLE"
+   ],
+   "url": "https://doi.org/10.1007/s40818-022-00142-5"
+  }
+ ],
+ "verdict": "PASS"
+}
