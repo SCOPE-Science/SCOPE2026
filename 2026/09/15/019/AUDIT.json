@@ -1,0 +1,314 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran inputs/artifacts/verify_target.py (sympy): gradient of W'=sum_{i>=k}y_i^{-1}+P*Q^k vanishes at rho=(1/k,...,1/k,1,...,1) with value n+1 for all 3<=k<=n<=7; analytic partials in DRAFT sections 2-3 check out term by term. Newton simplex vertices, normalized volume k^{k-1}(n+1) via stated column operations, affine edge-length pattern (K_k of length k, all else 1, long-incidence count k), and (3,3,3) non-Markov (27!=81) all verified. Monotonicity and wall-crossing rule are explicitly taken as input from Pascaleff-Tonkonog Theorem 5.7/Lemma 5.9, and the Floer criterion (critical point => HF!=0 => non-displaceable) plus Newton-polytope symplectomorphism invariance (Vianna Cor 4.3 / CHW 4.3) are standard cited facts. No boundary case fails: k>=3 guarantees rho in (C*)^n, coefficients positive, simplex nondegenerate.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 20-result search (SerpBase/OpenAlex/Crossref/OpenAIRE, no partial failure) plus full-text inspection of the two nearest primaries shows the headline is new. Pascaleff-Tonkonog states the mutated potential (5.6)/Cor 5.8 but computes no critical point, no non-displaceability, and no Newton volume/edge/rigidity consequence for it. Chanda-Hirschi-Wang classifies lifted Vianna tori (Markov triangle + unit other edges, binomial wall-crossing) which the submitted K_k volume k^{k-1}(n+1) and long-incidence-k simplex falls outside of (k>3 by count; k=3 by non-Markov (3,3,3)). No broader census, table, or database entry covers the rho/value/rigidity/binomial-exclusion combination.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: submitted claim matches the admitted target literally. Result establishes, for every n>=3 and 3<=k<=n, Hamiltonian non-displaceability of the PT k>2 toric-mutated torus via an explicit critical point with value n+1, plus symplectomorphism rigidity against Clifford and all lifted Vianna tori via volume k^{k-1}(n+1) vs n+1 and long-edge/Markov analysis, hence non-binomial-realizability of the k>2 wall-crossing. Object, invariant, and distinction were motivated before computation, are not known or mechanically implied, and advance the recognized exotic-tori-in-CP^n program. This is a theorem with exact witnesses, not a restatement, parameter variant, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pascaleff-Tonkonog (Adv Math 2020 / arXiv:1711.03209): same-object prior stating higher toric mutation Thm 5.7, wall-crossing (5.4)/(5.5)/(5.7), worked potential (5.6) in Example 5.5 / Cor 5.8; inspected in full text.",
+    "Chanda-Hirschi-Wang (arXiv:2307.06934 / J Geom Anal 2024): same-domain prior on lifted Vianna tori T^{(n)}_{(a,b,c)}, binomial/solid mutation Thm 3.4, Newton simplex Prop 4.6 (Markov triangle + unit edges); inspected in full text.",
+    "Vianna CP^2 / del Pezzo tori and standard Floer inputs (Cho-Oh/FOOO/Sheridan, Vianna Cor 4.3): background for Newton-invariant and critical-point=>HF!=0 criterion; screened via fused search metadata."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "CHW Thm 1.1/Prop 4.6 prove lifted Vianna Newton simplices have one Markov (a,b,c) triangular face and all other edges length 1 (<=3 long-incidence vertices); Vianna/Auroux/Castronovo/cluster-tori programs contain no exhaustive CP^n census; no source claims all monotone CP^n tori are lifted Vianna.",
+      "reasoning": "The submitted simplex has K_k long edges of length k (k>=3 vertices incident) and volume k^{k-1}(n+1); for k>3 the incidence count alone lies outside CHW Prop 4.6 scope, and for k=3 the (3,3,3) triangle is non-Markov. Hence no broader theorem or census substantively implies or exhausts the claim.",
+      "search": "Searched stronger classification/census/database formulations: lifted Vianna higher-CP^n classification, exotic monotone tori census, Markov-tree completeness, and CHW induction scope."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "PT Thm 5.7/Cor 5.8 yield existence, monotonicity, and formula (5.6); PT Sec 2.3 states only the general critical-point <=> HF!=0 principle with del Pezzo examples. CHW Thm 3.4 yields binomial wall-crossing preservation used as a lemma. Neither computes rho, value n+1, volume, edge pattern, or exclusion.",
+      "reasoning": "Prior results supply inputs (potential formula, mutation framework, binomial closure) but the headline conclusions (explicit critical point, non-displaceability, volume/edge rigidity, non-Markov exclusion, non-binomial-realizability) require the new gradient solve and Newton/Markov analysis, so they are not mechanically implied corollaries or repackagings.",
+      "search": "Compared literal hypotheses/conclusions: PT (5.6) existence vs submitted critical-point plus rigidity; CHW binomial closure vs submitted k>2 non-realizability; tested whether either prior implies the headline."
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text PT search for critical/non-displaceable/Newton/volume/Clifford around Sec 5 and Example 5.5/Cor 5.8 returns only the general Sec 2.3 principle and del Pezzo tables; no rho=(1/k,...,1), value n+1, volume k^{k-1}(n+1), or K_k edge computation for (5.6). CHW full text uses binomial y->y(1+x) wall-crossing, distinct from PT k>2 map.",
+      "reasoning": "Under synonymous notation (disk/LG/superpotential; Newton/Maslov-2 hull; toric/higher/solid mutation; y/x coordinates) the nearest same-object text is PT (5.6), which states the potential but not the critical point, Floer consequence, or Newton rigidity; the different wall-crossing shapes confirm non-synonymy of the k>2 vs k=2 maps.",
+      "search": "Searched literal plus synonymous forms: disk/LG/superpotential critical point rho=(1/k,1), Newton/Maslov-2 polytope volume, toric/higher/solid mutation, k>2 vs binomial wall-crossing, Clifford/Vianna/Markov rigidity."
+    },
+    "exact_database_or_table": {
+      "evidence": "PT Table 1 covers del Pezzo surfaces only, not CP^n (5.6); CHW gives Newton data (i)-(iv) for lifted Vianna tori only; fused search over specialist databases, theses, and repositories returned no table or record containing W' critical point rho, value n+1, or volume k^{k-1}(n+1).",
+      "reasoning": "The exact parameters (n>=3, 3<=k<=n, face F, point w, potential (5.6), rho, K_k pattern, (3,3,3) exclusion) appear in no table or official database as a recorded fact; the result is not a direct lookup or recomputation of a tabulated entry.",
+      "search": "Searched exact-parameter/table forms: CP^n k>2 mutated potential (5.6) tables, Newton polytope databases, Vianna/Markov data tables, and thesis/repository records for rho and k^{k-1}(n+1)."
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "00bde8a5bb43771e783022021e630ae8686c5185b29db0d92c4d59d15a5aefae",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Read full body via arXiv html plus base-phase PDF extraction: Sec 2 solid-mutation setup, Thm 3.4 binomial wall-crossing x,y->x,y(1+x), Sec 4 Prop 4.6(i)-(iv) Newton induction with Markov face plus unit edges; full-text search returns zero hits for critical point, non-displaceability, volume, (5.6), or interior face point w.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same ambient CP^n and same Newton-polytope rigidity method, but hypotheses cover only lifted Vianna tori T^{(n)}_{(a,b,c)} with binomial wall-crossing and Markov-triangle Newton data; conclusions stay inside the Vianna family and neither state nor imply the PT k>2 face-torus potential (5.6), its critical point rho, value n+1, volume k^{k-1}(n+1), or the K_k non-Markov exclusion.",
+        "title": "Infinitely many monotone Lagrangian tori in higher ...",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/2307.06934v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded full dissertation PDF (331KB extracted text): inspected TOC, Sec 2.1.2 higher-toric-mutation local model with wall-crossing (2.1.2.3) xn->xn(1+x1+...+xn-1) (the k=n vertex case), and Ch 3.2-3.4 solid-mutation/Newton sections mirroring CHW; full-text grep finds no displaceability claim, no (5.6) face-family instance, no 1/k rho, no k^{k-1}(n+1) volume; critical-point hits are fibration critical loci and transversality only.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Dissertation containing the CHW lifted-Vianna results (Ch 3) and a local-higher-mutation Floer-invariance theory (Ch 2) for the same PT construction family; its wall-crossing instance is the k=n vertex case and its Newton induction is the Vianna-family one, so neither its hypotheses nor its conclusions state or imply rho, value n+1, volume k^{k-1}(n+1), or the (3,3,3) exclusion for the (F,w) face torus.",
+        "title": "[PDF] ©2024 Soham Chanda ALL RIGHTS RESERVED - RUcore",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://rucore.libraries.rutgers.edu/rutgers-lib/72605/PDF/1/play/"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Parsed full PDF text: Example 5.5 and Cor 5.8 state potential (5.6) only; Sec 2.3 gives only the general critical-point <=> HF principle; Newton/volume hits are del Pezzo Table-1 contexts; zero hits for 1/k rho, n+1 value of (5.6), k^{k-1}(n+1), or any K_k edge-length analysis.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Exact same-object prior stating the (F,w) mutation, wall-crossing (5.5), potential (5.6), and Corollary 5.8 existence/monotonicity for the claimed torus family; but its conclusions stop at the formula, with critical-point discussion confined to the general Sec-2 principle and del Pezzo examples, so it neither computes rho and value n+1 nor derives any Newton volume, edge-length, or Vianna-exclusion consequence.",
+        "title": "[PDF] arXiv:1711.03209v2 [math.SG] 30 Nov 2017",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/pdf/1711.03209v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Same CHW paper as the arXiv-html entry above (journal version); body content identical in scope (solid mutations, binomial wall-crossing, Prop 4.6 Newton induction); no additional critical-point, volume, or (5.6) content beyond the inspected full text.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Journal mirror of the same lifted-Vianna-tori paper: same hypotheses (Markov triples, solid mutations from the CP^2 Clifford torus) and same conclusions (Markov-triangle Newton face plus unit edges); adds no PT k>2 face-torus potential, critical point, volume, or exclusion result beyond the inspected arXiv body.",
+        "title": "Infinitely many exotic Lagrangian tori in higher projective spaces",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://link.springer.com/article/10.1007/s11784-024-01137-4"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Same CHW work (index page only); no body beyond the inspected arXiv full text, whose scope is the Vianna-family Newton induction with zero critical-point/volume/(5.6) hits.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Index mirror of the same CHW lifted-Vianna paper; carries the same Markov-triangle Newton conclusions and no PT (F,w) face-torus critical-point, value, volume, or binomial-exclusion content.",
+        "title": "Infinitely many monotone Lagrangian tori in higher projective spaces",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.semanticscholar.org/paper/Infinitely-many-monotone-Lagrangian-tori-in-higher-Chanda-Hirschi/b412466f9d0898ab50db2471e9f1fa68206ed77c"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Read full arXiv html body: Main Thm 3.7 (BSP wall-crossing), Examples 3.8/3.9 (disk-surgery recovery and higher-mutation recovery), Sec 5.1 Props 5.10/5.11 (exotic-lift Newton polytope with na,nb,nc triangle and n-length edges, a different pattern); body search gives zero non-displaceability, zero volume, zero Example 5.5/Cor 5.8, and one Sard-type critical-values hit only.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same-ambient (P^n) broader surgery theory whose Main Theorem 3.7 generalizes PT higher mutation (Example 3.9 recovers the z(1+x1+...+xn-1) change) and whose Props 5.10/5.11 compute a different exotic-lift Newton pattern (na,nb,nc face, not K_k); it proves no critical point, value, volume, or Vianna-exclusion for the PT (F,w) face torus, so its stronger generality does not imply the headline.",
+        "title": "[2409.11603] Bohr-Sommerfeld type surgeries and Disk Potential",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/2409.11603"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Parsed full 35-page PDF: Construction 1.1 and Thms 1.4/4.16 concern Gr(3,6) Pluecker tori distinguished by critical-point counts and Newton f-vectors; text states Gr(1,n)=P^{n-1} admits only the length-0 Clifford seed and explicitly does not recover Vianna exotics; no PT face, (5.6), rho, or k^{k-1}(n+1) anywhere.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Different ambient class (complex Grassmannians Gr(k,n) via Pluecker cluster seeds) sharing only method vocabulary (disk potential, Newton polytope, critical points, non-displaceability); its only projective-space case (k=1) yields the Clifford torus alone and explicitly disclaims Vianna exotics, so it cannot state or imply the CP^n PT face-torus finding.",
+        "title": "Quantum Topol. (Online first)",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://ems.press/content/serial-article-files/36927"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Same CHW work (repository mirror); no body beyond the inspected arXiv full text with Vianna-family scope and zero (5.6)/rho/volume hits.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Repository mirror of the same CHW lifted-Vianna paper with identical Markov-triangle Newton conclusions; contains no PT k>2 face-torus critical point, value, volume, or rigidity result.",
+        "title": "Infinitely many monotone Lagrangian tori in higher projective spaces",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.academia.edu/126249063/Infinitely_many_monotone_Lagrangian_tori_in_higher_projective_spaces"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Parsed full paper text (2014 CP^2 exotic torus via mirror-symmetry/ATF techniques): Secs on T(1,4,25), 10 Maslov-2 disk families, pearl-homology non-displaceability in CP^2; predates PT higher mutation with zero hits for Pascaleff/Tonkonog, higher/solid mutation, (5.6), CP^n face, or k^{k-1}(n+1).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Base-case CP^2 Vianna predecessor (Markov triples, ATF mutations, exotic T(1,4,25)) whose ambient, objects, and methods are confined to CP^2 and predate the PT higher-toric-mutation construction; states no CP^n face torus, no potential (5.6), and no rho/volume/exclusion consequence.",
+        "title": "On exotic Lagrangian tori in ℂℙ2",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.academia.edu/99767734/On_exotic_Lagrangian_tori_in_CP2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Read full arXiv html body (Newton-Okounkov toric degenerations producing monotone tori in general Fano varieties): Newton hits concern NO bodies and Q-Gorenstein Fano polytopes; CP^m appears only for Chekanov-Schlenk background; zero hits for Pascaleff higher mutation, (5.6), rho, Vianna higher lifts, or k^{k-1}(n+1).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "General-Fano toric-degeneration program (NO bodies, cluster polytopes, flag varieties) sharing only background vocabulary (monotone tori, Newton polytopes, disk potential); proves no CP^n PT face-mutation potential, critical point, Newton volume, or Vianna-exclusion theorem.",
+        "title": "Cluster algebras and monotone Lagrangian tori - arXiv",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/2401.00252v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Parsed full PDF text: Cor 1.5 and Secs 1.2/7 give the general HF-invariance under local higher mutation and its two stated applications (Clifford/Chekanov pair; odd-n RP^n remark); full-text grep gives Newton/simplex/affine-length zero, Example 5.5/Cor 5.8 zero, 1/k rho zero, n+1-as-value zero; critical-point hits are the general principle or fibration critical loci.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same-construction-family Floer theory extending PT higher mutation to local higher mutation with general HF-invariance (Thm 1.2/Cor 1.5: HF preserved up to local-system change, critical local system gives nonvanishing); its only non-displaceability applications are the Clifford/Chekanov pair and an odd-n RP^n remark, with no Newton polytope, no volume, and no (5.6)-face rho computation.",
+        "title": "arXiv:2301.08311v4 [math.SG] 17 Sep 2024",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2301.08311"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "SECTION_TABLE_EXAMPLE_INSPECTION of Sec 2.1-2.2 pp.12-15 plus full-text parameter search: traced antecedent chain Lemma 2.18 -> Cor 2.19. Instantiated implication: CHW Prop 4.6 [8] says Newt(W_Lambda) is a d-simplex suspending Newt(d-1) (y=0 recovers prior polynomial, Fig.2); Lemma 2.18 concludes augmentation polynomial W_Lambda^{n-1}_{abc} irreducible via Minkowski-sum argument; Theorem 2.10 turns Legendrian isotopy into Newton-polytope equality up to basis; Cor 2.19 proof ('essentially the same as Vianna [44]... As explained in Vianna [44], and CHW [8]') instantiates this to distinct Markov triples having different lattice edge lengths, hence Lambda^{n-1}_{abc} not isotopic to Lambda^{n-1}_{a'b'c'}. Chain concerns only lifted-Vianna Legendrian lifts; no (5.6) face torus, no rho=(1/k..), no value n+1, no volume k^{k-1}(n+1), no K_k/(3,3,3) analysis; PT/toric-mutation/displaceability/(5.6) searches return only references section hits.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Uses the CHW lifted-Vianna P^n tori and their distinct Newton polytopes only as input (Lemma 2.18: augmentation polynomial shares WT Newton data) to study Legendrian lifts in S^{2n-1}; proves augmentation-variety-equals-zero-locus results with no PT (F,w) torus, no critical-point solve, and no volume or rigidity computation of its own.",
+        "title": "Augmentation varieties and disk potentials III - Rutgers Math",
+        "trigger_reasons": [
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://sites.math.rutgers.edu/~ctw/leg_3.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Parsed full 43-page PDF: Sec 4.5/Prop 1.6/Thm C concern Theta_m(a) Hopf lifts in C^3, and Sec 5.3 higher-mutation ATF discussion is framed as future work (proper construction still to be given); full-text grep gives no (5.6), no rho, no volume for a CP^n mutated torus; displaceability hits concern toric fibres and probes.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Different ambient (C^3 and general 6-manifolds) with C^3 Hopf lifts of Vianna tori (Prop 1.6/Thm C) and an explicitly conjectural higher-mutation ATF framework (Sec 5.3); states no CP^n PT face-torus potential, critical point, Newton volume, or binomial-exclusion theorem.",
+        "title": "[PDF] Local exotic tori - Joé Brendel",
+        "trigger_reasons": [
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://brendel.lu/assets/articles/25_2.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Parsed full PDF: ambient is Fano hypersurfaces X0=V(t^{n+1}-x0...xn) with LG model ((C*)^n,W) and critical values wb=-(n+1)!, ws=(n+1)^{n+1}-(n+1)! for the hypersurface potential; PT cited only for the n=2 case and in references; (5.6)-style hits are unrelated theorem numbers; no PT face, (5.6) torus potential, or rho.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Different object (SYZ LG-model and split-generation for index-1 Fano hypersurfaces, not the PT CP^n face-mutated torus); its critical values belong to the hypersurface superpotential W, and its only PT contact is a background citation, so it states nothing implying rho, value n+1, or volume for potential (5.6).",
+        "title": "arXiv:2110.10728v2 [math.SG] 9 Mar 2022",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2110.10728"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Parsed full PDF: Sec 5.4 constructs Q3 lifted Vianna tori, Thms C/D concern P^{Ch}_{1,1} in Q3, and Remark 5.16 is the CP^3 Newton citation to CHW and Nishinou-Nohara-Ueda for the OU-vs-Vianna distinction; full-text grep gives no (5.6) face potential, no 1/k rho, no k^{k-1}(n+1); Newton hits are Psi-polytope duals or cited computations.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Different ambient (quadric Q3) distinguishing the Chekanov OU torus from Biran/Vianna lifts (Thm 5.15) via Psi-invariants; its only CP^3 remark (5.16) cites CHW Newton computations for the OU-vs-Vianna distinction, and it contains no PT (F,w) torus, critical-point solve, or K_k volume result.",
+        "title": "[PDF] On Lagrangians of Oakley-Usher type - arXiv",
+        "trigger_reasons": [
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2607.15136"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Parsed full PDF: object is toric fibres T(x) with symmetric-probe invariants (Thm A/B) and monodromy; Vianna appears only in Example 4.15 (CP^2 background) and STV citation; full-text grep gives no PT face, no (5.6) mutated potential, no rho, no K_k Newton analysis.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Different object class (toric fibres and their Hamiltonian classification via symmetric probes, displacement-energy germs, and monodromy) with Vianna tori cited only as CP^2 background; proves no mutated-torus potential, critical point, Newton volume, or rigidity theorem covering the headline.",
+        "title": "[PDF] Hamiltonian classification of toric fibres and symmetric probes ...",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.semanticscholar.org/paper/Hamiltonian-classification-of-toric-fibres-and-Brendel/ef6a82c68a0fca4942b01c219f329e7375b81416"
+      }
+    ],
+    "rationale": "Terminal search returned 20 results: 7 overlaps duplicating base providers and 13 incremental. Body-inspected every plausibly-covering candidate (16 entries above): the mandatory Chanda dissertation, both same-object primaries (PT v2, CHW arXiv html) plus three same-work CHW mirrors, and all parameter-sharing papers (BSP surgery, Castronovo Grassmannians, Chanda local-mutation, augmentation varieties, Brendel local exotic, OU quadrics, SYZ hypersurfaces, cluster/NO-body program, Vianna CP^2 base, toric-fibre classification). The flagged leg_3.pdf antecedent chain was traced explicitly: CHW Prop 4.6 suspension hypothesis -> Lemma 2.18 irreducibility of W_Lambda^{n-1}_{abc} -> Cor 2.19 non-isotopy of Lambda^{n-1}_{abc} vs Lambda^{n-1}_{a'b'c'} for distinct Markov triples; instantiated implication covers only lifted-Vianna Legendrian lifts, not the PT (F,w) face torus. None states or implies rho=(1/k,...,1), value n+1, volume k^{k-1}(n+1), or the K_k/(3,3,3) exclusion for the PT (F,w) face torus: the nearest bodies state only the (5.6) formula, the general critical-point principle, Vianna-family Newton data, or different-object/different-pattern theorems. Four returns excluded as non-substantive with no shared claim parameters and no primary result: author homepage, one-page workshop slides, ADS abstract page duplicating the body-inspected CP^2 paper, and a seminar announcement. No UNRESOLVED_CANDIDATE remains; no decisive prior found; provisional PASS on all three axes preserved with verdict unchanged.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Example 5.5 + Cor 5.8 state potential (5.6) only; full-text parameter searches for critical/non-displaceable/Newton/volume near Sec 5 return only general Sec 2.3 principle and del Pezzo (Bl k) examples; Sec 5 proves mutation existence, not rho, n+1 value, volume, or rigidity.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "The wall-crossing formula and Lagrangian mutations (Pascaleff-Tonkonog)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/1711/1711.03209v3.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Thm 1.1/Prop 4.6 (i)-(iv): Newton simplex with one Markov (a,b,c) face and all other edges length 1; Thm 3.4 binomial wall-crossing x,y->x,y(1+x); Sec 4 induction stays inside Vianna family. Submitted K_k length-k pattern with volume k^{k-1}(n+1) and non-Markov (3,3,3) at k=3 falls outside this scope.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Infinitely many monotone Lagrangian tori in higher projective spaces (Chanda-Hirschi-Wang)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/2307/2307.06934v1.pdf"
+    }
+  ],
+  "verdict": "PASS"
+}
