@@ -1,0 +1,230 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran verify_construction.py: brute U equals formula U (14,64,362) with |F|=(14,60,362) at n=6,7,8; formula gives |F|=2616,21518 at n=9,10. Independently rebuilt F and confirmed zero 2-intersection violations and Delta_2=|R| with gamma_2=4 at n=6,7,8 (n=8: |R|=358,|F|=362). General-n logic holds: C0-pairs share 2 fixed points, P_full-pairs share the n-3 coset equations (>=3 for n>=6), cross pairs by definition of R. Inclusion-exclusion coefficients reproduce brute pair/triple/quad intersections at n=8 (256/265,212,168). Margin |R|-((n-3)!+4) verified positive for n=7..30 with the 1/e asymptotic mechanism. DRAFT's '2<=i<=n-4' is an off-by-one typo for '2<=i<=n-3' per |M|=6 and the verified script; the headline's abstract (n-3)-coset description is correct.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "EMERGENT_FINDING audited with no preset presumption. Fused three-direction literature search returned Ellis (2011) first-level stability, Wang-Xiao (2025/26) t=1 diversity, Meagher-Razafimahatratra (2020) EKR, and Chase et al. (2022/26) uniqueness as nearest prior work. Full-text inspection shows Ellis's extremal D has 2 outside perms (diversity 2) with no fixed-diversity>=3 exact count; Wang-Xiao is 1-intersecting only; the EKR/uniqueness papers fix only the (n-2)! maximum with zero diversity content. No source states the 4-outside transverse (n-3)-coset family, its rook closed form, or values 14,60,362,2616,21518. Ellis's bound implies only the shared (1-1/e) constant, not the exact construction.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Explicit infinite 2-intersecting family at fixed diversity 4 with proved exact closed-form size, the concrete sharpness candidate for the admitted target's gamma_2>=3 maximum. Object and invariant were motivated before computation (deletion-union minimization); the value was not known or mechanically implied (nearest Ellis D is diversity 2 and strictly larger: |D|-|F|=1,9,51,307,2117 for n=6..10). Backed by n=6 exhaustive concentrated-class optimality (14=formula) and unbeaten structured probes at n<=9. A future worker on second-level permutation stability reasonably needs this exact datum; it is a genuine extremal-construction theorem, not a textbook restatement or parameter substitution.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "scope_literature_search d9c8cec18e264404b0e149271a470d17 (SerpBase/OpenAlex/Crossref/OpenAIRE, full coverage, 20 fused results) for literal, equivalent, and dominance queries",
+    "Ellis 2011, Stability for t-intersecting families of permutations (arXiv:0807.3115, doi:10.1016/j.jcta.2010.04.005): first-level stability, extremal D with (1-1/e+o(1))(n-t)!",
+    "Wang-Xiao 2025/26, maximum diversity of intersecting families in the symmetric group (doi:10.1016/j.ejc.2025.104331, arXiv:2501.06731): t=1 diversity bound (n-3)(n-3)! via triangle family",
+    "Meagher-Razafimahatratra 2020, 2-intersecting permutations (arXiv:2005.00139): t=2 EKR upper bound work",
+    "Chase-Dafni-Filmus-Lindzey 2022/26, Uniqueness for 2-intersecting families (arXiv:2210.00245): max-family uniqueness, no stability/diversity",
+    "inputs/artifacts/verify_construction.py re-executed by auditor plus independent F rebuild, Delta scan, and margin/asymptotic checks to n=50"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Ellis gives the universal non-contained bound (1-1/e+o(1))(n-2)! with extremal D; set-family stability concerns k-sets, not permutation agreement; no completed census of fixed-diversity permutation families exists.",
+      "reasoning": "Broader theorems bound but do not determine the gamma_2>=3 regime: F is strictly smaller than D (|D|-|F|=1,9,51,307,2117 at n=6..10) with exact finite values Ellis never states, and set results do not transfer to agreement families, so F is a strict refinement, not a covered special case.",
+      "search": "Dominance sweep: Ellis t-stability upper bound, Wen-Lv set-family Hilton-Milner-Frankl stability, and permutation census/classification coverage"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Shared (1-1/e+o(1)) leading constant verified numerically (U/(n-2)! =0.5028,0.4664,0.4268,0.3834 at n=8,10,15,50); EKR/uniqueness fix only the (n-2)! maximum; computed |D|>|F| at all n=6..10.",
+      "reasoning": "A shared leading constant does not imply the exact closed form, finite values, or diversity level; no prior theorem's hypotheses produce gamma_2=4 with this size, so the finding is not a corollary, certificate, or repackaging of a known stronger fact.",
+      "search": "Implication test: whether Ellis asymptotics, EKR bounds, or max-family uniqueness logically yield F's exact size and gamma_2=4"
+    },
+    "equivalent_formulations": {
+      "evidence": "Nearest hits use 'nontrivial/non-contained' (Ellis, diversity 2) and 'diversity' only for t=1 (Wang-Xiao); no source under any synonym states a 4-outside transverse-coset family or its rook count.",
+      "reasoning": "Dual/complement/synonym mappings land only on first-level Ellis D or t=1 diversity results, whose parameters (2 outside perms; t=1) differ provably from F (4 outside perms; t=2), so no equivalent formulation covers the claim.",
+      "search": "Synonym sweep: nontrivial/non-contained/Hilton-Milner/agreement/junta/double-translate encodings of the diversity-4 2-intersecting permutation claim"
+    },
+    "exact_database_or_table": {
+      "evidence": "Only exact diversity table found is the t=1 triangle family T(n) with (n-3)(n-3)!; no paper, table, or database lists t=2 diversity-4 values or the U(n)=4S1-(4Pnt+2Ptr)+4T-Q rook formula.",
+      "reasoning": "The sole neighboring exact-diversity object lives in t=1 with a different value and extremal shape, so the submitted sizes and construction cannot be a recomputation or lookup of a recorded entry.",
+      "search": "Exact-table sweep: diversity-4 permutation tables, triangle-family values, and sizes 14,60,362,2616,21518 in literature and databases"
+    }
+  },
+  "perplexity_final_check": {
+    "base_search_overlap": true,
+    "check_id": "f371ae706ce5bba75484fdc31395198b6fa7cebaf8aec2deb9fbc890d12c4261",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full-body inspection (79609-char extraction plus HTML): Theorems 1.3/1.4 concern transversal-number diversity with 2t-uniform/Fano extremals; Theorem 1.6 concerns star diversity with maximum 2(n-4)(n-4)! (192 at n=8 versus claimed gamma 4) and (t+1)-subset-of-(t+2) extremals; full-text finds for '(n-3)-coset', 'rook', '362', and 'gamma_2' return 0 hits.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same object (t-intersecting permutations) and diversity-stability terminology including a t=2 case, but both diversity notions differ in definition and extremal regime from the submitted star-diversity-4 transverse (n-3)-coset family, and none of its theorems states the rook count or sizes 14,60,362,2616,21518.",
+        "title": "The maximum t-diversity of t-intersecting families of permutations",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/2609.12391v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full-body inspection (64446-char extraction): Theorem 2 bounds only intersecting (t=1) families with gamma>=k!-(k-1)! by |E_k|; full-text finds for '2-intersecting' and 't-diversity' return 0 hits, so the t=2 diversity-4 claim lies outside its hypotheses and extremals.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same object (permutation families) and diversity-stability terminology, but restricted to intersecting (t=1) families with E_k extremals; contains no 2-intersecting fixed-diversity construction or rook enumeration.",
+        "title": "[PDF] Frankl's diversity theorem for permutations - arXiv",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/pdf/2602.11796"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Duplicate record of the same arXiv ID 2602.11796 as the preceding entry; the single full-body inspection covers both URLs and confirms t=1-only scope with no additional parameters.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Duplicate record of the same Inozemtsev-Kupavskii t=1 diversity paper (same arXiv ID); identical scope limitation to intersecting families with no t=2 diversity-4 content.",
+        "title": "Frankl's diversity theorem for permutations | alphaXiv",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.alphaxiv.org/abs/2602.11796"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full body extracted via pdftotext (207207 chars): the permutation section (3.2.2) invokes only the EFP t-star maximum and Ellis stability bound N1=(1-1/e+o(1))(n-t)! for colour-counting; full-text greps for permutation-sense 'diversity', 'Fano', 'rook', 'transversal', and '2-intersecting' constructions return no covering content.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Dissertation whose Erdos-Rothschild chapter treats t-intersecting permutation families only through the Ellis maximum and stability bounds for counting colourings; states no fixed-diversity extremal family or exact size formula.",
+        "title": "On problems in Extremal",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "https://refubium.fu-berlin.de/bitstream/handle/fub188/7809/Tran_diss.pdf?sequence=1&isAllowed=y&save=y"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full body extracted via pdftotext (476857 chars): diversity chapters concern uniform k-sets and {0,+-1}-vectors; the text explicitly declares intersecting theorems for permutations beyond its scope; no permutation diversity bound or construction is present.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Kupavskii dissertation on set-system diversity (k-sets, signed vectors) sharing only the diversity terminology; permutation intersecting theorems are explicitly out of scope, so it cannot contain the t=2 permutation diversity-4 family.",
+        "title": "Ôåäåðàëüíîå ãîñóäàðñòâåííîå àâòîíîìíîå îáðàçîâàòåëüíîå",
+        "trigger_reasons": [
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "http://kupavskii.com/wp-content/uploads/2019/09/DISSER_final.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Body identical to the base-inspected arXiv:2501.06731: Theorem 1.4 bounds intersecting (t=1) families by (n-3)(n-3)! for n>=500 with triangle-family extremals; t=2 content is absent, so the diversity-4 2-intersecting claim is outside its scope.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same object (permutation diversity) but a t=1-only maximum-diversity theorem with triangle-family extremals, already adjudicated in the base audit via its published twin; no 2-intersecting fixed-diversity content.",
+        "title": "[PDF] A note on the maximum diversity of intersecting families ... - arXiv.org",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2501.06731"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full body extracted via pdftotext (236046 chars): scope is EKR/strict-EKR classification of maximum families as point-stabilizer cosets via the module method; greps for 'diversity', transversal-number diversity, 'Fano', 'rook', and 2-intersecting fixed-diversity constructions return no covering content.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "PhD thesis proving strict EKR for permutation groups via the module method; classifies only maximum-size families as point-stabilizer cosets, with no stability, diversity, or second-level 2-intersecting content.",
+        "title": "[PDF] MAXIMUM INTERSECTING FAMILIES OF PERMUTATIONS",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "DISSERTATION"
+        ],
+        "url": "https://uregina.ca/ahmadi2b/files/PhD_thesis.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Thesis PDF URL returned an archive-gateway HTML page (thesis body unobtainable at that URL); its snippet quotes Theorem 2.25 (extremal D with t outside transpositions, size (n-t)!-d-o, double-translate equality) verbatim, and the identical theorem was fully inspected in the published twin arXiv:0807.3115 (0 'diversity' hits, extremal diversity 2), which excludes the diversity-4 claim.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Thesis record whose quoted Theorem 2.25 is verbatim the Ellis t-stability result with extremal D of diversity 2; identical in scope to the base-inspected published paper, with no fixed-diversity->=3 family or exact rook count.",
+        "title": "Intersecting families of permutations",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=0322f59651f4c9f6f91d3ba7637b35eda5ddbe2f"
+      }
+    ],
+    "rationale": "Terminal Perplexity search returned 20 results (6 base overlaps, 14 new) and added genuinely useful incremental recall: two 2026 permutation-diversity papers (Cao et al. transversal/star t-diversity; Inozemtsev-Kupavskii Frankl diversity) and three dissertations (Tran, Kupavskii, Ahmadi) were each fetched in full and compared theorem-for-theorem against the headline. Every one concerns a different regime — t=1 only, transversal-number (not star) diversity, maximum-diversity extremals far above gamma 4, EKR maxima classification, or set systems with permutations explicitly out of scope — and none states the transverse (n-3)-coset diversity-4 family, its rook formula, or sizes 14,60,362,2616,21518. Base-overlap duplicates (Ellis paper, uniqueness, surveys) add nothing new. Deliberately excluded as not plausibly covering: the arXiv-listing index page (cross-intersecting product bounds, no diversity/coset parameters), set-only or signed-set records, and general surveys. No decisive prior found; provisional PASS on all three axes is preserved and no verdict change occurs.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body abstract+Section 1: extremal D = coset members fixing some j>t+1 plus exactly t=2 transpositions (diversity 2), size (1-1/e+o(1))(n-t)!; full-text find 'diversity' returns 0 hits; no (n-3)-coset, 4-outside-perm family, or fixed-diversity>=3 exact count anywhere in scope.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Stability for t-intersecting families of permutations (Ellis 2011)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1016/j.jcta.2010.04.005"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body Theorem 1.4 restricts to intersecting (=1-intersecting) families with gamma<=(n-3)(n-3)! for n>=500, extremized by triangle family T(n); full-text find for 2-intersecting terminology returns no such content, so the t=2 diversity-4 claim lies outside its hypotheses and tables.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "A note on the maximum diversity of intersecting families in the symmetric group (Wang-Xiao)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1016/j.ejc.2025.104331"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text finds for 'diversity', 'stability', and 'Hilton' return 0 hits across the 66014-char extraction; scope is the t=2 EKR upper-bound program, containing no second-level extremal family, deletion-count formula, or diversity-4 values.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "2-intersecting permutations (Meagher-Razafimahatratra 2020)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "http://arxiv.org/abs/2005.00139"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text find for 'diversity' returns 0 hits across the 78656-char extraction; Theorem 1.3 characterizes only maximum-size (n-2)! families as 2-cosets, which excludes the smaller diversity-4 family by size.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Uniqueness for 2-intersecting families of permutations and perfect matchings (Chase et al.)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/2210.00245v2"
+    }
+  ],
+  "verdict": "PASS"
+}
