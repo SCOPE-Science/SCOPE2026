@@ -1,0 +1,72 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "The n=4 proof was verified step by step with independent recomputation. Classification: brute-force enumeration of labeled graphs on 4 vertices confirms the 2-connected isomorphism types are exactly C4, diamond, K4. Groebner step: naive lex reduction of all 45 S-pairs per graph directly against the 10 nonzero 3-minors gives 0 failures and the lex leads match the reported squarefree monomials, so the minors are a lex Groebner basis and squarefree initial ideal implies radical. Irreducibility: X=U^T U surjects onto the sparse rank<=2 locus over any algebraically closed field of characteristic not 2; the constraint varieties (affine space; one quadric XY+ZW times affine space; product of two such quadrics in disjoint variables) are irreducible, the quadric by the singular-locus-is-origin argument, so V(I) is irreducible; radical plus irreducible variety gives prime over the closure, and contraction by faithful flatness gives primality over K. Target characteristic zero is included; general-n material is honestly labeled as evidence only.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The EMERGENT_FINDING genuinely arose from target work (n=4 is the target's smallest nontrivial case, attacked with the target's Groebner-plus-parametrization methods), so there is no scope evasion; but full prior-art review defeats novelty. Deng-Kretschmer Proposition 15 proves in characteristic zero that for every n, I_3(X_G) is prime iff G is (n-2)-connected, which at n=4 is exactly the submitted primality claim, with the C4/diamond/K4 enumeration being elementary. The same paper's Question 16 poses the target question verbatim and records Macaulay2 verification affirmative for n<=6, so the n=4 fact was already recorded both as a proved theorem instance and computationally; Conca-Welker forest-primality plus transfer is the deeper prior implying it. The lane's delta (alternative self-contained proof, explicit S-pair certificate, incidental extension to characteristic not 2) is recomputation/certificate/parameter variation, which the STANDARD says cannot create originality; no literature search was performed in-lane.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Judged as mathematics in isolation, the headline is an exact, motivated local result of the kind the STANDARD's exact-invariant clause protects: the complete first nontrivial case of the admitted target and of published Question 16, with a uniform machine-checkable proof (certified squarefree degeneration plus rank-parametrization irreducibility) doubling as an explicit template for higher n, and honestly labeled general-n limitations. It is therefore independently worth retrieving in isolation; the fact that it was already proved is a priority defeat recorded under originality, not here.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Deng-Kretschmer, Ideals of submaximal minors of sparse symmetric matrices (JPAA 2024, arXiv:2211.07020): full text inspected, Theorem 1, Section 5.1 Proposition 15, Question 16 with Macaulay2 check for n<=6, references.",
+    "Conca-Welker, LSS ideals and coordinate sections of determinantal varieties (ANT 2019, arXiv:1801.07916): full text inspected, Theorems 1.1-1.5, Propositions 7.4-7.5, Theorem 7.8, Lemma 7.10.",
+    "Independent recomputation in this audit: naive lex reduction of all 45 S-pairs per graph against the 10 minors (0 failures), squarefree-lead confirmation matching reported leads, and brute-force enumeration of 2-connected labeled graphs on 4 vertices (types C4, diamond, K4)."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Deng Proposition 15: in characteristic zero with k=3, I_k(X_G) is prime iff G is (n-2)-connected for every n; at n=4 this is exactly 2-connected implies I_3 prime.",
+      "reasoning": "The headline's characteristic-zero content is a strict special case of a published broader theorem; the residual characteristic-not-2 extension runs the same argument with no new phenomenon, so broader coverage defeats originality.",
+      "search": "Stronger theorems on prime sparse symmetric determinantal ideals for all n with fixed minor size, including Deng Proposition 15 and Conca-Welker Theorem 7.8"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Headline: n=4 with every 3-vertex induced subgraph connected implies I_3(X_G) prime. Prior: arbitrary n with k=3 gives I_3 prime iff (n-2)-connected; for n=4 the hypotheses and conclusions coincide on characteristic zero.",
+      "reasoning": "The prior result substantively implies the submitted claim's substance in the target characteristic, so the submission is a corollary and repackaging of a known stronger fact with a new proof, and originality fails.",
+      "search": "Literal comparison of headline hypotheses and conclusions against Deng Proposition 15 at n=4, k=3 and Conca-Welker Theorem 7.8(6)"
+    },
+    "equivalent_formulations": {
+      "evidence": "Deng Section 5.1 proves k=3 primality by noting the complement of an (n-2)-connected graph is a degree-at-most-1 forest and reformulating Conca-Welker forest primality; same objects under complement encoding.",
+      "reasoning": "The LSS and complement-graph formulations are not a different problem: the published reduction shows they substantively imply the submitted n=4 char-0 primality, so synonymous encoding does not escape coverage.",
+      "search": "LSS ideals, orthogonal representations, and complement-graph encoding of sparse symmetric minors with Conca-Welker transfer theorems"
+    },
+    "exact_database_or_table": {
+      "evidence": "Deng Question 16 states the 2-connected submaximal-minor primality question and records Macaulay2 verification affirmative for n<=6 over Q, which includes all three n=4 graphs.",
+      "reasoning": "The exact n=4 fact was already recorded computationally in the same prior paper, so the submission's S-pair log is a recomputation and certificate, which per the STANDARD does not create originality.",
+      "search": "Prior explicit records of the exact n=4 fact: Deng Question 16 Macaulay2 verification for n<=6 and any small-graph primality tables"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full-text Section 5.1: Proposition 15 proves char-0 I_3 primality iff (n-2)-connected for all n, so n=4 gives the headline; Question 16 poses the target and records Macaulay2 verification for n<=6.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Ideals of submaximal minors of sparse symmetric matrices",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/2211.07020"
+    },
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Full-text Theorem 7.8(6) with Proposition 7.5 gives char-0 I_3 primality for forest complements of max degree at most 1; all three n=4 graphs have matching or empty complements; Lemma 7.10 gives necessity.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Lovasz-Saks-Schrijver ideals and coordinate sections of determinantal varieties",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1801.07916"
+    }
+  ],
+  "verdict": "REJECT"
+}
