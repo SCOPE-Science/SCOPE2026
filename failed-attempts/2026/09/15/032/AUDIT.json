@@ -1,0 +1,63 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Proof is valid and self-contained: exact finite-N conservation I^{(N)}=alpha(1-rho0^{(N)}) plus target clauses (a) J=alpha(1-r), (b) rho0^{(N)}->J at i=0, root equation (1-J/r)^{1/q}=J/q forces J=alpha(1-J) hence J=r=alpha/(1+alpha), whence 1-J/r=0 while (J/q)^q>0, contradiction for all alpha>0,q>=2 (e.g. alpha=0.5,q=2: 0 vs 1/6). Uses no mean-field factorization; numerics are correctly labeled corroboration only.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "No prior source records the exact-limit joint unsatisfiability. Full-text inspection shows BM asserts the MF analogues as approximations and never states exact-limit impossibility; broader tree-exclusion literature concerns undriven/symmetric models and does not imply this target-specific conjunction failure. Literal, equivalent-formulation, and dominance searches found no covering prior.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "ADMISSION_DEFECT: the negative resolution exposes only a statement-level quantifier/normalization defect, namely profile claimed for each fixed i including i=0 (first-coefficient mismatch) contradicting I=alpha(1-r) plus the BM root equation in one line of algebra. It resolves none of the substantive hydrodynamic-limit, decorrelation, or beta-decoupling questions; the repaired i>=1 core stays open with O(1) negative correlations and 3-10% MF gaps. Per STANDARD, a TARGET whose likely negative resolution is a type error, vacuity, or tiny-instance mismatch fails admission; this cheap-defect disproof is not independently retrievable value even though correct and new.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Basu-Mohanty arXiv:1003.3313v2 full text (8pp, 24729 chars): MF Eqs15-17/19-20, Fig2-3; source of target root equation and profile form; heuristic plus MC only",
+    "scope_literature_search EMERGENT_ORIGINALITY call 8a02b561312b4850b81ee29ac4354253: 20 fused results across SerpBase/OpenAlex/Crossref/OpenAIRE; nearest same-object hit is BM; rest are 1D/symmetric/facilitated variants",
+    "Bramson-Liggett 2005 exclusion in higher dimensions (DOI 10.1214/009117905000000341): symmetric exclusion product measures on trees; different driven/boundary model, no outward-ASEP exact profile",
+    "inputs/artifacts/impossibility_cert.py plus impossibility_cert.txt: forced J=r=alpha/(1+alpha) violation table over alpha={0.2,0.5,0.7,1,2} x q={2,3,5} and Eq17-root uniqueness via monotone f(J)",
+    "inputs/artifacts/exact_small.py and DRAFT Sec4 corroboration: q=2 N=2,3 generator nullspace shows rho0!=J; Gillespie to N=8 is numerics-only context, not part of impossibility proof"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bramson-Liggett 2005 gives product-measure conditions for symmetric exclusion on Z^d and homogeneous trees plus convergence results; hydrodynamic-limit hits concern facilitated/1D TASEP; none treats driven outward ASEP with root entry alpha and leaf exit beta or exact N-to-infinity profile and beta-independence.",
+      "reasoning": "No broader theorem, classification, census, or database exhaustively covers the driven Cayley-tree exact-limit conjunction, so the submitted impossibility is not a special case or corollary of a known stronger fact; BM itself offers only mean-field plus Monte Carlo.",
+      "search": "exclusion process on trees stationary measures hydrodynamic limit classification census database wide; checked fused ranks 1-3,12,15,18-19"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "BM full text offsets 8000-24729: Eq15 Iq=alpha(1-rho0), Eq16 rho_i=Iq/q^i, Eq17 q-th-root equation for rho0, Eq19 q=2 closed form, Eq20 last-level scaling, Fig2 rho0=0.422 at alpha=0.7 versus J=0.405, Fig3 beta-independence claim; all presented as mean-field plus Monte Carlo with no exact-limit theorem and no impossibility statement.",
+      "reasoning": "BM does not prove exact N-to-infinity limits and never states their joint unsatisfiability; the submitted disproof deduces contradiction from exact finite-N conservation plus the target clauses alone, so it is not a recomputation, certificate, or repackaging of a known stronger exact fact.",
+      "search": "Basu Mohanty outward ASEP Cayley tree stationary current density profile Eq.17 Eq.16; full-text read of arXiv:1003.3313v2 all 24729 chars"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over outward ASEP/TASEP on Cayley tree, q-ary tree, Bethe lattice, branching exclusion returned only BM (same object) plus 1D Bethe-ansatz and tree-branch variants with different geometries; none states exact-limit joint unsatisfiability J=r=alpha/(1+alpha) versus (1-J/r)^{1/q}=J/q.",
+      "reasoning": "Checked dual/complement, per-edge versus total-current (Ji=Iq/q^{i+1} vs Iq), per-site versus total density (rho_i=phi_i/q^i), and q=2 cubic forms; the contradiction 0 versus (J/q)^q>0 is invariant under these normalizations and no synonymous formulation covers it as prior art.",
+      "search": "asymmetric simple exclusion process on q-ary tree Bethe lattice mean-field stationary density hydrodynamic profile; outward ASEP Cayley tree equivalents"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database or table records exact N-to-infinity limits Iq or rho_i for this model; BM tables/figures are mean-field and Monte Carlo (e.g. Fig2 N=6-12, Fig3 currents); artifacts provide only finite-N exact solves N=2,3 and certificate table of forced-value gaps 4e-08 to 0.11, all nonzero.",
+      "reasoning": "The exact parameter fact J=r=alpha/(1+alpha) violating Eq17 (e.g. alpha=0.5,q=2: LHS 0 vs RHS 1/6; true Eq17 root 0.33025 vs 1/3) appears in no table or database as a prior exact result; absence is corroborated by full-text search, not by snippet alone.",
+      "search": "q=2 alpha=0.5 Eq17 root J=0.33025 Eq18 Eq19 closed form table; exact stationary current Cayley tree database"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body offsets 8000-24729: Eq16 rho_i=Iq/q^i stated without i>=1 restriction, Eq17 root condition, Fig2 uses rho0=0.422 with J=0.405 (violates rho0=J), Eqs18-21 q=2 forms; text labels analysis mean-field and validation Monte Carlo only; no exact-limit theorem and no statement that the exact conjunction is impossible.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Asymmetric Simple Exclusion Process on a Cayley Tree",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/1003/1003.3313v2.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
