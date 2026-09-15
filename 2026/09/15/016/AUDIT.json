@@ -1,0 +1,247 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Re-ran enumerate_theta.py: genus 3, no bridges, valences 4, no cut vertices, canonical mu=(0.5,0.5) with mu-delta/2=-3/2 non-integral all verified. Independently re-enumerated (v0,mu)-quasistable pseudo-divisors over a wide divisor range: exactly 32 items, rank distribution {0:4,1:12,2:12,3:4}, max rank 3=b1, so script range is complete. Separately checked all 32 satisfy AAP Def 5.1 polystability (strictness only fails on allowed cuts), confirming PSD=QD equality used in Lemma 1. Lemma 1's length-independence holds because beta uses only divisor values, mu, cut sizes; all |F|<=3 are nondisconnecting so cells are simple cubes with length-independent gluing per Props 6.1-6.2. Lemma 2 holds: Aut of 4-parallel-edge banana permutes edges so sorted length tuples (1,1,1,1) vs (1,1,1,2) are non-isomorphic metric blocks. Jacobian volumes 4 vs 7 corroborate. Only-if direction rigorously refuted under stated combinatorial isomorphism reading, which DRAFT explicitly scopes.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, equivalent/C1-set, and stronger-classification/database directions returned only the method sources (AAP 1912.08675, AP 1806.05527, BMV tropical Torelli 0907.3324 and surveys) with no two-sided mu-polystable recovery biconditional. Full-text inspection of AAP confirms it constructs P^trop_mu and proves poset/complex results but never states or tests the admitted biconditional linking complex-isomorphism to metric biconnected-component isomorphism; full-text searches for recover/biconnected/isomorphic-as-polyhedral/C1-set return no covering statement. BMV/Caporaso-Viviani characterize Jacobian fibers via C1-sets and 3-edge-connectivization, a strictly coarser invariant that does not imply the submitted polystable-complex biconditional and contains no polystable-decomposition recovery claim. No table, census, or database lists this biconditional; the counterexample pair is new as a disproof witness.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: a rigorous disproof of the admitted two-sided recovery biconditional is a complete TARGET resolution. The negative outcome is not a cheap defect: both curves satisfy every hypothesis (g=3, bridgeless, stable, biconnected, fixed nondegenerate canonical polarization) and the failure is structural, namely P^trop_mu records only combinatorial type and forgets intra-C1-set length splits while the RHS demands exact edge-lengths, consistent with classical tropical Torelli. The explicit genus-3 banana witness with computed poset (32 cells), distinct Jacobian volumes, and reproducible script changes the plausible boundary for polystable Torelli recovery and is independently worth retrieving.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "AAP universal Jacobian arXiv:1912.08675 (full text: PSD/QD equality under nondegeneracy, Props 5.3-5.6, Thm 5.9, Props 6.1-6.2, Thm 6.6; no recovery biconditional)",
+    "AP universal Jacobian arXiv:1806.05527 (full text: quasistability/beta-formula/ranked poset; no polystable recovery claim)",
+    "BMV tropical Torelli arXiv:0907.3324/Adv.Math.2011 (full text: Jacobian fibers = C1-sets/3-edge-connectivization; coarser invariant, no mu-polystable complex claim)",
+    "Caporaso-Viviani Torelli for graphs/tropical curves (fiber characterization; no polystable-decomposition biconditional)",
+    "Independent re-execution and extension of enumerate_theta.py plus wide-range enumeration and Def-5.1 polystability check (32 items confirmed, PSD=QD verified)"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "BMV Thm 5.3.3: same Jacobian iff same 3-edge-connectivization class (sums lengths over C1-sets); Caporaso-Viviani analogous fiber theorem. AAP Thm 6.6 gives P^trop_mu(X)->J(X) homeomorphism but no converse metric recovery.",
+      "reasoning": "These are strictly broader/coarser statements: they show Jacobians forget intra-C1-set splits, supporting the disproof direction, but none states or implies the submitted biconditional between mu-polystable complex isomorphism and exact metric block isomorphism, so they do not cover the headline disproof.",
+      "search": "Searched stronger-theorem/classification direction: tropical Torelli fibers, C1-sets, 3-edge-connectivization, Jacobian-determines-metric-graph census and database coverage."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "AAP Props 6.1-6.2 + Thm 6.6 show the complex is glued from the PSD poset; beta-formula uses only combinatorial data. Prior work never asserts that this complex determines exact edge-lengths of biconnected components.",
+      "reasoning": "Prior results imply the complex is combinatorially determined (used as a lemma), but they do not imply and in fact are consistent against the falsity of the only-if direction; the submitted refutation (LHS true, RHS false on the banana pair) is a new logical consequence not mechanically contained in those propositions.",
+      "search": "Searched whether PSD/QD theory or Torelli fiber theorems mechanically imply the admitted biconditional or its negation as stated."
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text searches of AAP for biconnected/recover/isomorphic-as-polyhedral/C1-set returned zero matches; quasistable/pseudo-divisor/poset and nondegenerate-equality passages inspected with no block-recovery statement. Torelli sources phrase fibers via C1-sets/2-isomorphism, never via mu-polystable face posets.",
+      "reasoning": "No synonymous, dual, C1-set, or incidence/matrix encoding found in AAP, AP, or Torelli sources states or implies the submitted biconditional; those sources use polystable posets only to construct the complex and C1-sets only for Jacobian fibers, never asserting that complex isomorphism recovers exact metric blocks, so the equivalent-formulation check does not cover the headline disproof.",
+      "search": "Searched equivalent phrasings: quasistable/polystable poset determines metric blocks, C1-set length-split forgetting, dual/complement/incidence encodings of banana/theta graph complex isomorphism."
+    },
+    "exact_database_or_table": {
+      "evidence": "No table, census, or repository entry for the admitted biconditional or the (1,1,1,1)-vs-(1,1,1,2) banana witness was returned by fused providers; machine-readable witness theta_counterexample.json is the new record of the 32-element poset and volumes 4 vs 7.",
+      "reasoning": "The exact parameter configuration (genus-3 banana, 4 parallel edges, canonical d=1 polarization, the two length tuples) does not appear in any prior table or database as a Torelli-recovery counterexample, so no exact-record coverage exists.",
+      "search": "Searched exact objects and parameters: genus-3 theta/banana graph, 4 parallel edges, canonical polarization d=1, length tuples (1,1,1,1) vs (1,1,1,2), 32 quasistable divisors, tropical Jacobian databases."
+    }
+  },
+  "perplexity_final_check": {
+    "base_search_overlap": null,
+    "check_id": "51b6003980a7caf840edf47a0d114d4a9c9bf72af8584e618306b706b751e74d",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Opened arxiv HTML full body (same work as base AAP inspection): Props 5.3-5.6/Thm 5.9 (pol/minimal, PSD=QD under nondegeneracy), Props 6.1-6.2/Thm 6.6 (complex glued from PSD poset, homeomorphism to J(X)), Prop 6.7 refinement J^qs->P^trop_mu. Full-text term search: no statement linking combinatorial P^trop_mu-isomorphism to exact metric-block isomorphism; no banana/theta example; no (1,1,1,1)/(1,1,1,2) lengths; no canonical d=1 falsification.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same object (universal P^trop_mu, mu-polystable divisors) and terminology family, but it constructs the complex and proves the forward homeomorphism, never asserting the submitted two-sided combinatorial-recovery biconditional nor giving the genus-3 banana length-split falsification.",
+        "title": "A universal tropical Jacobian over M g trop",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/1912.08675v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched Cambridge PDF (25pp, 453971 bytes) via proxy and extracted text (87176 chars). Full-text counts: banana 0, polystable 0, length-tuple 0, metric-structure 1, special-pair 25. Inspected Thm 5.1 (QD poset iff pure-graph blocks), Thm 5.3 (arbitrary polarization only weak cyclic equivalence + open Question on QD_mu counterexample), Thm 6.1 with proof: implication is (J^qs(X) cong J^qs(X') as metric polytopal complexes) => metric blocks isomorphic, via f_E preserving l(e) for non-special edges and {l(e1),l(e2)} for special pairs. No mu-polystable biconditional and no banana (1,1,1,1)/(1,1,1,2) example.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Closest prior: quasistable-poset recovery of pure-graph blocks (Thm 5.1) and metric-preserved tropical Torelli (Thm 6.1). It uses QD in degree g-1, not the submitted mu-polystable degree-1 complex, and its tropical direction assumes metric isometry on each polytope, so the submitted combinatorial-isomorphism counterexample with distinct lengths does not satisfy its antecedent and is not covered.",
+        "title": "Forum of Mathematics, Sigma (2025), Vol. 13:e25 1–25",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4436E422C3E97DE350531857A7611560/S205050942400135Xa.pdf/torelli_theorem_for_graphs_via_quasistable_divisors.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Opened Cambridge article landing page (same paper as rank-3 PDF): abstract, Thm 5.1 statement (QD iff pure-graph biconnected blocks) and Thm 6.1 statement (J(X),J(X') as metric polytopal complexes via QD => metric blocks isomorphic). Cross-checked against fetched PDF body above: same theorems, same metric-preserved hypothesis, no mu-polystable biconditional, no banana length-split example.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same-work landing page for the closest quasistable Torelli paper. For the same reason as the PDF, its theorems concern QD/pure graphs and metric-preserved J^qs, not the submitted combinatorial P^trop_mu biconditional, and contain no genus-3 banana falsification.",
+        "title": "A Torelli theorem for graphs via quasistable divisors | Forum of Mathematics, Sigma | Cambridge Core",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/torelli-theorem-for-graphs-via-quasistable-divisors/4436E422C3E97DE350531857A7611560"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Fetched tgtDMJ6.pdf via proxy (355925 bytes) and extracted text (88629 chars). Counts: torelli 46, C1-set 32, 3-edge 51, biconnected 0, polystable 0, quasistable 0, banana 0. Inspected Thm 3.1.1 (Alb(Gamma) cong iff contractions by separating edges are cyclically equivalent/2-isomorphic) and Thm 4.1.10 (same Albanese iff same 3-edge-connected class): both concern Albanese/Jacobian fibers, not the mu-polystable subdivision, and assert forgetting of intra-C1-set splits.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Classical graph/tropical Torelli fiber theorem: same Albanese/Jacobian iff same cyclic/3-edge-connectivization class with total C1-set lengths. It is strictly coarser than exact metric-block recovery, involves no mu-polystable complex, and states no (1,1,1,1)-vs-(1,1,1,2) banana counterexample.",
+        "title": "TORELLI THEOREM FOR GRAPHS AND TROPICAL CURVES",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "http://www.mat.uniroma3.it/users/caporaso/tgtDMJ6.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched AMS2015final.pdf via proxy (457044 bytes) and extracted text (93513 chars). Counts: torelli 53, C1 35, biconnected 0, polystable 0, quasistable 0, banana 0, recover 1. Inspected Thms 5.3.3/5.4.1/5.5.1: same Jacobian iff same 3-edge-connectivization/C1-class (total lengths); survey exposition, no P^trop_mu construction and no exact-block biconditional with banana lengths.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Expository tropical Torelli survey stating the coarser C1-set/3-edge fiber characterization for Jacobians of tropical curves and stable curves. It contains no mu-polystable polyhedral decomposition, no combinatorial-recovery biconditional, and no genus-3 banana length-split witness.",
+        "title": "[PDF] Tropical methods in the moduli theory of algebraic curves.",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "http://www.mat.uniroma3.it/users/caporaso/AMS2015final.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched thesis_Christ.pdf via proxy (776260 bytes) and extracted text (221244 chars). Full-text counts: torelli 2 (bibliography only), biconnected 0, polystable 0, quasistable 12 (Caporaso balanced/stably-balanced line bundles, not QD Torelli), banana 0, parallel-edge 0, special-pair 0, isomorphic-as-poly 0. Recover hits concern combinatorial Picard decomposition/Mg stratification, not metric-block recovery. Inspected Ch.2-3/5.3: break-divisor/balanced-multidegree stratification and Picard maps, no P^trop_mu biconditional and no banana example.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "PhD dissertation on orientations, break divisors and compactified Jacobians. It shares the compactified-Jacobian terminology family but proves no two-sided recovery linking mu-polystable complex isomorphism to exact metric biconnected blocks and contains no banana/theta length counterexample.",
+        "title": "[PDF] Orientations, break Divisors and compacti ed Jacobians",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "https://arcadia.sba.uniroma3.it/bitstream/2307/40412/1/thesis_Christ.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched CompactifiedJacobians.pdf via proxy (381531 bytes) and extracted text (85084 chars). Counts: polystable 39 (phi-polystable sheaves/Namikawa types, Def 3.7, Lemma 3.8), quasistable 3, biconnected 0, banana 0, special-pair 0, isomorphic-as-poly 0, recover 1 (local structure of skeleton, not block recovery). Inspected Thms 1.1/1.4/6.2: Mumford models via break/phi-polystable decompositions parametrizing (S,d) types; no theorem linking complex-isomorphism to metric-block isomorphism and no banana pair.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Original paper on compactified Jacobians as Mumford models with phi-polystable/break-divisor decompositions of the skeleton. It shares the polystable-decomposition object but asserts no two-sided metric-block recovery biconditional and gives no genus-3 banana length-split falsification.",
+        "title": "[PDF] Compactified Jacobians as Mumford models - UT Math",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://web.ma.utexas.edu/users/sampayne/pdf/CompactifiedJacobians.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Fetched msp PDF via proxy (5132472 bytes) and extracted text (79654 chars). Full-text counts: biconnected 0, polystable 0, quasistable 0, banana 0, special-pair 0, isomorphic-as-poly 0, counterexample 0, edge-length 6 (period-matrix construction). Theorem scope: tropical Torelli map via period matrix/Delaunay, fibers over 2-isomorphism/C1 data; no mu-polystable subdivision and no exact-block biconditional with banana lengths.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Foundational tropical Torelli combinatorics (period matrix, Delaunay/C1 fiber description). It supports the structural forgetting of intra-C1-set splits consistent with the disproof direction, but states no mu-polystable-complex recovery biconditional and no (1,1,1,1)-vs-(1,1,1,2) counterexample.",
+        "title": "Combinatorics of the tropical Torelli map - MSP",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://msp.org/ant/2012/6-6/ant-v6-n6-p03-p.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched Brandt thesis PDF via proxy through the returned URL (4784753 bytes) and extracted text (368533 chars). Full-text counts: torelli 9 (general Torelli maps/Schottky), polystable 33 (all strictly-polystable Berkovich models/skeletons, Def 2.3.9 and Ch.2, not polystable divisors), quasistable 0, biconnected 0, banana 0, special-pair 0, isomorphic-as-poly 0, C1-set 0, counterexample 0. No P^trop_mu biconditional and no banana length example in body.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "PhD dissertation on tropical geometry of curves (symmetric powers, skeletons of polystable models, Schottky). Its polystable hits concern model-theoretic skeletons, not mu-polystable divisors/complexes, and it contains no biconnected-block recovery theorem or banana length-split witness.",
+        "title": "[PDF] Tropical Geometry of Curves by Madeline V Brandt - eScholarship",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "https://escholarship.org/content/qt12614656/qt12614656_noSplash_0994afa0e9f3383d6f2c1ee676eb1d9a.pdf?t=qhtt6a"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Landing URL returned bot-challenge page (HTTP 200 challenge, 2015 bytes), so fetched same-item PDF (0nm4157r.pdf, 1122906 bytes) via proxy and extracted text (247259 chars). Full-text counts: torelli 31, C1 36, jacobian 8, biconnected 0, polystable 0, quasistable 0, banana 0, special-pair 0, counterexample 0. Scope: tropical Torelli via period/C1 data and stacky-fan moduli; no mu-polystable subdivision, no exact-block biconditional, no (1,1,1,1)/(1,1,1,2) banana example.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Dissertation-length work on tropical curves and metric graphs with tropical Torelli/C1-set material. It shares the Torelli/Jacobian terminology family at the fiber level but contains no mu-polystable polyhedral decomposition, no two-sided metric-block biconditional, and no genus-3 banana length-split falsification.",
+        "title": "Tropical curves and metric graphs",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://escholarship.org/uc/item/0nm4157r"
+      }
+    ],
+    "rationale": "Terminal search added useful incremental recall beyond the base providers: notably the 2025 Abreu-Pacini quasistable Torelli paper (ranks 3-4, base_overlap false) plus three dissertation/thesis bodies (Christ, Brandt, Chan) and CPS Mumford-models, all opened in full via proxy with body-level parameter/theorem checks. The closest lead (Abreu-Pacini Thm 6.1) requires metric preservation on each polytope and uses QD in degree g-1 for pure graphs, so the submitted combinatorial P^trop_mu degree-1 banana counterexample does not satisfy its antecedent; its special-pair analysis is consistent with the disproof. All other incremental bodies concern coarser C1/3-edge fibers, break/Mumford decompositions, or model-theoretic skeletons, with no mu-polystable biconditional and no (1,1,1,1)-vs-(1,1,1,2) banana witness. Remaining ranks are same-work duplicates (ADS/Wiley/Scispace mirrors of AAP, Cambridge landing vs PDF, Caporaso survey vs arXiv) or keyword-only items (universal-Jacobian tropicalization, ICM moduli, hyperelliptic Schottky, polynomial recovery) with no plausible block-recovery coverage. No COVERS_CLAIM source found, so provisional originality PASS is preserved.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text parameter/term searches (biconnected, recover, isomorphic-as-polyhedral, C1-set: zero matches) plus section inspection of Def 5.1, PSD=QD equality passage, Props 5.3-5.6, Thm 5.9, Props 6.1-6.2, Thm 6.6: constructs complex from poset, never states block-metric recovery biconditional.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "A universal tropical Jacobian over M_g^trop (Abreu-Andria-Pacini-Taboada, arXiv:1912.08675)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/pdf/1912.08675v2"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Theorem-scope comparison: fiber theorem states same principally polarized Jacobian iff same 3-edge-connectivization class (total C1-set lengths); it concerns J(X), not the mu-polystable subdivision, and asserts forgetting of intra-C1-set splits rather than exact block recovery.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "On the tropical Torelli map (Brannetti-Melo-Viviani, Adv. Math. 2011 / arXiv:0907.3324)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/pdf/0907/0907.3324v5.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Section inspection of quasistability/beta-formula and ranked-poset material: provides the enumeration machinery reused by the audit, but states no two-sided claim linking polystable-complex isomorphism to metric biconnected-component isomorphism.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "The universal tropical Jacobian and the skeleton of the Esteves universal Jacobian (Abreu-Pacini, arXiv:1806.05527)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/pdf/1806.05527v1.pdf"
+    }
+  ],
+  "verdict": "PASS"
+}
