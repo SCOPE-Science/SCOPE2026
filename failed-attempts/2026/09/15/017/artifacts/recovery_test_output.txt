@@ -1,0 +1,33 @@
+=== (a) scaling of L^2 norm under Hdot1-preserving dilation ===
+lam=   0.010  ||v||_2 = lam*M0^1/2 ->      0.010   ||grad v||_2 invariant
+lam=   0.100  ||v||_2 = lam*M0^1/2 ->      0.100   ||grad v||_2 invariant
+lam=   1.000  ||v||_2 = lam*M0^1/2 ->      1.000   ||grad v||_2 invariant
+lam=  10.000  ||v||_2 = lam*M0^1/2 ->     10.000   ||grad v||_2 invariant
+lam= 100.000  ||v||_2 = lam*M0^1/2 ->    100.000   ||grad v||_2 invariant
+Conclusion: Hdot1 precompact orbit {lam(t),z(t)} has no uniform L^2 tightness from mass alone.
+
+=== (b) truncated virial error model E_err ~ T*M/R^2 + T*|P|/R + |z|*E/R + tail ===
+V= 0.0 T= 100.0 R=   50.0 |z|=    0.0 err=   1.090
+V= 0.0 T= 100.0 R=  200.0 |z|=    0.0 err=   0.302
+V= 0.0 T= 100.0 R= 1000.0 |z|=    0.0 err=   0.100
+
+V= 0.1 T= 100.0 R=   50.0 |z|=   10.0 err=   1.290
+V= 0.1 T= 100.0 R=  200.0 |z|=   10.0 err=   0.352
+V= 0.1 T= 100.0 R= 1000.0 |z|=   10.0 err=   0.110
+
+V= 1.0 T= 100.0 R=   50.0 |z|=  100.0 err=   3.090
+V= 1.0 T= 100.0 R=  200.0 |z|=  100.0 err=   0.802
+V= 1.0 T= 100.0 R= 1000.0 |z|=  100.0 err=   0.200
+
+Conclusion: to make err << coercive bulk (~T), need R >> T AND R >> |z(T)|.
+With drift |z|~V*T, V=O(1), R must grow superlinearly in T, but then T/R^2 bulk
+and annular error terms swap roles; no fixed R works uniformly without V=o(1)
+(drift hypothesis) and uniform tail/quantile control.
+
+=== (c) center-of-mass transfer X(t)=int x3|u|^2, X'=2Pz ===
+Pz(u0)=0 => center of data fixed. Passing to critical element u_c needs:
+  (i)  well-defined finite momentum of u_c (needs negative regularity / L^2 membership),
+  (ii) uniform spatial tightness to locate z(t) from X(t) (needs quantile-window),
+  (iii) low-frequency tails not to carry the mass centroid (needs low-freq-tail bound).
+Hdot1 compactness supplies none of (i)-(iii). Pz=0 alone does not bound z(t).
+Result: RECOVERY TEST FAILS TO CLOSE -- obstruction confirmed as load-bearing.
