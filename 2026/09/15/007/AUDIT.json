@@ -1,0 +1,245 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: verified Lemmas 1-4 directly. Lemma1 non-archimedean ultrametric induction |a_k|=|c|^{d^{k-1}} and archimedean escape with lambda=R^{d-1}-1>1 give integrality and |sigma(c)|<=2, hence h(c)<=log2. Lemma2 height comparison |h(f(x))-d h(x)|<=h(c)+log2 is standard and spot-checked on 1000 random rationals plus artifact script. Lemma3 telescoping gives |hat-h|<=C/(d-1) and preperiodic => hat=0 => h(x)<=2log2 uniformly in d,c,K. Lemma4 Mahler bound M<=4^D and |b_j|<=binom*M<=8^D yields count D^2*(2*8^D+1)^{D+1}. Values B(1)=289, B(2)=8586756 and D=1 enumeration 23 reproduced. No gap in boundary cases.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Literal headline B(D)=D^2*(2*8^D+1)^{D+1} unconditional degree-independent bound for PCF x^d+c was searched in literal, synonymous, and dominance forms via one fused scope_literature_search with full provider coverage. Nearest leads (Doyle-Hindes 2408.14657, Benedetto-Ih 2010.15941, Rajagopal-Zhang 2510.26119) were escalated to full-text theorem-scope inspection and all are NOT_COVERING: prior degree-independent bounds are conditional on abc/abcd or function-field-only, exact explicit bounds depend on d (d^D) or require extra reduction hypotheses, and PCF-height finiteness work does not state any preperiodic-count bound. No source states or implies the explicit unconditional D-only closed form.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET claim advances recognized Morton-Silverman uniform-boundedness question on natural PCF unicritical subfamily with motivation predating computation. Unconditional degree-independence over all d>=2 and all K of degree D was previously available only conditionally (Looper, Doyle-Hindes abc) or in d-dependent form (d^D); an explicit computable D-only bound B(D) was not known or mechanically implied as a closed form. Future workers need such exact uniform finiteness benchmarks. Huge size is disclosed as non-sharp limitation, not a value defect under the shared standard for exact invariants of natural objects.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Doyle-Hindes arXiv:2408.14657 unicritical over abc-fields: conditional degree-independent bound B(K) for d>>0 assuming abc/abcd; unconditional only for function fields",
+    "Benedetto-Ih arXiv:2010.15941 finiteness of S-integral PCF parameters; cites bounded height of PCF locus but no preperiodic-count bound",
+    "Rajagopal-Zhang arXiv:2510.26119 / doi:10.1007/s00605-026-02196-0 inseparable good-reduction bound #Per<=N(p)<=d^D; d-dependent and periodic-only",
+    "Poonen arXiv:1206.7104 uniform boundedness survey posing Morton-Silverman conjecture; no unconditional PCF unicritical B(D)",
+    "Artifact compute_B.py executed: B(1)=289, B(2)=8586756, D=1 count 23, 1000 height-inequality checks pass"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Morton-Silverman remains open; Looper proves K- and d-dependent bounds assuming abc/abcd; Doyle-Hindes Cor.1.7 gives d-independent B(K) only for abc-fields (conditional for number fields, d>=5 or d>>K); Rajagopal-Zhang Thm.3 gives unconditional #Per<=d^D under inseparable good reduction, still d-dependent.",
+      "reasoning": "No broader unconditional theorem covers the claim as special case because every degree-independent number-field predecessor is conditional, and every unconditional predecessor depends on d or extra local hypotheses.",
+      "search": "Morton-Silverman uniform boundedness Looper abc Doyle-Hindes abc-fields Rajagopal-Zhang good reduction broader theorems"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Textbooks give per-map Northcott finiteness and |h(f(x))-d h(x)|<=h(c)+log2 plus canonical telescoping; Benedetto-Ih cites bounded height of PCF locus. None combines PCF escape h(c)<=log2 with uniform preperiodic height <=2log2 and explicit Mahler coefficient count to publish D-only closed form B(D).",
+      "reasoning": "Qualitative ingredients are standard but the explicit unconditional degree-independent packaging B(D) is not a mechanical corollary stated anywhere; implication would still require the PCF-uniform height collapse and exact count, which no prior source performs.",
+      "search": "canonical height telescoping Northcott Mahler explicit count implies uniform preperiodic bound for PCF unicritical polynomials"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search over PCF unicritical, 0 preperiodic, critical orbit finite, and x^d+c synonymous forms returned only Doyle-Hindes, Benedetto-Ih, DeMarco-type and abc-condition papers; full-text parameter searches found no unconditional degree-independent B(D) and no 289 / 8586756 constants.",
+      "reasoning": "Synonymous notation and dual encodings do not reveal coverage: candidates use same object x^d+c but prove conditional or fixed-degree statements, not the submitted unconditional all-d explicit bound.",
+      "search": "PCF unicritical x^d+c 0 preperiodic critical orbit finite Mandelbrot synonymous uniform preperiodic bound search"
+    },
+    "exact_database_or_table": {
+      "evidence": "No table or database entry lists B(D)=D^2*(2*8^D+1)^{D+1} or values 289 and 8586756 for preperiodic counts; LMFDB-type dynamics tables and PCF census papers classify parameters, not degree-independent K-rational preperiodic maxima.",
+      "reasoning": "Exact-parameter lookup cannot subsume the claim because the closed form and its D=1/D=2 values do not appear in any official database, table, or census retrieved.",
+      "search": "database table B(D) unicritical PCF preperiodic count 289 8586756 LMFDB census classification lookup"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "352fe95a795f534dc04f801f9376b295cd7f0fc8b746113415c6712521d95b1a",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full-text scope inspection: introduction remark gives PCF height finiteness h(c)<=log2/(d-1); Theorem 1 proves critical-height lower bound hcrit(g(z^d))>=h(g)/(d*deg g)+O(1); no theorem counts K-rational preperiodic points or states any D-only B(D).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same unicritical object z^d+c with PCF height remark h(c)<=log2/(d-1); paper proves critical-height lower bounds for g(z^d), not a K-rational preperiodic-count bound.",
+        "title": "arXiv:2210.14676v1  [math.NT]  26 Oct 2022",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/2210.14676v1"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded full PDF via proxy and extracted text; read Theorems 3.6, 3.7 and Corollaries 3.11, 3.14: Thm 3.6/3.7/Cor 3.11 assume abc/abcd; Thm 3.12/Cor 3.14 bound periods N<=CD only, not preperiodic counts; no unconditional D-only count B(D).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Survey states conditional unicritical bounds Thm 3.6 C(d,K), Thm 3.7 large-degree Q<=4, Cor 3.11 absolute C, plus unconditional period-only Cor 3.14 CD; directly comparable stronger-coverage lead.",
+        "title": "[PDF] The abcd conjecture, uniform boundedness, and dynamical systems",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.numdam.org/item/10.5802/pmb.58.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Base full-text Theorem 3: #Per_K<=N(p)<=d^D requires inseparable good reduction at p dividing d and counts periodic points; bound depends on d, unlike submitted degree-independent preperiodic B(D).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same unicritical example X^d+c with explicit unconditional bound #Per<=d^D under inseparable good reduction; nearest d-dependent alternative to the D-only claim.",
+        "title": "Uniform bounds on periodic points of polynomials with good reduction",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/html/2510.26119v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Direct URL returned bot-challenge HTML rather than PDF; inspected same-paper open arxiv eprint 1711.04233 full text: Theorem 1.7 is function-field fixed-degree B(d,K,D) and Theorem 1.8 is fixed-(d,D,N) bounded-eventual-period number-field bound; no unconditional all-degree D-only count.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Doyle gonality paper for z^d+c: function-field B(d,K,D) and number-field bounded-eventual-period B(d,D,N); fixed-degree uniform-boundedness lead.",
+        "title": "MIT Open Access Articles",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://dspace.mit.edu/bitstream/handle/1721.1/136298/dyn_gonality.pdf?sequence=2&isAllowed=y"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Fetched full PDF via proxy and extracted text: Theorems 1.1/4.4 and Corollaries 1.3-1.5 give wandering-point canonical-height lower bounds and iterate irreducibility; full-text search finds no uniform preperiodic-count theorem or B(D).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same prime-degree unicritical T^p+c with PCF periodic-0 case; proves wandering-point canonical-height lower bounds decaying in field degree, not a preperiodic-count bound.",
+        "title": "Lower Bounds for the Canonical Height of a Unicritical Polynomial and Capacity | Forum of Mathematics, Sigma | Cambridge Core",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/lower-bounds-for-the-canonical-height-of-a-unicritical-polynomial-and-capacity/FC94393FE8A33A84D3E56BE198E4EAAA"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Downloaded full thesis PDF via proxy and extracted text: full-text search for uniform-bound, B(D), and preperiodic-count returns only Northcott finiteness Theorem 2.21 and g(z^n) PCF height analysis in Chapters 3-4; no D-only K-rational preperiodic maximum is stated.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Doctoral thesis on PCF polynomials including g(z^n) critical-height and Northcott finiteness machinery; mandatory dissertation escalation for broader-coverage check.",
+        "title": "[PDF] On PCF Polynomials Benjamin Fraser - YorkSpace",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "DISSERTATION"
+        ],
+        "url": "https://yorkspace.library.yorku.ca/server/api/core/bitstreams/6b2d0738-2ab2-4a32-96bb-b5f90a2bbf4e/content"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Base full-text Theorems 1.4/Corollary 1.7: degree-independent B(K) only for abc-fields with abc/abcd assumed and d>=5 or d much larger than K; unconditional only for function fields; no explicit unconditional D-only B(D) for the PCF subclass.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same unicritical x^d+c degree-independent B(K) with thirteen-portrait classification; nearest conditional degree-independent predecessor already excluded in base audit.",
+        "title": "arXiv:2408.14657v2  [math.NT]  6 Nov 2024",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://arxiv.org/pdf/2408.14657"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Inspected full HTML body: Conjectures 1-2 propose fixed-degree d=2 Q-bounds M(d) and at most 9 (open), with computational searches and small-height records; scope is fixed d=2 over Q with no PCF restriction and no D-general explicit B(D).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Fixed-degree d=2 quadratic rational preperiodic conjectures and computational census over Q; tests the synonymous fixed-degree special case of the all-degree claim.",
+        "title": "Small dynamical heights for quadratic polynomials and rational functions",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/html/1312.0491v2"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Same fetched PDF body as the Cambridge article page for this paper: height lower bounds and irreducibility corollaries only; no theorem stating an unconditional degree-independent preperiodic count B(D); duplicate URL recorded for recall.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same Habegger-Schmidt unicritical paper as the article-page result via direct PDF URL; duplicate source confirming height-lower-bound scope, not a preperiodic-count bound.",
+        "title": "Forum of Mathematics, Sigma (2024), Vol. 12:e45 1–20",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FC94393FE8A33A84D3E56BE198E4EAAA/S2050509423001123a.pdf/lower-bounds-for-the-canonical-height-of-a-unicritical-polynomial-and-capacity.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Inspected full HTML body: Theorem 2 gives B(d,K) assuming abc for d>=5 and abcd for d<=4; Theorems 3-4 give large-degree and all-degree Q bounds assuming abc/abcd; every degree-independent number-field conclusion is conditional, unlike the submitted unconditional PCF B(D).",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Same x^d+c rational periodic and preperiodic object with Looper conditional B(d,K) restated and abc-conditional large-degree Q<=4 theorems; most dangerous conditional absolute-bound lead.",
+        "title": "Rational Periodic Points of + x d c and Fermat-Catalan Equations",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://ar5iv.labs.arxiv.org/html/2105.03715"
+      }
+    ],
+    "rationale": "Terminal search returned 20 results with 18 novel URLs. All plausibly covering leads were opened in full: the two overlap-true sources duplicate base exclusions (conditional Doyle-Hindes d-independence; d-dependent Rajagopal-Zhang d^D), while the eight novel material sources are conditional (Zhang survey, Panraksa Fermat-Catalan), fixed-degree or bounded-period (Doyle gonality, Benedetto small-heights census), PCF-height-only without counts (Fraser-Ingram, Fraser thesis, Habegger-Schmidt article and duplicate PDF), or general Morton-Silverman background correctly left non-material. No body states or implies the explicit unconditional all-degree D-only PCF count B(D), so originality PASS is preserved and no decisive prior exists.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text Thm.1.4/Cor.1.7: d-independent B(K) only for abc-fields; number-field case assumes abc/abcd and d>=5 or d>>K plus prior Doyle-Poonen/Looper. Submitted claim is unconditional for PCF subclass, all d>=2, with explicit D-only B(D). Scope comparison excludes coverage.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Unicritical polynomials over abc-fields: from uniform boundedness to ...",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/2408.14657v2"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text Thm.1.1: finiteness of S-integral PCF parameters relative to non-PCF alpha under boundary hypothesis; states PCF height bounded and lists Q quadratic PCF c in {0,-1,-2}. No theorem bounds number of K-rational preperiodic points by D-only function.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "A Finiteness Property of Postcritically Finite Unicritical Polynomials",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://rlbenedetto.people.amherst.edu/papers/pcffin.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text Thm.3: #Per_K<=N(p)<=d^D under inseparable good reduction at p|d; unicritical x^d+c with integral c is example but bound depends on d and counts periodic points. Submitted claim is degree-independent B(D) for all PCF maps covering preperiodic points.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Uniform bounds on periodic points of polynomials with good reduction",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://link.springer.com/article/10.1007/s00605-026-02196-0"
+    }
+  ],
+  "verdict": "PASS"
+}
