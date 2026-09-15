@@ -1,0 +1,124 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Independently re-verified exactly: BM recurrence holds for all 750 equations n=151..900; automaton walk counts match counts900; 687 states/1560 transitions with no dangling edges; D(lo)>0 and D(hi)<0 exactly; N(R)!=0 exactly; gcd(D,N)=1; SCC decomposition is one 518-state block plus 169 transient singletons without self-loops with period gcd 1; Collatz-Wielandt bounds confirm spectral radius in [2.031273417,2.031273419]; Sturm certificate V0=6,Vlo=6,Vhi=5 and Steinberg factorisation with corrected q(t) confirm omega=1.350980337716237.... However the submitted smallest-root uniqueness certificate is invalid as documented: stated majorants M1=3.398/M2=3.127 are false (exact sup|D'| is ~18.03 on [0,1000/2048] and ~19.35 on [1000/2048,lo]), and the 131-cell part-2 cover fails exactly in its last three cells even under sharpest local Lipschitz bounds (at least ~133 cells needed). Hence 'unique smallest positive root R' is true numerically but unsupported by the submitted certificate; bounded evidence fix available.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Three-direction fused literature search plus full-text inspection of all nearest priors shows the exact geodesic datum is new: Kolpakov-Talambutsa (IMRN 2021) infinity-spanned theorems exclude compact [3,5,3] (no infinity labels) with zero full-text matches for [3,5,3]/687/2.03; Antolin-Ciobanu and Kolpakov-Talambutsa (Disc.Math.2020) are right-angled/even scoped, excluding labels 3,5; Kellerhals-Kolpakov (CJM 2014) and NumberDB T223 hold word growth 1.35098... only with zero geodesic content; Parkinson-Yau gives minimality classification with no growth values; Avasjo computations are triangle-group scoped. The 687-state automaton, degree-148 denominator, and rate 2.0312734181... appear nowhere and are not implied by prior results.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route, audited normally. W_[3,5,3] is the minimal-word-growth cocompact tetrahedral reflection group in Isom H^3, motivated before computation. Its exact geodesic growth series (degree-148 denominator, 687-state Brink-Howlett automaton) and certified rate 2.0312734181... (Perron, gap >=0.68 over word growth 1.35098...) were unknown and are not mechanically implied by rationality or Perron generalities. A future researcher could reasonably need this precise series and rate. This is an eligible exact invariant of a specific natural object under the shared standard, not a textbook restatement, parameter substitution, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kolpakov-Talambutsa, Growth rates of Coxeter groups and Perron numbers (arXiv:1912.05608, IMRN 2021): full 21pp body read; infinity-spanned scope excludes compact [3,5,3]; zero matches for [3,5,3], 687, 2.03.",
+    "Kellerhals-Kolpakov, Minimal growth rate of cocompact Coxeter groups in hyperbolic 3-space (CJM 2014): full 20pp body read; word (Salem) growth only, zero matches for geodesic.",
+    "NumberDB T223, Growth rates of hyperbolic Coxeter simplex groups (https://numberdb.org/T223): page body inspected; explicitly word-metric table; [3,5,3] row gives word rate 1.3509803377... only.",
+    "Antolin-Ciobanu, Geodesic growth in right-angled and even Coxeter groups (arXiv:1203.2752): body inspected; right-angled/even scope excludes labels 3,5.",
+    "Parkinson-Yau, Coxeter systems for which the Brink-Howlett automaton is minimal (arXiv:1811.06759): 8pp body read; minimality classification only, no growth values.",
+    "Kolpakov-Talambutsa, Spherical and geodesic growth rates of right-angled Coxeter and Artin groups are Perron numbers (arXiv:1809.09591): body inspected; right-angled scope only, zero matches for 3,5,3.",
+    "Avasjo thesis record, Automata and growth functions of Coxeter groups (dissertations.se/diva2:7820): abstract and record metadata show computations scoped to triangle-group infinite series, disjoint from rank-4 tetrahedral [3,5,3]; full text not retrievable (403/encrypted PDF)."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Kolpakov-Talambutsa theorems require infinity-spanned diagrams so compact [3,5,3] is excluded; Avasjo computations are triangle-group scoped; Parkinson-Yau gives minimality classification with no values; no census or classification lists [3,5,3] geodesic data.",
+      "reasoning": "No broader theorem, object class, census, or classification substantively implies or exhaustively covers the exact [3,5,3] geodesic series; general rationality and Perron results fix only the form, never the coefficients or rate.",
+      "search": "infinity-spanned Coxeter Perron geodesic dominance, hyperbolic Coxeter census classification, Brink-Howlett automatic-structure theses"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior work establishes geodesic-series rationality for all Coxeter groups and Perron plus gamma>omega behaviour for infinity-spanned or right-angled classes, but none computes [3,5,3] coefficients, poles, automaton size, or numerical rate.",
+      "reasoning": "The exact degree-148 denominator, 687-state/1560-transition automaton, and certified rate 2.0312734181... are not corollaries, certificates, or repackagings of any known stronger fact; they required the new certified computation.",
+      "search": "geodesic growth series rationality Perron gamma-greater-omega Coxeter prior theorem implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search under all synonymous names returns Kellerhals-Kolpakov, Bredon-Kellerhals, and NumberDB T223, which hold only word-metric data (rate 1.35098..., polynomial q(t)); none contains a geodesic series, 687 states, degree-148 denominator, or rate 2.03127.",
+      "reasoning": "All equivalent representations and synonymous notations resolve to the same group whose published record is word-growth only; no dual, complement, or relabelled formulation yields the submitted geodesic headline.",
+      "search": "tetrahedral Coxeter group (3,5,3), Witt symbol overline-J3, compact H3 simplex group geodesic growth rate automaton"
+    },
+    "exact_database_or_table": {
+      "evidence": "NumberDB T223 [3,5,3] row gives word growth tau=1.3509803377... with minimal polynomial x^10-x^9-x^6+x^5-x^4-x+1; its definition and Sage generator are explicitly word-metric via Steinberg with no geodesic series or 2.03127 entry.",
+      "reasoning": "The official database covers the word-growth parameter only; the claimed geodesic denominator coefficients, 687-state automaton, and 2.0312734181... rate do not appear in any table or database row.",
+      "search": "NumberDB growth rates hyperbolic Coxeter simplex groups [3,5,3] table Steinberg formula values"
+    }
+  },
+  "repair_instructions": "Recompute the smallest-root uniqueness certificate with correct exact Lipschitz majorants (true sup|D'| is ~18.03 on [0,1000/2048] and ~19.35 on [1000/2048,lo], not the stated M1=3.398/M2=3.127), using enough cells (at least ~133 part-2 cells under the sharp endpoint-Lipschitz argument, or a certified Sturm isolation of the positive roots of D), then update artifacts/smallest_root_cert.json and the verification script so that D>0 on [0,lo] is established by exact rational arithmetic with correct constants. Do not change the group, automaton, series coefficients, headline intervals, or scope.",
+  "residual_risks": [
+    "Brink-Howlett transition-rule correctness is assumed from the literature and validated only on A2 and infinite-dihedral controls, not re-proved; disclosed limitation.",
+    "Avasjo thesis full text not directly retrievable (403/encrypted); its exclusion rests on abstract/record scope (triangle-group computations) plus absence of any [3,5,3] geodesic value across all full-text sources."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "21pp body read: Theorems 1.1-1.2 require an infinity-spanned diagram (spanning tree of infinity labels); compact [3,5,3] has none. Full-text finds for [3,5,3], 687, 2.03 return zero matches; no geodesic series computed.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Growth rates of Coxeter groups and Perron numbers",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1912.05608"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "20pp body read: full-text find for geodesic returns zero matches. Covers word-growth Salem rate ~1.35098 with polynomial q(t) only; no Geo automaton, geodesic series, or 2.03127 value.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "The minimal growth rate of cocompact Coxeter groups in hyperbolic 3-space",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://folia.unifr.ch/documents/302801/files/kell_mgr.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Page body inspected: definition, parameters, and Sage program are explicitly word-metric via Steinberg. [3,5,3] row lists word rate 1.3509803377... and q(t); no geodesic series, state count, or 2.03127 entry.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Growth rates of hyperbolic Coxeter simplex groups - NumberDB",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://numberdb.org/T223"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body inspected: all results scoped to right-angled or even Coxeter systems (labels 2/infinity or even). [3,5,3] carries labels 3 and 5, outside scope; no tetrahedral computation present.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Geodesic growth in right-angled and even Coxeter groups",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1203.2752"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "8pp body read: classifies when the Brink-Howlett automaton is minimal (E equals spherical-support roots). Proves no growth series, denominators, state counts, or rates for [3,5,3].",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Coxeter systems for which the Brink-Howlett automaton is minimal",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1811.06759"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body inspected: Theorems A-E cover right-angled Coxeter/Artin groups only; full-text find for 3,5,3 returns zero matches. [3,5,3] is not right-angled, so the claim lies outside its scope.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Spherical and geodesic growth rates of right-angled Coxeter and Artin groups are Perron numbers",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1809.09591"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
