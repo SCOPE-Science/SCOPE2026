@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: Theorem 1.1 claims F_{d,k}=<psi^k L>_d=I^{log}_{d,k} via Lemma 4.1 weight |det|*C(val+k-1,k) and floor stretching. Lemma 4.1 is false: Blomme-Markwig Prop 3.14 multiplicity is |det|*prod m_V with tropical psi-weight 1 for one marking, no binomial; |det|=1 after floor normalization is false (BM conic has det 2, mult 2*2/2=2). Stretching with n=3d-1-k points does not force floor decomposition. Numerically refuted: reran psi_enum2.py reproducing F=(6,32,858) for (d,k)=(1,1),(2,1),(3,1) vs BM hpsiL=(2,4,60), and F=147 vs 29 for (2,2). Hence F=tropical fails; tropical=log leg is only quoted, not proved.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "No prior states the submitted psi-floor bijection F_{d,k}=<psi^k L>_d. Blomme-Markwig gives WDVV recursion for psi-L and explicitly states no floor-diagram algorithm is known for psi paired with line; Block-Gathmann-Markwig gives psi-floor diagrams only for stationary psi+point; Mandel-Ruddat gives general tropical=log correspondence with no floor side. Full-text inspection confirms none defines or implies the binomial F object, so headline is not recorded or mechanically implied (it is novel but incorrect).",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "A correct floor diagram for non-stationary psi-L would be valuable (BM gap), but submitted F is incorrect per above numerical contradiction, so no reliable exact invariant survives. The k=0 case F_{d,0}=d*N_d is a trivial d-fold copy of classical N_d, mechanically implied. The k>=1 tables are wrong-weight enumerations with no independent interpretation; integrality/finiteness certification alone does not create value under STANDARD.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Blomme-Markwig arXiv:2212.06603 (JLMS 2023) tropical descendant with line constraints: recursion, Props 3.14/3.20/3.25, Lemma 4.1 patterns, Examples 4.3/4.5 values.",
+    "Block-Gathmann-Markwig arXiv:1003.2067 psi-floor diagrams and Caporaso-Harris recursion for stationary psi+point descendants.",
+    "Mandel-Ruddat arXiv:1612.02402 descendant log GW vs tropical correspondence genus-0/non-superabundant.",
+    "Markwig-Rau 0809.1102 tropical descendant GW invariants (stationary WDVV/lattice path) screened via search metadata.",
+    "Re-execution of inputs/artifacts floor_enum.py and psi_enum2.py reproducing classical N_d=1,1,12,620 and draft F tables for direct comparison to BM values."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Mandel-Ruddat covers tropical=log generally without floors; BM Sec 3.1 states no tropical floor/lattice-path algorithm known for psi-L; prior floor results are stationary-only.",
+      "reasoning": "Broader theorems cover the quoted tropical=log leg but none contains the claimed floor-side bijection; the novel F leg is uncovered and, as shown, contradicted by BM values.",
+      "search": "Searched for stronger theorems, broader descendant correspondences, or censuses (Mandel-Ruddat general correspondence, BM WDVV, Cavalieri-Johnson-Markwig-Ranganathan floor diagrams) covering psi-L floors."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "BM Prop 3.14 and Fig 6: multiplicity |det|*prod m_V with det=2 possible and automorphism division 2*2/2=2; floor does not normalize det to 1; point count n=3d-1-k leaves slack breaking cited stretching lemma.",
+      "reasoning": "Prior results imply the opposite of Lemma 4.1: no binomial factor, det varies, and fewer points permit non-floor curves; hence headline is not a corollary but is refuted, not repairable by bounded fix.",
+      "search": "Tested whether BM local multiplicity plus Mandel-Ruddat correspondence substantively implies F=tropical=log as a corollary or certificate."
+    },
+    "equivalent_formulations": {
+      "evidence": "BM Def 2.5/Example 2.6: single psi^k vertex has weight 1; binomial appears only when two markings share a vertex. Block psi-floor concerns psi+point. No source gives C(val+k-1,k) for psi-L.",
+      "reasoning": "No synonymous notation or dual encoding converts stationary psi-floor multiplicity into the draft binomial for psi-L; Lemma 4.1 mis-transfers a stationary weight to the line setting.",
+      "search": "Searched psi-floor, stationary vs non-stationary descendants, psi^k P vs psi^k L, tropical psi-weight and stars-and-bars synonyms in BM and Block full texts."
+    },
+    "exact_database_or_table": {
+      "evidence": "Reran psi_enum2.py: F_{1,1}=6, F_{2,1}=32, F_{3,1}=858, F_{2,2}=147; BM Examples 4.3/4.5: hpsiL_1=2, hpsiL_2=4, hpsiL_3=60, hpsi2L_2=29, hpsi2L_3=54.",
+      "reasoning": "No table lists draft F as psi-L invariants; BM tables directly contradict F, proving F does not equal <psi^k L>_d and the headline equality is false.",
+      "search": "Compared draft F tables (d<=3, all k) against BM explicit computed values and looked for any database table listing psi-L floor numbers."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Inspected Sec 3.1-3.2 and 4.1: states no floor algorithm known for psi-L; multiplicity is |det|*prod m_V only; Examples 4.3/4.5 give hpsiL_1=2, hpsiL_2=4, hpsiL_3=60 and hpsi2L_2=29 vs draft F=6,32,858,147; result is WDVV recursion, not floor bijection.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Tropical descendant invariants with line constraints",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2212.06603"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text search for line constraint returns zero hits; abstract and Sec 1 define psi-floor diagrams for psi-classes together with points (stationary) plus relative Caporaso-Harris; no psi-L object or distinguished L-vertex with binomial weight.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Psi-floor diagrams and a Caporaso-Harris type recursion",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1003.2067"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Theorem scope is genus-0 (and non-superabundant) tropical-log correspondence for general incidence/psi; full-text search for floor diagram returns zero hits; contains no F definition, no L-vertex combinatorics, hence does not imply floor-side equality.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Descendant log Gromov-Witten invariants for toric varieties and tropical curves",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1612.02402"
+    }
+  ],
+  "verdict": "REJECT"
+}
