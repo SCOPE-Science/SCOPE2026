@@ -1,0 +1,108 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET-route proof sketch verified in part: Lemma 2 counting bound is standard and sound; artifact recomputations reproduce (rho_1=1.370137, rho_200=2.566025, tail logB(1000)=-2.42). FAIL for two affirmative defects. (1) Sec.7 distinctness witnesses are uncertified: no Rauzy permutation or winner/loser path is exhibited; admissibility is claimed via 'legal by full-shift property,' but the BG countable shift is not full, and induced fullness presupposes return words. Moreover the matrices cannot be genus>=2 closed-loop Rauzy monodromy: their characteristic polynomials (computed: x^4-6x^3+10x^2-8x+1 and x^4-6x^3+10x^2-207x+1) are non-reciprocal with no eigenvalue 1, incompatible with symplectic closed-loop KZ monodromy, so the (J,r)=(S,R) identification and Livsic non-cohomology step are unproved and headline distinctness from MME is unestablished. (2) The h>1 transfer assumes uniformly bounded connectors over all large symbols from topological mixing alone, which does not give uniformity over the infinite alphabet, so induced Z_1(0,1)=infinity is not established as written.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Three-direction fused search plus mandatory full-text escalation of all five same-object/same-term candidates shows no prior result covering the headline: BG11 and Hamenstadt prove only MME; BCFT18 and Chen-Kao-Park treat compact/rank-1 geodesic flows (different object, no Teichmuller/Zorich content in body); Iommi-Jordan gives abstract suspension criteria citing BG only for MME. The Zorich p-series tail gap P_infty<P for t*phi_geom on the BG suspension is not recorded, mechanically implied, or renamed prior work. No broader census, database entry, or synonymous encoding covers it.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route result: first pressure gap and unique equilibrium states for small nonzero multiples of the geometric potential on the Zorich suspension coding the Teichmuller flow, beyond the known MME. Object (BG coding, geometric potential) and invariant (pressure gap, equilibrium uniqueness) were motivated before computation via recognized open questions on geometry-associated equilibrium states (AIMPL program, Fisher extension problem). It is a new structural lemma/transferable estimate, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bufetov-Gurevich math/0703020v1 (BG coding, MME only; body find 'geometric' empty)",
+    "Hamenstadt 1112.6107 (SFT coding; Sec.5 MME; Thm 4.18 generic SFT Gibbs induction)",
+    "Burns-Climenhaga-Fisher-Thompson doi:10.1007/s00039-018-0465-8 (compact rank-1 geodesic flows)",
+    "Chen-Kao-Park 2209.05719 (rank-1 manifolds with flat-tori singular sets; no Teichmuller/Zorich)",
+    "Iommi-Jordan 1202.0849 (abstract suspension-flow criteria; BG cited for MME only)",
+    "AIMPL equilibrium-states-from-geometry problem list (generalizing BG recorded as open problem)"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "General SPR/Buzzi-Sarig/Climenhaga-Thompson criteria are cited machinery requiring a pressure-gap input; Hamenstadt finite-alphabet coding yields MME only; Iommi-Jordan small-oscillation theorem needs an oscillation bound not established for phi_geom.",
+      "reasoning": "No broader theorem, census, or classification implies the small-t Zorich gap: applying any general criterion to this object requires exactly the missing tail estimate, which is the submitted novelty itself, so there is no subsumption.",
+      "search": "Broader SPR/Buzzi-Sarig/Climenhaga-Thompson machinery, Hamenstadt SFT coding, BG MME, countable-shift census results"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "BG gives t=0 MME only; BCFT18 t in (-infinity,1) uniqueness is for compact rank-1 manifolds; Iommi-Jordan existence needs sup g - inf g < htop - 1/2, never verified for the Zorich roof and geometric increment.",
+      "reasoning": "No prior theorem mechanically implies the claim: the implication would have to pass through the unproved Zorich p-series tail bound or a cross-object transfer that no cited result provides, so the finding is not a corollary or recomputation.",
+      "search": "Whether BG MME, BCFT18 rank-1 uniqueness interval, or small-oscillation existence criteria mechanically imply the Zorich t*phi_geom gap"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search returned only different-object analogues: rank-1 geodesic-flow pressure gaps (BCFT18, Chen-Kao-Park) and abstract suspension criteria (Iommi-Jordan); body finds show no Teichmuller/Zorich/KZ-cocycle statement of a t*phi_geom gap.",
+      "reasoning": "Synonymous encodings (KZ Lyapunov exponents, unstable Jacobian, suspension-vs-flow, SRB vs MME language) do not map any prior theorem hypotheses onto the BG Zorich suspension with t*phi_geom, because every terminologically adjacent result assumes compact rank-1 or finite-alphabet settings.",
+      "search": "Synonymous and dual encodings: KZ-cocycle Lyapunov potential, unstable-Jacobian geometric potential, Teich geodesic-flow equilibrium states, Gurevich pressure at infinity, SPR and Climenhaga-Thompson gap language"
+    },
+    "exact_database_or_table": {
+      "evidence": "No moduli-space database, Lyapunov-exponent table, or pseudo-Anosov census entry for Zorich-suspension Gurevich pressures at infinity or t*phi_geom equilibria was returned; the AIMPL problem page instead records extending BG beyond MME as an open problem.",
+      "reasoning": "The headline P_infty(tJ-s(t)r)<0=P_G is a proved analytic estimate, not a table lookup: no exact parameter or object entry exists that already records this gap, so database coverage fails.",
+      "search": "Moduli-space databases, Kontsevich-Zorich Lyapunov tables, pseudo-Anosov dilatation censuses, thesis tables of Teichmuller equilibrium states"
+    }
+  },
+  "repair_instructions": "Keep the target and pressure-gap core. (a) Replace Sec.7 with certified Rauzy closed loops: name the genus>=2 Rauzy class and base permutation, give explicit winner/loser sequences that start and end at that permutation for two loops (one bounded, one with a deep Dehn-twist block), publish the product matrices, verify primitivity and reciprocal (symplectic) spectra, state the roof/geometric-increment identification for closed loops, and recompute distinct J/r ratios in the artifact. (b) Repair the h>1 transfer: exhibit an explicit infinite admissible return-word family to the Y_w base with induced roof ~log n (or prove a uniform-connector lemma for the chosen base symbol) so induced Z_1(0,1)=infinity follows, then keep the black-box pressure-preservation citation. Rerun both artifacts against the new witnesses.",
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body extraction: Sec.5 proves Lebesgue/MME uniqueness only; Thm 4.18 induces SFT Gibbs states to flow measures in full generality; full-text find for 'geometric potential' empty; no Zorich countable-shift t*phi_geom analysis.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "Symbolic dynamics for the Teichmuller flow (Hamenstadt, 1112.6107)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/1112.6107v2"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text parameter search for 'geometric' returns no matches in body; theorem scope throughout is existence/uniqueness of the measure of maximal entropy via the BG countable coding; no small-t or pressure-gap content.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Existence and uniqueness of the measure of maximal entropy for the Teichmuller flow (Bufetov-Gurevich)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/math/pdf/0703/0703020v1.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body is set on compact rank-1 manifolds (singular set, flat tori); full-text find for 'Teichm' empty; conclusion (unique equilibria for t*phi_geom on an interval) cannot transfer to the noncompact stratum/Zorich suspension object.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Unique equilibrium states for geodesic flows in nonpositive curvature (Burns-Climenhaga-Fisher-Thompson)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://link.springer.com/article/10.1007/s00039-018-0465-8"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text finds for 'Teichmuller' and 'Zorich' empty; Thm A is a shadowing-based criterion for closed rank-1 manifolds with codimension-1 flat tori, and the geometric potential is shown borderline/with phase transition there -- a different object and a non-covering conclusion.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Pressure gaps, geometric potentials, and nonpositively curved manifolds (Chen-Kao-Park, 2209.05719)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/pdf/2209.05719v1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text find: 'Teichmuller flow' occurs only in reference [BG] citation context; theorems concern abstract countable shifts (small-oscillation Thm 6.1, phase-transition examples); no Zorich-roof t*phi_geom pressure gap is proved.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Phase transitions for suspension flows (Iommi-Jordan, 1202.0849)",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/html/1202.0849"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
