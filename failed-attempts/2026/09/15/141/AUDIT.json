@@ -1,0 +1,61 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: proof of explicit C=5, eps0=min{1,lambda/10} with (delta,1) hence (delta,2) over common refinement W plus infinite-compacta extension was verified for shift arithmetic (2K0 round trip + 3K0 sweep = 5K0; delta<lambda/2; Lemma 6.1 finite-p-length convergence and 5-lemma need no pfd) and artifact re-execution passes with Part B honestly labeled ILLUSTRATION ONLY (inequality engine, not spectral transfer). Two essential inferences fail. (A) Lemma 2.2/Section 3 existence: for every thickened-overlap vertex w=(i,j) with W_{i,j}=U^0_i cap V^0_j != empty in host Z, a pair (x_w,y_w) in R with block membership is asserted under K0<rho, but thickened overlap (radius rho=0.1 fixed) does not imply an R-pair (proximity eps~0.002): the triangle bound gives dist~eps+2rho>rho, so many W-vertices have no R-pair and the diameter chase has no carrier. Restricting to R-matched vertices breaks the claimed pullback convergence to PH(VR) (surjectivity without fiber-contractibility/goodness, never proved for arbitrary Borel partitions). (B) Page scope: Prop 6.4/Thm 6.5 give (delta,1) for pullback diagrams over the same K=Delta_W, not for the original E(J_P),E(J_Q) over Delta_P,Delta_Q with different nerves; refinement invariance (Pennig-Torras Sec.7) yields at best page 2, so the headline (delta,1) for the originals is not established. The defects change hypotheses/conclusions and need new refinement/fiber machinery, not a bounded presentation fix.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "TARGET route with no fallback: three-form fused search (literal GH join-model MVSS threshold; Pennig-Torras Prop 6.4/Thm 6.5 equivalent; broader GH MVSS/VR stability dominance) returned 20 items with full per-provider coverage and no partial failure. Full body of the nearest prior (Pennig-Torras 2024, arXiv 2105.03307v2, 33pp, offsets 0-116k of 122k) was inspected: Prop 6.4/Thm 6.5 are abstract same-nerve (eps,K)-carrier transfers with no GH input, mesh mu, explicit C=5, eps0 threshold, or infinite-compacta clause; Example 6.6 assumes a nerve isomorphism plus per-piece Hausdorff closeness and concludes d1_I<=eps with no constants/threshold/GH/mesh; Sec.7 different-cover results give (eps,2) under local vanishing, not the submitted GH VR join-model threshold. No broader census, classification, or table implies the explicit threshold; the combination is not a mechanical corollary or renaming.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The headline, if proved, would be independently retrievable: an explicit GH stability threshold (C=5, eps0 from fixed covering data) for join-model persistent Mayer-Vietoris spectral sequences of Vietoris-Rips filtrations, persisting without pointwise finite-dimensionality, directly advances the stability program posed in Pennig-Torras (blowup stability, different-cover comparison, VR join model avoiding overlap bounds). It is not a textbook restatement, parameter substitution, tiny unmotivated gain, or unexplained enumeration; the object and invariant were motivated before computation and a future researcher could need the precise cutoff. Value is judged separately from the correctness failure above.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pennig-Torras 'Interleaving Mayer-Vietoris spectral sequences' DOI 10.2140/agt.2024.24.4265 / arXiv 2105.03307v2: full-text body inspected (abstract, Secs 2-7 incl. Lemma 3.2, Ex 3.4, Prop 4.2/4.4, Thm 5.2, Prop 6.4, Thm 6.5, Ex 6.6, Thm 7.10, Prop 7.12, Cor 7.13); decisive for originality comparison.",
+    "Fused literature search c14bf77b23f7446fa469c3210814999a: 20 deduplicated results across SerpBase/OpenAlex/Crossref/OpenAIRE for all three normalized directions, partial=false with all per-query provider statuses ok; candidate set screened via snippets/metadata.",
+    "Artifact re-execution: inputs/artifacts/check_shifts.py rerun in-workspace prints ALL REPAIRED CHECKS PASSED; Part A real measurements (n=120, eps_bound 0.0025, rho 0.1, lam 0.1, D=8, W-patch dim 35<=80) checked; Part B explicitly ILLUSTRATION_ONLY for shift arithmetic, not spectral transfer, so no proof-by-simulation.",
+    "Torras thesis record (orca 149745/thesis.pdf) snippet reviewed: general MVSS/filtered-cover scope with no GH/VR-threshold parameters shown; direct PDF fetch returned HTTP 403 bot-challenge HTML (not the thesis), so it was not used to include or exclude coverage; published paper above is the definitive version of that line and was fully inspected."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Strong Approximate Multinerve Thm 5.3 and Sec.7 refinement/interpolation results assume same-space covers with local acyclicity/vanishing and yield geometric-realization or page-2 interleavings with local constants, never a GH cross-space VR join-model (C,eps0) threshold.",
+      "reasoning": "These broader cover-comparison theorems do not exhaustively cover or imply the GH case: different hypotheses (same space, local vanishing), different conclusion (page 2, non-explicit), so the claim is not a special case of them.",
+      "search": "Stronger persistent nerve / multinerve / approximate nerve theorems and stability of covers (Theorem 5.3, Theorem 7.10, Proposition 7.12, Corollary 7.13) for broader object classes or larger parameter ranges"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Example 6.6 scope verified in body: needs identical combinatorics via isomorphism, Hausdorff-close pieces in one ambient space, yields <=eps with no mesh mu, no C>=1, no eps0(mu,data), no common-refinement construction, and tame finite (pointwise finite-dimensional) setting only.",
+      "reasoning": "GH distortion plus quantization, explicit 5K0 budget with Lebesgue threshold, combinatorial refinement W, and the no-pfd infinite extension are not mechanically implied by Example 6.6; implication would require the missing refinement/fiber work, so the headline is not a corollary or repackaging.",
+      "search": "Nearest prior Example 6.6 (point clouds with partitions P,Q, nerve isomorphism phi, per-piece Hausdorff closeness implying d1_I<=epsilon) versus submitted GH/mesh/explicit-threshold/infinite-compacta conclusion"
+    },
+    "equivalent_formulations": {
+      "evidence": "Paper body uses epsilon-acyclic carriers/equivalences and (epsilon,n)-interleavings; Example 4.5 proves Hausdorff (not GH) VR interleaving via sup-carriers; no dual/complement/matrix/incidence-graph encoding in the results restates GH mesh-threshold with C=5.",
+      "reasoning": "Synonymous notation (epsilon-carriers, n-morphisms, Hausdorff vs GH, join vs blowup) was checked against the body; none converts the prior Hausdorff same-space statements into the submitted GH two-space explicit-threshold claim.",
+      "search": "Pennig-Torras epsilon-acyclic carriers and equivalences, (epsilon,n)-interleavings, Hausdorff versus Gromov-Hausdorff correspondence stability for Vietoris-Rips filtrations"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused search found no table, database, thesis record, or repository entry containing the C=5/eps0 join-model GH threshold; the only matching numbers are the submission's own artifact (shift_check_results.json with C=5, eps0=0.01 illustration).",
+      "reasoning": "The precise cutoff is not a direct lookup or recomputation of a tabulated fact; absence from tables supports novelty but was not used alone to pass originality.",
+      "search": "Exact constants C=5 and epsilon0=min{1,lambda/10}, dimension bound (D+1)^2-1, and join-diagram Vietoris-Rips threshold in official databases, tables, theses, or code repositories"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body-level theorem-scope comparison plus full-text parameter search (GH, Vietoris-Rips, threshold, C=, infinite, mesh): Prop 6.4/Thm 6.5 require same nerve K and abstract carriers with no GH/mesh/explicit constants; Ex 6.6 requires nerve isomorphism and per-piece Hausdorff closeness yielding d1<=eps only; Sec.7 gives page-2 comparison under local conditions, not the GH/mesh/C=5/eps0/infinite-compacta threshold.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Interleaving Mayer-Vietoris spectral sequences",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://orca.cardiff.ac.uk/id/eprint/159883/1/Pennig%20Torras.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
