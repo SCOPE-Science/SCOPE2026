@@ -1,0 +1,275 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof verified step by step. Freeness: Fix(S^m) finite hence null for m!=0; rotation fixed-point-free for n!=0. Ergodicity: (1,0)-invariance plus ergodicity of S forces z-measurability, then (0,1)-invariance plus ergodicity of R forces constancy. Spectral singularity: ONB {g_jx1}x{1xe_k}x{g_jxe_k} has each spectral measure supported on the fixed null set N=TxE, E={k alpha} countable, so any maximal spectral type lives on N and is singular vs Lebesgue on T^2; m_Txdelta_0 embedding is the correct mechanism. Kronecker=rotation: Fourier eigenfunction argument using weak mixing of S leaves at most one surviving k, so eigenfunctions are z-measurable; rotation characters give equality. Z_<2=rotation: relative product YxYxZ with SxSxR is ergodic (SxS ergodic since S weakly mixing), so X->Z is relatively weakly mixing; with the admitted premise that Z_<2->Z_<1=Kronecker is a distal tower step, the Furstenberg-Zimmer no-intermediate-distal fact forces Z_<2=Z. Joining lambda=lambda_Yxmu_Z^3 is diagonal-invariant with all three 2D marginals muxmu; f(y,z)=(-1)^{y_0} has mean 0 hence E[f|Z_<2]=0, while triple integral is 1 since a+b+(a+b mod 2) is always even. Simulation re-ran OK. Relied-upon distal-tower/FZ facts are standard black boxes explicitly cited.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Three-direction fused search (literal HKZ-relative-independence claim; Bernstein xor / Bernoulli-rotation / PID-Host-1991 equivalents; stronger HKZ/FZ/distal-census coverage) returned Host 1991, Janvresse-de la Rue PIJ, Gutman et al. PID survey, Leibman HKZ survey and others. Full-body inspection shows none covers the claim: Host 1991 concludes product joining only under weak mixing plus 1D singular spectrum, while the submitted system is by construction non-weakly-mixing with 2D singularity, i.e. outside Host hypotheses; PIJ contains the Bernoulli xor triple but no rotation product, no singularity embedding, no HKZ factor; Gutman restates Host Thm 2.3 with the same weak-mixing hypothesis (Bernoulli/rotation zero hits); Leibman HKZ survey has zero pairwise/singular/spectrum/PID hits. The 2D-singularity-hosts-1D-Lebesgue mechanism plus Bernstein lift plus Z_<2=rotation identification is not stated or implied by any prior source found.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET-route rigorous disproof of the admitted relative-independence-over-Z_<2 conjecture. Object is natural (product of the fair Bernoulli shift and an irrational rotation, the two most classical systems) and motivated before computation; the failure mechanism is structural (2D singularity does not exclude m_Txdelta_0 behaviour hosting a Bernstein pairwise-independent triple-correlated joining in one coordinate), not a type/normalization error, vacuity, tiny-instance mismatch, lookup, or arbitrary parameter fact. Eligible finding form: counterexample changing a classification boundary, with an honest scope limitation (nontrivial-Z_<2 case refuted; trivial-Z_<2 subcase left open) and a sharpness remark guiding repair. Independently worth retrieving for joinings / PID / Host-Kra research.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Host 1991 (doi:10.1007/BF02773866): snippet plus two independent full-text restatements establish scope: every pairwise independent joining of weakly mixing 1D-singular-spectrum systems is independent.",
+    "Janvresse-de la Rue 2008 PIJ (hal-00143357v1 full PDF, 14pp): Bernoulli mod-n xor triple Ex.1.3 plus Host singular-spectrum citation; full-text parameter search excludes HKZ/rotation/distal/relative content.",
+    "Gutman-Huang-Shao-Ye 2016 (arXiv:1612.02873 full PDF, 13pp): Thm 2.3 restates Host with weak-mixing hypothesis; zero Bernoulli/rotation hits; no Z^2 HKZ relative-independence result.",
+    "Leibman HKZ factors survey (people.math.osu.edu/leibman.1/papers/hkz.pdf full PDF, 10pp): characteristic-factor/convergence subject; zero pairwise/singular/spectrum/PID hits.",
+    "DRAFT.md analytic proof plus output/artifacts/bernstein_check.py re-run (seed 20335, BERNSTEIN_CHECK_OK)."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Host PID theorem requires weak mixing; Ryzhikov requires finite rank; HKZ structure theorems describe distal/nilsystem towers but state no pairwise-joining rigidity; Furstenberg-Zimmer dichotomy is used as a lemma, not a covering theorem.",
+      "reasoning": "The submitted non-weakly-mixing infinite-entropy product lies outside Host/Ryzhikov hypotheses, and no broader census or classification found implies the Z_<2-relative-independence disproof; the FZ/HKZ tools enable rather than subsume it.",
+      "search": "stronger PID theorems, finite-rank coverage, HKZ structure/census, distal tower classification subsuming Z^2 singular-spectrum joinings"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Bernoulli xor alone has Lebesgue spectrum (outside singular hypothesis); rotation alone is distal with no such triple correlation; PIJ and Gutman bodies contain neither the TxE null-embedding nor the Z_<2=rotation identification nor integral-1-on-orthogonal-function conclusion.",
+      "reasoning": "The headline needs the new combination (singular-in-2D embedding of 1D Lebesgue factor, relative weak mixing, HKZ distal-tower squeezing, Bernstein lift); it is not a corollary, certificate, or recomputation of any prior fact.",
+      "search": "whether Bernoulli xor example, rotation factor, or Host singular-spectrum theorem alone implies the Z_<2 joining counterexample"
+    },
+    "equivalent_formulations": {
+      "evidence": "Queries covered commuting-pair notation, Tx{k alpha} null support, m_Txdelta_0 embedding, mod-2 xor Bernstein triple, and PID terminology; full-PDF searches for encodings (dual/complement/incidence/matrix/algebraic) found no product-rotation-HKZ combination.",
+      "reasoning": "No synonymous notation or dual encoding discloses the same object: a Z^2-action singular on T^2 yet Lebesgue in one direction, with Z_<2 equal to the rotation coordinate and a pairwise-independent joining of triple correlation 1.",
+      "search": "literal HKZ relative-independence query plus equivalents: commuting transformations, Bernstein xor triple, m_T x delta_0 singular embedding, PID singular spectrum"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused search across SerpBase/OpenAlex/Crossref/OpenAIRE returned papers and surveys only; no official database, table, census, or thesis entry lists this Z^2 action, its HKZ factor, or the xor joining with parameters (E={k alpha}, N=TxE, integral 1).",
+      "reasoning": "The exact parameter/object combination does not already appear in a table or database; the computational artifact only certifies the finite Bernstein marginal already proved analytically.",
+      "search": "exact object in ergodic databases, joinings tables, nilsystem censuses, theses and author pages for Bernoulli-rotation product joining"
+    }
+  },
+  "perplexity_final_check": {
+    "check_id": "f5d2c0abb6d5e54b01e09d633487f481328d816afdabfc7c629b353844bb9c37",
+    "decisive_prior_found": false,
+    "decisive_sources": [],
+    "incremental_prior_found": false,
+    "material_sources": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 6pp PDF converted to text (65KB). Pairwise 12 hits all concern single-transformation order-3 self-joinings and Question 4.5 restricted to zero-entropy ergodic joinings; Bernoulli xor mod-2 construction is the plain Z-action shift example with no rotation factor; singular 3 hits are only the Host citation; zero Host-Kra/Ziegler/nilsystem/Z_<2 hits and no TxE or m_Txdelta_0 embedding. Ledrappier Z2 and relative-factor examples are cited only to distinguish them from the sought 1D object.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Shares the Bernstein xor mechanism, Host singular-spectrum citation, and relatively-independent-joining terminology, but its theorems concern ergodic order-3 self-joinings of single (Z-action) systems with a zero-entropy restriction, not a Z^2 Bernoulli-times-rotation product with Z_<2 equal to the rotation coordinate.",
+        "title": "an introduction to joinings in ergodic theory - Thierry de la Rue",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://delarue.perso.math.cnrs.fr/Publis/PDF/joinings_revised.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full 13pp PDF text. Theorem 2.3 hypotheses require at least d-2 weakly mixing systems with 1D singular spectrum; Lemma 2.5 concerns weakly mixing isometric extensions of PID actions; full-text counts show Bernoulli 0 and rotation 0; no Z^2-action, no TxE null-set embedding, no Z_<2 or Kronecker-equals-rotation identification, and no Bernstein xor joining tensored with a rotation product.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Restates the Host singular-spectrum PID theorem with an explicit weak-mixing hypothesis for single transformations, while the submitted system is by construction non-weakly-mixing with nontrivial Kronecker factor and 2D singularity, hence lies outside those hypotheses and adds a new product-plus-HKZ construction.",
+        "title": "arXiv:1612.02873v2 [math.DS] 9 Jun 2017",
+        "trigger_reasons": [
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/1612.02873"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 123pp PDF text (262KB). Lemma 4.1 and Proposition 4.7 prove relative independence of Furstenberg self-joining coordinate projections over isotropy-factor meets for triple-direction Z^2 averages; DIO/Proposition 4.32 concerns direct integrals of group rotations in sated extensions. Full-text search: Bernoulli 0 in the joining sense, singular 1, pairwise 2, no Bernstein xor triple, no Bernoulli-times-rotation product, no maximal-spectral-type singularity, no Z_<2 joining counterexample.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Shares Z^2-action language, relative independence over factor meets, and two-step pro-nilsystem characteristic factors for directional averages, but proves characteristic-factor structure for the Furstenberg self-joining of averages, not a pairwise-product-marginal 3-fold self-joining evading relative independence over Z_<2.",
+        "title": "[PDF] arXiv:0910.0907v4 [math.DS] 1 Apr 2014",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://arxiv.org/pdf/0910.0907v4"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 8pp PDF text (81KB). Lemma 3.11 proves pairwise independence of direction isotropy factors and their relative independence over Kronecker intersections for commuting pairs; Theorem 2.4 is the Host-Kra characteristic-factor theorem for single-transformation progressions. Full-text counts: singular 0, pairwise-independent-joining 0, Bernoulli 0, xor/Bernstein 0; no spectral hypothesis and no self-joining with product 2D marginals.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Shares commuting Z^2 pairs, Kronecker factors, characteristic/nilsystem factors, and a relative-independence lemma, but that lemma governs isotropy direction factors in a density-increment recurrence proof, not pairwise-independent 3-fold self-joinings over the 2-step Host-Kra factor under spectral singularity.",
+        "title": "ERGODIC-THEORETIC IMPLEMENTATIONS OF THE ROTH",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://combinatorialpress.com/article/ojac/vol8/87.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 32pp PDF text (77KB). Theorem 5.4 states Host singular-spectrum rigidity for finite families of single measure-preserving systems and Corollary 5.5 deduces multifold mixing; Bernoulli/rotation co-occurrence is only the Furstenberg disjointness characterization (Theorem 3.2), and the relatively-independent-joining formula is the generic common-factor construction. No Z^2-action, no HKZ/Z_<2 factor, no TxE embedding, no xor triple tensored with a rotation product.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "States the nearest prior rigidity (pairwise-independent joinings of singular-spectrum systems are product) but scoped to single transformations with 1D spectrum, while the claim is a Z^2 counterexample whose 2D singularity coexists with a Lebesgue direction hosting the Bernstein triple over a nontrivial Z_<2.",
+        "title": "Joinings in Ergodic Theory",
+        "trigger_reasons": [
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://hal.science/hal-02469083v1/document"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 13pp PDF text (32KB). Example 1.3 gives the uniform-Bernoulli mod-n xor triple and Question 1.5 restricts the open problem to zero-entropy weakly mixing processes; full-text search finds rotation 0, Kronecker 0, Host-Kra/Ziegler/nil/distal/relative 0, Z^2/commuting 0, TxE or delta_0 embedding 0. No rotation factor, no product Z^2-action, no HKZ factor appears.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Contains the exact Bernstein xor triple mechanism lifted by the submitted joining, but only for a single Bernoulli shift with no rotation coordinate, no spectral singularity embedding, and no Host-Kra factor identification, so it supplies one ingredient rather than the combined Z_<2 counterexample.",
+        "title": "arXiv:0704.3358v2  [math.PR]  4 May 2007",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.arxiv.org/pdf/0704.3358"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Same DOI paper inspected via author HAL OA copy hal-00020175 (13pp, 42KB text) since the returned EMIS URL serves a bot page. Definition 3.4 defines 3-dot-type joinings, Theorem 3.5 confines them in 1D to periodic or positive-entropy cases, and Section 1.2 treats Ledrappier's Z2 3-dot field. Full-text: rotation/Kronecker 0, Host-Kra/Ziegler/relative-independence 1 passing mention, no irrational-rotation product, no Z_<2, no TxE singularity mechanism.",
+        "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+        "relationship_to_claim": "Shares the mod-2 functional-relation family (3-dot-type) and the Ledrappier Z2 precedent for 2-fold-but-not-3-fold mixing, but proves 1D 3-dot-type counterexamples impossible in the stated class and never forms the Bernoulli-times-rotation product with Z_<2 equal to rotation and triple correlation 1.",
+        "title": "Bull Braz Math Soc, New Series 37(4), 503-521",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://www.emis.de/journals/em/docs/boletim/vol374/v37-4-a5-2006.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full dissertation PDF text (285KB) searched: Host-Kra/Ziegler/nilsystem/characteristic-factor/Kronecker 0, Bernoulli 0, rotation-product or irrational-rotation factor 0, relatively-independent 0; joining 3 hits concern only couplings of trivial identity systems and pairwise 1 hit is the Host citation in the mixing literature review. Chapters concern Diophantine sets, R-limit almost-mixing, and Gaussian mixing-versus-rigidity, with no HKZ joining construction.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "As the returned dissertation it was mandatorily inspected, but its subject is recurrence/mixing largeness, R-limits, and Gaussian rigidity along polynomials, with no Z^2 Bernoulli-rotation product, no Bernstein joining, and no Host-Kra factor relative-independence statement.",
+        "title": "Recurrence and Mixing Properties of Measure",
+        "trigger_reasons": [
+          "DISSERTATION",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1626784438216632&disposition=inline"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 10pp Annals PDF text (213KB) on L2 convergence of arithmetic-progression and cube averages. Theorems build pro-nilsystem characteristic factors Z_k; full-text: singular 1 (bibliographic only), pairwise 1 (pairwise-disjoint invariant sets), Bernoulli 0, xor/Bernstein 0, no pairwise-product-marginal self-joining rigidity theorem and no singular-spectrum joining counterexample.",
+        "inspection_method": "THEOREM_SCOPE",
+        "relationship_to_claim": "Supplies the Host-Kra characteristic-factor and pro-nilsystem machinery used as a cited black box for the Z_<2 distal tower, but proves convergence/characteristicity for single-transformation averages rather than any relative-independence rigidity or counterexample for pairwise-independent joinings over Z_<2.",
+        "title": "Annals of Mathematics, 161 (2005), 397–488",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY",
+          "ORIGINAL_PAPER"
+        ],
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v161-n1-p08.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full survey text (163KB) searched: singular 60 hits concern weighted operators, Rajchman measures, Anzai skew products and SCS properties; PID/pairwise 5 hits are a passing Rokhlin-problem reference to external literature; Bernoulli/rotation/Kronecker hits concern spectral multiplicity and skew products over rotations. No Z^2 product action, no TxE null embedding, no Bernstein xor joining, no Z_<2 or relative-independence theorem.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Overlaps on spectral vocabulary (singular spectrum, Bernoulli, rotation, Kronecker, PID) but as a Koopman/weighted-operator spectral survey with no joining-rigidity theorem and no construction combining a Bernoulli-rotation Z^2 product with a triple-correlated pairwise-independent joining over Z_<2.",
+        "title": "Spectral theory of dynamical systems",
+        "trigger_reasons": [
+          "SAME_PARAMETERS",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://www-users.mat.umk.pl/~mlem/files/KaLe2019survey.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": true,
+        "inspection_evidence": "Full 10pp PDF text (25KB) searched: pairwise/singular/spectrum/PID/Bernoulli/rotation/relatively-independent all 0; subject is characteristic factors and L1 convergence of multiple averages for single transformations. Contains no joining-rigidity statement covering the submitted relative-independence counterexample.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "Shares the Host-Kra-Ziegler factor object and characteristic-factor language, but only for convergence of multiple averages, with no pairwise-independent self-joining, spectral singularity, Bernoulli-rotation product, or Z_<2 relative-independence result.",
+        "title": "[PDF] Host-Kra-Ziegler factors - OSU Math",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_TERM_FAMILY"
+        ],
+        "url": "https://people.math.osu.edu/leibman.1/papers/hkz.pdf"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING",
+        "base_search_overlap": false,
+        "inspection_evidence": "Full 29pp PDF text (63KB) searched: singular 0, pairwise/PID/HKZ/Kronecker/relatively-independent/Z^2 0, Bernoulli 48 and rotation/irrational 33. The mod-2 hits are Markov-chain generator codings (eta/xi mod 2) for the [T,Id] skew-product Bernoulliness proof, not a 3-fold self-joining; the system is a single-transformation skew product over a rotation, not a Bernoulli-times-rotation Z^2 product, with no spectral or HKZ statement.",
+        "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+        "relationship_to_claim": "The most dangerous title-level match (Bernoulli plus irrational rotation) but its object is Bernoulliness of a skew-product extension [T,Id] over a rotation, not a free ergodic Z^2 product action with singular T^2 spectrum, Z_<2 equal to rotation, and a pairwise-independent triple-correlated joining.",
+        "title": "Bernoulliness of [T,Id] when T is an irrational rotation",
+        "trigger_reasons": [
+          "SAME_OBJECT",
+          "SAME_PARAMETERS",
+          "ORIGINAL_PAPER",
+          "HIGHLY_RELEVANT_TITLE"
+        ],
+        "url": "https://hal.science/hal-02272414/file/%5BT,Id%5D-when-T-is-a-rotation-HAL.pdf"
+      }
+    ],
+    "rationale": "Terminal check returned 20 results with 2 base overlaps (Gutman PID paper, Leibman HKZ survey) and 18 incremental URLs. Every snippet/title sharing a material parameter subset and the one dissertation were escalated to full-body inspection (12 material sources); bodies were obtained for all 12 via PDF download plus the HAL OA copy for the EMIS-blocked 3-dot-type paper. The 8 excluded returns were screened as non-material: passing Host citations or bibliography-only snippets (Bergelson-Zelada, AMS endmatter, staircases), generic PID/MSJ surveys with no Z^2/HKZ/rotation-product parameters (citeseerx, scribd), and Kronecker/distal or Sarnak-type papers with no joining-plus-singularity combination (Glasner-Weiss, Kanigowski et al., Mentzen book). No body states or implies the combined headline: a Bernoulli-times-irrational-rotation Z^2 product with T-times-countable null-set singularity, Z_<2 identified with rotation, and a tensored Bernstein xor joining of triple correlation 1. Incremental recall therefore duplicated base themes without adding a decisive prior; originality PASS is preserved with zero unresolved candidates.",
+    "status": "COMPLETE",
+    "verdict_changed": false
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "DOI closed with no OA copy; scope fixed by snippet (weakly mixing singular-spectrum => independent) corroborated by two independent full bodies (Gutman Thm 2.3; PIJ p.2 citation). Submitted system is non-weakly-mixing with nontrivial Kronecker, outside those hypotheses; a non-product joining there is consistent with, not covered by, Host.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Mixing of all orders and pairwise independent joinings of systems with singular spectrum",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1007/bf02773866"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full PDF text searched: singular 2 hits (both Host citation), Bernoulli 6, rotation 0, Host-Kra/Ziegler/nil/distal/weakly mixing-relative/Kronecker 0; Sec.1 Ex.1.3 gives Bernoulli xor triple only, Q1.5 asks about zero-entropy weakly mixing case; no Z^2 action, no spectral embedding, no HKZ factor.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "A Class of pairwise-independent Joinings",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://hal.science/hal-00143357v1/file/PIJ.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full PDF Thm 2.3 restates Host with at-least-d-2 weakly mixing plus 1D-singular hypotheses; counts Host 8, singular 14, Bernoulli 0, rotation 0; subject is PID=>mixing/all-orders and a.s. convergence, with no Z^2-action, TxE embedding, or HKZ-relative-independence construction.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Almost sure convergence of the multiple ergodic average for certain weakly mixing systems",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "http://arxiv.org/abs/1612.02873"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full PDF text: pairwise 0, independent joining 0, singular 0, spectrum 0, PID 0; subject is characteristic factors and L1 convergence of multiple averages, with no joining-rigidity theorem covering the submitted counterexample.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Host-Kra-Ziegler factors (Leibman survey)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY"
+      ],
+      "url": "https://people.math.osu.edu/leibman.1/papers/hkz.pdf"
+    }
+  ],
+  "verdict": "PASS"
+}
