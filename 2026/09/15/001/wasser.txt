@@ -1,0 +1,1779 @@
+arXiv:2309.16017v1 [math.DG] 27 Sep 2023
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+FRANCIELE CONRADO AND DETANG ZHOU
+Abstract. Let (M n , g, f ) be a Ricci shrinker such that Ricf = 21 g and
+n
+the measure induced by the weighted volume element (4π)− 2 e−f dvg is
+a probability measure. Given a point p ∈ M , we consider two probability measures defined in the tangent space Tp M , namely the Gaussian
+measure γ and the measure ν induced by the exponential map of M
+to p. In this paper, we prove a result that provides an upper estimate
+for the Wasserstein distance with respect to the Euclidean metric g0
+between the measures ν and γ, and which also elucidates the rigidity
+implications resulting from this estimate.
+
+1. Introduction
+A complete smooth metric measure space (M n , g, f ) refers to a complete
+n-dimensional Riemannian manifold (M n , g) accompanied by a smooth function f defined on M . The Bakry-Émery Ricci curvature of a complete
+smooth metric measure space (M n , g, f ) is defined as:
+Ricf = Ricg + ∇2 f
+where ∇2 f represents the Hessian of f and Ricg represents the Ricci curvature of (M, g). A complete smooth metric measure space (M n , g, f ) is
+referred to as a shrinking gradient Ricci soliton or simply a Ricci shrinker
+if:
+1
+g
+Ricf =
+2τ
+for some positive constant τ . In this case, the function f is referred to as a
+potential function of the Ricci shrinker.
+It is worth noting that any Einstein manifold with positive scalar curvature, combined with a constant function, is considered a Ricci shrinker. An
+2
+important example of a Ricci shrinker is the Gaussian shrinker (Rn , ge , |x|4 ),
+where ge represents the Euclidean metric and the potential function is given
+2
+by f (x) = |x|4 for x ∈ Rn . Another example of a Ricci shrinker is the
+cylinder Ricci shrinker (Sn−k (r) × Rk , gc , fc ) with the product metric gc and
+2
+potential function fc (x, y) = |y|4 , where (x, y) ∈ Sn−k (r)×Rk . Here, Sn−k (r)
+F. Conrado was partially supported by CNPq/Brazil [Grant: 151430/2022-5].
+D. Zhou was partially supported by CNPq/Brazil [Grant: 305364/2019-7, 403344/20212] and FAPERJ/ Brazil [Grant: E-26/200.386/2023, E-26/210.120/2020].
+1
+
+2
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+denotes the (n − k)-dimensional round sphere of radius r =
+with k ≥ 1 and n − k ≥ 2.
+
+p
+
+2(n − k − 1),
+
+The study of Ricci shrinkers lies at the intersection of critical metrics
+and geometric flows, and it has been extensively studied, yielding numerous
+significant results. In dimensions 2 and 3, all Ricci shrinkers have been
+completely classified. Hamilton [15] demonstrated that any 2-dimensional
+Ricci shrinker is either isometric to R2 or a finite quotient of S2 . Additionally,
+Cao, Chen, and Zhu [2], Naber [25], and Ni and Wallach [26] established that
+any 3-dimensional Ricci shrinker is isometric to a finite quotient of R3 , S3 ,
+or S2 × R.
+In higher dimensions, the classification of gradient shrinking Ricci solitons
+becomes more complex, especially due to the Weyl tensor’s involvement. In
+the four dimensional case, some classification results have been obtained under specific conditions. Locally conformally flat solitons are finite quotients
+of S4 , R4 , or S3 × R. Half-conformally flat solitons are finite quotients of S4 ,
+CP2 , R4 , or S3 × R. Bach-flat solitons are either Einstein or finite quotients
+of R4 or S3 × R. Under certain vanishing conditions on the Weyl tensor,
+solitons can be classified as Einstein or finite quotients of specific spaces.
+Notably, the classification of four-dimensional Ricci shrinkers with constant
+scalar curvature has recently been fully achieved through the works of Peterson and Wylie [28], Fernández-López and Garcı́a-Rı́o [14], and Cheng
+and Zhou [10]. These studies have established that any 4-dimensional Ricci
+shrinker with constant scalar curvature is isometric to one of the following:
+an Einstein manifold, a finite quotient of R4 , S2 × R2 , or S3 × R.
+More partial classification results regarding Ricci shrinkers in higher dimensions can be found in the works mentioned, including [3], [5], [12], [13],
+[17], [23], [26], [29], and [36]. These contributions have shed light on the
+understanding of Ricci shrinkers beyond dimension four, but a complete
+classification is still an ongoing research endeavor.
+The question of rigidity in geometry pertains to whether a particular
+geometric object is uniquely determined within its moduli space. Rigidity
+results aim to describe how “rigid” a given geometric structure is, i.e., how
+few variations or deformations it allows. In the context of Ricci shrinkers,
+there are some interesting rigidity results. In this paper, we are only interested in rigidity results for non-compact Ricci shrinkers. For the compact
+case, see some important works [16], [18], [19], [22] and [31].
+Let us list several types of different and related results. Firstly Yokota,
+as referenced in [34] and [35], used techniques for estimating the reduced
+volume to prove a result regarding Ricci shrinkers with entropy close to
+zero. Yokota demonstrated that any Ricci shrinker (M n , g, f ) with entropy
+2
+sufficiently close to zero is actually the Gaussian shrinker (Rn , ge , |x|4 ). In
+particular, this result proves the Carrillo–Ni conjecture, which states that
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+3
+
+the Gaussian shrinker is the only Ricci shrinker with zero entropy (see [6],
+Remark 7.2).
+Secondly, Li and Wang [21] proved a rigidity result for Ricci shrinkers close
+to the cylinder Ricci shrinker (Sn−1 (r) × R, gc , fc ). They showed that if a
+Ricci shrinker is sufficiently close to the cylinder shrinker in the pointedGromov-Hausdorff topology, then it must be the cylinder shrinker itself.
+This result implies that the cylinder Ricci shrinker is isolated in the moduli
+space of all Ricci shrinkers with the pointed-Gromov-Hausdorff topology.
+Lastly, Cheng and Zhou [9] proved that the spectrum of the drift Laplacian on a Ricci shrinker is discrete and there is a sharp lower bound for the
+first nonzero eigenvalue, and equality is achieved if and only if the shrinker
+splits off a line.
+Colding and Minicozzi [11] showed a result known as propagation of almost splitting. It states that if a Ricci shrinker almost splits on one scale,
+it also almost splits on larger scales. More precisely, if a Ricci shrinker is
+sufficiently close to the cylinder Ricci shrinker (Sn−k (r) × Rk , gc , fc ) within
+a large compact set, then it must be the cylinder shrinker itself.
+To summarize, these rigidity results for non-compact Ricci shrinkers include the isolation of the cylinder shrinker in the moduli space, the confirmation of the Carrillo-Ni conjecture by Yokota’s work, the discreteness of
+the spectrum of the drift Laplacian, and the propagation of almost splitting
+property. The references mentioned, such as [16], [18], [19], [22], [31], [21],
+[34], [35], [6], [9] and [11], likely correspond to specific papers or sources that
+contain the complete details and proofs of the results discussed.
+R
+n
+Let (M n , g, f ) be a Ricci shrinker such that M (4π)− 2 e−f dvg = 1 and
+Ricf = 12 g, where dvg denotes the volume element of (M n , g). Given a
+point p ∈ M , it is well-known that there is a domain Ω ⊂ Tp M such that
+expp Ω : Ω → M \ C(p) is a diffeomorphism, where C(p) denote the cut-locus
+of p.
+Definition 1. The measure ν on Tp M induced by the exponential map of
+M to p is defined by
+n
+
+ν = (4π)− 2 χΩ e−f dvg
+where g and f denote the pullback of g and f by the map expp Ω : Ω →
+M \ C(p), respectively. Here, χΩ denotes the characteristic function of Ω.
+In this paper, we will consider two probability measures defined in the
+tangent space Tp M , namely the Gaussian measure γ and the measure ν
+induced by the exponential map of M to p. Both measures are probability
+measures with finite second moments with respect to the Euclidean metric
+g0 . Furthermore, the measure ν is absolutely continuous with respect to γ.
+
+4
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+The Wasserstein distance quantifies the dissimilarity or discrepancy between probability measures, taking into account the underlying geometry of
+the space (see Section 2 for more details). The main result of this paper is a
+theorem that provides an upper estimate for the Wasserstein distance Wg0
+between the measures ν and γ. It not only provides an upper bound for
+the Wasserstein distance between ν and γ, but also elucidates the rigidity
+implications resulting from this estimate.
+Theorem 1.1. Let (M n , g, f ) be a Ricci shrinker such that Ricf = 12 g and
+R
+−n
+2 e−f dvg = 1. Then, for any point p ∈ M , the Wasserstein distance
+M (4π)
+between the probability measure ν on Tp M and the Gaussian measure γ on
+Tp M satisfies
+1 2
+W (ν, γ) ≤ αef (p)−µg + f (p) − µg
+(1.1)
+4 g0
+where µg denotes the entropy of the Ricci shrinker (M n , g, f ), α is a nonnegative constant depending only on the dimension n, and nonnegative constants
+a and b such that
+r 2 (x)
+(1.2)
+f (x) ≥
+− ar(x) − b
+4
+for every x ∈ M . Here, r(x) = dg (p, x) is the geodesic distance function
+to the point p. Moreover, if the equality holds in (1.1) then a = b = 0 and
+2
+(M n , g, f ) is (Rn , ge , |x−p|
+4 ), i.e., the Gaussian shrinker up to a translation.
+Remark 1.1. Cao and Zhou [4] proved that the potencial function a Ricci
+shrinker always admits Gaussian upper and lower estimates, in particular,
+this result guarantees the existence of nonnegative constants a and b satisfying (1.2). Furthermore, the nonnegative constant α = α(n, a, b) has an
+explicit form that involves functions with expressions similar to the Gamma
+functions, and satisfies α = 0 if a = b = 0 (see Section 4 for the exact
+expression of α).
+There are two key ingredients in the proof of Theorem 1.1. The first
+one is a generalization of the Talangrand inequality obtained by combining
+results from Otto and Villani [27], and Bakry and Émery [1]. This inequality
+gives us a lower bound for the Wasserstein distance between a probability
+measure with finite second moments ν associated with a complete smooth
+metric measure spaces (M n , g, f ) with Ricf ≥ ρg for some positive constant
+ρ, and any other probability measure with finite second moments that is
+absolutely continuous with respect to ν. In Theorem 3.1 of this paper, we
+prove that for (M n , g, f ), the assumption of Ricf ≥ ρg for some constant
+ρ > 0 implies that a measure ν = e−f dvg has finite moments of all orders,
+in particular, has second finite moments. So combining the Theorems of
+Otto-Villani and Bakry-Émery, we have the following.
+Theorem 1.2. Let (M n , g, f ) be a complete smooth metric measure space
+such that ν = e−f dvg is a probability measure and Ricf ≥ ρg, for some
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+5
+
+ρ > 0. Then the Wasserstein distance Wg between ν and any probability
+measure with finite second moments η absolutely continuous with respect to
+ν, satisfies:
+ 
+Z
+dη
+2
+log
+dη.
+Wg2 (η, ν) ≤
+ρ M
+dν
+We apply Theorem 1.2 to the Ricci shrinker (Tp M, g0 ,
+ 
+Z
+dν
+2
+dν.
+(1.3)
+Wg0 (γ, ν) ≤ 4
+log
+dγ
+M
+
+|x|2g0
+4 ), and we obtain
+
+The second ingredient is the technique for the volume growth for geodesic
+balls developed by Cheng, Ribeiro e Zhou in [8], which allows us to obtain an
+upper bound for the density function dν
+dγ . Combining this lower bound, with
+estimate (1.2) for the potential function f and inequality (1.3), we obtain
+estimate (1.1).
+On each Ricci shrinker, the potential function always attains its minimum
+value at some point (see [4]), which can be chosen as the base point. Then,
+as a consequence of Theorem 1.1 we have the following result.
+Corollary 1.1. Let (M n , g, f ) be a Ricci shrinker such that Ricf = 21 g and
+R
+−n
+2 e−f dvg = 1. Then, if f attains its minimum value at point p ∈ M ,
+M (4π)
+the Wasserstein distance between the probability measure ν on Tp M and the
+Gaussian measure γ on Tp M satisfies
+1 2
+W (ν, γ) ≤ αeRg (p) + Rg (p)
+4 g0
+where Rg denotes the scalar curvature of g, α is a nonnegative constant
+depending only on the dimension n, and nonnegative constants a and b such
+that
+r 2 (x)
+f (x) ≥
+− ar(x) − b
+4
+for every x ∈ M . Moreover, if the equality holds then a = b = 0 and
+2
+(M n , g, f ) is (Rn , ge , |x−p|
+4 ), i.e., the Gaussian shrinker up to a translation.
+An interesting observation is that the inequalities obtained in Theorem
+1.1 and Corollary 1.1 are optimal in the sense that the equalities hold
+2
+for the Gaussian (Rn , ge , |x|4 ) up to a suitable translation and conversely,
+these equalities imply that the Ricci shrinker must be the Gaussian shrinker
+2
+(Rn , ge , |x|4 ) up to a translation.
+The article is organized as follows. In Section 2, we fix some notations
+and recall key definitions and necessary results in our arguments. Theorem
+1.2 is found in Section 3, where we prove that the measure associated with
+a complete smooth metric measure space with a positive lower bound under
+Bakry-Émery Ricci curvature has finite moments of all orders. Finally, in
+
+6
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+Section 4, we present the proof of the main Theorem 1.1 and some of its
+consequences.
+Acknowledgment. The first author would like to thank the Conselho Nacional de Desenvolvimento Cientı́fico e Tecnológico (CNPq) for the financial
+support and the Instituto de Matemática e Estatı́stica at the Universidade
+Federal Fluminense for the hospitality during her postdoctoral studies.
+2. Preliminaries
+In this section, we fix some notations and recall fundamental definitions
+and necessary results concerning Ricci shrinkers and the Wasserstein distance for a better understanding of the subsequent sections.
+2.1. Ricci shrinkers. Sometimes we refer to a Ricci shrinker (M n , g, f )
+1
+g simply as a τ -Ricci shrinker. It is well-known that
+such that Ricf = 2τ
+any Ricci shrinker (M n , g, f ) has nonnegative scalar curvature Rg ≥ 0 (see
+[7]). Furthermore, by the maximum principle, we have that Rg > 0 unless
+Rg ≡ 0, and (M n , g) is isometric to (Rn , ge ) (see [30], Theorem 3).
+Example 1. Let (M n , g) be a complete Riemannian manifold and fix point
+p ∈ M . The triple (Tp M, g0 , f0 ), where g0 is the Euclidean metric on Tp M
+|x|2
+
+n
+
+and f0 (x) = 4g0 , is a 1-Ricci shrinker. The measure γ = (4π)− 2 e−f0 dvg0
+on Tp M is a probability measure and is called the Gaussian measure.
+Let’s recall some useful facts about full Ricci shrinkers.
+Theorem 2.1 (Hamilton, [15]). Let (M n , g, f ) be a τ -Ricci shrinker. Then
+there is a constant C such that
+τ (Rg + |∇f |2 ) = f + C.
+The following theorem gives us an estimate for the potential function of
+a noncompact Ricci shrinker.
+Theorem 2.2 (Cao and Zhou, [4]). Let (M n , g, f ) be a noncompact 1-Ricci
+shrinker with f = |∇f |2 + Rg . Fix a point p ∈ M and consider the distance
+function r(x) = dg (x, p), x ∈ M . Then
+1
+1
+(r(x) − c)2 ≤ f (x) ≤ (r(x) + c)2
+4
+4
+for every x ∈ M with r(x) sufficiently large, where c is a positive constant
+depending only on n and the geometry of g on the unit ball B1 (p).
+Remark 2.1. It follows from previous theorem that the potential function of
+a Ricci shrinker attains a global minimum.
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+7
+
+Let (M n , g, f ) be a τ -Ricci shrinker. Its f -volume is defined by
+Z
+n
+(4πτ )− 2 e−f dvg .
+Vf (M ) =
+M
+
+It was proved by Cao and Zhou in [4] that Vf (M ) is finite. Then, the
+entropy of the Ricci shrinker is given by
+µg = log Vf (M ) − C,
+where C ∈ R is the constant given in Theorem 2.1. Note that the entropy
+of the Gaussian shrinker is equal to zero. In [34] and [35], Yokota proved
+that µg ≤ 0 and a gap theorem showing how the entropy is involved with
+the global geometry.
+Theorem 2.3 (Yokota, [34] and [35]). There is a positive number ǫ = ǫ(n) >
+0 depending only on the dimension n with the following property: Any Ricci
+2
+shrinker (M n , g, f ) with µg ≥ −ǫ is the Gaussian shrinker (Rn , ge , |x|4 ).
+The above theorem states that the entropy of a nonflat Ricci shrinker cannot be too close to zero. Observe that as a consequence of the above theorem
+we have the Gaussian shrinker is the only Ricci shrinker with entropy equal
+to zero.
+Remark 2.2. Let (M n , g, f ) be a τ -Ricci shrinker. Then, the quantity µg
+satisfies
+τ (Rg + |∇f |2 ) = f + log Vf (M ) − µg .
+In particular, we have Vf (M ) = 1 if and only if
+τ (Rg + |∇f |2 ) = f − µg .
+Example 2. Consider the cylinder Ricci shrinker (Sn−k (r) × Rk , gc , fc ). In
+this case, we have that
+ 
+
+
+2π
+(n − k)
+log
++1 ,
+µgc = log ωn−k −
+2
+n−k−1
+where ωn−k denotes the area of the unit (n − k)-dimensional sphere.
+
+2.2. The Wasserstein distance. Let (M n , g), n ≥ 2, be a complete Riemannian manifold with the distance dg induced by Riemanniann metric g.
+Recall that a measure ν on M has finite k-moments with respect to g (k > 0),
+if
+Z
+dkg (p, .)dν < +∞
+M
+
+for some (and hence any) p ∈ M . Denote by P(M ) the set of all Borel
+probability measures on M and Pk (M, g) the set of all Borel probability
+measures on M with finite k-moments with respect to g.
+
+8
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+Remark 2.3. Let B ⊂ M be a Borel set. Observe that if ν ∈ Pk (M, g) then
+ν|B ∈ Pk (M, g). Here ν|B is the restriction of ν to B, i.e.,
+χB
+d ν|B =
+dν.
+ν(B)
+Given ν, η ∈ P(M ), we say that π ∈ P(M × M ) is a coupling of (ν, η) if
+π(A × M ) = ν(A)
+
+and π(M × A) = η(A)
+
+for every Borel set A ⊂ M . We denote by Π(ν, η) the set of all coupling of
+(ν, η). For any η, ν ∈ P(M ) we have that Π(ν, η) 6= ∅ because the product
+measure ν × η is a coupling of (ν, η).
+Recall that the Wasserstein distance between two measures η, ν ∈ P2 (M, g)
+is given by
+
+(2.1)
+
+Wg (η, ν) =
+
+
+
+inf
+
+Z
+
+π∈Π(η,ν) M ×M
+
+1
+
+d2g (x, y)dπ(x, y)
+
+2
+
+.
+
+A coupling π ∈ Π(η, ν) is said to be optimal if it attains the infimum in
+(2.1). For any η, ν ∈ P2 (M, g) we have that Wg (η, ν) is finite and an optimal
+coupling always exists (see [32], Chapter 4). Moreover, (P2 (M, g), Wg ) is a
+complete and separable metric space (see [32], Chapter 6).
+Example 3. Fix a point p ∈ M and consider δp the Dirac measure at p.
+For any ν ∈ P2 (M, g), the product measure δp × ν is the only coupling of
+(δp , ν), which therefore is optimal, and then
+1
+Z
+2
+2
+dg (p, .)dν
+Wg (δp , ν) =
+.
+M
+
+In particular, for any q ∈ M we have
+Wg (δp , δq ) = dg (p, q).
+Remark 2.4. Observe that there is a natural isometric immersion of (M, dg )
+into (P2 (M, g), Wg ), namely the map x 7→ δx .
+Consider now a complete smooth metric measure space (M n , g, f ) such
+that ν = e−f dvg ∈ P(M ). Recall that if η ∈ P(M ) is absolutely continuous
+with respect to ν, we define its relative entropy with respect to ν by
+ 
+Z
+dη
+dη
+log
+H(η|ν) =
+dν
+M
+and, we define its relative Fisher information with respect to ν by
+ 2
+Z
+dη
+dη.
+∇ log
+I(η|ν) =
+dν
+M
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+9
+
+We say that ν satisfies a logarithmic Sobolev inequality with constant
+ρ > 0, or satisfies LSI(ρ) for short, if for all measure η ∈ P(M ) absolutely
+continuous with respect to ν, we have
+H(η|ν) ≤
+
+1
+I(η|ν).
+2ρ
+
+If ν ∈ P2 (M, g), we say that ν satisfies a Talagrand inequality with constant ρ > 0, or satisfies T(ρ) for short, if for all measure η ∈ P2 (M, g)
+absolutely continuous with respect to ν, we have
+Wg2 (η, ν) ≤
+
+2
+H(η|ν).
+ρ
+2
+
+Talagrand proved that if (M n , g, f ) is the Ricci shrinker (Rn , ge , |x|2 +
+n
+2 log(2π)) então ν satisfies a Talagrand inequality with constant ρ = 1. In
+[27], Otto and Villani generalized this Talagrand result to a very wide class
+of complete smooth metric measure space: namely, all complete smooth
+metric measure spaces (M n , g, f ) with ν ∈ P2 (M, g) satisfying the logarithmic inequality of Sobolev for some positive constant and lower bounded
+Bakry-Émery Ricci curvature. More precisely, they proved the following
+result.
+Theorem 2.4 (Otto and Villani, [27]). Let (M n , g, f ) be a complete smooth
+metric measure space such that ν = e−f dvg is a probability measure with
+finite second moments and Ricf ≥ cg, for some c ∈ R. If ν satisfies LSI(ρ)
+for some ρ > 0, then it also satisfies T(ρ).
+We now recall a well-known sufficient condition for the measure ν to
+satisfy the logarithmic Sobolev inequality.
+Theorem 2.5 (Bakry and Émery, [1]). Let (M n , g, f ) be a complete smooth
+metric measure space such that ν = e−f dvg is a probability measure and
+Ricf ≥ ρg, for some ρ > 0. Then ν satisfies LSI(ρ).
+As a consequence of theorems 2.4 and 2.5 we have the following result.
+Theorem 2.6. Let (M n , g, f ) be a complete smooth metric measure space
+such that ν = e−f dvg is a probability measure with finite second moments and
+Ricf ≥ ρg, for some ρ > 0. Then ν satisfies T(ρ), i.e., for any probability
+measure with finite second moments η absolutely continuous with respect to
+ν, we have
+ 
+Z
+dη
+2
+2
+(2.2)
+Wg (η, ν) ≤
+log
+dη.
+ρ M
+dν
+For more details on the Wasserstein distance see [32].
+
+10
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+3. Finiteness of k-moments
+In this section, we consider a complete smooth metric measure space
+(M n , g, f ) with Ricf ≥ ρg, for some ρ ∈ R. We will use the technique for
+the volume growth for geodesic balls developed in [8] and the MunteanuWang’s estimate for the potential function f obtained in [24]. As a special
+case we have the following result.
+Theorem 3.1. Let (M n , g, f ) be a complete smooth metric measure space
+such that Ricf ≥ ρg, for some constant ρ > 0. Then ν = e−f dvg has finite
+k-moments with respect to g, for every k > 0.
+Remark 3.1. It follows from Theorem 3.1 that the hypothesis of finiteness
+of the second moments under measure ν on Theorem 2.4 is superfluous for
+(2.2). So combining the Theorems 2.6 and 3.1, we have the following result.
+Theorem 3.2 (Theorem 1.2). Let (M n , g, f ) be a complete smooth metric
+measure space such that ν = e−f dvg is a probability measure and Ricf ≥ ρg,
+for some ρ > 0. Then ν has finite second moments, and for any probability
+measure with finite second moments η absolutely continuous with respect to
+ν, we have
+ 
+Z
+dη
+2
+2
+log
+dη.
+Wg (η, ν) ≤
+ρ M
+dν
+Theorem 3.1 is a consequence of the following general result.
+Proposition 3.1. Let (M n , g, f ) be a complete smooth metric measure space
+with Ricf ≥ ρg, for some ρ ∈ R. Fix a point p ∈ M and consider the distance
+function r(x) = dg (x, p), x ∈ M . Then, there exist constants r0 , A, B, C > 0
+such that
+Z R
+Z
+ρr 2
+(ϕ ◦ r)e−f dvg ≤ Aϕ(r0 ) + B
+ϕ(r)r n−1 e− 2 +Cr dr
+BR (p)
+
+r0
+
+for every increasing function ϕ and R ≥ r0 .
+Proof. It is natural to use the exponential map at p as many authors have
+used to write, in terms of polar normal coordinates at p, the volume element
+as
+dvg = A(r, θ)drdθ
+where dθ is the area element of the unit (n−1)-dimensional sphere Sn−1 (see
+for example [20], page 10). Denote by Sr (p) the geodesic sphere on (M, g)
+of radius r centered at p. The area element of Sr (p) is given by A(r, θ)dθ.
+It follows from first variation of the area that if x = (r, θ) is not in the
+cut-locus of p then
+(3.1)
+
+d
+log(A(r, θ)) = H(r, θ),
+dr
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+11
+
+where H(r, θ) denote the mean curvature of Sr (p) at the point x = (r, θ)
+with inward pointing normal vector. By Bochner formula and the Schwarz
+inequality, we have
+
+
+∂ ∂
+H 2 (r, θ)
+d
+H(r, θ) +
++ Ricg
+,
+(r, θ) ≤ 0.
+dr
+n−1
+∂r ∂r
+Consequently, for 0 < ǫ ≤ r we obtain
+
+
+Z r
+Z r
+Z r
+1
+∂ ∂
+2
+2 2
+2 d
+H(s, θ)ds +
+,
+s Ricg
+s H (s, θ)ds +
+ds ≤ 0.
+s
+ds
+n−1 ǫ
+∂s ∂s
+ǫ
+ǫ
+Using integration by parts on the first term and making ǫ → 0 we have
+
+
+
+Z r
+Z r
+∂ ∂
+s2 H 2 (s, θ)
+,
+s2 Ricg
+ds −
+ds
+r 2 H(r, θ) ≤
+2sH(s, θ) −
+n−1
+∂s ∂s
+0
+0
+
+
+Z r
+Z r
+1
+∂ ∂
+2
+2
+= −
+,
+[sH(s, θ) − (n − 1)] ds +
+ds
+(n − 1) − s Ricg
+n−1 0
+∂s ∂s
+0
+
+
+Z r
+∂ ∂
+2
+,
+ds.
+≤
+(n − 1) − s Ricg
+∂s ∂s
+0
+This implies that
+(3.2)
+
+1
+H(r, θ) ≤ 2
+r
+
+Z r
+0
+
+2
+
+(n − 1) − s Ricg
+
+
+
+∂ ∂
+,
+∂s ∂s
+
+
+
+ds.
+
+Note that, by (3.1) and (3.2) we have
+
+
+
+
+Z
+A(r, θ)
+d
+1 r 2
+∂ ∂
+(3.3)
+log
+s
+Ric
+,
+≤
+−
+ds.
+g
+dr
+r n−1
+r2 0
+∂s ∂s
+Integrating (3.3) from ǫ > 0 to r results in
+
+
+
+
+ 
+
+Z r Z s
+∂ ∂
+A(ǫ, θ)
+1
+A(r, θ)
+2
+t Ricg
+,
+− log
+≤−
+dt ds.
+log
+r n−1
+ǫn−1
+s2 0
+∂t ∂t
+ǫ
+
+
+= 1, using integration by parts on the last term
+Since limǫ→0 log A(ǫ,θ)
+n−1
+ǫ
+and making ǫ → 0 we obtain
+
+
+
+
+
+
+Z
+Z r
+A(r, θ)
+1 r 2
+∂ ∂
+∂ ∂
+(3.4) log
+,
+,
+≤
+s Ricg
+sRicg
+ds −
+ds.
+r n−1
+r 0
+∂s ∂s
+∂s ∂s
+0
+It follows from (3.3) and (3.4) that
+
+
+
+
+
+Z r
+d
+A(r, θ)
+∂ ∂
+sRic
+,
+≤
+−
+r log
+ds.
+g
+dr
+r n−1
+∂s ∂s
+0
+For 0 < ǫ < r, we have
+
+
+
+
+
+
+Z rZ s
+A(ǫ, θ)
+A(r, θ)
+∂ ∂
+,
+tRic
+−
+ǫ
+log
+≤
+−
+r log
+dtds.
+g
+r n−1
+ǫn−1
+∂t ∂t
+ǫ
+0
+
+12
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+Let ǫ → 0. Then, we obtain
+
+
+
+
+Z Z
+A(r, θ)
+1 r s
+∂ ∂
+,
+≤−
+(3.5)
+log
+dtds.
+tRicg
+r n−1
+r 0 0
+∂t ∂t
+Consider x = (r, θ) ∈ M and γ : [0, r] → M a minimizing unit geodesic
+with γ(0) = p and γ(r) = x. Denote by f (t) = f ◦ γ(t), t ∈ [0, r]. Since
+Ricf ≥ ρg, we have that
+
+
+∂ ∂
+,
+tRicg
+≥ tρ − tf ′′ (t).
+∂t ∂t
+It follows that
+
+
+Z s
+Z s
+Z s
+∂ ∂
+ρ
+tRicg
+,
+tf ′′ (t)dt = s2 − sf ′ (s) + f (s) − f (0).
+tdt −
+dt ≥ ρ
+∂t ∂t
+2
+0
+0
+0
+This implies that
+
+
+Z rZ s
+∂ ∂
+,
+dtds ≥
+tRicg
+∂t ∂t
+0
+0
+=
+=
+
+Z r
+Z r
+Z
+ρ r 2
+′
+f (s)ds − f (0)r
+sf (s)ds +
+s ds −
+2 0
+0
+0
+Z r
+ρ 3
+f (s)ds − f (0)r
+r − rf (r) + 2
+6
+0
+Z r
+ρ 3
+f (s, θ)ds − f (p)r.
+r − rf (r, θ) + 2
+6
+0
+
+By inequality (3.5), we have
+
+
+Z
+A(r, θ)
+2 r
+ρ 2
+(3.6)
+log
+r
++
+f
+(r,
+θ)
+−
+≤
+−
+f (s, θ)ds + f (p).
+r n−1
+6
+r 0
+Since Ricf ≥ ρg, it follows from [24] that there exist constants C, r0 > 0
+such that
+ρ
+(3.7)
+f (x) ≥ r 2 (x) − Cr(x)
+2
+for every x ∈ M with r(x) ≥ r0 . Denote by λ0 = inf Br0 (p) f . Observe that
+by (3.7), for r > r0 , we have
+Z r
+Z r0
+Z r
+f (s, θ)ds +
+f (s, θ)ds
+f (s, θ)ds =
+r0
+0
+0
+Z
+Z r
+ρ r 2
+s ds − C
+sds
+≥ r0 λ0 +
+2 r0
+r0
+
+
+C
+ρr 2
+ρ
+r0
+2λ0 − 0 + Cr0 + r 3 − r 2
+=
+2
+3
+6
+2
+It follows that,
+−
+
+2
+r
+
+Z r
+0
+
+f (s, θ)ds ≤ −
+
+r0 λ1 ρ 2
+− r + Cr
+r
+3
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+13
+
+ρr 2
+
+for every r > r0 , where λ1 := 2λ0 − 30 + Cr0 . Consequently,
+Z
+2 r
+ρ
+(3.8)
+−
+f (s, θ)ds ≤ − r 2 + Cr + λ
+r 0
+3
+for every r > r0 , where λ is a nonnegative constant. Substituting (3.8) into
+(3.6) results in
+
+
+A(r, θ)
+ρ
+log
+≤ − r 2 + f (r, θ) + Cr + λ + f (p).
+n−1
+r
+2
+This implies that
+ρ 2
+
+A(r, θ) ≤ r n−1 e− 2 r +f (r,θ)+Cr+λ+f (p) .
+Hence
+ρ 2
+
+A(r, θ)e−f (r,θ) ≤ r n−1 e− 2 r +Cr+λ+f (p) .
+
+(3.9)
+Z
+
+Therefore, by (3.9), for every increasing function ϕ and R ≥ r0 we have
+Z
+Z
+(ϕ ◦ r)e−f dvg
+(ϕ ◦ r)e−f dvg +
+(ϕ ◦ r)e−f dvg =
+BR (p)\Br0 (p)
+
+Br0 (p)
+
+BR (p)
+
+≤ ϕ(r0 )
+
+Z
+
+≤ ϕ(r0 )
+
+Z
+
+= ϕ(r0 )
+
+Z
+
+e−f dvg +
+Br0 (p)
+
+Z RZ
+r0
+
+e−f dvg +
+Br0 (p)
+
+Z RZ
+r0
+
+−f
+
+e
+
+ϕ(r)e−f (r,θ) A(r, θ)drdθ
+Sn−1
+ρ 2
+
+ϕ(r)r n−1 e− 2 r +Cr+λ+f (p) drdθ
+Sn−1
+f (p)+λ
+
+dvg + ωn−1 e
+
+Br0 (p)
+
+= Aϕ(r0 ) + B
+
+Z R
+
+ρ 2
+
+ϕ(r)r n−1 e− 2 r +Cr dr
+
+r0
+
+Z R
+
+ρ 2
+
+ϕ(r)r n−1 e− 2 r +Cr dr,
+
+r0
+
+where
+A :=
+
+Z
+
+e−f dvg > 0 and B := ωn−1 eλ+f (p) > 0.
+Br0 (p)
+
+
+Another consequence of Proposition 3.1 is the following volume comparison result proved by Wei and Wylie in [33].
+Corollary 3.1. Let (M n , g, f ) be a complete smooth metric measure space
+such that Ricf ≥ ρg, for some ρ ∈ R. Fix a point p ∈ M . Then, there exist
+constants r0 , A, B, C > 0 such that
+Z R
+ρr 2
+ν(BR (p)) ≤ A + B
+e− 2 +Cr dr
+r0
+
+for every R ≥ r0 , where ν = e−f dvg .
+finite measure.
+
+In particular, if ρ > 0 then ν is a
+
+14
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+4. An estimate for the Wasserstein distance
+In this section, we prove our main theorem (Theorem 1.1) and present
+some of its consequences, including Corollary 1.1.
+n
+
+Let (M n , g, f ) be a 1-Ricci shrinker such that ν = (4π)− 2 e−f dvg is a
+probability measure and fix a point p ∈ M . The exponential map of M
+to p induces a probability measure ν on Tp M as follows. It is well-known
+that there is a domain Ω ⊂ Tp M such that expp Ω : Ω → M \ C(p) is
+a diffeomorphism, where C(p) denote the cut-locus of p. We define the
+probability measure ν on Tp M by
+n
+
+ν = (4π)− 2 χΩ e−f dvg
+where g and f denote the pullback of g and f by the map expp Ω : Ω →
+∗
+∗
+M \ C(p), respectively, i.e., g = expp Ω g and f = expp Ω f .
+2
+
+Remark 4.1. If (M n , g, f ) is translated Gaussian shrinker (Rn , ge , |x−p|
+4 )
+then ν is the Gaussian measure on Rn .
+Lemma 4.1. The measure ν has finite second moments with respect to the
+Euclidean metric g0 .
+Proof. Consider r(x) = dg (p, x) the geodesic distance function to the point p.
+It is well-known that the function r 2 is smooth on M \C(p) and r(expp (v)) =
+|v|g0 for every v ∈ Ω. Then, by change of variables formula we obtain
+Z
+Z
+n
+2
+|v|g0 dν =
+|v|2g0 (4π)− 2 e−f dvg
+Tp M
+Ω
+Z
+n
+r 2 (expp (v))(4π)− 2 e−f dvg
+=
+ZΩ
+n
+r 2 (4π)− 2 e−f dvg
+=
+M \C(p)
+Z
+r 2 dν.
+=
+M \C(p)
+
+So, since C(p) is a ν-null set we have
+Z
+Z
+2
+|v|g0 dν =
+(4.1)
+Tp M
+
+r 2 dν.
+
+M
+
+It follows from Theorem 3.1 that ν has finite second moments with respect
+to g. Hence, by equality (4.1) we have that ν has second finite moments
+with respect to g0 .
+
+We have two probability measures on Tp M with second finite moments
+with respect to Euclidean metric g0 : the measure ν and the Gaussian measure γ defined in Example 1. Our main result provides an upper estimate
+for the Wasserstein distance between ν and γ and the rigidity arising from
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+15
+
+this estimate. Before stating the results of this section, we introduce the
+following notations:
+• For s ≥ 0, we denote
+Σs = {v ∈ Tp M ; |v|g0 ≥ s}.
+• If k is a nonnegative integer number and a, s ∈ R, we have
+Z +∞
+r2
+r k e− 4 +ar dr < +∞.
+s
+
+In this case, we denote
+Γ(s, k, a) =
+
+Z +∞
+
+r2
+
+r k e− 4 +ar dr.
+
+s
+
+• For k ∈ N and a, b, s ∈ R, we denote
+k
+
+α(k, s, a, b) = (4π)− 2 ωk−1 eb (aΓ(s, k, a) + bΓ(s, k − 1, a)) .
+Furthermore, we denote α(k, 0, a, b) simply as α(k, a, b).
+Now let us prove our main result, that is
+Theorem 4.1 (Theorem 1.1). The Wasserstein distance between the measure ν on Tp M and the Gaussian measure γ on Tp M satisfies
+1 2
+W (ν, γ) ≤ α(n, a, b)ef (p)−µg + f (p) − µg
+4 g0
+where a and b are nonnegative constants such that
+r 2 (x)
+− ar(x) − b
+4
+for every x ∈ M . Moreover, if the equality holds then a = b = 0 and
+2
+(M n , g, f ) is (Rn , ge , |x−p|
+4 ), i.e., the Gaussian shrinker up to a translation.
+f (x) ≥
+
+Theorem 4.1 is a consequence of the following general result.
+Theorem 4.2. The Wasserstein distance between the restriction of measures ν and γ to set Σs (s ≥ 0) satisfies
+
+
+ef (p)−µg
+1 2
+γ(Σs )
+Wg0 ( ν|Σs , γ|Σs ) ≤ α(n, s, a, b)
++ log
++ f (p) − µg
+4
+ν(Σs )
+ν(Σs )
+where a and b are nonnegative constants such that
+r 2 (x)
+− ar(x) − b
+4
+for every x ∈ M with r(x) ≥ s. Moreover, if the equality holds then a =
+2
+b = 0 and (M n , g, f ) is (Rn , ge , |x−p|
+4 ), i.e., the Gaussian shrinker up to a
+translation.
+f (x) ≥
+
+16
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+Proof. Note that ν|Σs is absolutely continuous with respect to γ|Σs e
+
+
+
+d ν|Σs
+dvg
+γ(Σs )
+=
+χΩ ef0 −f .
+d γ|Σs
+ν(Σs )
+dvg0
+It follows from Lemma 4.1 and Theorem 3.2 that
+
+d ν|Σs
+log
+d ν|Σs
+d γ|Σs
+Tp M
+
+
+
+
+Z 
+dvg
+1
+γ(Σs )
+=
+f0 − f + log
++ log
+dν
+ν(Σs ) Σs
+dvg0
+ν(Σs )
+
+
+Z
+Z
+
+dvg
+1
+1
+f0 − f dν +
+log
+dν
+=
+ν(Σs ) Σs
+ν(Σs ) Σs
+dvg0
+
+
+γ(Σs )
++ log
+ν(Σs )
+
+1 2
+W ( ν|Σs , γ|Σs ) ≤
+4
+
+(4.2)
+
+Z
+
+
+
+In terms of polar normal coordinates around p ∈ M , we may write
+dvg = A(r, θ)drdθ
+where dθ is the area element of the unit (n − 1)-dimensional sphere Sn−1 .
+We show in the proof of Proposition 3.1 that
+
+
+
+
+
+Z r
+d
+∂ ∂
+A(r, θ)
+(4.3)
+sRicg
+,
+≤−
+r log
+ds.
+dr
+r n−1
+∂s ∂s
+0
+Let x = (r, θ) ∈ M and β be a minimizing unit geodesic on (M, g) such
+that β(0) = p and β(r) = x. Denote by f (s) = f (β(s)), s ∈ [0, r]. Since
+Ricf = 12 g we have
+
+
+∂ ∂
+1
+Ricg
+,
++ f ′′ (s) = .
+∂s ∂s
+2
+Consequently, by (4.3) we obtain
+d
+dr
+
+
+
+
+Z r
+A(r, θ)
+r2
+sf ′′ (s)ds
+≤ − +
+r log
+r n−1
+4
+0
+r2
+= − + rf ′ (r) − f (r) + f (0)
+4
+r2
+= − + rh∇f, ∇ri(x) − f (x) + f (p)
+4
+r2
+(4.4)
+= − + rh∇f, ∇ri(x) − Rg (x) − |∇f |2 (x) − µg + f (p)
+4
+2
+r
+− h∇f, ∇ri (x) − Rg (x) − µg + f (p)
+= −
+2
+−(|∇f |2 − h∇f, ∇ri2 )(x)
+≤ −Rg (x) − µg + f (p)
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+17
+
+where we have used in (4.4) the equality Rg + |∇f |2 = f − µg . It follows
+that
+
+
+
+A(r, θ)
+d
+≤ −Rg (r, θ) − µg + f (p).
+r log
+dr
+r n−1
+So, for 0 < ǫ < r we have
+
+r log
+
+
+
+A(r, θ)
+r n−1
+
+
+
+− ǫ log
+
+
+
+A(ǫ, θ)
+ǫn−1
+
+
+
+≤−
+
+Z r
+
+Rg (s, θ)ds + (f (p) − µg )(r − ǫ).
+
+ǫ
+
+Let ǫ → 0. Then, we obtain
+
+
+Z
+A(r, θ)
+1 r
+log
+Rg (s, θ)ds + f (p) − µg .
+≤−
+r n−1
+r 0
+This implies that
+1
+
+Rr
+
+A(r, θ) ≤ r n−1 e− r 0 Rg (s,θ)ds+f (p)−µg .
+So, since Rg ≥ 0 we have
+A(r, θ) ≤ r n−1 ef (p)−µg .
+
+(4.5)
+
+In terms of polar normal coordinates around the origin o ∈ Tp M , we have
+dvg = A(r, θ)drdθ
+
+dvg0 = r n−1 drdθ.
+
+and
+
+This implies that
+
+
+dvg
+dvg0
+
+
+
+(r, θ) =
+
+A(r, θ)
+.
+r n−1
+
+By inequality (4.5) we obtain
+dvg
+≤ ef (p)−µg .
+dvg0
+This implies that
+(4.6)
+
+1
+ν(Σs )
+
+Z
+
+log
+Σs
+
+
+
+dvg
+dvg0
+
+
+
+dν ≤ f (p) − µg .
+
+Since C(p) is a ν-null set, the function r 2 is smooth on M \ C(p) and
+|v|g0 = r(expp (v)) for every v ∈ Ω, we have
+Z
+
+Σs
+
+
+ 2
+r
+− f dν
+f0 − f dν =
+4
+Σ′s
+
+
+Z
+
+18
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+where Σ′s := {x ∈ M ; r(x) ≥ s}. It follows that
+
+Z  2
+Z
+
+n
+r
+− f (4π)− 2 e−f dvg
+f0 − f dν =
+4
+′
+Σs
+Σs
+ 2
+
+Z +∞ Z
+r
+−n
+2
+= (4π)
+− f (r, θ) e−f (r,θ) A(r, θ)dθdr
+4
+s
+Sn−1
+
+ 2
+Z +∞ Z
+n
+r
+(4.7)
+− f (r, θ) r n−1 e−f (r,θ) dθdr
+≤ (4π)− 2 ef (p)−µg
+4
+s
+Sn−1
+Z +∞ Z
+n
+r2
+≤ (4π)− 2 eb+f (p)−µg
+(ar + b) r n−1 e− 4 +ar dθdr
+(4.8)
+s
+Sn−1
+Z +∞
+r2
+n
+(ar + b) r n−1 e− 4 +ar dr
+= (4π)− 2 ωn−1 eb+f (p)−µg
+s
+
+−n
+2
+
+= (4π)
+
+b+f (p)−µg
+
+ωn−1 e
+
+(aΓ(s, n, a) + bΓ(s, n − 1, a))
+2
+
+where we have used in (4.8) we have used that f (x) ≥ r 4(x) − ar(x) − b holds
+for every x ∈ M with r(x) ≥ s and in (4.7) we have used the inequality
+(4.5). This implies that
+Z
+
+f0 − f dν ≤ α(n, s, a, b)ef (p)−µg
+(4.9)
+Σs
+
+Hence, by (4.2), (4.6) and (4.9) we obtain
+1
+ef (p)−µg
+(4.10) Wg20 ( ν|Σs , γ|Σs ) ≤ α(n, s, a, b)
++ log
+4
+ν(Σs )
+
+
+
+
+γ(Σs )
++ f (p) − µg .
+ν(Σs )
+
+Assume that the equality holds in (4.10). This implies that the equality
+in (4.7) and (4.8) holds. Consequently,
+(1) The equality in (4.5) holds for every r ≥ s, i.e., A(r, θ) = r n−1 ef (p)−µg ,
+for every r ≥ s;
+2
+
+(2) f (x) = r 4(x) − ar(x) − b, for every x ∈ Rn with r(x) ≥ s.
+By (1) we have
+Z r
+
+Rg (t, θ)dt = 0,
+
+0
+
+for every r ≥ s. Since Rg ≥ 0 we obtain Rg ≡ 0. It follows that (M, g) is
+isometric to (Rn , ge ). By passing an isometry, we have that there is y ∈ Rn
+such that
+|x − p|2
++ hx − p, yi + |y|2 + µg
+f (x) =
+4
+for every x ∈ Rn . By (2) we obtain that a = 0, y = o and b = −µg . This
+2
++ µg , for every x ∈ Rn . Since ν is a probability
+implies that f (x) = |x−p|
+4
+2
+
+measure we have µg = 0. Therefore, (M n , g, f ) is (Rn , ge , |x−p|
+4 ) and a =
+b = 0.
+
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+19
+
+By Remark 2.2, we have that if f attains a global minimum at p then
+f (p) − µg = Rg (p).
+So, we conclude this paper with the following corollaries of Theorem 4.2.
+Corollary 4.1. If f attains a global minimum at p, then the Wasserstein
+distance between the restriction of measures ν and γ to set Σs (s ≥ 0)
+satisfies
+
+
+eRg (p)
+1 2
+γ(Σs )
+W ( ν| , γ|Σs ) ≤ α(n, s, a, b)
++ log
++ Rg (p)
+4 g 0 Σs
+ν(Σs )
+ν(Σs )
+where a and b are nonnegative constants such that
+r 2 (x)
+− ar(x) − b
+4
+for every x ∈ M with r(x) ≥ s. Moreover, if the equality holds then a =
+2
+b = 0 and (M n , g, f ) is (Rn , ge , |x−p|
+4 ), i.e., the Gaussian shrinker up to a
+translation.
+f (x) ≥
+
+Corollary 4.2 (Corollary 1.1). If f attains a global minimum at p then
+the Wasserstein distance between the measure ν on Tp M and the Gaussian
+measure γ on Tp M satisfies
+1 2
+W (ν, γ) ≤ α(n, a, b)eRg (p) + Rg (p)
+4 g0
+where a and b are nonnegative constants such that
+r 2 (x)
+− ar(x) − b
+4
+for every x ∈ M . Moreover, if the equality holds then a = b = 0 and
+2
+(M n , g, f ) is (Rn , ge , |x−p|
+4 ), i.e., the Gaussian shrinker up to a translation.
+f (x) ≥
+
+References
+[1] D. Bakry and Michel Émery, Diffusions hypercontractives, Séminaire de probabilités,
+XIX, 1983/84, Lecture Notes in Math., vol. 1123, Springer, Berlin, 1985, pp. 177–206,
+DOI 10.1007/BFb0075847 (French). MR0889476
+[2] Huai-Dong Cao, Bing-Long Chen, and Xi-Ping Zhu, Recent developments on Hamilton’s Ricci flow, Surveys in differential geometry. Vol. XII. Geometric flows,
+Surv. Differ. Geom., vol. 12, Int. Press, Somerville, MA, 2008, pp. 47–112, DOI
+10.4310/SDG.2007.v12.n1.a3. MR2488948
+[3] Huai-Dong Cao, Ernani Ribeiro Jr., and Detang Zhou, Four-dimensional complete
+gradient shrinking Ricci solitons, J. Reine Angew. Math. 778 (2021), 127–144, DOI
+10.1515/crelle-2021-0026. MR4308617
+[4] Huai-Dong Cao and Detang Zhou, On complete gradient shrinking Ricci solitons, J.
+Differential Geom. 85 (2010), no. 2, 175–185. MR2732975
+[5] Xiaodong Cao, Biao Wang, and Zhou Zhang, On locally conformally flat gradient
+shrinking Ricci solitons, Commun. Contemp. Math. 13 (2011), no. 2, 269–282, DOI
+10.1142/S0219199711004191. MR2794486
+[6] Jose Carrillo and Lei Ni, Sharp logarithmic Sobolev inequalities on gradient solitons
+and applications, ArXiv Mathematics e-prints math/0806.2417v2 (2008).
+
+20
+
+FRANCIELE CONRADO AND DETANG ZHOU
+
+[7] Bing-Long Chen, Strong uniqueness of the Ricci flow, J. Differential Geom. 82 (2009),
+no. 2, 363–382. MR2520796
+[8] Xu Cheng, Ernani Ribeiro Jr., and Detang Zhou, Volume growth estimates for Ricci
+solitons and quasi-Einstein manifolds, J. Geom. Anal. 32 (2022), no. 2, Paper No.
+62, 18, DOI 10.1007/s12220-021-00825-8. MR4360441
+[9] Xu Cheng and Detang Zhou, Eigenvalues of the drifted Laplacian on complete metric measure spaces, Commun. Contemp. Math. 19 (2017), no. 1, 1650001, 17, DOI
+10.1142/S0219199716500012. MR3575913
+[10]
+, Rigidity of four-dimensional gradient shrinking Ricci solitons, ArXiv Mathematics e-prints math/2105.10744 (2021).
+[11] Tobias H. Colding and William P. Minicozzi II, Singularities of Ricci flow and diffeomorphisms, ArXiv Mathematics e-prints math/2109.06240 (2022).
+[12] Manolo Eminenti, Gabriele La Nave, and Carlo Mantegazza, Ricci solitons: the
+equation point of view, Manuscripta Math. 127 (2008), no. 3, 345–367, DOI
+10.1007/s00229-008-0210-y. MR2448435
+[13] Manuel Fernández-López and Eduardo Garcı́a-Rı́o, Rigidity of shrinking Ricci solitons, Math. Z. 269 (2011), no. 1-2, 461–466, DOI 10.1007/s00209-010-0745-y.
+MR2836079
+[14]
+, On gradient Ricci solitons with constant scalar curvature, Proc. Amer. Math.
+Soc. 144 (2016), no. 1, 369–378, DOI 10.1090/proc/12693. MR3415603
+[15] Richard S. Hamilton, The formation of singularities in the Ricci flow, Surveys in
+differential geometry, Vol. II (Cambridge, MA, 1993), Int. Press, Cambridge, MA,
+1995, pp. 7–136. MR1375255
+[16] Gerhard Huisken, Ricci deformation of the metric on a Riemannian manifold, J.
+Differential Geom. 21 (1985), no. 1, 47–62. MR0806701
+[17] Brett Kotschwar, On rotationally invariant shrinking Ricci solitons, Pacific J. Math.
+236 (2008), no. 1, 73–88, DOI 10.2140/pjm.2008.236.73. MR2398988
+[18] Klaus Kröncke, Rigidity and infinitesimal deformability of Ricci solitons, J. Geom.
+Anal. 26 (2016), no. 3, 1795–1807, DOI 10.1007/s12220-015-9608-4. MR3511458
+[19] Haozhao Li, Yu Li, and Bing Wang, On the structure of Ricci shrinkers, J. Funct.
+Anal. 280 (2021), no. 9, Paper No. 108955, 75, DOI 10.1016/j.jfa.2021.108955.
+MR4220743
+[20] Peter Li, Geometric analysis, Cambridge Studies in Advanced Mathematics, vol. 134,
+Cambridge University Press, Cambridge, 2012. MR2962229
+[21] Yu Li and Bing Wang, Rigidity of the round cylinders in Ricci shrinkers, ArXiv
+Mathematics e-prints math/2108.03622 (2023).
+[22] Yu Li and Wenjia Zhang, Rigidity of complex projective spaces in Ricci shrinkers,
+Calc. Var. Partial Differential Equations 62 (2023), no. 6, Paper No. 171, DOI
+10.1007/s00526-023-02511-9. MR4599591
+[23] Ovidiu Munteanu and Natasa Sesum, On gradient Ricci solitons, J. Geom. Anal. 23
+(2013), no. 2, 539–561, DOI 10.1007/s12220-011-9252-6. MR3023848
+[24] Ovidiu Munteanu and Jiaping Wang, Topology of Kähler Ricci solitons, J. Differential
+Geom. 100 (2015), no. 1, 109–128. MR3326575
+[25] Aaron Naber, Noncompact shrinking four solitons with nonnegative curvature,
+J. Reine Angew. Math. 645 (2010), 125–153, DOI 10.1515/CRELLE.2010.062.
+MR2673425
+[26] Lei Ni and Nolan Wallach, On a classification of gradient shrinking solitons, Math.
+Res. Lett. 15 (2008), no. 5, 941–955, DOI 10.4310/MRL.2008.v15.n5.a9. MR2443993
+[27] F. Otto and C. Villani, Generalization of an inequality by Talagrand and links with
+the logarithmic Sobolev inequality, J. Funct. Anal. 173 (2000), no. 2, 361–400, DOI
+10.1006/jfan.1999.3557. MR1760620
+[28] Peter Petersen and William Wylie, Rigidity of gradient Ricci solitons, Pacific J. Math.
+241 (2009), no. 2, 329–345, DOI 10.2140/pjm.2009.241.329. MR2507581
+
+THE WASSERSTEIN DISTANCE FOR RICCI SHRINKERS
+
+21
+
+, On the classification of gradient Ricci solitons, Geom. Topol. 14 (2010),
+no. 4, 2277–2300, DOI 10.2140/gt.2010.14.2277. MR2740647
+[30] Stefano Pigola, Michele Rimoldi, and Alberto G. Setti, Remarks on non-compact
+gradient Ricci solitons, Math. Z. 268 (2011), no. 3-4, 777–790, DOI 10.1007/s00209010-0695-4. MR2818729
+[31] Ao Sun and Jonathan J. Zhu, Rigidity of spherical product Ricci solitons, ArXiv
+Mathematics e-prints math/2108.02326 (2023).
+[32] Cédric Villani, Optimal transport, Grundlehren der mathematischen Wissenschaften
+[Fundamental Principles of Mathematical Sciences], vol. 338, Springer-Verlag, Berlin,
+2009. Old and new. MR2459454
+[33] Guofang Wei and Will Wylie, Comparison geometry for the Bakry-Emery Ricci tensor, J. Differential Geom. 83 (2009), no. 2, 377–405, DOI 10.4310/jdg/1261495336.
+MR2577473
+[34] Takumi Yokota, Perelman’s reduced volume and a gap theorem for the Ricci flow,
+Comm. Anal. Geom. 17 (2009), no. 2, 227–263, DOI 10.4310/CAG.2009.v17.n2.a3.
+MR2520908
+[35]
+, Addendum to ‘Perelman’s reduced volume and a gap theorem for the
+Ricci flow’ [MR2520908], Comm. Anal. Geom. 20 (2012), no. 5, 949–955, DOI
+10.4310/CAG.2012.v20.n5.a2. MR3053617
+[36] Zhu-Hong Zhang, Gradient shrinking solitons with vanishing Weyl tensor, Pacific J.
+Math. 242 (2009), no. 1, 189–200, DOI 10.2140/pjm.2009.242.189. MR2525510
+[29]
+
+Departamento de Matemática, Universidade Federal de Sergipe, Jardim
+Rosa Elze, São Cristóvão, SE 49100-000, Brazil
+Email address: franciele@mat.ufs.br
+Departamento de Geometria, Instituto de Matemática e Estatı́stica, Universidade Federal Fluminense, São Domingos, Niterói, RJ 24210-201, Brazil
+Email address: zhoud@id.uff.br
+
+
