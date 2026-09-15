@@ -1,0 +1,63 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route audited normally. Weak-duality inference is valid: any linear certificate proving Aw<=binomial on the polytope must have value >= primal max Pw, so Pw>binomial rules out real-LP Krawtchouk certificates at those points. Binomial values (0.410156, 0.480118, 2.59264), xi1 values (0.1601, 0.1835) and xi2 no-root gaps (>=0.23) were independently recomputed exactly and match. Krawtchouk rows verified integer-exact. n=15 optimum independently reproduced to ~5.6 by vertex sampling vs claimed 5.63636. n=31 residuals (minA>=-7e-05, sum residual<=7.2e-04) are negligible against 11-46x margins, and scope is honestly limited to real-LP with no integrality or code-existence claim.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fused 20-result search over literal, equivalent, and dominance formulations plus full-text inspection of the ABL source (doi:10.1109/18.915662, all 62635 chars) shows no prior finite-n primal maxima Pw at (15,7,4)/(31,15,7) for w=2,4,5 and no certificate-nonexistence computation there. ABL Corollaries 2-3 give asymptotic binomiality thresholds via sufficient feasible polynomials; failure of one polynomial family does not imply the computed LP optima, and no table or hierarchy paper lists these point values. The 3-point numerical barrier is substantively new.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "The headline is three tiny-n point evaluations (n=15,31; w=2,4,5) showing the real-LP relaxation exceeds the binomial value below the xi1 branch. The admitted target asked for an asymptotic open set epsilon-extension ruling or Delsarte-MacWilliams LP-optimality of xi_ABL; the draft explicitly claims neither and retreats to finite-n localizations. Fixed small-weight LP slack where binomial<1 is a cheap small-instance mismatch and arbitrary finite slice under the shared standard: it does not resolve the asymptotic question, provides no general criterion, census, benchmark, or downstream use, and the precise numbers 5.63636/22.2762/29.4919 were not motivated before computation as a recognized needed fact. Correctness plus novelty do not create value.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "ABL original paper doi:10.1109/18.915662 full text (62635 chars, offsets 0-62635): asymptotic feasible-polynomial bounds, Corollaries 2-3 xi thresholds, no finite-n Pw table",
+    "scope_literature_search EMERGENT_ORIGINALITY 3-direction fused set (20 results, full provider coverage, no partial failure): ABL source, Delsarte LP hierarchy, MRRW, Sage bounds, constant-weight tables",
+    "Independent recomputation: exact binomials via comb, xi1 formula, xi2 entropy gap scan reproducing min gaps 0.23349/0.23332, integer Krawtchouk rows for w=2,4,5",
+    "Independent LP cross-check: numpy vertex enumeration reproducing n=15 Aw~5.6 (ratio ~13.65) and artifact residual review (lp_verify.txt, lp_primal.csv)"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Hierarchy and MRRW papers prove general strength/rate relations; ABL proves sufficient-condition binomiality intervals. None computes finite-n Aw primal maxima at (15,7,4)/(31,15,7) or rules on real-LP certificates there.",
+      "reasoning": "A broader asymptotic or hierarchy theorem does not cover the claim as a special case because the claim is a point-wise numerical LP lower bound, not a corollary of those upper-bound or structural theorems.",
+      "search": "Searched Delsarte LP hierarchy, MRRW rate bounds, Samorodnitsky LP optimum, and ABL asymptotic binomiality range for a stronger theorem subsuming the three points"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "ABL feasibility is sufficient-only so its failure implies nothing about all LP certificates; binomial<1 alone does not fix LP maxima at 5.63, 22.28, 29.49, which required solving the constrained Krawtchouk LPs.",
+      "reasoning": "The point-wise barrier is not mechanically implied by prior work, so originality holds; however the computation remains an isolated tiny-n slice that does not imply the target asymptotic optimality question, hence value fails.",
+      "search": "Tested whether ABL polynomial failure, binomial value below 1 at tiny weights, or LP weakness mechanically implies the reported Pw magnitudes and nonexistence conclusion"
+    },
+    "equivalent_formulations": {
+      "evidence": "ABL uses distance distribution for the same object and Krawtchouk/dual-distance terminology, but its results are asymptotic upper-bound polynomials with no finite-n Pw values 5.63636, 22.2762, 29.4919 at the claimed parameters.",
+      "reasoning": "Synonymous notation does not create coverage: no equivalent-formulation source states or implies the specific primal-maxima numbers or the point-wise certificate-nonexistence conclusion.",
+      "search": "Searched distance distribution vs weight distribution vs binomial moments vs Krawtchouk coefficient synonymous encodings in fused queries and ABL full text"
+    },
+    "exact_database_or_table": {
+      "evidence": "Sage implements generic Delsarte size bounds via Krawtchouk matrices; code tables list [31,16,7] existence and best-known distances, not Aw primal maxima; no table lists the three Pw/binomial/ratio rows.",
+      "reasoning": "The exact numbers are not a direct lookup or database recomputation; table existence of the BCH codes only certifies polytope nonemptiness, not the computed optima.",
+      "search": "Searched Sage Delsarte bounds docs, best-binary-code tables, BCH weight tables, and constant-weight bound tables for the exact Pw entries"
+    }
+  },
+  "residual_risks": [
+    "CBC LP optima lack exact rational dual certificates and pulp was unavailable for bit-exact re-solve; overturn unlikely given 11-46x margins, exact binomial/xi2 recomputation, and independent n=15 vertex reproduction."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text read of theorem scope: ABL proves asymptotic upper bounds via sufficient feasible polynomials (Thms 6-7,12-13, Cors 2-3); contains no finite-n primal LP maxima at (15,7,4)/(31,15,7) and no real-LP certificate-nonexistence claim at w=2,4,5.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Estimates of the Distance Distribution of Codes and Designs",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://user.eng.umd.edu/~abarg/reprints/dd.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
