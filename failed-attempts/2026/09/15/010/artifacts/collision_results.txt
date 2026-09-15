@@ -1,0 +1,33 @@
+Observed output of output/artifacts/collision_search.py (exact integer arithmetic, stdlib only).
+
+TEST A: fiber multiplicities (need >=3 in one fiber for unboundedness route)
+f=g=x^2+1,a=0,b=2: maxfiber=1 tailstrict(5:)=True max|d| bitlen=4815
+f=g=x^2+1,a=0,b=3: maxfiber=1 tailstrict(5:)=True max|d| bitlen=6819
+f=g=x^2-3,a=0,b=1: maxfiber=2 tailstrict(5:)=True max|d| bitlen=2582
+f=g=x^2-3,a=0,b=2: maxfiber=1 tailstrict(5:)=True max|d| bitlen=2582
+f=g=x^2-7,a=1,b=2: maxfiber=1 tailstrict(5:)=True max|d| bitlen=4969
+f=x^2+1,g=x^2+2,a=0,b=0: maxfiber=1 tailstrict(5:)=True max|d| bitlen=2688
+f=x^2+1,g=x^2-3,a=1,b=0: maxfiber=1 tailstrict(5:)=True max|d| bitlen=2582
+f=g=x^3+x+1,a=0,b=1: maxfiber=1 tailstrict(5:)=True max|d| bitlen=292571
+f=g=x^2+x+3,a=0,b=5: maxfiber=1 tailstrict(5:)=True max|d| bitlen=10380
+f=g=2x^2+x,a=1,b=2: maxfiber=1 tailstrict(5:)=True max|d| bitlen=8925
+
+TEST B: growth ratios |d_{n+1}|/|d_n| for f=g=x^2+1,a=0,b=2
+1 2.0 / 2 6.0 / 3 28.0 / 4 682.0 / 5 458356.0 / 6 210066389578.0 /
+7 ~4.41e22 / 8 ~1.95e45 / 9 ~3.79e90 / 10 ~1.44e181
+(super-exponential doubling: tail of the difference sequence is injective)
+
+TEST C: 62-pair grid over disintegrated quadratics (triple-collision hunt)
+pairs tested: 62, pairs with >=3-fold collision: 0
+max maxfiber over grid: 2
+monotonicity-onset distribution: Counter({0: 58, 1: 4})
+(only double collisions ever observed, e.g. d0=d1=-1 for f=g=x^2-3,a=0,b=1;
+every pair becomes strictly monotone in |d_n| by index <=1)
+
+Small-collision detail (f=g=x^2-3): a=0,b=1 gives d0=d1=-1; a=1,b=2 gives
+d1=d3=d5=d7=d9=-3 and d2=d4=d6=d8=d10=3, i.e. both coordinates 2-periodic after
+a short tail (preperiodic case, outside target hypotheses), never a wandering
+triple collision.
+
+Reading: the constructive (unboundedness) horn of the target has no surviving
+candidate; all signatures favor eventual injectivity, i.e. a uniform fiber bound.
