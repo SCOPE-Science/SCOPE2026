@@ -1,0 +1,61 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Proof is mathematically correct: PO and bulk family match Vianna Prop 4.5/5.1 after k_n=l_n, k_i=l_i-l_n reparametrization; Lemma 5.2 critical form holds for all rho>0/params; n-1=2m even forces sum eps_i even so 1+S is odd-integer mod Lambda_+, a unit, hence val(u)=1/2 vs required s>1/2. Scripts reproduce all sign patterns n=3,5,7 plus spin-flip. Higher-Maslov exclusion via Cor 2.8 degree reasons and Prop 4.10 is accurate; s=1/2 boundary honestly excluded.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "Fails: Vianna Lemma 5.3 already records val(u)!=1/2 iff n=2m balanced-sign, whose contrapositive is exactly odd-n val(u)=1/2 for all bulks/patterns. Combined with Vianna u=T^s exp() and Cor 2.8, the HF no-go is mechanically implied. Report mischaracterizes Lemma 5.3 as even-only; full-text inspection shows it covers odd n. Prior need not state headline verbatim; substantive implication defeats novelty. Scalar/bulk-unit extensions are trivial parameter substitutions.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Intrinsically the divisor-bulk obstruction for Vianna Question 1.2 is motivated and worth knowing: it constrains the natural FOOO attack on odd-n Theta^n_s and is honestly scoped as a one-family no-go, not a displaceability resolution. As an EMERGENT_FINDING it genuinely arose from the target Floer horn. Value PASSES on its own, but cannot overcome prior coverage.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vianna arXiv:1603.02006 (J. Sympl. Geom. 2018) full text v2, 18pp: Prop 4.5 potential, Lemma 5.2 critical form, Lemma 5.3 valuation, Cor 2.8/5.4 HF link, Q1.2 open odd-n question",
+    "Fused literature search cc39cd2f (SerpBase/OpenAlex/Crossref/OpenAIRE, 3 directions, partial=false): nearest hit is Vianna itself; others are Chekanov/GZ torus, Yuan wall-crossing, Tonkonog-Vianna low-area, exotic CP2 tori \u2014 none states odd-n divisor-bulk no-go",
+    "Reproduced artifacts inputs/artifacts/no_go_odd.py and leading_order_no_go.py: all 2^(n-1) sign patterns n=3,5,7 give 1+S odd nonzero, val(u)=1/2; spin-flip and n=3 exhaustive 512 patterns confirm parity"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Vianna proves non-displaceability only for n=2m (Thm 1.1/1.6) and leaves odd n>=3 as open Question 1.2; no broader census, classification, or database for odd-n (CP^1)^n tori was found, but Vianna Lemma 5.3 itself is broader: it classifies val(u)!=1/2 for all n.",
+      "reasoning": "No stronger external theorem subsumes the claim as a special case, but the intra-paper broader lemma (Lemma 5.3 for general n) already exhaustively covers the odd-n case, so broader-coverage collapses to prior implication.",
+      "search": "Searched non-displaceable Lagrangian tori (CP^1)^n odd-n displaceability classification census Vianna Question 1.2 stronger theorem database"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Vianna Lemma 5.3: val(u)!=1/2 iff n=2m with balanced signs (m-1 plus, m minus), else val=1/2; plus u=z_beta=T^s exp() and Corollary 2.8 criticality-HF equivalence. Odd-n val=1/2 plus required val=s>1/2 immediately yields no critical bounding cochain.",
+      "reasoning": "Headline is the contrapositive of Lemma 5.3 combined mechanically with two adjacent Vianna facts (u valuation and Cor 2.8). A prior source need not state the headline verbatim; substantive implication suffices, so originality FAILS as recomputation/certificate of a known stronger fact.",
+      "search": "Compared headline val(u)=1/2 no-go for odd n s>1/2 against Vianna Lemma 5.2/5.3 plus Corollary 2.8 and u=T^s formula scope"
+    },
+    "equivalent_formulations": {
+      "evidence": "Vianna Prop 4.5 PO=u+T/u(1+w)(1+1/w), Remark 4.6 wall-crossing u=zn(1+w), Yuan LG superpotential for Chekanov-type tori, and twist-torus terminology all denote the same Theta^n_s object and potential; bulk factor exp((k-type)T^rho)=1 mod Lambda_+ is notation-invariant.",
+      "reasoning": "Synonymous names (Chekanov-type/twist/Theta^n_s), dual wall-crossing coordinates, and spin-sign encodings do not hide coverage: the object and potential match Vianna literally, and the parity unit argument is unchanged under any unit spin/bulk encoding.",
+      "search": "Searched disk potential Landau-Ginzburg superpotential twist torus Chekanov torus (S^2)^n FOOO bulk deformation critical valuation obstruction"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official symplectic database or table lists odd-n Theta^n_s bulk-critical valuations; the only exact parameter record is Vianna Section 5 formulas (Prop 5.1, Lemma 5.2 equations 5.1-5.3) which already tabulate every critical point and valuation.",
+      "reasoning": "Absence from an external database does not establish priority because the exact parameter set (odd n, s in (1/2,1), rho>0, l_i) already appears in Vianna body formulas that imply the claim, so database check does not rescue originality.",
+      "search": "Searched specialist databases and tables for Theta^n_s Chekanov torus bulk potential critical values odd-n valuation records"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Lemma 5.3 states val(u)!=1/2 iff n=2m with balanced sign pattern, hence odd n always val=1/2; Lemma 5.2 gives u=eps_n e^{knT^rho/2}T^{1/2}(1+S) for all rho/params; recall u=T^s exp() plus Cor 2.8 critical-HF link yields the stated no-go directly.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Continuum families of non-displaceable Lagrangian tori in (CP^1)^{2m} (Vianna)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1603.02006"
+    }
+  ],
+  "verdict": "REJECT"
+}
