@@ -1,0 +1,87 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: headline (A)+(B) sufficiency over K is not proved. Verified by re-running sharp_exponents.py: coherent-endpoint, strip-comparison and fiber-saturation arithmetic all pass, so range necessity/endpoint equality as inequalities are correct. But analytic sufficiency rests on two flagged deep inputs: Step 2 p-adic canonical l^p decoupling for P^2 in K^3 and broad-narrow upgrade to p>10/3. Cited support arXiv:2503.20015 does not contain a P^2 canonical transfer (it treats moment-curve/sparse means and in Sec.4 proves isotropic l^2 decoupling FAILS with Dec>=delta^{-1/2+1/r}), so the Step 2 justification via real Bourgain-Demeter transfer is invalid, especially isotropic. Sec.5 t-shell asymptotics for H are asserted; artifact checks only exponent comparisons assuming them. Hence proof vs computation not separated and essential inferences unverified: FAIL.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused search (SerpBase/Crossref/OpenAIRE; OpenAlex 429 noted, continued with available providers plus direct arXiv full-text) finds nearest priors: GMO 2307.06445 proves the SAME formula/exponent/range over R^n, not K; Johnsrude 2409.09163 proves non-archimedean small-cap only for parabola P^1 in K^2; Johnsrude 2503.20015 gives only 1D small-cap transfer plus an isotropic P^2 LOWER bound showing naive transfer fails; Johnsrude-Lin 2406.19473 treats moment curve. Full-text theorem-scope/parameter searches confirm none proves P^2 small-cap upper bound (A) or p-adic p>10/3 extension (B) in Q_p^3. Field change is non-mechanical due to exact tubes, isotropic lines and char-2 degeneration, so not a renamed implementation: PASS.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Headline, if established, advances the recognized GMO small-cap/restriction program to non-archimedean P^2 in Q_p^3 with exponent 10/3, plus motivated form dependence (elliptic vs isotropic) and load-bearing char/res-char 2 exclusion identified before computation. A future researcher could need the precise p-adic invariant and its qualifications. This is not a textbook restatement at headline level nor an arbitrary slice; unfinished broad-narrow/canonical survey does not erase headline value under STANDARD: PASS.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GMO 2307.06445 small-cap paraboloid in R^n: same |alpha|/p/exponent over R, Prop 1.5 small-cap=>restriction over R; does not treat Q_p.",
+    "Johnsrude 2503.20015 sparse means/non-archimedean analysis: moment-curve transfer, Cor 2.10 1D phase (x,x^2), Sec.4 isotropic (2+1) paraboloid lower bound Dec>=delta^{-1/2+1/r} for p=1 mod 4.",
+    "Johnsrude 2409.09163 high-low/small-cap over non-archimedean fields: Thm 1.1 for f:K^2->C, parabola P^1, regime 3/r+1/q<=1; not P^2 in K^3.",
+    "Johnsrude-Lin 2406.19473 restricted projections/decoupling in Q_p^n: Thm 6.1 moment-curve decoupling; different phase from paraboloid.",
+    "Direct full-text reads via scope_fulltext (GMO + both Johnsrude PDFs) and parameter search for paraboloid; artifact re-execution sharp_exponents.py all assertions pass (endpoint match, strip OK<= in range, fiber saturates).",
+    "Coverage note: scope_literature_search partial=true due to OpenAlex 429 on all three queries; Serpent/Crossref/OpenAIRE succeeded and direct arXiv fetches completed, so no priority inferred from the failed provider."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "GMO Thm 1.1 states F:R^n->C, Fourier support in real R^{-1}-neighbourhood, |alpha| in [(n-1)/2,n/2], p<=2+2/|alpha|; Prop 1.5 deduces real restriction. No K, O/m, q, or isotropic/char-2 discussion.",
+      "reasoning": "Broader real theorem does not exhaust the p-adic claim because field, tubes, residue dependence and isotropic splitting differ; Johnsrude Sec.4 proves naive l^2 transfer fails, so coverage as special case does not hold.",
+      "search": "Guth Maldague Oh small-cap paraboloid classification census database p-adic restriction extension exponent paraboloid Q_p^3"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior upper bounds found are real GMO, p-adic P^1 small-cap, and p-adic moment-curve decoupling; the only p-adic P^2 statement is Johnsrude Sec.4 LOWER bound saturating the l^p power, not an upper bound. Draft cites 2503.20015 as canonical transfer but that paper proves no P^2 upper bound.",
+      "reasoning": "No prior result substantively implies (A)+(B) upper bounds in Q_p^3; lower-bound/saturation examples and 1D/moment-curve results are certificates of sharpness or different phases, not recomputation of the claimed upper bound.",
+      "search": "p-adic non-archimedean Bourgain-Demeter decoupling paraboloid Q_p elliptic hyperbolic isotropic small caps Guth Maldague Oh"
+    },
+    "equivalent_formulations": {
+      "evidence": "Full-text search for paraboloid found 8 hits in 2503.20015: sparse-domain Cor 2.10 for 1D phase, Sec.4 isotropic line (n xi,n,0) with xi^2=-1 giving Dec lower bound, Remark 4.2 treat p-adic paraboloids as hyperbolic; draft Sec.5 strip in (u,v) frame transfers up to constants.",
+      "reasoning": "Dual/complement/matrix forms ((u,v) frame, dot-product isotropy) yield only the known lower-bound obstruction which saturates but does not prove the upper bound; no synonymous notation hides coverage of (A).",
+      "search": "small-cap decoupling paraboloid Q_p^3 exponent |alpha|(1/2-1/p) range p<=2+2/|alpha| restriction p>10/3"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database (OEIS/LMFDB/decoupling table/census) records a Q_p^3 paraboloid small-cap constant or 10/3 extension; artifact sharp_exponents.py is exact rational comparison code, not a table lookup, and GMO/Johnsrude tables concern R^n, P^1, or moment curve.",
+      "reasoning": "Headline is not a direct lookup, finite slice, or database recomputation; exact parameter triple (|a|=3/2,p=10/3,exponent 3/10) does not already appear as a recorded p-adic fact.",
+      "search": "decoupling database census table p-adic paraboloid Q_p extension exponent small-cap constants repository"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Thm 1.1 hypotheses: F:R^n->C with Fourier support in real neighbourhood; caps Gamma_alpha(R^{-1}), exponent |alpha|(1/2-1/p), p<=2+2/|alpha|; Prop 1.5 restriction over R^n. No non-archimedean field, residue field, or Q_p statement.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Small cap decoupling for the paraboloid in R^n",
+      "trigger_reasons": [
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2307.06445"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text paraboloid hits: Cor 2.10 uses 1D phase (x,x^2) with N^sigma sparse domain; Sec.4 constructs N functions along isotropic line for p=1 mod 4 proving Dec_{Qp}>=delta^{-1/2+1/r} vs real Dec_R<=delta^{-eps}; Remark 4.2 notes isotropy. No P^2 in K^3 small-cap upper bound or p>10/3 extension proved.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Sparse mean value estimates, algebraic number solution counting, and non-Archimedean Fourier analysis",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/2503.20015"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Thm 1.1 scope: f:K^2->C, Fourier support in NR^{-1}(P^1), caps R^{-beta}xR^{-1}, beta in [1/2,1], regime 3/r+1/q<=1 with explicit q,p constants. Object is parabola in 2D ambient, not paraboloid P^2 graph over O^2 in K^3 with 2D cap parameter |a|.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "High-low analysis and small cap decoupling over non-Archimedean local fields",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2409.09163"
+    }
+  ],
+  "verdict": "REJECT"
+}
