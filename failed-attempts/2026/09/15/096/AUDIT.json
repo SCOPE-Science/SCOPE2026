@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route; reran enumerate_m.py/witness_m.py confirming 60280 multisets, 43 orbit types, unconstrained m=[-22,22] and endpoint B values (B=1 for m=22, B=2^22 for m=-22) and qB-square checks. N(1) root-of-unity shape, N(2) disc=-p^{2sigma0} and weak bound aN even and >=2sigma0 via base-change, and N(3) necessity qB/|D| square with endpoint necessity are essentially correct modulo thin (Sq) p-part citation. BUT Theorem S sufficiency is invalid: it invokes Taelman's conditional machine for all-roots-of-unity (supersingular) data while Taelman Thm1/Thm2 explicitly assume not supersingular (verified full-text), so hypothesis fails; Ogus sigma0-matching and discriminant-group prescription is asserted without finite-index lattice proof; Sec.6 admits 0<r<22 sublattice-index verification unevaluated, so Corollary M exact equality for M(q,sigma0) is overclaimed (only r=0,22 evaluated; witnesses are numeric not surfaces). Endpoint iff relies on unproved sufficiency (only => proved). Lemma C shows literal target (same P_q over F_{q^n}, n>1) impossible by Weil weight q^n!=q: ADMISSION_DEFECT normalization error.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Headline two-sided supersingular Honda-Tate with sigma0 control and exact M(q,sigma0) is not in the fused set. Nearest priors inspected full-text: Taelman 2016 conditional non-supersingular realization with uncontrolled n (excludes supersingular, no Artin invariant, no disc -p^{2sigma0}), Kedlaya-Sutherland 2016 q=2 transcendental census (zero supersingular hits, no sigma0, no M(q,sigma0)). No source states root-of-unity sigma0-controlled realization with n|N or endpoint iff tables. Sufficiency direction is therefore new and not mechanically implied; necessity alone is routine Tate/Ogus/Artin-Tate recombination but does not make the whole headline old.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Correctly proved part (necessity plus 60280-multiset combinatorics plus endpoint necessity a-even) is mechanical recombination of cited Tate/Ogus/Artin-Tate black boxes and elementary phi(d)<=22 enumeration, with no new lemma, boundary, or downstream use; r=0 numeric qB-square witnesses are not geometric realizations. Claimed valuable exact set M(q,sigma0) is not decided (0<r<22 missing, sufficiency invalid, iff unproved). Literal target is impossible for n>1 by weight (Lemma C), so negative resolution is a cheap normalization/type error: ADMISSION_DEFECT; per STANDARD such literal falsity still fails value. No independently retrievable exact invariant is established as stated, though narrow exact data could in principle be valuable if proved.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Taelman 2016 ANT 10:1133 / arXiv:1507.08547 full text, 12pp 35457 chars: conditional Honda-Tate scope checked",
+    "Kedlaya-Sutherland 2016 / arXiv:1511.06945 full text, 11pp 42837 chars: q=2 transcendental census scope checked",
+    "DRAFT.md plus enumerate_m.py/witness_m.py rerun: 43 orbit types, 60280 multisets, all-m [-22,22], endpoint B values and qB-square checks verified",
+    "STANDARD sky-survey-admission-depth-gate-v12 plus topic.json TARGET with no fallback plus research_report.json TARGET route"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Taelman Thm2 requires non-supersingular Ltrc properties (1)-(5) and yields X over F_{q^n} with uncontrolled n; Ogus input gives disc -p^{2sigma0} and Torelli over algebraically closed fields, not finite-field L-realization with prescribed eigenvalues.",
+      "reasoning": "No broader theorem dominates the headline: Taelman hypothesis fails for all-roots-unity data, Ogus does not imply prescribed Frobenius eigenvalues or Artin-Tate sufficiency, and no exhaustive supersingular census was found.",
+      "search": "Searched Taelman conditional Honda-Tate plus Ogus supersingular crystal classification plus Tate conjecture as broader theorems or census covering supersingular datum"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Necessity including root-unity shape, disc, qB/|D| square, and aN parity follows mechanically from cited black boxes plus Kronecker-slope and base-change to F_{q^N}; sufficiency for every admissible datum with sigma0 and n|N does not follow because Taelman excludes supersingular and the finite-index lattice check is admitted incomplete for 0<r<22.",
+      "reasoning": "Prior work substantively implies only the routine necessity direction, not the headline two-sided exact realization; no prior implies or exhausts the sigma0-controlled sufficiency and M-set claim, so implication does not defeat novelty although correctness still fails.",
+      "search": "Tested whether Tate plus Ogus plus Artin-Tate jointly imply necessity and whether Taelman plus Ogus imply conditional sufficiency with n|N and endpoint iff"
+    },
+    "equivalent_formulations": {
+      "evidence": "Taelman defines L=Lalg (roots of unity) versus Ltrc (non-roots) and excludes the Lalg-only supersingular case; Kedlaya-Sutherland uses shifted L(T) degree-21 normalization; no source states sigma0-controlled root-of-unity realization under any synonym.",
+      "reasoning": "Synonym and encoding swaps reveal no hidden coverage; the supersingular-only all-roots-unity case is exactly what Taelman excludes, so the equivalence check confirms a gap rather than prior coverage.",
+      "search": "Searched Artin-supersingular, infinite-height, rho=22, Lalg versus Ltrc, and point-count 1+q^2+qm synonymous notations and crystal encodings"
+    },
+    "exact_database_or_table": {
+      "evidence": "Kedlaya-Sutherland Computations 3-4 and Sec.4 tables enumerate transcendental q=2 candidates with Artin-Tate filter L1(1)=|Delta|#Br; full text contains no sigma0 tables, no M(q,sigma0), and no 60280-multiset sigma0 enumeration.",
+      "reasoning": "No official table or database already lists exact (q,sigma0) m-sets or sigma0-controlled witnesses; draft r=0 qB-square lists are numerically new but are not surfaces, so they are not prior coverage.",
+      "search": "Searched Kedlaya-Sutherland q=2 polynomial and quartic-zeta tables plus K3 databases for precomputed M(q,sigma0) or sigma0-specific Weil data"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text 35457 chars: Thm1/Thm2 assume not supersingular; supersingular hits are exclusions only; Artin invariant 0 hits; discriminant -p 0 hits; L=Lalg*Ltrc construction covers only non-unity Ltrc with uncontrolled n, not sigma0 root-of-unity realization.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "K3 Surfaces Over Finite Fields With Given L-function",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/pdf/1507.08547"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text 42837 chars: supersingular 0 hits; invariant only as NS discriminant Delta in Artin-Tate Thm8; tables are q=2 transcendental polynomials and quartic zetas with no sigma0, no M(q,sigma0), no root-of-unity sigma0 realization.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "A census of zeta functions of quartic K3 surfaces over F2",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://doi.org/10.1112/s1461157016000140"
+    }
+  ],
+  "verdict": "REJECT"
+}
