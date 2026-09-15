@@ -1,0 +1,86 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: central selection formula s0=max(e,f)+1 is asserted without Hecke proof and contradicts the cited framework. With ry=2e+1, rz=2f+1, Tam Cor 3.3 / Lust-Stevens give unordered points {(ry+rz)/2,(ry-rz)/2}={e+f+1,|e-f|}, not max+1 except when min=0 (e.g. e=2,f=1 predicts 3 vs 4 or 1). Degree factor d for deg>1 P ignored; even-type parity shift stated without computation; member recipe is circular (keep variants reproducing (a,b), then keep alternating) with endoscopic verification cited not shown. Artifact checks only arithmetic a=2s0-1 and distinctness, not Hecke eigenvalues, so computation does not support the proof.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "TARGET claim is the non-companion (e!=f) sign/assignment, distinct from prior work verified by full-text inspection. Tam 2312.04061 defines typically almost symmetric as |m_y|=|m_z| for all P and proves only that companion case (Props 2.2-2.6, Sec 4 uses zero RHS difference). Lust-Stevens 1611.08421 explicitly constructs parameters only up to unramified twist as a union of 1/2/4 packets. BHS18 determines only inertial Jordan data IJord up to twist. No prior source states or implies the non-companion nu=sign(e-f)/max-selection rule.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "As a claim type, exact L-packet selection, Tam sign, (a,b) pair and explicit supercuspidal member list for non-companion depth-zero supercuspidals of Sp_2N resolves a recognized Lust-Stevens ambiguity continued by Tam, over a natural object with a motivated invariant. It is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration under STANDARD; a correct resolution would be independently retrievable. Value judged separately from the failed proof.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tam 2312.04061 full text (31pp): companion definition, Props 2.2-2.8, Hecke Sec 3, Sec 4 proofs, Sp(4) example; establishes companion-only scope.",
+    "Lust-Stevens 1611.08421 full text (36pp): abstract plus Sec 4-6 theorems; union of 1/2/4 packets, unordered reducibility pairs only.",
+    "Blondel-Henniart-Stevens 1704.03545 excerpts (Secs 0.6-0.9): inertial Jordan set IJord up to twist with explicit residual ambiguity.",
+    "DRAFT.md plus compute_packet.py execution: reproduced ALL CHECKS PASSED; confirmed script asserts only arithmetic identities, no Hecke eigenvalue computation."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Arthur/Moeglin give packet structure given the parameter but not the type-to-parameter map; DeBacker-Reeder covers only regular parameters; Lust-Stevens and BHS18 stop at unordered/twist-ambiguous data per evidence above.",
+      "reasoning": "A broader structural theorem does not substantively imply the missing sign: the claim needs the type-level Hecke sign for e!=f, which no broader result computes, so no dominance coverage.",
+      "search": "Searched broader theorems/censuses that could subsume non-companion depth-zero Sp as special case: Arthur/Moeglin discrete-parameter classification, DeBacker-Reeder regular packets, Lust-Stevens arbitrary depth-zero union, BHS18 cuspidal inertial blocks."
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior formulas yield e+f+1 and |e-f|; e.g. (e,f)=(2,1) gives 4 or 1, while the claim gives 3. The (1,0) example coincides (2=2) and masks the general mismatch.",
+      "reasoning": "Prior work neither implies nor is consistent with the general formula; it refutes it as stated, confirming the claim is new but unproved/incorrect rather than a corollary or recomputation.",
+      "search": "Compared submitted s0=max+1, a=2max+1, b=2min+1 against prior implication: Tam Cor 3.3 points (ry+-nu*rz)/2 with ry=2e+1, rz=2f+1 giving {e+f+1,|e-f|} versus submitted max+1."
+    },
+    "equivalent_formulations": {
+      "evidence": "Tam (2.16)-(2.24), Cor 3.3 with nu->-nu swap; Lust-Stevens IRed vs Red distinction; BHS18 inertial-vs-full discussion all use the same twist ambiguity in different notation.",
+      "reasoning": "No relabeling removes the gap: all equivalent forms leave the rho-vs-rho1 assignment open, and none states the submitted max-wins/nu=sign(e-f) rule, so equivalents do not cover the claim.",
+      "search": "Searched synonymous/dual encodings: companion vs typically almost symmetric, Tam sign nu vs Hecke product sign sgn(dy)sgn(dz), Jordan max a vs reducibility s0=(a+1)/2, inertial IRed/IJord vs full Jord, unramified twist rho1 vs companion packet swap."
+    },
+    "exact_database_or_table": {
+      "evidence": "Morris/Lusztig tables supply only finite exponents rw (e.g. 2m+1, 2m); Tam tables list only companion configurations; no table lists an e!=f pair with s0=max+1, nu, or (a,b)=(2max+1,2min+1).",
+      "reasoning": "The exact non-companion tuple is absent from tables; the artifact's (1,0) check is author-generated arithmetic, not a prior database record, so no table coverage.",
+      "search": "Searched exact-parameter tables: Morris depth-zero Hecke parameters, Lusztig finite-cuspidal multiplicity tables, Tam Prop 2.5/4.2 Sp(4) values, and the DRAFT Sp6 (1,0)/(1,1) dimension-7 example."
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text search for companion plus Sec 2.7-4 read: (2.24) requires |m|=|m'| for all P; Props 2.2/2.5/2.6 assume typically symmetric/companion; Sec 4 proof sets RHS of (3.20) to zero via companion symmetry to get nu=1; no e!=f sign derivation.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Depth zero supercuspidal representations of classical groups into L-packets: the Typically Almost Symmetric Case",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2312.04061"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Abstract and Sec 1/4-5 theorems: parameter constructed to within unramified quadratic twists; computes inertial multiset IRed and unordered pair {s(rho),s(rho1)} via (5.1); union of 1/2/4 packets left unresolved, so non-companion assignment not decided.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "On depth zero L-packets for classical groups",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1611.08421"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Secs 0.6/0.7/0.9: method yields {s(rho),s(rho1)} and inertial set IJord only; when rho,rho1 share parity and appear singly the twist choice is explicitly left ambiguous, which is exactly the gap the DRAFT claims to close.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Jordan blocks of cuspidal representations of symplectic groups",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1704.03545"
+    }
+  ],
+  "verdict": "REJECT"
+}
