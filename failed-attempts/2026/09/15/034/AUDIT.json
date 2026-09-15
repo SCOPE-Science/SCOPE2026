@@ -1,0 +1,62 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "Computations verify: affine zeros (0,4),(3,3),(4,0),(4,4); torus Hessians [[3,2],[2,3]] det0 rank1 and [[0,4],[4,0]] det4 Morse; local lengths 1 at (4,4) via independent linears and 2 at (3,3) via K unit plus diagonal (x-3)^2(x-4); Clifford idempotents 2 vs 4 reproduce. But essential categorical inferences fail: (1) Krull-Schmidt claimed via false 'finite global dimension' for k[v]/(v^2) plus unproved K0-rank/idempotent-lift, not the correct Hom-finite Karoubian theorem; (2) C2 Perf(k)xPerf(k) HF-dim argument numerically inconsistent (a^2+b^2=4 admits no both-factor solution; S1+S2 total 2 not 4) and Perf solution list unlinked to classification; (3) universal quantifier over all toroidal C reduced without proof to two summands from one W, with no Hessian-rank or QH* argument covering other tori. Hence upgrade not established.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Headline upgrades Smith Theorem E stable equivalence T1^2+T1[1]^2 to honest T1=T2 or T2[1] for Bl_4 char5 length-2 degenerate plus Morse summands. Full-text Smith inspection shows conjecture explicitly left open with only stable result proved. Fused search over literal, equivalent Clifford/Koszul/skyscraper, and broader del Pezzo census formulations found no prior Bl_4 char5 proof, no synonymous covering result, and no stronger classification implying it. Vianna/Sanda/wall-crossing concern existence/potentials/Morse factors, not this uniqueness. Result is new and not mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves Smith open conjecture in first concrete degenerate case where complex golden-ratio points collide mod5 (discriminant 5=0) with total length redistributed 2+1, plus Morse shift-fixed case. Object (monotone Bl_4, char5 toroidal summands) and invariant (uniqueness up to shift) were motivated before computation by Smith conjecture; exact fact was unknown, not mechanically implied, and future Fukaya-summand work could need it. Not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration; narrow exact invariant of natural object is eligible without a general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Smith arXiv:2409.07922 (JEP 2025) 'Quantum cohomology and Fukaya summands from monotone Lagrangian tori' \u2014 states toroidal-generator uniqueness conjecture as open, proves only stable equivalence ThmE/Prop3.8; inspected full text.",
+    "Fused literature search (SerpBase/OpenAlex/Crossref/OpenAIRE) for literal, equivalent-matrix-factorization/Koszul-Clifford, and broader del Pezzo census queries \u2014 nearest hits Vianna exotic tori, Sanda Morse localization, Pascaleff-Tonkonog wall-crossing; none proves Bl_4 char5 upgrade.",
+    "Dyckerhoff mf smoothness/generation + Smith ThmC/D Props 3.3/3.5/3.7/3.9 cited as background; Oh spectral sequence HF=Clifford identification assumed, not re-proved.",
+    "Re-ran inputs/artifacts compute_crit.py, local_lengths.py, clifford_check.py \u2014 affine zeros, torus points (3,3) lam0 det0 and (4,4) lam2 det4, shifted linear parts, diagonal (x-3)^2(x-4), idempotent counts 2 vs 4 all reproduce."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Vianna constructs ATFs/exotic tori without categorical uniqueness; Sanda localizes only at Morse points to k-factors; Smith ThmD gives split-generation and Prop3.9 orthogonality but not honest equivalence; no del Pezzo census or QH* classification covering Bl_4 char5 toroidal uniqueness was found.",
+      "reasoning": "No broader theorem, larger parameter range, census, or classification found substantively implies the Bl_4 char5 upgrade; prior generation/orthogonality results are strictly weaker and cited as inputs, not coverage.",
+      "search": "Broader del Pezzo Fukaya classification, toric generation criterion, Vianna infinite tori, Sanda/Ganatra automatic generation, exhaustive census covering Bl_4 char5 toroidal subcategories"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Smith Prop3.8 proves i*i*T gives T^2+T[1]^2 = E^k+E[1]^k with k=2^{n-1} via End-dimension count; Smith text states 'We conjecture...up to a shift. We have not been able to prove this' and offers only this stable form.",
+      "reasoning": "Stable equivalence does not mechanically imply honest equivalence up to shift; upgrade needs extra Krull-Schmidt indecomposability or Morse shift-fixing plus HF-dimension analysis absent from prior work, so headline is strictly stronger than Theorem E.",
+      "search": "Smith Theorem E Proposition 3.8 stable equivalence 2^{n-1} copies versus honest quasi-isomorphism up to shift implication check"
+    },
+    "equivalent_formulations": {
+      "evidence": "Smith uses toroidal subcategory/generator, mf(S,W-lambda), skyscraper E, Koszul 2^{n-1} stable sum language; search over matrix-factorization, Clifford even-part idempotents, Krull-Schmidt upgrade, shift-fixed E[1]=E synonyms returned only Smith itself and unrelated quasi-isomorphism pages.",
+      "reasoning": "No synonymous dual/complement/incidence/matrix/Clifford encoding in prior work states or implies the Bl_4 char5 honest upgrade; the only matching terminology family is Smith, which explicitly leaves it conjectural.",
+      "search": "Toroidal generator uniqueness up to shift synonymous forms: matrix-factorization skyscraper, Koszul stable sum upgrade, Clifford even-part Krull-Schmidt, shift-fixed decomposable case"
+    },
+    "exact_database_or_table": {
+      "evidence": "Smith worked examples treat cubic surface and quadric threefold with different characteristics, not Bl_4 char5 points (3,3) lam0 length2 and (4,4) lam2 length1; no table or database entry with these parameters and lengths was returned, and re-running scripts confirms the diagonal (x-3)^2(x-4) redistribution.",
+      "reasoning": "Exact object Bl_4 CP^2 in characteristic 5 with collided golden-ratio point and stated local Jacobian lengths does not already appear in a prior table or official database; it is a new computed configuration, not a recomputation.",
+      "search": "Exact Bl_4 CP^2 characteristic 5 Pascaleff-Tonkonog potential critical points (3,3) (4,4) local Jacobian lengths 2 and 1 in tables and databases"
+    }
+  },
+  "repair_instructions": "Keep char5 computations. Replace false Perf(R) finite-global-dimension Krull-Schmidt claim with correct Hom-finite Karoubian argument (properness gives finite-dim Homs, split-closed gives Karoubian, hence finite decomposition with local ends). Fix C2: drop inconsistent Perf(k)xPerf(k) a^2+b^2 counting and prove Morse uniqueness via correct Clifford supermodule End-dim plus k=2 stable count with E[1]=E. Prove universality beyond the single computed W by Hessian-rank dichotomy for n=2 (Morse length1 vs degenerate rank<=1 with local even Clifford) so every toroidal C falls in C1/C2 cases, and spell out (x-y) in ideal via K unit for length2. Restrict headline to what is then proved.",
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body states toroidal-generator uniqueness up to shift is conjectured but unproved, then proves only stable T1^{2^{n-1}}+T1[1]^{2^{n-1}} = T2^{2^{n-1}}+T2[1]^{2^{n-1}} (n=2 gives 2+2); worked examples cover cubic/quadric, not Bl_4 char5 honest upgrade.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Quantum cohomology and Fukaya summands from monotone Lagrangian tori",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/2409.07922v2"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
