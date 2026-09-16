@@ -5,7 +5,7 @@ mathematical sky survey.
 
 Records are organized as `YYYY/MM/DD/NNN`.  Each accepted record includes a
 self-contained `RESULT.md`, a retrieval-oriented `SLOGAN.txt`, provenance metadata,
-an independent audit, and only the compact artifacts needed to verify or reuse the
+an explicitly attributed review, and only the compact artifacts needed to verify or reuse the
 finding.
 
 ## Time standard
@@ -18,14 +18,26 @@ in record identifiers, are derived from the UTC publication date.
 Historical records that contain only a calendar date retain that date without an
 invented time of day; the date is interpreted as UTC.
 
-Publication requires independent acceptance on three separate axes:
+## Phase II — single-agent observations
+
+Phase II began on **2026-09-16 UTC**. A single agent selects a concrete gap from
+existing literature, screens prior work, researches it, and self-audits the result.
+Completed accepted results are automatically archived with their actual review
+status. See [Phase II policy](PHASE_II.md) for publication and originality rules.
+
+Phase I used independent acceptance. Phase II records producing-agent self-audit
+on three separate axes:
 
 1. correctness;
 2. originality relative to the closest located prior results; and
 3. scientific value as a finding worth recovering later.
 
-Inclusion records the outcome of the SCOPE review process.  It does not by itself
-establish scholarly priority.
+Self-audit is **not independent review**. Each record's review type is explicit;
+independent verification, expert attestation, or formal proof require separate
+evidence. Originality is assessed **to the best of our knowledge**, including
+equivalent and stronger prior coverage. Inaccessible potentially covering sources
+and remaining limitations are disclosed in the review, not treated as proof of
+absence. Inclusion does not by itself establish scholarly priority.
 
 ## Failed attempts
 
