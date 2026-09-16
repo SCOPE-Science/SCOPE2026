@@ -1,0 +1,76 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET proof structure (conditional decomposition (1), H3 min->inf, product-to-exponential bounds, Kallenberg identification with C_m=C_*(1-t)^{-3/2}) is verified, but Lemma T proof is invalid: phi(vartheta)=kappa1(vartheta)-vartheta v1 has phi(theta)=phi'(theta)=0 and phi''>0, hence phi(theta0)>0 for theta0!=theta, not <0; E[W_k(theta0)]=exp(k phi(theta0)) grows exponentially and exp(-eta T_n/2) with T_n~n^{1/4} cannot beat it, so Markov step fails. Moreover E[sum_{b>T}(1+b)e^{-theta b}] diverges (~sqrt k), so no L1 tilt argument can work. Hence I3 control for (3) and (6) is unproved and the SDPPP/max-law convergence is not established as written.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Nearest prior Luo arXiv:2503.05994 states the identical mean-regime SDPPP with same centering m_n, Cox intensity C_m Z^{(1)} and decoration D^{(2)} as Conjecture 1.3, explicitly says it proves only slow/fast regimes and that the mean case was unstudied even in BBM. Full-text theorem-scope inspection confirms Theorems 1.1/1.2 cover fast/slow only. Bovier-Hartung covers two-speed BBM analogues with different objects/centerings, homogeneous Aidekon/Madaule give only inputs. No broader theorem, encoding, database, or mechanical implication covers the mean-regime two-speed BRW limit.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET route: proved mean-regime extremal-process SDPPP would resolve Luo Conjecture 1.3 for natural two-speed BRW with explicit constant (1-t)^{-3/2}, derivative-martingale random shift Z^{(1)} and L2 decoration, motivated before computation and needed for time-inhomogeneous extremes. It is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration, and narrow exact-invariant form is eligible without a new general theorem.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Luo 2025 arXiv:2503.05994 The extremal process of two-speed BRW: Thm 1.1 fast, Thm 1.2 slow, Sec 1.3 Conjecture 1.3 mean regime with same m_n and SDPPP",
+    "Bovier-Hartung 2014 EJP v19-2982 two-speed BBM: Thm 1.1 sigma1<sigma2, Thm 1.2 sigma1>sigma2, BBM variance model only",
+    "Aidekon 2013 Ann Probab 41(3) doi:10.1214/12-aop750 homogeneous minimum tail C_* and ballot machinery",
+    "Madaule 2017 J Theoret Probab 30 doi:10.1007/s10959-015-0636-6 homogeneous BRW seen from tip, decoration SDPPP input",
+    "Mallein 2015 SPA / Fang-Zeitouni 2012 EJP time-inhomogeneous maxima tightness and log-correction phase transition, no extremal-process limit"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bovier-Hartung proves BBM analogues with different centerings and cluster laws; Mallein and Fang-Zeitouni give tightness and first/second-order maxima only; Subag-Zeitouni freezing assumes known SDPPP limits.",
+      "reasoning": "No broader object class, larger parameter range, or completed census substantively implies the BRW mean-regime SDPPP with C_m=(1-t)^{-3/2}C_* and Z^{(1)} shift; BBM is a different object and regime.",
+      "search": "variable speed BBM BRW two-speed extremal process classification stronger theorem larger range Mallein tightness Bovier-Hartung concatenation"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Homogeneous inputs give fixed-level tails g_m(z)~C(phi)z e^{-theta z}; Luo proves fast/slow combinations but leaves mean as conjecture; cross-phase factor e^{theta d_n}->(1-t)^{-3/2} with Z^{(1)} combination appears only in DRAFT.",
+      "reasoning": "Prior homogeneous estimates do not mechanically yield the two-speed mean limit; the spine/ballot combination is genuinely new, though its I3 far-tail step is currently unproved and needs repair.",
+      "search": "Aidekon minimum tail Madaule tip Laplace Mallein genealogy combination implies two-speed mean SDPPP"
+    },
+    "equivalent_formulations": {
+      "evidence": "Fused search returned Luo slow/fast theorems, Fang-Zeitouni maxima order, homogeneous Aidekon/Madaule; Luo Sec 1.3 explicitly calls the identical mean-regime SDPPP statement Conjecture 1.3 and excludes it from proved theorems.",
+      "reasoning": "No synonymous notation, dual/complement, or matrix/spine encoding covers the claim; the only literal match is labeled as conjecture, so equivalence search leaves originality intact.",
+      "search": "two-speed variable-speed time-inhomogeneous BRW extremal process SDPPP theta1* theta2* boundary case derivative martingale decoration"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database, census, or table entry for a two-speed BRW mean-regime limit was returned; C_* and D^{(2)} depend on law L2 and are not tabulated constants.",
+      "reasoning": "The claim is a limit theorem with law-dependent decoration and random intensity, not a direct lookup, recomputation, or certificate of a tabulated value.",
+      "search": "branching random walk extremal constant C_* decoration law database table two-speed mean regime (1-t)^{-3/2}"
+    }
+  },
+  "repair_instructions": "Replace Lemma T proof without changing objects, centering, or regimes: correct phi convexity (phi>=0 with minimum at theta), delete false phi<0 exponential-decay Markov claim, and prove e^{theta d_n}sum_{b_w>T_n}(1+b_w)e^{-theta b_w}->P 0 and the b-weighted version via a valid in-probability barrier/truncated-derivative-martingale or spine large-deviation bound using Luo exponential moments with r_m=m^{1/4}=o(sqrt m); add explicit justification that H1' uniformity holds on [A,r_m] under non-lattice Stone LLT, then re-derive I3 steps for (3) and (6) from the corrected lemma.",
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body Sec 1 says proofs target slow/fast only; Sec 1.3 labels mean-regime limit Conjecture 1.3 with same t, m_n and SDPPP; Thms 1.1/1.2 hypotheses cover fast/slow centerings only, so mean regime is conjectured not proved.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The extremal process of two-speed branching random walk",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/html/2503.05994v1"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Thm 1.1 assumes sigma1<sigma2 with REM centering sqrt2t-1/2 log and martingale Y; Thm 1.2 assumes sigma1>sigma2 concatenation; both are BBM variance models, not BRW laws L1/L2 with theta1*=theta2* and (1-t)^{-3/2} factor.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "The extremal process of two-speed branching Brownian motion",
+      "trigger_reasons": [
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://doi.org/10.1214/ejp.v19-2982"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
