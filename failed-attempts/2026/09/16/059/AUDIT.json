@@ -1,0 +1,73 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET disproof fails at load-bearing Lemma 3. Lemma 1 (lambda0 in (5,6)) and Lemma 2 (||A_inf||=2) check out and the script ran clean, but Lemma 3(i) 'M hyperfinite => amenable subfactor' is false. Amenable extremal => index=||Gamma||^2 is conditional on amenability; hyperfiniteness of the ambient does not imply amenability. Positive counterexamples: Bisch 1994 irreducible R-subfactor at index 9/2 with A_infinity graphs that is Popa-non-amenable, and Bisch-Caceres 2025 full text constructing hyperfinite TLJ (hence A_inf) subfactors at index 5 and other indices !=4. Hence hyperfinite A_inf does not force index 4, and the contradiction collapses. Headline truth is undecided by this proof.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "The exact headline 'no irreducible hyperfinite A_inf subfactor at index ~5.04892 (largest root of x^3-6x^2+5x-1)' is not recorded or implied by the nearest prior. The (5,5.25] classification explicitly retains TLJ A_inf at every index >4 and lists only su(2)5 and su(3)4 besides A_inf/A(1)_inf at ~5.04892, without deciding hyperfinite realizability. Bisch-Caceres 2025 constructs hyperfinite A_inf only for [4,5] and 3+sqrt5 and conjectures existence at every finite-depth index, i.e. the opposite direction. No prior states or implies the claimed non-existence.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "As a TARGET question the claim is independently motivated and retrievable: ~5.04892 is a natural finite-depth index (su(2)5/su(3)4), the object (hyperfinite A_inf/TLJ realization) and invariant are motivated before computation by the Jones index problem and the Bisch-Caceres conjecture, and a correct resolution either way would be a concrete boundary fact. It is not a type error, vacuity, tiny-instance mismatch, direct lookup, or arbitrary-parameter fact. Value passes; the failure is correctness, not intrinsic triviality.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bisch-Caceres arXiv:2509.00227 (2025) full text READY: abstract+Sec1+Table1+Sec4-6 inspected; hyperfinite TLJ at index 5 and indices in [4,5],3+sqrt5; conjecture of hyperfinite A_inf at every finite-depth index.",
+    "Afzaly-Morrison-Penneys arXiv:1509.00038 full text READY: Theorem A classifies abstract standard invariants in (5,5.25]; A_inf retained at every index >4; ~5.04892 lists su(2)5, su(3)4 only.",
+    "Bisch 1994 Crelle 10.1515/crll.1994.455.21 snippet/metadata: irreducible R-subfactor index 9/2 with A_inf graphs, Popa-non-amenable; used only as correctness counterexample, not for originality coverage.",
+    "Popa 1994 Acta 10.1007/BF02392646 metadata/snippet: amenable-subfactor classification cited as black box; DOI full-text acquisition unavailable (openalex timeout; Project Euclid returned bot-challenge HTML, not PDF); hypotheses checked via secondary full texts and positive counterexamples, not via absence.",
+    "inputs/artifacts/verify_lambda0.py executed clean: p(5)=-1, p(6)=29, monotonicity, delta0 bounds, A_n approximants; certifies only Lemmas 1-2, not Lemma 3."
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Full-text Bisch-Caceres index-5 hyperfinite TLJ construction plus Bisch 9/2 hyperfinite A_inf non-amenable example directly refute the unconditional forcing claim; Popa equality is conditional on amenability.",
+      "reasoning": "No broader theorem covers the headline via that route: the cited Popa chain misstates hypotheses by equating hyperfinite ambient with amenable inclusion, so the headline is not a special case of a sound stronger fact.",
+      "search": "Popa amenable extremal subfactor index equals squared graph norm; does hyperfinite plus A_inf force index 4?"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior implies the opposite possibility: Popa 1993 gives TLJ at every lambda>4 non-hyperfinite; classification leaves A_inf at every index; Bisch-Caceres conjectures hyperfinite A_inf at every finite-depth index including ~5.04892.",
+      "reasoning": "The headline is not implied by prior; if anything the active conjecture points toward existence. The draft reverses the implication by treating a conditional amenability equality as an unconditional hyperfinite ban.",
+      "search": "Do Popa 1993-1994, GHJ graph norms, small-index classification, or Bisch-Caceres conjecture imply absence at ~5.04892?"
+    },
+    "equivalent_formulations": {
+      "evidence": "Classification text gives TLJ principal graphs as two copies of A_inf with norm 2, and TLJ subalgebra present in any planar algebra; Bisch-Caceres uses TLJ <=> A_inf-subfactor terminology throughout.",
+      "reasoning": "Synonymous encoding does not create prior coverage: the equivalence only restates the headline as no hyperfinite TLJ at ~5.04892, which neither classification nor Bisch-Caceres asserts; it also exposes that Lemma 3 would ban the inspected index-5 hyperfinite TLJ example.",
+      "search": "TLJ standard invariant <=> (A_inf,A_inf) principal graphs; loop parameter delta=sqrt(index); A_inf norm 2"
+    },
+    "exact_database_or_table": {
+      "evidence": "Bisch-Caceres Table 1 and classification Appendix A.3-A.4 list ~5.04892 as finite-depth su(2)5/su(3)4 index while retaining A_inf at every index; neither table records a hyperfinite A_inf existence or ban at ~5.04892.",
+      "reasoning": "Exact tables fix the parameter as a natural finite-depth index but do not decide hyperfinite TLJ realizability there; the claim is therefore not a direct lookup or database recomputation.",
+      "search": "Table of finite-depth hyperfinite indices 4 to 5.25 including ~5.04892 su(2)5 su(3)4; subfactor map appendix"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text search for 5.04892 hits only Table 1 finite-depth list; constructions proven only for [4,5] and 3+sqrt5 with index-5 TLJ example; conjecture predicts hyperfinite A_inf existence at finite-depth indices, opposite of headline; no non-existence at 5.04892.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "New hyperfinite subfactors with infinite depth",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/pdf/2509.00227"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Theorem A and Sec3 list only su(2)5 and su(3)4 besides A_inf/A(1)_inf at ~5.04892; text states TLJ A_inf exists at every index >4; scope is abstract standard invariants, not hyperfinite realizability; records no hyperfinite A_inf ban.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "The classification of subfactors with index at most 5 1/4",
+      "trigger_reasons": [
+        "SAME_PARAMETERS",
+        "SAME_OBJECT",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/pdf/1509.00038"
+    }
+  ],
+  "verdict": "REJECT"
+}
