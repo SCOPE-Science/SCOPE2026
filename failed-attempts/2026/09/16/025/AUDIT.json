@@ -1,0 +1,75 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "B_rec freeness by descent plus 128-word check verified by re-execution; star-freeness by 117649-word capped-depth exhaustion is sound (only all-cap (L,L,L) over-approximated, monotone direction preserves zero-survivor rigor; edge rules for x0-windows and non-x0 windows verified exact otherwise; rotation fixes x0 wlog). Re-ran proof_star.py: Lemma1 unique survivor 0^7, zero star survivors, surplus limit 0.026924 with DP values 0.0253-0.02693. Surplus genuinely new (sorted (0,1,1) not a B-edge) and Theta(n^2) follows from known brec optimal-ratio gamma+o(1) cited in prior work plus DP stability; no upper-bound claim is made.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "The order-level emergent claim ex(n,C^3_7)>=brec(n)+Omega(n^2), ruling out o(n^2), is already explicitly recorded in Bodnar-Leon-Liu-Pikhurko (2025) Introduction for all ell>=7 with ell=1 mod 3, which includes ell=7: v* in V1 plus all triples {v*,y1,y2} with y1,y2 in V2,2 is stated C-free with brec+Omega(n^2). The submitted W-star (x0 plus pairs from W=V2,1) is the same single-vertex-star template with the second-level part swapped (V2,1 vs V2,2); it does not create a new boundary and its order corollary is substantively implied by the prior Omega(n^2) remark. The report's 'first explicit Theta(n^2) family' is therefore materially false.",
+      "verdict": "FAIL"
+    },
+    "value": {
+      "rationale": "Order-sharpness for C^3_7 was already settled at order level by the prior V2,2-star Omega(n^2); the residual novelty is a larger lower-order constant (~0.0269 vs implicit ~0.009) within the same single-vertex-star idea. Since brec is Theta(n^3) and Turan density is unaffected, this is a numerically small lower-order constant gain with no demonstrated density, classification, benchmark, or downstream significance, i.e. a parameter substitution / tiny unmotivated gain under STANDARD. It does not independently advance the recognized question and the admitted upper-bound half remains open.",
+      "verdict": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Bodnar-Leon-Liu-Pikhurko arXiv:2506.03223 (2025) The Turan density of short tight cycles: Brec definition, brec recurrence, gamma/alpha asymptotics, stability, and Introduction Omega(n^2)/Omega(n) surplus remarks for single C_ell",
+    "Kamcev-Letzter-Pokrovskiy arXiv:2209.08134 (2024) The Turan density of tight cycles: iterated blow-up construction, density alpha=2sqrt3-3 for large ell not divisible by 3",
+    "inputs/artifacts/proof_star.py re-executed in audit (Lemma1, edge-rule sanity, 117649-word exhaustion, surplus DP) plus scriptAB_const.py DP stability 100..3000 and scriptM_verify.py / scriptQ_corrected.py edge-rule correction history",
+    "scope_literature_search EMERGENT_ORIGINALITY three-direction fused query (literal W-star surplus; equivalent B[V1,V2]/recursive blow-up terminology; Bodnar/Kamcev dominance census) returning the two papers above as top fused hits"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Bodnar Introduction expressly states for every ell>=7 with ell=1 mod 3 a C^3_ell-free brec(n)+Omega(n^2) construction via the v*+V2,2 star; this range includes ell=7 and hence the submitted order-sharpness half.",
+      "reasoning": "A broader prior remark already exhaustively covers the claimed order corollary (o(n^2) impossible); a later instance with a different second-level part and explicit constant does not create a new order-level finding.",
+      "search": "Stronger theorem or broader class covering C^3_7 surplus: all ell>=7 ell=1 mod 3 Omega(n^2) remarks, Brec stability, and short-tight-cycle density programs"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Prior gives |G|=brec(n)+Omega(n^2) C^3_ell-free for ell=7, directly implying ex(n,C^3_7)-brec(n)>=c n^2 for some c>0 and ruling out any brec+o(n^2) upper envelope; DRAFT proves the same order with larger explicit c~0.0269 via W instead of V2,2.",
+      "reasoning": "The headline order consequence is substantively implied by the prior result verbatim in order; the larger constant does not change density, order, or any admitted envelope constant (upper bound unproved), so it is a corollary/recomputation with a substituted part rather than a new implication.",
+      "search": "Whether prior Omega(n^2) for C^3_7 implies the submitted ex>=brec+c n^2-o(n^2) and best-possible-order consequence"
+    },
+    "equivalent_formulations": {
+      "evidence": "Bodnar uses center v* in V1 plus full pair-star over deep remainder V2,2; DRAFT uses center x0 in V1^(0) plus full pair-star over second-level top block W=V2,1. Both are full C(|S|,2) single-center stars over a natural second-level piece with identical freeness template.",
+      "reasoning": "Swapping the second-level piece from V2,2 to V2,1 is a parameter substitution inside one template, not a new encoding or boundary; it yields the same Omega(n^2) order consequence with a different constant, so equivalence analysis does not rescue novelty.",
+      "search": "Single-vertex star surplus over Brec: W=V1^(1)=V2,1 vs V2,2 formulations, B[V1,V2] notation, v*/x0 center synonyms, and complement encodings"
+    },
+    "exact_database_or_table": {
+      "evidence": "No official database or table was found listing the exact W-star family or the 0.0269 constant; the covering evidence is the Bodnar prose construction and Omega(n^2) statement, not a table lookup.",
+      "reasoning": "Absence from a table does not establish priority because prose coverage already implies the order claim; the exact-constant difference is lower-order and table absence cannot convert a parameter-swapped Omega(n^2) instance into an independently valuable exact invariant.",
+      "search": "Exact C^3_7 W-star constant 0.0269 or Brec surplus tables in official databases, censuses, and paper tables"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "COVERS_CLAIM",
+      "inspection_evidence": "Inspected Introduction construction paragraph in full text: partition V2,1 union V2,2 of V2 with H[V2]\\H[V2,2]=B[V2,1,V2,2], arbitrary v* in V1, add all triples {v*,y1,y2} from V2,2; text states for ell>=7 ell=1 mod 3 the resulting G is C^3_ell-free with |G|=brec(n)+Omega(n^2). Since 7=1 mod 3, this is the same order-sharpness corollary for C^3_7.",
+      "inspection_method": "SECTION_TABLE_EXAMPLE_INSPECTION",
+      "title": "The Turan density of short tight cycles (Bodnar Leon Liu Pikhurko, arXiv:2506.03223)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2506.03223"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text search for construction phrase 'adding all triples' returns zero matches in KLP; theorem scope is Theorem 1.3 density alpha for sufficiently large ell not divisible by 3, with no n-level brec+Omega(n^2) surplus construction for the fixed ell=7 case.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "The Turan density of tight cycles in three-uniform hypergraphs (Kamcev Letzter Pokrovskiy, arXiv:2209.08134)",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/2209.08134"
+    }
+  ],
+  "verdict": "REJECT"
+}
