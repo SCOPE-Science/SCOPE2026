@@ -1,0 +1,77 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET route: denominator identity T^1=2d for lines through 0 is elementary, but the hard sufficiency s>=1/(2d) is not proved. Fatal gap at origin: for d>=2, J(0)=0 so ker dim is 5, not <=2, yet the rescaled compact K={|F|<=C} contains 0 and is claimed covered by balls at sphere points p with only a 2-variable lemma. No origin analysis, no Levi-form computation for psi_{p,delta}, no preservation of Hessian lower bound under max-convolution/mollifier, no box-stability covering (the hard part in Catlin-Cho). Lemma statement is vague (datum equals 1, tensor-derivative) and its slicing claim t<=d is shown only for lines through 0, not affine restrictions p+K_p. Uniform sup_p(h_p+2)<=2d is asserted without proof. Example certification is sampling (60000 points + local refinement, reproduced: min|F|~0.18, sigma3~0.036) not a global sphere lower bound, so isolated-zero/rank>=3 for the example and nonvacuity are not rigorously established.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused search over literal, equivalent (sum-of-squares/finite-type/multitype/commutator), and dominance (stronger theorem/census/database) directions plus full-text inspection of the two nearest priors shows no coverage of sharp 1/(2d) for generic homogeneous non-triangular rank-two special domains in C^6. Catlin-Cho and Khanh-Zampieri require triangular regular-coordinate hypotheses which the generic example F_i=z_iL_i violates, and the general finite-type bound is tower-weak, while D'Angelo multiplicity bound gives 1/(2d^5), far weaker than claimed sharp 1/(2d). No database table lists this parameter. Hence the headline, if proved, would be new and not mechanically implied.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "If correct, sharp subellipticity s=1/(2d)=1/tilde-T^1 for a generic/nonempty rank-two homogeneous special-domain class in C^6, extending beyond the rank-one/triangular cases toward D'Angelo's program, is a natural exact invariant of a pre-motivated object (pseudoconvex domains, Bergman-related dbar-Neumann gain, type/commutator numbers). A future researcher could reasonably need the precise gain; it is not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "inputs/DRAFT.md target theorem, lemma, weight-patching and limitations",
+    "inputs/research_report.json TARGET claim, evidence summary and black-box admissions",
+    "inputs/topic.json n=5 homogeneous rank-two subelliptic-gain target, no fallback",
+    "inputs/STANDARD.md shared admission/audit thresholds applied exactly",
+    "inputs/artifacts/lane20487_check.py re-executed: det 0.625, min|F| 0.23 refined 0.18, sigma3 0.13 refined 0.036, slope 2.0 contact 4.0",
+    "Catlin-Cho arXiv:0811.0830 full-text Main Theorem and introduction general-bound discussion",
+    "Khanh-Zampieri arXiv:0812.2560 (doi:10.1007/s11854-014-0017-6) full-text Theorems 2.1-2.3 triangular hypotheses"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "Catlin-Cho intro states general Catlin finite-type result gives epsilon=T^{-n^2 A} tower-small; D'Angelo conjecture for special domains gives 1/(2m)=1/(2d^5) here since m=d^5, far below 1/(2d); no census/classification/database in fused top-20 covers 5-variable homogeneous rank-two domains.",
+      "reasoning": "No broader theorem, larger parameter range, exhaustive census, or database substantively implies the sharp 1/(2d) lower bound; known stronger-form results give only much weaker gains, so the claim is not a special case or recomputation of a covering fact.",
+      "search": "stronger finite-type/multitype theorems, D'Angelo conjecture general case, exhaustive census or classification subsuming homogeneous rank-two C^6 domains"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "DRAFT cites Catlin-D'Angelo necessity s<=1/T and Straube-Catlin bounded-psh-weight sufficiency as black boxes; inspected priors prove only triangular sharp bounds or weak general bounds and contain no uniform two-variable degenerate-subspace spectral-gap lemma with dilation patching.",
+      "reasoning": "Prior necessity plus the quoted criterion do not yield the uniform Hessian gap delta^{-1/d} for this class; the headline would require the new lemma if correctly proved, so it is not a corollary, certificate, or repackaging of the cited black boxes.",
+      "search": "whether Catlin-D'Angelo necessity plus Straube-Catlin weight criterion mechanically imply s>=1/(2d) for rank-two homogeneous special domains"
+    },
+    "equivalent_formulations": {
+      "evidence": "Equivalent languages found: sum-of-squares/rigid/special domains, D'Angelo 1-type vs multitype, Bloom-Graham/Hormander commutator numbers, decoupled/triangular models; nearest full texts state theorems only under fj(z1..zj) triangular regularity with pure derivatives.",
+      "reasoning": "Generic homogeneous F:C^5->C^5 with isolated zero (e.g. F_i=z_iL_i depending on all variables) is not triangular even after unitary rotation, and dual/complement/matrix encodings do not convert rank-two homogeneous to triangular, so synonymous notation does not bring prior coverage.",
+      "search": "special sum-of-squares rigid domains finite D'Angelo type Bloom-Graham commutator multitype triangular decoupled homogeneous reformulations"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused SerpBase/OpenAlex/Crossref/OpenAIRE results contain only papers, surveys, and theses; no official table, census, or repository entry lists D'Angelo type, multitype, or optimal subelliptic gain for the exact n=5 d>=2 max-ker-2 homogeneous parameters.",
+      "reasoning": "An exact parameter lookup cannot decide the claim because the submitted denominator 2d and gain 1/(2d) for this rank-two class do not appear as a recorded entry; direct table lookup is excluded.",
+      "search": "exact n=5 d homogeneous isolated-zero max kernel 2 subelliptic gain 1/(2d) in official tables databases censuses"
+    }
+  },
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body Main Theorem requires regular coordinate domain: each fs depends only on first s variables with nonvanishing pure z_s-derivative, gain 1/(2m1..mn); intro states general finite-type bound is T^{-n^2 A} tower-weak. Generic homogeneous F with all components depending on all variables and multiplicity d^5 is outside triangular scope and sharp 1/(2d) exceeds both prior guarantees.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Sharp Estimates for the dbar-Neumann Problem on Regular Coordinate Domains",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/0811/0811.0830v1.pdf"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Body Theorems 2.1-2.3 assume regular coordinate domains fj(z1..zj) with pure-derivative orders mj and prove gain 1/(2m1..mn) or refined gamma/2 for chained models fj=zj^mj+z_{j-1}^lj; generic rank-two homogeneous maps in 5 variables are not of this chained triangular form, so scope excludes the submitted class.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Precise subelliptic estimates for a class of special domains",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://storage.googleapis.com/arxiv-dataset/arxiv/arxiv/pdf/0812/0812.2560v2.pdf"
+    }
+  ],
+  "verdict": "REJECT"
+}
