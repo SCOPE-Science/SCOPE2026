@@ -1,0 +1,88 @@
+{
+  "axes": {
+    "correctness": {
+      "rationale": "TARGET proof has essential gaps. Lemma 2 propagation from Q(x0,t0)=0 to Q=0 on Xx(0,t0] invokes Sturm Harnack for solutions while Q is only a continuous supersolution with L_inf drift and unverified H1/domain membership for ZZ16 Thm4.4 and GR17 Thm2.8; slice-freezing ignores dtQ term. Bochner (3) needs g=Lf in H1 cap L_inf, not shown; alpha=1 extension of ZZ16 Lem5.7 unverified. Hessian-to-distance r=d(o,.) and volume ratio (9) assume Laplacian has no singular part and coarea/cutoff integration without proof. Pole t-independence is false from Hessian alone (translated |x-a|^2/2 on R^N share Hessian g); no E=0 computation fixes ot. Euclidean Widder moment bound uses t'<t dominance backwards (narrower cannot dominate wider+quadratic); fixable with later time. Artifact check passes (agree 3.8e-7) but covers only finite mixtures.",
+      "verdict": "FAIL"
+    },
+    "originality": {
+      "rationale": "Fused search (Serpent/OpenAlex/Crossref/OpenAIRE, no partial failure) finds nearest priors Kuwada-Li 1811.07228 and Brena 2503.03017 proving cone rigidity from vanishing W-entropy derivative/Fisher equality I=N/2t for semigroup heat-flow measures/heat kernel, plus Zhang-Zhu 1602.05347 Li-Yau estimates without rigidity. Full-text theorem-scope inspection shows no prior assumes one-point E(x0,t0)=0 with E>=0 for general Zhang-Zhu locally weak u and deduces global cone plus Euclidean heat-kernel case. Hypothesis direction is reversed (integrated entropy equality vs pointwise equality) and object class is broader, so headline is not mechanically implied or recorded.",
+      "verdict": "PASS"
+    },
+    "value": {
+      "rationale": "TARGET cone-rigidity from sharp Li-Yau equality on noncollapsed RCD(0,N) advances a recognized connection between heat-flow analysis and singular cone structure, extending smooth Harnack-equality rigidity to RCD. It is a new structural theorem with motivated object and invariant, not a textbook restatement, parameter substitution, tiny gain, or unexplained enumeration. Euclidean Widder identity and cone cross-section RCD(N-2,N-1) give retrievable content even though surrounding census is limited to headline.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kuwada-Li arXiv:1811.07228 Thm4.1/Lem4.4/Prop4.5: W-entropy rigidity from vanishing derivative to Fisher equality to cone via volume rigidity",
+    "Brena arXiv:2503.03017 Thm1.7/Cor4.4/p18 Step1: entropy-derivative formula, heat-kernel rigidity, side remark Delta log rho1=-N/2 as consequence",
+    "Zhang-Zhu arXiv:1602.05347 Thms1.1-1.2/Lem5.7/Thm3.5/Cor3.6/Thm4.4: local Li-Yau estimates and Bochner/maximum tools, no cone rigidity",
+    "De Philippis-Gigli 2016 Thm1.1 + Ketterer 2015 Thms1.1-1.2: volume-cone to metric-cone and cone-base curvature equivalence used as tools",
+    "Artifact inputs/artifacts/euclid_rigidity_check.py executed: max |E_direct-E_cov|=3.841e-07, finite-mixture positivity confirmed; general Widder case analytic only"
+  ],
+  "decisive_checks": {
+    "broader_coverage": {
+      "evidence": "DPG16 Thm1.1 assumes exact volume ratio (9) to give metric cone; Ket15 Thms1.1-1.2 assume cone/base curvature and diameter bound; ZZ16 gives estimates with alpha>1 and no rigidity conclusion.",
+      "reasoning": "These broader cone theorems are tools cited by draft, not dominating results: they require the volume-cone input that must itself be deduced from E=0, so they do not subsume the headline as a special case.",
+      "search": "Li-Yau gradient estimate RCD Zhang Zhu volume cone metric cone De Philippis Gigli Ketterer classification"
+    },
+    "claim_vs_prior_implication": {
+      "evidence": "Brena p18 side remark and Kuwada-Li Prop4.5 show entropy/Fisher equality implies a.e. Li-Yau equality Delta log rho=-N/2 and cone via Varadhan asymptotics and Bishop-Gromov equality.",
+      "reasoning": "That implication does not reverse: pointwise E>=0 with E(x0,t0)=0 does not give I=N/2t since integral of E is N/2t-I only for kernel solutions; draft needs a maximum-principle step absent from priors, so it is not a corollary or repackaging.",
+      "search": "W-entropy rigidity RCD Kuwada Li Brena Li-Yau equality Delta log rho=-N/2 cone implication"
+    },
+    "equivalent_formulations": {
+      "evidence": "Kuwada-Li Lem4.4/Prop4.5 and Brena Cor4.4 derive Hess=g/2t from vanishing W-derivative/Fisher equality for semigroup solutions; no source starts from one-point E=0 for general weak solutions.",
+      "reasoning": "Same Hessian notation does not cover claim because prior direction is integrated entropy equality implying a.e. Li-Yau equality, while draft claims pointwise equality implies global vanishing; hypotheses are not equivalent.",
+      "search": "equality case Li-Yau differential Harnack Hessian rigidity Hess f=-g/2t Ricci limit cone splitting"
+    },
+    "exact_database_or_table": {
+      "evidence": "Fused Serpent/OpenAlex/Crossref/OpenAIRE results contain only inequality, entropy, and structure papers; no official database, table, or census entry lists pointwise Li-Yau equality instances on RCD spaces.",
+      "reasoning": "Headline is a rigidity theorem, not a table lookup or recomputation of a tabulated parameter; no exact database entry anticipates the one-point to cone implication.",
+      "search": "noncollapsed RCD cone heat-kernel Li-Yau equality case database table census listing"
+    }
+  },
+  "repair_instructions": "Keep TARGET and headline. (1) Fix Widder moments by dominating at later time t'>t on (0,t0] with t0<T and justify differentiation under integral uniformly on compacts. (2) Prove Q regularity (H1/domain, g=Lf in H1 cap L_inf, alpha=1 identity) and replace Harnack-for-solutions with a cited parabolic weak/strong minimum for L_inf-drift supersolutions on RCD, handling dt term and singular part. (3) Justify L(r^2/2)=N mu with vanishing singular part, coarea, and r=d(o,.) from |grad r|=1 via Sobolev-to-Lipschitz and rays. (4) Prove pole independence from E=0 computation, not Hessian alone, addressing translated-potential counterexample and c(t).",
+  "residual_risks": [],
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Thm4.1 assumes vanishing right upper derivative of W(Pt mu,t) at t*; Lem4.4 upgrades to I=N/2t on (0,t*]; Prop4.5 derives a.e. Li-Yau equality and Delta d^2=2N then cone via DPG16. No hypothesis of one-point E=0 for Zhang-Zhu weak solutions and no drift-maximum propagation.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Monotonicity and rigidity of the W-entropy on RCD(0, N) spaces",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER",
+        "HIGHLY_RELEVANT_TITLE"
+      ],
+      "url": "https://arxiv.org/abs/1811.07228"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Thm1.7/Cor4.4 assume dtW=0 for heat kernel rho_t; Sec4.3 Step1 derives Hess h1=g/2 and Delta log rho1=-N/2 as consequence of entropy rigidity. Remark notes Li-Yau rigidity follows but never assumes pointwise E=0 for arbitrary weak u nor proves one-point to global step.",
+      "inspection_method": "THEOREM_SCOPE",
+      "title": "Perelman's entropy and heat kernel bounds on RCD spaces",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_PARAMETERS",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/2503.03017"
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "inspection_evidence": "Full-text search for cone/rigidity/equality-case/vertex returns no cone theorem; Thms1.1-1.2 and Lem5.7 state Li-Yau bounds for alpha>1. Paper supplies Bochner/maximum inputs only.",
+      "inspection_method": "FULL_TEXT_PARAMETER_SEARCH",
+      "title": "Local Li-Yau's estimates on RCD*(K,N) metric measure spaces",
+      "trigger_reasons": [
+        "SAME_OBJECT",
+        "SAME_TERM_FAMILY",
+        "ORIGINAL_PAPER"
+      ],
+      "url": "https://arxiv.org/abs/1602.05347"
+    }
+  ],
+  "verdict": "REPAIRABLE"
+}
