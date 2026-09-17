@@ -111,7 +111,7 @@ Thus every two-branch topology is strictly subextremal in the source proof.
 
 The source run reports exhaustive labelled enumeration of every simple strongly connected digraph with `n+2` arcs for `n=3,4,5`, both with loops and without loops. The observed maxima agree with the claimed formulas to below `9e-16`.
 
-This computation is corroboration only; no verifier file for this run is among the generated files accessible in the present conversation.
+This computation is corroboration only. The source run's executable checker and captured output are archived as `artifacts/verify.py` and `artifacts/verification_output.txt`.
 
 ## Closest prior work
 
