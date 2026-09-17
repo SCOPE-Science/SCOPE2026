@@ -27,6 +27,10 @@ strong evidence of prior coverage must not be overridden by a download failure.
 
 ## Publication and operation
 
+Phase II uses topic-label folders with stable Run ID hash suffixes, not daily
+sequence allocation. Follow `UPLOAD_PROTOCOL.md`; retain existing record IDs.
+Consult `PATH_MIGRATIONS.json` to resolve pre-migration source links.
+
 Only complete research packages with passing review are published. Incomplete work and infrastructure errors do not qualify. Stable publication identities prevent duplicates, and uploads are verified.
 
 `RESULT.md`, `REVIEW.md`, `AUDIT.json`, `METADATA.json`, `SLOGAN.txt`, and compact

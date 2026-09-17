@@ -1,6 +1,9 @@
 # Record format
 
-An accepted record lives at `YYYY/MM/DD/NNN/` and contains:
+An accepted Phase II record lives at `YYYY/MM/DD/<topic-slug>--<run-hash>/`.
+Phase I retains `YYYY/MM/DD/NNN/`. See `UPLOAD_PROTOCOL.md` for deterministic
+identity, concurrency-safe upload and retries, and `PATH_MIGRATIONS.json` for
+the old-to-new directory mapping. Each record contains:
 
 - `RESULT.md`: statement, context, definitions, proof or evidence, limitations,
   reproducibility information, and references;
