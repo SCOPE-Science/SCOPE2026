@@ -3,7 +3,9 @@
 This repository is the dated record of findings accepted by the 2026 SCOPE
 mathematical sky survey.
 
-Records are organized as `YYYY/MM/DD/NNN`.  Each accepted record includes a
+Phase II records use `YYYY/MM/DD/<topic-slug>--<run-hash>`; Phase I keeps its
+original numbered paths. See [upload protocol](UPLOAD_PROTOCOL.md) and
+[old path mapping](PATH_MIGRATIONS.json). Each accepted record includes a
 self-contained `RESULT.md`, a retrieval-oriented `SLOGAN.txt`, provenance metadata,
 an explicitly attributed review, and only the compact artifacts needed to verify or reuse the
 finding.
@@ -42,7 +44,8 @@ absence. Inclusion does not by itself establish scholarly priority.
 ## Failed attempts
 
 Scientifically meaningful attempts that do not produce an accepted finding are
-retained separately under `failed-attempts/YYYY/MM/DD/NNN`. Each record begins
+retained separately under `failed-attempts/YYYY/MM/DD/`, using topic-slug/hash
+folders for Phase II and historical numbered folders for Phase I. Each record begins
 with **FAILED ATTEMPT — NOT A VALIDATED FINDING** and documents the attempted
 claim, method, decisive audit failure, and conditions for a legitimate retry.
 These records are negative research memory, not findings, and must not be cited

@@ -27,6 +27,10 @@ strong evidence of prior coverage must not be overridden by a download failure.
 
 ## Publication and operation
 
+Phase II uses topic-label folders with stable Run ID hash suffixes, not daily
+sequence allocation. Follow `UPLOAD_PROTOCOL.md`; retain existing record IDs.
+Consult `PATH_MIGRATIONS.json` to resolve pre-migration source links.
+
 Only completed successful research packages are automatically published. A model
 health quarantine, incomplete run, or infrastructure error cannot qualify. An
 upstream outage pauses work for later continuation under the existing controller.
