@@ -22,8 +22,8 @@ invented time of day; the date is interpreted as UTC.
 
 ## Phase II — research observations
 
-Phase II began on **2026-09-16 UTC**. Research identifies a concrete gap from
-existing literature, screens prior work, researches it, and same-model review the result.
+Phase II began on **2026-09-16 UTC**. Research addresses concrete gaps in
+existing literature and evaluates the resulting claims through same-model review.
 Completed accepted results are automatically archived with their actual review
 status. See [Phase II policy](PHASE_II.md) for publication and originality rules.
 
@@ -34,7 +34,9 @@ on three separate axes:
 2. originality relative to the closest located prior results; and
 3. scientific value as a finding worth recovering later.
 
-same-model review is **not independent review**. Each record's review type is explicit;
+Accepted Phase II records report **Same-model review: passed; cross-model review:
+not yet performed**, unless a later review is explicitly recorded. This does not
+assert independent review. Each record's review type is explicit;
 independent verification, expert attestation, or formal proof require separate
 evidence. Originality is assessed **to the best of our knowledge**, including
 equivalent and stronger prior coverage. Inaccessible potentially covering sources

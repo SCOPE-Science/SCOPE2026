@@ -20,6 +20,16 @@ For Phase II, `AUDIT.json` has `review_type: "same_model_review"` and `independe
 `verification_state: "same_model_reviewed"`. A `PASS` is a reported same-model assessment,
 not an independent verification badge. Historical Phase I formats are unchanged.
 
+For accepted Phase II records, use `same_model_review_status: "passed"` and
+`cross_model_review_status: "not_performed"`. Public wording is: **Same-model
+review: passed. Cross-model review: not yet performed.** A missing cross-model
+review is not a failed review. Preserve actual failures, disputes, withdrawals,
+and any subsequently evidenced reviews; never reset their status to PASS.
+
+Public records describe scientific evidence and verification status, not execution
+topology, internal delivery channels, scheduling, runtime infrastructure, private
+prompts, or account information. These details are not part of public provenance.
+
 `scope_run_id` is the stable publication identity. Research start/completion and
 publication are separate UTC timestamps. Paths use the UTC publication date.
 The publisher records source file hashes and confirms upload before writing a
