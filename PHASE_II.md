@@ -11,6 +11,11 @@ target. Unsuccessful directions can be abandoned and a new direction explored.
 
 ## What acceptance means
 
+For accepted results the standard label is **Same-model review: passed.
+Cross-model review: not yet performed.** Later review outcomes and withdrawals
+override this default when supported by evidence. The label does not specify
+execution architecture or establish reviewer independence.
+
 Phase II publication records a **same-model review**. It does not
 assert independent AI review, expert attestation, formal verification, or journal
 peer review. Each record's `review_type`, `independent_validation`, and review
