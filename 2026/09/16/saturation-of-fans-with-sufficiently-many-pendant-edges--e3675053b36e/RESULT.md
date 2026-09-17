@@ -134,6 +134,7 @@ For host order at least 2t+q, adding isolated vertices to the forbidden matching
 - **Zhou--Kamiyama [ZK26], Theorems 2--4 and Section 3.** Theorem 4 quotes Mader's structural theorem for matching-saturated graphs; the matching lemma above is a standard special case, not a new contribution. Their new saturation formula and structural results concern vertex-disjoint triangles, not triangles sharing a hub, and their hypotheses cannot be substituted to give Step 2.
 
 ## Reproducible checks and limitations
+Run `python3 artifacts/verify_pendant_fans.py`. It requires only Python's standard library. The observed output was:
 
 ```text
 Matching predicate vs generic embedding: 10440 agreements

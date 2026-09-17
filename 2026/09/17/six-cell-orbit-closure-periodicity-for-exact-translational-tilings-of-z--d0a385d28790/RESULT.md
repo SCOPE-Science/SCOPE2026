@@ -64,4 +64,4 @@ The finite computation is only a sanity check and is not part of the general pro
 
 The source report states the main residual correctness risk: there may be a subtle hidden dependency in the imported spectral results or in transporting Khetan's “at most one infinite direction” branch from the prime-square setting to cardinality six. It explicitly says this deserves independent proof checking before publication-ready reliance.
 
-The result has not received an independent validation, and absolute originality cannot be established from search coverage. These qualifications are part of the archival record, not later downgrades or upgrades.
+The result has not received independent validation, and absolute originality cannot be established from search coverage. These qualifications are part of the archival record, not later downgrades or upgrades.

@@ -111,7 +111,7 @@ and substantive-value audit below.
 
 ## Actual Computational Check
 
-Command: `python3 output/artifacts/locality_template_check.py`
+Command: `python3 artifacts/locality_template_check.py`
 
 The code constructs edges, not just type counts, and verifies all vertex
 degrees; both induced-matching predicates; exact-one intersection domination

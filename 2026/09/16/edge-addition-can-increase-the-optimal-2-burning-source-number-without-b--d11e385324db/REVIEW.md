@@ -24,7 +24,7 @@ seven-vertex example: H=(4,2), G=(3,3). The test program also compared actual
 computed pairs against [1, Theorem 2.8 and Observation 2.9] for every path and
 cycle of orders 3-9, with all 14 equal. It tested constructed schedules for
 q=1-30, and the k=1,L=3,m=5 boundary family gives H=(5,2), G=(4,2).
-Command: `python3 output/artifacts/verify_burning.py`; all assertions passed.
+Command: `python3 artifacts/verify_burning.py`; all assertions passed.
 These finite tests support, but do not replace, the general proof.
 
 ## Originality: PASS within documented scope

@@ -149,6 +149,7 @@ This proves the explicit theorem, and thus nonexistence of a greatest nonpath tr
 In a finite poset, a unique maximal element is a greatest element, since every element lies below a maximal element. Quotienting by equality of polynomials makes \(\preceq\) a poset, so at least two maximal nonpath classes exist. The path dominates every tree by continued path concatenation, and is distinguished from nonpaths by its positive degree-one coefficient. Thus these maximal nonpath classes are exactly the coatoms in the tree poset. Finally the uniform-cardinality probability is \(z(T;k)/\binom nk\), proving the probability reformulation. This does not assert the analogous statement for independent Bernoulli sampling of vertices.
 
 ## Reproducible checks
+Run `python3 artifacts/spider_check.py` from the record directory. It uses only the Python standard library. The analytic proof above applies to every stated order; computation is a check, not the basis of the quantifier over all orders.
 
 The script enumerates all initial sets and applies the color-change rule. A second implementation enumerates forts directly from their defining adjacency predicate and checks the complement-obstruction equivalence for every initial set. It compares the complete coefficient vector with (4) for all 41 nonisomorphic three-arm spiders of orders 4 through 12, including length-one arms and balanced arms. It checks (2)-(3), and separately compares path counts with [2, Proposition 5] for every coefficient at orders 2 through 12. All checks passed.
 

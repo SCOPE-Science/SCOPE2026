@@ -121,9 +121,10 @@ If \(\nu_s(G)/|M|=q^2/(2q-1)\), the two inequalities force
 \(|V|=2q|M|\ge2q(2q-1)\), attained by the construction.
 
 ## Reproducible Evidence
+Run:
 
 ```text
-python3 output/artifacts/affine_locality_check.py
+python3 artifacts/affine_locality_check.py
 ```
 
 The checker independently constructs finite fields, builds the raw edge list,
