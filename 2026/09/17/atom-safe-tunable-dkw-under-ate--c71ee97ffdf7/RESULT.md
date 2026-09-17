@@ -203,7 +203,7 @@ For fixed finite support this removes the bracketing loss entirely. This is part
 
 ## 6. Limitations
 
-1. The bounds use only bounded differences plus finite bracketing. They do not exploit variance, local mass, or finer dependency information, and they do not recover the sharp finite-sample Massart constant in the i.i.d. case.
+1. The bounds use only bounded differences plus finite bracketing. They do not exploit variance, local mass, or finer dependence information, and they do not recover the sharp finite-sample Massart constant in the i.i.d. case.
 2. The factor \(\kappa\) enters through ATE McDiarmid concentration; no claim is made that its dependence is minimax optimal for uniform empirical-CDF deviations.
 3. The general bracketing theorem is a direct combination of standard bracketing with ATE bounded differences. The originality claim is restricted to the located ATE formulation, the atom-safe DKW consequence, and the retained/optimized resolution bound, not to bracketing as a method.
 4. Originality is to the best of our knowledge. Broad empirical-process and dependent-concentration literatures remain a residual source of equivalent formulations under different functional-inequality assumptions.
