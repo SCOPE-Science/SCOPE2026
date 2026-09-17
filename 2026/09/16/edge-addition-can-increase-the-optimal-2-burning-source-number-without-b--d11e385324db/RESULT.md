@@ -98,6 +98,7 @@ E(G) = E(H) union {05}.
 Its exact pairs (b_2,t_2) are (4,2) for H and (3,3) for G. Optimal source
 lists are (0,2) and (0,2,3), respectively. This is not claimed to be a
 smallest counterexample.
+Run `python3 artifacts/verify_burning.py` from the record directory. The script
 uses only the Python standard library and actually checks:
 
 - The seven-vertex values by two separately implemented exhaustive methods:

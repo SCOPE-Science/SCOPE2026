@@ -14,7 +14,7 @@ The arm-state enumeration checks both initial colors of the center. An inactive 
 
 For n >= 11, z2 first rules out every spider with a length-one arm. Among the remaining spiders, z3 is uniquely maximized, up to arm permutation, by A. A has a four-vertex fort, whereas B has no fort of size at most four. The latter is proved separately according as the center lies inside or outside the fort. This gives the strict inequality at n-4 and completes the universal quantifiers. No claim that A or B itself is maximal is needed.
 
-Reproducible computation was actually run: `python3 output/artifacts/spider_check.py`. Complete coefficient vectors were checked on all 41 spiders of orders 4-12. Every initial set was tested both by forcing closure and by independently enumerated forts followed by a subset-containment computation. The path formula from Boyer et al., Proposition 5, was compared with computed values at every cardinality for orders 2-12. Witnesses A/B were additionally checked at orders 11-15; exact outputs appear in RESULT.md. These finite checks support the analytic proof and are not substituted for it.
+Reproducible computation was actually run: `python3 artifacts/spider_check.py`. Complete coefficient vectors were checked on all 41 spiders of orders 4-12. Every initial set was tested both by forcing closure and by independently enumerated forts followed by a subset-containment computation. The path formula from Boyer et al., Proposition 5, was compared with computed values at every cardinality for orders 2-12. Witnesses A/B were additionally checked at orders 11-15; exact outputs appear in RESULT.md. These finite checks support the analytic proof and are not substituted for it.
 
 ## Originality: PASS within the stated scope
 

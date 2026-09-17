@@ -183,14 +183,14 @@ The last equality follows by considering a=1,2,3,4; a=3 attains the minimum. The
 From the workspace root, run:
 
 ```sh
-python3 output/artifacts/verify_seeds.py
-python3 output/artifacts/audit_dense.py
-python3 output/artifacts/small_stars.py
+python3 artifacts/verify_seeds.py
+python3 artifacts/audit_dense.py
+python3 artifacts/small_stars.py
 ```
 
 These require Python 3 with `int.bit_count` and only the standard library. The first command independently verifies all stored positive certificates. It also compares the lantern's computed 23 edges against the source formula 2+3*(binom(4,3)+binom(3,2)), checks the sun's eight edges and all its ranks, compares the saturation minimum with s(n) for all 296 orders from 5 through 300, and verifies 31,387 padding edge-count calculations. All checks passed. The numerical comparisons support, rather than replace, the symbolic arguments above.
 
-The second command checks the five negative instances and two positive controls. The third checks every labelled hypergraph through order six. The original link-domain enumerator can additionally be run as `python3 output/artifacts/dense_stars.py n d` for the desired residual order and deficit.
+The second command checks the five negative instances and two positive controls. The third checks every labelled hypergraph through order six. The original link-domain enumerator can additionally be run as `python3 artifacts/dense_stars.py n d` for the desired residual order and deficit.
 
 ## Prior work, originality and limitations
 

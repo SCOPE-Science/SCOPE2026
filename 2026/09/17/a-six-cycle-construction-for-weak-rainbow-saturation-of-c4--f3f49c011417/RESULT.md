@@ -96,9 +96,10 @@ The foundational paper [3, Section 6] supplies the same weak definition and ques
 The proof above covers all q>=5 and t>=3 without computation. The supplementary standard-library script [check_c4.py](artifacts/check_c4.py) independently enumerates all length-three paths available at each insertion, rather than only the witness paths in the proof.
 
 Because old and new colors are separately injective, their equality relations form a partial matching between old and new edges. A four-cycle fails to be rainbow exactly when this matching contains some old/new pair from that cycle. Thus a bad coloring at an insertion exists exactly when a partial matching hits every cycle's clause of old/new pairs. The checker solves this finite condition exhaustively by branching on a shortest remaining clause. Every partial matching can be realized by a full coloring using fresh colors elsewhere, so the check treats the exact predicate, not a relaxation.
+Run from the record directory:
 
 ```sh
-python3 output/artifacts/check_c4.py
+python3 artifacts/check_c4.py
 ```
 
 The saved output is [check_c4_results.txt](artifacts/check_c4_results.txt). All insertions passed for (q,t)=(5,3),(6,3),(7,3),(8,3),(9,3),(5,4), with respectively 20,21,22,23,24,25 vertices and 28,33,39,46,54,34 initial edges. The solver also agreed with direct enumeration of all partial matchings on all 4096 triples of clauses in a 2-by-2 collision system. Negative controls (q,t)=(5,1),(5,2) failed at group 4; the script instantiated their collision patterns as actual colors and separately checked that no rainbow C4 existed at the failing insertion. These controls concern this order, not impossibility of all orders for those graphs.

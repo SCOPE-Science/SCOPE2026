@@ -68,6 +68,7 @@ replacement is possible. This local predicate is also enumerated directly by
 the checker.
 
 ## Independent Verification
+Run `python3 artifacts/affine_locality_check.py`. It independently checks
 the raw edge list for degrees, simplicity, connectedness, bipartition, girth,
 both induced-matching predicates, total-perfect-code ownership, efficient-edge
 domination, and every possible one-for-two exchange. It uses its own finite-field
