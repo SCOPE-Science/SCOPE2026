@@ -8,7 +8,7 @@ Let `Q_6` be the 6-dimensional hypercube and `edim_m(Q_6)` its edge multiset dim
 
 `edim_m(Q_6) >= 8`.
 
-Combined with the explicit 15-landmark certificate in Allikvere's August 2026 preprint, the source run reports the bracket
+Combined with the explicit 15-landmark certificate in Allikvere's August 2026 preprint, the source report reports the bracket
 
 `8 <= edim_m(Q_6) <= 15`.
 
@@ -70,12 +70,12 @@ The previously published lower bound excludes landmark sets of size below six; t
 
 ## Reproducibility
 
-The source report reports an independent verifier that reproduced the low-weight counts and the contradictions `670>504` and `612>588`, and separately checked Allikvere's 15-vertex certificate. The source report states that its locally generated `RESULT.md`, `REVIEW.md`, and `verify_q6_bound.py` could not be attached because those files were not available in the supplied package. Those unavailable local files are therefore not fabricated or republished here.
+The source report states an independent verifier that reproduced the low-weight counts and the contradictions `670>504` and `612>588`, and separately checked Allikvere's 15-vertex certificate. The source report states that its locally generated `RESULT.md`, `REVIEW.md`, and `verify_q6_bound.py` could not be attached because those files were not available in the supplied package. Those unavailable local files are therefore not fabricated or republished here.
 
 ## Prior work and scope
 
-The closest source is Jaan Allikvere, *The edge multiset dimension of hypercubes*, arXiv:2608.09983 (5 Aug 2026), which gives an explicit 15-vertex resolving set for `Q_6` and reports only `edim_m(Q_6)>=6`. The source run also checked Farhan--Klavžar--Kuziak--Yero, arXiv:2607.10311, and Ikhlaq--Ismail--Siddiqui--Nadeem, *Symmetry* 15 (2023), 762.
+The closest source is Jaan Allikvere, *The edge multiset dimension of hypercubes*, arXiv:2608.09983 (5 Aug 2026), which gives an explicit 15-vertex resolving set for `Q_6` and reports only `edim_m(Q_6)>=6`. The source report also checked Farhan--Klavžar--Kuziak--Yero, arXiv:2607.10311, and Ikhlaq--Ismail--Siddiqui--Nadeem, *Symmetry* 15 (2023), 762.
 
 ## Limitations
 
-The exact value remains unknown. the same-model review classified originality as a qualified PASS only; unpublished or very recent unindexed work may overlap. No consequential inaccessible source was identified in the source run, and no independent review is claimed.
+The exact value remains unknown. the same-model review classified originality as a qualified PASS only; unpublished or very recent unindexed work may overlap. No consequential inaccessible source was identified in the source report, and no independent review is claimed.

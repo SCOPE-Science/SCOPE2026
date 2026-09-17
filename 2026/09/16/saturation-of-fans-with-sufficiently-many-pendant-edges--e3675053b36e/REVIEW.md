@@ -1,6 +1,6 @@
 # same-model review
 
-Date: 16 September 2026. This review was conducted by the same researcher who formulated and proved the result. It is not independent validation.
+Date: 16 September 2026. This is a same-model review. It is not independent validation.
 
 **Overall: PASS under TBOK-v1.** Correctness: PASS. Value: PASS. Originality: PASS to the best of our knowledge, subject to the access limitations below. This is not a guarantee of first discovery.
 
@@ -49,17 +49,15 @@ The starting HP26 source explicitly establishes t=2 and poses t>=3 as Problem 3.
 
 ### Evidence record
 
-Discovery and initial screening carried over from the same research job: search calls `21174086cfc64963a62fbdf47a16e12c`, `48dd1d35a24142ad8328a5d2c711e3ea`, `4e3d0e618dd24d749e61fb1776079c08`, `72e4b389211046378eb32e3774bd69bf`. The preceding checkpoint and immutable archive preserve the initial formulation and those searches. The final sharpened claim, including uniqueness, was stated in the conversation before its additional audit searches.
-
-Current audit searches: `5cb4f227ea224bb3ab13daa7b4299e78` (exact 2025 paper identity); `15f3b43abb0b4aeba0d3fb9fbaae021b` (generalized friendship, pendant edges, joins of matching and isolates); `cb648031869c4373b235f9ee99e0dbf0`, `9ea6dc97e2cf4caeada3b92131e571fe`, and `86f5847b9a0f4e27a85da0c2b990079d` (covering theorem and parameter attempts, universal vertices); `90348f5b9dc34ea3a080c2b2350ffbd8` (windmill/pendant and equivalent join formulations). Several other search calls timed out; those failures are not novelty evidence. Search snippets were used to identify sources and access concerns, not to prove absence of coverage.
+Searches covered the exact paper identity, generalized friendship graphs, pendant edges, joins of matching and isolates, covering theorems, universal vertices, windmills and equivalent joins. Some searches did not return usable results; those failures are not novelty evidence. Search snippets were used to identify sources and access concerns, not to prove absence of coverage.
 
 Primary text inspected and used:
 
-- HP26, job `54f9dd07ceafdfdbf2a3ca9612a2129b`: introduction/Theorems 1.1--1.4, Section 5 proof, Section 6 Problems 1--3; current reads 0--14500, 21800--28300, and references 31300--end, supplementing earlier reads.
-- Zhang et al., job `7855d1932f4a01d0ad56cec92ce55ae7`: introduction including the inconsistent scope sentence; complete Section 4 argument at 34170--38670; references at 40500--44100.
-- Fuller--Gould, job `f9ebe44037ad3af88e8790a40914bffb`: Section 2 Theorem 3, Lemmas 4--6 and beginning of Section 3, current read 3000--9500, supplementing earlier reads.
-- Cameron--Puleo, job `3228338efce43557b82581121097e8f5`, arXiv v2: Section 2 and Section 3 at 0--17400; delivered page 9 also displays Corollary 11 with clique orders at least two.
-- Zhou--Kamiyama, job `a0ce07daa8e586e165616586e69aee2a`, arXiv v1: 0--12500, containing main theorem statements and Section 3's matching result and disjoint-triangle construction.
+- HP26, retrieval: introduction/Theorems 1.1--1.4, Section 5 proof, Section 6 Problems 1--3; current reads 0--14500, 21800--28300, and references 31300--end, supplementing earlier reads.
+- Zhang et al., retrieval: introduction including the inconsistent scope sentence; complete Section 4 argument at 34170--38670; references at 40500--44100.
+- Fuller--Gould, retrieval: Section 2 Theorem 3, Lemmas 4--6 and beginning of Section 3, current read 3000--9500, supplementing earlier reads.
+- Cameron--Puleo, retrieval, arXiv v2: Section 2 and Section 3 at 0--17400; delivered page 9 also displays Corollary 11 with clique orders at least two.
+- Zhou--Kamiyama, retrieval, arXiv v1: 0--12500, containing main theorem statements and Section 3's matching result and disjoint-triangle construction.
 
 No claim is made to have read every page of every cited source. Quoted older results and inaccessible originals are distinguished.
 
@@ -69,8 +67,8 @@ To the best of our knowledge, within the documented search scope and accessible 
 
 The following sources were not obtained through available channels. The classification is ACCESS_LIMITATION, never NOT_COVERING.
 
-1. **Jinze Hu, Shengjin Ji, Chenke Zhang (2025), _Some results on the saturation number of graphs_, DOI 10.1016/j.dam.2025.04.038.** Highest concern: the abstract treats relationships between saturation for disjoint clique unions and generalized friendship graphs. This could cover the target if singleton cliques are allowed under its operative theorem. DOI and exact-title jobs `4f576997c0a59ab1e793b2af8af78472` and `90ba2484033a9eb8b1ee1e82eb492a00` failed; OpenAlex job `4bc9782c535af2bdff2061d895698a2a` failed with metadata timeout; a DOI resume with paid fallback permission remained failed. Source inventory `sbd8920f38cef6d5d` and search `15f3b43abb0b4aeba0d3fb9fbaae021b` preserve the abstract clue. The actual singleton-clique hypotheses and proof remain unverified. The abstract asserts results for some generalized friendship graphs without specifying our parameters or pendant extensions. Thus there is a meaningful possible threat, but no located concrete statement that covers the exact claim. HP26's current explicit Problem 3 and statement that existing join results exclude isolates provide corroborating context, not proof about the unread original. Under TBOK-v1 this limits, rather than automatically defeats, the assessment.
-2. **S. Hu, Z. Luo, Y. Peng (2024), _Saturation numbers of joins of graphs_, DOI 10.1016/j.dam.2024.06.024.** Failed job `79d300714b48638102c29c5bb0e5097e`. General join equality is a plausible threat, but its precise theorem as quoted in two accessible sources excludes isolates. Further proof consequences in the original remain unverified; no concrete covering extension was identified.
-3. **Zhang, Lu and Yu (2024), _A note on the minimum size of matching-saturated graphs_, DOI 10.1016/j.dam.2024.01.017; L. Kaszonyi and Z. Tuza (1986), _Saturated graphs with minimal number of edges_, DOI 10.1002/jgt.3190100209.** Failed matching-paper jobs `8db69e402f14623011f66641418d4f23`, `281d61c7b802d8d1aef49869cb57254f`; failed 1986-paper jobs `b5eefa4b92e93c748bc43fcc2e245f5d`, `ac07bd4b46ff81654455d4c271561c9e`. These are relevant to the matching classification and cone tools, which are expressly not claimed as original. Their possible further structural consequences remain unverified. Accessible attributions were inspected and a Tutte--Berge proof was supplied; no concrete covering claim for the pendant-fan theorem was found.
+1. **Jinze Hu, Shengjin Ji, Chenke Zhang (2025), _Some results on the saturation number of graphs_, DOI 10.1016/j.dam.2025.04.038.** Highest concern: the abstract treats relationships between saturation for disjoint clique unions and generalized friendship graphs. This could cover the target if singleton cliques are allowed under its operative theorem. Full-text acquisition was unsuccessful; the accessible abstract supplies only a relevance clue. The actual singleton-clique hypotheses and proof remain unverified. The abstract asserts results for some generalized friendship graphs without specifying our parameters or pendant extensions. Thus there is a meaningful possible threat, but no located concrete statement that covers the exact claim. HP26's current explicit Problem 3 and statement that existing join results exclude isolates provide corroborating context, not proof about the unread original. Under TBOK-v1 this limits, rather than automatically defeats, the assessment.
+2. **S. Hu, Z. Luo, Y. Peng (2024), _Saturation numbers of joins of graphs_, DOI 10.1016/j.dam.2024.06.024.** Failed retrieval. General join equality is a plausible threat, but its precise theorem as quoted in two accessible sources excludes isolates. Further proof consequences in the original remain unverified; no concrete covering extension was identified.
+3. **Zhang, Lu and Yu (2024), _A note on the minimum size of matching-saturated graphs_, DOI 10.1016/j.dam.2024.01.017; L. Kaszonyi and Z. Tuza (1986), _Saturated graphs with minimal number of edges_, DOI 10.1002/jgt.3190100209.** Both full texts were unavailable. These are relevant to the matching classification and cone tools, which are expressly not claimed as original. Their possible further structural consequences remain unverified. Accessible attributions were inspected and a Tutte--Berge proof was supplied; no concrete covering claim for the pendant-fan theorem was found.
 
 A later covering theorem would require revision of this assessment. The PASS is a documented same-model assessment within this scope, not independent confirmation or an exhaustive literature certificate.

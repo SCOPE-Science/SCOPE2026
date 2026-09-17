@@ -122,8 +122,6 @@ If \(\nu_s(G)/|M|=q^2/(2q-1)\), the two inequalities force
 
 ## Reproducible Evidence
 
-Run:
-
 ```text
 python3 output/artifacts/affine_locality_check.py
 ```

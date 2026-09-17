@@ -13,7 +13,7 @@ the old-to-new directory mapping. Each record contains:
 - `REVIEW.md`: Phase II same-model review, including search/access limitations;
 - `artifacts/`: optional compact verification or reuse materials.
 
-Rejected drafts and private agent traces are not published.
+Rejected drafts do not qualify as accepted findings.
 
 For Phase II, `AUDIT.json` has `review_type: "same_model_review"` and `independent: false`;
 `METADATA.json` has `phase: "II"`, `independent_validation: false`, and
@@ -30,8 +30,10 @@ Public records describe scientific evidence and verification status, not executi
 topology, internal delivery channels, scheduling, runtime infrastructure, private
 prompts, or account information. These details are not part of public provenance.
 
-`scope_run_id` is the stable publication identity. Research start/completion and
-publication are separate UTC timestamps. Paths use the UTC publication date.
-The publisher records source file hashes and confirms upload before writing a
-private publication receipt. Only compact research artifacts are included, never
-private trajectories, credentials, downloaded third-party papers, or bytecode.
+New records use a random UUIDv4 as the opaque publication identity in the
+legacy-named `scope_run_id` field. Existing record IDs and paths are immutable;
+legacy records may omit this field. Paths use the UTC publication date.
+Public timestamps describe publication or scientific corrections, not research
+start, completion, elapsed time or scheduling. Artifact hashes cover the actual
+published file bytes. Only standalone scientific verification and reuse artifacts
+belong in the public package.

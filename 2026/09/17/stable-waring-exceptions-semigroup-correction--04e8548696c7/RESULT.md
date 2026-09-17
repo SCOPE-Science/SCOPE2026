@@ -213,8 +213,6 @@ not a non-strict block endpoint at a multiple of \(p^k\). For \(q=p\), this prod
 3. generates the explicit modular gap families for several prime and prime-power cases and verifies they are subsets of the computed gap sets;
 4. checks the repaired \(p=5,7,11\) numerical bounds and the \(k=8,p=5\) extension.
 
-Run with:
-
 ```bash
 python artifacts/verify_waring_semigroup.py
 ```

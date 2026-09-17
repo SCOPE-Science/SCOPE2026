@@ -4,7 +4,7 @@
 
 ## Claim
 
-The source run proposes:
+The source report proposes:
 
 **The generalized packing--covering conjecture holds for every binary linear code of redundancy at most 15.**
 
@@ -14,13 +14,13 @@ Essayag and Zabokritskiy, arXiv:2609.19098v1, prove the conjecture for every fin
 
 with their generic dimension estimate giving `k<=78`.
 
-The source run rules out exactly that residual binary case.
+The source report rules out exactly that residual binary case.
 
 ## Order-three line-cap bound
 
 Let `C` be a binary `[n,k]_2` code of redundancy `rho` that would violate the generalized packing--covering conjecture at order `t=3`, and put `r=R_3(C)`.
 
-The source run proves the reusable estimate
+The source report proves the reusable estimate
 
 `k <= 2^(rho-2r+3) - (rho-2r+3)`.                 (1)
 
@@ -28,7 +28,7 @@ A violation implies `d_3(C)>=2r+3`. With `D=C^perp`, the dual-weight step import
 
 `h=rho-2r+3`.
 
-After shortening `D` on `rho-h` independent coordinate functionals and puncturing, the source run obtains an `h`-dimensional binary code `E` of length
+After shortening `D` on `rho-h` independent coordinate functionals and puncturing, the source report obtains an `h`-dimensional binary code `E` of length
 
 `N=k+h`
 
@@ -89,7 +89,7 @@ This contradiction eliminates the sole residual binary redundancy-15 parameter t
 - Essayag--Zabokritskiy, arXiv:2609.19098v1, is the direct parent source and explicitly isolates the residual binary triple.
 - Yu--Schwartz, arXiv:2609.14477v1, prove order-two and other rate/asymptotic results that do not settle this finite high-rate case.
 
-The source run searched the exact residual triple, equivalent generalized packing/covering terminology, and finite-geometric line-cap formulations and found no prior result closing this case.
+The source report searched the exact residual triple, equivalent generalized packing/covering terminology, and finite-geometric line-cap formulations and found no prior result closing this case.
 
 ## Limitations
 

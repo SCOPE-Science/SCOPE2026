@@ -97,8 +97,6 @@ The proof above covers all q>=5 and t>=3 without computation. The supplementary 
 
 Because old and new colors are separately injective, their equality relations form a partial matching between old and new edges. A four-cycle fails to be rainbow exactly when this matching contains some old/new pair from that cycle. Thus a bad coloring at an insertion exists exactly when a partial matching hits every cycle's clause of old/new pairs. The checker solves this finite condition exhaustively by branching on a shortest remaining clause. Every partial matching can be realized by a full coloring using fresh colors elsewhere, so the check treats the exact predicate, not a relaxation.
 
-Run from the workspace root:
-
 ```sh
 python3 output/artifacts/check_c4.py
 ```
@@ -113,16 +111,16 @@ To the best of our knowledge, within the documented search scope and accessible 
 
 The search covered weak rainbow saturation of C4 and K_(2,2), weak saturation with respect to the family of rainbow copies R(C4), the equivalent asymptotic coefficient 1.2 or 6/5, cycle-gadget constructions, and general bounds that could specialize to C4. The existence of families with average degree at most 12/5+o(1) is the same density objective. The old/new collision formulation was checked as an equivalent universal-coloring condition, not proposed as a separate invariant. Source inspection included the closest construction and proof [1, Section 4], the stronger general bounds [2, Theorem 1.3 and Proposition 4.3], and the distinctions from adjacent saturation notions described above.
 
-The relevant screening records are 8056794c6a5d4d2aac78b35375bb4bab (initial C4 target), 3e9a5bc4ba974333ad5e716e7fec8acd (emergent 6/5 construction), d31f21eb90b440c9811a9f68beb5a9f5 (K_(2,2), 1.2, general coverage), and d8ad85c0687e4c07ab020612ae0d75fe (alternative rainbow-family notation and cycle constructions). These searches informed primary-source inspection; search misses alone are not evidence of novelty.
+Screening covered the initial C4 target, the 6/5 construction, K_(2,2), the coefficient 1.2 and broader coverage, and alternative rainbow-family notation and cycle constructions. These searches informed primary-source inspection; search misses alone are not evidence of novelty.
 
 No plausible novelty-threatening source whose full text could not be obtained was identified. The inspected versions were accessible preprints, including [1] arXiv v1, [2] arXiv v1, [3] arXiv v2, [4] arXiv v2 and [5] arXiv v1. This is a limitation on version coverage: publication metadata does not establish that every later revision has been checked. No unresolved concrete covering clue was identified. Only the cited relevant sections are claimed as inspected, not every proof in every paper. If a later source demonstrates equivalent or stronger coverage, this assessment must be revised.
 
 ## References and evidence locations
 
-1. Bo, Lian and Liu, *Weak rainbow saturation numbers of paths, stars and cycles*, [arXiv:2609.03823v1](https://arxiv.org/abs/2609.03823v1). Theorem 1.5; Section 4, Case 2, (S2.1)--(S2.5). Acquired fulltext job `3384cc3e5343cada03b284b691a715bd`; theorem at extraction offsets 7987 and 42008; construction/proof inspected at 38000--45000 and 47700--52150.
-2. Li, Ma and Xie, *Weak Rainbow Saturation Numbers of Graphs*, [DOI:10.1002/jgt.23211](https://doi.org/10.1002/jgt.23211), inspected [arXiv:2401.11525v1](https://arxiv.org/abs/2401.11525v1). Introduction, Theorems 1.2--1.3, Proposition 4.3 and Question 4.4. Job `d5e049325eb75b83eaa9425c7076698d`; offsets 0--12500 and 33900--40100.
-3. Behague, Johnston, Letzter, Morrison and Ogden, *The rainbow saturation number is linear*, [DOI:10.1137/23M1566881](https://doi.org/10.1137/23M1566881), inspected arXiv:2211.08589v2. Section 6, weak saturation definition and questions. Job `6ede44b863759c284752a43b6057943e`; contexts at offsets 25105--29073; introduction at 0--4500.
-4. Chakraborti, Hendrey, Lund and Tompkins, *Rainbow saturation for complete graphs*, [DOI:10.1137/23M1565875](https://doi.org/10.1137/23M1565875), inspected arXiv:2212.04640v2. Definitions and Theorem 1.6. Job `f9c27663d289fd55472597ed018a29c8`; relevant contexts 7976--10800.
-5. Halfpap, Lidicky and Masarik, *Proper rainbow saturation numbers for cycles*, [DOI:10.1016/j.disc.2026.115053](https://doi.org/10.1016/j.disc.2026.115053), inspected arXiv:2403.15602v1. Definition and Theorems 1.5--1.6. Job `afd692a462c828639def12ee524d51f9`; offsets 0--8350.
+1. Bo, Lian and Liu, *Weak rainbow saturation numbers of paths, stars and cycles*, [arXiv:2609.03823v1](https://arxiv.org/abs/2609.03823v1). Theorem 1.5; Section 4, Case 2, (S2.1)--(S2.5). Acquired retrieval; theorem at extraction offsets 7987 and 42008; construction/proof inspected at 38000--45000 and 47700--52150.
+2. Li, Ma and Xie, *Weak Rainbow Saturation Numbers of Graphs*, [DOI:10.1002/jgt.23211](https://doi.org/10.1002/jgt.23211), inspected [arXiv:2401.11525v1](https://arxiv.org/abs/2401.11525v1). Introduction, Theorems 1.2--1.3, Proposition 4.3 and Question 4.4. retrieval; offsets 0--12500 and 33900--40100.
+3. Behague, Johnston, Letzter, Morrison and Ogden, *The rainbow saturation number is linear*, [DOI:10.1137/23M1566881](https://doi.org/10.1137/23M1566881), inspected arXiv:2211.08589v2. Section 6, weak saturation definition and questions. retrieval; contexts at offsets 25105--29073; introduction at 0--4500.
+4. Chakraborti, Hendrey, Lund and Tompkins, *Rainbow saturation for complete graphs*, [DOI:10.1137/23M1565875](https://doi.org/10.1137/23M1565875), inspected arXiv:2212.04640v2. Definitions and Theorem 1.6. retrieval; relevant contexts 7976--10800.
+5. Halfpap, Lidicky and Masarik, *Proper rainbow saturation numbers for cycles*, [DOI:10.1016/j.disc.2026.115053](https://doi.org/10.1016/j.disc.2026.115053), inspected arXiv:2403.15602v1. Definition and Theorems 1.5--1.6. retrieval; offsets 0--8350.
 
 The evidence offsets refer to the acquired text extractions, not printed page numbers. The scope is a new upper bound for C4; optimality, a matching lower bound, a result for all longer cycles, and smaller n are not established.

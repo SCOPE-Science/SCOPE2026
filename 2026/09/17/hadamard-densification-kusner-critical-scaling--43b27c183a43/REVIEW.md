@@ -32,7 +32,7 @@ The search was performed on 2026-09-17 UTC and emphasized equivalent formulation
 
 ### Residual access/indexing risk
 
-The most relevant primary source, Xiong 2609.14794, was fully accessible and read. Direct full-text retrieval of the Ge--Xu--Zhou and Chalmers arXiv PDFs was not available through one retrieval route during this cycle, although their abstracts/result summaries and Xiong's discussion of them were accessible. Because both papers predate Xiong's 13 Sep 2026 construction, they cannot literally contain a stated refinement of that later construction, but they could contain related quantitative devices. The main residual originality risk is therefore **recency and indexing lag**: Xiong's preprint is only days old, so an independent note or repository update may not yet be indexed.
+The most relevant primary source, Xiong 2609.14794, was fully accessible and read. Direct full-text retrieval of the Ge--Xu--Zhou and Chalmers arXiv PDFs was not available through one retrieval route for this review, although their abstracts/result summaries and Xiong's discussion of them were accessible. Because both papers predate Xiong's 13 Sep 2026 construction, they cannot literally contain a stated refinement of that later construction, but they could contain related quantitative devices. The main residual originality risk is therefore **recency and indexing lag**: Xiong's preprint is only days old, so an independent note or repository update may not yet be indexed.
 
 Originality is asserted only **to the best of our knowledge**.
 

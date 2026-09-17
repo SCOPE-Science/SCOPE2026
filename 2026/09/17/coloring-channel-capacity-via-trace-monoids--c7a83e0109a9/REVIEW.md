@@ -38,7 +38,7 @@ No public source applying the classical trace-monoid growth theorem to coloring-
 
 ### Access and residual-risk limitations
 
-M. W. Shields, *Concurrent Machines* (The Computer Journal 28(5), 1985) was identified as the classical history-monoid source, but its full article was subscription-inaccessible in this run; only bibliographic metadata and abstract were inspected. This could affect attribution or the precise historical formulation of the generic projection theorem, but it cannot directly contain the coloring-channel application introduced four decades later.
+M. W. Shields, *Concurrent Machines* (The Computer Journal 28(5), 1985) was identified as the classical history-monoid source, but its full article was subscription-inaccessible for this review; only bibliographic metadata and abstract were inspected. This could affect attribution or the precise historical formulation of the generic projection theorem, but it cannot directly contain the coloring-channel application introduced four decades later.
 
 Classical trace-monoid results are also distributed across monographs such as *The Book of Traces*; not every chapter was exhaustively inspected. The record deliberately treats those structural results as prior art rather than novelty.
 

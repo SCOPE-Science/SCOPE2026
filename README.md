@@ -24,7 +24,7 @@ invented time of day; the date is interpreted as UTC.
 
 Phase II began on **2026-09-16 UTC**. Research addresses concrete gaps in
 existing literature and evaluates the resulting claims through same-model review.
-Completed accepted results are automatically archived with their actual review
+Completed accepted results are archived with their actual review
 status. See [Phase II policy](PHASE_II.md) for publication and originality rules.
 
 Phase I used independent acceptance. Phase II records same-model review

@@ -29,7 +29,7 @@ These finite tests support, but do not replace, the general proof.
 
 ## Originality: PASS within documented scope
 
-The problem was formulated in the conversation after reading [1] and before
+The problem was formulated after reading [1] and before
 candidate-originality searches. Screening did not treat topical matches as
 coverage. Research then found a small counterexample and proved the family.
 
@@ -80,25 +80,25 @@ phenomenon, rather than technical complexity.
 
 ## Evidence scope
 
-- Discovery search 3762d029a58d4cde9bc5d4b2d0e59a32 sought current graph-burning
+- Discovery search sought current graph-burning
   developments and supplied [1]; unrelated hits were not used as evidence.
-- Primary job 58b50b352fdd8d1dcc8ac5eca532b1ad supplied arXiv:2411.02050v2.
+- Inspected primary version: arXiv:2411.02050v2.
   Read ranges 0-24000 and 40000-49373 include definitions, Lemma 2.4 and proof,
   paths/cycles, joins, spiders, conclusion and references. A later whole-text
   search retrieved Lemma 2.4 and its use before Corollary 4.2. Full-paper
   inspection is not claimed. DOI acquisition returned this same version.
-- Search a845040454df4842ac9ebdd27a9893b5: 2-burning source monotonicity and
+- Search : 2-burning source monotonicity and
   counterexamples; burning source number and spanning subgraphs; corrections
   to Jacobs-Messinger-Trenk. Results led back to [1], with no identified
   correction. This is search evidence, not an exhaustive correction history.
-- Search a7645dde14c64f6bbec376db845ad29f: sequential target-set selection and
+- Search : sequential target-set selection and
   non-monotonicity; minimum sources, edges and threshold burning; generalized
   burning developments. It identified the inaccessible 2021 foundational
   paper, plus distinct diffusion models and later graph-family computations.
-- Search 39dc4544128747b8b5f4b1469f434e8b: cones and source counts; spiders with
+- Search : cones and source counts; spiders with
   a universal vertex; time-optimal target sets and edges. The relevant hit
   was [1]'s dominating-set reduction, inspected in the primary text.
-- Final successful equivalent-form search cdd555f8187d40e6ba0a146715909ec9:
+- Final successful equivalent-form search :
   sequential threshold diffusion, minimum seeds, deadline, edge addition and
   nonmonotonicity. It gave no concrete matching theorem; largely irrelevant
   results are not substantive noncoverage evidence.
@@ -118,10 +118,7 @@ exhaustive guarantee of novelty.
 Yinkui Li, Xiaoxiao Qin and Wen Li, *The generalized burning number of graphs*
 (2021), DOI https://doi.org/10.1016/j.amc.2021.126306, is the most plausible
 inaccessible related source identified. It studies the parent process and
-graph operations, making an equivalent construction possible. DOI job
-296066e3ad8ac1783b8fd3321ec4da21 and exact-title job
-19854908253bc92306b159df20e1c0b3 both failed: CORE and OA-location stages
-reported no usable content, with no discovered PDF links. The full text was
+graph operations, making an equivalent construction possible. DOI and exact-title acquisition attempts did not yield usable full text. The full text was
 not obtained through available channels. The relevant theorems and proofs
 remain unverified. This is ACCESS_LIMITATION, with only possible relevance
 and no concrete coverage evidence. The 2024 authors describe t_2 as new,

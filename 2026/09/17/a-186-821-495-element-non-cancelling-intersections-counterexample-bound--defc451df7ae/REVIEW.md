@@ -1,18 +1,14 @@
 # same-model review
 
-## Run identity
+## Review status
 
-- Source run ID: `SCOPE-20260917T100054Z-R02`
-- Research start: `2026-09-17T10:00:54Z`
-- Research end: `2026-09-17T10:15:37Z`
 - Reported status: `SAME_MODEL_REVIEW_PASS`
-- Result type: valuable unexpected finding
 
 ## Correctness
 
 **PASS (same-model assessment).**
 
-The new step sharpens only the probabilistic estimate inside Wilhelm's structural framework. The source certificate checks every new numerical inequality with exact integer/rational arithmetic, including primality of `571`, the exact hypergeometric bound, derivative and term-ratio bounds, the first-term estimate, and the final expectation. The source run also checked the subtle use of a real lower bound `S(t)` for an integer number of traces.
+The new step sharpens only the probabilistic estimate inside Wilhelm's structural framework. The source certificate checks every new numerical inequality with exact integer/rational arithmetic, including primality of `571`, the exact hypergeometric bound, derivative and term-ratio bounds, the first-term estimate, and the final expectation. The source report also checked the subtle use of a real lower bound `S(t)` for an integer number of traces.
 
 ## Originality
 
@@ -25,10 +21,6 @@ The closest public source states only the `p>=10^5` theorem and the `p=100003` e
 **PASS (same-model assessment).**
 
 The method is conceptually moderate because it remains the same first-moment construction, but the quantitative compression is large: the displayed lattice-size upper bound falls from about `1.0e15` to `186,821,495`, directly addressing a size question raised in the source paper.
-
-## Independence
-
-The accessible previous run concerned generalized strong-majority edge colouring. This run deliberately moved to affine incidence geometry and NCI lattices, without using the previous theorem or method as a starting point.
 
 ## Review disclaimer
 

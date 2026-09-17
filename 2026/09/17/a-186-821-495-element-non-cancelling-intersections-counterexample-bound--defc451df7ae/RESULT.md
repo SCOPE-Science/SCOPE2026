@@ -74,4 +74,4 @@ The direct source is Hermann Wilhelm, *Refutation of the Non-Cancelling-Intersec
 
 ## Limitations
 
-The conceptual mechanism is Wilhelm's existing first-moment construction; the claimed contribution is quantitative. The marking is nonconstructive and `p=571` is not claimed minimal. The source run identifies private or extremely recent work, including work mentioned by Wilhelm, as an unresolved originality threat. No independent validation is claimed.
+The conceptual mechanism is Wilhelm's existing first-moment construction; the claimed contribution is quantitative. The marking is nonconstructive and `p=571` is not claimed minimal. The source report identifies private or extremely recent work, including work mentioned by Wilhelm, as an unresolved originality threat. No independent validation is claimed.

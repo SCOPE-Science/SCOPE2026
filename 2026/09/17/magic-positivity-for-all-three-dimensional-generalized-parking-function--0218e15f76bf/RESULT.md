@@ -60,7 +60,7 @@ with magic coefficients `(1,12,57,102)`, and the coefficients `(1,59/6,115/3,54)
 
 The primary source is Hill--Luo--Trinh--Vindas-Meléndez, arXiv:2607.15503. Their paper proves the special two-parameter family `X_n(a,b,...,b)`, leaves arbitrary parameter vectors open, reports computational checks for all triples with coordinates in `{1,2,3,4}`, and states Conjecture 8.1 asserting magic positivity in general.
 
-The source run also checked neighboring results on stable partial permutohedra, Pitman--Stanley polytopes, and sufficiently-large type-Y generalized permutohedra. None was found to imply the arbitrary three-parameter theorem.
+The source report also checked neighboring results on stable partial permutohedra, Pitman--Stanley polytopes, and sufficiently-large type-Y generalized permutohedra. None was found to imply the arbitrary three-parameter theorem.
 
 To the best of the same-model review's searches through 17 September 2026, no subsequent proof of the complete length-three case was found.
 

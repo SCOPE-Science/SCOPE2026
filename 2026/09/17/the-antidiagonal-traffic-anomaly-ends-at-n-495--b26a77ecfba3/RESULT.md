@@ -4,7 +4,7 @@
 
 ## Claim
 
-The source run proposes a proof of Conjecture 7.4 of Gil--Liang--Odetola--Weiner, arXiv:2609.01562v1:
+The source report proposes a proof of Conjecture 7.4 of Gil--Liang--Odetola--Weiner, arXiv:2609.01562v1:
 
 `rho(n) < 1` for every integer `n >= 496`.
 
@@ -16,7 +16,7 @@ The threshold is reported as sharp:
 
 ## Reparameterization and unimodality
 
-Put `k=n-2a`. From the paper's explicit ratio the source run obtains
+Put `k=n-2a`. From the paper's explicit ratio the source report obtains
 
 `R_n(k)=((k+1)(n-k)(2n-1))/(n(n-1)) * C(n,(n-k)/2)^2/C(2n,n)`,
 
@@ -50,7 +50,7 @@ while the sharpness witness is
 
 ## Analytic tail
 
-For `n>=3000`, the source run combines Robbins factorial bounds
+For `n>=3000`, the source report combines Robbins factorial bounds
 
 `C(n,floor(n/2)) < 2^n sqrt(2/(pi n))`
 
@@ -72,7 +72,7 @@ with
 
 `E(3000)<0.995<1`.
 
-Together with the finite exact certificate, the source run concludes the all-`n>=496` statement.
+Together with the finite exact certificate, the source report concludes the all-`n>=496` statement.
 
 It additionally reports
 
@@ -91,10 +91,10 @@ The computation supports the finite bridge; it does not replace the analytic tai
 
 ## Closest prior work
 
-Gil, Liang, Odetola and Weiner, arXiv:2609.01562v1, state Conjecture 7.4 and report exact computation only through `n=2000`. The source run searched the exact conjecture number, the `496` threshold, `rho(n)`, the paper title and arXiv identifier, and found no subsequent proof.
+Gil, Liang, Odetola and Weiner, arXiv:2609.01562v1, state Conjecture 7.4 and report exact computation only through `n=2000`. The source report searched the exact conjecture number, the `496` threshold, `rho(n)`, the paper title and arXiv identifier, and found no subsequent proof.
 
 The main originality threats identified are an unindexed or not-yet-public author revision, a simultaneous independent preprint, or an older sharp binomial/hypergeometric inequality that reduces novelty of the analytic method.
 
 ## Limitations
 
-The analytic tail has not been independently proof-checked or formally verified. Search coverage cannot certify absolute novelty. The source run also could not mechanically certify scheduler non-overlap.
+The analytic tail has not been independently proof-checked or formally verified. Search coverage cannot certify absolute novelty.

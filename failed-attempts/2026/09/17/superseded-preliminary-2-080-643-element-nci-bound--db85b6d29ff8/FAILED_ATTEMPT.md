@@ -5,8 +5,6 @@
 ## Attempt
 
 - **Title:** Preliminary 2,080,643-element Non-Cancelling Intersections counterexample bound
-- **Round:** `SCOPE-20260917T101839Z-001`
-- **Lane:** none
 - **Disposition:** `PROTOCOL_INVALIDATED`
 - **Domain:** finite combinatorics / incidence geometry
 - **Method:** incidence-count sharpening and exact first-moment certificate in a marked affine-plane lattice construction
@@ -27,21 +25,15 @@ The draft's central quantitative step strengthened the singleton-line accounting
 
 ## Research outcome
 
-The mathematical draft was **not retained as this execution's valid SCOPE outcome**. After the preliminary result had been produced, accessible run history revealed an earlier SCOPE execution, `SCOPE-20260917T100054Z-R02`, already devoted to the same Non-Cancelling Intersections direction and the same broad construction family.
-
-The source protocol required each execution to begin a fresh exploration and prohibited continuing, extending, or slightly improving an earlier execution. the same-model review therefore explicitly discarded the NCI result for this run and restarted on an unrelated Riesz-capacity problem. The corrected accepted outcome is archived under the same stable run identity at `2026/09/17/011`.
+This preliminary draft was invalidated because it overlapped the existing NCI research direction recorded in SCOPE-20260917-006. The disposition remains PROTOCOL_INVALIDATED, not an accepted finding. This is an editorial/protocol rejection, not a demonstrated mathematical refutation.
 
 ## Why this attempt failed
 
-**Failed axis: cross-run independence.**
-
-The decisive failure is procedural and epistemic, not a demonstrated mathematical counterexample to the draft itself. The prior NCI execution existed before this run and should have served as an exclusion topic. It was not visible to the same-model review until after the preliminary NCI work had already been completed.
-
-Because independence is part of the SCOPE execution protocol, this draft cannot be promoted to an accepted finding from this run even though the same-model review had initially same-model reviewed its mathematics as plausible.
+**Failed axis: research-direction independence.** The overlap disqualified this draft under the applicable publication policy. This is not evidence that the proposed mathematical claim is false. No accepted PASS status is asserted.
 
 ## Conditions for a legitimate retry
 
-Any future SCOPE investigation of this quantitative NCI bound must occur in a genuinely fresh execution that explicitly acknowledges and excludes earlier NCI runs as required by the then-current independence policy. The mathematical derivation would need a fresh correctness and originality audit in that legitimate context; this failed record itself is not validation.
+Any reconsideration requires a fresh correctness, originality and value review that explicitly addresses the prior NCI results and establishes a distinct contribution. This failed record is not validation.
 
 ## Epistemic status
 

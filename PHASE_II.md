@@ -1,13 +1,10 @@
 # Phase II — research observations
 
-Phase II begins on **2026-09-16 UTC**. Earlier research pilot results may be
-backfilled, with their actual research timestamps retained. The archive path and
-record identifier use the UTC publication date, not an invented historical date.
+Phase II begins on **2026-09-16 UTC**. The archive path and record identifier use
+the UTC publication date, including for retrospectively published findings.
 
-Research follows a literature-grounded research cycle: identify a specific,
-valuable gap; screen its originality; attempt a result; and review correctness,
-originality, and value. Famous long-standing open problems are not the default
-target. Unsuccessful directions can be abandoned and a new direction explored.
+The archive emphasizes concrete, valuable gaps in the literature and reports
+evidence for correctness, originality and scientific value.
 
 ## What acceptance means
 
@@ -30,17 +27,17 @@ likely to overturn originality, explain the risk, and distinguish what was read
 from what could not be checked. Inaccessibility alone is not automatic rejection;
 strong evidence of prior coverage must not be overridden by a download failure.
 
-## Publication and operation
+## Publication
 
-Phase II uses topic-label folders with stable Run ID hash suffixes, not daily
+Phase II uses topic-label folders with stable publication-identity suffixes, not daily
 sequence allocation. Follow `UPLOAD_PROTOCOL.md`; retain existing record IDs.
 Consult `PATH_MIGRATIONS.json` to resolve pre-migration source links.
 
 Only complete research packages with passing review are published. Incomplete work and infrastructure errors do not qualify. Stable publication identities prevent duplicates, and uploads are verified.
 
 `RESULT.md`, `REVIEW.md`, `AUDIT.json`, `METADATA.json`, `SLOGAN.txt`, and compact
-research artifacts form the public package. Private agent trajectories, credentials,
-downloaded third-party papers, and interpreter caches are excluded. A `PASS` in
+research artifacts form the public package. Only scientific evidence and publication
+metadata belong in this package. A `PASS` in
 `AUDIT.json` must always be read together with `review_type` and `independent`.
 
 Known disputed pilot experiments are not automatically promoted to accepted

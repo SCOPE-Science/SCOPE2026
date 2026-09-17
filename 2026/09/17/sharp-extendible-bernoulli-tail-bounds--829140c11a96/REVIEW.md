@@ -157,7 +157,7 @@ formula is directly computable.
 - The Di Cecco (2011) full text was not accessible through the inspected
   route; abstract and bibliographic records were inspected.
 - The Hald (1968) publisher page exposed a summary, but the article body was
-  PDF-only and was not inspected in this cycle.
+  PDF-only and was not inspected for this review.
 - Search-engine coverage and GitHub code search can miss synonymous or
   unindexed formulations.
 - A screenshot request for the accessible Zaigraev--Kaniovski PDF failed
