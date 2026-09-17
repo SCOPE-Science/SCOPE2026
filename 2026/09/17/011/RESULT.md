@@ -1,103 +1,171 @@
-# A 2,080,643-element non-cancelling-intersections counterexample bound
+# Fan Conjecture 5.9: monotonicity of the three-point Riesz-energy deformation
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. The source run states the theorem conditionally on the published structural lemmas of Wilhelm's construction. Originality is claimed only to the best of our knowledge. Publication is not peer review or a guarantee of priority.
+> **Correction notice.** This stable record originally contained a preliminary Non-Cancelling Intersections result from the same run. the same-model review's corrected final report invalidated that preliminary result as this run's accepted SCOPE outcome after prior-run history revealed a cross-run independence conflict. See `CORRECTION.md`. The mathematical NCI draft is retained separately as negative research memory, not as an accepted finding.
+>
+> **Review status: same-model review.** Correctness, originality, and value were assessed by the same-model review, not an independent reviewer. Originality is only to the best of our knowledge.
 
 ## Claim
 
-Using Hermann Wilhelm's marked-affine-plane lattice architecture, the source run proposes the following quantitative refinement.
+For `r>0`, write
 
-For `p=127` and marking width
+`U_r(K) = max_mu ∫∫ |x-y|^r dmu(x)dmu(y)`
 
-`w = ceil(sqrt(2p)) + 1 = 17`,
+for probability measures `mu` on `K`, and `C_r(K)=U_r(K)^(1/r)=Cap_{-r}(K)`.
 
-there exists a marking for which the lattice `P_{p,m}` has no winning dot-algebra tree. The lattice therefore gives an unrestricted Non-Cancelling Intersections counterexample with exactly
+In the setting of Qiuling Fan's Conjecture 5.9, let
 
-`p^3 + 2p^2 + 2 = 2,080,643`
+`B=e^(i phi)`, `C=e^(-i phi)`, `phi in (pi/2, 2pi/3]`,
 
-elements.
+and move
 
-The marking is existential, not explicitly exhibited. No claim is made that `p=127` or `2,080,643` is minimal.
+`A=e^(i psi)`, `0 <= psi <= 2pi-3phi`.
 
-## Context
+The source run proves that for every `r>=2`,
 
-Wilhelm's arXiv:2608.27416v2 proves the unrestricted NCI conjecture false using the same lattice family and gives a theorem for primes `p >= 10^5`; the displayed finite example uses `p=100003` and has `1,000,110,003,900,047` elements. The source run targets the large slack in the paper's first-moment estimate while retaining its lattice architecture and structural reductions.
+`psi -> U_r({A,B,C})`
 
-## Incidence strengthening
+is nondecreasing on this whole interval. Hence the capacity is also nondecreasing and is maximized at the right endpoint `psi=2pi-3phi`, where `AC=BC`. For `r>2`, the increase is strict on each nontrivial portion of the three-point-support branch with `psi>0`.
 
-Let `T subset F_p^2` have size `t`, with `2p <= t <= 4p`, and for every affine line `ell` put `j_ell = |T intersect ell|`. The standard affine-plane identities used by Wilhelm are
+Thus Fan's Conjecture 5.9 is proved in the source run.
 
-`sum_ell j_ell = t(p+1)`
+Fan states that Conjecture 5.6 for odd regular polygons follows from Conjecture 5.9 together with his proved symmetric Step 1 (Lemma 5.8) and the two-point reduction. Under those published ingredients, the source run therefore completes Fan's stated scheme for every odd `N>=3` and every `r>2`.
+
+## Proof
+
+Put
+
+`a=(phi-psi)/2`, `b=(phi+psi)/2`.
+
+Then `a+b=phi`, `b-a=psi`, and throughout the allowed interval
+
+`0<a<=b<=pi-phi<=pi/2`.
+
+The side lengths are
+
+`x=AB=2 sin(a)`, `y=AC=2 sin(b)`, `c=BC=2 sin(phi)`,
+
+with `x<=y<=c`. Set
+
+`X=x^r`, `Y=y^r`, `Z=c^r`, `D=X+Y-Z`.
+
+By the Clark--Laugesen three-point formula quoted as Fan's Lemma 5.7,
+
+`U_r = Z/2` when `D<=0`,
 
 and
 
-`sum_ell j_ell^2 = t(t+p)`.
+`U_r = 2XYZ/(4XY-D^2)` when `D>0`.
 
-Let `N` be the number of lines with `j_ell >= 2`, let `n_1` be the number of singleton lines, and let `L=p(p+1)` be the number of affine lines. The source run strengthens the estimate used in the parent argument from `n_1 <= L` to
+So the energy is constant on the two-point-support branch. On the three-point branch define
 
-`n_1 <= L-N`,
+`H=D^2/(XY)`.
 
-because a nonsingleton line cannot simultaneously be a singleton line.
+Then
 
-Writing
+`U_r=2Z/(4-H)`,
 
-`A=(p+1)(t-p)` and `C=t(t+p)`,
+so it suffices to show that `H` is nondecreasing.
 
-the mass on nonsingleton lines satisfies
+Differentiating with respect to `psi` gives
 
-`S := sum_{j_ell>=2} j_ell >= A+N`.
+`X'/X = -(r/2) cot(a)`,
 
-Cauchy--Schwarz and the second-moment identity then give the realizability constraint
+`Y'/Y = (r/2) cot(b)`,
 
-`(A+N)^2 <= C N`.                                      (1)
+and
 
-## Exact first-moment certificate
+`D'=(r/2)(Y cot(b)-X cot(a))`.
 
-For `p=127`, the source verifier evaluates for every integer `254 <= t <= 508` the least integer `N` permitted by (1).
+Therefore
 
-Take cutoff `K=6`. Since every line with `j_ell>=7` contributes at least `49` to `sum j_ell^2=C`, at most `floor(C/49)` lines can have trace size at least seven. Hence there are at least
+`(1/r) d(log H)/dpsi = (Y cot(b)-X cot(a))/D + (cot(a)-cot(b))/2`.
 
-`E(t)=N_min(t)-floor(C/49)`
+Multiplying by the positive quantity `2D sin(a) sin(b)` reduces its sign to the sign of
 
-lines whose trace size lies between two and six. The reported minimum is
+`(Y-X) sin(phi) - Z sin(psi)`.                                      (1)
 
-`E(254)=2442`,
+Normalize
 
-and all values are positive.
+`u=sin(a)/sin(phi)`, `v=sin(b)/sin(phi)`.
 
-Choose on each affine line an independent uniformly random 17-point marking. A trace of size at most six is hit with probability at most
+Because `b<=pi-phi<=pi/2`, one has `0<u<=v<=1`. The three-point condition is
 
-`q = 1 - C(121,17)/C(127,17)`
-`  = 312329993535824646690 / 533290643186622881175`
-`  < 293/500`.
+`u^r+v^r>1`.                                                        (2)
 
-Thus, for a fixed `T` of size `t`,
+Also
 
-`Pr[T admissible] <= (293/500)^E(t)`.
+`v^2-u^2 = (sin^2(b)-sin^2(a))/sin^2(phi) = sin(psi)/sin(phi)`.      (3)
 
-The source run reports an exact-integer evaluation of
+After dividing (1) by the positive factor `sin^(r+1)(phi)`, it is enough to prove
 
-`U = sum_{t=254}^{508} C(127^2,t) (293/500)^E(t)`
+`v^r-u^r >= v^2-u^2`.                                               (4)
 
-showing
+### Power-difference lemma
 
-`U < 9/100 < 1`.
+If `r>=2`, `0<=u<=v<=1`, and `u^r+v^r>=1`, then
 
-Consequently some marking has no admissible set throughout the required cardinality range.
+`v^r-u^r >= v^2-u^2`.
 
-The final implication uses Wilhelm's published structural lemmas: a winning dot-algebra tree for `P_{p,m}` would induce a winning plane tree, and such a tree must contain an admissible node state in the relevant size interval. The source run therefore obtains the claimed counterexample within that framework.
+For `r=2` this is equality. Suppose `r>2`, put `q=r/2>1`, `s=u^2`, `t=v^2`, `alpha=1/q`, `A=s^q`, and `B=t^q`. Then
 
-## Reproducibility
+`0<=A<=B<=1`, `A+B>=1`,
 
-The source run reports a local exact-arithmetic verifier checking primality of 127, the width requirement `C(17,2)>=126`, inequality (1), the `E(t)` bounds, `q<293/500`, and the full rational first-moment sum. That local verifier is not one of the generated files available in the present conversation, so it is not fabricated in this archive.
+and the target becomes
+
+`B-A >= B^alpha-A^alpha`.                                          (5)
+
+For fixed `A`, set
+
+`Phi_A(B)=B-A-B^alpha+A^alpha`.
+
+For `B>=1/2`,
+
+`Phi_A'(B)=1-alpha B^(alpha-1)>=0`,
+
+because `alpha 2^(1-alpha)<=1`.
+
+If `A>=1/2`, then `B>=A`, so `Phi_A(B)>=Phi_A(A)=0`.
+
+If `A<=1/2`, then `B>=1-A`, and
+
+`Phi_A(B) >= 1-2A-(1-A)^alpha+A^alpha =: F(A)`.
+
+Now `F(0)=F(1/2)=0`, while for `0<A<1/2`,
+
+`F''(A)=alpha(alpha-1)[A^(alpha-2)-(1-A)^(alpha-2)]<0`.
+
+Thus `F` is concave between two zero endpoints and hence `F(A)>=0`. This proves the lemma and therefore (4).
+
+It follows that `H`, and hence `U_r`, is nondecreasing wherever `D>0`. At `D=0`, the three-point formula agrees continuously with the two-point value `Z/2`. Once a three-point branch has begun, its value is `>Z/2` and nondecreasing, so it cannot later return to a boundary point where the value would again be `Z/2`. Therefore the two-point branch, if present, is an initial constant interval followed by one terminal nondecreasing three-point branch.
+
+Consequently `U_r` and `C_r` are globally nondecreasing in `psi`, proving the claimed endpoint maximum.
+
+## Odd-polygon consequence
+
+Fan's paper states that Conjecture 5.6 follows from Conjecture 5.9 and Lemma 5.8. Thus, subject to those published reductions, the source run establishes the odd-polygon energy formula
+
+`U_r(P_N)=2^(r-1) sin^r(theta_N)/(1-2^(r-2) cos^r(theta_N))`,
+
+where
+
+`theta_N=(N-1)pi/(2N)`,
+
+for every odd `N>=3` and `r>2`, with the equilibrium support and masses described in Fan's Conjecture 5.6.
+
+## Computational corroboration
+
+The compact verifier in `artifacts/verify.py` checks the scalar power-difference inequality on a dense grid, the derivative-sign reduction, monotonicity of the exact two-branch three-point energy on a deterministic grid, and 10,000 randomized triples. These computations are sanity checks only; the claim rests on the analytic argument above.
+
+A compact proof note from the source run is archived as `artifacts/proof_note.md`.
 
 ## Closest prior work
 
-- Hermann Wilhelm, *Refutation of the Non-Cancelling Intersections Conjecture*, arXiv:2608.27416v2, is the direct parent result.
-- Wilhelm's earlier left-linear construction is arXiv:2608.19414.
-- The source run identifies an August 2026 private communication from Alexander Walz, described by Wilhelm, as the strongest inaccessible originality threat.
-
-The source run searched for the exact new prime, exact lattice size, and quantitative-improvement formulations and found no public equivalent. This remains a qualified, to-the-best-of-our-knowledge originality assessment.
+- Qiuling Fan, *Riesz capacity ratios with negative exponents*, arXiv:2609.11186v1 (2026), is the direct parent source. The source run reports that public v1 explicitly labels the relevant Step 2 as unproved and states it as Conjecture 5.9.
+- The exact three-point energy formula is due to Clark and Laugesen and is quoted as Fan's Lemma 5.7.
+- The source run searched exact conjecture identifiers, the parent arXiv identifier, odd-polygon equilibrium terminology, three-point Riesz-capacity terminology, and stronger/equivalent formulations. It found no public proof or stronger theorem visibly implying Conjecture 5.9.
 
 ## Limitations
 
-The marking is nonconstructive. No lower bound on the true smallest counterexample is obtained, and no optimality of `p=127` is claimed. The private Walz argument and any unindexed author-side optimization could reduce originality. No independent proof audit is asserted.
+The parent preprint was only about one week old at the time of the source run, so an unposted author revision, private communication, or not-yet-indexed independent solution could duplicate the argument. The scalar power-difference inequality may itself be known in another guise; the source run did not locate an existing application that closes Fan's Step 2. No independent human, independent-agent, formal, or peer review is asserted.
+
+The source run also records a scheduler limitation: a prior unrelated execution remained active for roughly the first 2 minutes 40 seconds of this run before that overlap became observable. The scheduler exposed no hard mutual-exclusion lock.
