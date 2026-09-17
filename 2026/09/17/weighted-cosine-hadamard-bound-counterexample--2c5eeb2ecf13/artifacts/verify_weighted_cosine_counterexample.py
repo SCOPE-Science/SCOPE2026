@@ -39,6 +39,7 @@ assert gamma3 == sp.Rational(13, 7)
 assert bound3 == sp.Rational(63, 13)
 assert gap3 == sp.Rational(41, 520)
 
+
 # An order-4 counterexample as well, so the failure persists even when real
 # Hadamard frames exist in the ambient dimension.
 Sigma4 = sp.diag(3, 1, sp.Rational(1, 3), sp.Rational(7, 3))
