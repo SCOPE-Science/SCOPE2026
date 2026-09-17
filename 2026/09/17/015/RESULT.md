@@ -84,7 +84,7 @@ and the construction takes
 
 The source run reports a verifier implementing the greedy `x_i`, the `P_i`, cyclic row assembly and final replacement. It checked that the rows are permutations and that all proper-prefix-sum sets are disjoint for `h=2,...,15` and additional values through `h=300`.
 
-No verifier file from that run is among the generated files accessible in the present conversation, so this archive does not fabricate one.
+The companion files from that run are now archived as `artifacts/proof_note.md` and `artifacts/verify.py`. The verifier's built-in default test set covers `h=2,...,15` and selected values through `h=100`; the broader through-`h=300` check remains the same-model review's reported source-run computation. These computations are corroborating sanity checks, not independent proof verification.
 
 ## Closest prior work
 
