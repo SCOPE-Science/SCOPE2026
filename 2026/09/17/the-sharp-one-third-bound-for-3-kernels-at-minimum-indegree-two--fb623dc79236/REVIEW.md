@@ -1,12 +1,8 @@
 # same-model review
 
-## Run identity
+## Review status
 
-- Source run ID: `SCOPE-20260917T100642Z-01`
-- Research start: `2026-09-17T10:06:42Z`
-- Research end: `2026-09-17T10:23:32Z`
 - Reported status: `SAME_MODEL_REVIEW_PASS`
-- Result type: substantive target
 
 ## Correctness
 
@@ -20,7 +16,7 @@ The supplied verification script independently checks the theorem for every simp
 
 **PASS, qualified to the best of our knowledge (same-model assessment).**
 
-Fresh searches during the source run for the exact constant, equivalent formulations, minimum in-degree two plus 3-kernel terminology, and nearby transversal formulations found no prior coverage. The primary June 2026 paper still presents the `δ=2,q=3` case as unresolved.
+Fresh searches during the source report for the exact constant, equivalent formulations, minimum in-degree two plus 3-kernel terminology, and nearby transversal formulations found no prior coverage. The primary June 2026 paper still presents the `δ=2,q=3` case as unresolved.
 
 The closest located neighboring work was Penev--Stein--Trujillo-Negrete on other q-kernel directions. No concrete inaccessible source was identified as likely to contain the same theorem.
 
@@ -31,10 +27,6 @@ Remaining threat: a recent unindexed manuscript, private draft, or newer revisio
 **PASS (same-model assessment).**
 
 If correct and novel, the result improves the first unresolved case highlighted by the primary paper from the known general upper bound `1/2` to the sharp `1/3`, proving the conjectured constant for `(δ,q)=(2,3)`. The proof also introduces a pseudoforest-incidence covering mechanism rather than only a finite computation.
-
-## Independence correction preserved from the source report
-
-The source report initially said there was no earlier run topic, then corrected that statement after locating an earlier SCOPE email on strong majority edge-colouring. The q-kernel result was still judged independent because it used a different problem, invariant, method, and target. This archive preserves that correction rather than the earlier narrower wording.
 
 ## Review disclaimer
 

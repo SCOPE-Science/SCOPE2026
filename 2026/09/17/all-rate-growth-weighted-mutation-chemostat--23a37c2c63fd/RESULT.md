@@ -167,7 +167,7 @@ The harmonic limit is \(0.3852300575\), explaining the approximately \(0.39\) li
 
 - The theorem requires the special growth-weighted form \(T(s)=LD(s)\), reversibility of \(L\), irreducibility, and strict increase of every \(\mu_i\). It does not resolve arbitrary substrate-dependent exchange matrices.
 - No all-rate stability theorem for the coexistence equilibrium is claimed.
-- Originality is to the best of our knowledge. The final journal record is identifiable as DOI `10.1016/j.nonrwa.2025.104509` / HAL `hal-04860652v2`, but the accessible full theorem text inspected in this cycle was the 2025 preprint; the final HAL v2 full text could not be inspected through the available route. A change between versions could therefore affect originality.
+- Originality is to the best of our knowledge. The final journal record is identifiable as DOI `10.1016/j.nonrwa.2025.104509` / HAL `hal-04860652v2`, but the accessible full theorem text inspected for this review was the 2025 preprint; the final HAL v2 full text could not be inspected through the available route. A change between versions could therefore affect originality.
 - The source paper says its Section 4.2 model is closely related to Lobry, *La compétition dans le chémostat* (2013), Section 4.2. The accessible record did not expose that section's text, so it remains the main uninspected historical source capable of affecting originality.
 - The reversible-matrix symmetrization itself is standard in Markov-chain theory; the research claim is the all-rate chemostat threshold theorem and its application/generalization, not novelty of that algebraic device in isolation.
 

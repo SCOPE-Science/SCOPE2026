@@ -72,4 +72,4 @@ Hegde, Kumar and Pratibha, *A somewhat sure note on an un-Schur problem*, arXiv:
 
 ## Limitations
 
-This is only a lower bound; the exact four-colour asymptotic value and the published upper bound `3/4` are unchanged. No optimality is claimed for the modular/interval construction. Because the closest preprint was only about a day old during the source run, unpublished calculations, private communication, and unindexed revisions are material originality threats. No independent validation is claimed.
+This is only a lower bound; the exact four-colour asymptotic value and the published upper bound `3/4` are unchanged. No optimality is claimed for the modular/interval construction. Because the closest preprint was only about a day old during the source report, unpublished calculations, private communication, and unindexed revisions are material originality threats. No independent validation is claimed.

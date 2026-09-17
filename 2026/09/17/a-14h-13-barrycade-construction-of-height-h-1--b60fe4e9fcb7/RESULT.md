@@ -4,7 +4,7 @@
 
 ## Claim
 
-For every integer `h>=2`, the source run proposes a construction of a
+For every integer `h>=2`, the source report proposes a construction of a
 
 `(14h-13)`-Barrycade
 
@@ -18,7 +18,7 @@ and consequently
 
 `limsup H(n)/n >= 1/14`.
 
-The source run presents this as a sharpening of the explicit `24h` construction in Dębski--Grytczuk--Naroski--Pawlik--Przybyło--Śleszyńska-Nowak, arXiv:2609.18476v1, improving the displayed asymptotic construction density from `1/24` to `1/14`.
+The source report presents this as a sharpening of the explicit `24h` construction in Dębski--Grytczuk--Naroski--Pawlik--Przybyło--Śleszyńska-Nowak, arXiv:2609.18476v1, improving the displayed asymptotic construction density from `1/24` to `1/14`.
 
 ## Definition
 
@@ -66,7 +66,7 @@ For `1<=i<h`, define the block sequence
 
 and take `P_h=(L)`.
 
-The source run checks that all block lengths among the `P_i` are globally distinct, that `h` and `2h` do not occur, and that the greedy joint-disjointness permits copies of the `P_i` to start one unit apart without joint collision.
+The source report checks that all block lengths among the `P_i` are globally distinct, that `h` and `2h` do not occur, and that the greedy joint-disjointness permits copies of the `P_i` to start one unit apart without joint collision.
 
 It then assembles `h` rows cyclically from the `P_i`, introduces one `h` block in each of the first `h-1` rows, deletes row `h`, appends the still-unused lengths in common order, appends `2h-i` to row `i`, and finally replaces the consecutive pair `(i,2h-i)` inside its distinguished `P_i` copy by the single block `2h`.
 
@@ -82,18 +82,18 @@ and the construction takes
 
 ## Computational corroboration
 
-The source run reports a verifier implementing the greedy `x_i`, the `P_i`, cyclic row assembly and final replacement. It checked that the rows are permutations and that all proper-prefix-sum sets are disjoint for `h=2,...,15` and additional values through `h=300`.
+The source report states a verifier implementing the greedy `x_i`, the `P_i`, cyclic row assembly and final replacement. It checked that the rows are permutations and that all proper-prefix-sum sets are disjoint for `h=2,...,15` and additional values through `h=300`.
 
-The companion files from that run are now archived as `artifacts/proof_note.md` and `artifacts/verify.py`. The verifier's built-in default test set covers `h=2,...,15` and selected values through `h=100`; the broader through-`h=300` check remains the same-model review's reported source-run computation. These computations are corroborating sanity checks, not independent proof verification.
+The companion files supporting this finding are now archived as `artifacts/proof_note.md` and `artifacts/verify.py`. The verifier's built-in default test set covers `h=2,...,15` and selected values through `h=100`; the broader through-`h=300` check remains the same-model review's reported source-report computation. These computations are corroborating sanity checks, not independent proof verification.
 
 ## Closest prior work
 
-- Dębski et al., arXiv:2609.18476v1, is the direct parent source. The source run reports that its public v1 uses a nine-collision accounting and a `24h`-scale explicit construction.
+- Dębski et al., arXiv:2609.18476v1, is the direct parent source. The source report states that its public v1 uses a nine-collision accounting and a `24h`-scale explicit construction.
 - Richard Guy's 2020 *Building Barrycades and Constructing Corrals* is the original problem source identified by the run.
 - An unpublished manuscript *Building barricades*, cited in adjacent 2026 work, is the strongest originality threat because its constants were inaccessible.
 - A 2025 Barrycades chapter by Brian Hopkins was available only in limited preview.
 
-The source run also notes an arithmetic inconsistency in one displayed constant line of the parent v1; this archive records that observation but does not make any stronger claim about the parent theorem.
+The source report also notes an arithmetic inconsistency in one displayed constant line of the parent v1; this archive records that observation but does not make any stronger claim about the parent theorem.
 
 ## Limitations
 

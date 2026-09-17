@@ -1,12 +1,8 @@
 # same-model review
 
-## Run identity
+## Review status
 
-- Source run ID: `SCOPE-20260917T112417Z-R03`
-- Research start: `2026-09-17T11:24:17Z`
-- Research end: `2026-09-17T11:32:27Z`
 - Reported status: `SAME_MODEL_REVIEW_PASS`
-- Result type: substantive target
 
 ## Correctness
 
@@ -25,10 +21,6 @@ The closest source, arXiv:2609.18474v1, was posted on 16 Sep 2026, gives the low
 **PASS (same-model assessment).**
 
 The result is an asymptotic theorem for an infinite family, not a numerical instance. It improves the first accessible nontrivial four-colour lower bound from `10/21` to `16/27` and supplies a compact mod-3/two-cut construction that may be reusable in further extremal analysis.
-
-## Independence
-
-The accessible earlier runs concerned strong-majority edge colourings and NCI incidence geometry. This run moved to additive combinatorics and did not continue or reparameterize either earlier direction.
 
 ## Review disclaimer
 

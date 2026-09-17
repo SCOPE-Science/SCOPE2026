@@ -1,7 +1,6 @@
 # same-model review: exact prescribed colorings for maximum-degree-two graphs
 
-**Overall conclusion: PASS, to the best of our knowledge.** This is the producing
-agent's same-model assessment, not independent validation or peer review. The theorem and
+**Overall conclusion: PASS, to the best of our knowledge.** This is a same-model assessment, not independent validation or peer review. The theorem and
 proof are in [RESULT.md](RESULT.md).
 
 ## Correctness: PASS

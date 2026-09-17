@@ -98,8 +98,6 @@ E(G) = E(H) union {05}.
 Its exact pairs (b_2,t_2) are (4,2) for H and (3,3) for G. Optimal source
 lists are (0,2) and (0,2,3), respectively. This is not claimed to be a
 smallest counterexample.
-
-Run `python3 output/artifacts/verify_burning.py` from the workspace. The script
 uses only the Python standard library and actually checks:
 
 - The seven-vertex values by two separately implemented exhaustive methods:
@@ -170,9 +168,7 @@ The most plausible inaccessible related source identified is Yinkui Li,
 Xiaoxiao Qin and Wen Li, *The generalized burning number of graphs* (2021),
 DOI https://doi.org/10.1016/j.amc.2021.126306. It treats the parent process and
 graph operations, so a related construction or tradeoff is possible. DOI and
-exact-title acquisition attempts both failed through the available CORE and
-OA-location routes (jobs 296066e3ad8ac1783b8fd3321ec4da21 and
-19854908253bc92306b159df20e1c0b3). Its full text was not obtained through
+exact-title acquisition attempts did not yield usable full text. Its full text was not obtained through
 available channels; its theorems and proofs remain unverified. This is an
 ACCESS_LIMITATION with possible relevance, not a specific claim of coverage.
 The accessible 2024 paper describes t_2 as its new parameter, but that is
@@ -188,4 +184,3 @@ require revising this originality assessment.
 [1] C. B. Jacobs, M. E. Messinger and A. N. Trenk, *The 2-burning number of a
 graph*, Ars Combinatoria 161 (2024), DOI https://doi.org/10.61091/ars161-16;
 inspected version https://arxiv.org/abs/2411.02050v2 (13 November 2024).
-Primary-text job: 58b50b352fdd8d1dcc8ac5eca532b1ad.

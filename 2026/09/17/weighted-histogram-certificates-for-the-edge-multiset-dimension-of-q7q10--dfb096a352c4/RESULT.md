@@ -4,7 +4,7 @@
 
 ## Claim
 
-For the hypercubes `Q_d`, the source run reports
+For the hypercubes `Q_d`, the source report reports
 
 - `edim_m(Q_7) >= 9`,
 - `edim_m(Q_8) >= 10`,
@@ -13,7 +13,7 @@ For the hypercubes `Q_d`, the source run reports
 
 Equivalently, `edim_m(Q_d)>=d+2` for `d in {7,8,9,10}` only. No all-`d` theorem is claimed.
 
-Combined with Allikvere's explicit certificates, this yields the source-run brackets
+Combined with Allikvere's explicit certificates, this yields the source-report brackets
 
 - `9 <= edim_m(Q_7) <= 63`,
 - `10 <= edim_m(Q_8) <= 115`,
@@ -98,13 +98,13 @@ Thus `edim_m(Q_10)>=12`.
 
 ## Reproducibility
 
-The source report reports two independent exact implementations: direct recursive enumeration of admissible histograms and dynamic programming of the score distribution. It states that both agree for every displayed certificate and that all arithmetic was exact. It also reproduces the preceding SCOPE `Q_6>=8` bound as a consistency check, but explicitly does not count that as the fresh contribution of this run.
+The source report states two independent exact implementations: direct recursive enumeration of admissible histograms and dynamic programming of the score distribution. It states that both agree for every displayed certificate and that all arithmetic was exact. It also reproduces the preceding SCOPE `Q_6>=8` bound as a consistency check, but explicitly does not count that as the fresh contribution of this finding.
 
 The source report says its locally generated supporting files could not be attached because those files were not included in the supplied package. Those unavailable files are not fabricated or republished here.
 
 ## Prior work and scope
 
-The closest primary source is Jaan Allikvere, *The edge multiset dimension of hypercubes*, arXiv:2608.09983v1, which establishes the finite/infinite transition and gives explicit resolving sets for `Q_6` through `Q_10` but leaves exact minimum sizes open. The source run also checked Ikhlaq--Ismail--Siddiqui--Nadeem (2023), Farhan--Klavžar--Kuziak--Yero (arXiv:2607.10311), and Albejani--Lin--Ryan--Sugeng (arXiv:2607.08128).
+The closest primary source is Jaan Allikvere, *The edge multiset dimension of hypercubes*, arXiv:2608.09983v1, which establishes the finite/infinite transition and gives explicit resolving sets for `Q_6` through `Q_10` but leaves exact minimum sizes open. The source report also checked Ikhlaq--Ismail--Siddiqui--Nadeem (2023), Farhan--Klavžar--Kuziak--Yero (arXiv:2607.10311), and Albejani--Lin--Ryan--Sugeng (arXiv:2607.08128).
 
 ## Limitations
 

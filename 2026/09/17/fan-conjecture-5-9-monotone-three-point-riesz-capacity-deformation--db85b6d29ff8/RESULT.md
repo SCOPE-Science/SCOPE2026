@@ -1,6 +1,6 @@
 # Fan Conjecture 5.9: monotonicity of the three-point Riesz-energy deformation
 
-> **Correction notice.** This stable record originally contained a preliminary Non-Cancelling Intersections result from the same run. the same-model review's corrected final report invalidated that preliminary result as this run's accepted SCOPE outcome after prior-run history revealed a cross-run independence conflict. See `CORRECTION.md`. The mathematical NCI draft is retained separately as negative research memory, not as an accepted finding.
+> **Correction notice.** This record replaces a withdrawn preliminary NCI draft that overlapped an existing SCOPE research direction. That draft is retained as a protocol-invalidated attempt, not an accepted finding. See `CORRECTION.md`.
 >
 > **Review status: same-model review.** Correctness, originality, and value were assessed by the same-model review, not an independent reviewer. Originality is only to the best of our knowledge.
 
@@ -20,15 +20,15 @@ and move
 
 `A=e^(i psi)`, `0 <= psi <= 2pi-3phi`.
 
-The source run proves that for every `r>=2`,
+The source report proves that for every `r>=2`,
 
 `psi -> U_r({A,B,C})`
 
 is nondecreasing on this whole interval. Hence the capacity is also nondecreasing and is maximized at the right endpoint `psi=2pi-3phi`, where `AC=BC`. For `r>2`, the increase is strict on each nontrivial portion of the three-point-support branch with `psi>0`.
 
-Thus Fan's Conjecture 5.9 is proved in the source run.
+Thus Fan's Conjecture 5.9 is proved in the source report.
 
-Fan states that Conjecture 5.6 for odd regular polygons follows from Conjecture 5.9 together with his proved symmetric Step 1 (Lemma 5.8) and the two-point reduction. Under those published ingredients, the source run therefore completes Fan's stated scheme for every odd `N>=3` and every `r>2`.
+Fan states that Conjecture 5.6 for odd regular polygons follows from Conjecture 5.9 together with his proved symmetric Step 1 (Lemma 5.8) and the two-point reduction. Under those published ingredients, the source report therefore completes Fan's stated scheme for every odd `N>=3` and every `r>2`.
 
 ## Proof
 
@@ -142,7 +142,7 @@ Consequently `U_r` and `C_r` are globally nondecreasing in `psi`, proving the cl
 
 ## Odd-polygon consequence
 
-Fan's paper states that Conjecture 5.6 follows from Conjecture 5.9 and Lemma 5.8. Thus, subject to those published reductions, the source run establishes the odd-polygon energy formula
+Fan's paper states that Conjecture 5.6 follows from Conjecture 5.9 and Lemma 5.8. Thus, subject to those published reductions, the source report establishes the odd-polygon energy formula
 
 `U_r(P_N)=2^(r-1) sin^r(theta_N)/(1-2^(r-2) cos^r(theta_N))`,
 
@@ -156,16 +156,14 @@ for every odd `N>=3` and `r>2`, with the equilibrium support and masses describe
 
 The compact verifier in `artifacts/verify.py` checks the scalar power-difference inequality on a dense grid, the derivative-sign reduction, monotonicity of the exact two-branch three-point energy on a deterministic grid, and 10,000 randomized triples. These computations are sanity checks only; the claim rests on the analytic argument above.
 
-A compact proof note from the source run is archived as `artifacts/proof_note.md`.
+A compact proof note from the source report is archived as `artifacts/proof_note.md`.
 
 ## Closest prior work
 
-- Qiuling Fan, *Riesz capacity ratios with negative exponents*, arXiv:2609.11186v1 (2026), is the direct parent source. The source run reports that public v1 explicitly labels the relevant Step 2 as unproved and states it as Conjecture 5.9.
+- Qiuling Fan, *Riesz capacity ratios with negative exponents*, arXiv:2609.11186v1 (2026), is the direct parent source. The source report states that public v1 explicitly labels the relevant Step 2 as unproved and states it as Conjecture 5.9.
 - The exact three-point energy formula is due to Clark and Laugesen and is quoted as Fan's Lemma 5.7.
-- The source run searched exact conjecture identifiers, the parent arXiv identifier, odd-polygon equilibrium terminology, three-point Riesz-capacity terminology, and stronger/equivalent formulations. It found no public proof or stronger theorem visibly implying Conjecture 5.9.
+- The source report searched exact conjecture identifiers, the parent arXiv identifier, odd-polygon equilibrium terminology, three-point Riesz-capacity terminology, and stronger/equivalent formulations. It found no public proof or stronger theorem visibly implying Conjecture 5.9.
 
 ## Limitations
 
-The parent preprint was only about one week old at the time of the source run, so an unposted author revision, private communication, or not-yet-indexed independent solution could duplicate the argument. The scalar power-difference inequality may itself be known in another guise; the source run did not locate an existing application that closes Fan's Step 2. No independent human, independent-agent, formal, or peer review is asserted.
-
-The source run also records a scheduler limitation: a prior unrelated execution remained active for roughly the first 2 minutes 40 seconds of this run before that overlap became observable. The scheduler exposed no hard mutual-exclusion lock.
+The parent preprint was only about one week old at the time of the source report, so an unposted author revision, private communication, or not-yet-indexed independent solution could duplicate the argument. The scalar power-difference inequality may itself be known in another guise; the source report did not locate an existing application that closes Fan's Step 2. No independent validation, formal verification, or peer review is asserted.

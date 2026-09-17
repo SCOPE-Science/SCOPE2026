@@ -1,6 +1,4 @@
 # Six-cell orbit-closure periodicity for exact clusters in Z^2
-
-**Run:** SCOPE-20260917-001  
 **Status of this note:** research proof draft; same-model reviewed, not peer reviewed.
 
 ## Main theorem
@@ -144,7 +142,7 @@ with factor cardinalities 2 and 3. It enumerates 60 tilings; every one has perio
 
 - Abhishek Khetan, *A Counterexample to Nivat's Conjecture for a Non-Convex Window of Full Affine Span*, arXiv:2607.09830v2 (2026), especially Lemmas 3.6, 3.7, 3.13, 3.15; Proposition 3.9; Theorems 3.11, 3.12, 3.16, 3.18; §3.5.
 - Hui Rao and Yu-Mei Xue, *Tiling Z^2 with translations of one set*, DMTCS 8 (2006), 129–140, DOI 10.46298/dmtcs.366.
-- Current MathDB entry for the periodic orbit-closure conjecture, which at the time of this run recorded no solution to the six-cell gap.
+- Current MathDB entry for the periodic orbit-closure conjecture, which at the time of this finding recorded no solution to the six-cell gap.
 
 ## Audit caveat
 

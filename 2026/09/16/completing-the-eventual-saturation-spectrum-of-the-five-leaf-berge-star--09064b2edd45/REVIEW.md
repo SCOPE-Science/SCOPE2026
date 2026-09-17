@@ -44,14 +44,12 @@ The result is not presented as novel merely because searches missed a title. It 
 
 ### Documented search and inspection record
 
-Discovery and initial screening were completed before active research in the continuing session. Their retained search identifiers are `acba88242e9549da98fde21d66c19e8e` (discovery), `6129c70c8fbb4d069b8110c9d2af8442` (spectrum and nondivisible orders), and `69509c5dbafd4e3eb08ff0470e4d3da2` (maximal Berge stars and exact extremal/spectrum developments). The completed problem was stated before those candidate-originality searches; the exact final claim was restated before this final audit.
-
 The final search records include:
 
-- `dc0870ee3298481c9c28d79d473209c5`: "Berge" "saturation spectrum" stars; "Berge" "stars" "extremal" "exact" remainder. This identified the recent Berge-forest paper [F], which was acquired and inspected.
-- `16b734840d984c2c943700e3e1462e0d`: the exact title of [K], plus "maximal" "Berge" "star" "spectrum". This resolved [K]'s correct DOI and identified the more general [Z], which was acquired.
-- `0ac05ef478c749a690f80c0805651327`: spectrum/divisibility, extremal/remainder, and non-divisible Berge-star formulations. Many returned items were irrelevant; their presence or absence was not used as mathematical evidence.
-- `504d3ea80d73490d906bd277547f8a4f`: maximal Berge-star saturation, exact divisibility results, and Berge-degree spectra. This again led to the same closest spectrum source. Minimum-saturation and linear-host results were not confused with the requested spectrum in arbitrary simple hosts.
+- "Berge" "saturation spectrum" stars; "Berge" "stars" "extremal" "exact" remainder. This identified the recent Berge-forest paper [F], which was acquired and inspected.
+- the exact title of [K], plus "maximal" "Berge" "star" "spectrum". This resolved [K]'s correct DOI and identified the more general [Z], which was acquired.
+- spectrum/divisibility, extremal/remainder, and non-divisible Berge-star formulations. Many returned items were irrelevant; their presence or absence was not used as mathematical evidence.
+- maximal Berge-star saturation, exact divisibility results, and Berge-degree spectra. This again led to the same closest spectrum source. Minimum-saturation and linear-host results were not confused with the requested spectrum in arbitrary simple hosts.
 
 Primary-source jobs and precise locations appear in RESULT.md's references. Particularly relevant final reads were [B] offsets 46500-69500 (local claims and upper constructions), 36700-39800 (lower-interval statement/proof), [A] 20500-28100 (saturation proof), [G] 12500-19000 and 21000-23100 (general bound and star theorem), [K] 22500-42800 (link lemma, extremal theorem and equality classification), [Z] 0-17000 (main hypotheses), and [F] 0-16000 plus its references. Excerpts were not described as whole-paper inspections.
 
@@ -61,7 +59,7 @@ Two timed-out search operations supplied no usable evidence. A mistaken prelimin
 
 To the best of our knowledge, within the documented search scope and accessible literature, no equivalent or stronger prior result was found. This is not an exhaustive guarantee of novelty.
 
-No plausible novelty-threatening work remained entirely inaccessible after alternate available acquisition routes. The publisher text of **Omid Khormali and Cory Palmer, Turan numbers for hypergraph star forests (2022), DOI:10.1016/j.ejc.2022.103506**, was not obtained through available channels: job `1e9ad3b72ada0c903e18f69615ea1523` discovered an arXiv link but returned acquisition unavailable. This work was a serious possible coverage source because of its extremal classification. Its arXiv:2001.05631v1 full text was then successfully obtained as job `cc569caf5721875c5e46984022bca5a2`; the relevant statement, proof and post-proof remark were inspected. The covering question is resolved for that accessible version, while publisher-version differences remain unverified. This is a version access limitation, not a claim that the publisher text cannot differ.
+No plausible novelty-threatening work remained entirely inaccessible after alternate available acquisition routes. The publisher text of **Omid Khormali and Cory Palmer, Turan numbers for hypergraph star forests (2022), DOI:10.1016/j.ejc.2022.103506**, was not obtained through available channels: retrieval discovered an arXiv link but returned acquisition unavailable. This work was a serious possible coverage source because of its extremal classification. Its arXiv:2001.05631v1 full text was then successfully obtained as retrieval; the relevant statement, proof and post-proof remark were inspected. The covering question is resolved for that accessible version, while publisher-version differences remain unverified. This is a version access limitation, not a claim that the publisher text cannot differ.
 
 [B] and [F] were also obtained as arXiv v1 mirrors, not guaranteed latest publisher revisions. No specific evidence of a covering revision was found. There is no remaining concrete unresolved covering clue in the documented evidence. No unrelated inaccessible titles are added to a threat list. Later evidence of an equivalent or stronger prior theorem would require revising this PASS.
 

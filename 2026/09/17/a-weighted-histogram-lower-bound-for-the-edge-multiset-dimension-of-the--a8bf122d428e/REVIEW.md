@@ -1,18 +1,14 @@
 # same-model review
 
-## Run identity
+## Review status
 
-- Source run ID: `scope-20260917T074232Z-9d348730`
-- Research start: `2026-09-17T07:36:40.746226Z`
-- Research/audit end: `2026-09-17T07:42:37.090618Z`
 - Reported status: `SAME_MODEL_REVIEW_PASS`
-- Model / source mode: `GPT-5.6 Sol / UNKNOWN`
 
 ## Correctness
 
 **PASS (same-model assessment).**
 
-The proof uses the standard hypercube edge-shell projection identity, the exact number 192 of edges in `Q_6`, elementary constrained-composition counts, and the requirement that a resolving set produce 192 distinct histograms. The source run reports that boundary shell capacities were checked and that independent computation reproduced the contradictions `670>504` and `612>588` and the published 15-vertex upper-bound certificate.
+The proof uses the standard hypercube edge-shell projection identity, the exact number 192 of edges in `Q_6`, elementary constrained-composition counts, and the requirement that a resolving set produce 192 distinct histograms. The source report states that boundary shell capacities were checked and that independent computation reproduced the contradictions `670>504` and `612>588` and the published 15-vertex upper-bound certificate.
 
 ## Originality
 
@@ -24,11 +20,11 @@ The closest accessible paper reports only the lower bound six. Targeted searches
 
 **PASS (same-model assessment).**
 
-The result narrows the exact-size gap from `[6,15]` to `[8,15]` with a short analytic obstruction that may generalize as a global histogram-moment method. The source run characterized it as incremental but substantive short-note/lemma-level progress, not a full determination.
+The result narrows the exact-size gap from `[6,15]` to `[8,15]` with a short analytic obstruction that may generalize as a global histogram-moment method. The source report characterized it as incremental but substantive short-note/lemma-level progress, not a full determination.
 
-## Independence / candidate history
+## Scope and limitations
 
-The run selected the hypercube edge-multiset problem from recent combinatorics literature. A stochastic search for smaller resolving sets was explored but produced no certified upper-bound improvement and is not used in the theorem; the successful route was the global histogram-weight obstruction.
+A stochastic search for smaller resolving sets was explored but produced no certified upper-bound improvement and is not used in the theorem; the successful route was the global histogram-weight obstruction.
 
 ## Availability limitation
 
