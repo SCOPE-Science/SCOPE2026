@@ -151,7 +151,7 @@ contradicting (3). Thus \(F\wedge VFV=0\), and the same center-valued dimension 
 
 ## Matrix consequences and sharpness
 
-For \(M=M_d(\mathbb C)\), the normalized center-valued trace of a projection is its rank divided by \(d\). The general bound therefore says that fewer than half the dimensions can lie below \(a/2\). When \(d\in\{2n-1,2n\}\), this is exactly
+For \(M=M_d(\mathbb C)\), the normalized center-valued trace of a projection is its rank divided by \(d\). The general bound therefore says that at most half the dimensions can lie strictly below \(a/2\). When \(d\in\{2n-1,2n\}\), this is exactly
 \[
 \lambda_n(\mathsf S)\ge \frac a2.
 \]
