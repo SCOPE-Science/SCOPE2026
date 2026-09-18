@@ -61,7 +61,7 @@ The relevant three-dimensional sections of Towers--Zuleta--Gutierrez,
 arXiv:2605.09583, were also inspected. That paper predates the new
 subalgebra-commutativity invariant and classifies the comaximal graph. In
 particular, its solvable derived-dimension-two analysis already gives the four
-plane counts \(1,1+q,1+2q,1+q^2\) according to the adjoint eigenline type.
+plane counts \(1,1+q,1+2q,1+q+q^2\) according to the adjoint eigenline type.
 Those counts are treated as prior work, not as a new contribution here.
 The later arXiv:2608.16575 develops triangle counts and other graph invariants;
 it likewise predates the subalgebra-commutativity paper.
