@@ -1,112 +1,128 @@
 # Köthe duality erases the singular defect in Huang's logarithmically monotone examples
 
-## Statement
+## Result
 
 Let
 \[
-\psi(t)=\begin{cases}
+\psi(t)=
+\begin{cases}
 t,&0<t\le 1,\\
 1+\log t,&t>1,
 \end{cases}
-\qquad E=M_\psi(0,\infty)
+\qquad
+E=M_\psi(0,\infty)
 \]
 with its standard Marcinkiewicz norm
 \[
-\|h\|_E=\sup_{t>0}\frac1{\psi(t)}\int_0^t \mu(s,h)\,ds.
+\|h\|_E=\sup_{t>0}\frac{\int_0^t h^*(s)\,ds}{\psi(t)}.
 \]
-In arXiv:2609.20270, Huang constructs a finite continuous symmetric lattice seminorm \(\Phi\) on \(E\) satisfying
-\[
-0\le \Phi(h)\le \|h\|_E,
-\]
-which is monotone under logarithmic submajorization and, crucially,
-\[
-\Phi(s)=0
-\]
-for every bounded finite-support function \(s\).
+Huang [1] constructs, for suitable parameters, a continuous symmetric lattice seminorm
+\(\Phi\) on \(E\) such that
 
-Two of Huang's examples admit a sharper duality description.
+1. \(0\le \Phi(h)\le \|h\|_E\);
+2. \(\Phi(h)=0\) whenever \(h\) is bounded and has support of finite measure;
+3. \(\Phi\) is monotone under logarithmic submajorization.
 
-### Theorem A: the equivalent renorming has exactly the same Köthe dual
+Two consequences of that construction admit an exact Köthe-duality description.
 
-For \(\lambda>0\), set
+### Theorem A: the renormed example has the same associate space isometrically
+
+For \(\lambda>0\), let
 \[
 N_\lambda(h)=\|h\|_E+\lambda\Phi(h).
 \]
-Then the associate spaces agree isometrically:
-\[
-\boxed{(E,N_\lambda)^\times=(E,\|\cdot\|_E)^\times.}
-\]
-Consequently, because the standard Marcinkiewicz space \(E\) has the Fatou property,
-\[
-\boxed{(E,N_\lambda)^{\times\times}=E}
-\]
-isometrically, where the norm on the Köthe bidual is the original standard Marcinkiewicz norm, not \(N_\lambda\).
-
-For Huang's explicit pair from the first construction, one has
-\[
-\|g\|_E=1,\qquad \Phi(g)=1,
-\]
-so
-\[
-N_\lambda(g)=1+\lambda,
-\qquad
-\|g\|_{(E,N_\lambda)^{\times\times}}=1.
-\]
-Thus Köthe bidualization erases the whole added \(\lambda\Phi\) defect, and on this explicit vector the collapse realizes the full equivalence factor \(1+\lambda\).
-
-### Theorem B: the proper closed ideal has the same Köthe dual as the ambient space
-
-For Huang's second construction, let
-\[
-X=\ker\Phi
-\]
-with the norm inherited from \(E\). Huang proves that \(X\) is a proper closed strongly symmetric Banach function space, that it contains every bounded finite-support function, and that it is logarithmically solid but not Hardy--Littlewood solid.
-
 Then
+\[
+\boxed{(E,N_\lambda)^\times=(E,\|\cdot\|_E)^\times}
+\]
+isometrically. Consequently,
+\[
+\boxed{(E,N_\lambda)^{\times\times}=(E,\|\cdot\|_E)}
+\]
+isometrically, because the standard Marcinkiewicz norm has the Fatou property.
+
+Thus Köthe bidualization deletes the entire singular term \(\lambda\Phi\):
+\[
+\|h\|_{(E,N_\lambda)^{\times\times}}=\|h\|_E
+\qquad(h\in E).
+\]
+
+For Huang's first example (\(\alpha=1\)), the explicit functions \(f,g\) satisfy
+\[
+\|f\|_E=\|g\|_E=1,\qquad
+\Phi(f)=1-e^{-1},\qquad
+\Phi(g)=1.
+\]
+Hence
+\[
+\|g\|_{N_\lambda}=1+\lambda,
+\qquad
+\|g\|_{N_\lambda^{\times\times}}=1.
+\]
+The upper equivalence constant
+\[
+N_\lambda(h)\le (1+\lambda)\|h\|_E
+\]
+is therefore attained at \(g\), while the Köthe bidual norm collapses that maximal factor exactly.
+
+### Theorem B: the closed logarithmically solid ideal has full Marcinkiewicz Köthe bidual
+
+For Huang's second example (\(\alpha=\tfrac12\)), let
+\[
+X=\ker\Phi\subset E
+\]
+with the inherited norm \(\|x\|_X=\|x\|_E\). Then
 \[
 \boxed{X^\times=E^\times}
 \]
-isometrically and hence
+isometrically and
 \[
 \boxed{X^{\times\times}=E}
 \]
 isometrically.
 
-Moreover, for Huang's explicit witness \(g\) in the second construction,
+In particular, \(X\) is a proper norm-closed symmetric ideal whose entire deficit from the ambient Marcinkiewicz space is invisible to the associate space. Huang's functions satisfy
 \[
-\|g\|_E=1,\qquad \Phi(g)=1,\qquad g\notin X,
+f\in X,\qquad g\notin X,\qquad
+\|f\|_E=\|g\|_E=1,\qquad
+\Phi(g)=1,
 \]
 and in fact
 \[
 \boxed{\operatorname{dist}_E(g,X)=1.}
 \]
-Therefore the failure of Köthe reflexivity is not caused by a norm-small boundary defect: the missing element is a full unit away from the closed ideal even though every Köthe functional sees exactly the same associate space on \(X\) and on \(E\).
+Thus the missing element \(g\) lies at the largest possible distance from the closed subspace \(X\) among unit vectors, even though \(X\) and \(E\) have exactly the same Köthe dual with exactly the same norm.
 
-Finally, Hahn--Banach gives a norm-one functional \(F\in E^*\) with
+As a further consequence, Hahn--Banach yields \(F\in E^*\) with
 \[
-F|_X=0,\qquad F(g)=1.
+\|F\|=1,\qquad F|_X=0,\qquad F(g)=1.
 \]
-No such separator can be represented by an element of \(E^\times\). Hence the functional detecting this defect necessarily lies in the singular, non-Köthe part of the Banach dual.
+No such separator can be represented by an element of \(E^\times\). Hence the obstruction \(X\ne E\) is necessarily detected by the singular, non-Köthe part of the Banach dual.
 
 ## General truncation lemma
 
-The mechanism is elementary and applies more generally.
+The mechanism is elementary and applies beyond this example.
 
-Let \(E\) be a Banach function ideal over a sigma-finite measure space. Suppose \(N\) is another lattice norm on the same underlying ideal such that
+Let \(E\) be a Banach function ideal on a sigma-finite measure space, and assume the standard truncations
 \[
-N(f)\ge \|f\|_E
+x_n=|x|\wedge n
 \]
-for all \(f\in E\), while
+followed by restriction to an increasing exhaustion by finite-measure sets belong to \(E\). Suppose a second lattice norm \(N\) on the same underlying space satisfies
+
+\[
+N(x)\ge \|x\|_E
+\]
+for every \(x\), and
 \[
 N(s)=\|s\|_E
 \]
-for every bounded finite-support function \(s\). Then
+for every bounded function \(s\) with finite-measure support. Then
 \[
 (E,N)^\times=E^\times
 \]
 isometrically.
 
-Likewise, if \(Y\subseteq E\) contains every bounded finite-support function and carries the inherited \(E\)-norm, then
+Likewise, if \(Y\subset E\) contains all bounded finite-support functions and carries the inherited \(E\)-norm, then
 \[
 Y^\times=E^\times
 \]
@@ -114,55 +130,80 @@ isometrically.
 
 ### Proof
 
-The inclusion \(E^\times\subseteq(E,N)^\times\) is contractive because \(N\ge\|\cdot\|_E\). For the reverse norm inequality, let \(y\in(E,N)^\times\) and let \(x\in E\), \(x\ge0\), with \(\|x\|_E\le1\). Choose an increasing finite-measure exhaustion \((\Omega_n)\) of the measure space and put
+For the renorming statement, \(N\ge\|\cdot\|_E\) gives
 \[
-x_n=(x\wedge n)\mathbf 1_{\Omega_n}.
+B_N\subseteq B_E,
 \]
-Then \(x_n\) is bounded and has finite support, \(\|x_n\|_E\le1\), and therefore \(N(x_n)=\|x_n\|_E\le1\). Hence
+hence
 \[
-\int x_n|y|\le \|y\|_{(E,N)^\times}.
+\|y\|_{(E,N)^\times}\le \|y\|_{E^\times}.
 \]
-By monotone convergence,
+
+Conversely, fix \(x\in E\) with \(\|x\|_E\le1\). Choose a finite-measure exhaustion
+\(\Omega_n\uparrow\Omega\) and set
 \[
-\int x|y|\le \|y\|_{(E,N)^\times}.
+x_n=(|x|\wedge n)\mathbf 1_{\Omega_n}.
 \]
-Taking the supremum over the positive unit ball of \(E\) gives
+Then \(x_n\) is bounded with finite support,
 \[
-\|y\|_{E^\times}\le \|y\|_{(E,N)^\times}.
+\|x_n\|_E\le1,\qquad N(x_n)=\|x_n\|_E\le1,
 \]
-The opposite inequality was already noted, proving equality of both the set and the norm.
-
-For a subspace \(Y\) containing all bounded finite-support functions, exactly the same truncations belong to \(Y\); the same argument gives \(Y^\times=E^\times\) isometrically.
-
-Applying this lemma to Huang's \(N_\lambda\) proves Theorem A because \(\Phi\) vanishes on bounded finite-support functions. Applying it to \(X=\ker\Phi\) proves the first assertion of Theorem B.
-
-The standard Marcinkiewicz space \(E=M_\psi\) has the Fatou property, so the Lorentz--Luxemburg theorem identifies \(E^{\times\times}\) isometrically with \(E\). This gives both bidual conclusions.
-
-For the distance formula in Theorem B, if \(x\in X\), then the reverse triangle inequality for the seminorm gives
+and \(x_n\uparrow |x|\) almost everywhere. For every measurable \(y\ge0\), monotone convergence gives
 \[
-1=|\Phi(g)-\Phi(x)|\le \Phi(g-x)\le \|g-x\|_E.
+\int x_n y\longrightarrow\int |x|y.
 \]
-Hence \(\operatorname{dist}_E(g,X)\ge1\). Since \(0\in X\) and \(\|g\|_E=1\), equality follows.
+Therefore the supremum over the \(N\)-unit ball is at least the supremum over the \(E\)-unit ball, proving equality of the associate norms.
 
-To see why a separating functional is necessarily non-Köthe, suppose an integral functional represented by \(y\in E^\times\) vanished on \(X\). Since \(X\) contains all bounded finite-support functions, it would vanish on every such test function. Taking bounded indicators, and their signed or phased versions, on finite-measure sets forces \(y=0\) almost everywhere. Such a functional cannot satisfy \(F(g)=1\).
+The subspace statement is identical: every \(x_n\) belongs to \(Y\), so the \(Y\)-associate unit ball tests all \(E\)-unit-ball elements by monotone truncation.
 
-## Context and value
+For Huang's \(E=M_\psi\), Proposition 2.4 of [1] states that the standard Marcinkiewicz norm has the Fatou property. The classical Lorentz--Luxemburg theorem therefore gives
+\[
+E^{\times\times}=E
+\]
+isometrically. Applying the preceding identities gives Theorems A and B.
 
-Huang's paper establishes two new separation phenomena for symmetric Banach function spaces: an equivalent norm that is monotone under logarithmic submajorization without being strongly symmetric, and a strongly symmetric logarithmically solid closed ideal that cannot admit an equivalent fully symmetric norm. The observations above locate both failures more precisely in Banach-function-space duality.
+For the distance assertion in Theorem B, seminorm subadditivity gives
+\[
+|\Phi(g)-\Phi(x)|\le \Phi(g-x)\le\|g-x\|_E
+\]
+for every \(x\in X\). Since \(\Phi(g)=1\) and \(\Phi(x)=0\),
+\[
+\|g-x\|_E\ge1.
+\]
+Taking \(x=0\) and using \(\|g\|_E=1\) gives equality.
 
-The associate space does not detect either deformation at all. In the renorming example, the entire additional seminorm disappears under Köthe bidualization. In the closed-ideal example, the Köthe bidual fills the whole ambient Marcinkiewicz space even though the missing witness has distance exactly one from the ideal. Thus the obstruction is genuinely singular from the duality viewpoint: it is visible in the full Banach dual but invisible to all integral Köthe functionals.
+Finally, if an integral functional represented by \(y\in E^\times\) vanished on \(X\), it would vanish on every bounded finite-support function. Testing against bounded functions supported on finite-measure sets forces \(y=0\) almost everywhere. Hence the nonzero Hahn--Banach separator of \(g\) from \(X\) is necessarily non-Köthe.
 
-The truncation lemma and the Lorentz--Luxemburg theorem are classical and are not claimed as new. The claimed contribution is their sharp application to Huang's 2026 constructions, including the isometric associate-space identities, the exact bidual collapse, the explicit distance-one witness, and the resulting localization of the obstruction to singular functionals.
+## Context and originality
 
-## Originality and limitations
+Huang [1] proves that \(N_\lambda\) is logarithmically monotone but not strongly symmetric, and that \(X=\ker\Phi\) is strongly symmetric and logarithmically solid but admits no equivalent fully symmetric norm. The paper does not discuss Köthe duals, associate spaces, biassociate spaces, or the singular-dual localization above.
 
-To the best of our knowledge, the current version of arXiv:2609.20270 does not discuss Köthe associates, Köthe biduals, Fatou envelopes, or singular separators for these examples. Targeted searches for the paper together with associate-space, Köthe-dual, bidual, Fatou-envelope, Marcinkiewicz, and singular-functional terminology did not locate a prior statement of these consequences.
+The truncation lemma itself is not claimed as new; it is an elementary associate-space observation. The contribution claimed here is the exact duality diagnosis of Huang's two new examples:
 
-The main residual originality risk is older Banach-function-space literature on singular functionals, non-Fatou renormings, and order-continuous or Köthe closures. A general theorem in that literature may subsume the truncation mechanism in a broader form. No novelty is claimed for such classical machinery. The specific duality diagnosis of Huang's newly published examples, and in particular the exact distance-one separation in the second example, is the part asserted here to be new to the best of our knowledge.
+\[
+N_\lambda^\times=E^\times,\qquad
+N_\lambda^{\times\times}=E,
+\]
+\[
+X^\times=E^\times,\qquad
+X^{\times\times}=E,
+\]
+together with the exact distance formula
+\[
+\operatorname{dist}_E(g,X)=1
+\]
+and the conclusion that every functional separating \(g\) from \(X\) lies outside the Köthe part of the dual.
 
-The associate dual \(E^\times\) must not be confused with the full Banach dual \(E^*\). The result does not say the full duals of \((E,N_\lambda)\), \(X\), and \(E\) coincide isometrically. It says precisely that their Köthe/integral dual information agrees in the stated ways, while the missing information is detected by singular Banach-dual functionals.
+Targeted searches for Huang's construction together with "Köthe dual", "associate space", "Köthe bidual", "Fatou envelope", and "singular dual" did not locate an earlier statement of these consequences. The classical Lorentz--Luxemburg theorem and standard theory of Marcinkiewicz associate spaces are prior art and are not part of the novelty claim.
+
+## Limitations
+
+The result concerns Köthe/associate duality, not the full Banach dual. Equivalent renorming leaves the underlying topological dual as a vector space unchanged, although its dual norm changes. The singular part of the Banach dual is not classified here.
+
+No claim is made that the truncation lemma is new. No explicit identification of \(E^\times\) with a particular Lorentz-space normalization is needed or asserted. The conclusions use the sigma-finite structure of \((0,\infty)\), Huang's vanishing of \(\Phi\) on bounded finite-support functions, and the Fatou property of the standard Marcinkiewicz norm.
 
 ## References
 
-1. Jinghao Huang, *A logarithmically monotone symmetric norm which is not fully symmetric*, arXiv:2609.20270 (2026).
-2. C. Bennett and R. Sharpley, *Interpolation of Operators*, Academic Press, 1988. Standard background on rearrangement-invariant Banach function spaces, associate spaces, Marcinkiewicz spaces, and the Lorentz--Luxemburg theorem.
+[1] J. Huang, *A logarithmically monotone symmetric norm which is not fully symmetric*, arXiv:2609.20270v1 (2026).
+
+[2] C. Bennett and R. Sharpley, *Interpolation of Operators*, Academic Press, 1988. See the standard theory of associate spaces, Marcinkiewicz spaces, and the Lorentz--Luxemburg theorem.
