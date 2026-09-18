@@ -105,7 +105,7 @@ E_a=\{z\in D:w(z)=a\},
 \qquad
 C_a=\{z\in D:w(z)\ge a\}.
 \]
-Concavity makes \(C_a\) convex. The set \(E_a\) stays a positive distance from \(\partial D\): otherwise a sequence \(z_j\to z\in\partial D\) with \(w(z_j)=a\) would, by compactness of \(K\), yield two distinct limiting points of \(K\) in the fiber over \(z\), contradicting the singleton boundary-fiber property.
+Concavity makes \(C_a\) convex. The set \(E_a\) stays a positive distance from \(\partial D\): otherwise a sequence \(z_j\to z\in\partial D\) with \(w(z_j)=a\) would, by compactness of \(K\), yield two distinct limiting points of \(K\) in the fiber over \(z\), contradicting the singleton boundary-fiber property. On \(\operatorname{int}D\), the finite convex function \(\ell\) and finite concave function \(u\) are continuous, so \(w\) is continuous there. Hence \(E_a\) is closed away from \(\partial D\), and therefore compact.
 
 Moreover,
 \[
