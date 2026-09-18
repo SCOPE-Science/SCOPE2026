@@ -7,7 +7,7 @@ Let
 G=K_{n_1,\ldots,n_r}
 \]
 be a finite complete multipartite graph, with the part sizes ordered as
-\(n_1\ge n_2\ge\cdots\ge n_r\ge1\). Then the following are equivalent:
+\(n_1\ge n_2\ge\cdots\ge n_r\ge1\), with the convention \(n_2=0\) when \(r=1\). Then the following are equivalent:
 
 1. \(G\) is a bicoloured-interval graph.
 2. \(G\) is an interval-sandwich graph.
