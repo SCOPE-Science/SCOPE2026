@@ -4,7 +4,7 @@ Same-model review: passed. Cross-model review: not yet performed.
 
 ## Correctness
 
-The main statement reduces exactly to the intersection of two arithmetic progressions. The standard Fibonacci rank-lifting dichotomy is z(q^2)=z(q) for a Wall--Sun--Sun prime and z(q^2)=q z(q) otherwise. Together with z(q)|pi(q) and pi(q)|q^2-1 for q!=5, this gives gcd(z(q^2),pi(q))=z(q) in the non-Wall--Sun--Sun case and hence the exact relative density 1/q when z(q)|r. The totient-witness corollary follows directly from the prime-power factorization formula for phi.
+The main statement reduces exactly to the intersection of two arithmetic progressions. The standard Fibonacci rank-lifting dichotomy is z(q^2)=z(q) for a Wall--Sun--Sun prime and z(q^2)=q z(q) otherwise. Together with z(q)|pi(q) and pi(q)|q^2-1 for odd q != 5, this gives gcd(z(q^2),pi(q))=z(q) in the non-Wall--Sun--Sun case and hence the exact relative density 1/q when z(q)|r. The totient-witness corollary follows directly from the prime-power factorization formula for phi.
 
 The published argument being refined was checked in the current arXiv v3 text. Lemma 4.3 explicitly infers that an arbitrary q is not Wall--Sun--Sun from the absence of known examples, and then states that q^2 divisibility occurs only finitely often after the persistent case is excluded. The q=3, r=0 mod 8 example independently disproves that stronger finiteness assertion: z(9)=12, so 9 divides F_m on exactly every third term of the progression 8|m.
 
