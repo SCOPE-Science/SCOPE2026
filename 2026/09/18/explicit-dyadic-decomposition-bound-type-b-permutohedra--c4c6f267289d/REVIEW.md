@@ -36,7 +36,9 @@ but \(111\) is not a sum of two lattice points of \(T_\triangle\). Cartesian pro
 
 ## Originality
 
-The closest source inspected in full was Vallée, arXiv:2609.18331. Its Theorem 0.3 / Corollary 3.7 asserts existence of a dimension-uniform exponent. The proof chooses the exponent from the maximum normalized volume among finitely many simplices in the constructed triangulations. It does not state an explicit bound in the dimension, does not replace quotient order by quotient exponent, and does not record the elementary-\(2\) strengthening of the type \(B\) root saturation step.
+The closest source inspected in full was Vallée, arXiv:2609.18331. Its Theorem 0.3 / Corollary 3.7 asserts existence of a dimension-uniform exponent. The proof chooses the exponent from the maximum normalized volume among finitely many simplices in the constructed triangulations. It does not state an explicit bound in the dimension and does not track quotient exponent through the recursive joins.
+
+The half-integrality statement underlying the type \(B\) root lemma is not new in isolation. Bolker and Zaslavsky, *Networks* 48 (2006), prove for bidirected-graph incidence matrices that a column is a half-integral combination of any column basis and that nonsingular square submatrices have half-integral inverse. The type \(B\) roots are the corresponding link/half-edge columns up to signs. The record therefore treats Lemma 1 as a self-contained special-case proof of a classical ingredient; the originality claim is the explicit \(\lfloor(d-1)/2\rfloor\) dyadic-decomposition bound obtained by feeding this exponent-two structure through Vallée's triangulation recursion.
 
 Morales, arXiv:2609.02778, supplies non-IDP delta-matroid examples and explicitly discusses the tetrahedral obstruction, but does not give a positive dyadic saturation bound for all type \(B\) generalized permutohedra.
 

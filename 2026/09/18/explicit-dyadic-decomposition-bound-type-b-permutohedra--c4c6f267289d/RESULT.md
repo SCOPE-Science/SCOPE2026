@@ -224,7 +224,9 @@ Combining this with the upper bound gives
 
 ## Relation to prior work
 
-Vallée proves that every integral type \(B\) generalized permutohedron admits a regular dyadic triangulation and deduces a uniform dyadic decomposition exponent \(m_n\) in each ambient dimension. The published proof chooses \(m_n\) from the largest normalized volume among finitely many simplices and does not give an explicit bound. The argument above replaces quotient order by quotient exponent, strengthens the type \(B\) lattice step from unspecified \(2\)-primary torsion to exponent \(2\), and tracks how exponent can grow through joins.
+Vallée proves that every integral type \(B\) generalized permutohedron admits a regular dyadic triangulation and deduces a uniform dyadic decomposition exponent \(m_n\) in each ambient dimension. The published proof chooses \(m_n\) from the largest normalized volume among finitely many simplices and does not give an explicit bound. The argument above replaces quotient order by quotient exponent and tracks how that exponent can grow through joins.
+
+The elementary half-integrality behind Lemma 1 is classical in the language of bidirected-graph incidence matrices. Bolker and Zaslavsky proved that columns are half-integral over any column basis, and equivalently obtained half-integral inverses for nonsingular square submatrices. Lemma 1 is a self-contained specialization to the type \(B\) root configuration; the new ingredient here is its use inside Vallée's triangulation recursion to obtain the explicit intrinsic-dimension exponent.
 
 Morales gives explicit nonnormal delta-matroid polytopes and, separately, records the tetrahedral obstruction above to ordinary integer decomposition. These establish that exponent \(0\) is genuinely impossible from dimension three onward.
 
@@ -249,4 +251,5 @@ The motivating preprint is very recent, so unindexed parallel work remains a res
 ## References
 
 1. Mathieu Vallée, *Regular dyadic triangulations of delta-matroid polytopes*, arXiv:2609.18331 (2026). https://arxiv.org/abs/2609.18331
-2. Santiago Morales, *Most \((0,1)\)-polytopes are not normal*, arXiv:2609.02778 (2026). https://arxiv.org/abs/2609.02778
+2. Ethan D. Bolker and Thomas Zaslavsky, *A simple algorithm that proves half-integrality of bidirected network programming*, Networks 48 (2006), 36–38. https://doi.org/10.1002/net.20117
+3. Santiago Morales, *Most \((0,1)\)-polytopes are not normal*, arXiv:2609.02778 (2026). https://arxiv.org/abs/2609.02778
