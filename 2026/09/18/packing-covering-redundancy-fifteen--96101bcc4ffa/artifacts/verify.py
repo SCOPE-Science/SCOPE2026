@@ -57,13 +57,13 @@ assert nonzero_points == 63 and lines_through_point == 31
 line_bound = 31*4 - 30*2
 assert line_bound == 64
 # If z=0 and every nonzero point has multiplicity at most one, N<=63.
-print("binary projective-multiplicity length bound: N ≤", max(63,line_bound))
+print("binary projective-multiplicity length bound: N <=", max(63,line_bound))
 
 # Hence k+6=N<=64, so k<=58 and original length n=k+15<=73.
 kmax = 64-6
 nmax = RHO+kmax
 assert kmax == 58 and nmax == 73
-print("special tuple dimension bound: k ≤", kmax, "and n ≤", nmax)
+print("special tuple dimension bound: k <=", kmax, "and n <=", nmax)
 
 # Exact generalized covering-ball inequality for q=2,t=3,r=6 requires
 # V_8(n,6) >= 2^(3*rho). It already fails at the largest possible n=73.
