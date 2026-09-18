@@ -105,12 +105,13 @@ The proof also identifies the central part composition-by-composition. In the on
 
 ## Context and limitations
 
-Bezerra dos Santos and Reis (arXiv:2609.20458v1, 17 September 2026) determine the $*$-identities, the full $*$-codimension sum, the cocharacters, and the generators of the central $*$-polynomials for this superinvolution. The formulas above extract a closed central-binomial form for their full codimension sum and, using their central-polynomial normal forms, compute the central codimension and central cocharacter layer explicitly.
+Giambruno--Ioppolo--Martino already computed the $*$-identities, cocharacters, and codimension sequence for this transpose-superinvolution algebra in characteristic zero. Bezerra dos Santos and Reis (arXiv:2609.20458v1, 17 September 2026) revisit the codimension calculation and additionally determine generators of the central $*$-polynomials. The formulas above extract a closed central-binomial form from the known codimension sum and, using the recent central-polynomial normal forms, compute the central codimension and central cocharacter layer explicitly.
 
 Central codimension exponents for superalgebras with superinvolution were established in earlier work of Giordani--Ioppolo--dos Santos--Vieira, and proper central exponents were studied by La Mattina--dos Santos--Vieira; those general exponent results are prior work and are not claimed here. The novelty claim is limited to the exact three sequences above, the exact central-layer multiplicities, and the asymptotic $1:3$ split between central nonidentities and noncentral classes for this specific transpose-superinvolution algebra. Originality is to the best of our knowledge. The recent source preprint may be revised. For the two older exponent papers, abstracts and indexed records were inspected but not complete article text, leaving a residual risk of an equivalent special-case computation under different notation.
 
 ## References
 
 1. R. Bezerra dos Santos and L. Reis, *Polynomial identities, central polynomials and cocharacters of $M_2(F)$ with transpose superinvolution*, arXiv:2609.20458v1 (2026).
-2. G. Giordani, A. Ioppolo, A. dos Santos and A. Vieira, *On the central exponent of superalgebras with superinvolution*, Canadian Mathematical Bulletin 69 (2026), 472--489, DOI 10.4153/S0008439525101276.
-3. D. La Mattina, R. B. dos Santos and A. C. Vieira, *Proper central exponent of superalgebras with graded involution or superinvolution*, Mathematische Zeitschrift 309 (2025), DOI 10.1007/s00209-025-03689-8.
+2. A. Giambruno, A. Ioppolo and F. Martino, *Standard polynomials and matrices with superinvolutions*, Linear Algebra and its Applications 504 (2016), 272--291, DOI 10.1016/j.laa.2016.04.016.
+3. G. Giordani, A. Ioppolo, A. dos Santos and A. Vieira, *On the central exponent of superalgebras with superinvolution*, Canadian Mathematical Bulletin 69 (2026), 472--489, DOI 10.4153/S0008439525101276.
+4. D. La Mattina, R. B. dos Santos and A. C. Vieira, *Proper central exponent of superalgebras with graded involution or superinvolution*, Mathematische Zeitschrift 309 (2025), DOI 10.1007/s00209-025-03689-8.
