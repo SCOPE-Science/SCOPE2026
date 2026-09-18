@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS",
+  "review_type": "same_model_review",
+  "independent": false,
+  "reviewed_at": "2026-09-18",
+  "policy": "to-the-best-of-our-knowledge",
+  "evidence_file": "REVIEW.md",
+  "axes": {
+    "correctness": {
+      "verdict": "PASS",
+      "rationale": "Qiao et al.'s q-decimal hidden values form a finite alphabet and their finite-precision RoPE is periodic. At a new causal position, each attention contribution is determined by layer, hidden-vector type, and phase modulo the RoPE period. Capping each such multiplicity at 10^(2q)+1 is exact under their softmax convention: a positive type at the cap forces the denominator to Inf and the head output to zero; otherwise every positive multiplicity is known exactly. This gives a deterministic finite prefix state, from which the bounded-halting and ultimate-periodicity conclusions follow."
+    },
+    "originality": {
+      "verdict": "PASS",
+      "rationale": "Qualified to the best of our knowledge. Qiao et al. arXiv:2609.20335 prove incompleteness for their non-converging Turing-machine class by a repeated-block argument, but the inspected full text does not state a global finite sufficient state, a uniform bound on all halting autoregressive generations, or ultimate periodicity of every non-halting continuation. Jerad et al. arXiv:2608.11909 already characterize a related component-periodic RoPE recognizer class as LTL[P,MOD], so regular single-pass recognition is explicitly excluded from the novelty claim. The new claim is restricted to the capped-state theorem in Qiao's arithmetic and its iterative-autoregressive consequences. The source is very recent and residual overlap risk remains."
+    },
+    "value": {
+      "verdict": "PASS",
+      "rationale": "The result strengthens the finite-precision obstruction from a selected infinite-output class to a structural statement about every autoregressive trajectory in the model: halting reasoning length is uniformly bounded and non-halting reasoning eventually cycles. It also supplies an explicit, though loose, model-dependent state bound."
+    }
+  },
+  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
+  "same_model_review_status": "passed",
+  "cross_model_review_status": "not_performed"
+}
