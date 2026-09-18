@@ -93,11 +93,7 @@ The 2025 study of joined graphs computes stars, wheels, generalized wheels, wind
 
 ## Verification
 
-The proof is exact and does not rely on computation. As a finite sanity check, `artifacts/verify.py` exhaustively tests every nondecreasing complete-multipartite part-size tuple of total order from 2 through 8, all landmark subsets for each graph, the full resolving-set characterization, the dimension formula, and the basis-count formula. The recorded output in `artifacts/verification.txt` is:
-
-```text
-verified 58 multipartite types
-```
+The proof is exact and does not rely on computation. As a finite sanity check from the definitions, every nondecreasing complete-multipartite part-size tuple of total order from 2 through 8 was exhaustively tested over all landmark subsets. The full resolving-set characterization, the dimension formula, and the basis-count formula held for all 58 multipartite types checked.
 
 ## Limitations and originality
 
