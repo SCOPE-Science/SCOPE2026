@@ -296,4 +296,4 @@ For \(-1<\gamma<0\), the jump-function argument is elementary once the question 
 
 1. Y. Chen, D. Yang, W. Yuan, Y. Zhang, *On Two Questions by Brezis et al Concerning the Critical Difference Quotient Characterization of First-Order Sobolev Spaces*, arXiv:2609.19029 (2026).
 2. H. Brezis, A. Seeger, J. Van Schaftingen, P.-L. Yung, *Families of functionals representing Sobolev norms*, Analysis & PDE 17 (2024), 943–979.
-3. N. Picenni, *New estimates for a class of non-local approximations of the total variation*, J. Funct. Anal. 287 (2024), 110465; arXiv:2307.16471.
+3. N. Picenni, *New estimates for a class of non-local approximations of the total variation*, J. Funct. Anal. 287 (2024); arXiv:2307.16471.
