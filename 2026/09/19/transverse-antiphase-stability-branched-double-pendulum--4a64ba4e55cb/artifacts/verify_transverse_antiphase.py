@@ -131,7 +131,6 @@ def q2_direct(tt):
         xd1**2 - (y1 - x1) * xdd1
     )
 
-
 def q2_fourier(tt):
     return (
         q0
@@ -140,7 +139,6 @@ def q2_fourier(tt):
         + q_diff * math.cos((omega[1] - omega[0]) * tt)
         + q_sum * math.cos((omega[1] + omega[0]) * tt)
     )
-
 
 test_times = np.linspace(0.0, 5.0, 101)
 max_fourier_residual = max(abs(q2_direct(tt) - q2_fourier(tt)) for tt in test_times)
