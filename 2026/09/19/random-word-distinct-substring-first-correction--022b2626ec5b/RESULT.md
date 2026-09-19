@@ -1,53 +1,117 @@
-# Sharp first correction for distinct substrings of a uniform random word
+# Second-order digital oscillation for distinct substrings of a uniform random word
 
 ## Result
 
-Let \(X_1,\dots,X_n\) be i.i.d. uniform on an alphabet of fixed size \(d\ge 2\). For each \(k\), let \(D_{n,k}\) be the number of distinct consecutive substrings of length \(k\), and let
+Let \(X_1,\dots,X_n\) be i.i.d. uniform on an alphabet of fixed size \(d\ge2\). For each \(k\), let \(D_{n,k}\) be the number of distinct consecutive substrings of length \(k\), and let
 \[
-D_n=\sum_{k=1}^n D_{n,k}.
-\]
-Write
-\[
-T_n=\sum_{k=1}^n(n-k+1)=\frac{n(n+1)}2
-\]
-for the number of substring positions counted with multiplicity, and define the expected repetition deficit
-\[
+D_n=\sum_{k=1}^n D_{n,k},\qquad
+T_n=\frac{n(n+1)}2,\qquad
 R_{n,d}=T_n-\mathbb E D_n.
 \]
+
+Set
+\[
+a_n=\log_d n,\qquad \theta_n=\{a_n\},
+\]
+and define
+\[
+f(x)=1-x(1-e^{-1/x}),\qquad x>0.
+\]
+For \(0\le\theta<1\), define
+\[
+\mathcal P_d(\theta)
+=
+-\theta
++\sum_{j\le0}\bigl(f(d^{j-\theta})-1\bigr)
++\sum_{j\ge1}f(d^{j-\theta}).
+\]
+Both series converge absolutely. The endpoint values match, so this defines a continuous one-periodic function.
+
 Then, for every fixed \(d\ge2\),
 \[
-\boxed{R_{n,d}=n\log_d n+O_d(n)}
+\boxed{
+R_{n,d}
+=
+n\log_d n
++
+n\,\mathcal P_d(\{\log_d n\})
++
+O_d((\log n)^2).
+}
 \]
-and hence
+Equivalently,
 \[
-\boxed{\mathbb E D_n=\frac{n(n+1)}2-n\log_d n+O_d(n).}
+\boxed{
+\mathbb E D_n
+=
+\frac{n(n+1)}2
+-
+n\log_d n
+-
+n\,\mathcal P_d(\{\log_d n\})
++
+O_d((\log n)^2).
+}
 \]
-Thus the coefficient of the first logarithmic correction is exactly one.
 
-A finite-\(n\) sandwich is available. Put \(m=\lfloor\log_d n\rfloor\) and \(N_k=n-k+1\). Then
+Thus the first logarithmic deficit has coefficient one, and the entire linear-order correction is an explicit digital oscillation in the fractional part of \(\log_d n\).
+
+The periodic function has the absolutely convergent Fourier series
+\[
+\boxed{
+\mathcal P_d(\theta)
+=
+-\frac12+\frac{\gamma-1}{\log d}
++
+\sum_{\ell\ne0}
+\frac{\Gamma(1-\chi_\ell)}
+{\log d\,\chi_\ell(1+\chi_\ell)}
+e^{2\pi i\ell\theta},
+\qquad
+\chi_\ell=\frac{2\pi i\ell}{\log d},
+}
+\]
+where \(\gamma\) is Euler's constant. In particular its phase average is
+\[
+\boxed{
+\int_0^1\mathcal P_d(\theta)\,d\theta
+=
+-\frac12+\frac{\gamma-1}{\log d}.
+}
+\]
+
+For \(d=2\), the mean is
+\[
+-1.109948863612096\ldots,
+\]
+and the peak-to-peak digital oscillation is only about
+\[
+3.45\times10^{-7}.
+\]
+For comparison, the peak-to-peak amplitudes are about \(8.25\times10^{-5}\) for \(d=3\), \(5.92\times10^{-4}\) for \(d=4\), and \(1.25\times10^{-2}\) for \(d=10\).
+
+A finite elementary sandwich, independent of the analytic input below, is also useful. If
+\[
+m=\lfloor\log_d n\rfloor,\qquad N_k=n-k+1,
+\]
+then
 \[
 \boxed{
 \sum_{k=1}^m(N_k-d^k)
-\;\le\;
+\le
 R_{n,d}
-\;\le\;
-\sum_{k=1}^m N_k+
+\le
+\sum_{k=1}^mN_k
++
 \sum_{k=m+1}^n {N_k\choose2}d^{-k}.
 }
 \]
-In particular,
+This already gives
 \[
-R_{n,d}\le m(n+1)-\frac{m(m+1)}2+
-\frac{n^2d^{-m}}{2(d-1)},
+R_{n,d}=n\log_d n+O_d(n).
 \]
-while
-\[
-R_{n,d}\ge m(n+1)-\frac{m(m+1)}2-
-\frac{d(d^m-1)}{d-1}.
-\]
-Both bounds are \(n\log_d n+O_d(n)\).
 
-There is also an additive optimality consequence. If
+Finally, if
 \[
 M_{n,d}=\max_{w\in[d]^n}D_n(w),
 \]
@@ -55,96 +119,229 @@ then
 \[
 0\le M_{n,d}-\mathbb E D_n=O_d(n),
 \]
-and more explicitly the displayed sandwich implies
+and the elementary sandwich gives the explicit bound
 \[
-\boxed{0\le M_{n,d}-\mathbb E D_n\le \frac{3dn}{2(d-1)}.}
-\]
-Consequently both the maximum and the random expectation have the same first deficit from \(T_n\):
-\[
-T_n-M_{n,d}=n\log_d n+O_d(n),
-\qquad
-T_n-\mathbb E D_n=n\log_d n+O_d(n).
+0\le M_{n,d}-\mathbb E D_n
+\le\frac{3dn}{2(d-1)}.
 \]
 
 ## Proof
 
-For a fixed length \(k\), there are \(N_k=n-k+1\) starting positions. Since at most \(d^k\) different length-\(k\) words exist,
+### 1. Reduction to an independent-occupancy profile
+
+Gheorghiciuc and Ward (2007), Corollary 2.2, prove a uniform approximation for the expected \(k\)-th subword complexity. Their parameter \(N\) is the number of length-\(k\) windows, so a word of total length \(n\) corresponds to
 \[
-D_{n,k}\le d^k,
+N=N_k=n-k+1.
 \]
-so deterministically
+For the uniform \(d\)-ary source, their result gives constants \(\varepsilon>0\) and \(0<\mu<1\), depending only on \(d\), such that
+\[
+\mathbb E D_{n,k}
+=
+d^k-d^k(1-d^{-k})^{N_k}
++
+O_d(N_k^{-\varepsilon}\mu^k).
+\]
+Their theorem explicitly allows \(N\) and \(k\) to vary together. Since \(N_k\ge1\),
+\[
+\sum_{k=1}^n N_k^{-\varepsilon}\mu^k=O_d(1).
+\]
+Therefore
+\[
+R_{n,d}
+=
+\sum_{k=1}^n H(N_k,d^k)+O_d(1),
+\]
+where
+\[
+H(N,Q)=N-Q+Q(1-Q^{-1})^N.
+\]
+
+This identifies the all-length expectation, up to bounded total error, with the deficit in an independent occupancy model having \(N_k\) draws from \(d^k\) boxes at level \(k\).
+
+### 2. Replacing the varying number of windows
+
+For integer \(N\ge0\),
+\[
+H(N+1,Q)-H(N,Q)
+=
+1-(1-Q^{-1})^N
+\le \min\{1,N/Q\}.
+\]
+Hence
+\[
+|H(N_k,d^k)-H(n,d^k)|
+\le
+(k-1)\min\{1,n/d^k\}.
+\]
+Summing over \(k\) and splitting at \(\lfloor\log_d n\rfloor\) gives
+\[
+\sum_{k=1}^n
+|H(N_k,d^k)-H(n,d^k)|
+=
+O_d((\log n)^2).
+\]
+
+Next,
+\[
+H(n,Q)=n-Q+Q(1-Q^{-1})^n,
+\]
+whereas
+\[
+n f(Q/n)=n-Q+Qe^{-n/Q}.
+\]
+For \(Q\ge2\),
+\[
+0\le e^{-n/Q}-(1-Q^{-1})^n
+\le
+e^{-n/Q}\frac{n/Q^2}{1-1/Q},
+\]
+so
+\[
+|H(n,Q)-nf(Q/n)|
+\le
+2(n/Q)e^{-n/Q}.
+\]
+Along the geometric grid \(Q=d^k\), the sum of the right-hand side is \(O_d(1)\). Therefore
+\[
+R_{n,d}
+=
+n\sum_{k\ge1}f(d^k/n)
++
+O_d((\log n)^2),
+\]
+where extending the sum past \(k=n\) changes it by an exponentially small amount.
+
+### 3. Extracting the digital phase
+
+Write
+\[
+\log_d n=m+\theta,\qquad m\in\mathbb Z_{\ge0},\quad 0\le\theta<1.
+\]
+Changing variables \(k=m+j\),
+\[
+\sum_{k\ge1}f(d^k/n)
+=
+\sum_{j=1-m}^{\infty}f(d^{j-\theta}).
+\]
+Since
+\[
+f(x)=1-x+O(xe^{-1/x})\quad(x\downarrow0),
+\qquad
+f(x)=\frac1{2x}+O(x^{-2})\quad(x\to\infty),
+\]
+the defining series for \(\mathcal P_d\) converges absolutely, and
+\[
+\sum_{k\ge1}f(d^k/n)
+=
+m+\theta+\mathcal P_d(\theta)+O_d(d^{-m}).
+\]
+Because \(d^{-m}=O_d(n^{-1})\), multiplying by \(n\) gives the stated second-order expansion.
+
+### 4. Fourier representation
+
+The Mellin transform of \(f\), initially for \(0<\Re s<1\), is
+\[
+\mathcal M f(s)
+=
+\int_0^\infty f(x)x^{s-1}\,dx
+=
+\frac{\Gamma(1-s)}{s(1+s)}.
+\]
+One convenient derivation uses
+\[
+f(1/y)
+=
+1-\frac{1-e^{-y}}y
+=
+\int_0^1(1-e^{-ty})\,dt.
+\]
+
+Mellin inversion for the geometric sum yields
+\[
+\sum_{k\ge1}f(d^k/n)
+=
+\frac1{2\pi i}
+\int
+\frac{\Gamma(1-s)}
+{s(1+s)(d^s-1)}
+n^s\,ds.
+\]
+The poles of \((d^s-1)^{-1}\) are
+\[
+\chi_\ell=\frac{2\pi i\ell}{\log d},\qquad \ell\in\mathbb Z.
+\]
+The double pole at \(s=0\) contributes
+\[
+\log_d n-\frac12+\frac{\gamma-1}{\log d},
+\]
+and each nonzero \(\chi_\ell\) contributes
+\[
+\frac{\Gamma(1-\chi_\ell)}
+{\log d\,\chi_\ell(1+\chi_\ell)}
+e^{2\pi i\ell\log_d n}.
+\]
+The exponential decay of \(\Gamma(1-it)\) gives absolute convergence of the Fourier series and the displayed formula for \(\mathcal P_d\).
+
+### 5. Elementary finite sandwich
+
+For completeness, a proof not using the 2007 approximation gives the leading coefficient directly. Since at most \(d^k\) different length-\(k\) words exist,
 \[
 N_k-D_{n,k}\ge N_k-d^k.
 \]
-Summing this for \(1\le k\le m=\lfloor\log_d n\rfloor\) gives the lower bound on \(R_{n,d}\).
-
-For the upper bound, let \(M_w\) denote the number of occurrences of a particular length-\(k\) word \(w\). Then
+For the reverse direction, if \(M_w\) is the number of occurrences of a given length-\(k\) word,
 \[
 N_k-D_{n,k}
-=\sum_w (M_w-1)_+
-\le \sum_w {M_w\choose2}.
+=
+\sum_w(M_w-1)_+
+\le
+\sum_w{M_w\choose2}.
 \]
-The right-hand side is the number of equal unordered pairs of length-\(k\) substring positions. For any two distinct starting positions \(i<j\),
+Two distinct length-\(k\) windows match with probability exactly \(d^{-k}\), even when they overlap. If their shift is \(s<k\), equality imposes period \(s\) on the block of \(k+s\) letters, leaving \(s\) free letters, hence probability \(d^s/d^{k+s}=d^{-k}\). Thus
 \[
-\Pr\bigl(X_i\cdots X_{i+k-1}=X_j\cdots X_{j+k-1}\bigr)=d^{-k}.
+\mathbb E(N_k-D_{n,k})
+\le {N_k\choose2}d^{-k}.
 \]
-This remains exact when the two windows overlap. Indeed, if their shift is \(s=j-i<k\), equality imposes period \(s\) on the block of \(k+s\) letters. There are exactly \(s\) free letters, hence \(d^s\) satisfying assignments among \(d^{k+s}\), giving probability \(d^{-k}\). The disjoint case is immediate.
+Using the deterministic bound for \(k\le m\) and the collision bound for \(k>m\) proves the finite sandwich and the \(n\log_d n+O_d(n)\) corollary.
 
-Therefore
+The same sandwich also yields the additive comparison with the maximum. Every word has deficit at least the lower side \(L\), while the random expectation has deficit at most the upper side \(U\). Therefore
 \[
-\mathbb E(N_k-D_{n,k})\le {N_k\choose2}d^{-k}.
+M_{n,d}-\mathbb E D_n\le U-L.
 \]
-For \(k\le m\), use only the trivial bound \(N_k-D_{n,k}\le N_k\); for \(k>m\), use the collision bound. This proves the finite upper sandwich.
-
-Finally,
+Using \(d^m\le n\) and \(d^{-m}\le d/n\) gives
 \[
-\sum_{k=1}^mN_k=m(n+1)-\frac{m(m+1)}2
-=n\log_dn+O_d(n),
-\]
-\[
-\sum_{k=1}^m d^k=\frac{d(d^m-1)}{d-1}=O_d(n),
-\]
-and
-\[
-\sum_{k=m+1}^n {N_k\choose2}d^{-k}
-\le \frac{n^2}{2}\sum_{k=m+1}^{\infty}d^{-k}
-=\frac{n^2d^{-m}}{2(d-1)}=O_d(n).
-\]
-This yields the asymptotic formula.
-
-For the maximum, every word obeys the deterministic lower-deficit bound, hence \(M_{n,d}\le T_n-L\), where \(L\) is the lower side of the sandwich. Also \(M_{n,d}\ge\mathbb E D_n\ge T_n-U\), where \(U\) is its upper side. Thus \(M_{n,d}-\mathbb E D_n\le U-L\). Using \(d^m\le n\) and \(d^{-m}\le d/n\) gives
-\[
-U-L\le \frac{dn}{d-1}+\frac{dn}{2(d-1)}
-=\frac{3dn}{2(d-1)}.
+U-L\le\frac{3dn}{2(d-1)}.
 \]
 
 ## Relation to prior literature
 
-Flaxman, Harrow and Sorkin (2004) proved that a uniform random word has an asymptotically maximal number of distinct substrings. Their random-string comparison localizes the potentially nonoptimal substring lengths to the transition region between roughly \(\log_d n\) and \(2\log_d n\), but does not state the additive first correction above.
+Gheorghiciuc and Ward (2007) are the essential prior input for the second-order theorem: they give a uniform fixed-length approximation to the expected subword complexity, valid even when the window count and substring length vary together. A uniform-source special case had already been obtained by Jacquet, Lučić and Szpankowski (2001), as noted in their paper. The contribution here is the all-length summation, its explicit linear-order digital phase, and the finite collision sandwich.
 
-Ahmadi and Ward (2020) developed precise asymptotics for the number of distinct substrings at a fixed length \(k=\Theta(\log n)\), especially for nonuniform binary memoryless sources. That work concerns the level profile rather than the all-length sum considered here.
+Flaxman, Harrow and Sorkin (2004) exactly determine the maximum number of distinct substrings using modified de Bruijn words. They also state that a random word is asymptotically optimal, with the only potentially nonoptimal length range lying between about \(\log_d n\) and \(2\log_d n\). Their comparison is on the leading \(n^2\) scale.
 
-Godbole (2026) returned explicitly to \(\mathbb E D_n\). In the binary uniform case, Theorem 2.3 gives
+A 2016 MathOverflow comment by Anthony Quas already gives the correct heuristic
 \[
-\mathbb E D_n\ge \frac{n^2}{2}\left(1-\frac{6\log_2n}{n}\right),
+\binom n2-\frac{n\log n}{\log d}
 \]
-and for uniform alphabets \(d\ge3\), equation (30) gives a loss of order \(2n\log_dn\) relative to \(n^2/2\). The present result identifies the true first logarithmic loss as \(n\log_d n\), with coefficient one, and gives a direct finite sandwich requiring no Poisson approximation.
+for the random all-length count. Thus the coefficient-one logarithmic correction should not be regarded as a previously unsuspected phenomenon. The theorem above supplies a rigorous \(O_d(n)\) bound by an elementary argument and, using the 2007 profile theorem, resolves the full linear correction into an explicit periodic function with an \(O_d((\log n)^2)\) remainder.
 
-An independent finite-computation literature also exists: OEIS A340885 records exact totals of subword complexity over binary words for small \(n\). Those data are compatible with the theorem but do not, in the material inspected, state this asymptotic correction.
+Ahmadi and Ward (2020) give refined asymptotics for the \(k\)-th subword complexity when \(k=\Theta(\log n)\), especially for binary memoryless sources. Godbole (2026) recently returned explicitly to the all-length expectation; the bounds proved there start the binary summation at \(3\log_2n\) and the uniform \(d\ge3\) summation at \(2\log_dn\), and do not identify the linear digital correction above.
 
 ## Reproducibility
 
-`artifacts/verify_bounds.py` exhaustively enumerates all binary words through length 16 and all ternary words through length 10. It computes \(\mathbb E D_n\), the deficit \(R_{n,d}\), and both sides of the finite sandwich, and asserts the inequalities exactly up to floating-point representation of the geometric tail. Its output is recorded in `artifacts/verification.txt`.
+`artifacts/verify_bounds.py` exhaustively checks the elementary finite sandwich for all binary words through length 16 and all ternary words through length 10.
+
+`artifacts/verify_second_order.py` evaluates the defining series and the Fourier series independently, compares them at multiple phases, reports the mean and peak-to-peak oscillations, and checks the occupancy proxy against the asymptotic formula over increasing \(n\). Its output is recorded in `artifacts/second_order_values.txt`.
 
 ## Limitations
 
-The theorem assumes a fixed finite alphabet and uniform independent letters. For a nonuniform memoryless source, overlapping-match probabilities depend on the shift and the dominant transition scale need not be \(\log_d n\), so the proof does not automatically extend. The \(O_d(n)\) remainder is not resolved to a constant or periodic second-order term. No concentration or variance theorem for \(D_n\) is claimed.
+The theorem assumes a fixed finite alphabet and uniform independent letters. The uniform fixed-level approximation of Gheorghiciuc and Ward is used as an input to obtain the \(O((\log n)^2)\) second-order remainder; the elementary collision proof alone gives only \(O(n)\). The result does not identify the next logarithmic-order phase term, does not cover general nonuniform memoryless sources, and does not address variance or concentration.
 
-The originality claim is only to the best of our knowledge. Older suffix-tree/trie analyses may contain sufficiently general path-length statements from which the same all-length correction follows as a specialization, even if the distinct-substring formulation and coefficient-one theorem are not stated explicitly in the sources located here.
+Originality is claimed only to the best of our knowledge. The explicit all-length periodic correction was not located in the inspected sources, but it is a natural Mellin summation of a 2007 profile theorem. Older trie/suffix-tree profile analyses, especially Jacquet–Lučić–Szpankowski and later trie-profile work, are therefore a material residual risk of equivalent implicit or explicit coverage.
 
 ## References
 
-1. A. Godbole, *The Expected Number of Distinct Substrings in an Alphabet String*, arXiv:2609.19409 (2026). https://arxiv.org/abs/2609.19409
+1. I. Gheorghiciuc and M. D. Ward, *On Correlation Polynomials and Subword Complexity*, DMTCS Proceedings AH (2007), 1–18. https://doi.org/10.46298/dmtcs.3553
 2. A. Flaxman, A. W. Harrow, G. B. Sorkin, *Strings with Maximally Many Distinct Subsequences and Substrings*, Electronic Journal of Combinatorics 11 (2004), R8. https://doi.org/10.37236/1761
-3. L. Ahmadi, M. D. Ward, *Asymptotic Analysis of the kth Subword Complexity*, Entropy 22(2):207 (2020). https://doi.org/10.3390/e22020207
-4. OEIS A340885, *Sum of subword complexity of all binary strings of length n*. https://oeis.org/A340885
+3. L. Ahmadi and M. D. Ward, *Asymptotic Analysis of the kth Subword Complexity*, Entropy 22(2):207 (2020). https://doi.org/10.3390/e22020207
+4. A. Godbole, *The Expected Number of Distinct Substrings in an Alphabet String*, arXiv:2609.19409 (2026). https://arxiv.org/abs/2609.19409
+5. MathOverflow question 253576, *Expected number of substring in random string* (2016), including the Anthony Quas heuristic. https://mathoverflow.net/questions/253576/expected-number-of-substring-in-random-string
