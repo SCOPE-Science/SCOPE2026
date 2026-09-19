@@ -125,7 +125,7 @@ Finally suppose \(k\ge3\). Take one saturated path from \((0,\ldots,0)\) to \((a
 
 ## Relation to prior literature
 
-Cameron, Reddy and Sharma, *Cyclic Subgroup Graph of a Group*, arXiv:2409.13796v2 (17 September 2026), define the graph and prove a product-of-paths description for cyclic groups, state Proposition 2.5 on induced paths/cycles, and prove the general diameter bounds in Theorem 2.11. The exact intersection distance formula above is not stated there; the proof of their upper-diameter example uses a related one-dimensional potential only for a special pair in \(C_n\times C_n\).
+Cameron, Reddy and Sharma, *Cyclic Subgroup Graph of a Group*, arXiv:2409.13796v2 (16 September 2026), define the graph and prove a product-of-paths description for cyclic groups, state Proposition 2.5 on induced paths/cycles, and prove the general diameter bounds in Theorem 2.11. The exact intersection distance formula above is not stated there; the proof of their upper-diameter example uses a related one-dimensional potential only for a special pair in \(C_n\times C_n\).
 
 Malviy, Kakkar and Srivastava, *Line Graph Characterization of Cyclic Subgroup Graph*, arXiv:2503.12184v1 / National Academy Science Letters (2025), studies forbidden induced subgraphs for the line-graph property rather than the metric formula above. Tărnăuceanu, arXiv:2302.05784, studies edge counts. Standard subgroup-lattice and Hasse-diagram theory is background; the metric proof can be viewed as a rank/meet argument specialized to the meet-semilattice of cyclic subgroups.
 
@@ -137,7 +137,7 @@ The metric theorem concerns finite groups. The induced-cycle classification in T
 
 ## References
 
-1. P. J. Cameron, A. Satyanarayana Reddy, Khyati Sharma, *Cyclic Subgroup Graph of a Group*, arXiv:2409.13796v2, 17 September 2026. https://arxiv.org/abs/2409.13796v2
+1. P. J. Cameron, A. Satyanarayana Reddy, Khyati Sharma, *Cyclic Subgroup Graph of a Group*, arXiv:2409.13796v2, 16 September 2026. https://arxiv.org/abs/2409.13796v2
 2. S. Malviy, V. Kakkar, S. Srivastava, *Line Graph Characterization of Cyclic Subgroup Graph*, arXiv:2503.12184v1; National Academy Science Letters, DOI 10.1007/s40009-025-01735-x. https://arxiv.org/abs/2503.12184v1
 3. M. Tărnăuceanu, *On the number of edges of cyclic subgroup graphs of finite groups*, arXiv:2302.05784. https://arxiv.org/abs/2302.05784
 4. M. Tărnăuceanu, *Finite groups whose subgroup graph contains a vertex of large degree*, Archiv der Mathematik 124 (2025), 475--484. DOI 10.1007/s00013-025-02121-1.
