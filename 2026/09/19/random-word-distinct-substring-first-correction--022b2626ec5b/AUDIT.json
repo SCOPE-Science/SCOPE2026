@@ -8,23 +8,24 @@
   "cross_model_review_status": "not_performed",
   "correctness": {
     "status": "PASS",
-    "summary": "For each length k, the deterministic alphabet cap gives the lower deficit. The upper deficit is bounded by equal substring pairs; two distinct length-k windows match with probability exactly d^{-k}, including overlapping windows because a shift-s match leaves s free symbols in a block of k+s letters. Summing at m=floor(log_d n) gives matching n log_d n leading terms. Exhaustive finite enumeration for binary n<=16 and ternary n<=10 confirms the stated sandwich."
+    "summary": "Gheorghiciuc--Ward (2007) gives a uniform fixed-level occupancy approximation with summable total error. Summing it over all substring lengths, controlling the varying window count by the exact increment of the occupancy deficit, and applying Mellin analysis yields the stated n log_d n+n P_d({log_d n})+O_d((log n)^2) expansion. The Mellin transform and Fourier coefficients were independently checked numerically, and the elementary finite sandwich was exhaustively verified for small binary and ternary words."
   },
   "originality": {
     "status": "PASS",
     "scope": "to the best of our knowledge",
-    "summary": "Godbole (2026) studies the same all-length expectation but gives weaker logarithmic-loss constants; Flaxman-Harrow-Sorkin (2004) establish only n^2-scale asymptotic optimality in the inspected random-string comparison; Ahmadi-Ward (2020) analyze individual kth-level profiles. Searches did not locate the coefficient-one all-length correction, the finite collision sandwich, or the explicit O(n) additive gap to the maximum. Older suffix-tree/trie path-length literature remains a residual risk of equivalent implicit coverage."
+    "summary": "Strong prior art includes the 2007 uniform kth-level asymptotic, the 2004 exact extremal count and random n^2-scale comparison, the 2020 logarithmic-level profile analysis, and a 2016 public heuristic with the correct coefficient-one n log_d n deficit. The originality claim is restricted to the all-length second-order periodic expansion, its explicit Fourier coefficients/mean, and the finite collision sandwich/additive O(n) extremal comparison. Older trie/suffix-tree analytic results remain a material risk of equivalent implicit coverage."
   },
   "value": {
     "status": "PASS",
-    "summary": "The theorem identifies the sharp first correction beyond the quadratic leading term, improves the recent all-length bounds, and shows that uniform random words are additively O(n) from the extremal distinct-substring count. The proof is elementary and finite-sample, isolating exact overlap collision probabilities rather than requiring Poisson approximation."
+    "summary": "The result resolves the full linear-order correction to the all-length expectation, identifies its digital phase and Fourier spectrum, and quantifies how exceptionally small the binary oscillation is. It upgrades a recent all-length bound and makes a nontrivial global consequence of fixed-level subword-complexity theory explicit."
   },
   "limitations": [
     "The alphabet size d is fixed and the letters are uniform and independent.",
-    "The O_d(n) second-order term is not identified.",
-    "No extension to general nonuniform memoryless sources is claimed.",
+    "The O((log n)^2) remainder uses the 2007 uniform fixed-level approximation.",
+    "The next logarithmic-order phase term is not identified.",
+    "No extension to nonuniform memoryless or dependent sources is claimed.",
     "No variance or concentration result for D_n is proved.",
-    "Older suffix-tree/trie path-length literature remains a residual originality risk.",
+    "Older trie/suffix-tree profile literature remains a material residual originality risk.",
     "Cross-model review has not been performed."
   ],
   "review_statement": "Same-model review: passed. Cross-model review: not yet performed."
