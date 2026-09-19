@@ -33,7 +33,7 @@ or the complete-multiquadratic-basis specialization with exponent \(K-1\).
 
 Eisenbrand--Haeberle--Singer (2024) gives, for fixed radicands, a singly exponential coefficient bound via the Subspace Theorem with a positive radicand-dependent ineffective constant. It does not supply the present explicit field-degree formula.
 
-Dubickas (2024), DOI 10.1016/j.jco.2024.101866, is the most relevant residual source risk. Its full text was not inspected. Bibliographic/abstract metadata were inspected, and the 2026 Aymone--Figueredo--Táfula paper explicitly describes Dubickas as using the idea of isolating a \(\Lambda^2\) factor in a product argument. Because that technique is close to the present proof, undisclosed overlap inside the inaccessible full text cannot be completely excluded. Searches using square-root separation, multiquadratic degree, squareclass rank, Galois norm, dependent radicals, and equivalent formulations did not identify the stated degree-sensitive theorem.
+Dubickas (2024), DOI 10.1016/j.jco.2024.101866, is the most relevant residual source risk. Its full text was not inspected. Bibliographic/abstract metadata were inspected, and the 2026 Aymone--Figueredo--Táfula paper explicitly describes Dubickas as using the idea of isolating a \(\Lambda^2\) factor in a product argument. Because that technique is close to the present proof, overlap inside the uninspected full text cannot be completely excluded. Searches using square-root separation, multiquadratic degree, squareclass rank, Galois norm, dependent radicals, and equivalent formulations did not identify the stated degree-sensitive theorem.
 
 The motivating preprint is recent, so unindexed contemporaneous work remains an additional residual risk.
 
