@@ -8,7 +8,7 @@ Same-model review: passed. Cross-model review: not yet performed.
 
 First, conditioning on rank(U)=s gives the exact point probability by choosing the image s-subspace, requiring it to contain the target column space, and counting the q^{r-s} preimages of each target column. This yields the stated Gaussian-binomial formula.
 
-Second, the likelihood ordering by target rank follows directly because, for each s shared by ranks d and d+1, the number of s-subspaces containing a fixed d-subspace is strictly larger than the number containing a fixed extension of dimension d+1, while rank d has one additional positive s=d contribution.
+Second, the likelihood ordering by target rank follows because, for each s shared by ranks d and d+1, the number of s-subspaces containing a fixed d-subspace is at least the number containing a fixed (d+1)-dimensional extension (strict unless s=k), while rank d has the additional positive s=d contribution. Hence the point mass is strictly decreasing in target rank.
 
 Third, the sign change relative to the uniform law was checked explicitly. Full-row-rank targets have likelihood ratio p_{k,r}<1. For deficient targets, the rank-(k-1) contribution alone has likelihood ratio at least q^{n-r}p_{k-1,r}>1 under k<=r<n. Therefore no hidden deficit exists among deficient ranks, and summing the full-rank deficit gives exactly p_{k,n}(1-p_{k,r}).
 

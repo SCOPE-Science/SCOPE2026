@@ -52,9 +52,9 @@ gives (1).
 
 For fixed \(s\ge d+1\),
 \[
-{k-d\brack s-d}_q>{k-d-1\brack s-d-1}_q,
+{k-d\brack s-d}_q\ge {k-d-1\brack s-d-1}_q,
 \]
-and the \(s=d\) summand is positive. Thus the point mass in (1) strictly decreases with \(d\).
+with strict inequality when \(s<k\); moreover, the rank-\(d\) expression has the additional positive \(s=d\) summand. Thus the point mass in (1) strictly decreases with \(d\).
 
 For a full-row-rank target \(A\), \(U\) must have rank \(k\). Conditional on that event, the linear map \(V\mapsto UV\) is surjective onto \(\mathbb F_q^{k\times n}\), so
 \[
