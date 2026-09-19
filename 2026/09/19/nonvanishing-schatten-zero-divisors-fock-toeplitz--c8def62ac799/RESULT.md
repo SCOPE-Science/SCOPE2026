@@ -242,8 +242,7 @@ s\longmapsto
 would be a polynomial in \(s\). The kernel formula instead makes this a finite sum
 \[
 \kappa_{q,\rho}
-\sum_{k=1}^4d_k
-e^{s(D_{V_k;q,\rho}z)\cdot a}.
+\sum_{k=1}^4d_k e^{s(D_{V_k;q,\rho}z)\cdot a}.
 \]
 One may choose \(a,z\) supported in the active \(\mathbb C^2\) so that the four exponents are pairwise distinct: the excluded choices form a finite union of proper bilinear zero sets because the \(V_k\) are distinct. A nontrivial finite sum of exponentials with distinct exponents cannot be a polynomial. This contradiction proves infinite rank. The same argument applies to \(T_{g_{q,\rho}}\).
 
