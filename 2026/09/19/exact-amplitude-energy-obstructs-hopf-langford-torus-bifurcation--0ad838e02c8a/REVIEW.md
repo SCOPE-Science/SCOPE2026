@@ -4,30 +4,26 @@ Same-model review: passed. Cross-model review: not yet performed.
 
 ## Correctness
 
-**PASS.** The source vector field is rotationally symmetric. Direct substitution of \(x=r\cos\theta\), \(y=r\sin\theta\) gives the exact equations \(\dot r=r(\mu-\alpha+z)\), \(\dot\theta=\beta\), and \(\dot z=\mu z-\gamma(r^2+z^2)\). The claimed small periodic solution is therefore represented by an exact amplitude equilibrium whenever \(b^2>0\).
-
-For \(\gamma>0\), the change \(w=r^\gamma\) converts the planar amplitude system into
+**PASS.** Direct cylindrical reduction gives \(\dot\theta=\beta\) and an autonomous planar amplitude system. For the positive off-axis equilibrium corresponding to the periodic orbit, the exact transverse trace is
 \[
-\ddot w-T\dot w=\gamma^2b^2w-\gamma^2w^{1+2/\gamma},
+T=(2\gamma+1)\mu-2\gamma\alpha.
 \]
-with \(T=(2\gamma+1)\mu-2\gamma\alpha\). The displayed potential gives \(E'=T\dot w^2\) identically. For \(T\ne0\), this strict sign law contradicts compact invariant circles of the angular Poincaré map by an extremum argument. For \(T=0\), the positive-amplitude equilibrium is a nondegenerate minimum of the potential, giving a continuum of nearby closed amplitude curves and hence suspended invariant tori. The Jacobian and Floquet formulas independently give the same exact unit-modulus condition \(T=0\).
+The transformation \(w=r^\gamma\) gives a scalar constant-damping equation with exact energy law \(\dot E=T\dot w^2\). Thus, for \(T\ne0\), the full angular return map strictly raises or lowers \(E\) away from the fixed point, excluding a compact invariant circle by an extremum argument. For \(T=0\), the positive equilibrium is a strict minimum of the potential and is surrounded by closed amplitude levels, producing a continuum of suspended invariant tori. The Jacobian/Floquet calculation independently gives the same unit-modulus surface.
 
-The concrete family \(\alpha=\varepsilon\), \(\beta=1\), \(\gamma=1\), \(\mu=\nu\varepsilon\) satisfies the source hypotheses near \(\nu=2/3\). Substitution into the source's displayed equation (7) yields \((8\pi^2-2)/27\) for its first curve correction, while the exact trace condition gives zero. Symbolic verification reproduces these identities and the hypothesis values \(1/9\) and \(-8/9\).
-
-Adversarial checks considered whether a stroboscopic invariant circle might survive even though the continuous amplitude flow has no periodic orbit. The stronger energy increment formula for the full time map excludes this: on any invariant circle away from the fixed point, \(E\) would have to increase (or decrease) strictly after every iterate, contradicting its maximum (or minimum) on the compact circle.
+The explicit family \(\alpha=\varepsilon\), \(\beta=1\), \(\gamma=1\), \(\mu=\nu\varepsilon\) satisfies the source hypotheses near \(\nu=2/3\). The source's displayed equation (7) yields first correction \((8\pi^2-2)/27\), while the exact trace condition yields zero. Symbolic verification reproduces the reduction, energy identity, Floquet condition, source-hypothesis values \(1/9\) and \(-8/9\), and the curve discrepancy.
 
 ## Originality
 
-**PASS, qualified to the best of our knowledge.** The general dimensional reduction is prior. In particular, Vassilev–Nikolov (Axioms 2025) explicitly derive an autonomous amplitude system plus \(\dot\theta=\beta\), and one of their integrability conditions maps exactly to the trace-zero surface used here. Yang–Yang (2018) and Nikolov–Vassilev (2021) are also highly relevant older Hopf–Langford papers and discuss exact periodic solutions, amplitude centers/annuli, or integrable cases. These are explicitly excluded from the novelty claim.
+**PASS, qualified to the best of our knowledge.** The general polar reduction, exact periodic solutions, and integrable/center mechanisms are prior and are not claimed as new. In particular, Vassilev–Nikolov (2025) explicitly derive an amplitude reduction for a broader Hopf–Langford family, and one of their integrability conditions maps to the trace-zero surface used here. Yang–Yang (2018) and Nikolov–Vassilev (2021) are also highly relevant older references.
 
-The reviewed source arXiv:2609.18010v1 nevertheless states a generic Neimark–Sacker theorem for this specific four-parameter subfamily, with a unique torus on one side of a computed curve and a strictly positive first Lyapunov coefficient. Searches by the arXiv identifier, exact title, Hopf–Langford/Neimark–Sacker terminology, torus bifurcation, first integrals, and equivalent amplitude-system language found no public correction of that theorem and no SCOPE record covering the same source-specific contradiction. The new claim is limited to the exact obstruction and counterfamily showing that the stated theorem and displayed curve are incompatible with the exact dynamics.
+The new claim is restricted to the source-specific correction of arXiv:2609.18010v1: its stated generic Neimark–Sacker theorem and displayed bifurcation curve conflict with the exact amplitude energy law and exact Floquet surface. Searches by source identifier, title, equivalent dynamical terminology, and the SCOPE repository found no public correction covering this contradiction.
 
-Residual risk remains because the full texts of Yang–Yang (2018) and Nikolov–Vassilev (2021) were not inspected. They may contain an equivalent no-cycle or center statement in broader notation. That would reduce novelty of the mechanism, but not the source-specific observation that the 2026 theorem's curve and nonzero Neimark–Sacker coefficient conflict with the exact reduction unless an earlier publication already makes precisely that correction.
+Residual risk remains because the full texts of Yang–Yang (2018) and Nikolov–Vassilev (2021) were not inspected. They may contain an equivalent broad no-cycle or center statement, which would reduce novelty of the mechanism but not by itself establish that the 2026 theorem and its curve were previously corrected.
 
 ## Value
 
-**PASS.** The result changes the mathematical interpretation of the main theorem of a current preprint. It replaces a perturbative generic Neimark–Sacker picture by an exact dichotomy: strict energy monotonicity off a codimension-one surface and conservative center dynamics on it. It also gives exact periodic-orbit and Floquet formulas and an explicit parameter family satisfying the paper's hypotheses for which the claimed curve is asymptotically displaced from the true unit-modulus surface. This is directly actionable for correction of the theorem and numerical examples.
+**PASS.** The result changes the interpretation of the main torus-bifurcation theorem of a current preprint. For the stated vector field, a perturbative generic Neimark–Sacker picture is replaced by an exact dichotomy: strict energy monotonicity off a codimension-one surface and conservative center dynamics on it. The explicit admissible parameter family directly identifies the first-order displacement of the source curve from the exact unit-modulus surface.
 
 ## Limitations
 
-The proof addresses the four-parameter system written in arXiv:2609.18010v1 with \(\gamma>0\), \(\beta\ne0\), and a positive off-axis amplitude. It does not extend automatically to generalized Hopf–Langford systems with extra polynomial terms, nor does it classify dynamics on the symmetry axis or for \(\gammma\le0\). No claim of independent validation is made.
+The result applies to the four-parameter system of arXiv:2609.18010v1 with \(\gamma>0\), \(\beta\ne0\), and positive off-axis amplitude. It does not automatically extend to generalized Hopf–Langford systems with additional terms, nor does it classify the symmetry axis or \(\gamma\le0\). No claim of independent validation is made.
