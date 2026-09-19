@@ -153,7 +153,7 @@ corresponding negative variables. This gives
 \[
 \begin{aligned}
  D_\varepsilon(g)^2
- &:="
+ &:=
  \|\mathcal HF_{\varepsilon,g}-F_{\varepsilon,g}\|_2^2\\
  &=4\int_0^\infty
  \left|\widehat{\mathbf 1_{(-\varepsilon,\varepsilon)}}(t)\right|^2
