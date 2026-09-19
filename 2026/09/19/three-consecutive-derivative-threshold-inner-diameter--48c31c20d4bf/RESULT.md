@@ -51,8 +51,9 @@ Let \(\Omega\) be simply connected with
 \]
 let \(S\subseteq\{a,a+1,a+2\}\), and let \(f\) be unbounded and holomorphic on \(\Omega\).
 
-First, \(f^{(a)}\) is unbounded. Indeed, if \(f^{(a)}\) were bounded, then for a fixed \(z_0\in\Omega\)
-and any \(z\in\Omega\), integration along rectifiable paths of length arbitrarily close to
+First, \(f^{(a)}\) is unbounded. For \(a=0\) this is the hypothesis that \(f\) is unbounded.
+For \(a\ge1\), if \(f^{(a)}\) were bounded, then for a fixed \(z_0\in\Omega\) and any
+\(z\in\Omega\), integration along rectifiable paths of length arbitrarily close to
 \(d_\Omega(z_0,z)\le D\) would give
 \[
  |f^{(a-1)}(z)-f^{(a-1)}(z_0)|
