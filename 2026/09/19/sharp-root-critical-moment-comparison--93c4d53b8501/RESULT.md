@@ -81,7 +81,7 @@ D=\operatorname{diag}(\lambda_1,\dots,\lambda_n),\qquad
 u=\frac1{\sqrt n}(1,\dots,1)^T,
 \]
 \[
-Q=\nu\nu^*=\frac1nJ_n,\qquad P=I-Q,\qquad A=PDP.
+Q=uu^*=\frac1nJ_n,\qquad P=I-Q,\qquad A=PDP.
 \]
 The Komarova--Rivin differentiator identity implies that the spectrum of \(A\)
 is
