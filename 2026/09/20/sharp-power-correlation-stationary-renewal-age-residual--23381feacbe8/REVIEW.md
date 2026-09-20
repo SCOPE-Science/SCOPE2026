@@ -10,8 +10,8 @@ The three required moments are then beta integrals. The dependence on the renewa
 through the single dimensionless ratio
 \(Q_r=(E X^{r+1})^2/(E X\,E X^{2r+1})\), which lies in \((0,1]\) by Cauchy--Schwarz.
 The resulting fractional-linear correlation is strictly decreasing in \(Q_r\), giving
-both endpoint constants. The two-point construction realizes every \(Q_r\in(0,1]\),
-so the stated range is genuinely sharp rather than only bounded. Boundary cases,
+both endpoint constants. The two-point construction realizes every \(Q_r\in(0,1)\), while the deterministic
+case gives \(Q_r=1\), so the stated range is genuinely sharp rather than only bounded. Boundary cases,
 integer specializations, the exponential zero-correlation benchmark and large-r
 asymptotics were checked separately.
 
