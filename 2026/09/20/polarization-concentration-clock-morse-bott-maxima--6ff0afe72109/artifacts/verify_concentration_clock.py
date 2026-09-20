@@ -3,11 +3,11 @@
 import math
 
 # Unit sphere, normalized signal deficit h=z^2/2.
-# The maximum set is the equator. In geodesic normal coordinates the
+# The maximum set is the equator.  In geodesic normal coordinates the
 # normal Hessian is 1 and the equator has length 2*pi.
 C = 8.0 * math.pi * math.sqrt(2.0) / 3.0
 K = C ** (-2.0 / 3.0)
-U0 = 1.0 / (4.0 * math.pi)
+U0 = 1.0 / (4.0 * math.pi)  # constant initial density, unit total mass
 
 
 def G(s: float) -> float:
