@@ -12,7 +12,7 @@ Potential failure modes considered included deterministic Bernoulli summands, co
 
 PASS, to the best of our knowledge. Hoeffding (1956) supplies the classical mean-fixed extremal background. Peköz, Röllin, Čekanavičius and Shwartz (2009) explicitly derive the real-valued third-moment-matching parameters p* and n*; the present N3 is exactly their n*, so that formula is not claimed as new. Tang and Tang (2023) survey Poisson-binomial stochastic ordering and approximation. Shuldiner and Oldford (2022) develop general moment and central-moment formulas for Bernoulli sums.
 
-The literature search did not locate the hierarchy N3 <= N4 <= r, the equivalent joint third/fourth-cumulant inequality, or the stated sharp fixed-(n,V) skewness/kurtosis envelopes. The principal residual risk is terminology-equivalent coverage in older moment-inequality or Bernoulli-sum literature. The Shuldiner--Oldford full text was not inspected here beyond its abstract and bibliographic description, so it is the most relevant unverified source for possible formula-level overlap.
+The literature search did not locate the hierarchy N3 <= N4 <= r, the equivalent joint third/fourth-cumulant inequality, or the stated sharp fixed-(n,V) skewness/kurtosis envelopes. The principal residual risk is terminology-equivalent coverage in older moment-inequality or Bernoulli-sum literature. The Shuldiner--Oldford general moment results and its Poisson-binomial subsection were inspected; the latter refers to the general formulas and no equivalent hierarchy or sharp envelope was located there.
 
 ## Value
 
