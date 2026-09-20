@@ -1,0 +1,32 @@
+{
+  "scope_run_id": "79fd4e5e-18f5-46f9-b205-4b2eed361fd5",
+  "record_id": "SCOPE-20260920-5f3230b80158",
+  "review_type": "same_model_review",
+  "independent": false,
+  "phase": "II",
+  "same_model_review_status": "passed",
+  "independent_audit_status": "not_performed",
+  "correctness": {
+    "status": "PASS",
+    "summary": "The real-root constraint forces the affine trace interval s_lambda to lie wholly above +2 sqrt(beta) or wholly below -2 sqrt(beta). Each branch then admits an endpoint minimax bound: the positive branch is strictly slower than 1-mu/L for positive momentum, and the negative branch is strictly slower than (L-mu)/(L+mu). The zero-momentum minimax case gives equality exactly at alpha=2/(L+mu). The nonnegative-root frontier follows from the positive branch. Deterministic calculations reproduce the formulas and classical Polyak endpoint/interior root pattern."
+  },
+  "originality": {
+    "status": "PASS",
+    "scope": "to the best of our knowledge",
+    "summary": "Classical sources establish heavy-ball acceleration, scalar root regimes, stability and optimal parameters; Danilova-Kulakova-Polyak document complex interior roots for the classical optimal tuning; Hagedorn-Jarre give an explicit modern spectral-radius treatment. No checked source stated the constrained interval minimax result that all-real-root heavy-ball tuning cannot beat optimal gradient descent, nor the exact nonnegative-root frontier. Full theorem-level text of Torii-Hagan (2002) and Zhang (2015) was not available in the checked sources, so they remain the principal residual coverage risks."
+  },
+  "value": {
+    "status": "PASS",
+    "summary": "The theorem gives a sharp structural boundary between overdamped/real-root interval tuning and robust acceleration: strict improvement over optimal fixed-step gradient descent requires entering a complex-root regime somewhere in the admissible curvature interval. The companion nonnegative-root frontier quantifies the stronger penalty for forbidding modal sign reversal."
+  },
+  "limitations": [
+    "The theorem is restricted to fixed alpha, fixed beta in [0,1), exact gradients, and strongly convex quadratics.",
+    "The worst case is uniform over every curvature in a continuous spectral interval; a finite matrix may skip the complex-root subinterval and therefore need not contain an actual complex-root mode.",
+    "Only asymptotic modal spectral radius is compared; no monotone finite-time norm guarantee is claimed.",
+    "Complex roots are necessary under the interval-robust criterion but are not sufficient for acceleration.",
+    "Adaptive or negative momentum, line search, stochastic gradients, nonlinear objectives, Nesterov acceleration, and conjugate-gradient methods are outside the claim.",
+    "Full theorem-level text of Torii-Hagan (2002) and Zhang (2015) was not inspected, leaving residual originality risk.",
+    "Independent audit has not been performed."
+  ],
+  "review_statement": "Same-model review: passed. Independent audit: not yet performed."
+}
