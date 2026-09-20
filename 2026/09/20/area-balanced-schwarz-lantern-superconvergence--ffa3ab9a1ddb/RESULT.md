@@ -115,7 +115,8 @@ area bias.
 
 ### 3. Integer balancing gives cubic relative area error
 
-Let \(\widehat m_n\) be a nearest integer to \(m_*(n)\), and put
+For all sufficiently large \(n\), let \(\widehat m_n\) be a nearest positive
+integer to \(m_*(n)\), and put
 \(\delta_n=\widehat m_n-m_*(n)\), so \(|\delta_n|\le1/2\). Then, uniformly
 for this bounded rounding error,
 \[
