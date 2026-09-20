@@ -166,7 +166,7 @@ Run
 python artifacts/verify.py
 ```
 
-with Python 3. The script uses only the standard library and exact integer arithmetic. Expected output is stored in `artifacts/verification.txt`.
+with Python 3 and SymPy. The verification used SymPy 1.14.0; all congruence checks use exact integer arithmetic. Expected output is stored in `artifacts/verification.txt`.
 
 ## References
 
