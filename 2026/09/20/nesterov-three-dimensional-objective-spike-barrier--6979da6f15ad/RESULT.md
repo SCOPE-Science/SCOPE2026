@@ -61,9 +61,9 @@ Then \(x_2\ne0\) for every \(\varepsilon>0\), but
 \qquad(\varepsilon\downarrow0).
 \]
 Hence three is the minimum dimension in which objective nonmonotonicity can
-occur under exact endpoint calibration and standard initialization. Equivalently,
-three distinct curvature modes are necessary and sufficient for this phenomenon.
-There is no finite bound depending only on \(\kappa\) for the one-step relative
+occur under exact endpoint calibration and standard initialization. At least three
+distinct curvature modes are therefore necessary, and the explicit construction
+shows that three can suffice. There is no finite bound depending only on \(\kappa\) for the one-step relative
 objective increase \(f(x_{k+1})/f(x_k)\), even when dimension is fixed at three.
 
 ## Proof
