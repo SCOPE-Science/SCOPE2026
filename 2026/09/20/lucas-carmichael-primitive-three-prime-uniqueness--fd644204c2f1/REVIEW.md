@@ -8,6 +8,10 @@ The proof was rederived from the defining divisibilities. The key points were ch
 
 A supporting exact-integer program independently enumerates the three-prime Lucas-Carmichael triples with smallest prime below 100 and finds 190 triples, with (5,13,31) the unique shifted-gcd-2 case. The proof does not depend on this finite search.
 
+## Correction note
+
+The published proof was rechecked after upload. Its pairwise-coprimality step now explicitly works modulo \(2d\), not merely modulo \(d\): if \(d\mid a,b\), then \(2d\mid p+1,q+1\), so \(2d\mid qr-1\) forces \(d\mid c\). This corrects a missing factor of two in the first posted wording; the theorem and all subsequent arguments are unchanged.
+
 ## Originality
 
 Originality is assessed to the best of our knowledge. Wright's infinitude paper was inspected for the defining Korselt-like condition and global construction context. The relevant sections of Tamilvanan--Muthukrishnan were inspected, including Proposition 3.3 and Theorem 4.2: they give factor bounds and the decomposition (2hr1-1)(2hr2-1)(2hr3-1) with pairwise coprime normalized factors, but no classification of h=1 was located. The three-prime Lucas-Carmichael section of Einsele--Paterson was also inspected; it uses a normalized common-gcd decomposition for counting bounds, but no g=2 uniqueness statement or occurrence of 2015 was located. OEIS A006972 and exact/synonymous web searches likewise did not locate the theorem.

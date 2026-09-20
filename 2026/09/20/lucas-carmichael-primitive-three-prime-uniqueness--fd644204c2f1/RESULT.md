@@ -46,11 +46,11 @@ p=2a-1,\qquad q=2b-1,\qquad r=2c-1,
 \]
 so that \(2\le a<b<c\) and \(\gcd(a,b,c)=1\).
 
-We first show that \(a,b,c\) are pairwise coprime. If a positive integer \(d\) divides both \(a\) and \(b\), then \(d\mid p+1\) and \(d\mid q+1\). Since \(p+1\mid qr-1\), reduction modulo \(d\) gives
+We first show that \(a,b,c\) are pairwise coprime. If a positive integer \(d\) divides both \(a\) and \(b\), then \(2d\mid p+1\) and \(2d\mid q+1\). Since \(p+1\mid qr-1\), we have \(2d\mid qr-1\); and because \(q=2b-1\equiv-1\pmod{2d}\), reduction modulo \(2d\) gives
 \[
-0\equiv qr-1\equiv -r-1\pmod d,
+0\equiv qr-1\equiv-r-1=-2c\pmod{2d}.
 \]
-so \(d\mid r+1\), hence \(d\mid c\). Because \(\gcd(a,b,c)=1\), this forces \(d=1\). The other pairs are identical by symmetry.
+Thus \(d\mid c\). Because \(\gcd(a,b,c)=1\), this forces \(d=1\). The other pairs are identical by symmetry.
 
 Therefore
 \[
