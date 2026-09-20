@@ -41,7 +41,7 @@ and
 \]
 The lower endpoint is attained exactly when the interarrival time is deterministic.
 The upper endpoint is not attained by a nondegenerate renewal law, but it is a sharp
-supremum. Every value in \([\ell_r,u_r)\) is attained by a renewal process whose
+supremum. Every value in \((\ell_r,u_r)\) is attained by a renewal process whose
 interarrival distribution has two positive support points.
 
 For integer \(k\ge1\), the bounds simplify to
@@ -122,9 +122,9 @@ let a candidate stationary interval length \(L\) take values \(1,M\), with proba
 q(p,M)=\frac{(\mathbb E L^r)^2}{\mathbb E L^{2r}}
 \]
 is continuous in \(p\), equals \(1\) at \(p=0\), and for \(p=M^{-r}\) tends to zero
-as \(M\to\infty\). Hence every \(q\in(0,1]\) occurs for some finite two-point law
-of \(L\). Such a law is the size-biased interval law of a positive two-point renewal
-interarrival distribution: if \(H\) is the law of \(L\), define
+as \(M\to\infty\). Hence every \(q\in(0,1)\) occurs for some nondegenerate finite two-point law
+of \(L\), while \(q=1\) is realized by deterministic \(L\). A two-point law of \(L\)
+is the size-biased interval law of a positive two-point renewal interarrival distribution: if \(H\) is the law of \(L\), define
 \[
 \mu=\left(\int x^{-1}\,dH(x)\right)^{-1},\qquad
  dF(x)=\mu x^{-1}\,dH(x).
