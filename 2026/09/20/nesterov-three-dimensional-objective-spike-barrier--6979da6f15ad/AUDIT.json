@@ -1,0 +1,31 @@
+{
+  "scope_run_id": "5bd287ce-5f1a-49dc-a306-4d849bdba2b5",
+  "record_id": "SCOPE-20260920-6979da6f15ad",
+  "review_type": "same_model_review",
+  "independent": false,
+  "phase": "II",
+  "same_model_review_status": "passed",
+  "independent_audit_status": "not_performed",
+  "correctness": {
+    "status": "PASS",
+    "summary": "The spectral recurrence is exact for the stated Nesterov formulation. At the lower endpoint it has the closed form p_k=(1+kq)(1-q)^k with strictly decreasing magnitude, while the upper endpoint is eliminated after one step. The step-two polynomial has the interior root t_*=(1+q)/2, and direct substitution gives nonzero step-three revival. The explicit three-dimensional epsilon-family has f(x_2)>0 and f(x_3)/f(x_2) asymptotic to a positive constant times epsilon^{-2}, proving both the dimension-three onset and the absence of a finite kappa-only local objective-ratio bound."
+  },
+  "originality": {
+    "status": "PASS",
+    "scope": "to the best of our knowledge",
+    "summary": "Checked classical Nesterov theory, restart literature, the theorem-level fixed-step quadratic analysis of Hagedorn and Jarre, and recent quadratic acceleration work including Bach 2026 and current 2025-2026 acceleration/restart papers. These sources cover global rates, spectral recurrences, oscillatory behavior, restart, and asymptotic quadratic analysis. Searches under objective/function-value monotonicity, overshoot, spectral polynomials, modal roots, low-dimensional examples, and equivalent restart language did not locate the exact endpoint-spectrum monotonicity theorem, sharp dimension-three onset, annihilation/revival curvature, or unbounded positive-denominator local ratio stated here. Older semi-iterative and polynomial-acceleration literature leaves residual historical-equivalence risk."
+  },
+  "value": {
+    "status": "PASS",
+    "summary": "The result gives a sharp structural boundary for stepwise objective descent under perfectly calibrated Nesterov acceleration: two curvature endpoints are safe, while one interior curvature mode suffices for arbitrarily large local relative spikes for every kappa>1. It identifies an explicit spectral mechanism for overshoot and clarifies why global acceleration guarantees do not imply local monotonicity, providing a rigorous motivation for objective-based restart and safeguards."
+  },
+  "limitations": [
+    "Exact arithmetic, real SPD quadratics, exact spectral endpoints, classical constant strongly-convex Nesterov momentum, and standard zero-momentum initialization only.",
+    "Loose spectral bounds, arbitrary initial momentum states, alternate Nesterov formulations, convex time-varying coefficient rules, FISTA, heavy-ball, composite objectives, adaptive/restarted variants, stochastic or inexact gradients, and finite precision are outside the theorem.",
+    "The unbounded quantity is a local relative objective ratio caused by an arbitrarily small positive denominator; no absolute blow-up or divergence is claimed.",
+    "The exact-hit limiting case would normally trigger a stopping test, so the theorem relies on the positive-epsilon nonstationary family rather than on forced continuation from the minimizer.",
+    "Older semi-iterative, polynomial-acceleration, and momentum sources were not exhaustively inspected theorem by theorem, leaving residual originality risk.",
+    "Independent audit has not been performed."
+  ],
+  "review_statement": "Same-model review: passed. Independent audit: not yet performed."
+}
