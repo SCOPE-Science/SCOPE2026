@@ -167,7 +167,7 @@ Hoeffding's 1956 extremal theory for sums of independent Bernoulli trials includ
 
 The closest direct antecedent found is the 2009 three-parameter shifted-binomial approximation of Peköz, Röllin, Čekanavičius and Shwartz, whose main-results section gives the real moment-matching \(p^*,n^*\) above. The present contribution does not claim that formula, the elementary cumulant formulas, or general moment formulas for Bernoulli sums as new. The claimed new content is the exact hierarchy \(4V\le N_3\le N_4\le r\), its equality characterization, the joint third/fourth-cumulant constraint, and the resulting sharp fixed-variance skewness, kurtosis, and third-absolute-moment envelopes.
 
-To the best of our knowledge, these statements were not located in the inspected Poisson-binomial survey and approximation literature. A residual originality risk remains because Bernoulli-sum moment identities are classical and the 2022 paper of Shuldiner and Oldford develops general central-moment formulas for Bernoulli sums; its abstract and bibliographic record were inspected, but its full text was not checked here for an equivalent inequality stated in different language.
+To the best of our knowledge, these statements were not located in the inspected Poisson-binomial survey and approximation literature. A residual originality risk remains because Bernoulli-sum moment identities are classical and older moment-inequality literature may use different terminology. The 2022 Shuldiner--Oldford paper was inspected through its general moment results and its Poisson-binomial subsection; that subsection points back to the general formulas and no equivalent hierarchy or sharp envelope was located there.
 
 ## Verification
 
