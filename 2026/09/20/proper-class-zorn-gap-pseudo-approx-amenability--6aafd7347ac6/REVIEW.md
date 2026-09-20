@@ -2,56 +2,38 @@
 
 ## Verdict
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+Same-model review: passed. Cross-model review: not yet performed.
 
-The finding is accepted as a proof-audit result: the Zorn step in arXiv:2609.17428v1 is not valid for the unrestricted collection used in the paper, because the paper's own closure and cardinal-enlargement construction makes that collection proper-class-sized whenever it is nonempty.
+The finding is accepted as a proof-audit result. The Zorn step in arXiv:2609.17428v1 is not valid for the unrestricted counterexample collection used there, because the paper's own c0-sum and cardinal-enlargement construction makes that collection proper-class-sized whenever it is nonempty.
 
-## Correctness review
+## Correctness
 
-The argument was checked against the full HTML text of arXiv:2609.17428v1.
+The source fixes a bound d, forms the non-approximately-amenable pseudo-amenable classes with bounded approximate identity bound at most d, states closure under c0-direct sums, orders the counterexample types by adjoining c0-summands subject to a reverse-absorption condition, constructs upper bounds for chains, invokes Zorn's lemma, and then adjoins c0(I) with cardinality larger than the alleged maximal algebra.
 
-The source fixes a bounded-approximate-identity constant \(d\), forms the pseudo-amenable class and its non-approximately-amenable subclass, states closure under \(c_0\)-direct sums, defines its order by one-sided \(c_0\)-summand extension plus a non-absorption condition, constructs upper bounds for chains by a \(c_0\)-sum, invokes Zorn's lemma, and then adjoins a \(c_0(I)\) of cardinality \(2^{|A|}\) to contradict maximality.
+The last enlargement can be applied to every counterexample, before any maximality argument. If A is a counterexample and |I|>|A|, the source's own closure facts give B=A+_0 c0(I) as another counterexample. The injection i -> e_i gives |c0(I)|>=|I|, hence |B|>|A|. This also rules out any reverse decomposition A isomorphic to B+_0 J', so [A] is strictly below [B] for the source order.
 
-The review isolates that final enlargement before the Zorn step. If \(A\) is a counterexample and \(|I|>|A|\), then the same source facts give
-\[
-B=A\oplus^0c_0(I)
-\]
-as another counterexample. Since \(c_0(I)\) contains \(|I|\) distinct coordinate vectors, \(|B|>|A|\). This simultaneously makes \([A]\prec[B]\) for the paper's order and rules out a reverse decomposition \(A\cong B\oplus^0J'\) by cardinality. Thus every counterexample has a strict successor.
+Choosing I above an arbitrary prescribed cardinal produces counterexamples of unbounded cardinality. Therefore no set of Banach algebras can contain one representative of every counterexample isomorphism type. The source's direct-sum construction supplies upper bounds only for set-indexed chains. Ordinary Zorn's lemma does not turn that property into a maximal element for a proper-class collection; the class of all ordinals is the standard comparison.
 
-Allowing \(I\) above an arbitrary prescribed cardinal gives counterexamples of unbounded cardinality. Hence no set of representatives can contain all counterexample isomorphism types. Ordinary Zorn's lemma applies to set-valued partially ordered sets; the paper's set-indexed direct-sum argument supplies upper bounds only for set-sized chains. A proper-class analogue does not follow: the class of ordinals is the standard comparison example.
+Checks were also made that the argument does not require the exact cardinality of c0(I), that isometric isomorphism preserves underlying cardinality, and that a fixed-universe reinterpretation would require a new verification of the chain-upper-bound property inside the restricted universe.
 
-Adversarial checks included the following points.
+No claim is made that the amenability implication itself is false.
 
-- The conclusion does not rely on estimating the exact cardinality of \(c_0(I)\); the injection \(I\to c_0(I)\), \(i\mapsto e_i\), is enough.
-- Isometric isomorphism preserves underlying cardinality.
-- The reverse-decomposition clause in the source order is genuinely excluded by \(|B|>|A|\).
-- Restricting to isomorphism types does not bound cardinality, and a set-sized skeleton would itself have a bounded set of underlying cardinalities.
-- A fixed-universe reinterpretation is not an automatic repair, because the chain-upper-bound property must then be reverified for all chains of the restricted poset, including chains whose direct sum may leave the universe.
+## Originality
 
-No claim is made that the source theorem is false.
+Originality is assessed to the best of our knowledge. Searches by the exact preprint identifier and title, together with Zorn, proper class, cardinality, error, correction, gap, pseudo-amenability, approximate amenability, and bounded approximate identity did not locate a public correction or prior statement of this specific obstruction.
 
-## Originality review
+The set/class distinction, Cantor cardinal enlargement, Zorn's lemma, and the ordinal comparison are standard prior art. The potentially new contribution is their application to the exact c0(I)-closure mechanism of arXiv:2609.17428v1.
 
-Originality is assessed **to the best of our knowledge**.
+The main residual risk is a very recent or poorly indexed author comment, revision, or discussion identifying the same issue.
 
-The exact arXiv identifier and title were searched together with `Zorn`, `proper class`, `cardinality`, `error`, `correction`, and `gap`. Searches were also made for equivalent formulations involving pseudo-amenability, approximate amenability, bounded approximate identities, and maximality. No public correction or prior statement of this specific proper-class obstruction was located.
+## Value
 
-The source is very recent. The 2023 paper by Zhang is the cited diagnosis of the older proof gap. A 2026 University of Manitoba thesis, written before the new preprint, still records the bounded-approximate-identity implication as open. Those sources support the scientific significance of auditing the new claimed resolution, but they do not establish originality of the present set-theoretic observation by themselves.
-
-No novelty is claimed for Zorn's lemma, the distinction between sets and proper classes, Cantor cardinal enlargement, or the general fact that the class of ordinals has no maximal element. The potentially new contribution is the application of these standard facts to the exact \(c_0(I)\)-closure mechanism of arXiv:2609.17428v1 and the resulting proof that its contradiction hypothesis itself forces a proper class of counterexample types.
-
-The main residual originality risk is an unindexed or very recent author comment, revision, MathOverflow-style discussion, or private communication identifying the same issue.
-
-## Value review
-
-The source preprint explicitly presents Proposition 1 as closing a gap in a 2007 theorem and restates the claimed equivalence as its main theorem. The obstruction therefore bears directly on the central contribution of a current functional-analysis preprint.
-
-The finding is also reusable: whenever a Banach-algebra counterexample class is stable under adjoining arbitrarily large \(c_0(I)\) summands, a global maximality argument over all isomorphism types must confront the same size obstruction.
+The source presents Proposition 1 as closing a gap in a 2007 theorem and restates the claimed equivalence as its main theorem. The obstruction therefore bears directly on the central contribution of a current functional-analysis preprint. The same size mechanism is reusable in maximality arguments over Banach-algebra classes closed under arbitrarily large c0-sums.
 
 ## Limitations
 
-- The implication “pseudo-amenable + bounded approximate identity \(\Rightarrow\) approximately amenable” is not decided here.
+- The implication pseudo-amenable plus bounded approximate identity => approximately amenable is not decided here.
 - No counterexample to that implication is constructed.
-- The review concerns the proof in arXiv:2609.17428v1, not every possible proof of the theorem.
-- No specific alternative universe/class-theoretic formalization is proved impossible; any such reformulation requires its own closure checks.
-- The literature search cannot exclude very recent or poorly indexed comments and revisions.
+- The review concerns arXiv:2609.17428v1; an unrelated proof could exist.
+- No particular alternative universe or class-theoretic reformulation is ruled out without additional closure checks.
+- Very recent or poorly indexed comments or revisions may not have been found.
