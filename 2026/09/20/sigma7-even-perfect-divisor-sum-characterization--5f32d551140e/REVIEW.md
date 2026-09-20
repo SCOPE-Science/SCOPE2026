@@ -88,10 +88,6 @@ priority risk rather than evidence of coverage. No inaccessible source with a
 title or abstract suggesting a \(k=7\) proof was identified. Unindexed or
 poorly indexed literature remains a residual originality risk.
 
-Internal SCOPE searches by `sigma_7`, "perfect numbers", and Chu's paper title
-did not locate an existing SCOPE record with this claim. Search indexing can
-lag, so the repository is checked again before publication.
-
 ## Value
 
 **PASS.**
