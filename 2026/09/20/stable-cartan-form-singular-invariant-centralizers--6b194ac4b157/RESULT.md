@@ -120,9 +120,9 @@ C_d=\begin{pmatrix}5&1\\1&1\end{pmatrix}.
 \]
 Both determinants equal \(4\), but
 \[
-G(S(c,k))\simeq \mathbb Z/2\mathbb Z\oplus\mathbb Z/2\mathbb Z,
+G(S_6(c,k))\simeq \mathbb Z/2\mathbb Z\oplus\mathbb Z/2\mathbb Z,
 \qquad
-G(S(d,k))\simeq \mathbb Z/4\mathbb Z.
+G(S_6(d,k))\simeq \mathbb Z/4\mathbb Z.
 \]
 Hence equality of Cartan determinants cannot recover the new invariant, and these two centralizer matrix algebras cannot be singularly equivalent.
 
