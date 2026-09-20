@@ -22,4 +22,4 @@ No specific inaccessible paper was identified as likely to contain the same opti
 
 The sharpness is ansatz-relative, not a global lower bound for all Positivstellensatz certificates. The propagated constants still depend on nonoptimized problem-specific scaling and degree certificates. No new convergence exponent is claimed. The result is univariate and concerns the source's quadratic-module proof mechanism. Very recent simultaneous work remains possible.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

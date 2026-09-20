@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -48,4 +48,4 @@ The result removes all boundary differentiability from a newly established nonex
 
 The argument does not cover arbitrary nonsmooth convex bodies with flat faces, where translated facets can overlap in positive surface measure. It gives no classification of all convex bodies admitting or excluding exponential Riesz bases and says nothing about dimension one.
 
-No independent validation or cross-model review is claimed.
+No independent validation or independent audit is claimed.

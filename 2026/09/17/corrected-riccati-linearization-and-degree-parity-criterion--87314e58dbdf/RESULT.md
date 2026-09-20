@@ -236,4 +236,4 @@ Riccati criterion or a differential-Galois analysis may still be needed.
 1. H. Wu and Y. Hong, *Generalized conformal modules over the Virasoro conformal algebra*, arXiv:2609.18184v1 (2026), especially Theorem 4.20, Remark 4.21, and Example 4.22. https://arxiv.org/abs/2609.18184
 2. T. Crespo and Z. Hajto, *Algebraic Groups and Differential Galois Theory*, Graduate Studies in Mathematics 122, AMS (2011), Chapter 7. https://doi.org/10.1090/gsm/122
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

@@ -36,4 +36,4 @@ The result supplies a sharp condition missing from the usual statement that "hig
 
 The analysis fixes the mode number while \(N\to\infty\). It does not establish a uniform error formula across all frequencies, coding gain, transform-coding distortion, or the computational break-even point for applying correction factors. The operator statement is a lower bound obtained from one row, not a full singular-value characterization of the correction stage. Continuous exponential-kernel KLE formulas are not new contributions.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

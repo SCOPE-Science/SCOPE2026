@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -54,4 +54,4 @@ These are structural consequences rather than isolated numerical examples.
 
 ## Limitations
 
-The theorem assumes finite connected undirected graphs with strictly positive weights on present edges, matching the weighted-graph setting of the source bound. It does not address directed chains, signed weights, loops, or alternative Kemeny conventions. The numerical artifact checks examples only and is supporting evidence. Originality remains to the best of our knowledge, and cross-model review has not been performed.
+The theorem assumes finite connected undirected graphs with strictly positive weights on present edges, matching the weighted-graph setting of the source bound. It does not address directed chains, signed weights, loops, or alternative Kemeny conventions. The numerical artifact checks examples only and is supporting evidence. Originality remains to the best of our knowledge, and independent audit has not been performed.

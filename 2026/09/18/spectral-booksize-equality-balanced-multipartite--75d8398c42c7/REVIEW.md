@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -44,4 +44,4 @@ Because the source theorem is recent, unindexed parallel work remains a residual
 - No quantitative stability estimate is proved for near equality.
 - The result concerns adjacency spectral radius and ordinary triangle books only.
 - Originality is to the best of our knowledge; the two older papers listed above were not inspected in full.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

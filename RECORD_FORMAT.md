@@ -21,9 +21,9 @@ For Phase II, `AUDIT.json` has `review_type: "same_model_review"` and `independe
 not an independent verification badge. Historical Phase I formats are unchanged.
 
 For accepted Phase II records, use `same_model_review_status: "passed"` and
-`cross_model_review_status: "not_performed"`. Public wording is: **Same-model
-review: passed. Cross-model review: not yet performed.** A missing cross-model
-review is not a failed review. Preserve actual failures, disputes, withdrawals,
+`independent_audit_status: "not_performed"`. Public wording is: **Same-model
+review: passed. Independent audit: not yet performed.** A missing independent
+audit is not a failed review. Preserve actual failures, disputes, withdrawals,
 and any subsequently evidenced reviews; never reset their status to PASS.
 
 Public records describe scientific evidence and verification status, not execution

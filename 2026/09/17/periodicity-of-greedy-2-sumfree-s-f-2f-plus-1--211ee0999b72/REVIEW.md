@@ -29,4 +29,4 @@ The main residual originality risk is temporal: arXiv:2609.18522 was submitted o
 
 ## Review status
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

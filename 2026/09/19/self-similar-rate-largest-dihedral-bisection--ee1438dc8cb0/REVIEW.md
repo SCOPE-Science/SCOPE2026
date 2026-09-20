@@ -26,4 +26,4 @@ The source proves degeneration for one seed using invariant-range estimates. The
 
 The result is confined to the explicit invariant family of arXiv:2609.18788 and does not establish a basin of attraction in the full tetrahedral shape space. It does not repair LAB, prove behavior for every branch, or provide a finite-element error estimate. The amplitude \(C\) depends on the initial tetrahedron and is represented by a convergent product.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

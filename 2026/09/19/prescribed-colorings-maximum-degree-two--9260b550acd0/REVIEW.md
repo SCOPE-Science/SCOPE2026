@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -30,4 +30,4 @@ This settles the full first nontrivial maximum-degree case of a conjecture state
 
 ## Limitations
 
-The result does not address \(r\ge3\). It concerns universal feasibility over all graphs with maximum degree at most two, not a characterization of feasible vectors for each individual graph. The smaller-class case uses Birken's Theorem 1 rather than reproving that general theorem. The literature search cannot exclude older equivalences hidden under substantially different terminology. Cross-model review and independent validation have not been performed.
+The result does not address \(r\ge3\). It concerns universal feasibility over all graphs with maximum degree at most two, not a characterization of feasible vectors for each individual graph. The smaller-class case uses Birken's Theorem 1 rather than reproving that general theorem. The literature search cannot exclude older equivalences hidden under substantially different terminology. Independent audit and independent validation have not been performed.

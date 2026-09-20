@@ -153,7 +153,7 @@ The expected output is recorded in `artifacts/verification.txt`.
 
 The \(s=6\) lower bound is computer-assisted: it relies on a finite exhaustive enumeration whose completeness is justified by the pair-syndrome reduction above. The period-seven theorem is a sufficient family, not a classification of all \(s\) for which the minimum distance is five. The originality assessment is to the best of our knowledge; older BCH code tables, theses, or computational catalogues that are poorly indexed remain a residual coverage risk.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Reference
 

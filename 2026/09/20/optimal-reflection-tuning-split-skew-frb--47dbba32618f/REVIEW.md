@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -26,4 +26,4 @@ Searches included the source identifiers, constant-reflection FRB terminology, s
 
 ## Limitations
 
-The theorem is exact only for the planar split-skew linear family and exact arithmetic.  It does not establish that the optimized coefficient improves worst-case convergence over all maximally monotone plus monotone-Lipschitz inclusions.  The full text of arXiv:2609.15936 was not inspected, so source-specific originality remains less certain than correctness.  No cross-model or independent validation has been performed.
+The theorem is exact only for the planar split-skew linear family and exact arithmetic.  It does not establish that the optimized coefficient improves worst-case convergence over all maximally monotone plus monotone-Lipschitz inclusions.  The full text of arXiv:2609.15936 was not inspected, so source-specific originality remains less certain than correctness.  No independent audit has been performed.

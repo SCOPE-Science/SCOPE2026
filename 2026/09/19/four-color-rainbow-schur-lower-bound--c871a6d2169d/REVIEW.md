@@ -48,4 +48,4 @@ It addresses exactly the \(k=4\) case singled out by the recent primary source a
 
 The result does not determine the optimum, improve the \(3/4\) upper bound, prove existence of \(\lim_n\Lambda_{n,4}\), establish uniqueness or local optimality of the interval pattern, or improve the known lower bounds for \(k\ge5\). The originality assessment is to the best of our knowledge and retains the possibility of unindexed contemporaneous work.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

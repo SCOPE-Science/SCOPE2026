@@ -250,7 +250,7 @@ The earlier counterexample of Wang--Wang--Zhu, arXiv:2609.14382v1, uses an addit
 
 The mathematical claim is elementary once the finite-index $K_0$ viewpoint is identified, and the construction deliberately abstracts the mechanism of the recent parity example. The originality claim is therefore narrow: to the best of our knowledge, the literature checked does not state the finite-abelian $K_0$ family, the exact $G$-valued obstruction criteria, or the element-order stabilization formula. An equivalent observation could exist in older ideal-approximation or exact-category literature under different terminology, and a later revision or concurrent follow-up to the recent parity preprint could independently contain the same generalization.
 
-No independent, cross-model, formal, or peer-reviewed validation is claimed.
+No independent, formal, or peer-reviewed validation is claimed.
 
 ## References
 

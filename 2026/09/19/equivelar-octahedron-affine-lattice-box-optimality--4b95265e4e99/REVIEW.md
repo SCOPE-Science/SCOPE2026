@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -39,4 +39,4 @@ The result is deliberately narrower than global coordinate minimality. It does n
 - It does not optimize Euclidean aspect ratio under arbitrary non-affine deformation.
 - The full text of the 2020 precursor was not inspected, leaving a residual historical-priority risk.
 - The motivating 2026 preprint is recent, so later revisions or unindexed parallel observations may overlap.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

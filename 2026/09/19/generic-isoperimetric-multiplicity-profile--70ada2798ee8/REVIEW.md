@@ -1,6 +1,6 @@
 # Review — Residual-volume uniqueness and multiplicity continuity for generic isoperimetry
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 
@@ -53,4 +53,4 @@ The main residual-volume statement is structurally elementary once Niu's new gen
 
 The strict-BV continuity is a consequence of compactness plus uniqueness and gives no differentiability of the minimizer with respect to volume. No nesting, foliation, smooth dependence, or curvature estimate is asserted.
 
-Because the primary source is extremely recent, an unindexed note or a later revision may state the same Baire-category consequence. Cross-model review has not been performed.
+Because the primary source is extremely recent, an unindexed note or a later revision may state the same Baire-category consequence. Independent audit has not been performed.

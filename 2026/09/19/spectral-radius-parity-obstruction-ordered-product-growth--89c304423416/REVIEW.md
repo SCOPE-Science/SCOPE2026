@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -60,4 +60,4 @@ No claim is made that the smooth polynomial counterexample is a bounded chaotic 
 - arXiv:1908.07469, abstract and bibliographic record.
 - Current SCOPE repository records and recent changes for overlap by source identifier and equivalent terminology.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

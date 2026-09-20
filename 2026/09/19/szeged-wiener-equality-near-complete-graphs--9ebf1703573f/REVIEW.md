@@ -26,6 +26,6 @@ Targeted searches covered Szeged–Wiener gap/equality together with clique numb
 - The newest source explicitly notes that its construction is not necessary in general, so further equality types are expected outside this regime.
 - Finite exhaustive verification supports but does not replace the symbolic proof.
 - Unindexed recent work or substantially different terminology remains a residual originality risk.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

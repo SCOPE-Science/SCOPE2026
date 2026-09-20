@@ -348,7 +348,7 @@ No global claim that `tau(a) >= Delta(a)/sqrt(2)` is made; only the sharp weak-s
 - No rate is claimed for the finite-signal triangular-array convergence.
 - The LAN mechanism and the sharp Khintchine inequality are classical and are not originality claims.
 - Older binary statistical-experiment and Riesz-product literature was not exhaustively inspected.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
 ## Reproducibility
 

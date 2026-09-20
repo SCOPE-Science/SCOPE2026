@@ -91,4 +91,4 @@ The consequence is substantive: the global minimum-support problem becomes compu
 - The source is a recent v1 preprint and may be revised.
 - Originality is to the best of our knowledge; no independent validation is asserted.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

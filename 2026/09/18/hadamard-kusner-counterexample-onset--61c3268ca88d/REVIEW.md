@@ -97,4 +97,4 @@ specific two-block construction, not a classification of all equilateral
 sets.  The \(58\)-point construction at \(p=5\) demonstrates that unrelated
 configurations can be substantially smaller at individual exponents.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -36,4 +36,4 @@ The finding separates a false analytic step from a valid geometric conclusion. I
 
 ## Scope and limitations
 
-The result does not settle the Hilbert-space invariant subspace problem. It repairs the common-shadow mechanism for the backward shift, not all claims in the cited papers. Cross-model review and independent validation have not been performed.
+The result does not settle the Hilbert-space invariant subspace problem. It repairs the common-shadow mechanism for the backward shift, not all claims in the cited papers. Independent audit and independent validation have not been performed.

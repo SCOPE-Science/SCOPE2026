@@ -1,6 +1,6 @@
 # Review: harmonic equilibrium bias and one-gradient covariance obstruction
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

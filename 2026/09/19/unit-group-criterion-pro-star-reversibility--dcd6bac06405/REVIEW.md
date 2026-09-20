@@ -22,4 +22,4 @@ The main residual risk is terminological rather than a known concrete overlap: b
 
 This record concerns unital rings with involution and the projection-based definition of Chen--Wang--Zou. It does not classify nil-\(*\)-reversible rings, nonunital variants, or extension behavior. Originality is asserted only to the best of our knowledge. No independent validation, formal verification, or peer review is claimed.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

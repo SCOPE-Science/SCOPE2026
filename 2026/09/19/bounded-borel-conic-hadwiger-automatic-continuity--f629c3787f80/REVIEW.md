@@ -1,6 +1,6 @@
 # Review — Automatic continuity for bounded Borel rotation-invariant conic valuations
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 

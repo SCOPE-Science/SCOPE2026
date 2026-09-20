@@ -208,7 +208,7 @@ To the best of our knowledge, searches for translated/self-dual polar bodies tog
 
 ## Limitations
 
-This result classifies only Segal's explicit planar \(\alpha\)-family; it does not classify all convex bodies satisfying \(K^\circ=K-s\). The area law is planar and is not asserted for the higher-dimensional bodies of revolution. No stability theorem is proved for perturbations away from this family. The origin-based polar area product above is not a claim about the Santaló-minimized Mahler product. Cross-model review has not been performed.
+This result classifies only Segal's explicit planar \(\alpha\)-family; it does not classify all convex bodies satisfying \(K^\circ=K-s\). The area law is planar and is not asserted for the higher-dimensional bodies of revolution. No stability theorem is proved for perturbations away from this family. The origin-based polar area product above is not a claim about the Santaló-minimized Mahler product. Independent audit has not been performed.
 
 ## References
 

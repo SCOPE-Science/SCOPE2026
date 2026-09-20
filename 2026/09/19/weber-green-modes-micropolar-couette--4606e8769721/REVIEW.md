@@ -83,4 +83,4 @@ This gives a concrete measure of nonnormality while preserving the same cubic en
 
 The formula is tied to the balanced-viscosity coefficient matrix in the source paper and is a fixed sheared-frequency statement. It does not establish a better nonlinear threshold or a uniform physical-space Green estimate. The two related prior papers listed above were not fully inspected at proof level and remain the main originality uncertainty.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

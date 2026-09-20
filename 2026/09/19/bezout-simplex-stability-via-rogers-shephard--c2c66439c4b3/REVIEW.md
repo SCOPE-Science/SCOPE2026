@@ -1,6 +1,6 @@
 # Review: quantitative Bézout stability for simplices
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -56,4 +56,4 @@ The result upgrades a newly completed qualitative simplex characterization into 
 
 ## Limitations
 
-The \(1/n\) stability exponent is not proved optimal. The numerical Banach–Mazur constant inherited from Böröczky is extremely large. The result does not classify near-extremizers more finely than Banach–Mazur proximity, and no independent or cross-model validation has yet been performed.
+The \(1/n\) stability exponent is not proved optimal. The numerical Banach–Mazur constant inherited from Böröczky is extremely large. The result does not classify near-extremizers more finely than Banach–Mazur proximity, and no independent audit has yet been performed.

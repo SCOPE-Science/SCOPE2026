@@ -239,4 +239,4 @@ At the binary base \(x=2\), the sign extraction used here does not cover squaref
 
 No claim is made that these identities yield a competitive integer-factorization algorithm: evaluating \(\Phi_n(x)\) for a large unfactored index is itself a separate computational problem.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

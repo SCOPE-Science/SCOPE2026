@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -94,4 +94,4 @@ The universal constant is not optimized. Finite-dimensional real Hilbert
 spaces are excluded, necessarily, because commutators have trace zero. No
 stronger Schatten-ideal membership of the factors is proved, and no extension
 to arbitrary real Banach spaces is claimed. The result has not received
-cross-model or independent validation.
+independent audit.

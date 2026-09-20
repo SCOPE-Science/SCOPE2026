@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -77,4 +77,4 @@ The result is intentionally method-level rather than a claimed solution of the r
 
 The asymptotic equivalent is for the explicit shifted cyclic certificate, not for the true \(\epsilon_{\mathrm{Ch}}\). The order-\(H\) gap between Yang's best known upper and lower bounds for the true parameter remains open. The theorem treats fixed phases and does not optimize over all periodic functionals, all sign constructions, or phases varying with \(H\). It also inherits the source period-averaging argument's non-quantitative threshold in the grid size.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

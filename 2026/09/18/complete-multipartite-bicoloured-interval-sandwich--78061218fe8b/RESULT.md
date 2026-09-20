@@ -138,4 +138,4 @@ The full theorem text of the 40-page Basit--Suter--Zhang preprint was not inspec
 2. Sanchita Paul, Shamik Ghosh, *On some subclasses of interval catch digraphs*, Electronic Journal of Graph Theory and Applications 10(1), 157--171 (2022), DOI: 10.5614/ejgta.2022.10.1.10.
 3. Sanchita Paul, Shamik Ghosh, *On central-max-point tolerance graphs and some subclasses of interval catch digraphs*, arXiv:1712.00008.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

@@ -26,4 +26,4 @@ The result converts a recent explicit integer realization into a substantially s
 
 This does not prove globally smallest coordinates among all realizations of the combinatorial type. It proves the exact optimum among invertible affine images of the specific source realization with integral transformed vertices.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

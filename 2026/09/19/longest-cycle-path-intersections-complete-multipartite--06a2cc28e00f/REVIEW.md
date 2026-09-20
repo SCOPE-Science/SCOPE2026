@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -44,4 +44,4 @@ The result turns the current complete-bipartite sharpness example for Smith's co
 - The cycle statement assumes \(q\ge2\), since graphs with \(q=1\) need not contain a cycle.
 - The finite verifier supports but does not replace the general proof.
 - Full texts of the three sources listed above were not inspected, leaving residual originality uncertainty.
-- No independent validation or cross-model review has been performed.
+- No independent validation or independent audit has been performed.

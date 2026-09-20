@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -108,4 +108,4 @@ The theorem does not extend the classification to arbitrary C*-algebras,
 does not optimize the universal factor constant, and depends on the recent
 uniform matrix and compact-operator commutator theorems. Older or poorly
 indexed dual-C*-algebra literature may contain an equivalent special case.
-Cross-model review has not been performed.
+Independent audit has not been performed.

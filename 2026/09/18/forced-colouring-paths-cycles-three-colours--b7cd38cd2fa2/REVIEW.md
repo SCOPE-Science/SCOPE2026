@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The result supplies exact formulas for two canonical infinite graph families at 
 
 ## Limitations
 
-The independent-set characterization is special to maximum degree 2 and is not claimed for general graphs. The result does not provide a general-purpose evaluation algorithm for broader graph classes. The computational verification supports but does not replace the general proof. No independent or cross-model validation is asserted.
+The independent-set characterization is special to maximum degree 2 and is not claimed for general graphs. The result does not provide a general-purpose evaluation algorithm for broader graph classes. The computational verification supports but does not replace the general proof. No independent audit is asserted.

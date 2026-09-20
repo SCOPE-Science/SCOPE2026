@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -22,4 +22,4 @@ Residual originality risk remains from older stochastic-geometry extreme-value l
 
 ## Limitations
 
-The theorem assumes a bounded endpoint with `Q([A-y,A])~C y^beta`, beta>0; atoms at the endpoint form a different regime already illustrated by the source paper. No convergence rate is proved. The explicit shift expansion is only developed for d=3. A slowly varying endpoint factor is not included. The correction is version-specific to arXiv:2609.20750v1 and may disappear after author revision. Cross-model review has not been performed.
+The theorem assumes a bounded endpoint with `Q([A-y,A])~C y^beta`, beta>0; atoms at the endpoint form a different regime already illustrated by the source paper. No convergence rate is proved. The explicit shift expansion is only developed for d=3. A slowly varying endpoint factor is not included. The correction is version-specific to arXiv:2609.20750v1 and may disappear after author revision. Independent audit has not been performed.

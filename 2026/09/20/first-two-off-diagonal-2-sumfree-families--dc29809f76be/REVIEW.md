@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness — PASS
 
@@ -35,4 +35,4 @@ The result also converts two portions of a broad computationally supported conje
 
 ## Limitations
 
-The theorem does not settle all greedy strict 2-sumfree sequences. It covers only \(\delta=1,2\) and \(f\ge5\), and it does not assert that the same residue pattern extends to larger offsets. Small values outside the stated range are intentionally excluded. Historical-source access is incomplete as described above, and no independent validation or cross-model review is claimed.
+The theorem does not settle all greedy strict 2-sumfree sequences. It covers only \(\delta=1,2\) and \(f\ge5\), and it does not assert that the same residue pattern extends to larger offsets. Small values outside the stated range are intentionally excluded. Historical-source access is incomplete as described above, and no independent validation or independent audit is claimed.

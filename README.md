@@ -34,7 +34,7 @@ on three separate axes:
 2. originality relative to the closest located prior results; and
 3. scientific value as a finding worth recovering later.
 
-Accepted Phase II records report **Same-model review: passed; cross-model review:
+Accepted Phase II records report **Same-model review: passed; independent audit:
 not yet performed**, unless a later review is explicitly recorded. This does not
 assert independent review. Each record's review type is explicit;
 independent verification, expert attestation, or formal proof require separate

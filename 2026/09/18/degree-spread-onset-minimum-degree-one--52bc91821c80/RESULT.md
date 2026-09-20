@@ -234,7 +234,7 @@ Searches for the exact specialization, the equivalent two-consecutive-degree win
 - The theorem treats only \(\delta=1\), \(k=1\), and integer average degree \(d\ge2\).
 - The threshold is interpreted over admissible orders \(n\) with \(nd\) even; no graph of average degree \(d\) exists when \(nd\) is odd.
 - No formula is claimed here for nonintegral fixed average degree, other minimum degrees, or wider windows.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
 ## References
 

@@ -81,6 +81,6 @@ in a form not stated in the inspected sources.
   metrics.
 - The motivating preprint is extremely recent, so later revisions or unindexed parallel
   observations remain a genuine originality risk.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

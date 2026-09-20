@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -53,4 +53,4 @@ No inaccessible paper was identified as especially likely to contain the exact s
 - No global extremality statement among bounded planar sets is claimed.
 - The quantitative-stability question in arXiv:2609.15155 remains open.
 - A contemporaneous unindexed overlap remains possible because the direct source is very recent.
-- Cross-model review has not been performed, and no independent validation is claimed.
+- Independent audit has not been performed, and no independent validation is claimed.

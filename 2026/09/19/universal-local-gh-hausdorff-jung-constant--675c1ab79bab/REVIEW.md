@@ -1,6 +1,6 @@
 # Review: universal local Hausdorff–Gromov–Hausdorff Jung constant
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -53,4 +53,4 @@ The matching cubic estimate for deleted geodesic balls turns the leading-order s
 
 ## Limitations
 
-The optimal coefficient of the \(h^2\) correction in the ratio is not determined. The theorem does not classify asymptotically extremizing subsets, and the deleted-ball correspondence is not proved exactly optimal away from the flat model. The statement is restricted to smooth closed Riemannian manifolds of dimension at least two. No independent or cross-model validation has yet been performed.
+The optimal coefficient of the \(h^2\) correction in the ratio is not determined. The theorem does not classify asymptotically extremizing subsets, and the deleted-ball correspondence is not proved exactly optimal away from the flat model. The statement is restricted to smooth closed Riemannian manifolds of dimension at least two. No independent audit has yet been performed.

@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -34,4 +34,4 @@ The 2024 presentation/research-report versions by the same author were visible i
 
 ## Limitations
 
-The exact classification is limited to a bivariate FGM outer copula with product-copula inner blocks; it is not a classification of all valid nested copulas. General nesting restrictions are prior art. The entropy strictness statement is made for nonzero parameters in the interior of the validity window. The exact threshold may be recoverable from broader multivariate-FGM parameter theory not identified in the search. The source-specific conclusions concern arXiv:2609.20512v1 and may be changed in later versions. Cross-model review has not been performed.
+The exact classification is limited to a bivariate FGM outer copula with product-copula inner blocks; it is not a classification of all valid nested copulas. General nesting restrictions are prior art. The entropy strictness statement is made for nonzero parameters in the interior of the validity window. The exact threshold may be recoverable from broader multivariate-FGM parameter theory not identified in the search. The source-specific conclusions concern arXiv:2609.20512v1 and may be changed in later versions. Independent audit has not been performed.

@@ -1,6 +1,6 @@
 # Review
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 
@@ -20,4 +20,4 @@ A residual risk remains that older random-network work contains an algebraically
 
 ## Scientific limitations
 
-All exact statements concern the quasi-static DMFT critical equations rather than the full finite-size learning process. The non-asymptotic q=1 crossing is numerical. No cross-model or independent validation has been performed.
+All exact statements concern the quasi-static DMFT critical equations rather than the full finite-size learning process. The non-asymptotic q=1 crossing is numerical. No independent audit has been performed.

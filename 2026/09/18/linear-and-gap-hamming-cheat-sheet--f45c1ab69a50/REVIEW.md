@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -36,4 +36,4 @@ The change removes an entire factor of \(m\) from the certificate-driving circui
 
 The result does not establish optimality of the exponent, a matching rectangle lower bound, or a stronger randomized upper bound. It applies to the Wang--Wu construction and proof template. The finite verification artifact is a sanity check rather than a formal proof.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

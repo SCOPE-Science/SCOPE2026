@@ -25,6 +25,6 @@ The most plausible prior source capable of overturning originality is Pachter--S
 - The full text of Pachter--Sturmfels (2005), Section 3.5, was not inspected and is the principal residual originality risk.
 - The theorem concerns connected complete multipartite graph metrics; it does not classify general graphs of a given phylogenetic rank.
 - The finite verifier checks the explicit construction and lower-bound certificates only through order 10; the theorem itself is proved without computational assumptions.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

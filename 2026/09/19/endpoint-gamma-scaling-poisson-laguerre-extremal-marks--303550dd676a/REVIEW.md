@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -27,4 +27,4 @@ The two source-example constant corrections are elementary consequences of the s
 - No quantitative convergence rate is claimed.
 - The result inherits the geometric model and Poisson-approximation framework of arXiv:2609.20750v1.
 - The complete Lautensack–Zuyev (2008) text was not inspected; only its abstract and descriptions in later sources were checked.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

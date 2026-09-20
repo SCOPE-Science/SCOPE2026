@@ -36,4 +36,4 @@ The result turns the boundary-stress device from a minimizer-selection tool into
 
 The result treats only trace-free, volume-form-preserving metric directions. It is first-order only and does not establish Fréchet differentiability, a Hessian, or rates of convergence for perturbed minimizers. The generic differentiability corollary is inherited from Niu's generic uniqueness theorem and is not a separate genericity theorem.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -30,4 +30,4 @@ The result advances the best current uniform redundancy threshold for the genera
 
 ## Limitations
 
-The theorem stops at redundancy fifteen. The same reduction at redundancy sixteen leaves several parameter families, and the present line-cap estimate does not by itself eliminate them. No optimality is claimed for the intermediate dimension cap \(k\le62\). Cross-model review and independent validation have not been performed.
+The theorem stops at redundancy fifteen. The same reduction at redundancy sixteen leaves several parameter families, and the present line-cap estimate does not by itself eliminate them. No optimality is claimed for the intermediate dimension cap \(k\le62\). Independent audit and independent validation have not been performed.

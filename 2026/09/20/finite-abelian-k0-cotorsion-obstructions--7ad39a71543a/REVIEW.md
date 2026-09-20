@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -26,4 +26,4 @@ The main residual originality risk is conceptual simplicity: once the recent par
 
 ## Limitations
 
-The result is an abstract structural extension of a very recent construction, not a new solution of the original completeness question, which the source already answered negatively under the same broad categorical hypotheses. No exhaustive bibliographic search can rule out an equivalent finite-$K_0$ formulation hidden in older exact-category literature. No independent, cross-model, formal, or peer-reviewed validation is claimed.
+The result is an abstract structural extension of a very recent construction, not a new solution of the original completeness question, which the source already answered negatively under the same broad categorical hypotheses. No exhaustive bibliographic search can rule out an equivalent finite-$K_0$ formulation hidden in older exact-category literature. No independent, formal, or peer-reviewed validation is claimed.

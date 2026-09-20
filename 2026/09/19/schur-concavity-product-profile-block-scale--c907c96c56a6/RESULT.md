@@ -1,6 +1,6 @@
 # Schur concavity and the exact block-count envelope for the product-profile scale
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Result
 

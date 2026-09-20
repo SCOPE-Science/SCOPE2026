@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ A residual risk remains that the levelwise equality argument may appear in older
 
 ## Limitations
 
-The theorem concerns exact extremizers only and does not provide a stability theorem for near-equality. It does not enumerate all NOC systems. The network enumeration applies to strong-phylogenetic normal networks and phylogenetic separated normal networks via the published bijections; arbitrary non-regular realizations of the same cluster system are not counted. Older literature under substantially different set-system terminology and very recent unindexed work remain residual originality risks. Finite computation is supporting evidence only. No independent validation or cross-model review has been performed.
+The theorem concerns exact extremizers only and does not provide a stability theorem for near-equality. It does not enumerate all NOC systems. The network enumeration applies to strong-phylogenetic normal networks and phylogenetic separated normal networks via the published bijections; arbitrary non-regular realizations of the same cluster system are not counted. Older literature under substantially different set-system terminology and very recent unindexed work remain residual originality risks. Finite computation is supporting evidence only. No independent validation or independent audit has been performed.

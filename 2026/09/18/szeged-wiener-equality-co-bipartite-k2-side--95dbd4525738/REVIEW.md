@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -54,4 +54,4 @@ The result gives both an exact invariant formula on a natural infinite dense gra
 - The theorem assumes a co-bipartition with one clique of size two.
 - The finite computation is supporting evidence only; correctness rests on the general counting proof.
 - Originality is to the best of our knowledge.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

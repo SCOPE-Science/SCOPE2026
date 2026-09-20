@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -39,4 +39,4 @@ The result directly sharpens a consequence of the newly proved strong GPI: the d
 
 ## Limitations
 
-The determinant formula is specialized to centered Gaussian magnitudes, although arbitrary marginal scales reduce to the correlation-matrix case. The local expansions hold for fixed dimension near independence and no dimension-uniform remainder is asserted. The local GPI estimate is not a global quantitative strengthening of the strong GPI. Full texts of Kamat (1953) and the published Behaviormetrika version of Ogasawara's series paper were not inspected, so the review deliberately makes no novelty claim for general absolute-moment series. Cross-model review has not been performed.
+The determinant formula is specialized to centered Gaussian magnitudes, although arbitrary marginal scales reduce to the correlation-matrix case. The local expansions hold for fixed dimension near independence and no dimension-uniform remainder is asserted. The local GPI estimate is not a global quantitative strengthening of the strong GPI. Full texts of Kamat (1953) and the published Behaviormetrika version of Ogasawara's series paper were not inspected, so the review deliberately makes no novelty claim for general absolute-moment series. Independent audit has not been performed.

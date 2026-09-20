@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -38,4 +38,4 @@ The result strengthens an existence-oriented decoding theorem into a quantitativ
 
 ## Limitations
 
-The constants are not optimized, and no exact norm-by-norm multiplicity formula is obtained. The statement is specific to the two Gashkov--Sidel'nikov families treated in the motivating paper and their branch structure. It does not prove complete regularity. The two older decoding sources described above were not inspected at theorem level. No independent or cross-model validation has been performed.
+The constants are not optimized, and no exact norm-by-norm multiplicity formula is obtained. The statement is specific to the two Gashkov--Sidel'nikov families treated in the motivating paper and their branch structure. It does not prove complete regularity. The two older decoding sources described above were not inspected at theorem level. No independent audit has been performed.

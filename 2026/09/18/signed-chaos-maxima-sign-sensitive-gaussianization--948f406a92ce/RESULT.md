@@ -1,6 +1,6 @@
 # Sharp sign-sensitive Gaussianization thresholds for equal-spectrum second-chaos maxima
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Result
 

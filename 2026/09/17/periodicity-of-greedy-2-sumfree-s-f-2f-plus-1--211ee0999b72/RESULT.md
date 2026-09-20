@@ -148,7 +148,7 @@ The proof is general and does not depend on computation. The accompanying standa
 
 Originality is asserted only to the best of our knowledge. The source conjecture is very recent, so indexing of simultaneous or immediately subsequent work may be incomplete. Searches for the exact family \(S_{f,2f+1}\), the equivalent condition \(g=2f+1\), the displayed block formulas, and follow-up work located no proof of this infinite family. The theorem settles one parameter line, not the general periodicity conjecture.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## References
 

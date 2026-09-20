@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -37,4 +37,4 @@ The tensor inequality in the motivating work is analytically stronger than its h
 
 ## Limitations
 
-The result inherits strict horo-convexity and the small-diameter hypothesis from Zhang--Zhou. It gives no dimension-only lower gap beyond principal curvature \(1\), no converse, and no removal of the diameter restriction. The two-dimensional unique-maximum statement is prior work. Cross-model review has not been performed.
+The result inherits strict horo-convexity and the small-diameter hypothesis from Zhang--Zhou. It gives no dimension-only lower gap beyond principal curvature \(1\), no converse, and no removal of the diameter restriction. The two-dimensional unique-maximum statement is prior work. Independent audit has not been performed.

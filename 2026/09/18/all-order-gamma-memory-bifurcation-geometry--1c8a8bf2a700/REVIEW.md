@@ -51,4 +51,4 @@ The result also separates first instability from secondary spectral restructurin
 
 The record does not claim global stability, nonlinear branch direction, exclusion of simultaneous modal resonances, or a Hopf theorem without the standard nonlinear nondegeneracy conditions. It does not cover noninteger Gamma shape parameters. The fixed-delay result is spectral rather than a nonlinear PDE convergence theorem.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

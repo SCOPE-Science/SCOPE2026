@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The full text of Smith (1985) was not directly inspected; its abstract and later
 
 ## Limitations
 
-The power-log statements are local and no remainder uniform in kappa is established. The phase-profile theorem for kappa>1 does not claim nonconstancy for every member of the compact-support family; nonconstancy is proved exactly for Laplace. The phase-averaging identity is structural only and is not presented as a new estimator. Cross-model review has not been performed.
+The power-log statements are local and no remainder uniform in kappa is established. The phase-profile theorem for kappa>1 does not claim nonconstancy for every member of the compact-support family; nonconstancy is proved exactly for Laplace. The phase-averaging identity is structural only and is not presented as a new estimator. Independent audit has not been performed.

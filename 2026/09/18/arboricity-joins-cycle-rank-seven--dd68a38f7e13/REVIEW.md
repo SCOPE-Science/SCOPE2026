@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -66,4 +66,4 @@ The result converts newly established general join bounds into an exact formula 
 - The quadratic threshold for each fixed \(K\ge4\) is not claimed optimal.
 - No claim is made that the full vertex set maximizes fractional arboricity.
 - Originality remains to the best of our knowledge, with residual risk from very recent or unindexed parallel work.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

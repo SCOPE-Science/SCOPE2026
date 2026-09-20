@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -26,4 +26,4 @@ PASS. The motivating preprint establishes existence by extracting two distinct m
 
 ## Limitations
 
-The theorem concerns only Segal's explicit planar family and does not classify all solutions of K^circ = K - s. The higher-dimensional bodies of revolution are not given a corresponding volume-moduli classification. No perturbative stability or rigidity theorem outside the family is proved. The polar area product statement is based at the prescribed origin and is not a claim about the Santaló-minimized Mahler product. The motivating preprint is recent, so residual originality risk remains. Cross-model review has not been performed.
+The theorem concerns only Segal's explicit planar family and does not classify all solutions of K^circ = K - s. The higher-dimensional bodies of revolution are not given a corresponding volume-moduli classification. No perturbative stability or rigidity theorem outside the family is proved. The polar area product statement is based at the prescribed origin and is not a claim about the Santaló-minimized Mahler product. The motivating preprint is recent, so residual originality risk remains. Independent audit has not been performed.

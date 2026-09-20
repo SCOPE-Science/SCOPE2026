@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -63,4 +63,4 @@ The theorem also separates two quotient regimes that can otherwise look similar:
 
 The descended central tracial projection need not be faithful. No optimal value of Wang's universal constant is obtained. The generic \(2K\) quotient estimate may not be optimal. Properly infinite von Neumann algebras are outside the statement. The reduced-product sharp-\(K\) assertion is proved only for the norm reduced products described in the result. Very recent or poorly indexed follow-up work may not yet be discoverable.
 
-Cross-model review has not been performed.
+Independent audit has not been performed.

@@ -1,6 +1,6 @@
 # Independent domination stabilizes on iterated central graphs
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 Let \(G\) be a finite connected simple graph of order \(n\ge 3\) and size \(m\). Write
 \[
@@ -164,4 +164,4 @@ searches for independent domination of iterated central graphs, \(C^3(G)\), and
 higher central iterates did not locate an equivalent result. The primary 2026
 source was inspected through its complete HTML version, including its final
 Theorem 2.12. Very recent or unindexed parallel work remains a residual risk.
-No independent validation or cross-model review is asserted.
+No independent validation or independent audit is asserted.

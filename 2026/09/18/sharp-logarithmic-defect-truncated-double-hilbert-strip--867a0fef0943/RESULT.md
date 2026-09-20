@@ -361,4 +361,4 @@ Evgeny Abakumov, Komla Domelevo, Stefanie Petermichl, and Alexei Poltoratski,
 *Invariant sets of the double Hilbert transform*, arXiv:2609.15155v1 (2026).
 https://arxiv.org/abs/2609.15155v1
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

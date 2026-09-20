@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The complete Diaconis--Perlman (1990) and Bock et al. (1987) texts were not dire
 - Local expansions in the weight parameter; no new global quantile crossing theorem is asserted.
 - No uniform remainder estimates over \(q\), \(r\), or the distribution-family parameters.
 - The complete Diaconis--Perlman (1990) and Bock et al. (1987) texts were not directly inspected.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

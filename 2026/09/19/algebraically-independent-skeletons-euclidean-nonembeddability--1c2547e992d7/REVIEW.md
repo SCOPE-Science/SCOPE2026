@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -22,4 +22,4 @@ PASS. The result isolates exactly what survives from full algebraic independence
 
 ## Limitations
 
-The result controls only a chosen countable skeleton, not all pairwise distances on a positive-dimensional space. All Euclidean conclusions concern exact isometric embedding, not approximate or coarse embedding. Rigidity-matroid independence is necessary but not sufficient for realizability. No quantitative probability, perturbation radius, or distortion estimate is provided. The recent source and the generality of the older interpolation framework leave residual originality risk. Cross-model review has not been performed.
+The result controls only a chosen countable skeleton, not all pairwise distances on a positive-dimensional space. All Euclidean conclusions concern exact isometric embedding, not approximate or coarse embedding. Rigidity-matroid independence is necessary but not sufficient for realizability. No quantitative probability, perturbation radius, or distortion estimate is provided. The recent source and the generality of the older interpolation framework leave residual originality risk. Independent audit has not been performed.

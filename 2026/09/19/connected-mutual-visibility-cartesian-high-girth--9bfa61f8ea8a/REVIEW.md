@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -34,4 +34,4 @@ Value status: PASS.
 
 ## Limitations
 
-The theorem assumes both factors have girth at least five and does not classify mixed or low-girth factors. It applies to exactly two Cartesian factors; higher products can have larger connected mutual-visibility sets. The verifier covers finite small instances only. Because the invariant was introduced extremely recently, parallel unindexed work is a non-negligible originality risk. Cross-model review and independent validation have not been performed.
+The theorem assumes both factors have girth at least five and does not classify mixed or low-girth factors. It applies to exactly two Cartesian factors; higher products can have larger connected mutual-visibility sets. The verifier covers finite small instances only. Because the invariant was introduced extremely recently, parallel unindexed work is a non-negligible originality risk. Independent audit and independent validation have not been performed.

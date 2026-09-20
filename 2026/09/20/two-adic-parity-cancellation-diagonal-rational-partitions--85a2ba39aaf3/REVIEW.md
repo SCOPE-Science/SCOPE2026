@@ -1,6 +1,6 @@
 # Scientific review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -18,4 +18,4 @@ PASS. The result turns a cancellation question involving an L_N-character Fourie
 
 ## Limitations
 
-No classification of all N is claimed, no infinite cancellation family is proved, and roots of unity other than -1 are not classified. The exact value of s_N is proved here only for N=8 among the new census entries. The census stops at N=100. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+No classification of all N is claimed, no infinite cancellation family is proved, and roots of unity other than -1 are not classified. The exact value of s_N is proved here only for N=8 among the new census entries. The census stops at N=100. No independent validation, independent audit, or formal proof-assistant verification is asserted.

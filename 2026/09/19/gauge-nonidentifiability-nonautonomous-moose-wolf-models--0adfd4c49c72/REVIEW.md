@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -64,4 +64,4 @@ The result does not assess practical forecast accuracy, ecological model adequac
 - Xue, Miao, and Wu (2010), accessible full text on estimation and identifiability for ODE models with constant and time-varying coefficients.
 - Current SCOPE repository records and recent changes for overlap by source identifier and equivalent terminology.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

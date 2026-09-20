@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -85,5 +85,4 @@ The proof does not establish exact optimality of fixed-rank shells for
 \(r\ge2\). The numerical size of the improvement over \(1/q\) vanishes
 exponentially with \(n\), so this is primarily an exact finite-length structural
 result. The uniform-input and input-independent-mask assumptions are unchanged
-from the converse theorem being saturated. No independent or cross-model
-validation has been performed.
+from the converse theorem being saturated. No independent audit has been performed.

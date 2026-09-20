@@ -1,6 +1,6 @@
 # Critical power-log boundary and dyadic phase transition in location moduli
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Result
 
@@ -289,7 +289,7 @@ The full text of Smith (1985) was not available for direct inspection; its abstr
 
 ## Limitations
 
-The power-log theorem is local as the shift tends to zero and concerns the critical \(\alpha=1\) family. No uniform remainder in \(\kappa\) is proved. The finite-Fisher phase-profile formula does not assert that the profile is nonconstant for every \(f_\kappa\); exact nonconstancy is established separately for Laplace. The phase-averaged identity is not accompanied by an estimator or an optimality theorem. Cross-model review has not been performed.
+The power-log theorem is local as the shift tends to zero and concerns the critical \(\alpha=1\) family. No uniform remainder in \(\kappa\) is proved. The finite-Fisher phase-profile formula does not assert that the profile is nonconstant for every \(f_\kappa\); exact nonconstancy is established separately for Laplace. The phase-averaged identity is not accompanied by an estimator or an optimality theorem. Independent audit has not been performed.
 
 ## References
 

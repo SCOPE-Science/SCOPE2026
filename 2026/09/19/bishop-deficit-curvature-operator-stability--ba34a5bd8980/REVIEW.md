@@ -66,6 +66,6 @@ The trace-norm coefficient is optimal to first order. More strongly, in even dim
 - The odd-dimensional hierarchy is an inequality because the expander filling contributes a nonnegative interior Euler term.
 - The main input theorem is extremely recent, so later revisions or unindexed parallel observations remain a genuine originality risk.
 - This is a structural consequence of Ge--Li--Li rather than an independent proof of their total scalar-curvature estimate.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

@@ -55,4 +55,4 @@ The exact structure and dimension of the exceptional phase set also give a geome
 
 The phase condition is only necessary. The zero-phase fiber may contain mostly asymmetric tilings, and this work does not classify its stabilizers or decide whether the order-24 bound is attained. The Hausdorff dimension refers to phase space rather than the tiling hull. Topological genericity is asserted only for the primitive substitution hull, not for the entire matching-rule space. The motivating source is exceptionally recent, so unindexed parallel work remains possible.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

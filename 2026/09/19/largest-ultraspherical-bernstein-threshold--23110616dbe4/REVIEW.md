@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -89,4 +89,4 @@ The statement is restricted to square-root scales with constant shift \(d\). It 
 not classify arbitrary scale functions, finite-order sign patterns outside the
 complete-monotone regime, or analogous Jacobi families with unequal parameters.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

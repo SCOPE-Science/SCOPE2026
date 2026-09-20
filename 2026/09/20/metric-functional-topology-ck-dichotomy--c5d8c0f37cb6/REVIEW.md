@@ -36,4 +36,4 @@ The result places the newly introduced topology precisely relative to familiar B
 
 The algebraic-span condition on extreme dual functionals is sufficient, not claimed necessary, so the equality problem for general infinite-dimensional normed spaces remains open. The C(K) theorem is qualitative and gives no quantitative modulus. Its proof is closely related to the recent C[0,1] construction, which increases the chance of parallel or subsequent rediscovery.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

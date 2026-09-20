@@ -53,4 +53,4 @@ The extension changes the scope of the new negative answer: every finite exponen
 
 The result is therefore a substantive strengthening rather than a parameter substitution: the proof requires a new Gaussian interpolation step and a \(q\)-dependent summing estimate whose dimension comparison is uniform in \(q\).
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

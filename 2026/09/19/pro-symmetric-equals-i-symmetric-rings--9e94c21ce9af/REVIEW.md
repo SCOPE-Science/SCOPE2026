@@ -28,4 +28,4 @@ Targeted searches for the exact unrestricted criterion, synonymous formulations 
 
 The result gives a simple structural test for a triple-product idempotent condition and shows that an apparently involution-dependent class is actually an established ring-theoretic class independent of the involution. It also immediately yields clean-ring and division-ring classifications while retaining noncommutative examples outside the clean setting.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

@@ -122,4 +122,4 @@ a residual originality risk.
    some related questions*, in *Infinite and Finite Sets*, Colloquia
    Mathematica Societatis János Bolyai 10, 1975, 609--627.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

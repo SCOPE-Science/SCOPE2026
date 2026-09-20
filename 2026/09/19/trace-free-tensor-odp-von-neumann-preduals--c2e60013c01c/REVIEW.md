@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -40,4 +40,4 @@ The theorem removes the structural semifiniteness restriction from a result post
 
 ## Limitations
 
-The theorem is complex; no real version is claimed. It is special to von Neumann preduals and does not establish arbitrary-Y ODP permanence for general Banach spaces with ODP. It does not address completely bounded/operator-space tensor norms. No independent or cross-model validation has been performed.
+The theorem is complex; no real version is claimed. It is special to von Neumann preduals and does not establish arbitrary-Y ODP permanence for general Banach spaces with ODP. It does not address completely bounded/operator-space tensor norms. No independent audit has been performed.

@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ The main residual risk is very recent unindexed work on KLX, since the parameter
 
 ## Limitations
 
-The theorem covers complete graphs and complete bipartite graphs, not general complete multipartite graphs. It does not classify every KLX-minimizing ordered DFS tree; it supplies and proves optimality of a canonical larger-part-rooted tree. No stability statement is given for nearly complete graphs or bicliques with deleted edges. Very recent unindexed KLX work and older literature under substantially different terminology remain residual originality risks. Finite computation is supporting evidence only. No independent validation or cross-model review has been performed.
+The theorem covers complete graphs and complete bipartite graphs, not general complete multipartite graphs. It does not classify every KLX-minimizing ordered DFS tree; it supplies and proves optimality of a canonical larger-part-rooted tree. No stability statement is given for nearly complete graphs or bicliques with deleted edges. Very recent unindexed KLX work and older literature under substantially different terminology remain residual originality risks. Finite computation is supporting evidence only. No independent validation or independent audit has been performed.

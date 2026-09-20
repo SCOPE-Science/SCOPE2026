@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -86,4 +86,4 @@ parameter on every central iterate from the third onward. The exact identity
 - The proof relies on the published same-setting formula for \(i(C^2(H))\).
 - The computation is supporting evidence, not a substitute for the proof.
 - Very recent or unindexed parallel work may exist.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

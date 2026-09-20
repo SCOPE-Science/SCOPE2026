@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -60,5 +60,5 @@ polynomial-time construction.
 
 The threshold \(m\ge12\) is sufficient rather than optimized, and the finite
 range \(m<12\) is not classified here.  No exact result for \(K_{r,m}\) with
-\(r\ge3\) is claimed.  Cross-model or independent validation has not been
+\(r\ge3\) is claimed.  independent audit has not been
 performed.

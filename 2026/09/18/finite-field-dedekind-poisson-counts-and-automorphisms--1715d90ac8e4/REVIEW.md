@@ -94,4 +94,4 @@ and \(N_q(n)=4\) for even \(q\) and \(n\ge3\) are concise global consequences no
 - The source papers are recent preprints and may be revised.
 - Originality is to the best of our knowledge; no independent validation is asserted.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

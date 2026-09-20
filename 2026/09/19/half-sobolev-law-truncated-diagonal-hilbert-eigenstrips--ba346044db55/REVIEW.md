@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -75,5 +75,5 @@ bounded open sets. The result does not classify all near-invariant indicators, d
 quantitative stability question in arXiv:2609.15155, and does not cover the bent-strip or positive-density
 constructions from that paper.
 
-No independent validation, cross-model review, formal proof-assistant verification, or external expert
+No independent validation, independent audit, formal proof-assistant verification, or external expert
 review is asserted.

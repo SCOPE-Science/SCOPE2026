@@ -31,6 +31,6 @@ The accessible 2019 Caro–Lauri–Zarb paper was also inspected in the relevant
 - The supplementary material associated with arXiv:2609.19762v1 was not inspected; it is the principal residual originality risk for the residue constructions.
 - The orders \(5\le n\le13\) are settled by exhaustive computation over polygon triangulations, with a standalone verifier, rather than by a separate hand classification.
 - The result concerns only spread parameter \(k=2\) for maximal outerplanar graphs; it does not address other graph classes or other spread widths.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

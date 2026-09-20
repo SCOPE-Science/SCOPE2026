@@ -1,6 +1,6 @@
 # Scientific review
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 
@@ -23,4 +23,4 @@ The main residual risk is that equivalent endpoint regularity of the auxiliary r
 - This is a local endpoint result, not a new global attainable-region theorem.
 - The fourth-order phase is stated in the source parameter \(\theta\), not solely as an elementary function of \(g\).
 - The proof depends on the correctness of the exact parametrization in arXiv:2609.19890v1.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

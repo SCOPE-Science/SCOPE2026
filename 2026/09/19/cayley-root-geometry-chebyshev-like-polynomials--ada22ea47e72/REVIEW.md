@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -55,4 +55,4 @@ The companion discriminant is also a direct substantive extension of the motivat
 
 ## Limitations
 
-The Apollonius inclusions are not asserted sharp. The limiting Cauchy statement is weak convergence, not a sharp direct discrepancy theorem on the unbounded imaginary axis. No irreducibility theorem is strengthened. The finding concerns only the two polynomial sequences in the cited source. No independent validation, formal proof-assistant verification, or cross-model review is claimed.
+The Apollonius inclusions are not asserted sharp. The limiting Cauchy statement is weak convergence, not a sharp direct discrepancy theorem on the unbounded imaginary axis. No irreducibility theorem is strengthened. The finding concerns only the two polynomial sequences in the cited source. No independent validation, formal proof-assistant verification, or independent audit is claimed.

@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -34,4 +34,4 @@ The lazy asymptotics show a qualitative phenomenon not visible from the general 
 
 ## Limitations
 
-The formulas are specific to complete bipartite graphs and the uniform standard/lazy models. They do not resolve the stronger stochastic-domination form of the BHM conjecture. The 2000 and 2003 classical articles were not both completely inspected in full text, so older unindexed coverage remains a concrete originality risk. Finite computation does not replace the proof. Cross-model review has not been performed.
+The formulas are specific to complete bipartite graphs and the uniform standard/lazy models. They do not resolve the stronger stochastic-domination form of the BHM conjecture. The 2000 and 2003 classical articles were not both completely inspected in full text, so older unindexed coverage remains a concrete originality risk. Finite computation does not replace the proof. Independent audit has not been performed.

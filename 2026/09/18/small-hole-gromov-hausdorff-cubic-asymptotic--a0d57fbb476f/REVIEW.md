@@ -67,4 +67,4 @@ and explains geometrically why the Euclidean obstruction is universal at first o
 
 The lower argument presently uses a global theorem for closed manifolds. No cubic coefficient is identified, and no optimality claim is made for the \(O(r^3)\) remainder. The statement is for the restricted ambient metric on the deleted-ball complement, not its intrinsic length metric.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

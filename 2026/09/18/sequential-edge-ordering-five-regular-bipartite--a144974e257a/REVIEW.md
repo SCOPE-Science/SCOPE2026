@@ -56,4 +56,4 @@ family.
   leaving a stated originality risk.
 - No independent validation has been performed.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

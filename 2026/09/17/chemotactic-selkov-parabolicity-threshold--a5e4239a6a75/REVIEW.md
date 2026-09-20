@@ -125,4 +125,4 @@ elliptic region, and does not settle the exact degenerate boundary \(Q=0\).
 It does not invalidate finite-wave-number Turing results obtained while
 \(Q>0\).
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

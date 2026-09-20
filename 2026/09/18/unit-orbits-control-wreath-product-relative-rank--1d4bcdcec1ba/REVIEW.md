@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -56,4 +56,4 @@ The result is directly reusable in semigroup generation problems where the top m
 
 ## Limitations
 
-Originality is qualified to the best of our knowledge. No independent or cross-model review has been performed. The source paper is a recent v1 and may be revised independently. The older 2009 partition paper was not fully text-searched, so differently phrased prior coverage cannot be excluded.
+Originality is qualified to the best of our knowledge. No independent or independent audit has been performed. The source paper is a recent v1 and may be revised independently. The older 2009 partition paper was not fully text-searched, so differently phrased prior coverage cannot be excluded.

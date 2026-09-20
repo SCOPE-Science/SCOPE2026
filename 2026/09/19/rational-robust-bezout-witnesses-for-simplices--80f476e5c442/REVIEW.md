@@ -30,4 +30,4 @@ This gives a useful bridge from a universal geometric characterization to discre
 
 The result depends on the Langharst--Wang simplex characterization and does not replace its geometric proof. No quantitative lower bound is obtained for the measure of the witness set, the violation margin, or the Hausdorff radius of stability. The intersection-continuity argument is restricted to interior difference-body shifts; boundary shifts can undergo dimension loss. The motivating theorem is very recent, so later revisions or unindexed parallel observations remain a real originality risk.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

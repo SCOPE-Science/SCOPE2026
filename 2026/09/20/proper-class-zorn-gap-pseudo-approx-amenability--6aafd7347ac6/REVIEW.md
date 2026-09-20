@@ -2,7 +2,7 @@
 
 ## Verdict
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 The finding is accepted as a proof-audit result. The Zorn step in arXiv:2609.17428v1 is not valid for the unrestricted counterexample collection used there, because the paper's own c0-sum and cardinal-enlargement construction makes that collection proper-class-sized whenever it is nonempty.
 

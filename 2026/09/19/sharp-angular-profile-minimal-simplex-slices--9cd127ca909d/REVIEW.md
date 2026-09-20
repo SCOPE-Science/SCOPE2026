@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -33,4 +33,4 @@ The novelty claim is therefore deliberately limited to the exact chamber-wise fi
 - It does not provide a new proof of the global minimum theorem.
 - Rodin's fixed-variance AM--GM extremizer is a prior ingredient.
 - The full text of the very recent Ambrus--Gárgyán preprint was not inspected, leaving a concrete originality risk from an equivalent statement in that source or a later revision.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

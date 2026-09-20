@@ -1,6 +1,6 @@
 # Review: Semifinite-gap Floquet selection in the trigonometric Nosé–Hoover orbit
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The closest older literature is the rounding-discrepancy and goodness-of-fit wor
 
 ## Limitations
 
-The result assumes fixed dimension and rationally independent probabilities. It is a Cesàro theorem in \(N\), not a pointwise asymptotic for the oscillating coefficients, and no convergence rate is proved. Multiplicative Bell-polynomial coefficients have limits through the joint law but are not claimed to share the universal closed form of individual log coefficients. Cross-model review has not been performed.
+The result assumes fixed dimension and rationally independent probabilities. It is a Cesàro theorem in \(N\), not a pointwise asymptotic for the oscillating coefficients, and no convergence rate is proved. Multiplicative Bell-polynomial coefficients have limits through the joint law but are not claimed to share the universal closed form of individual log coefficients. Independent audit has not been performed.

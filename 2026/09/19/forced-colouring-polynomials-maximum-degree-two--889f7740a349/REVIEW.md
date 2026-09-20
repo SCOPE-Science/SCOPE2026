@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ The result gives a complete tractable boundary class for an invariant whose fixe
 
 ## Limitations
 
-The theorem does not address maximum degree at least three. The originality search cannot exclude unindexed work or additions made only in the final 2025 Springer chapter. Cross-model review has not been performed.
+The theorem does not address maximum degree at least three. The originality search cannot exclude unindexed work or additions made only in the final 2025 Springer chapter. Independent audit has not been performed.

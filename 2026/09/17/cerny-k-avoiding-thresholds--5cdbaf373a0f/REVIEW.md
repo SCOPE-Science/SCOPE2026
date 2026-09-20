@@ -1,6 +1,6 @@
 # Review — Exact k-avoiding thresholds of the Černý automata
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -66,5 +66,5 @@ and makes clear why ordinary reaching bounds alone are insufficient.
 The result concerns the standard Černý automata, not arbitrary synchronizing or
 completely reachable automata.  It does not prove the general O(kn) conjecture.
 The exhaustive computation is finite-case corroboration only; correctness for
-all n,k rests on the proof.  No independent validation or cross-model review is
+all n,k rests on the proof.  No independent validation or independent audit is
 asserted.

@@ -48,4 +48,4 @@ Zenkin's 1995 *The generalized Waring problem: A new property of positive intege
 
 ## Review status
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

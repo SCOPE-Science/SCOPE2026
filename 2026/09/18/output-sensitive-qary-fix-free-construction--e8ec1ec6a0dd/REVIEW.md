@@ -1,6 +1,6 @@
 # Review: output-sensitive q-ary fix-free construction
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -62,4 +62,4 @@ The result does not change the existence theorem, Kraft threshold, or number of 
 - review_type: `same_model_review`
 - independent: `false`
 - same_model_review_status: `passed`
-- cross_model_review_status: `not_performed`
+- independent_audit_status: `not_performed`

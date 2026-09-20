@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -43,4 +43,4 @@ The main residual risk is that the finite-corner construction may be implicit in
 
 ## Limitations
 
-The finite-matrix statements are presented for the complex Hermitian normalization. The proposed estimator is not claimed to be statistically optimal for the full corner-spectrum experiment. The CLT uses the source model's all-moments hypothesis. The field singularity requires refining radial observation; fixed finite grids with positive variances remain equivalent. The circle modes are generalized-field linear functionals, not pointwise field values. Cross-model review has not been performed.
+The finite-matrix statements are presented for the complex Hermitian normalization. The proposed estimator is not claimed to be statistically optimal for the full corner-spectrum experiment. The CLT uses the source model's all-moments hypothesis. The field singularity requires refining radial observation; fixed finite grids with positive variances remain equivalent. The circle modes are generalized-field linear functionals, not pointwise field values. Independent audit has not been performed.

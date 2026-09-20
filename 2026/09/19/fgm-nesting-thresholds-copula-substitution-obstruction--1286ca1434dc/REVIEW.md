@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -36,4 +36,4 @@ Searches by FGM nesting terminology, the exact threshold values, product-inner s
 - No complete criterion is given for arbitrary outer or inner copulas.
 - The entropy discrepancy is established locally around independence rather than in closed form on the entire admissible interval.
 - Older hierarchical and nested-copula literature is extensive; an equivalent special case under different terminology remains a residual originality risk.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

@@ -112,7 +112,7 @@ The low-degree criterion underlying Theorem 1.3(b),(d) is traced in Bao to Bremn
 
 The correction is derived from Bao's Theorem 1.3 as stated and from its low-degree criteria; it is not an independent reproof of the full rank formula. The source preprint is very recent and may subsequently be revised. Originality is therefore asserted only to the best of our knowledge. Searches for the arXiv identifier, Example 6.3, its parameter family, and equivalent rank-two/rank-three formulations found no prior correction or follow-up. Bremner's original article was identified bibliographically, but its full text was not independently inspected; Bao reproduces the relevant criterion and proof in Proposition 3.6, which substantially reduces the resulting correctness risk.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## References
 

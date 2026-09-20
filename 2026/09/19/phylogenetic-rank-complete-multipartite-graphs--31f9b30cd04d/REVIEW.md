@@ -1,6 +1,6 @@
 # Same-model scientific review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -48,4 +48,4 @@ The proof is short, structural, and reusable: distance-\(2\) pairs generate a pa
 - Several special cases are prior work and are not claimed as new.
 - Full inspection of Pachter--Sturmfels (2005), Section 3.5 was not available; this is the main residual originality risk.
 - Finite verification supports but does not replace the symbolic proof.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

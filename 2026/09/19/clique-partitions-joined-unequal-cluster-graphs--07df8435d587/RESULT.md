@@ -127,7 +127,7 @@ The 1988 Erdős--Faudree--Ordman paper supplies the crossing-edge inequality use
 
 ## Limitations
 
-The sufficient threshold `h>=chi'(K_s)` is not claimed to be optimal; the same formula may hold for additional smaller values of `h`.  The theorem keeps the same number `h` of clusters on the two sides.  The case `r=1` is already covered by older work and is not part of the originality claim.  Originality is asserted only to the best of our knowledge: older clique-partition literature is broad and uses several equivalent set-representation and covering formulations, so an equivalent construction under different terminology remains a residual risk.  Cross-model review has not been performed.
+The sufficient threshold `h>=chi'(K_s)` is not claimed to be optimal; the same formula may hold for additional smaller values of `h`.  The theorem keeps the same number `h` of clusters on the two sides.  The case `r=1` is already covered by older work and is not part of the originality claim.  Originality is asserted only to the best of our knowledge: older clique-partition literature is broad and uses several equivalent set-representation and covering formulations, so an equivalent construction under different terminology remains a residual risk.  Independent audit has not been performed.
 
 ## References
 

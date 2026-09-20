@@ -174,7 +174,7 @@ reachability remains the most plausible residual coverage risk, because an
 equivalent total-extension statement could have been recorded without the
 later `k-avoiding` terminology.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## References
 

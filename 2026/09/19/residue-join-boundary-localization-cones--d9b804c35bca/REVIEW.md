@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -66,4 +66,4 @@ The result concerns this specific localization-cone construction, not arbitrary 
 
 The literature search cannot exclude an older equivalent formulation, especially in valuation-theoretic or lattice-ordered-field terminology.
 
-No independent validation or cross-model review is claimed.
+No independent validation or independent audit is claimed.

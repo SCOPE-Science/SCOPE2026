@@ -35,4 +35,4 @@ A remaining historical risk is K. Voss, *Über geschlossene Weingartensche Fläc
 
 The theorem does not classify the \(p\ge5\) surfaces, does not address even exponents, and does not improve the \(C^3\) regularity threshold. Its novelty is a structural extension of a very recent cubic argument rather than a new construction of higher-power examples. Historical and very recent parallel coverage cannot be excluded completely.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

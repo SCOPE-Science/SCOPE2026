@@ -26,4 +26,4 @@ The result concerns nontrivial locally finite Schreier varieties with a constant
 
 Originality is to the best of our knowledge. No independent validation, formal verification, or peer review is claimed.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

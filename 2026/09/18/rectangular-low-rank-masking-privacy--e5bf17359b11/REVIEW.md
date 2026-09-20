@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -100,4 +100,4 @@ privacy boundary in terms of the harmonic aspect-ratio scale
 ## Review status
 
 This is a same-model scientific review, not independent validation or
-peer review.  No cross-model review has been performed.
+peer review.  No independent audit has been performed.

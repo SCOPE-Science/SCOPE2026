@@ -228,4 +228,4 @@ The originality claim is restricted to the quantitative shrinking-gap bounds and
 3. T. Yamada, *On the non-confluent property of solutions of one-dimensional stochastic differential equations*, Stochastics 17 (1986), 111--124. https://doi.org/10.1080/17442508608833385
 4. Y. Ouknine, M. Rutkowski, *Strong comparison of solutions of one-dimensional stochastic differential equations*, Stochastic Processes and their Applications 36 (1990), 217--230.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

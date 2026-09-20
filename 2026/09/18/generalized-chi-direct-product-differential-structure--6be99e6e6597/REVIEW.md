@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -38,4 +38,4 @@ The motivating paper presents the new degree-two maps as low-latency shift-invar
 
 ## Limitations
 
-The exact order claim is limited to the two explicitly conjugated families. The corollary for the broader classified family is limited to nondegenerate nonlinear cases and to invariants preserved by input/output coordinate shifts, such as differential uniformity and inverse algebraic degree. No claim is made about security once an external linear diffusion layer is interleaved. No cross-model or independent validation has been performed.
+The exact order claim is limited to the two explicitly conjugated families. The corollary for the broader classified family is limited to nondegenerate nonlinear cases and to invariants preserved by input/output coordinate shifts, such as differential uniformity and inverse algebraic degree. No claim is made about security once an external linear diffusion layer is interleaved. No independent audit has been performed.

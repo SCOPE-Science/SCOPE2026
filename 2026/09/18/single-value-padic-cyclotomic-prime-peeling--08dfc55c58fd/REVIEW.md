@@ -58,4 +58,4 @@ The binary sign step does not cover squarefree indices at \(x=2\); this is state
 
 The computational artifact supports but does not replace the proof. No formal proof-assistant verification or independent validation is asserted.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

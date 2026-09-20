@@ -1,6 +1,6 @@
 # Same-model scientific review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -56,4 +56,4 @@ For \(k=0\), the formula also gives the exact minimum repetition number of an \(
 - The lower bounds themselves are substantially contained in prior work; the new claim is all-order exact attainment and the resulting fixed-order formulas.
 - The finite verifier supports but does not replace the symbolic proof.
 - Differently phrased older degree-sequence results or very recent unindexed work could weaken the originality assessment.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

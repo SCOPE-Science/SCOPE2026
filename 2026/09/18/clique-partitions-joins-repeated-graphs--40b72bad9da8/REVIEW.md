@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -22,4 +22,4 @@ PASS. The result extracts a general exact mechanism from a construction that is 
 
 ## Limitations
 
-The chromatic-index threshold is only asserted to be sufficient, not necessary. The theorem determines cp for arbitrary H but determines cc only in the complete-cluster corollary. It does not by itself improve the asymptotic n^{4/3} order of the global spread deficit. Originality is to the best of our knowledge, and no independent or cross-model validation is claimed.
+The chromatic-index threshold is only asserted to be sufficient, not necessary. The theorem determines cp for arbitrary H but determines cc only in the complete-cluster corollary. It does not by itself improve the asymptotic n^{4/3} order of the global spread deficit. Originality is to the best of our knowledge, and no independent audit is claimed.
