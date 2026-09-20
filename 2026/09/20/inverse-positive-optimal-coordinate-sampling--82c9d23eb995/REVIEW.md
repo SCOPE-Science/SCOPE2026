@@ -48,7 +48,7 @@ formula.
 
 ## Value
 
-**PASS.** The result replaces a generic semidefinite probability optimization by one linear
+**PASS.** The result replaces a generic semidefinite optimization by one linear
 solve on a natural numerical-linear-algebra class that includes SPD Stieltjes
 matrices, supplies a uniqueness theorem rather than only a candidate distribution,
 and gives an explicit structured PDE example. The Poisson profile also quantifies
