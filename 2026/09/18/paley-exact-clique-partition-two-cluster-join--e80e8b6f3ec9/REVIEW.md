@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -30,4 +30,4 @@ The result fills a qualitatively different exact regime in the construction cent
 
 ## Scope limitations
 
-No exact value is claimed for k == 3 (mod 4), only strict nonattainment of the cut lower bound. No claim is made for non-prime-power k == 1 (mod 4), or for a complete characterization of all h,k attaining the cut bound. No independent validation or cross-model review is asserted.
+No exact value is claimed for k == 3 (mod 4), only strict nonattainment of the cut lower bound. No claim is made for non-prime-power k == 1 (mod 4), or for a complete characterization of all h,k attaining the cut bound. No independent validation or independent audit is asserted.

@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ Residual risk remains because the exact identity is elementary and may occur in 
 
 ## Limitations
 
-The result does not determine the optimal \((p-1)\)-dependence of the higher-order fractional Riesz norm, does not show that singletons are global extremizers, and does not independently re-audit the source paper outside the statements needed here. Originality is to the best of our knowledge. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+The result does not determine the optimal \((p-1)\)-dependence of the higher-order fractional Riesz norm, does not show that singletons are global extremizers, and does not independently re-audit the source paper outside the statements needed here. Originality is to the best of our knowledge. No independent validation, independent audit, or formal proof-assistant verification is asserted.

@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -34,4 +34,4 @@ Value status: PASS.
 
 ## Limitations
 
-The result does not classify joins of disconnected pseudoforests, cacti with several cycles, or graphs of larger cyclomatic number. The independent-set theorem has only one pseudotree factor. The complete 2010 1-balanced-construction article was not checked line-by-line. The verifier covers finite small instances only. Cross-model review and independent validation have not been performed.
+The result does not classify joins of disconnected pseudoforests, cacti with several cycles, or graphs of larger cyclomatic number. The independent-set theorem has only one pseudotree factor. The complete 2010 1-balanced-construction article was not checked line-by-line. The verifier covers finite small instances only. Independent audit and independent validation have not been performed.

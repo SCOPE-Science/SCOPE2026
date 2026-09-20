@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -40,4 +40,4 @@ The general leakage-stabilizer formulation is also reusable beyond one-symbol tr
 
 ## Limitations
 
-The theorem concerns identical leakage maps reused across computation blocks. It does not constrain attacks that choose independent leakage maps per block. Outside-stabilizer coefficients are necessary for computed blocks to add information but are not sufficient for successful secret recovery. Nonlinear computations and multiplication are not treated. The finding has no cross-model or independent validation.
+The theorem concerns identical leakage maps reused across computation blocks. It does not constrain attacks that choose independent leakage maps per block. Outside-stabilizer coefficients are necessary for computed blocks to add information but are not sufficient for successful secret recovery. Nonlinear computations and multiplication are not treated. The finding has no independent audit.

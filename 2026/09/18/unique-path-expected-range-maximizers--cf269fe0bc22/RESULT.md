@@ -211,4 +211,4 @@ not resolve the stronger stochastic-domination form of the BHM conjecture.
 - Y. Wu, Z. Xu, Y. Zhu, *Average Range of Lipschitz Functions on Trees*, Moscow Journal of Combinatorics and Number Theory 6(1) (2016), 96--116: https://mjcnt.phystech.edu/en/article.php?id=108
 - J. Bok, J. Nešetřil, *Graph-indexed random walks on pseudotrees*, Electronic Notes in Discrete Mathematics 68 (2018), 263--268: https://doi.org/10.1016/j.endm.2018.06.045
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

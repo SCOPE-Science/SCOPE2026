@@ -38,4 +38,4 @@ No specific inaccessible paper was identified as likely to contain the same cons
 
 The result is worst-case and asymptotic in the construction parameters. It does not predict average behavior on natural matrix ensembles, optimize stage partitions for a given matrix, or provide a high-probability bound. The variance-divergence statement is explicit for the oblique surrogate; orthogonal-CSS sharpness concerns the mean after an additional small-singular-value limit. Repeated leading singular values are allowed. Very recent simultaneous work remains possible.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

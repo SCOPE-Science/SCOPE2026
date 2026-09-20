@@ -296,7 +296,7 @@ The principal residual originality risk is the older survey-sampling and permuta
 
 ## Limitations
 
-The sharp asymptotics assume a fixed positive allocation fraction in every relevant stratum, a fixed number of strata, bounded outcomes, and a moderate-deviation sequence satisfying \(t_n\downarrow0\) and \(nt_n^2/\log n\to\infty\). No uniform crossover result is proved when treatment fractions approach zero, when the number of strata diverges, or for studentized/variance-adaptive estimators. The result fixes the usual difference-in-means estimator and assignment design; it is not a claim of minimax optimality over all estimators or all experimental designs. No independent or cross-model validation has been performed.
+The sharp asymptotics assume a fixed positive allocation fraction in every relevant stratum, a fixed number of strata, bounded outcomes, and a moderate-deviation sequence satisfying \(t_n\downarrow0\) and \(nt_n^2/\log n\to\infty\). No uniform crossover result is proved when treatment fractions approach zero, when the number of strata diverges, or for studentized/variance-adaptive estimators. The result fixes the usual difference-in-means estimator and assignment design; it is not a claim of minimax optimality over all estimators or all experimental designs. No independent audit has been performed.
 
 ## References
 

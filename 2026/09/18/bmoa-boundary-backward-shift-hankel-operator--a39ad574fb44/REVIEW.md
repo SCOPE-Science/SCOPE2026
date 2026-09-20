@@ -20,4 +20,4 @@ At review time, the arXiv record listed only v1, submitted 16 September 2026. No
 
 The counterexample uses no complementability, compactness, duality, or inheritance shortcut. Each coefficient series in the direct counterexample converges absolutely, so the failure is genuinely that the output sequence is not square summable. The record distinguishes failure of a lemma/proof route from falsity of the later theorem. No claim is made that BMOA regularity alone repairs every later step of the preprint.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

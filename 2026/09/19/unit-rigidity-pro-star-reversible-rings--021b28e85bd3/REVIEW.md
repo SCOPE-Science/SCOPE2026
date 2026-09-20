@@ -39,4 +39,4 @@ Because the notion itself is new and the proof becomes short after the substitut
 
 The theorem supplies a sharp missing-hypothesis criterion for the failed converse in Question 3.7 of the source paper: the gap between \(*\)-reversible and pro-\(*\)-reversible rings is exactly pointwise fixation of the unit group. It also turns the new projection condition into a familiar structural test and yields complete classifications for local rings, clean rings, and division rings while retaining genuinely noncommutative examples outside the clean setting.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

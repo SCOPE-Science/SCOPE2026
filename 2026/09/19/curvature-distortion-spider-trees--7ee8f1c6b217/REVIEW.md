@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -73,4 +73,4 @@ of the source paper's qualitative suppression monotonicity on spiders.
 - Arbitrary mixed arm lengths are characterized by a unique scalar equation rather than elementary radicals.
 - The invariant and its literature are very recent; unindexed parallel work remains a residual originality risk.
 - Numerical verification is finite and is not a substitute for the proof.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

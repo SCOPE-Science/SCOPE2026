@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 The finding was assessed separately for correctness, originality to the best of our knowledge, and scientific value. This status is not independent validation or peer review.
 

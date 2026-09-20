@@ -150,7 +150,7 @@ The finite computation is supporting evidence only; the general result follows f
 
 ## Limitations
 
-The girth assumptions are essential to the proof and are not claimed to be necessary for the conclusion. Products in which one factor contains triangles or 4-cycles are not classified here. The theorem concerns products of exactly two factors; higher Cartesian powers can behave differently. The originality assessment is necessarily provisional because the connected parameter was introduced only very recently. Cross-model review and independent validation have not been performed.
+The girth assumptions are essential to the proof and are not claimed to be necessary for the conclusion. Products in which one factor contains triangles or 4-cycles are not classified here. The theorem concerns products of exactly two factors; higher Cartesian powers can behave differently. The originality assessment is necessarily provisional because the connected parameter was introduced only very recently. Independent audit and independent validation have not been performed.
 
 ## References
 

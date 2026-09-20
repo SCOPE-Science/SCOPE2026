@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -36,4 +36,4 @@ The global optimal constant in Smirnov's Theorem 4.1 is not resolved. Numerical 
 - The globally optimal mirror-product comparison constant remains open here.
 - Classical LAN, Gaussian test power, and sharp Khintchine constants are prior art.
 - Older binary-experiment and Riesz-product literature was not exhaustively inspected.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

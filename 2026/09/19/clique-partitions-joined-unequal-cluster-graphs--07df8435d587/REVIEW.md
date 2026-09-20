@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -30,4 +30,4 @@ The result exactly determines both classical clique parameters on a natural two-
 
 ## Limitations
 
-The hypothesis `h>=chi'(K_s)` is sufficient and is not claimed necessary.  The numbers of clusters on the two sides are equal; unequal cluster counts are not resolved here.  The `r=1` boundary is old.  Finite verification checks the explicit construction, not originality or the general lower bound.  No independent validation or cross-model review is asserted.
+The hypothesis `h>=chi'(K_s)` is sufficient and is not claimed necessary.  The numbers of clusters on the two sides are equal; unequal cluster counts are not resolved here.  The `r=1` boundary is old.  Finite verification checks the explicit construction, not originality or the general lower bound.  No independent validation or independent audit is asserted.

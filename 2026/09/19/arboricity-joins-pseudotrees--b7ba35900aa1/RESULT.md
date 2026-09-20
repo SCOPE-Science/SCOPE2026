@@ -164,7 +164,7 @@ The accompanying verifier uses NetworkX 3.6.1's graph atlas. It selects every co
 
 ## Limitations
 
-The theorem treats connected pseudoforests (trees and unicyclic graphs), not arbitrary pseudoforests with several components or connected graphs of larger cyclomatic number. The independent-set extension has only one pseudotree factor. The 2010 1-balanced-construction paper is the principal residual literature risk because only accessible publisher text and theorem excerpts, not a complete line-by-line reading of the article, were inspected. No independent validation or cross-model review is asserted.
+The theorem treats connected pseudoforests (trees and unicyclic graphs), not arbitrary pseudoforests with several components or connected graphs of larger cyclomatic number. The independent-set extension has only one pseudotree factor. The 2010 1-balanced-construction paper is the principal residual literature risk because only accessible publisher text and theorem excerpts, not a complete line-by-line reading of the article, were inspected. No independent validation or independent audit is asserted.
 
 ## References
 

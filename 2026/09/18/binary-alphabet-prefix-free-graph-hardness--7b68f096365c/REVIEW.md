@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -32,4 +32,4 @@ Alphabet size two is the minimum nontrivial alphabet, so reducing the published 
 
 ## Limitations
 
-The result does not establish a sharp threshold in the growth of `k`, does not address approximation hardness, and does not strengthen the fixed-k binary case, which is polynomial by finite candidate enumeration. Independent or cross-model validation has not been performed.
+The result does not establish a sharp threshold in the growth of `k`, does not address approximation hardness, and does not strengthen the fixed-k binary case, which is polynomial by finite candidate enumeration. independent audit has not been performed.

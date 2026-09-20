@@ -1,6 +1,6 @@
 # Review: universal square-class correlations in orthogonal compact-group random multiplicative functions
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

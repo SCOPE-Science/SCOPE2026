@@ -9,7 +9,7 @@ evidence for correctness, originality and scientific value.
 ## What acceptance means
 
 For accepted results the standard label is **Same-model review: passed.
-Cross-model review: not yet performed.** Later review outcomes and withdrawals
+Independent audit: not yet performed.** Later review outcomes and withdrawals
 override this default when supported by evidence. The label does not specify
 execution architecture or establish reviewer independence.
 

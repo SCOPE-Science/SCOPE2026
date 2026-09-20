@@ -247,4 +247,4 @@ Searches by the source title and arXiv identifier, together with combinations of
 2. P. J. Hurtado, A. S. Kirosingh, *Generalizations of the 'Linear Chain Trick': incorporating more flexible dwell time distributions into mean field ODE models*, Journal of Mathematical Biology 79 (2019), 1831–1883. https://doi.org/10.1007/s00285-019-01412-w
 3. M. C. Câmara De Souza, R. G. Plaza, *How fast is the linear chain trick? A rigorous analysis in the context of behavioral epidemiology*, Mathematical Biosciences and Engineering 17 (2020), 6075–6098. https://doi.org/10.3934/mbe.2020273
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

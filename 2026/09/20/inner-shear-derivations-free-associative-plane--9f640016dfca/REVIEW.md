@@ -34,4 +34,4 @@ The principal residual originality risk is older free-associative derivation or 
 
 The result turns two isolated counterexamples from the 2026 source into a complete and explicit mechanism. It shows that a commuting inner perturbation by a nonconstant polynomial in the kernel variable simultaneously forces ker D=k[y], destroys both local nilpotence and local finiteness, and leaves an infinite-dimensional shear subgroup untouched. The full isotropy group is computed rather than merely shown to have unbounded degree, and the finite residual affine symmetry is reduced to support gcds of centered polynomials. This sharply separates the source of unbounded isotropy from local nilpotence in the free associative plane.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

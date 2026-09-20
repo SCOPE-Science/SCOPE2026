@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -34,4 +34,4 @@ The result exactly solves an infinite specialization of a newly stated threshold
 
 ## Limitations
 
-The theorem is restricted to delta=1, k=1, and integer average degree d>=2, with thresholds understood over orders for which nd is even. It does not resolve nonintegral fixed average degrees, larger minimum degree, or wider windows. Originality is to the best of our knowledge, and cross-model review has not been performed.
+The theorem is restricted to delta=1, k=1, and integer average degree d>=2, with thresholds understood over orders for which nd is even. It does not resolve nonintegral fixed average degrees, larger minimum degree, or wider windows. Originality is to the best of our knowledge, and independent audit has not been performed.

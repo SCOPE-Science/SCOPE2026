@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness — PASS
 
@@ -31,4 +31,4 @@ The result replaces unspecified degree-dependent constants by explicit constants
 - The singleton-partition exponent gap highlighted in the source paper remains open.
 - Classical Irwin--Hall and general Mellin-product machinery are prior art.
 - Older product-distribution literature was not exhaustively inspected.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

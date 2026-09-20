@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -20,4 +20,4 @@ Residual risk remains from older clique-decomposition and design literature that
 
 ## Limitations
 
-The stated capacity conditions are sufficient, not asserted necessary. The numerical coefficient is an explicit construction bound, not proved optimal. The result does not improve the known $\Theta(n^{4/3})$ order itself. Cross-model review has not been performed.
+The stated capacity conditions are sufficient, not asserted necessary. The numerical coefficient is an explicit construction bound, not proved optimal. The result does not improve the known $\Theta(n^{4/3})$ order itself. Independent audit has not been performed.

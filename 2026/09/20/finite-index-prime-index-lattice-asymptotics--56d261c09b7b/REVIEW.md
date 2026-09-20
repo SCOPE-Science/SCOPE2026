@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -48,4 +48,4 @@ The theorem upgrades a single free two-generator exponent lattice to every fixed
 
 ## Limitations
 
-The theorem fixes the lattice, \(r\), and \(s\), and assumes \(r,s\) multiplicatively independent. It does not treat growing lattice index, affine cosets, lower-rank exponent sets, or additional base relations between \(r\) and \(s\). The public verification material is corroborative rather than a substitute for the analytic proof. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+The theorem fixes the lattice, \(r\), and \(s\), and assumes \(r,s\) multiplicatively independent. It does not treat growing lattice index, affine cosets, lower-rank exponent sets, or additional base relations between \(r\) and \(s\). The public verification material is corroborative rather than a substitute for the analytic proof. No independent validation, independent audit, or formal proof-assistant verification is asserted.

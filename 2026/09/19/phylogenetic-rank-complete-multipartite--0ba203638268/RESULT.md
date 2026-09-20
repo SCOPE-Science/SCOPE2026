@@ -100,4 +100,4 @@ The original Pachter--Sturmfels source, *Algebraic Statistics for Computational 
 2. D. Cartwright, M. Chan, *Three notions of tropical rank for symmetric matrices*, Combinatorica 32 (2012), 55--84; arXiv:0912.1411. https://arxiv.org/abs/0912.1411
 3. L. Pachter, B. Sturmfels (eds.), *Algebraic Statistics for Computational Biology*, Cambridge University Press, 2005, Section 3.5, ISBN 9780521857000. https://doi.org/10.1017/CBO9780511610684
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

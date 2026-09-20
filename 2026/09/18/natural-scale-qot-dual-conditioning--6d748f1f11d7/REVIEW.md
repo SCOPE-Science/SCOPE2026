@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ The main residual originality risk is unusually concrete: arXiv:2609.20400 is ve
 
 ## Scope and limitations
 
-The theorem requires the smooth uniformly convex continuous setting of arXiv:2609.20400. It does not supersede the weaker-assumption PL theorem for semi-discrete or rough marginals. The certified basin is an \(L^\infty\) direct-sum neighborhood; no basin-entry theorem is claimed. The local spectral step-size statement is not a global nonlinear convergence theorem. The periodic calculation is only a reproducibility check. No independent or cross-model validation has been performed.
+The theorem requires the smooth uniformly convex continuous setting of arXiv:2609.20400. It does not supersede the weaker-assumption PL theorem for semi-discrete or rough marginals. The certified basin is an \(L^\infty\) direct-sum neighborhood; no basin-entry theorem is claimed. The local spectral step-size statement is not a global nonlinear convergence theorem. The periodic calculation is only a reproducibility check. No independent audit has been performed.

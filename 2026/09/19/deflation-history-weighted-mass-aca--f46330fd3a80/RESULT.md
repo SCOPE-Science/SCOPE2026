@@ -158,4 +158,4 @@ The theorem uses the self-containing neighborhood convention, which is the conve
 4. S. Massei, *Some algorithms for maximum volume and cross approximation of symmetric semidefinite matrices*, BIT Numerical Mathematics 62 (2022), 195–220. https://doi.org/10.1007/s10543-021-00872-1
 5. H. Harbrecht, M. Peters, R. Schneider, *On the low-rank approximation by the pivoted Cholesky decomposition*, Applied Numerical Mathematics 62 (2012), 428–440. https://doi.org/10.1016/j.apnum.2011.10.001
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

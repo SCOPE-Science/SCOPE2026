@@ -53,6 +53,6 @@ The result is not a routine numerical refinement. It identifies the analytic mec
 
 ## Review status
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 This is not independent validation, formal verification, journal peer review, or a guarantee of first discovery.

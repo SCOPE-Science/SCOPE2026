@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -22,4 +22,4 @@ Targeted searches by source identifier, the explicit irrational-rotation frequen
 
 ## Limitations
 
-The theorem is restricted to dimension one and makes no claim for the resonant parameter set, the critical spectral measure \(|S|=1\), stable sampling/frame inequalities, or a parameter-uniform separation constant. The higher-dimensional small-norm hypothesis is not removed. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+The theorem is restricted to dimension one and makes no claim for the resonant parameter set, the critical spectral measure \(|S|=1\), stable sampling/frame inequalities, or a parameter-uniform separation constant. The higher-dimensional small-norm hypothesis is not removed. No independent validation, independent audit, or formal proof-assistant verification is asserted.

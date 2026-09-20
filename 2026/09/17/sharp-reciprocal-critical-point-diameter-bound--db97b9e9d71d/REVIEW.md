@@ -73,6 +73,6 @@ The result resolves the full Tang--Zhang conjecture for the natural collinear-ze
 
 ## Review status
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 This is not independent validation, formal verification, journal peer review, or a guarantee of first discovery.

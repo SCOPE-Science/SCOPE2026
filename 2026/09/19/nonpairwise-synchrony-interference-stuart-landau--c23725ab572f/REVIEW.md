@@ -1,6 +1,6 @@
 # Review
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 
@@ -30,4 +30,4 @@ A residual priority risk remains because linearization of a specified higher-ord
 
 ## Scientific limitations
 
-The formulas are exact for the displayed truncated phase models, not for the full nonlinear oscillator system to all orders. Omitted mixed and higher-order terms can shift full-system thresholds. The result concerns only local full-synchrony stability and does not establish restoration of the incoherent boundary, basin geometry, or global synchronization transition. No cross-model or independent validation has been performed.
+The formulas are exact for the displayed truncated phase models, not for the full nonlinear oscillator system to all orders. Omitted mixed and higher-order terms can shift full-system thresholds. The result concerns only local full-synchrony stability and does not establish restoration of the incoherent boundary, basin geometry, or global synchronization transition. No independent audit has been performed.

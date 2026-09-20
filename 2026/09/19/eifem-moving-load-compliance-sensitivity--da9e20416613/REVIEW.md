@@ -28,4 +28,4 @@ Because the motivating preprint is very recent, a revision or contemporaneous co
 
 The finding does not establish that the published benchmark optimization histories are invalid. If the implemented loading satisfies T_j^T F=0 for every active design direction, the omitted term vanishes. The public paper does not establish that condition, and no source-code-level audit was performed. If the authors intentionally define a fixed coarse-coordinate force rather than the pullback of a fixed fine-scale force, Eq. (39) differentiates that surrogate correctly; the issue is then physical/modeling interpretation rather than calculus.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

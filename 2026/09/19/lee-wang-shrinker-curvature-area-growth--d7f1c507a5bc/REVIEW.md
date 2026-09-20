@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -22,4 +22,4 @@ PASS. The result supplies exact global intrinsic and extrinsic geometry for a ne
 
 ## Limitations
 
-The general family is treated as a parameterized immersion with multiplicity. The result does not address nonlinear dynamical stability, realization as a singularity of a compact flow, or F-stability of the other Lee--Wang members. Euclidean ball-area growth is different from Gaussian entropy. The forthcoming same-surface thesis was not inspected, and cross-model review has not been performed.
+The general family is treated as a parameterized immersion with multiplicity. The result does not address nonlinear dynamical stability, realization as a singularity of a compact flow, or F-stability of the other Lee--Wang members. Euclidean ball-area growth is different from Gaussian entropy. The forthcoming same-surface thesis was not inspected, and independent audit has not been performed.

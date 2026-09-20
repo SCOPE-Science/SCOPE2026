@@ -50,4 +50,4 @@ The result invalidates the closure step underlying the proposed all-copula opera
 
 The result is a sharp obstruction, not a classification of all admissible block substitutions. The exact threshold uses an FGM outer copula and an independence inner block. The corrected differential operator applies to a product inner block and a smooth bivariate outer copula. General multiblock validity conditions remain open here.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

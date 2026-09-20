@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness — PASS
 
@@ -108,4 +108,4 @@ losses rather than a solution of the rate problem.
 - A contemporaneous unindexed quantitative refinement of the 2026 source may
   exist.
 - Bourgain's 1989 article was not independently checked line by line.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

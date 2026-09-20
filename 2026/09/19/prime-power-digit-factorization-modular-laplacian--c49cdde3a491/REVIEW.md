@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -65,4 +65,4 @@ Chinese remainder decomposition gives exact prime-power projected clocks for com
 - R. Meštrović, arXiv:1301.0251, abstract and metadata for Lucas-type congruences modulo prime powers.
 - Current SCOPE repository records and recent changes for overlap by source identifier and equivalent terminology.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

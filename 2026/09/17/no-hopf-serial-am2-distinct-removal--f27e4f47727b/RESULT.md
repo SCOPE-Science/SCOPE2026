@@ -211,4 +211,4 @@ second-reactor equilibrium identity to close the open AM2 stability/Hopf case.
    Applied Mathematics 81 (2021), DOI 10.1137/20M1353897.
    https://doi.org/10.1137/20M1353897
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

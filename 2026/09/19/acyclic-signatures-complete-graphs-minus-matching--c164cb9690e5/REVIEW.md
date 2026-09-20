@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -92,4 +92,4 @@ The full polynomial \(\Psi(D;t)\) is not determined.  Zero signature does not
 imply Hamiltonicity.  The current v2 source paper was not completely inspected
 in full text, so originality remains to the best of our knowledge with that
 explicit residual risk.  Computational checks are finite supporting evidence,
-and cross-model review has not been performed.
+and independent audit has not been performed.

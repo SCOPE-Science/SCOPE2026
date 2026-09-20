@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -20,4 +20,4 @@ PASS. The result changes the interpretation of the new even-dimensional family: 
 
 ## Limitations
 
-The decomposition is elementary after the correct coordinate grouping, so independent discovery is plausible. The result applies only to the shift-invariant quadratic family classified in arXiv:2609.19548v1. Iteration dynamics are transferred only for the two explicit conjugate families; a general Corollary 3 representative is merely two-sided affine equivalent. No independent validation or cross-model review has been performed.
+The decomposition is elementary after the correct coordinate grouping, so independent discovery is plausible. The result applies only to the shift-invariant quadratic family classified in arXiv:2609.19548v1. Iteration dynamics are transferred only for the two explicit conjugate families; a general Corollary 3 representative is merely two-sided affine equivalent. No independent validation or independent audit has been performed.

@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The full texts of Liu et al. (2023) and Chakraborty--Chatterjee (2013) were not 
 
 ## Limitations
 
-The Gaussian correlation matrix is assumed positive definite. Noninteger Rényi orders have a sharp finiteness criterion and critical asymptotic but no finite determinant-sum formula here. The Hermite decomposition and local graph expansion are developed only for order two. No statistical estimation procedure or convergence rate from data is claimed. Cross-model review has not been performed.
+The Gaussian correlation matrix is assumed positive definite. Noninteger Rényi orders have a sharp finiteness criterion and critical asymptotic but no finite determinant-sum formula here. The Hermite decomposition and local graph expansion are developed only for order two. No statistical estimation procedure or convergence rate from data is claimed. Independent audit has not been performed.

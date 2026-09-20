@@ -18,4 +18,4 @@ The most relevant older source available through arXiv metadata/abstract was ins
 
 No complementability or inheritance assertion is used. Compactness alone is not substituted for Schatten summability. The proof does not infer normality from trace cancellation without first using positivity (in the sum-hyponormal case) or the quartic identity (in the sum-normal case). Commutativity is used essentially in the trace rearrangement and is not omitted from any conclusion.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

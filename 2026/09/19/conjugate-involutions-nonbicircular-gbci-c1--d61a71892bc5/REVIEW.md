@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -119,4 +119,4 @@ paper is invalid.  Form I is not challenged.  The 2019 corrigendum is
 acknowledged as prior art for earlier incompleteness, and the elementary
 semilinear lemma itself is not claimed to inaugurate a new general theory.
 
-No independent validation or cross-model review has been performed.
+No independent validation or independent audit has been performed.

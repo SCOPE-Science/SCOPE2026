@@ -167,4 +167,4 @@ The Pulay analogy, parameter-dependent reduced bases, and the chain rule for a p
 - N. J. Nair, M. Balajewicz, *Transported snapshot model order reduction approach for parametric, steady-state fluid flows containing parameter-dependent shocks*, International Journal for Numerical Methods in Engineering 117 (2019), 1234--1262. https://doi.org/10.1002/nme.5998
 - A. Ruiz-Serrano, N. D. M. Hine, C.-K. Skylaris, *Pulay forces from localized orbitals optimized in situ using a psinc basis set*, Journal of Chemical Physics 136 (2012), 234101. https://doi.org/10.1063/1.4728026
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

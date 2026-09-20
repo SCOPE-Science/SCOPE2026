@@ -1,6 +1,6 @@
 # Same-model scientific review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -44,4 +44,4 @@ The general bound F_t(p)+F_t(q) is reusable: for a prescribed available order bu
 - The bipartite gadget and all symmetric special cases are prior work.
 - The very recent source paper creates a non-negligible parallel-work/revision risk despite the present searches.
 - Finite verification supports but does not replace the symbolic proof.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

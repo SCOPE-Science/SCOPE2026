@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -37,4 +37,4 @@ The result proves a very recent stronger conjecture on a broad sparse regime and
 
 ## Limitations
 
-The edge threshold is only a sufficient condition and is not claimed sharp. Dense graphs can fall outside the criterion at low component counts. The proof uses the previously established s=2 result to obtain the all-level statement at m <= 3n-6. Finite computation supports but does not replace the proof. Cross-model review and independent validation have not been performed.
+The edge threshold is only a sufficient condition and is not claimed sharp. Dense graphs can fall outside the criterion at low component counts. The proof uses the previously established s=2 result to obtain the all-level statement at m <= 3n-6. Finite computation supports but does not replace the proof. Independent audit and independent validation have not been performed.

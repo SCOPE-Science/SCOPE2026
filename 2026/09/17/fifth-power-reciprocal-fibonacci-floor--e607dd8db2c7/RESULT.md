@@ -201,7 +201,7 @@ with Python 3. The verifier uses only the standard library and exact integer/rat
 
 The theorem concerns the ordinary Fibonacci sequence and exponent \(5\); it does not establish corresponding formulas for all higher exponents or for general second-order recurrences. Originality is asserted only to the best of our knowledge. Exact-phrase, synonymous, and nearby-literature searches found no prior exact floor formula for the fifth-power tail. The closest general result, Wan--Liang--Liao, supplies arbitrary-exponent asymptotic estimates but not this floor determination; the closest exact low-power papers treat exponents \(3\) and \(4\). Because one of those papers was posted extremely recently, unindexed contemporaneous follow-up work remains a residual risk.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## References
 

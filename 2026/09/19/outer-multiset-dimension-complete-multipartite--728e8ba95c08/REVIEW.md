@@ -29,6 +29,6 @@ No specific inaccessible paper was identified whose title or indexed statement m
 - Real-rootedness here comes from the explicit factorization and is not claimed for outer multiset resolving-set enumerators of general graphs.
 - Finite computation supports but does not replace the proof.
 - Residual originality risk remains from unindexed or differently-termed literature.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

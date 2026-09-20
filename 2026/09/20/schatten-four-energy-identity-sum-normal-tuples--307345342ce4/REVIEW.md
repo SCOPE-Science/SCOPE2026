@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -67,4 +67,4 @@ observation to a Hilbert--Schmidt sum-hyponormal normality theorem.
 The \(\mathcal S_4\) hypothesis is not claimed optimal. The result does not
 settle arbitrary compact sum-normal or sum-hyponormal tuples, and it gives
 no counterexamples or classification outside the stated Schatten classes.
-Cross-model review has not been performed.
+Independent audit has not been performed.

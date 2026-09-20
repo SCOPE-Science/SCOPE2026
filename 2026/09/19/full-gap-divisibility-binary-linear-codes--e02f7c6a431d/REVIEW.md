@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -72,5 +72,4 @@ to the recent local mirror-band theorem.
 The hypothesis is stronger than the short-gap assumption in the motivating
 preprint. The disjoint-decomposition mechanism is binary-specific. For even
 minimum distance, half-size intersections between minimum supports remain
-possible and no full classification is given. No independent or cross-model
-validation has been performed.
+possible and no full classification is given. No independent audit has been performed.

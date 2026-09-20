@@ -108,4 +108,4 @@ metric-functional d-weak topology and should not be conflated with the standard
 projection/\(\Delta\)-weak topology of CAT(0) geometry. The motivating topology paper
 is exceptionally recent, leaving a residual risk of unindexed parallel work.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

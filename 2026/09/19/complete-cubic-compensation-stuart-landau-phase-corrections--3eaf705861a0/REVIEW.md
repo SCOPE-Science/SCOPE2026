@@ -61,4 +61,4 @@ This is useful both as a correction to the cubic classification and as a sharper
 
 The theorem is restricted to the source's explicit straight-isochrone, \(c=-1\), identical three-oscillator setting without self-coupling. It is a phase-reduction statement through second order and does not control \(O(\varepsilon^3)\) terms, amplitude observables, or finite-coupling global dynamics. General exact interaction synthesis is established prior art. The full proof body of Namura–Muolo–Nakao (2026) was not fully inspected and remains the main originality uncertainty for broader formulations.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

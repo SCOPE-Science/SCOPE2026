@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -32,4 +32,4 @@ Residual risk is nonzero. The parameter traces back to Chapter 3 of Pachter and 
 
 The theorem is restricted to complete multipartite graphs and does not characterize general graphs of phylogenetic rank at most \(k\). It is a metric-structure theorem, not an algorithmic complexity result. The publication records a same-model assessment only and does not assert independent verification, formal verification, expert review, or priority certainty.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

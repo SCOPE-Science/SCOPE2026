@@ -100,4 +100,4 @@ intersection. The \(n=1\) case is not treated. The motivating paper is very
 recent, leaving a residual originality risk from later revisions or
 unindexed parallel work.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

@@ -209,4 +209,4 @@ local rings.
    with Applications*, arXiv:2408.13164.
    https://arxiv.org/abs/2408.13164
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

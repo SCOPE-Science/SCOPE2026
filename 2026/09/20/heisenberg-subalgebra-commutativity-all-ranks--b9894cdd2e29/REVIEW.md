@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ The principal residual risk is old subgroup-lattice literature on extraspecial p
 
 ## Limitations
 
-The exhaustive artifact checks only H_2 over the prime fields F_2 and F_3; it does not replace the general proof.  Literature search cannot exclude equivalent older formulas hidden in detailed extraspecial-group subgroup classifications.  No independent, cross-model, formal, or peer-reviewed validation is claimed.
+The exhaustive artifact checks only H_2 over the prime fields F_2 and F_3; it does not replace the general proof.  Literature search cannot exclude equivalent older formulas hidden in detailed extraspecial-group subgroup classifications.  No independent, formal, or peer-reviewed validation is claimed.

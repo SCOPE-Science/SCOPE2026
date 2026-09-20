@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -65,4 +65,4 @@ The result is useful whenever the minimizing degree itself matters, including th
 
 ## Limitations
 
-The theorem is restricted to normalized ultraspherical polynomials \(R_n^{(\alpha,\alpha)}\) with \(\alpha\ge0\). It does not classify minimizers for general asymmetric Jacobi parameters and does not give a quantitative gap from the minimum to the second-smallest value inside a cell. Originality is assessed to the best of our knowledge. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+The theorem is restricted to normalized ultraspherical polynomials \(R_n^{(\alpha,\alpha)}\) with \(\alpha\ge0\). It does not classify minimizers for general asymmetric Jacobi parameters and does not give a quantitative gap from the minimum to the second-smallest value inside a cell. Originality is assessed to the best of our knowledge. No independent validation, independent audit, or formal proof-assistant verification is asserted.

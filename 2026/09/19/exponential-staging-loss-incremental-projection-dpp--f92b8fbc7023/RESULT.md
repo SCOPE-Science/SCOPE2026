@@ -252,4 +252,4 @@ The proof is exact arithmetic. Very small \(\varepsilon\) creates widely separat
 4. A. Deshpande, L. Rademacher, *Efficient Volume Sampling for Row/Column Subset Selection*, FOCS 2010. https://doi.org/10.1109/FOCS.2010.38
 5. A. Deshpande, L. Rademacher, S. Vempala, G. Wang, *Matrix approximation and projective clustering via volume sampling*, Theory of Computing 2 (2006), 225–247.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

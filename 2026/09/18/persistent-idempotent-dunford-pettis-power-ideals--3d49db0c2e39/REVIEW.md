@@ -120,4 +120,4 @@ proper large closed ideal, not merely a nonzero power. The quotient
 - Elias Saab, bibliographic record and abstract:
   https://doi.org/10.4153/CMB-1982-028-8
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

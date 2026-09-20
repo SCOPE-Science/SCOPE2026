@@ -87,4 +87,4 @@ locus. The spectrum theorem concerns total branching degree only. The main
 input is a very recent preprint, so later revisions or unindexed parallel
 observations remain a real originality risk.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

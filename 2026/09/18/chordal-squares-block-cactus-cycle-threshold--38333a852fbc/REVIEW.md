@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The result gives an exact if-and-only-if structural boundary for a standard spar
 
 ## Limitations
 
-The cactus-block square root is assumed given. No claim is made that this criterion improves recognition of cactus-block square roots from an arbitrary square graph. The theorem concerns chordality only; strong chordality fails even within the short-cycle cactus subclass. Originality remains to the best of our knowledge, with the Ducoffe full-text access gap and possible unindexed older graph-power formulations as residual risks. No independent or cross-model validation is asserted.
+The cactus-block square root is assumed given. No claim is made that this criterion improves recognition of cactus-block square roots from an arbitrary square graph. The theorem concerns chordality only; strong chordality fails even within the short-cycle cactus subclass. Originality remains to the best of our knowledge, with the Ducoffe full-text access gap and possible unindexed older graph-power formulations as residual risks. No independent audit is asserted.

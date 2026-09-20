@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -120,4 +120,4 @@ normal-state predual invariant. The local choice-independence statement is
 for maximal \(p\)-copy families extending the countably infinite family used
 in Corollary 6.2.
 
-No independent validation or cross-model review has been performed.
+No independent validation or independent audit has been performed.

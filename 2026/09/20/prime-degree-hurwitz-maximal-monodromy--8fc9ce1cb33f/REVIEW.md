@@ -1,6 +1,6 @@
 # Same-model scientific review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -41,4 +41,4 @@ The local criterion is reusable and exact at the cyclic-inertia level: it charac
 - The normal-closure genus calculation is standard once G is known.
 - Jordan's theorem and earlier Hurwitz-space applications of it are prior work.
 - The source existence theorem is a very recent preprint, leaving residual revision and parallel-work risk.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

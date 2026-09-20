@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -74,4 +74,4 @@ co-connectedness alone.
   outer, dual, mobile, or game variants.
 - Originality is to the best of our knowledge, with residual risk from very
   recent or unindexed parallel work.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

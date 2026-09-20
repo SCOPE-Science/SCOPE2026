@@ -1,6 +1,6 @@
 # Review: Abstract localization rings do not characterize strong multiplicativity
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -58,4 +58,4 @@ Correctness: PASS.
 Originality: PASS, to the best of our knowledge.  
 Value: PASS.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

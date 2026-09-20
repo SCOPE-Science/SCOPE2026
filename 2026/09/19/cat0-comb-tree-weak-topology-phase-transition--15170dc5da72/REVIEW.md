@@ -106,6 +106,6 @@ dead ends—for the pathology.
   mechanism, not a standalone originality claim.
 - The motivating topology paper is extremely recent, so later revisions or unindexed
   parallel observations remain a genuine originality risk.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

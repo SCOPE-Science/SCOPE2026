@@ -81,7 +81,7 @@ Targeted searches for the exact parameter values, the source paper identifier, a
 
 The nonexistence statements rely on exhaustive finite computation plus the stated symmetry reductions, not on a human-only classification proof. No claim is made here about \(P_n\) or \(C_n\) for \(n\ge16\), or about wheels beyond \(W_{12}\).
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## References
 

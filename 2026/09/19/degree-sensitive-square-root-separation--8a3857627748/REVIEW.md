@@ -45,4 +45,4 @@ The improvement is structural rather than a small constant change. In dependent 
 
 The theorem gives no improvement when the active negative square classes have full rank. It does not resolve general Sum-of-Square-Roots decision complexity, does not optimize the multiplicative constant in the fixed-basis optimality statement, and does not claim novelty for the general observation that algebraic dependence lowers effective degree. Numerical checks are supporting evidence only.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

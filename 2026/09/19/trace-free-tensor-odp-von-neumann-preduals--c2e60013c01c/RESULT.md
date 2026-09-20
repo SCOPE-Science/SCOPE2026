@@ -200,7 +200,7 @@ Originality is asserted only to the best of our knowledge. Exact and synonymous 
 - The proof gives contractive witnesses but does not address additional operator-space or completely bounded structure.
 - No quantitative invariant beyond the norm-one witness bound is introduced.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## References
 

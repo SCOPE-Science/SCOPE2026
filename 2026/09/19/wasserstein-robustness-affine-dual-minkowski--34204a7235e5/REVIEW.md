@@ -40,4 +40,4 @@ The result deliberately stops short of claiming stability of solution bodies, wh
 
 The statement is confined to the Zhang--Jin range \(n\ge3\), \(2\le m\le n-1\), and to normalized fixed-mass data for the Wasserstein metric. It gives no quantitative control of a realizing body, no uniqueness result, and no uniform positive lower bound on \(\Delta_p\) over all admissible data. The motivating theorem is extremely recent, and the inaccessible full text of Cai--Leng--Wu--Xi (2025) leaves a residual originality risk.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

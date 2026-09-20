@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -96,4 +96,4 @@ The theorem concerns connected complete multipartite graphs and \(n\ge3\).
 It does not address the global maximum over all graphs or constraints such as a
 fixed edge count or fixed chromatic number. The cited 2026 preprint was checked
 through its accessible abstract rather than its full text. Originality remains
-to the best of our knowledge, and cross-model review has not been performed.
+to the best of our knowledge, and independent audit has not been performed.

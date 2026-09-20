@@ -1,6 +1,6 @@
 # Review: Accelerated filtrations decouple algebraic entropy from affine growth
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

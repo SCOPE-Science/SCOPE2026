@@ -35,4 +35,4 @@ The all-\(p>4\) source is only days old, so unindexed or unpublished parallel wo
 
 The true asymptotic behavior of \(N(4+\varepsilon)\) is not determined. The coefficient \(8/c\) is optimal only within the Hadamard refinement of Xiong's construction. No claim is made that Hadamard matrices exist at every admissible order.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

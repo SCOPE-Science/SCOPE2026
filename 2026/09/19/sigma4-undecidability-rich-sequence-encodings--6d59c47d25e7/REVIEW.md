@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -26,4 +26,4 @@ The source paper introduces several first undecidability results for natural one
 
 ## Limitations
 
-No optimality is claimed. The Sigma_3 fragment may also be undecidable by another encoding. The selected-permutation extension requires a quantifier-free selector. The result does not address the source paper's predicate-valued LRS structure with addition, whose particular implementation has a different syntactic profile, nor its square-free-number construction. Cross-model review and independent validation have not been performed.
+No optimality is claimed. The Sigma_3 fragment may also be undecidable by another encoding. The selected-permutation extension requires a quantifier-free selector. The result does not address the source paper's predicate-valued LRS structure with addition, whose particular implementation has a different syntactic profile, nor its square-free-number construction. Independent audit and independent validation have not been performed.

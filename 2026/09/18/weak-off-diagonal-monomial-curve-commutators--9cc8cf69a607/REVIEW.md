@@ -63,4 +63,4 @@ not extend Oikari's strong sufficiency range, and it does not address
 curves. The higher-dimensional geometry is inherited from Li--Zeng's
 companion-rectangle construction rather than reproved independently.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

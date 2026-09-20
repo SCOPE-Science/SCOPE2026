@@ -274,4 +274,4 @@ Originality is asserted only **to the best of our knowledge**.
    for its local cross-diffusion strong-solution theory.
    https://doi.org/10.1155/jama/6835155
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

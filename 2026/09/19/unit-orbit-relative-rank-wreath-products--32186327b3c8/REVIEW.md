@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -54,4 +54,4 @@ The theorem is finite. Infinite monoids can have one-sided invertibility phenome
 
 The explicit computation is verification evidence for the small counterexample only; the general theorem rests on the proof above.
 
-No independent validation or cross-model review is claimed.
+No independent validation or independent audit is claimed.

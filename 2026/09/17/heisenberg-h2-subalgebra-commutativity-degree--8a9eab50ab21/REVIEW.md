@@ -26,4 +26,4 @@ The motivating preprint is very recent, so contemporaneous independent work or a
 
 **PASS.** This resolves the first uncomputed Heisenberg rank immediately beyond the source paper's rank-one theorem, gives an exact rational function for every finite field rather than only a numerical example, and isolates a reusable symplectic criterion that converts higher-rank instances into finite incidence counts. The result also shows \(\operatorname{sd}(\mathfrak h(2,\mathbb F_q))\sim 3/q\), giving a clean asymptotic feature of the next rank.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

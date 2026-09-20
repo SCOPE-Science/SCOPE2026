@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ Searches under quadratic-chaos maxima, signed Gaussian quadratic chaos, effectiv
 
 ## Limitations
 
-The coordinates are independent and the spectrum is flat in magnitude. The result is a benchmark for the chaos target, not a replacement for the finite-sample U-statistic-to-chaos approximation. The tail expansion is stated only when `m/(log p)^{5/3}->infinity`; very sparse ranks are outside the claim. Generic cubic and quartic moderate-deviation exponents are prior art. Older triangular-array extreme-value literature was not exhaustively inspected. Cross-model review has not been performed.
+The coordinates are independent and the spectrum is flat in magnitude. The result is a benchmark for the chaos target, not a replacement for the finite-sample U-statistic-to-chaos approximation. The tail expansion is stated only when `m/(log p)^{5/3}->infinity`; very sparse ranks are outside the claim. Generic cubic and quartic moderate-deviation exponents are prior art. Older triangular-array extreme-value literature was not exhaustively inspected. Independent audit has not been performed.

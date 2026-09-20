@@ -88,4 +88,4 @@ higher-dimensional companion geometry is taken from the all-dimensional
 Li--Zeng theorem and its stated extension of the detailed three-dimensional
 construction.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

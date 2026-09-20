@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -35,4 +35,4 @@ The main residual originality risk is that the contact-measure equivalence is a 
 - Necessity of zero contact Stieltjes mass is proved only for increasing boundaries; for signed finite variation it is used only as a sufficient condition.
 - The variation-a.e. LIL threshold is sufficient and its equality case is unresolved.
 - The regime \(\nu\ge1/2\) at critical boundary regularity is not settled.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

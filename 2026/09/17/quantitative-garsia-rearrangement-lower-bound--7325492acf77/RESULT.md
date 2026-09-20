@@ -1,6 +1,6 @@
 # An explicit iterated-log lower bound for the finite Garsia rearrangement constant
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Statement
 

@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -38,4 +38,4 @@ The result settles a natural dense structural regime of an explicit new equality
 
 ## Scope limitations
 
-The theorem does not classify equality when \(\omega(G)\le n-3\), so Zhang–Li Problem 7 remains open in general. No claim is made about a full characterization of all \(2n\)-equality graphs. No independent validation, cross-model review, formal verification, or journal peer review is asserted.
+The theorem does not classify equality when \(\omega(G)\le n-3\), so Zhang–Li Problem 7 remains open in general. No claim is made about a full characterization of all \(2n\)-equality graphs. No independent validation, independent audit, formal verification, or journal peer review is asserted.

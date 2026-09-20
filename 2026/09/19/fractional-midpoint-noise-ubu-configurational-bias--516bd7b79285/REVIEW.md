@@ -22,4 +22,4 @@ The result isolates the precise stochastic mechanism changed by LC-UBU. On Gauss
 
 The result does not show improved nonlinear strong/weak order, does not preserve LC-UBU's reduced Gaussian count for \(\theta\ne0\), and does not make all anisotropic modes exactly unbiased at finite step size. The exact zero-bias tuning becomes Hessian-mode dependent at the next order.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

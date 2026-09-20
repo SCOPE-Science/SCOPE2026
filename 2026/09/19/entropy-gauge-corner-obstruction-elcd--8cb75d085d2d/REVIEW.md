@@ -20,4 +20,4 @@ The result identifies two independent structural issues in a newly proposed nume
 
 The finding is a correction and invariance analysis, not an instability theorem. It does not show that the published ELCD benchmarks lose accuracy, fail to converge, or violate entropy stability. Algorithm 1 remains a well-defined four-candidate heuristic once a particular entropy normalization is fixed. The gauge-invariant alternative score has not been benchmarked and is not claimed to improve resolution.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

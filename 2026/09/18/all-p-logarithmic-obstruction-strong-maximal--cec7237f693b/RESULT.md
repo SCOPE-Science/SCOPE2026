@@ -347,4 +347,4 @@ Because the principal source and the follow-up upper-bound paper are both very r
 2. Sheldy Ombrosi and Guillermo Rey, *Improved weighted bounds for the strong maximal function*, arXiv:2609.17246 (2026). https://arxiv.org/abs/2609.17246
 3. Teresa Luque, Carlos Pérez, and Ezequiel Rela, *Reverse Hölder Property for strong weights and general measures*, J. Geom. Anal. 27 (2017), 162--182; arXiv:1512.01112. https://arxiv.org/abs/1512.01112
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

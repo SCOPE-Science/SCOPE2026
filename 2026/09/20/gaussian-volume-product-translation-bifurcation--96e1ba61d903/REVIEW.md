@@ -1,6 +1,6 @@
 # Same-model scientific review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -45,4 +45,4 @@ This gives a precise local phase portrait for the simplest nonsymmetric mode. In
 - The nonzero branch is only a local maximum within translations, not among all convex bodies.
 - No assertion is made about other nonsymmetric shape modes or the full shape Hessian.
 - The motivating preprint is very recent, leaving residual revision and parallel-work risk.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

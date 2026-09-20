@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness — PASS
 
@@ -100,4 +100,4 @@ that already has the full sharp norm.
 - The full text of the 2010 uncentered eigenfunction paper was not
   independently rechecked.
 - A contemporaneous unindexed refinement of the 2026 source may exist.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.

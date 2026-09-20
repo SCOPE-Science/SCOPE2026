@@ -1,6 +1,6 @@
 # Review: explicit 2-adic obstructions for twice-odd Thue-Morse powers
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

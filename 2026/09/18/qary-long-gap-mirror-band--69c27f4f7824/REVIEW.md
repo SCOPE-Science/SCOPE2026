@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -40,4 +40,4 @@ The result resolves the precise ambiguity left by the motivating note's q-ary di
 
 ## Limitations
 
-The q-ary theorem can be vacuous if the local gap is too short. No sharpness theorem is proved for the long-gap condition or the endpoint. The binary case remains strictly stronger because disjoint-support decomposition removes the extra hypothesis. No independent or cross-model validation has been performed.
+The q-ary theorem can be vacuous if the local gap is too short. No sharpness theorem is proved for the long-gap condition or the endpoint. The binary case remains strictly stronger because disjoint-support decomposition removes the extra hypothesis. No independent audit has been performed.

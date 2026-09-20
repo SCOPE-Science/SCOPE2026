@@ -42,4 +42,4 @@ The spectrum also explains the large-variance limit: degree two and the scaling 
 
 This record does not solve the global maximization problem in dimensions \(n\ge3\) for \(1/n<\sigma^2\le2/(n+1)\). It does not establish a topology-uniform quantitative neighborhood of maximality from the Hessian alone. At the endpoint \(\sigma^2=2/(n+1)\), the fourth-order calculation is only for the translation branch; no complete fourth-order normal form is claimed. Very recent or unindexed parallel coverage remains possible.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

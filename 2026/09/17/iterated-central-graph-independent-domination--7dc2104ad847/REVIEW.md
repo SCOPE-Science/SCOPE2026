@@ -1,6 +1,6 @@
 # Review: independent domination of higher iterated central graphs
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

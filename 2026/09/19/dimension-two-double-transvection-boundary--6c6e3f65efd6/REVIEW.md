@@ -1,6 +1,6 @@
 # Review: Dimension-two boundary for double transvection commutators
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

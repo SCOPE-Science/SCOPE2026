@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -24,4 +24,4 @@ Searches using the source identifier and combinations of the exact low-degree fo
 
 ## Limitations
 
-Only degrees four and five are resolved here. The data for degrees two through five suggest the possible pattern \(d_{\max}=n-1\), but no theorem or conjectural certainty for \(n\ge6\) is asserted. The work does not classify other scale functions, other orthogonal-polynomial families, or the nonlargest-zero case beyond what is already known. Originality is to the best of our knowledge. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+Only degrees four and five are resolved here. The data for degrees two through five suggest the possible pattern \(d_{\max}=n-1\), but no theorem or conjectural certainty for \(n\ge6\) is asserted. The work does not classify other scale functions, other orthogonal-polynomial families, or the nonlargest-zero case beyond what is already known. Originality is to the best of our knowledge. No independent validation, independent audit, or formal proof-assistant verification is asserted.

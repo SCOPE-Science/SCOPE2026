@@ -1,6 +1,6 @@
 # Review: parity-restricted optimality for rainbow Schur triples
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 

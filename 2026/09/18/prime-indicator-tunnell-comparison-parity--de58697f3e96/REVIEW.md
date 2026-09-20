@@ -54,4 +54,4 @@ The additional \((1+i)\)-divisibility for composite indices does not imply that 
 
 The motivating preprint is very recent, so unindexed contemporaneous work remains a residual originality risk. No independent validation or formal proof-assistant verification is asserted.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

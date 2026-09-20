@@ -261,7 +261,7 @@ for arbitrary zero configurations in the closed unit disk. The exponent-one case
 
 The sign-sensitive compression uses the real ordering after the zeros are put on a line; it does not directly extend to non-collinear configurations. The originality assessment is necessarily to the best of our knowledge. The most relevant modern primary source, Tang--Zhang (2025), was inspected in full and does not state this lower bound. Older matrix/majorization literature provides the companion-matrix and majorization machinery used here, and obscure equivalent formulations may exist. In particular, the full text of Pereira (2003) and the full text of Zhang's 2025 Proc. AMS paper corresponding to arXiv:2411.07105 were not inspected here; their available descriptions concern majorization or one-sided/nonnegative-zero relations and do not establish the mixed-sign diameter lower bound above.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## References
 

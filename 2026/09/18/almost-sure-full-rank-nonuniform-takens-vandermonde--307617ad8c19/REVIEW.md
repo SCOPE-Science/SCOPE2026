@@ -92,4 +92,4 @@ discrete delay laws, or a nonlinear Takens theorem. Distinct frequency nodes
 are required. The stable-embedding consequence retains every other
 observability and asymptotic hypothesis of the source theorem.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

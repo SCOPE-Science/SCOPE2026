@@ -1,6 +1,6 @@
 # Same-model review
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 
@@ -57,4 +57,4 @@ recent source without claiming a classification for arbitrary fixed domains.
 The result is a universal classification over simply connected finite-inner-diameter domains, not a
 geometric characterization of \(\mathcal R(S)\) for every individual domain. It does not optimize cusp
 regularity or quantitative divergence rates. No independent validation, formal proof-assistant
-verification, or cross-model review is asserted.
+verification, or independent audit is asserted.

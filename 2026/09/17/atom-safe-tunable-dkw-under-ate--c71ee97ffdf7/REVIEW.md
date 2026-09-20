@@ -4,7 +4,7 @@
 
 **PASS (same-model review only).** The contribution is assessed separately as correct, original to the best of our knowledge, and useful. This is not independent validation or peer review.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness audit
 

@@ -94,4 +94,4 @@ The distinction is also conceptually useful: algebraic entropy is an invariant o
 - The source is v1 of a preprint submitted on 16 September 2026 and may be revised.
 - Originality is necessarily qualified by the very short interval since that submission and by the uninspected full text of the cited Krause–Lenagan proposition.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

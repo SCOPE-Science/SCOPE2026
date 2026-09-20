@@ -1,6 +1,6 @@
 # Compact quasinilpotent sum-hyponormal multishifts with rank-one defect
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Statement
 

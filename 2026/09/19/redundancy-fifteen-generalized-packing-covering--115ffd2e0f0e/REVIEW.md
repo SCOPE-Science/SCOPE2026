@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -82,5 +82,5 @@ sharpening is sufficient to make the exact covering-volume bound contradictory.
 The result advances the uniform threshold only from 14 to 15 and does not
 settle redundancy 16 or the general conjecture.  The specialized
 six-dimensional lemma is not claimed as a general classification theorem for
-binary weight hierarchies.  No independent or cross-model validation has been
+binary weight hierarchies.  No independent audit has been
 performed.

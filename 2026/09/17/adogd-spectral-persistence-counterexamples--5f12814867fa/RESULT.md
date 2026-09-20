@@ -1,6 +1,6 @@
 # Spectral-persistence counterexamples and a repair for AdOGD
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Statement
 

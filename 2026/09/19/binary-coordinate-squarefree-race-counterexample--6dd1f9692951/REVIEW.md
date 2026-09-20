@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -18,4 +18,4 @@ The principal residual risk is recency: Tang's preprint was submitted only a few
 
 ## Scope and limitations
 
-Pairs differing in several coordinates are not fully classified. In that setting several dominant Fourier modes can share the same real pole order and their constants may cancel. Finite enumeration is corroborative only; the proof is the Selberg--Delange pole-order comparison. No independent validation, cross-model review, or formal verification is claimed.
+Pairs differing in several coordinates are not fully classified. In that setting several dominant Fourier modes can share the same real pole order and their constants may cancel. Finite enumeration is corroborative only; the proof is the Selberg--Delange pole-order comparison. No independent validation, independent audit, or formal verification is claimed.

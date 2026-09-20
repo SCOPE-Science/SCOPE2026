@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -49,4 +49,4 @@ Searches using the source identifier, Fujii--Wilson terminology, subunit sparse 
 
 ## Limitations
 
-The theorem concerns the sparse operator itself and therefore does not automatically transfer as a lower bound to every operator dominated by such a sparse form. It establishes optimal order in the \(A_\infty\) characteristic, not an exact best numerical constant. It does not sharpen the mixed \(A_1\) exponent, treat \(r=1\), or provide new upper estimates. No independent validation, cross-model review, or formal proof-assistant verification is asserted.
+The theorem concerns the sparse operator itself and therefore does not automatically transfer as a lower bound to every operator dominated by such a sparse form. It establishes optimal order in the \(A_\infty\) characteristic, not an exact best numerical constant. It does not sharpen the mixed \(A_1\) exponent, treat \(r=1\), or provide new upper estimates. No independent validation, independent audit, or formal proof-assistant verification is asserted.

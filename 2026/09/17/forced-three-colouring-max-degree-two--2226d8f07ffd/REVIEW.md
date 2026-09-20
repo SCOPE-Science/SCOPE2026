@@ -1,6 +1,6 @@
 # Review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -88,4 +88,4 @@ The theorem is confined to maximum degree at most two. Degree three permits a
 forced vertex to have several different neighbour pairs witnessing forcing and
 requires new structure. Very recent parallel work remains possible.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

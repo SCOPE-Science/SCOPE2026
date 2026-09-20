@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -33,4 +33,4 @@ No inaccessible paper was identified as especially likely to contain this exact 
 - Constants are not optimized.
 - No weak/Lorentz endpoint refinement, stability result, or extremizer theorem is claimed.
 - A contemporaneous unindexed overlap remains possible because the source problem is very recent.
-- Cross-model review has not been performed, and no independent validation is claimed.
+- Independent audit has not been performed, and no independent validation is claimed.

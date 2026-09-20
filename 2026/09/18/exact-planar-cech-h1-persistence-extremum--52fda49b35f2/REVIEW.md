@@ -153,4 +153,4 @@ though parts of the planar argument may extend to other coefficient fields.
 The recent date of the motivating preprint leaves a residual risk of unindexed
 parallel work.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

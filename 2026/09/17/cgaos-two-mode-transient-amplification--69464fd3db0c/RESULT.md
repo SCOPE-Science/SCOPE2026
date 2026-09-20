@@ -1,6 +1,6 @@
 # Sharp two-mode transient amplification for CG_AOS after exact initialization
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Statement
 

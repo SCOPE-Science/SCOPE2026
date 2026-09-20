@@ -1,6 +1,6 @@
 # A 1/N boundary layer in the DCT endpoint of the AR(1) KLT
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Result
 

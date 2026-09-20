@@ -16,4 +16,4 @@ The original Bremner article was identified as Manuscripta Mathematica 73 (1991)
 
 PASS. The result removes one of the three purported rank-three mechanisms in the newest closed-form rank classification for this family, corrects a concrete infinite family from claimed rank three to exact rank two, removes an unnecessary squarefreeness restriction for that corrected statement, and provides explicit independent sections. The issue is structural rather than a numerical edge case: any E2 rank-one contribution of Theorem 1.3(c)(i) is incompatible with total rank three.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

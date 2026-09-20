@@ -27,6 +27,6 @@ The main unresolved coverage risk is G. E. Farr, *On Problems with Short Certifi
 - The full 1994 paper on forcing and short certificates was not inspected; it is the strongest identified residual prior-coverage risk.
 - Finite exhaustive computation supports but does not replace the proof.
 - Unindexed recent work or substantially different terminology may conceal equivalent results.
-- Cross-model review has not been performed.
+- Independent audit has not been performed.
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.

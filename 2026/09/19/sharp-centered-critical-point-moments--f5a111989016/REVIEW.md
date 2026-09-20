@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -61,4 +61,4 @@ The result does not purport to solve the difficult noncentral \(1\le\lambda<2\) 
 
 ## Limitations
 
-Only the centered zero \(a=0\) is covered. The stability result is radial and gives no angular distance to the extremizer manifolds. The general noncentral subquadratic Tang--Zhang inequalities remain open. The full text of the most relevant older book pages was not independently inspected, so originality remains explicitly to the best of our knowledge. No independent validation, formal proof-assistant verification, or cross-model review is claimed.
+Only the centered zero \(a=0\) is covered. The stability result is radial and gives no angular distance to the extremizer manifolds. The general noncentral subquadratic Tang--Zhang inequalities remain open. The full text of the most relevant older book pages was not independently inspected, so originality remains explicitly to the best of our knowledge. No independent validation, formal proof-assistant verification, or independent audit is claimed.

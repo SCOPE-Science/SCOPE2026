@@ -28,4 +28,4 @@ The result concerns the specific point-mass embedding and restriction-of-scalars
 
 The coefficient ring is assumed nonzero, commutative, and unital so that the singleton-support argument detects the value \(1_R\). Originality is asserted only to the best of our knowledge. No independent validation, formal verification, or peer review is claimed.
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

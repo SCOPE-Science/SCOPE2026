@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -81,4 +81,4 @@ strata. They do not establish special-Lagrangian current extension across the
 singular locus, local analytic normal forms, intersection multiplicities,
 intersection angles, or calibrated-current regularity. The cited Brown
 dissertation was not inspected in full, and the motivating preprint is very
-recent. Cross-model review has not been performed.
+recent. Independent audit has not been performed.

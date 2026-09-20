@@ -131,4 +131,4 @@ A residual originality risk remains in older tensor-norm and compound-matrix lit
 2. J. Bergh and J. Löfström, *Interpolation Spaces: An Introduction*, Grundlehren 223, Springer (1976), especially the multilinear complex interpolation theorem cited by Feldman. https://doi.org/10.1007/978-3-642-66451-9
 3. W. Tadej and K. Życzkowski, *A concise guide to complex Hadamard matrices*, Open Systems & Information Dynamics 13 (2006), 133--177. https://arxiv.org/abs/quant-ph/0512154 ; https://doi.org/10.1007/s11080-006-8220-2
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

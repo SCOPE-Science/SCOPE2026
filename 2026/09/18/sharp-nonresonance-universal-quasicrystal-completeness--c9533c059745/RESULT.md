@@ -367,4 +367,4 @@ case.
    remainder sets*, Trans. Amer. Math. Soc. 370 (2018), 4273--4298.
    https://doi.org/10.1090/tran/7157
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**

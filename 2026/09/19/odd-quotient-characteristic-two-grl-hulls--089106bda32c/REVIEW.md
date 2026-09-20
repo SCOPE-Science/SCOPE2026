@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -38,4 +38,4 @@ Within the stated characteristic-two regime, the result removes the source const
 
 ## Limitations
 
-The dimension range remains k<=floor((n+2^ell-1)/(2^ell+1)); no claim is made for larger k. The result does not classify MDS/AMDS/NMDS skeletons, does not improve known large-dimension GRS self-orthogonality results, and does not cover odd characteristic. The power-map lemma is standard finite-field arithmetic and is not claimed as a contribution. Cross-model review and independent validation have not been performed.
+The dimension range remains k<=floor((n+2^ell-1)/(2^ell+1)); no claim is made for larger k. The result does not classify MDS/AMDS/NMDS skeletons, does not improve known large-dimension GRS self-orthogonality results, and does not cover odd characteristic. The power-map lemma is standard finite-field arithmetic and is not claimed as a contribution. Independent audit and independent validation have not been performed.

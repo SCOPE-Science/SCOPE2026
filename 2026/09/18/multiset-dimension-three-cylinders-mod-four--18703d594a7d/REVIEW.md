@@ -1,6 +1,6 @@
 # Review
 
-Same-model review: passed. Cross-model review: not yet performed.
+Same-model review: passed. Independent audit: not yet performed.
 
 ## Correctness
 
@@ -28,4 +28,4 @@ The result resolves an infinite, linearly wide portion of an explicitly open par
 
 ## Limitations
 
-The theorem only treats \(n\equiv2\pmod4\) and \(n\ge6m\). It does not determine multiset dimension for the other congruence classes in the remaining region, nor for \(n<6m\). The threshold \(6m\) is sharp for the particular antipodal boundary family in the sense proved here, but no global optimality claim is made for arbitrary three-landmark sets. No independent validation or cross-model review has been performed.
+The theorem only treats \(n\equiv2\pmod4\) and \(n\ge6m\). It does not determine multiset dimension for the other congruence classes in the remaining region, nor for \(n<6m\). The threshold \(6m\) is sharp for the particular antipodal boundary family in the sense proved here, but no global optimality claim is made for arbitrary three-landmark sets. No independent validation or independent audit has been performed.

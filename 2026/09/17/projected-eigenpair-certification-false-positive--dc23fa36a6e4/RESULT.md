@@ -1,6 +1,6 @@
 # Zero-residual false positives in projected certification of constrained extremal eigenpairs
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Statement
 

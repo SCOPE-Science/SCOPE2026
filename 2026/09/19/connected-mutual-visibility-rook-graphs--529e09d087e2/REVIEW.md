@@ -1,6 +1,6 @@
 # Same-model review
 
-**Same-model review: passed. Cross-model review: not yet performed.**
+**Same-model review: passed. Independent audit: not yet performed.**
 
 ## Correctness
 
@@ -20,4 +20,4 @@ The elementary graph-saturation step may already be implicit or explicit in olde
 
 ## Limitations
 
-The theorem reduces the general exact value to z(m,n;2,2), which is itself open. The explicit q+binom(p,2) formula is limited to the regime q>=binom(p,2), apart from the separately stated p=4 cases. Higher-dimensional Hamming graphs are not covered. Finite computation supports but does not replace the proof. No independent validation or cross-model review has been performed.
+The theorem reduces the general exact value to z(m,n;2,2), which is itself open. The explicit q+binom(p,2) formula is limited to the regime q>=binom(p,2), apart from the separately stated p=4 cases. Higher-dimensional Hamming graphs are not covered. Finite computation supports but does not replace the proof. No independent validation or independent audit has been performed.
