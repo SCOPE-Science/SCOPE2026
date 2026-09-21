@@ -1,7 +1,5 @@
 # Edge addition can increase the optimal 2-burning source number without bound
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 For every integer q >= 1 there are connected finite simple graphs H and G on

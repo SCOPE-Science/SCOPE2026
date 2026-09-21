@@ -1,7 +1,5 @@
 # A 16/27 lower bound for four-colour rainbow Schur triples
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for limitations. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 Let `Lambda_{n,4}` be the maximum, over all 4-colourings `c:[n]->[4]`, of the fraction of ordered pairs `(x,y)` with `x+y<=n` for which `c(x),c(y),c(x+y)` are pairwise distinct. Then

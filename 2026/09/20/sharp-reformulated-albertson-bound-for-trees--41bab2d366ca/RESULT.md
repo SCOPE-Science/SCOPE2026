@@ -1,7 +1,5 @@
 # Sharp maximum reformulated Albertson index of trees
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For a graph \(G\), let

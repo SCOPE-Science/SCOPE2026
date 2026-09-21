@@ -1,7 +1,5 @@
 # Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(P_1,\ldots,P_m\) be orthogonal projectors on \(\mathbb R^n\), and let

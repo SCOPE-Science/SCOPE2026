@@ -1,7 +1,5 @@
 # Exact norm and essential-norm power profiles for irreducible weighted shifts
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \((a_n)_{n\ge 0}\) be a strictly positive real sequence with \(a_0=1\). The following are equivalent.

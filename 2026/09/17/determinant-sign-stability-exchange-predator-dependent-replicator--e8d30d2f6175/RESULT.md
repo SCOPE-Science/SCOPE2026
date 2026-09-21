@@ -171,5 +171,3 @@ Continuity of eigenvalues, determinant-as-product, and invasion-eigenvalue stabi
 
 1. H. M. Cruz and A. G. M. Neves, *Predator-dependent replicator dynamics or a predator-prey model with two prey types and frequency dependence*, arXiv:2607.13281 (2026). https://arxiv.org/abs/2607.13281
 2. J. Sotomayor, *Generic bifurcations of dynamical systems*, in M. M. Peixoto (ed.), *Dynamical Systems*, Academic Press (1973), 549--560.
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -200,8 +200,6 @@ Originality is asserted only to the best of our knowledge. Exact and synonymous 
 - The proof gives contractive witnesses but does not address additional operator-space or completely bounded structure.
 - No quantitative invariant beyond the norm-one witness bound is introduced.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## References
 
 1. J. Huang, Y. Nessipbayev, F. Sukochev, R. Xu, *The Daugavet property in symmetric operator spaces*, arXiv:2608.30491v1 (2026), especially Section 7. https://arxiv.org/abs/2608.30491

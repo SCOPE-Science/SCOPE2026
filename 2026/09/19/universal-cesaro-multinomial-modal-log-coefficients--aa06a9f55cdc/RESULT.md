@@ -1,7 +1,5 @@
 # Universal Cesàro averages of the multinomial modal log expansion
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let

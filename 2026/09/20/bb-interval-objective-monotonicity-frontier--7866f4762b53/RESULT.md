@@ -1,7 +1,5 @@
 # Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Setting
 
 Let

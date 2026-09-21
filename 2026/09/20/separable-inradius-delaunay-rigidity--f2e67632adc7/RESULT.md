@@ -1,7 +1,5 @@
 # Rigidity of separable inradius objectives for Delaunay triangulations
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(P\subset\mathbb R^2\) be a finite point set in general position (no three collinear and no four cocircular), and let \(T\) be a triangulation of \(P\). For a continuous function \(\varphi:(0,\infty)\to\mathbb R\), define the separable inradius functional

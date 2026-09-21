@@ -1,7 +1,5 @@
 # A (14h-13)-Barrycade construction of height h-1
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. The parent preprint is extremely recent and an unpublished predecessor manuscript is a material originality threat.
-
 ## Claim
 
 For every integer `h>=2`, the source report proposes a construction of a

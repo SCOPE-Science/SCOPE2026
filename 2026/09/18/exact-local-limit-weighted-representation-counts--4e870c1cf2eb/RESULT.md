@@ -188,5 +188,3 @@ The main residual originality risk is that the motivating preprint is extremely 
 2. Q.-H. Yang, Y.-G. Chen, *Partitions of natural numbers with the same weighted representation functions*, Journal of Number Theory 132 (2012), 3047--3055.
 3. X.-H. Yan, Y.-Q. Shan, *Partitions of the set of natural numbers and their weighted representation functions*, Ramanujan Journal 67 (2025), Article 53, https://doi.org/10.1007/s11139-025-01113-7.
 4. Z. Qu, *A note on representation functions with different weights*, Colloquium Mathematicum 143 (2016), 105--112, https://doi.org/10.4064/cm6512-12-2015.
-
-**Same-model review: passed. Independent audit: not yet performed.**

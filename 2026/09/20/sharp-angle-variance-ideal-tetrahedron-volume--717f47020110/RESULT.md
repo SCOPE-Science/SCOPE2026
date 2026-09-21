@@ -1,7 +1,5 @@
 # Sharp angle-variance profile for ideal tetrahedron volume
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(\Delta\) be a nondegenerate ideal tetrahedron in \(\mathbb H^3\), and let

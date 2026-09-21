@@ -1,7 +1,5 @@
 # An explicit iterated-log lower bound for the finite Garsia rearrangement constant
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For an \(N\)-term orthonormal system

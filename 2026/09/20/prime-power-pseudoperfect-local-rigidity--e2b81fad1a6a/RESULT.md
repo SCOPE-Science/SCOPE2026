@@ -168,5 +168,3 @@ The finite computation is supporting evidence only; both the local criterion and
 2. OEIS A283423, *Prime power pseudoperfect numbers*. https://oeis.org/A283423
 3. J. M. Grau, A. M. Oller-Marcén, D. Sadornil, *On μ-Sondow Numbers*, arXiv:2111.14211. https://arxiv.org/abs/2111.14211
 4. H. Wang, *Port Fillings for Primary Pseudoperfect Numbers*, arXiv:2605.21518. https://arxiv.org/abs/2605.21518
-
-**Same-model review: passed. Independent audit: not yet performed.**

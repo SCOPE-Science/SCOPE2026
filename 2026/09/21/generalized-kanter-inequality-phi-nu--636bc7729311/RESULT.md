@@ -2,8 +2,6 @@
 
 **Publication date:** 2026-09-21 (UTC)
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For \(\nu\ge -\tfrac12\) and \(x>0\), define
@@ -286,7 +284,7 @@ The numerical checks are supplementary and are not used in place of the analytic
 - The theorem gives a sharp Kanter-type lower bound for this specific \(\Phi_\nu\) family; it does not classify all sharp lower bounds for \(I_\nu+I_{\nu+1}\).
 - The single-crossing and digamma/exponential-integral ingredients are analytic tools, not independent claims of novelty.
 - The originality search is targeted rather than exhaustive; equivalent prior coverage under substantially different special-function notation remains possible.
-- Independent audit has not been performed.
+
 
 ## References
 

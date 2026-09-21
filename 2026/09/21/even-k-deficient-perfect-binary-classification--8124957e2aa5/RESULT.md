@@ -183,8 +183,6 @@ Targeted searches for even exactly \(k\)-deficient-perfect numbers, the form \(2
 
 The result classifies the even case with exactly two distinct prime factors. It does not classify odd exactly \(k\)-deficient-perfect numbers, integers with at least three distinct prime factors, or determine which fixed values of \(k\) occur infinitely often. The bounded computation is not used as a substitute for proof.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## References
 
 1. M. Tang, X.-Z. Ren, M. Li, *On near-perfect and deficient-perfect numbers*, Colloquium Mathematicum 133 (2013), 221--226. DOI: 10.4064/cm133-2-8. https://doi.org/10.4064/cm133-2-8

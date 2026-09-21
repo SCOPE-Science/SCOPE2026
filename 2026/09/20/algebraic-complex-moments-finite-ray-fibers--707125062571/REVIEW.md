@@ -94,3 +94,8 @@ zero set that excludes the origin. A support containing a whole radial line
 can have an infinite \(\psi\)-fiber and lies outside the argument. The result
 is uniqueness-only and gives no quantitative stability bound for noisy or
 truncated moment data. Independent audit has not yet been performed.
+
+## Recorded review qualifications
+
+Independent audit has not yet been
+performed.

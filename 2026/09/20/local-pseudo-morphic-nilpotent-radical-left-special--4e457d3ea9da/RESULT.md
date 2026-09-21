@@ -31,8 +31,6 @@ In particular, every local left pseudo-morphic ring with nilpotent Jacobson
 radical is left special. This gives an affirmative answer to Question 1 of
 Camillo--Nicholson (2015).
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Proof
 
 Put \(S=J^{n-1}\). Because \(a\ne0\) and \(J^n=0\),

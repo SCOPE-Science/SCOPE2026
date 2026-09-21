@@ -1,7 +1,5 @@
 # Sharp minimum order of k-stepwise irregular trees at fixed maximum degree
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Fix an integer \(k\ge 1\). A graph is \(k\)-stepwise irregular (\(k\)-SI) if

@@ -165,5 +165,3 @@ The 1971 Pledger--Proschan chapter was not available for complete theorem-by-the
 5. Z. Tan, “Estimation of exponential component reliability from uncertain life data in series and parallel systems,” *Reliability Engineering & System Safety* 92 (2007), 223–230. https://doi.org/10.1016/j.ress.2005.12.010
 6. J. Navarro and F. Spizzichino, “On the relationships between copulas of order statistics and marginal distributions,” *Statistics & Probability Letters* 80 (2010), 473–479. https://doi.org/10.1016/j.spl.2009.11.025
 7. `kofn` package documentation, “Exponential Parallel Systems: Closed-Form MLE via Inclusion-Exclusion,” documentation built 2026-06-19. https://rdrr.io/cran/kofn/f/vignettes/exponential-parallel.Rmd
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -130,3 +130,7 @@ case for an open direction stated in a recent SOSGM paper and sharply
 contrasts with the nonzero stationary error of constant-step SGD on the same
 quadratic. The result is deliberately not presented as a general
 non-vanishing-noise convergence theory.
+
+## Recorded review qualifications
+
+**Same-model review: passed. Independent audit: not yet performed.**

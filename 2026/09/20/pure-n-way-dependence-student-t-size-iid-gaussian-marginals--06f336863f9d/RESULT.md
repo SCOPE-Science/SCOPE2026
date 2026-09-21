@@ -1,7 +1,5 @@
 # Pure n-way dependence can double Student t size despite iid Gaussian proper marginals
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(\phi\) be the standard normal density. For \(n\ge2\) and

@@ -83,8 +83,6 @@ A specific residual originality uncertainty is Li and Houghten, *Searching for O
 
 The matching upper bound is computer-assisted rather than a short symbolic classification of odd-alphabet length-four codes. It determines the first concrete quinary instance \(q=5\) but does not give a general sharp formula for all odd \(q\). The result concerns the standard ordered-word deletion channel; it does not apply to multiset deletion models or constrained synchronization channels.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## References
 
 1. H. K. Kim, J. Y. Lee, and D. Y. Oh, “Optimal single deletion correcting code of length four over an alphabet of even size,” *IEEE Transactions on Information Theory* 56(7) (2010), 3217–3220. https://doi.org/10.1109/TIT.2010.2048492 ; preprint: https://arxiv.org/abs/1003.4057

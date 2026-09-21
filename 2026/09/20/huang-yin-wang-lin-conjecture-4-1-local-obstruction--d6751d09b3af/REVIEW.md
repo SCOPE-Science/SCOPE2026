@@ -69,3 +69,7 @@ so the closed interval is certified.
   monotonicity threshold.
 - Equivalent prior coverage under different terminology cannot be ruled
   out exhaustively.
+
+## Recorded review qualifications
+
+- Independent audit has not been performed.

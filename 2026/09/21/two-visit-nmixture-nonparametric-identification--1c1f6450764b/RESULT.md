@@ -1,7 +1,5 @@
 # Two visits identify a nonparametric closed binomial N-mixture
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Setup
 
 Let \(N\) be a nonnegative integer-valued latent abundance variable with

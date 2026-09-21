@@ -1,7 +1,5 @@
 # Exact dependence of jackknife pseudo-values for U-statistics
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Setup
 
 Let \(X_1,\ldots,X_n\) be iid, let \(n>m\), and let

@@ -1,7 +1,5 @@
 # Sharp threshold-2 Lévy inflation under pairwise-independent Rademacher increments
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(X_1,\ldots,X_n\) be pairwise independent symmetric Rademacher random variables,

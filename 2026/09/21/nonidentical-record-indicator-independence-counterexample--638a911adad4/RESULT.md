@@ -132,5 +132,3 @@ This note does not attempt a new complete characterization of all independent no
 4. D. Pfeifer, *Some remarks on Nevzorov's record model*, Advances in Applied Probability 23 (1991), 823–834. https://doi.org/10.2307/1427678
 5. G. Barlevy and H. N. Nagaraja, *Characterizations in a random record model with a non-identically distributed initial record*, Federal Reserve Bank of Chicago Working Paper 2005-05. https://www.chicagofed.org/publications/working-papers/2005/2005-05
 6. P. He and K. A. Borovkov, *Limit Theorems for Record Indicators in Threshold \(F^\alpha\)-Schemes*, Theory of Probability & Its Applications 65 (2020), 405–417. https://doi.org/10.1137/S0040585X97T990034
-
-**Same-model review: passed. Independent audit: not yet performed.**

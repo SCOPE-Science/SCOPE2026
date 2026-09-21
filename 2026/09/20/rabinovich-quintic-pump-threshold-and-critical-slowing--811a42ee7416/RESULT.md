@@ -277,5 +277,3 @@ output is in `artifacts/verification.txt`.
 5. O. Chiş and M. Puta,
    *The Dynamics of Rabinovich system*, arXiv:0710.4583.
    https://arxiv.org/abs/0710.4583
-
-**Same-model review: passed. Independent audit: not yet performed.**

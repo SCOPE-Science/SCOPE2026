@@ -157,5 +157,3 @@ The theorem uses the arithmetic-progression hypothesis essentially. It does not 
 2. H. Bailey and W. Gosnell, “Heronian Triangles with Sides in Arithmetic Progression: An Inradius Perspective,” *Mathematics Magazine* 85 (2012), 290–294. https://doi.org/10.4169/math.mag.85.4.290
 3. E. Read, “On HAP triangles,” *The Mathematical Gazette* 109 (2025), 294–302. https://doi.org/10.1017/mag.2025.10079
 4. OEIS Foundation Inc., A387908, “Number of distinct integer-sided triangles with perimeter \(6n\) and integer area whose sides are in arithmetic progression.” https://oeis.org/A387908
-
-**Same-model review: passed. Independent audit: not yet performed.**

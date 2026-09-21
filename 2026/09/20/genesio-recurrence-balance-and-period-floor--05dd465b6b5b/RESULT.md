@@ -150,5 +150,3 @@ Originality is to the best of our knowledge. The full text of the 1952 Barbasin 
 5. M. Diab, J. L. G. Guirao and J. A. Vera, "Zero-Hopf Bifurcation in a Generalized Genesio Differential Equation," *Mathematics* 9 (2021), 354. https://doi.org/10.3390/math9040354
 6. C. Valls, "Global dynamical aspects and integrability analysis of the Genesio system," *Discrete and Continuous Dynamical Systems - B* 30 (2025), 3206--3221. https://doi.org/10.3934/dcdsb.2025016
 7. E. A. Barbasin, "On the stability of the solution of a certain nonlinear equation of third order," *Priklad. Mat. Mekh.* 16 (1952), 629--632.
-
-**Same-model review: passed. Independent audit: not yet performed.**

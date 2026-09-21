@@ -1,7 +1,5 @@
 # A 186,821,495-element non-cancelling-intersections counterexample bound
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for limitations. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 For `p=571` there exists a marking of every affine line of `F_p^2` by exactly

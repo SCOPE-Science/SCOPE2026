@@ -1,7 +1,5 @@
 # Exact diagonal balance and compact-recurrence bounds for the Halvorsen flow
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Consider the four-parameter cyclic Halvorsen system
 \[
 \begin{aligned}

@@ -1,7 +1,5 @@
 # Fixed hidden alphabets preserve almost all finite-language projection blow-up
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(k\ge 3\) be the size of the projected alphabet and let \(h\ge2\) be fixed. Put

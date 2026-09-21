@@ -204,5 +204,3 @@ numerical experiment is required for the theorem.
 3. P. G. Dixon, *Topologically nilpotent Banach algebras and factorisation*,
    Proceedings of the Royal Society of Edinburgh Section A 119 (1991),
    329--341. https://doi.org/10.1017/S0308210500014876
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -1,7 +1,5 @@
 # Exact weak-rotation global stability threshold for the Lorenz–Stenflo origin
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Consider the classical Lorenz–Stenflo system

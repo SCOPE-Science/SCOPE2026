@@ -279,5 +279,3 @@ The result does **not** complete the classification of \(2^a p^b\) for \(b\ge3\)
 2. J.-M. De Koninck, *Those Fascinating Numbers*, AMS, 2009. https://www.ams.org/bookpages/mbk-64
 3. OEIS A064510, *Numbers m such that the sum of the first k divisors of m is equal to m for some k*. https://oeis.org/A064510
 4. OEIS A194472, *Erdős-Nicolas numbers*. https://oeis.org/A194472
-
-**Same-model review: passed. Independent audit: not yet performed.**

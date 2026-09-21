@@ -1,7 +1,5 @@
 # Dimension-threshold classification of weighted block identities
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(1\le p<q\le\infty\), with \(1/\infty=0\). Let \((E_n)_{n\ge1}\) be non-zero finite-dimensional Banach spaces. Put

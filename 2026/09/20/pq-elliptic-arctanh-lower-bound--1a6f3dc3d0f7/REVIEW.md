@@ -53,3 +53,7 @@ Searches covered the exact 2019 equation, the source authors/title, \(K_{p,q}\) 
 - Parameters outside \(p,q\ge2\) are not classified.
 - Equivalent prior coverage in substantially different hypergeometric language remains a residual originality risk.
 - Independent audit has not been performed.
+
+## Recorded review qualifications
+
+4. Independent audit has not been performed.

@@ -273,12 +273,10 @@ The originality claim is therefore only **to the best of our knowledge**. A diff
 1. The exponent \((q+1)/(2q)\) is not claimed to be optimal for fixed \(q\) (or fixed \(p,q\)); the proof is aimed at closing the 2019 question with a clean stronger bound.
 2. The parameter range proved here is \(p,q\ge2\). No claim is made about the same exponent outside that range.
 3. The literature search cannot exclude an equivalent result stated in substantially different hypergeometric notation.
-4. Independent audit has not been performed.
+
 
 ## References
 
 1. X. Dou, L. Yin, X.-L. Lin, “Functional Inequalities for Generalized Complete Elliptic Integrals with Two Parameters,” *Journal of Function Spaces* (2019), Article 4752856. https://doi.org/10.1155/2019/4752856
 2. F. Wang, F. Qi, “Monotonicity and sharp inequalities related to complete \((p,q)\)-elliptic integrals of the first kind,” *Comptes Rendus Mathématique* 358 (2020), 961–970. https://doi.org/10.5802/crmath.119
 3. H. Alzer, S.-L. Qiu, “Monotonicity theorems and inequalities for the complete elliptic integrals,” *Journal of Computational and Applied Mathematics* 172 (2004), 289–312. https://doi.org/10.1016/j.cam.2004.02.009
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -1,7 +1,5 @@
 # Strictly singular derivations on C*-algebras are compact
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(A\) be a complex C*-algebra and let \(\delta:A\to A\) be a bounded derivation. Then

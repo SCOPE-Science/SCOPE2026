@@ -1,7 +1,5 @@
 # Cyclomatic bounds and sharp matching-induced-matching gaps
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Definitions
 
 For a finite simple graph `G`, let `nu(G)` denote its matching number and let `nu_s(G)` denote its induced (strong) matching number. Let

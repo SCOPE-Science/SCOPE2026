@@ -1,7 +1,5 @@
 # A sharp phase boundary in the unresolved Muirhead–identric \(E_4\) region
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Context
 
 For \(x,y>0\) and real \(a,b\) with \(a+b\ne0\), define the two-parameter generalized Muirhead mean
@@ -406,7 +404,7 @@ Thus \(M<I\) at \((x,y)=(1,64)\), while \(M>I\) for sufficiently close arguments
 - Existence of an interior minimizer is proved there, but uniqueness is not claimed.
 - This record addresses precisely the previously unclassified \(E_4\) region; the already classified \(E_1,E_2,E_3\) regions are not re-proved.
 - The originality assessment is to the best of our knowledge. Equivalent prior coverage under substantially different notation, in unindexed literature, or in a source not retrieved by the documented searches remains possible.
-- Independent audit has not been performed.
+
 
 ## References
 

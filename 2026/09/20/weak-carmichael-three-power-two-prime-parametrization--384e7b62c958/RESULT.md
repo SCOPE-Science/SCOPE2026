@@ -1,7 +1,5 @@
 # A finite divisor parametrization for weak Carmichael numbers \(3^a p q\)
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 A weak Carmichael number is an odd composite integer \(n\) such that \(r-1\mid n-1\) for every prime divisor \(r\mid n\). Fix \(a\ge 1\), put

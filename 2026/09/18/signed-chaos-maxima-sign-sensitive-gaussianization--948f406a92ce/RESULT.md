@@ -1,7 +1,5 @@
 # Sharp sign-sensitive Gaussianization thresholds for equal-spectrum second-chaos maxima
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(p\to\infty\), put \(L=\log p\), and let \(m=m_p\to\infty\) be even. Consider the two variance-one second-Gaussian-chaos laws

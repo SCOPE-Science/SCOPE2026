@@ -62,8 +62,6 @@ Thus, for a normal \(p\)-subgroup, locality of the centralizer algebra is govern
 exactly by the group centralizer, while within the local regime symmetry and
 self-injectivity occur exactly in the trivial-conjugation case.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Proof
 
 The \(P\)-orbits on \(G\) under conjugation give the standard orbit-sum basis of

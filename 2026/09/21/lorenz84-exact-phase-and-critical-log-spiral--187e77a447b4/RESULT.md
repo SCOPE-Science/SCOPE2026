@@ -1,7 +1,5 @@
 # Exact phase geometry and critical logarithmic spiral in symmetric Lorenz-84
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Consider the Lorenz-84 atmospheric circulation model with zero asymmetric heating,

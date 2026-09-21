@@ -1,7 +1,5 @@
 # Boundary positivity for the Gegenbauer Pólya integral at every real parameter
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For \(\lambda>0\), \(\delta>0\), \(n\in\mathbb N_0\), and
@@ -400,7 +398,7 @@ all-real-parameter conjecture. It does not claim the converse
   their complete-monotonicity calculations.
 - A differently formulated or poorly indexed result may already contain the
   same continuous-parameter extension.
-- Independent audit has not been performed.
+
 
 ## References
 

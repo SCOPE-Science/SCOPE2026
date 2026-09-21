@@ -162,7 +162,7 @@ Searches by the exact quotient, the 2017 paper title and DOI, the numerical inte
 - At \(\tau=\tau_9\), the derivative vanishes at \(x=9\), which alone does not rule out strict monotonicity; no endpoint claim is made there.
 - The lower bound uses a computer-assisted interval certificate for one explicit elementary inequality. It is not a formal proof assistant verification.
 - The originality search may miss later work using substantially different notation for the same quotient.
-- Independent audit has not been performed.
+
 
 ## Reproducibility
 

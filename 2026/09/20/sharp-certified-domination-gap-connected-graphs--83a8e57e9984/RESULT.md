@@ -1,7 +1,5 @@
 # Sharp certified-domination gap for connected graphs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(G\) be a finite simple connected graph of order \(n\ge 2\). Write

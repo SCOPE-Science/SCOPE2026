@@ -186,5 +186,3 @@ The lower-bound theorem is local in the step size for each fixed generator; it i
 2. J. A. van de Griend, J. F. B. M. Kraaijevanger, “Absolute monotonicity of rational functions occurring in the numerical solution of initial value problems,” *Numerische Mathematik* 49 (1986), 413–424. https://doi.org/10.1007/BF01389539
 3. L. Lóczi, D. I. Ketcheson, “Rational functions with maximal radius of absolute monotonicity,” *LMS Journal of Computation and Mathematics* 17 (2014), 159–205. https://doi.org/10.1112/S1461157013000326
 4. A. Itkin, R. Kazbek, “Diagonal Frog meets ADI: trading matrix exponentials for rational maps in the Fokker--Planck equation,” arXiv:2608.22703 (2026). https://arxiv.org/abs/2608.22703
-
-Same-model review: passed. Independent audit: not yet performed.

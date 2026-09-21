@@ -176,5 +176,3 @@ with Python 3 and SymPy. The verification used SymPy 1.14.0; all congruence chec
 4. OEIS A136473, primitive solutions: https://oeis.org/A136473
 5. OEIS A136475, prime factors of successive quotients \((2^{3^{k+1}}+1)/(2^{3^k}+1)\): https://oeis.org/A136475
 6. J. J. Alba González, F. Luca, C. Pomerance, and I. E. Shparlinski, *On numbers n dividing the nth term of a linear recurrence*, Proc. Edinburgh Math. Soc. 55 (2012), 271--289, doi:10.1017/S0013091510001355.
-
-**Same-model review: passed. Independent audit: not yet performed.**

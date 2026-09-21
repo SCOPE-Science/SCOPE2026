@@ -1,7 +1,5 @@
 # Segre-quadric monomiality criterion for two-generated short local algebras
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(k\) be any field, let \(A\) be a finite-dimensional split local \(k\)-algebra, and write \(J=J(A)\). Assume

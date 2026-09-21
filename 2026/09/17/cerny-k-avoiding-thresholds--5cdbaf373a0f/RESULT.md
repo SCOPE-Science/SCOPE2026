@@ -174,8 +174,6 @@ reachability remains the most plausible residual coverage risk, because an
 equivalent total-extension statement could have been recorded without the
 later `k-avoiding` terminology.
 
-Same-model review: passed. Independent audit: not yet performed.
-
 ## References
 
 1. R. Ferens, M. Szykuła, V. Vorel, *Lower Bounds on Avoiding Thresholds*, MFCS 2021. https://doi.org/10.4230/LIPIcs.MFCS.2021.46

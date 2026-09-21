@@ -154,5 +154,3 @@ Originality is claimed only to the best of our knowledge. The 1982 Erdős--Frank
 4. P. C. Li, G. H. J. van Rees, R. Wei, *Constructions of 2-cover-free families and related separating hash families*, Journal of Combinatorial Designs 14 (2006), 423--440. https://doi.org/10.1002/jcd.20109
 5. T. B. Idalino, L. Moura, *Cover-free families on hypergraphs and combinatorial group testing*, Journal of Combinatorial Optimization 51 (2026), article 55. https://doi.org/10.1007/s10878-026-01429-0
 6. L. Yu, X. Wang, L. Ji, *Constructions of Optimal Sparse r-Disjunct Matrices via Packings*, Journal of Combinatorial Designs 33 (2025), 287--299. https://doi.org/10.1002/jcd.21986
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -1,7 +1,5 @@
 # Exact cutoff in the Wei–Guo complete-monotonicity conjecture
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Wei and Guo (2014) defined, for \(i\in\mathbb N_0\) and \(t>0\),

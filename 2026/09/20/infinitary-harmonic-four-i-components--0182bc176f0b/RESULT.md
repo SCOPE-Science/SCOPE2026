@@ -1,7 +1,5 @@
 # Exact classification of infinitary harmonic numbers with four I-components
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let

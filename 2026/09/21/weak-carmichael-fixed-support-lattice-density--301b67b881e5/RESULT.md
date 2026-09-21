@@ -244,8 +244,6 @@ The most relevant source not fully inspected is E. Wong's 1997 Simon Fraser Univ
 
 The asymptotic is for a **fixed admissible prime support** while the exponents vary. It does not count weak Carmichael numbers when the prime support itself varies, and it does not address Meštrović's global conjectures on weak Carmichael counts. The constants implicit in the error terms depend on the fixed support. The lattice-point argument is classical and elementary; the claimed novelty is its application and synthesis in this weak-Carmichael setting.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## References
 
 1. J. M. Borwein, E. W. M. Wong, *A survey of results relating to Giuga's conjecture on primality*, CRM Proceedings & Lecture Notes 11 (1997), 13--27. DOI: 10.1090/crmp/011/02.

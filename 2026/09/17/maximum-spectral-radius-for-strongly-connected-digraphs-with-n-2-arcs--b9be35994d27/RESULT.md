@@ -1,7 +1,5 @@
 # Maximum spectral radius for strongly connected digraphs with n+2 arcs
 
-> **Review status: same-model review.** the same-model review reports a proof of both parts of Klech's Conjecture 5.15, but the proof has not received independent review. Originality is claimed only to the best of our knowledge.
-
 ## Claim reported by the source report
 
 Let `G` be a finite strongly connected simple digraph with `n>=3` vertices and exactly `n+2` arcs.

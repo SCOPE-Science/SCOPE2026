@@ -137,5 +137,3 @@ The full theorem text of the 40-page Basit--Suter--Zhang preprint was not inspec
 1. Abdul Basit, David Suter, Erchuan Zhang, *Bicoloured-interval and interval-sandwich graphs: two new classes in the tolerance hierarchy*, arXiv:2609.12293 (2026).
 2. Sanchita Paul, Shamik Ghosh, *On some subclasses of interval catch digraphs*, Electronic Journal of Graph Theory and Applications 10(1), 157--171 (2022), DOI: 10.5614/ejgta.2022.10.1.10.
 3. Sanchita Paul, Shamik Ghosh, *On central-max-point tolerance graphs and some subclasses of interval catch digraphs*, arXiv:1712.00008.
-
-Same-model review: passed. Independent audit: not yet performed.

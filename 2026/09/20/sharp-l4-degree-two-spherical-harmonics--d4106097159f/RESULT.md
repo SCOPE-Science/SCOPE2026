@@ -258,7 +258,7 @@ A related 2013 paper of De Carli, Gorbachev and Tikhonov notes that exact norm-r
 - The result is exact only for degree two; it does not determine the global \(L^4/L^2\) extremizer for arbitrary harmonic degree.
 - The literature search found no statement matching (1)–(6), but an equivalent formulation could exist in invariant theory, matrix-moment inequalities, or older reverse Hölder literature under different notation.
 - Duoandikoetxea's 1987 paper on reverse Hölder inequalities for spherical harmonics is particularly relevant because it gives degree-dependent dimension-free bounds for some exponent pairs; its full theorem text was not inspected here, so it remains a residual originality risk.
-- Independent audit has not been performed.
+
 
 ## References
 

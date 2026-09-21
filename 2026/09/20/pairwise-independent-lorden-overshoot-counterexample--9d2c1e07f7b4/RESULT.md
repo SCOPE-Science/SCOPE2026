@@ -185,5 +185,3 @@ Pairwise independence is known to preserve some classical limit results but not 
 4. D. Svensson, “A Random Environment Generalization of Lorden's Renewal Inequality,” *Markov Processes and Related Fields* 8 (2002), 637–649. https://math-mprf.org/journal/articles/id952/
 5. E. Yu. Kalimulina and G. A. Zverkina, “On Lorden's Inequality and Renewal-Type Processes with Dependent Inter-Renewal Times,” arXiv:2501.18329, revised 2026. https://arxiv.org/abs/2501.18329
 6. B. Avanzi, G. Boglioni Beaulieu, P. Lafaye de Micheaux, F. Ouimet, and B. Wong, “A counterexample to the existence of a general central limit theorem for pairwise independent identically distributed random variables,” *Journal of Mathematical Analysis and Applications* 499 (2021), 124982. https://doi.org/10.1016/j.jmaa.2021.124982
-
-**Same-model review: passed. Independent audit: not yet performed.**

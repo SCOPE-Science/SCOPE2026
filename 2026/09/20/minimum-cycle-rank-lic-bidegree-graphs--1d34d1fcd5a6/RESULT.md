@@ -234,5 +234,3 @@ conservatively treated as prior art.
 4. J. Moondra, A. Sahdev, and A. Tripathi, *Exact and approximate results on
    the least size of a graph with a given degree set*, Discrete Applied
    Mathematics 333 (2023), 32--42. https://doi.org/10.1016/j.dam.2023.02.012
-
-**Same-model review: passed. Independent audit: not yet performed.**

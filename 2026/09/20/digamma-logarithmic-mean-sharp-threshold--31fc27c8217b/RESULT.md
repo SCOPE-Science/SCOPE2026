@@ -1,7 +1,5 @@
 # Sharp two-sided threshold for a digamma logarithmic-mean inequality
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Let
 \[
 L(a,b)=\frac{b-a}{\log b-\log a}\qquad(0<a<b)

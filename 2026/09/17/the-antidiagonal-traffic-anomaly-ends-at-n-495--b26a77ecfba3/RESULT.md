@@ -1,7 +1,5 @@
 # The antidiagonal traffic anomaly ends at n=495
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review. This is not independent verification. Originality is claimed only to the best of our knowledge.
-
 ## Claim
 
 The source report proposes a proof of Conjecture 7.4 of Gil--Liang--Odetola--Weiner, arXiv:2609.01562v1:

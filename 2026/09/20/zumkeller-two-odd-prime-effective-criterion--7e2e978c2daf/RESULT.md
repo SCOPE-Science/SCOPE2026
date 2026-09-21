@@ -1,7 +1,5 @@
 # An effective criterion for Zumkeller numbers of the form \(2^a p q\)
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 A positive integer is **Zumkeller** if its positive divisors can be partitioned into two sets having equal sum. Let

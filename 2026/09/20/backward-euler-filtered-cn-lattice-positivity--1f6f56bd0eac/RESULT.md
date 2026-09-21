@@ -1,7 +1,5 @@
 # Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Consider the semidiscrete one-dimensional heat equation on the infinite uniform lattice,

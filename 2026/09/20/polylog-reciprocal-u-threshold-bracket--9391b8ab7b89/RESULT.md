@@ -1,7 +1,5 @@
 # A quantitative bracket for the polylogarithmic reciprocal-smoothing threshold
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(\mathcal S\) be the normalized univalent class in the unit disk and

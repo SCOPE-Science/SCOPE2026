@@ -169,5 +169,3 @@ Later work checked for coverage includes general bounds and constructions for se
 6. Charles J. Colbourn, Ryan E. Dougherty, and Daniel Horsley, "Distributing hash families with few rows," *Theoretical Computer Science* 800 (2019), 31--41. https://doi.org/10.1016/j.tcs.2019.10.014
 7. Penying Rochanakul, "Improved Bounds on the Size of Separating Hash Families of Short Length," *Thai Journal of Mathematics* (2020), 401--412. https://thaijmath.com/index.php/thaijmath/article/view/979
 8. Xin Wei, Xiande Zhang, and Gennian Ge, "Separating hash families with large universe," *Journal of Combinatorial Theory, Series A* 216 (2025), 106075. https://doi.org/10.1016/j.jcta.2025.106075
-
-Same-model review: passed. Independent audit: not yet performed.

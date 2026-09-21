@@ -28,3 +28,7 @@ Although the uniform binary redundancy threshold rises only from 14 to 15, the s
 ## Review disclaimer
 
 This is not independent validation, peer review, or a guarantee of scholarly priority.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is qualified to the best of our knowledge.

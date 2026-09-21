@@ -1,7 +1,5 @@
 # A six-cycle construction for weak rainbow saturation of C4
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.
-
 Research result and same-model assessment, 17 September 2026. This document does not constitute independent validation.
 
 ## Claim and definitions

@@ -1,7 +1,5 @@
 # Order-Optimal Affine Locality Witnesses
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 For every prime power \(q\ge3\), there is a connected simple bipartite

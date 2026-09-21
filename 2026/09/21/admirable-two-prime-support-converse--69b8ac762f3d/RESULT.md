@@ -309,7 +309,3 @@ The original paper of J. M. Sachs, *Admirable Numbers and Compatible Pairs*, The
    https://oeis.org/A111592
 3. J. M. Sachs, "Admirable Numbers and Compatible Pairs", *The Arithmetic Teacher* 7 (1960), 293--295, JSTOR 41184328.  
    https://www.jstor.org/stable/41184328
-
-## Review status
-
-Same-model review: passed. Independent audit: not yet performed.

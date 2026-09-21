@@ -1,7 +1,5 @@
 # Complete ordering polytope for three pairwise-independent continuous observations
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(X_1,X_2,X_3\) be pairwise independent real random variables with the

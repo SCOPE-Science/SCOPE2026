@@ -1,7 +1,5 @@
 # Exact parametrization of deficient-perfect numbers with squarefree odd part and three prime factors
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(a\ge 1\), and let \(p<q\) be odd primes. Put

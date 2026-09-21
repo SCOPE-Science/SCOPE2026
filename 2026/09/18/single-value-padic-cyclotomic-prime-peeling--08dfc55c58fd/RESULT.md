@@ -238,5 +238,3 @@ The result assumes the index \(n\) and base \(x\) are known; it is an extractor 
 At the binary base \(x=2\), the sign extraction used here does not cover squarefree \(n\), because then \(a\nu_2(x)=1\). Shunia's binary least-prime theorem and its other peeling methods remain available in that regime. The new single-value binary corollary asserted here is therefore restricted to nonsquarefree indices.
 
 No claim is made that these identities yield a competitive integer-factorization algorithm: evaluating \(\Phi_n(x)\) for a large unfactored index is itself a separate computational problem.
-
-**Same-model review: passed. Independent audit: not yet performed.**

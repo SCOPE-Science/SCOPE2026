@@ -1,7 +1,5 @@
 # Sharp Simes size under pairwise independence for three uniform p-values
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(P_1,P_2,P_3\) be pairwise independent random variables, each exactly uniform on \([0,1]\). For \(0\le \alpha\le 1\), let

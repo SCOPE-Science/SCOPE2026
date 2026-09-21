@@ -1,7 +1,5 @@
 # Uniform real-root barrier for fixed-parameter heavy-ball acceleration
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Consider the strongly convex quadratic family

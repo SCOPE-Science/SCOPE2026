@@ -46,8 +46,6 @@ transparent: \(\Delta_J=0\) forces \(m=n+1\), all
 \(\lambda_i=1/(n+1)\), and all \(d_{ij}=D\), so the active contacts are
 the vertices of a regular \(n\)-simplex.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Why the contact certificate exists
 
 For the convex function

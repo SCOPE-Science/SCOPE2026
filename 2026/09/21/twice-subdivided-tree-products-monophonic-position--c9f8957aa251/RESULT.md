@@ -96,5 +96,3 @@ Expected output is stored in `artifacts/expected_output.txt`.
 
 1. U. Chandran S. V., S. Klavžar, P. K. Neethu, J. Tuite, *Monophonic position sets of Cartesian and lexicographic products of graphs*, Computational and Applied Mathematics 46, 44 (2027), published online 11 September 2026. DOI: https://doi.org/10.1007/s40314-026-03901-3. Preprint: https://arxiv.org/abs/2412.09837.
 2. E. J. Thomas, S. V. Ullas Chandran, J. Tuite, G. Di Stefano, *On monophonic position sets in graphs*, Discrete Applied Mathematics 354 (2024), 72--82.
-
-**Same-model review: passed. Independent audit: not yet performed.**

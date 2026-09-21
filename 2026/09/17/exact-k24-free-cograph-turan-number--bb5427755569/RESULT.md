@@ -1,7 +1,5 @@
 # Exact \(K_{2,4}\)-free Turán number for cographs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let

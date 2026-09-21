@@ -41,8 +41,6 @@ tree by \(B_{d,s}\). Then
 \gamma_{t2}(B_{d,s})=2d+1.
 \]
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Proof
 
 We first record two upper bounds.

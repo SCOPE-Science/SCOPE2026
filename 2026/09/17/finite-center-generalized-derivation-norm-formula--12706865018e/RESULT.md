@@ -210,5 +210,3 @@ Targeted searches for finite-center, finite-direct-sum, central-summand and equi
 2. L. A. Fialkow, *A note on norm ideals and the operator \(X\mapsto AX-XB\)*, Israel J. Math. **32** (1979), 331--348.
 3. L. A. Fialkow, R. Loebl, *Elementary mappings into ideals of operators*, Illinois J. Math. **28** (1984), 555--578.
 4. A. Ber, J. Huang, F. Sukochev, *Norms of skew-adjoint derivations with values in the predual of a semifinite von Neumann algebra*, J. Funct. Anal. **285** (2023), 110072.
-
-Same-model review: passed. Independent audit: not yet performed.

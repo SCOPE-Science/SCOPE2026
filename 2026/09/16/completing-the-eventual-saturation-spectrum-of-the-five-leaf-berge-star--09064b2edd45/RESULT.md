@@ -1,7 +1,5 @@
 # Completing the eventual saturation spectrum of the five-leaf Berge star
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.
-
 This is a computer-assisted mathematical result with a same-model review, not independent validation. The new part treats orders not divisible by five.
 
 ## Exact claim

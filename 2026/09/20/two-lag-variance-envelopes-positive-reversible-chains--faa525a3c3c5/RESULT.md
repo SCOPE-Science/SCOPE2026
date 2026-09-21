@@ -1,7 +1,5 @@
 # Sharp two-lag variance envelopes for positive reversible Markov chains
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Setup
 
 Let \((X_t)_{t\in\mathbb Z}\) be a stationary reversible Markov chain with invariant law \(\pi\), and let its Markov operator \(P\) be positive semidefinite on \(L^2(\pi)\). Thus the spectrum relevant to centered observables is contained in \([0,1]\); lazy reversible chains are an important subclass.

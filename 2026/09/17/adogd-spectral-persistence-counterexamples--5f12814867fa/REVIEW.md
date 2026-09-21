@@ -151,3 +151,7 @@ The result is useful beyond a single numerical counterexample because it gives
 closed-form families, identifies the exact proof failures, and supplies a
 strictly weaker corrected AdOGD hypothesis involving only the two endpoint
 eigenspaces.
+
+## Recorded review qualifications
+
+**Same-model review: passed. Independent audit: not yet performed.**

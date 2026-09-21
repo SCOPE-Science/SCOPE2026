@@ -109,5 +109,3 @@ respectively. This computation is corroborative only; the theorem above is prove
 3. A. Mahmoodi, S. Nazari-Moghaddam, A. Behmaram, “Some Results on the Strong Roman Domination Number of Graphs,” *Mathematics Interdisciplinary Research* 5 (2020), 259–277. https://doi.org/10.22052/mir.2020.225635.1205
 4. A. Poureidi, N. A. A. Aziz, N. Jafari Rad, H. Kamarulhaili, “Computing Strong Roman Domination of Trees and Unicyclic Graphs in Linear Time,” *Bulletin of the Malaysian Mathematical Sciences Society* 45 (2022), 2509–2523. https://doi.org/10.1007/s40840-022-01301-4
 5. J. C. Valenzuela-Tripodoro, M. A. Mateos-Camacho, M. Cera López, M. P. Álvarez-Ruíz, “Complexity and Exact Values for [k]-Roman and Strong Roman Domination for Specific Graph Families,” *Mathematics* 14 (2026), 1535. https://doi.org/10.3390/math14091535
-
-**Same-model review: passed. Independent audit: not yet performed.**

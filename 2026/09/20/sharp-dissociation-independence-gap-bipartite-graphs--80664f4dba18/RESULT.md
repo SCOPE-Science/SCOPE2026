@@ -1,7 +1,5 @@
 # Sharp dissociation-independence gap in connected bipartite graphs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let `diss(G)` denote the dissociation number of a graph `G`, the largest size of a vertex set inducing maximum degree at most 1, and let `alpha(G)` denote its independence number.

@@ -1,7 +1,5 @@
 # An exact balance law and a damping-sign recurrence barrier for the Rucklidge flow
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Consider the Rucklidge system

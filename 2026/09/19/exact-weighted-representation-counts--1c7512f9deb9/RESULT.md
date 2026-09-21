@@ -214,5 +214,3 @@ No novelty is claimed for general multivariate lattice local central limit theor
 2. Q.-H. Yang, Y.-G. Chen, *Partitions of natural numbers with the same weighted representation functions*, J. Number Theory 132 (2012), 3047--3055.
 3. X.-H. Yan, Y.-Q. Shan, *Partitions of the set of natural numbers and their weighted representation functions*, Ramanujan J. 67 (2025), Article 53. https://doi.org/10.1007/s11139-025-01113-7
 4. S.-Q. Chen, Y. Ding, X. Lü, Y. Zhang, *Correct order on some certain weighted representation functions*, C. R. Math. 362 (2024), 547--552. https://doi.org/10.5802/crmath.573
-
-Same-model review: passed. Independent audit: not yet performed.

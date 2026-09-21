@@ -183,5 +183,3 @@ The result determines the exact extremal function only through rank three. It do
 3. M. Friesen, A. Hamed, T. Lee, D. O. Theis, *Fooling sets and rank*, European Journal of Combinatorics 48 (2015), 143--153. https://doi.org/10.1016/j.ejc.2015.02.016
 4. M. Pourmoradnasseri, D. O. Theis, *The (minimum) rank of typical fooling-set matrices*, CSR 2017. https://doi.org/10.1007/978-3-319-58747-9_24
 5. M. Parnas, A. Shraibman, *A Study of the Binary and Boolean Rank of Matrices with Small Constant Real Rank*, FCT 2025 proceedings. https://doi.org/10.1007/978-3-032-04700-7_27
-
-**Same-model review: passed. Independent audit: not yet performed.**

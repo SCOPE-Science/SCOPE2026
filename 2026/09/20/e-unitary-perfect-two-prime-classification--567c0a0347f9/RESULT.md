@@ -1,7 +1,5 @@
 # Two-prime classification of exponential unitary perfect numbers
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For an integer

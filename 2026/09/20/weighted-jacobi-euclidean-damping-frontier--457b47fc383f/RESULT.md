@@ -1,7 +1,5 @@
 # Sharp Euclidean damping frontier for weighted Jacobi on 2×2 SPD systems
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(A\in\mathbb R^{n\times n}\) be symmetric positive definite, let

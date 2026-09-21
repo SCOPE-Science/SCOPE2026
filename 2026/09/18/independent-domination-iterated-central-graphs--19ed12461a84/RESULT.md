@@ -1,7 +1,5 @@
 # Independent domination stabilizes on iterated central graphs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Let \(G\) be a finite connected simple graph of order \(n\ge 3\) and size \(m\). Write
 \[
 C^0(G)=G,\qquad C^{j+1}(G)=C(C^j(G)),

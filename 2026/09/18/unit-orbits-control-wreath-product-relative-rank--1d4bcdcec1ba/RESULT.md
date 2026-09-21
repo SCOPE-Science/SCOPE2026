@@ -244,5 +244,3 @@ The general theorem is proved above and does not depend on this finite check.
 1. J. Lu, *Generation of Iterated Wreath Products Constructed from Full Transformation Monoids and Symmetric Groups*, arXiv:2609.20521v1 (2026). https://arxiv.org/abs/2609.20521
 2. J. Araújo and C. Schneider, *The Rank of the Endomorphism Monoid of a Partition*, Semigroup Forum 78 (2009), 498–510; arXiv:0807.1214. https://arxiv.org/abs/0807.1214
 3. J. Araújo, W. Bentz, J. D. Mitchell and C. Schneider, *The rank of the semigroup of transformations stabilising a partition of a finite set*, Math. Proc. Cambridge Philos. Soc. 159 (2015), 339–353. https://doi.org/10.1017/S0305004115000389
-
-Same-model review: passed. Independent audit: not yet performed.

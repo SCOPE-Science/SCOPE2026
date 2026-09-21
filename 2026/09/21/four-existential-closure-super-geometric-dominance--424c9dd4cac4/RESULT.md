@@ -123,5 +123,3 @@ The new content here is the transfer theorem from 4-e.c. to super geometric domi
 3. W. Ananchuen, L. Caccetta, *On the adjacency properties of Paley graphs*, Networks 23 (1993), 227--236. https://doi.org/10.1002/net.3230230404
 4. P. J. Cameron, D. Stark, *A Prolific Construction of Strongly Regular Graphs with the n-e.c. Property*, Electronic Journal of Combinatorics 9 (2002), R31. https://doi.org/10.37236/1647
 5. D. Cizma, N. Linial, *Irreducible nonmetrizable path systems in graphs*, Journal of Graph Theory 102 (2023), 5--14. https://doi.org/10.1002/jgt.22854. Theorem 2.4 records the quadratic-character estimate used above, and Lemma 2.5 records the exact two-character sum.
-
-**Same-model review: passed. Independent audit: not yet performed.**

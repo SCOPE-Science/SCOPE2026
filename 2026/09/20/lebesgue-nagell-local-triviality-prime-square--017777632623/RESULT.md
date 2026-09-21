@@ -205,5 +205,3 @@ arithmetic. Its deterministic expected output is recorded in
    Current arXiv version: https://arxiv.org/abs/2507.12397
 4. E. Katz and K. Pratt, accompanying computation repository.
    https://github.com/ethanhkatz/Lebesgue-Nagell-code
-
-**Same-model review: passed. Independent audit: not yet performed.**

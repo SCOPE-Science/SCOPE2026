@@ -27,3 +27,7 @@ The result is not an isolated numerical extension: if correct, it closes the sol
 ## Review disclaimer
 
 This is not independent validation, peer review, or a guarantee of scholarly priority.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. The source report identifies a residual correctness risk in transporting part of Khetan's spectral argument to cardinality six. Originality is claimed only to the best of our knowledge. Publication is not peer review or a guarantee of priority.

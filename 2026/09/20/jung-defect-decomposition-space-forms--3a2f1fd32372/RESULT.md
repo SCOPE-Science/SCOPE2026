@@ -1,7 +1,5 @@
 # Exact Jung-defect decomposition in constant-curvature space forms
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(X^n_\kappa\) be one of the simply connected constant-curvature spaces

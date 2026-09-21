@@ -28,3 +28,7 @@ The result, if correct, resolves an explicit infinite-family extremal conjecture
 ## Review disclaimer
 
 This is not independent validation, peer review, or a guarantee of scholarly priority.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** the same-model review reports a proof of both parts of Klech's Conjecture 5.15, but the proof has not received independent review. Originality is claimed only to the best of our knowledge.

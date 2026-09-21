@@ -365,7 +365,7 @@ Residual bibliographic risk remains because older center-quotient/Dixmier-proper
 - Only finite von Neumann algebras are covered; no properly infinite analogue is asserted.
 - The reduced-product sharp \(K\) statement is for norm reduced products of finite-dimensional C*-algebras as defined above.
 - The result concerns additive commutators \(bc-cb\), not multiplicative group commutators.
-- Independent audit has not been performed.
+
 
 ## References
 

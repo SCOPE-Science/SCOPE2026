@@ -72,3 +72,7 @@ The novelty is focused rather than broad: it extends an existing approach and re
 ## Conclusion
 
 Correctness, originality within the documented accessible scope, and substantive value each pass this same-model review. The finite computational dependencies and source-version limitations are explicit. The success marker records this same-model assessment only.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.

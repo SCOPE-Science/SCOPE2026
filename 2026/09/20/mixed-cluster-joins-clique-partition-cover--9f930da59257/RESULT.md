@@ -176,9 +176,7 @@ The accompanying verifier constructs the graph and the stated $K_4$/triangle/edg
 
 ## Limitations
 
-The theorem gives a sufficient finite parameter regime for exactness; it does not characterize every heterogeneous cluster join for which the cut bound is attainable. The coefficient $3/2^{5/3}$ is an explicit upper constant obtained from this family, not a claim of the optimal asymptotic constant in $d_n$. Independent audit has not been performed.
-
-**Same-model review: passed. Independent audit: not yet performed.**
+The theorem gives a sufficient finite parameter regime for exactness; it does not characterize every heterogeneous cluster join for which the cut bound is attainable. The coefficient $3/2^{5/3}$ is an explicit upper constant obtained from this family, not a claim of the optimal asymptotic constant in $d_n$. 
 
 ## References
 

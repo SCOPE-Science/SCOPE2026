@@ -141,5 +141,3 @@ To the best of our knowledge, searches by the exact function, the 2010 problem s
 1. Á. Baricz, *Bounds for modified Bessel functions of the first and second kinds*, Proc. Edinburgh Math. Soc. 53 (2010), 575–599. DOI: 10.1017/S0013091508001016.
 2. K. Hornik and B. Grün, *Amos-type bounds for modified Bessel function ratios*, J. Math. Anal. Appl. 408 (2013), 91–101. DOI: 10.1016/j.jmaa.2013.05.070.
 3. D. S. P. Salazar, *Riccati Reductions for Modified Bessel Ratios: Bernstein Positivity, Exact Certificates, and Transfer Obstructions*, arXiv:2607.05538 (2026).
-
-**Same-model review: passed. Independent audit: not yet performed.**

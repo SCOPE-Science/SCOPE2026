@@ -217,5 +217,3 @@ The closest incompletely inspected source is Aksoy and Lewicki, *Diagonal Operat
 5. D. E. Edmunds, J. Lang, “Coincidence and Calculation of some Strict s-Numbers,” *Zeitschrift für Analysis und ihre Anwendungen* 31 (2012), 161–181. https://doi.org/10.4171/ZAA/1453
 6. A. R. Schep, “The essential spectrum, norm, and spectral radius of abstract multiplication operators,” *Concrete Operators* 10 (2023), 20220141. https://doi.org/10.1515/conop-2022-0141
 7. T. Kiwerski, J. Tomaszewski, “Essential Norms of Pointwise Multipliers in the Non-Algebraic Setting,” *Mathematische Nachrichten* 299 (2026), 1917–1955. https://doi.org/10.1002/mana.70174
-
-**Same-model review: passed. Independent audit: not yet performed.**

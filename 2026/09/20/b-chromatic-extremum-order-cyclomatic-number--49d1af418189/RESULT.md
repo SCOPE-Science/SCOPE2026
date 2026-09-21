@@ -1,7 +1,5 @@
 # Sharp b-chromatic extremum at fixed order and cycle rank
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Definitions
 
 Let \(G\) be a finite simple connected graph with order \(n\ge 2\), size \(m\), and cyclomatic number

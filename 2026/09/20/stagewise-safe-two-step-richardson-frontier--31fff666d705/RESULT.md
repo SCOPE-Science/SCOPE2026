@@ -1,7 +1,5 @@
 # Sharp stagewise-safe Richardson frontier and a no-acceleration barrier
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let

@@ -1,7 +1,5 @@
 # No universal second-best tree for the zero forcing polynomial
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 All graphs here are finite, simple and undirected. A zero forcing process starts with a set of blue vertices; a blue vertex with exactly one white neighbor may color that neighbor blue. A set is zero forcing if this process can color every vertex. Write

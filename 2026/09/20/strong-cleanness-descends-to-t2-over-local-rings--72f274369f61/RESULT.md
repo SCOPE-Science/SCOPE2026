@@ -1,7 +1,5 @@
 # Strong cleanness descends from \(M_2\) to \(T_2\) over local rings
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(R\) be a local ring, not assumed commutative, and let

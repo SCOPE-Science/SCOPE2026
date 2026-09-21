@@ -1,7 +1,5 @@
 # Sharp Steiner-disk Hausdorff stability for planar bodies of constant width
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(K\subset\mathbb R^2\) be a convex body of constant width \(w>0\), let \(s(K)\) be its Steiner point, and let

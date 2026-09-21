@@ -87,3 +87,7 @@ hypothesis that the source paper identified as essential.
   proposed order-curvature relation.
 - Equivalent prior coverage under substantially different mean
   parametrizations cannot be excluded exhaustively.
+
+## Recorded review qualifications
+
+- Independent audit has not been performed.

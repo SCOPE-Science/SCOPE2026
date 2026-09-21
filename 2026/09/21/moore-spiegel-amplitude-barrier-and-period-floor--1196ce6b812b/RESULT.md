@@ -174,5 +174,3 @@ The invariant-measure statements assume compact support. The compact-set obstruc
 4. A. N. Negou, J. Kengne and D. Tchiotsop, *Periodicity, chaos and multiple coexisting attractors in a generalized Moore-Spiegel system*, Chaos Solitons Fractals **107** (2018), 275--289. https://doi.org/10.1016/j.chaos.2018.01.011
 5. A. Azam, R. Naheed, M. Aqeel, S. Ahmad, J. Ayub and S. Khan, *Archive of novel hidden attractor with multistability and multidirectional chaotic attractors of Moore-Spiegel oscillator*, Eur. Phys. J. Plus **138** (2023), 938. https://doi.org/10.1140/epjp/s13360-023-04577-y
 6. E. Igra, *Removable dynamics in the Nose-Hoover and Moore-Spiegel Oscillators* (2024), arXiv:2409.16624. https://arxiv.org/abs/2409.16624
-
-**Same-model review: passed. Independent audit: not yet performed.**

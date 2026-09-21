@@ -167,5 +167,3 @@ The contribution here is narrower: **to the best of our knowledge, the exact fou
 4. S. Narayanan, *Three-wise independent random walks can be slightly unbounded*, Random Structures & Algorithms 61 (2022), 573-598. https://doi.org/10.1002/rsa.21075
 5. Q. Berger, L. Béthencourt, *An application of Sparre Andersen's fluctuation theorem for exchangeable and sign-invariant random variables*, arXiv:2304.09031 (2023). https://arxiv.org/abs/2304.09031
 6. D. Iľkovič, J. Yan, *Extremal persistence probabilities of exchangeable sign-invariant random variables*, arXiv:2609.05586 (2026). https://arxiv.org/abs/2609.05586
-
-**Same-model review: passed. Independent audit: not yet performed.**

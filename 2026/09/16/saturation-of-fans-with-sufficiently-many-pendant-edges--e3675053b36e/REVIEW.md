@@ -72,3 +72,11 @@ The following sources were not obtained through available channels. The classifi
 3. **Zhang, Lu and Yu (2024), _A note on the minimum size of matching-saturated graphs_, DOI 10.1016/j.dam.2024.01.017; L. Kaszonyi and Z. Tuza (1986), _Saturated graphs with minimal number of edges_, DOI 10.1002/jgt.3190100209.** Both full texts were unavailable. These are relevant to the matching classification and cone tools, which are expressly not claimed as original. Their possible further structural consequences remain unverified. Accessible attributions were inspected and a Tutte--Berge proof was supplied; no concrete covering claim for the pendant-fan theorem was found.
 
 A later covering theorem would require revision of this assessment. The PASS is a documented same-model assessment within this scope, not independent confirmation or an exhaustive literature certificate.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Same-model review: passed. Independent audit: not yet performed. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.
+
+## Recorded review qualifications
+
+Same-model review:passed. Independent audit: not yet performed.

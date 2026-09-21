@@ -171,5 +171,3 @@ The result concerns one-dimensional full-support location families, deterministi
 2. A. M. Mayoral, D. Morales, J. Morales and I. Vajda, “On efficiency of estimation and testing with data quantized to fixed number of cells,” *Metrika* 57 (2003), 1–27. https://doi.org/10.1007/s001840100178
 3. T. Hobza, I. Molina and I. Vajda, “On convergence of Fisher informations in continuous models with quantized observations,” *TEST* 14 (2005), 151–179. https://doi.org/10.1007/BF02595401
 4. R. Cabral Farias and J.-M. Brossier, “Optimal Scalar Quantization for Parameter Estimation,” arXiv:1310.6945 (2013). https://arxiv.org/abs/1310.6945
-
-**Same-model review: passed. Independent audit: not yet performed.**

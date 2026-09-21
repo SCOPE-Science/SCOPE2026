@@ -37,3 +37,7 @@ The result addresses the explicit analytic bottleneck identified by the parent p
 ## Review disclaimer
 
 This is a same-model review, not independent validation, peer review, formal verification, or a guarantee of scholarly priority.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality, and value were assessed by the same-model review, not an independent reviewer. Originality is only to the best of our knowledge.

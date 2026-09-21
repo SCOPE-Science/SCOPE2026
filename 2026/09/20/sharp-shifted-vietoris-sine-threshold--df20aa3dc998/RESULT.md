@@ -1,7 +1,5 @@
 # Sharp exponent threshold and endpoint boundary layer for shifted Vietoris sine sums
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Fix

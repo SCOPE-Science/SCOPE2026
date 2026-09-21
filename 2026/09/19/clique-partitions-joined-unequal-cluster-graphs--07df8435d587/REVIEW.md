@@ -31,3 +31,7 @@ The result exactly determines both classical clique parameters on a natural two-
 ## Limitations
 
 The hypothesis `h>=chi'(K_s)` is sufficient and is not claimed necessary.  The numbers of clusters on the two sides are equal; unequal cluster counts are not resolved here.  The `r=1` boundary is old.  Finite verification checks the explicit construction, not originality or the general lower bound.  No independent validation or independent audit is asserted.
+
+## Recorded review qualifications
+
+Independent audit has not been performed.

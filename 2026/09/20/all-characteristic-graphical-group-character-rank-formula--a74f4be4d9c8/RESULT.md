@@ -40,8 +40,6 @@ Consequently every irreducible character degree of \(G\) is a power \(q^i\).
 
 For odd \(q\), the rank-count description is implicit in O'Brien--Voll's orbit-method formula and is the formulation recorded by Rossmann. The point here is that the same formula holds in characteristic \(2\), where the class-\(<p\) hypothesis used by that orbit-method argument is unavailable.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Proof
 
 Rossmann's Proposition 2.3 gives, over every commutative ring and hence over every finite field,

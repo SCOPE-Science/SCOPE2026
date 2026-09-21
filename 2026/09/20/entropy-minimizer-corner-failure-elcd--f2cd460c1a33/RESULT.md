@@ -121,5 +121,3 @@ This result does not claim that the corner-restricted ELCD produces worse numeri
 
 - S. Chu, M. Herty, A. Kurganov, *Entropy-Based Local Characteristic Decomposition*, arXiv:2609.19838v1 (2026), especially Section 3 and Algorithm 1. https://arxiv.org/abs/2609.19838
 - N. Leger, A. Vasseur, *Relative entropy and the stability of shocks and contact discontinuities for systems of conservation laws with non-BV perturbations*, Archive for Rational Mechanics and Analysis 201 (2011), 271--302; arXiv:1008.3113. https://arxiv.org/abs/1008.3113
-
-Same-model review: passed. Independent audit: not yet performed.

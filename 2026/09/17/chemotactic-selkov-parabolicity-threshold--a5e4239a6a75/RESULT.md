@@ -273,5 +273,3 @@ Originality is asserted only **to the best of our knowledge**.
    Applied Mathematics (2026), which states a uniform-parabolicity hypothesis
    for its local cross-diffusion strong-solution theory.
    https://doi.org/10.1155/jama/6835155
-
-**Same-model review: passed. Independent audit: not yet performed.**

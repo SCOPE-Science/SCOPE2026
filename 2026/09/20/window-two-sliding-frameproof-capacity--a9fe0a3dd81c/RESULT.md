@@ -97,5 +97,3 @@ The result is specific to window length \(2\) and to Paterson's unrestricted-coa
 1. M. Paterson, “Sliding-window dynamic frameproof codes,” *Designs, Codes and Cryptography* 42(2), 195–212 (2007). https://doi.org/10.1007/s10623-006-9030-9
 2. M. Paterson, “Sequential and dynamic frameproof codes,” *Designs, Codes and Cryptography* 42(3), 317–326 (2007). https://doi.org/10.1007/s10623-006-9037-2
 3. J. Zhou and W. Zhou, “Wide-sense 2-frameproof codes,” *Designs, Codes and Cryptography* 88(12), 2507–2519 (2020). https://doi.org/10.1007/s10623-020-00797-w
-
-**Same-model review: passed. Independent audit: not yet performed.**

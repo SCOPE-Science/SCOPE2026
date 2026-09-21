@@ -1,7 +1,5 @@
 # Critical damping closure and sharp algebraic decay for the Thomas cyclic flow
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## System
 
 For an integer \(n\ge 2\) and \(b>0\), consider the cyclic Thomas system

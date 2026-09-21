@@ -294,5 +294,3 @@ The full text of Bauer--Le (2011) was not inspected here; its abstract and the d
 - W. Bauer and T. Le, *Algebraic properties and the finite rank problem for Toeplitz operators on the Segal--Bargmann space*, J. Funct. Anal. 261 (2011), 2617--2640, https://doi.org/10.1016/j.jfa.2011.07.006.
 - Z. Lin, Y. Lu and C. Zu, *A Fourier Criterion for Recognizing Toeplitz Operators on Fock Spaces*, arXiv:2607.04102 (2026), https://arxiv.org/abs/2607.04102.
 - J. Isralowitz and K. Zhu, *Toeplitz operators on the Fock space*, Integral Equations Operator Theory 66 (2010), 593--611, https://doi.org/10.1007/s00020-010-1768-9.
-
-**Same-model review: passed. Independent audit: not yet performed.**

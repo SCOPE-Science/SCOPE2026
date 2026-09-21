@@ -1,7 +1,5 @@
 # Prime-length weight-three conflict-avoiding codes through subgroup index 3200
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For an odd prime \(p>3\), let

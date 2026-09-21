@@ -1,7 +1,5 @@
 # Finite ray fibers remove the injectivity hypothesis in algebraic complex-moment extensions
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let
@@ -299,8 +297,7 @@ corollary assumes an algebraic zero set avoiding the origin. The proof is
 measure-theoretic and nonquantitative; it gives uniqueness but no stability
 estimate for recovering a measure from perturbed extension moments.
 Algebraic supports containing the origin or containing a whole radial line
-are not covered by this argument. Independent audit has not yet been
-performed.
+are not covered by this argument. 
 
 ## References
 

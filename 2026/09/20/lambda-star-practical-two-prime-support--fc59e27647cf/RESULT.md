@@ -231,5 +231,3 @@ The result is restricted to integers supported on \(\{2,p\}\), with \(a\ge3\). T
    https://doi.org/10.1142/S1793042118500902
 2. OEIS A336508, “lambda*-practical” numbers.  
    https://oeis.org/A336508
-
-**Same-model review: passed. Independent audit: not yet performed.**
