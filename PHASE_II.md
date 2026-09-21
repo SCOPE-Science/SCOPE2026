@@ -8,7 +8,7 @@ evidence for correctness, originality and scientific value.
 
 ## What acceptance means
 
-For accepted results the standard label is **Same-model review: passed.
+For accepted results the standard label in `REVIEW.md` is **Same-model review: passed.
 Independent audit: not yet performed.** Later review outcomes and withdrawals
 override this default when supported by evidence. The label does not specify
 execution architecture or establish reviewer independence.
@@ -39,6 +39,8 @@ Only complete research packages with passing review are published. Incomplete wo
 research artifacts form the public package. Only scientific evidence and publication
 metadata belong in this package. A `PASS` in
 `AUDIT.json` must always be read together with `review_type` and `independent`.
+The mathematical note and summary do not repeat review-status labels or administrative
+disclaimers; those belong in the review document and review metadata.
 
 Known disputed pilot experiments are not automatically promoted to accepted
 findings. Corrections and withdrawals must remain explicit and traceable.
