@@ -56,7 +56,7 @@ The archival record now includes the compact supporting files that were generate
 - `artifacts/research_note.md`: the source proof note;
 - `artifacts/verify.py`: the finite torus sanity-check script.
 
-The finite computation is only a sanity check and is not part of the general proof. Adding these artifacts does not change the record's same-model review status or remove the residual correctness risk described below.
+The finite computation is only a sanity check and is not part of the general proof. The residual correctness risk described below remains.
 
 ## Limitations
 
