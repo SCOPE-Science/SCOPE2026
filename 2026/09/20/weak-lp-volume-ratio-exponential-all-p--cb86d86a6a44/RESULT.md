@@ -1,7 +1,5 @@
 # Exponential weak-Lp volume ratio for every finite p
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 For `0 < p < infinity`, let

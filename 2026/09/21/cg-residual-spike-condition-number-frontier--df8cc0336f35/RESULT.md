@@ -197,5 +197,3 @@ A 2024 survey by Carson, Liesen, and Strakoš emphasizes that CG residual behavi
 ## Limitations
 
 The theorem is an exact-arithmetic statement for standard CG on a real finite-dimensional SPD matrix. It uses the actual spectral condition number of \(A\); replacing the extreme eigenvalues by looser enclosing bounds remains valid but can be conservative. No floating-point residual-gap statement is implied. The PCG extension requires a fixed SPD preconditioner and applies to the \(M^{-1}\)-norm of the residual, not automatically to its Euclidean norm. Sharpness is global and already occurs at the first step; no claim is made that equality can be forced at every prescribed later iteration. Older monographs on Lanczos/CG and Gaussian-elimination multiplier bounds were not all accessible theorem by theorem, so historical-equivalence risk remains.
-
-Same-model review: passed. Independent audit: not yet performed.

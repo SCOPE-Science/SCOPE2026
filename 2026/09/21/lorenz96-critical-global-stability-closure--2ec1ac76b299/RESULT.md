@@ -161,5 +161,3 @@ The theorem assumes a homogeneous quadratic nonlinearity, Euclidean energy prese
 2. D. L. van Kekem and A. E. Sterk, *Wave propagation in the Lorenz-96 model*, Nonlinear Processes in Geophysics **25** (2018), 301--314. https://doi.org/10.5194/npg-25-301-2018
 3. J. Kerin and H. Engler, *On the Lorenz '96 model and some generalizations*, Discrete and Continuous Dynamical Systems - B **27** (2022), 769--797. https://doi.org/10.3934/dcdsb.2021064 ; arXiv:2005.07767.
 4. M. Schlegel and B. R. Noack, *On long-term boundedness of Galerkin models*, Journal of Fluid Mechanics **765** (2015), 325--352. https://doi.org/10.1017/jfm.2014.736 ; arXiv:1310.0053.
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -274,7 +274,3 @@ element literature under different terminology.
    *Interpolated corrected curvature measures for polygonal surfaces*,
    Computer Graphics Forum 39 (2020), 41--54.
    https://doi.org/10.1111/cgf.14067
-
-## Review status
-
-**Same-model review: passed. Independent audit: not yet performed.**

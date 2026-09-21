@@ -251,5 +251,3 @@ The proof is exact arithmetic. Very small \(\varepsilon\) creates widely separat
 3. E. N. Epperly, *Adaptive randomized pivoting and volume sampling*, arXiv:2510.02513, 2025. https://arxiv.org/abs/2510.02513
 4. A. Deshpande, L. Rademacher, *Efficient Volume Sampling for Row/Column Subset Selection*, FOCS 2010. https://doi.org/10.1109/FOCS.2010.38
 5. A. Deshpande, L. Rademacher, S. Vempala, G. Wang, *Matrix approximation and projective clustering via volume sampling*, Theory of Computing 2 (2006), 225–247.
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -251,5 +251,3 @@ The claim here is narrower and more structural: **to the best of our knowledge, 
 3. A. K. Ramachandra and K. Natarajan, “Tight Probability Bounds with Pairwise Independence,” *SIAM Journal on Discrete Mathematics* 37 (2023). https://doi.org/10.1137/21M1408294
 4. A. Gupta, J. Hu, G. Kehne, and R. Levin, “Pairwise-independent contention resolution,” *Mathematical Programming* 216 (2026), 295–338; version of record published 2025. https://doi.org/10.1007/s10107-025-02253-w
 5. J. P. Schmidt, A. Siegel, and A. Srinivasan, “Chernoff–Hoeffding Bounds for Applications with Limited Independence,” *SIAM Journal on Discrete Mathematics* 8(2) (1995), 223–250. https://doi.org/10.1137/S089548019223872X
-
-**Same-model review: passed. Independent audit: not yet performed.**

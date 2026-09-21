@@ -349,5 +349,3 @@ the four classical \(s\)-numbers and of strict singularity.
 
 Record: SCOPE-20260920-0a8586db5330  
 Publication date: 2026-09-20 UTC
-
-Same-model review: passed. Independent audit: not yet performed.

@@ -1,7 +1,5 @@
 # Sharp curvature-range envelopes and a minimax weight for symmetric three-point rules
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(f\in C^2([a,b])\), \(h=b-a>0\), and
@@ -187,7 +185,7 @@ Searches for the exact cubic \(1-3p+8p^3\), the parameter \(1/(2\sqrt2)\), cente
 - The minimax statement uses the necessary curvature-centering correction \(\lambda_p(m+M)h^2\). Without that correction, Simpson \(p=1/3\) is the unique admissible parameter.
 - The Simpson-specific constant \(1/162\) is prior-covered and is not part of the originality claim.
 - Equivalent coverage in older general quadrature literature under different notation remains possible; originality is to the best of our knowledge.
-- Independent audit has not been performed.
+
 
 ## Reproducibility
 

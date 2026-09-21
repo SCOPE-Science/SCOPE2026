@@ -63,8 +63,6 @@ an \(L^2\) conformal-factor defect and an explicit sharp conformal-modulus
 defect. Near the equilateral class, the latter is linear in modular
 hyperbolic distance.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Starting point in the literature
 
 Horowitz, K. U. Katz and M. G. Katz proved the conformal-class refinement

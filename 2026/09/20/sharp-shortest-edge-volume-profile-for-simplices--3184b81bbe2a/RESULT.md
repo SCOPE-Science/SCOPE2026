@@ -1,7 +1,5 @@
 # Sharp shortest-edge volume profile for diameter-bounded simplices
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let

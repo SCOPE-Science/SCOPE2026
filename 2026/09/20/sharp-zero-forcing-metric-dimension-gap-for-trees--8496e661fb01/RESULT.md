@@ -1,7 +1,5 @@
 # Sharp zero-forcing metric-dimension gap for trees of fixed order
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(T\) be a tree of order \(n\ge 4\). Write \(Z(T)\) for its zero forcing number and

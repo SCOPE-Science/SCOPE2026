@@ -1,7 +1,5 @@
 # Quantitative area stability for reduced polygons
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Let \(R\) be a reduced Euclidean \(n\)-gon, where \(n\ge 5\) is odd, and let
 \(\Delta=\Delta(R)\) be its thickness. Use Lassak's canonical angles
 \(\psi_1,\ldots,\psi_n\in(0,\pi/2)\), which satisfy

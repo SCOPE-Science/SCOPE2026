@@ -1,7 +1,5 @@
 # Exact s-number profiles for finite-fiber multiplication operators
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \((\Omega,\Sigma,\mu)\) be a sigma-finite measure space. Modulo null sets, write

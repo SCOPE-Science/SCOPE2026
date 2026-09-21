@@ -37,3 +37,7 @@ To the best of our knowledge, within the documented search scope and accessible 
 No plausible novelty-threatening source whose full text could not be obtained was identified, and no concrete unresolved covering clue remains. The inspected documents were accessible preprint versions: Bo--Lian--Liu arXiv:2609.03823v1; Li--Ma--Xie arXiv:2401.11525v1; Behague et al. arXiv:2211.08589v2; Chakraborti et al. arXiv:2212.04640v2; Halfpap et al. arXiv:2403.15602v1. Their DOI metadata does not guarantee that every publisher revision was checked. Only the cited relevant sections, not all sections of these papers, are claimed as inspected. There is no invented inaccessible-source threat list. See RESULT.md for source references and inspected sections. A later covering source would require revision of this PASS.
 
 The success marker records this qualified same-model review only. The remaining mathematical uncertainty is optimality; the remaining originality uncertainty is the inherent incompleteness of the documented literature and version coverage.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.

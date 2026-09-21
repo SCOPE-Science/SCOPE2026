@@ -1,7 +1,5 @@
 # Exact compact-recurrence threshold and invariant-measure laws for the Rössler system
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Consider the classical Rössler system

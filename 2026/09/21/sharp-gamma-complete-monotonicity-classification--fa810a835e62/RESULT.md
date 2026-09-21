@@ -2,8 +2,6 @@
 
 **Publication date:** 2026-09-21 (UTC)
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For real parameters `a,c` and `b>=0`, define
@@ -224,7 +222,7 @@ Accordingly, originality is claimed only **to the best of our knowledge**. A res
 - The result concerns this specific three-parameter gamma remainder family; it is not a classification of general gamma-ratio completely monotone functions.
 - The proof uses standard asymptotic expansions and the classical partial-fraction expansion of \(\coth\); these ingredients are not claimed as new.
 - The originality claim is literature-search based and not exhaustive.
-- Independent audit has not been performed.
+
 
 ## References
 

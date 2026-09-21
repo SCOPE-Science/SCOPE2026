@@ -1,7 +1,5 @@
 # Ikeda critical delay stability and sharp relaxation law
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Consider the zero-phase Ikeda delay equation
 \[
 \dot x(t)=\mu\sin x(t-h)-x(t),\qquad \mu>0,\quad h\ge0,

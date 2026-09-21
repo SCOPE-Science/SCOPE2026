@@ -132,5 +132,3 @@ complete dimension-wise falsification of the universal conjecture.
 2. L. Matejíčka, *On the Cîrtoaje's conjecture*, Journal of Inequalities and Applications 2016, 152 (2016). DOI: 10.1186/s13660-016-1092-2.
 3. M. Hassani and Y. Nishizawa, *Some Inequalities Related To The Power Exponential Function*, Applied Mathematics E-Notes 23 (2023), 237–242.
 4. A. Kyriakis, *A Collection of Inequalities Involving Power Exponential and Logarithmic Functions*, Earthline Journal of Mathematical Sciences 16(2) (2026), 199–220. DOI: 10.34198/ejms.16226.16.199220.
-
-**Same-model review: passed. Independent audit: not yet performed.**

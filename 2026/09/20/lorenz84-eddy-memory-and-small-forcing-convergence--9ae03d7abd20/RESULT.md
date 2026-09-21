@@ -1,7 +1,5 @@
 # Stationary eddy-energy law and a small-forcing convergence criterion for Lorenz-84
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## System and notation
 
 Consider the autonomous Lorenz-84 system

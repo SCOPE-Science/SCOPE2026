@@ -254,5 +254,3 @@ diagonal-scaled mean-square norm. The full text of Beidas--Papavassilopoulos
 there remains an originality risk. The full text of the directly relevant
 Carson--Ma preprint arXiv:2609.15605 was also not inspected; only its abstract
 was checked, leaving a contemporaneous-overlap risk.
-
-Same-model review: passed. Independent audit: not yet performed.

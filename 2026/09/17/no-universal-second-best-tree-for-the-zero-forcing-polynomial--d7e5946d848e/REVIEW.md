@@ -51,3 +51,7 @@ To the best of our knowledge, within the documented search scope and accessible 
 **ACCESS_LIMITATION:** Baoxin Li, Yahan Cao and Shengjin Ji (2025), *The Extremal Results for Forcing Problem of Trees*, DOI https://doi.org/10.1007/s00373-025-02925-6. This is the most plausible inaccessible source because it studies tree forcing extrema. Full text was not obtained through available channels. A publisher PDF location was identified, but its full text remained unavailable.
 
 Available snippets refer to minimum-cardinality forcing, connected forcing and total forcing extrema, not an asserted matching counting theorem. The possibility of a relevant theorem in the unread text remains unverified. There is possible topical relevance, but no concrete unresolved evidence asserting the present conclusion or a stronger counting result. This is an access limitation, not verified noncoverage. The PASS is permitted under TBOK-v1 on that basis, with the mathematical correctness and value assessments separately passing. Any later equivalent or stronger source would require revising the originality verdict.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.

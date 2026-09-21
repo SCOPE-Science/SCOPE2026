@@ -108,5 +108,3 @@ The result does not determine whether \(n=4,5,6,7,8\) belong to \(\Omega\); it o
 1. G. Baumslag, *A non-cyclic one-relator group all of whose finite quotients are cyclic*, J. Austral. Math. Soc. **10** (1969), 497--498. https://doi.org/10.1017/S1446788700007783
 2. A. Gordienko and O. Schnabel, *On weak equivalences of gradings*, J. Algebra **501** (2018), 435--457. https://doi.org/10.1016/j.jalgebra.2018.01.009 ; https://arxiv.org/abs/1704.07170
 3. A. S. Gordienko and A. I. Pekarsky, *On the classification of quantum symmetries*, arXiv:2511.11923v3 (1 Aug 2026), forthcoming J. Algebra **710** (2027), 557--584. https://arxiv.org/abs/2511.11923 ; https://doi.org/10.1016/j.jalgebra.2026.08.009
-
-**Same-model review: passed. Independent audit: not yet performed.**

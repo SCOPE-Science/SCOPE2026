@@ -227,5 +227,3 @@ The originality claim is restricted to the quantitative shrinking-gap bounds and
 2. M. T. Barlow, K. Burdzy, H. Kaspi, A. Mandelbaum, *Coalescence of skew Brownian motions*, Seminaire de Probabilites XXXV (2001), 202--205. https://www.numdam.org/item/SPS_2001__35__202_0/
 3. T. Yamada, *On the non-confluent property of solutions of one-dimensional stochastic differential equations*, Stochastics 17 (1986), 111--124. https://doi.org/10.1080/17442508608833385
 4. Y. Ouknine, M. Rutkowski, *Strong comparison of solutions of one-dimensional stochastic differential equations*, Stochastic Processes and their Applications 36 (1990), 217--230.
-
-Same-model review: passed. Independent audit: not yet performed.

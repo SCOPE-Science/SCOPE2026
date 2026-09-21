@@ -137,3 +137,7 @@ The contribution is narrower than a new global complexity theorem and does
 not treat the heavy-tail critical boundary. Its value is a sharp local
 asymptotic law and an explicit structural explanation, not a new worst-case
 CG rate.
+
+## Recorded review qualifications
+
+**Same-model review: passed. Independent audit: not yet performed.**

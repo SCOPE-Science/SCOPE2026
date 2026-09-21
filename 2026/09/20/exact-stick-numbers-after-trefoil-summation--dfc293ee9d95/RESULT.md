@@ -156,7 +156,3 @@ The checked composition literature, current stick-number tables, and the 2025/20
 
 7. KnotInfo, *Stick Number* table description (current database context).  
    https://knotinfo.org/descriptions/polygon_index.html
-
-## Review status
-
-**Same-model review: passed. Independent audit: not yet performed.**

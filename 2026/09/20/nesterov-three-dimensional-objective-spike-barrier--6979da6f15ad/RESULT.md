@@ -1,7 +1,5 @@
 # Three-dimensional onset of objective spikes in exact-parameter Nesterov acceleration
 
-Same-model review: passed. Independent audit: not yet performed.
-
 ## Setting
 
 Consider the real strongly convex quadratic

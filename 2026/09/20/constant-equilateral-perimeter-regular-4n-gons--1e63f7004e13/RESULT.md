@@ -1,7 +1,5 @@
 # Constant equilateral perimeter in every regular \(4n\)-gonal norm
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(H_N=(\mathbb R^2,\|\cdot\|_N)\) be the normed plane whose unit sphere is the regular \(N\)-gon

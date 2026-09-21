@@ -176,5 +176,3 @@ The exact constant \(a_\ell\) is sharp for the two-block class with each block i
 4. I. Benjamini, G. Kozma, D. Romik, *Random walks with k-wise independent increments*, Electron. Commun. Probab. 11 (2006), 100--107. https://doi.org/10.1214/ECP.v11-1201
 5. S. Narayanan, *Three-wise independent random walks can be slightly unbounded*, Random Structures Algorithms 61 (2022), 573--598. https://doi.org/10.1002/rsa.21075
 6. A. Gupta, J. Hu, G. Kehne, R. Levin, *Pairwise-independent contention resolution*, Mathematical Programming (2025). https://doi.org/10.1007/s10107-025-02253-w
-
-**Same-model review: passed. Independent audit: not yet performed.**

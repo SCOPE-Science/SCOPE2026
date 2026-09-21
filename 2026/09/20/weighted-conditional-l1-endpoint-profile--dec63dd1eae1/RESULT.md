@@ -380,5 +380,3 @@ different terminology.  No source was located that gives this corrected
 4. J. J. Grobler and B. de Pagter, *Operators representable as
    multiplication-conditional expectation operators*, Journal of Operator
    Theory **48** (2002), 15--40.
-
-**Same-model review: passed. Independent audit: not yet performed.**

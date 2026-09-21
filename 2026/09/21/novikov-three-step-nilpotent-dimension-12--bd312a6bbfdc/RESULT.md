@@ -148,5 +148,3 @@ linear ranks: 1088, 1376, 1504, 1678; free variables: 50
 1. D. Burde, K. Dekimpe, K. Vercammen, *Novikov algebras and Novikov structures on Lie algebras*, Linear Algebra Appl. 429 (2008), 31–41. DOI: 10.1016/j.laa.2008.01.038. Preprint: https://arxiv.org/abs/0705.1316
 2. D. Burde, K. Dekimpe, *Novikov structures on solvable Lie algebras*, J. Geom. Phys. 56 (2006), 1837–1855. Preprint: https://arxiv.org/abs/math-ph/0502008
 3. K. Vercammen, *Novikov, LR- and post-Lie algebra structures, and their relation to NIL-affine crystallographic actions*, doctoral dissertation, KU Leuven (2013). Defence record: https://www.kuleuven.be/doctoraatsverdediging/fiches/3E07/3E070097.htm
-
-**Same-model review: passed. Independent audit: not yet performed.**

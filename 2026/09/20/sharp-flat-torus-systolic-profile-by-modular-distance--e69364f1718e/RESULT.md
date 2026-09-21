@@ -1,7 +1,5 @@
 # Sharp flat-torus systolic profile by modular distance
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let

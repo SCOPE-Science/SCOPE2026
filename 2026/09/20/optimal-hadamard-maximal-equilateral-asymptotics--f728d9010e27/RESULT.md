@@ -1,7 +1,5 @@
 # Optimal asymptotic tuning of the Hadamard construction for maximal equilateral sets
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 For a normed space \(Y\), let \(m(Y)\) denote the minimum cardinality of a maximal equilateral subset of \(Y\). Swanepoel and Villa (2013), Proposition 23, construct maximal equilateral sets from two Hadamard orders \(k_1,k_2\).

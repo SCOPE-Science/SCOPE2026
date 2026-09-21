@@ -1,7 +1,5 @@
 # Exact renewal-tail bias and root-n window thresholds for next-token surprise
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \((X_t)_{t\in\mathbb Z}\) be a stationary marked renewal process in discrete time. Successive block lengths \(L_j\) are i.i.d. positive integers with

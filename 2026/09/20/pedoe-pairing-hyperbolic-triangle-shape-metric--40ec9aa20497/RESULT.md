@@ -1,7 +1,5 @@
 # The Neuberg–Pedoe pairing is the hyperbolic metric on triangle shape space
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(T\) and \(T'\) be nondegenerate labeled Euclidean triangles with corresponding side lengths

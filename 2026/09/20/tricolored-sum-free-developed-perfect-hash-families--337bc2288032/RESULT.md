@@ -1,7 +1,5 @@
 # Tri-colored sum-free sets characterize group-developed three-row perfect hash families
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(G\) be a finite abelian group of order \(q\ge 3\). Call a three-row array over alphabet \(G\) **diagonally \(G\)-developed** if its column set is invariant under simultaneous translation

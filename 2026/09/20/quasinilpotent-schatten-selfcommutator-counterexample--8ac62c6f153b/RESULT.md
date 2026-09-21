@@ -121,5 +121,3 @@ This result does not characterize all quasinilpotent operators with Schatten sel
 2. D. Jocić and F. Kittaneh, *Some perturbation inequalities for self-adjoint operators*, J. Operator Theory **31** (1994), 3--10. https://www.theta.ro/jot/archive/1994-031-001/1994-031-001-001.pdf
 3. N. Filonov and Y. Safarov, *On the relation between an operator and its self-commutator*, J. Funct. Anal. **260** (2011), 2902--2932. https://doi.org/10.1016/j.jfa.2011.02.011
 4. D.-V. Voiculescu, *Almost normal operators mod Hilbert--Schmidt and the K-theory of the algebras \(E\Lambda(\Omega)\)*, J. Noncommut. Geom. **8** (2014), 1123--1145. https://doi.org/10.4171/JNCG/181
-
-**Same-model review: passed. Independent audit: not yet performed.**

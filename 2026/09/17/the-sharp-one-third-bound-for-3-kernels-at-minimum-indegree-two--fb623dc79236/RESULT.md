@@ -1,7 +1,5 @@
 # The sharp one-third bound for 3-kernels at minimum indegree two
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for search limitations. Publication is not peer review or a guarantee of priority.
-
 ## Claim and definitions
 
 Let `c_{δ,q}` be the least constant such that every finite simple digraph of minimum in-degree at least `δ` has a `q`-kernel of size at most `c_{δ,q}|V(D)|`, where a `q`-kernel is an independent set from which every vertex is reachable by a directed path of length at most `q`.

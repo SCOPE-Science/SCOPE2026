@@ -111,5 +111,3 @@ The proof uses \(p\equiv3\pmod4\) only to exclude \(p\mid\tau(n)\). Computation 
 
 1. M. Abel, H. Lauer, E. Redi, *About the number of tau-numbers relative to polynomials with integer coefficients*, Acta et Commentationes Universitatis Tartuensis de Mathematica 25 (2021), 107--117. https://doi.org/10.12697/ACUTM.2021.25.07
 2. E.-M. Muttika, *Results about tau-numbers relative to polynomials* (Bachelor's thesis, University of Tartu, 2023). https://dspace.ut.ee/bitstreams/df20b790-5ecb-488b-99e6-202b65ac8a7a/download
-
-**Same-model review: passed. Independent audit: not yet performed.**

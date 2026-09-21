@@ -1,7 +1,5 @@
 # Exact approximation-number power law for two-subspace alternating projections
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(M,N\) be closed subspaces of a Hilbert space \(H\), let \(P=P_M\) and \(Q=P_N\) be the corresponding orthogonal projections, and let

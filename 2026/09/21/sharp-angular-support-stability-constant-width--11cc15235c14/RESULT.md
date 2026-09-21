@@ -252,5 +252,3 @@ One material residual risk is Deyan Zhang, *A note on the isoperimetric deficit*
 5. D. Zhang, *A note on the isoperimetric deficit*, J. Math. Anal. Appl. 478 (2019), 14--32. https://doi.org/10.1016/j.jmaa.2019.04.047
 6. *A note on a problem posed by Linderholm*, Journal of Geometry (2025). https://doi.org/10.1007/s00022-025-00783-4
 7. H. Zhao, *A family of parametric isoperimetric-type inequalities with multiple geometric quantities*, arXiv:2605.26780 (2026). https://arxiv.org/abs/2605.26780
-
-**Same-model review: passed. Independent audit: not yet performed.**

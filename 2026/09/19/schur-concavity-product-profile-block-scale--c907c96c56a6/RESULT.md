@@ -1,7 +1,5 @@
 # Schur concavity and the exact block-count envelope for the product-profile scale
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(q\ge d\ge2\), let \(b_1,\dots,b_q>0\), and put

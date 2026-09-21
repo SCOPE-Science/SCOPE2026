@@ -163,8 +163,6 @@ record does not classify the remaining finite values \(m<12\), nor does it
 give exact formulas for \(K_{r,m}\) with \(r\ge3\).  The motivating preprint is
 very recent, so unindexed parallel work remains a residual originality risk.
 
-Same-model review: passed. Independent audit: not yet performed.
-
 ## References
 
 1. Xiao-Chuan Liu, Boyan Xu, Xu Yang, *Sharp Rainbow Path Covers in Dense and

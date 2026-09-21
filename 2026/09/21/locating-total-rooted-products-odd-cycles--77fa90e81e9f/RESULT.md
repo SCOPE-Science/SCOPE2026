@@ -168,5 +168,3 @@ Originality is therefore claimed only **to the best of our knowledge**. The main
 2. P. J. Slater, “Domination and location in acyclic graphs,” *Networks* 17 (1987), 55–64. https://doi.org/10.1002/net.3230170105
 3. A. A. Pribadi and S. W. Saputro, “On locating-dominating number of comb product graphs,” *Indonesian Journal of Combinatorics* 4 (2020).
 4. H. Raza, N. Iqbal, H. Khan, T. Botmart, “Computing locating-total domination number in some rotationally symmetric graphs,” *Science Progress* 104 (2021). https://doi.org/10.1177/00368504211053417
-
-**Same-model review: passed. Independent audit: not yet performed.**

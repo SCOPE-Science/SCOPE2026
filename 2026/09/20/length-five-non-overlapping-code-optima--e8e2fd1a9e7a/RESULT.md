@@ -361,5 +361,3 @@ The result is specific to block length five. It does not settle Blackburn's conj
 4. L. Stanovnik, “Codes with restricted overlaps: expandability, constructions, and bounds,” *Journal of Applied Mathematics and Computing* (2025). https://doi.org/10.1007/s12190-025-02441-z
 5. H. Yang, Y. Ding, “Q-Ary \((t_1,t_2)\)-Overlap-Free Codes,” *IEICE Transactions on Fundamentals* E109-A(3), 757–762 (2026). https://doi.org/10.1587/transfun.2025EAL2050
 6. M. Affaf, “Maximality on Construction of Ternary Cross Bifix Free Code,” *ComTech: Computer, Mathematics and Engineering Applications* 10(1), 23–27 (2019). https://doi.org/10.21512/comtech.v10i1.4716
-
-**Same-model review: passed. Independent audit: not yet performed.**

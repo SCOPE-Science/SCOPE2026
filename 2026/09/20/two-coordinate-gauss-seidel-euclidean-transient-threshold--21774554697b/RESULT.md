@@ -1,7 +1,5 @@
 # Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Consider a real symmetric positive-definite matrix

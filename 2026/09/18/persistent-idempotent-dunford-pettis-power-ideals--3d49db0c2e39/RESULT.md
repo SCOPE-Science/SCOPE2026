@@ -195,8 +195,6 @@ general ingredients are not claimed new.
 The result does not prove that the ideals \(\mathcal I_n\) are pairwise
 distinct, nor does it settle Nasseri's strict-decrease question.
 
-Same-model review: passed. Independent audit: not yet performed.
-
 ## References
 
 1. Antonio Acuaviva, *On complemented subspaces of \(L_1[0,1]\)*,

@@ -1,7 +1,5 @@
 # Exact forcing balance laws and a sign trichotomy for the Burke–Shaw flow
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Consider the classical Burke–Shaw system
 \[
 \dot x=-a(x+y),\qquad

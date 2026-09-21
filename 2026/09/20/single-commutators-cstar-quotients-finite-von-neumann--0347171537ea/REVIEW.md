@@ -64,3 +64,7 @@ The theorem also separates two quotient regimes that can otherwise look similar:
 The descended central tracial projection need not be faithful. No optimal value of Wang's universal constant is obtained. The generic \(2K\) quotient estimate may not be optimal. Properly infinite von Neumann algebras are outside the statement. The reduced-product sharp-\(K\) assertion is proved only for the norm reduced products described in the result. Very recent or poorly indexed follow-up work may not yet be discoverable.
 
 Independent audit has not been performed.
+
+## Recorded review qualifications
+
+- Independent audit has not been performed.

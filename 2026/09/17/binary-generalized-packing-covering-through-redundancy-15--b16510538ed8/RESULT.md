@@ -1,7 +1,5 @@
 # Binary generalized packing-covering through redundancy 15
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is qualified to the best of our knowledge.
-
 ## Claim
 
 The source report proposes:

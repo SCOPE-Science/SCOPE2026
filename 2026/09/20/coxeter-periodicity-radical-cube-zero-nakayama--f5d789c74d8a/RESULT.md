@@ -1,7 +1,5 @@
 # Exact Coxeter periodicity for radical-cube-zero linear Nakayama algebras
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 For \(n\ge 3\), let \(C_n=C_{n,3}\) be the \(n\times n\) upper-triangular matrix with

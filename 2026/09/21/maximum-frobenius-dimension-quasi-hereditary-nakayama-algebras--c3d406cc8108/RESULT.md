@@ -322,5 +322,3 @@ The symbolic proof above does not depend on this enumeration.
 5. D. Artenstein, J. Cóppola, J. Finot, A. González and G. Mata,
    *Bounds on Frobenius dimension* (2026), arXiv:2607.15999:
    https://arxiv.org/abs/2607.15999
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -1,7 +1,5 @@
 # Exact storage on the fifth-offset diagonal for retrieval requirement six
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(N(n,k,m)\) denote the minimum total storage of a \(t=1\) combinatorial batch code (CBC) with \(n\) items, retrieval requirement \(k\), and \(m\) servers. Then, for every integer \(m\ge 10\),

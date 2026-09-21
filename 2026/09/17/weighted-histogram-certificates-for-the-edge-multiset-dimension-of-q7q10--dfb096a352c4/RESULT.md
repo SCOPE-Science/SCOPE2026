@@ -1,7 +1,5 @@
 # Weighted-histogram certificates for the edge multiset dimension of Q7–Q10
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for limitations. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 For the hypercubes `Q_d`, the source report reports

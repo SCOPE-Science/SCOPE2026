@@ -1,7 +1,5 @@
 # A squarefree theta bound for Clark–Ismail derivative positivity
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let

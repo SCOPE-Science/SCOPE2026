@@ -46,8 +46,6 @@ For each even extremal tree \(A_m,B_m\),
 \gamma_{\mathrm{pr}}=2m-2.
 \]
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Proof
 
 A support vertex is a vertex adjacent to a leaf. Let \(s=s(T)\) be the

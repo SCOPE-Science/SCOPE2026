@@ -1,7 +1,5 @@
 # Flat s-number and strict-singularity profiles of relative Toeplitz Schur multipliers
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(\Gamma\) be an infinite discrete group and let \(\varnothing\ne\Lambda\subseteq\Gamma\).

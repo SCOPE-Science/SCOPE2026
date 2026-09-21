@@ -28,3 +28,7 @@ If correct, the result changes a finite experimental observation into a sharp in
 ## Review disclaimer
 
 This is not independent validation, peer review, or a guarantee of scholarly priority.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review. This is not independent verification. Originality is claimed only to the best of our knowledge.

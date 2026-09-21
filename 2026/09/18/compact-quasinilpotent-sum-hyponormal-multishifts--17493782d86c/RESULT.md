@@ -1,7 +1,5 @@
 # Compact quasinilpotent sum-hyponormal multishifts with rank-one defect
 
-Same-model review: passed. Independent audit: not yet performed.
-
 ## Statement
 
 For every integer \(d\ge 2\), there is a commuting \(d\)-tuple

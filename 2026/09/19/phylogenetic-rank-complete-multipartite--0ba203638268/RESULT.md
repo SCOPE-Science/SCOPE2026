@@ -99,5 +99,3 @@ The original Pachter--Sturmfels source, *Algebraic Statistics for Computational 
 1. F. Ashworth, O. Clarke, J. Giansiracusa, J. Jones, J. Quijas-Aceves, Y. Ren, *The phylogenetic rank of a graph*, arXiv:2609.19372v1, 2026. https://arxiv.org/abs/2609.19372
 2. D. Cartwright, M. Chan, *Three notions of tropical rank for symmetric matrices*, Combinatorica 32 (2012), 55--84; arXiv:0912.1411. https://arxiv.org/abs/0912.1411
 3. L. Pachter, B. Sturmfels (eds.), *Algebraic Statistics for Computational Biology*, Cambridge University Press, 2005, Section 3.5, ISBN 9780521857000. https://doi.org/10.1017/CBO9780511610684
-
-Same-model review: passed. Independent audit: not yet performed.

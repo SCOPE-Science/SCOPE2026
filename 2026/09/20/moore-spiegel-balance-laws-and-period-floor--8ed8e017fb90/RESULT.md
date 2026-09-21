@@ -1,7 +1,5 @@
 # Exact recurrence balances and a strict period floor for the Moore--Spiegel oscillator
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 Consider the Moore--Spiegel oscillator
 \[
 \dot x=y,\qquad

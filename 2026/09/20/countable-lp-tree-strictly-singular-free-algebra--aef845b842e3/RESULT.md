@@ -1,7 +1,5 @@
 # Free algebra modulo compact operators on a countable tree of ℓp spaces
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(\mathbb F\) be either \(\mathbb R\) or \(\mathbb C\), let

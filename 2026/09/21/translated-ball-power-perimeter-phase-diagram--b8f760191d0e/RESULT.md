@@ -137,7 +137,7 @@ The spherical-mean differential identity and the \(p=2-n\) Newton-shell formula 
 - It does not alter Csató's global isoperimetric classification; in particular, non-ball competitors are essential in the range \(1-n<p<2-n\).
 - At \(p=2-n\), the flat translation identity is a direct manifestation of the classical Newton-shell theorem, so the novelty claim is limited to its weighted-perimeter interpretation and the complete phase diagram around it.
 - A prior potential-theoretic statement phrased purely in terms of Riesz spherical means could subsume part of the theorem even if it was not found under weighted-perimeter terminology.
-- Independent audit has not been performed.
+
 
 ## References
 

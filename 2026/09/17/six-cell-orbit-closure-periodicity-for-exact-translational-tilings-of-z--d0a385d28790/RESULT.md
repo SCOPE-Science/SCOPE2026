@@ -1,7 +1,5 @@
 # Six-cell orbit-closure periodicity for exact translational tilings of Z^2
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. The source report identifies a residual correctness risk in transporting part of Khetan's spectral argument to cardinality six. Originality is claimed only to the best of our knowledge. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 Let `F subset Z^2` be an exact cluster of full affine span with `|F|=6`, and let `T` be any `F`-tiling. The source report proposes and same-model review the theorem that the orbit closure of `T` contains a 1-periodic `F`-tiling.

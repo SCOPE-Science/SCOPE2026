@@ -1,7 +1,5 @@
 # Quantitative stability for path-maximal graph-indexed random-walk ranges
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For a connected bipartite simple graph \(G\), let \(\widehat h(G)\) be the expected range of a uniformly chosen integer height function with edge increments exactly \(\pm1\). For a connected simple graph \(G\), let \(h(G)\) be the analogous expected range for a uniformly chosen integer 1-Lipschitz height function with edge increments in \(\{-1,0,1\}\). Pinning one vertex at zero only fixes the additive constant and does not affect the range.

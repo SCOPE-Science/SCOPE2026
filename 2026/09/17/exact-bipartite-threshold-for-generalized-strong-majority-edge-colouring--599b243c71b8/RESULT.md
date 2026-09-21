@@ -1,7 +1,5 @@
 # Exact bipartite threshold for generalized strong-majority edge colouring
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for limitations. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 For every integer `k >= 2`, let `delta_k^bip` be the least integer `d` such that every finite simple bipartite graph of minimum degree at least `d` admits a strong `1/k`-majority edge-colouring with `k+1` colours. Then

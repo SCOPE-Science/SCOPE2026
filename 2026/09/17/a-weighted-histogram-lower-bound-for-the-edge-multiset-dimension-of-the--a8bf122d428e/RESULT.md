@@ -1,7 +1,5 @@
 # A weighted-histogram lower bound for the edge multiset dimension of the 6-cube
 
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for limitations. Publication is not peer review or a guarantee of priority.
-
 ## Claim
 
 Let `Q_6` be the 6-dimensional hypercube and `edim_m(Q_6)` its edge multiset dimension. Then

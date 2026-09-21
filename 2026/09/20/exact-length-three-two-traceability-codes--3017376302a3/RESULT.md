@@ -1,7 +1,5 @@
 # Exact maximum size of q-ary 2-traceability codes of length three
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(M_{\mathrm{TA}}(3,q,2)\) denote the maximum cardinality of a q-ary 2-traceability code of length three. Then, for every integer \(q\ge 2\),

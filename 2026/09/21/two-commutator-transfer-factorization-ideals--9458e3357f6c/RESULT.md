@@ -192,5 +192,3 @@ inside \(X\) and countable self-similarity of that factor space.
    with applications in operator theory*, Transactions of the London
    Mathematical Society 1 (2014), 1--28.
    https://doi.org/10.1112/tlms/tlu001
-
-**Same-model review: passed. Independent audit: not yet performed.**

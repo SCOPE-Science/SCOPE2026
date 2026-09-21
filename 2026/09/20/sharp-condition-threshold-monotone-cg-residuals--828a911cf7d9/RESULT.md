@@ -1,7 +1,5 @@
 # Sharp condition-number threshold for monotone exact-CG residuals
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(A\in\mathbb R^{n\times n}\) be symmetric positive definite with

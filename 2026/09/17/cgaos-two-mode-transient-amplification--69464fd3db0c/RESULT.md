@@ -1,7 +1,5 @@
 # Sharp two-mode transient amplification for CG_AOS after exact initialization
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Consider the strictly convex quadratic

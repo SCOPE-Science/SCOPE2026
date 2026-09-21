@@ -177,5 +177,3 @@ The theorem supplies necessary constraints on compact recurrent dynamics; it doe
 10. M. J. Capiński, D. Turaev, and P. Zgliczyński, “Computer assisted proof of the existence of the Lorenz attractor in the Shimizu–Morioka system,” *Nonlinearity* 31 (2018), 5410–5440. https://doi.org/10.1088/1361-6544/aae032
 11. O. Hénot and A. Takayasu, “Computer-Assisted Proofs in Dynamical Systems: A Case Study of a Heteroclinic Orbit in the Shimizu--Morioka System,” arXiv:2605.07500 (2026). https://arxiv.org/abs/2605.07500
 12. A. Kazakov, V. Koryakin, K. Safonov, and A. L. Shilnikov, “Cascades of Lorenz attractors in the Shimizu-Morioka model,” arXiv:2512.14919 (2025). https://arxiv.org/abs/2512.14919
-
-**Same-model review: passed. Independent audit: not yet performed.**

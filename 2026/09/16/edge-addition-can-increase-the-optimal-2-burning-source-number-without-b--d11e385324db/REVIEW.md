@@ -130,3 +130,7 @@ version. No other inaccessible source with a specific plausible covering
 theorem was identified. A later correction or equivalent stronger result
 would require revising the originality verdict. Overall PASS is qualified
 by this documented scope, with correctness and value assessed separately.
+
+## Recorded review qualifications
+
+> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult REVIEW.md for search evidence and inaccessible sources. Publication is not peer review or a guarantee of priority.

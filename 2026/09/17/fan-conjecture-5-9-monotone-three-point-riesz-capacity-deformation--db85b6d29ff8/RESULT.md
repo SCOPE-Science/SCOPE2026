@@ -2,7 +2,7 @@
 
 > **Correction notice.** This record replaces a withdrawn preliminary NCI draft that overlapped an existing SCOPE research direction. That draft is retained as a protocol-invalidated attempt, not an accepted finding. See `CORRECTION.md`.
 >
-> **Review status: same-model review.** Correctness, originality, and value were assessed by the same-model review, not an independent reviewer. Originality is only to the best of our knowledge.
+
 
 ## Claim
 

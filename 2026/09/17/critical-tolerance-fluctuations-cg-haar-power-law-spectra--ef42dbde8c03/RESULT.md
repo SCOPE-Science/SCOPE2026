@@ -1,7 +1,5 @@
 # Critical-tolerance Gaussian fluctuations and half-step CG law on Haar power-law spectra
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Consider the complex-Haar power-law source model

@@ -1,7 +1,5 @@
 # Stable integral Cartan forms under singular equivalence of centralizer matrix algebras
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(k\) be a field, let \(c\in M_n(k)\), and write

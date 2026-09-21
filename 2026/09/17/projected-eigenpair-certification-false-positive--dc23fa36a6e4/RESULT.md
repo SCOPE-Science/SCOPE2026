@@ -1,7 +1,5 @@
 # Zero-residual false positives in projected certification of constrained extremal eigenpairs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Consider the maximum-eigenvalue side of the Penalty–Split–Merge (PSM) framework of Wang and Xia (2026). For a feasible subspace

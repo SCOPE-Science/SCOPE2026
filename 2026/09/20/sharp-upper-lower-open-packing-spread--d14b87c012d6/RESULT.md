@@ -218,5 +218,3 @@ independent-domination numbers of open-neighborhood graphs. The already known
 4. A. Abiad, Y. Yang, and J. Zhou, *Spectral bounds for distance coloring and
    packing parameters of graphs via semidefinite programming*, arXiv:2606.04856
    (2026). https://arxiv.org/abs/2606.04856
-
-**Same-model review: passed. Independent audit: not yet performed.**

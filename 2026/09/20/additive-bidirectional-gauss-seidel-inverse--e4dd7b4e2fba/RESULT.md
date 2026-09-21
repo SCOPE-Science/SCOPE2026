@@ -1,7 +1,5 @@
 # Additive bidirectional Gauss-Seidel inverse: exact SPD threshold and quadratic weak-coupling clustering
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Summary
 
 Let a real symmetric positive-definite block matrix be split as

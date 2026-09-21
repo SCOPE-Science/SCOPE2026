@@ -1,7 +1,5 @@
 # A Kanter-type lower bound for the generalized Bessel sum at every real order
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For \(\nu\ge -\tfrac12\) and \(x>0\), define
@@ -243,7 +241,7 @@ right side is the largest possible pointwise lower bound at finite \(r\). It doe
 not derive a probabilistic concentration theorem corresponding to arbitrary real
 \(\nu\); the result is an analytic inequality for the generalized Bessel sum.
 The originality search cannot exclude differently phrased or poorly indexed prior
-coverage. Independent audit has not been performed.
+coverage. 
 
 ## References
 

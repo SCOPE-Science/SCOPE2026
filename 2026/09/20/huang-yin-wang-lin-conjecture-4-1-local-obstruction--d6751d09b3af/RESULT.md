@@ -171,7 +171,7 @@ surrounding literature remains the main originality risk.
   claimed to be the exact global parameter threshold.
 - The current-status search cannot exclude terminology-equivalent or
   weakly indexed prior work.
-- Independent audit has not been performed.
+
 
 ## Reproducibility
 

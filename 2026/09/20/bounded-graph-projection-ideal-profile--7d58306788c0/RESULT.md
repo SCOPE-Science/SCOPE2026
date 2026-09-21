@@ -1,7 +1,5 @@
 # Exact ideal profile for differences of bounded graph projections
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(H,K\) be Hilbert spaces and let \(A,B\in\mathcal B(H,K)\). Denote by

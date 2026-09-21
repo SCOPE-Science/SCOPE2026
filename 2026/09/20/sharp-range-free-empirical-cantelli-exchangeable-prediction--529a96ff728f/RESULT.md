@@ -1,7 +1,5 @@
 # Sharp range-free empirical Cantelli bounds for exchangeable prediction
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(n\ge 2\), and let

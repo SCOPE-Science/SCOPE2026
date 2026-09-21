@@ -220,5 +220,3 @@ The classification addresses the high-clique slice \(\omega(G)\ge n-2\) of the e
 
 1. L. Zhang and E. Li, *Improved Bounds on the Szeged–Wiener Gap and the BKLPS Conjecture*, arXiv:2609.20025v1, 2026. https://arxiv.org/abs/2609.20025
 2. M. Bonamy, M. Knor, B. Lužar, A. Pinlou, and R. Škrekovski, *On the difference between the Szeged and Wiener index*, Applied Mathematics and Computation 312 (2017), 202–213. https://arxiv.org/abs/1602.05184
-
-Same-model review: passed. Independent audit: not yet performed.

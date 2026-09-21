@@ -198,5 +198,3 @@ but does not replace, the proof above.
 4. A. Cabrera-Martínez, J. L. López-Carmona, I. Rios-Villamar and
    A. Serrano-Díaz, *Independent domination in central graphs*, arXiv:2609.16357
    (2026). https://arxiv.org/abs/2609.16357
-
-**Same-model review: passed. Independent audit: not yet performed.**

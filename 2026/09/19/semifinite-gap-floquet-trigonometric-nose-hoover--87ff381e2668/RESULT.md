@@ -146,5 +146,3 @@ The exact spectral equivalence concerns the central orbit \(\Gamma=(0,0,z_0-bt)\
 2. A. D. Hemery and A. P. Veselov, *Whittaker-Hill equation and semifinite-gap Schrödinger operators*, J. Math. Phys. 51, 072108 (2010); arXiv:0906.1697. https://arxiv.org/abs/0906.1697
 3. P. Djakov and B. Mityagin, *Asymptotics of instability zones of the Hill operator with a two term potential*, J. Funct. Anal. 242 (2007), 157–194.
 4. W. Magnus and S. Winkler, *Hill's Equation*, Interscience, 1966/1969 editions.
-
-**Same-model review: passed. Independent audit: not yet performed.**

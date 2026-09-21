@@ -1,7 +1,5 @@
 # An infinite counterfamily to the proposed second-largest \(Z_1\) tripod
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For a graph \(G\), let \(Z_1(G)\) denote the number of edge subsets containing exactly one pair of adjacent edges. Following Andriantiana--Shozi, write

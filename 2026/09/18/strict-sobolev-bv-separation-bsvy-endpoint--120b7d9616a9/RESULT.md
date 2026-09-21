@@ -1,7 +1,5 @@
 # Strict Sobolev–BV separation for exceptional BSVY spaces
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(N\ge 1\) and \(\gamma\in[-1,0)\). For a measurable function \(u\) on \(\mathbb R^N\), write

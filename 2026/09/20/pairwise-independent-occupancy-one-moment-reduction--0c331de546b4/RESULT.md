@@ -184,5 +184,3 @@ The proof is exact and does not depend on numerical computation. The accompanyin
 5. M. Wiese and H. Boche, “ε-Almost collision-flat universal hash functions and mosaics of designs,” arXiv:2306.04583 (2023). https://arxiv.org/abs/2306.04583
 6. N. A. Harvey and C. Sahami, “Explicit Orthogonal Arrays and Universal Hashing with Arbitrary Parameters,” STOC 2024; arXiv:2405.08787. https://arxiv.org/abs/2405.08787
 7. C. D. Lin and J. Stufken, “Orthogonal Arrays: A Review,” *WIREs Computational Statistics* 17 (2025), e70029. https://doi.org/10.1002/wics.70029
-
-**Same-model review: passed. Independent audit: not yet performed.**

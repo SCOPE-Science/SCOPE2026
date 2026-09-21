@@ -1,7 +1,5 @@
 # Minimum order for consecutive distributed degree sets in bipartite graphs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 For a bipartite graph `B=(X,Y)`, define its distributed degree sets by

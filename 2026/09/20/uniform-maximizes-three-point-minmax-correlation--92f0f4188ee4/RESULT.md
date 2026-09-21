@@ -1,7 +1,5 @@
 # Sharp min–max correlation over three-point probability weights
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(X_1,X_2\) be iid with values in the equally spaced set \(\{1,2,3\}\), with

@@ -227,5 +227,3 @@ observation remains a residual originality risk.
    Discrete and Continuous Dynamical Systems - B 27 (2022), 769--797.
    https://doi.org/10.3934/dcdsb.2021064
    Preprint: https://arxiv.org/abs/2005.07767
-
-**Same-model review: passed. Independent audit: not yet performed.**

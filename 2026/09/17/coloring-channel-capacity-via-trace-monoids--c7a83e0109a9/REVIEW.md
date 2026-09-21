@@ -53,3 +53,7 @@ The mechanism is reusable: any future structural information about signed indepe
 ## Review disclaimer
 
 This record is a SCOPE Phase II same-model review. It is not independent verification, expert attestation, formal proof checking, or a guarantee of scholarly priority.
+
+## Recorded review qualifications
+
+> **Review status: SCOPE Phase II same-model review.** Correctness, originality, and value were assessed by the same-model review, not an independent reviewer. Originality is qualified to the best of our knowledge.

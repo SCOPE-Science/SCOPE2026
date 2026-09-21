@@ -1,7 +1,5 @@
 # Exact s-number profiles for weighted composition operators on C(K)-spaces
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(K\) and \(L\) be compact Hausdorff spaces, over either the real or complex scalar field. Let

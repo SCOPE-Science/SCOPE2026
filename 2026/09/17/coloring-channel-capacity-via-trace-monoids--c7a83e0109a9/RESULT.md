@@ -1,7 +1,5 @@
 # Exact coloring-channel capacity via trace monoids
 
-> **Review status: SCOPE Phase II same-model review.** Correctness, originality, and value were assessed by the same-model review, not an independent reviewer. Originality is qualified to the best of our knowledge.
-
 ## Claim
 
 Consider a sequence of coloring channels \(\mathcal I=(I_1,\ldots,I_s)\) on an alphabet \(\Sigma\) of size \(q\). For an input word \(w\in\Sigma^n\), channel \(I_j\) outputs the subsequence \(w|_{I_j}\) obtained by deleting all letters outside \(I_j\). Let \(A_{\mathcal I}(n)\) be the set of possible output tuples and let

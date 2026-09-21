@@ -234,5 +234,3 @@ A 2024 survey of periodic evolutionary Ricker competition describes periodic hig
 6. B. Ryals and R. J. Sacker, “Bifurcation in the almost periodic 2D Ricker map,” *Discrete and Continuous Dynamical Systems - B* 27 (2022), 1263–1284. https://doi.org/10.3934/dcdsb.2021089
 7. R. Ramasamy and coauthors, “Synchronizability of Discrete Nonlinear Systems: A Master Stability Function Approach,” *Complexity* (2023), Article 6616560. https://doi.org/10.1155/2023/6616560
 8. R. Luís, “Open Problems and Conjectures in the Evolutionary Periodic Ricker Competition Model,” *Axioms* 13 (2024), 246. https://doi.org/10.3390/axioms13040246
-
-Same-model review: passed. Independent audit: not yet performed.

@@ -256,5 +256,3 @@ threshold functional above or the power-weight projection-constant phase diagram
 4. F. Albiac and J. L. Ansorena, *Projections and unconditional bases in direct
    sums of \(\ell_p\) spaces, \(0<p\le\infty\)*, Mathematische Nachrichten
    294 (2021), 2052--2062. arXiv:1909.06829; DOI: 10.1002/mana.201900537.
-
-**Same-model review: passed. Independent audit: not yet performed.**

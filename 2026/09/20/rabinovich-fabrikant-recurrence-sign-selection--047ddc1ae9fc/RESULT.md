@@ -242,8 +242,6 @@ balance, the invariant-plane radial law, the derivative of \(x+y\) on
 \(y=-x\), and the zero-growth angular equation. Its recorded output is in
 `artifacts/verification.txt`.
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## References
 
 1. M. I. Rabinovich and A. L. Fabrikant, *Stochastic self-modulation of

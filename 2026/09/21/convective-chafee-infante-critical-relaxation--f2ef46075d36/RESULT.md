@@ -238,5 +238,3 @@ The most important residual priority risk is older model-specific literature who
 4. M. T. Mohan and A. Khan, *On the generalized Burgers–Huxley equation: Existence, uniqueness, regularity, global attractors and numerical studies*, Discrete and Continuous Dynamical Systems B 26 (2021), 3943–3988. https://doi.org/10.3934/dcdsb.2020270
 5. M. C. Bortolan and L. Pires, *Topological equivalence of global attractors for Lipschitz perturbations of the Chafee–Infante equation*, Discrete and Continuous Dynamical Systems B 28 (2023), 4519–4531. https://doi.org/10.3934/dcdsb.2023027
 6. C. Li, S. Wang and X. Wu, *The integrability of the generalized Burgers–Huxley equation*, Journal of Applied Analysis and Computation 16 (2026), 1594–1607. https://doi.org/10.11948/20250123
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -195,7 +195,7 @@ The 2013 proof already uses the area theorem and Cauchy–Schwarz. Its nonvanish
 - The support-function sharpness is only for the relaxed coefficient body (C), not for the actual coefficient body of \(\mathcal S\).
 - Stronger schlicht information coupling \(b_1\) to the area-theorem tail could lower the threshold further.
 - The literature search cannot rule out an equivalent result under different transform notation or in an inaccessible source; the review file records the main residual risks.
-- Independent audit has not been performed.
+
 
 ## References
 

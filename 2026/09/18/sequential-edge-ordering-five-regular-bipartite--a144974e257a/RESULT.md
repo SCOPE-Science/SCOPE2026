@@ -121,5 +121,3 @@ a residual originality risk.
 2. P. Erdős and L. Lovász, *Problems and results on 3-chromatic hypergraphs and
    some related questions*, in *Infinite and Finite Sets*, Colloquia
    Mathematica Societatis János Bolyai 10, 1975, 609--627.
-
-**Same-model review: passed. Independent audit: not yet performed.**

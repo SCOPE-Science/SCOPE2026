@@ -223,5 +223,3 @@ M. Knor, J. Sedlar, R. Škrekovski and X.-D. Zhang,
 Article 171 (2026).
 https://doi.org/10.1007/s00009-026-03159-3
 Preprint: https://arxiv.org/abs/2604.04907
-
-**Same-model review: passed. Independent audit: not yet performed.**

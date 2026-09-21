@@ -1,7 +1,5 @@
 # Characteristic-two counterexamples to Murray's Frobenius-form norm converse
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Murray's 2005 Theorem 15 gives a necessary central-norm condition for two Frobenius forms to be homothetic, and Conjecture 16 proposes the converse. As stated, the converse fails in characteristic two, already for the two-dimensional algebra of dual numbers.

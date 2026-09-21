@@ -175,5 +175,3 @@ Augustin's univariate quadratic-module work supplies the structural membership t
 ## Limitations
 
 The floor is proved optimal only within the specific Chebyshev polynomial ansatz \(\delta+t(1-V_n^{d-1})\). The propagated moment-SOS constants remain proof-dependent because the scaling constants, natural-generator representation, Archimedean certificate, and affine degree slope are not optimized. The result does not improve the universal exponent \(2\), which the source proves is sharp, and it does not replace exact problem-specific certificates such as those available for Stengle-type examples. The external originality search found no prior statement of the multiplicity-sharp floor or its envelope/asymptotic laws, but the source preprint is very recent, so simultaneous or not-yet-indexed follow-up work remains a residual risk. Originality is claimed only to the best of our knowledge.
-
-**Same-model review: passed. Independent audit: not yet performed.**

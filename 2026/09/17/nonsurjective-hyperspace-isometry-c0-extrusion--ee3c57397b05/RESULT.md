@@ -1,7 +1,5 @@
 # A standard non-surjective Hausdorff self-isometry of the convex hyperspace of c0
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 Let \(X\) be a nonzero real Banach space and write

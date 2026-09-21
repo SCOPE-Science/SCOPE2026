@@ -210,5 +210,3 @@ second-reactor equilibrium identity to close the open AM2 stability/Hopf case.
    Analysis of a Three-Tiered Model of Anaerobic Digestion*, SIAM Journal on
    Applied Mathematics 81 (2021), DOI 10.1137/20M1353897.
    https://doi.org/10.1137/20M1353897
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -1,7 +1,5 @@
 # Minimum size of isolate-free irregular 3-uniform hypergraphs
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Result
 
 A finite simple 3-uniform hypergraph is **irregular** if its vertex degrees are pairwise distinct. It is **isolate-free** if every vertex has positive degree.

@@ -174,7 +174,7 @@ knowledge**, not a claim of exhaustive literature coverage.
   concavity.
 - Equivalent prior coverage under different terminology or in weakly
   indexed literature remains a residual originality risk.
-- Independent audit has not been performed.
+
 
 ## Reproducibility
 

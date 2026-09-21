@@ -1,7 +1,5 @@
 # Strict singularity collapses to compactness for finite elementary operators on norm ideals
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Statement
 
 Let \(H\) be a separable infinite-dimensional complex Hilbert space. Let

@@ -227,5 +227,3 @@ The result does not determine the optimal exponent between \((n+1)p\) and \(3np\
 2. B. P. Duggal, *The commutant modulo \(C_p\) of co-prime powers of operators on a Hilbert space*, J. Math. Anal. Appl. **263** (2001), 110--120. https://doi.org/10.1006/jmaa.2001.7601
 3. F. Kittaneh, *Some intertwining relations modulo operator ideals*, Glasgow Math. J. **48** (2006), 111--117. https://doi.org/10.1017/S0017089505002910
 4. R. Bhatia and F. Kittaneh, *Some inequalities for norms of commutators*, SIAM J. Matrix Anal. Appl. **18** (1997), 258--263. https://doi.org/10.1137/S0895479895293235
-
-**Same-model review: passed. Independent audit: not yet performed.**

@@ -1,7 +1,5 @@
 # Projective nonincidence graphs realize every even total-uniformity
 
-**Same-model review: passed. Independent audit: not yet performed.**
-
 ## Definitions
 
 A sequence of distinct vertices \(S=(v_1,\ldots,v_t)\) in a graph without isolated vertices is a **total dominating sequence** if

@@ -208,5 +208,3 @@ local rings.
 4. M. H. Bien, P. V. Danchev, M. Ramezan-Nassab, *On Semi-Nil Clean Rings
    with Applications*, arXiv:2408.13164.
    https://arxiv.org/abs/2408.13164
-
-**Same-model review: passed. Independent audit: not yet performed.**

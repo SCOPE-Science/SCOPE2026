@@ -319,7 +319,3 @@ terminology.
    Tropicalization of Ptolemy's Inequality*, American Mathematical
    Monthly 131 (2024), 187--203.
    https://doi.org/10.1080/00029890.2023.2285695
-
-## Review status
-
-**Same-model review: passed. Independent audit: not yet performed.**
