@@ -11,6 +11,8 @@ the old-to-new directory mapping. Each record contains:
 - `SLOGAN.txt`: one to three high-information sentences for later retrieval;
 - `METADATA.json`: taxonomy, provenance, source URLs, limitations, and stable ID;
 - `AUDIT.json`: correctness, originality, and value judgments, with reviewer type;
+- `VERIFICATION.md`: canonical status and evidence references for independent audit,
+  Lean verification, and expert attestation (format below);
 - `REVIEW.md`: Phase II same-model review, including search/access limitations;
 - `artifacts/`: optional compact verification or reuse materials.
 
@@ -20,6 +22,23 @@ or `SLOGAN.txt`. Keep mathematical assumptions, unresolved cases and proof gaps
 explicit in the mathematical note. Concision must not omit essential proof steps.
 
 Rejected drafts do not qualify as accepted findings.
+
+## Canonical verification summary
+
+Every accepted record, including historical records, has `VERIFICATION.md`.
+Use JSON-compatible YAML front matter delimited by `---`, with `schema_version: 1`
+and exactly three channel objects: `independent_audit`, `lean_verification`, and
+`expert_attestation`. Each object contains `status` and `evidence` (a list of
+relative evidence-file paths, or null). Serialize the front matter as JSON for
+unambiguous machine reading. Status is one of `passed`, `failed`, `pending`,
+`not_performed`, `unknown`, `disputed`, or `withdrawn`.
+
+`unknown` means the available record does not establish the status; it does not
+mean the check was not performed. A `passed` status requires supporting evidence.
+General correctness/originality/value assessments do not establish these three
+channels. Update this summary together with its supporting evidence whenever a
+channel changes. Consumers read this file preferentially; legacy evidence parsing
+is only a fallback when this file is absent. Keep the summary out of RESULT.md.
 
 For Phase II, `AUDIT.json` has `review_type: "same_model_review"` and `independent: false`;
 `METADATA.json` has `phase: "II"`, `independent_validation: false`, and
