@@ -1,0 +1,35 @@
+{
+  "scope_run_id": "e09e51ce-c59c-4203-a92e-8477773b0a9e",
+  "record_id": "SCOPE-20260921-df8cc0336f35",
+  "review_type": "same_model_review",
+  "independent": false,
+  "phase": "II",
+  "verification_state": "same_model_reviewed",
+  "same_model_review_status": "passed",
+  "independent_audit_status": "not_performed",
+  "independent_validation": false,
+  "correctness": {
+    "status": "PASS",
+    "summary": "The CG-Lanczos tridiagonal has an LDL^T factorization whose unit-lower-bidiagonal multipliers are the adjacent residual ratios. Every trailing Schur complement remains spectrally enclosed in [mu,L] because its inverse is a principal block of the inverse Lanczos matrix. A sharp two-by-two spectral-interval lemma then gives each multiplier at most (L-mu)/(2 sqrt(L mu)). A two-dimensional endpoint-spectrum construction attains equality, and deterministic numerical checks reproduce the formulas."
+  },
+  "originality": {
+    "status": "PASS",
+    "scope": "to the best of our knowledge",
+    "summary": "Bouyouli, Meurant, Smoch, and Sadok (2009) give the directly comparable all-step bound ||r_k||/||r_{k-1}|| <= (kappa-1)/2. The present result sharpens it by a factor sqrt(kappa) and proves the improved constant globally sharp. Meurant (2020) contains a two-dimensional feasibility discriminant that is equivalent to the sharp first-step endpoint-spectrum frontier, so the first-step constant itself is not claimed as new. Searches across residual-increase terminology, CG beta coefficients, Lanczos/LDL formulations, condition-number bounds, and recent CG surveys did not locate the same sharp all-step theorem, exact universal monotonicity threshold, or fixed-SPD-preconditioned M^{-1}-residual extension. Older Lanczos/CG monographs and elimination-factor literature remain a material historical-equivalence risk."
+  },
+  "value": {
+    "status": "PASS",
+    "summary": "The theorem turns a known condition-number residual-growth estimate into an exact frontier, identifies the precise kappa = 3 + 2 sqrt(2) boundary for universal stepwise residual monotonicity, yields a one-step lower certificate on conditioning from an exact-arithmetic residual spike, and transfers cleanly to the natural residual norm for fixed SPD preconditioning."
+  },
+  "limitations": [
+    "Exact arithmetic only; no statement is made about finite-precision residual gaps or attainable accuracy.",
+    "Real finite-dimensional SPD systems and standard CG only.",
+    "The sharp constant uses the actual global spectral condition number; enclosing spectral estimates may be conservative.",
+    "For fixed SPD preconditioning, the extension concerns the M^{-1} residual norm rather than ordinary Euclidean residual norm in general.",
+    "Global sharpness is witnessed at the first iteration; equality at arbitrary prescribed later iterations is not claimed.",
+    "The theorem is a worst-case adjacent-step bound, not an iteration-count estimate and not a substitute for spectrum-distribution-dependent CG analysis.",
+    "Older Lanczos/CG and Gaussian-elimination/Cholesky multiplier literature was not exhaustively inspected theorem by theorem, leaving residual originality uncertainty.",
+    "Independent audit has not been performed."
+  ],
+  "review_statement": "Same-model review: passed. Independent audit: not yet performed."
+}
