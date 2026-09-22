@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-09-22",
+  "reviewer": "separate AI audit",
+  "source_path": "2026/09/07/009",
+  "final_path": "2026/09/07/009",
+  "audited_base_commit": "b491a8d1d4b639eb085a4c66fe4951ac3f344663",
+  "source_blobs": {
+    "RESULT": "86234c5e50103209a349b6efb77d8ba3d8ebde30",
+    "METADATA": "c0ab08af8926cca377446cce4bada84b0fe52433",
+    "AUDIT": "a2a5e9d95501cd34efdaf7c6e700ed8f08fe5a1d",
+    "VERIFICATION": "83b03a7f246da30fad50fa39962dbb6d7f0519f0"
+  },
+  "reviewed_claim": "Among the 8-state quarter-grid birth–death chains in the stated stratum, the endpoint hitting time H=E_0 T_7 has unique rows-0–6 maximizer (modulo free row 7) with H=6544; the stated top-five values and periodic maximum are exact.",
+  "axes": {
+    "correctness": {
+      "verdict": "passed",
+      "rationale": "PASS for the exact census claim. I independently enumerated all 4·6^6=186,624 rows-0–6 patterns using exact rational recurrence d0=1/p0, di=(1+qi d_{i-1})/pi. This reproduced exactly 10,046 distinct H values, unique maximum 6544, top five 6544,5088,4608,4464,4358, and periodic maximum 3265. The analytic monotonicity argument also independently proves the left-drift maximizer. The record’s mixing bracket is explicitly numerical/empirical and is not promoted by this audit to theorem-grade evidence."
+    },
+    "originality": {
+      "verdict": "passed",
+      "scope": "relative to checked evidence",
+      "priority_guarantee": false,
+      "rationale": "PASS relative to checked evidence, very narrowly. The recurrence, monotonicity principle and extremizer shape are textbook birth–death material. Searches did not locate the exact denominator-restricted 8-state census/table or the number 6544 in this context. The audit therefore credits only the finite benchmark table, not a new method."
+    },
+    "scientific_value": {
+      "verdict": "passed",
+      "rationale": "PASS, very narrowly. The result is a small exact regression benchmark with a complete rational census; it is scientifically modest and unsurprising, but still independently reusable. The numerical mixing discussion is ancillary."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Markov Chains and Mixing Times",
+      "url": "https://pages.uoregon.edu/dlevin/MARKOV/",
+      "comparison": "Standard birth–death/hitting/mixing background."
+    },
+    {
+      "title": "Markov Chains, Cambridge notes",
+      "url": "https://www.statslab.cam.ac.uk/~james/Markov/",
+      "comparison": "Standard hitting-time methods; no matching quarter-grid table located."
+    },
+    {
+      "title": "Reversible Markov Chains and Random Walks on Graphs",
+      "url": "https://www.stat.berkeley.edu/~aldous/RWG/ChapURL.html",
+      "comparison": "General reference, not a source of the finite census."
+    }
+  ],
+  "residual_risks": [
+    "Novelty and value are limited to the compiled finite table.",
+    "The reported mixing upper near 21 is Monte Carlo, and the spectral numbers are numerical; neither is part of the exact theorem certified here."
+  ],
+  "repair": null,
+  "disposition": "passed"
+}

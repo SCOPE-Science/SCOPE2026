@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-09-22",
+  "reviewer": "separate AI audit",
+  "source_path": "2026/09/07/003",
+  "final_path": "2026/09/07/003",
+  "audited_base_commit": "b491a8d1d4b639eb085a4c66fe4951ac3f344663",
+  "source_blobs": {
+    "RESULT": "233f11af9cd6e8b29feaa394a16e4ee1f46e80f4",
+    "METADATA": "9572fded3a988dcd3e29a0b92b396ce7be78e323",
+    "AUDIT": "936256934beb4c41304badab49b473d2627d0a22",
+    "VERIFICATION": "83b03a7f246da30fad50fa39962dbb6d7f0519f0"
+  },
+  "reviewed_claim": "For diagonal-ones J2-free binary matrices, r(2)=2,r(3)=3,r(4)=3,r(5)=4; r(n)≤ceil(3n/4); the bound is sharp for row-weight≤2; and r(n)≥ceil(n/2) for n≤8.",
+  "axes": {
+    "correctness": {
+      "verdict": "passed",
+      "rationale": "PASS. I independently enumerated all 2^{n(n-1)} diagonal completions for n=2,…,5 with exact integer rank, reproducing survivor/rank counts 3; 21; 311=6+305; and 8995=390+8605. I separately checked the peeling lemmas, the directed-cycle proof for row-weight≤2, the 4-cycle block rank, and the Frobenius lower-bound algebra through n=8. The conjectural all-n ceil(3n/4) statement remains clearly labeled conjecture."
+    },
+    "originality": {
+      "verdict": "passed",
+      "scope": "relative to checked evidence",
+      "priority_guarantee": false,
+      "rationale": "PASS relative to checked evidence. The 4×4 cycle block itself is not new and appears in nearby Boolean/binary-rank literature. The checked sources did not contain the specific diagonal-ones J2-free real-rank function, the n≤5 census/orbit data, or the all-n row-weight≤2 theorem in this formulation."
+    },
+    "scientific_value": {
+      "verdict": "passed",
+      "rationale": "PASS. Beyond a small census, the record supplies reusable peeling lemmas and a structural proof for the entire row-weight≤2 subclass; that is a substantive residue after removing novelty of the base cycle block."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "On Minimally Non-Firm Binary Matrices",
+      "url": "https://arxiv.org/abs/2206.04089",
+      "comparison": "Same forbidden J2 configuration in a different Boolean-rank/isolation setting."
+    },
+    {
+      "title": "On Minrank and Forbidden Subgraphs",
+      "url": "https://arxiv.org/abs/1806.00638",
+      "comparison": "Different minrank objective/direction."
+    },
+    {
+      "title": "A Study of the Binary and Boolean Rank of Matrices with Small Constant Real Rank",
+      "url": "https://arxiv.org/abs/2507.05824",
+      "comparison": "Related small-real-rank extremal patterns; shows the cycle motif is not itself novel."
+    }
+  ],
+  "residual_risks": [
+    "The full all-n ceil(3n/4) equality remains open.",
+    "Small-n orbit counts are computational classifications, albeit independently reproducible."
+  ],
+  "repair": null,
+  "disposition": "passed"
+}

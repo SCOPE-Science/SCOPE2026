@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-09-22",
+  "reviewer": "separate AI audit",
+  "source_path": "2026/09/07/002",
+  "final_path": "2026/09/07/002",
+  "audited_base_commit": "b491a8d1d4b639eb085a4c66fe4951ac3f344663",
+  "source_blobs": {
+    "RESULT": "762198c5feaaef9dadfc2e1a3e7df6fcd2f85f32",
+    "METADATA": "2f2c0ce0c2466660c1b0998a423fb9bbd970a16e",
+    "AUDIT": "a0f905d054b3aefe2f80c557ec2b33225da9802c",
+    "VERIFICATION": "00d9cbc212cfed64c344acdf724800e03d5a6a2e",
+    "artifact": "e40d015364e6031ef1a630555fd984239aa0e7d1"
+  },
+  "reviewed_claim": "For lazy simple random walk on the balanced spider S(k,L), the stated two-stage coupling has mean at most 3L^2, yields the stated restart tail and mixing bounds (including T0=32kL^2), and gives the stated centered exponential tail.",
+  "axes": {
+    "correctness": {
+      "verdict": "passed",
+      "rationale": "PASS. I re-derived the radial hitting equation E_a H_0=2a(2L-a), the cycle-lift alternating coupling and its L^2 meeting bound, and the synchronous post-radius coupling. The full-walk marginals are faithful, including leg resampling only on 0→1 moves. The uniform Markov-restart argument gives the claimed geometric tail; the centered-tail reduction is also valid. As an independent finite sanity check I built transition matrices for k=3,4,5 and L=1,…,5, verified detailed balance to numerical precision, and checked convergence at the claimed scale. No omitted L=1 boundary defect was found."
+    },
+    "originality": {
+      "verdict": "passed",
+      "scope": "relative to checked evidence",
+      "priority_guarantee": false,
+      "rationale": "PASS relative to checked evidence, narrowly. General results relating mixing to hitting times already give the L^2-order behavior on finite trees (including Peres–Sousi and Peres–Sauerwald–Sousi–Stauffer). I found no checked source giving this specific faithful two-stage balanced-spider coupling with these explicit constants and restart/centered-tail formulation. The audit therefore does not treat the L^2 mixing order itself as new."
+    },
+    "scientific_value": {
+      "verdict": "passed",
+      "rationale": "PASS, narrowly. The durable contribution is an elementary, explicit coupling/certificate with concrete constants and a reproducible simulation check; it is not a new asymptotic mixing law."
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Mixing times are hitting times of large sets",
+      "url": "https://arxiv.org/abs/1108.0133",
+      "comparison": "General reversible-chain mixing/hitting equivalence; covers order-level context, not this explicit spider coupling."
+    },
+    {
+      "title": "Mixing times are hitting times of large sets: tree-related consequences / finite-tree mixing-hitting work",
+      "url": "https://arxiv.org/abs/1412.8458",
+      "comparison": "Finite-tree results make L^2-order mixing unsurprising; no identical constant-level coupling located."
+    },
+    {
+      "title": "Markov Chains and Mixing Times",
+      "url": "https://pages.uoregon.edu/dlevin/MARKOV/",
+      "comparison": "Standard coupling inequality and hitting-time tools used by the record."
+    }
+  ],
+  "residual_risks": [
+    "Novelty is only at the explicit construction/constants level; stronger and more general tree-mixing theorems already exist.",
+    "Constants are deliberately loose; no lower bound or cutoff statement is established."
+  ],
+  "repair": null,
+  "disposition": "passed"
+}

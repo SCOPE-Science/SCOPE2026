@@ -7,7 +7,7 @@ One-dimensional bin packing / cutting stock has LP relaxation LP_GG (Gilmore–G
 Fix C=24. Stratum box: k distinct integral sizes a_1<…<a_k, k≤6, each a_i ∈ {2,…,12}, demands b_i ∈ [1,8], N=∑b_i ≤30, S=∑a_i b_i ≤240. Feasible patterns: {x∈Z_+^k : ∑a_i x_i ≤24}, enumerated completely by knapsack DP (never priced heuristically). LP_GG: pattern LP optimum (primal min ∑λ_p s.t. ∑_p x^{(p)}_i λ_p ≥ b_i, λ≥0; dual max b^T y s.t. A^T y ≤1, y≥0). Delta = OPT − ceil(LP_GG). Sizes 1 and 13…24 are out-of-scope by definition (scope, not proved reduction).
 
 ## Result
-**Theorem A (k≤3 IRUP).** Every instance in the box with k≤2 (3,520 instances) and k=3 (84,465 instances) satisfies Delta=0.
+**Theorem A (k≤3 IRUP).** Every one-type instance is trivially IRUP; every instance in the box with k=2 (3,520 instances) and k=3 (84,465 instances) satisfies Delta=0.
 
 **Theorem B (benchmark catalog).** The following five instances each satisfy Delta=1 (proper non-IRUP):
 
@@ -15,7 +15,7 @@ Fix C=24. Stratum box: k distinct integral sizes a_1<…<a_k, k≤6, each a_i �
 |---|---------|-----------|---|---|-------|------|-----|-------|
 | E1 | 5,8,9,12 | 5,8,7,7 | 27 | 236 | 299/30 | 10 | 11 | 1 |
 | E2 | 2,7,8,10,11,12 | 6,3,5,4,5,4 | 27 | 216 | 9 | 9 | 10 | 1 |
-| E3 | 3,7,8,10,12 | 2,8,5,3,5 | 23 | 187 | 8 | 8 | 9 | 1 |
+| E3 | 3,7,8,10,12 | 2,8,5,3,5 | 23 | 192 | 8 | 8 | 9 | 1 |
 | E4 | 2,7,8,10,11 | 3,5,5,3,3 | 19 | 144 | 6 | 6 | 7 | 1 |
 | E5 | 5,6,8,9 | 1,3,8,1 | 13 | 96 | 4 | 4 | 5 | 1 |
 
