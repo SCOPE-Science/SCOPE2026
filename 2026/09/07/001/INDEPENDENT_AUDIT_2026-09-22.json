@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-09-22",
+  "reviewer": "separate AI audit",
+  "source_path": "2026/09/07/001",
+  "final_path": "2026/09/07/001",
+  "audited_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+  "source_blobs": {
+    "RESULT.md": "9fd4a8e1b3da13163563ca309034fb4f39e5fbfe",
+    "METADATA.json": "f1c83661ef0e76770e3e01f1a1bede3731525d41",
+    "AUDIT.json": "641f85d8bd9b4e63dab6a8134b53cb882419178b",
+    "SLOGAN.txt": "513cb61312ea528b23fa2047a7fd3c8ec1b1eb98",
+    "VERIFICATION.md": "83b03a7f246da30fad50fa39962dbb6d7f0519f0",
+    "artifacts/final_verify.py": "605804a4b0e30486328aee518ffc1802d7b1c58f",
+    "artifacts/bnb.py": "de583389f862e11b474ef6cb78f7f470025de0b5",
+    "artifacts/enumerate17.py": "b79363b9165b1b560987f49bbf514687d917532d"
+  },
+  "original_claim": "For 1-free F subset C([8],4), |F|<=17, with equality iff F={A:|A∩S|>=3} for some 4-set S; pair-star and K6-clique have size 15; ordinary (i,j)-shifting need not preserve 1-freeness.",
+  "revised_claim": null,
+  "axes": {
+    "correctness": {
+      "verdict": "passed",
+      "evidence": "Independent compatibility-graph maximum-clique search found global maximum 17 (1144 nodes); exhaustive target-size search with 1234 fixed found exactly 17 maxima (425 nodes), all balls. Three orbit-case pools 36/42/40 and full 53-vertex pool were also checked with no 18-family."
+    },
+    "originality": {
+      "verdict": "passed",
+      "scope": "relative to checked evidence",
+      "evidence": "Frankl-Furedi 1985 and Frankl 1977 require sufficiently large n; Complete Intersection Theorem covers the narrower >=2-intersecting class. No checked source states the exact n=8,k=4 maximum 17 plus unique-ball classification.",
+      "priority_guarantee": false
+    },
+    "value": {
+      "verdict": "passed",
+      "evidence": "Exact correction of the false 15 target, unique extremal classification in a larger class than 2-intersecting families, and reusable shifting counterexample."
+    }
+  },
+  "execution": {
+    "performed": true,
+    "independent_check": "artifacts/independent_audit_2026-09-22_check.py",
+    "max_clique": 17,
+    "max_clique_search_nodes": 1144,
+    "maxima_containing_1234": 17,
+    "enumeration_nodes": 425,
+    "all_enumerated_maxima_are_balls": true
+  },
+  "search_queries": [
+    "forbidden intersection 4-uniform n=8 intersection 1 maximum 17",
+    "no two sets intersect in exactly one 4 8 family",
+    "forbidden intersection n=8 k=4 l=1",
+    "1-free 4-uniform family 8 points intersection exactly 1",
+    "forbidding one intersection 4-uniform 8"
+  ],
+  "closest_sources": [
+    {
+      "title": "Forbidding Just One Intersection",
+      "authors": "Peter Frankl; Zoltan Furedi",
+      "year": 1985,
+      "doi": "10.1016/0097-3165(85)90035-4",
+      "full_text": "https://www.renyi.hu/~pfrankl/j26.pdf",
+      "coverage": "Requires sufficiently large n; does not cover n=8,k=4 exact classification."
+    },
+    {
+      "title": "On families of finite sets no two of which intersect in a singleton",
+      "author": "Peter Frankl",
+      "year": 1977,
+      "doi": "10.1017/S0004972700025521",
+      "coverage": "Published theorem assumes n>n0(k), k>=4; does not settle n=8."
+    },
+    {
+      "title": "Around the Complete Intersection Theorem",
+      "author": "Gyula O. H. Katona",
+      "year": 2016,
+      "url": "https://arxiv.org/abs/1602.02634",
+      "coverage": "Covers t-intersecting families; the audited 1-free class is strictly larger because disjoint pairs are allowed."
+    }
+  ],
+  "access_limitations": [
+    "Frankl-Furedi 1985 was read from an author-hosted full text. Frankl 1977 was checked through the publisher theorem/abstract statement; it was not decisive because its stated quantifier is already large-n."
+  ],
+  "repair": null,
+  "disposition": "passed"
+}

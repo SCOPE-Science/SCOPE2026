@@ -5,7 +5,10 @@
     "status": "passed",
     "evidence": [
       "METADATA.json",
-      "AUDIT.json"
+      "AUDIT.json",
+      "INDEPENDENT_AUDIT_2026-09-22.md",
+      "INDEPENDENT_AUDIT_2026-09-22.json",
+      "artifacts/independent_audit_2026-09-22_check.py"
     ]
   },
   "lean_verification": {
