@@ -1,0 +1,41 @@
+# Independent audit — 2026-09-22
+
+## Scope and source identity
+
+Separate AI audit of `2026/09/07/005`, reviewed 2026-09-22 UTC. The audit began from repository commit `b491a8d1d4b639eb085a4c66fe4951ac3f344663` (after the separately published audit of record 001).
+
+Source blobs: `RESULT.md` f865c344a35d6a3ddbf330c74486179998ae00df; `METADATA.json` b6e7e4a961882f979f583d0581f2f4eb8c4f9b98; prior `AUDIT.json` c829c16f3f386a74dadd2a1e5e14cbc9596640f7; prior `VERIFICATION.md` 83b03a7f246da30fad50fa39962dbb6d7f0519f0.
+
+Reviewed claim: The complete 2^20-function n=7 RSBF nonlinearity histogram is as tabulated; the maximum is 56 with 11788 maximizers and 22344 next-maximizers at 55; the published canonical representatives and affine-invariant lower-bound group counts have the stated properties.
+
+## Correctness — PASS
+
+PASS. I wrote a fresh exhaustive C implementation from the 20 rotation orbits, using an independent integer FWHT path, and enumerated all 1,048,576 functions. The complete histogram matched the record exactly, including 11,788 functions at nonlinearity 56 and 22,344 at 55. A separate transform/Möbius check reproduced the two published extremal truth masks, ANF masks, degrees and Walsh spectra. The orbit count G=20 and Parseval constraints also check.
+
+## Originality — PASS relative to checked evidence
+
+PASS relative to checked evidence, with a narrowed claim. Earlier RSBF literature already reports n=7 functions attaining nonlinearity 56, so the maximum value itself is not new. I did not find a checked source publishing the complete n=7 RSBF nonlinearity distribution, the exact 11,788 maximizer count, and the record’s representative/invariant catalog together.
+
+## Scientific value — PASS
+
+PASS. A full independently reproducible distribution is useful ground truth for Boolean-function search and regression, even though its headline maximum is known. The affine-class statements are correctly limited to lower bounds.
+
+## Prior-art checks
+
+1. Rotation symmetric Boolean functions — Count and cryptographic properties — https://doi.org/10.1016/j.dam.2007.05.029 — Prior RSBF counting/cryptographic-property literature; high-nonlinearity n=7 examples predate this record.
+2. Search for Boolean functions with excellent profiles — https://eprint.iacr.org/2006/449 — Earlier search literature for high-nonlinearity Boolean functions.
+3. Boolean Functions for Cryptography and Coding Theory — https://www.math.univ-paris13.fr/~carlet/chap-fcts-Bool.pdf — Standard Walsh/nonlinearity background.
+
+The originality verdict means no substantive covering result was found in the checked evidence; it does **not** establish or award scholarly priority.
+
+## Residual risks / limitations
+
+- No scholarly-priority guarantee is made for the full histogram; an unindexed thesis or table could duplicate it.
+- The record does not determine exact affine-equivalence class counts.
+
+## Final disposition
+
+- Correctness: **PASS**
+- Originality: **PASS relative to checked evidence**
+- Scientific value: **PASS**
+- Disposition: **passed**.
