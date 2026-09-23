@@ -1,120 +1,60 @@
-# Exact illumination numbers of the five Fedorov parallelohedra
+# Exact illumination numbers of five canonical parallelohedron representatives
 
 ## Context
 
-The Hadwiger–Levi–Boltyanski illumination conjecture in $\mathbb{R}^3$
-asserts every convex body can be illuminated by at most $8$ directions; the
-best known general bound is $H_3 \le 16$ (Papadoperakis, via Prymak–Shepelska).
-The five Fedorov types are the complete finite classification of
-3-dimensional parallelohedra (space-tiling centrally symmetric polytopes),
-all realizable as zonotopes. Exact illumination numbers for these types give
-concrete data points calibrating the $H_3 \le 16$ vs conjectured-$8$
-boundary. No prior source gives exact real illumination numbers for any
-non-cube Fedorov type.
+The Hadwiger–Levi–Boltyanski illumination conjecture in `R^3` asks whether every convex body can be illuminated by at most 8 directions; the best known general bound is larger. The five Fedorov classes are the five combinatorial types of three-dimensional parallelohedra. A Fedorov combinatorial type contains non-affinely-equivalent realizations, so affine invariance alone does **not** make illumination number a type invariant. This record therefore makes the exact claim only for the five explicit representatives below (and, automatically, their affine images).
 
 ## Definitions
 
-Illumination is in the Boltyanski sense: a direction $d \ne 0$ illuminates a
-boundary point $x$ of a convex body $P$ if $x+td$ lies in the interior of $P$
-for all sufficiently small $t>0$. The illumination number $\mathrm{ill}(P)$
-is the least number of directions illuminating every boundary point.
-For a polytope it suffices to illuminate all vertices: a vertex $v$ with
-incident facet outward normals $n_1,\dots,n_k$ is illuminated by $d$ iff
-$\langle d,n_i\rangle < 0$ strictly for every $i$.
-Illumination numbers are invariant under invertible affine maps.
-Two vertices conflict if no single direction illuminates both, i.e. $0$ lies
-in the closed convex hull of the union of their incident-normal sets
-(Gordan alternative). A pairwise-conflicting $k$-set forces
-$\mathrm{ill} \ge k$.
+A direction `d != 0` illuminates a boundary point `x` of a convex body `P` if `x+t d` lies in the interior of `P` for all sufficiently small `t>0`. For a polytope it suffices to illuminate every vertex: if the outward normals of facets incident to vertex `v` are `n_1,...,n_k`, then `d` illuminates `v` exactly when `<d,n_i><0` for every incident facet. The illumination number `ill(P)` is the minimum number of directions covering all vertices. It is invariant under invertible affine maps.
+
+Two vertices conflict if no single direction illuminates both. A pairwise-conflicting `k`-set forces `ill(P)>=k`. Equivalently, feasibility of a common illuminating direction can be decided exactly by the Gordan alternative.
 
 ## Result
 
-With the explicit integer-coordinate representatives below, the exact
-illumination numbers of the five Fedorov 3-dimensional parallelohedra are:
+For the following **displayed representatives**, the exact illumination numbers are:
 
-| type | representative | $V$ | $E$ | $F$ | $\mathrm{ill}$ |
-|---|---|---|---|---|---|
-| parallelepiped (cube) | zonotope $\langle(1,0,0),(0,1,0),(0,0,1)\rangle$ | 8 | 12 | 6 | **8** |
-| hexagonal prism | zonotope $\langle(1,0,0),(0,1,0),(1,1,0),(0,0,1)\rangle$ | 12 | 18 | 8 | **6** |
-| rhombic dodecahedron | zonotope $\langle(1,0,0),(0,1,0),(0,0,1),(1,1,1)\rangle$ | 14 | 24 | 12 | **6** |
-| elongated rhombic dodecahedron | zonotope $\langle(1,0,0),(0,1,0),(0,0,1),(1,1,0),(1,1,1)\rangle$ | 18 | 28 | 12 | **5** |
-| truncated octahedron | $\mathrm{conv}$ of signed permutations of $(0,1,2)$ | 24 | 36 | 14 | **4** |
+| representative / Fedorov combinatorial type | construction | V | E | F | ill |
+|---|---|---:|---:|---:|---:|
+| cube / parallelepiped | zonotope `<(1,0,0),(0,1,0),(0,0,1)>` | 8 | 12 | 6 | **8** |
+| hexagonal-prism representative | zonotope `<(1,0,0),(0,1,0),(1,1,0),(0,0,1)>` | 12 | 18 | 8 | **6** |
+| rhombic-dodecahedron representative | zonotope `<(1,0,0),(0,1,0),(0,0,1),(1,1,1)>` | 14 | 24 | 12 | **6** |
+| elongated-rhombic-dodecahedron representative | zonotope `<(1,0,0),(0,1,0),(0,0,1),(1,1,0),(1,1,1)>` | 18 | 28 | 12 | **5** |
+| truncated-octahedron representative | convex hull of signed permutations of `(0,1,2)` | 24 | 36 | 14 | **4** |
 
-Facet shapes: cube 6 quadrilaterals; hexagonal prism 6 quadrilaterals +
-2 hexagons; rhombic dodecahedron 12 rhombi (quadrilaterals); elongated
-rhombic dodecahedron 8 quadrilaterals + 4 hexagons; truncated octahedron
-6 squares + 8 hexagons. All $(V,E,F)$ satisfy Euler's formula.
+Their facet-shape censuses are respectively: 6 quadrilaterals; 6 quadrilaterals plus 2 hexagons; 12 quadrilaterals; 8 quadrilaterals plus 4 hexagons; 6 quadrilaterals plus 8 hexagons.
 
-Explicit attaining integer direction sets:
+Explicit attaining integer direction sets are:
 
-- Cube, 8: all $(\pm1,\pm1,\pm1)$.
-- Hexagonal prism, 6: $(1,2,1)$, $(1,2,-1)$, $(1,-1,1)$, $(1,-1,-1)$,
-  $(-2,-1,1)$, $(-2,-1,-1)$.
-- Rhombic dodecahedron, 6: $(1,2,2)$, $(1,1,0)$, $(1,-2,2)$,
-  $(1,-1,-2)$, $(-2,1,-1)$, $(-2,-2,-1)$.
-- Elongated rhombic dodecahedron, 5: $(1,2,2)$, $(1,2,-3)$, $(1,-3,2)$,
-  $(1,-3,-3)$, $(-3,-2,-1)$.
-- Truncated octahedron, 4: $(1,1,-1)$, $(1,-3,3)$, $(-3,1,3)$,
-  $(-3,-3,-2)$.
+- cube: all `(±1,±1,±1)`;
+- hexagonal-prism representative: `(1,2,1),(1,2,-1),(1,-1,1),(1,-1,-1),(-2,-1,1),(-2,-1,-1)`;
+- rhombic-dodecahedron representative: `(1,2,2),(1,1,0),(1,-2,2),(1,-1,-2),(-2,1,-1),(-2,-2,-1)`;
+- elongated-rhombic-dodecahedron representative: `(1,2,2),(1,2,-3),(1,-3,2),(1,-3,-3),(-3,-2,-1)`;
+- truncated-octahedron representative: `(1,1,-1),(1,-3,3),(-3,1,3),(-3,-3,-2)`.
 
-## Proof / Evidence
+## Proof / evidence
 
-Upper bounds: for each type, every vertex cone satisfies
-$\langle d,n\rangle<0$ strictly (integers) for at least one claimed
-direction $d$; replayed by exact integer-dot checks in the artifact.
+For each representative, exact integer dot products verify that every vertex is illuminated by at least one direction in the displayed set, giving the upper bound.
 
-Lower bounds (two independent certificates, both verified):
+Two independent lower certificates agree. First, the vertex-conflict graph has a clique of size `8,6,6,5,4` respectively, with each pair checked by an exact `0`-in-convex-hull test. Second, all strict sign patterns over the facet normals are enumerated: realizable sign cells give every possible set of vertices that any real direction can illuminate. The numbers of feasible cells are `8,12,24,24,32`, and exact set cover on these cells has optima `8,6,6,5,4`. Thus the lower bounds range over **all real directions**, not merely a sampled direction pool.
 
-1. Pairwise-conflict cliques of sizes $8,6,6,5,4$ respectively (maximum
-   over the conflict graph), each pair verified exact by a
-   $0$-in-closed-convex-hull test.
-2. Complete optimum over ALL real directions: enumerate all $2^F$ strict
-   sign vectors over facet normals; feasible cells (Gordan: $0 \notin$
-   closed convex hull of signed rows) give every realizable illuminated
-   vertex set (8, 12, 24, 24, 32 feasible cells respectively); exact
-   set-cover optima are $8,6,6,5,4$. Hence no direction outside any sampled
-   pool can improve the bound.
-
-The auditor re-ran the verifier (`ALL FIVE TYPES VERIFIED`), independently
-replayed all strict-dot upper bounds, recomputed the facet-polygon census,
-and recomputed all optima and maximum cliques with a corrected exact
-$0$-in-convex-hull predicate (exact $4\times 4$ rational simplex solve);
-all claimed values were confirmed unchanged.
+An independent audit rebuilt the five coordinate polytopes, recomputed the facet censuses and complete sign-cell set-cover optima, and obtained the same values. It also identified and removed the earlier unsupported inference from these representatives to every realization of their Fedorov combinatorial types.
 
 ## Limitations
 
-- Proved for the stated integer representatives; values attach to Fedorov
-  types by affine invariance. No wider uniformity (e.g. over all affine
-  images or all 3-zonotopes) is claimed.
-- Type identification rests on the stated constructions plus verified
-  $(V,E,F)$ and facet-polygon census, not a full face-lattice isomorphism
-  certificate against external references.
-- Lower-bound completeness rests on exact rational computation
-  ($2^F$ Gordan enumeration plus set cover), replayable via the artifact,
-  rather than a human-readable inequality chain.
-- No claim about Hadwiger's conjecture in general; these are five exact
-  data points.
+- The theorem is for the five stated representatives and their affine images. Fedorov type is combinatorial, and non-cube types have non-affinely-equivalent realizations; no constancy of illumination number across an entire type is proved here.
+- Type identification rests on the stated constructions together with the verified vertex/edge/facet and facet-polygon counts, rather than a separate full face-lattice certificate.
+- Lower-bound completeness is computational, though exact and replayable.
+- No claim about the general Hadwiger illumination conjecture is made.
 
 ## Reproducibility
 
-Run `python3 artifacts/verify_illumination.py` (stdlib only, seconds).
-It rebuilds the polytopes, rechecks Euler data, replays every strict-dot
-witness, re-verifies every clique pair, and recomputes the complete cell
-optima. Expected output ends with `ALL FIVE TYPES VERIFIED`.
+Run `python3 artifacts/verify_illumination.py`. The stdlib-only verifier rebuilds the representatives, checks their Euler/facet data, replays every strict-dot witness, checks conflict cliques, enumerates feasible sign cells, and recomputes the exact set-cover optima. Expected output ends with `ALL FIVE TYPES VERIFIED`; that historical message refers to the five displayed representatives and should not be read as a proof of type-wide invariance.
 
 ## References
 
-- A. Prymak, V. Shepelska, On the Hadwiger covering problem in low
-  dimensions, arXiv:1811.08962. General bound $H_3\le 16$; no per-type
-  exact values.
-- K. Bezdek, M. A. Khan, The geometry of homothetic covering and
-  illumination, arXiv:1602.06040. Survey; no five-type table.
-- W. R. Sun, B.-H. Vritsiou, Illuminating 1-unconditional convex bodies in
-  $\mathbb{R}^3$ and $\mathbb{R}^4$, arXiv:2407.11331. Disjoint
-  coordinate-sign-invariant family; no Fedorov exact values.
-- L. Rotem, A. Schejter, B. A. Slomka, The Complex Illumination Problem,
-  arXiv:2410.12021. Complex ($C^n$) setting; nothing about real Fedorov
-  numbers.
-- R. T. Zivaljevic, Illumination complexes, $\Delta$-zonotopes, and the
-  polyhedral curtain theorem, arXiv:1307.5138. Fair-division use of
-  $\Delta$-zonotopes; no real illumination numbers.
+- A. Prymak, V. Shepelska, *On the Hadwiger covering problem in low dimensions*, arXiv:1811.08962.
+- K. Bezdek, M. A. Khan, *The geometry of homothetic covering and illumination*, arXiv:1602.06040.
+- W. R. Sun, B.-H. Vritsiou, *Illuminating 1-unconditional convex bodies in R^3 and R^4*, arXiv:2407.11331.
+- L. Rotem, A. Schejter, B. A. Slomka, *The Complex Illumination Problem*, arXiv:2410.12021.
+- R. T. Zivaljevic, *Illumination complexes, Delta-zonotopes, and the polyhedral curtain theorem*, arXiv:1307.5138.
