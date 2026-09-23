@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+Independent audit found that the record's headline existence/maximality claim is already in the literature. Dönmez, Akpınar, and Pelen (arXiv:2608.18192) explicitly note that for q=9 a conic extends to a maximal `(17,3)`-arc, citing the 2001/2002 Marcugini–Milani–Pambianco classification and maximal-length NMDS work over GF(9). The record's explicit coordinates and auxiliary statistics may be correct, but they are not shown to define a previously unknown equivalence class or otherwise escape the historical classification. The accepted record is therefore withdrawn for originality failure.
