@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+Independent audit reproduced the record's finite computations but found a decisive originality failure. Szykuła and Vorel (DLT 2016, arXiv:1604.02879) already exhaustively searched binary Eulerian synchronizing automata through 11 states, covering key small-n extrema and reporting an eight-state Martyugin extremal above the record's threshold-25 witness. The record's claim that its eight-state example was the strongest known even-n binary extremal, and its broad claim that no binary Eulerian extremal table was published, are therefore false. The residual fixed-spine census is too narrow to justify the accepted record after those central claims are removed.
