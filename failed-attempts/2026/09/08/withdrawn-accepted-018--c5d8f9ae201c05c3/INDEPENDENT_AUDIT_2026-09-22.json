@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "audit_type": "independent_three_axis",
+  "audit_date_utc": "2026-09-23",
+  "source_path": "2026/09/08/018",
+  "source": {
+    "repository": "SCOPE-Science/SCOPE2026",
+    "branch": "main",
+    "head_commit": "dcdc9e9b990eef6d712e3a1e18d83b7f50e21bfb",
+    "inventory_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+    "record_tree_sha": "1de203618e80d999bdc5c2c2384166f9cd9232e0",
+    "blobs": {
+      "RESULT.md": "4bd2fcc625ce4e99ed614f191ceaa4d08bbdea2d"
+    }
+  },
+  "axes": {
+    "correctness": {
+      "status": "passed",
+      "evidence": "PASS. The recovered audit independently replayed the stated 20-mesh finite survey, checked closedness/Euler characteristic, reproduced the stored Bobenko-energy values and the reported separation of the selected 8\u00d78 mesh from the other 19 surveyed competitors. The current source tree is unchanged from the audited snapshot."
+    },
+    "originality": {
+      "status": "failed_or_narrow",
+      "assessment": "NARROW. Bobenko's M\u00f6bius-invariant discrete Willmore functional and subsequent convergence/minimization questions are established prior literature. The exact 20 sampled meshes may be an unreported finite table, but no broad extremal theorem, convergence result, or mesh-independent classification survives as a novel claim.",
+      "sources": [
+        {
+          "citation": "A. I. Bobenko, A conformal energy for simplicial surfaces",
+          "url": "https://arxiv.org/abs/math/0406128"
+        },
+        {
+          "citation": "X. Chen et al., The Willmore flow of triangulated surfaces",
+          "url": "https://arxiv.org/abs/1901.09990"
+        }
+      ]
+    },
+    "value": {
+      "status": "failed",
+      "assessment": "FAIL. The headline extremum is only the minimum of a hand-selected 20-mesh grid. It is not an extremum over all triangulations or even a systematic resolution/aspect class, and the supporting refinement values themselves show strong discretization dependence. Prior literature also documents that minimizing PL/discrete Willmore energies can fail to converge to the smooth variational problem, so a coarse selected-grid minimum has weak transferable significance."
+    }
+  },
+  "repair": {
+    "attempted": true,
+    "assessment": "Narrowing the statement to 'minimum among these 20 explicitly listed meshes' makes the finite claim accurate but is already the effective limitation of RESULT.md. It does not repair the value deficit; a substantive repair would need a systematic theorem, convergence result, or reusable extremal principle."
+  },
+  "disposition": "failed",
+  "decisive_reason": "At least one of originality/scientific value does not pass after established results and the record's finite scope are accounted for; preserve the complete package as a failed attempt.",
+  "access_limits": [
+    "No unavailable source was used as proof of originality or scientific failure."
+  ]
+}
