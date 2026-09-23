@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The formula in this record is consistent with known results, but its claimed novelty is not. Wei Zhuang's 2021 Graphs and Combinatorics paper on domination in maximal outerplanar graphs explicitly records the same striped domination ceiling and characterizes all striped graphs achieving equality. That directly contradicts the record's statement that prior literature lacked per-order sharpness and extremal geometry. The residual finite census is not enough to preserve the accepted theorem-level finding without a wholesale change of scientific identity, so this accepted record is withdrawn rather than patched.
