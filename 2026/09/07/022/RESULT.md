@@ -1,14 +1,16 @@
 # Finite-mutation census of connected 5-vertex quivers with arrow multiplicity at most 2
 
 ## Context
-Rank-2 quiver mutation is Markov dynamics (textbook). General finite-mutation
-classification of Felikson–Shapiro–Tumarkin (FST) is existential: rank 2,
-surface triangulations, plus 11 exceptionals (smallest rank 6), with a
-criterion but no vertex-and-arrow-bounded enumeration, diameters, or
-replayable certificates. Rank-3 censuses (Seven; Felikson–Tumarkin geometry
-via Markov constant) do not imply rank-5 global equivalence. Small bounded
-catalogs are citable benchmarks for cluster-algebra software and Seiberg-duality
-quiver work.
+Rank-2 quiver mutation is Markov dynamics (textbook). Felikson–Shapiro–Tumarkin
+(FST) classify finite-mutation skew-symmetric quivers, and John Lawson's
+`qvfin` software predates this record and enumerates mutation-finite quivers
+of a specified size. The contribution here is narrower: the exact
+arrow-bounded stratum S(5,2) as a seven-class table with labeled
+mutation-class orders, exact labeled exchange-graph diameters, and replayable
+certificates. Rank-3 censuses (Seven; Felikson–Tumarkin geometry via Markov
+constant) do not imply these rank-5 bounded-stratum data. Small bounded
+catalogs are citable benchmarks for cluster-algebra software and
+Seiberg-duality quiver work.
 
 ## Definitions
 Let S(5,2) be connected skew-symmetric 5x5 integer matrices B with
@@ -91,6 +93,7 @@ Enumeration vectors and 5^9-weighted canonical documented in code.
 Deterministic, fixed seed. Timing in timing.txt.
 
 ## References
+- J. Lawson, `qvfin`, software for enumerating mutation-finite quivers of a specified size. https://github.com/jwlawson/qvfin
 - A. Felikson, M. Shapiro, P. Tumarkin, Skew-symmetric cluster algebras of finite mutation type, arXiv:0811.1703 (JEMS 14 (2012) 1135-1180). https://arxiv.org/abs/0811.1703 https://doi.org/10.4171/jems/329
 - A. Seven, Mutation classes of skew-symmetrizable 3x3 matrices, arXiv:1012.3318. https://arxiv.org/abs/1012.3318
 - A. Felikson, P. Tumarkin, Geometry of mutation classes of rank 3 quivers, arXiv:1609.08828. https://arxiv.org/abs/1609.08828
