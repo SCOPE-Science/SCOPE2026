@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "audit_type": "independent_three_axis",
+  "audit_date_utc": "2026-09-23",
+  "source_path": "2026/09/08/027",
+  "source": {
+    "repository": "SCOPE-Science/SCOPE2026",
+    "source_tree_sha": "84c4a3666703dc10ba2ccc07f955040d4548beb9",
+    "result_blob_sha": "db43392468120d679cc54ac3c7f649184e088f3f",
+    "verification_blob_sha": "83b03a7f246da30fad50fa39962dbb6d7f0519f0"
+  },
+  "claim": "Exact mean demerit factor for the uniform skew-symmetric Littlewood ensemble, with even-lag second moments and a finite variance table through n=21.",
+  "axes": {
+    "correctness": {
+      "status": "passed",
+      "evidence": "Independent exhaustive enumeration for m=2..11 reproduced odd-lag vanishing, even-lag second moments, all listed mean energies, and every variance-table entry exactly."
+    },
+    "originality": {
+      "status": "failed",
+      "evidence": "Jedwab, arXiv:1911.11246, Theorem 2, gives exact mean and variance of reciprocal merit factor for the same uniformly random skew-symmetric class. Since D=1/(2F), his mean is exactly the record's formula and his all-n variance formula specializes to every listed finite-table value."
+    },
+    "value": {
+      "status": "failed",
+      "evidence": "The surviving per-lag elementary decomposition is pedagogical but the headline mean is already known and the finite variance table is strictly weaker than the prior all-length exact variance theorem; no new higher moment, extremal consequence, or algorithmic improvement is supplied."
+    }
+  },
+  "independent_checks": {
+    "lengths": [3,5,7,9,11,13,15,17,19,21],
+    "mean_energy": [1,6,15,28,45,66,91,120,153,190],
+    "variance_energy": [0,16,144,480,1248,2544,4464,7232,10816,15696],
+    "even_lag_second_moment_formula_checked": "E[C_k^2]=2(n-k)-1 for all even k in exhaustive tests through n=15"
+  },
+  "literature": [
+    {
+      "citation": "J. Jedwab, The mean and variance of the reciprocal merit factor of four classes of binary sequences, arXiv:1911.11246, Theorem 2.",
+      "url": "https://arxiv.org/html/1911.11246v2",
+      "mapping": "Same skew-symmetric class and autocorrelation definition. Theorem 2: n^2 E[1/F]=n^2-3n+2 and a closed formula for n^4 Var(1/F). With D=1/(2F), these are exactly the record's mean and a stronger all-n variance result."
+    }
+  ],
+  "repair": {
+    "attempted": true,
+    "assessment": "Reframing as an elementary derivation of a known mean is possible, but does not restore sufficient originality/value; a retry needs genuinely new skew distributional information beyond Jedwab's exact mean/variance theorem."
+  },
+  "disposition": "failed"
+}
