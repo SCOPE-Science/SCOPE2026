@@ -5,10 +5,12 @@
 Zeros of the Taylor sections s_n(z) = sum_{k=0}^{n} z^k/k! govern stability
 regions of Taylor time-stepping methods and Padé approximation. The classical
 limit theory (Szegő curve |ze^{1-z}| = 1, Carpenter–Varga–Waldvogel asymptotics,
-Saff–Varga parabolic regions) describes scaled zeros as n → ∞ but yields no
-explicit finite-n enclosure. The textbook universal bound (Eneström–Kakeya)
-gives 1 ≤ |z| ≤ n. Numerics show zeros clustered in a much thinner annulus.
-This record certifies a concrete thin annulus over degrees 10–14.
+Saff–Varga parabolic regions) describes scaled zeros as n → ∞, and earlier
+work also gives explicit finite-n zero information and zero-free regions
+(e.g. Walker 2003). Those results do not supply the specific simultaneous
+two-sided radial annulus certified here. The textbook universal bound
+(Eneström–Kakeya) gives 1 ≤ |z| ≤ n. This record certifies
+0.30n ≤ |z| ≤ 0.75n for every zero over degrees 10–14.
 
 ## Definitions
 
@@ -92,6 +94,7 @@ Artifacts: `output/artifacts/inner_cert.py`, `output/artifacts/outer_cert.py`.
 
 ## References
 
+- P. Walker (2003), The Zeros of the Partial Sums of the Exponential Series, Amer. Math. Monthly 110, 337–339. https://doi.org/10.1080/00029890.2003.11919971
 - Saff & Varga (1976), Zero-Free Parabolic Regions for Sequences of
   Polynomials. https://doi.org/10.1137/0507028
 - Carpenter, Varga & Waldvogel (1991), Asymptotics for the zeros of the
