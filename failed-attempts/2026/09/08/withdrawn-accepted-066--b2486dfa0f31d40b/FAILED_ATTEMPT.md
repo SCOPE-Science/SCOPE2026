@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. The surviving contribution is an arbitrary small finite census using established invariants and methods. It supplies neither a theorem, a new regime, a reusable algorithmic advance, nor a structural explanation beyond n≤7, so it does not meet the campaign’s scientific-value threshold. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
