@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "campaign_id": "scope-full-three-axis-audit-2026-09-22-v1",
+  "source_path": "2026/09/08/040",
+  "audited_commit": "5578c014cee5dc844817cf329cc783e9debef2eb",
+  "source_tree_sha": "fe6a8e3d22f98382eba73bd1a295120c9333029d",
+  "result_blob_sha": "6de095aee775d7e2c67c2a4ecfe62a4e4c1a73d",
+  "reviewed_at_utc": "2026-09-24T05:27:36.796414Z",
+  "disposition": "failed",
+  "axes": {
+    "correctness": {
+      "status": "passed",
+      "evidence": "Clean-room enumeration generated exactly 297200 matrices. Independent Ryser evaluation reproduced the permanent distribution 17:21600, 18:216000, 20:59400, 36:200. The displayed minimizer has permanent 17, and its full row/column orbit has size 21600 and equals the entire minimum set."
+    },
+    "originality": {
+      "status": "passed",
+      "evidence": "Targeted exact-value and exact-distribution searches located only general permanent bounds, the A001501 matrix count, and small cubic-bipartite graph censuses; no located prior source stated the 17/18/20/36 labelled permanent distribution or the one-orbit minimum."
+    },
+    "value": {
+      "status": "failed",
+      "evidence": "At 12 vertices there are only five connected cubic bipartite graph types, plus the unique disconnected K3,3 union K3,3 type. The result is therefore an invariant table over a six-type finite universe, with no general-n theorem, structural extension, or improvement to the surrounding permanent bounds."
+    }
+  },
+  "literature": [
+    {
+      "title": "OEIS A001501",
+      "url": "https://oeis.org/A001501",
+      "coverage": "Counts 6x6 0-1 matrices with row/column sums 3; gives 297200 at n=6 but not the permanent distribution."
+    },
+    {
+      "title": "Counting 1-factors in regular bipartite graphs",
+      "author": "Alexander Schrijver",
+      "coverage": "General lower bound ((k-1)^(k-1)/k^(k-2))^n for perfect matchings/permanents."
+    },
+    {
+      "title": "House of Graphs — Cubic bipartite graphs",
+      "url": "https://houseofgraphs.org/Cubic",
+      "coverage": "Census lists exactly five connected cubic bipartite graphs on 12 vertices."
+    }
+  ],
+  "independent_checks": {
+    "matrix_count": 297200,
+    "permanent_distribution": {
+      "17": 21600,
+      "18": 216000,
+      "20": 59400,
+      "36": 200
+    },
+    "minimum": 17,
+    "maximum": 36,
+    "minimizer_orbit_size": 21600,
+    "all_minimizers_in_one_orbit": true
+  },
+  "repair": {
+    "attempted": true,
+    "result": "unsuccessful",
+    "reason": "Reframing as a small-order benchmark is accurate but does not meet the campaign's scientific-value threshold; a valuable repair would require a substantive generalization."
+  },
+  "final_reason": "The finite census is correct and apparently not directly tabulated in prior work, but the underlying six-isomorphism-type universe is too small and routine to support accepted-finding status without a broader theorem or structural advance."
+}
