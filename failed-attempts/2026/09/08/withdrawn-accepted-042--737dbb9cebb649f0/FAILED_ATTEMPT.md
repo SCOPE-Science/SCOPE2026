@@ -1,0 +1,5 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The two finite censuses in this record are independently reproducible: direct hook-length enumeration confirms exactly 10 simultaneous (4,5,7)-cores and 21 simultaneous (5,6,7)-cores with the stated size distributions, beta-sets, Durfee data, and maximum-size witnesses. The accepted-finding status is nevertheless withdrawn on scientific-value grounds. General theory already covers important aggregate facts for the consecutive (5,6,7) case, while the residual new content is an explicit table of only 10 and 21 objects obtained by routine application of classical core-partition criteria. That finite metadata is useful as an example or regression fixture but does not supply a sufficiently substantive theorem, structural insight, or new regime for this campaign.
+
+A legitimate retry would require a genuine generalization, such as a parameterized enumeration or distribution theorem for a nontrivial family containing the (4,5,7) case, rather than another presentation of these same small tables.
