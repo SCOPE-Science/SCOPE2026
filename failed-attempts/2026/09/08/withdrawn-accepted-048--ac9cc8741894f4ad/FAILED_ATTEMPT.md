@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent audit reproduced the finite support counts and the seven-equilibrium witness, and found the exact `{0,1,2,3}` one-sided census narrowly original to the best of the performed search. The record nevertheless fails the campaign's scientific-value axis: it is a small arbitrary finite marginal census, not the full joint `4^18` game distribution, and its seven-equilibrium extremal headline is already classical for 3x3 nondegenerate bimatrix games. It therefore remains useful only as a regression/benchmark artifact rather than a validated scientific finding.
