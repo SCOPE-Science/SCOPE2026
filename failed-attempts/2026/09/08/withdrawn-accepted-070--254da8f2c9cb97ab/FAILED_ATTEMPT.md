@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. The chosen two-million-wide interval is not an extremal or theoretically distinguished regime, and the computation yields no new theorem, record, asymptotic insight, or algorithmic improvement. The census alone lacks sufficient scientific value. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
