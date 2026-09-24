@@ -6,7 +6,7 @@ Reviewer type: separate AI audit. This document records reproducible scientific 
 
 - Record: `SCOPE-20260908-062`
 - Source path: `2026/09/08/062`
-- Inventory source tree: `cb26de8c446419e4`
+- Inventory source tree: `601a1a1d585fdfa88ea41b820c9470d000197bdf`
 - Audited `RESULT.md` blob: `a64c159dc02cd4d123c85e7033ddcc755bdd6c20`
 - Claim audited: exactly 13 isomorphism classes, under `S_6`, of maximum intersecting 3-subset families on `[6]`, with 1024 labelled maxima.
 
@@ -40,4 +40,4 @@ A repair was considered by narrowing the claim to the explicit representatives, 
 
 ## Final disposition
 
-**FAILED** on originality and scientific value; correctness passes. The record should not remain represented as a validated novel finding. Because the available GitHub contents interface cannot perform a safe atomic multi-file directory move, this audit is published at the source path and the canonical independent-audit status is set to failed; relocation to the assigned failed-attempt path remains a publication-operation follow-up rather than a scientific uncertainty.
+**FAILED** on originality and scientific value; correctness passes. The record should not remain represented as a validated novel finding. Scientific rejection evidence is published at the source record; archival relocation to the assigned failed-attempt path remains pending and does not affect the scientific verdict.
