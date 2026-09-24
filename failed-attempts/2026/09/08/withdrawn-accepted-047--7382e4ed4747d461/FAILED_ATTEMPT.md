@@ -1,0 +1,5 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The displayed rational filters and error bounds are mathematically reproducible, but the independent audit fails the record on originality and scientific value. Varga, Ruttan and Carpenter's 1991/1993 work already determined the best diagonal rational-approximation errors `E_{2n,2n}(|x|;[-1,1])` for every `n=1,...,40` to at least 200 significant digits, directly including types (2,2) and (4,4). Consequently the much coarser low-order error intervals here do not add a new approximation-theoretic invariant. The specific rounded coefficients and exact sign certificates are convenient implementation artifacts, but after the prior minimax results are subtracted they amount to verification of two non-optimal rounded approximants plus classical polynomial/Newman comparisons, not a sufficiently distinct scientific contribution.
+
+A legitimate retry would need a genuinely new certified regime or a structural theorem about low-complexity/quantized rational filters; simply recertifying these two rounded low-order approximants is not sufficient.
