@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. Four finite sizes for seven known Wilf representatives, without a recurrence, generating function, asymptotic result, or new structural theorem, amount to a small computational table rather than a durable scientific contribution. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
