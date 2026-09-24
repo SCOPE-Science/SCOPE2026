@@ -1,0 +1,5 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The finite computations in this record are reproducible and the stated n=9 and n=10 LIS histograms are correct, but the accepted-finding status is withdrawn because the central mathematical enumeration was already known in a strictly stronger all-n form. Deutsch, Hildebrand and Wilf, arXiv:math/0304126 (2003), Section 2 equation (2.1), citing Reifegerste, gives exactly e(n,k)=(1/n) C(n,k) C(n,k-1) for the LIS distribution of 231-avoiding permutations. The two tables here are therefore direct specializations of established prior art. After that coverage is removed, the remaining replay certificate does not constitute a sufficiently original or scientifically substantive finding for this campaign.
+
+Legitimate retry conditions would require a genuinely new residual theorem, algorithmic improvement, or structural invariant beyond the known all-n Narayana enumeration, supported by an independent three-axis audit. Merely reformatting or recomputing the same finite rows is not sufficient.
