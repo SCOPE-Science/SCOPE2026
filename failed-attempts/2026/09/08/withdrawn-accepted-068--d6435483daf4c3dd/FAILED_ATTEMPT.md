@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. The record tests only five selected transitive degree-8 groups and derives no classification of degree-8 groups, no general criterion, and no new structural theorem. The finite table is therefore insufficiently valuable as a standalone finding. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
