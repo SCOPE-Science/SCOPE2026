@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "campaign_id": "scope-full-three-axis-audit-2026-09-22-v1",
+  "source_path": "2026/09/08/039",
+  "audited_commit": "47f38581ee43f67fa9ed5470f5640a60e68ef11a",
+  "source_tree_sha": "2c2b6e88133d0bddf9fde08b818b41ee1019ada3",
+  "result_blob_sha": "39275103e6c3648d83b529bb49c6dca3f7915cb6",
+  "reviewed_at_utc": "2026-09-24T05:23:36.100779Z",
+  "disposition": "failed",
+  "axes": {
+    "correctness": {
+      "status": "passed",
+      "evidence": "Clean-room Catalan-recursive enumeration through n=10 reproduced Catalan totals, verified the stated Dyck map object-by-object, and reproduced exactly the n=9 and n=10 LIS histograms and Narayana formula."
+    },
+    "originality": {
+      "status": "failed",
+      "evidence": "Deutsch, Hildebrand and Wilf, arXiv:math/0304126 (2003), Section 2 equation (2.1), citing Reifegerste, states for arbitrary n that the number of 231-avoiding permutations with LIS exactly k is (1/n) C(n,k) C(n,k-1). The record's n=9 and n=10 tables are direct specializations."
+    },
+    "value": {
+      "status": "failed",
+      "evidence": "After subtracting the known all-n exact enumeration, the surviving contribution is an exhaustive replay/certificate for two parameter values. It supplies useful reproducibility but no new mathematical regime, theorem, or substantive improvement sufficient for this campaign's scientific-value bar."
+    }
+  },
+  "literature": [
+    {
+      "title": "Longest increasing subsequences in pattern-restricted permutations",
+      "authors": "Emeric Deutsch; A. J. Hildebrand; Herbert S. Wilf",
+      "year": 2003,
+      "url": "https://arxiv.org/abs/math/0304126",
+      "location": "Section 2, equation (2.1)",
+      "coverage": "Exact all-n formula e(n,k)=(1/n) binom(n,k) binom(n,k-1) for 231-avoiding permutations."
+    }
+  ],
+  "independent_checks": {
+    "range": "1 <= n <= 10",
+    "n9_total": 4862,
+    "n9_histogram": [
+      1,
+      36,
+      336,
+      1176,
+      1764,
+      1176,
+      336,
+      36,
+      1
+    ],
+    "n10_total": 16796,
+    "n10_histogram": [
+      1,
+      45,
+      540,
+      2520,
+      5292,
+      5292,
+      2520,
+      540,
+      45,
+      1
+    ],
+    "dyck_map_valid_balanced": true,
+    "dyck_images_distinct": true,
+    "lis_equals_peaks": true,
+    "histograms_equal_narayana": true
+  },
+  "repair": {
+    "attempted": true,
+    "result": "unsuccessful",
+    "reason": "Narrowing to a finite replay certificate is accurate but does not create a scientifically valuable mathematical result after the exact all-n formula is acknowledged."
+  },
+  "final_reason": "Correct finite computation, but decisive prior-art coverage defeats originality and leaves no substantive residual scientific value."
+}
