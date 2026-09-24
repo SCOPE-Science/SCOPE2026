@@ -1,0 +1,5 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The identities, explicit odd-denominator construction, and prime-power obstruction in this record are mathematically correct. The accepted-finding status is withdrawn because the headline conclusions are already covered by prior literature: Elsholtz's 2016 odd-denominator counting theorem gives representations of 1 with arbitrarily large odd numbers of distinct odd denominators, which already forces infinitely many odd largest-denominator values, while Martin's treatment of the Erdős–Graham largest-denominator problem explicitly records the older observation that no prime power can be the largest denominator. The record therefore supplies an elementary alternative construction/reproof rather than a new theorem.
+
+A legitimate retry would require a genuinely stronger result beyond this prior coverage, such as a new classification or density theorem for odd attainable largest denominators, or a quantitative improvement not implied by existing counting/exceptional-set results.
