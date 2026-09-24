@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. A brute-force character-table census through the arbitrary cutoff mn≤12 does not provide a theorem, stable formula, complexity improvement, or new structural phenomenon. The finite enumeration is not scientifically substantial enough on its own. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
