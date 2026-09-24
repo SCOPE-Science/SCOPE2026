@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. The record is a hand-picked finite scan rather than a complete classification of curves or primes, and it derives no general criterion or construction for bound attainers. The residual table is too narrow to meet the scientific-value threshold. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
