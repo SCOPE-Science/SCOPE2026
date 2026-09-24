@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. Five hand-picked 3-polytopes with routine exact volume arithmetic do not establish a classification, extremal theorem, new family, or method. The contribution is too narrow and example-driven to constitute a validated scientific finding. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
