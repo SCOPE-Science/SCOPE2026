@@ -1,0 +1,3 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The independent three-axis audit rejected this record. Correctness was independently checked and found consistent with the stated finite computation, but the surviving contribution does not meet the campaign's scientific-value threshold. This is a single q=3, eight-point orbit census with no general theorem, classification beyond that one finite case, or reusable new technique. Its residual mathematical value is too limited for validation as a scientific finding. The exact finite table may be narrowly original, but narrow table novelty is not sufficient for validation.
