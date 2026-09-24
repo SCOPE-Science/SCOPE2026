@@ -8,13 +8,7 @@
       "INDEPENDENT_AUDIT_2026-09-22.json"
     ]
   },
-  "lean_verification": {
-    "status": "unknown",
-    "evidence": null
-  },
-  "expert_attestation": {
-    "status": "unknown",
-    "evidence": null
-  }
+  "lean_verification": {"status": "unknown","evidence": null},
+  "expert_attestation": {"status": "unknown","evidence": null}
 }
 ---
