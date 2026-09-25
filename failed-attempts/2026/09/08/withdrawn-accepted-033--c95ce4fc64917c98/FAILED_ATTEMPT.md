@@ -1,0 +1,7 @@
+FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+This record is withdrawn from the accepted findings because its central originality claim is covered by prior literature. P. R. J. Östergård, “Classification of Binary Constant Weight Codes,” IEEE Transactions on Information Theory 56(8) (2010), 3779–3785, DOI 10.1109/TIT.2010.2050922, states in the abstract that optimal constant-weight codes are classified up to equivalence for d=6 and n<=14, and Section V states that the corresponding tables give exhaustive counts of optimal codes. Thus (14,6,7) is already inside an earlier completed classification, contrary to the record's audit assertion that the 2010 paper contains no (14,6,7) orbit census.
+
+The two committed 42-word witnesses were independently rechecked and do have the stated basic parameters and distinct distance distributions; their stabilizer orders 40 and 720 were also independently recovered. The mathematical witness calculations therefore appear sound, but they do not establish a new partial classification. The package also has a reproducibility defect: RESULT.md, METADATA.json, and verifier scripts refer to output/artifacts while the committed files are actually under artifacts.
+
+A legitimate retry would need a materially new claim beyond the 2010 exhaustive classification, supported by a careful comparison to the prior representatives/data and by corrected replay paths. Merely republishing two already-covered equivalence classes or routine invariants is not sufficient.

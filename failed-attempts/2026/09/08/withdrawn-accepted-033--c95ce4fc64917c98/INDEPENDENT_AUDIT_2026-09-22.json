@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "source_path": "2026/09/08/033",
+  "audited_source_tree": "47fa7519555f889600576c969be5b73fa56560d8",
+  "audited_head": "7b29a9c25636a3c7b1d86c2610b7f24fc991e33f",
+  "review_date_utc": "2026-09-25",
+  "reviewer_type": "independent_ai_audit",
+  "axes": {
+    "correctness": {
+      "status": "pass_with_reproducibility_defect",
+      "evidence": [
+        "Both committed witnesses independently checked: 42 distinct length-14 weight-7 words, minimum distance 6.",
+        "Distance distributions independently recomputed as {6:580,8:80,10:181,12:20} and {6:580,8:80,10:180,12:21}; each totals 861, so inequivalence follows immediately.",
+        "Independent exact coordinate-permutation backtracking gives stabilizer orders 40 and 720.",
+        "Exact-rational rederivation of the stated Johnson-scheme Delsarte LP gives optimum 197.",
+        "Reproducibility defect: committed note/metadata/scripts refer to output/artifacts although files are actually under artifacts, so replay commands fail without path edits."
+      ]
+    },
+    "originality": {
+      "status": "failed",
+      "evidence": [
+        "Östergård 2010, DOI 10.1109/TIT.2010.2050922, abstract p.3779 explicitly states classification up to equivalence of optimal constant-weight codes for d=6, n<=14.",
+        "Section V p.3782 states the tables give exhaustive classification results, tabulating A(n,d,w) and the number of optimal codes; Table II is the d=6 table, and the sole open classification entry is in Table IV, not Table II.",
+        "Therefore (14,6,7) is inside a completed prior exhaustive classification, contradicting the record's claim that the 2010 work contains no (14,6,7) orbit census."
+      ]
+    },
+    "value": {
+      "status": "failed_after_prior_coverage",
+      "evidence": [
+        "After subtracting the prior exhaustive classification, the surviving content is two explicit representatives, routine invariants, and a weak LP bound.",
+        "No new parameter regime, stronger bound, complete census, new proof technique, or reusable structural theorem remains.",
+        "A path/provenance repair would convert the record into a reproduction note rather than a comparably original scientific finding."
+      ]
+    }
+  },
+  "decisive_prior_art": {
+    "title": "Classification of Binary Constant Weight Codes",
+    "author": "Patric R. J. Östergård",
+    "year": 2010,
+    "doi": "10.1109/TIT.2010.2050922",
+    "locator": "Abstract p.3779; Section V p.3782; Table II (minimum distance 6)",
+    "mapping": "The paper's completed classification range d=6, n<=14 includes n=14,w=7; equivalence is the same coordinate-permutation equivalence used by the audited record."
+  },
+  "access_notes": {
+    "ostergard_2010": "ArXiv/preprint and lawful OA searches did not provide the relevant full text; authorized institutional access succeeded and the full paper was inspected."
+  },
+  "repair_assessment": "Fixing artifact paths and recasting the note as a reproduction would correct replayability and provenance but would not restore originality or sufficient standalone scientific value.",
+  "disposition": "failed"
+}
