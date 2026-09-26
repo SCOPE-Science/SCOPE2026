@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/060
+
+The entire original package is preserved in `original/`. Its above-line-mass standing-wave witness is mathematically correct, but the stationary branch and mass crossing are already established by Noja–Pelinovsky. Rescaling and observing infinite time-integrated L6 norm do not create a new research result. The canonical audit gives separate verdicts with the primary-source comparison. The accepted source path was deleted only in the same commit as the archive copy.
