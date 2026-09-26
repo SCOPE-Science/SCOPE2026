@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/067
+
+The full accepted package is preserved under `original/`. Its finite graph-rank computation is reproducible, but it applies to a genus-6 graph. The claimed negative Brill–Noether number uses genus 8 after adding a vertex curve whose metrized-complex rank was never determined. The asserted BN-special hinge result and lifting relevance are therefore unsupported. The canonical audit records the separate verdicts; removal of the accepted path was atomic with preservation.
