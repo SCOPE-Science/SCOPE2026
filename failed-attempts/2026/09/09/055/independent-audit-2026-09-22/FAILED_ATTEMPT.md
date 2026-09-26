@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/055
+
+The full original accepted package is preserved under `original/`. Independent audit found the modular obstruction and denominator lemma correct, but the result is a routine local-solubility check with no research-level originality or remaining value for the proposed Chabauty campaign. The canonical audit and verification in this archive give the three separate verdicts and evidence. Former accepted path removed in the same commit as the complete archive copy.
