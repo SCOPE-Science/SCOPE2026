@@ -1,0 +1,27 @@
+# Independent audit — 2026-09-22 campaign
+
+**Record:** `2026/09/09/011`  
+**Audited source tree:** `191f2148e304035e20f62a0fe1aa0d646a3fb2f1`  
+**Date:** 2026-09-26 UTC  
+**Disposition:** PASSED
+
+## Correctness
+
+PASS. Independently implemented the octal .07 remove-two split recurrence (terminal heaps 0,1) for all n=0..120, including a mex calculation. Every dynamic-programming value equals L(n)=floor(n/2) and S(n)=floor((n+1)/3); the 121 committed CSV rows match. The maximum 60 is unique at n=120; S=40 occurs at 119 and 120, and the stated multiplicities follow from the formulas. A split reduces active pins by two, with at most one terminal pin per component; the two induction inequalities and the displayed (0,n−2)/(1,n−3) witnesses establish the uniform formulas. The computed Grundy prefix is 0,0,1,1,2,0,3,1,1,0,3,3,2,2,4,0,5. OEIS A002187 is Dawson's Chess .137, whose shifted values correspond to Dawson's Kayles .07; the record's wording that a move also removes neighbors is misleading, but its explicit mathematical split rule is .07 and drives the valid conclusion.
+
+## Originality
+
+PASS, narrow. OEIS A002187 tabulates the related Grundy sequence and its .07 offset, not maximum/minimum play durations. Plambeck's math/0501315 concerns misère quotients. The L/S recurrence is an elementary new calculation on the classical game; the search did not establish a comprehensive absence of prior duration formulas. No novelty in Grundy periodicity is credited.
+
+## Scientific value
+
+PASS, limited. The exact all-n duration formulas and finite 0..120 spectrum provide a reproducible timing invariant and witness for a standard impartial game. The result is elementary and the range-specific extremum adds little beyond the uniform formulas; its value rests on that precise reusable invariant.
+
+## Prior work
+
+- https://oeis.org/A002187
+- https://arxiv.org/abs/math/0501315
+
+## Scope
+
+The pass is for the explicit octal .07 recurrence and duration claims. It does not validate the extraneous bowling-neighbor description as a move rule or claim exhaustive literature novelty.
