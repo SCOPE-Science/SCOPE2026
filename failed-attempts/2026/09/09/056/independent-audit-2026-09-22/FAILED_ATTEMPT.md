@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/056
+
+The complete original accepted package is in `original/`. Independent arithmetic confirms the central witness wash-out and slow dimension growth, but the limit conclusion follows from established Villadsen/diagonal AH strict-comparison theory. The proposal's positive-radius lower-bound target fails for this system; the finite-stage census does not supply a new boundary result. The accompanying canonical audit records separate verdicts and limitations. The accepted path was removed atomically with this archive copy.
