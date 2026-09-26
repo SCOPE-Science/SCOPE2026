@@ -2,4 +2,4 @@
 
 Created manually in chat to diagnose GitHub write blocking.
 
-stage: create-file
+stage: create-file + update-file succeeded
