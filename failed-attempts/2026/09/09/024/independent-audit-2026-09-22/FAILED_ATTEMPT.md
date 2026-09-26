@@ -1,0 +1,3 @@
+# Failed attempt: SCOPE-20260909-024
+
+The independent audit dated 2026-09-22 found the exact small census arithmetically sound but rejected its originality and remaining scientific value. Bessenrodt–Bowman, arXiv:2202.03066v3, Proposition 5.4 already decomposes [n−2,2] for all n≥4, contradicting the candidate's premise that [5,2] and [6,2] are uncovered. Their Theorem 5.5 and Section 7 cover the other nontrivial two-row shapes. The maximum-gap witnesses follow from those complete formulas. See the canonical Markdown and JSON audit here for checks and source. The complete former accepted package is preserved byte for byte under `original/`; the accepted path was removed in the same commit.
