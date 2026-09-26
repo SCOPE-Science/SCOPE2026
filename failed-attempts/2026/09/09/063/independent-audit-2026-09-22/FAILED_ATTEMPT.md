@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/063
+
+The complete accepted package is preserved under `original/`. The two Monsky rank computations and Tunnell counts check out, but the record presents the 219 rank/Sha allocation as open despite preexisting rank-2 data and even an elementary explicit non-torsion point. The +2 pair is routine application of Monsky's formula and has no remaining novel Sha result. The canonical audit documents all three verdicts; the old accepted path was removed atomically with the archive.
