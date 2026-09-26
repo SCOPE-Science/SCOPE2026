@@ -1,0 +1,27 @@
+# Independent audit — 2026-09-22 campaign
+
+**Record:** `2026/09/09/017`  
+**Audited source tree:** `d7295e405114cb89fec66fad2dfb7ff4320e806b`  
+**Date:** 2026-09-26 UTC  
+**Disposition:** PASSED for bounded census; minimal witness previously known
+
+## Correctness
+
+PASS. Independently computed symmetric-group characters for partitions of height at most three by the Frobenius alternant coefficient of Δ(x)∏_r p_r(x), then computed Kronecker products with exact integer class sums. Across all 568 ordered triples at n≤6, independently obtained zero/nonzero counts by n (0/1,4/4,16/11,33/31,51/74,184/159). Every one of the 288 stored zero rows has its claimed doubled coefficient, and all n≤4 triple-stretched coefficients match, with no mismatch. The doubled-hole counts by n are 0,1,4,6,0,31, totaling 42. Direct calculations give g((1,1)^3)=0, g((2,2)^3)=1, g((3,3)^3)=0. This checks the bounded census without relying on the candidate's Murnaghan–Nakayama code.
+
+## Originality
+
+PASS for the bounded table only. Pak–Panova's 2020 open paper explicitly uses g((1,1)^3)=0 and g((2,2)^3)=1 to illustrate ordinary Kronecker saturation failure, so the record's lex-least hole and its witness are prior art, not a discovery. Ikenmeyer–Mulmuley–Walter study asymptotic families of holes and complexity, not the 568 ordered height≤3 triples with the 42 doubled holes and k=3 window. I found no matching published full small-window table; this is a narrow computational contribution rather than a new minimal counterexample.
+
+## Scientific value
+
+PASS, limited. The exact small-window labels and 42-hole count form reusable test data for algorithms computing Kronecker positivity. The n≤6 and height≤3 cutoff is modest, and neither the familiar lex witness nor its nonmonotone third stretch alone would justify a new research claim.
+
+## Prior work
+
+- https://arxiv.org/pdf/1507.02955
+- https://arxiv.org/abs/2003.11398
+
+## Scope
+
+The new element credited here is the ordered bounded enumeration and exact labels. The classic (1,1)→(2,2) witness is explicitly prior art.
