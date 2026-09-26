@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/095
+
+The construction assumes a contractible cork C with boundary Σ(2,3,11). This Brieskorn sphere has nonzero integral homology cobordism class: it is the k=2 member of the Yang–Mills independent family [Σ(2,3,6k−1)] cited in Seetharaman–Yue–Zhu, Remark 1.6 (https://arxiv.org/pdf/2110.13405). A contractible 4-manifold would be an integral homology ball and make its boundary zero in that group. Thus the claimed closed C∪(−P) and cork twist are not defined, even if the plumbing matrix and E₈ lattice calculations check algebraically. The sibling canonical audit gives separate correctness, originality, and value verdicts. The complete original package and artifacts are in `original/`; the accepted path is removed in the same commit.
