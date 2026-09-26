@@ -1,0 +1,3 @@
+# Failed attempt: SCOPE-20260909-025
+
+The independent audit dated 2026-09-22 confirms the candidate's exact degree-2-through-12 classification but rejects originality and scientific value. Mukunda (2006) already proves the all-degree Littlewood–Pisot classification; Drungilas (2008) states the N=1 theorem explicitly. Reducible monic ±1 patterns cannot evade it when there is only one root outside and none on the unit circle. The finite census and 13–14 witnesses are cases of the existing theorem. See the canonical audit Markdown and JSON for exact replay evidence and source attribution. The complete former accepted package is preserved byte for byte under `original/`, with its accepted path removed in the same commit.
