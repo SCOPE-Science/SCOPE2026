@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/062
+
+The complete original package is preserved under `original/`. Its central non-Liouvillian conclusion can be independently repaired, but the advertised complete Kovacic elimination certificate applies the wrong finite-primitive candidate formula and reports false case-3 sets. The canonical audit gives the corrected calculation and separate verdicts. The former accepted path was removed in the same atomic archive commit.
