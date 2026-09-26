@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/068
+
+The original package is completely preserved in `original/`. The quotient-power mixing calculation is correct, but it is a routine observation valid for arbitrary extensions with an infinite-order quotient element. It does not address the structured tensor legs relevant to primeness. The canonical audit gives separate verdicts and the source comparison; the accepted path was removed only with the verified archive copy.
