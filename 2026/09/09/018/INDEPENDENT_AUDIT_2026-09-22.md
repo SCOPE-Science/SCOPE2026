@@ -1,0 +1,29 @@
+# Independent audit — 2026-09-22 campaign
+
+**Record:** `2026/09/09/018`  
+**Audited source tree:** `1e6a343c5ff1935901e2173ef3aa3861eacb6528`  
+**Date:** 2026-09-26 UTC  
+**Disposition:** PASSED
+
+## Correctness
+
+PASS. Fetched the exact committed C source (Git blob hashes checked), compiled both independent max-insertion engines, and ran both through n=12 for Av(1324,1342). They independently output identical profile and transfer CSVs, byte-for-byte identical to the committed A tables; total at n=12 is 5,293,446. Engine A's specialized 1324/1342 pattern tests and Engine B2's localized brute-force occurrence test have different logic. Engine A also reproduced both single-pattern length-12 profile and transfer files byte-for-byte, with totals 25,431,452 and 22,214,707. Engine B2 independently matched Av(1342) through n=11 and Av(1324) through n=10. The transfer row/column identities follow directly from counting active insertion edges and are consistent with the generated files. No growth-rate theorem is inferred.
+
+## Originality
+
+PASS for the refined profile. West's Schröder enumeration and OEIS A006318 already give the joint class's marginal 5,293,446; Marinov–Radoičić study active-site trees for single Av(1324), and Bóna gives the Av(1342) marginal. The committed distribution by number of active max-insertion gaps and 277 joint transfer cells are finer than the known row sums; the standard Schröder generating tree's label distribution is not this class's recorded gap distribution (e.g. the joint n=3 row is k=2:1,k=4:5). The two single-pattern profiles have limited novelty and are not used to inflate the joint claim.
+
+## Scientific value
+
+PASS, narrow. The full joint insertion-profile and transfer tables are reproducible finite benchmarks for active-site generating-tree arguments and distinguish this Schröder-counted class from a generic Schröder succession labeling. They are finite data through n=12 and do not settle asymptotic or bijective questions.
+
+## Prior work
+
+- https://oeis.org/A006318
+- https://oeis.org/A295569
+- https://www.combinatorics.org/ojs/index.php/eljc/article/view/v9i2r13
+- https://arxiv.org/abs/math/9702223
+
+## Scope
+
+The length-12 joint tables were reproduced by both algorithms. Single-pattern length-12 rows were reproduced by Engine A, with shorter cross-checks by Engine B2. The marginal sequences themselves were already known.
