@@ -1,0 +1,3 @@
+# Failed attempt — 2026/09/09/094
+
+The target “every C₈-free bipartite graph on 63+63 vertices has at most 189 edges” is false. The original package itself gives K₆₀,₃ ⊔ K₃,₆₀ with 360 edges and no C₈, since each connected component has only three vertices on one bipartition side. This simple observation is correct but does not prove a new sharp extremal bound or meaningful original research claim. The three-axis audit is in the sibling canonical files. The complete original package, including all artifacts and original verification, is preserved under `original/`; the accepted path was removed in the same commit. A possible future project would require a correctly stated girth condition or a new C₈-only extremal question and independent originality assessment.
