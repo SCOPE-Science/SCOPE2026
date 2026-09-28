@@ -25,9 +25,9 @@ Hessian: determinant of the 6x6 matrix (d_a d_b F) over second-order
 differential operators. L = x+2y+3z is the logged linear form; x_L denotes
 multiplication by L. Jordan type is the partition of 40 given by the Jordan
 blocks of x_L. mu_d counts minimal generators of Ann(F) in degree d.
-Buchsbaum–Eisenbud: a codimension-3 Gorenstein ideal with 5 generators is a
-5x5 pfaffian (all generators quartic here); one with 7 generators a 7x7
-pfaffian.
+Buchsbaum–Eisenbud identifies a codimension-3 Gorenstein ideal with an odd
+number of minimal generators as the ideal of submaximal Pfaffians of an
+alternating matrix of the corresponding odd size.
 
 ## Result
 
@@ -45,44 +45,44 @@ For F0 = X^7+Y^7+Z^7+X^3 Y^2 Z^2 over QQ, A0 = S/Ann(F0):
   kernel dimensions of powers 0..9: 0,10,20,26,32,35,38,39,40,40).
 - Minimal generator degrees of Ann(F0): mu_4 = 5, mu_5 = 2, else 0
   (annihilator dimensions 0,0,0,0,5,15,25,35; R1*I_4 has rank 13 inside the
-  15-dimensional I_5; R1*I_5 spans I_6). So 5 quartic + 2 quintic minimal
-  generators: quartic count matches a 5x5 pfaffian count, total count matches
-  a 7x7 pfaffian count, but the degree distribution is mixed (neither pure
-  5x5 nor pure 7x7).
-- Bridge identity: det(x_L:A3->A4) = -hess^3(point)/2796089100573081600,
-  checked at 8 integer points.
+  15-dimensional I_5; R1*I_5 spans I_6). Thus Ann(F0) has seven minimal
+  generators, five quartic and two quintic. By Buchsbaum–Eisenbud the
+  codimension-3 Gorenstein ideal therefore has a 7x7 alternating Pfaffian
+  presentation with mixed generator degrees; the matrix and full minimal
+  free resolution are not exhibited here.
 
 ## Proof / evidence
 
-Exact QQ computer algebra, replayable via `python3 output/artifacts/verify_F0.py`
-(stdlib + sympy, prints VERIFY_OK): catalecticant ranks for the Hilbert
-function; symbolic 6x6 Hessian determinant plus factorization; quotient-basis
-multiplication matrices via catalecticant projection giving exact ranks,
-middle-block determinant, and kernel dimensions yielding the Jordan
-partition; annihilator nullspaces with product-containment check giving mu
-values. Staged scripts step1/step2/step3/step4/step12 log each component;
-step11 logs the bridge identity. Independently re-executed during audit with
-byte-matching numbers.
+Exact QQ computer algebra is replayable via
+`python3 output/artifacts/verify_F0.py` (stdlib + sympy, prints VERIFY_OK).
+The committed verifier recomputes the catalecticant ranks giving the Hilbert
+function; the symbolic 6x6 second-Hessian determinant and factorization;
+quotient-basis multiplication matrices giving exact ranks, the middle-block
+determinant, and kernel dimensions yielding the Jordan partition; and
+annihilator nullspaces together with product-containment ranks yielding the
+minimal-generator degrees. Independent replay during this audit reproduced
+the displayed values.
 
 ## Limitations
 
-Universal WLP over the (1,3,6,10,10,6,3,1) cell is NOT proved; a ~140-septic
-plausibility sweep (all Hessian-nonsingular at probes) is uncertified
-context only. F0 itself HAS WLP, so it is a positive boundary data point,
-not a failure witness. Jordan type is for the logged L (full maximal rank
-profile) rather than a proved generic Jordan type. Buchsbaum–Eisenbud
-comparison is a minimal-generator-degree count/degree comparison, not a full
-printed minimal free resolution with differentials. No Macaulay2/Singular on
-host; replay uses exact sympy linear algebra. Ordinary derivatives introduce
-nonzero factorial scalars versus divided-power conventions; nonvanishing and
-ranks are unaffected over QQ.
+Universal WLP over the (1,3,6,10,10,6,3,1) cell is NOT proved; F0 itself HAS
+WLP, so it is a positive boundary data point, not a failure witness. Jordan
+type is for the logged L (whose full rank profile is maximal), not a separate
+proof of the generic Jordan type. The Buchsbaum–Eisenbud conclusion here is
+only the seven-generator/mixed-degree structural consequence; no alternating
+matrix or full resolution differentials are printed. No higher-Hessian
+bridge identity is included in the validated result: an earlier point-sample
+observation was not proved by the committed verifier and is therefore
+excluded. No Macaulay2/Singular cross-check is available in the record.
+Ordinary derivatives introduce nonzero factorial scalars versus divided-power
+conventions; nonvanishing and ranks are unaffected over QQ.
 
 ## Reproducibility
 
 Run `python3 output/artifacts/verify_F0.py` (requires sympy); expect
-HilbertFunction [1,3,6,10,10,6,3,1], factored Hess2 as above, mid-block det
--36 rank 10, Jordan [8,6,6,4,4,4,2,2,2,2], mu {4:5, 5:2}, and VERIFY_OK.
-Runtime minutes.
+HilbertFunction [1,3,6,10,10,6,3,1], the factored Hess2 above, middle-block
+det -36 and rank 10, Jordan [8,6,6,4,4,4,2,2,2,2], mu {4:5, 5:2}, and
+VERIFY_OK.
 
 ## References
 

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "record_path": "2026/09/10/004",
+  "audited_tree": "6610bc59b47beac8f17755e8590a57b6dd671451",
+  "disposition": "failed",
+  "correctness": {
+    "verdict": "FAIL",
+    "evidence": [
+      "The stored-matrix replay deterministically produces the reported large cross-ratio for the replay script's crossed attracting/repelling flag convention.",
+      "However, the base generators are rounded floating-point matrices and the surface relation is only satisfied numerically (about 1e-12), so the package does not certify an exact genus-2 representation rho_t as the mathematical headline states.",
+      "No interval/Newton argument or exact algebraic construction is supplied to prove existence of an exact nearby representation carrying the certified inequality.",
+      "The advertised rebuild script and replay script compute different cross-ratio conventions: build_matrices.py labels Q0=(A1+,B2+,B1+,A2+) and uses attracting covectors, whereas replay_fallback.py/RESULT.md use Q0=(A1+,A1-,A2+,A2-) with crossed attracting/repelling covectors. The two code paths therefore do not reproduce the same stated observable."
+    ]
+  },
+  "originality": {
+    "verdict": "PASS_NARROW",
+    "evidence": [
+      "The particular floating-point number for this chosen numerical dataset was not located in the qualitative Hitchin entropy/pressure/cross-ratio literature.",
+      "This narrow numerical uniqueness does not rescue correctness or scientific value."
+    ]
+  },
+  "scientific_value": {
+    "verdict": "FAIL",
+    "evidence": [
+      "As packaged, the result is an arbitrary high-margin numerical observable on a near-representation, not a certified invariant of an exact Hitchin representation.",
+      "The threshold 1.02 is already exceeded at the Fuchsian base in the record's own convention, and no entropy-gap or other structural theorem follows from the number."
+    ]
+  },
+  "reproducibility": {
+    "status": "partially_reproduced_but_not_certified",
+    "checks": [
+      "Inspected both build_matrices.py and replay_fallback.py and compared their flag/Q0 conventions.",
+      "Confirmed the construction enforces the genus-2 relation only to floating-point residual rather than symbolically or by interval enclosure.",
+      "The replay path's numeric inequality has a large margin, but this does not certify an exact representation."
+    ],
+    "limitations": [
+      "Binary .npy arrays were inventoried; failure is already decisive from the source-level construction and stated residuals."
+    ]
+  },
+  "citations": [
+    {
+      "title": "Eigenvalues and Entropy of a Hitchin representation",
+      "url": "https://arxiv.org/abs/1411.5405",
+      "finding": "Provides qualitative entropy rigidity for Hitchin representations; does not validate this numerical near-representation."
+    },
+    {
+      "title": "The pressure metric for Anosov representations",
+      "url": "https://arxiv.org/abs/1301.7459",
+      "finding": "Pressure-metric framework; no substitute for certifying the exact representation used by this record."
+    },
+    {
+      "title": "Positivity, cross-ratios and the Collar Lemma",
+      "url": "https://arxiv.org/abs/2409.06294",
+      "finding": "Cross-ratio positivity/collar framework; no published certification of the record's numeric tuple located."
+    }
+  ],
+  "limitations": [
+    "The reported floating-point computation itself is reproducible from the stored arrays; the failure concerns the mathematical claim that these data define/certify the exact representation and observable stated.",
+    "A nearby exact representation might exist and might preserve a huge inequality margin, but establishing that requires a rigorous correction/enclosure argument not present in the package."
+  ]
+}

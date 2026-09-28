@@ -2,48 +2,61 @@
 
 ## Context
 
-The Gog–Magog (alternating-sign-matrix vs totally-symmetric-self-complementary-plane-partition) bijection is an open problem since Mills–Robbins–Rumsey (1986). Biane–Cheballah (arXiv:1401.6516) introduced left Gog and GOGAm trapezoids and conjectured (Conj. 7.2) that they are equinumerous for all shapes, proving explicit bijections only for trapezoids with one or two diagonals. The three-diagonal family is the first open cell. Fischer (arXiv:1804.07054) derived constant-term formulas for Gog trapezoids and Lindström–Gessel–Viennot (LGV) determinants for Magog trapezoids as tools toward the conjectures, not equinumeration proofs.
+The Gog–Magog (alternating-sign-matrix vs totally-symmetric-self-complementary-plane-partition) bijection remains a central open problem. Biane–Cheballah introduced left Gog and GOGAm trapezoids and conjectured equinumeration for all shapes, with explicit bijections for one- and two-diagonal cases. The three-diagonal regime is therefore a natural first width beyond those explicitly solved cases. Fischer's constant-term and Lindström–Gessel–Viennot (LGV) formulas provide an independent enumerative check.
 
 ## Definitions
 
-- A Gog triangle of order n is a Gelfand–Tsetlin triangle with strictly increasing rows and bottom row 1,…,n (Biane–Cheballah Def. 3.1). Gog triangles of order n are in bijection with n×n alternating sign matrices; there are ASM(n) of them (1, 2, 7, 42, 429, 7436 for n = 1…6).
-- A Magog triangle of order n is a Gelfand–Tsetlin triangle with diagonal caps X[j][j] ≤ j (Def. 4.1). Magog triangles encode TSSCPPs.
-- A GOGAm triangle is a Gelfand–Tsetlin triangle whose image under the Schützenberger involution S (Berenstein–Kirillov operators, Sec. 2.3) is a Magog triangle; equivalently it satisfies inequality system (5.1).
-- A left (n,k) Gog (resp. GOGAm) trapezoid is the array formed by the k leftmost NW–SE diagonals (entries with column index j ≤ k) of a Gog (resp. GOGAm) triangle of order n (Defs. 3.3, 5.3). G(6,3) and M(6,3) denote these sets at n = 6, k = 3.
+- A Gog triangle of order `n` is a Gelfand–Tsetlin triangle with strictly increasing rows and bottom row `1,...,n`.
+- A Magog triangle of order `n` is a Gelfand–Tsetlin triangle with diagonal caps `X[j][j] <= j` in the paper's one-indexed convention.
+- A GOGAm triangle is the Schützenberger image of a Magog triangle; equivalently it satisfies the Biane–Cheballah inequality system used by the verifier.
+- A left `(n,k)` Gog or GOGAm trapezoid consists of the `k` leftmost NW–SE diagonals. Write `G(6,3)` and `M(6,3)` for the two finite sets audited here.
 
 ## Result
 
-For left Gog trapezoids G(6,3) and left GOGAm trapezoids M(6,3) of order n = 6 with exactly 3 diagonals:
+For order `n=6` and width `k=3`,
 
-|G(6,3)| = |M(6,3)| = N* = 4862,
+`|G(6,3)| = |M(6,3)| = 4862`.
 
-certified by independent replayable brute-force generators on both sides plus an exactly agreeing LGV determinant evaluation. The general all-n three-diagonal claim is NOT claimed.
+This is a finite computational theorem at one parameter pair. No all-`n` three-diagonal bijection or equinumeration theorem is claimed.
 
 ## Proof / evidence
 
-Leg 1 (Gog side): `gen_gog(6)` backtracks all Gog triangles with bottom row fixed 1..6, strict rows, and GT interlacing X[i+1][j] ≤ X[i][j] ≤ X[i+1][j+1]. It yields 7436 triangles (= ASM(6)); every object passes the `is_gog` validator. Projection onto the 3 leftmost diagonals gives 4862 distinct trapezoids.
+### Leg 1: Gog exhaustion
+`gen_gog(6)` generates exactly `7436` Gog triangles, the known ASM(6) count, and each generated object satisfies the Gog validator. Projection to the three leftmost diagonals gives exactly `4862` distinct trapezoids.
 
-Leg 2 (GOGAm side): `gen_magog(6)` backtracks all Magog triangles (weak rows, diagonal caps), yielding 7436 (= ASM(6)); every object passes `is_magog`. The Schützenberger involution S (BK s_k operators) is verified involutive on the n = 4 Gog and Magog sets; all 7436 S-images of Magog(6) satisfy GOGAm inequality (5.1) via `is_gogam`. Projection onto 3 leftmost diagonals gives 4862 distinct trapezoids.
+### Leg 2: GOGAm exhaustion
+`gen_magog(6)` generates exactly `7436` Magog triangles, each satisfying the Magog validator. Applying the committed Schützenberger implementation gives `7436` images satisfying the implemented GOGAm inequality system. Their three-left-diagonal projection contains exactly `4862` distinct trapezoids. The Schützenberger implementation is also checked to be involutive on the complete order-4 Gog and Magog sets.
 
-Corroborating census (independently replayed): left-projection counts agree on both sides at n = 4 (k = 1,2,3: 14/35/42), n = 5 (42/219/387), n = 6 (132/1594/4862).
+Nearby left-projection counts agree on both sides:
+- `n=4`: `k=1,2,3` gives `14,35,42`;
+- `n=5`: `42,219,387`;
+- `n=6`: `132,1594,4862`.
 
-Leg 3 (LGV determinant): Fischer Sec-4 LGV determinant for (m,n,k)-Magog trapezoids at P = Q = 1, summed over the 56 weakly increasing bottom rows, gives exactly 4862 at (0,6,3). The implementation is validated against brute-force right-trapezoid counts at (0,3,2) = 7, (0,4,2) = 35, (0,4,3) = 42, (0,5,2) = 219, (0,5,3) = 387; brute-force right-Gog(6,3) = 4862 independently.
+### Leg 3: LGV determinant cross-check
+The committed Fischer/LGV routine, summed over weakly increasing bottom rows, gives `4862` at `(m,n,k)=(0,6,3)`. The same routine reproduces the smaller calibration values `(3,2)=7`, `(4,2)=35`, `(4,3)=42`, `(5,2)=219`, and `(5,3)=387`.
 
-The equality is therefore established by exhaustive enumeration (legs 1–2 alone suffice); the LGV value is a numerically agreeing third leg. The integer 4862 numerically equals Catalan C9; no combinatorial identification is claimed.
+The first two legs already establish the finite headline equality by exhaustive enumeration; the LGV computation is an independent integer cross-check.
 
 ## Limitations
 
-- The equality is computational (exhaustion over 7436 + 7436 triangles), not a bijective or analytic proof; the all-n three-diagonal conjecture stays open.
-- GOGAm membership is certified via inequality (5.1), i.e. the paper's own S-image criterion.
-- A supporting n = 7 census (76505 = 76505) mentioned in the draft is not part of this headline and was not independently replayed here.
+- This is an exhaustive finite computation at `(6,3)`, not a bijective or analytic proof for all `n`.
+- GOGAm membership is checked through the paper's inequality characterization as encoded in the committed verifier.
+- The integer `4862` happens to equal Catalan `C_9`; no combinatorial identification is claimed.
+- No claim is made about an unreplayed `n=7` census.
 
 ## Reproducibility
 
-Stdlib-only Python. From `output/`: `python3 artifacts/verify.py` replays generator validation vs ASM numbers, S involution + (5.1), left censuses, Sec-9.2 (n,2) certification, constant-term spot checks, LGV totals including (0,6,3), and recorded obstruction probes. Verification-critical files are copied to `output/artifacts/` (gen.py, gogam.py, lgv_cert.py, lgv2.py, verify.py). Audit independently reran all three headline legs and obtained 4862 = 4862 = 4862.
+From the record's `output/` directory run:
+
+`python3 artifacts/verify.py`
+
+The repaired verifier uses only files actually committed in `output/artifacts/`: `gen.py`, `gogam.py`, `lgv_cert.py`, and `lgv2.py`. It checks the generator counts/validators, the complete `n=4,5,6` left-projection census, a complete `n=4` Schützenberger involution test, GOGAm inequalities, and the LGV calibration including `(0,6,3)=4862`; it prints `VERIFY_OK` on success.
+
+The previous `verify.py` imported `sec92.py` and `relabel.py`, which are not present in the record or repository tree. Those non-headline checks have therefore been removed from the canonical verifier rather than being claimed reproducible.
 
 ## References
 
-- P. Biane, H. Cheballah, Inversions and the Gog-Magog problem, arXiv:1401.6516.
-- I. Fischer, Constant term formulas for refined enumerations of Gog and Magog trapezoids, arXiv:1804.07054.
-- J. Bettinelli, A simple explicit bijection between (n,2) Gog and Magog trapezoids, arXiv:1512.03305.
-- I. Fischer, M. Konvalinka, A bijective proof of the ASM theorem, Part II: ASM enumeration and ASM-DPP relation, arXiv:1912.01354.
+- P. Biane, H. Cheballah, *Inversions and the Gog-Magog problem*, arXiv:1401.6516.
+- I. Fischer, *Constant term formulas for refined enumerations of Gog and Magog trapezoids*, arXiv:1804.07054.
+- J. Bettinelli, *A simple explicit bijection between (n,2) Gog and Magog trapezoids*, arXiv:1512.03305.
+- I. Fischer, M. Konvalinka, *A bijective proof of the ASM theorem, Part II: ASM enumeration and ASM-DPP relation*, arXiv:1912.01354.

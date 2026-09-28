@@ -1,71 +1,65 @@
-# Validated principal-eigenvalue enclosure for the individual MOTS in the equal-mass Brill–Lindquist cell (bare masses 1, 1; separation 2)
+\
+# Reproducible numerical stability diagnostics for an individual Brill–Lindquist minimal-surface candidate (equal bare masses 1,1; separation 2)
 
 ## Context
-Marginally outer trapped surfaces (MOTS) model quasi-local black-hole horizons in
-initial data. Strict stability ($\lambda_1(L_\Sigma)>0$) implies stably-outermost
-status and spherical topology (Andersson–Mars–Simon; Galloway) and anchors the
-Jang-equation blow-up rate $-1/\sqrt{\lambda}\log\tau$ (Yu). No prior work logs a
-principal-eigenvalue enclosure for any Brill–Lindquist two-puncture cell: stability
-theory is qualitative, Kerr eigenvalue work is a different family, and horizon-finder
-papers on Brill–Lindquist data test location only.
+In time-symmetric Brill–Lindquist initial data, marginally outer trapped surfaces are minimal surfaces and the MOTS stability operator is self-adjoint. Prior numerical-relativity work, including Pook-Kolb et al. (2019), already studies the MOTS stability parameter and stability spectrum in binary black-hole initial data, including Brill–Lindquist sequences. The purpose of this record is therefore a reproducible benchmark at one explicitly specified equal-mass parameter point, not a claim of the first stability computation for Brill–Lindquist data.
 
 ## Definitions
-- Time-symmetric vacuum Brill–Lindquist data on $\mathbb{R}^3$ minus two punctures:
-  $\psi = 1 + 1/(2d_1) + 1/(2d_2)$, $g = \psi^4\delta$, punctures at
-  $(\rho,z)=(0,+1),(0,-1)$, bare masses $\alpha_1=\alpha_2=1$, separation $b=2$, $K\equiv 0$.
-- ADM mass $m_{\mathrm{ADM}} = \alpha_1+\alpha_2 = 2$.
-- MOTS candidate $\Sigma$: axisymmetric star-shaped surface about the upper puncture,
-  $X(\lambda)=H(\lambda)\sin\lambda$, $Z(\lambda)=1+H(\lambda)\cos\lambda$,
-  $\lambda\in[0,\pi]$, $H$ tabulated (801 nodes, N=800; 401-node companion).
-  MOTS equation $\theta_+ = H_\delta + 4N_\delta\cdot\nabla\psi/\psi = 0$.
-- Time-symmetric MOTS stability operator ($X=0$): $L_\Sigma = -\Delta_\Sigma + Q$,
-  $Q = -(\mathrm{Ric}_g(n,n)+|A_g|^2)$.
-- Units: eigenvalues computed in code units are rescaled to $m_{\mathrm{ADM}}=1$ units
-  via $\lambda_1(m_{\mathrm{ADM}}{=}1)=\lambda_1(\mathrm{code})\times m_{\mathrm{ADM}}^2
-  = 4\,\lambda_1(\mathrm{code})$.
+- Conformal factor
+  \[
+  \psi = 1 + \frac{1}{2d_1}+\frac{1}{2d_2},
+  \]
+  with punctures at \((\rho,z)=(0,+1),(0,-1)\), bare masses \(1,1\), separation \(2\), and \(g=\psi^4\delta\).
+- ADM mass in these code units is \(m_{\rm ADM}=2\).
+- The archived upper-puncture surface is represented by
+  \(X(\lambda)=H(\lambda)\sin\lambda\),
+  \(Z(\lambda)=1+H(\lambda)\cos\lambda\),
+  sampled at \(N=800\) intervals, with an \(N=400\) companion.
+- In the time-symmetric vacuum case, on an exact smooth MOTS the stability operator reduces to
+  \[
+  L_\Sigma=-\Delta_\Sigma+Q,\qquad
+  Q=-(\operatorname{Ric}_g(n,n)+|A_g|^2).
+  \]
+  For such a fixed smooth surface, the principal eigenvalue obeys
+  \(\min_\Sigma Q\le\lambda_1\le |{\Sigma}|^{-1}\int_\Sigma Q\,dA\).
 
-## Result
-For the fixed data above, the per-end outermost MOTS candidate $\Sigma$ satisfies
-$$\lambda_1(L_\Sigma) \in [0.157883,\,0.159998]\ \text{(code units)}
-= [0.631530,\,0.639991]\ \text{(}m_{\mathrm{ADM}}=1\text{ units)},$$
-hence in particular $\lambda_1 \ge 0.02$ (preset success criterion, passed by ~30x).
-$\lambda_1>0$ certifies strict stability.
+## Numerical result
+The archived finite-difference solve has an interior residual of approximately
+\(3.9\times10^{-11}\) in the solver's discrete MOTS equation. On the sampled
+\(N=800\) geometry, the archived verification reports
+- \(H\in[0.382774,0.414862]\);
+- sampled \(Q_{\min}\approx0.157901\);
+- area-weighted sampled mean \(Q\approx0.159996\);
+- area \(A\approx78.538913\).
 
-## Proof / evidence
-- Newton axisymmetric MOTS solve: replayed interior $\max|\theta_+| = 3.9\times10^{-11} < 10^{-6}$;
-  $H\in[0.382774,0.414862]$, $H>0$, $H'(0)=H'(\pi)=0$: embedded topological 2-sphere.
-- Reduction: time symmetry gives $X=0$ so $L_\Sigma=-\Delta+Q$ is self-adjoint;
-  axisymmetric Fourier modes shift $L$ by $m^2/(\psi^4X^2)\ge 0$, so the ground state is
-  in the $m=0$ sector. Ambient Ricci via the 3D conformal formula; $|A_g|^2_g =
-  \psi^{-4}|\mathring{A}_\delta|^2$.
-- Lower bound: $-\Delta_\Sigma\ge 0$ on a closed surface, so $\lambda_1\ge\min_\Sigma Q$
-  by the positive principal eigenfunction. Grid minimum $q_{\min}=0.157901$ (identical
-  at N=400/800 to 6dp); Lipschitz continuum gap $\le 1.78\times10^{-5}$ plus $10^{-6}$
-  fp margin gives $L=0.157883$ code units.
-- Upper bound: Rayleigh quotient with $u\equiv 1$ gives $\lambda_1\le\fint_\Sigma Q\,dA
-  = 0.159996$; trapezoidal remainder $\le 6.26\times10^{-7}$ plus $10^{-6}$ margin gives
-  $U=0.159998$ code units.
-- Cross-checks: pointwise Gauss identity $Q=K_\Sigma-|A|^2/2$ to $3.7\times10^{-6}$
-  (bulk); $\fint Q = 0.159996$ vs $4\pi/A = 0.160002$ (nearly round);
-  area $A=78.538913 \le 16\pi m_{\mathrm{ADM}}^2 = 201.061930$ (Penrose holds).
-- Replay: `python3 artifacts/verify_certificate.py`.
+An independent implementation of the same formulas at lower resolutions reproduced the same numerical regime:
+- \(N=80\): \(Q_{\min}=0.157901658\), mean \(Q=0.159992234\);
+- \(N=120\): \(Q_{\min}=0.157901641\), mean \(Q=0.159994474\).
 
-## Limitations
-- Full TARGET branch (A) not claimed: Jang blow-up profile inequality and rigorous
-  common-MOTS nonexistence proof were not completed. Outermost status is
-  candidate-level (per-end outermost, standard for separated data; origin spheres
-  $R\ge 2.4$ untrapped; no second/exotic MOTS found).
-- Continuum corrections are explicit analytic bounds on computed grids, not
-  machine-checked interval arithmetic; pole nodes excluded from the FD stencil with
-  extrapolated pole values (cap error $O(10^{-5})$, negligible at the 30x margin).
+Multiplying by \(m_{\rm ADM}^2=4\) gives the corresponding dimensionless scale near
+\(0.632\)–\(0.640\).
+
+These numbers are strong numerical evidence that the individual surface candidate is strictly stable. They are **not** a validated continuum enclosure for the principal eigenvalue of an exact MOTS.
+
+## Why this is not a rigorous eigenvalue certificate
+The archived program solves a finite-difference system and evaluates \(Q\) from sampled numerical derivatives. The small discrete residual does not by itself prove that a nearby exact minimal surface exists with a controlled \(C^2\) error. Likewise, the script's “Lipschitz gap” is estimated from grid derivatives rather than from an a priori continuum derivative bound, and the quadrature remainder is estimated from sampled second derivatives. Pole values are extrapolated rather than enclosed by a regularized interval argument.
+
+Therefore the previously reported interval
+\([0.157883,0.159998]\) (code units), or
+\([0.631530,0.639991]\) after rescaling, should be interpreted only as a reproducible grid-based diagnostic interval, not as a mathematically validated enclosure for the exact continuum operator.
 
 ## Reproducibility
-Artifacts: `prof800.npy` (surface $H$ + $Q$, N=800), `prof400.npy` (N=400 companion),
-`stageF.py` (Newton solver + $Q$ assembly), `verify_certificate.py` (replay:
-residual, enclosure, area, sphericity). Run `python3 artifacts/verify_certificate.py`.
+- `artifacts/stageF.py` regenerates the finite-difference candidate and sampled \(Q\) data.
+- `artifacts/verify_certificate.py` replays the archived residual, sampled minimum/mean, area, and rescaling from `prof800.npy`.
+- `prof400.npy` and `prof800.npy` provide the archived convergence pair.
 
-## References
-- Andersson–Mars–Simon, Stability of MOTS and existence of MOTT, arXiv:0704.2889.
-- Bussey–Cox–Kunduri, Eigenvalues of the MOTS stability operator for slowly rotating Kerr, arXiv:2010.01682.
-- Yu, Blowup rate control for Jang's equation, arXiv:1906.08841.
-- Hui–Lin, Revisiting the apparent horizon finding problem with multigrid methods, arXiv:2404.16511.
+The scripts use NumPy floating-point arithmetic and are suitable for numerical replay, not formal or interval certification.
+
+## Literature context
+- D. Pook-Kolb, O. Birnholtz, B. Krishnan, E. Schnetter, *Existence and stability of marginally trapped surfaces in black-hole spacetimes*, Phys. Rev. D 99, 064005 (2019), arXiv:1811.10405.
+- L. Andersson, M. Mars, W. Simon, *Stability of marginally outer trapped surfaces and existence of marginally outer trapped tubes*, arXiv:0704.2889.
+- X. Yu, *Blowup rate control for Jang's equation*, arXiv:1906.08841.
+- Recent reviews of quasi-local horizons summarize Brill–Lindquist stability-spectrum calculations and their role in MOTS bifurcations.
+
+## Limitations
+This record does not prove global outermost status of the individual surface, does not prove a continuum lower bound for \(\lambda_1\), and does not establish a Jang-equation blow-up estimate for this numerical candidate. A rigorous certification would require, at minimum, an existence/error theorem (or validated numerics) for the exact minimal surface together with certified bounds for the coefficients and eigenvalue estimates.
