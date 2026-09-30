@@ -1,0 +1,51 @@
+{
+  "audited_at": "2026-09-29",
+  "audited_repository_tree": {
+    "branch": "main",
+    "change_check": "No file under this assigned record path changed between source_tree_checked_commit and the checked current repository head; the assigned source-tree SHA is therefore the current tree audited.",
+    "current_repository_head_checked": "eff2c6312cec5b0dee5115e5f42211a853092dfb",
+    "inventory_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+    "repository": "SCOPE-Science/SCOPE2026",
+    "source_tree_checked_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+    "source_tree_sha": "971de7c7b15557e991ad4d48cca6c9fe6638effb"
+  },
+  "axes": {
+    "correctness": {
+      "rationale": "Repeated differentiation gives g=1+θ(1-2^rU)(1-2^sV). Since the two factors range independently over [-(2^r-1),1] and [-(2^s-1),1], their product has exact range [-max(2^r-1,2^s-1),(2^r-1)(2^s-1)], giving the stated necessary-and-sufficient interval. The explicit r=2,s=1,θ=1 test gives -99/125 exactly. For entropy, A_r=1-2^r∏X_i is a martingale; strict conditional Jensen for (1+θab)log(1+θab) shows KL divergence strictly increases whenever a block is enlarged in the interior of the valid parameter range. I independently recomputed H''(0)=-[((4/3)^r)-1][((4/3)^s)-1], including -1/9 at (1,1) and -7/27 at (2,1).",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Lu's current arXiv version still states unrestricted copula substitution closure, a simple density-product formula, and entropy additivity. The proof treats a multivariate copula value as though it were uniform, which fails already for a product copula. General nesting restrictions and Kendall-distribution phenomena are established prior art; they are not the novelty claimed here. Searches did not locate this exact FGM/product-block two-sided threshold together with the global strict entropy monotonicity. Broad multivariate-FGM literature remains a residual risk for the threshold in another parametrization.",
+      "verdict": "pass"
+    },
+    "value": {
+      "rationale": "This is a sharp correction to central claims of a current preprint: it supplies not just a counterexample, but the exact surviving parameter window and a second independent failure of entropy additivity even inside that valid window. The global entropy strictness is stronger than a local Taylor counterexample.",
+      "verdict": "pass"
+    }
+  },
+  "citations": [
+    {
+      "accessed": "2026-09-29",
+      "label": "X. Lu, Copula Operad and Copula Entropy",
+      "note": "Current v1 source; its unrestricted closure, proposed density formula, and entropy-additivity theorem are the claims directly tested.",
+      "url": "https://arxiv.org/abs/2609.20512"
+    },
+    {
+      "accessed": "2026-09-29",
+      "label": "A. J. McNeil, Sampling nested Archimedean copulas",
+      "note": "Prior art that nested copulas require compatibility conditions; not claimed as new here.",
+      "url": "https://doi.org/10.1080/00949650701255834"
+    }
+  ],
+  "disposition": "passed",
+  "github_writes_performed": false,
+  "independent": true,
+  "limitations": [
+    "The exact interval is for a bivariate FGM outer copula with product independence inner blocks, not arbitrary substitutions.",
+    "General nesting restrictions and non-uniform Kendall transforms are prior art.",
+    "Broad multivariate-FGM literature may contain the interval in an equivalent parametrization; current searches did not establish otherwise definitively."
+  ],
+  "record_path": "2026/09/19/fgm-block-substitution-validity-and-entropy-failure--f5661be14848",
+  "review_status": "complete",
+  "schema_version": 1
+}
