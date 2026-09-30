@@ -1,0 +1,38 @@
+# Independent Audit — 2026-09-29
+
+**Record:** `2026/09/20/half-plane-mocanu-briot-bouquet-contraction--23593eadb881`  
+**Title:** A half-plane Briot–Bouquet contraction for bounded Mocanu variation  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Audited tree:** `1b734f8b31851fc2fb096eed60872c731e028750`  
+**Disposition:** **PASSED**
+
+## Three-axis assessment
+
+- **Correctness — PASS:** The half-plane reduction and boundary-winding contraction are correct. After an affine normalization h(D) to the right half-plane, the hypothesis Re(beta h+gamma)>=0 forces c=beta A to be a positive real scalar and a=(beta B+gamma)/c to satisfy Re(a)>=0. Analyticity of P excludes zeros of Q+a. For W=Q+a, the periodic argument has theta'=Re(zW'/W). Pairing Re(R) with sign(Re Q) reduces the L1 estimate to J=integral sign(X-alpha) d theta. For alpha=0 the sign(cos theta) term has a periodic primitive; for alpha>0 a smooth sign approximation and Stokes give a nonnegative area integral because its support lies in X>0. The Paatero–Pinchuk L1 characterization then transfers membership from P to q. I checked the zero-free, sign, affine-parameter, and boundary-limit steps; no logical gap was found.
+- **Originality — PASS:** The motivating 2013 Dziok paper explicitly labels the nonlinear beta!=0 implication an open problem, and the 2017 Dziok–Noor paper restates the broader two-target problem, saying the beta!=0 case remains open and even 'seems to be false'. Focused searches through later bounded-Mocanu/Briot–Bouquet literature did not locate the half-plane L1 contraction or an equivalent resolution. The claim is therefore original to the best of the accessible evidence, with the novelty boundary restricted to the half-plane branch rather than the general convex-target problem.
+- **Scientific value — PASS:** The result resolves a published nonlinear differential-subordination problem on a natural and important target geometry, and the boundary-winding L1 contraction is a reusable analytic mechanism rather than a numerical observation. It is a meaningful partial resolution even though it does not settle arbitrary convex targets.
+
+## Independent findings
+- The condition Re(beta(B+A zeta)+gamma)>=0 on every right-half-plane zeta forces beta A to be real and strictly positive; varying Im(zeta) removes any imaginary part and Re(zeta)->infinity excludes a negative coefficient.
+- A zero of Q+a away from 0 would give a nonremovable simple pole in zQ'/(Q+a); at 0, Q(0)+a=1+a cannot vanish when Re(a)>=0.
+- The Stokes integrand for the smoothed sign is s'_eps(X-alpha) X |W'|^2/|W|^2 and is nonnegative for eps<alpha.
+- Dziok 2013 and Dziok–Noor 2017 independently establish that the nonlinear beta!=0 problem was genuinely open in the cited line of work.
+
+## Independent checks
+- Reconstructed the affine normalization and the forcing of c>0 from the half-plane hypothesis.
+- Re-derived the boundary-winding identity and both alpha=0 and alpha>0 sign-integral cases.
+- Checked the Paatero–Pinchuk L1 threshold k=4mu-2 against the source formulation used by Dziok.
+- Compared the claimed novelty directly with the open-problem statements in the 2013 open-access article and the 2017 open PDF.
+
+## Literature evidence
+- https://doi.org/10.1186/1029-242X-2013-349 — Dziok (2013), open full text; Problem 1 states the nonlinear beta!=0 case is open and gives the bounded-variation L1 framework.
+- https://doi.org/10.1186/1029-242X-2014-197 — 2014 erratum; does not withdraw or resolve Problem 1.
+- https://doi.org/10.7153/jmi-11-35 — Dziok–Noor (2017), open PDF; restates the two-target nonlinear problem and says beta!=0 remains open and seems false.
+- https://doi.org/10.15672/hujms.466909 — Later bounded-Mocanu generalization; no equivalent half-plane contraction was located.
+
+## Limitations
+- The theorem resolves only half-plane targets, not arbitrary convex targets or the two-distinct-target problem.
+- No equality classification for the L1 contraction is supplied.
+- Originality remains qualified to the best of the searched literature; differently named Hardy-space or boundary-rotation formulations could still contain related estimates.
+
+The assigned source tree remained unchanged from the inventory/source-tree-check interval through current main commit `eff2c6312cec5b0dee5115e5f42211a853092dfb`; the exact tree audited is `1b734f8b31851fc2fb096eed60872c731e028750` and matches the assignment guard. GitHub was used only as read-only evidence; no repository writes were made. Audit timestamps and this audit-file date use UTC under the task-specific audit contract.
