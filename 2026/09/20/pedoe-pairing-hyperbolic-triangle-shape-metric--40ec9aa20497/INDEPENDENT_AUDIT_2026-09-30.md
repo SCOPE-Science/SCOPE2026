@@ -1,0 +1,49 @@
+# Independent Audit — The Neuberg–Pedoe pairing is the hyperbolic metric on triangle shape space
+
+**Audit date:** 2026-09-30 (UTC) (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `0789146cdbe55d32440001b576e2ca68f9fd42da`  
+**Audited current source tree:** `0789146cdbe55d32440001b576e2ca68f9fd42da`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record path has no changes from the assigned inventory snapshot, so the audited tree equals the assigned source tree. GitHub was used only as read-only evidence. The UTC-dated independent-audit files were absent when this guarded change set was prepared.
+
+## Correctness — PASSED
+
+PASS. With x=(a^2,b^2,c^2), the bilinear form B(x,y)=(Σx)(Σy)-2x·y satisfies B(x,x)=16Δ^2 by Heron's identity and B(x,y)=P(T,T') by direct expansion, so area-normalized squared-side triples lie on the positive unit Lorentz hyperboloid. In Bookstein coordinates z=x+iy,w=u+iv, direct substitution gives P=2((x-u)^2+y^2+v^2) and hence P/(16ΔΔ')=1+|z-w|^2/(2yv)=cosh d_H. The defect identity follows from cosh d-1=2sinh^2(d/2). Minimizing over relabelings is equivalent to maximizing the squared-side dot product, so rearrangement gives the unlabeled formula. The equilateral, isosceles and right-angle formulas follow from standard half-plane geodesic distance formulas. Independent numerical tests on random upper-half-plane points matched the main identity to machine precision.
+
+## Originality — PASSED
+
+PASS, narrowly and with an archival residual. The Neuberg–Pedoe inequality and its algebraic Heron-form proof are classical; Perdomo–Plaza explicitly use Bookstein upper-half-plane coordinates with the Poincaré metric for Euclidean triangle shape space; neither ingredient is new. A 2024 paper connecting Pedoe-type inequalities to hyperbolic-cosine expressions works in a Lorentzian-plane triangle setting rather than Euclidean similarity-shape space. Targeted searches did not locate the submitted exact identification of the classical Euclidean Pedoe pairing with Bookstein hyperbolic distance, nor its unlabeled/radial/geodesic consequences. The comprehensive Mitrinović–Pečarić 1988 review is a residual risk: open full text was unavailable and authorized institutional retrieval failed, so it is not represented as read.
+
+## Scientific value — PASSED
+
+PASS. The identity converts a classical inequality into an exact intrinsic distance formula and yields closed expressions for unlabeled shape distance, Weitzenböck defect, symmetry-axis distance and right-angle distance. This is a useful synthesis between classical triangle inequalities and modern shape geometry even though the algebra is short once the two descriptions are juxtaposed.
+
+## Independent checks
+
+- Re-derived the Lorentz bilinear form and Heron normalization.
+- Substituted Bookstein coordinates directly and recovered the Poincaré cosh formula.
+- Random numerical tests of the main identity agreed to about 10^-15.
+- Checked the rearrangement argument for the unlabeled quotient and the equilateral specialization.
+- Compared with Perdomo–Plaza's explicit Poincaré triangle-shape metric and with classical Neuberg–Pedoe references.
+- Open retrieval of Mitrinović–Pečarić (1988) failed; authorized Oxford retrieval was attempted repeatedly and ended in a browser-operation failure. No inaccessible content was treated as read.
+- GitHub compare found no changes under the assigned path; both UTC-dated audit files are absent and VERIFICATION.md retains the verified blob SHA.
+
+## Limitations
+
+- The 1988 comprehensive Neuberg–Pedoe review remained inaccessible; this is a disclosed residual originality risk, not material claimed as inspected.
+- The metric is the Bookstein/Poincaré similarity-shape metric, not Kendall's Procrustes shape metric.
+- The result applies to nondegenerate Euclidean triangles; degenerate triangles lie on the ideal boundary.
+
+## Evidence and references
+
+- https://doi.org/10.2307/3606570
+- https://doi.org/10.1016/0022-247X(88)90242-9
+- https://doi.org/10.1016/j.amc.2013.06.075
+- https://doi.org/10.3390/axioms12100913
+- https://doi.org/10.21136/MB.2024.0111-23
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/20/pedoe-pairing-hyperbolic-triangle-shape-metric--40ec9aa20497
+
+This guarded change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
