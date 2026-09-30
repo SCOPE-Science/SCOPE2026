@@ -1,0 +1,31 @@
+# Independent Audit — 2026/09/13/043
+
+- Audit date: 2026-09-28 (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Audited commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `cd22c269354c346506ef2647bf8aaa8d0fad50d4`
+- Disposition: **FAILED**
+
+## Correctness
+
+**PASS** — The counterexample is mathematically sound. The anticanonical polygon used for F_1 has area 4 and barycenter (1/12,1/12), so the toric Futaki character is nonzero. Reversing the corresponding one-parameter subgroup gives a product test configuration with negative Donaldson-Futaki invariant. Taking its product with an elliptic curve preserves the sign (the elliptic intersection factor is positive), while X=F_1×E plainly has nef anticanonical bundle, Albanese map X→E with rationally connected fibre, and the requested finite-etale product splitting. A negative Futaki/DF direction makes the ordinary Mabuchi functional unbounded below, hence it cannot be coercive even after taking the usual automorphism-reduced J-functional. The Mabuchi conclusion suffices; any separate Ding terminology outside the Fano setting is not needed for the refutation.
+
+## Originality
+
+**FAIL** — The mechanism is entirely classical. F_1 is the standard non-cscK Hirzebruch surface, and toric Fano K-polystability is characterized by vanishing of the canonical-polytope barycenter/Futaki character. Forming the product with an elliptic curve is immediate and does not create a new instability mechanism. The record therefore packages well-known facts into a counterexample to an overbroad target rather than establishing an original geometric result.
+
+## Scientific value
+
+**FAIL** — The example usefully diagnoses a missing stability hypothesis in the target equivalence, but the diagnosis is elementary: the splitting condition places no cscK/K-stability requirement on the rationally connected factor. Once F_1 is chosen, the contradiction is immediate. That is too small a research contribution for a validated independent finding.
+
+## Sources
+
+- K-polystability of Q-Fano varieties admitting Kähler-Einstein metrics (Robert J. Berman): https://doi.org/10.1007/s00222-015-0607-7 — Includes the toric criterion: K-polystability is equivalent to the canonical polytope having barycenter 0.
+- Indefinite Kähler metrics of constant scalar curvature on Hirzebruch surfaces (Hiroyuki Kamada): https://doi.org/10.1112/blms/bdp086 — Recalls the classical positive-definite result that a Hirzebruch surface admits a cscK metric iff its degree is 0.
+
+## Limitations
+
+- The audit checks the Mabuchi counterexample; it does not rely on, or validate, an asserted equivalence with a Ding functional for an arbitrary non-Fano polarization.
+- No optimized Donaldson-Futaki normalization is needed because only the sign matters.
+
+GitHub was read only as evidence. Open-access/preprint sources were checked first; no Oxford Download was needed in this run.
