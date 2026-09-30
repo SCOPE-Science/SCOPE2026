@@ -1,0 +1,31 @@
+# Independent audit — 2026-09-29
+
+Record: `2026/09/16/saturation-of-fans-with-sufficiently-many-pendant-edges--e3675053b36e`  
+Audited source tree: `ce4f0c72c51da654a9c1a747b53b193b318691c9`  
+Disposition: **passed**
+
+## Correctness
+
+The universal-vertex lower-bound argument is sound. With C=3t-4 and D=q+2t-1, the edge budget forces a leaf; leaf-pair saturation and the degree bound show that all leaves share a neighbor v, and adding an edge from a leaf to any vertex outside N[v] would require that low-degree vertex to be the hub, a contradiction. Thus v is universal. Removing v leaves a tK2-saturated graph R with at most 3t-3 edges and an isolated vertex. The supplied Tutte–Berge argument then forces R to be a disjoint union of odd cliques and gives e(R)>=3(t-1), with equality only for (t-1) triangles plus isolates. This proves both sat(n,H_{t,q})=n+3t-4 and uniqueness. As an independent construction check, the boundary instance t=3,q=12,n=19 is H-free and all 147 missing edges create H.
+
+## Originality
+
+Hua–Peng arXiv:2606.22011v2 explicitly treats isolated-vertex joins and determines the cases K2 union qK1 and 2K2 union qK1, while framing the broader isolated-base problem as open; the audited theorem advances this to t>=3 when q>=4t and gives uniqueness. A potentially relevant 2025 paper by Hu–Ji–Zhang (DOI 10.1016/j.dam.2025.04.038) remained unavailable after arXiv/open-access searches; an authorized Oxford retrieval was attempted but stopped at publisher human verification, so this audit does not claim to have read it. The later Hua–Peng formulation is strong corroborating evidence that the present parameter range was not already covered, but the priority assessment remains qualified.
+
+## Scientific value
+
+The theorem gives an exact saturation number and unique extremal graph on an infinite, explicit large-pendant range of a problem posed for t>=3, and the proof isolates a clean degree-budget mechanism that restores a universal vertex despite pendant edges invalidating the usual diameter-two argument.
+
+## Limitations
+
+- The theorem covers q>=4t; it neither treats 1<=q<4t nor claims that 4t is optimal.
+- The potentially relevant Hu–Ji–Zhang 2025 full text was not accessible: Oxford institutional retrieval reached a human-verification gate, so no statement from that inaccessible paper is attributed here.
+- The novelty conclusion is therefore qualified, though the later 2026 Hua–Peng paper explicitly identifies isolated-base cases beyond t=2 as the remaining direction.
+- The proof uses the standard Tutte–Berge formula and known matching-saturation ideas; those ingredients are not claimed as new.
+
+## Sources checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/16/saturation-of-fans-with-sufficiently-many-pendant-edges--e3675053b36e
+- https://arxiv.org/abs/2606.22011v2
+- https://arxiv.org/abs/2004.05410
+- https://doi.org/10.1016/j.dam.2025.04.038
