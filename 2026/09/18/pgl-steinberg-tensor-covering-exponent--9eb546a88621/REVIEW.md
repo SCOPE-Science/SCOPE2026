@@ -1,33 +1,23 @@
-# Same-model review
+# Review status after independent-audit repair
 
-**Same-model review: passed. Independent audit: not yet performed.**
+The original same-model review passed the mathematics but accepted an originality framing that is not sustainable after repository-level comparison. The independent audit of 2026-09-29 found an earlier SCOPE record, `2026/09/17/steinberg-covering-number-for-pgln--e3667d632f22`, published at 2026-09-17T23:23:16Z, that already proves the same universal Steinberg-cube theorem and exact 2/3 covering exponent for PGL_n(q).
 
 ## Correctness
 
-PASS.
+**PASS.** The proof in this record is mathematically sound. Monteiro--Stasinski provide every nonlinear center-trivial irreducible in the Steinberg square. Self-duality puts the trivial character in the square. For every nontrivial center-trivial linear character lambda, the twist lambda St is an irreducible distinct from St, so lambda is absent; hence the square defect is exactly the nontrivial linears. If chi were absent from the cube, then chi St would be supported only on those d-1 linears. Each such linear constituent has multiplicity at most one, so chi(1)St(1)<=d-1, contradicting St(1)>=q>d-1. The PGL_2(2)=S_3 exception is direct. The twisted GL_n(q) central-character-fiber corollary follows by tensoring with a linear character.
 
-The proof separates the only two inputs needed from arXiv:2609.17319v1: every nonlinear center-trivial irreducible of GL_n(q) occurs in the Steinberg square, and (outside GL_2(2)) the center-trivial linear characters form a cyclic group of order d=gcd(n,q-1). The trivial character occurs in the square by self-duality. A nontrivial center-trivial determinant character lambda cannot occur because lambda St is an irreducible distinct from St; a semisimple diagonal element on which lambda is nontrivial has nonzero Steinberg value and witnesses the distinction.
+## Originality correction
 
-For the cube, if chi were absent then chi St would have to be supported entirely on the d-1 missing linear characters. Each such linear constituent has multiplicity at most one because its Steinberg twist is irreducible. This would force chi(1)St(1)<=d-1, contradicting St(1)=q^{n(n-1)/2}>=q>d-1. The exceptional group PGL_2(2)=S_3 is checked directly. The induction from the full cube to all higher powers is immediate from tensor reciprocity and positivity of multiplicities.
+**REPAIRED.** The 2026/09/17 SCOPE record has repository precedence for the universal cube and exact 2/3 exponent. The present record must therefore not describe those conclusions as a separate discovery. What remains distinct and useful is the explicit statement that every nontrivial linear is missing from the square, the short degree-obstruction proof of cube universality, and the twisted central-character-fiber corollary. The corrected RESULT.md, METADATA.json, SLOGAN.txt, and AUDIT.json make that status explicit.
 
-The twisted-GL corollary is an exact character twist of the full center-trivial support of St^r for r>=3.
+The main external input remains Monteiro--Stasinski, arXiv:2609.17319. The 2013 Steinberg-square theorem for simple groups is prior background. No claim is made that the short exact-defect argument or the twist corollary has broad priority over all older literature.
 
-## Originality
+## Scientific value
 
-PASS, to the best of our knowledge.
+**PASS after reframing.** As a corroborating/refining record, the alternate proof is valuable: it gives an especially short quantitative obstruction for the cube and isolates the complete square defect. The GL_n(q) twisting statement packages the higher powers by central-character fiber. The value is expository and confirmatory relative to the earlier SCOPE theorem, not first-discovery priority for the 2/3 exponent.
 
-The full text of Monteiro--Stasinski, arXiv:2609.17319v1, was inspected. It proves that St^2 contains every nonlinear center-trivial irreducible and explicitly notes that linear characters can be missing; its main construction replaces St by another irreducible sigma whose square has full center-trivial support. It does not state a Steinberg-cube theorem or an exact fixed-Steinberg covering exponent.
+## Limitations
 
-Heide--Saxl--Tiep--Zalesski (2013) prove full Steinberg-square support for finite simple groups of Lie type outside their unitary exceptions. This covers the simple d=1 side but not the nonsimple PGL_n(q) cases with d>1. Arad--Chillag--Herzog's character-covering number is a different group-wide invariant requiring a condition for every nontrivial irreducible; Arvind--Panja study the analogous group-wide problem for PSL_2(q). Targeted searches for "PGL_n(q) Steinberg tensor cube", "Steinberg third tensor power", "Steinberg tensor powers PGL", and equivalent covering terminology did not locate the theorem proved here.
-
-Residual risk: the cube argument is short once the new square-support theorem is known, and an older result may encode the same conclusion under different terminology. The source preprint is also very recent, so a concurrent or subsequent author observation may supersede the novelty claim. No inaccessible source gave concrete evidence of prior coverage.
-
-## Value
-
-PASS.
-
-The result turns the new qualitative square-support theorem into an exact tensor-power classification for the full adjoint family PGL_n(q). It identifies precisely why the Steinberg square fails in the nonsimple cases, proves that one additional factor always suffices, and gives the sharp dichotomy c_St=2 or 3. The twisted-Steinberg corollary simultaneously fills every compatible central-character fiber in GL_n(q) from the third power onward.
-
-## Verification status
-
-No independent validation, formal verification, or peer review is asserted.
+- The exact 2/3 covering exponent and universal cube duplicate the earlier SCOPE result.
+- The square-support refinement depends on the very recent Monteiro--Stasinski nonlinear-coverage theorem.
+- No new tensor-product multiplicities are computed.
