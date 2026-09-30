@@ -1,39 +1,82 @@
-# Exact mosaic mobility edge at Liouville frequency: a proved Gordon window
+# Arithmetic no-point-spectrum window for the kappa=2 mosaic almost-Mathieu operator
 
-## Context
+## Setup
 
-The kappa=2 quasiperiodic mosaic Schroedinger operator on l^2(Z),
+Consider the kappa=2 mosaic operator
+\[
+(H_{\lambda,\alpha,\theta}u)_n=u_{n+1}+u_{n-1}+V_nu_n,
+\qquad
+V_{2m}=2\lambda\cos 2\pi(\theta+2m\alpha),\quad V_{2m+1}=0,
+\]
+with irrational \(\alpha\) and \(\lambda\ne0\).  Write
+\[
+\beta(\omega)=\limsup_{q\to\infty}-\frac{\log\|q\omega\|_{\mathbb R/\mathbb Z}}q.
+\]
+Assume \(0<\beta(\alpha)<\infty\).
 
-(H_theta u)_n = u_{n+1} + u_{n-1} + V(n) u_n, V(n) = 2 lambda cos(2 pi (theta + n alpha)) if n even, 0 otherwise,
+## Exact two-step reduction
 
-with fixed lambda != 0 and irrational frequency alpha, admits exact mobility edges Ec = +-1/lambda when alpha is Diophantine (Wang-Xia-You-Zheng-Zhou; Wang et al. PRL 2020): purely absolutely continuous (a.c.) spectrum for every theta at |E| < 1/|lambda| and Anderson localization for a.e. theta at |E| > 1/|lambda|. The target question asks whether this verbatim dichotomy persists for fixed Liouvillean alpha with 0 < beta(alpha) < infinity, or whether an intermediate singular-continuous window opens around Ec, with sharp arithmetic threshold delta(alpha) set by beta(alpha) or beta(2 alpha).
+For \(E\ne0\), group the transfer matrices in pairs.  If
+\[
+A(\varphi)=\begin{pmatrix}E-2\lambda\cos(2\pi\varphi)&-1\\1&0\end{pmatrix},
+\qquad
+B=\begin{pmatrix}E&-1\\1&0\end{pmatrix},
+\]
+then with
+\[
+P=\begin{pmatrix}1&0\\-1&E\end{pmatrix}
+\]
+one has the exact identity
+\[
+PBA(\varphi)P^{-1}
+=
+\begin{pmatrix}
+E^2-2-2\lambda E\cos(2\pi\varphi)&-1\\
+1&0
+\end{pmatrix}.
+\]
+Thus the even-sublattice equation is an almost-Mathieu equation with frequency \(2\alpha\), effective coupling \(\lambda_{\rm eff}=\lambda E\), and effective spectral parameter \(E'=E^2-2\).
 
-## Definitions
+On spectral energies this also gives the familiar mosaic Lyapunov exponent
+\[
+L_{\rm mosaic}(E)=\frac12\max\{0,\log|\lambda E|\}.
+\]
 
-beta(omega) = limsup_q (-log ||q omega|| / q) measures exponential Liouvillean quality (beta = 0 iff Diophantine in the exponential sense; 0 < beta < infinity is the Liouvillean regime). W := {E : 1 < |lambda E| < e^{beta(2 alpha)}} is the candidate window above Ec. E=0 is excluded from the reduction; the transition lines |lambda E| = 1 and |lambda E| = e^{beta(2 alpha)} are excluded from all spectral-type conclusions.
+## Arithmetic exponent under frequency doubling
 
-## Result (proved headline)
+The elementary inequalities
+\[
+\beta(\alpha)\le \beta(2\alpha)\le2\beta(\alpha)
+\]
+hold.  For the upper bound use \(\|2q\alpha\|=\|q(2\alpha)\|\) and compare the limsup along the subsequence \(2q\).  For the lower bound, along a sequence realizing \(\beta(\alpha)\), use \(q/2\) when q is even and \(\|2q\alpha\|\le2\|q\alpha\|\) when q is odd.
 
-Let lambda != 0, alpha with 0 < beta(alpha) < infinity, E != 0, excluding |lambda E| = 1 and |lambda E| = e^{beta(2 alpha)}. Then:
+## Corrected theorem
 
-1. Arithmetic lemma: beta(alpha) <= beta(2 alpha) <= 2 beta(alpha); hence delta(alpha) := beta(2 alpha) satisfies 0 < delta < infinity and W is a nonempty open union of two intervals around +-1/lambda.
-2. Exact reduction: for E != 0 the even sublattice v_m = u_{2m} satisfies exactly v_{m+1} + v_{m-1} + 2 (lambda E) cos(2 pi (theta + 2 m alpha)) v_m = (E^2 - 2) v_m, i.e. an effective almost Mathieu equation with coupling lambda_eff = lambda E, frequency 2 alpha, energy E' = E^2 - 2, via exact constant conjugacy P D_E P^{-1} = S^eff with P = [[1,0],[-1,E]].
-3. On-spectrum Lyapunov formula: for E in the spectrum, L(E) = (1/2) max{0, log|lambda E|}, by Avila global theory on the conjugate AMO cocycle.
-4. Unconditional Gordon window: for every theta, H_theta has no eigenvalue anywhere in W. Hence verbatim Anderson localization immediately above Ec is false.
-5. Conditional character: since L(E) > 0 on W intersected with spectrum, Kotani theory gives no a.c. component there; so sigma(H_theta) cap W, whenever nonempty, is purely singular continuous. Nonemptiness of W cap sigma in infinite volume is not proved here.
+Define the open arithmetic window
+\[
+W=\{E\ne0:1<|\lambda E|<e^{\beta(2\alpha)}\}.
+\]
+Then for **every phase \(\theta\)**, the mosaic operator has no \(\ell^2\) eigenvalue in \(W\).
 
-## Proof / evidence
+Indeed, an eigenfunction at \(E\in W\) would induce an \(\ell^2\) solution of the effective almost-Mathieu equation with frequency \(2\alpha\) and coupling satisfying
+\[
+1<|\lambda_{\rm eff}|<e^{\beta(2\alpha)}.
+\]
+The sharp frequency-arithmetic transition theorem for the almost-Mathieu operator places this regime on the singular-continuous side and in particular excludes point spectrum.
 
-Lemma: beta(2 alpha) = limsup_m (-log ||2 m alpha|| / m) <= 2 beta(alpha) since evens form a subset of integers; conversely ||2x|| <= 2||x|| along alpha-resonances gives beta(2 alpha) >= beta(alpha). Conjugacy verified by direct multiplication (P D_E P^{-1} = [[E a - 2, -1],[1, 0]] = S^eff, det 1) and numerically to <= 8.9e-16. Schur reduction: odd-site equation E u_{2m+1} = v_m + v_{m+1} (E != 0) gives u_{2m+1} = (v_m + v_{m+1})/E; an l^2 mosaic eigenfunction induces a nonzero l^2 effective eigenfunction (restriction v in l^2; if v = 0 then odd sites vanish). Fixed-E Gordon transfer: at E in W, 0 < log|lambda E| < beta(2 alpha); 2 alpha convergents satisfy ||q_n 2 alpha|| < e^{-(beta(2 alpha)-o(1)) q_n}, potential mismatch <= e^{-(beta(2 alpha)-o(1)) q_n} beats Lyapunov growth e^{(log|lambda E|+o(1)) q_n}, blocking l^2 solutions pointwise in E and uniformly in theta; no Fubini or LDT input needed. L > 0 on W kills a.c. by Kotani conditional on spectrum intersection. Finite-volume numerics (L=400) are illustrative only.
+Since the mosaic Lyapunov exponent is positive on \(W\), standard Kotani/Ishii-Pastur theory excludes absolutely continuous spectrum in the ergodic sense; consequently, for the phases for which that conclusion is applied, any spectral mass in \(W\) is singular continuous.  The all-phase statement asserted here is only the no-point-spectrum conclusion above.
 
-## Limitations
+## Important limitation
 
-Transition lines |lambda E| = 1, e^{beta(2 alpha)} excluded; E = 0 excluded. Population of the window (W cap sigma != empty) not proved. Subcritical purely-a.c. transfer (C1) and sharp supercritical a.e.-theta localization above e^{beta(2 alpha)}/|lambda| (C2) are explicitly demoted to conjectures: uniform large-deviation/Green estimates, E-dependent conjugacy norm control, Fubini measure unification, and singular-strip spectral-measure transfer are missing.
+This record does **not** prove that \(W\cap\sigma(H_{\lambda,\alpha,\theta})\) is nonempty for an arbitrary \((\lambda,\alpha)\). Therefore the theorem by itself is not a counterexample to a localization statement unless one separately verifies that the proposed energy window actually intersects the spectrum.  What it proves unconditionally is the arithmetic absence of eigenvalues at every spectral energy that lies in \(W\).
 
 ## Reproducibility
 
-Artifacts: mosaic_window.py (Liouvillean alpha construction, conjugacy check, LE curve, finite-volume window counts) and mosaic_window.json (parameters, LE rows, IPR representatives). Conjugacy identity re-verified symbolically. Infinite-volume claims depend only on the analytic proof, not on numerics.
+`artifacts/mosaic_window.py` now checks the exact two-step matrix identity numerically and constructs finite continued-fraction approximants whose next-denominator growth illustrates a prescribed positive arithmetic exponent.  It explicitly labels all finite approximants as rational and does **not** report a finite-sample value as \(\beta(\alpha)\).  `artifacts/mosaic_window.json` records those finite-scale checks.
 
 ## References
 
-Wang et al., PRL 125, 196604 (2020), arXiv:2004.11155; Wang-Xia-You-Zheng-Zhou, CMP (2023), arXiv:2110.00962; Avila-Jitomirskaya-Zhou, Math. Ann. 370, 271-285 (2018); Avila, Acta Math. 215 (2015); Gordon-Jitomirskaya-Last-Simon, Acta Math. 178 (1997).
+- A. Avila, J. You, Q. Zhou, *Sharp phase transitions for the almost Mathieu operator*, Duke Math. J. 166 (2017), 2697–2718, arXiv:1512.03124.
+- W. Liu, *Distributions of Resonances of Supercritical Quasi-Periodic Operators*, IMRN 2024 (2024), 197–233.
+- Y. Wang et al., *One-Dimensional Quasiperiodic Mosaic Lattice with Exact Mobility Edges*, Phys. Rev. Lett. 125 (2020), 196604.
+- J. He, Y. Shan, Y. Wang, *Cantor Spectrum via a Reducibility-Duality Bridge for the Mosaic Almost Mathieu Operator*, arXiv:2606.23422.
