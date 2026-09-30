@@ -4,8 +4,8 @@
   "independent_audit": {
     "status": "passed",
     "evidence": [
-      "METADATA.json",
-      "AUDIT.json"
+      "INDEPENDENT_AUDIT_2026-09-28.md",
+      "INDEPENDENT_AUDIT_2026-09-28.json"
     ]
   },
   "lean_verification": {
