@@ -1,0 +1,60 @@
+# Independent Audit — 2026/09/21/normal-extragradient-degree-two-minimax--486b3694d0f0
+
+- Audit date: 2026-09-30 (UTC) (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Branch: `main`
+- Inventory commit: `e9ed144c13b7834896a844cc4f9cac3c25a168a6`
+- Source-tree checked commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `57cab70a47d3e6c3a73a3658a0d981ce13549449`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — The exact minimax proof checks. For p*(z)=1-(1+delta)z+z^2, the unit-circle arc gives |p*|=|2 Re(z)-(1+delta)|<=1-delta, while on the vertical chord Re z=delta the submitted identity |p*|^2=q^2+s[s-q(2-q)] with q=1-delta and 0<=s<=q(2-q) gives the same upper bound. The maximum-modulus principle therefore covers the half-disk. For the lower bound, at z0=delta and z1=delta+i sqrt(1-delta^2), the two active convex quadratics have gradients satisfying grad h0 + delta grad h1=0 at (b,c)=(1+delta,1), which is the global subgradient optimality certificate. The 3x3 real-normal witness has exactly those eigenvalues. Substituting the unequal extragradient steps reproduces p*(A/L). Independent dense boundary checks at delta=0.1,0.3,0.7,0.95 reached the predicted maxima 0.9,0.7,0.3,0.05, and the common-step benchmark matched its closed form.
+
+## Originality
+
+**PASS** — Manteuffel's 1982 paper is the most direct historical comparison and was obtained in full through authorized institutional access after open-access retrieval attempts. It develops asymptotically optimal parameters for two-step stationary recurrences by enclosing the spectrum in a best confocal ellipse and solving the Chebyshev minimax problem; its seven-page theorem does not state this one-cycle degree-at-most-two polynomial minimax on the monotone half-disk, the polynomial 1-(1+delta)z+z^2, or the unequal predictor/corrector extragradient realization. Azizian et al. use the same strongly-monotone/Lipschitz spectral set and polynomial viewpoint, but their checked work gives asymptotic/order results rather than this exact degree-two solution. Targeted searches found no matching closed form.
+
+## Scientific value
+
+**PASS** — The theorem supplies an exact finite-degree benchmark on a spectral region central to linear strongly monotone games, a fixed 3-dimensional sharp witness, and an unequal-step two-evaluation method that strictly improves the best common-step extragradient cycle. It resolves the stationary degree-two problem while correctly not claiming long-horizon or nonnormal optimality.
+
+## Sources
+
+- **Optimal Parameters for Linear Second-Degree Stationary Iterative Methods** — T. A. Manteuffel. https://doi.org/10.1137/0719058 — Full seven-page institutional text checked; treats asymptotic two-step stationary recurrences through best enclosing ellipses/Chebyshev minimax, not the audited finite polynomial formula.
+- **Accelerating Smooth Games by Manipulating Spectral Shapes** — W. Azizian; D. Scieur; I. Mitliagkas; S. Lacoste-Julien; G. Gidel. https://proceedings.mlr.press/v108/azizian20a.html — Direct modern spectral-polynomial predecessor for strongly monotone/Lipschitz games.
+- **The Tchebychev iteration for nonsymmetric linear systems** — T. A. Manteuffel. https://doi.org/10.1007/BF01389971 — Classical complex-spectrum Chebyshev-minimax framework used by the 1982 stationary-iteration paper.
+
+## Limitations
+
+- The Euclidean contraction theorem requires real normal A; spectral inclusion alone is insufficient for nonnormal matrices.
+- It is a one-cycle exact-arithmetic result with known mu and L, not an adaptive or long-horizon complexity theorem.
+- The minimax class is real polynomials of degree at most two with p(0)=1.
+- Broader semi-iterative literature remains relevant background, but the most directly covering Manteuffel source was inspected in full.
+
+## Independent checks
+
+```json
+{
+  "circle_and_chord_upper_bound_checked": true,
+  "two_point_subgradient_lower_bound_checked": true,
+  "sharp_real_normal_witness_checked": true,
+  "unequal_step_polynomial_substitution_checked": true,
+  "common_step_formula_checked": true,
+  "dense_boundary_delta_values": [
+    0.1,
+    0.3,
+    0.7,
+    0.95
+  ],
+  "manteuffel_1982_full_text_checked": true,
+  "open_access_first": true,
+  "oxford_used": true,
+  "oxford_job_id": "45fb46df015e817fa4aafe2f17f605be",
+  "oxford_status": "complete",
+  "oxford_pages_checked": "1-7 of 7"
+}
+```
+
+The assigned record tree was unchanged between the inventory snapshot and the checked commit. GitHub was used only as read-only evidence; no repository mutation or separate dispatcher report was performed. Open-access and preprint sources were checked first, with authorized institutional retrieval used only where a directly relevant full text remained unavailable.
