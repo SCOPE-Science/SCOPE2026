@@ -1,0 +1,37 @@
+# Independent Audit — 2026-09-29
+
+**Record:** `2026/09/20/heisenberg-subalgebra-commutativity-all-ranks--b9894cdd2e29`  
+**Title:** Exact subalgebra commutativity degrees for finite Heisenberg Lie algebras  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Audited tree:** `7ee4cca920fc8ab55665b4817daa51761c6c9169`  
+**Disposition:** **PASSED**
+
+## Three-axis assessment
+
+- **Correctness — PASS:** The structural classification and counting formula are correct. Every subalgebra either contains the center and is W+Fz for arbitrary W<=V, or avoids the center and is the graph of a functional on a totally isotropic U. For two graph subalgebras, nonpermutability occurs exactly when omega(U,W)!=0 while the functional difference vanishes on T=U intersect W; this gives q^(r+s-t) bad functional pairs. The C_m term correctly counts isotropic pairs with prescribed intersection by subspace-lattice Möbius inversion, and O_m counts the cross-orthogonal pairs by choosing the isotropic sum and complementary quotients. Summation therefore yields B_m and sd=1-B_m/N_m^2. I independently evaluated the formula and also exhaustively enumerated all 374 vector subspaces of H_2(F_2): exactly 158 are Lie subalgebras and exactly 6,000 of the 24,964 ordered subalgebra pairs are nonpermutable, matching the filed formula.
+- **Originality — PASS:** The new 2026 Muhie–Otera–Russo preprint introduces subalgebra commutativity degree and publicly advertises only a specific Heisenberg study; the filed record identifies its explicit treatment as rank one and extends to all ranks. Focused searches for all-rank Heisenberg formulas, symplectic-intersection formulations, and subgroup commutativity degrees of extraspecial p-groups did not locate an equivalent enumeration. Older subgroup-commutativity literature located treats other families (including finite P-groups) rather than this Heisenberg/extraspecial all-rank formula. On the accessible record this passes originality, with the acknowledged possibility that classical extraspecial subgroup-lattice literature contains an equivalent count in different language.
+- **Scientific value — PASS:** The result supplies a closed all-rank answer to a newly posed enumeration problem, gives the first explicit higher-rank case, and extracts two nontrivial asymptotic regimes including the q->infinity phase transition and fixed-field rank growth. The Lazard corollary connects the Lie-algebra count to extraspecial groups.
+
+## Independent findings
+- The graph-subalgebra classification is exhaustive and works in characteristic two because the proof uses only the alternating symplectic bracket and linear projection.
+- For fixed isotropic U,W with intersection dimension t, the equality of restrictions alpha|T=beta|T imposes exactly t independent linear conditions, hence q^(r+s-t) functional pairs.
+- Direct independent enumeration of H_2(F_2) reproduced 158 Lie subalgebras, 18,964 permutable ordered pairs, and 6,000 nonpermutable ordered pairs.
+- Degree comparison gives graph subalgebras asymptotically negligible versus center-containing subalgebras for fixed q as m grows and for fixed m>=4 as q grows.
+
+## Independent checks
+- Reconstructed the two-type subalgebra classification from projection to V and center containment.
+- Re-derived the graph-pair permutability criterion and the functional-pair count.
+- Checked the Möbius-inversion C_m count and the totally-isotropic-sum O_m count.
+- Implemented an independent exhaustive GF(2) enumeration for m=2 and reproduced the record's q=2 counts without using its verification script; separately evaluated the closed formula for m=1..4 and q=2,3,5.
+
+## Literature evidence
+- https://arxiv.org/abs/2609.19086 — Muhie–Otera–Russo (2026), current preprint introducing subalgebra commutativity degree and studying Heisenberg algebras.
+- https://arxiv.org/abs/2304.08170 — Earlier spectral/factorization subgroup-commutativity context cited by the source.
+- https://arxiv.org/abs/1312.0296 — Tarnauceanu on subgroup commutativity degree of finite P-groups; no extraspecial all-rank formula located.
+
+## Limitations
+- The originality conclusion is to the best of targeted searches; older extraspecial-p-group subgroup-lattice enumerations may encode an equivalent formula under different terminology.
+- The Lazard transfer stated in the record applies to odd p; characteristic two is covered on the Lie-algebra side but not by that group corollary.
+- The current arXiv abstract was accessible but the arXiv full-text endpoint was not rendered by the web tool in this run; no inaccessible source pages are claimed read.
+
+The assigned source tree remained unchanged from the inventory/source-tree-check interval through current main commit `eff2c6312cec5b0dee5115e5f42211a853092dfb`; the exact tree audited is `7ee4cca920fc8ab55665b4817daa51761c6c9169` and matches the assignment guard. GitHub was used only as read-only evidence; no repository writes were made. Audit timestamps and this audit-file date use UTC under the task-specific audit contract.
