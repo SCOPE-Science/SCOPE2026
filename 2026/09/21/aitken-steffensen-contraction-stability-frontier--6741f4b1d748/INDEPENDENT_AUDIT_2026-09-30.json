@@ -1,0 +1,91 @@
+{
+  "audit_date": "2026-09-30",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized feasible-region optimization checks. With x*=0 and x=1, writing a=g(1), c=g(a), and t=(c-a)/(a-1) gives S(1)=(a-t)/(1-t), |a|<=q, |c|<=q|a|, and |t|<=q. Splitting a>0 and a<0 and optimizing the interval endpoints yields the global maximum W(q)=2q^2/((1-q)(1+2q)); the submitted piecewise-affine map attains it. Solving W(q)<=1 gives (1+sqrt(17))/8, and maximizing the same-evaluation ratio gives 16/9. Under monotonicity the feasible interval contracts and the exact maximum becomes q^2/(1-q^2), attained by the stated monotone piecewise-affine map. Independent dense feasible-pair searches at q=0.2,0.5,0.7,0.9 approached the closed forms from below, and exact witness substitution reproduces them.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "The closest classical sources were checked beyond abstracts. Johnson-Scholz (1968), Hofmann (1975), and Schneider (1981) were obtained through authorized institutional access after open-access searches and inspected in full; they prove local/semilocal convergence, monotone enclosure, or ordered-Banach-space results under divided-difference, convexity, and sign hypotheses, not the bare-global-Lipschitz minimax constants or thresholds here. Targeted searches found no exact 2q^2/((1-q)(1+2q)), q^2/(1-q^2), or 16/9 result. The novelty claim is therefore supported for the sharp black-box one-cycle frontier, not for Steffensen acceleration itself.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The theorem gives a complete robustness benchmark under the weakest natural scalar contraction oracle: it quantifies when acceleration can enlarge error, shows two ordinary Picard evaluations are minimax-better under the same information, and identifies the exact improvement from monotonicity. This cleanly separates classical local acceleration from worst-case global robustness.",
+      "verdict": "pass"
+    }
+  },
+  "branch": "main",
+  "citations": [
+    {
+      "authors": "L. W. Johnson; D. R. Scholz",
+      "detail": "Authorized full text checked, all 7 pages; gives convergence criteria for divided-difference Steffensen iterations, not the audited minimax frontier.",
+      "title": "On Steffensen's Method",
+      "url": "https://doi.org/10.1137/0705026"
+    },
+    {
+      "authors": "Wolf Hofmann",
+      "detail": "Authorized full text checked, all 11 pages; studies monotone enclosure under slope-convexity/order hypotheses, not a global contraction worst-case factor.",
+      "title": "Monotonieeigenschaften des Steffensen-Verfahrens",
+      "url": "https://doi.org/10.1007/BF01834035"
+    },
+    {
+      "authors": "Norbert Schneider",
+      "detail": "Authorized full text checked, all 8 pages; gives ordered-Banach-space monotone enclosure and quadratic convergence conditions.",
+      "title": "Results about monotone convergence of Steffensen-like-methods",
+      "url": "https://doi.org/10.1007/BF01941470"
+    },
+    {
+      "authors": "Yousef Saad",
+      "detail": "Modern survey context for Aitken/Steffensen and acceleration methods.",
+      "title": "Acceleration methods for fixed-point iterations",
+      "url": "https://doi.org/10.1017/S0962492924000096"
+    }
+  ],
+  "disposition": "passed",
+  "expected_source_tree_sha": "d26c0160eda51bb0fa37468df489e13ff9e0f17f",
+  "github_write_performed": false,
+  "independent_checks": {
+    "dense_numeric_q_values": [
+      0.2,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "monotone_frontier_rederived": true,
+    "normalized_feasible_region_rederived": true,
+    "open_access_first": true,
+    "oxford_jobs": {
+      "hofmann_1975": {
+        "job_id": "67f2ad565a89036f761dd77a113727ce",
+        "pages": "1-11 of 11",
+        "status": "complete"
+      },
+      "johnson_scholz_1968": {
+        "job_id": "c47a8cac0125f1c4f615e8fecc15bbcb",
+        "pages": "1-7 of 7",
+        "status": "complete"
+      },
+      "schneider_1981": {
+        "job_id": "2090b99d7971f2340364c63ebc69b2e8",
+        "pages": "1-8 of 8",
+        "status": "complete"
+      }
+    },
+    "oxford_used": true,
+    "sharp_piecewise_affine_witness_checked": true,
+    "threshold_and_16_over_9_algebra_checked": true
+  },
+  "inventory_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+  "limitations": [
+    "The theorem is scalar, real, exact-arithmetic, and one-cycle; it does not cover floating-point instability or vector acceleration.",
+    "Crossing the nonexpansion threshold does not imply long-run divergence of restarted Steffensen.",
+    "The result assumes only a global contraction; smoother maps may have much stronger local behavior.",
+    "Older literature under different notation remains a residual priority risk despite full checks of the most directly relevant classical papers."
+  ],
+  "oxford_download_used": true,
+  "record_path": "2026/09/21/aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_tree_checked_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "type": "independent_audit"
+}
