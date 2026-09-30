@@ -1,0 +1,45 @@
+# Independent audit — Sharp strip-defect asymptotics for the double Hilbert transform
+
+**Audit date:** 2026-09-29 (UTC) (UTC)  
+**Source path:** `2026/09/20/double-hilbert-strip-defect-asymptotics--11bc6e371e73`  
+**Assigned and audited tree:** `6cd87d9ed57479e99ac84c588b04381451f5f626`  
+**Repository snapshot:** `SCOPE-Science/SCOPE2026` at inventory commit `e9ed144c13b7834896a844cc4f9cac3c25a168a6`
+
+## Disposition
+
+**PASSED.** The claim survives independent review without a substantive research-file edit.
+
+## Correctness
+
+PASS. Under the stated unitary Fourier convention the double Hilbert transform has multiplier -sgn(ξ1)sgn(ξ2), so H-I equals -2 precisely on same-sign quadrants. Writing p=ξ1+ξ2 leaves an interval of ξ1 of length |p| and directly gives the exact defect identity with F(ε|p|). Dominated convergence yields the dot-H^{1/2} asymptotic. For a finite union of intervals, the Fourier transform of its indicator gives the signed endpoint cosine sum; substitution reduces the expansion to I(a)=∫(cos(au)-1)F(u)u^{-2}du. The Mellin transform M(s)=π2^{-s}/(Γ(3-s)sin(πs/2)) expands as 1/s+(3/2-γ-log2)+O(s), producing I(a)=-log a-(5/2-log2)+o(1) and hence the stated endpoint interaction, single-interval constant, and relative leading constant 2/π.
+
+## Originality
+
+PASS with an explicit contemporaneous-work caveat. The September 2026 preprint by Abakumov–Domelevo–Petermichl–Poltoratski supplies the truncated-strip approximate-eigenvector estimate of order ε²|log ε|, but targeted searches did not locate the exact one-dimensional identity, leading constant 2/π, next constant 5/2, or finite-perimeter endpoint interaction formula. Older papers using the phrase 'double Hilbert transform' concern different polynomial/surface operators. Because the motivating preprint is extremely recent, unindexed simultaneous refinements remain a real residual risk.
+
+## Scientific value
+
+PASS. The result turns a qualitative/model upper bound into an exact transform identity and sharp asymptotic with second-order constant, explains the logarithm as the dot-H^{1/2} jump endpoint, and extends the model from a single truncated strip to arbitrary L2 cutoffs and fixed one-dimensional finite-perimeter cutoffs.
+
+## Independent checks
+
+- Re-derived the quadrant multiplier calculation and the p=ξ1+ξ2 integration giving the exact one-dimensional formula.
+- Re-derived the endpoint Fourier formula for a finite union of intervals and the identity Σ_{j<k}σ_jσ_k=-P(E)/2.
+- Independently expanded the Mellin formula near s=0; numerical evaluation of M(s)-1/s converges to 3/2-γ-log2 as claimed.
+- Checked the specialization E=(-L,L), including cancellation of log 2 and the 5/2 constant.
+- Checked current main-path tree identity against the assignment snapshot.
+
+## Literature and evidence
+
+- https://arxiv.org/abs/2609.15155 — Abakumov, Domelevo, Petermichl and Poltoratski (2026), motivating invariant-set preprint and truncated-strip upper estimate.
+- https://arxiv.org/abs/2101.00763 — Holmes, Treil and Volberg (2021), related bi-parameter commutator context but not the strip-defect asymptotics.
+
+## Limitations
+
+- The sharp expansion is for diagonal tubes whose transverse cutoff depends only on x2; it does not classify general near-invariant planar sets.
+- The finite-perimeter expansion fixes E as ε→0 and is not uniform when endpoints collide at ε-scale.
+- The motivating source is very recent, so contemporaneous priority risk is higher than for mature literature.
+
+## Repository guard
+
+The current `main` record tree was checked against the assignment and is unchanged at `6cd87d9ed57479e99ac84c588b04381451f5f626`. This audit changes only the independent-audit channel in `VERIFICATION.md`; Lean and expert-attestation channels remain byte-for-byte semantically identical to the pre-audit file.
