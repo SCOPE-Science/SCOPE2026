@@ -1,65 +1,10 @@
 {
-  "axes": {
-    "correctness": {
-      "rationale": "The current package uses the wrong Fourier exponent on the root edge rc: it uses g1+g2, whereas for a consistent four-leaf pattern the rooted edge carries g1+g2+g3=g4 in G=Z2xZ2. The current verifier therefore certifies the wrong polynomial map. Recomputing the corrected map exactly nevertheless preserves the decisive conclusion: the 64x19 Jacobian has rank 13, with a nonzero 13x13 minor of determinant 160576479/4194304; the displayed-tree monomial exponent matrix has rank 10. The result is repairable, but the uncorrected research files are not internally correct.",
-      "verdict": "fail"
-    },
-    "originality": {
-      "rationale": "Recent dimension theory leaves the even-order 3-cycle case open. Cox, Gross, and Martin prove their 3-sunlet dimension formula for odd-order abelian groups and explicitly explain that even-order groups remain unresolved under their method. K2P uses the even-order group Z2xZ2, so an exact certified lower bound for this concrete triangle-network model is not mechanically implied by that theorem.",
-      "verdict": "pass"
-    },
-    "scientific_value": {
-      "rationale": "After correcting the root-edge exponent, the rank-13 certificate rigorously refutes the proposed dimension 7 in a genuinely delicate 3-cycle/even-order regime and also fixes the displayed-tree dimension at 10. This is useful algebraic-statistical information for identifiability and parameter-count questions even though the exact network dimension is not yet proved.",
-      "verdict": "pass"
-    }
-  },
-  "checked_sources": [
-    "Corrected exact reconstruction of the K2P Fourier mixture with root-edge exponent rc=g4",
-    "Corrected stdlib verifier: 64x19 Jacobian rank 13 and nonzero 13x13 determinant 160576479/4194304",
-    "Displayed-tree monomial exponent matrix: exact rank 10",
-    "Gross–Krone–Martin, arXiv:2307.15166",
-    "Cox–Gross–Martin, DOI 10.1007/s11538-025-01506-1"
-  ],
-  "correction": {
-    "correct_formula": "rc(g1+g2+g3)=rc(g4) for consistent patterns in Z2xZ2.",
-    "corrected_minor_columns": [
-      "t_rc",
-      "s_rc",
-      "t_ca",
-      "s_ca",
-      "t_c3",
-      "s_c3",
-      "t_ab",
-      "s_ab",
-      "t_b2",
-      "s_b2",
-      "t_ah",
-      "s_ah",
-      "t_bh"
-    ],
-    "corrected_minor_determinant": "160576479/4194304",
-    "corrected_minor_rows": [
-      1,
-      2,
-      4,
-      5,
-      8,
-      10,
-      16,
-      20,
-      24,
-      32,
-      36,
-      40,
-      44
-    ],
-    "effect": "The original certificate was for the wrong map, but the corrected map still has network Jacobian rank 13; the displayed-tree monomial exponent rank is 10.",
-    "original_error": "RESULT.md and artifacts/verify_disproof.py used rc(g1+g2)."
-  },
-  "limitations": [
-    "The repaired result proves only dimension at least 13 for the network, not exact dimension 13.",
-    "The correction is tied to the stated K2P Fourier normalization and topology.",
-    "The current package's original verifier is invalid for the phylogenetic map until the guarded replacement supplied by this audit is applied."
-  ],
-  "verdict": "REPAIRED"
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "independent_validation": false,
+  "previously_published_pending_reaudit": true,
+  "record_id": "SCOPE-20260912-021",
+  "review_type": "independent_audit_pending",
+  "schema_version": 1,
+  "verification_state": "awaiting_fresh_independent_audit"
 }

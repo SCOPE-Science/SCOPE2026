@@ -1,18 +1,6 @@
-# Review
+# Review status
 
-## Correctness assessment
-PASS. Translating one vertex of an arbitrary triple to \(\varnothing\) reduces the problem to two subsets \(A,B\). If one is contained in the other, a geodesic passes through the triple. Otherwise, with \(P=A\setminus B\), \(Q=B\setminus A\), and \(R=A\cap B\), the path obtained by deleting \(R\) then \(P\) from \(A\), followed by adding \(Q\) then \(R\), contains \(A,\varnothing,B\). Each half is geodesic. Every nonzero vertex on the first half contains a \(P\)-coordinate and every nonzero vertex on the second contains a \(Q\)-coordinate, so any cross-half nonconsecutive pair differs in at least two coordinates and cannot form a chord. Hence every triple lies on an induced path and \(\operatorname{mp}(Q_n)=2\). The edge case \(Q_1=K_2\) is immediate. The finite verifier checks all \(388620\) triples through \(Q_7\).
+Fresh independent audit: not yet performed.
 
-## Originality assessment
-PASS, best-of-knowledge, for the correction claim only. The 2020 preprint and published article explicitly state that the cube has monophonic position number four. A later Cartesian-product theorem, first public in December 2024, proves \(\operatorname{mp}(G\square H)\le\max\{\operatorname{mp}(G),\operatorname{mp}(H)\}\), which immediately forces \(\operatorname{mp}(Q_n)=2\); thus the numerical formula itself is covered by stronger later work and is not asserted as standalone novelty. Exact-phrase, hypercube, Cartesian-product, correction, and synonym searches located the two source papers and related general-position work but no source explicitly flagging or repairing the contradiction. The checked later article text contains no occurrence of “hypercube” or “cube” in this context. The originality PASS is therefore restricted to identifying and documenting the unnoted inconsistency and furnishing a direct definition-level proof.
-
-## Value assessment
-PASS. The incorrect cube value is used in the original paper as the example asserting sharpness of its cubic-graph bound. Correcting that example prevents a false benchmark from propagating and reconciles the original paper with a later theorem by overlapping authors. The coordinate proof is short, parameter-uniform, and independently usable without invoking the later product machinery. The correction is scientifically useful even though the corrected numerical value is a routine corollary of the later theorem.
-
-## Closest literature
-The defining source is Thomas–Chandran–Tuite–Di Stefano, *On monophonic position sets in graphs* (`arXiv:2012.10330`, `doi:10.1016/j.dam.2023.02.021`), whose cubic-graph discussion contains the explicit cube-equals-four statement. The strongest coverage is Chandran–Klavžar–Neethu–Tuite, *Monophonic position sets of Cartesian and lexicographic products of graphs* (`arXiv:2412.09837`, `doi:10.1007/s40314-026-03901-3`), whose Cartesian-product upper bound subsumes the corrected hypercube value. Broader searches also found later surveys and general-position results on hypercubes, but no explicit erratum or equivalent correction statement.
-
-## Scientific limitations
-The numerical theorem is not new relative to the later Cartesian-product theorem; the contribution is a literature correction and direct proof. Search coverage is best-of-knowledge and may miss an inaccessible or unusually phrased correction. The finding does not establish or refute sharpness of the cubic-graph upper bound by other examples. The verifier is finite corroboration only. No independent audit, Lean verification, or expert attestation has been performed.
-
-Same-model review: passed. Independent audit: not yet performed.
+The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
+Original same-model scientific assessments, where present, remain in AUDIT.json.

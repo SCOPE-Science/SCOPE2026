@@ -1,37 +1,6 @@
-# same-model review
+# Review status
 
-## Review status
+Fresh independent audit: not yet performed.
 
-- Reported status: `SAME_MODEL_REVIEW_PASS`
-
-## Correctness
-
-**PASS (same-model assessment).**
-
-The proof was checked against the structural properties supplied by Boyer et al.'s algorithm, including the bound `2|R| <= |B|`, the final-set outdegree condition in `A`, and the prekernel-to-kernel conversion. Boundary cases of the auxiliary pseudoforest lemma were checked separately, including isolated vertices, ordinary cycles, trees, and the two-vertex cycle formed by parallel edges.
-
-The supplied verification script independently checks the theorem for every simple digraph with minimum in-degree at least two through order five, and the structural hitting-set lemma for every loopless partial functional digraph through order seven. No counterexample was found.
-
-## Originality
-
-**PASS, qualified to the best of our knowledge (same-model assessment).**
-
-Fresh searches during the source report for the exact constant, equivalent formulations, minimum in-degree two plus 3-kernel terminology, and nearby transversal formulations found no prior coverage. The primary June 2026 paper still presents the `δ=2,q=3` case as unresolved.
-
-The closest located neighboring work was Penev--Stein--Trujillo-Negrete on other q-kernel directions. No concrete inaccessible source was identified as likely to contain the same theorem.
-
-Remaining threat: a recent unindexed manuscript, private draft, or newer revision resolving the same explicitly posed case.
-
-## Value
-
-**PASS (same-model assessment).**
-
-If correct and novel, the result improves the first unresolved case highlighted by the primary paper from the known general upper bound `1/2` to the sharp `1/3`, proving the conjectured constant for `(δ,q)=(2,3)`. The proof also introduces a pseudoforest-incidence covering mechanism rather than only a finite computation.
-
-## Review disclaimer
-
-This is not independent validation, peer review, or a guarantee of scholarly priority.
-
-## Recorded review qualifications
-
-> **Review status: same-model review.** Correctness, originality and value were assessed by the same-model review, not an independent reviewer. Originality is claimed only to the best of our knowledge; consult `REVIEW.md` for search limitations. Publication is not peer review or a guarantee of priority.
+The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
+Original same-model scientific assessments, where present, remain in AUDIT.json.

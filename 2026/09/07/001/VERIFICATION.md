@@ -2,14 +2,8 @@
 {
   "schema_version": 1,
   "independent_audit": {
-    "status": "passed",
-    "evidence": [
-      "METADATA.json",
-      "AUDIT.json",
-      "INDEPENDENT_AUDIT_2026-09-22.md",
-      "INDEPENDENT_AUDIT_2026-09-22.json",
-      "artifacts/independent_audit_2026-09-22_check.py"
-    ]
+    "status": "not_performed",
+    "evidence": null
   },
   "lean_verification": {
     "status": "unknown",
@@ -21,3 +15,6 @@
   }
 }
 ---
+
+Fresh independent audit: not yet performed. Prior certification is inactive.
+Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
