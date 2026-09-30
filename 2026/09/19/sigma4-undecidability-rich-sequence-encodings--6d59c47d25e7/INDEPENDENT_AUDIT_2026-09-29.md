@@ -1,0 +1,47 @@
+# Independent audit — Four-block quantifier undecidability for rich-sequence arithmetic
+
+**Audit date:** 2026-09-29 (UTC)  
+**Source path:** `2026/09/19/sigma4-undecidability-rich-sequence-encodings--6d59c47d25e7`  
+**Audited tree:** `1947859a1d926cfe48395aec62afa881751e9e40`
+
+## Disposition
+
+**PASSED.**
+
+## Correctness
+
+**PASS.** The four-block quantifier bookkeeping checks against the primary paper. For arbitrary permutations, rep is quantifier-free; cnst_0 and eq are Pi_1; exact positive rank and exact-one inc are Sigma_2; and successor is Pi_1. Because the counter model uses positive counters, the branch test c_i>1 can be replaced by two existential rank witnesses, eliminating the only needed negated positive-rank test. Hence Step is Sigma_2, endpoint clauses are Sigma_3, the universally closed local-transition clause is Pi_3, and the outer sequence parameters prenex to a Sigma_4 sentence. The Section 4 LRS definitions have the same syntactic profile. For selected permutations, the stated restriction to quantifier-free selectors is sufficient; the least-prime selector lpf(n)>=x is atomic in the language.
+
+## Originality
+
+**PASS.** The primary Karimov--Nieuwveld--Ouaknine paper proves full first-order undecidability and explicitly cites the older three-block Hieronymi--Schulz theorem only for the separate two-power-predicate structure. Its inspected counter-machine and arbitrary-permutation sections do not state a fixed finite quantifier-prefix bound for the new totient, sum-of-divisors, least-prime-factor, or LRS-function examples. Targeted searches found no prior Sigma_4 formulation for these new one-function structures.
+
+## Scientific value
+
+**PASS.** Localizing several new full-theory undecidability results to the fixed prefix exists-forall-exists-forall is a genuine logical strengthening: it bounds the alternation depth needed for undecidability and exposes Sigma_3 versus Sigma_4 as a concrete next boundary.
+
+## Independent checks
+
+- Read the authors' lawful full-text PDF and inspected the counter-machine trace formula on paper page 16 and the arbitrary-permutation definitions on page 17.
+- Verified directly from those formulas that cnst_k (k>=1) and inc admit existential witnesses followed by a universal uniqueness block, while cnst_0, eq, and successor are universal/quantifier-free at first alternation.
+- Checked the source counter machine indeed uses positive counters and the conditional instruction IF c_i > 1 THEN DEC, so a two-witness positive test is semantically exact.
+- Inspected the Section 4 LRS rep/cnst/succ/inc/eq definitions on paper page 18; they have the same alternation classes.
+- Inspected the selected-permutation formulas in Section 8: with quantifier-free selector phi, no extra alternation is introduced; the least-prime selector phi(x,n):=lpf(n)>=x is quantifier-free in the ambient language.
+- Re-prenexed the endpoint Sigma_3 and local Pi_3 clauses with the outer existential sequence parameters to obtain an equivalent exists-forall-exists-forall prefix.
+
+## Evidence and literature
+
+- https://people.mpi-sws.org/~joel/publications/rich-sequences26.pdf — Karimov–Nieuwveld–Ouaknine primary full text; inspected counter-machine reduction, arbitrary-permutation, LRS, and selected-permutation formulas.
+- https://arxiv.org/abs/2609.20415 — Current preprint landing page for Rich Sequences and Decidability of Arithmetic Theories.
+- https://doi.org/10.1145/3519935.3519958 — Hieronymi–Schulz background theorem, relevant to the older three-block result for two power predicates, not these new one-function structures.
+
+## Limitations
+
+- No optimality is proved: Sigma_3 may still be undecidable by a different encoding.
+- The selected-permutation extension is only claimed when the selector itself is quantifier-free; quantified selectors can increase alternation depth.
+- The result does not cover every construction in the motivating paper, such as predicate-valued LRS and the square-free-number encoding.
+- The motivating preprint is extremely recent, so contemporaneous unindexed refinements remain a priority risk.
+
+## Repository identity
+
+The assigned source-tree SHA `1947859a1d926cfe48395aec62afa881751e9e40` exactly matched the current tree at the audited path on `main`; GitHub was read only during this audit.
