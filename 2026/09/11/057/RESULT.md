@@ -1,4 +1,4 @@
-# Non-Golod certificate for the facet-glued stacked-plus-octahedron 9-sphere
+# Non-Golod certificate for the facet-glued stacked-plus-octahedron 9-vertex 2-sphere
 
 ## Context
 
@@ -7,9 +7,10 @@ facet connected sum of a 6-vertex stacked 2-ball block with the octahedron
 boundary along a common triangular facet, all products in
 Tor_{k[v]}(k[G9],k) vanish and every defined higher Massey product contains
 zero via exhibited bounding cochains, hence k[G9] is Golod with a complete
-per-bidegree trivialization ledger. Prior literature (flag characterizations,
-Taylor-minimal criteria, multiwedge families, BBCG splitting) did not name or
-certify this specific non-flag facet gluing.
+per-bidegree trivialization ledger. Prior literature gives broad
+characterizations and non-Golod mechanisms for low-dimensional simplicial
+complexes; this record supplies an explicit certificate for the named
+facet gluing.
 
 ## Definitions
 
@@ -52,8 +53,8 @@ face. With d(e0)=e01+e07, d(e1)=e01-e16, d(e6)=-e16+e67, d(e7)=e07+e67,
 e01 = d(sum c_v e_v) would require c0+c1=1, c0+c7=0, c1+c6=0, c6+c7=0,
 whose alternating sum gives 0=1; the exact rational column-space rank test
 confirms non-exactness. Thus [e_{01}] != 0 generates H~^0(K_{0167}), a
-nonzero H^6(Z_G9) class. By Berglund-Jollenbeck-Katthan, nonzero Tor product
-implies non-Golodness. The dga model is certified: d^2=0 on all 512
+nonzero H^6(Z_G9) class. By the standard Golod criterion, a nonzero Tor
+product rules out Golodness. The dga model is certified: d^2=0 on all 512
 multidegree pieces, Leibniz rule on all 6799 small disjoint-support pairs.
 Corroboration: 24 nonzero disjoint missing-edge-pair products, Tor^+ dim
 227 over 205 multidegrees, Poincare pairings of missing edges with
@@ -90,8 +91,9 @@ was independently re-verified for all 18 with a corrected loop.
 - L. Katthan, A non-Golod ring with a trivial product on its Koszul
   homology, arXiv:1511.04883 (dim<=3 Golod iff Koszul product trivial).
 - A. Berglund, M. Joellenbeck, On the Golod property of Stanley-Reisner
-  rings, J. Algebra 315 (2007), 249-273 (chordless-cycle criterion).
+  rings, J. Algebra 315 (2007), 249-273 (historical reference; later
+  literature corrects the overly broad trivial-product implication).
 - S. Amelotte, Connected sums of sphere products and minimally non-Golod
   complexes; F. Fan, X. Wang, Moment-angle manifolds and connected sums of
   simplicial spheres; V. Kovyrshina, T. Panov, Moment-angle manifolds for
-  3-dimensional spheres (connected-sum background; none names G9).
+  3-dimensional spheres (connected-sum background).
