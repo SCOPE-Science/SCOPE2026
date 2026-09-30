@@ -1,4 +1,6 @@
 {
+  "audit_date": "2026-09-28",
+  "audited_source_tree_sha": "5b6a29dd917a3594d89171e370a165eec8a5f5d1",
   "axes": {
     "correctness": {
       "rationale": "The central exhaustive claim is correct. A fresh vectorized enumeration of all 13^5=371,293 normalized coefficient tuples reproduced the exact direction histogram {8:13, 11:117, 12:1196, 13:369967}, with zero 9-direction functions. The affine normalizations used (output scaling, input translation killing x^6, and vertical translation) preserve direction cardinality. The earlier research context, however, materially misstated Kadoo 2010 by saying it only excluded an 8-secant/no-9-secant subcase; the same abstract also states existence of a size-22 Rédei-type minimal blocking set. The core degree-7 obstruction survives after correcting that context.",
@@ -13,7 +15,7 @@
       "verdict": "pass"
     }
   },
-  "checked_sources": [
+  "citations": [
     {
       "finding": "Contains the exhaustive degree-7 census and the contextual Kadoo misstatement.",
       "title": "Repository record 049 RESULT.md",
@@ -35,14 +37,24 @@
       "url": "https://doi.org/10.33899/csmj.2010.163898"
     }
   ],
-  "independent_histogram": {
-    "11": 117,
-    "12": 1196,
-    "13": 369967,
-    "8": 13,
-    "9": 0
-  },
-  "repair_note": "The prior audit incorrectly summarized Kadoo 2010 as only an 8-secant/no-9-secant nonexistence result. Its abstract also states existence of a size-22 minimal blocking set of Redei type. The exhaustive normalized degree-7 census remains correct and was independently reproduced on 2026-09-28.",
-  "supersedes_prior_audit_context": true,
-  "verdict": "PASS_AFTER_REPAIR"
+  "disposition": "repaired",
+  "findings": [
+    "Current main tree equals assigned SHA.",
+    "Independent exhaustive recensus over all 371,293 normalized degree-7 polynomials reproduced the filed histogram exactly and found n9=0.",
+    "Ball’s direction theorem allows N≥8 for q=13 and does not force the gap at N=9.",
+    "Kadoo 2010 explicitly states both the 8-secant/no-9-secant nonexistence subcase and existence of a size-22 Rédei-type minimal blocking set; the original Context omitted the latter and must be repaired."
+  ],
+  "independent_checks": [
+    "Independently evaluated all 78 pairwise slopes for every one of the 13^5 normalized coefficient choices and counted distinct directions.",
+    "Rechecked the AGL normalization algebra in characteristic 13.",
+    "Read the Kadoo abstract directly rather than relying on the earlier audit’s truncated characterization."
+  ],
+  "limitations": [
+    "The repaired claim is only about the normalized degree-7 polynomial family; it makes no global existence claim for size-22 Rédei-type blocking sets.",
+    "Novelty is asserted only for the exact census after targeted literature/Resultary searches, not from search failure alone."
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_path": "2026/09/10/049",
+  "title": "No 9-direction graph in the normalized monic degree-7 family over F_13"
 }
