@@ -1,0 +1,44 @@
+# Independent audit — Phylogenetic rank of complete multipartite graphs (later duplicate)
+
+**Audit date:** 2026-09-29 (UTC)
+**Source path:** `2026/09/18/phylogenetic-rank-complete-multipartite--9f7547419b5e`
+**Audited tree:** `6e2e1ffb5a81e43044fe44890106b0efcc696e91`
+
+## Disposition
+
+**FAILED.** The mathematical theorem is correct, but this record fails the originality and standalone scientific-value axes because an equivalent SCOPE record was already published earlier the same day.
+
+## Correctness
+
+**PASS.** The star-coordinate upper bound and four-point lower bound are correct. Distinct non-singleton parts require distinct coordinates, and when two singleton parts are present they collapse to the forced midpoint in every such coordinate, yielding the stated extra coordinate. Boundary cases, including complete graphs and stars, are consistent.
+
+### Independent checks
+
+- Reconstructed the metric-star embedding and verified every coordinate is 1-Lipschitz and the supremum realizes all graph distances.
+- Applied the tree four-point condition to two selected within-part distance-two pairs and confirmed one coordinate cannot realize both.
+- Checked the midpoint argument forcing all outside vertices to coincide in a coordinate realizing a within-part distance two.
+- Compared the two repository records theorem-by-theorem and verified that q+1_{s>=2} agrees with max{1,q+1_{s>=2}} under the standing connected complete-multipartite hypothesis r>=2.
+- Verified repository chronology: the equivalent cea9c3369a96 theorem was committed at 05:48:28Z, while this 9f7547419b5e record was committed at 18:43:15Z on 2026-09-18.
+
+## Originality
+
+**FAIL.** The exact same complete-multipartite rank theorem had already been added to this repository in record 2026/09/18/phylogenetic-rank-complete-multipartite-graphs--cea9c3369a96 at commit e8bec6bf82f5defcf526703435d8aaf715180c47 (2026-09-18T05:48:28Z). This record was added later at commit 887b176d0c5f2fd7f01d7e59496f1d9302a22ab4 (2026-09-18T18:43:15Z). The formulas are equivalent and the proofs use the same star/four-point/midpoint mechanism, so the later record is not an original scientific contribution even though the external literature located does not state the full formula.
+
+### Literature and chronology checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/commit/e8bec6bf82f5defcf526703435d8aaf715180c47 — Earlier SCOPE commit adding the equivalent exact complete-multipartite theorem at 2026-09-18T05:48:28Z.
+- https://github.com/SCOPE-Science/SCOPE2026/commit/887b176d0c5f2fd7f01d7e59496f1d9302a22ab4 — Later SCOPE commit adding this duplicate formulation at 2026-09-18T18:43:15Z.
+- https://arxiv.org/abs/2609.19372 — Ashworth et al., The phylogenetic rank of a graph. The accessible abstract and indexed descriptions cover rank-one classification and several high-rank families; no full complete-multipartite formula was located.
+
+## Scientific value
+
+**FAIL.** As a later duplicate of an already published repository theorem, the record adds no materially distinct theorem, method, or stronger corollary. Its complement-language restatement and literature discussion are useful exposition but do not justify a separate validated research finding.
+
+## Limitations
+
+- The mathematical theorem itself is correct; the failure is specifically on originality and resulting standalone scientific value.
+- The external phylogenetic-rank literature is very recent, but repository chronology alone is decisive for this record because an equivalent theorem was already present nearly thirteen hours earlier.
+
+## Publication guard
+
+The current source tree on `main` matched the assignment tree `6e2e1ffb5a81e43044fe44890106b0efcc696e91` exactly during this audit. The guarded change-set adds the independent-audit evidence, marks the independent-audit channel as failed, adds `FAILED_ATTEMPT.md`, and requests atomic relocation of the complete package to `failed-attempts/2026/09/18/withdrawn-accepted-phylogenetic-rank-complete-multipartite--9f7547419b5e--1ca9f0834a6e12e2`. Lean and expert-attestation channels are preserved unchanged.
