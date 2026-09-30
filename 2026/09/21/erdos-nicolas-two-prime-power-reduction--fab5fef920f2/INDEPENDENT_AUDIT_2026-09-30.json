@@ -1,0 +1,49 @@
+{
+  "assignment_source_tree_sha": "5264804ba43eaa6e43f71b17b33d6d4d6c35b008",
+  "audit_date_utc": "2026-09-30",
+  "audited_current_source_tree_sha": "5264804ba43eaa6e43f71b17b33d6d4d6c35b008",
+  "audited_repository_commit": "eff2c6312cec5b0dee5115e5f42211a853092dfb",
+  "axes": {
+    "correctness": {
+      "finding": "PASS. The ordered-divisor layer arguments are sound. For b=1, writing the cutoff by the largest included powers in the p^0 and p^1 layers reduces the prefix equation to a divisibility relation and leaves only the Mersenne-perfect family plus (a,p)=(3,3), i.e. 24. For b=2, parity of the nonempty p-adic layer sums forces exactly two layers; their total is <4x with x<p^2, forcing a=1, after which even all divisors below p^2 sum to less than 2p^2. If p>2^a, complete p-adic block ordering and reduction modulo p force p=2^{a+1}-1 and then b=1. For b>=3, the proof that the first binary layer is complete, p divides M=2^{a+1}-1, the last complete layer h satisfies h<=v_p(M)-1, and incomplete binary exponents strictly decrease gives s+1<=a+v; the s<b alternative contradicts size bounds, yielding b odd and b<=a+v-1. Independent brute enumeration for a<=8, p<=200, and b<=5 found no violation of Theorems 1–4.",
+      "status": "passed"
+    },
+    "originality": {
+      "finding": "PASS, narrowly scoped. Erdős–Nicolas (1975) introduced the partial-divisor-sum phenomenon and lists examples; current OEIS entries record the corresponding sequences and computational material. Targeted searches for 2^a p^b, prime-square odd parts, Mersenne specializations, and synonymous partial-divisor-sum formulations did not locate the submitted exact b=1 classification, b=2 exclusion, large-prime obstruction, or finite-per-a reduction for b>=3. No novelty is assigned to the original Erdős–Nicolas definition, perfect-number facts, or elementary p-adic/base-layer techniques.",
+      "status": "passed"
+    },
+    "scientific_value": {
+      "finding": "PASS. The result isolates 24 as the unique nonperfect b=1 case, completely excludes the prime-square slice, and turns every higher-exponent two-prime-support case into a finite list for fixed a. That is a meaningful structural reduction of a sparse divisor-prefix problem, while the record correctly avoids claiming a complete classification for all b>=3.",
+      "status": "passed"
+    }
+  },
+  "branch": "main",
+  "checks": [
+    "Re-derived all four structural theorems and checked the strict inequalities used in the layer-size arguments.",
+    "Independently brute-enumerated sorted divisor prefixes for modest ranges a<=8, p<=200, b<=5; all observed hits satisfied the submitted classification/necessary conditions and no b=2 hit occurred.",
+    "Checked the small-a exclusions in Theorem 4 and the p-adic valuation argument for the last complete layer.",
+    "Compared with the open Erdős–Nicolas 1975 source metadata/full-text access point and current sequence descriptions; no two-prime-power classification was located.",
+    "Targeted web searches for equivalent 2^a p^b results found no covering prior statement.",
+    "GitHub compare found no changes under the assigned record path; the dated audit pair is absent and VERIFICATION.md retains the verified blob SHA."
+  ],
+  "citations": [
+    "https://doi.org/10.24033/bsmf.1793",
+    "https://www.numdam.org/articles/10.24033/bsmf.1793/",
+    "https://oeis.org/A064510",
+    "https://oeis.org/A194472",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/21/erdos-nicolas-two-prime-power-reduction--fab5fef920f2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem does not eliminate every b>=3 case; it gives a finite candidate set for each fixed a.",
+    "The record's a<=30 exhaustive computation is a bounded corollary and is not used as proof of the structural theorem.",
+    "Poorly indexed older divisor-partition/problem literature remains the principal residual originality risk."
+  ],
+  "protocol": "scope-audit-change-set-v1",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "review_status": "complete",
+  "schema_version": 1,
+  "source_path": "2026/09/21/erdos-nicolas-two-prime-power-reduction--fab5fef920f2",
+  "source_tree_unchanged": true,
+  "type": "independent_audit"
+}
