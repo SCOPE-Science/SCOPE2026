@@ -1,74 +1,82 @@
-# Fixed-s 120-degree law is false: the 120-degree trihedral cone is not fractionally stationary
+# For F_s=P_s(E1)+P_s(E2), the fixed-s 120-degree trihedral cone is not stationary
 
 ## Context
 
 Classical double bubbles meet at 120 degrees. The target asks whether this persists at fixed
-fractional order: for a volume-constrained stationary symmetric fractional double-bubble pair
-(E1,E2) in R^3 with |E1|=|E2|=1 and fixed s in [3/4,1), are blow-up cones along the singular
-circle Gamma planar triods with all dihedral angles exactly 2pi/3? Stationarity means vanishing
-first variation of F_s=P_s(E1)+P_s(E2) under volume-preserving flows, so each regular sheet has
-constant fractional mean curvature H_s. The claim is two-sided: prove the 120-degree law for all
-s in [3/4,1) or disprove it by an explicit s with a stationary cone whose angles differ by a
-positive s-dependent amount.
+fractional order for the specific two-chamber sum functional
+F_s(E1,E2)=P_s(E1)+P_s(E2), with the exterior phase not included as a third perimeter.
+This functional is different from the standard nonlocal cluster energy that sums fractional
+perimeters of all phases.
 
 ## Definitions
 
-P_s(E)=int_E int_{R^3\E}|x-y|^{-3-s}dxdy. H_s[E](x)=p.v. int_{R^3}(1-2 chi_E)/|x-y|^{3+s}dy.
-Let C=C0 x R with C0=S(2pi/3)={0<=arg<=2pi/3} in R^2: the cylinder over the 120-degree sector,
-the blow-up model of a triod with three equal 120-degree dihedral angles. Face point
-p=(p0,0), p0=(1,0). Tangent half-plane at p0 is T={v>0} with H^{2d}_s[T](p0)=0 by symmetry.
-For beta<pi define W(beta)={beta<arg<pi]}, the wedge of angle pi-beta between S(beta) and T.
+P_s(E)=int_E int_{R^3\E}|x-y|^{-3-s} dx dy and
+H_s[E](x)=p.v. int_{R^3}(1-2 chi_E(y))/|x-y|^{3+s} dy.
+Let C=C0 x R with C0=S(2pi/3)={0<=arg<=2pi/3} in R^2.
+At the face point p=(p0,0), p0=(1,0), the tangent half-plane is
+T={v>0}, whose two-dimensional fractional mean curvature at p0 is zero.
+For beta<pi define W(beta)={beta<arg<pi}.
 
 ## Result
 
-For every s in [3/4,1) the 120-degree cone C has strictly positive unnormalized fractional
-mean curvature on each regular face, uniformly bounded away from zero:
-H^{3d}_s[C]>=0.17 (analytic floor; computed values ~2.85 at s=0.75 down to ~1.97 at s=0.95).
-Since cone stationarity forces vanishing face curvature by dilation scaling H(lx)=l^{-s}H(x),
-C is never a stationary blow-up cone at fixed s. Hence no stationary symmetric pair can have
-120-degree blow-up cones for all s; any stationary symmetric cone has angles differing from
-2pi/3 by a positive s-dependent amount, or none exists. The universal fixed-s 120-degree law
-is false.
+For every s in [3/4,1), the 120-degree sector cylinder C has strictly positive
+unnormalized fractional mean curvature on each corresponding chamber face. In fact
+H_s^{3d}[C](p)>=0.1715. A stationary homogeneous blow-up cone for the stated
+two-chamber sum functional must have zero face curvature, because
+H_s(lambda x)=lambda^{-s}H_s(x). Therefore the equal 120-degree triod cannot be
+a stationary blow-up cone for this functional at fixed s.
+
+This statement is functional-specific. It does not contradict results for the standard
+three-phase nonlocal cluster energy, where all phase perimeters are included and 120-degree
+minimal cones are known in two dimensions for s sufficiently close to 1.
 
 ## Proof / evidence
 
-Lemma 1 (cylinder reduction, exact): H^{3d}_s[C](p)=B(s) H^{2d}_s[C0](p0) with
-B(s)=int_R(1+t^2)^{-(3+s)/2}dt=sqrt(pi)Gamma(1+s/2)/Gamma((3+s)/2), B in [1.571,1.653] on
-[3/4,1). Fubini in y=(z,tau) with u=tau/|p0-z|; sign pattern depends only on z.
-Lemma 2 (stationarity forces zero): a stationary cone has constant face curvature, and
-H(lx)=l^{-s}H(x) forces that constant to be 0.
-Lemma 3 (half-plane subtraction, exact): for beta<pi, S(beta) subset T and
-H^{2d}_s[S(beta)](p0)=2 int_{W(beta)}|p0-z|^{-(2+s)}dz. W is at positive distance from p0
-(true distance 1 at beta=2pi/3), so the integral is absolutely convergent, finite, strictly
-positive; zero only at beta=pi, negative for beta>pi.
-Quantitative gap: inscribe disc D of radius r=1/2 in W(2pi/3) (bisector 150deg, inradius
-1/2, Dmax=|p0-c|+r=hyp(1+sqrt3/2,1/2)+1/2~2.4319); then H^{2d}>=2 pi r^2 Dmax^{-(2+s)}>=0.136
-at s=0.75, >=0.109 uniform, times B(s)>=1.571 gives H^{3d}>=0.171 uniform. Pure-numpy
-integrator with exact u=1/r tail transform (output/artifacts/wedge_flux.py) gives
-H^{2d}(120deg,0.75)~1.7248, monotone angle sweep (2.90 at 90deg, 1.72 at 120deg, 0.81 at
-150deg, 0 only at 180deg), confirming the margin exceeds 12x the floor. The s->1 classical
-limit is untouched: (1-s)H_s renormalizes the positive term away and recovers 120deg only
-asymptotically.
+1. Cylinder reduction. Fubini in the axial variable gives
+   H_s^{3d}[C](p)=B(s) H_s^{2d}[C0](p0), where
+   B(s)=sqrt(pi) Gamma(1+s/2)/Gamma((3+s)/2).
+   On s in [3/4,1), B(s)>pi/2 and is bounded away from zero.
+
+2. Half-plane subtraction. For beta<pi, S(beta) is contained in T, so
+   H_s^{2d}[S(beta)](p0)=2 int_{beta<arg z<pi}|p0-z|^{-(2+s)} dz.
+   The difference wedge is a positive distance from p0. The integral is therefore
+   absolutely convergent and strictly positive.
+
+3. Uniform lower bound. For beta=2pi/3, inscribe a disk of radius 1/2 in the
+   difference wedge, centered on the 150-degree bisector. If Dmax is the maximum
+   distance from p0 to this disk, Dmax=
+   hypot(1+sqrt(3)/2,1/2)+1/2=2.43185165..., then
+   H_s^{2d} >= (pi/2) Dmax^{-(2+s)}
+   >= (pi/2) Dmax^{-3}=0.1092216....
+   Multiplying by inf B(s)=pi/2 gives the uniform three-dimensional lower bound
+   0.17156... .
+
+4. Stationarity. On a volume-constrained stationary configuration, each regular
+   outer face has constant fractional mean curvature. For a cone the scaling law
+   H_s(lambda x)=lambda^{-s}H_s(x) forces that constant to be zero. The positive
+   bound from Step 3 excludes the 120-degree cone.
+
+The corrected numerical certificate `artifacts/wedge_flux.py` evaluates the same
+difference integrals. At s=0.75 it gives H_2d(120deg)=1.72477..., finite negative
+values for beta>pi (for example H_2d(240deg)=-1.72477...), and verifies
+H(d)=d^{-s}H(1) at d=0.5,1,2 to machine precision. These numerics support but are
+not needed for the analytic bound.
 
 ## Limitations
 
-Disproof only: the true stationary angle function beta(s) is not computed (requires coupled
-three-sector system with Lagrange multipliers). It assumes the target's hypothesis of a
-stationary pair with blow-up cones and refutes the angle conclusion. Beta>180deg wedge
-values diverge to -infinity (not needed). Off-center numeric scaling checks are weak;
-analytic scaling is exact. Minor exposition slip in dist(p0,W) formula does not affect
-positivity.
+The true stationary angle for the two-chamber sum functional is not computed.
+The statement is not a theorem about the standard full three-phase cluster energy.
+It assumes the target's blow-up/stationarity framework and only excludes the
+equal-120-degree cone. Numerical sweeps are secondary to the analytic estimate.
 
 ## Reproducibility
 
-Run output/artifacts/wedge_flux.py (pure numpy+math); it regenerates
-output/artifacts/wedge_flux_results.json including the beta=120deg sweep, angle sweep at
-s=0.75, scaling check at d=1 (rel err 2.3e-8), and uniform bounds. B(s) and the disc bound
-verify by hand from the Gamma formula and Dmax above.
+Run `python3 artifacts/wedge_flux.py`; it regenerates
+`artifacts/wedge_flux_results.json` with the beta=120-degree s-sweep, the angle
+sweep on both sides of pi, the corrected scaling check, and the uniform analytic bound.
 
 ## References
 
-Caffarelli-Roquejoffre-Savin nonlocal minimal surfaces (via Lombardini thesis
-arXiv:1508.06241); Lawson s-minimal cones (Davila-del Pino-Wei); fractional capillarity
-cones (arXiv:2008.06175); classical stationary double-bubble 120-degree theory
-(arXiv:2301.10705); stable 2D s-minimal cones for s~0.
+A. Cesaroni and M. Novaga, Nonlocal minimal clusters in the plane,
+arXiv:1910.03429. Caffarelli-Roquejoffre-Savin nonlocal minimal-surface theory.
+Classical stationary double/triple bubble theory, arXiv:2301.10705.
