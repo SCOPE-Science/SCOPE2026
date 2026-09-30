@@ -1,0 +1,45 @@
+# Independent audit — 2026-09-30 UTC
+
+Record: `2026/09/20/sharp-l4-degree-two-spherical-harmonics--d4106097159f`  
+Assigned and audited source tree: `fc649b8dcbfb2c0903589aa81f6fce90164656ca`  
+Audited repository state: `SCOPE-Science/SCOPE2026` `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+Current RESULT.md blob: `ecd5018052297124b21080d90a3c42f6b6ffaa90`  
+Disposition: **passed**
+
+## Correctness
+
+**independently_supported**. The sharp degree-two L4/L2 theorem checks. Real degree-two harmonics are traceless symmetric quadratic forms. Gaussian radial decomposition gives the stated exact second- and fourth-moment formula, reducing the problem to maximizing sum lambda_i^4 subject to zero sum and unit sum of squares. The Lagrange and second-variation analysis leaves either two eigenvalues, whose multiplicity formula is maximized at 1 and n-1, or a three-root stationary value 1/2 that is nonmaximal for n>=4; n=2,3 have the quotient identically 1/2. Phase averaging for a complex harmonic gives the same sharp constant, and equality in the final Cauchy-Schwarz step forces real and imaginary parts to be linearly dependent, yielding exactly the stated constant-phase extremizers. The unnormalized S^2 specialization also has the stated constant.
+
+## Originality
+
+**qualified_supported_with_inaccessible_reverse_holder_prior**. Stanton-Weinstein's classical paper treats the L4 problem and establishes a highest-weight local maximum, while Lu simplifies that local argument and later literature emphasizes asymptotic reverse-Hölder growth. Searches did not locate the exact finite degree-two constant and complete equality classification. Duoandikoetxea's 1987 paper on reverse Hölder inequalities for spherical harmonics is especially relevant; no lawful open full text was found, and an authorized institutional retrieval attempt returned no verified PDF, so its theorem text is not claimed as read. The audited originality claim is therefore accepted narrowly for the exact degree-two constant/extremizers, with that inaccessible source retained as a material prior-art risk.
+
+## Scientific value
+
+**meaningful_exact_finite_degree_result**. The record gives a closed-form sharp finite-degree norm ratio in every dimension and completely classifies complex extremizers, complementing a literature dominated by local-extremizer and asymptotic-degree results. The traceless-matrix reduction is also reusable for other low-degree spherical moment extremals.
+
+## Independent checks
+
+- Re-derived the Gaussian quadratic-form moment reduction and the normalized-sphere radial factors.
+- Checked the n=2 and n=3 zero-trace fourth-power identities and the n>=4 multiplicity extremizer.
+- Rechecked the phase-averaging constants and equality condition for complex harmonics.
+- Verified that the S^2 unnormalized fourth-power constant is 15/(28*pi).
+
+## Literature and evidence checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/20/sharp-l4-degree-two-spherical-harmonics--d4106097159f
+- https://doi.org/10.1017/S0305004100058229
+- https://doi.org/10.1017/S0305004100067591
+- https://doi.org/10.1215/S0012-7094-86-05303-2
+- https://doi.org/10.2307/2046394
+- https://doi.org/10.1090/proc/12986
+## Literature access note
+
+`https://doi.org/10.2307/2046394` was not available as lawful open full text. Authorized institutional retrieval returned no verified PDF. It is **not** claimed to have been read in full.
+
+## Limitations
+
+- The exact result is only for harmonic degree two.
+- The global problem for general degree is not resolved.
+- Duoandikoetxea 1987 could not be inspected in full and remains a material originality risk.
+- Equivalent matrix-moment or invariant-theory formulations could be indexed outside spherical-harmonic terminology.
