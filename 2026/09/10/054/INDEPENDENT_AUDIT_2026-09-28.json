@@ -1,0 +1,45 @@
+{
+  "audit_date": "2026-09-28",
+  "audit_protocol": "scope-audit-change-set-v1",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite-window conclusions are supported by the archived census. I independently parsed all 6,084 rows of artifacts/T5000.csv from GitHub in seven disjoint line ranges. The d-set equals exactly the squarefree nonzero integers with |d|<=5000; there are no missing or extra d. Summing sel_size gives 12,136, hence M=12136/6084=3034/1521≈1.9947403 and |M-3|≈1.00526>0.15. The Selmer-dimension histogram is {0:2106,1:3011,2:932,3:35}; rank-bound pairs are (0,0):2549, (1,1):3037, (2,2):313, (3,3):9, (0,2):176; max r_lo=max r_hi=3; the nine r_lo=3 twists are exactly {-4399,-1799,-1007,-206,1393,1766,2362,2878,4582}. Every row satisfies sel_size=2^sel_dim, sel_dim=r_hi+T_dim+s_sha, and the stated parity identity. PARI/GP 2.15.4 documentation confirms ellrank computes the exact 2-Selmer rank C and uses r2=C-T-s, so the table relation used to recover sel_dim is consistent with the documented algorithm. I did not rerun PARI itself, so the underlying descent values still inherit trust in the archived PARI computation.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "The exact 11a1 height-5000 vector, moment 3034/1521, histogram, and nine rank-3 twists were not found in targeted searches using 11a1/X0(11), the exact fraction, and witness values. Poonen–Rains and related work provide distributional heuristics/general theory, not this finite curve-specific table. The record is original as a reproducible finite dataset and target decision, not as a new Selmer-distribution theorem.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "A complete finite census on the canonical conductor-11 curve is a reusable arithmetic-statistics benchmark. It decisively answers the pre-registered finite-window disjunction, records exact Selmer/rank-bound distributions, and supplies a consistency-certified dataset for later comparisons. The value is empirical/computational and should not be inflated into an asymptotic statement; within that scope it is substantial enough to retain.",
+      "verdict": "pass"
+    }
+  },
+  "disposition": "passed",
+  "evidence": [
+    "All 6,084 archived T5000.csv rows were independently reparsed from GitHub and recomputed for counts, moment, rank-bound extrema, parity and coherence.",
+    "Targeted web searches found no earlier publication of the exact 11a1 dataset or moment fraction.",
+    "Repository research files were read at the assigned tree; no GitHub writes were made."
+  ],
+  "limitations": [
+    "The PARI/GP 2.15.4 descent was not rerun in this audit; underlying Selmer/rank-bound entries inherit trust in PARI and the archived generation run.",
+    "The 176 (0,2) rows do not have exact Mordell–Weil rank determined by the table, although this does not affect max r_hi=3 or the finite target decision.",
+    "No asymptotic conclusion about Poonen–Rains follows from the height-5000 mean."
+  ],
+  "literature": [
+    {
+      "finding": "Provides the Selmer-distribution model and context; does not contain the submitted 11a1 height-5000 table.",
+      "title": "Poonen–Rains, Random maximal isotropic subspaces and Selmer groups",
+      "url": "https://math.mit.edu/~poonen/papers/selmer.pdf"
+    },
+    {
+      "finding": "Documents ellrank output [r1,r2,s,L] and the exact 2-Selmer quantity C with r2=C-T-s, matching the table coherence relation used in the record.",
+      "title": "PARI/GP elliptic-curve documentation, ellrank",
+      "url": "https://pari.math.u-bordeaux.fr/dochtml/html/Elliptic_curves.html"
+    }
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_path": "2026/09/10/054",
+  "source_tree_sha": "46005fddf0828f513c17631b7a408b16c0603d36"
+}
