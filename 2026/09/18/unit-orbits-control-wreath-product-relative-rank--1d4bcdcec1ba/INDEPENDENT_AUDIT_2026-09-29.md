@@ -1,0 +1,48 @@
+# Independent Audit — Unit orbits control relative rank in finite monoid wreath products
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `f1215e88351452c496f263e68704542438a7abd6`  
+**Audited current source tree:** `f1215e88351452c496f263e68704542438a7abd6`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree exactly matches the assignment tree SHA. GitHub was used read-only as evidence. The dated independent-audit marker files were absent when this guarded change set was prepared.
+
+## Correctness — PASSED
+
+PASS. The two-sided relative-rank argument is sound. In a finite monoid a product is a unit only if every factor is a unit, so a word with unit top coordinate cannot use a generator whose top coordinate is nonunit. For unit-top factors, the set of base coordinates carrying nonunits can only accumulate by unions after transport by G; consequently a singleton nonunit at x can only be produced from singleton-support generators in the G-orbit of x. Their coordinate values must generate S modulo H, forcing c generators per G-orbit, while projection to R independently forces b nonunit top generators. Conversely, b top lifts and c singleton base generators on each unit orbit generate the full wreath product relative to H wr_X G. The ordinary-rank decomposition and iterated orbit-product formula follow from the same finite-unit separation. I also independently enumerated the submitted 12-element two-point counterexample and found no generating set of size at most 3 and an explicit one of size 4.
+
+## Originality — PASSED
+
+PASS, narrowly scoped. Jiaping Lu's September 2026 preprint is about ranks of iterated wreath products built from full transformation monoids and symmetric groups, where the unit actions are transitive. The audited result identifies and proves the missing arbitrary-action parameter—the number of unit-group orbits—and supplies an exact general relative-rank formula plus counterexamples to the transitivity-free formulations quoted from the preprint. Targeted searches found related relative-rank work for finite G-set endomorphism monoids, but not this wreath-product unit-orbit formula. A later 19 September SCOPE record independently restates the same formula; it postdates this 18 September record and is not treated as prior art.
+
+## Scientific value — PASSED
+
+PASS. The theorem gives the correct structural invariant behind the source paper's rank calculation, explains exactly why the full-transformation/symmetric-group main theorem survives, and yields an orbit-weighted formula for arbitrary iterated finite transformation wreath products. The 12-element example makes the correction concrete rather than merely formal.
+
+## Independent checks
+
+- Reproved the finite-monoid fact that a product can be a unit only when every factor is a unit and used it to separate top-unit from top-nonunit generation.
+- Reproved the singular-support union/transport invariant for unit-top wreath factors and the c-per-G-orbit lower bound.
+- Reconstructed the upper-bound generators using localized H^X units and G-transport within each orbit.
+- Independently exhaustively enumerated the 12-element example S={id,c0}, R={id,c0,c1}: no generating set of size 1, 2, or 3 exists, while a size-4 generating set does.
+- Checked the ordinary-rank and iterated formulas from the same unit/nonunit decomposition.
+- Compared against Lu's September 2026 preprint scope and targeted older relative-rank literature.
+- Verified that the assigned record path did not change between the dispatcher source-check commit and current main and that the dated audit markers are absent.
+
+## Limitations
+
+- The audit did not credit the rank theory of full transformation monoid wreath products, finite transformation-semigroup wreath products, or relative rank as new.
+- The exact body of Lu's very recent arXiv preprint was not exposed by the primary arXiv endpoint in this run; the source scope was cross-checked from its public abstract and the author's open thesis, while the submitted correction was independently proved and its finite counterexample independently enumerated.
+- The general formula is for finite transformation monoids; the proof uses the finite-monoid unit-factor property.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.20521
+- https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/33614/Thesis-Jiaping-Lu-complete-version.pdf
+- https://arxiv.org/abs/0807.1214
+- https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-unit-orbits-control-wreath-product-relative-rank--1d4bcdcec1ba
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/18/unit-orbits-control-wreath-product-relative-rank--1d4bcdcec1ba
+
+This change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
