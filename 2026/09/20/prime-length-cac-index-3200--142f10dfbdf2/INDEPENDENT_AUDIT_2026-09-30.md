@@ -1,0 +1,93 @@
+# Independent Audit — 2026/09/20/prime-length-cac-index-3200--142f10dfbdf2
+
+- Audit date: 2026-09-30 (UTC) (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Branch: `main`
+- Inventory commit: `e9ed144c13b7834896a844cc4f9cac3c25a168a6`
+- Source-tree checked commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `dca47d70e7a635ebf6554a01c386461b3dd1f10f`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — The finite extension is reproducible. From the published Hsia-Li-Sun analytic thresholds, the interval 3001<=ell<=3200 reduces exactly to the twenty four-prime-factor indices listed in the record. The 2014 computation, as explicitly reported in the later open paper, covers prime p<=2^30, while the Hsia-Li-Sun bound covers p>=B(ell). An independent implementation enumerated the remaining arithmetic progressions, recomputed ord_p(2), and reproduced exactly 165 gap primes with per-index counts 5,5,5,13,13,14,2,11,3,5,4,11,20,5,8,4,17,3,16,1 in the listed index order. A second independent witness step using independently chosen primitive roots found b in gH and c in g^2H with 1+b+c=0 for all 165 primes. Thus every gap case is certified, and the standard CAC construction attains the cited upper bound. The record's prose references `artifacts/verification.txt`, while the actual declared artifact is `artifacts/verification_output.txt`; this is a minor documentation filename slip, not a defect in the theorem or executable verifier.
+
+## Originality
+
+**PASS** — The 2023 Hsia-Li-Sun paper develops the twisted-Fermat criterion and analytic sufficient bounds, and its published consecutive range stops at ell<=3000. The 2024 cyclotomic-number result proves the conjecture when ell is an odd prime and explicitly notes the obstacle at composite ell; it does not subsume the twenty composite indices needed here. The 2014 Ma-Zhao-Shen computation is reported by the later paper only for p<=2^30. Targeted searches found no source extending the full consecutive subgroup-index range through 3200. The novelty is therefore the finite certified bridge of the remaining 165 primes, not the underlying construction.
+
+## Scientific value
+
+**PASS** — The advance is finite rather than conceptual, but it extends a published uniform range for an open coding-theory conjecture by 200 consecutive subgroup indices and supplies independently reproducible witnesses for every previously uncovered prime in that range. This is meaningful certified progress, with the scope correctly limited to ell<=3200.
+
+## Sources
+
+- **Certain Diagonal Equations and Conflict-Avoiding Codes of Prime Lengths** — Liang-Chung Hsia; Hua-Chieh Li; Wei-Liang Sun. https://arxiv.org/abs/2302.00920 — Open full text supplies the twisted-Fermat formulation, analytic thresholds, and reports the Ma-Zhao-Shen p<=2^30 computation.
+- **Conflict-Avoiding Codes of Prime Lengths and Cyclotomic Numbers** — Liang-Chung Hsia; Hua-Chieh Li; Wei-Liang Sun. https://arxiv.org/abs/2302.01487 — Proves the generator-coset conjecture when the subgroup index is an odd prime and discusses the composite-index obstacle.
+- **New optimal constructions of conflict-avoiding codes of odd length and weight 3** — W. Ma; C. Zhao; D. Shen. https://doi.org/10.1007/s10623-013-9827-2 — Original generator-coset conjecture and computation, whose p<=2^30 range is explicitly reported in later open literature.
+
+## Limitations
+
+- This is a finite certified range extension, not a proof for arbitrary composite subgroup index.
+- The argument relies on the later papers' explicit report of the 2014 p<=2^30 computation rather than a direct full-text inspection of that 2014 paper.
+- RESULT.md names the verification-output artifact once as `verification.txt`; the repository artifact is actually `verification_output.txt` and contains the stated output.
+- No claim is made that 3200 is a natural theoretical barrier.
+
+## Independent checks
+
+```json
+{
+  "exceptional_indices_recomputed": [
+    3003,
+    3010,
+    3030,
+    3036,
+    3045,
+    3060,
+    3066,
+    3080,
+    3090,
+    3094,
+    3102,
+    3108,
+    3120,
+    3135,
+    3150,
+    3162,
+    3180,
+    3190,
+    3192,
+    3198
+  ],
+  "gap_prime_count_recomputed": 165,
+  "per_index_counts_recomputed": [
+    5,
+    5,
+    5,
+    13,
+    13,
+    14,
+    2,
+    11,
+    3,
+    5,
+    4,
+    11,
+    20,
+    5,
+    8,
+    4,
+    17,
+    3,
+    16,
+    1
+  ],
+  "all_165_coset_witnesses_independently_found": true,
+  "repository_verifier_inspected": true,
+  "verification_output_artifact_inspected": true,
+  "open_access_first": true,
+  "oxford_used": false
+}
+```
+
+The assigned record tree was unchanged between the inventory commit and the source-tree-check commit. GitHub was used only as read-only evidence and no repository mutation was performed. Open-access and preprint sources were checked first; no decisive comparison required institutional retrieval in this audit.
