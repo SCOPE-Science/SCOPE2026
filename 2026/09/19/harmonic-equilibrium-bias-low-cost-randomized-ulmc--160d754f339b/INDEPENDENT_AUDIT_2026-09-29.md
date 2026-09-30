@@ -1,0 +1,46 @@
+# Independent audit — Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC
+
+**Audit date:** 2026-09-29 (UTC)  
+**Source path:** `2026/09/19/harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b`  
+**Audited tree:** `0848eda7d22ed37b1b5e0b08238b855b7d5c4cc7`
+
+## Disposition
+
+**PASSED.** All three required axes pass; the record may remain in the validated set.
+
+## Correctness
+
+**PASS.** The stationary-covariance expansion and no-go theorem check independently. Expanding the random affine update and solving the discrete second-moment equation gives, for uniform tau, x_2=alpha(1+delta-2 beta)/6, v_2=alpha^2 kappa(1-beta)/3, x_3=alpha[alpha kappa(4-3delta)+gamma^2(2beta-delta-1)]/(24 gamma), c_3=alpha^2 kappa(delta-2)/24, and v_3=alpha^2 kappa[alpha kappa(4-3delta)+gamma^2(2beta-1)]/(24 gamma), matching the record. For an arbitrary one-gradient random-time law, the independent series calculation gives c_1=alpha(1/2-m_1), x_2=alpha[m_1^2-m_1+(1-beta)m_2+1/12], c_2=alpha gamma(6m_1-6m_2-1)/12, and v_2=alpha^2 kappa[m_1^2+1/12-beta m_2]. Thus matching covariance through order h^2 would force m_1=1/2 and m_2=1/3, after which x_2=0 requires beta=1/2 while v_2=0 requires beta=1, an impossibility. The Wasserstein lower bound follows from the standard second-moment inequality.
+
+## Originality
+
+**PASS.** The source arXiv:2609.20713 introduces the low-cost randomized methods and gives non-asymptotic Wasserstein theory, but the inspected source description does not state these stationary harmonic covariance coefficients, the arbitrary-time moment formulas, or the one-gradient covariance impossibility result. Earlier work on randomized midpoint sampling and invariant-measure error provides methodology, not the source-specific LC-REI/ALUM/RMM classification. Repository history showed only the assigned record for this exact equilibrium-covariance result. Originality is therefore supported on the narrow source-specific theorem, subject to normal contemporaneous-work risk.
+
+## Scientific value
+
+**PASS.** The result separates long-time equilibrium bias from transient/pathwise error for newly introduced low-cost ULMC schemes and proves a concrete obstruction to fixing both harmonic variances with only a random-time law and predictor-noise amplitude. That gives an actionable design constraint and a quantitative invariant-measure error floor.
+
+## Independent checks
+
+- Re-expanded the exact random affine recurrence symbolically through the required orders.
+- Solved the stationary discrete Lyapunov equations coefficient-by-coefficient for the uniform predictor family.
+- Repeated the calculation for arbitrary first and second moments m1,m2 in the one-gradient family and verified the incompatible beta conditions.
+- Checked the source repository artifacts and their independent finite-h covariance verification logic.
+
+## Literature and repository prior-art boundary
+
+- https://arxiv.org/abs/2609.20713 — Lyu--Wang--Yang source introducing LC-REI/ALUM/RMM framework and low-cost methods.
+- https://arxiv.org/abs/2011.03176 — He--Balasubramanian--Erdogdu on randomized midpoint ergodicity and stationary bias.
+- https://doi.org/10.1137/090758842 — Bou-Rabee--Owhadi long-run numerical accuracy context.
+- https://doi.org/10.1137/20M138497X — Langevin numerical-analysis/invariant-measure context.
+
+## Limitations
+
+- The theorem is for a scalar quadratic target and sufficiently small step size.
+- It concerns stationary second moments, not the full generally non-Gaussian invariant law.
+- It does not rank transient strong error, mixing time, general-target Wasserstein performance, or wall-clock cost.
+- LC-REI is extremely recent, so contemporaneous or not-yet-indexed follow-up work remains a residual originality risk.
+
+## Repository identity
+
+The assigned source-tree SHA `0848eda7d22ed37b1b5e0b08238b855b7d5c4cc7` exactly matched the current tree at the audited path on `main`; no stale-tree substitution was used. GitHub was read only during this audit.
