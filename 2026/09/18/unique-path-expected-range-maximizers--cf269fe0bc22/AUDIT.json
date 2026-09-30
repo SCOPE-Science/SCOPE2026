@@ -1,30 +1,45 @@
 {
-  "scope_run_id": "4289184e-4914-4f4b-b857-45cbb61a90af",
-  "record_id": "SCOPE-20260918-cf269fe0bc22",
-  "review_type": "same_model_review",
-  "independent": false,
-  "phase": "II",
-  "same_model_review_status": "passed",
-  "independent_audit_status": "not_performed",
-  "correctness": {
-    "status": "PASS",
-    "summary": "Equality in the BHM single-class comparison is characterized by an auxiliary tree with codegree one on every auxiliary edge. Equality in both bipartition classes then forces maximum degree at most two; even cycles are excluded by a cyclic auxiliary graph or, for C4, by codegree two. The lazy gap-transfer inequality follows from zero-edge contraction and the positive-probability no-zero event, and completes the unique-maximizer classification."
+  "axes": {
+    "correctness": {
+      "rationale": "The exact equality criterion inside Zhu’s auxiliary-graph comparison is sound and forces paths as the only all-connected-bipartite BHM equality case. The zero-edge contraction proof of the gap-transfer inequality is also correct.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Wu--Xu--Zhu (2016) already state equality iff the tree is a path for both the lazy and standard tree inequalities. The repaired claim therefore narrows novelty to the all-connected-bipartite BHM equality classification and the quantitative gap transfer, neither of which was found in the compared sources.",
+      "verdict": "pass_after_repair"
+    },
+    "scientific_value": {
+      "rationale": "The retained contributions classify equality in Zhu’s newly proved BHM theorem over all connected bipartite graphs and give a quantitative bridge from the standard model to the lazy model.",
+      "verdict": "pass"
+    }
   },
-  "originality": {
-    "status": "PASS",
-    "scope": "to the best of our knowledge",
-    "summary": "The direct 2026 source proves the non-strict BHM and LNR expectation inequalities and gives lazy strictness on cyclic graphs, but does not state the complete equality classifications or the standard-to-lazy gap transfer. Exact and synonymous searches found no coverage. The complete 2016 tree paper was not inspected in full, leaving a stated residual risk for a tree-only equality remark, and very recent parallel work remains possible."
-  },
-  "value": {
-    "status": "PASS",
-    "summary": "The result upgrades both newly completed path-extremality inequalities to uniqueness, isolates the exact auxiliary obstruction responsible for strictness, and supplies a quantitative gap-transfer inequality for every connected bipartite graph."
-  },
-  "limitations": [
-    "Originality is only to the best of our knowledge.",
-    "The complete 2016 Wu--Xu--Zhu manuscript was not inspected in full.",
-    "The stronger stochastic-domination form of BHM is not addressed.",
-    "No sharp universal expectation-gap bound depending only on n is claimed.",
-    "Independent audit has not been performed."
+  "checked_sources": [
+    {
+      "finding": "Current v1 proves the BHM expectation theorem for all connected bipartite graphs and derives LNR; it does not state the complete BHM equality classification.",
+      "title": "Zhu, Paths maximize the expected range of graph-indexed random walks",
+      "url": "https://arxiv.org/abs/2609.19728"
+    },
+    {
+      "finding": "Search-indexed full-text extraction exposes Corollary 2.6 (lazy tree height, equality iff path) and Corollary 2.12 (standard/bipartite tree height, equality iff path). Direct PDF opening timed out, so only the indexed theorem text is claimed inspected.",
+      "title": "Wu, Xu, Zhu, Average Range of Lipschitz Functions on Trees",
+      "url": "https://zhuyinfeng.org/Data/Preprints/MJCNT16.pdf"
+    },
+    {
+      "finding": "Extends both extremal inequalities to unicyclic graphs; does not subsume the all-connected-bipartite equality criterion or the general gap transfer.",
+      "title": "Bok and Nešetřil, Graph-indexed random walks on pseudotrees",
+      "url": "https://doi.org/10.1016/j.endm.2018.06.045"
+    }
   ],
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed."
+  "independent": true,
+  "limitations": [
+    "Direct opening of the 2016 author-hosted PDF timed out during this audit; the relevant theorem text was nevertheless exposed by the search index and is quoted only at the level needed for attribution.",
+    "The stronger stochastic-domination form of BHM is not addressed.",
+    "No graph-independent quantitative stability gap is claimed."
+  ],
+  "policy": "to-the-best-of-our-knowledge",
+  "repair_note": "The mathematical proofs are correct, but the prior originality discussion was materially incomplete. Wu--Xu--Zhu (2016) explicitly state unique-path equality for both tree inequalities in Corollaries 2.6 and 2.12. The repaired record no longer claims those tree equality cases or the resulting lazy uniqueness package as new; novelty is restricted to the all-connected-bipartite BHM equality classification and the general quantitative gap transfer.",
+  "review_type": "independent_audit",
+  "reviewed_at": "2026-09-29",
+  "supersedes_prior_audit_context": true,
+  "verdict": "PASS_AFTER_REPAIR"
 }

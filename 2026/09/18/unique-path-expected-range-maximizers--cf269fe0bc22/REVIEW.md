@@ -1,66 +1,26 @@
 # Review
 
+**Independent-audit repair required and supplied.**
+
 ## Correctness
 
-**PASS.**  The standard-model equality classification follows from an exact
-reading of the two single-class comparisons in the proof of arXiv:2609.19728.
-A cyclic auxiliary graph gives strict inequality.  If an auxiliary graph is a
-tree, its zero-edge quotient size is controlled by independent Bernoulli edge
-increments with parameters \(2/(2^{t_e}+2)\le1/2\).  Since the path expected-range
-sequence \(b_j\) is strictly increasing, equality forces every \(t_e=1\).
-Applying this to both bipartition classes forces maximum degree at most two;
-cycles of length at least six violate the auxiliary-tree condition, while
-\(C_4\) violates the codegree-one condition.  Hence only a path can attain
-equality.
+**PASS.** The all-connected-bipartite standard-model equality classification follows from the equality conditions inside Zhu's two single-class comparisons. A cyclic auxiliary graph gives strict inequality. When the auxiliary graph is a tree, its edge increments are independent Bernoulli variables with nonzero probabilities `2/(2^{t_e}+2) <= 1/2`; since the path range sequence is strictly increasing, equality forces `t_e=1` on every auxiliary edge. Applying the criterion to both bipartition classes forces maximum degree at most two. Even cycles of length at least six have cyclic same-class auxiliary graphs, and `C_4` violates the codegree-one condition, so only a path remains.
 
-The gap-transfer inequality follows from the zero-edge contraction identity
-\(h(G)=\mathbb E\widehat h(G/A_f)\), the BHM inequality on every quotient, and
-the event \(A_f=\varnothing\).  Its probability is
-\(|\mathcal H(G,o)|/|\mathcal L(G,o)|\), and on that event the quotient is \(G\)
-itself.  Zhu's contraction comparison then bounds the intermediate path
-expectation by \(h(P_n)\).  This yields the claimed lower bound on the lazy gap.
-Combining it with the standard strictness handles every non-path bipartite
-graph; Zhu's already-proved cycle strictness handles every connected
-nonbipartite graph.  Small-order boundary cases are consistent with the proof.
-
-The proof is general and does not rely on computation.
+The quantitative gap-transfer inequality follows directly from Zhu's zero-edge contraction identity, the BHM inequality on every contracted quotient, and retention of the nonnegative contribution from the no-zero-edge event. Its probability is `|H(G,o)|/|L(G,o)|`; for a tree independent lazy edge increments give `(2/3)^{n-1}`.
 
 ## Originality
 
-**PASS, to the best of our knowledge.**  The direct 2026 source proves the
-non-strict BHM inequality and the LNR inequality, with LNR strictness for graphs
-containing a cycle.  It does not state a BHM equality classification or a unique
-maximizer theorem, and Remark 5.6 explicitly leaves open the possibility that
-the first contraction inequality is strict on trees.  Searches using
-"unique maximizer", "equality case", standard/lazy expected range, graph-indexed
-random walk, graph homomorphism, and the BHM/LNR names found no theorem covering
-the two complete equality classifications or the displayed gap-transfer
-inequality.
+**PASS AFTER ATTRIBUTION REPAIR.** The prior version understated the 2016 literature. Wu--Xu--Zhu's full manuscript is search-indexed with the relevant theorem text: Corollary 2.6 states `h(G) <= h(P_n)` for every tree with equality iff `G=P_n`, and Corollary 2.12 states the analogous unique-path equality for the standard/bipartite height. Those tree equality cases are therefore prior work, not a residual possibility.
 
-Wu--Xu--Zhu (2016) proves both inequalities for trees, and Bok--Nešetřil (2018)
-extends them to unicyclic graphs.  The complete 2016 manuscript was not inspected
-in full; accessible theorem statements record non-strict inequalities, leaving
-a residual risk that a tree-only equality observation appears in the body.
-Even if so, it would not imply the all-connected-bipartite BHM equality
-classification or the general gap-transfer inequality.  The main 2026 source is
-new, so very recent unindexed parallel work is another residual risk.
+The genuinely new scope retained by the repaired record is narrower and still substantive: Zhu's 2026 theorem covers every connected bipartite graph but does not state its complete equality classification, and the exact auxiliary-tree/codegree-one criterion yields that classification. The general quantitative standard-to-lazy gap transfer was not found in the compared sources. The all-connected lazy unique-maximizer statement is now explicitly presented as a prior consequence/consistency corollary rather than a new theorem.
 
-## Value
+## Scientific value
 
-**PASS.**  The result upgrades two newly completed extremal expectation
-inequalities from existence of a path maximizer to uniqueness of the maximizer.
-The exact single-class equality criterion identifies the obstruction inside the
-new proof rather than merely checking examples.  The standard-to-lazy gap
-transfer is a quantitative statement that applies to every connected bipartite
-graph and may be useful for future stability questions.
+**PASS.** Classifying equality in the newly completed BHM expectation theorem is a meaningful extremal refinement beyond the 2016 tree case. The gap-transfer inequality also gives a quantitative mechanism converting any standard-model deficit into a lazy-model deficit on every connected bipartite graph. Removing the overstated novelty around the lazy/tree equality result leaves a coherent and worthwhile contribution.
 
 ## Limitations
 
-- Originality is only to the best of our knowledge.
-- The complete 2016 Wu--Xu--Zhu manuscript was not inspected in full.
+- Originality is claimed only for the all-connected-bipartite BHM equality classification and the quantitative gap transfer.
 - The stronger stochastic-domination form of BHM is not addressed.
-- No sharp universal lower bound on the nonzero expectation gap as a function of
-  \(n\) alone is claimed.
-- No independent validation has been performed.
-
-**Same-model review: passed. Independent audit: not yet performed.**
+- The factor `p_G` may be exponentially small, and no sharp universal stability gap depending only on `n` is claimed.
+- Very recent parallel work remains possible because the 2026 source is new.
