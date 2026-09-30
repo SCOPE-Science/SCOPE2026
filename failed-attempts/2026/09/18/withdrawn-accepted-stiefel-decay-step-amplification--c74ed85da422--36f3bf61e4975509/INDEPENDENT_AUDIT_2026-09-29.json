@@ -1,0 +1,51 @@
+{
+  "assignment_source_tree_sha": "705cf89f6ddc78b4f46002ff8e7d4219d5142e61",
+  "audit_date": "2026-09-29",
+  "audited_current_source_tree_sha": "705cf89f6ddc78b4f46002ff8e7d4219d5142e61",
+  "audited_repository_commit": "eff2c6312cec5b0dee5115e5f42211a853092dfb",
+  "axes": {
+    "correctness": {
+      "finding": "PASS. For tangent Delta, the cross term in (aW+Delta)^T(aW+Delta) vanishes, giving a^2 I+Delta^T Delta, the singular-value formula, unconditional full rank, and the conditioning formula. Positive homogeneity of the polar factor for a>0 gives P(aW+Delta)=P(W+Delta/a), hence eta_eff=eta/(1-eta lambda) for a fused AdamW radial term. The trace calculation yields the chordal-displacement formula, and the graph decomposition Delta=WA+B gives the principal-angle statement. An independent random-matrix check reproduced these identities to floating-point roundoff.",
+      "status": "passed"
+    },
+    "originality": {
+      "finding": "FAIL under the independent-research bar. The exact Stiefel formula was not located verbatim, but the central claimed mechanism is the immediate specialization of two established facts: polar/normalization maps are positively homogeneous, and decoupled weight decay is multiplicative radial shrinkage. The broader phenomenon that weight decay on scale-invariant or normalized parameters acts through effective step/learning-rate changes has been explicit in the literature since at least van Laarhoven's normalization analysis and later work. Guerrero's motivating paper already foregrounds the complementary one-line Stiefel fact that radial weight decay has zero Riemannian gradient. The submitted eta/(1-eta lambda) identity therefore does not constitute a sufficiently independent new mechanism rather than a direct algebraic corollary of standard ingredients.",
+      "status": "failed"
+    },
+    "scientific_value": {
+      "finding": "FAIL AS A VALIDATED NEW RESEARCH CONTRIBUTION. The formulas are correct and useful as an implementation note warning that 'project then decay' and 'fuse decay then project' are different, but the principal theorem is obtained in one line from positive homogeneity, and the Gram, displacement, conditioning, and angle consequences are routine matrix-algebra elaborations. Existing normalized/scale-invariant optimization literature already treats weight decay primarily as an effective-learning-rate control. The package is therefore pedagogically useful but does not clear this audit's scientific-value threshold for a standalone finding.",
+      "status": "failed"
+    }
+  },
+  "branch": "main",
+  "checks": [
+    "Re-derived every exact matrix identity from the Stiefel tangent equation and positive homogeneity of the polar factor.",
+    "Generated an independent random tangent matrix and numerically verified the Gram, polar-rescaling, and displacement formulas to roundoff.",
+    "Read Guerrero's open arXiv full text: it explicitly states that weight decay has identically zero Riemannian gradient on St(d,r) and treats this as a one-line normal-space consequence.",
+    "Compared the claimed mechanism with prior normalization/scale-invariance literature in which weight decay changes effective learning rates rather than directly regularizing normalized parameters.",
+    "Checked current GeometricOptimizers documentation, which explicitly distinguishes decoupled AdamW-style Euclidean decay from its vanishing Riemannian gradient on Stiefel/Grassmann manifolds.",
+    "Verified the assigned record path is unchanged from the dispatcher source-check commit to current main and that both dated independent-audit marker files are absent."
+  ],
+  "citations": [
+    "https://arxiv.org/abs/2609.19363",
+    "https://arxiv.org/html/2609.19363v1",
+    "https://arxiv.org/abs/1706.05350",
+    "https://arxiv.org/abs/2103.15345",
+    "https://juliagni.github.io/GeometricOptimizers.jl/stable/weight_decay/",
+    "https://arxiv.org/abs/1711.05101",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/18/stiefel-decay-step-amplification--c74ed85da422"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The failure is an originality/scientific-value judgment, not a claim that the exact identities are false.",
+    "No source located in this run states the exact Stiefel eta/(1-eta lambda) formula verbatim; the rejection rests on how directly it follows from standard positive homogeneity plus the standard AdamW shrinkage and on extensive prior effective-learning-rate framing.",
+    "The identities remain potentially valuable documentation for software ordering semantics."
+  ],
+  "protocol": "scope-audit-change-set-v1",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "review_status": "complete",
+  "schema_version": 1,
+  "source_path": "2026/09/18/stiefel-decay-step-amplification--c74ed85da422",
+  "source_tree_unchanged": true,
+  "type": "independent_audit"
+}
