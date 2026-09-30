@@ -1,0 +1,37 @@
+# Independent audit — 2026-09-30
+
+## Disposition: PASSED
+
+Record: `2026/09/19/quadratic-hausdorff-stability-planar-fractional-perimeter--3a652b674803`
+
+### Correctness
+PASS. The four-step stability proof is coherent. On a middle chord interval, strict concavity of φ(t)=2 sin(t/2) gives a uniform quadratic Jensen deficit; integrating the tangent-angle increment and using the Fourier spectral gap controls the nonconstant part of θ(u)-u. For outer parallel bodies, the normalized curvature radius gives exactly the weighted 1/(1+r)^3 angular-defect formula, and on 1≤r≤2 this controls J(K). The established first variation of the chord functional transfers that positive Willmore gap to a chord/perimeter deficit. Finally, ρ=h+h'' gives J(K)=2πΣ_{|k|≥2}((k²-1)²/k²)|h_k|²; translation removes only k=±1, the weight controls H¹, and H¹(S¹) embeds into L∞, which is Hausdorff distance via support functions. Scaling yields R^{-s}. The perturbation h=1+ε cos2θ has exact perimeter 2π, positive curvature for |ε|<1/3, translation-optimized Hausdorff distance |ε|, and vanishing first variation, proving local quadratic optimality.
+
+### Originality
+PASS, qualified to the inspected evidence. The two September 2026 sharp-comparison papers state the qualitative disk maximizer at fixed classical perimeter. The closest recent stability paper treats the ratio of two genuinely fractional perimeters 0<s<t<1 and only nearly spherical sets. Targeted searches for a global convex-body Hausdorff deficit at the endpoint t=1 found no equivalent theorem. The present claim is therefore appropriately restricted to this global planar convex endpoint estimate and its sharp Hausdorff power.
+
+### Scientific value
+PASS. The theorem upgrades a newly settled extremal inequality to a global coercive geometric estimate and identifies a reusable proof mechanism linking tangent-angle Jensen deficit, outer-parallel first variation, and support-function spectral control. The explicit perturbation also establishes the correct local Hausdorff exponent.
+
+### Independent findings
+- The middle-interval concavity argument has a genuinely uniform quadratic constant even though φ'' vanishes at the endpoints 0 and 2π, because the expansion point w stays in [π/2,3π/2].
+- The parallel-body normalization and W_s scaling give a uniform J(K) lower bound on r∈[1,2].
+- The support-function Fourier weight dominates the H¹ weight for every |k|≥2, exactly separating translation modes.
+- The theorem has the correct homogeneity: R^{-s}d_H² scales like P_s in the plane.
+
+### Independent checks
+- Rechecked the tangent-angle Fourier spectral gap and the sign of the Jensen deficit.
+- Derived the normalized outer-parallel defect formula from ds=(ρ+r)/(1+r)dβ and s_r(β)=β+F(β)/(1+r).
+- Recomputed the Fourier expression for J(K) and the support-function/Hausdorff conversion.
+- Stress-tested the local sharpness family h=1+ε cos2θ and the scaling exponent.
+
+### Literature evidence
+- https://arxiv.org/abs/2609.19052 — Lin–Yang–Yang–Yuan–Zhang sharp planar fractional comparison and chord/Willmore/parallel-body machinery.
+- https://arxiv.org/abs/2609.14513 — Frank–Ivanisvili sharp fixed-classical-perimeter disk maximizer for arbitrary planar finite-perimeter sets.
+- https://arxiv.org/abs/2605.07543 — Alberti–Cozzi–Massaccesi–Mirmina local stability for 0<s<t<1; does not cover endpoint t=1 or global convex Hausdorff control.
+- https://doi.org/10.12775/TMNA.2024.019 — Related nonlocal-perimeter monotonicity for nested convex bodies; different problem.
+
+### Limitations
+- The estimate is planar and convex-body specific; it does not give Hausdorff stability for arbitrary finite-perimeter sets.
+- The constant c_s is not optimized and no uniform behavior as s approaches 0 or 1 is established.
+- Originality remains qualified against differently phrased contemporaneous convex-geometric work.
