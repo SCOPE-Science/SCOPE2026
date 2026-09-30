@@ -1,0 +1,43 @@
+# Independent Audit — single-nilpotent-witness-for-sharp-strict-singular-compactness--e9841980c4ca
+
+**Audit date:** 2026-09-29 (UTC)  
+**Assigned/current source tree:** `8269bfba58837f79cb635f782f52f130c37fe586`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree is unchanged from the dispatcher-audited source tree; no source-path file changed between the source-check commit and the current audited commit.
+
+## Correctness — PASS
+
+PASS. The construction correctly packages the source paper's sharp noncompact composition chain into one nilpotent weighted shift. The ordered model-space chain has k+1 vertices and k strictly singular formal inclusions whose full composite is noncompact. On Z=Y_1⊕...⊕Y_{k+1}, the shift S(y_1,...,y_{k+1})=(0,R_1y_1,...,R_ky_k) is strictly singular because all of its finitely many matrix entries are strictly singular, satisfies S^{k+1}=0, and has S^k noncompact because its (k+1,1) corner is R_k...R_1. The absorption isomorphisms B_p⊕ℓ_p≅B_p and S_r⊕c_0≅S_r identify Z with the original direct-sum space X, so conjugation gives the claimed single operator on X.
+
+## Originality — PASS
+
+PASS, WITH A NARROW BOUNDARY. Laustsen--Wirzenius prove sharp nilpotency of S(X)/K(X) by exhibiting k possibly different strictly singular factors with noncompact product; their published statement does not supply a single T with T^{k+1}=0 and T^k noncompact. Searches for the same single-operator realization on these Baernstein/Schreier/ℓ_p sums did not locate a prior result. The audit does not credit the finite-shift construction itself as a new technique.
+
+## Scientific value — PASS
+
+PASS. The result strengthens sharp quotient nilpotency from an arbitrary product witness to an exact power witness of one algebraically nilpotent strictly singular operator. The strengthening is modest and uses the source paper's difficult inclusions, but it answers a genuinely stronger operator-theoretic realization question rather than merely restating the nilpotency index.
+
+## Independent checks
+
+- read the lawful open accepted manuscript of Laustsen--Wirzenius and verified the model-space chain, complemented embeddings, strict-singular inclusions, and noncompact full composite used by the construction
+- independently checked strict singularity of the block shift via finite matrix entries
+- computed S^j block locations and verified S^{k+1}=0 while S^k contains exactly the source noncompact composite corner
+- checked the direct-sum absorption steps B_p⊕ℓ_p≅B_p and S_r⊕c_0≅S_r against the source
+- searched specifically for square-zero/nilpotent single strictly singular witnesses in the same space families
+- confirmed no assigned record path changed between the dispatcher source-check commit and audited current main
+
+## Limitations
+
+- The difficult Banach-space input is entirely inherited from Laustsen--Wirzenius; the new step is the single-shift packaging.
+- No claim is made that a general nilpotent ideal or quotient algebra must admit a single element attaining its nilpotency index.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2509.02405
+- https://doi.org/10.1090/proc/17594
+- https://eprints.lancs.ac.uk/234194/1/LWirzenius_PAMSaccepted1Dec2025.pdf
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/17/single-nilpotent-witness-for-sharp-strict-singular-compactness--e9841980c4ca
+
+This audit changes only the independent-audit channel. Lean verification and expert attestation remain unchanged.
