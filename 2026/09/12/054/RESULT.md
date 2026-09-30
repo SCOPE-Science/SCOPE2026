@@ -1,127 +1,53 @@
-# Disproof of the cross-polytope versus box masking acceptance–Rényi tradeoff (TARGET resolution)
+# Disproof of the equal-volume cross-polytope versus box acceptance–Rényi tradeoff at an ML-DSA-44 parameter tuple
 
 ## Context
+Consider the canonical uniform-mask membership-overlap abort model: draw `y` uniformly from a masking body `S`, accept iff `y+v` remains in `S`, and output `z=y+v`. The submitted tradeoff claim says that replacing the box by an equal-volume `l1` ball (cross-polytope) should simultaneously improve acceptance by a factor of at least 1.5 and not increase Rényi-2 divergence. The original file used a hybrid `(tau,eta,l,gamma1)` tuple that does not correspond to any standardized ML-DSA parameter set. The repaired witness uses the actual ML-DSA-44 values from FIPS 204.
 
-Fiat–Shamir with aborts (Lyubashevsky) uses rejection (abort) sampling to remove
-secret dependence from transcripts. At Dilithium scales the standard choice is
-uniform box (hypercube) masking. A natural candidate alternative is uniform
-masking over the equal-volume $\ell^1$-ball (cross-polytope), calibrated so that
-both masking bodies have identical volume. The admitted target claim asserted
-that, at Dilithium scales, the equal-volume cross-polytope simultaneously
-achieves (A) acceptance rate at least $1.5\times$ the box acceptance rate and
-(B) order-$\alpha=2$ Rényi divergence between accepted and ideal transcripts no
-larger than the box variant's, uniformly over secret shifts of
-$\ell^\infty$-norm at most $\beta$.
+## Definitions
+Let `N=256*l`. For ML-DSA-44, FIPS 204 gives `(k,l)=(4,4)`, `tau=39`, `eta=2`, `beta=tau*eta=78`, and `gamma1=2^17`. Hence `N=1024`.
 
-## Definitions (canonical abort model)
+- Box: `S_box=[-gamma1,gamma1]^N`.
+- Cross-polytope: `C={y: ||y||_1 <= R}` with equal volume, so `R=gamma1*(N!)^(1/N)`.
+- Shift: `v=beta e_1`, which has `||v||_infty=beta`.
 
-Fix a masking body $S \subset \mathbb{R}^N$ of finite positive volume and a
-secret shift $v$. Draw $y \sim U(S)$; accept iff $y+v \in S$; on acceptance
-output $z=y+v$. Then:
+## Exact acceptance and divergence formulas
+For the canonical abort model, the accepted distribution is uniform on `T=S∩(S+v)`. Therefore for every Rényi order `alpha>0`, `alpha != 1`, and also for KL,
 
-- Acceptance rate: $\delta = |S \cap (S+v)| / |S|$.
-- Accepted law: $P = U(T)$ with $T := S \cap (S+v)$.
-- Ideal transcript law: $Q = U(S)$.
+`D_alpha(U(T)||U(S)) = -log(delta)`, where `delta=|T|/|S|`.
 
-Write $N = 256\,l$. Box: $S_{\mathrm{box}} = [-\gamma_1,\gamma_1]^N$.
-Cross-polytope: $C = \{y : \|y\|_1 \le R\}$.
-Single-spike shift: $v = \beta e_1$, so $\|v\|_\infty = \beta$.
+For the single-coordinate shift,
 
-## Result
+`delta_box = 1-beta/(2 gamma1)`.
 
-**The tradeoff claim is FALSE.** A single in-scope instance violates both
-inequalities. Take $l=4$ ($N=1024$), $\gamma_1 = 2^{17} = 131072$,
-$\beta = 240 = 60 \cdot 4$ ($\tau=60$, $\eta=4$),
-$R = \gamma_1 (N!)^{1/N}$, $\alpha = 2$, $v = 240\,e_1$:
+The cross-polytope volume is `(2R)^N/N!`; slicing the overlap in the shifted coordinate gives
 
-- $\delta_{\mathrm{box}} = 16369/16384 \approx 0.99908447$,
-  $R_2^{\mathrm{box}} \approx 0.00091595$;
-- $\delta_{\mathrm{cross}} \approx 0.99752504$,
-  $R_2^{\mathrm{cross}} \approx 0.00247803$;
-- acceptance ratio
-  $\delta_{\mathrm{cross}}/\delta_{\mathrm{box}} \approx 0.99844 < 1.5$,
-  so (A) fails;
-- $R_2^{\mathrm{cross}} / R_2^{\mathrm{box}} \approx 2.71 > 1$,
-  so (B) fails (reversed).
+`delta_cross = (1-beta/(2R))^N`.
 
-## Proof / evidence
+## ML-DSA-44 witness
+With `N=1024`, `gamma1=131072`, `beta=78`, and `(N!)^(1/N)=378.325067768656...`:
 
-**Lemma (divergence = negative log acceptance).** For $P = U(T)$, $Q = U(S)$
-with $T \subseteq S$, $|T| > 0$,
-$R_\alpha(P \| Q) = -\log \delta$ for every Rényi order
-$\alpha \in (0,1) \cup (1,\infty)$ (and also KL), where
-$\delta = |T|/|S|$. Proof: $p/q = (|S|/|T|)\mathbf{1}_T$, so
-$\int p^\alpha q^{1-\alpha} = (|S|/|T|)^{\alpha-1}$; dividing the log by
-$\alpha-1$ gives $\log(|S|/|T|) = -\log\delta$.
+- `delta_box = 0.9997024536132812`;
+- `delta_cross = 0.9991949648934448`;
+- `delta_cross/delta_box = 0.9994923602337854 < 1.5`;
+- `D_2(box) = 0.0002975906624278`;
+- `D_2(cross) = 0.0008053593213184`;
+- `D_2(cross)/D_2(box) = 2.7062654276 > 1`.
 
-Hence for both schemes the divergence comparison is exactly the reversed
-acceptance comparison.
+Thus both proposed inequalities fail at an actual standardized ML-DSA-44 parameter tuple.
 
-**Volumes and calibration.** $|C| = (2R)^N/N!$ by induction via
-$V_N(R) = \int_{-R}^{R} V_{N-1}(R-|t|)\,dt$ with $V_1(R) = 2R$.
-Equal-volume calibration $|C| = |S_{\mathrm{box}}|$ gives
-$(2R)^N/N! = (2\gamma_1)^N$, i.e. $R = \gamma_1 (N!)^{1/N}$.
+The divergence reversal also has an analytic certificate. Let `x=beta/(2 gamma1)` and `M=(N!)^(1/N)`. Using `-log(1-t)>=t`, `-log(1-x)<=x/(1-x)`, and the AM–GM bound `M<=(N+1)/2`,
 
-**Box acceptance (single spike).** Only coordinate 1 changes:
-$[-\gamma_1,\gamma_1] \cap [-\gamma_1+\beta,\gamma_1+\beta]
-= [-\gamma_1+\beta,\gamma_1]$ of length $2\gamma_1-\beta$. Exactly:
-$\delta_{\mathrm{box}} = 1 - \beta/(2\gamma_1) =: 1-x$,
-$R_2^{\mathrm{box}} = -\log(1-x)$.
+`D_2(cross)/D_2(box) >= N(1-x)/M >= 2N(1-x)/(N+1) > 1`.
 
-**Cross-polytope acceptance (single spike).** For fixed $z_1$ the remaining
-coordinates form an $\ell^1$-ball of radius
-$R - \max(|z_1|,|z_1-\beta|)$. With $u = z_1 - \beta/2$ and symmetry,
-$|T_{\mathrm{cross}}| = 2^N (R-\beta/2)^N / N!$ (valid since $R > \beta/2$).
-Exactly: $\delta_{\mathrm{cross}} = (1-\beta/(2R))^N =: (1-u)^N$,
-$R_2^{\mathrm{cross}} = -N\log(1-u)$.
-
-**Refutation of (A).** Since $0 < u < 1$, $\delta_{\mathrm{cross}} < 1$, so
-$\delta_{\mathrm{cross}}/\delta_{\mathrm{box}} < 1/(1-x)
-= 16384/16369 < 1.00092 < 1.5$ (as $16384\cdot 2 < 3\cdot 16369$).
-
-**Refutation of (B).** Using $-\log(1-t) \ge t$ and
-$-\log(1-x) \le x/(1-x)$,
-$R_2^{\mathrm{cross}}/R_2^{\mathrm{box}} \ge N(1-x)/M$ with
-$M := (N!)^{1/N}$ (since $u = x/M$). AM–GM pairing gives
-$M \le (N+1)/2 = 512.5$ for even $N$, so the ratio is at least
-$2N(1-x)/(N+1) = (2048/1025)(16369/16384) > 1.99 > 1$.
-
-**Certified numerics.** `output/artifacts/refutation.py` certifies
-$M = (1024!)^{1/1024} \in [378.325067766, 378.325067769]$ via Robbins'
-two-sided Stirling remainder against the exact-sum $\log(1024!)$ and computes
-the values above; an independent 200,000-draw $\ell^1$-ball Monte Carlo gives
-$\hat\delta_{\mathrm{cross}} = 0.99766 \pm 0.00011$, agreeing with the exact
-$0.997525$ within $\sim 1$ s.e.
-
-**Mechanism.** The reversal is structural: $R_2 = -\log\delta$ for both
-schemes; the cross-polytope overlap $(1-\beta/2R)^N$ decays with the full
-dimension $N$ while the box single-spike overlap pays only in one coordinate;
-equal-volume calibration forces $R/\gamma_1 = (N!)^{1/N} \approx N/e$.
+## Originality and scope
+The identity `D_alpha=-log(delta)` for a uniform accepted subset and the elementary overlap formulas are standard calculations. The useful content is the explicit refutation of this proposed equal-volume `l1`-ball versus box tradeoff under the stated canonical model. Contemporary FSwA polytope work studies broader rejection-sampling constructions and different bodies; this record should not claim that cross-polytopes or polytope masking were previously unstudied.
 
 ## Limitations
-
-The refutation applies to the canonical abort-sampling model (uniform mask,
-accept iff the shifted value stays in the body; accepted-versus-uniform-ideal
-Rényi divergence) and the equal-box-volume radius calibration. It does not rule
-out reformulated claims using norm-check acceptance, non-uniform masking,
-different divergence accounting, or differently scaled radii.
+The result is specific to uniform masking with membership-overlap acceptance and the equal-volume calibration. It does not address nonuniform masking, different rejection rules, or other radius calibrations.
 
 ## Reproducibility
-
-Run `python3 output/artifacts/refutation.py` (requires only Python standard
-library). It asserts the Robbins bracket, prints the certified $M$ interval,
-acceptance/divergence values, the ratio upper bound, and the Monte Carlo
-cross-check. The analytic refutations in sections above require no numerics.
+Run `python3 artifacts/refutation.py` from the record directory. The script checks a Robbins/Stirling bracket for `(1024!)^(1/1024)` and prints the acceptance and Rényi values above.
 
 ## References
-
-- V. Lyubashevsky, Fiat-Shamir with aborts: applications to lattice and
-  factoring-based signatures, ASIACRYPT 2009.
-- L. Ducas et al., CRYSTALS-Dilithium: a lattice-based digital signature
-  scheme, TCHES 2018 / eprint 2017/633.
-- J. Devevey, P. Fallahpour, A. Passelègue, D. Stehlé, A detailed analysis of
-  Fiat-Shamir with aborts, CRYPTO 2023 / eprint 2023/245.
-- H. Bambury, H. Beguinet, T. Ricosset, E. Sageloli, Polytopes in the
-  Fiat-Shamir with aborts paradigm, CRYPTO 2024 / eprint 2024/411.
-- J. Devevey, Lattice-based signature schemes in the Fiat-Shamir paradigm
-  (PhD thesis).
+- NIST FIPS 204, *Module-Lattice-Based Digital Signature Standard*, Table 1 (ML-DSA-44 parameters): https://doi.org/10.6028/NIST.FIPS.204
+- H. Bambury, H. Beguinet, T. Ricosset, E. Sageloli, *Polytopes in the Fiat-Shamir with Aborts Paradigm*, IACR ePrint 2024/411.
