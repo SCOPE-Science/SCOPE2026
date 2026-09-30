@@ -1,0 +1,44 @@
+{
+  "audit_date": "2026-09-28",
+  "audited_source_tree_sha": "bf6033a8d389b8494f34a71b38e790181834c904",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact counterexample checks. With D=diag(4,2) and A(1)=[[3,-1],[-1,3]], one gets H(1)=[[3/2,1/2],[1/4,3/4]], trace 9/4, determinant 1, and discriminant 17/16, so its Perron root is (9+sqrt(17))/8<7/4<2=R0(0). The DFE and heterogeneous isolated risks (2,1) are also correct. Thus the submitted “strictly increasing” claim is indeed false.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Gao and Dong’s 2020 theorem already establishes that increasing diffusion of the single mobile infected compartment class makes R0 strictly decrease when patch risks are heterogeneous, and states that the approach applies to epidemic patch models with exactly one migrating infected-compartment class and one transmission route. The submitted exposed-mobile/infective-immobile SEIR example is therefore a concrete 2x2 instance of an already published general monotonicity direction, not a new phenomenon.",
+      "verdict": "fail"
+    },
+    "scientific_value": {
+      "rationale": "As an exact sanity-check against a wrongly oriented monotonicity target the example is clear and useful. But once the published general theorem is accounted for, a single rational 2-patch instantiation does not add a new theorem, mechanism, boundary case, or quantitatively significant refinement.",
+      "verdict": "fail"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No inaccessible source was represented as read.",
+    "Where exact prior coverage remained uncertain, originality is explicitly unresolved rather than inferred from unsuccessful searching."
+  ],
+  "literature": [
+    {
+      "note": "Gao–Dong, Fast Diffusion Inhibits Disease Outbreaks: strict decrease/convexity of R0 under heterogeneous patch risks, with applicability to models having exactly one migrating infected compartment class and one transmission route.",
+      "url": "https://arxiv.org/abs/1907.12229"
+    },
+    {
+      "note": "Published Proceedings of the AMS version of the same theorem.",
+      "url": "https://doi.org/10.1090/proc/14868"
+    }
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "repository_files": {
+    "METADATA.json": "1fca78530ae11afb2e2821a88769456c4ea2e0e6",
+    "RESULT.md": "9f1ace827fc355d0a1d45a63c005e9748cbf0731",
+    "SLOGAN.txt": "6eeb487648f46c4d9bf153cd754138d90e675b3a",
+    "VERIFICATION.md": "83b03a7f246da30fad50fa39962dbb6d7f0519f0",
+    "artifacts/verify_R0_monotonicity_counterexample.py": "df6582bd165ceda82ab4ae86b78f60b1f19b6b50"
+  },
+  "schema_version": 1,
+  "source_path": "2026/09/14/018",
+  "summary": "Rejected on originality and value: the exact 2-patch calculation is correct, but Gao–Dong already prove the relevant general decreasing-diffusion phenomenon for patch models with exactly one mobile infected compartment class."
+}
