@@ -1,88 +1,83 @@
-# The Euclidean Jung constant is the universal local Hausdorff–Gromov–Hausdorff constant
+# The Euclidean Jung constant is the universal local Hausdorff–Gromov–Hausdorff constant — provenance-corrected presentation
 
-## Result
+## Status and provenance
 
-Let \((M,g)\) be a closed connected Riemannian \(n\)-manifold, \(n\ge 2\), and put
-\[
-c_n:=\sqrt{\frac{n+1}{2n}}.
-\]
-For a nonempty compact subset \(A\subset M\), write
-\[
-h(A):=d_{\mathrm H}(A,M).
-\]
+The universal lower bound below is correct and is the substantive contribution of this record. One component of the original presentation, however, was already present in an earlier SCOPE record.
 
-There are constants \(C_M<\infty\) and \(h_0>0\) such that every compact \(A\subset M\) with \(0<h:=h(A)<h_0\) satisfies
+`2026/09/18/small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f`,
+first committed at 2026-09-18T13:52:44Z, already proves
 \[
-\boxed{\quad d_{\mathrm{GH}}(A,M)\ge c_n h-C_Mh^3.\quad}
+d_{\mathrm{GH}}(M\setminus B_r(a),M)
+=
+c_n r+O(r^3),
+\qquad
+c_n=\sqrt{\frac{n+1}{2n}}.
 \]
-The leading constant is sharp on every \(M\). More precisely, for every \(a\in M\), if
-\[
-A_r:=M\setminus B_r(a),
-\]
-then as \(r\downarrow0\),
-\[
-\boxed{\quad d_{\mathrm{GH}}(A_r,M)=c_n r+O_M(r^3),\qquad
-d_{\mathrm H}(A_r,M)=r.\quad}
-\]
+The present record was first committed at 2026-09-19T01:53:04Z. Accordingly, the deleted-ball cubic asymptotic is treated here as prior SCOPE input, not as a new contribution.
 
-Consequently, if
+The new claim retained here is the scale-sensitive lower bound for **every** sufficiently dense compact subset and the resulting universal local infimum.
+
+## Theorem
+
+Let \((M,g)\) be a closed connected Riemannian \(n\)-manifold, \(n\ge2\), and put
 \[
-\mathcal C_M(h):=
-\inf\left\{
-\frac{d_{\mathrm{GH}}(A,M)}{d_{\mathrm H}(A,M)}:
-A\subset M\text{ compact},\ d_{\mathrm H}(A,M)=h
-\right\},
+c_n=\sqrt{\frac{n+1}{2n}},\qquad
+h(A)=d_{\mathrm H}(A,M).
 \]
-then
+There exist \(C_M<\infty\) and \(h_0>0\) such that every compact \(A\subset M\) with \(0<h(A)<h_0\) satisfies
 \[
-\boxed{\quad \mathcal C_M(h)=c_n+O_M(h^2),\qquad
-\lim_{h\downarrow0}\mathcal C_M(h)=\sqrt{\frac{n+1}{2n}}.\quad}
+\boxed{
+d_{\mathrm{GH}}(A,M)\ge c_n h(A)-C_M h(A)^3.
+}
 \]
 
-Thus the optimal infinitesimal converse constant relating Gromov–Hausdorff and Hausdorff distance is the Euclidean Jung constant in every closed Riemannian manifold, independently of the sign of sectional curvature.
-
-## A scale-sensitive lower bound
-
-The lower estimate is a quantitative refinement of the preceding limit.
-
-Let
+More precisely, with
 \[
-\kappa_+:=\max\{0,\sup_M\sec_g\},
+\kappa_+=\max\{0,\sup_M\sec_g\},
 \]
-and define, for \(q\ge0\),
+define
 \[
-\alpha_n(q):=
+\alpha_n(q)=
 \begin{cases}
-c_n,&q=0,\\[4pt]
+c_n,&q=0,\\[3pt]
 c_n\,
 \dfrac{\sin\!\left(\frac{\pi}{2}\sqrt{\frac{q}{q+1}}\right)}
 {\frac{\pi}{2}\sqrt{\frac{q}{q+1}}},&q>0.
 \end{cases}
 \]
-Choose any fixed
+For any fixed
 \[
-0<\delta<\frac{\pi}{4(c_n+1)}.
+0<\delta<\frac{\pi}{4(c_n+1)},
 \]
-Then, after decreasing \(h_0\) if necessary,
+after decreasing \(h_0\) if necessary,
 \[
-\boxed{\quad
+\boxed{
 \frac{d_{\mathrm{GH}}(A,M)}{h(A)}
 \ge
-\alpha_n\!\left(\frac{\kappa_+h(A)^2}{\delta^2}\right)
-\quad}
+\alpha_n\!\left(\frac{\kappa_+h(A)^2}{\delta^2}\right).
+}
 \]
-for every compact \(A\subset M\) with \(0<h(A)<h_0\).
 
-Since
+If
 \[
-\alpha_n(q)=c_n\left(1-\frac{\pi^2}{24}q+O_n(q^2)\right)
-\qquad(q\downarrow0),
+\mathcal C_M(h)=
+\inf\left\{
+\frac{d_{\mathrm{GH}}(A,M)}{d_{\mathrm H}(A,M)}:
+A\subset M\text{ compact},\ d_{\mathrm H}(A,M)=h
+\right\},
 \]
-this gives the cubic lower error above. In the nonpositively curved case \(\kappa_+=0\), it recovers the exact lower coefficient \(c_n\).
+then the earlier deleted-ball asymptotic supplies the matching upper family, and therefore
+\[
+\boxed{
+\mathcal C_M(h)=c_n+O_M(h^2),
+\qquad
+\lim_{h\downarrow0}\mathcal C_M(h)=c_n.
+}
+\]
 
-## Proof of the lower bound
+## Proof of the universal lower bound
 
-Adams–Frick–Majhi–McBride prove the following bound for a closed Riemannian \(n\)-manifold with sectional curvature bounded above by \(q\ge0\):
+Adams--Frick--Majhi--McBride prove that for a closed Riemannian \(n\)-manifold with sectional curvature bounded above by \(q\ge0\),
 \[
 d_{\mathrm{GH}}(X,M)
 \ge
@@ -91,143 +86,75 @@ d_{\mathrm{GH}}(X,M)
 \frac{\alpha_n(q)\tau}{2\alpha_n(q)+2}
 \right\},
 \]
-where, for \(q>0\),
-\[
-\tau=\min\left\{\rho(M),\frac{\pi}{2\sqrt{q+1}}\right\},
-\]
-and \(\rho(M)\) is the convexity radius. Their published theorem is stated for a fixed metric, so for positive curvature its displayed coefficient is strictly smaller than \(c_n\).
+with the corresponding convexity-radius/curvature cutoff \(\tau\).
 
-The key observation is to optimize that theorem under a change of scale.
-
-Let \(h=d_{\mathrm H}(A,M)>0\), fix \(\delta\) as above, and rescale the Riemannian metric by
+Let \(h=d_{\mathrm H}(A,M)>0\) and rescale
 \[
 g_h=\lambda^2g,\qquad \lambda=\frac{\delta}{h}.
 \]
-Under this rescaling,
+Then
 \[
 d_{\mathrm H}^{g_h}(A,M)=\delta,\qquad
 d_{\mathrm{GH}}^{g_h}(A,M)=\lambda d_{\mathrm{GH}}^g(A,M),
 \]
-the curvature upper bound becomes
+the upper curvature bound becomes
 \[
-q_h=\frac{\kappa_+}{\lambda^2}
-=\frac{\kappa_+h^2}{\delta^2},
+q_h=\frac{\kappa_+h^2}{\delta^2},
 \]
-and the convexity radius becomes \(\lambda\rho(M)\).
+and the convexity radius is multiplied by \(\lambda\).
 
-If \(\kappa_+>0\), the corresponding cutoff satisfies
+If \(\kappa_+>0\), the second branch of the cited minimum tends to
 \[
-\tau_h
-=
-\min\left\{
-\frac{\delta\rho(M)}h,\,
-\frac{\pi}{2\sqrt{1+q_h}}
-\right\}
-\longrightarrow \frac{\pi}{2}.
+\frac{c_n(\pi/2)}{2c_n+2},
 \]
-Also \(\alpha_n(q_h)\to c_n\). Because
+whereas the first branch tends to \(c_n\delta\). The chosen inequality
 \[
 \delta<\frac{\pi}{4(c_n+1)}
-=
-\lim_{h\downarrow0}
-\frac{\tau_h}{2(\alpha_n(q_h)+1)},
 \]
-for all sufficiently small \(h\) the first term in the minimum is the smaller one. Hence
+makes the first branch strictly smaller for all sufficiently small \(h\). Thus
 \[
-\lambda d_{\mathrm{GH}}^g(A,M)
-\ge
-\alpha_n(q_h)\delta.
+\lambda d_{\mathrm{GH}}^g(A,M)\ge\alpha_n(q_h)\delta,
 \]
-Dividing by \(\lambda=\delta/h\) gives
+or
 \[
 \frac{d_{\mathrm{GH}}^g(A,M)}h
 \ge
-\alpha_n\!\left(\frac{\kappa_+h^2}{\delta^2}\right).
+\alpha_n(q_h).
 \]
-If \(\kappa_+=0\), use curvature upper bound \(0\); after rescaling the cutoff coming from the convexity radius tends to infinity, and the same conclusion holds with \(\alpha_n(0)=c_n\).
+For \(\kappa_+=0\) the same conclusion holds with \(q_h=0\).
 
-The Taylor expansion follows from \(\sin x/x=1-x^2/6+O(x^4)\).
-
-## Cubic upper bound from a deleted geodesic ball
-
-Paul Schott recently constructed, for every point \(a\) of a Riemannian manifold and all sufficiently small \(r\), a correspondence between \(M\) and
+Since
 \[
-A_r=M\setminus B_r(a)
+\alpha_n(q)=c_n\left(1-\frac{\pi^2}{24}q+O(q^2)\right),
 \]
-obtained by transporting the Euclidean optimal correspondence through normal coordinates. His estimate yields, for every fixed \(L>1\),
-\[
-d_{\mathrm{GH}}(A_r,M)\le Lc_n r
-\]
-for small enough \(r\).
+the displayed cubic lower error follows uniformly for small \(h\).
 
-Tracking the normal-coordinate distortion gives the sharper error needed here.
+## Sharpness and relation to the earlier SCOPE record
 
-For a closed smooth Riemannian manifold, the normal-coordinate expansion
+The earlier record
+`small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f`
+combines Schott's optimal Euclidean correspondence, quadratic normal-coordinate distortion, and the same curvature-vanishing rescaling to prove
 \[
-g_{ij}(x)=\delta_{ij}+O_M(|x|^2)
-\]
-implies that for sufficiently small \(r\), the inverse exponential map on \(\overline{B_r(a)}\) is \(K_r\)-bilipschitz with
-\[
-K_r=1+O_M(r^2).
-\]
-Indeed, the upper metric estimate follows by transporting Euclidean line segments in the tangent ball; for the lower estimate, a minimizing geodesic joining two points of \(B_r(a)\) stays in a fixed multiple of that ball, where the same normal-coordinate estimate applies.
-
-Schott's Euclidean correspondence has
-\[
-\operatorname{dis}(R_r)=r\ell_n,\qquad
-\operatorname{Mot}(R_r)\le r\ell_n,
+d_{\mathrm{GH}}(M\setminus B_r(a),M)=c_nr+O(r^3),
 \qquad
-\ell_n=\sqrt{\frac{2(n+1)}n}=2c_n.
+d_{\mathrm H}(M\setminus B_r(a),M)=r.
 \]
-After transport to \(M\), his proof gives
+That prior SCOPE theorem supplies
 \[
-\operatorname{Mot}(R_r^M)\le rK_r\ell_n
+\mathcal C_M(h)\le c_n+O(h^2),
 \]
-and
-\[
-\operatorname{dis}(R_r^M)
-\le
-r\left(K_r\ell_n+2(K_r-K_r^{-1})\right).
-\]
-Therefore
-\[
-d_{\mathrm{GH}}(A_r,M)
-\le
-\frac r2\left(K_r\ell_n+2(K_r-K_r^{-1})\right)
-=
-c_n r+O_M(r^3).
-\]
-For \(r\) below the injectivity radius,
-\[
-d_{\mathrm H}(A_r,M)=r.
-\]
-Combining this upper estimate with the scale-sensitive lower bound proves
-\[
-d_{\mathrm{GH}}(A_r,M)=c_nr+O_M(r^3)
-\]
-and then the asserted asymptotic formula for \(\mathcal C_M(h)\).
+while the universal lower bound above supplies the reverse inequality. Hence the local infimum converges to \(c_n\) on every closed manifold, independently of the sign of curvature.
 
-## Context and improvement direction
+## Scientific value
 
-Adams–Frick–Majhi–McBride proved a lower Hausdorff-to-Gromov–Hausdorff bound on closed Riemannian manifolds with a coefficient \(\alpha(n,\kappa)\) depending on a fixed upper sectional-curvature bound. For \(\kappa>0\), their displayed coefficient is smaller than \(c_n\).
-
-Schott subsequently proved that the Euclidean coefficient \(c_n\) is attained exactly by the complement of a ball in Euclidean space and transferred that construction to arbitrary Riemannian manifolds, obtaining an upper ratio arbitrarily close to \(c_n\). He explicitly identified tightness with the earlier lower bound in the nonpositive-curvature case.
-
-The result above closes the remaining leading-order gap for positive curvature: after optimizing the earlier lower theorem under metric rescaling, the relevant curvature parameter is \(\kappa_+h^2\), not the fixed ambient \(\kappa_+\). Hence positive curvature affects only higher-order terms as the sample becomes dense. The normal-coordinate refinement of Schott's correspondence shows that the two sides meet to order \(O(h^2)\) in the ratio.
-
-## Checks and limiting cases
-
-- In Euclidean space, Schott's deleted-ball model has the exact ratio \(c_n\), consistent with the leading term.
-- If \(\sec\le0\), the scale-sensitive lower bound is exactly \(c_n h\), agreeing with the known nonpositive-curvature sharp constant.
-- On positively curved manifolds, the fixed-metric coefficient of Adams–Frick–Majhi–McBride can be strictly below \(c_n\), while the new estimate tends to \(c_n\) because the dimensionless curvature seen at Hausdorff scale \(h\) is \(O(\kappa h^2)\).
-- Dimension \(1\) is excluded from the statement because the circle has a stronger exact small-scale equality \(d_{\mathrm{GH}}=d_{\mathrm H}\).
+The record's distinct value is the quantifier upgrade from one asymptotically extremizing deleted-ball family to **all** sufficiently dense compact subsets. It identifies the effective curvature parameter as \(\kappa h^2\) and proves a universal infinitesimal converse constant. The deleted-ball cubic estimate is retained only as prior sharpness input.
 
 ## Limitations
 
-The theorem identifies the universal leading constant and an \(O(h^2)\) error in the ratio, but it does not identify the optimal second-order coefficient. The deleted-ball correspondence is not claimed to be exactly optimal on a curved manifold. No classification of all asymptotically extremizing subsets is given. The result concerns smooth closed Riemannian manifolds; extensions to manifolds with boundary, singular spaces, or weaker curvature structures are not asserted.
+The optimal coefficient of the \(h^2\) correction to the ratio is not identified. No classification of all asymptotically extremizing subsets is given. The theorem is restricted to smooth closed Riemannian manifolds of dimension at least two.
 
 ## References
 
-1. H. Adams, F. Frick, S. Majhi, N. McBride, *Hausdorff vs Gromov–Hausdorff Distances*, Discrete & Computational Geometry 75 (2026), 1217–1246. DOI: https://doi.org/10.1007/s00454-025-00722-9 ; arXiv: https://arxiv.org/abs/2309.16648
-2. P. Schott, *A converse bound for \(d_{\mathrm{GH}}\) vs. \(d_{\mathrm H}\) for Euclidean space and Riemannian manifolds*, arXiv:2609.12625 (2026). https://arxiv.org/abs/2609.12625
-3. H. Adams, S. A. Bogatyi, F. Frick, D. A. Ilyukhin, A. O. Ivanov, I. N. Mikhailov, A. A. Tuzhilin, A. A. Vikhrov, *Gromov–Hausdorff distance and Jung constant of finite-dimensional normed spaces*, arXiv:2607.18447 (2026). https://arxiv.org/abs/2607.18447
+1. H. Adams, F. Frick, S. Majhi, N. McBride, *Hausdorff vs Gromov–Hausdorff Distances*, Discrete & Computational Geometry 75 (2026), 1217--1246; arXiv:2309.16648.
+2. P. Schott, *A converse bound for dGH vs. dH for Euclidean space and Riemannian manifolds*, arXiv:2609.12625 (2026).
+3. SCOPE record `2026/09/18/small-hole-gromov-hausdorff-cubic-asymptotic--a0d57fbb476f`, first committed 2026-09-18T13:52:44Z.
