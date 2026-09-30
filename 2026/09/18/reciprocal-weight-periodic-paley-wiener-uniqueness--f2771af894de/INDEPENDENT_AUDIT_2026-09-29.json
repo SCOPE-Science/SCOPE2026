@@ -1,0 +1,51 @@
+{
+  "audit_date": "2026-09-29",
+  "audited_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "axes": {
+    "correctness": {
+      "rationale": "The reciprocal-weight dichotomy follows from the periodic block geometry. Uniformly in t in [0,1], the fiber sum of W_L(t+k)^{-1} is comparable to 1+sum_j(2^{-j}+L(2^j))^{-1}. When this series converges, weighted Cauchy--Schwarz gives both Fourier L1 integrability and the L2 periodization estimate required in the Olevskii--Ulanovskii uniqueness construction; fiberwise absolute convergence then makes the auxiliary function continuous in the shift parameter, allowing dense shifts to force every Fourier coefficient to vanish. In the divergent case, the normalized exponential blocks R_j have disjoint translated frequency supports and weighted squared norm O(2^{-j}+L(2^j)); reciprocal-energy averaging therefore makes the interpolation correction arbitrarily small while preserving value one at the target point and finite prescribed zeros. The standard successive-correction argument then defeats every uniformly discrete set. For L(r)=log(e+r)^beta, the criterion reduces to the p-series sum j^{-beta}, yielding the exact beta>1 threshold.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Olevskii--Ulanovskii prove the positive Sobolev result above alpha=1/2 for periodic gaps, and Bertolini--Florit-Simon--Liehr--Taylor prove that the power threshold is sharp for the full periodic spectrum at and below alpha=1/2. The audited theorem refines the critical endpoint by an arbitrary dyadically comparable slowly varying factor and identifies reciprocal-block summability as the exact criterion, with the logarithmic beta=1 transition. Searches for this reciprocal-weight or logarithmic endpoint theorem found no prior covering result.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The theorem resolves a genuine second-order endpoint question left invisible by the power-scale dichotomy: logarithmic strengthening restores uniformly discrete uniqueness exactly above beta=1. More generally, the reciprocal-series criterion identifies the mechanism behind both directions and is flexible across dyadically regular critical weights. This is a substantive sharpening of the newest endpoint theorem rather than a cosmetic reformulation.",
+      "verdict": "pass"
+    }
+  },
+  "citations": [
+    {
+      "authors": "Susanna Bertolini; Enric Florit-Simon; Lukas Liehr; Mitchell A. Taylor",
+      "detail": "Recent source proving sharpness of the alpha=1/2 Sobolev power threshold for periodic weak-gap spectra.",
+      "title": "Universal completeness of exponentials",
+      "url": "https://arxiv.org/abs/2609.20805"
+    },
+    {
+      "authors": "Alexander Olevskii; Alexander Ulanovskii",
+      "detail": "Establishes uniformly discrete uniqueness under Sobolev regularity above the critical exponent for periodic gaps.",
+      "title": "Discrete Uniqueness Sets for Functions with Spectral Gaps",
+      "url": "https://arxiv.org/abs/1609.04571"
+    }
+  ],
+  "disposition": "passed",
+  "expected_source_tree_sha": "8b77cb8dd980a2dd3d9e02df7d06beea253496a3",
+  "github_write_performed": false,
+  "independent_exact_check": {
+    "all_ok": true,
+    "critical_log_series": "sum_j j^{-beta}",
+    "implementation": "independent dyadic fiber-sum and block-energy reconstruction",
+    "threshold": "beta>1"
+  },
+  "limitations": [
+    "The negative direction uses the full periodic spectrum A+Z and need not extend to arbitrary subsets with periodic gaps.",
+    "Dyadic comparability of the weight is essential to the stated exact block criterion; irregular critical weights are not covered.",
+    "The theorem is about uniqueness, not stable sampling or quantitative frame bounds, and is one-dimensional."
+  ],
+  "oxford_download_used": false,
+  "record_path": "2026/09/18/reciprocal-weight-periodic-paley-wiener-uniqueness--f2771af894de",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "type": "independent_audit"
+}
