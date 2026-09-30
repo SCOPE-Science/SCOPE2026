@@ -1,0 +1,41 @@
+# Independent audit — 2026-09-29 UTC
+
+Record: `2026/09/20/inner-shear-derivations-free-associative-plane--9f640016dfca`  
+Assigned source tree: `e0f2d34ed5073dff4b503bf5167634100552c7a2`  
+Audited current source tree: `e0f2d34ed5073dff4b503bf5167634100552c7a2`  
+Audited repository state: `SCOPE-Science/SCOPE2026` `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+Current RESULT.md blob: `f049bdcdc31225e0dd98f7b697e0d6bff6167b41`  
+Disposition: **passed**
+
+## Correctness
+
+**independently_supported**. The kernel, local-finiteness boundary and isotropy formula are correct. Grading by x-count isolates the top component [u_m,g(y)]; Bergman's centralizer theorem together with C_F(y)=k[y] forces C_F(g(y))=k[y] for nonconstant g, hence ker D=k[y]. Because delta_f commutes with T=-ad_{g(y)} and T(f)=0, D^n(x)=T^n(x) for n>=2; the distinct highest-degree words have degree 1+n deg(g), proving both non-local-nilpotence and non-local-finiteness. If g is scalar the derivation reduces to the triangular locally nilpotent delta_f. A commuting automorphism preserves k[y], so its y coordinate is ay+b; the rank-two Czerniakiewicz-Makar-Limanov automorphism correspondence makes the x coordinate cx+h(y). Direct comparison with D yields exactly g(ay+b)-g(y) in k and f(ay+b)=c f(y). The centered support-gcd calculation for the residual affine symmetry also checks, including the linear-g exception.
+
+## Originality
+
+**qualified_source_specific_family_classification**. Baltazar-Lopes-Morales (September 2026) establish failure of Pan's converse for the free associative plane by constructing non-locally-nilpotent derivations with unbounded-degree isotropy; their public statement does not give this two-polynomial family or its exact isotropy classification. The audited proof genuinely extends that mechanism, but it relies centrally on classical Bergman and Czerniakiewicz-Makar-Limanov theorems. Targeted searches did not locate the same D_{f,g} family. Because the extension is short once the source examples are recognized, concurrent or differently phrased free-algebra literature remains a material priority risk.
+
+## Scientific value
+
+**meaningful_exact_mechanism_classification**. The result turns isolated counterexamples into a complete explicit family with exact kernel, sharp local-nilpotence boundary and full commuting automorphism group, clarifying precisely why arbitrary shears survive the addition of a nonconstant inner term.
+
+## Independent checks
+
+- Rechecked the highest-x-degree centralizer argument and the iterated-commutator formula.
+- Verified directly that the triangular commuting conditions are both necessary and sufficient.
+- Checked the centered support-gcd residual affine symmetry and the deg(g)=1 special case.
+
+## Literature and evidence checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/20/inner-shear-derivations-free-associative-plane--9f640016dfca
+- https://arxiv.org/abs/2609.19470
+- https://doi.org/10.1090/S0002-9947-1969-0236208-5
+- https://doi.org/10.1080/00927872.2020.1729363
+- https://doi.org/10.3842/SIGMA.2019.091
+
+## Limitations
+
+- The base field is algebraically closed of characteristic zero and the algebra is the free associative plane.
+- Classical centralizer and automorphism theorems are essential prior inputs.
+- The family does not classify all non-locally-nilpotent derivations with large isotropy.
+- The motivating preprint is extremely recent, creating significant concurrency risk.
