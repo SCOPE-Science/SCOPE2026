@@ -1,0 +1,48 @@
+# Independent Audit — Cayley root geometry and an exact companion discriminant for two Chebyshev-like polynomial families
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `78aa2c39c923f8b3d33067bff7fcb3e9cafd37b3`  
+**Audited current source tree:** `78aa2c39c923f8b3d33067bff7fcb3e9cafd37b3`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree exactly matches the assignment tree SHA. GitHub was used read-only as evidence, and the dated independent-audit files were absent when this guarded plan was prepared.
+
+## Correctness — PASSED
+
+PASS. The Cayley reductions are algebraically correct. Eneström--Kakeya gives the displayed annuli for P_n and Q_n, and the strict outer bound for Q_n follows immediately from comparing (n+2)|u|^n with the geometric partial sum when |u|>=1; the inverse Cayley formula then places every zero in the open left half-plane and yields the stated Apollonius regions. The discriminant calculation is consistent from Q_n through H_n(w)=Q_n(w^2) and Möbius covariance; an independent SymPy recomputation verified the closed q_n formula for n=1,...,7. For the limiting measure, the coefficient-sum Erdős--Turán estimate gives O(sqrt(log n/n)) angular discrepancy, the root-product identities leave only O_delta(log n) roots a fixed distance inside the unit circle, and the continuous-mapping theorem applies to the inverse Cayley map after defining it arbitrarily at w=1, whose limiting Haar mass is zero. The pushforward is the standard Cauchy law on iR.
+
+## Originality — PASSED
+
+PASS, narrowly scoped. Dilcher--Kim--Stolarsky give the p_n Cayley representation and Disc(p_n); immediately after their discriminant result they note that no analogous small-prime-factor identity appears for Disc(q_n). The submitted exact companion discriminant therefore fills a specifically identified gap. A July 21 author-uploaded note by Johar Ashfaque studies scaled root trajectories of p_n and holonomic differential operators for p_n and q_n, but it does not give this q_n discriminant or the unscaled empirical Cauchy weak law. Targeted searches found no earlier formula matching the submitted companion discriminant.
+
+## Scientific value — PASSED
+
+PASS. The result supplies an exact missing invariant for the companion family, proves Hurwitz stability with explicit finite-n geometry for both families, and packages their global zero statistics into a clean Cauchy limit. The tools are classical, but the closed discriminant and combined zero geometry answer natural questions left open by the source family.
+
+## Independent checks
+
+- Read the lawful open Dilcher--Kim--Stolarsky full text and confirmed the p_n Cayley identity, companion relation, source p_n discriminant, and the source's statement that no comparable q_n identity was known there.
+- Independently derived Q_n from the companion relation and checked the Eneström--Kakeya and strict-unit-disk arguments.
+- Independently recomputed Disc(q_n) exactly with SymPy for n=1 through 7; every case matched the submitted formula.
+- Re-derived the root-product radial concentration and Erdős--Turán angular discrepancy estimates.
+- Checked the continuous-mapping step under inverse Cayley and the Cauchy pushforward density.
+- Reviewed the related July 2026 Ashfaque note and distinguished its scaled root-trajectory claims from the present unscaled empirical law and companion discriminant.
+- Verified the current main tree SHA equals the assigned source tree and that the dated audit-marker files are absent.
+
+## Limitations
+
+- The finite-n zero regions are inclusion regions and are not claimed optimal.
+- The weak Cauchy-law conclusion does not claim an optimal discrepancy rate after the unbounded Cayley transform.
+- A related July 2026 note studies a different scaled-root geometry, so originality is assigned specifically to the submitted exact companion discriminant and the proved unscaled Cayley/Cauchy description.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2607.16940
+- https://www.researchgate.net/publication/410635426_Properties_of_two_Chebyshev-like_polynomial_sequences
+- https://www.researchgate.net/publication/410634068_Asymptotic_Root_Distribution_and_Holonomic_Constraints_of_Chebyshev-Like_Polynomials_p_n_z_and_their_Companion_Sequence_q_n_z
+- https://doi.org/10.1080/00029890.2019.1546078
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/19/cayley-root-geometry-chebyshev-like-polynomials--ada22ea47e72
+
+This guarded change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
