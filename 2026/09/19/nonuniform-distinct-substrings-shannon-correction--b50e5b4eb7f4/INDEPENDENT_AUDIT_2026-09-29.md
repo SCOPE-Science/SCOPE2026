@@ -1,0 +1,39 @@
+# Independent audit — 2026-09-30
+
+Record: `2026/09/19/nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4`  
+Assigned and audited source tree: `1e58f9ba927f603fd6e19b05270693688f065a64`  
+Audited repository state: `SCOPE-Science/SCOPE2026` `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+Current RESULT.md blob: `f47c656a991a64aff9599340a766ac0e6c1ce908`  
+Disposition: **passed**
+
+## Correctness
+
+**independently_supported**. The Shannon first-correction proof is sound. For a length-k word W with information S_k=-log P(W), the union bound on occurrence positions gives E D_{n,k}≤m_k E min(1,e^{S_k}/m_k), hence the lower repeat bound E R_{n,k}≥E(m_k-e^{S_k})_+. The renewal count for bounded positive increments Z=-log p_X satisfies E N(t)=t/H+O(1) by bounded overshoot and Wald's identity, and the accompanying exponential correction is uniformly bounded, yielding the lower n log n/H-O(n) term. For the upper bound, a previous nonoverlapping match costs at most min(1,np_W); an overlap at shift r forces a periodic word and has probability at most q^r p_max^{k-r}≤p_max^k. Summing the fewer than k shifts and applying the same renewal estimate gives n log n/H+O(n). The L1 statement follows from the two entropy windows (1±ε)log n/H using bounded-increment Hoeffding tails and geometric summability. The overlap estimates and all inequality directions check independently.
+
+## Originality
+
+**qualified_with_older_literature_risk**. Janson–Lonardi–Szpankowski (2004) was inspected directly: for broad mixing sources it proves the coarse n²/2 leading behavior and O(n log n) deficit, while its sharp n log_d n first correction is explicitly for unbiased memoryless sources. Ahmadi–Ward treat fixed-k subword complexity rather than the all-length total. Current searches did not locate the all-length nonuniform i.i.d. coefficient 1/H with O(n) remainder or the L1 law. The Dębowski entropy-estimation chapter could not be obtained through open-access routes and an authorized institutional attempt returned no verified PDF; Ivanko's older full article was likewise not inspected, although an accessible exposition uses a uniform model. These sources remain residual attribution risks, so originality is supported narrowly rather than asserted categorically.
+
+## Scientific value
+
+**meaningful_entropy_scale_refinement**. The result identifies the exact Shannon coefficient governing the first all-length repeat correction for arbitrary fixed finite iid sources and proves concentration at that first-correction scale. It makes precise why the typical-information threshold, not collision entropy, controls the sum over substring lengths and shows that overlaps do not change the coefficient.
+
+## Literature and evidence checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/19/nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4
+- https://arxiv.org/abs/2609.19409
+- https://doi.org/10.1016/j.tcs.2004.06.023
+- https://doi.org/10.3390/e22020207
+- https://doi.org/10.46298/dmtcs.3553
+- https://doi.org/10.1007/978-3-319-18781-5_4
+- https://doi.org/10.5220/0002273000050009
+## Literature access note
+
+The prior source `10.1007/978-3-319-18781-5_4` was not available as lawful open full text. Authorized institutional retrieval returned no verified PDF. It is **not** claimed to have been read in full.
+
+## Limitations
+
+- The source is a fixed finite iid distribution; Markov/dependent sources, growing alphabets, and n-dependent probabilities are not covered.
+- The O(n) remainder is not resolved into a constant or periodic term, and no variance or limiting fluctuation law is proved.
+- The Dębowski chapter could not be obtained in full after open-access and institutional attempts; no inaccessible text is claimed as read.
+- Ivanko's 2008 full article was not inspected and remains a residual prior-art risk under older terminology.
