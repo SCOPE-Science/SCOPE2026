@@ -1,0 +1,39 @@
+# Independent Audit — 2026-09-29
+
+**Record:** `2026/09/12/052`  
+**Title:** Distributed-delay dispersion quench of delay-driven gamma in a homogeneous inhibitory LIF network  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Audited tree:** `e7d2f24c5caa44698886998ce6754c65b1de9dba`  
+**Disposition:** **REPAIRED**
+
+## Independent checks
+
+- Reimplemented the Scharfetter–Gummel stationary operator and susceptibility at N=600 from the filed equations.
+- Recomputed critical frequencies/couplings at sigma_D=0,0.75,1.0,1.1,1.125,1.25,1.5 and matched the filed table to rounding.
+- Checked the units and DC-gain normalization of the synaptic equation against the stationary relation and characteristic equation.
+- Compared the quantitative claim with the classic Brunel–Hakim and Brunel background rather than treating qualitative delay-dispersion damping as novel.
+
+## Three-axis assessment
+
+- **Correctness — PASS_AFTER_REPAIR**: The central linear-stability calculation is reproducible, but the filed model equation omits the tau_s DC-gain factor that the stationary relation, characteristic equation, and code actually use, and “supercritical-direction” is not established by a normal-form or periodic-orbit calculation. A fresh N=600 implementation reproduced nu0=10.5326 Hz and the key crossings Jc=-541.99 mV at sigma=0, -602.09 at 1.10 ms, and -605.12 at 1.125 ms. The repair corrects the synaptic equation and narrows the claim to a numerical Hopf stability crossing plus spiking quench.
+- **Originality — LIMITED**: Delay-driven inhibitory oscillations and the qualitative stabilizing effect of delay distributions are established in Brunel–Hakim/Brunel-era literature. The record’s contribution is the specific gamma-kernel, fixed-mean quantitative threshold and matched finite-network evidence for this operating point. That is a narrow numerical datum, not a new general mechanism.
+- **Scientific Value — PASS**: With the scope corrected, the N=600 threshold table and independent reproduction provide a useful benchmark for how much delay dispersion is needed to stabilize this specific LIF regime, and the finite-size spectra give a practical cross-check against a mere numerical root artifact.
+
+## Findings
+
+- Current tree equals assigned tree SHA.
+- The displayed nonlinear synaptic equation is dimensionally inconsistent with the rest of the record because it omits the tau_s multiplier in the recurrent source term.
+- Independent N=600 recomputation reproduces the reported stationary rate and critical-coupling table near the threshold.
+- The record does not compute a Hopf normal-form coefficient or nonlinear FP branch, so the supercriticality wording is unsupported and removed in the repair.
+
+## Sources compared
+
+- Brunel–Hakim (1999), Fast global oscillations in networks of integrate-and-fire neurons with low firing rates: https://pubmed.ncbi.nlm.nih.gov/10490941/ — Primary background for delay-driven population oscillations in inhibitory integrate-and-fire networks.
+- Brunel (2000), Dynamics of sparsely connected networks of excitatory and inhibitory spiking neurons: https://pubmed.ncbi.nlm.nih.gov/10809012/ — Broader analytical background for asynchronous/oscillatory regimes and distributed synaptic-time effects in spiking-network stability.
+
+## Limitations
+
+- The independent recomputation audits the stationary linear response and crossing, not a nonlinear FP continuation.
+- Spiking evidence remains finite-size and parameter-specific; it is not a proof of thermodynamic-limit supercriticality.
+
+This audit is independent of the repository’s pre-existing audit material. GitHub was read only as evidence; no repository changes were made by this audit run.

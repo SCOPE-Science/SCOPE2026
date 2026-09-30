@@ -1,30 +1,47 @@
 # Distributed-delay dispersion quench of delay-driven gamma in a homogeneous inhibitory LIF network
 
 ## Context
-Homogeneous all-to-all inhibitory leaky integrate-and-fire (LIF) networks in the diffusion approximation support delay-driven gamma oscillations: single cells fire irregularly near 10 Hz while the population rate oscillates near 60-100 Hz. Brunel-Hakim (1999) theory and standard Fokker-Planck linear-response analysis attribute this to a Hopf bifurcation of the asynchronous stationary density induced by discrete transmission delay. Qualitatively, widening the delay distribution is known to reduce oscillatory power (Brunel-Hakim Fig. 8; Brian2CUDA brunelhakim example). The admitted target asks for a quantitative resolution at fixed mean delay: does finite dispersion quench the gamma cycle through a reverse Hopf bifurcation at a critical dispersion, with value, frequency trend, and spiking-simulation confirmation.
+A homogeneous inhibitory leaky integrate-and-fire network can lose asynchronous-state stability through a delay-driven Hopf crossing. This record quantifies how broadening a gamma-distributed transmission delay at fixed mean suppresses that instability for one specified operating point. The repaired claim is deliberately a **linear-stability Hopf crossing plus finite-spiking quench**, not a proof of a supercritical nonlinear Fokker–Planck limit-cycle branch.
 
-## Definitions and regime
-Membrane (mV, ms): tau_m=20, Vth=20 above rest, Vr=10 above rest, tref=2, reflecting barrier Vlb=-30. Exponential inhibitory synapse taus=2 ms with DC gain TAUS=2 ms. Tonic drive mu_ext=28 mV, white-noise intensity sig=5 mV. Effective recurrent coupling Jeff=N*Jpsp=-600 mV (e.g. N=4000 x Jpsp=-0.15 mV). Discrete delay d=4 ms. Distributed-delay kernel: gamma density of mean D*=4 ms and std sigma in [0,4] ms, shape k=D^2/sigma^2, scale th=sigma^2/D, Laplace factor K(s;sigma)=(1+th*s)^(-k), K(s;0):=exp(-sD). Synaptic filter Hs(s)=1/(1+s*taus). Refractory factor alpha(s)=1/(1+s*tref).
+## Model
+Parameters (mV, ms): `tau_m=20`, `Vth=20`, `Vr=10`, `tref=2`, `Vlb=-30`, `tau_s=2`, `mu_ext=28`, `sigma_noise=5`, and effective recurrent coupling `J_eff=-600 mV`. The delay kernel has mean `D*=4 ms` and standard deviation `sigma_D`; for `sigma_D>0`, shape `k=D*^2/sigma_D^2`, scale `theta=sigma_D^2/D*`, and Laplace factor
 
-Nonlinear Fokker-Planck system: dV=((-V+mu(t))/tau_m)dt+sqrt(2D)dW, D=sig^2/(2 tau_m), taus ds/dt=-s+Jeff*(kernel*nu)(t), mu(t)=mu_ext+s(t), with absorbing boundary at Vth, reinjection to Vr after tref.
+`K(s)=(1+theta*s)^(-k)`, with `K(s;0)=exp(-s D*)`.
 
-## Result (headline claim)
-At (mu_ext=28 mV, sig=5 mV, Jeff=-600 mV) the discrete-delay (4 ms) mean-field Fokker-Planck system sits on a stable ~65 Hz gamma limit cycle at ~10.5 Hz single-cell rate. Replacing the discrete delay by the gamma kernel of mean 4 ms quenches the cycle through a reverse (supercritical-direction) Hopf bifurcation of the asynchronous density at sigma_c=1.1 ms, bracketed in (1.0,1.25] ms. The Hopf frequency drifts only from 65.16 Hz (sigma=0) to ~65.4 Hz at threshold. The threshold coupling magnitude |Jc(sigma)| grows monotonically in sigma and the 30-120 Hz gamma-band crossing vanishes entirely by sigma=4 ms. Matched finite spiking simulations confirm quenching: the 55-100 Hz population-rate spectral peak collapses ~50-150x and its total power switches from N-independent (limit cycle) to ~1/N-shrinking (stable async plus filtered finite-size fluctuations).
+With firing rate `nu` in `1/ms`, the synaptic variable obeys the dimensionally consistent equation
 
-## Proof and evidence
-Stationary asynchronous density: Scharfetter-Gummel discretization (N=600 cells) plus bisection fixed point gives mu0=15.360 mV, nu0=10.53 Hz, satisfying mu0=mu_ext+Jeff*TAUS*nu0 (28-600*2*0.01053=15.36) and integral p dV + nu0*tref=1. Siegert cross-check and measured sim single-cell rate 10.68 Hz agree within 0.2 Hz.
+`tau_s ds/dt = -s + J_eff*tau_s*(K*nu)(t)`, `mu(t)=mu_ext+s(t)`.
 
-Stability equation (derived): linearizing about (p0,nu0,s0) with exp(s t) ansatz gives perturbed density (s-L_FP(mu0))p1=-(1/tau_m)(dp0/dV)mu1+nu1 alpha(s) delta(V-Vr), rate nu1 from threshold flux, susceptibility A(s)=nu1/mu1 by direct complex sparse solve, and mu1=Jeff*TAUS*Hs(s)*K(s;sigma)*nu1. Characteristic equation: F(s;sigma):=1-Jeff*TAUS*Hs(s)*A(s)*K(s;sigma)=0. Hopf condition on s=i omega: with G=Hs*A*K, need G negative-real; Jc(sigma)=1/(TAUS*Re G) at zero of Im G in 30-120 Hz; Jeff<0 fixed is unstable iff |Jeff|>|Jc|. Damping mechanism: |K(iw;sigma)|=(1+th^2 w^2)^(-k/2), strictly decreasing in sigma at fixed w>0, plus added kernel phase lag.
+Thus the normalized synaptic filter is `H_s(s)=1/(1+s tau_s)` and the feedback loop contains the DC-gain factor `J_eff*tau_s`.
 
-Threshold and monotonicity (computed, grid-converged): 0.25 Hz grid, N=600 (N=500 agrees within 0.15 Hz/1 mV): sigma 0.00: f*=65.16 Jc=-542 unstable; 0.50: 65.17/-554 unstable; 0.75: 65.21/-569 unstable; 1.00: 65.33/-591 unstable; 1.10: 65.41/-602 threshold; 1.125: 65.43/-605 stable; 1.25: 65.57/-622 stable; 1.50: 66.02/-663; 2.00: 67.94/-790; 2.50: 72.23/-1014; 3.00: 80.92/-1428; 4.00: no 30-120 Hz crossing. Linear interpolation of |Jc|=600 gives 1.10 ms. Dominant-root scan at 65 Hz: F=1-loop crosses zero downward between sigma=1.0 and 1.25 (reverse Hopf).
+## Result
+The asynchronous stationary density has `nu0=10.53 Hz` and `mu0≈15.36 mV`. Linearizing the Scharfetter–Gummel Fokker–Planck discretization gives the characteristic equation
 
-Spiking confirmation: event-driven all-to-all LIF, Euler dt=0.05 ms, OU noise matched to FP diffusion, per-spike i.i.d. gamma delay samples. Single-cell rate 10.5-10.7 Hz at all sigma. 55-100 Hz peak xMedian: 0: ~3564 at 65.0 Hz; 0.5: ~2623; 1.0: ~1153-1256 at 65.8-66 Hz; 1.25: ~587; 1.5: ~215-268; 2.0: ~46-67; 2.5: ~17-27; 3.0: ~23; 3.5: ~6.5; 4.0: ~9.6. Pre-quench peak frequency matches FP f* within 1 Hz. Fixed-Jeff N-scaling (Jpsp=Jeff/N): sigma=0 Pmax N-independent (~1.3e5 at N=1000/2000/4000 = limit cycle); sigma=2.0 Pmax 1.14e4->3.29e3->2.12e3 (~1/N = stable async). Residual finite-N bump is the expected weakly-damped fluctuation peak.
+`F(s;sigma_D)=1-J_eff*tau_s*H_s(s)*A(s)*K(s;sigma_D)=0`,
+
+where `A(s)` is the complex rate susceptibility of the stationary density. At `J_eff=-600 mV`, the gamma-band crossing moves from unstable to stable near `sigma_D≈1.1 ms`: on the N=600 voltage grid the critical-coupling values are approximately
+
+- `sigma_D=0`: `f*=65.16 Hz`, `J_c=-542 mV`;
+- `0.75`: `65.21 Hz`, `-569 mV`;
+- `1.00`: `65.33 Hz`, `-591 mV`;
+- `1.10`: `65.41 Hz`, `-602 mV`;
+- `1.125`: `65.43 Hz`, `-605 mV`;
+- `1.25`: `65.57 Hz`, `-622 mV`;
+- `1.50`: `66.02 Hz`, `-663 mV`.
+
+Hence the fixed coupling is unstable at `sigma_D=1.0 ms` and stable by `1.125 ms`, with a threshold close to `1.1 ms`; the onset frequency changes little. At `sigma_D=4 ms` the archived scan finds no 30–120 Hz negative-real crossing.
+
+Matched finite spiking simulations show the corresponding phenomenology: the 55–100 Hz population-rate peak falls from about 3565 at zero dispersion to about 46–67 by `sigma_D=2 ms` and below about 10 by `sigma_D=4 ms`, while the single-cell rate remains near 10.5–10.7 Hz. The archived finite-size scan changes from an approximately N-independent peak at zero dispersion to a shrinking fluctuation peak above the crossing, consistent with quenching of a collective oscillation.
+
+## Independent numerical check
+A fresh implementation of the filed N=600 Scharfetter–Gummel stationary problem and complex susceptibility reproduced `nu0=10.5326 Hz`, `f*=65.1589 Hz, J_c=-541.99 mV` at zero dispersion, `65.4067 Hz, -602.09 mV` at `sigma_D=1.1 ms`, and `65.4301 Hz, -605.12 mV` at `1.125 ms`.
 
 ## Limitations
-Analytic proof covers stationary construction, susceptibility definition, closed characteristic equation, and gamma-kernel damping factor; strict monotonicity of |Jc(sigma)| and the sigma_c bracket are dense-grid numerical facts rather than closed-form theorems. Finite-N nets retain a small weakly-damped 30-120 Hz fluctuation bump past threshold; literal zero power holds only in the mean-field limit via the 1/N signature. Demonstrated for one admitted-regime parameter set, not uniformly over all drives and couplings. Static-limit A(0)=dPhi/dmu wording should be read at finite small frequency; the f=0 complex solve is singular.
+This record establishes a numerical linear stability crossing and compatible finite-network quenching for one parameter set. It does **not** compute a Hopf normal-form coefficient, Floquet multipliers, or a nonlinear Fokker–Planck periodic branch; therefore “supercritical” is not claimed. The monotonic `|J_c|` trend is numerical rather than a global theorem. Finite networks retain fluctuation peaks after mean-field stabilization.
 
 ## Reproducibility
-output/artifacts/fp.py: SG Fokker-Planck stationary plus complex susceptibility. output/artifacts/final_table.py, sigmac4.py, lammax.py: Hopf table, threshold scans, root scans. output/artifacts/simB.py, simH.py, simN.py: delay-matched sims, spectra, N-scaling. Data: stationary_density.txt, susceptibility.txt, sweep1.txt. Re-run: PYTHONPATH=output/artifacts python3 output/artifacts/final_table.py reproduces the table and nu0=10.53 Hz.
+Repository artifacts are under `artifacts/`: `fp.py`, `final_table.py`, `sigmac4.py`, `lammax.py`, the simulation scripts, and archived sweep files. Running `python3 artifacts/final_table.py` from the record directory reproduces the N=600 linear-stability table.
 
 ## References
-Brunel & Hakim, Fast global oscillations in networks of integrate-and-fire neurons with low firing rates, Neural Comput. 11 (1999); Brian2CUDA brunelhakim.py heterogeneous-delay example; Dumont et al., Finite size effect induces stochastic gamma oscillation in inhibitory network with conduction delay, BMC Neurosci. 15(S1) (2014); Birdac et al., Macroscopic multistability and bifurcations in theta-neuron networks with distributed delays, arXiv:2607.17645 (2026) — different (theta-neuron WS/OA) reduction, no LIF-FP coverage.
+- N. Brunel and V. Hakim, *Fast global oscillations in networks of integrate-and-fire neurons with low firing rates*, Neural Computation 11 (1999), doi:10.1162/089976699300016179.
+- N. Brunel, *Dynamics of sparsely connected networks of excitatory and inhibitory spiking neurons*, Journal of Computational Neuroscience 8 (2000), doi:10.1023/A:1008925309027.
