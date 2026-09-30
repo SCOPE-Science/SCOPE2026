@@ -1,80 +1,96 @@
-# Uniform destruction of the rotation-1/3 caustic in the cos 5theta deformation of the circle
+# Third-order destruction of the rotation-1/3 caustic for r(theta)=1+epsilon cos(5 theta)
 
-## Context
+## Setup
 
-Consider the explicit analytic family of strictly convex tables Gamma_epsilon in
-polar coordinates r(theta) = 1 + epsilon cos(5 theta) for small epsilon, with
-rotation number in (0,1/2] where rotation number 1/3 corresponds to period-3
-orbits. The first-order Bialy-Mironov obstruction for q = 3 vanishes identically
-because 5 is not divisible by 3, so the persistence-versus-destruction decision
-turns on higher-order coefficients. Related general theory gives necessary and
-sufficient high-order persistence conditions via the Bialy-Mironov generating
-function, but does not evaluate this polar n = 5, q = 3 case.
+Consider the analytic polar deformation
+\[
+\gamma(\theta;\epsilon)=(1+\epsilon\cos 5\theta)(\cos\theta,\sin\theta),
+\]
+which is strictly convex for sufficiently small \(|\epsilon|\).
 
-## Definitions
-
-Let gamma(theta; epsilon) = (1 + epsilon cos 5theta)(cos theta, sin theta).
-For apex A and symmetric triangles (A, A+t, A-t) define the perimeter
-L(A,t;epsilon) = 2|gamma(A) - gamma(A+t)| + |gamma(A+t) - gamma(A-t)|.
-Critical points in t give symmetric 3-periodic billiard orbits. At epsilon = 0,
-t* = 2pi/3 gives equilateral triangles with L_0''(t*) = -3sqrt(3)/2, nonzero.
-By the implicit function theorem each A in {0, pi/5} continues to a unique
-symmetric critical point t*(A;epsilon), with reduced action
-ell(A;epsilon) = L(A, t*(A;epsilon); epsilon). Put
-Delta(epsilon) = ell(pi/5; epsilon) - ell(0; epsilon).
+For a reflection-axis apex \(A\in\{0,\pi/5\}\), let
+\[
+L(A,t;\epsilon)
+ =2|\gamma(A)-\gamma(A+t)|
+  +|\gamma(A+t)-\gamma(A-t)|.
+\]
+At \(\epsilon=0\), \(t_0=2\pi/3\) is a nondegenerate critical point:
+\(L_{tt}(A,t_0;0)=-3\sqrt3/2\).
+Reflection symmetry and the implicit-function theorem therefore give a genuine symmetric 3-periodic billiard orbit
+\(t=t_A(\epsilon)\) near each axis. Put
+\[
+\ell_A(\epsilon)=L(A,t_A(\epsilon);\epsilon).
+\]
 
 ## Result
 
-There is epsilon_0 > 0 such that for all 0 < |epsilon| < epsilon_0 the table
-Gamma_epsilon has no smooth convex caustic of rotation number exactly 1/3.
-The two symmetric 3-periodic orbits have perimeters differing by
-Delta(epsilon) = -855 sqrt(3) epsilon^3 + O(epsilon^4), hence nonzero for
-small nonzero epsilon, contradicting the equal-action consequence of a 1/3
-invariant circle. First order vanishes and second-order reduced action is
-apex-independent (K2 = 111 sqrt(3)/4 at both apices); the barrier first
-appears at order epsilon^3 with K3(0) = +855 sqrt(3)/2 and
-K3(pi/5) = -855 sqrt(3)/2.
+There is \(\epsilon_0>0\) such that, for
+\(0<|\epsilon|<\epsilon_0\), the billiard has no smooth convex caustic of rotation number \(1/3\).
 
-## Proof / evidence
+The two symmetric branches satisfy
+\[
+\ell_0(\epsilon)
+=3\sqrt3+\frac{111\sqrt3}{4}\epsilon^2
+ +\frac{855\sqrt3}{2}\epsilon^3+O(\epsilon^4),
+\]
+and
+\[
+\ell_{\pi/5}(\epsilon)
+=3\sqrt3+\frac{111\sqrt3}{4}\epsilon^2
+ -\frac{855\sqrt3}{2}\epsilon^3+O(\epsilon^4).
+\]
+Hence
+\[
+\Delta(\epsilon)
+=\ell_{\pi/5}(\epsilon)-\ell_0(\epsilon)
+=-855\sqrt3\,\epsilon^3+O(\epsilon^4),
+\]
+which is nonzero for all sufficiently small nonzero \(\epsilon\).
 
-Chord expansion q = q0 + eps q1 + eps^2 q2 + eps^3 q3 with
-q1 = Q1/2q0, q2 = Q2/2q0 - Q1^2/8q0^3,
-q3 = Q1^3/16q0^5 - Q1 Q2/4q0^3 (no Q3 since r is affine in epsilon).
-Exact sympy evaluation at t* = 2pi/3 gives e.g. L1* = 0,
-L2* = 3sqrt3/16, L3* = -/+3sqrt3/64, F1* = +/-63/4, F2* = -81/32,
-G0* = -3sqrt3/2, G1* = +/-183sqrt3/8 (upper sign at A = 0), H0* = 3/4.
-Lyapunov-Schmidt recursion u1 = -F1/G0, u2 = -(G1 u1 + H0 u1^2/2 + F2)/G0
-gives u1 = +/-7sqrt3/2, u2 = 447sqrt3/8 (both), and the reduced actions
-ell(A;eps) = 3sqrt3 + (111sqrt3/4) eps^2 +/- (855sqrt3/2) eps^3 + O(eps^4).
-Newton solutions of dL/dt = 0 from t* confirm true orbits:
-Delta/eps^3 = -1370.28, -1451.98, -1473.60, -1479.73 at
-eps = .01, .005, .0025, .001 (and identical values for negative eps),
-converging to -855sqrt3 approx -1480.90, with shifts converging to
-+/-7sqrt3/2. The billiard map of a strictly convex analytic table is an
-exact monotone twist map; a 1/3 caustic yields a rotational invariant
-circle on which all period-3 orbits are action-minimizing with common
-action (Aubry-Mather / Mather barrier), so the two symmetric orbits would
-have equal perimeter, contradicted by nonzero Delta.
+## Exact coefficient calculation
 
-## Limitations
+For one chord, writing
+\(q=q_0+\epsilon q_1+\epsilon^2q_2+\epsilon^3q_3+O(\epsilon^4)\),
+the exact expansion is
+\[
+q_1=\frac{Q_1}{2q_0},\quad
+q_2=\frac{Q_2}{2q_0}-\frac{Q_1^2}{8q_0^3},\quad
+q_3=\frac{Q_1^3}{16q_0^5}-\frac{Q_1Q_2}{4q_0^3}.
+\]
+At \(t_0=2\pi/3\), exact symbolic differentiation gives, with the upper sign for \(A=0\),
+\[
+F_1=\pm63/4,\quad F_2=-81/32,\quad
+G_0=-3\sqrt3/2,\quad G_1=\pm183\sqrt3/8,\quad
+H_0=3/4,
+\]
+as well as the higher coefficients archived in `artifacts/ls_data.py`.
+Lyapunov-Schmidt elimination yields
+\[
+u_1=\pm7\sqrt3/2,\qquad u_2=447\sqrt3/8
+\]
+and the two reduced-action expansions above.
 
-The twist-map non-persistence lemma is quoted from standard Aubry-Mather
-and Mather barrier theory with references, not re-proved. Identification
-of the two symmetric continuations as the Birkhoff minimizer/minimax pair
-uses Z5 symmetry and the leading cos(15s) reduced potential.
-Length-rescaling invariance of the barrier order is argued as a global
-A-independent 1 + O(eps^2) factor, not computed term by term.
+The 2026-09-29 independent audit rederived these coefficients symbolically and recovered exactly
+\(K_2=111\sqrt3/4\) and \(K_3=\pm855\sqrt3/2\).
+
+## Why unequal actions rule out the resonant caustic
+
+The relevant implication is a perturbative variational one, not the false statement that every period-3 orbit of an arbitrary table must have the same perimeter.
+
+For an exact twist map, persistence of the rational \(1/3\) invariant circle forces the resonant Lyapunov-Schmidt reduced action (equivalently the appropriate high-order resonant Melnikov/Bialy-Mironov obstruction) to be constant in phase. This is the necessary high-order persistence condition developed in the cited Koudjinan-Ramírez-Ros theory. The two reflection-symmetric branches are critical points of that same reduced action. Their third-order critical values differ by \(855\sqrt3\epsilon^3+O(\epsilon^4)\), so the reduced action is not constant. Therefore the \(1/3\) resonant caustic cannot persist for sufficiently small nonzero \(\epsilon\).
+
+This corrected argument uses the two branch values as a nonconstancy certificate; it does not claim that unrelated period-3 orbits outside a hypothetical invariant circle have a common action.
 
 ## Reproducibility
 
-Run output/artifacts/ls_data.py to reproduce all exact coefficients and
-the K1/K2/K3 values; run output/artifacts/newton_check.py to reproduce
-the true-orbit Delta/eps^3 convergence for both signs of epsilon.
-Hand checks of F1* and L2* and high-precision odd-part checks agree.
+Run `artifacts/ls_data.py` for the exact coefficients and
+`artifacts/newton_check.py` for numerical continuation of the two true symmetric branches.
+
+## Scope and literature context
+
+Koudjinan and Ramírez-Ros give necessary and sufficient high-order persistence conditions and explicitly note that checking the first nonzero resonant harmonic at the next order can be difficult. The retained contribution is the explicit \(n=5,q=3\) third-order evaluation above, not a new general perturbation theory.
 
 ## References
 
-Koudjinan-Ramirez-Ros, High-order persistence of resonant caustics in
-perturbed circular billiards, arXiv:2503.07488 / Ergod. Th. Dynam. Sys.
-2026; Kaloshin-Sorrentino, Ann. Math. 2018; Bialy-Mironov, Ann. Math.
-2022; Mather 1982/84, Bangert, Meiss-MacKay barrier theory.
+- C. E. Koudjinan, R. Ramírez-Ros, “High-order persistence of resonant caustics in perturbed circular billiards,” arXiv:2503.07488.
+- Standard exact-twist variational/Aubry-Mather theory as cited there.
