@@ -10,7 +10,7 @@ of the general fibre. The full emptiness of $B(2,M,4)$ for general $M$ is
 open; this record banks the low-quotient-degree reduction.
 
 ## Definitions
-- $C$: general (Petri-general, Clifford index 2, gonality 5) smooth
+- $C$: general (Petri-general, Clifford index 2, gonality 4) smooth
   genus-6 curve; line-bundle loci $W^r_d(C)$ empty if
   $\rho(g,r,d)=g-(r+1)(g-d+r)<0$, of pure dimension $\rho$ if $\rho\ge0$.
 - $M$: general point of $\mathrm{Pic}^{10}(C)$ ($\dim 6$); rank-2
