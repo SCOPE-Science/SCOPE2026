@@ -1,0 +1,32 @@
+# Independent audit — 2026-09-29
+
+**Record:** `2026/09/17/fourier-diagonal-four-quadric-tangent-birationality--bd810ca7b75f`  
+**Audited source tree:** `fa65ecd3c3e06bcbef3dda3c23f5e03b42b8c3d0`  
+**Repository:** `SCOPE-Science/SCOPE2026` at checked commit `253a0fe5d0217455660a277f9adb940030e567ad`  
+**Overall independent-audit verdict:** **PASS**
+
+## Correctness — PASS
+
+The Fourier description and smoothness proof check. A Jacobian dependence has coefficient polynomial t r(t) with deg r<=3, so it can vanish at at most three eighth roots; any singular point would therefore have at most three nonzero coordinates. But the squared-coordinate vector of a point of X is the evaluation of a cubic, and five or more zero coordinates force that cubic to vanish identically, a contradiction. For the tangent fibre, f=-2-t+2t^3 and g=2+t^2 are units modulo t^8-1; multiplication by the nonzero coordinate vector w is a projective linear isomorphism, and y lies in X exactly when h^2 f lies in g^2 K. I independently reconstructed the four resulting quadrics over Q[t]/(t^8-1): on b0=1 the lexicographic Gröbner basis is {b1,b2-1/2,b3}, while all three charts at b0=0 have Gröbner basis {1}. Thus the projective fibre is one reduced point. Kanazawa's full text confirms that for a smooth nondegenerate threefold in P^7 the tangent-incidence map is generically finite and that the X_{2,2,2,2} tangential Chern gap is 64, so the singleton reduced fibre forces tangent degree one and tangent-variety degree 64.
+
+## Originality — PASS
+
+Kanazawa proves tangent degree one for a general intersection of four quadrics and explicitly formulates the stable-range tangent-birationality conjecture for complete embeddings, but a general-member theorem does not certify this highly symmetric diagonal member. The inspected full text identifies the general family, not this Fourier-diagonal point, and targeted searches did not locate this exact member or an equivalent reduced-fibre certificate. Hernandez Gomez–Russo supplies the broader tangent-degree framework rather than this example. Priority is qualified because both comparison papers are recent.
+
+## Scientific value — PASS
+
+An exact special-member certificate is useful precisely because generic birationality does not automatically include symmetric special fibres, where tangent degree can in principle jump. The record supplies a compact rational Gröbner certificate and an explicit degree computation, giving a reproducible test case for the new stable-range conjecture.
+
+## Sources used in the independent comparison
+
+- https://arxiv.org/abs/2609.17513 — Kanazawa, Chern bounds and tangent geometry of polarized Calabi–Yau threefolds. Full text inspected for tangent incidence, stable-range conjecture, the general four-quadric result, and the value 64 for X_{2,2,2,2}.
+- https://arxiv.org/abs/2605.09437 — Hernandez Gomez–Russo, On the tangent degree and the degree of the tangent variety of a projective variety; general tangent-degree context.
+- https://github.com/SCOPE-Science/SCOPE2026/tree/253a0fe5d0217455660a277f9adb940030e567ad/2026/09/17/fourier-diagonal-four-quadric-tangent-birationality--bd810ca7b75f — Audited repository snapshot, including the exact Gröbner verifier and recorded output; the calculation was independently reconstructed during this audit.
+
+## Limitations and residual uncertainty
+
+- The theorem certifies one explicit smooth four-quadric intersection and does not prove the stable-range conjecture for all special members.
+- The Gröbner computation was independently reconstructed over Q[t]/(t^8-1), but no formal proof assistant verification is claimed.
+- Originality is qualified because the tangent-birationality literature compared here is very recent.
+
+This independent audit is scoped to correctness, originality, and scientific value. Repository material was used as evidence only; no GitHub modification was made during the audit.
