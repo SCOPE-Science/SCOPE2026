@@ -1,0 +1,43 @@
+# Independent Audit — 2026/09/11/005
+
+**Audit date:** 2026-09-28 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `bcff5ff05d5112b194e1762af2abfc0202292b1b`  
+**Audited current source tree:** `bcff5ff05d5112b194e1762af2abfc0202292b1b`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` directory tree SHA exactly matches the assignment tree SHA, so no intervening record change required a stale-source re-audit.
+
+## Correctness
+
+PASS. The transfer-matrix resonance condition is internally consistent, and an independent numerical reconstruction supports the no-zero claim on the stated A=10 rectangle. On a dense 121x121 grid I obtained min |S(k)| about 400, far from zero, and independent root finding from several seeds converged to the nearby resonance k≈1.18519977-0.00102523i, whose real part is well outside the claimed pi/2±0.1 window. The repository's verify_nozero.py supplies a finite midpoint-radius enclosure with a reported positive exclusion margin. I treat its hard-coded libm/rounding inflation as an explicit numerical assumption rather than as a formally verified interval-arithmetic theorem; the very large independent separation margin makes the substantive conclusion robust.
+
+## Originality
+
+SUPPORTED, NARROW. Transfer matrices and double-barrier resonance calculations are classical, and prior literature studies symmetric two-barrier resonances. I did not find a prior source stating this exact square-barrier A=10 no-resonance rectangle or the associated explicit counterexample to the admitted uniform window. The originality that survives audit is therefore the concrete, reproducible counterexample/certificate for this exact target, not the transfer-matrix method itself. Search non-detection is not treated as proof of novelty.
+
+## Scientific value
+
+MEANINGFUL NEGATIVE VALUE. A single certified A=10 counterexample is sufficient to invalidate the admitted 'for every A≥10' target and prevents downstream work from building on a false uniform localization claim. The result is deliberately narrow: it is a route-correction and benchmark certificate, not a classification of the large-A resonance regime.
+
+## Independent checks
+
+- current main record tree SHA equals the assigned source-tree SHA
+- independent transfer-matrix evaluation on a 121x121 rectangle grid gave min |S| about 400
+- independent complex root solves converged to k≈1.18519977-0.00102523i outside the target rectangle
+- repository verify_nozero.py and its guarded no-zero logic were read directly
+
+## Limitations
+
+- Only the A=10 rectangle is certified; no conclusion about the full large-A resonance ladder follows.
+- The midpoint-radius script uses explicit floating/libm inflation constants rather than a formally verified directed-rounding interval package.
+- The nearby resonance location is a high-accuracy residual computation, not a rigorous enclosure and is explanatory rather than load-bearing.
+
+## Evidence and references
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/11/005
+- https://arxiv.org/abs/1107.4092
+- https://arxiv.org/abs/2509.00235
+
+This audit changes only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
