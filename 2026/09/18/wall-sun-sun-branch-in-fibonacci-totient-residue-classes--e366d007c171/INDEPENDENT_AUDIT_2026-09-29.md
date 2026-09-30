@@ -1,0 +1,44 @@
+# Independent audit — Wall--Sun--Sun exceptional branch in Fibonacci-totient residue classes
+
+**Audit date:** 2026-09-29 (UTC)  
+**Source path:** `2026/09/18/wall-sun-sun-branch-in-fibonacci-totient-residue-classes--e366d007c171`  
+**Audited tree:** `37b3cf6af7f551b41b0426aaf5d4ed48cafa12c7`
+
+## Disposition
+
+**PASSED.** All three required axes pass. Publication may remain in the validated record set.
+
+## Correctness
+
+**PASS.** The theorem is correct. For q odd, q != 5, q^2 divides F_m exactly when z(q^2) divides m. In the non-Wall--Sun--Sun case z(q^2)=q z(q), while z(q) divides P=pi(q) and P divides q^2-1, so q does not divide P and gcd(q z(q),P)=z(q). The CRT therefore gives no solutions in a P-progression unless z(q)|r, and then exactly one class modulo qP, hence relative density 1/q. In the Wall--Sun--Sun case z(q^2)=z(q), giving density 1 or 0. The Euler-totient witness corollary then follows from the prime factorization of phi(F_m). Independent computation for every odd prime q<60, q!=5, reproduced z(q^2)=qz(q), gcd(z(q^2),pi(q))=z(q), and in particular the q=3 density pattern.
+
+## Originality
+
+**PASS.** with the classical rank-lifting ingredients excluded from the novelty claim. Goel's 2026 preprint is the motivating source, while standard Wall--Sun--Sun literature supplies the rank/period facts. Repository and semantic searches found no earlier SCOPE record stating the exact 0/1/q/1 progression-density theorem or its automatic S(q) block. A later 2026-09-19 SCOPE record generalizes this result to all q^a, but it postdates the assigned 2026-09-18 record and therefore does not defeat its originality.
+
+## Scientific Value
+
+**PASS.** The record isolates a genuine exceptional branch in a recent universal argument, replaces an incorrect finiteness assertion by an exact positive-density law, and explains a structurally different mechanism by which a hypothetical Wall--Sun--Sun prime would force S(q) nonempty. That is a meaningful correction and quantitative sharpening even though no Wall--Sun--Sun prime is known.
+
+## Independent checks
+
+- Re-derived the CRT density directly from z(q^2)|m, z(q)|pi(q), and q not dividing pi(q).
+- Brute-force modular Fibonacci recurrences for all odd primes q<60, q!=5, gave z(q^2)/z(q)=q and gcd(z(q^2),pi(q))=z(q) in every tested ordinary case; q=3 gives z(3)=4, pi(3)=8, z(9)=12.
+- Checked the totient-factor argument: when q|phi(F_m) but q^2 does not divide F_m, the factor q must divide p-1 for some prime divisor p!=q.
+
+## Literature and repository prior-art boundary
+
+- https://arxiv.org/abs/2604.17847 — Goel (2026), Sophie Germain Primes and the Totient of Fibonacci Numbers; introduces S(q) and contains the witness argument corrected here.
+- https://doi.org/10.1080/00029890.1960.11989541 — Wall (1960), classical Fibonacci periods and rank-lifting background.
+- https://doi.org/10.1090/S0025-5718-07-01955-2 — McIntosh and Roettger (2007), standard Fibonacci-Wieferich/Wall--Sun--Sun background.
+- https://github.com/SCOPE-Science/SCOPE2026/tree/main/2026/09/19/wall-sun-sun-fibonacci-totient-witness-density--d43b00708fee — Later SCOPE generalization to q^a witness densities; dated after this assigned record.
+
+## Limitations
+
+- No Wall--Sun--Sun prime is known, so the persistent density-one branch is conditional on existence.
+- The result does not settle Goel's Conjecture 4.4 or prove that external witnesses fail in the hypothetical exceptional branch.
+- The originality claim concerns the residue-class density/correction, not the classical Fibonacci rank-lifting identities.
+
+## Repository identity
+
+The assigned source-tree SHA `37b3cf6af7f551b41b0426aaf5d4ed48cafa12c7` exactly matched the current tree at the audited path on `main`; no stale-tree substitution was used. GitHub was read only during this audit.
