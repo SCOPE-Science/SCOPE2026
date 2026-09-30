@@ -1,0 +1,3 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The raw finite-group census in this package is reproducible, but the package is not a validated Hurwitz-space result as written. Its 168- and 504-element pure-braid fibers are raw generating-tuple orbits that coincide with simultaneous-conjugation orbits. After the standard inner Nielsen quotient, each fixed order-7-class fiber is a single inner Nielsen point; outer automorphisms further identify class choices (notably the three q=8 classes). Consequently the claims that 168/504 are Hurwitz-component or Galois-orbit degrees, and that the q=8 data give three Macbeath-Hurwitz maps, require substantive correction. The complete original package should be preserved at the designated failed path for forensic/reproducibility use.
