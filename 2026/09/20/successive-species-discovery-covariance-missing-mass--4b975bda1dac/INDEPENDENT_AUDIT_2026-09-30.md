@@ -1,0 +1,51 @@
+# Independent Audit — 2026/09/20/successive-species-discovery-covariance-missing-mass--4b975bda1dac
+
+- Audit date: 2026-09-30 (UTC) (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Branch: `main`
+- Inventory commit: `e9ed144c13b7834896a844cc4f9cac3c25a168a6`
+- Source-tree checked commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `72161a28752e20ab91cd617fc6aef0f53f090098`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — The covariance identity follows exactly by conditioning on the first n observations. Given F_n, two consecutive discoveries must hit two distinct unseen species, so their conditional joint probability is M_n^2-Q_n. Taking expectations, using E Q_n=m_n-m_{n+1}, and subtracting m_n m_{n+1} yields Cov(D_{n+1},D_{n+2})=Var(M_n)-(m_n-m_{n+1})(1-m_n). The uniform-K formula is strictly negative because 1-2/K<(1-1/K)^2. For one atom of mass 1-a and K equal rare atoms of mass a/K, direct enumeration gives the submitted m_{n,K} and joint probability, and the K-to-infinity covariance is a^(n+1)(1-a)^2(1-a^n)>0; hence finite laws of both signs exist for every n. For the diffuse-tail family, differentiating log f_n proves strict concavity, and the scaling a=1-c/n gives n^2 f_n -> c^2 e^{-c}(1-e^{-c}) with the stated critical equation and numerical maximizer.
+
+## Originality
+
+**PASS** — The checked Good-Toulmin/Starr/Clayton-Frees line studies expected discovery probability and its estimation; later missing-mass work treats concentration, variance, and process-level limits. Targeted searches did not locate the exact adjacent-discovery covariance decomposition, its heterogeneity-versus-depletion sign criterion, or the finite-law both-sign construction. Because the identity is elementary and occupancy literature is extensive, an equivalent formula under older urn/species terminology remains the principal residual risk; the audit therefore does not treat the conditioning calculation itself as a deep new technique.
+
+## Scientific value
+
+**PASS** — The result corrects the tempting but false inference that decreasing expected discovery probabilities force negative dependence. It gives an exact finite-sample diagnostic for the sign, explicit finite examples of both signs for every time n, and a quantified positive-covariance scale in a natural rare-species regime. The family-specific optimization is appropriately not advertised as global.
+
+## Sources
+
+- **The Number of New Species, and the Increase in Population Coverage, When a Sample Is Increased** — I. J. Good; G. H. Toulmin. https://doi.org/10.1093/biomet/43.1-2.45 — Classical prediction of new species and coverage under sample enlargement.
+- **Nonparametric Estimation of the Probability of Discovering a New Species** — M. K. Clayton; E. W. Frees. https://doi.org/10.1080/01621459.1987.10478434 — Classical estimation of the unconditional discovery probability rather than adjacent realized-discovery covariance.
+- **Concentration Inequalities in the Infinite Urn Scheme for Occupancy Counts and the Missing Mass, with Applications** — A. Ben-Hamou; S. Boucheron; M. I. Ohannessian. https://doi.org/10.3150/15-BEJ743 — Modern occupancy and missing-mass concentration background.
+- **Functional Central Limit Theorems for Occupancies and Missing Mass Process in Infinite Urn Models** — M. Chebunin; S. Zuyev. https://doi.org/10.1007/s10959-020-01053-6 — Process-level missing-mass/occupancy covariance background under regular variation.
+
+## Limitations
+
+- Only two adjacent discovery indicators are characterized; longer lags and higher-order dependence are not classified.
+- The positive construction proves existence rather than a global extremum over all species laws.
+- The c_* optimization is restricted to the one-atom/diffuse-tail limiting family.
+- Older occupancy and urn literature is broad enough that an equivalent elementary identity under different terminology remains possible.
+
+## Independent checks
+
+```json
+{
+  "conditional_joint_probability_reconstructed": true,
+  "covariance_identity_rederived": true,
+  "uniform_negative_family_checked": true,
+  "finite_rare_species_positive_limit_checked": true,
+  "diffuse_tail_concavity_and_scaling_checked": true,
+  "open_access_first": true,
+  "oxford_used": false
+}
+```
+
+The assigned record tree was unchanged between the inventory commit and the source-tree-check commit. GitHub was used only as read-only evidence and no repository mutation or separate dispatcher report was performed. Open-access/preprint sources were checked before institutional retrieval. Any inaccessible comparison is explicitly identified and is not claimed read.
