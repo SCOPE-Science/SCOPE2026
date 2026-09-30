@@ -1,0 +1,48 @@
+# Independent Audit — Henselian residue criterion for generalized quasi t-fine rings
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `c5c4c149429b1afbbf089ab5bb65d758bd02ea89`  
+**Audited current source tree:** `c5c4c149429b1afbbf089ab5bb65d758bd02ea89`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree is unchanged from the assigned source tree. GitHub was used only as read-only evidence, and the dated independent-audit marker files were absent when this guarded change set was prepared.
+
+## Correctness — PASS
+
+PASS. For a local ring, every q outside J(R) is a unit, so taking the commuting element q^{-1} in the quasinilpotence test makes 1-q^{-1}q=0 and proves Q(R)=J(R). This makes generalized quasi t-fineness exactly surjectivity of torsion units onto (R/J(R))^×. A division ring whose multiplicative group is torsion is commutative and algebraic over a finite prime field, giving the locally finite residue field. In the commutative Henselian direction, every nonzero residue class lies in a finite subfield, has order n prime to the residue characteristic, and is a simple root of X^n-1, so Hensel lifting produces a torsion unit. The Z_(p) versus Z_p classification follows immediately. The matrix obstruction is also valid: the source's prior nilpotence lemma forces the reduced torsion-unit characteristic polynomial to have one root, while cyclotomic reduction modulo p can have one distinct prime-to-p root only for d=1 or 2, hence only ±1.
+
+## Originality — PASS
+
+PASS, narrowly scoped. Bien–Danchev–Ramezan-Nassab introduced the generalized quasi t-fine notion only in September 2026 and their public description emphasizes the basic quasinilpotent identity, local/center consequences, examples, and matrix/group-ring results under additional hypotheses. Targeted searches found no Henselian residue-field equivalence, sharp Z_(p)/Z_p contrast, or all-size mixed-characteristic matrix obstruction. The local calculation Q(R)=J(R), Hensel's lemma, periodic-division-ring theorem, and cyclotomic reduction are standard ingredients and are not credited as new.
+
+## Scientific value — PASS
+
+PASS. The result gives a clean intrinsic classification of the new property on commutative Henselian local rings, identifies a sharp and instructive localization/completion boundary, and shows concretely why a positive-characteristic matrix permanence statement cannot simply be transferred to mixed characteristic. The proofs are short, but together they organize a newly introduced ring property around residue-field torsion lifting in a way that has immediate examples and counterexamples.
+
+## Independent checks
+
+- Reproved Q(R)=J(R) for arbitrary local rings directly from the definition and derived the torsion-lifting equivalence.
+- Checked the periodic-division-ring implication needed for the locally finite residue conclusion.
+- Reproved the Henselian sufficiency by simple-root lifting of X^n-1 and checked the characteristic-p coprimality condition.
+- Recomputed the Z_(p) classification from the rational roots of unity ±1 and the residue multiplicative group.
+- Checked the cyclotomic factor reduction used in the all-size M_n(Z_(p)) obstruction, conditional only on the cited source's prior nilpotent-reduction lemma.
+- Compared against the public scope of arXiv:2609.19882 and targeted searches for Henselian/residue formulations; no covering statement was found.
+- Verified the assigned record was unchanged from the dispatcher source-check commit to current main and that the 2026-09-30 audit markers are absent.
+
+## Limitations
+
+- The audit did not obtain a lawful full-text rendering of every very recent source revision and therefore does not claim line-by-line comparison with inaccessible text.
+- The matrix obstruction imports the motivating paper's nilpotent-reduction lemma rather than reproving that prior lemma from scratch.
+- The terminology and source preprint are extremely recent, so contemporaneous unindexed observations remain a residual originality risk.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.19882
+- https://stacks.math.columbia.edu/tag/04GM
+- https://acta.bibl.u-szeged.hu/38618/1/math_041_fasc_001_002.pdf
+- https://arxiv.org/abs/2408.13164
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/19/henselian-residue-criterion-generalized-quasi-t-fine-rings--80fd65831087
+
+This change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
