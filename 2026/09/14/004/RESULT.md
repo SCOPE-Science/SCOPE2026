@@ -2,92 +2,83 @@
 
 ## Context
 
-The Heun equation is the general second-order Fuchsian equation on P1 with four
-regular singularities. Its Picard-Vessiot (differential) Galois group over C(z)
-is classified by Kovacic's algorithm into four cases: reducible (Borel, Case 1),
-imprimitive irreducible (infinite dihedral, Case 2), finite primitive (Case 3),
-or the full SL(2,C). Case 2 holds exactly when the second symmetric power of the
-operator admits a nonzero exponential solution with rational logarithmic
-derivative. The admitted target asks for a proof deciding this dihedral
-inclusion for one natural symmetric parameter point, with separation from the
-Borel and finite cases.
-
-## Definitions
-
-Let H be the Heun operator
+Consider the Heun equation
 
 y'' + (gamma/z + delta/(z-1) + epsilon/(z-t)) y'
   + (alpha*beta*z - q)/(z(z-1)(z-t)) y = 0
 
-with parameters t = -1, gamma = delta = epsilon = 2/3, alpha = 1/3,
-beta = 2/3, q = 0. These satisfy the Fuchsian relation
-gamma+delta+epsilon = alpha+beta+1 = 2. Put
-P = (2/3)(1/z + 1/(z-1) + 1/(z+1)) and Q = (2/9)/(z^2-1).
-The standard normalized (SL-form) reduction xi'' = r xi with
-xi = y*exp(int P/2) uses r = P^2/4 + P'/2 - Q in C(z).
+at t=-1, gamma=delta=epsilon=2/3, alpha=1/3, beta=2/3, q=0. The target asks whether this point lies in the imprimitive/dihedral Kovacic case and, more generally, whether it has Liouvillian solutions.
+
+For a second-order equation with a first-derivative term, Kovacic's algorithm is applied after passing to the normal form. That algebraic normalization must be kept distinct from the Picard-Vessiot group of the original equation over C(z).
+
+## Definitions
+
+Put
+
+P = (2/3)(1/z + 1/(z-1) + 1/(z+1)),
+Q = (2/9)/(z^2-1),
+D = z(z^2-1).
+
+Let a=D^(1/3), so a'/a=P/2, and set xi=a y. Then xi satisfies the SL-form equation
+
+xi'' = r xi,
+
+where r=P^2/4+P'/2-Q belongs to C(z).
 
 ## Result
 
-For H as above: H does not have Picard-Vessiot Galois group contained in the
-infinite dihedral group. Its second symmetric power admits no nonzero
-exponential solution with rational logarithmic derivative. In fact all three
-Kovacic cases fail, so H has no Liouvillian solution at all and its
-Picard-Vessiot Galois group is the full SL(2,C): irreducible (Case 1 fails),
-non-dihedral (Case 2 fails), and infinite (Case 3 fails).
+The normalized equation xi''=r xi has differential Galois group SL_2(C). Kovacic Cases 1, 2, and 3 all fail, so it has no Liouvillian solution; in particular the projective equation is not in the infinite-dihedral case.
+
+For the original Heun equation over C(z), the full Picard-Vessiot group is not literally SL_2(C). It is
+
+mu_3 · SL_2(C) = { g in GL_2(C) : det(g)^3 = 1 },
+
+with identity component SL_2(C). Thus the original equation is likewise non-Liouvillian and non-dihedral, while its finite determinant character records the cubic algebraic normalization.
 
 ## Proof / evidence
 
-Exact rational computation (sympy, no floating point). The normalized
-coefficient is
+Exact rational simplification gives
 
 r = -2(z^2+1)^2 / (9 z^2 (z^2-1)^2).
 
-Poles: z in {0, 1, -1} are poles of exact order 2 with
-lim (z-c)^2 r = -2/9 and lim (z-c)^3 r = 0; at infinity
-deg(den)-deg(num) = 6-4 = 2 with lim z^2 r = -2/9. Hence in Kovacic notation
-b_c = -2/9 at each c in {0,1,-1,infinity} and sqrt(1+4 b_c) = 1/3 everywhere;
-exponent differences are all 1/3 (non-integral), so no logarithmic cases arise.
+At z=0,1,-1 and infinity, r has a double pole with coefficient b=-2/9, so sqrt(1+4b)=1/3.
 
-Case 1: alpha_c^+- = (1 +- 1/3)/2 = {1/3, 2/3} at every singular point. All 16
-sums d = alpha_infinity - alpha_0 - alpha_1 - alpha_{-1} are at most
-2/3 - 3(1/3) = -1/3 < 0, so no admissible nonneg-integer degree exists.
+**Kovacic Case 1.** At each singular point the two alpha values are {1/3,2/3}. Every candidate degree
 
-Case 2: E_c = {2 + k/3 : k in {0,+-2}} cap Z = {2} at each point, since
-2 +- 2/3 are non-integral. The unique tuple gives
-d = (2-2-2-2)/2 = -2 < 0, so no monic theta of degree d and no Case-2
-polynomial exist: the symmetric square has no rational-logarithmic-derivative
-exponential solution.
+d = alpha_infinity - alpha_0 - alpha_1 - alpha_{-1}
 
-Case 3: with sqrt(1+4b) = 1/3, the admissible sets are {4,5,6,7,8} (n=4),
-{4,6,8} (n=6), {4,5,6,7,8} (n=12); every tuple satisfies
-e_infinity - sum e_c <= 8 - 12 = -4 < 0, so
-d = (n/12)(e_infinity - sum e_c) <= -n/3 < 0. No finite-primitive solution.
+is negative; its maximum is 2/3-3(1/3)=-1/3.
 
-All three failures together give Galois group SL(2,C). The script
-output/artifacts/kovacic_verdict.py asserts each identity over Q(z) and prints
-the extremal degrees (-1/3, -2, -n/3).
+**Kovacic Case 2.** The integer set at every singular point is E={2}. The unique degree is
+
+d=(2-2-2-2)/2=-2,
+
+so Case 2 is impossible.
+
+**Kovacic Case 3.** For n=4,6,12 the relevant integer sets are respectively {4,5,6,7,8}, {4,6,8}, and {4,5,6,7,8}. Even in the extremal choice,
+
+e_infinity - e_0 - e_1 - e_{-1} <= 8-12=-4,
+
+so every candidate degree is negative. Therefore all three Liouvillian cases fail and the normal-form Galois group is SL_2(C).
+
+It remains to recover the group of the original equation. Let K=C(z), let L be the Picard-Vessiot field of the normalized equation, and let a^3=D. Since Gal(L/K)=SL_2(C) is connected, K is algebraically closed in L; hence the cyclic cubic extension K(a)/K is linearly disjoint from L/K. The Wronskian W_y of the original equation satisfies
+
+W_y'=-P W_y,
+
+so W_y is a nonzero constant multiple of D^(-2/3)=a^(-2). Therefore the original Picard-Vessiot field M contains a (because a=D a^(-2)), and then xi=a y shows that M also contains L. Conversely y=xi/a shows M is contained in L(a), hence M=L(a).
+
+Thus Gal(M/K) is SL_2(C) x mu_3 abstractly. On the original y-solution space, (g,zeta) acts as zeta^(-1)g. Its image is exactly mu_3·SL_2(C), equivalently the subgroup of GL_2(C) whose determinant has cube one.
 
 ## Limitations
 
-The verdict is specific to the single admitted point
-(t=-1, gamma=delta=epsilon=2/3, alpha=1/3, beta=2/3, q=0). It does not classify
-nearby accessory-parameter values or other Heun families. The Galois group is
-over the constants C via Kovacic's algorithm over C(z); arithmetic monodromy
-or fields of definition are not addressed.
+The verdict is specific to the single point t=-1, gamma=delta=epsilon=2/3, alpha=1/3, beta=2/3, q=0. It does not classify nearby accessory parameters or other Heun families. The archived script checks the exact normalized Kovacic calculation; the finite cubic determinant extension of the original equation is established by the Wronskian and field argument above. Arithmetic monodromy is not addressed.
 
 ## Reproducibility
 
-Run `python3 output/artifacts/kovacic_verdict.py` (exact Q-arithmetic via
-sympy). It asserts the closed form of r, each b_c = -2/9 with exact pole
-orders, and emptiness of admissible degree sets in all three Kovacic cases.
+Run `python3 artifacts/kovacic_verdict.py` with SymPy. It checks the exact normal-form coefficient, all double-pole data, and the negative-degree obstructions in Kovacic Cases 1-3.
 
 ## References
 
-- DLMF Ch. 31 Heun Functions, esp. 31.8 Solutions via Quadratures and 31.14
-  General Fuchsian Equation (Kovacic's algorithm).
-- Kovacic, J. An algorithm for solving second order linear homogeneous
-  differential equations. J. Symbolic Comput. 2 (1986), 3-43.
-- van der Put, M. and Singer, M. F. Galois Theory of Linear Differential
-  Equations. Springer, 2003.
-- Ronveaux, A. (Ed.). Heun's Differential Equations. Oxford Univ. Press, 1995.
-- MathWorld, Heun's Differential Equation (general form reference).
+- J. J. Kovacic, *An algorithm for solving second order linear homogeneous differential equations*, J. Symbolic Comput. 2 (1986), 3-43, doi:10.1016/S0747-7171(86)80010-4.
+- M. van der Put and M. F. Singer, *Galois Theory of Linear Differential Equations*, Springer, 2003.
+- DLMF Chapter 31, especially §§31.8 and 31.14.
