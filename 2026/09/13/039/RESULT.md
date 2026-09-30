@@ -47,40 +47,44 @@ F is not rational: if F=P/Q with Q(0)=1, then F(x^{2^n}) = P(x^{2^n})/Q(x^{2^n})
 in lowest terms has at least 2^n distinct poles from any nonzero root of Q,
 while F(x)+x+...+x^{2^{n-1}} has poles only among roots of Q; for 2^n > deg Q
 this is impossible, so Q is constant, but F is lacunary hence non-polynomial.
-By Becker's theorem (a C[[x]]-solution of a nonzero linear Mahler equation over
-C(x) that is differentially algebraic is rational), F is differentially
-transcendental; so is every a+bF with b != 0. In particular (Phi-1)g=x has no
-differentially algebraic Puiseux solution, placing L1 in the "otherwise" branch.
+The hypertranscendence of the Fredholm series is classical (Moore and Mahler).
+It also follows from the modern Mahler dichotomy of Adamczewski, Dreyfus and
+Hardouin: a Puiseux-Laurent solution of a linear Mahler equation is either in
+the algebraic base field or hypertranscendental. Since F lies in C[[x]] and is
+not rational, F is differentially transcendental; so is every a+bF with b != 0.
+In particular (Phi-1)g=x has no differentially algebraic Puiseux solution,
+placing L1 in the "otherwise" branch.
 
 Galois bound: the splitting field over K is K(F) since both diagonal solutions
 are rational. For sigma in the difference Galois group G,
 c_sigma = sigma(F)-F satisfies Phi(c_sigma)=c_sigma, hence c_sigma in C by the
-constants description; sigma -> c_sigma embeds G into G_a, so dim G <= 1. Any
-parametrized delta-refinement is a differential-algebraic subgroup of G_a,
-hence of differential dimension at most 1 (0 or all of G_a). This contradicts
-the universal differential-dimension-2 assertion.
+constants description; sigma -> c_sigma embeds G into G_a. Any parametrized
+delta-refinement is a differential-algebraic subgroup of G_a, hence of
+differential dimension at most 1. This contradicts the universal
+differential-dimension-2 assertion.
 
-Finite-order checks in output/artifacts/verify_L1.py (factorization
-coefficients; F(x^2)-F(x)=x and L1(F)=0 to order 199) all pass and support the
-exact series identities proved above.
+Finite-order checks in artifacts/verify_L1.py (factorization coefficients;
+F(x^2)-F(x)=x and L1(F)=0 to order 199) all pass and support the exact series
+identities proved above.
 
 ## Limitations
 
-Becker's hypertranscendence theorem is cited, not re-proved. The constants
-description for the Picard-Vessiot ring uses standard difference Galois theory
-(base constants algebraically closed). Exactness of the parametrized group
-(G_a versus a proper differential subgroup) is left open; only the upper bound
-<=1 is needed. No full corrected classification of all reducible order-two
-2-Mahler operators is supplied.
+The classical Fredholm hypertranscendence result / modern general Mahler
+dichotomy is cited, not re-proved. The constants description for the
+Picard-Vessiot ring uses standard difference Galois theory (base constants
+algebraically closed). Exactness of the parametrized group (G_a versus a proper
+differential subgroup) is left open; only the upper bound <=1 is needed. No
+full corrected classification of all reducible order-two 2-Mahler operators is supplied.
 
 ## Reproducibility
 
-Run `python3 output/artifacts/verify_L1.py` (pure Python, no dependencies).
-All lemmas are proved from first principles in this record except the cited
-Becker theorem.
+Run `python3 artifacts/verify_L1.py` (pure Python, no dependencies).
+The finite-order script is only a consistency check; the exact identities are proved above.
 
 ## References
 
+- B. Adamczewski, T. Dreyfus, C. Hardouin, Hypertranscendence and linear
+  difference equations, J. Amer. Math. Soc. 34 (2021), arXiv:1910.01874.
 - T. Dreyfus, C. Hardouin, J. Roques, Hypertranscendence of solutions of Mahler
   equations, J. Eur. Math. Soc. 20 (2018), 2209-2238.
 - J. Roques, On the algebraic relations between Mahler functions (survey:
@@ -90,6 +94,3 @@ Becker theorem.
   groups of parametrized differential equations, Math. Ann. 368 (2017).
 - C. E. Arreche, T. Dreyfus, J. Roques, Differential transcendence criteria
   for second-order linear difference equations, J. Ec. Polytech. Math. (2021).
-- B. Adamczewski, T. Dreyfus, C. Hardouin, Hypertranscendence and linear
-  difference equations, J. Amer. Math. Soc. (2021) — context for Becker-type
-  criteria used in Lemma 6.
