@@ -1,0 +1,46 @@
+# Independent audit — 2026-09-30
+
+**Record:** `2026/09/20/weighted-block-identities-fss-dimension-threshold--46d335839ec5`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Assigned/current source tree:** `7821af8381c6c17ec5d865d1b8be41eae24bae5c`  
+**Disposition:** passed
+
+## Correctness — PASS
+
+PASS. The unweighted inclusion from the l_p-sum to the corresponding l_q/c_0-sum is strictly singular for arbitrary finite-dimensional blocks: finite-rank initial projections permit a gliding-hump sequence whose p-partial sums grow like m^{1/p} while the image q-norm grows at most m^{1/q} (or remains bounded for q=infinity). Multiplying by bounded block weights preserves strict singularity. If one positive weight level contains blocks of unbounded dimension, arbitrary m-dimensional subspaces inside a single block give b_m>=t. Conversely, uniformly bounded block dimensions d admit Auerbach-coordinate factorization through I_{p,q}; the two factor norms multiply to d^{1+alpha}, and the classical b_m(I_{p,q})=m^{-alpha} gives the filed upper bound. Splitting into high- and low-weight parts and using b_m(S+T)<=b_m(S)+||T|| gives FSS exactly when every positive level has bounded dimension. Compactness is exactly lambda_n->0 by finite-rank truncation versus separated block-supported images. The endpoint q=infinity has the same estimates with 1/q=0.
+
+## Originality — PASS
+
+PASS, with an explicit older-literature qualification. Modern sources confirm the scalar formal inclusion is finitely strictly singular and Milman's classical finite-dimensional-block constructions separate strict from finite strict singularity. Targeted searches did not locate the filed arbitrary-Banach-block iff threshold, the three-way compact/FSS/SS classification, or its weighted Bernstein envelope. Milman's 1970 Russian paper is repeatedly cited as the foundational FSS source but its complete text was not obtained from a lawful open source; no DOI or usable publisher full-text route for institutional retrieval was located in this run. Therefore the audit does not claim those pages were read, and an older equivalent block formulation remains a residual originality risk. On the inspectable modern evidence, however, the exact weighted dimension-profile theorem is not already stated.
+
+## Scientific value — PASS
+
+PASS. The result unifies two classical behaviors—scalar FSS/noncompact inclusion and growing-block SS/non-FSS constructions—by a simple exact threshold profile that is independent of each block's internal Banach geometry. The quantitative Bernstein envelope adds practical decay information, making the theorem more than a taxonomy.
+
+## Findings
+
+- The Auerbach factor norms are d^{1/p} and d^{1-1/q}, yielding precisely d^{1+alpha}.
+- The obstruction to FSS is exactly persistence of arbitrarily large blocks above one fixed positive weight threshold.
+- Modern Bernstein-number literature confirms b_m(I_{p,q})=m^{1/q-1/p}; no inspected source states the full arbitrary weighted-block threshold.
+
+## Independent checks
+
+- Reconstructed the gliding-hump strict-singularity proof for q finite and q=infinity.
+- Verified the Bernstein lower obstruction and the Auerbach factorization upper estimate including endpoint exponents.
+- Checked compactness in both directions using finite-dimensional truncations and blockwise separation.
+- Searched modern FSS/operator-ideal literature and attempted to locate the foundational 1970 Milman text; full primary text remained unavailable.
+
+## Literature evidence
+
+- https://arxiv.org/abs/2503.19600 — Edmunds and Lang (2025), modern Bernstein-number survey/analysis including the classical l_p to l_q formula and FSS criterion.
+- https://doi.org/10.1002/mana.12031 — Lang and Nekvinda (2025), open-access sequence-space embeddings and strict/FSS classifications; cites Milman and treats structured scalar settings.
+- https://doi.org/10.7153/oam-06-22 — Schlumprecht (2012), later operator-ideal account describing classical Milman/FSS phenomena.
+- https://doi.org/10.1016/j.aim.2013.12.034 — Lefèvre and Rodríguez-Piazza (2014), finitely strictly singular operators in harmonic analysis/function theory; modern FSS context.
+
+## Limitations
+
+- Originality remains qualified because the complete 1970 Milman Russian paper and Pietsch's monograph were not exhaustively inspectable in this run.
+- The Bernstein upper envelope is generally not asserted sharp.
+- The theorem is for scalar weights multiplying entire finite-dimensional blocks and fixed outer exponents p<q.
+
+No GitHub write was performed by this audit. The guarded change set only stages this audit evidence and updates the independent-audit channel in `VERIFICATION.md`; it leaves the research claim files unchanged.
