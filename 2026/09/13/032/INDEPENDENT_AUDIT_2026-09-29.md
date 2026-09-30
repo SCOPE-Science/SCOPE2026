@@ -1,0 +1,31 @@
+# Independent audit — 2026-09-29
+
+Record: `2026/09/13/032`  
+Audited source tree: `ae3f9e1ca72e1f0b53df131abc16a8b30f659818`  
+Disposition: **passed**
+
+## Correctness
+
+The dense-open cancellation proof is valid. For a smooth surface, the consecutive nested Hilbert scheme Hilb^{n,n+1}(S) is smooth of dimension 2n+2, and the residual length-one quotient defines a morphism to S. On the dense locus of pairwise distinct points, the Beauville forms pull back to sums of the surface form, so sigma_n + sigma_S - sigma_{n+1} cancels identically on the ordered étale cover. Étale pullback is injective on holomorphic forms, and a holomorphic 2-form that vanishes on a dense open subset of the smooth irreducible nested Hilbert scheme vanishes everywhere. With ambient dimension 4n+4, the image is therefore Lagrangian.
+
+## Originality
+
+One-step Hecke/nested Hilbert correspondences are classical ingredients in the Nakajima-Grojnowski theory, and smoothness of the consecutive nested scheme is standard. The record's proof gives a clean K3 signed-product formulation and dense-locus argument, but the audit does not regard the general correspondence geometry as a new priority theorem.
+
+## Scientific value
+
+The record gives a concise geometric proof of the exact sign convention that makes the natural triple-product embedding Lagrangian. It is a useful self-contained verification and reference point for the Hecke correspondence, even if the surrounding framework is classical.
+
+## Limitations
+
+- The proof uses standard smoothness/irreducibility and Beauville-form normalization results rather than reproving them.
+- The statement is for consecutive lengths n,n+1 on a smooth projective K3 surface.
+- The audit does not establish a novelty or priority claim for the Hecke correspondence itself.
+- No claim is made for larger nesting gaps, where nested Hilbert schemes are generally singular.
+
+## Sources checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/13/032
+- https://arxiv.org/abs/2109.09002
+- https://arxiv.org/abs/0904.1679
+- https://arxiv.org/abs/1909.08385
