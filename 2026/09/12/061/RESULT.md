@@ -1,32 +1,30 @@
-# One-pointed ψ⁵ point descendant on F₁ in class 3H−2E₁ equals 1/12
+# One-pointed psi^5 point descendant on F1 in class 3H-2E
 
-## Context
-Hirzebruch surface F₁ is the blow-up of P² at one torus-fixed point. Its genus-zero Gromov–Witten theory is governed by Givental's toric mirror theorem. One-pointed gravitational descendants ⟨τ_k(α)⟩ encode intersections of psi-classes with evaluation classes on moduli spaces of stable maps. For Fano toric surfaces the small J-function equals the small I-function, so individual descendant invariants can be read from explicit I-function coefficients.
+Let X=F1=Bl_p P^2, write E for the exceptional curve and F=H-E for a fibre, and let beta=3H-2E=3F+E. Then c1(X).beta=7, so vdim_C Mbar_{0,1}(X,beta)=7. The insertion psi^5·pt also has codimension 7.
 
-## Definitions
-Let X₁ = F₁ = Bl_{p₁}P² with p₁=[1:0:0] for the standard torus action. Let H be the pullback of the hyperplane class, E₁ (also E) the exceptional divisor, F = H−E the fibre class, and pt the point class. Intersection: H²=1, H·E=0, E²=−1, hence F²=0, F·H=F·E=1. Canonical: c₁(X₁)=3H−E, so c₁(F)=2, c₁(E)=1. Let β₁=3H−2E₁=3F+E. Let M̄_{0,1}(X₁,β₁) be the genus-zero one-pointed stable-map moduli space with cotangent line class ψ₁ and evaluation map ev₁. The invariant is ⟨τ₅(pt)⟩_{0,1,β₁}^{X₁} = ∫_{[M̄]^{vir}} ψ₁⁵ ∪ ev₁^*(pt).
+Using the standard toric divisors D1=F, D2=E, D3=F, D4=H, their pairings with beta are
 
-## Result
-⟨τ₅(pt)⟩_{0,1,β₁}^{X₁} = 1/12.
+(D1.beta,D2.beta,D3.beta,D4.beta)=(1,2,1,3).
 
-## Proof / Evidence
-Virtual dimension: vdim = dim X₁ − 3 + 1 + c₁(β₁) = 2−3+1+7 = 7, since c₁(β₁)=9−2=7. Insertion ψ₁⁵ (codimension 5) plus pt (codimension 2) gives codimension 7: a virtual zero-cycle degree, well-defined.
+For the Fano toric I-function the beta coefficient is
 
-Toric data: fan rays (1,0),(0,1),(−1,1),(0,−1) with invariant divisors D₁=F, D₂=E, D₃=F, D₄=H. Mori cone NE=⟨F,E⟩; write d=aF+bE. Pairings D·d=(b,a−b,b,a), sum 2a+b=c₁(d). For β₁: a=3,b=1, pairings k=(1,2,1,3), sum 7.
+I_beta = z Q^beta / [(D1+z)(D2+z)(D2+2z)(D3+z)(D4+z)(D4+2z)(D4+3z)].
 
-F₁ is Fano (c₁·F=2>0, c₁·E=1>0 on Mori generators), so Givental's toric mirror theorem gives small J = small I with identical variables. Trivial mirror map verified directly: for every nonzero effective d, the I-summand is O(1/z): if all kᵢ≥0 then I_d=z×O(z^{−c₁(d)}) with c₁(d)≥2 (c₁=1 forces d=E with k₂=−1); if k₂=a−b<0, leading factor gives z^{b−a−1}·D₂ over z^{a+2b}, i.e. z^{−2a−b} with 2a+b≥1, hence O(1/z). Thus I=z+t+O(1/z).
+Its leading scalar term is
 
-Small J at t=0: J=z+Σ Q^d z^{−k−1}⟨τ_k(φ_α)⟩φ^α. The Q^{β₁}z^{−6} coefficient along identity 1 (dual of pt) is exactly ⟨τ₅(pt)⟩. Since J=I, I_{β₁}=zQ^{β₁}/[(D₁+z)(D₂+z)(D₂+2z)(D₃+z)(D₄+z)(D₄+2z)(D₄+3z)], leading term zQ^{β₁}·1/(1!2!1!3!)·z^{−7}=Q^{β₁}z^{−6}/12. Higher corrections carry positive divisor/point degree and lower z-powers. Exact expansion in H*(F₁)[w], w=1/z, using D³=0, confirms w⁷-coefficient 1/12·1, w⁸ divisor −(11/72)H−(1/6)F−(1/8)E, w⁹ pt-component 131/216, consistent with grading.
+Q^beta · z^{-6}/(1!2!1!3!) = Q^beta · z^{-6}/12.
 
-## Limitations
-Relies on Givental's toric mirror theorem for Fano F₁ (verified trivial mirror map here). Identification β₁=3F+E with pairings (1,2,1,3) as stated. No independent fixed-point localization sum or tropical floor-diagram enumeration performed; no numerical cross-check beyond exact I-function expansion.
+In the standard one-point J-function, the coefficient of the identity class at z^{-6} is dual to a point insertion and equals <tau_5(pt)>_{0,1,beta}. Hence
 
-## Reproducibility
-Run `python3 output/artifacts/leading_coeff.py` (exact Fraction arithmetic, no floating point). It multiplies the seven factors 1/(D+mz) expanded to O(w⁹) in basis {1,H,F,E,pt} with relations H²=pt, H·E=0, E²=−pt, and asserts the w⁷ coefficient equals 1/12·1.
+<tau_5(pt)>_{0,1,3H-2E}^{F1} = 1/12.
+
+The only c1=1 Mori generator is E. Its toric pairing vector contains a -1 entry, so its I-term begins at order z^{-1}; it does not create a z^0 mirror-map correction. Thus the displayed coefficient is not altered by a change of variables.
+
+## Reproducibility and limitations
+
+The factorial and grading calculation above was independently recomputed in the 2026-09-29 audit. The previously referenced `output/artifacts/leading_coeff.py` is not present in the audited repository tree and is not claimed as evidence. The derivation relies on the published toric mirror theorem and standard small-J conventions.
 
 ## References
-- Givental, toric mirror theorem (Fano small J=I).
-- Coates–Corti–Iritani–Tseng, computing genus-zero twisted GW invariants (quantum Lefschetz).
-- Gholampour–Tseng, genus-zero two-point descendants via one-point invariants.
-- Cavalieri–Johnson–Markwig–Ranganathan, counting curves on Hirzebruch surfaces (tropical/floor/Fock descendant correspondence).
-- Spielberg, counting genus-0 curves on Hirzebruch surfaces.
+
+- Coates, Corti, Iritani, Tseng, *A Mirror Theorem for Toric Stacks*, arXiv:1310.4163.
+- Cooper, *A Fock Space approach to Severi Degrees of Hirzebruch Surfaces*, arXiv:1709.01159, for broader curve-counting context on Hirzebruch surfaces.

@@ -1,0 +1,32 @@
+# Independent audit — 2026/09/12/061
+Assigned/current tree: `77fab7b736bcc8ac49a89fe3a991583a6389d4eb`  
+Disposition: **repaired**
+
+## Correctness
+
+For F1=Bl_p P2 and beta=3H-2E=3F+E, c1.beta=7 and the toric divisor pairings are (1,2,1,3). The beta-term of the Fano toric I-function therefore has leading scalar coefficient z/(1!2!1!3! z^7)=1/(12 z^6). In the one-point J-function the unit coefficient at z^-6 is dual to the point insertion and equals <tau_5(pt)>, giving 1/12. The exceptional class E has a negative toric-divisor pairing, so it produces no z^0 mirror-map correction.
+
+## Originality
+
+The computation is a direct specialization of standard toric mirror symmetry. Focused searches found broad Hirzebruch-surface Gromov-Witten formalisms but not this exact class and descendant value; this is not a priority proof.
+
+## Scientific value
+
+The value is a compact exact benchmark for descendant implementations on F1, but it is methodologically routine once the toric I-function is written down.
+
+## Independent checks
+
+- Recomputed c1.beta=7, toric pairings (1,2,1,3), factorial denominator 12, and the dual-basis coefficient extraction.
+- Checked the c1=1 exceptional-class term cannot alter the mirror map at z^0.
+
+## Limitations
+
+- The referenced output/artifacts/leading_coeff.py file is absent from the audited Git tree and was not treated as read.
+- No independent localization or tropical enumeration was needed for the exact coefficient check.
+- Literature non-detection does not establish priority.
+
+## Sources
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/12/061
+- https://arxiv.org/abs/1310.4163
+- https://arxiv.org/abs/1709.01159
