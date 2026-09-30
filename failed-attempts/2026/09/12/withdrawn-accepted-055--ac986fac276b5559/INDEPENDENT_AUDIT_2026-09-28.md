@@ -1,0 +1,38 @@
+# Independent audit — 2026-09-29
+- Source: `2026/09/12/055`
+- Assigned/current tree SHA: `956a12dd38253c7725100a2887c68eefac89fc80`
+- Audited repository commit: `eff2c6312cec5b0dee5115e5f42211a853092dfb`
+- Disposition: **failed**
+
+## Three-axis assessment
+
+### Correctness
+
+**PASSED** — The fixed-loop-delay spectral invariance is mathematically correct for the stated linearized two-population model: the cross term is proportional to exp[-iω(d_EI+d_IE)], so changing the split at fixed sum cannot change the characteristic determinant. Ledoux and Brunel’s published E–I rate/LIF analysis independently displays the same cross-loop factor J_EI J_IE exp[-iω(D_EI+D_IE)] in the characteristic equation.
+
+### Originality
+
+**FAILED** — The central structural claim is not new. Ledoux–Brunel (2011) already writes the E–I characteristic equation with the cross delay dependence only through the sum D_EI+D_IE, and Shayer–Campbell (2000) earlier parameterized two-neuron stability by the sum of the inter-neuron delays. The record’s determinant identity is therefore a direct specialization/re-expression of established delay-system structure.
+
+### Scientific value
+
+**FAILED** — The five-ratio mean-field/spiking checks are a useful application-level sanity check, but once the known characteristic equation is fixed they do not add a new mechanism, theorem, or parameter regime strong enough to justify a standalone validated finding. The PING/ING wording overstates what is essentially a known loop-delay invariance plus numerical illustration.
+
+## Independent checks
+
+- current main record tree exactly equals the assigned source-tree SHA
+- re-derived the 2×2 determinant and verified the cross-delay phase collapses to d_EI+d_IE
+- matched that dependence to Ledoux–Brunel Eq. (51)/(52) for E–I rate/LIF networks
+- checked Shayer–Campbell’s earlier two-neuron stability parameterization by the sum of inter-neuron delays
+
+## Limitations
+
+- The audit treats the record’s numerical spiking simulations as supporting illustration, not as independent evidence of originality.
+- The determinant statement assumes the same two-population linear-response factorization and fixed self terms used by the record; it is not a theorem for arbitrary synaptic kernels or architectures.
+- Open full text/abstract sources were sufficient; Oxford Download was not needed.
+
+## Sources
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/12/055
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC3103906/
+- https://doi.org/10.1137/S0036139998344015
