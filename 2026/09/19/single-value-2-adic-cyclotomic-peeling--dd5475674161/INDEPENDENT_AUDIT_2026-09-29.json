@@ -1,0 +1,63 @@
+{
+  "audit_date": "2026-09-29",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2-adic peeling identities are correct. Radical reduction gives a=v_2(Phi_n(2)-1)=n/rad(n), and the squarefree Möbius product gives C^epsilon=H_a(P). After dividing an initial-support fingerprint, the unique smallest omitted subset is the singleton next prime, so the residual is 1+2^{a p_next} modulo the next power. The false-orientation valuations in the startup cases are exactly a+1 (a>1), p_1+1 (odd squarefree startup), or 3 (binary 2-startup), strictly below the next genuine prime in the stated branches. An independent exact implementation recovered the correct prime support for every 2<=n<350.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "PASS on a narrow completion boundary. The 2026-09-18 SCOPE record `single-value-padic-cyclotomic-prime-peeling--08dfc55c58fd` already proves the general higher-prefix p-adic residual mechanism and gives single-value binary peeling for nonsquarefree indices; `higher-local-cyclotomic-prime-extraction--01e648b0fd33` is earlier still for the higher-prime residual. The assigned record's genuinely new part is the binary squarefree startup/orientation analysis, using the least-prime extractor plus the special {p1}, {2}, or {2,3} fingerprints to close the remaining x=2, a=1 gap. That yields a complete all-n decoder from one Phi_n(2), which the earlier p-adic record explicitly did not cover.",
+      "verdict": "PASS"
+    },
+    "scientific_value": {
+      "rationale": "The higher-prefix mechanism is not new, but closing the squarefree binary orientation gap is a real structural completion: it turns the earlier conditional/nonsquarefree binary recursion into an all-index theorem at the natural base 2. The incremental value is modest but sufficient if the prior mechanism is explicitly excluded from the novelty claim.",
+      "verdict": "PASS"
+    }
+  },
+  "citations": [
+    {
+      "note": "Shunia, Cyclotomic Prime Extractors; source of the radical valuation and binary least-prime identity.",
+      "url": "https://arxiv.org/abs/2609.18480"
+    },
+    {
+      "note": "Earlier SCOPE general p-adic recursion; already covers higher-prefix peeling and nonsquarefree binary indices.",
+      "url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/18/single-value-padic-cyclotomic-prime-peeling--08dfc55c58fd"
+    },
+    {
+      "note": "Earlier SCOPE higher-local residual mechanism; further narrows novelty of the assigned record to startup/orientation completion.",
+      "url": "https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/18/higher-local-cyclotomic-prime-extraction--01e648b0fd33"
+    },
+    {
+      "note": "Pomerance–Rubinstein-Salzedo cyclotomic radical-reduction/background identities.",
+      "url": "https://arxiv.org/abs/1903.01962"
+    }
+  ],
+  "disposition": "passed",
+  "independent_checks": [
+    "Re-derived C^epsilon=H_a(P) directly from the squarefree Möbius product after radical reduction.",
+    "Checked that after removing H_a(Q_j), the singleton {p_{j+1}} is the unique smallest omitted subset exponent and therefore determines the exact 2-adic valuation a p_{j+1}.",
+    "Recomputed each false-orientation startup valuation: a+1 for a>=2, p_1+1 for odd squarefree p_1, and 3 in the two even-startup branches.",
+    "Implemented the stated decoder independently with exact Fraction arithmetic and SymPy cyclotomic polynomials; every n from 2 through 349 returned exactly sorted(factorint(n)).",
+    "Compared with the 2026-09-18 single-value p-adic SCOPE theorem: its binary corollary stops at nonsquarefree n because the sign extraction fails when a=1, exactly the gap filled here.",
+    "Checked Shunia arXiv:2609.18480: the indexed summary gives the radical valuation and squarefree least-prime extractor, while complete single-value peeling there is logarithmic/Archimedean rather than this rational 2-adic squarefree startup."
+  ],
+  "limitations": [
+    "The higher-prefix residual peeling is prior SCOPE work and must not be claimed as new by this record.",
+    "The index n is given; this is not inversion of an unlabeled cyclotomic integer and not a competitive factoring algorithm.",
+    "Exact rational/integer arithmetic is required, and direct fingerprints can have exponential subset complexity.",
+    "The motivating cyclotomic preprint is very recent, leaving residual contemporaneous-priority risk."
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "repository_identity": {
+    "branch": "main",
+    "current_path_tree_sha": "41c4d6f06d3d5d6a9acbc8c189c258ccfdcb3051",
+    "current_tree_matches_assignment": true,
+    "inventory_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+    "path_changed_since_assignment": false,
+    "repository": "SCOPE-Science/SCOPE2026"
+  },
+  "review_status": "complete",
+  "schema_version": 1,
+  "source_path": "2026/09/19/single-value-2-adic-cyclotomic-peeling--dd5475674161",
+  "source_tree_sha": "41c4d6f06d3d5d6a9acbc8c189c258ccfdcb3051"
+}
