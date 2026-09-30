@@ -1,0 +1,44 @@
+# Independent Audit — 2026/09/18/sharp-assouad-bound-uniform-disconnectedness--2679fc3e3b19
+
+- Audit date: 2026-09-29 (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Audited commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `f2b14782560f525c99847d315d600751a3e52f14`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — The one-dimensional gap-tree proof is sound. The source's chain-bottleneck lemma identifies the chain constant with the largest complementary gap between two endpoints. For every c0<c, splitting a compact node of diameter d at a gap longer than c0 d produces two children whose diameter sum is <(1-c0)d. At depth k the sum of active diameters is at most (1-c0)^k d, while binary branching gives at most 2^k active nodes. Hence I_k<=min(2^k,(d/r)(1-c0)^k); summing at the crossover gives exponent log 2 / log(2/(1-c0)). The stopped binary tree then covers by O((d/r)^s) terminal sets, and c0 upward to c gives the claimed Assouad bound. Closure and subset inheritance of the chain condition are valid. For the central two-branch Cantor set with contraction q=(1-c)/2, the first common-ancestor gap gives c_*=c and strong separation gives Assouad dimension log 2/log(2/(1-c)), proving sharpness. The pure-jump clock construction has image exactly that Cantor set and the source's exact bottleneck-jump identity transfers the sharp constant to kappa_g.
+
+## Originality
+
+**PASS** — The 2026 Stieltjes-clock source proves the exact bottleneck-gap and bottleneck-jump identities and the qualitative selection characterization, but its searchable full text does not state an Assouad-dimension bound. Classical sources give the qualitative implication dim_A<1 => uniform disconnectedness and general porosity/dimension estimates. Targeted searches for the explicit extremal function log 2/log(2/(1-c)), the optimal chain constant c_*, and central-Cantor extremizers did not locate a prior theorem. The contribution is therefore the sharp one-dimensional quantitative tradeoff and its Stieltjes-clock transfer, not the qualitative relationship itself.
+
+## Scientific value
+
+**PASS** — The theorem replaces a qualitative dimension drop by an exact parameterized extremal law, identifies equality examples for every c, and gives a sharp fractal-geometric reading of the new jump-dominance invariant. It is a compact but reusable quantitative result in one-dimensional Assouad geometry and selection theory.
+
+## Sources
+
+- Hölder Selections under Stieltjes Clocks: Uniform Disconnectedness and Jump Dominance (Serkan İlter; Hülya Duru; Arkady Kitover; Mehmet Orhon): https://arxiv.org/abs/2609.20706 — Full HTML checked: Lemma 5.1 gives the exact chain-bottleneck/gap identity, Proposition 5.2 the bottleneck-jump identity, Corollary 5.3 identifies the optimal constant with kappa_g, and Theorem 5.4 gives the selection criterion.
+- Conformal Dimension: Theory and Application (John M. Mackay; Jeremy T. Tyson): https://doi.org/10.1090/ulect/054 — Classical source for the implication that Assouad dimension strictly below one forces uniform disconnectedness.
+- Assouad dimension: antifractal metrization, porous sets, and homogeneous measures (Jouni Luukkainen): https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART000884977 — Classical porosity/Assouad-dimension background; no matching sharp one-dimensional chain-constant formula was located.
+
+## Limitations
+
+- The sharp formula is specific to subsets of the real line and uses binary ordered gap splitting.
+- The literature search supports but cannot prove exhaustive novelty; older quantitative uniform-disconnectedness literature remains a residual coverage risk.
+- The Assouad dimension value below one does not quantitatively recover the optimal chain constant in the reverse direction.
+
+## Independent checks
+
+```json
+{
+  "source_full_text_checked": true,
+  "source_key_lines": "arXiv HTML lines 422-475 and 487-506",
+  "proof_reconstructed": true,
+  "numerical_or_symbolic_check_needed": false
+}
+```
+
+The assigned source tree was unchanged between the inventory commit and the audited source-tree-check commit. GitHub was read only as evidence and no repository mutation was performed. Open-access/preprint sources were checked first.
