@@ -1,0 +1,47 @@
+# Independent Audit — A post-SDPI family of orthogonal relay-channel counterexamples
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `d73eda766552fb982be9dd639627b9d93a0a92e5`  
+**Audited current source tree:** `d73eda766552fb982be9dd639627b9d93a0a92e5`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree exactly matches the assigned source-tree SHA. GitHub was used read-only as evidence; no repository change was made during the audit.
+
+## Correctness — PASS
+
+PASS. The orthogonal relay family has exact capacity 1+min(C1,C2): partial decode-forward independently sends one noiseless B-bit plus a relay-path message at min(C1,C2), while the two cutset terms are at most 1+C1 and 1+C2. Shiu’s relaxation of both proposed compress-forward terms depends only on the product factorization, and its feasibility inequality reduces to I(Yr;Yhat|B,Xr)≤I(Xr;B,Z). Applying the input-free post-processing SDPI conditionally gives I(A;Yhat|B,Xr)≤η I(Yr;Yhat|B,Xr), hence every relaxed CF value is at most 1+η C2; decode-forward is at most C1≤1. Thus min(C1,C2)>η C2 forces a strict gap. For BSC links, η=(1-2δ1)^2 and C_i=1-h2(δ_i), so on 0<δ1≤δ2<1/2 the exact gap is 4δ1(1-δ1)(1-h2(δ2))>0. Independent numerical checks reproduce the supplied sample gaps.
+
+## Originality — PASS
+
+PASS, narrowly scoped. After direct arXiv/open-web full-text retrieval failed, authorized institutional retrieval returned all ten pages of Shiu v1. That source fixes both noisy links to BSC(1/4) and proves one numerical counterexample; it does not state the arbitrary-(W1,W2) post-SDPI criterion or the two-parameter BSC wedge. Ponniah supplies the proposed three-scheme expression, and orthogonal relay capacity plus SDPI are established prior tools. The surviving contribution is the general separation criterion and continuum of explicit counterexamples.
+
+## Scientific value — PASS
+
+PASS. A single counterexample already disproves the proposed characterization, but the family result identifies why the failure is robust: the true relay path is limited by min(C1,C2), whereas the relaxed compression terms contract to ηC2. This converts an isolated BSC(1/4) example into a structural failure region and provides a reusable diagnostic sufficient condition.
+
+## Independent checks
+
+- Re-derived the partial-decode-forward achievability and both cutset upper bounds.
+- Read the complete Shiu v1 text after lawful open-access attempts failed and verified that its channel uses BSC(1/4) on both noisy links.
+- Re-derived Shiu’s relaxed objective and feasibility constraint for a general W1,W2 factorization and applied the post-SDPI pointwise in (B,Xr).
+- Checked the BSC specialization and independently numerically sanity-checked the input-free post-SDPI coefficient at several crossover values.
+- Recomputed the sample gaps in the supplied artifact and the closed wedge gap formula.
+- Verified the current main directory tree SHA exactly equals the assigned source tree SHA.
+
+## Limitations
+
+- The theorem gives a sufficient failure criterion, not a characterization of every channel on which the proposed expression fails.
+- The exact capacity formula is for the stated orthogonal family and relies on standard orthogonal-relay/cutset arguments.
+- The motivating counterexample is extremely recent, leaving residual simultaneous-work risk.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.18727
+- https://arxiv.org/abs/2609.15709
+- https://doi.org/10.1109/TIT.2005.846438
+- https://arxiv.org/abs/2504.16726
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/18/post-sdpi-relay-counterexample-family--40cc30383546
+
+This change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
