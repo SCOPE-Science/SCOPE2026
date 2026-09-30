@@ -1,0 +1,47 @@
+# Independent Audit — Three-point multiset bases for cylindrical grids at circumference six times the height
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `6bdcafa3f2fe33cf60d2c8ede8d7b69cce3286b5`  
+**Audited current source tree:** `6bdcafa3f2fe33cf60d2c8ede8d7b69cce3286b5`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree exactly matches the assigned source-tree SHA. GitHub was used only as read-only evidence. The dated independent-audit marker files were absent when this guarded change set was prepared.
+
+## Correctness — PASS
+
+PASS. For three landmarks on the cycle, adding a path-layer coordinate i shifts all three distances by the same amount, so the sorted-distance gap code is layer-invariant and two cylinder vertices with the same gap code can collide only when the difference of their smallest cycle distances is less than the available height. Thus q-separation of the cycle triple with q at least the path height is sufficient for a three-point multiset basis. I independently implemented the gap-code test for all six tail residue families and every q from 2 through 100, and found no repeated-gap pair with smallest-distance separation below q. The four parity-dependent boundary families n=6q-1,6q,6q+1,6q+2 likewise had no violation through q=100. Since connected non-path graphs cannot have multiset dimension 1 or 2, the constructed three-point resolving sets give equality.
+
+## Originality — PASS
+
+PASS. The 2025 cylindrical-graph paper proves md(P_m square C_n)=3 only for n≥8m+1. A July/September 2026 survey still records that 8m+1 threshold as the known cylindrical result. Targeted searches found no six-times-height family or equivalent q-separated cycle-triple criterion. The submitted result therefore materially improves the known sufficient circumference threshold and adds several sharp near-boundary residue families.
+
+## Scientific value — PASS
+
+PASS. Lowering the guaranteed three-landmark regime from circumference roughly 8m to roughly 6m is a substantial constant-factor improvement in a family whose exact multiset dimension remains incomplete. The q-separation lemma isolates a simple one-dimensional design condition on the cycle and should be reusable for further threshold improvements or classification of the remaining residues.
+
+## Independent checks
+
+- Reproved the lifting lemma from the Cartesian-product distance formula and sorted-distance gap invariance.
+- Independently checked all six tail arc triples for every q=2,...,100; zero q-separation violations were found.
+- Independently checked all four parity-dependent boundary families for every q=2,...,100; zero q-separation violations were found.
+- Read the open journal source, which states md=3 for n≥8m+1, and compared it with the 2026 multiset-dimension survey, which still lists the same threshold.
+- Targeted searches for 6m, 6m+3, and equivalent cylindrical multiset-basis results found no covering prior theorem.
+- Verified the current repository tree SHA exactly matches the assigned source-tree SHA and that the September 30 independent-audit marker files are absent.
+
+## Limitations
+
+- The theorem supplies sufficient families rather than a complete classification of md(P_m square C_n)=3.
+- The independent computational check sampled q through 100; the all-q validity is established by the symbolic residue formulas in the record rather than by finite testing alone.
+- No optimality claim is made for the constant six or for the listed near-boundary residue classes.
+
+## Evidence and references
+
+- https://doi.org/10.61091/jcmcc126-15
+- https://combinatorialpress.com/jcmcc-articles/volume-126/on-multiset-dimension-of-cylindrical-graphs/
+- https://arxiv.org/abs/2607.08128
+- https://doi.org/10.19139/soic-2310-5070-4062
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/19/multiset-dimension-cylinders-six-times-height--fb793a108374
+
+This guarded change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
