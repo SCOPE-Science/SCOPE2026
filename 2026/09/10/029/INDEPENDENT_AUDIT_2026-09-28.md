@@ -1,0 +1,35 @@
+# Independent Audit — 2026/09/10/029
+
+**Audit date:** 2026-09-28 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `6886cdc6141a5cb66a49dc4ca4f8dd8e45ad0849`  
+**Audited current source tree:** `6886cdc6141a5cb66a49dc4ca4f8dd8e45ad0849`  
+**Disposition:** passed
+
+The current `main` directory tree SHA exactly matches the assignment tree SHA, so no intervening record change required a stale-source re-audit.
+
+## Correctness
+
+PASS. The power-graph transfer is sound. Every king edge has grid distance <=2, hence G_king⊂G_grid^(2); every G_king^(2) edge has grid distance <=4, hence G_king^(2)⊂G_grid^(4). Gao--Jackson--Krohne--Seward Corollary 3.2 gives bounded-geometry weak orthogonality for the free Z^2 grid with polygonal bound n+1=3 and separation controlled by ε d1/2, while their Theorem 4.8 yields a Borel bipartition with finite Γ^(d)-components when (2d+1)P<=Q. Choosing d=4 and d1 large gives finite grid^4 components on both sides, hence finite king^2 components. The Conley--Miller recoloring step then works: 4-color finite king components on Y, remove one color class I, and each component of (X\Y)∪I is finite because an I-vertex joining two complement vertices puts them in the same king^2 component; local finiteness bounds the attached I vertices. Recolor those components with four colors sharing only the deleted color, for 7 total. The source paper's abstract also states the general 2χ−1 consequence for graphs with weakly orthogonal decompositions. I found no logical gap in adapting it through the power inclusions.
+
+## Originality
+
+SUPPORTED AS A NONTRIVIAL SPECIALIZATION/TRANSFER. The 2χ−1 coloring mechanism and weakly orthogonal decompositions are from Gao--Jackson--Krohne--Seward. The record's added content is the observation that the king graph's square is controlled by the fourth power of the standard grid, allowing that machinery to be transferred. I did not find this king-move specialization stated in the source paper, but do not infer novelty solely from that search.
+
+## Scientific value
+
+SOLID SPECIALIZED VALUE. It strictly improves the posed 8-vs-9 benchmark by a 7-color Borel upper bound and demonstrates a reusable method for finite-range generator sets quasi-isometric to a graph with an orthogonal decomposition. It does not determine the exact Borel chromatic number, which remains correctly bounded only between 4 and 7 here.
+
+## Limitations
+
+- The deep Borel decomposition theorem is imported, not reproved.
+- The exact value χ_B(G_king) is not determined.
+- The claim depends on the source theorem allowing the scale parameter d1 to be chosen sufficiently large; the source construction supports that scale freedom.
+
+## Evidence and references
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/10/029
+- https://arxiv.org/abs/2401.13866
+- https://mathweb.ucsd.edu/~bseward/Files/borelcomb.pdf
+- https://doi.org/10.1090/jams/836
+- https://doi.org/10.1017/fms.2016.14
