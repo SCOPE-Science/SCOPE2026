@@ -1,0 +1,59 @@
+# Independent Audit — 2026/09/19/endpoint-gamma-localization-poisson-laguerre-inradii--28a16606f392
+
+- Audit date: 2026-09-29 (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Audited commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `c710c3e9a87b4a338743f98a2043bf8f530db1ce`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — The endpoint-localization calculation is coherent and the claimed scale and Gamma law follow from an independent reconstruction of the mark tilt. The first mark-sensitive exponent is of order a_rho=d(v_d gamma)^(2/d)(log rho^d)^((d-2)/d); for m=A-y/a_rho, a_rho(m^2-A^2)=-2Ay+o(1), while every higher source term varies by a factor smaller by (log rho^d)^(-2(i-1)/d). If P(A-M<=y)~C y^beta, the tilted scaled deficit therefore has Laplace transform tending to (2A/(2A+z))^beta, i.e. Gamma(beta,rate 2A). I independently integrated an exact power-endpoint law with A=1.7,beta=1.5: at tilt t=300 the Laplace transforms at z=0.5,1,2 differed from the Gamma predictions by at most 3.27e-4 and converged monotonically as t increased. The d=3 centering follows by Karamata/Laplace asymptotics for E exp(tM^2). The claimed v1 +log(gamma) correction is algebraically forced by the record's quoted exact source centering: omitting that additive term shifts the normalized exceedance level by -log(gamma), hence multiplies the limiting expected exceedance count by gamma. The passage from scalar intensity to a refined marked Poisson limit uses the same rare-event neighborhoods as the source theorem, because the new endpoint coordinate is a deterministic relabeling of the existing mark; this is a legitimate marked strengthening under the source's uniform remainder assumptions.
+
+## Originality
+
+**PASS** — Schulte and Svarc Petrakova's 17 September 2026 preprint proves Poisson-process convergence for large Poisson-Laguerre inradii and, for bounded marks in d>=3, only a first-order endpoint degeneration is advertised in the public description. The audited record adds a nondegenerate second-order endpoint coordinate, the dimension-dependent localization scale, the Gamma mark law independent of the Gumbel height, and the general d=3 endpoint-tail centering. Classical Karamata/exponential-family Gamma tilting supplies the scalar asymptotic but not this source-specific stochastic-geometric point-process refinement. Targeted searches for Gamma endpoint scaling of Poisson-Laguerre extremal marks found no pre-record theorem covering the refined process. Repository history also shows this record was publicly committed at 2026-09-19 13:04:44 +08:00, before the near-duplicate record audited separately below.
+
+## Scientific value
+
+**PASS** — The source's d>=3 bounded-mark limit loses all information about how an extremal mark approaches the endpoint. The refined theorem recovers the endpoint exponent beta, supplies an explicit localization scale and joint law for the maximum cell, and gives a useful lower-order centering correction in d=3. This is a meaningful quantitative refinement of a new extreme-value theorem, and the identified normalization omission in the source's two v1 examples is practically useful even though it is version-specific.
+
+## Sources
+
+- Point process convergence of large inradii of Poisson-Laguerre tessellations (Matthias Schulte; Martina Švarc Petráková): https://arxiv.org/abs/2609.20750 — Primary September 2026 source for the bounded-mark large-inradius Poisson-process limit; public abstract states the d>=3 bounded-weight regime and first-order extreme-value result.
+- Domains of attraction for exponential families (A. A. Balkema; C. Klüppelberg; S. I. Resnick): https://doi.org/10.1016/S0304-4149(03)00060-7 — Classical background for Gamma limits under strong exponential tilting; does not state the Poisson-Laguerre marked-process refinement.
+- SCOPE repository commit: Add endpoint-Gamma localization for Poisson-Laguerre inradii (SCOPE-Science/SCOPE2026): https://github.com/SCOPE-Science/SCOPE2026/commit/f746180269f5a24fa4f0f66509533b3fb76baa69 — Public repository timestamp 2026-09-19 13:04:44 +08:00; used only to establish precedence relative to the later duplicate SCOPE record.
+
+## Limitations
+
+- The proof inherits the bounded-mark Poisson-Laguerre model, stabilization estimates, and d>=3 hypotheses of the source theorem.
+- The endpoint law is assumed to be a pure regularly varying power with constant C; slowly varying factors, endpoint atoms, and d=2 require separate treatments.
+- No quantitative rate of refined point-process convergence is proved.
+- The missing +log(gamma) statement is explicitly version-specific to arXiv:2609.20750v1; a later source version could correct it.
+- Full arXiv source text was not retrievable through the web endpoint during this run; source-specific equation numbers were therefore cross-checked against the audited record's quoted formulas and the public source description, not claimed as independently re-read.
+
+## Independent checks
+
+```json
+{
+  "scalar_tilt_check": {
+    "A": 1.7,
+    "beta": 1.5,
+    "t_values": [
+      50,
+      100,
+      300
+    ],
+    "laplace_z": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "max_abs_error_at_t300": 0.0003267494509654467
+  },
+  "source_commit_precedence": "2026-09-19T05:04:44Z",
+  "proof_reconstructed": true
+}
+```
+
+The assigned source tree was unchanged between the inventory commit and the audited source-tree-check commit. The dated independent-audit pair was verified absent before staging this change set, and `VERIFICATION.md` was read at blob `31a3bb079c3be0cdcbee536377edadb1613bf629`. GitHub was used only as read-only evidence; no repository write was performed. Open-access/preprint sources were checked first. No decisive comparison required Oxford Download in this run.
