@@ -1,0 +1,47 @@
+# Independent Audit — Fourier-partial breakdown and support-deflated tubal Arnoldi
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `fda7017a8a5bbe80ea9867aa7c85668069c40bb6`  
+**Audited current source tree:** `fda7017a8a5bbe80ea9867aa7c85668069c40bb6`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** failed
+
+The current `main` record tree exactly matches the assignment tree SHA. GitHub was used read-only as evidence; this is a guarded publication-plan payload and is not claimed to be already published.
+
+## Correctness — PASSED
+
+PASS. Fourier diagonalization identifies the tubal-scalar algebra with C^p and the t-Krylov module with the product of the ordinary slice Krylov spaces, giving component dimensions min(j,ν_k) and the stated free-module criterion. A usual unit-tubal normalization first becomes noninvertible when a slice reaches the minimum grade, and global invariance occurs there exactly when all grades coincide. Componentwise Moore–Penrose inversion of the residual norm correctly zeroes exhausted frequencies and normalizes active ones, producing idempotent support norms, frequencywise Arnoldi continuation to ν_max, the projective direct-sum decomposition, and the slice-wise tensor-function error formula. The explicit two-frequency and finite-tolerance examples are consistent with this analysis.
+
+## Originality — FAILED
+
+FAIL. Gleich–Greif–Varah’s 2012/2013 paper on the same circulant/t-product algebra already states that when a circulant scalar is singular their approach is to use the matrix pseudoinverse and that this suffices for Arnoldi; it also explicitly proves/observes that the Fourier-space Arnoldi process decouples into individual Arnoldi processes on each Fourier block. Those two prior facts are exactly the mechanism of the submitted “support-deflated” continuation: pseudoinvert the singular tubal norm, normalize only nonzero Fourier components, and continue the independent active Arnoldi processes. The min/max grade and projective-support descriptions are useful algebraic restatements, but they follow directly from this established decoupling-plus-pseudoinverse framework. The 2026 global-stop tolerance example may expose an implementation issue, but it does not rescue the package’s central novelty claim.
+
+## Scientific value — FAILED
+
+FAIL AS A STANDALONE NEW RESEARCH CONTRIBUTION. The package is mathematically coherent and the finite-tolerance counterexample is a useful warning, but its headline continuation mechanism is already present in the older circulant-algebra Arnoldi literature, and the exact grade/free-module consequences are routine once one combines that prior pseudoinverse rule with frequencywise decoupling. The remaining implementation observation is better suited to a correction/note than to validating the present package as a distinct research finding.
+
+## Independent checks
+
+- Re-derived the product-ring decomposition and the free-module criterion using primitive Fourier idempotents.
+- Checked the grade indexing, global-happy criterion, support masks, and tensor-function exactness frequency by frequency.
+- Read the lawful open Gleich–Greif–Varah paper and inspected its PDF pages containing the singular-scalar pseudoinverse rule and the Fourier-decoupled Arnoldi algorithm.
+- Verified that the old pseudoinverse rule acts componentwise in Fourier space exactly as the submitted support normalization on zero/nonzero residual components.
+- Compared with the 2026 tubal-Arnoldi source and the older t-product/circulant-algebra framework.
+- Verified the current main tree equals the assigned tree and that dated independent-audit files are absent.
+
+## Limitations
+
+- The failure is an originality/scientific-value determination, not a claim that the algebra or examples are false.
+- The older paper does not use the exact phrases “support-deflated” or “projective module”; the decisive overlap is operational and mathematical: pseudoinverse singular normalization plus independent Fourier Arnoldi continuation.
+- A narrower record focused solely on a concrete bug in the 2026 positive-tolerance global-stop rule might merit separate evaluation, but that is not the present package.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.11369
+- https://arxiv.org/abs/1101.2173
+- https://doi.org/10.1002/nla.1845
+- https://arxiv.org/abs/2110.04796
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/18/support-deflated-tubal-arnoldi-breakdown--db3730a1d5ad
+
+This change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
