@@ -1,0 +1,32 @@
+# Independent audit — 2026-09-30
+
+**Record:** `2026/09/21/polylog-ratio-complete-monotonicity-classification--efe7f86dd392`  
+**Repository:** `SCOPE-Science/SCOPE2026` at `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Audited tree:** `74c65a0502417664a586cad1512e44c673bf8ba1`  
+**Disposition:** **PASSED**
+
+## Correctness
+
+**PASS.** Writing z=e^{-t} gives F_i=A_{i+1}(z)/[(1-z)A_i(z)] for i>=1. The i=0,1,2 cases have positive discrete Laplace expansions. For every i>=3, real-rooted palindromic Eulerian polynomial A_i has a simple root rho in (-1,0); the Eulerian recurrence makes A_{i+1}(rho) nonzero, so the ratio has a genuine pole at -log|rho|+i*pi in Re t>0. A completely monotone function has a Laplace-transform extension holomorphic on that half-plane, yielding the contradiction. The log-complete-monotonicity cutoff at i=1 follows similarly. Independent symbolic checks reproduced the Eulerian forms, the i=2 coefficient expansion, and an inner root for A_i through i=8.
+
+## Originality
+
+**PASS (literature-bounded).** Wei--Guo (2014) prove only monotonic decrease of the consecutive ratios and explicitly pose Conjecture 12 that all are completely monotone. The checked literature search did not locate a later resolution, and repository code search found no earlier SCOPE duplicate. The classification is therefore distinct on the inspected record, though equivalent coverage under negative-integer polylogarithm or Eulerian-rational-function notation remains a concrete residual priority risk.
+
+## Scientific value
+
+**PASS.** This fully resolves a published conjecture with a sharp finite cutoff and gives a structural failure mechanism, not merely a numerical counterexample. The forbidden-pole argument is concise and reusable for related rational functions of e^{-t}.
+
+## Literature and evidence
+
+- Wei and Guo, Complete Monotonicity of Functions Connected with the Exponential Function and Derivatives: https://doi.org/10.1155/2014/851213
+- DLMF §25.12, Polylogarithms: https://dlmf.nist.gov/25.12
+- Chow, New proofs of interlacing of zeros of Eulerian polynomials: https://doi.org/10.1016/j.jmaa.2022.126019
+
+## Limitations
+
+- The originality conclusion is notation-sensitive: an equivalent Eulerian/polylogarithm-ratio theorem could be indexed under different terminology.
+- The proof relies on classical Eulerian real-rootedness/reciprocity and the Hausdorff--Bernstein--Widder theorem; those ingredients are not new.
+
+
+This audit was performed independently of the same-model review. GitHub was used only as evidence; no repository write was made by the auditor.
