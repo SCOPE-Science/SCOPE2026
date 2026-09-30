@@ -1,10 +1,11 @@
 """Full 8-member ring-1 certificate (fixed u=(1,0)): for each n in ring1, certify
-sup_{a in [0,1/4]} Re[A_n(a)] <= -0.0075 (hence |A_n| >= 0.0075, I(a) >= 5.6e-5).
+sup_{a in [0,1/4]} Re[A_n(a)] <= -0.0075 (hence |A_n| >= 0.0075,
+I(a)=|A_n|^2/16 >= 3.515625e-6).
 
-Same engine as interval_proof.py (Taylor J=3 + exact Stokes triangle FT), with
-per-member exact k* and beta. Frozen members (beta=0): A constant, one interval.
-Imag parts: certified enclosed (printed) but only Re sup is needed for |A| bound.
-Saves certify_ring1_results.json with per-member sup bounds.
+Taylor J=3 + exact Stokes triangle FT, with per-member exact k* and beta.
+Frozen members (beta=0): A is constant.  Imaginary parts are enclosed and
+printed, but only the real-part supremum is needed for the modulus bound.
+Saves certify_ring1_results.json with per-member bounds.
 Run: python3 certify_ring1.py
 """
 import sys, json
@@ -46,7 +47,7 @@ def FT_triangle(Qx, Qy, ax, ay, bx, by):
         tot = iv.mpf('0')
         for m_ in range(16):
             for n_ in range(16):
-                tot += ((ii*B)**m_)*((ii*A)**n_)/iv.mpf(str(f_(n_)*f_(n_+m_+2)))
+                tot += ((ii*B)**m_)*((ii*A)**n_)/iv.mpf(str(f_(n_)*f_(n_+1+m_)))
         tail = ((_m.e**Bb)*(_m.e**Ab))*(Bb**16+Ab**16)*4
         return det*(tot + iv.mpf([-1,1])*tail)
     if Bb < 0.5:
@@ -63,20 +64,25 @@ def F0(Qx, Qy):
 
 from fractions import Fraction
 def sinpow_coeffs(j):
+    # Coefficients of (e^{ix}-e^{-ix})^j / 2^j = (i sin x)^j.
+    # Mj combines the x- and y-expansions, so the product differs from
+    # sin(x)^j sin(y)^j by (-1)^j; Mj applies that correction.
     c = {}
     for r in range(j+1):
         p = j - 2*r
         c[p] = c.get(p, Fraction(0)) + Fraction(((-1)**r)*comb(j, r), 2**j)
     return c
-COEFFS = {0: {0: Fraction(1)}, 1: sinpow_coeffs(1), 2: sinpow_coeffs(2), 3: sinpow_coeffs(3)}
+COEFFS = {0: {0: Fraction(1)}, 1: sinpow_coeffs(1),
+          2: sinpow_coeffs(2), 3: sinpow_coeffs(3)}
 
 def Mj(j, kSx, kSy):
     C = COEFFS[j]
     tot = iv.mpf('0')
     for p, cp in C.items():
         for q, cq in C.items():
-            coeff = float(cp*cq)
-            tot += iv.mpf(str(coeff))*F0(kSx + iv.mpf(str(p)), kSy + iv.mpf(str(q)))
+            coeff = float(((-1)**j) * cp * cq)
+            tot += iv.mpf(str(coeff))*F0(kSx + iv.mpf(str(p)),
+                                         kSy + iv.mpf(str(q)))
     return tot
 
 RING1 = [(3,-2,0,2),(-3,2,0,-2),(0,2,-3,2),(0,-2,3,-2),
@@ -84,8 +90,6 @@ RING1 = [(3,-2,0,2),(-3,2,0,-2),(0,2,-3,2),(0,-2,3,-2),
 
 def kp_beta_ks(nvec):
     n1,n2,n3,n4 = (iv.mpf(str(v)) for v in nvec)
-    # rows: v1=(1/2,0), v2=(s/2,s/2), v3=(0,1/2), v4=(-s/2,s/2); dual-internal rows half of e*:
-    # v1*=(1/2,0), v2*=(-s/2,s/2), v3*=(0,-1/2), v4*=(s/2,s/2)
     kx = n1/2 + n2*(s2h/2) + n4*(-s2h/2)
     ky = n2*(s2h/2) + n3/2 + n4*(s2h/2)
     ksx = n1/2 + n2*(-s2h/2) + n4*(s2h/2)
@@ -93,7 +97,6 @@ def kp_beta_ks(nvec):
     return kx, ksx, ksy
 
 def num(x):
-    """Robust upper float of an iv endpoint (mpf or degenerate mpi)."""
     try:
         return float(x)
     except ValueError:
@@ -103,7 +106,7 @@ results = {}
 allpass = True
 for nvec in RING1:
     kx, kSx, kSy = kp_beta_ks(nvec)
-    beta = kx  # u=(1,0)
+    beta = kx
     betamax = max(abs(float(beta.a)), abs(float(beta.b)))
     frozen = betamax == 0.0
     M = {j: Mj(j, kSx, kSy) for j in range(4)}
@@ -113,7 +116,9 @@ for nvec in RING1:
     worst = -1e9
     detail = []
     ii = iv.mpc(0, 1)
-    rng = [(0.0, 0.0)] if frozen else [(agrid[i], agrid[i+1]) for i in range(len(agrid)-1)]
+    rng = [(0.0, 0.0)] if frozen else [
+        (agrid[i], agrid[i+1]) for i in range(len(agrid)-1)
+    ]
     for (alo, ahi) in rng:
         amid = iv.mpf(str((alo+ahi)/2)); hw = iv.mpf(str((ahi-alo)/2))
         Qm = iv.mpf('0'); Lp = iv.mpf('0')
@@ -126,17 +131,22 @@ for nvec in RING1:
         ub = ReQ.b + (Lp*hw).b + rem3
         ubf = num(ub)
         worst = max(worst, ubf)
-        detail.append([alo, ahi, num(ReQ.a), num(ReQ.b), num((Lp*hw).b), ubf])
+        detail.append([alo, ahi, num(ReQ.a), num(ReQ.b),
+                       num((Lp*hw).b), ubf])
     status = "PASS" if worst < -0.0075 else "FAIL"
-    if worst >= -0.0075: allpass = False
-    results[str(nvec)] = {"supRe": worst, "rem3": rem3,
-                          "M0re": [num(iv.re(M[0]).a), num(iv.re(M[0]).b)],
-                          "status": status, "detail": detail}
+    if worst >= -0.0075:
+        allpass = False
+    results[str(nvec)] = {
+        "supRe": worst, "rem3": rem3,
+        "M0re": [num(iv.re(M[0]).a), num(iv.re(M[0]).b)],
+        "status": status, "detail": detail
+    }
     print(f"n={nvec}: beta in [{num(beta.a):+.6f},{num(beta.b):+.6f}] "
-          f"M0~[{num(iv.re(M[0]).a):+.6f},{num(iv.re(M[0]).b):+.6f}] rem3={rem3:.2e} supRe={worst:.6f} [{status}]"
+          f"M0~[{num(iv.re(M[0]).a):+.6f},{num(iv.re(M[0]).b):+.6f}] "
+          f"rem3={rem3:.2e} supRe={worst:.6f} [{status}]"
           + (" (frozen)" if frozen else ""))
-    # imag sanity: print Im box at a=0.25
-    Qe = sum((2*iv.pi*ii*beta)**j/iv.mpf(str(f_(j)))*M[j]*(iv.mpf('0.25')**j) for j in range(4))
+    Qe = sum((2*iv.pi*ii*beta)**j/iv.mpf(str(f_(j)))*M[j]
+             *(iv.mpf('0.25')**j) for j in range(4))
     print(f"    A(0.25) in Re[{num(iv.re(Qe).a):+.6f},{num(iv.re(Qe).b):+.6f}] "
           f"Im[{num(iv.im(Qe).a):+.6f},{num(iv.im(Qe).b):+.6f}] (+-R {rem3:.1e})")
 
