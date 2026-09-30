@@ -1,0 +1,36 @@
+# Independent Audit — 2026/09/14/040
+
+Audit date: 2026-09-29 (UTC)
+Audited tree: `b4ba8335dc7049ffc88541d434fe55f7a3fe2a48`
+
+## Disposition
+
+**FAILED** — Rejected on originality and value: the exact example is correct, but published sources already combine reverse-mutation isotopy with explicit non-involutivity of LG-seed mutation.
+
+## Correctness
+
+**PASS**. The counterexample computation is internally correct. Pascaleff–Tonkonog Lemma 4.19 says mutation along D followed by mutation along the mutated disk D' returns a Hamiltonian-isotopic configuration. Applying the published LG-seed mutation rule to the Bl_2 CP2 initial seed gives the submitted W1,V1 and W2,V2; the joint invariant |V intersect supp(W)| is 2 initially and 1 after the reverse double mutation, so no lattice automorphism can identify the full labelled data. This is enough for the stated non-invariance, independently of the exhaustive SL(2,Z) search.
+
+## Originality
+
+**FAIL**. Albers–Bertozzi–Reineke (2025, from a 2023 preprint) explicitly reproduce the same Bl_2 CP2 initial LG seed and state immediately after Definition 2.1 that LG-seed mutation is not involutive: mu_{-v}mu_v(w)=w+{w,v}v is a transvection, with the corresponding monomial transformation written out. Pascaleff–Tonkonog already supply the reverse-mutation Hamiltonian isotopy. Combining these two published statements already gives the qualitative conclusion that full labelled LG-seed data is path-dependent under an isotopically trivial reverse mutation; the submitted 2-versus-1 count is just an explicit Bl_2 instance.
+
+## Scientific value
+
+**FAIL**. The exact two-step arithmetic is a useful illustration, but the structural phenomenon it advertises—reverse geometric mutation can be isotopically trivial while the algebraic LG seed mutation is non-involutive—is already stated by the foundational and follow-up literature. Computing one concrete invariant on the listed Bl_2 seed does not add a new theorem, classification, or method sufficient for standalone publication value.
+
+## Evidence and limitations
+
+Repository files were read from the exact assigned/current tree; GitHub was used only as evidence and was not modified. Lawful open-access/preprint sources were checked first:
+- https://link.springer.com/article/10.1007/s00209-025-03816-5 — Albers–Bertozzi–Reineke: Definition 2.1 and the following note explicitly state LG-seed mutation is not involutive and give the transvection formula; Theorem 2.3 reproduces the Bl_2 CP2 seed.
+- https://jpascale.web.illinois.edu/papers/wall-crossing-mutations.pdf — Pascaleff–Tonkonog: Lemma 4.19 reverse mutation gives Hamiltonian isotopy back to the original configuration.
+
+Independent checks:
+- Checked the simple joint invariant directly from the printed supports and direction multisets: |V0∩supp(W0)|=2 and |V2∩supp(W2)|=1.
+- Compared the submitted two-step mutation mechanism to the published non-involutivity formula mu_{-v}mu_v(w)=w+{w,v}v.
+- Verified that the initial Bl_2 seed in the 2025 open-access article matches the record’s W and five directions.
+
+Limitations:
+- The audit does not dispute the exact W2,V2 calculation; the rejection is on prior implication and value, not correctness.
+- No inaccessible source is represented as read.
+
