@@ -2,62 +2,75 @@
 
 ## Context
 
-The target asks whether every degree d >= 3 admits an infinite tower of connected d-regular bipartite
-Ramanujan graphs by iterated 2-lifts with logarithmic girth. Marcus-Spielman-Srivastava guarantee a
-Ramanujan signing at each step but give no girth control. The natural greedy strategy is: take a
-Ramanujan lift, then choose the next signing to raise girth. This work derives the exact one-step
-girth calculus and discovers that the greedy step can already stall at 12 vertices.
+For a finite \(d\)-regular bipartite graph \(G\), a 2-lift is specified by signs \(s_e\in\{\pm1\}\). Marcus--Spielman--Srivastava guarantee a signing whose new eigenvalues lie in the Ramanujan interval, but that theorem does not require the same signing to raise girth. This record isolates an exact one-step obstruction to doing both greedily.
 
-## Definitions
+## Exact girth calculus
 
-Let G be finite d-regular bipartite of girth g. A 2-lift H is given by a signing s: E(G) -> {+1,-1}:
-V(H) = V(G) x {0,1}, with parallel or crossed edges according as s_e = +1 or -1. The spectrum of H
-is the union of Spec(G) and Spec(A_s), where A_s is the signed adjacency matrix. A 2-lift of a
-Ramanujan G is Ramanujan iff rho(A_s) <= 2*sqrt(d-1). For a g-cycle C, its signing product is
-prod_{e in C} s_e; with x_e = (1-s_e)/2 in F_2, odd product is the linear equation sum_{e in C} x_e = 1.
+Let \(g=\operatorname{girth}(G)\) and let \(H\) be any 2-lift.
 
-## Result
+1. \(g\le \operatorname{girth}(H)\le 2g\).
+2. A \(g\)-cycle \(C\) in \(G\) lifts to two \(g\)-cycles exactly when
+   \(\prod_{e\in C}s_e=+1\); if the product is \(-1\), it lifts to one
+   \(2g\)-cycle.
+3. Therefore
+   \[
+   \operatorname{girth}(H)>g
+   \quad\Longleftrightarrow\quad
+   \prod_{e\in C}s_e=-1
+   \text{ for every }g\text{-cycle }C.
+   \]
+   Writing \(x_e=(1-s_e)/2\in\mathbb F_2\), this is the linear system
+   \(\sum_{e\in C}x_e=1\) for every shortest cycle \(C\).
 
-Lemma (monotonicity and doubling): g <= girth(H) <= 2g. Lemma (count): the number of g-cycles of H
-equals twice the number of evenly-signed g-cycles of G. Corollary (criterion): girth(H) > g iff every
-g-cycle of G is oddly signed, an F_2 linear system with one equation per g-cycle; if UNSAT then every
-immediate 2-lift stays at girth g (one-step girth-frozen).
+Thus a base graph is *one-step girth-frozen* precisely when this system is inconsistent.
 
-Theorem: There exist connected 3-regular bipartite Ramanujan graphs H of girth 4, explicit 2-lifts of
-K_{3,3}, that are one-step girth-frozen. With V(K_{3,3}) = {0,1,2} U {3,4,5} in networkx edge order,
-s(0) = (+1,+1,-1,+1,-1,+1,+1,-1,+1) lifts K_{3,3} to a connected Ramanujan H_0 on 12 vertices, girth 4,
-ten 4-cycles, whose 10x18 F_2 odd-product system has rank 6 and is UNSAT (exact elimination derives
-0 = 1). A second witness s(2) = (-1,+1,-1,+1,-1,+1,+1,+1,+1) is certified identically. Hence every
-immediate 2-lift of H_0 (resp. H_2) has girth exactly 4.
+## Explicit Ramanujan witnesses
 
-Companion sharpness: K_{d,d} for d >= 3 is one-step frozen (three 4-cycles sum to 0 = 1 in F_2; UNSAT
-for d = 3, 4, satisfiable only for degenerate d = 2); a third Ramanujan lift of K_{3,3} is provably
-raisable; exactly 128/4096 signings of the cube Q_3 give connected Ramanujan lifts of girth 6.
+Use \(K_{3,3}\) with left vertices \(0,1,2\), right vertices \(3,4,5\), and edge order
+\[
+(0,3),(0,4),(0,5),(1,3),(1,4),(1,5),(2,3),(2,4),(2,5).
+\]
+The signing
+\[
+(+1,+1,-1,+1,-1,+1,+1,-1,+1)
+\]
+has a connected 2-lift \(H_0\) on 12 vertices. Independent reconstruction gives
 
-## Proof / evidence
+- \(\operatorname{girth}(H_0)=4\);
+- exactly ten 4-cycles;
+- signed spectral radius \(2.5615528128<2\sqrt2\), so the new eigenvalues are Ramanujan;
+- the ten odd-product equations on the 18 edges of \(H_0\) have rank 6 over
+  \(\mathbb F_2\) and are inconsistent.
 
-Exact integer-bitmask GF(2) Gaussian elimination in output/artifacts/certify_emergent.py; connectivity
-by BFS; girth by BFS shortest-cycle; Ramanujan bound rho(A_s) <= 2*sqrt(2) by numpy eigvalsh with
-margin about 0.27. Independently re-verified: connected, girth 4, signed max 2.5616, ten 4-cycles,
-UNSAT rank 6 for both witnesses. K_{d,d} UNSAT re-verified for d = 3, 4. Cube census 128/4096
-independently confirmed by exhaustive enumeration.
+Hence every immediate 2-lift of \(H_0\) still has girth 4. The second signing
+\[
+(-1,+1,-1,+1,-1,+1,+1,+1,+1)
+\]
+has the same certified properties.
 
-## Limitations
+For \(K_{d,d}\), \(d\ge3\), three appropriately chosen 4-cycle equations already sum to \(0=1\), so the odd-product system is inconsistent. As a contrasting raisable example, exhaustive enumeration of all \(2^{12}=4096\) signings of the cube \(Q_3\) gives exactly 128 signings whose lifts are connected, Ramanujan, and have girth 6.
 
-One step only: girth-4 children of a frozen witness may themselves be raisable (escape probe, seed
-123, 400 samples: hundreds of connected girth-4 children, of which a substantial fraction have
-satisfiable systems), so longer towers may recover and the target is neither proved nor disproved.
-Certified for explicit d = 3 graphs plus K_{d,d}; not an all-d classification. Spectra use floating
-point with large margin; UNSAT uses exact arithmetic.
+## Scientific interpretation
+
+The result is a one-step branch-choice obstruction, not an obstruction to all infinite 2-lift towers. Sampling children of a frozen witness finds many connected girth-4 children whose own shortest-cycle systems are satisfiable, so a longer tower can escape after a stalled step.
+
+The exact criterion follows from standard covering/signing facts; the scientific content is the explicit small Ramanujan frozen witness and the accompanying frozen/raisable comparison. Searches of the Ramanujan 2-lift and graph-lift literature found general spectral-existence and lift-girth results but no source stating this 12-vertex rank-6 inconsistent witness or its one-step frozen status.
 
 ## Reproducibility
 
-python3 output/artifacts/certify_emergent.py; python3 output/artifacts/kdd_obstruction.py;
-python3 output/artifacts/enumerate_lifts.py. Requires only numpy and networkx (or the self-contained
-numpy-only recomputation described in the audit).
+Run from the record directory:
+
+- `python3 artifacts/certify_emergent.py`
+- `python3 artifacts/kdd_obstruction.py`
+- `python3 artifacts/enumerate_lifts.py`
+
+The finite-field inconsistency checks are exact. Spectral certification uses floating point but has a margin about \(0.267\) below \(2\sqrt2\).
+
+## Limitations
+
+The obstruction is only one step. It neither proves nor disproves existence of logarithmic-girth Ramanujan 2-lift towers. The explicit nontrivial witnesses are degree 3; the \(K_{d,d}\) statement is a shortest-cycle obstruction independent of a full tower classification.
 
 ## References
 
-Marcus-Spielman-Srivastava, Interlacing families I: Bipartite Ramanujan graphs of all degrees,
-Annals 2015 (arXiv:1304.4132). Bilu-Linial 2-lift framework. Lu-Wu arXiv:2109.02830 (rank vs girth,
-checked as non-covering).
+- A. Marcus, D. Spielman, N. Srivastava, *Interlacing Families I: Bipartite Ramanujan Graphs of All Degrees*, Annals of Mathematics 182 (2015).
+- S. Hoory, *On the Girth of Graph Lifts*, arXiv:2401.01238.
