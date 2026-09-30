@@ -1,0 +1,58 @@
+{
+  "audit_date": "2026-09-29",
+  "audited_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "axes": {
+    "correctness": {
+      "rationale": "The rare-event expansion is correct. Decomposing total variation by Hamming weight, the zero slice differs from |A-B| by at most (A^2+B^2)/2, the singleton slice differs from sum_i|p_i-q_i| by at most A^2+B^2, and all weights at least two contribute at most (A^2+B^2)/2; division by two yields the displayed error bound. For Smirnov's proxy, singleton disagreement events contribute at least L-Lambda^2 and at most L, while two-or-more disagreement events have probability at most Lambda^2/2, proving the proxy expansion. In the signed family, lambda_i and a_i are exactly sign-blind while |A-B| retains the sign imbalance, so the asymptotic factor-two separation and the sqrt(2)/1/3 estimator lower bounds follow. A fresh exhaustive numerical stress test on 500 random product pairs of dimension up to seven found no violation of the finite inequality.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Smirnov introduces the sign-blind (lambda_i,a_i) representation and a constant-factor proxy, while Avital--Kontorovich--Salafatinos analyze tiny/small Bernoulli parameters up to constants. The audited statement adds an additive second-order expansion with the explicit signed intensity term |sum_i(p_i-q_i)| and shows exact information loss of the full Smirnov proxy data. Searches for that signed first-order formula and factor-two same-proxy obstruction did not locate a prior result. The novelty is thus in the sharp rare-event decomposition and proxy-information statement, not in standard Poisson/rare-event heuristics.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The theorem explains a concrete limitation of a newly proposed computable proxy: even the full proxy input and induced G-law can erase a first-order signed statistic that changes true TV by a factor two. The additive expansion is also stronger than a constant-factor comparison in the rare-event regime and supplies explicit lower limits on any estimator using only the sign-blind data. These conclusions are directly relevant to approximation guarantees for heterogeneous Bernoulli products.",
+      "verdict": "pass"
+    }
+  },
+  "citations": [
+    {
+      "authors": "Gleb Smirnov",
+      "detail": "Introduces the recent efficiently computable proxy framework for Bernoulli-product TV.",
+      "title": "TV between Bernoulli products, up to constants",
+      "url": "https://arxiv.org/abs/2609.19222"
+    },
+    {
+      "authors": "Ariel Avital; Aryeh Kontorovich; George Salafatinos",
+      "detail": "Gives constant-factor behavior in tiny and small parameter regimes.",
+      "title": "TV over Bernoulli products: the small parameter regime",
+      "url": "https://arxiv.org/abs/2602.21828"
+    },
+    {
+      "authors": "Aryeh Kontorovich",
+      "detail": "Prior product-TV information-loss context from marginal TV data.",
+      "title": "On the tensorization of the variational distance",
+      "url": "https://doi.org/10.1214/25-ECP680"
+    }
+  ],
+  "disposition": "passed",
+  "expected_source_tree_sha": "2fc29d3cd8c19652d5ff9f9458402fd041bbca2b",
+  "github_write_performed": false,
+  "independent_exact_check": {
+    "all_ok": true,
+    "finite_bound_violations": 0,
+    "implementation": "fresh exact state enumeration for Bernoulli products",
+    "max_dimension": 7,
+    "random_cases": 500
+  },
+  "limitations": [
+    "The additive approximation is first-order only when A+B is small and can be dominated by its O((A+B)^2) remainder if L is exceptionally tiny.",
+    "The factor-two obstruction applies to estimators restricted to the sign-blind (lambda_i,a_i) data, not algorithms that use the full p and q vectors.",
+    "The record does not prove that 1/2 is a universal lower comparison constant for Smirnov's proxy."
+  ],
+  "oxford_download_used": false,
+  "record_path": "2026/09/18/rare-bernoulli-tv-sign-cancellation--adcb7befe3ff",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "type": "independent_audit"
+}
