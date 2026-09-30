@@ -1,0 +1,58 @@
+{
+  "audit_date": "2026-09-29",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary-tree proof and all closed counts are correct. A positive determinant-one split matrix has componentwise comparable columns except at the stated boundary forms; subtracting the smaller column preserves positivity and determinant one and decrements both row subtraction-Euclidean lengths. The two inverse column additions are the unique binary children. This gives exactly 2^u matrices at ordered length pair (u,v), and the torus-knot parameter swap identifies the unordered knot types correctly. Independent enumeration through size 19 gives the exact sequence 1,1,3,3,...,1023 and cumulative counts 1515 and 3049.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "PASS to the best of current searchable knowledge. Lin--Spreer arXiv:2609.14200 gives the canonical split/size construction and reports the cutoff count 3049, while its public companion notebook recursively computes cutoff counts (including 1515 and 3049) by Stern--Brocot traversal. Independent inspection of that notebook found no all-size formula a_n=2^{ceil(n/2)}-1 or refined 2^u component-size theorem. The underlying free binary monoid of nonnegative unimodular matrices is classical; originality is the simultaneous Euclidean-row-length census in this torus-knot setting.",
+      "verdict": "PASS"
+    },
+    "scientific_value": {
+      "rationale": "The result turns an isolated finite computational census into an exact theorem for every canonical size, refines it by the two component sizes, and yields a closed exponential growth law. It also gives an unconditional lower bound for actual torus-knot triangulation-complexity counts, while correctly keeping exact complexity conditional on the Lin--Spreer conjecture.",
+      "verdict": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "independent_checks": [
+    "Reproved the dominance implication q>p => s>r (and its reverse) from ps-qr=1, including the equality boundary forms.",
+    "Checked the simultaneous subtraction parent and two column-addition children preserve determinant one and shift both row Euclidean lengths by exactly one.",
+    "Independently enumerated the binary trees through total size 19: a_n is 1,1,3,3,7,7,...,511,511,1023; A_17=1515 and A_19=3049.",
+    "Checked that gcd(p+q,r+s)=1 follows from the determinant and that T(P,Q)=T(Q,P) acts freely for nontrivial coprime P,Q.",
+    "Inspected the Lin--Spreer public notebook: it contains recursive cutoff counters and the 3049/1515 assertions but not the submitted closed all-size/refined multiplicity theorem."
+  ],
+  "limitations": [
+    "The theorem counts canonical Lin--Spreer construction size, not proven minimal triangulation complexity.",
+    "Mirrors are not counted separately, matching the positive-parameter convention.",
+    "The binary unimodular tree is classical; the originality claim is limited to its row-length grading and torus-knot census consequence."
+  ],
+  "literature": [
+    {
+      "note": "Lin–Spreer, Torus knots as loop-edges in three-sphere triangulations; source for the canonical split, size relation, cutoff census and minimality conjecture.",
+      "url": "https://arxiv.org/abs/2609.14200"
+    },
+    {
+      "note": "Public companion notebook independently inspected; it recursively computes canonical cutoffs and Figure 6 data rather than stating the submitted all-size closed form.",
+      "url": "https://github.com/HimalayanRainstorm/TorusKnots"
+    },
+    {
+      "note": "Nathanson, classical free-monoid/Stern–Brocot background for nonnegative unimodular matrices.",
+      "url": "https://doi.org/10.1016/j.dam.2015.07.011"
+    }
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "repository_files": {
+    "AUDIT.json": "63cd9b06e81979b85b823fec3b31dfdcf1e833c3",
+    "METADATA.json": "862d0631d11fa70afc04e8f7381add199d808cca",
+    "RESULT.md": "0e9021a0864304496f64db22eef6d1a50f8f81b4",
+    "REVIEW.md": "9be02852418de951bbaa37e3369924c80495450c",
+    "SLOGAN.txt": "d05601177407f4b9c2a6a1efa300978cc6aa895f",
+    "VERIFICATION.md": "31a3bb079c3be0cdcbee536377edadb1613bf629",
+    "artifacts/verify_counts.py": "8c31630b0df7292f2dc0bb1cd3f7ad9e5e70d341"
+  },
+  "review_status": "complete",
+  "schema_version": 1,
+  "source_path": "2026/09/18/exact-canonical-torus-knot-triangulation-census--831655b0b665",
+  "source_tree_sha": "2281dd93f4d847eaef4a25be618dacc148d3e562"
+}
