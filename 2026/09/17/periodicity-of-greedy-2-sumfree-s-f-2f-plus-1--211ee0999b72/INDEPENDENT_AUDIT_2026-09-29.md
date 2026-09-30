@@ -1,0 +1,44 @@
+# Independent Audit — periodicity-of-greedy-2-sumfree-s-f-2f-plus-1--211ee0999b72
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `2cc41aa81dd2957ed730d54069d6a12af24b1964`  
+**Audited current source tree:** `2cc41aa81dd2957ed730d54069d6a12af24b1964`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` directory tree SHA exactly matches the assignment tree SHA. No intervening source change required a stale-source re-audit.
+
+## Correctness — PASSED
+
+PASS. The proposed set is strictly 2-sumfree: the prefix sums avoid the first tail blocks, and the listed prefix-plus-tail and tail-plus-tail residue ranges modulo M=5f+1 all miss the residue set R. Conversely, every omitted integer after the seed is covered by one of the explicit earlier-summand identities f+Q, Q hat+ Q, Q+X_k, Q+Y_k, or Q+Z_{k-1}; the summands are distinct and earlier. This proves the greedy equality. The displayed difference block follows, f+1 is absent from the tail block for f>=5 so the preperiod cannot start earlier, and the unique occurrence of 2f-2 in each tail block forces minimal period f+2. An independent brute-force re-enumeration for f=5..19 through 1000 terms matched the formula.
+
+## Originality — PASSED
+
+PASS, WITH TEMPORAL QUALIFICATION. Van Berkel--Bosma formulate the global periodicity/period-length conjectures and prove a substantial neighboring region; the accessible 2026 source does not state a proof of the entire line g=2f+1 for f>=5, though it contains the small worked example f=3,g=7 and computational evidence. Searches for the exact family S_{f,2f+1}, the equivalent g=2f+1 line, and the block formula did not locate a prior infinite-family proof.
+
+## Scientific value — PASSED
+
+PASS. This is an exact infinite-family theorem immediately beyond the source paper's proved boundary, with a complete modular description and minimal preperiod/period, rather than another finite verification. It supplies a useful structural data point for a new periodicity program.
+
+## Independent checks
+
+- rechecked every residue-sum exclusion in the proof
+- rechecked that the explicit gap identities partition all omitted candidates and use distinct earlier summands
+- independently brute-forced f=5..19 for 1000 terms against the closed form
+- rechecked minimal preperiod and period arguments
+- verified current tree identity and absence of 2026-09-29 independent-audit marker files
+
+## Limitations
+
+- The source conjectures are very recent; indexing of simultaneous follow-up work may be incomplete.
+- The theorem proves only the line g=2f+1 for f>=5, not the general eventual-periodicity conjecture.
+- Finite brute force is supplementary; the verdict rests on the symbolic covering and residue proof.
+
+## Evidence and references
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/17/periodicity-of-greedy-2-sumfree-s-f-2f-plus-1--211ee0999b72
+- https://arxiv.org/abs/2609.18522
+- https://arxiv.org/abs/2609.16843
+
+This audit changes only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
