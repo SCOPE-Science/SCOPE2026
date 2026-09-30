@@ -1,0 +1,42 @@
+{
+  "assignment_source_tree_sha": "1d0d2bee47ab7dda97db8082ea09c1e0965b71f3",
+  "audit_date": "2026-09-29",
+  "audited_repository_commit": "eff2c6312cec5b0dee5115e5f42211a853092dfb",
+  "audited_source_tree_sha": "1d0d2bee47ab7dda97db8082ea09c1e0965b71f3",
+  "axes": {
+    "correctness": {
+      "finding": "PASS. The upper bound follows from the standard balanced edge-colouring theorem for bipartite graphs: with k+1 colours, d_alpha(v)<=ceil(d(v)/(k+1))<=(d(v)-1)/k for every d(v)>=k^2+1, so every edge sees at most (d(u)+d(v)-2)/k adjacent edges of any colour. For the lower bound on K_{k^2,k^2+1}, fixing one colour gives d_H(x)+d_H(y)-2*1_{xy in H}<=2k-1. Rechecking the high-vertex case split yields |E(H)|<=M_k=k^3-k^2+k: if one side has no degree-k vertex this is immediate; if both sides have high vertices, all opposite high pairs are edges, and either every high degree is k or a degree-(k+1) vertex confines every opposite vertex of degree at least k-1 to its neighborhood. The resulting two orientation bounds are k^3-2k^2+3k and k^3-2k^2+2k+2, both below M_k. Thus k+1 colours cover at most (k+1)M_k=k^4+k<k^4+k^2 edges. An independent MILP for k=2 certified the exact one-colour maximum M_2=6 with zero gap.",
+      "status": "passed"
+    },
+    "originality": {
+      "finding": "PASS, WITH A SPECIFIC PRIORITY QUALIFICATION. Pękała--Przybyło introduced the strong 1/k framework in August 2026 and prove the general sufficient scale 2k^2+1; their accessible descriptions continue to present determination of the threshold as open. Searches did not locate the exact bipartite value k^2+1 or the all-k obstruction K_{k^2,k^2+1}. The source paper cites an August 2026 personal communication by D. S. McNeil for K_{4,5} and other examples; that private communication is inaccessible, so this audit does not claim priority over its unpublished contents. The balanced edge-colouring theorem and the k=2 obstruction idea are prior ingredients; the defensible contribution is the exact all-k bipartite theorem and capacity argument.",
+      "status": "passed"
+    },
+    "scientific_value": {
+      "finding": "PASS. The result halves the general sufficient degree scale on bipartite graphs and matches it with an explicit obstruction family for every k>=2, giving a clean exact infinite-family theorem rather than a one-off example. Its proof combines a classical equitable-colouring upper bound with a nontrivial local capacity bound for colour classes.",
+      "status": "passed"
+    }
+  },
+  "branch": "main",
+  "citations": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/17/exact-bipartite-threshold-for-generalized-strong-majority-edge-colouring--599b243c71b8",
+    "https://arxiv.org/abs/2608.04122",
+    "https://doi.org/10.1155/2015/201427"
+  ],
+  "disposition": "passed",
+  "independent_checks": [
+    "reproved the ceiling inequality and all lower-bound high-vertex cases, including the degree greater than k+1 subcase",
+    "independently solved the k=2 one-colour MILP and obtained optimum 6=M_2 with zero gap",
+    "checked the current Pękała--Przybyło public abstract/reviewed descriptions of the generalized 1/k bound and open threshold direction",
+    "searched the exact K_{k^2,k^2+1} and bipartite-threshold formulation without locating a public prior theorem",
+    "verified the current main record tree exactly equals the assigned tree SHA and contains no 2026-09-29 independent-audit marker"
+  ],
+  "limitations": [
+    "D. S. McNeil's August 2026 personal communication cited by the source paper is inaccessible; no claim is made to have read it, and it remains the clearest residual priority risk.",
+    "The audit did not need to inspect the compressed binary research-note artifact because RESULT.md contains a complete symbolic proof and the committed verification script supplies supplementary checks.",
+    "Originality is therefore stated only for the public literature located through 2026-09-29."
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_path": "2026/09/17/exact-bipartite-threshold-for-generalized-strong-majority-edge-colouring--599b243c71b8"
+}
