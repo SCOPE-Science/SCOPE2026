@@ -1,0 +1,44 @@
+# Independent audit — Sharp weighted-representation partition asymptotics
+
+**Audit date:** 2026-09-29 (UTC)  
+**Source path:** `2026/09/19/sharp-weighted-representation-partition-asymptotics--19ce7261bbbc`  
+**Audited tree:** `55f1c33737850663dfd4893158ab36d66f817a72`
+
+## Disposition
+
+**FAILED.**
+
+## Correctness
+
+**PASS.** The scalar diffusive asymptotic is mathematically correct. The Li--Xu--Yan finite sign system has limiting covariance G_k=k^{-1}I+(k+2)k^{-2}J, determinant (k+3)/k^k, and the parity/lattice factor contributes 2^k major arcs. Fourier/local-limit evaluation yields C_k=(8k/pi)^{k/2}/sqrt(k+3) and exp(-2k^2 lambda^2/(k+3)), exactly as stated.
+
+## Originality
+
+**FAIL.** The theorem is not original within SCOPE. The repository already published `2026/09/18/exact-local-limit-weighted-representation-counts--4e870c1cf2eb` and `2026/09/18/exact-asymptotic-weighted-representation-partitions--fb5b8dfd89f0`, both with the same scalar c_T/sqrt(T) limit, the identical leading constant C_k, and the same Gaussian factor. A same-day record, `2026/09/19/exact-weighted-representation-counts--1c7512f9deb9`, is strictly stronger again, allowing a full residue-dependent vector discrepancy. The assigned result therefore repeats an already-published theorem rather than contributing a new theorem.
+
+## Scientific value
+
+**FAIL.** Although the theorem is useful and correct, this package adds no standalone scientific value after the prior SCOPE publications: its headline constant, fixed-c corollary, diffusive scalar profile, and comparison of f_k/f_l are all already present, and a stronger vector local-limit theorem is also in the repository.
+
+## Independent checks
+
+- Recomputed the covariance eigenvalues 1/k (multiplicity k-1) and (k+3)/k, giving det G_k=(k+3)/k^k and the scalar quadratic form k^2/(k+3).
+- Confirmed from Li--Xu--Yan arXiv:2609.20385 that the external source itself states only the order f_k(t) asymp_k 2^t/t^{k/2}; the sharp constant is a SCOPE refinement.
+- Compared the assigned RESULT.md line-for-line at theorem level with the 2026-09-18 exact-local-limit and exact-asymptotic SCOPE records: the constant and scalar Gaussian factor are algebraically identical.
+- Compared with 2026/09/19/exact-weighted-representation-counts--1c7512f9deb9, which strictly generalizes the assigned scalar profile to arbitrary residue-dependent discrepancy vectors.
+
+## Evidence and literature
+
+- https://arxiv.org/abs/2609.20385 — Li–Xu–Yan external source; proves only order of magnitude for fixed offset.
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/18/exact-local-limit-weighted-representation-counts--4e870c1cf2eb — Earlier SCOPE record with the same exact constant and scalar diffusive Gaussian profile.
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/18/exact-asymptotic-weighted-representation-partitions--fb5b8dfd89f0 — Earlier SCOPE record independently carrying the same scalar theorem.
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/19/exact-weighted-representation-counts--1c7512f9deb9 — SCOPE record with a strictly stronger residue-vector local-limit theorem.
+
+## Limitations
+
+- The failure is scientific/originality-based, not a mathematical error: the asymptotic formula itself is correct.
+- The package may remain useful as a redundant derivation or reproducibility copy, but not as a distinct validated finding.
+
+## Repository identity
+
+The assigned source-tree SHA `55f1c33737850663dfd4893158ab36d66f817a72` exactly matched the current tree at the audited path on `main`; GitHub was read only during this audit.
