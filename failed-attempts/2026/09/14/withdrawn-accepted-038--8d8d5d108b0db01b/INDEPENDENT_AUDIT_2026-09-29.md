@@ -1,0 +1,36 @@
+# Independent Audit — 2026/09/14/038
+
+Audit date: 2026-09-29 (UTC)
+Audited tree: `1403fb499934baa4a5bf88ee8c8f8712c689632c`
+
+## Disposition
+
+**FAILED** — Rejected for correctness, originality, and value: the package contains a wrong Eisenstein normalization and factorial, while the genuine regularization obstruction is already explicit in Jana.
+
+## Correctness
+
+**FAIL**. Several load-bearing quantitative statements are not correct or not established. Jana explicitly identifies E0 as the minimal Eisenstein series with trivial Langlands parameters, so assigning it an effective Ramanujan parameter theta_eff=(n-1)/2 is a normalization error: its unramified coefficient model is the divisor function d_n and does not have that polynomial Satake growth. Also, from D_n(s)=zeta(s)^{n^2}H_n(s), the standard weighted partial sum sum_{m<=Y} d_n(m)^2/m has leading coefficient H_n(1)/(n^2)! times (log Y)^{n^2}, not H_n(1)/(n^2-1)! as stated. The asserted off-diagonal X^n/X^{3n/4} and Voronoi-window exponents are presented as dimensional heuristics rather than a derivation from the conductor family and Kuznetsov/Voronoi transforms. Consequently the package does not prove the claimed ‘precise obstruction’.
+
+## Originality
+
+**FAIL**. The genuinely established obstruction—specializing Jana's method from a fixed cuspidal pi0 to the singular minimal Eisenstein E0 requires regularizing E0, regularized spectral decomposition/Parseval, and handling many additional degenerate terms with higher-order poles—is stated explicitly in Jana's 2022 Section 1.2. The submission's added quantitative gap formulas are either routine divisor-series algebra or unsupported/incorrect normalizations, so they do not constitute a new validated obstruction theorem.
+
+## Scientific value
+
+**FAIL**. A correct quantitative analysis of the E0 specialization would be valuable, but this record does not supply one. Its sound pieces (the n^2 pole order of the d_n-square Dirichlet series and Jana's need for additional regularization) are classical or explicitly prior, while the purported new power gaps rest on unproved scaling assumptions and the theta_eff normalization is wrong. The result therefore cannot be validated as a standalone research contribution.
+
+## Evidence and limitations
+
+Repository files were read from the exact assigned/current tree; GitHub was used only as evidence and was not modified. Lawful open-access/preprint sources were checked first:
+- https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/second-moment-of-mathrm-glntimes-mathrm-gln-rankinselberg-lfunctions/3B0D1DBDEB2C02FF6271273EE4420C5E — Jana 2022 open-access article: E0 has trivial Langlands parameters; Section 1.2 explicitly says the current proof fails for E0, requiring regularization and regularized spectral decomposition, with many higher-pole degenerate terms.
+- https://doi.org/10.1017/fms.2022.39 — Published DOI for the same Jana article.
+
+Independent checks:
+- Re-derived the pole-order consequence: if D(s)=zeta(s)^k H(s), then sum_{m<=Y} a_m/m has leading term H(1)(log Y)^k/k!, exposing the factorial mismatch in the stated diagonal constant.
+- Compared the submitted theta_eff claim against Jana’s explicit description of E0 as having trivial Langlands parameters.
+- Separated the exact Euler-product pole order from the heuristic off-diagonal and Voronoi scaling assertions; the artifact only checks algebra after those exponents are assumed.
+
+Limitations:
+- The audit does not assert a corrected sharp 2n-th-moment asymptotic; that remains open in the cited source.
+- No inaccessible source is represented as read.
+
