@@ -1,0 +1,45 @@
+# Independent Audit — 2026/09/19/odd-power-weingarten-nonzero-umbilic-forcing--386a009c888c
+
+- Audit date: 2026-09-29 (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Audited commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `360b03fcdac5cad11956f51adf1d2cb7b162e1e7`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — The componentwise umbilic argument extends correctly from p=3 to every odd p≥3. A farthest-point Hessian test gives a point with both principal curvatures positive and hence forces c>0. The unordered odd-power relation then gives K≥0 everywhere and K=0 exactly when the shape operator vanishes. After normalizing c=1, the positive-curvature locus has spectrum {t,t^p}; Codazzi yields omega(e1)=e2(t)/(t(1-t^(p-1))) and omega(e2)=p t^(p-2)e1(t)/(1-t^(p-1)), from which the stated dt∧omega identity follows. If a positive-curvature component avoids t=1, its t>1 branch is compact and Stokes contradicts ∫K>0. On the 0<t<1 branch, the cutoff identity leaves only the positive term O(delta^(p-3)) times the transition-layer area. The layer area tends to zero at p=3, and for p>3 there is the additional vanishing factor; dominated convergence simultaneously forces the same integrals to tend to ∫_U K>0, a contradiction. The orientation and boundary steps are valid because positive definiteness chooses a canonical normal on each component and the continuous t-extension vanishes at its boundary.
+
+## Originality
+
+**PASS** — Cheng's 2026 paper proves the cubic p=3 componentwise nonzero-umbilic step as part of a stronger cubic classification, whereas the audited record isolates the same C^3 forcing mechanism for all higher odd powers. Kühnel-Steller's older work supplies analytic closed rotational examples for relations kappa=c lambda^(2n+1), showing that the regime is nonvacuous, but its stated contribution is construction/classification in analytic or rotational settings rather than the arbitrary-C^3, per-positive-curvature-component forcing theorem here. Classical Hopf/Voss/Hartman-Wintner theory remains important background, but targeted searches did not surface this precise low-regularity componentwise statement. Originality is therefore the higher-odd-power extension of Cheng's lemma, not the existence of odd-power Weingarten surfaces.
+
+## Scientific value
+
+**PASS** — The theorem identifies the cubic exponent as the scale-invariant endpoint of a robust cutoff estimate and shows that every higher odd monomial is easier by an explicit delta^(p-3) gain. It supplies a reusable C^3 nonzero-umbilic forcing result for a broad family of compact Weingarten immersions, although it intentionally stops short of a global classification for p≥5.
+
+## Sources
+
+- Umbilic slopes and cubic Weingarten surfaces (Haoxuan Cheng): https://arxiv.org/abs/2609.19188 — Primary 2026 cubic source; classifies the p=3 compact case and contains the cubic componentwise forcing argument.
+- On closed Weingarten surfaces (Wolfgang Kühnel; Michael Steller): https://doi.org/10.1007/s00605-005-0313-4 — Older construction of analytic closed examples for odd-power principal-curvature relations.
+- Umbilical points and W-surfaces (Philip Hartman; Aurel Wintner): https://doi.org/10.2307/2372698 — Classical umbilic/Weingarten background with different hypotheses.
+
+## Limitations
+
+- The result proves existence of nonzero umbilics, not a classification of compact p≥5 surfaces.
+- Oddness of p and C^3 regularity are essential to the submitted argument.
+- Historical Weingarten literature is extensive; the originality conclusion is specifically about the arbitrary-C^3 componentwise extension and retains residual differently-phrased coverage risk.
+
+## Independent checks
+
+```json
+{
+  "proof_reconstructed": true,
+  "codazzi_and_cutoff_scaling_checked": true,
+  "boundary_and_orientation_steps_checked": true,
+  "open_access_first": true,
+  "oxford_used": false
+}
+```
+
+The assigned source tree was unchanged between the inventory commit and the audited source-tree-check commit. GitHub was used only as read-only evidence and no repository mutation was performed. Preprints and lawful open-access sources were checked first; no decisive comparison remained unavailable, so Oxford Download was not required.
