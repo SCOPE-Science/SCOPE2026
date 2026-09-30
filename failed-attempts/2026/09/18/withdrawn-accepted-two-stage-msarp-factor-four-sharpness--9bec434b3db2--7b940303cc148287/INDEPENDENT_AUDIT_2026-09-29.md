@@ -1,0 +1,39 @@
+# Independent Audit — 2026-09-29
+
+**Record:** `2026/09/18/two-stage-msarp-factor-four-sharpness--9bec434b3db2`  
+**Title:** The factor four is sharp for two-stage adaptive randomized pivoting  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Audited tree:** `f976cbcf088d8ec9ed80ce288c4b6e1904a1137b`  
+**Disposition:** **FAILED**
+
+## Independent checks
+
+- Re-derived the conditional projection-DPP law in codimension one.
+- Checked the inequality Σr_i≤2 and the explicit orthogonal family approaching equality.
+- Checked the orthogonal CSS residual through the diagonal of G^{-1}.
+- Compared the full current result against the stronger accepted multistage SCOPE record at the same repository commit.
+
+## Three-axis assessment
+
+- **Correctness — PASS**: The two-singleton-stage omission law follows directly from the rank-two projection kernel K=I−ccᵀ: P(S=i,T=j)=a_i² det K[{i,j}]/K_ii=r_i c_ℓ². For A_η=diag(2,1,η)[a,b,c]ᵀ the omitted-coordinate oblique residual is ηe_ℓᵀ/c_ℓ, giving expected ratio 2Σr_i, and Σr_i≤2 follows from 1−r_i=b_i²/(a_i²+b_i²)≥b_i². The displayed orthogonal frame approaches 4, while the Schur-complement formula for orthogonal CSS tends to the same value as η↓0. The explicit finite witness was independently recomputed and agrees with the record.
+- **Originality — FAIL**: The mathematical package is subsumed by the stronger accepted SCOPE record `sharp-multistage-arp-error-products--77e11f8220ee` already present at the same audited repository tree. That record proves worst-case sharpness for every stage partition, gives the arbitrary two-stage (k,p) formula, transfers sharpness to orthogonal CSS, and for singleton stages specializes exactly to factor 4 and the 4/3 staged/one-shot separation. The audited record therefore does not constitute an independent original finding inside the accepted corpus even though the derivation is correct.
+- **Scientific Value — FAIL**: As a standalone accepted record, the two-stage singleton theorem adds no scientific content beyond the stronger same-day multistage theorem that contains it as its first nontrivial special case. The explicit three-coordinate derivation is pedagogically useful, but that is insufficient to justify a separate validated finding.
+
+## Findings
+
+- The assigned tree exactly matches the current tree at the checked commit.
+- Independent algebra reproduces the omission probabilities, factor 2Σr_i, upper bound 4, and orthogonal-CSS Schur-complement limit.
+- For raw vectors a=(1,80,50), b=(80,−1,0), c=(50,4000,−6401), the squared norms are 8901, 6401, and 56,975,301=8901·6401, all pairwise dot products vanish, and the oblique factor is approximately 3.999790246869209.
+- At the same checked repository tree, `2026/09/18/sharp-multistage-arp-error-products--77e11f8220ee` proves the product factor for arbitrary stage partitions and explicitly includes the two-stage and singleton consequences claimed here.
+
+## Sources compared
+
+- Grigori and Xue, Incremental Column Subset Selection via Conditional Determinantal Point Processes: https://arxiv.org/abs/2609.20556 — Primary MSARP source; it supplies the product upper bounds but does not itself remove the internal-redundancy problem identified by this audit.
+- SCOPE accepted record: Worst-case sharpness of multistage adaptive randomized pivoting: https://github.com/SCOPE-Science/SCOPE2026/tree/253a0fe5d0217455660a277f9adb940030e567ad/2026/09/18/sharp-multistage-arp-error-products--77e11f8220ee — Stronger accepted record proving arbitrary-stage product sharpness, orthogonal-CSS sharpness, and the singleton-stage 4 and 4/3 consequences as special cases.
+
+## Limitations
+
+- Failure is on originality and standalone scientific value, not mathematical correctness.
+- The failed-attempt relocation should preserve the complete original package for provenance.
+
+This audit is independent of the repository’s pre-existing same-model review. No GitHub writes were performed during the audit.
