@@ -1,92 +1,143 @@
-# Parity versus perversity and decomposition-number purity for the 3-Kronecker KLR algebra at (2,2) over F2
+# Even Lusztig fibers for the 3-Kronecker quiver at dimension vector (2,2)
 
 ## Context
 
-Let Q be the 3-Kronecker quiver (vertices 0,1 with three arrows 0 -> 1) and nu = (2,2).
-Let R_{nu,k} be the affine Khovanov-Lauda-Rouquier (quiver Hecke) algebra attached
-to (Q,nu) over a field k. Lusztig's geometric construction realizes R_{nu,k} as an
-Ext-algebra of pushforwards L_{y,k} = pi_{y*} k[dim F_y] along proper maps
-pi_y : F_y -> E_V from flag varieties to the representation space E_V, equivariant
-for G_V = GL_2 x GL_2 (Maksimau, J. Algebra 2015, Thm 1.1/2.20). The indecomposable
-parity complexes E(lambda,k) categorify a p-canonical-type basis, while in
-characteristic zero the Lusztig intersection-cohomology complexes E(lambda)
-categorify the canonical basis. Maksimau Lemma 3.7 reduces evenness of pi_{y*} k
-to vanishing of odd cohomology of every fibre, and Section 3.10 shows evenness
-forces the Lusztig and parity categories to coincide. Prior evenness theorems cover
-Dynkin quivers (type A proved; D/E via later work) and at most the 2-arrow affine
-Kronecker quiver, not the wild 3-arrow case. The target asks whether purity holds
-at nu = (2,2) over F2.
+Let \(Q\) be the 3-Kronecker quiver with vertices \(0,1\) and three arrows
+\(0\to1\), and let the dimension vector be \(\nu=(2,2)\).  For each flag type
+\(y\in Y_\nu\), the Lusztig map
+\[
+\pi_y:\widetilde F_y\longrightarrow E_V=M_2^3
+\]
+has a projective fiber over a representation \(A=(A_1,A_2,A_3)\).
 
-## Definitions
-
-- E_V = M_2^3 (dimension 12): triples A = (A_1,A_2,A_3) of 2x2 matrices.
-- G_V = GL_2 x GL_2 acting by (g_0,g_1).(A_i) = g_1 A_i g_0^{-1}.
-- Y_nu: flag types (i,a) with total dimension nu; |Y_nu| = 14, of which 6 are
-  complete-flag types.
-- pi_y : F_y -> E_V: Lusztig-type proper map; L_{y,k} = pi_{y*} k[dim F_y].
-- E(lambda): characteristic-zero Lusztig IC complexes (canonical basis).
-- E(lambda,k): indecomposable parity complexes over k (p-canonical-type basis).
-- d_{lambda,mu}(t) = sum_n dim Hom(P(lambda),L(mu)<n>) t^n: graded decomposition numbers.
-- For M in M_2 and lines L_0 = span(x), L_1 = span(y): f_M(x,y) = det(Mx,y),
-  a bihomogeneous (1,1)-form on P^1 x P^1.
+The original version of this record went further and asserted parity-perversity
+and decomposition-number purity for the wild 3-Kronecker KLR algebra.  That
+deduction is not justified by the cited source: Maksimau's parity-sheaf
+framework and its even-quiver consequences are stated for Dynkin quivers.
+This corrected record keeps the independently checkable fiber-geometry result
+and does not infer modular decomposition numbers from it.
 
 ## Result
 
-For the 3-Kronecker quiver at dimension vector nu = (2,2) over k = F2:
+For every flag type \(y\in Y_\nu\) and every complex representation
+\(A=(A_1,A_2,A_3)\in M_2^3\), the underlying topological space of the fiber
+\(\pi_y^{-1}(A)\) has no odd integral cohomology and has torsion-free integral
+cohomology.
 
-1. Every fibre of every Lusztig map pi_y (all 14 y in Y_nu) has vanishing odd
-   cohomology over every field and torsion-free (free abelian) integral cohomology.
-2. Hence every pi_{y*} F2 is even, every indecomposable parity complex
-   E(lambda,F2) is perverse and is the modular reduction of E(lambda), and every
-   graded decomposition number d_{lambda,mu}(t) of R_{nu,F2} equals its
-   characteristic-zero canonical-basis value. No differing d_{lambda,mu}(t) exists.
+More concretely, every fiber is built from one of the following types:
 
-## Proof / evidence
+- empty or a finite set of points;
+- a point or \(\mathbb P^1\);
+- \(\mathbb P^1\times\mathbb P^1\);
+- a smooth \((1,1)\)-curve, hence \(\mathbb P^1\);
+- a reducible \((1,1)\)-curve consisting of one horizontal and one vertical ruling;
+- at most one ruling together with finitely many residual points.
 
-Master isomorphism: M |-> f_M is a linear isomorphism M_2 ~= H0(P^1 x P^1, O(1,1)).
-Since V_0 = V_1 = C^2, every flag involves at most one line per vertex, so every
-mixed-flag fibre is Z(W) = Z(f_{A_1},f_{A_2},f_{A_3}) in P^1 x P^1 with
-W = span{f_{A_i}}, r = dim W; remaining Grassmannian fibres (common kernels,
-common images) are linear conditions in P^1, hence empty, a point, or all of P^1.
+All of these spaces have \(H^{\mathrm{odd}}(-,\mathbb Z)=0\) and free abelian
+integral cohomology.
 
-Classification: r = 0 gives P^1 x P^1; r = 1 gives a smooth (1,1)-curve (~= P^1 iff
-det M != 0) or a wedge of two rulings (rank-1 M); r >= 2 gives at most one
-horizontal plus at most one vertical ruling plus a finite residual, or a finite
-set. The r >= 2 step is characteristic-free: a smooth (1,1)-curve C has
-h0(O_C(2)) = 3 < h0(O(1,1)) = 4, so forms vanishing on C form a 1-dimensional
-space (likewise for a reducible H+V divisor); two independent forms share no
-(1,1)-curve. Distinct rulings in one direction force W = 0. All listed types have
-H^odd = 0 with free integral cohomology by Mayer-Vietoris.
+The same geometric classification is characteristic-free at the level of the
+incidence equations.  In particular it supplies the fiber-evenness input one
+would want in a modular parity-sheaf analysis.  **No claim is made here that
+all parity complexes for the wild 3-Kronecker representation space are
+perverse, are reductions of characteristic-zero IC complexes, or that all
+graded KLR decomposition numbers equal their characteristic-zero values.**
+Those statements need additional non-Dynkin representation-theoretic input.
 
-Computation: exhaustive check of all 16^3 = 4096 matrix triples over F2
-(rank distribution {0:1,1:105,2:1470,3:2520}; types whole 1, wedge 63,
-smooth 42, ruling+finite 252, finite 3738) plus 8000 F5 samples passed
-(output/artifacts/verify_fibres.py, exit 0, verify_log.txt). The F2 rationality
-argument (two F2-points force the whole P^1 line) closes the extension-field gap
-for rulings. Free integral stalks give identical even-degree ranks over F2 and Q
-by universal coefficients; connected stabilisers imply only trivial local systems,
-so parity summands are the Lusztig IC complexes. Lemma 3.7 then yields the
-purity conclusion.
+## Proof of the fiber classification
 
-## Limitations
+Because both vertex spaces have dimension two, a flag contributing to a
+Lusztig fiber contains at most one nontrivial line at each vertex.  Thus every
+nontrivial mixed incidence condition can be expressed using a pair of lines
+\[
+L_0=\langle x\rangle\in\mathbb P(V_0),\qquad
+L_1=\langle y\rangle\in\mathbb P(V_1).
+\]
+For a matrix \(M:V_0\to V_1\), the condition \(M(L_0)\subseteq L_1\) is
+\[
+f_M(x,y)=\det(Mx,y)=0.
+\]
+The map
+\[
+M_2\longrightarrow H^0(\mathbb P^1\times\mathbb P^1,\mathcal O(1,1)),
+\qquad M\mapsto f_M,
+\]
+is a linear isomorphism.
 
-Proved only for nu = (2,2) over F2 (integral freeness gives the same rank pattern
-over Q). Relies on Maksimau Lemma 3.7 and the Section 3.10 evenness mechanism as
-cited method. No claim for larger dimension vectors such as (3,3), other
-characteristics, or the wild Kronecker quiver in general.
+Hence the mixed fibers are common zero loci of the three \((1,1)\)-forms
+\(f_{A_1},f_{A_2},f_{A_3}\).  Let \(r\) be the dimension of their span.
+
+- If \(r=0\), the fiber is all of \(\mathbb P^1\times\mathbb P^1\).
+- If \(r=1\), the unique nonzero \((1,1)\)-divisor is either a smooth
+  \(\mathbb P^1\) or the union of one horizontal and one vertical ruling.
+- If \(r\ge2\), two independent \((1,1)\)-forms cannot share an entire
+  \((1,1)\)-curve.  Indeed a \((1,1)\)-divisor spans a one-dimensional kernel
+  in the four-dimensional space of \((1,1)\)-sections.  Thus a
+  positive-dimensional common component can only be a ruling.  Two distinct
+  parallel rulings would force all relevant forms to vanish identically in
+  that direction, so there is at most one ruling of each relevant type; the
+  remaining intersection is finite.
+
+The other flag orders impose only common-kernel or common-image conditions,
+which cut out an empty set, a point, or all of \(\mathbb P^1\).
+
+The cohomology assertion follows directly from these descriptions, for
+example by Mayer--Vietoris for the reducible ruling configurations.
+
+## Computational cross-check
+
+`artifacts/verify_fibres.py` exhausts all \(16^3=4096\) triples of \(2\times2\)
+matrices over \(\mathbb F_2\).  Its recorded rank distribution is
+\[
+\{0:1,\ 1:105,\ 2:1470,\ 3:2520\},
+\]
+and the geometric-type counts are
+
+- whole \(\mathbb P^1\times\mathbb P^1\): 1;
+- reducible \((1,1)\) wedge: 63;
+- smooth \((1,1)\) curve: 42;
+- ruling plus finite residual set: 252;
+- finite set: 3738.
+
+It also checks the kernel/image cases and 8000 samples over \(\mathbb F_5\).
+These finite-field computations are consistency checks for the geometric
+classification, not a replacement for the characteristic-free argument.
+
+## Relation to parity-sheaf literature
+
+Maksimau's Lemma 3.7 identifies fiber odd-cohomology vanishing with evenness of
+the relevant direct image inside the setup of that paper.  However the paper
+begins with a **Dynkin quiver** and its parity/canonical-basis consequences,
+including the even-quiver theorem, remain in that Dynkin framework.  The
+3-Kronecker quiver is wild, so those consequences cannot be imported merely
+from the fiber calculation above.
+
+This correction is important because wild quivers can have extremely general
+quiver-Grassmannian geometry in larger dimension vectors.  The present
+\((2,2)\) calculation is therefore a small explicit geometric case, not a
+purity theorem for the whole wild KLR category.
+
+## Originality and value
+
+Targeted searches found no publication giving exactly this fourteen-flag
+\((2,2)\) fiber classification for the 3-Kronecker Lusztig maps.  That is not
+a priority proof, so the originality claim is kept modest.  The value is an
+explicit low-dimensional wild-quiver evenness calculation and a reusable test
+case for any future extension of parity/KLR purity machinery beyond Dynkin
+type.
 
 ## Reproducibility
 
-Run `python3 output/artifacts/verify_fibres.py` (exit 0 on success; regenerates
-verify_log.txt). It enumerates Y_nu, exhausts all 4096 F2 triples, checks
-kernel/image Grassmannians, samples 8000 F5 triples, and records the
-restriction-degree lemma check.
+Run
+
+`python3 artifacts/verify_fibres.py`
+
+from the record directory.  The script writes
+`artifacts/verify_log.txt`.
 
 ## References
 
-- R. Maksimau, Canonical basis, KLR-algebras and parity sheaves, J. Algebra 2015
-  (arXiv:1301.6261v2): Thm 1.1/2.20, Lemma 3.7, Sec 3.10.
-- R. Maksimau, Flag versions of quiver Grassmannians for Dynkin quivers have no
-  odd cohomology (arXiv:1909.04907): Dynkin scope, 2-arrow Kronecker extension.
-- McNamara et al., Stratifying quiver Schur algebras via ersatz parity sheaves
-  (arXiv:2504.17430): 2-arrow Kronecker semicuspidal/Schur results, distinct object.
+- R. Maksimau, *Canonical basis, KLR-algebras and parity sheaves*,
+  J. Algebra 2015, arXiv:1301.6261.
+- O. Lorscheid, *Representation type via Euler characteristics and
+  singularities of quiver Grassmannians*, Bull. London Math. Soc. 2019.
