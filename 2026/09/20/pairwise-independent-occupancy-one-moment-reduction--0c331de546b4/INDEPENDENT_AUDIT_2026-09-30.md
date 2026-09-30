@@ -1,0 +1,47 @@
+# Independent Audit — One-moment reduction for symmetric occupancy statistics under pairwise-independent uniforms
+
+**Audit date:** 2026-09-30 (UTC) (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `6087076dd5e1b4ef42abbab629ca81253f34e8f4`  
+**Audited current source tree:** `6087076dd5e1b4ef42abbab629ca81253f34e8f4`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record path has no changes from the assigned inventory snapshot, so the audited tree equals the assigned source tree. GitHub was used only as read-only evidence. The UTC-dated independent-audit files were absent when this guarded change set was prepared.
+
+## Correctness — PASSED
+
+PASS. Symmetrization over coordinate permutations and common alphabet relabelings preserves pairwise-uniform marginals and any occupancy-invariant objective. The resulting orbits are exactly occupancy types. For one orbit, coordinate symmetry fixes P(X_i=X_j)=c(λ)/M and label symmetry makes all diagonal cells equal and all off-diagonal cells equal; therefore a mixture is pairwise uniform iff its single mean collision count is M/q. This proves both necessity and sufficiency of the one-moment LP. The support-at-most-two conclusion follows from the simplex intersected by one scalar equality. For 2≤n≤q, 1≤C≤M off the all-distinct orbit gives the exact interval max(0,1-M/q)≤P(D)≤1-1/q, and the three explicit orbit laws attain both endpoints. I independently enumerated the q=3,n=3 and q=5,n=4 endpoint mixtures and verified every ordered two-coordinate cell is exactly 1/q^2.
+
+## Originality — PASSED
+
+PASS, narrowly scoped. Pair-collision first-moment calculations are standard in universal hashing and orthogonal-array language, and modern work gives tight bounds for unions of pairwise-independent Bernoulli events; those results are prior art. The collision indicators arising from pairwise-independent q-ary coordinates are not themselves a pairwise-independent Bernoulli family, so that literature does not directly yield the submitted characterization. Targeted searches did not locate the exact occupancy-orbit theorem that all symmetric pairwise-independence constraints collapse to E C=M/q, nor the resulting full sharp all-distinct interval for every 2≤n≤q.
+
+## Scientific value — PASSED
+
+PASS. The theorem completely solves every linear occupancy-invariant extremal problem over uniform pairwise-independent laws by a one-dimensional convex-hull calculation. The birthday corollary sharply demonstrates how little pairwise independence controls global collisions: at n=q the all-distinct probability can range from 0 to 1-1/q. The result is elementary but structurally complete and directly relevant to hashing and strength-two design models.
+
+## Independent checks
+
+- Re-derived the orbit law two-coordinate probabilities from occupancy collision counts.
+- Checked that the one scalar constraint is sufficient for all q^2 ordered pair cells, not merely for equality probability.
+- Independently enumerated exact-rational endpoint mixtures for (q,n)=(3,3) and (5,4); maximum two-coordinate marginal error was zero.
+- Checked both cases M/q≤1 and M/q≥1 in the lower-endpoint construction and the n=2 boundary.
+- Compared with universal-hashing, orthogonal-array and pairwise-independent union-bound literature; no exact occupancy reduction was located.
+- GitHub compare found no changes under the assigned path; both UTC-dated audit files are absent and VERIFICATION.md retains the verified blob SHA.
+
+## Limitations
+
+- The reduction is for coordinate- and common-label-invariant objectives; it does not classify arbitrary nonsymmetric pairwise-independent laws.
+- The all-distinct theorem is stated only for n≤q, where the event is nonempty.
+- Equivalent formulations may exist in weighted orthogonal-array or finite-exchangeability language; no universal priority claim beyond the exact theorem is made.
+
+## Evidence and references
+
+- https://doi.org/10.1561/0400000009
+- https://doi.org/10.1137/21M1408294
+- https://arxiv.org/abs/2405.08787
+- https://doi.org/10.1002/wics.70029
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/20/pairwise-independent-occupancy-one-moment-reduction--0c331de546b4
+
+This guarded change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
