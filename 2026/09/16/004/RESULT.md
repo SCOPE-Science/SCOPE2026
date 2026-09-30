@@ -1,30 +1,61 @@
-# Valuative obstruction: the Li–Miao v2 ceiling overshoots the stratified volume bound
+# Valuative ceiling diagnostic for Li–Miao Question 4.20
 
 ## Context
 
-Li–Miao (arXiv:2506.17420v3) prove that a K-semistable Fano manifold X not isomorphic to P^n satisfies (-K_X)^n <= 2^n n^n, with equality only for P^1 x P^{n-1} or a smooth quadric. Their method tests K-semistability via divisorial valuations centered on a minimal rational curve f: P^1 -> X. Question 4.20 of that paper asks a stratified refinement: if X (n >= 4) contains a minimal rational curve of anticanonical degree 3 <= d <= n-1, is (-K_X)^n <= vol(P^{d-1} x P^{n-d+1})? The source paper leaves this open after correcting an error about l >= 3 valuations (Remark 4.4).
+Li–Miao (arXiv:2506.17420v3) leave Question 4.20 open: if a K-semistable Fano manifold of dimension n contains a minimal rational curve of anticanonical degree 3 <= d <= n-1, must its volume be at most the volume of P^{d-1} x P^{n-d+1}? Their Section 4 constructs globally defined valuations v1 and v2 and, via Corollary 2.5, converts an explicit lower bound for vol(-K_X-xE) into an upper ceiling phi(T) for (-K_X)^n.
 
 ## Definitions
 
-Let f^*T_X = O(2) + O(1)^{d-2} + O^{n-d+1}, d = (-K_X . f(P^1)). Li–Miao define globally defined valuations v_1, v_2 by v_l(psi) = min{|I| + l|J|} in adapted charts. For l = 2 (weights (1^{d-2}, 2^{n-d+1})), the leading H0-count yields phi(x) in (25)/(27) with primitive Phi(x) in (26)/(28), log discrepancy A = A_X(v_2) = (d-2) + 2(n-d+1) = 2n-d, and T the unique root of Psi(T) := (T-A)phi(T) - Phi(T) = 0. By Corollary 2.5, K-semistability gives V := (-K_X)^n <= phi(T). Let B(n,d) := vol(P^{d-1} x P^{n-d+1}) = C(n,d-1) d^{d-1} (n-d+2)^{n-d+1}.
+For v_l, l in {1,2}, the leading H0 estimate of Li–Miao gives the piecewise function phi and primitive Phi in equations (25), (29), and (30). The discrepancy is
+
+A(v_l)=(d-2)+l(n-d+1),
+
+and Corollary 2.5 gives V:=(-K_X)^n <= phi(T), where T>A is the unique solution of
+
+(T-A)phi(T)=Phi(T).
+
+Write
+
+B(n,d)=vol(P^{d-1} x P^{n-d+1})=binom(n,d-1)d^{d-1}(n-d+2)^{n-d+1}.
 
 ## Result
 
-The v_2 valuative ceiling phi(T) strictly exceeds the conjectured stratified bound B(n,d) at every computed pair (n <= 10, all 3 <= d <= n-1), with ratio phi(T)/B in [1.040, 1.134]. In particular at the sharp self-consistent case (n,d) = (4,3): phi(T) approx 505.6 > 486 = B(4,3), T approx 7.079, with exact rational certificate T in (7,7.1) and phi(T) > 492.75 > 486. The l = 1 ceiling is uniformly worse, and the exact H0 twist changes only O(1) terms with the same leading coefficient. Hence Question 4.20 cannot be proved by the globally defined v_1/v_2 valuations alone; any proof must invoke a new divisor or classification input.
+For the specific Corollary-2.5 ceilings obtained from the displayed Li–Miao v2 estimate, direct computation for every pair 4 <= n <= 10 and 3 <= d <= n-1 gives
 
-## Proof / evidence
+phi_2(T)/B(n,d) in [1.0402228914, 1.1338599191].
 
-Anchor (4,3), l = 2: r = n-d+1 = 2, A = 5. With y = x-3 >= 0, phi(y) = (243+216y+54y^2)/4 and Phi(y) = (972/5+243y+108y^2+18y^3)/4, verified against (27)-(28) with continuity phi(0) = 243/4, Phi(0) = 243/5. Then Psi(y) = (y-2)phi(y) - Phi(y) satisfies Psi(4) = -26.1 < 0 < Psi(4.1) = 7.389 (from phi(4.1) = 509.085, Phi(4.1) = 1061.6895). Since Psi' = (x-A)phi' > 0 past A, the root y_T in (4,4.1), i.e. T in (7,7.1), is unique, and phi increasing gives phi(T) > phi(7) = 1971/4 = 492.75 > 486 = B(4,3). Every number is hand-checkable rational arithmetic. Notably P^2 x P^2 itself has minimal degree 3 and volume 486, yet the method ceiling is ~505. Parametric evidence: stdlib bisection on Psi (200+ iterations) reproduces the table (e.g. (5,4): 6136.0 vs 5760; (6,4): 88018.4 vs 81920; (10,7): 17508419986.6 vs 15441431250). Controls with l = 1 give uniformly larger ceilings (e.g. (4,3): 560; (5,4): 7189). Closed sums verified against direct quadrature and brute-force lattice counts; continuity at x = d confirmed.
+Thus these explicit v2 ceilings do not by themselves imply the stratified bound in Question 4.20 on any of those 28 tested pairs. The corresponding v1 ceilings are larger on all 28 pairs.
 
-## Limitations
+At (n,d)=(4,3) this failure has a completely exact certificate. Put y=x-3. Then
 
-The anchor certificate is fully rigorous exact arithmetic. The parametric table is computed floating-point evidence (independently cross-checked by quadrature and lattice counts), not interval-certified at every pair. The finding obstructs the v_1/v_2 method only; it neither proves nor disproves Question 4.20 itself. Valuations with l >= 3 are not globally defined (Li–Miao Remark 4.4) and cannot rescue the route without new comfortable-embedding input.
+phi(y)=(243+216y+54y^2)/4,
+Phi(y)=(972/5+243y+108y^2+18y^3)/4,
+A=5,
+
+so Psi(y)=(y-2)phi(y)-Phi(y). Exact arithmetic gives
+
+Psi(4)=-261/10 < 0,
+Psi(41/10)=7389/1000 > 0.
+
+Since Psi'(x)=(x-A)phi'(x)>0 beyond A, the root satisfies y_T in (4,4.1), equivalently T in (7,7.1). As phi is increasing,
+
+phi(T)>phi(7)=1971/4=492.75>486=B(4,3).
+
+Numerical bisection gives T approximately 7.0784886356 and phi(T) approximately 505.5483252606.
+
+## Interpretation
+
+This is a limitation of one specific quantitative route: applying Corollary 2.5 to the published H0 lower estimates for v1 or v2. It does **not** show that Question 4.20 is false, does not rule out sharper information about these same valuations, and does not prove that every argument involving v1 or v2 must fail. A proof of Question 4.20 could still use these valuations together with stronger geometric input, sharper volume estimates, other valuations, or classification arguments.
 
 ## Reproducibility
 
-Run `python3 output/artifacts/valuation_ceiling.py` (stdlib only) to regenerate the l = 2 table and compare against B(n,d); change ell=1 for controls. The anchor certificate can be checked by hand from Section 2 formulas above.
+Run `python3 artifacts/valuation_ceiling.py` (stdlib only). It enumerates all 28 pairs 4 <= n <= 10, 3 <= d <= n-1, prints the v2 ceiling, B(n,d), their ratio, and the v1 control. The (4,3) certificate above is exact rational arithmetic and can be checked by hand.
+
+## Limitations
+
+Only the (4,3) comparison is presented as an exact interval certificate here. The complete 28-pair table uses floating-point bisection, although the formulas are explicit polynomials with rational coefficients and can be interval-certified if desired. The result is a diagnostic about the published Corollary-2.5 ceilings, not a resolution of Question 4.20.
 
 ## References
 
-- C. Li, M. Miao, On the volume of K-semistable Fano manifolds, arXiv:2506.17420v3, Sec 4, Question 4.20.
-- C. Li, M. Miao, K. Zhang, The sharp volume gap for Kaehler manifolds with positive Ricci curvature, arXiv:2608.08193 (beta-volume generalization).
+- C. Li, M. Miao, *On the volume of K-semistable Fano manifolds*, arXiv:2506.17420v3, especially Corollary 2.5, equations (25), (29)–(31), Remark 4.4, and Question 4.20.
+- C. Li, M. Miao, K. Zhang, *The sharp volume gap for Kähler manifolds with positive Ricci curvature*, arXiv:2608.08193.
