@@ -1,0 +1,46 @@
+# Independent Audit — Strict Sobolev–BV separation for exceptional BSVY spaces
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `da1969c888d898738d06700af078cf0d4d6d5ccd`  
+**Audited current source tree:** `da1969c888d898738d06700af078cf0d4d6d5ccd`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree exactly matches the assignment tree SHA. GitHub was used read-only as evidence; this is a guarded publication-plan payload and is not claimed to be already published.
+
+## Correctness — PASSED
+
+PASS. For -1<γ<0, the symmetric-difference identity for 1_Q and |Q△(Q-h)|≲min(|h|,1) give the exact λR_λ^(1+γ)=1 scaling. At γ=-1, flat jumps diverge logarithmically. For the compact Cantor-staircase difference v=F-F(·-2), the Hölder bound |Δ_h v|≲h^α and the h-neighborhood bound |K_h|≲h^(1-α), α=log2/log3, give m_λ(h)≲h^(1-α)1_{h≳λ^(1/α)}, whose h^-2 integral is O(λ^-1). The higher-dimensional product lift is valid: integrating the endpoint kernel in the transverse or longitudinal variables reduces the two split terms to the one-dimensional endpoint seminorm of v and the endpoint seminorm of the compactly supported Lipschitz factor ψ. The singular part ψ dx′⊗Dv remains nonzero, so the witness is BV but not W^{1,1}.
+
+## Originality — PASSED
+
+PASS, narrowly scoped. Chen–Yang–Yuan–Zhang (arXiv:2609.19029v1) explicitly prove Hardy–Sobolev is strictly embedded separately into W^{1,1}(γ) and BV(γ), and their full open text records those two chains, but it does not state strictness of W^{1,1}(γ)⊂BV(γ). The 2024 BSVY paper establishes the exceptional spaces and counterexample framework rather than this mutual separation. Targeted searches did not locate the endpoint Cantor separation theorem. The open-range cube witness is elementary, so priority is claimed only for the complete all-γ statement and endpoint mechanism.
+
+## Scientific value — PASSED
+
+PASS. The theorem completes the strict hierarchy H^{1,1}⊊W^{1,1}(γ)⊊BV(γ) throughout the exceptional interval and identifies a genuine endpoint change in admissible singularity type: jumps cease to be allowed at γ=-1 while a singular-continuous derivative remains admissible. That gives structural information not contained in the two separate Hardy–Sobolev embeddings.
+
+## Independent checks
+
+- Re-derived the cube symmetric-difference scaling in both R_λ≤1 and R_λ>1 regimes.
+- Re-derived the endpoint Cantor level-set estimate and checked the exponent cancellation exactly.
+- Checked the logarithmic divergence of a codimension-one jump at γ=-1.
+- Checked the kernel integrations in the N-dimensional product lift and preservation of the singular derivative.
+- Read the lawful open arXiv HTML of Chen–Yang–Yuan–Zhang and compared its stated inclusions with the submitted mutual separation.
+- Verified the current main tree equals the assigned tree and that dated independent-audit files are absent.
+
+## Limitations
+
+- The open-range witness is elementary once the question is isolated, so an informal or unindexed prior observation remains possible.
+- The endpoint result supplies a witness, not a characterization of all singular BV derivatives with finite endpoint quasi-seminorm.
+- No claim is made at γ=0.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.19029
+- https://arxiv.org/html/2609.19029v1
+- https://arxiv.org/abs/2109.02930
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/18/strict-sobolev-bv-separation-bsvy-endpoint--120b7d9616a9
+
+This change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
