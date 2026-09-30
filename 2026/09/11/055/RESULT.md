@@ -27,8 +27,10 @@ The conjectured identity $\sum_n C(n) q^n = P(q)$ (with any $q$-power
 prefactor $q^a$, $0 \le a \le 10$) is **false**, already at $n = 3$:
 $C(3) = 1 \ne 0 = [q^3]P$.
 The congruence family fails at its first term: $C(4) = 1 \not\equiv 0
-\pmod 5$. Every residue class $r \bmod 5$ carries a nonzero mod-5 coefficient
-from its first term, so no progression vanishes identically.
+\pmod 5$. Every residue class modulo 5 contains at least one nonzero
+coefficient modulo 5; the first such indices are 0, 6, 2, 3, 4 for
+residues 0, 1, 2, 3, 4 respectively. Hence no complete residue progression
+vanishes identically modulo 5.
 
 ## Proof / evidence
 
