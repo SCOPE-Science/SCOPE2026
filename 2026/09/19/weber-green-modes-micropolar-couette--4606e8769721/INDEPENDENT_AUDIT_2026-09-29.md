@@ -1,0 +1,55 @@
+# Independent Audit — 2026/09/19/weber-green-modes-micropolar-couette--4606e8769721
+
+- Audit date: 2026-09-29 (UTC) (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Branch: `main`
+- Inventory commit: `e9ed144c13b7834896a844cc4f9cac3c25a168a6`
+- Source-tree checked commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `542e760a73f7070113152c198b4614d22111ca4b`
+- Disposition: **PASSED**
+
+## Correctness
+
+**PASS** — Starting from the displayed balanced-viscosity 2x2 Fourier system, the substitution y=e^Q omega with Q'=q+1 gives m=e^{-Q}(y'+y) and the exact scalar equation y''=(q+1)y. For xi!=0, q+1=rho^2(t-t_c)^2+xi^2+1 and z=sqrt(2rho)(t-t_c) converts it exactly to the parabolic-cylinder equation with the stated nu_W. The reconstruction matrix R, Wronskian factor and Liouville determinant were independently checked. Direct numerical integration for representative modes agreed with the closed parabolic-cylinder fundamental matrix at about 1e-12 or better. Standard positive-axis asymptotics of D_nu(z) and D_nu(-z), together with the extra derivative factor z in the growing solution, give the stated largest-singular-value scale; the smaller singular value then follows from det G=e^{-2Q}. The xi=0 hyperbolic formula follows from B=-(q+1)I+C and C^2=(q+1)I. Hence the common cubic dissipation exponent and opposite quadratic splitting are correct.
+
+## Originality
+
+**PASS** — Qi-Yu derive a scalar second-order equation but proceed by Volterra/Gronwall estimates; their stated result is a uniform Green bound for nonlinear stability, not an exact Weber representation or fixed-mode singular-value splitting. Wang-Li's accessible paper uses a Fourier-multiplier energy method and contains no Weber/parabolic-cylinder formulation. The directly relevant Tao 2026 paper was unavailable openly, so authorized institutional full text was retrieved and its pages 1-24, including the complete linear-decay section, were checked; it likewise uses multiplier/energy estimates and does not give this special-function Green matrix. Targeted searches found no earlier exact balanced-viscosity Weber-mode formula. The novelty is source-specific and does not include the scalar reduction itself.
+
+## Scientific value
+
+**PASS** — The closed Green matrix provides an exact benchmark for a newly analyzed coupled nonnormal flow and separates two singular directions that share the same enhanced-dissipation cubic exponent but differ at quadratic scale. It does not by itself improve the nonlinear threshold, yet it supplies useful special-function structure and a stringent test for uniform Green estimates.
+
+## Sources
+
+- **Stability for the 2D Micropolar equations near Couette flow via Green's function method** — Jie Qi; Lei Yu. https://arxiv.org/abs/2609.20109 — Primary 2026 source for the balanced-viscosity Green system and scalar reduction.
+- **Linear and nonlinear enhanced dissipation for the 2-D micropolar equations near Couette flow** — Y. Wang; L. Li. https://doi.org/10.3934/dcdsb.2025124 — Accessible related paper using Fourier-multiplier energy estimates rather than an exact Weber Green representation.
+- **On the Stability Threshold of Couette Flow for 2D Incompressible Micropolar Equations** — Keyu Tao. https://doi.org/10.1002/mma.70878 — Authorized institutional full text was retrieved; pages 1-24 including the linear-decay proof were checked and use energy/multiplier methods, not the audited Weber construction.
+- **DLMF Chapter 12: Parabolic Cylinder Functions** — NIST Digital Library of Mathematical Functions. https://dlmf.nist.gov/12 — Standard Wronskian and large-argument parabolic-cylinder identities used to check the asymptotics.
+
+## Limitations
+
+- The explicit formula uses the balanced-viscosity normalized matrix and is not claimed for arbitrary viscosity triples.
+- The singular-value estimates are fixed-frequency asymptotics and are not uniform as xi tends to zero.
+- No improvement of physical-space Lp Green bounds or nonlinear stability threshold is proved.
+- The institutional comparison was checked through page 24 of a 27-page paper; the mathematically relevant linear section is included, while final references/back matter were not needed for the comparison.
+
+## Independent checks
+
+```json
+{
+  "weber_reduction_reconstructed": true,
+  "fundamental_matrix_numeric_comparison_max_error": "approximately 7e-13 across tested nonzero modes",
+  "liouville_identity_checked": true,
+  "singular_value_asymptotics_reconstructed": true,
+  "xi_zero_matrix_exponential_checked": true,
+  "open_access_first": true,
+  "oxford_attempted": true,
+  "oxford_source": "https://doi.org/10.1002/mma.70878",
+  "oxford_job_id": "6a4835b6e7273e15c95c8aa2e6c7d082",
+  "oxford_status": "complete",
+  "oxford_pages_checked": "1-24 of 27"
+}
+```
+
+The assigned source tree was unchanged between the inventory commit and the source-tree-check commit. GitHub was used only as read-only evidence and no repository mutation was performed. Open-access/preprint sources were checked before institutional retrieval. Any inaccessible comparison is explicitly identified above rather than claimed read.
