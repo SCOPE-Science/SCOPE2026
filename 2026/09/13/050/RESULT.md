@@ -38,10 +38,13 @@ Dirichlet factor is exactly D_t = D_0 (1+t^2)/(1-t^2).
 fixed parameters, or bubble-plus-descending-mode coupling with fixed e or
 fixed alpha = e/t -- can satisfy Q_t^quot <= Y_{quot,0} - c t^2 with c > 0 for
 small |t|.
-(iv) Constants are uniformly strictly stable: the lowest Gamma-descending
-eigenfunction phi = Re(z_1^2) has -Delta_b phi = 2 phi with an 8:1 stability
-margin, no e.t cross term at (e,t) = (0,0), and positive-definite joint
-(e,t) Hessian for small t.
+(iv) Constants are uniformly strictly stable. The lowest Gamma-descending
+nonconstant mode phi = Re(z_1^2) satisfies -Delta_b phi = 2 phi. With the
+normalization above and R_0=2, the mean-zero quadratic coefficient of
+Q[1+epsilon phi] is (4 lambda - 2 R_0) int phi^2 = 4 int phi^2 > 0.
+Equivalently, lambda=2 is twice the stability threshold R_0/2=1. The e.t
+mixed term vanishes at (e,t)=(0,0), and the joint (e,t) Hessian is positive
+definite for sufficiently small t.
 
 In particular the literal alternative (A) via the stated single-ball bubble
 class is impossible. Global rigidity (B) over all trial functions is open.
@@ -51,25 +54,32 @@ class is impossible. Global rigidity (B) over all trial functions is open.
 Covering identity: for u on L with lift tilde u = u o pi, local integrands
 agree while volumes double, so numerator doubles and int tilde u^4 = 2 int u^4,
 giving Q_{S^3}[tilde u] = sqrt(2) Q_L[u]. Constants lift to constants; the
-Jerison-Lee minimizers give Y(S^3) as the universal local lower bound and
-constants on L attain Y(S^3)/sqrt(2), proving (i).
+Jerison-Lee minimizers give Y(S^3) as the universal lower bound and constants
+on L attain Y(S^3)/sqrt(2), proving (i).
+
 Rossi deformation with fixed contact form: with unitary frame
 Z_t = (Z_1 + t bar Z_1)/sqrt(1-t^2), Levi factor 1-t^2 and Webster curvature
 R_t = 2(1+t^2)/(1-t^2) = 2 + 4t^2 + O(t^4), even in t. For real u,
 |Z_t u|^2 = ((1+t^2)|S|^2 + 2t Re[S^2])/(1-t^2) with S = Z_1-part; the cross
 term 2t Re[S^2] is the only possible linear decrease. For radial U,
 Z_1 U = e^{-i theta} a(r,tau) so (Z_1 U)^2 carries charge e^{-2i theta} with
-zero S^1-fiber mean: int Re[(Z_1 U)^2] = 0, giving (ii) and expansion (5).
+zero S^1-fiber mean: int Re[(Z_1 U)^2] = 0, giving (ii).
+
 For V = r^2 cos(2 theta) F, exact differentiation gives
 Z_1 V = (e^{i theta} C_1 + e^{-3i theta} C_3)/sqrt(2); then A bar B, Re[A^2],
-Re[B^2] all have zero mean and only Re[AB] survives at order t e with
-Cauchy-Schwarz bound J^2 <= I_0 I_2, so the second-order bulk plus curvature
-form cannot close the O(1) gap at small t. Stability: phi has Dirichlet ratio
-2 versus R/8 = 1/4, int (Z_1 phi)^2 = 0 by charge, hence positive joint
-Hessian. Numerical certificate output/artifacts/bubble_margin.py reproduces
+Re[B^2] have zero mean and only Re[AB] survives at order t e. The resulting
+second-order form cannot close the O(1) quotient gap for fixed parameters.
+
+For the constant solution, if -Delta_b phi=lambda phi and int phi=0, expanding
+the displayed Yamabe quotient gives
+Q[1+epsilon phi] = R_0 + epsilon^2 (4 lambda - 2 R_0) int phi^2 + O(epsilon^3).
+For phi=Re(z_1^2), lambda=2 and R_0=2, so the quadratic coefficient is positive.
+Charge symmetry also kills the e.t mixed term at the origin.
+
+The numerical certificate `artifacts/bubble_margin.py` reproduces
 D_0 ~ 1.2077, int U^4 ~ 2.4667, relative Rossi shifts 0.0202/0.0833/0.1978 at
-t = 0.1/0.2/0.3 versus required 0.2929 drop, and S^3 Monte Carlo
-(mean phi ~ 6e-4, E[phi^2] ~ 1/6) confirming mode statistics.
+t = 0.1/0.2/0.3 versus the required 0.2929 drop, and S^3 Monte Carlo
+(mean phi ~ 6e-4, E[phi^2] ~ 1/6) supporting the mode statistics.
 
 ## Limitations
 
@@ -81,18 +91,17 @@ quantization are not established. Global lower bound (B) remains open.
 
 ## Reproducibility
 
-Run python3 output/artifacts/bubble_margin.py (numpy only, seed 0); expected
+Run `python3 artifacts/bubble_margin.py` (numpy only, seed 0); expected
 D0 = 1.2077452900790793, L4^4 = 2.466720122734973, margin 0.29289321881345254,
-relative shifts and phi statistics as above. Full derivation in DRAFT record.
+relative shifts and phi statistics as above.
 
 ## References
 
 D. Jerison and J. M. Lee, Extremals for the Sobolev inequality on the
 Heisenberg group and the CR Yamabe problem, JAMS 1988; The Yamabe problem on
 CR manifolds, J. Differential Geom. 1987. J.-H. Cheng, A. Malchiodi, P. Yang,
-On the Sobolev quotient of 3D CR manifolds, Rev. Mat. Iberoam. 2023 (Rossi
-spheres, negative mass, non-attainment). C. Afeltra and A. Pinamonti, A CR
-structure with blowing up solutions to the CR Yamabe problem, arXiv:2501.08782
-(2025). C. Sung and Y. Takeuchi, The CR Yamabe constant and inequivalent CR
-structures, Pacific J. Math. 2025. J.-H. Cheng and H.-L. Chiu, Connected sum
-of spherical CR manifolds, arXiv:1805.08485.
+On the Sobolev quotient of 3D CR manifolds, Rev. Mat. Iberoam. 2023.
+H. Bosch et al., CR embeddability of quotients of the Rossi sphere via
+spectral theory, arXiv:2110.12413. C. Afeltra and A. Pinamonti,
+A CR structure with blowing up solutions to the CR Yamabe problem,
+arXiv:2501.08782.
