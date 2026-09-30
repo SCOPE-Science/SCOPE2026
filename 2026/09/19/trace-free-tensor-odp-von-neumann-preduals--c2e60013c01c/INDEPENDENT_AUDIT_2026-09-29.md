@@ -1,0 +1,47 @@
+# Independent Audit — Projective-tensor ODP for arbitrary diffuse von Neumann preduals
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `ec7275a5927f0542ee50b6a6e5f78b3f14d3bfec`  
+**Audited current source tree:** `ec7275a5927f0542ee50b6a6e5f78b3f14d3bfec`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record path is unchanged from the dispatcher's source-check commit, so the audited tree is the assigned source tree. GitHub was used read-only. The dated independent-audit marker files were absent when this guarded change set was prepared.
+
+## Correctness — PASSED
+
+PASS. The trace-free two-corner estimate is correct: for B(omega)=d omega r and C(omega)=(1-d)omega(1-r), B+C has adjoint a↦r a d+(1-r)a(1-d)=1/2(a+s_r a s_d), hence norm at most one, while the two rectangular corners have additive predual norm. The estimate passes to projective tensors. For slice localization, a nearly norming scalarization of G yields a high spectral corner d of |a|; the small-corner lemma for arbitrary atomless von Neumann preduals supplies d and r=u d u* that are negligible on a prescribed finite family. A unit functional k in d M_* r remains in the slice. The operator Phi_{z'}=(C⊗I)+H(.)z' is contractive by the two-corner inequality, maps k⊗y0 exactly to any target z', and almost fixes the prescribed finite set. This proves ODP. Taking Y=C and using the known Daugavet characterization gives the diffuseness equivalence.
+
+## Originality — PASSED
+
+PASS, narrowly scoped. Qi–Liu–Li prove the arbitrary-second-factor ODP tensor theorem only for diffuse semifinite von Neumann algebras represented as L1(M,tau), and their proof uses finite-trace localization. Their full text also cites the separate result that arbitrary atomless von Neumann preduals themselves have ODP. Targeted searches found no prior theorem combining those ingredients to obtain M_* tensor_pi Y with ODP for every diffuse, potentially type-III, von Neumann algebra and arbitrary nonzero Y. The source corner lemmas and the semifinite tensor strategy are prior inputs; originality is restricted to the trace-free localization synthesis and removal of semifiniteness.
+
+## Scientific value — PASSED
+
+PASS. Removing semifiniteness extends a recent tensor-geometry theorem to all diffuse von Neumann algebras, including type III, while retaining exact contractive interpolation witnesses. The argument also isolates a reusable rectangular-corner mechanism showing why this stronger arbitrary-second-factor conclusion is available for von Neumann preduals even though generic ODP tensor permanence is not known.
+
+## Independent checks
+
+- After ordinary open full-text retrieval was insufficient, read Qi–Liu–Li's lawful full text via authorized institutional retrieval; Theorem 1.1 is explicitly limited to diffuse semifinite M with a faithful normal semifinite trace.
+- The same source explicitly states that Huang–Nessipbayev–Sukochev–Xu proved ODP for the predual of every atomless von Neumann algebra.
+- Re-derived the adjoint formula for B+C and the rectangular-corner projective norm inequality.
+- Reconstructed the trace-free localization using a high spectral projection, polar partial isometry, and the source small-corner lemma.
+- Checked the norm, interpolation, and almost-fixing estimates for Phi_{z'} term by term.
+- Checked the converse characterization through Y=C, ODP⇒Daugavet, and the standard diffuse-predual Daugavet criterion.
+- Verified no files under the assigned record changed between the dispatcher source-check commit and current main, and verified both dated independent-audit files and FAILED_ATTEMPT.md are absent.
+
+## Limitations
+
+- The theorem is for complex spaces and does not establish a generic ODP tensor-permanence principle.
+- The trace-free small-corner and corner-additivity lemmas are prior results; the new step is their use in the arbitrary-second-factor tensor construction.
+- The very recent source literature leaves some residual risk of an equivalent unindexed formulation.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.18044
+- https://arxiv.org/abs/2608.30491
+- https://doi.org/10.1023/A:1012023526639
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/19/trace-free-tensor-odp-von-neumann-preduals--c2e60013c01c
+
+This guarded change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
