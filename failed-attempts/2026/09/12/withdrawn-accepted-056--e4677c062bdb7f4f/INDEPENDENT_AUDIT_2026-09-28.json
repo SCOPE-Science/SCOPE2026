@@ -1,0 +1,40 @@
+{
+  "audit_date": "2026-09-28",
+  "audited_main_commit": "eff2c6312cec5b0dee5115e5f42211a853092dfb",
+  "axes": {
+    "correctness": {
+      "finding": "The package does not establish its universal headline “stable for every Δ in [0,5]”. The eigenvalue artifact contains spectra at only 11 discrete Δ values on one coarse stability grid (NV=120,NQ=11); no interval bound, Lipschitz control, continuation certificate, or interval arithmetic excludes a crossing between samples. In addition, the computation clips the stated Lorentzian at |η|=30; at Δ=5 an untruncated Cauchy/Lorentzian has about 10.5% of its mass outside that range, so the implemented model is materially different. The archived spike_metrics.json also contains one metric row per Δ, not the claimed two-seed dataset.",
+      "status": "failed"
+    },
+    "originality": {
+      "finding": "The exact parameter-point scan may well be unpublished, but priority cannot rescue a theorem whose continuum exclusion is not proved for the stated model. I found no decisive prior that by itself settles this exact (K0,g,I0,Δ) slice, so originality is left unresolved rather than inferred from search absence.",
+      "status": "unresolved"
+    },
+    "scientific_value": {
+      "finding": "The sampled branch/eigenvalue data are potentially useful exploratory evidence that this operating point is far from a Hopf bifurcation at the tested Δ values, but the accepted record claims a complete negative resolution over a continuum. Without a certified continuation/exclusion for the untruncated model, that stronger finding is not scientifically validated.",
+      "status": "failed"
+    }
+  },
+  "citations": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/12/056",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/12/056/artifacts/eig_bisect.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/12/056/artifacts/spike_metrics.json",
+    "https://arxiv.org/abs/2409.18278"
+  ],
+  "disposition": "failed",
+  "independent_checks": [
+    "current main record tree exactly equals the assigned source-tree SHA",
+    "inspected branch_bisect.json: only 11 Δ samples per branch grid",
+    "inspected eig_bisect.json: only 11 Δ spectra, all on NV=120/NQ=11, with minimum sampled margin about 69/s",
+    "computed the omitted Lorentzian tail mass at Δ=5 as approximately 0.1051 beyond |η|=30",
+    "inspected spike_metrics.json and found a single metric row per listed Δ rather than a replayable two-seed archive"
+  ],
+  "limitations": [
+    "No claim is made that a Hopf crossing actually exists between sampled Δ values; the failure is that the record has not excluded one.",
+    "The tail-mass calculation assumes the record’s usual centered Lorentzian/Cauchy law with half-width Δ: P(|η|>30)=1-(2/π)atan(30/Δ).",
+    "The audit did not rerun the 1320×1320 eigensolves because the decisive issue is the missing continuum certificate and model truncation, both visible in the committed package."
+  ],
+  "schema_version": 1,
+  "source_path": "2026/09/12/056",
+  "source_tree_sha": "d7f7c761bf26f80f7c8109acb13056b9a12d4582"
+}
