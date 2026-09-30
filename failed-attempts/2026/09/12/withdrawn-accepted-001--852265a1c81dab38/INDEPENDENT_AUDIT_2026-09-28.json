@@ -1,0 +1,42 @@
+{
+  "audit_date": "2026-09-28",
+  "audited_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "axes": {
+    "correctness": {
+      "rationale": "The bounded census was independently reconstructed. The inequality h<=14 gives max(|p|,|q|)<=floor(e^14)=1,202,604. Generating all {2,3,5,7,50021}-smooth positive integers up to that bound gives exactly 1,349 values. Exhaustive primitive triples 0<a<=b<c<=1,202,604 with a+b=c give exactly 66 triples, with (1,1,2) the unique symmetric case, so the ordered count is 6*66-3=393. Exactly three triples use 50021: (1,300125,300126), (21,50000,50021), and (400,50021,50421). Thus the record correctly refutes the conjunction '212 symmetry classes and all solutions of height <=14'.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "The public von Känel–Matschke data page tabulates the first-n-prime sets and all sets with prime-product/radical coverage through 10^7; {2,3,5,7,50021} has product 10,504,410 and is not one of those tabulated sets. Searches for the exact prime set and the integers 66/393 did not locate a prior census. The three 50021-containing triples are therefore genuinely new bounded computational data relative to the cited public tables, even though the enumeration method itself is routine.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The result is too narrow to validate as a standalone research finding. The cutoff h<=14 is inherited from the target being refuted, not from an intrinsic arithmetic threshold, and the audit leaves the actual unbounded S-unit equation for this S completely open. Relative to the public tables, the new mathematical content is a finite box search producing three additional large-prime triples plus inherited {2,3,5,7} solutions. This is useful regression/test data, but it does not establish a new Diophantine theorem, height bound, or complete census.",
+      "verdict": "fail"
+    }
+  },
+  "citations": [
+    {
+      "authors": "Rafael von Känel; Benjamin Matschke",
+      "relevance": "Public S-unit tables: first n primes and all sets with product/radical coverage through 10^7; also gives N(S)=6N'(S)-3.",
+      "title": "Data for elliptic curves and classical diophantine equations",
+      "url": "https://bmatschke.github.io/solving-classical-diophantine-equations/"
+    },
+    {
+      "relevance": "General algorithmic context for complete S-unit solvers; the record does not derive a new global bound or solver.",
+      "title": "A robust implementation for solving the S-unit equation",
+      "url": "https://arxiv.org/abs/1903.00977"
+    }
+  ],
+  "disposition": "failed",
+  "expected_source_tree_sha": "73936d569de9f68a7abc5d5910e158cbefb6ef74",
+  "github_write_performed": false,
+  "limitations": [
+    "The correctness pass is only for the height-bounded census and the logical refutation of the conjunction; it does not certify the global number of S-unit solutions.",
+    "Originality search cannot exclude unpublished computations, but no indexed/public exact census for this S was located."
+  ],
+  "record_path": "2026/09/12/001",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "type": "independent_audit"
+}
