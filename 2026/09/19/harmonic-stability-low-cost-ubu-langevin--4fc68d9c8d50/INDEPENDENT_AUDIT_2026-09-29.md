@@ -1,0 +1,43 @@
+# Independent audit — Sharp harmonic stability phase diagram for low-cost UBU integrators
+
+**Audit date:** 2026-09-29 (UTC)  
+**Source path:** `2026/09/19/harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50`  
+**Audited tree:** `f44c4fc9539dee0504813e7669c06e7e74c08493`
+
+## Disposition
+
+**PASSED.** All three required axes pass; the record may remain in the validated set.
+
+## Correctness
+
+**PASS.** The three Schur-stability regions are correct. Substituting each 2x2 amplification matrix into the Jury inequalities reproduces the record exactly. For LC-UBU, det M=q^2, the only active inequality is s<2z coth(z/2). For LCT-UBU, 1-T+D=s(2-z)/2 forces 0<z<2 and the remaining active bound is S_T=8(z^2-2z+4)/(z^2-2z+8), with minimum 24/7 at z=1. For LCP-UBU, the active bound is S_P=4(z+2)(z+4)/(z^2+8z+8), whose derivative vanishes uniquely at z=2 sqrt(2) and whose minimum is 2+sqrt(2). The stated stiff-friction scalings then follow from the boundary equations: h_max^E~2 gamma/lambda, h_max^T~2/gamma, and h_max^P->2/sqrt(lambda).
+
+## Originality
+
+**PASS.** Linear harmonic stability analysis and the Jury test are classical, and Grønbech-Jensen's 2026 work gives a broad stochastic-Verlet linear framework. The assigned formulas, however, are for LC-UBU, LCT-UBU, and LCP-UBU introduced only in arXiv:2609.20713; the source's available description emphasizes convergence rates rather than these exact phase boundaries. Repository commit history showed no earlier SCOPE result with the same source-specific thresholds. The originality claim is therefore appropriately confined to this exact phase diagram, the Taylor z=2 barrier, the Padé minimum, and the three stiff-friction asymptotics.
+
+## Scientific value
+
+**PASS.** The theorem exposes a qualitative separation hidden by identical formal convergence order: Taylor develops a friction-only barrier, Padé removes it but has bounded curvature stability, and the exact exponential method gains a stability window that grows with friction. Those are practically relevant algorithm-design facts on stiff harmonic modes.
+
+## Independent checks
+
+- Re-derived all three Jury-factor identities from the stated amplification matrices.
+- Differentiated S_E, S_T, and S_P to verify monotonicity/minimizers and boundary eigenvalues.
+- Checked the asymptotic h_max balances in the fixed-curvature stiff-friction limit.
+- Compared against general stochastic-Verlet linear analysis and found no prior source-specific LC-UBU phase diagram.
+
+## Literature and repository prior-art boundary
+
+- https://arxiv.org/abs/2609.20713 — Source introducing LC-UBU, LCT-UBU, and LCP-UBU.
+- https://doi.org/10.1007/s10955-025-03553-3 — Grønbech-Jensen, general linear analysis of stochastic Verlet-type Langevin integrators.
+
+## Limitations
+
+- The result is exact only for quadratic potentials and Schur/finite-second-moment stability.
+- It is not a nonlinear stability theorem and does not compare invariant-measure bias inside the stable region.
+- Older general rational-integrator literature could imply portions after reparameterization, though no exact source-specific coverage was located.
+
+## Repository identity
+
+The assigned source-tree SHA `f44c4fc9539dee0504813e7669c06e7e74c08493` exactly matched the current tree at the audited path on `main`; no stale-tree substitution was used. GitHub was read only during this audit.
