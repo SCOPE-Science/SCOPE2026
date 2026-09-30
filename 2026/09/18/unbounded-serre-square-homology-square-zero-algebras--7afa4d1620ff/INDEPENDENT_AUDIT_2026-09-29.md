@@ -1,0 +1,40 @@
+# Independent Audit — 2026-09-29
+
+**Record:** `2026/09/18/unbounded-serre-square-homology-square-zero-algebras--7afa4d1620ff`  
+**Title:** Unbounded Serre-square homology for square-zero local algebras  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Audited tree:** `a0e2adb6e425b969dd08d1840b7e76b631c2fbf6`  
+**Disposition:** **PASSED**
+
+## Independent checks
+
+- Reconstructed the minimal projective resolution of E=DA over the radical-square-zero local algebra.
+- Computed ranks of d_1⊗E and d_n⊗E and derived the all-degree Tor formula.
+- Checked small cases r=2,3,4 numerically from the formulas and chain dimensions.
+- Verified the current primary source is still v1 and still contains the bounded-derived-power premise.
+
+## Three-axis assessment
+
+- **Correctness — PASS**: For A=k⊕V with V²=0 and dim V=r, the dual module E=DA has projective cover A^r→E with syzygy the trace-zero hyperplane in rad(A^r), a semisimple module of dimension r²−1. Subsequent minimal syzygies multiply their simple multiplicity by r, so β_n=(r²−1)r^{n−1}. After tensoring with E, d_1 has rank r and d_n has rank β_{n−1} for n≥2, yielding dim Tor_1=r(r²−2) and dim Tor_n=(r²−1)²r^{n−2}. These are positive in every degree for r≥2, so DA⊗^L_A DA is genuinely unbounded in homology.
+- **Originality — PASS**: The current Armenta preprint remains v1 and its text explicitly treats derived Serre powers as bounded objects with finite-dimensional total homology; the audited family supplies a direct counterexample to that premise. The earlier Armenta work already identifies Tor^A_*(DA,DA) with the derived part of the Serre square, and radical-square-zero resolutions are classical, so novelty is correctly restricted to the explicit all-degree family/formula and its use to diagnose the missing finite-Tor-amplitude hypothesis. Targeted searches did not locate this exact correction or formula/application.
+- **Scientific Value — PASS**: The record identifies a concrete failure of a foundational boundedness premise in a current paper and states the appropriate repair: finite Tor amplitude is needed for the finite-row/Postnikov argument. Because the counterexample is elementary, characteristic-independent, and has closed-form homology in every degree, it is a useful and reproducible correction rather than a merely pathological objection.
+
+## Findings
+
+- The assigned tree exactly matches the current tree at the checked commit.
+- The current arXiv page for 2609.20220 still lists only v1 (26 July 2026), so no later public arXiv correction supersedes the audited point.
+- Armenta’s current HTML text states that for m≥0 the derived tensor power ω^{⊗^L m} is an object of D^b(A^e) with finite-dimensional total homology; the square-zero family gives a direct counterexample already at m=2.
+- Independent dimension calculations give r=2 Tor dimensions 4,9,18,36,…; r=3 gives 21,64,192,576,…, matching the closed formulas.
+
+## Sources compared
+
+- Armenta, The Serre--Hochschild plane of a finite-dimensional algebra: https://arxiv.org/abs/2609.20220 — Current public source remains v1 and explicitly places the derived Serre powers in the bounded derived category with finite total homology; the audited example contradicts that unrestricted premise.
+- Armenta, τ-Hochschild (co)homology, the square of the Serre bimodule, and the Coxeter automorphism of the Tamarkin--Tsygan calculus: https://arxiv.org/abs/2607.10913 — Prior source for the identification of Tor^A_*(DA,DA) with the derived part of the square of the Serre bimodule; that identification is not claimed as new.
+
+## Limitations
+
+- The audit does not claim that the Serre--Hochschild plane itself is undefined, nor that every theorem in the source paper fails.
+- The correction targets the unrestricted boundedness/finite-row premise; the Gorenstein or other finite-Tor-amplitude regimes can still satisfy the needed hypothesis.
+- The exact Tor formula could have an older occurrence under different local-homological notation, although no such occurrence was found in targeted searches.
+
+This audit is independent of the repository’s pre-existing same-model review. No GitHub writes were performed during the audit.
