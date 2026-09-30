@@ -22,20 +22,23 @@ vertex, sum a_V = sum b_V = 4, sum d_V = 0.
 Refined multiplicity: m_BG(D;q) = prod_{bounded E} [w_E]_q^2,
 [m]_q = (q^{m/2}-q^{-m/2})/(q^{1/2}-q^{-1/2}).
 Marking: increasing bijection {1..14} -> V union E with A < e < B for
-bounded e:A->B, e < V incoming, V < e outgoing; count per class =
-#LE(rep)/|Aut(rep)|. Ledger G(q) = sum over marked iso classes of m_BG.
+bounded e:A->B, e < V incoming, V < e outgoing; count per underlying
+unmarked class = #LE(rep)/|Aut(rep)|. Ledger G(q) is the sum over marked
+isomorphism classes of m_BG.
 Any vertically stretched configuration may be used (Brugallé-Mikhalkin
 independence); the census enumerates all marked diagrams.
 
 ## Result
 Theorem. For the above (3,4) data with n = 14:
-(a) Exactly 105 isomorphism classes of marked elliptic floor diagrams
+(a) Exactly 105 underlying unmarked decorated isomorphism classes occur
 (listed in artifacts/ledger.json with orientation, bounded weights,
 (a_V),(b_V), linear-extension count, |Aut|, marking count, per-class
-refined polynomial).
+refined polynomial). Their marking counts sum to 23,352 marked isomorphism
+classes.
 (b) G(q) = 6q^-5 + 96q^-4 + 798q^-3 + 4416q^-2 + 17274q^-1 + 42432
 + 17274q + 4416q^2 + 798q^3 + 96q^4 + 6q^5; G(q) = G(q^-1), G(1) = 87612.
-(c) G(1) = 87612 equals the unrefined genus-1 sum over D of prod_E w_E^2.
+(c) G(1) = 87612 equals the unrefined genus-1 sum over marked diagrams of
+prod_E w_E^2.
 (d) Under Bousseau Thm 5.12 with g = 1, d_b+d_t = 8, |Delta| = 14:
 sum_{g>=1} N_{g,rel}^{Delta,14} u^{2g+6} = u^-6 G(e^{iu}) (2 sin(u/2))^14;
 H(u) = u^-6 G(e^{iu})(2 sin(u/2))^14 = u^8(N_1+N_2 u^2+...):
@@ -49,17 +52,18 @@ connected 3-edge orientations; 61 divergence triples from compositions of
 rational particular solution plus primitive integer null vector, merged
 congruences, finite positivity interval (every 3-edge connected null
 vector here mixed-sign, asserted); S3 quotient with canonical
-parallel-edge weight sorting -> 105 classes; max bounded weight 4 (no
-truncation). Markings via 2^14 subset-DP linear extensions divided by
+parallel-edge weight sorting -> 105 underlying classes; max bounded weight
+4 (no truncation). Markings via 2^14 subset-DP linear extensions divided by
 full Aut order (vertex x parallel-edge x unbounded-leg permutations),
-integrality asserted per class. Per-class prod [w]_q^2 summed to G(q);
+integrality asserted per class; the resulting marking counts sum to 23,352.
+Per-class prod [w]_q^2 summed with those marking multiplicities gives G(q);
 symmetry asserted and verified. Independently rechecked by exhaustive
-weights-1..6 brute force (separate code) reproducing 105 classes and
-87612, and by auditor brute-force replay. Series via stdlib Fraction
+weights-1..6 brute force (separate code) reproducing 105 underlying classes
+and 87612, and by auditor brute-force replay. Series via stdlib Fraction
 E(u)*T(u) expansion (series.py) plus sympy cross-check; auditor
 independently recomputed N_1..N_5 exactly. Part (d) cites the general
-Bousseau correspondence proof; the audit contribution is the new exact
-(3,4) ledger and its exact coefficient consequences.
+Bousseau correspondence proof; the audit contribution is the exact (3,4)
+ledger and its coefficient consequences.
 
 ## Limitations
 - Lambda reading (d) depends on cited Bousseau Theorem 5.12 (not
