@@ -1,0 +1,47 @@
+# Independent Audit — Exact seventh and eighth totient-prime thresholds
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `4fa0f6f2539ec885f591076c4f735c9a466c3da2`  
+**Audited current source tree:** `4fa0f6f2539ec885f591076c4f735c9a466c3da2`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** passed
+
+The current `main` record tree exactly matches the assignment tree SHA. GitHub was used only as read-only evidence; this audit plan does not assert that any staged audit text is already published.
+
+## Correctness — PASS
+
+PASS. The reported primorial factorizations and totients of the two boundary integers recompute exactly. Independent support enumeration reproduces exactly 2,202 candidates in the level-7 finite band and 19,710 in the level-8 band. Evaluating Axler's upper-bound denominator on those candidates gives the same positive worst margins (about 1.154927×10^18 and 6.987385×10^23), while the boundary lower estimates establish the two failures. The primorial-extremality intervals and the monotone Rosser–Schoenfeld/Axler tail then exclude every larger failure. Finally B-kA=phi-(k+1)pi+(k+1)omega gives M_k≤N_{k+1}, and the same boundary integers fail the B-inequalities, forcing M_6=N_7 and M_7=N_8.
+
+## Originality — PASS
+
+PASS. Fatehizadeh's September 2026 preprint explicitly determines N_1 through N_6 and M_1 through M_5 and conjectures M_k=N_{k+1}; it does not contain N_7, N_8, M_6, or M_7. Axler and Rosser–Schoenfeld provide the explicit analytic estimates but not these threshold computations. The audited contribution is the next two exact threshold pairs with a complete finite-plus-analytic exclusion proof.
+
+## Scientific value — PASS
+
+PASS. Exact last-failure thresholds at these sizes require a nontrivial combination of primorial extremality, explicit prime-counting inequalities, and certified finite support enumeration. The result advances the source's threshold-equality conjecture by two new cases and leaves a reproducible proof rather than an empirical search.
+
+## Independent checks
+
+- recomputed P18 and P20 and verified both displayed boundary factorizations and exact totients
+- independently enumerated the level-7 radical/support range and reproduced exactly 2,202 admissible candidates
+- independently enumerated the level-8 radical/support range and reproduced exactly 19,710 admissible candidates
+- recomputed the smallest Axler-margin candidates and matched the stated lower margins
+- checked the monotonic tail argument and the algebra linking N_{k+1} to M_k
+- compared the threshold claims with Fatehizadeh's stated completed range and conjecture
+- verified the current main directory tree exactly equals the assigned tree SHA
+
+## Limitations
+
+- The theorem establishes only the next two threshold pairs and not Fatehizadeh's conjecture for all k.
+- The finite support enumeration is part of the proof and depends on the stated explicit analytic inequalities; it was independently re-enumerated in this audit.
+- No claim is made that the same finite-band pattern persists at higher k.
+
+## Evidence and references
+
+- https://arxiv.org/abs/2609.13852
+- https://arxiv.org/abs/1703.08032
+- https://doi.org/10.1215/ijm/1255631807
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/18/exact-seventh-eighth-totient-prime-thresholds--3d28ecd6b6a8
+
+This change set updates only the independent-audit channel. Lean verification and expert attestation remain exactly as previously recorded.
