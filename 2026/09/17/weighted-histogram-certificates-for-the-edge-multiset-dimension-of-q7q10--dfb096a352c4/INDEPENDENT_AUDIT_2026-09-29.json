@@ -1,0 +1,44 @@
+{
+  "audit_date": "2026-09-29",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The certificate principle is valid. Q_d has E=d2^{d-1} edges; for a fixed edge the number of vertices at edge-distance r is 2*C(d-1,r), and for a fixed landmark the number of edges at distance r is d*C(d-1,r). Thus any landmark set of size m forces total weighted histogram score T=d m sum_r w_r C(d-1,r). If edge histograms are all distinct, they form E distinct points inside the relaxed capacity box, so their score sum is at least the sum L of the E smallest admissible scores; L>T is therefore a rigorous impossibility certificate. I independently enumerated every capped integer histogram for every stated m and recomputed the score order statistics exactly. The results reproduce every filed number: for d=7, L/T=(1336/672,1098/784,909/896) at m=6,7,8; for d=8, (7675/3744,6686/4368,6134/4992,5770/5616); for d=9, (15239/5076,12206/5922,10517/6768,9426/7614,8476/8460); and for d=10, (25540/7980,20556/9120,17194/10260,14566/11400,12732/12540). The small-m admissible-histogram counts also match exactly: 406 at d=7,m=5; 720 at d=8,m=5; 1197 at d=9,m=5; and 4566 at d=10,m=6, all below the corresponding edge counts. Hence edim_m(Q_d)>=d+2 for d=7,8,9,10 follows.",
+      "verdict": "PASS"
+    },
+    "originality": {
+      "rationale": "PASS, qualified. Allikvere's August 2026 hypercube paper establishes the finite/infinite transition, gives explicit resolving sets for Q_6 through Q_10, and its abstract states only the lower bound edim_m(Q_6)>=6. Targeted current searches for Q_7--Q_10 lower bounds, the d+2 statement, and weighted-histogram certificates found no stronger indexed result. A September 25 survey confirms that edge multiset dimension remains a developing area but does not expose a competing hypercube theorem in its indexed text. The record's four dimension-specific lower bounds and the linear weighted-score obstruction therefore appear new, subject to normal indexing-latency caveats.",
+      "verdict": "PASS"
+    },
+    "scientific_value": {
+      "rationale": "PASS. The bounds substantially raise the known lower side for four concrete hypercubes and introduce a transparent certificate that is much easier to inspect than opaque integer-feasibility output. Although the resulting intervals are still wide and no all-d theorem is proved, the weighted-histogram relaxation is reusable and gives exact, independently reproducible finite certificates.",
+      "verdict": "PASS"
+    }
+  },
+  "checked_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "citations": [
+    {
+      "note": "Allikvere, The edge multiset dimension of hypercubes; finite/infinite transition, explicit Q6--Q10 resolving sets, and prior Q6 lower bound.",
+      "url": "https://arxiv.org/abs/2608.09983"
+    },
+    {
+      "note": "Albejani, Lin, Ryan and Sugeng, 2026 survey of multiset-dimension variants; current context for edge multiset dimension.",
+      "url": "https://doi.org/10.19139/soic-2310-5070-4062"
+    },
+    {
+      "note": "Ikhlaq et al., introduction and early development of edge-multiset dimension.",
+      "url": "https://doi.org/10.3390/sym15030762"
+    }
+  ],
+  "disposition": "passed",
+  "github_writes_performed": false,
+  "limitations": [
+    "The certificates are only for d=7,8,9,10; no general edim_m(Q_d)>=d+2 theorem is established.",
+    "Exact values remain far from determined because the known explicit resolving-set upper bounds are much larger.",
+    "The repository package contains no verifier for this record; the audit therefore relied on a fresh independent exact enumeration rather than the unavailable source-run files."
+  ],
+  "record_path": "2026/09/17/weighted-histogram-certificates-for-the-edge-multiset-dimension-of-q7q10--dfb096a352c4",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_tree_sha": "104ae0fa8251fe416ed6786d2651b9dd8d5f1556",
+  "verdict": "PASS"
+}
