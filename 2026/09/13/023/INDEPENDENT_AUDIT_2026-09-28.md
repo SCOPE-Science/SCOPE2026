@@ -1,0 +1,43 @@
+# Independent audit — 2026-09-29
+- Source: `2026/09/13/023`
+- Assigned/current tree SHA: `9a8b473146e784e0a53c19b15991830a00a461e8`
+- Audited repository commit: `eff2c6312cec5b0dee5115e5f42211a853092dfb`
+- Disposition: **repaired**
+
+## Three-axis assessment
+
+### Correctness
+
+**PASSED** — After repair, the retained mathematics checks exactly. Independent integer enumeration gives 112 assignments and 10 dihedral orbits; exact symbolic differentiation gives alternating Jacobian columns and reduces J D_s v=0 to independent signed sums on the even and odd creases, yielding the 96/16 split. The original limitation that P was merely an upper-bound Maekawa family was incorrect: published equal-angle SVCP theory states flat-foldability iff |#M-#V|=2.
+
+
+### Originality
+
+**PASSED** — The original package overclaimed its uniform forcing-number-5 computation: Ouchi–Uehara prove that every equal-angle flat-foldable SVCP with n>=4 has minimum forcing-set size n/2+1, so n=8 gives 5 directly. The repair removes that fact from the novelty claim. Targeted comparison did not locate the specific fully-flat A8 Jacobian parity criterion or the 96/16 tangent classification; that narrower result survives.
+
+
+### Scientific value
+
+**PASSED** — The retained 96/16 classification is a compact exact obstruction for a natural singular kinematic state and separates first-order-admissible from first-order-obstructed flat-folded assignments. Its value is narrow and explicitly limited to tangent-space behavior; the already-known forcing result is presented only as a cross-check.
+
+
+## Independent checks
+
+- recomputed the 112 Maekawa/flat-foldable assignments and ten dihedral orbit sizes from scratch
+- rederived the exact closure Jacobian columns at rho_k=±pi and the two parity-sum equations
+- verified the 96 mixed-parity and 16 obstructed counts and the exhaustive forcing distributions
+- checked Ouchi–Uehara Lemma 3 and Theorem 11, which respectively identify equal-angle flat-foldability with |#M-#V|=2 and give minimum forcing size n/2+1
+- confirmed the current main record tree matches the assigned source-tree SHA
+
+## Limitations
+
+- No finite rigid-unfolding branch is constructed; the result is first-order only.
+- The literature comparison supports only the narrowed Jacobian claim; the forcing-number statement is explicitly treated as prior art.
+- Open-access sources were sufficient; Oxford Download was not needed.
+
+## Citations
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/13/023
+- https://doi.org/10.2197/ipsjjip.28.800
+- https://arxiv.org/abs/1507.01644
+- https://doi.org/10.1587/transinf.2018FCP0004
