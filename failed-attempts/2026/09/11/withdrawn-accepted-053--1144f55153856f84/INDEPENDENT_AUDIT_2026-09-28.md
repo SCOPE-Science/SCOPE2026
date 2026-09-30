@@ -1,0 +1,32 @@
+# Independent Audit — 2026/09/11/053
+
+- Audit date: 2026-09-28 (UTC)
+- Repository: `SCOPE-Science/SCOPE2026`
+- Audited commit: `253a0fe5d0217455660a277f9adb940030e567ad`
+- Audited record tree: `c1db38c733deb9926150b1bcc7ef3198063e2d25`
+- Disposition: **FAILED**
+
+## Correctness
+
+**PASS** — The analytic tail calculation is sound. A density proportional to (1+|x|)^-5(log(e+|x|))^-1/2 has finite second moment and divergent fourth moment, while integration of the regularly varying tail gives P(|Y|>t)~(c*/2)t^-4(log t)^-1/2. Standardization produces s^4 P(|X|>s)~c'(log s)^-1/2→0, so the qualitative Tracy–Widom conclusion follows from Lee–Yin. Substituting B_N=N^{1/2}(log N)^-2 gives N^2P(|X|>B_N)~const·(log N)^{15/2}→∞, so an all-entries-coincide truncation coupling has probability tending to zero. For B_N=N^{1/2}(log N)^a, the same calculation places the coincidence threshold at a>-1/8, matching the stated 'much larger than N^{1/2}(log N)^-1/8' formulation up to slowly varying factors.
+
+## Originality
+
+**FAIL** — Lee–Yin already highlights that infinite fourth moment is compatible with edge universality and gives a log-corrected |x|^-5-type example illustrating the boundary of their criterion. The submitted p=1/2 law is a particularly explicit member of that standard regularly varying family. Once its tail is written down, the claimed coincidence obstruction and -1/8 logarithmic threshold follow by direct substitution into N^2 P(|X|>B_N). The normalization constants and two-sided squeeze are useful bookkeeping, but they do not constitute a new universality mechanism or theorem.
+
+## Scientific value
+
+**FAIL** — The record is a careful worked benchmark and honestly attributes the actual Tracy–Widom theorem to Lee–Yin. Its new material is limited to explicit constants and the observation that one proposed truncation/coupling scale is too low. It proves no quantitative Tracy–Widom rate, no new comparison theorem, and no new class of distributions beyond the well-known Lee–Yin boundary examples. That is insufficient scientific value for a separately validated finding.
+
+## Limitations
+
+- The qualitative TW1 conclusion is external to the record and depends on Lee–Yin; it is not re-proved here.
+- The coincidence calculation rules out only direct all-entry equality after truncation, not every possible comparison argument.
+- The displayed numerical constants are approximations; the verdict rests on the analytic asymptotics, not the quadrature.
+
+## Sources
+
+- A Necessary and Sufficient Condition for Edge Universality of Wigner Matrices — Ji Oon Lee; Jun Yin: https://arxiv.org/abs/1206.2251 — Theorem 1.2 gives the tail criterion; Remark 1.3 notes infinite-fourth-moment log-corrected examples satisfying it.
+- Convergence Rate to the Tracy-Widom Laws for the Largest Eigenvalue of Wigner Matrices — Kevin Schnelli; Yuanyuan Xu: https://arxiv.org/abs/2102.04330 — Quantitative comparison literature; the record does not establish such a rate for its infinite-fourth-moment law.
+
+GitHub was read only as evidence. The record's pre-existing `AUDIT.json` was inspected only after an independent assessment and was not treated as authority. No repository mutation was performed by this audit chat.
