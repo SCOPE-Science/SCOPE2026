@@ -1,0 +1,62 @@
+{
+  "assigned_source_tree_sha": "e95715420db6583fee2091920dde042b5d5cb9d2",
+  "audit_date": "2026-09-29",
+  "audited_commit": "eff2c6312cec5b0dee5115e5f42211a853092dfb",
+  "audited_source_tree_sha": "e95715420db6583fee2091920dde042b5d5cb9d2",
+  "axes": {
+    "correctness": {
+      "rationale": "The Diophantine reduction is correct. Writing the sides as (b-d,b,b+d), parity forces b=2x and Heron's formula gives x^2-d^2=3y^2 with area K=3xy. Removing g=gcd(x,y) yields primitive X^2-D^2=3Y^2, gcd(X,Y)=gcd(X,D)=1 and D odd, so X and Y have opposite parity and every HAP area is divisible by 6. If omega(K)=2, only primes 2 and 3 can divide g,X,Y; 3 does not divide X, hence X=2^A, while coprimality gives Y=3^B. The equation D^2=2^(2A)-3^(2B+1) rules out B>=1 modulo 8 (or by negativity for A=1), and B=0 factors to (2^A-D)(2^A+D)=3, forcing A=D=1 and primitive sides 3,4,5. The converse for 2,3-smooth scalings is immediate. An independent scan of all 1<=d<x<600 found no two-prime-support counterexample.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "MacDougall and Bailey–Gosnell supply general parametrizations of HAP triangles, not this area-prime-support rigidity. The strongest stated residual risk, Read's 2025 'On HAP triangles', was obtained in complete text through authorized institutional access after OA routes failed. It gives an all-HAP parametrization, a formula showing the area is divisible by 6, inradius/congruence results, and the unique primitive right-angled case, but it does not classify HAP triangles by the number of distinct area primes or state the 2,3-smooth scaling theorem. Exact searches for two-prime/smooth-area HAP classifications also found no equivalent result. The filed theorem therefore passes originality.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The theorem is a clean rigidity classification at the minimum possible prime support of the area, sharpening the general parametrization to a unique primitive core and an explicit infinite scaling family. It is a concise, reusable number-theoretic consequence of the HAP Pell-type structure.",
+      "verdict": "pass"
+    }
+  },
+  "citations": [
+    {
+      "note": "Read (2025), complete text obtained through authorized institutional access; gives HAP parametrization and area divisibility by 6 but not the prime-support classification.",
+      "url": "https://doi.org/10.1017/mag.2025.10079"
+    },
+    {
+      "note": "Bailey–Gosnell (2012), general HAP generation/inradius context.",
+      "url": "https://doi.org/10.4169/math.mag.85.4.290"
+    },
+    {
+      "note": "MacDougall (2003) general HAP parametrization context.",
+      "url": "https://www.researchgate.net/publication/242732258_Heron_Triangles_With_Sides_in_Arithmetic_Progression"
+    },
+    {
+      "note": "Enumeration context for HAP triangles; no equivalent prime-support theorem located.",
+      "url": "https://oeis.org/A387908"
+    }
+  ],
+  "disposition": "passed",
+  "findings": [
+    "The minimum possible number of distinct area primes is two because every Heronian area is divisible by 6.",
+    "The primitive reduction forces 3 not to divide X and opposite parity of X,Y, which is the key step converting prime support into pure powers X=2^A and Y=3^B.",
+    "The modulo-8 obstruction eliminates every B>=1, leaving the unique primitive solution X=2,D=1,Y=1.",
+    "Read (2025) was read in full through authorized access and contains general HAP parametrization and area divisibility, but not the prime-support classification."
+  ],
+  "github_writes_performed": false,
+  "independent_checks": [
+    "Re-derived the Heron formula and all gcd/parity steps in the primitive normalization.",
+    "Checked the mod-8 argument separately for A=1 and A>=2.",
+    "Ran an independent exact-integer scan for x<600; every HAP case with exactly two distinct area primes was a 2,3-smooth scaling of 3-4-5.",
+    "Read the complete ten-page Read (2025) article through authorized institutional access and compared its theorem list with the filed claim."
+  ],
+  "limitations": [
+    "The theorem is specific to side lengths in arithmetic progression and does not classify arbitrary Heronian triangles with two area primes.",
+    "It does not classify HAP triangles whose areas have three or more distinct prime divisors.",
+    "Originality is claimed at the exact prime-support classification level, not for the general HAP parametrization or the fact that HAP areas are divisible by 6."
+  ],
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_path": "2026/09/20/heronian-ap-minimal-area-prime-support--e6685b98bbd6",
+  "time_standard": "UTC",
+  "title": "Minimal prime support in arithmetic-progression Heronian triangles"
+}
