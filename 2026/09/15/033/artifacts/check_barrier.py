@@ -1,43 +1,37 @@
-"""Check the Dodson Sec.10 energy-bootstrap barrier for mass-critical NLS.
+"""Audit the dimension-dependent residual exponents in the Section-10 barrier record.
 
-Verifies that the residual exponent in Dodson (10.41)-(10.44) cannot beat 2^{-2kn}
-for d>=16, under the truncation/free-parameter generalization, while the companion
-1+4/d term remains feasible. Pure arithmetic; no external data.
+This script deliberately distinguishes two formulas that the original package blurred:
+(1) the literal residual exponent copied from the filed Dodson bookkeeping, and
+(2) a generalized cutoff-deficit model used to test a monotone delta>=0 modification.
 """
-import json, os
+from fractions import Fraction
 
-def min_deficit_needed(d):
-    # Dodson d>=9 energy bootstrap: residual needs (8/d - 3/(5d) - 7/(10d^2) - c*delta...) ;
-    # generalized feasibility: delta <= (77 - 5d)/39 for the 1+8/d remainder term.
-    return (5*d - 77)/39.0  # >0 means infeasible; (77-5d)/39 < 0
 
-def companion_max_deficit(d):
-    # 1+4/d remainder term Young exponent 2d/(d-4): feasible iff delta <= 17/(5d-1)
-    return 17.0/(5*d - 1)
+def literal_residual(d: int) -> Fraction:
+    return (Fraction(8,d)-Fraction(3,5*d)-Fraction(7,10*d*d))*Fraction(2*d,d-8)
 
-def dodson_residual_exponent(d):
-    # literal Dodson choice (delta=0): (8/d - 3/5d - 7/10d^2) * 2d/(d-8)
-    # At d=8 the remainder is ||e||^{1+8/8}=||e||^2: absorbed directly, no Young loss.
-    if d == 8:
-        return float("inf")
-    return (8.0/d - 3.0/(5*d) - 7.0/(10*d*d)) * (2*d/(d-8))
 
-rows = []
-for d in [8, 9, 10, 12, 15, 16, 17, 20, 30]:
-    rows.append({
-        "d": d,
-        "dodson_residual_exponent": round(dodson_residual_exponent(d), 5),
-        "beats_2kn": bool(dodson_residual_exponent(d) >= 2.0),
-        "min_extra_deficit_for_feasibility": round(min_deficit_needed(d), 5),
-        "generalized_feasible": bool(min_deficit_needed(d) <= 0),
-        "companion_max_deficit": round(companion_max_deficit(d), 5),
-    })
+def generalized_residual(d: int, delta: Fraction=Fraction(0)) -> Fraction:
+    gain=(Fraction(8,d)-Fraction(1,5*d))*(1-Fraction(1,10*d)-delta)
+    loss=Fraction(2,5*d)
+    return (gain-loss)*Fraction(2*d,d-8)
 
-out = {"rows": rows,
-       "conclusion": "Dodson literal residual beats 2^{-2kn} iff d<=15; "
-                     "generalized 1+8/d-term feasibility requires (77-5d)/39>=0, "
-                     "empty for d>=16; companion 1+4/d term stays feasible."}
-print(json.dumps(out, indent=1))
-os.makedirs(os.path.dirname(os.path.abspath(__file__)), exist_ok=True)
-with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "barrier_check.json"), "w") as f:
-    json.dump(out, f, indent=1)
+
+def exact_delta_bound(d: int) -> Fraction:
+    # generalized_residual(d,delta)>=2 iff delta <= this number
+    return Fraction(77-5*d,39)-Fraction(1,10*d)
+
+for d in (9,10,12,15,16,17,20,30):
+    lit=literal_residual(d)
+    gen=generalized_residual(d)
+    bound=exact_delta_bound(d)
+    print(f"d={d:2d} literal={float(lit):.12f} generalized(delta=0)={float(gen):.12f} delta_bound={float(bound): .12f}")
+
+assert literal_residual(15) > 2
+assert literal_residual(16) < 2
+assert exact_delta_bound(15) > 0
+assert exact_delta_bound(16) < 0
+# delta enters with a negative coefficient for d>8.
+for d in (9,15,16,20):
+    assert generalized_residual(d, Fraction(1,100)) < generalized_residual(d, Fraction(0))
+print('OK: d=16 obstruction verified; generalized delta>=0 cannot improve its residual.')
