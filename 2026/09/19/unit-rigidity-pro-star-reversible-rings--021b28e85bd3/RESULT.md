@@ -1,221 +1,84 @@
-# Unit rigidity characterizes pro-star-reversible rings
+# Unit rigidity characterizes pro-star-reversible rings — provenance-corrected presentation
 
-## Statement
+## Status and provenance
 
-Let \(R\) be an associative unital ring equipped with an involution \(*\). Write
+The theorem below is correct, but this record is not a separate discovery of the unit-group criterion.
+
+The broader SCOPE record
+`2026/09/19/unit-group-criterion-pro-star-reversibility--dcd6bac06405`
+was first committed at 2026-09-19T10:47:25Z and already proved the exact equivalence
 \[
-U(R)=\{u\in R:\ u\text{ is invertible}\}
+\text{pro-}*\text{-reversible}
+\iff
+\text{\(*\)-reversible and every unit is fixed by }*.
 \]
-and let \(P(R)\) denote the projections of \(R\).
+An even earlier SCOPE record,
+`2026/09/18/pro-star-reversible-semiperfect-rigidity--8cd8850c47f1`,
+committed at 2026-09-18T22:24:59Z, already contained the unit-rigidity implication and the local/semiperfect collapse. This record was first committed later, at 2026-09-19T23:20:48Z.
 
-Recall that \(R\) is **\(*\)-reversible** if
-\[
-ab=0\quad\Longrightarrow\quad b^*a=0,
-\]
-and is **pro-\(*\)-reversible** if
-\[
-ab\in P(R)\quad\Longrightarrow\quad b^*a\in P(R).
-\]
+Accordingly, the record is retained as an alternate proof and a compact collection of consequences. No separate originality or priority claim is made.
 
-Then the following are equivalent:
+## Theorem
 
-1. \(R\) is pro-\(*\)-reversible.
-2. \(R\) is \(*\)-reversible and every unit is fixed by the involution:
+Let \(R\) be a unital ring with involution \(*\). Then the following are equivalent:
+
+1. \(R\) is pro-\(*\)-reversible:
    \[
-   u^*=u\qquad(u\in U(R)).
+   ab\in P(R)\Longrightarrow b^*a\in P(R).
+   \]
+2. \(R\) is \(*\)-reversible and every unit is self-adjoint:
+   \[
+   ab=0\Longrightarrow b^*a=0,\qquad u^*=u\quad(u\in U(R)).
    \]
 
-Equivalently, among \(*\)-reversible rings, pro-\(*\)-reversibility is exactly the additional requirement
+Under these equivalent conditions, if \(ab=p\in P(R)\), then in fact
 \[
-U(R)\subseteq \operatorname{Sym}(R,*).
+b^*a=p.
 \]
 
-Consequently, every pro-\(*\)-reversible ring has abelian unit group.
+Consequently the unit group is abelian. Every local or clean pro-\(*\)-reversible ring is commutative with the identity involution, and a division \(*\)-ring is pro-\(*\)-reversible exactly when it is a field with the identity involution.
 
 ## Proof
 
-### Necessity
+Assume first that \(R\) is pro-\(*\)-reversible. Chen--Wang--Zou prove that pro-\(*\)-reversibility implies \(*\)-reversibility. For \(u\in U(R)\), take \(a=u^{-1}\) and \(b=u\). Then \(ab=1\) is a projection, so
+\[
+u^*u^{-1}\in P(R).
+\]
+It is also a unit. The only invertible idempotent is \(1\), hence \(u^*=u\).
 
-The implication
-\[
-\text{pro-}*\text{-reversible}\Longrightarrow *\text{-reversible}
-\]
-is Proposition 3.5 of Chen--Wang--Zou, arXiv:2609.20076v1.
+Conversely, assume \(R\) is \(*\)-reversible and every unit is fixed. Let \(p=ab\in P(R)\). A \(*\)-reversible ring is reversible; in a reversible ring idempotents are central, and the standard idempotent-product lemma gives \(ba=p\). Put \(q=1-p\).
 
-Now let \(u\in U(R)\). Put
+Because
 \[
-a=u^{-1},\qquad b=u.
-\]
-Then
-\[
-ab=1\in P(R).
-\]
-By pro-\(*\)-reversibility,
-\[
-b^*a=u^*u^{-1}\in P(R).
-\]
-The element \(u^*u^{-1}\) is also a unit. A unit that is idempotent must equal \(1\). Hence
-\[
-u^*u^{-1}=1,
-\]
-and therefore
-\[
-u^*=u.
-\]
-
-### Sufficiency
-
-Assume now that \(R\) is \(*\)-reversible and every unit of \(R\) is fixed by \(*\). Let
-\[
-p=ab\in P(R).
-\]
-
-A \(*\)-reversible ring is reversible. In a reversible ring every idempotent is central, and Lemma 3.1 of Chen--Wang--Zou gives
-\[
-ba=ab=p.
-\]
-Set
-\[
-q=1-p.
-\]
-Then \(p,q\) are central projections.
-
-First isolate the \(q\)-corner. Since
-\[
-(qa)(qb)=qab=qp=0,
+(qa)(qb)=qab=0,
 \]
 \(*\)-reversibility gives
 \[
-(qb)^*(qa)=qb^*a=0.
-\]
-Thus
-\[
 qb^*a=0. \tag{1}
 \]
-
-Now work in the corner \(pRp\), whose identity is \(p\). Define
-\[
-A=pa,\qquad B=pb.
-\]
-Centrality of \(p\) and \(ab=ba=p\) give
-\[
-AB=BA=p.
-\]
-Hence \(A\) and \(B\) are mutually inverse units of \(pRp\). In the whole ring,
-\[
-B+q
-\]
-is a unit with inverse \(A+q\). By hypothesis every unit is fixed by the involution, so
-\[
-(B+q)^*=B+q.
-\]
-Since \(q^*=q\), this yields \(B^*=B\). Therefore
+In the corner \(pRp\), the elements \(A=pa\) and \(B=pb\) are inverse units. Thus \(B+q\) is a unit of \(R\), with inverse \(A+q\). By hypothesis \(B+q\) is self-adjoint, so \(B^*=B\). Therefore
 \[
 pb^*a=B^*A=BA=p. \tag{2}
 \]
+Adding (1) and (2) yields \(b^*a=p\), proving pro-\(*\)-reversibility.
 
-Combining (1) and (2),
+If \(u,v\) are units, then \(u,v,uv\) are fixed by the involution, so
 \[
-b^*a=(p+q)b^*a=p.
+uv=(uv)^*=v^*u^*=vu.
 \]
-Thus \(b^*a\) is a projection. Hence \(R\) is pro-\(*\)-reversible.
+Hence \(U(R)\) is abelian.
 
-This proves the equivalence.
+For a local ring, each \(x\) or \(1-x\) is a unit, so the unit criterion forces \(x^*=x\) for every \(x\); anti-multiplicativity then forces commutativity. For a clean ring, write \(x=e+u\); idempotents in a unital \(*\)-reversible ring are self-adjoint and units are fixed, so again \(x^*=x\). The division-ring statement is immediate because every nonzero element is a unit.
 
-Finally, if \(u,v\in U(R)\), then \(u,v,uv\) are all fixed by \(*\). Hence
-\[
-uv=(uv)^*=v^*u^*=vu,
-\]
-so \(U(R)\) is abelian.
+Noncommutative examples exist outside the clean setting: the free associative algebra \(k\langle x,y\rangle\), with word-reversal involution fixing \(k,x,y\), is a domain whose units are the nonzero scalars; the criterion therefore makes it pro-\(*\)-reversible.
 
-## Consequences
+## Scientific role of this record
 
-### Local rings
-
-A local ring is clean. More directly, for every \(x\in R\), either \(x\) or \(1-x\) is a unit. If \(R\) is pro-\(*\)-reversible, the theorem fixes every unit. Therefore:
-
-- if \(x\) is a unit, then \(x^*=x\);
-- if \(1-x\) is a unit, then
-  \[
-  1-x=(1-x)^*=1-x^*,
-  \]
-  so again \(x^*=x\).
-
-Thus the involution is the identity on all of \(R\). Since an involution is anti-multiplicative,
-\[
-xy=(xy)^*=y^*x^*=yx.
-\]
-Hence:
-
-\[
-\boxed{\text{A local }*\text{-ring is pro-}*\text{-reversible}
-\iff
-R\text{ is commutative and }*= \mathrm{id}.}
-\]
-
-The reverse implication is immediate.
-
-### Division rings
-
-Every nonzero element of a division ring is a unit. Hence the theorem immediately gives
-\[
-\boxed{\text{A division }*\text{-ring is pro-}*\text{-reversible}
-\iff
-R\text{ is a field and }*=\mathrm{id}.}
-\]
-
-### Clean rings
-
-A 2013 result of Fakieh shows that every idempotent of a unital \(*\)-reversible ring is fixed by the involution. In a clean pro-\(*\)-reversible ring, the theorem also fixes every unit. If
-\[
-x=e+u
-\]
-with \(e^2=e\) and \(u\in U(R)\), then
-\[
-x^*=e^*+u^*=e+u=x.
-\]
-Thus \(*=\mathrm{id}\), and the ring is commutative. Therefore
-\[
-\boxed{\text{A clean }*\text{-ring is pro-}*\text{-reversible}
-\iff
-R\text{ is commutative and }*=\mathrm{id}.}
-\]
-
-### Noncommutative examples still exist
-
-The clean hypothesis cannot be dropped. Let
-\[
-R=k\langle x,y\rangle
-\]
-be the free associative algebra on two generators, with the word-reversal involution fixing \(k,x,y\). This is a domain, hence \(*\)-reversible. Its units are precisely the nonzero scalars, all fixed by the involution. The theorem therefore implies that \(R\) is pro-\(*\)-reversible, although \(R\) is noncommutative.
-
-## Relation to the 2026 preprint
-
-Chen--Wang--Zou introduce pro-\(*\)-reversibility in arXiv:2609.20076v1, prove that it implies \(*\)-reversibility, and exhibit a \(*\)-reversible ring that is not pro-\(*\)-reversible. Their Question 3.7 asks whether every \(*\)-reversible ring is pro-\(*\)-reversible; Example 3.13 answers this negatively.
-
-The theorem above gives the sharp extension criterion left after that counterexample:
-\[
-\boxed{
-R\text{ \(*\)-reversible is pro-\(*\)-reversible}
-\iff
-*\text{ fixes }U(R)\text{ pointwise}.
-}
-\]
-For the ring in their Example 3.13, the displayed unit
-\[
-\begin{pmatrix}1&1\\0&1\end{pmatrix}
-\]
-is moved by the involution, so the criterion detects the failure immediately.
-
-## Originality and limitations
-
-The notion of pro-\(*\)-reversibility appears to have been introduced in arXiv:2609.20076v1. Targeted searches for equivalent formulations involving fixed units, self-adjoint units, projections, and \(*\)-reversibility did not locate the criterion above.
-
-The proof is elementary once the unit substitution \(u^{-1}u=1\) is noticed, so independent prior or concurrent discovery is a meaningful residual risk. Older literature on \(*\)-reversible rings already contains the facts that such rings are reversible and that their idempotents are fixed by the involution; those facts are treated here as prior art. The claimed contribution is the exact unit-fixed characterization of the new pro-\(*\)-reversible class and its clean/local/division consequences.
-
-No independent validation is asserted.
+The mathematics is useful as a short proof and as a convenient collection of local, clean, and division consequences. Its scientific value is corroborative and expository relative to the earlier SCOPE records above. The original external source, Chen--Wang--Zou, introduced pro-\(*\)-reversibility and did not state the pointwise unit-group criterion in the public version inspected.
 
 ## References
 
-1. H. Chen, L. Wang, H. Zou, *On \(\ast\)-Reversible and Generalized \(\ast\)-Reversible Rings*, arXiv:2609.20076v1, 17 September 2026. https://arxiv.org/abs/2609.20076
-2. A. Fakieh, *Reversible Rings with Involutions and Some Minimalities*, The Scientific World Journal (2013), Article ID 650702. https://doi.org/10.1155/2013/650702
+1. H. Chen, L. Wang, H. Zou, *On \(*\)-Reversible and Generalized \(*\)-Reversible Rings*, arXiv:2609.20076 (2026).
+2. A. H. Fakieh, *Reversible Rings with Involutions and Some Minimalities*, The Scientific World Journal (2013), Article 650702.
+3. SCOPE record `2026/09/19/unit-group-criterion-pro-star-reversibility--dcd6bac06405`, first committed 2026-09-19T10:47:25Z.
+4. SCOPE record `2026/09/18/pro-star-reversible-semiperfect-rigidity--8cd8850c47f1`, first committed 2026-09-18T22:24:59Z.
