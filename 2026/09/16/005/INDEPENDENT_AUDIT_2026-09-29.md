@@ -1,0 +1,46 @@
+# Independent Audit — 2026/09/16/005
+
+**Audit date:** 2026-09-29 (UTC)  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Assigned source tree:** `08481ef0dee72f037a083a5925c47a46f3cd66da`  
+**Audited current source tree:** `08481ef0dee72f037a083a5925c47a46f3cd66da`  
+**Audited repository commit:** `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+**Disposition:** repaired
+
+The current `main` directory tree SHA exactly matches the assignment tree SHA, and the designated failed destination was verified absent.
+
+## Correctness — PASSED
+
+PASS AFTER REPRODUCIBILITY REPAIR. The 12-versus-19 dimension count is correct: central symmetry leaves 7 independent four-volume defects and 3 independent defects in each of four central sections. The first-variation surjectivity argument is also sound: even bump pairs supported on H_i but away from the other H_j independently span each section’s 3-dimensional sum-zero space, while even interior bump pairs away from every hyperplane span the 7-dimensional cone-volume space without changing any section defect. Thus the universal map is transverse to 0 in the parameter direction; Abraham’s parametric transversality theorem then gives generic partial maps transverse to 0, whose zero sets are empty because dim M=12<19. The only concrete package defect found is that RESULT.md and METADATA.json point to output/artifacts/rank_check.py although the committed file is artifacts/rank_check.py.
+
+## Originality — PASSED
+
+PASS WITH SEARCH QUALIFICATION. The R^3 simultaneous volume/section equipartition is established by Fradelizi–Hubard–Meyer–Roldán-Pensado–Zvavitch. Soberón’s 2026 R^4 counterexample concerns a smooth positive mass and four affine hyperplanes, with no origin symmetry or simultaneous central-section requirement. Targeted searches did not locate the exact symmetric-body theorem proved here. This is evidence, not a mathematical proof, of priority.
+
+## Scientific value — PASSED
+
+PASS. The theorem closes a natural four-dimensional analogue of the equipartition input behind a Mahler-induction strategy and explains generically why the simultaneous conditions are overdetermined. Its value is as a route-obstruction theorem, even though the counterexamples are Baire-generic rather than explicit.
+
+## Independent checks
+
+- recounted independent defects: 7 cone-volume plus 4x3 section-volume coordinates
+- verified linear independence of the restricted hyperplanes from independence of the four normals
+- checked the geometric support choices for section and interior even bump pairs and the block-triangular first variation
+- checked the transversality dimension implication dim 12 < codim 19
+- checked current record tree equals the assigned tree and failed destination is vacant
+
+## Limitations
+
+- The audit did not construct an explicit counterexample body; it verifies the generic transversality proof.
+- The NumPy rank script is only a sanity check and does not itself prove the bump-localization/smooth first-variation statements.
+- A targeted literature search did not find the exact theorem, but negative search results cannot establish absolute priority.
+- Open-access sources were sufficient; Oxford Download was not needed.
+
+## Evidence and references
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/16/005
+- https://arxiv.org/abs/1904.10765
+- https://arxiv.org/abs/2608.23312
+- https://doi.org/10.1090/S0002-9904-1963-10969-6
+
+This audit changes only the independent-audit channel in `VERIFICATION.md`; Lean verification and expert attestation remain exactly as previously recorded.
