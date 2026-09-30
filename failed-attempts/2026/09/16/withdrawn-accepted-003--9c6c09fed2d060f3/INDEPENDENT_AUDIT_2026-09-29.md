@@ -1,0 +1,27 @@
+# Independent audit — 2026/09/16/003
+
+**Date:** 2026-09-29  
+**Disposition:** **FAILED**  
+**Audited tree:** `3e43841940fabe809bc5e5fa770b45083d3a108d` at repository commit `253a0fe5d0217455660a277f9adb940030e567ad`
+
+## Correctness
+
+**FAIL** — The proposed duality lemma is not proved. Its key step asserts that after gliding-hump perturbation, the spans of two block sequences of an unconditional basis are complemented. An unconditional basis does not imply that arbitrary block subspaces are complemented. This is not a cosmetic gap: the original Argyros–Beanland–Motakis paper explicitly leaves the dual product problem as Problem 2(iii) and says an affirmative answer would follow from precisely the additional property that every subspace of X^n_{0,1} contains a further subspace complemented in X^n_{0,1}, a property they did not prove. Without a bounded projection onto the image subspace, the adjoint argument does not give T* bounded below on an infinite-dimensional subspace.
+
+## Originality
+
+**UNRESOLVED** — An affirmative solution of ABM Problem 2(iii) would be original if valid, but the filed argument does not establish it. The audit did not find a later source resolving the problem, but search absence cannot establish that it remains open.
+
+## Value
+
+**FAIL_AS_VALIDATED** — The attempted reduction correctly identifies why complemented subspaces would solve the dual problem, but because the only new lemma rests on a false general complementation assertion, the package cannot stand as a validated theorem. It remains useful only as a documented failed route.
+
+## Literature/evidence checked
+
+- [Argyros–Beanland–Motakis, Strictly singular operators in Tsirelson like spaces](https://arxiv.org/abs/1309.4516): The source explicitly states Problem 2(iii) for the dual and notes that an affirmative answer would follow if every subspace of X^n_{0,1} contained a further complemented subspace; that property was not established.
+- [ResearchGate full-text mirror of the ABM paper](https://www.researchgate.net/publication/256703222_Strictly_singular_operators_in_Tsirelson_like_spaces): Publicly accessible text inspected around Problem 2(iii), including the complemented-subspace remark.
+- [Recent discussion of uncomplemented block subspaces in spaces with unconditional bases](https://www.themoonlight.io/en/review/strictly-singular-operators-on-the-baernstein-and-schreier-spaces): Illustrates that unconditionality alone does not make arbitrary block subspaces complemented; cited only as contextual support for the general functional-analytic flaw.
+
+## Limitations of this audit
+
+Main-branch tree and blob guards were checked before staging and matched the assignment. Literature search is claim-specific and is not a proof of absolute priority. GitHub was read only; no repository writes were made. No inaccessible source is claimed as read.
