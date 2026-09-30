@@ -2,28 +2,78 @@
 
 ## Context
 
-The admitted target asks whether Anosov maps f_t = A_b o S_t on T^3, with A_b the toral automorphism induced by [[3,1,0],[1,1,1],[0,1,1]] and S_t(x) = (x_1+2t sin(2pi x_2), x_2+2t sin(2pi x_3), x_3) mod 1, admit uniform exponential mixing constants over all Anosov parameters t < t_c, or instead exhibit quantitative critical slowing as t approaches the Anosov threshold t_c from below. The threshold t_c = sup{tau in (0,1] : f_s Anosov for all s in [0,tau)} is positive by openness of the Anosov property. The submitted finding advances the target by producing the first rigorous quantitative upper bound on t_c with an explicit bifurcation mechanism.
+Let
 
-## Definitions
+A_b = [[3,1,0],[1,1,1],[0,1,1]]
 
-Let T^3 = R^3/Z^3 with Lebesgue measure m. S_t is triangular with Jacobian determinant 1, hence Lebesgue-preserving; A_b has determinant -1, so each f_t = A_b o S_t preserves m. A_b is symmetric with eigenvalues approximately -0.1700865, 1.6888922, 3.4811943, so f_0 = A_b is volume-preserving Anosov with dim E^u = 2, dim E^s = 1. (These correct the approximate moduli 4.330, 1.798, 0.128 stated in the topic text.) Let p2 = (1/2, 0, 1/2) and t* = (sqrt(3)-1)/(4pi) ~ 0.0582548.
+act on T^3, and let
+
+S_t(x_1,x_2,x_3) = (x_1+2t sin(2*pi*x_2), x_2+2t sin(2*pi*x_3), x_3) mod 1.
+
+Set f_t=A_b o S_t.  The Anosov-threshold parameter is
+
+t_c = sup{tau in (0,1] : f_s is Anosov for every s in [0,tau)}.
+
+The statement below gives an exact obstruction point and hence a rigorous upper bound on t_c.  It does not identify the exact threshold and does not by itself prove a loss of uniform mixing.
 
 ## Result
 
-Theorem. (a) f_t(p2) = p2 for every t in [0,1]. (b) Df_t(p2) = A_b [[1,s,0],[0,1,-s],[0,0,1]] with s = 4 pi t, and det(Df_t(p2)-I) = s^2+2s-2, vanishing exactly at s* = sqrt(3)-1, i.e. t = t*, transversely with derivative 2 sqrt(3). (c) At t*, spec(Df_{t*}(p2)) = {1, 2+sqrt(5), 2-sqrt(5)} ~ {1, 4.236068, -0.236068}; the eigenvalue 1 is simple. Hence f_{t*} is not Anosov. (d) Consequently t_c <= t* ~ 0.05825. (e) The weak unstable multiplier mu(t) with mu(0) ~ 1.689 and mu(t*) = 1 satisfies d mu/dt|_{t*} = -2 pi sqrt(3) ~ -10.88, approaching 1 linearly from above (tracked: 1.4409 at t=0.02, 1.2047 at t=0.04, 1.0911 at t=0.05, 1.0006 at t=0.0582).
+Let p_2=(1/2,0,1/2) and
 
-## Proof / Evidence
+t_*=(sqrt(3)-1)/(4*pi).
 
-(a) sin(2pi*0)=0 and sin(2pi/2)=sin(pi)=0 give S_t(p2)=p2; A_b p2 = (3/2,1,1/2) = p2+(1,1,0) is p2 mod 1. (b) DS_t(x) = [[1,4pit cos(2pi x_2),0],[0,1,4pit cos(2pi x_3)],[0,0,1]]; at p2 the cosines are (1,-1), giving the displayed product with s=4pit. Then M(s)-I = [[2,3s+1,-s],[1,s,1-s],[0,1,-s]] whose determinant expands symbolically to s^2+2s-2 with roots -1+-sqrt(3); only s*=sqrt(3)-1 lies in [0,4pi]. Transversality: d/ds = 2(s+1) = 2 sqrt(3) at s*. (c) The characteristic polynomial -lam^3+5 lam^2+(s^2+2s-5) lam-1 specializes via s^2+2s=2 to -(lam-1)(lam^2-4lam-1), giving the stated spectrum with the other two multipliers off the unit circle. (d) Every fixed point of an Anosov diffeomorphism is hyperbolic; the eigenvalue-1 fixed point p2 at t* rules out Anosov there, and the sup definition of t_c yields t_c<=t*. (e) Exact left/right nullvectors of M(s*)-I give d mu/ds = (u' M' v)/(u' v) = -sqrt(3)/2 with M'(s) = [[0,3,-1],[0,1,-1],[0,0,-1]]; multiplying by ds/dt=4pi gives -2 pi sqrt(3). All identities were independently re-derived by symbolic computation; the script output/artifacts/bifurc.py reproduces them and the eigenvalue tracking.
+Then:
 
-## Limitations
+1. p_2 is a fixed point of f_t for every t.
+2. Writing s=4*pi*t,
 
-This result proves the upper bound t_c<=t* and the exact mechanism. It does not prove t_c=t* (Anosov persistence on all of [0,t*) would need a separate cone certificate; a first constant-Lorentz-cone attempt certified the stable direction but not the unstable one) and does not prove non-uniformity of mixing rates. The inequality rho_opt(t)>=1/mu(t), hence rho_opt->1 as t->t_c^-, is stated as conjecture, not theorem.
+   Df_t(p_2)=A_b [[1,s,0],[0,1,-s],[0,0,1]]
+
+   and
+
+   det(Df_t(p_2)-I)=s^2+2s-2.
+3. At s_*=sqrt(3)-1 this determinant vanishes transversely, with derivative 2*sqrt(3), and
+
+   spec(Df_{t_*}(p_2))={1, 2+sqrt(5), 2-sqrt(5)}.
+
+   The eigenvalue 1 is simple.
+4. Therefore f_{t_*} is not Anosov and
+
+   t_c <= (sqrt(3)-1)/(4*pi) = 0.0582548... .
+5. If mu(t) denotes the real multiplier continuing the weak unstable eigenvalue mu(0)=1.688892... to mu(t_*)=1, then
+
+   d mu/dt |_{t=t_*} = -2*pi*sqrt(3).
+
+## Proof
+
+Since sin(0)=sin(pi)=0, S_t(p_2)=p_2.  Moreover A_b p_2=p_2+(1,1,0), so p_2 is fixed on T^3.
+
+At p_2 the two relevant cosine factors are +1 and -1, giving the displayed derivative matrix.  Direct expansion yields
+
+det(Df_t(p_2)-I)=s^2+2s-2,
+
+whose unique nonnegative root is s_*=sqrt(3)-1.  The derivative with respect to s is 2(s+1), hence equals 2*sqrt(3) at the root.
+
+The characteristic polynomial is
+
+-lambda^3 + 5 lambda^2 + (s^2+2s-5) lambda - 1.
+
+At s=s_* one has s^2+2s=2, so this factors as
+
+-(lambda-1)(lambda^2-4lambda-1).
+
+Thus the remaining multipliers are 2+sqrt(5) and 2-sqrt(5), both off the unit circle.  An Anosov diffeomorphism has only hyperbolic periodic points, so the fixed point with multiplier 1 rules out Anosov at t=t_*.  The definition of t_c then gives t_c<=t_*.
+
+For the simple eigenvalue branch, exact left and right eigenvectors at s_* and the standard simple-eigenvalue derivative formula give d mu/ds=-sqrt(3)/2.  Since ds/dt=4*pi, d mu/dt=-2*pi*sqrt(3).
 
 ## Reproducibility
 
-Run `python3 output/artifacts/bifurc.py` (requires sympy, numpy). It prints A_b symmetry and determinant, det(M-I) and roots for all four shear-cosine classes, the characteristic polynomial, eigenvalue tracking for 0<=t<=t*, fixed-point residue checks, and the slope -2 pi sqrt(3).
+Run
 
-## References
+`python3 artifacts/bifurc.py`
 
-Inputs: topic.json (target definition), DRAFT.md (theorem and proof), research_report.json (EMERGENT_FINDING claim), target_exit.json (route assessment), artifacts/bifurc.py (verification script); STANDARD.md sky-survey-admission-depth-gate-v12; independent sympy/numpy re-derivation; scope_literature_search fused results (generic Anosov surveys only, no covering prior work).
+with SymPy and NumPy.  The script checks the determinant identities, the characteristic polynomial, the fixed point, numerical eigenvalue tracking and the multiplier derivative.
+
+## Limitations
+
+This result proves only the upper bound t_c<=t_* and the explicit neutral-fixed-point mechanism.  It does not prove t_c=t_*, Anosov persistence on all of [0,t_*), or non-uniformity of exponential mixing as t approaches the threshold.
