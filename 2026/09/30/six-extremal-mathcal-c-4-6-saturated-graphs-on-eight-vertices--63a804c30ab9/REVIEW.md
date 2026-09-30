@@ -1,0 +1,12 @@
+# Review
+## Correctness assessment
+PASS. The minimum edge count at order eight follows from the cited exact saturation theorem. For classification, adding a nonedge \(uv\) creates a forbidden cycle exactly when the original graph has a simple \(u\)-to-\(v\) path of length \(3\), \(4\), or \(5\); this gives an exact finite predicate with no numerical approximation. The verifier enumerates all \(\binom{28}{9}=6906900\) labeled nine-edge graphs and finds \(100800\) saturated graphs. Exact degree-preserving canonicalization gives six classes. Their automorphism orders produce orbit sizes \(20160,10080,20160,20160,20160,10080\), summing back to \(100800\). Edge cases include all nonedges and every simple forbidden-cycle length.
+## Originality assessment
+PASS on a best-of-knowledge basis. The final claim was searched using the exact forbidden family, order, edge count, isomorphism-class count, and saturation terminology. The current primary paper gives the numerical minimum but the inspected source and targeted web searches did not locate the six-class order-eight classification. published-finding corpus's closest returned records concern different cycle-Turán, rainbow-saturation, or unrelated saturation problems and do not subsume this result.
+## Value assessment
+PASS. The result converts a newly determined saturation number into a complete extremal-structure benchmark at the first eight-vertex case. Six distinct minimum types, their labeled multiplicities, automorphism orders, and explicit representatives provide concrete data for testing structural conjectures about the new \(\mathcal C_{[4,6]}\) regime rather than merely incrementing a numerical table.
+## Closest literature
+The primary comparison is Liu–Wang–Gong, arXiv:2608.18551v1, which determines the exact saturation number but does not, in the inspected material, state the complete order-eight equality classification. Ma's arXiv:2503.16839v1 treats the adjacent forbidden family \(\{C_4,C_5\}\). No located source states exactly six minimum isomorphism classes for \(\mathcal C_{[4,6]}\) on eight vertices.
+## Scientific limitations
+The proof of completeness is finite and computer-assisted. It does not provide a conceptual classification for arbitrary order, and the literature search cannot certify absence from every historical or unpublished source under every terminology. The three independent verification channels remain unperformed.
+Same-model review: passed. Independent audit: not yet performed.
