@@ -1,0 +1,37 @@
+# Independent Audit — 2026/09/14/039
+
+Audit date: 2026-09-29 (UTC)
+Audited tree: `3bcff4759fe082fa97b879304d46e7d287fbcaea`
+
+## Disposition
+
+**PASSED** — Validated: the explicit 22-edge P6-free certificate, density improvement, sealing computation, and small-n claims independently check and were not found to be covered by prior literature.
+
+## Correctness
+
+**PASS**. The explicit 22-edge certificate was independently reconstructed from RESULT.md. All 66 vertex-pairs occurring in its triples are distinct, so the hypergraph is linear; its degree sequence is one 6 and twelve 5s. An independent DFS over admissible edge sequences found no loose six-edge path, and an independent six-edge-set test found no 13-vertex intersection graph of path type. The two-block claim was also independently rebuilt from the cyclic STS(13): deleting vertex 12 gives a 20-edge block, two disjoint copies have 144 linearly addable cross triples, and every one creates a P6. The n=9,10,12 values follow from the packing bound plus the supplied witnesses; the n=11 upper bound excluding 18 edges by the degree/uncovered-pair count is correct.
+
+## Originality
+
+**PASS**. Current and prior literature located for linear Turán paths gives general O(n) upper bounds, shorter paths, or higher-uniformity generalizations; it does not exhibit this 13-vertex 22-edge P6-free linear triple system or its 144/144 sealing property. The 2024/2025 Zhou–Yuan work supplies general path bounds, and the 2026 hypertree literature still focuses on P4 or generic bounds. The exact witness and density 22/13 are therefore not a direct lookup or consequence of a stronger known construction found in the audit.
+
+## Scientific value
+
+**PASS**. The certificate changes the natural extremal picture: disjoint copies give a rigorous asymptotic lower density 22/13, strictly exceeding the 20/12 punctured-STS block density 5/3, so any program based on 12-vertex blocks is ruled out. This is a concrete, reusable extremal obstruction with a compact independently checkable certificate. The record is appropriately limited: it does not claim ex_lin(13,P6)=22 or a matching asymptotic upper bound.
+
+## Evidence and limitations
+
+Repository files were read from the exact assigned/current tree; GitHub was used only as evidence and was not modified. Lawful open-access/preprint sources were checked first:
+- https://arxiv.org/abs/2403.06637 — Zhou–Yuan, Turán problems for star-path forests in hypergraphs: general linear-path upper bounds, no 13v/22e P6 certificate.
+- https://arxiv.org/abs/2607.16854 — Adak–Verma, Linear Turán Numbers of Uniform Hypertrees: current 2026 work centered on stars and four-edge hypertrees/P4, not this P6 certificate.
+- https://arxiv.org/abs/2601.19068 — Tang–Wu–Zhang, linear Turán number of the 3-graph P5: adjacent shorter-path problem.
+
+Independent checks:
+- Independent Python check: 66 distinct covered pairs, degree multiset [6,5,...,5], and no ordered loose P6.
+- Independent six-edge-set characterization: among all C(22,6) subsets, none spans 13 vertices with edge-intersection graph P6.
+- Reconstructed the cyclic STS(13) from base blocks (0,1,4) and (0,2,7), punctured it at 12, formed two disjoint copies, enumerated exactly 144 linearly addable cross triples, and verified 144/144 create a loose P6.
+
+Limitations:
+- The audit does not prove optimality at n=13 or a matching asymptotic upper bound, and the record itself does not claim either.
+- Literature searches cannot prove absolute priority; originality is based on inspected theorem scope and absence of a covering exact construction, not on search failure alone.
+
