@@ -1,0 +1,39 @@
+# Independent audit — 2026-09-29
+- Source: `2026/09/12/058`
+- Assigned/current tree SHA: `5a37f9296a827090836548c68e9cf12dce4e8948`
+- Audited repository commit: `eff2c6312cec5b0dee5115e5f42211a853092dfb`
+- Disposition: **failed**
+
+## Three-axis assessment
+
+### Correctness
+
+**PASSED** — Taken literally with the record’s explicitly parity-blind comparator, the counterexample is correct: a two-periodic Gibbs state has different local edge probabilities on different microscopic classes, while the smooth facet has constant macroscopic slope, so one scalar comparator q(s0) cannot approximate both classes. The exact gap identity and Jensen lower bound are algebraically consistent.
+
+### Originality
+
+**FAILED** — The decisive microscopic structure is already standard in periodic dimer theory. Kenyon–Okounkov–Sheffield develops local Gibbs probabilities on doubly periodic graphs, and Chhita–Johansson proves convergence in the two-periodic Aztec phases to the known full-plane inverse Kasteleyn matrices. Later expositions explicitly retain the B0/B1 and W0/W1 vertex classes. The need to keep unit-cell type/parity in local statistics is therefore not a new phenomenon.
+
+### Scientific value
+
+**FAILED** — The advertised “disproof” is driven by a formulation defect: it deliberately replaces the standard periodic Gibbs local observable, which includes the microscopic translated edge/type, by a slope-only parity-blind scalar. Showing that this malformed comparator fails by O(1) is useful as a correction note but does not establish a new finite-size-rate theorem or new dimer phenomenon.
+
+## Independent checks
+
+- current main record tree exactly equals the assigned source-tree SHA
+- reviewed compute_gap.py and checked gap=(1-a^2)U with Jensen lower bound 0.30 at a=1/2
+- checked Chhita–Johansson’s published result that finite Aztec inverse Kasteleyn entries converge to full-plane inverse Kasteleyn matrices in the phases
+- checked standard periodic dimer formulations retain multiple fundamental-domain vertex classes rather than collapsing all local probabilities to a scalar of slope alone
+
+## Limitations
+
+- The audit accepts the record’s parity-gap algebra under its chosen symmetric gauge; it does not rederive the full Chhita–Johansson steepest-descent asymptotics.
+- The failure finding concerns originality/value of the parity-blind target formulation, not the possibility of meaningful parity-aware finite-size rate questions.
+- A properly posed comparator should retain the microscopic edge/vertex class in the periodic fundamental domain in addition to slope/magnetic coordinates.
+
+## Sources
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/eff2c6312cec5b0dee5115e5f42211a853092dfb/2026/09/12/058
+- https://arxiv.org/abs/1410.2385
+- https://doi.org/10.4007/annals.2006.163.1019
+- https://doi.org/10.1007/s00220-023-04649-1
