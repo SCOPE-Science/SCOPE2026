@@ -1,0 +1,37 @@
+# Independent Audit — Exact K_{2,4}-free cograph Turán number
+
+Audit date: 2026-09-29 (UTC)
+Record path: `2026/09/17/exact-k24-free-cograph-turan-number--bb5427755569`
+Audited tree: `ca68c1df582ce322fb7207a23ad658191e13927a`
+
+## Disposition
+
+**PASSED** — All three audit axes pass, subject to the explicit qualifications below.
+
+## Correctness
+
+**PASS**. The cotree argument is correct. For n>=7, a connected K_{2,4}-free cograph whose root join has no universal vertex would have two root factors of sizes at least 2 and 4, immediately giving a K_{2,4}; hence an extremizer has a universal vertex and is K1 joined with H. In that form K_{2,4}-freeness is equivalent to H having maximum degree at most 3 and no K_{2,3}. Each connected cograph component of H then has at most four vertices, so edge maximization is exactly clique packing into K4 blocks plus one residual clique. The n=6 non-universal 3+3 join case gives the second extremal isomorphism type, and strict superadditivity excludes disconnected extremizers. An independent exhaustive enumeration of all labelled graphs through n=6 reproduced the claimed values and found exactly the two stated n=6 isomorphism types.
+
+## Originality
+
+**PASS**. Zimmermann’s 2026 preprint studies exactly the bipartite Turán problem on cographs and proves an eventual pumping theorem with linear coefficient s-1+(t-1)/2, but its abstract advertises a complete extremal classification only for K_{3,3}. Targeted searches did not locate an all-n exact K_{2,4} formula or the exceptional n=6 two-type classification. The audited result therefore appears to add a genuine exact special-case theorem beyond the currently advertised general asymptotic framework.
+
+## Scientific value
+
+**PASS**. The result gives the exact Turán number for every n together with all extremal cographs, including the unique small exceptional order. It turns an eventual structural theory into a short complete theorem for the first nontrivial K_{2,4} case and identifies the exact finite-size packing mechanism, so the contribution is more than a numerical specialization of the asymptotic coefficient.
+
+## Literature evidence
+
+- https://arxiv.org/abs/2601.07406 — Jakob Paul Zimmermann, Bipartite Turán problem on cographs (2026): eventual pumping theorem and exact linear coefficient; complete classification advertised for K_{3,3}, not K_{2,4}.
+
+## Independent checks
+
+- Re-derived the universal-vertex reduction and the equivalence K1∨H is K_{2,4}-free iff Delta(H)<=3 and H is K_{2,3}-free.
+- Exhaustively enumerated every labelled graph through n=6, filtering cographs and K_{2,4}-free graphs; reproduced the formula and exactly two extremal isomorphism types at n=6.
+
+## Limitations
+
+- Originality is to the best of current searchable knowledge; the general cograph paper is recent and could receive revisions.
+- No inaccessible source is represented as read.
+
+GitHub was used only as read-only evidence. The repository tree matched the assigned tree exactly.
