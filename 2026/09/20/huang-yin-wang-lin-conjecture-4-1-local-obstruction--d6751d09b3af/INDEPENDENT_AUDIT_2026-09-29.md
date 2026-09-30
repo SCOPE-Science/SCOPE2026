@@ -1,0 +1,39 @@
+# Independent audit — 2026-09-29 UTC
+
+Record: `2026/09/20/huang-yin-wang-lin-conjecture-4-1-local-obstruction--d6751d09b3af`  
+Assigned source tree: `460a463b8711fa3b7640415aa0feb3609339dde4`  
+Audited current source tree: `460a463b8711fa3b7640415aa0feb3609339dde4`  
+Audited repository state: `SCOPE-Science/SCOPE2026` `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+Current RESULT.md blob: `64c497955ac421656281419e60174feb0c45c0e4`  
+Disposition: **passed**
+
+## Correctness
+
+**independently_supported**. The local counterexample calculation is correct. Starting from the defining binomial expansions for arcsin_p and arsinh_p, independent symbolic series reversion and logarithmic division reproduce exactly the x^p coefficient (3p^2-2p-2)/(2(p+1)^2(2p+1)) and the x^(2p) coefficient (p-1)(11p^3-17p^2-24p-6)/(12(p+1)^3(2p+1)(3p+1)). The first coefficient is negative for 1<p<(1+sqrt(7))/3. At p0=(1+sqrt(7))/3 it vanishes and the next coefficient reduces to (80sqrt(7)-212)/81<0. The p=6/5 specialization gives -5/2057. Since F_p(x) tends to 1/(p+1) from below on this interval, strict increase from the right-hand endpoint value at zero is impossible.
+
+## Originality
+
+**qualified_supported**. Huang-Yin-Wang-Lin (2018) explicitly pose Conjecture 4.1 for the exact logarithmic ratio and all p in (1,2]. A directly checked later one-parameter paper studies a different generalized-trigonometric parameterization and does not state this counterexample interval or threshold. Targeted searches for the ratio, conjecture number, decisive polynomial and algebraic threshold did not locate an equivalent result. This supports the source-specific counterexample claim, while the extensive generalized-trigonometric inequality literature remains a terminology-equivalence risk.
+
+## Scientific value
+
+**meaningful_conjecture_disproof**. The record gives a rigorous interval of counterexamples to a published universal monotonicity conjecture, including the endpoint where a second asymptotic order is required, and identifies an exact necessary local parameter barrier for any surviving positive statement.
+
+## Independent checks
+
+- Re-derived the small-x expansion from the defining integrals rather than trusting the bundled verifier.
+- Checked the endpoint substitution and the rational p=6/5 witness exactly.
+- Compared the claim with the published 2018 statement of Conjecture 4.1 and later generalized-function inequality literature.
+
+## Literature and evidence checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/20/huang-yin-wang-lin-conjecture-4-1-local-obstruction--d6751d09b3af
+- https://doi.org/10.1186/s13660-018-1644-8
+- https://doi.org/10.7153/jmi-2020-14-01
+- https://doi.org/10.3934/math.2021644
+
+## Limitations
+
+- No monotonicity classification is proved for p>(1+sqrt(7))/3.
+- The threshold is exact for this local obstruction, not asserted to be the exact global threshold.
+- Originality is source-specific and remains subject to differently phrased or weakly indexed prior work.
