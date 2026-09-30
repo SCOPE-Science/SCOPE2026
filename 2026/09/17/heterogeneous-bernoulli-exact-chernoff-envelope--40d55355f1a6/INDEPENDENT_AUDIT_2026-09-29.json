@@ -1,0 +1,58 @@
+{
+  "audit_date": "2026-09-29",
+  "audited_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact cgf reduction is correct. The centered Horvitz-Thompson error is a sum of independent terms d_i(Z_i-p_i)/[p_i(1-p_i)], with d_i ranging over the full interval [a_i-m_i,b_i-m_i]; convexity of the Bernoulli log-mgf makes the endpoint maximum exact unit by unit. The two-sided envelope is convex in the center vector, and reflection m -> 2c-m swaps upper and lower tails, so midpoint centering is pointwise minimax. The g_q formula follows from selecting the larger endpoint according to min(p,1-p). The Hoeffding and Bernstein specializations have the stated support/variance scales, and at Y_i(0)=Y_i(1)=b_i the variance is exactly V_n, while M_n/sqrt(V_n)->0 gives Lindeberg and the matching Gaussian lower-rate obstruction. A random numerical stress test of the midpoint inequality over heterogeneous propensities found no violations.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Freidling's September 2026 randomization-inference paper develops Hoeffding/Bernstein finite-sample intervals, while Aronow-Lopatto prove midpoint-differenced Horvitz-Thompson minimaxity for worst-case squared error. Older survey-sampling work gives exponential inequalities for rejective/conditional-Poisson schemes. Targeted searches did not locate the combined exact bounded-outcome cgf envelope for arbitrary independent unequal propensities, its pointwise midpoint minimaxity for exponential loss, and the resulting aggregate heterogeneous effective-sample-size lower/upper scale. The ingredients are elementary, but the theorem package appears distinct.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The result sharpens a current finite-sample inference problem exactly where unequal propensities make worst-unit Hoeffding bounds unattractive. It gives a separable exact envelope requiring only one-dimensional Chernoff optimization, connects the same midpoint center to a second minimax criterion, and identifies a matching heterogeneous sum_i[p_i(1-p_i)]^-1 scale. Those features are directly reusable in design-based treatment-effect inference.",
+      "verdict": "pass"
+    }
+  },
+  "citations": [
+    {
+      "authors": "Tobias Freidling",
+      "detail": "Closest current concentration-based SATE source; develops Hoeffding and Bernstein-type intervals.",
+      "title": "Randomization Inference with Concentration Inequalities",
+      "url": "https://arxiv.org/abs/2609.18586"
+    },
+    {
+      "authors": "P. M. Aronow; Patrick Lopatto",
+      "detail": "Proves midpoint-differenced Horvitz-Thompson minimaxity for worst-case squared error, a different loss criterion.",
+      "title": "Minimax unbiased estimation for finite populations with bounded outcomes",
+      "url": "https://arxiv.org/abs/2605.20572"
+    },
+    {
+      "authors": "Patrice Bertail; Stephan Clémençon",
+      "detail": "Older exponential-inequality literature for rejective/conditional-Poisson sampling; not the exact independent-Bernoulli endpoint envelope.",
+      "title": "Bernstein-type exponential inequalities in survey sampling: Conditional Poisson sampling schemes",
+      "url": "https://doi.org/10.3150/18-BEJ1101"
+    }
+  ],
+  "disposition": "passed",
+  "expected_source_tree_sha": "ed14325f59ea436424aa4ed50fd3ff57b360395a",
+  "github_write_performed": false,
+  "independent_exact_check": {
+    "all_ok": true,
+    "implementation": "symbolic derivation plus randomized numerical convexity/reflection stress test",
+    "midpoint_violations": 0,
+    "random_cases_checked": 1000
+  },
+  "limitations": [
+    "The theorem requires independent Bernoulli assignment and known deterministic outcome bounds.",
+    "Midpoint minimaxity is only for the two-sided cgf envelope within the centered Horvitz-Thompson family, not for all unbiased estimators.",
+    "The exactness is for the worst-case cgf; Chernoff inversion and the union bound are not exact-tail or shortest-interval results.",
+    "Residual originality risk remains from older survey-sampling literature under different notation."
+  ],
+  "oxford_download_used": false,
+  "record_path": "2026/09/17/heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "type": "independent_audit"
+}
