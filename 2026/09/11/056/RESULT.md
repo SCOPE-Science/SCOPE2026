@@ -2,11 +2,12 @@
 
 ## Context
 
-Random (2-)generation probability is the core Liebeck–Shalev benchmark for
-finite simple groups. For the Harada–Norton sporadic simple group HN, no
-rigorous published interval for the uniform random-pair generation
-probability was available — only heuristics and general asymptotic
-machinery.
+Random (2-)generation probability is a standard benchmark for finite simple
+groups. The published ATLAS maximal-subgroup list for the Harada-Norton
+sporadic simple group HN permits a direct rigorous interval by a union bound.
+A targeted literature search located general random-generation results for
+sporadic groups but did not locate this exact numerical interval; no priority
+claim is made here.
 
 ## Definitions
 
