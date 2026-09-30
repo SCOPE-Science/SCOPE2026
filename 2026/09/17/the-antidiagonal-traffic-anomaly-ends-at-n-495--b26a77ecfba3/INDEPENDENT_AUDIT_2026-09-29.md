@@ -1,0 +1,30 @@
+# Independent audit — 2026-09-29
+
+Record: `2026/09/17/the-antidiagonal-traffic-anomaly-ends-at-n-495--b26a77ecfba3`  
+Assigned and audited source tree: `36441f56fb210ad7338377ac1d0239b4eea49ab0`  
+Audited repository state: `SCOPE-Science/SCOPE2026` `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+Disposition: **passed**
+
+## Correctness
+
+**independently_supported**. The proposed proof of the n>=496 threshold checks in detail. The reparameterized exact ratio R_n(k) and its two-step quotient simplify to the stated decreasing sign polynomial P_n(k), so the admissible sequence is unimodal and its maximum is found at the first parity-compatible k with P_n(k)<=0. A fresh exact-integer implementation independently checked every n from 496 through 5000 and found no counterexample; the tightest case remains n=497,k=15 with R≈0.999955284137033, while n=495,k=15 gives R≈1.000024070891585. The analytic tail was also rederived: the Robbins central-binomial bounds have the correct directions, the even/odd off-center product estimates give exp(-(k^2-delta_n)/(2(n+1))), and maximizing (k+1)exp(-k^2/(n+1)) yields exactly the stated envelope E(n). Every factor of E(n) is decreasing, and the n=3000 estimate is safely below 1. Thus R_n(k)<1 for all admissible k and all n>=3000, completing the exact finite bridge from 496 to 2999. The parent paper's Proposition 7.2/Lemma 7.3 framework identifies rho(n)<1 with disappearance of the antidiagonal anomaly, so the sharp threshold conclusion follows.
+
+## Originality
+
+**qualified_current_conjecture_resolution**. Gil-Liang-Odetola-Weiner's September 2026 v1 explicitly leaves the all-n>=496 statement as Conjecture 7.4 and reports computation only through n=2000. Current searches found no later public proof or revised arXiv version resolving it. The audited contribution is therefore a genuine proof of that very recent conjecture using an exact finite bridge plus a uniform binomial envelope, but the priority window is only weeks wide and concurrent/unindexed work cannot be excluded.
+
+## Scientific value
+
+**meaningful_sharp_conjecture_resolution**. The result upgrades a finite computation and conjectured cutoff into a sharp infinite theorem, with n=495 as an exact last anomaly witness. The limiting envelope sqrt(8/(pi e))<1 also supplies a structural reason that the anomaly cannot recur arbitrarily far out.
+
+## Literature and evidence checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/17/the-antidiagonal-traffic-anomaly-ends-at-n-495--b26a77ecfba3
+- https://arxiv.org/abs/2609.01562
+
+## Limitations
+
+- The proof depends on the parent paper's reduction of the antidiagonal traffic question to the ratio rho(n).
+- The independent exact check was extended through n=5000, but the all-n conclusion ultimately rests on the audited analytic envelope, not computation.
+- The archived proof note's example run command names the verifier differently from the packaged `artifacts/verify.py`; this is a minor reproducibility-path mismatch, not a mathematical defect.
+- Originality is necessarily qualified because the conjecture and proof attempt are both from September 2026.
