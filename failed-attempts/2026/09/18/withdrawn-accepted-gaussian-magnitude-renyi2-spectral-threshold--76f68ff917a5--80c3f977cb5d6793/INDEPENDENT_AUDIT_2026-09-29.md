@@ -1,0 +1,46 @@
+# Independent audit — 2026-09-29
+
+**Record:** `2026/09/18/gaussian-magnitude-renyi2-spectral-threshold--76f68ff917a5`  
+**Title:** Exact Rényi-2 total correlation of Gaussian magnitudes and a spectral phase transition  
+**Repository:** `SCOPE-Science/SCOPE2026`  
+**Audited tree:** `51ab1b3a67c1f55bbda2c76241a8f5dbadaf8263`  
+**Disposition:** **FAILED**
+
+## Correctness
+
+**PASS** — The determinant sign-sum formula and the λmax(R)<2 finiteness threshold are correct. They follow by writing the folded Gaussian density as the 2^n-sign Gaussian mixture, integrating p_R(y)^2/q(y), and testing positive definiteness of R^{-1}+D_sR^{-1}D_s-I. The bivariate identity D2=-log(1-ρ^4), equicorrelation threshold, pairwise data-processing lower bound, and signed-Gaussian comparator also check.
+
+## Originality
+
+**FAIL** — This record is not a distinct citable contribution in the repository. The simultaneously accepted record `gaussian-magnitude-renyi2-total-correlation--4eebefe6d8fe` contains the same exact determinant formula, the same spectral finiteness threshold, and the same bivariate/equicorrelation consequences, while additionally proving a nontrivial weak-correlation Hermite/graph expansion. The extra observations here (pairwise data processing and the signed-Gaussian comparator) are immediate standard consequences and do not establish an independent research result. External literature also already contains generic L2/Rényi Gaussian-mixture overlap formulas.
+
+## Scientific value
+
+**FAIL** — As a standalone derivation the record is correct and readable, but retaining it beside the stronger same-day total-correlation record would duplicate the principal theorem without adding a comparably substantive result. The archive has higher scientific value if the stronger record is canonical and this weaker duplicate is preserved as a failed/withdrawn accepted attempt.
+
+## Findings
+
+- The exact sign-sum and spectral-threshold theorem is mathematically valid.
+- The stronger same-day SCOPE record `2026/09/18/gaussian-magnitude-renyi2-total-correlation--4eebefe6d8fe` subsumes the principal result and adds the ε^4/ε^6 Hermite-graph expansion.
+- The unique material in this record consists of elementary monotonicity/comparison corollaries rather than a distinct theorem of comparable value.
+- Ouimet–Greaves supply a Rényi total-correlation certificate for Gaussian magnitudes but do not state the exact folded-density determinant formula.
+
+## Independent checks
+
+- Re-derived the folded-normal density-ratio integral and positive-definiteness criterion.
+- Checked the bivariate formula and equicorrelation spectral threshold directly.
+- Compared the full claims against the stronger same-day SCOPE Gaussian-magnitude record rather than auditing in isolation.
+- Searched current folded-normal, Gaussian-mixture Rényi, and the Ouimet–Greaves source literature for equivalent statements.
+
+## Sources
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/main/2026/09/18/gaussian-magnitude-renyi2-total-correlation--4eebefe6d8fe — Stronger same-day SCOPE record subsuming the determinant formula and spectral threshold and adding the weak-correlation expansion.
+- https://arxiv.org/abs/2609.20234 — Ouimet–Greaves 2026: strong Gaussian product inequality and a Rényi total-correlation certificate, but not the exact determinant sign sum.
+- https://doi.org/10.1007/s00362-025-01711-z — Recent multivariate folded-normal literature checked as prior context.
+
+## Limitations
+
+- Failure is for originality/scientific value and repository duplication, not for mathematical correctness.
+- No assertion is made that generic Gaussian-mixture overlap formulas are absent from all older literature; that residual prior-art risk strengthens rather than weakens the failure decision.
+
+This audit is independent of the repository's pre-existing same-model review. GitHub was read only as evidence; no repository changes were made by this audit run.
