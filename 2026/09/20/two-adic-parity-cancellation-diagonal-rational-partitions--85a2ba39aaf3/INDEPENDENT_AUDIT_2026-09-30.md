@@ -1,0 +1,40 @@
+# Independent audit — 2026-09-30 UTC
+
+Record: `2026/09/20/two-adic-parity-cancellation-diagonal-rational-partitions--85a2ba39aaf3`  
+Assigned and audited source tree: `479492936bd6ae504bd3bfb69ad7ad299035645a`  
+Audited repository state: `SCOPE-Science/SCOPE2026` `eff2c6312cec5b0dee5115e5f42211a853092dfb`  
+Current RESULT.md blob: `45178fd5d73a4c4258962b18c5f31a3e5dc43edf`  
+Disposition: **passed**
+
+## Correctness
+
+**independently_reproduced**. The 2-adic trace criterion and the N=8 consequences check independently. Character orthogonality makes even-numerator odd-denominator coordinates force the odd part O of L_N to divide 2j+1. The surviving characters are the odd Galois conjugates of a primitive 2D-th root. Odd-numerator odd-denominator factors are exactly 1, while an even denominator 2^t c contributes the stated length-2^t geometric factor because q^(2^t)=-1. In the 2-power cyclotomic field, every reduced monomial x^j with 1<=j<D has trace zero and the constant has trace D, giving A_N(-1)=(B_N/O)c_0(N). An independent exact negacyclic implementation reproduced the zero set through N=100 exactly as {4,8,11,12,14,17,27,28,31,61,62,64} and gave P_8=1024 x^6. A separate bounded-residue dynamic program for N=8 gave A_8(-1)=0 and A_8'(-1)=-592704000. The stated denominator multiplicities then give a simple cancellation of the unique raw order-11 parity pole, hence s_8=10. The local coefficient -128625/34359738368 and the degree-9 parity amplitude -1225/118747255799808 also recompute exactly.
+
+## Originality
+
+**qualified_supported_recent_source**. Raghava's September 2026 preprint is the immediate source framework: its public abstract states the fixed-N Ehrhart numerator and pole control of quasipolynomial coefficients, but does not advertise the 2-adic trace criterion, N=8 parity cancellation, or the finite cancellation census. Exact-form searches for A_N(-1), P_8=1024x^6 and the displayed cancellation criterion did not locate another source. The reduction itself uses standard finite Fourier projection and cyclotomic trace ideas, and period-collapse/Ehrhart literature is methodological prior art. Because the motivating preprint is only weeks old and its ancillary source archive was not independently inspected in this run, originality is accepted only for the specific criterion and derived finite results, with explicit concurrent/ancillary-material risk.
+
+## Scientific value
+
+**meaningful_exact_arithmetic_refinement**. The result compresses a character sum of length L_N to exact arithmetic in a degree-D 2-power cyclotomic quotient, gives the first post-table cancellation at N=8 with its precise quasipolynomial consequence, and supplies a reproducible finite census. It does not overstate the census as an infinite classification.
+
+## Independent checks
+
+- Reimplemented the negacyclic product from the theorem definitions and reproduced the exact cancellation set for 3<=N<=100.
+- Computed P_8 independently and obtained the coefficient vector [0,0,0,0,0,0,1024,0].
+- Used an independent bounded-residue dynamic program modulo 2L_8 to obtain A_8(-1)=0 and A_8'(-1)=-592704000.
+- Recomputed the N=8 pole order and degree-9 parity coefficient from the exact derivative and denominator multiplicities.
+
+## Literature and evidence checked
+
+- https://arxiv.org/abs/2609.18945
+- https://doi.org/10.1007/978-1-4939-2969-6
+- https://doi.org/10.1016/j.jcta.2007.05.009
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/20/two-adic-parity-cancellation-diagonal-rational-partitions--85a2ba39aaf3
+
+## Limitations
+
+- The theorem treats only the primitive second-root cancellation A_N(-1), not cancellations at all roots of unity.
+- The finite census stops at N=100 and proves no infinite family.
+- The exact value of s_N is established here only for N=8 among the new census entries.
+- The motivating preprint is very recent and its ancillary source archive was not independently inspected in this audit; no claim is made that inaccessible or unindexed ancillary material was read.
