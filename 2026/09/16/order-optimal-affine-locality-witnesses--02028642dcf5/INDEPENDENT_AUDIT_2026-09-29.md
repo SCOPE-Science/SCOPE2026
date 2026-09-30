@@ -1,0 +1,29 @@
+# Independent audit — 2026-09-29
+
+Record: `2026/09/16/order-optimal-affine-locality-witnesses--02028642dcf5`  
+Audited source tree: `697ceb54a40dd5e8154404d77a820032e03c46c4`  
+Disposition: **passed**
+
+## Correctness
+
+The affine construction and both matching certificates check out. There are 2q(2q-1) vertices and q^2(2q-1) edges; every vertex has degree q, the natural bipartition is respected, and the affine incidence geometry plus the cross matching excludes 4-cycles. The q^2 cross edges form an efficient edge-dominating induced matching, hence a maximum induced matching by Cardoso et al. The 2q-1 edges induced by the total perfect code are locally stable under addition and one-for-two exchange; the girth condition eliminates the only possible private-edge conflicts. Independently, the q=3 instance reconstructs to 30 vertices, 45 edges, a local matching of size 5 and a maximum certificate of size 9. Finally the Fürst–Leichter–Rautenbach local-search lower bound |M|>=m/q^2 and the universal regular-graph upper bound nu_s<=m/(2q-1) force |V|>=2q(2q-1) at the exact ratio.
+
+## Originality
+
+The maximum-induced-matching certificate and local-search inequality are established literature. The contribution is the explicit affine family simultaneously attaining the locality ratio and the integrality-forced minimum order. A focused search found no prior family with this exact parameter package, but the audit does not claim novelty for the underlying efficient-domination or local-search theorems.
+
+## Scientific value
+
+The family provides an order-optimal, infinite sharpness witness for a local-search guarantee in high-girth regular graphs, with explicit finite-field coordinates and exact certificates. This is a useful structural complement to the approximation bound even though the analytic inequality itself is prior work.
+
+## Limitations
+
+- The independent computational reconstruction was carried out explicitly at q=3; the general q proof is algebraic and relies on standard finite-field incidence facts.
+- Order optimality is conditional on the exact locality ratio and the stated add-one/one-for-two stability notion, not a minimum-order theorem for all locally maximal induced matchings.
+- The novelty assessment concerns the combined affine witness, not the cited general approximation or efficient-domination results.
+
+## Sources checked
+
+- https://github.com/SCOPE-Science/SCOPE2026/tree/e9ed144c13b7834896a844cc4f9cac3c25a168a6/2026/09/16/order-optimal-affine-locality-witnesses--02028642dcf5
+- https://arxiv.org/abs/1708.02028
+- https://doi.org/10.1016/j.dam.2008.01.021
