@@ -15,7 +15,8 @@ conjunction is impossible.
 Let p = 1031 (prime, p = 3 mod 4) and E0: y^2 = x^3 + x over Fp, so
 j(E0) = 1728 = 697 mod p. Let i be the order-4 automorphism
 i(x,y) = (-x, a y) with a^2 = -1 in Fp2, and let pi be p-Frobenius.
-Then i^2 = -1, pi^2 = [-p], pi i = -i pi. Write k = i pi.
+For compatibility with the standard quaternion basis, write j := pi and
+k := i j = i pi. Then i^2 = -1, j^2 = [-p], j i = -i j.
 A 2-isogeny loop of length l based at j = 1728 is a chain of l
 2-isogenies starting and ending at j = 1728; identifying the terminal
 curve with E0 via a j-preserving isomorphism (degree 1) gives an
@@ -44,12 +45,12 @@ sequences and ideal words) is impossible. Context: short loops exist
 ## Proof / evidence
 
 E0 has #E0(Fp) = p+1 = 1032 (direct count), trace 0, hence supersingular.
-On E0[2] = {O,(0,0),(a,0),(-a,0)}, both i and pi act as the transposition
-(a,0) <-> (-a,0) (using a^p = -a), so (1+i pi) and (i+pi) kill E0[2].
+On E0[2] = {O,(0,0),(a,0),(-a,0)}, both i and j act as the transposition
+(a,0) <-> (-a,0) (using a^p = -a), so (1+i j) and (i+j) kill E0[2].
 Since [2] is separable and central with kernel E0[2] (char != 2),
 (1+k)/2 and (i+j)/2 are endomorphisms. The order
 O1 = Z + Z i + Z (1+k)/2 + Z (i+j)/2 has Gram transition determinant 1/4
-from Z[i,pi] (discriminant 16p^2), hence discriminant p^2, maximal; by
+from Z[i,j] (discriminant 16p^2), hence discriminant p^2, maximal; by
 Deuring, O1 = End(E0). The norm formula and gap above are exact integer
 arithmetic. Replay: `python3 output/artifacts/verify_disproof.py`
 (stdlib only) prints VERIFY_OK and writes output/artifacts/verify.log.
@@ -75,5 +76,7 @@ minimum, the Velu identity and numeric spot check, and Phi_2 roots.
   background (Eriksen-Panny-Sotakova-Veroni); Eisentrager et al. two-cycle
   End-ring strategy; Wesolowski isogeny-path/End-ring equivalence;
   standard facts: [m]-factorization, Hilbert reciprocity for (-1,-p|Q).
+- Kristin Lauter Stange, Frobenius and the endomorphism ring of j = 1728,
+  https://math.colorado.edu/~kstange/papers/1728.pdf
 - Fused literature search found no prior source stating or tabulating the
   p = 1031 length-<=8 impossibility or a competing generating pair.
