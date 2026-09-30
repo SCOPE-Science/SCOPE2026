@@ -1,0 +1,49 @@
+{
+  "audit_date": "2026-09-29",
+  "axes": {
+    "correctness": {
+      "rationale": "The DFS-tree classification and formulas check out. In an undirected DFS tree every graph edge joins comparable vertices; in K_{a,b} this forces an alternating spine with any surplus vertices as same-side leaves at the terminal spine vertex. For the larger-part-rooted canonical tree the exact spine loads are h_i=i(a+b+2-2i)-b-1 and g_i=i(a+b-2i)-1, while leaf-envelope load (b-a)(a-1) is strictly below h_a for a>1. Neighbor comparisons reduce the optimum to max g_i except for the balanced odd +1 parity case. Maximizing the concave quadratic gives the two stated regimes. For K_n every DFS tree is a Hamilton path and the return load is i(n-i)-1. Independent definition-level enumeration for K_{2,2}, K_{2,3}, K_{2,4}, K_{2,5}, K_{3,3}, K_{3,4}, K_{3,5} reproduced the closed formulas.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "The current Bourotte–Ducloz–Orponen–Seki paper introduces KLX, characterizes KLX 0/1/2, proves TW≤KLX+1, and gives fixed-parameter recognition, but its accessible abstract/full-text evidence does not state exact clique or biclique formulas. Classical spanning-tree-congestion formulas optimize over arbitrary spanning trees and therefore do not imply the DFS-restricted KLX/DTC values. Targeted searches found no equivalent dense-family formula or the biclique imbalance transition.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The result gives exact values for two fundamental dense families, identifies a sharp interior-to-terminal bottleneck transition at b=3a-1, and quantifies an asymptotically large penalty from restricting congestion minimization to DFS trees. These are useful structural benchmarks for a new graph parameter.",
+      "verdict": "pass"
+    }
+  },
+  "citations": [
+    {
+      "note": "Primary KLX source; current abstract lists small-KLX structure, treewidth, and algorithms but no exact dense-family values.",
+      "url": "https://arxiv.org/abs/2606.24675"
+    },
+    {
+      "note": "Open-access MFCS 2026 publication of the KLX paper.",
+      "url": "https://doi.org/10.4230/LIPIcs.MFCS.2026.7"
+    },
+    {
+      "note": "Classical spanning-tree congestion context; arbitrary spanning trees, not DFS-restricted KLX.",
+      "url": "https://doi.org/10.1016/j.disc.2008.12.021"
+    }
+  ],
+  "disposition": "passed",
+  "findings": [
+    "All assigned/current tree guards match.",
+    "The biclique formula reduces to a single concave quadratic plus one balanced-odd parity correction.",
+    "Small definition-level exhaustive checks agree with the formulas.",
+    "The source paper does not advertise exact clique/biclique values; ordinary spanning-tree congestion is a different optimization problem."
+  ],
+  "independent_checks": [
+    "Reproved the DFS-tree shape restriction from the ancestor-comparability property.",
+    "Recomputed h_i, g_i, the leaf bound, the root-side comparison, and the phase boundary b=3a-2 versus 3a-1.",
+    "Enumerated small bicliques directly from the DFS/open-back-edge definition and checked clique path cuts."
+  ],
+  "limitations": [
+    "The theorem does not cover general complete multipartite graphs.",
+    "It proves optimality of a canonical DFS tree but does not classify every minimizing traversal.",
+    "Because KLX is new, very recent unindexed parallel work remains a residual originality risk."
+  ],
+  "path": "2026/09/19/klx-complete-and-complete-bipartite-graphs--b27f97da8029"
+}
