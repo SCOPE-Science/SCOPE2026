@@ -2,8 +2,12 @@
 {
   "schema_version": 1,
   "independent_audit": {
-    "status": "unknown",
-    "evidence": null
+    "status": "failed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-09-28.md",
+      "INDEPENDENT_AUDIT_2026-09-28.json",
+      "FAILED_ATTEMPT.md"
+    ]
   },
   "lean_verification": {
     "status": "unknown",
