@@ -1,25 +1,37 @@
 # Review
 
-**Same-model review: passed. Independent audit: not yet performed.**
+**Independent audit: passed after provenance repair.**
 
 ## Correctness
 
-The exact formulas are obtained by partitioning the (n-2)-clique according to adjacency to the two outside vertices, computing the Szeged contribution of each edge type, and subtracting the Wiener index. The equality classification then reduces to three elementary Diophantine equations under the exact two-connectivity constraints. The case analysis excludes all solutions of order at least 10 except the displayed infinite family and one order-10 sporadic type.
+The three closed Szeged–Wiener formulas and the equality classification are correct.
+An independent reconstruction computes all graph distances, the Wiener index, and the
+Szeged edge contributions directly from the four neighborhood classes. The symbolic
+classification under the exact two-connectivity constraints leaves precisely the
+Zhang–Li family for every \(n\ge10\) and one additional isomorphism type at
+\(n=10\). Finite exhaustive checks on the parameter model produced no discrepancy.
 
-A standalone definition-level verifier independently constructs the graphs, computes all-pairs distances, evaluates the Wiener and Szeged indices directly, and compares with the formulas. It checked 1,160 connected parameter profiles for the closed forms and all 8,175 two-connected profiles through order 18 for the equality classification, with no discrepancy.
+## Originality and provenance
 
-## Originality
+The original separate-originality framing is withdrawn. The SCOPE record
+`2026/09/18/szeged-wiener-equality-clique-n-minus-two--a84aa8e708f8`
+was committed at 2026-09-18 03:47:31 UTC and already contains the same theorem and
+all three formulas. Its symbols for "both" and "neither" are interchanged relative to
+this record; after that relabeling, the formulas and equality tuples coincide exactly.
 
-The primary recent source, Zhang and Li (arXiv:2609.20025), proves the BKLPS lower bound and explicitly poses characterization of eta(G)=2n as Problem 7. Its Lemma 8 exhibits the infinite family with two outside adjacent vertices having distinct singleton neighborhoods in K_{n-2}, and the authors state that this sufficient condition is not necessary. The paper does not give a classification within graphs containing K_{n-2}, nor the exact formulas in the present result.
+This record, `2026/09/19/szeged-wiener-equality-near-complete-graphs--a6c30db346eb`, first appeared at 2026-09-19 20:49:32 UTC.
+It is therefore a later independent presentation/reproducibility package, not a
+separate discovery. No inference about dependence between the derivations is made.
 
-The full text of Bonamy, Knor, Lužar, Pinlou, and Škrekovski (Applied Mathematics and Computation 312 (2017), 202-213) was also inspected. It proves eta(G)>=2n-6 for 2-connected noncomplete graphs, characterizes equality there, and formulates the later-proved eta(G)>=2n conjecture. No two-outside-vertex clique classification appears there.
+## Scientific value
 
-Searches using Szeged-Wiener gap, eta(G)=2n, clique of order n-2, near-complete graphs, clique deletion, and related Szeged-index terminology found no prior statement of the formulas or equality classification. The originality assessment is therefore to the best of our knowledge. No specific inaccessible paper was identified as especially likely to overturn it. Residual risk remains from older literature using different names for near-complete graph families and from recent unindexed work.
-
-## Value
-
-The result gives a complete equality classification in the same near-complete structural regime used by the sharpness construction in the new source paper, while also explaining the source's remark that its sufficient condition is not necessary: there is exactly one additional isomorphism type in this regime, at order 10. The formulas additionally determine eta for every 2-connected graph having a clique on all but two vertices.
+The record remains useful because it provides a focused derivation, exact formulas,
+and its own verification artifacts. Its present scientific role is corroboration and
+reproducibility for the earlier broader SCOPE theorem.
 
 ## Limitations
 
-The theorem is only a partial solution of the general equality problem: 2-connected equality graphs with clique number below n-2 are not classified. The computational checks are finite and support rather than replace the proof. No independent validation is asserted.
+- No separate priority claim is made relative to the 18 September SCOPE record.
+- The classification covers only \(\omega(G)\ge n-2\), not the global equality problem.
+- The finite verifier supports rather than replaces the general proof.
+- Very recent unindexed external work remains possible.
