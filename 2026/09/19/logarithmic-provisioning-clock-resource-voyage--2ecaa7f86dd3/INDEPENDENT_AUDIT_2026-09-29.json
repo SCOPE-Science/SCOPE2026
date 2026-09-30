@@ -1,0 +1,55 @@
+{
+  "audit_date": "2026-09-29",
+  "audited_tree": "a7bc0563ca55b81337dfcca6f575432b19b66735",
+  "citations": [
+    {
+      "note": "Crokidakis source introducing the resource-coupled voyage model and reporting an approximately linear critical provisioning time in the transient study.",
+      "url": "https://arxiv.org/abs/2609.20430"
+    },
+    {
+      "note": "Related historical resource-dynamics model by the same author; contextual rather than covering the audited theorem.",
+      "url": "https://arxiv.org/abs/2504.01649"
+    }
+  ],
+  "correctness": {
+    "evidence": [
+      "The two large-buffer theorems follow from exact identities. S=h+i satisfies S'=-mu h-delta i <= -m S, hence q=c1 h+c2 i <= c_+ e^{-mt}. For rho>0, p(t)=p0 e^{-rho t}-R(t) exactly; strict decrease while p>0 gives a unique positive-threshold crossing, and p<=p0 e^{-rho t} bounds it above by rho^-1 log(p0/pc). The lower bound at each fixed time forces t_c to infinity with p0, while the convolution bound makes R(t_c) tend to zero, proving the sharp additive logarithmic clock. For rho=0, total consumption is at most c_+/m. When p0 tends to infinity, p remains uniformly large, lambda(p)=alpha+O(p0^-1), and dominated convergence reduces lifetime consumption to the constant-coefficient (h,i) system; inverting that 2x2 generator gives integrals (gamma+delta)/D and alpha/D and hence the stated J_alpha."
+    ],
+    "verdict": "PASS"
+  },
+  "disposition": "passed",
+  "independent_checks": [
+    "Integrated the resource equation exactly with an exponential integrating factor.",
+    "Proved exponential decay of h+i and used it to control the consumption convolution and total lifetime consumption.",
+    "Computed the limiting baseline-system inverse giving J_alpha.",
+    "Compared the asymptotic conclusion with the source abstract's explicitly finite/transient approximately linear finding."
+  ],
+  "limitations": [
+    "The analysis is for the deterministic source ODE and a fixed positive threshold; it does not validate historical calibration or stochastic/resupply extensions.",
+    "No closed form for the finite/intermediate-buffer crossover is claimed.",
+    "The novelty is source-specific asymptotics rather than the standard ODE tools used to prove them."
+  ],
+  "originality": {
+    "evidence": [
+      "This is a source-specific asymptotic correction, not a claim that integrating factors or compartmental comparison are new. The source arXiv:2609.20430 explicitly reports an approximately linear critical provisioning time over its transient study; it does not state the rho>0 logarithmic large-buffer limit, the rho=0 finite-consumption obstruction, or the explicit limiting J_alpha. Those conclusions use the source's own equations and alter the interpretation of its scaling observation. No prior source tied to this newly introduced model was identified as containing the same asymptotics; the main novelty is therefore the correction/refinement of that specific 2026 model rather than a general ODE technique."
+    ],
+    "verdict": "PASS"
+  },
+  "record_path": "2026/09/19/logarithmic-provisioning-clock-resource-voyage--2ecaa7f86dd3",
+  "repository_identity": {
+    "branch": "main",
+    "current_path_tree_sha": "a7bc0563ca55b81337dfcca6f575432b19b66735",
+    "current_tree_matches_assignment": true,
+    "inventory_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+    "path_changed_since_assignment": false,
+    "repository": "SCOPE-Science/SCOPE2026",
+    "source_tree_checked_commit": "253a0fe5d0217455660a277f9adb940030e567ad"
+  },
+  "schema_version": 1,
+  "scientific_value": {
+    "evidence": [
+      "The result changes the asymptotic interpretation of a headline numerical trend in a new resource-health model. It cleanly separates direct stock deterioration from mortality-limited consumption and gives both a sharp logarithmic clock and a finite-capacity obstruction. That is a useful diagnostic for model calibration and for avoiding extrapolation of finite-window linear fits."
+    ],
+    "verdict": "PASS"
+  }
+}
