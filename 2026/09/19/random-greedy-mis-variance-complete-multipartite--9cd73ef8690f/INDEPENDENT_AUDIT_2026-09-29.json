@@ -1,0 +1,59 @@
+{
+  "audit_date": "2026-09-29",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact law and extremum are correct. In a complete multipartite graph the first inspected vertex is accepted, every vertex in its own part is nonadjacent and eventually accepted, and every vertex outside that part is adjacent to the first accepted vertex and rejected. Hence the output size is the size-biased part-size distribution, giving the stated moment and variance formulas. Conditioning away from a largest part M yields the total-variance identity in the record; the bounded-support inequality Var(Z)<=(M-mu)(mu-1) gives the sharp reduction to one nonsingleton part whenever M>=n/2, with equality forcing all remaining parts to be singletons. A simple range bound excludes M<n/2 from global optimality, and the remaining discrete objective g_n(a)=a(n-a)(a-1)^2 has difference -a(4a^2-3na+n), whose larger root is rho_n. The no-integer-root divisibility argument excludes ties for n>=3. Independent enumeration of every integer partition for 3<=n<=40 reproduced the claimed unique maximizer and variance.",
+      "verdict": "pass"
+    },
+    "originality": {
+      "rationale": "Shaikh's 2026 theorem treats triangle-free graphs and gives a sharp edge-sensitive variance bound with connected stars as equality cases. Complete multipartite graphs with three or more nonempty parts generally contain triangles, so that theorem does not imply the audited extremal classification. The size-biased law itself is elementary and is not treated as the novel point. Targeted searches for random greedy maximal independent sets, complete multipartite/split graphs, size-biased part sizes and variance did not locate the exact finite-n maximizer ceil(rho_n) or the 27/256 asymptotic constant. The originality claim is therefore limited to this sharp finite-order multipartite optimization.",
+      "verdict": "pass"
+    },
+    "scientific_value": {
+      "rationale": "The result supplies a closed-form variance law for a natural dense graph class and an exact, unique extremizer at every order. It also shows that once triangles are allowed inside the complete-multipartite family, the extremal shape is a highly unbalanced complete split graph with a part of asymptotic size 3n/4 rather than merely the star phenomenon from the triangle-free theorem. The all-moment size-biased formula and zero-variance characterization are useful structural by-products.",
+      "verdict": "pass"
+    }
+  },
+  "branch": "main",
+  "citations": [
+    {
+      "authors": "Mubin Shaikh",
+      "detail": "Closest 2026 variance theorem; its stated domain is triangle-free graphs and its equality case is connected stars.",
+      "title": "Variance of random greedy independent sets in triangle-free graphs",
+      "url": "https://arxiv.org/abs/2609.14826"
+    },
+    {
+      "authors": "Michael Krivelevich; Tamás Mészáros; Peleg Michaeli; Clara Shikhelman",
+      "detail": "General random-greedy MIS background and exact/asymptotic analyses for other graph families.",
+      "title": "Greedy maximal independent sets via local limits",
+      "url": "https://doi.org/10.1002/rsa.21200"
+    }
+  ],
+  "disposition": "passed",
+  "expected_source_tree_sha": "16b07f2c06c71190bf3bdc4139c76b853313e6c4",
+  "github_write_performed": false,
+  "independent_checks": {
+    "all_enumerated_maximizers_match": true,
+    "first_vertex_law_reconstructed": true,
+    "integer_partition_enumeration_n_range": [
+      3,
+      40
+    ],
+    "integer_root_no_tie_argument_checked": true,
+    "open_access_first": true,
+    "oxford_used": false,
+    "variance_reduction_proof_checked": true
+  },
+  "inventory_commit": "e9ed144c13b7834896a844cc4f9cac3c25a168a6",
+  "limitations": [
+    "The extremal theorem is restricted to connected complete multipartite graphs and does not optimize over all graphs or over fixed edge/chromatic constraints.",
+    "The exact size-biased law is elementary; the novelty claim is only for the sharp finite-order variance optimization and its unique extremizer.",
+    "The closest source is very recent, and older random-sequential-adsorption terminology leaves a residual prior-art risk."
+  ],
+  "oxford_download_used": false,
+  "record_path": "2026/09/19/random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+  "repository": "SCOPE-Science/SCOPE2026",
+  "schema_version": 1,
+  "source_tree_checked_commit": "253a0fe5d0217455660a277f9adb940030e567ad",
+  "type": "independent_audit"
+}
