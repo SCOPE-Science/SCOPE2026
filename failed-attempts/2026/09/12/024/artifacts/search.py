@@ -219,7 +219,7 @@ def main():
             out={"trial":t,"two_gen":two,
                  "d":{str(i):{f"{x}{y}{z}":d[i][(x,y,z)] for x in range(4) for y in range(4) for z in range(4)} for i in range(1,5)},
                  "a":a,"b":b,"c":c,"S":sorted(S)}
-            with open(f"hit_{seed}_{t}.json","w") as f:
+            with open(f"{str(__import__('pathlib').Path(__file__).resolve().parent / 'hit_')}{seed}_{t}.json","w") as f:
                 json.dump(out,f)
             return
         if t%20==0: print(f"trial {t}: no hit",flush=True)
