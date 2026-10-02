@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T22:19:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "actual committed `artifacts/verify.py` and `artifacts/vectors.json`; independent spectral-norm recomputation",
+      "rationale": "The matrix exponential formula is exact because the nilpotent superdiagonal shift truncates after degree \\(n-1\\). The committed verifier was read in full: it encloses \\(e^{-t}\\) by an alternating-series remainder, obtains lower bounds from rational test vectors, covers every time in \\([0,30]\\) by a \\(0.01\\)-grid Frobenius bound plus \\(\\lVert T_n\\rVert_F\\)-controlled growth, and proves the tail decreases entrywise for \\(t\\ge30\\). An independent direct singular-value calculation at the five stated rational test times gave approximately 25.1451, 89.1061, 323.3773, 1192.4493 and 4447.7307, all inside the claimed intervals. The interval division therefore also certifies the stated dimension-growth ratio.",
+      "residual_risks": [
+        "The upper certificate uses Decimal arithmetic with an explicit slop margin rather than formal directed-rounding interval arithmetic, as already disclosed.",
+        "The certified intervals are intentionally coarse and do not locate the exact maximizing times."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works address general computation/structure of transient growth and Kreiss-type quantities."
+        ],
+        "reasoning": "General Kreiss or pseudospectral bounds do not imply the concrete two-sided maxima without additional computation; no dominating theorem producing the five values was identified.",
+        "searches": [
+          "Mitchell, Computing the Kreiss Constant of a Matrix, arXiv:1907.06537",
+          "Reuter, arXiv:1909.05931"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.05931",
+        "arXiv:1907.06537",
+        "Resultary semantic search",
+        "committed verifier and vectors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general results establish possibility or bounds, not the exact finite peak intervals or the quoted ratio."
+        ],
+        "reasoning": "No inspected prior theorem mathematically entails the final certified table as a direct corollary.",
+        "searches": [
+          "Comparison with general transient-growth sufficient conditions and Kreiss bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only exact semantic hit was the audited record. Reuter gives sufficient structural conditions for transient growth, not these maxima."
+        ],
+        "reasoning": "Aliases such as stable Jordan block, truncated exponential Toeplitz semigroup and transient amplification were compared; none of the inspected statements is equivalent to the five interval table.",
+        "searches": [
+          "Resultary semantic search: transient peak \\(T_n=-I+2N\\), Jordan-block matrix exponential, certified peak intervals",
+          "Reuter, arXiv:1909.05931, transient growth and invariant subspaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external or published-result database/table with these five certified values was found."
+        ],
+        "reasoning": "The record is not a re-tabulation of an inspected standard numerical table.",
+        "searches": [
+          "Resultary search for the exact matrix family and dimensions",
+          "Search for Jordan-block transient peak tables"
+        ]
+      },
+      "rationale": "The exact five certified peak intervals and their enclosed cross-dimension ratio were not found in the inspected transient-growth literature or published-result search. The surrounding literature treats Kreiss constants, pseudospectra, and general mechanisms for nonnormal transient growth rather than this finite certified table.",
+      "residual_risks": [
+        "A specialized numerical-linear-algebra table not indexed by the searched sources could overlap.",
+        "Best-of-knowledge originality is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, NOT COVERING.",
+          "evidence": "The theorem gives structural sufficient conditions for transient growth; it does not evaluate the audited finite maxima.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.05931",
+          "material_read": "Accessible full arXiv HTML sections stating the transient-growth setup and sufficient-condition theorem.",
+          "method": "Primary full-text inspection.",
+          "title": "Transient growth in stable linear systems and invariant subspaces",
+          "trigger": "Same nonnormal stable-matrix phenomenon and Jordan/invariant-subspace mechanism."
+        },
+        {
+          "assessment": "RELATED, NOT COVERING.",
+          "evidence": "It develops computation of the Kreiss constant, a different quantity from the audited five global matrix-exponential peaks.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.06537",
+          "material_read": "Accessible abstract/metadata and stated scope.",
+          "method": "Primary-source inspection.",
+          "title": "Computing the Kreiss Constant of a Matrix",
+          "trigger": "Closest general numerical framework cited by the record."
+        },
+        {
+          "assessment": "Supports the finite C claim; it is not novelty evidence by itself.",
+          "evidence": "All independently recomputed witness norms lie strictly inside the certified intervals.",
+          "identifier_or_url": "artifacts/verify.py",
+          "material_read": "Complete source file plus complete rational-vector file.",
+          "method": "Line-by-line source inspection and independent numerical replay at the five witness times.",
+          "title": "Committed transient-peak verifier",
+          "trigger": "Critical finite certificate."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "transient-growth/Kreiss literature cited above"
+      ],
+      "rationale": "A canonical stable Jordan-block family is a standard stress test for nonnormal transient amplification. Certified global peak intervals across several dimensions, together with an enclosed growth ratio, provide a reproducible benchmark for algorithms that otherwise rely on local optimization or pseudospectral surrogates. The object and invariant are motivated independently of the computation.",
+      "residual_risks": [
+        "The family is a toy benchmark rather than a fluid-mechanics discretization; the result should not be generalized beyond the stated sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "The result is restricted to \\(n\\in\\{8,10,12,14,16\\}\\) for \\(T_n=-I+2N\\).",
+    "The upper proof uses a Frobenius envelope and deliberate numerical slack rather than formal interval arithmetic.",
+    "The repository stores the inspected artifacts at `artifacts/...`; older prose/metadata still use the legacy `output/artifacts/...` prefix. This is a packaging-reference defect, not a mathematical defect."
+  ],
+  "record_id": "SCOPE-20260909-008",
+  "schema_version": 1
+}
