@@ -1,0 +1,125 @@
+{
+  "audited_at_utc": "2026-10-01T08:23:38.851470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026 package RESULT.md",
+        "2026 package artifacts/verify_triplet_cancellation.py",
+        "https://arxiv.org/abs/2609.20632"
+      ],
+      "rationale": "The published second-order phase reduction assigns coefficients proportional to \\(w_{12}w_{23}\\), \\(w_{13}w_{32}\\), and \\(-2w_{12}w_{13}\\) to the three explicit triplet harmonics, while the engineered physical motifs enter with independent weights and the opposite signs under the chosen scale. Choosing motif weights in the ratio 1:1:2 in the unweighted triangle therefore cancels those three coefficients exactly. The inspected symbolic verifier reconstructs the residual pairwise-additive phase field and confirms \\(\\lambda_{sync}+2\\,Re(\\lambda_{splay})=0\\).",
+      "residual_risks": [
+        "The cancellation is only through the retained second-order phase truncation and is not an exact finite-coupling statement for the full oscillator system."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source supplies the exact source-specific harmonic basis and weight degrees of freedom.",
+          "Related literature already supplies the standard local phase-stability calculations and general interaction-design context."
+        ],
+        "reasoning": "The only source-specific change is choosing the already-available motif weights to match the already-published coefficients.",
+        "searches": [
+          "Muolo-Nakao-Bick, arXiv:2609.20632.",
+          "Bick-Boehle-Kuehn 2024 on second-order stability in phase reductions.",
+          "Namura-Muolo-Nakao 2026 on interaction-function design."
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.20632",
+        "https://doi.org/10.1007/s00332-024-10053-3",
+        "https://doi.org/10.1063/5.0307452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the source scale fixed, each cancellation condition is linear and independently solvable; the unweighted case gives weights 1,1,2 immediately."
+        ],
+        "reasoning": "The final design is a direct algebraic specialization rather than a new structural implication.",
+        "searches": [
+          "Compared the final cancellation conditions term-by-term with the source's equations for emergent and physical nonpairwise harmonics."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source writes the relevant emergent and physical nonpairwise harmonics with their independent coefficients and discusses partial cancellation under equal motif weights."
+        ],
+        "reasoning": "The audited 1:1:2 design is the literal exact solution of those three scalar coefficient-matching equations.",
+        "searches": [
+          "Searches for the source's triplet coefficients, physical motif weights, coefficient cancellation, and synchronization/splay stability."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact wording was found."
+        ],
+        "reasoning": "Exact wording does not restore originality because the claim is mechanically implied by the source equations.",
+        "searches": [
+          "Exact-text project searches for 1:1:2 motif cancellation and the synchronization/splay identity."
+        ]
+      },
+      "rationale": "The motivating primary source already publishes both the emergent triplet coefficients and independent physical motif weights, explicitly discusses coefficient cancellation, and uses an all-unit choice that leaves half of the symmetric term. Setting the symmetric motif weight to two is therefore direct coefficient matching from the source equations; the subsequent three-node synchronization/splay linearization is routine.",
+      "residual_risks": [
+        "The exact synchronization/splay identity may not be printed in the source, but it is routine algebra after the direct coefficient match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "The source provides all coefficient equations and independent motif weights needed for the audited 1:1:2 cancellation.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20632",
+          "material_read": "Full primary text around the second-order emergent coefficients, physical nonpairwise motif equations, chosen scaling, and equal-weight partial cancellation discussion.",
+          "method": "Primary preprint full text.",
+          "title": "Physical and emergent nonpairwise interactions in oscillator networks: from higher-order phase reduction to coupling design",
+          "trigger": "Same oscillator model, triplet harmonics, engineered motifs, and cancellation objective."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.20632"
+      ],
+      "rationale": "The weight adjustment is a useful design observation, but it is a one-line exact matching of already-published coefficients followed by a standard three-oscillator local stability calculation. Under the stated value bar, that is too mechanically implied to count as a distinct validated finding.",
+      "residual_risks": [
+        "This rejection does not dispute the correctness or practical usefulness of choosing the 1:1:2 weights."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness.",
+    "The cancellation is confined to the retained second-order phase reduction.",
+    "The local stability identity concerns synchrony and three-oscillator splay only."
+  ],
+  "policy": "to-the-best-of-our-knowledge",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_review": {
+    "axes": {
+      "correctness": {
+        "rationale": "The prior review checked coefficient cancellation and the symbolic synchronization/splay identity.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "The prior review did not locate an explicit 1:1:2 motif-weight cancellation in the motivating source.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The prior review valued the exact removal of the local synchronization/splay overlap in the retained phase model.",
+        "verdict": "PASS"
+      }
+    },
+    "reviewed_at": "2026-09-18"
+  },
+  "record_id": "SCOPE-20260918-be200ecdda00",
+  "record_title": "Exact triplet cancellation collapses the second-order sync–splay stability overlap",
+  "schema_version": 1,
+  "verification_state": "independent_audit_failed"
+}
