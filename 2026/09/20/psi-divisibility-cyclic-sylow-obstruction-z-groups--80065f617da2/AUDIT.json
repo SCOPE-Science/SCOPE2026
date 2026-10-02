@@ -1,26 +1,122 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "The proof combines the standard normal-cyclic-Sylow formula with divisibility forced by the two subgroups H and P×C_H(P). After reducing by gcd(ψ(H),ψ(C_H(P))), one divisor is bounded by ψ(P)-|P| while simultaneously differing by a positive multiple of ψ(P), which is impossible because gcd(ψ(P),|P|)=1.",
+      "rationale": "The proof combines the standard normal-cyclic-Sylow formula with divisibility forced by H and \\(P\\times C_H(P)\\), leading to an impossible positive multiple of ψ(P) smaller than ψ(P).",
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "Qualified to the best of our knowledge. The 2020/2021 source states the square-free-order case as an open problem after only a restricted ZM-group theorem and finite computation; the 2023 follow-up still describes nonabelian ψ-divisibility as open. Targeted searches found no normal-cyclic-Sylow obstruction or Z-group classification, and no overlapping SCOPE record was found.",
+      "rationale": "Same-model review found no prior unrestricted normal-cyclic-Sylow obstruction or Z-group classification; originality was qualified to the best of knowledge.",
       "verdict": "PASS"
     },
     "value": {
-      "rationale": "The result gives a structural obstruction for all finite groups with a noncentral normal cyclic Sylow subgroup, classifies ψ-divisible Z-groups, and settles the published square-free-order open problem theoretically rather than up to a finite computational range.",
+      "rationale": "The result structurally excludes noncentral normal cyclic Sylow subgroups and settles the published square-free-order Z-group slice.",
       "verdict": "PASS"
     }
   },
   "evidence_file": "REVIEW.md",
   "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent_audit": {
+    "audited_at_utc": "2026-10-01T19:55:36Z",
+    "axes": {
+      "correctness": {
+        "rationale": "Using \\(\\psi(G)=t h+(A-t)c\\) for P cyclic normal, ψ-divisibility for H gives \\(h\\mid(A-t)c\\), while ψ-divisibility for PC=P×C gives \\(Ac\\mid t(h-c)\\). Writing \\(h=dx,\\ c=dy\\) with \\((x,y)=1\\) yields \\(x\\mid A-t\\) and \\(Ay\\mid t(x-y)\\). Since \\(\\gcd(A,t)=1\\) for a cyclic p-group, \\(A\\mid(x-y)\\), contradicting \\(0<x-y<x\\le A-t<A\\). Schur--Zassenhaus gives the normal-Sylow corollary. In a nonnilpotent Z-group the standard ZM presentation supplies a noncentral normal cyclic Sylow subgroup, so it is excluded; the remaining nilpotent Z-groups are cyclic and the 2014 abelian theorem gives square-free order.",
+        "status": "PASS"
+      },
+      "originality": {
+        "rationale": "The 2020/2021 Lazorec paper explicitly leaves the nonnilpotent square-free-order case open after a restricted ZM obstruction, while the 2014 abelian classification covers only abelian groups. The submitted normal-cyclic-Sylow theorem directly resolves the open Z-group/square-free slice and is not implied by the inspected sources.",
+        "status": "PASS"
+      },
+      "value": {
+        "rationale": "The theorem gives a broad structural obstruction, classifies all ψ-divisible Z-groups, and resolves a published square-free-order open problem theoretically rather than by extending a finite computation. This is a clearly motivated and reusable finite-group result.",
+        "status": "PASS"
+      }
+    },
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ],
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lazorec's broader ZM-group framework does not prove the unrestricted normal-cyclic-Sylow theorem.",
+          "Harrington--Jones--Lamarche classify the abelian case only."
+        ],
+        "reasoning": "The audited theorem strictly extends the prior restricted semidirect-product analysis in the relevant direction.",
+        "searches": [
+          "M.-S. Lazorec, On a Divisibility Property Involving the Sum of Element Orders",
+          "Harrington--Jones--Lamarche 2014"
+        ]
+      },
+      "checked_sources": [
+        "Lazorec 2021 full text",
+        "Harrington--Jones--Lamarche 2014 full text",
+        "Lazorec 2023 follow-up",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normal-cyclic-Sylow ψ formula is prior art and is correctly used as an ingredient, but the two subgroup divisibilities H and \\(P\\times C_H(P)\\) produce a new contradiction not stated there.",
+          "The abelian theorem plus the new obstruction yields the Z-group classification; neither prior statement alone gives it."
+        ],
+        "reasoning": "The final theorem is not a corollary of the inspected prior results without the submitted divisibility argument.",
+        "searches": [
+          "Lazorec Lemma 2.1(iii), Proposition 2.4 and open problem",
+          "Harrington--Jones--Lamarche abelian theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the exact match; the related prime-power-action record is dated 2026-09-21, after the audited 2026-09-20 record.",
+          "Lazorec's paper states a restricted obstruction and then asks whether any finite nonnilpotent square-free-order group can be ψ-divisible."
+        ],
+        "reasoning": "No equivalent prior formulation of the normal cyclic Sylow obstruction was found.",
+        "searches": [
+          "Resultary: psi-divisible finite groups normal cyclic Sylow Z-groups square-free order",
+          "web/Lazorec full text: psi-divisible ZM groups normal cyclic Sylow"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior computational check through 72000 is finite evidence only and cannot imply the all-orders theorem."
+        ],
+        "reasoning": "A finite census does not cover the infinite classification.",
+        "searches": [
+          "Resultary published findings",
+          "Lazorec computational square-free search up to 72000"
+        ]
+      },
+      "residual_risks": [
+        "Best-of-knowledge risk remains for unindexed finite-group literature phrased without ψ-divisibility terminology, but no plausible covering source surfaced in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AND_MOTIVATING",
+          "evidence": "The paper leaves exactly the square-free nonnilpotent case open and does not contain the unrestricted normal cyclic Sylow obstruction.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-020-00987-8",
+          "material_read": "Full accessible article text, including Lemma 2.1(iii), Proposition 2.4, the surrounding ZM-group discussion, and the explicit square-free-order open problem.",
+          "method": "lawful public full text/arXiv access",
+          "title": "On a Divisibility Property Involving the Sum of Element Orders",
+          "trigger": "Closest primary source, supplying the normal-cyclic-Sylow formula, restricted ZM obstruction, finite computation, and open problem."
+        },
+        {
+          "assessment": "INGREDIENT_ONLY",
+          "evidence": "It classifies finite abelian ψ-divisible groups as cyclic square-free, but does not exclude nonabelian Z-groups.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/835125",
+          "material_read": "Full accessible article material around the definition and abelian classification theorem.",
+          "method": "lawful public publisher HTML",
+          "title": "Characterizing Finite Groups Using the Sum of the Orders of the Elements",
+          "trigger": "Foundational ψ-divisibility paper and source of the abelian classification used in the corollary."
+        }
+      ]
+    },
+    "status": "passed"
+  },
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
+  "previously_published_pending_reaudit": false,
   "review_type": "same_model_review",
   "reviewed_at": "2026-09-20",
   "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
