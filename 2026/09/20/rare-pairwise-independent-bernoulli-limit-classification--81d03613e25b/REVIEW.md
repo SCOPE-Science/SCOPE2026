@@ -1,6 +1,13 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit: **PASSED** (2026-10-01).
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+Correctness: **PASS**. Originality: **PASS**. Scientific value: **PASS**.
+
+Final claim: Under \(\max_i p_{n,i}\to0\) and \(\sum_i p_{n,i}\to\lambda\in(0,\infty)\), the weak limits of pairwise-independent Bernoulli sums are exactly the nonnegative-integer laws with mean \(\lambda\) and variance at most \(\lambda\); every such law is realizable by exchangeable rows with identical marginals \(\lambda/n\).
+
+Evidence:
+- `INDEPENDENT_AUDIT_2026-10-01.md`
+- `INDEPENDENT_AUDIT_2026-10-01.json`
+
+Historical scientific assessments are retained as prior evidence. Existing computations remain reproducibility evidence rather than independent certification.
