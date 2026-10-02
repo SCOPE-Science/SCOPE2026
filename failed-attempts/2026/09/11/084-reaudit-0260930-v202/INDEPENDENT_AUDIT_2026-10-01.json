@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T01:19:53.816678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The direct proof is correct. Each prime event has measure 4/(p+1); the prime sum diverges. Fourier support restricts pairwise common frequencies for distinct primes to the relation pk=qj, and the stated coefficient bounds give a summable double-overlap error. Consequently the Chung-Erdos lower bound for every tail tends to one, so the prime limsup has full measure. The committed verifier correctly checks finite ledger values and the conservative summable-error constant, while the measure-one conclusion is analytic rather than finite.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 covers every psi:N->[0,infinity) and every gamma in the real plane, with full measure iff sum the square of psi(q) diverges."
+        ],
+        "reasoning": "This strictly dominates the fixed shift and prime-supported psi in the audited record.",
+        "searches": [
+          "Allen-Hauke-Treuer-Ramírez, The inhomogeneous Khintchine Theorem in dimension two, arXiv:2605.19582"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-object search",
+        "Allen-Hauke-Treuer-Ramírez arXiv:2605.19582v1",
+        "assigned verify_prime_ubiquity.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Define psi-star(q) equal to the inverse square root of q+1 for primes q>=1000 and 0 otherwise. Then the corresponding limsup set is the audited limsup and the series of squared psi-star values=sum_p 1/(p+1)=infinity."
+        ],
+        "reasoning": "The prior theorem yields measure one immediately, so the audited final claim is a corollary.",
+        "searches": [
+          "Theorem 1.1 of arXiv:2605.19582 applied to a prime-supported psi"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit was the audited record, but the primary-literature search found arXiv:2605.19582, which is broader and predates it."
+        ],
+        "reasoning": "The audited prime restriction is exactly represented by an arbitrary approximation function supported only on primes.",
+        "searches": [
+          "Resultary: prime denominator simultaneous approximation the two-dimensional torus shift full measure psi(q) equal to the inverse square root of q+1 Chung Erdos Fourier overlap",
+          "inhomogeneous Khintchine dimension two arbitrary psi prime-supported"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inapplicable: the decisive prior coverage is a general measure theorem, not a finite table."
+        ],
+        "reasoning": "No database comparison is needed once a stronger theorem directly implies the claim.",
+        "searches": [
+          "prime-denominator exact table/database"
+        ]
+      },
+      "rationale": "Allen, Hauke-Treuer and Ramírez proved in May 2026 the full inhomogeneous Khintchine theorem in dimension two for every fixed shift and every function psi:N->[0,infinity), with no monotonicity assumption. Setting psi(q) equal to the inverse square root of q+1 on primes q>=1000 and psi(q)=0 on composites gives exactly the audited prime-denominator limsup, and the divergence of the prime reciprocal sum triggers their measure-one case. The audited theorem is therefore a direct special case of stronger prior work.",
+      "residual_risks": [
+        "None material to the coverage decision: the stronger theorem was submitted on 2026-05-19, before the audited record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE: the audited prime-supported statement is a direct specialization.",
+          "evidence": "Theorem 1.1 states measure one for any fixed gamma when the series of squared psi values diverges, with no monotonicity requirement.",
+          "identifier_or_url": "https://arxiv.org/html/2605.19582v1",
+          "material_read": "Full accessible arXiv HTML introduction and Theorem 1.1, including definition of the inhomogeneous approximable set.",
+          "method": "Primary-source full-text inspection.",
+          "title": "The inhomogeneous Khintchine Theorem in dimension two",
+          "trigger": "Same dimension, inhomogeneous shift, arbitrary nonmonotone approximation function."
+        },
+        {
+          "assessment": "Supports correctness but cannot restore originality.",
+          "evidence": "The code checks the prime mass ledger, Fourier coefficient bounds, summable tail constant and Chung-Erdos ratio.",
+          "identifier_or_url": "2026/09/11/084/artifacts/verify_prime_ubiquity.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line package inspection and algebraic check of the overlap bound.",
+          "title": "Assigned prime-ubiquity verifier",
+          "trigger": "Correctness of the record's independent Fourier/Chung-Erdos proof."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed shift and prime-supported approximation function are mathematically natural, but the exact measure-one conclusion is now mechanically implied by a stronger prior theorem that allows arbitrary shifts and arbitrary nonmonotone functions. A second proof with an explicit overlap constant is useful exposition, not a new exact invariant or boundary under the required value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is originality/value based, not correctness based.",
+    "The audited elementary proof remains a valid alternative derivation.",
+    "RESULT names output/artifacts/verify_prime_ubiquity.py, while the actual audited file is artifacts/verify_prime_ubiquity.py."
+  ],
+  "record_id": "SCOPE-20260911-084",
+  "schema_version": 1
+}
