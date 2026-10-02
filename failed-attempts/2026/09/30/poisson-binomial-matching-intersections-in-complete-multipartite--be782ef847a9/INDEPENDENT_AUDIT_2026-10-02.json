@@ -1,0 +1,117 @@
+{
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.03602"
+      ],
+      "rationale": "The transfer-current computation is correct. Solving the complete-multipartite Laplacian for one oriented matching edge gives diagonal kernel entry \\((N-1)\\sigma/N\\) and off-diagonal matching entry \\(-\\sigma/N\\), so every \\(q\\)-edge submatching has transfer-current matrix \\(\\sigma(I-J/N)\\). Its determinant is \\((1-q/N)\\sigma^q\\). Summing joint inclusions over subsets yields the displayed probability generating function and its Bernoulli factorization; the covariance formula follows from the \\(q=1,2\\) cases. Boundary probabilities remain in \\([0,1]\\) for admissible matchings.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication-based coverage and routine value."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang-Ge Theorem 4.5 explicitly covers arbitrary fixed spanning forests in complete \\(s\\)-partite graphs."
+        ],
+        "reasoning": "The general theorem has strictly broader host and forest input than the assigned matching family.",
+        "searches": [
+          "Wang-Ge full 2026 primary article",
+          "Dong-Ge complete bipartite fixed-forest formula",
+          "Li-Chen-Yan multipartite fixed-forest work"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.03602"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the general forest formula to \\(q\\) disjoint cross-part edges yields the joint count for each \\(q\\)-subset.",
+          "Summing \\(\\Pr(F\\subseteq T)(z-1)^{|F|}\\) over all matching subsets algebraically produces the claimed factorization."
+        ],
+        "reasoning": "The headline distribution and covariance are mechanically implied by the broader enumeration theorem.",
+        "searches": [
+          "assigned \\(q\\)-edge formula versus Wang-Ge Theorem 4.5; PGF from factorial moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A \\(q\\)-edge submatching plus isolated vertices is a spanning forest in the sense of the general theorem.",
+          "Joint inclusion under the uniform spanning tree equals the count of trees containing that forest divided by the total tree count."
+        ],
+        "reasoning": "The assigned inclusion probabilities are direct specializations of the broader forest-enumeration invariant.",
+        "searches": [
+          "Wang-Ge arXiv:2602.03602 arbitrary fixed spanning forest in complete multipartite graphs",
+          "published-result search for matching intersection Poisson-binomial spanning tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier record with the identical distributional wording was found."
+        ],
+        "reasoning": "Wording absence is nondecisive because the joint counts are a direct special case and determine the distribution.",
+        "searches": [
+          "published-result semantic search for matching-intersection Poisson-binomial law"
+        ]
+      },
+      "rationale": "Wang and Ge's 2026 theorem gives an exact determinant formula for the number of spanning trees of an arbitrary complete multipartite graph containing any prescribed spanning forest. A prescribed submatching, with all other vertices isolated, is exactly such a forest. Consequently every joint-inclusion probability in the assigned theorem is already a special case of that stronger enumeration theorem; simplifying that special case gives the displayed rank-one expression. Once the \\(q\\)-subset counts are known, the full PGF, Poisson-binomial factorization and covariance are elementary binomial-generating-function consequences. Under the required implication standard, this matching law is therefore covered even though the broader paper does not state the same distributional wording.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication-based coverage and routine value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_GENERAL_COVERAGE",
+          "evidence": "Theorem 4.5 counts spanning trees containing an arbitrary fixed spanning forest in a complete multipartite graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.03602",
+          "material_read": "complete accessible primary article, including Theorem 4.5 and its determinant formula",
+          "method": "primary open full-text inspection",
+          "title": "On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+          "trigger": "strictly broader fixed-forest theorem on the identical host class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.03602"
+      ],
+      "rationale": "The compact distributional packaging is useful, but the only new step beyond a stronger arbitrary-forest counting theorem is specializing its determinant to a matching and performing a binomial generating-function simplification. That is a routine corollary rather than an independent motivated mathematical gap.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication-based coverage and routine value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-02.md",
+    "INDEPENDENT_AUDIT_2026-10-02.json"
+  ],
+  "historical_scientific_assessment": {
+    "correctness": {
+      "rationale": "Earlier review derived the transfer-current kernel and PGF and reported finite Matrix-Tree/brute-force checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Earlier review credited general fixed-forest enumeration but treated the matching-specific simplification as new.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Earlier review valued the closed full intersection law and covariance formulas.",
+      "status": "PASS"
+    }
+  },
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260930-be782ef847a9",
+  "review_type": "independent_audit",
+  "reviewed_at_utc": "2026-10-02T00:01:58Z",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted; rejection is implication-based coverage and routine value."
+  ],
+  "verification_state": "independent_audit_failed"
+}
