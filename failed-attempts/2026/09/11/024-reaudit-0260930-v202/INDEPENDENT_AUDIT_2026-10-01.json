@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T00:45:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned Git tree and verify_counterexample.py",
+        "Fresh analytic reconstruction of the sandwich, distance-transfer and polarity steps"
+      ],
+      "rationale": "The construction and inequalities are correct. The function defining the body is smooth, even and strictly convex; the sandwich between the scaled cross-polytope and the cross-polytope follows coordinatewise. The cross-polytope volume product is 32/3. The norm/trace argument gives Banach-Mazur distance at least 3/2 from centered parallelepipeds, and the symmetrization argument reduces translated parallelepipeds to centered ones. Scaling the inclusion gives the stated distance lower bound for the smoothed body, and polarity plus the sandwich gives the stated volume-product upper bound. The integer inequalities in the verifier confirm the numerical thresholds.",
+      "residual_risks": [
+        "The witness is not claimed to be a zonoid and does not address the separate zonoid fallback."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The equality characterization is broader than the one fixed numerical counterexample and directly identifies the missing equality branch."
+        ],
+        "reasoning": "Any stability theorem relative only to parallelepipeds is structurally incompatible with a second equality branch unless that branch is excluded.",
+        "searches": [
+          "Iriyeh-Shibata equality theorem"
+        ]
+      },
+      "checked_sources": [
+        "Iriyeh-Shibata, Symmetric Mahler's conjecture for the volume product in the three dimensional case, arXiv:1706.01749",
+        "Kim-Zvavitch, stability literature cited by the record",
+        "Resultary published-record semantic search",
+        "Assigned Git tree and verify_counterexample.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A centrally symmetric octahedron has minimal volume product and its polar is a parallelepiped; smooth symmetric strictly convex approximants converge to it while remaining bounded away from the parallelepiped class by continuity/compactness of Banach-Mazur geometry."
+        ],
+        "reasoning": "The prior equality theorem already implies the absence of a positive cube-only gap in the smooth closure; the record supplies one explicit approximating family and elementary numeric bounds.",
+        "searches": [
+          "Iriyeh-Shibata equality case",
+          "standard Hausdorff/smooth convex approximation and continuity of volume product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper determines the equality case and its proof explicitly identifies the polar octahedral/parallelepiped alternatives."
+        ],
+        "reasoning": "The record's smoothed octahedron is the natural smoothing of an already known equality body outside the chosen comparison class.",
+        "searches": [
+          "Iriyeh-Shibata full text equality section",
+          "Resultary exact-topic search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical numerical 1.1 and 0.001 example was located outside the record."
+        ],
+        "reasoning": "The absence of the exact constants is immaterial because the qualitative counterexample is mechanically available from the published equality case plus smoothing.",
+        "searches": [
+          "Resultary and targeted Mahler stability searches"
+        ]
+      },
+      "rationale": "Originality fails because the decisive phenomenon is already contained in the published equality characterization for the three-dimensional symmetric Mahler theorem: equality occurs when a body or its polar is a parallelepiped, so centrally symmetric octahedra are equality cases far from the parallelepiped class. Smooth strictly convex approximation and continuity then already rule out any positive stability gap measured only from parallelepipeds. The record's explicit smoothing and constants quantify this known obstruction but do not create it.",
+      "residual_risks": [
+        "The explicit constants are correct, but the counterexample mechanism is already forced by the known non-cube equality branch and standard smooth approximation.",
+        "The record does not address stability relative to the full equality class or the zonoid fallback."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of the counterexample mechanism.",
+          "evidence": "The equality proof identifies centrally symmetric octahedral bodies as the polar alternative to parallelepipeds at the minimum volume product.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.01749",
+          "material_read": "Abstract and equality section, including the cases identifying octahedral polar bodies and parallelepipeds",
+          "method": "Primary full-text HTML inspection",
+          "title": "Symmetric Mahler's conjecture for the volume product in the three dimensional case",
+          "trigger": "Primary theorem determining the exact equality class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Iriyeh-Shibata, Symmetric Mahler's conjecture for the volume product in the three dimensional case, arXiv:1706.01749",
+        "Kim-Zvavitch, stability literature cited by the record",
+        "Resultary published-record semantic search",
+        "Assigned Git tree and verify_counterexample.py"
+      ],
+      "rationale": "The exact numerical witness is clean, but it exposes an immediate boundary-condition error: the comparison class omits the polar equality branch already present in the known Mahler equality theorem. The smoothing and constants are routine once that branch is noticed. This is a useful falsification of the proposed cell, but under the required value standard it is not a substantive new mathematical gap.",
+      "residual_risks": [
+        "The explicit constants are correct, but the counterexample mechanism is already forced by the known non-cube equality branch and standard smooth approximation.",
+        "The record does not address stability relative to the full equality class or the zonoid fallback."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The stated smooth strictly convex symmetric body obtained by smoothing the octahedron is at Banach-Mazur distance at least 1.4999955 from parallelepipeds while its Mahler volume product is less than the minimum plus 0.001; consequently a positive stability gap measured only from the parallelepiped branch cannot hold.",
+  "limitations": [
+    "Only the smooth strictly convex cube-only stability statement is rejected.",
+    "No statement is made about stability relative to the full Mahler equality class or about the zonoid-only fallback."
+  ],
+  "schema_version": 1
+}
