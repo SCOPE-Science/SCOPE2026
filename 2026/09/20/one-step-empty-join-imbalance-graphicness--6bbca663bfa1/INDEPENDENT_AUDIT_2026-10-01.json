@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T19:20:12.585191Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symbolic argument closes. For the boundary join, the total positive imbalance sum is \\(S=J+mA\\). Every positive imbalance is at most the deviation sum \\(A\\), and the maximum positive imbalance \\(D\\) is at most \\(m\\). If \\(D\\le m-1\\), then \\(S\\ge mD\\ge D(D+1)\\); if \\(D=m\\), either an internal edge contributes at least \\(m\\) to \\(J\\), or the only remaining cross-edge case reduces to \\(m=D=1\\) and parity supplies \\(S\\ge2\\). The total imbalance sum is always even. The stated Erdős–Gallai lemma therefore makes the positive multiset graphic, and zeros may be reattached as isolated vertices. The complete atlas verifier agrees for all graphs through order seven and finds the unique known order-four obstruction; this finite check is corroborative only.",
+      "risks": [
+        "The theorem fixes only the one-step boundary and not each graph's optimal smaller join threshold."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "Kozerenko–Serdiuk 2023 full paper",
+        "artifacts/verify.py and verification.txt",
+        "Erdős–Gallai criterion"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those broader-looking results use hypotheses that do not cover arbitrary joined graphs with zero-imbalance edges.",
+          "No exact one-step-boundary theorem was located."
+        ],
+        "reasoning": "The inspected broader coverage does not imply this theorem.",
+        "searches": [
+          "2026 positive-imbalance conjecture papers",
+          "2026 regular-block imbalance work"
+        ]
+      },
+      "checked_sources": [
+        "Kozerenko–Serdiuk 2023 full PDF",
+        "current Resultary exact-boundary search",
+        "arXiv:2608.09191",
+        "assigned exact verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem assumes one more independent-set vertex; the order-four example shows that simply dropping one is not a formal consequence for all orders.",
+          "The new sum-versus-maximum argument uses the order-at-least-five boundary to exclude the exceptional cross-edge case."
+        ],
+        "reasoning": "The claim is a strict strengthening rather than a restatement.",
+        "searches": [
+          "Kozerenko–Serdiuk Theorem 3.7 versus audited threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source threshold is one larger.",
+          "The source explicitly raises the arbitrary-order existence question at the one-step-lower boundary."
+        ],
+        "reasoning": "Equivalent formulations via empty joins, the exact threshold, and graphicality of the edge-imbalance multiset were compared.",
+        "searches": [
+          "Resultary query: imbalance graphic empty join one-step threshold n max delta Kozerenko Serdiuk",
+          "Kozerenko–Serdiuk 2023 Theorem 3.7 and following question",
+          "exact boundary searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The atlas is finite supporting evidence, not a database proof of the infinite theorem.",
+          "No exact known-threshold table covering every order was located."
+        ],
+        "reasoning": "The theorem rests on Erdős–Gallai, not enumeration.",
+        "searches": [
+          "current Resultary imbalance records",
+          "graph-atlas verification"
+        ]
+      },
+      "rationale": "The 2023 primary paper was inspected in full around Theorem 3.7 and the paragraph immediately following it. It proves the older threshold, gives the order-four one-step-lower counterexample, and explicitly asks whether analogous counterexamples exist for arbitrary order. The audited theorem answers that question negatively for every order at least five. Current semantic search returned no later theorem resolving this exact boundary; the recent positive-imbalance results do not apply to joins containing zero-imbalance edges.",
+      "residual_risks": [
+        "Unindexed or inaccessible later work could contain the same boundary theorem, but no specific plausible covering source was identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source poses the exact boundary question resolved here.",
+          "evidence": "It proves the threshold with one more empty-join vertex and exhibits the four-vertex failure one step lower.",
+          "identifier_or_url": "https://doi.org/10.7494/OpMath.2023.43.1.81",
+          "material_read": "Complete published PDF, especially Theorem 3.7 and the following counterexample/question.",
+          "method": "Primary full-text theorem and question comparison.",
+          "title": "New results on imbalance graphic graphs",
+          "trigger": "Primary source of the bound and open question."
+        },
+        {
+          "assessment": "Not covering the arbitrary join theorem.",
+          "evidence": "Its positive-imbalance hypothesis need not hold for the audited joins.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.09191",
+          "material_read": "Accessible theorem scope and hypotheses.",
+          "method": "Hypothesis comparison.",
+          "title": "A Proof of the Imbalance Conjecture",
+          "trigger": "Recent broad imbalance-graphicness result."
+        },
+        {
+          "assessment": "Correct corroboration only.",
+          "evidence": "It reports zero failures at orders five through seven and the unique known order-four failure.",
+          "identifier_or_url": "artifacts/verify.py",
+          "material_read": "Complete source and deterministic output.",
+          "method": "Line-by-line inspection.",
+          "title": "Assigned graph-atlas verifier",
+          "trigger": "Finite sanity check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a concrete published question and strictly improves a universal sufficient bound for every graph from order five onward. The proof also packages a useful even-sum/max-entry graphicality lemma that explains why the four-vertex example is exceptional at this boundary.",
+      "risks": [
+        "The optimal threshold below this boundary remains graph-dependent and open."
+      ],
+      "sources": [
+        "Kozerenko–Serdiuk 2023 open question",
+        "audited Erdős–Gallai proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem improves the universal bound by exactly one.",
+    "It does not determine graph-specific optimal thresholds.",
+    "Finite atlas verification is supporting evidence only.",
+    "Originality is best-of-knowledge."
+  ],
+  "record_id": "SCOPE-20260920-6bbca663bfa1",
+  "schema_version": 1
+}
