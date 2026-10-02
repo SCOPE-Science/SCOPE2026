@@ -1,6 +1,3 @@
 # Review status
 
-Fresh independent audit: not yet performed.
-
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+Fresh independent audit: **repaired**. The beta=1/4 threshold calculation is correct. RESULT.md is replaced to qualify the auxiliary generic-beta rule: Q-2beta applies in the stated form for 0<beta<7/4, with a logarithmic endpoint at beta=7/4 and saturation beyond it. Record-relative replay paths are also corrected.
