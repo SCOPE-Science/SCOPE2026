@@ -1,0 +1,65 @@
+{
+  "audited_at_utc": "2026-09-30T23:55:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent standard-library backtracking enumeration reproduced ASM counts 1,2,7,42,429; DSASM counts 1,2,5,16,67; OSASM counts 1,1,4,3,32; and the order-five first-row distribution 3,7,9,9,4. Since the support is exactly exponents 1 through 5, any reciprocal shift is forced to 6, which fails at both endpoint coefficient pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": [
+        "Behrend--Fischer--Koutschan provide all-order Pfaffian formulae for DSASM statistics and derive full OSASM generating-function identities, which strictly dominate the single order-five row."
+      ],
+      "checked_sources": [
+        "https://arxiv.org/abs/2309.08446",
+        "https://arxiv.org/abs/2503.18685",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": "Covered: the published all-order generating-function formula implies the order-five polynomial by direct specialization, and non-reciprocity is then an immediate coefficient comparison.",
+      "equivalent_formulations": [
+        "Coefficient extraction at r=1 from the published odd-order OSASM generating function at order five."
+      ],
+      "exact_database_or_table": [
+        "The primary paper tabulates the order-five OSASM total 32 and provides the full generating-function machinery; the exact five-coefficient row need not be separately printed to cover the specialization."
+      ],
+      "rationale": "Behrend--Fischer--Koutschan already give a Pfaffian formula for the full three-statistic DSASM generating function and explicitly relate the odd-order OSASM generating function to the coefficient of one diagonal nonzero entry. Their Section 8 states a Pfaffian identity for the full two-parameter OSASM generating function. The order-five polynomial is therefore a direct finite specialization of a stronger published generating-function formula, whether or not its five coefficients are printed as a row.",
+      "residual_risks": [
+        "The exact row was independently verified, so the rejection is scientific coverage/value rather than correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_COVERAGE",
+          "material_read": "full primary PDF around Theorem 4.1, the full t-dependent generating-function formula, Section 8 definitions, relation (8.4), OSASM totals, and the Pfaffian identity for the full OSASM generating function",
+          "title": "Diagonally symmetric alternating sign matrices",
+          "url": "https://arxiv.org/pdf/2309.08446"
+        },
+        {
+          "assessment": "CONTEXT_NOT_NEEDED_FOR_DECISIVE_COVERAGE",
+          "material_read": "primary abstract/publication scope confirming odd-order enumeration and even-order symmetry context",
+          "title": "Off-diagonally symmetric alternating sign matrices",
+          "url": "https://arxiv.org/abs/2503.18685"
+        },
+        {
+          "assessment": "ONLY_SELF_EXACT_MATCH_BUT_STRONGER_PRIMARY_FORMULA_COVERS",
+          "material_read": "semantic search for odd OSASM reciprocity",
+          "title": "Resultary search",
+          "url": "https://github.com/Resultary/2026/tree/main/2026/9/10/SCOPE044"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A five-coefficient specialization of an existing all-order Pfaffian generating function, followed by a support-symmetry check, is a routine extraction. The failure of the naive odd reciprocal analogy is mathematically understandable, but this particular n=5 computation is not a new structural lemma or motivated unknown invariant under the stated value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For odd off-diagonally symmetric alternating sign matrices of order five, at parameter r equal to 1, the first-row-one generating polynomial has coefficients 3, 7, 9, 9, 4 on exponents one through five, so no monomial shift makes it reciprocal; order three is reciprocal.",
+  "limitations": [
+    "The finite computation is only through order five, which is sufficient for the counterexample.",
+    "The primary paper was inspected in its current pre-record version, including Sections 4 and 8.",
+    "A conceptual theorem explaining odd-order asymmetry could be valuable; the present finite extraction is not that theorem."
+  ],
+  "note": "This file records a scientific audit assessment; it is not a formal-proof certificate or an external attestation.",
+  "record_id": "SCOPE-20260910-044",
+  "schema_version": 1
+}
