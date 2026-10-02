@@ -1,0 +1,91 @@
+{
+  "audited_at_utc": "2026-10-01T03:53:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Direct normalization gives \\(r=-2(z^2+1)^2/(9z^2(z-1)^2(z+1)^2)\\). At \\(0,1,-1,\\infty\\), the double-pole coefficient is \\(-2/9\\). Kovacic Case 1 has local alpha values \\(1/3,2/3\\) and maximum candidate degree \\(-1/3\\); Case 2 has the sole degree \\(-2\\); the Case 3 necessary sets likewise have negative degree bounds, so all Liouvillian cases are excluded and the normalized group is \\(SL_2(\\mathbb C)\\). For the original equation, the Wronskian is proportional to \\(D^{-2/3}\\) with \\(D=z(z^2-1)\\); if \\(a^3=D\\), then the original Picard–Vessiot field contains \\(a=D a^{-2}\\), and conversely adjoining \\(a\\) to the normalized field recovers original solutions. Connectedness of \\(SL_2\\) gives linear disjointness from the cubic algebraic extension, yielding the stated determinant-\\(\\mu_3\\) extension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovacic gives a complete general algorithm whose fourth case is \\(SL_2\\) when the first three fail."
+        ],
+        "reasoning": "The general theorem does not supply the local data, degree eliminations, or the \\(\\mu_3\\) determinant extension for this operator without the audited specialization.",
+        "searches": [
+          "J. J. Kovacic 1986 algorithm",
+          "Picard–Vessiot subgroup classification for SL2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and artifacts/kovacic_verdict.py from the exact Git tree.",
+        "Fresh symbolic normalization and all local double-pole coefficients.",
+        "Independent field/Wronskian argument for the original Picard–Vessiot group.",
+        "Kovacic primary source and published-record semantic search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper explicitly states that the algorithm decides whether a closed-form solution exists and separates the first three solvable cases from the full \\(SL_2\\) case."
+        ],
+        "reasoning": "The prior algorithm makes the computation systematic but does not mechanically state the original equation's exact determinant-restricted group; that field-extension step is specific to the cubic gauge.",
+        "searches": [
+          "Kovacic, J. Symbolic Comput. 2 (1986), 3–43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No external exact parameter match was found; the current record was the exact published-record hit."
+        ],
+        "reasoning": "Equivalent formulations as absence of Liouvillian solutions or failure of Kovacic Cases 1–3 agree for the normal form; the original-group determinant statement adds information beyond this equivalence.",
+        "searches": [
+          "exact Heun parameters t=-1 gamma=delta=epsilon=2/3 alpha=1/3 beta=2/3 q=0 Kovacic",
+          "published-record semantic search for the same Heun point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact external Heun/Galois table row for these parameters was located."
+        ],
+        "reasoning": "Search failure is not proof of novelty, so an unindexed classical special-function table remains a residual risk.",
+        "searches": [
+          "web search exact parameter string and Galois group",
+          "published-record semantic search"
+        ]
+      },
+      "rationale": "PASS. Exact-parameter searches and the published-record semantic search found no prior statement for this Heun point beyond the record itself. Kovacic's 1986 algorithm supplies the general classification and necessary degree tests, but it does not tabulate this point or recover the original equation's cubic determinant character. The exact original-group calculation therefore requires a field-specific normalization, complete case elimination, and Picard–Vessiot descent not supplied by the general algorithm.",
+      "residual_risks": [
+        "No exhaustive historical Heun table was located; originality is best-knowledge.",
+        "The Case 3 exclusion was checked against the degree-bound logic in the assigned proof and Kovacic framework, rather than by searching for a closed-form solution numerically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_ALGORITHM_NOT_EXACT_POINT",
+          "evidence": "The paper gives the decision procedure but no table or theorem for the audited Heun parameters.",
+          "identifier_or_url": "https://doi.org/10.1016/S0747-7171(86)80010-4",
+          "material_read": "Primary-paper text describing the four cases, the completeness of the algorithm, and the necessary-condition stages for Cases 1–3.",
+          "method": "Primary full-text inspection via an accessible copy.",
+          "title": "Jerald J. Kovacic, An algorithm for solving second order linear homogeneous differential equations",
+          "trigger": "Primary general algorithm underlying all three case eliminations."
+        },
+        {
+          "assessment": "NO_STRONGER_COVERING_RECORD",
+          "evidence": "Related records concern different operators or parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/14/SCOPE004",
+          "material_read": "Semantic-search result set including the audited record and distinct Heun/Kummer/Legendre calculations.",
+          "method": "Published-record semantic search.",
+          "title": "Published record search for differential-Galois Heun calculations",
+          "trigger": "Check for aliases and related published findings."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The point has a natural symmetric placement of singularities and equal one-third finite local data. Determining the full group, while carefully distinguishing the \\(SL_2\\) normal form from the nontrivial determinant character of the original equation, is an exact invariant of a natural special Heun operator and prevents a common normalization error.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At the specified Heun point, the normalized equation has differential Galois group \\(SL_2(\\mathbb C)\\); the original equation has group \\(\\mu_3\\cdot SL_2(\\mathbb C)=\\{g:\\det(g)^3=1\\}\\), so the equation is non-Liouvillian and not dihedral.",
+  "record_id": "SCOPE-20260914-004",
+  "schema_version": 1,
+  "scientific_limitations": "Specific to the displayed Heun point. The normalized equation has group SL_2(C), while the original equation has the cubic determinant extension; no nearby-parameter or arithmetic-monodromy classification is asserted."
+}
