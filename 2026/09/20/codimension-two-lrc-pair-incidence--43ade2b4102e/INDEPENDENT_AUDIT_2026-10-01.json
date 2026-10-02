@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T17:49:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob c758730e80f0c851c87fba673925c952798352ce",
+        "Frozen artifacts/verify.py blob eca4dbe79dbe5699b90cac6e64f45f715bf1e5b8",
+        "Khabbazian--Médard, Discrete Mathematics 348 (2025) 114298, complete primary text"
+      ],
+      "rationale": "The Khabbazian--Médard criterion specializes exactly as claimed when k_1=n_1-2: deleting a pair u,v leaves n_2-c_G(u,v) edges, so optimal distance d* is equivalent to c_G(u,v)>=q=n_2-k_2 for every pair. For odd q=2h+1, the minimum-degree/handshake lower bound gives |E|>=ceil((h+1)N/2); an almost-regular simple graph with minimum degree h+1 realizes equality when h+1<=N-1. The q=1,2,4 cases have valid sharp degree-count lower bounds and residue-block constructions. The displayed infinite LRC family has exactly (n_1,k_1,n_2,k_2)=(N,N-2,N+1,N-2), q=3 and d*=2N+3. The repository verifier correctly checks finite examples but is not used as proof of the infinite statements.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorem is broader as a reduction but does not solve the resulting extremal problem for n_1-k_1=2.",
+          "Its Theorem 18 solves n_1-k_1=1 and a footnote says similar tools may extend to <=3."
+        ],
+        "reasoning": "A general reduction is not prior coverage of the new exact extremal solution unless it mechanically supplies the closed forms; here it does not.",
+        "searches": [
+          "Khabbazian--Médard 2025 complete article",
+          "Resultary semantic search for codimension-two LRC exact maxima"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "Khabbazian--Médard 2025 complete article",
+        "Frozen RESULT.md and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published criterion reduces the question to a multigraph covering problem but leaves the codimension-two extremal number to be solved; the current degree arguments and constructions are additional mathematics."
+        ],
+        "reasoning": "The final closed forms are not corollaries obtained by simple parameter substitution into a prior formula.",
+        "searches": [
+          "Full theorem/proof comparison with Khabbazian--Médard 2025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair-incidence cover is exactly the complement-pair form of the published induced-subgraph condition when k_1=n_1-2.",
+          "No separate prior formula for mu_q(N) in this LRC role was found."
+        ],
+        "reasoning": "The graph-theoretic alias and original LRC parameterization were compared explicitly.",
+        "searches": [
+          "Resultary query: locally recoverable codes codimension two pair incidence cover n1-k1=2 mu_q(N) odd q minimum distance",
+          "Khabbazian--Médard primary text: graph criterion, n1-k1=1 theorem, extension remark"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The infinite family N^2+N-1,N(N-2),N+1 lies outside the exact cases listed in the source, as verified from the parameter identities."
+        ],
+        "reasoning": "Neither the findings database nor the source's exact-case list contains the submitted codimension-two thresholds.",
+        "searches": [
+          "Resultary exact-topic query",
+          "Khabbazian--Médard enumerated exact parameter cases"
+        ]
+      },
+      "rationale": "The complete Khabbazian--Médard paper gives the general multigraph reduction and an exact theorem for n_1-k_1=1; it explicitly remarks that similar tools may extend to n_1-k_1<=3 but does not give the codimension-two pair-incidence formulas. Resultary's exact semantic search returned the current record as the only direct codimension-two formula. The audited theorem therefore fills an explicitly signposted gap rather than restating the general reduction.",
+      "residual_risks": [
+        "The auxiliary pair-incidence extremal number is elementary and could exist under unrelated multigraph terminology not surfaced by the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_REDUCTION_BUT_NOT_CODIMENSION_TWO_SOLUTION",
+          "evidence": "The article gives the general criterion and exact n_1-k_1=1 result; it explicitly suggests but does not execute extensions to codimension two/three.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2024.114298",
+          "material_read": "Complete 17-page primary article, including Theorem 1, Theorem 18, its footnote on n_1-k_1<=3, and the conclusion.",
+          "method": "Lawful open PDF retrieval and page/text inspection.",
+          "title": "On finding the largest minimum distance of locally recoverable codes: A graph theory approach",
+          "trigger": "Exact primary source for the LMD multigraph criterion and closest codimension theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Khabbazian--Médard 2025",
+        "Frozen RESULT.md"
+      ],
+      "rationale": "The result solves a natural next codimension of an exact coding-theory distance problem explicitly flagged by the primary source, produces sharp formulas over an infinite parameter regime, and yields an infinite exact LRC family outside the source's listed solved cases. The finite verifier is auxiliary; the value lies in the exact extremal classification.",
+      "residual_risks": [
+        "General even q>=6 and larger odd gaps remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General even incidence gaps q>=6 are not settled.",
+    "The unrestricted-field linear LMD setting is used."
+  ],
+  "schema_version": 1
+}
