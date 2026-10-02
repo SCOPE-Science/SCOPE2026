@@ -1,0 +1,99 @@
+# Independent audit — 2026-10-01
+
+## Final claim
+
+The Wang--Wu total communication function has a public-coin two-message protocol of cost \(O(\log n\log\log n)\), while public-coin one-way protocols in either direction require \(\Omega(n^{1/3}/(\log n)^{2/3})\) communication via an exact INDEX restriction.
+
+## Correctness — PASS
+
+The Wang--Wu primary PDF was inspected at the total-function definition, certificate-uniqueness lemma, fully linear PCP and complete randomized protocol. The source protocol is explicitly Alice-to-Bob sampled bits, Bob-to-Alice address bits, then Alice-to-Bob four field elements. Reversing only the sampling sender is valid because the sampled differences are symmetric XORs: Bob can send sampled \(y\)-bits first, Alice combines with her \(x\)-bits, computes the same address, and sends that address together with her four local PCP values. Bob then reconstructs exactly the source test, so cost and error are unchanged. For the one-way restriction, all-zero/all-one Gap-Hamming blocks force any requested address and satisfy the promise; uniqueness of the accepted certificate makes a fixed nonzero perturbation encode INDEX exactly. XOR symmetry gives both directions. The standard information argument gives \(\Omega(m)\), and with \(n=\Theta(k^2m^3)\), \(k=\Theta(\log n)\), this is \(\Omega(n^{1/3}/(\log n)^{2/3})\).
+
+Checked sources:
+- H. Wang, P. Wu, Efficient Randomized Communication Without Large Monochromatic Rectangles, ECCC TR26-190 / arXiv:2609.20763 (2026), full PDF relevant sections inspected
+- D. Gavinsky, On the quantum communication complexity of total functions, arXiv:2608.18784 (2026)
+- Classical randomized one-way INDEX lower bound
+- Resultary searches for Wang--Wu two-message/one-way/INDEX refinements and related cheat-sheet findings
+
+Residual risks:
+- The theorem does not claim optimality of the one-way exponent or improve the source rectangle bound.
+
+## Originality — PASS
+
+Best-of-knowledge originality passes for the two-message rearrangement plus bidirectional one-way INDEX obstruction on the same Wang--Wu total function. The full primary protocol was inspected and uses three transmissions in the order Alice, Bob, Alice. Resultary found related Wang--Wu refinements but no published record stating the two-message protocol or one-way lower bound.
+
+### Equivalent formulations
+
+Searches:
+- Resultary query: Wang Wu two message one way INDEX communication gap
+- Resultary query: cheat sheet communication two-message two-round one-way INDEX total function
+
+Evidence:
+- The assigned record was the only exact hit. Related records concern parity-query quotients or a modified linear-AND Gap-Hamming cheat sheet, not the same round/one-way theorem.
+
+Reasoning: The equivalent formulations are a one-message versus two-message randomized complexity separation and a bidirectional INDEX restriction of the Wang--Wu totalization.
+
+### Broader coverage
+
+Searches:
+- Wang--Wu ECCC TR26-190 full protocol
+- Resultary SCOPE-linear-and-gap-hamming-cheat-sheet--f45c1ab69a50
+- Gavinsky 2026 cheat-sheet communication work
+
+Evidence:
+- Wang--Wu supplies the fully linear PCP, uniqueness and low-cost randomized protocol; the related SCOPE record changes the underlying circuit to strengthen rectangle bounds; Gavinsky gives conceptual two-message cheat-sheet precedent in a different model.
+
+Reasoning: None of these inspected statements implies the exact two-message classical protocol and bidirectional one-way lower bound for the original Wang--Wu witness.
+
+### Exact database or table
+
+Searches:
+- Resultary exact Wang--Wu round/INDEX searches
+- Full-text search/inspection of ECCC TR26-190 relevant sections
+
+Evidence:
+- No independent exact database entry with the same one-way exponent or two-message classification was located.
+
+Reasoning: This is not a finite lookup problem; the relevant exact datum is whether the source protocol already has the claimed round structure, which the full PDF shows it does not.
+
+### Claim versus prior implication
+
+Searches:
+- Wang--Wu Theorem 4.1 protocol and Lemma 3.6
+- Classical INDEX lower bound
+
+Evidence:
+- The source gives the ingredients but not the rearranged two-message transcript or INDEX restriction. The final claim follows only after the additional reordering and restriction arguments.
+
+Reasoning: The result is short once the source structure is recognized, but it is not a stated source corollary without those additional constructions.
+
+### Source inspections
+
+- **Efficient Randomized Communication Without Large Monochromatic Rectangles** (https://eccc.weizmann.ac.il/report/2026/190/): trigger — Exact total function, uniqueness lemma, fully linear PCP and randomized protocol; material read — Full relevant primary PDF sections: Lemma 3.6, Theorem 3.7, Definition 3.8 and Theorem 4.1 protocol/correctness/cost; method — Primary full-text PDF inspection, including rendered protocol page; assessment — Provides all source ingredients but explicitly uses three transmissions; it does not state the audited two-message/one-way theorem.; evidence — Theorem 4.1 sends sampled \(x\)-bits Alice-to-Bob, address bits Bob-to-Alice, then four field elements Alice-to-Bob; Lemma 3.6 states uniqueness of the valid certificate.
+
+Checked sources:
+- H. Wang, P. Wu, Efficient Randomized Communication Without Large Monochromatic Rectangles, ECCC TR26-190 / arXiv:2609.20763 (2026), full PDF relevant sections inspected
+- D. Gavinsky, On the quantum communication complexity of total functions, arXiv:2608.18784 (2026)
+- Classical randomized one-way INDEX lower bound
+- Resultary searches for Wang--Wu two-message/one-way/INDEX refinements and related cheat-sheet findings
+
+Residual risks:
+- The Wang--Wu preprint is extremely recent, so near-simultaneous priority or a later revision remains possible.
+- The one-way lower bound is a restriction specific to the uniqueness-based totalization and is not claimed tight.
+
+## Scientific value — PASS
+
+The result locates a major recent total-function separation inside the two-message randomized subclass while exhibiting a polynomial obstruction to either one-way direction on the same function. That gives a clean interaction-complexity boundary rather than a cosmetic protocol rewrite.
+
+Checked sources:
+- H. Wang, P. Wu, Efficient Randomized Communication Without Large Monochromatic Rectangles, ECCC TR26-190 / arXiv:2609.20763 (2026), full PDF relevant sections inspected
+- D. Gavinsky, On the quantum communication complexity of total functions, arXiv:2608.18784 (2026)
+- Classical randomized one-way INDEX lower bound
+- Resultary searches for Wang--Wu two-message/one-way/INDEX refinements and related cheat-sheet findings
+
+Residual risks:
+- The Wang--Wu preprint is extremely recent, so near-simultaneous priority or a later revision remains possible.
+- The one-way lower bound is a restriction specific to the uniqueness-based totalization and is not claimed tight.
+
+## Conclusion
+
+The unchanged final claim passes correctness, best-of-knowledge originality, and scientific value.
