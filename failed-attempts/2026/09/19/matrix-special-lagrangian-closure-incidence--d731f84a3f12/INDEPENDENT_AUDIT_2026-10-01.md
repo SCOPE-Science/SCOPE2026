@@ -1,0 +1,64 @@
+# Independent mathematical audit — Rank-stratified incidence of matrix special-Lagrangian cone closures
+
+Audited on 2026-10-01 UTC.
+
+**Disposition:** FAILED
+
+## Correctness — PASS
+
+Assuming the prior Kotwal--Menon closure parametrization \(W_k=V_kPV_{k-1}^*\) with \(V_0=I\) and \(V_N=Q\), the product telescopes to \(W_N\cdots W_1=QP^N\). Thus two labels through the same point differ by a unitary fixing \(E=\operatorname{im}P\) pointwise, and every such terminal-unitary change leaves the tuple unchanged, giving a \(U(d-r)\) label fiber. Pairwise and multiple intersections are exactly controlled by common equalizer subspaces. The fixed-rank dimension is \(2r(f-r)+r^2+(N-1)(d^2-(d-r)^2)=2r(f+(N-1)d)-Nr^2\). The \(N=2\) specialization agrees with the direct linear description. No internal mathematical error was found.
+
+## Originality — FAIL
+
+The final proof explicitly takes Kotwal--Menon's prior closure parametrization as its starting point, and the audited theorems are immediate stabilizer/equalizer/Grassmannian consequences of that parametrization. Under implication-based originality, unstated corollaries of a stronger prior structural description are covered even when the exact formulas were not printed.
+
+### Equivalent formulations
+
+The label fiber is the stabilizer of the support of \(P\); the intersection rank is the dimension of a common equalizer; the stratum dimension is the standard Grassmannian plus unitary-orbit dimension. These are equivalent structural readouts of the prior parametrization.
+
+Evidence: Resultary found this record but no separate earlier exact-formula record. The audited proof itself identifies the prior factorization parametrization as Proposition 4.1 and derives every claimed incidence statement from it.
+
+### Broader coverage
+
+A complete point parametrization dominates the incidence corollaries because membership in several closures is obtained by comparing terminal labels on the support of the same \(P\).
+
+Evidence: The source's closure framework parametrizes all points of every \(\mathcal C_Q\), which is broader data than any one pairwise or multiple-incidence formula. Indexed source material confirms Section 4 studies closures and low-rank factorizations set-theoretically.
+
+### Exact database or table
+
+The failure is not based on a known table; it is based on direct implication from a prior theorem.
+
+Evidence: No independent table/database supplied the formulas.
+
+### Claim versus prior implication
+
+Once the prior parametrization is granted, no additional nonstandard lemma is needed. Therefore the final claim is mechanically implied by prior work and fails originality under the required standard.
+
+Evidence: Every theorem in the audited RESULT begins from or immediately reduces to \(W_k=V_kPV_{k-1}^*\) and elementary linear algebra. The source is acknowledged by the audited proof as already providing exactly this factorization for closure points.
+
+### Source inspections
+
+- **Special Lagrangian cones in Deep Learning** — COVERING_BY_IMPLICATION if the reproduced Proposition 4.1 statement is accurate.. Material read: Abstract; indexed Section 4 low-rank closure quotation; and the exact Proposition 4.1 factorization reproduced and used in the audited source package. Full primary proposition text was not obtained. Evidence: The final proof attributes the full factorization \(W_k=V_kPV_{k-1}^*\) for closure points to Proposition 4.1 and derives all incidence formulas from it.
+- **Symmetries and Gradient Flows in the Deep Linear Network** — INACCESSIBLE_RISK; not needed for the failure because the preprint implication is already decisive.. Material read: Bibliographic information only; full text was not inspected. Evidence: No claim of dissertation noncoverage is made.
+
+### Checked sources
+
+- arXiv:2609.20159
+- Kotwal dissertation DOI:10.26300/bd6x-0503
+- Resultary published findings
+- indexed Section 4 closure discussion
+
+### Residual risks
+
+- The primary Proposition 4.1 full text was not independently retrieved in this run; the exact statement is, however, explicitly reproduced and relied on by the audited final proof.
+- No claim is made about whether the authors themselves intended or noticed every corollary.
+
+## Scientific value — FAIL
+
+The incidence formulas are clean and potentially useful, but the required value standard rejects routine deductions already mechanically implied by a stronger known parametrization. The audited result does not identify an independent mathematical gap beyond taking stabilizers, equalizers, and standard fixed-rank dimension counts.
+
+## Limitations
+
+- The linear-algebraic incidence formulas are correct if the cited Kotwal--Menon closure parametrization is used.
+- The final claim is a short stabilizer/equalizer/Grassmannian deduction from that prior parametrization rather than an independent new mathematical gap.
+- The full text of Kotwal's dissertation was not inspected; this does not rescue originality because the prior preprint parametrization already implies the claim.
