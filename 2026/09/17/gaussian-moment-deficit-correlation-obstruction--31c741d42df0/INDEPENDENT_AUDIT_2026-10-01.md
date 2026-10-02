@@ -1,0 +1,30 @@
+# Independent mathematical audit — SCOPE-20260917-31c741d42df0
+
+Final disposition: **passed**.
+
+## Correctness
+**PASS.** The proof was reconstructed. The rotationally invariant spherical moment tensor satisfies E< U,x>^(2q)=c_{k,q}|x|^(2q) with c_{k,q}=g_q/[k(k+2)…(k+2q-2)]. Caratheodory on the affine moment-tensor slice yields a positive cubature with at most dim Sym^(2q)(R^k) terms. If its Gram matrix were compatible with a standardized margin F, a rank-k factorization produces an isotropic random vector V whose projections along the cubature directions all have law F. Averaging the 2q-th moments and applying Jensen to |V|^2 gives mu_(2q)≥g_q product_{r=0}^{q-1} k/(k+2r), contradicting the chosen k. Independently, six normalized icosahedral directions have Gram eigenvalues 2 (multiplicity 3) and 0 (multiplicity 3), and symbolic expansion reproduces sum_j<a_j,x>^4=(6/5)|x|^4, yielding the fourth-moment threshold 9/5. The symmetric-Beta standardized kurtosis 3(2a+1)/(2a+3) is below 9/5 exactly for a<1.
+
+## Originality
+**PASS.** Phillips 2026 explicitly uses the same six icosahedral directions to obstruct arcsine margins in dimension six, so that geometric ingredient is prior and is not claimed as new. The audited theorem instead abstracts a sufficient obstruction from any even-moment deficit below the Gaussian moment and derives a finite dimension/cardinality bound; the fourth-moment corollary then applies the icosahedral identity to every standardized margin with fourth moment below 9/5. Devroye–Letac’s full text proves all correlation matrices are attainable by symmetric Beta(k,k) margins for dimensions up to five when k≥1/2; Wang–Zhang proves the exact uniform threshold nine. Combined with the moment obstruction this yields the stated exact threshold five for 1/2≤a<1 and the uniform boundary at a=1. Targeted searches did not locate the general even-moment theorem before this record.
+
+## Value
+**PASS.** The result turns a single scalar deficiency in an even marginal moment into a finite correlation incompatibility certificate with an explicit dimension bound. The six-dimensional boundary sharpens this to an exact continuum of symmetric-Beta thresholds, connecting cubature geometry, elliptopes, and fixed-margin copulas in a reusable way.
+
+## Source inspections
+- **Cedric Phillips, Two short proofs of incompatibility for correlation matrices, arXiv:2609.14610** — Primary abstract inspected. It states an eleven-term uniform obstruction and a six-diagonal icosahedral obstruction for arcsine margins. Full text was not retrievable in this run. Consequence: The icosahedral arcsine obstruction is prior; the audit does not credit that ingredient as new.
+- **Luc Devroye and Gérard Letac, Copulas with Prescribed Correlation Matrix (2015)** — Full 17-page PDF inspected, including the introduction and Section 4/Conclusion. It proves that for symmetric Beta(k,k), k≥1/2, every correlation matrix is attainable through dimension five, and for uniform margins through dimension nine. Consequence: Supplies the lower-dimensional compatibility half needed for the exact Beta threshold.
+- **Ruodu Wang and Zhenyuan Zhang, The exact dimensional threshold for Spearman rank-correlation compatibility, arXiv:2609.16278** — Primary abstract inspected. It proves uniform-margin compatibility exactly through dimension nine and incompatibility from dimension ten onward. Consequence: Confirms the a=1 boundary is dimension nine, not five.
+
+## Originality comparison
+- **Equivalent formulations.** Searches: fixed marginal correlation moment obstruction; elliptope spherical cubature even moment compatibility; platykurtic correlation matrix obstruction. Evidence: Phillips gives specific fourth-moment constructions; no general all-even-moment deficit theorem was located. Reasoning: Searches included moment-problem and cubature terminology rather than only the record title.
+- **Broader coverage.** Searches: arcsine icosahedral correlation incompatibility; uniform correlation compatibility dimension nine; Beta(k,k) prescribed correlation dimension five. Evidence: Phillips, Devroye–Letac, and Wang–Zhang cover the principal special margins and dimension thresholds. Reasoning: Those sources are integrated as prior special cases/boundaries; none states the general Gaussian-even-moment deficit implication located in the audited theorem.
+- **Exact database or table.** Searches: exact 9/5 fourth moment threshold correlation compatibility; symmetric Beta exact dimension threshold a<1. Evidence: Devroye–Letac gives the dimension-five positive result; Phillips abstract gives arcsine failure; no pre-audit exact continuum threshold statement was found. Reasoning: The exact threshold follows only after combining the independently checked moment inequality with prior positive attainability.
+- **Claim versus prior implication.** Searches: Phillips six icosahedron arcsine; Tchakaloff Caratheodory spherical moment tensor correlation. Evidence: Prior cubature theorems provide finite positive representations but do not by themselves connect a marginal moment deficit to failure of universal correlation compatibility. Reasoning: The audited proof adds the rank-factorization/isotropic-vector implication and Jensen comparison that turn cubature into an incompatibility theorem.
+
+## Residual risks
+- The full Phillips preprint was inaccessible in this run, so an unobserved generalization inside that paper remains a residual originality risk.
+- Older multivariate moment/cubature literature may contain an equivalent theorem under different terminology; targeted searches did not find one.
+
+## Limitations
+The moment condition is sufficient rather than necessary. The Caratheodory cardinality bound is not claimed optimal. The six-dimensional icosahedral obstruction is sharper only below fourth moment 9/5. For symmetric Beta(a,a) with a>1, eventual incompatibility is proved without an exact dimensional threshold. The Phillips preprint is very recent and its full text was not retrievable in this run, leaving a residual comparison risk beyond its abstract.

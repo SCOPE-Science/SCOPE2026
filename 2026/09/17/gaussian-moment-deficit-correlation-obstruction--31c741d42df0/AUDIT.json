@@ -1,27 +1,47 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "The finite positive cubature reduction, spherical even-moment coefficient, rank-decomposition implication, Jensen step, Caratheodory cardinality bound, six-dimensional icosahedral matrix, symmetric-Beta kurtosis calculation, and dimension-extension argument were checked analytically against the cited primary results.",
-      "verdict": "PASS"
+      "reason": "The proof was reconstructed. The rotationally invariant spherical moment tensor satisfies E< U,x>^(2q)=c_{k,q}|x|^(2q) with c_{k,q}=g_q/[k(k+2)…(k+2q-2)]. Caratheodory on the affine moment-tensor slice yields a positive cubature with at most dim Sym^(2q)(R^k) terms. If its Gram matrix were compatible with a standardized margin F, a rank-k factorization produces an isotropic random vector V whose projections along the cubature directions all have law F. Averaging the 2q-th moments and applying Jensen to |V|^2 gives mu_(2q)≥g_q product_{r=0}^{q-1} k/(k+2r), contradicting the chosen k. Independently, six normalized icosahedral directions have Gram eigenvalues 2 (multiplicity 3) and 0 (multiplicity 3), and symbolic expansion reproduces sum_j<a_j,x>^4=(6/5)|x|^4, yielding the fourth-moment threshold 9/5. The symmetric-Beta standardized kurtosis 3(2a+1)/(2a+3) is below 9/5 exactly for a<1.",
+      "status": "PASS"
     },
     "originality": {
-      "rationale": "Searches across fixed-margin correlation compatibility, copulas, elliptopes, moment obstructions, spherical designs, Caratheodory/Tchakaloff cubature, platykurtosis, and symmetric Beta margins did not locate the general Gaussian-even-moment deficit theorem or the exact 1/2 <= a < 1 Beta threshold. Closely related ingredients and residual equivalence risk are documented in REVIEW.md.",
-      "verdict": "PASS"
+      "reason": "Phillips 2026 explicitly uses the same six icosahedral directions to obstruct arcsine margins in dimension six, so that geometric ingredient is prior and is not claimed as new. The audited theorem instead abstracts a sufficient obstruction from any even-moment deficit below the Gaussian moment and derives a finite dimension/cardinality bound; the fourth-moment corollary then applies the icosahedral identity to every standardized margin with fourth moment below 9/5. Devroye–Letac’s full text proves all correlation matrices are attainable by symmetric Beta(k,k) margins for dimensions up to five when k≥1/2; Wang–Zhang proves the exact uniform threshold nine. Combined with the moment obstruction this yields the stated exact threshold five for 1/2≤a<1 and the uniform boundary at a=1. Targeted searches did not locate the general even-moment theorem before this record.",
+      "status": "PASS"
     },
     "value": {
-      "rationale": "A scalar even-moment deficit is converted into a finite elliptope obstruction with a quantitative cardinality bound; every platykurtic common margin is covered, the 9/5 six-dimensional boundary is identified, and a continuum of symmetric Beta margins receives an exact dimensional classification.",
-      "verdict": "PASS"
+      "reason": "The result turns a single scalar deficiency in an even marginal moment into a finite correlation incompatibility certificate with an explicit dimension bound. The six-dimensional boundary sharpens this to an exact continuum of symmetric-Beta thresholds, connecting cubature geometry, elliptopes, and fixed-margin copulas in a reusable way.",
+      "status": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-17T19:04:02Z",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "previously_published_pending_reaudit": false,
+  "prior_nonindependent_assessment": {
+    "axes": {
+      "correctness": {
+        "rationale": "The prior assessment checked the cubature reduction, spherical moment coefficient, rank implication, Jensen step, icosahedral identity, and Beta kurtosis calculation.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "The prior assessment found no general Gaussian-even-moment deficit theorem or exact half-to-one Beta threshold in the searched literature.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The prior assessment valued the conversion of a scalar moment deficit into finite elliptope obstructions and exact Beta thresholds.",
+        "verdict": "PASS"
+      }
+    },
+    "independent": false,
+    "status": "passed"
+  },
+  "review_type": "independent_audit",
+  "reviewed_at": "2026-10-01T06:03:28Z",
+  "schema_version": 1,
+  "verification_state": "independently_reviewed"
 }
