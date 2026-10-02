@@ -1,0 +1,111 @@
+# Independent mathematical audit — 2026-10-01
+
+Record: `SCOPE-20260918-524bc75cb4fb`
+
+## Correctness — PASS
+
+The homological reduction is correct. The cyclic Frobenius pairing is nondegenerate and identifies the finite artin algebra with its dual, giving self-injectivity. For a diagonal idempotent, the relevant row is \(\Lambda\oplus D\Lambda\), independently of the cycle length. An ARC witness has the required Tor vanishing by duality from \(\operatorname{Ext}^{>0}(X,\Lambda)=0\); Enomoto's idempotent-induction comparison then transfers self-orthogonality and reflects projectivity. Over a field, the cyclic layer shift has exact outer order equal to the number of layers because a proper power moves central factor idempotents in the square-zero quotient.
+
+### Correctness sources
+
+- assigned RESULT.md
+- Enomoto, arXiv:2609.19172
+- Chan–Darpö–Iyama–Marczinzik, arXiv:2012.11927
+- current published self-injective-corner theorem
+
+### Correctness risks
+
+- The reduction does not prove ARC or TC2.
+- The one-fold symmetric case is outside the argument.
+
+## Originality — FAIL
+
+A current same-day published theorem already gives the all-fold reduction and a stronger fixed-order conclusion: for every prescribed integer at least two, universal ARC is equivalent to TC2 on the corresponding standard fold trivial extensions, and even to TC2 on the broader class of Frobenius algebras admitting a Nakayama automorphism of that exact order. Its proof abstracts the same self-injective corner condition and derives the same induction/Ext comparison. The audited commutative-artinian-base version is a direct transport of Enomoto's artin-base lemma through the same row decomposition, so the remaining base-ring wording is mechanically implied by the stated ingredients rather than an independent new mechanism.
+
+### equivalent_formulations
+
+Searches:
+- Resultary semantic search for TC2, ARC, fold trivial extensions, fixed Nakayama order
+- direct full-text comparison with `SCOPE-r-fold-trivial-extensions-detect-auslander-reiten--5d7fcd295c74`
+
+Evidence:
+- The covering theorem states the all-fold implication and the universal fixed-order equivalence explicitly.
+
+Reasoning:
+The audited field consequence is a direct special case; its artin-base extension uses Enomoto's already artin-base idempotent lemma with the unchanged cyclic row.
+
+### broader_coverage
+
+Searches:
+- current self-injective-corner theorem
+- Enomoto's two-fold theorem
+- Chan–Darpö–Iyama–Marczinzik fold-trivial-extension structure
+
+Evidence:
+- The current theorem is broader on the fixed-order test class, while the two primary ingredients already supply the base-ring homological and fold-structure pieces.
+
+Reasoning:
+There is no surviving stronger field theorem in the audited record beyond current coverage.
+
+### exact_database_or_table
+
+Searches:
+- Resultary published findings on Tachikawa and Auslander–Reiten reductions
+
+Evidence:
+- An exact theorem-level covering record was returned; no finite database lookup is relevant.
+
+Reasoning:
+Coverage is structural and implication-based.
+
+### claim_vs_prior_implication
+
+Searches:
+- theorem-by-theorem implication comparison
+
+Evidence:
+- The current corner theorem gives TC2-to-ARC whenever the corner row lies in the additive closure of the regular module and its dual, exactly the mechanism used here.
+
+Reasoning:
+The all-cycle statement follows by substituting the standard fold trivial extension.
+
+### source_inspections
+
+- **Every prescribed finite Nakayama order detects the Auslander–Reiten conjecture** — https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-r-fold-trivial-extensions-detect-auslander-reiten--5d7fcd295c74. Trigger: Highly similar same-day Resultary hit. Material read: Complete published RESULT.md. Method: Full theorem and proof implication comparison. Assessment: DECISIVE CURRENT COVERAGE of the all-fold and fixed-order claims. Evidence: Its Corollary 2 and Theorem 3 state the same reduction and a broader fixed-order test class.
+- **Tachikawa's second conjecture implies the Auslander–Reiten conjecture** — https://arxiv.org/abs/2609.19172. Trigger: Primary source for the two-fold artin-algebra reduction. Material read: Accessible abstract and bibliographic scope; full text was requested through lawful routes but was not available before closeout. Method: Primary-source scope comparison with access limitation recorded. Assessment: It supplies the two-fold artin-base mechanism; decisive originality failure comes from the fully inspected current covering theorem, not from an exclusion claim about this source. Evidence: The accessible source states the two-fold reduction for artin algebras.
+- **Periodic trivial extension algebras and fractionally Calabi–Yau algebras** — https://arxiv.org/abs/2012.11927. Trigger: Primary structural source for standard fold trivial extensions. Material read: Accessible abstract and bibliographic scope. Method: Structural-source comparison. Assessment: Supplies known fold-extension/Nakayama structure, not a reason to restore originality. Evidence: The audited proof explicitly combines this structure with the idempotent-induction mechanism.
+
+### checked_sources
+
+- current Resultary self-injective-corner theorem
+- Enomoto arXiv:2609.19172
+- Chan–Darpö–Iyama–Marczinzik arXiv:2012.11927
+- assigned RESULT.md
+
+### residual_risks
+
+- The artin-base formulation is slightly broader than the fully inspected field theorem, but its proof is a direct substitution into Enomoto's artin-base lemma and does not supply an independent originality-bearing idea.
+
+## Scientific value — PASS
+
+The reduction is mathematically meaningful: it shows that one prescribed nontrivial Nakayama cycle length is already universal-hard for TC2. That is a natural structural test-class theorem even though it is currently covered.
+
+### Value sources
+
+- current all-fold reduction theorem
+- Enomoto's ARC/TC2 reduction
+- fold trivial-extension structure
+
+### Value risks
+
+- Scientific rejection is originality-based, not a claim that the reduction is unimportant.
+
+## Limitations
+
+- Correctness and scientific value pass, but originality fails under current published coverage.
+- The one-fold symmetric case is not included.
+- No historical-priority conclusion is made from the same-day chronology.
+
+## Disposition
+
+**FAILED**
