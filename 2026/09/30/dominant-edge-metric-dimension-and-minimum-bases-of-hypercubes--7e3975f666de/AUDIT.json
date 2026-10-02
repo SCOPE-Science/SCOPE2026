@@ -1,23 +1,46 @@
 {
-  "correctness": {
-    "rationale": "The proof gives a matching lower bound from a perfect matching, an explicit parity-class edge-resolving construction for every \\(n\\ge3\\), separate proofs for the two boundary dimensions, and an equality argument classifying every minimum basis. Exhaustive subset checks for \\(Q_1\\) through \\(Q_4\\) and direct parity checks through \\(Q_{10}\\) agree with every stated value and basis count.",
-    "status": "PASS"
+  "audited_at_utc": "2026-10-01T22:35:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For \\(n\\ge3\\), either parity class is a vertex cover of size \\(2^{n-1}\\). Orient each edge by its even endpoint. Distinct even endpoints are separated by the landmark at one endpoint; two edges sharing the even endpoint but changing coordinates \\(i\\ne j\\) are separated by an even landmark obtained by toggling \\(i\\) and a third coordinate. A perfect matching gives the matching lower bound for every vertex cover. If a minimum vertex cover has size half the vertices, its complement is an independent half-set; regularity forces every edge across the cut, so connected-bipartite uniqueness makes the cover one of the two parity classes. The \\(Q_1,Q_2\\) cases are direct. The inspected verifier confirms the exact basis counts through \\(Q_4\\) and both parity bases through \\(Q_{10}\\), without serving as the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "The defining 2023 dominant-edge paper treats complete graphs, complete bipartite graphs, cycles, paths, wheels, and graph operations; its inspected full text does not contain the higher-dimensional hypercube result. Existing hypercube metric-dimension work concerns ordinary metric, edge metric, and mixed metric dimensions, not the vertex-cover-constrained dominant edge parameter. Resultary found no earlier equivalent formula or basis classification.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines a natural infinite family for a recently introduced invariant and classifies every minimum basis, revealing an exact coincidence between the hypercube bipartition, minimum vertex covers, and edge-resolution structure. That is a motivated structural result rather than a finite computation.",
+      "status": "PASS"
+    }
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "originality": {
-    "rationale": "Best-of-knowledge searches for the exact formula, parity-class bases, vertex-cover reformulations, and stronger or equivalent hypercube coverage found the defining dominant-edge-metric paper, ordinary edge/mixed metric work on hypercubes, and later dominant-edge results for a different graph family, but no source containing the higher-dimensional hypercube formula or basis classification.",
-    "status": "PASS"
+  "disclaimer": "This evidence-based scientific review is not peer review, formal verification, or a guarantee of first discovery.",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "historical_same_model_review": {
+    "axes": {
+      "correctness": {
+        "rationale": "The earlier same-model review recorded a correctness pass.",
+        "status": "PASS"
+      },
+      "originality": {
+        "rationale": "The earlier same-model review recorded an originality pass; this remains historical evidence only.",
+        "status": "PASS"
+      },
+      "value": {
+        "rationale": "The earlier same-model review recorded a value pass.",
+        "status": "PASS"
+      }
+    }
   },
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
   "same_model_review_status": "passed",
   "schema_version": 1,
-  "scope_run_id": "7e3975f6-66de-45a8-a435-c3de9d6b278a",
-  "value": {
-    "rationale": "The result determines an infinite family exactly and, beyond the numerical parameter, identifies every minimum basis. The proof exposes a structural coincidence between the hypercube bipartition, minimum vertex covers, and edge resolution that is reusable in studying related product graphs.",
-    "status": "PASS"
-  },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
