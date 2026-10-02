@@ -1,0 +1,100 @@
+{
+  "audited_at_utc": "2026-10-01T23:53:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Homogeneity of the Rado graph identifies injective ordered \\(k\\)-tuple orbits for the base automorphism group with labeled graphs on \\(k\\) vertices. Global complementation acts by translation by the all-ones edge vector. Vertex switching acts by the cut space, whose dimension is \\(k-1\\); adjoining complementation adds one independent translation for \\(k\\ge3\\). Therefore the injective orbit counts are the stated powers of two, and the full ordered-tuple counts follow by partitioning coordinates by equality pattern, giving the Stirling transform. The package verifier exhaustively reproduces these translation-orbit counts through its finite range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodirsky--Pinsker give the five closed groups and define complement and switching generators.",
+          "Mallows--Sloane/Seidel theory supplies the established switching equivalence and two-graph correspondence."
+        ],
+        "reasoning": "Together these ingredients mechanically dominate the finite injective orbit calculation.",
+        "searches": [
+          "Bodirsky--Pinsker arXiv:0903.2553 full text",
+          "Mallows--Sloane DOI 10.1137/0128070"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(k\\) labeled vertices there are \\(2^{\\binom{k}{2}}\\) edge vectors and a cut space of size \\(2^{k-1}\\); complementation contributes the extra independent binary translation in the relevant groups."
+        ],
+        "reasoning": "The package's formulas follow without a new nonstandard lemma; repeated coordinates then contribute the standard Stirling transform.",
+        "searches": [
+          "Thomas/Bodirsky--Pinsker five-group classification",
+          "standard Seidel switching equivalence on a labeled vertex set"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five groups are explicitly described in the primary reduct-classification literature.",
+          "Classical switching-class theory gives the same quotient by vertex-switch translations."
+        ],
+        "reasoning": "The edge-vector quotient used by the package is exactly the standard labeled switching-class formulation.",
+        "searches": [
+          "Rado graph five closed supergroups complement switch tuple orbits",
+          "Mallows Sloane switching classes two-graphs cut space"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the exact textual match, but novelty fails by implication from older structural theory."
+        ],
+        "reasoning": "Absence of a verbatim orbit table does not establish originality when the values are immediate quotient dimensions.",
+        "searches": [
+          "Resultary semantic search for Rado reduct tuple-orbit profiles"
+        ]
+      },
+      "rationale": "FAIL. Bodirsky--Pinsker's complete primary text restates Thomas's classification of the five closed supergroups exactly as the automorphism group, complement extension, switch extension, complement-plus-switch extension, and full symmetric group. Classical Seidel switching theory identifies switching classes with two-graphs, and the cut translations on a fixed labeled \\(k\\)-set form a \\(k-1\\)-dimensional binary space. Once those established ingredients are combined with Rado homogeneity, each claimed injective orbit count is an immediate quotient-cardinality calculation; the Stirling transform for repeated tuple coordinates is standard equality-pattern bookkeeping. Exact wording of the profile is not required under the implication standard.",
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. The profile is a convenient summary, but after the five reduct groups and switching-class structure are known, all five injective counts are one-line dimensions of elementary binary translation spaces and the noninjective counts are a routine Stirling transform. This is a textbook-level specialization rather than a motivated mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Complete frozen/current Git package and finite orbit verifier.",
+    "Independent reconstruction of the edge-vector, cut-space and complement quotients and the Stirling transform.",
+    "Primary random-graph reduct classification and classical switching literature.",
+    "Published-record searches."
+  ],
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "policy": "to-the-best-of-our-knowledge",
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260930-292fd3720b95",
+  "residual_risks": [
+    "No access limitation affects the failure: the implication uses only explicit group generators plus the elementary finite cut-space action."
+  ],
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_PRIOR_GROUP_STRUCTURE",
+      "evidence": "Theorem 2 lists precisely the five groups used by the package and defines the complement and switch generators.",
+      "identifier_or_url": "https://arxiv.org/abs/0903.2553",
+      "material_read": "Primary full text through the group-classification statements and definitions of complement and switch.",
+      "method": "Complete relevant primary full-text inspection.",
+      "title": "All reducts of the random graph are model-complete",
+      "trigger": "Primary source giving the five closed supergroups and their generators."
+    },
+    {
+      "assessment": "ESTABLISHED_SWITCHING_EQUIVALENCE",
+      "evidence": "The classical theory identifies Seidel switching equivalence with two-graph structure; the finite cut-space cardinality is an elementary consequence of the switching definition.",
+      "identifier_or_url": "https://doi.org/10.1137/0128070",
+      "material_read": "Primary abstract and bibliographic statement, supplemented by standard switching-class references.",
+      "method": "Targeted primary-literature inspection.",
+      "title": "Two-Graphs, Switching Classes and Euler Graphs are Equal in Number",
+      "trigger": "Classical primary switching-class theory."
+    }
+  ],
+  "verification_state": "independent_audit_failed"
+}
