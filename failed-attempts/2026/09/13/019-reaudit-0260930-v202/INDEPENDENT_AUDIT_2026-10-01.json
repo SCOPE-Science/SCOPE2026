@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T02:59:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The thin one-cap sliver calculation is consistent. Coherence gives an L4 lower bound of order R^(-5/4). Each R^(-3/4)-angular small cap has L-infinity size at most R^(-5/2) and local weighted L2 squared size of order R^(-3/2), hence L4 size at most R^(-13/8). There are R^(1/2) such pieces, so their l2 sum is R^(-11/8) and the ratio is R^(1/8). The deposited quadrature checker confirms the coherence regime, and the exponent arithmetic was independently recomputed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/1908.09166v2"
+        ],
+        "reasoning": "Proposition 2.4 is dimension-independent and is strictly broader than the submitted 3+1-cone one-cap specialization.",
+        "searches": [
+          "arXiv:1908.09166 refined flat decoupling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1908.09166v2",
+        "2026/09/13/019/artifacts/check_scaling.py",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/1908.09166v2"
+        ],
+        "reasoning": "Substituting p=4,r=2,L=R^(1/2) into the published sharp exponent gives R^(1/8), so the prior result directly implies the claimed barrier.",
+        "searches": [
+          "arXiv:1908.09166 Proposition 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/1908.09166v2#S2"
+        ],
+        "reasoning": "The record's one-cap small-cap problem reduces to decoupling a flat canonical cap into L smaller congruent boxes, exactly the setting of Proposition 2.4.",
+        "searches": [
+          "Resultary: small cap decoupling cone 3+1 R^-3/4 L4 exponent 1/8 Knapp",
+          "Demeter-Guth-Wang arXiv:1908.09166 Proposition 2.4 flat decoupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/9/13/SCOPE019; primary published coverage is theorem-level rather than a numerical table"
+        ],
+        "reasoning": "No exact-number table is needed: the broader sharp flat theorem already fixes the exponent.",
+        "searches": [
+          "Resultary: small cap decoupling cone 3+1 R^-3/4 L4 exponent 1/8 Knapp"
+        ]
+      },
+      "rationale": "The claimed R^(1/8) obstruction is a direct specialization of the published sharp flat-decoupling proposition of Demeter-Guth-Wang. Their Proposition 2.4 is dimension-independent: partitioning one flat box into L congruent translates has sharp l^r(L^p) loss L^(1-1/p-1/r). With p=4, r=2 and L comparable to R^(1/2), this is exactly L^(1/4)=R^(1/8). The submitted one-cap sliver is therefore a concrete Knapp realization of already-published sharp flat decoupling.",
+      "residual_risks": [
+        "The weighted L2 tail estimate and smoothing are sketched rather than supplied with explicit constants; this does not affect the originality failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Proposition 2.4 gives sharp loss L^(1-1/p-1/r); p=4,r=2 yields L^(1/4), and L=R^(1/2) yields R^(1/8).",
+          "identifier_or_url": "https://arxiv.org/html/1908.09166v2",
+          "material_read": "Full-text HTML introduction and Section 2 through Proposition 2.4, including its sharpness statement.",
+          "method": "Full-text HTML inspection.",
+          "title": "Small cap decouplings",
+          "trigger": "Primary source cited for small-cap and flat-regime behavior."
+        },
+        {
+          "assessment": "SUPPORTS_CORRECTNESS_ONLY",
+          "evidence": "The checker confirms a nonzero coherence box and the R^(1/8) exponent arithmetic but cannot establish originality.",
+          "identifier_or_url": "2026/09/13/019/artifacts/check_scaling.py",
+          "material_read": "Complete source.",
+          "method": "Git blob inspection and independent exponent recomputation.",
+          "title": "Deposited coherence checker",
+          "trigger": "Finite numerical support for the Knapp sliver."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the counterexample is correct and naturally motivated, the exact exponent is the routine p=4,r=2 specialization of a published sharp flat-decoupling law. Under the stated value bar this is a textbook/direct parameter substitution rather than a new worthwhile mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "A one-cap sliver gives an \\(R^{1/8}\\) lower barrier for the stated \\(R^{-3/4}\\)-small-cap \\(L^4\\) decoupling constant.",
+  "limitations": [
+    "The lower bound is correct, but its exponent is already the sharp flat-decoupling specialization."
+  ],
+  "schema_version": 1
+}
