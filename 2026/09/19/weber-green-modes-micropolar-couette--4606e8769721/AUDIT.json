@@ -1,27 +1,42 @@
 {
+  "audited_at_utc": "2026-10-01T16:45:57Z",
   "axes": {
     "correctness": {
-      "rationale": "Direct substitution reduces every column of the source sheared Fourier system to y''=(q+1)y. For nonzero streamwise frequency the quadratic q gives Weber's equation with a nonvanishing parabolic-cylinder Wronskian; reconstruction gives the full matrix, Liouville gives the determinant, and standard parabolic-cylinder asymptotics plus the determinant give both singular-value laws. Symbolic and numerical checks reproduce the identities.",
-      "verdict": "PASS"
+      "rationale": "Starting from the assigned source matrix \\(B(t)=\\begin{psmallmatrix}-q&q\\\\1&-q-2\\end{psmallmatrix}\\), the change \\(y=e^Q\\omega\\), \\(Q'=q+1\\), gives \\(y''=(q+1)y\\). For \\(\\xi\\ne0\\), the quadratic \\(q\\) converts exactly to Weber's equation. The nonzero Wronskian gives a fundamental pair, reconstruction gives the displayed \\(2\\times2\\) matrix, Liouville gives determinant \\(e^{-2Q}\\), and standard parabolic-cylinder asymptotics plus the determinant give the two singular-value laws. The actual verification script was inspected; its symbolic reduction, ODE comparisons and determinant checks corroborate but do not replace the proof.",
+      "status": "PASS"
     },
     "originality": {
-      "rationale": "The source derives the equivalent scalar second-order equation but stops at Volterra/Gronwall estimates and does not state the Weber identification, closed 2x2 Green matrix, determinant-based singular-value pair, or quadratic condition-number splitting. Searches found no source-specific correction or SCOPE overlap. Two related micropolar-Couette papers remain a residual risk because their complete proof bodies were not fully inspected.",
-      "verdict": "PASS"
+      "rationale": "The primary source writes the same sheared coefficient matrix and derives the equivalent scalar second-order equation, but then explicitly treats its solution through a Volterra/Gronwall estimate rather than recognizing the quadratic coefficient as Weber's equation. Targeted corpus and literature searches found no earlier closed parabolic-cylinder Green matrix or the quadratic singular-value splitting for this micropolar mode.",
+      "status": "PASS"
     },
     "value": {
-      "rationale": "The result supplies an exact benchmark for a coupled variable-coefficient Green system that the source treats only by estimates, and it separates common cubic enhanced dissipation from a quantitatively explicit quadratic nonnormal splitting. This can guide sharper frequency-localized estimates and general-viscosity comparisons.",
-      "verdict": "PASS"
+      "rationale": "The result supplies an exact benchmark for a coupled variable-coefficient Green system that the motivating paper can only bound, and separates common cubic enhanced dissipation from a quantitative nonnormal quadratic splitting. That is a natural structural refinement relevant to sharper frequency-localized analysis.",
+      "status": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-19",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "disclaimer": "This evidence-based scientific review is not peer review, formal verification, or a guarantee of first discovery.",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "historical_review_evidence": {
+    "axes": {
+      "correctness": {
+        "rationale": "Historical review recorded a correctness pass.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "Historical review recorded an originality pass.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "Historical review recorded a value pass.",
+        "verdict": "PASS"
+      }
+    }
+  },
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "verification_state": "independently_reviewed"
 }
