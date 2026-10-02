@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For the explicit polynomial family, \(g'(z)=zh'(z)\), so the dilatation is \(\omega(z)=z\) and the Jacobian is positive in the disk because \(Na<1\). The identity \(zh'(z)/h(z)-\beta=(1-\beta)(1-w)/(1-aw)\), with \(w=z^{N-1}\), proves starlikeness of exact order \(\beta\). For \(H=h-g\), the boundary expansion at 1 and the implicit-function theorem give a nonreal level branch \(H(z)\in\mathbb R\) inside the disk when \(N>3\beta/[2(1-\beta)]\); conjugate points on that branch have the same harmonic image. Independent symbolic checking reproduced the constants \(A\), \(B\), and \(c=N(1-\beta)/(3\beta)>1/2\), and the repository verifier was inspected as supplementary evidence.
+- Originality: **PASS** — Zhu and Huang's complete 2015 open article was inspected and Remark 18 explicitly states that the sharp starlike-order threshold for univalence of locally univalent sense-preserving harmonic maps is open. Earlier Hotta-Michalski work treats starlike analytic parts without resolving the threshold. The potentially overlapping Yavuz Janowski-starlike paper was also checked: its class is defined inside harmonic univalent functions and its results give coefficient/distortion-type sufficient subclass information rather than a universal implication from starlike order. Targeted searches found no prior family producing nonunivalence at every order below one. Originality therefore passes to the best of current knowledge.
+- Value: **PASS** — The theorem gives a negative resolution of an explicit threshold problem: no nondegenerate starlike order below one can by itself force harmonic univalence. The exact-order polynomial family and boundary-fold mechanism provide a structural counterexample scheme rather than an isolated example.
+
+Detailed comparisons, source inspections, and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
