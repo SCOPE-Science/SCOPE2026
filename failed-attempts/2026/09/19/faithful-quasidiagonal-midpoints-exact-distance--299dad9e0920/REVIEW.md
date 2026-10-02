@@ -1,0 +1,10 @@
+# Review status
+
+Fresh independent mathematical audit: **failed**.
+
+- Correctness: **PASS** — The norm geometry is correct. Every quasidiagonal trace in Moradi's construction annihilates the self-adjoint unitary \(h=e^1-e^0\), while \(\omega_{c,t}(h)=c(2t-1)\), giving the lower bound. The midpoint \(q_c=(1-c)\gamma+c(\mu_0+\mu_1)/2\) is quasidiagonal, and \(\omega_{c,t}-q_c=c(t-1/2)(\mu_1-\mu_0)\); complementary sector support gives \(\|\mu_1-\mu_0\|=2\), so the lower bound is attained. For \(c<1\), the positive \(\gamma\) coefficient makes the traces faithful. Amenability follows from the quasidiagonal midpoint and faciality of amenable traces.
+- Originality: **FAIL** — A published September 18 theorem, 'Tensor amplification yields maximal amenable-quasidiagonal trace separation', was read in full. Applied to Moradi's very same sector projections and traces, its \(r=1\) case proves \(\operatorname{dist}(\mu_i,T_{\mathrm{qd}})=1\), proves \((\mu_0+\mu_1)/2\) quasidiagonal, and proves the sector traces amenable. The assigned two-parameter distance profile then follows mechanically by convexly mixing with Moradi's faithful quasidiagonal trace \(\gamma\) and scaling the same norm-one separator. Thus the advertised family is a direct affine corollary of prior published structure.
+- Value: **FAIL** — The affine interpolation is correct and visually clarifies the geometry, but once the September 18 exact endpoint theorem and Moradi's faithful quasidiagonal \(\gamma\) are known, the whole \(c|2t-1|\) profile is a one-line scaling argument. It is therefore a mechanically implied refinement rather than an independently valuable unknown exact fact under the stated value standard.
+
+Detailed structured comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is retained in `AUDIT.json` as historical evidence.
