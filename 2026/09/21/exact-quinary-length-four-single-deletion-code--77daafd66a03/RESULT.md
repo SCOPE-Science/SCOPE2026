@@ -69,11 +69,11 @@ Kim, Lee, and Oh proved the sharp length-four formula for every even alphabet si
 
 Wang and Ji proved existence of perfect \(T^*(3,4,v)\) deletion codes for odd \(v\), but perfect deletion codes can have different cardinalities because deletion shadows have nonuniform sizes; existence of a perfect code therefore does not determine the maximum cardinality considered here.
 
-Kulkarni and Kiyavash later formulated optimal deletion codes as hypergraph matchings and integer programs and derived general nonasymptotic upper bounds, but their general bound does not determine this small parameter exactly.
+Kulkarni and Kiyavash later formulated optimal deletion codes as hypergraph matchings and integer programs. Their Table I(d) explicitly includes q=5,n=4: its numerical fractional-matching LP upper bound is 45 and its listed Tenengolts-family lower bound is 33. This is an existing table for the exact parameter, but it does not state the integer optimum 42. The retained contribution is the computer-assisted exact integer value, not the first publication of any quinary length-four bound or table.
 
 To the best of our knowledge, the exact value \(N(4,5,1)=42\) has not previously been stated. Searches under the equivalent terminology of quinary single-deletion codes, length-four deletion/insertion metric codes, and hypergraph set-packing formulations did not identify a published exact value for this parameter.
 
-A specific residual originality uncertainty is Li and Houghten, *Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes* (CIT 2012, DOI 10.1109/CIT.2012.137). Its bibliographic record and abstract were inspected; the full paper was not inspected. Because it reports computational experiments and extensions of nonbinary Tenengolts codes, it could in principle contain an unindexed small-parameter observation relevant to \(q=5,n=4\). The originality claim is therefore only to the best of our knowledge.
+A specific residual originality uncertainty is Li and Houghten, *Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes* (CIT 2012, DOI 10.1109/CIT.2012.137). Its bibliographic record and abstract were inspected; full-text inspection has not been established by the available evidence. Because it reports computational experiments and extensions of nonbinary Tenengolts codes, it could in principle contain an unindexed small-parameter observation relevant to \(q=5,n=4\). The originality claim is therefore only to the best of our knowledge.
 
 ## Reproducibility
 
@@ -85,7 +85,7 @@ The matching upper bound is computer-assisted rather than a short symbolic class
 
 ## References
 
-1. H. K. Kim, J. Y. Lee, and D. Y. Oh, “Optimal single deletion correcting code of length four over an alphabet of even size,” *IEEE Transactions on Information Theory* 56(7) (2010), 3217–3220. https://doi.org/10.1109/TIT.2010.2048492 ; preprint: https://arxiv.org/abs/1003.4057
-2. J. Wang and L. Ji, “Existence of T*(3,4,v)-codes,” *Journal of Combinatorial Designs* 13(1) (2005), 42–53. https://doi.org/10.1002/jcd.20031
-3. A. A. Kulkarni and N. Kiyavash, “Nonasymptotic upper bounds for deletion correcting codes,” *IEEE Transactions on Information Theory* 59(8) (2013), 5115–5130. https://doi.org/10.1109/TIT.2013.2257917 ; preprint: https://arxiv.org/abs/1211.3128
-4. Z. Li and S. K. Houghten, “Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes,” *CIT 2012*, 647–654. https://doi.org/10.1109/CIT.2012.137
+1. H. K. Kim, J. Y. Lee, and D. Y. Oh, "Optimal Single Deletion Correcting Code of Length Four Over an Alphabet of Even Size," *IEEE Transactions on Information Theory* 56(7) (2010), 3217-3220. https://doi.org/10.1109/TIT.2010.2048492 ; preprint: https://arxiv.org/abs/1003.4057
+2. J. Wang and L. Ji, "Existence of T*(3,4,v)-codes," *Journal of Combinatorial Designs* 13(1) (2005), 42-53. https://doi.org/10.1002/jcd.20031
+3. A. A. Kulkarni and N. Kiyavash, "Nonasymptotic Upper Bounds for Deletion Correcting Codes," *IEEE Transactions on Information Theory* 59(8) (2013), 5115-5130. https://doi.org/10.1109/TIT.2013.2257917 ; preprint: https://arxiv.org/abs/1211.3128
+4. Z. Li and S. K. Houghten, "Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes," *CIT 2012*, 647-654. https://doi.org/10.1109/CIT.2012.137

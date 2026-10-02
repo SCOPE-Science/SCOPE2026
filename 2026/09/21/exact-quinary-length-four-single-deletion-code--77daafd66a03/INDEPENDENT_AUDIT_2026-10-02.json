@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T16:50:54.355428Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify_q5.py",
+        "independent local execution of the actual package code, 2026-10-02T14:11Z",
+        "Renewed actual source verifier execution: outer deadline180s, elapsed9.523s, Python3.14.3/SciPy1.17.1/NumPy2.4.3; renewed-evidence/39-rerun-output.txt."
+      ],
+      "rationale": "The one-deletion problem is exactly the 0-1 packing of 625 words against 125 length-three output constraints. Independently executed the actual package's artifacts/verify_q5.py with installed SciPy 1.17.1; it verified all 42 witness shadows pairwise disjoint, reproduced N(4,4,1)=24, and returned N(4,5,1)=42 with HiGHS status optimal and reported zero MIP gap. The proof is computer-assisted and relies on the solver's numerical branch-and-bound correctness; it does not provide a stand-alone exact dual/branch certificate.",
+      "residual_risks": [
+        "No exact rational certificate independent of HiGHS was supplied; a reported zero MIP gap is solver evidence, not a formal proof object."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim–Lee–Oh Remark 1 explicitly calls the odd-q bound nonsharp; Theorem 4.7 is restricted to even q"
+        ],
+        "reasoning": "Neither even-q formula nor general deletion-code bounds determine q=5; applying the odd upper bound gives 45, not 42.",
+        "searches": [
+          "Kim Lee Oh arXiv:1003.4057 Theorem 2.2 Remark 1 Theorem 4.7",
+          "Kulkarni Kiyavash arXiv:1211.3128 nonasymptotic bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1003.4057",
+        "https://arxiv.org/html/1211.3128",
+        "https://doi.org/10.1109/CIT.2012.137",
+        "https://arxiv.org/html/0810.3729v1",
+        "https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/OSTCB/TC-OSTCB-4260.pdf",
+        "https://cosc.brocku.ca/~shoughten/papers.html",
+        "renewed-evidence/39-evidence-review.md (actual source passages, retrieval scope and standard2.1.15 best-of-knowledge comparison)",
+        "assigned RESULT.md and computation artifacts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even-q optimum is 24 at q=4; the published odd bound specializes to 45 at q=5; a perfect deletion code need not maximize cardinality because shadow sizes vary"
+        ],
+        "reasoning": "Known statements do not imply the exact 42; the independent integer optimization gives a strict improvement over the odd upper bound.",
+        "searches": [
+          "Kim–Lee–Oh Theorem 2.2/Remark 1/Table 2/Table 3",
+          "Wang–Ji perfect T*(3,4,v) and Kulkarni–Kiyavash general bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim–Lee–Oh arXiv:1003.4057 defines N(4,q,1) for standard deletion correction; the inspected relevant theorem/remark/table portions do not state a q=5 exact value"
+        ],
+        "reasoning": "The 0-1 deletion-shadow packing is equivalent to the ordinary ordered-word one-deletion code; no equivalent published exact q=5 statement was located in the inspected source.",
+        "searches": [
+          "N(4,5,1) deletion code 42",
+          "quinary length 4 single deletion code 42 optimal",
+          "length-four odd-alphabet deletion/insertion code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Kim–Lee–Oh tables list q=4 and q=6 examples, not q=5; the live Resultary first hit is this record itself, with no independent exact q=5 hit among the top five",
+          "Kulkarni–Kiyavash arXiv:1211.3128 Section VI, Table I(d), explicitly tabulates q=5,n=4: numerical fractional-matching upper bound45 and Tenengolts lower bound33, not exact integer optimum42."
+        ],
+        "reasoning": "No inspected independent exact table determines42. There IS a published q=5,n=4 bounds table (LP45/constructive33); neither it nor the even-q theorem implies42. A self-hit is not novelty evidence.",
+        "searches": [
+          "N(4,5,1) exact",
+          "quinary deletion code length four table",
+          "Resultary API 2026-10-02T14:21:21.3839427Z: quinary length four single deletion code 42"
+        ]
+      },
+      "rationale": "The nearest complete primary theorem treats even alphabet sizes and expressly says its odd-size upper bound is not sharp. The quinary exact value is not implied by that theorem, by perfect-code existence, or by general hypergraph/LP formulations. Best-of-knowledge with a specific uninspected 2012 computational-paper risk.",
+      "residual_risks": [
+        "Li–Houghten 2012 full paper was not accessible and could contain the exact small-parameter result.",
+        "The separately inspected Li2011 thesis is ternary in its relevant extension/computational chapters, but the later2012 paper could broaden that scope; it remains an uninspected priority risk, not NOT_COVERING.",
+        "Resultary top-five public search is bounded and cannot exclude all duplicate formulations; its first hit is self.",
+        "Frozen metadata asserted a historical full Li–Houghten2012 inspection, while RESULT and current retained audit evidence do not establish it. This unsupported stronger provenance assertion is withdrawn from the repaired metadata; original source is preserved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_Q5",
+          "evidence": "Remark 1: odd-q upper bound nonsharp; Theorem 4.7: even q only; table examples q=4,6.",
+          "identifier_or_url": "https://arxiv.org/html/1003.4057",
+          "material_read": "Full relevant introduction, Theorem 2.2 and Remark 1, construction and Tables 2–3, Theorems 4.3–4.7",
+          "method": "Primary full-text theorem/parameter comparison",
+          "title": "Construction of optimal codes in deletion and insertion metric",
+          "trigger": "Exact same N(4,q,1) family and plausible covering theorem/table"
+        },
+        {
+          "assessment": "EXISTING_Q5_N4_LP45_TABLE_NOT_EXACT42",
+          "evidence": "Table I(d): q=5,n=4 numerical LP upper bound45 and Tenengolts lower bound33; no exact integer optimum42 in this table.",
+          "identifier_or_url": "https://arxiv.org/html/1211.3128",
+          "material_read": "Complete relevant Section VI Table I(d), column definitions and numerical-bound interpretation, alongside the previously read formulation/upper-bound portions; not the whole paper.",
+          "method": "Primary source scope comparison",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General upper-bound/hypergraph formulation that could dominate the exact claim"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "The available abstract advertises computational searches but does not expose a q=5,n=4 table. Author's publication list contains this entry without a PDF link; the earlier 2011 thesis was inspected separately and does not substitute for this paper.",
+          "identifier_or_url": "https://doi.org/10.1109/CIT.2012.137",
+          "material_read": "Bibliographic record and abstract only; full paper not obtained",
+          "method": "Lawful title/DOI/arXiv/preprint/OA and author-publication searches; actual Oxford attempt required reauthentication; actual IEEE6391974 page yielded no full text, with no access-control bypass",
+          "title": "Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes",
+          "trigger": "Computational paper plausibly tabulating q=5,n=4"
+        },
+        {
+          "assessment": "HISTORICAL_ODD_BOUND45_NOT_EXACT42",
+          "evidence": "Theorem2.2 odd q bound q(q+1)^2/4 specializes to45; Theorem4.7 exact result only even q. Withdrawn historical preprint is supporting evidence, not a substitute for the final2010 paper.",
+          "identifier_or_url": "https://arxiv.org/html/0810.3729v1",
+          "material_read": "The complete relevant Theorem2.2 proof/remarks, Tables2-3, construction theorems through Theorem4.7, and perfect-code section of the19-page v1; current v2 withdrawal notice also read",
+          "method": "Readable primary v1 PDF and full-text HTML comparison; inaccessible CiteSeer file byte identity not asserted",
+          "title": "Optimal codes in deletion and insertion metric",
+          "trigger": "Same-title primary preprint corresponding to a newly suggested CiteSeer length-four candidate"
+        },
+        {
+          "assessment": "INSPECTED_THEORY_TABLES_TERNARY_NOT_Q5_N4",
+          "evidence": "Chapter5 printed61 fixes ternary scope; Table5.3 printed66 length4 is q3 sizes6/7/8, not q5=42; Chapter6 occurrences42 are ternary length6; conclusion printed90 restricts completed studies to ternary and gives other alphabets as future work. This does not establish the scope of the separate2012 paper.",
+          "identifier_or_url": "https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/OSTCB/TC-OSTCB-4260.pdf",
+          "material_read": "Title/front matter/contents and entire Chapters5-7: PDF62-91, printed61-90; not all preliminary chapters",
+          "method": "Lawfully retrieved public archive's genuine94-page PDF payload, parsed directly; PDF SHA256 ce26d158bb135f540a57a94cb089b39c173da35a51176c13b0f040ad8f106583",
+          "title": "Construction of 1-Deletion-Correcting Ternary Codes",
+          "trigger": "Li's2011 primary thesis plausibly preceding the2012 Tenengolts-extension paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [],
+      "rationale": "This odd-alphabet length-four case is a natural exact coding invariant, and the computer-assisted value42 improves the already published q=5 upper bound45. Such exact small-parameter values benchmark code constructions and bounds; no general theorem is required by the standard. Priority remains best-of-knowledge with the specifically named2012 source risk; this is not a claim of an exact rational certificate or universal first publication.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "No exact rational certificate independent of HiGHS was supplied; a reported zero MIP gap is solver evidence, not a formal proof object.",
+    "Li–Houghten 2012 full paper was not accessible and could contain the exact small-parameter result.",
+    "The separately inspected Li2011 thesis is ternary in its relevant extension/computational chapters, but the later2012 paper could broaden that scope; it remains an uninspected priority risk, not NOT_COVERING.",
+    "Resultary top-five public search is bounded and cannot exclude all duplicate formulations; its first hit is self.",
+    "Frozen metadata asserted a historical full Li–Houghten2012 inspection, while RESULT and current retained audit evidence do not establish it. This unsupported stronger provenance assertion is withdrawn from the repaired metadata; original source is preserved."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No exact rational certificate independent of HiGHS was supplied; a reported zero MIP gap is solver evidence, not a formal proof object.",
+    "Li–Houghten 2012 full paper was not accessible and could contain the exact small-parameter result.",
+    "The separately inspected Li2011 thesis is ternary in its relevant extension/computational chapters, but the later2012 paper could broaden that scope; it remains an uninspected priority risk, not NOT_COVERING.",
+    "Resultary top-five public search is bounded and cannot exclude all duplicate formulations; its first hit is self.",
+    "Frozen metadata asserted a historical full Li–Houghten2012 inspection, while RESULT and current retained audit evidence do not establish it. This unsupported stronger provenance assertion is withdrawn from the repaired metadata; original source is preserved."
+  ]
+}
