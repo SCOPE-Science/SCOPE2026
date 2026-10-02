@@ -1,0 +1,82 @@
+{
+  "audited_at_utc": "2026-10-01T06:05:34.187470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed 2-by-2 family was reconstructed algebraically. For epsilon in (0,1/2), both induced 1-norm and rho(|inverse of A|) equal 1/2+epsilon<1; the (+,+) candidate is positive and is the unique AVE solution, while exact rational differences show (+,-) strictly exceeds all three other DPO potentials. Its second candidate coordinate is positive, so the sign is wrong, and the mismatch flip has strictly negative potential increment. The epsilon=1/20 exact-arithmetic artifact was independently replayed, reproducing the four potentials and the gap 40/1197. The scalar minimality and block-diagonal embedding arguments are valid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen--Xia establishes the sufficient sub-one-half DPO regime; standard AVE well-posedness extends to the larger rho<1 regime."
+        ],
+        "reasoning": "Those broader results motivate the gap but do not imply existence of the explicit wrong DPO maximizer above one half.",
+        "searches": [
+          "Chen--Xia arXiv:2609.12763v2",
+          "AVE uniqueness rho(|inverse of A|)<1 literature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.12763v2",
+        "Resultary semantic search for DPO sharpness aliases",
+        "record artifacts/verify_eps_1_20.py and artifacts/verified_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source theorem is one-sided (<1/2); earlier one-half sharpness results concern a different sign-selection property."
+        ],
+        "reasoning": "Neither inspected source implies the displayed DPO landscape counterexample; the record supplies new sharpness evidence for the DPO objective itself.",
+        "searches": [
+          "Chen--Xia theorem statements",
+          "Radons sharp one-half signed-elimination context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent counterexample family or alternate formulation was located outside the audited record."
+        ],
+        "reasoning": "The searched aliases included global-maximizer failure, sign-flip descent, norm threshold and spectral-radius scaling.",
+        "searches": [
+          "Resultary: DPO half threshold sharpness AVE global maximizer wrong unique 1/2",
+          "Chen--Xia arXiv:2609.12763v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database or table determines this analytic threshold claim."
+        ],
+        "reasoning": "Database/table coverage is genuinely inapplicable beyond checking indexed mathematical records because the claim is a symbolic family theorem.",
+        "searches": [
+          "Resultary semantic search for exact family and threshold"
+        ]
+      },
+      "rationale": "The source DPO paper proves the sub-one-half global-maximizer theorem and the diagonal-scaling spectral-radius extension, but the inspected theorem-level material does not give an above-threshold counterexample or sharpness family. Resultary semantic search returned this record as the only direct sharpness match; no equivalent or stronger prior implication was located. Originality therefore passes to the best of knowledge, with the usual residual risk from very recent AVE follow-up work.",
+      "residual_risks": [
+        "The DPO paper is extremely recent, so an unindexed follow-up could contain an equivalent sharpness construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "sets the sufficient threshold but does not state the audited above-threshold counterexample family",
+          "evidence": "The abstract explicitly identifies 1/2 as the sufficient DPO norm threshold and gives the spectral-radius scaling extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12763v2",
+          "material_read": "abstract and theorem-level statements describing the global-maximizer result under ||inverse of A||_1<1/2 and the rho(|inverse of A|)<1/2 diagonal-scaling extension",
+          "method": "primary-source web inspection",
+          "title": "Discrete Potential Optimization for Absolute Value Equations: A Sign-Flip Framework with Polynomial Complexity",
+          "trigger": "same DPO potential, threshold and scaling route"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural sharpness theorem for a newly introduced universal certification threshold. The counterexample is parameter-uniform, dimension-minimal, robust, rationally approximable, and simultaneously addresses the norm and scaling formulations; it identifies a meaningful boundary rather than an arbitrary finite instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every c in (1/2,1), a two-dimensional uniquely solvable absolute-value equation can have norm and absolute-inverse spectral radius both equal to c while the DPO potential has a unique global maximizer with one wrong sign; correcting that sign decreases the potential. Dimension two is minimal, the construction is robust, embeds in every higher dimension, and cannot be moved below the source threshold by positive diagonal scaling.",
+  "independent": true,
+  "record_id": "SCOPE-20260917-ba2cd47befbe",
+  "schema_version": 1,
+  "scientific_limitations": "Originality is to the best of knowledge within the documented searches and inspections. Computational artifacts establish only the finite statements they actually check.",
+  "title": "The one-half threshold is sharp for discrete-potential AVE certification"
+}
