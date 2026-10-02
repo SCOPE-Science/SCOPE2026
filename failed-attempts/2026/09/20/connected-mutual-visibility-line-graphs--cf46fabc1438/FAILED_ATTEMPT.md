@@ -1,0 +1,9 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+This package is preserved as scientific evidence, but its final claim did not pass the fresh independent audit on all three axes.
+
+- Correctness: **PASS** — The saturation-connectivity argument is correct. Under the established translations, an inclusion-maximal mutual-visibility set in \(L(K_n)\) is a \(K_4\)-saturated spanning subgraph of \(K_n\), and in \(K_m\square K_n\) it is a \(C_4\)-saturated spanning subgraph of \(K_{m,n}\). If two nontrivial components existed, adding a host edge between them could not create the connected forbidden graph, contradicting saturation; in the bipartite case an isolated vertex is likewise impossible. Thus the selected-edge graph, and hence its line graph, is connected. The stated Turán and saturation values then follow from the prior forbidden-subgraph correspondences.
+- Originality: **FAIL** — The rook-graph half is exactly covered by an earlier September 19 published finding that proves every inclusion-maximal rook mutual-visibility set connected and \(\mu_c(K_m\square K_n)=z(m,n;2,2)\). The triangular half is a direct application of the same elementary saturation-connectivity observation to the already-published \(K_4\)-free characterization of mutual visibility in \(L(K_n)\); the numerical values are classical Turán and saturation numbers. Under an implication-based originality bar, no substantial final claim remains original.
+- Value: **FAIL** — The graph-theoretic transfer is correct and useful expositionally, but the rook theorem is duplicated and the triangular theorem is a short mechanical consequence of the prior forbidden-subgraph characterization plus a generic fact about saturation by a connected forbidden graph. It does not provide a surviving structural gap beyond those ingredients.
+
+See `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json` for the complete comparison and residual risks.
