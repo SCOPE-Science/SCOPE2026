@@ -1,5 +1,5 @@
 # Independent mathematical audit — SCOPE-20260921-1c1f6450764b
-Audit date: 2026-10-01 UTC.
+Audit date: 2026-10-01 (UTC) UTC.
 Disposition: **passed**.
 
 ## Final claim

@@ -1,13 +1,7 @@
 {
   "audit_date_utc": "2026-10-01",
   "audited_at_utc": "2026-10-01T22:52:03Z",
-  "disclaimer": "Mathematical audit; not formal proof-assistant verification and not a guarantee of priority.",
-  "evidence_files": [
-    "INDEPENDENT_AUDIT_2026-10-01.md",
-    "INDEPENDENT_AUDIT_2026-10-01.json",
-    "REVIEW.md"
-  ],
-  "independent_assessment": {
+  "axes": {
     "correctness": {
       "checked_sources": [
         "E. B. Dennis, B. J. T. Morgan, M. S. Ridout, Computational aspects of N-mixture models, Biometrics 71 (2015), 237–246, DOI:10.1111/biom.12246.",
@@ -104,27 +98,49 @@
       "status": "PASS"
     }
   },
-  "independent_audit_status": "passed",
-  "independent_validation": true,
-  "previously_published_pending_reaudit": false,
-  "prior_scientific_assessment": {
-    "axes": {
-      "correctness": {
-        "status": "PASS"
-      },
-      "originality": {
-        "status": "PASS"
-      },
-      "value": {
-        "status": "PASS"
-      }
-    },
-    "limitations": "The equal-detection moment formula is already present for mixed-Poisson N-mixtures in Dennis et al. (2015) and is not claimed as new. The new claim concerns arbitrary abundance laws, visit-specific detection, full-law identification, and the sharp one-versus-two visit boundary. Strong observation-model assumptions and residual originality risk remain.",
-    "scientific_summary": "For a closed binomial repeated-count model with an arbitrary count-valued abundance law of finite second moment, two visits identify both visit-specific detection probabilities by a moment cancellation and then identify the entire abundance law through its probability-generating function. One visit is globally nonidentifying.",
-    "status": "passed"
-  },
+  "checked_sources": [
+    "E. B. Dennis, B. J. T. Morgan, M. S. Ridout, Computational aspects of N-mixture models, Biometrics 71 (2015), 237–246, DOI:10.1111/biom.12246.",
+    "J. A. Royle, N-mixture models for estimating population size from spatially replicated counts, Biometrics 60 (2004), 108–115.",
+    "H. Holzmann, A. Munk, W. Zucchini, On identifiability in capture-recapture models, Biometrics 62 (2006), 934–936.",
+    "Published-record semantic query: nonparametric closed binomial N-mixture two visits identify detection probability arbitrary abundance pgf."
+  ],
+  "disclaimer": "Mathematical audit; not formal proof-assistant verification and not a guarantee of priority.",
+  "disposition": "passed",
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json",
+    "REVIEW.md"
+  ],
   "record_id": "SCOPE-20260921-1c1f6450764b",
   "record_title": "Two visits identify a nonparametric closed binomial N-mixture",
+  "residual_risks": [
+    "Older thinning or repeated-measurement literature could contain an equivalent abstract theorem; targeted searches did not find one."
+  ],
   "schema_version": 1,
+  "scientific_limitations": [
+    "Finite second moment and strictly positive detection probabilities are used by the stated moment inversion.",
+    "The theorem is a population identifiability result, not a finite-sample stability or estimation-rate theorem.",
+    "Older thinning or repeated-measurement literature could contain an equivalent abstract theorem; targeted searches did not find one."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_PARAMETRIC_COVERAGE",
+      "evidence": "The paper derives moment formulas for common \\(p\\) under Poisson/mixed-Poisson abundance; it does not state arbitrary-law two-visit full identification with visit-specific detection.",
+      "identifier_or_url": "DOI:10.1111/biom.12246; Kent accepted manuscript",
+      "material_read": "full lawful accepted-manuscript PDF, especially model setup, Poisson equivalence, and Section 6 moment equations and estimators",
+      "method": "institutional open-access full-text inspection",
+      "title": "Computational aspects of N-mixture models",
+      "trigger": "closest primary source for repeated-count moment identifiability"
+    },
+    {
+      "assessment": "DIFFERENT_MIXING_PROBLEM",
+      "evidence": "The paper studies mixing over capture probabilities and identifiable subfamilies, not the latent-abundance binomial-thinning model audited here.",
+      "identifier_or_url": "DOI:10.1111/j.1541-0420.2006.00637_1.x",
+      "material_read": "abstract and bibliographic context",
+      "method": "publisher/PubMed inspection",
+      "title": "On identifiability in capture-recapture models",
+      "trigger": "plausible broader nonparametric identifiability source"
+    }
+  ],
   "verification_state": "independently_reviewed"
 }
