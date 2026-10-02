@@ -1,27 +1,129 @@
 {
-  "axes": {
+  "independent_audit": {
+    "axes": {
+      "correctness": {
+        "rationale": "The proof reconstructs the DNP estimate from the exact FLM intersection machinery. FLM Lemma 7.15 gives \\(c(\\mathrm{Dist},\\mathrm{NoPlus})^2\\le t(t-1)/(N-t+1)\\), and the proof of their Theorem 7.7 supplies the factor-4 union-bound losses. Independently, \\(I-\\Pi_{\\mathrm{NoPlus}}\\preceq\\sum_j |+\\rangle\\langle+|_j\\) gives the \\(t\\mu_+\\) term. For a local exact 2-design the two-copy equality projector twirls to \\((2/(d+1))\\Pi_{\\mathrm{sym}}\\); independence over \\(n\\) sites gives \\((2/(d+1))^n\\), and a pair union bound gives the displayed collision estimate. A tensor product of local 1-designs is a global 1-design. These steps establish the stated bound for \\(2\\le t\\le N/2\\).",
+        "status": "PASS"
+      },
+      "originality": {
+        "broader_coverage": {
+          "evidence": [
+            "FLM's broader geometric intersection lemma is prior and is explicitly used, but its probabilistic hypothesis is a global unitary 2-design.",
+            "Raza--Eisert--Fefferman proves ordinary distinctness for the depth-one local Clifford ensemble but leaves the stronger DNP property open."
+          ],
+          "reasoning": "Neither prior theorem dominates the final implication: one has the needed geometry but a stronger randomization hypothesis; the other has the target ensemble but only ordinary distinctness.",
+          "searches": [
+            "FLM Theorem 7.7 and Lemma 7.15",
+            "Raza--Eisert--Fefferman distinctness framework"
+          ]
+        },
+        "checked_sources": [
+          "arXiv:2609.03065",
+          "arXiv:2606.30281",
+          "Resultary published findings"
+        ],
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "FLM supplies the geometric inequality but does not imply the local product ensemble satisfies the needed separate conditions without the new calculation.",
+            "Raza's ordinary-distinctness bound plus local design facts becomes sufficient only after the lifting inequality is isolated."
+          ],
+          "reasoning": "The final claim is a nontrivial corollary of combining distinct prior ingredients with a new general sufficient condition; neither cited prior result alone mechanically implies it.",
+          "searches": [
+            "FLM proof of Theorem 7.7",
+            "Raza open-question statement"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "Resultary returned this record but no equivalent earlier finding.",
+            "The Raza--Eisert--Fefferman discussion asks whether independent depth-one single-qubit Cliffords are non-plussed distinct.",
+            "FLM defines DNP as Distinct intersect NoPlus and proves the global-2-design theorem."
+          ],
+          "reasoning": "The local-product theorem is not a renaming of FLM's global 2-design result because the product ensemble is not a global 2-design; the proof replaces global two-copy randomness by ordinary-distinctness plus one-copy flatness.",
+          "searches": [
+            "Resultary: distinct nonplussed local Clifford ordinary distinctness plus-state flatness Friedrichs angle",
+            "Raza--Eisert--Fefferman arXiv:2609.03065 open-question text",
+            "FLM arXiv:2606.30281 Section 7.1"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "No earlier database/table entry with the theorem was found; Resultary's only exact thematic hit was this record."
+          ],
+          "reasoning": "The claim is theorem-level, not a database/table lookup; the relevant exact-index search was nevertheless performed.",
+          "searches": [
+            "Resultary semantic search for local Clifford DNP",
+            "web searches for the exact local-Clifford/non-plussed phrasing"
+          ]
+        },
+        "rationale": "The final contribution is the lifting principle 'ordinary distinctness plus one-copy plus-state flatness implies DNP concentration' and its product-local-design/local-Clifford corollary. The motivating paper explicitly leaves the local-Clifford DNP question open, while FLM proves DNP concentration for global unitary 2-designs. No published SCOPE/resultary hit or primary source inspected states the product-local corollary or general lifting inequality.",
+        "residual_risks": [
+          "The question and solution are close in time, so unindexed near-simultaneous work remains possible.",
+          "This audit does not claim that DNP concentration alone removes the binary phase layer in a full PRU security proof."
+        ],
+        "source_inspections": [
+          {
+            "assessment": "COVERING for the geometric bound, NOT_COVERING for product-local-design DNP.",
+            "evidence": "Lemma 7.15 states \\(c^2\\le t(t-1)/(N-t+1)\\); Theorem 7.7 combines this with factor-4 Dist/NoPlus errors for global 2-designs.",
+            "identifier_or_url": "https://www.researchgate.net/publication/408235995_Quantum_Lazy_Sampling_and_Path_Recording_for_Any_Group",
+            "material_read": "Section 7.1 excerpts including Lemma 7.15 and the proof of Theorem 7.7.",
+            "method": "Accessible full-text preprint mirror exposed by web search.",
+            "title": "Quantum Lazy Sampling and Path Recording for Any Group",
+            "trigger": "Exact source of the DNP projector geometry and penalty."
+          },
+          {
+            "assessment": "NOT_COVERING; it leaves the target stronger property open.",
+            "evidence": "The indexed discussion asks whether the depth-one independent single-qubit Clifford ensemble is non-plussed distinct.",
+            "identifier_or_url": "https://arxiv.org/abs/2609.03065",
+            "material_read": "Abstract plus indexed discussion/open-question quotation.",
+            "method": "arXiv metadata and independently indexed quotation.",
+            "title": "Distinctness threshold for pseudorandom unitaries",
+            "trigger": "Motivating paper and explicit open question."
+          }
+        ],
+        "status": "PASS"
+      },
+      "value": {
+        "rationale": "This resolves an explicit open question for a natural depth-one quantum ensemble and extracts a reusable sufficient condition that applies beyond global 2-designs. It is a motivated structural lemma with a concrete cryptographic application, not an arbitrary parameter slice.",
+        "status": "PASS"
+      }
+    },
+    "disposition": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ],
+    "independent": true,
+    "limitations": [
+      "The result is for parallel forward-query states and does not by itself prove PRU security after removing the binary phase layer.",
+      "The exact constants are not claimed optimal.",
+      "The motivating papers are recent, so near-simultaneous priority remains a residual risk."
+    ],
+    "review_type": "independent_audit",
+    "reviewed_at_utc": "2026-10-01T14:04:00Z",
+    "status": "passed"
+  },
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "phase": "II",
+  "policy": "to-the-best-of-our-knowledge",
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260919-1434efbb2fb7",
+  "review_type": "same_model_review",
+  "same_model_review": {
     "correctness": {
-      "rationale": "The FLM projector-intersection estimate bounds DNP failure by ordinary Dist failure, NoPlus failure, and the Friedrichs-angle term. NoPlus failure is at most t times the one-copy plus-state operator norm. For product local 2-designs, pair-collision twirls factor across sites with local norm 2/(d+1), and the product ensemble is a global 1-design, yielding the stated explicit bound.",
-      "verdict": "PASS"
+      "rationale": "The prior same-model review checked the FLM projector-intersection estimate, the one-copy NoPlus union bound, and the product local two-design collision twirl.",
+      "status": "PASS"
     },
     "originality": {
-      "rationale": "Raza--Eisert--Fefferman explicitly pose non-plussed distinctness of independent single-qubit Cliffords as an open question, while FLM establish DNP concentration for global unitary 2-designs. Targeted external and SCOPE-overlap searches found no prior statement of the lifting inequality or the local-Clifford corollary. Near-simultaneous or folklore priority risk remains material because the sources are recent and the combination is concise.",
-      "verdict": "PASS"
+      "rationale": "The prior same-model review treated the Raza--Eisert--Fefferman open question and FLM global-design theorem as the main comparison.",
+      "status": "PASS"
     },
     "value": {
-      "rationale": "The result resolves a concrete open question about a depth-one quantum ensemble and extracts a reusable sufficient condition for DNP concentration, with a qudit product-design extension and an explicit negligible error bound.",
-      "verdict": "PASS"
+      "rationale": "The prior same-model review valued resolution of the explicit local-Clifford DNP question and the reusable lifting condition.",
+      "status": "PASS"
     }
   },
-  "disclaimer": "Same-model review: passed. Independent audit: not yet performed.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-19",
   "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
