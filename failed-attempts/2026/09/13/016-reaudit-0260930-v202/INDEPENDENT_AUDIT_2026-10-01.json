@@ -1,0 +1,105 @@
+{
+  "audited_at_utc": "2026-10-01T02:59:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant-sum reduction is correct for zonotopes. Independent exact enumeration reproduced the C_n values S0,S1,S2,N for n=4,5,6, including N=1528320, 815212800 and 663997432320. An independent exact Fraction/Bareiss replay of the F4 construction reproduced S0=159, S1=1032, S2=4680 and N=218592. The support-function comparisons also show the short- and long-root zonotopes are not homothetic. The core strict-deficit claims are therefore correct; the phrase 'extremal witness' is misleading terminology because the computed deficits are strict, not equality/extremal cases.",
+      "residual_risks": [
+        "The repository's n=6 script uses rounded floating determinants with a tracked deviation plus exact spot checks; the independent re-enumeration reproduced its aggregate values."
+      ],
+      "sources": [
+        "2026/09/13/016/artifacts/compute_cn.py",
+        "2026/09/13/016/artifacts/compute_f4.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Root-system zonotope theory supplies the natural objects.",
+          "General AF theory supplies inequality/equality structure but not these exact determinant-sum values in the material inspected."
+        ],
+        "reasoning": "Broader theory makes the computation routine but does not itself furnish the four exact rows.",
+        "searches": [
+          "De Concini Procesi root system zonotope",
+          "Shenfeld van Handel AF extremals polytopes"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00031-008-9031-z",
+        "https://arxiv.org/abs/2011.04059",
+        "Resultary published-findings semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant formula gives a finite algorithm, but the exact integers require carrying out the sums.",
+          "No inspected theorem was found that states these exact values."
+        ],
+        "reasoning": "The rows are computational consequences of standard formulas, not quoted prior values; this weak form of originality is separated from the failing value assessment.",
+        "searches": [
+          "standard zonotope volume polarization identity",
+          "Shenfeld-van Handel polytope equality characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the record under audit as the exact match and the neighboring equality record.",
+          "No exact matching table was found in the searched literature."
+        ],
+        "reasoning": "Equivalent formulations use coefficients of the volume polynomial of Z_short+t Z_long or transversal determinant sums; no exact prior values were located.",
+        "searches": [
+          "Resultary semantic search: Alexandrov Fenchel strict deficit short-root long-root zonotopes C4 C5 C6 F4 mixed volume determinant sum",
+          "web search exact deficit integers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact database/table row was found."
+        ],
+        "reasoning": "This is a best-of-knowledge originality PASS for the numerical rows only.",
+        "searches": [
+          "Resultary exact C4 C5 C6 F4 mixed-volume search",
+          "web exact-number searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches found the standard root-zonotope literature and the general Alexandrov-Fenchel equality theory, but no prior source tabulating these exact C4/C5/C6/F4 short-versus-long mixed-volume deficits. The exact finite values appear new as computations, although originality does not by itself establish value.",
+      "residual_risks": [
+        "The exact values could exist in specialized computational tables not indexed by the searches performed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_EXACT_TABLE_FOUND_IN_INSPECTED_MATERIAL",
+          "evidence": "The source concerns root-system zonotopes generally; no exact short-versus-long AF deficit table for the audited ranks was located.",
+          "identifier_or_url": "https://doi.org/10.1007/s00031-008-9031-z",
+          "material_read": "bibliographic/abstract-level material available through search",
+          "method": "web inspection",
+          "title": "The zonotope of a root system",
+          "trigger": "same natural root-system zonotopes"
+        },
+        {
+          "assessment": "GENERAL_CONTEXT_NOT_EXACT_NUMERIC_COVERAGE",
+          "evidence": "It characterizes equality mechanisms rather than tabulating these determinant sums.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.04059",
+          "material_read": "main-result description and relevant equality mechanism material",
+          "method": "primary-source inspection",
+          "title": "The Extremals of the Alexandrov-Fenchel Inequality for Convex Polytopes",
+          "trigger": "general equality/strictness context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The final result consists of four small-rank evaluations of the standard zonotope determinant-sum formula. The package does not motivate n=4,5,6 or the F4 row as a sharp cutoff, classification boundary, unknown invariant needed downstream, or obstruction to a conjecture. Once the generators are specified, the values are mechanically enumerable. Correctness and best-of-knowledge novelty therefore do not supply the substantive mathematical reason required by the shared value standard.",
+      "residual_risks": [],
+      "sources": [
+        "2026/09/13/016/RESULT.md",
+        "https://doi.org/10.1007/s00031-008-9031-z"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For C_n at n=4,5,6 and for F4, the specified short- versus long-root zonotopes have the stated positive exact Alexandrov-Fenchel determinant-sum deficits.",
+  "record_id": "SCOPE-20260913-016",
+  "schema_version": 1,
+  "scientific_limitations": "The exact finite determinant sums are reproducible, but the selected small-rank rows are routine evaluations of the standard zonotope polarization formula and are not motivated as a natural cutoff, classification, or independently needed invariant."
+}
