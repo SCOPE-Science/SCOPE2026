@@ -1,32 +1,91 @@
 {
   "correctness": {
     "status": "PASS",
-    "summary": "Degree-sum inequalities give the exact lower bound; a staircase/majorization construction satisfies Gale-Ryser at equality. A component-merging 2-switch proves connected realizability when the sharp positive degree sequences have at least n-1 edges, which holds for every a>=2. The a=1 connected obstruction is structural."
+    "summary": "For part sizes \\(x,y\\), forcing degrees \\(1,\\ldots,b\\) on the \\(Y\\)-side gives \\(e\\ge y+b(b-1)/2\\), while forcing exactly the set \\([a]\\) on \\(X\\) gives \\(e\\le ax-a(a-1)/2\\). The resulting order lower bound is strictly increasing in \\(y\\), so equality starts at \\(y=b\\) and yields the stated ceiling. At equality the proposed row sequence is the staircase \\((a,\\ldots,1)\\) plus copies of \\(a\\) and one remainder; the column staircase \\((b,\\ldots,1)\\) is self-conjugate and majorizes the row sequence after adjoining the common lower staircase, so Gale--Ryser gives a simple realization. The connected-realization lemma is valid: among realizations with the fewest components, \\(e\\ge n-1\\) forces a cyclic component, and a degree-preserving cross-component 2-switch using a cycle edge reduces the component count. The sharp sequences satisfy \\(e\\ge n-1\\) for every \\(a\\ge2\\); for \\(a=1<b\\), every \\(X\\)-vertex has degree one, so two \\(Y\\)-vertices cannot be joined. The proof therefore covers all parameters, and the finite verifier is only supplementary."
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "limitations": [
-    "Originality is to the best of our knowledge; unindexed or differently phrased equivalent results may exist.",
-    "The result concerns consecutive positive distributed degree sets [a] and [b], not arbitrary unequal-cardinality sets.",
-    "The equal-cardinality specialization is covered by earlier literature and is included only for a unified statement.",
-    "Finite verification supports but does not replace the proof."
+    "The theorem treats consecutive positive distributed degree sets \\([a]\\) and \\([b]\\), not arbitrary unequal-cardinality sets; the equal-cardinality specialization is prior territory. Unindexed equivalent formulations remain possible."
   ],
   "originality": {
-    "scope": "to the best of our knowledge",
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 41 supplies arbitrary-cardinality existence; Example 42 gives the connected obstruction \\(\\{1\\}\\) versus \\(\\{1,2\\}\\), but no all-\\(b\\) minimum-order formula.",
+        "The earlier minimum-order theorem is restricted to equal cardinalities."
+      ],
+      "reasoning": "The general existence theorem does not dominate a sharp optimization theorem; the connected classification for the consecutive family is additional.",
+      "searches": [
+        "Iványi--Pirzada--Dar 2015 full text, Theorem 41 and Example 42",
+        "Manoussakis--Patil 2014 minimum-order framework"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1515/ausi-2015-0013",
+      "DOI:10.7151/dmgt.1742",
+      "DOI:10.1016/S1571-0653(04)00554-2",
+      "Gale--Ryser classical criteria",
+      "published SCOPE archive search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 paper explicitly distinguishes the earlier minimum-order question from its subsequent existence theorem and notes that its general construction need not be minimum order."
+      ],
+      "reasoning": "No inspected prior statement mechanically yields the ceiling term or proves connected attainment at that same order.",
+      "searches": [
+        "DOI:10.1515/ausi-2015-0013 full text around Theorem 41",
+        "DOI:10.7151/dmgt.1742"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published SCOPE search returned no separate theorem equivalent to the displayed formula.",
+        "Iványi--Pirzada--Dar quote Manoussakis--Patil that determining the minimum-order property for arbitrary positive sets of different cardinalities was open, then prove existence without a minimum-order claim."
+      ],
+      "reasoning": "Existence for arbitrary distributed degree sets is weaker than the exact minimum-order formula for \\([a],[b]\\), and equal-cardinality minimum-order results do not imply the unequal consecutive formula.",
+      "searches": [
+        "Published SCOPE archive query: bipartite distributed degree sets unequal cardinality minimum order consecutive",
+        "Published SCOPE archive query: distributed degree sets minimum order different cardinalities bipartite",
+        "DOI:10.1515/ausi-2015-0013"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table/database result encoding these minima was located."
+      ],
+      "reasoning": "The formula is derived symbolically from degree sums and Gale--Ryser rather than from finite tabulation.",
+      "searches": [
+        "Published SCOPE semantic search for distributed degree sets and minimum order"
+      ]
+    },
+    "residual_risks": [
+      "Older theses or differently indexed work on distributed score/degree sets could contain the consecutive-family formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the minimum-order theorem; it proves existence for arbitrary distributed degree sets and records a connected obstruction example.",
+        "evidence": [
+          "The text states that the different-cardinality minimum-order problem was open before Theorem 41 and then proves existence, not optimal order."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/ausi-2015-0013",
+        "material_read": "Full text around the discussion of Manoussakis--Patil, Theorem 41, and Example 42.",
+        "method": "Lawfully accessible full text.",
+        "title": "Tripartite graphs with given degree set",
+        "trigger": "Primary follow-up addressing distributed degree sets of unequal cardinalities."
+      }
+    ],
     "status": "PASS",
-    "summary": "The checked 2014 literature treats equal-cardinality distributed degree sets and identifies the unequal-cardinality minimum-order direction as open; the 2015 arbitrary-cardinality result establishes existence but notes its construction is usually larger. No equivalent exact theorem for consecutive sets [a],[b] or its connected classification was found in targeted searches or current SCOPE records."
+    "summary": "Fresh implication-based literature comparison did not find prior coverage of the final claim."
   },
   "phase": "II",
-  "previously_published_pending_reaudit": true,
+  "previously_published_pending_reaudit": false,
   "record_id": "SCOPE-20260920-e18549b65fe7",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "9645ecff-e451-41ca-8eda-b3c4911eb49f",
+  "review_statement": "Independent audit dated 2026-10-01: passed on correctness, originality, and value.",
+  "review_type": "independent_audit",
   "value": {
     "status": "PASS",
-    "summary": "The theorem gives an exact closed-form minimum for an infinite unequal-cardinality family, proves that the same minimum is connectedly attainable throughout the feasible range, and identifies the complete infinite connected obstruction family when one side has degree set [1]."
+    "summary": "The result answers a previously identified unequal-cardinality minimum-order direction for the canonical consecutive family and additionally settles when the same optimum can be connected. It supplies an exact closed formula and a sharp infinite obstruction family rather than a routine recomputation."
   },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
