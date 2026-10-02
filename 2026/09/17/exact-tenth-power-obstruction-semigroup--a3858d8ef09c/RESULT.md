@@ -1,275 +1,152 @@
 # Exact tenth-power stable obstruction set via a numerical semigroup
 
-## Main result
+## Corrected main result
 
-Let \(\mathbf B^k\) be the stabilized set of positive offsets used by Benfield and Lippard for integers that are not sums of exactly \(j\) positive \(k\)-th powers, and write
-
-\[
-a_k=\max \mathbf B^k,\qquad b_k=|\mathbf B^k|.
-\]
-
-For \(k=10\),
+Let \(\mathbf B^k\) be the stabilized positive-offset obstruction set for representations by exactly \(j\) positive \(k\)-th powers. For \(k=10\),
 
 \[
-\boxed{\mathbf B^{10}=\mathbb Z_{>0}\setminus
-\langle 1023,59048,25937424600\rangle}.
+\mathbf B^{10}=\mathbb Z_{>0}\setminus\langle 1023,59048,25937424600\rangle.
 \]
 
-Consequently,
+Therefore
 
 \[
-\boxed{a_{10}=259379677393},\qquad
-\boxed{b_{10}=129689838697}.
+a_{10}=259379677393,\qquad b_{10}=129689838697,\qquad a_{10}=2b_{10}-1.
 \]
 
-In particular,
+The semigroup is symmetric, so for \(0\le n\le a_{10}\), with \(0\notin\mathbf B^{10}\),
 
 \[
-a_{10}=2b_{10}-1.
+n\in\mathbf B^{10}\quad\Longleftrightarrow\quad a_{10}-n\notin\mathbf B^{10}.
 \]
 
-Thus the even-exponent symmetry relation conjectured in Conjecture 10.1 of Benfield--Lippard holds at exponent 10. The semigroup is symmetric, so for \(0\le n\le a_{10}\),
+These are exact exponent-10 symmetry identities. They are **not** cases of Benfield--Lippard Conjectures 10.1 or 10.2: those conjectures are stated for exponents of the form \(2^j\), and \(10\) is not such an exponent. Since both \(a_{10}\) and \(b_{10}\) are odd, the result does give the exponent-10 case of their Conjecture 10.4.
 
-\[
-n\in \mathbf B^{10}
-\quad\Longleftrightarrow\quad
-a_{10}-n\notin \mathbf B^{10},
-\]
+Benfield--Lippard prove only the lower bound \(|\mathbf B^{10}|\ge129687123005\); the exact value here is larger by \(2715692\).
 
-with the convention that \(0\notin\mathbf B^{10}\). This gives the exponent-10 case of their Conjecture 10.2 as well. Both \(a_{10}\) and \(b_{10}\) are odd, giving the exponent-10 case of Conjecture 10.4.
+## Stable offsets are numerical-semigroup gaps
 
-Benfield--Lippard proved only the lower bound
-
-\[
-|\mathbf B^{10}|\ge 129687123005
-\]
-
-(Corollary 10.8). The exact value above exceeds that lower bound by \(2715692\).
-
-## Offset-semigroup lemma
-
-For a fixed exponent \(k\), define the additive semigroup
+Define
 
 \[
 \Gamma_k=\langle m^k-1:m\ge2\rangle\subseteq\mathbb Z_{\ge0}.
 \]
 
-For a positive offset \(b\),
+A positive offset \(b\) satisfies
 
 \[
-j+b=\sum_{i=1}^j x_i^k\quad(x_i\ge1)
+j+b=\sum_{i=1}^j x_i^k
 \]
 
-if and only if
+if and only if \(b\) is a sum of at most \(j\) nonzero generators \(x_i^k-1\); extra summands \(1^k\) contribute zero. Thus the stabilized obstruction set is exactly the positive gap set of \(\Gamma_k\). No originality claim is made for this general reformulation.
+
+## Reduction at exponent ten
+
+Let
 
 \[
-b=\sum_{i=1}^j(x_i^k-1).
+T=\langle93,5368\rangle,\qquad C=11^{10}-1=25937424600.
 \]
 
-Terms with \(x_i=1\) contribute zero. Therefore \(j+b\) is representable by exactly \(j\) positive \(k\)-th powers if and only if \(b\) has a factorization in \(\Gamma_k\) using at most \(j\) nonzero generators. It follows that every gap of \(\Gamma_k\) remains an obstruction for every \(j\), whereas every element of \(\Gamma_k\) eventually ceases to be an obstruction. Hence the stabilized offset set is precisely the positive gap set of \(\Gamma_k\).
-
-This observation is used here as a reduction; no originality claim is made for the general semigroup reformulation itself.
-
-## Reduction of \(\Gamma_{10}\)
-
-Put
+The first two generators satisfy \(2^{10}-1=11\cdot93\) and \(3^{10}-1=11\cdot5368\). Since \(\gcd(93,5368)=1\),
 
 \[
-T=\langle93,5368\rangle.
-\]
-
-The generators arise from
-
-\[
-2^{10}-1=11\cdot93,\qquad
-3^{10}-1=11\cdot5368.
-\]
-
-Since \(\gcd(93,5368)=1\), Sylvester's formulas give
-
-\[
-F(T)=93\cdot5368-93-5368=493763
+F(T)=93\cdot5368-93-5368=493763,
 \]
 
 and
 
 \[
-g(T)=\frac{(93-1)(5368-1)}2=246882,
-\]
-
-where \(F\) is the Frobenius number and \(g\) is the genus.
-
-Let
-
-\[
-C=11^{10}-1=25937424600.
+g(T)=\frac{(93-1)(5368-1)}2=246882.
 \]
 
 We claim
 
 \[
-\Gamma_{10}
-=\langle1023,59048,C\rangle
-=11T+C\mathbb Z_{\ge0}.
+\Gamma_{10}=11T+C\mathbb Z_{\ge0}=\langle1023,59048,C\rangle.
 \]
 
-It suffices to reduce every generator \(m^{10}-1\).
-
-### Case 1: \(11\nmid m\)
-
-Fermat's little theorem gives \(11\mid m^{10}-1\), so write
+If \(11\nmid m\), Fermat's theorem gives \(11\mid m^{10}-1\). For \(m=4\),
 
 \[
-m^{10}-1=11q_m.
-\]
-
-For \(m=2,3\), the quotients are the two generators \(93,5368\). For \(m=4\),
-
-\[
-q_4=95325=1025\cdot93\in T.
+\frac{4^{10}-1}{11}=95325=1025\cdot93\in T.
 \]
 
 For every \(m\ge5\) with \(11\nmid m\),
 
 \[
-q_m\ge \frac{5^{10}-1}{11}
-=887784>F(T),
+\frac{m^{10}-1}{11}\ge887784>F(T),
 \]
 
-hence \(q_m\in T\). Thus every such generator belongs to \(11T\).
-
-### Case 2: \(11\mid m\)
-
-Write \(m=11r\). If \(r=1\), the generator is exactly \(C\). If \(r\ge2\), then
+so the quotient is in \(T\). If \(m=11r\), then \(m=11\) gives \(C\), while for \(r\ge2\),
 
 \[
-m^{10}-1
-=C+11\bigl(11^9(r^{10}-1)\bigr).
+m^{10}-1=C+11\bigl(11^9(r^{10}-1)\bigr),
 \]
 
-The integer in parentheses is greater than \(F(T)\), so it lies in \(T\). Hence every generator with \(11\mid m\) lies in \(C+11T\).
+and the parenthesized integer exceeds \(F(T)\), hence lies in \(T\). The reverse containment is immediate from the three displayed original generators.
 
-The reverse containment is immediate because \(1023=2^{10}-1\), \(59048=3^{10}-1\), and \(C=11^{10}-1\) are original generators. This proves the claimed three-generator description.
-
-## Canonical residue decomposition
-
-The number \(C\) itself belongs to \(T\); for example,
+Also
 
 \[
-C=93\cdot278893056+5368\cdot69.
+C=93\cdot278893056+5368\cdot69\in T,
 \]
 
-Also \(C\equiv-1\pmod{11}\). Every integer \(N\ge0\) has a unique expression
+and \(C\equiv-1\pmod{11}\). Every \(N\ge0\) has a unique representation
 
 \[
-N=rC+11z,
-\qquad 0\le r\le10,\ z\in\mathbb Z,
+N=rC+11z,\qquad 0\le r\le10,\quad z\in\mathbb Z,
 \]
 
-obtained by choosing \(r\) from the residue class modulo 11. The three-generator description and \(C\in T\) imply
+and the preceding reduction gives
 
 \[
-N\in\Gamma_{10}
-\quad\Longleftrightarrow\quad
-z\in T.
+N\in\Gamma_{10}\quad\Longleftrightarrow\quad z\in T.
 \]
 
-Indeed, one direction is immediate. Conversely, if
-\(N=sC+11t\) with \(s\ge0\) and \(t\in T\), then
-\(s=r+11q\) for some \(q\ge0\), and
+## Frobenius number, genus and symmetry
+
+In residue class \(r\), the largest nonnegative-\(z\) gap is \(rC+11F(T)\), so
 
 \[
-z=t+qC\in T.
+a_{10}=10C+11F(T)=259379677393.
 \]
 
-Thus the gaps of \(\Gamma_{10}\) split into 11 translated copies of the gap pattern of \(T\), together with the positive terms arising from negative \(z\) in the ten nonzero residue classes.
-
-## Frobenius number
-
-For a fixed \(r\), the largest gap with \(z\ge0\) is
+The eleven residue classes contribute \(11g(T)\) gaps with \(z\ge0\). For \(1\le r\le10\), positive integers with \(z<0\) contribute
 
 \[
-rC+11F(T).
+\left\lfloor\frac{rC}{11}\right\rfloor.
 \]
 
-The negative-\(z\) gaps in that residue class are smaller than \(rC\), so the global maximum occurs at \(r=10\). Therefore
+Because \(C\) is coprime to \(11\),
 
 \[
-a_{10}=F(\Gamma_{10})
-=10C+11F(T)
-=259379677393.
+\sum_{r=1}^{10}\left\lfloor\frac{rC}{11}\right\rfloor=5(C-1)=129687122995.
 \]
 
-## Genus
-
-Each of the 11 residue classes contributes the \(g(T)=246882\) nonnegative-\(z\) gaps of \(T\). For \(1\le r\le10\), there are additionally
+Hence
 
 \[
-\left\lfloor\frac{rC}{11}\right\rfloor
+b_{10}=11\cdot246882+129687122995=129689838697,
 \]
 
-positive integers with negative \(z\).
+and \(2b_{10}-1=a_{10}\).
 
-Because \(\gcd(C,11)=1\), the residues \(rC\bmod11\) for \(1\le r\le10\) are a permutation of \(1,\ldots,10\). Hence
+Finally, the two-generator semigroup \(T\) is symmetric. Under \(N=rC+11z\),
 
 \[
-\sum_{r=1}^{10}
-\left\lfloor\frac{rC}{11}\right\rfloor
-=\frac{55C-55}{11}
-=5(C-1)
-=129687122995.
+a_{10}-N=(10-r)C+11(F(T)-z),
 \]
 
-It follows that
+so symmetry transfers residue by residue to \(\Gamma_{10}\), proving the complement relation.
 
-\[
-b_{10}=g(\Gamma_{10})
-=11\cdot246882+129687122995
-=129689838697.
-\]
+## Verification and scope
 
-Finally,
+`artifacts/verify.py` independently enumerates \(T\) through its Frobenius number, checks the small generator reductions and an explicit representation of \(C\), verifies the first 500 original generators against the reduction, evaluates the genus formula, and checks symmetry. `artifacts/verify-output.txt` records that execution. These finite checks are supplementary; the result above is proved symbolically.
 
-\[
-2b_{10}-1=259379677393=a_{10}.
-\]
-
-## Symmetry
-
-The two-generator semigroup \(T=\langle93,5368\rangle\) is symmetric. Under the canonical decomposition,
-
-\[
-N=rC+11z
-\]
-
-and
-
-\[
-a_{10}-N=(10-r)C+11(F(T)-z).
-\]
-
-The symmetry of \(T\) therefore transfers residue-by-residue to \(\Gamma_{10}\), proving the stated complement relation for \(\mathbf B^{10}\).
-
-## Verification
-
-`artifacts/verify.py` independently checks the two-generator Frobenius number and genus by finite enumeration through \(F(T)\), verifies the small-generator reductions, confirms an explicit representation of \(C\) in \(T\), checks the first 500 original generators against the reduction, evaluates the residue-class genus formula, and checks the symmetry of \(T\). Its recorded output is in `artifacts/verify-output.txt`.
-
-The finite computation is supplemental; the theorem above is proved symbolically.
-
-## Literature context and limitations
-
-Benfield and Lippard determine \(\mathbf B^k\) for \(k\le9\), formulate the symmetry conjectures in Section 10.1, and for exponent 10 give only Corollary 10.8, the lower bound \(|\mathbf B^{10}|\ge129687123005\). Their current arXiv version is v2, revised 31 March 2025.
-
-Searches for the exact values above, the three-generator semigroup
-\(\langle1023,59048,25937424600\rangle\), the equivalent generators
-\(2^{10}-1,3^{10}-1,11^{10}-1\), `B^10`, and follow-up work citing or naming the Benfield--Lippard problem did not locate an earlier exact determination. The originality claim is therefore to the best of our knowledge.
-
-A. A. Zenkin's 1995 paper on the generalized Waring problem is directly relevant background and is cited by Benfield--Lippard. Only its bibliographic page and abstract were inspected here, not its subscription-only full text. Because Benfield--Lippard use Zenkin's framework while still recording only a lower bound for \(\mathbf B^{10}\), this is a limited but nonzero residual originality risk. The general offset-semigroup lemma above is therefore not asserted to be new; the originality claim concerns the exact exponent-10 reduction, invariants, and resulting resolution of the exponent-10 symmetry cases.
-
-No claim is made about the full conjectures for all even exponents or about the stabilization index \(g(1,10)\).
+The exact exponent-10 reduction and invariants are claimed to the best of our knowledge. A separate published result gives the general stable-offset numerical-semigroup reformulation and repairs a modular lower-bound argument, but does not determine these exact exponent-10 values. Zenkin's 1995 full text was inspected; it develops the generalized Waring framework and stabilized exception sets but does not state the exact exponent-10 semigroup calculation above. No claim is made about Benfield--Lippard Conjectures 10.1 or 10.2, about all even exponents, or about the stabilization index \(g(1,10)\).
 
 ## References
 
-1. Brennan Benfield and Oliver Lippard, *Integers that are not the sum of positive powers*, arXiv:2404.08193v2 (2025). https://arxiv.org/abs/2404.08193
-2. A. A. Zenkin, *The generalized Waring problem: A new property of positive integers*, Mathematical Notes 58 (1995), 933--937. https://doi.org/10.1007/BF02304770
-3. Standard numerical-semigroup symmetry criterion and two-generator facts are reviewed, for example, in *The ideal duplication*, Semigroup Forum (2021). https://link.springer.com/article/10.1007/s00233-021-10201-1
+1. Brennan Benfield and Oliver Lippard, *Integers that are not the sum of positive powers*, arXiv:2404.08193v2 (2025).
+2. A. A. Zenkin, *The generalized Waring problem: A new property of positive integers*, Mathematical Notes 58 (1995), 933--937.
