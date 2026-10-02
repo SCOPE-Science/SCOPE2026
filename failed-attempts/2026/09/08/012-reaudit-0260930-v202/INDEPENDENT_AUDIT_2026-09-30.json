@@ -1,0 +1,44 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T21:41:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact-rational Riccati interval inclusions at ±3/5 were recomputed and match the package: at +3/5 the even-step image is [-231/50,-119/110] and the odd-step image is [133/250,53/50], with the mirrored inclusions at -3/5. The alternating ratio signs give the stated 5/5 Sturm counts. Thus the displayed 0.6 gap is mathematically correct.",
+      "reason": "The exact-rational Riccati interval inclusions at ±3/5 were recomputed and match the package: at +3/5 the even-step image is [-231/50,-119/110] and the odd-step image is [133/250,53/50], with the mirrored inclusions at -3/5. The alternating ratio signs give the stated 5/5 Sturm counts. Thus the displayed 0.6 gap is mathematically correct.",
+      "risks": "None material for the correctness of the 0.6 statement.",
+      "sources": [
+        "artifacts/sturm_gap_certificate.py blob dcbc7f96368c066d36939449546dd2296a25e90b"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": "Standard singular-value lower bounds plus Weyl perturbation give a uniform (-0.7,0.7) gap on the same full box.",
+      "checked_sources": [
+        "Horn and Johnson, Matrix Analysis, 2nd ed., Cambridge University Press, 2013 (singular-value and Hermitian eigenvalue perturbation inequalities)"
+      ],
+      "claim_vs_prior_implication": "The standard estimate strictly dominates the stated 0.6 theorem, so the final scientific claim is covered even if the Riccati certificate is independently valid.",
+      "equivalent_formulations": "Recast the Jacobi matrix as a bipartite block matrix plus a diagonal perturbation.",
+      "exact_database_or_table": "Not needed for the decisive comparison; the claim is mechanically implied by general textbook inequalities.",
+      "rationale": "A stronger result follows immediately from standard singular-value and Hermitian perturbation inequalities. After odd/even permutation, the zero-diagonal part is [[0,B],[B^T,0]] with B=S+W, where S is diagonal with entries at least 1.4 and W is a weighted one-step shift of operator norm at most 0.6. Hence sigma_min(B) >= 1.4-0.6 = 0.8. The diagonal disorder has operator norm at most 0.1, so Weyl's inequality leaves five eigenvalues at most -0.7 and five at least +0.7. Therefore the whole claimed (-0.6,0.6) gap, including the 5/5 split, is a direct corollary of a stronger textbook estimate.",
+      "reason": "A stronger result follows immediately from standard singular-value and Hermitian perturbation inequalities. After odd/even permutation, the zero-diagonal part is [[0,B],[B^T,0]] with B=S+W, where S is diagonal with entries at least 1.4 and W is a weighted one-step shift of operator norm at most 0.6. Hence sigma_min(B) >= 1.4-0.6 = 0.8. The diagonal disorder has operator norm at most 0.1, so Weyl's inequality leaves five eigenvalues at most -0.7 and five at least +0.7. Therefore the whole claimed (-0.6,0.6) gap, including the 5/5 split, is a direct corollary of a stronger textbook estimate.",
+      "residual_risks": "The Riccati method itself may still be useful in regimes where the elementary dimer bound is not decisive, but that broader method claim is not the final claim audited here.",
+      "risks": "The Riccati method itself may still be useful in regimes where the elementary dimer bound is not decisive, but that broader method claim is not the final claim audited here.",
+      "sources": [
+        "Horn and Johnson, Matrix Analysis, 2nd ed., Cambridge University Press, 2013 (singular-value and Hermitian eigenvalue perturbation inequalities)"
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "For this parameter box the headline gap and exact spectral split are obtainable by a short standard perturbation argument that is both simpler and strictly stronger (0.7 versus 0.6). Comparing only against Gershgorin/Brauer/T^2-Gershgorin therefore does not establish mathematical value for this particular final claim.",
+      "reason": "For this parameter box the headline gap and exact spectral split are obtainable by a short standard perturbation argument that is both simpler and strictly stronger (0.7 versus 0.6). Comparing only against Gershgorin/Brauer/T^2-Gershgorin therefore does not establish mathematical value for this particular final claim.",
+      "risks": "A revised result on a parameter regime beyond the reach of the elementary bound could be valuable, but that would be a new claim requiring fresh C/O/V assessment.",
+      "sources": [
+        "same elementary block/singular-value argument"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Every 10×10 Jacobi matrix in the stated dimer disorder box has no eigenvalue in (-0.6,0.6), with five eigenvalues below -0.6 and five above 0.6; the Riccati/Sturm certificate improves the listed Gershgorin/Brauer baselines.",
+  "schema_version": 1
+}
