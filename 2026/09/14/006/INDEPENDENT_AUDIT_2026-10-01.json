@@ -1,0 +1,90 @@
+{
+  "audited_at_utc": "2026-10-01T03:53:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Replaying the certificate from the printed rational coefficients with exact Fraction arithmetic gives minimum sampled denominator \\(0.9946050566757593\\) and, after the global derivative correction, the rigorous denominator lower bound \\(0.9401355692097929>0\\). On 2000 cells with the kink as a boundary, the largest exact endpoint error is \\(0.00878086268557671\\) and the largest second-derivative Taylor correction is \\(0.00000408718046788004\\), totaling \\(0.00878494986604459<0.01\\). This proves pole-freeness and the claimed uniform upper bound; no minimax optimality is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chebfun demonstrates the same shifted function at type \\((8,8)\\) and \\((16,16)\\); classical theory gives asymptotic and general approximation context."
+        ],
+        "reasoning": "Higher-type numerical minimax examples and general theory do not mechanically imply the existence of this particular lower-type rigorous witness.",
+        "searches": [
+          "Chebfun Best approximation with the REMEZ command",
+          "Newman rational approximation to absolute value"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, candidate_exact.json, and verify_certificate.py from the exact Git tree.",
+        "Fresh exact rational replay of both denominator and second-derivative certificate stages.",
+        "Same-function Chebfun benchmark and published-record semantic search."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chebfun explicitly uses \\(f=|x-0.5|\\) and then computes a type \\((8,8)\\) rational minimax approximant."
+        ],
+        "reasoning": "Existence of a strong type-\\((8,8)\\) approximant does not imply that type \\((5,5)\\) crosses the 0.01 threshold; the degree-restricted feasibility claim requires separate evidence.",
+        "searches": [
+          "Chebfun shifted abs(x-0.5) type (8,8) example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact coefficient set or exact threshold certificate matching the audited witness was found."
+        ],
+        "reasoning": "The statement is equivalently an explicit feasible point for the type-\\((5,5)\\) minimax problem with objective below 0.01; prior sources located do not supply this feasible point.",
+        "searches": [
+          "type (5,5) rational approximation abs(x-0.5) 0.01",
+          "shifted absolute value rational minimax degree 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published-record hit was the audited record; related records use different types or target functions."
+        ],
+        "reasoning": "No exact external table row was located, leaving only the ordinary best-knowledge novelty risk.",
+        "searches": [
+          "published-record semantic search type (5,5) shifted absolute value",
+          "web exact search 0.00878495 rational approximation"
+        ]
+      },
+      "rationale": "PASS. Chebfun publicly treats the same shifted function \\(f(x)=|x-0.5|\\) and exhibits type \\((8,8)\\) and \\((16,16)\\) rational minimax examples, but it does not give the displayed type \\((5,5)\\) rational coefficients or a rigorous 0.01 certificate. Published-record search found later related finite-type approximation records with different functions/types but no covering result for this witness.",
+      "residual_risks": [
+        "The witness is only an upper certificate; no lower bound or minimax optimality is established.",
+        "The archived verifier contains a historical output/artifacts path for candidate_exact.json, so the audit replayed the exact rational certificate independently from the committed coefficient file."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FUNCTION_HIGHER_TYPE_NOT_COVERING",
+          "evidence": "It demonstrates higher types numerically but does not state or certify the audited type-\\((5,5)\\) threshold.",
+          "identifier_or_url": "https://www.chebfun.org/examples/approx/BestApprox.html",
+          "material_read": "Full example section defining \\(f=|x-0.5|\\) on \\([-1,1]\\) and the type \\((8,8)\\) and \\((16,16)\\) rational examples.",
+          "method": "Full web-page inspection.",
+          "title": "Nick Trefethen, Best approximation with the REMEZ command, Chebfun example",
+          "trigger": "Same shifted absolute-value benchmark and rational minimax setting."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_TYPE_OR_FUNCTION",
+          "evidence": "No related record supplies the same type-\\((5,5)\\) shifted-function certificate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/14/SCOPE014",
+          "material_read": "Semantic-search summaries for the audited record and related type-\\((6,3)\\) and type-\\((4,4)\\) findings.",
+          "method": "Published-record semantic search.",
+          "title": "Published finite-type rational-approximation records",
+          "trigger": "Check related published exact-threshold records."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The function is an established rational-approximation benchmark, and type \\((5,5)\\) is a natural low-complexity level below the demonstrated type \\((8,8)\\) example. A fully rational certificate that a 1-percent uniform-error threshold is already attainable at this type is a reusable finite benchmark; it is explicitly limited to an upper bound and does not overclaim minimax optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The displayed rational function of type \\((5,5)\\) has no pole on \\([-1,1]\\) and approximates \\(|x-1/2|\\) there with uniform error at most \\(0.00878494986604459<0.01\\), hence \\(E_{5,5}\\le 0.01\\).",
+  "record_id": "SCOPE-20260914-006",
+  "schema_version": 1,
+  "scientific_limitations": "Certified upper bound only; the witness is not proved minimax and no lower bound for E_{5,5} is claimed. The audit replayed the certificate independently from the exact committed coefficients."
+}
