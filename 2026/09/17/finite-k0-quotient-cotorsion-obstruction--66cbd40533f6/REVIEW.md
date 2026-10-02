@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The proof reconstructs in the semisimple split-exact setting. Euler classes are additive on conflations; complements of retractions remain in the kernel of the finite quotient, giving weak idempotent completeness; standard cone sequences give the Frobenius structure; semisimplicity gives the displayed Ext formula. Exponent-e direct sums make the truncation factorizations and simple test objects lie in the subcategory, proving the object-ideal identities, orthogonality, and ideal completeness. For the two stalk-pair witnesses, the long cohomology sequence forces a truncation object with nonzero quotient class, so the required special object approximation cannot lie in the subcategory. Every ambient complex is a summand of its e-fold direct sum, giving the stated idempotent completion.
+- Originality: **PASS** — Ren–Wang v1 (2026-09-16) proves the parity case for bounded vector-space complexes. Their v2 (2026-09-29) says the main results are unchanged and interprets that example as the dense subcategory corresponding to 2Z in K0; it still does not state the arbitrary finite-quotient theorem. Classical K0 dense-subcategory results cover the density/idempotent-completion viewpoint but not the finite-quotient ideal-cotorsion obstruction theorem. Later public records dated 2026-09-19 and 2026-09-20 strictly generalize the finite-quotient mechanism, but they postdate this 2026-09-17 record and therefore are subsequent coverage rather than earlier prior art.
+- Value: **PASS** — The finite quotient is a structural mechanism, not merely a renamed parity parameter: it replaces doubling by the quotient exponent, works for semisimple categories with several simple classes, and explains the correct signed Euler congruence controlling the exact subcategory. That is a reusable homological-algebra generalization of a newly exposed obstruction.
+
+Detailed evidence and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`. The earlier non-independent scientific assessment is preserved in `AUDIT.json` for provenance.
