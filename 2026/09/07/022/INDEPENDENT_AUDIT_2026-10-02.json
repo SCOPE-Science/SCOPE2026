@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T17:29:10.766264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "artifacts/representatives.csv",
+        "artifacts/verify_diameters.py",
+        "https://quivermutationdb.org/api/classes?rank=5&is_mutation_finite=true&limit=100"
+      ],
+      "rationale": "A fresh standard-library integer checker rebuilt the seven full labeled matrix mutation components with all five neighbors, asserted involutivity and entry bounds, and ran BFS from every vertex. It reproduced all seven listed orders and diameters, ending DIAMETERS_OK. Terminating generator closure proves full orbit completeness for each specified representative; all-source BFS proves both upper and realized lower bounds. The final repair removes unsupported intermediate whole-census counts from the surviving claim, distinguishes matrices from full seeds, and packages the full diameter checker.",
+      "residual_risks": [
+        "Finite computational proof of specified components, not a fresh symbolic classification or a rerun of the old 5^10 bounded-matrix census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "FST gives general finite-mutation classification; QMD provides all seven rank5 finite classes and exact labeled sizes."
+        ],
+        "reasoning": "The broader prior fully covers class membership and orders but does not mathematically fix distances without computing the labeled mutation graph.",
+        "searches": [
+          "FST arXiv:0811.1703",
+          "Quiver Mutation Database rank5 finite classes",
+          "qvfin GitHub"
+        ]
+      },
+      "checked_sources": [
+        "https://resultary.org/api/v1/search",
+        "https://quivermutationdb.org/",
+        "https://quivermutationdb.org/api/classes?rank=5&is_mutation_finite=true&limit=100",
+        "https://github.com/jwlawson/qvfin",
+        "https://arxiv.org/abs/0811.1703"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Class size is a cardinality, not a graph-diameter invariant; same order can support different mutation-graph metrics. FST classification gives types, not exact labeled exchange-graph distances."
+        ],
+        "reasoning": "The diameter vector requires the extra all-pairs BFS and is not a corollary of the prior class-size table alone.",
+        "searches": [
+          "FST Theorem 2.6 finite-mutation characterization",
+          "QMD rank5 API schema/detail",
+          "qvfin size5 documentation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's closest exact diameter hit is the present SCOPE record.",
+          "QMD's seven rank5 finite class entries give labels/sizes but no diameter field."
+        ],
+        "reasoning": "Mutation-equivalence class enumeration is an equivalent form of the class-count component; no equivalent exact diameter statement was found.",
+        "searches": [
+          "Resultary API: rank five quiver exchange graph diameters",
+          "Quiver Mutation Database rank5 finite classes",
+          "qvfin size5",
+          "Resultary q=rank five quiver matrix mutation graph diameter 2184 7 8 9 11, limit5, HTTP200 on2026-10-02 UTC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "QMD returns total=7 and sizes 600,1980,1680,270,2184,720,1440; D5 detail returns canonical matrix, 26 unlabeled quivers and 2184 labeled nodes but no diameter.",
+          "Resultary returns the present record as the sole exact quiver-diameter hit."
+        ],
+        "reasoning": "Database coverage is real and explicitly subtracted from originality; the diameter table is not already present in inspected fields.",
+        "searches": [
+          "https://quivermutationdb.org/api/classes?rank=5&is_mutation_finite=true&limit=100",
+          "https://quivermutationdb.org/api/classes/MC.n5.9175675b2c995699",
+          "Resultary exact diameter query"
+        ]
+      },
+      "rationale": "The June-2026 Quiver Mutation Database predates this record and explicitly covers the seven-class rank-five list and all seven labeled class orders, so those cannot be claimed as new. Its inspected API class entries and details do not report labeled mutation-graph diameters. The exact complete seven-class diameter vector is a distinct natural invariant not supplied by the FST theorem, qvfin description, database fields or Resultary's other records. The corrected RESULT explicitly credits QMD and limits the surviving originality claim to the seven exact diameters; the final C/O/V assessment applies to that repaired statement.",
+      "residual_risks": [
+        "The inspected QMD API/details and complete qvfin README do not state diameters. Unindexed calculations or uninspected software source/export may still contain equivalent numbers; no absolute first-ever claim.",
+        "FST classification is credited as prior background, not a newly read complete proof or the final diameter proof's logical premise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS class counts and labeled orders; NOT_COVERING exact diameters",
+          "evidence": "The June 2026 update explicitly added labeled-quiver counts; API returns seven exact classes and sizes but neither list nor D5 detail contains graph diameter.",
+          "identifier_or_url": "https://quivermutationdb.org/",
+          "material_read": "Full current home page update history; all seven finite rank-five class API entries; full D5 detail including all26 canonical matrix representatives and labeling counts; full QMD mutation/canonical semantics wiki.",
+          "method": "Primary database live API inspection",
+          "title": "Quiver Mutation Database",
+          "trigger": "Direct exact rank-five class and size database predating the record"
+        },
+        {
+          "assessment": "Enumeration purpose documented; no diameter table in this complete README. Source code not claimed read.",
+          "evidence": "The software targets enumeration of finite-mutation quivers; inspected documentation does not expose the exact seven diameters.",
+          "identifier_or_url": "https://github.com/jwlawson/qvfin",
+          "material_read": "Complete qvfin README, including all usage, structure, dependencies and licence sections.",
+          "method": "Primary software documentation inspection",
+          "title": "qvfin",
+          "trigger": "Older computational rank-five enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/09/07/022/RESULT.md",
+        "https://quivermutationdb.org/api/classes?rank=5&is_mutation_finite=true&limit=100"
+      ],
+      "rationale": "The complete labeled mutation-graph diameter vector across all rank-five finite classes is a natural exact invariant and reusable reachability benchmark; it is not merely another rendering of known class sizes. Explicit D5 shortest-path certificates and a contrasting infinite-growth witness make the graph-metric data inspectable. No general theorem beyond rank five is claimed.",
+      "residual_risks": [
+        "The incremental value rests on exact distances, not the already-known seven-class/order list."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Finite computational proof of specified components, not a fresh symbolic classification or a rerun of the old 5^10 bounded-matrix census.",
+    "The inspected QMD API/details and complete qvfin README do not state diameters. Unindexed calculations or uninspected software source/export may still contain equivalent numbers; no absolute first-ever claim.",
+    "FST classification is credited as prior background, not a newly read complete proof or the final diameter proof's logical premise.",
+    "The incremental value rests on exact distances, not the already-known seven-class/order list."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Finite computational proof of specified components, not a fresh symbolic classification or a rerun of the old 5^10 bounded-matrix census.",
+    "The inspected QMD API/details and complete qvfin README do not state diameters. Unindexed calculations or uninspected software source/export may still contain equivalent numbers; no absolute first-ever claim.",
+    "FST classification is credited as prior background, not a newly read complete proof or the final diameter proof's logical premise.",
+    "The incremental value rests on exact distances, not the already-known seven-class/order list."
+  ]
+}
