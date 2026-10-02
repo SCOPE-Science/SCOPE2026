@@ -1,0 +1,89 @@
+{
+  "axes": {
+    "correctness": {
+      "reason": "The load-bearing fibre calculation was independently reconstructed from the stated quotient ring rather than accepted from the stored success log. For f=-2-t+2t^3 and g=2+t^2 in Q[t]/(t^8-1), the four vectors g^2, t g^2, t^2 g^2, t^3 g^2 have rank four. Annihilating h^2 f modulo that subspace yields four quadrics. In the b0=1 chart their Groebner basis is b1, b2-1/2, b3; each chart on b0=0 has Groebner basis containing 1. The Jacobian at [2:0:1:0] has projective rank three, so the fibre is a single reduced point. The standard finite-morphism/Nakayama argument then forces generic tangent degree one. For a (2,2,2,2) threefold, c(TX)=1+4H^2-8H^3 and H^3=16, so the Chern tangent identity gives degree 64 when the tangent degree is one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "reason": "Kanazawa’s 2026 paper states the stable-range tangent-degree-one conjecture and verifies it for a general intersection of four quadrics. A theorem for a general member does not mechanically imply the property for this highly symmetric Fourier-diagonal special member. Targeted searches found no prior source identifying this exact member or an equivalent reduced singleton tangent-incidence fibre certificate.",
+      "status": "PASS"
+    },
+    "value": {
+      "reason": "Special highly symmetric complete intersections can lie outside generic open loci, so an exact certificate for a named Fourier-diagonal member is a meaningful boundary test of the new tangent-birationality conjecture. The fibre computation is compact and reusable, and the resulting tangent-variety degree is exact.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Atsushi Kanazawa, Chern bounds and tangent geometry of polarized Calabi-Yau threefolds, arXiv:2609.17513",
+    "Repository artifact artifacts/verify_fiber.py and its exact mathematical construction"
+  ],
+  "disposition": "passed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "originality_checks": {
+    "broader_coverage": {
+      "evidence": [
+        "Kanazawa covers a general member and proves normalization for higher multiples."
+      ],
+      "reasoning": "Generic coverage is broader in moduli dimension but does not contain every special member; the exact special-fibre certificate is therefore not mechanically implied.",
+      "searches": [
+        "general intersection four quadrics tangent degree one Kanazawa",
+        "Calabi-Yau tangent normalization m=1"
+      ]
+    },
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary abstract says “general intersections of four quadrics”."
+      ],
+      "reasoning": "A Zariski-open general result cannot by itself certify a particular symmetric member; the independent fibre computation supplies the missing implication.",
+      "searches": [
+        "Kanazawa general four quadrics theorem",
+        "tangent-incidence degree formula complete intersection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent named special member or reduced-fibre calculation was located."
+      ],
+      "reasoning": "Searches used both tangent-degree and tangent-incidence/birational terminology.",
+      "searches": [
+        "Fourier diagonal four quadrics tangent degree",
+        "special (2,2,2,2) tangent incidence birational"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Only the audited record matched the explicit construction."
+      ],
+      "reasoning": "The novelty conclusion uses the logical gap between a generic theorem and a named special point, not unsuccessful search alone.",
+      "searches": [
+        "exact Fourier coefficient pattern zeta diagonal quadrics tangent",
+        "Resultary search Fourier diagonal tangent birationality"
+      ]
+    }
+  },
+  "record_id": "SCOPE-20260917-bd810ca7b75f",
+  "record_title": "Tangent birationality for a Fourier-diagonal Calabi-Yau intersection of four quadrics",
+  "residual_risks": [
+    "The motivating preprint is extremely recent, and a later revision could add special members.",
+    "Full primary PDF retrieval for Kanazawa was unavailable during this run; the primary abstract and detailed theorem summary were read, and this access limitation does not override the independent exact certificate."
+  ],
+  "review_type": "independent_audit",
+  "reviewed_at_utc": "2026-10-01T06:03:28Z",
+  "schema_version": 1,
+  "scientific_limitations": "The theorem treats one explicit smooth intersection of four quadrics in projective seven-space. It does not prove tangent birationality for every smooth four-quadric complete intersection or settle the full stable-range conjecture. The motivating tangent-geometry preprint is very recent.",
+  "source_inspections": [
+    {
+      "implication": "General-member coverage does not imply the audited explicit special member.",
+      "inspection": "Primary abstract and detailed source summary inspected. The paper conjectures tangent degree one for complete embeddings in the stable range and verifies it for general intersections of four quadrics; direct PDF retrieval was unavailable in this run.",
+      "source": "Atsushi Kanazawa, Chern bounds and tangent geometry of polarized Calabi-Yau threefolds, arXiv:2609.17513"
+    },
+    {
+      "implication": "Critical finite certificate independently verified from definitions rather than trusting the stored log.",
+      "inspection": "Source code read as evidence only. Its quotient-ring construction was independently reimplemented symbolically: rank four for g^2 K, singleton Groebner fibre, no points at infinity, and Jacobian rank three were reproduced.",
+      "source": "Repository artifact artifacts/verify_fiber.py and its exact mathematical construction"
+    }
+  ],
+  "verification_state": "independently_reviewed"
+}

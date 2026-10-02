@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The load-bearing fibre calculation was independently reconstructed from the stated quotient ring rather than accepted from the stored success log. For f=-2-t+2t^3 and g=2+t^2 in Q[t]/(t^8-1), the four vectors g^2, t g^2, t^2 g^2, t^3 g^2 have rank four. Annihilating h^2 f modulo that subspace yields four quadrics. In the b0=1 chart their Groebner basis is b1, b2-1/2, b3; each chart on b0=0 has Groebner basis containing 1. The Jacobian at [2:0:1:0] has projective rank three, so the fibre is a single reduced point. The standard finite-morphism/Nakayama argument then forces generic tangent degree one. For a (2,2,2,2) threefold, c(TX)=1+4H^2-8H^3 and H^3=16, so the Chern tangent identity gives degree 64 when the tangent degree is one.
+- Originality: **PASS** — Kanazawa’s 2026 paper states the stable-range tangent-degree-one conjecture and verifies it for a general intersection of four quadrics. A theorem for a general member does not mechanically imply the property for this highly symmetric Fourier-diagonal special member. Targeted searches found no prior source identifying this exact member or an equivalent reduced singleton tangent-incidence fibre certificate.
+- Value: **PASS** — Special highly symmetric complete intersections can lie outside generic open loci, so an exact certificate for a named Fourier-diagonal member is a meaningful boundary test of the new tangent-birationality conjecture. The fibre computation is compact and reusable, and the resulting tangent-variety degree is exact.
+
+Detailed evidence and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`. The earlier non-independent scientific assessment is preserved in `AUDIT.json` for provenance.
