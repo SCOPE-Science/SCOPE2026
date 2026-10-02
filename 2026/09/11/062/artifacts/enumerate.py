@@ -1,5 +1,5 @@
 """Exhaustive psi-marked floor-diagram census, F0 bidegree (3,4) data.
-Conventions: CJMR Def 4.1 verbatim (see DRAFT). k_surf=0 so divergence zero.
+Conventions: CJMR Def 4.1 verbatim (see RESULT.md). k_surf=0 so divergence zero.
 phi=(-2,-2,1,3) non-thick ends; mu=() ; g=0; n=4; one k=1 rest 0; sum s=3.
 """
 import itertools
@@ -150,6 +150,13 @@ def census(psi_pos):
                             # t=0: no thickened incident (cnt=0 already); also no thick ends (none) OK
                             pass
                     if not good: continue
+                    # The size-zero descendant cannot meet an independently fixed fiber.
+                    if sizes[psi_pos] == 0:
+                        if any(v == psi_pos for v in attach):
+                            continue
+                        if any((psi_pos == a and bits[ei] != 0) or (psi_pos == b and bits[ei] != 1)
+                               for ei, (a, b) in enumerate(edges)):
+                            continue
                     mult=1
                     for x in w: mult*=x
                     diagrams.append(dict(sizes=sizes,edges=edges,attach=tuple(attach),w=tuple(w),bits=tuple(bits),mult=mult,t=tuple(t)))
@@ -181,4 +188,4 @@ if __name__=="__main__":
             c[tuple(sorted(flags))]+=1
         for k,v in sorted(c.items(), key=lambda z:-z[1])[:12]:
             print("   psi-flags",k,"x",v)
-    print("TOTAL D(1) =",total)
+    print("SUM OVER FOUR DESCENDANT POSITIONS =",total)

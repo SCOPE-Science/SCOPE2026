@@ -2,8 +2,11 @@
 {
   "schema_version": 1,
   "independent_audit": {
-    "status": "not_performed",
-    "evidence": null
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-02.md",
+      "INDEPENDENT_AUDIT_2026-10-02.json"
+    ]
   },
   "lean_verification": {
     "status": "unknown",
@@ -16,5 +19,4 @@
 }
 ---
 
-Fresh independent audit: not yet performed. Prior certification is inactive.
-Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
+The corrected local relative weights, full direct partial smooth-pair virtual/descendant proof and complete connected census were independently reviewed. The proof uses AMW comparison without a primitive-contact restriction, separately checks the incidence-cut cycle, and computes the actual cotangent divisor. The two enumeration paths and diagram-level checker agree. No Lean proof or expert attestation is claimed.

@@ -89,6 +89,13 @@ def run():
                                         good=False; break
                             if not good:
                                 continue
+                            # Actual local relative tau_1 weight is zero for a size-zero fixed flag.
+                            if sizes[p] == 0:
+                                if any(v == p for v in attach):
+                                    continue
+                                if any((p == a and bits[ei] != 0) or (p == b and bits[ei] != 1)
+                                       for ei, (a, b) in enumerate(edges)):
+                                    continue
                             m = w[0]*w[1]*w[2]
                             ndiag += 1; d1 += m
                             poly = {0:1}
@@ -108,9 +115,10 @@ def run():
     print("symmetric:", all(D[e]==D[-e] for e in list(D)))
     for e in sorted(D):
         print(e,D[e])
-    assert tot_n==168 and tot_d==1464, (tot_n,tot_d)
-    assert sum(D.values())==1464
-    print("RECOUNT2_OK")
+    assert tot_n==160 and tot_d==1408, (tot_n,tot_d)
+    assert sum(D.values())==1408
+    assert [per[p] for p in range(4)] == [(43,352),(37,352),(37,352),(43,352)]
+    print("RECOUNT2_CORRECTED_OK")
 
 if __name__=="__main__":
     run()
