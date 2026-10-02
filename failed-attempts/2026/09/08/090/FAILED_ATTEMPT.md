@@ -1,0 +1,3 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+The package is not accepted as a validated finding. The bounded computations reproduce the listed numerical-semigroup data, but the submitted proof does not establish the claimed global Delta sets for all semigroup elements: it relies on a generally invalid strengthening from Betti elements, and a finite scan to 400 is not an infinite proof. In addition, published work already gives algorithms for Delta sets of all embedding-dimension-3 numerical semigroups and characterizes the relevant max-Delta/catenary equality, so this selected nine-row table is prior-covered and lacks a natural complete-classification motivation. The original package and evidence are preserved.
