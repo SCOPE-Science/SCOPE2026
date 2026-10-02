@@ -1,0 +1,103 @@
+# Independent mathematical audit — 2026-10-01
+
+Record: `SCOPE-20260917-8d105c333ef0`
+
+## Correctness — PASS
+
+The planar rigidity proof is coherent. Segal's alternating-direction mechanism supplies a convergent alternating contact sequence; the new quantitative gap estimate forces consecutive normal/radial directions together, so the limit is a common normal-radial contact where the support values and first derivatives agree. Direct differentiation of the polar support gives the stated second-jet relation and its strict monotonicity forces equality of second derivatives. If the first unequal support jet has finite order, the polar maximizer moves only at one lower order and stationarity makes that displacement second-order in the value; the leading polar-support difference is therefore the negative positive-factor multiple displayed in the proof, contradicting equality of the support-minus-polar-support functional. Hence any smooth nontrivial pair has an infinite-order contact, and analyticity forces equality globally.
+
+### Sources
+- assigned RESULT.md
+- independent differentiation of the polar second-jet formula
+- primary abstract of Segal's motivating preprint
+
+### Risks
+- The alternating-direction lemma is taken from Segal's work rather than reproved from first principles in the audited record.
+
+## Originality — PASS
+
+Fresh semantic and literature searches found no prior planar positive-curvature analytic rigidity theorem or infinite-order-contact obstruction for Milman's polar-sum equation. Segal's primary abstract states rigidity for polytopes and counterexamples for general convex bodies, which leaves a genuine regularity gap. Full text of that very recent preprint could not be independently fetched through the audit route, so possible unadvertised smooth remarks are retained as a residual risk rather than treated as absent evidence.
+
+### equivalent_formulations
+
+Searches:
+- Milman polar-sum analytic rigidity planar positive curvature
+- support-minus-polar-support functional analytic convex body
+- smooth infinite-order contact Milman equation
+
+Evidence:
+- The exact semantic result was the audited record; no external analytic-rigidity theorem was located.
+
+Reasoning:
+Equivalent formulations in terms of the functional \(h_K-1/\rho_K\), translated self-polar pairs, and support-function jets were searched.
+
+### broader_coverage
+
+Searches:
+- Segal Self-dual sets up to a translation
+- polar-body Minkowski-sum rigidity smooth convex bodies
+
+Evidence:
+- Segal's public primary abstract gives only the polytope-positive/general-negative dichotomy; no broader inspected result implies analytic positive-curvature rigidity.
+
+Reasoning:
+The audited theorem identifies an intermediate regularity regime rather than restating the general dichotomy.
+
+### exact_database_or_table
+
+Searches:
+- published tables/databases for self-polar translated convex bodies
+
+Evidence:
+- No exact database/table is relevant or was located.
+
+Reasoning:
+The claim is a structural rigidity theorem, not a finite invariant lookup.
+
+### claim_vs_prior_implication
+
+Searches:
+- claim versus Segal polytope theorem and general counterexamples
+
+Evidence:
+- Neither polytope rigidity nor existence of nonsmooth counterexamples implies the finite-jet obstruction for smooth positive-curvature pairs.
+
+Reasoning:
+The local polarity calculation is additional mathematical content.
+
+### source_inspections
+
+- **Self-dual sets up to a translation: a negative answer to Milman's question** — https://arxiv.org/abs/2609.12685. Trigger: Motivating primary result and source of the alternating-direction lemma. Material read: Primary abstract and searchable metadata; direct full-text retrieval was unavailable in the audit route. Method: Scope comparison plus independent reconstruction of the audited local argument. Assessment: The inspected primary material states polytope rigidity and general counterexamples, not analytic positive-curvature rigidity. Evidence: The abstract gives exactly the positive-for-polytopes, negative-in-general dichotomy.
+- **Assigned analytic-rigidity proof** — RESULT.md. Trigger: Final theorem under audit. Material read: Complete assigned file. Method: Line-by-line proof reconstruction and independent second-jet differentiation. Assessment: The flat-contact and analytic-rigidity deductions are mathematically consistent. Evidence: At a common normal-radial contact the independently derived polar second derivative is \(-b/(a(a+b))\), yielding the claimed strictly monotone second-jet relation.
+
+### checked_sources
+
+- arXiv:2609.12685
+- Resultary semantic search
+- assigned RESULT.md
+
+### residual_risks
+
+- The motivating preprint is extremely recent and its full text was not independently retrieved in this run.
+- Concurrent unindexed work or an unadvertised smooth remark in the source paper remains possible.
+
+## Scientific value — PASS
+
+Identifying a new rigid analytic positive-curvature regime between polytope rigidity and arbitrary-body failure, and proving an infinite-order-contact obstruction for every smooth counterexample, is a substantive structural result with clear implications for where future counterexamples can exist.
+
+### Sources
+- Segal's Milman-equation dichotomy
+- assigned flat-contact theorem
+
+### Risks
+- The result is planar and does not exclude smooth nonanalytic counterexamples with flat contact.
+
+## Limitations
+
+- Planar and strictly positive-curvature only.
+- Smooth nonanalytic flat-contact counterexamples remain possible.
+- Originality remains best-of-knowledge because the source preprint is very recent and its full text could not be independently retrieved.
+
+## Disposition
+
+**PASSED**
