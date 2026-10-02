@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "reason": "A fresh symbolic check confirmed the factorization f=(x-1)g, the coprimality identity, all three square-sandwich identities, and discriminant 1957=19*103. The sign argument for x at most -3 and the strict consecutive-square inequalities for x at least 3 close every integer x other than 1 and 2; direct evaluation gives exactly (1,0) and (2,plus-or-minus 3). An independent exhaustive sanity scan over -10000 through 10000 found no additional integral x. The finite-field point counts are not needed for correctness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General methods exist for integral/rational point determination."
+        ],
+        "reasoning": "Those methods do not mechanically return this exact census without curve-specific computation or a database row.",
+        "searches": [
+          "genus 2 integral points hyperelliptic algorithms",
+          "Mordell-Weil sieve genus 2"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior literature provides general techniques but not the curve-specific consecutive-square identities."
+        ],
+        "reasoning": "The final integral-point census follows from special polynomial identities discovered for this curve, not from a quoted general result with substituted parameters.",
+        "searches": [
+          "Stoll Mordell-Weil sieve",
+          "genus 2 Chabauty and sieve references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No distinct exact equation match with a complete integral-point census was found."
+        ],
+        "reasoning": "The claim is unchanged under the factorized formulation; neither search produced prior coverage.",
+        "searches": [
+          "exact quintic equation integral points",
+          "factorization (x-1)(x^4+x^3-4x^2+1) integral points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The web-facing LMFDB search returned unrelated objects with discriminant/conductor 1957 rather than this curve; the semantic index returned the audited record as the exact match."
+        ],
+        "reasoning": "No exact database/table coverage was identified.",
+        "searches": [
+          "LMFDB genus 2 exact polynomial/discriminant 1957",
+          "published-result semantic search exact equation"
+        ]
+      },
+      "reason": "Exact web searches for the quintic equation and for the discriminant together with genus-two integral-point terms did not locate a prior exact census. The LMFDB-facing search did not return this curve as an exact hit, and the published-record semantic search returned this record plus different genus-two curves. General Mordell-Weil sieve and Chabauty literature covers methods for rational points but does not imply this elementary integral census.",
+      "status": "PASS"
+    },
+    "scientific_value": {
+      "reason": "The integral locus is a natural, exact subproblem of a motivated genus-two rational-point target. It supplies a complete self-contained boundary result while honestly leaving non-integral rational points open. The proof is short but curve-specific and potentially useful in any later rational closure or denominator analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Exact fresh polynomial-identity and sign/square-sandwich proof check.",
+    "Independent integer sanity scan for x from -10000 through 10000.",
+    "Exact-equation web search, LMFDB-facing search, and published-result semantic search."
+  ],
+  "disposition": "passed",
+  "record_id": "SCOPE-20260911-040",
+  "residual_risks": [
+    "No exhaustive historical search of every genus-two integral-point table is possible; novelty is best-knowledge based.",
+    "The full rational-point set remains open in this record and is not inferred from the integral proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BROADER_NOT_COVERING_EXACT_CLAIM",
+      "evidence": "Provides a general method rather than this elementary integral-point census.",
+      "identifier": "method reference",
+      "material_read": "Bibliographic/method-level reference; no exact curve row was found in exact-equation searches.",
+      "method": "Exact-equation and literature search.",
+      "title": "Stoll, The Mordell-Weil Sieve",
+      "trigger": "Broader genus-two rational-point method cited by the record.",
+      "url": "https://mathe2.uni-bayreuth.de/stoll/papers/MWsieve.pdf"
+    },
+    {
+      "assessment": "NO_EXACT_MATCH_FOUND",
+      "evidence": "Search results surfaced unrelated objects with 1957, not an exact curve record or integral-point table for the audited equation.",
+      "identifier": "LMFDB database",
+      "material_read": "Web-facing searches using the exact polynomial and discriminant 1957.",
+      "method": "Database-focused web search.",
+      "title": "LMFDB genus 2 curves over Q",
+      "trigger": "Exact database/table coverage check.",
+      "url": "https://www.lmfdb.org/Genus2Curve/Q/"
+    }
+  ]
+}
