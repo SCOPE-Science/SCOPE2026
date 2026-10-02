@@ -1,0 +1,112 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T20:40:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen tree afda3bbce99762d3028b22f274dee11a89bfb54f",
+        "artifacts/verify_two_lag_envelopes.py blob 77f72d44d1e2d3b02044699eb346f71f21efdc75",
+        "Berg--Song 2023 reversible-chain moment representation",
+        "classical Hausdorff and Markov--Krein moment theory"
+      ],
+      "rationale": "The spectral theorem represents the normalized autocorrelations as moments of a probability measure on \\([0,1]\\). Quadratic Hermite interpolation at the two canonical support pairs gives the stated lower and upper expectation bounds whenever the third derivative is nonnegative. Substitution of powers and of the finite-horizon variance polynomial gives the later-lag and sample-mean formulas. The long-run lower bound follows by monotone approximation of \\((1+x)/(1-x)\\), and the explicit two-point family with an atom tending to one preserves the first two moments while sending long-run variance to infinity. The actual verifier was inspected and an independent exact check reproduced the canonical moments and worked lag-three interval.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General moment theory is strictly broader than the chain-specific specialization.",
+          "The chain supplies only the support restriction and the interpretation of the moments."
+        ],
+        "reasoning": "Broader classical coverage dominates the extremal step; finite-state realizations merely show attainability within the chain class.",
+        "searches": [
+          "Krein--Nudelman moment extremal problems",
+          "positive reversible chain spectral representation"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1214/23-AOS2335",
+        "https://doi.org/10.1090/mmono/050",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All three target functionals are expectations of explicit scalar functions of the same spectral variable.",
+          "Their third derivatives have the signs used by the standard quadratic interpolation argument."
+        ],
+        "reasoning": "Once the first two moments are fixed, evaluating the canonical extremal measures mechanically yields the advertised formulas; the unbounded upper tail follows by moving one feasible atom toward one.",
+        "searches": [
+          "Markov--Krein canonical measures applied to \\(x^k\\), finite-horizon variance polynomial, and \\((1+x)/(1-x)\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berg--Song explicitly bases reversible-chain inference on representing the autocovariance sequence as a moment sequence.",
+          "Classical Markov--Krein theory is specifically an extremal-integral theorem from prescribed moments."
+        ],
+        "reasoning": "The audited canonical two-point measures are the low-order principal representations of this classical moment problem.",
+        "searches": [
+          "Berg--Song 2023 autocovariance moment sequence",
+          "Markov--Krein theorem first moments expected-value bounds",
+          "Hausdorff moment problem two moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic corpus has the assigned exact formula and a related one-lag chain result, but no table is needed for the coverage decision."
+        ],
+        "reasoning": "A database/table comparison is inapplicable because prior coverage is theorem-level.",
+        "searches": [
+          "Resultary: two lag variance envelopes positive reversible chains",
+          "published moment-sequence literature"
+        ]
+      },
+      "rationale": "The mathematical core is already covered at the implication level by two established ingredients: reversible-chain autocovariances are a compactly supported moment sequence, and classical Markov--Krein/truncated Hausdorff theory gives best upper and lower expectations under finitely many moment constraints via canonical finitely supported measures. The displayed later-lag and finite-horizon formulas are direct substitutions into that general theorem; the long-run dichotomy is an elementary two-point specialization. Exact wording in the MCMC literature is therefore unnecessary under the audit's implication standard.",
+      "residual_risks": [
+        "No exact MCMC paper printing every displayed formula was located, but implication-level classical coverage is already decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the moment-sequence viewpoint for reversible autocovariances.",
+          "evidence": "The paper explicitly states that representability of the autocovariance sequence as a moment sequence drives its method.",
+          "identifier_or_url": "https://doi.org/10.1214/23-AOS2335",
+          "material_read": "Primary abstract and journal publication page.",
+          "method": "Primary-source comparison.",
+          "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+          "trigger": "Exact reversible-chain moment representation used by the record."
+        },
+        {
+          "assessment": "Provides broader moment-extremal machinery of which the record's quadratic Hermite lemma is a two-moment specialization.",
+          "evidence": "Markov--Krein theory gives best upper and lower bounds for expectations from prescribed moments.",
+          "identifier_or_url": "https://doi.org/10.1090/mmono/050",
+          "material_read": "Bibliographic theorem context and standard Markov--Krein statement.",
+          "method": "Classical-theory comparison.",
+          "title": "The Markov Moment Problem and Extremal Problems",
+          "trigger": "General extremal theorem from finitely many prescribed moments."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Berg--Song 2023",
+        "classical Hausdorff/Markov--Krein theory"
+      ],
+      "rationale": "The chain-specific formulas are useful diagnostics, but after the published moment representation is combined with standard two-moment extremal theory they are routine substitutions and elementary two-point algebra. Under the shared value bar, correctness, sharpness, and reproducibility do not turn that mechanically implied specialization into a separate mathematical gap.",
+      "residual_risks": [
+        "The formulas can still be valuable pedagogically and computationally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a positive reversible Markov chain and one centered observable, the exact first two autocorrelations give the displayed sharp two-point envelopes for every later autocorrelation and finite-horizon variance, plus a sharp long-run lower bound and no finite long-run upper bound when the spectral variance is positive.",
+  "limitations": [
+    "The Markov operator must have nonnegative spectrum for the observable.",
+    "The statements concern one fixed observable and exact population autocorrelations.",
+    "The long-run upper-bound failure does not remove finite-horizon bounds."
+  ]
+}
