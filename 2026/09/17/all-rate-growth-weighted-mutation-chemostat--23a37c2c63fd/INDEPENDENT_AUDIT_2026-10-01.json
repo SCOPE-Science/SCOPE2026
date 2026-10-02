@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T05:10:33.674348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-rate theorem is mathematically correct under the stated reversibility and growth-weighted assumptions. Detailed balance symmetrizes the mutation generator, and the spectral bound becomes a generalized Rayleigh quotient. Because every growth rate strictly increases with substrate and the maximizing quotient is positive, the denominator strictly decreases for the same maximizer, proving strict substrate monotonicity at every positive mutation intensity. The equilibrium threshold then follows from Perron–Frobenius. At the critical dilution value, the left Perron functional is nonincreasing and its zero-derivative set contains no nonzero-biomass invariant trajectory, while the stated mass bound gives precompactness; LaSalle yields global attraction and the auxiliary substrate inequality yields stability. The mutation-strength derivative and large-rate harmonic-mean limit follow from the symmetric quotient and the one-dimensional reversible kernel. Independent numerical reproduction matched every threshold number in the stored diagnostic output.",
+      "risks": [
+        "The theorem requires irreducible reversible mutation and the special growth-weighted exchange form; it does not cover general substrate-dependent exchange matrices."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify.py",
+        "artifacts/verify-output.txt",
+        "independent NumPy reproduction of the source example"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source paper publicly states a small-perturbation global-stability theorem and supplements it with steady-state/numerical studies; reduction-principle literature controls mixing intensity, not the whole audited substrate theorem."
+        ],
+        "reasoning": "These broader sources do not imply all four audited conclusions as a package.",
+        "searches": [
+          "Global stability of perturbed chemostat systems Alvarez-Latuz Bayen Coville",
+          "reduction phenomenon resolvent positive operators mixing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.08011",
+        "DOI:10.1016/j.nonrwa.2025.104509",
+        "Altenberg 2012 reduction principle",
+        "arXiv:2110.09582",
+        "Resultary semantic search",
+        "assigned proof and artifacts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited Rayleigh-quotient argument removes the small-rate restriction under reversibility and adds critical-threshold global asymptotic stability."
+        ],
+        "reasoning": "Neither inspected prior statement mechanically yields those strengthened conclusions.",
+        "searches": [
+          "claim versus source small-rate result and general reduction phenomenon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic match was the audited result; no equivalent external theorem was located."
+        ],
+        "reasoning": "Equivalent formulations via spectral bound, mutation-selection matrices, and washout threshold were searched.",
+        "searches": [
+          "growth-weighted mutation chemostat all rate threshold reversible",
+          "Perron root substrate monotonicity chemostat mutation every epsilon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The package reproduces the source example numerically, but no database/table establishes strict monotonicity for the continuum of substrate values and all mutation intensities."
+        ],
+        "reasoning": "Finite numerical curves are not a proof of the all-rate theorem.",
+        "searches": [
+          "chemostat mutation threshold tables and Section 4.2 numerical values"
+        ]
+      },
+      "rationale": "The motivating chemostat paper's public abstract advertises only a positive small-perturbation stability threshold in the general theory, and fresh semantic searches found no published theorem giving strict substrate Perron monotonicity for every mutation rate together with the exact all-rate equilibrium threshold and critical-equality washout stability for this reversible growth-weighted class. Altenberg's reduction principle supports the mutation-intensity monotonicity component but does not imply the substrate-threshold theorem.",
+      "residual_risks": [
+        "The final journal/HAL revision of the motivating paper was not inspected in full in this run.",
+        "Lobry 2013 Section 4.2, cited by the motivating paper as related, was not available in full and remains a historical overlap risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The public source states global stability below a positive perturbation threshold and numerical/steady-state analyses; it does not publicly state the audited all-rate reversible theorem.",
+          "evidence": "The abstract explicitly phrases the main stability theorem as holding below a positive perturbation threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.08011",
+          "material_read": "Primary abstract and public scope information; direct full-text retrieval through the audit web route was unavailable.",
+          "method": "Scope and implication comparison.",
+          "title": "Global stability of perturbed chemostat systems",
+          "trigger": "Motivating primary source and closest model."
+        },
+        {
+          "assessment": "Relevant to mutation-strength monotonicity, not covering the substrate-monotonicity and equilibrium/stability theorem.",
+          "evidence": "The reduction phenomenon concerns how mixing intensity changes the spectral bound.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.1113833109",
+          "material_read": "Public abstract/scope.",
+          "method": "Theorem-scope comparison.",
+          "title": "Resolvent positive linear operators exhibit the reduction phenomenon",
+          "trigger": "Broad prior result on decrease of spectral growth under mixing."
+        },
+        {
+          "assessment": "All displayed threshold values and the harmonic limit reproduce; diagnostics are not used as the infinite proof.",
+          "evidence": "Independent values match to the printed precision.",
+          "identifier_or_url": "artifacts/verify.py",
+          "material_read": "Complete source and complete stored output.",
+          "method": "Code inspection plus independent numerical reproduction.",
+          "title": "Assigned reversible diagnostic",
+          "trigger": "Numerical corroboration of the source example and symmetrization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing a mutation-rate restriction in a natural reversible class, giving an exact coexistence/washout threshold for every rate, and resolving the critical equality case are meaningful dynamical results. The harmonic-limit formula also gives interpretable structure for the source model. This is not merely a numerical extension.",
+      "risks": [
+        "The coexistence equilibrium's all-rate stability is deliberately not claimed."
+      ],
+      "sources": [
+        "motivating chemostat model",
+        "reversible Markov-generator spectral theory"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scope requires growth-weighted reversible irreducible mutation and strictly increasing growth functions.",
+    "No all-rate coexistence-stability claim is made.",
+    "Originality is best-of-knowledge because two related full-text sources were not available in the audit route."
+  ],
+  "record_id": "SCOPE-20260917-23a37c2c63fd",
+  "schema_version": 1
+}
