@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T14:35:11.026355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [],
+      "rationale": "Independently reconstructed the retained coefficient b through Langharst-Wang's complete Section 3 chord proof and Section 4 inner-parallel proof. The extra factor b^(n-1) gives both lower bounds phi_n(b). Integrating the chord projection estimate from t*l to l gives g_K(-t*l*v) <= b^(n-1)V(K)[(1-chi*t)^n-(1-chi)^n] <= b^(n-1)V(K)(1-phi_n(b)*t)^n, since chi>=phi_n(b). Polar integration and the beta integral yield the displayed difference-body ratio. Direct differentiation of J_n at 1 and expansion of phi_n give the stated leading asymptotic. Böröczky Theorem 1 has the exact 1+n^(50n^2) epsilon upper bound. No source proof claims this quantitative conclusion automatically; these computations were checked as an independent derivation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Langharst-Wang Sections 3 and 4 give the b=1 chain; no b>1 deficit theorem occurs in the complete article.",
+          "Böröczky starts from an already-known difference-body deficit."
+        ],
+        "reasoning": "The two strongest relevant prior sources leave an implication gap; the audited covariogram upper estimate supplies it with an explicit formula.",
+        "searches": [
+          "arXiv:2609.20380v1 complete HTML",
+          "Böröczky Rogers-Shephard stability Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.20380",
+        "https://www.renyi.hu/~carlos/rogerstab.pdf",
+        "https://resultary.org/api/v1/search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parent proof sets the Bézout constant exactly 1 in its displayed mixed-volume inequalities and concludes equality; no numerical comparison for b>1 is stated.",
+          "Böröczky's theorem is conditional on a Rogers-Shephard deficit, with no Bézout coefficient."
+        ],
+        "reasoning": "Retaining b^(n-1) in the parent's estimates, deriving a covariogram upper envelope and integrating it is additional mathematics; the final Banach-Mazur conversion is correctly credited prior work.",
+        "searches": [
+          "Langharst-Wang Theorem 1.2 and Sections 2.3, 3, 4",
+          "Böröczky Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first fresh Resultary response's only direct same-statement hit was the audited record; the second likewise returned it but no other Bézout-to-deficit theorem.",
+          "Langharst-Wang arXiv:2609.20380v1 Theorem 1.2 is an equivalence only at coefficient 1, not a modulus."
+        ],
+        "reasoning": "A statement of exact simplex characterization is not equivalent to the displayed quantitative modulus; continuity/compactness alone yields no explicit global phi_n/Psi_n.",
+        "searches": [
+          "Resultary query Bezout mixed volume coefficient Rogers Shephard Banach Mazur stability, limit=5",
+          "Resultary query quantitative Bezout Rogers Shephard simplex stability, limit=10",
+          "web exact β(K)/Rogers-Shephard/Banach-Mazur query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact phi_n/J_n/Psi_n table or formula was located in those searches."
+        ],
+        "reasoning": "This is a theorem rather than a database invariant; the exact-formula check adds only bounded best-of-knowledge evidence, not proof of novelty.",
+        "searches": [
+          "Resultary fresh five-hit and ten-hit semantic responses",
+          "web exact formula/modulus query"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the complete Langharst-Wang v1 paper establishes exact equality characterizations, with b=1 throughout its two proofs; it neither states a retained-b estimate nor bounds the Rogers-Shephard deficit from b. Its Section 2.3 supplies the reverse Rogers-Shephard inequality from covariogram concavity, not the new upper covariogram estimate under near-Bézout. Böröczky converts a supplied deficit to Banach-Mazur distance but does not supply the missing Bézout-to-deficit bridge. The audited bridge and explicit modulus therefore survive a statement-and-implication comparison. The later close Resultary hit reported in the old audit did not recur in two fresh five/ten-hit searches; chronology or unindexed work remains a stated risk, not a claim of exhaustive priority.",
+      "residual_risks": [
+        "Unindexed or concurrent quantitative work could exist; search absence is not priority proof.",
+        "The old audit mentioned a later close Resultary record; fresh search did not identify it by a stable title or ID, so no chronology claim is made about it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative b=1 implications and methods; no retained-b quantitative deficit theorem",
+          "evidence": "Theorem 1.2 clauses (ii)-(v); equations (2.9), (3.1)-(3.7); Sections 3.2 and 4 proofs",
+          "identifier_or_url": "https://arxiv.org/html/2609.20380",
+          "material_read": "Complete HTML article, particularly Theorem 1.2, Section 2.2/2.3 and complete proofs in Sections 3 and 4",
+          "method": "Primary arXiv full-text HTML, statement/equation comparison",
+          "title": "The Bézout inequality for mixed volumes characterizes simplices",
+          "trigger": "Same optimal coefficient, same chord/inner-parallel framework; decisive coverage comparison"
+        },
+        {
+          "assessment": "Covers deficit-to-distance implication exactly; not the Bézout bridge",
+          "evidence": "Theorem 1 gives d_BM <= 1+n^(50n^2) epsilon when V(DK)=(1-epsilon)binom(2n,n)V(K)",
+          "identifier_or_url": "https://www.renyi.hu/~carlos/rogerstab.pdf",
+          "material_read": "Theorem 1 statement and Banach-Mazur convention",
+          "method": "Author-hosted primary PDF",
+          "title": "The stability of the Rogers-Shephard inequality and of some related inequalities",
+          "trigger": "Exact final stability constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [],
+      "rationale": "An explicit coefficient-to-Rogers-Shephard deficit bridge upgrades a just-settled qualitative simplex characterization to a global stability modulus. The object and parameter are canonical, the intermediate inequalities are independently useful, and the result is not a routine exact b=1 restatement.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Near-unit optimal two-body Bézout coefficient quantitatively forces Rogers--Shephard near-equality and Banach--Mazur proximity to a simplex with the displayed explicit modulus.",
+  "limitations": [
+    "Unindexed or concurrent quantitative work could exist; search absence is not priority proof.",
+    "The old audit mentioned a later close Resultary record; fresh search did not identify it by a stable title or ID, so no chronology claim is made about it."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed or concurrent quantitative work could exist; search absence is not priority proof.",
+    "The old audit mentioned a later close Resultary record; fresh search did not identify it by a stable title or ID, so no chronology claim is made about it."
+  ]
+}
