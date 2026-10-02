@@ -1,0 +1,124 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "audited_at_utc": "2026-10-01T07:43:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at tree a838136e8f910e9fdf0f54256f51319778a60974",
+        "artifacts/verify_construction.py blob 162a2b45df96499a1f31607cd6eeb2ea106bac9b",
+        "Erdős–Faudree–Ordman 1988",
+        "Rohatgi–Urschel–Wellens 2021",
+        "Ning 2026"
+      ],
+      "rationale": "The cut lower bound specializes to \\(abv^2-(a+b+\\min\\{a,b\\})m\\). Assuming \\(a\\le b\\), a proper edge-colouring of H partitions its edges into at most a matchings. Pairing equal-colour edges across the first a copy pairs produces edge-disjoint 4-cliques that cover each internal edge once; for each excess copy, triangles anchored in distinct A-copies cover its internal edges without cross-edge collisions. Remaining cross edges are singleton 2-cliques, and the count equals the lower bound. The inspected construction verifier independently checks representative paths, cycles, and complete graphs.",
+      "residual_risks": [
+        "The theorem makes no necessity claim outside the chromatic-index regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The EFO result is a lower bound; Rohatgi–Urschel–Wellens provide related one-sided constructions; Ning proves a balanced special family."
+        ],
+        "reasoning": "None of the broader results alone implies the two-sided arbitrary-H construction because simultaneous packing of both sides' internal edges requires the new coordinated matching layer.",
+        "searches": [
+          "Erdős Faudree Ordman cut lower bound",
+          "one-sided join with independent set clique partition",
+          "Ning balanced complete cluster join"
+        ]
+      },
+      "checked_sources": [
+        "https://www.renyi.hu/~p_erdos/1988-04.pdf",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i4p53/pdf/",
+        "https://arxiv.org/abs/2609.20305",
+        "semantic published-results search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower bound does not provide an attaining partition. The package explicitly constructs the attaining 4-clique and triangle layers from a proper edge-colouring."
+        ],
+        "reasoning": "The prior implications stop short of the exact equality for arbitrary H; the construction is the additional theorem.",
+        "searches": [
+          "classical cut bound plus edge-colouring",
+          "Ning complete-cluster construction versus arbitrary H"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The directly related sources use cut inequalities, one-sided independent-set joins, or balanced complete clusters."
+        ],
+        "reasoning": "These are the natural equivalent formulations; none inspected states the arbitrary repeated-H equality.",
+        "searches": [
+          "clique partition join repeated graph copies",
+          "cluster graph join clique partition",
+          "edge chromatic number join clique partition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table containing the full symbolic family was found."
+        ],
+        "reasoning": "Database/table comparison is inapplicable to an all-graphs symbolic theorem, except as small-instance checking.",
+        "searches": [
+          "clique partition formula tables",
+          "edge-colouring catalogues"
+        ]
+      },
+      "rationale": "The classical cut inequality supplies only the lower bound, the 2021 result supplies a one-sided join mechanism, and Ning's recent construction treats a more special balanced complete-cluster family. Searches found no prior two-sided repeated-arbitrary-H equality theorem or the asymmetric parity-free complete-cluster corollary.",
+      "residual_risks": [
+        "Very recent or poorly indexed equivalent formulations remain possible.",
+        "The exact relevant theorem text in Ning was not fully extracted by the web interface in this run; the assigned package states the specialization and the public abstract confirms the paper's scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies lower-bound machinery, not the attaining repeated-H construction.",
+          "evidence": "Paper develops tools for edge clique partitions and coverings.",
+          "identifier_or_url": "https://www.renyi.hu/~p_erdos/1988-04.pdf",
+          "material_read": "Primary paper opening/abstract and cited inequality context.",
+          "method": "Direct full-text lookup.",
+          "title": "Clique Partitions and Clique Coverings",
+          "trigger": "Source of the cut lower-bound method."
+        },
+        {
+          "assessment": "Related clique-partition constructions, not the audited two-sided arbitrary-H theorem.",
+          "evidence": "Paper studies clique partitions and related extremal questions.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i4p53/pdf/",
+          "material_read": "Open-access primary abstract and relevant context.",
+          "method": "Direct full-text lookup.",
+          "title": "Regarding two questions about clique and biclique partitions",
+          "trigger": "Closest one-sided join identity cited by the package."
+        },
+        {
+          "assessment": "Does not state the arbitrary-H asymmetric theorem.",
+          "evidence": "Abstract addresses the global deficit problem; assigned comparison identifies its balanced complete-cluster subfamily.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20305",
+          "material_read": "Primary abstract and assigned package's exact specialization comparison.",
+          "method": "Direct literature lookup.",
+          "title": "On the difference between clique partition and clique covering numbers",
+          "trigger": "Recent balanced complete-cluster construction used as comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Erdős–Faudree–Ordman cut-bound context",
+        "Ning 2026 extremal context",
+        "Rohatgi–Urschel–Wellens 2021"
+      ],
+      "rationale": "The theorem identifies chromatic index as a general mechanism for equality in a classical cut bound and extends a current extremal construction from complete clusters to arbitrary repeated graphs. The complete-graph corollary yields a natural asymmetric parity-free exact family, so the contribution is structurally motivated.",
+      "residual_risks": [
+        "The global extremal deficit order is not improved and the threshold may not be necessary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If each side contains at least the edge-chromatic number of a finite graph H, then the Erdős–Faudree–Ordman cut lower bound is attained exactly for the clique partition number of the join of a disjoint copies of H with b disjoint copies of H; for complete H this yields the stated asymmetric parity-free partition, covering, and spread formulas.",
+  "limitations": [
+    "The chromatic-index threshold is sufficient, not claimed necessary.",
+    "For arbitrary H the theorem determines the clique partition number only; the covering and spread formulas are additionally proved for complete H."
+  ]
+}
