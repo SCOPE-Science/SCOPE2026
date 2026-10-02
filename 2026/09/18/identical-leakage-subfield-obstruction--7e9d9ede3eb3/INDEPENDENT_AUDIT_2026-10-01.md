@@ -1,0 +1,65 @@
+# Independent audit — Identical linear leakage cannot exploit computations over its stabilizer field
+
+**Disposition: PASSED.**
+
+## Correctness
+
+**PASS** — For a \(\mathbb B\)-linear leakage map, the set of scalars preserving its kernel is closed under field operations; finite-dimensionality upgrades nonzero inclusion to equality, giving a subfield. Such scalars descend to linear maps on the quotient, so every computed-block leakage with coefficients in the common stabilizer factors through input-block leakage. For a nonzero one-symbol trace functional, nondegeneracy of the finite-field trace pairing forces the stabilizer to be exactly \(\mathbb B\). The product/base repair equivalence and Kronecker rank factorization then follow. An independent GF(8)/GF(2) reconstruction recovered kernel \([0,2,4,6]\) and stabilizer \([0,1]\).
+
+## Originality
+
+**PASS** — The complete Aoutouf--Augot preprint was inspected. Its identical-leakage theorem proves collapse for simple addition and says the same observation seems to extend to array summation; for general coefficients it reports simulations. It does not state the kernel-stabilizer subfield theorem or the all-base-field-computation obstruction. Resultary found only this 2026-09-18 record and stronger related SCOPE records dated 2026-09-19, which postdate it.
+
+## Scientific value
+
+**PASS** — The stabilizer field isolates the exact algebraic boundary at which reused leakage cannot gain information. For trace leakage it proves the suggested array/base-field generalization and cleanly explains why extension-field coefficients can evade the obstruction. This is a reusable structural theorem, not a single simulation.
+
+## Source inspections
+
+- **On the Leakage of Massey Secret Sharing Schemes under Linear Computations** (arXiv:2609.19929v1): complete 23-page primary full text, especially Sections 4-5. Assessment: PARTIAL PRIOR: simple addition only; NOT_COVERING general stabilizer theorem.
+- **Repairing Reed-Solomon Codes** (DOI:10.1145/2897518.2897525): primary repair framework. Assessment: BACKGROUND.
+
+## Originality checks
+
+### Equivalent Formulations
+
+The stabilizer-field formulation strictly generalizes the proved source case.
+
+Searches: Resultary identical leakage stabilizer field trace computation; Aoutouf Augot identical leakage full text.
+
+Evidence: The source gives only simple-addition collapse and a conjectural-looking extension to array summation.
+
+### Broader Coverage
+
+The general criterion does not itself imply no amplification for every stabilizer-valued computation without the new quotient argument.
+
+Searches: Aoutouf Augot arXiv:2609.19929 Sections 4-5; Guruswami Wootters repair Reed-Solomon.
+
+Evidence: General linear-computation repair criteria are present, but not the stabilizer-field obstruction.
+
+### Exact Database Or Table
+
+No earlier exact record was located.
+
+Searches: Resultary identical leakage subfield obstruction.
+
+Evidence: Related 2026-09-19 SCOPE records are later than the audited 2026-09-18 record.
+
+### Claim Vs Prior Implication
+
+Moving from that single computation to arbitrary coefficients in the common kernel stabilizer requires the new subfield/quotient theorem.
+
+Searches: arXiv:2609.19929 pages 19-20 identical leakage.
+
+Evidence: The paper explicitly proves simple addition reduces to the base criterion and says array summation seems to extend directly.
+
+## Residual risks
+
+- The motivating preprint was submitted one day before the record, so near-simultaneous extension remains a residual risk.
+- The theorem concerns identical linear leakage and linear computations only.
+
+## Limitations
+
+The obstruction assumes identical B-linear leakage reused across computation blocks and linear computations. Coefficients outside the stabilizer field are necessary for new computed leakage information but are not sufficient for a successful repair attack. Near-simultaneous work around the 17 September 2026 motivating preprint remains a residual risk.
+
+This assessment preserves the historical same-model review as prior evidence but does not treat it as independent support for this audit.
