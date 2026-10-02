@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The affine recurrence was reconstructed from the zero of the affine operator. Its companion characteristic determinant is \(\det((r^2-r)I+\lambda(2r-1)M)\), so stability reduces to the scalar equation over spectral values of \(M\). Strong monotonicity and the norm bound imply the exact half-disk enclosure \(\operatorname{Re}\zeta\ge q\), \(|\zeta|\le1\). A fresh symbolic elimination of a unit-circle root reproduced \(c(t)=(5t^2-2)/(2(2t^2-1))\), \(\phi(t)=t(3t^2-1)/(2(1-2t^2))\), its strict increase on \([1/\sqrt3,2/3]\), and the cubic \(3t^3+4qt^2-t-2q=0\). The planar rotation-dilation has exactly the boundary spectral value, and the scalar endpoint gives the multiplier \(r=-1\). Finite-dimensional spectral radius below one is sufficient for R-linear convergence even for defective matrices.
+- Originality: **PASS** — The motivating 2026 reflected-gradient paper publicly states the sharp merely monotone affine threshold and separately proves strong-monotonicity convergence, while the sharp OGD frequency-domain result assumes strong monotonicity together with cocoercivity. Under only strong monotonicity \(\sigma\) and Lipschitz norm \(L\), that latter theorem yields the weaker sufficient scale obtained from cocoercivity \(\sigma/L^2\), not the audited cubic interpolation. Resultary searches located the assigned result and related later optimization records but no earlier or stronger statement of this exact universal half-disk stability boundary.
+- Value: **PASS** — This is a natural sharp stability problem for the affine subclass of reflected gradient/optimistic gradient. The theorem gives an exact universal condition-ratio law, identifies the extremal operator, and interpolates two known endpoint constants. It is a motivated structural boundary rather than a numerical tuning anecdote.
+
+Detailed structured comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is preserved in `AUDIT.json` as historical evidence.
