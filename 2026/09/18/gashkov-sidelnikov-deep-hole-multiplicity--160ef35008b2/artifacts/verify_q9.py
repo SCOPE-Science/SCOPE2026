@@ -110,3 +110,4 @@ print("layer_counts=" + repr(dict(sorted(layer_counts.items()))))
 print("deep_hole_leader_multiplicities=" + repr(dict(sorted(deep_multiplicities.items()))))
 print("valid_first_summand_counts=" + repr(dict(sorted(marked_first_summand_counts.items()))))
 print("PASS")
+
