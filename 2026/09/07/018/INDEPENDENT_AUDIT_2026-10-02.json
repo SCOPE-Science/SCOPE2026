@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T14:48:48.220606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/09/07/018/RESULT.md",
+        "frozen 2026/09/07/018/artifacts/kasteleyn_census.py",
+        "isolated full rerun of kasteleyn_census.py"
+      ],
+      "rationale": "The frozen artifacts/kasteleyn_census.py was rerun in an isolated output directory. For the five claimed 6-by-n boards it reproduces pure dimer counts 6728,31529,167089,817991,4213133; 45,123,156,198,240 two-hole symmetry orbits (762 total); and unique adjacent-corner maxima 3364,16926,85659,431819,2182406. Pfaffian and independent transfer-DP values agree on every one of the 762 orbits. The orientation-control case gives the claimed failure at two interior holes, while boundary/Temperley checks pass. These finite exact comparisons support the stated ranges only.",
+      "residual_risks": [
+        "The exhaustive orbit/matching tables depend on executable enumeration; no extension beyond the five stated board lengths is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General formulas compute a placement count, but the papers do not classify all placements modulo rectangle symmetries or establish these exact maxima."
+        ],
+        "reasoning": "A general calculational framework does not directly imply the quantified finite optimization claim without new exhaustive evaluation.",
+        "searches": [
+          "arXiv:1510.05027 Pfaffian formula",
+          "arXiv:1402.5512 general monomers",
+          "arXiv:1901.07847 recurrence"
+        ]
+      },
+      "checked_sources": [
+        "https://resultary.org/api/v1/search",
+        "https://arxiv.org/html/1510.05027",
+        "https://arxiv.org/html/1402.5512",
+        "https://arxiv.org/html/1901.07847"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formulas specify partition functions under monomer conditions, not that adjacent corners uniquely maximize each of five 6-by-n finite boards."
+        ],
+        "reasoning": "The exact claimed extrema and orbit totals require evaluations/comparisons not contained in the prior statements.",
+        "searches": [
+          "Giuliani-Jauslin-Lieb arXiv:1510.05027 theorem",
+          "Allegra-Fortin arXiv:1402.5512 formulas",
+          "Oh arXiv:1901.07847 recursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact hit is the present record.",
+          "Giuliani-Jauslin-Lieb's formula is for boundary monomers; Allegra-Fortin permit general fixed positions via more elaborate Pfaffians."
+        ],
+        "reasoning": "Neither gives the equivalent complete five-board orbit and argmax table.",
+        "searches": [
+          "Resultary API: two monomer 6 by n dimer Pfaffian maxima corner",
+          "arXiv:1510.05027",
+          "arXiv:1402.5512"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent source/table with the five exact maxima or 762-orbit dataset surfaced; Resultary returned the current record."
+        ],
+        "reasoning": "This is an actual corpus/table comparison with residual search risk, not an absence proof.",
+        "searches": [
+          "Resultary two monomer rectangular board exact counts",
+          "6xn monomer dimer adjacent corner maximum 3364 16926"
+        ]
+      },
+      "rationale": "The closest monomer-dimer Pfaffian formula is a broad computational formula, but the inspected papers do not assert the exact symmetry-orbit tables and location of maxima for these five boards. A formula capable of producing an answer after 762 computations does not itself mechanically state or imply the extremal classifications; the exact data are independently useful.",
+      "residual_risks": [
+        "An unindexed exact finite-board table may exist; broad Pfaffian formulas already cover individual fixed-position counts algorithmically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact table",
+          "evidence": "The formula is stated for monomers on the boundary; the paper does not tabulate or optimize all two-hole placements on these five boards.",
+          "identifier_or_url": "https://arxiv.org/html/1510.05027",
+          "material_read": "Full HTML paper including theorem, boundary-monomer assumption, proof and discussion of interior-monomer prior work",
+          "method": "Primary full-text reading",
+          "title": "A Pfaffian formula for monomer-dimer partition functions",
+          "trigger": "Most plausible broad Pfaffian result for monomer placements"
+        },
+        {
+          "assessment": "NOT_COVERING exact maxima",
+          "evidence": "It gives general fixed-monomer machinery, not the 6-by-n orbit census or five adjacent-corner extremal comparisons.",
+          "identifier_or_url": "https://arxiv.org/html/1402.5512",
+          "material_read": "Full HTML paper, including model, Pfaffian construction and examples",
+          "method": "Primary full-text reading",
+          "title": "Exact solution of the monomer-dimer model on a square lattice with fixed monomers",
+          "trigger": "Potential general fixed-position formula"
+        },
+        {
+          "assessment": "NOT_COVERING exact two-hole orbit table",
+          "evidence": "Global recurrence/examples do not provide the claimed 762 placement-orbit classification.",
+          "identifier_or_url": "https://arxiv.org/html/1901.07847",
+          "material_read": "Full HTML paper with recursion and numerical examples",
+          "method": "Primary full-text reading",
+          "title": "Enumeration of monomer-dimer coverings on rectangular lattices",
+          "trigger": "Possible rectangular enumeration table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/09/07/018/RESULT.md",
+        "https://arxiv.org/html/1510.05027"
+      ],
+      "rationale": "The fixed-height rectangular dimer model and monomer-position dependence are canonical; a full symmetry-reduced two-hole census, exact maxima and Pfaffian-vs-DP cross-check form a reusable finite statistical-mechanics benchmark. The placement optimization is not an arbitrary small negative check.",
+      "residual_risks": [
+        "Value is an exact finite benchmark, not an asymptotic law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exhaustive orbit/matching tables depend on executable enumeration; no extension beyond the five stated board lengths is proved.",
+    "An unindexed exact finite-board table may exist; broad Pfaffian formulas already cover individual fixed-position counts algorithmically.",
+    "Value is an exact finite benchmark, not an asymptotic law."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exhaustive orbit/matching tables depend on executable enumeration; no extension beyond the five stated board lengths is proved.",
+    "An unindexed exact finite-board table may exist; broad Pfaffian formulas already cover individual fixed-position counts algorithmically.",
+    "Value is an exact finite benchmark, not an asymptotic law."
+  ]
+}
