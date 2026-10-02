@@ -1,0 +1,111 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T20:40:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen tree cb9da58ff3241870765f75fa333da518845d0756",
+        "artifacts/verify_parity_cancellation.py blob 066c824b5ce583e9a2d9938a5b0fc6ba997939b4",
+        "Raghava, arXiv:2609.18945v1, full primary PDF pages 1--12",
+        "Beck--Robins Ehrhart background"
+      ],
+      "rationale": "Character orthogonality at \\(-1\\) leaves exactly characters with \\(O\\mid 2j+1\\). Writing these as the odd Galois conjugates of a primitive \\(2D\\)-th root converts every even-denominator factor into the displayed finite geometric polynomial. Because \\(D\\) is a power of two, the cyclotomic trace kills all reduced monomials except the constant term and has trace \\(D\\) on one, yielding \\(A_N(-1)=(B_N/O)c_0(N)\\). The actual verification code was inspected, and an independent exact replay reproduced \\(P_8=1024x^6\\) in \\(\\mathbb Z[x]/(x^8+1)\\) and exactly the cancellation set \\(\\{4,8,11,12,14,17,27,28,31,61,62,64\\}\\) for \\(3\\le N\\le100\\). The source paper's full text independently confirms its published small table through \\(N=7\\), including cancellation only at \\(N=4\\).",
+      "residual_risks": [
+        "The finite census is certificate-based and proves only the checked range; it is not evidence for infinitely many cancellations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Ehrhart and Fourier--Dedekind theory supplies the language of root-of-unity poles and period collapse."
+        ],
+        "reasoning": "Those frameworks do not by the inspected material produce the specialized power-of-two constant-coefficient criterion.",
+        "searches": [
+          "Ehrhart period collapse root-of-unity cancellation",
+          "Fourier--Dedekind parity cancellation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18945",
+        "https://doi.org/10.1007/978-1-4939-2969-6",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives a general character average for \\(A_N(z)\\).",
+          "The audited proof identifies exactly which characters survive at \\(-1\\), packages them as one Galois orbit, and evaluates the trace by a constant coefficient."
+        ],
+        "reasoning": "That additional two-adic reduction is not mechanically stated by the inspected source; it is the substantive surviving claim.",
+        "searches": [
+          "Raghava Proposition 2.2 character projection versus negacyclic trace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source paper states the Fourier character formula and its table through \\(N=7\\).",
+          "The semantic corpus returned the assigned trace criterion as the exact hit."
+        ],
+        "reasoning": "The audited formulation is a cyclotomic trace compression of the source's character sum, not merely a restatement of its pole criterion.",
+        "searches": [
+          "arXiv:2609.18945 full text Sections 2.1--2.2",
+          "Resultary: 2-adic parity cancellation diagonal rational partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The main text explicitly tabulates \\(N=3,4,5,6,7\\) and says the finite arithmetic certificate for those displayed computations is in an ancillary directory."
+        ],
+        "reasoning": "The published table stops before \\(N=8\\); the audited census is not a recomputation of a published table.",
+        "searches": [
+          "Raghava numerical table and source supplement description"
+        ]
+      },
+      "rationale": "The full motivating preprint gives the Ehrhart numerator, root-of-unity pole framework, and a numerical table only for \\(3\\le N\\le7\\); it does not state the negacyclic trace criterion, the \\(N=8\\) cancellation, or the larger census in the inspected text. The source itself says a numerical supplement contains a certificate for its displayed small-\\(N\\) computations, which remains a residual ancillary-source risk rather than evidence of coverage.",
+      "residual_risks": [
+        "The motivating preprint's ancillary source archive was not separately inspected; it could contain unpublished broader evaluations.",
+        "Concurrent work on this September 2026 preprint may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the numerator and pole machinery and only the displayed \\(N=3\\) through \\(7\\) table; no negacyclic trace criterion or \\(N=8\\) evaluation appears in the inspected pages.",
+          "evidence": "The paper states \\(A_4(-1)=0\\), nonzero values for \\(N=3,5,6,7\\), and says its numerical supplement certifies the displayed small cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18945",
+          "material_read": "Full primary PDF pages 1--12, including Theorems 2.1--2.10 and the small-\\(N\\) pole table.",
+          "method": "Primary full-text inspection.",
+          "title": "Arithmetic Constraints and Limit Laws for Diagonal Rational Partitions",
+          "trigger": "Exact motivating model and possible direct coverage."
+        },
+        {
+          "assessment": "General framework only.",
+          "evidence": "The motivating paper uses it for rational Ehrhart and Fourier--Dedekind theory.",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4939-2969-6",
+          "material_read": "Bibliographic theorem context cited by the primary paper.",
+          "method": "Background comparison.",
+          "title": "Computing the Continuous Discretely",
+          "trigger": "General Ehrhart/Fourier--Dedekind background."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Raghava fixed-alphabet pole theorem and small table",
+        "Ehrhart period-collapse background",
+        "actual exact verifier"
+      ],
+      "rationale": "The trace criterion compresses a large character calculation to exact arithmetic in a power-of-two cyclotomic quotient and directly decides survival of the uniquely maximal raw parity pole. The new \\(N=8\\) cancellation and exact census are mathematically motivated consequences of that structural criterion rather than an arbitrary finite enumeration.",
+      "residual_risks": [
+        "The census by itself would not establish value; the general trace reduction does."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the diagonal-rational-partition residue numerator, \\(A_N(-1)\\) is exactly \\((B_N/O)c_0(N)\\), where \\(c_0(N)\\) is the constant coefficient of the displayed power-of-two negacyclic product; this proves the simple cancellation at \\(N=8\\), the resulting pole order and parity term, and the exact cancellation census through \\(N=100\\).",
+  "limitations": [
+    "The theorem treats only cancellation at the primitive second root.",
+    "The exact pole order is worked out for \\(N=8\\), not for every cancellation index.",
+    "The finite census stops at \\(N=100\\) and is not an infinite classification."
+  ]
+}

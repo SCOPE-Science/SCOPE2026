@@ -1,27 +1,42 @@
 {
+  "audited_at_utc": "2026-10-01T20:40:54Z",
   "axes": {
     "correctness": {
-      "rationale": "Character orthogonality reduces A_N(-1) to surviving characters with O dividing 2j+1. These characters form the Galois orbit of a primitive 2D-th root, and the surviving geometric factors give the stated negacyclic product. Cyclotomic trace extracts exactly D times its constant coefficient. For N=8 the product reduces to 1024 x^6, while an independent bounded-residue calculation gives a simple zero with derivative -592704000. The exact denominator multiplicities then give s_8=10 and the displayed parity coefficient. Exact integer checks reproduce the published N=3 through 7 data and the finite census through N=100.",
-      "verdict": "PASS"
+      "rationale": "Character orthogonality at \\(-1\\) leaves exactly characters with \\(O\\mid 2j+1\\). Writing these as the odd Galois conjugates of a primitive \\(2D\\)-th root converts every even-denominator factor into the displayed finite geometric polynomial. Because \\(D\\) is a power of two, the cyclotomic trace kills all reduced monomials except the constant term and has trace \\(D\\) on one, yielding \\(A_N(-1)=(B_N/O)c_0(N)\\). The actual verification code was inspected, and an independent exact replay reproduced \\(P_8=1024x^6\\) in \\(\\mathbb Z[x]/(x^8+1)\\) and exactly the cancellation set \\(\\{4,8,11,12,14,17,27,28,31,61,62,64\\}\\) for \\(3\\le N\\le100\\). The source paper's full text independently confirms its published small table through \\(N=7\\), including cancellation only at \\(N=4\\).",
+      "status": "PASS"
     },
     "originality": {
-      "rationale": "The motivating September 2026 preprint supplies the residue numerator and pole framework but its accessible main text tabulates A_N(-1) only for N=3 through 7 and does not state the 2-adic trace criterion, the N=8 cancellation, s_8=10, the degree-9 parity amplitude, or the larger census. Equivalent-formulation searches in rational partitions, Ehrhart period collapse, root-of-unity cancellation, and Fourier-Dedekind language did not locate prior coverage. Residual risk remains because the preprint's ancillary source archive was not inspected and because concurrent work may be unindexed.",
-      "verdict": "PASS"
+      "rationale": "The full motivating preprint gives the Ehrhart numerator, root-of-unity pole framework, and a numerical table only for \\(3\\le N\\le7\\); it does not state the negacyclic trace criterion, the \\(N=8\\) cancellation, or the larger census in the inspected text. The source itself says a numerical supplement contains a certificate for its displayed small-\\(N\\) computations, which remains a residual ancillary-source risk rather than evidence of coverage.",
+      "status": "PASS"
     },
     "value": {
-      "rationale": "The criterion compresses the parity-cancellation problem from an L_N-character calculation to exact arithmetic in a 2-power cyclotomic ring and directly decides whether the unique maximal raw parity pole survives. The N=8 case shows a second small cancellation and sharpens the quasipolynomial stabilization threshold by one degree; the exact census demonstrates that such cancellations recur at several further indices.",
-      "verdict": "PASS"
+      "rationale": "The trace criterion compresses a large character calculation to exact arithmetic in a power-of-two cyclotomic quotient and directly decides survival of the uniquely maximal raw parity pole. The new \\(N=8\\) cancellation and exact census are mathematically motivated consequences of that structural criterion rather than an arbitrary finite enumeration.",
+      "status": "PASS"
     }
   },
-  "disclaimer": "Same-model review: passed. Independent audit: not yet performed.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-20",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "disclaimer": "This evidence-based scientific review is not peer review, formal verification, or a guarantee of first discovery.",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "historical_review_evidence": {
+    "correctness": {
+      "status": "PASS",
+      "summary": "The earlier scientific review recorded a correctness pass."
+    },
+    "originality": {
+      "status": "PASS",
+      "summary": "The earlier scientific review recorded an originality pass; it is historical evidence only."
+    },
+    "value": {
+      "status": "PASS",
+      "summary": "The earlier scientific review recorded a value pass."
+    }
+  },
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
 }
