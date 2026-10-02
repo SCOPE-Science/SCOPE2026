@@ -2,8 +2,11 @@
 {
   "schema_version": 1,
   "independent_audit": {
-    "status": "not_performed",
-    "evidence": null
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ]
   },
   "lean_verification": {
     "status": "unknown",
@@ -16,5 +19,4 @@
 }
 ---
 
-Fresh independent audit: not yet performed. Prior certification is inactive.
-Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
+The independent mathematical audit dated 2026-10-01 passed correctness, originality, and scientific value. Existing finite computations remain reproducibility evidence; the proof of the asymptotic theorem does not rely on finite-range testing.
