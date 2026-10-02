@@ -1,26 +1,42 @@
 {
+  "audited_at_utc": "2026-10-01T21:43:10Z",
   "axes": {
     "correctness": {
-      "rationale": "The multidegree word sum is computed exactly over all 256 ordered pairs in M_2(F_2)^2 by the defining shuffle recurrence, and a separate coefficient-extraction computation verifies the factorized polynomial identity whose t^5 coefficient is I_2.",
-      "verdict": "PASS"
+      "rationale": "The coefficient of \\(t^a\\) in \\(\\sum_{A,B}(tA+B)^{23}\\) is exactly the claimed noncommutative word sum because \\(t\\) is central. The inspected verifier computes all 256 ordered pairs by the defining shuffle recurrence and independently by polynomial-matrix exponentiation over \\(\\mathbf F_2\\). A fresh independent replay of the shuffle recurrence found no positive-bidegree failure below total degree 23 and found exactly the twelve claimed degree-23 bidegrees, each equal to the bit pattern for \\(I_2\\), including \\(T_{5,18}=I_2\\). The primary paper's Conjecture 3 explicitly predicts zero for every such multidegree when \\(p=d=2\\) and the number of generators exceeds one.",
+      "status": "PASS"
     },
     "originality": {
-      "rationale": "Qualified to the best of our knowledge. The primary conjecture and its conditional role were inspected, and targeted searches using exact and equivalent formulations found no published correction, counterexample, or degree-23 identity. A differently phrased or poorly indexed antecedent remains possible.",
-      "verdict": "PASS"
+      "rationale": "The primary source states the conjecture being contradicted, and targeted searches plus the published-result corpus did not locate a prior correction, counterexample, or equivalent degree-23 identity. The exact finite witness is therefore original to the best of knowledge.",
+      "status": "PASS"
     },
     "value": {
-      "rationale": "The result directly refutes an explicit published conjecture used as a missing ingredient in a proposed general formula, identifies the first r=2 failure degree, and supplies a compact exact certificate with twelve failures at that degree.",
-      "verdict": "PASS"
+      "rationale": "A dimension- and alphabet-minimal explicit counterexample to a published conjecture is a motivated mathematical finding; the first-failure degree and exact factorized identity make the obstruction reproducible and informative rather than a bare negative check.",
+      "status": "PASS"
     }
   },
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-21",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "disclaimer": "This evidence-based scientific review is not peer review, formal verification, or a guarantee of first discovery.",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "historical_review_evidence": {
+    "correctness": {
+      "status": "PASS",
+      "summary": "Earlier review verified the exact word-sum certificate."
+    },
+    "originality": {
+      "status": "PASS",
+      "summary": "Earlier review found no prior counterexample."
+    },
+    "value": {
+      "status": "PASS",
+      "summary": "Earlier review valued the explicit conjecture counterexample."
+    }
+  },
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
 }
