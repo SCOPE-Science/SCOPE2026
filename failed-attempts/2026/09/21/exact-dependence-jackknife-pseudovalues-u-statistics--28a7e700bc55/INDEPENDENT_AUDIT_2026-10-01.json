@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T21:58:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 7518d0ca777a2f2f505e3e89dd88fb8209d5af76",
+        "artifacts/verify_exact.py (full source inspected) and artifacts/VERIFICATION.txt",
+        "Efron--Stein (1981), The Jackknife Estimate of Variance, complete primary text"
+      ],
+      "rationale": "The final covariance formulas reconstruct directly from the canonical Hoeffding decomposition. For a fixed order r, each canonical term has pseudo-value coefficient r/C(n-1,r-1) when the deleted index is in the r-set and (1-r)/C(n-1,r) otherwise; orthogonality makes the variance and two-index cross-covariance finite combinatorial sums, yielding exactly [r(n-2)+1]/C(n-1,r) and -(r-1)/C(n-1,r). Positive-semidefinite Hoeffding covariance components then give the sign and iff-additive equality statement. In the scalar case the correlation is a nonnegative weighted average of the pure-order ratios, so the sharp interval and its endpoint constructions follow. Exchangeability and n^{-1}sum_i V_i=U_n give E Sigma_J-Var(U_n)=-Cov(V_1,V_2), and coefficient comparison gives the stated sharp inflation factor. The inspected exact-arithmetic verifier checks these identities and the Rademacher example, but the infinite statement is proved symbolically rather than inferred from the finite grid.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Efron--Stein treat arbitrary symmetric statistics through ANOVA components and then U-statistics as a class, which is broader than the complete fixed-degree U-statistic family audited here."
+        ],
+        "reasoning": "The submitted theorem is a concrete specialization of a broader exact jackknife-bias decomposition, not an independent extension beyond it.",
+        "searches": [
+          "Efron--Stein 1981 complete paper, Sections 2--4",
+          "Resultary semantic search for jackknife pseudo-value exact covariance and variance bias"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verifier source",
+        "Efron--Stein 1981 full primary text",
+        "Arvesen 1969 bibliographic material",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper's orthogonal component expansion assigns nonnegative order-wise contributions to jackknife variance bias and explicitly notes the U-statistic setting.",
+          "For current pseudo-values, E Sigma_J-Var(U_n)=-Cov(V_1,V_2) follows from exchangeability alone; inserting the Hoeffding order-r variance coefficient gives exactly the submitted coefficient n(r-1)/(n-r) for the bias-to-variance ratio, hence the displayed covariance coefficient."
+        ],
+        "reasoning": "Every scientifically substantive part of the final claim follows by direct specialization plus elementary algebra from established prior results. Corollary status is coverage under the requested bar.",
+        "searches": [
+          "Efron--Stein 1981 equations for ANOVA variance and jackknife variance bias",
+          "Frozen current RESULT.md proof and standard complete-U-statistic Hoeffding variance formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Efron--Stein's complete primary text develops the orthogonal ANOVA decomposition for symmetric statistics and the exact jackknife-variance bias expansion, with a separate U-statistic discussion.",
+          "The current record itself uses the same Hoeffding components and standard U-statistic variance coefficients."
+        ],
+        "reasoning": "For exchangeable pseudo-values averaging to U_n, cross covariance and jackknife-variance bias are algebraically equivalent quantities; therefore an exact prior bias decomposition plus Hoeffding specialization is an equivalent formulation of the core final theorem.",
+        "searches": [
+          "Resultary semantic query: exact finite sample covariance jackknife pseudovalues U-statistics negative covariance bias inflation",
+          "Efron and Stein, The Jackknife Estimate of Variance, Annals of Statistics 9 (1981), 586--596",
+          "Arvesen, Jackknifing U-Statistics (1969)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic search returned the current SCOPE record as the exact-wording hit; this absence of an exact title match was not treated as novelty evidence."
+        ],
+        "reasoning": "No database table is decisive here; the originality decision rests on theorem implication from primary literature.",
+        "searches": [
+          "Resultary semantic search for exact finite-sample jackknife pseudo-value dependence"
+        ]
+      },
+      "rationale": "The final claim is mechanically implied by earlier general jackknife theory once specialized to a complete U-statistic. Efron--Stein give an exact ANOVA/Hoeffding-type decomposition of a symmetric statistic and an exact positive expansion for the bias of the jackknife variance estimator, and they explicitly discuss the U-statistic specialization. For the exchangeable pseudo-values used here, the elementary identities Var(U_n)=[D+(n-1)C]/n and E Sigma_J=(D-C)/n convert that prior bias formula into C=-bias. Substituting the standard Hoeffding variance coefficients produces the submitted all-order cross-covariance coefficients; the scalar interval and matrix inflation factor are then immediate optimizations of those coefficients. Under the required implication bar, the fact that the earlier paper did not print the same pseudo-value formula verbatim does not preserve originality.",
+      "residual_risks": [
+        "Arvesen (1969) and Shi (1984) were not fully inspected, but this does not affect the decisive Efron--Stein implication comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_PRIOR_IMPLICATION",
+          "evidence": "The paper supplies the general exact component-wise jackknife variance-bias machinery from which the submitted U-statistic coefficients follow after standard Hoeffding specialization.",
+          "identifier_or_url": "B. Efron and C. Stein, Annals of Statistics 9 (1981), 586--596",
+          "material_read": "Complete 12-page primary article, including the orthogonal ANOVA decomposition, exact variance formulas, jackknife-bias theorem/comments, and the U-statistic discussion.",
+          "method": "Lawful public full-text PDF; relevant pages were visually inspected.",
+          "title": "The Jackknife Estimate of Variance",
+          "trigger": "Primary classical source most likely to dominate the submitted exact bias/covariance statement."
+        },
+        {
+          "assessment": "RESIDUAL_SOURCE_NOT_NEEDED_FOR_DECISION",
+          "evidence": "The failure decision is already decisive from the fully inspected Efron--Stein theorem, so inaccessible Arvesen details are not used as negative novelty evidence.",
+          "identifier_or_url": "J. N. Arvesen, Annals of Mathematical Statistics 40 (1969), 2076--2100",
+          "material_read": "Bibliographic/abstract-level material; complete theorem text was not recovered in this run.",
+          "method": "Public literature lookup.",
+          "title": "Jackknifing U-Statistics",
+          "trigger": "Earlier U-statistic-specific jackknife source cited by the record."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Efron--Stein 1981"
+      ],
+      "rationale": "As an exposition, the explicit sign, iff-additive criterion, correlation envelope, and exact connection to pseudo-value dependence are mathematically useful finite-sample facts. They clarify a misleading exact-uncorrelatedness reading in later applied work. The scientific rejection is originality-based, not because the formulas are valueless.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is due prior implication, not a correctness defect.",
+    "The claim is limited to complete one-sample U-statistics and ordinary delete-one jackknifing."
+  ],
+  "schema_version": 1
+}
