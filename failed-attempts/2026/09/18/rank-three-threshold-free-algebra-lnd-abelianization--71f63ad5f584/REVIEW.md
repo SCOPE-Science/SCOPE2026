@@ -1,0 +1,10 @@
+# Review status
+
+Fresh independent mathematical audit: **failed**.
+
+- Correctness: **PASS** — For a frozen-variable word w, the derivation D_w lowers the number of occurrences of the active generator by one, so it is locally nilpotent. Abelianization sends D_w exactly to the commutative coefficient times the active partial derivative; hence the kernel and affine fibers are the commutator ideal, and the degree formula is the dimension difference between free words and commutative monomials. In rank two, the published triangulability theorem for locally nilpotent derivations implies zero detection under abelianization. Thus the displayed algebraic statements are correct.
+- Originality: **FAIL** — The final claim is mechanically implied by established rank-two triangulability together with elementary free-algebra facts. Crode-Shestakov prove that every rank-two locally nilpotent derivation is triangulable; abelianization of a one-variable triangular coefficient is injective, which gives the rank-two zero-detection statement. For rank at least three, the displayed invisible derivation with commutator coefficient is immediate from the definition, while the affine fibers and Hilbert series are tautological consequences of the abelianization map from a free algebra to its polynomial quotient. Under an implication-based originality bar, this is covered as a formal corollary/dictionary.
+- Value: **FAIL** — Although the threshold is a clear pedagogical way to organize the facts, its new part is a one-line elementary construction plus a dimension subtraction. It does not establish a nontrivial boundary beyond what the existing triangulability theorem and the defining universal properties already force. That makes it a routine deduction rather than a worthwhile new mathematical gap under the stated value standard.
+
+Detailed source comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+The earlier scientific assessment is preserved in sanitized form in `AUDIT.json`.
