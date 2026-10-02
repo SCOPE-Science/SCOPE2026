@@ -1,0 +1,108 @@
+{
+  "audited_at_utc": "2026-10-01T08:23:38.851470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026 package RESULT.md",
+        "2026 package artifacts/check_common_delay.py",
+        "https://arxiv.org/abs/2604.15570"
+      ],
+      "rationale": "Starting from the published Fourier-mode characteristic equation, the half-sum/half-difference factorization gives \\(\\omega=2\\sqrt{K_pK_n}\\sin s\\) and reconstructs both delay branches reversibly. For equal delays the scalar equation gives the displayed first crossing; implicit differentiation gives a positive crossing speed, and the stated modal ordering follows from monotonicity of the closed expression. The no-open-neutral-phase statement follows from the analytic switching curves plus standard retarded-DDE spectral continuity.",
+      "residual_risks": [
+        "The compact script is only a numerical example; it is not the proof of the all-parameter formulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 paper addresses exact imaginary spectra and stability for a broader LTI two-delay class.",
+          "Wu supplies the ring-mode equation and numerical stability regions."
+        ],
+        "reasoning": "General two-delay exact-spectrum machinery plus the already-published ring characteristic equation covers the substantive stability-switching mechanism.",
+        "searches": [
+          "C. Yuan et al., IEEE Access 8 (2020), DOI 10.1109/ACCESS.2020.2973834.",
+          "H. Wu, arXiv:2604.15570."
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.15570",
+        "https://doi.org/10.1109/ACCESS.2020.2973834",
+        "https://arxiv.org/abs/2608.15133"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-delay curves arise by taking modulus and phase of the published mode equation; the common-delay formula is the first scalar-delay crossing; empty interior of neutral parameters is standard for a finite union of analytic switching branches."
+        ],
+        "reasoning": "The final claim is a source-specific closed-form specialization of established machinery.",
+        "searches": [
+          "Compared each theorem component against Wu's mode equation and the general exact two-delay spectrum framework."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The motivating source already gives the exact mode characteristic equation and implicit imaginary-root conditions.",
+          "Yuan et al. give an exact frequency-domain framework for imaginary spectra and stability of general LTI systems with two delays."
+        ],
+        "reasoning": "The audited parametrization is the explicit solution of those same imaginary-root equations for this trigonometric ring coefficient.",
+        "searches": [
+          "Searches for signed-ring delay switching curves, imaginary spectra, D-decomposition, CTCR, and common-delay Lambert-W formulations."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table with the identical formula was found."
+        ],
+        "reasoning": "This check is not decisive because originality fails by implication from broader published methods, even without identical tabulation.",
+        "searches": [
+          "Exact-text project searches for the closed threshold formula and switching parametrization."
+        ]
+      },
+      "rationale": "The final result is a direct specialization of the source characteristic equation together with established exact two-delay frequency-domain/D-decomposition methods and the standard scalar one-delay crossing analysis. The source-specific closed form is useful algebra, but under an implication-based originality bar it does not constitute a new mathematical mechanism.",
+      "residual_risks": [
+        "The exact ring-specific closed form may not have been printed previously, but exact wording is not sufficient for originality when the implication is routine from the published equation and general method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_INGREDIENT",
+          "evidence": "The source publishes the exact equation whose modulus/argument decomposition produces the audited curves.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.15570",
+          "material_read": "Full text around the Fourier-mode characteristic equation, implicit imaginary-axis conditions, numerical three-region diagram, and future-work discussion.",
+          "method": "Primary preprint full text.",
+          "title": "Delay-Induced Stability Transitions in Directed Signed Consensus Networks",
+          "trigger": "Same linear signed ring and delay characteristic equation."
+        },
+        {
+          "assessment": "BROADER_COVERAGE",
+          "evidence": "The published method treats exact imaginary spectra and stability for a general two-delay LTI class.",
+          "identifier_or_url": "https://doi.org/10.1109/ACCESS.2020.2973834",
+          "material_read": "Primary article abstract and theorem-level scope.",
+          "method": "Primary publication record.",
+          "title": "A Novel Frequency-Domain Approach for the Exact Range of Imaginary Spectra and the Stability Analysis of LTI Systems With Two Delays",
+          "trigger": "Broader exact two-delay imaginary-spectrum framework."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.15570",
+        "https://doi.org/10.1109/ACCESS.2020.2973834"
+      ],
+      "rationale": "The closed forms clarify the motivating numerical paper, but the mathematical content is chiefly direct spectral algebra and a standard switching-set interpretation. Under the stated bar, that is a useful derivation rather than a distinct new structural theorem.",
+      "residual_risks": [
+        "This is a scientific-value judgment, not a claim that the formulas are incorrect or useless."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness.",
+    "The conclusions concern the finite linear homogeneous ring with K_p>K_n>0.",
+    "Special initial histories and nonlinear or time-varying models are outside the claim."
+  ],
+  "record_id": "SCOPE-20260918-bdb6bda559a3",
+  "record_title": "Exact switching geometry and no robust bounded phase in a delayed signed consensus ring",
+  "schema_version": 1
+}
