@@ -1,0 +1,102 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "audited_at_utc": "2026-10-01T10:47:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen assigned RESULT.md",
+        "Bailly et al. arXiv:2609.17880",
+        "Mountain–Sherlock, Biometrics 2022, DOI 10.1111/biom.13447"
+      ],
+      "rationale": "Writing \\(g_s(x)=\\log(1+sx)/x=\\int_0^s(1+ux)^{-1}du\\), one has strict convexity and \\(g_s''(x)\\ge 2s^3/[3(1+sM)^3]\\) for \\(x\\le M\\). Jensen and strong convexity therefore give the stated Laplace order and quantitative gap. The test functions \\((1-e^{-sx})/s\\) and \\(e^{-sx}/s^2\\) have first- and second-derivative bounds one, respectively, yielding the metric lower certificates. Equality at one positive Laplace parameter forces all scales equal by strict Jensen. No finite experiment is needed.",
+      "residual_risks": [
+        "None found for the repaired analytic inequalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Majorization literature gives special weighted-iid comparisons; Covo–Elalouf is highly relevant but its full text could not be retrieved after OA and institutional attempts."
+        ],
+        "reasoning": "No checked broader theorem was found to imply the general varying-shape, moment-matched repaired statement.",
+        "searches": [
+          "weighted gamma majorization Laplace transforms",
+          "Covo Elalouf single-gamma approximation"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/full/10.1111/biom.13447",
+        "https://arxiv.org/abs/2609.17880",
+        "https://doi.org/10.1214/14-EJS914",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cumulant theorem covers the removed cumulant and MGF content. Bailly et al. supply upper bounds controlled by scale discrepancy but do not state the repaired Laplace-order lower certificates in the inspected abstract/material."
+        ],
+        "reasoning": "The final claim survives after deleting the covered positive-transform material.",
+        "searches": [
+          "Mountain–Sherlock Theorem 2 versus repaired claim",
+          "Bailly et al. Gamma-Stein upper bounds versus repaired lower certificates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mountain–Sherlock covers cumulants/moments, not the inspected Laplace inequality; no exact repaired theorem was located."
+        ],
+        "reasoning": "The repaired claim is a negative-transform convexity order, not the already-known positive cumulant hierarchy.",
+        "searches": [
+          "moment-matched gamma Laplace transform order",
+          "weighted gamma sum Laplace order Satterthwaite",
+          "Gamma sum transform comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the only exact semantic hit."
+        ],
+        "reasoning": "There is no standard table; the relevant database check is theorem-level semantic coverage.",
+        "searches": [
+          "Resultary Satterthwaite Laplace metric lower certificates"
+        ]
+      },
+      "rationale": "Mountain and Sherlock already prove that the moment-matched Gamma has no larger cumulants of every order at least three than the independent-Gamma sum; their theorem also makes the package's positive-MGF direction mechanically non-novel. Those parts are explicitly removed. Searches did not locate the repaired negative-axis Laplace order, its quantitative size-biased-scale-variance lower gap, or the resulting \\(d_1/d_2\\) lower certificates.",
+      "residual_risks": [
+        "Covo–Elalouf full text remained inaccessible; an unnoticed related transform inequality is the main residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of all-order cumulant domination; used to repair the claim.",
+          "material_read": "full open-access section containing Theorem 2 and Corollary 1",
+          "source": "Mountain & Sherlock, Biometrics 78(2), DOI 10.1111/biom.13447"
+        },
+        {
+          "assessment": "Current Gamma-Stein upper-bound context; no repaired lower theorem stated there.",
+          "material_read": "primary abstract",
+          "source": "Bailly et al., arXiv:2609.17880"
+        },
+        {
+          "assessment": "Residual originality risk for transform comparisons.",
+          "material_read": "abstract/bibliographic material only; OA retrieval hit human verification and institutional retrieval found no verified PDF",
+          "source": "Covo & Elalouf, EJS 2014, DOI 10.1214/14-EJS914"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bailly et al. current approximation context",
+        "Mountain–Sherlock prior cumulant theorem"
+      ],
+      "rationale": "The repaired claim gives a signed global transform obstruction and computable lower bounds in the same smooth metrics used by current Gamma-Stein upper-bound work. This is a motivated diagnostic of when Satterthwaite approximation cannot be exact or arbitrarily close, not merely a restatement of the known cumulant hierarchy.",
+      "residual_risks": [
+        "The certificates are not claimed optimal and do not yield a Kolmogorov lower bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For a sum of independent Gamma variables and its first-two-moment matched Gamma law, scale heterogeneity forces a strict global Laplace-transform gap \\(L_S(s)<L_U(s)\\) for every \\(s>0\\), with \\(\\log(L_U/L_S)\\ge A V_\\beta s^3/[3(1+sM)^3]\\); this yields explicit lower certificates in the \\(d_1\\) and \\(d_2\\) smooth metrics. The previously claimed all-order cumulant domination and positive-MGF comparison are removed from the novelty claim because prior literature already implies them."
+}
