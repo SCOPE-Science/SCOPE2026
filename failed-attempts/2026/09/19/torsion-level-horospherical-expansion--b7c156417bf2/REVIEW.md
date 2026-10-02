@@ -1,0 +1,9 @@
+# Review status
+
+Fresh independent mathematical audit: **failed**.
+
+- Correctness: **PASS** — The complete Zhang-Zhou paper was inspected. It explicitly defines the tensor Lambda=Hess(v)-|grad v|g and proves Lambda>0 under the assigned hypotheses. Restricting this inequality to a regular level and dividing by |grad v| gives II>g immediately. Strict Hessian positivity gives the unique nondegenerate minimum; the absence of other critical values plus the Morse lemma gives the spherical foliation. Along the level-flow field grad(v)/|grad v|^2, differentiating log tangent length and log|grad v| gives exactly the stated lower rate 1/|grad v|, so integration yields the metric, gradient, Jacobian, and ambient-distance inequalities. The mathematics is correct.
+- Originality: **FAIL** — The final theorem is mechanically implied by the stronger tensor inequality already proved in the primary source together with standard level-set, Morse, Gauss-equation, and first-variation identities. The source itself says its objective is Lambda>0, not merely strict convexity. No new nonstandard lemma is needed to obtain the assigned horo-convexity and expansion package. Under an implication-based originality bar, these are direct corollaries of prior coverage even if the source does not spell them out.
+- Value: **FAIL** — The horospherical interpretation is expository and geometrically pleasant, but after the source has established the pointwise tensor inequality the assigned conclusions follow by textbook differential-geometric calculations. The record adds no independent structural ingredient or nontrivial boundary beyond that stronger theorem, so it does not clear the value bar.
+
+Detailed comparisons and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
