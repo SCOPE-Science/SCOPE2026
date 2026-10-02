@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T22:58:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/09/057/RESULT.md",
+        "artifacts/kron.py",
+        "artifacts/verify.py",
+        "committed full-row/ray JSON logs inspected through the package description"
+      ],
+      "rationale": "A fresh exact Murnaghan–Nakayama/class-algebra computation over all 3718 conjugacy classes at n=28 reproduced zero for all 80 partitions with at most three rows, including (16,8,4) and (17,8,3). The full row had 2557 positive and 1161 zero entries; all 43 partitions within box distance at most two of (16,8,4) were zero and exactly nine positives occurred at distance three, including the stated examples. Fresh n=29 and n=30 class sums also gave zero on the padded ray. These are finite exact certificates, not extrapolated infinite claims.",
+      "residual_risks": [
+        "The claim is computational and finite; it gives no representation-theoretic proof of why the vanishing occurs and no all-k ray theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saxl literature concerns rho⊗rho, stability literature gives eventual behavior, and the closed-form papers cover different shape classes."
+        ],
+        "reasoning": "No searched stronger theorem forces all 80 n=28 <=3-row coefficients to vanish.",
+        "searches": [
+          "Resultary Kronecker staircase vanishing",
+          "Ikenmeyer Saxl dominance",
+          "Sam–Snowden stability",
+          "Briand–Orellana–Rosas",
+          "Rosas"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0812.0861",
+        "https://arxiv.org/abs/math/0001084",
+        "Resultary semantic search for the exact n=28 mixed row"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their hypotheses do not encompass the rho_7 × (14,14) product with arbitrary <=3-row third shape."
+        ],
+        "reasoning": "The candidate row is not a direct corollary of the searched closed-form regimes.",
+        "searches": [
+          "Shape-hypothesis comparison against 0812.0861 and math/0001084"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate coefficient is symmetric in its three partitions, but among rho_7, (14,14), and a general <=3-row nu there is generally only one two-row shape and no second hook/two-row factor."
+        ],
+        "reasoning": "Permutation symmetry of Kronecker coefficients does not move this family into the hypotheses of the cited two-two-row/hook formulas.",
+        "searches": [
+          "Resultary: rho7 (14,14) <=3 rows vanishing n=28",
+          "Briand–Orellana–Rosas 0812.0861",
+          "Rosas math/0001084"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only SCOPE057 matched the exact row/census."
+        ],
+        "reasoning": "No external exact table was identified for this mixed row.",
+        "searches": [
+          "Resultary exact n=28 rho7 (14,14) row and target coefficients"
+        ]
+      },
+      "rationale": "The exact mixed staircase-by-balanced-two-row vanishing row at n=28 was not found in the searched literature or other published SCOPE records. The closest closed-form Kronecker papers require two two-row/hook inputs, which does not include the staircase factor rho_7.",
+      "residual_risks": [
+        "No comprehensive external Kronecker database was located; best-of-knowledge originality remains subject to undiscovered tables or specialized formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The paper requires two two-row indices; the candidate has only alpha fixed two-row while rho_7 is a seven-row staircase.",
+          "identifier_or_url": "https://arxiv.org/abs/0812.0861",
+          "material_read": "Primary abstract and scope statement.",
+          "method": "Hypothesis comparison.",
+          "title": "Quasipolynomial formulas for the Kronecker coefficients indexed by two two-row shapes",
+          "trigger": "Potential formula covering vanishing with two-row shapes."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The formulas require two factors that are hooks or two-row shapes; rho_7 is neither.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0001084",
+          "material_read": "Primary abstract and stated shape hypotheses.",
+          "method": "Hypothesis comparison.",
+          "title": "The Kronecker product of Schur functions indexed by two-row shapes or hook shapes",
+          "trigger": "Potential closed formulas for relevant coefficients."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "candidate Context/Limitations",
+        "searched Saxl/two-row literature"
+      ],
+      "rationale": "The 80-member complete low-row vanishing family and its local zero neighborhood form a natural boundary statement for a Saxl-adjacent mixed staircase product, not a single arbitrary coefficient. It supplies a motivated obstruction and exact finite classification that could guide structural Kronecker positivity questions even without a general theorem.",
+      "residual_risks": [
+        "Its future value depends on whether a structural explanation or broader family is eventually found, but the exact boundary fact is independently useful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At n=28, rho_7 tensor (14,14) has zero Kronecker coefficient against every partition with at most three rows; the stated radius-two zero neighborhood, distance-three positives, and k=1,2 padded-ray zeros are exact finite consequences.",
+  "schema_version": 1
+}
