@@ -1,39 +1,134 @@
-# Uniform entropic K-convexity with vanishing error on compact RCD(K,infty) spaces
+# Uniform small-noise entropic \(K\)-convexity on compact \(\mathrm{RCD}(K,\infty)\) spaces
 
-## Context
+## Finding
 
-Let (X,d,m) be a compact RCD(K,infty) metric measure space with m a probability measure. Let mu0,mu1 in P_2(X) have finite relative entropy H(.|m), bounded densities with compact support, and finite Fisher information. Let mu^eps_t, t in [0,1], eps>0, be the entropic interpolation (Schrodinger bridge) joining mu0 to mu1 with reference reversible Brownian motion on (X,d,m) (generator L=(1/2)Delta, symmetric with respect to m). Write H_t = H(mu^eps_t|m), W = W_2(mu0,mu1), and h(t) = (1-t)H(mu0) + tH(mu1) - (K/2)t(1-t)W^2.
+Let \((X,d,m)\) be compact \(\mathrm{RCD}(K,\infty)\), with \(m(X)=1\), diameter \(D\), and endpoints \(\mu_0,\mu_1\) of finite entropy \(H_i=H(\mu_i\mid m)\). Define the entropic interpolation by the dynamic Schrödinger problem: \(\mu^\varepsilon\) minimizes
+\[
+\mathcal J_\eta(\mu)=\frac12\int_0^1\bigl(|\dot\mu_t|_{W_2}^2+\eta^2 I(\mu_t)\bigr)\,dt,
+\qquad \eta=\varepsilon/2.
+\]
+This is the standard reversible Brownian normalization with generator \((\varepsilon/2)\Delta\). Bounded endpoint densities and finite endpoint Fisher information, as in the original formulation, may be retained but are not required for the metric estimate below.
 
-## Definitions
+### Estimate
 
-Relative entropy H(mu|m) = integral rho log rho dm if mu = rho m, else +infty. Entropic interpolation mu^eps_t is the marginal flow of the minimizer of eps H(P|R^eps) over path measures P with endpoints mu0,mu1, where R^eps is reversible Brownian motion with generator (eps/2)Delta. Potentials: phi_t = eps log P_t f, psi_t = eps log P_{1-t} g. Current velocity v_t = (1/2)grad(phi_t - psi_t), osmotic velocity w_t = (1/2)grad(phi_t + psi_t); current action A_t = integral |v_t|^2 d mu_t, osmotic action F_t = integral |w_t|^2 d mu_t = (eps^2/4) I(mu_t) with Fisher information I. Conserved energy E = A_t - F_t (constant in t). Dynamical Schrodinger value V_eps = E + 2 integral_0^1 F_t dt.
+For \(0<\varepsilon\leq1\) and all \(t\in[0,1]\),
+\[
+H(\mu_t^\varepsilon\mid m)\leq(1-t)H_0+tH_1-\frac K2t(1-t)W_2(\mu_0,\mu_1)^2+C\varepsilon,
+\]
+where an explicit choice is
+\[
+C=\frac58|K|C_0,\qquad C_0=\frac12K^-e^{K^-/2}D^2+H_0+H_1,\qquad K^-=\max\{-K,0\}.
+\]
+For \(K=0\), the entropy is exactly convex along every such interpolation. This is a small-noise theorem; no uniform all-noise claim is made.
 
-## Result (TARGET resolution, affirmative)
+## Assumptions and scope
 
-Theorem. Under the hypotheses above, there exists C = C(K, diam X, H(mu0), H(mu1), I(mu0), I(mu1)), independent of eps and t, such that for all t in [0,1], H(mu^eps_t|m) <= (1-t)H(mu0|m) + tH(mu1|m) - (K/2)t(1-t)W_2(mu0,mu1)^2 + C eps. Hence C eps -> 0 as eps -> 0, and narrow convergence mu^eps_t -> mu_t (a W_2-geodesic, by Schrodinger-to-OT Gamma-convergence) recovers exact K-displacement convexity of H.
+The reference measure is a probability measure of full support. Entropy means \(H(\rho m\mid m)=\int\rho\log\rho\,dm\), and is \(+\infty\) for measures not absolutely continuous with respect to \(m\). Fisher information is \(I(\rho m)=4\int|D\sqrt\rho|^2\,dm\) when \(\sqrt\rho\) belongs to the Cheeger Sobolev space, and is \(+\infty\) otherwise. The optimization is over \(AC^2([0,1],(\mathcal P_2(X),W_2))\) curves with the prescribed endpoints, interpreting infinite Fisher action as inadmissible. On compact \(X\), Wasserstein space is compact and geodesic; entropy has an \(\mathrm{EVI}_K\) heat flow and its squared slope is \(I\). The primary existence theorem therefore gives finite-action minimizers for finite-entropy endpoints. Uniqueness is not needed: the estimate applies to EVERY minimizer. There is no assumption of finite-dimensional curvature or endpoint smoothness.
 
-The constant depends on the Schrodinger-cost gap (V_eps - W^2)/eps through a number C0, which is itself controlled by the endpoint entropies and Fisher bounds; this is within the admitted C(K, diam X, entropies, Fisher bounds) dependence. The disprove alternative (no uniform C, or a limit violating K-convexity) is rejected by this proof.
+## Proof
 
-## Proof and evidence
+### Metric first variation
 
-The proof assembles cited standard Schrodinger-bridge theorems (not re-proved); the original step is the sign-correct Green-kernel estimate using only integrated Fisher control.
+Write \(A_t=|\dot\mu_t|_{W_2}^2\), \(F_t=\eta^2I(\mu_t)\), \(S_t=A_t+F_t\), and \(H_t=H(\mu_t\mid m)\). Finite action implies \(A,I\in L^1\). The entropy slope is a strong upper gradient, so \(H_t\) is absolutely continuous and \(|H'_t|\leq\sqrt{A_tI(\mu_t)}\).
 
-Step 1, second-derivative inequality. Along the interpolation the Conforti-Tamanini formula (also Gentil-Leonard-Ripani on RCD) gives H''(t) = (1/2) integral [Gamma_2(phi_t) + Gamma_2(psi_t)] d mu_t. The RCD(K,infty) weak Bochner inequality Gamma_2 >= K Gamma yields H''(t) >= K(A_t + F_t) =: K S_t with S_t = A_t + F_t >= 0. With e(t) = H_t - h(t), e(0) = e(1) = 0 (exact endpoints) and e''(t) = H''(t) + K W^2 >= K(S_t - W^2).
+Let \(\mathsf S_s\) denote the \(\mathrm{EVI}_K\) heat flow on Wasserstein space. Its slope contraction is
+\[
+I(\mathsf S_s\nu)\leq e^{-2Ks}I(\nu).
+\]
+The metric heat-flow perturbation estimate of Monsaingeon–Tamanini–Vorotnikov, Proposition 3.11, applies to \(\widetilde\mu_t=\mathsf S_{h(t)}\mu_t\):
+\[
+\frac12|\dot{\widetilde\mu}_t|^2+\frac12|h'(t)|^2I(\widetilde\mu_t)+h'(t)\widetilde H'_t
+\leq\frac12e^{-2Kh(t)}A_t.
+\]
+Take \(h(t)=s[\vartheta(t)+\delta t(1-t)]\), where \(\vartheta\geq0\) is smooth and compactly supported in \((0,1)\), and \(\delta>0\). This keeps the endpoints fixed and makes \(h>0\) in the open interval, as required by that proposition. More precisely, \(h\) is smooth, nonnegative, vanishes at both endpoints, has bounded derivative, and satisfies \(h'(0)=s\delta>0\), \(h'(1)=-s\delta<0\). The source's Lemmas 3.8 and 3.10 first give continuity of the perturbed curve on the closed interval and local absolute continuity of the curve and its entropy, with the prescribed endpoint entropy values.
 
-Step 2, conserved energy and competitor. HJB duality gives E = A_t - F_t constant in t (Leonard; Conforti). The Benamou-Brenier formulation of the dynamical Schrodinger problem gives the value identity E + 2 integral_0^1 F_t dt = V_eps. Since (mu_t,v_t) is admissible for the W_2^2 problem, W^2 <= integral_0^1 A_t dt = E + integral_0^1 F_t dt. A mollified-W_2-geodesic competitor (admissible under the bounded-density and Fisher hypotheses; classical Schrodinger-cost control V_eps - W^2 <= C0 eps with C0 depending on diameter, entropies and Fisher bounds) yields V_eps <= W^2 + C0 eps. Combining gives integral_0^1 F_t dt <= C0 eps and |E - W^2| <= C0 eps. No pointwise bound on F_t is needed.
+The following argument supplies GLOBAL finite action, which local regularity alone would not give. At almost every differentiability point \(t\) with \(I(\mu_t)<\infty\), compare \(\mathsf S_{h(t+r)}\mu_{t+r}\) to \(\mathsf S_{h(t+r)}\mu_t\), then to \(\mathsf S_{h(t)}\mu_t\). The first distance is bounded by heat-flow contraction times \(W_2(\mu_{t+r},\mu_t)\). The second is the heat-flow length for the FIXED starting point \(\mu_t\), and its vertical speed is bounded by \(e^{K^-\|h\|_\infty}\sqrt{I(\mu_t)}\). Dividing by \(|r|\) and taking the limit gives
+\[
+|\dot{\widetilde\mu}_t|
+\leq e^{K^-\|h\|_\infty}
+\bigl(\sqrt{A_t}+|h'(t)|\sqrt{I(\mu_t)}\bigr),\qquad
+I(\widetilde\mu_t)\leq e^{2K^-\|h\|_\infty}I(\mu_t).
+\]
+Both right-hand sides yield square-integrable speed and integrable Fisher information because \(h'\) is bounded and \(A,I\in L^1\). Integrating the local speed bound and using closed-interval continuity extends \(\widetilde\mu\) to \(AC^2([0,1])\). Cauchy--Schwarz makes \(\sqrt{I(\widetilde\mu)}|\dot{\widetilde\mu}|\) integrable. The strong-upper-gradient inequality therefore gives globally absolutely continuous entropy, including both endpoints. The perturbed curve is an admissible finite-action competitor, and integration by parts on the entire interval is justified. No bound on endpoint Fisher information or smooth Schrödinger potentials was used.
 
-Step 3, Green-kernel integration for both signs of K. With Green kernel G(s,t) <= 0, integral_0^1 G(s,t) ds = -t(1-t)/2, max_s |G(s,t)| <= 1/4: e(t) = integral_0^1 G(s,t) e''(s) ds. Since G <= 0, e'' >= K(S - W^2) flips to G e'' <= G K (S - W^2) pointwise. Writing S_s - W^2 = (E - W^2) + 2 F_s: e(t) <= K(E - W^2)(-t(1-t)/2) + 2K integral G(s,t) F_s ds. For K >= 0: first term <= (K/2)t(1-t)|E - W^2|, second <= 2K max|G| integral F; total <= C0 eps (K t(1-t)/2 + K/4). For K < 0 (K = -|K|): identical expression; first term <= (|K|/2)t(1-t)|E - W^2|; second term = 2|K| integral |G| F <= 2|K| (1/4) C0 eps (positive error, bounded). In both cases sup_t e(t) <= C eps with C depending on |K|,C0. For K = 0: H'' >= 0 exactly (C = 0). Sending eps -> 0 with narrow convergence recovers exact K-displacement convexity.
+Adding the Fisher term, discarding the nonpositive \(-|h'|^2 I/2\) term, and using minimality gives
+\[
+0\leq\frac12\int_0^1(e^{-2Kh}-1)S_t\,dt-\int_0^1 h'\widetilde H'_t\,dt.
+\]
+The energy-dissipation equality and slope contraction give
+\[
+0\leq H_t-\widetilde H_t\leq h(t)e^{2K^-\|h\|_\infty}I(\mu_t)
+\quad\text{for a.e. }t,
+\]
+so \(\widetilde H\to H\) in \(L^1\) as \(s\downarrow0\). Integrate the last term by parts, divide by \(s\), and pass to the limit. The exact boundary contribution after division by \(s\) is \(\delta(H_0+H_1)\), while \(h''/s=\vartheta''-2\delta\). Thus before removing \(\delta\) the limiting inequality is
+\[
+0\leq-K\int_0^1[\vartheta+\delta t(1-t)]S\,dt
++\int_0^1(\vartheta''-2\delta)H\,dt+\delta(H_0+H_1).
+\]
+All terms are integrable. First take \(s\downarrow0\) for fixed \(\delta>0\), using the displayed \(L^1\) entropy bound and bounded exponential difference quotients; only then let \(\delta\downarrow0\). The result, for every nonnegative test function \(\vartheta\), is
+\[
+\int_0^1\vartheta''H\,dt\geq K\int_0^1\vartheta S\,dt.
+\]
+Thus \(H''\geq KS\) in distributions. This establishes the required inequality directly on \(\mathrm{RCD}(K,\infty)\); it does not assume a finite-dimensional Schrödinger-potential Hessian formula.
 
-Computed verification (verification-critical). Exactly solvable 1D Gaussian Schrodinger bridge (closed form, no discretization error; output/artifacts/gaussian_check.py, results in output/artifacts/gaussian_bridge.json): with c solving c/(s0^2 s1^2 - c^2) = 1/eps and v_t = (1-t)^2 s0^2 + t^2 s1^2 + 2t(1-t)c + eps t(1-t), gap(t) = -{ (1/2)log v_t - [(1-t)(1/2)log s0^2 + t(1/2)log s1^2] } (OT sign). In all three cases (symmetric narrow s0 = s1 = 0.1; asymmetric 0.1,0.3; wide 0.5,0.5) max_t gap(t) = -0.0 to machine precision at every tested eps: exact K = 0 convexity with C = 0, stronger than the C eps allowance. The eps-mechanism is visible in the excess over the limit profile: max|excess| vanishes superlinearly (ratios to eps: 6.13 to 0.62 symmetric, 1.41 to 0.07 asymmetric), consistent with O(eps) with a Fisher-scaled constant (1/s^2 = 100 for the narrow case). Re-ran during audit and reproduced. Torus Sinkhorn grid scripts are exploratory only (resolution-limited) and are not used for the rate claim; they are not copied to the public package.
+### Conserved energy without smooth potentials
+
+Fix any real \(\zeta\in C_c^\infty((0,1))\), and set \(r_s(t)=t+s\zeta(t)\). Choose either sign of \(s\) with \(|s|\|\zeta'\|_\infty<1/2\). Then \(r_s\) is an increasing, endpoint-fixing, smooth bi-Lipschitz bijection of \([0,1]\), with \(1/2<r_s'<3/2\). The competitor \(\mu_{r_s(t)}\) belongs to \(AC^2\), has finite Fisher action, preserves both endpoints, and has speed \(r_s'(t)|\dot\mu_{r_s(t)}|\) almost everywhere; bi-Lipschitz maps preserve null sets.
+
+With \(u=r_s(t)\), its action is exactly
+\[
+\mathcal J_\eta(\mu\circ r_s)
+=\frac12\int_0^1
+\left[b_s(u)A_u+\frac{F_u}{b_s(u)}\right]du,\qquad
+b_s(u)=1+s\zeta'(r_s^{-1}(u)).
+\]
+As \(s\to0\), both coefficient difference quotients are uniformly bounded and converge to \(\zeta'(u)\) and \(-\zeta'(u)\), respectively. Dominated convergence uses only \(A,F\in L^1\), not their derivatives. The first variation is therefore \(\frac12\int\zeta'(A-F)\,du\). Two-sided minimality makes it zero. Consequently the distributional derivative of \(A-F\) is zero, so \(A_t-F_t=E\) for a finite real constant \(E\), almost everywhere.
+
+Put \(V_\varepsilon=2\mathcal J_\eta(\mu^\varepsilon)\), \(W=W_2(\mu_0,\mu_1)\), and \(B=\int_0^1F_tdt\). Then
+\[
+V_\varepsilon=E+2B,\qquad W^2\leq\int_0^1A_tdt=E+B.
+\]
+Theorem 3.12 of the same primary source, applied to a Wasserstein geodesic and heat-flow smoothing height \(\eta\min(t,1-t)\), gives
+\[
+V_\varepsilon\leq e^{K^-\varepsilon/2}W^2+\varepsilon(H_0+H_1),
+\]
+because entropy relative to the probability measure \(m\) is nonnegative. For \(\varepsilon\leq1\), this proves
+\[
+0\leq V_\varepsilon-W^2\leq C_0\varepsilon,\qquad
+B\leq C_0\varepsilon,\qquad |E-W^2|\leq C_0\varepsilon.
+\]
+
+### Green-kernel estimate
+
+Set \(h_0(t)=(1-t)H_0+tH_1-(K/2)t(1-t)W^2\) and \(e=H-h_0\). Importantly, \(h_0''=KW^2\), so
+\[
+e''=H''-KW^2\geq K(S-W^2).
+\]
+The Dirichlet Green kernel for the second derivative is
+\(G(s,t)=-\min(s,t)[1-\max(s,t)]\). The continuous distributional comparison principle, or integration against this kernel, gives
+\[
+e(t)\leq-\frac K2t(1-t)(E-W^2)+2K\int_0^1G(s,t)F_sds.
+\]
+Indeed the difference from the displayed right-hand side has nonnegative distributional second derivative and zero endpoints, hence is convex and nonpositive. Using \(t(1-t)\leq1/4\), \(|G|\leq1/4\), and the integrated bounds yields \(e(t)\leq(5/8)|K|C_0\varepsilon\). No pointwise Fisher bound is needed. For \(K\geq0\) the Fisher term is nonpositive and the sharper \(KC_0\varepsilon/8\) bound also holds.
+
+## Verification
+
+The proof uses global finite-action bounds, exact endpoint terms, two-sided time variations and a signed Dirichlet comparison. It establishes an infinite-dimensional analytic inequality; no finite experiment is used to certify the general theorem. The coefficient \(5/8\) comes from \(1/8+1/2\), bounding the constant-energy and Fisher terms separately. When \(K=0\), both terms vanish.
+
+## Relationship to prior work
+
+The cited metric paper's Theorem 4.8 establishes convexity along geodesics, not along its positive-noise minimizing interpolations. Its Theorem 5.8 estimates optimal costs under a further finite-Fisher-geodesic hypothesis, not the entropy at every interpolation time under the present endpoint hypotheses. The heat-perturbation and competitor results are credited inputs; the application here keeps the Fisher variation in the actual minimizing problem and separately derives its conserved energy.
+
+The general heat-flow variation strategy is also prior-known from the harmonic-map literature. There harmonicity means minimizing the kinetic Dirichlet energy alone; it does not mean minimizing the kinetic-plus-Fisher action here. The difference in the variational problem must not be omitted when transferring an entropy comparison.
 
 ## Limitations
 
-(a) The second-derivative formula, energy conservation, Schrodinger-to-OT Gamma-convergence on RCD, and the mollified-geodesic competitor estimate are cited as standard black-box theorems, not re-proved; the original contribution is their assembly with the sign-correct Green-kernel estimate using only integrated Fisher control. (b) Bounded densities, compact support, and finite Fisher information are used for the competitor; the Green-kernel step itself needs only the integrated bound. (c) The Gaussian check covers the K = 0 Euclidean case in closed form; general K != 0 RCD illustration is analytic (Steps 1 to 3), not numerical.
+Compactness and the metric Schrödinger \(\Gamma\)-convergence give subsequential zero-noise limits that are Wasserstein geodesics. Entropy lower semicontinuity then recovers the usual \(K\)-convexity inequality along these limits. Displacement convexity itself is prior-known and is not claimed as new.
 
-## Reproducibility
+The finite-dimensional second-derivative formulas and Euclidean Gaussian illustrations are not used to justify the infinite-dimensional theorem. Historical Gaussian artifacts can remain as illustrations, but they are not a verification of general \(K\neq0\) or all-noise claims. The restriction \(0<\varepsilon\leq1\) is essential to the constant proved here; extending it to all noise levels requires a separate large-noise argument.
 
-Run python3 output/artifacts/gaussian_check.py (numpy required); it prints per-eps max OT gap and excess ratios and writes output/artifacts/gaussian_bridge.json. The audit re-executed this script and reproduced the reported numbers (max OT gap -0.0; symmetric excess 0.3066, 0.0941, 0.0287, 0.00764, 0.001245; asymmetric 0.0703, 0.0133, 0.00344, 0.000866, 0.000139).
+## References
 
-## References (results used, not claimed)
+L. Monsaingeon, L. Tamanini and D. Vorotnikov, [The dynamical Schrödinger problem in abstract metric spaces](https://arxiv.org/html/2012.12005), Sections 3.1 and 3.2, Proposition 3.11, Theorem 3.12, Proposition 4.2, Section 4.1, and Section 6.2. The source supplies the EVI perturbation and competitor machinery; the first variations and signed Dirichlet comparison above supply the estimate for the actual minimizing interpolation.
 
-Erbar-Kuwada-Sturm (entropic curvature-dimension); Leonard (Schrodinger problem, energy conservation, entropic convexity); Conforti (second-order equation for Schrodinger bridges); Conforti-Tamanini; Gentil-Leonard-Ripani (HWI via entropic interpolation; RCD extension); Ripani (convexity and regularity for entropic interpolations); Lott-Sturm-Villani and Ambrosio-Gigli-Savare (K-convexity iff RCD); Benamou-Brenier (dynamic formulation); Mikami and Leonard (Schrodinger-to-OT Gamma-limit).
+H. Lavenant, L. Monsaingeon, L. Tamanini and D. Vorotnikov, [Convex functions defined on metric spaces are pulled back to subharmonic ones by harmonic maps](https://arxiv.org/html/2107.09589v1), Definition 2.2, Theorem 2.4 and Section 4.
