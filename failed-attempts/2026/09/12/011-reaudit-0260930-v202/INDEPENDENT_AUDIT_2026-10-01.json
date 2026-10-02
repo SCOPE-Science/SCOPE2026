@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "artifacts/verify_counterexample.py (blob 6f26b771b8ca2051087c82a5d3c8680e032d5edb)",
+        "NIST FIPS 203 parameter definitions"
+      ],
+      "rationale": "The exact certificate was reconstructed from the actual verifier. It brackets the variance-matched Gaussian scale in (0.955, 0.96), bounds the centered-binomial characteristic function from above and the rounded-Gaussian characteristic function from below at frequency 768, and proves the ratio is below 0.92. An independent high-precision recomputation gives scale about 0.9574271350 and ratio about 0.899631866, consistent with the rigorous witness.",
+      "residual_risks": [
+        "The certificate is a one-frequency refutation; it does not identify the optimal uniform constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General distribution-comparison literature was found, but no inspected statement dominates the concrete ratio bound at the audited frequency."
+        ],
+        "reasoning": "No broader theorem located was shown to imply the certified violation.",
+        "searches": [
+          "Kyber centered binomial Gaussian approximation Fourier bounds",
+          "lattice cryptography rounded Gaussian versus binomial"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.6028/NIST.FIPS.203",
+        "https://pq-crystals.org/kyber/data/kyber-specification-round2.pdf",
+        "https://eprint.iacr.org/2015/046"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard supplies the parameter regime, not the disputed analytic inequality."
+        ],
+        "reasoning": "The prior standard does not imply either the proposed 8% envelope or its refutation.",
+        "searches": [
+          "FIPS 203 parameter definitions against the audited inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "NIST FIPS 203 specifies the ML-KEM parameters but contains no pointwise 8% Fourier-envelope theorem."
+        ],
+        "reasoning": "The claim was compared as a pointwise characteristic-function ratio statement, not merely by matching distribution names.",
+        "searches": [
+          "centered binomial versus rounded Gaussian characteristic function Kyber q=3329",
+          "Fourier ratio ML-KEM-768 frequency 768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only direct record located was the present mathematical record; standards and parameter tables contain no such ratio table."
+        ],
+        "reasoning": "No exact external table was found that already records the counterexample.",
+        "searches": [
+          "published corpus query for q=3329 t=768 Fourier ratio"
+        ]
+      },
+      "rationale": "Searches of the relevant standard, Kyber documentation, a lattice-cryptography Gaussian comparison source, and the published mathematical corpus did not locate an earlier theorem giving this exact pointwise counterexample or a stronger bound that directly implies it. The standard fixes the parameters but does not state the disputed 8% envelope.",
+      "residual_risks": [
+        "An unpublished or non-indexed engineering note could contain the same numerical observation; no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The standard fixes the modulus and noise parameters but does not assert a uniform characteristic-function comparison with a rounded Gaussian.",
+          "identifier_or_url": "https://doi.org/10.6028/NIST.FIPS.203",
+          "material_read": "Parameter definitions and the ML-KEM-768 parameter table.",
+          "method": "Primary standard inspection.",
+          "title": "FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard",
+          "trigger": "Primary source for the ML-KEM parameter regime."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The inspected material defines the scheme distribution but does not state the audited 8% envelope.",
+          "identifier_or_url": "https://pq-crystals.org/kyber/data/kyber-specification-round2.pdf",
+          "material_read": "Noise-distribution and parameter context relevant to the centered-binomial model.",
+          "method": "Primary specification inspection.",
+          "title": "Kyber specification, Round 2",
+          "trigger": "Primary scheme specification cited by the record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "NIST FIPS 203",
+        "Kyber specification",
+        "package certificate"
+      ],
+      "rationale": "The refutation is mathematically correct, but the audited final claim is a single-frequency negative check against an externally unmotivated 8% threshold. It supplies neither a corrected sharp envelope nor a cryptographic consequence showing that this particular discrepancy matters. Under the value bar for narrow negative checks, the exact witness alone is insufficient.",
+      "residual_risks": [
+        "A demonstrated consequence for a proof reduction, estimator, or concrete security calculation could make a corrected result valuable, but no such consequence is part of the claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "At the ML-KEM-768 modulus and the stated variance matching, the proposed uniform 8% characteristic-function envelope is false: at frequency 768 the centered-binomial to rounded-Gaussian ratio is below 0.92.",
+  "limitations": [
+    "The certificate is a one-frequency refutation; it does not identify the optimal uniform constant.",
+    "An unpublished or non-indexed engineering note could contain the same numerical observation; no such source was located.",
+    "A demonstrated consequence for a proof reduction, estimator, or concrete security calculation could make a corrected result valuable, but no such consequence is part of the claim."
+  ],
+  "record_id": "SCOPE-20260912-011",
+  "schema_version": 1
+}
