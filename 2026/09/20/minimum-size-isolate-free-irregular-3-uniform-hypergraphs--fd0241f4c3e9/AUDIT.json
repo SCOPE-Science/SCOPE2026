@@ -1,32 +1,92 @@
 {
   "correctness": {
     "status": "PASS",
-    "summary": "Distinct positive degrees force degree sum at least n(n+1)/2, hence at least ceil(n(n+1)/6) triples. A modulo-6 link-graph induction realizes this bound for every n>=6, with degree set {1,...,n} except in residue classes 1 and 4 mod 6, where {1,...,n-2,n,n+1} supplies the minimal divisibility correction. A standalone verifier confirms the explicit construction through n=200."
+    "summary": "Distinct positive degrees on \\(n\\) vertices force degree sum at least \\(1+\\cdots+n\\), so \\(3m\\ge n(n+1)/2\\) and the stated ceiling is unavoidable. The base six-vertex seven-edge hypergraph has degrees \\(1,\\ldots,6\\). In the inductive step, adding a new vertex \\(x\\) and triples \\(xuv\\) indexed by a simple link graph \\(F\\) preserves simplicity. In residue classes \\(0,3\\), a perfect matching increments exactly the old degrees \\(k,\\ldots,n-1\\); in classes \\(2,5\\), it increments \\(k,\\ldots,n-3\\); in classes \\(1,4\\), a three-edge path through the two largest old-degree vertices plus a matching increments the middle block by one and the top pair by two. The link has exactly \\(M_n-M_{n-1}\\) edges in every case, yielding precisely the claimed target degree set. I independently regenerated the abstract degree-multiset recurrence through \\(n=100\\); it matches the target in every residue class. The finite package verifier through \\(n=200\\) is therefore corroborative, not the proof."
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "limitations": [
-    "The theorem requires no isolated vertices; the corresponding minimum when isolates are allowed is not claimed.",
-    "All minimum-size realizations are not classified up to isomorphism.",
-    "Only 3-uniform hypergraphs are treated.",
-    "Originality is to the best of our knowledge; older or differently indexed sparse degree-sequence literature remains a residual coverage risk."
+    "The theorem requires isolate-free simple 3-uniform hypergraphs, does not classify all extremal realizations, and does not address general uniformity. Older sparse degree-sequence/set-system literature remains a residual originality risk."
   ],
   "originality": {
-    "scope": "to the best of our knowledge",
+    "broader_coverage": {
+      "evidence": [
+        "The 1992 induction may introduce an isolate and suggests removing it by adding \\(n-1\\) edges, without optimizing edge count.",
+        "Later degree-sequence results address realizability/sufficient conditions, including dense regimes, rather than this sparse exact extremum."
+      ],
+      "reasoning": "These sources provide broader existence/realizability context but no statement that implies sharp attainment of the elementary degree-sum lower bound for every \\(n\\).",
+      "searches": [
+        "Gyárfás--Jacobson--Kinch--Lehel--Schelp 1992 full text",
+        "Behrens et al. 2013 degree-sequence literature",
+        "Li--Miklós arXiv:2312.00555"
+      ]
+    },
+    "checked_sources": [
+      "Gyárfás et al. 1992 full text",
+      "DOI:10.37236/3414",
+      "arXiv:2312.00555",
+      "published SCOPE archive search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical theorem proves existence for \\(r\\ge3,n\\ge r+3\\), and explicitly notes an isolate may occur and can be removed by adding \\(n-1\\) edges.",
+        "The dense realizability work is in a different parameter regime."
+      ],
+      "reasoning": "The prior existence construction does not imply the minimum-edge count; the audited link-graph induction is the substantive new sharpness argument.",
+      "searches": [
+        "1992 Theorem 3.3 and Proposition 3.1 discussion of isolated vertices",
+        "arXiv:2312.00555"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published SCOPE search returned no separate exact minimum-size match.",
+        "The 1992 paper's Section 3 studies existence of irregular uniform hypergraphs, starting from the same six-vertex seven-edge example."
+      ],
+      "reasoning": "Existence and irregularity strength are not equivalent to minimizing the number of triples subject to no isolated vertices.",
+      "searches": [
+        "Published SCOPE archive query: irregular 3-uniform hypergraph minimum edges isolate-free distinct degrees",
+        "Published SCOPE archive query: irregular uniform hypergraph degree set 1 2 n minimum size",
+        "Gyárfás et al. 1992 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table of these minima was located."
+      ],
+      "reasoning": "The theorem is infinite and constructive; finite degree-sequence tables would not substitute for the induction.",
+      "searches": [
+        "Published SCOPE semantic search for isolate-free irregular 3-graphs and the formula \\(\\lceil n(n+1)/6\\rceil\\)"
+      ]
+    },
+    "residual_risks": [
+      "Older sparse 3-graphic sequence or irregular set-system literature may contain an equivalent edge-minimization result under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the minimum-size isolate-free theorem.",
+        "evidence": [
+          "Theorem 3.3 proves existence; the following note says the inductive construction may contain one isolate and proposes adding \\(n-1\\) new edges to remove it."
+        ],
+        "identifier_or_url": "https://users.renyi.hu/~gyarfas/Cikkek/61_GyarfasJacobsonKinchLehelSchelp_IrregularityStrengthOfUniformHypergraphs.pdf",
+        "material_read": "Full open PDF, especially Section 3, Proposition 3.1 and Theorem 3.3.",
+        "method": "Lawful open-access PDF.",
+        "title": "Irregularity Strength of Uniform Hypergraphs",
+        "trigger": "Classical primary source for irregular uniform-hypergraph existence."
+      }
+    ],
     "status": "PASS",
-    "summary": "The 1992 irregular-uniform-hypergraph paper proves existence and discusses eliminating a possible isolate but does not give the checked fixed-order minimum-edge theorem. Broader uniform-hypergraph degree-sequence literature and recent dense irregular 3-graph realizability work were checked for stronger or equivalent coverage. Exact and synonymous searches did not locate this extremal formula or construction in the checked sources or current public archive."
+    "summary": "Fresh implication-based literature comparison did not find prior coverage of the final claim."
   },
   "phase": "II",
-  "previously_published_pending_reaudit": true,
+  "previously_published_pending_reaudit": false,
   "record_id": "SCOPE-20260920-fd0241f4c3e9",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "d68db17c-03ca-471a-91cd-a77ccafde9fe",
+  "review_statement": "Independent audit dated 2026-10-01: passed on correctness, originality, and value.",
+  "review_type": "independent_audit",
   "value": {
     "status": "PASS",
-    "summary": "The result gives an exact sparse extremal formula for every admissible order together with an explicit recursive construction, and isolates the precise modulo-6 degree-sum correction needed for sharpness."
+    "summary": "This determines the exact sparsest isolate-free irregular triple system at every admissible order and explains the precise modulo-six correction. It is a natural extremal refinement of the classical existence problem, with an explicit recursive construction rather than a finite census."
   },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
