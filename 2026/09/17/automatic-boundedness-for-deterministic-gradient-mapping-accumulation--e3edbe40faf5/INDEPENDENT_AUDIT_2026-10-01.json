@@ -1,0 +1,94 @@
+{
+  "audited_at_utc": "2026-10-01T05:14:16.390825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The accumulator identity is exact because the gradient mapping equals the iterate increment divided by the adaptive stepsize. If the accumulator is bounded, telescoping its squared update gives square-summable increments. If it is unbounded, monotonicity eventually forces the stepsize below the reciprocal smoothness threshold, after which the standard proximal-gradient descent inequality bounds every later increment. In the convex case, proximal optimality and monotonicity of the convex subdifferential, followed by cocoercivity, give the stated one-step distance inequality; bounded accumulation then sums the positive part and unbounded accumulation gives eventual Fejer decrease. The finite prefix is harmless. The numerical artifact was read only as a diagnostic, not as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source paper establishes convergence of the algorithm under boundedness rather than proving that boundedness from the recursion.",
+          "Other adaptive proximal-gradient papers use different curvature or line-search mechanisms."
+        ],
+        "reasoning": "No broader theorem inspected mechanically implies this self-bounding dichotomy for the exact Algorithm 1 recursion.",
+        "searches": [
+          "Wang-Yurtsever arXiv:2605.05944",
+          "Search of other parameter-free/adaptive proximal-gradient methods"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.05944",
+        "https://arxiv.org/abs/2402.06271",
+        "Resultary semantic search for the exact recursion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard lemmas are ingredients, but neither one alone implies that this adaptive accumulator necessarily enters one of the two boundedness-producing regimes."
+        ],
+        "reasoning": "The final implication needs the accumulator dichotomy specialized to this method and is not a one-line restatement of the source guarantee.",
+        "searches": [
+          "Compared the claim with the source algorithm's boundedness hypothesis and standard proximal-gradient descent/cocoercivity lemmas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the record under audit as the exact match; no independent equivalent theorem was found.",
+          "The May 2026 Wang-Yurtsever primary abstract still describes convergence under bounded-iterates assumptions."
+        ],
+        "reasoning": "No equivalent published statement for the same recursion was located.",
+        "searches": [
+          "Resultary semantic search: automatic boundedness deterministic gradient mapping accumulation proximal Wang Yurtsever smooth bounded increments convex distance",
+          "Web search: exact gradient-mapping-accumulation method plus bounded increments and Assumption 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact database hit was the present record; no independent table or theorem entry stated the same assumption-removal result."
+        ],
+        "reasoning": "Database search found no separate exact coverage.",
+        "searches": [
+          "Resultary exact/semantic search for the algorithm and automatic boundedness"
+        ]
+      },
+      "rationale": "The source method still states a bounded-iterates hypothesis, and targeted searches for the same gradient-mapping-accumulation recursion did not locate a theorem making the deterministic smooth increment and optimizer-distance bounds automatic. Nearby adaptive proximal-gradient methods remove boundedness by different step-selection mechanisms rather than by this accumulator dichotomy.",
+      "residual_risks": [
+        "The source preprint is recent and could later be revised to include the observation.",
+        "Full arXiv body retrieval failed in this run, so exact source numbering was cross-checked only through the public abstract/indexed descriptions and the assigned package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The source presents the method under bounded-iterates assumptions; no automatic-boundedness theorem is stated in the material retrieved.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.05944",
+          "material_read": "Primary abstract and public description of Algorithm 1/its boundedness assumptions; full arXiv body was not retrievable through the current web interface.",
+          "method": "Primary arXiv metadata/abstract plus independent web cross-check of the algorithm statement.",
+          "title": "Universal Adaptive Proximal Gradient Methods via Gradient Mapping Accumulation",
+          "trigger": "Same algorithm and the hypothesis claimed redundant."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Different algorithmic mechanism; does not imply the gradient-mapping-accumulator dichotomy audited here.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.06271",
+          "material_read": "Publicly indexed theorem/excerpt describing a different adaptive mechanism.",
+          "method": "Primary/public paper search.",
+          "title": "Adaptive Proximal Gradient Methods Are Universal Without Approximation",
+          "trigger": "Nearby adaptive proximal-gradient universality literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing a standing boundedness hypothesis from the deterministic smooth guarantees of the same recent adaptive composite method is a motivated technical improvement. The proof identifies a reusable self-bounding mechanism and is not a routine numerical check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic exact full-gradient/exact-proximal Algorithm 1 only.",
+    "No stochastic, convex-nonsmooth, or accelerated-Algorithm-2 assumption removal is claimed.",
+    "The bound may depend on a finite pre-threshold trajectory rather than only on a small a priori problem-data constant."
+  ],
+  "record_id": "SCOPE-20260917-e3edbe40faf5",
+  "schema_version": 1
+}
