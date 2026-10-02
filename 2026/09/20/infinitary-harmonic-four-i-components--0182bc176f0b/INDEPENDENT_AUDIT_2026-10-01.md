@@ -1,0 +1,65 @@
+# Independent mathematical audit — 2026-10-01
+
+## Final claim assessed
+
+Exact classification of infinitary harmonic numbers with four I-components
+
+## Correctness — PASS
+
+PASS. Writing the four I-components as increasing prime powers \(x_i\) gives the exact identity \(H_\infty=16\prod_i x_i/(x_i+1)\). The Hagis–Cohen bound restricts the integer mean to \(6\le c\le15\). At each stage, monotonicity of \(x/(x+1)\) converts the residual target product into an explicit finite upper bound for the next component; after three choices the fourth component is uniquely determined by \(x_4=t_3/(1-t_3)\). The inspected verifier implements precisely this residual-product exhaustion with exact rational arithmetic and exact I-component tests, explores 48,733 bounded branches, and checks every integral fourth candidate. An independent arithmetic check confirms that the six reported factorizations have product \(n\) and the stated integral means. Thus the computation is exhaustive rather than an unbounded search.
+
+## Originality — PASS
+
+PASS, with an important boundary. Hagis–Cohen's complete 1990 paper already tabulates all six numbers below \(10^6\), so the numerical list itself is not new. What was not proved there is completeness for exactly four I-components: their Theorem 3 establishes only finiteness for each fixed component count. Hasanalizade's complete 2026 article proves the explicit classification only for \(J\le3\) and then develops upper bounds for larger \(J\). The audited bounded residual-product enumeration supplies the missing completeness theorem for \(J=4\). Published-record search found no earlier proof of that fixed-\(J\) classification.
+
+### equivalent_formulations
+
+Searches: Resultary: infinitary harmonic numbers exactly four I-components classification; Hagis Cohen infinitary harmonic numbers four I-components; Hasanalizade IHN \(J=4\)
+
+Evidence: Hagis–Cohen prove fixed-\(J\) finiteness but not the \(J=4\) list; Hasanalizade explicitly classifies only \(J\le3\).
+
+Reasoning: The audited statement is the first located theorem identifying the complete \(J=4\) set, not merely a restatement of the old finite table.
+
+### broader_coverage
+
+Searches: DOI 10.1017/S0004972700017949 full PDF; DOI 10.1017/S0004972726101324 full HTML; OEIS A063947; OEIS A361385
+
+Evidence: The 1990 paper's Theorem 3 gives only finiteness, while the 2026 paper's Lemma 2.3 gives the exact set only for \(J\le3\).
+
+Reasoning: Neither broader prior theorem supplies the complete next component stratum.
+
+### exact_database_or_table
+
+Searches: Hagis–Cohen Table 1 of infinitary harmonic numbers up to \(10^6\); OEIS infinitary harmonic number sequences
+
+Evidence: The 1990 table already contains 270, 420, 630, 9100, 46494, and 646425, which are exactly the six final answers.
+
+Reasoning: The values are old finite data; originality is confined to proving that no additional four-component examples exist outside the historical search range.
+
+### claim_vs_prior_implication
+
+Searches: Hagis–Cohen Theorem 3; Hasanalizade Lemma 2.3
+
+Evidence: Finiteness alone supplies no effective complete list, and the modern small-component theorem stops at three components.
+
+Reasoning: The explicit residual bounds and exact finite enumeration are additional work needed to pass from finiteness/search data to a complete \(J=4\) theorem.
+
+## Scientific value — PASS
+
+PASS. This is a natural next case of an explicitly studied component-count classification: \(J\le3\) is published, fixed-\(J\) finiteness is classical, and \(J=4\) had only finite search data. Turning the known candidate list into a proved complete classification with explicit finite bounds is a meaningful finite cutoff, not a mere table recomputation.
+
+## Source inspections
+
+- **Infinitary harmonic numbers** — https://doi.org/10.1017/S0004972700017949. Material read: Complete eight-page primary PDF, including the infinitary harmonic mean formula, Theorem 3, and Table 1. Assessment: FOUNDATIONAL_PRIOR_WITH_CANDIDATE_TABLE_NOT_COMPLETENESS. Evidence: Theorem 3 proves only that each fixed-I-component class is finite. Table 1 lists the six eventual \(J=4\) answers among all IHNs below \(10^6\), without proving there are no larger \(J=4\) examples.
+- **Upper bounds for infinitary harmonic numbers and infinitary harmonious tuples** — https://doi.org/10.1017/S0004972726101324. Material read: Complete accessible primary HTML, especially Lemma 2.3 and the subsequent upper-bound arguments. Assessment: CLOSEST_MODERN_PRIOR_STOPS_AT_THREE_COMPONENTS. Evidence: Lemma 2.3 classifies \(J\le3\) exactly and then treats larger component counts through bounds rather than a \(J=4\) census.
+
+## Limitations and residual risks
+
+The theorem treats exactly four I-components. It does not classify \(J\ge5\) or resolve whether infinitely many infinitary harmonic numbers exist. The completeness proof is computer-assisted but finite, exact, and bounded a priori.
+
+- Older unpublished or differently indexed computational work may already have proved completeness for \(J=4\), although no such theorem was located.
+- The result is computer-assisted; correctness depends on the proved residual bounds and the exact finite enumeration, not on a heuristic search.
+
+## Disposition
+
+**passed**
