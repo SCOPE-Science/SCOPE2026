@@ -1,0 +1,102 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T17:38:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "artifacts/verify_formula.py",
+        "Kazemnejad--Moradi 2019 full text",
+        "Chen--Sohn--Wang 2020 abstract"
+      ],
+      "rationale": "A total dominating set of the central graph decomposes exactly into an original-vertex cover and subdivision vertices whose corresponding edges cover the residual original vertices lacking a selected complement neighbor. Conversely any such pair is a total dominating set. The partial edge-cover number equals \\(|R|-\nu(G[R])\\) by a maximum-matching construction and matching lower bound.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest follow-up is tree-specific; later located papers treat different domination parameters."
+        ],
+        "reasoning": "No broader theorem was located that implies the arbitrary-graph identity.",
+        "searches": [
+          "Chen--Sohn--Wang 2020 central trees",
+          "later central-graph domination literature"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4134/BKMS.b180891",
+        "https://doi.org/10.4134/BKMS.b190162",
+        "Resultary assigned-record hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior upper bound pays a full edge-cover cost; the audited theorem identifies exactly which residual vertices require subdivision support."
+        ],
+        "reasoning": "The exact decomposition is additional structural content, not a mechanical corollary of the bounds.",
+        "searches": [
+          "2019 bounds versus residual-set formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 Theorem 1.1 gives \\(\tau(G)\\le\\gamma_t(C(G))\\le\tau(G)+\rho(G)\\), not equality by optimization."
+        ],
+        "reasoning": "Equivalent matching and complement formulations were compared.",
+        "searches": [
+          "Resultary: total domination central graph vertex cover partial edge cover",
+          "Kazemnejad--Moradi 2019 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result is the only close exact hit."
+        ],
+        "reasoning": "Finite graph tables are not an antecedent for the symbolic theorem.",
+        "searches": [
+          "Resultary published corpus"
+        ]
+      },
+      "rationale": "The 2019 primary source gives only the general bounds and family formulas; it does not state the all-graph residual vertex-cover/partial-edge-cover optimization identity. The 2020 source is tree-specific by its public description.",
+      "residual_risks": [
+        "A tree-specialized overlap may exist but cannot cover the general theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Tight bounds and families only, not the audited all-graph formula.",
+          "evidence": "Theorem 1.1 is a two-sided bound.",
+          "identifier_or_url": "https://doi.org/10.4134/BKMS.b180891",
+          "material_read": "Full primary text including Theorem 1.1 and family results.",
+          "method": "Primary full-text inspection.",
+          "title": "Total domination number of central graphs",
+          "trigger": "Same invariant/object."
+        },
+        {
+          "assessment": "Tree-specific; full theorem text unavailable.",
+          "evidence": "Abstract relates central-tree total domination to vertex-cover quantities.",
+          "identifier_or_url": "https://doi.org/10.4134/BKMS.b190162",
+          "material_read": "Primary abstract/bibliographic record.",
+          "method": "Literature comparison.",
+          "title": "Total domination number of central trees",
+          "trigger": "Closest specialized antecedent."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kazemnejad--Moradi 2019",
+        "Chen--Sohn--Wang 2020"
+      ],
+      "rationale": "The result upgrades foundational all-graph bounds to an exact reusable structural identity and characterizes the residual cost by an induced matching number.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite simple graph \\(G\\) without isolated vertices, \\(\\gamma_t(C(G))\\) equals the minimum over vertex covers \\(A\\) of \\(|A|+\\rho_G(R_G(A))\\), equivalently \\(|A|+|R_G(A)|-\\nu(G[R_G(A)])\\); equality with \\(\\tau(G)\\) has the stated complement-total-domination criterion.",
+  "limitations": [
+    "Structural identity, not a polynomial-time algorithm.",
+    "The 2020 tree paper was only available at abstract/bibliographic level."
+  ]
+}
