@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T19:55:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 527c25497a7897ba795c82164147bd8abf96d89c",
+        "artifacts/verify.py blob c1352aa40be7c186d276b316f4e806c13df6d136",
+        "artifacts/verification.txt blob 3d40bbc8f21054efe84d262739f91b7fd6e56d24"
+      ],
+      "rationale": "From T=nH(n), reduction modulo each maximal prime power P_i leaves exactly 1+m_i(1+...+p_i^{a_i-1}); multiplying by p_i-1 yields the iff congruence m_i≡p_i-1 mod P_i. CRT gives integrality. For at most four supports, the reciprocal upper bounds are all <2, so a positive integral H(n) equals 1. In the three-support slice, the reduction d-1=(Aq-d(r-1))V is valid; d=1 forces (A,q,r)=(2,3,7), while d>1 first forces c=1 and then a modulo-3 contradiction. The finite verifier checks 98,158 integers through 100,000 and the first twelve 6·7^c cases, but is used only as corroboration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Machacek's full paper gives sufficient prime-factorization constructions and notes their converse fails, but does not state the audited local integrality iff criterion or the p^a q r^c middle-prime classification."
+        ],
+        "reasoning": "The foundational paper supplies constructions and definitions rather than a stronger theorem covering the final claim.",
+        "searches": [
+          "John Machacek, Egyptian Fractions and Prime Power Divisors, JIS 21 (2018)",
+          "Resultary semantic search for stronger prime-power pseudoperfect classification"
+        ]
+      },
+      "checked_sources": [
+        "Machacek, JIS 21 (2018), Article 18.3.7",
+        "OEIS A283423",
+        "Grau--Oller-Marcén--Sadornil, arXiv:2111.14211",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Machacek's sufficient construction includes 6·7^c but does not imply uniqueness in the natural three-support slice.",
+          "The later two-prime record cannot be prior coverage and does not dominate a three-prime-support theorem."
+        ],
+        "reasoning": "Neither inspected prior statement mechanically implies the final claim.",
+        "searches": [
+          "Machacek Theorem 3 and surrounding discussion",
+          "Resultary 2026-09-21 two-prime rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned this record as the exact hit; the later 2026-09-21 two-prime rigidity record is temporally later and covers only support size two.",
+          "The 1-Sondow condition uses p^s | n/p + 1 and the sum over distinct primes, not n/p^a ≡ p-1 mod p^a for the all-prime-power reciprocal sum."
+        ],
+        "reasoning": "The superficially similar Sondow congruence is not an equivalent formulation except in the squarefree case, where the record explicitly treats it as a specialization.",
+        "searches": [
+          "Resultary: prime power pseudoperfect local congruence integrality n/p^a congruent p-1 modulo p^a three prime supports 6*7^c",
+          "web: prime power pseudoperfect congruence p^a n/p^a p-1",
+          "Grau--Oller-Marcén--Sadornil, arXiv:2111.14211"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A283423 lists prime power pseudoperfect values and the defining reciprocal identity; it does not tabulate or state the local iff theorem or the three-support converse."
+        ],
+        "reasoning": "The exact database records examples/definition, not the claimed structural theorem.",
+        "searches": [
+          "OEIS A283423 full entry",
+          "Resultary published findings"
+        ]
+      },
+      "rationale": "No inspected prior source implies the exact maximal-prime-power congruence criterion or the three-support middle-exponent-one converse. Machacek gives the definition and sufficient constructions; the 1-Sondow congruence concerns a different reciprocal sum and coincides only in the squarefree specialization.",
+      "residual_risks": [
+        "An older differently named Egyptian-fraction congruence theorem could exist outside the indexed sources; the 1-Sondow terminology was explicitly checked and found non-equivalent in the nonsquarefree case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The article supplies sufficient constructions and examples but no maximal-prime-power local integrality iff criterion or three-support middle-exponent-one uniqueness theorem.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Machacek/mach4.html",
+          "material_read": "Full JIS article, including definitions, sufficient factorization construction (Theorem 3), proof, and discussion of the failed converse with 23994.",
+          "method": "lawful open-access HTML/PDF",
+          "title": "Egyptian Fractions and Prime Power Divisors",
+          "trigger": "Foundational paper defining prime power pseudoperfect numbers and cited by the record."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The entry records the defining equation and values, not the audited structural theorems.",
+          "identifier_or_url": "https://oeis.org/A283423",
+          "material_read": "Definition, comments, initial values, links and examples.",
+          "method": "public database entry",
+          "title": "OEIS A283423",
+          "trigger": "Exact sequence/database for prime power pseudoperfect numbers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Machacek foundational paper",
+        "OEIS A283423"
+      ],
+      "rationale": "This is a motivated structural result for a named Egyptian-fraction class: it converts a global integrality condition into independent prime-power congruences and gives a natural complete classification in the three-support slice with simple middle prime. Those facts can guide both construction and exclusion beyond a finite census.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older differently named Egyptian-fraction congruence theorem could exist outside the indexed sources; the 1-Sondow terminology was explicitly checked and found non-equivalent in the nonsquarefree case."
+  ]
+}
