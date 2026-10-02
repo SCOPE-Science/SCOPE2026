@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "reason": "PASS. The arithmetic core was reconstructed independently. The two square roots of 2 modulo 49 are 10 and 39, so the fundamental unit 1+sqrt(2) maps to 11 and 40; their sixth powers are 15 and 36 modulo 49, neither 1. The unique index-seven local norm subgroup of Z_7^× modulo 49 is the order-six subgroup, so the fundamental unit is not a local norm and the global unit norm index is 7. Chevalley's ambiguous class-number formula then gives a trivial ambiguous class group. A nontrivial finite 7-group acted on by the order-seven Galois group cannot have trivial fixed subgroup, so the 7-primary class group of the first layer is trivial. The standard cyclotomic-unit/class-number index bridge gives 7-maximality, and the first-layer stabilization criterion applies because the primes above 7 are already totally ramified. The committed integer verifier agrees with every independently recomputed residue and norm check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Greenberg/Iwasawa literature treats broad classes and stabilization mechanisms."
+        ],
+        "reasoning": "The broad theorems do not mechanically force the claimed first-layer class group to vanish without the field-specific norm computation.",
+        "searches": [
+          "Greenberg conjecture real quadratic fields odd prime",
+          "Fukuda stabilization Z_p extensions"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gras Theorem 7.5 states the arithmetic class/cyclotomic-unit index formula and its w_chi cases; Fukuda supplies stabilization once class groups stabilize."
+        ],
+        "reasoning": "Prior theory reduces the task to field-specific arithmetic; it does not itself imply that the unit norm index is 7 or that the first two 7-class groups are trivial.",
+        "searches": [
+          "Gras arXiv:2112.02865 Theorem 7.5",
+          "Fukuda Remarks on Z_p-extensions 1994"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gras gives the arithmetic character/cyclotomic-unit index formula for real abelian fields; Fukuda gives stabilization criteria for Z_p-extensions."
+        ],
+        "reasoning": "Those frameworks make the route standard, but do not state the exact local norm calculation or the resulting Q(sqrt(2)), p=7 values.",
+        "searches": [
+          "Q(sqrt(2)) p=7 Greenberg conjecture",
+          "cyclotomic units first layer Q(sqrt(2)) 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior table row for this field/prime pair was located in targeted web or published-result searches."
+        ],
+        "reasoning": "Absence of a search hit is not a proof of novelty, so this remains a residual risk rather than positive novelty evidence.",
+        "searches": [
+          "Q(sqrt(2)) lambda_7 Iwasawa",
+          "Q(sqrt2) 7-maximal cyclotomic units"
+        ]
+      },
+      "reason": "PASS. The inspected literature supplies the general class-group/cyclotomic-unit and stabilization machinery, but no source located states this exact Q(sqrt(2)), p=7 first-layer computation or its residue certificate. Gras's full text gives the relevant arithmetic character formula and the cases in which the factor w_chi is 1; Fukuda is the standard stabilization source. Targeted searches for the exact field/prime pair did not identify a prior exact table or theorem. This is therefore best-knowledge original as a concrete certified instance, with the usual residual risk of an unindexed numerical table.",
+      "status": "PASS"
+    },
+    "scientific_value": {
+      "reason": "PASS. Greenberg's conjecture for a concrete real quadratic field and an odd split prime is a standard, motivated Iwasawa-theoretic question. The result simultaneously certifies the first-layer 7-class vanishing, the 7-part of the cyclotomic-unit index, and lambda=mu=0 by a short local-norm obstruction, so it is a reusable exact boundary datum rather than an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fresh exact modular arithmetic for roots of 2 modulo 49, unit residues, sixth powers, seventh-power subgroup, and N(epsilon^6-1).",
+    "Committed artifacts/verify_target.py inspected and compared with the independent arithmetic.",
+    "Targeted literature searches for the exact field/prime pair and the general Iwasawa/cyclotomic-unit bridge."
+  ],
+  "disposition": "passed",
+  "record_id": "SCOPE-20260912-024",
+  "residual_risks": [
+    "No literature search proves absolute global novelty; an unindexed historical table may exist.",
+    "The RESULT's reproducibility prose uses the historical prefix output/artifacts, while the actual repository artifact is artifacts/verify_target.py; the replacement METADATA records the actual path."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_COVERAGE",
+      "evidence": "Theorem 7.5 gives the arithmetic class-group index formula and states w_chi=1 for non-prime-power character order and for prime-power order with prime-power conductor; it does not compute the audited field.",
+      "identifier": "arXiv:2112.02865v5",
+      "material_read": "Full HTML around Theorem 7.5, including the formula and the cases defining w_chi.",
+      "method": "Primary full-text inspection.",
+      "title": "Georges Gras, Application of the notion of Phi-object to the study of p-class groups and p-ramified torsion groups of abelian extensions",
+      "trigger": "Primary source cited for the real abelian class/cyclotomic-unit character formula.",
+      "url": "https://arxiv.org/abs/2112.02865"
+    },
+    {
+      "assessment": "GENERAL_STABILIZATION_NOT_EXACT_COVERAGE",
+      "evidence": "The theorem is a general stabilization criterion and contains no field-specific Q(sqrt(2)), p=7 computation.",
+      "identifier": "Proc. Japan Acad. 70 Ser. A (1994), 264-266",
+      "material_read": "Bibliographic theorem context and later stabilization literature citing Fukuda's theorem.",
+      "method": "Primary-source identification plus secondary theorem cross-check.",
+      "title": "Takashi Fukuda, Remarks on Z_p-extensions of number fields",
+      "trigger": "Stabilization step from consecutive trivial p-class groups.",
+      "url": "https://doi.org/10.3792/pjaa.70.264"
+    }
+  ]
+}
