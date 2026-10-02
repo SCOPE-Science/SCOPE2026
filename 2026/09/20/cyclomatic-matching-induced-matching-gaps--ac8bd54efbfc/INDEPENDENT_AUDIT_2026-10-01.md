@@ -1,0 +1,103 @@
+# Independent audit — 2026-10-01
+
+## Final claim
+
+For every finite simple graph, \(\nu_s(G)\ge\lceil(\nu(G)-c(G))/2\rceil\); consequently the maximum matching-minus-induced-matching gap is \(\lfloor n/4\rfloor\) for trees and, for connected unicyclic graphs of order at least four, \(\lfloor(n+2)/4\rfloor\), with the stated order-three exception.
+
+## Correctness — PASS
+
+For a maximum matching \(M\), its conflict graph has one vertex per matching edge and independent sets exactly the induced submatchings of \(M\). Deleting unsaturated vertices, contracting matching edges, and simplifying parallel edges cannot increase cyclomatic number, so the conflict graph has cycle rank at most \(c(G)\). In any graph with \(q\) vertices and cycle rank \(r\), deleting at most one chosen endpoint for each nonforest edge leaves a forest and yields an independent set of size at least \(\lceil(q-r)/2\rceil\). The tree and unicyclic bounds follow, and whiskered paths/cycles attain them. The inspected verifier exhausts connected Graph Atlas graphs, trees through order fourteen, and unicyclic graphs through order eleven; a separate small Graph Atlas replay found no mismatch.
+
+Checked sources:
+- M. Zito, Linear Time Maximum Induced Matching Algorithm for Trees, Nordic Journal of Computing 7 (2000), bibliographic/abstract material.
+- M. Zito, Induced matchings in regular graphs and trees, LNCS 1665 (1999), bibliographic/abstract material.
+- M. C. Golumbic and M. Lewenstein, New results on induced matchings, Discrete Applied Mathematics 101 (2000), abstract/bibliographic material.
+- Published-record semantic search for matching versus induced matching with cyclomatic number, tree gaps, and unicyclic gaps.
+
+Residual risks:
+- Finite enumerations corroborate only bounded orders; the general theorem is established by the conflict-graph proof.
+
+## Originality — PASS
+
+Best-of-knowledge originality passes. The older sources found are primarily algorithms and structural work for induced matchings; no inspected statement gives the cyclomatic inequality or the exact fixed-order tree and unicyclic gaps. Full text of some older tree papers was unavailable after lawful access attempts, so that risk is retained explicitly.
+
+### Equivalent formulations
+
+Searches:
+- Resultary semantic query: matching induced matching cyclomatic number inequality tree unicyclic exact gap
+- Web search under strong matching and 2-matching terminology
+
+Evidence:
+- The exact published-record search returned only the assigned finding.
+- Older matches centered on maximum-induced-matching algorithms and equality classes.
+
+Reasoning: The main aliases are induced matching, strong matching, and 2-matching; no equivalent cycle-rank inequality was located under those names.
+
+### Broader coverage
+
+Searches:
+- Zito 1999/2000 tree algorithms
+- Golumbic--Lewenstein 2000 induced matching results
+
+Evidence:
+- These sources treat computation or general graph classes but accessible material did not state a relation controlled by cyclomatic number.
+- No inspected broader theorem mechanically yielded the exact tree or unicyclic fixed-order extrema.
+
+Reasoning: Algorithmic solvability of maximum induced matching does not imply the stated comparison with ordinary matching number or the extremal gap formula.
+
+### Exact database or table
+
+Searches:
+- Published-record search for exact tree and unicyclic gap formulas
+- Finite verifier tables through the stated bounded orders
+
+Evidence:
+- No independent prior table/formula was located.
+- The package's finite tables match the theorem but are not used as novelty evidence.
+
+Reasoning: The result is an infinite extremal theorem; a finite census would not establish it.
+
+### Claim versus prior implication
+
+Searches:
+- Older induced-matching algorithm papers versus conflict-graph theorem
+- Cameron--Walker equality literature
+
+Evidence:
+- Known equality classifications concern \(\nu=\nu_s\), while the audited result quantifies the gap for arbitrary cycle rank.
+- Tree algorithms compute \(\nu_s\) instance by instance rather than imply the universal closed bound.
+
+Reasoning: No inspected prior statement implies \(\nu_s(G)\ge\lceil(\nu(G)-c(G))/2\rceil\) as a corollary.
+
+### Source inspections
+
+- **Linear Time Maximum Induced Matching Algorithm for Trees** — Relevant residual risk, but accessible material concerns a linear-time algorithm rather than the claimed parameter inequality. Material read: Bibliographic and abstract-level material; full article text was not available after lawful access attempts. Evidence: The available description presents an algorithm for maximum induced matching on trees.
+- **New results on induced matchings** — No accessible statement of the cyclomatic comparison or fixed-order extrema. Material read: Abstract and bibliographic material. Evidence: The source is framed around induced-matching algorithms/results in graph classes.
+
+Checked sources:
+- M. Zito, Linear Time Maximum Induced Matching Algorithm for Trees, Nordic Journal of Computing 7 (2000), bibliographic/abstract material.
+- M. Zito, Induced matchings in regular graphs and trees, LNCS 1665 (1999), bibliographic/abstract material.
+- M. C. Golumbic and M. Lewenstein, New results on induced matchings, Discrete Applied Mathematics 101 (2000), abstract/bibliographic material.
+- Published-record semantic search for matching versus induced matching with cyclomatic number, tree gaps, and unicyclic gaps.
+
+Residual risks:
+- Several older strong-matching/tree-algorithm articles were not available in full text; equivalent parameter inequalities under older terminology remain a residual literature risk.
+- The theorem gives extremal values but does not classify every extremal tree or unicyclic graph.
+
+## Scientific value — PASS
+
+The cycle-rank inequality is a simple reusable bridge between ordinary and induced matchings, and its sharp tree/unicyclic consequences determine natural fixed-order extrema for fundamental sparse graph classes. The result has structural content beyond finite computation.
+
+Checked sources:
+- M. Zito, Linear Time Maximum Induced Matching Algorithm for Trees, Nordic Journal of Computing 7 (2000), bibliographic/abstract material.
+- M. Zito, Induced matchings in regular graphs and trees, LNCS 1665 (1999), bibliographic/abstract material.
+- M. C. Golumbic and M. Lewenstein, New results on induced matchings, Discrete Applied Mathematics 101 (2000), abstract/bibliographic material.
+- Published-record semantic search for matching versus induced matching with cyclomatic number, tree gaps, and unicyclic gaps.
+
+Residual risks:
+- Several older strong-matching/tree-algorithm articles were not available in full text; equivalent parameter inequalities under older terminology remain a residual literature risk.
+- The theorem gives extremal values but does not classify every extremal tree or unicyclic graph.
+
+## Conclusion
+
+The unchanged final claim passes correctness, best-of-knowledge originality, and scientific value.
