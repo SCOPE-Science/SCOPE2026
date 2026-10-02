@@ -1,0 +1,110 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T18:45:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at tree 506f0db3a1e207e7352bf19033ed4ea65c68c8dd",
+        "artifacts/verify.py blob 091867ed417ef081c61b7f192176ec2c855b0cc9",
+        "Hagedorn--Jarre 2024 full open-access article",
+        "Giselsson--Boyd 2014 restart paper"
+      ],
+      "rationale": "Diagonalization gives the exact scalar recurrence. The upper endpoint disappears after one step; the lower endpoint has a repeated-root closed form with strictly decreasing magnitude, proving all-step endpoint objective monotonicity. The step-two polynomial has an interior zero, and direct symbolic recomputation gives nonzero step-three revival. Adding an epsilon-sized lower-endpoint mode keeps the denominator positive and makes the local objective ratio grow like a positive constant times inverse epsilon squared. The actual verifier was inspected but is only corroborative.",
+      "residual_risks": [
+        "Loose spectral-endpoint calibration can change the dimension-two conclusion and is excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources supply general nonmonotonicity, restart, and quadratic recurrence context."
+        ],
+        "reasoning": "General nonmonotonicity does not imply the exact minimal-dimensional objective frontier.",
+        "searches": [
+          "Giselsson--Boyd 2014",
+          "O'Donoghue--Candes restart",
+          "Hagedorn--Jarre 2024"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10957-023-02261-w",
+        "https://web.stanford.edu/~boyd/papers/pdf/restart_fgm.pdf",
+        "published corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence is classical, but the result additionally locates an interior step-two root, proves all-step endpoint monotonicity, and exploits momentum revival with a positive perturbation."
+        ],
+        "reasoning": "The classical recurrence does not itself state the sharp dimensional barrier.",
+        "searches": [
+          "classical scalar recurrence versus sharp dimension theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact corpus hit is the assigned record.",
+          "Hagedorn--Jarre explicitly discuss Euclidean-distance nonmonotonicity, not the audited objective frontier."
+        ],
+        "reasoning": "Aliases through function-value monotonicity, overshoot, restart, spectral polynomials, and semi-iterative recurrences were compared.",
+        "searches": [
+          "published corpus: Nesterov quadratic objective nonmonotonicity dimension three",
+          "web: Nesterov objective monotone quadratic restart",
+          "Hagedorn--Jarre DOI 10.1007/s10957-023-02261-w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact theorem or parameter table was located."
+        ],
+        "reasoning": "A finite database cannot settle a theorem uniform in every condition number.",
+        "searches": [
+          "published mathematical corpus for exact dimension-three objective spike"
+        ]
+      },
+      "rationale": "Prior work establishes nonmonotonicity and motivates restart, and Hagedorn--Jarre provide exact quadratic spectral analysis with two-dimensional nonmonotonicity of iterate distance. Searches did not locate the sharper objective statement: endpoint-only objective monotonicity, sharp dimension-three onset, the annihilation/revival curvature, or an unbounded positive-denominator local ratio for every fixed condition number.",
+      "residual_risks": [
+        "Older semi-iterative or polynomial-acceleration literature may contain an equivalent observation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides two-dimensional nonmonotone distance examples, not the audited objective result.",
+          "evidence": "Its abstract identifies nonmonotonicity of Euclidean distance.",
+          "identifier_or_url": "https://doi.org/10.1007/s10957-023-02261-w",
+          "material_read": "Full open-access article and theorem context.",
+          "method": "Primary full-text comparison.",
+          "title": "Iteration Complexity of Fixed-Step Methods by Nesterov and Polyak for Convex Quadratic Functions",
+          "trigger": "Closest fixed-step quadratic spectral analysis."
+        },
+        {
+          "assessment": "Motivates restart but does not state the sharp dimension-three quadratic mechanism.",
+          "evidence": "Fast gradient methods are described as non-monotone and restart is proposed.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/restart_fgm.pdf",
+          "material_read": "Primary abstract and introduction material.",
+          "method": "Literature comparison.",
+          "title": "Monotonicity and Restart in Fast Gradient Methods",
+          "trigger": "Direct prior literature on nonmonotonicity and restart."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hagedorn--Jarre 2024",
+        "restart literature"
+      ],
+      "rationale": "The theorem gives a sharp structural boundary for local objective descent under perfectly calibrated acceleration and isolates the exact interior-mode mechanism behind objective spikes.",
+      "residual_risks": [
+        "It is a local monotonicity theorem, not a global-rate improvement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact-parameter strongly-convex Nesterov acceleration on real SPD quadratics with standard initialization, endpoint-only spectra are objective-monotone, so dimension two is always monotone; for every condition number above one, dimension three admits an interior curvature mode annihilated at step two and revived at step three, making the local objective ratio arbitrarily large with positive denominator.",
+  "limitations": [
+    "Exact arithmetic, exact spectral endpoints, classical constant momentum, and standard zero-momentum initialization are essential.",
+    "The unbounded quantity is a local relative objective ratio, not divergence or absolute blow-up.",
+    "Other accelerated, restarted, composite, stochastic, inexact, and time-varying schemes are outside scope."
+  ]
+}
