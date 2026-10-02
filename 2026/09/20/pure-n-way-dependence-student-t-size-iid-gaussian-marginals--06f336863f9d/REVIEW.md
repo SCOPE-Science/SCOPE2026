@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — Integrating any coordinate kills the centered sign interaction, so every proper subvector is exactly iid standard normal. For deterministic data with positive mean and at least one nonpositive coordinate, minimizing the centered sum of squares at fixed mean gives \(S^2\ge n\bar x^2/(n-1)^2\), hence \(T_n\le n-1\); sign reversal gives the lower-tail analogue. Therefore for \(c\ge n-1\) the upper tail lies wholly in the positive orthant, where the density is exactly multiplied by \(1+\theta\), and the lower tail is multiplied by \(1+(-1)^n\theta\). Under \(\theta=0\), \(T_n\sim t_{n-1}\), so the displayed formulas follow. Independently recomputing the \(t_3\) quantile gives \(t_{3,0.975}=3.182446305\ldots>3\), and \(2\Pr(t_3>3)=0.0576688856\ldots\), validating the four-observation 0-to-10-percent size range.
+- Originality: **PASS** — The multiplicative centered-interaction family is a standard Sarmanov-type construction, and limited independence is known to alter other statistics. However, searches under Studentization, Sarmanov dependence, \((n-1)\)-wise independent Gaussian samples, and exact test size found no prior statement of the sharp deterministic threshold \(n-1\), the exact Student-tail multipliers, or the four-sample 5-percent-to-10-percent example. A full modern paper on pairwise-independent common-margin sequences concerns asymptotic sample-mean behavior rather than finite-sample Studentization. Originality therefore passes to the best of current knowledge.
+- Value: **PASS** — The result isolates a concrete failure of a canonical exact finite-sample procedure under extremely strong local classicality: every proper subsample is exactly iid Gaussian, yet the conventional four-observation two-sided t-test can have any size from zero to twice nominal. The sharp threshold and exact multiplier make this a reusable finite-sample robustness boundary, not merely an existence counterexample.
+
+Detailed comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
