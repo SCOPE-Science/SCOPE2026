@@ -64,12 +64,13 @@ Theorem (growth obstruction, analytic): let `P = k[Y1,Y2,W]` with weights
 `dim P_m <= (m+7)(m+2)/14` (quadratic). If `A = sum_{j=1}^r C f_j` with
 homogeneous `f_j` of degree `d_j`, then
 `dim A_m <= sum_j dim P_{m-d_j} <= r(m+7)(m+2)/14`. But
-`dim A_m = (m+1)(m+2)(m+3)/6` is cubic, ratio `~ (14/3)m -> infinity`
-(1761 at `m = 200`), so no fixed `r` works with any shifts. Degenerate cases
-with fewer generators are strictly smaller. Numerical certificate:
-weights-`(2,2,7)` coefficients `n=0..13` are `[1,0,2,0,3,0,4,1,5,2,6,3,7,4]`;
-ratios 47.7 at `n=10`, 202 at 30, 834 at 100, 1761 at 200; partial sums to 60:
-`A = 635376` vs `P = 1710`; growth exponents `~3.78` vs `~2.63`.
+`dim A_m = (m+1)(m+2)(m+3)/6` is cubic, ratio asymptotic to `(28/3)m` and
+therefore tends to infinity (1761 at `m = 200`), so no fixed `r` works with
+any shifts. Degenerate cases with fewer generators are strictly smaller.
+Numerical certificate: weights-`(2,2,7)` coefficients `n=0..13` are
+`[1,0,2,0,3,0,4,1,5,2,6,3,7,4]`; ratios 47.7 at `n=10`, 202 at 30, 834 at
+100, 1761 at 200; partial sums to 60: `A = 635376` vs `P = 1710`; growth
+exponents approximately `3.78` vs `2.63`.
 
 ## Limitations
 
@@ -96,4 +97,4 @@ dimension 4 (2015/2017/2018); Davies, Cocycle twists of 4-dimensional Sklyanin
 algebras (2016); De Laet, On the center of 3- and 4-dimensional Sklyanin
 algebras (2016); Walton--Wang--Yakimov, Poisson geometry of PI 4-dimensional
 Sklyanin algebras (2021); Smith, Simples over 4-dimensional Sklyanin at finite
-order; terminal Perplexity check found no decisive prior (see AUDIT.json).
+order; terminal literature check found no decisive prior (see AUDIT.json).
