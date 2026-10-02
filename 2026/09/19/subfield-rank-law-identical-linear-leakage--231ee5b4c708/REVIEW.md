@@ -1,6 +1,13 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Independent mathematical audit date: 2026-10-01 UTC.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+Disposition: **passed**.
+
+Correctness: PASS. Finite-field trace duality identifies every nonzero \(B\)-linear functional \(F\to B\) with \(z\mapsto\operatorname{Tr}_{F/B}(\beta z)\), \(\beta\ne0\). Under the nondegenerate trace pairing on \(F^K\), the output leakage functionals correspond to the vectors \(\beta g_i\). Multiplication by \(\beta\) is a \(B\)-linear automorphism, so their exact functional rank is the \(B\)-dimension of the column span of \(G\). A \(B\)-basis of columns therefore generates the complete leakage transcript. If that rank is \(K\), the column span has a \(B\)-basis that is automatically \(F\)-independent, giving a change of input basis after which \(G\) is \(B\)-valued; conversely a \(B\)-valued full-rank generator has rank \(K\). Rank \(Km\) makes the local leakage map injective. For a systematic random generator, quotienting by \(B^K\) reduces full disclosure to full rank of \(L\) random vectors in a \(D=K(m-1)\)-dimensional \(B\)-space, yielding the stated product probability. The finite verifier agrees, but the theorem is proved algebraically rather than by enumeration.
+
+Originality: PASS. PASS to the best of current knowledge with explicit partial prior coverage. Aoutouf--Augot's complete primary preprint was inspected through its general computation framework and identical-leakage section. It proves only the simple-addition no-improvement statement and says that array summation appears to extend, while simulations suggest extension-field weighted relations and LFSRs can benefit. A published 18 September result already proves the stabilizer-field obstruction and therefore covers the base-field no-amplification corollary. A separate 19 September published result gives a minimum subfield-rank obstruction for computation-code words and a quotient-space criterion for one extra output. Neither inspected prior result states the exact local identity \(\operatorname{rank}_B L_{G,\lambda}=\rho_B(G)\), its generator-column descent equivalence, the maximal-rank full-disclosure theorem, or the random systematic saturation probability. Originality is therefore limited to that exact local rank law and its genuinely additional consequences; the base-field corollary is explicitly prior work.
+
+Scientific value: PASS. The exact local rank law replaces example-specific identical-leakage behavior by one natural invariant, distinguishes subfield-rational computations from genuine extension-field amplification, identifies the complete local-disclosure endpoint, and gives a sharp random saturation threshold. These facts are directly useful for deciding how much information repeated linear leakage creates before any global repair-code question is addressed.
+
+Evidence: `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
