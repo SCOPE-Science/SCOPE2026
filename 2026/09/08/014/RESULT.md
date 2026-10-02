@@ -1,141 +1,104 @@
 # Cup-trivial but Massey-nonformal balanced presentation 2-complex
 
-## Context
+## Finding
 
-Cup products do not detect all higher multiplicative structure: triple
-Massey products obstruct formality even when the cohomology ring is
-trivial (Massey, Kraines, Sullivan, Deligne–Griffiths–Morgan–Sullivan).
-The question audited here is where Massey non-formality first appears
-among finite 2-complexes when all cups vanish. Link complements and lens
-spaces carry boundary-torus/peripheral or torsion mechanisms; moment-angle
-complexes live in high dimensions. The witness below is a closed balanced
-(deficiency-zero) 2-dimensional presentation complex.
+Let \(K\) be the presentation 2-complex
+\[
+\langle x,y,z\mid r_1=x^2[y,z]^2,\ r_2=[x,z],\ r_3=[[x,y],z]\rangle,
+\qquad [u,v]=uvu^{-1}v^{-1}.
+\]
+It has one vertex, three edges and three 2-cells. All positive-degree integral cup products vanish, but its singular-cochain differential graded algebra is nonformal over both \(\mathbb Z\) and \(\mathbb Q\). For classes \(Y,Z\) dual to \(y,z\), all eight degree-one triple Massey products have zero indeterminacy. In relator-oriented cellular coordinates, with the first coordinate reduced modulo 2, they are:
 
-## Definitions
+| Triple | Value in \(H^2(K;\mathbb Z)\) |
+|---|---|
+| \(\langle Y,Y,Y\rangle\) | \((0,0,0)\) |
+| \(\langle Y,Y,Z\rangle\) | \((0,0,0)\) |
+| \(\langle Y,Z,Y\rangle\) | \((0,0,0)\) |
+| \(\langle Y,Z,Z\rangle\) | \((0,1,0)\) |
+| \(\langle Z,Y,Y\rangle\) | \((0,0,0)\) |
+| \(\langle Z,Y,Z\rangle\) | \((0,-2,0)\) |
+| \(\langle Z,Z,Y\rangle\) | \((0,1,0)\) |
+| \(\langle Z,Z,Z\rangle\) | \((0,0,0)\) |
 
-Let `K` be the presentation 2-complex of
+## Assumptions and scope
 
-```text
-G = < x, y, z | r1, r2, r3 >
-r1 = x^2 [y,z]^2   (word length 10)
-r2 = [x,z]         (word length 4)
-r3 = [[x,y],z]     (word length 10)
-```
+This is a finite balanced presentation 2-complex, not a manifold. The homology and cohomology groups are
+\[
+H_1=\mathbb Z/2\oplus\mathbb Z^2,\quad H_2=\mathbb Z^2,\quad
+H^1=\mathbb Z\{Y,Z\},\quad H^2=\mathbb Z/2\oplus\mathbb Z^2.
+\]
+The Massey sign convention is Dwyer's unitriangular convention with first superdiagonal \(-\alpha,-\beta,-\gamma\). Reversing a 2-cell orientation changes its displayed coordinate sign, not nonvanishing. No universal minimal-cell or historical-first claim is made.
 
-Explicit words (capitals = inverses):
+## Proof
 
-```text
-r1 = x x y z Y Z y z Y Z
-r2 = x z X Z
-r3 = x y X Y z y x Y X Z
-```
+The exponent-sum matrix is \(\operatorname{diag}(2,0,0)\), giving the groups above and degree-one coboundary image \((2\mathbb Z,0,0)\). Augmented second Magnus/Fox matrices, in generator order \(x,y,z\), are
+\[
+\begin{pmatrix}1&0&0\\0&0&2\\0&-2&0\end{pmatrix},\quad
+\begin{pmatrix}0&0&1\\0&0&0\\-1&0&0\end{pmatrix},\quad
+\begin{pmatrix}0&0&0\\0&0&0\\0&0&0\end{pmatrix}.
+\]
+These give the recorded cocycle-cup representatives \(YY=ZZ=0\), \(YZ=(2,0,0)\), \(ZY=(-2,0,0)\), all zero modulo coboundaries. Their vanishing is also proved independently below without extending a commutator-relator Fox theorem to \(r_1\). No second-Fox bilinear formula is used on noncocycle bounding cochains.
 
-`K` has one 0-cell, three 1-cells, three 2-cells: finite, closed,
-balanced. Cellular chains: `C2 = Z^3 -> C1 = Z^3 -> C0 = Z`.
-Cohomology cups `H^1 x H^1 -> H^2` are computed by the cellular/Fox
-formula `C(u,v)_k = sum_{i,j} u_i v_j A^{(k)}_{ij}` where
-`A^{(k)}_{ij}` is the augmentation of the second Fox derivative of
-`r_k`. A triple Massey product `<a,b,c>` is defined when `a∪b = 0` and
-`b∪c = 0` in cohomology; with bounding 1-cochains `ds = a∪b`,
-`dt = b∪c`, the representative is `m = s∪c − a∪t`, well defined modulo
-the indeterminacy ideal `a·H* + H*·c` plus coboundaries.
+### Integer bar cochains and the matrix bridge
 
-## Result
+Let \(G=\pi_1K\). Use normalized inhomogeneous group cochains with trivial coefficients in \(R=\mathbb Z\) or \(\mathbb Q\). For a one-cochain \(s\),
+\[
+\delta s(g,h)=s(h)-s(gh)+s(g),\qquad
+(\alpha\smile\beta)(g,h)=\alpha(g)\beta(h).
+\]
+A homomorphism \(G\to U_4(R)/\langle I+rE_{14}\rangle\) with first superdiagonal \(-\alpha,-\beta,-\gamma\) has entries \(-s,-t\) in positions 13 and 24. Matrix multiplication gives exactly
+\[
+\delta s=\alpha\smile\beta,\qquad \delta t=\beta\smile\gamma.
+\]
+Thus it supplies genuine defining-system bounding cochains. Its triple cocycle is
+\[
+\lambda(g,h)=\alpha(g)t(h)+s(g)\gamma(h).
+\]
+The Leibniz rule gives \(\delta\lambda=-\alpha\smile\beta\smile\gamma+\alpha\smile\beta\smile\gamma=0\). Choosing central entry zero as a section of the matrix quotient shows directly that \(\lambda\) is its central-extension two-cocycle: the central defect in the product of two section matrices is the displayed expression. This uses neither finite coefficients nor profinite continuity. Fenn–Sjerve Theorem 3.1 and its proof give the discrete-group integer correspondence.
 
-For `K` above:
+For triples, use Dwyer's defining-system correspondence with homomorphisms
+\(G\to U_4(\mathbb Z)/Z(U_4(\mathbb Z))\). The class is the central obstruction to lifting to \(U_4(\mathbb Z)\). Write
+\[
+a=\alpha(y),\ b=\beta(y),\ c=\gamma(y),\quad
+d=\alpha(z),\ e=\beta(z),\ f=\gamma(z).
+\]
+All these classes kill \(x\). The relation \(r_1\) forces the second-superdiagonal entries of the image of \(x\) to be
+\[
+x_{13}=-(ae-db),\qquad x_{24}=-(bf-ec).
+\]
+These equations hold for every defining system, regardless of the freely chosen second-superdiagonal entries of \(y,z\). The central defect of \(r_2\) is therefore
+\[
+x_{13}z_{34}-z_{12}x_{24}=aef-2dbf+dec.
+\]
+The image of \([x,y]\) is central, so \(r_3\) has zero defect.
 
-1. `H1(K;Z) ≅ Z/2 ⊕ Z^2` (torsion from `x^2` in `r1`), `H2(K;Z) ≅ Z^2`,
-   `H^1(K;Z) ≅ Z^2 = span{Y, Z}` dual to `[y],[z]`,
-   `H^2(K;Z) ≅ Z/2 ⊕ Z^2`.
-2. Every cup product of positive-degree integral cohomology classes on
-   `K` is zero in cohomology; `H*(K;Z)` is the trivial extension.
-3. The triple Massey product `<Y,Z,Z>` is strictly defined and
-   `<Y,Z,Z> = (0,1,0) + I ≠ 0` in `H^2(K;Z)/I`, where
-   `I = Y·H^1 + H^1·Z + B^2` is the full indeterminacy ideal.
-   `<Z,Z,Y> = (0,−1,0) + I ≠ 0`; the other six triples on `{Y,Z}`
-   vanish mod indeterminacy.
-4. Hence `K` is non-formal and not (rationally) formal-homotopy
-   equivalent to any formal complex with the same cohomology ring
-   (e.g. a wedge of circles and spheres).
+Set all other second-superdiagonal entries of \(y,z\) and all initially free central entries to zero. Exact matrix evaluation gives, in table order, central relator vectors
+\[
+(0,0,0),(0,0,0),(2,0,0),(2,1,0),
+(-2,0,0),(-2,-2,0),(0,1,0),(0,0,0).
+\]
+All relators are central, so these images define homomorphisms to the quotient for every six integer coefficients \(a,b,c,d,e,f\). Projection to the upper-left \(U_3\) block gives \(\delta s=\alpha\smile\beta\) for any pair \(\alpha,\beta\), proving that every degree-one cup vanishes already on \(G\), and therefore on \(K\). All other positive-degree cups vanish by dimension.
 
-## Proof / evidence
+For the cellular coordinates, lift the generator images to \(U_4\). Around an oriented 2-cell the product of these lifts is central; its exponent is the obstruction to extending the lift over the cell. Changing generator lifts by central integers changes that cochain by the exponent-sum matrix, namely \((2\mathbb Z,0,0)\). Thus it represents the pulled-back central-extension class \([\lambda]\) without a commutator-subgroup hypothesis on the relators. With the zero choices specified above, the first defect is always twice an integer and the last is zero. Reduction modulo \((2\mathbb Z,0,0)\) gives the complete table, including its torsion coordinate. Triple indeterminacy is \(\alpha H^1+H^1\gamma=0\); the three nonzero middle coordinates cannot be removed by changing the defining system.
 
-Exponent matrix (Fox first derivatives augmented) is
+The classifying map \(K\to BG\) induces an isomorphism on \(H^1\) and an injection on \(H^2\): \(BG\) is obtained by attaching cells of dimension at least 3. Group triple products pull back to those of \(K\); both have zero indeterminacy. The nonzero middle coordinate survives over \(\mathbb Q\). Under differential-graded-algebra quasi-isomorphisms a defined triple with zero indeterminacy is preserved; in the zero-differential cohomology algebra, zero bounding cochains give value zero. The strict nonzero triple consequently obstructs formality over both rings.
 
-```text
-E = [[2,0,0],[0,0,0],[0,0,0]], SNF(E) = diag(2,0,0),
-```
+## Verification
 
-so `d^1 = E^T: C^1 -> C^2`, `δ(s1,s2,s3) = (2s1,0,0)`,
-`B^2 = {(2k,0,0)}`; a class is null-cohomologous iff `c2 = c3 = 0`
-and `c1` even. Homology claims follow.
+Run python artifacts/verify.py --check. The exact stdlib-only verifier recomputes presentation exponents, second Magnus/Fox coefficients for cocycle cups, all eight integer unitriangular relator vectors, and equality with artifacts/results.json. Its final line is VERIFY_OK: corrected U4 integral triple table and cocycle cups.
 
-Augmented second Fox matrices (independently recomputed by naive
-group-ring Fox rules and two in-script recursions):
+The unitriangular proof, not a second-Fox bilinear expression on bounding noncocycles, supplies the triple-product calculation.
 
-```text
-A1 = [[1,0,0],[0,0,2],[0,-2,0]]
-A2 = [[0,0,1],[0,0,0],[-1,0,0]]
-A3 = [[0,0,0],[0,0,0],[0,0,0]]
-```
+## Relationship to prior work
 
-On `Y = (0,1,0)`, `Z = (0,0,1)`:
-
-```text
-Y∪Y = (0,0,0),  Y∪Z = (2,0,0) = δ(1,0,0),
-Z∪Y = (−2,0,0) = δ(−1,0,0),  Z∪Z = (0,0,0).
-```
-
-Thus all `H^1 × H^1` cups vanish in cohomology; cups landing in
-`H^{≥3} = 0` vanish for degree reasons. Controls: `[x,y]` gives the
-standard torus values `+1/−1`; the all-commutator complex gives
-nonzero cups (correctly rejected).
-
-Massey: with `s = (1,0,0)` (`δs = Y∪Z`) and `t = (0,0,0)`
-(`δt = Z∪Z`), `m = s∪Z − Y∪t = (0,1,0)` since `C(s,Z)` picks
-`A2_13 = 1` and `C(Y,t) = 0`. Indeterminacy generators
-`B^2 ∪ {C(Y,h), C(h,Z)}` are `(2,0,0)` or `(0,0,0)` only: every
-element of `I` has middle coordinate 0 while `m` has middle
-coordinate 1. Middle-coordinate projection is an exact quotient
-homomorphism killing `I` and sending `m` to 1, so `m ∉ I` with
-infinite order. Any other bounding choice changes `m` by an element
-of `I`, so the class is well defined and nonzero. Exact
-integer-linear solver confirms non-membership; bounding-choice
-robustness checked.
+Dwyer's theorem supplies a general method, not this exact example. Fenn–Sjerve Section 3 supplies the integer discrete-group bridge; its Section 4 numerical commutator-relator formulas do not directly cover \(r_1\), whose \(x\) exponent sum is 2. The contribution is this explicit balanced witness and its integral triple table. The earlier table's zero value for \(\langle Z,Y,Z\rangle\) and negative middle coordinate for \(\langle Z,Z,Y\rangle\) are corrected here; the principal cup-trivial nonformality conclusion survives.
 
 ## Limitations
 
-- Integral Massey non-vanishing proved; rational non-formality
-  follows (cups vanish rationally, `m` has infinite order) but no
-  minimal-model computation is included.
-- No general 2-generator vanishing lemma is claimed; sharpness is
-  only the minimal generator count for a triple product in `H^1`.
-- The cup formula is the standard cellular/Fox second-derivative
-  formula validated by the torus control, not re-derived from a
-  simplicial diagonal in-script.
-
-## Reproducibility
-
-Stdlib-only script replays homology, cup vanishing, Massey defining
-system, indeterminacy non-membership, full 8-triple table, controls,
-and rewrites `results.json`:
-
-```text
-cd output/artifacts && python3 verify.py
-```
-
-Artifacts: `verify.py`, `results.json`.
+Bounded searches cannot exclude an unindexed earlier identical presentation. No global historical priority, smallest-complex classification, proof-assistant verification, or external expert attestation is claimed.
 
 ## References
 
-- Hatcher, Algebraic Topology, Ch. 3 (cup product; torus-vs-wedge
-  separator). https://pi.math.cornell.edu/~hatcher/AT/ATpage.html
-- Poirier–Tradler–Wilson, Massey products for homotopy inner
-  products, arXiv:2507.15494. https://arxiv.org/abs/2507.15494
-- Lee–Park–Park–Yim, An algorithm for a Massey triple product of a
-  smooth projective plane curve, arXiv:1909.06714.
-  https://arxiv.org/abs/1909.06714
-- Limonchenko–Panov, Minimally non-Golod face rings and Massey
-  products, arXiv:2201.12779. https://arxiv.org/abs/2201.12779
-- Grbić–Linton, Non-trivial higher Massey products in moment-angle
-  complexes, arXiv:1911.07083. https://arxiv.org/abs/1911.07083
+- W. G. Dwyer, *Homology, Massey products and maps between groups* (1975), [DOI:10.1016/0022-4049(75)90006-7](https://doi.org/10.1016/0022-4049(75)90006-7).
+- J. Mináč and N. D. Tân, *Triple Massey products and Galois theory*, [primary published text](https://ems.press/content/serial-article-files/32174), Theorem 3.1, restating Dwyer's correspondence.
+- R. Fenn and D. Sjerve, *Massey products and lower central series of free groups*, [primary published text](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/291C7ED73FAF27895E70B09BFBFA8942/S0008414X00005071a.pdf/massey_products_and_lower_central_series_of_free_groups.pdf), Theorem 3.1 with proof, and Section 4.
