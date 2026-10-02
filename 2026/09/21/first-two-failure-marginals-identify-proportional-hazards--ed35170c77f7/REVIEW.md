@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For independent proportional-hazards components, the first-failure survival is B^Lambda and inclusion-exclusion for survival of at least n-1 components gives S2=sum_i B^(Lambda-lambda_i)-(n-1)B^Lambda. Reparameterizing by u=S1 eliminates the unknown baseline and produces a finite signed exponential sum with exponent 1 coefficient -(n-1) and all other exponents strictly in (0,1). Uniqueness of finite exponential sums therefore identifies n and the normalized hazard multiset. The converse characterization, Newton reconstruction when n is known, and the separate nonidentification constructions for either marginal alone follow directly.
+- Originality: **PASS** — Current Resultary search found no earlier or stronger theorem identifying an unknown component count and all normalized proportional-hazards multipliers from only the first two unlabeled marginal failure laws. The closest retrieved PHR literature concerns stochastic comparison of second-order statistics, while a later general order-marginal identification result uses all rank marginals and different regularity hypotheses. The older Pledger-Proschan chapter could not be inspected theorem by theorem and remains a residual risk, but inaccessible plausible older literature alone is not decisive coverage in the absence of a matching statement.
+- Value: **PASS** — The theorem isolates a sharp semiparametric sufficiency phenomenon: either marginal alone is completely nonidentifying under an arbitrary common baseline, whereas the pair identifies component count and all relative hazards. The baseline-elimination identity and exact model-class characterization are natural structural results for reliability inference.
+
+Detailed structured comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
