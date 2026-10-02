@@ -1,23 +1,31 @@
 {
-  "correctness": {
-    "rationale": "An exact double count gives \\(i_3^{(4)}(G)=\\binom{n}{4}-(2n/3)(n-3)+P(G)\\). Degree \\(2\\) implies no \\(4\\)-set contains three hyperedges and every hyperedge belongs to at most one pair intersecting in two vertices, so \\(P(G)\\le n/3\\). Equality translates in the cubic dual to one doubled incident edge and one simple incident edge at every vertex, hence alternating even cycles. Exhaustive small-order and direct hypergraph checks agree.",
-    "status": "PASS"
+  "independent_audit_evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent_audit_status": "passed",
+  "independent_axes": {
+    "correctness": {
+      "rationale": "Double counting gives \\(i_3^{(4)}(G)=\\binom n4-(2n/3)(n-3)+P(G)\\), where \\(P(G)\\) counts pairs of hyperedges meeting in two vertices. Degree two implies no four-set contains three hyperedges and forces the graph on hyperedges formed by such overlap pairs to have maximum degree one, so \\(P(G)\\le n/3\\). Equality means every dual cubic vertex is incident with exactly one doubled edge and one remaining simple support edge; these two perfect matchings form disjoint alternating even cycles, and multiplicity three is excluded by simplicity. The converse dual construction is valid. The finite enumerators corroborate, but are not used as the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "The complete Sarantis–Tetali–Zheng preprint states Conjecture 1.7 coefficient-wise and Proposition 3.3 proves the \\(k=4\\) triple-system case only under the no-cross-edge hypothesis. Its separate degree-two theorem is for the total independent-set count, not individual coefficients. The submitted degree-two argument removes the cross-edge restriction and classifies every equality type. Resultary found no prior unrestricted \\((3,2,4)\\) coefficient theorem.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This proves a natural unrestricted parameter slice of an explicit coefficient-wise conjecture and adds a complete structural equality classification. The proof also exposes the exact dual obstruction, so it is more than a finite census.",
+      "status": "PASS"
+    }
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "originality": {
-    "rationale": "The closest recent paper proves the \\(k=4\\) coefficient bound only for cross-edge-free triple systems and proves a separate total-count theorem for \\(2\\)-regular odd-uniform hypergraphs. Searches for the unrestricted \\((r,d,k)=(3,2,4)\\) coefficient formula and alternating-cycle equality classification found no matching or stronger indexed result.",
-    "status": "PASS"
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260930-35d21af925ab",
+  "same_model_review": {
+    "note": "The prior same-model assessment remains historical evidence and is not relabeled as the independent audit.",
+    "source_blob_sha": "7f0a1f861204b1daac8abb932df09e3de1531c2c",
+    "status": "passed"
   },
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
   "schema_version": 1,
-  "scope_run_id": "35d21af9-25ab-4c7d-b1fb-b488f97442a8",
-  "value": {
-    "rationale": "The theorem verifies a complete unrestricted parameter slice of the coefficient-wise conjecture, supplies an explicit extremal coefficient formula, and classifies every equality isomorphism type via a transparent dual structure.",
-    "status": "PASS"
-  },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }

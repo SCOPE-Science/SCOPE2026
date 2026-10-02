@@ -23,7 +23,3 @@ For every finite simple \(3\)-uniform, \(2\)-regular hypergraph on \(n\) vertice
 ## Residual risks
 
 - The preprint is recent; an independent contemporaneous note on the same coefficient slice could be unindexed.
-
-## Review status
-
-Fresh independent scientific audit: **passed** on correctness, originality, and value.
