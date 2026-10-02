@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "reason": "PASS. All 37 graph6 records were decoded independently. Each has no K4 and no independent set of size six. For every graph, all independent five-sets were independently enumerated and an exhaustive fail-first search over triangle-free hitting sets was run. All 37 searches proved that no such hitting set exists; the independent-five-set counts exactly match the archived certificate table, ranging from 742 to 818. The reduction is exact: a new vertex creates a K4 precisely when its neighborhood contains a triangle, and creates an independent six-set precisely when its non-neighborhood contains an independent five-set. Hence none of the 37 graphs admits a valid one-vertex extension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lehavi reports no 36-vertex counterexample with at least seven deletions among the known 37 examples."
+        ],
+        "reasoning": "That search space is not a superset of all one-vertex extensions of each individual known graph, so it does not cover the audited theorem.",
+        "searches": [
+          "Lehavi one-vertex extension R(4,6,36)",
+          "Ramsey counterexample checking one vertex extension 2411.04267"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exoo states 37 K35 colorings; Lehavi explicitly says Exoo did not mention a no-extension algorithm and states only the at-least-seven-known-subgraphs result."
+        ],
+        "reasoning": "Neither inspected source implies that each one of the 37 source graphs has zero valid single-vertex extensions.",
+        "searches": [
+          "Exoo 2012 R(4,6)",
+          "Lehavi 2024 Section 5.1 R(4,6,36)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited condition is exactly the neighborhood characterization for extending a K4-free graph with alpha at most 5."
+        ],
+        "reasoning": "The formulation is standard once derived, but the 37 independent exhaustive negatives are graph-specific results.",
+        "searches": [
+          "R(4,6) one vertex extension known 37 graphs",
+          "triangle-free hitting independent 5 sets Ramsey 4 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exoo publishes the witness corpus; no primary source located gives the per-graph 742-818 hitting-set certificate table."
+        ],
+        "reasoning": "The objects are prior art, but the audited maximality property is an additional exact property of them.",
+        "searches": [
+          "Exoo 37 R(4,6) graphs extension maximal",
+          "Ramsey graphs 35 one-vertex maximal"
+        ]
+      },
+      "reason": "PASS. Exoo's 2012 paper supplies the 37 K35 witnesses but does not state their one-vertex maximality. Lehavi's 2024 one-vertex-extension paper is the closest primary overlap: it reports that no 36-vertex counterexample has at least seven vertex-deleted subgraphs among the 37 known examples. That is strictly weaker and differently quantified than proving that each of the 37 individual graphs has no one-vertex extension, because a hypothetical extension of one known graph need not have seven deletions in the known subset. Thus the audited theorem is not implied by Lehavi's result.",
+      "status": "PASS"
+    },
+    "scientific_value": {
+      "reason": "PASS. R(4,6) remains open, and these 37 graphs are the classical witnesses behind the lower bound. Proving that every known extremal witness is individually maximal under the simplest extension operation removes a natural route to a 36-vertex witness while explicitly not claiming nonexistence of a de novo witness. This is a motivated exact obstruction directly tied to an open Ramsey problem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fresh independent graph6 decoding of all 37 graphs.",
+    "Fresh K4 and independent-six checks and complete independent-five enumeration.",
+    "Fresh exhaustive triangle-free hitting-set search for every graph; all counts matched the certificate table.",
+    "Current R(4,6) literature and the later one-vertex-extension paper."
+  ],
+  "disposition": "passed",
+  "record_id": "SCOPE-20260912-026",
+  "residual_risks": [
+    "The 37-graph corpus is not known to exhaust all Ramsey(4,6;35) graphs.",
+    "The theorem rules out only single-vertex extensions of these named witnesses; it does not rule out a de novo 36-vertex witness."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OBJECT_SOURCE_NOT_PROPERTY_COVERAGE",
+      "evidence": "Publishes the 37 K35 colorings and the lower bound R(4,6)>=36, but not their individual single-vertex maximality.",
+      "identifier": "Electron. J. Combin. 19(1) (2012), P66",
+      "material_read": "Abstract and public witness-page context.",
+      "method": "Primary-literature inspection.",
+      "title": "Geoffrey Exoo, On the Ramsey Number R(4,6)",
+      "trigger": "Primary source for the 37 known 35-vertex witnesses.",
+      "url": "https://doi.org/10.37236/2102"
+    },
+    {
+      "assessment": "RELATED_BUT_NOT_COVERING",
+      "evidence": "Section 5.1 proves no 36-vertex counterexample with at least seven subgraphs strictly within the known 37; it does not prove zero extensions from each individual member.",
+      "identifier": "arXiv:2411.04267",
+      "material_read": "Full HTML through the contribution, algorithm limitations, and Section 5.1.",
+      "method": "Primary full-text inspection.",
+      "title": "Adam M. Lehavi, Ramsey Number Counterexample Checking and One Vertex Extension Linearly Bound by s and t",
+      "trigger": "Highly relevant later paper explicitly about one-vertex extension for R(4,6).",
+      "url": "https://arxiv.org/abs/2411.04267"
+    }
+  ]
+}
