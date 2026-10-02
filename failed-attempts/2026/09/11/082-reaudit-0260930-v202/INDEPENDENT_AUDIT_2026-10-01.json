@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T01:19:53.816678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The committed ledger and complete enumerator/verifier reproduce all six diagram rows. Summing them gives W_F0=(8,6,4,2), W_F2=(6,6,4,2), W_corr=(1,1,1,1), and therefore the explicitly defined naive expression W_F2+2W_corr=(8,8,6,4) with defect (0,-2,-2,-2). The claim is correctly limited to this arithmetic comparison and does not assert failure of the established real Abramovich-Bertram formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brugallé-Puignau gives a real Abramovich-Bertram relation; Bousseau proves a q-refined F0/F2 Abramovich-Bertram relation."
+        ],
+        "reasoning": "These are stronger genuine-theory results, but the record explicitly defines a different naive fixed-coefficient arithmetic comparison.",
+        "searches": [
+          "Brugallé-Puignau, Behavior of Welschinger invariants under Morse simplifications, arXiv:1203.2773",
+          "Bousseau, Refined floor diagrams from higher genera and lambda classes, arXiv:1904.10311"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-object search",
+        "Bousseau 2021",
+        "Brugallé-Puignau arXiv:1203.2773",
+        "assigned enumerate.py, verify.py, ledger.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established formulas are not the same as blindly reusing the complex +2 coefficient at each r, which the record explicitly acknowledges."
+        ],
+        "reasoning": "Prior theorems do not make the naive defect a contradiction; they instead show why the naive comparison is not the correct real formula.",
+        "searches": [
+          "real/q-refined Abramovich-Bertram theorems versus RHS_naive"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the audited record; no earlier exact ledger was found."
+        ],
+        "reasoning": "Equivalent formulations as three Welschinger/floor-diagram rows and as the defect vector were searched.",
+        "searches": [
+          "Resultary: F0 F2 real Abramovich Bertram fixed class (2,2) defect -2 r-real floor diagrams",
+          "exact W_F0=(8,6,4,2) W_F2=(6,6,4,2) W_corr=(1,1,1,1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table matching all three archived rows was located."
+        ],
+        "reasoning": "The finite ledger is not shown to be copied from an external database.",
+        "searches": [
+          "published fixed-class Welschinger/floor-diagram tables for the stated three classes"
+        ]
+      },
+      "rationale": "No earlier source was found tabulating this exact six-row ledger or this explicitly named naive defect vector. Prior work does cover the genuine real and q-refined Abramovich-Bertram mechanisms, so originality is only for the finite ledger/arithmetic comparison, not for the surrounding enumerative theory.",
+      "residual_risks": [
+        "Exact numerical ledger originality remains best-of-knowledge.",
+        "The record's artifact_inventory uses output/artifacts although the actual audited files are under artifacts/."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms that the genuine q-refined F0/F2 relation is prior work; does not supply the audited naive defect ledger.",
+          "evidence": "Theorem 1.3 states a q-refinement of the Abramovich-Bertram relation for floor-diagram counts.",
+          "identifier_or_url": "https://doi.org/10.1007/s00029-021-00667-w",
+          "material_read": "Open-access article theorem material, including the q-refined Abramovich-Bertram section and Theorem 1.3.",
+          "method": "Primary-source full-text web inspection.",
+          "title": "Refined floor diagrams from higher genera and lambda classes",
+          "trigger": "Same F0/F2 q-refined Abramovich-Bertram setting."
+        },
+        {
+          "assessment": "Confirms the genuine real surgery relation is prior; the audited record does not contradict it.",
+          "evidence": "The abstract explicitly says the relation is a consequence of a real version of the Abramovich-Bertram formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2773",
+          "material_read": "Primary-source abstract and stated scope.",
+          "method": "Primary-source comparison.",
+          "title": "Behavior of Welschinger Invariants under Morse Simplifications",
+          "trigger": "Prior real Abramovich-Bertram formula."
+        },
+        {
+          "assessment": "Supports the exact rows and defect arithmetic.",
+          "evidence": "The verifier recomputes the six rows and asserts defect [0,-2,-2,-2].",
+          "identifier_or_url": "2026/09/11/082/artifacts/enumerate.py and verify.py",
+          "material_read": "Complete source files and ledger.json.",
+          "method": "Line-by-line package inspection.",
+          "title": "Assigned fixed-class census",
+          "trigger": "Critical six-row finite ledger."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The retained claim is only that a deliberately naive transplant of the complex coefficient gives a small defect in one fixed class, while the record itself stresses that this is not the real surgery formula and does not challenge or refine the known theory. Once the three rows are known, the defect is immediate arithmetic; no structural boundary, motivated invariant, or future mathematical use for this precise naive comparison is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The audit does not dispute the genuine real or q-refined Abramovich-Bertram formulas.",
+    "The exact ledger originality is best-of-knowledge.",
+    "The package metadata references output/artifacts paths although the actual files are under artifacts/."
+  ],
+  "record_id": "SCOPE-20260911-082",
+  "schema_version": 1
+}
