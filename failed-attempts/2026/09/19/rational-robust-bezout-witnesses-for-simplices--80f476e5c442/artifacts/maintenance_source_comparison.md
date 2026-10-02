@@ -1,0 +1,5 @@
+# Completed prior-implication comparison
+
+The complete primary Theorem 1.2 of arXiv:2609.20380v1, with special-test clause (iii), and its Section 3 proofs were read. The frozen proof is mathematically sound.
+
+The originality comparison is decisive rather than an access failure. The prior characterization already says every nonsimplex has a strictly positive special-test defect. Interior-overlap intersection continuity and mixed-volume continuity make this defect continuous on an open domain. Thus its positive set is open, meets the rationals, has positive measure and retains a positive margin under small body perturbations. The countable test bank, open cover and full-support sampling corollary follow immediately. No new quantitative margin or test is proved. These are routine consequences of the stronger existing characterization, not a separate unknown invariant or structural classification. Original mathematical and historical evidence is preserved; failure is O/V coverage, not C and not insufficient evidence.
