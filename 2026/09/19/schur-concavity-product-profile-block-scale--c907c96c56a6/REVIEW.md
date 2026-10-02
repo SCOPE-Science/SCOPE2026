@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — At fixed pair sum, every term involving both selected coordinates increases with their product, and each exactly-one paired contribution has square \(RS+2T+2\sqrt{T(R^2+RS+T)}\), strictly increasing in \(T=xy\); this proves strict pairwise balancing and hence Schur concavity. Splitting a block strictly increases the corresponding paired terms. Cauchy-Schwarz gives \(W_d^2\le {q\choose d-1}\sum A_I^2\), and direct counting gives \(\sum A_I^2=d e_d\). Maclaurin then yields the sharp continuous envelope, while the comparison with \(e_2\) gives the stated variance stability. The integer maximizer follows by repeated splitting and balancing.
+- Originality: **PASS** — The complete Abakumov-Friedland-Yomdin source was inspected. It introduces the product-profile scale, evaluates equal blocks, and proves only a coarse block-count reduction; it explicitly does not claim optimality for the scale when the number of blocks exceeds the degree. It does not contain strict Schur concavity, refinement monotonicity, the exact integer envelope, elementary-symmetric compression, or the quantitative variance rigidity estimate. published-record database search found no earlier equivalent theorem; later block-product records address different concentration constants rather than this structural optimization.
+- Value: **PASS** — The theorem solves the natural extremal problem for a newly introduced structural invariant for every finite block count, gives exact integer extremizers, and quantifies near-equality. Those results immediately sharpen several source corollaries while carefully avoiding an unsupported claim about optimal concentration itself. This is a motivated complete classification of a natural invariant.
+
+Detailed comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is preserved in sanitized form in `AUDIT.json`.
