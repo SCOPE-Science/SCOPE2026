@@ -1,0 +1,112 @@
+{
+  "audited_at_utc": "2026-09-30T22:45:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned census.json at 92c7f26b45ce94be6cda0eafed44298c598d7b47",
+        "Fresh independent graph-isomorphism and edge-flip closure checks",
+        "Bobenko arXiv:0707.1318"
+      ],
+      "rationale": "The intrinsic finite census checks cleanly: fresh code verified 73 rows with counts 1,1,2,5,14,50; every graph has the required sphere edge/face counts, every stored defect is 6-degree and sums to 12, all 1,327 within-order pairs are non-isomorphic under an independent backtracking test, and all 893 flippable edges land in the stored same-order set. The stored Willmore values have the reported T9_0 maximum. However, the claimed P0 spring-embedding provenance of the stored coordinates was not regenerated from the seed/dynamics, so that protocol-generation component is not independently closed.",
+      "residual_risks": [
+        "The deterministic P0 embedding dynamics were not replayed; only the stored positions/numerical benchmark were inspected.",
+        "Completeness uses the standard flip-connectivity theorem plus the verified closed flip set."
+      ],
+      "status": "UNRESOLVED"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior classification/generation covers all triangulated 2-spheres in the stated vertex range, including the known counts 1,1,2,5,14,50."
+        ],
+        "reasoning": "A complete stronger enumeration of the objects plus their adjacency data mechanically determines the degree/defect rows.",
+        "searches": [
+          "Köhler–Lutz small-vertex triangulations",
+          "plantri maximal planar graph generation",
+          "OEIS A000109"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published-record search",
+        "OEIS A000109",
+        "Köhler–Lutz arXiv:math/0506520 as cited classification context",
+        "plantri generation literature",
+        "Bobenko arXiv:0707.1318"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intrinsic part follows directly as defect equals 6-degree in units of pi/3. Bobenko's Willmore energy depends on geometric realization, so the record's P0 maximum is only a chosen-protocol benchmark."
+        ],
+        "reasoning": "The prior graph classification decisively covers the intrinsic result; the arbitrary protocol statistic is logically separate and does not create a new intrinsic theorem.",
+        "searches": [
+          "equilateral angle defect formula",
+          "Bobenko discrete Willmore definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The angle defect in this equilateral setting is exactly a linear transform of vertex degree, so degree-sequence data are an equivalent formulation of the intrinsic claim."
+        ],
+        "reasoning": "Searching degree multisets is necessary because the defect notation can hide that the claimed invariant is just 6-degree.",
+        "searches": [
+          "triangulated 2-spheres 4 to 9 vertices angle defect census degree sequences Willmore",
+          "triangulated sphere degree sequence n<=9",
+          "simplicial polyhedra A000109"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Even if an identical formatted defect table is absent, the exact underlying graph database/classification is prior and suffices to compute every defect row without new geometric input."
+        ],
+        "reasoning": "The originality standard compares implication, not whether the same columns were printed.",
+        "searches": [
+          "triangulated 2-spheres 4 to 9 vertices angle defect census degree sequences Willmore",
+          "OEIS A000109 simplicial polyhedra counts"
+        ]
+      },
+      "rationale": "The intrinsic headline defect census is covered by prior complete small triangulated-sphere classifications/generators: for an equilateral triangle complex the defect multiset is the immediate degree transform 6-degree, so once the known 73 graphs are enumerated the advertised intrinsic table is mechanically implied. The P0 Willmore numbers are protocol-specific numerics, not a stronger intrinsic mathematical invariant that rescues originality.",
+      "residual_risks": [
+        "A historical source may tabulate exactly the same degree multisets; that would only strengthen the coverage finding.",
+        "The P0 values may be new numerical data, but they are not an invariant and were not motivated independently of the chosen embedding protocol."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms that Willmore energy depends on a geometric realization and is not fixed by the equilateral combinatorial defect data.",
+          "evidence": "The energy is defined from circumcircle/hinge geometry, not merely vertex degrees.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.1318",
+          "material_read": "Full-text definition of discrete Willmore energy via circumcircle intersection angles and relevant propositions",
+          "method": "Full-text web inspection",
+          "title": "Surfaces from Circles",
+          "trigger": "Primary source for discrete Willmore energy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A000109",
+        "Köhler–Lutz classification context",
+        "Bobenko arXiv:0707.1318"
+      ],
+      "rationale": "The intrinsic defect table is a known-classification degree recomputation, while the only less-covered component is the maximum under an ad hoc spring-embedding protocol. That protocol-relative maximum has no demonstrated invariant meaning or downstream mathematical need, so it does not meet the stated value bar.",
+      "residual_risks": [
+        "A differently motivated realization protocol could lead to a valuable geometric optimization problem, but that is not the final claim audited here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The assigned package gives a complete equilateral angle-defect census for the 73 triangulated 2-spheres on four through nine vertices and a protocol-P0 Willmore benchmark.",
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "limitations": [
+    "The intrinsic defect rows are exact degree transforms of a prior complete small-sphere classification, so originality fails.",
+    "The P0 Willmore maximum is protocol-relative and lacks invariant mathematical motivation, so value fails.",
+    "The fresh audit did not regenerate the spring-embedding dynamics from seed, so correctness of that provenance remains unresolved even though stored numerical rows were internally checked."
+  ],
+  "record_id": "SCOPE-20260909-027",
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "verification_state": "independent_audit_failed"
+}
