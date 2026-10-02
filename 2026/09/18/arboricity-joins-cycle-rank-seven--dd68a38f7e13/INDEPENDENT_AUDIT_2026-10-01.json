@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T07:18:05.214531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "research package RESULT.md",
+        "Nash-Williams 1964",
+        "Kuanyshov--Yeginbay arXiv:2609.20606"
+      ],
+      "rationale": "Nash--Williams reduces the theorem to induced-subgraph density. For a two-sided subset of sizes \\(s,t\\), the record's excess term \\(R_q(s,t)=q(s+t-1)-st+1=q^2-q+1-(q-s)(q-t)\\) is correct, and the cycle-rank bound controls the induced excess from both factors. The three relative-size cases for \\(q\\ge3\\), the one-sided simple-graph/cycle-rank bound, and the low-ceiling cases \\(q=2,1,0\\) all close with the displayed inequalities. The sharpness graph at total cycle rank 8 has full-set ceiling 3 but contains a 7-vertex 19-edge subgraph, forcing arboricity 4, while containment in \\(K_8\\) gives the matching upper bound.",
+      "residual_risks": [
+        "The criterion is sufficient, not necessary; the fixed-\\(K\\) quadratic threshold is not claimed optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later pseudotree theorem assumes each connected factor has cycle rank at most one."
+        ],
+        "reasoning": "That result is strictly narrower and does not imply the total-cycle-rank-seven theorem or the sharp threshold-eight example.",
+        "searches": [
+          "Resultary 2026-09-19 Exact arboricity of joins of pseudotrees",
+          "balanced/1-balanced join literature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.20606",
+        "https://doi.org/10.1112/jlms/s1-39.1.12",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-arboricity-joins-pseudotrees--b7ba35900aa1",
+        "research package RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General upper/lower bounds leave a gap; the pseudotree theorem closes only a much smaller beta range."
+        ],
+        "reasoning": "Neither prior implication determines the audited exact ceiling for all connected factors with total cycle rank at most seven.",
+        "searches": [
+          "claim versus Kuanyshov--Yeginbay Theorem 23 bounds",
+          "claim versus later pseudotree exact theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic match is the audited record.",
+          "The motivating preprint advertises general bounds for joins rather than this exact criterion."
+        ],
+        "reasoning": "The full-set Nash--Williams ceiling formulation and the equivalent reduced-arboricity convention were both compared.",
+        "searches": [
+          "Resultary: arboricity graph joins cycle rank seven",
+          "arXiv:2609.20606 join arboricity",
+          "synonyms: cyclomatic number, circuit rank, graph sum, complete sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or classification covering total cycle ranks through seven was located."
+        ],
+        "reasoning": "The theorem is proved uniformly by inequalities; it is not a recomputation of a known finite table.",
+        "searches": [
+          "Resultary and literature searches for cycle-rank-indexed join-arboricity tables"
+        ]
+      },
+      "rationale": "The motivating join-arboricity paper gives general bounds and examples, not the cycle-rank criterion. Current Resultary search found a later exact theorem for joins of pseudotrees, but that covers only cycle rank at most one per connected factor and is therefore a narrow subfamily of the audited cycle-rank-seven theorem. No source located in the fresh searches gives the sharp universal threshold seven or the cycle-rank-eight obstruction.",
+      "residual_risks": [
+        "Recent join-arboricity literature creates some risk of near-simultaneous refinements, but no covering theorem was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact wedges and general join bounds, not the audited cycle-rank criterion.",
+          "evidence": "The abstract explicitly characterizes the join contribution as upper/lower estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20606",
+          "material_read": "Current abstract and theorem scope.",
+          "method": "Primary-source scope comparison.",
+          "title": "Arboricity and Simplicial Geometric Category of Wedges and Joins of Graphs",
+          "trigger": "Direct motivating source."
+        },
+        {
+          "assessment": "Narrow subfamily only; it does not cover beta up to seven.",
+          "evidence": "Its factors are trees or unicyclic connected graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-arboricity-joins-pseudotrees--b7ba35900aa1",
+          "material_read": "Complete RESULT.md.",
+          "method": "Full theorem/proof comparison.",
+          "title": "Exact arboricity of joins of pseudotrees",
+          "trigger": "Closest later current exact-join result."
+        },
+        {
+          "assessment": "The threshold-seven corollary and obstruction are supported without computational enumeration.",
+          "evidence": "The 19-edge subgraph on seven vertices forces the stated sharp failure at beta eight.",
+          "identifier_or_url": "research package RESULT.md",
+          "material_read": "Complete file.",
+          "method": "Independent algebraic reconstruction of every Nash--Williams case and the beta-eight witness.",
+          "title": "Assigned cycle-rank criterion",
+          "trigger": "Correctness and implication audit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nash-Williams arboricity theorem",
+        "Kuanyshov--Yeginbay join problem",
+        "the sharp beta-eight witness"
+      ],
+      "rationale": "The total cycle rank is a canonical measure of distance from forests, and the theorem gives an exact arboricity formula on a natural bounded-cycle-complexity region plus a sharp universal cutoff at seven. The explicit beta-eight obstruction explains where full-set density can cease to control the ceiling, making this a structural boundary theorem rather than a routine example.",
+      "residual_risks": [
+        "The quadratic sufficient threshold for fixed larger \\(K\\) may not be optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The criterion is sufficient rather than necessary.",
+    "The universal cycle-rank-seven threshold is sharp, but the fixed-ceiling quadratic bound is not claimed sharp.",
+    "Originality is best-of-knowledge."
+  ],
+  "record_id": "SCOPE-20260918-dd68a38f7e13",
+  "schema_version": 1
+}
