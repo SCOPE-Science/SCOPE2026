@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T11:37:24.381295Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+        "RESULT.md in the frozen assigned package",
+        "artifacts/verify_maintenance.py"
+      ],
+      "rationale": "Complete RESULT proof read end-to-end, with Chu Theorem 3 and Lemmas 8-10 checked in the primary PDF. LTE and the monotone geometric-sum bounds make the residual ranges exhaustive: p=1 mod 4 is excluded; p=7 leaves only beta=2; for other p=3 mod 4, v<=4, q<3*2^(v-1), alpha<=lambda+v. The v=1 Mersenne case and beta=4 factor constants are excluded analytically. An independently written exact-integer replay obtains respectively 8,62,33 tuples and maximal valuations 1,1,2 in the remaining (v,beta)=(2,12),(3,8),(4,16) cases, all below beta-1. The finite calculation follows the analytic bounds; it is not an unbounded experiment.",
+      "residual_risks": [
+        "Exact computer-assisted bounded enumeration is not a formal proof-assistant certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu's Theorem 3 covers beta=2 for all admissible k, while Theorem 4 covers arbitrary beta only for k=5."
+        ],
+        "reasoning": "The claimed beta-greater-than-two, k=7 content is not covered by those prior theorems.",
+        "searches": [
+          "Chu 2021 primary PDF",
+          "Resultary stronger divisor-sum and perfect-number search"
+        ]
+      },
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+        "repository artifact `artifacts/verify.py`"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the general beta=2 theorem nor the k=5 arbitrary-beta theorem implies the k=7, beta-greater-than-two case."
+        ],
+        "reasoning": "No inspected prior implication settles the final claim.",
+        "searches": [
+          "Assigned theorem versus Chu Theorems 3-4 and Conjecture 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chu proves the arbitrary-beta theorem only for k=5 and formulates the all-Mersenne-exponent version as Conjecture 5.",
+          "No other Resultary hit resolves the k=7 case."
+        ],
+        "reasoning": "The assigned theorem is exactly the k=7 specialization of the published conjecture.",
+        "searches": [
+          "Resultary search: Chu sigma_7 even perfect numbers k=7 divisor sum conjecture",
+          "Chu 2021 Conjecture 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the assigned record was an exact same-result hit."
+        ],
+        "reasoning": "This supports but does not by itself prove novelty.",
+        "searches": [
+          "Resultary exact search for sigma_7 and two-prime-support even-perfect characterization"
+        ]
+      },
+      "rationale": "Chu's primary paper explicitly leaves the general beta-greater-than-one statement as Conjecture 5 after proving only k=5. Current Resultary search found the assigned k=7 theorem but no earlier or stronger published k=7 resolution. Originality therefore appears to pass to the best of current knowledge, conditional on correctness being resolved.",
+      "residual_risks": [
+        "The full analytic finite-reduction proof was not completely re-read before the mandatory closeout cutoff; correctness therefore remains unresolved this round.",
+        "Unindexed or very recent work could resolve the same k=7 case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_LEAVES_K7_BETA_GT_2_OPEN",
+          "evidence": "The paper proves the arbitrary-beta result for k=5 and explicitly states the general Mersenne-exponent version as Conjecture 5.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+          "material_read": "primary PDF through the statement of Conjecture 5 and the preliminary divisibility framework; relevant pages were visually inspected",
+          "method": "primary PDF inspection",
+          "title": "Divisibility of Divisor Functions of Even Perfect Numbers",
+          "trigger": "exact source conjecture and valuation lemmas"
+        },
+        {
+          "assessment": "FINITE_CERTIFICATE_REPRODUCED_BUT_NOT_WHOLE_PROOF",
+          "evidence": "The replay gives 8, 62, and 33 admissible tuples with maxima 1, 1, and 2 below the required exponents 11, 7, and 15.",
+          "identifier_or_url": "repository artifact `artifacts/verify.py`",
+          "material_read": "complete verifier source and deterministic output; the three finite-range counts and valuation maxima were independently replayed",
+          "method": "repository artifact inspection and independent replay",
+          "title": "Assigned exact-integer verifier",
+          "trigger": "load-bearing finite residual elimination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL24/Chu/chu26.pdf",
+        "repository artifact `artifacts/verify.py`"
+      ],
+      "rationale": "Resolving the next Mersenne-exponent case of an explicit published conjecture is a motivated arithmetic advance, and the claimed proof uses exceptional-prime and finite-reduction work rather than a tiny numerical check.",
+      "residual_risks": [
+        "The full analytic finite-reduction proof was not completely re-read before the mandatory closeout cutoff; correctness therefore remains unresolved this round.",
+        "Unindexed or very recent work could resolve the same k=7 case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the k=7 instance is proved, not every Mersenne exponent. Original best-of-knowledge originality search and its recent/unindexed-work risk are retained with their original scope; the previously incomplete full correctness reading was completed during maintenance."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the k=7 instance is proved, not every Mersenne exponent. Original best-of-knowledge originality search and its recent/unindexed-work risk are retained with their original scope; the previously incomplete full correctness reading was completed during maintenance."
+  ]
+}
