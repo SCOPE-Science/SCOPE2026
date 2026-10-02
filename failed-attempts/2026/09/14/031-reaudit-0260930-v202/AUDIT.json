@@ -1,0 +1,119 @@
+{
+  "audit_evidence": {
+    "json": "INDEPENDENT_AUDIT_2026-10-01.json",
+    "markdown": "INDEPENDENT_AUDIT_2026-10-01.md"
+  },
+  "audited_at_utc": "2026-10-01T04:04:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "artifacts/dp_engine.py",
+        "artifacts/verify_endpoints.py",
+        "artifacts/run_lo.log",
+        "artifacts/run_hi.log",
+        "fresh n=1,2 brute-force cross-check"
+      ],
+      "rationale": "The transfer-matrix state explicitly stores frontier connectivity and persistent left/right boundary-touch flags. I checked the transition logic, independently brute-forced the same recurrence for 1-by-1 and 2-by-2 boxes, and reproduced exact agreement there; the archived 8-by-8 endpoint logs satisfy crossed+uncrossed=200^144 and the stated integer inequalities. Monotonicity of the increasing crossing event then proves the whole p interval.",
+      "residual_risks": [
+        "No distinct full 8-by-8 implementation was completed; the full endpoint integer is supported by inspected code, exact logs, conservation and independent small-box brute-force tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ziff gives high-precision finite-size scaling data for bond crossings, not exact 8-by-8 rational values.",
+          "Akhunzhanov et al. give exact finite-square polynomials for site percolation, a different model."
+        ],
+        "reasoning": "The broader finite-size literature motivates the object but does not mechanically imply the exact bond values used here.",
+        "searches": [
+          "Ziff, Effective boundary extrapolation length to account for finite-size effects in the percolation crossing function, Phys. Rev. E 54 (1996)",
+          "Akhunzhanov-Eserkepov-Tarasevich, Exact percolation probabilities for a square lattice, arXiv:2204.01517"
+        ]
+      },
+      "checked_sources": [
+        "record artifacts/dp_engine.py, verify_endpoints.py, run_lo.log, run_hi.log",
+        "Resultary search",
+        "Ziff 1996",
+        "arXiv:2204.01517"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "None of the inspected theorems yields the two exact rational endpoint probabilities."
+        ],
+        "reasoning": "The prior results are scaling/numerical or site-percolation exactness results, not a theorem implying this bond-percolation certificate.",
+        "searches": [
+          "same sources as broader_coverage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Only the current Resultary record matched the exact claim.",
+          "Ziff 1996 studies finite-size bond crossing probabilities numerically rather than these exact rational endpoints."
+        ],
+        "reasoning": "The claim is an exact finite-graph reliability/crossing probability statement; equivalent formulations as a two-terminal boundary reliability polynomial were searched conceptually, with no exact matching value found.",
+        "searches": [
+          "Resultary semantic search: 8x8 square bond percolation exact left-right crossing probability p 0.495 0.505 transfer matrix finite-scale Kesten window",
+          "web search: 8x8 bond percolation crossing probability transfer matrix exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table containing these endpoint numerators was located."
+        ],
+        "reasoning": "Absence of a table is not itself novelty proof; originality rests on the model mismatch and statement comparison with the inspected finite-size sources.",
+        "searches": [
+          "Resultary exact semantic search",
+          "web search for exact finite square bond crossing tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge: targeted Resultary and literature searches found no exact bond-percolation 8-by-8 endpoint table at p=0.495 and p=0.505. Exact finite-square percolation polynomials exist in nearby literature for site percolation, and finite-size crossing probabilities are extensively studied, but the inspected sources do not imply these exact bond values.",
+      "residual_risks": [
+        "The 8-by-8 full DP was not independently reimplemented to completion in a distinct algorithm during this run; correctness instead rests on code reconstruction, small-box brute-force agreement, exact conservation, and the two archived endpoint runs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering exact certified endpoint values",
+          "evidence": "Numerical high-precision crossings up to large rectangles; no exact 8-by-8 rational table.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.54.2547",
+          "material_read": "abstract and stated finite-size methodology/results",
+          "method": "web full record",
+          "title": "Effective boundary extrapolation length to account for finite-size effects in the percolation crossing function",
+          "trigger": "same finite-square bond-crossing observable"
+        },
+        {
+          "assessment": "different percolation model",
+          "evidence": "Exact polynomials are for site percolation, not bond percolation.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01517",
+          "material_read": "abstract",
+          "method": "arXiv record",
+          "title": "Exact percolation probabilities for a square lattice: Site percolation on a plane, cylinder, and torus",
+          "trigger": "exact finite-square dynamic programming"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "record artifacts/dp_engine.py, verify_endpoints.py, run_lo.log, run_hi.log",
+        "Resultary search",
+        "Ziff 1996",
+        "arXiv:2204.01517"
+      ],
+      "rationale": "The box size 8 and window width 0.005 are a narrow finite instance with no demonstrated boundary, extremal role, or reusable structural consequence. Exactness and reproducibility alone do not supply a substantive mathematical reason for this particular finite slice.",
+      "residual_risks": [
+        "The 8-by-8 full DP was not independently reimplemented to completion in a distinct algorithm during this run; correctness instead rests on code reconstruction, small-box brute-force agreement, exact conservation, and the two archived endpoint runs."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260914-031",
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "verification_state": "independent_audit_failed"
+}
