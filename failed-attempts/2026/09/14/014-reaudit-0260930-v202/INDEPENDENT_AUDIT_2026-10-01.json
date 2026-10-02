@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T03:58:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh exact-Fraction reconstruction over all 8000 subintervals reproduced the certificate: the auxiliary cubic \\(U\\) is positive and increasing because its second derivative has positive minimum, the local derivative bound is valid with the increasing denominator handled by its left-end lower bound, and the worst certified interval is \\(k=583\\) with upper error approximately \\(0.01653276192<1/50\\). The denominator is \\(1+b_2x^2>0\\). The claimed denominator degree is actually 2, which is admissible for type \\((6,3)\\).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works cover general methods/asymptotics, including nondiagonal types and high-degree \\(|x|\\) computations."
+        ],
+        "reasoning": "They do not directly imply the finite \\((6,3)\\) \\(0.02\\) threshold from a stated table in the inspected material.",
+        "searches": [
+          "Filip et al. 2018 nondiagonal rational minimax",
+          "Saff–Stahl ray sequences for absolute-power functions"
+        ]
+      },
+      "checked_sources": [
+        "Filip et al., SIAM J. Sci. Comput. 40 (2018), DOI 10.1137/17M1132409.",
+        "Saff and Stahl, Canadian J. Math. 49 (1997), DOI 10.4153/CJM-1997-052-3.",
+        "Stahl, arXiv:math/9301217.",
+        "Resultary semantic/exact searches."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General root-exponential asymptotics and algorithms do not give this low-degree numerical inequality without an additional computation."
+        ],
+        "reasoning": "The explicit rational witness supplies new finite information if absent from tables.",
+        "searches": [
+          "claim-vs-prior substitution check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returns the audited record and a separate type-(5,5) shifted-kink record; no independent exact match was found."
+        ],
+        "reasoning": "A lower denominator degree witness is admissible for the rectangular class, and the certificate is record-specific.",
+        "searches": [
+          "Resultary type (6,3) absolute value rational approximation",
+          "Web E_{6,3} absolute value minimax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact \\((6,3)\\) table value was found."
+        ],
+        "reasoning": "Classical famous tables emphasize diagonal/paradiagonal sequences; exact rectangular coverage remains a residual risk.",
+        "searches": [
+          "Varga/Ruttan/Carpenter \\(|x|\\) tables",
+          "exact E63 searches"
+        ]
+      },
+      "rationale": "No searched source states this exact rectangular finite-type threshold or coefficients; modern rational-minimax literature provides algorithms and asymptotics rather than this certified inequality.",
+      "residual_risks": [
+        "An older numerical Walsh table not well indexed online could contain an equal or stronger \\((6,3)\\) value; unsuccessful search is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The inspected text explains how to compute type \\((m,n)\\) minimax approximants and reports high diagonal-type \\(|x|\\) capability, but does not state this \\((6,3)\\) certified cutoff.",
+          "identifier_or_url": "arXiv:1705.10132; DOI 10.1137/17M1132409",
+          "material_read": "Full accessible HTML: equioscillation, nondiagonal type constraints, algorithmic treatment, and high-degree \\(|x|\\) computations.",
+          "method": "open-access full-text inspection",
+          "title": "Rational minimax approximation via adaptive barycentric representations",
+          "trigger": "primary modern source explicitly treating \\(|x|\\) and nondiagonal rational types"
+        },
+        {
+          "assessment": "BROADER_ASYMPTOTIC_CONTEXT",
+          "evidence": "The abstract concerns asymptotic convergence along rays, not the audited finite threshold.",
+          "identifier_or_url": "DOI 10.4153/CJM-1997-052-3",
+          "material_read": "Publisher abstract describing asymptotic ray-sequence behavior and extreme-point distributions.",
+          "method": "publisher abstract inspection",
+          "title": "Ray Sequences of Best Rational Approximants For \\(|x|^\\alpha\\)",
+          "trigger": "rectangular/ray sequences for the same cusp family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The record proves only that one low-degree rectangular class clears the externally chosen error cutoff \\(0.02\\). It does not determine the best error, a sharp transition in degree, or a structurally motivated family, and no prior mathematical motivation for precisely the \\((6,3),0.02\\) checkpoint is supplied. Under the stated bar, a reproducible witness to an arbitrary finite threshold is not enough by itself.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The displayed even rational function of numerator degree at most 6 and denominator degree at most 2 has certified uniform error below \\(0.016533\\) on \\([-1,1]\\), so \\(E_{6,3}(|x|)\\le0.02\\).",
+  "schema_version": 1
+}
