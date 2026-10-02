@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The Walsh basis diagonalizes the normalized resolvent, so the Schatten sum is exactly the sum of \((1+t\lambda_F)^{-p}\). The Mellin-product formula follows by Tonelli. Finite Schatten membership forces the singleton series to converge; exponential domination then gives the square-summable coordinate biases required by Kakutani for every positive time, hence absolute continuity of the product measures and of the resolvent mixture. The subexponential/superexponential phase follows from counting the \(2^{N-1}\) subsets with maximum index \(N\). For geometric weights those levels have size comparable to \(a^{-N}\), giving the critical exponent, endpoint weak-Schatten law, and the Abel-limit zeta residue. The dyadic Hurwitz-zeta specialization is consistent.
+- Originality: **PASS** — Acuaviva's accessible primary material identifies the new complemented-space construction but does not advertise Schatten analysis. The older Schachermayer paper was inspected in full where relevant: it constructs a singular direct product convolution with multiplicative Walsh eigenvalues that is in \(S_p\) for \(p>2\), which is genuinely different from the reciprocal-additive resolvent spectrum here. published-record database and web searches found no prior phase diagram, no theorem that finite Schatten membership forces absolute continuity for these resolvents, and no geometric-weight zeta residue. Full text of the very recent Acuaviva source could not be independently retrieved in this run, so hidden overlap remains a stated risk.
+- Value: **PASS** — The theorem identifies a sharp operator-ideal boundary inside a current Banach-space construction, distinguishes it from the classical singular Schatten convolution example, realizes every critical weak-Schatten exponent, and gives explicit zeta data. These are motivated structural consequences of the resolvent spectrum rather than an arbitrary parameter exercise.
+
+Detailed comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is preserved in sanitized form in `AUDIT.json`.
