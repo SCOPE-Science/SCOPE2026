@@ -1,0 +1,80 @@
+# Independent mathematical audit — SCOPE-20260912-035
+
+**Audit date (UTC):** 2026-10-01 (UTC)  
+**Disposition:** passed
+
+## Final claim reviewed
+
+Non-realizability of an explicit six-atom cone-volume measure with centroid at the origin
+
+## Correctness — PASS
+
+The six positive atoms force exactly the six supporting facets. Their normals split into two complementary coordinate 2-planes, so every origin-interior realizer is the Cartesian product of two right-isosceles triangles. For a triangle with supports h_1,h_2,k and leg length L=h_1+h_2+k sqrt(2), the normalized 2D cone-volume weights are h_1/L,h_2/L,k sqrt(2)/L; product facets halve these weights. Matching the given alpha=(2-sqrt(2))/4 and beta=(sqrt(2)-1)/2 forces h_1=h_2=k in each factor. The centroid coordinate is p(1-sqrt(2))/3, hence nonzero for every p>0. Fresh exact symbolic arithmetic reproduced the normalization, barycenter, weights and centroid. Thus the stated measure has origin-interior realizers but none with centroid at the origin.
+
+## Originality — PASS
+
+The closest primary literature gives the subspace-concentration necessity for centroided polytopes and characterizes important symmetric cases, but does not state or imply this explicit non-even six-atom non-realizability example. The exact product classification and centroid obstruction require the record’s support geometry.
+
+### Equivalent formulations
+Reasoning: Equivalent restatements as a fixed-normal support-number problem still require solving the six facet equations; no inspected source supplies that solution.
+
+Searches:
+- Resultary six-atom cone-volume centroid query
+- Henk-Linke cone-volume measures
+
+Evidence:
+- No prior source located states the same six normals/weights or its product-triangle classification.
+
+### Broader coverage
+Reasoning: The measure deliberately satisfies the standard necessary conditions, so the prior theorem does not decide its centroid-realizability.
+
+Searches:
+- Henk-Linke arXiv:1305.5335
+- discrete logarithmic Minkowski problem literature
+
+Evidence:
+- Henk-Linke proves subspace concentration is necessary for centroided polytopes and sufficient in even settings, while the general non-even discrete characterization is not supplied there.
+
+### Exact database or table
+Reasoning: This is a structural exact example rather than a value copied from a known table.
+
+Searches:
+- Resultary exact semantic search for the six normals and weights
+
+Evidence:
+- Resultary returned the same SCOPE record and no prior exact data entry.
+
+### Claim versus prior implication
+Reasoning: The final no-centroid-realizer claim is not a corollary of the inspected broader theorems.
+
+Searches:
+- Henk-Linke theorem comparison
+- fixed-normal cone-volume literature
+
+Evidence:
+- Subspace concentration and zero barycenter do not force existence in the non-even case; the inspected theorems stop short of this explicit obstruction.
+
+### Source inspections
+
+- **Cone-volume measures of polytopes** (arXiv:1305.5335). Trigger: closest theorem on centroided cone-volume measures and subspace concentration. Material read: primary full text around the main subspace-concentration theorem, its equality discussion and the symmetric/even realizability context. Method: full-text PDF inspection. Assessment: provides necessary background but not the explicit six-atom counterexample or product classification. Evidence: The theorem supplies subspace concentration for centered polytopes; the record’s measure satisfies it with equality on complementary 2-planes.
+
+### Checked sources
+
+- Resultary semantic search
+- Henk-Linke arXiv:1305.5335 primary full text
+- related discrete logarithmic Minkowski literature cited in the record
+
+### Residual risks
+
+- An unindexed note could contain this exact six-normal example; no such source was found.
+
+## Scientific value — PASS
+
+This is a natural low-support boundary example for the discrete logarithmic Minkowski problem: it satisfies probability, zero-barycenter and sharp subspace-concentration constraints yet fails the stronger centroid-at-origin realization condition, and the audit classifies all origin-interior realizers. The obstruction is structural rather than a random finite computation.
+
+## Limitations
+
+- The result concerns polytopes with the origin in their interior and the stated six support normals; it does not settle the general non-even logarithmic Minkowski problem.
+- An unindexed note could contain the same explicit example; no such source was located.
+
+The finding is accepted on all three scientific axes. No change to `RESULT.md` or `SLOGAN.txt` is proposed.
