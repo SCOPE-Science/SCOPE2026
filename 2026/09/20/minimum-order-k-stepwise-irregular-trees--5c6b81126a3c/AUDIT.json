@@ -1,32 +1,119 @@
 {
   "correctness": {
     "status": "PASS",
-    "summary": "Rooting at a maximum-degree vertex gives a sharp branch recurrence F_0=1 and F_i=1+ikF_{i-1}. Strong induction on branch order handles both upward and downward degree-class children; strict monotonicity of F_i makes every upward child strictly more expensive. The root bound and its equality conditions therefore force the unique layered extremizer. The degree-complexity-three spectrum follows independently from core edge and degree counts."
+    "summary": "Because a nontrivial tree has a leaf and every edge changes degree by exactly \\(k\\), all degrees are congruent to \\(1\\pmod{k}\\), so \\(\\Delta=1+hk\\). Root at a maximum-degree vertex and let a class-\\(i\\) branch start at a nonroot vertex of degree \\(1+ik\\). Such a vertex has exactly \\(ik\\) children, each in class \\(i-1\\) or \\(i+1\\). Strong induction on branch order is legitimate even for an upward child because its descendant branch is proper; strict monotonicity of \\(F_i\\) then gives the sharp recurrence \\(F_i=1+ikF_{i-1}\\). The root has \\(1+hk\\) class-\\(h-1\\) branches, proving the lower bound. Equality excludes every upward child and recursively forces a unique layered tree; two root branches realize diameter \\(2h\\). For the three-degree consequence, deleting leaves leaves a bipartite tree in which every class-2 vertex keeps all \\(2k+1\\) incident core edges; the tree identity gives \\(|A|=2k|B|+1\\) and then the leaf and order formulas. The explicit core construction realizes every positive \\(|B|\\). No finite enumeration is needed."
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "limitations": [
-    "Complete theorem text of Das--Mishra--Rai (2023) was not inspected.",
-    "Complete theorem text of Adiyanyam et al. (2026) was not inspected.",
-    "Unindexed or differently phrased equivalent results remain possible.",
-    "The theorem concerns trees."
+    "The theorem concerns trees. The full texts of Das--Mishra--Rai (2023) and Adiyanyam et al. (2026) were not available in this audit; their abstracts/indexed descriptions were inspected, and the latter remained behind a human-verification access step. These are residual originality risks, not evidence of coverage."
   ],
   "originality": {
-    "scope": "to the best of our knowledge",
+    "broader_coverage": {
+      "evidence": [
+        "The accessible general-\\(k\\) full text covers bipartiteness, diameter existence, maximum-degree bounds, size bounds, and degree complexity.",
+        "The 2023 and 2026 abstracts emphasize two-stepwise/general-\\(k\\) maximum-degree and size extremality; no accessible statement gives the fixed-maximum-degree tree minimum."
+      ],
+      "reasoning": "Broader graph-class extremal bounds do not dominate the tree-specific exact inverse problem or equality classification.",
+      "searches": [
+        "arXiv:2411.15765 full text",
+        "DOI:10.24200/sci.2022.57725.5388",
+        "DOI:10.1016/j.dam.2026.06.027"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2411.15765",
+      "DOI:10.1016/j.dam.2026.06.027",
+      "DOI:10.24200/sci.2022.57725.5388",
+      "OEIS A392965",
+      "DOI:10.1016/j.amc.2017.12.045",
+      "published SCOPE archive search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.2 gives a general-graph linear maximum-degree/order inequality; the audited tree lower bound grows recursively in \\(h\\).",
+        "The unavailable 2026 paper's abstract states maximum-degree/size extremality for 2-SI graphs, not a minimum-order tree theorem."
+      ],
+      "reasoning": "No inspected prior theorem mechanically specializes to the final claim; the \\(k=1\\) case is explicitly treated as prior and the new claim is the all-\\(k\\) extension.",
+      "searches": [
+        "arXiv:2411.15765 Theorem 4.2",
+        "OEIS A392965",
+        "abstracts for the 2023 and 2026 two-/k-SI papers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published SCOPE search returned the audited theorem as the only direct general-\\(k\\) minimum-order tree match.",
+        "The full Alizadeh--Klavžar--Langari preprint states a sharp upper bound on maximum degree at fixed order for general \\(k\\)-SI graphs, not the recursive tree minimum-order theorem."
+      ],
+      "reasoning": "The general-graph bound \\(\\Delta\\le\\lfloor(n+k)/2\\rfloor\\) is much weaker on trees and does not imply the factorial-type tree minimum or uniqueness.",
+      "searches": [
+        "Published SCOPE archive query: k-stepwise irregular tree minimum order prescribed maximum degree",
+        "Published SCOPE archive query: 2-stepwise irregular trees minimum order maximum degree",
+        "arXiv:2411.15765"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A392965 supplies the \\(k=1\\) minimum-order sequence only."
+      ],
+      "reasoning": "The sequence is genuine prior art for \\(k=1\\), but it does not tabulate or imply the arbitrary-\\(k\\) recurrence and unique extremizer.",
+      "searches": [
+        "OEIS A392965",
+        "Published SCOPE semantic search"
+      ]
+    },
+    "residual_risks": [
+      "The full theorem text of Das--Mishra--Rai (2023) was not obtained.",
+      "The full theorem text of Adiyanyam et al. (2026) remained behind human verification; its abstract makes it plausible but not decisive prior art."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the tree minimum-order theorem; its sharp general-graph bound is different and weaker for this problem.",
+        "evidence": [
+          "Theorem 4.2 gives \\(\\Delta(G)\\le\\lfloor(n(G)+k)/2\\rfloor\\); later sections bound size."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.15765",
+        "material_read": "Full open preprint, including section structure and Theorem 4.2 on maximum degree.",
+        "method": "Open-access arXiv/author PDF.",
+        "title": "Extremal results on k-stepwise irregular graphs",
+        "trigger": "Closest accessible general-\\(k\\) primary source."
+      },
+      {
+        "assessment": "INACCESSIBLE_FULL_TEXT_RISK; abstract discusses maximum-degree and size bounds and 2-SI extremals, with no visible tree minimum-order statement.",
+        "evidence": [
+          "The abstract says it establishes upper bounds on maximum degree and size and characterizes 2-SI extremals."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.06.027",
+        "material_read": "Publisher/indexed abstract and an open conference abstract; full publisher text was not accessible without a human verification step.",
+        "method": "Open-web abstract search followed by lawful institutional retrieval attempt.",
+        "title": "On k-stepwise irregular graphs",
+        "trigger": "Recent primary paper on the same graph class and extremal parameters."
+      },
+      {
+        "assessment": "RESIDUAL_RISK; accessible material does not state the audited tree theorem.",
+        "evidence": [
+          "Available indexing identifies the paper as foundational for 2-SI properties."
+        ],
+        "identifier_or_url": "https://doi.org/10.24200/sci.2022.57725.5388",
+        "material_read": "Indexed abstract/citation context; full-text institutional retrieval timed out.",
+        "method": "Open-web search and lawful institutional retrieval attempt.",
+        "title": "On Two-Stepwise Irregular Graphs",
+        "trigger": "Earlier 2-SI source."
+      }
+    ],
     "status": "PASS",
-    "summary": "The theorem specializes to the known k=1 minimum-order formula A392965. Full text of the 2024/2026 general k-SI extremal paper was checked and contains maximum-degree/size bounds and even-diameter results, not this tree minimum-order theorem. Searches across k-SI, 2-SI, prescribed maximum degree, minimum-order trees and degree-complexity formulations found no general-k equivalent. Two highly relevant papers were only available through abstracts/indexed descriptions and remain residual risks."
+    "summary": "Fresh implication-based literature comparison did not find prior coverage of the final claim."
   },
   "phase": "II",
-  "previously_published_pending_reaudit": true,
+  "previously_published_pending_reaudit": false,
   "record_id": "SCOPE-20260920-5c6b81126a3c",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "64e51116-9414-4026-b702-049e5a49eaed",
+  "review_statement": "Independent audit dated 2026-10-01: passed on correctness, originality, and value.",
+  "review_type": "independent_audit",
   "value": {
     "status": "PASS",
-    "summary": "The result gives an exact minimum order for every admissible maximum degree and every k, uniquely characterizes the extremal tree, determines its radius and diameter, and yields an exact order spectrum for the first non-star degree-complexity class."
+    "summary": "This extends a recognized minimum-order phenomenon from ordinary stepwise-irregular trees to every \\(k\\), with a unique extremizer, exact geometry, and a complete three-degree order spectrum. Fixed maximum degree and degree complexity are established structural parameters in the recent \\(k\\)-SI literature, so the theorem fills a motivated gap rather than selecting an arbitrary invariant."
   },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
