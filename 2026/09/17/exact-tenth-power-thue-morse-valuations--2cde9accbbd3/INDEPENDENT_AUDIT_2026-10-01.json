@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T06:00:51.719613Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and artifacts/verify.py at tree b3c560e4e28642a3b57cc42cd1974d69e47a8d7c",
+        "Lucas theorem and Kummer/Legendre valuation identities"
+      ],
+      "rationale": "The proof is self-contained apart from standard Lucas/Kummer facts. I reconstructed the eight-section argument and the normalized dyadic recurrence: for residues 0 through 6 the section congruence supplies the exact base valuation when the quotient is even; the 9-dimensional recurrence handles odd quotients and residue 7. The inspected verifier independently constructs the section polynomials, the recurrence matrix, its displayed Cayley--Hamilton identity, the nine normalized induction bases and a finite coefficient check through 100000. The finite check is corroboration only; the Cayley--Hamilton induction is the infinite step.",
+      "residual_risks": [
+        "No formal proof assistant certificate was supplied; the audit relies on the explicit integer-matrix argument as written."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible abstract explicitly lists exact families excluding m=10 and gives a distinct m=6 correction."
+        ],
+        "reasoning": "The known families do not dominate the tenth-power statement; the later general obstruction does not determine the exact correction.",
+        "searches": [
+          "Zhao Shen arXiv:2609.16966 abstract",
+          "Shen--Wang fifth and ninth powers"
+        ]
+      },
+      "checked_sources": [
+        "Zhao Shen, arXiv:2609.16966",
+        "Shen--Wang, arXiv:2606.28718",
+        "Gawron--Miska--Ulas (2018)",
+        "Resultary semantic search including the later twice-odd obstruction record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas do not include m=10; the obstruction theorem yields only a counterexample to a simpler identity."
+        ],
+        "reasoning": "None of the inspected prior statements implies the submitted exact all-n formula.",
+        "searches": [
+          "arXiv:2609.16966 abstract",
+          "Resultary later twice-odd obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No independent exact equivalent was returned; the Resultary exact hit is the same published record/mirror."
+        ],
+        "reasoning": "No equivalent valuation identity under a different naming convention was located.",
+        "searches": [
+          "Resultary: tenth power Thue--Morse valuation binomial residue 7 mod 8",
+          "Web: t_10(n) Thue Morse valuation tenth power"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database entry containing the all-n tenth-power valuation formula was found."
+        ],
+        "reasoning": "This is an infinite valuation theorem rather than a finite table; finite coefficient data would not imply it.",
+        "searches": [
+          "Resultary semantic search",
+          "Web/OEIS-style exact searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches found no prior exact tenth-power valuation formula. Shen's September 2026 abstract covers the families \\(m=2^r\\), \\(m=3\\cdot2^r\\) for \\(r\\ge2\\), and the special case \\(m=6\\), not \\(m=10\\). A later SCOPE obstruction for twice-odd powers only rules out the uncorrected binomial formula and does not imply this all-index residue correction.",
+      "residual_risks": [
+        "The full text of arXiv:2609.16966 could not be inspected in this run; an incidental unadvertised m=10 remark remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract does not cover m=10; residual risk remains because full text was inaccessible.",
+          "evidence": "The abstract names m=2^r, m=3*2^r for r>=2, and m=6.",
+          "identifier_or_url": "arXiv:2609.16966",
+          "material_read": "Accessible abstract only; direct arXiv full-text retrieval failed and the authorized fallback worker was unavailable.",
+          "method": "Web abstract plus failed full-text access attempts.",
+          "title": "Powers of the Thue--Morse Series: 2-Adic Valuations and Automatic Odd Parts",
+          "trigger": "Closest very recent exact-valuation source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Recent Thue--Morse valuation literature named in RESULT.md and the accessible Shen abstract"
+      ],
+      "rationale": "This is a natural exact invariant for a canonical exponent immediately outside the stated solved families. It gives an all-index formula, identifies a sharp exceptional residue class and proves global nonvanishing; it is not merely a finite census or arbitrary parameter slice.",
+      "residual_risks": [
+        "Value would diminish if inaccessible literature already contains the same formula, but no such coverage was found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer \\(n\\ge0\\), the tenth-power Thue--Morse coefficient satisfies \\(\\nu_2(t_{10}(n))=\\nu_2\\binom{n+9}{9}+2\\mathbf 1_{n\\equiv7\\pmod 8}\\), hence no coefficient vanishes.",
+  "limitations": [
+    "Originality is best-of-knowledge because the closest September 2026 paper was not available in full text."
+  ],
+  "schema_version": 1
+}
