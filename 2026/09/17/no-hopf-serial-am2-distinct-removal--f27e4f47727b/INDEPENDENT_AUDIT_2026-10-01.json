@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T06:14:30.660194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant-trace obstruction follows directly from the actual eight-dimensional model. The primary preprint's equations show the feed-forward ordering, so the Jacobian is block lower triangular with four \\(2\\times2\\) diagonal blocks. At positive biomass in reactor one, the equilibrium relation gives \\(\\mu=\\alpha D_1\\), hence positive determinant forces \\(\\mu'>0\\) and strictly negative trace. At positive biomass in reactor two, the balance \\(0=\\alpha D_2(x_0-x)+\\mu x\\) gives \\(r=x_0/x\\in[0,1]\\), \\(\\delta=\\alpha D_2r\\), \\(q=-k\\mu'x\\), and exactly \\(\\operatorname{tr}=q-D_2-\\delta\\), \\(\\det=D_2(\\delta-\\alpha q)\\). Thus \\(\\det>0\\) implies \\(q<D_2r\\) and \\(\\operatorname{tr}< -D_2(1-r+\\alpha r)<0\\); conversely trace zero gives a strictly negative determinant. Zero-biomass blocks are triangular. Therefore no diagonal block, and hence no full Jacobian, can carry a nonzero purely imaginary pair.",
+      "risks": [
+        "This excludes local Hopf bifurcation from equilibria only; it does not exclude globally created periodic orbits."
+      ],
+      "sources": [
+        "Hmidhi–Fekih-Salem, arXiv:2604.18903, model equations, Table 3, Proposition 5 and Remark 1",
+        "assigned RESULT.md",
+        "independent symbolic determinant/trace reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source leaves the Hopf question open; the 2025 work treats equal removal rates and a reducible setting; structurally different chemostats may have Hopf bifurcations."
+        ],
+        "reasoning": "None of these broader sources implies the distinct-rate determinant-trace identity.",
+        "searches": [
+          "Hmidhi–Fekih-Salem arXiv:2604.18903",
+          "2025 equal-removal serial AM2 analysis",
+          "related chemostat Hopf literature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.18903",
+        "https://doi.org/10.1007/s11538-025-01475-5",
+        "assigned RESULT.md",
+        "fresh model-specific semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 1 says determinant can be positive while trace sign appears undetermined; the audited algebra shows this regime cannot occur in the stated model."
+        ],
+        "reasoning": "The new implication closes rather than restates the prior analysis.",
+        "searches": [
+          "comparison of source Remark 1 with the audited equilibrium-balance identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited record was the only exact published-finding match located."
+        ],
+        "reasoning": "Equivalent formulations as absence of nonzero purely imaginary eigenpairs and redundancy of the source trace condition were checked.",
+        "searches": [
+          "exact search for serial AM2 distinct removal no-Hopf theorem",
+          "determinant-positive trace-negative search for the second-reactor block",
+          "semantic search for the trace-indeterminate equilibria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 and Proposition 5 retain both determinant and trace conditions rather than tabulating the audited simplification."
+        ],
+        "reasoning": "The source table is evidence that the implication was not already encoded there.",
+        "searches": [
+          "equilibrium/stability tables in the source paper"
+        ]
+      },
+      "rationale": "The 2026 primary preprint explicitly retains a separate trace condition for the relevant coexistence equilibria and states that locating Hopf bifurcations and limit cycles remains open. Fresh exact-title, model-specific and determinant/trace searches found no prior statement that positive determinant automatically forces negative trace in this distinct-removal serial AM2 system. The 2025 equal-removal-rate serial analysis concerns the reducible special case and does not cover this identity.",
+      "residual_risks": [
+        "The result is source-specific and does not imply no-Hopf behavior for chemostat models with feedback, flocculation, delay, or other non-triangular couplings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source leaves the trace sign/Hopf question open and provides the equations from which the new identity is derived.",
+          "evidence": "Remark 1 explicitly says positive determinant can coexist with apparently undetermined trace sign; the conclusion lists Hopf/limit cycles as open.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.18903",
+          "material_read": "Full accessible HTML through the model equations, assumptions, Table 3, Proposition 5, Remark 1, and conclusion.",
+          "method": "Primary full-text equation and stability-condition inspection.",
+          "title": "AM2 model with a series configuration of interconnected chemostats and distinct removal rates",
+          "trigger": "Exact source model and stated open Hopf/stability case."
+        },
+        {
+          "assessment": "Treats the earlier equal-rate serial setting; it does not cover the distinct-rate eight-dimensional obstruction.",
+          "evidence": "The 2026 paper describes it as the particular identical-dilution-rate case.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-025-01475-5",
+          "material_read": "Abstract and bibliographic scope.",
+          "method": "Primary-literature scope comparison.",
+          "title": "Analysis of Anaerobic Digestion Model With Two Serial Interconnected Chemostats",
+          "trigger": "Closest prior serial-AM2 analysis."
+        },
+        {
+          "assessment": "The block formulas and inequalities are correct.",
+          "evidence": "Substitution into the second-reactor \\(2\\times2\\) block gives exactly the stated trace and determinant.",
+          "identifier_or_url": "assigned record RESULT.md",
+          "material_read": "Complete file.",
+          "method": "Independent algebraic reconstruction against the primary ODEs.",
+          "title": "Assigned RESULT.md",
+          "trigger": "Complete no-Hopf derivation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem closes the Hopf part of an explicit open problem in the source model and removes a redundant local-stability condition for the difficult coexistence equilibria. The determinant-trace identity is a source-specific structural lemma with direct use in the model's stability classification.",
+      "risks": [
+        "No claim of global convergence or exclusion of nonlocal periodic orbits is made."
+      ],
+      "sources": [
+        "arXiv:2604.18903, Proposition 5, Remark 1 and conclusion",
+        "the audited second-reactor balance identity"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is local to equilibrium bifurcation and does not exclude globally generated periodic orbits.",
+    "It depends on the feed-forward serial AM2 architecture.",
+    "Originality is best-of-knowledge."
+  ],
+  "record_id": "SCOPE-20260917-f27e4f47727b",
+  "schema_version": 1
+}
