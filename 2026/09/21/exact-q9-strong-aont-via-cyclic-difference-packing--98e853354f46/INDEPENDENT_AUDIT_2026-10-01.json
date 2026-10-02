@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T21:58:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 6e255b611d3af29b2115f2b8a45048c226774e15",
+        "artifacts/verify.py full source and verification_output.txt",
+        "Nasr Esfahani--Stinson 2021/2024 full preprint",
+        "Yin 2005 complete primary article"
+      ],
+      "rationale": "A hypothetical 7x7 defining matrix with no zero entries or zero 2x2 minors can be normalized by row/column scaling; discrete logarithms in F_9^*=Z_8 turn every row-pair minor condition into seven distinct coordinatewise differences, giving a CDPA(7,7;8). In any normalized CDPA(k,7;8), a nonzero row is (0,r_1,...,r_6) using six distinct nonzero residues, so there are exactly 7*6! candidates. After fixing one nonzero row, a permutation of the last six columns yields one of seven canonical missing-residue forms. The full verifier enumerates all 5040 rows; each canonical form has 64 compatible neighbors, whose compatibility graph has 24 edges and no triangle. A five-row CDPA would require the zero row, the canonical row and three pairwise compatible neighbors, so it is impossible. The explicit four-row CDPA proves sharpness. The same exact-arithmetic verifier checks the published 6x6 F_9 lower-bound matrix has nonzero determinant, entries and every 2x2 minor. This is exhaustive finite proof, not a failure-to-find argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yin proves general even-q column bounds and k=4 constructions but not a k-row extremum at (n,q)=(7,8).",
+          "Nasr Esfahani--Stinson's strongest stated q=9 result is the one-unit interval."
+        ],
+        "reasoning": "The broad design constructions do not mechanically imply nonexistence of a fifth row, and the broad AONT bounds deliberately leave the size-seven case open.",
+        "searches": [
+          "Yin 2005 complete primary paper",
+          "Nasr Esfahani--Stinson 2021/2024 complete preprint",
+          "Resultary semantic search for exact q=9 strong AONT"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and exact verifier source",
+        "Nasr Esfahani--Stinson complete ePrint",
+        "Yin 2005 complete primary text",
+        "Yin 2004 metadata/access attempts",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior AONT upper bound permits s=7 at q=9 and therefore cannot imply the current upper bound six.",
+          "The prior CDPA theorem ensures certain k=4 arrays but provides no obstruction to k=5 at the exact parameters.",
+          "The submitted no-triangle enumeration is the new ingredient excluding CDPA(5,7;8)."
+        ],
+        "reasoning": "The exact equality requires a finite extremal obstruction absent from the inspected prior sources; it is not a special case of their stated constructions or bounds.",
+        "searches": [
+          "Nasr Esfahani--Stinson Theorems 3.8--3.11 and Example 3.4",
+          "Yin 2005 definitions and main Theorems 3.1--3.3",
+          "Frozen current reduction and verifier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The AONT paper states the exact unresolved interval 6 <= M_R([1,2],9) <= 7.",
+          "The discrete-log reduction turns the excluded size-seven AONT into a cyclic difference-packing problem over Z_8."
+        ],
+        "reasoning": "Both cryptographic and design-theoretic formulations were searched because they are linked by a direct reduction; neither inspected prior source states the submitted exact equality.",
+        "searches": [
+          "Resultary semantic query: q=9 strong all-or-nothing transform cyclic difference packing array 5 7 8",
+          "Nasr Esfahani and Stinson, Rectangular, Range, and Restricted AONTs: Three Generalizations of All-or-Nothing Transforms, ePrint 2021/1498",
+          "Yin, Cyclic Difference Packing and Covering Arrays (2005)",
+          "Yin, Difference packing arrays and systematic authentication codes (2004)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 3.11 records q=9 only as 6 <= M_R([1,2],9) <= 7.",
+          "Yin's paper lists four-row existence results but no table/equality max k=4 for CDPA(k,7;8)."
+        ],
+        "reasoning": "The relevant prior parameter sources show a genuine unresolved gap rather than an already-tabulated exact value.",
+        "searches": [
+          "Resultary semantic search",
+          "Parameter statements in Nasr Esfahani--Stinson Theorem 3.11",
+          "Yin 2005 stated CDPA existence theorems"
+        ]
+      },
+      "rationale": "Nasr Esfahani--Stinson explicitly leave the parameter at 6 <= M_R([1,2],9) <= 7, with a size-six construction; thus their theorem does not imply the submitted equality. Yin's complete 2005 paper defines CDPAs, proves the even-order column bound and constructs four-row arrays near the maximum column length, but does not determine the maximum number of rows for CDPA(k,7;8) or exclude k=5. Resultary search found no earlier resolution. Yin's 2004 predecessor could not be recovered after public/OA attempts and two same-job authorized institutional attempts timed out; that inaccessible plausible source is retained as a residual risk rather than treated as novelty evidence.",
+      "residual_risks": [
+        "Yin's 2004 full paper was inaccessible in this run after lawful public/OA and institutional attempts; an unadvertised exact (5,7;8) statement there remains a residual risk, but it does not override the strong open-gap evidence from later inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOCUMENTS_OPEN_ONE_UNIT_GAP",
+          "evidence": "Theorem 3.11 leaves q=9 unresolved between six and seven; Example 3.4 supplies the size-six construction.",
+          "identifier_or_url": "https://eprint.iacr.org/2021/1498",
+          "material_read": "Complete preprint; relevant full page containing Theorems 3.8--3.11 was visually inspected, including the statement 6 <= M_R([1,2],9) <= 7.",
+          "method": "Lawful public ePrint full-text PDF.",
+          "title": "Rectangular, Range, and Restricted AONTs: Three Generalizations of All-or-Nothing Transforms",
+          "trigger": "Primary source defining the exact q=9 gap and size-six lower-bound matrix."
+        },
+        {
+          "assessment": "NOT_COVERING_EXACT_ROW_EXTREMUM",
+          "evidence": "The paper proves n<=q-1 for even q and constructs k=4 arrays, but does not state or imply max{k:CDPA(k,7;8)}=4.",
+          "identifier_or_url": "DOI:10.1007/s10623-004-3991-3",
+          "material_read": "Complete 12-page authorized full text, including definitions, normalization, CHDM machinery and main CDPA/CDCA existence theorems.",
+          "method": "Authorized institutional full-text access after public/OA full-text attempts did not provide the paper.",
+          "title": "Cyclic Difference Packing and Covering Arrays",
+          "trigger": "Most relevant primary design-theory source for CDPA(k,7;8) under older terminology."
+        },
+        {
+          "assessment": "RESIDUAL_ACCESS_RISK",
+          "evidence": "The complete 2004 text could not be inspected; however the later 2005 full paper and the 2021 AONT paper still do not report the submitted exact result.",
+          "identifier_or_url": "DOI:10.1360/03ys0037",
+          "material_read": "Public metadata/abstract-level material only. Authorized institutional job 3ea183096d2267b4d0085dd5cebc9a72 was revisited twice and timed out without delivering full text.",
+          "method": "Public/OA search followed by authorized institutional access; no bypass of access controls.",
+          "title": "Difference packing arrays and systematic authentication codes",
+          "trigger": "Earlier Yin paper cited as introducing difference packing arrays and therefore a plausible source of exact small-parameter coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nasr Esfahani--Stinson",
+        "Yin 2005",
+        "Frozen RESULT.md"
+      ],
+      "rationale": "The result closes an explicit one-unit open parameter gap in linear strong AONTs and determines the exact row extremum of the finite cyclic difference-packing obstruction responsible for it. This is a natural exact finite classification tied directly to a published cryptographic construction problem.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The AONT theorem is linear only.",
+    "The CDPA upper bound is a finite computer-assisted proof specific to (n,q)=(7,8).",
+    "Yin 2004 remains an explicit full-text access risk."
+  ],
+  "schema_version": 1
+}
