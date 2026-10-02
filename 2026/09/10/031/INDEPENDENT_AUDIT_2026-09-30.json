@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T23:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/10/031/RESULT.md",
+        "artifacts/coxeter_base.json",
+        "artifacts/counterexample_sign_vector.json",
+        "artifacts/rayleigh_lower_26104.json",
+        "independent exact integer/rational reconstruction"
+      ],
+      "rationale": "An independent reconstruction from the committed 42-edge list and 42 signs reproduced signed traces Tr2=84, Tr4=420, Tr6=2436, Tr7=-168, Tr8=14964. Exact rational LDL on (26105/10000)^2 I-A_t^2 had all positive pivots, hence rho<2.6105. Rebuilding the 56x56 fibre lift and the committed integer Rayleigh vector reproduced numerator 2610502980388, denominator 1000001200328, and positive margin 10000*num-26104*den=998470517888, hence rho>=2.6104. The block identity A_s=[[0,A_t],[A_t,0]] gives equality of spectral radii. The girth argument for trace rigidity through length six is correct because every closed walk shorter than the girth reduces by backtracks and therefore uses each edge with even signed parity.",
+      "residual_risks": [
+        "The claimed near-minimality of the signing is explicitly only conjectural and was not audited; the PASS concerns the exact witness interval and trace-rigidity lemma."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilu-Linial gives general existence/bounds and formulates the Ramanujan signing problem; searched SCOPE records concern other graphs."
+        ],
+        "reasoning": "General existence theorems do not force balance, fibre symmetry, this sign vector, or its exact rational enclosure.",
+        "searches": [
+          "Bilu-Linial 2-lifts/signings",
+          "current Resultary signing records"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0312022",
+        "https://www.math.mun.ca/distanceregular/graphs/coxeter.html",
+        "Resultary semantic search for the exact balanced Coxeter signing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theory frames signed spectral radius as the new-eigenvalue problem, but does not imply the particular balanced witness or the numerical interval."
+        ],
+        "reasoning": "A constructive finite certificate is additional information beyond the general theorem.",
+        "searches": [
+          "Compare Bilu-Linial signing theorem to candidate witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fibre-symmetric signing of the bipartite double cover is equivalent to the signed adjacency matrix A_t on the Coxeter base, but the exact sign vector and interval are not supplied by the general theory."
+        ],
+        "reasoning": "This equivalence is part of the candidate proof, not a prior exact computation.",
+        "searches": [
+          "Resultary: Coxeter graph balanced signing spectral radius 2.6104",
+          "Bilu-Linial arXiv:math/0312022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph database gives the unsigned Coxeter graph parameters/spectrum, not a signed balanced spectrum."
+        ],
+        "reasoning": "No exact signed table was identified.",
+        "searches": [
+          "DistanceRegular.org Coxeter graph spectrum/intersection array",
+          "Resultary exact rho search"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches found the general 2-lift/signing theory and other SCOPE signing constructions, but no prior source with this exact Coxeter balanced fibre-symmetric signing or the [2.6104,2.6105) certificate.",
+      "residual_risks": [
+        "A specialized signed-graph catalogue or unpublished computation may contain the same switching class; none was found in the searched sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATES_BUT_DOES_NOT_COVER_EXACT_WITNESS",
+          "evidence": "The paper formulates general signing bounds/conjecture and does not give the candidate Coxeter signing.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0312022",
+          "material_read": "Accessible full arXiv text around the introduction, definitions, and statement that new eigenvalues of a 2-lift are controlled by a signed adjacency matrix.",
+          "method": "Theorem-scope and implication comparison.",
+          "title": "Constructing expander graphs by 2-lifts and discrepancy vs. spectral gap",
+          "trigger": "Primary source for the signing/2-lift framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0312022",
+        "DistanceRegular.org Coxeter graph data",
+        "2026/09/10/031/RESULT.md"
+      ],
+      "rationale": "The result is a concrete two-sided Ramanujan-scale signing datum on a classical distance-regular cubic graph with an additional exact balance/fibre constraint, together with a structural explanation that the first two even trace moments cannot detect signing quality. Such an explicit witness is a useful benchmark for the Bilu-Linial 2-lift problem and is not merely a renamed parameter or tiny arbitrary slice.",
+      "residual_risks": [
+        "The result does not determine the optimum signing and should not be presented as an optimality theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The explicit 21/21 balanced signing of the 28-vertex Coxeter graph induces a fibre-symmetric 42/42 signing of its bipartite double cover with signed spectral radius in [2.6104,2.6105); Tr(A^4)=420 and Tr(A^6)=2436 are signing-independent on the girth-7 base.",
+  "schema_version": 1
+}
