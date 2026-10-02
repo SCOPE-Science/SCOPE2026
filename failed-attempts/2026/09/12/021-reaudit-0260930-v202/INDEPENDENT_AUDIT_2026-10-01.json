@@ -1,0 +1,73 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "reason": "PASS. The corrected K2P Fourier parameterization was reconstructed independently with the root-edge exponent rc=g4. At the stated rational point, the full Jacobian has rank 13 and the specified 13 by 13 minor is exactly 160576479/4194304, so the network variety has dimension at least 13. The displayed-tree exponent matrix has rank 10. Thus the admitted target value 7 is indeed false.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The 2024 paper gives a general dimension formula for cut-edge toric fiber products and explicitly tabulates the exceptional 3-sunlet cases.",
+        "reasoning": "This is stronger than a single Jacobian lower bound.",
+        "searches": [
+          "Dimensions of Level-1 Group-Based Phylogenetic Networks toric fiber product K2P"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": "A K2P 3-claw has dimension 3l+1=7 and the gluing subtracts |B·G|=3.",
+        "reasoning": "10+7-3=14, so dimension at least 13 is a direct corollary.",
+        "searches": [
+          "K2P 3-sunlet toric fiber product 4-leaf triangle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Published Table 1 gives K2P n=3 deficiency 1; cut-edge gluing gives the four-leaf triangle dimension.",
+        "reasoning": "The audited quarnet is a 3-sunlet glued to a 3-claw along the cut edge.",
+        "searches": [
+          "K2P 3-sunlet dimension deficiency",
+          "K2P four-leaf single triangle dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "The published table records deficiency 1 for K2P at n=3.",
+        "reasoning": "With l=2, expected dimension 11 becomes exact dimension 10 for the 3-sunlet.",
+        "searches": [
+          "Table 1 K2P n=3 deficiency"
+        ]
+      },
+      "reason": "FAIL. A stronger dimension statement is already mechanically implied by Gross-Krone-Martin. Their 2024 Table 1 reports deficiency 1 for the K2P 3-sunlet; with three K2P orbit classes this gives affine dimension 10. Their general cut-edge toric-fiber-product formula then glues that 3-sunlet to the 3-claw forming the four-leaf single-triangle skeleton, giving dimension 10+7-3=14. Hence the audited lower bound 13 and the disproof of dimension 7 are strict corollaries of published results.",
+      "status": "FAIL"
+    },
+    "scientific_value": {
+      "reason": "PASS. Dimensions of K2P models on triangle networks are directly relevant to phylogenetic identifiability, so an exact or certified dimension result on this natural quarnet would be worthwhile if not already implied. The rejection is solely originality: prior work gives the stronger exact dimension 14.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and artifacts/verify_disproof.py.",
+    "Fresh symbolic/rational reconstruction of the corrected K2P mixture and Jacobian; exact rank 13 and exact displayed minor.",
+    "Fresh exponent-rank calculation for the displayed tree.",
+    "Primary 2024 dimension table and cut-edge toric-fiber-product formula; Resultary searches for same-model coverage."
+  ],
+  "disposition": "failed",
+  "record_id": "SCOPE-20260912-021",
+  "residual_risks": [
+    "The committed certificate proves only a lower bound 13, while prior theory gives the stronger exact value 14 for the same contracted single-triangle skeleton.",
+    "Scientific rejection is not a correctness failure; the numerical certificate remains valid evidence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STRONGER_PRIOR_COVERAGE",
+      "material_read": "Primary full text: toric-fiber-product dimension formula, K2P model definition, and Table 1 showing deficiency 1 for the n=3 K2P sunlet.",
+      "title": "E. Gross, R. Krone, S. Martin, Dimensions of Level-1 Group-Based Phylogenetic Networks",
+      "url": "https://doi.org/10.1007/s11538-024-01314-z"
+    },
+    {
+      "assessment": "CONTEXT_AND_MODEL_NORMALIZATION",
+      "material_read": "Primary full text on 3-sunlet dimensions and explicit discussion that K2P is a nontrivial automorphism-orbit model distinct from the general V4/K3P model.",
+      "title": "S. Cox, E. Gross, S. Martin, Group-based phylogenetic models on 3-sunlet networks",
+      "url": "https://doi.org/10.1007/s11538-025-01506-1"
+    }
+  ]
+}
