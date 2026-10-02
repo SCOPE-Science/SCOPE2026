@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit completed on 2026-10-01 UTC.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The all-center identity follows because each block average has an even log-concave density and the product of independent even radially nonincreasing one-dimensional densities remains even and nonincreasing in absolute value. After \(T_m=-\log|A_m|\), the density factor is \(e^{-u}(c_m+g_m(u))\) with \(g_m\in L^1\); convolution expansion gives the leading and one-correction logarithmic coefficients. The product-density singularity and the \(L^p\) limit then follow from the same expansion and \(\Gamma((d-1)p+1)\). The stated \(-3/(20m)\) correction agrees with the fourth-cumulant Laplace expansion for a normalized uniform average. Boundary checks at \(d=1\) and \((m_1,m_2)=(2,2)\) are consistent.
+- Originality: **PASS** — The directly motivating 2026 anti-concentration theorem gives the product profile and block-size scale only up to degree-dependent constants. Classical product-distribution work gives general Mellin/Meijer-G machinery but the inspected material does not state the exact concentration center, the block-specific leading and second logarithmic coefficients, or the normalized high-\(p\) limit for these centered block averages.
+- Scientific value: **PASS** — The canonical block products are the sharpness models for a recent anti-concentration theorem, so their exact concentration center, sharp leading coefficient, first correction, and exact high-\(p\) density coefficient are motivated invariants rather than an arbitrary slice. They quantify the constants hidden by the general theorem and can serve as benchmarks for any future optimal-constant result.
+
+The original same-model assessment remains preserved in `AUDIT.json`; the independent assessment is documented in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
