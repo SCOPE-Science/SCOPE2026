@@ -1,8 +1,6 @@
-# Review status
+# Independent audit — 2026-10-01
 
-Independent audit completed on 2026-10-01 (UTC).
-
-Disposition: **PASSED**.
+Final claim assessed: The only exponential-unitary perfect integer with exactly two distinct prime factors is 36; consequently any exponential-unitary perfect number that is not exponential-perfect has at least three distinct prime factors.
 
 ## Correctness — PASS
 
@@ -15,3 +13,12 @@ The 2011 primary paper introduces exponential-unitary perfect numbers, gives 36 
 ## Scientific value — PASS
 
 This closes a natural complete support-size case and sharpens the open problem by forcing any counterexample to exponential-unitary-perfect implying exponential-perfect to have at least three distinct primes.
+
+## Sources and residual risks
+
+- Minculete–Tóth, Exponential unitary divisors, Ann. Univ. Sci. Budapest. Sect. Comp. 35 (2011), full relevant section inspected.
+- Subbarao–Suryanarayana 1971 indexed abstract, historical parity result.
+- Classical two-prime exponential-perfect analogue as summarized in the cited handbook.
+- Published-record semantic search for two-prime exponential-unitary perfect classifications.
+- The theorem does not classify support size three or larger and does not resolve the general equality question.
+- Older terminology and incomplete direct access to some historical sources remain residual originality risks.
