@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T21:58:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 7bbf034ebb3f219194c296ce481713be14409fa2",
+        "artifacts/verify_q8.cpp full source",
+        "artifacts/verification_output.txt",
+        "Korže--Vesel (2023) complete primary article"
+      ],
+      "rationale": "The equivalence between binary 2-frameproof codes, (2,1)-separating systems and general-position sets in Q_8 is exact. A size-ten witness is explicitly checked. For any hypothetical eleven-word code, minimum distance 1 is impossible and minimum distance at least 5 contradicts the coordinatewise pair-distance sum bound, leaving d=2,3,4. After translating/permuting a closest pair to 0^8 and 1^d0^{8-d}, the stabilizer S_d x S_{8-d} makes (alpha,beta) a complete orbit invariant for a third word; the verifier enumerates every feasible orbit. Its branch-and-bound candidate graph enforces distance and triple separation against the base pair, then tests the full three-word condition at every recursive extension; greedy coloring is used only as a valid clique upper bound. Every orbit has maximum at most ten. The finite computation is exhaustive after a proved symmetry reduction, not a timeout-based impossibility claim.",
+      "residual_risks": [
+        "RESULT.md contains a minor prose shorthand after the two minimum-distance inequalities: beta>=alpha is not by itself equivalent to both inequalities. The verifier and listed feasible orbits enforce both alpha+beta>=d and beta>=alpha, so this does not affect the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General asymptotic/frameproof upper bounds do not mechanically force a size-10 bound at length eight.",
+          "The most directly relevant hypercube paper explicitly leaves dimensions greater than seven without exact values."
+        ],
+        "reasoning": "Broader asymptotic or parameter-uniform bounds do not dominate the exact finite parameter.",
+        "searches": [
+          "Körner (1995) Hamming-space separating systems",
+          "Korže--Vesel 2023 hypercube section",
+          "2025/2026 wide-sense frameproof-code upper-bound literature",
+          "2026 general-position survey"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verifier source",
+        "Korže--Vesel 2023 full primary text",
+        "2026 general-position survey",
+        "Resultary semantic search",
+        "Recent frameproof-code literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources provide the lower bound ten and general inequalities, but no theorem inspected implies that eleven words are impossible at length eight.",
+          "The submitted proof supplies a complete distance/orbit reduction and exact completion search for that missing impossibility."
+        ],
+        "reasoning": "The exact equality is not a corollary of the reported lower bound or available general upper bounds; the new exhaustive certificate closes the gap.",
+        "searches": [
+          "Korže--Vesel 2023 full hypercube section",
+          "Current verifier and symmetry reduction",
+          "Recent frameproof upper-bound literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korže--Vesel explicitly state the equivalence and report exactness only for hypercube dimensions at most seven.",
+          "The later survey still presents Q_8 beyond the known exact range before this record."
+        ],
+        "reasoning": "The coding-theoretic and graph-theoretic formulations are genuinely equivalent, so all were searched; none of the inspected prior sources contains the matching Q_8 upper bound.",
+        "searches": [
+          "Resultary semantic query: binary (2,1)-separating systems length 8 exact maximum",
+          "Korže and Vesel, General Position Sets in Two Families of Cartesian Product Graphs (2023)",
+          "The General Position Problem: A Survey, arXiv:2501.19385, current 2026 version",
+          "binary 2-frameproof length 8 / gp(Q_8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 table gives a size-10 construction/lower bound at dimension eight but reserves exact certification for dimensions <=7."
+        ],
+        "reasoning": "The submitted contribution is exactly the missing upper certificate, so the pre-existing size-10 table entry does not cover it.",
+        "searches": [
+          "Korže--Vesel 2023 Table 1 / hypercube computations",
+          "2026 general-position survey tables",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "Korže--Vesel's 2023 full article identifies the hypercube problem with (2,1)-separating systems and says their computed values are exact only through dimension seven; dimensions above seven are reported as lower bounds. A 2026 general-position survey likewise records exact hypercube values only through Q_7. Resultary search found no earlier exact Q_8 / binary length-eight result. Thus the matching upper bound at Q_8 survives the prior-implication comparison.",
+      "residual_risks": [
+        "The full theorem text of Sun--Wang (2025) was not inspected; the subsequent survey's exact-value status is strong contrary evidence to coverage but not an exhaustive bibliographic guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_Q8_EXACTNESS",
+          "evidence": "The authors state that their values are exact for dimensions at most seven and that larger-dimensional entries are lower bounds.",
+          "identifier_or_url": "DOI:10.1007/s00009-023-02416-z",
+          "material_read": "Complete open-access article, especially the hypercube section and Table 1 discussion.",
+          "method": "Lawful public full text.",
+          "title": "General Position Sets in Two Families of Cartesian Product Graphs",
+          "trigger": "Primary source reporting the prior Q_8 lower bound and exact lower-dimensional values."
+        },
+        {
+          "assessment": "SUPPORTS_GAP_STATUS",
+          "evidence": "The survey records the known exact hypercube range through Q_7 and the (2,1)-separating-system equivalence.",
+          "identifier_or_url": "arXiv:2501.19385",
+          "material_read": "Current arXiv survey sections on hypercubes and known exact values.",
+          "method": "Lawful arXiv full text.",
+          "title": "The General Position Problem: A Survey",
+          "trigger": "Recent survey capable of revealing a later exact Q_8 result under graph terminology."
+        },
+        {
+          "assessment": "RESIDUAL_ACCESS_RISK",
+          "evidence": "The later 2026 survey still lists Q_8 beyond the exact range, reducing but not eliminating the risk of an unstated special-case implication.",
+          "identifier_or_url": "C. Sun and X. Wang, Designs, Codes and Cryptography 93 (2025)",
+          "material_read": "Accessible publisher metadata/abstract-level material; complete theorem text was not recovered.",
+          "method": "Public literature lookup.",
+          "title": "New upper bounds for wide-sense frameproof codes",
+          "trigger": "Plausible recent primary source with potentially stronger binary finite-length consequences."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Korže--Vesel 2023",
+        "2026 general-position survey"
+      ],
+      "rationale": "This closes the first hypercube dimension beyond the previously certified exact range and simultaneously fixes a standard finite separating/frameproof-code parameter. An exact finite cutoff obtained by a symmetry-complete certificate is a natural motivated classification, not an arbitrary slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The upper bound is computer-assisted after a complete exact reduction and does not automatically generalize to higher dimensions.",
+    "A minor prose equivalence shorthand in RESULT.md is imprecise but does not affect the implemented or mathematical constraints."
+  ],
+  "schema_version": 1
+}
