@@ -1,0 +1,61 @@
+# Independent scientific audit — 2026-10-01
+
+**Disposition:** passed
+
+**Final claim:** If \(G\) is an infinite discrete group and \(T\) is a bounded operator on \(\ell_p(G)\) for \(1\le p<\infty\), or on \(c_0(G)\), commuting with all left translations, then every approximation, Bernstein, Gelfand, and Kolmogorov number of \(T\) equals \(\|T\|\); the distances to compact, finitely strictly singular, and strictly singular operators also equal \(\|T\|\), witnessed on a \(1\)-complemented classical sequence subspace where \(T\) is bounded below arbitrarily close to its norm.
+
+## C — PASS
+
+A finitely supported almost-norming vector can be translated to disjoint input blocks while finite truncations of its image are translated to disjoint output blocks; choosing summable/Hölder-compatible tail errors gives an infinite-dimensional copy of \(\ell_p\) or \(c_0\) on which \(T\) is bounded below by \(\|T\|-\varepsilon\). Block norm-one functionals yield a norm-one projection onto that subspace. This immediately gives the strict-singular/FSS/compact distance and approximation/Bernstein identities. Finite-codimensional intersection gives the Gelfand identity, and uniform tails on a finite-dimensional quotient subspace plus a translate avoiding a finite coordinate set gives the Kolmogorov identity. The endpoint estimates for \(p=1\) and \(c_0\) are separately valid.
+
+## O — PASS
+
+Karlovych–Shargorodsky (2024) is genuine broader prior art for maximal noncompactness: its accessible abstract states norm equals Hausdorff measure of noncompactness for broad translation-invariant sequence-space maps on \(\mathbb Z^d\). It does not state the exact all-\(n\) Bernstein/Gelfand/Kolmogorov/approximation profiles or the exact FSS/strict-singular distances. Published SCOPE searches found related flat-profile theorems for specialized operator classes, none of which implies this arbitrary group-translation commutant theorem. The 2024 full theorem section could not be exhaustively fetched, so equivalent stronger wording inside it remains a residual risk.
+
+### Equivalent formulations
+
+**Searches:** Published SCOPE search: translation-invariant operators flat approximation Bernstein Gelfand Kolmogorov numbers; Literature search: translation invariant operator l_p discrete group strictly singular Bernstein Gelfand Kolmogorov
+
+**Evidence:** No distinct published SCOPE theorem was found for arbitrary translation-invariant operators on \(\ell_p(G)\) or \(c_0(G)\). Karlovych–Shargorodsky’s accessible statement is formulated as maximal noncompactness, not flat strict s-numbers.
+
+**Reasoning:** Maximal noncompactness is weaker than exact equality of all four finite-index s-number scales and strict-singular distances.
+### Broader coverage
+
+**Searches:** Karlovych–Shargorodsky 2024, Pure Appl. Funct. Anal. 9, 195–210; Published SCOPE related records on Toeplitz Schur multipliers, band-dominated maps, and one-sided multipliers
+
+**Evidence:** Karlovych–Shargorodsky cover broader source/target sequence spaces on \(\mathbb Z^d\) but only assert maximal noncompactness in the accessible theorem summary. The related SCOPE records treat specialized operator classes and do not dominate arbitrary group-translation commutants.
+
+**Reasoning:** The prior theorem is broader in spaces but weaker in quantitative invariants; the SCOPE analogues are narrower in operator class.
+### Exact database or table
+
+**Searches:** Published SCOPE semantic search for flat s-number profiles; Exact web searches combining translation invariant, Bernstein, Gelfand, Kolmogorov, strictly singular
+
+**Evidence:** No theorem table or database result was found giving the audited all-\(n\) profile for this class.
+
+**Reasoning:** The result follows from a structural disjoint-translate argument rather than a known numeric table.
+### Claim versus prior implication
+
+**Searches:** Implication comparison with Karlovych–Shargorodsky 2024 maximal-noncompactness theorem
+
+**Evidence:** Equality of operator norm with a Hausdorff measure of noncompactness does not in general force Bernstein numbers or distances to strictly singular operators to remain at the norm; these are finer invariants.
+
+**Reasoning:** The accessible prior theorem does not mechanically imply the audited conclusion.
+
+## V — PASS
+
+Determining four classical s-number scales and three operator-ideal distances exactly is a substantial quantitative strengthening of ordinary maximal noncompactness, and the complemented almost-norming witness is a reusable structural mechanism for translation-invariant operators on natural sequence spaces.
+
+## Source inspections
+
+- **Discrete Riesz transforms on rearrangement-invariant Banach sequence spaces and maximally noncompact operators** — Karlovych–Shargorodsky, Pure Appl. Funct. Anal. 9 (2024), 195–210. Trigger: Closest modern theorem for translation-invariant sequence-space operators Material read: Accessible abstract and first-page/introductory text stating the maximal-noncompactness theorem; the full theorem section could not be fetched in this run. Method: Author/institutional public pages and public PDF search text Assessment: PARTIAL_COVERAGE. Evidence: The accessible statement proves norm equals Hausdorff measure of noncompactness for translation-invariant maps on \(\mathbb Z^d\), but does not mention the audited flat \(a_n,b_n,c_n,d_n\) profile or strict-singular distances.
+- **Notes on Non-Compact Maps and the Importance of Bernstein Numbers** — arXiv:2503.19600. Trigger: Recent source emphasizing the distinction between noncompactness and Bernstein-number behavior Material read: Accessible abstract/bibliographic material. Method: Public arXiv metadata Assessment: CONTEXT. Evidence: It supports treating Bernstein numbers as finer data than ordinary maximal noncompactness; it is not a coverage theorem for the translation-invariant class.
+
+## Residual risks
+
+- The complete 2024 Karlovych–Shargorodsky theorem section was not exhaustively inspected; an equivalent stronger formulation inside that paper or older multiplier literature remains a material risk.
+
+## Limitations
+
+- Restricted to same-space operators on \(\ell_p(G)\), \(1\le p<\infty\), and \(c_0(G)\); no \(\ell_\infty(G)\) claim.
+- No claim that every operator is convolution by an \(\ell_1\) kernel.
+- The closest 2024 paper was not exhaustively available at theorem level.
