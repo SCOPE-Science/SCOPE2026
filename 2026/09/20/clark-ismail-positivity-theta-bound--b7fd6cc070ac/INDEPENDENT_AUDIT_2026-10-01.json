@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T17:48:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 034daa04947eade1a90a3feee39b8c0a03c7f201",
+        "Castillo 2025 correction, DOI:10.1007/s11139-025-01024-7",
+        "NIST/DLMF Jacobi theta product identity as cited in the package"
+      ],
+      "rationale": "The theta-kernel proof checks. The corrected Hermite--Laguerre identity converts f_n(x) into a nonnegative Hermite-square weight against K_q(u)=Σ_{j>=0}q^j cos(sqrt(j)u), q=e^{-x/2}. Unique squarefree decomposition j=d m^2 turns each block into a Jacobi theta series. The product formula yields theta_3(z,r)>=theta_4(0,r), so the block minimum is bounded by the alternating square series. Recombining all squarefree blocks uses that m is even exactly when 4 divides j and gives K_q(u)>=(1-q-q^2-q^3)/(1-q^4). Thus q<=rho gives nonnegativity; at q=rho continuity and K_q(0)>0, together with H_n not vanishing identically on an interval, give strict positivity of the integral. The endpoint and rho>1/2 comparison are valid.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The correction supersedes the erroneous log 2 claim and restores 2 log 2; it only notes unspecified possible slight refinements."
+        ],
+        "reasoning": "No inspected broader theorem supplies the explicit stronger threshold or squarefree-theta kernel bound.",
+        "searches": [
+          "Castillo 2025 correction full text",
+          "Castillo 2024 original article and references"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "Castillo 2025 correction full text",
+        "Castillo 2024 article metadata/reference context",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The correction's proved interval q<1/2 does not mechanically imply positivity up to q=rho>1/2; the new squarefree-theta lower bound is the extra argument."
+        ],
+        "reasoning": "The final theorem is a genuine strengthening of the corrected bound, not a stated corollary of it.",
+        "searches": [
+          "Complete Castillo 2025 correction",
+          "Resultary exact-topic search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact-topic hit is the current record; no earlier equivalent threshold was returned.",
+          "Castillo's correction states x in (2 log 2,infinity), not x>=-2 log rho."
+        ],
+        "reasoning": "The threshold was searched both by original derivative formulation and by the cubic/theta alias.",
+        "searches": [
+          "Resultary query: Clark Ismail derivative positivity x^n/(1-e^-x) theta squarefree rho q+q^2+q^3 threshold",
+          "Web searches for rho+rho^2+rho^3=1 with Clark--Ismail/digamma positivity and 1.218755"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary entry or correction-table value gives 1.218755726872012... or the root rho+rho^2+rho^3=1."
+        ],
+        "reasoning": "The exact numeric/algebraic threshold was checked directly rather than inferred from title similarity.",
+        "searches": [
+          "Resultary semantic search for the derivative-positivity threshold",
+          "Springer correction reference list"
+        ]
+      },
+      "rationale": "The 2025 correction explicitly restores the known theorem only on x>2 log 2 and says unspecified slight refinements could be obtained by other Laguerre representations; it does not give the cubic threshold, squarefree grouping, or the endpoint theorem. Targeted Resultary and web searches did not locate an earlier concrete bound at -2 log rho. The result therefore survives to the best of knowledge, with the correction's vague refinement remark recorded as prior-art risk rather than novelty proof.",
+      "residual_risks": [
+        "The correction expressly mentions possible slight refinements without specifying them.",
+        "The 2006 Al-Musallam--Bustoz full text was not separately inspected in this run.",
+        "An unindexed or unpublished stronger threshold may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXPLICIT_NEW_BOUND",
+          "evidence": "It states positivity for x in (2 log 2,infinity), gives the corrected Hermite--Laguerre formula, and only says the interval could be slightly refined without a concrete bound.",
+          "identifier_or_url": "DOI:10.1007/s11139-025-01024-7",
+          "material_read": "Complete open-access correction text.",
+          "method": "Springer open-access full-text inspection.",
+          "title": "Correction: On the positivity of a certain function related with the Digamma function",
+          "trigger": "Direct corrected source for the current best explicit interval and Hermite--Laguerre identity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Castillo 2025 correction",
+        "Frozen RESULT.md"
+      ],
+      "rationale": "The theorem gives an explicit and substantial uniform improvement from 2 log 2 to 1.218755..., includes the endpoint, and introduces a reusable squarefree-frequency theta decomposition that explains the gain structurally. It addresses the exact uniform-threshold problem identified by the primary literature rather than an arbitrary parameter slice.",
+      "residual_risks": [
+        "Optimality of the threshold is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The sufficient threshold is not proved optimal.",
+    "The 2006 paper was not re-read in full; the corrected 2025 source was used for its theorem statement."
+  ],
+  "schema_version": 1
+}
