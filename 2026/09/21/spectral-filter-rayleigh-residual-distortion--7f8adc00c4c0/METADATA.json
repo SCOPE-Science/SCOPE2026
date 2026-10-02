@@ -1,36 +1,32 @@
 {
   "artifact_inventory": [
     {
-      "description": "Deterministic NumPy checks of the normal spectral-filter bound, the exact two-eigenvalue sharpness formula, the power-iteration corollary, and the exact-zero example.",
+      "description": "Deterministic checks of the normal spectral-filter formulas.",
       "path": "artifacts/verify.py",
       "sha256": "6e0d3bb101dd319f5ebb5ef318e5c813c4e6e045fb3e563ea1bd61c7dfdb7cec"
     },
     {
-      "description": "Verified output of the deterministic numerical checks, including Python and NumPy versions needed to reproduce the floating-point sanity checks.",
+      "description": "Recorded deterministic output.",
       "path": "artifacts/verification.txt",
       "sha256": "839a2874f406f233d107e6c43d9f33edc609037a9ad61638b7c419f9c1d4ff07"
     }
   ],
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_review_reset_at_utc": "2026-09-30T19:42:31.993290Z",
-  "independent_validation": false,
-  "limitations": "Exact arithmetic, finite-dimensional normal matrices, exact spectral-filter application, and Euclidean Rayleigh residual for the main theorem. Nonnormal matrices, finite-precision and inexact filter evaluation, and complete filtered eigensolvers with orthogonalization or Rayleigh-Ritz extraction are outside the one-step law. Relative amplification may be unbounded only as the input residual tends to zero; no absolute blow-up is claimed. The minimax filter-design statement does not constrain polynomial degree, rational poles, or evaluation cost. Older spectral-transformation, simultaneous-iteration, and general variance-comparison literature leaves residual historical-equivalence risk.",
+  "independent_audit_evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": "The variance comparison is elementary and may exist in older probability or spectral-transformation literature under a more abstract name. The theorem concerns the pure filtering step in exact arithmetic, not residuals after orthogonalization or Rayleigh-Ritz extraction.",
   "phase": "II",
-  "previously_published_pending_reaudit": true,
+  "previously_published_pending_reaudit": false,
+  "provenance": "Scientific sources, proof evidence, and audit limitations are documented in RESULT.md and the independent-audit files.",
   "published_at": "2026-09-21",
   "record_id": "SCOPE-20260921-7f8adc00c4c0",
   "record_title": "Sharp Rayleigh-residual distortion under normal spectral filtering",
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-21",
-  "same_model_review_status": "passed",
-  "scientific_context": "For a normal matrix, normalized application of a nonvanishing spectral filter changes spectral weights by squared filter gains. The exact worst-case one-step amplification of the standard Rayleigh residual is the filter gain dynamic range M/m. This yields an exact universal residual-nonexpansiveness classification, a zero-gain dichotomy, and a sharp minimax reciprocal tradeoff: any nonvanishing filter with wanted/unwanted separation factor eta<1 admits worst-case Rayleigh-residual amplification at least 1/eta, and the bound is attainable by two-level gain filters.",
+  "review_type": "independent_audit",
+  "reviewed_at_utc": "2026-10-01T23:02:35Z",
   "scope_run_id": "22cbae4d-1f13-4a1c-80d0-e59ca7e7e527",
-  "source_sha256": {
-    "RESULT.md": "7fe57f67e977edae3fc2959b9f9e89f9b051ce069df6f76185cc02b8feb29e4a",
-    "REVIEW.md": "5f76cd08228c6329aeb7eb64af5aaf11f00111506a2f85f481bc3de8874c5f6f",
-    "SLOGAN.txt": "9845040cf5f13d997b1d6a7b5bb6a227c49885f65bacf6e7be80cf63ef85dded"
-  },
   "source_urls": [
     "https://doi.org/10.1137/S0036144596300773",
     "https://doi.org/10.1137/050630404",
@@ -51,5 +47,5 @@
     "sharp worst-case bounds"
   ],
   "time_standard": "UTC",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
