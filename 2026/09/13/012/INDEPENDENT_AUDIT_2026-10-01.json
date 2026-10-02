@@ -1,0 +1,92 @@
+{
+  "audited_at_utc": "2026-10-01T02:55:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With \\(L_0\\) full, every \\(v\\in L_1\\) already has the \\(e_5\\) axis represented by its below neighbor. Its above neighbor lies on the same axis and cannot provide a second axis, so under the two-distinct-axes rule \\(v\\) activates exactly when an in-layer neighbor on one of \\(e_1,\\dots,e_4\\) is infected. Hence \\(L_1\\) is exactly 1-neighbor bootstrap on a connected 4-torus, fills iff its initial set is nonempty, and has exact failure probability \\((1-p)^A\\). For the standard 2-neighbor rule, one initial in-layer seed or one frozen above-layer helper seeds the same in-layer spread, giving \\((1-p)^{2A}\\) in the frozen-helper model and an upper bound in full dynamics. The box surface coefficient \\(18\\,2^{-4/5}\\approx10.3383\\) exceeds the cube coefficient 10, so the stated isoperimetric correction is also correct.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holroyd proves face dimensional reduction for his all-dimensions modified model, but that face evolves by the \\((d-1)\\)-dimensional modified rule rather than 1-neighbor bootstrap. Standard \\(r\\)-neighbor papers use neighbor counts rather than distinct axes."
+        ],
+        "reasoning": "The known theories are adjacent but do not dominate this exact local law.",
+        "searches": [
+          "Holroyd arXiv:math/0603645 full text",
+          "Balogh–Bollobás–Morris standard high-dimensional bootstrap"
+        ]
+      },
+      "checked_sources": [
+        "published SCOPE semantic search",
+        "Holroyd arXiv:math/0603645",
+        "Balogh–Bollobás–Morris arXiv:0907.3097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Holroyd's face process retains an all-coordinate activation requirement; standard bootstrap ignores axis identity."
+        ],
+        "reasoning": "Neither prior model implies the record's exact 1-neighbor face dynamics or its \\(1\\) versus \\(2\\) failure-exponent comparison.",
+        "searches": [
+          "Holroyd modified bootstrap proof outline and face-growth observation",
+          "standard 2-neighbor bootstrap definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The record's rule requires any two represented coordinate axes; Holroyd's modified rule requires a represented neighbor in every coordinate dimension."
+        ],
+        "reasoning": "The exact reduction to 1-neighbor dynamics on one face is specific to the two-distinct-axes condition and is not merely a renaming of the classical modified rule.",
+        "searches": [
+          "published SCOPE records: two-distinct-axes bootstrap face cascade",
+          "modified bootstrap percolation layer dimensional reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same SCOPE record was the only exact hit; neighboring records use different rules."
+        ],
+        "reasoning": "No established database/table for this nonstandard local rule was located.",
+        "searches": [
+          "published SCOPE semantic search for exact single-face failure (1-p)^A"
+        ]
+      },
+      "rationale": "The closest primary literature on modified bootstrap uses the much stronger condition 'at least one active neighbor in each of the \\(d\\) dimensions'. Holroyd's dimensional-reduction observation for that model is therefore not the same as the record's two-distinct-axes rule. Standard \\(r\\)-neighbor threshold papers likewise do not imply the exact \\((1-p)^A\\) single-face law for this rule. No earlier published SCOPE record or primary source located in the searches states this exact local cascade/exponent split.",
+      "residual_risks": [
+        "A specialized anisotropic cellular-automaton paper could contain an equivalent two-axis rule under different terminology; no such source was located.",
+        "The result does not settle the multi-slab sharp-window target."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "highly relevant but not covering the two-distinct-axes rule",
+          "evidence": "Holroyd requires at least one active neighbor in each of all \\(d\\) dimensions and notes that faces then evolve by the \\((d-1)\\)-dimensional modified model.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0603645",
+          "material_read": "model definition, Theorem 1, and proof outline discussing growth from active faces",
+          "method": "full-text inspection",
+          "title": "The Metastability Threshold for Modified Bootstrap Percolation in d Dimensions",
+          "trigger": "closest literature on face growth and dimensional reduction"
+        },
+        {
+          "assessment": "context only, not covering the axis-distinct rule",
+          "evidence": "The standard model activates from a count of infected neighbors, with no distinct-axis condition.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.3097",
+          "material_read": "abstract and model definition",
+          "method": "full-text inspection",
+          "title": "Bootstrap Percolation in High Dimensions",
+          "trigger": "standard-rule comparison and threshold context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated structural lemma for the exact nonstandard update rule under study: it identifies the true one-face dynamics, gives an exact finite-volume failure law and exposes a factor-two local exponent difference from standard 2-neighbor bootstrap. That local mechanism is a natural input to any future multi-slab or threshold analysis, even though the global sharp window remains open. The elementary cube-vs-\\(\\gamma=2\\) surface correction is supporting context rather than the sole source of value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The audit validates only the single-face law, standard-rule comparison, and elementary surface correction; it does not validate the admitted two-sided sharp window or multi-slab growth.",
+    "Originality is best-of-knowledge under terminology variation for anisotropic bootstrap rules."
+  ],
+  "record_id": "SCOPE-20260913-012",
+  "schema_version": 1
+}
