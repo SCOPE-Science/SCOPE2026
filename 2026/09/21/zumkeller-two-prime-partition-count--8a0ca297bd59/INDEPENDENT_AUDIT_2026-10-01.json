@@ -1,13 +1,7 @@
 {
   "audit_date_utc": "2026-10-01",
   "audited_at_utc": "2026-10-01T22:52:03Z",
-  "disclaimer": "Mathematical audit; not formal proof-assistant verification and not a guarantee of priority.",
-  "evidence_files": [
-    "INDEPENDENT_AUDIT_2026-10-01.md",
-    "INDEPENDENT_AUDIT_2026-10-01.json",
-    "REVIEW.md"
-  ],
-  "independent_assessment": {
+  "axes": {
     "correctness": {
       "checked_sources": [
         "K. P. S. Bhaskara Rao and Y. Peng, On Zumkeller Numbers, arXiv:0912.0052; Journal of Number Theory 133 (2013), 1135–1155.",
@@ -105,30 +99,49 @@
       "status": "PASS"
     }
   },
-  "independent_audit_status": "passed",
-  "independent_validation": true,
-  "previously_published_pending_reaudit": false,
-  "prior_scientific_assessment": {
-    "axes": {
-      "correctness": {
-        "rationale": "The signed-binary bijection gives a one-to-one parameterization of unordered partitions by positive odd r with \\(pr\\le2^{a+1}-1\\). Endpoint algebra, prime-distribution consequences, and the omega double count were checked; exact bounded computation found zero mismatches.",
-        "status": "PASS"
-      },
-      "originality": {
-        "rationale": "Known sources cover existence and the k=1 interval, but current OEIS entries, Rao--Peng, Mahanta--Saikia--Yaqubi, synonymous searches, and the published archive did not reveal the arbitrary-k formula, limiting law, or aggregate omega identity. Residual informal-literature risks were stated. Originality was stated to the best of knowledge.",
-        "status": "PASS"
-      },
-      "value": {
-        "rationale": "The result quantitatively refines the full exponent-one two-prime Zumkeller family, resolves every fixed partition multiplicity, and derives both a universal prime-parameter distribution and an additive-function aggregate law.",
-        "status": "PASS"
-      }
-    },
-    "policy": "to-the-best-of-our-knowledge",
-    "reviewed_at": "2026-09-21T07:13:29Z",
-    "status": "passed"
-  },
+  "checked_sources": [
+    "K. P. S. Bhaskara Rao and Y. Peng, On Zumkeller Numbers, arXiv:0912.0052; Journal of Number Theory 133 (2013), 1135–1155.",
+    "P. J. Mahanta, M. P. Saikia, D. Yaqubi, Some properties of Zumkeller numbers and k-layered numbers, Journal of Number Theory 217 (2020), 218–236.",
+    "OEIS A083206, A083209, and A378652.",
+    "Published-record semantic query: Zumkeller exact partition count \\(2^a p\\) equal-sum divisor bipartitions odd r."
+  ],
+  "disclaimer": "Mathematical audit; not formal proof-assistant verification and not a guarantee of priority.",
+  "disposition": "passed",
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json",
+    "REVIEW.md"
+  ],
   "record_id": "SCOPE-20260921-8a0ca297bd59",
   "record_title": "Exact Zumkeller partition counts for the family \\(2^a p\\)",
+  "residual_risks": [
+    "Older informal sequence notes or the Clark et al. announcement could contain an equivalent count formula; no such source was located."
+  ],
   "schema_version": 1,
+  "scientific_limitations": [
+    "The result is restricted to the exponent-one odd-prime family \\(2^a p\\).",
+    "The unique-partition slice was already recorded in OEIS A083209 and is not treated as new.",
+    "Older informal sequence notes or the Clark et al. announcement could contain an equivalent count formula; no such source was located."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "EXISTENCE_ONLY",
+      "evidence": "The paper states that \\(2^ap\\) is Zumkeller when \\(p\\le2^{a+1}-1\\) but does not enumerate equal-sum divisor bipartitions.",
+      "identifier_or_url": "arXiv:0912.0052",
+      "material_read": "full arXiv PDF, including the definition, generic partition criteria, and the stated sufficient/existence result for \\(2^a p\\)",
+      "method": "lawful arXiv full-text inspection with page screenshot",
+      "title": "On Zumkeller Numbers",
+      "trigger": "primary source of the known \\(2^a p\\) existence theorem"
+    },
+    {
+      "assessment": "GENERIC_COUNT_FORMULA_NOT_CLOSED_FAMILY_FORMULA",
+      "evidence": "The entry gives the general coefficient/subset-sum count and small values, while A083209 records only the one-partition slice; no arbitrary-\\(k\\) formula for \\(2^ap\\) is stated.",
+      "identifier_or_url": "https://oeis.org/A083206",
+      "material_read": "current sequence entry including comments, coefficient formula, examples, links, and cross-references",
+      "method": "direct database inspection",
+      "title": "OEIS A083206",
+      "trigger": "canonical exact table/counting database for the invariant"
+    }
+  ],
   "verification_state": "independently_reviewed"
 }
