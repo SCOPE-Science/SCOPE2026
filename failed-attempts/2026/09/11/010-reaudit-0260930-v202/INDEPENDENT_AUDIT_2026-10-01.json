@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T00:21:01.205189Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Within the record's explicit hypotheses, the stated degree inequalities are correct. The actual `artifacts/verify_cell.py` was read completely and its integer enumeration matches the Donaldson-basis cell bookkeeping. Once every cycle component is invariant and a positive closed current has generic Lelong number at least one along each component, Siu decomposition gives degree at least the sum of the component volumes. Camacho–Sad then supplies the listed componentwise self-intersection sum. The record also explicitly distinguishes the alternative total-square convention; the verifier checks that alternate convention in its sample gap section.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited recent class-VII paper supplies related foliation lemmas; the positivity step itself is a standard general theorem about positive currents."
+        ],
+        "reasoning": "The broader standard results already imply the degree inequality for any such invariant cycle, making the fixed cell a specialization.",
+        "searches": [
+          "Kurnosov–Spicer 2026 class VII foliations",
+          "standard Siu decomposition and Camacho–Sad index theorem"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify_cell.py",
+        "arXiv:2608.29047",
+        "standard Siu decomposition",
+        "Camacho–Sad index theorem",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under generic Lelong number at least one, the cycle contribution alone has degree at least its total Gauduchon volume; the residual current is nonnegative."
+        ],
+        "reasoning": "This directly implies positive degree and excludes a negative transfer identity, so the headline obstruction is a corollary of the assumed setup.",
+        "searches": [
+          "implication from Siu decomposition plus Camacho–Sad"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The semantic search found the audited record but no separate exact statement; the mathematical reformulation reduces directly to standard Siu decomposition plus Camacho–Sad."
+        ],
+        "reasoning": "Changing notation from degree minus Camacho–Sad sum to an explicit gap does not change the implication.",
+        "searches": [
+          "class VII b2=2 Teleman cycle Gauduchon directed current Camacho Sad degree obstruction",
+          "equivalent Siu decomposition positive current degree formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external exact table is required: the two-coordinate integer constraints are directly enumerable and are reproduced by the package script."
+        ],
+        "reasoning": "This check is genuinely inapplicable as a novelty source because the headline obstruction follows from general theorems rather than a hidden database.",
+        "searches": [
+          "fixed b2=2 Donaldson class enumeration"
+        ]
+      },
+      "rationale": "The central degree obstruction is mechanically implied by standard ingredients once the record assumes a directed positive closed current with Lelong number at least one along every cycle component: Siu decomposition immediately yields the positive degree lower bound, and Camacho–Sad converts invariant-curve indices into self-intersections. The remaining \\(b_2=2\\) class enumeration is finite bookkeeping. No new theorem is needed to obtain the advertised positive gap under those hypotheses.",
+      "residual_risks": [
+        "The audit does not claim the surrounding class-VII shell problem is routine; it assesses only the narrow final claim under its stated assumptions.",
+        "The result uses two Camacho–Sad aggregation conventions; the primary componentwise convention and alternate total-square convention must not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports correctness of the finite cell bookkeeping but shows the gap step is elementary once assumptions are fixed.",
+          "evidence": "The script enumerates the cell classes exactly and then checks only the algebraic gap identities.",
+          "identifier_or_url": "artifacts/verify_cell.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line inspection of integer enumeration and the symbolic degree-gap cases.",
+          "title": "Assigned cell verifier",
+          "trigger": "Finite Donaldson-basis and gap bookkeeping."
+        },
+        {
+          "assessment": "Related class-VII machinery, but not needed to establish novelty of the final positivity deduction.",
+          "evidence": "The final degree lower bound comes from the record's strong current/Lelong assumptions plus standard positivity.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.29047",
+          "material_read": "Accessible abstract/html search material and cited-lemma context.",
+          "method": "Primary-source comparison.",
+          "title": "Class VII surfaces with b2=3 and two foliations are Kato",
+          "trigger": "Closest recent source cited for foliation numerics."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The shell problem is important, but the audited final claim imposes assumptions strong enough that the advertised obstruction is essentially the immediate positivity of the cycle contribution. The finite \\(b_2=2\\) bookkeeping does not turn that routine deduction into an independently valuable new invariant or boundary theorem under the required value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The rejection concerns the narrow final obstruction under its stated Lelong/current hypotheses, not the broader global spherical shell problem.",
+    "The verifier's sample gap uses the total-square convention for the two-component case, while RESULT separately states the componentwise sum convention.",
+    "The record's reproducibility path names `output/artifacts/verify_cell.py`; the actual package path is `artifacts/verify_cell.py`."
+  ],
+  "record_id": "SCOPE-20260911-010",
+  "schema_version": 1
+}
