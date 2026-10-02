@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T02:59:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the self-inclusive empirical-measure convention explicitly used in the record's gap calculation, the two independent rate-1 chains give p(u)=(1+exp(-2u))/2 and an extra running-cost term p(u)(1-p(u)) at N=2. Integrating gives V-U=T/4-(1-exp(-4T))/16 and N(V-U)=T/2-(1-exp(-4T))/8. The displayed master solution satisfies the stated two-state master equation, and F(x,m)=m_x is Lasry-Lions monotone. These identities were independently recomputed. The claimed verification script was not present at the audited commit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1707.01819",
+          "https://arxiv.org/abs/2502.20262"
+        ],
+        "reasoning": "The former is fixed-horizon and uses the other-player empirical measure; the latter concerns weak process error under exponential stability. Neither dominates the submitted statement.",
+        "searches": [
+          "Cecchin-Pelino finite-state master convergence",
+          "Cohen-Huffman uniform-in-time weak error"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1707.01819",
+        "https://arxiv.org/abs/2502.20262",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1707.01819",
+          "https://arxiv.org/abs/2502.20262"
+        ],
+        "reasoning": "Published fixed-horizon O(1/N) results do not imply a T-uniform constant, while the recent uniform weak-process theorem has different hypotheses and observable. The submitted formula is not a corollary of either.",
+        "searches": [
+          "arXiv:1707.01819 Sections 2.3 and 3.1",
+          "arXiv:2502.20262 abstract/main scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1707.01819",
+          "https://arxiv.org/abs/2502.20262"
+        ],
+        "reasoning": "Checked both N-player master-value formulations and uniform-in-time finite-state process approximations; neither states the exact self-inclusive accumulated-value counterexample.",
+        "searches": [
+          "Resultary: finite state mean field game uniform in time 1/N master equation monotonicity counterexample",
+          "Cecchin-Pelino arXiv:1707.01819",
+          "Cohen-Huffman arXiv:2502.20262"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/9/13/SCOPE022; no earlier exact formula found"
+        ],
+        "reasoning": "No database/table source containing the exact T/2-(1-exp(-4T))/8 scaled gap was found.",
+        "searches": [
+          "Resultary: finite state mean field game uniform in time 1/N master equation monotonicity counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches found no prior source stating this exact self-inclusive finite-horizon value counterexample. Cecchin-Pelino's standard finite-state N-player formulation evaluates a player's value against the empirical measure of the other players, while the submitted linear-in-T bias comes from including the tagged player in the empirical measure. Cohen-Huffman proves a different uniform-in-time weak-error result for stable interacting jump processes, not an accumulated finite-horizon value bound of this self-inclusive form.",
+      "residual_risks": [
+        "The result's relevance to the standard finite-state N-player MFG convention is limited because the cited classical formulation uses the empirical measure of the other players. The exact admitted target file is not present in the audited package, so target-convention equivalence could not be independently established.",
+        "The claimed output/artifacts/verify_disproof.py file is absent at the audited commit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_WITH_CONVENTION_WARNING",
+          "evidence": "The standard comparison uses the empirical measure of all players except i; the record's counterexample uses a self-inclusive empirical measure, so the two statements are not identical.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.01819",
+          "material_read": "Full-text HTML definitions of m^N and m^{N,i}, the N-player game, and the master projection u^{N,i}(t,x)=U(t,x_i,m^{N,i}).",
+          "method": "Full-text HTML inspection.",
+          "title": "Convergence, Fluctuations and Large Deviations for finite state Mean Field Games via the Master Equation",
+          "trigger": "Primary standard finite-state master-equation comparison."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "It proves O(1/N) uniform weak error under exponential stability for interacting jump processes, not the submitted finite-horizon accumulated player-value quantity.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.20262",
+          "material_read": "Abstract and stated scope/hypotheses.",
+          "method": "Primary-source web inspection.",
+          "title": "Uniform-in-Time Convergence Rates to a Nonlinear Markov Chain for Mean-Field Interacting Jump Processes",
+          "trigger": "Recent apparently broader uniform-in-time finite-state result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under the explicitly used self-inclusive convention, the example isolates a clear mechanism—an O(1/N) self-interaction bias whose time integral grows linearly with the horizon—and gives an exact sharp obstruction to a T-uniform constant. This is a motivated boundary result, while the convention mismatch must remain explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the record's self-inclusive two-state empirical convention, the \\(N=2\\) scaled value gap equals \\(T/2-(1-e^{-4T})/8\\), so no horizon-uniform constant can hold in that variant.",
+  "limitations": [
+    "The cited standard N-player formulation uses the empirical measure of the other players; equivalence to the admitted target convention could not be checked because no target file is present.",
+    "The claimed verification script is absent."
+  ],
+  "schema_version": 1
+}
