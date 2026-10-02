@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T04:57:29.690871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Frobenius class-multiplication formula gives 1 in C^3 iff the exact character sum is nonzero. The committed exact trace certificate reports precisely classes 12,17,18 as zeros; an independent fresh complex reconstruction from the committed 74x74 irreducible block reproduced near-zero sums for those three classes. Classes 17 and 18 are an inverse nonreal pair, so C^2 does not contain 1 and C^3 does not contain 1, yielding e(PSp_6(3))>=4. Class 12 is real and is not needed for that lower bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General product-of-classes machinery does not supply these exact zeros for PSp_6(3)."
+        ],
+        "reasoning": "The broader theory provides methods but does not imply the stated q=3 counterexample without the character computation.",
+        "searches": [
+          "Garonzi-Montijo-Zalesski 2506.22268",
+          "Guralnick-Malle-Tiep 1202.2627"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2506.22268",
+        "https://brauer.maths.qmul.ac.uk/Atlas/v3/clas/S63/",
+        "Resultary semantic search for 030 claim aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source explicitly records the relevant PSp_6(q) branch as open."
+        ],
+        "reasoning": "The present q=3 calculation is not a corollary of the inspected prior result and falsifies the universal exponent-3 possibility in that branch.",
+        "searches": [
+          "Garonzi-Montijo-Zalesski open-case statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest primary paper explicitly leaves e(PSp_6(q))=3 for 4|(q+1) open."
+        ],
+        "reasoning": "The q=3 result is not an alias of a theorem in the inspected paper; it answers an included open case.",
+        "searches": [
+          "Resultary: PSp_6(3) conjugacy class exponent class cube",
+          "Garonzi-Montijo-Zalesski 2506.22268"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The character table is prior data; the cubic Frobenius-sum evaluation at all 74 classes is the new derived table-level fact."
+        ],
+        "reasoning": "Existing tables contain inputs, not the claimed zero-sum conclusion.",
+        "searches": [
+          "ATLAS/GAP S6(3) character table",
+          "committed S63_trace_results.json"
+        ]
+      },
+      "rationale": "Primary literature explicitly identifies the relevant family as open; the q=3 exact character computation resolves one case and yields a counterexample.",
+      "residual_risks": [
+        "A later post-2025 computation outside the searched sources could duplicate q=3; none was found in Resultary or targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "does not cover the q=3 counterexample; explicitly leaves the relevant family open",
+          "evidence": "The paper states that whether e(PSp_6(q))=3 for 4|(q+1) remains open.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.22268",
+          "material_read": "definition, Frobenius-character method, and the statement leaving the PSp_6(q), 4|(q+1) case open",
+          "method": "primary full-text inspection",
+          "title": "On the conjugacy class exponent of the nonabelian simple groups",
+          "trigger": "same invariant and PSp_6(q) family"
+        },
+        {
+          "assessment": "input database, not a prior theorem computing the cubic class-product zeros",
+          "evidence": "The package reconstructs 74 irreducibles and evaluates the Frobenius sum.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/clas/S63/",
+          "material_read": "archived table segment committed in the package and ATLAS provenance",
+          "method": "data/source inspection",
+          "title": "GAP Character Table Library / ATLAS S6(3) data",
+          "trigger": "exact character data used by certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete counterexample inside an explicitly open simple-group family is mathematically motivated and changes the answer to the universal exponent-3 question. The exact class witnesses and full 74-class calculation are independently useful finite group data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For PSp_6(3), the Frobenius cubic class-product character sum vanishes on classes 12, 17 and 18; the nonreal inverse pair 17/18 therefore has no identity in its square or cube, so e(PSp_6(3))>=4 and the universal exponent-3 claim for q=3 mod 4 is false.",
+  "schema_version": 1,
+  "scientific_limitations": "The audit judges only the stated final claim. Computations certify only the checked finite statements; originality remains best-of-knowledge and is not inferred from unsuccessful search."
+}
