@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T14:35:11.027072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [],
+      "rationale": "Read Baláž--Popa arXiv:2609.17353v1 Section 2 and full Section 3.2 Lemma 1/proof: the lemma requires an injective equal-length synchronized code, a guard g forbidding codeword occurrences in g t g for every unaligned non-codeword k-mer t, and absence of such gadgets in encoded input strings, then yields OPT(S')=k OPT(S)+C. The proposed binary code phi(a)=001 h(e(a)) 10, h(0)=10,h(1)=11, length 2 beta+5, is injective. Marker 001 occurs only at aligned starts: no interior 00 in h(e(a))10 and boundary 10|001 has crossing 100,000. A codeword begins/ends in zero; g=1^k means an occurrence beginning in guard cannot start with zero, an occurrence strictly within t must end in the right guard with one, and occurrence at t's first bit would equal non-codeword t. Maximum ones run in encoded strings is 2 beta+2<k, including boundaries. Thus every actual Lemma 1 hypothesis holds, and the source proof's penalty M=(k+1)L+1 excludes non-codeword triggers with the affine objective. Membership in NP follows from listing at most N occurring trigger windows and evaluating all segments and paths in polynomial time. k=2 ceil(log2 |Sigma|)+5=O(log N) after discarding unused symbols. The finite beta<=6 artifact is only a sanity check; the symbolic proof is decisive.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2's alphabet grows with source instances; Theorem 3 uses {0,1,2}; Lemma 1 is conditional on a code/guard and does not itself supply the binary construction"
+        ],
+        "reasoning": "Neither existing hardness theorem dominates the binary fixed-alphabet claim. The lemma supplies the framework but requires the verified new instantiation.",
+        "searches": [
+          "arXiv:2609.17353 Theorems 2-3 and Lemma 1",
+          "binary prefix-free graph hardness"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.17353",
+        "https://ceur-ws.org/Vol-3498/paper27.pdf",
+        "assigned package RESULT.md and artifacts/verify_binary_code.py",
+        "https://resultary.org/api/v1/search?q=binary%20prefix-free%20graph%20NP-hard&limit=5",
+        "public web queries listed per check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete lemma explicitly requires synchronized-code and guard hypotheses; Theorem 3 supplies a ternary code only"
+        ],
+        "reasoning": "The binary construction is not a direct corollary until its marker and guard properties are proved; those properties are established in the package.",
+        "searches": [
+          "2609.17353 Lemma 1, Theorem 3, Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.17353v1 Problems 3-4 and Section 3.2 define MPFG and restricted-trigger variant; Corollary 1 transfers hardness to restricted-trigger setting only",
+          "Resultary closest hit 2026/9/18/SCOPE-binary-alphabet-prefix-free-graph-hardness--7b68f096365c is the same assigned item, not independent prior coverage"
+        ],
+        "reasoning": "The result concerns trigger-selection MPFG, not unrelated graph prefix-free code assignment. No equivalent prior binary formulation was located.",
+        "searches": [
+          "binary prefix-free graph NP-hard trigger",
+          "minimum prefix-free graph binary alphabet NP-hard",
+          "Baláž Popa 2609.17353 full Section 3.2",
+          "Resultary API query prefix-free graph trigger binary hardness at 2026-10-02T14:11Z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both Resultary queries returned assigned ID 2026/9/18/SCOPE-binary-alphabet-prefix-free-graph-hardness--7b68f096365c as the closest hit; other hits were unrelated cover-free graphs, LPO, and bunkbed percolation. No separate exact complexity claim was found."
+        ],
+        "reasoning": "No parameter database is applicable to a complexity theorem. This is an actual Resultary query, but negative search is not proof of priority.",
+        "searches": [
+          "Resultary API https://resultary.org/api/v1/search?q=binary%20prefix-free%20graph%20NP-hard&limit=5 at 2026-10-02T14:11Z",
+          "Resultary API query prefix-free graph trigger binary hardness",
+          "binary MPFG hardness"
+        ]
+      },
+      "rationale": "The motivating complete primary text proves fixed-k with growing alphabets (Theorem 2) and size-three variable-k hardness (Theorem 3), not binary hardness; its Lemma 1 is a reusable reduction rather than an explicit binary instance. A same-problem literature search found no prior binary MPFG result. Best-of-knowledge, with the recent-paper/simultaneous-work caveat.",
+      "residual_risks": [
+        "Recent 2026 source might receive an updated or parallel binary proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS_REDUCTION_NOT_COVERING_BINARY",
+          "evidence": "Lemma 1 at lines 225-253 gives hypotheses and affine optimum; Theorem 3 at lines 263-275 uses ternary delimiter 2.",
+          "identifier_or_url": "https://arxiv.org/html/2609.17353",
+          "material_read": "Full HTML Sections 2, 3.1, 3.2 and exact-algorithm statements; specifically Lemma 1 and proof, Theorems 2-3, Corollary 1",
+          "method": "Primary arXiv full-text reading and clause-by-clause comparison",
+          "title": "Towards Optimal Prefix-Free Graph Construction: NP-Hardness and Structural Insights",
+          "trigger": "Exact source reduction and nearest prior theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [],
+      "rationale": "Moving the proven hardness boundary from a three-symbol alphabet to binary is a natural minimum-alphabet classification for a biologically motivated parsing optimization problem. The fixed-k versus logarithmic-k contrast accurately delineates the parameter dependence of the source's O(2^q N) algorithm. This is not just a relabeled instance: an explicit self-synchronizing/guarded binary encoding is required.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Minimum prefix-free graph construction is NP-complete over a fixed binary alphabet, with hard instances having logarithmic trigger length.",
+  "limitations": [
+    "Recent 2026 source might receive an updated or parallel binary proof."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Recent 2026 source might receive an updated or parallel binary proof."
+  ]
+}
