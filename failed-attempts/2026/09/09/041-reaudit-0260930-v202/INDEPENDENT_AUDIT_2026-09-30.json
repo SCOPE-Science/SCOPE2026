@@ -1,0 +1,100 @@
+{
+  "audited_at_utc": "2026-09-30T22:49:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh independent segmented-sieve recomputation over every integer in [1030000000,1050000000] reproduced exactly 61,310 twin lower members, first 1030000259 and last 1049999957, 61,309 interarrival gaps, unique maximum 3870 at index 19459 between lower members 1036385639 and 1036389509, gap sum 19,999,698, median 228, mean 326.2114534570781, 2,571 gaps >=1000, and the first cousin lower member 1030000567. All gaps are multiples of 6. The two committed independent sieve implementations and deterministic primality checks are therefore corroborated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources cover cumulative twin counts, general theory, or consecutive-prime record gaps rather than all twin interarrivals in this window."
+        ],
+        "reasoning": "Global/cumulative resources do not imply the unique local maximum without a finite scan.",
+        "searches": [
+          "OEIS A007508 twin counts below powers of ten",
+          "MathWorld Twin Primes",
+          "Prime Gap List Project"
+        ]
+      },
+      "checked_sources": [
+        "published SCOPE findings search",
+        "OEIS A007508",
+        "MathWorld Twin Primes",
+        "Prime Gap List Project"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asymptotic/conjectural twin-prime distribution and bounded-gap theorems do not determine an exact local census."
+        ],
+        "reasoning": "The window result is computational, not a corollary of general theory.",
+        "searches": [
+          "Hardy-Littlewood twin-prime approximation",
+          "Brun theorem",
+          "bounded prime gaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic match was the present record; no independent exact-window publication was located."
+        ],
+        "reasoning": "No equivalent table or endpoint statement was found.",
+        "searches": [
+          "published-record search: twin prime interarrival gap 1030000000 1050000000 3870",
+          "web exact endpoint and gap searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007508 lists pi_2(\\(10^n\\)); no checked database supplied the 61,310-member window list or the 3870 maximum."
+        ],
+        "reasoning": "The exact finite table appears absent from the checked standard resources.",
+        "searches": [
+          "OEIS A007508",
+          "Nicely/Sebah twin counts",
+          "prime-gap databases twin interarrival"
+        ]
+      },
+      "rationale": "No checked source or published SCOPE record contained this exact 20-million-wide twin-interarrival table or maximum. Standard twin-prime databases give cumulative counts or global data, not this interval-specific gap log.",
+      "residual_risks": [
+        "A specialized unpublished or nonindexed twin-prime dataset could contain the same window; no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Provides cumulative counts only at powers of ten, not interval interarrival gaps.",
+          "identifier_or_url": "https://oeis.org/A007508",
+          "material_read": "complete sequence page with values, comments, references and formulas",
+          "method": "database full page",
+          "title": "OEIS A007508: Number of twin prime pairs below \\(10^n\\)",
+          "trigger": "standard exact twin-count table nearest the window scale"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "No exact [1.03e9,1.05e9] interarrival table or maximum.",
+          "identifier_or_url": "https://mathworld.wolfram.com/TwinPrimes.html",
+          "material_read": "definition and general distribution/theorem material",
+          "method": "reference full page",
+          "title": "Twin Primes",
+          "trigger": "standard twin-prime reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The interval [1030000000,1050000000] is not tied to an intrinsic arithmetic threshold, extremal transition, or externally motivated exact boundary. The result is a routine sieve census of one chosen 20,000,001-integer slice; the stated Hardy-Littlewood calibration motivation does not establish a need for this precise slice, and neighboring windows would serve similarly. Correctness, reproducibility and apparent novelty therefore do not meet the required value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim_note": "The mathematical computation is retained as evidence, but the finding is not accepted because the value axis fails.",
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "limitations": [
+    "Finite interval census only; no claim outside [1030000000,1050000000] and no asymptotic/infinitude result.",
+    "Correctness rests on agreement of two independent stdlib sieve implementations plus deterministic Miller-Rabin replay; no machine-checked proof of code.",
+    "Heuristic-calibration use is conjectural future work."
+  ],
+  "record_id": "SCOPE-20260909-041",
+  "schema_version": 1
+}
