@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For a language with an identity neutral letter, the source characterization reduces constant circuit complexity to alphabeticity. Alphabeticity is equivalent to idempotence and commutation of letter actions modulo right-language equivalence at every reachable state: the forward direction is immediate from support invariance, and adjacent swaps plus duplicate deletion generate the free semilattice congruence for the converse. A violation has an NL witness consisting of a reachable context and a product-automaton path to an accepting/nonaccepting pair. Hardness is sound: in the fixed ternary construction, unreachable t gives the empty alphabetic language, while a first-hit path word w is accepted and ww, with identical support, is rejected. Complement reachability is NL-complete because NL=coNL.
+- Originality: **PASS** — The directly relevant 2026 source states the neutral-letter characterization and NFA PSPACE-completeness but no arbitrary-DFA complexity classification in the accessible primary material. Masopust's prior work gives NL-completeness for general piecewise-testability recognition from DFAs and higher-k results, while the special 1-piecewise/alphabetic local criterion cited in the literature is for minimal DFAs. Targeted searches found no prior NL-completeness theorem for 1-piecewise/alphabetic recognition from arbitrary nonminimal DFAs, especially with an explicit identity letter and fixed ternary alphabet. Full text of the 2026 source remained inaccessible, so this is best-of-knowledge.
+- Value: **PASS** — The theorem isolates a genuine representation-complexity boundary for a natural regular-language class: minimal presentations admit a very low-complexity local test, arbitrary deterministic presentations require NL-complete semantic quotienting, and nondeterministic presentations reach PSPACE. Fixed alphabet and syntactic neutrality make the separation robust rather than encoding-driven.
+
+Detailed comparisons and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
