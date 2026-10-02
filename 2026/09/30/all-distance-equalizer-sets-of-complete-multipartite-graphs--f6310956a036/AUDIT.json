@@ -1,23 +1,110 @@
 {
+  "audit_date_utc": "2026-10-01",
   "correctness": {
-    "rationale": "For a same-part outside pair, every selected vertex has equal distances to the pair; for a cross-part outside pair, a selected vertex is equidistant exactly when it lies in a third part. This proves the iff characterization by a complete case split on whether some part is fully selected and on the number of supported parts. Invalid sets then decompose disjointly into support sizes zero, one, and two with nonempty proper part-subsets, giving the multivariate and univariate enumerators. The minimum-set classification follows from the same criterion. Exhaustive direct-definition verification covers all 8084 subsets of all 58 complete multipartite isomorphism types through order eight and matches every coefficient vector and minimum-count prediction.",
+    "reason": "In a complete multipartite graph, two vertices in the same part have equal distance from every selected vertex. For outside vertices in distinct parts \\(A_i,A_j\\), a selected vertex equalizes them exactly when it lies in a third part. If a whole part lies in \\(S\\), every outside cross-part pair has that third part available. If no part is fully selected, every part still has an outside vertex; support in at least three parts is sufficient, while support of size at most two leaves a cross-part outside pair with no selected third-part vertex. This proves the iff criterion. Invalid sets are therefore exactly nonempty-proper selections in zero, one, or two parts, giving the displayed product-subtraction enumerator. The minimum-size and minimum-count formulas follow by minimizing the two structural alternatives. Small exhaustive computation is corroborative only.",
+    "risk": "No correctness gap was found; the theorem is specific to complete multipartite graphs.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "final_claim": "For a connected complete multipartite graph \\(G=K_{n_1,\\ldots,n_r}\\), a set \\(S\\) is distance-equalizing exactly when it contains an entire part or meets at least three parts; this yields the complete selection-profile, multivariate and ordinary generating polynomials, total count, and the full classification and count of minimum distance-equalizer sets.",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
-    "rationale": "The original 2021 equidistant-dimension paper was checked and its complete-multipartite minimum formulas are treated as prior work. A 2024 complexity/lexicographic-product follow-up and current related equidistant-dimension literature were checked for stronger or equivalent coverage. Acceptance-time semantic searches using the exact structural criterion, generating-polynomial form, parameter synonyms, and minimum-set enumeration found no equivalent result; the closest published-result records concern different complete-multipartite parameters. The accumulated local ledger contains no equidistant or distance-equalizer finding. The novelty claim is restricted to the all-set structural characterization and its enumerative consequences.",
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper is narrower on this family; the follow-up treats different graph operations; related SCOPE records concern other resolving parameters."
+      ],
+      "reasoning": "No inspected result dominates the all-set theorem.",
+      "searches": [
+        "2021 primary paper full text",
+        "2024 complexity/lexicographic-product follow-up",
+        "Resultary related complete-multipartite graph parameters"
+      ]
+    },
+    "checked_sources": [
+      "Resultary semantic search: complete multipartite distance-equalizer all-set classification enumerator minimum sets",
+      "arXiv:2107.10805v1 full text",
+      "DOI 10.3934/math.2024744",
+      "Related published SCOPE complete-multipartite resolving-parameter records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proof gives selected minimum witnesses but not necessity for arbitrary \\(S\\), nor support-profile enumeration."
+      ],
+      "reasoning": "The known minimum formula does not determine all feasible sets or their generating polynomial, so it does not imply the final claim.",
+      "searches": [
+        "Theorem 9 proof in arXiv:2107.10805v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper states only minimum dimension values for complete multipartite graphs.",
+        "No checked source gives the audited iff support criterion."
+      ],
+      "reasoning": "The located prior theorem is not equivalent to the all-set classification.",
+      "searches": [
+        "Resultary distance-equalizer/all-set/multipartite aliases",
+        "arXiv:2107.10805v1 Section 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No earlier distance-equalizer enumerator or exact all-set table was returned."
+      ],
+      "reasoning": "The audited formulas arise from a new structural criterion rather than recomputing a known table.",
+      "searches": [
+        "Resultary structural and generating-polynomial search"
+      ]
+    },
+    "reason": "The González–Hernando–Mora primary full text was inspected through its complete-multipartite theorem and proof. Theorem 9 gives only the minimum equidistant-dimension values; its proof notes that a whole part is a witness in the bipartite case and that three vertices in three different parts are a witness when the smallest part has size at least three, but it does not classify all feasible sets or enumerate them. The 2024 follow-up concerns complexity and lexicographic products. Resultary semantic search returned the audited all-set theorem as the direct match and no earlier stronger distance-equalizer classification; nearby complete-multipartite findings concern different resolving parameters.",
+    "residual_risks": [
+      "An equivalent all-set theorem under alternate terminology or in an unindexed source could exist."
+    ],
+    "risk": "An equivalent all-set characterization under alternate terminology could be missed, so novelty remains best-of-knowledge rather than bibliographic impossibility.",
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "Theorem 9 gives the minimum equidistant dimension. Its proof supplies example minimum witnesses but not an iff classification of all distance-equalizer sets or any generating-polynomial enumeration.",
+        "identifier_or_url": "arXiv:2107.10805v1 / DOI 10.1007/s40840-022-01295-z",
+        "material_read": "Primary full text through Section 4.1, Theorem 9 and its proof",
+        "method": "Primary full-text PDF inspection",
+        "title": "The Equidistant Dimension of Graphs",
+        "trigger": "Same graph parameter and complete multipartite family"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It does not target all distance-equalizer sets of complete multipartite graphs.",
+        "identifier_or_url": "DOI 10.3934/math.2024744",
+        "material_read": "Bibliographic/abstract-level material sufficient to identify its scope as complexity and lexicographic products",
+        "method": "Literature inspection",
+        "title": "The equidistant dimension of graphs: NP-completeness and the case of lexicographic product graphs",
+        "trigger": "Later paper on the same parameter"
+      }
+    ],
     "status": "PASS"
   },
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_same_model_review": {
+    "correctness": {
+      "rationale": "For a same-part outside pair, every selected vertex has equal distances to the pair; for a cross-part outside pair, a selected vertex is equidistant exactly when it lies in a third part. This proves the iff characterization by a complete case split on whether some part is fully selected and on the number of supported parts. Invalid sets then decompose disjointly into support sizes zero, one, and two with nonempty proper part-subsets, giving the multivariate and univariate enumerators. The minimum-set classification follows from the same criterion. Exhaustive direct-definition verification covers all 8084 subsets of all 58 complete multipartite isomorphism types through order eight and matches every coefficient vector and minimum-count prediction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "The original 2021 equidistant-dimension paper was checked and its complete-multipartite minimum formulas are treated as prior work. A 2024 complexity/lexicographic-product follow-up and current related equidistant-dimension literature were checked for stronger or equivalent coverage. Acceptance-time semantic searches using the exact structural criterion, generating-polynomial form, parameter synonyms, and minimum-set enumeration found no equivalent result; the closest published-result records concern different complete-multipartite parameters. The accumulated local ledger contains no equidistant or distance-equalizer finding. The novelty claim is restricted to the all-set structural characterization and its enumerative consequences.",
+      "status": "PASS"
+    },
+    "status": "passed",
+    "value": {
+      "rationale": "The theorem upgrades a single extremal number to a complete feasible-set classification. It yields exact selection-profile counts, a multivariate enumerator retaining part information, the ordinary size polynomial, total counts, and exact minimum-basis counts for every complete multipartite graph. These are reusable structural data for probabilistic, weighted, and comparative questions, not a routine increment of the known dimension formula.",
+      "status": "PASS"
+    }
+  },
+  "record_id": "SCOPE-20260930-f6310956a036",
   "schema_version": 1,
-  "scope_run_id": "f6310956-a036-4bd3-9dfe-0b0f8b1210cb",
   "value": {
-    "rationale": "The theorem upgrades a single extremal number to a complete feasible-set classification. It yields exact selection-profile counts, a multivariate enumerator retaining part information, the ordinary size polynomial, total counts, and exact minimum-basis counts for every complete multipartite graph. These are reusable structural data for probabilistic, weighted, and comparative questions, not a routine increment of the known dimension formula.",
+    "reason": "This upgrades a known single extremal number to a natural complete feasible-set classification and derives exact profile counts, multivariate and univariate enumerators, total counts, and all minimum bases. The user-specified value bar explicitly allows natural complete classifications and exact finite structural invariants; this one supports weighted, probabilistic, and comparative questions beyond the known dimension formula.",
+    "risk": "The contribution is confined to complete multipartite graphs and the resulting formulas are elementary once the structural criterion is known.",
     "status": "PASS"
   },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
