@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T00:45:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof",
+        "artifacts/verify_disproof.py (blob 9a33a80633875051a40c63dd4b62c66f8bc46a01) as illustration only"
+      ],
+      "rationale": "The proof is self-contained. Contracting any 3-set C gives a loopless rank-2 matroid. Two remaining points are parallel exactly when C together with them is a nonbasis. Johnson stability makes this pair graph a matching; on n-3>=9 vertices such a matching has an independent 5-set, whose restriction is U_{2,5}. No finite experiment is needed for the theorem.",
+      "residual_risks": [
+        "The bound n>=12 is sharp for this matching-independence argument, not asserted to classify all n<=11 cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected work gives asymptotic statements about fixed uniform minors in sparse paving matroids."
+        ],
+        "reasoning": "An asymptotic almost-all statement does not imply the exact theorem for every Johnson-stable rank-5 paving matroid on n>=12.",
+        "searches": [
+          "Pendavingh van der Pol sparse paving fixed uniform minor asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1411.0935"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable-set correspondence supplies terminology; the exact forced-minor implication requires the new matching argument."
+        ],
+        "reasoning": "The inspected prior results do not mechanically imply the all-n>=12 conclusion.",
+        "searches": [
+          "stable-set correspondence plus uniform-minor literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published sparse-paving work uses stable sets of Johnson graphs as the standard encoding."
+        ],
+        "reasoning": "That encoding matches the hypothesis but does not itself contain the contraction lemma.",
+        "searches": [
+          "\"rank 5 paving matroid Johnson stable nonbases U_{2,5} minor matching contraction\"",
+          "Johnson graph stable set sparse paving matroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact census/table covering all n>=12 was found."
+        ],
+        "reasoning": "The proof is theorem-level and not a recomputation of a known finite table.",
+        "searches": [
+          "small matroid census U2,5 paving n 12 Johnson stable"
+        ]
+      },
+      "rationale": "The inspected sparse-paving literature identifies Johnson-graph stable sets with sparse paving matroids and proves broad asymptotic uniform-minor phenomena, but it does not state this exact rank-5 all-n>=12 matching-contraction obstruction.",
+      "residual_risks": [
+        "An older specialized excluded-minor lemma under different language could overlap; no such result was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The source gives the Johnson-stable encoding and asymptotic context, not the exact rank-5 n>=12 theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0935",
+          "material_read": "Stable-set correspondence and the relevant uniform-minor discussion.",
+          "method": "Primary full-text inspection.",
+          "title": "On the number of matroids compared to the number of sparse paving matroids",
+          "trigger": "Primary sparse-paving source using Johnson graph stable sets and uniform-minor context."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "excluded-uniform-minor context",
+        "sparse-paving/Johnson stable-set literature"
+      ],
+      "rationale": "The matching-contraction lemma is a concise structural obstruction that rules out an entire proposed infinite sparse-paving construction regime and directly links a natural Johnson-stability condition to a fixed excluded uniform minor. This is a motivated reusable structural fact rather than an arbitrary finite computation.",
+      "residual_risks": [
+        "The theorem deliberately says nothing about non-Johnson-stable or n<=11 cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every rank-5 paving matroid on n>=12 points whose nonbases are Johnson-stable has a U_{2,5} minor.",
+  "limitations": [
+    "The bound n>=12 is sharp for this matching-independence argument, not asserted to classify all n<=11 cases.",
+    "An older specialized excluded-minor lemma under different language could overlap; no such result was located.",
+    "The theorem deliberately says nothing about non-Johnson-stable or n<=11 cases."
+  ],
+  "record_id": "SCOPE-20260911-014",
+  "schema_version": 1
+}
