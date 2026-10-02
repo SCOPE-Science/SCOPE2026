@@ -1,0 +1,74 @@
+# Independent mathematical audit — 2026-09-30
+
+## Outcome
+
+**PASSED** for the final finding as stated.
+
+## Correctness — PASS
+
+The explicit id-3/id-24 edge lists independently reconstruct as connected 3-regular bipartite graphs, are non-isomorphic, and have exactly the shared stated characteristic polynomial. The committed verifier checks all 149 catalog graphs for cubic/connected/bipartite 9+9 structure and recomputes every characteristic polynomial by Bareiss determinant interpolation; its exact partition has 131 classes, 17 non-singletons and 19 unordered cospectral pairs. Completeness is correctly stated as conditional on the published count A006823(9)=149 rather than claimed from the random generator alone.
+
+## Originality — PASS
+
+The published enumeration count 149 is known, but the inspected sources do not provide the exact adjacency-spectral partition, the 17 non-singleton classes, or the diameter/girth annotations. The record explicitly excludes the known type count from its novelty claim. No stronger prior spectral catalog for this exact stratum was found.
+
+### equivalent_formulations
+
+Searches: 18 vertex connected cubic bipartite cospectral graphs 149; bicubic graphs order 18 characteristic polynomial census; trivalent bipartite 18 vertices cospectral
+
+Evidence: The exact semantic search returns the assigned record; general cospectral-graph sources and adjacent graph catalogs do not state this partition.
+
+Reasoning: Cospectrality, characteristic-polynomial equality, and adjacency-spectrum formulations were searched with bicubic/trivalent-bipartite aliases; no equivalent census was found.
+
+### broader_coverage
+
+Searches: cubic graph generation order 18 bipartite; Godsil McKay cospectral graphs; graphs determined by spectrum survey
+
+Evidence: Generation literature supplies graph universes and general cospectral constructions, not this exact spectral partition.
+
+Reasoning: Known generation methods and cospectral constructions do not logically determine the listed 131 classes without the finite computation.
+
+### exact_database_or_table
+
+Searches: OEIS A006823; connected trivalent bipartite graphs 18 vertices database; House of Graphs cubic bipartite 18 vertices
+
+Evidence: OEIS A006823 gives 149 connected trivalent bipartite graphs on 18 vertices, supplying the external universe count but no inspected characteristic-polynomial partition.
+
+Reasoning: The known count is explicitly background; the target spectral partition and diameter annotation are not present in the inspected enumeration source.
+
+### claim_vs_prior_implication
+
+Searches: 149 connected trivalent bipartite 18 vertices spectrum; A006823 characteristic polynomials
+
+Evidence: No inspected prior source maps the 149 isomorphism types to 131 exact characteristic-polynomial classes.
+
+Reasoning: The external enumeration count plus general spectral theory does not imply the final census.
+
+### source_inspections
+
+
+- **OEIS A006823 — Number of connected trivalent bipartite graphs with 2n nodes** (https://oeis.org/A006823): trigger=External completeness count used by the theorem.; material read=Current sequence entry and references/definition.; method=Database entry inspection.; assessment=Confirms a(9)=149; does not supply the audited spectral partition.; evidence=The sequence value for 18 vertices is 149.
+
+- **Assigned spectral verifier** (2026/09/08/002/artifacts/verify.py): trigger=Critical exact-polynomial and isomorphism checks.; material read=Complete source file.; method=Source inspection plus independent reconstruction of the explicit minimal pair.; assessment=Recomputes all stored exact characteristic polynomials and checks the explicit pair; completeness remains appropriately conditional on the external type count.; evidence=Independent pair reconstruction matched the stated polynomial and returned non-isomorphic.
+
+### checked_sources
+
+- OEIS A006823
+- van Dam–Haemers (2003) DS/NDS survey
+- Godsil–McKay (1982) cospectral construction
+- assigned RESULT.md and verify.py
+
+### residual_risks
+
+- A specialized spectral graph database could contain the same partition without being exposed by the inspected search paths.
+- The external count is taken from OEIS/referenced enumerations rather than regenerated from first principles.
+
+## Scientific value — PASS
+
+A complete spectral partition of a natural standard graph stratum, with exact polynomials and a diameter non-invariance witness, is a motivated classification/reference object. The known universe count does not make the spectral annotation routine or valueless.
+
+## Limitations
+
+- Completeness is conditional on the published 149-type enumeration.
+- The custom catalog is not independently regenerated from a canonical generator in this audit.
+- Originality remains best-of-knowledge.
