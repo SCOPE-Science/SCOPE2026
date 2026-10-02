@@ -1,23 +1,31 @@
 {
-  "correctness": {
-    "rationale": "A nested-prefix continuity argument proves that r persistently uniquely forceable source outputs require at least r target output values. Every nonempty color subset is persistently uniquely forceable for cShuffle_m by making precisely those colors dense everywhere outside a finite prefix. Therefore cShuffle_m cannot reduce to (LPO prime)^n when 2^m-1 exceeds 2^n; source lemmas supply the matching lower embedding and, for m=2, the strict upper comparison.",
-    "status": "PASS"
+  "independent_audit_evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent_audit_status": "passed",
+  "independent_axes": {
+    "correctness": {
+      "rationale": "The finite-output obstruction is valid: if a multivalued problem reduces to a single-valued discrete problem with \\(s\\) outputs, at most \\(s\\) outputs can be persistently uniquely forceable. Continuity lets one successively extend the input prefix while keeping the same canonical oracle output name, contradicting a forced change of answer after \\(s+1\\) commitments. For \\(\\mathsf{cShuffle}_m\\), every nonempty color set \\(C\\) is persistently uniquely forceable by extending any finite coloring so exactly the colors in \\(C\\) occur densely in every rational interval and all outside colors stop. Thus there are \\(2^m-1\\) forceable outputs, whereas \\((\\mathsf{LPO}^{\\prime})^n\\) has \\(2^n\\) outputs, ruling out all \\(n<m\\). The strict two-color sandwich combines this lower bound with the published upper and reverse-separation bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "The Pauly–Pradic–Soldà full paper explicitly leaves the relation between \\((\\mathsf{LPO}^{\\prime})^n\\) and fixed-color \\(\\mathsf{cShuffle}_m\\) as Open Question 30 after proving the global finite-parallel equivalence. Targeted Resultary search found no earlier fixed-color lower bound of one jumped-LPO bit per color. The general finite-output continuity lemma is not claimed as the novelty; the solved parameter lower bound is.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes the lower side of an explicit fixed-parameter Weihrauch question and decides the first open case exactly up to the known strict upper bound. The argument isolates a reusable discrete-output obstruction tied to the \\(2^m-1\\) persistent palettes.",
+      "status": "PASS"
+    }
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "originality": {
-    "rationale": "The primary source explicitly leaves the individual n,m relationship open, and later literature still describes the color-count versus parallel-LPO-prime relationship as unresolved. Targeted literature and semantic searches found no equivalent cardinality obstruction, general n at least m lower bound, or exact two-color sandwich. This is a best-of-knowledge assessment.",
-    "status": "PASS"
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260930-c2d7326600bf",
+  "same_model_review": {
+    "note": "The prior same-model assessment remains historical evidence and is not relabeled as the independent audit.",
+    "source_blob_sha": "c3901fabe6bc60b5a12b9da5794cb5d759241424",
+    "status": "passed"
   },
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
   "schema_version": 1,
-  "scope_run_id": "c2d73266-00bf-443b-9588-47a248e70a5d",
-  "value": {
-    "rationale": "The result exactly resolves the first nontrivial case of a published open question and supplies a uniform linear lower bound on the number of parallel jumped-LPO calls needed for every fixed number of colors, while isolating a reusable finite-output Weihrauch obstruction.",
-    "status": "PASS"
-  },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }

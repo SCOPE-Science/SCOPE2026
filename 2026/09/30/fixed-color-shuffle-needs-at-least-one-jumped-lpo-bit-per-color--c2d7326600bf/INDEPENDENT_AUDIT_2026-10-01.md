@@ -23,7 +23,3 @@ For every number of colors \(m\ge2\), \(\mathsf{cShuffle}_m\) is not Weihrauch r
 ## Residual risks
 
 - Later or very recent work answering Open Question 30 under alternate cShuffle notation could be missed by the targeted searches.
-
-## Review status
-
-Fresh independent scientific audit: **passed** on correctness, originality, and value.
