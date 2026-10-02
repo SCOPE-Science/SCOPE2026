@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T16:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob ac1ca1b38db2c8241e470c537e22ce24045bdedb",
+        "Frozen artifacts tree 3987beccb3355467cd986339da6652d219c40466",
+        "Aoutouf--Augot arXiv:2609.19929v1 full text, especially Sections 4--5"
+      ],
+      "rationale": "The rank-transfer proof reconstructs directly. For a nonzero computation-code word a=uG, choosing a B-basis alpha_1,...,alpha_r of the B-span of its coordinates expresses every reused leakage g_j(a_i c_j) as a B-linear combination of the r base-share leakages g_j(alpha_l c_j). Feeding the product decoder the one-dimensional family (u_1 c,...,u_K c) therefore recovers a nonzero scalar multiple of c_0 from at most r B-symbols per share. For the systematic one-output code, rank one is exactly a nontrivial B-relation among the coefficient classes mu_i+B in F/B; independence excludes rank one and a generator row supplies rank two. The K>=m, quadratic-extension, and LFSR consequences follow from dimension and scalar-invariance of B-span. The finite verifier is only corroborative and is not used as the infinite proof.",
+      "residual_risks": [
+        "The theorem is necessary rather than sufficient when the minimum subfield rank exceeds one; no existence conclusion is inferred in that regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later 231ee5b4c708 record gives an exact column-subfield-rank law for the local leakage map and is broader in a different direction, but its first RESULT.md commit is 2026-09-19T17:29:57Z, after the audited record's 2026-09-19T03:27:56Z first commit.",
+          "The 18 September stabilizer theorem covers the special whole-computation descent regime and exact trace stabilizer B.",
+          "Aoutouf--Augot only proves simple-addition collapse and otherwise gives simulations/possibility statements for weighted relations and LFSRs."
+        ],
+        "reasoning": "The only stronger close match found is later, while the genuinely prior SCOPE theorem is a special case rather than dominating coverage.",
+        "searches": [
+          "Resultary 2026/9/19/SCOPE-subfield-rank-law-identical-linear-leakage--231ee5b4c708",
+          "Resultary 2026/9/18/SCOPE-identical-leakage-subfield-obstruction--7e9d9ede3eb3",
+          "Aoutouf--Augot arXiv:2609.19929v1 Sections 4--5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2609.19929v1 complete text",
+        "Resultary 7e9d9ede3eb3 complete RESULT.md",
+        "Resultary 231ee5b4c708 complete RESULT.md and Git chronology",
+        "Frozen package RESULT.md/AUDIT.json/METADATA.json and artifact tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source paper's Section 5 proves only the simple-addition identical-leakage reduction and says the same seems to extend to array summation; weighted relations and LFSRs are supported by simulations/examples rather than a rank classification.",
+          "The 18 September stabilizer theorem does not imply a reduction from an arbitrary computation code merely because one nonzero codeword has small coordinate B-rank.",
+          "The later column-rank theorem can reproduce closely related restricted-line rank facts, but it postdates the audited record."
+        ],
+        "reasoning": "No earlier inspected theorem mechanically implies the final theorem. Later overlap is recorded as chronology/risk rather than misclassified as prior art.",
+        "searches": [
+          "Full-text comparison against arXiv:2609.19929v1",
+          "Full RESULT.md comparison against 7e9d9ede3eb3",
+          "Full RESULT.md plus commit chronology comparison against 231ee5b4c708"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-one condition is equivalent to the computation code containing a nonzero word on a projective B-line alpha B^N.",
+          "For one systematic output it is equivalent to B-linear dependence of the coefficient classes in F/B.",
+          "The earlier stabilizer formulation only forces no amplification when all relevant computation coefficients act through the leakage quotient; it does not classify low-rank words in an arbitrary computation code."
+        ],
+        "reasoning": "Rank-metric/projective-line and quotient-space aliases were checked explicitly. None of the prior material inspected before the record implies the full row-codeword transfer theorem.",
+        "searches": [
+          "Resultary query: subfield rank identical leakage linear computations Aoutouf Augot quotient F/B exact repair",
+          "Aoutouf--Augot arXiv:2609.19929v1",
+          "Resultary 2026/9/18/SCOPE-identical-leakage-subfield-obstruction--7e9d9ede3eb3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No pre-2026-09-19 exact Resultary entry with the minimum computation-codeword B-rank transfer or the F/B dependence criterion was found."
+        ],
+        "reasoning": "There is no finite table lookup; the relevant mathematical finding database was searched directly, and chronology was checked for the closest same-day match.",
+        "searches": [
+          "Resultary semantic search returned 2026/9/19/SCOPE-subfield-rank-obstruction-identical-leakage--87665986b2bd, 2026/9/19/SCOPE-subfield-rank-law-identical-linear-leakage--231ee5b4c708, and 2026/9/18/SCOPE-identical-leakage-subfield-obstruction--7e9d9ede3eb3 among the top hits"
+        ]
+      },
+      "rationale": "The motivating Aoutouf--Augot paper proves the identical-leakage collapse for simple addition and reports simulations for weighted relations and LFSRs, but its complete v1 does not state the minimum-row-subfield-rank transfer theorem or the quotient-space classification. The earlier 18 September SCOPE stabilizer-field result covers computations whose entire coefficient matrix descends to the leakage stabilizer field, not the more general obstruction obtained from a single low-rank computation-code word. A very close column-subfield-rank SCOPE theorem was published later on 19 September; repository chronology places the audited record at 03:27:56 UTC and that later record at 17:29:57 UTC, so it is not prior coverage.",
+      "residual_risks": [
+        "The motivating preprint and the close same-day SCOPE activity make near-simultaneous independent discovery plausible.",
+        "Older coding-theory/rank-metric literature may use different terminology, but no inspected prior theorem was found to imply the leakage-transfer statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Section 5 derives simple-addition collapse and reports weighted-relation/LFSR behavior, but does not state the minimum row-codeword B-rank transfer theorem or the F/B quotient criterion.",
+          "identifier_or_url": "arXiv:2609.19929v1",
+          "material_read": "Complete 23-page text, including base LERS criterion, general computation-code construction, Sections 4.1--4.4, Section 5 on identical leakage, and appendices.",
+          "method": "Lawful arXiv/open-access retrieval followed by authorized institutional PDF text access.",
+          "title": "On the Leakage of Massey Secret Sharing Schemes under Linear Computations",
+          "trigger": "Exact motivating paper; same leakage model and computation codes."
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": "Covers computations defined over the common stabilizer field, including the trace-leakage base-field case, but not arbitrary low-B-rank computation-code words.",
+          "identifier_or_url": "Resultary:2026/9/18/SCOPE-identical-leakage-subfield-obstruction--7e9d9ede3eb3",
+          "material_read": "Complete RESULT.md from the Resultary Git repository.",
+          "method": "Read-only Git blob/content inspection.",
+          "title": "Identical linear leakage cannot exploit computations over its stabilizer field",
+          "trigger": "Closest earlier SCOPE theorem on identical leakage."
+        },
+        {
+          "assessment": "LATER_CLOSE_COVERAGE",
+          "evidence": "The theorem gives exact column-subfield-rank leakage dimension, but its first record commit is 2026-09-19T17:29:57Z, later than the audited record's 03:27:56Z commit.",
+          "identifier_or_url": "Resultary:2026/9/19/SCOPE-subfield-rank-law-identical-linear-leakage--231ee5b4c708",
+          "material_read": "Complete RESULT.md and repository commit chronology.",
+          "method": "Read-only Git content and commit-history inspection.",
+          "title": "Subfield-rank law for identical leakage under linear computations",
+          "trigger": "Closest near-equivalent same-day Resultary hit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Aoutouf--Augot arXiv:2609.19929v1 Sections 4--5",
+        "Earlier stabilizer-field SCOPE theorem",
+        "Frozen proof"
+      ],
+      "rationale": "The result isolates a natural computation-code invariant that turns a product-code leakage attack into a quantitative base-code repair obstruction and gives a sharp one-output classification. It explains the simple-addition and LFSR boundary in one mechanism and rules out apparent weighted-relation gains in entire extension-degree regimes. This is a motivated structural boundary, not a parameter renaming or finite lookup.",
+      "residual_risks": [
+        "The theorem is an obstruction only; it does not settle existence in the rank-two intermediate regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The close same-day column-rank result is later rather than prior and is retained as a priority-risk note.",
+    "Publication is blocked by protected public slogan formatting, not by scientific uncertainty."
+  ],
+  "schema_version": 1
+}
