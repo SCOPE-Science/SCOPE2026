@@ -1,0 +1,111 @@
+# Independent mathematical audit — 2026-10-01
+
+Record: `SCOPE-20260920-707125062571`
+
+## Correctness — PASS
+
+The finite-fiber separation proof is sound. Equality of all upper-diagonal moments implies equality, for every nonnegative \(q\), of the circle pushforwards of \(|z|^{2q}\mu\) and of the complex measures \(z|z|^{2q}\mu\), because their Fourier coefficients are precisely the even- and odd-total-degree extension moments. After disintegration over the common angular pushforward, each fiber is finite. Vandermonde inversion recovers the total mass at every distinct squared radius, and the \(z\)-weighted moments then distinguish the at-most-two antipodal points sharing one radius and angle. For an algebraic zero set avoiding the origin, restricting \(p(z,ar z)\) to a radial line gives a nonzero one-variable polynomial because its value at zero is nonzero, so every ray fiber is finite. The inspected primary Theorem 22 supplies the remaining support, surjectivity, and zero-circle-component statements needed for the corollary.
+
+### Correctness sources
+
+- assigned RESULT.md
+- Cichoń–Stochel–Szafraniec 2019, full PDF Theorem 22 and Corollary 23
+- standard Fourier uniqueness and disintegration/Vandermonde arguments
+
+### Correctness risks
+
+- The theorem is qualitative and gives no stability estimate.
+- Supports containing an entire radial component are not covered.
+
+## Originality — PASS
+
+The primary paper was inspected in full at its decisive theorem. Its Theorem 22 proves only equality of angular pushforwards in general and obtains injectivity of the measure-to-extension map when \(\psi\) is injective; Corollary 23 retains that one-point radial-intersection hypothesis. The audited finite-fiber argument uses the full tower of even and odd extension moments to recover conditional radial masses and antipodal signs, thereby removing that hypothesis for every algebraic zero set avoiding zero. Fresh Resultary searches found no broader/current theorem already making this replacement.
+
+### equivalent_formulations
+
+Searches:
+- Resultary: complex moment positive-definite extension finite ray fibers algebraic support injectivity
+- primary full-text comparison with Theorem 22(iv)-(v) and Corollary 23
+
+Evidence:
+- The source explicitly assumes injectivity of \(\psi\) for the bijection/determinacy conclusion.
+- The exact finite-ray theorem is the only matching current Resultary finding.
+
+Reasoning:
+Equivalent formulations as finite fibers of \(z/ar z\), finite intersection with each line through zero, and conditional radial moment determinacy were compared.
+
+### broader_coverage
+
+Searches:
+- 2019 primary theorem
+- 2020 survey of Szafraniec's work
+- general moment-problem fibre-theorem literature
+
+Evidence:
+- The inspected source's broader algebraic-support theorem stops at equality of angular pushforwards without an injective fiber map.
+
+Reasoning:
+General moment-problem fibre methods do not mechanically imply this upper-diagonal even/odd recovery argument on antipodal finite fibers.
+
+### exact_database_or_table
+
+Searches:
+- Resultary current moment-problem findings
+- complex moment extension searches
+
+Evidence:
+- No exact database/table of finite-ray extensions was located.
+
+Reasoning:
+The claim is a measure-uniqueness theorem, not a tabulated invariant.
+
+### claim_vs_prior_implication
+
+Searches:
+- claim-versus-Theorem-22 implication comparison
+
+Evidence:
+- Theorem 22(iii) gives only \(\psi_*\mu_1=\psi_*\mu_2\); without injectivity that does not determine the conditional distribution on a fiber. The audited use of all radial moments supplies genuinely additional information.
+
+Reasoning:
+The final claim is not a corollary of the source theorem's angular-pushforward equality.
+
+### source_inspections
+
+- **The complex moment problem: determinacy and extendibility** — https://doi.org/10.7146/math.scand.a-112091. Trigger: Primary source containing the hypothesis being removed. Material read: Complete relevant full-text section of the 26-page paper, including Theorem 22, its proof, Corollary 23, and the examples/discussion immediately following. Method: Primary full-text theorem and implication comparison. Assessment: NOT COVERING the finite-fiber strengthening. Evidence: Theorem 22(iv)-(v) requires injectivity of \(\psi\); Corollary 23 repeats that assumption, and the paper notes many standard algebraic curves fail it.
+- **Assigned finite-ray proof** — assigned RESULT.md. Trigger: New separation mechanism. Material read: Complete file. Method: Independent proof reconstruction. Assessment: The even/odd Fourier-disintegration-Vandermonde mechanism is valid. Evidence: Even moments determine masses by radius; odd moments separate the two antipodal points at a fixed radius.
+
+### checked_sources
+
+- https://doi.org/10.7146/math.scand.a-112091 full text
+- https://arxiv.org/abs/1803.03066
+- current Resultary finite-ray search
+- assigned RESULT.md
+
+### residual_risks
+
+- A differently phrased or poorly indexed finite-fiber uniqueness theorem could exist, but none was located.
+
+## Scientific value — PASS
+
+The one-point radial-intersection condition excludes many elementary algebraic curves. Replacing it by finite fibers automatically covers every algebraic zero set avoiding the origin and upgrades a named partial determinacy result without claiming the still-open general converse. The finite-fiber separation lemma is also reusable outside the algebraic corollary.
+
+### Value sources
+
+- Cichoń–Stochel–Szafraniec Theorem 22 and Corollary 23
+- assigned finite-fiber separation theorem
+
+### Value risks
+
+- The general singleton-extension determinacy question remains open.
+
+## Limitations
+
+- The general singleton-PDE determinacy question remains open.
+- The algebraic corollary requires the zero set to avoid the origin.
+- Infinite radial fibers are outside the theorem.
+- No quantitative stability estimate is obtained.
+
+## Disposition
+
+**PASSED**
