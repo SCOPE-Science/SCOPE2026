@@ -1,20 +1,23 @@
 ---
 {
-  "schema_version": 1,
+  "expert_attestation": {
+    "evidence": null,
+    "status": "unknown"
+  },
   "independent_audit": {
-    "status": "not_performed",
-    "evidence": null
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
-    "status": "unknown",
-    "evidence": null
+    "evidence": null,
+    "status": "unknown"
   },
-  "expert_attestation": {
-    "status": "unknown",
-    "evidence": null
-  }
+  "schema_version": 1
 }
 ---
 
-Fresh independent audit: not yet performed. Prior certification is inactive.
-Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
+The independent-audit channel reflects the fresh mathematical assessment recorded in the cited audit pair.
+Existing computational artifacts remain reproducibility evidence. Lean and expert-attestation channels are unchanged.
