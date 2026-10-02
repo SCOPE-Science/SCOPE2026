@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The operator construction is sound. Each level map \(J_n:\ell_{n+1}\to\ell_{n+2}\) is the standard noncompact strictly singular inclusion. Truncating a weighted tree shift to finitely many levels gives a finite sum of strictly singular operators, while the tail norm is bounded by the decaying weight supremum, so each full shift is strictly singular; its root-to-child restriction remains noncompact. For a word \(u\), the root block is carried to one unique descendant block with nonzero scalar \(b_{|u|}\). Distinct words land in distinct blocks or levels, and the images of root unit vectors under any nonzero polynomial remain uniformly separated. Hence no nonzero word polynomial is compact, while it remains strictly singular by the ideal property. This gives the asserted free non-unital algebra in the quotient.
+- Originality: **PASS** — The closest recent theorem of Laustsen–Wirzenius concerns finite direct sums and proves nilpotency of the strictly-singular/compact quotient; it does not cover countable direct sums. Resultary searches found no published theorem embedding a free associative algebra into this quotient for a countable tree of classical sequence spaces. Classical free-semigroup operator theory concerns bounded shifts but does not itself place generators in the strictly singular ideal modulo compacts. Originality therefore passes to the best of current knowledge.
+- Value: **PASS** — The construction marks a sharp qualitative boundary between finite and countable direct sums: a quotient that is nilpotent in the closest finite-sum setting can contain a free noncommutative algebra in an explicit countable classical example. This is a substantial operator-ideal phenomenon rather than an arbitrary construction.
+
+Detailed comparisons, source inspections, and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
