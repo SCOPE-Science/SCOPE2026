@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit: passed after repair.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+Correctness: **PASS**. Originality: **PASS**. Scientific value: **PASS**.
+
+The scientific results survive, but the literature/status wording about size 22 is corrected; see the dated independent-audit files.
+
+Evidence and source comparisons are recorded in `INDEPENDENT_AUDIT_2026-09-30.md` and `INDEPENDENT_AUDIT_2026-09-30.json`.
