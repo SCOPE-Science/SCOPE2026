@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The proof was reconstructed independently. Exact \(s\)-separability with more than \(s\) columns implies exact \(t\)-separability for every \(t<s\) by enlarging any colliding \(t\)-sets without changing their Boolean unions. In the explicit \(M_d\) family, the private rows reduce equality of two \((2d-1)\)-column unions to equality of the two omitted-column pairs, and the special rows separate every such pair. The two distinct covering obstructions force contradictory values for any single added row, whereas singleton rows for the two central columns make the matrix \(d\)-disjunct. Combining this lower construction with the Chen-Hwang theorem that a \(2d\)-separable matrix becomes \(d\)-disjunct after at most one added row gives \(G(s)=\lfloor s/2\rfloor\). The package verifier was inspected and an independent finite replay for \(d=2,\ldots,6\) reproduced exact separability and failure of every one-row augmentation; the general proof does not depend on that finite replay.
+- Originality: **PASS** — Chen and Hwang's primary three-page article was inspected and supplies the sharp upper implication used here, but it does not state a universal row-augmentation frontier or the two-obstruction witness proving optimality at every order. Searches used the equivalent union-free/cover-free terminology as well as separable/disjunct terminology, and current published-database search found no earlier statement of \(G(s)=\lfloor s/2\rfloor\). The lower construction is therefore original to the best of current knowledge, with residual risk from older superimposed-code/set-system literature.
+- Value: **PASS** — The theorem closes a natural quantitative gap left by the Chen-Hwang conversion theorem: it identifies the exact largest disjunctness order universally obtainable with one extra test row, for every separability order, and supplies an explicit sharp obstruction. This is a motivated structural threshold in nonadaptive group testing rather than a parameter renaming.
+
+Detailed comparisons, source inspections, and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
