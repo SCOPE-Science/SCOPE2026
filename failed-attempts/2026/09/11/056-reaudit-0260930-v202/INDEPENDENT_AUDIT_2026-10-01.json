@@ -1,0 +1,91 @@
+{
+  "audited_at_utc": "2026-10-01T01:00:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 14 maximal-subgroup indices in the audited package match the current ATLAS HN table. For each maximal class of index m, the number of conjugates is at most m and one conjugate contains a random ordered pair with probability 1/m^2, giving the stated union bound. An independent exact rational recomputation gives S=6979253/4266108000000, lower endpoint 4266101020747/4266108000000 and the A12-based upper endpoint 1299599999999/1299600000000.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General random-generation methods based on maximal subgroups and the complete HN maximal list predate the record."
+        ],
+        "reasoning": "The package uses no HN-specific new structural theorem beyond those published inputs.",
+        "searches": [
+          "Burness-Liebeck-Shalev 2013 random generation/maximal subgroups",
+          "ATLAS HN"
+        ]
+      },
+      "checked_sources": [
+        "ATLAS of Finite Groups, Harada-Norton group HN maximal subgroup table.",
+        "Burness, Liebeck and Shalev, Generation and random generation: from simple groups to maximal subgroups, Adv. Math. 248 (2013).",
+        "Resultary semantic search for HN random two-generation probabilities.",
+        "Audited package RESULT.md and artifacts/compute_interval.py."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed lower endpoint is exactly 1 minus the sum of reciprocal indices; the upper endpoint is exactly one minus the reciprocal square of the smallest index."
+        ],
+        "reasoning": "Thus the claim is a direct prior-table implication even if the exact fraction was not printed before.",
+        "searches": [
+          "Applied the elementary classwise union bound to the ATLAS indices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact numerical record is the current SCOPE item, while every input index is already published in ATLAS."
+        ],
+        "reasoning": "The formulation as a numerical interval is equivalent to evaluating a standard union bound on the published table.",
+        "searches": [
+          "Resultary: Harada Norton random generation probability maximal subgroups P2 HN",
+          "ATLAS HN maximal subgroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All 14 class rows and indices used by the computation are present in the table, including the two M12:2 classes."
+        ],
+        "reasoning": "The numerical input is an exact published database/table.",
+        "searches": [
+          "ATLAS HN maximal subgroup table"
+        ]
+      },
+      "rationale": "The interval is mechanically implied by the published ATLAS maximal-subgroup table together with the standard maximal-subgroup union bound; exact decimal/rational evaluation is not a new mathematical statement when the underlying table and inequality are prior data.",
+      "residual_risks": [
+        "A sharper exact HN two-generation probability may exist elsewhere; this is irrelevant to the originality failure because the claimed interval already follows mechanically from ATLAS plus the elementary union bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING the numerical inputs",
+          "evidence": "The table gives A12 index 1,140,000 and every other index used by the package, including two M12:2 classes.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/spor/HN/",
+          "material_read": "maximal subgroup table for HN, including orders and indices of all 14 listed classes",
+          "method": "primary database inspection",
+          "title": "ATLAS: Harada-Norton group HN",
+          "trigger": "exact maximal-subgroup data used by the proof"
+        },
+        {
+          "assessment": "BROADER_COVERAGE of the standard method",
+          "evidence": "The work treats generation probabilities through maximal-subgroup structure.",
+          "identifier_or_url": "Adv. Math. 248 (2013), 59-95",
+          "material_read": "abstract/scope material",
+          "method": "literature inspection",
+          "title": "Generation and random generation: from simple groups to maximal subgroups",
+          "trigger": "general random-generation/maximal-subgroup framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a known-table recomputation with an elementary union bound. It supplies neither a sharp probability nor a new group-theoretic mechanism, so the exact rational endpoints do not constitute a separately motivated mathematical gap under the audit standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The bound is deliberately crude and not a sharp determination of P2(HN)."
+  ],
+  "record_id": "SCOPE-20260911-056",
+  "schema_version": 1,
+  "title": "Certified random two-generation probability interval for HN: P2(HN) in [0.999998364, 1.000000000]"
+}
