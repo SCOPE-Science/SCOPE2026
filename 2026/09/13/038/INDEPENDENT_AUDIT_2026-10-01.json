@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T03:17:04.674032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The lower certificate is a valid trial-measure energy bound; an independent numerical recomputation gives capacity \\(0.2215367734\\ldots\\), safely above 0.221. The upper certificate's cell potential formula is correct, and splitting at the singular endpoints and unique critical point suffices to bound each contribution. A separate dense recomputation gives an upper value near 0.22911, consistent with the exact certified 0.2292253 bound. The scripts use rational arithmetic and certified logarithm enclosures in place of those floating checks, so the claimed \\(0.221\\le\\operatorname{cap}(E_3)\\le0.230\\) is supported.",
+      "risks": [
+        "Certification relies on the inspected atanh-series logarithm enclosure implementation."
+      ],
+      "sources": [
+        "artifacts/lower_cert.py",
+        "artifacts/upper_cert.py",
+        "artifacts/upper_weights.json",
+        "independent energy/potential recomputation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General methods/bounds only; the limiting Cantor-set value is a different object."
+        ],
+        "reasoning": "Their directly inspected bounds do not mechanically yield this interval.",
+        "searches": [
+          "Ransford-Rostand 2007",
+          "Dubinin-Karp 2009"
+        ]
+      },
+      "checked_sources": [
+        "Ransford-Rostand 2007",
+        "Dubinin-Karp 2009",
+        "assigned exact certificates",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dubinin-Karp's simple upper theorem is weaker on this instance."
+        ],
+        "reasoning": "The explicit trial measures and exact enclosures are decisive.",
+        "searches": [
+          "claim versus multiple-interval theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No external exact certificate found."
+        ],
+        "reasoning": "The finite stage was distinguished from the limiting Cantor set.",
+        "searches": [
+          "Resultary finite-Cantor-prefractal capacity search",
+          "web search for \\(E_3\\) capacity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No certified \\(E_3\\) row located."
+        ],
+        "reasoning": "Not covered by a known table found in search.",
+        "searches": [
+          "prefractal capacity table searches"
+        ]
+      },
+      "rationale": "General rigorous capacity algorithms and multiple-interval inequalities predate the record, but no inspected source gives this finite \\(E_3\\) enclosure. Direct evaluation of Dubinin-Karp's simple general upper theorem gives only about 0.2341 after rescaling, so it does not imply 0.230.",
+      "residual_risks": [
+        "A specialized unindexed finite-prefractal table could overlap."
+      ],
+      "risks": [
+        "A specialized unindexed finite-prefractal table could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering",
+          "evidence": "the approximately 0.220949 value is for the limiting Cantor set",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-01941-2",
+          "material_read": "abstract and scope",
+          "method": "primary-source comparison",
+          "title": "Computation of capacity",
+          "trigger": "Cantor capacity benchmark"
+        },
+        {
+          "assessment": "not covering",
+          "evidence": "the direct upper bound is about 0.2341",
+          "identifier_or_url": "https://arxiv.org/abs/0905.3283",
+          "material_read": "full theorem statements",
+          "method": "full-text comparison and direct evaluation",
+          "title": "Two-sided bounds for logarithmic capacity of multiple intervals",
+          "trigger": "direct broader finite-interval theorem"
+        }
+      ],
+      "sources": [
+        "Ransford-Rostand 2007",
+        "Dubinin-Karp 2009",
+        "assigned exact certificates",
+        "Resultary search"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A certified capacity enclosure for the canonical third stage of the middle-third Cantor construction is a natural benchmark for potential-theory algorithms and convergence studies.",
+      "risks": [
+        "The interval is not claimed optimal."
+      ],
+      "sources": [
+        "rigorous capacity-computation literature",
+        "assigned certificates"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Trial measures are not optimal.",
+    "The midpoint estimate is not certified.",
+    "RESULT and METADATA use `output/artifacts/...` while the files are under `artifacts/...`; the unchanged passed package is not publication-ready."
+  ],
+  "record_id": "SCOPE-20260913-038",
+  "schema_version": 1
+}
