@@ -1,0 +1,65 @@
+# Independent mathematical audit — 2026-10-01
+
+## Final claim assessed
+
+Square classes complete the order-two elementary involutions on \(M_2(F)\)
+
+## Correctness — PASS
+
+PASS. The classification can be reconstructed directly from the two primitive diagonal idempotents. If a graded involution fixes them, anti-multiplicativity forces \(e_{12}^*=a e_{21}\) and \(e_{21}^*=a^{-1}e_{12}\), giving the family \(\sigma_a\). If it swaps them, the off-diagonal matrix units are fixed up to one common sign, giving exactly \(\rho_+\) and \(\rho_-\). Graded automorphisms normalize the diagonal algebra and are monomial; diagonal conjugation changes \(a\) by a square and the permutation matrix replaces \(a\) by \(a^{-1}\), so square classes are exactly the diagonal-fixing isomorphism invariant. In characteristic zero, after adjoining \(\sqrt{a/b}\), \(\sigma_a\) and \(\sigma_b\) become graded-isomorphic. Multilinearization and restriction/scalar extension then give equality of their graded-star identity ideals and graded-star central-polynomial spaces.
+
+## Originality — PASS
+
+PASS to the best of current knowledge. The complete relevant portion of Bezerra dos Santos--Reis was inspected: the paper assumes characteristic zero generally, cites an algebraically closed classification of gradings, and Theorem 2.1 nevertheless lists only \(\gamma_1,\gamma_2,\gamma_3\) in the order-two elementary branch. Bahturin--Zaicev's primary abstract explicitly states an algebraically closed base field of characteristic different from two. Resultary search found no earlier public correction that supplies the arbitrary-field square-class completion together with the scalar-extension graded-PI and central-PI equivalence. The square-class/discriminant phenomenon itself is standard background and is not treated as novel.
+
+### equivalent_formulations
+
+Searches: Resultary: square classes graded involutions M2 arbitrary field elementary C2 grading sigma_a graded PI identities; Bahturin Zaicev involutions on graded matrix algebras discriminant square class
+
+Evidence: No earlier Resultary record states the arbitrary-field completion. The classical Bahturin--Zaicev source works over an algebraically closed field, where the square-class family collapses.
+
+Reasoning: Standard discriminant language is equivalent background for diagonal-fixing orthogonal involutions, but it does not by itself constitute the source-specific arbitrary-field correction plus the graded-PI/central-PI consequence.
+
+### broader_coverage
+
+Searches: arXiv:math/0609417; arXiv:2609.20488 full primary text; graded involution M2 arbitrary field square class
+
+Evidence: The older graded-involution paper explicitly assumes algebraic closure. The 2026 source's Theorem 2.1 states only three involutions in the relevant branch despite the broader characteristic-zero standing hypothesis.
+
+Reasoning: The inspected broader classification does not cover nontrivial square classes over a non-algebraically-closed base field.
+
+### exact_database_or_table
+
+Searches: Resultary semantic search for square-class completion of the \(M_2(F)\) graded-involution list
+
+Evidence: No theorem-level exact prior record was found.
+
+Reasoning: A database/table comparison is inapplicable; this is a structural classification theorem.
+
+### claim_vs_prior_implication
+
+Searches: Theorem 2.1 of arXiv:2609.20488v1; Bahturin--Zaicev algebraically closed hypothesis
+
+Evidence: The source theorem omits \(\sigma_a\) for nonsquare \(a\), while the cited older classification does not apply over arbitrary fields. The scalar-extension PI equivalence is not stated in either inspected source.
+
+Reasoning: The correction requires noticing and repairing a hypothesis mismatch and then proving the identity-theoretic consequence; it is not mechanically implied by a theorem valid only over algebraically closed fields.
+
+## Scientific value — PASS
+
+PASS. The finding repairs a live arbitrary-field classification at exactly the point where an algebraic-closure hypothesis matters, exhibits infinitely many omitted classes over fields such as \(\mathbb Q\), and shows that the downstream transpose-class identity and central-polynomial formulas remain valid for every omitted square-class form. That is a substantive source correction and structural completion, not a cosmetic renaming.
+
+## Source inspections
+
+- **Polynomial identities, central polynomials and cocharacters of \(M_2(F)\) with \(G\)-graded involution** — https://arxiv.org/abs/2609.20488v1. Material read: Primary full text pages 1--12, including the field assumptions, the recalled algebraically closed grading classification, Theorem 2.1, and the beginning of the elementary-grading analysis. Assessment: PRIMARY_SOURCE_CONFIRMS_HYPOTHESIS_MISMATCH. Evidence: The paper works over characteristic zero but states Theorem 2.1 with only \(\gamma_1,\gamma_2,\gamma_3\) in the order-two elementary branch, while its preceding recalled classification explicitly assumes an algebraically closed field.
+- **Involutions on graded matrix algebras** — https://arxiv.org/abs/math/0609417. Material read: Primary abstract and bibliographic statement of hypotheses. Assessment: ALGEBRAICALLY_CLOSED_BACKGROUND. Evidence: The paper describes graded automorphisms and antiautomorphisms over an arbitrary algebraically closed field of characteristic different from two.
+
+## Limitations and residual risks
+
+The theorem treats the nontrivial elementary order-two branch. It does not classify the Klein grading or all arbitrary-field gradings on \(M_2(F)\).
+
+- Older arbitrary-field orthogonal-involution or graded-algebra literature may express the same square-class completion under different terminology.
+- An additional attempt to inspect the recent paper's final bibliography pages was unavailable; the relevant theorem and surrounding hypotheses had already been inspected directly.
+
+## Disposition
+
+**passed**
