@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T01:19:53.816678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The disproof is mathematically complete. For a Bertrand prime q with Q0<q<=2Q0, q is eventually below the short interval, so no prime in the interval is divisible by q and E_0=0. Character orthogonality gives sum_a S(a/q)=0 while S(0)=T, hence some nonzero a has |S(a/q)|>=T/(q-1). Because q is prime this a/q is reduced, and its distance from every reduced a'/q' with q'<=Q0 is at least 1/(qq')>1/(2Q0^2), which eventually exceeds the stipulated major-arc width. Huxley's short-interval PNT at exponent 5/6 gives T~2h, so h/(log N)^A dominates h N^{-delta} for every fixed delta>0. The committed verifier correctly checks the finite identities and crossover arithmetic; the asymptotic proof does not depend on those finite spot checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper treats H=N^theta for theta>2/3 and explains that rationally approximable phases correspond to major-arc/PNT behavior; its stated theorems are upper-bound/structure results, not the audited lower barrier."
+        ],
+        "reasoning": "The prior result covers a broader family of polynomial phases but does not imply that a point just beyond a chosen denominator cutoff must have the explicit h/(log N)^A lower bound.",
+        "searches": [
+          "Matomäki-Shao, Discorrelation between primes in short intervals and polynomial phases, arXiv:1902.04708"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-object search",
+        "Matomäki-Shao arXiv:1902.04708",
+        "Huxley short-interval PNT as cited and discussed in Matomäki-Shao",
+        "assigned verify_obstruction.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited ingredients supply short-interval PNT and the conceptual major/minor distinction, but the exact average-over-all-a orthogonality lower bound is an additional argument."
+        ],
+        "reasoning": "No inspected prior theorem was found whose statement directly entails the claimed failure for every fixed power saving under the specified Q0 cutoff.",
+        "searches": [
+          "Matomäki-Shao Theorem 1.1 and standard short-interval PNT versus the audited claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the audited finding; no earlier exact barrier statement was found."
+        ],
+        "reasoning": "Equivalent formulations as failure of a uniform minor-arc sup power saving and as a rational-frequency lower bound were searched.",
+        "searches": [
+          "Resultary: short prime exponential sum h=N^(5/6) minor arcs denominator log^A lower bound h/log^A Bertrand orthogonality",
+          "short-interval prime exponential sum rational a/q lower bound cutoff minor arcs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Not applicable as a decisive source: the claim is asymptotic and analytic, not a finite tabulated invariant."
+        ],
+        "reasoning": "No finite database could establish the all-large-N statement.",
+        "searches": [
+          "short-prime exponential-sum tables or finite databases"
+        ]
+      },
+      "rationale": "Fresh searches did not locate this exact cutoff-mismatch lower-bound argument. The closest primary source, Matomäki-Shao, develops short-interval prime exponential-sum upper bounds and explicitly distinguishes rational major-arc behavior, but the inspected text does not state the Bertrand/orthogonality lower barrier just outside an arbitrarily fixed polylogarithmic denominator cutoff.",
+      "residual_risks": [
+        "The obstruction may be familiar folklore to circle-method specialists even though no exact published statement was located.",
+        "The theorem depends on the particular major-arc system having the stated denominator and width restrictions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant broader upper-bound theory; no exact cutoff-barrier statement located.",
+          "evidence": "The introduction states the theta>2/3 regime and identifies rational approximations with major-arc PNT behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.04708",
+          "material_read": "Full accessible arXiv HTML introduction and theorem statements, including the discussion of H=N^theta, theta>2/3, short-interval PNT, and rational major-arc behavior.",
+          "method": "Primary-source full-text inspection.",
+          "title": "Discorrelation between primes in short intervals and polynomial phases",
+          "trigger": "Closest primary literature on the same short prime exponential sums and minor/major arcs."
+        },
+        {
+          "assessment": "Correctly corroborates Parseval, orthogonality, spacing and crossover calculations; it is not the asymptotic proof itself.",
+          "evidence": "The code explicitly checks E_0=0, max_{a!=0}|S|>=T/(q-1), rational spacing and the N^delta/log^A crossover.",
+          "identifier_or_url": "2026/09/11/081/artifacts/verify_obstruction.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line package inspection.",
+          "title": "Assigned obstruction verifier",
+          "trigger": "Finite identity and crossover certificate."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated structural obstruction rather than a tiny numerical counterexample: it shows that a proposed uniform power saving is incompatible with an entire polylogarithmic band of rational frequencies and identifies the exact denominator-cutoff mechanism. That information materially changes how a valid minor-arc decomposition must be formulated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The contradiction is asymptotic and uses a short-interval PNT input; the finite verifier does not prove that analytic input.",
+    "The sixth-moment form is rejected only when it would imply the false sup bound.",
+    "RESULT names output/artifacts/verify_obstruction.py, while the actual audited file is artifacts/verify_obstruction.py; therefore a passed publication plan cannot be ready without a repaired RESULT."
+  ],
+  "schema_version": 1
+}
