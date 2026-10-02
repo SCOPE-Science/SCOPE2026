@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/07/014/RESULT.md",
+        "2026/09/07/014/artifacts/results.json",
+        "2026/09/07/014/artifacts/replay.py"
+      ],
+      "rationale": "A from-scratch independent implementation of 2x2 matrix multiplication modulo 13, PSL sign canonicalization, BFS, and reduced-word enumeration visited exactly 1092 PSL classes, reproduced spheres [1,4,12,25,48,96,180,279,317,120,10], diameter 10, and found zero reduced identities at lengths 1 through 5 and 28 at length 6. The stated word aaBaaB evaluates to -I and the stated diameter witness reaches a distance-10 class.",
+      "residual_risks": [
+        "The proof is exhaustive finite computation rather than a hand derivation; it relies on exact integer modular arithmetic and BFS/word-enumeration logic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garonzi-Halasi-Somlai and Halasi give broad asymptotic/general diameter bounds for transvection-containing generating sets.",
+          "Helfgott gives growth results in SL(2,p) leading to qualitative/polylogarithmic diameter control."
+        ],
+        "reasoning": "These results cover the same family at a broader level but do not imply the exact values D=10 or girth=6 for the fixed generators; a broad upper bound is not an exact small-instance metric.",
+        "searches": [
+          "https://arxiv.org/abs/2203.03323",
+          "https://arxiv.org/abs/2002.10443",
+          "https://doi.org/10.4007/annals.2008.167.601"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.03323",
+        "https://arxiv.org/abs/2002.10443",
+        "https://doi.org/10.4007/annals.2008.167.601",
+        "https://github.com/Resultary/2026/tree/main/2026/9/7/SCOPE014"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorems provide general diameter control but no equality at p=13 and do not determine girth for this generator pair."
+        ],
+        "reasoning": "The new exact finite computation is not a corollary of the cited asymptotic bounds without carrying out the specific Cayley-graph computation.",
+        "searches": [
+          "https://arxiv.org/abs/2203.03323",
+          "https://arxiv.org/abs/2002.10443",
+          "https://doi.org/10.4007/annals.2008.167.601"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned this record as the only exact-match finding; other returned PSL(2,13) findings concern different generating problems.",
+          "The inspected Garonzi-Halasi-Somlai paper studies diameter bounds for classical groups with generating sets containing a transvection, not exact metrics for the elementary pair used here."
+        ],
+        "reasoning": "The exact claim can be phrased as the word-metric diameter and shortest nontrivial relation length for the symmetric elementary-transvection generating set. The searched literature did not state an equivalent exact metric result.",
+        "searches": [
+          "Resultary semantic search: PSL(2,13) Cayley graph transvection generators exact diameter girth",
+          "https://arxiv.org/abs/2203.03323",
+          "https://arxiv.org/abs/2002.10443"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact table for this generating pair was surfaced.",
+          "The closest primary source found was the general transvection-diameter paper."
+        ],
+        "reasoning": "No exact database/table source located that already contains the claimed sphere distribution or shortest-relation data.",
+        "searches": [
+          "Resultary semantic search for exact PSL(2,13) transvection diameter/girth",
+          "Targeted web search for PSL(2,13) Cayley graph exact diameter girth transvection"
+        ]
+      },
+      "rationale": "Best-of-knowledge search found general transvection-Cayley diameter results but no prior source giving the exact diameter 10, girth 6, sphere profile, or shortest-relation census for this specific PSL(2,13) generating set. The strongest inspected primary source gives a general polylogarithmic diameter theorem, which does not determine these exact small-parameter invariants.",
+      "residual_risks": [
+        "No exhaustive search of every computational group/Cayley-graph database was possible; originality is best-of-knowledge rather than a universal nonexistence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact claim",
+          "evidence": "The theorem is a uniform asymptotic/general upper-bound result and does not state the exact p=13 elementary-pair diameter, sphere distribution, or girth.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.03323",
+          "material_read": "Abstract, introduction, and theorem statement giving the general diameter bound in the accessible full text.",
+          "method": "Primary-source full-text inspection of the relevant theorem/introductory material.",
+          "title": "On the diameter of Cayley graphs of classical groups with generating sets containing a transvection",
+          "trigger": "Same group family and transvection hypothesis; strongest plausible broader-coverage source."
+        },
+        {
+          "assessment": "NOT_DECISIVE_FOR_EXACT_VALUES",
+          "evidence": "The source concerns general diameter bounds rather than an exact p=13 table.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.10443",
+          "material_read": "Bibliographic/abstract-level material surfaced during targeted search.",
+          "method": "Primary-source abstract inspection.",
+          "title": "Diameter of Cayley graphs of SL(n,p) with generating sets containing a transvection",
+          "trigger": "Closely related transvection diameter theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.03323",
+        "https://arxiv.org/abs/2002.10443"
+      ],
+      "rationale": "The generating set is canonical and sits directly in the literature on transvection Cayley graphs. Exact small-instance diameter, sphere profile, and shortest-relation data form a reusable benchmark and boundary datum for that natural family; the result is narrow but not an arbitrary slice, and the exact metric is not mechanically supplied by the cited general theorems.",
+      "residual_risks": [
+        "The scientific value is benchmark/boundary-data value rather than a new general diameter theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the undirected Cayley graph of PSL(2,13) generated by the elementary transvection pair and inverses, the graph has 1092 vertices, exact diameter 10 with sphere distribution [1,4,12,25,48,96,180,279,317,120,10], and exact girth 6 with 28 reduced length-6 identities and none of length at most 5.",
+  "limitations": [
+    "Single stratum p=13 with the fixed elementary-transvection generating pair; no general exact formula is claimed.",
+    "Machine-assisted exhaustive proof with exact modular arithmetic; no formal proof assistant certificate.",
+    "Originality is best-of-knowledge subject to the residual database-search risk recorded above."
+  ],
+  "record_id": "SCOPE-20260907-014",
+  "schema_version": 1
+}

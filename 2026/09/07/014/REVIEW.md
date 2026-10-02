@@ -1,6 +1,7 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit completed on 2026-09-30 UTC: **PASS**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+The final mathematical claim in `RESULT.md` survived unchanged on correctness, best-of-knowledge originality, and scientific value. The independent assessment and its literature comparison are recorded in `INDEPENDENT_AUDIT_2026-09-30.md` and `INDEPENDENT_AUDIT_2026-09-30.json`.
+
+The result remains explicitly limited to the fixed p=13 elementary-transvection Cayley graph and to a machine-assisted exhaustive proof.
