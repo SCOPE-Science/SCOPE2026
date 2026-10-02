@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T03:17:04.674032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact-rational reconstruction of all 96 Kunz subpieces reproduced 76 infeasible and 20 feasible pieces. The smallest nonexceptional real minimum is \\(11/5\\). The 14 exceptional minima are two \\(4/5\\), four \\(6/5\\), and eight \\(8/5\\). In the 12 cases above one, integrality forces \\(W\\ge2\\). In the two \\(4/5\\) cases the parametrizations give even expressions \\(4s-2t-2\\) and \\(-6s+8t\\), so the positive lower bound forces \\(W\\ge2\\) there as well. This supplies an infinite proof independent of the bounded exceptional scans. Direct recomputation gives \\(W=2\\) for \\(\\langle5,6,7\rangle\\), so the bound is sharp.",
+      "risks": [
+        "Specific to multiplicity five and embedding dimension three."
+      ],
+      "sources": [
+        "artifacts/verify_piecewise_exact.py",
+        "artifacts/verify_exceptional_closedforms.py",
+        "independent exact-rational LP reconstruction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their theorem proves \\(W\\ge0\\), not \\(W\\ge2\\) on this stratum."
+        ],
+        "reasoning": "Broader nonnegativity does not imply the sharp gap.",
+        "searches": [
+          "Bruns et al., Wilf's conjecture in fixed multiplicity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.04342",
+        "assigned Kunz artifacts",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known results leave values zero and one logically possible here."
+        ],
+        "reasoning": "The new polyhedral/integrality analysis is required.",
+        "searches": [
+          "claim versus fixed-multiplicity theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No external exact match."
+        ],
+        "reasoning": "Kunz, conductor/genus, and Wilf-number formulations were searched.",
+        "searches": [
+          "Resultary multiplicity-5/embedding-dimension-3 search",
+          "web exact-gap search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No infinite-stratum optimum table was located."
+        ],
+        "reasoning": "A bounded census would not prove the claim.",
+        "searches": [
+          "finite semigroup census searches"
+        ]
+      },
+      "rationale": "Bruns et al. prove Wilf nonnegativity for all multiplicities at most 18, but the fresh searches did not find the stronger exact gap two for this canonical subfamily.",
+      "residual_risks": [
+        "Grey-literature overlap remains possible."
+      ],
+      "risks": [
+        "Grey-literature overlap remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering",
+          "evidence": "proves Wilf's conjecture through multiplicity 18, not the gap two",
+          "identifier_or_url": "https://arxiv.org/abs/1903.04342",
+          "material_read": "abstract and theorem scope",
+          "method": "primary-source comparison",
+          "title": "Wilf's conjecture in fixed multiplicity",
+          "trigger": "strongest broader multiplicity result"
+        },
+        {
+          "assessment": "reproduced",
+          "evidence": "76 infeasible, 20 feasible, same exact minima",
+          "identifier_or_url": "artifacts/verify_piecewise_exact.py",
+          "material_read": "complete source",
+          "method": "source inspection plus independent reimplementation",
+          "title": "Assigned exact piecewise verifier",
+          "trigger": "critical certificate"
+        }
+      ],
+      "sources": [
+        "arXiv:1903.04342",
+        "assigned Kunz artifacts",
+        "Resultary search"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp positive Wilf gap with an exact equality witness on a natural infinite stratum is a motivated refinement of a central numerical-semigroup inequality, not an arbitrary finite slice.",
+      "risks": [
+        "No higher-multiplicity generalization is claimed."
+      ],
+      "sources": [
+        "Bruns et al. fixed-multiplicity theorem",
+        "assigned exact proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The bounded exceptional scans are not used as an infinite proof; the audit closes the exceptional pieces by exact LP minima plus integrality/parity.",
+    "RESULT and METADATA point to `output/artifacts/...` while the files are actually under `artifacts/...`; the unchanged passed package is not publication-ready."
+  ],
+  "record_id": "SCOPE-20260913-037",
+  "schema_version": 1
+}
