@@ -1,27 +1,47 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "The exact scalar hypergradient update simplifies to projection of x/(ax+B). Inside the invariant basin |ax|<b_min, an opposite-sign noise draw resets the stepsize to zero, and two repetitions of a same-sign atom then hit the minimizer exactly. Conditioning on disjoint three-step blocks gives the stated geometric tail and expectation bound.",
-      "verdict": "PASS"
+      "reason": "For the scalar quadratic, differentiating the exact-objective hypergradient feedback gives the projected update p+ = Proj[x/(a x+B)]. Inside |a x|<b_min, an opposite-sign noise atom makes the trial step worse for every p in [0,1/a] and the hypergradient update resets p to zero. A subsequent same-sign atom leaves x unchanged at p=0 while setting p=x/(a x+B); repeating that same atom makes the next trial exactly zero. Finite nonzero mean-zero support necessarily contains both signs. Independent three-step blocks therefore succeed with probability at least q=min(q_- c_+,q_+ c_-), giving P(T>3m)≤(1-q)^m and E T≤3/q. The basin is invariant because the null step never increases the exact objective.",
+      "status": "PASS"
     },
     "originality": {
-      "rationale": "The current OSGM-SGD source explicitly leaves non-vanishing gradient noise as an open direction. Targeted searches found no prior OSGM-SGD result with this discrete reset-and-hit mechanism. Known finite-time persistent-noise results for stochastic mirror descent require sharp minima and do not cover a smooth quadratic minimum.",
-      "verdict": "PASS"
+      "reason": "The full OSGM-SGD v2 paper was inspected. It explicitly warns that naive in-sample feedback can fail, analyzes an out-of-sample large-batch method, and leaves convergence with non-vanishing gradient noise open. The audited result is narrower and uses exact full-objective feedback plus finite discrete noise, but it supplies a different reset-and-repeat mechanism that is not stated in the source paper. Targeted searches found no earlier theorem with this exact finite-time absorption mechanism on a smooth quadratic.",
+      "status": "PASS"
     },
     "value": {
-      "rationale": "The theorem gives a rigorous positive special case for a recent open OSGM-SGD direction, an explicit geometric hitting-time bound, and a finite-sum corollary, while explaining why adaptive exact-function feedback can eliminate a noise floor that remains for constant-step SGD.",
-      "verdict": "PASS"
+      "reason": "This is a sharply delimited positive boundary case for a newly explicit persistent-noise question: persistent stochastic-gradient noise coexists with almost-sure finite-time exact absorption because the adaptive feedback first resets and then identifies the exact one-step stepsize. The explicit geometric tail makes the mechanism mathematically informative beyond a simulation anecdote.",
+      "status": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-17T17:52:12Z",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "previously_published_pending_reaudit": false,
+  "prior_nonindependent_assessment": {
+    "axes": {
+      "correctness": {
+        "rationale": "The prior assessment checked the scalar hypergradient reset-and-hit mechanism and the geometric block tail.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "The prior assessment compared the claim with the then-current OSGM-SGD open direction and persistent-noise literature.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The prior assessment valued the exact finite-time special case under persistent noise and its explicit hitting-time bound.",
+        "verdict": "PASS"
+      }
+    },
+    "independent": false,
+    "status": "passed"
+  },
+  "review_type": "independent_audit",
+  "reviewed_at": "2026-10-01T06:03:28Z",
+  "schema_version": 1,
+  "verification_state": "independently_reviewed"
 }

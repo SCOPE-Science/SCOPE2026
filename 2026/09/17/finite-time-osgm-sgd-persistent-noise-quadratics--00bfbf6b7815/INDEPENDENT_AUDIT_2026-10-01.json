@@ -1,0 +1,89 @@
+{
+  "axes": {
+    "correctness": {
+      "reason": "For the scalar quadratic, differentiating the exact-objective hypergradient feedback gives the projected update p+ = Proj[x/(a x+B)]. Inside |a x|<b_min, an opposite-sign noise atom makes the trial step worse for every p in [0,1/a] and the hypergradient update resets p to zero. A subsequent same-sign atom leaves x unchanged at p=0 while setting p=x/(a x+B); repeating that same atom makes the next trial exactly zero. Finite nonzero mean-zero support necessarily contains both signs. Independent three-step blocks therefore succeed with probability at least q=min(q_- c_+,q_+ c_-), giving P(T>3m)≤(1-q)^m and E T≤3/q. The basin is invariant because the null step never increases the exact objective.",
+      "status": "PASS"
+    },
+    "originality": {
+      "reason": "The full OSGM-SGD v2 paper was inspected. It explicitly warns that naive in-sample feedback can fail, analyzes an out-of-sample large-batch method, and leaves convergence with non-vanishing gradient noise open. The audited result is narrower and uses exact full-objective feedback plus finite discrete noise, but it supplies a different reset-and-repeat mechanism that is not stated in the source paper. Targeted searches found no earlier theorem with this exact finite-time absorption mechanism on a smooth quadratic.",
+      "status": "PASS"
+    },
+    "value": {
+      "reason": "This is a sharply delimited positive boundary case for a newly explicit persistent-noise question: persistent stochastic-gradient noise coexists with almost-sure finite-time exact absorption because the adaptive feedback first resets and then identifies the exact one-step stepsize. The explicit geometric tail makes the mechanism mathematically informative beyond a simulation anecdote.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zhang, Gao, Ye, Udell, Stochastic Gradient Methods with Online Scaling, arXiv:2609.11751v2",
+    "Targeted optimization literature searches on hypergradient descent and persistent-noise SGD"
+  ],
+  "disposition": "passed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "originality_checks": {
+    "broader_coverage": {
+      "evidence": [
+        "The source paper’s conclusion still lists non-vanishing-noise convergence as open."
+      ],
+      "reasoning": "The source has broader algorithmic scope but does not cover this noise regime; the audited theorem has narrower hypotheses and a stronger finite-time conclusion.",
+      "searches": [
+        "OSGM-SGD non-vanishing gradient noise convergence",
+        "stochastic hypergradient convergence persistent noise"
+      ]
+    },
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper explicitly separates its analyzed out-of-sample algorithm from in-sample feedback and gives no finite discrete-noise absorption theorem."
+      ],
+      "reasoning": "Neither the large-batch convergence theorem nor the in-sample failure example implies the audited reset-and-hit theorem.",
+      "searches": [
+        "source Algorithm 2 out-of-sample feedback",
+        "source in-sample counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proof reduces to a reset event followed by two repeats of one same-sign atom."
+      ],
+      "reasoning": "Equivalent descriptions as adaptive exact line-hit or repeated-atom absorption were searched because the OSGM terminology may not be used in older work.",
+      "searches": [
+        "hypergradient finite-time absorption quadratic persistent noise",
+        "adaptive stepsize repeated noise atom exact hit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact prior record was found."
+      ],
+      "reasoning": "The PASS does not rely on absence alone; it rests on full-text comparison with the motivating paper and a definition-level reconstruction of the distinct mechanism.",
+      "searches": [
+        "exact theorem phrases and finite-support noise terms",
+        "Resultary search for OSGM persistent noise quadratic"
+      ]
+    }
+  },
+  "record_id": "SCOPE-20260917-00bfbf6b7815",
+  "record_title": "Finite-time absorption of OSGM-SGD under persistent discrete gradient noise",
+  "residual_risks": [
+    "The theorem applies to a one-dimensional equal-curvature quadratic with exact objective values and discrete nonzero noise support.",
+    "Terminology risk remains because the source paper reserves OSGM-SGD for its analyzed out-of-sample feedback; the mathematical update in the audited result is self-contained and should be read literally."
+  ],
+  "review_type": "independent_audit",
+  "reviewed_at_utc": "2026-10-01T06:03:28Z",
+  "schema_version": 1,
+  "scientific_limitations": "One-dimensional local result for an equal-curvature quadratic with exact full-objective values, finite nonzero discrete gradient-noise support, candidate stepsizes [0,1/a], and hypergradient learning rate 1/a. It does not cover nonatomic noise, general smooth objectives, unknown curvature, or noisy objective values. The source paper distinguishes its analyzed out-of-sample OSGM-SGD from naive in-sample feedback, so the audited theorem should be read as a special exact-objective stochastic-feedback mechanism rather than a theorem for the source paper’s full general algorithm.",
+  "source_inspections": [
+    {
+      "implication": "The source motivates the audited special case but does not state it; it also limits how broadly the OSGM-SGD name should be interpreted.",
+      "inspection": "Full 36-page PDF inspected. Section 3 distinguishes out-of-sample OSGM-SGD from naive in-sample feedback; the conclusion explicitly asks whether convergence can be shown under non-vanishing gradient noise.",
+      "source": "Zhang, Gao, Ye, Udell, Stochastic Gradient Methods with Online Scaling, arXiv:2609.11751v2"
+    },
+    {
+      "implication": "No prior reset-and-repeat finite-time theorem matching the stated hypotheses was located.",
+      "inspection": "Searches covered hypergradient feedback, stochastic stepsize adaptation, persistent gradient noise, and finite-time convergence on quadratics.",
+      "source": "Targeted optimization literature searches on hypergradient descent and persistent-noise SGD"
+    }
+  ],
+  "verification_state": "independently_reviewed"
+}

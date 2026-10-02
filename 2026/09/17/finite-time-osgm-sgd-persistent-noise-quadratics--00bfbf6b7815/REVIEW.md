@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For the scalar quadratic, differentiating the exact-objective hypergradient feedback gives the projected update p+ = Proj[x/(a x+B)]. Inside |a x|<b_min, an opposite-sign noise atom makes the trial step worse for every p in [0,1/a] and the hypergradient update resets p to zero. A subsequent same-sign atom leaves x unchanged at p=0 while setting p=x/(a x+B); repeating that same atom makes the next trial exactly zero. Finite nonzero mean-zero support necessarily contains both signs. Independent three-step blocks therefore succeed with probability at least q=min(q_- c_+,q_+ c_-), giving P(T>3m)≤(1-q)^m and E T≤3/q. The basin is invariant because the null step never increases the exact objective.
+- Originality: **PASS** — The full OSGM-SGD v2 paper was inspected. It explicitly warns that naive in-sample feedback can fail, analyzes an out-of-sample large-batch method, and leaves convergence with non-vanishing gradient noise open. The audited result is narrower and uses exact full-objective feedback plus finite discrete noise, but it supplies a different reset-and-repeat mechanism that is not stated in the source paper. Targeted searches found no earlier theorem with this exact finite-time absorption mechanism on a smooth quadratic.
+- Value: **PASS** — This is a sharply delimited positive boundary case for a newly explicit persistent-noise question: persistent stochastic-gradient noise coexists with almost-sure finite-time exact absorption because the adaptive feedback first resets and then identifies the exact one-step stepsize. The explicit geometric tail makes the mechanism mathematically informative beyond a simulation anecdote.
+
+Detailed evidence and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`. The earlier non-independent scientific assessment is preserved in `AUDIT.json` for provenance.
