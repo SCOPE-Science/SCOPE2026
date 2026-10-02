@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T02:59:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed interior bump lies strictly inside the stated worm representative. Under the affine anisotropic dilation, the form and volume scaling give ||u_delta||^2 proportional to delta^(-2), the dbar term proportional to delta^0, and the dbar-star term proportional to delta^(-1), hence Q_delta=delta^2 A+delta B. The Beta integrals give A=B=3072/5 and therefore Q_delta <= (6144/5) delta for 0<delta<=1. The deposited ledger and an independent exact rational recomputation agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0403362",
+          "https://arxiv.org/abs/1408.0082"
+        ],
+        "reasoning": "The general quadratic-form principle applies to any suitable domain and interior compactly supported form, so it is broader than the named worm instance.",
+        "searches": [
+          "standard Kohn quadratic form and variational spectrum",
+          "worm-domain literature including Barrett scaling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0403362",
+        "https://arxiv.org/abs/1408.0082",
+        "2026/09/13/021/artifacts/ledger.py",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0403362"
+        ],
+        "reasoning": "The standard identity between the closed dbar quadratic form and the nonnegative self-adjoint Kohn Laplacian gives the Rayleigh upper bound; the remaining delta powers are a direct Jacobian/derivative scaling computation.",
+        "searches": [
+          "Fu 2004 Section 2 quadratic-form setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0403362"
+        ],
+        "reasoning": "The theorem is a Rayleigh-quotient test after anisotropic coordinate scaling; this is the standard quadratic-form formulation of the spectral bottom.",
+        "searches": [
+          "Resultary: worm anisotropic blow up Kohn Laplacian eigenvalue collapse delta Rayleigh quotient",
+          "Siqi Fu arXiv:math/0403362 operator-theoretic Kohn setup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/9/13/SCOPE021; no independent exact constant table found"
+        ],
+        "reasoning": "The exact 6144/5 constant is merely the chosen bump-radius Beta-integral value; absence of that number from a table does not make the direct variational specialization original.",
+        "searches": [
+          "Resultary: worm anisotropic blow up Kohn Laplacian eigenvalue collapse delta Rayleigh quotient"
+        ]
+      },
+      "rationale": "The claimed bound is mechanically implied by the standard quadratic-form characterization of the bottom of the Kohn spectrum together with an affine change of variables applied to any fixed compactly supported interior test form. The result itself emphasizes that the worm's Levi-flat geometry is unused. Thus the exact worm statement is a direct specialization of standard spectral variational machinery rather than a new worm-specific theorem.",
+      "residual_risks": [
+        "The exact numerical constant depends on the chosen bump and has no claimed optimality; this reinforces that it is not a natural invariant.",
+        "No boundary degeneration property of the worm is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_MECHANISM_COVERING",
+          "evidence": "The standard form/spectrum machinery supplies the variational step; the record adds only an explicit affine-scaled interior bump.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0403362",
+          "material_read": "Full-text HTML Section 2 operator-theoretic setup, including the closed sesquilinear form, associated self-adjoint operator, and infimum-of-spectrum characterization.",
+          "method": "Full-text HTML inspection.",
+          "title": "Hearing pseudoconvexity with the Kohn Laplacian",
+          "trigger": "Primary source for the spectral quadratic-form setup."
+        },
+        {
+          "assessment": "SUPPORTS_CORRECTNESS_ONLY",
+          "evidence": "B(2,7)=1/56, derivative factor 3/70, A=B=3072/5, C=6144/5.",
+          "identifier_or_url": "2026/09/13/021/artifacts/ledger.py",
+          "material_read": "Complete source.",
+          "method": "Git blob inspection and independent exact rational recomputation.",
+          "title": "Deposited Rayleigh ledger",
+          "trigger": "Exact constant and inclusion arithmetic."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Because the same O(delta) trial-form bound follows for essentially any domain containing a fixed interior bump under the stated affine anisotropic dilation, the result does not isolate worm geometry or a meaningful Kohn-specific boundary phenomenon. It is a routine variational scaling exercise with an arbitrary explicit constant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The anisotropically dilated worm admits an explicit interior trial form with \\(Q_\\delta=\\delta^2A+\\delta B\\), \\(A=B=3072/5\\), hence \\(\\lambda_1(\\delta)\\le(6144/5)\\delta\\).",
+  "limitations": [
+    "The estimate uses no worm boundary geometry and is a generic affine-scaling Rayleigh bound.",
+    "The explicit constant is bump-dependent and not optimal."
+  ],
+  "schema_version": 1
+}
