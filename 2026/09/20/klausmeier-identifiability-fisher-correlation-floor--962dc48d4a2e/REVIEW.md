@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The trajectory identities follow by integrating the two ODEs and using \((\log n)'=wn-m\) when biomass is positive; on the invariant desert state, \(m\) disappears. At a positive equilibrium the inverse map is \((a,m)=(w(1+n^2),wn)\), with determinant \(w(1-n^2)\). Independent symbolic algebra reproduces the covariance \(D\Psi D\Psi^T\), the exact formula for \(1-\rho^2\), the unique critical point \(n^2=1+\sqrt{2(1+m^2)}\), and the stated closed correlation floor. Thus the structural/practical-identifiability distinction and the numerical value at \(m=0.45\) are correct under the stated observation model.
+- Originality: **PASS** — Targeted searches found no published record with the exact full-state trajectory recovery dichotomy or the sharp equilibrium-only Fisher-correlation floor. The directly motivating 2026 preprint is highly relevant but only its primary abstract was accessible; open-access and authorized full-text attempts did not yield a verified PDF. The abstract discusses practical joint-inference difficulty near the bifurcation but does not state these exact formulas. Under the inaccessible-source rule, originality therefore passes only to the best of current knowledge, with hidden full-text overlap retained as a material risk.
+- Value: **PASS** — The exact formulas answer a concrete inference question posed by the motivating model study: they separate true structural non-identifiability on the desert invariant set from severe but full-rank correlation on the vegetated branch, and quantify the latter with a sharp global floor. This is a motivated natural inverse-geometry fact rather than an arbitrary computation.
+
+Detailed comparisons, source inspections, checked sources, and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
