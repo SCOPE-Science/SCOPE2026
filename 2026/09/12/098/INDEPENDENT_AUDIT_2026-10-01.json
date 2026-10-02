@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T02:21:24.865036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The construction gives an analytic infinite counterexample family. With \\(t=s^2\\), \\(N=s^6\\), prime \\(p\\ge s^4\\), and \\(D=3s(t-1)+1\\), one has \\(N\\le p^{3/2}\\), \\(D\\le3s^3\\), and sufficiently many primitive positive normals to form at least \\(N\\) planes. Distinct indexed planes stay distinct modulo \\(p\\): proportional normals would have integer cross-products of absolute value below \\(p\\), hence zero, and primitive positivity then fixes the normal; the intercept range is also below \\(p\\). For each primitive normal every grid point lies on exactly one intercept plane, so the total incidence mass over the full family is \\(N|S|\\). Selecting the top \\(N\\) planes therefore gives \\(I\\ge N^2/D\\ge N^{3/2}/3\\), and division by \\(N^{17/12}\\) diverges like \\(N^{1/12}/3\\). The package script was read completely; its finite checks are corroborative, while the large-\\(s\\) conclusion is the analytic averaging argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources establish the general incidence upper bound and discuss sharpness/degenerate configurations. The inspected material did not identify a prior sharpness example satisfying the exact equal Cartesian grid restriction used here."
+        ],
+        "reasoning": "General sharpness for unrestricted point sets does not logically imply sharpness under the additional Cartesian-product constraint.",
+        "searches": [
+          "Rudnev, On the number of incidences between points and planes in three dimensions, arXiv:1407.0426",
+          "de Zeeuw, A short proof of Rudnev’s point-plane incidence bound, arXiv:1612.02719",
+          "Rudnev survey on point-plane incidences in positive characteristic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1407.0426",
+        "https://arxiv.org/abs/1612.02719",
+        "assigned Git tree 7d1a8c1c470b596fe84fe1277efaec9b283080c1",
+        "published SCOPE semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem’s general examples show the necessity of assumptions in unrestricted settings, but the audit did not find evidence that those examples satisfy \\(P=A\\times B\\times C\\) with equal side sizes and the target cardinality relation."
+        ],
+        "reasoning": "Without that missing implication, prior general sharpness does not cover the exact restricted statement.",
+        "searches": [
+          "compare Rudnev sharpness statements with the audited Cartesian restrictions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic match is the audited record; a later SCOPE record uses a different subfield/thinning construction and extra line-load constraints."
+        ],
+        "reasoning": "The equivalent formulation is a Cartesian-product lower construction that rules out every fixed power saving at exponent \\(3/2\\) for this target. No earlier exact small-normal box construction was located.",
+        "searches": [
+          "Cartesian grid point plane incidence lower bound finite field small normals",
+          "prime field A x B x C point plane sharpness Rudnev"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier same-construction published SCOPE result was returned; SCOPE100 is later and uses a different thinned-subfield witness."
+        ],
+        "reasoning": "No exact database/table applies; the claim is an infinite analytic construction.",
+        "searches": [
+          "published SCOPE/Resultary search for Cartesian-grid point-plane counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the specific Cartesian-grid restricted disproof. Rudnev’s general point–plane theorem is known to be sharp without additional assumptions, and this creates real overlap risk, but the inspected statements did not show that a prior sharpness example already has the audited equal Cartesian-product point set and the same small-normal plane family. Fresh semantic search found no earlier exact construction; therefore the restricted target is not shown to be a direct corollary of the located prior examples.",
+      "residual_risks": [
+        "Rudnev or subsequent incidence literature may contain an equivalent Cartesian sharpness construction under different normalization; this was not located.",
+        "Best-of-knowledge originality is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong background/overlap risk, but no decisive implication to the exact restricted construction was established from inspected material.",
+          "evidence": "The theorem treats general point sets with a collinearity parameter; unrestricted sharpness does not itself enforce Cartesian product structure.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.0426",
+          "material_read": "Accessible primary preprint theorem/abstract material and sharpness context.",
+          "method": "Primary-literature comparison focused on whether the lower examples satisfy the audited Cartesian restrictions.",
+          "title": "On the number of incidences between points and planes in three dimensions",
+          "trigger": "Foundational same incidence problem and possible sharpness coverage."
+        },
+        {
+          "assessment": "Consistent with the analytic proof; finite \\(s=2,3\\) computations are not used as proof of divergence.",
+          "evidence": "The script verifies distinctness/counting in small cases and prints the same analytic lower-bound formula.",
+          "identifier_or_url": "2026/09/12/098/artifacts/verify_counterexample.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line inspection plus independent reconstruction of the averaging argument.",
+          "title": "Assigned counterexample verifier",
+          "trigger": "Critical finite checks and exact construction definitions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction directly resolves a proposed uniform Cartesian-grid incidence improvement by showing the obstruction persists even under the product-set restriction. It supplies a scalable analytic counterexample family and identifies small-normal directions as the mechanism, which is a motivated boundary result for incidence theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Disproves the specific fixed power-saving target; it does not classify all additional hypotheses that could restore a saving.",
+    "The finite script checks small parameters only; divergence is analytic.",
+    "RESULT names `output/artifacts/verify_counterexample.py`, but the actual assigned path is `artifacts/verify_counterexample.py`."
+  ],
+  "schema_version": 1
+}
