@@ -1,0 +1,78 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T01:00:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 90-degree rotation preserves the unit disk, both nested squares and the piecewise-constant conductivity, so covariance of the Dirichlet-to-Neumann quadratic form gives equality of the adapted tests at the two rotated outer corners. Independently recomputing the stated monotonicity integral over the quarter-square gives approximately 0.45848, safely above 0.25 and 0.05, while the rotated corner is distance 1. Thus the literal universal distant-smallness conjunction is false.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior theorem allows nested polygonal piecewise-constant conductivities but does not state that a canonical fixed CGO indicator separates individual symmetry-related true corners."
+        ],
+        "reasoning": "The stronger geometric recovery theorem does not logically imply this indicator-level impossibility statement.",
+        "searches": [
+          "Liu-Tsou 2020 nested polygonal uniqueness and logarithmic stability"
+        ]
+      },
+      "checked_sources": [
+        "Liu and Tsou, Stable determination of polygonal inclusions in Calderón's problem by a single partial boundary measurement, Inverse Problems 2020 / arXiv:1902.04462.",
+        "Resultary semantic search for nested-square conductivity, CGO corner tests, rotation symmetry, and fixed threshold parameters.",
+        "Audited package RESULT.md and artifacts/verify_target.py at the assigned Git tree."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-measurement uniqueness of the inclusion is compatible with failure of this particular one-test per-corner threshold; the latter is not a corollary of uniqueness."
+        ],
+        "reasoning": "No decisive prior implication was found.",
+        "searches": [
+          "Compared the package statement with Liu-Tsou's nested-polygon theorem and with Resultary hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match is the audited record itself; Liu-Tsou concerns uniqueness/stability of polygonal inclusions rather than a numerical one-test threshold."
+        ],
+        "reasoning": "No distinct equivalent published formulation of the fixed threshold statement was located.",
+        "searches": [
+          "Resultary: nested square conductivity CGO corner test rotation symmetry single measurement threshold tau 5",
+          "Liu-Tsou arXiv:1902.04462"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [],
+        "reasoning": "There is no numerical classification table whose entry mechanically supplies the threshold obstruction.",
+        "searches": [
+          "ATLAS/database-style check inapplicable: the claim is an analytic symmetry/monotonicity statement"
+        ]
+      },
+      "rationale": "Best-of-knowledge search found general single-measurement uniqueness/stability for polygonal and nested polygonal conductivities, but not this fixed-tau threshold obstruction or an implication forcing the same conclusion.",
+      "residual_risks": [
+        "A general textbook or paper statement of Dirichlet-to-Neumann covariance under domain isometries may make the symmetry step standard; no source located in the searches stated the audited fixed-threshold conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the fixed tau=5 symmetry threshold obstruction",
+          "evidence": "The published result concerns recovery/stability of polygonal inclusions from one partial measurement, not equality of rotation-equivariant adapted corner indicators at two true corners.",
+          "identifier_or_url": "arXiv:1902.04462",
+          "material_read": "abstract and theorem-level description of convex-polygon stability and nested-polygon uniqueness",
+          "method": "web full-text/metadata inspection",
+          "title": "Stable determination of polygonal inclusions in Calderón's problem by a single partial boundary measurement",
+          "trigger": "same inverse-conductivity setting and nested polygonal geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated boundary/counterexample for a proposed single-corner detection criterion: it identifies a structural symmetry obstruction and specifies how the distant-smallness quantifier must be corrected. The quantitative lower bound shows the obstruction is not a near-zero degeneracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the fixed nested-square conductivity and the canonical tau=5 adapted corner test, 90-degree symmetry forces the test at two outer true corners a unit distance apart to be equal, and a monotonicity integral gives a common lower bound above 0.456; therefore the literal requirement that every test point at distance at least 0.5 have value at most 0.05 is impossible.",
+  "limitations": [
+    "The audit does not establish a four-true-corners-versus-background detector or any background-probe upper bound."
+  ],
+  "schema_version": 1
+}
