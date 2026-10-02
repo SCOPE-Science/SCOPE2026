@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T20:55:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 0f4bfd...",
+        "artifacts/verify_randomization_bounds.py blob 1d215...",
+        "Hu--Robinson--Wang 2007 full text"
+      ],
+      "rationale": "Writing the complete-randomization difference-in-means error as a scaled simple-random-sample mean of A_i=(1-pi)Y_i(1)+pi Y_i(0) preserves range R. Serfling's finite-population bound gives the stated finite-sample exponent and tends to 2pi(1-pi)/R^2. A half-endpoint sharp-null population reduces the lower tail to an exact hypergeometric point probability; Stirling/entropy expansion gives the matching exponent, with the assumed n t_n^2/log n -> infinity making polynomial factors negligible. In fixed strata the quadratic local costs minimize under the weighted error constraint at harmonic allocation, giving Gamma=sum w_j/[p_j(1-p_j)] and exponent 2/(R^2 Gamma). The verifier is corroboration only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent minimax papers concern confidence-width/risk scaling and different design/estimator optimization problems, not the claimed moderate-deviation limit.",
+          "Hu--Robinson--Wang gives strong finite-population tail approximations but not the bounded-outcome worst-case optimization or the stratified constant."
+        ],
+        "reasoning": "No inspected stronger theorem mechanically yields all parts of the final claim.",
+        "searches": [
+          "Sandoval et al., On Nonasymptotic Confidence Intervals for Treatment Effects in Randomized Experiments, arXiv:2601.11744",
+          "Sudijono--Dobriban--Tchetgen Tchetgen, Sharp Minimax Theory for Randomized Experiments, arXiv:2608.13822",
+          "Hu--Robinson--Wang 2007"
+        ]
+      },
+      "checked_sources": [
+        "Hu--Robinson--Wang 2007",
+        "Hu--Robinson--Wang 2012 abstract/reference trail",
+        "Freidling 2026",
+        "Sandoval et al. 2026",
+        "Sudijono et al. 2026",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hu's normal-relative-error theorem depends on the actual variance and third moment and does not itself identify which bounded finite populations maximize the moderate tail.",
+          "Recent confidence-interval rate optimality does not determine the exact logarithmic tail constant."
+        ],
+        "reasoning": "Classical ingredients support the proof but do not amount to a prior statement implying the complete sharp result.",
+        "searches": [
+          "Hu--Robinson--Wang Theorems 1.1--1.3 and remarks on stratified sampling",
+          "Freidling 2026 abstract and designs",
+          "Sandoval et al. 2026 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu--Robinson--Wang normalize by the actual population variance and provide relative normal-tail error over a moderate range; they do not optimize uniformly over bounded potential-outcome arrays.",
+          "Freidling advertises Hoeffding/Bernstein finite-sample intervals rather than exact worst-case moderate-deviation constants."
+        ],
+        "reasoning": "These are adjacent formulations, not equivalent to the supremum-over-arrays sharp exponent.",
+        "searches": [
+          "Resultary: sharp worst-case moderate deviations randomized experiments bounded outcomes stratified harmonic",
+          "Hu--Robinson--Wang, Cramér-type large deviations for samples from a finite population, arXiv:0708.1880",
+          "Freidling, Randomization Inference with Concentration Inequalities, arXiv:2609.18586"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the audited record as the exact match; related Bernoulli Chernoff-envelope records treat independent assignment and different estimators."
+        ],
+        "reasoning": "There is no canonical database/table of these asymptotic constants; Resultary was used as the exact-record index.",
+        "searches": [
+          "Resultary published findings for randomized-experiment moderate-deviation exact constants"
+        ]
+      },
+      "rationale": "Classical finite-population Cramér/moderate-deviation theory gives relative normal-tail approximations for a specified population; recent randomized-experiment papers give finite-sample concentration or minimax rate results. None of the inspected sources states the exact worst-case bounded-potential-outcome moderate-deviation constant, its binary sharp-null attainment, or the fixed-stratum harmonic constant.",
+      "residual_risks": [
+        "The 2012 Hu--Robinson--Wang tail-approximation article was accessible here only through its abstract/reference page; a differently phrased extremal corollary in its body is therefore a residual risk, though the stronger 2007 full theorem inspected does not state the worst-case result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "It gives relative normal-tail approximations for specified populations and notes analogous stratified bounds, not the worst-case bounded-outcome exponent or harmonic sharpness.",
+          "identifier_or_url": "https://arxiv.org/abs/0708.1880",
+          "material_read": "Full author-posted text around Theorems 1.1--1.3, the moderate range, triangular-array remark, and stratified-sampling remark.",
+          "method": "lawful arXiv/author-posted full text",
+          "title": "Cramér-type large deviations for samples from a finite population",
+          "trigger": "Highly relevant primary finite-population moderate-deviation theorem."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The advertised results are Hoeffding/Bernstein confidence intervals, not exact moderate-deviation minimax constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18586",
+          "material_read": "ArXiv abstract and stated contribution/design coverage.",
+          "method": "lawful arXiv record",
+          "title": "Randomization Inference with Concentration Inequalities",
+          "trigger": "Same experimental designs and concentration-inequality motivation."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "It establishes confidence-width scaling and minimax lower bounds, not the exact complete-randomization or stratified moderate-deviation constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.11744",
+          "material_read": "ArXiv abstract and theorem-level overview available from open index.",
+          "method": "lawful open record",
+          "title": "On Nonasymptotic Confidence Intervals for Treatment Effects in Randomized Experiments",
+          "trigger": "Recent finite-sample optimal-rate benchmark cited by the topic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Freidling 2026",
+        "Sandoval et al. 2026",
+        "Hu--Robinson--Wang 2007"
+      ],
+      "rationale": "The exact logarithmic constant identifies the true worst-case finite-population tail scale, proves a simple extremizer, and gives a nontrivial stratified harmonic design law directly relevant to bounded-outcome randomization inference.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The asymptotic statement assumes treatment fractions stay away from 0 and 1 and n t_n^2/log n tends to infinity.",
+    "The stratified result keeps the number of strata fixed with nondegenerate limiting fractions."
+  ]
+}
