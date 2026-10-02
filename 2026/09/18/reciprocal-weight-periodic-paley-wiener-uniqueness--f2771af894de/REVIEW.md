@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — Dyadic comparability gives a uniform fiber estimate: the reciprocal weight sum over one period is finite exactly when the displayed reciprocal dyadic series converges. In the convergent case, weighted Cauchy-Schwarz gives Fourier L1 integrability and the L2 periodization bound needed in Olevskii-Ulanovskii's construction; their full proof of the decomposition into complete frequency sets and the dense-shift uniqueness set was inspected. In the divergent case, normalized dyadic Dirichlet blocks have disjoint Fourier supports and weighted squared norm bounded by a constant times a_j; inverse-energy averaging therefore drives the weighted norm to zero while retaining finite interpolation. The standard successive-correction argument then yields a nonzero continuous function vanishing on any prescribed uniformly discrete set. For logarithmic L, the series is equivalent to the p-series with exponent beta.
+- Originality: **PASS** — Olevskii-Ulanovskii prove only the positive Sobolev result above the one-half power threshold, and the 2026 Bertolini-Florit-Simon-Liehr-Taylor primary abstract states sharpness of that pure-power threshold for periodic weak gaps. Searches for a reciprocal-weight dichotomy and the logarithmic beta=1 boundary found no prior or later published record beyond the assigned result. The recent 2026 source full text was unavailable through the lawful retrieval route used, so originality remains best-of-knowledge with that access risk explicitly retained.
+- Value: **PASS** — The theorem resolves the natural second-order boundary exactly at the newly established critical Sobolev exponent, gives a clean reciprocal-weight criterion for a whole dyadically regular class, and identifies the sharp logarithmic threshold beta greater than one. This is a motivated structural refinement rather than an arbitrary weighted example.
+
+Detailed source comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+The earlier scientific assessment is preserved in sanitized form in `AUDIT.json`.
