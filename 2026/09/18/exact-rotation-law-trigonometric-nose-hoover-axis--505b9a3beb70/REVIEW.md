@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — On a=0, H=cos x+cos y is conserved. Using the stated exact mechanical period T(h)=4K(sqrt(1-h^2/4)) and orbit average <cos y>=h/2 gives Delta z=bT(h)(1-h) with no approximation. Subtracting the zero-mean oscillatory part through the periodic circle cohomological equation yields the smooth annular change zeta=z-b psi and the exact linear flow with frequencies Omega(h) and b(1-h). Differentiating the integral representation gives strict positive-energy monotonicity, and its endpoint limits give the stated range. Dense irrational linear flows force any continuous first integral to be constant on irrational energy tori, and continuity extends this to rational tori, so it factors through H. The negative-energy symmetry and branch monodromy follow consistently. The package's numerical script is only a sanity check and is not needed for the proof.
+- Originality: **PASS** — The Szumiński–Llibre primary abstract confirms local regular-domain integrability on a=0 but does not state the global rigid return map, exact rational/irrational torus classification, annular factorization of continuous first integrals, or branch monodromy conclusion. Searches found no separate source for those global statements. Full paper text was not obtainable during this audit, so the originality finding is explicitly best-of-knowledge rather than a whole-document noncoverage assertion.
+- Value: **PASS** — The result resolves a natural global-versus-local integrability question for the exact invariant axis: it classifies every regular energy torus, gives a complete resonance spectrum on the positive branch, and explains why local branch first integrals do not globalize. These are structural dynamical statements, not merely a numerical special case.
+
+Detailed structured source comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+The earlier same-model scientific assessment remains preserved in `AUDIT.json` as historical evidence.
