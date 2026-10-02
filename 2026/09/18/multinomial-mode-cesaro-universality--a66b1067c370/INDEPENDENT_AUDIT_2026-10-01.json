@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T09:23:49.879240Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Janson's Jefferson seat-excess limit supplies a bounded limiting displacement law, so weak convergence upgrades to every polynomial moment. Substitution into Elezović's Bernoulli-polynomial coefficient formula gives the all-order Cesàro law. The displayed generating-function cancellation is algebraically correct. The conditional-uniform moment calculation for \\(Q_2=c_2+c_1^2/2\\) yields the stated dependence on \\(A_1\\) and \\(A_2\\); the package's 300000-step computation is only a numerical check, not the proof.",
+      "risks": [
+        "The theorem assumes the generic rational-independence regime and asserts Cesàro rather than pointwise convergence."
+      ],
+      "sources": [
+        "Elezović, arXiv:2609.20229",
+        "Janson, arXiv:1110.6369",
+        "assigned RESULT.md and artifacts/check_low_order.py",
+        "later 2026-09-19 SCOPE derivation of the logarithmic law"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those two sources provide the probabilistic and asymptotic ingredients separately."
+        ],
+        "reasoning": "They do not state the combined \\(Q_2\\) heterogeneity formula; deriving it requires joint second moments of the seat-excess functional.",
+        "searches": [
+          "Janson's general divisor-method limit law",
+          "Elezović complete local expansion"
+        ]
+      },
+      "checked_sources": [
+        "later SCOPE logarithmic-law result",
+        "arXiv:2609.20229",
+        "arXiv:1110.6369",
+        "DOI 10.1016/j.spl.2006.04.014",
+        "assigned package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "That later theorem covers only the universal logarithmic coefficients and explicitly says products require joint moments."
+        ],
+        "reasoning": "It does not imply the displayed multiplicative \\(Q_2\\) formula, so the full audited result is not covered.",
+        "searches": [
+          "comparison with the 2026-09-19 SCOPE log-coefficient theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A later SCOPE result reproduces the universal logarithmic coefficient law but explicitly does not claim multiplicative-coefficient universality.",
+          "No inspected source states the audited \\(Q_2\\) formula."
+        ],
+        "reasoning": "The final claim includes the joint polynomial transfer and the nonuniversal \\(Q_2\\) law, not only the log-coefficient theorem.",
+        "searches": [
+          "Resultary semantic search for multinomial modal Cesàro laws",
+          "Elezović multinomial mode expansion",
+          "Janson Jefferson seat excess"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database entry for \\(\\overline Q_2\\) was located in the searches used by this audit."
+        ],
+        "reasoning": "This is not a known-table recomputation; it is a derived mixed-moment formula.",
+        "searches": [
+          "older apportionment moment papers by Schwingenschlögl–Drton and Heinrich–Pukelsheim–Schwingenschlögl"
+        ]
+      },
+      "rationale": "The all-order logarithmic law is now also stated in a later published SCOPE record, which explicitly treats that component. The audited record is strictly richer: it also gives the polynomial transfer law and an explicit second-order multiplicative coefficient \\(\\overline Q_2\\) whose dependence on \\(\\sum p_i^{-1}\\) and \\(\\sum p_i^{-2}\\) proves the first loss of universality. No inspected source covers that full final package.",
+      "residual_risks": [
+        "Older apportionment joint-moment literature remains the main residual originality risk.",
+        "Primary full texts for Elezović and Janson were not retrievable through the available arXiv route during this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the logarithmic component only; it explicitly leaves multiplicative coefficients outside its theorem.",
+          "evidence": "Its limitation says products of different \\(c_j\\) require joint moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-multinomial-mode-cesaro-log-coefficients--69879bbdb548",
+          "material_read": "Complete RESULT.md.",
+          "method": "Full theorem and limitation comparison.",
+          "title": "Universal Cesàro law for all logarithmic coefficients at multinomial modes",
+          "trigger": "Closest published SCOPE overlap."
+        },
+        {
+          "assessment": "Supplies the local coefficient expansion and Jefferson identification, not the audited on-slice joint-moment calculation.",
+          "evidence": "The abstract advertises the complete Bernoulli-polynomial local expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20229",
+          "material_read": "Public abstract/metadata; direct arXiv full-text retrieval failed in this run.",
+          "method": "Primary-source scope comparison.",
+          "title": "Multinomial probabilities near the mode: integer modes and the complete local expansion",
+          "trigger": "Primary fixed-p modal expansion."
+        },
+        {
+          "assessment": "Supplies the limiting seat-excess law, not the multinomial \\(Q_2\\) coefficient formula.",
+          "evidence": "The abstract studies asymptotic distributions and means for divisor methods.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.6369",
+          "material_read": "Public abstract/metadata.",
+          "method": "Primary-source scope comparison.",
+          "title": "Asymptotic bias of some election methods",
+          "trigger": "Primary Jefferson seat-excess limit law."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a stated on-slice averaging problem, gives an all-orders structural law, and identifies exactly where universality first breaks after exponentiation. The \\(Q_2\\) term is a motivated diagnostic for the actual modal probability expansion.",
+      "risks": [
+        "The result is restricted to generic fixed probability vectors."
+      ],
+      "sources": [
+        "Elezović fixed-p expansion",
+        "Janson apportionment law",
+        "audited \\(Q_2\\) formula"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The logarithmic component is currently duplicated by a later published record; acceptance rests on the richer full final claim, especially the \\(Q_2\\) heterogeneity statement.",
+    "Older apportionment moment literature remains residual risk.",
+    "The numerical checker is corroborative only."
+  ],
+  "record_id": "SCOPE-20260918-a66b1067c370",
+  "schema_version": 1
+}
