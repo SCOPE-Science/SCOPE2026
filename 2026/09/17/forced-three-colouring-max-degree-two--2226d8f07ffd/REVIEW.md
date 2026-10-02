@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For three colours on a path or cycle, a successful initially uncoloured set must be independent; on a path it cannot contain endpoints. Relative to a final proper colouring, each uncoloured degree-two vertex must be tight, meaning its two neighbours have distinct colours. Encoding a path colouring by ±1 increments modulo 3 turns each selected tight vertex into one equality of two adjacent increments; independence makes these constraints disjoint. This gives the stated binomial coefficient formula. On a cycle, suppressing each selected tight vertex reduces to a proper colouring of a cycle of length n-j, giving the stated cycle factor. A fresh definition-level exhaustive enumeration independently reproduced every path coefficient for n≤6 and every cycle coefficient for n≤6, including P3=6p^2(1-p).
+- Originality: **PASS** — The full 29-page Farr v1 PDF was inspected. It gives general properties, a two-colour bipartite theorem, and small connected examples through four vertices; its displayed K1,2 three-colour value is 6p^2(1-2p), while the direct count gives 6p^2(1-p). The paper does not give the path/cycle family formulas. A later public 2026-09-19 maximum-degree-two record explicitly states that this 2026-09-17 record was committed earlier and already contained the core formulas; the later record treats its own formulas as an alternate derivation/refinement. Thus later overlap is not earlier prior art.
+- Value: **PASS** — Paths and cycles form the complete connected class of maximum degree two, and three colours are the only forcing regime not already reduced to elementary one/two-colour or high-colour behavior. Closed coefficient formulas, recurrences, and exact minimum-domain consequences therefore give a natural complete classification rather than an arbitrary finite slice.
+
+Detailed evidence and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`. The earlier non-independent scientific assessment is preserved in `AUDIT.json` for provenance.
