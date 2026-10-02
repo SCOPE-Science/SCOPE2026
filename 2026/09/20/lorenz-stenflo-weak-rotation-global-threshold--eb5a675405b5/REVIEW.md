@@ -1,6 +1,13 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit: **PASSED** (2026-10-01).
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+Correctness: **PASS**. Originality: **PASS**. Scientific value: **PASS**.
+
+Final claim: For the classical positive-parameter Lorenz–Stenflo system, if \(0<s\le \sigma^2/3\), the origin is globally asymptotically stable exactly for \(\rho\le 1+s/\sigma^2\), including the nonhyperbolic equality case.
+
+Evidence:
+- `INDEPENDENT_AUDIT_2026-10-01.md`
+- `INDEPENDENT_AUDIT_2026-10-01.json`
+
+The historical same-model assessment is retained as prior evidence. Existing computations remain reproducibility evidence rather than independent certification.
