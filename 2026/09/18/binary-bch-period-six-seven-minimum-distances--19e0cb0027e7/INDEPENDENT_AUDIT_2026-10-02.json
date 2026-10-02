@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T14:35:11.027698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [],
+      "rationale": "Read assigned RESULT and exact C++ source blob 5252ae27d29e4dae35e13fed6b35d1d9e271d079, compiled the original source using WSL g++ 13.3 -O3, and reran it: all irreducibility, primitive/order, relation, coset, and exhaustive tests returned true, VERDICT=PASS. Source-code inspection confirms the 8,650,720 unordered pairs from nonzero coordinates 1..4160 are all generated; for each syndrome pair it binary-searches its complement to v_0 and rules out disjoint pairs. Every hypothetical weight-five cyclic word can be shifted to include coordinate 0, then its other four distinct coordinates partition into such complementary disjoint pairs, so this is exhaustive rather than sampling. The displayed six-support vector vanishes at beta,beta^3, and the BCH bound excludes weights below five, proving d=6. Cyclotomic cosets of 1 and 3 are disjoint size 18, hence dimension 4125. For s=7, exact field arithmetic confirms theta order 16513 and five distinct exponents with zero first/third power sums; cosets size 21 give dimension 16471. For s=7k, 3 does not divide k, N_s is divisible by N_7 because 2^s modulo N_7 is 2^7 or 2^14; the order-16513 subgroup embeds since 21 divides 3s. The lifted five-support word has distinct exponents and meets the BCH roots, proving d=5 for every stated s. The lift from a chosen primitive N_s root onto the designated theta is valid by CRT avoiding prime divisors of N_s/N_7.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 16 at lines 332-342 states precisely s≡2,4 (mod 6) or 5|s,15∤s; its proof lines 345-534 uses order-21 and order-1057 subgroup witnesses"
+        ],
+        "reasoning": "The stated period-seven family contains uncovered s=7,49,77,91; s=6 is outside all three conditions. The other primary Section III-B code with designed distance 3 is a different code. No wider theorem in that paper dominates the new claims.",
+        "searches": [
+          "arXiv:2609.00532 Lemma 16 and Theorem 17",
+          "BCH norm-one length q^2+q+1 minimum distance 5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.00532",
+        "assigned RESULT.md",
+        "Git blob 5252ae27d29e4dae35e13fed6b35d1d9e271d079 compiled and replayed",
+        "https://resultary.org/api/v1/search?q=BCH%204161%204125%206%2016513%2016471%205&limit=5",
+        "targeted exact-parameter web queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier sufficient classes are explicit divisibility/congruence cases, not a general all-s theorem; paper notes d(C_3)=6 and d(C_1)=7"
+        ],
+        "reasoning": "A five-word construction is not forced at s=6 and indeed false there; period-seven construction is independent beyond overlap. Code family equality alone does not imply coverage.",
+        "searches": [
+          "arXiv:2609.00532 Lemma 16 full proof",
+          "source paper other Section III-B results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper uses exactly C_(2,2^(2s)+2^s+1,5,1); Resultary closest 2026/9/18/SCOPE-binary-bch-period-six-seven-minimum-distances--19e0cb0027e7 is the assigned item"
+        ],
+        "reasoning": "Compared the exact code and designed distance, not merely generic BCH terminology. No distinct equivalent record surfaced.",
+        "searches": [
+          "Wang et al arXiv:2609.00532 full III-B",
+          "BCH 4161 4125 6 16513 16471 5",
+          "Resultary API q=BCH 4161 4125 6 16513 16471 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary closest item is the assigned self-entry; no separate exact BCH code table was retrieved from targeted searches"
+        ],
+        "reasoning": "No exact external table coverage established. Failure to find one is a residual risk, not a novelty proof.",
+        "searches": [
+          "quoted web search 4161 4125 BCH 6",
+          "quoted web search 16513 16471 BCH",
+          "Resultary API exact parameters"
+        ]
+      },
+      "rationale": "Read the full relevant Wang--He--Yi--Zheng primary text including Section III-B Lemma 16 and its complete two-case proof, not merely the abstract. Its exact distance-five condition is s=2 or 4 modulo 6, or 5|s and 15 does not divide s. This does not cover s=6 or odd values such as s=7,49,77,91; even 7-multiples with s=14 are covered by the earlier 2 mod 6 class, so the proposed class honestly overlaps rather than falsely claiming all-new parameters. Exact targeted web and Resultary searches found the same assigned item but no distinct table/theorem giving [4161,4125,6] or the entire seven-family. Best-of-knowledge caveat remains for poorly indexed code tables.",
+      "residual_risks": [
+        "Poorly indexed historical BCH code tables could contain [4161,4125,6] or s=7 parameters.",
+        "The package's C++ finite result depends on compiler/hardware correctness; source logic and independent mathematical reduction were inspected, but a separate implementation was not run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_COVERING_FINAL_CLAIM",
+          "evidence": "Lemma 16 conditions at lines 332-342; proof cases at 345-534; s=6 and odd 7-multiples not included.",
+          "identifier_or_url": "https://arxiv.org/html/2609.00532",
+          "material_read": "Full HTML introduction, preliminaries, Section III-B including Lemma 16 statement and both proof cases, theorem/conclusion; checked v2 dated 2026-09-17 UTC",
+          "method": "Primary arXiv full-text inspection and exact parameter-set comparison",
+          "title": "Solutions to Three Conjectures and an Open Problem on Binary BCH Codes",
+          "trigger": "Exact same BCH family and possible dominant sufficient condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [],
+      "rationale": "Exact distance for a natural norm-one BCH family determines error-correction capability where the designed bound is not tight (s=6), and the new period-seven subgroup witness adds an infinite sufficient class beyond the immediately preceding paper. The finite [4161,4125,6] fact is naturally motivated before computation and not a parameter substitution from its existing conditions.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The binary BCH code at s=6 has parameters [4161,4125,6], and every parameter with 7 dividing s but 21 not dividing s has exact minimum distance five.",
+  "limitations": [
+    "Poorly indexed historical BCH code tables could contain [4161,4125,6] or s=7 parameters.",
+    "The package's C++ finite result depends on compiler/hardware correctness; source logic and independent mathematical reduction were inspected, but a separate implementation was not run."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Poorly indexed historical BCH code tables could contain [4161,4125,6] or s=7 parameters.",
+    "The package's C++ finite result depends on compiler/hardware correctness; source logic and independent mathematical reduction were inspected, but a separate implementation was not run."
+  ]
+}
