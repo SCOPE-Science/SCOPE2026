@@ -1,0 +1,100 @@
+{
+  "audited_at_utc": "2026-09-30T23:56:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph-theoretic transfer is correct: every king edge has grid distance at most 2, hence every king-square edge lies in the fourth power of the grid. Applying the cited finite-component splitting at grid power 4 yields finite king-square components on each side. The Conley-Miller recoloring argument then uses chi(king)=4, removes one color class, and colors the remaining finite components with a second four-color palette sharing one color, giving seven Borel colors. The finite-component covering argument is valid because inserted independent-set vertices only connect through one finite king-square component of the complement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source constructs strong/weak orthogonal decompositions on F(2^{Z^n}); Corollary 3.2 gives the bounded-geometry separation and at most n+1 nearby layers."
+        ],
+        "reasoning": "This is the broader machinery the record transfers across the bi-Lipschitz king/grid metrics.",
+        "searches": [
+          "Gao-Jackson-Krohne-Seward arXiv:2401.13866",
+          "indexed Corollary 3.2 excerpt"
+        ]
+      },
+      "checked_sources": [
+        "Gao-Jackson-Krohne-Seward arXiv:2401.13866",
+        "Resultary published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the king graph chi=4, so once the same decomposition is observed to satisfy the power-scale hypotheses after the elementary factor-two metric comparison, the source method gives 7."
+        ],
+        "reasoning": "The record’s main theorem is mechanically obtained by specializing and transferring the published framework.",
+        "searches": [
+          "General 2 chi - 1 theorem plus metric equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact king wording appears only in this record, but the primary abstract states the general 2 chi - 1 result for graphs with weakly orthogonal decompositions."
+        ],
+        "reasoning": "Different wording does not rescue a special case of a broader theorem.",
+        "searches": [
+          "Resultary search for king-move Borel chromatic number",
+          "Gao-Jackson-Krohne-Seward abstract/general theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table is relevant; the issue is theorem implication rather than a missing row."
+        ],
+        "reasoning": "Exact-title absence is not evidence of originality.",
+        "searches": [
+          "Resultary published findings search"
+        ]
+      },
+      "rationale": "Gao-Jackson-Krohne-Seward already states the general theorem chi_B(Gamma)<=2 chi(Gamma)-1 for Borel graphs admitting weakly orthogonal decompositions, and constructs the required orthogonal decomposition machinery for the free Z^n Bernoulli action. The record’s king/grid metric comparison and power inclusion are a short hypothesis-transfer application of that general theorem, so under the required implication-based bar the seven-color bound is covered as a specialized corollary rather than an independent result.",
+      "residual_risks": [
+        "A direct fresh render of the full primary PDF was unavailable at closeout; the coverage judgment rests on the primary arXiv abstract, indexed Corollary 3.2 text, and the record’s own elementary hypothesis transfer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong broader coverage.",
+          "material_read": "Primary abstract stating the general chi_B<=2chi-1 theorem and orthogonal decompositions for free Z^n Bernoulli actions.",
+          "source": "https://arxiv.org/abs/2401.13866"
+        },
+        {
+          "assessment": "Confirms the decomposition constants used by the record; access failure to a fresh full render is retained as a source-access risk, but does not undo the explicit broader theorem statement already read.",
+          "material_read": "Indexed primary-PDF excerpt for Corollary 3.2; direct PDF fetch later returned a transport error.",
+          "source": "https://mathweb.ucsd.edu/~bseward/Files/borelcomb.pdf"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The king-move benchmark is a natural abelian Schreier-graph test case and a seven-color bound is mathematically meaningful. The record fails acceptance because of prior implication coverage, not because the question lacks value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "fresh_evidence": {
+    "fresh_checks": [
+      "Reconstructed the metric inequalities rho_king<=rho_grid<=2 rho_king.",
+      "Checked the implication king^(2) subset grid^(4).",
+      "Reconstructed the finite-component recoloring proof to seven colors.",
+      "Compared the final theorem against the general Gao-Jackson-Krohne-Seward 2chi-1 result and Corollary 3.2 decomposition excerpt."
+    ],
+    "fresh_result": {
+      "claimed_borel_upper_bound": 7,
+      "coverage_reason": "specialization of published general weak-orthogonality framework after elementary metric transfer",
+      "ordinary_chi": 4
+    },
+    "git_material": [
+      "record tree 841de6726041f073b62f69b4318562db85982354",
+      "artifacts/transfer_demo.py blob 0ed6eae2cc82090be399650a4ebc84734ff29542",
+      "artifacts/verify.py blob 3c4341dde2fccdb5e5b00ce7a99fb1e5720b7a5e"
+    ]
+  },
+  "record_id": "SCOPE-20260910-029",
+  "residual_limitations": [
+    "The orthogonal decomposition and finite-component theorem are imported from Gao-Jackson-Krohne-Seward.",
+    "The exact Borel chromatic number between 4 and 7 is not decided.",
+    "Finite artifacts check only graph-theoretic transfer ingredients."
+  ],
+  "schema_version": 1
+}
