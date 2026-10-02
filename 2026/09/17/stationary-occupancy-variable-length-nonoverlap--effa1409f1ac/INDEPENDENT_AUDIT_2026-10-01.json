@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof was reconstructed directly. Two distinct codeword occurrences covering the origin either overlap without containment, forcing a forbidden proper suffix-prefix match, or one contains the other, forcing a forbidden codeword subword. Hence the offset cylinder events are pairwise disjoint, and stationarity makes each offset probability equal to the word cylinder probability. The AM-GM step, the discrete convexity identity for the sequence k q^{-k}, and the continuous convexity step for q at least 3 were checked algebraically. The conclusion is finite and exact and does not require independence or ergodicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stronger maximum-cardinality bounds with only a maximum length constraint do not imply a length-weighted stationary-source inequality or a lower bound on mean length."
+        ],
+        "reasoning": "Known maximum-cardinality results and large-alphabet average-length results address different quantifiers and do not dominate the surviving claim.",
+        "searches": [
+          "Shen--Shangguan--Lin--Ge 2024 constrained-coding upper-bound literature",
+          "Wang--Wang variable-length non-overlap literature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2402.18896",
+        "https://arxiv.org/abs/2108.06934",
+        "https://arxiv.org/abs/1605.03785",
+        "https://arxiv.org/abs/2407.16449"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier generating-function machinery plausibly implies the uniform iid inequality after an additional argument, so that specialization alone is not used as the novelty basis.",
+          "The stationary law argument and arbitrary-source cylinder-probability statement follow from disjointness of covering events and are not consequences of an iid-only generating-function identity."
+        ],
+        "reasoning": "The final originality judgment is based on the stationary/source-sensitive statement and resulting mean-length consequences, not on claiming that every displayed specialization is new.",
+        "searches": [
+          "arXiv:2108.06934 generating-function framework",
+          "arXiv:2402.18896 average-length theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published-results search returned this record as the exact semantic match.",
+          "Wang--Wang 2024 formulates the same variable-length non-overlap condition and minimum-average-length problem, but its displayed lower bound is the prefix-code entropy bound and its asymptotic theorem concerns a different large-alphabet regime.",
+          "The 2022 generating-function paper supplies an avoidance framework closely related to the uniform specialization, but the searched material did not state the stationary arbitrary-source inequality."
+        ],
+        "reasoning": "The uniform inequality has a close generating-function ancestor, so novelty is limited to the stationary/source-sensitive formulation and the derived fixed-alphabet average-length consequences.",
+        "searches": [
+          "Resultary semantic search for stationary occupancy / weighted Kraft / variable-length non-overlapping codes",
+          "Wang--Wang 2024, arXiv:2402.18896",
+          "Wang--Wang 2022, arXiv:2108.06934",
+          "Bilotta 2017, arXiv:1605.03785"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table is relevant because the claim is a general inequality rather than a finite census."
+        ],
+        "reasoning": "This check is inapplicable to a general theorem; the search was instead used to detect equivalent published formulations.",
+        "searches": [
+          "Resultary published-results semantic search",
+          "targeted searches for weighted Kraft and stationary non-overlapping codes"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives for the stationary arbitrary-source formulation and its average-length consequences. The closest modern papers study the same code notion and the average-length problem but do not state this stationary occupancy inequality; the earlier generating-function framework is closely related and may recover the uniform specialization, which is therefore not treated as independent novelty by itself.",
+      "residual_risks": [
+        "Older variable-length comma-free or self-synchronizing literature may contain an equivalent measure-theoretic formulation under different terminology.",
+        "The uniform iid inequality is closely connected to prior generating-function machinery and should not be advertised as wholly independent of it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the stationary-source theorem; CLOSELY_RELATED for the average-length setting",
+          "evidence": "The paper gives the ordinary prefix-code entropy lower bound and a different large-alphabet asymptotic regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.18896",
+          "material_read": "abstract and accessible full-text sections defining variable-length non-overlap and the average-length lower bounds",
+          "method": "lawful open-access HTML/preprint inspection",
+          "title": "On the maximum size of variable-length non-overlapping codes",
+          "trigger": "same code definition and average-length question"
+        },
+        {
+          "assessment": "CLOSELY_RELATED; may recover the uniform specialization but did not supply the stationary arbitrary-source formulation in inspected material",
+          "evidence": "Its method counts avoidance under iid word models rather than stating the stationary occupancy inequality.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06934",
+          "material_read": "abstract and accessible description of the avoidance generating-function method",
+          "method": "lawful open-access inspection",
+          "title": "Q-ary non-overlapping codes: a generating function approach",
+          "trigger": "package explicitly identifies this as the closest analytic framework"
+        },
+        {
+          "assessment": "residual originality risk only",
+          "evidence": "No stationary weighted Kraft statement was located in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03785",
+          "material_read": "abstract and bibliographic description",
+          "method": "lawful open-access record inspection",
+          "title": "Variable-length Non-overlapping Codes",
+          "trigger": "foundational variable-length non-overlap paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result addresses the explicitly studied minimum-average-length problem for variable-length non-overlapping codes. The stationary formulation is source-sensitive, and for fixed alphabet size the additional logarithmic-in-logarithm lower-order term is a mathematically motivated strengthening of the ordinary prefix-code entropy scale.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite variable-length non-overlapping code and every stationary source, the length-weighted sum of codeword cylinder probabilities is at most one; for a uniform q-ary source this yields a weighted Kraft inequality and the stated fixed-alphabet average-length lower bounds, including the logarithmic-in-logarithm correction.",
+  "independent": true,
+  "limitations": [
+    "Originality is best-of-knowledge rather than exhaustive across older comma-free terminology.",
+    "No computational artifact is needed; the theorem is proved by a finite disjoint-event argument."
+  ],
+  "record_id": "SCOPE-20260917-effa1409f1ac",
+  "review_type": "independent_audit",
+  "schema_version": 1
+}
