@@ -1,0 +1,9 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+This package is preserved as scientific evidence, but its final claim did not pass the fresh independent audit on all three axes.
+
+- Correctness: **PASS** — The complete Ge-Li-Li preprint was inspected. Their equations (2.4)-(2.7), (3.2) in even dimension, and (3.7)-(3.11) in odd dimension give exactly the nonnegative Lipschitz-Killing expansion used here. Rewriting (3.2) with Scal=n(n-1)+2 tr(E) yields the even volume-deficit identity, while the odd boundary inequality yields its inequality analogue. Since E>=0, tr(E) is the Schatten-1 norm and dominates every Schatten norm. Lemma 2.1 plus H_j(Id)=1 gives H_j(E)>=lambda_min(E)^j. The round-sphere sharpness calculations are direct. Thus the mathematics is correct.
+- Originality: **FAIL** — The final theorem is mechanically implied by the source paper's displayed identities. In even dimensions Ge-Li-Li equation (3.2) is algebraically equivalent to the claimed volume-deficit budget after substituting equation (2.2); in odd dimensions equations (3.7)-(3.11) give the corresponding inequality. The trace/Schatten estimate is the j=1 term plus E>=0, and the floor concentration inequality is a one-line application of their Lemma 2.1. Under the required implication standard, these are corollaries of the primary proof, even though the source does not package them under the same title.
+- Value: **FAIL** — The reformulation is informative, but it consists of rearranging a published exact identity and applying standard norm monotonicity/Markov plus the source's own positivity lemma. The resulting constants and round-sphere sharpness require no additional nonstandard argument. This is a routine consequence rather than an independently valuable new mathematical gap under the stated bar.
+
+See `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json` for the complete comparison and residual risks.
