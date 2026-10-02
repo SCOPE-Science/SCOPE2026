@@ -1,0 +1,9 @@
+# Review status
+
+Fresh independent mathematical audit: **failed**.
+
+- Correctness: **PASS** — The quantitative construction is mathematically consistent. Karagulyan's logarithmic finite Fourier obstruction supplies a prescribed bad permutation; Lewko's two-copy coloring lemma is made quantitative by bounding exceptional colorings and inserting Gowers's quantitative Szemeredi theorem. With \(D_m=2^{2^{m+9}}\) and \(Q_m\) as defined, the sufficient scale \(X_m=2^{2^{Q_m^{D_m}}}\) gives \(L_3(X_m)=D_m\log_2Q_m\), hence \(L_5(X_m)=m+O(1)\), so a \(\log m\) obstruction becomes an \(L_6(N)\) lower bound. Lewko's complete source confirms the two-copy mechanism and the real-valued \(\sqrt2\) realification. An earlier published proof independently establishes the same six-logarithm lower rate.
+- Originality: **FAIL** — A September 17 published result already proves \(G(N)\ge c\log_{(6)}N\) for all sufficiently large \(N\) by exactly the same Lewko-Karagulyan-Gowers synthesis and fivefold-exponential inversion. The assigned explicit \(X_m\) bookkeeping is a quantitative unpacking of that proof, while its real-valued \(\sqrt2\) corollary is the standard realification already present qualitatively in Lewko's primary paper. The central final claim is therefore exactly covered, and the remaining details are routine refinements rather than an original theorem.
+- Value: **FAIL** — Once the six-iterated-logarithm lower bound has already been published by the identical mechanism, replacing an \(E_5(Cm)\) threshold by one explicit enormous formula and appending the standard realification does not create a separate mathematically motivated contribution. The record is useful exposition but fails the independent value bar.
+
+Detailed comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
