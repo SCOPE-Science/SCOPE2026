@@ -1,202 +1,65 @@
-# Exact three-consecutive-derivative threshold for bounded-inner-diameter domains
+# Arbitrary derivative gaps fail on finite-inner-diameter domains
 
-## Statement
+## Finding
 
-For a plane domain \(\Omega\), let \(d_\Omega\) denote its interior path metric. For a nonempty set
-\(S\subseteq \mathbb N_0\), write \(\mathcal R(S)\) for the property that every unbounded holomorphic
-function \(f\) on \(\Omega\) admits a sequence \(z_j\in\Omega\) such that
+Let \(0\le a<b\) be integers with \(b-a\ge3\). There is a simply connected plane domain \(\Omega\) of finite interior-path diameter and an unbounded holomorphic function \(F\) on \(\Omega\) such that
 \[
-   |f^{(k)}(z_j)|\longrightarrow\infty\qquad\text{for every }k\in S,
+\sup_{z\in\Omega}\min\{|F^{(a)}(z)|,|F^{(b)}(z)|\}<\infty.
 \]
-where \(f^{(0)}=f\).
+Consequently, if a nonempty derivative set \(S\subseteq\mathbb N_0\) contains \(a=\min S\) and some \(b\in S\) with \(b-a\ge3\), finite interior-path diameter does not universally force simultaneous divergence of all \(F^{(k)}\), \(k\in S\).
 
-**Theorem.** The following are equivalent for every nonempty \(S\subseteq\mathbb N_0\).
+This is only the obstruction direction. It does not assert that three consecutive derivative orders are universally forced: the published proof of that positive assertion has an unresolved gap.
 
-1. Every simply connected plane domain of finite interior-path diameter has property \(\mathcal R(S)\).
-2. \(S\) is contained in three consecutive integers:
-   \[
-      S\subseteq\{a,a+1,a+2\}
-   \]
-   for some \(a\ge0\).
+## Assumptions and scope
 
-Equivalently, finite interior-path diameter has an exact universal derivative-span threshold of two.
-
-The negative direction is supplied by the stronger pairwise statement: for every \(0\le a<b\) with
-\(b-a\ge3\), there are a simply connected plane domain \(\Omega\) of finite interior-path diameter and
-an unbounded holomorphic \(F\) on \(\Omega\) for which
-\[
-   \sup_{z\in\Omega}\min\{|F^{(a)}(z)|,\ |F^{(b)}(z)|\}<\infty.
-\]
-
-## Context
-
-MacMahon, arXiv:2609.20607, proved that a simply connected domain has finite interior-path diameter
-if and only if it belongs to \(\mathrm{Rubel}_0(1)\), and in fact if and only if it belongs to
-\(\mathrm{Rubel}_0(2)\). The same paper constructed a finite-inner-diameter cusp and an unbounded
-holomorphic function for which \(f\) and \(f^{(3)}\) never become simultaneously large, proving
-\(\mathrm{Rubel}_0(1)\not\subset\mathrm{Rubel}_0(3)\). Its final section introduces derivative-set
-versions of the Rubel property and asks for geometric descriptions of them.
-
-The theorem above identifies exactly which derivative index sets are forced by the finite-inner-diameter
-geometry. It also extends the \(\{0,3\}\) obstruction to every pair of derivative orders separated by at
-least three.
+The interior-path diameter is the supremum of intrinsic rectifiable path distances in \(\Omega\). The function and domain may depend on \((a,b)\). Derivatives are ordinary complex derivatives. The source construction for \((0,3)\) is due to MacMahon; the statement here treats every starting order and every gap at least three.
 
 ## Proof
 
-### 1. Three consecutive orders are always forced
+Write \(m=b-a\ge3\). Set \(t_j=1-1/j\), \(I_j=[t_j,t_{j+1}]\), and \(\ell_j=1/(j(j+1))\). On \(I_j\) put
+\[
+u_j(x)=4(x-t_j)(t_{j+1}-x)/\ell_j^2,
+\qquad A_j=j^{a+1}.
+\]
+Take a smooth step \(\eta\) that vanishes on \(( -\infty,1/3]\), equals one on \([2/3,\infty)\), and lies between zero and one. Choose \(0<\delta_j\le\min\{\ell_j/8,\ell_j/(8A_j)\}\) and define
+\[
+h(x)=A_j u_j(x)\eta((x-t_j)/\delta_j)\eta((t_{j+1}-x)/\delta_j)
+\quad(x\in I_j).
+\]
+The pieces glue smoothly because each vanishes in a neighborhood of its endpoints. On the core, \(h\) is quadratic, so \(h^{(m)}=0\). On a cutoff collar, \(u_j\le4\delta_j/\ell_j\), so \(|h|\le1/2\). Therefore \(\min\{|h|,|h^{(m)}|\}\le1/2\) everywhere.
 
-Let \(\Omega\) be simply connected with
+For \(a=0\) let \(H=h\). For \(a\ge1\), let
 \[
-   D:=\operatorname{diam}(\Omega,d_\Omega)<\infty,
+H(x)=\frac1{(a-1)!}\int_0^x(x-t)^{a-1}h(t)\,dt.
 \]
-let \(S\subseteq\{a,a+1,a+2\}\), and let \(f\) be unbounded and holomorphic on \(\Omega\).
+Then \(H^{(a)}=h\) and \(H^{(b)}=h^{(m)}\). For \(a=0\), the core maxima \(A_j\to\infty\) show that \(H\) is unbounded. For \(a\ge1\), on the middle half of \(I_j\) the cutoffs equal one and \(u_j\ge3/4\); hence each interval contributes at least a fixed positive amount to
+\[
+\int_{I_j}(1-t)^{a-1}h(t)\,dt
+\asymp A_j\ell_j j^{-(a-1)}\asymp1.
+\]
+More precisely the contribution is bounded below by \(c_a(j/(j+1))^a\), with \(c_a>0\) independent of \(j\). Extend the integration kernel by zero for \(t>x\); it increases to \((1-t)^{a-1}\) as \(x\uparrow1\). Monotone convergence then proves \(H(x)\to\infty\).
 
-First, \(f^{(a)}\) is unbounded. For \(a=0\) this is the hypothesis that \(f\) is unbounded.
-For \(a\ge1\), if \(f^{(a)}\) were bounded, then for a fixed \(z_0\in\Omega\) and any
-\(z\in\Omega\), integration along rectifiable paths of length arbitrarily close to
-\(d_\Omega(z_0,z)\le D\) would give
+Whitney's original Lemma 6 (Section 16, pp. 76–78) applies on an OPEN real set to a function of class \(C^m\), where \(m\) may be any fixed finite integer. Apply it with \(R=(0,1)\), \(m=b\), \(R_1=\varnothing\), a subsequent bounded open exhaustion with \(\overline{R_p}\subset R_{p+1}\), and constant positive tolerances \(\varepsilon_p=\varepsilon\). In Whitney's notation (14.1), \(\alpha_p=b\) for every \(p\); (16.1), or explicitly (16.2), therefore gives a real-analytic \(g\) satisfying \(|g^{(r)}(x)-H^{(r)}(x)|<\varepsilon\) for all \(0\le r\le b\) and every \(x\in(0,1)\). No differentiability or boundedness at the endpoints is required. It remains unbounded, and \(\min\{|g^{(a)}|,|g^{(b)}|\}\le1/2+\varepsilon\) on the real interval. The local holomorphic Taylor-series extensions glue: discs centered on the real interval that overlap have an overlapping real subinterval, where the extensions agree, so the identity theorem applies. They define one holomorphic function on an open neighborhood \(U\) of \((0,1)\). The subset where both derivative differences from the values at the real part are below \(\varepsilon\) is open and contains the entire interval. A positive continuous minorant of its distance-to-complement function gives a width \(0<\rho(x)\le1\) small enough that on
 \[
- |f^{(a-1)}(z)-f^{(a-1)}(z_0)|
- \le D\,\|f^{(a)}\|_\infty.
+\Omega=\{x+iy:0<x<1,\ |y|<\rho(x)\}
 \]
-Thus \(f^{(a-1)}\) would be bounded. Iterating downward would make \(f\) bounded, a contradiction.
+the continuations of \(g^{(a)}\) and \(g^{(b)}\) differ from their real-axis values by at most \(\varepsilon\). Then the displayed minimum is at most \(1/2+2\varepsilon\) throughout \(\Omega\). The domain deformation retracts vertically onto \((0,1)\), so is simply connected. Any two points can be joined by vertical, horizontal and vertical segments of total length at most three. The real-axis restriction shows \(g\) remains unbounded. Taking \(F=g|_\Omega\) proves the assertion.
 
-Set \(h=f^{(a)}\). By MacMahon's \(\mathrm{Rubel}_0(2)\) characterization, finite interior-path
-diameter implies that every unbounded holomorphic function on \(\Omega\) has a sequence on which the
-function and its first two derivatives all diverge in modulus. Applied to \(h\), there is a sequence
-\(z_j\) such that
-\[
- |f^{(a)}(z_j)|,\quad |f^{(a+1)}(z_j)|,\quad |f^{(a+2)}(z_j)|
- \longrightarrow\infty.
-\]
-Hence all derivative orders in \(S\) diverge along the same sequence.
+If \(S\) has span at least three, choose \(a=\min S\) and a \(b\in S\) with \(b-a\ge3\). The same pair obstruction prevents simultaneous divergence for all orders in \(S\).
 
-### 2. A pair with gap at least three can always be obstructed
+## Verification
 
-Fix \(0\le a<b\) and put \(m=b-a\ge3\). Tile \([0,1)\) by
-\[
- I_j=[t_j,t_{j+1}],\qquad
- t_j=1-\frac1j,\qquad
- \ell_j=t_{j+1}-t_j=\frac1{j(j+1)}.
-\]
-On \(I_j\) let
-\[
- u_j(x)=\frac{4(x-t_j)(t_{j+1}-x)}{\ell_j^2},
-\]
-so \(0\le u_j\le1\), its maximum is one, and \(u_j^{(m)}\equiv0\) because \(m\ge3\).
+The core derivative vanishes because \(m\ge3\), the collar bound is uniform in \(j\), and the primitive diverges because its interval contributions stay bounded below. These are analytic arguments, not finite sampling. No program or external certificate is needed.
 
-Choose a smooth step \(\eta\) with \(0\le\eta\le1\), \(\eta=0\) on
-\(( -\infty,1/3]\), and \(\eta=1\) on \([2/3,\infty)\). Put
-\[
- A_j=j^{a+1},\qquad
- 0<\delta_j\le \min\!\left(\frac{\ell_j}{8},
-                  \frac{\ell_j}{8A_j}\right),
-\]
-and define on \(I_j\)
-\[
- h(x)=A_j u_j(x)
- \eta\!\left(\frac{x-t_j}{\delta_j}\right)
- \eta\!\left(\frac{t_{j+1}-x}{\delta_j}\right).
-\]
-Because the cutoff is identically zero near each endpoint, the pieces fit to a \(C^\infty\) function
-on \((0,1)\).
+## Relationship to prior work
 
-Where both cutoffs equal one, \(h=A_j u_j\), hence \(h^{(m)}=0\). If at least one cutoff is not one,
-then \(x\) lies within \(\delta_j\) of an endpoint and
-\[
- A_j u_j(x)\le \frac{4A_j\delta_j}{\ell_j}\le\frac12.
-\]
-Consequently
-\[
-   \min\{|h(x)|,\ |h^{(m)}(x)|\}\le\frac12
-   \qquad (0<x<1).
-\]
-
-If \(a=0\), set \(H=h\). If \(a\ge1\), set
-\[
- H(x)=\frac1{(a-1)!}\int_0^x (x-t)^{a-1}h(t)\,dt.
-\]
-Then in either case
-\[
- H^{(a)}=h,\qquad H^{(b)}=h^{(m)}.
-\]
-Moreover \(H\) is unbounded. For \(a=0\) this is immediate from
-\(\max_{I_j}h=A_j\to\infty\). For \(a\ge1\), on the middle half of \(I_j\) the cutoffs equal one and
-\(u_j\ge3/4\), so
-\[
- \int_{I_j}(1-t)^{a-1}h(t)\,dt
- \ge c_a A_j\ell_j(j+1)^{-(a-1)}
- \ge c_a'\left(\frac{j}{j+1}\right)^a.
-\]
-The sum over \(j\) diverges, and therefore \(H(x)\to+\infty\) along \(x\uparrow1\).
-
-Whitney's finite-order analytic approximation theorem gives a real-analytic \(g\) on \((0,1)\) such
-that, for a fixed small \(\varepsilon>0\),
-\[
-   |g^{(r)}(x)-H^{(r)}(x)|<\varepsilon
-   \qquad(0\le r\le b,\ 0<x<1).
-\]
-Thus \(g\) is unbounded and
-\[
- \min\{|g^{(a)}(x)|,\ |g^{(b)}(x)|\}\le \frac12+\varepsilon
- \qquad(0<x<1).
-\]
-
-A real-analytic function on \((0,1)\) has a holomorphic continuation to some variable-width
-neighborhood of the interval. By shrinking this neighborhood, choose a continuous
-\(\rho:(0,1)\to(0,1]\) so that \(g\) is holomorphic on
-\[
- \Omega=\{x+iy:0<x<1,\ |y|<\rho(x)\}
-\]
-and, for \(r=a,b\),
-\[
- |g^{(r)}(x+iy)-g^{(r)}(x)|<\varepsilon.
-\]
-The domain \(\Omega\) deformation retracts vertically onto \((0,1)\), so it is simply connected.
-Any two points can be joined by a vertical-horizontal-vertical path of length at most \(3\), hence
-\(\operatorname{diam}(\Omega,d_\Omega)\le3\). Along the real axis \(g\) remains unbounded, while
-throughout \(\Omega\)
-\[
- \min\{|g^{(a)}(z)|,\ |g^{(b)}(z)|\}\le \frac12+2\varepsilon.
-\]
-This proves the pairwise obstruction.
-
-If \(S\) is not contained in three consecutive integers, let \(a=\min S\). Then some
-\(b\in S\) has \(b-a\ge3\). The pairwise construction prevents the simultaneous divergence of all
-derivatives indexed by \(S\), completing the equivalence.
-
-## Consequences
-
-The threshold is genuinely about the geometry's universal guarantee, not about individual domains.
-A disc, for example, has much stronger simultaneous-divergence behavior. What fails beyond span two
-is the assertion that *every* simply connected finite-inner-diameter domain must force the chosen
-derivatives to diverge together.
-
-The construction also shows that the obstruction is not special to the pair \(\{0,3\}\): arbitrary
-low derivative order and arbitrary gap at least three can be prescribed.
+MacMahon, arXiv:2609.20607v1, Section 4 constructs the \((a,b)=(0,3)\) case and asks in Section 6 whether the three-consecutive window is the full universal guarantee. The present negative statement extends the obstruction to all \(a\) and \(b-a\ge3\). The positive direction of the earlier full-threshold claim is removed: Section 5 of that same paper does not currently justify it, as documented by the separate SCOPE proof-gap analysis.
 
 ## Limitations
 
-The theorem classifies derivative sets only for the universal statement over simply connected domains
-of finite interior-path diameter. It does not characterize \(\mathcal R(S)\) for a fixed general domain,
-does not optimize cusp regularity, and does not give quantitative growth rates for the divergent
-derivatives. The counterexample domain depends on the obstructed derivative pair. No claim is made
-about a single finite-inner-diameter domain simultaneously realizing every gap obstruction.
-
-Originality is asserted only to the best of our knowledge. The most directly relevant source is very
-recent. The full text of Rubel's 1984 paper was not independently inspected here, and it is the older
-source most plausibly capable of containing an equivalent selected-derivative formulation.
+This does not classify positive simultaneous-divergence guarantees. It gives a domain depending on a selected forbidden pair, not one universal domain for all pairs. The conclusion relies on the cited finite-order analytic approximation theorem. The original full if-and-only-if assertion is not retained.
 
 ## References
 
-1. C. MacMahon, *On Simply Connected Domains Supporting an Unbounded Analytic Function with Bounded
-   Derivative*, arXiv:2609.20607 (2026), https://arxiv.org/abs/2609.20607.
-2. H. Whitney, *Analytic extensions of differentiable functions defined in closed sets*,
-   Trans. Amer. Math. Soc. 36 (1934), 63-89, https://doi.org/10.2307/1989708.
-3. J. D. Hinchliffe, *Unbounded analytic functions on plane domains*, Mathematika 50 (2003), 207-214,
-   https://doi.org/10.1112/S002557930001490X.
-4. A. Ya. Gordon, *Strong unboundedness of unbounded analytic functions*,
-   Proc. Amer. Math. Soc. 122 (1994), 525-529,
-   https://doi.org/10.1090/S0002-9939-1994-1204374-0.
-5. L. A. Rubel, *Unbounded analytic functions and their derivatives on plane domains*,
-   Bull. Inst. Math. Acad. Sinica 12 (1984), 363-377.
+1. C. MacMahon, *On Simply Connected Domains Supporting an Unbounded Analytic Function with Bounded Derivative*, arXiv:2609.20607v1 (2026), Sections 4–6.
+2. H. Whitney, [*Analytic extensions of differentiable functions defined in closed sets*](https://www.math.ucdavis.edu/~saito/data/high-dimensions/whitney1.pdf), Trans. Amer. Math. Soc. 36 (1934), 63–89; Section 16, Lemma 6 and (16.1)–(16.2), pp. 76–78.

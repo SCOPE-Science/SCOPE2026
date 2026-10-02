@@ -2,8 +2,11 @@
 {
   "schema_version": 1,
   "independent_audit": {
-    "status": "not_performed",
-    "evidence": null
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-02.md",
+      "INDEPENDENT_AUDIT_2026-10-02.json"
+    ]
   },
   "lean_verification": {
     "status": "unknown",
@@ -16,5 +19,8 @@
 }
 ---
 
-Fresh independent audit: not yet performed. Prior certification is inactive.
-Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
+# Verification
+
+The core/collar bound and primitive-divergence lower bound are proved analytically in RESULT.md. The original Whitney Lemma 6 and its full critical proof were checked against the exact finite-order/open-interval invocation. No finite numerical experiment is presented as proof of the theorem.
+
+No separate external independent audit, proof-assistant verification or expert attestation is claimed by these files.
