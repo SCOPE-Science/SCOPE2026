@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The regulator/local-time identity was reconstructed directly. Tanaka's formula for the nonnegative gap \(X\) gives \(L^0(X)/2=K+\nu J-A\), with \(A=\int 1_{\{X=0\}}db\) and \(J=\int 1_{\{X=0\}}dM\). For \(F=M-b\ge0\), the continuous finite-variation zero-set identity gives \(1_{\{F=0\}}dF=0\), while support of \(dM\) and \(X=0\) force \(J\) onto \(F=0\); hence \(J=\int1_{\{X=0,F=0\}}db\). This yields the displayed signed defect measure. Its density with respect to the restricted signed measure \(db\) is either \(1\) or \(1-\nu\), strictly positive for \(\nu<1/2\), so vanishing is equivalent to zero total variation on the contact set. Absolute continuity then follows from occupation density because the martingale part of \(X\) is Brownian.
+- Originality: **PASS** — Wang's 2026 paper proves well-posedness under the one-sided \(o(\sqrt h)\) boundary condition and uses the orthant Skorokhod construction in the subcritical regime, but its public theorem does not state the exact signed regulator-local-time defect. A later September 19 published SCOPE result proves a contact-measure sufficiency criterion, increasing-boundary necessity, a Brownian-LIL refinement, and the critical Hölder endpoint. That later record overlaps consequences of this package but does not state the stronger signed defect identity or the general signed-finite-variation iff criterion. The central final claim therefore remains non-covered.
+- Value: **PASS** — The exact signed defect identifies the obstruction in the canonical subcritical regulator, rather than imposing an external modulus condition. It immediately separates singular from absolutely continuous rough boundaries and turns a proof step in a new stochastic model into a reusable exact criterion. This is a motivated structural boundary result.
+
+Detailed structured comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is preserved in `AUDIT.json` as historical evidence.
