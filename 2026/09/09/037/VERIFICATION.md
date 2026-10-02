@@ -2,8 +2,11 @@
 {
   "schema_version": 1,
   "independent_audit": {
-    "status": "not_performed",
-    "evidence": null
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-09-30.md",
+      "INDEPENDENT_AUDIT_2026-09-30.json"
+    ]
   },
   "lean_verification": {
     "status": "unknown",
@@ -16,5 +19,5 @@
 }
 ---
 
-Fresh independent audit: not yet performed. Prior certification is inactive.
-Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
+Fresh independent audit: passed. The cited independent-audit pair records the fresh C/O/V assessment.
+Lean and expert-attestation channels are preserved exactly as previously recorded.
