@@ -1,0 +1,131 @@
+{
+  "audit_evidence": {
+    "json": "INDEPENDENT_AUDIT_2026-10-01.json",
+    "markdown": "INDEPENDENT_AUDIT_2026-10-01.md"
+  },
+  "audited_at_utc": "2026-10-01T04:04:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "artifacts/pari_results.json",
+        "artifacts/reproducibility.json",
+        "Sage reference manual",
+        "arXiv:1510.02114",
+        "arXiv:1808.09750"
+      ],
+      "rationale": "The archived exact inputs give rank E(Q)=1, twist rank 0, p=5 ordinary and split in Q(sqrt(-11)), a 5-adic regulator with valuation 1, a cyclotomic p-adic L derivative with valuation 1, and a twist central p-adic value that is a unit. Published p-adic Artin formalism supports base-change factorization, and p-adic Gross-Zagier identifies the cyclotomic derivative with the Heegner height up to nonzero normalization. The record correctly avoids identifying PARI ellheegner(E)=[0,0] with the discriminant -11 Heegner point.",
+      "residual_risks": [
+        "The CAS p-adic functions were not independently executed during this run; archived precision-tracked outputs were assessed together with external theorem/documentation checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These supply general theorems relating cyclotomic derivatives, Heegner heights, and base-change factorization."
+        ],
+        "reasoning": "They cover the mechanism but do not tabulate the record's exact arithmetic specialization.",
+        "searches": [
+          "Disegni, The p-adic Gross-Zagier formula on Shimura curves, arXiv:1510.02114",
+          "Disegni, The universal p-adic Gross-Zagier formula, arXiv:2001.00045",
+          "Barrera Salazar-Williams-Wang-Erickson, p-adic Artin formalism, arXiv:1808.09750"
+        ]
+      },
+      "checked_sources": [
+        "record artifacts/pari_results.json and reproducibility.json",
+        "Sage reference",
+        "arXiv:1510.02114",
+        "arXiv:2001.00045",
+        "arXiv:1808.09750",
+        "Resultary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the numerical inputs, the final nonvanishing is a direct application of broad existing theorems."
+        ],
+        "reasoning": "This weakens scientific novelty of method even if the exact instantiated arithmetic fact was not located.",
+        "searches": [
+          "general p-adic Gross-Zagier and Artin-formalism sources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned only the present exact specialization; Sage documents the regulator but not the K=-11 Heegner conclusion."
+        ],
+        "reasoning": "Equivalent simple-zero and nonzero-height formulations were compared separately from the already-known regulator example.",
+        "searches": [
+          "Resultary query for 37a1 Q(sqrt(-11)) p=5 cyclotomic p-adic Gross-Zagier",
+          "web search for 37a1 p-adic regulator and Heegner specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sage explicitly prints the 37a p=5 regulator expansion matching the record; no K=-11 Rankin table was found."
+        ],
+        "reasoning": "The known regulator component is not novel; the asserted specialization depends additionally on the twist and base-change data.",
+        "searches": [
+          "Sage elliptic-curve reference for 37a1 p-adic regulator",
+          "Resultary"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the 37a1 p=5 regulator itself is a documented Sage example, but targeted searches did not locate the exact K=Q(sqrt(-11)) Rankin/Heegner specialization or its stated simple-zero/nonzero-height verification.",
+      "residual_risks": [
+        "No independent PARI/Sage rerun was performed in this environment; the audit checked the archived p-adic expansions and theorem implications rather than re-executing the CAS library."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general coverage of mechanism",
+          "evidence": "Formula relates p-adic heights of Heegner points to cyclotomic derivative of a Rankin-Selberg p-adic L-function.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02114",
+          "material_read": "abstract/theorem scope",
+          "method": "arXiv record",
+          "title": "The p-adic Gross-Zagier formula on Shimura curves",
+          "trigger": "same cyclotomic derivative/Heegner-height implication"
+        },
+        {
+          "assessment": "supports p-adic Artin factorization",
+          "evidence": "Authors explicitly prove factorization of base-change p-adic L-functions under Artin formalism.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.09750",
+          "material_read": "abstract",
+          "method": "arXiv record",
+          "title": "Families of Bianchi modular symbols: critical base-change p-adic L-functions and p-adic Artin formalism",
+          "trigger": "base-change factorization step"
+        },
+        {
+          "assessment": "exact regulator component already public",
+          "evidence": "Documentation prints the same initial 5-adic digits.",
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/arithmetic_curves/sage/schemes/elliptic_curves/ell_rational_field.html",
+          "material_read": "37a p=5 padic_regulator example",
+          "method": "documentation",
+          "title": "Sage elliptic curves over Q reference manual",
+          "trigger": "known 37a1 regulator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "record artifacts/pari_results.json and reproducibility.json",
+        "Sage reference",
+        "arXiv:1510.02114",
+        "arXiv:2001.00045",
+        "arXiv:1808.09750",
+        "Resultary"
+      ],
+      "rationale": "After separating the already-documented 37a1 p=5 regulator from the final conclusion, the remaining K=-11 statement is a parameter-level instantiation of general p-adic Artin formalism and p-adic Gross-Zagier using standard CAS outputs. The record does not identify a boundary phenomenon, new structural lemma, or independent reason a future researcher would need this precise specialization.",
+      "residual_risks": [
+        "No independent PARI/Sage rerun was performed in this environment; the audit checked the archived p-adic expansions and theorem implications rather than re-executing the CAS library."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260914-033",
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "verification_state": "independent_audit_failed"
+}
