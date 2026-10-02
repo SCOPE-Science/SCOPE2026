@@ -1,35 +1,18 @@
 {
-  "correctness": {
-    "status": "PASS",
-    "summary": "For any two equal-length windows, including overlapping windows, exact equality has probability d^{-k}. Above the logarithmic length threshold, the deficit from position-limited maximum is dominated by the number of colliding window pairs, yielding a geometric all-moment sum; below the threshold a deterministic alphabet-size bound suffices. For centered concentration, the longest-repeated-substring tail gives a high-probability set on which total complexity is Hamming-Lipschitz, after which McShane extension, Efron--Stein and McDiarmid yield the stated variance and tail bounds. Exact finite checks confirm the combinatorial identities used in the proof on small cases."
-  },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "limitations": [
-    "The results assume independent uniform letters and fixed alphabet size.",
-    "The O_d(n log^4 n) variance upper bound is not claimed to be sharp.",
-    "No matching lower bound, asymptotic variance, central limit theorem, or optimal concentration scale is proved.",
-    "The constants in the deficit tail were not optimized.",
-    "Fixed-length second moments, deterministic maxima, and suffix-tree internal-profile variance are prior work.",
-    "Older analytic suffix-tree or longest-common-prefix literature may contain an equivalent total-functional formulation that was not located.",
-    "Independent audit has not been performed."
+  "independent": true,
+  "independent_audit_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
   ],
-  "originality": {
-    "scope": "to the best of our knowledge",
-    "status": "PASS",
-    "summary": "Janson--Lonardi--Szpankowski already give precise first-moment asymptotics for total sequence complexity, Flaxman--Harrow--Sorkin treat the deterministic maximum, Ahmadi--Ward study second moments for fixed-length subword complexity, and Gaither--Ward study suffix-tree internal-profile variance. Searches using total subword complexity, factor complexity, distinct-substring count, suffix-array longest-common-prefix sums, and longest repeated substrings did not locate the all-q deficit estimate or a variance/concentration theorem for the total all-length statistic. Older analytic suffix-tree literature under an equivalent additive-functional formulation is the main residual risk."
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": "The all-moment deficit estimate is valid: every pair of length-\\(k\\) windows matches with probability exactly \\(d^{-k}\\), including overlap; above \\(\\lfloor\\log_d n\\rfloor\\), the deficit is bounded by collision pairs, and the \\(q\\)-moment plus Minkowski sum is geometric. Below the threshold the alphabet-size maximum gives a deterministic \\(O(n)\\) contribution. Optimizing Markov's inequality yields the stated exponential tail. The centered variance/concentration argument is also correct, but it is not originality-bearing here: the longest-repeat tail, typical-set Hamming Lipschitz bound, McShane extension, bounded-difference variance, and concentration steps agree with an earlier stronger nonuniform-iid theorem. The finite verifier correctly checks the collision and Lipschitz identities on small instances.",
+    "originality_context": "Historical same-model assessment existed before this fresh independent audit; its operational fields are not republished.",
+    "value": "The surviving all-moment deficit theorem gives a strong finite-sample statement at the natural exact combinatorial maximum: the loss has linear scale with an exponential tail uniformly in word length for fixed alphabet size. This complements, rather than duplicates, the already-covered centered concentration theorem and is a reusable collision-count estimate."
   },
-  "phase": "II",
-  "previously_published_pending_reaudit": true,
-  "record_id": "SCOPE-20260920-0cd39961934a",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "46252df3-0951-4400-8103-7508f05d911f",
-  "value": {
-    "status": "PASS",
-    "summary": "The result directly supplies variance and concentration information for a recently highlighted gap while also showing exponential control of the deficit from exact maximum. The proofs are elementary enough to be reusable and clearly separate total all-length complexity from previously studied fixed-length or fixed-level statistics."
-  },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "verification_state": "independently_reviewed"
 }
