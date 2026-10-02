@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T06:00:51.719613Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and artifacts/verify.py at tree 4fcc1a34b04973b54c7c47d1af055bb70c8f6808",
+        "Direct arithmetic check of the modular/nonintegrality and error-to-floor logic"
+      ],
+      "rationale": "The Binet expansion and trace conversion produce the stated rational approximant. The modular step is exact: modulo 19 the numerator reduces to \\(4F_n-3F_{n-1}\\), whose nonzero 9-term cycle prevents integrality. The analytic remainder is bounded by \\(10\\alpha^{-n}\\), and the stated \\(n=27\\) inequality makes this smaller than \\(1/31958\\); because the approximant's denominator divides 31958 and it is nonintegral, this forces equal floors. The inspected exact-rational verifier covers the remaining \\(4\\le n\\le26\\), verifies the mod-19 cycle and checks the residue period. The theorem's infinite part is analytic, not inferred from the finite checks.",
+      "residual_risks": [
+        "The constants in the inverse-series expansion were accepted after algebraic consistency checks rather than a full symbolic re-derivation of every coefficient from first principles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wan--Liang--Liao gives arbitrary-d asymptotic estimates; Hwang--Park--Song determines the floor for d=3."
+        ],
+        "reasoning": "Neither broader asymptotics nor the cubic exact case mechanically yields the submitted fifth-power modular correction.",
+        "searches": [
+          "Wan--Liang--Liao 2026 generalized Fibonacci reciprocal-sum asymptotics",
+          "Hwang--Park--Song arXiv:2609.18179 cubic exact floor"
+        ]
+      },
+      "checked_sources": [
+        "Wan--Liang--Liao, Mathematica Bohemica 2026",
+        "Hwang--Park--Song, arXiv:2609.18179",
+        "Hwang--Park--Song 2022 fourth-power paper as cited in RESULT.md",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general paper promises asymptotic estimation, and the exact paper is explicitly cubic."
+        ],
+        "reasoning": "The prior statements do not imply the fifth-power exact floor formula.",
+        "searches": [
+          "Mathematica Bohemica 2026 abstract",
+          "arXiv:2609.18179 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No independent exact fifth-power floor identity was returned; the exact Resultary hit is the same SCOPE record."
+        ],
+        "reasoning": "No synonymous integer-part formulation for exponent 5 was located.",
+        "searches": [
+          "Web: reciprocal fifth power Fibonacci exact floor sum 1/F_k^5",
+          "Resultary: fifth-power reciprocal Fibonacci floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database containing the all-n floor values/formula was found."
+        ],
+        "reasoning": "A finite sequence table would not establish the analytic all-n theorem in any case.",
+        "searches": [
+          "Resultary semantic search",
+          "Web/OEIS-style fifth-power searches"
+        ]
+      },
+      "rationale": "Targeted searches found exact low-power floor formulas, especially the cubic 2026 paper, and a general arbitrary-exponent asymptotic paper, but no exact fifth-power floor formula. The general Wan--Liang--Liao result explicitly concerns asymptotic estimation, so it does not imply the modular floor determination here.",
+      "residual_risks": [
+        "Very recent/unindexed follow-up work may exist; no exact exponent-5 source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers asymptotic estimation for arbitrary exponent, not exact floor determination.",
+          "evidence": "Abstract explicitly describes asymptotic estimation values for generalized Fibonacci reciprocal sums.",
+          "identifier_or_url": "DOI 10.21136/MB.2026.0161-25",
+          "material_read": "Publisher abstract; an attempt to fetch the public PDF timed out.",
+          "method": "Publisher web page and failed PDF retrieval.",
+          "title": "The asymptotic estimation for two classes of generalized Fibonacci sub-sequences",
+          "trigger": "Closest arbitrary-exponent result that could dominate the fifth-power expansion."
+        },
+        {
+          "assessment": "Treats exponent 3 and determines its exact floor; it does not state exponent 5.",
+          "evidence": "Abstract repeatedly specifies the cubic case s=3.",
+          "identifier_or_url": "arXiv:2609.18179",
+          "material_read": "Accessible abstract.",
+          "method": "Web/arXiv abstract.",
+          "title": "Continuous approximation to the reciprocal sum of the cubes of Fibonacci numbers",
+          "trigger": "Closest recent exact-floor paper in the same family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Recent cubic and general asymptotic literature"
+      ],
+      "rationale": "The exponent-5 exact floor is a natural next invariant in an established sequence of reciprocal-Fibonacci tail problems. The proof supplies a global modular obstruction and effective analytic control, not just a finite fit, so the result is independently reusable even without a general all-exponent theorem.",
+      "residual_risks": [
+        "If a concurrent exact exponent-5 paper exists, originality and therefore value would need reassessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(n\\ge4\\), the inverse tail \\(S_n^{-1}=(\\sum_{k=n}^{\\infty}F_k^{-5})^{-1}\\) has the exact floor given by the displayed Fibonacci--Lucas rational expression with denominator 31958 and its least-residue correction.",
+  "limitations": [
+    "Originality remains best-of-knowledge in a fast-moving 2026 literature."
+  ],
+  "schema_version": 1
+}
