@@ -1,0 +1,9 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+This package is preserved as scientific evidence, but its final claim did not pass the current audit on all three scientific axes.
+
+- Correctness: **PASS** — For the symmetric normalized body, the Mielke-Sulz profile inequality gives the full profile moment and their mixed identity gives the first moment. Dividing the projection-volume inequality by the volume term therefore yields exactly the normalized moment ratio. Writing that ratio as an order-\(n-1\) Rényi divergence is algebraically correct; the Blaschke factorization for nonsymmetric bodies, Rényi monotonicity, the variance identity, Pinsker bound, and the cylinder calculation are also correct.
+- Originality: **FAIL** — The central theorem is mechanically implied by the primary proof already published by Mielke-Sulz. Their profile functional inequality and mixed identity combine to give exactly \(Q(K)/Q(B)\ge \mathbb E[X^{n-1}]/(\mathbb E X)^{n-1}\); normalizing \(Y=X/\mathbb E X\) and naming \(\log \mathbb E[Y^{n-1}]/(n-2)\) a Rényi divergence is a change of notation. The lower-order divergence, variance, and total-variation statements then follow from standard monotonicity, the \(D_2\) identity, and Pinsker. The cylinder equality is a correct direct substitution but does not make the composite stability theorem original.
+- Value: **FAIL** — Because the advertised quantitative stability mechanism is already encoded explicitly in the source moment inequality and mixed identity, the final package is primarily a repackaging with standard information-theoretic inequalities. The cylinder check is useful exposition but is too small and mechanically attached to rescue the package as a separate mathematical contribution.
+
+See `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json` for the complete comparison and residual risks.
