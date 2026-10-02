@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T14:48:48.217891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/09/08/058/RESULT.md",
+        "frozen 2026/09/08/058/artifacts/compute_atlas.py",
+        "frozen 2026/09/08/058/artifacts/methodB_kostka.py",
+        "isolated two-route full replay in /tmp/scope-recovery-algebra-b-20261002",
+        "frozen 2026/09/08/058/artifacts/argmax_n10_cert.json"
+      ],
+      "rationale": "The frozen repository omitted claimed generated atlas files and used a private absolute ART path; those were real reproducibility defects, not evidence that the mathematics was false. I independently ran the frozen two character-table algorithms in an isolated writable directory (altering only ART for the replay): Method B generated n=1..12 Kostka-inversion character tables; Method A recomputed them via Murnaghan–Nakayama and agreed entrywise. Orthogonality, dimensions and transpose checks passed. The full 74,088 ordered n=10 triples were enumerated with 40,860 nonzero, unique maximum 117 at ((4,3,2,1)^3), and ray values 4 for n=6..12. Mathematical C therefore passes; this does not certify the original package as self-contained for publication.",
+      "residual_risks": [
+        "The frozen Git tree lacks the generated nonzero tables and several character tables; a surviving publication would require adding complete data and replacing private absolute path. Here scientific rejection is independently based on prior coverage."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2010 n<20 tables strictly dominate the n<=10 atlas and seven-point n6..12 ray.",
+          "Blasiak explicitly notes M(10)=117.",
+          "The 2026 dataset covers larger n separately and does not by itself imply the S10 table."
+        ],
+        "reasoning": "The direct earlier complete n<20 tables are decisive broader coverage; generic later big-n data are not used as an invalid implication.",
+        "searches": [
+          "Castilho Alcarás-Kota 2010 full text §4-5",
+          "Blasiak hook-shape theorem/full text",
+          "2026 Hugging Face S20/S30/S40 dataset"
+        ]
+      },
+      "checked_sources": [
+        "https://resultary.org/api/v1/search",
+        "https://www.scielo.br/j/bjp/a/gxJt9QrX9BHbRjywQJpTzmh/?lang=en",
+        "https://public.websites.umich.edu/~jblasiak/kroneckergreene.pdf",
+        "https://huggingface.co/datasets/cahlen/kronecker-coefficients"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every coefficient of the proposed n<=10 atlas is one entry of a prior n<20 complete table; the ray entries n6..12 and maximizing triple are entries/finite comparisons of those tables."
+        ],
+        "reasoning": "The claim is a re-evaluation/repackaging of a prior complete dataset, not an independent unknown exact invariant. Two-route certification improves verification but does not recover originality/value.",
+        "searches": [
+          "2010 complete Schur inner-product tables",
+          "Blasiak max 117"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2010 paper §1 identifies Schur inner-product coefficients g(lambda,mu,nu) with symmetric-group Kronecker coefficients.",
+          "It states full n<20 tabulations were available for download."
+        ],
+        "reasoning": "The terminology difference is exactly equivalent, not merely related.",
+        "searches": [
+          "Resultary API Kronecker atlas n10 117",
+          "Schur inner product complete tables n 20 2010",
+          "Blasiak arXiv:1209.2018"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2010 Table 2 lists {4,3,2,1}×{4,3,2,1}, highest multiplicity 117, term {4,3,2,1}; §4 says full n<20 tables downloadable from an author homepage.",
+          "Resultary exact hit was this SCOPE record."
+        ],
+        "reasoning": "A published complete numerical table exists by explicit primary-source statement even though the historic download link was not revalidated; the square coefficient also appears in the paper itself.",
+        "searches": [
+          "2010 paper Table 2 and download statement",
+          "Resultary exact atlas query",
+          "Hugging Face cahlen/kronecker-coefficients file listing"
+        ]
+      },
+      "rationale": "Castilho Alcarás and Kota's 2010 full primary paper explicitly states that their implemented methods generated full downloadable inner-product tables for every n<20. Inner products of Schur functions are the same Kronecker coefficients, so this prior database covers the n<=10 atlas and ray values through n=12. Its Table 2 already gives the (4,3,2,1) square highest multiplicity 117 with constituent (4,3,2,1). Blasiak independently reports M(10)=117. The unique-maximizer detail is directly extractable from the prior complete n=10 table and is not a surviving new mathematical finding.",
+      "residual_risks": [
+        "The historic author download endpoint was not revalidated, but the contemporaneous peer-reviewed full text explicitly attests the complete tables and itself prints the key 117 triple."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "§1 defines inner-product coefficients as Kronecker coefficients; §4 says full tables for n<20 are downloadable and Table 2 gives the (4,3,2,1) square's 117 term; §5 repeats full tabulations n<20.",
+          "identifier_or_url": "https://www.scielo.br/j/bjp/a/gxJt9QrX9BHbRjywQJpTzmh/?lang=en",
+          "material_read": "Complete HTML article including definitions, both algorithms, §4 examples, Table 2 discussion, conclusions and references",
+          "method": "Primary full-text mathematical/terminology comparison",
+          "title": "On the calculation of inner products of Schur functions",
+          "trigger": "Exact equivalent Schur inner-product tables through n<20 and n=10 117 example"
+        },
+        {
+          "assessment": "COVERS maximum value, not needed for full-table conclusion",
+          "evidence": "Introduction explicitly reports maximum coefficient at n=10 is 117 and describes computations across S10 triples.",
+          "identifier_or_url": "https://public.websites.umich.edu/~jblasiak/kroneckergreene.pdf",
+          "material_read": "Complete 37-page PDF with introduction, formula and references",
+          "method": "Primary full-text reading",
+          "title": "Kronecker coefficients for one hook shape",
+          "trigger": "Prior maximum and possible S10 exhaustive computations"
+        },
+        {
+          "assessment": "NOT_DECISIVE for S10",
+          "evidence": "Published tables are for S20/S30, with S40 character data; not a direct S10 table.",
+          "identifier_or_url": "https://huggingface.co/datasets/cahlen/kronecker-coefficients",
+          "material_read": "Full dataset card and file listing",
+          "method": "Primary data-page inspection",
+          "title": "Kronecker Coefficients: Complete Tables for S20, S30, and S40",
+          "trigger": "Potential exact public table overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.scielo.br/j/bjp/a/gxJt9QrX9BHbRjywQJpTzmh/?lang=en",
+        "frozen 2026/09/08/058/RESULT.md"
+      ],
+      "rationale": "A certified duplicate table may be useful software infrastructure, but the SCOPE scientific value criterion rejects known/table recomputation absent a genuinely new substantive fact. The exact finite atlas and ray are already in prior n<20 tables; the certification pipeline alone does not turn them into a new finding.",
+      "residual_risks": [
+        "This is a scientific O/V rejection, not a statement that the recomputed coefficients are false."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1209.2018",
+    "Resultary",
+    "package source URLs"
+  ],
+  "disposition": "failed",
+  "final_claim": "The package claims a complete Kronecker coefficient atlas through n=10, ray values 4 for n=6 through 12, and a unique n=10 maximizing triple at (4,3,2,1)^3 with value 117.",
+  "limitations": [
+    "The frozen Git tree lacks the generated nonzero tables and several character tables; a surviving publication would require adding complete data and replacing private absolute path. Here scientific rejection is independently based on prior coverage.",
+    "The historic author download endpoint was not revalidated, but the contemporaneous peer-reviewed full text explicitly attests the complete tables and itself prints the key 117 triple.",
+    "This is a scientific O/V rejection, not a statement that the recomputed coefficients are false."
+  ],
+  "residual_risks": [
+    "The maximum value is definitely not novel; other small-n character/Kronecker tables may cover more of the stated finite data than the package's originality discussion recognizes."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The frozen Git tree lacks the generated nonzero tables and several character tables; a surviving publication would require adding complete data and replacing private absolute path. Here scientific rejection is independently based on prior coverage.",
+    "The historic author download endpoint was not revalidated, but the contemporaneous peer-reviewed full text explicitly attests the complete tables and itself prints the key 117 triple.",
+    "This is a scientific O/V rejection, not a statement that the recomputed coefficients are false."
+  ],
+  "source_inspections": [
+    "Git tree and all available 058 artifacts",
+    "Blasiak arXiv:1209.2018 abstract/search",
+    "Resultary exact Kronecker search"
+  ]
+}
