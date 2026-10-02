@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The complete-sequence proof is correct. The divisor weights of \(2^a\) form a complete base block of total \(2^{a-1}+2\). For each positive \(p\)-adic exponent, the Carmichael weights factor as \(p^{j-1}\operatorname{lcm}(p-1,\lambda(2^i))\); after normalization the block is a run of ones followed by powers of two, so once its least entry fits there are no internal gaps. Comparing that least entry with the exact previous-block total yields the stated necessary-and-sufficient inequality. The \(b=1\) threshold follows immediately, and adjoining primes up to a suitable half-square-root scale gives the counting lower bound. A fresh independent direct complete-sequence check on a bounded grid found no mismatches, as supplementary evidence only.
+- Originality: **PASS** — The complete Schwab-Thompson primary paper defines \(\lambda^\star\)-practical numbers, proves an upper bound, and explicitly reports that it could not prove a reasonable lower bound. Its general prime-adjunction theorem assumes multiplicativity and its proof uses product factorization, so it does not apply mechanically to the nonmultiplicative Carmichael function. Targeted Resultary searches found no published two-prime-support classification, threshold, or square-root-order lower bound beyond the assigned record. Originality therefore passes to the best of current knowledge.
+- Value: **PASS** — This is a natural exact classification on the first genuinely nonmultiplicative two-prime-support family for the Carmichael subset-sum notion, and its simplest slice produces a polynomial-order lower bound for a counting function whose foundational treatment explicitly lacked one. The result is both structurally and quantitatively motivated.
+
+Detailed comparisons, source inspections, checked sources, and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
