@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T03:58:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The next-generation reduction was independently reconstructed from the block triangular transition matrix: \\(H=D_\\beta V_I^{-1}D_\\sigma V_E^{-1}\\). With the stated parameters and movement matrices, exact arithmetic gives isolated values \\(1/5\\) and \\(2/9\\), \\(\\operatorname{tr}H(1)=14/45\\), \\(\\det H(1)=1/90\\), discriminant \\(106/2025\\), and Perron root approximately \\(0.2699514460>2/9\\). This is an exact finite counterexample, not a simulation-only conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Ruan give a richer malaria vector-host model where movement can make \\(R_0>1\\) even when each isolated patch has \\(R_0<1\\)."
+        ],
+        "reasoning": "That broader qualitative phenomenon does not directly imply a counterexample inside the simpler audited SEIR class because the state space and transmission blocks differ.",
+        "searches": [
+          "Gao–Ruan multipatch malaria movement R0",
+          "travel frequency epidemic R0"
+        ]
+      },
+      "checked_sources": [
+        "Gao and Ruan, SIAM J. Appl. Math. 72 (2012), DOI 10.1137/110850761, PMCID PMC3665429.",
+        "Resultary exact and semantic searches for stage-specific SEIR movement.",
+        "General multipatch epidemic R0 searches."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2012 model includes human SEIRS and mosquito SEI compartments and patch-dependent vector transmission; its numerical travel effect is not a specialization theorem for the audited direct-transmission SEIR NGM."
+        ],
+        "reasoning": "It raises novelty risk but does not settle the audited universal statement by direct logical implication.",
+        "searches": [
+          "claim-vs-prior implication against Gao–Ruan 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact hit is the audited record; general multipatch papers use related but different models."
+        ],
+        "reasoning": "The audited claim concerns a specific SEIR next-generation block with independent exposed and infectious movement matrices.",
+        "searches": [
+          "Resultary SEIR opposite E/I movement bracketing",
+          "multipatch SEIR R0 isolated patch bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table containing the audited \\(H(1)\\), trace, determinant, or parameter tuple was found."
+        ],
+        "reasoning": "The exact small rational witness appears record-specific.",
+        "searches": [
+          "exact two-patch matrix/parameter table",
+          "Resultary exact parameter search"
+        ]
+      },
+      "rationale": "Prior multipatch epidemic literature demonstrates that travel can overturn isolated-patch disease outcomes, but no searched source was found that directly implies this exact simple SEIR stage-specific-movement counterexample or its matrix.",
+      "residual_risks": [
+        "The qualitative phenomenon that movement can increase epidemic persistence is clearly prior art, so novelty is limited to the exact simple model-class counterexample/mechanism rather than the broad epidemiological message.",
+        "A specialized SEIR mobility paper not surfaced by the searches could still contain an equivalent small counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_PHENOMENON_NOT_DIRECTLY_COVERING",
+          "evidence": "The paper studies a vector-host malaria SEIRS/SEI system with substantially different next-generation structure; it does not state the audited simple SEIR rational matrix counterexample.",
+          "identifier_or_url": "DOI 10.1137/110850761; PMCID PMC3665429",
+          "material_read": "Full lawful PMC text: abstract, introduction on exposed/infectious movement, model equations with separate movement rates, and the two-patch movement discussion; additionally inspected the published numerical case reporting isolated values below one but coupled \\(R_0\\) above one.",
+          "method": "open-access full-text inspection",
+          "title": "A Multipatch Malaria Model with Logistic Growth Populations",
+          "trigger": "highly relevant prior demonstration that movement can raise a coupled epidemic threshold beyond isolated-patch behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-patch exact counterexample to a natural universal bracketing heuristic is mathematically informative: it isolates the mechanism to opposite stage-specific movement and gives a transparent rational next-generation matrix. This is a motivated boundary/counterexample rather than an arbitrary parameter-only gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the stated two-patch SEIR next-generation model with opposite exposed/infectious movement, \\(H(1)=\\begin{pmatrix}1/10&1/20\\1/5&19/90\\end{pmatrix}\\) has Perron root about \\(0.269951446\\), exceeding the largest isolated value \\(2/9\\), so a universal isolated-patch upper bracketing assertion for this model class is false.",
+  "schema_version": 1
+}
