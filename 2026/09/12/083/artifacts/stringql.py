@@ -1,5 +1,9 @@
 """Q_L-correct string extraction: classes mod 2Q_L = 2Z a1 + 6Z a2.
-A_n(w) = c_[w](n - |w|^2/4). Check consistency per class; extract vacuum c^0_0."""
+A_n(w) = c_[w](n - |w|^2/4). Check consistency per class; extract vacuum c^0_0.
+This is exploratory beyond grade 6; verify_finite.py certifies the stated
+vacuum coefficients through grade 6 in a proved-complete box.
+"""
+from pathlib import Path
 from fractions import Fraction as Q
 from collections import defaultdict
 import json
@@ -59,7 +63,9 @@ for key in keys:
     m[key] = (2*S3)/dd3 if dd3 != 0 else Q(0)
 A = defaultdict(dict)
 for (n, w), v in m.items():
-    if v != 0: A[n][w] = int(v)
+    if v != 0:
+        assert v.denominator == 1 and v >= 0
+        A[n][w] = int(v)
 print('grade totals:', [sum(A[n].values()) for n in range(N+1)])
 c = defaultdict(dict); conf = []
 for n in range(N+1):
@@ -75,4 +81,5 @@ for cl in sorted(c):
     es = sorted(c[cl])
     print('class', cl, [(e, c[cl][e]) for e in es if e <= 200][:12])
 json.dump({str(cl): {str(e): c[cl][e] for e in sorted(c[cl])} for cl in c},
-          open('output/artifacts/stringQL.json', 'w'))
+          Path(__file__).with_name('stringQL.json').open('w', encoding='utf-8'))
+

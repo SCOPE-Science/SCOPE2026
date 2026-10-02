@@ -1,7 +1,10 @@
-"""Affine distributions for nonvacuum L(L) + sector top-space extraction.
-For class cl mod 2Q_L: coset lowest weight config minimizes F(n,w) = 36n - E36(w)
-over (n,w) with w in cl, A_n(w) > 0. h(M) = Delta_L + Fmin/36. Top dim = A at minimizer
-(if unique; sum if several)."""
+"""Exploratory affine distributions and theta-translated sector representatives.
+A sector's top dimension is the common multiplicity at a minimum, NOT the sum
+of translated representatives. This finite-window script is retained for
+comparison; verify_finite.py and RESULT.md supply the proved grade-2 cutoff.
+The states list records representatives, not separate parafermion top copies.
+"""
+from pathlib import Path
 from fractions import Fraction as Q
 from collections import defaultdict
 import json
@@ -62,7 +65,9 @@ for name, Lam in LAMBDAS.items():
         m[key] = (2*S3)/dd3 if dd3 != 0 else Q(0)
     A = defaultdict(dict)
     for (n, w), v in m.items():
-        if v != 0: A[n][w] = int(v)
+        if v != 0:
+            assert v.denominator == 1 and v >= 0
+            A[n][w] = int(v)
     print(name, 'totals', [sum(A[n].values()) for n in range(N+1)])
     # sector minima of F = 36n - E36(w)
     best = {}
@@ -75,4 +80,5 @@ for name, Lam in LAMBDAS.items():
                 best[cl][1].append(((n, w), v))
     OUT[name] = {str(cl): {'F': F, 'states': [[list(nw), v] for (nw, v) in st]} for cl, (F, st) in best.items()}
     print(name, 'nsectors', len(best))
-json.dump(OUT, open('output/artifacts/sectors.json', 'w'))
+json.dump(OUT, Path(__file__).with_name('sectors.json').open('w', encoding='utf-8'))
+

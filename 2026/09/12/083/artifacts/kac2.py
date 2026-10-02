@@ -1,5 +1,10 @@
 """Optimized Freudenthal-Kac for affine G2 level-2 vacuum + string extraction.
-Precompute integer pairings. Only vacuum Lam=(0,0)."""
+Precompute integer pairings. Only vacuum Lam=(0,0).
+Historical exploratory script: its mod2 projection is NOT the 2Q_L sector
+classification and its grade-9/box-14 window is not a completeness certificate.
+Use verify_finite.py for certified vacuum coefficients through grade 6.
+"""
+from pathlib import Path
 from fractions import Fraction as Q
 from collections import defaultdict
 import json, time
@@ -82,4 +87,5 @@ print('conflicts',conf)
 for cl in sorted(c):
     es=sorted(c[cl])
     print('class',cl,[(e,c[cl][e]) for e in es if e<=9*36][:20])
-json.dump({str(cl):{str(e):c[cl][e] for e in sorted(c[cl])} for cl in c}, open('output/artifacts/string00.json','w'))
+json.dump({str(cl):{str(e):c[cl][e] for e in sorted(c[cl])} for cl in c}, Path(__file__).with_name('string00.json').open('w', encoding='utf-8'))
+
