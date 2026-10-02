@@ -1,0 +1,64 @@
+# Independent audit — Dimension-two boundary for double transvection commutators
+
+Audit date: 2026-10-01 (UTC) UTC
+
+## Final claim
+
+In GL_2 over a field, existence of an identity double commutator with two nonidentity transvections is classified by an eigenline condition and, in odd characteristic, a determinant-square alternative. Over the reals every matrix still admits a unipotent double commutator, and every nonscalar matrix admits a nonidentity transvection as that double commutator.
+
+## Correctness — PASS
+
+The matrix calculation is correct. In a basis adapted to the first transvection, the first commutator lies in SL_2 and its trace is an explicit quadratic function of the transvection parameter. A nonidentity transvection commutes with an SL_2 matrix exactly when that matrix has a repeated eigenvalue over the field, which yields the eigenline alternative and, in odd characteristic, the determinant-square alternative. In characteristic two the repeated-root condition reduces to the eigenline case. Over the reals, a noninvariant line makes the first commutator hyperbolic after an appropriate parameter choice, and a transvection along an eigenline makes the second commutator a nonidentity transvection. A fresh exhaustive check over the fields of 2, 3, and 5 elements found zero mismatches, independently reproducing the committed verification.
+
+## Originality — PASS
+
+Chinyere's primary abstract covers the real unipotence conclusion only in dimensions at least three; the audited theorem supplies the missing exact dimension-two field classification and the real boundary. The 2020 Petechuk and Petechuk paper was inspected in substantial full text and studies residual and fixed-module consequences of commutativity with transvections, not existence of two independently chosen transvections. Resultary returned no earlier equivalent classification. A work by K. Muliarchyk cited in the recent source could not be inspected in primary form; the secondary description located concerns counterexamples over noncommutative algebras and does not itself cover commutative fields. Because that underlying manuscript remains unavailable, it is retained as the principal originality risk.
+
+### Equivalent formulations
+
+Searches: Resultary semantic search for (GL_2) double commutators with transvections, eigenlines, and determinant-square criteria; targeted literature search around Chinyere arXiv:2609.17006 and transvection commutator papers
+
+Evidence: No equivalent (GL_2) existence criterion was returned.
+
+Reasoning: Commutativity conditions for a fixed transvection are not equivalent to existence of two transvections realizing an identity double commutator.
+
+### Broader coverage
+
+Searches: Primary abstract inspection of Chinyere arXiv:2609.17006; full-text inspection of Petechuk–Petechuk 2020
+
+Evidence: Chinyere states the real theorem for (nge3); Petechuk–Petechuk prove residual/fixed-module inclusions under commutativity hypotheses.
+
+Reasoning: Neither inspected theorem dominates the (n=2) field classification.
+
+### Exact database or table
+
+Searches: No classification database/table is natural for this matrix-group existence theorem.
+
+Evidence: Finite-field enumeration was used only as corroboration, not as a completeness database for arbitrary fields.
+
+Reasoning: Database comparison is inapplicable.
+
+### Claim versus prior implication
+
+Searches: Compared the exact (GL_2) trace criterion with Chinyere's (nge3) theorem and Petechuk–Petechuk hypotheses.
+
+Evidence: The recent source excludes (n=2) from its theorem; the older paper assumes commutativity relations rather than solving the two-transvection existence problem.
+
+Reasoning: The final criterion is not a corollary of the inspected statements.
+
+## Value — PASS
+
+The theorem resolves the natural dimension boundary of a fresh higher-dimensional result, gives an exact field criterion, and separates the stronger identity conclusion from the real unipotence conclusion. That is a motivated structural classification rather than an arbitrary two-by-two calculation.
+
+## Source inspections
+
+- **Ihechukwu Chinyere, Unipotence of a double commutator with transvections, arXiv:2609.17006** — Material read: primary abstract and indexed bibliographic material for the current preprint. Finding: States the real unipotence theorem for (nge3), leaving dimension two outside the accessible theorem statement.
+- **V. M. Petechuk and Yu. V. Petechuk, Properties of the commutators of some elements of linear groups over division rings, Matematychni Studii 54 (2020), 15–22** — Material read: abstract plus substantial full-text material including definitions and theorems on residual/fixed modules and commutativity. Finding: Does not state the audited existence classification for two independently chosen transvections.
+- **K. Muliarchyk, A Counterexample to Kourovka Notebook Problem 10.46: Unipotent Commutators over Noncommutative Algebras** — Material read: the cited manuscript itself was not located; only a secondary mathematical description of its noncommutative-algebra scope was available. Finding: No primary text was available to determine whether a field-level proposition overlaps the (GL_2) criterion.
+- **Committed finite-field verifier** — Material read: complete source and saved output. Finding: Exhaustive checks over (mathbb F_2,mathbb F_3,mathbb F_5,mathbb F_7) report zero mismatches; the audit independently reran the first three fields.
+
+## Residual risks
+
+- The Muliarchyk work cited by the recent source remains inaccessible in primary form. Because the source reportedly attributes a field-case rank-one proposition to it, hidden dimension-two overlap cannot be ruled out; under the audit rules this access risk alone does not defeat originality absent a decisive implication.
+
+The assessment applies to the single final claim above. Computational artifacts are corroborative evidence only; they are not used as a substitute for the mathematical proof.
