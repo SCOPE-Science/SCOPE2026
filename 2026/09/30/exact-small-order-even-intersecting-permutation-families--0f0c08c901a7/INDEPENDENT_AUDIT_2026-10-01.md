@@ -1,0 +1,62 @@
+# Mathematical audit — 2026-10-01
+
+## Final claim assessed
+
+Exact classification of maximum even-intersecting families in \(S_5\)
+
+## Correctness — PASS
+
+PASS on the repaired claim. After left-normalizing a family to contain the identity, the remaining permutations are exactly the \(64\) nonidentity permutations in \(S_5\) with an even number of fixed points, and compatibility is the exact pairwise even-agreement condition. Exhaustive clique search on this finite graph gives maximum normalized size \(12\), hence \(M(5)=13\). Complete enumeration gives \(26\) normalized maximum families; taking all left translates produces exactly \(240\) distinct labeled maximum families. Exhaustive application of the left-right \(S_5\times S_5\) action to one maximum family produces exactly those same \(240\) families, so there is one orbit. The search logic was inspected and the \(n=5\) graph, clique number, family count and orbit equality were independently replayed.
+
+## Originality — PASS
+
+PASS on the repaired claim. The complete 31-page Banerjee--Dewan--Mishra preprint was inspected. It proves general asymptotic bounds, gives odd-order constructions, and reports Sage optimality checks for a dual linear program at even orders \(6\) through \(16\); it does not state \(M(5)=13\), count the \(240\) maximum \(S_5\) families, or classify them into one left-right orbit. Resultary searches found no earlier exact \(S_5\) classification. The original package's broader list of small-order values is therefore narrowed to the genuinely surviving \(n=5\) theorem.
+
+### equivalent_formulations
+
+Searches: Resultary: even-intersecting permutations exact M(5) maximum families left-right orbit; Banerjee Dewan Mishra arXiv:2609.21645 full text
+
+Evidence: The primary paper defines \(M(n)\) and gives general bounds/constructions but no exact \(S_5\) extremal classification. The exact published-record search returned only the assigned finding for the \(S_5\) value/count/orbit.
+
+Reasoning: Left-normalized clique language is equivalent to the permutation-family problem, but no inspected prior source contains the resulting \(S_5\) classification.
+### broader_coverage
+
+Searches: arXiv:2609.21645 pages 23--25 and 4; Cameron--Deza--Frankl sharp sets of permutations
+
+Evidence: The 2026 paper reports computational LP optimality at even \(n=6,\ldots,16\) and a general odd lower construction; neither covers \(n=5\) exactly.
+
+Reasoning: The repaired claim deliberately excludes the potentially overlapping even-order statements.
+### exact_database_or_table
+
+Searches: Resultary semantic search for exact small-order even-intersecting permutation families
+
+Evidence: No prior table or database with \(M(5)=13\) and its \(240\)-family orbit classification was located.
+
+Reasoning: The result is a complete finite extremal classification, not merely a lookup from an established table.
+### claim_vs_prior_implication
+
+Searches: full Banerjee--Dewan--Mishra preprint; Cameron--Deza--Frankl general \(L\)-intersecting bounds
+
+Evidence: General upper bounds and the odd construction do not force the exact value \(13\) or classify equality at \(n=5\).
+
+Reasoning: The finite extremal search supplies information not mechanically implied by the inspected prior results.
+
+## Scientific value — PASS
+
+PASS. The first unresolved odd order beyond the elementary cases is a natural benchmark for the newly introduced even-intersection problem. Determining the exact maximum together with the complete extremal-family count and symmetry orbit is a natural finite classification rather than an arbitrary census.
+
+## Source inspections
+
+- **Even-Intersecting Families of Permutations** — https://arxiv.org/abs/2609.21645. Material read: Complete 31-page primary preprint, including the even-order linear program, the reported Sage checks at \(n=6,\ldots,16\), and the odd-order constructions. Assessment: PRIMARY_SOURCE_NOT_COVERING_REPAIRED_S5_CLASSIFICATION. Evidence: The paper contains no theorem or computation giving \(M(5)=13\), no count \(240\), and no left-right orbit classification.
+- **Published-record search for exact \(S_5\) even-intersecting families** — Resultary semantic search. Material read: Ranked results for exact small-order even-intersecting permutation values and extremal-family classifications. Assessment: NO_EARLIER_EXACT_S5_COVERAGE_FOUND. Evidence: No earlier record matching the repaired \(S_5\) value/count/orbit theorem was located.
+
+## Limitations and residual risks
+
+The repaired claim is only the exact \(n=5\) classification. It does not claim new exact values at even orders, where the primary 2026 source already reports computational optimality checks for its spectral program at \(n=6,\ldots,16\), nor does it settle the general asymptotic problem.
+
+- The \(n=5\) theorem is computer-assisted; correctness depends on exhaustive finite clique/orbit enumeration and the normalization reduction.
+- Older unindexed computations of this new problem could conceivably contain the same small-order datum, although no such source was located.
+
+## Disposition
+
+**repaired**
