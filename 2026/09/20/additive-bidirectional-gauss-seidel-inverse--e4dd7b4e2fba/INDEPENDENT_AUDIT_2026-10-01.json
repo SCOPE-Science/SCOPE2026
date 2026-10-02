@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T17:14:11.480903Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem reconstructs exactly. With \\(M=D+L\\), direct multiplication gives \\(M^T B M=D-L^T D^{-1}L\\), so congruence yields the iff positivity condition \\(I-C^TC\\succ0\\), equivalently \\(\\|C\\|_2<1\\). In normalized variables \\(X=(I+C)^{-1}\\), the identities \\(\\widetilde B=X+X^T-I=X^T(I-C^TC)X\\) and \\(\\widetilde B^{-1}-H=CC^T+(I+C)C^TC(I-C^TC)^{-1}(I+C^T)\\succeq0\\) give \\(0\\prec B\\preceq A^{-1}\\). Expanding \\(\\widetilde B H-I\\) gives exactly \\(-XCC^T-X^TC^TC\\), proving the quadratic norm bound. The affine-family first-order matching, the rational three-by-three SPD/indefinite counterexample, and the two-block singular-value formula all check directly. The package verifier was read completely and independently reproduces the algebra numerically; it is corroboration rather than proof.",
+      "risks": [
+        "The condition-number estimate is a worst-case small-coupling bound, not a practical speed guarantee.",
+        "Finite numerical checks do not establish the infinite-dimensional or all-matrix theorem; acceptance rests on the exact algebra."
+      ],
+      "sources": [
+        "assigned RESULT.md at tree 6367690d30c1fb7a341a895032594677bb6f1113",
+        "artifacts/verify_abgs.py and verification.txt",
+        "Bai 2003 additive/multiplicative splitting framework",
+        "Saye, arXiv:2606.12577"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai's abstract treats general additive/multiplicative iteration convergence; Saye's additive construction is Jacobi-style and his multiplicative construction is Gauss-Seidel-style, not their diagonal-corrected sum."
+        ],
+        "reasoning": "These broader frameworks do not mechanically supply the exact audited matrix identity or threshold.",
+        "searches": [
+          "Bai 2003 additive/multiplicative splitting iterations",
+          "Saye 2026 cascading smoothers",
+          "classical SSOR/SGS reviews"
+        ]
+      },
+      "checked_sources": [
+        "current Resultary exact-form search",
+        "https://doi.org/10.1016/S0377-0427(02)00822-1",
+        "https://doi.org/10.1080/00207168708803609",
+        "https://doi.org/10.1016/0024-3795(88)90226-1",
+        "https://arxiv.org/abs/2606.12577",
+        "assigned RESULT.md and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard SGS has normalized form \\(X^TX\\), whereas the audited operator is \\(X+X^T-I\\); their difference is a nonzero quadratic term. Generic splitting convergence does not imply the audited iff SPD threshold or inverse dominance."
+        ],
+        "reasoning": "The final claim is not a corollary of the inspected neighboring theorems.",
+        "searches": [
+          "implication comparison with SGS, SSOR, extrapolated GS, and generic additive splitting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the audited theorem; other hits concern different GS/Jacobi stability questions.",
+          "The located Evans–Li–Xue and Evans–Li papers concern extrapolated GS convergence/spectral radius rather than the audited additive inverse statement."
+        ],
+        "reasoning": "Equivalent formulations via a congruence of the preconditioner, a parallel additive forward/backward action, and a first-order-cancelled inverse expansion were searched.",
+        "searches": [
+          "Resultary: additive bidirectional Gauss-Seidel inverse diagonal corrected SPD threshold",
+          "web search: exact algebraic form `(D+L)^-1 +(D+L^T)^-1-D^-1` and symmetric extrapolated Gauss-Seidel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact preconditioner table/database entry containing this operator and threshold was located."
+        ],
+        "reasoning": "The claim is an algebraic theorem, not a table lookup.",
+        "searches": [
+          "Resultary current numerical-linear-algebra findings",
+          "standard preconditioner review literature"
+        ]
+      },
+      "rationale": "Fresh semantic searches found the audited formula as the only exact published match. Classical Gauss-Seidel/SSOR, symmetric extrapolation, general additive splitting, and Saye's recent cascading smoothers cover neighboring algorithmic ideas, but no inspected statement gives this specific diagonal-corrected inverse together with its congruence factorization, exact \\(\\|C\\|_2<1\\) safety threshold, SPD-system counterexample, and quadratic preconditioned-error law. Several older papers remain a genuine full-text access risk, so this is a best-of-knowledge pass rather than a priority certificate.",
+      "residual_risks": [
+        "Full texts of Evans–Li–Xue 1987, Evans–Li 1988, and Bai 2003 were not available through the searched open routes, so differently phrased historical coverage remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No covering statement located; residual access risk remains.",
+          "evidence": "The abstract concerns convergence of general additive/multiplicative splitting iterations for Hermitian and non-Hermitian systems, not the audited inverse formula.",
+          "identifier_or_url": "https://doi.org/10.1016/S0377-0427(02)00822-1",
+          "material_read": "Published abstract and bibliographic scope; no lawful full text was located in the searched open sources during this run.",
+          "method": "Scope and implication comparison.",
+          "title": "On the convergence of additive and multiplicative splitting iterations for systems of linear equations",
+          "trigger": "Closest classical general additive-splitting source."
+        },
+        {
+          "assessment": "Not covering on accessible material.",
+          "evidence": "It studies EGS1/EGS2 convergence and optimum extrapolation factors for consistently ordered matrices.",
+          "identifier_or_url": "https://doi.org/10.1080/00207168708803609",
+          "material_read": "Published abstract and bibliographic scope.",
+          "method": "Primary-source scope comparison.",
+          "title": "The extrapolated Gauss-Seidel methods and generally consistently ordered matrices",
+          "trigger": "Plausible historical forward/backward/extrapolation overlap."
+        },
+        {
+          "assessment": "Not covering.",
+          "evidence": "Its additive formulation is a sequence of optimized block-diagonal Jacobi-style actions, whereas the audited theorem studies a fixed sum of forward/backward triangular inverses.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.12577",
+          "material_read": "Primary abstract and detailed public description of the additive and multiplicative formulations.",
+          "method": "Method comparison.",
+          "title": "Cascading Smoothers for Multigrid",
+          "trigger": "Recent additive versus multiplicative smoother work."
+        },
+        {
+          "assessment": "Correct corroboration.",
+          "evidence": "Factorization, inverse dominance, quadratic error identity, explicit counterexample, and two-block product all reproduce.",
+          "identifier_or_url": "artifacts/verify_abgs.py",
+          "material_read": "Complete source and saved output.",
+          "method": "Line-by-line inspection plus independent algebra.",
+          "title": "Assigned verification program",
+          "trigger": "Critical identities and counterexample."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result addresses a motivated parallelization tradeoff: replacing multiplicative symmetric Gauss-Seidel by two independent triangular actions on the same residual can destroy positivity. The exact safety threshold, explicit SPD counterexample, and second-order weak-coupling clustering quantify precisely when the construction is mathematically safe and why it can approximate the inverse unusually well. This is a structural preconditioner theorem rather than a routine numerical benchmark.",
+      "risks": [
+        "No claim of practical speedup, floating-point stability, or superiority to SGS is made."
+      ],
+      "sources": [
+        "assigned exact factorization and counterexample",
+        "classical SGS comparison",
+        "current additive/multiplicative splitting literature"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite-dimensional real SPD matrices with a fixed SPD block-diagonal split are assumed.",
+    "The additive inverse can be indefinite even when the system matrix is SPD.",
+    "The condition-number bound is a weak-coupling theorem, not a performance guarantee.",
+    "Historical originality remains best-of-knowledge because several older full texts were inaccessible."
+  ],
+  "record_id": "SCOPE-20260920-e4dd7b4e2fba",
+  "schema_version": 1
+}
