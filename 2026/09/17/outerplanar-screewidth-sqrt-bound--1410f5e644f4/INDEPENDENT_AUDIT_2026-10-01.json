@@ -1,0 +1,69 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "rationale": "The separator recursion was reconstructed in the tree-cut language. After passing to a maximal outerplanar supergraph, a centroid edge of the subcubic weak dual gives a two-vertex separator whose components have size at most \\(3n/4\\). If a component boundary is large, Rivera Laboy's bounded-boundary separator lemma supplies a replacement bag of size below \\(\\sqrt{2n}\\) with every component boundary at most \\((2+\\sqrt2)\\sqrt n+4\\). Recursing on the connected components, each old link or node adhesion gains at most that component boundary, while the central node adhesion is empty because distinct components have no cross-edges. The numerical recurrence \\(40\\sqrt{3n/4}+(2+\\sqrt2)\\sqrt n+4\\le40\\sqrt n\\) was independently checked for all integers \\(n\\ge6\\). Fan scramble number gives the matching order lower bound because scramble number is at most screewidth.",
+      "risks": "The constant 40 is deliberately nonoptimal; the theorem concerns screewidth, not gonality.",
+      "sources": [
+        "RESULT.md",
+        "Rivera Laboy, arXiv:2609.03755v2",
+        "Cenek et al., arXiv:2209.01459"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "No checked theorem gives an all-degree outerplanar screewidth bound of order \\(\\sqrt n\\).",
+        "reasoning": "Treewidth two alone does not bound screewidth by a constant; fans already have square-root order.",
+        "search": "tree-cut decompositions of outerplanar graphs; bounded-degree planar screewidth/scramble results"
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.03755",
+        "https://arxiv.org/abs/2209.01459",
+        "recent web search for outerplanar screewidth"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Those ingredients supply local separator bounds and the fan lower bound but not the recursive tree-cut decomposition proving the global upper bound.",
+        "reasoning": "The audited recursion is the missing implication needed to answer Question 5.1.",
+        "search": "Rivera Laboy Theorem 1.1/Lemma 3.10 plus Cenek et al. screewidth inequalities"
+      },
+      "equivalent_formulations": {
+        "evidence": "The primary source distinguishes screewidth from scramble number and explicitly asks the screewidth question.",
+        "reasoning": "A scramble-number upper bound does not imply the desired screewidth upper bound because the known inequality runs in the opposite direction for obtaining an upper bound.",
+        "search": "outerplanar screewidth; tree-cut width variant; square-root bound; fan screewidth"
+      },
+      "exact_database_or_table": {
+        "evidence": "No finite table can imply the all-order upper bound.",
+        "reasoning": "The proof needs a recursive decomposition.",
+        "search": "not applicable: asymptotic structural theorem"
+      },
+      "rationale": "Rivera Laboy's full v2 paper was inspected. It proves the outerplanar scramble-number bound, notes that fan and wheel upper bounds can also be obtained via screewidth, and then explicitly asks as Question 5.1 whether outerplanar screewidth is \\(O(\\sqrt n)\\). Searches found no earlier resolution or stronger outerplanar screewidth theorem; the public open-problem index still lists this question. The package therefore answers the exact stated question rather than merely renaming the scramble result.",
+      "residual_risks": "The source question is extremely recent, so simultaneous unindexed work remains possible; no such resolution was found.",
+      "source_inspections": [
+        {
+          "assessment": "Explicitly leaves outerplanar \\(O(\\sqrt n)\\) screewidth open.",
+          "material_read": "full 13-page paper, including fan computation, separator lemmas, outerplanar theorem, and page 13 Question 5.1",
+          "source": "Rivera Laboy, arXiv:2609.03755v2"
+        },
+        {
+          "assessment": "Provides the screewidth framework and inequalities, not the outerplanar theorem.",
+          "material_read": "indexed theorem-level descriptions used for screewidth/scramble relations",
+          "source": "Cenek et al., arXiv:2209.01459"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem directly answers an explicit current open question and determines the correct extremal order \\(\\Theta(\\sqrt n)\\) on a natural graph class. The result is structural and all-order, not a finite census or constant optimization.",
+      "risks": "The explicit leading constant remains open to substantial improvement.",
+      "sources": [
+        "Rivera Laboy Question 5.1",
+        "fan lower bound"
+      ],
+      "status": "PASS"
+    }
+  },
+  "final_claim": "Every connected simple outerplanar graph on \\(n\\) vertices has screewidth at most \\(40\\sqrt n\\); together with the fan lower bound, the maximum screewidth among \\(n\\)-vertex outerplanar graphs is \\(\\Theta(\\sqrt n)\\).",
+  "status": "passed"
+}

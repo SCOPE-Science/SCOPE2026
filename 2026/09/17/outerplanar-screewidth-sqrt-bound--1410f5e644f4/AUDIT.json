@@ -1,27 +1,44 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "A balanced interior edge from the subcubic weak dual is combined with Rivera Laboy's bounded-boundary separator lemma. Recursive attachment of child tree-cut decompositions adds at most the component edge boundary to any old adhesion, and the resulting recurrence closes with the explicit constant 40.",
+      "rationale": "The separator recursion was reconstructed in the tree-cut language. After passing to a maximal outerplanar supergraph, a centroid edge of the subcubic weak dual gives a two-vertex separator whose components have size at most \\(3n/4\\). If a component boundary is large, Rivera Laboy's bounded-boundary separator lemma supplies a replacement bag of size below \\(\\sqrt{2n}\\) with every component boundary at most \\((2+\\sqrt2)\\sqrt n+4\\). Recursing on the connected components, each old link or node adhesion gains at most that component boundary, while the central node adhesion is empty because distinct components have no cross-edges. The numerical recurrence \\(40\\sqrt{3n/4}+(2+\\sqrt2)\\sqrt n+4\\le40\\sqrt n\\) was independently checked for all integers \\(n\\ge6\\). Fan scramble number gives the matching order lower bound because scramble number is at most screewidth.",
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "Qualified to the best of our knowledge. arXiv:2609.03755v2 explicitly poses the outerplanar O(sqrt n) screewidth question, and targeted exact/equivalent searches found no prior resolution; residual risk from extremely recent or not-yet-indexed parallel work is documented in REVIEW.md.",
+      "rationale": "Rivera Laboy's full v2 paper was inspected. It proves the outerplanar scramble-number bound, notes that fan and wheel upper bounds can also be obtained via screewidth, and then explicitly asks as Question 5.1 whether outerplanar screewidth is \\(O(\\sqrt n)\\). Searches found no earlier resolution or stronger outerplanar screewidth theorem; the public open-problem index still lists this question. The package therefore answers the exact stated question rather than merely renaming the scramble result.",
       "verdict": "PASS"
     },
     "value": {
-      "rationale": "The theorem answers an explicit current open question and, together with the fan lower bound, determines the extremal order of screewidth on outerplanar graphs as Theta(sqrt n).",
+      "rationale": "The theorem directly answers an explicit current open question and determines the correct extremal order \\(\\Theta(\\sqrt n)\\) on a natural graph class. The result is structural and all-order, not a finite census or constant optimization.",
       "verdict": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-17",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "disclaimer": "Scientific audit is evidence-based and does not constitute peer review or a guarantee of first discovery.",
+  "historical_review_evidence": {
+    "axes": {
+      "correctness": {
+        "rationale": "The prior review checked the balanced-separator recursion and explicit constant.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "The prior review identified Rivera Laboy's question as open and found no prior resolution.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The prior review treated resolution of the explicit screewidth question as valuable.",
+        "verdict": "PASS"
+      }
+    }
+  },
+  "independent_audit": {
+    "date": "2026-10-01",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ]
+  },
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "verification_state": "independently_reviewed"
 }
