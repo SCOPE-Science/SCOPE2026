@@ -1,33 +1,42 @@
 {
-  "correctness": {
-    "status": "PASS",
-    "summary": "A one-edge maximal matching is a dominating edge. Its endpoint-neighborhood partition makes the cyclomatic number equal the number of common neighbors; for r>=2 the dominating edge is unique, every other maximal matching has size two, and exact counting gives the claimed bound and equality structure. Finite exact enumeration agrees."
+  "audited_at_utc": "2026-10-01T19:40:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If a maximal matching of size one exists, its unique edge \\(uv\\) dominates every edge. Every other vertex is therefore private to \\(u\\), private to \\(v\\), or common to both; the edge/vertex count makes the number of common neighbors exactly the cyclomatic number \\(r\\). For \\(r\\ge2\\), \\(uv\\) is the unique size-one maximal matching, all other maximal matchings have size two, and their number is \\(ab+r(n-3)\\). The average is therefore \\(2-1/[ab+r(n-3)+1]\\), minimized exactly when \\(ab=0\\). If no size-one maximal matching exists, the average is at least two. The Graph-Atlas verifier exhaustively confirms all relevant connected graphs through order seven but is not used for the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Zhang's full 2026 paper explicitly says the Engbers--Erey extension question asks for \\(k\\)-cyclic graphs, solves only the bicyclic case, and proves the \\(r=2\\) member of the audited formula by separate core analysis. The all-cyclomatic dominating-edge reduction and exact count were not found in the older or current literature searched.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem directly advances an explicit cyclic-extension problem, replaces bicyclic core casework by a general cyclomatic identity, and gives a unique exact extremal graph for every \\(r\\ge2\\) in the attainable range.",
+      "status": "PASS"
+    }
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "limitations": [
-    "The exact fixed-(n,r) minimum is established only for n>=r+2; the denser range n<r+2 is not classified.",
-    "The maximum side of the k-cyclic extremal problem is not addressed.",
-    "The full text of Engbers and Erey (2023) was not inspected; its relevant scope and extension question were checked through Zhang (2026).",
-    "Originality is to the best of our knowledge; differently indexed or very recent work remains a residual risk.",
-    "Finite computation supports but does not replace the proof."
+  "disclaimer": "This evidence-based scientific review is not peer review, formal verification, or a guarantee of first discovery.",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
   ],
-  "originality": {
-    "scope": "to the best of our knowledge",
-    "status": "PASS",
-    "summary": "Zhang (2026) solves the bicyclic minimum and quotes the Engbers-Erey extension question for k-cyclic graphs. The present cyclomatic bound recovers the bicyclic theorem at r=2 and extends its minimum mechanism to every r>=2 in the range n>=r+2. Searches did not locate the all-r formula or equality classification."
+  "historical_review_evidence": {
+    "correctness": {
+      "status": "PASS",
+      "summary": "The earlier scientific review recorded a correctness pass."
+    },
+    "originality": {
+      "status": "PASS",
+      "summary": "The earlier scientific review recorded an originality pass; this is retained as historical evidence only."
+    },
+    "value": {
+      "status": "PASS",
+      "summary": "The earlier scientific review recorded a value pass."
+    }
   },
-  "phase": "II",
-  "previously_published_pending_reaudit": true,
-  "record_id": "SCOPE-20260920-f5f7fbdc881f",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "c5a9d522-cf1f-4c08-8f9f-abee966e7e21",
-  "value": {
-    "status": "PASS",
-    "summary": "The theorem replaces bicyclic core casework by a general dominating-edge mechanism and gives an exact unique extremal graph for every r>=2 and n>=r+2, directly advancing the minimum side of the k-cyclic extension problem."
-  },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
 }

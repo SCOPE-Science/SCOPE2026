@@ -1,0 +1,113 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T19:40:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and artifacts/verify.py at the frozen source tree",
+        "Kai Zhang, arXiv:2604.28033, full HTML text",
+        "Engbers--Erey 2023 bibliographic/abstract material",
+        "Hertz--Bonte--Devillez--Mélot 2024"
+      ],
+      "rationale": "If a maximal matching of size one exists, its unique edge \\(uv\\) dominates every edge. Every other vertex is therefore private to \\(u\\), private to \\(v\\), or common to both; the edge/vertex count makes the number of common neighbors exactly the cyclomatic number \\(r\\). For \\(r\\ge2\\), \\(uv\\) is the unique size-one maximal matching, all other maximal matchings have size two, and their number is \\(ab+r(n-3)\\). The average is therefore \\(2-1/[ab+r(n-3)+1]\\), minimized exactly when \\(ab=0\\). If no size-one maximal matching exists, the average is at least two. The Graph-Atlas verifier exhaustively confirms all relevant connected graphs through order seven but is not used for the infinite proof.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader literature studies normalized averages, asymptotics, or bicyclic extremals.",
+          "None of the inspected results gives a fixed arbitrary cyclomatic number minimum stronger than the audited theorem."
+        ],
+        "reasoning": "The all-\\(r\\) theorem strictly extends the known bicyclic minimum rather than specializing a stronger prior statement.",
+        "searches": [
+          "Hertz--Bonte--Devillez--Mélot 2024",
+          "Zhang 2026 bicyclic lower and upper papers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.28033",
+        "https://doi.org/10.1016/j.dam.2023.08.022",
+        "Hertz et al. 2024",
+        "published mathematical corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(r=2\\), the formula becomes \\((4n-11)/(2n-5)\\), exactly Zhang's result.",
+          "The proof's identity \\(|C|=r\\) for a dominating edge and the count of all size-two maximal matchings extend the mechanism to every \\(r\\ge2\\) without prior core casework."
+        ],
+        "reasoning": "The all-parameter conclusion is not mechanically implied by the bicyclic theorem.",
+        "searches": [
+          "Zhang \\(r=2\\) theorem versus all-\\(r\\) formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang's introduction states the open extension from unicyclic to \\(k\\)-cyclic graphs and restricts its solution to \\(k=2\\).",
+          "The assigned theorem is the exact all-\\(r\\) corpus hit."
+        ],
+        "reasoning": "The line-graph independent-domination translation and dominating-edge formulation were included in the comparison.",
+        "searches": [
+          "Kai Zhang arXiv:2604.28033 full text",
+          "Engbers--Erey 2023 record",
+          "published-result corpus: SCOPE-sharp-average-maximal-matchings-cyclic-graphs--f5f7fbdc881f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact all-cyclomatic formula was located."
+        ],
+        "reasoning": "Finite graph databases can corroborate small orders but do not determine the infinite theorem.",
+        "searches": [
+          "published mathematical corpus search for fixed \\((n,r)\\) average maximal-matching minimum"
+        ]
+      },
+      "rationale": "Zhang's full 2026 paper explicitly says the Engbers--Erey extension question asks for \\(k\\)-cyclic graphs, solves only the bicyclic case, and proves the \\(r=2\\) member of the audited formula by separate core analysis. The all-cyclomatic dominating-edge reduction and exact count were not found in the older or current literature searched.",
+      "residual_risks": [
+        "The inaccessible full 2023 Engbers--Erey article is the principal residual literature risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves exactly the \\(r=2\\) case and explicitly limits its contribution to the first non-unicyclic case.",
+          "evidence": "The introduction quotes the request to extend from unicyclic to \\(k\\)-cyclic graphs and says this paper focuses on \\(k=2\\).",
+          "identifier_or_url": "https://arxiv.org/abs/2604.28033",
+          "material_read": "Full primary HTML text, including the introduction, Theorem 1.2, and the dominating-edge analysis in the bicyclic core case.",
+          "method": "Primary full-text inspection.",
+          "title": "Extremal graphs for average size of maximal matchings in bicyclic graphs",
+          "trigger": "Exact preceding cyclic case and explicit open extension question."
+        },
+        {
+          "assessment": "Residual originality risk, mitigated by Zhang's 2026 full-text description of its scope as trees and connected unicyclic graphs plus the open \\(k\\)-cyclic extension.",
+          "evidence": "Zhang cites it as posing the extension question that the bicyclic paper only begins to answer.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2023.08.022",
+          "material_read": "Primary bibliographic/abstract material; full text was unavailable through available lawful access.",
+          "method": "Primary-source lookup with lawful full-text access attempt.",
+          "title": "Extremal graphs for average sizes of maximal matchings",
+          "trigger": "Foundational paper defining the extremal program and likely source of broader coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Engbers--Erey extremal program",
+        "Zhang 2026 bicyclic theorem",
+        "Hertz et al. average-maximal-matching context"
+      ],
+      "rationale": "The theorem directly advances an explicit cyclic-extension problem, replaces bicyclic core casework by a general cyclomatic identity, and gives a unique exact extremal graph for every \\(r\\ge2\\) in the attainable range.",
+      "residual_risks": [
+        "The denser range \\(n<r+2\\) and the maximum problem remain open here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If \\(G\\) is connected with cyclomatic number \\(r\\ge2\\), then \\(\\operatorname{avm}(G)\\ge2-1/[r(n-3)+1]\\); for \\(n\\ge r+2\\) this is the exact minimum at fixed \\((n,r)\\), attained uniquely by the \\(r\\)-page triangle book with every extra leaf attached to one endpoint of the common edge.",
+  "limitations": [
+    "The exact fixed-parameter minimum is asserted only for \\(n\\ge r+2\\); the denser range is not classified.",
+    "The maximum side of the cyclic extremal problem is not addressed.",
+    "The complete 2023 Engbers--Erey paper was unavailable through available lawful full-text access."
+  ]
+}
