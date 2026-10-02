@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For binary cube vertices, \((x-y)\cdot(z-y)\) equals the number of coordinates with \(x_i=z_i\ne y_i\), so cubic acuteness is exactly the hypercube general-position condition. The complete C++ verifier was inspected: for every deletion set of size \(0\) through \(7\), it enumerates all \(2^{11}\) candidate vertices individually compatible with every retained base pair, then exhaustively backtracks over the required \(r+1\) new vertices while checking every new-new-retained triple and every all-new triple. Removed base vertices are allowed to reappear, so no completion type is omitted. An independent compile-and-run reproduced the recorded counts and `NONE` result at every radius. Thus any size-25 general-position set sharing at least 17 vertices with the displayed 24-set would have appeared and is excluded.
+- Originality: **PASS** — The Kamenetsky/OEIS source supplies the 24-point \(Q_{11}\) witness, and Korže-Vesel's complete open article gives the hypercube/general-position to \((2,1)\)-separating formulation and computational lower-bound context. Neither supplies a local exchange-isolation theorem. Searches under cubic acute, hypercube general position, \((2,1)\)-separating systems, frameproof codes, exchange neighborhoods, overlap, and maximality located no prior result forcing symmetric difference at least 17 from this witness. Originality therefore passes to the best of current knowledge.
+- Value: **PASS** — The result gives an exact, symmetry-stable local obstruction around the strongest recorded 24-point \(Q_{11}\) witness: any one-point improvement must replace at least eight old vertices and introduce at least nine new ones. That is a meaningful finite structural cutoff for an unresolved extremal search, not an arbitrary enumeration.
+
+Detailed comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
