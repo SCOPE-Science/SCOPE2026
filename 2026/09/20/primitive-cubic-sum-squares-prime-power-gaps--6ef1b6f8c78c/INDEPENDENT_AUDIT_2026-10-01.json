@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T19:55:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 563334b5706e755ca0eab4e7bb2a50047ec7a460",
+        "artifacts/verify.py blob 1e2d67b3ca51f2b38699f44db7d28ab297e7d050",
+        "artifacts/verification.txt blob 3c7711e95fc75c0e1b5d9722e28449c0ddee7979"
+      ],
+      "rationale": "The Gaussian-integer parametrization is correctly normalized for primitive positive solutions. In the A<0 regime, Δ=(a-b)(a^2+4ab+b^2) and the factor gcd is gcd(a-b,3); a non-3 prime power forces a-b=1, while the 3-adic valuation excludes 3-powers. In the A>0 regime, Δ=(a+b)|Q| with Q=a^2-4ab+b^2 and gcd(a+b,Q)=gcd(a+b,3); for ℓ≠3 this forces Q=1 and hence (a+b)^2-3(a-b)^2=-2. For ℓ=3, Q=-3 and d^2+2=3^(2r-1), yielding exactly Δ=9,27 using the classical Nagell theorem. The finite checker covers 50,765 normalized parameter pairs through a≤500 with zero classification mismatches, only as corroboration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beukers provides the classical generalized-Fermat parametrization framework; the accessible author-uploaded text located in this run does not advertise the audited prime-power-gap classification.",
+          "Nagell/Sury supplies the exceptional equation X^2+2=Y^n used only to close the 3-power branch."
+        ],
+        "reasoning": "The prior results are ingredients rather than broader coverage of the final classification.",
+        "searches": [
+          "F. Beukers, The Diophantine equation Ax^p+By^q=Cz^r, DOI 10.1215/S0012-7094-98-09105-0",
+          "B. Sury, On the Diophantine equation x^2+2=y^n, DOI 10.1007/s000130050454"
+        ]
+      },
+      "checked_sources": [
+        "Beukers 1998 generalized-Fermat paper",
+        "Sury 2000 Nagell-equation paper",
+        "OEIS A003154",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The final theorem additionally factors |x-y| in both sign regimes, controls the gcd of factors, and derives the Pell/star branches. These deductions are not automatic statements of either cited source."
+        ],
+        "reasoning": "The prior ingredients do not mechanically imply the full prime-power-gap classification without the new factor/gcd analysis.",
+        "searches": [
+          "Beukers generalized-Fermat paper",
+          "Nagell/Sury X^2+2=Y^n theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the only exact semantic match.",
+          "Targeted web searches returned general Diophantine/Pell material but no coordinate-gap prime-power classification."
+        ],
+        "reasoning": "No equivalent formulation of the three-branch theorem was located.",
+        "searches": [
+          "Resultary: primitive solutions x^2+y^2=z^3 prime power coordinate gap star number Pell powers of 3",
+          "web: x^2+y^2=z^3 prime power gap difference",
+          "web: x^2+y^2=z^3 x-y Pell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The star-number database identifies 6n(n-1)+1 but does not connect it to primitive x^2+y^2=z^3 coordinate gaps."
+        ],
+        "reasoning": "No exact table/database entry supplies the theorem.",
+        "searches": [
+          "OEIS A003154 centered dodecagonal/star numbers",
+          "Resultary"
+        ]
+      },
+      "rationale": "The checked classical sources provide the Gaussian-cube parametrization and the Nagell equation ingredient, not the prime-power coordinate-gap classification. Resultary and targeted exact-form searches found no earlier theorem implying the star/Pell/3-power trichotomy.",
+      "residual_risks": [
+        "Because the classification is an elementary refinement of a classical parametrization, older problem literature or theses under different terminology remain a plausible residual originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The inspected material supplies the general parametrization framework, not the prime-power coordinate-gap trichotomy.",
+          "identifier_or_url": "https://doi.org/10.1215/S0012-7094-98-09105-0",
+          "material_read": "Accessible author-uploaded full-text opening and bibliographic record; the record's exact parametrization was cross-checked against the frozen proof.",
+          "method": "lawful public author-upload/search result",
+          "title": "The Diophantine equation Ax^p+By^q=Cz^r",
+          "trigger": "Classical source for the primitive Gaussian-cube parametrization."
+        },
+        {
+          "assessment": "INGREDIENT_ONLY_WITH_ACCESS_LIMIT",
+          "evidence": "The classical theorem is used only after reduction to d^2+2=3^(2r-1).",
+          "identifier_or_url": "https://doi.org/10.1007/s000130050454",
+          "material_read": "Bibliographic/abstract-level search material and the exact theorem statement as used in the proof; no contradictory solution family was found.",
+          "method": "public search; complete article text was not recovered in this run",
+          "title": "On the Diophantine equation x^2+2=y^n",
+          "trigger": "Critical theorem used to isolate the 3-power exceptions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Beukers generalized-Fermat framework",
+        "Sury/Nagell exceptional equation"
+      ],
+      "rationale": "The theorem gives a complete and reusable classification of a natural arithmetic invariant on a classical primitive Diophantine family, collapsing a two-parameter family to two one-parameter mechanisms and exactly two exceptional 3-power cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Because the classification is an elementary refinement of a classical parametrization, older problem literature or theses under different terminology remain a plausible residual originality risk."
+  ]
+}
