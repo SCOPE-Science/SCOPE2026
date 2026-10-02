@@ -1,27 +1,135 @@
 {
-  "axes": {
-    "correctness": {
-      "rationale": "A well-conditioned zonal block supplies orthonormal vectors with point values comparable to sqrt(N_k). Projecting the rotational Gaussian-beam tight frame onto the zonal orthogonal complement leaves an isotropic frame of dimension N_k-M; restricted invertibility supplies M well-conditioned projected beams whenever M/(N_k-M)<1, i.e. at every fixed density below 1/2. Mixing the two orthogonal blocks preserves the point peaks, while a sign choice preserves a uniform Gaussian-beam dual pairing. Hölder gives the low-p Sogge exponent and point propagation gives the high-p exponent.",
-      "verdict": "PASS"
+  "disclaimer": "Independent mathematical audit; not peer review, formal proof-assistant verification, or a guarantee of first discovery.",
+  "independent_audit": {
+    "audited_at_utc": "2026-10-01T10:48:30Z",
+    "axes": {
+      "correctness": {
+        "checked_sources": [
+          "Han arXiv:2609.14023",
+          "Han arXiv:1404.5016",
+          "Spielman–Srivastava arXiv:0911.1114"
+        ],
+        "rationale": "The construction is internally consistent. A well-conditioned zonal block of size \\(M\\) gives \\(M\\) orthonormal vectors with point peaks of order \\(\\sqrt{N_k}\\). Projecting the rotational Gaussian-beam tight frame to the \\(N_k-M\\) dimensional complement preserves stable rank comparable to \\(N_k-M\\); the Spielman–Srivastava restricted-invertibility estimate selects at least \\(M\\) uniformly conditioned projected beams whenever \\(M/(N_k-M)<1\\). Orthogonal mixing preserves the zonal peak and, after a sign choice, a uniform Gaussian-beam pairing. Hölder yields the low-\\(p\\) Sogge exponent, while gradient propagation of the point peak over a radius \\(O(k^{-1})\\) ball yields the high-\\(p\\) exponent.",
+        "residual_risks": [
+          "The argument relies on the standard quantitative restricted-invertibility formulation and Han’s well-conditioned zonal construction; no defect was found in their use."
+        ],
+        "status": "PASS"
+      },
+      "originality": {
+        "broader_coverage": {
+          "evidence": [
+            "Prior sources give zonal and Gaussian-beam mechanisms separately."
+          ],
+          "reasoning": "Separate branchwise bases do not imply a nontrivial intersection.",
+          "searches": [
+            "Han current and 2014 papers",
+            "Sogge extremizer literature"
+          ]
+        },
+        "checked_sources": [
+          "Han 2609.14023",
+          "Han 1404.5016",
+          "Spielman–Srivastava 0911.1114",
+          "Resultary"
+        ],
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "The audited proof combines prior ingredients through projection and orthogonal mixing."
+          ],
+          "reasoning": "The common-family conclusion requires an additional construction and is not a stated corollary.",
+          "searches": [
+            "Han 2609.14023",
+            "Spielman–Srivastava 0911.1114"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "Han v1 gives a subsequence for each fixed \\(p\\), not one common subsequence; the branchwise-basis revision is dated 2026-09-19."
+          ],
+          "reasoning": "The quantifier “same orthonormal family for every \\(p\\)” is strictly stronger than separate existence for each branch.",
+          "searches": [
+            "Resultary simultaneous Sogge maximizer search",
+            "Han 2609.14023",
+            "Han 1404.5016"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "Only the audited record matched the simultaneous all-\\(p\\) statement."
+          ],
+          "reasoning": "No database/table coverage applies.",
+          "searches": [
+            "Resultary published spherical-harmonic findings"
+          ]
+        },
+        "rationale": "Han’s v1, submitted 2026-09-12, states that for every fixed \\(p>2\\) there is a positive-density subsequence, with density arbitrarily close to one; it does not assert one common subsequence for all \\(p\\). A later 2026-09-19 revision strengthens this to separate branchwise bases, but that revision postdates the audited record and still does not give one family carrying both mechanisms simultaneously. Resultary found no earlier equivalent common-family theorem.",
+        "residual_risks": [
+          "Because the synthesis is short and the Han preprint is recent, unindexed parallel work remains possible."
+        ],
+        "source_inspections": [
+          {
+            "assessment": "PRIOR_FIXED_P_RESULT_AND_LATER_BRANCHWISE_UPDATE",
+            "identifier_or_url": "https://arxiv.org/abs/2609.14023",
+            "material_read": "v1 primary abstract (submitted 2026-09-12) and current arXiv revision metadata; the branchwise-basis revision is dated 2026-09-19",
+            "title": "Spherical harmonics with maximal Lp norm growth"
+          },
+          {
+            "assessment": "PRIOR_LOW_P_BRANCH",
+            "identifier_or_url": "https://arxiv.org/abs/1404.5016",
+            "material_read": "primary abstract",
+            "title": "Spherical harmonics with maximal Lp (2<p<=6) norm growth"
+          },
+          {
+            "assessment": "PRIOR_TOOL",
+            "identifier_or_url": "https://arxiv.org/abs/0911.1114",
+            "material_read": "theorem-level prior ingredient identified by the proof",
+            "title": "An elementary proof of the restricted invertibility theorem"
+          }
+        ],
+        "status": "PASS"
+      },
+      "value": {
+        "checked_sources": [
+          "Han 2609.14023"
+        ],
+        "rationale": "A common positive-density family that simultaneously realizes both classical concentration mechanisms answers a natural compatibility question left open by the branchwise constructions. The density \\(\\rho<1/2\\) is a structural threshold of the two-complement construction, not an arbitrary slice.",
+        "residual_risks": [
+          "The result does not establish optimality of the density threshold or extend beyond round spheres."
+        ],
+        "status": "PASS"
+      }
     },
-    "originality": {
-      "rationale": "Qualified to the best of our knowledge. Han's 2026 paper constructs density arbitrarily close to one separately on the high-p and low-p branches and explicitly uses different zonal and Gaussian-beam mechanisms. Searches for a common positive-density orthonormal family simultaneously saturating both branches and all exponents did not locate this statement. Residual risk remains because the synthesis is short and the source preprint is very recent.",
-      "verdict": "PASS"
-    },
-    "value": {
-      "rationale": "The result produces a single orthonormal family of every fixed density rho<1/2 that is sharp for every Sogge Lp exponent simultaneously. It demonstrates coexistence, at positive density, of the point-concentration and geodesic-concentration mechanisms underlying the two classical branches, rather than merely branchwise abundance in different orthonormal systems.",
-      "verdict": "PASS"
-    }
+    "disposition": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ],
+    "independent": true,
+    "review_type": "independent_audit"
   },
-  "disclaimer": "Same-model review: passed. Independent audit: not yet performed.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-18",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260918-c09578f1da10",
+  "same_model_review": {
+    "axes": {
+      "correctness": {
+        "rationale": "A well-conditioned zonal block supplies orthonormal vectors with point values comparable to sqrt(N_k). Projecting the rotational Gaussian-beam tight frame onto the zonal orthogonal complement leaves an isotropic frame of dimension N_k-M; restricted invertibility supplies M well-conditioned projected beams whenever M/(N_k-M)<1, i.e. at every fixed density below 1/2. Mixing the two orthogonal blocks preserves the point peaks, while a sign choice preserves a uniform Gaussian-beam dual pairing. Hölder gives the low-p Sogge exponent and point propagation gives the high-p exponent.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "Qualified to the best of our knowledge. Han's 2026 paper constructs density arbitrarily close to one separately on the high-p and low-p branches and explicitly uses different zonal and Gaussian-beam mechanisms. Searches for a common positive-density orthonormal family simultaneously saturating both branches and all exponents did not locate this statement. Residual risk remains because the synthesis is short and the source preprint is very recent.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The result produces a single orthonormal family of every fixed density rho<1/2 that is sharp for every Sogge Lp exponent simultaneously. It demonstrates coexistence, at positive density, of the point-concentration and geodesic-concentration mechanisms underlying the two classical branches, rather than merely branchwise abundance in different orthonormal systems.",
+        "verdict": "PASS"
+      }
+    },
+    "evidence_preserved": true,
+    "review_type": "same_model_review",
+    "status": "passed"
+  },
+  "verification_state": "independently_reviewed"
 }
