@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T23:06:14.246432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any feasible set in \\(Q_n\\), the Hamming diameter is at most the allowed visibility distance. Kleitman's diameter theorem therefore gives the sharp anticode upper bounds \\(n+1\\) for diameter two and \\(2n\\) for diameter three. The radius-one ball realizes the first bound. For diameter three and \\(n\\ge5\\), Frankl's equality characterization says every size-\\(2n\\) family is, up to translation, \\(\\{A:|A\\setminus\\{y\\}|\\le1\\}\\); the pair \\(\\varnothing,\\{y,i\\}\\) has both possible middle vertices selected, so such a family is not mutually visible. The explicit singleton-plus-\\(y\\)-pair construction has size \\(2n-1\\) and its required geodesics check by pair type. The parity family on \\(Q_4\\) gives eight, and the direct omitted-pair orbit argument gives five on \\(Q_3\\) and three on \\(Q_2\\). The assigned verifier exhausts all subsets through dimension four and checks the constructions through dimension twelve.",
+      "risks": [
+        "Only \\(k=2,3\\) are determined."
+      ],
+      "sources": [
+        "assigned RESULT.md and verify.py",
+        "Frankl 2017 fixed-diameter theorem/full primary PDF",
+        "Cera et al. 2024 k-distance mutual visibility full arXiv HTML"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No broader inspected visibility theorem specializes to the exact low-distance formulas."
+        ],
+        "reasoning": "Classical mutual visibility at unrestricted distance and anticode extremal theory do not mechanically supply the distance-limited lower constructions or the exclusion of the diameter-three equality family.",
+        "searches": [
+          "Cera et al. 2024 full text",
+          "Frankl 2017 full primary PDF",
+          "ordinary hypercube mutual-visibility literature",
+          "current Resultary hypercube findings"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2408.03976",
+        "https://www.renyi.hu/~pfrankl/2016-6.pdf",
+        "ordinary mutual-visibility hypercube literature",
+        "current Resultary exact search",
+        "assigned RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frankl permits \\(2n\\) vertices at diameter three; the audited visibility condition rules all equality families out and constructs \\(2n-1\\).",
+          "The \\(Q_4\\) parity construction reaches eight despite the different equality behavior at the threshold dimension."
+        ],
+        "reasoning": "The final values require additional graph-geodesic arguments not present in the set-family theorem.",
+        "searches": [
+          "claim-versus-Frankl implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 paper's searchable text mentions hypercubes only in surrounding ordinary-visibility references and contains no exact \\(\\mu_2(Q_n)\\) or \\(\\mu_3(Q_n)\\) theorem.",
+          "Frankl gives the anticode extremal structure, not visibility."
+        ],
+        "reasoning": "Bounded Hamming diameter is only a necessary condition; the audited theorem additionally solves the internal-geodesic avoidance condition.",
+        "searches": [
+          "Resultary: hypercube k-distance mutual visibility mu_2 mu_3 exact values Hamming diameter",
+          "Cera et al. arXiv:2408.03976 full HTML search for hypercube",
+          "Frankl fixed-diameter theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or table with the claimed sequence was found."
+        ],
+        "reasoning": "The formulas hold uniformly in dimension and are theorem-level claims.",
+        "searches": [
+          "current Resultary exact hypercube search",
+          "web searches for low-distance mutual visibility hypercubes"
+        ]
+      },
+      "rationale": "The primary k-distance mutual-visibility paper was inspected in full searchable HTML. It introduces the parameter and proves exact results for several classes, but a full-text search finds hypercubes only among references to prior ordinary mutual-visibility work and does not state these hypercube formulas. Frankl's theorem supplies only the bounded-diameter extremal families, not the geodesic-avoidance exclusion or lower constructions. Resultary searches for the exact hypercube parameter returned only the audited record. Thus the combination, including the strict one-point drop from the diameter-three anticode maximum and the \\(Q_4\\) parity exception, is not covered by the inspected sources.",
+      "residual_risks": [
+        "A later or poorly indexed hypercube-specific k-distance result could exist, but no plausible covering source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the hypercube formulas.",
+          "evidence": "Hypercubes appear in the introduction as ordinary mutual-visibility related work, not as an exact k-distance class.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03976",
+          "material_read": "Full searchable arXiv HTML, including definition, general results, complexity section, and exact-class section; searched specifically for hypercubes.",
+          "method": "Primary full-text statement search and scope comparison.",
+          "title": "The k-distance mutual-visibility problem in graphs",
+          "trigger": "Primary source introducing the exact parameter."
+        },
+        {
+          "assessment": "SUPPLIES the anticode equality structure but not mutual visibility.",
+          "evidence": "For odd diameter three the extremal family is the translate of the standard \\(K_y\\) family.",
+          "identifier_or_url": "https://www.renyi.hu/~pfrankl/2016-6.pdf",
+          "material_read": "Primary PDF text and rendered theorem pages, including the Kleitman diameter statement and Frankl equality classification for odd diameter.",
+          "method": "Primary theorem verification.",
+          "title": "A Stability Result for Families with Fixed Diameter",
+          "trigger": "Critical equality classification used for the \\(2n\\) upper bound."
+        },
+        {
+          "assessment": "Correct corroboration.",
+          "evidence": "It exhausts all subsets of \\(Q_2,Q_3,Q_4\\) and checks the stated families through dimension twelve.",
+          "identifier_or_url": "verify.py",
+          "material_read": "Complete source.",
+          "method": "Line-by-line inspection.",
+          "title": "Assigned hypercube verifier",
+          "trigger": "Small-dimensional exceptional cases and construction checks."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result determines the first two nontrivial distance-limited levels on a central graph family, identifies a genuine one-point obstruction beyond the classical diameter extremum, and isolates the exceptional parity construction in dimension four. It creates a concrete bridge between a recent visibility invariant and classical anticode structure, which is a natural motivated gap.",
+      "risks": [
+        "No claim is made for larger visibility radii."
+      ],
+      "sources": [
+        "Cera et al. parameter introduction",
+        "Kleitman–Frankl diameter theory",
+        "assigned constructions"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only \\(k=2\\) and \\(k=3\\).",
+    "Frankl/Kleitman provide the anticode input but not the visibility formulas.",
+    "Originality is best-of-knowledge."
+  ],
+  "record_id": "SCOPE-20260930-205d6ab586a0",
+  "schema_version": 1
+}
