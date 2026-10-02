@@ -1,32 +1,42 @@
 {
-  "correctness": {
-    "status": "PASS",
-    "summary": "Pendant supports are forced into every IO-code, while the remaining vertices partition into one Delta+1 set per skeleton vertex such that no two vertices in one part can both be omitted, by either total-domination or neighborhood-symmetric-difference constraints. Conversely, deleting all skeleton centers leaves matching-paired noncenters with distinct singleton traces and centers with distinct Delta-element traces. This proves gamma_IOC = n - |V(H)| exactly."
+  "audited_at_utc": "2026-10-01T21:43:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pendant supports are forced into every IO-code. The remaining vertices partition into one block of size \\(\\Delta+1\\) per skeleton vertex: the center, its pendant leaves, and the opposite subdivision vertices on incident skeleton edges. Any two omissions from one block either destroy total domination or make two open-neighborhood traces equal, so at most one vertex per block can be omitted. Conversely, omitting exactly all skeleton centers leaves every noncenter with a distinct singleton trace and every center with a distinct \\(\\Delta\\)-element trace, proving the exact optimum. Double subdivision multiplies every skeleton-cycle length by three, hence there is no \\(C_4\\). The cycle/path order and density formulas follow by substituting \\(m=p\\) or \\(m=p-1\\).",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "The full 2026 primary source proves the general upper bound and gives large tight examples only in the subcubic case; its concluding section explicitly says that for every fixed \\(\\Delta\\ge4\\) the large-order sharpness/improvement question remains open. Searches under both identifying-open-code and OLD terminology found no earlier twice-subdivided arbitrary-skeleton formula or the cycle density \\((2\\Delta-2)/(2\\Delta-1)\\).",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact code number for a broad arbitrary-skeleton lift and directly advances an explicit bounded-degree asymptotic construction problem for every \\(\\Delta\\ge4\\). The cycle/path specializations are reusable extremal families rather than isolated small examples.",
+      "status": "PASS"
+    }
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "limitations": [
-    "The exact asymptotic extremal constant remains unknown.",
-    "The construction does not characterize all extremal graphs or prove the known upper bound asymptotically sharp.",
-    "For Delta=3, the known 5/6 construction is stronger than the present 4/5 limiting density.",
-    "Originality is to the best of our knowledge; older tree literature using different construction language remains a residual risk."
+  "disclaimer": "This evidence-based scientific review is not peer review, formal verification, or a guarantee of first discovery.",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
   ],
-  "originality": {
-    "scope": "to the best of our knowledge",
-    "status": "PASS",
-    "summary": "The 2026 bounded-degree IO-code paper explicitly leaves improved large-order constructions open for Delta at least 4 and suggests a density lower than the present (2Delta-2)/(2Delta-1). Searches across identifying-open-code and equivalent OLD terminology, subdivision formulations, maximum-degree constructions, and older extremal results did not locate the skeleton-lift formula. Residual risk remains from older tree literature indexed under different construction language."
+  "historical_review_evidence": {
+    "correctness": {
+      "status": "PASS",
+      "summary": "Earlier review verified the block lower bound and all-noncenter code."
+    },
+    "originality": {
+      "status": "PASS",
+      "summary": "Earlier review found no prior skeleton lift."
+    },
+    "value": {
+      "status": "PASS",
+      "summary": "Earlier review valued the asymptotic construction improvement."
+    }
   },
-  "phase": "II",
-  "previously_published_pending_reaudit": true,
-  "record_id": "SCOPE-20260921-788e94616891",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "26d4aa2e-80d6-41da-8b0c-768ea6e20815",
-  "value": {
-    "status": "PASS",
-    "summary": "The theorem gives an exact formula for a general skeleton lift and improves the asymptotic construction benchmark for every Delta at least 4. Cycle skeletons attain density (2Delta-2)/(2Delta-1), and path skeletons give trees approaching the same value, narrowing the known asymptotic gap to the general upper bound to 1/[2Delta(2Delta-1)]."
-  },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
 }
