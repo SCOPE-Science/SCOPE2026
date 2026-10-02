@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T11:05:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof was reconstructed independently. Huang's guarded spatial result gives the contraction \\(H=I-B/m\\) with extremal eigenvalues \\(+1\\) and \\(-1\\). For SSPRK(3,3), the cubic stability polynomial reduces the upper bound to the origin-tangent disk. Re-expanding the boundary modulus gives the stated quadratic Bernstein form; its coefficients are nonnegative exactly through the unique positive root of \\(2\\mu^3-3\\mu^2+3\\mu-3=0\\). The \\(-1\\) eigenmode maps to \\(-2\\mu\\) and yields the matching necessity above that root. The repository verifier was inspected only as corroboration, not as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang proves the contraction and extremal modes and notes only that the generic SSP sufficient condition need not be sharp.",
+          "Dahlquist–Jeltsch explicitly calculate the scalar tangent stability disk for third-order formulas and report radius approximately 1.25."
+        ],
+        "reasoning": "Taken together, these prior results dominate the final source-specific threshold: the scalar upper bound is classical and the matching spatial necessity is already built into Huang's extremal eigenmode.",
+        "searches": [
+          "Huang, arXiv:2609.17312v1",
+          "Dahlquist and Jeltsch, Generalized disks of contractivity for explicit and implicit Runge–Kutta methods",
+          "Jeltsch and Nevanlinna, Largest disk of stability of explicit Runge–Kutta methods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.17312v1",
+        "Dahlquist–Jeltsch 1979 / ETH report 2008-20",
+        "Jeltsch–Nevanlinna 1978"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang supplies \\(R(\\mu(H-I))\\) with \\(H\\) a contraction and an eigenvalue \\(-1\\); the classical scalar theorem supplies the maximal disk for the same cubic \\(R\\)."
+        ],
+        "reasoning": "The upper stability implication follows from the standard polynomial contraction inequality, while the existing \\(-1\\) mode gives necessity. Therefore the exact CFL claim is a direct corollary of published facts under the audit's originality standard.",
+        "searches": [
+          "Implication from Huang contraction plus classical third-order tangent-disk theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact SCOPE query returned the assigned record; classical Runge–Kutta literature independently supplies the same scalar tangent-disk problem and radius."
+        ],
+        "reasoning": "The CFL theorem is equivalent to asking for the largest tangent disk on which the common third-order stability polynomial is bounded by one once Huang's contraction is inserted.",
+        "searches": [
+          "Resultary semantic search for SSPRK3 sparse-grid DG CFL, contraction, tangent stability disk and alternating mode",
+          "Web/full-text search for largest origin-tangent stability disk of third-order Runge–Kutta formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dahlquist–Jeltsch tabulate the third-order scalar stability-disk radius at approximately 1.25."
+        ],
+        "reasoning": "This is not merely numerical-table coincidence; the table is part of a theorem calculating the largest scalar circle for the same stability polynomial.",
+        "searches": [
+          "Classical Runge–Kutta stability tables for third-order formulas"
+        ]
+      },
+      "rationale": "The final sharp CFL statement is mechanically implied by two published ingredients. Huang proves the exact contraction normalization and the \\(±1\\) extremal modes for this sparse-grid operator. Dahlquist–Jeltsch's classical Runge–Kutta stability-disk analysis computes the largest origin-tangent scalar stability circle for third-order formulas and records its radius at about 1.25. For a three-stage third-order explicit method the stability polynomial is the same cubic used here; applying the standard polynomial contraction/von Neumann implication and Huang's \\(-1\\) mode gives the submitted if-and-only-if threshold. The exact algebraic root is a refinement of a already-covered scalar constant, not a surviving new theorem under the audit's implication bar.",
+      "residual_risks": [
+        "The classical table prints the third-order radius approximately rather than in the exact cubic radical form, but the underlying invariant and implication are the same; this does not restore originality under the corollary/special-case rule."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_COMPONENT_COVERAGE",
+          "evidence": "The source proves the exact contraction structure and the \\(+1,-1\\) modes used by the submitted proof.",
+          "identifier_or_url": "arXiv:2609.17312v1",
+          "material_read": "full relevant theorem/corollary and the higher-order SSP remark, including the contraction estimate and extremal eigenvalues",
+          "method": "primary full-text inspection",
+          "title": "The sharp CFL condition of the piecewise constant sparse grid discontinuous Galerkin method for high-dimensional transport equations",
+          "trigger": "same spatial operator and normalization"
+        },
+        {
+          "assessment": "COVERING_IN_COMBINATION",
+          "evidence": "The paper states that third-order formulas have the same scalar stability-disk radius, approximately 1.25, which is the scalar invariant computed exactly in the submission.",
+          "identifier_or_url": "Dahlquist–Jeltsch, 1979 / ETH reprint 2008-20",
+          "material_read": "the section calculating disk radii for explicit methods and the third-order table",
+          "method": "primary full-text inspection",
+          "title": "Generalized disks of contractivity for explicit and implicit Runge–Kutta methods",
+          "trigger": "same tangent stability-disk invariant and same third-order stability polynomial"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp source-specific time-step ceiling is mathematically and practically useful: it replaces a merely sufficient SSP-coefficient restriction by an exact if-and-only-if condition and quantifies a roughly 25.6 percent improvement. Failure is scientific originality, not value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.17312v1",
+    "Dahlquist–Jeltsch 1979 / ETH Research Report 2008-20",
+    "Jeltsch–Nevanlinna 1978",
+    "assigned RESULT.md and artifacts at the guarded Git tree"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The scientific failure is originality only; the mathematical threshold itself is correct and useful.",
+    "Publication relocation is blocked by a preservation-versus-confidentiality conflict in existing metadata."
+  ],
+  "residual_risks": [
+    "The classical table prints the third-order radius approximately rather than in the exact cubic radical form, but the underlying invariant and implication are the same; this does not restore originality under the corollary/special-case rule."
+  ],
+  "schema_version": 1
+}
