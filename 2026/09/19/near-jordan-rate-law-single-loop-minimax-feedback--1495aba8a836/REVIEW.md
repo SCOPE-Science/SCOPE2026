@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The stated two-dimensional feedback recurrence was independently reconstructed algebraically from the package's explicit update specialization. Exact symbolic calculation gives det(M)=alpha A. After clearing the positive denominator, the discriminant is the stated degree-nine polynomial times a positive factor; expressing its negative in the degree-nine Bernstein basis gives ten strictly positive coefficients, certifying a complex-conjugate pair for every kappa at least one. Series expansion then yields the displayed damping, phase, H-limit, and sign-flip constants. These are analytic certificates, not a replayed success log.
+- Originality: **PASS** — Resultary search found no earlier published theorem with this exact feedback block or near-Jordan constants. The complete current v2 of Zhang-Xu was inspected through all 19 pages: it gives the algorithm, Lyapunov convergence theorem, experiments, and complexity result but no exact separable-quadratic spectral law, all-kappa underdamping certificate, sign-reversal law, or these constants. The assigned record concerns the earlier v1 parameter specialization; the source has since revised its recommended parameter regime, which is retained as a relevance/originality risk but does not create prior coverage.
+- Value: **PASS** — The exact mode analysis exposes a nontrivial dynamical mechanism behind a newly proposed feedback method: the square-root condition scale is genuinely realized on a separable quadratic while the theorem's logarithmic condition-number overhead is not. The all-kappa underdamping certificate and quantitative phase/damping law are structural, not a routine rate substitution.
+
+Detailed comparisons and residual risks are in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
