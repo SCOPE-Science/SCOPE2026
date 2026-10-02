@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The kernel-count covariance was reconstructed from the two-vector dependence split, giving the stated universal correlation lower bound for every input-independent rank-at-most-r mask even after invertible left/right transforms. For the exact-rank shell, character diagonalization reduces maximal correlation to normalized bilinear-forms eigenvalues. Cioabă–Gupta Theorems 4.3 and 4.6 were read in full text and give strict magnitude decrease away from rank one for q>=3 and for q=2 with e>=d+1; the rank-one coefficient evaluates exactly to the displayed Lambda. A separate exact-integer reconstruction on representative parameters reproduced this identity and the excluded binary-square behavior. The complete-view matrix-multiplication corollary follows because the extra independently masked upload is independent and the product is a deterministic function of the uploads.
+- Originality: **PASS** — The recent masking paper establishes q^{-r} achievability for rank-ball/factor masks and only asymptotic optimality in its public primary abstract, while the older bilinear-forms work supplies the spectrum but not a masking minimax theorem. No inspected source states the exact-rank-shell optimizer or rectangular minimax conclusion. This is a best-of-knowledge judgment because the 2026 masking paper could not be read in full through the available lawful routes.
+- Value: **PASS** — The claim closes a newly posed finite-parameter achievability/converse gap exactly over all nonbinary fields, extends the converse/optimizer to rectangles, and identifies a standard-samplable optimal mask. This is a natural optimization problem rather than an arbitrary parameter slice.
+
+Detailed structured source comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+The earlier same-model scientific assessment remains preserved in `AUDIT.json` as historical evidence.
