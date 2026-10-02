@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T00:21:01.205189Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim is the single counterexample at \\(A=10\\): the resonance function has no zero in the stated closed rectangle. The actual package contains `artifacts/verify_nozero.py`; its complete source was inspected. It propagates the exact transfer matrices with complex midpoint-radius enclosures, asserts the square-root and denominator domains, adaptively subdivides the full rectangle, and excludes zero cell-by-cell by a strict center-minus-radius margin. The exact transfer-matrix identity used to pass from the auxiliary resonance function to the scattering condition is also checked. The computation is finite and covers the whole stated rectangle, not a grid sample. The only implementation-level limitation is its explicit floating-point/libm inflation model; the reported exclusion margin is large relative to machine rounding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fernandez studies a different smooth symmetric double barrier numerically; Latushkin–Pogan study a connected matrix-valued square-well model."
+        ],
+        "reasoning": "These broader resonance papers do not imply absence of zeros for the audited piecewise-constant double-barrier rectangle.",
+        "searches": [
+          "F. M. Fernandez, Resonances for symmetric two-barrier potentials, arXiv:1107.4092",
+          "Y. Latushkin and A. Pogan, arXiv:2509.00235"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify_nozero.py",
+        "arXiv:1107.4092",
+        "arXiv:2509.00235",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No inspected theorem fixes this finite-\\(A\\) location window strongly enough to imply the counterexample."
+        ],
+        "reasoning": "General tunneling asymptotics do not by themselves yield the certified finite-\\(A\\) no-zero statement.",
+        "searches": [
+          "same-object resonance and transfer-matrix searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only exact semantic match was the audited finding itself; nearby records concern different operators."
+        ],
+        "reasoning": "Equivalent formulations via zeros of the scattering-transfer entry and zeros of the package resonance function were both considered; no prior exact rectangle exclusion was found.",
+        "searches": [
+          "Resultary semantic search: double square barrier A=10 no resonance near pi/2",
+          "exact-object literature search for square double barrier resonance A=10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No precomputed resonance table or database covering the exact rectangle was located."
+        ],
+        "reasoning": "The claim is a continuum zero-exclusion certificate rather than extraction of a known finite table.",
+        "searches": [
+          "Resultary exact-object query for the \\(A=10\\) rectangle"
+        ]
+      },
+      "rationale": "No earlier source located in the fresh semantic and literature searches states or implies this exact resonance-free rectangle for the \\(A=10\\) symmetric square double barrier. The closest cited symmetric-double-barrier paper is numerical and uses a different potential, while the square-well paper concerns a different connected matrix-valued model. The result is therefore best-of-knowledge original as a rigorous single-instance falsification.",
+      "residual_risks": [
+        "Best-of-knowledge originality cannot exclude unpublished calculations.",
+        "The enclosure script assumes its stated floating-point/libm error allowance rather than a formally specified correctly-rounded elementary-function library."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the full rectangular no-zero claim, conditional on its stated elementary-function rounding allowance.",
+          "evidence": "Every cell is accepted only when the enclosure excludes zero; the whole rectangle is subdivided until accepted.",
+          "identifier_or_url": "artifacts/verify_nozero.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line inspection of the enclosure arithmetic and subdivision logic.",
+          "title": "Assigned no-zero verifier",
+          "trigger": "Critical zero-exclusion certificate."
+        },
+        {
+          "assessment": "Different smooth potential and numerical study; does not cover the audited square-barrier certificate.",
+          "evidence": "The object and method differ from the exact \\(A=10\\) square-barrier zero exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.4092",
+          "material_read": "Accessible abstract/metadata and scope information.",
+          "method": "Primary-source comparison.",
+          "title": "Resonances for symmetric two-barrier potentials",
+          "trigger": "Closest titled symmetric double-barrier prior art."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A rigorous counterexample to a universal resonance-window assertion is a mathematically motivated boundary result: it identifies the location estimate, not the resonance width, as the obstruction at the first allowed parameter and prevents a false uniform theorem from propagating. This is more than a tiny type check because it resolves the admitted universal claim by a continuum no-zero certificate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The disproof uses only \\(A=10\\), which is sufficient for the universal target but does not classify the large-\\(A\\) regime.",
+    "The package verifier uses a stated floating-point/libm error-inflation assumption.",
+    "The record's reproducibility text names `output/artifacts/verify_nozero.py`, while the actual package path is `artifacts/verify_nozero.py`."
+  ],
+  "schema_version": 1
+}
