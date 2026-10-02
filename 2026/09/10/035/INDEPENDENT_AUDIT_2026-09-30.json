@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T23:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/10/035/RESULT.md",
+        "artifacts/disproof.json",
+        "artifacts/verify.py",
+        "independent F2 reconstruction/census"
+      ],
+      "rationale": "An independent reconstruction from E and L reproduced 105x238 H_X,H_Z, row weight 8, exact CSS orthogonality, ranks 97/97 and k=44. Rebuilding the explicit support gave weight 6, zero H_Z syndrome, nonzero remainder modulo rowspace(H_X), and rank augmentation 97->98. Independent enumeration of the 16-dimensional kernel of the 21x35 base matrix gave minimum weight 6 with 21 such codewords. Exhaustive neighbourhood checks gave zero expansion failures at sizes 1,2,3 and exactly 84 at size 4. These facts directly falsify d>=9; no claim of exact quantum distance is needed.",
+      "residual_risks": [
+        "The exact quantum minimum distance could be below six through other logical sectors; the record only claims the upper bound d<=6, which is fully supported."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper derives row/column partition constraints and presents finite examples, but the accessible scope does not specify this exact exponent array or witness."
+        ],
+        "reasoning": "The general design criteria do not mechanically imply the exact rank and weight-6 logical certificate for this named matrix without applying them/computing the instance.",
+        "searches": [
+          "arXiv:2503.07567 finite-length LP-QLDPC minimum distance",
+          "Resultary QC lifted-product obstructions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2503.07567",
+        "Resultary semantic search for the exact lifted-product instance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper motivates avoiding low-weight logicals but does not print the candidate support {0,4,10,18,21,24} or the 84 failed four-sets."
+        ],
+        "reasoning": "The candidate provides a new concrete counterexample/certificate rather than restating the general criterion.",
+        "searches": [
+          "Compare RCPC necessary conditions to explicit witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate is a concrete finite instance of the symmetric QC lifted-product framework and its logical witness is an exact codeword/coset statement."
+        ],
+        "reasoning": "Equivalent row/column permutations preserve the conclusion, but no prior equivalent instance was identified.",
+        "searches": [
+          "Resultary: 3x5 lift 7 weight 6 lifted product",
+          "Raveendran-Declercq-Vasic arXiv:2503.07567"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit was SCOPE035; a later SCOPE037 concerns a different lift-16 instance."
+        ],
+        "reasoning": "No published exact code table for this instance was found.",
+        "searches": [
+          "Resultary exact E-matrix/lift-7 search"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches found the 2025 finite-length lifted-product distance/RCPC framework but no prior source giving this exact 3x5 lift-7 array instance, its ranks, expansion-failure count, or weight-6 logical support.",
+      "residual_risks": [
+        "A supplementary code table from the primary authors could contain the same small instance even if not indexed by search; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATES_NOT_COVERING_EXACT_INSTANCE",
+          "evidence": "The paper states general design conditions; the exact 3x5 L=7 exponent array, ranks, expansion count, and logical support were not identified in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.07567",
+          "material_read": "Accessible arXiv abstract and detailed scope description of RCPC constraints for type-I quasi-cyclic bases and finite examples.",
+          "method": "Object/parameter and implication comparison.",
+          "title": "On the Minimum Distances of Finite-Length Lifted Product Quantum LDPC Codes",
+          "trigger": "Closest primary work on finite-length symmetric QC lifted-product distance design."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2503.07567",
+        "2026/09/10/035/RESULT.md"
+      ],
+      "rationale": "A concrete low-weight logical operator in a structured QC lifted-product code is a useful finite-length design obstruction: it invalidates a hoped-for distance-above-stabilizer certificate on a natural type-I protograph instance and pinpoints the associated local expansion failure. This is more than a normalization check and can guide selection of exponent arrays in the finite-length LP-QLDPC program.",
+      "residual_risks": [
+        "The result is an obstruction for one structured instance, not a theorem about all 3x5 or lift-7 lifted-product codes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the specified 3x5 quasi-cyclic base at lift 7, the symmetric lifted-product CSS code has N=238, rank(H_X)=rank(H_Z)=97 and k=44; the explicit weight-6 X operator on support {0,4,10,18,21,24} lies in ker(H_Z) but not rowspace(H_X), so d<=6 and the claimed d>=9 certificate is false; the base Tanner expansion also has exactly 84 failures at size four.",
+  "schema_version": 1
+}
