@@ -1,0 +1,99 @@
+{
+  "audited_at_utc": "2026-10-01T23:53:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. If at least one part is non-singleton, three or more white vertices cannot be completely forced, while leaving one white vertex in each of two distinct parts is forceable; hence the zero forcing number is \\(N-2\\). The general size-\\(N-2\\) forcing criterion specializes to exactly the pairs in distinct parts, except a pair consisting of two singleton parts, giving coefficient \\(\\sum_{i<j}n_i n_j-\\binom{s}{2}\\). Every \\(N-1\\) subset is forcing in a connected graph, and the full set is forcing, yielding the stated polynomial. The complete-graph case gives \\(Nx^{N-1}+x^N\\). Repository enumeration agrees on all tested multipartite types.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior graph-polynomial theorem supplies all top coefficients; the minimum forcing size eliminates every lower coefficient."
+        ],
+        "reasoning": "These prior ingredients mechanically determine the whole polynomial.",
+        "searches": [
+          "arXiv:1801.08910 full HTML Theorem 1",
+          "standard zero forcing number complete multipartite literature"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two vertices in the same non-singleton part are twins and fail the prior criterion; two singleton vertices also fail after deleting each other; every other cross-part pair passes."
+        ],
+        "reasoning": "Substitution into the established criterion yields the exact coefficient without a new structural lemma.",
+        "searches": [
+          "Boyer et al. Theorem 1, especially \\(z(G;N-2)\\)",
+          "complete multipartite neighborhood structure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer et al. Theorem 1 gives the exact \\(N-2\\) coefficient for every graph via neighborhoods.",
+          "For complete multipartite graphs the theorem's condition reduces immediately to the assigned cross-part count with the singleton correction."
+        ],
+        "reasoning": "The complement-of-two-vertices formulation in the package is exactly the specialization of the prior general coefficient criterion.",
+        "searches": [
+          "Boyer et al. zero forcing polynomial complete multipartite",
+          "complete multipartite zero forcing number \\(N-2\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier verbatim formula was found, but exact-text absence is irrelevant because the general theorem specializes directly."
+        ],
+        "reasoning": "This is implication coverage, not a database novelty question.",
+        "searches": [
+          "Resultary semantic search for complete multipartite zero forcing polynomial"
+        ]
+      },
+      "rationale": "FAIL. Boyer et al.'s full primary paper already proves a general theorem for every graph giving \\(z(G;N)=1\\), \\(z(G;N-1)\\), and, crucially, an exact neighborhood criterion for \\(z(G;N-2)\\). The same paper explicitly discusses complete multipartite graphs in its zero-forcing-polynomial context. For a complete multipartite graph, substituting its neighborhood classes into that theorem gives exactly the assigned coefficient: cross-part pairs qualify except pairs of singleton parts. The fact that no smaller set can force when a non-singleton part is present is the standard elementary computation \\(Z(G)=N-2\\) for this class. Thus the entire polynomial is mechanically determined by established theory.",
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. Once the general \\(N-2\\) coefficient theorem and the elementary complete-multipartite zero-forcing number are in hand, the claimed polynomial is a one-line specialization and bookkeeping count. It is useful as an example but does not clear the stated value bar against routine deductions from an existing graph-polynomial theorem.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Complete frozen/current Git package and verifier artifacts.",
+    "Independent specialization of Boyer et al.'s \\(N-2\\) criterion and direct forcing-number argument.",
+    "Complete foundational primary article.",
+    "Published-record and targeted literature searches."
+  ],
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "policy": "to-the-best-of-our-knowledge",
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260930-5a09d6ce956d",
+  "residual_risks": [
+    "No access limitation changes the failure because the decisive general theorem was inspected in full text."
+  ],
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_GENERAL_PRIOR_THEOREM",
+      "evidence": "Theorem 1 gives \\(z(G;N-2)\\) exactly from vertex-neighborhood comparison for every graph, and also gives the \\(N-1\\) and \\(N\\) coefficients.",
+      "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+      "material_read": "Complete primary HTML, especially Theorem 1 and the discussion of complete multipartite graphs.",
+      "method": "Primary full-text inspection.",
+      "title": "The zero forcing polynomial of a graph",
+      "trigger": "Foundational primary paper for the exact top coefficients."
+    },
+    {
+      "assessment": "SUPPORTING_STANDARD_CONTEXT",
+      "evidence": "The exact assigned record is recent, but the class's minimum forcing behavior is standard and elementary.",
+      "identifier_or_url": "Resultary and targeted zero-forcing searches",
+      "material_read": "Ranked published findings and indexed complete-multipartite zero-forcing material.",
+      "method": "Semantic and targeted literature search.",
+      "title": "Published-record and literature search for complete multipartite zero forcing",
+      "trigger": "Check exact formula and minimum forcing size context."
+    }
+  ],
+  "verification_state": "independent_audit_failed"
+}
