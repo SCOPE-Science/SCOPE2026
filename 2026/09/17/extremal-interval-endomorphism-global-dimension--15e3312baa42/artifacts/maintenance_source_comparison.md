@@ -1,0 +1,5 @@
+# Independent equality-classification check
+
+Primary arXiv:2609.15927v1 boundary and saturation definitions, complete Proposition 6.1, Theorems 6.3/6.5 and Corollaries 6.6/6.7 with proofs were read. They confirm the imported weight and normalization. Homological machinery is credited prior work.
+
+Independently write A=C minus S, B=S minus C, D=S intersect C, E=P minus (S union C). For weight n-1 the sum of |D|, |E|, |A|-|Max A|, |B|-|Min B| equals one. Its four cases force, respectively, double stars, three-element connected posets, two-bottom complete bipartite posets, or their duals. Cover-boundary requirements rule out comparability of the two minima in the third case. The displayed converse pairs cover P and meet both boundary requirements, leaving no further extension. Counting distinguishes the n double stars and two bipartite types, with overlaps only at n=3 and self-duality at n=4. The full equality analysis is additional to the source's bound and single star example; concurrent work is not excluded.
