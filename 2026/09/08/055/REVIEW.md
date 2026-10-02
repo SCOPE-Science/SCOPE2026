@@ -1,6 +1,5 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit: **passed (repaired)**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+Fresh exact computation confirmed the Hilbert vector, Hessian, WLP ranks/minors, and full Betti table. The original prose incorrectly omitted four quartic minimal generators; the repaired RESULT and SLOGAN now agree with beta_{1,4}=4.
