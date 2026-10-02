@@ -1,0 +1,125 @@
+{
+  "audited_at_utc": "2026-10-01T20:03:27.661542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py",
+        "Byszewski–Graff–Ward 2021",
+        "OEIS A173656",
+        "Adams 1987"
+      ],
+      "rationale": "The Perrin companion matrix is integral and unimodular, so the positive- and negative-index trace formulas are valid. The general prime-power trace congruence gives the claimed exponent descent and the square criterion. The package verifier independently reproduces the three listed A173656 square lifts, their cube failures, and failure of the negative restricted congruence. The bounded classification still relies on A173656's completeness statement below ten billion rather than a new exhaustive search.",
+      "residual_risks": [
+        "The large prime search behind the database completeness statement was not independently rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior theorem applies to every integer matrix and every prime power."
+        ],
+        "reasoning": "This strictly broader theorem dominates the claimed descent mechanism.",
+        "searches": [
+          "Dold sequences for traces of integer matrices",
+          "matrix Gauss congruence at prime powers"
+        ]
+      },
+      "checked_sources": [
+        "Byszewski–Graff–Ward full text",
+        "OEIS A173656",
+        "Adams 1987 full text",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two descent congruences and square criterion follow immediately.",
+          "The bounded list then reduces to existing candidate data plus lift checks."
+        ],
+        "reasoning": "The main claim is mechanically implied by prior mathematics.",
+        "searches": [
+          "apply the general trace congruence to the Perrin matrix and its inverse",
+          "combine with A173656"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published corollary gives the prime-power trace congruence for every integral matrix.",
+          "The Perrin companion matrix and its inverse are integral."
+        ],
+        "reasoning": "The Perrin theorem is a literal specialization of the broader matrix result.",
+        "searches": [
+          "Byszewski–Graff–Ward 2021 Corollary 4.5",
+          "Zarelua matrix trace congruences",
+          "Perrin trace representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A173656 lists 521, 190699, and 36944128783 and states there are no other terms below ten billion."
+        ],
+        "reasoning": "The finite classification uses an existing database frontier rather than a fresh exhaustive census.",
+        "searches": [
+          "OEIS A173656",
+          "OEIS A013998"
+        ]
+      },
+      "rationale": "The central descent theorem is already a direct special case of the published matrix Dold/Gauss congruence. Byszewski–Graff–Ward Corollary 4.5 gives the same prime-power trace congruence for every integral square matrix; applying it to the Perrin companion matrix and its integral inverse yields both asserted Perrin congruences mechanically. The remaining finite classification combines the existing A173656 table with candidate residue checks.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Corollary 4.5 states the exact prime-power trace congruence.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12531",
+          "material_read": "full Wiley HTML including Corollary 4.5",
+          "method": "lawful publisher full text",
+          "title": "Dold sequences, periodic points, and dynamics",
+          "trigger": "exact matrix-trace congruence"
+        },
+        {
+          "assessment": "COVERING_DATABASE_INPUT",
+          "evidence": "The existing entry supplies the candidate list and completeness range.",
+          "identifier_or_url": "https://oeis.org/A173656",
+          "material_read": "complete sequence entry and comments",
+          "method": "public database",
+          "title": "OEIS A173656",
+          "trigger": "database premise for the finite classification"
+        },
+        {
+          "assessment": "CONTEXT",
+          "evidence": "The decisive coverage is already supplied by the general matrix theorem.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1987-0866094-6",
+          "material_read": "complete article PDF",
+          "method": "lawful full text",
+          "title": "Characterizing pseudoprimes for third-order linear recurrences",
+          "trigger": "older Perrin-recurrence literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A173656",
+        "matrix Gauss/Dold congruence"
+      ],
+      "rationale": "After removing the covered descent mechanism, the remainder is a known-table reduction plus a few exact modular lift checks. That is useful verification but is a routine specialization/recomputation rather than a separately motivated mathematical contribution.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "evidence_files": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "limitations": [],
+  "previously_published_pending_reaudit": false,
+  "prior_same_model_evidence": "Earlier same-model review accepted the descent and finite classification; the fresh audit identifies decisive broader coverage of the descent.",
+  "record_id": "SCOPE-20260920-70f461c17799",
+  "record_title": "Prime-power descent for Perrin pseudoprimes",
+  "review_type": "independent_audit",
+  "verification_state": "independent_review_failed"
+}
