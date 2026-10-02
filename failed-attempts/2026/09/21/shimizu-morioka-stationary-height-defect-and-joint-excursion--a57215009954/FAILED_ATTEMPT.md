@@ -1,0 +1,9 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+This package is preserved as scientific evidence, but its final claim did not pass the fresh independent audit on all three axes.
+
+- Correctness: **PASS** — The conditional law follows from stationarity of every smooth function of \(z\): \(\mathbb E[x^2\mid z]=bz\). Differentiating the displayed polynomial coboundary gives \(W'=y^2-bz(z-1)\); completing the square yields the stated height defect. The zero-defect case forces \(y=0\), \(x^2=bz\), and then invariance forces the three equilibria. For a non-equilibrium stationary measure, the prior balance gives positive mass on \(z>1\); restricting the conditional law to that set forces positive mass where simultaneously \(z>1\) and \(x^2>b\). Thus the assigned statements are mathematically correct.
+- Originality: **FAIL** — The September 20 published Shimizu-Morioka/Rucklidge record already proves, for the more general parameter \(\rho>0\), the same conditional law \(\mathbb E[x^2\mid z]=bz\), the stationary balance \(\mathbb E[y^2]=b\mathbb E[z(z-\rho)]\), equilibrium-only equality, and positive mass on \(z>\rho\). At \(\rho=1\), the assigned square-defect identity is merely completion of the square in that prior balance, and the purportedly stronger joint excursion follows in one line by applying the already-published conditional law on the already-published set \(z>1\). The current record is therefore mechanically covered by the prior published theorem.
+- Value: **FAIL** — Once the September 20 conditional law and height-excursion theorem are available, the new-looking square identity is an algebraic rewrite and the joint excursion is a direct conditional-expectation consequence. Those operations are useful exposition but do not constitute a separate motivated mathematical contribution.
+
+See `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json` for the complete comparison and residual risks.
