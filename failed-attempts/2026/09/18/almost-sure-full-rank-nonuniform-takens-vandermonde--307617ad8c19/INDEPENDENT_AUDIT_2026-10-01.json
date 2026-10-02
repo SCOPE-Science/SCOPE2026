@@ -1,0 +1,104 @@
+{
+  "audited_at_utc": "2026-10-01T07:11:57.147372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any selected \\(r\\times r\\) minor, the clustered exponential determinant has leading term \\((i\\varepsilon)^{r(r-1)/2}V(a)V(b)/\\prod_{q=0}^{r-1}q!\\), which is nonzero for distinct real nodes. Hence the minor is a nontrivial real-analytic function of either the selected delays or the selected angles. The zero set of its squared modulus has Lebesgue measure zero, and rank deficiency is contained in that zero set. Nonvanishing of a maximal minor is open, while a nontrivial analytic zero set has empty interior, giving density. A separate numerical expansion check reproduced the predicted leading coefficient in a four-by-four example, but the proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exponentials with distinct real frequencies are a linearly independent analytic family, so the Wronskian theorem applies directly.",
+          "The determinant of any fixed maximal minor is real analytic in the sampling variables, so the zero-set theorem supplies the genericity conclusion once nontriviality is known."
+        ],
+        "reasoning": "Together these classical results cover the essential implication for arbitrary finite rank, more generally than the Takens application.",
+        "searches": [
+          "Wronskians and Linear Independence",
+          "The Zero Set of a Real Analytic Function"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.14001",
+        "https://arxiv.org/abs/1301.6598",
+        "https://doi.org/10.1134/S0001434620030189",
+        "https://arxiv.org/abs/2609.03325",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Distinct exponentials are linearly independent; hence their Wronskian is nonzero. The local confluent/evaluation determinant expansion is therefore nonzero for some distinct sample tuple, so the maximal minor is not identically zero. Its zero set has measure zero."
+        ],
+        "reasoning": "This is exactly the fixed-frequency and fixed-delay generic-rank conclusion claimed by the record.",
+        "searches": [
+          "Compared Conjecture 1 with the analytic Wronskian criterion and analytic zero-set theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ng–Kutz explicitly pose full rank as Conjecture 1.",
+          "Bostan–Dumas prove that linearly independent analytic functions have a nonzero Wronskian.",
+          "Mityagin proves that a nontrivial real-analytic function has a measure-zero zero set."
+        ],
+        "reasoning": "The audited clustered determinant is the standard bridge from nonzero Wronskian/analytic independence to generic invertibility of an evaluation matrix.",
+        "searches": [
+          "Ng–Kutz arXiv:2608.14001",
+          "Bostan–Dumas arXiv:1301.6598",
+          "Mityagin zero-set theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact wording was not found before this record, but implication-based novelty is decisive here."
+        ],
+        "reasoning": "Absence of the source-specific wording does not restore originality when the statement is a direct corollary of standard analytic-function theory.",
+        "searches": [
+          "Resultary semantic search for the exact nonuniform Takens rank statement"
+        ]
+      },
+      "rationale": "The source-specific conjecture is correct, but its probability-one rank conclusion is mechanically implied by classical analytic-function results. For distinct frequencies the exponentials are linearly independent analytic functions; Bostan–Dumas give the classical nonzero-Wronskian criterion for such a family. A nonzero Wronskian yields a nontrivial clustered evaluation determinant, and Mityagin's standard zero-set theorem then makes the singular evaluation tuples measure zero. The record's Cauchy–Binet computation is an explicit proof of this known implication rather than an original theorem.",
+      "residual_risks": [
+        "The Ng–Kutz paper genuinely left the statement as a conjecture; the failure is therefore coverage by older general mathematics, not a claim that the source itself solved it.",
+        "The explicit clustered determinant remains a useful self-contained exposition of the classical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TARGET_OPEN_STATEMENT",
+          "evidence": "The paper explicitly poses full rank as Conjecture 1 and conditions its embedding theorem on it.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14001",
+          "material_read": "Full primary text through the generalized-Vandermonde section, Conjecture 1, numerical evidence, and Theorems 7–8.",
+          "method": "Primary full text.",
+          "title": "Stable Takens' Embedding Theorem for Non-Uniformly-Sampled Linear Systems",
+          "trigger": "The audited record claims to resolve this paper's generalized-Vandermonde conjecture."
+        },
+        {
+          "assessment": "COVERING_GENERAL_THEOREM",
+          "evidence": "Distinct exponential functions are linearly independent analytic functions, so the theorem gives a nonzero Wronskian.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.6598",
+          "material_read": "Primary abstract and theorem statement that a finite linearly independent family of real or complex analytic functions has nonzero Wronskian.",
+          "method": "Primary source material.",
+          "title": "Wronskians and Linear Independence",
+          "trigger": "Classical analytic-function theorem that subsumes the nontrivial-minor step."
+        },
+        {
+          "assessment": "COVERING_GENERAL_THEOREM",
+          "evidence": "Applied to the squared modulus of a maximal minor, it gives the measure-zero singular set.",
+          "identifier_or_url": "https://doi.org/10.1134/S0001434620030189",
+          "material_read": "The theorem statement that a nontrivial real-analytic function has a measure-zero zero set.",
+          "method": "Primary theorem-level source.",
+          "title": "The Zero Set of a Real Analytic Function",
+          "trigger": "Classical theorem used to turn nontriviality of the determinant into almost-sure full rank."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Removing an explicit assumption from a recent embedding paper is useful, but the mathematical step is a short application of classical analytic linear independence, a confluent Vandermonde expansion, and the standard zero-set theorem. Under the stated value bar, this is a routine textbook-level deduction rather than a new substantive structural result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": "The generic-rank statement is mathematically correct, but it is rejected as a new finding because it is a direct application of classical analytic-function theory. It also gives no quantitative conditioning bound and requires distinct nodes and absolutely continuous random parameters.",
+  "record_id": "SCOPE-20260918-307617ad8c19",
+  "record_title": "Almost-sure full rank for nonuniform Takens Vandermonde matrices",
+  "schema_version": 1
+}
