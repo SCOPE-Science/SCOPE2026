@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T06:14:30.660194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The lower bound and witness are independently reproducible. Every cyclic integer greater than two is odd and squarefree. If \\(a\\) and \\(2a+1\\) are cyclic, squarefreeness excludes \\(a\\equiv0,4\\pmod 9\\); together with oddness this leaves exactly residues \\(1,3,5,7,11,15,17\\pmod{18}\\). Exhausting the 18 starting residues gives window maxima \\(1,1,2,2,3,3,4,4,5,5,6,6,6,6,7,7,7,7,8,8\\) for lengths one through twenty, each no larger than the exact initial count \\(C_\\sigma(m)\\). Therefore no counterexample has smaller summand at most twenty. An independent integer computation also reproduces all nine Sophie Germain cyclic integers in \\((87088,87109]\\), giving nine new terms against \\(C_\\sigma(21)=8\\), so the sharp witness is valid.",
+      "risks": [
+        "The theorem minimizes only the smaller summand under \\(1\\le m\\le n\\), not total size or the larger summand."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify.py and verify-output.txt",
+        "Ibarra, arXiv:2607.09793",
+        "OEIS A397387",
+        "independent exact integer/factorization recomputation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen poses the conjecture; Ibarra disproves it at \\(m=31,n=3928\\)."
+        ],
+        "reasoning": "Ibarra gives only an upper bound of 31 on the unknown minimum, not the sharp value 21 or the universal exclusion of lengths at most 20.",
+        "searches": [
+          "Cohen, arXiv:2508.08335",
+          "Ibarra, arXiv:2607.09793"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2508.08335",
+        "https://arxiv.org/abs/2607.09793",
+        "https://oeis.org/A397387",
+        "assigned RESULT.md and artifacts/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior counterexample is compatible with \\(m\\ge21\\) and does not determine the minimum."
+        ],
+        "reasoning": "The exact boundary and sharp length-21 witness are not corollaries of the prior result.",
+        "searches": [
+          "comparison of the Ibarra counterexample with the audited lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited record was the only exact theorem-level match found."
+        ],
+        "reasoning": "Equivalent formulations in terms of window increments \\(C_\\sigma(n+m)-C_\\sigma(n)\\) were also considered.",
+        "searches": [
+          "semantic search for minimum shorter summand in a Sophie Germain cyclic subadditivity counterexample",
+          "search for the pair \\((21,87088)\\) and the mod-18 obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database lists Sophie Germain cyclic numbers and links Cohen/Ibarra."
+        ],
+        "reasoning": "Sequence data can check candidates but does not imply the all-\\(n\\) lower bound; the mod-18 argument supplies that infinite proof.",
+        "searches": [
+          "OEIS A397387 and linked table"
+        ]
+      },
+      "rationale": "Cohen states the subadditivity conjecture, and Ibarra's published counterexample uses smaller summand 31. Fresh exact and semantic searches found no prior determination of the minimum smaller summand, no prior \\(m=21\\) witness, and no prior mod-18 packing proof. OEIS A397387 supplies sequence data but not the global minimum theorem.",
+      "residual_risks": [
+        "A very recent unindexed follow-up to Ibarra could overlap the sharpening, but none was located in the fresh searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not determine the minimum smaller summand.",
+          "evidence": "Its theorem supplies one counterexample at smaller summand 31.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.09793",
+          "material_read": "Abstract and accessible full preprint text, including the explicit \\(m=31,n=3928\\) counterexample.",
+          "method": "Primary full-text statement comparison.",
+          "title": "A counterexample to a subadditivity conjecture of Cohen for Sophie Germain cyclic numbers",
+          "trigger": "Closest prior disproof of the same conjecture."
+        },
+        {
+          "assessment": "Poses the subadditivity question; does not contain the audited sharpening.",
+          "evidence": "The work introduces/tests the cyclic-number conjectures.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.08335",
+          "material_read": "Abstract and scope.",
+          "method": "Primary-source comparison.",
+          "title": "Conjectures about Primes and Cyclic Numbers",
+          "trigger": "Original conjecture."
+        },
+        {
+          "assessment": "Useful for sequence verification but not covering the theorem.",
+          "evidence": "The entry links Cohen and Ibarra and provides sequence-generation data.",
+          "identifier_or_url": "https://oeis.org/A397387",
+          "material_read": "Current entry, links and examples.",
+          "method": "Database inspection.",
+          "title": "OEIS A397387",
+          "trigger": "Exact sequence database for Sophie Germain cyclic numbers."
+        },
+        {
+          "assessment": "All finite ingredients reproduce exactly; the universal lower bound comes from the stated residue lemma.",
+          "evidence": "The nine witness values and all length-at-most-21 window maxima match.",
+          "identifier_or_url": "artifacts/verify.py",
+          "material_read": "Complete source and captured output.",
+          "method": "Line-by-line inspection plus independent exact recomputation.",
+          "title": "Assigned finite verifier",
+          "trigger": "Residue-window table and sharp witness."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies the exact structural threshold in a newly disproved counting-function conjecture: a congruence packing obstruction rules out every shorter window, and an explicit window attains the first permitted length. This is a natural sharp boundary, not merely another counterexample.",
+      "risks": [
+        "The minimization criterion is specifically the smaller summand."
+      ],
+      "sources": [
+        "Cohen's conjecture",
+        "Ibarra's \\(m=31\\) counterexample",
+        "the mod-18 obstruction and \\(m=21\\) witness"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem does not minimize total counterexample size or the larger summand.",
+    "Originality is best-of-knowledge.",
+    "The explicit witness is finite computation, while the exclusion of all shorter summands is mathematical and periodic modulo 18."
+  ],
+  "record_id": "SCOPE-20260917-dcfbf766e5ad",
+  "schema_version": 1
+}
