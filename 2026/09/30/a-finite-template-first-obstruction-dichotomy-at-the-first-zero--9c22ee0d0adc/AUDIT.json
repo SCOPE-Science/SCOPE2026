@@ -1,23 +1,100 @@
 {
+  "audit_date_utc": "2026-10-01",
   "correctness": {
-    "rationale": "Both strong Weihrauch reductions were reconstructed explicitly. The upper reduction uses the decidable finite-prefix homomorphism predicate and identity postprocessing. The lower reduction maps each zero of the input sequence to a vertex carrying every relation diagonal; absence of a common diagonal point is exactly what makes that vertex obstruct every homomorphism. The converse computable branch follows from the constant homomorphism. Exhaustive finite sanity checks passed.",
+    "reason": "Both strong Weihrauch reductions reconstruct directly. The upper map computes the monotone decidable sequence recording whether each finite prefix maps to \\(\\mathbf B\\); its first zero is exactly the first failing prefix. For the lower map, a zero at index \\(n\\) is encoded by putting only the diagonal tuple \\((n,\\ldots,n)\\) into every relation. Before the first zero every finite prefix has empty relations and maps to nonempty \\(B\\); at and after the first zero a homomorphism would require one image point lying on every relation diagonal, contrary to the nontrivial-branch hypothesis. Both postprocessors are the identity, so the reductions are strong. In the remaining branch a common diagonal point gives a constant homomorphism from every input. The argument also handles the empty signature vacuously.",
+    "risk": "No correctness gap was found. The theorem depends on unrestricted input tuples; promised irreflexive or otherwise tuple-restricted classes are outside the claim.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "final_claim": "For every fixed finite nonempty relational template \\(\\mathbf B\\) over a finite positive-arity relational signature, the first failing finite-prefix homomorphism problem is identically zero exactly when \\(\\mathbf B\\) has a point on every relation diagonal; otherwise it is strongly Weihrauch-equivalent to the first-zero problem \\(\\mathrm{LPO}_{\\min}\\), and their parallelizations are Weihrauch-equivalent.",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
-    "rationale": "Targeted searches found the 2021 graph-specific local-coloring equivalence but no finite-template homomorphism dichotomy with the common-diagonal-point criterion. Semantic comparison against published finding records produced no equivalent or stronger overlapping claim. The assessment remains best-of-knowledge rather than exhaustive.",
+    "broader_coverage": {
+      "evidence": [
+        "No earlier result located covers all fixed finite relational templates with the audited boundary."
+      ],
+      "reasoning": "The prior graph theorem is narrower, and no stronger template theorem was located.",
+      "searches": [
+        "Resultary fixed-template/CSP semantic search",
+        "Broad web search for Weihrauch CSP/homomorphism finite-template results"
+      ]
+    },
+    "checked_sources": [
+      "Resultary semantic search: finite relational template first obstruction homomorphism first-zero LPO common diagonal point strong Weihrauch",
+      "arXiv:2105.01719v1",
+      "Broad web search: finite-template CSP homomorphism Weihrauch local first obstruction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Their clique obstruction assumes simple graph inputs; it does not imply the diagonal-tuple construction for arbitrary relational signatures.",
+        "Their displayed equivalence is not the audited all-template dichotomy."
+      ],
+      "reasoning": "No inspected prior statement implies the full final claim.",
+      "searches": [
+        "BeMent–Hirst–Wallace proof comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The only close primary theorem located is graph-specific local k-colouring.",
+        "No checked source states the common-diagonal finite-template classification."
+      ],
+      "reasoning": "The graph theorem and the audited relational-template theorem have different object classes and obstruction mechanisms; no equivalence or reduction from a broader prior theorem was found.",
+      "searches": [
+        "Resultary semantic search using finite-template, homomorphism, first-obstruction, first-zero LPO, and common-diagonal aliases",
+        "arXiv:2105.01719v1 local graph-colouring section"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The audited record was the direct match; no earlier exact database/table result appeared."
+      ],
+      "reasoning": "This is a theorem-classification question, not a table lookup.",
+      "searches": [
+        "Resultary semantic database"
+      ]
+    },
+    "reason": "The primary BeMent–Hirst–Wallace paper was inspected in its first-zero \\(\\mathrm{LPO}\\) and local fixed-color graph section. It proves the graph-specific local-coloring Weihrauch equivalence using clique obstructions, not the finite-template homomorphism dichotomy, the common-diagonal-point criterion, or the unrestricted diagonal one-vertex obstruction. Resultary semantic searches for fixed-template CSP/homomorphism first-obstruction aliases returned the audited record as the direct match and no earlier stronger SCOPE finding. General CSP search results found no theorem implying this exact strong-Weihrauch classification.",
+    "residual_risks": [
+      "Equivalent work under computable-structure, finite-template CSP, or alternative Weihrauch terminology could be missed."
+    ],
+    "risk": "A semantically equivalent result under computable-structure or CSP terminology could be poorly indexed; unsuccessful search is not novelty proof.",
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "The paper treats simple graph local k-colouring and ordinary Weihrauch equivalence; it does not state the finite relational-template common-diagonal dichotomy or its strong Weihrauch form.",
+        "identifier_or_url": "arXiv:2105.01719v1",
+        "material_read": "Primary PDF section defining the first-zero LPO variant and proving the local fixed-colouring reduction, including the clique lower-bound construction",
+        "method": "Primary full-text PDF inspection",
+        "title": "Reverse mathematics and Weihrauch analysis motivated by finite complexity theory",
+        "trigger": "Same first-zero LPO formulation and local finite obstruction problem"
+      }
+    ],
     "status": "PASS"
   },
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_same_model_review": {
+    "correctness": {
+      "rationale": "Both strong Weihrauch reductions were reconstructed explicitly. The upper reduction uses the decidable finite-prefix homomorphism predicate and identity postprocessing. The lower reduction maps each zero of the input sequence to a vertex carrying every relation diagonal; absence of a common diagonal point is exactly what makes that vertex obstruct every homomorphism. The converse computable branch follows from the constant homomorphism. Exhaustive finite sanity checks passed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Targeted searches found the 2021 graph-specific local-coloring equivalence but no finite-template homomorphism dichotomy with the common-diagonal-point criterion. Semantic comparison against published finding records produced no equivalent or stronger overlapping claim. The assessment remains best-of-knowledge rather than exhaustive.",
+      "status": "PASS"
+    },
+    "status": "passed",
+    "value": {
+      "rationale": "The theorem gives an exact classification over all fixed finite relational templates for a natural first-obstruction problem, separating the sole computable case from a uniform first-zero LPO degree and yielding the parallelized degree immediately.",
+      "status": "PASS"
+    }
+  },
+  "record_id": "SCOPE-20260930-9c22ee0d0adc",
   "schema_version": 1,
-  "scope_run_id": "9c22ee0d-0adc-4ea4-b54c-805cccc45147",
   "value": {
-    "rationale": "The theorem gives an exact classification over all fixed finite relational templates for a natural first-obstruction problem, separating the sole computable case from a uniform first-zero LPO degree and yielding the parallelized degree immediately.",
+    "reason": "This is a natural complete classification over all finite relational templates of a first-obstruction problem, with a sharp computable/noncomputable boundary given by an intrinsic template property and an exact strong Weihrauch degree on the nontrivial side. It is broader than a single gadget calculation and is reusable for comparing promised and unrestricted local CSP representations.",
+    "risk": "Its value is representation-sensitive and does not automatically transfer to promised graph classes or alternative encodings.",
     "status": "PASS"
   },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }

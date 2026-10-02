@@ -1,6 +1,8 @@
-# Review status
+# Independent audit — 2026-10-01
 
-Fresh independent audit: **PASSED**.
+## Record
+
+A finite-template first-obstruction dichotomy at the first-zero LPO degree
 
 ## Final claim
 
@@ -18,16 +20,36 @@ Risk: No correctness gap was found. The theorem depends on unrestricted input tu
 
 Risk: A semantically equivalent result under computable-structure or CSP terminology could be poorly indexed; unsuccessful search is not novelty proof.
 
+### Equivalent formulations
+
+The graph theorem and the audited relational-template theorem have different object classes and obstruction mechanisms; no equivalence or reduction from a broader prior theorem was found.
+
+### Broader coverage
+
+The prior graph theorem is narrower, and no stronger template theorem was located.
+
+### Exact database or table
+
+This is a theorem-classification question, not a table lookup.
+
+### Claim versus prior implication
+
+No inspected prior statement implies the full final claim.
+
 ## Value
 
 **PASS** — This is a natural complete classification over all finite relational templates of a first-obstruction problem, with a sharp computable/noncomputable boundary given by an intrinsic template property and an exact strong Weihrauch degree on the nontrivial side. It is broader than a single gadget calculation and is reusable for comparing promised and unrestricted local CSP representations.
 
 Risk: Its value is representation-sensitive and does not automatically transfer to promised graph classes or alternative encodings.
 
-## Prior assessment
+## Source inspections
 
-The prior same-model review status remains recorded as passed and its scientific rationales are retained in `AUDIT.json`; this fresh audit supersedes it for independent-audit status without erasing that historical evidence.
+- **Reverse mathematics and Weihrauch analysis motivated by finite complexity theory** (arXiv:2105.01719v1): Primary PDF section defining the first-zero LPO variant and proving the local fixed-colouring reduction, including the clique lower-bound construction Assessment: PARTIAL_COVERAGE. Evidence: The paper treats simple graph local k-colouring and ordinary Weihrauch equivalence; it does not state the finite relational-template common-diagonal dichotomy or its strong Weihrauch form.
+
+## Residual risks
+
+- Equivalent work under computable-structure, finite-template CSP, or alternative Weihrauch terminology could be missed.
 
 ## Disposition
 
-The submitted claim survives the fresh audit. `RESULT.md` and `SLOGAN.txt` remain unchanged; only audit/status files are updated.
+Passed: the claim survives all three axes.
