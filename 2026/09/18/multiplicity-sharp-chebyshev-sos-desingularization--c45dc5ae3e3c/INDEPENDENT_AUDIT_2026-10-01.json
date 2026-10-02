@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T09:23:49.879240Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For negative \\(t\\), the Chebyshev substitution \\(1-2t=\\cosh u\\), \\(y=nu/2\\) turns the only potentially negative range exactly into \\(\\delta-\\sinh^2(y/n)(1-\\sinh^{2(d-1)}y)\\), so the displayed maximum is both necessary and sufficient. The logarithmic-derivative comparison gives a unique interior maximizer. Monotonicity in odd multiplicity, convergence to the source floor, the \\(\\beta_d/n^2\\) bound and the \\(\\kappa_d\\) limit follow from elementary monotonicity, convexity and uniform convergence. Because only the additive constant is changed, the source certificate degree is unchanged. The inspected verifier reproduces the constants but is not used as the proof.",
+      "risks": [
+        "Sharpness is only within the source's Chebyshev ansatz, not among all Positivstellensatz certificates."
+      ],
+      "sources": [
+        "assigned RESULT.md and artifacts/verify_floor.py",
+        "Henrion–Safey El Din arXiv:2609.20544"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theorem fixes the rate exponent and uses a multiplicity-blind floor."
+        ],
+        "reasoning": "A universal rate theorem does not imply the exact ansatz-level optimal floor for each finite odd multiplicity.",
+        "searches": [
+          "Henrion–Safey El Din universal univariate \\(O(r^{-2})\\) theorem",
+          "earlier univariate quadratic-module literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.20544",
+        "Resultary semantic search",
+        "assigned RESULT.md and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source floor is an upper envelope; the audited argument proves strictly smaller exact floors for each fixed finite odd multiplicity."
+        ],
+        "reasoning": "The source bound does not mechanically imply the sharp finite-multiplicity value.",
+        "searches": [
+          "implication comparison with the source floor \\(\\varepsilon_n\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching independent theorem was located."
+        ],
+        "reasoning": "Equivalent formulations as a minimum additive floor for the fixed Chebyshev ansatz and as the induced proof constant were searched.",
+        "searches": [
+          "Resultary query for multiplicity-sharp Chebyshev moment-SOS floor",
+          "web search for arXiv:2609.20544 and Chebyshev boundary degeneracy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table or database of these constants was located."
+        ],
+        "reasoning": "The constants arise from a new one-dimensional optimization, not a known numerical table.",
+        "searches": [
+          "exact constants \\(\\delta_{n,d}\\), \\(\\beta_d\\), \\(\\kappa_d\\)"
+        ]
+      },
+      "rationale": "The source paper introduces the Chebyshev desingularization and an \\(O(r^{-2})\\) theorem but, in the inspected public descriptions and current searches, no source states the exact multiplicity-dependent minimum floor, its worst-multiplicity envelope, or the \\(\\beta_d\\) and \\(\\kappa_d\\) refinements. Resultary returns only the audited record for this exact claim.",
+      "residual_risks": [
+        "The source is very recent, so simultaneous unindexed refinements remain possible.",
+        "Full primary source text was not retrievable in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the universal rate mechanism, not the audited exact floor refinement.",
+          "evidence": "The public abstract says boundary degeneracies affect constants but gives no multiplicity-sharp constant.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20544",
+          "material_read": "Public abstract and detailed secondary page describing the Chebyshev construction; direct arXiv full text was unavailable through the web route used.",
+          "method": "Source-scope and formula comparison against the assigned proof.",
+          "title": "Convergence rate of the moment-SOS hierarchy for univariate polynomial optimization",
+          "trigger": "Direct source of the Chebyshev recovery primitive."
+        },
+        {
+          "assessment": "Corroborates the exact one-variable optimization and asymptotic constants.",
+          "evidence": "The computed \\(\\kappa_d\\), \\(\\beta_d\\), finite floors and minimizing residuals agree with RESULT.md.",
+          "identifier_or_url": "artifacts/verify_floor.py",
+          "material_read": "Complete source plus recorded output.",
+          "method": "Line-by-line inspection; constants cross-checked against the analytic formulas.",
+          "title": "Assigned multiplicity verifier",
+          "trigger": "Finite-n and asymptotic constants."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a sharp method-level constant law for a natural multiplicity parameter that the source theorem explicitly leaves inside an opaque constant. It yields strict improvements without increasing degree and quantifies how low multiplicity changes the certificate cost.",
+      "risks": [
+        "The global \\(r^{-2}\\) exponent is unchanged."
+      ],
+      "sources": [
+        "source moment-SOS theorem",
+        "audited exact Chebyshev floor"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Optimality is ansatz-specific.",
+    "Propagated moment-SOS constants remain proof-dependent.",
+    "No multivariate extension is claimed."
+  ],
+  "record_id": "SCOPE-20260918-c45dc5ae3e3c",
+  "schema_version": 1
+}
