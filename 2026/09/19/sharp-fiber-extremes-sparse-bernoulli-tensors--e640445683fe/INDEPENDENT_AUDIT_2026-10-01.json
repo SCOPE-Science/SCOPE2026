@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T15:20:29.106455Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full Zhou–Zhu primary paper was inspected through the main theorem, its optimality discussion, maximum-fiber lemma, and heavy-tuple proof. The source explicitly uses fiber norms as the unavoidable obstruction. For one fixed tensor mode the \\(n^{k-1}\\) fiber degrees are independent \\(\\mathrm{Bin}(n,p)\\), and all modes change an upper bound only by a fixed factor \\(k\\). Chernoff upper bounds and one-mass Stirling lower bounds therefore give the sharp constant \\(x\\) solving \\(c(x\\log x-x+1)=k-1\\). At \\(d=c\\log n\\), the binomial point-mass expansion and geometric tail ratio yield the center \\(xc\\log n-(\\log\\log n)/(2\\log x)\\) and the stated lattice profile. I independently checked the rate inversion and sample constants, including \\(x=e\\) for \\(k=3,c=2\\). The same rate comparison gives the polynomial-tail obstruction and Lambert-W sublogarithmic scale.",
+      "risks": [
+        "The exact lattice limit is proved only for one fixed mode; the maximum over all modes is localized to \\(O_P(1)\\), not assigned a cross-mode limit law.",
+        "The result gives a lower obstruction, not the full tensor-norm limiting constant."
+      ],
+      "sources": [
+        "Zhou–Zhu, arXiv:2609.20520 full text",
+        "assigned RESULT.md and exact-tail verifier",
+        "independent large-deviation inversion checks",
+        "classical discrete extreme-value literature"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source already contains the obstruction mechanism but not the sharp asymptotics.",
+          "Classical scalar extreme-value theory can subsume parts of the binomial-max calculation, so novelty is restricted to the tensor-specific sharpened barrier package."
+        ],
+        "reasoning": "The tensor conclusion is not a claim of a new scalar extreme-value method.",
+        "searches": [
+          "Zhou–Zhu 2026 full text",
+          "Anderson–Coles–Hüsler discrete maxima context",
+          "sparse random graph degree extremes"
+        ]
+      },
+      "checked_sources": [
+        "Zhou–Zhu arXiv:2609.20520 full text",
+        "current Resultary tensor-extreme searches",
+        "classical discrete-extreme literature references",
+        "assigned RESULT.md and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 asserts existence of a constant \\(C_{k,r,c}\\); Lemma 4.3 uses a slack Chernoff threshold. Neither determines the optimal necessary dependence on \\(k,r,c\\) or the second-order maximum profile."
+        ],
+        "reasoning": "The audited theorem sharpens an explicitly order-optimal but constant-unspecified source result.",
+        "searches": [
+          "implication comparison with Theorem 2.1 and Lemma 4.3 of Zhou–Zhu"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited theorem was the only exact tensor-specific match.",
+          "The source paper's Lemma 4.3 chooses any sufficiently large \\(\\kappa\\), without optimizing it."
+        ],
+        "reasoning": "Equivalent formulations via the maximum binomial degree and via unavoidable spectral-norm constants were both checked.",
+        "searches": [
+          "Resultary searches for sparse Bernoulli tensor fiber extremes, the rate equation, the second-order center, and the polynomial-tail constant",
+          "full-text search of Zhou–Zhu for maximum fiber degree and optimality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or stronger tensor-specific constant theorem was found."
+        ],
+        "reasoning": "The constants arise from an asymptotic theorem, not a database lookup.",
+        "searches": [
+          "current Resultary random-tensor and Bernoulli-extreme findings"
+        ]
+      },
+      "rationale": "Zhou–Zhu explicitly note the maximum-fiber obstruction and qualitative sublogarithmic divergence, so those ideas are prior and are not treated as novelty. Their full paper uses a deliberately nonsharp Chernoff constant in the maximum-degree lemma and states only existence of \\(C_{k,r,c}\\). Fresh Resultary searches found no tensor-specific theorem with the exact large-deviation constant, second-order lattice center, polynomial-tail exponent, or the necessary \\(C\\ge\\sqrt{h^{-1}((k-1+r)/c)}\\) dependence. Classical scalar maxima may contain the one-dimensional extreme-value asymptotic, but not the tensor-specific high-probability constant consequence located here.",
+      "residual_risks": [
+        "The scalar maximum asymptotic may be available in classical triangular-array literature under different notation; the audit therefore limits originality to the tensor-specific sharpened barrier and constant consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL BACKGROUND, not full coverage.",
+          "evidence": "It states \\(\\sqrt d\\)-order optimality and qualitative sublog divergence, but leaves the sharp fiber constant and second-order law unspecified.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20520",
+          "material_read": "Full primary paper through the main theorem, optimality paragraph, maximum-fiber lemma, multibox discrepancy, and deterministic heavy-tuple summation.",
+          "method": "Primary full-text statement/proof comparison.",
+          "title": "Sharp spectral norm concentration of sparse random tensors",
+          "trigger": "Direct source theorem whose unavoidable fiber obstruction is quantified."
+        },
+        {
+          "assessment": "Corroborates the asymptotic calculations.",
+          "evidence": "Independent inversion reproduces the stated sample thresholds.",
+          "identifier_or_url": "artifacts/verify_fiber_extremes.py",
+          "material_read": "Complete source and saved output.",
+          "method": "Inspection plus independent rate inversion.",
+          "title": "Assigned fiber-extremes verifier",
+          "trigger": "Exact binomial-tail numerics and lattice centering checks."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source theorem is explicitly sharp only in order and leaves its high-probability constant unspecified. Determining the exact unavoidable dependence on tensor order, logarithmic sparsity, and requested tail exponent, together with the second-order transition and sublogarithmic scale, is a natural and useful sharpness boundary for sparse tensor concentration.",
+      "risks": [
+        "The result is a lower-bound obstruction and does not determine the full injective-norm limit."
+      ],
+      "sources": [
+        "Zhou–Zhu spectral-norm theorem",
+        "audited maximum-fiber barrier"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Homogeneous independent Bernoulli tensors only.",
+    "The one-mode lattice law does not assert independence across modes.",
+    "Classical scalar extreme-value theory may cover the binomial-maximum component; originality is restricted accordingly."
+  ],
+  "record_id": "SCOPE-20260919-e640445683fe",
+  "schema_version": 1
+}
