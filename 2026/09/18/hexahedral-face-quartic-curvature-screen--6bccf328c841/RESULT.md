@@ -67,7 +67,7 @@ b(t)=a(t)\ell(t)+r,
 \]
 where \(\ell\) is affine and \(r\) is constant.  Then
 \[
-h(t)=c(t)-\frac{a(t)\ell(t)^2}{4}-\frac{r\ell(t)}2-rac{r^2}{4a(t)}.
+h(t)=c(t)-\frac{a(t)\ell(t)^2}{4}-\frac{r\ell(t)}2-\frac{r^2}{4a(t)}.
 \]
 All terms except the last have degree at most three.  Therefore
 \[
