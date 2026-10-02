@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T13:15:21.161204Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For \\(A_z=H\\cup\\{z\\}\\), the sumset is exactly \\(H\\cup(z+H)\\), so the doubling constant is below two, and two \\(H\\)-cosets give an optimal cover under the size constraint. For any output subspace \\(V\\) of dimension at most \\(m\\), writing \\(U=V\\cap H\\) with dimension \\(h\\), an \\(L\\)-coset cover of \\(H\\) forces \\(2^{m-h}\\le L\\). The quotient image of each output coset has at most \\(2^{m-h}\\le L\\) classes, so the fixed output can cover at most \\(L^2\\) possible hidden outliers. Samples reveal the exceptional point with probability at most \\(s/(2^m+1)\\); before a positive membership hit, each informative query tests at most one candidate outlier. Conditional on no hit, at least \\(2^m-1-q\\) candidates remain, giving the residual \\(L^2\\) ratio and the stated lower bound. The assigned subspace enumeration is correct corroboration, not the proof.",
+      "risks": [
+        "The lower bound concerns explicit lists of translate representatives under sample plus point-membership access.",
+        "It does not apply to compressed witnesses or stronger oracles."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify_cover_barrier.py",
+        "Arunachalam--Dutt--Grewal--Gupte, arXiv:2609.20771"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works solve subspace recovery efficiently under sample/membership access.",
+          "None of the inspected theorem statements requires outputting a list of covering cosets."
+        ],
+        "reasoning": "The audited lower bound targets a strictly stronger output requirement and therefore is not implied by the positive algorithms.",
+        "searches": [
+          "Arunachalam--Dutt--Grewal--Gupte arXiv:2609.20771",
+          "earlier algorithmic PFR and robust-PFR work cited there"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.20771",
+        "artifacts/verify_cover_barrier.py",
+        "current Resultary PFR semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing a correct subspace and an existential \\(K^{O(1)}\\) cover does not reveal which rare quotient coset is occupied.",
+          "The hard family gives the correct subspace for free yet still hides one necessary representative among exponentially many candidates."
+        ],
+        "reasoning": "The positive PFR theorem therefore cannot imply an efficient explicit-cover witness algorithm in this oracle model.",
+        "searches": [
+          "claim-versus-primary-output implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited record was the only exact match returned.",
+          "The primary theorem outputs only a subspace basis with an existential cover-number guarantee."
+        ],
+        "reasoning": "Equivalent formulations as witness recovery, occupied quotient-coset discovery, and explicit translate listing were checked.",
+        "searches": [
+          "Resultary semantic search for explicit PFR translate representatives and oracle lower bounds",
+          "search of algorithmic PFR output conventions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database entry gives explicit witness query complexity; the result is an oracle lower bound."
+        ],
+        "reasoning": "The exact \\(L^2\\) candidate bound is structural rather than a lookup.",
+        "searches": [
+          "current Resultary PFR findings",
+          "algorithmic PFR theorem statements"
+        ]
+      },
+      "rationale": "The primary 2026 algorithmic PFR theorem was inspected in full through its main-result section: it explicitly outputs a basis of a PFR subspace and guarantees that polynomially many translates exist, but it does not output the translate representatives. Fresh semantic searches found no prior lower bound showing that materializing those representatives is exponentially harder. The hidden-outlier family is elementary, so folklore risk is real, but no covering theorem or equivalent oracle lower bound was located.",
+      "residual_risks": [
+        "Because the lower-bound family is simple, an unindexed folklore observation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the explicit-witness task.",
+          "evidence": "Theorem 1.2 outputs a basis for a subspace and only guarantees that \\(A\\) can be covered by \\(K^{O(1)}\\) translates.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20771",
+          "material_read": "Primary full text through the abstract, main theorem, prior-work discussion, and technical overview pages 1--10, obtained through authorized access after open routes failed.",
+          "method": "Full theorem/output-model comparison.",
+          "title": "Marton's conjecture in polynomial time",
+          "trigger": "Primary algorithmic PFR result whose output convention motivates the boundary."
+        },
+        {
+          "assessment": "Correct finite corroboration.",
+          "evidence": "It verifies the identities through \\(m=8\\) and enumerates 2165 subspaces for \\(m\\le3\\).",
+          "identifier_or_url": "artifacts/verify_cover_barrier.py",
+          "material_read": "Complete source and saved output.",
+          "method": "Line-by-line inspection.",
+          "title": "Assigned cover-barrier verifier",
+          "trigger": "Finite checks of doubling and quotient-dimension inequalities."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result isolates an information-theoretic boundary in a major new algorithmic structure theorem: learning the PFR subspace can be polynomial while materializing even a constant-size optimal cover witness requires exponentially many interactions. The separation persists below doubling two and even when the correct subspace is supplied, so it identifies a genuine output-model limitation rather than a computational artifact.",
+      "risks": [
+        "The obstruction is tied to explicit representative lists and a rare-outlier access model."
+      ],
+      "sources": [
+        "algorithmic PFR Theorem 1.2",
+        "audited hidden-outlier lower bound"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The lower bound is for explicit translate lists under uniform-sample plus point-membership access.",
+    "It does not rule out compressed cover descriptions or stronger occupied-coset oracles.",
+    "Originality is best-of-knowledge with material folklore risk."
+  ],
+  "record_id": "SCOPE-20260919-42e39b6bb84d",
+  "schema_version": 1
+}
