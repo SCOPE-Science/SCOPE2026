@@ -1,0 +1,9 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+This package is preserved as scientific evidence, but the final claim did not pass the fresh independent audit on all three axes.
+
+- Correctness: **PASS** — The second-order asymptotics are mathematically consistent. In logarithmic radius, normalizing by the common leading power yields an exact equation whose linear part is \(eta y_t+y\) and whose diffusion forcing is \(C_0e^{-qt}\). The primary source's center-manifold system was inspected on the relevant pages and supplies the two stable decay rates corresponding to \(q=L/(p-1)\) and \(h=L/(m-p)=1/eta\). Variation of constants therefore gives the universal forced term when \(q<h\), a \(t e^{-qt}\) resonance when \(q=h\), and the profile-dependent homogeneous mode when \(h<q\). The coefficient \(m r(mr-N+2)\) is exactly the radial Laplacian coefficient, so the harmonic cancellation surface is correct.
+- Originality: **FAIL** — A published September 18 record, 'A resonance at m = 2p - 1 controls second-order tails in weighted porous-medium self-similarity', was read in full and states the same three regimes, the same coefficient, the same logarithmic resonance, and the same harmonic cancellation surface for the same Iagar-Munteanu profiles. The assigned September 19 theorem is therefore exact prior duplication, not a new refinement.
+- Value: **FAIL** — The resonance classification itself is mathematically worthwhile, but this assigned record adds no independent scientific value because the identical theorem and mechanism were already published the previous day. Repackaging notation and adding the observation that the harmonic leading power is itself an exact singular solution do not create a distinct motivated result.
+
+See `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json` for the complete comparison.
