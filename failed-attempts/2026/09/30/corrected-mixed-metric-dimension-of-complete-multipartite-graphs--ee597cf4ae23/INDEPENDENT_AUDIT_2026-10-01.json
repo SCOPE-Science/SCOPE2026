@@ -1,0 +1,125 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T22:35:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree eaa313e7b49f392548d441568f8b166f66429cd1",
+        "Kelenc--Kuziak--Taranenko--Yero 2017 full arXiv text",
+        "Hayat--Khan--Zhong 2022 full HTML",
+        "Ghalavand--Klavžar--Tavakoli 2023",
+        "Peterin--Yero edge-metric complete multipartite theorem"
+      ],
+      "rationale": "The case proof is sound. With at least two universal vertices, every proper landmark set has a vertex/incident-edge collision, forcing all \\(N\\) vertices. With exactly one universal vertex, two omitted vertices cause a collision and omitting the unique universal vertex gives an \\(N-1\\) resolver. With no singleton parts and at least three parts, prior edge-metric dimension gives the \\(N-1\\) lower bound and omitting one vertex mixed-resolves. In the bipartite case, Kelenc et al.'s exact theorem gives \\(N-1\\) when a part has size two and \\(N-2\\) when both parts are at least three. The inspected exhaustive checker agrees on all 58 part types through order eight.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For at least three non-singleton parts, edge metric dimension supplies \\(\\operatorname{mdim}\\ge N-1\\).",
+          "With no singleton parts, no vertex has a maximal neighbour, so Kelenc's criterion gives \\(\\operatorname{mdim}<N\\)."
+        ],
+        "reasoning": "Together these stronger prior statements force the remaining \\(N-1\\) case.",
+        "searches": [
+          "Peterin--Yero complete multipartite edge metric dimension",
+          "Kelenc maximum mixed dimension criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1611.04292",
+        "https://doi.org/10.3390/math10111815",
+        "https://doi.org/10.1007/s40314-023-02351-5",
+        "Peterin--Yero 2020",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every branch of the audited piecewise formula is either stated directly or squeezed by these published results.",
+          "The new record usefully exposes the inconsistency but does not establish an uncovered invariant value."
+        ],
+        "reasoning": "Under the audit rule, a correction whose numerical theorem is already mechanically implied is covered.",
+        "searches": [
+          "Kelenc 2017 plus Peterin--Yero plus universal-vertex theorem versus Hayat 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kelenc Theorem 3.8 characterizes the maximum value \\(N\\).",
+          "Kelenc Proposition 4.2 already determines complete bipartite mixed dimension.",
+          "The 2022 theorem conflicts with these ingredients in several ranges."
+        ],
+        "reasoning": "The audited cases are equivalent to partitioning complete multipartite graphs by singleton count and number of parts, then applying those prior theorems.",
+        "searches": [
+          "Kelenc et al. arXiv:1611.04292 Theorem 3.8 and Proposition 4.2",
+          "Hayat--Khan--Zhong 2022 Theorems 4--5",
+          "Ghalavand--Klavžar--Tavakoli 2023 universal-vertex result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned correction is the exact corpus hit; no separate correction paper was located."
+        ],
+        "reasoning": "A missing correction entry does not restore originality because the mathematical answer is already implied by published theorems.",
+        "searches": [
+          "Resultary query: mixed metric dimension complete multipartite correction"
+        ]
+      },
+      "rationale": "The corrected piecewise answer is mechanically recoverable from published results that predate this record. Kelenc et al. already give the exact complete-bipartite cases and their general criterion \\(\\operatorname{mdim}(G)=|V(G)|\\) iff every vertex has a maximal neighbour. The universal-vertex cases are also explicitly treated by Ghalavand--Klavžar--Tavakoli. For multipartite graphs with no singleton parts and at least three parts, the published edge-metric value \\(N-1\\) gives the lower bound while Kelenc's maximal-neighbour criterion rules out \\(N\\), forcing equality. Thus the replacement formula is a synthesis/corollary of prior theorems, even though the 2022 paper states a conflicting formula.",
+      "residual_risks": [
+        "The literature correction itself may not have been explicitly published before this record, but the exact mathematical values are already forced."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers all complete-bipartite branches and the criterion needed to rule out \\(N\\) elsewhere.",
+          "evidence": "Theorem 3.8 gives \\(\\operatorname{mdim}(G)=n\\) iff every vertex has a maximal neighbour; Proposition 4.2 distinguishes the size-two and size-at-least-three bipartite cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.04292",
+          "material_read": "Full arXiv HTML around Theorem 3.8 and Proposition 4.2.",
+          "method": "Primary full-text inspection.",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Exact complete-bipartite cases and maximum-dimension criterion."
+        },
+        {
+          "assessment": "The displayed edge and mixed formulas conflict with earlier/later established results.",
+          "evidence": "Theorem 5 states a different multipartite mixed formula; Theorem 4 states an edge formula inconsistent with the cited prior correction.",
+          "identifier_or_url": "https://doi.org/10.3390/math10111815",
+          "material_read": "Full public HTML including Theorems 4 and 5.",
+          "method": "Primary full-text inspection.",
+          "title": "On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs",
+          "trigger": "The source theorem being corrected."
+        },
+        {
+          "assessment": "Explicitly determines mixed metric dimension for graphs with universal vertices.",
+          "evidence": "The abstract states that graphs with at least one universal vertex are determined.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-023-02351-5",
+          "material_read": "Primary abstract/public article page.",
+          "method": "Primary-source comparison.",
+          "title": "Graphs whose mixed metric dimension is equal to their order",
+          "trigger": "Universal-vertex coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Hayat--Khan--Zhong 2022",
+        "Kelenc et al. 2017",
+        "Peterin--Yero 2020"
+      ],
+      "rationale": "Documenting a false published all-parameter formula and giving a clean replacement is scientifically useful, especially because the error affects multiple parameter ranges. The rejection is originality, not lack of practical or expository value.",
+      "residual_risks": [
+        "The corrected formula is largely a synthesis of known results rather than a new invariant computation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a connected complete multipartite graph of order \\(N\\), the mixed metric dimension is \\(N\\) with at least two singleton parts, \\(N-2\\) for complete bipartite graphs with both parts at least three, and \\(N-1\\) otherwise; this contradicts the all-parameter formula stated by Hayat--Khan--Zhong.",
+  "limitations": [
+    "Finite simple connected complete multipartite graphs only.",
+    "The edge-metric correction is prior work and not part of the originality claim.",
+    "The rejection is implication-level prior coverage, not a correctness defect."
+  ]
+}
