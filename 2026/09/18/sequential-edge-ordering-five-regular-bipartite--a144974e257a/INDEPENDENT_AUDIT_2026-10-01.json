@@ -1,0 +1,87 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "audited_at_utc": "2026-10-01T10:47:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen assigned RESULT.md",
+        "Gorzkowska–Kwaśny arXiv:2609.11832v1 full PDF, including Theorem 9 and concluding open cases",
+        "Lovász local lemma"
+      ],
+      "rationale": "Ordering the stars on the opposite bipartition by a random vertex permutation and sorting each star internally by color makes the bad event at a degree-\\(d\\) vertex exactly one of \\(d!\\) relative neighbor orders. Relative orders on disjoint neighbor sets are mutually independent, so the neighborhood-overlap graph is a valid dependency graph. The symmetric Lovász local lemma yields the criterion. In the regular case \\(D\\le d(d-1)\\); the inequality holds at \\(d=5\\) and remains true thereafter. Direct arithmetic checks confirmed the threshold values.",
+      "residual_risks": [
+        "The sufficient LLL threshold is not claimed sharp."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source full text says its only unsolved regular degrees are 3,4,5 and proves d>=6."
+        ],
+        "reasoning": "Thus the source does not dominate the bipartite d=5 result.",
+        "searches": [
+          "regular sequential edge orderings degree five",
+          "proper edge coloring sequence variant"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.11832v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 9 uses a uniform random edge order with dependency bound \\(2d(d-1)\\) and starts at d=6; the audited theorem uses a random order of one bipartition's stars, giving event probability \\(1/d!\\) and overlap dependency \\(D\\), which reaches d=5."
+        ],
+        "reasoning": "The prior theorem does not mechanically imply the new bipartite threshold.",
+        "searches": [
+          "Gorzkowska–Kwaśny Theorem 9 versus bipartite block-order criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent pre-2026-09-18 theorem was located."
+        ],
+        "reasoning": "The record uses a different probability space than the source's random-edge-order argument and reaches the previously open degree-five bipartite case.",
+        "searches": [
+          "sequentially orderable bipartite degree 5",
+          "distinguishing adjacent vertices ordering edges local lemma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the only exact hit; nearby results concern unrelated edge-coloring problems."
+        ],
+        "reasoning": "No finite table is relevant.",
+        "searches": [
+          "Resultary sequential edge ordering five regular bipartite"
+        ]
+      },
+      "rationale": "The full primary preprint explicitly proves the regular case only for \\(d\\ge6\\) and states that degrees \\(3,4,5\\) remain open. Resultary and synonymous searches found no earlier bipartite degree-five theorem or the one-sided neighborhood-overlap criterion.",
+      "residual_risks": [
+        "Very recent parallel work could be unindexed, but no concrete covering source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly confirms d>=6 theorem and explicitly leaves d=3,4,5 open.",
+          "material_read": "full 8-page primary PDF, especially pp. 6–8; page 7 was visually inspected",
+          "source": "Gorzkowska & Kwaśny, arXiv:2609.11832v1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "primary source open-problem statement"
+      ],
+      "rationale": "The result closes the full degree-five bipartite subcase of a newly stated conjecture and packages the argument as a reusable neighborhood-overlap criterion. This is a natural structural advance rather than a single graph computation.",
+      "residual_risks": [
+        "It does not settle arbitrary non-bipartite 5-regular graphs or degrees 3 and 4."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If every vertex on one side of a finite simple bipartite graph has degree \\(d\\) and the neighborhood-overlap graph on that side has maximum degree \\(D\\), then \\(d!>e(D+1)\\) guarantees a distinguishing edge order for every proper edge coloring; in particular every properly edge-colored \\(d\\)-regular bipartite graph is sequentially orderable for \\(d\\ge5\\)."
+}
