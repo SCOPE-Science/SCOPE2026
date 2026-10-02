@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T01:19:53.816678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual constructor and verifier were read completely, along with the filed instance. They independently rebuild GF(16), PG(2,16), the 65-point Hermitian unital, 208 secants and 65 tangents, reconstruct the 65 size-16 cliques and the seeded bipartitions, and require exact equality with the filed adjacency. The verifier exhaustively counts K4s as zero and checks every one of the 595 pairs in the explicit 35-vertex witness is a nonedge. Thus the precise conclusion alpha>=35>26 for this seeded 208-vertex instance is certified; no exact-alpha claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper constructs H_q^* as a union of random complete bipartite subgraphs and proves large-q properties, but does not state the audited q=4 seed/witness."
+        ],
+        "reasoning": "The prior construction is broader in q, but its asymptotic theorem does not imply an N/8 upper bound or the specific lower witness for q=4.",
+        "searches": [
+          "Mattheus-Verstraete, The asymptotics of r(4,t), arXiv:2306.04007"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-object search",
+        "Mattheus-Verstraete arXiv:2306.04007",
+        "assigned constructor/verifier/h4star.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly phrases the Section-3 theorem for q large enough; it does not force the behavior of q=4."
+        ],
+        "reasoning": "The audited counterexample is not a corollary of the asymptotic result.",
+        "searches": [
+          "Mattheus-Verstraete large-q pseudorandomness versus q=4 witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the audited finding; no prior q=4 seeded witness was found."
+        ],
+        "reasoning": "The claim was searched both as a Section-3 H_q^* instance and as an explicit finite K4-free graph witness.",
+        "searches": [
+          "Resultary: Hermitian unital q=4 208 vertex K4-free seeded bipartition independence 35 Mattheus Verstraete",
+          "q=4 H_q^* independent set 35 seed 20260911"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external table for the seed-20260911 H_4^* instance was located."
+        ],
+        "reasoning": "The filed graph is a reproducibly generated random realization rather than a standard named graph with a known table entry.",
+        "searches": [
+          "small-q Hermitian-unital graph databases and exact independence tables"
+        ]
+      },
+      "rationale": "The Mattheus-Verstraete paper defines the Hermitian-unital random block construction for general q and proves asymptotic pseudorandomness for sufficiently large q, but its inspected full text does not give this q=4 seeded instance or the 35-vertex independent witness. Fresh Resultary search found only the audited record as an exact match.",
+      "residual_risks": [
+        "The seed is an arbitrary reproducible realization, so originality concerns this explicit counterexample rather than a canonical q=4 graph.",
+        "Other unpublished computational explorations of small q could contain comparable witnesses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines H_q and H_q^* and gives large-q pseudorandomness; no q=4 seeded independence witness located.",
+          "evidence": "The paper states n=q^2(q^2-q+1), the clique structure, and Section 3's random complete-bipartite construction, with its main result only for q large enough.",
+          "identifier_or_url": "https://arxiv.org/html/2306.04007v5",
+          "material_read": "Full accessible arXiv HTML through the construction overview and Hermitian-unital/Section-3 material.",
+          "method": "Primary-source full-text inspection.",
+          "title": "The asymptotics of r(4,t)",
+          "trigger": "Original source of the exact Hermitian-unital random block construction."
+        },
+        {
+          "assessment": "Certifies the q=4 instance, K4-freeness and alpha>=35 witness.",
+          "evidence": "The verifier reconstructs geometry and adjacency, exhausts K4s and checks all witness pairs.",
+          "identifier_or_url": "2026/09/11/083/artifacts/verify.py; artifacts/construct_h4star.py; artifacts/h4star.json",
+          "material_read": "Complete source files and complete filed data.",
+          "method": "Line-by-line package inspection.",
+          "title": "Assigned H_4^* verifier and constructor",
+          "trigger": "Critical finite construction and witness."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The q=4 case is the smallest natural parameter of the Hermitian-unital Section-3 construction, and the explicit witness decisively refutes the proposed N/8 upper window for a fully specified realization while retaining K4-freeness. As a finite boundary/counterexample for extrapolating the asymptotic construction to its smallest parameter, this has a clear mathematical use despite not determining exact alpha.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one fixed seed is certified; exact alpha and behavior of other seeds are not determined.",
+    "The result concerns H_4^*, not the deterministic union-of-cliques H_4.",
+    "RESULT names output/artifacts paths although the actual audited files are under artifacts/."
+  ],
+  "schema_version": 1
+}
