@@ -2,26 +2,28 @@
   "artifact_inventory": [
     {
       "path": "artifacts/verify_false_certificate.py",
-      "purpose": "Verifies the diagonal PSM counterexample, shifted/scaled penalized spectrum, exact residuals, and robust nearby-vector residual formula.",
+      "purpose": "Checks the exact diagonal counterexample and nearby-vector residual formula.",
       "sha256": "722e1ad12cc0b1916c7b1517688eddeef17f98c53a035d40273e9c74aefd61de"
     },
     {
       "path": "artifacts/verified_output.txt",
-      "purpose": "Verified numerical output for M=7, rho=0.3, delta=1e-8 using Python 3.13.5 and NumPy 2.3.5.",
+      "purpose": "Recorded numerical replay for the example.",
       "sha256": "2871eef5bdecfc6f7e384aaef56500c9852440ab63f4473f377e39750c29c3c1"
     }
   ],
-  "independent_audit_status": "not_performed",
-  "independent_review_reset_at_utc": "2026-09-30T19:42:31.993290Z",
-  "independent_validation": false,
-  "limitations": "The exact PSM trajectory uses an initialization orthogonal to the desired dominant eigenvector, a measure-zero event under an absolutely continuous random start. The result establishes a deterministic certification failure and a residual-versus-extremality obstruction; it does not dispute the projected-Hessian penalty duality or prove positive-probability failure from random initialization. The final journal version of Split-Merge cited as forthcoming was not separately inspected; the accessible arXiv v2 and public implementation expose the dominant-overlap requirement relevant to the construction.",
+  "independent_audit_evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": "The exact trajectory uses an initialization orthogonal to the desired dominant eigenvector, a measure-zero event under an absolutely continuous random start. The result establishes deterministic certification failure and a residual-versus-extremality obstruction; it does not dispute projected-Hessian penalty duality or prove positive-probability failure under randomized initialization.",
   "phase": "II",
-  "previously_published_pending_reaudit": true,
-  "provenance": "Scientific record documenting an exact constrained-eigenvalue counterexample, a certification repair, a numerical verification artifact, and literature context.",
+  "previously_published_pending_reaudit": false,
   "published_at": "2026-09-17",
   "record_id": "SCOPE-20260917-dc23fa36a6e4",
   "record_title": "Zero-residual false positives in projected certification of constrained extremal eigenpairs",
-  "review_type": "same_model_review",
+  "review_type": "same_model_review_plus_independent_audit",
   "same_model_review_status": "passed",
   "scope_run_id": "6d335b8d-a0a1-4d59-8f7a-99a329e05889",
   "source_sha256": {
@@ -31,10 +33,7 @@
   },
   "source_urls": [
     "https://arxiv.org/abs/2609.18538",
-    "https://arxiv.org/abs/2501.15131",
-    "https://github.com/xzliu-opt/SplitMerge",
-    "https://doi.org/10.1137/S0895479800366859",
-    "https://doi.org/10.1093/oso/9780198535645.003.0002"
+    "https://arxiv.org/abs/2501.15131"
   ],
   "taxonomy": [
     "optimization",
@@ -45,9 +44,8 @@
     "penalty methods",
     "eigenvalue certification",
     "KKT residuals",
-    "Lanczos misconvergence",
     "failure certificates"
   ],
   "time_standard": "UTC",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
