@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T09:08:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, artifacts/verify_ou_rank.py and verification_output.txt.",
+        "D. T. Gillespie, Exact numerical simulation of the Ornstein-Uhlenbeck process and its integral, Phys. Rev. E (1996).",
+        "Bréchet, Papagiannouli, An, Montúfar, Critical Points and Convergence Analysis of Generative Deep Linear Networks Trained with Bures-Wasserstein Loss, PMLR 2023, Theorem 4.2."
+      ],
+      "rationale": "Integrating the force-free kinetic Ornstein-Uhlenbeck SDE gives the deposited 2-by-2 scalar covariance block tensored with the identity. Its determinant is strictly positive for every positive step, so the innovation rank is 2d. Any affine simulator driven by one d-dimensional Gaussian has covariance rank at most d. The Gaussian W2/Bures rank-d approximation theorem keeps the d largest eigenvalues, yielding squared defect d times the smaller scalar-block eigenvalue. Direct series expansion gives the stated square-root defect with leading coefficient sqrt(d gamma alpha/6) h^(3/2). The committed verifier reproduces the determinant, eigenvalues and series and was inspected from the actual tree.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "One source supplies the exact transition, the other supplies the stronger arbitrary-rank Gaussian covariance minimization."
+        ],
+        "reasoning": "Together they dominate every claimed formula.",
+        "searches": [
+          "Gillespie 1996",
+          "PMLR 2023 Bures-Wasserstein low-rank theorem"
+        ]
+      },
+      "checked_sources": [
+        "Gillespie 1996",
+        "Bréchet et al. 2023",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance has d copies of each scalar eigenvalue, so discarding the d smaller eigenvalues gives exactly d lambda_minus."
+        ],
+        "reasoning": "Prior implication is exact and decisive.",
+        "searches": [
+          "Compared rank-d affine noise covariance with the spectral truncation theorem."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gillespie treats the same integrated OU transition; the Bures theorem is the covariance-rank formulation of the optimization."
+        ],
+        "reasoning": "The audited problem is exactly the combination of these formulations.",
+        "searches": [
+          "Resultary: exact kinetic OU covariance rank two Gaussian draws Wasserstein.",
+          "Web searches for exact simulation of the OU process and its integral and low-rank Bures approximation."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table issue."
+        ],
+        "reasoning": "Inapplicable.",
+        "searches": [
+          "Resultary semantic search."
+        ]
+      },
+      "rationale": "Gillespie already gives exact joint simulation of an Ornstein-Uhlenbeck process and its time integral, so the full-rank exact Gaussian transition is classical. The 2023 Bures-Wasserstein Eckart-Young theorem gives the exact best covariance approximation at a prescribed rank. Combining those two prior results with rank at most d for one d-Gaussian draw mechanically yields the audited sharp one-draw defect; the small-h coefficient is then a Taylor expansion. Under the implication bar this is covered even though the exact Langevin wording is absent.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_COVERING",
+          "evidence": "The theorem optimizes over arbitrary rank-k covariance factors and returns spectral truncation.",
+          "identifier_or_url": "PMLR 2023",
+          "material_read": "Primary PDF including Theorem 4.2 on the rank-constrained spectral optimum.",
+          "method": "primary full-text PDF inspection",
+          "title": "Critical Points and Convergence Analysis of Generative Deep Linear Networks Trained with Bures-Wasserstein Loss",
+          "trigger": "general low-rank Bures/Wasserstein covariance approximation"
+        },
+        {
+          "assessment": "COVERING the exact-transition ingredient",
+          "evidence": "The paper's subject is exact joint OU/integral simulation.",
+          "identifier_or_url": "Phys. Rev. E 1996",
+          "material_read": "Primary bibliographic/abstract material located by exact-title search.",
+          "method": "web literature search",
+          "title": "Exact numerical simulation of the Ornstein-Uhlenbeck process and its integral",
+          "trigger": "same OU plus integrated-position transition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Prior exact-transition and low-rank theorems"
+      ],
+      "rationale": "The resource interpretation is pedagogically useful, but the final theorem is a direct specialization of a classical exact Gaussian transition and a general spectral low-rank Bures theorem. The remaining rank and Taylor calculations are elementary, so no independently motivated new structural gap survives.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The exact force-free kinetic Langevin innovation has rank 2d, while a one-d-Gaussian affine simulator has sharp Gaussian W2 defect sqrt(d lambda_minus(h)) with the stated h^(3/2) asymptotic.",
+  "limitations": [
+    "Scientific rejection is prior-implication/value coverage, not a flaw in the covariance or verifier."
+  ],
+  "schema_version": 1
+}
