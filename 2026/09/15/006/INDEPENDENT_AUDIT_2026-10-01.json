@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T04:15:25.160023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Schreier-Aigner's published QTC2 definition imposes the complementarity relation at all cells with unequal row and column indices, so the main diagonal is exempt. The involution sends \\((i,j)\\) to \\((a+1-j,a+1-i)\\), whose fixed set is the anti-diagonal. For every \\(a\\ge2\\), the anti-diagonal cell \\((1,a)\\) is fixed and is not on the exempted main diagonal, forcing \\(2\\pi_{1,a}=c\\). Integer entries therefore make every odd box height impossible. The same source's Conjecture 4.2 and Appendix A.2 give nonzero odd-height values, including the \\(a=2,c=1\\) value 4, so the universal formula is indeed false. The brute-force package script independently corroborates small cases but is not needed for the proof.",
+      "risks": [
+        "The result addresses the literal printed definition; a corrected anti-diagonal-exempt or even-height-only variant is a different problem."
+      ],
+      "sources": [
+        "Schreier-Aigner, arXiv:2301.12272, full text",
+        "artifacts/verify_parity.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First-kind QTCPP exempts the anti-diagonal and is a distinct symmetry class; those results do not imply a QTC2 correction."
+        ],
+        "reasoning": "The broader plane-partition literature does not cover the second-kind literal conjecture.",
+        "searches": [
+          "Schreier-Aigner first-kind QTCPP theorem",
+          "Inoue 2025 QTCPP bijection"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.12272",
+        "arXiv:2509.17064",
+        "Resultary semantic search",
+        "assigned RESULT.md and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-kind condition exempts the anti-diagonal; QTC2 instead exempts the main diagonal, leaving anti-diagonal fixed cells constrained."
+        ],
+        "reasoning": "This distinction shows the disproof is not a corollary of the proved first-kind enumeration.",
+        "searches": [
+          "comparison of Theorem 1.2 and Conjecture 4.2 in the same paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is this record. The source paper states QTC2 with main-diagonal exemption; the later Inoue paper concerns first-kind QTCPP."
+        ],
+        "reasoning": "The fixed-point formulation, parity formulation, and literal printed-index formulation are mathematically equivalent.",
+        "searches": [
+          "Resultary: QTC2 quasi transpose complementary second kind plane partitions parity anti-diagonal odd c Schreier-Aigner",
+          "arXiv:2301.12272",
+          "arXiv:2509.17064"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper's own table is the exact target data and contains nonzero odd-height entries contradicted by the fixed-cell argument."
+        ],
+        "reasoning": "The table confirms the conflict but does not anticipate the parity obstruction.",
+        "searches": [
+          "Schreier-Aigner Appendix A.2"
+        ]
+      },
+      "rationale": "Fresh Resultary and literature searches found no prior published correction of Conjecture 4.2 by this fixed-cell parity obstruction. A nearby later paper concerns first-kind QTCPP, not QTC2. Thus the disproof is best-of-knowledge original.",
+      "residual_risks": [
+        "A private erratum or unpublished correction could exist; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE: the literal definition forces the parity obstruction while the conjectural table assigns nonzero odd-height values.",
+          "evidence": "QTC2 exempts \\(i=j\\), whereas the symmetry involution fixes the anti-diagonal.",
+          "identifier_or_url": "arXiv:2301.12272",
+          "material_read": "Accessible full HTML, including the first-kind definition/theorem, Conjecture 4.2, and Appendix A.2 data.",
+          "method": "Primary full-text definition and table comparison.",
+          "title": "Fully complementary higher dimensional partitions",
+          "trigger": "Exact conjecture being audited."
+        },
+        {
+          "assessment": "Consistent with the hand proof.",
+          "evidence": "It returns zero at the cited odd-height cases.",
+          "identifier_or_url": "artifacts/verify_parity.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line inspection and direct logical comparison with the definition.",
+          "title": "Assigned parity verifier",
+          "trigger": "Small-case corroboration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Although the proof is short, it invalidates an explicit published conjecture and data table for an infinite family of parameters and pinpoints the structural source of the error: the wrong diagonal is exempted relative to the symmetry's fixed set. This is a motivated correction, not an arbitrary tiny counterexample.",
+      "risks": [
+        "It does not solve a corrected even-height or anti-diagonal-exempt enumeration."
+      ],
+      "sources": [
+        "Schreier-Aigner Conjecture 4.2 and Appendix A.2"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The disproof is for the conjecture exactly as printed.",
+    "No corrected enumeration is established.",
+    "The RESULT reproducibility path points to `output/artifacts/verify_parity.py`, but the assigned tree stores the script at `artifacts/verify_parity.py`; this blocks a ready unchanged PASS plan."
+  ],
+  "schema_version": 1
+}
