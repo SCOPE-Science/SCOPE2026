@@ -1,27 +1,75 @@
 {
+  "audit_date_utc": "2026-10-01",
   "axes": {
-    "correctness": {
-      "rationale": "The proof starts from the source's exact covariance eigenvalue and pairwise-difference equations. Integrability of the exponent error gives a nonzero leading anisotropy amplitude, the centered elementary-symmetric expansion fixes the positive quadratic forcing coefficient, and the strict inequality alpha_parallel > 2 alpha_perp for 2 <= n < d makes variation of constants yield the universal recoil coefficient. The interaction-energy coefficient follows by a second exact expansion. Symbolic and numerical checks support the algebra.",
+    "C": {
+      "reason": "The primary source gives the exact covariance eigenvalue ODE, the pairwise-difference identity, exponential convergence, and the sharp rates \\(\\alpha_\\perp\\) and \\(\\alpha_\\parallel\\). Because the coefficient in the pairwise exponent approaches its limit exponentially, each nonzero eigenvalue gap has a finite nonzero asymptotic amplitude, producing a nonzero traceless limit. Expanding \\(e_n\\) about the mean cancels the linear traceless term and gives \\(-\\tfrac12\\binom{d-2}{n-2}\\lambda_*^{n-2}\\|A\\|_F^2\\). The mean equation is therefore forced at rate \\(2\\alpha_\\perp\\). Since \\(\\alpha_\\parallel-2\\alpha_\\perp>0\\) for \\(2\\le n<d\\), variation of constants yields the displayed \\(C_{d,n}\\); direct binomial simplification also gives the displayed \\(K_{d,n}\\). The symbolic verifier agrees with these identities but is not proof by itself.",
+      "risks": [
+        "The theorem excludes \\(n=1\\), \\(n=d\\), and isotropic initial covariance, exactly where the rate comparison or leading traceless amplitude changes."
+      ],
+      "sources": [
+        "full arXiv HTML of arXiv:2609.16978v1, especially Proposition 3.2, Proposition 5.2, and Corollary 5.1",
+        "assigned RESULT.md and symbolic artifact at the frozen tree"
+      ],
       "verdict": "PASS"
     },
-    "originality": {
-      "rationale": "The covariance reduction, equilibria, and first-order sharp rates are prior work and excluded from the novelty claim. The source v1 only bounds its centered remainder and scalar forcing and does not state the universal quadratic trace ratio, eventual positive recoil, or interaction-energy coefficient. Searches of the source, its nondiffusive predecessor, external literature, and current SCOPE records found no matching source-specific result.",
+    "O": {
+      "reason": "The source paper stops at first-order exponential covariance rates. Its proof explicitly bounds the centered elementary-symmetric remainder by \\(O(D(t)^2)\\) and uses that only to obtain an upper decay estimate for the mean; it does not identify the quadratic forcing coefficient, a limiting recoil ratio, eventual positive recoil, or the interaction-energy coefficient. Resultary and targeted literature searches found no equivalent source-specific second-order law.",
+      "risks": [
+        "The motivating source is very recent, so simultaneous unindexed work remains a residual priority risk."
+      ],
+      "sources": [
+        "arXiv:2609.16978v1 full text",
+        "Resultary semantic search for simplex covariance anisotropy quadratic slaving",
+        "the nondiffusive predecessor arXiv:2606.21918 for scope comparison"
+      ],
       "verdict": "PASS"
     },
-    "value": {
-      "rationale": "The result resolves the nonlinear coupling between the slow traceless covariance mode and the faster isotropic mode. It gives a sign-definite, amplitude-free second-order law and a sharp interaction-energy tail, while identifying a structural distinction between genuinely multipoint and pairwise interactions.",
+    "V": {
+      "reason": "This is a structural nonlinear asymptotic law: it identifies how the slow symmetry-breaking traceless mode forces the faster scalar mode and the interaction energy, including universal sign and exact coefficients. It sharpens the source’s rate theorem in a way that can distinguish genuinely multipoint interactions from the pairwise regime.",
+      "risks": [],
+      "sources": [
+        "comparison of the source’s first-order rate theorem with the audited second-order expansion"
+      ],
       "verdict": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-19",
+  "disposition": "passed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "originality_analysis": {
+    "broader_coverage": "The primary source covers exact dynamics and sharp first-order rates but not the second-order coefficients. No broader prior second-order theorem was located.",
+    "checked_sources": [
+      "arXiv:2609.16978v1",
+      "arXiv:2606.21918",
+      "DOI 10.3150/16-BEJ821"
+    ],
+    "claim_vs_prior_implication": "A big-O quadratic remainder in the mean equation plus first-order decay rates does not determine the exact forcing coefficient or the limit ratio; the centered symmetric-polynomial expansion and rate-gap computation are additional.",
+    "equivalent_formulations": "The mean recoil ratio and the interaction-energy ratio are both second-order coefficients of the covariance flow near the isotropic equilibrium, expressed in the traceless/identity mode splitting.",
+    "exact_database_or_table": [
+      {
+        "outcome": "Only the audited record was directly relevant; no prior published second-order coefficient theorem appeared.",
+        "query": "diffusive simplex covariance anisotropy quadratic slaving elementary symmetric polynomial",
+        "source": "Resultary"
+      },
+      {
+        "outcome": "The source uses only a quadratic remainder bound and identifies first-order rates, not the audited limit ratios.",
+        "query": "arXiv:2609.16978 equations (5.8)-(5.13)",
+        "source": "primary full text"
+      }
+    ],
+    "residual_risks": [
+      "Very recent concurrent work may be incompletely indexed."
+    ],
+    "source_inspections": [
+      "Full arXiv HTML was read through the covariance ODE, pairwise differences, subcritical convergence proof, and sharp covariance-rate corollary.",
+      "Assigned proof and verifier were inspected from the frozen Git blobs.",
+      "Resultary and related-source searches were compared for aliases of slaving/recoil/second-order asymptotics."
+    ]
+  },
+  "record_id": "SCOPE-20260919-c7e9c46d956f",
+  "record_title": "Quadratic anisotropy slaving in diffusive simplex covariance dynamics",
+  "review_type": "independent_audit",
   "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }

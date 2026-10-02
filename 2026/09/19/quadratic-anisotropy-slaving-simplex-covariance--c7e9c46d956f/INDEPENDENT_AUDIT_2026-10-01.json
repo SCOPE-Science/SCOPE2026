@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T14:57:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "full arXiv HTML of arXiv:2609.16978v1, especially Proposition 3.2, Proposition 5.2, and Corollary 5.1",
+        "assigned RESULT.md and symbolic artifact at the frozen tree"
+      ],
+      "rationale": "The primary source gives the exact covariance eigenvalue ODE, the pairwise-difference identity, exponential convergence, and the sharp rates \\(\\alpha_\\perp\\) and \\(\\alpha_\\parallel\\). Because the coefficient in the pairwise exponent approaches its limit exponentially, each nonzero eigenvalue gap has a finite nonzero asymptotic amplitude, producing a nonzero traceless limit. Expanding \\(e_n\\) about the mean cancels the linear traceless term and gives \\(-\\tfrac12\\binom{d-2}{n-2}\\lambda_*^{n-2}\\|A\\|_F^2\\). The mean equation is therefore forced at rate \\(2\\alpha_\\perp\\). Since \\(\\alpha_\\parallel-2\\alpha_\\perp>0\\) for \\(2\\le n<d\\), variation of constants yields the displayed \\(C_{d,n}\\); direct binomial simplification also gives the displayed \\(K_{d,n}\\). The symbolic verifier agrees with these identities but is not proof by itself.",
+      "residual_risks": [
+        "The theorem excludes \\(n=1\\), \\(n=d\\), and isotropic initial covariance, exactly where the rate comparison or leading traceless amplitude changes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source covers exact dynamics and sharp first-order rates but not the second-order coefficients. No broader prior second-order theorem was located."
+        ],
+        "reasoning": "The primary source covers exact dynamics and sharp first-order rates but not the second-order coefficients. No broader prior second-order theorem was located.",
+        "searches": [
+          "arXiv:2609.16978v1",
+          "arXiv:2606.21918",
+          "DOI 10.3150/16-BEJ821"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.16978v1",
+        "arXiv:2606.21918",
+        "DOI 10.3150/16-BEJ821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A big-O quadratic remainder in the mean equation plus first-order decay rates does not determine the exact forcing coefficient or the limit ratio; the centered symmetric-polynomial expansion and rate-gap computation are additional."
+        ],
+        "reasoning": "A big-O quadratic remainder in the mean equation plus first-order decay rates does not determine the exact forcing coefficient or the limit ratio; the centered symmetric-polynomial expansion and rate-gap computation are additional.",
+        "searches": [
+          "Direct implication comparison between the audited claim and the closest prior statements."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mean recoil ratio and the interaction-energy ratio are both second-order coefficients of the covariance flow near the isotropic equilibrium, expressed in the traceless/identity mode splitting."
+        ],
+        "reasoning": "The mean recoil ratio and the interaction-energy ratio are both second-order coefficients of the covariance flow near the isotropic equilibrium, expressed in the traceless/identity mode splitting.",
+        "searches": [
+          "Normalization and equivalent-formulation comparison for the audited claim."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the audited record was directly relevant; no prior published second-order coefficient theorem appeared.",
+          "The source uses only a quadratic remainder bound and identifies first-order rates, not the audited limit ratios."
+        ],
+        "reasoning": "The listed database/search outcomes were compared against the audited statement by implication, not title alone.",
+        "searches": [
+          "Resultary: diffusive simplex covariance anisotropy quadratic slaving elementary symmetric polynomial",
+          "primary full text: arXiv:2609.16978 equations (5.8)-(5.13)"
+        ]
+      },
+      "rationale": "The source paper stops at first-order exponential covariance rates. Its proof explicitly bounds the centered elementary-symmetric remainder by \\(O(D(t)^2)\\) and uses that only to obtain an upper decay estimate for the mean; it does not identify the quadratic forcing coefficient, a limiting recoil ratio, eventual positive recoil, or the interaction-energy coefficient. Resultary and targeted literature searches found no equivalent source-specific second-order law.",
+      "residual_risks": [
+        "Very recent concurrent work may be incompletely indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspection was used only for the scientific comparison stated in this audit.",
+          "evidence": "Full arXiv HTML was read through the covariance ODE, pairwise differences, subcritical convergence proof, and sharp covariance-rate corollary.",
+          "identifier_or_url": "Full arXiv HTML was read through the covariance ODE, pairwise differences, subcritical convergence proof, and sharp covariance-rate corollary.",
+          "material_read": "Full arXiv HTML was read through the covariance ODE, pairwise differences, subcritical convergence proof, and sharp covariance-rate corollary.",
+          "method": "Read-only inspection of the stated repository or literature material.",
+          "title": "Source inspection",
+          "trigger": "Direct relevance to correctness/originality comparison for the audited final claim."
+        },
+        {
+          "assessment": "The inspection was used only for the scientific comparison stated in this audit.",
+          "evidence": "Assigned proof and verifier were inspected from the frozen Git blobs.",
+          "identifier_or_url": "Assigned proof and verifier were inspected from the frozen Git blobs.",
+          "material_read": "Assigned proof and verifier were inspected from the frozen Git blobs.",
+          "method": "Read-only inspection of the stated repository or literature material.",
+          "title": "Source inspection",
+          "trigger": "Direct relevance to correctness/originality comparison for the audited final claim."
+        },
+        {
+          "assessment": "The inspection was used only for the scientific comparison stated in this audit.",
+          "evidence": "Resultary and related-source searches were compared for aliases of slaving/recoil/second-order asymptotics.",
+          "identifier_or_url": "Resultary and related-source searches were compared for aliases of slaving/recoil/second-order asymptotics.",
+          "material_read": "Resultary and related-source searches were compared for aliases of slaving/recoil/second-order asymptotics.",
+          "method": "Read-only inspection of the stated repository or literature material.",
+          "title": "Source inspection",
+          "trigger": "Direct relevance to correctness/originality comparison for the audited final claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "comparison of the source’s first-order rate theorem with the audited second-order expansion"
+      ],
+      "rationale": "This is a structural nonlinear asymptotic law: it identifies how the slow symmetry-breaking traceless mode forces the faster scalar mode and the interaction energy, including universal sign and exact coefficients. It sharpens the source’s rate theorem in a way that can distinguish genuinely multipoint interactions from the pairwise regime.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "The theorem excludes \\(n=1\\), \\(n=d\\), and isotropic initial covariance, exactly where the rate comparison or leading traceless amplitude changes.",
+    "Very recent concurrent work may be incompletely indexed."
+  ],
+  "record_id": "SCOPE-20260919-c7e9c46d956f",
+  "record_title": "Quadratic anisotropy slaving in diffusive simplex covariance dynamics",
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
+}

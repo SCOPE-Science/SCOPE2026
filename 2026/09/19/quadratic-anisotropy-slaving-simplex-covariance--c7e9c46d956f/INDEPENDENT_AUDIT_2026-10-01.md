@@ -1,8 +1,7 @@
-# Review status
+# Independent Audit — Quadratic anisotropy slaving in diffusive simplex covariance dynamics
 
-Independent audit completed on 2026-10-01 (UTC).
-
-Disposition: **PASSED**.
+**Audit date:** 2026-10-01 (UTC) (UTC)  
+**Disposition:** passed
 
 ## Correctness — PASS
 
@@ -16,7 +15,12 @@ The source paper stops at first-order exponential covariance rates. Its proof ex
 
 This is a structural nonlinear asymptotic law: it identifies how the slow symmetry-breaking traceless mode forces the faster scalar mode and the interaction energy, including universal sign and exact coefficients. It sharpens the source’s rate theorem in a way that can distinguish genuinely multipoint interactions from the pairwise regime.
 
-## Risks and limits
+## Source inspections
 
-- The theorem excludes \(n=1\), \(n=d\), and isotropic initial covariance, exactly where the rate comparison or leading traceless amplitude changes.
-- The motivating source is very recent, so simultaneous unindexed work remains a residual priority risk.
+- Full arXiv HTML was read through the covariance ODE, pairwise differences, subcritical convergence proof, and sharp covariance-rate corollary.
+- Assigned proof and verifier were inspected from the frozen Git blobs.
+- Resultary and related-source searches were compared for aliases of slaving/recoil/second-order asymptotics.
+
+## Residual risks
+
+- Very recent concurrent work may be incompletely indexed.
