@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T22:58:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/09/052/RESULT.md",
+        "2026/09/09/052/artifacts/verify_beta.py",
+        "Belousov–Loginov arXiv:2403.03700v3"
+      ],
+      "rationale": "Reconstruction from the inspected package gives the cubic volume law 2c^3-6c^2a-3c^2b+12cab and (-K)^3=14. Exact integration gives F1 contributions 19/4 and 7/8, so S(F1)=45/112 and beta=67/112; for D the integral is 17/2, so S(D)=17/28 and beta=11/28. F2 and the D-flag checks also reproduce 45/56.",
+      "residual_risks": [
+        "The Mori/effective-cone inputs are imported from the cited geometry literature rather than re-derived from defining equations in this audit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.1 gives the F1 Zariski decomposition used verbatim; Lemma 6.1 gives the D decomposition; Proposition 5.2 explicitly evaluates the analogous F2 integral."
+        ],
+        "reasoning": "The prior paper contains the stronger geometric input from which both headline fractions follow routinely.",
+        "searches": [
+          "Belousov–Loginov arXiv:2403.03700v3 Proposition 5.1, Proposition 5.2, Lemma 6.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2403.03700",
+        "Resultary semantic search for the exact F1/D beta fractions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the published F1 positive part gives integrals 19/4 and 7/8, hence S(F1)=45/112. Using the published D nef segment and intersection table gives integral 17/2, hence S(D)=17/28."
+        ],
+        "reasoning": "The candidate does not add a nontrivial lemma between prior inputs and the stated fractions.",
+        "searches": [
+          "Primary-paper statement-to-candidate implication check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate uses the same divisors D, F1, F2 and the same piecewise positive parts P(u) as the primary paper."
+        ],
+        "reasoning": "The candidate fractions are S-invariants obtained by integrating those published volume polynomials; this is an equivalent computation, not a different invariant.",
+        "searches": [
+          "Resultary: Fano rank-3 degree-14 beta invariant F1 D 45/112 17/28",
+          "Belousov–Loginov arXiv:2403.03700v3 sections 3, 5, 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit was the current SCOPE record; no independent table was identified."
+        ],
+        "reasoning": "No database table is decisive here because primary-theorem implication already covers the claim.",
+        "searches": [
+          "Resultary exact-fraction search 45/112 17/28"
+        ]
+      },
+      "rationale": "The two headline exact fractions are mathematically correct, but they are direct one-variable integrations of Zariski-decomposition and intersection data already supplied in Belousov–Loginov. Under the audit rule that a mechanically implied corollary is covered even when its exact numerical wording is absent, the claimed originality does not survive.",
+      "residual_risks": [
+        "No claim is made that Belousov–Loginov literally prints both headline fractions; the failure is by mathematical implication, not exact-text duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_DIRECT_IMPLICATION",
+          "evidence": "The positive-part formulas and intersection data needed for the two new fractions are already present; only elementary integration remains.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.03700",
+          "material_read": "Sections 3, 5 and 6 in the accessible arXiv HTML, including Proposition 5.1, Proposition 5.2 and Lemma 6.1.",
+          "method": "Full-text theorem/proof comparison against the candidate formulas.",
+          "title": "K-stability of Fano threefolds of rank 3 and degree 14",
+          "trigger": "Same family, same divisors, same Zariski decompositions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Belousov–Loginov arXiv:2403.03700v3 sections 5–6",
+        "candidate RESULT.md"
+      ],
+      "rationale": "Once the published Zariski decompositions are accepted, the headline contribution is two short polynomial integrations. It does not isolate a new boundary, classification, obstruction, or invariant beyond the prior geometric theorem, so it falls under the audit bar against routine deductions from known inputs.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The record claims new exact divisorial values S(F1)=45/112 and S(D)=17/28 for smooth Picard-rank-3 degree-14 Fano threefolds, with positive beta values, while explicitly leaving full special-stratum K-stability open.",
+  "schema_version": 1
+}
