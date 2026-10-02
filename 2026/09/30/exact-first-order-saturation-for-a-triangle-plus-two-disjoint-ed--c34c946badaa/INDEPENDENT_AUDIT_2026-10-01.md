@@ -1,0 +1,111 @@
+# Mathematical audit — 2026-10-01
+
+Record: `SCOPE-20260930-c34c946badaa`
+
+## Correctness — PASS
+
+The finite proof is exhaustive at exactly the claimed orders. The primary C++ program constructs every labeled copy of \(K_3\cup2K_2\), generates every graph at each edge count by exact bitmask combinations, rejects graphs containing a forbidden copy, and for every nonedge checks a precomputed witness mask whose addition completes such a copy. It finds no saturated graph below nine edges on seven vertices and no saturated graph below ten edges on eight vertices, then counts 840 and 11,760 extremals at the minima. The stated representatives are directly tested; their automorphism orders give orbit sizes 840, 1,680, and 10,080, and the two eight-vertex degree sequences differ, so the orbit totals exhaust the enumerated extremals. A second source file implements containment and edge-addition roles independently and targets the same counts. This is a genuine finite exhaustive proof, not an extrapolation.
+
+### Correctness sources
+
+- assigned verify.cpp
+- assigned crosscheck.cpp
+- assigned RESULT.md
+
+### Correctness risks
+
+- The result is exact only for orders seven and eight.
+- The computation was source-audited rather than treated as a saved success log.
+
+## Originality — PASS
+
+Lin, He, and Xu's full primary paper was inspected. Their theorem for \(K_p\cup K_q\cup K_r\) assumes \(n>3(p-2)+(q+r)(q+r+1)\); at \((p,q,r)=(2,2,3)\) this is \(n>30\), so it does not imply the audited values at seven or eight vertices. Fresh Resultary searches for the exact forbidden graph and orders returned only the audited record. No primary source located gives these first two admissible values or extremal classifications.
+
+### equivalent_formulations
+
+Searches:
+- Resultary: saturation K3 union 2K2 seven vertices eight vertices exact extremal
+- arXiv:2608.00459 full HTML
+- web searches for sat(n,K3 union 2K2) small n
+
+Evidence:
+- Lin–He–Xu Theorem 1.1 starts only above the explicit large-order threshold, which becomes \(n>30\) here.
+- No searched source gives the audited seven- or eight-vertex census.
+
+Reasoning:
+Small-order boundary values were compared with the same forbidden graph and same saturation notion, not merely title similarity.
+
+### broader_coverage
+
+Searches:
+- Lin–He–Xu 2026 full paper
+- older unions-of-cliques saturation literature cited there
+
+Evidence:
+- The inspected main theorem gives sufficiently-large-order structure and does not dominate the first admissible orders.
+
+Reasoning:
+A large-order theorem cannot imply the small-order exceptional census without an additional argument.
+
+### exact_database_or_table
+
+Searches:
+- current Resultary saturation findings
+- small-order exact searches for K3 plus two edges
+
+Evidence:
+- No exact database/table with these two values and classes was found.
+
+Reasoning:
+The finite computation supplies new exact boundary data rather than recomputing a known table.
+
+### claim_vs_prior_implication
+
+Searches:
+- claim-versus-Lin–He–Xu threshold comparison
+
+Evidence:
+- Their bound is \(n>30\) in the relevant parameters, while the audited claim is solely \(n=7,8\).
+
+Reasoning:
+There is no implication from the published theorem to the audited cases.
+
+### source_inspections
+
+- **A note on the saturation number for unions of three cliques** — https://arxiv.org/html/2608.00459v1. Trigger: Primary source treating the identical forbidden graph family. Material read: Complete theorem statement and the full available six-page HTML proof structure, including Theorem 1.1 and its threshold. Method: Primary theorem-range comparison. Assessment: NOT COVERING the audited small orders. Evidence: For \((2,2,3)\), Theorem 1.1 requires \(n>30\).
+- **Primary exhaustive verifier** — verify.cpp. Trigger: Entire correctness claim rests on finite enumeration. Material read: Complete source. Method: Line-by-line enumeration and witness logic audit. Assessment: Exhaustive algorithm is logically complete for \(n=7,8\). Evidence: It enumerates every fixed-edge-count mask and checks forbidden-copy freeness plus every missing-edge saturation witness.
+- **Independent cross-check implementation** — crosscheck.cpp. Trigger: Independent finite certificate channel. Material read: Complete source. Method: Line-by-line inspection of a different containment test. Assessment: Provides an independent algorithmic formulation of the same census. Evidence: It tests new edges by their possible triangle-edge or isolated-edge roles rather than by the primary precomputed-mask routine.
+
+### checked_sources
+
+- https://arxiv.org/html/2608.00459v1
+- current Resultary saturation search
+- assigned verify.cpp
+- assigned crosscheck.cpp
+
+### residual_risks
+
+- Unindexed unpublished small-order computations could exist, but no plausible specific source was located.
+
+## Scientific value — PASS
+
+The orders seven and eight are the first admissible sizes for the seven-vertex forbidden graph, and the recent literature only settles sufficiently large order. Exact minima plus complete isomorphism classifications at this boundary provide meaningful finite data about how the asymptotic extremal structure begins, satisfying the value bar for a natural finite cutoff.
+
+### Value sources
+
+- Lin–He–Xu large-order theorem
+- two exact exhaustive classifications
+
+### Value risks
+
+- No claim is made for order nine or for a general finite-order formula.
+
+## Limitations
+
+- Exact only for \(n=7\) and \(n=8\).
+- The proof is exhaustive computation rather than a uniform structural argument.
+- Originality is best-of-knowledge with residual unpublished-census risk.
+
+## Disposition
+
+**PASSED**
