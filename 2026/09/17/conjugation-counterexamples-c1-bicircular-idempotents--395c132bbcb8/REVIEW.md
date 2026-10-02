@@ -1,6 +1,17 @@
-# Review status
+# Mathematical review
 
-Fresh independent audit: not yet performed.
+Independent audit: passed after substantive claim narrowing and literature correction on 2026-10-02T18:28:13Z.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+## correctness
+
+The final corrective claim is proved on exactly \(C^1[0,1]\) with norm \(|f(0)|+\|f'\|_\infty\). Reconstructed the isometric coordinate bijection, both real-line projection identities, nonzero complementary bounded idempotents, inverse isometries in Forms III/IV, and the explicit nonzero cancellation function for \((1,i)\). Its second phase pair has \(\rho\ne1\), so it is permitted by the target definition. The associated phases have \(1+i\ne0\); therefore the stated dichotomy and Theorems 3.3/3.4 fail. The auxiliary squared-phase relation is confined to the displayed involutive branch and is not a replacement classification. Fresh exact SymPy replay returns VERIFY_OK for generic distinct Cayley phases, both single-\(-1\) patches, the exact older scalar substitution and the explicit cancellation. The analytic all-phase proof is primary, not finite sampling.
+
+## originality
+
+PASS is only for the narrowed corrective finding, not for the old scalar projections, arbitrary-phase conjugate-linear reflection formula, Form IV construction, or simple derivative-coordinate lifting. The 2017/2018 norm family contains the present norm exactly at \(D=\{0\}\times[0,1]\). The corrected 2019 Proposition 3.1 and 3.2 expressly require \(a<b\), and corrected Proposition 3.5 concerns decreasing symbols with the listed nondegenerate/full-interval cases. These do not classify this degenerate identity-symbol case. Remark 2 explicitly treats degenerate evaluation-supported examples; its scalar ingredient becomes \(Q_\lambda\) under \(\alpha=1/\lambda,\kappa=\mu/\lambda\), and Remark 1 already supplies the general conjugate-linear recipe. These facts are fully acknowledged, so no generic existence novelty survives or is claimed. The independently worthwhile surviving assertion identifies concrete non-antipodal counterexamples to the later v1's central dichotomy and two specified theorem conclusions, and locates their invalid unrestricted change-of-phase inference. No inspected prior source contains that correction to the later statements; this remains a qualified best-of-knowledge judgment, not first-discovery certification.
+
+## value
+
+This is a motivated counterexample to a specific recent universal classification on its exact natural space and norm, not an arbitrary phase slice or a parameter-renamed existence theorem. The witness at \((1,i)\) invalidates the central dichotomy and two theorem conclusions and supplies a reusable diagnosis of the semilinear phase-substitution error. Readers can directly test the claimed classification against the explicit operators and nonzero kernel function. This substantive corrective value survives acknowledgment that the projection ingredients and lifting are known/elementary. The auxiliary phase-weight check is not being used alone to rescue the record and is not asserted as a separate valuable finding.
+
+The complete four-part originality comparison, source inspections and risks are in INDEPENDENT_AUDIT_2026-10-02.json and INDEPENDENT_AUDIT_2026-10-02.md. Historical same-model judgments are retained separately in AUDIT.json; they are not fresh certification. The old different-norm exclusion was removed. The known scalar formula and Form IV mechanism are no longer claimed as discoveries.
