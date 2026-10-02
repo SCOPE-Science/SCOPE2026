@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T12:46:34.540093Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "complete frozen RESULT.md",
+        "original archived transcript",
+        "artifacts/replay_maintenance.gp",
+        "artifacts/maintenance_replay.log",
+        "https://pari.math.u-bordeaux.fr/dochtml/html-stable/General_number_fields.html"
+      ],
+      "rationale": "Independent PARI 2.15.4 replay reconstructs all three BNF structures, verifies their cyclotomic field identities, the exact class-group orders, all six prime-class coordinates and orders, and all three trivial logarithmic class groups. K0/K1 bnfcertify both return 1; K2 remains expressly GRH-conditional. The replay also disproves the auxiliary capitulation sentence: a genuine nonprincipal base-field prime above 7 lifts to class 42 modulo 63, not zero. The old transcript tested an actual unit ideal, so its capitulation inference was invalid. That sentence is removed; the finite S-class vanishing claim is fully reproduced and unaffected.",
+      "residual_risks": [
+        "K2 BNF data are conditional on GRH, not unconditionally certified. Finite-layer data do not determine infinite Iwasawa invariants. PARI computation is not a formal or expert certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": "No located theorem mechanically implies the exact K1/K2 class coordinates or the asserted finite-layer quotient values from the base-field data.",
+      "checked_sources": [
+        "The package's finite-level Iwasawa motivation and base-field decomposition data.",
+        "artifacts/verification_log.txt",
+        "https://www.lmfdb.org/NumberField/2.0.83.1"
+      ],
+      "claim_vs_prior_implication": "General Iwasawa results do not determine these finite computed layer invariants.",
+      "equivalent_formulations": "Checked S-ideal class quotient, decomposition-prime generation of the p-Sylow, logarithmic class group, and capitulation formulations.",
+      "exact_database_or_table": "LMFDB corroborates the base field, but no database/table located contains the asserted K1/K2 S-class data.",
+      "rationale": "The originally completed exact-object literature and catalogue checks are retained at their actual scope. They found no earlier exact three-layer S-class/decomposition-prime table. The corrected contribution is the finite-layer data only, not a capitulation result or an infinite-level Iwasawa claim.",
+      "residual_risks": [
+        "Best-of-knowledge originality from the recorded searches; unpublished tables under different defining polynomials remain possible."
+      ],
+      "risks": "Computation-specific data can exist in unpublished tables or under different defining polynomials; unsuccessful search is not a novelty proof.",
+      "source_inspections": [
+        {
+          "finding": "class number 3 corroborated; no K1/K2 S-class table",
+          "material_read": "base field page/properties",
+          "source": "LMFDB Number Field 2.0.83.1"
+        },
+        {
+          "finding": "only the assigned record directly matched",
+          "query": "Q(sqrt(-83)) p=3 cyclotomic layers S-ideal class group decomposition primes logarithmic class group",
+          "source": "published-corpus semantic search"
+        },
+        {
+          "finding": "K1/K2 outputs present, but not independently replayable from the package",
+          "material_read": "complete stored transcript",
+          "source": "package artifacts/verification_log.txt"
+        }
+      ],
+      "sources": [
+        "https://www.lmfdb.org/NumberField/2.0.83.1"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The independently reproduced finite S-class vanishing across three cyclotomic layers is a motivated diagnostic for fine Iwasawa questions. The auxiliary false capitulation statement is excluded and no infinite-level deduction is made.",
+      "risks": "Value is conditional on eventual independent verification of the K1/K2 computations.",
+      "sources": [
+        "The package's finite-level Iwasawa motivation and base-field decomposition data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "The package's finite-level Iwasawa motivation and base-field decomposition data.",
+    "artifacts/verification_log.txt",
+    "https://www.lmfdb.org/NumberField/2.0.83.1"
+  ],
+  "disposition": "repaired",
+  "final_claim": "Q(sqrt(-83)) at p=3 has trivial 3-primary S-class quotients at K0 and K1 unconditionally and at K2 conditional on the archived uncertified PARI computation; the data are finite-level only and do not determine the infinite-level fine Iwasawa lambda invariant.",
+  "limitations": [
+    "K2 BNF data are conditional on GRH, not unconditionally certified. Finite-layer data do not determine infinite Iwasawa invariants. PARI computation is not a formal or expert certificate.",
+    "Best-of-knowledge originality from the recorded searches; unpublished tables under different defining polynomials remain possible."
+  ],
+  "residual_risks": {
+    "correctness": "The K1 and especially K2 numerical class-group data remain unverified in this round.",
+    "originality": "Computation-specific data can exist in unpublished tables or under different defining polynomials; unsuccessful search is not a novelty proof.",
+    "value": "Value is conditional on eventual independent verification of the K1/K2 computations."
+  },
+  "schema_version": 1,
+  "scientific_limitations": [
+    "K2 BNF data are conditional on GRH, not unconditionally certified. Finite-layer data do not determine infinite Iwasawa invariants. PARI computation is not a formal or expert certificate.",
+    "Best-of-knowledge originality from the recorded searches; unpublished tables under different defining polynomials remain possible."
+  ],
+  "source_inspections": [
+    {
+      "finding": "class number 3 corroborated; no K1/K2 S-class table",
+      "material_read": "base field page/properties",
+      "source": "LMFDB Number Field 2.0.83.1"
+    },
+    {
+      "finding": "only the assigned record directly matched",
+      "query": "Q(sqrt(-83)) p=3 cyclotomic layers S-ideal class group decomposition primes logarithmic class group",
+      "source": "published-corpus semantic search"
+    },
+    {
+      "finding": "K1/K2 outputs present, but not independently replayable from the package",
+      "material_read": "complete stored transcript",
+      "source": "package artifacts/verification_log.txt"
+    }
+  ]
+}
