@@ -1,27 +1,45 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "The two-mode theorem follows from exact first-step orthogonality, equality of the first Dai-Yuan and Fletcher-Reeves coefficients, A-conjugacy of the second direction, and an explicit 2 by 2 evaluation of the true and AOS model curvatures. The condition-number family and objective ratios were checked by the included symbolic artifact.",
+      "rationale": "The two-mode proof was reconstructed independently. In the orthonormal basis aligned with the first direction, the true second-direction curvature gives \\(v^TAv=a\\det A\\) and the AOS model gives \\(v^T\\bar Bv=a(a^2+h^2)\\); substituting a rotated two-eigenvalue matrix yields the displayed distortion. A separate symbolic recomputation of the diagonal family reproduced \\(r=(\\kappa^2+1)/(2\\kappa)\\), the exact objective ratios, and the \\(\\kappa/4\\) asymptotic. The package verifier was inspected rather than treated as proof by log alone.",
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "The 2026 CG_AOS source leaves convergence and rate theory open, and no located source states the exact two-mode stepsize distortion, the sharp transient amplification, the kappa/4 explicit excursion family, or the sharp two-mode damping threshold. Ni and Liu (2024) is the closest identified prior work but describes a different Dai-Liao construction; its full text was not inspected and remains an explicit residual risk.",
+      "rationale": "The exact two-mode distortion, sharp transient factor, explicit \\(\\kappa/4\\) excursion family, and \\(2/\\kappa\\) safeguard were not found in the source algorithm paper, the closest 2024 Dai–Liao/AOS paper, published-corpus searches, or semantic searches. The source algorithm paper explicitly leaves CG_AOS convergence/rates open. The 2024 paper's accessible abstract describes a different Dai–Liao parameter construction with descent/convergence under additional conditions rather than this CG_AOS step.",
       "verdict": "PASS"
     },
     "value": {
-      "rationale": "The result exposes a condition-number-scale overshoot mechanism in a newly proposed adaptive CG stepsize, showing that monotone or Wolfe-style convergence arguments cannot be assumed automatically. It also gives a sharp scalar repair threshold in the two-mode setting.",
+      "rationale": "The result identifies a sharp, condition-number-scale obstruction in a newly proposed CG stepsize whose global theory is explicitly open, and gives an exact safeguard threshold. This is a motivated boundary mechanism relevant to any future convergence proof, not an arbitrary numerical slice.",
       "verdict": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-17T19:22:21Z",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "disclaimer": "Scientific review is evidence-based and does not constitute peer review or a guarantee of first discovery.",
+  "historical_review_evidence": {
+    "axes": {
+      "correctness": {
+        "rationale": "The prior review recorded the two-mode derivation and symbolic family check.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "The prior review reported no located exact two-mode distortion theorem and identified the 2024 Dai–Liao paper as residual risk.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The prior review treated the transient obstruction and sharp safeguard as useful for CG_AOS theory.",
+        "verdict": "PASS"
+      }
+    }
+  },
+  "independent_audit": {
+    "date": "2026-10-01",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ]
+  },
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "policy": "to-the-best-of-current-literature-knowledge",
+  "previously_published_pending_reaudit": false,
+  "verification_state": "independently_reviewed"
 }

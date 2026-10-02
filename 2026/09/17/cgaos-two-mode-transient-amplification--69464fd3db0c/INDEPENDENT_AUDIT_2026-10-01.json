@@ -1,0 +1,69 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-mode proof was reconstructed independently. In the orthonormal basis aligned with the first direction, the true second-direction curvature gives \\(v^TAv=a\\det A\\) and the AOS model gives \\(v^T\\bar Bv=a(a^2+h^2)\\); substituting a rotated two-eigenvalue matrix yields the displayed distortion. A separate symbolic recomputation of the diagonal family reproduced \\(r=(\\kappa^2+1)/(2\\kappa)\\), the exact objective ratios, and the \\(\\kappa/4\\) asymptotic. The package verifier was inspected rather than treated as proof by log alone.",
+      "risks": "The theorem concerns the first AOS step after exact initialization on a two-mode invariant subspace; it is not a global divergence result.",
+      "sources": [
+        "package RESULT.md",
+        "artifacts/verify_transient.py blob 09c6719e5101eb47d3d35ad0f3a6a8ec67f8fa27",
+        "Z. Liu, arXiv:2604.20506"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "Ni–Liu (2024) accessible abstract concerns a different Dai–Liao method; Liu (2026) asks whether CG_AOS converges theoretically.",
+        "reasoning": "Those results do not imply the exact distortion or sharp safeguard for the audited algorithm.",
+        "search": "approximately optimal stepsize Dai–Liao conjugate gradient 2024; Dai–Yuan Wolfe convergence"
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.20506",
+        "https://doi.org/10.1080/01630563.2024.2333255",
+        "semantic published-corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "The source defines the same AOS matrix but does not derive the two-mode theorem; standard Wolfe-based Dai–Yuan results assume line-search conditions not supplied by AOS.",
+        "reasoning": "No checked prior implication mechanically yields the final claim.",
+        "search": "source algorithm definition plus existing convergence results"
+      },
+      "equivalent_formulations": {
+        "evidence": "No equivalent statement located; direct semantic search returned the audited record as the only close statement.",
+        "reasoning": "The audited formula is a local exact identity for the source CG_AOS model, not merely a generic nonlinear-CG convergence bound.",
+        "search": "CG_AOS, Dai–Yuan AOS, two-mode quadratic, overshoot, curvature distortion, damping"
+      },
+      "exact_database_or_table": {
+        "evidence": "No earlier matching theorem/table found.",
+        "reasoning": "This is an analytic formula rather than a database lookup.",
+        "search": "published semantic corpus for CG_AOS transient amplification and sharp two-mode safeguards"
+      },
+      "rationale": "The exact two-mode distortion, sharp transient factor, explicit \\(\\kappa/4\\) excursion family, and \\(2/\\kappa\\) safeguard were not found in the source algorithm paper, the closest 2024 Dai–Liao/AOS paper, published-corpus searches, or semantic searches. The source algorithm paper explicitly leaves CG_AOS convergence/rates open. The 2024 paper's accessible abstract describes a different Dai–Liao parameter construction with descent/convergence under additional conditions rather than this CG_AOS step.",
+      "residual_risks": "The 2024 Dai–Liao paper full text was not available, so an unnoticed related local calculation remains a limited risk; its stated method and claims differ materially.",
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm; no audited theorem; explicitly leaves theoretical convergence/rates open.",
+          "material_read": "full HTML sections defining AOS/CG_AOS and the open-problem discussion",
+          "source": "Z. Liu, arXiv:2604.20506"
+        },
+        {
+          "assessment": "Different Dai–Liao parameter construction; residual comparison risk only.",
+          "material_read": "publisher abstract and bibliographic page; full text not accessible in this run",
+          "source": "Y. Ni and Z. Liu, DOI 10.1080/01630563.2024.2333255"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies a sharp, condition-number-scale obstruction in a newly proposed CG stepsize whose global theory is explicitly open, and gives an exact safeguard threshold. This is a motivated boundary mechanism relevant to any future convergence proof, not an arbitrary numerical slice.",
+      "risks": "Value is diagnostic/local rather than a complete convergence theorem.",
+      "sources": [
+        "Liu 2026 open-problem discussion",
+        "exact two-mode derivation"
+      ],
+      "status": "PASS"
+    }
+  },
+  "final_claim": "After one exact conjugate-gradient initialization step on a two-eigenmode strictly convex quadratic, the CG_AOS/Dai–Yuan step has exact distortion \\(r=\\mu L/(\\mu^2\\cos^2\\theta+L^2\\sin^2\\theta)\\), objective factor \\((r-1)^2\\), worst transient factor approaching \\((\\kappa-1)^2\\), sharp scalar decrease safeguard \\(0<\\gamma\\le 2/\\kappa\\), and an explicit family with \\(f(x_2)/f(x_0)\\sim \\kappa/4\\).",
+  "status": "passed"
+}
