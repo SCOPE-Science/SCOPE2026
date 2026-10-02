@@ -1,6 +1,9 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — For the stated scalar quadratic feedbacks, taking expectations under independence gives convex quadratics whose minimizers are the reciprocal mean and the mean reciprocal, while the one-step state objective gives the mean divided by the second moment. Cauchy and Jensen give their ordering. The ratio loss equals the squared coefficient of variation. Bhatia-Davis yields the sharp endpoint ratio bound. The two chord bounds for the square and reciprocal are simultaneously tight on endpoint laws and maximize at the geometric-mean location, producing the stated hypergradient threshold. The null-step and finite-batch formulas follow by direct substitution. The inspected verifier agrees with this reconstruction; its random checks are supplementary only.
+- Originality: **PASS** — Current Resultary search found no prior theorem with the source-specific population targets, the two sharp support-only thresholds, null-step rejection phase, and logarithmic finite-batch obstruction. The motivating 2026 paper is highly relevant; its primary abstract and accessible independent reading confirm independent out-of-sample feedback, ratio and hypergradient losses, bounded candidate sets, and a null step, but verified primary full text was not accessible through the web route used. Originality therefore passes only to the best of current knowledge with explicit hidden-overlap risk.
+- Value: **PASS** — The result gives a sharp boundary analysis for a newly introduced stochastic feedback mechanism. It explains exactly when the raw feedback targets differ from mean-square-optimal SGD, identifies distribution-free condition-number thresholds, and shows mathematically why clipping, larger batches, and the null step can be essential. This is a motivated stability theorem rather than a routine parameter substitution.
+
+Detailed comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
