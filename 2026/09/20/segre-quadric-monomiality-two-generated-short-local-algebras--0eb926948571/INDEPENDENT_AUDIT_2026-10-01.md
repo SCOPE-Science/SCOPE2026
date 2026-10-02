@@ -1,24 +1,26 @@
-# Independent audit review — 2026-10-01
+# Independent scientific audit — 2026-10-01
 
-## Final claim
+**Disposition:** passed
 
-For split local algebras with \(J^3=0\) and dim(\(J/\(J^2\)\))=2, monomializability is completely characterized by the diagonal-GL position of the multiplication-kernel subspace; in middle dimension this is exactly the ruling-or-matched-secant condition on the Segre quadric, yielding ten monomial isomorphism types over every field.
+**Final claim:** For split local algebras with \(J^3=0\) and dim(\(J/\(J^2\)\))=2, monomializability is completely characterized by the diagonal-GL position of the multiplication-kernel subspace; in middle dimension this is exactly the ruling-or-matched-secant condition on the Segre quadric, yielding ten monomial isomorphism types over every field.
 
-## Correctness — PASS
+## C — PASS
 
 Since \(J^3=0\), multiplication is exactly a surjection V tensor V to \(J^2\) and algebra isomorphisms act diagonally on V. Monomializability is therefore equivalent to the kernel being a coordinate subspace. The d=1 and d=3 cases reduce to rank-one tensors; the six coordinate 2-planes split into the two rulings and the diagonal/crossed secants, giving the matched-factor criterion and exactly 1,2,4,2,1 diagonal-GL orbits. The argument is characteristic-free.
 
-## Originality — PASS
+## O — PASS
 
 Bardzell–Green and Mojiri give broad invariant recognition frameworks for algebras isomorphic to monomial algebras, but the accessible primary statements do not state this complete two-generator radical-cube-zero specialization, its Segre-quadric criterion, or the ten-type enumeration. The two Communications in Algebra full texts could not be obtained through the lawful access path in this run, so that comparison remains an explicit residual risk rather than being treated as noncoverage proof.
 
-## Value — PASS
+## V — PASS
 
 This is a natural complete classification in the smallest nontrivial short-local two-loop class. It turns an abstract isomorphism-to-monomial question into basis-free rank and projective-incidence tests and gives the exact finite list of monomial isomorphism types, satisfying the value bar for a motivated complete classification.
 
-## Sources and residual risk
+## Source inspections
 
-- An invariant characterization of monomial algebras — https://doi.org/10.1080/00927879908826567: UNRESOLVED_DETAIL_NOT_DECISIVE.
-- Presentations of Monomial Algebras and Uniserial Modules — https://doi.org/10.1080/00927870600875872: UNRESOLVED_DETAIL_NOT_DECISIVE.
+- **An invariant characterization of monomial algebras** (https://doi.org/10.1080/00927879908826567): UNRESOLVED_DETAIL_NOT_DECISIVE. The abstract states a general grading/Hochschild-cohomology characterization but not the audited low-dimensional Segre criterion.
+- **Presentations of Monomial Algebras and Uniserial Modules** (https://doi.org/10.1080/00927870600875872): UNRESOLVED_DETAIL_NOT_DECISIVE. The abstract revisits monomial-recognition criteria via uniserial modules; no explicit two-loop Segre classification is visible.
 
-- Residual risk: The full texts of Bardzell–Green (1999) and Mojiri (2006) were not accessible in this run; they are the main residual originality risk. An institutional retrieval attempt was blocked before content was returned, and no bypass was attempted.
+## Residual risks
+
+- The full texts of Bardzell–Green (1999) and Mojiri (2006) were not accessible in this run; they are the main residual originality risk. An institutional retrieval attempt was blocked before content was returned, and no bypass was attempted.
