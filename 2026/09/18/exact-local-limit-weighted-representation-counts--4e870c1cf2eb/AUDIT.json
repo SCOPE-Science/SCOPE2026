@@ -1,27 +1,46 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "The eventual-constant condition is reduced exactly to k boundary sign equations plus a unique tail recursion. The coefficient vectors have one bounded transition column and two positive-density families, yielding covariance (kI+(k+2)J)/k^2, determinant (k+3)/k^k, and full even-lattice span. Fourier inversion has exactly 2^k equal major arcs; the resulting multivariate Gaussian transform gives both the leading constant and the square-root-scale offset factor. Exact finite dynamic-programming checks independently verify the coefficient construction and representative counts.",
+      "rationale": "The boundary reduction was rechecked from the source identity: constancy for all \\(n\\ge T\\) is equivalent to exactly \\(k\\) boundary equations plus the deterministic tail recursion, so initial signs through \\(T+k-1\\) parameterize all solutions. Reconstructing the coefficient columns yields positive-density families \\(\\mathbf 1+e_r\\) and \\(e_r\\), one bounded transition column, and covariance \\(\\Sigma_k=(kI+(k+2)J)/k^2\\) with determinant \\((k+3)/k^k\\). The repeated coordinate columns force exactly \\(2^k\\) parity-compatible major arcs, all with the same phase; bounded columns and positive-definite covariance give the Gaussian local limit. Multiplying the probability by the \\(2^{T+k}\\) initial sign vectors reproduces the constant and offset exponent. A fresh dynamic program independently reproduced representative exact counts for \\(k=2,3\\) and their convergence toward the predicted constants.",
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "Li--Xu--Yan (arXiv:2609.20385) prove only two-sided order bounds F_{k,c}(T) asymptotic up to constants. Searches for exact asymptotic constants, local-limit formulations, Gaussian offset profiles, f_k(t), R_{1,k}(A,n), and equivalent weighted-representation terminology found no prior statement of the constant (8k/pi)^(k/2)/sqrt(k+3) or the c_T/sqrt(T) profile. The 2012 Yang--Chen full text was not independently inspected, and the 2026 source is very recent, so originality remains to the best of our knowledge.",
+      "rationale": "The 2026 primary source was inspected in full HTML and proves only two-sided order bounds \\(F_{k,c}(T)\\asymp 2^T/T^{k/2}\\) for fixed \\(c\\). The 2025 Yan--Shan paper gives uniqueness/exact formulas in small-threshold regimes, not the large-\\(T\\) local limit. Earlier weighted-representation papers establish structural existence and eventual-equality results. No prior exact leading constant or square-root-scale Gaussian offset profile was located.",
       "verdict": "PASS"
     },
     "value": {
-      "rationale": "The result upgrades a newly proved order of magnitude to a full asymptotic for every fixed k, sharpens cross-weight comparisons to an asymptotic ratio, and identifies the natural square-root fluctuation scale with an explicit Gaussian profile.",
+      "rationale": "The theorem upgrades a newly proved order of magnitude to a sharp asymptotic, determines the leading constant, sharpens cross-weight comparisons to asymptotic ratios, and identifies a natural fluctuation profile. This is a mathematically motivated local-limit refinement of a current counting problem, not an arbitrary finite computation.",
       "verdict": "PASS"
     }
   },
-  "disclaimer": "Same-model review: passed. Independent audit: not yet performed.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-18",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "historical_scientific_assessment": {
+    "axes": {
+      "correctness": {
+        "rationale": "The eventual-constant condition is reduced exactly to k boundary sign equations plus a unique tail recursion. The coefficient vectors yield covariance (kI+(k+2)J)/k^2 and the full even-lattice span. Fourier inversion has 2^k equal major arcs; the Gaussian transform gives the leading constant and square-root-scale offset factor. Exact finite dynamic-programming checks verify representative counts.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "Li--Xu--Yan prove only two-sided order bounds. Searches for exact asymptotic constants, local-limit formulations, Gaussian offset profiles, and equivalent weighted-representation terminology found no prior statement of the claimed constant or profile.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The result upgrades a newly proved order of magnitude to a full asymptotic for every fixed k, sharpens cross-weight comparisons to an asymptotic ratio, and identifies the natural square-root fluctuation scale with an explicit Gaussian profile.",
+        "verdict": "PASS"
+      }
+    },
+    "disclaimer": "Preserved pre-audit scientific assessment; the dated audit files contain the fresh assessment.",
+    "reviewed_at": "2026-09-18",
+    "status": "passed"
+  },
+  "independent": true,
+  "independent_audit_evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent_audit_status": "passed",
+  "independent_audited_at_utc": "2026-10-01T08:03:24Z",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
 }
