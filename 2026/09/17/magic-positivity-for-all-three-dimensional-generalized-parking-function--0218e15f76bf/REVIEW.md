@@ -1,6 +1,5 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: passed.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+Correctness, originality, and scientific value each passed. See the dated independent-audit files for sources, reasoning, limitations, and residual risks. The historical same-model assessment is retained separately in AUDIT.json.
