@@ -1,0 +1,96 @@
+{
+  "audited_at_utc": "2026-09-30T23:18:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original scientific claim survives, but the published proof had a real defect: one vector orthogonal to constants gives a Rayleigh quotient no larger than the second eigenvalue, not an upper bound. Fresh reconstruction of all 336 elements of SL(2,7), the explicit generator set and adjacency matrix verifies membership and connectedness. An independent exact characteristic polynomial computation factors the polynomial and isolates the largest nontrivial eigenvalue in the rational interval (183845/37617, 15913/3256), whose upper endpoint is below 4.89; the least eigenvalue is greater than -4.89. This independently proves the 7-regular bipartite double cover is Ramanujan. The repair removes the false Courant–Fischer direction and makes the exact Bareiss driver self-contained by embedding the witness set.",
+      "risks": [
+        "The repaired Bareiss certificate is computationally heavier than the spectral factorization; the historical saved Bareiss log is supporting evidence, not the sole proof."
+      ],
+      "sources": [
+        "Actual package verify.py, exact_rayleigh.py, rayleigh_vec.json, bareiss_cert.py and bareiss_up.log at the audited source revision.",
+        "Fresh exact SymPy characteristic-polynomial factorization and rational root isolation from the explicit generator set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hall–Puder–Sawin prove existence of Ramanujan coverings for every degree/covering size but not this constrained Cayley construction."
+        ],
+        "reasoning": "Existential graph results do not imply that the named central-unipotent Cayley class contains a Ramanujan member.",
+        "searches": [
+          "Hall Puder Sawin Ramanujan coverings full text degree 7",
+          "Marcus Spielman Srivastava bipartite Ramanujan all degrees"
+        ]
+      },
+      "checked_sources": [
+        "published-record semantic search semantic search for the explicit class and generator pattern.",
+        "Hall–Puder–Sawin, arXiv:1506.02335 full text."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior existence theorems allow arbitrary covering labels and do not force a Cayley realization in SL(2,7), let alone this generator class."
+        ],
+        "reasoning": "The exact class-membership claim is not implied by the broad existence results.",
+        "searches": [
+          "Compare constrained Cayley claim with Ramanujan covering theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact generator-set match or equivalent class theorem was located."
+        ],
+        "reasoning": "Bipartite double cover and base-spectrum formulations were compared through the identity that the nontrivial cover spectrum is the signed base spectrum.",
+        "searches": [
+          "published-record semantic search: SL(2,7) Cayley degree 7 Ramanujan central unipotent",
+          "web: explicit SL(2,7) Cayley Ramanujan seven generators unipotent -I"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table or generator tuple was found."
+        ],
+        "reasoning": "The witness is not merely a known catalog entry located under the searched descriptions.",
+        "searches": [
+          "published-record semantic search explicit tuple (4,2,6,5) (2,4,5,0) SL2 7",
+          "Cayley graph SL(2,7) spectrum degree 7 database"
+        ]
+      },
+      "rationale": "General Ramanujan covering theorems prove existence of degree-7 Ramanujan graphs but do not supply this specific Cayley graph of SL(2,7) in the central-unipotent generator class. published-record semantic search and literature searches found no earlier source with the explicit seven generators or the mixed-class dichotomy. The disconnected Borel family is elementary, but the explicit Ramanujan member inside the same constrained class is a distinct exact witness.",
+      "residual_risks": [
+        "A small-Cayley-graph catalogue could encode an isomorphic graph under different generators; no such covering source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The result is existential over coverings and does not specify the audited Cayley witness.",
+          "material_read": "Full HTML text and abstract/theorem context.",
+          "title": "Ramanujan Coverings of Graphs",
+          "url": "https://arxiv.org/abs/1506.02335"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact witness closes a proposed universal exclusion strategy for a natural constrained generator class: the same class contains an analytic disconnected family and a connected Ramanujan member. That is a motivated boundary/counterexample result with direct implications for how the constrained search space is treated.",
+      "risks": [
+        "The result is not a classification of the whole class and makes no frequency claim."
+      ],
+      "sources": [
+        "General Ramanujan-covering literature establishes the relevance of degree-7 constructions.",
+        "The audited exact witness settles the universal quantifier for the named class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "independent": true,
+  "limitations": [
+    "Single explicit Ramanujan witness, not a census of the generator class.",
+    "No claim is made for primes q greater than 7.",
+    "The repaired proof treats the Rayleigh vector only as a lower-bound cross-check, never as an upper certificate."
+  ],
+  "record_id": "SCOPE-20260909-079",
+  "review_type": "independent_audit",
+  "schema_version": 1
+}
