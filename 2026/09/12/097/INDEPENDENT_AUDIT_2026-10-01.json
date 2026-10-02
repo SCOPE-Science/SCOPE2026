@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T02:21:24.865036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main finite classification was independently recomputed rather than accepted from the saved log. Enumerating all \\(16^3\\cdot 9^3=2,985,984\\) triangle cost instances and minimizing the binary local-polytope objective over the classical half-integral singleton grid reproduces maximum gap exactly \\(4/3\\) and zero violations. The antiferromagnetic witness has integer optimum four and LP optimum three by a direct feasible half-half coupling and the per-edge lower bound one. The claimed ear-step obstruction was also independently reconstructed over all \\(9\\cdot16\\cdot16\\cdot27\\cdot4=248,832\\) local configurations using exact rational arithmetic: the worst ratio is exactly two and exactly 4,484 configurations exceed \\(4/3\\), matching the stored log. The package `evaluate.py` implements the same one-dimensional coupling minimization. Thus the finite claims do not depend on the archived success logs alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior theory guarantees a half-integral optimum and gives algorithms; it does not state that this restricted three-node family has sharp ratio \\(4/3\\) or that the scalar ear inequality fails at ratio two."
+        ],
+        "reasoning": "The audited theorem requires the complete finite optimization after applying the general half-integrality theorem.",
+        "searches": [
+          "Hammer–Hansen–Simeone roof duality",
+          "Rother–Kolmogorov–Lempitsky–Szummer, Optimizing binary MRFs via extended roof duality",
+          "bounded-treewidth Sherali–Adams literature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1205.6352",
+        "Hammer–Hansen–Simeone (1984)",
+        "Rother et al. (2007)",
+        "assigned Git tree 4e91d6e7857147bbf831dbba75b0c99bbc19a6f5",
+        "published SCOPE semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Half-integrality reduces the LP search to 27 singleton profiles but leaves the \\(2,985,984\\)-instance extremal comparison and ear obstruction undetermined."
+        ],
+        "reasoning": "The general theorem makes the computation finite, not mechanically predetermined.",
+        "searches": [
+          "derive target from half-integrality alone"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic match is the audited record; general local-polytope literature discusses half-integrality and roof duality rather than this finite alphabet extremum."
+        ],
+        "reasoning": "Equivalent formulations as QPBO/roof-duality local-polytope optimization were checked; no exact prior triangle census was located.",
+        "searches": [
+          "binary pairwise MAP triangle local polytope gap 4/3 costs 1 2",
+          "SA1 triangle exhaustive integrality gap antiferromagnetic 4/3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier SCOPE table/classification for the same alphabet was returned."
+        ],
+        "reasoning": "The count is not a known benchmark table located in the inspected sources; it was independently recomputed in this audit.",
+        "searches": [
+          "published SCOPE/Resultary search for exact SA1 triangle gap 4/3"
+        ]
+      },
+      "rationale": "Fresh exact-object search found no earlier source giving the complete restricted triangle census, the exact \\(4/3\\) maximum over these alphabets, or the 4,484-case scalar-ear obstruction. Roof duality/QPBO supplies half-integrality but does not imply the extremal finite classification.",
+      "residual_risks": [
+        "An unpublished QPBO benchmark enumeration could contain the same tiny family.",
+        "Originality is best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The independently recomputed maxima/counts agree with the record.",
+          "evidence": "Triangle maximum \\(4/3\\), zero violations; ear maximum two with 4,484 violations.",
+          "identifier_or_url": "2026/09/12/097/artifacts/evaluate.py; triangle_exhaustive.log; ear_step_refutation.log",
+          "material_read": "Complete evaluator source and both stored logs.",
+          "method": "Source inspection plus independent exact/vectorized re-enumeration of both full finite universes.",
+          "title": "Assigned evaluator and logs",
+          "trigger": "Critical finite claims."
+        },
+        {
+          "assessment": "Supplies the general relaxation structure, not the audited exact finite extremum.",
+          "evidence": "Generalized roof-duality methods establish half-integral binary optimization structure.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.6352",
+          "material_read": "Accessible abstract/theorem scope.",
+          "method": "Primary-literature comparison.",
+          "title": "Extended roof-duality/QPBO literature",
+          "trigger": "Classical half-integrality input."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The triangle is the minimal treewidth-two obstruction core for the stated series-parallel target. A sharp finite gap classification plus a concrete failure of the natural scalar ear induction materially constrains how any global proof must proceed, so this is a motivated boundary result rather than an arbitrary small-instance census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result does not prove the full series-parallel \\(4/3\\) bound.",
+    "Half-integrality is used as a classical theorem.",
+    "RESULT cites `search.py`, `fastsearch.py`, and additional random-search logs that are absent from the assigned Git tree; the surviving core evaluator/logs plus this audit’s independent recomputation suffice scientifically but leave the published replay instructions inaccurate."
+  ],
+  "schema_version": 1
+}
