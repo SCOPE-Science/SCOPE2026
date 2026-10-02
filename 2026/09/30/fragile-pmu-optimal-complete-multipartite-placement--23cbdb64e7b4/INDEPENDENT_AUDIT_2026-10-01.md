@@ -25,7 +25,3 @@ For a fixed sensor budget on a complete multipartite graph with independent iden
 ## Residual risks
 
 - A placement theorem buried in later fragile-PMU work under reliability terminology could remain unindexed; no such statement appeared in the inspected primary scopes.
-
-## Review status
-
-Fresh independent scientific audit: **passed** on correctness, originality, and value.
