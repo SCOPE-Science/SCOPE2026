@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — A fresh Hamming-weight decomposition reproduces the finite bound: the zero slice differs from the signed intensity term by at most half the quadratic mass, the singleton slice differs from the coordinatewise l1 discrepancy by at most the full quadratic mass, and all multiple-success slices contribute at most another half, which yields the stated total-variation error after the factor one-half normalization. The proxy estimate follows by isolating exactly one disagreement and bounding two-or-more disagreements. For the sign-pattern family, swapping coordinates preserves every lambda_i and a_i exactly while changing only the net signed intensity. An independent exact enumeration on small rational examples reproduced the aligned and balanced first-order behavior.
+- Originality: **PASS** — Smirnov's complete seven-page v2 was inspected. It proves a constant-factor proxy and the exact upper inequality but does not contain the signed rare-event expansion or the same-data factor-two obstruction. Avital-Kontorovich-Salafatinos give only constant-factor small-parameter descriptions. Searches for the signed-intensity correction and identical proxy-data obstruction found no stronger prior result. Thus the final claim is original to the best of current knowledge.
+- Value: **PASS** — The result identifies exactly which first-order statistic is lost by a newly proposed efficient proxy, gives a finite quantitative correction rather than only an asymptotic slogan, and constructs pairs with identical complete proxy data but asymptotically factor-two different true distances. Those are natural information-loss and approximation-boundary statements with direct relevance to the motivating problem.
+
+Detailed source comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+The earlier scientific assessment is preserved in sanitized form in `AUDIT.json`.
