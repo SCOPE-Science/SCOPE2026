@@ -1,0 +1,75 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel of the projection tuple was reconstructed using labelled occurrences and the dependence poset: equality of all channel projections fixes every dependent pair order, and linear extensions differ only by adjacent swaps of independent letters. Independent brute-force checks for cycles \\(C_3\\) through \\(C_7\\) reproduced the signed independence polynomials and their smallest roots, including \\(C_4\\) root \\(1/(2+\\sqrt2)\\). The package verifier was inspected and is consistent with these checks.",
+      "risks": "The finite checks are corroboration; the general trace-congruence proof and classical trace growth theorem carry the infinite statement.",
+      "sources": [
+        "package RESULT.md",
+        "artifacts/verify.py blob 4b074ae8960a6ca21d35ba9f1dc0bb06657ea242",
+        "W. Yu and M. Schwartz, arXiv:2604.08234"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The trace growth series is classically \\(1/\\mu(z)\\), with the clique polynomial of the commutation graph equal here to the signed independence polynomial of the pairs graph.",
+        "reasoning": "The general trace theorem directly dominates the channel-specific capacity claim.",
+        "search": "Cartier–Foata trace-monoid Möbius/growth series"
+      },
+      "checked_sources": [
+        "https://doi.org/10.1093/comjnl/28.5.449",
+        "https://arxiv.org/abs/2111.00507",
+        "https://arxiv.org/abs/2604.08234",
+        "classical Cartier–Foata trace theory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Projection tuples identify traces; trace counts have generating series \\(1/\\mu\\); exponential growth is the reciprocal minimum-modulus root.",
+        "reasoning": "These prior implications cover both the general capacity theorem and the cycle corollary.",
+        "search": "Shields history monoids plus standard trace growth"
+      },
+      "equivalent_formulations": {
+        "evidence": "Classical history-monoid descriptions use exactly a tuple of overlapping alphabets and the tuple of word projections; the associated dependency relation is the union of \\(I_j\\times I_j\\).",
+        "reasoning": "This is statement-level equivalence, not merely an analogy.",
+        "search": "history monoid projection alphabets, trace monoid dependency relation, coloring-channel projections"
+      },
+      "exact_database_or_table": {
+        "evidence": "The recent coloring-channel paper gives only bounds for cycles, but the exact answer is already computable from the classical trace formula once the history-monoid equivalence is recognized.",
+        "reasoning": "Absence of the number in the newer paper is not novelty evidence against a stronger general theorem.",
+        "search": "published semantic corpus for coloring channels/trace monoids and exact cycle capacity"
+      },
+      "rationale": "The projection quotient used by coloring channels is already the classical history-monoid construction: tuples of projections to overlapping alphabets are isomorphic to the trace monoid whose dependency relation is the union of within-channel pairs. Once this standard identification is made, Cartier–Foata/Möbius growth gives the reciprocal polynomial formula mechanically. The 2026 coloring-channel paper may have left cycles open, but an open question in that terminology does not make a direct instance of an older general theorem original.",
+      "residual_risks": "Shields's full text was inaccessible, but the history-monoid projection equivalence is a standard established formulation reproduced in later trace literature; the coverage conclusion does not rest on a mere title match.",
+      "source_inspections": [
+        {
+          "assessment": "Primary origin of the history-monoid framework; exact full-text comparison unavailable.",
+          "material_read": "publisher abstract/bibliographic record; full article inaccessible in this run",
+          "source": "M. W. Shields, Concurrent Machines, The Computer Journal 28 (1985), 449–465"
+        },
+        {
+          "assessment": "Modern trace-monoid source; supports classical status of the framework.",
+          "material_read": "open-access abstract and trace-monoid context",
+          "source": "Samy Abbes, arXiv:2111.00507 / Fundamenta Informaticae 187 (2022)"
+        },
+        {
+          "assessment": "Confirms the recent problem statement but does not supersede classical trace theory.",
+          "material_read": "full/abstract material describing pairs graphs and unresolved cycle capacities",
+          "source": "Yu and Schwartz, arXiv:2604.08234"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the observation closes a recent open-looking channel calculation, the final result is obtained by recognizing the model as the classical projection/history monoid and then applying its standard growth theorem. Under the required bar, that is a renaming/substitution of a known general structure rather than a new mathematical invariant or theorem.",
+      "risks": "The identification may still be pedagogically useful to the coloring-channel community, but utility does not override scientific coverage.",
+      "sources": [
+        "classical history/trace monoid equivalence",
+        "Cartier–Foata growth theory"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "final_claim": "Coloring-channel output classes are trace-monoid histories for the pairs graph, so their exact generating function is the reciprocal signed independence polynomial and their capacity is the logarithm of the reciprocal smallest positive root; for a cycle \\(C_t\\) this gives \\(\\log_q(4\\cos^2(\\pi/(2t)))\\).",
+  "status": "failed"
+}
