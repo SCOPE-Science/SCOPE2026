@@ -23,7 +23,3 @@ In every finite-collapse-rich wide subcategory of infinite sets, pure-equality f
 ## Residual risks
 
 - A differently named restricted-morphism transfer theorem outside the inspected modal-model-theory literature could still exist.
-
-## Review status
-
-Fresh independent scientific audit: **passed** on correctness, originality, and value.
