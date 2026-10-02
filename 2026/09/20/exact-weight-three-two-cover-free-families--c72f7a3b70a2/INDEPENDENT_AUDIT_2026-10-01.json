@@ -1,0 +1,106 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T17:38:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "artifacts/verify_small.py",
+        "Erdos--Frankl--Furedi 1982 context",
+        "Li--van Rees--Wei 2006 abstract",
+        "Yu--Wang--Ji 2025 public article"
+      ],
+      "rationale": "A repeated pair forces all third vertices in its blocks to have degree one, yielding the deletion recurrence. Linear triple families are precisely partial Steiner triple packings and are automatically 2-cover-free. Combining the recurrence with the exact classical \\(D(v,3,2)\\) formulas proves all orders and strict extremal linearity from seven. The finite MILP artifact was inspected only as corroboration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former studies constructions/unrestricted small-point optima; the latter states only an asymptotic column-weight bound."
+        ],
+        "reasoning": "Neither inspected source implies the exact all-order weight-three theorem.",
+        "searches": [
+          "Li--van Rees--Wei 2006",
+          "Yu--Wang--Ji 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/0097-3165(82)90004-8",
+        "https://doi.org/10.1002/jcd.20109",
+        "https://doi.org/10.1002/jcd.21986",
+        "Resultary assigned-record hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known results give lower and upper bounds that differ in non-Steiner residue classes."
+        ],
+        "reasoning": "The repeated-pair deletion lemma closes the gap and proves extremal structure; this is not mechanically implied.",
+        "searches": [
+          "EFF upper bound plus packing construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Only the assigned theorem is an exact semantic hit.",
+          "Classical pair counting leaves gaps in non-Steiner residue classes."
+        ],
+        "reasoning": "Aliases through disjunct matrices and packings were included.",
+        "searches": [
+          "Resultary: weight three 2-cover-free exact maximum packing",
+          "low-weight superimposed codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The packing numbers are known, but equality with arbitrary non-linear 2-CFFs is not a table fact."
+        ],
+        "reasoning": "The database value is only one side of the comparison.",
+        "searches": [
+          "classical \\(D(v,3,2)\\) packing tables"
+        ]
+      },
+      "rationale": "The foundational source gives the classical upper-bound/asymptotic framework and Steiner equality cases. Recent sparse-disjunct work gives an asymptotically optimal limited-column-weight bound, not the exact weight-three capacity; the 2006 paper's abstract concerns constructions and unrestricted optimal small-point CFFs.",
+      "residual_risks": [
+        "The complete 1982 and 2006 bodies were not independently read in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish the audited all-order equality in material read.",
+          "evidence": "Supplies the pair-count bound/Steiner equality framework.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(82)90004-8",
+          "material_read": "Bibliographic theorem summary and cited weight-three statement.",
+          "method": "Primary-reference comparison.",
+          "title": "Families of Finite Sets in Which No Set Is Covered by the Union of Two Others",
+          "trigger": "Foundational uniform 2-CFF result."
+        },
+        {
+          "assessment": "Only asymptotic for limited column weight.",
+          "evidence": "The abstract explicitly labels the column-weight upper bound asymptotically optimal.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21986",
+          "material_read": "Public full article page and abstract.",
+          "method": "Primary literature comparison.",
+          "title": "Constructions of Optimal Sparse r-Disjunct Matrices via Packings",
+          "trigger": "Recent low-column-weight work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "EFF foundational problem",
+        "classical triple-packing values",
+        "recent sparse-disjunct literature"
+      ],
+      "rationale": "This is a natural exact constant-column-weight group-testing capacity and an extremal-structure classification, not a finite table recomputation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 3-uniform 2-cover-free families, the exact maximum is \\(1,2,3\\) for \\(v=3,4,5\\) and equals \\(D(v,3,2)\\) for every \\(v\\ge6\\); every maximum family is linear for \\(v\\ge7\\), with a sharp non-linear optimum at six points.",
+  "limitations": [
+    "Specific to block size three and two covering blocks.",
+    "Older superimposed-code terminology remains a residual search risk."
+  ]
+}
