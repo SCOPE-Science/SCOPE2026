@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "reason": "PASS. The exact certificate was rechecked entry by entry from the actual repository JSON files. The 35 by 35 rational matrix is symmetric, has trace exactly 1, is zero on all 248 graph edges, and its supplied LDL decomposition reconstructs every matrix entry exactly with all 35 pivots positive. Its all-ones objective is exactly 754549/100000, which is greater than 6. Therefore it is primal feasible for the stated Lovasz-theta SDP and proves theta(G35) at least 7.54549 by weak duality. The graph6 strings in the graph and certificate files agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General literature studies theta on Ramsey-type graphs and its sandwich properties."
+        ],
+        "reasoning": "No inspected broader theorem determines theta for this particular irregular 35-vertex witness or forces the stated rational lower bound.",
+        "searches": [
+          "Lovasz theta Ramsey graphs orthonormal labeling",
+          "semidefinite Ramsey graph theta"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exoo proves the Ramsey witness property; Lovasz gives the general SDP invariant."
+        ],
+        "reasoning": "Neither source implies a graph-specific feasible rational matrix with objective 7.54549.",
+        "searches": [
+          "Exoo R(4,6) 2012",
+          "Lovasz Shannon capacity theta 1979"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General theta SDP formulations are standard; no alternate exact value for this graph was found."
+        ],
+        "reasoning": "The audited statement is an exact feasible-point certificate, not merely a restatement of alpha(G)<=theta(G).",
+        "searches": [
+          "Lovasz theta Exoo Ramsey(4,6;35)",
+          "theta exact certificate first Exoo graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact numerical/table entry for the hash-pinned graph was located."
+        ],
+        "reasoning": "The graph database supplies the object, not this spectral/SDP invariant.",
+        "searches": [
+          "Exoo graph theta 7.54549",
+          "r46_35some theta"
+        ]
+      },
+      "reason": "PASS. Exoo and McKay supply the Ramsey graph itself, and Lovasz supplies the general theta theory, but targeted searches found no prior theta value or exact SDP certificate for this hash-pinned 35-vertex witness. The certificate is not a specialization of a known closed formula for this irregular graph. The related audited single-vertex maximality result concerns a different invariant and does not imply the theta bound.",
+      "status": "PASS"
+    },
+    "scientific_value": {
+      "reason": "PASS. The threshold 6 is intrinsic to the Ramsey(4,6) application: a theta upper bound below 6 would certify the needed independence obstruction, while this exact primal witness proves that this standard relaxation is far too weak on a canonical extremal witness. An exact rational lower certificate on a natural benchmark graph is a useful negative diagnostic for SDP-based Ramsey approaches.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Exact rational reconstruction of all 1225 matrix entries from artifacts/theta_defect_certificate.json.",
+    "Exact trace, edge-zero, LDL reconstruction, pivot positivity, and objective checks against artifacts/G35_adj.json.",
+    "Targeted searches for prior theta computations on the named Exoo witness."
+  ],
+  "disposition": "passed",
+  "record_id": "SCOPE-20260912-028",
+  "residual_risks": [
+    "The certificate proves only a lower bound, not the exact theta value.",
+    "The RESULT's reproducibility prose uses the historical prefix output/artifacts, while the actual files are under artifacts; the replacement METADATA records the actual paths."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OBJECT_SOURCE_NOT_THETA_COVERAGE",
+      "evidence": "The paper supplies the extremal graph family, not Lovasz-theta computations.",
+      "identifier": "Electron. J. Combin. 19(1) (2012), P66",
+      "material_read": "Abstract and witness context.",
+      "method": "Primary-literature inspection.",
+      "title": "Geoffrey Exoo, On the Ramsey Number R(4,6)",
+      "trigger": "Primary provenance for the 35-vertex Ramsey witnesses.",
+      "url": "https://doi.org/10.37236/2102"
+    },
+    {
+      "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_COVERAGE",
+      "evidence": "Defines the invariant and sandwich theorem; it does not compute this graph.",
+      "identifier": "IEEE Trans. Inform. Theory 25 (1979), 1-7",
+      "material_read": "Standard theorem context through indexed literature.",
+      "method": "Primary-source identification and theorem cross-check.",
+      "title": "L. Lovasz, On the Shannon Capacity of a Graph",
+      "trigger": "Definition and weak-duality framework for the theta certificate.",
+      "url": "https://doi.org/10.1109/TIT.1979.1055985"
+    }
+  ]
+}
