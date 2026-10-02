@@ -1,9 +1,12 @@
 ---
 {
-  "schema_version": 1,
+  "record_status": "passed",
   "independent_audit": {
-    "status": "not_performed",
-    "evidence": null
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-09-30.md",
+      "INDEPENDENT_AUDIT_2026-09-30.json"
+    ]
   },
   "lean_verification": {
     "status": "unknown",
@@ -16,5 +19,9 @@
 }
 ---
 
-Fresh independent audit: not yet performed. Prior certification is inactive.
-Existing mathematical computations are retained as reproducibility evidence, not as certification of this new assessment.
+# Verification
+
+- Lean: unknown
+- Expert: unknown
+- Independent audit: passed
+- Evidence: `INDEPENDENT_AUDIT_2026-09-30.md`, `INDEPENDENT_AUDIT_2026-09-30.json`
