@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T22:58:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/09/053/RESULT.md",
+        "artifacts/verify.py",
+        "artifacts/gram_final.json",
+        "artifacts/ratio_bound.json",
+        "artifacts/tuple.json"
+      ],
+      "rationale": "The 8x8 rational Gram matrices were independently rebuilt from the Dirichlet/simplex moment formulas. The committed rational vector evaluates to 7553888936545658/2485078816758705, and exact LDL factorization of (61/20)A-B has eight strictly positive pivots, certifying the upper bound. The tuple witness is admissible modulo every prime at most 32.",
+      "residual_risks": [
+        "Correctness is for the explicitly documented eight-dimensional cell only; it says nothing about larger weight spaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known works optimize broader sieve spaces and establish threshold machinery, but no searched theorem fixes the candidate cell and gives its maximum interval."
+        ],
+        "reasoning": "Broader method coverage does not by itself determine the numerical extremum of this idiosyncratic subspace.",
+        "searches": [
+          "Maynard 1311.4600",
+          "Polymath8b 1407.4897",
+          "Resultary exact-cell search"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1311.4600",
+        "https://arxiv.org/abs/1407.4897",
+        "Resultary semantic search for the exact cell and bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold interpretations follow from the published sieve theorem, but the certified 8x8 Gram/LDL extremum does not follow without the new finite calculation."
+        ],
+        "reasoning": "Only the downstream prime-reading is prior machinery; the numerical cell bound is separately computed.",
+        "searches": [
+          "Maynard sieve functional definitions and threshold consequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary literature defines and optimizes M_k broadly; the searched material did not identify this exact asymmetric eight-vector restriction."
+        ],
+        "reasoning": "The candidate is a restricted finite-dimensional Rayleigh quotient, not a reformulation of a published full-space M_32 bound.",
+        "searches": [
+          "Resultary: k=32 span{1,s,...,s^6,x1} extremal ratio",
+          "Maynard arXiv:1311.4600"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the current SCOPE record matched the exact cell/bounds."
+        ],
+        "reasoning": "No external table was found for this cell.",
+        "searches": [
+          "Resultary exact rational lower bound and 61/20 upper bound"
+        ]
+      },
+      "rationale": "Best-of-knowledge search found the general Maynard–Tao variational framework but no prior source giving the exact generalized-eigenvalue bounds for this particular eight-dimensional cell. The exact cell statement therefore survives originality, subject to the residual risk noted below.",
+      "residual_risks": [
+        "The primary-paper inspection was not a page-by-page search of all appendices; a pre-existing unpublished or obscure computation of the same exact cell could have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_ONLY_NOT_EXACT_CELL",
+          "evidence": "The primary work supplies the general variational framework, not the candidate’s eight-dimensional numerical extremum.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.4600",
+          "material_read": "Primary abstract and bibliographic record; candidate’s cited Proposition 4.2 was used only for contextual threshold interpretation, not to establish the finite Gram certificate.",
+          "method": "Scope/implication comparison plus exact-cell Resultary search.",
+          "title": "Small gaps between primes",
+          "trigger": "Defines the Maynard sieve functional and its prime-count consequences."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "candidate RESULT.md limitations",
+        "Maynard 1311.4600 framework"
+      ],
+      "rationale": "The chosen subspace span{1,s,...,s^6,x1} is an ad hoc tiny slice with no independent mathematical motivation beyond testing whether it crosses already-known sieve thresholds. Certifying that this arbitrary slice stops below 3.05 neither constrains the natural larger optimization problem nor supplies a structural obstruction. Under the stated value bar this is an unmotivated narrow invariant.",
+      "residual_risks": [
+        "A separate source could motivate exactly this cell, but no such motivation appears in the audited package or searches."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For k=32 and the fixed eight-dimensional Maynard–Tao cell span{1,s,...,s^6,x1}, the maximum sieve ratio lies between the stated exact rational lower bound and 61/20, with the listed prime-threshold readings.",
+  "schema_version": 1
+}
