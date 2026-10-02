@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T14:58:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Current RESULT.md blob 1e55ffd1117f3c008a3f7c2b2e5c1e28739d7d99",
+        "Suleiman arXiv:2609.20674 complete HTML",
+        "Verifier script blob 9f3608b0b6e541c16d79e5e7e25587fcf03aee9e",
+        "Verification output blob b498e5d85fb898f5982fbfc52e1c43c9d9a3afe8"
+      ],
+      "rationale": "The proof was reconstructed from the exact endpoint system. Suleiman's full text verifies the needed coarse inputs: b_n is comparable to 1/t and every other endpoint is integrable and monotone, hence t x(t)->0. Substitution in the outer-edge ODE gives b_n'=-c_* b_n^2+o(b_n^2), hence c_* t b_n->1 and the finite-step L1/moment limits. For one interval, differentiating R=tan(a)/tan^2(b) gives the stated exact logarithmic derivative; its bracket is O(a+b^2), integrable under the source estimates, so R converges to a positive finite Lambda. Expanding the exact b-equation then yields (1/b)'=c-2c cot(2pi/m)b+O(b^2) and the integrable correction after u~ct. The frozen symbolic verifier independently confirms the exact derivative and expansion, while its finite-time numerics are used only as corroboration, not proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suleiman Proposition 2.4 supplies only comparability/integrability inputs used by both records.",
+          "Earlier SCOPE supplies exact leading similarity but stops before the ratio invariant and logarithmic correction."
+        ],
+        "reasoning": "No inspected broader theorem dominates the full current theorem; the surviving single-step refinement lies beyond the prior leading-order result.",
+        "searches": [
+          "Suleiman arXiv:2609.20674 full text",
+          "Earlier SCOPE finite-step self-similar rectangle record",
+          "Elgindi--Murray--Said long-time scale-invariant Euler literature"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "Suleiman arXiv:2609.20674 complete HTML",
+        "Earlier SCOPE RESULT.md blob 485b481ff7f405d6ee0e4a5047c36fd63c787d2f",
+        "Current verifier blobs 9f3608b0b6e541c16d79e5e7e25587fcf03aee9e and b498e5d85fb898f5982fbfc52e1c43c9d9a3afe8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior leading asymptotics give only a=o(b) (or t a ->0), which does not determine a/b^2 or the coefficient of log t in 1/b.",
+          "The current exact derivative of log(tan a/tan^2 b) supplies the missing integrable invariant and is not a formal consequence of the leading rectangle."
+        ],
+        "reasoning": "A strictly stronger final theorem survives after fully crediting the earlier top-hat part.",
+        "searches": [
+          "Direct comparison with earlier RESULT.md blob 485b481ff7f405d6ee0e4a5047c36fd63c787d2f",
+          "Direct comparison with Suleiman endpoint ODE and Proposition 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2026/09/18 record 66f4cc08f91d is equivalent to the leading top-hat portion only.",
+          "No returned record states the a/b^2 limit or logarithmic correction."
+        ],
+        "reasoning": "The current scaling h_t(y)=g(t,y/(c_*t)) is equivalent to the earlier y=t theta rectangle after a fixed dilation, so that leading portion is not novel; the single-step second-order asymptotics are genuinely additional.",
+        "searches": [
+          "Resultary: scale invariant Euler finite positive step packets top hat limit outer endpoint 1/t logarithmic correction",
+          "Aliases: self-similar rectangle, renormalized top-hat, endpoint slaving, logarithmic edge correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier leading-order record was found and credited; no entry covered the subleading formulas."
+        ],
+        "reasoning": "The database check therefore narrows, rather than falsely inflates, the originality claim.",
+        "searches": [
+          "Resultary semantic query above"
+        ]
+      },
+      "rationale": "A highly relevant earlier SCOPE result was found and inspected. It already proves the leading finite-step laws t b_n -> 1/c_*, t||g||_1 -> 1, the L1 self-similar rectangle, and the scaled Green/transport limit. Those parts are explicitly prior coverage. The current final theorem is nevertheless strictly stronger: for a single step it proves the new quadratic inner-edge law a/b^2 -> Lambda and the logarithmic denominator correction 1/b = ct - 2 cot(2pi/m) log t + B + o(1). The earlier record does not contain or imply those subleading laws, and no other Resultary hit covered them.",
+      "residual_risks": [
+        "The older 2025 general long-time paper was not exhaustively reread in this run, though no Resultary/source comparison located the exact subleading one-step laws there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INPUT / PARTIAL COVERAGE ONLY.",
+          "evidence": "The source proves b_n comparable to (1+t)^-1 and integrability/separation of the other endpoints, not the exact coefficient, top-hat limit, a/b^2 limit or logarithmic denominator correction.",
+          "identifier_or_url": "arXiv:2609.20674v1",
+          "material_read": "Complete accessible HTML including Green kernel, exact endpoint ODEs, Lemma 2.2 and Proposition 2.4.",
+          "method": "Full-text web inspection.",
+          "title": "Dense orbits for scale-invariant rotationally symmetric solutions of the 2D Euler equations",
+          "trigger": "Primary source of the endpoint system and coarse estimates."
+        },
+        {
+          "assessment": "DECISIVE PARTIAL PRIOR COVERAGE.",
+          "evidence": "Covers the exact leading endpoint, mass, L1 rectangle and Green-field limits, but not the current single-step quadratic/logarithmic refinement.",
+          "identifier_or_url": "SCOPE 2026/09/18/finite-euler-step-self-similar-rectangle--66f4cc08f91d",
+          "material_read": "Complete frozen RESULT.md, blob 485b481ff7f405d6ee0e4a5047c36fd63c787d2f.",
+          "method": "Direct Git blob inspection.",
+          "title": "Finite Euler step profiles converge to a universal self-similar rectangle",
+          "trigger": "Resultary returned a very close earlier record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Earlier leading-order SCOPE record",
+        "Current exact one-step ratio calculation"
+      ],
+      "rationale": "After removing the already-covered leading self-similar rectangle from the originality credit, the surviving single-step invariant a/b^2 -> Lambda and the explicit geometry-dependent logarithmic correction sharpen the natural endpoint dynamics of the source model. They are motivated subleading asymptotics with a reusable exact ratio identity, not an arbitrary slice or mere recomputation.",
+      "residual_risks": [
+        "The value claim is limited to the subleading one-step refinement; the leading top-hat law is prior coverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Leading top-hat and exact mass/outer-edge laws are prior SCOPE coverage and are not credited as new; acceptance rests on the stronger single-step quadratic and logarithmic asymptotics."
+  ],
+  "schema_version": 1
+}
