@@ -1,0 +1,114 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T19:40:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and artifacts/verify_kite.py at the frozen source tree",
+        "Timothy Lambert, The Delaunay Triangulation Maximizes the Mean Inradius, 1994 abstract/proceedings metadata",
+        "Minculete--Barbu--Szöllősy, About the Japanese Theorem, 2012",
+        "classical Japanese theorem summaries"
+      ],
+      "rationale": "One-sided perturbations of a cyclic quadrilateral force exact equality of the two separable inradius sums at the cyclic limit. The explicit cyclic kite has diagonal inradii \\(u,u\\) versus \\(u(1+\\delta),u(1-\\delta)\\), with arbitrary \\(u>0\\) and \\(-1<\\delta<1\\), so the equality is precisely the midpoint Jensen equation; continuity forces \\(\\varphi\\) affine. A concrete noncyclic quadrilateral fixes the slope sign, and Lambert's linear mean-inradius theorem supplies the converse. The inspected kite verifier checks the coordinate formulas and near-cyclic power examples but is only corroborative.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nonlinear cyclic identities found in the literature involve additional diagonal-dependent factors, while general Delaunay-functional frameworks concern other functionals such as circumradius transforms."
+        ],
+        "reasoning": "These broader results do not dominate an unweighted separable inradius classification.",
+        "searches": [
+          "Minculete--Barbu--Szöllősy 2012",
+          "Klyachin--Grigorieva 2017",
+          "Dolbilin--Edelsbrunner--Musin 2012"
+        ]
+      },
+      "checked_sources": [
+        "Lambert 1994",
+        "Minculete--Barbu--Szöllősy 2012",
+        "Klyachin--Grigorieva 2017",
+        "published mathematical corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lambert supplies the affine positive-slope converse but does not, in the accessible material, imply that nonlinear transforms fail.",
+          "The cyclic kite creates every midpoint relation and therefore adds the load-bearing rigidity step."
+        ],
+        "reasoning": "The final classification is not a mechanical corollary of the linear theorem alone.",
+        "searches": [
+          "Lambert mean-inradius theorem versus separable transform classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lambert's accessible abstract states only arithmetic-mean inradius maximization.",
+          "The published-result corpus returned the assigned theorem as the exact match."
+        ],
+        "reasoning": "The cyclic-invariance formulation and universal-Delaunay-extremality formulation are equivalent in the audit through the two-sided perturbation argument; no prior source inspected states the resulting midpoint-Jensen classification.",
+        "searches": [
+          "Lambert 1994 proceedings record",
+          "published-result corpus: SCOPE-separable-inradius-delaunay-rigidity--f2e67632adc7",
+          "Japanese-theorem literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact database/result entry was located."
+        ],
+        "reasoning": "A finite table is inapplicable because the claim classifies a continuum of continuous functions.",
+        "searches": [
+          "published-result corpus search for separable inradius Delaunay rigidity"
+        ]
+      },
+      "rationale": "The classical sources establish linear inradius-sum invariance on cyclic polygons and Lambert's linear Delaunay optimality, but the searched literature and published-result corpus did not reveal the functional classification saying that every continuous unweighted separable transform with universal Delaunay extremality must be affine. The full Lambert paper remains the closest inaccessible source and is retained as a concrete best-of-knowledge risk.",
+      "residual_risks": [
+        "The full Lambert paper was unavailable, and equivalent folklore under classical Japanese-theorem language remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the linear arithmetic-mean theorem but leaves a residual risk because the full paper could not be inspected.",
+          "evidence": "The abstract states that Delaunay maximizes the arithmetic mean of triangle inradii.",
+          "identifier_or_url": "Lambert, Proceedings of the Sixth Canadian Conference on Computational Geometry (1994), 201--206",
+          "material_read": "Primary abstract and proceedings metadata; full text was unavailable through available lawful access.",
+          "method": "Primary-source lookup with lawful full-text access attempt.",
+          "title": "The Delaunay Triangulation Maximizes the Mean Inradius",
+          "trigger": "Closest primary source on the identical Delaunay/inradius objective."
+        },
+        {
+          "assessment": "Its nonlinear identities use additional geometric factors and do not give arbitrary unweighted separable invariance.",
+          "evidence": "The known Japanese-theorem identities differ structurally from \\(\\varphi(r_1)+\\varphi(r_2)=\\varphi(r_3)+\\varphi(r_4)\\).",
+          "identifier_or_url": "Crux Mathematicorum 38(5) (2012), 188--193",
+          "material_read": "The relation and source description cited by the assigned package were compared with the audited separable equality.",
+          "method": "Primary-literature comparison.",
+          "title": "About the Japanese Theorem",
+          "trigger": "Plausible nonlinear identities among the same four triangle inradii."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lambert 1994 linear criterion",
+        "Japanese-theorem literature",
+        "general Delaunay-functional literature"
+      ],
+      "rationale": "The theorem classifies an entire natural family of Delaunay objectives, explains the rigidity of the classical linear criterion, and supplies systematic near-cyclic counterexamples for every nonlinear power. This is a motivated structural classification rather than a single numerical refinement.",
+      "residual_risks": [
+        "Its proof is short once the cyclic kite is identified, but the classified function family and sharp universal boundary are natural objects of study."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For continuous \\(\\varphi:(0,\\infty)\\to\\mathbb R\\), the planar Delaunay triangulation universally maximizes \\(\\sum_\\Delta\\varphi(r_\\Delta)\\) exactly for affine \\(\\varphi(t)=at+b\\) with \\(a\\ge0\\), and universally minimizes it exactly for affine \\(\\varphi\\) with \\(a\\le0\\); equivalently, separable inradius invariance on every cyclic quadrilateral forces affinity.",
+  "limitations": [
+    "Continuity of the scalar transform is assumed.",
+    "Only ordinary Euclidean planar triangulations of finite point sets are treated.",
+    "No constrained, weighted, surface, or higher-dimensional analogue is claimed.",
+    "The full text of Lambert's 1994 proceedings paper could not be obtained through available lawful access; its abstract and later theorem summaries were inspected."
+  ]
+}
