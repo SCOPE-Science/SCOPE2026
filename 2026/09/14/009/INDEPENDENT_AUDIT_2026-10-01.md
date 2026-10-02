@@ -1,25 +1,27 @@
-# Review
+# Independent mathematical audit — 2026-10-01
 
-Independent mathematical audit completed on 2026-10-01 UTC.
+Record: `SCOPE-20260914-009`
 
-- Correctness: **PASS**
-- Originality: **PASS**
-- Scientific value: **PASS**
-- Disposition: **PASSED**
+Disposition: **PASSED**
 
-## Correctness
+## Correctness — PASS
 
 A fresh symbolic expansion followed by independent Lyapunov-Schmidt elimination at \(t=2\pi/3\) gives \(u_1=\pm 7\sqrt3/2\), \(u_2=447\sqrt3/8\), \(K_2=111\sqrt3/4\), and \(K_3=\pm855\sqrt3/2\) at the two reflection axes. Hence \(\Delta=-855\sqrt3\,\epsilon^3+O(\epsilon^4)\). Strict convexity persists for sufficiently small \(|\epsilon|\). A rational \(1/3\) invariant circle would give a connected family of period-three critical orbits with constant three-step action, so the unequal nearby symmetric critical values exclude the caustic for sufficiently small nonzero \(\epsilon\).
 
-## Originality
+## Originality — PASS
 
 The primary high-order persistence theorem gives the general recursive criterion and an explicit \(\zeta_3\) formula, but its full text does not evaluate the polar deformation \(r=1+\epsilon\cos(5\theta)\) at rotation number \(1/3\). The paper explicitly leaves higher-order polar-coordinate evaluations as computations for future applications. The audited cubic coefficient is therefore not stated or tabulated there.
 
-## Scientific value
+## Scientific value — PASS
 
 This is a motivated first-nonzero high-order obstruction for the lowest resonant period under a single Fourier-mode deformation. The general theory itself identifies such first nonzero resonant calculations as a practical challenge, so the exact cancellation through second order and nonzero third-order coefficient form a meaningful worked boundary case.
 
-## Limitations
+## Literature and prior-coverage checks
+
+- **High-order persistence of resonant caustics in perturbed circular billiards** — https://doi.org/10.1017/etds.2025.10248. strongly relevant framework, not exact coverage: The theorem gives recursive persistence conditions; the exact cos(5theta), q=3 third-order evaluation is absent.
+
+## Limitations and residual risk
 
 - The theorem is local for sufficiently small nonzero epsilon and does not give a global epsilon interval.
 - Originality is best-of-knowledge against a strong general high-order criterion.
+- Because the final conclusion is an application of a published necessary-and-sufficient criterion, a stricter originality convention could classify it as a covered specialization despite the nontrivial omitted computation.
