@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T09:23:49.879240Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the exact representation \\(u=[u_0+A-(t+A)h]_+\\), mass conservation squeezes \\((t+A)G(q)\\) to one, with \\(G(s)=Cs^2+o(s^2)\\) for isolated Morse minima. This yields \\(q\\sim(Ct)^{-1/2}\\), \\(A\\sim\\sqrt{t/C}\\), the support scale \\(t^{-1/4}\\), and the parabolic-cap profile after Hessian rescaling. The multiplier asymptotic follows from the support sublevel asymptotics rather than differentiating an equivalence. The inspected quadratic-model script checks only constants and agrees with the analytic derivation.",
+      "risks": [
+        "The theorem is only for the zero-diffusion slow-limit dynamics with isolated nondegenerate maxima."
+      ],
+      "sources": [
+        "assigned RESULT.md and artifacts/verify_quadratic_cap.py",
+        "Niethammer–Röger–Velázquez, arXiv:2609.20609"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later theorem handles arbitrary power-law sublevel geometry and homogeneous maxima, so it strictly dominates the audited Morse-only case."
+        ],
+        "reasoning": "A general theorem covering all homogeneous maxima is broader than the audited nondegenerate-quadratic case.",
+        "searches": [
+          "2026-09-19 SCOPE localization-clock theorem",
+          "Niethammer–Röger–Velázquez source paper"
+        ]
+      },
+      "checked_sources": [
+        "later published localization-clock SCOPE result",
+        "arXiv:2609.20609",
+        "arXiv:2605.03553",
+        "assigned package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later result states the same Morse asymptotics and profile as an explicit corollary."
+        ],
+        "reasoning": "Current published coverage is decisive under the special-case/corollary rule.",
+        "searches": [
+          "statement-by-statement implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later result contains a dedicated 'Generic Morse maxima' specialization with the same exponents and formulas."
+        ],
+        "reasoning": "The later threshold variable \\(\\sigma\\) is the audited \\(q=A/(t+A)\\); its Morse specialization is the same claim after notation change.",
+        "searches": [
+          "Resultary semantic search for cell-polarization slow-flow Morse localization rates",
+          "full comparison with the 2026-09-19 localization-clock result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database lookup is needed once theorem-level coverage is located."
+        ],
+        "reasoning": "This originality check is theorem-implication based, not table based.",
+        "searches": [
+          "Resultary exact and semantic searches"
+        ]
+      },
+      "rationale": "A later published SCOPE result gives a strictly broader localization-clock theorem for the same slow flow and explicitly specializes it to Morse maxima with the same \\(t^{-1/4}\\) width, \\(t^{1/2}\\) height, \\(t^{-1/2}\\) multiplier gap, Hessian constants, and positive-part local profile. The audited claim is therefore currently covered, even though the covering record postdates it.",
+      "residual_risks": [
+        "The covering theorem was published one day later, so this audit does not determine historical priority on 2026-09-18.",
+        "Primary arXiv full text was not retrievable through the available web route in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE CURRENT COVERAGE; strictly broader than the audited theorem.",
+          "evidence": "It gives the localization clock and then the same Morse exponents, constants and rescaled positive-part profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-self-similar-localization-cell-polarization-slow-flow--76b7ab9743ed",
+          "material_read": "Complete RESULT.md including proof and the Generic Morse maxima section.",
+          "method": "Full statement-and-proof implication comparison.",
+          "title": "A localization clock and self-similar rates for the cell-polarization slow flow",
+          "trigger": "Highest relevant Resultary hit and same model."
+        },
+        {
+          "assessment": "Supplies the underlying slow-flow model and qualitative localization; not needed for the decisive current-coverage finding.",
+          "evidence": "The abstract states slow-time localization and characterization of concentration.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20609",
+          "material_read": "Abstract and public metadata; direct arXiv full-text retrieval failed in this run.",
+          "method": "Primary-source scope comparison.",
+          "title": "Localization properties of a free boundary problem for cell polarization",
+          "trigger": "Primary source model."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Morse-rate theorem is a natural and useful sharp asymptotic boundary result for a cell-polarization free-boundary flow. Current coverage defeats originality, not mathematical significance.",
+      "risks": [
+        "Value does not restore acceptance when originality fails."
+      ],
+      "sources": [
+        "later general localization-clock theorem",
+        "assigned self-contained proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Current scientific rejection is originality-only; correctness and value pass.",
+    "The decisive covering result postdates the audited record, so historical first-discovery priority is not adjudicated.",
+    "The result does not address finite diffusion or degenerate maxima."
+  ],
+  "record_id": "SCOPE-20260918-95d03c9c0771",
+  "schema_version": 1
+}
