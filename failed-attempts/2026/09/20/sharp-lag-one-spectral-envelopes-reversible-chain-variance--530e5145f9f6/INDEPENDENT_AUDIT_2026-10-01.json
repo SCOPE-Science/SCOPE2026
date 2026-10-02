@@ -1,0 +1,139 @@
+{
+  "audited_at_utc": "2026-10-01T21:06:11.107600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "assigned artifacts/verify.py",
+        "Berg and Song (2023) autocovariance moment representation",
+        "Edmundson-Madansky convex expectation bound"
+      ],
+      "rationale": "The reversible spectral theorem reduces the observable autocorrelations to moments of a probability measure supported on \\([0,\\beta]\\) with mean \\(\\rho\\). Jensen gives \\(\\rho_k\\ge\\rho^k\\), while \\(\\lambda^k\\le\\beta^{k-1}\\lambda\\) gives the simultaneous upper envelope. The finite-horizon kernel \\(\\Psi_n\\) and the IAT kernel \\((1+\\lambda)/(1-\\lambda)\\) are convex, so the same one-point and endpoint two-point spectral measures give the exact expectation bounds. The refresh-product constructions realize these measures by finite-state positive reversible chains. Letting the upper atom tend to one proves the no-ceiling divergence without using a finite experiment as proof.",
+      "residual_risks": [
+        "The randomized verifier is corroborative only; all infinite statements were checked from the analytic moment argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The literature provides the spectral moment representation and general expectation extremals for every convex test function, not merely the three tests in the assigned record."
+        ],
+        "reasoning": "The broader machinery immediately dominates the assigned formulas after inserting the relevant test functions.",
+        "searches": [
+          "Berg and Song, Annals of Statistics 51 (2023), 2440-2470",
+          "classical one-moment problem / convex-order bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1214/23-AOS2335",
+        "Edmundson-Madansky fixed-mean convex expectation inequality",
+        "published SCOPE two-lag reversible-chain record",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower proof is Jensen verbatim. The upper proof is the endpoint chord verbatim. The finite-state extremizers are two-state eigenvalue gadgets realizing the extremal measures."
+        ],
+        "reasoning": "No nonstandard lemma remains after the classical representation is exposed.",
+        "searches": [
+          "Compared the proof line-by-line with the moment representation and the bounded-support convex expectation inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berg-Song identify reversible autocovariances as a compactly supported moment sequence.",
+          "The Edmundson-Madansky upper bound is exactly the endpoint-chord expectation bound used here; Jensen is the matching lower bound."
+        ],
+        "reasoning": "The assigned theorem is the one-moment convex-order interval applied to the functions \\(x^k\\), \\(\\Psi_n(x)\\), and \\((1+x)/(1-x)\\).",
+        "searches": [
+          "Resultary query: reversible Markov chain fixed lag one correlation spectral ceiling exact asymptotic variance autocorrelation envelope effective sample size",
+          "Edmundson-Madansky inequality for a convex function on bounded support with fixed mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact table is needed; this is an analytic corollary of general moment inequalities."
+        ],
+        "reasoning": "Database absence cannot establish novelty and is not relied upon.",
+        "searches": [
+          "Resultary search for the assigned lag-one theorem and neighboring reversible-chain moment records"
+        ]
+      },
+      "rationale": "Once the published reversible-chain moment representation is combined with the classical fixed-mean convex expectation bounds, every displayed envelope is a direct specialization: Jensen supplies the lower endpoint and the endpoint chord supplies the upper endpoint. The no-ceiling statement is the same endpoint construction with an atom approaching one. The chain-specific finite-state realization is elementary. Under an implication-based originality bar this is covered by classical moment/convex-order machinery rather than a new theorem mechanism.",
+      "residual_risks": [
+        "No residual source-access issue affects the rejection; coverage is by standard general machinery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_INGREDIENT",
+          "evidence": "It explicitly treats reversible autocovariances as moments of a positive spectral measure.",
+          "identifier_or_url": "https://doi.org/10.1214/23-AOS2335",
+          "material_read": "Primary paper abstract and the published moment-sequence formulation used by later work.",
+          "method": "Publisher/author-accessible scientific text.",
+          "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+          "trigger": "Same observable autocovariance sequence and spectral representation."
+        },
+        {
+          "assessment": "BROADER_COVERAGE",
+          "evidence": "The upper bound used in the assigned proof is precisely this classical endpoint-chord inequality.",
+          "identifier_or_url": "classical bounded-support moment inequality",
+          "material_read": "Modern scholarly description of the classical theorem: Jensen lower bound and endpoint-linear upper bound.",
+          "method": "Published mathematical literature summary.",
+          "title": "Edmundson-Madansky convex expectation bound",
+          "trigger": "Exact expectation extremal with fixed support interval and mean."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Berg and Song (2023)",
+        "classical Jensen and Edmundson-Madansky inequalities"
+      ],
+      "rationale": "The Monte Carlo interpretation is useful, but the mathematical result is a textbook one-moment convexity specialization once the known spectral representation is written down. The stated value standard rejects such mechanically implied deductions even when the formulas are sharp and reproducible.",
+      "residual_risks": [
+        "This is not a correctness objection and does not deny expository usefulness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1214/23-AOS2335",
+    "Edmundson-Madansky fixed-mean convex expectation inequality",
+    "published SCOPE two-lag reversible-chain record",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness.",
+    "The formulas require nonnegative observable spectrum for the lower-envelope statements.",
+    "The spectral ceiling is observable-specific unless strengthened to a chain-wide spectral assumption."
+  ],
+  "record_id": "SCOPE-20260920-530e5145f9f6",
+  "record_title": "Sharp lag-one and spectral-ceiling envelopes for reversible Markov-chain variance",
+  "residual_risks": [
+    "No residual source-access issue affects the rejection; coverage is by standard general machinery."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING_INGREDIENT",
+      "evidence": "It explicitly treats reversible autocovariances as moments of a positive spectral measure.",
+      "identifier_or_url": "https://doi.org/10.1214/23-AOS2335",
+      "material_read": "Primary paper abstract and the published moment-sequence formulation used by later work.",
+      "method": "Publisher/author-accessible scientific text.",
+      "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+      "trigger": "Same observable autocovariance sequence and spectral representation."
+    },
+    {
+      "assessment": "BROADER_COVERAGE",
+      "evidence": "The upper bound used in the assigned proof is precisely this classical endpoint-chord inequality.",
+      "identifier_or_url": "classical bounded-support moment inequality",
+      "material_read": "Modern scholarly description of the classical theorem: Jensen lower bound and endpoint-linear upper bound.",
+      "method": "Published mathematical literature summary.",
+      "title": "Edmundson-Madansky convex expectation bound",
+      "trigger": "Exact expectation extremal with fixed support interval and mean."
+    }
+  ]
+}
