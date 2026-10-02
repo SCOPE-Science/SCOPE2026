@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T08:01:19.884028Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verifier and output blobs.",
+        "Kuninets–Malygina–Melnichuk ePrint/arXiv primary full text, especially Theorem 3.4.3 and Remark 5."
+      ],
+      "rationale": "From the source paper's fibre quadratic, direct algebra gives discriminant H(z)=1-4 gamma z+12 alpha z^2-8 beta' z^3, so membership in the rational value set is equivalent to H(z) being a square or zero. Fresh symbolic expansion reproduced this polynomial. Smoothness of the elliptic curve makes H squarefree. For fixed nonzero a, two translated cubic factors can share a root for at most six a-values per coordinate pair; hence at most 3m(m-1) exceptional a. For the others the product over any nonempty subset is squarefree of degree 3|S|, so the quadratic Weil bound gives (3|S|-1)sqrt(q). Expanding the membership indicators and separately charging root hits yields the stated q^2/2^m +(3/2)m q^(3/2)+3m^2 q bound. Summing prefixes to L=ceil((log_2 q)/2) gives the claimed deterministic runtime. The finite verifier independently matches direct value sets and survivor bounds at q=101,251,509; it is supporting, not the proof.",
+      "residual_risks": [
+        "No formal algebra system certificate for the general character-sum inequality was deposited; the proof is elementary once Weil's bound is accepted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4.3 gives deterministic O(n q^2); Remark 5 explicitly labels independence as heuristic and only for average O(q^2)."
+        ],
+        "reasoning": "Prior work motivates the exact missing step rather than covering it.",
+        "searches": [
+          "Kuninets–Malygina–Melnichuk 2026 full paper."
+        ]
+      },
+      "checked_sources": [
+        "Kuninets–Malygina–Melnichuk full primary paper",
+        "Exact web searches",
+        "Resultary attempted but unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states the values are deterministic and not independent; therefore its average estimate does not imply this character-sum worst-case bound."
+        ],
+        "reasoning": "No implication found.",
+        "searches": [
+          "Primary pages 13-16 covering Theorem 3.4.3 and Remark 5."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent theorem located."
+        ],
+        "reasoning": "The source's heuristic and the submitted deterministic estimate are logically different.",
+        "searches": [
+          "elliptic McEliece affine normalization character sum/value set pruning",
+          "deterministic no-hint attack q^(3/2) survivor bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary failed internally."
+        ],
+        "reasoning": "No novelty inference from the failure.",
+        "searches": [
+          "Resultary query attempted."
+        ]
+      },
+      "rationale": "The primary attack paper proves only a deterministic O(n q^2) enumeration bound and then obtains O(q^2) average cost under an explicit heuristic independence assumption that it says is not a consequence of the preceding statements. The audited character-sum argument removes that heuristic and supplies a different worst-case bound. Searches found no prior deterministic affine-value-set pruning theorem with this cubic character-sum estimate.",
+      "residual_risks": [
+        "The result is contemporaneous with the parent attack; parallel unpublished refinements remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS correctness boundary and does NOT cover deterministic refinement.",
+          "evidence": "Remark 5 explicitly calls independence a heuristic not implied by the previous statements.",
+          "identifier_or_url": "ePrint 2026/2050; arXiv:2609.17732",
+          "material_read": "Full primary PDF pages 1-19; especially pages 13-16, Theorem 3.4.3, value-set equation (11), survivor bounds (12), and Remark 5.",
+          "method": "Authorized/OA PDF retrieval and parsed full text.",
+          "title": "A Polynomial-Time Attack on the McEliece Cryptosystem on Elliptic Codes with Arbitrary Divisors",
+          "trigger": "Exact parent no-hint algorithm and complexity claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary attack paper",
+        "Assigned proof"
+      ],
+      "rationale": "Replacing an acknowledged heuristic by a deterministic character-sum estimate in a concrete structural-attack bottleneck is a meaningful mathematical and algorithmic improvement. The bound is reusable for affine filtering through low-degree value sets, not merely a finite benchmark.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the no-hint elliptic-code affine normalization stage, the degree-two value set has an exact cubic quadratic-character description and a Weil-bound survivor estimate, yielding a deterministic O(q^2+n q^(3/2) log q) affine-filter stage when n is at least logarithmic in q, without the source paper's heuristic independence assumption.",
+  "limitations": [
+    "The runtime improvement applies to the affine-filter stage under the stated n and characteristic hypotheses, not to every term in full key recovery."
+  ],
+  "schema_version": 1
+}
