@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T06:55:07.767112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 05de682fc728e1b72d45acea5bb087286535af07 and verifier script blob d0de631fc3e2ea7284fbef1786347862ca376e3e.",
+        "Benfield–Lippard arXiv:2404.08193 full PDF, Table 2 and Theorem 10.7."
+      ],
+      "rationale": "The semigroup equivalence is exact by subtracting 1 from each summand and padding a finite semigroup representation with 1^k terms. The generated monoid is numerical because the gcd of all a^k-1 is 1. For q=p^e with e<=k and lambda(q)|k, each generator is 0 or -1 mod q; an element congruent to -r therefore needs at least r p-divisible-base generators, each at least p^k-1, yielding exactly r(p^k/q)-1 forced gaps in that residue class. Summation gives the stated bound. The extra residue-zero gaps under q(q-1)<2^k-1 are below the smallest positive generator. For p=3, S_2=<3,8,...> has exactly the seven gaps {1,2,4,5,7,10,13}, contradicting the published bound 9. The p=5 and p>=7 repairs are arithmetically consistent.",
+      "residual_risks": [
+        "The finite verifier is supporting evidence only; the general theorem was checked from its proof rather than inferred from computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parent paper supplies the erroneous prime theorem and exact small tables, not the correction or prime-power extension; other semigroup papers concern different structured generators."
+        ],
+        "reasoning": "No inspected stronger theorem dominates the corrected prime-power statement.",
+        "searches": [
+          "Benfield–Lippard arXiv:2404.08193",
+          "General numerical-semigroup search results"
+        ]
+      },
+      "checked_sources": [
+        "Benfield–Lippard full arXiv PDF",
+        "Resultary search",
+        "Web searches for correction and a^k-1 semigroups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published theorem is false at p=3 and its proof overcounts boundary residue classes; it cannot imply the corrected universal statement as written."
+        ],
+        "reasoning": "The submitted semigroup threshold fixes the off-by-one count and adds new hypotheses/extra gaps to recover p>=5.",
+        "searches": [
+          "Benfield–Lippard Theorem 10.7 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No independent correction/equivalent theorem was located; the exact Resultary hit is the assigned finding."
+        ],
+        "reasoning": "Searches covered stable offsets, permanent exceptions, Frobenius/numerical-semigroup language and modular gaps.",
+        "searches": [
+          "Web: Benfield Lippard Theorem 10.7 correction numerical semigroup",
+          "Web: generalized Waring a^k-1 semigroup gaps",
+          "Resultary: stable Waring exceptions semigroup correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 is decisive evidence for the p=3 contradiction (|B^2|=7) but does not contain the corrected general theorem or prime-power family."
+        ],
+        "reasoning": "The correction is not a recomputation of the table; it explains and repairs a false universal theorem.",
+        "searches": [
+          "Benfield–Lippard Table 2"
+        ]
+      },
+      "rationale": "The primary paper itself contains the inconsistency: Table 2 gives |B^2|=7 while Theorem 10.7 states the universal odd-prime lower bound, which gives 9 at p=3. Targeted searches found no published correction or the prime-power Carmichael extension. General numerical-semigroup literature located in search results concerns other generator families and does not cover this Waring-offset semigroup theorem.",
+      "residual_risks": [
+        "Older generalized-Waring literature under different notation could contain a semigroup reformulation not surfaced by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY SUPPORTS the correction: Table 2 lists 7 for k=2 while Theorem 10.7 claims a bound of 9 at p=3.",
+          "evidence": "Theorem 10.7 is stated for every odd prime, and Table 2 on the same page lists b_2=7.",
+          "identifier_or_url": "arXiv:2404.08193v2",
+          "material_read": "Full arXiv PDF around Table 2, Theorem 10.7 and the stable-set definitions; page screenshots of the relevant theorem/table were also inspected.",
+          "method": "ArXiv PDF parsed text plus PDF screenshots.",
+          "title": "Integers that are not the sum of positive powers",
+          "trigger": "Direct source of Theorem 10.7, Table 2 and stable B-sets."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Benfield–Lippard theorem/table",
+        "Assigned proof"
+      ],
+      "rationale": "The result corrects a concrete false theorem in a recent paper while preserving its important p=11 corollary, and the prime-power formulation turns the repair into a reusable structural obstruction. This is substantively motivated and not merely a table recomputation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Permanent exact-j positive kth-power offset exceptions are exactly the positive gaps of the numerical semigroup generated by a^k-1; this corrects Benfield–Lippard Theorem 10.7 at p=3, proves its intended lower bound for odd primes p>=5, and extends the modular gap mechanism to suitable prime-power moduli.",
+  "limitations": [
+    "Originality is best-of-knowledge; no new exact large-exponent gap counts are claimed."
+  ],
+  "schema_version": 1
+}
