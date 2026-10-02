@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T16:48:03.300357Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/09/10/054/RESULT.md",
+        "frozen 2026/09/10/054/T5000.csv",
+        "frozen 2026/09/10/054/verify.py",
+        "PARI/GP 2.15.4 ellrank independent full sweep",
+        "https://pari.math.u-bordeaux.fr/dochtml/html-stable/Elliptic_curves.html"
+      ],
+      "rationale": "I independently reran all 6,084 fundamental quadratic twists with squarefree absolute parameter at most 5,000 in installed PARI/GP 2.15.4, using E=ellinit([0,-1,1,-10,-20]), D=quaddisc(±d) and R=ellrank(elltwist(E,D)). PARI's documented 2-Selmer upper bound is R[2]+R[3] here, because base/twist 2-torsion is zero. The rerun returned total 6084, sum of Selmer sizes 12136, maximum upper bound 3, and histogram [2106,3011,932,35,0,0], exactly the frozen CSV. A second full sweep independently collected the nine twists with certified rank lower bound three: -206,-1007,1393,1766,-1799,2362,2878,-4399,4582; root-number parity disagreements were zero. Thus no rank-four twist appears in this finite range, conditional on the trusted PARI descent implementation; the result does not assert an infinite no-rank-four theorem.",
+      "residual_risks": [
+        "Rerun used the same PARI 2.15.4 arithmetic engine as the source; this is independent invocation and logic check, not an independently implemented descent proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Family-average theorems do not determine a specific 6084-twist histogram.",
+          "PARI documentation defines an algorithm, not the finite 11a1 output table."
+        ],
+        "reasoning": "Neither broad statistical result nor software documentation implies the exact finite list without complete computation.",
+        "searches": [
+          "arXiv:2207.03309 Selmer distributions",
+          "PARI ellrank documentation"
+        ]
+      },
+      "checked_sources": [
+        "https://resultary.org/api/v1/search",
+        "https://pari.math.u-bordeaux.fr/dochtml/html-stable/Elliptic_curves.html",
+        "https://arxiv.org/abs/2207.03309"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Average/asymptotic formulas allow many possible finite histograms; ellrank computes individual twists only after executing the 6084 cases."
+        ],
+        "reasoning": "The exact histogram and rank-three list are not a corollary or substitution of the prior statements.",
+        "searches": [
+          "arXiv:2207.03309 average 2-Selmer sizes",
+          "PARI/GP official ellrank specification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit is this record; searched variants of the twist family and nine parameters did not expose another finite census."
+        ],
+        "reasoning": "Curve-label/Weierstrass-model variants were considered; no equivalent exact T=5000 statement found.",
+        "searches": [
+          "Resultary API: 11a1 quadratic twist 5000 2-Selmer histogram",
+          "11a1 twist rank 3 -206 -1007 1393"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table surfaced in the checked corpus and primary materials."
+        ],
+        "reasoning": "Bounded database check, not an assertion that all databases were exhausted.",
+        "searches": [
+          "Resultary 11a1 T5000 search",
+          "11a1 twist Selmer rank 6084 12136 histogram"
+        ]
+      },
+      "rationale": "General results on average Selmer sizes and rank distribution do not supply this exact finite 11a1 quadratic-twist table. Resultary's exact match was the audited SCOPE record. No inspected primary source or database supplies the 6084-row T=5000 census, histogram or nine rank-three certificates; best-of-knowledge residual database risk is stated.",
+      "residual_risks": [
+        "Specialized elliptic-curve databases may list individual ranks and could mechanically reconstruct a subset; no pre-existing complete T=5000 Selmer table was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTS correctness interpretation, NOT an exact census",
+          "evidence": "ellrank returns lower and upper rank bounds and 2-Selmer-related quantities; its description justifies the R[2]+R[3] upper count used in the sweep.",
+          "identifier_or_url": "https://pari.math.u-bordeaux.fr/dochtml/html-stable/Elliptic_curves.html",
+          "material_read": "Full ellrank entry, including output components and rank bounds",
+          "method": "Official primary software documentation reading",
+          "title": "PARI/GP Elliptic Curves documentation: ellrank",
+          "trigger": "Critical interpretation of ellrank output and Selmer upper bound"
+        },
+        {
+          "assessment": "NOT_DECISIVE for exact finite table",
+          "evidence": "The result is family-level average/asymptotic, not the specified finite 11a1 twist census.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.03309",
+          "material_read": "Abstract and theorem-level family statement",
+          "method": "Primary source theorem comparison; not claimed as full-paper read",
+          "title": "Average size of 2-Selmer groups in families of elliptic curves",
+          "trigger": "Potential broad coverage by Selmer distribution theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/09/10/054/RESULT.md",
+        "https://pari.math.u-bordeaux.fr/dochtml/html-stable/Elliptic_curves.html"
+      ],
+      "rationale": "The canonical conductor-11 curve's quadratic twist family is a natural arithmetic testbed; an exhaustive bounded 2-Selmer/rank dataset with full denominator, histogram and nine rank-three certificates is a useful reproducibility benchmark. The result is explicitly finite and does not overstate average-distribution or infinite-rank implications.",
+      "residual_risks": [
+        "Primarily exact finite data, not a new general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Rerun used the same PARI 2.15.4 arithmetic engine as the source; this is independent invocation and logic check, not an independently implemented descent proof.",
+    "Specialized elliptic-curve databases may list individual ranks and could mechanically reconstruct a subset; no pre-existing complete T=5000 Selmer table was found.",
+    "Primarily exact finite data, not a new general theorem."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rerun used the same PARI 2.15.4 arithmetic engine as the source; this is independent invocation and logic check, not an independently implemented descent proof.",
+    "Specialized elliptic-curve databases may list individual ranks and could mechanically reconstruct a subset; no pre-existing complete T=5000 Selmer table was found.",
+    "Primarily exact finite data, not a new general theorem."
+  ]
+}

@@ -1,4 +1,4 @@
-"""Independent verifier for 11a1 twist census (stdlib only).
+"""Verifier for the 11a1 twist census (stdlib only).
 
 Checks from artifacts alone (no PARI needed):
  1. T5000.csv: 6084 rows = all squarefree 0<|d|<=5000, no dup/missing.
@@ -14,8 +14,9 @@ Prints VERIFY_OK or FAIL with details.
 """
 import csv, re, sys
 from fractions import Fraction
+from pathlib import Path
 
-ART = "output/artifacts"
+ART = Path(__file__).resolve().parent
 T5000 = f"{ART}/T5000.csv"
 POINTS = f"{ART}/points5000.txt"
 MODELS = f"{ART}/models5000.txt"
@@ -47,7 +48,7 @@ for r in rows:
     odd = (int(r["sel_dim"]) - int(r["T_dim"])) % 2
     assert odd == (0 if int(r["w"]) == 1 else 1), r
     assert r["parity_ok"] == "1", r
-    assert int(r["T_dim"]) == 0, r  # all twists torsion-free here
+    assert int(r["T_dim"]) == 0, r  # no rational 2-torsion in this twist family
 
 tot = sum(2 ** int(r["sel_dim"]) for r in rows)
 assert tot == 12136, tot
