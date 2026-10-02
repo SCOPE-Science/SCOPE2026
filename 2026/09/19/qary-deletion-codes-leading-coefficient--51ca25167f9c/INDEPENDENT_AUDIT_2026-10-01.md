@@ -1,8 +1,7 @@
-# Review status
+# Independent Audit — The 2t-1 deletion-code redundancy coefficient extends to q-ary alphabets
 
-Independent audit completed on 2026-10-01 (UTC).
-
-Disposition: **PASSED**.
+**Audit date:** 2026-10-01 (UTC) (UTC)  
+**Disposition:** passed
 
 ## Correctness — PASS
 
@@ -16,7 +15,13 @@ The motivating En Gad paper proves the binary \((2t-1)\)-coefficient theorem. Th
 
 Uniformity in the alphabet size is a natural strengthening of the fixed-alphabet theorem, not a cosmetic parameter change: it controls how the construction behaves when \(q\) itself varies and removes hidden alphabet dependence from the redundancy statement. That directly answers the larger-alphabet extension problem identified around the new binary bound and is a reusable coding-theoretic fact.
 
-## Risks and limits
+## Source inspections
 
-- Full text of arXiv:2609.19493 could not be retrieved through direct arXiv or open-access mirrors, and the institutional retrieval service was unavailable; the audited proof therefore reconstructs the alphabet transfer from the package rather than relying on an unread source proof.
-- The closest primary binary preprint was not available in full text during this run, so a differently phrased remark in that manuscript remains a residual priority risk; no available evidence supplied broader uniform-q coverage.
+- Assigned proof and metadata were inspected from the frozen Git blobs.
+- The earlier fixed-q q-ary SCOPE result was read in full and compared parameter-by-parameter.
+- En Gad abstract/open metadata were inspected; direct and open full-text routes failed, and institutional retrieval was unavailable.
+- A q-ary burst-deletion paper was inspected sufficiently to confirm that its channel model is not ordinary arbitrary deletions.
+
+## Residual risks
+
+- Full text of arXiv:2609.19493 was inaccessible in this run; this is recorded as an access risk, not used as proof of novelty.

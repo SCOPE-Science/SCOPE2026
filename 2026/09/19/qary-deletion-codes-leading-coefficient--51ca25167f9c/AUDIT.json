@@ -1,27 +1,79 @@
 {
+  "audit_date_utc": "2026-10-01",
   "axes": {
-    "correctness": {
-      "rationale": "The binary proof's alphabet-sensitive steps were isolated and transferred: q-ary k-unique words remain a constant-density family; local edits remain disjoint {-1,0,1} bubbles when boundary symbols are merely unequal to the edited symbol; exceptional records gain q^O_t(1); and witness descriptions gain q^O_t(R), which is absorbed into the hash range without changing the n^(2t-1) exponent. Finite checks report PASS.",
+    "C": {
+      "reason": "The transfer keeps every alphabet-dependent factor inside \\(q^{O_t(R)}\\) description counts while the substring-hash range retains the \\(n^{2t-1}\\) exponent. The k-uniqueness scale is chosen using \\(\\log_2 n\\), so its density estimate is uniform in \\(q\\); q-ary local bubbles still have coefficients in \\(\\{-1,0,1\\}\\) once boundary symbols differ from the edited symbol; and the exceptional overlap records add only fixed powers of \\(q\\), absorbable into the constant exponent \\(A_t\\). Thus the probabilistic label-class argument yields constants depending on \\(t\\) but not on \\(q\\). The committed finite verifier is only a sanity check and is not used as proof.",
+      "risks": [
+        "Full text of arXiv:2609.19493 could not be retrieved through direct arXiv or open-access mirrors, and the institutional retrieval service was unavailable; the audited proof therefore reconstructs the alphabet transfer from the package rather than relying on an unread source proof."
+      ],
+      "sources": [
+        "assigned RESULT.md and package proof at the frozen source tree",
+        "Eyal En Gad, arXiv:2609.19493, abstract and accessible open metadata",
+        "the earlier fixed-alphabet q-ary extension record, inspected in full"
+      ],
       "verdict": "PASS"
     },
-    "originality": {
-      "rationale": "The inspected motivating preprint explicitly leaves the fixed-larger-alphabet 2t-1 coefficient as open. Targeted external searches found q-ary deletion constructions with larger leading coefficients or different burst/read models, but no ordinary q-ary t-deletion theorem with this coefficient. SCOPE overlap searches found no matching record. Near-simultaneous and folklore risk remain material.",
+    "O": {
+      "reason": "The motivating En Gad paper proves the binary \\((2t-1)\\)-coefficient theorem. The earlier published q-ary record proves the same leading coefficient only for fixed \\(q\\), with constants allowed to depend on \\(q\\); it explicitly does not provide the audited uniform-in-\\(q\\) dependence. Targeted searches also found q-ary burst-deletion and read-channel results, but those solve different error models. No prior statement found implies a uniform bound with constants independent of \\(q\\).",
+      "risks": [
+        "The closest primary binary preprint was not available in full text during this run, so a differently phrased remark in that manuscript remains a residual priority risk; no available evidence supplied broader uniform-q coverage."
+      ],
+      "sources": [
+        "Resultary semantic search for q-ary deletion codes and the \\(2t-1\\) coefficient",
+        "published record 2026/09/18/fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea, full RESULT.md inspected",
+        "En Gad arXiv:2609.19493 abstract/open metadata",
+        "q-ary burst-deletion literature including Entropy 27 (2025), article 85"
+      ],
       "verdict": "PASS"
     },
-    "value": {
-      "rationale": "The result resolves a stated open extension of a new deletion-code bound and shows that the one-factor-of-n gain over the greedy existential estimate is alphabet-independent. In particular, fixed q-ary two-deletion codes exist with leading bit-redundancy coefficient 3 rather than the generic coefficient 4.",
+    "V": {
+      "reason": "Uniformity in the alphabet size is a natural strengthening of the fixed-alphabet theorem, not a cosmetic parameter change: it controls how the construction behaves when \\(q\\) itself varies and removes hidden alphabet dependence from the redundancy statement. That directly answers the larger-alphabet extension problem identified around the new binary bound and is a reusable coding-theoretic fact.",
+      "risks": [],
+      "sources": [
+        "comparison between the binary theorem, the fixed-q extension, and the audited uniform-q statement"
+      ],
       "verdict": "PASS"
     }
   },
-  "disclaimer": "Same-model review: passed. Independent audit: not yet performed.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-19",
+  "disposition": "passed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "originality_analysis": {
+    "broader_coverage": "The earlier q-ary result covers each fixed alphabet separately but permits constants depending on \\(q\\); that does not imply the simultaneous uniform statement. Burst-deletion and read-channel constructions concern different channels.",
+    "checked_sources": [
+      "arXiv:2609.19493",
+      "2026/09/18/fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+      "Entropy 27 (2025), 85",
+      "arXiv:2606.26434"
+    ],
+    "claim_vs_prior_implication": "A theorem with constants depending on each fixed \\(q\\) does not yield constants independent of \\(q\\). The audited description-count argument is exactly the additional uniformity needed.",
+    "equivalent_formulations": "Bit redundancy and q-ary-symbol redundancy are equivalent after multiplying by \\(\\log_2 q\\); the substantive point is that the hidden constants are independent of \\(q\\).",
+    "exact_database_or_table": [
+      {
+        "outcome": "Returned the audited record, the earlier fixed-q extension, and related deletion-code records; no broader uniform-q theorem was found.",
+        "query": "q-ary deletion codes t deletions redundancy leading coefficient 2t-1 substring spectra linear hashing",
+        "source": "Resultary"
+      },
+      {
+        "outcome": "Located the binary En Gad preprint and q-ary burst/read-channel papers, but no ordinary q-ary uniform-q theorem with the same implication.",
+        "query": "q-ary deletion codes 2t-1 redundancy larger alphabet",
+        "source": "primary-literature web search"
+      }
+    ],
+    "residual_risks": [
+      "Full text of arXiv:2609.19493 was inaccessible in this run; this is recorded as an access risk, not used as proof of novelty."
+    ],
+    "source_inspections": [
+      "Assigned proof and metadata were inspected from the frozen Git blobs.",
+      "The earlier fixed-q q-ary SCOPE result was read in full and compared parameter-by-parameter.",
+      "En Gad abstract/open metadata were inspected; direct and open full-text routes failed, and institutional retrieval was unavailable.",
+      "A q-ary burst-deletion paper was inspected sufficiently to confirm that its channel model is not ordinary arbitrary deletions."
+    ]
+  },
+  "record_id": "SCOPE-20260919-51ca25167f9c",
+  "record_title": "The 2t-1 deletion-code redundancy coefficient extends to q-ary alphabets",
+  "review_type": "independent_audit",
   "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
