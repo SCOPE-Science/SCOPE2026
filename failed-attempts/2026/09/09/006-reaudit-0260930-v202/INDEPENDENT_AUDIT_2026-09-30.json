@@ -1,0 +1,96 @@
+{
+  "audited_at_utc": "2026-09-30T22:14:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh reconstruction of the Petersen, Clebsch, Shrikhande and 4-by-4 rook adjacency matrices reproduces the stated singleton vertex-deletion behavior and exact card characteristic polynomials. The Shrikhande and rook cards have identical characteristic polynomials, while direct exact checks give clique numbers 3 and 4, K4 counts 0 and 6, and spanning-tree counts 2177280000 and 2176782336. These values are internally correct.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 Delta-DRESS work applies a vertex-deletion fingerprint to these same two SRGs and reports that it separates the pair, within a much broader benchmark study."
+        ],
+        "reasoning": "Prior work already establishes a deletion-based distinction of the same pair, although with a different invariant.",
+        "searches": [
+          "arXiv:2603.18582 Shrikhande rook Delta-DRESS",
+          "arXiv:2602.20833 Delta-DRESS rook Shrikhande"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.18582",
+        "arXiv:2602.20833",
+        "Symmetry 13 (2021) 1663, Theorem 11 and cited classical derivative identity",
+        "Brouwer/standard SRG references for the parent graphs",
+        "Published SCOPE index semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parent cospectrality and vertex transitivity imply card cospectrality; Delta-DRESS predates the record and separates Rook L_2(4) from Shrikhande after one deletion level."
+        ],
+        "reasoning": "The main advertised deck-spectral persistence is prior-theorem implied, and the broad separation narrative is not new.",
+        "searches": [
+          "compare parent cospectrality plus vertex transitivity with characteristic-polynomial derivative theorem",
+          "compare DRESS deletion result with RESULT.md separator claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A standard theorem states phi_G prime equals the sum over vertices of phi_(G-v). For a vertex-transitive graph all terms agree, so one card polynomial equals phi_G prime divided by the number of vertices."
+        ],
+        "reasoning": "The equal card polynomial for the cospectral vertex-transitive Shrikhande and rook graphs is forced without the record’s computation.",
+        "searches": [
+          "derivative characteristic polynomial sum vertex deleted graphs",
+          "vertex-transitive graph vertex-deleted characteristic polynomial",
+          "Delta-DRESS Shrikhande rook vertex deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier table with the exact displayed card polynomial and both spanning-tree counts was found."
+        ],
+        "reasoning": "The exact numbers may be newly tabulated, but the central spectral equality is a direct consequence of a standard identity and the separation question was already answered by prior deletion-based work.",
+        "searches": [
+          "Shrikhande rook deleted card characteristic polynomial Kirchhoff spanning trees",
+          "published SCOPE search for Shrikhande rook vertex-deletion cards"
+        ]
+      },
+      "rationale": "The record’s context overstates the gap. Before this record, Delta-DRESS had already applied a single level of vertex deletion and reported separation of the classical rook L_2(4) and Shrikhande pair. More fundamentally, the exact equality of their vertex-deleted characteristic polynomials follows from standard spectral reconstruction: the derivative of a graph characteristic polynomial is the sum of the characteristic polynomials of its vertex-deleted subgraphs. Because both graphs are vertex-transitive, every card within each deck has the same characteristic polynomial; because the parents are cospectral, the card polynomials must coincide. Thus the headline spectral persistence is a textbook implication, while deck-level separation was already reported.",
+      "residual_risks": [
+        "The exact spanning-tree numbers were not located in prior literature, but they are ancillary to a headline whose main spectral and separation phenomena are already implied or previously demonstrated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DELETION_SEPARATION",
+          "evidence": "The paper states that Delta-DRESS, which runs on vertex-deleted subgraphs, separates the classical rook/Shrikhande pair.",
+          "identifier_or_url": "arXiv:2603.18582",
+          "material_read": "Primary arXiv record and relevant paper material describing Delta-DRESS and its separation of the SRG(16,6,2,2) pair.",
+          "method": "Primary-source inspection.",
+          "title": "Breaking Hard Isomorphism Benchmarks with DRESS",
+          "trigger": "Single-deletion method explicitly naming the Rook L_2(4) versus Shrikhande benchmark."
+        },
+        {
+          "assessment": "BROADER_SPECTRAL_IDENTITY",
+          "evidence": "Combined with vertex transitivity, the theorem makes each card polynomial equal to one-nth of the parent derivative.",
+          "identifier_or_url": "Symmetry 13 (2021) 1663, Section 5, Theorem 11",
+          "material_read": "The reconstruction section and theorem stating that the derivative of the characteristic polynomial equals the sum of the vertex-deleted characteristic polynomials.",
+          "method": "Full-text web inspection.",
+          "title": "Graphs Having Most of Their Eigenvalues Shared by a Vertex Deleted Subgraph",
+          "trigger": "Standard characteristic-polynomial relation for vertex-deleted cards."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact numerical certificates are reliable, but the main phenomena do not open a new mathematical gap: singleton decks follow from vertex transitivity, card cospectrality follows from the characteristic-polynomial derivative identity and parent cospectrality, and prior deletion-fingerprint work already separates the pair. The extra clique and tree counts are useful diagnostics but do not supply a new structural result or a motivated unknown invariant sufficient to rescue the standalone claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "independent": true,
+  "record_id": "SCOPE-20260909-006",
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact spanning-tree numbers were not located in prior literature, but they are ancillary to a headline whose main spectral and separation phenomena are already implied or previously demonstrated."
+  ]
+}
