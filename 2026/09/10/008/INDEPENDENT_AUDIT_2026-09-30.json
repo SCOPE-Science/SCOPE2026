@@ -1,0 +1,76 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-09-30",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact polynomial arithmetic was independently checked from the committed Jones expression: V''(1)=-312, V'''(1)=-10692 and the stated normalization gives v3=323/4. With a2=52 and a4=681, 7a2^2-a2-10a4=12066 and the Ichihara-Ito-Saito ratio is 6033/323 in lowest terms. Their Theorem 1.3 therefore forces the common surgery numerator m to be a multiple of 6033 whenever n+n' is nonzero in the ±-type case, excluding 0<|m|<=30. Theorem 1.1 excludes 0-type because v3 is nonzero, and Varvarezos Theorem 1.8 excludes opposite-sign slopes for a nontrivial L-space knot. The inspected master verifier recomputes Alexander/Conway and Jones data from the frozen braid word with exact arithmetic and trefoil controls.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Varvarezos Theorem 1.8 rules out opposite-sign cosmetic surgeries for every nontrivial L-space knot."
+        ],
+        "reasoning": "That theorem covers one sign regime broadly; it does not determine the same-sign arithmetic for t12533."
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorems become decisive only after knowing the t12533-specific values a2=52, a4=681, v3=323/4 and its L-space status."
+        ],
+        "reasoning": "The literature theorems do not mechanically supply the knot-specific constant without those computed invariants."
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ichihara-Ito-Saito Theorem 1.3 gives m/(n+n')=(7a2^2-a2-10a4)/(8v3) when v3 is nonzero."
+        ],
+        "reasoning": "The audited claim is the specialization of this general necessary condition to a specific natural knot after computing its exact invariants."
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate published exact match was located in the literature comparison."
+        ],
+        "reasoning": "No prior exact per-knot obstruction table was located."
+      },
+      "rationale": "Ichihara-Ito-Saito and Varvarezos provide general obstruction theorems, not the t12533-specific finite-type constants or the resulting exact ratio 6033/323. The t12533 literature identifies the knot and its L-space/asymmetric context, but the searched primary and corpus sources did not state this chirally-cosmetic exclusion or the same per-knot constant. Applying the general theorem therefore still requires the nontrivial exact invariant computation supplied here.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Chirally cosmetic surgery is a named open classification problem, and t12533 is a natural sporadic asymmetric L-space census knot. The reusable mathematical datum is the exact per-knot obstruction constant, which in fact gives a much wider same-sign numerator gap than the conservative |H1|<=30 headline. This is a motivated boundary computation rather than an arbitrary random-knot statistic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "artifacts/verify_target.py blob 233dedf220e251d2785bccbb694bc4a8d1e1da93",
+    "artifacts/jones_state.py blob 0adeb18b3a67cdfaafcf1208e8788338f8011195",
+    "https://arxiv.org/pdf/2112.04156",
+    "https://arxiv.org/pdf/2112.03144",
+    "https://arxiv.org/abs/2510.04403"
+  ],
+  "final_claim": "For the asymmetric L-space census knot t12533 represented by the committed positive 4-braid, there is no distinct chirally cosmetic surgery pair with |H1|<=30; the exact knot data a2=52, a4=681 and v3=323/4 give the same-sign obstruction constant 6033/323.",
+  "residual_risks": [
+    "The exclusion depends on the cited general surgery theorems and the knot being the stated nontrivial L-space knot. The |H1|<=30 cutoff is conservative: the same-sign divisibility argument itself excludes every positive common numerator below 6033, but no stronger public headline is introduced in this audit."
+  ],
+  "source_inspections": [
+    {
+      "material_read": "RESULT.md, Alexander, Jones, chiral-analysis and master verifier sources",
+      "result": "Checked conventions, exact invariant chain and the finite-scope exclusion.",
+      "source": "Git tree/blobs"
+    },
+    {
+      "material_read": "full PDF statements of Theorems 1.1 and 1.3",
+      "result": "Confirms the zero-type v3 obstruction and the exact ±-type ratio formula used.",
+      "source": "Ichihara-Ito-Saito, arXiv:2112.04156"
+    },
+    {
+      "material_read": "full PDF introduction and Theorem 1.8",
+      "result": "Confirms opposite-sign cosmetic surgeries are excluded for nontrivial L-space knots.",
+      "source": "Varvarezos, arXiv:2112.03144"
+    },
+    {
+      "material_read": "knot identification, L-space/asymmetric context and recorded quasi-alternating slopes",
+      "result": "Provides object/context rather than the audited finite-type constant.",
+      "source": "t12533 primary literature cited in the package"
+    }
+  ],
+  "status": "passed"
+}
