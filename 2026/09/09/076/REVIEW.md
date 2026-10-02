@@ -1,6 +1,7 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit outcome: **repaired**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+- Correctness: **PASS** — A fresh independent construction of the 9460-by-9453 interpolation matrix over F_251 at the first stated ten-point specialization was eliminated through all 9453 columns with no missing pivot, proving full column rank. A nonzero 9453-minor mod 251 is a nonzero integer minor, hence the specialized characteristic-zero system has h^0=0; upper semicontinuity then gives emptiness for general points. The auxiliary shifted C source has an out-of-bounds falling-factorial stride bug, so that secondary log is removed and the source is repaired; it is not needed for the proof.
+- Originality: **PASS** — Ciliberto-Miranda prove expected dimension only for d/m at least 174/55, Dumnicki proves the homogeneous Harbourne-Hirschowitz statement for multiplicities at most 42, and Petrakiev proves emptiness only below 2280/721. The ratio 136/43 lies strictly between sqrt(10) and 174/55 and is not implied by those results. Targeted Resultary and literature searches found no prior resolution of this exact cell.
+- Value: **PASS** — This is the first homogeneous multiplicity-43 cell immediately beyond the published m<=42 range and the unique degree at m=43 in the narrow classical ten-point interpolation strip. It is a natural boundary instance of a long-standing interpolation problem, not an arbitrary finite slice.
