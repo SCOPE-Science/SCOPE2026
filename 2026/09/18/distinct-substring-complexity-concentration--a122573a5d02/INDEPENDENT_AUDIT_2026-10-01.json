@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T08:01:19.884033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob and empty artifact inventory at the assigned tree.",
+        "Janson–Lonardi–Szpankowski 2004 primary presentation/full PDF on average sequence complexity.",
+        "Godbole 2026 primary abstract/open-question statement."
+      ],
+      "rationale": "For two starting positions, even when the length-r blocks overlap, sequentially revealing fresh constrained symbols bounds the match probability by p_*^r. A union bound gives the stated longest-repeat tail. On the good event L_n<=ell, all longer windows are unique, while changing h coordinates affects the set of length-k substrings by at most hk; summing k<=ell gives Hamming Lipschitz constant ell(ell+1)/2. McShane extension followed by clamping preserves that constant. The expectation shift is at most M_n delta, McDiarmid yields the stated tail, and Efron–Stein plus the bad-event square bound gives Var(D_n)<=n c_ell^2+2M_n^2 delta. With ell proportional to log n, delta is O(n^-6) and the advertised variance/fluctuation orders follow. No finite enumeration is needed for the proof.",
+      "residual_risks": [
+        "The logarithmic exponent is not claimed sharp; no CLT or matching lower variance bound is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 material targets expectation; 2026 work explicitly poses concentration/variance as open."
+        ],
+        "reasoning": "Neither inspected source dominates the submitted theorem.",
+        "searches": [
+          "Janson–Lonardi–Szpankowski 2004",
+          "Godbole 2026"
+        ]
+      },
+      "checked_sources": [
+        "Janson–Lonardi–Szpankowski 2004 primary PDF",
+        "Godbole 2026 abstract/open question",
+        "web searches",
+        "Resultary attempted but unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expectation asymptotics do not imply variance/concentration bounds."
+        ],
+        "reasoning": "The submitted truncation plus bounded-differences mechanism is an additional theorem.",
+        "searches": [
+          "Primary 2004 presentation and 2026 open-question statement."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching theorem was found."
+        ],
+        "reasoning": "Aliases for total factor/subword complexity and suffix-tree size were included.",
+        "searches": [
+          "distinct-substring complexity variance concentration random string",
+          "subword complexity variance random word",
+          "suffix-tree total distinct factors concentration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary failed internally."
+        ],
+        "reasoning": "No novelty inference from service failure.",
+        "searches": [
+          "Resultary semantic query attempted."
+        ]
+      },
+      "rationale": "The 2004 primary material treats expectation and explicitly leaves variance characterization aside; the September 2026 Godbole paper studies E(D) and explicitly asks for variance/concentration. Exact and semantic searches found no earlier tail or O(n log^4 n) variance theorem for total distinct-substring count. Older suffix-tree literature remains a residual risk but the closest inspected primary material points away from coverage.",
+      "residual_risks": [
+        "Older random-trie/suffix-tree papers not surfaced by the searches could contain related concentration estimates under another statistic name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the claimed variance/concentration theorem.",
+          "evidence": "The presentation explicitly says the goal is precise expectation and leaves Var(C_{n,k}) uncharacterized.",
+          "identifier_or_url": "Theoretical Computer Science 326 (2004); CPM presentation PDF",
+          "material_read": "Primary presentation PDF; pages defining C_{n,k}, objective, expectation proof sketch and stated variance gap.",
+          "method": "OA PDF text and screenshot.",
+          "title": "On Average Sequence Complexity",
+          "trigger": "Classic same-object source."
+        },
+        {
+          "assessment": "NOT_COVERING; it studies expectation and asks about variance/concentration.",
+          "evidence": "Abstract states results concerning E(D); open question asks whether variance can explain concentration.",
+          "identifier_or_url": "arXiv:2609.19409",
+          "material_read": "Primary abstract plus indexed open-question statement.",
+          "method": "arXiv abstract and open-problem index.",
+          "title": "The Expected Number of Distinct Substrings in an Alphabet String",
+          "trigger": "Very recent same-variable paper and explicit open question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Godbole 2026 open question",
+        "Janson–Lonardi–Szpankowski 2004"
+      ],
+      "rationale": "The theorem answers a directly motivated and explicitly posed concentration question for a natural string statistic. It gives a nontrivial near-root-n fluctuation scale using a transparent structural reduction to the longest repeat, and is not a mere numerical cutoff.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an i.i.d. finite or countable alphabet source with largest atom p_*<1, the number D_n of distinct nonempty contiguous substrings has an explicit McDiarmid tail after truncating at the longest-repeat scale, and in particular Var(D_n)=O_{p_*}(n log^4 n) with fluctuations O_P(sqrt(n) log^2 n).",
+  "limitations": [
+    "The log^4 n variance order may be nonoptimal and no lower bound/limit law is asserted."
+  ],
+  "schema_version": 1
+}
