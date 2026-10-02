@@ -1,0 +1,109 @@
+{
+  "acceptance_rule": "Correctness, originality, and scientific value must all pass.",
+  "audited_at_utc": "2026-10-01T09:40:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at source tree ccc9c303c96304f3a6390062afb42d8d21fbde27",
+        "H. Dirksen, Sections of the regular simplex -- Volume formulas and estimates, Math. Nachr. 290 (2017), full text inspected through authorized institutional access",
+        "G. Ambrus and B. Gárgyán, Minimal central slices of the regular simplex, arXiv:2609.12714"
+      ],
+      "rationale": "For a one-positive normal \\(a=(x,-y_2,\\ldots,-y_n)\\), conditioning the exponential representation gives the exact density \\(x^{-1}\\prod_j(1+y_j/x)^{-1}\\). With \\(r_j=y_j/x\\) and \\(\\sum r_j=1\\), AM--GM yields the claimed ratio and its sharp equality condition; the normalization identity gives the equivalent angular form. Along a unit-speed spherical geodesic through the facet normal, differentiating the exact logarithmic formula gives zero first derivative and constant second derivative \\((2n-1)/n\\) in every tangent direction, hence the stated Hessian.",
+      "residual_risks": [
+        "No correctness defect was found; the scientific rejection is due to mechanical prior implication and value, not access failure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ambrus--Gárgyán subsequently prove the global minimum over all chambers.",
+          "The 2025/2026 stability paper located in the package concerns the opposite maximal-slice problem."
+        ],
+        "reasoning": "The broader global-minimum theorem does not itself print the package's local coefficient, but Dirksen's older exact formula already mechanically supplies it.",
+        "searches": [
+          "Ambrus Gárgyán minimal central slices regular simplex",
+          "stability of simplex slicing minimum"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1002/mana.201600109",
+        "https://arxiv.org/abs/2609.12714"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the number of positive coordinates to one gives the same product structure used by the assigned proof; the package's AM--GM step is the same elementary inequality already central to Dirksen's proof.",
+          "Once the exact one-positive formula is written, the Hessian coefficient follows by two derivatives at the symmetric point."
+        ],
+        "reasoning": "The final claim is therefore a direct quantitative corollary of known formulas rather than a theorem requiring a new nonstandard lemma.",
+        "searches": [
+          "Dirksen Corollary 2.4 plus one-positive normalization",
+          "Dirksen Proposition 3.3 plus geodesic differentiation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dirksen Theorem 1.3(i) states the same one-positive chamber and facet-parallel minimum.",
+          "Dirksen Corollary 2.4 gives the exact hyperplane-section volume formula; Proposition 3.3 uses AM--GM to balance the negative coordinates."
+        ],
+        "reasoning": "The package specializes the known exact formula to one positive coordinate and performs the elementary AM--GM and second-derivative calculations.",
+        "searches": [
+          "Dirksen regular simplex one-positive chamber minimum",
+          "regular simplex central section exact formula",
+          "simplex slice Hessian facet-parallel minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full 2017 primary text was inspected: Theorem 1.3(i), Corollary 2.4, and Proposition 3.3 are the decisive entries."
+        ],
+        "reasoning": "No numerical table is relevant; the exact source theorem/formula serves the database-level comparison.",
+        "searches": [
+          "published simplex-section theorem corpus",
+          "Dirksen theorem and corollary numbering"
+        ]
+      },
+      "rationale": "Dirksen's 2017 paper already gives the exact general central-section formula, proves the facet-parallel minimum throughout precisely the one-positive sign chamber, and carries out the same AM--GM balancing mechanism. The package's \\(\\sec\\theta\\) deficit and isotropic Hessian are short algebraic and differential consequences of that existing formula in the already-solved chamber. Under the required implication standard, absence of the exact displayed coefficient from Dirksen's theorem statement does not make the corollary original.",
+      "residual_risks": [
+        "None material to the coverage decision; the full decisive older source was read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage by implication.",
+          "evidence": "Theorem 1.3(i) proves the facet-parallel minimum for all normals with one nonnegative and all other nonpositive coordinates; Corollary 2.4 gives the exact volume formula; Proposition 3.3 performs the balancing via AM--GM.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.201600109",
+          "material_read": "Full primary paper, pages 1--12, obtained through authorized institutional access after open full-text routes failed.",
+          "method": "Full-text theorem and proof inspection.",
+          "title": "Sections of the regular simplex -- Volume formulas and estimates",
+          "trigger": "Same simplex, same one-positive chamber, and exact section formula."
+        },
+        {
+          "assessment": "Broader global minimum result, but not needed for the decisive implication from Dirksen.",
+          "evidence": "The abstract states that minimal central sections are facet-parallel.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12714",
+          "material_read": "Primary abstract.",
+          "method": "Direct arXiv lookup.",
+          "title": "Minimal central slices of the regular simplex",
+          "trigger": "Current global solution of the minimum problem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Dirksen 2017 full text",
+        "Ambrus--Gárgyán 2026 global-minimum context"
+      ],
+      "rationale": "The exact deficit and Hessian are tidy and correct, but they arise by elementary AM--GM and two derivatives from a known exact formula in a chamber whose minimizer Dirksen already proved. Under the stated value bar, this is a routine refinement of a known theorem rather than an independently motivated unknown invariant or structural boundary.",
+      "residual_risks": [
+        "The formulas may still be pedagogically useful, but that does not overcome their routine derivation from prior work."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "In the one-positive-coordinate chamber for central sections of a regular simplex, the section-volume ratio satisfies the displayed \\(\\sec\\theta\\) lower bound with equality only at the facet-parallel normal, and the Riemannian Hessian at that minimizer is isotropic with eigenvalue \\(((2n-1)/n)V_{\\min}\\).",
+  "limitations": [
+    "The quantitative bound is confined to one-positive-coordinate chambers and the Hessian statement is local."
+  ]
+}
