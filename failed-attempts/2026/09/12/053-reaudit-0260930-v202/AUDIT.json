@@ -1,0 +1,99 @@
+{
+  "audited_at_utc": "2026-10-01T01:54:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The central local Hopf computation is reproducible: independently solving the filed fixed-point equations gives the stated branch values at rho=1,2,2.545339,3,4 and the critical eigenvalue approximately +0.217293 i/ms (34.5833 Hz); a fresh RK4 replay at rho=4 reproduces means 60.217/32.497 Hz, amplitudes 39.302/53.901 Hz, frequency 36.6667 Hz and phase -1.2902 rad. However, the final claim is stronger: uniqueness of the physical branch over the full continuum [0.1,10] is supported only by finitely many Newton starts/probed points, and asymptotic stability of the limit cycle is inferred from persistent integration without Floquet or an equivalent basin/stability certificate. Those methods do not prove the stated global uniqueness/stability assertions.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MPR provides the broad exact neural-mass framework and supports systematic bifurcation analysis, but does not imply this chosen threshold without computation."
+        ],
+        "reasoning": "The general model is prior; the numeric instance is not mechanically given by the general theorem.",
+        "searches": [
+          "Montbrio Pazo Roxin exact macroscopic spiking neurons",
+          "QIF E-I gamma bifurcation heterogeneity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1506.06581",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper derives the exact low-dimensional equations but does not state the scanned parameter point or rho_c."
+        ],
+        "reasoning": "A numerical continuation/eigenvalue solve is required, so the exact threshold is not a direct prior corollary.",
+        "searches": [
+          "arXiv:1506.06581 exact firing rate QIF macroscopic equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned this record itself as the exact threshold match.",
+          "Montbrio-Pazo-Roxin arXiv:1506.06581 gives the exact macroscopic QIF equations."
+        ],
+        "reasoning": "The record is a parameter-specific bifurcation computation within the established exact MPR system; no equivalent exact threshold formulation was located.",
+        "searches": [
+          "Resultary QIF E I heterogeneity ratio fixed budget gamma Hopf Montbrio",
+          "MPR QIF heterogeneity Hopf gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact table or database row beyond the record under audit was returned."
+        ],
+        "reasoning": "The exact number is best-of-knowledge new, but exact-instance novelty is insufficient for value.",
+        "searches": [
+          "Resultary rho 2.545 34.6 Hz QIF heterogeneity ratio"
+        ]
+      },
+      "rationale": "The exact fixed-budget heterogeneity-ratio threshold and parameter tuple were not found in Resultary or the inspected primary MPR literature. The general MPR reduction and QIF bifurcation framework are established, but the stated numeric threshold requires a separate computation. Best-of-knowledge exact-instance originality therefore passes, subject to normal search limitations.",
+      "residual_risks": [
+        "A broader neuroscience search might contain a closely related heterogeneity-ratio scan, but no exact parameter/path threshold was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general model coverage, not exact parameter threshold",
+          "evidence": "The paper derives exact macroscopic firing-rate/mean-voltage equations for QIF networks.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.06581",
+          "material_read": "abstract and model scope",
+          "method": "primary-source web inspection",
+          "title": "Macroscopic description for networks of spiking neurons",
+          "trigger": "same exact QIF/MPR reduction"
+        },
+        {
+          "assessment": "local Hopf/cycle numerics reproduce, but global uniqueness/stability are under-certified and parameter choice is scan-selected",
+          "evidence": "Fresh calculations reproduced rho_c/frequency and rho=4 cycle metrics; scan1.py explicitly searches a candidate grid.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/92c7f26b45ce94be6cda0eafed44298c598d7b47/2026/09/12/053",
+          "material_read": "RESULT.md, scan1.py, stage5.py, stage6.py, bisect.json, cycle_rho4.000.json, and spike JSON outputs",
+          "method": "Git blob inspection plus independent fixed-point/eigenvalue and rho=4 cycle replay",
+          "title": "Assigned package 2026/09/12/053",
+          "trigger": "claimed threshold, stability, and parameter motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source tree shows that the final parameter vector was selected after scanning a grid of JEI, JIE, etaE and etaI candidates for the desired baseline/Hopf behavior. The exact rho threshold is therefore a post-selected parameter slice without an independent argument that this tuple, fixed-sum path, or threshold is a natural classification boundary or broadly needed invariant. It is useful exploratory modeling, but not a sufficiently motivated mathematical gap under the shared value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent": true,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "limitations": [
+    "The finite N=7500 spiking simulation was not rerun; additionally, one-seed finite simulation cannot establish general finite-size robustness."
+  ],
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260912-053",
+  "review_type": "independent_audit",
+  "schema_version": 1,
+  "verification_state": "independent_audit_failed"
+}
