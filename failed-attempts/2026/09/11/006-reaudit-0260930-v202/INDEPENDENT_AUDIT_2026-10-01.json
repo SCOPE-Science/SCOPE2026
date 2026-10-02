@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T00:21:01.205189Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The square-with-center family calculation is internally consistent. The actual `artifacts/certify_isolation.py` was read completely: exact rational inequalities with a rigorous decimal enclosure for \\(\\sqrt2\\) show positivity of the even block and reduce the odd block to positivity of an affine factor on \\(\\nuu\\in[1/2,1]\\). This gives transverse Morse index zero and nondegeneracy for \\(\\mu\\in[1,2]\\). The same interval also lies strictly below the independently published unique degeneracy mass, so the no-bifurcation conclusion on this interval is correct.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives the unique square-family degeneracy and the bifurcating kite/trapezoid branches."
+        ],
+        "reasoning": "A theorem locating the only degeneracy globally along this family is strictly broader than certifying positivity/no bifurcation on the subinterval \\([1,2]\\).",
+        "searches": [
+          "Meyer and Schmidt, Bifurcations of relative equilibria in the 4- and 5-body problem, 1988"
+        ]
+      },
+      "checked_sources": [
+        "Meyer–Schmidt (1988), DOI 10.1017/S0143385700009433",
+        "assigned RESULT.md and artifacts/certify_isolation.py",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior threshold exceeds \\(2\\), so \\([1,2]\\) contains no degeneracy; the paper also states the corresponding branch behavior at the unique degeneracy."
+        ],
+        "reasoning": "The audited no-bifurcation claim follows directly as a corollary, even if the endpoint Morse-index wording is not copied verbatim.",
+        "searches": [
+          "comparison of audited interval with Meyer–Schmidt threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1988 Meyer–Schmidt paper studies the same family and gives the exact unique degeneracy mass."
+        ],
+        "reasoning": "The audited parameterization is the standard square with four equal outer masses and a central mass, so the prior result is an equivalent formulation after normalization.",
+        "searches": [
+          "square with center central configuration four equal masses central mass bifurcation",
+          "Meyer Schmidt square family degeneracy central mass"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table is needed: the prior exact degeneracy formula already determines whether the audited interval contains a bifurcation."
+        ],
+        "reasoning": "The result is mechanically implied by the prior exact threshold rather than being a new database row.",
+        "searches": [
+          "central-configuration square-family index/degeneracy tables"
+        ]
+      },
+      "rationale": "Meyer and Schmidt already analyze the same square-with-center four-equal-plus-central-mass family and identify its unique degeneracy at the exact mass \\((13+11\\sqrt2)/12\\), with kite and trapezoid branches at that degeneracy and no nonsymmetric relative equilibria bifurcating from the square family. Since this mass is about \\(2.38\\), their result directly implies nondegeneracy and absence of bifurcation throughout \\([1,2]\\). The audited interval result is therefore a special-case corollary of stronger prior coverage.",
+      "residual_risks": [
+        "The prior paper uses relative-equilibrium language and its own normalization, but the square-plus-central-mass family and degeneracy parameter are the same mathematical object."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE: the unique degeneracy occurs above the audited interval, and the same paper describes the square-family branches.",
+          "evidence": "The paper gives the exact mass \\((13+11\\sqrt2)/12\\) and states the square-family bifurcation behavior.",
+          "identifier_or_url": "https://doi.org/10.1017/S0143385700009433",
+          "material_read": "Accessible full-text passages containing the unique degeneracy mass and the square-family bifurcation statements.",
+          "method": "Primary-source theorem/passage inspection.",
+          "title": "Bifurcations of relative equilibria in the 4- and 5-body problem",
+          "trigger": "Same square-with-center mass family and bifurcation question."
+        },
+        {
+          "assessment": "Confirms the interval calculation but cannot restore originality.",
+          "evidence": "The odd-block determinant factor is positive on the entire \\(\\nuu\\)-interval corresponding to \\(\\mu\\in[1,2]\\).",
+          "identifier_or_url": "artifacts/certify_isolation.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line exact-inequality inspection.",
+          "title": "Assigned isolation verifier",
+          "trigger": "Correctness of the finite interval calculation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The interval isolation statement is mathematically correct, but as stated it is a routine subinterval consequence of a prior exact unique-degeneracy theorem for the same family. The new exact-Hessian certificate is useful reproducibility evidence, yet correctness and reproducibility alone do not make the already implied interval fact a new valuable mathematical finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is due to stronger prior coverage, not a correctness defect.",
+    "The package's verifier is located at `artifacts/certify_isolation.py`, while RESULT/METADATA name an `output/artifacts` path.",
+    "The audit does not reject the usefulness of the exact certificate as a regression check."
+  ],
+  "record_id": "SCOPE-20260911-006",
+  "schema_version": 1
+}
