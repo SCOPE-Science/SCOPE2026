@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T04:15:25.160023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated bound follows. For a PCF unicritical polynomial, \\(c\\) is an algebraic integer and every archimedean conjugate has modulus at most 2, hence \\(h(c)\\le\\log 2\\). The standard global height estimate gives \\(|h(f(x))-d h(x)|\\le h(c)+\\log2\\), so telescoping against the canonical height yields \\(h(x)\\le2\\log2\\) for preperiodic \\(x\\). If \\(x\\) has degree at most \\(D\\), its primitive minimal polynomial has Mahler measure at most \\(4^D\\), and the elementary coefficient bound gives absolute coefficients at most \\(8^D\\). Counting possible polynomials and their roots yields the claimed coarse \\(D^2(2\\cdot8^D+1)^{D+1}\\) upper bound. The package script correctly reproduces the arithmetic examples.",
+      "risks": [
+        "The bound is intentionally very coarse and counts many algebraic numbers that are not preperiodic."
+      ],
+      "sources": [
+        "Ferraguti–Pagano, Abelian dynamical Galois groups for unicritical polynomials, Lemma 4.1",
+        "standard Weil/canonical height comparison",
+        "artifacts/compute_B.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published lemma supplies the only PCF-specific input; the remaining steps are general height theory."
+        ],
+        "reasoning": "This broader combination directly dominates the claimed qualitative theorem and leaves only a crude explicit constant calculation.",
+        "searches": [
+          "Ferraguti–Pagano, Lemma 4.1",
+          "standard canonical-height telescoping",
+          "Northcott theorem"
+        ]
+      },
+      "checked_sources": [
+        "Ferraguti–Pagano arXiv:2303.04783",
+        "standard canonical-height theory",
+        "Northcott theorem",
+        "assigned RESULT.md and artifacts/compute_B.py",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ferraguti–Pagano explicitly conclude \\(h(c)\\le\\log2\\) from PCF; standard height comparison then bounds all preperiodic heights uniformly in \\(d\\)."
+        ],
+        "reasoning": "The audited theorem is a direct corollary followed by a deliberately loose explicit counting estimate.",
+        "searches": [
+          "claim versus Ferraguti–Pagano plus standard height inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is this record. Ferraguti–Pagano explicitly state the same PCF height bound on \\(c\\)."
+        ],
+        "reasoning": "Equivalent formulations as bounded PCF parameter height plus Northcott and as a canonical-height preperiodic bound lead to the same standard argument.",
+        "searches": [
+          "Resultary: PCF unicritical polynomial number field degree-independent bound rational preperiodic points height Northcott",
+          "Ferraguti–Pagano Lemma 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No special database is required: an elementary coefficient count mechanically produces a finite explicit bound once height and degree are bounded."
+        ],
+        "reasoning": "The exact numerical formula is not protected from coverage merely because a prior source does not tabulate it.",
+        "searches": [
+          "Northcott finite sets of bounded degree and height"
+        ]
+      },
+      "rationale": "Ferraguti and Pagano explicitly prove the decisive PCF parameter bound: \\(c\\) is an algebraic integer, every postcritical value is archimedean-bounded by 2, and they immediately record \\(h(c)\\le\\log2\\) and apply Northcott. From that published lemma, the audited degree-independent preperiodic bound follows mechanically by the standard canonical-height comparison and an elementary explicit Northcott coefficient count. The exact enormous formula is not a new mathematical phenomenon; it is a crude explicit instantiation of those standard steps.",
+      "residual_risks": [
+        "A sharper explicit bound may still be worthwhile, but the audited formula is not presented or justified as sharp."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE PRIOR COVERAGE of the PCF-specific height input.",
+          "evidence": "Lemma 4.1 states that PCF forces integrality of \\(c\\) and archimedean bound 2; the next paragraph states \\(h(c)\\le\\log2\\) and invokes Northcott.",
+          "identifier_or_url": "arXiv:2303.04783",
+          "material_read": "Accessible full-text copy, including Lemma 4.1 and the paragraph immediately applying it to logarithmic Weil height and Northcott.",
+          "method": "Primary full-text theorem comparison.",
+          "title": "Abelian dynamical Galois groups for unicritical polynomials",
+          "trigger": "Highly relevant PCF unicritical source."
+        },
+        {
+          "assessment": "Correct arithmetic, but it does not create originality beyond the standard explicit Northcott count.",
+          "evidence": "It reproduces \\(B(1)=289\\) and \\(B(2)=8586756\\).",
+          "identifier_or_url": "artifacts/compute_B.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line inspection and independent arithmetic check.",
+          "title": "Assigned bound script",
+          "trigger": "Explicit constant calculation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The qualitative uniform finiteness follows immediately from a known uniform PCF height bound plus standard canonical-height and Northcott theory, while the displayed constant is an intentionally enormous coefficient-count bound with no extremal or structural significance. Correctness and explicitness alone do not make this routine instantiation a valuable new mathematical gap under the required standard.",
+      "risks": [
+        "This judgment does not diminish the importance of sharp uniform boundedness questions; it concerns only this crude bound."
+      ],
+      "sources": [
+        "Ferraguti–Pagano Lemma 4.1",
+        "Northcott theorem"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is originality/value based, not correctness based.",
+    "The result excludes the fixed point at infinity, as stated.",
+    "No claim is made that the bound is remotely sharp."
+  ],
+  "record_id": "SCOPE-20260915-007",
+  "schema_version": 1
+}
