@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T18:56:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 67f883648c50d6a80517ef7d427dbf4a0dcd25f0",
+        "Frozen verify.py f3b0d2579f82093b380d61eb18fba05e809d5d07"
+      ],
+      "rationale": "Let \\(M=(2^a+1)(p^b+1)=2^sR\\) with \\(R\\) odd. Multiplicativity gives \\(2^s+1\\mid 2^{a+2}p^b\\), hence \\(2^s+1=p^c\\). If \\(b\\) is even, \\(p^b\\equiv1\\pmod8\\) gives \\(s=1\\) and \\(p=3\\). If \\(b\\) is odd, LTE gives \\(s=v_2(p+1)\\); the cases \\(c=1\\) and \\(c\\ge2\\) each contradict this valuation, so odd \\(b\\) is impossible. In the \\(b=2\\) slice, \\(p=3\\); factoring \\(2^a+1\\) and analyzing when every unitary-divisor factor is a power of two forces \\(a=1\\), while the branch divisible by five is excluded by the required \\(2\\)-\\(3\\)-smoothness of \\(5^m+1\\). Direct evaluation verifies \\(18\\). The bounded script is corroboration only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper develops multiplier-two structure and includes a bounded appendix for general multipliers.",
+          "The neighboring reference/database material tracks unitary-superperfect (multiplier-two) numbers rather than the multiplier-four two-prime theorem."
+        ],
+        "reasoning": "The closest broader sources provide context/data but do not dominate the final claim.",
+        "searches": [
+          "V. Sitaramaiah and M. V. Subbarao, On the equation sigma*(sigma*(n))=2n, 1998",
+          "Guy, Unsolved Problems in Number Theory unitary-superperfect context",
+          "OEIS A038843"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 67f883648c50d6a80517ef7d427dbf4a0dcd25f0",
+        "Frozen artifact verify.py f3b0d2579f82093b380d61eb18fba05e809d5d07",
+        "Sitaramaiah--Subbarao 1998 full primary PDF/Appendix",
+        "Resultary semantic search",
+        "OEIS A038843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper only establishes its stated multiplier-two results and bounded general-k table in the inspected material.",
+          "The audited valuation argument forces \\(2^s+1\\) to be a power of the single odd prime and then rules out odd \\(b\\), a structural implication absent from the table."
+        ],
+        "reasoning": "No inspected prior theorem mechanically implies the two-prime multiplier-four rigidity or the \\(b=2\\) classification.",
+        "searches": [
+          "Complete relevant end sections and Appendix of Sitaramaiah--Subbarao 1998",
+          "Frozen RESULT.md proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the current record as the exact hit and no earlier covering theorem.",
+          "The 1998 Appendix lists \\(18\\) as the only multiplier-four example up to \\(10^8\\), but the inspected paper does not state the infinite two-prime rigidity theorem or the complete square-exponent slice."
+        ],
+        "reasoning": "The finite table and the structural theorem are not equivalent; the audited proof establishes an infinite-range implication.",
+        "searches": [
+          "Resultary semantic query: unitary divisor sum sigma star iterate equals 4n 2^a p^b",
+          "Sitaramaiah--Subbarao 1998 primary paper and Appendix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Appendix explicitly records k=4, n=18 in the finite range.",
+          "OEIS A038843 concerns multiplier two.",
+          "No earlier Resultary result supplied the same infinite theorem."
+        ],
+        "reasoning": "The exact database/table was inspected; its bounded entry is evidence of motivation and consistency, not proof of the infinite theorem.",
+        "searches": [
+          "Primary 1998 Appendix: all n<=10^8 with sigma*^2(n)=kn",
+          "OEIS A038843",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "The exact primary paper was inspected: it contains the finite k=4 datum 18 through \\(10^8\\) but not the audited infinite two-prime theorem. Resultary likewise found no earlier covering record.",
+      "residual_risks": [
+        "Equivalent coverage may exist under alternate terminology for generalized or (m,k)-unitary-perfect numbers; no such source was located in the inspected searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FINITE_TABLE_AND_DIFFERENT_MULTIPLIER_THEORY",
+          "evidence": "The Appendix lists k=4 only at n=18 in the bounded range; no inspected theorem states the audited infinite two-prime reduction.",
+          "identifier_or_url": "V. Sitaramaiah and M. V. Subbarao, Utilitas Mathematica 53 (1998), 101--124",
+          "material_read": "Primary PDF pages covering the concluding multiplier-two structural results, references, and the complete Appendix table through \\(10^8\\).",
+          "method": "Full-text PDF inspection.",
+          "title": "On the equation sigma*(sigma*(n))=2n",
+          "trigger": "Primary source and exact finite table cited by the record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sitaramaiah--Subbarao 1998 Appendix",
+        "Frozen RESULT.md"
+      ],
+      "rationale": "The theorem converts an isolated finite-table observation into an infinite structural restriction for a natural two-prime-support family and completely resolves the first even-exponent slice. That is a motivated Diophantine classification step, not mere recomputation of the table.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem does not classify the remaining family \\(2^a3^{2m}\\) for \\(m\\ge2\\), nor integers with at least three distinct prime factors."
+  ],
+  "schema_version": 1
+}
