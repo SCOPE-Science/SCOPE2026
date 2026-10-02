@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T22:56:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lemma 2.7 of the primary source gives the exact kernel w_p(t)=t(2p-t). Translating f by a quadratic forces lambda=(3p-1)/48 because M-m is translation-invariant while both T_p and m+M shift linearly. Centering at (m+M)/2 then reduces the least possible constant to (1/16) integral_0^1 |w_p|, whose three regimes give exactly the displayed C(p). Every continuous profile G(t) in [m,M] is realized by a symmetric continuous second derivative, so continuous approximations to sign(w_p) prove sharpness rather than merely an upper bound. Differentiating the middle cubic gives the unique minimizer p=1/(2sqrt2); the uncentered case forces p=1/3.",
+      "risks": [
+        "Sharpness is generally supremal rather than attained for m<M, as correctly stated."
+      ],
+      "sources": [
+        "Frozen RESULT.md",
+        "Simić--Bin-Mohsin 2021 Lemma 2.7/Theorem 2.8 full OA text",
+        "Frozen verifier plus independent symbolic integrations"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2002 source is Simpson/trapezoidal specific and supplies earlier sharp Simpson coverage, which the record expressly excludes from novelty.",
+          "Cerone is a plausible general three-point predecessor; complete text could not be inspected in this run because authorized access stopped at human verification."
+        ],
+        "reasoning": "No inspected broader theorem dominates the all-p optimality/centering/minimax statement, but Cerone remains a named access risk.",
+        "searches": [
+          "Cruz-Uribe--Neugebauer, Sharp error bounds for the trapezoidal rule and Simpson rule (2002)",
+          "Cerone, Three point rules in numerical integration, DOI:10.1016/S0362-546X(01)00358-3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package",
+        "Simić--Bin-Mohsin 2021 full OA text",
+        "Cruz-Uribe--Neugebauer bibliographic/full-text record",
+        "Resultary semantic search",
+        "Cerone access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work proves the same numerical enclosure but nowhere claims it is the exact attainable range; it explicitly leaves the Simpson best constant conjectural.",
+          "The current realization argument shows any continuous symmetric curvature profile can approximate the sign extremizer, closing the optimality gap for all p."
+        ],
+        "reasoning": "A valid bound does not imply its own optimality. The new sharpness plus forced-centering/minimax assertions therefore survive the implication comparison.",
+        "searches": [
+          "Simić--Bin-Mohsin 2021 full Theorem 2.8",
+          "Frozen sharpness construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.8 prints the same three piecewise lower/upper inequalities.",
+          "Corollary 2.10 explicitly calls 1/162 a conjectured best Simpson constant, showing the paper does not establish even that special sharpness.",
+          "Resultary returned the current record but no earlier record with the all-p sharpness/forced-centering/minimax package."
+        ],
+        "reasoning": "The prior inequalities are equivalent to the current centered upper bound after algebra, but they do not establish least constants, sharp approach by continuous curvature profiles, or the unique centering/minimax statements.",
+        "searches": [
+          "Simić--Bin-Mohsin 2021, DOI:10.1186/s13660-021-02605-y, Lemma 2.7/Theorem 2.8/Corollary 2.10",
+          "Resultary semantic query for symmetric endpoint-midpoint curvature range exact sharp envelope minimax weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant finite database controls the result; semantic search found no earlier exact optimality record besides the current one."
+        ],
+        "reasoning": "Primary theorem comparison, not search failure, carries the originality decision.",
+        "searches": [
+          "Resultary semantic search for exact cubic 1-3p+8p^3 and p=1/(2sqrt2)"
+        ]
+      },
+      "rationale": "Simić--Bin-Mohsin Theorem 2.8 already contains algebraically equivalent nonsharp lower/upper inequalities for every p, so the inequality envelope itself is prior-covered. What survives is the proof that those bounds are exact infimum/supremum envelopes for the full C^2 class, the uniqueness of the quadratic centering under curvature-oscillation control, and the global minimax parameter. Those optimality statements are not implied by a mere valid bound and were not stated in the inspected source; the Simpson p=1/3 sharp constant is separately prior-covered and excluded from novelty.",
+      "residual_risks": [
+        "Cerone 2001 remains a specific unresolved prior-art risk because complete theorem text was not inspected after human-verification interruption."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Theorem 2.8 supplies the same enclosures; Corollary 2.10 says the Simpson constant 1/162 is conjectured best, so the paper does not prove the submitted all-p sharpness.",
+          "identifier_or_url": "DOI:10.1186/s13660-021-02605-y",
+          "material_read": "Complete open-access HTML around Lemma 2.7, Theorem 2.8, its proof, Remark 2.9 and Corollary 2.10.",
+          "method": "Lawful public full text.",
+          "title": "Some generalizations of the Hermite--Hadamard integral inequality",
+          "trigger": "Exact source of the kernel identity and piecewise bounds."
+        },
+        {
+          "assessment": "RESIDUAL_ACCESS_RISK",
+          "evidence": "No inspected material establishes the submitted exact all-p sharpness/minimax theorem; complete text remains unavailable in this run.",
+          "identifier_or_url": "DOI:10.1016/S0362-546X(01)00358-3",
+          "material_read": "Public bibliographic/abstract material only. Authorized institutional retrieval was attempted after public/OA search but the verification session expired; no retry or bypass was attempted.",
+          "method": "Public search followed by authorized institutional access attempt.",
+          "title": "Three point rules in numerical integration",
+          "trigger": "Plausible older general three-point-rule source capable of equivalent parameterization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the exact sharp envelope for the full parameter family, proving the centering is forced, and locating the global minimax rule are natural optimality questions in a classical quadrature family. This is more than a routine numerical check and closes an explicit sharpness gap left by the motivating source.",
+      "risks": [
+        "The underlying nonsharp inequalities themselves are prior work, so value rests on exact optimality and classification of the parameter family."
+      ],
+      "sources": [
+        "Simić--Bin-Mohsin 2021 open sharpness question at Simpson",
+        "Submitted all-p sharpness construction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The piecewise inequality bounds themselves are already in Simić--Bin-Mohsin 2021; originality is limited to sharpness/forced centering/minimax structure.",
+    "Cerone 2001 complete text could not be inspected."
+  ],
+  "schema_version": 1
+}
