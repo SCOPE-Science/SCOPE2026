@@ -1,0 +1,119 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "audited_at_utc": "2026-10-01T07:43:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at tree 9b9e474915f74f4ad06b6302ffc45efea246b70a",
+        "Golovach–Kratsch–Paulusma–Stewart 2018",
+        "Ducoffe 2019",
+        "Le–Tuy 2010"
+      ],
+      "rationale": "Distances between vertices of a block are preserved in the ambient graph, so a cycle block of length at least six contributes the same induced hole already present in its square. Conversely, if every non-complete cycle block is a 4- or 5-cycle, removing a leaf block preserves the square induced on the remainder, and the displayed deletion orders make every private vertex simplicial for clique, 4-cycle, and 5-cycle leaf blocks. Induction gives a perfect-elimination ordering. The threshold checks are exact: the square of a 5-cycle is complete and the square of a 6-cycle contains an induced 4-cycle.",
+      "residual_risks": [
+        "No computational certificate is needed; correctness rests on the block metric lemma and leaf-block induction, both reconstructed directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Golovach et al. give polynomial cactus-root recognition; Ducoffe gives polynomial cactus-block-root recognition via clique-cutset/cut-vertex relationships."
+        ],
+        "reasoning": "Those broader algorithmic results do not imply when a known cactus-block root has a chordal square.",
+        "searches": [
+          "cactus square-root recognition",
+          "cactus-block square-root cut vertices"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00224-017-9825-2",
+        "https://doi.org/10.1016/j.dam.2018.10.028",
+        "https://doi.org/10.1016/j.disc.2009.09.004",
+        "semantic published-results search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Le–Tuy characterize squares of block graphs, where all blocks are cliques. Allowing cycle blocks requires the new hole analysis and explicit 4/5-cycle leaf elimination."
+        ],
+        "reasoning": "The block-graph endpoint does not mechanically imply the sharp extension to cactus-block graphs.",
+        "searches": [
+          "block-graph square characterization versus cycle-block extension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No prior exact iff threshold at cycle length five was found; Le–Tuy treats block-graph squares, not cactus-block graphs with cycle blocks."
+        ],
+        "reasoning": "The closest synonymous formulation is chordality of graph powers of cactus or block-cactus roots; searched sources do not state the audited iff criterion.",
+        "searches": [
+          "square of cactus chordal",
+          "cactus-block square chordality",
+          "graph-square induced holes cycle blocks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database or table giving the criterion was found; the small cycle threshold follows symbolically."
+        ],
+        "reasoning": "Tabular comparison is inapplicable beyond the elementary boundary examples because the theorem is an infinite structural characterization.",
+        "searches": [
+          "square-root graph catalogues",
+          "cycle-square chordality tables"
+        ]
+      },
+      "rationale": "Targeted searches and the most relevant square-root literature did not locate the five-cycle chordality threshold. The inspected cactus/cactus-block papers focus on recognizing square roots and recovering cut/block structure, while the block-graph endpoint concerns roots whose blocks are all cliques.",
+      "residual_risks": [
+        "Older graph-power literature under different terminology could contain the same criterion, but targeted searches and the directly relevant cactus-block source did not reveal it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic recognition result; no chordality threshold.",
+          "evidence": "Abstract states polynomial-time cactus square-root recognition.",
+          "identifier_or_url": "https://doi.org/10.1007/s00224-017-9825-2",
+          "material_read": "Primary abstract and introduction material.",
+          "method": "Direct literature lookup.",
+          "title": "Finding Cactus Roots in Polynomial Time",
+          "trigger": "Same graph power and cactus root class."
+        },
+        {
+          "assessment": "Recovers block-cut structure for recognition; no five-cycle chordality theorem located.",
+          "evidence": "Abstract describes clique-cutset/cut-vertex relations and polynomial cactus-block-root recognition.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.10.028",
+          "material_read": "Abstract and accessible full-text sections on related work/contributions.",
+          "method": "Full-text keyword and theorem-context inspection.",
+          "title": "Finding cut-vertices in the square roots of a graph",
+          "trigger": "Same cactus-block square-root class."
+        },
+        {
+          "assessment": "Characterizes/recognizes squares of block graphs; does not allow the cycle blocks that create the audited threshold.",
+          "evidence": "Abstract states characterization and linear-time recognition of block-graph squares.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2009.09.004",
+          "material_read": "Primary abstract and bibliographic record.",
+          "method": "Direct literature lookup.",
+          "title": "The square of a block graph",
+          "trigger": "Classical clique-block endpoint."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "classical block-graph-square endpoint",
+        "cactus/cactus-block root literature"
+      ],
+      "rationale": "This is a natural sharp structural boundary extending the tree/block-graph square setting to cactus-block roots, with the first obstruction at a six-cycle and a constructive perfect-elimination ordering. It is a reusable characterization rather than a small isolated computation.",
+      "residual_risks": [
+        "The theorem does not solve arbitrary square-root recognition or strong chordality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a finite cactus-block graph, its square is chordal exactly when every non-complete cycle block has length at most five; the criterion is sharp at the six-cycle and admits a constructive perfect-elimination ordering by leaf-block peeling.",
+  "limitations": [
+    "The cactus-block root is assumed given; this is not a square-root recognition algorithm.",
+    "The theorem characterizes chordality, not strong chordality."
+  ]
+}
