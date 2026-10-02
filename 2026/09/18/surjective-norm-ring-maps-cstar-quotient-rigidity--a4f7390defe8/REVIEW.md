@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The proof was reconstructed without using injectivity. Surjective Fischer-Muszely rigidity supplies additivity. If \(u=T(1)\) and \(p=(1+u)/2\), then any \(x\in pB(1-p)\) has \(x^2=0\); taking a preimage \(a\), the product-norm identity gives \(T(a^2)=0\), while additivity still gives \(T(1-a^2)=u\). The resulting norm equalities \(\|1\pm2x\|=1\) force \(x=0\), so \(u\) is central. After normalization \(\Phi=uT\), the positivity argument gives contractivity. Its kernel is closed, two-sided, involution-stable, and complex-linear; the induced quotient map is bijective and satisfies Matsuzaki's hypotheses, so it is a real *-isomorphism. The converse and the quotient norm identity then follow.
+- Originality: **PASS** — Matsuzaki's September 2026 primary theorem is explicitly stated for bijections. The audited argument is not a mere quotient restatement: before quotienting it must show centrality, positivity, continuity, and that the noninjective kernel is a C*-ideal using only the norm identities. Resultary searches found the assigned theorem but no earlier or later published quotient classification under these exact hypotheses. Full text of the very recent Matsuzaki preprint could not be obtained through the lawful routes tried, so hidden discussion of the surjective case remains a residual risk.
+- Value: **PASS** — Removing injectivity from a new rigidity theorem and replacing it by an exact quotient-kernel classification is a natural and useful extension. The theorem determines all norm loss by distance to the kernel and immediately resolves the simple-domain case. The noninjective evaluation/quotient examples show that this is not a vacuous restatement of the bijective theorem.
+
+Detailed structured comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is preserved in `AUDIT.json` as historical evidence.
