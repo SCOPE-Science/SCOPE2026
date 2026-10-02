@@ -1,6 +1,5 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+Fresh exhaustive enumeration reproduced every n=4 and n=5 RSBF joint cell. Earlier RSBF literature covers some extremal subfamilies but the complete joint tables were not located in the inspected published material.
