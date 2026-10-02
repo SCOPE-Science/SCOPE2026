@@ -2,7 +2,7 @@
 
 ## Claim
 
-Let `F subset Z^2` be an exact cluster of full affine span with `|F|=6`, and let `T` be any `F`-tiling. The source report proposes and same-model review the theorem that the orbit closure of `T` contains a 1-periodic `F`-tiling.
+Let `F subset Z^2` be an exact cluster of full affine span with `|F|=6`, and let `T` be any `F`-tiling. The source report proposes the theorem that the orbit closure of `T` contains a 1-periodic `F`-tiling.
 
 Combined with Khetan's eight-cell counterexample and the already settled smaller cardinalities cited in the source report, this would make eight the smallest full-affine-span exact-cluster cardinality at which orbit-closure 1-periodicity can fail.
 

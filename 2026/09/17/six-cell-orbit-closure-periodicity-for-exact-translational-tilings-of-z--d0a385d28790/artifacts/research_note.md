@@ -1,5 +1,5 @@
 # Six-cell orbit-closure periodicity for exact clusters in Z^2
-**Status of this note:** research proof draft; same-model reviewed, not peer reviewed.
+**Status of this note:** research proof draft; not peer reviewed.
 
 ## Main theorem
 
@@ -146,4 +146,4 @@ with factor cardinalities 2 and 3. It enumerates 60 tilings; every one has perio
 
 ## Audit caveat
 
-This is a same-model review research draft, not independent verification or peer review. The main correctness risk is an unnoticed dependency on the prime-square hypothesis inside the imported spectral Case II; the cited proof was checked line-by-line for that dependency and none was found beyond the dilation index set, which is already available for \(|F|=6\). The main originality risk is equivalent coverage under different tiling/factorization terminology in older literature.
+This is a research draft, not independent verification or peer review. The main correctness risk is an unnoticed dependency on the prime-square hypothesis inside the imported spectral Case II; the cited proof was checked line-by-line for that dependency and none was found beyond the dilation index set, which is already available for \(|F|=6\). The main originality risk is equivalent coverage under different tiling/factorization terminology in older literature.
