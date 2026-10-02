@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T18:54:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md dd9fb6454fa42574e67fca3ca74cf391e28bf315",
+        "Frozen artifact verify_coordinate_sampling.py 642e9905106a9a638ecaa590e62f2be9504184eb"
+      ],
+      "rationale": "The exact coordinate minimization gives the expected energy decrement matrix and sharp contraction parameter \\(\\rho(p)=\\lambda_{\\min}(P^{1/2}CP^{1/2})\\). Let \\(q=C^{-1}\\mathbf1>0\\) and \\(S=\\mathbf1^Tq\\). A Rayleigh quotient with \\(P^{-1/2}q\\) gives \\(\\rho(p)\\le S/(\\sum_i q_i^2/p_i)\\le1/S\\), with equality in Cauchy--Schwarz only at \\(p_i=q_i/S\\). At that sampling, \\(P^{1/2}CP^{1/2}\\) has the claimed eigenpair, while its inverse is nonnegative and has a positive eigenvector at eigenvalue \\(S\\); Perron--Frobenius/Collatz--Wielandt therefore makes \\(S\\) the spectral radius of the inverse, proving the candidate eigenvalue is the minimum and establishing optimality. The tridiagonal Poisson inverse gives the stated parabolic probabilities and \\(12/\\pi^2\\) asymptotic improvement. The deposited numerical script only corroborates these analytic steps.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary 1991 paper was inspected on the pages containing its general optimal-weight theorem, matrix-mean definitions, endpoint discussion, and explicit formulas; it supplies the framework but not the inverse-positive E-optimal endpoint closed form.",
+          "Coordinate-descent literature gives contraction matrices and various samplings but no inspected theorem dominated the unique inverse-positive optimizer."
+        ],
+        "reasoning": "The prior literature is broader in framework but not stronger on this exact inverse-positive endpoint.",
+        "searches": [
+          "Pukelsheim--Torsney, Optimal Weights for Experimental Designs on Linearly Independent Support Points, DOI:10.1214/aos/1176348265",
+          "Randomized coordinate descent sampling literature cited by the package"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob dd9fb6454fa42574e67fca3ca74cf391e28bf315",
+        "Frozen verifier blob 642e9905106a9a638ecaa590e62f2be9504184eb",
+        "Pukelsheim--Torsney 1991 primary PDF",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1991 theorem requires solving a polar/fixed-point condition and its explicit corollary excludes the E-optimal endpoint; it therefore does not mechanically yield the audited closed form.",
+          "The inverse-positive proof uses a positive eigenvector of the nonnegative inverse at the candidate design and an equality case in Cauchy--Schwarz to prove global uniqueness."
+        ],
+        "reasoning": "The final theorem is a nontrivial specialization that resolves the E-optimal endpoint under a natural sign structure rather than merely restating a general criterion.",
+        "searches": [
+          "Pukelsheim--Torsney 1991 primary full-text pages on Theorem 1/Corollaries and matrix means",
+          "Frozen RESULT.md proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the current record as the top exact hit and no earlier covering formula.",
+          "Pukelsheim--Torsney 1991 gives general matrix-mean optimal-design machinery, but its displayed explicit fixed-point formula covers finite matrix-mean parameters and does not provide the \\(E\\)-criterion endpoint formula audited here."
+        ],
+        "reasoning": "The audited optimization is an E-optimal diagonal-design problem specialized to a normalized SPD Hessian; the inverse-positive closed form is not equivalent to the finite-parameter formulas inspected in the primary design paper.",
+        "searches": [
+          "Resultary semantic query: optimal coordinate sampling inverse-positive SPD quadratic E-optimal design probabilities C inverse one",
+          "Literature search: E-optimal design C^{-1}1 inverse-positive matrix coordinate descent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior SCOPE/Resultary record was found with the same closed form \\(p\\propto C^{-1}\\mathbf1\\) and Poisson specialization."
+        ],
+        "reasoning": "The claim is not a table lookup; the research-record database comparison was negative but is not used alone as novelty proof.",
+        "searches": [
+          "Resultary semantic search on inverse-positive E-optimal coordinate sampling"
+        ]
+      },
+      "rationale": "The primary optimal-design framework does not state the audited inverse-positive E-optimal endpoint formula, and no prior research-record hit supplied it. Residual historical-equivalence risk remains in matrix-scaling/optimal-design literature.",
+      "residual_risks": [
+        "Broad diagonal-scaling and optimal-design literature may contain an equivalent inverse-positive formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_NOT_COVERING_ENDPOINT_FORMULA",
+          "evidence": "The paper provides the general optimal-design framework, but the inspected explicit formula is stated for finite matrix-mean parameters rather than the E-optimal endpoint and does not state the inverse-positive \\(C^{-1}\\mathbf1\\) solution.",
+          "identifier_or_url": "DOI:10.1214/aos/1176348265",
+          "material_read": "Primary PDF pages containing the general optimal-weight theorem, matrix-mean definitions, the parameter range, explicit fixed-point corollary, and A-criterion specialization.",
+          "method": "Full-text PDF inspection.",
+          "title": "Optimal Weights for Experimental Designs on Linearly Independent Support Points",
+          "trigger": "Closest primary E-/matrix-mean optimal-design source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pukelsheim--Torsney 1991",
+        "Frozen RESULT.md"
+      ],
+      "rationale": "The theorem gives a closed-form unique optimizer for a natural inverse-positive SPD class and a concrete Poisson sampling law with a sharp asymptotic gain over uniform sampling. It resolves a motivated fixed-sampling optimization problem rather than proposing an arbitrary slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed iid exact coordinate minimization only; no claim is made for adaptive, block, accelerated or without-replacement policies."
+  ],
+  "schema_version": 1
+}
