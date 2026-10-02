@@ -1,0 +1,69 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "rationale": "The residue proof was reconstructed: displayed tail residues are disjoint from all allowed sums of distinct prefix/tail residues, while every omitted integer in each complementary gap has an explicit representation as a sum of two distinct earlier displayed terms. The resulting difference block has length \\(f+2\\); the exceptional initial gap and the unique large gap in the period force minimal preperiod and period. An independent greedy implementation checked the exact membership formula and repeating difference block for every \\(5\\le f\\le20\\); this finite check corroborates but does not replace the modular proof.",
+      "risks": "The theorem proves one off-diagonal family, not the full eventual-periodicity conjecture.",
+      "sources": [
+        "RESULT.md",
+        "artifacts/verify.py blob 63c1ebaf7f413f1b26c609a5858bbd8316795195",
+        "van Berkel–Bosma, arXiv:2609.18522"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The primary paper states proofs through \\(g\\le2f\\), while the audited family has \\(g=2f+1\\).",
+        "reasoning": "The known family stops exactly one line before the audited theorem and hence does not imply it.",
+        "search": "proved region for strict greedy 2-sumfree eventual periodicity"
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18522",
+        "https://arxiv.org/abs/2609.16843",
+        "semantic search of the public findings corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "The source predicts the relevant period lengths but labels the general formulas conjectural beyond its proved family.",
+        "reasoning": "A conjectural table entry does not imply the all-parameter theorem.",
+        "search": "source Conjectures 5 and 9 versus proved region"
+      },
+      "equivalent_formulations": {
+        "evidence": "The source conjecture's period function at \\(d=f+1\\) predicts exactly this neighboring line, but does not prove it.",
+        "reasoning": "The modular-residue formulation and the period/preperiod formulation are equivalent descriptions of the same sequence.",
+        "search": "\\(S_{f,2f+1}\\); difference-period \\(f+2\\); modulus \\(5f+1\\); off-diagonal strict greedy 2-sumfree sequences"
+      },
+      "exact_database_or_table": {
+        "evidence": "The source includes extensive finite tables and a general conjecture, but finite computations are not a proof for every \\(f\\ge5\\).",
+        "reasoning": "The audited infinite modular proof supplies what the tables do not.",
+        "search": "computed period/preperiod matrices in arXiv:2609.18522"
+      },
+      "rationale": "The full primary paper arXiv:2609.18522 was inspected. It says the proven family reaches \\(g\\le2f\\) and conjectures period/preperiod formulas beyond that boundary; the audited line \\(g=2f+1\\) is therefore the first adjacent unproved line for \\(f\\ge5\\). Public-corpus searches found later dated results extending or repeating this line on 2026-09-19 and 2026-09-20, but those postdate the 2026-09-17 record and do not establish prior coverage. No earlier paper proving the all-\\(f\\) line was located.",
+      "residual_risks": "The topic was moving rapidly in September 2026; simultaneous external work not yet indexed remains a modest priority risk.",
+      "source_inspections": [
+        {
+          "assessment": "States proofs through \\(g\\le2f\\) and leaves the neighboring line within the conjectural regime.",
+          "material_read": "full paper through the conjecture and computed period/preperiod sections",
+          "source": "van Berkel and Bosma, arXiv:2609.18522"
+        },
+        {
+          "assessment": "Contain stronger/repeated neighboring-line results but postdate this record.",
+          "material_read": "search-result scientific summaries",
+          "source": "later public findings dated 2026-09-19 and 2026-09-20"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result proves an infinite parameter line immediately beyond a newly published boundary, with a complete residue description and minimal periods rather than empirical confirmation. It advances a natural two-parameter periodicity conjecture in the most adjacent unresolved direction.",
+      "risks": "Later work already extends the result further, so its enduring value is as the first boundary step rather than the final classification.",
+      "sources": [
+        "van Berkel–Bosma conjectural period/preperiod framework",
+        "explicit modular proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "final_claim": "For every integer \\(f\\ge5\\), the strict greedy 2-sumfree sequence \\(S_{f,2f+1}\\) has the stated residue description modulo \\(5f+1\\), minimal preperiod length \\(f+1\\), and minimal difference-period length \\(f+2\\).",
+  "status": "passed"
+}
