@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T19:20:12.585191Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hyperbolic normalization is exact: writing the inputs as \\(m e^{-u}\\) and \\(m e^u\\) expresses the logarithm of the mean as a difference of the even analytic function \\(\\phi(z)=\\log(\\sinh(z)/z)\\). At the reflection center \\(r=-\\alpha/2\\), the logarithmic second derivative vanishes while the logarithmic first derivative is nonzero, so ordinary curvature is strictly positive. For the symmetric product, differentiating the even formula and expanding \\(\\phi\\) gives \\((\\log P)''=-(2\\alpha/15)u^4+O(u^6)\\), uniformly for \\(r\\) on compact sets. The inspected symbolic verifier reproduces both leading coefficients and direct sample signs.",
+      "risks": [
+        "The result does not classify the full curvature sign diagrams.",
+        "The near-diagonal transition for ordinary curvature is asymptotic, not a global exact inflection point."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "Cheung–Qi 2007 primary paper, DOI 10.11650/twjm/1500404648",
+        "artifacts/verify_curvature_obstructions.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2009 work provides alternative proofs of known monotonic/logarithmic-convex properties.",
+          "The later survey discusses the established theory but no matching resolution was located."
+        ],
+        "reasoning": "The inspected broader literature does not dominate the audited counterexamples.",
+        "searches": [
+          "Qi–Cerone–Dragomir–Srivastava 2009",
+          "Yang–Qi 2025 survey"
+        ]
+      },
+      "checked_sources": [
+        "Cheung–Qi 2007 primary text",
+        "Qi et al. 2009",
+        "Yang–Qi 2025",
+        "current Resultary exact semantic search",
+        "assigned symbolic verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive log-concave function can still have positive ordinary second derivative, so the midpoint obstruction does not contradict the source theorem.",
+          "Monotonicity of the symmetric product does not imply its second logarithmic derivative has the conjectured sign."
+        ],
+        "reasoning": "The audited claims are logically distinct from the prior proven properties.",
+        "searches": [
+          "Cheung–Qi proven log-concavity versus audited ordinary convexity",
+          "product monotonicity versus product log-curvature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source explicitly states strict concavity as Open Problem 1 and the exterior log-convexity clause in Open Problem 2.",
+          "No separate published counterexample was found."
+        ],
+        "reasoning": "Equivalent formulations through the generalized one-parameter mean, Stolarsky terminology, reflection symmetry, and product logarithmic curvature were checked.",
+        "searches": [
+          "Resultary query: generalized one-parameter mean Cheung Qi concavity Open Problem 1 J_alpha product logarithmic convexity",
+          "Cheung–Qi 2007 full text",
+          "searches for the reflection center and the coefficient -2 alpha / 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact semantic match was the audited finding; no table/database encodes these curvature signs."
+        ],
+        "reasoning": "This is an analytic counterexample theorem, so exact-database coverage is not the natural prior-art route.",
+        "searches": [
+          "current Resultary mean-inequality findings"
+        ]
+      },
+      "rationale": "The 2007 primary paper was inspected at the definition and explicit Open Problems 1 and 2. It poses the two curvature claims that the audited theorem refutes. The 2009 follow-up treats monotonicity and logarithmic-convexity properties rather than these counterexamples, and the 2025 survey revisits the established one-parameter theory without an identified resolution of the two questions. Current semantic search found no other theorem giving the midpoint obstruction or the near-diagonal product-curvature expansion.",
+      "residual_risks": [
+        "The midpoint argument is short and may have appeared informally or in poorly indexed literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source poses rather than solves the audited questions.",
+          "evidence": "Open Problem 1 asserts ordinary strict concavity and Open Problem 2 asserts exterior logarithmic convexity of the symmetric product.",
+          "identifier_or_url": "https://doi.org/10.11650/twjm/1500404648",
+          "material_read": "Author-posted full text, including the generalized definition and the explicit final open problems.",
+          "method": "Primary full-text theorem/problem comparison.",
+          "title": "Logarithmic Convexity of the One-Parameter Mean Values",
+          "trigger": "Primary source of both open problems."
+        },
+        {
+          "assessment": "Not covering the audited curvature obstructions.",
+          "evidence": "Its stated focus is alternative proofs of monotonicity and logarithmic-convexity properties.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2008.11.023",
+          "material_read": "Accessible author-posted abstract/introduction and stated theorem scope.",
+          "method": "Scope and implication comparison.",
+          "title": "Alternative proofs for monotonic and logarithmically convex properties of one-parameter mean values",
+          "trigger": "Direct citation-chain follow-up."
+        },
+        {
+          "assessment": "No matching resolution was located.",
+          "evidence": "The discussion records known one-parameter results and product monotonicity without the audited counterexamples.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2024.129091",
+          "material_read": "Accessible discussion of the one-parameter mean and its established curvature/monotonicity properties.",
+          "method": "Recent-literature comparison.",
+          "title": "Bivariate homogeneous functions of two parameters",
+          "trigger": "Recent survey/review source in the citation chain."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives universal counterexamples to a published open problem for every parameter and unequal input pair and refutes a second conjectured exterior regime by a robust asymptotic mechanism. It also identifies the structural reflection reason for the first failure.",
+      "risks": [
+        "The central clauses of Open Problem 2 remain unresolved."
+      ],
+      "sources": [
+        "Cheung–Qi Open Problems 1 and 2",
+        "audited exact midpoint and near-diagonal calculations"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full ordinary-curvature sign diagram is not classified.",
+    "The full symmetric-product log-curvature diagram is not classified.",
+    "The central clauses of Open Problem 2 remain open.",
+    "Originality is best-of-knowledge."
+  ],
+  "record_id": "SCOPE-20260920-583fbf894924",
+  "schema_version": 1
+}
