@@ -1,0 +1,118 @@
+# Independent mathematical audit — 2026-10-01
+
+Record: `SCOPE-20260920-dc29809f76be`
+
+## Final claim
+
+For every \(f\ge5\), the strict greedy sequences on the first two off-diagonal lines \(g=2f+1\) and \(g=2f+2\) have the displayed exact residue descriptions, minimal preperiods, minimal periods and densities.
+
+## Correctness — PASS
+
+The interval/residue proof is complete. The finite prefix is forced, and the three modular sumsets \(E\widehat{+}E\), \(E+R\), and \(R+R\) avoid the selected residue set; retaining equal residues in \(R+R\) correctly handles distinct tail terms in the same residue class. The explicit witness tables cover every omitted position in one tail period, and translating a tail summand by the modulus propagates those witnesses to all later periods. Ordering the residue classes gives the difference word; a unique gap value certifies minimal period, and the prefix-to-tail gap certifies minimal preperiod. The exact verifier checks both \(\delta=1,2\) for \(5\le f\le300\), but the infinite conclusion rests on the symbolic interval argument.
+
+### Correctness sources
+
+- assigned RESULT.md and verifier
+- van Berkel–Bosma arXiv:2609.18522 full primary preprint
+- earlier 2026-09-17 \(\delta=1\) theorem
+
+### Correctness risks
+
+- The theorem does not address offsets \(\delta\ge3\) or the global periodicity conjecture.
+
+## Originality — PASS
+
+The \(\delta=1\) half is not original: an earlier 2026-09-17 published result already proves \(S_{f,2f+1}\) with the same modulus, minimal preperiod and period for all \(f\ge5\). The surviving originality is the adjacent \(\delta=2\) line \(S_{f,2f+2}\), for which the primary van Berkel–Bosma paper gives only its general conjectural period/preperiod machinery and finite evidence, not an infinite proof. No prior/current exact \(\delta=2\) theorem was located. Because the final theorem naturally pairs the first two off-diagonal lines and contains a genuinely new second line, it remains original with the known first line explicitly delimited.
+
+### equivalent_formulations
+
+Searches:
+- Resultary semantic query for \(S_{f,2f+1}\), \(S_{f,2f+2}\), off-diagonal greedy 2-sumfree periodicity
+- full comparison with 2026-09-17 \(S_{f,2f+1}\) theorem
+- van Berkel–Bosma primary preprint
+
+Evidence:
+- The 09-17 record exactly covers \(\delta=1\).
+- The primary preprint states general conjectures beyond \(g=2f\) and gives computed evidence; it does not prove the \(\delta=2\) infinite family.
+
+Reasoning:
+The theorem is split by offset. Prior coverage removes one conjunct, while the \(\delta=2\) conjunct survives as a natural neighboring-line theorem.
+
+### broader_coverage
+
+Searches:
+- van Berkel–Bosma Theorems 12/14 and Conjecture 5
+- earlier neighboring-diagonal Resultary records
+- Queneau/Finch historical terminology
+
+Evidence:
+- The full primary preprint says proven families include \(g\le2f\), while the beyond-diagonal values are encoded in conjectures supported computationally.
+
+Reasoning:
+No broader proved theorem located contains \(g=2f+2\) for all \(f\ge5\).
+
+### exact_database_or_table
+
+Searches:
+- Resultary current 2-sumfree findings
+- OEIS/Queneau references for 0-additive sequences
+
+Evidence:
+- No exact database/table entry proves the variable-\(f\) \(\delta=2\) family.
+
+Reasoning:
+Finite computed period tables are evidence, not an infinite theorem.
+
+### claim_vs_prior_implication
+
+Searches:
+- claim-versus-09-17 implication comparison
+
+Evidence:
+- The 09-17 theorem has modulus \(5f+1\) and only \(g=2f+1\); it does not imply the modulus \(5f+3\), residue set, or witness structure for \(g=2f+2\).
+
+Reasoning:
+The surviving \(\delta=2\) theorem requires its own sumset/witness analysis.
+
+### source_inspections
+
+- **Periodicity conjectures for all 2-sumfree sequences** — https://arxiv.org/abs/2609.18522. Trigger: Primary source setting the proved boundary and conjectures. Material read: Complete primary preprint through the theorem/conjecture sections, including Conjecture 5 and the confirmed cases \(g\le2f\). Method: Full statement comparison. Assessment: NOT COVERING \(\delta=2\) as an infinite theorem. Evidence: The paper states that beyond the confirmed region the period lengths are conjectural and computationally supported.
+- **Exact periodicity of the strict greedy 2-sumfree family \(S_{f,2f+1}\)** — https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-periodicity-of-greedy-2-sumfree-s-f-2f-plus-1--211ee0999b72. Trigger: Exact earlier hit for one half of the theorem. Material read: Complete published RESULT.md. Method: Full formula/proof comparison. Assessment: COVERS \(\delta=1\) only. Evidence: Same modulus \(5f+1\), residue blocks, and minimal preperiod/period for all \(f\ge5\).
+- **Sur les suites s-additives** — https://doi.org/10.1016/0097-3165(72)90083-0. Trigger: Foundational historical source and main residual-risk reference. Material read: Historical bibliographic descriptions and secondary summaries; full primary article was not located in an inspectable open source during this run. Method: Access-limited historical comparison. Assessment: Residual risk only. Evidence: Available descriptions document broad s-additive constructions but do not establish the variable-\(f\) \(g=2f+2\) theorem.
+
+### checked_sources
+
+- van Berkel–Bosma arXiv:2609.18522 full text
+- 2026-09-17 exact \(\delta=1\) theorem
+- Queneau 1972 bibliographic material
+- current Resultary search
+- assigned RESULT.md and verifier
+
+### residual_risks
+
+- Queneau's full 1972 article was not independently inspected and remains the main historical originality risk.
+- The source preprint is recent, so unindexed concurrent work remains possible.
+
+## Scientific value — PASS
+
+After removing the already-known first off-diagonal line, the theorem still advances the proved frontier by the next complete line \(g=2f+2\), with an exact residue model, minimal preperiod/period and density. Turning an infinite line from the source's conjectural/computational region into a direct proof is a motivated and reusable boundary result.
+
+### Value sources
+
+- van Berkel–Bosma conjectural frontier
+- assigned \(\delta=2\) residue proof
+
+### Value risks
+
+- The value claim is based on \(\delta=2\), not on re-proving the known \(\delta=1\) line.
+
+## Limitations
+
+- The \(\delta=1\) clause is prior-covered and is retained only as part of the natural paired theorem.
+- The surviving new line is \(\delta=2\).
+- Offsets \(\delta\ge3\) and the global periodicity conjecture remain open.
+- Queneau's full 1972 article remains an access-related originality risk.
+
+## Disposition
+
+**PASSED**
