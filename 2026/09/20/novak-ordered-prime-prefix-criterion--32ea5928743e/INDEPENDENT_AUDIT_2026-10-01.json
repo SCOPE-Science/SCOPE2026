@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T19:20:12.585191Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered-prime criterion reconstructs. If a prime divisor \\(p\\) of a Novák number has multiplicative order \\(2d\\), then \\(d\\) divides the number and every prime divisor of \\(d\\) is smaller than \\(p\\); therefore \\(d\\) divides the preceding ordered prime-power prefix, whose quotient by \\(d\\) is odd, forcing \\(p\\) to divide two to that prefix plus one. The least prime is consequently three. Conversely, starting from a power of three, the odd-power factorization and LTE allow any power of a new prime dividing the preceding plus-one value to be adjoined. The two-prime criterion, first-occurrence cyclotomic condition, primitive classification, infinitude, and logarithmic counting bound follow. The exact verifier was read in full and reports zero mismatches in its bounded checks; it corroborates rather than proves the infinite theorem.",
+      "risks": [
+        "The primitive statement uses the Bailey–Smyth closure notion.",
+        "The computation is finite and is not used as exhaustion of the theorem."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "Bailey–Smyth, Primitive solutions of n | 2^n + 1",
+        "Kalmynin, arXiv:1611.00417",
+        "artifacts/verify.py and verification.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recurrence paper's accessible scope is general counting for self-divisibility and did not expose a theorem implying this prime-prefix criterion.",
+          "Bailey–Smyth supplies necessary local structure but not the full iff recursion."
+        ],
+        "reasoning": "No inspected broader theorem mechanically gives the full result; the general recurrence source remains an access risk rather than evidence of novelty.",
+        "searches": [
+          "general recurrence self-divisibility literature, DOI 10.1017/S0013091510001355",
+          "Bailey–Smyth closure theory"
+        ]
+      },
+      "checked_sources": [
+        "Bailey–Smyth full note",
+        "Kalmynin arXiv:1611.00417",
+        "OEIS A006521/A136473/A136475",
+        "Resultary exact semantic search",
+        "DOI 10.1017/S0013091510001355 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kalmynin implies sufficiency after each admissible prime is chosen, but not that every prime factor of an arbitrary solution appears admissibly at its ordered prefix.",
+          "The audited multiplicative-order argument supplies exactly that missing converse."
+        ],
+        "reasoning": "The final claim is not a corollary of the located prior statements without the new converse argument.",
+        "searches": [
+          "Kalmynin extension lemma versus audited necessity",
+          "Bailey–Smyth least-prime result versus full prefix closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known forward extension lemma is one direction only.",
+          "The converse uses multiplicative-order prime support to force every new prime at its preceding prefix."
+        ],
+        "reasoning": "The same theorem was checked both as an ordered-prefix characterization and as a recursive extension/converse statement.",
+        "searches": [
+          "Resultary query: Novák numbers ordered prime prefix criterion primitive two prime solutions n divides 2^n+1",
+          "Bailey–Smyth full note",
+          "Kalmynin arXiv:1611.00417 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These entries record Novák numbers, primitive solutions, and prime factors of the relevant cyclotomic quotients.",
+          "No database theorem or table certifies the full ordered-prefix iff statement."
+        ],
+        "reasoning": "The examples support known data but the theorem is not a database lookup.",
+        "searches": [
+          "OEIS A006521",
+          "OEIS A136473",
+          "OEIS A136475"
+        ]
+      },
+      "rationale": "The Bailey–Smyth note gives the least-prime-three restriction, closure operations, and the primitive notion; Kalmynin gives the forward extension principle. Neither inspected primary source states the converse ordered-prefix condition or the resulting iff classification of all ordered prime-power factorizations. OEIS entries tabulate examples and cyclotomic factors rather than prove the theorem. Current semantic search returned the audited finding as the only exact theorem match.",
+      "residual_risks": [
+        "Older Novák literature, recreational sources, or a general recurrence theorem under different terminology may contain an equivalent observation.",
+        "The general recurrence paper was not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the ordered-prefix iff theorem.",
+          "evidence": "It gives closure operations, the primitive notion, least prime three, and restrictions involving the exact power of three.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~chris/papers/n_divides_2to_nplus1.pdf",
+          "material_read": "Complete two-page note.",
+          "method": "Full theorem and definition comparison.",
+          "title": "Primitive solutions of n | 2^n + 1",
+          "trigger": "Primary source for primitive Novák solutions."
+        },
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "It supplies the forward rule for adjoining prime powers dividing a plus-one value, not the converse ordered-prefix structure.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.00417",
+          "material_read": "Full accessible arXiv text.",
+          "method": "Full-text statement and implication comparison.",
+          "title": "On Novák numbers",
+          "trigger": "Primary modern Novák-number source and forward extension lemma."
+        },
+        {
+          "assessment": "Data support but do not cover the theorem.",
+          "evidence": "The entries list known values and cyclotomic-factor data without the full iff criterion.",
+          "identifier_or_url": "https://oeis.org/A006521",
+          "material_read": "A006521, A136473 and A136475 entries and comments.",
+          "method": "Database/table comparison.",
+          "title": "Novák-number OEIS records",
+          "trigger": "Exact databases named by the research package."
+        },
+        {
+          "assessment": "INACCESSIBLE/UNRESOLVED AS A BROAD RISK, not decisive coverage.",
+          "evidence": "The visible scope concerns counts for general linear recurrences and does not state the audited Novák prefix theorem.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091510001355",
+          "material_read": "Accessible abstract and bibliographic scope; full proof text was not read.",
+          "method": "Residual-risk scope comparison only.",
+          "title": "On numbers n dividing the nth term of a linear recurrence",
+          "trigger": "Plausible broader self-divisibility theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a structural characterization of an infinite divisibility class, not merely a finite census. It converts local prime-order information into a canonical recursive construction, yields complete two-prime support behavior, and proves an infinite primitive family with a quantitative lower count.",
+      "risks": [
+        "The counting bound concerns only primitive solutions with exactly two distinct prime factors."
+      ],
+      "sources": [
+        "Bailey–Smyth primitive problem",
+        "Kalmynin extension mechanism",
+        "audited theorem and exact verifier"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The primitive classification uses the Bailey–Smyth closure definition.",
+    "The counting lower bound covers exactly two distinct prime factors.",
+    "Originality is best-of-knowledge because older or broadly formulated recurrence literature remains a residual risk."
+  ],
+  "record_id": "SCOPE-20260920-32ea5928743e",
+  "schema_version": 1
+}
