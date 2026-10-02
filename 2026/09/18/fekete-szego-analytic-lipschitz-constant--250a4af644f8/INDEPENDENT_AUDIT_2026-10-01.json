@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T08:16:32.505144Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The analytic estimate checks. For the normalized univalent map at a real strip point, \\(g''=6(a_3-(2/3)a_2^2)\\), so the sharp Fekete–Szegő inequality gives \\(|g''|\\le 6(1+2e^{-4})\\). Correctly centering the Gaussian Taylor expansion yields phase error \\(3(1+2e^{-4})\\sigma^2\\). The imaginary Gaussian kernel estimate together with Cauchy–Schwarz gives \\(4\\sigma\\sqrt{\\sinh(\\sigma^{-2})}\\) uniformly on the strip. The constructed analytic multiplier therefore has derivative modulus at most one on the target domain and a positive real component along the connecting real segment. At \\(\\sigma=9/14\\), independent numerical evaluation gives phase error about 1.285211, attenuation exponent about 6.072639, and lower constant about 0.000649384865, which exceeds \\(6.49\\times10^{-4}\\).",
+      "risks": [
+        "No optimality of the universal constant is claimed.",
+        "The theorem is restricted to simply connected planar domains."
+      ],
+      "sources": [
+        "MacMahon, arXiv:2609.20607",
+        "Choi–Kim–Sugawa, DOI 10.2969/jmsj/05930707",
+        "artifacts/verify_constant.py",
+        "independent numerical evaluation"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader source theorems provide distinct ingredients."
+        ],
+        "reasoning": "Neither theorem alone mechanically supplies the new numerical constant; their quantitative synthesis and corrected convolution bounds are necessary.",
+        "searches": [
+          "classical Fekete–Szegő theorem for normalized univalent functions",
+          "MacMahon's complete metric theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.20607",
+        "https://doi.org/10.2969/jmsj/05930707",
+        "assigned RESULT.md and artifacts/verify_constant.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After also correcting the centered Taylor term and sharpening the strip estimate, the source proof yields the audited constant."
+        ],
+        "reasoning": "This is a new quantitative refinement, not a restatement of the source constant.",
+        "searches": [
+          "direct substitution of the sharp coefficient bound into MacMahon's argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MacMahon uses a coarse derivative estimate and does not state the audited constant.",
+          "The Fekete–Szegő literature supplies the sharp coefficient inequality, not this metric consequence."
+        ],
+        "reasoning": "Equivalent formulations through a universal lower bi-Lipschitz constant and through the strip-straightening attenuation were compared.",
+        "searches": [
+          "arXiv:2609.20607 full text",
+          "searches combining Fekete–Szegő, pre-Schwarzian second derivative and analytic Lipschitz metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table containing the audited constant was located."
+        ],
+        "reasoning": "The result is an analytic derived estimate rather than a pre-tabulated invariant.",
+        "searches": [
+          "known tables of universal analytic-Lipschitz constants"
+        ]
+      },
+      "rationale": "MacMahon's source proves the universal analytic-Lipschitz/interior-metric comparison using Gaussian straightening with a much smaller explicit constant and a coarse second-derivative bound. The sharp Fekete–Szegő coefficient theorem is classical. No inspected source combines them into the audited quantitative bound or the corrected Gaussian estimate.",
+      "residual_risks": [
+        "The source preprint is extremely recent, so unindexed parallel quantitative work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the mechanism and qualitative theorem but not the audited sharp refinement.",
+          "evidence": "Its displayed second-derivative estimate is coarser and its reported explicit lower scale is vastly smaller.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20607",
+          "material_read": "Full accessible preprint proof material including the strip setup, derivative bounds, Gaussian convolution and universal comparison.",
+          "method": "Primary full-text proof comparison.",
+          "title": "On Simply Connected Domains Supporting an Unbounded Analytic Function with Bounded Derivative",
+          "trigger": "Same metric theorem and Gaussian-straightening argument."
+        },
+        {
+          "assessment": "Supplies the coefficient bound only.",
+          "evidence": "At the required parameter it gives \\(1+2e^{-4}\\), producing the sharper pre-Schwarzian estimate.",
+          "identifier_or_url": "https://doi.org/10.2969/jmsj/05930707",
+          "material_read": "Published theorem/introduction material stating the classical sharp inequality.",
+          "method": "Primary theorem comparison.",
+          "title": "A general approach to the Fekete–Szegő problem",
+          "trigger": "Sharp coefficient inequality used at parameter two-thirds."
+        },
+        {
+          "assessment": "The decimal bound reproduces.",
+          "evidence": "The independent value is approximately 0.000649384865.",
+          "identifier_or_url": "artifacts/verify_constant.py",
+          "material_read": "Complete source file.",
+          "method": "Line-by-line inspection plus independent evaluation.",
+          "title": "Assigned constant verifier",
+          "trigger": "Final explicit arithmetic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Improving a newly introduced universal metric constant by many orders of magnitude is mathematically substantive because the gain comes from a sharp classical coefficient theorem and a corrected/sharpened analytic estimate, not parameter tuning alone. The calculation also identifies and repairs two local slips without invalidating the source theorem.",
+      "risks": [
+        "The resulting constant is not claimed optimal."
+      ],
+      "sources": [
+        "MacMahon's universal comparison theorem",
+        "sharp Fekete–Szegő inequality"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No optimality is claimed.",
+    "The method remains restricted to simply connected planar domains.",
+    "Originality is best-of-knowledge for a very recent source theorem."
+  ],
+  "record_id": "SCOPE-20260918-250a4af644f8",
+  "schema_version": 1
+}
