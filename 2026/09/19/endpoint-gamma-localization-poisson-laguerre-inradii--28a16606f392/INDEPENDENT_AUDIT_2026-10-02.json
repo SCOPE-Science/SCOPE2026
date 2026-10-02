@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T16:11:45.273043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, artifacts/verification.txt and artifacts/verify_endpoint_localization.py",
+        "https://arxiv.org/html/2609.20750v1, Theorem 1.1, Corollary 1.2, equation (1.7), Lemma 3.4, equations (3.4)–(3.7), Corollary 3.3, Proposition 3.10, Example 3.11"
+      ],
+      "rationale": "The primary paper's exact mean-intensity formula (3.4)–(3.7) has the claimed first mark-dependent coefficient d(v_d γ)^(2/d), multiplying (log ρ^d)^(d−2)/d and the difference E M²−s². Its Corollary 3.3 gives s_{d,ρ}/log ρ^d→1 for every correct shift; for s=A−y/t the first term differs from its endpoint by −2Ay+o(1), while every i≥2 term has variation O((log ρ^d)^(−2(i−1)/d)) on bounded y. The endpoint-tail hypothesis therefore yields the Gamma(β,rate 2A) law by a direct Laplace–Stieltjes calculation. Lemma 3.4's Taylor error is uniform over all mark sets D, including the shrinking endpoint windows; Proposition 3.10's Palm/stabilization bound uses the same exceedance event and a general measurable mark coordinate, so it applies after deterministic rescaling. Together they establish product-intensity Poisson convergence on bounded score/endpoint windows, and the source's unique-maximum mapping then gives the stated independent U,Y,G limit. Equation (1.7) contains +log γ, whereas v1 Example 3.11 (3.23),(3.24) omit it; substitution gives the submitted corrected forms and the omitted versions indeed normalize to γ rather than 1. The archived numerical check tends accordingly toward 0.4 versus 1 for γ=0.4, and the Beta endpoint quadrature approaches Gamma(1.5,3.4); these calculations support rather than replace the analytic proof.",
+      "residual_risks": [
+        "The marked convergence argument is an extension of the primary proof, not a directly stated theorem there; its reliance on the source's full stabilization hypotheses should remain cited. No numerical experiment establishes the general d statement by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1999 exponential-family paper covers normalized Esscher/Gamma limits for a scalar random variable, as its abstract and initial definitions state; it does not address Poisson–Laguerre cell dependence or point-process convergence.",
+          "The 2026 paper's Theorem 1.1 limits the unscaled mark to an atom for d≥3, so it cannot imply a non-degenerate rescaled mark via continuous mapping alone."
+        ],
+        "reasoning": "Scalar tilt is a known tool; using its endpoint asymptotics in the full random-cell process and identifying the independent spatial/score factors requires additional analysis.",
+        "searches": [
+          "Schulte–Švarc Petráková arXiv:2609.20750v1 full relevant sections",
+          "Balkema–Klüppelberg–Resnick primary Limit Laws for Exponential Families PDF https://mediatum.ub.tum.de/doc/1120524/855945.pdf",
+          "Balkema–Klüppelberg–Resnick 2003 domain-of-attraction primary publication metadata"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source package and verification output",
+        "https://arxiv.org/html/2609.20750v1",
+        "https://mediatum.ub.tum.de/doc/1120524/855945.pdf",
+        "https://resultary.org/api/v1/search?q=Poisson%20Laguerre%20inradius%20extreme%20mark%20endpoint%20Gamma%20localization&limit=8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1.7) mechanically implies the submitted +log γ correction and β-specific d=3 shift after endpoint Laplace asymptotics; those components alone would not justify full originality.",
+          "Neither primary source states or directly yields by a mere substitution the non-degenerate marked Poisson limit: the 2026 approximation must be verified after a diverging mark-coordinate rescaling, and uniform shrinking-window intensity limits must be proved."
+        ],
+        "reasoning": "The broader parent inputs are explicit and credited, but the resulting process-level theorem has a missing analytic step, unlike a renaming or routine corollary.",
+        "searches": [
+          "Primary 2026 Theorem 1.1, Lemma 3.4, Proposition 3.10, Corollary 1.2, Example 3.11",
+          "Primary 1999 exponential-family limit-law PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Live Resultary returned the audited record as its top hit, with no independent equivalent among eight hits.",
+          "Primary source has δ_A for d≥3 and does not state a non-degenerate endpoint mark law."
+        ],
+        "reasoning": "The possible overlap is a mathematical implication from the intensity formula plus new asymptotics, not an already printed equivalent result.",
+        "searches": [
+          "Live Resultary GET /api/v1/search?q=Poisson%20Laguerre%20inradius%20extreme%20mark%20endpoint%20Gamma%20localization&limit=8",
+          "Web: Poisson Laguerre extreme inradius endpoint Gamma localization marked point process",
+          "Full arXiv:2609.20750v1 searches for endpoint Gamma and d=3 shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no finite table/database at issue. The correction concerns exact displayed equations in a versioned primary paper."
+        ],
+        "reasoning": "The formula correction is a genuine equation comparison but only a subsidiary component; the standalone research result is the scaled marked-process limit.",
+        "searches": [
+          "Live Resultary query above",
+          "Exact source formulas (1.7), (3.23), (3.24)"
+        ]
+      },
+      "rationale": "The primary 2026 Poisson–Laguerre paper states only unscaled δ_A mark convergence in d≥3 and no Gamma endpoint rescaling. Its d=3 equation (1.7) provides a general exact shift, but it neither states the β-dependent endpoint asymptotic nor the product marked-process refinement. Older exponential-family work establishes the scalar Gamma tilting principle, and that portion is openly disclaimed; it does not apply the principle to the nontrivial Poisson–Laguerre extreme-cell point process or establish independence from the Gumbel score. The missing +log γ is explicitly a version-specific correction, not an original general probability law.",
+      "residual_risks": [
+        "The 2003 exponential-family article's full text was not obtained, but its scope is scalar natural exponential families; no located earlier source connects that result to this stochastic-geometry process. Full future literature may reveal a process-level analogue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the refined marked limit after the supplied endpoint asymptotic; confirms both v1 display omissions despite source's own (1.7).",
+          "identifier_or_url": "https://arxiv.org/html/2609.20750v1",
+          "material_read": "Theorem 1.1/Corollary 1.2 and equations (1.7),(3.4)–(3.7); Corollary 3.3; Lemmas 3.4 and 3.6; Proposition 3.10 proof; Theorem 1.1 proof; Example 3.11 equations (3.23),(3.24) and their derivations.",
+          "method": "Compared exact mark coordinate, coefficients, normalization and approximation hypotheses to the frozen calculation.",
+          "title": "Point process convergence of large inradii of Poisson–Laguerre tessellations",
+          "trigger": "Decisive cited parent and target of the claimed v1 formula correction."
+        },
+        {
+          "assessment": "Scalar tilting principle is known; it does not cover the claimed spatial-score marked Poisson process.",
+          "identifier_or_url": "https://mediatum.ub.tum.de/doc/1120524/855945.pdf",
+          "material_read": "Abstract and opening definition/statement of normalized natural exponential families and Gamma limit laws.",
+          "method": "Compared object and quantifiers to dependent extreme-cell process, not merely the word Gamma.",
+          "title": "Limit Laws for Exponential Families",
+          "trigger": "Highly relevant older scalar Gamma-domain prior art cited by the finding."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Primary arXiv:2609.20750v1 theorem and example equations",
+        "Older scalar exponential-family source scope"
+      ],
+      "rationale": "The prior theorem collapses extreme-cell marks to the deterministic endpoint and hides their fluctuation size. This result gives a non-degenerate universal law, dimensional localization scale, spatial/score independence, and the maximum-cell mark distribution; those are meaningful quantities for extreme stochastic geometry, not an arbitrary parameter slice. The d=3 β-dependent shift and exact normalization correction make the process result usable for a natural endpoint-tail family.",
+      "residual_risks": [
+        "The +log γ correction by itself is too small to serve as the main valued claim; acceptance rests on the independently useful refined process law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The marked convergence argument is an extension of the primary proof, not a directly stated theorem there; its reliance on the source's full stabilization hypotheses should remain cited. No numerical experiment establishes the general d statement by itself.",
+    "The 2003 exponential-family article's full text was not obtained, but its scope is scalar natural exponential families; no located earlier source connects that result to this stochastic-geometry process. Full future literature may reveal a process-level analogue.",
+    "The +log γ correction by itself is too small to serve as the main valued claim; acceptance rests on the independently useful refined process law."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The marked convergence argument is an extension of the primary proof, not a directly stated theorem there; its reliance on the source's full stabilization hypotheses should remain cited. No numerical experiment establishes the general d statement by itself.",
+    "The 2003 exponential-family article's full text was not obtained, but its scope is scalar natural exponential families; no located earlier source connects that result to this stochastic-geometry process. Full future literature may reveal a process-level analogue.",
+    "The +log γ correction by itself is too small to serve as the main valued claim; acceptance rests on the independently useful refined process law."
+  ]
+}
