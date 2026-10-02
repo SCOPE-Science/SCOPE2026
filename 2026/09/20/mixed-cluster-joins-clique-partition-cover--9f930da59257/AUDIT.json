@@ -1,34 +1,129 @@
 {
   "correctness": {
     "status": "PASS",
-    "summary": "The covering number is forced by a representative K_{h,l} and attained by the cluster-pair cover. The partition lower bound is the Erdos--Faudree--Ordman cut inequality. A balanced assignment of first-side internal edges to second-side clusters yields edge-disjoint K4s; remaining second-side internal edges fit into unused cluster pairs as triangles, and all remaining crossing edges are 2-cliques. The capacity hypotheses guarantee every assignment. The resulting partition has exactly s-2a-b members. The asymptotic exact-order choice satisfies the hypotheses and gives coefficient 3/2^(5/3)."
+    "summary": "Choosing one representative from every cluster induces \\(K_{h,\\ell}\\), so every clique cover needs at least \\(h\\ell\\) cliques and the cluster-pair cover attains it. Across the two sides there are \\(s\\) crossing edges and \\(a,b\\) internal edges; the Erdős--Faudree--Ordman inequality gives \\(\\operatorname{cp}\\ge s-a-b-\\min(a,b)\\), and the load hypothesis implies \\(a\\le b\\), hence \\(s-2a-b\\). The cyclic assignment of each first-side internal edge uses each cluster pair at most once because \\(\\binom p2\\le\\ell\\) and balances second-side loads within one; the second hypothesis supplies distinct second-side edges for all \\(K_4\\) pairings. In a second-side cluster, the remaining internal-edge count is at most the number of unused first-side cluster pairs because \\(e_j\\le\\binom{q+1}2\\le h\\), so edge-disjoint triangles finish the internal edges and leftover crossings are single edges. Counting gives equality. For the asymptotic choice, \\(p\\sim c n^{1/3}\\), \\(q\\sim c^{-1/2}n^{1/3}\\), \\(h\\sim n/(2p)\\), \\(\\ell\\sim n/(2q)\\); all capacity conditions eventually hold, and the three \\(n^{4/3}\\) terms are \\(c/2\\), \\(1/(4\\sqrt c)\\), \\(1/(4\\sqrt c)\\). At \\(c=2^{-2/3}\\) these sum to \\(3/2^{5/3}=0.9449407874\\ldots\\), independently rechecked numerically."
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "limitations": [
-    "The capacity conditions are sufficient and are not claimed necessary.",
-    "The numerical coefficient is an explicit construction upper bound, not a proof of the optimal asymptotic constant.",
-    "The Theta(n^(4/3)) order and the cut lower bound are prior results and are not claimed as new.",
-    "Older literature under different clique-decomposition terminology and very recent unindexed work remain residual originality risks.",
-    "Finite verification supports but does not replace the symbolic proof.",
-    "Independent audit has not been performed."
+    "The finite capacity conditions are sufficient, not necessary. The coefficient \\(3/2^{5/3}\\) is an explicit construction upper bound and is not claimed optimal. Full primary text of Ning's very recent preprint was not directly retrievable in this audit, so the comparison relies on its primary abstract plus complete published SCOPE predecessor records and is retained as a residual risk."
   ],
   "originality": {
-    "scope": "to the best of our knowledge",
+    "broader_coverage": {
+      "evidence": [
+        "The 2026-09-19 theorem treats \\((hK_r)\\vee(hK_s)\\) with the same number of clusters on both sides.",
+        "The 2026-09-18 theorem treats \\((aH)\\vee(bH)\\) with the same base graph on both sides.",
+        "Ning's construction is the balanced uniform family \\((hK_k)\\vee(hK_k)\\)."
+      ],
+      "reasoning": "These exact formulas cover important slices but do not dominate the heterogeneous mixed family or its exact-order remainder mechanism.",
+      "searches": [
+        "SCOPE-2026-09-19 exact clique partitions for joined unequal cluster graphs",
+        "SCOPE-2026-09-18 exact clique partitions for joins of repeated graph copies",
+        "Ning arXiv:2609.20305"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.20305",
+      "DOI:10.1016/0012-365X(88)90197-5",
+      "SCOPE-20260919-07df8435d587",
+      "SCOPE-20260918-40b72bad9da8",
+      "published SCOPE archive search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two earlier SCOPE constructions require, respectively, equal cluster counts or a common base graph; their hypotheses do not instantiate the current \\(q/q+1\\) mixed side.",
+        "The primary abstract determines only the order of the deficit."
+      ],
+      "reasoning": "Combining the earlier statements does not mechanically imply the new load-balancing theorem: one must prove simultaneous edge assignment across nonuniform second-side clusters and then re-optimize the exact-order asymptotics.",
+      "searches": [
+        "Full published SCOPE RESULT for joined unequal clusters (2026-09-19)",
+        "Full published SCOPE RESULT for repeated-graph joins (2026-09-18)",
+        "Ning 2026 primary abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest published SCOPE records are the equal-cluster-count unequal-size theorem from 2026-09-19 and the unequal-copy-count same-base-graph theorem from 2026-09-18.",
+        "Ning's primary abstract establishes only the \\(\\Theta(n^{4/3})\\) deficit scale; searchable descriptions of its construction use the balanced uniform join."
+      ],
+      "reasoning": "Neither predecessor is equivalent to a join whose two sides simultaneously have different cluster sizes/counts and whose second side mixes \\(q\\) and \\(q+1\\) clusters.",
+      "searches": [
+        "Published SCOPE archive query: clique partition cover mixed cluster joins unequal cluster sizes q q+1",
+        "Published SCOPE archive query: clique partition covering deficit explicit constant heterogeneous cluster join",
+        "arXiv:2609.20305"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No prior table/database entry with the mixed finite formula or displayed limsup constant was located."
+      ],
+      "reasoning": "The coefficient comes from optimizing an asymptotic construction, not from a finite database.",
+      "searches": [
+        "Published SCOPE semantic search for the explicit coefficient \\(3/2^{5/3}\\) and mixed cluster joins"
+      ]
+    },
+    "residual_risks": [
+      "Ning's full primary text was not directly retrieved in this audit; a hidden mixed-cluster variant there would affect originality, although the primary abstract and fully inspected published predecessor records do not indicate such coverage.",
+      "Older clique-decomposition literature may contain equivalent load-balancing constructions under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; it requires equal cluster counts and uniform cluster size within each side.",
+        "evidence": [
+          "Its theorem is \\((hK_r)\\vee(hK_s)\\) under an edge-chromatic threshold."
+        ],
+        "identifier_or_url": "SCOPE-20260919-07df8435d587",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Published SCOPE source tree.",
+        "title": "Exact clique partition numbers for joined unequal cluster graphs",
+        "trigger": "Closest published SCOPE result allowing unequal clique sizes."
+      },
+      {
+        "assessment": "NOT_COVERING; both sides repeat the same base graph \\(H\\).",
+        "evidence": [
+          "Its theorem is \\((aH)\\vee(bH)\\) with \\(\\min(a,b)\\ge\\chi'(H)\\)."
+        ],
+        "identifier_or_url": "SCOPE-20260918-40b72bad9da8",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Published SCOPE source tree.",
+        "title": "Exact clique partitions for joins of repeated graph copies",
+        "trigger": "Closest published SCOPE result allowing unequal copy counts."
+      },
+      {
+        "assessment": "PRIMARY_FULL_TEXT_RESIDUAL_RISK; the abstract proves the \\(\\Theta(n^{4/3})\\) scale, while searchable descriptions and complete predecessor records identify the balanced uniform lower-bound family.",
+        "evidence": [
+          "The abstract defines \\(d_n\\) and proves \\(d_n=\\Theta(n^{4/3})\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.20305",
+        "material_read": "Primary arXiv abstract; full text was not directly retrievable in this audit.",
+        "method": "Primary arXiv metadata plus targeted literature search.",
+        "title": "On the difference between clique partition and clique covering numbers",
+        "trigger": "Primary motivating paper for the deficit problem."
+      },
+      {
+        "assessment": "METHOD_PRIOR_ART; the cut inequality is treated as prior and is not the novelty claim.",
+        "evidence": [
+          "The paper develops clique-partition/covering tools and is the cited source of the crossing-edge inequality."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90197-5",
+        "material_read": "Publisher/indexed abstract and bibliographic record.",
+        "method": "Literature search.",
+        "title": "Clique partitions and clique coverings",
+        "trigger": "Source of the cut inequality used in the proof."
+      }
+    ],
     "status": "PASS",
-    "summary": "Ning's 2026 preprint proves d_n=Theta(n^(4/3)) and treats the balanced uniform family (hK_k) join (hK_k) for even k, followed by isolated-vertex padding. The cut inequality is prior work. Searches under clique partition/covering, joins of cluster graphs, unequal clique clusters, cographs, and related decomposition language found no prior heterogeneous formula of this form and no explicit all-order limsup coefficient 3/2^(5/3). Older differently phrased decomposition literature and recent unindexed work remain residual risks."
+    "summary": "Fresh implication-based literature comparison did not find prior coverage of the final claim."
   },
   "phase": "II",
-  "previously_published_pending_reaudit": true,
+  "previously_published_pending_reaudit": false,
   "record_id": "SCOPE-20260920-9f930da59257",
-  "review_statement": "Same-model review: passed. Independent audit: not yet performed.",
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "scope_run_id": "76dea490-358d-422b-bf36-3ffd0e350274",
+  "review_statement": "Independent audit dated 2026-10-01: passed on correctness, originality, and value.",
+  "review_type": "independent_audit",
   "value": {
     "status": "PASS",
-    "summary": "The mixed family absorbs exact-order remainders inside cluster sizes, permits asymmetric cluster scales, and sharpens the known construction quantitatively to the explicit uniform bound limsup d_n/n^(4/3) <= 3/2^(5/3) approximately 0.9449407874. The finite theorem also supplies a reusable exact-attainment criterion for a natural cluster-join cograph family."
+    "summary": "The mixed-cluster theorem is a reusable exact-attainment criterion beyond uniform repeated-clique joins, and its remainder-absorbing construction yields an explicit every-order second-order deficit constant. This is a motivated refinement of the current \\(\\Theta(n^{4/3})\\) extremal problem, not merely a renamed special case."
   },
-  "verification_state": "awaiting_fresh_independent_audit"
+  "verification_state": "independently_reviewed"
 }
