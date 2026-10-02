@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T02:21:24.865036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a maximal isotropic \\(M\\subset (\\mathbb Z/4\\mathbb Z)^6\\) of order \\(64\\), write \\(K=M\\cap 2V\\), \\(U=K/2\\subset \\mathbb F_2^6\\), and \\(W=M\\bmod 2\\). The package proof correctly gives \\(W=U^\\perp\\), \\(\\dim U+\\dim W=6\\), and \\(W\\) isotropic. If \\(\\dim W=0\\) or \\(1\\), \\(U\\) contains a support-one vector. If \\(\\dim W=2\\), AME cleanliness would force the two local pairs to span \\(\\mathbb F_2^2\\) at all three sites, so all three local symplectic determinants are one, contradicting global isotropy because their sum is one in \\(\\mathbb F_2\\). Hence \\(\\dim U=3\\). Together with \\(|M|=64\\), this forces \\(M\\cong(\\mathbb Z/4\\mathbb Z)^3\\). The complete package scripts were inspected: the freeness script exhausts the finite \\(\\mathbb F_2\\) cases; the reduction script searches all local symplectic patterns and lifts an invertible \\(X\\)-block to \\(\\mathbb Z/4\\mathbb Z\\), after which isotropy gives a symmetric graph matrix and local shears remove its diagonal. The explicit \\(K_3\\) witness is checked at module and Hilbert-space level. A dead assertion `assert G2 == S or True` is harmless because the next membership assertion plus equal module cardinalities supplies the needed equality check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Helwig explicitly works with weighted graph adjacency over \\(\\mathbb Z_p\\) for prime \\(p\\) in the relevant stabilizer-to-graph section. Later arbitrary-level tripartite work uses a broader local-unitary decomposition and does not supply this \\(\\mathbb Z_4\\) local-Clifford AME freeness theorem in the material inspected."
+        ],
+        "reasoning": "These broader graph-code and decomposition theorems do not, on the inspected statements, imply the same-site local-Clifford claim for modular ququarts with possible nonfree stabilizer modules.",
+        "searches": [
+          "Helwig, Absolutely Maximally Entangled Qudit Graph States, arXiv:1306.2879",
+          "Wong and Jiang, Local unitary decomposition of tripartite arbitrary leveled qudit stabilizer states, arXiv:2507.09416",
+          "Schlingemann, Stabilizer codes can be realized as graph codes, quant-ph/0111080"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1306.2879",
+        "https://arxiv.org/abs/2507.09416",
+        "https://arxiv.org/abs/quant-ph/0111080",
+        "published SCOPE semantic search",
+        "assigned Git tree 75557b373e8fd2384c736756413782107d62da54"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-dimensional theorem assumes a field; the audited proof exists precisely because \\(\\mathbb Z_4\\) has torsion. The arbitrary-level LU result is not a local-Clifford graph-state theorem for this modular model."
+        ],
+        "reasoning": "No inspected prior implication removes the composite-ring torsion obstruction under AME, so the final theorem is not a direct corollary of the located stronger-looking results.",
+        "searches": [
+          "compare prime-dimensional LC theorem with composite \\(d=4\\) modular Pauli module",
+          "compare arbitrary-level LU decomposition with LC graph reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic match is the audited record. Helwig states the stabilizer-to-graph reduction in the prime-dimensional setup, while the audited claim is specifically modular dimension four."
+        ],
+        "reasoning": "The natural equivalent formulation is that AME forces the maximal isotropic \\(\\mathbb Z_4\\)-module to be free and hence graph reducible; no prior source located states this torsion-elimination theorem.",
+        "searches": [
+          "three ququart stabilizer AME local Clifford weighted graph state Z4",
+          "tripartite ququart stabilizer graph state composite dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier published SCOPE record with the same modular-ququart classification was returned; nearby AME records concern different local dimensions or questions."
+        ],
+        "reasoning": "No exact database/table was found that enumerates all maximal-isotropic AME \\(\\mathbb Z_4\\) modules up to local Clifford action.",
+        "searches": [
+          "published SCOPE/Resultary semantic search for three-ququart stabilizer AME graph equivalence"
+        ]
+      },
+      "rationale": "Best-of-knowledge original in the modular-ququart setting. Prime-dimensional graph-state results do state local-Clifford reduction of stabilizer states, but their algebra is over \\(\\mathbb Z_p\\) with \\(p\\) prime; that does not cover the torsion-bearing \\(\\mathbb Z_4\\) module problem. Fresh semantic search found no earlier result proving that the AME condition itself eliminates all nonfree three-ququart stabilizer modules.",
+      "residual_risks": [
+        "A general composite-ring stabilizer/graph-code theorem could exist under different terminology; none located was shown to imply local-Clifford equivalence in this modular \\(\\mathbb Z_4\\) model.",
+        "Best-of-knowledge originality is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Highly relevant but not covering: the graph-state adjacency and stabilizer theorem in the inspected section use prime local dimension.",
+          "evidence": "The paper defines graph states with adjacency over \\(\\mathbb Z_p\\) for prime \\(p\\), then states LC equivalence to graph states in that framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.2879",
+          "material_read": "Full-text relevant sections through the qudit graph/stabilizer setup and local-Clifford statement, including the prime-dimension restriction.",
+          "method": "Primary preprint PDF text and page inspection.",
+          "title": "Absolutely Maximally Entangled Qudit Graph States",
+          "trigger": "Same AME/graph-state objects and a stabilizer-to-graph statement."
+        },
+        {
+          "assessment": "Supports the finite claims and explicit witness; randomized checks were treated only as corroboration.",
+          "evidence": "The finite \\(\\mathbb F_2\\) cases and all 135 Lagrangians are exhausted, while the analytic dimension argument establishes the infinite-free conclusion for the fixed finite module universe.",
+          "identifier_or_url": "2026/09/12/091/artifacts/verify_freeness.py; verify_enumeration.py; verify_reduction.py; verify_hilbert.py",
+          "material_read": "Complete source of all four files.",
+          "method": "Line-by-line source inspection plus independent algebraic reconstruction of the freeness argument.",
+          "title": "Assigned freeness/reduction certificates",
+          "trigger": "Critical nonstandard finite and module steps."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves a natural torsion obstruction that appears only in composite local dimension: AME forces freeness and restores graph-state normal form for three ququarts. This is a structural classification lemma, not a parameter substitution or arbitrary finite table, and gives an explicit practical criterion through the torsion count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific to three ququarts in the modular \\(\\mathbb Z_4\\) Pauli model.",
+    "The exhaustive finite scripts corroborate finite sublemmas; the universal conclusion rests on the stated module argument.",
+    "The RESULT reproducibility section names `output/artifacts/...`, but the actual assigned package stores the scripts under `artifacts/...`."
+  ],
+  "schema_version": 1
+}
