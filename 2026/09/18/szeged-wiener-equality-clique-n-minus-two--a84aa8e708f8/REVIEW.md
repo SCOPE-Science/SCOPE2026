@@ -1,6 +1,10 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent mathematical audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+- Correctness: **PASS** — The four adjacency classes for the two vertices outside the clique were reconstructed from the graph definitions. A fresh independent enumerator built every 2-connected parameter graph through order fourteen, computed all-pairs distances and every Szeged edge contribution directly, and found zero discrepancies with the three displayed formulas. In orders ten through fourteen, the only equality parameters were the Zhang-Li family and, at order ten, the one exceptional type, up to exchanging the two outside vertices. This finite replay is supplementary: the all-order classification is supplied by the displayed algebraic formulas and the package's nonnegative-integer case analysis, which was separately checked for the stated boundary cases.
+- Originality: **PASS** — The complete 16-page Zhang-Li preprint was inspected. Its Problem 7 asks for all equality cases and Lemma 8 constructs the known infinite family while explicitly saying the construction is not necessary; it does not classify the high-clique regime. Resultary also contains later September 18/19 records with the same near-complete classification, but their corrected provenance sections explicitly identify this assigned record as the earlier broader theorem, committed at 2026-09-18 03:47:31 UTC. They therefore corroborate rather than predate the assigned claim. No earlier external classification of the \((n-2)\)-clique regime was found.
+- Value: **PASS** — This is a natural partial solution of a newly posed equality-classification problem in the dense regime containing the entire known infinite construction. It gives exact formulas for all two-vertex extensions of a clique, proves uniqueness for every order at least eleven within that regime, and isolates the unique order-ten exception. The restriction is mathematically motivated by the known equality family, not an arbitrary slice.
+
+Detailed structured comparisons and residual risks are recorded in `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
+Earlier scientific assessment evidence is preserved in `AUDIT.json` as historical evidence.
