@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T12:10:43.606415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The clique-cover lower bound is exact by choosing one representative per cluster, which induces \\(K_{h,h}\\) and lets each clique cover at most one selected crossing edge. The Erdős–Faudree–Ordman cut inequality gives \\(cp\\ge S-2a-b\\) because \\(a\\le b\\). For the construction, optimal edge-colourings of \\(K_r\\) and \\(K_s\\) provide matchings with \\(|R_c|\\le|S_c|\\). The condition \\(h\\ge\\chi'(K_s)\\) makes the scheduled cluster pairs distinct. Paired internal edges form edge-disjoint \\(K_4\\)'s, surplus larger-side matching edges form triangles, and all remaining crossing edges are \\(K_2\\)'s; the crossing-edge disjointness follows from the matching property and distinct cluster pairs. The count is exactly \\(S-2a-b\\). The finite verifier checks 90 cases but is not used as the infinite proof.",
+      "risks": [
+        "The threshold \\(h\\ge\\chi'(K_s)\\) is only sufficient, not claimed necessary."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify_joined_cluster_partition.py",
+        "Erdős–Faudree–Ordman cut inequality",
+        "current repeated-copy and mixed-cluster SCOPE theorems"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These cover the equal-cluster-size direction or a stricter heterogeneous regime, not all \\(2\\le r\\le s\\) at the edge-chromatic threshold."
+        ],
+        "reasoning": "The audited theorem is neither a corollary of same-\\(H\\) repetition nor of the later stronger-threshold heterogeneous theorem.",
+        "searches": [
+          "earlier repeated-graph theorem",
+          "later heterogeneous mixed-cluster theorem",
+          "Ning 2026 balanced construction"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md and verifier",
+        "SCOPE-clique-partitions-joins-repeated-graphs--40b72bad9da8",
+        "SCOPE-mixed-cluster-joins-clique-partition-cover--9f930da59257",
+        "Ning arXiv:2608.11536",
+        "Erdős–Faudree–Ordman 1988",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With equal cluster counts and no size-\\(s+1\\) clusters, the later theorem still requires internal-edge capacity on the \\(K_s\\) side, stronger than \\(\\chi'(K_s)\\)."
+        ],
+        "reasoning": "Current broader coverage therefore does not imply the full audited parameter region.",
+        "searches": [
+          "parameter specialization into the later mixed theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The repeated-copy theorem fixes the same component graph on both sides; the later mixed-cluster theorem has stronger capacity hypotheses."
+        ],
+        "reasoning": "Equivalent formulations by graph join, cluster graph, and cut-bound attainment were compared.",
+        "searches": [
+          "Resultary semantic search for joined unequal cluster graphs and clique partition formula",
+          "comparison with SCOPE-clique-partitions-joins-repeated-graphs--40b72bad9da8 and SCOPE-mixed-cluster-joins-clique-partition-cover--9f930da59257"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table gives the two-parameter formula at \\(h\\ge\\chi'(K_s)\\)."
+        ],
+        "reasoning": "The result is an infinite construction theorem, not a known-table recomputation.",
+        "searches": [
+          "current Resultary clique-partition findings and older EFO/CEO-Pullman literature"
+        ]
+      },
+      "rationale": "An earlier SCOPE theorem for \\((aH)\\vee(bH)\\) covers unequal numbers of copies only when the component graph is the same on both sides; setting \\(H=K_k\\) therefore does not cover \\(r\ne s\\). A later heterogeneous-cluster theorem allows unequal sizes but, when specialized to this family, requires a much stronger capacity condition such as \\(h\\ge\\binom{s+1}{2}\\). It covers only a subrange of the audited theorem, whose edge-colouring schedule works already at \\(h\\ge\\chi'(K_s)\\). Thus the exact unequal-size low-threshold theorem survives current broader records.",
+      "residual_risks": [
+        "Older clique-decomposition literature under different terminology remains a residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "It permits unequal copy counts but requires the same graph \\(H\\) on both sides.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-clique-partitions-joins-repeated-graphs--40b72bad9da8",
+          "material_read": "Complete published RESULT.md.",
+          "method": "Full parameter-domain and construction comparison.",
+          "title": "Exact clique partitions for joins of repeated graph copies",
+          "trigger": "Closest earlier exact join theorem."
+        },
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "Its capacity hypotheses cover only a stricter subrange than \\(h\\ge\\chi'(K_s)\\).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-mixed-cluster-joins-clique-partition-cover--9f930da59257",
+          "material_read": "Published theorem and proof through the exact finite conditions.",
+          "method": "Direct specialization of its hypotheses to \\(J_h(r,s)\\).",
+          "title": "Mixed cluster joins and an explicit clique partition-cover deficit constant",
+          "trigger": "Later heterogeneous cluster theorem."
+        },
+        {
+          "assessment": "Correct finite corroboration.",
+          "evidence": "It checks exact edge multiplicity one and the claimed count in 90 representative parameter cases.",
+          "identifier_or_url": "artifacts/verify_joined_cluster_partition.py",
+          "material_read": "Complete source and saved output.",
+          "method": "Line-by-line inspection.",
+          "title": "Assigned edge-partition verifier",
+          "trigger": "Replay of the constructive packing."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies exact clique cover and partition numbers on a natural two-parameter extension of the construction behind the new \\(n^{4/3}\\) deficit result. The low edge-chromatic threshold and combined \\(K_4\\)/triangle packing remove both equal-size and parity restrictions in a structurally motivated way.",
+      "risks": [
+        "The sufficient threshold may not be sharp."
+      ],
+      "sources": [
+        "Ning's balanced cluster construction",
+        "Erdős–Faudree–Ordman cut bound",
+        "audited unequal-size packing"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The threshold is sufficient only.",
+    "The number of clusters is the same on both sides.",
+    "Current records partially overlap but do not cover the full audited parameter range."
+  ],
+  "record_id": "SCOPE-20260919-07df8435d587",
+  "schema_version": 1
+}
