@@ -1,27 +1,46 @@
 {
   "axes": {
     "correctness": {
-      "rationale": "The compressed Haar-projector second moment follows from the beta second moment of a diagonal projector entry, idempotence for the off-diagonal squared moment, and rotational invariance. Substitution into the L-smooth descent lemma gives an exact quadratic expected-descent bound optimized at alpha=1/(L theta), which telescopes to the stated stationarity rate. The PL corollary follows directly, and a rank-one quadratic attains the one-step formula exactly and proves constant-stepsize sharpness. Exact rational checks verify the algebra and numerical comparison.",
+      "rationale": "The projector moment was re-derived from the beta second moment of a diagonal Haar projector entry, idempotence for off-diagonal squares, and orthogonal invariance of the compressed block. Exact rational recomputation reproduced \\(\\theta_{1000,512,32}=264307/500499\\) and the rate constant about 33.0054. Substitution into the smoothness inequality gives a concave quadratic in the stepsize whose maximizer is exactly the claimed value; telescoping yields the stationarity bound. The PL step follows immediately, and for a rank-one quadratic the one-step expectation is the same quadratic exactly, proving constant-stepsize sharpness. The source full HTML was inspected and confirms its Theorem 6/8 uses the same intrinsic-dimension model but imposes the logarithmic lower bound, \\(d\\le s/16\\), and coefficient \\(36Ls/d\\).",
       "verdict": "PASS"
     },
     "originality": {
-      "rationale": "The beta/random-projector moment itself is classical and is not claimed as new. The September 2026 source theorem uses concentration and imposes logarithmic and d<=s/16 restrictions; the original SSD literature gives generic ambient-dimensional rates. No located source states the exact theta-based sparse-SSD rate, its unrestricted sampling dimension, the >=16-fold sharpening across the source theorem's regime, or the rank-one sharpness statement. Originality is asserted only to the best of our knowledge.",
+      "rationale": "The beta/projector moments themselves are classical and are not novel. The 2021 stochastic-subspace paper gives general ambient-dimensional convergence theory, while the 2026 source explicitly describes its restricted theorem as the first sparse classical-SSD analysis. No prior source located states the exact compressed second-moment coefficient for this active-subspace descent calculation, the resulting all-\\(d\\) intrinsic-dimensional rate, or the rank-one sharpness statement. The new theorem is not mechanically implied by the source concentration proof because it replaces its bad-event bound with an exact second moment.",
       "verdict": "PASS"
     },
     "value": {
-      "rationale": "The result substantially strengthens a newly introduced sparse-SSD theorem without changing the algorithm: it removes its sampling-dimension restrictions, permits d=1, improves the guaranteed stationarity coefficient by at least a factor of 16 wherever the source theorem applies, adds a PL rate, and identifies a rank-one family where the optimized step and contraction are exact.",
+      "rationale": "The result removes every sampling-dimension restriction from a newly motivated sparse-SSD theorem without changing the algorithm, permits one-dimensional subspaces, improves the source guarantee by at least a factor of sixteen in its own regime, adds a PL rate, and proves a sharpness statement on a natural rank-one family. Those are substantive algorithmic guarantees rather than a known-moment recomputation in isolation.",
       "verdict": "PASS"
     }
   },
-  "disclaimer": "Not independent validation, peer review, or a guarantee of first discovery.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
-  "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-18",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "historical_scientific_assessment": {
+    "axes": {
+      "correctness": {
+        "rationale": "The compressed Haar-projector second moment follows from the beta second moment of a diagonal projector entry, idempotence for the off-diagonal squared moment, and rotational invariance. Substitution into the L-smooth descent lemma gives an exact quadratic expected-descent bound optimized at the stated step. The PL corollary and rank-one sharpness follow exactly.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "The beta/random-projector moment itself is classical and is not claimed as new. The September 2026 source theorem uses concentration and imposes logarithmic and d<=s/16 restrictions; generic SSD literature gives ambient-dimensional rates. No located source states the exact theta-based sparse-SSD rate, unrestricted sampling dimension, or rank-one sharpness.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The result substantially strengthens a newly introduced sparse-SSD theorem without changing the algorithm: it removes sampling-dimension restrictions, permits d=1, improves the guaranteed stationarity coefficient throughout the source regime, adds a PL rate, and identifies a rank-one sharpness family.",
+        "verdict": "PASS"
+      }
+    },
+    "disclaimer": "Preserved pre-audit scientific assessment; the dated audit files contain the fresh assessment.",
+    "reviewed_at": "2026-09-18",
+    "status": "passed"
+  },
+  "independent": true,
+  "independent_audit_evidence": [
+    "INDEPENDENT_AUDIT_2026-10-01.md",
+    "INDEPENDENT_AUDIT_2026-10-01.json"
+  ],
+  "independent_audit_status": "passed",
+  "independent_audited_at_utc": "2026-10-01T08:03:24Z",
+  "independent_validation": true,
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
+  "verification_state": "independently_reviewed"
 }
