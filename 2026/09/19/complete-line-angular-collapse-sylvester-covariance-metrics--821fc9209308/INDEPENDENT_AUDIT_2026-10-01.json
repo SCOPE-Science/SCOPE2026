@@ -1,0 +1,86 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "audited_at_utc": "2026-10-01T12:41:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Necessity follows from the exact scalar-ray length integral: for homogeneity \\(r<2\\) the zero boundary is at finite length and for \\(r>2\\) infinite scale is at finite length. For \\(r=2\\), the diagonal metric terms control Euclidean displacement of the ordered log-spectrum, confining every metric-Cauchy sequence to a fixed spectral annulus; continuity and positivity of the kernel then give two-sided uniform equivalence with the Frobenius norm and metric completeness, hence geodesic completeness by Hopf--Rinow. Direct substitution independently verifies the dilation/inversion pullbacks, the mean-kernel monotonicity threshold \\(|p-q|=2\\), and the two-dimensional rotation-speed formula. The actual verifier source was inspected and its algebra agrees with these identities; the saved output was not used as proof.",
+      "risks": [
+        "No correctness defect was found."
+      ],
+      "sources": [
+        "current RESULT.md and verification script at the archived record",
+        "Li--Mishra--Jawanpuria--Mostajeran, arXiv:2609.17089",
+        "Thanwerdas--Pennec, arXiv:2109.05768 / Linear Algebra Appl. 661 (2023)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The known theorem covers \\(p+q=2\\) only when the normalized kernel is a mean kernel, which here is \\(|p-q|\\le2\\).",
+        "reasoning": "That prior coverage does not imply the non-mean complete region or its angular-collapse threshold.",
+        "search": "Hiai--Petz mean kernels; Thanwerdas--Pennec invariant SPD metrics; mixed-Euclidean metrics"
+      },
+      "checked_sources": [
+        "arXiv:2609.17089",
+        "arXiv:2109.05768",
+        "Hiai--Petz 2009",
+        "published-result corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "The source supplies the metric family and local \\(p+q\\) conditioning role; prior completeness theory supplies only the mean-kernel subclass.",
+        "reasoning": "Neither checked prior implication yields the all-positive-homogeneous-kernel completeness theorem or the explicit non-mean isospectral degeneration.",
+        "search": "Li et al. source family plus Hiai--Petz/Thanwerdas--Pennec completeness theory"
+      },
+      "equivalent_formulations": {
+        "evidence": "Thanwerdas--Pennec explicitly describe the mean-kernel completeness theorem and note it is only a sufficient condition for general kernel metrics.",
+        "reasoning": "The audited general homogeneous-kernel lemma is stronger than the mean-kernel theorem and is not an alias of the source paper's conditioning result.",
+        "search": "homogeneous kernel metric; SPD completeness; degree two; mean kernel; Sylvester-power covariance metric; inversion and dilation symmetry"
+      },
+      "exact_database_or_table": {
+        "evidence": "No earlier exact or stronger published SCOPE record was returned.",
+        "reasoning": "The claim is theorem-level rather than a finite database value; the semantic database was used as a coverage check.",
+        "search": "published-result corpus semantic database search for completeness/angular-collapse formulas"
+      },
+      "rationale": "The motivating covariance-metric paper studies local Hessian conditioning and does not state this global completeness/angular phase diagram. The closest established completeness theorem located is for mean-kernel metrics and says homogeneity power \\(2\\) is necessary and sufficient in that subclass. The audited theorem removes the mean hypothesis and then reaches the non-mean \\(|p-q|>2\\) part of this new family. published-result corpus searches for homogeneous-kernel completeness, the complete line, inversion symmetry, and angular collapse returned the current record but no earlier equivalent finding.",
+      "residual_risks": [
+        "Older matrix-geometry literature using different terminology for homogeneous kernels remains a residual risk, but the directly relevant 2023 synthesis did not state the audited extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces the exact two-parameter family and conditioning analysis; no global completeness statement exposed.",
+          "material_read": "primary abstract and indexed description",
+          "source": "Li et al., arXiv:2609.17089"
+        },
+        {
+          "assessment": "States completeness iff power two for mean-kernel metrics and calls this only a sufficient condition for general kernel metrics.",
+          "material_read": "full-text OCR/search material around kernel metrics and completeness",
+          "source": "Thanwerdas and Pennec, arXiv:2109.05768 / LAA 661"
+        },
+        {
+          "assessment": "Prior mean-kernel theory, not the non-mean extension.",
+          "material_read": "abstract/bibliographic material and the mean-kernel completeness formulation as reproduced in later primary literature",
+          "source": "Hiai and Petz, LAA 430 (2009)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Completeness is a basic global invariant of a newly proposed optimization metric family, and the result supplies a sharp line together with a distinct angular-degeneration boundary inside that line. The non-mean extension is structurally meaningful and can constrain geometric metric tuning without pretending to prove algorithmic convergence.",
+      "risks": [
+        "The angular-collapse construction is diagnostic rather than a geodesic-distance or optimization-performance theorem."
+      ],
+      "sources": [
+        "Li et al. 2026 metric-family motivation",
+        "mean-kernel completeness literature"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every smooth positive symmetric homogeneous kernel metric on the SPD cone, metric and geodesic completeness hold exactly at homogeneity degree \\(2\\). For the Sylvester-power family this gives completeness exactly on \\(p+q=2\\), equivalently the dilation- and inversion-invariant line; after constant normalization, the complete non-mean region \\(|p-q|>2\\) has explicit isospectral quarter-turn length asymptotic to \\(\\pi\\kappa^{(2-|p-q|)/4}\\), hence angular collapse at infinity.",
+  "limitations": [
+    "The angular formula is the length of an explicit isospectral path and therefore an upper bound on geodesic distance, not an exact distance formula.",
+    "The global statements concern smooth positive kernel metrics on the full SPD cone and do not imply optimization convergence."
+  ]
+}
