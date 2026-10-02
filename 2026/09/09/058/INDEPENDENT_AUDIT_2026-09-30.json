@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T22:58:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/09/058/RESULT.md",
+        "artifacts/verify_obstruction.py",
+        "independent connectivity-state enumeration"
+      ],
+      "rationale": "The raw witness partition has u0 connected in the background to v1 and all four x/y copies while v0 is isolated; no choice of the five incident w-edges can reach v0, so the signed conditional difference is exactly -1 in every one of 32 states. The symmetrized witness similarly fixes the two signed terms at -1/2 each and is exactly -1. Independent enumeration reproduced 877 raw partitions with 233 grid-negative and 4140 symmetrized partitions with 1107 grid-negative. The counts remain explicitly labeled grid-screening, while the two constant witnesses are exact.",
+      "residual_risks": [
+        "The result rules out only partition-pointwise domination; realizable boundary mixtures can still average nonnegatively, so it does not decide series-parallel bunkbed validity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Denart proves cactus and listed biconnected classes and reduction principles; the searched statements do not settle series-parallel graphs or imply this partitionwise witness."
+        ],
+        "reasoning": "No stronger searched theorem subsumes the exact local no-go claim.",
+        "searches": [
+          "Denart 2506.09264",
+          "Gladkov–Pak–Zimin 2410.02545",
+          "Meunier–Pournajafi 2410.08957",
+          "Resultary exact-obstruction search"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2506.09264",
+        "https://arxiv.org/abs/2410.02545",
+        "https://arxiv.org/abs/2410.08957",
+        "Resultary semantic search for the exact obstruction/counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A global bunkbed theorem/counterexample does not determine the sign of each conditioned degree-2 boundary partition."
+        ],
+        "reasoning": "The local witness requires its own connectivity calculation.",
+        "searches": [
+          "Comparison with Denart biconnected reduction and known global counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate concerns failure of a proof strategy after conditioning on the boundary partition, not failure of the bunkbed inequality itself."
+        ],
+        "reasoning": "Known graph-class theorems and counterexamples are not equivalent to this local conditional obstruction.",
+        "searches": [
+          "Resultary: bunkbed degree-2 conditioning partition pointwise f=-1 g=-1",
+          "Denart 2506.09264"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only SCOPE058 matched the counts/witness."
+        ],
+        "reasoning": "No prior table was identified.",
+        "searches": [
+          "Resultary exact 233/877 1107/4140 and constant -1 witness"
+        ]
+      },
+      "rationale": "Searches found the general bunkbed counterexample and Denart’s cactus/biconnected-component results, but no prior statement of this exact degree-2 conditional-partition no-go lemma or the symmetrized constant -1 witness.",
+      "residual_risks": [
+        "A proof-strategy observation of this exact type may exist informally or in an appendix not surfaced by semantic search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_LOCAL_SERIES_STEP_OBSTRUCTION",
+          "evidence": "The paper covers cactus and specified biconnected classes and gives a reduction; it does not state the candidate’s partitionwise degree-2 obstruction.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.09264",
+          "material_read": "Primary abstract and theorem-scope summary.",
+          "method": "Claim/domain comparison.",
+          "title": "The bunkbed conjecture still holds for cactus graphs and for graphs with certain biconnected components",
+          "trigger": "Closest current classification result for graph classes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "candidate Context/Limitations",
+        "Denart 2506.09264 classification boundary"
+      ],
+      "rationale": "A concrete exact obstruction to the most natural degree-2 induction step is a motivated boundary result for the unresolved series-parallel direction. The symmetrized -1 witness shows that even exploiting layer-swap symmetry does not rescue partitionwise domination, forcing any successful proof to use realizability or correlations rather than a pointwise inequality.",
+      "residual_risks": [
+        "Value is methodological rather than a theorem resolving the whole graph class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Partition-pointwise degree-2 domination for bunkbed percolation fails both raw and after the stated layer-swap symmetrization: explicit boundary partitions give the conditional polynomial identically -1; the larger negative counts are screening results only.",
+  "schema_version": 1
+}
