@@ -1,0 +1,82 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "axes": {
+    "correctness": {
+      "reason": "PASS. The certified roster was rechecked independently from the actual JSON data, rather than trusting the saved success log. For the Netto/5-sparse starter the recomputed invariant keys are (0,171,0) and (2,108,16), with 55 pairwise-new depth-two keys, giving 57 certified nonisomorphic classes. For the second anti-Pasch cyclic type the keys are (0,57,114) and (4,46,94), with 30 pairwise-new depth-two keys, giving 32. Every retained block system was revalidated as an STS(19), every recorded parent-to-child switch was replayed, and every Pasch/hexagon-record/mitre invariant was recomputed. Distinct invariant triples rigorously imply nonisomorphism, so the stated lower bounds follow.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erskine-Griggs determine the global component orders for the length-six switching graph."
+        ],
+        "reasoning": "Global component size is broader in scope but does not logically determine the size of a radius-two ball at a specified vertex.",
+        "searches": [
+          "Cycle switching in Steiner triple systems of order 19 S6 components",
+          "STS(19) switching graph component sizes"
+        ]
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary article proves four connected components for S6(19) and gives component-level structural facts."
+        ],
+        "reasoning": "Those facts do not imply the audited 57/32 invariant-distinct radius-two lower bounds; the local roster must still be constructed and checked.",
+        "searches": [
+          "Erskine Griggs Section 3.2 S6(19)",
+          "cycle switching local degree STS19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erskine-Griggs formulate length-specific switching as a graph on isomorphism classes."
+        ],
+        "reasoning": "The audited radius-two lower bound is exactly a local ball statement in that graph, but the paper does not state its value at these starters.",
+        "searches": [
+          "Netto STS(19) 6-cycle switch radius two",
+          "anti-Pasch cyclic STS(19) hexagon switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior 57/32 local-ball table was found."
+        ],
+        "reasoning": "The search result is best-knowledge evidence only; unpublished traversal data could contain the same local information.",
+        "searches": [
+          "Netto STS19 radius 2 57 hexagon",
+          "57 classes 32 classes STS19 switch"
+        ]
+      },
+      "reason": "PASS. Erskine and Griggs compute the global connected-component structure of the length-six switching graph on STS(19), which is broader contextual coverage, but their published theorem does not determine the radius-two ball around the Netto system or the second anti-Pasch cyclic type. A component order alone does not imply a local radius-two count. Searches found no published exact 57/32 local-ball statement. The claim is therefore not a corollary of the inspected global component-size theorem.",
+      "status": "PASS"
+    },
+    "scientific_value": {
+      "reason": "PASS. The Netto system is the unique 5-sparse STS(19) and a standard highly structured extremal design, while cycle switching is the natural local move studied in the primary literature. A certified local branching lower bound around this distinguished system is a motivated finite structural datum. The claim is deliberately only a lower bound and does not pretend to be a full distance census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fresh independent replay of every system in artifacts/roster_cert.json, including STS validity, recorded switches, and all three invariants.",
+    "Actual artifacts/classify.py, prove_ball.py, verify.py, ball.py and roster_cert.json inspected from the assigned source snapshot.",
+    "Published-result search and primary cycle-switching literature."
+  ],
+  "disposition": "repaired",
+  "record_id": "SCOPE-20260912-025",
+  "residual_risks": [
+    "The 57 and 32 values are certified lower bounds, not exact full radius-two ball sizes.",
+    "The historical verifier scripts contain environment-specific paths; the publication plan adds a portable verifier that reads the repository-local roster certificate.",
+    "Absolute novelty remains best-knowledge because the full global switching computation may have generated unpublished local traversal data."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BROADER_NOT_COVERING_LOCAL_BALL",
+      "evidence": "The paper proves global disconnectedness and component orders for fixed cycle lengths, but does not state the radius-two ball sizes at the audited starters.",
+      "identifier": "arXiv:2405.07750 / J. Combin. Des. 33 (2025), 195-204",
+      "material_read": "Primary article/abstract and the section reporting S6(19) component orders.",
+      "method": "Primary-literature inspection.",
+      "title": "Grahame Erskine and Terry S. Griggs, Cycle Switching in Steiner Triple Systems of Order 19",
+      "trigger": "Primary paper defining the switch graph and giving the global length-six component structure.",
+      "url": "https://arxiv.org/abs/2405.07750"
+    }
+  ]
+}
