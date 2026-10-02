@@ -1,0 +1,114 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audited_at_utc": "2026-10-01T20:40:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen tree 4a8b75f1a07303eefbb072460fd32857344b3be8",
+        "artifacts/verify_gs_2d_ordering.py blob 8e07b53893f4e1ea0df74c83255f5de0e90e8c06",
+        "Varga 1959 ordering literature",
+        "Wright 2015 coordinate-descent survey",
+        "Mohlenkamp--Young--Barany 2020 transient block-coordinate study"
+      ],
+      "rationale": "The two sweep matrices follow directly from the coordinate updates and each has one nonzero column, so its spectral norm is the displayed column norm. The common \\(q^2\\) term makes the larger-diagonal-first rule exact. With eigenvalues \\(\\lambda\\le\\Lambda\\), the bounds \\(|c|/\\max(a,d)\\le\\delta\\) and \\(q\\le\\delta^2\\) are both attained by the balanced-diagonal rotation, proving the minimax factor. Solving \\(\\delta^2+\\delta^4=1\\) gives the threshold. Direct multiplication gives \\(T^2=qT\\). The actual verifier was inspected, and an independent algebraic replay reproduced the threshold and quartic relation.",
+      "residual_risks": [
+        "No correctness defect was found."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These give broad convergence and ordering analyses."
+        ],
+        "reasoning": "Their broader algorithmic scope does not imply the exact two-coordinate minimax envelope in the inspected theorem-level material.",
+        "searches": [
+          "Wright 2015 coordinate descent",
+          "Oswald--Zhou random reordering",
+          "Lee--Wright cyclic coordinate descent"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.2140/pjm.1959.9.925",
+        "https://doi.org/10.1007/s10107-015-0892-3",
+        "https://www.global-sci.com/ijnam/article/view/10419",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sweep matrices are elementary and classical in spirit.",
+          "The exact fixed-spectrum envelope requires optimizing both the coupling and diagonal imbalance and identifying the simultaneous balanced extremizer."
+        ],
+        "reasoning": "The elementary update formulas alone do not state the sharp condition-number frontier; nevertheless their simplicity leaves a real folklore risk.",
+        "searches": [
+          "classical two-by-two Gauss--Seidel formulas versus minimax optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The semantic corpus returned the assigned theorem as the exact hit.",
+          "The transient BCD paper explicitly notes that early block ordering can matter.",
+          "Varga is classical spectral ordering literature."
+        ],
+        "reasoning": "The audited target is one-sweep Euclidean operator norm at fixed condition number, not asymptotic spectral convergence.",
+        "searches": [
+          "Resultary: two coordinate Gauss-Seidel Euclidean transient threshold larger diagonal first minimax",
+          "Varga 1959 SOR ordering",
+          "Mohlenkamp Young Barany 2020 transient coordinate descent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact threshold or matching formula was located."
+        ],
+        "reasoning": "A finite database is inapplicable because the theorem is an analytic minimax statement over all matrices at each condition number.",
+        "searches": [
+          "published mathematical corpus for exact threshold 8.352410032"
+        ]
+      },
+      "rationale": "Classical ordering work, modern random-reordering analyses, and transient block-coordinate studies establish that order can affect convergence or startup behavior, but targeted semantic and literature searches did not locate the exact two-dimensional Euclidean minimax factor, the sharp condition-number threshold, or the identity isolating all ordering dependence to one startup sweep.",
+      "residual_risks": [
+        "Because the proof is elementary, an equivalent two-dimensional calculation may exist in older numerical-linear-algebra literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Concerns SOR ordering and spectral behavior, not the audited one-sweep Euclidean minimax in material inspected.",
+          "evidence": "It is a foundational ordering paper for relaxation methods.",
+          "identifier_or_url": "https://doi.org/10.2140/pjm.1959.9.925",
+          "material_read": "Primary title/bibliographic material and indexed paper record.",
+          "method": "Literature comparison.",
+          "title": "Orderings of the Successive Overrelaxation Scheme",
+          "trigger": "Classical ordering antecedent."
+        },
+        {
+          "assessment": "Shows startup ordering can matter and derives valley formulas, but no matching two-by-two SPD minimax threshold was located.",
+          "evidence": "The abstract explicitly notes that ordering of blocks in the first few steps can be important.",
+          "identifier_or_url": "https://www.global-sci.com/ijnam/article/view/10419",
+          "material_read": "Primary abstract and article page.",
+          "method": "Primary-source comparison.",
+          "title": "Transient Dynamics of Block Coordinate Descent in a Valley",
+          "trigger": "Closest explicit transient-coordinate-ordering study."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "classical Gauss--Seidel ordering literature",
+        "modern coordinate-descent transient literature"
+      ],
+      "rationale": "The theorem is a natural exact benchmark separating asymptotic convergence from nonnormal startup amplification. It gives a sharp robust condition-number frontier and a closed-form static ordering rule, so it is more than a routine sign or normalization check despite its low dimension.",
+      "residual_risks": [
+        "The value is diagnostic and structural rather than a higher-dimensional algorithmic improvement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact cyclic Gauss--Seidel on every real two-dimensional SPD system, updating the larger diagonal first minimizes one-sweep Euclidean amplification, and the exact fixed-condition-number minimax factor is \\(\\delta\\sqrt{1+\\delta^2}\\), giving the sharp uniform nonexpansion threshold \\(\\kappa\\approx8.352410032\\); ordering changes only the first-sweep transient because \\(T^2=qT\\).",
+  "limitations": [
+    "Only two-dimensional real SPD systems and the ordinary Euclidean error norm are treated.",
+    "Exact coordinate minimization and exact arithmetic are assumed.",
+    "No higher-dimensional ordering theorem or implementation-speed claim is made."
+  ]
+}
