@@ -1,6 +1,13 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Independent mathematical audit date: 2026-10-01 UTC.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+Disposition: **passed**.
+
+Correctness: **PASS**. Necessity follows from a fixed-row matrix-unit sequence: for nonzero \(\lambda_i\), the divided-difference coefficient against \(\lambda_k\to0\) tends to \(f(\lambda_i)/\lambda_i\), so compact images cannot contain the resulting uniformly separated tail, and the same argument gives the essential-norm lower bound. For sufficiency, \(f(H_\lambda)=0\) kills every off-eigenspace block. Each nonzero repeated-eigenvalue block is finite because \(\lambda\in\ell^r\), while the zero block has derivative coefficient zero from the assumed derivative decay. The multiplier is therefore a block-diagonal pinching weighted by derivatives tending to zero; Schatten Hölder/inclusion estimates in the sharp exponent region make finite-block truncations converge in operator norm, including the quasi-Banach cases.
+
+Originality: **PASS**. Huang--Sukochev's full primary paper proves exactly the sharp boundedness region and its sharpness and extends boundedness to semifinite double operator integrals, but it does not state a compactness classification or essential-norm obstruction for the discrete divided-difference multiplier. Hladnik's earlier paper is genuinely relevant because it characterizes compact Schur multipliers on \(B(H)\) through a Haagerup tensor product; its abstract was inspected, but a verified full text could not be obtained in this run after the open and institutional-access attempts. That source is not obviously decisive for unequal Schatten-domain/range exponents, and the explicit fixed-row lower bound plus weighted spectral pinching are not stated in the available material. No stronger implication was found.
+
+Scientific value: **PASS**. The theorem supplies the natural qualitative boundary immediately beyond a newly sharp boundedness theorem: boundedness has a full exponent region, while compactness collapses to the rigid spectral condition \(f(H_\lambda)=0\). The essential-norm obstruction and finite-block pinching argument are reusable for operator-ideal questions, so this is a motivated structural result rather than routine recomputation.
+
+Evidence: `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
