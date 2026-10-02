@@ -1,6 +1,13 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Independent mathematical audit date: 2026-10-01 UTC.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-Original same-model scientific assessments, where present, remain in AUDIT.json.
+Disposition: **passed**.
+
+Correctness: **PASS**. The proof was reconstructed from the frozen RESULT rather than inherited from its earlier review. Commutativity follows from equality of the two elementary-square path products. On homogeneous level \(k\), every weight is bounded by a quantity tending to zero, so each coordinate is compact. The diagonal self-commutator calculation telescopes exactly to \(dP_0\). Products of \(n\) weights are bounded by a factorial ratio whose \(n\)-th root tends to zero, giving coordinate and joint quasinilpotence. Along each coordinate ray the corresponding self-commutator has a negative diagonal entry, so no coordinate is hyponormal. Finally, an invariant reducing normal summand would be a normal quasinilpotent tuple and hence zero; injectivity of every coordinate excludes such a nonzero summand.
+
+Originality: **PASS**. The closest primary source, Chavan--Reza--Sequeira, explicitly asks whether compact sum-hyponormal tuples must be sum-normal or normal, proves only the normal-plus-quasinilpotent decomposition and the nilpotent vanishing theorem, and does not contain a nonzero compact quasinilpotent counterexample. The full Kim--Kim--Yoon paper gives a general two-variable spherical \(p\)-hyponormality criterion and examples, but no compact quasinilpotent rank-one-defect family of the audited form. Exact-formula and synonymous web searches found no prior instance, and the repository-wide published-record search found no matching record. Thus the final claim is not a corollary of the inspected stronger frameworks.
+
+Scientific value: **PASS**. This directly resolves a newly posed structural question by a concrete counterexample in every \(d\ge2\), and it pinpoints the sharp failure of replacing nilpotence by quasinilpotence. The rank-one positive defect makes the example reusable as a boundary object in multivariable hyponormality rather than an arbitrary parameter calculation.
+
+Evidence: `INDEPENDENT_AUDIT_2026-10-01.md` and `INDEPENDENT_AUDIT_2026-10-01.json`.
