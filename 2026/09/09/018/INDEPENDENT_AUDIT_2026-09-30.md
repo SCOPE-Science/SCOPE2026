@@ -1,0 +1,71 @@
+---
+audit_date: 2026-09-30
+status: passed
+---
+
+# Independent mathematical audit
+
+## Final claim
+
+The max-insertion active-site profile of Av(1324,1342) through length 12 has 68 nonzero profile cells and 277 nonzero parent-to-child transfer cells, with total 5,293,446 at length 12; the stored companion profiles for Av(1324) and Av(1342) are separately qualified by their stated verification depths.
+
+## Correctness — PASS
+
+Both committed engines were inspected: one uses direct forbidden-pattern conditions for insertion of a new maximum, while the second tests every new four-term occurrence containing that maximum. A fresh independently written specialized C enumeration of the joint class reproduced every stated profile row through length 12, including the length-12 row 831620,954546,863444,710418,553760,415802,303100,215016,147288,90440,208012 over active-site counts 2,3,4,5,6,7,8,9,10,11,13, total 5,293,446, and exactly 277 transfer cells. A separate fresh run reproduced the Av(1324) length-12 marginal 25,431,452. The claim retains the original qualification that the single-class length-12 companions are not dual-verified.
+
+## Originality — PASS
+
+Av(1324,1342) is a known Schröder-enumerated class and recent literature studies other refinements such as first letter, descents, and inversion counts. The inspected 2023 Mansour-Shattuck paper gives a first-letter Schröder triangle for this pair; its active-site generating-tree lemma concerns different pairs. TileScope/PermPAL provides class specifications and marginals. Searches found no published max-insertion active-site profile or transfer table for Av(1324,1342), and the known first-letter triangle is numerically different from this profile.
+
+### Equivalent formulations
+
+Searches: 1324 1342 active sites generating tree; Av(1324,1342) number of active sites
+
+Evidence: Mansour-Shattuck 2023 treats first-letter statistics; active-site recurrences in the paper are for other pattern pairs.
+
+Reasoning: The audited statistic is specifically insertion of a new maximum, not first letter, descents, or inversion count.
+
+### Broader coverage
+
+Searches: Av(1324,1342) Schröder specification TileScope; PermPAL 1324 1342
+
+Evidence: Permuta Triangle reports a catalytic specification for Av(1324,1342); Claesson et al. 2026 study inversion refinements.
+
+Reasoning: These broader enumerations determine marginals or other statistics but do not supply the audited active-site distribution or transfer matrix.
+
+### Exact database or table
+
+Searches: OEIS 1324 1342 Schröder triangle; PermPAL Av(1324,1342)
+
+Evidence: OEIS A341695 is a first-letter Schröder triangle, not the active-site table; PermPAL supplies class data, not this profile.
+
+Reasoning: No exact prior table matching the 68 profile cells and 277 transfer cells was located.
+
+### Claim versus prior implication
+
+Searches: generating tree Av(1324,1342) active sites
+
+Evidence: Known specifications enumerate the class, but no inspected succession rule determines the max-insertion-site count alone.
+
+Reasoning: A class specification does not automatically imply this particular profile without additional refinement, so the finite table is not treated as a known corollary.
+
+## Value — PASS
+
+Active-site counts are a canonical generating-tree statistic. For a well-studied Schröder class, the exact profile and transfer table provide structural data potentially useful for deriving a compact succession rule or refined generating function. The contribution is a complete finite refinement rather than a raw marginal recount.
+
+## Sources inspected
+
+- artifacts/enumA.c blob 1e09157654549d455435eaa621d1287b4fb5b69a
+- artifacts/enumB2.c blob af787fd80b3685afc1a6c10b5746fbe2a176e322
+- https://arxiv.org/abs/2104.04491
+- https://arxiv.org/abs/2604.01143
+- https://permutatriangle.github.io/2019/06/17/ps_su.html
+- Resultary semantic search
+
+## Residual risk
+
+A catalytic specification may allow this profile to be derived with additional bookkeeping; no published derivation or table was found. The Av(1342) single-class length-12 row was not freshly rerun in this audit and remains qualified exactly as in the claim.
+
+## Disposition
+
+PASSED. Acceptance requires PASS on correctness, originality, and value.
