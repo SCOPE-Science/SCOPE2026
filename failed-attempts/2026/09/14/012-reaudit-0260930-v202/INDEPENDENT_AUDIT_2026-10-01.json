@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T03:58:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh Fraction arithmetic reproduces denominator positivity with minimum approximately \\(0.8848140675\\), alternating signs on all 11 ordered nodes, and minimum error magnitude approximately \\(0.0290874739\\). If a competing type-\\((4,4)\\) rational had uniform error below \\(0.025\\), the cross-multiplied difference numerator (degree at most 8) would change sign across at least 9 consecutive intervals, forcing more real zeros than its degree; this independently reconstructs the lower-bound proof rather than relying on the saved verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The literature treats general rational minimax algorithms and asymptotics for one-cusp power functions."
+        ],
+        "reasoning": "Those broader frameworks do not supply the displayed two-cusp coefficients or this finite-degree lower bound.",
+        "searches": [
+          "Filip–Nakatsukasa–Trefethen–Beckermann 2018",
+          "Saff–Stahl ray sequences"
+        ]
+      },
+      "checked_sources": [
+        "Filip et al., SIAM J. Sci. Comput. 40 (2018), DOI 10.1137/17M1132409.",
+        "Saff and Stahl, Canadian J. Math. 49 (1997), DOI 10.4153/CJM-1997-052-3.",
+        "Stahl, Best uniform rational approximation of \\(x^\\alpha\\), arXiv:math/9301217.",
+        "Resultary searches for exact/alias formulations."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equioscillation characterizes a best approximant only after its extremal structure is known; it does not imply this candidate-specific lower bound."
+        ],
+        "reasoning": "The numerical certificate is additional record-specific information.",
+        "searches": [
+          "statement-level implication check against equioscillation literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record itself as the exact hit; nearby records concern different functions/types."
+        ],
+        "reasoning": "Classical equioscillation and de la Vallée Poussin theory are proof tools, not prior statements of this numerical two-cusp bound.",
+        "searches": [
+          "Resultary: rational minimax \\(|x^2-1/4|\\) type \\((4,4)\\) threshold",
+          "Web: exact phrase/function searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry for \\(|x^2-1/4|\\) at type \\((4,4)\\) was located."
+        ],
+        "reasoning": "Known tables emphasized \\(|x|\\) and other canonical one-cusp problems.",
+        "searches": [
+          "Varga/Ruttan/Carpenter numerical tables",
+          "Resultary exact function search"
+        ]
+      },
+      "rationale": "No searched source states this two-cusp type-\\((4,4)\\) threshold or a stronger result that mechanically implies it.",
+      "residual_risks": [
+        "Search failure is not a novelty proof; older low-degree tables not indexed on the web could still contain the same two-cusp benchmark."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "It develops algorithms and reports \\(|x|\\) computations, but not the audited two-cusp function or its type-\\((4,4)\\) threshold.",
+          "identifier_or_url": "arXiv:1705.10132; DOI 10.1137/17M1132409",
+          "material_read": "Full accessible HTML: problem definition, equioscillation statement, nondiagonal-type construction, and numerical discussion of \\(|x|\\).",
+          "method": "open-access full-text inspection",
+          "title": "Rational minimax approximation via adaptive barycentric representations",
+          "trigger": "closest modern primary source on finite-type rational minimax and nonsmooth functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving statement is a one-off inequality against the externally chosen cutoff \\(0.02\\) for one low type and one shifted two-cusp function. The record does not establish an exact minimax value, a structural family, a sharp degree boundary, or an externally motivated use for precisely this cutoff. Under the stated value bar, correctness and novelty of this finite certificate alone do not make the narrow threshold decision mathematically worthwhile.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The displayed type-\\( (4,4) \\) rational function gives an exact 11-node alternating certificate with minimum sampled error magnitude greater than \\(0.02908\\), hence the rational de la Vallée Poussin argument yields \\(E_{4,4}(|x^2-1/4|;[-1,1])>0.025\\).",
+  "schema_version": 1
+}
