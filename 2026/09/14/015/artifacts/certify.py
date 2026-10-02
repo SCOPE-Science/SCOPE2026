@@ -1,194 +1,106 @@
-"""Reproducible certificate for target:
-phi1 in Out(F4), Phi1: a->bc, b->c, c->d, d->a.
-
-Certifies:
- (1) Phi1 is an automorphism (explicit inverse).
- (2) Transition matrix M: det -1, char poly x^4-x-1, M^10 strictly positive
-     (primitivity => PF eigenvalue strictly dominant, >= 5**(1/10) > 1).
- (3) Train-track property: Df, gates, unique illegal turn {A,B}.
- (4) Taken turns = exact Df-orbit of {B,c}: 13 turns; {A,B} never taken.
- (5) LW connected; SW (=LW minus B) = K_{3,4}: 7 vertices, 12 edges, connected.
- (6) Illegal turn of f^k is {A,B} only, for 1<=k<=12 (hence all k by periodicity
-     argument checked on orbits); taken sets contain no {A,B}.
-"""
-import numpy as np
+"""Exact train-track data and a universal six-state legalizing certificate."""
 from itertools import combinations
 
-names = ['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D']
+alphabet = 'abcdABCD'
+inv = str.swapcase
+f = dict(zip('abcd', ('bc', 'c', 'd', 'a')))
+f.update({inv(x): inv(w[::-1]) for x, w in tuple(f.items())})
 
-def inv(x):
-    return x + 4 if x < 4 else x - 4
+def sub(w, morph=f):
+    return ''.join(morph[x] for x in w)
 
-# images of the 8 oriented edges
-f = {0: [1, 2], 1: [2], 2: [3], 3: [0]}
-for e in range(4):
-    f[e + 4] = [inv(x) for x in reversed(f[e])]
-
-# (1) explicit inverse automorphism Psi: a->d, b->ab^-1, c->b, d->c
-# check Psi(Phi(x)) reduces to x for all generators (free-group reduction)
-Psi = {0: [3], 1: [0, 5], 2: [1], 3: [2],
-       4: [6], 5: [1, 4], 6: [5], 7: [0 + 4]}  # inverses forced below
-# build inverse images properly: Psi(x^-1) = Psi(x)^-1
-for e in range(4):
-    w = Psi[e]
-    Psi[e + 4] = [inv(x) for x in reversed(w)]
-
-def red(w):
-    st = []
+def reduce(w):
+    out = []
     for x in w:
-        if st and st[-1] == inv(x):
-            st.pop()
+        if out and out[-1] == inv(x):
+            out.pop()
         else:
-            st.append(x)
-    return st
+            out.append(x)
+    return ''.join(out)
 
-for e in range(8):
-    comp = []
-    for x in f[e]:
-        comp.extend(Psi[x])
-    assert red(comp) == [e], (e, comp, red(comp))
-print("(1) automorphism with explicit inverse: OK")
+inverse = dict(zip('abcd', ('d', 'aB', 'b', 'c')))
+inverse.update({inv(x): inv(w[::-1]) for x, w in tuple(inverse.items())})
+for x in alphabet:
+    assert reduce(sub(inverse[x])) == x
+    assert reduce(sub(f[x], inverse)) == x
 
-# (2) transition matrix
-M = np.zeros((4, 4), dtype=int)
-for e in range(4):
-    for x in f[e]:
-        M[e, x if x < 4 else x - 4] += 1
-assert M.tolist() == [[0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 0, 1], [1, 0, 0, 0]]
-assert round(np.linalg.det(M)) == -1
-cp = np.poly(M.astype(float))  # char poly coefficients
-assert [round(c) for c in cp] == [1, 0, 0, -1, -1], cp
-p = lambda t: t**4 - t - 1
-assert p(1.22) < 0 < p(1.221)  # PF root in (1.22, 1.221)
-M10 = np.linalg.matrix_power(M, 10)
-assert (M10 > 0).all(), M10
-rsmin = int(M10.sum(axis=1).min())
-assert rsmin == 5  # rho(M)^10 >= 5 so rho >= 5**(1/10) ~ 1.1746 > 1
-print("(2) M det=-1, charpoly x^4-x-1, PF root in (1.22,1.221), M^10>0: OK")
-print("M^10 =\n", M10.tolist())
+direction = {x: f[x][0] for x in alphabet}
 
-# (3) direction map, gates, illegal turn
-Df = {e: f[e][0] for e in range(8)}
-# gates: d1~d2 iff Df^k(d1)==Df^k(d2) for some k (check k<12, orbits preperiodic)
-traj = {d: [d] for d in range(8)}
-for d in range(8):
-    for _ in range(12):
-        traj[d].append(Df[traj[d][-1]])
-parent = list(range(8))
+def legal(x, y):
+    seen = set()
+    while (x, y) not in seen:
+        if x == y:
+            return False
+        seen.add((x, y))
+        x, y = direction[x], direction[y]
+    return True
 
-def find(x):
-    while parent[x] != x:
-        parent[x] = parent[parent[x]]
-        x = parent[x]
-    return x
+assert {frozenset(t) for t in combinations(alphabet, 2) if not legal(*t)} == {frozenset('AB')}
+turns = {frozenset((inv(x), y)) for w in f.values() for x, y in zip(w, w[1:])}
+while True:
+    new = turns | {frozenset(direction[x] for x in t) for t in turns}
+    if new == turns:
+        break
+    turns = new
+assert len(turns) == 13 and all(legal(*t) for t in turns)
+assert {t for t in turns if 'B' not in t} == {frozenset((x,y)) for x in 'abcd' for y in 'ACD'}
 
-for d1 in range(8):
-    for d2 in range(8):
-        if any(traj[d1][k] == traj[d2][k] for k in range(13)):
-            a, b = find(d1), find(d2)
-            if a != b:
-                parent[a] = b
-from collections import defaultdict
-gates = defaultdict(list)
-for d in range(8):
-    gates[find(d)].append(d)
-gate_list = sorted([sorted(v) for v in gates.values()])
-assert gate_list == [[0], [1], [2], [3], [4, 5], [6], [7]], gate_list
-illegal = [tuple(sorted((d1, d2))) for d1 in range(8) for d2 in range(d1 + 1, 8)
-           if find(d1) == find(d2)]
-assert illegal == [(4, 5)], illegal
-# Df permutes gates -> legal turns map to legal turns; images contain no {A,B}
-for e in range(4):
-    w = f[e]
-    for i in range(len(w) - 1):
-        assert tuple(sorted((inv(w[i]), w[i + 1]))) != (4, 5)
-print("(3) 7 gates, unique illegal turn {A,B}, f-images legal: OK")
+M = [[f[x].count(y) for y in 'abcd'] for x in 'abcd']
+def mul(a, b):
+    return [[sum(a[i][k]*b[k][j] for k in range(4)) for j in range(4)] for i in range(4)]
+power = [[int(i == j) for j in range(4)] for i in range(4)]
+for _ in range(10):
+    power = mul(power, M)
+assert power == [[3,1,2,3],[2,1,1,1],[1,2,3,1],[1,1,3,3]]
 
-# (4) taken turns = Df-orbit of seed {B,c} = {5,2} sorted -> (2,5)
-def Df_turn(t):
-    return tuple(sorted((Df[t[0]], Df[t[1]])))
+g = {x: x for x in alphabet}
+for _ in range(6):
+    g = {x: sub(w) for x, w in g.items()}
+assert [g[x] for x in 'ABCD'] == ['ADDC','AD','CBA','DCCB']
 
-seed = (2, 5)
-orbit = []
-cur = seed
-while cur not in orbit:
-    orbit.append(cur)
-    cur = Df_turn(cur)
-assert len(orbit) == 13, orbit
-assert (4, 5) not in orbit  # illegal turn never taken
-# every taken turn is mixed sign (one positive 0..3, one negative 4..7)
-for t in orbit:
-    assert (t[0] < 4) != (t[1] < 4), t
-# cumulative turns in f^k(e) stabilize exactly to orbit
-def itword(e, k):
-    w = [e]
-    for _ in range(k):
-        nw = []
-        for x in w:
-            nw.extend(f[x])
-        w = nw
-    return w
+def trim(u, v):
+    k = 0
+    while k < min(len(u), len(v)) and u[k] == v[k]:
+        k += 1
+    return u[k:], v[k:]
 
-cum = set()
-for K in range(1, 25):
-    for e in range(4):
-        w = itword(e, K)
-        for i in range(len(w) - 1):
-            cum.add(tuple(sorted((inv(w[i]), w[i + 1]))))
-assert cum == set(orbit), (len(cum), sorted(cum))
-print("(4) taken turns = 13 (Df-orbit of {B,c}), {A,B} never taken: OK")
+initial = trim(g['A'], g['B'])
+pending, states, edges, terminals = [initial], set(), {}, []
+while pending:
+    state = pending.pop()
+    if state in states:
+        continue
+    states.add(state)
+    u, v = state
+    assert bool(u) != bool(v)
+    edges[state] = []
+    # All negative continuations are an over-approximation of legal arms.
+    # Every positive continuation has opposite sign to the residual and is legal.
+    for x in 'abcd':
+        a, b = (u, g[x]) if u else (g[x], v)
+        assert legal(a[0], b[0])
+    for x in 'ABCD':
+        a, b = trim(u, g[x]) if u else trim(g[x], v)
+        assert a or b, 'simultaneous exhaustion would require extra analysis'
+        if a and b:
+            assert legal(a[0], b[0]), (state, x, a, b)
+            terminals.append((state, x, a[0], b[0]))
+        else:
+            edges[state].append((a, b))
+            pending.append((a, b))
+assert states == {('DC',''), ('','CB'), ('A',''), ('','D'), ('CCB',''), ('','DDC')}
 
-# (5) LW connected; SW = K_{3,4}
-adj = defaultdict(set)
-for t in orbit:
-    adj[t[0]].add(t[1])
-    adj[t[1]].add(t[0])
-seen = {0}
-stack = [0]
-while stack:
-    v = stack.pop()
-    for u in adj[v]:
-        if u not in seen:
-            seen.add(u)
-            stack.append(u)
-assert seen == set(range(8)), seen  # LW connected
-sw_edges = [t for t in orbit if 5 not in t]  # drop nonperiodic direction B=5
-assert len(sw_edges) == 12
-verts = sorted({v for t in sw_edges for v in t})
-assert verts == [0, 1, 2, 3, 4, 6, 7]  # 7 periodic directions
-# bipartition positives {a,b,c,d} x negatives {A,C,D}: all 12 pairs present
-pairs = {(t[0], t[1]) for t in sw_edges}
-full = {(p, n) for p in [0, 1, 2, 3] for n in [4, 6, 7]}
-norm = set()
-for a, b in pairs:
-    norm.add((a, b) if a < 4 else (b, a))
-assert norm == full, norm
-# SW connected
-adj2 = defaultdict(set)
-for t in sw_edges:
-    adj2[t[0]].add(t[1])
-    adj2[t[1]].add(t[0])
-seen = {0}
-stack = [0]
-while stack:
-    v = stack.pop()
-    for u in adj2[v]:
-        if u not in seen:
-            seen.add(u)
-            stack.append(u)
-assert seen == set(verts)
-degs = sorted([len(adj2[v]) for v in verts])
-assert degs == [3, 3, 3, 3, 4, 4, 4], degs
-print("(5) LW connected; SW = K_{3,4} (7 vertices, 12 edges, connected): OK")
-
-# (6) illegal turns of f^k are {A,B} only for 1<=k<=12
-DfK = {d: d for d in range(8)}
-for k in range(1, 13):
-    DfK = {d: Df[DfK[d]] for d in range(8)}
-    ill = [tuple(sorted((d1, d2))) for d1 in range(8) for d2 in range(d1 + 1, 8)
-           if DfK[d1] == DfK[d2]]
-    assert ill == [(4, 5)], (k, ill)
-print("(6) unique illegal turn {A,B} persists for powers 1..12: OK")
-
-print("index sum = 1 - 7/2 =", 1 - 7 / 2)
-print("ALL CERTIFICATE CHECKS PASSED")
+visited, active = set(), set()
+def acyclic(s):
+    assert s not in active, 'cycle: no universal conclusion permitted'
+    if s in visited:
+        return
+    active.add(s)
+    for t in edges[s]:
+        acyclic(t)
+    active.remove(s)
+    visited.add(s)
+acyclic(initial)
+assert visited == states and len(terminals) == 19
+print('PASS: inverse, primitive matrix, 13 taken turns, K4,3 stable graph;')
+print('PASS: all 6 cancellation states reachable, graph acyclic, all exits legal.')
