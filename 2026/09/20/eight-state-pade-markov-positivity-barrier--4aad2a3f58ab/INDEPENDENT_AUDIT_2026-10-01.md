@@ -1,8 +1,6 @@
-# Review status
+# Independent audit — 2026-10-01
 
-Independent audit completed on 2026-10-01 (UTC).
-
-Disposition: **PASSED**.
+Final claim assessed: For the diagonal [2/2] Padé map, every fixed continuous-time Markov generator on at most seven states is positivity-safe for sufficiently small steps, while an eight-state pure-birth generator fails positivity for every sufficiently small positive step and has an exact stochasticity window.
 
 ## Correctness — PASS
 
@@ -15,3 +13,12 @@ Zappavigna–Colaneri–Kirkland–Shorten already exhibit an eight-by-eight nil
 ## Scientific value — PASS
 
 The result identifies a sharp state-space threshold under the conservation constraint and an exact nonmonotone stochasticity window for a canonical pure-birth witness, providing a meaningful boundary for Markov discretization.
+
+## Sources and residual risks
+
+- Zappavigna–Colaneri–Kirkland–Shorten, Essentially Negative News About Positive Systems (2012), full preprint inspected.
+- Classical absolute-monotonicity literature cited in the package.
+- Published-record semantic search for conservative CTMC [2/2] Padé positivity thresholds.
+- The lower-dimensional result is local for each fixed generator, not a dimension-only step-size bound.
+- The exact global window is for one witness and does not classify all eight-state generators.
+- A recent Fokker–Planck rational-map preprint and some older absolute-monotonicity literature remain residual originality risks beyond the primary sources inspected.
