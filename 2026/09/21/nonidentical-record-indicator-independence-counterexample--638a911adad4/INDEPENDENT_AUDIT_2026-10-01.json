@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T22:15:20.105878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The counterexample is exact. For independent \\(X_1,X_3\\sim U(0,1)\\) and \\(X_2\\sim U(0,a)\\), direct integration gives the stated marginals and the joint event \\(X_1<X_2<X_3\\). Subtraction yields covariance \\(a(a-1)(a-3)/12\\) for \\(0<a\\le1\\) and \\((1-a)/(6a^2)\\) for \\(a\\ge1\\), so dependence is positive below one and negative above one. In independent coordinate products the joint and marginal event probabilities raise to the \\(d\\)th power, preserving the sign of dependence. The source preprint's claimed factorization fails because the block record events share random boundary observations; the paper's displayed proof indeed factors such events as if they were independent.",
+      "risks": [
+        "The result refutes a universal non-iid claim but does not characterize all non-identical sequences with independent record indicators."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify_exact.py",
+        "Lo–Babou arXiv:2602.20416 full text"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical iid and structured \\(F^\\alpha\\) theorems are compatible with the counterexample because the scale family is outside those assumptions except at \\(a=1\\)."
+        ],
+        "reasoning": "Valid structured independence theorems do not imply the false universal extension.",
+        "searches": [
+          "classical record-indicator independence literature",
+          "Nevzorov \\(F^\\alpha\\) schemes",
+          "Lo–Babou 2026"
+        ]
+      },
+      "checked_sources": [
+        "Lo–Babou arXiv:2602.20416 full text",
+        "current Resultary record-theory search",
+        "classical iid and \\(F^\\alpha\\) record literature",
+        "assigned exact verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two record indicators depend on the common intermediate observation; the source's factorization of separated index blocks does not justify independence when the defining events share random endpoints."
+        ],
+        "reasoning": "The explicit family directly falsifies the theorem rather than merely challenging its proof.",
+        "searches": [
+          "line-by-line implication check against the source's factorization argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary preprint still states the universal non-iid independence claim.",
+          "No located correction or prior exact one-parameter sign-changing counterexample was found."
+        ],
+        "reasoning": "The distinction between iid, \\(F^\\alpha\\)-schemes, and arbitrary independent non-identical observations was kept explicit.",
+        "searches": [
+          "web query: arXiv:2602.20416 counterexample correction record indicators",
+          "web query: \"Independence of the indicator functions of record values for Multivariate independent data\" correction",
+          "Resultary query: nonidentical independent observations record indicators counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact correction database entry or later Resultary record covering this counterexample was found."
+        ],
+        "reasoning": "The claim is an analytic counterexample, not a finite table result.",
+        "searches": [
+          "current Resultary record-theory findings",
+          "arXiv-identifier searches"
+        ]
+      },
+      "rationale": "The February 2026 preprint continues to state universal independence for independent, non-identically distributed observations, and its proof contains the shared-boundary factorization fault addressed by the example. Fresh searches by arXiv identifier, title, counterexample, correction, and record-indicator terminology found no public erratum or earlier exact counterexample. Classical iid and \\(F^\\alpha\\) results are narrower valid subclasses and do not cover the correction.",
+      "residual_risks": [
+        "A later or poorly indexed correction to the recent preprint could exist; none was located in current searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The universal theorem is false under its stated non-iid assumptions.",
+          "evidence": "The source claims independence without identical distributions; the exact three-variable family has nonzero covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.20416",
+          "material_read": "Full accessible arXiv text around the theorem and the factorization step used in the independence proof.",
+          "method": "Primary proof inspection plus direct counterexample substitution.",
+          "title": "Independence of the indicator functions of record values for Multivariate independent data",
+          "trigger": "Primary source containing the disputed universal theorem."
+        },
+        {
+          "assessment": "Correct corroboration.",
+          "evidence": "The verifier reproduces \\(5/96\\) at \\(a=1/2\\), zero at \\(a=1\\), and \\(-1/24\\) at \\(a=2\\), and checks the dimension-lift sign.",
+          "identifier_or_url": "artifacts/verify_exact.py",
+          "material_read": "Complete source and saved output.",
+          "method": "Exact rational replay.",
+          "title": "Assigned exact verifier",
+          "trigger": "Piecewise covariance and product-extension checks."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A three-observation continuous counterexample directly corrects a stated universal theorem and pinpoints the exact probabilistic error. The sign-changing family and all-dimensional product lift make the failure structural rather than a one-off numerical example.",
+      "risks": [
+        "The work does not attempt a replacement characterization of every non-iid independence scheme."
+      ],
+      "sources": [
+        "disputed 2026 universal theorem",
+        "assigned exact family"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical iid and structured \\(F^\\alpha\\) independence results remain valid.",
+    "The contribution is a correction and counterexample, not a full classification.",
+    "Originality is best-of-knowledge for a recent and still-changing preprint."
+  ],
+  "record_id": "SCOPE-20260921-638a911adad4",
+  "schema_version": 1
+}
