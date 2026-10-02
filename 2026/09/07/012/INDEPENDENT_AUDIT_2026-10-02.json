@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-02",
+  "audited_at_utc": "2026-10-02T14:48:48.220066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/09/07/012/RESULT.md",
+        "frozen 2026/09/07/012/artifacts/reproduce_census_7_20.py",
+        "isolated full rerun of reproduce_census_7_20.py"
+      ],
+      "rationale": "I inspected the complete frozen census algorithm and reran its exact 2,002-case modulus search in an isolated checkout (50.4 seconds). The optimum for moduli 7 through 20 is the nine-modulus set 7,8,9,10,11,12,14,15,16 with 36,340 of 55,440 residues covered, reducing to 1817/2772. The algorithm's CRT peel for private prime factors is an exact independent-coverage factorization; the remaining affine unit-and-translation orbit pruning enumerates residue tuples with stabilizers rather than sampling. Its bit masks count the union exactly. The published interval bound for 7..60 is a bound, not an assertion of full optimization there.",
+      "residual_risks": [
+        "Exhaustiveness relies on the reviewed symmetry-pruning proof and implementation; no second independently coded global solver was run in this recovery."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2607.19029 proves a distinct covering system with minimum modulus seven and LCM 10080; arXiv:1307.0874 concerns minimum modulus of complete coverings."
+        ],
+        "reasoning": "These results constrain complete covers but do not imply the exact partial-cover maximum on 7..20.",
+        "searches": [
+          "arXiv:2607.19029",
+          "arXiv:1307.0874"
+        ]
+      },
+      "checked_sources": [
+        "https://resultary.org/api/v1/search",
+        "https://arxiv.org/html/2607.19029",
+        "https://arxiv.org/html/1307.0874"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorems give existence/nonexistence and LCM information for full coverings, not maximization over nine residue choices."
+        ],
+        "reasoning": "Neither theorem specializes to 1817/2772 or its maximizing residues.",
+        "searches": [
+          "Zhang-Zhang arXiv:2607.19029 sections on partial coverage and 10080",
+          "Hough arXiv:1307.0874 theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang and Zhang define a partial-coverage statistic, but optimize different modulus sets and objectives."
+        ],
+        "reasoning": "Their full-covering/LCM formulation is not an equivalent exact nine-set maximum.",
+        "searches": [
+          "Resultary API: maximum covered density distinct congruences moduli 7 20",
+          "arXiv:2607.19029 partial coverage alpha_A(L)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table or corpus item with the exact optimum surfaced; the current SCOPE item was the exact Resultary hit."
+        ],
+        "reasoning": "This supports a bounded best-of-knowledge check only, not proof of absence.",
+        "searches": [
+          "Resultary API exact modulus/density query",
+          "distinct covering system density 1817/2772 7 20"
+        ]
+      },
+      "rationale": "The closest full-text primary source treats minimum least common multiple of complete covering systems, not the exact maximal covered fraction for the fixed nine distinct moduli 7..20. Resultary returned this record as the exact hit. No inspected broader theorem or exact database yielded 1817/2772 or its maximizer; this is best-of-knowledge, with bounded literature risk.",
+      "residual_risks": [
+        "Specialized covering-system computation tables may have escaped indexed searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Its claimed exact optimization is for complete covering and minimal LCM; discussed partial-coverage alpha_A uses other specified A, not exact nine-modulus 7..20 maximum.",
+          "identifier_or_url": "https://arxiv.org/html/2607.19029",
+          "material_read": "Full HTML paper including definitions, main theorem, partial-coverage discussion, calculations and references",
+          "method": "Primary full-text reading and comparison of modulus family and objective",
+          "title": "A Distinct Covering System with Minimum Modulus 7 and Minimal Least Common Multiple 10080",
+          "trigger": "Same minimum modulus and covering-systems objective"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The theorem excludes/addresses full coverings at small least modulus, not this exact partial fraction.",
+          "identifier_or_url": "https://arxiv.org/html/1307.0874",
+          "material_read": "Primary paper introduction and main theorem with covering-system definitions",
+          "method": "Full-text theorem comparison",
+          "title": "Solution of the minimum modulus problem for covering systems",
+          "trigger": "Possible broad theorem on modulus seven"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/09/07/012/RESULT.md",
+        "https://arxiv.org/html/2607.19029"
+      ],
+      "rationale": "Near-covering at the natural Hough boundary seven is mathematically motivated, and a complete exact optimum for the contiguous 7..20 modulus window is a reusable benchmark in covering-system search. The record makes no claim that 7..60 is fully solved.",
+      "residual_risks": [
+        "Finite-window result rather than a general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exhaustiveness relies on the reviewed symmetry-pruning proof and implementation; no second independently coded global solver was run in this recovery.",
+    "Specialized covering-system computation tables may have escaped indexed searches.",
+    "Finite-window result rather than a general theorem."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exhaustiveness relies on the reviewed symmetry-pruning proof and implementation; no second independently coded global solver was run in this recovery.",
+    "Specialized covering-system computation tables may have escaped indexed searches.",
+    "Finite-window result rather than a general theorem."
+  ]
+}
