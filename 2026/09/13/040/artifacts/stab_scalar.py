@@ -16,3 +16,4 @@ print("tighter floor(2q/3)+4 vs boundary:")
 for q in range(0,13):
     b=(2*q)//3+4
     print(f" q={q:2d} bound={b:2d} 2q+2={2*q+2:2d} ok={b<=2*q+2}")
+

@@ -82,3 +82,4 @@ def dim_inv_VW(n):
 print("---")
 for n in range(2,13):
     print(f"n={n} invW={dim_inv_W(n)} invVW={dim_inv_VW(n)} H2W={2*dim_inv_W(n)+2*dim_inv_VW(n)}")
+

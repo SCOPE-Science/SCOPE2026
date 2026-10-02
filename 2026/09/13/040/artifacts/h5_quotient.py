@@ -2,7 +2,7 @@ import itertools
 from collections import defaultdict
 import sympy as sp
 
-exec(open('output/artifacts/h5_explore.py').read().split("def gen_reps")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def gen_reps")[0])
 
 def gen_reps():
     allreps=[]
@@ -214,3 +214,4 @@ def compute_H5(k, verbose=True):
 for k in [4,5,6]:
     print("="*60)
     compute_H5(k)
+

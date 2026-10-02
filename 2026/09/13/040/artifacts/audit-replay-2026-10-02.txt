@@ -1,0 +1,39 @@
+UTC replay: 2026-10-02T17:04:30Z
+Finite tests corroborate the RESULT proof; no general stability claim.
+The first new-folder final_checks replay exposed its directory-only stale output/artifacts prefix (exit1); that prefix was repaired and successful final replay follows. The original draft and original source bytes remain preserved.
+Historical final_checks 'invW' prints <W,W>, not <1,W>; new exact character certificate independently asserts actual trivial_W=0 for k=2..12.
+
+Command: python -X utf8 artifacts/verify_low_degree.py
+Exit code: 0
+EXACT_CHARACTER_ASSERTIONS_OK k=2..12: trivial_W=0, H2_W=0, G_W=0, A4_W=1 for k>=3
+{"A6_piece": 2, "H5": 0, "all_relations_checked": 6, "differential_rank": 0, "intersection": 2, "invA6": 2, "invC5": 2, "k": 3, "quotient_rank": 0, "rankR": 6}
+{"A6_piece": 2, "H5": 0, "all_relations_checked": 36, "differential_rank": 2, "intersection": 2, "invA6": 4, "invC5": 4, "k": 4, "quotient_rank": 2, "rankR": 36}
+{"A6_piece": 2, "H5": 0, "all_relations_checked": 120, "differential_rank": 2, "intersection": 2, "invA6": 4, "invC5": 4, "k": 5, "quotient_rank": 2, "rankR": 120}
+{"A6_piece": 2, "H5": 0, "all_relations_checked": 300, "differential_rank": 2, "intersection": 2, "invA6": 4, "invC5": 4, "k": 6, "quotient_rank": 2, "rankR": 300}
+{"A6_piece": 2, "H5": 0, "all_relations_checked": 630, "differential_rank": 2, "intersection": 2, "invA6": 4, "invC5": 4, "k": 7, "quotient_rank": 2, "rankR": 630}
+VERIFY_LOW_DEGREE_OK
+
+Command: python -X utf8 artifacts/final_checks.py
+Exit code: 0
+CHECK character table (independent):
+ n=2: invW=0 invH2W=0 invGW=0 invH4W=0 invH5W=0
+ n=3: invW=1 invH2W=0 invGW=0 invH4W=1 invH5W=2
+ n=4: invW=1 invH2W=0 invGW=0 invH4W=1 invH5W=4
+ n=5: invW=1 invH2W=0 invGW=0 invH4W=1 invH5W=4
+ n=6: invW=1 invH2W=0 invGW=0 invH4W=1 invH5W=4
+ n=10: invW=1 invH2W=0 invGW=0 invH4W=1 invH5W=4
+ n=11: invW=1 invH2W=0 invGW=0 invH4W=1 invH5W=4
+character checks pass: H2/G invariants vanish; H4/H5 character values match earlier tables
+ dim W_2 = 0
+ dim W_3 = 1
+ dim W_4 = 3
+W2=0 confirmed
+artifacts (22): ['boundary_k10_k11.py', 'char_all.py', 'char_dims.py', 'char_dims2.py', 'check_smallk.py', 'dim_table.py', 'final_checks.py', 'g2_arnold.py', 'h5_char.py', 'h5_explore.py', 'h5_quot_run7.py', 'h5_quotient.py', 'h5_smallk.py', 'h6_check.py', 'h6_dims_full.py', 'identify_maps.py', 'stab_maps.py', 'stab_q4.py', 'stab_scalar.py', 'support_bound.py', 'verify_d2.py', 'verify_low_degree.py']
+ALL FINAL CHECKS PASS
+
+Command: python -X utf8 artifacts/boundary_k10_k11.py
+Exit code: 0
+k=10 inv(H4xW)=1 (expect 1) inv(GxW)=0 (expect 0) => dimH4tw=1
+k=11 inv(H4xW)=1 (expect 1) inv(GxW)=0 (expect 0) => dimH4tw=1
+
+

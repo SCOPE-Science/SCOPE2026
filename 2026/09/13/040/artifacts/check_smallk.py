@@ -108,3 +108,4 @@ for k in [2,3,4,5]:
     # also print which are nonzero
     for i,r in enumerate(reps):
         print(f"  {r} selfdot={dot(vecs[i],vecs[i])}")
+

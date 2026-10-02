@@ -1,7 +1,7 @@
 import itertools, sys
-sys.path.insert(0,'output/artifacts')
+sys.path.insert(0,'artifacts')
 # reuse functions from h5_explore by exec
-exec(open('output/artifacts/h5_explore.py').read().split("def gen_reps")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def gen_reps")[0])
 # Now we need gen_reps + orbit sums for k=3,4 (reps use labels up to 4; orbit sums with support>k give zero, fine)
 def gen_reps():
     allreps=[]

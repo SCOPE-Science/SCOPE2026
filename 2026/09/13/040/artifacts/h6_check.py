@@ -1,7 +1,7 @@
 import itertools
 from collections import defaultdict
 import sympy as sp
-exec(open('output/artifacts/h5_explore.py').read().split("def orbit_sum_C5")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def orbit_sum_C5")[0])
 
 # Enumerate C6 = H^3 \otimes G^{\otimes 2}? For M simply connected, H^3(M^k)=0 so C6 domain for H^6 is A6 (as used).
 # But we need H^6 twisted = A6xW / im(D). We have inv(A6xW)=4 (char level) and rank(D(invC5))=2, so quotient dim = 2.
@@ -114,4 +114,5 @@ for k in [4,5,6,7]:
     rk=G.rank()
     print(f"k={k} inv(A6xW) rank={rk}")
     # images: reuse D images from h5 reps? recompute here via exec of orbit_sum_Dimage
-    exec(open('output/artifacts/h5_explore.py').read().split("def orbit_sum_Dimage")[1].split("def dict_dot")[0]) if False else None
+    exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def orbit_sum_Dimage")[1].split("def dict_dot")[0]) if False else None
+

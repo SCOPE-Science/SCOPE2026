@@ -3,11 +3,11 @@ from collections import defaultdict
 import sympy as sp
 # Assemble H6 twisted dims: inv(A6xW) rank (computed 4 for k>=4) minus rank(D(inv V)) (2 for k>=4).
 # Need inv(A6xW) for k=2,3 as well, and image rank for k=3 (D|_I rank 0 from stab_maps).
-exec(open('output/artifacts/h6_check.py').read().split("# Enumerate")[0].split("import sympy")[0])
+exec(open('artifacts/h6_check.py',encoding='utf-8').read().split("# Enumerate")[0].split("import sympy")[0])
 import sympy as sp
 from collections import defaultdict
 import itertools
-exec(open('output/artifacts/h5_explore.py').read().split("def orbit_sum_C5")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def orbit_sum_C5")[0])
 
 def orbit_sum_A6W(k, rep, maps):
     w_index,wlist,dW,s_index,slist,nS,a6_index,a6list=maps
@@ -105,3 +105,4 @@ for k in [2,3,4,5,6]:
             G[i,j]=v; G[j,i]=v
     rk=G.rank()
     print(f"k={k} inv(A6xW)={rk} imgrank={imgrank.get(k,'?')} => dimH6={rk-imgrank.get(k,0) if k in imgrank else '?'}")
+

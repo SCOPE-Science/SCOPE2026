@@ -63,3 +63,4 @@ def inner(c1,c2,n):
 print("n invW invG_W invL2Gfree_W invH2_W invH4_W invH6base_W")
 for n in range(2,11):
     print(f"{n} {inner(chi_W,chi_W,n)} {inner(chi_G,chi_W,n)} {inner(chi_L2G_free,chi_W,n)} {inner(chi_H2,chi_W,n)} {inner(chi_H4,chi_W,n)} {inner(chi_H6base,chi_W,n)}")
+

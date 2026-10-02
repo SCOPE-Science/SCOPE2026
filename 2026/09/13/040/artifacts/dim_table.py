@@ -17,3 +17,4 @@ print(" i=2 (k>=7): H2: 0->0 iso: PROVEN (char inner product 0 all n + Reynolds 
 print(" i=3 (k>=9): H3: 0->0 iso: PROVEN for k>=5 range (inv GxW=0); k=9,10 covered by k=5..12 Gram runs + k=10,11 rerun")
 print(" i=4 (k>=11): H4: 1-dim both sides at k=10,11 verified; need map scalar nonzero (support scaling) + k>=11 range dims")
 print(" i=5 (k>=13): H5: 0 for k=3..6 verified quotiented; k>=13 needs support-bound extension, not direct computation")
+

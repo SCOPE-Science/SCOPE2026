@@ -1,8 +1,8 @@
 import itertools
 from collections import defaultdict
 import sympy as sp
-exec(open('output/artifacts/h5_explore.py').read().split("def orbit_sum_C5")[0])
-exec(open('output/artifacts/verify_d2.py').read().split("def orbit_sum_G2W")[0].split("exec(")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def orbit_sum_C5")[0])
+exec(open('artifacts/verify_d2.py',encoding='utf-8').read().split("def orbit_sum_G2W")[0].split("exec(")[0])
 
 def build_G2(k, maps):
     w_index,wlist,dW,s_index,slist,nS,a6_index,a6list=maps
@@ -153,3 +153,4 @@ for k in [4,5,6,7,8]:
     rM=M.rank()
     dimcap=rA+nI-rM
     print(f"k={k} free_inv={rkfree} rankArn={rA} dim(I cap Arn)={dimcap} => quotient G2 inv dim={rkfree-dimcap}")
+

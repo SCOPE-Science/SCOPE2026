@@ -1,7 +1,7 @@
 import itertools
 from collections import defaultdict
 import sympy as sp
-exec(open('output/artifacts/h5_explore.py').read().split("def gen_reps")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def gen_reps")[0])
 
 def ddot(a,b):
     if len(a)>len(b): a,b=b,a
@@ -100,3 +100,4 @@ for k in [10,11]:
     v3=[orbit_sum_G3W(k,r,cache) for r in reps3]
     rk3,_=gram_rank(v3)
     print(f"k={k} inv(H4xW)={rk4} (expect 1) inv(GxW)={rk3} (expect 0) => dimH4tw={rk4-rk3}", flush=True)
+

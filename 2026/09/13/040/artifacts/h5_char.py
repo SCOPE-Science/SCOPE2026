@@ -52,3 +52,4 @@ def inner(c1,c2,n):
 
 for n in range(2,13):
     print(f"n={n} invH5W={inner(chi_H5,chi_W,n)} invH6W={inner(chi_H6,chi_W,n)}")
+

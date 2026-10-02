@@ -17,3 +17,4 @@ for d in range(0,15):
 # Print summary
 print("i=0: k>=3 maps 0->0 iso (W2=0, coinvariants 0 for k>=3).")
 print("i=1: H1(F_k)=0 => twisted H1=0 for all k, maps 0->0 iso (includes k=4->5 at 2i+2=4).")
+

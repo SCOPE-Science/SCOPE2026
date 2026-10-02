@@ -183,3 +183,4 @@ def orbit_sum(k, rep_a_key, rep_w_pair):
     # Simpler: compute invariants via Reynolds over full group using random averaging + rank? For k<=7, |S_k|=5040 manageable to sum over all perms explicitly with sparse vectors? N~ (nA~? for k=6: nA=6+15+15+30=66, nW=10, N=660). Summing over 720 perms with matrix apply O(N) each => 720*660 ~ 475k ops per orbit sum, fine. For k=7: 5040*1365 ~ 6.8M, ok. For k=8: 40320*2520 ~ 100M, heavy but maybe ok for few reps in python? Might be slow.
     # Use full-group averaging for k<=7.
     pass
+

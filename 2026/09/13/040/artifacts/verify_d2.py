@@ -6,7 +6,7 @@ import itertools
 from collections import defaultdict
 import sympy as sp
 
-exec(open('output/artifacts/h5_explore.py').read().split("def orbit_sum_C5")[0])
+exec(open('artifacts/h5_explore.py',encoding='utf-8').read().split("def orbit_sum_C5")[0])
 
 def gen_G2_reps():
     # G^2 monomials: ordered pairs (s,t) of 2-subsets, modulo s,t swap (graded commutative, |G| odd => antisymmetric? |G|=3 odd, so G_ij G_lm = -G_lm G_ij; squares zero). Basis: s<t (in sorted order) with disjoint-or-not supports, excluding s==t.
@@ -93,3 +93,4 @@ for k in [4,5,6]:
             v=ddot(vecs[i],vecs[j])
             G[i,j]=v; G[j,i]=v
     print(f"k={k} inv(G^2_free x W) rank={G.rank()}")
+

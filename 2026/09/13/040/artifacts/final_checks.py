@@ -47,6 +47,6 @@ print("W2=0 confirmed")
 
 # 3. Confirm artifact files exist (inventory below mirrors this):
 import os
-arts=sorted(os.listdir('output/artifacts'))
+arts=sorted(os.listdir('artifacts'))
 print(f"artifacts ({len(arts)}): {arts}")
 print("ALL FINAL CHECKS PASS")

@@ -1,92 +1,152 @@
-# Low-degree exterior-square twisted (co)homology of configuration spaces of CP^2#CP^2
+# Low-degree exterior-square twisted homology of configuration spaces of $\mathbb{CP}^{2}\#\mathbb{CP}^{2}$
 
-## Context
-Let M = CP^2 # CP^2, the closed simply connected 4-manifold with b_2 = 2 and
-intersection form diag(1,1). Let F_k(M) be the ordered configuration space of k
-distinct points, B_k(M) = F_k(M)/S_k the unordered configuration space, and
-W_k = Lambda^2(Q^k/Q) the exterior square of the reduced permutation
-representation over Q (dim (k-1)(k-2)/2, W_2 = 0). This is a degree-2 polynomial
-(FI) coefficient system on B_k(M) via the covering F_k -> B_k. Twisted
-homological stability for simply connected closed 4-manifolds with degree-2
-coefficients has almost no exact low-degree tables; general theorems (Palmer,
-FI-theory) give qualitative ranges but no concrete integers for this manifold
-and system. The admitted target asked for a slope-2 range k >= 2i+3 plus a
-single-pair sharpness witness; that full target is blocked, and the present
-record is the verified low-degree truncation that constrains any future proof.
+## Setting and precise scope
 
-## Definitions
-- Cohomology ring: H^*(M;Q) = Q[a,b,pt]/(a^2-pt, b^2-pt, ab, a pt, b pt, pt^2),
-  |a|=|b|=2, |pt|=4.
-- Kriz / Idrissi-Lambrechts-Stanley small model of F_k(M): H^*(M^k) with
-  degree-3 generators G_ij (i<j) and differential
-  d(G_ij) = Delta_ij = pt_i + pt_j + a_i a_j + b_i b_j.
-- Over Q, H_i(B_k;W_k) is dual to the S_k-invariant part of
-  H^i(F_k;Q) tensor W_k, i.e. H_0(S_k; H_i(F_k) tensor W_k).
-- Graded pieces used: H^2(M^k) (a_i,b_i); G = span(G_ij); H^4(M^k):
-  pt_i (P), a_i a_j / b_i b_j (A/B), a_i b_j ordered i/=j (C);
-  C5 = H^2 tensor G (domain of D in degree 5);
-  A6 = degree-6 part of H^*(M^k): pt_i a_j, pt_i b_j (PA/PB) plus triple
-  products (T). The Lambda^2(G)/Arnold summand of H^6 is excluded throughout.
+Let $M=\mathbb{CP}^{2}\#\mathbb{CP}^{2}$ with its positive orientation. This is a closed simply connected smooth four-manifold with intersection form $\operatorname{diag}(1,1)$. Write $F_k(M)$ for ordered configurations, $B_k(M)=F_k(M)/S_k$, and
+$$
+V_k=\mathbb Q^k/\mathbb Q(1,\ldots,1),\qquad W_k=\Lambda^2V_k,\qquad \dim W_k=\binom{k-1}{2}.
+$$
+The covering determines the local system; $W_2=0$. For $k\ge3$, $W_k$ is the Specht representation of shape $(k-2,1,1)$.
 
-## Result (emergent finding)
-Over Q, with the notation above:
-1. Vanishing: H_0(B_k;W_k) = 0 for k = 2 (W_2 = 0) and all k >= 3
-   (coinvariants of W_k vanish); H_1 = 0 for all k (F_k simply connected);
-   H_2 = 0 for all k (<H_2(M^k),W> = 0); H_3 = 0 for all k (every G tensor W
-   orbit sum is the zero vector; <G,W> = 0).
-2. H_4: dim H_4(B_2;W_2) = 0; dim = 1 for every k >= 3, spanned by the C-type
-   a_i b_j orbit-sum family. The G tensor W contribution vanishes so im(D)=0.
-3. H_5: quotiented (Kriz-relation) H^5-twisted = 0 for 3 <= k <= 7.
-   Unquotiented (H^2 tensor G) tensor W invariants have rank 4 (k >= 4; rank 2
-   at k = 3); the Kriz-relation subspace has full rank 6,36,120,300,630 at
-   k = 3,4,5,6,7 with D(R) = 0; dim(I cap R) = 2 and rank(D|_I) = 2, giving
-   (4-2)-2 = 0 (and (2-0)-2 = 0 at k = 3).
-4. H_6 A6-piece: inv(A6 tensor W) has rank 2 (k = 3), 4 (k = 4..7) with image
-   rank 0 (k = 3), 2 (k >= 4), contributing dimension 2,2,2,2 for k = 3..6
-   (Arnold summand excluded; H_6 total not claimed).
-5. Boundary probe (H_4 only): at the target sharpness boundary k = 2i+2 for
-   i = 4 (k = 10 -> 11), both H_4-twisted sides are 1-dimensional with zero
-   differentials (exact Gram rank 1 at k = 10,11). Quotiented H_5 vanishing is
-   proved only for 3 <= k <= 7; at k = 10,11 only the unquotiented H_5
-   character count 4 is known, so no H_5 boundary equality is claimed.
+This record gives a low-degree table, not the originally sought uniform slope-two stability theorem. It does not construct a geometric stabilization map for this closed manifold or supply a sharpness witness.
 
-## Proof / evidence
-Transfer + character theory: exact conjugacy-class sums give
-chi_W from fix counts, chi_G = C(f,2)+m2, chi_H2 = 2f,
-chi_H4 = f + 2G + f(f-1); inner products give <W,1> = 0 (k >= 3),
-<H2,W> = <G,W> = 0 and <H4,W> = 1, extended from n <= 12 to all n >= 4 by
-stable joint falling moments E[(f)_a (m2)_b] = 2^-b. Exact orbit-sum linear
-algebra over Q in the quotient model V_k = Q^k/(1) (Gram ranks via sympy):
-G x W rank 0 (k = 5..12 plus reruns), A4 x W rank 1 (k = 3..6,10,11) with only
-C-type self-dots nonzero, C5 x W rank 4 with relation intersection and image
-ranks above and D(R) = 0 verified, A6 x W ranks above. Scripts reproduce every
-quoted integer; k = 4 H_5 quotient rerun gives invC5 = 4, rankR = 36,
-dimcap = 2, rankD = 2, dimH5 = 0. Vectors verified S_k-invariant under the
-correct quotient action (all transpositions including the distinguished-index
-swap).
+## Model and applicability
 
-## Limitations
-Lambda^2(G)/Arnold summand of H^6 and all higher cohomology uncomputed; no
-total H_i claim for i >= 6 and no uniform k >= 2i+3 range for all i.
-Geometric puncture-stabilisation is analyzed only via S_k-inclusion scaling
-plus dimension counts; identification of the geometric map with computed
-scalars is not proved. Character tables computed explicitly to n = 12 plus
-closed stable formulas; orbit-sum Grams cover the k values listed per script.
+The rational Poincaré-duality algebra is
+$$
+A=H^*(M;\mathbb Q)=\mathbb Q[a,b,p]/(a^2-p,\ b^2-p,\ ab,\ ap,\ bp,\ p^2),
+\qquad |a|=|b|=2,\quad |p|=4.
+$$
+A simply connected closed four-manifold is formal, so $A$ with zero differential is a rational model of $M$.
 
-## Reproducibility
-Scripts in output/artifacts/: stab_q4.py, char_dims.py, char_dims2.py,
-char_all.py, h5_char.py, identify_maps.py, check_smallk.py,
-boundary_k10_k11.py, h5_explore.py, h5_quotient.py, h5_quot_run7.py,
-h5_smallk.py, stab_maps.py, h6_check.py, h6_dims_full.py, support_bound.py,
-stab_scalar.py, verify_d2.py, g2_arnold.py, dim_table.py, final_checks.py.
-Cheap checks: final_checks.py (character table, W_2 = 0);
-boundary_k10_k11.py (H^4 at k = 10,11 in seconds); h5_quotient.py at k = 4
-(seconds; k = 7 takes minutes). explore_h4.py uses a superseded wrong V-model
-and is retained only as a negative control.
+For rational cohomology as an $S_k$-representation, Lambrechts–Stanley (2008), Theorem 10.1 supplies exactly what is needed: for a closed oriented triangulated manifold and a connected Poincaré-duality CDGA $A$ connected to $A_{\mathrm{PL}}(M)$ by a quasi-isomorphism zigzag, its configuration complex $F(A,k)$ is equivariantly quasi-isomorphic as a differential graded module to $A_{\mathrm{PL}}(F_k(M))$. These hypotheses hold here. Only the resulting cohomology representations are used, not an additional claim about rational homotopy.
 
-## References
-- M. Palmer, Twisted homological stability for configuration spaces (2018).
-- N. Idrissi, The Lambrechts-Stanley model of configuration spaces (2019).
-- M. Kriz, On the rational homotopy type of configuration spaces.
-- M. Maguire et al., Computing cohomology of configuration spaces (2016).
-- S. Kallel, Configuration spaces of points: a user's guide (2024).
+Idrissi's precise Theorem 95 gives an equivariant real CDGA model for simply connected closed smooth manifolds of dimension at least four. Framing and Euler-characteristic conditions restrict its further operadic/comodule enhancement, not the initial model statement. Corollary 116 is also applicable. We do not relabel this real theorem as a general rational-model theorem.
+
+The complex has degree-three generators $G_{ij}=G_{ji}$, with
+$$
+dG_{ij}=\Delta_{ij}=p_i+p_j+a_i a_j+b_i b_j,\qquad
+(x_i-x_j)G_{ij}=0\quad(x=a,b),
+$$
+and the exterior/Arnold relations. Permutations act on vertex labels. The positive signs match the intersection form.
+
+Taking finite-group invariants is exact over $\mathbb Q$. Transfer gives
+$$
+H^i(B_k(M);W_k)\cong\bigl(H^i(F_k(M);\mathbb Q)\otimes W_k\bigr)^{S_k}.
+$$
+Since $W_k$ is self-dual, twisted homology is dual to this cohomology and has the same dimension.
+
+## Result
+
+For all $k\ge2$,
+$$
+H_i(B_k(M);W_k)=0\quad(0\le i\le3),\qquad
+\dim H_4(B_k(M);W_k)=
+\begin{cases}0&k=2,\\1&k\ge3.\end{cases}
+$$
+The surviving invariant is supported by the mixed-color family $a_i b_j$, $i\ne j$.
+
+In degree five, after quotienting the model relations,
+$$
+H_5(B_k(M);W_k)=0\qquad(3\le k\le7).
+$$
+No all-$k$ degree-five vanishing is asserted.
+
+The zero-edge degree-six contribution has dimension
+$$
+\dim\left[
+\frac{(A^{\otimes k})^6\otimes W_k}
+{d\bigl((A^{\otimes k})^2G\otimes W_k\bigr)}
+\right]^{S_k}=2\qquad(3\le k\le6).
+$$
+The two-edge term $\Lambda^2G/(\text{Arnold relations})$ is omitted. This is not a claim that total $H_6$ has dimension two.
+
+At the proposed degree-four boundary $k=2i+2=10$, both $k=10$ and $k=11$ have dimension one. This does not prove a map isomorphism or a sharpness witness.
+
+## All-$k$ proof in degrees at most four
+
+Let $f$ count fixed points and $m_2$ count two-cycles of a permutation. With $(f)_r=f(f-1)\cdots(f-r+1)$,
+$$
+\chi_{W_k}=\tfrac12(f)_2-f+1-m_2,\qquad
+\chi_G=\tfrac12(f)_2+m_2,\qquad
+\chi_{A^2}=2f,
+$$
+and
+$$
+\chi_{(A^{\otimes k})^4}=f+2\chi_G+(f)_2.
+$$
+The last character comprises $p_i$, the two same-color unordered-pair families, and the mixed-color ordered-pair family.
+
+For a uniform permutation in $S_k$ the exact identity is
+$$
+\mathbb E[(f)_a(m_2)_b]=2^{-b}\quad\text{when }k\ge a+2b.
+$$
+Count ordered choices of $a$ fixed points and $b$ disjoint unordered two-cycles, then permute the remaining points. The support threshold is essential. Products relevant here have weighted degree at most four, so expansion into falling factorials gives for every $k\ge4$
+$$
+\langle1,W_k\rangle=\langle A^2,W_k\rangle
+=\langle G,W_k\rangle=0,\qquad
+\langle(A^{\otimes k})^4,W_k\rangle=1.
+$$
+Direct character evaluation gives the same result for $k=3$; $W_2=0$. The invariant complexes in degrees one, two and three vanish. In particular the degree-three invariant domain of the incoming degree-four boundary vanishes. Degree-four elements are closed, proving the table for all $k$.
+
+The mixed-color term alone has multiplicity one; both the vertex term and the same-color pair terms have multiplicity zero. This identifies the surviving family.
+
+## Degree-five quotient and finite exact certificate
+
+Put $C_5=(A^{\otimes k})^2\otimes G\otimes W_k$ and $I=C_5^{S_k}$. Let $R$ be spanned by
+$$
+(a_l-a_m)G_{lm}\otimes w,\qquad (b_l-b_m)G_{lm}\otimes w.
+$$
+There are no other degree-five relations. Each column has a distinct color/edge/$W_k$-basis block, so
+$$
+\operatorname{rank}R=2\binom{k}{2}\binom{k-1}{2}.
+$$
+The diagonal identity proves $D(R)=0$; for example
+$$
+(a_l-a_m)\Delta_{lm}
+=(a_l p_m-a_m p_l)+(p_l a_m-a_l p_m)=0.
+$$
+The $b_l b_m$ term vanishes by $ab=0$; the $b$ calculation is identical.
+
+Exactness of averaging gives $(C_5/R)^{S_k}\cong I/(I\cap R)$, hence
+$$
+\dim H^5(B_k(M);W_k)=\dim I-\dim(I\cap R)-\operatorname{rank}(D|_I).
+$$
+
+| $k$ | $\dim I$ | $\operatorname{rank}R$ | $\dim(I\cap R)$ | $\operatorname{rank}(D|_I)$ | $\dim H^5$ | $\dim((A^{\otimes k})^6\otimes W_k)^{S_k}$ |
+|---|---:|---:|---:|---:|---:|---:|
+| 3 | 2 | 6 | 2 | 0 | 0 | 2 |
+| 4 | 4 | 36 | 2 | 2 | 0 | 4 |
+| 5 | 4 | 120 | 2 | 2 | 0 | 4 |
+| 6 | 4 | 300 | 2 | 2 | 0 | 4 |
+| 7 | 4 | 630 | 2 | 2 | 0 | 4 |
+
+The correct $k=3$ expression is $(2-2)-0=0$, not the reversed intermediate ranks in the preserved draft. The zero-edge degree-six dimension is the last column minus the incoming rank. Only $k=3,\ldots,6$ is its stated table; the extra $k=7$ calculation corroborates the method.
+
+All finite ranks are exact rational linear algebra. Reynolds orbit sums enumerate every equality pattern of the five vertex roles of a free-domain basis monomial, so they span $I$. The degree-six enumeration similarly includes all color choices. The strengthened certificate verifies invariance under every adjacent transposition, including movement of the distinguished quotient index.
+
+For an independent quotient calculation, identify $e_mG_{lm}$ with $e_lG_{lm}$ in each color/edge/$W_k$ block. This projection has kernel precisely $R$. Its rank on $I$ is zero for $k=3$ and two for $k=4,\ldots,7$, giving the intersection column without relying on the dense augmented-matrix implementation.
+
+The new certificate independently multiplies the four diagonal terms with vertexwise ring rules, compares every free-domain basis image to the historical specialized differential, and checks all $6,36,120,300,630$ relation columns. It does not merely sample them. Exact integer Gram ranks then give the differential and degree-six invariant ranks.
+
+## Reproducibility and retained evidence
+
+From the package directory run artifacts/verify_low_degree.py with Python in UTF-8 mode. It asserts all finite ranks just listed. The historical final_checks.py provides finite character corroboration; boundary_k10_k11.py checks the degree-four boundary; h5_quotient.py and h5_quot_run7.py reproduce the dense rational quotient calculation. All were replayed in the fresh audit.
+
+Historical scripts, including tentative stability and higher-degree investigations, are retained. Their exploratory comments, inherited incoming-rank constants and proposed map interpretations are not additional certified theorems. The only mechanical repairs to these scripts are stale artifact-path prefixes and explicit UTF-8 source reads.
+
+## Prior work and limitations
+
+The equivariant model is established mathematics, not claimed as new; it does not evaluate this specific isotypic quotient. Palmer's cited stability theorem requires an open connected manifold, whereas this table concerns a closed manifold. Inspected Félix–Tanré and Maguire computations concern ordinary unordered coefficients, not this exterior-square system on this connected sum. The closest Resultary match is this assigned item. Originality of the exact table is qualified to the best of our knowledge.
+
+No total degree-six computation, higher-degree table, uniform $k\ge2i+3$ stability range or geometric-map identification is claimed. Degree-five vanishing is certified only through $k=7$. The full original target is not established.
+
+## Primary references
+
+1. P. Lambrechts and D. Stanley, *A remarkable DGmodule model for configuration spaces*, Algebraic & Geometric Topology 8 (2008), Theorem 10.1 and Definition 3.4: https://msp.org/agt/2008/8-2/agt-v8-n2-p21-p.pdf.
+2. N. Idrissi, *The Lambrechts–Stanley model of configuration spaces*, arXiv:1608.08054, version 4, Theorem 95 and Corollary 116: https://arxiv.org/pdf/1608.08054.
+3. M. Fernández and V. Muñoz, *The geography of non-formal manifolds*, Proposition 4.1 and proof: https://arxiv.org/pdf/math/0404527.
+4. M. Palmer, *Twisted homological stability for configuration spaces*, arXiv:1308.4397.
+5. Y. Félix and D. Tanré, *The cohomology algebra of unordered configuration spaces*, arXiv:math/0311323.
+6. *Computing cohomology of configuration spaces*, arXiv:1612.06314.
+

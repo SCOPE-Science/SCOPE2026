@@ -126,3 +126,4 @@ for k in [5,6]:
         for i,r in enumerate(reps):
             d=dot(vecs[i],vecs[i])
             print(i,r,"selfdot=",d)
+

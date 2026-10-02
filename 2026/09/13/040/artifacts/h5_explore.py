@@ -258,3 +258,4 @@ for k in [5,6,7,8,9,10]:
     imgs=[orbit_sum_Dimage(k,rep,maps) for rep in reps]
     rimg,_=rank_of_dicts(imgs)
     print(f"  rank(D(invC5))={rimg} => dim ker (H5 twisted) = {rdom-rimg}")
+

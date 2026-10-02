@@ -66,3 +66,4 @@ for n in range(2,13):
 
 # Also compute inv of image span Delta? But H4 inv is 0 as before? Let's verify chi_H4 vs chi_W inner should be 0.
 # Compute chi of A6 = H^6(M^k): pt_i a_j, pt_i b_j (ordered i!=j: char 2*f*(f-1)? plus? 2-cycles? pt_i a_j under swap i<->j: pt_j a_i distinct, not fixed. So char=2f(f-1)) + triple a/b choices: each triple positions i<j<l with 8 labelings. Character: fixed triples: all three fixed: C(f,3)*8; triples containing a 2-cycle + fixed? e.g., positions {i,j} swapped, l fixed: monomial a_ia_jb_l? Under swap, a_ia_j symmetric? Depends. Let's brute force character for A6 via enumeration for small n and class rep.
+

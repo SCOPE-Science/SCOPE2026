@@ -11,10 +11,11 @@ import sympy as sp
 
 # --- H4 dims already: 0,1,1,1 for k=2,3,4,5 (check_smallk). Confirm k=6 too (identify_maps said rank 1).
 # --- H5 quotiented for k=3: need compute_H5(3). The relation-rank code handles k=3 (NC5=2*3*3*1=18).
-exec(open('output/artifacts/h5_quotient.py').read().split("for k in [4,5,6]:")[0])
+exec(open('artifacts/h5_quotient.py',encoding='utf-8').read().split("for k in [4,5,6]:")[0])
 print("### H5 quotiented k=3")
 res3=compute_H5(3)
 print(res3)
 print("### H5 quotiented k=4")
 res4=compute_H5(4)
 print(res4)
+
