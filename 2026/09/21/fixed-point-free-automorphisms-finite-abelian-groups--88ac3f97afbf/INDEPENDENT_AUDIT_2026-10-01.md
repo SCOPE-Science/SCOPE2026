@@ -1,0 +1,106 @@
+# Independent audit — 2026-10-01
+
+## Final claim
+
+For every finite abelian group \(A=\bigoplus_p\bigoplus_r(\mathbf Z/p^r\mathbf Z)^{m_{p,r}}\), the number of fixed-point-free automorphisms equals \(|\operatorname{Aut}(A)|\) times the product over exponent blocks of the corresponding finite-field linear-derangement proportions, with the stated Möbius formula for \(D_m(p)\) and the stated all-rank distinct-exponent corollary.
+
+## Correctness — PASS
+
+In the Hillar--Rhea matrix model, reduction modulo \(p\) is block upper triangular by equal cyclic exponent and gives a surjective homomorphism from \(\operatorname{Aut}(A_p)\) onto the product of the diagonal \(\operatorname{GL}_{m_r}(\mathbf F_p)\) blocks. For finite groups, fixed-point-free is equivalent to \(\varphi-I\) being an automorphism, which is equivalent to every diagonal block \(B_r-I\) being invertible. Uniform fibers therefore give the product of linear-derangement proportions. Möbius inversion on the subspace lattice gives the displayed \(D_m(p)\) formula. Fresh checks reproduced \(D_1(2)=0,D_2(2)=2,D_3(2)=48,D_1(3)=1,D_2(3)=27\), and the repository brute-force verifier agrees on several small primary types; these checks are corroborative, not the general proof.
+
+Checked sources:
+- Hillar and Rhea, Automorphisms of finite Abelian groups, Amer. Math. Monthly 114 (2007), arXiv:math/0605185.
+- Hayat, López-Aguayo and Abbas, Fixed Points of Automorphisms of Certain Non-Cyclic p-Groups and the Dihedral Group, Symmetry 10 (2018), full accessible article text.
+- Senden, The Reidemeister spectrum of finite abelian groups, Proc. Edinburgh Math. Soc. 66 (2023).
+- Resultary semantic search for fixed-point-free automorphism counts of finite abelian groups.
+- Assigned exact verifier and fresh small finite-field checks.
+
+Residual risks:
+- No formal certificate is present; the general statement is established by the matrix-model and Möbius-inversion proof, not by the bounded enumeration.
+
+## Originality — PASS
+
+Best-of-knowledge originality passes. The 2018 primary paper gives the rank-two distinct-exponent count and explicitly works on selected noncyclic \(p\)-groups; Hillar--Rhea provide the automorphism matrix model and total order, while Senden determines possible fixed-point cardinalities rather than enumerating automorphisms in each stratum. The searched published records contained no earlier all-abelian product formula or all-rank distinct-exponent count.
+
+### Equivalent formulations
+
+Searches:
+- Resultary query: fixed-point-free automorphisms finite abelian p-groups exact count product GL derangements distinct exponents theta(A,1)
+- Web query: fixed point free automorphisms finite abelian p group exact number product GL derangements
+
+Evidence:
+- The assigned finding was the only exact Resultary hit.
+- Hayat--López-Aguayo--Abbas state the exact count for \(\mathbf Z_{p^a}\oplus\mathbf Z_{p^b}\) with \(a<b\), not arbitrary exponent multiplicities.
+
+Reasoning: Equivalent formulations include counting automorphisms with no eigenvalue one on each graded exponent block and multiplying finite-field derangement probabilities; no earlier exact all-block statement was located.
+
+### Broader coverage
+
+Searches:
+- Hillar--Rhea arXiv:math/0605185
+- Senden 2023 Reidemeister-spectrum paper
+
+Evidence:
+- Hillar--Rhea give a general matrix model and \(|\operatorname{Aut}(A)|\), but not the inspected fixed-point-free enumeration.
+- Senden characterizes attainable fixed-point counts rather than the number of automorphisms realizing one fixed-point count.
+
+Reasoning: These sources are broader structurally but do not mechanically state or imply the enumeration without the additional uniform-fiber/linear-derangement count.
+
+### Exact database or table
+
+Searches:
+- Hayat--López-Aguayo--Abbas 2018 exact rank-two formulas
+- Resultary semantic search
+
+Evidence:
+- A prior exact value exists for the rank-two distinct-exponent special case; it is recovered by the current all-rank formula.
+- No exact database/table for arbitrary multiplicity profiles was found.
+
+Reasoning: The prior rank-two formula is acknowledged as covered; it does not determine arbitrary block multiplicities.
+
+### Claim versus prior implication
+
+Searches:
+- Comparison of the 2018 theorem with the block-product formula
+- Hillar--Rhea matrix model plus finite-field Möbius formula
+
+Evidence:
+- The 2018 theorem is a strict special case.
+- The all-rank result requires combining the reduction homomorphism with an exact count of eigenvalue-one-free matrices for every block.
+
+Reasoning: No inspected prior theorem directly implies the final all-group count as a published corollary; the proof combines standard ingredients in a new enumeration.
+
+### Source inspections
+
+- **Fixed Points of Automorphisms of Certain Non-Cyclic p-Groups and the Dihedral Group** — Covers a special case, not the all-rank/all-multiplicity product formula. Material read: Accessible full article text, including the fixed-point-free criterion and exact rank-two proposition Method: Primary full-text web inspection Evidence: Its abstract and proposition give the exact count for \(\mathbf Z_{p^a}\oplus\mathbf Z_{p^b}\), \(a<b\).
+- **Automorphisms of finite Abelian groups** — Structural prior art; not an enumeration of fixed-point-free automorphisms. Material read: Primary preprint/record and the matrix-model result used in the package proof Method: Primary-source comparison Evidence: It supplies the endomorphism/automorphism matrix model and automorphism-group order.
+
+Checked sources:
+- Hillar and Rhea, Automorphisms of finite Abelian groups, Amer. Math. Monthly 114 (2007), arXiv:math/0605185.
+- Hayat, López-Aguayo and Abbas, Fixed Points of Automorphisms of Certain Non-Cyclic p-Groups and the Dihedral Group, Symmetry 10 (2018), full accessible article text.
+- Senden, The Reidemeister spectrum of finite abelian groups, Proc. Edinburgh Math. Soc. 66 (2023).
+- Resultary semantic search for fixed-point-free automorphism counts of finite abelian groups.
+- Assigned exact verifier and fresh small finite-field checks.
+
+Residual risks:
+- The blockwise count is elementary from standard structure theory, so an older implicit formulation in finite-module or linear-derangement language remains a best-of-knowledge risk.
+- The theorem does not determine \(\theta(A,d)\) for \(d>1\).
+
+## Scientific value — PASS
+
+The formula gives a natural complete enumeration for the fixed-point-free stratum of every finite abelian group, settles the \(d=1\) all-rank slice of the 2018 distinct-exponent problem, and refines a classical existence criterion for abelian \(2\)-groups into an exact count. This is a motivated structural classification, not a table recomputation.
+
+Checked sources:
+- Hillar and Rhea, Automorphisms of finite Abelian groups, Amer. Math. Monthly 114 (2007), arXiv:math/0605185.
+- Hayat, López-Aguayo and Abbas, Fixed Points of Automorphisms of Certain Non-Cyclic p-Groups and the Dihedral Group, Symmetry 10 (2018), full accessible article text.
+- Senden, The Reidemeister spectrum of finite abelian groups, Proc. Edinburgh Math. Soc. 66 (2023).
+- Resultary semantic search for fixed-point-free automorphism counts of finite abelian groups.
+- Assigned exact verifier and fresh small finite-field checks.
+
+Residual risks:
+- The blockwise count is elementary from standard structure theory, so an older implicit formulation in finite-module or linear-derangement language remains a best-of-knowledge risk.
+- The theorem does not determine \(\theta(A,d)\) for \(d>1\).
+
+## Conclusion
+
+The unchanged final claim passes correctness, best-of-knowledge originality, and scientific value.
