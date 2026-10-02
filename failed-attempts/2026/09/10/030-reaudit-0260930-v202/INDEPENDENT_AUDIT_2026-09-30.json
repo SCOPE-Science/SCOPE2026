@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-09-30",
+  "audited_at_utc": "2026-09-30T23:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/09/10/030/RESULT.md",
+        "artifacts/verify_b2_algebra.py",
+        "Junjiro Noguchi, arXiv:2203.00470",
+        "Z. Gao, arXiv:1806.01408"
+      ],
+      "rationale": "The elementary constant-coordinate cases are valid. For a nonconstant algebraic germ with both x and z nonconstant, x and z have transcendence degree at most one over C, the defining equation puts exp(x) in C(x,z,wp(z)), and wp'(z) is algebraic over wp(z), so the relevant graph field has transcendence degree at most two. The semi-abelian Ax-Schanuel theorem for A=G_m x E0 gives the conflicting lower bound at least three once the germ is not contained in a proper algebraic subgroup; Hom(G_m,E0)=0 and both coordinates nonconstant exclude the product proper subgroups. The range scripts are not needed for this algebraic contradiction beyond keeping the analytic branch regular.",
+      "residual_risks": [
+        "The RESULT cites Gao as part of the black-box chain even though Gao 1806.01408 is about universal abelian varieties/Kuga type; Ax/Noguchi is the cleaner semi-abelian source. The exact formal/analytic localization from an algebraic germ to the theorem is standard but not reproved in the package."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noguchi states the general semi-abelian lower bound trdeg >= n+1 under nondegeneracy; here n=2."
+        ],
+        "reasoning": "That theorem covers arbitrary semi-abelian varieties, hence G_m x E0, and is strictly broader than this fixed polynomial/cell.",
+        "searches": [
+          "Ax/Noguchi semi-abelian Ax-Schanuel",
+          "Gao arXiv:1806.01408"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.00470",
+        "https://arxiv.org/abs/1806.01408",
+        "Resultary semantic search for the exact mixed exp-Weierstrass claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algebraicity of x,z gives trdeg <=1 before adjoining wp; the equation expresses exp(x) from wp and x, and the elliptic differential equation makes wp' algebraic, so trdeg <=2, while Ax-Schanuel forces >=3."
+        ],
+        "reasoning": "Only elementary field bookkeeping and exclusion of constant/product-subgroup cases separates the prior theorem from the claimed conclusion.",
+        "searches": [
+          "Claim-to-Ax-Schanuel implication reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed equation simply creates one algebraic relation between the G_m and elliptic exponential coordinates."
+        ],
+        "reasoning": "The no-algebraic-germ conclusion is the standard Ax-Schanuel contradiction in this concrete coordinate chart.",
+        "searches": [
+          "Resultary: mixed Ax-Schanuel exp Weierstrass exp(x)+x^2+1 wp(z)",
+          "Noguchi arXiv:2203.00470"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact database hit was the current SCOPE030; no independent exact table is relevant."
+        ],
+        "reasoning": "Absence of an exact table does not restore novelty because broader theorem implication is decisive.",
+        "searches": [
+          "Resultary exact equation search"
+        ]
+      },
+      "rationale": "The fixed-cell exclusion is a direct specialization of the general semi-abelian Ax-Schanuel theorem after the candidate equation supplies the transcendence-degree upper bound. Under the audit rule that a mechanically implied special case is covered, the exact equation need not already be printed in prior literature for originality to fail.",
+      "residual_risks": [
+        "A source with the identical fixed equation could have been missed, but that does not affect the direct-implication originality failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_COVERAGE",
+          "evidence": "The theorem is formulated for semi-abelian A and gives the dimension-plus-one lower bound used by the record.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.00470",
+          "material_read": "Accessible arXiv abstract and theorem-scope description, including the stated trdeg >= n+1 lower bound for nondegenerate semi-abelian exponential graphs.",
+          "method": "Statement/hypothesis comparison to A=G_m x E0.",
+          "title": "Analytic Ax-Schanuel Theorem for semi-abelian varieties and Nevanlinna theory",
+          "trigger": "General theorem apparently used as the critical black box."
+        },
+        {
+          "assessment": "NOT_THE_CLEAN_DIRECT_SOURCE",
+          "evidence": "The paper treats universal abelian varieties/Kuga type; the semi-abelian Ax theorem is the direct source for G_m x E0.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.01408",
+          "material_read": "Accessible arXiv abstract/scope statement.",
+          "method": "Scope comparison.",
+          "title": "Mixed Ax-Schanuel for the universal abelian varieties",
+          "trigger": "Explicit citation in RESULT.md."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/09/10/030/RESULT.md",
+        "https://arxiv.org/abs/2203.00470"
+      ],
+      "rationale": "As a standalone finding this is an arbitrary fixed-cell instantiation of a general functional-transcendence theorem; the degree cutoff advertised in the target is unused, and the intended log-power counting theorem remains open. The package supplies no independent mathematical reason why this exact polynomial/cell exclusion is a useful invariant or boundary beyond being an intermediate fallback.",
+      "residual_risks": [
+        "The exclusion could be useful inside a future complete Pila-Wilkie argument, but that downstream theorem is not supplied and the exact fixed cell is not independently motivated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the fixed definable set X given by exp(x)+x^2+1 = wp(z) on (-1,1) times a fundamental parallelogram for E0:Y^2=X^3-2, there is no irreducible real-algebraic curve with nonconstant x-projection; the degree-4 restriction is in fact unused.",
+  "schema_version": 1
+}
