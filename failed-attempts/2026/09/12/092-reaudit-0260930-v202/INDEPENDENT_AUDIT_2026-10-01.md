@@ -1,0 +1,70 @@
+# Independent mathematical audit — 2026-10-01
+
+Record: `SCOPE-20260912-092`
+
+## Correctness — PASS
+
+The exact theorem content retained by RESULT is elementary and correct: on \(E:y^2=x^3+1\), the rational group law gives \(2(2,3)=(0,1)\), \(3(2,3)=(-1,0)\), and \(6(2,3)=O\); \((-1,0)\) has order two. The assigned numerical scripts were read completely and are consistent with the stated high-precision experiment, but they provide no certified error enclosure. The record itself correctly does not promote either the proposed factor \(1/12\) or the observed factor \(-4/27\) to an exact theorem.
+
+## Originality — FAIL
+
+The only exact theorem left after the record correctly demotes the regulator comparison to an uncertified numerical conjecture is already standard and explicitly tabulated. LMFDB identifies the same curve \(y^2=x^3+1\) as 36.a4 / Cremona 36a1, records torsion structure \(\mathbb Z/6\mathbb Z\), and lists \((2,3)\) as an order-six Mordell-Weil generator. Thus the exact torsion claim is covered. The \(-4/27\) observation remains conjectural and cannot serve as an accepted exact final claim.
+
+### equivalent_formulations
+
+Searches: LMFDB 36.a4 Cremona 36a1 y^2=x^3+1 torsion generator; elliptic dilogarithm 6-torsion y^2=x^3+1 regulator factor
+
+Evidence: LMFDB gives the same simplified equation, torsion group, and generator \((2,3)\) of order six.
+
+Reasoning: The group-law formulation and the torsion-database formulation are equivalent for the exact theorem; the latter already contains the substantive exact fact.
+
+### broader_coverage
+
+Searches: LMFDB elliptic curve 36.a4 / Cremona 36a1; general elliptic dilogarithm regulator literature cited by the record
+
+Evidence: General regulator theory motivates the numerical experiment, but no certified identity is proved in this package. The exact part is strictly weaker than the existing curve database entry.
+
+Reasoning: Broader regulator theory does not rescue originality because the final rigorously established contribution is only the already-known torsion arithmetic.
+
+### exact_database_or_table
+
+Searches: https://www.lmfdb.org/EllipticCurve/Q/36/a/4
+
+Evidence: The database page states \(y^2=x^3+1\), torsion structure \(\mathbb Z/6\mathbb Z\), and generator \((2,3)\) of order six.
+
+Reasoning: This is decisive exact database coverage of the record’s rigorous theorem content.
+
+### claim_vs_prior_implication
+
+Searches: compare RESULT exact/nonexact boundary with LMFDB torsion data
+
+Evidence: RESULT explicitly says the regulator mismatch and \(-4/27\) factor are numerical only; removing those leaves the torsion statements, which LMFDB already records.
+
+Reasoning: The exact final claim is a direct known-table fact, while the potentially interesting calibration is not certified as a theorem.
+
+### source_inspections
+- **LMFDB elliptic curve 36.a4 (Cremona 36a1)** (https://www.lmfdb.org/EllipticCurve/Q/36/a/4): trigger=Exact same curve and rational torsion data.; material read=Database page fields for equation, Mordell-Weil group, generator, integral points, and torsion order.; method=Direct exact-database inspection.; assessment=DECISIVE COVERAGE of the rigorous theorem content.; evidence=The page gives simplified equation \(y^2=x^3+1\), torsion \(\mathbb Z/6\mathbb Z\), and \((2,3)\) as a generator of order six.
+- **Assigned regulator scripts** (2026/09/12/092/artifacts/compute_ratio.py; closedform_check.py): trigger=Determine what the numerical evidence actually certifies.; material read=Complete source of both files.; method=Line-by-line source inspection.; assessment=They reproduce high-precision numerical comparisons but contain no rigorous interval enclosure for the lattice sum or \(L\)-value.; evidence=The calculations use high-precision floating arithmetic and truncation convergence checks, not validated intervals.
+
+### checked_sources
+
+- https://www.lmfdb.org/EllipticCurve/Q/36/a/4
+- assigned Git tree 1c828145ce100cc5c794d9b6da01c3391de67e05
+- published SCOPE semantic search
+
+### residual_risks
+
+- A future certified regulator identity could be mathematically interesting, but it is not established by the present package.
+
+## Scientific value — FAIL
+
+The exact content is a standard, already-tabulated torsion computation. The only potentially novel part is an uncertified numerical calibration conjecture, and correctness/reproducibility of a numerical observation alone does not make the package a validated new mathematical finding under the required value bar.
+
+## Limitations
+
+- The numerical \(-4/27\) observation is not declared false; it is simply not a certified theorem here.
+- Scientific rejection is originality/value based, not a failure of the rational group-law arithmetic.
+
+## Disposition
+
+**FAILED — not a validated finding.**
