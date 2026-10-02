@@ -1,8 +1,7 @@
-# Review status
+# Independent Audit — Global quadratic Hausdorff stability for the planar fractional-perimeter comparison
 
-Independent audit completed on 2026-10-01 (UTC).
-
-Disposition: **PASSED**.
+**Audit date:** 2026-10-01 (UTC) (UTC)  
+**Disposition:** passed
 
 ## Correctness — PASS
 
@@ -16,7 +15,12 @@ The full primary source arXiv:2609.19052v2 proves the sharp qualitative fixed-pe
 
 The theorem upgrades a newly sharp extremal comparison to a global coercive geometric estimate and identifies the locally optimal Hausdorff power. The proof also links tangent-angle convexity, outer-parallel variation, curvature-radius control, and support-function geometry in a reusable way.
 
-## Risks and limits
+## Source inspections
 
-- The proof is planar and convex-body specific, and the constant is not optimized.
-- The fixed-perimeter papers are recent, so unindexed concurrent refinements remain a residual risk; no inspected source supplied the same global fixed-perimeter Hausdorff implication.
+- arXiv:2609.19052v2 full HTML inspected through Theorem 1.1, proof strategy, support-function lemmas, smooth approximation, and chord continuity.
+- Resultary results and the later curvature-radius published record were inspected and commit timestamps compared.
+- Giannetti–Stefani abstract was inspected for its nested-set hypothesis.
+
+## Residual risks
+
+- Very recent unindexed stability work remains possible.
