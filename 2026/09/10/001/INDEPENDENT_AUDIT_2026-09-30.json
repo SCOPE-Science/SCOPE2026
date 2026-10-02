@@ -1,0 +1,63 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-09-30",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh reconstruction from the committed Möbius generators produced a group of order 3420 with 171 involutions, 380 elements of order 3 and 360 elements of order 19. Scanning all 171×380 candidates gave exactly 6840 exact-order pairs, with uniform fibers 40, 18 and 19. Direct conjugation split the pairs 3420+3420; the order-18 diagonal map normalized the group, lay outside it with square inside it, and generated an extension of order 6840. A fresh pure-braid BFS gave orbit sizes 3420 and 3420. Generation follows both from the inspected per-pair verifier and the subgroup argument that a proper subgroup containing a 19-element cannot also contain the required involution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ATLAS supplies group/class/representation infrastructure; no inspected source gives the generation-filtered 6840-pair or pure-braid orbit table."
+        ],
+        "reasoning": "Broader group data do not imply the exact orbit census without the additional enumeration."
+      },
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ATLAS establishes existence and group metadata only."
+        ],
+        "reasoning": "Neither existence of standard generators nor Out(G)=2 determines the number of exact-order pairs or their braid orbits."
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ATLAS L2(19) states |G|=3420, Out=2 and standard generators a,b with orders 2,3,19."
+        ],
+        "reasoning": "The standard-generator condition is the same order pattern, but existence of one pair is not a Nielsen census."
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate published exact match was located in the literature comparison."
+        ],
+        "reasoning": "Database absence is not novelty proof, but no competing exact table was located."
+      },
+      "rationale": "ATLAS records the group order, outer automorphism order, degree-20 representation and existence of standard generators of orders (2,3,19), but not the generation-filtered Nielsen count, simultaneous-conjugacy split, or pure-braid orbit census. A published-corpus semantic search returned the present result as the only direct match for the exact 6840/3420 data. The prior group-theoretic facts therefore supply setup, not the audited census.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact Nielsen-class and braid-orbit census for a standard-generator type of a finite simple group is a natural Hurwitz-space invariant. The result gives a complete orbit structure for the fixed type rather than a sampled computation, so the exact count and reduced degree are reusable structural data.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "artifacts/verify.py blob 8e6b62c0e0ad889a87acea16b261053c7cda4406",
+    "https://brauer.maths.qmul.ac.uk/Atlas/v3/lin/L219/"
+  ],
+  "final_claim": "For the committed degree-20 action of PSL(2,19), exactly 6840 ordered exact-order (2,3,19) pairs occur; all generate PSL(2,19), they split into two simultaneous-conjugacy classes of size 3420 that fuse under the outer diagonal automorphism, and the pure Hurwitz-braid action has two orbits of size 3420, giving reduced degree 2.",
+  "residual_risks": [
+    "The full-braid 2×20520 side computation was not elevated into the audited final claim; it remains supporting logged evidence. A specialist unpublished Nielsen database could overlap with the count, but no published exact table was located."
+  ],
+  "source_inspections": [
+    {
+      "material_read": "RESULT.md, status files, verify.py and committed group/orbit logs",
+      "result": "Reconstructed the theorem inputs and checked the certificate logic.",
+      "source": "Git tree/blobs"
+    },
+    {
+      "material_read": "full group page including order, outer automorphism order and standard-generator section",
+      "result": "Confirms setup but does not state the audited Nielsen or braid counts.",
+      "source": "ATLAS L2(19)"
+    }
+  ],
+  "status": "passed"
+}
