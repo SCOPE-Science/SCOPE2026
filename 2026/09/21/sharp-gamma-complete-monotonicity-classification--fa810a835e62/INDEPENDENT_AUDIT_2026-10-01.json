@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T22:56:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Large-x Stirling asymptotics force a=b-1/2 and c>=log sqrt(2pi). With that a, the next digamma term gives f'=(b^2-b+1/6)/(2x^2)+O(x^-3), so complete monotonicity forces b^2-b+1/6<=0; the x->0 derivative excludes b>1/2. Thus b is at least 1/2-sqrt(3)/6. For that remaining interval, the Laplace kernel K_b(t)=1/t+1/2-b-e^{-bt}/(1-e^{-t}) is positive: writing r=1-2b and t=2y reduces it to (1+ry)sinh y>y e^{ry}; the logarithmic comparison decreases in r, and the submitted two-range derivative estimates prove the worst case r=1/sqrt3. Hence -f' is a positive Laplace transform and f is completely monotone, strictly so after integrating K_b/t and using the nonnegative limiting constant.",
+      "risks": [
+        "At the lower endpoint the first small-t coefficient vanishes, but the global positive-kernel argument still gives strict positivity for t>0."
+      ],
+      "sources": [
+        "Frozen RESULT.md",
+        "Guo 2015 full OA theorem text",
+        "Independent algebraic check of the asymptotic obstruction and kernel reduction"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 review surveys many gamma-ratio complete-monotonicity classifications but no inspected section closes this exact f_{a,b,c} gap.",
+          "Guo 2016 is a review of related developments and was checked at the bibliographic/full-text level without locating the global classification."
+        ],
+        "reasoning": "No inspected broader gamma-ratio theorem was found to dominate the exact three-parameter classification.",
+        "searches": [
+          "Qi--Agarwal 2019 review DOI:10.1186/s13660-019-1976-z",
+          "Guo 2016 review DOI:10.2298/FIL1607083G"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package",
+        "Guo 2015 complete OA article",
+        "Qi--Agarwal 2019 OA review",
+        "Guo 2016 review record",
+        "Resultary and exact-formula searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work allows every 0<b<b* under its necessary theorem and proves sufficiency only after assuming b>=b*.",
+          "The x^-2 coefficient of f' gives a new necessary quadratic inequality whose lower root is exactly b*."
+        ],
+        "reasoning": "The new obstruction closes a genuine logical gap rather than specializing an existing iff theorem.",
+        "searches": [
+          "Guo 2015 Theorems 1 and 2",
+          "Frozen asymptotic necessity argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guo Theorem 1 gives only 0<b<=1/2 as a necessary condition.",
+          "Guo Theorem 2 gives necessary and sufficient conditions only when b is already assumed in [1/2-sqrt3/6,1/2].",
+          "No searched later source stated the missing lower necessity for the same family."
+        ],
+        "reasoning": "The submitted theorem is not a restatement of Guo Theorem 2: it proves that parameters outside its assumed interval cannot work.",
+        "searches": [
+          "Guo 2015 DOI:10.1186/s13660-014-0534-y",
+          "Resultary query: gamma complete monotonicity f_(a,b,c) x log Gamma threshold b^2-b+1/6",
+          "Web searches for exact polynomial b^2-b+1/6 and threshold 1/2-sqrt(3)/6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the current record and unrelated gamma results rather than an earlier covering theorem."
+        ],
+        "reasoning": "Search failure was not treated as proof; the decisive comparison is with the exact 2015 source and later review literature.",
+        "searches": [
+          "Resultary semantic search and exact-formula web searches"
+        ]
+      },
+      "rationale": "Guo 2015 proves only the coarse necessary interval 0<b<=1/2 in general and proves iff sufficiency on the subinterval [1/2-sqrt3/6,1/2]. The submitted second-order large-x obstruction excludes the entire missing interval 0<b<1/2-sqrt3/6, completing the iff classification. The inspected 2019 review and targeted searches did not state this global closure.",
+      "residual_risks": [
+        "Equivalent coverage under substantially different gamma-ratio notation remains a residual literature risk; no decisive source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Theorem 1 has only 0<b<=1/2 as a general necessity; Theorem 2 is iff only under the additional hypothesis b in [b*,1/2].",
+          "identifier_or_url": "DOI:10.1186/s13660-014-0534-y",
+          "material_read": "Complete open-access HTML including Theorems 1--2, lemmas, and proof of Theorem 2.",
+          "method": "Lawful public full text.",
+          "title": "Some conditions for a class of functions to be completely monotonic",
+          "trigger": "Exact primary source for the same three-parameter family."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "No inspected statement gives the submitted global iff classification for f_{a,b,c}.",
+          "identifier_or_url": "DOI:10.1186/s13660-019-1976-z",
+          "material_read": "Open-access HTML sections and indexed review content on necessary/sufficient complete-monotonicity results and gamma ratios.",
+          "method": "Lawful public full text.",
+          "title": "On complete monotonicity for several classes of functions related to ratios of gamma functions",
+          "trigger": "Later broad review that could have recorded a closure of the parameter gap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result closes an explicit missing parameter interval in a natural complete-monotonicity classification and supplies a direct positive-kernel proof at the exact boundary. A complete iff threshold for a standard gamma remainder is a motivated structural fact, not an arbitrary numerical slice.",
+      "risks": [
+        "The proof is short once the second asymptotic coefficient is examined, but that does not make the completed classification mathematically vacuous."
+      ],
+      "sources": [
+        "Guo 2015 partial classification",
+        "Submitted asymptotic obstruction and kernel proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result concerns one specific gamma-remainder family.",
+    "Equivalent older coverage under different gamma-ratio notation remains a residual prior-art risk."
+  ],
+  "schema_version": 1
+}
