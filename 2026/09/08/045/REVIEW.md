@@ -1,6 +1,5 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh independent audit: **passed**.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+Fresh independent recomputation supports the complete tree generalized-spectrum census through order 12, and the literature comparison did not locate prior coverage of the exact first-collision classification.
