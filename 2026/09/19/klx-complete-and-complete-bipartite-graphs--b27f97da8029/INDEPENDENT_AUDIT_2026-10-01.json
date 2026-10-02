@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T13:59:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 26915d971db8ec656a1af272513836dc214b4116",
+        "Verifier blob c0d8a443345a6ea793ee7cff85feef5b82845ae4 and output blob e61e48d9e767865e7d8105afeefd05f5cbdf1b76",
+        "Bourotte--Ducloz--Orponen--Seki KLX primary paper, full PDF definition/results inspected"
+      ],
+      "rationale": "The proof was reconstructed from the frozen RESULT.md and checked against the actual exhaustive verifier for all bicliques of total order at most seven and cliques through K_8. In a complete bipartite graph, every non-tree edge of a DFS tree must join ancestor and descendant; because every cross-part pair is an edge, this forces an alternating spine, with surplus vertices of the larger part appearing as leaves at the terminal opposite-part spine vertex. The return-cut loads reduce to the displayed concave profiles g_i=i(a+b-2i)-1 and h_i=i(a+b+2-2i)-b-1; the leaf envelope is dominated by a spine cut, and rooting on the smaller side adds b-a to the competing profile and cannot improve the optimum. Maximizing the concave quadratic gives the balanced/intermediate floor formula until b=3a-2 and the endpoint formula from b=3a-1 onward, with the balanced odd parity correction. For K_n, every DFS tree is a Hamilton path and the cut load i(n-i)-1 gives floor(n^2/4)-1. The finite verifier is supporting evidence only; the all-parameter proof is structural.",
+      "residual_risks": [
+        "The audit did not classify all minimizing ordered DFS trees; the theorem only claims the exact parameter values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives general bounds/algorithms, not a theorem whose specialization yields these closed forms."
+        ],
+        "reasoning": "No inspected stronger parameter theorem dominates the clique and biclique formulas.",
+        "searches": [
+          "Primary KLX full paper",
+          "Older DFS/Trémaux-tree congestion terminology as surfaced by the record bibliography and web search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "Primary KLX full PDF",
+        "Frozen proof and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary KLX results do not state or algebraically imply the two-branch biclique optimum.",
+          "Unrestricted congestion has different admissible trees and hence cannot imply the KLX optimum."
+        ],
+        "reasoning": "The phase transition at b=3a-2/3a-1 comes from a new DFS cut-profile optimization rather than a prior corollary.",
+        "searches": [
+          "Bourotte et al. theorem set versus the audited dense-family formulas",
+          "Unrestricted spanning-tree congestion formulas versus DFS-restricted KLX"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent dense-family theorem appears in the inspected primary KLX text.",
+          "Classical spanning-tree congestion uses a different optimization domain."
+        ],
+        "reasoning": "The DFS restriction changes the extremal tree geometry; equivalence to unrestricted congestion would be false on the dense families used for comparison.",
+        "searches": [
+          "Resultary: KLX kissing loop crossing complete graph complete bipartite biclique DFS congestion exact formula",
+          "Primary KLX paper terminology: KLX, DTC, DFS tree, complete graph, complete bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact audited entry was the only direct formula hit among 50 returned records."
+        ],
+        "reasoning": "There is no standard KLX table for arbitrary a,b; the formula is not a lookup recomputation.",
+        "searches": [
+          "Resultary semantic finding database with KLX/kissing-loop crossing and dense graph families"
+        ]
+      },
+      "rationale": "The primary KLX paper was inspected in full for its definition and stated structural results; it introduces KLX/DTC and develops small-KLX structure, treewidth bounds and recognition, but no exact clique or complete-bipartite formula was located. Resultary searches under KLX, kissing-loop crossing, DFS-tree congestion, complete graph and biclique returned the audited record as the only exact hit. Classical spanning-tree congestion allows arbitrary spanning trees and therefore does not imply the DFS-restricted phase transition here.",
+      "residual_risks": [
+        "Very recent unindexed follow-up KLX work or older DFS-congestion terminology could contain an equivalent formula, but no such covering source was found and this uncertainty is recorded rather than converted into novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING.",
+          "evidence": "The inspected text develops the general parameter but does not give the audited clique/biclique exact formulas.",
+          "identifier_or_url": "Bourotte--Ducloz--Orponen--Seki, arXiv:2606.24675 / MFCS 2026",
+          "material_read": "Full primary PDF, including formal KLX definition and surrounding theorem statements.",
+          "method": "OA Dagstuhl PDF with screenshot inspection.",
+          "title": "The Kissing-Loop Crossing Number and Depth-First Search Trees",
+          "trigger": "Foundational paper defining the exact parameter."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary KLX paper motivates exact parameter behavior and algorithmic structure",
+        "Verifier confirms boundary cases but is not the value argument"
+      ],
+      "rationale": "Cliques and bicliques are canonical benchmark families for a new DFS-congestion parameter. The exact formulas expose a nontrivial balance-to-imbalance phase transition and quantify the penalty imposed by the DFS constraint relative to ordinary spanning-tree congestion. This is a natural complete classification on fundamental graph families, not an arbitrary small-order census.",
+      "residual_risks": [
+        "The theorem does not extend to complete multipartite graphs or classify every minimizer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No stability theorem for near-cliques/bicliques or complete multipartite extension is claimed.",
+    "Originality remains best-of-knowledge with a residual terminology/indexing risk."
+  ],
+  "schema_version": 1
+}
