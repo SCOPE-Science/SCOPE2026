@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-01",
+  "audited_at_utc": "2026-10-01T20:55:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob de2e...",
+        "artifacts/verify.py blob 3f6cdf...",
+        "Osburn--Sahu arXiv:1201.6195 full text",
+        "OEIS A364111"
+      ],
+      "rationale": "For a summand with s=v_p(k)<r, complementary residues of k/p^s and (N-k)/p^s force at least r-s total carries in the two central binomial coefficients, while the shifted factor contributes A(r-s); hence nonmultiples of p have valuation at least (A+1)r. For p|k, simultaneous p-scaling of the shifted binomial and central factors gives a unit multiplier congruent to 1 modulo p^{3q}, q=min(r,s), and the lower-level summand already has valuation e(r-s), e=min(A+1,3); since e(r-s)+3s>=er, matched terms differ modulo p^{er}. Endpoints obey the same Jacobsthal scaling. Summing proves the p^{er} congruence; extracting extra p-powers from m only strengthens it. Direct exact checks reproduce the stated sharp examples v_5=1,2,3 for A=0,1,>=2, but the proof is fully symbolic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known generalized Domb theorem covers the unshifted factor with cubic modulus for A>=2; no inspected theorem states the shifted all-A trichotomy."
+        ],
+        "reasoning": "Existing supercongruence machinery supplies lemmas used in the proof but does not state a stronger theorem covering the shifted sums.",
+        "searches": [
+          "Osburn--Sahu 2013 Theorem 1.1 and proof",
+          "Osburn--Sahu--Straub 2016 supercongruences for sporadic sequences",
+          "Resultary semantic search for A364111"
+        ]
+      },
+      "checked_sources": [
+        "Osburn--Sahu 2013",
+        "Osburn--Sahu--Straub 2016 abstract/reference trail",
+        "OEIS A364111",
+        "Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Osburn--Sahu's proof relies on the unshifted binomial factor and does not mechanically imply the shifted factor's A-dependent modulus; indeed the A=0 and A=1 layers have strictly smaller sharp exponents."
+        ],
+        "reasoning": "The final trichotomy requires a new carry/scaling analysis and is not a corollary of the unshifted theorem.",
+        "searches": [
+          "Osburn--Sahu Theorem 1.1 and equations (4)--(13)",
+          "OEIS A364111 links/references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS defines exactly the shifted summand and explicitly labels the p^{3r} statement as a conjecture.",
+          "Osburn--Sahu use binom(n,k)^A, not binom(n+k-1,k)^A."
+        ],
+        "reasoning": "The shifted family is not a renaming of the unshifted Domb family; the extra rational factor changes the valuation boundary at A=0,1.",
+        "searches": [
+          "Resultary: shifted generalized Domb supercongruences binomial n+k-1 p^r",
+          "OEIS A364111 full/internal entry",
+          "Osburn--Sahu, A supercongruence for generalized Domb numbers, arXiv:1201.6195"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A364111 states: 'We conjecture that the present sequence satisfies the same supercongruences' and extends the conjecture to general A>=2,B,C positive."
+        ],
+        "reasoning": "The authoritative sequence database presents the exact submitted cubic-layer statement as open rather than known.",
+        "searches": [
+          "OEIS A364111",
+          "OEIS internal entry last-current snapshot"
+        ]
+      },
+      "rationale": "Osburn--Sahu prove the unshifted generalized Domb supercongruence with modulus p^{3r} for A>=2. The exact OEIS A364111 entry still states the shifted A=2,B=C=1 case, and more generally A>=2, as conjectures. The submitted theorem proves that conjecture and additionally determines the lower sharp layers A=0 and A=1.",
+      "residual_risks": [
+        "Coster's 1988 thesis was not separately inspected; however the modern Osburn--Sahu paper explicitly presents the corresponding unshifted theorem and the exact OEIS shifted entry still labels the claim conjectural."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The theorem is for unshifted D(n,A,B,C)=sum binom(n,k)^A... and therefore does not state the shifted A364111 family.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.6195",
+          "material_read": "Full arXiv HTML including Theorem 1.1 and the proof's valuation and p-scaling congruences.",
+          "method": "lawful arXiv full text",
+          "title": "A supercongruence for generalized Domb numbers",
+          "trigger": "Closest primary theorem and source of the Jacobsthal/Coster machinery."
+        },
+        {
+          "assessment": "OPEN_CONJECTURE",
+          "evidence": "The entry explicitly conjectures the p^{3r} congruence for A364111 and the general shifted A>=2 family.",
+          "identifier_or_url": "https://oeis.org/A364111",
+          "material_read": "Full current sequence entry, comments, formulas, links and conjecture text.",
+          "method": "public database",
+          "title": "OEIS A364111",
+          "trigger": "Exact database entry named by the claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A364111",
+        "Osburn--Sahu 2013"
+      ],
+      "rationale": "The cubic layer resolves a named OEIS supercongruence conjecture, while the A=0,1 layers identify the sharp normalization boundary of the natural shifted family. This is a motivated exact arithmetic theorem, not a finite-table recomputation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem assumes odd primes p>=5 and positive B,C; it does not address p=2 or p=3."
+  ]
+}
