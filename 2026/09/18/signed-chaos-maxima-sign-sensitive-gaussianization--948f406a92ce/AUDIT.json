@@ -1,27 +1,136 @@
 {
-  "axes": {
-    "correctness": {
-      "rationale": "Exact mgfs give the positive cubic and balanced quartic Cramer corrections, the positive case matches the published growing-shape Gamma maximum theorem, and the balanced saddlepoint expansion gives the stated tail ratio and Gumbel shift. Both spectra have r4=m and fourth cumulant 12/m; the critical Kolmogorov profile follows exactly from shifted Gumbel laws.",
-      "verdict": "PASS"
+  "disclaimer": "Independent mathematical audit; not peer review, formal proof-assistant verification, or a guarantee of first discovery.",
+  "independent_audit": {
+    "audited_at_utc": "2026-10-01T10:48:30Z",
+    "axes": {
+      "correctness": {
+        "checked_sources": [
+          "Bose–Dasgupta–Maulik, Maxima of Dirichlet and triangular arrays of gamma variables, Theorem 2.1",
+          "Cai–Hu arXiv:2609.20529",
+          "independent symbolic expansion of both cgfs and the balanced rate function"
+        ],
+        "rationale": "The exact cumulant generating functions give \\(K_+(t)=t^2/2+\\sqrt2 t^3/(3\\sqrt m)+t^4/(2m)+O(t^5/m^{3/2})\\) and \\(K_0(t)=t^2/2+t^4/(2m)+2t^6/(3m^2)+O(t^8/m^3)\\). At \\(x\\sim\\sqrt{2\\log p}\\), the positive cubic term yields the shift \\(4(\\log p)^{3/2}/(3\\sqrt m)\\); the balanced saddlepoint rate \\(I_m(x)=x^2/2-x^4/(2m)+4x^6/(3m^2)+\\cdots\\) yields shift \\(2(\\log p)^2/m\\). The remainder ratios are \\(o(1)\\) under \\(m/\\log p\\to\\infty\\). The gamma triangular-array theorem covers the positive row normalization, and the balanced tilting argument gives the stated tail ratio and shifted-Gumbel limits.",
+        "residual_risks": [
+          "Anderson–Coles–Hüsler (1997) was available only through bibliographic/abstract material, so an older equivalent sign-sensitive paired formulation remains a low originality risk."
+        ],
+        "status": "PASS"
+      },
+      "originality": {
+        "broader_coverage": {
+          "evidence": [
+            "The general effective-rank bound is sufficient but not sharp for these flat spectra; gamma theory covers only the positive distribution."
+          ],
+          "reasoning": "Neither source implies the balanced-versus-positive separation at fixed fourth-order effective rank.",
+          "searches": [
+            "Cai–Hu effective-rank theorem",
+            "classical triangular gamma maxima"
+          ]
+        },
+        "checked_sources": [
+          "Cai–Hu 2609.20529",
+          "Bose–Dasgupta–Maulik 0803.3518",
+          "Anderson–Coles–Hüsler 1997 metadata",
+          "Resultary related SCOPE records"
+        ],
+        "claim_vs_prior_implication": {
+          "evidence": [
+            "Prior theory supplies asymptotic tools, but cancellation of the cubic term and the exact paired comparison require the audited specialization."
+          ],
+          "reasoning": "The final theorem is not a direct corollary stated by the sources.",
+          "searches": [
+            "Cai–Hu",
+            "Bose–Dasgupta–Maulik",
+            "Anderson–Coles–Hüsler metadata"
+          ]
+        },
+        "equivalent_formulations": {
+          "evidence": [
+            "No earlier paired same-effective-rank threshold theorem was found."
+          ],
+          "reasoning": "Compared the actual shift laws and threshold implications.",
+          "searches": [
+            "Resultary signed quadratic-chaos maxima search",
+            "Cai–Hu 2609.20529",
+            "Bose–Dasgupta–Maulik 0803.3518"
+          ]
+        },
+        "exact_database_or_table": {
+          "evidence": [
+            "Later 2026-09-19 records state essentially the same phase split."
+          ],
+          "reasoning": "Those records postdate the audited publication date and are not prior coverage.",
+          "searches": [
+            "Resultary published findings"
+          ]
+        },
+        "rationale": "Cai and Hu provide the signed-chaos framework and an effective-rank phase transition, while Bose–Dasgupta–Maulik and Anderson–Coles–Hüsler provide triangular-array extreme-value machinery. None of the inspected statements gives the paired same-\\(r_4\\) positive-versus-balanced thresholds \\((\\log p)^3\\) and \\((\\log p)^2\\) with the explicit critical Kolmogorov profile. Resultary found closely matching SCOPE records only on 2026-09-19, after this record.",
+        "residual_risks": [
+          "A hidden equivalent formulation in older Cramér-series extreme-value literature cannot be excluded because the 1997 full text was not inspected."
+        ],
+        "source_inspections": [
+          {
+            "assessment": "PRIOR_FRAMEWORK_NOT_COVERING",
+            "identifier_or_url": "https://arxiv.org/abs/2609.20529",
+            "material_read": "primary abstract and theorem-level description available through arXiv indexing",
+            "title": "Approximation Theorems for High-Dimensional Canonical U-Statistics: Gaussian Chaos and Phase Transition"
+          },
+          {
+            "assessment": "PRIOR_POSITIVE_CASE_TOOL",
+            "identifier_or_url": "https://arxiv.org/abs/0803.3518",
+            "material_read": "primary full PDF text around Theorem 2.1 and its centering equation",
+            "title": "Maxima of Dirichlet and triangular arrays of gamma variables"
+          },
+          {
+            "assessment": "RESIDUAL_RISK",
+            "identifier_or_url": "https://doi.org/10.1214/aoap/1043862420",
+            "material_read": "bibliographic record and abstract; full text not obtained",
+            "title": "Maxima of Poisson-like variables and related triangular arrays"
+          }
+        ],
+        "status": "PASS"
+      },
+      "value": {
+        "checked_sources": [
+          "Cai–Hu 2609.20529"
+        ],
+        "rationale": "The theorem identifies spectral sign balance as a sharp phase coordinate invisible to the fourth-order effective rank: the Gaussianization requirement changes by a full logarithmic power and the critical error is quantified by an explicit Gumbel-translation profile. This is a natural boundary question in the motivating high-dimensional approximation problem.",
+        "residual_risks": [
+          "The statement is restricted to independent flat spectra and does not classify partial sign imbalance."
+        ],
+        "status": "PASS"
+      }
     },
-    "originality": {
-      "rationale": "Gamma triangular-array maxima and general Cramer-series corrections are prior art and are not claimed as new. Cai and Hu give a uniform effective-rank Gaussianization bound but no sign-sensitive sharp threshold. Targeted searches found no inspected source stating the paired same-r4 thresholds log^3 p versus log^2 p or the explicit critical Kolmogorov profiles.",
-      "verdict": "PASS"
-    },
-    "value": {
-      "rationale": "The result identifies a missing sharp phase coordinate in high-dimensional signed Gaussian-chaos maxima: spectral sign cancellation removes the cubic correction and changes the effective-rank requirement by an entire logarithmic power, while the critical failure of Gaussian calibration is quantified explicitly.",
-      "verdict": "PASS"
-    }
+    "disposition": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-01.md",
+      "INDEPENDENT_AUDIT_2026-10-01.json"
+    ],
+    "independent": true,
+    "review_type": "independent_audit"
   },
-  "disclaimer": "Same-model review: passed. Independent audit: not yet performed.",
-  "evidence_file": "REVIEW.md",
-  "independent": false,
-  "independent_audit_status": "not_performed",
-  "independent_validation": false,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "policy": "to-the-best-of-our-knowledge",
-  "previously_published_pending_reaudit": true,
-  "review_type": "same_model_review",
-  "reviewed_at": "2026-09-18",
-  "same_model_review_status": "passed",
-  "verification_state": "awaiting_fresh_independent_audit"
+  "previously_published_pending_reaudit": false,
+  "record_id": "SCOPE-20260918-948f406a92ce",
+  "same_model_review": {
+    "axes": {
+      "correctness": {
+        "rationale": "Exact mgfs give the positive cubic and balanced quartic Cramer corrections, the positive case matches the published growing-shape Gamma maximum theorem, and the balanced saddlepoint expansion gives the stated tail ratio and Gumbel shift. Both spectra have r4=m and fourth cumulant 12/m; the critical Kolmogorov profile follows exactly from shifted Gumbel laws.",
+        "verdict": "PASS"
+      },
+      "originality": {
+        "rationale": "Gamma triangular-array maxima and general Cramer-series corrections are prior art and are not claimed as new. Cai and Hu give a uniform effective-rank Gaussianization bound but no sign-sensitive sharp threshold. Targeted searches found no inspected source stating the paired same-\\(r_4\\) thresholds \\((\\log p)^3\\) versus \\((\\log p)^2\\) or the explicit critical Kolmogorov profiles.",
+        "verdict": "PASS"
+      },
+      "value": {
+        "rationale": "The result identifies a missing sharp phase coordinate in high-dimensional signed Gaussian-chaos maxima: spectral sign cancellation removes the cubic correction and changes the effective-rank requirement by an entire logarithmic power, while the critical failure of Gaussian calibration is quantified explicitly.",
+        "verdict": "PASS"
+      }
+    },
+    "evidence_preserved": true,
+    "review_type": "same_model_review",
+    "status": "passed"
+  },
+  "verification_state": "independently_reviewed"
 }
