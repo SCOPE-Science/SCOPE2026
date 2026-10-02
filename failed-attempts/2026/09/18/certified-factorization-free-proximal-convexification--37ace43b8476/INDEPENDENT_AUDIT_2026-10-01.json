@@ -1,0 +1,119 @@
+{
+  "acceptance_rule": "Correctness, originality, and value must all pass.",
+  "audit_date": "2026-10-01",
+  "audited_at_utc": "2026-10-01T07:43:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at tree 26e495e8f526d18680e7a4a86549204e75dfe0aa",
+        "artifacts/verify_convexification.py blob 45df15e4e83c687d88eeb7490df757640f073e79",
+        "Chen–Lu, arXiv:2609.19557",
+        "Urschel, arXiv:2003.09362"
+      ],
+      "rationale": "Rayleigh–Ritz gives the minimum Ritz value at least the true minimum eigenvalue, so the shifted minimum eigenvalue is exactly the margin minus the one-sided Ritz error. The diagonal family in the package has a benign m-dimensional invariant Krylov limit and continuity gives an open set of failing starts for every fixed m; an independent replay of the displayed m=8 example gave a shifted minimum eigenvalue about -0.989998629. The comparison-matrix quadratic-form inequality, weighted Gershgorin lower bound, monotone Collatz step, and sign-switchable exactness follow from the displayed matrix identities.",
+      "residual_risks": [
+        "The record does not establish that any reported PDNQP experiment actually used an insufficient shift."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Urschel 2020 establishes nontrivial worst-case finite-iteration Lanczos error; a separate published 2026-09-18 PDNQP result states the exact shifted-curvature defect and a sharper unconditional safety boundary."
+        ],
+        "reasoning": "The broader results dominate the assertion that a fixed finite Ritz estimate plus a small fixed margin cannot certify all symmetric matrices.",
+        "searches": [
+          "uniform finite-iteration Lanczos error lower bounds",
+          "PDNQP Lanczos convexification certificate"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.19557",
+        "https://arxiv.org/abs/2003.09362",
+        "classical comparison-matrix and Collatz–Wielandt theory",
+        "published result dated 2026-09-18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the Ritz ordering into the source shift immediately yields margin minus unknown error; substituting the signed comparison matrix into standard scaled-Gershgorin/Collatz machinery yields the proposed certificate."
+        ],
+        "reasoning": "The prior implications mechanically produce the headline obstruction and repair framework.",
+        "searches": [
+          "PDNQP shift formula plus Rayleigh-Ritz ordering",
+          "comparison-matrix lower bound plus Collatz-Wielandt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Rayleigh–Ritz orders the extreme Ritz value above the true minimum; classical scaled Gershgorin and Collatz–Wielandt characterize the best positive diagonal scaling for the nonnegative shifted comparison matrix."
+        ],
+        "reasoning": "These are equivalent formulations of the two load-bearing mathematical steps, not merely related terminology.",
+        "searches": [
+          "minimum Ritz value versus minimum eigenvalue",
+          "weighted Gershgorin comparison matrix Collatz-Wielandt"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table lookup is needed; the coverage is theorem-level."
+        ],
+        "reasoning": "Database/table comparison is inapplicable because the result is a symbolic consequence of general matrix inequalities.",
+        "searches": [
+          "matrix-analysis tables",
+          "optimization parameter databases"
+        ]
+      },
+      "rationale": "The mathematical content is mechanically assembled from standard extreme-Ritz ordering and classical comparison-matrix, diagonal-Gershgorin, Perron–Frobenius and Collatz–Wielandt facts. In addition, a separate published 2026-09-18 result gives a sharper PDNQP-specific finite-Lanczos certification boundary. The exact package wording need not appear in older literature for the audited claim to be covered by these stronger/general implications.",
+      "residual_risks": [
+        "The exact chronological ordering of the two same-day published records was not resolved; the classical theorem-level implication is sufficient for the originality failure independently of that ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the motivating shift, not independent novelty for the matrix facts.",
+          "evidence": "The method solves strongly convex proximal subproblems and is factorization-free.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19557",
+          "material_read": "Primary abstract plus assigned package's source-specific formula.",
+          "method": "Direct source lookup and formula comparison.",
+          "title": "PDNQP: A GPU-based Factorization-free Method for Large-scale Nonconvex Quadratic Programming",
+          "trigger": "Exact source algorithm and strong-convexity requirement."
+        },
+        {
+          "assessment": "Provides broad worst-case finite-iteration Lanczos-error coverage.",
+          "evidence": "The paper proves explicit upper and lower uniform error estimates for Lanczos extremal eigenvalue approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.09362",
+          "material_read": "Primary abstract.",
+          "method": "Direct literature search.",
+          "title": "Uniform Error Estimates for the Lanczos Method",
+          "trigger": "General finite-iteration extremal Ritz error."
+        },
+        {
+          "assessment": "States a sharper PDNQP-specific boundary, covering the obstruction side.",
+          "evidence": "Summary gives exact shifted curvature and failure for every fixed finite Lanczos budget.",
+          "identifier_or_url": "published result dated 2026-09-18",
+          "material_read": "Published result summary.",
+          "method": "Semantic published-results search.",
+          "title": "Sharp certification boundary for Lanczos-based proximal convexification",
+          "trigger": "Same source algorithm and same finite-Ritz certification question."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "PDNQP strong-convexity motivation",
+        "finite-Lanczos error literature"
+      ],
+      "rationale": "The source requires strong convexity, so distinguishing an estimate from a certificate is practically and mathematically motivated, and a sparse-matvec lower certificate is useful. The record fails acceptance because originality fails, not because the diagnostic problem is unimportant.",
+      "residual_risks": [
+        "The repair can be conservative enough to be unattractive in matrices with favorable sign cancellation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the PDNQP convexifying shift, a finite-step minimum Ritz value plus a fixed additive margin is not a deterministic positive-definiteness certificate; comparison-matrix weighted Gershgorin bounds give sparse-matvec lower certificates that monotonically approach the best positive diagonal-scaling bound and are exact for sign-switchable Z-matrices.",
+  "limitations": [
+    "The failure statement is conditional on the estimator being an ordinary Ritz value without a separate certified lower bound.",
+    "The comparison-matrix certificate may be conservative and floating-point certification requires directed rounding or an explicit safety allowance."
+  ]
+}

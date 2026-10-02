@@ -1,0 +1,15 @@
+# FAILED ATTEMPT — NOT A VALIDATED FINDING
+
+## Scientific disposition
+
+The mathematical package was reassessed on correctness, originality, and value.
+
+- Correctness: PASS. Rayleigh–Ritz gives the minimum Ritz value at least the true minimum eigenvalue, so the shifted minimum eigenvalue is exactly the margin minus the one-sided Ritz error. The diagonal family in the package has a benign m-dimensional invariant Krylov limit and continuity gives an open set of failing starts for every fixed m; an independent replay of the displayed m=8 example gave a shifted minimum eigenvalue about -0.989998629. The comparison-matrix quadratic-form inequality, weighted Gershgorin lower bound, monotone Collatz step, and sign-switchable exactness follow from the displayed matrix identities.
+- Originality: FAIL. The mathematical content is mechanically assembled from standard extreme-Ritz ordering and classical comparison-matrix, diagonal-Gershgorin, Perron–Frobenius and Collatz–Wielandt facts. In addition, a separate published 2026-09-18 result gives a sharper PDNQP-specific finite-Lanczos certification boundary. The exact package wording need not appear in older literature for the audited claim to be covered by these stronger/general implications.
+- Value: PASS. The source requires strong convexity, so distinguishing an estimate from a certificate is practically and mathematically motivated, and a sparse-matvec lower certificate is useful. The record fails acceptance because originality fails, not because the diagnostic problem is unimportant.
+
+Acceptance requires all three axes to pass. This package is retained as failed evidence because the final claim does not pass originality.
+
+## Preserved evidence
+
+The original result, slogan, metadata, review history, and reproducibility artifacts remain part of the archived package. The dated independent-audit files record the comparison sources and residual risks.
