@@ -1,0 +1,101 @@
+{
+  "claim": "For \\(\\Omega_{5/2}=(-1,1)\\cup(3/2,7/2)\\cup(-7/2,-3/2)\\), the Turán constant is exactly \\[\\mathcal T_{\\mathbb R}(\\Omega_{5/2})=\\frac{(2a+1)^2(4a^2-6a+1)^2}{128a^6-20a^2+5}=2.1353071788763974322\\ldots,\\] where \\(a\\) is the unique zero in \\((0.53305,0.53306)\\) of \\(256a^7+256a^6-96a^5-80a^4+40a^3+30a^2-15a-5\\). Equivalently, \\(\\mathcal T_{\\mathbb Z}(\\{0,\\pm1,\\pm4,\\pm5,\\pm6\\})\\) is twice this value. An explicit nonnegative square-cubic trigonometric polynomial attains the lower bound, while a positive three-node dual quadrature supported at its three zeros gives the matching upper bound.",
+  "correctness": {
+    "rationale": "The claim is proved by matching primal and dual certificates for the exact finite problem \\(A=\\{0,\\pm1,\\pm4,\\pm5,\\pm6\\}\\), followed by the source's rational-endpoint reduction. The primal is the normalized square of a cubic whose forbidden Chebyshev coefficients vanish identically. The dual uses the three simple roots of that cubic and positive Lagrange-residue weights; exact polynomial division forces the moments at frequencies \\(1,4,5,6\\) to equal \\(-1\\). The defining degree-seven equation for the parameter makes the last moment exact and also makes the dual mass equal the primal objective minus one. Exact rational interval bounds certify the parameter root, all three cubic roots, nonvanishing derivatives, and positivity of all dual weights. The checker in `verify_turan_5_2.py` replays these algebraic and interval checks with standard-library rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The recent primary paper cites the classical Fejér–Riesz and group-Turán literature for general structure, but its Section 4.3 treats this frequency set only by a feasible lower-bound polynomial.",
+        "No targeted search surfaced a theorem whose statement gives the exact constant for the set \\(\\{0,\\pm1,\\pm4,\\pm5,\\pm6\\}\\) or a stronger family theorem implying it."
+      ],
+      "reasoning": "General positive-trigonometric-polynomial duality provides a framework, not the set-specific algebraic optimum. The exact positive three-node dual measure is the additional ingredient.",
+      "searches": [
+        "\"Carathéodory-Fejér\" \"{1,4,5,6}\"",
+        "\"Caratheodory Fejer\" \"1 4 5 6\" trigonometric",
+        "\"van der Corput\" \"{1,4,5,6}\" positive definite",
+        "arXiv:2608.15643v1 references to Fejér, Riesz, Kolountzakis–Révész"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.15643v1 full HTML",
+      "published-finding corpus semantic searches for the exact three-interval parameter, frequency set, and positive-trigonometric-polynomial formulation",
+      "Targeted web searches for the exact support \\(\\{0,\\pm1,\\pm4,\\pm5,\\pm6\\}\\), Carathéodory–Fejér aliases, the defining degree-seven polynomial, and the decimal/algebraic constants",
+      "Bibliographic references in arXiv:2608.15643v1 to Fejér, Riesz, Kolountzakis–Révész, and related general Turán theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.2 proves only \\(\\mathcal T_{\\mathbb R}(\\Omega_{5/2})\\ge(559+80\\sqrt{42})/506>2\\).",
+        "The source explicitly says: it gives an explicit certification for \\(\\mathcal T_{\\mathbb Z}(A)>4\\); no optimality of this finite problem is claimed.",
+        "The source discussion leaves evaluation of finite arithmetic models as a direction for further investigation."
+      ],
+      "reasoning": "A strict lower bound cannot imply the equality claimed here. The new dual certificate supplies an upper bound at exactly the new primal value, so the logical gap from the source is substantive and precise.",
+      "searches": [
+        "arXiv:2608.15643v1 Proposition 4.2",
+        "arXiv:2608.15643v1 Section 4.1 finite SDP",
+        "arXiv:2608.15643v1 Section 6 discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.15643v1, Theorem 1.2: for rational \\(\\lambda=p/q\\), the continuous Turán constant equals \\(q^{-1}\\mathcal T_{\\mathbb Z}(A_{p,q})\\).",
+        "arXiv:2608.15643v1, Section 4.1: the discrete problem is equivalent to maximizing a nonnegative trigonometric polynomial with prescribed Fourier support.",
+        "arXiv:2608.15643v1, Section 4.3: for \\(\\lambda=5/2\\), the support is exactly \\(\\{0,\\pm1,\\pm4,\\pm5,\\pm6\\}\\)."
+      ],
+      "reasoning": "These reductions show that the claim is not merely a differently normalized continuous statement: it is exactly the optimum of the same finite trigonometric-polynomial problem singled out by the source. No searched alias produced an existing equality value.",
+      "searches": [
+        "Turán three equal intervals lambda 5/2 exact Turan constant nonnegative trigonometric polynomial",
+        "Omega_5/2 discrete Turan constant frequencies 1 4 5 6 exact",
+        "positive trigonometric polynomial support {0,1,4,5,6} maximal value at zero",
+        "Turán constant three intervals rational parameter algebraic exact value",
+        "arXiv:2608.15643v1 Sections 1, 4.1, 4.3 and 6",
+        "\"0, ±1, ±4, ±5, ±6\" Turan",
+        "\"1,4,5,6\" nonnegative trigonometric polynomial maximum",
+        "\"T_Z\" \"{0, ±1, ±4, ±5, ±6}\"",
+        "\"559+80 sqrt(42)\" Turan"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-table or database hit matching the finite support, the algebraic parameter, or the resulting decimal constant was located.",
+        "The closest exact numerical datum in the inspected primary source is its lower bound \\((559+80\\sqrt{42})/506\\), not the optimum."
+      ],
+      "reasoning": "The searches were aimed at the most likely table/index representations of this four-frequency Carathéodory–Fejér problem. Absence of a hit is not itself a novelty proof, so the older-table risk is retained explicitly.",
+      "searches": [
+        "\"0, ±1, ±4, ±5, ±6\" Turan",
+        "\"1,4,5,6\" nonnegative trigonometric polynomial maximum",
+        "\"0.533051836754696\" trigonometric",
+        "\"256 a^7\" \"Turán\"",
+        "\"559+80 sqrt(42)\" Turan"
+      ]
+    },
+    "rationale": "The motivating primary paper identifies exactly the same \\(\\lambda=5/2\\) finite problem and, in Proposition 4.2, states that it gives only an explicit certificate for a strict lower bound and that no optimality is claimed. The present statement adds the missing matching upper certificate and exact algebraic value. Targeted published-finding corpus and web searches for the exact frequency set, the numerical constant, the algebraic parameter polynomial, and Carathéodory–Fejér aliases found no earlier statement of this set-specific optimum. The primary full text was inspected through its rational reduction, SDP formulation, rational example, discussion, and references.",
+    "residual_risks": [
+      "An older finite Carathéodory–Fejér or positive-trigonometric-polynomial table may encode the identical support and optimum under a different normalization not indexed by the targeted searches.",
+      "No claim of uniqueness of the extremizing polynomial is made; the result establishes the exact optimal value and one primal-dual optimal pair."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact equality. It proves the rational reduction and a lower bound at \\(\\lambda=5/2\\), while expressly disclaiming optimality of the finite problem.",
+        "evidence": "arXiv:2608.15643v1, especially Theorem 1.2, equations (4.2)–(4.4), and the sentence immediately before its certificate stating that no optimality is claimed.",
+        "identifier_or_url": "arXiv:2608.15643v1",
+        "material_read": "Full HTML: abstract and classification; Theorem 1.2 and its proof; Section 4.1 finite SDP formulation; all of Section 4.3 including Proposition 4.2 and its square-cubic certificate; Section 6 discussion; reference list.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML.",
+        "title": "Turán problem on the union of three intervals of equal length",
+        "trigger": "It is the recent primary source with primary MSC 42A82 and it contains the exact \\(\\lambda=5/2\\) finite problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "670b4445-9ae7-424c-8e36-4b982cb0eeca",
+  "value": {
+    "rationale": "The source itself singles out \\(\\lambda=5/2\\) as the first rational example where the separated three-interval Turán constant exceeds the integer value \\(2\\), but leaves the finite optimum open. Closing that model exactly is a natural endpoint of the paper's discrete-reduction program, replaces a nonoptimal lower certificate by the true constant, and exhibits a reusable primal-dual mechanism: a feasible square-cubic polynomial paired with a positive three-node quadrature. The improvement is not just a smaller numerical tweak: the upper certificate proves global optimality over all feasible nonnegative trigonometric polynomials with that support.",
+    "status": "PASS"
+  }
+}
