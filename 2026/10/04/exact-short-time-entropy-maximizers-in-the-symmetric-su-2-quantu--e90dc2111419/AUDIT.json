@@ -1,0 +1,116 @@
+{
+  "claim": "For the one-dimensional discrete-time quantum walk with initial state \\(|\\Psi_{\\mathrm{in}}\\rangle=(|0\\rangle+i|1\\rangle)|0\\rangle/\\sqrt2\\) and coin \\(U_{0,\\theta,0}=\\begin{pmatrix}\\cos\\theta&\\sin\\theta\\\\\\sin\\theta&-\\cos\\theta\\end{pmatrix}\\), \\(0\\le\\theta\\le\\pi/2\\), let \\(H_n(\\theta)\\) be the Shannon entropy of the position distribution after \\(n\\) steps. At two steps, \\[p_2(-2)=p_2(2)=\\frac{\\cos^2\\theta}{2},\\qquad p_2(0)=\\sin^2\\theta,\\] so the unique maximizer is \\(\\theta_2^*=\\arcsin(1/\\sqrt3)\\), where the three accessible positions are uniform and \\(H_2=\\log_2 3\\). At three steps, \\[p_3(-3)=p_3(3)=\\frac{\\cos^4\\theta}{2},\\qquad p_3(-1)=p_3(1)=\\frac{1-\\cos^4\\theta}{2},\\] so the unique maximizer is \\(\\theta_3^*=\\arccos(2^{-1/4})\\), where the four accessible positions are uniform and \\(H_3=2\\). Both angles are strictly below the Hadamard value \\(\\pi/4\\). In particular \\(H_2(\\pi/4)=3/2<\\log_2 3\\) and \\(H_3(\\pi/4)=3-(3/4)\\log_2 3<2\\). At one step the position distribution is \\((1/2,1/2)\\) for every \\(\\theta\\), so \\(n=2\\) is the earliest nontrivial strict counterexample to the published statement, later repeated as holding for any \\(n\\), that the Hadamard coin maximizes the position-measurement entropy. No claim is made about the large-time or asymptotic entropy optimum.",
+  "correctness": {
+    "rationale": "Direct state propagation gives exact two- and three-step position laws. The global entropy bound for a finite support is attained exactly at the uniform distribution, yielding unique angles \\(\\arcsin(1/\\sqrt3)\\) and \\(\\arccos(2^{-1/4})\\). The Hadamard distributions and entropies are then explicit, and the one-step law is angle-independent.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 erratum corrects the unitary parametrization and one equation while saying figures and conclusions are unaffected; it does not address the entropy statement.",
+        "Ide--Konno--Machida explicitly report the numerical suggestion of monotonic increase to pi/4 and decrease after pi/4 for any n.",
+        "Their main entanglement analysis is a different long-time quantity and does not imply the finite-time position-entropy claim."
+      ],
+      "reasoning": "The accepted theorem targets a finite-time position-measurement statement. Large-time entropy plots and asymptotic entanglement results do not dominate the exact n=2 and n=3 counterexamples.",
+      "searches": [
+        "Optimizing the discrete time quantum walk entropy correction erratum Hadamard",
+        "Entanglement for discrete-time quantum walks on the line entropy pi/4 any n",
+        "quantum walk entropy coin parameter finite time Hadamard maximum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0711.1882",
+      "DOI:10.1103/PhysRevA.77.032326",
+      "DOI:10.1103/PhysRevA.82.019902",
+      "arXiv:1012.4164"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper states that the Hadamard coin has maximum uncertainty and therefore maximum measurement entropy.",
+        "The erratum leaves figures and conclusions unaffected and does not modify the entropy discussion.",
+        "The later paper states that numerical results suggest the entropy is increasing up to pi/4 and decreasing after pi/4 for any n."
+      ],
+      "reasoning": "The exact n=2 and n=3 distributions directly contradict the universal finite-time implication while leaving the cited large-time/asymptotic contexts untouched.",
+      "searches": [
+        "arXiv:0711.1882 measurement entropy Hadamard maximum uncertainty",
+        "DOI:10.1103/PhysRevA.82.019902 figures conclusions unaffected",
+        "arXiv:1012.4164 entropy maximum theta pi/4 any n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched record stated the exact two-step or three-step optimizer angles for this symmetric walk.",
+        "Searches surfaced the original paper, its erratum, and general quantum-walk entropy literature, but no correction of the short-time Hadamard-maximality claim.",
+        "The exact optimizer formulas are absent from the inspected source pages and later finite-time statement."
+      ],
+      "reasoning": "An equivalent result would need to identify a non-Hadamard finite-time maximizer or algebraically equivalent uniformizing parameter for the same initial state and coin family. General statements about asymptotic spreading or entropy do not cover this claim.",
+      "searches": [
+        "quantum walk measurement entropy two steps theta arcsin 1/sqrt3 uniform",
+        "Hadamard coin maximum measurement entropy counterexample two steps",
+        "SU(2) quantum walk entropy theta pi/4 maximum finite time counterexample",
+        "three step quantum walk uniform distribution theta 2^(-1/4)",
+        "sin^2 theta = 1/3 quantum walk entropy",
+        "cos^4 theta = 1/2 quantum walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of finite-time entropy-maximizing coin angles containing these constants was located.",
+        "The original entropy figure samples 50, 100, 250, and 500 steps rather than the first nontrivial steps."
+      ],
+      "reasoning": "The result is an exact analytic classification at the earliest finite times, not a recomputation of a located table.",
+      "searches": [
+        "arcsin(1/sqrt(3)) quantum walk entropy",
+        "arccos(2^(-1/4)) quantum walk",
+        "uniform distribution quantum walk two steps coin",
+        "Hadamard maximum entropy two steps quantum walk"
+      ]
+    },
+    "rationale": "The primary source and its later restatement assert or numerically suggest Hadamard maximality, while the inspected erratum does not address entropy. Targeted searches did not locate the exact short-time optimizers or the earliest-counterexample statement.",
+    "residual_risks": [
+      "An equivalent elementary short-time observation may exist in unindexed notes or code.",
+      "Different coin-angle conventions can hide the same optimizer under another formula.",
+      "No claim is made beyond n=1,2,3 or about asymptotic entropy maximization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States Hadamard maximal measurement entropy and supports it with large-step numerics; does not analyze n=2 or n=3 exactly.",
+        "evidence": "The entropy figure uses 50, 100, 250, and 500 steps; the text links Hadamard maximum uncertainty to maximum measurement entropy.",
+        "identifier_or_url": "arXiv:0711.1882; DOI:10.1103/PhysRevA.77.032326",
+        "material_read": "Full arXiv PDF portions defining the initial state and coin, plus the measurement-entropy section and the entropy figure.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "Optimizing the discrete time quantum walk using a SU(2) coin",
+        "trigger": "Direct source for the symmetric initial state, coin family, and measurement-entropy claim."
+      },
+      {
+        "assessment": "Corrects the general unitary form and one equation, states figures and conclusions are unaffected, and does not address short-time entropy.",
+        "evidence": "The erratum explicitly says its corrections do not affect the figures and conclusions.",
+        "identifier_or_url": "DOI:10.1103/PhysRevA.82.019902",
+        "material_read": "Complete erratum.",
+        "method": "Full-text PDF inspection.",
+        "title": "Erratum: Optimizing the discrete time quantum walk using a SU(2) coin",
+        "trigger": "Possible published correction of the entropy claim."
+      },
+      {
+        "assessment": "Explicitly says numerical results suggest entropy rises to pi/4 and falls after pi/4 for any n; it does not give the short-time counterexample.",
+        "evidence": "The classification record lists MSC 81P40 first; the paper distinguishes the numerical position-entropy observation from its entanglement analysis.",
+        "identifier_or_url": "arXiv:1012.4164",
+        "material_read": "Full PDF portions discussing measurement entropy versus coin angle and the paper metadata/classification record.",
+        "method": "Full-text PDF and bibliographic inspection.",
+        "title": "Entanglement for discrete-time quantum walks on the line",
+        "trigger": "Later source explicitly restating the finite-time entropy-maximality suggestion and providing mathematical-physics classification context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e90dc211-1419-4a56-a355-b8686ac0e688",
+  "value": {
+    "rationale": "The result gives a natural earliest-time boundary test of a published “for any \\(n\\)” entropy statement, achieves the absolute entropy upper bounds at the corrected angles, and provides exact finite-time calibration values for quantum-walk spreading rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
