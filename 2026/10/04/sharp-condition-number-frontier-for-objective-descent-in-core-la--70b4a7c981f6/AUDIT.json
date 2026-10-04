@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact objective increment reduces the trust limit to \\(2A^{3/2}/B\\). Convexity of \\(y^{3/2}\\) makes endpoint spectra extremal, and the remaining one-variable maximum yields the stated formula and equality witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 proportional-update analysis treats a one-dimensional quadratic and general convex convergence.",
+        "The 2021 layer-wise theory gives sufficient stochastic learning-rate restrictions depending on smoothness and gradient variance."
+      ],
+      "reasoning": "These broader convergence results do not imply the exact necessary-and-sufficient one-step SPD frontier.",
+      "searches": [
+        "Convergence Analysis of Gradient Descent Algorithms with Proportional Updates LARS quadratic",
+        "Complete Layer-wise Adaptive Rate Scaling convergence theorem LARS",
+        "LARS theoretical analysis trust ratio convergence Lipschitz"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1708.03888v1",
+      "arXiv:1801.03137v1",
+      "AAAI2021:10.1609/aaai.v35i9.16962"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 source defines the local norm-ratio trust rule and motivates it by instability of overly large relative updates.",
+        "The 2018 source directly studies the same zero-momentum proportional rule.",
+        "The 2021 source supplies sufficient layer-wise bounds rather than an exact SPD extremum."
+      ],
+      "reasoning": "The source formulas are premises for the new proof, but their stated conclusions do not determine the sharp condition-number law.",
+      "searches": [
+        "LARS local learning rate trust coefficient norm weights norm gradients equation",
+        "LARS proportional updates one dimensional quadratic convergence",
+        "LARS layer-wise Lipschitz learning rate convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1708.03888v1/v3, full-text LARS equations",
+        "arXiv:1801.03137v1, proportional-update equation and one-dimensional quadratic analysis",
+        "AAAI2021:10.1609/aaai.v35i9.16962, LARS formula and layer-wise convergence discussion"
+      ],
+      "reasoning": "No inspected source states the equivalent sharp spectral-moment optimization or the closed-form condition-number threshold.",
+      "searches": [
+        "LARS sharp objective monotonicity frontier SPD quadratic trust ratio condition number",
+        "proportional update exact monotonicity SPD quadratic normalized gradient trust coefficient",
+        "LARS one-step objective decrease condition number normalized step",
+        "Layer-wise Adaptive Rate Scaling quadratic objective increase condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published findings concerned scaled Polyak objective monotonicity.",
+        "Other close findings concerned Barzilai–Borwein interval monotonicity and Cauchy trust-region decrease."
+      ],
+      "reasoning": "The closest exact quadratic frontiers use different step constructions; no located published record contains the LARS norm-ratio frontier.",
+      "searches": [
+        "LARS sharp objective monotonicity frontier SPD quadratic trust ratio condition number",
+        "proportional update exact monotonicity SPD quadratic normalized gradient trust coefficient",
+        "LARS one-step objective decrease condition number normalized step",
+        "Layer-wise Adaptive Rate Scaling quadratic objective increase condition number"
+      ]
+    },
+    "rationale": "The defining and later LARS theories provide the trust rule, one-dimensional proportional-update analysis, and sufficient stochastic bounds, but the inspected statements do not contain the sharp multidimensional SPD frontier or its extremizer.",
+    "residual_risks": [
+      "An equivalent spectral-moment inequality may exist outside literature indexed under LARS.",
+      "Momentum and weight decay are not covered.",
+      "The sharp witness may be atypical in practice."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_FORMULA_NOT_COVERING_SHARP_SPD_FRONTIER.",
+        "evidence": "Defines the trust-ratio update and instability motivation but no exact condition-number monotonicity theorem.",
+        "identifier_or_url": "arXiv:1708.03888",
+        "material_read": "Full open-access HTML through Section 4, including equations (4)–(6) and Algorithm 1.",
+        "method": "Full-text HTML inspection.",
+        "title": "Large Batch Training of Convolutional Networks",
+        "trigger": "Defining LARS source and earliest public date."
+      },
+      {
+        "assessment": "DIRECT_THEORY_NOT_COVERING_MULTIDIMENSIONAL_SHARP_FRONTIER.",
+        "evidence": "The quadratic analysis is one-dimensional and does not provide the SPD condition-number extremum.",
+        "identifier_or_url": "arXiv:1801.03137v1",
+        "material_read": "Open-access text covering the core update, one-dimensional quadratic discussion, and general convex scope.",
+        "method": "Text inspection with targeted section comparison.",
+        "title": "Convergence Analysis of Gradient Descent Algorithms with Proportional Updates",
+        "trigger": "Closest direct theory of the isolated proportional update."
+      },
+      {
+        "assessment": "BROADER_SUFFICIENT_BOUNDS_NOT_COVERING_EXACT_QUADRATIC_THRESHOLD.",
+        "evidence": "Provides sufficient stochastic restrictions tied to smoothness and variance, not the exact deterministic SPD frontier.",
+        "identifier_or_url": "AAAI2021:10.1609/aaai.v35i9.16962",
+        "material_read": "Proceedings PDF pages containing the LARS equation, Theorem 2, corollaries, and layer-wise scaled-learning-rate discussion.",
+        "method": "PDF text inspection with visual page checks.",
+        "title": "Large Batch Optimization for Deep Learning Using New Complete Layer-Wise Adaptive Rate Scaling",
+        "trigger": "Later theory potentially stronger than a step-size claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70b4a7c9-81f6-4020-9192-b3ee98a13fc9",
+  "value": {
+    "rationale": "LARS is defined by relative layer-update control. The theorem turns that qualitative design principle into a necessary-and-sufficient trust law, quantifies the conservatism of the naive \\(2/\\kappa\\) safeguard, and identifies the exact two-mode failure geometry.",
+    "status": "PASS"
+  }
+}
