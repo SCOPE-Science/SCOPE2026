@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The source defines distinct fields \\(H_5\\) and \\(H_6\\) for androgen and PSA, yet the two final printed recurrences both use \\(H_5\\). Subtracting those recurrences proves the invariant \\(P_n-A_n=P_0-A_0\\) without any assumption about the fractional weights. At the source-parameter state \\(X_1=X_2=0\\), \\(A=a_0=10\\), \\(P=1\\), and \\(u=0\\), exact arithmetic gives \\(H_5=0\\) and \\(H_6=-0.08\\). Thus the intended integer-order vector field changes \\(P-A\\) while the printed recurrence cannot. The correction \\(H_5\\mapsto H_6\\) in the PSA update is componentwise and sufficient for this defect.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 author correction to the numerical-method paper changes a finite sum in its error analysis and explicitly states that the formulation of the numerical scheme is unaffected.",
+        "The earlier clinical prostate-cancer model treats androgen and PSA as distinct biological quantities but predates the later fractional recurrence."
+      ],
+      "reasoning": "The broader literature supplies the numerical method and biological model, but neither inspected result covers the later paper's use of \\(H_5\\) in the PSA component. The known correction to the method paper is specifically inapplicable to this component-selection error.",
+      "searches": [
+        "\"New numerical approximation of fractional derivative with non-local and non-singular kernel\" correction",
+        "\"10.1140/epjp/s13360-022-02380-9\" numerical scheme correction",
+        "\"A clinical data validated mathematical model of prostate cancer growth\" PSA androgen",
+        "Atangana-Baleanu vector numerical scheme component recurrence"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdss.2020426",
+      "doi:10.1140/epjp/i2017-11717-0",
+      "doi:10.1140/epjp/s13360-022-02380-9",
+      "doi:10.1063/1.3697848"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited numerical-method correction concerns a summation identity in error analysis and expressly says the numerical scheme formulation is unaffected.",
+        "No located article or correction derives the spurious \\(P-A\\) invariant for the motivating source or replaces \\(H_5\\) by \\(H_6\\) in its PSA recurrence."
+      ],
+      "reasoning": "Prior componentwise numerical analysis does not make the source-specific claim redundant: identifying which published component was duplicated, deriving its exact invariant, and checking it against the source's own parameterized vector field require the source-level comparison carried out here.",
+      "searches": [
+        "\"10.3934/dcdss.2020426\" correction PSA",
+        "\"10.3934/dcdss.2020426\" erratum",
+        "\"10.1140/epjp/i2017-11717-0\" correction equation 14",
+        "prostate cancer fractional Atangana Baleanu PSA numerical recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article prints separate androgen and PSA fields but repeats the androgen field in both final recurrences.",
+        "Exact DOI/title and component-alias searches located the article and its cited numerical-method literature but no correction of the PSA recurrence."
+      ],
+      "reasoning": "The defect is equivalently a duplicated component field, a forced invariant \\(P-A=\\mathrm{constant}\\), or a failure to discretize the PSA equation. Searches covered each formulation and the exact source identity.",
+      "searches": [
+        "\"10.3934/dcdss.2020426\" PSA numerical scheme",
+        "\"Androgen driven evolutionary population dynamics in prostate cancer growth\" H5 H6",
+        "\"Androgen driven evolutionary population dynamics in prostate cancer growth\" correction erratum",
+        "fractional prostate cancer model PSA recurrence androgen H5 H6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating full text was inspected at equations (13) and (14), where \\(H_5\\) and \\(H_6\\) are different, and at equation (33), where both final \\(A\\) and \\(P\\) recurrences use \\(H_5\\).",
+        "Table 1 gives \\(\\gamma_1=0.08\\), \\(a_0=10\\), and \\(\\delta_3=0.08\\), which are the only source parameters needed for the exact witness.",
+        "The article states that Figures 1--7 are obtained using the scheme presented above them.",
+        "The one-page 2022 author correction to the cited numerical method was inspected and does not change the scheme formulation."
+      ],
+      "reasoning": "The comparison is anchored to the exact printed component definitions, final recurrence, and parameter table, not to an abstract or a secondary description.",
+      "searches": [
+        "doi:10.3934/dcdss.2020426 equations 13 14 33 Table 1",
+        "doi:10.3934/dcdss.2020426 Figures 1 7 scheme",
+        "doi:10.1140/epjp/s13360-022-02380-9 Eq. 14 correction"
+      ]
+    },
+    "rationale": "The general requirement that each vector component be advanced with its own right-hand side is standard and is not claimed as new. The original content is the source-specific identification and exact consequence of the duplicated androgen field in the PSA recurrence, including the spurious invariant and an exact source-parameter inconsistency witness. Exact-identity and alias searches located no published correction of this later component substitution.",
+    "residual_risks": [
+      "The simulation source code is unavailable; it may have used \\(H_6\\), making the defect typographical in the article rather than computational.",
+      "The original 2017 numerical-method paper was not inspected in complete full text during this comparison, although its author correction and the motivating paper's derivation were inspected.",
+      "A non-indexed correction of the prostate-cancer article could exist outside the searched records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_PSA_RECURRENCE_USES_WRONG_COMPONENT_FIELD",
+        "evidence": "The PSA model equation is \\(H_6\\), but the printed \\(P(t_{n+1})\\) recurrence uses \\(H_5\\) in the local and summed history terms exactly as the preceding androgen recurrence does.",
+        "identifier_or_url": "doi:10.3934/dcdss.2020426",
+        "material_read": "Full article material covering the classical model, equations (13)--(14), the six fields \\(H_1,\\ldots,H_6\\), Table 1, the existence section, numerical construction (27)--(33), the final androgen and PSA recurrences, and the paragraph stating that Figures 1--7 use the presented scheme.",
+        "method": "Compared the component definitions to their final recurrence and derived the forced discrete invariant by direct subtraction.",
+        "title": "Androgen driven evolutionary population dynamics in prostate cancer growth",
+        "trigger": "Primary source defining both the six-state fractional model and the numerical recurrence."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The correction states that it changes a sum in the error analysis and does not affect formulation of the numerical scheme or the rest of the original method paper.",
+        "identifier_or_url": "doi:10.1140/epjp/s13360-022-02380-9",
+        "material_read": "Complete one-page author correction and its corrected finite-sum identity.",
+        "method": "Checked whether the known correction changes the method formulation in a way that could cover the later component duplication.",
+        "title": "Correction to: New numerical approximation of fractional derivative with non-local and non-singular kernel: application to chaotic models",
+        "trigger": "Author correction to the numerical method explicitly cited by the motivating article."
+      },
+      {
+        "assessment": "GENERAL_METHOD_PRIOR",
+        "evidence": "The paper introduces the general Atangana-Baleanu numerical scheme; no inspected material attributes the later prostate-cancer PSA recurrence to this method paper.",
+        "identifier_or_url": "doi:10.1140/epjp/i2017-11717-0",
+        "material_read": "Abstract, bibliographic record, citation context in the motivating full text, and the later author correction.",
+        "method": "Used to bound the originality claim to the later prostate-cancer component substitution rather than the general numerical construction.",
+        "title": "New numerical approximation of fractional derivative with non-local and non-singular kernel: Application to chaotic models",
+        "trigger": "Method paper cited by the motivating article for its numerical construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "613d3075-8606-4da6-8e7f-c8decf351069",
+  "value": {
+    "rationale": "PSA is a principal observable in the biological model and one of the six time series displayed in every main simulation figure. The printed recurrence does not merely perturb its weights: it eliminates the PSA vector field entirely and forces PSA to be an affine copy of androgen. The exact invariant gives a simple reproducibility diagnostic and a one-symbol componentwise repair, while the limitation about unavailable code prevents overclaiming impact on the plotted data.",
+    "status": "PASS"
+  }
+}
