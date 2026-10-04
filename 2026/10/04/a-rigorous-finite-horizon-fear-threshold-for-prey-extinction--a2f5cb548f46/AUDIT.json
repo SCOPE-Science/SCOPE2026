@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the exact predator inequality v' >= -dv, substitutes the resulting lower bound into the prey equation, and applies the transformation w=u^(1-p) only while u is positive. The integrating-factor estimate is exact. If the resulting upper bound for w becomes negative at T, positivity through T is impossible, so a first prey-extinction time must occur before T. The closed-form k threshold follows from the monotonic bound Phi_k(s)<=Phi_k(T). The high-precision verifier reproduces all source-data numbers and confirms strict margins at k=16.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 predecessor develops finite-time extinction for a different mutual-interference predator-prey system without the present fear denominator.",
+        "A 2026 related susceptible-infectious-predator model gives explicit extinction-time estimates, but for a different system with different state structure and nonlinearities.",
+        "A 2026 square-root predator-prey paper is plausibly relevant, but only abstract-level material was available for inspection; it is retained as residual risk rather than treated as non-covering evidence."
+      ],
+      "reasoning": "Broader literature establishes finite-time comparison methods as prior art, which narrows originality to the present model-specific fear threshold. None of the inspected full texts dominates the exact k-versus-T statement for this two-dimensional system.",
+      "searches": [
+        "\"Dynamics of a predator-prey model with generalized functional response and mutual interference\" finite time extinction",
+        "\"On a Predator-Prey Model with Square Root Functional Response\" finite time extinction",
+        "\"Finite-time extinction\" predator fear Allee explicit extinction time",
+        "predator prey sublinear finite time extinction comparison theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.00546",
+      "doi:10.3934/math.2023173",
+      "arXiv:2003.02712",
+      "doi:10.1016/j.mbs.2020.108407",
+      "doi:10.3934/mbe.2026104",
+      "doi:10.5890/JAND.2026.06.011"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source asserts existence of sufficiently large fear but does not state the present finite-horizon integral certificate or closed-form K(T).",
+        "The 2020 predecessor's extinction theorem uses a different model and initial-condition mechanism, so it does not imply the current k threshold by substitution.",
+        "The 2026 fear/Allee model has a different susceptible-infectious-predator structure and does not reduce to the present two-dimensional equations under the inspected assumptions."
+      ],
+      "reasoning": "The final theorem is a direct model-specific differential inequality with an explicit dependence on a, c, d, p, m, u0, v0, k, and T. Prior general comparison ideas motivate the method but do not imply this exact certificate without the new derivation.",
+      "searches": [
+        "\"2108.00546\" k threshold extinction time",
+        "\"math.2023173\" necessary condition size k unproven",
+        "\"2003.02712\" fear parameter extinction",
+        "\"mbe.2026104\" explicit extinction time fear"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating source's theorem and proof were inspected directly; the proof seeks a sufficiently large fear parameter but does not derive a closed finite-horizon threshold.",
+        "The same section explicitly states that a necessary condition on the size of the fear parameter remains unproved.",
+        "Semantic searches returned other extinction and ecological dynamics results but no result matching the present model, initial-data certificate, or k-versus-T formula."
+      ],
+      "reasoning": "The claim was searched both by exact source identity and by its mathematical aliases: sublinear extinction, fear strength, comparison, and explicit threshold. The accepted statement is not merely a restatement of 'large fear causes extinction'; it supplies a verifiable sufficient inequality with a prescribed horizon.",
+      "searches": [
+        "\"10.3934/math.2023173\" fear finite time extinction prey predator",
+        "\"Fear-driven extinction and (de)stabilization\" finite time extinction proof",
+        "sublinear predator prey fear finite time extinction explicit threshold",
+        "u^p v^m fear predator finite time extinction comparison"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating full text was inspected at the exact model equations, Theorem 5.1, its comparison proof, the following remark, and the Figure 6 caption giving initial data and the inherited Figure 2 parameters.",
+        "The earlier preprint was inspected at its finite-time-extinction theorem and proof.",
+        "The later open full text was inspected for its explicit extinction-time results in a different model."
+      ],
+      "reasoning": "The numerical example in the accepted claim uses the source's actual Figure 6 initial data and Figure 2 parameter values, not a reconstructed or substituted parameter set. The proof comparison is made against the exact printed differential equations.",
+      "searches": [
+        "arXiv:2108.00546 Theorem 5.1 Remark 5 Figure 6",
+        "doi:10.3934/math.2023173 Figure 6 finite time extinction",
+        "arXiv:2003.02712 finite time extinction theorem",
+        "doi:10.3934/mbe.2026104 finite-time extinction theorem"
+      ]
+    },
+    "rationale": "Finite-time comparison arguments for sublinear predator-prey systems are prior and are not claimed as new. The original content is the explicit finite-horizon k-versus-T certificate for the exact fear-driven herd-behavior model, together with the identification of what the motivating proof does and does not establish and a rigorous evaluation on its Figure 6 data. The motivating paper itself notes that a condition on the size of k remains unproved. No inspected or indexed source supplied this model-specific certificate.",
+    "residual_risks": [
+      "The 2026 square-root predator-prey article could not be inspected beyond abstract-level material, so a stronger analogous comparison theorem there remains a literature risk.",
+      "The certificate is conservative and does not establish a sharp fear threshold or the source's k=0.03 numerical example.",
+      "The source's full existence theorem may admit a different rigorous proof outside the inspected argument; the accepted result does not claim the theorem itself is false."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_SPECIFIC_QUANTITATIVE_GAP_SURVIVES_AND_IS_PARTIALLY_CLOSED",
+        "evidence": "The source proof does not derive a contradiction with positivity at a finite horizon, whereas the new integral condition does. The source remark separately acknowledges that a condition on fear strength remains unresolved.",
+        "identifier_or_url": "arXiv:2108.00546; doi:10.3934/math.2023173",
+        "material_read": "Full text: model equations and parameter assumptions; abstract and stated contributions; Theorem 5.1; its full proof; the following remark about the size of the fear parameter; Figure 6 caption; and Figure 2 parameter caption.",
+        "method": "Reconstructed the proof from the differential equations, isolated the point where a positive upper bound is treated as finite-time extinction, and derived a closed integrating-factor comparison that forces an actual zero before a prescribed horizon.",
+        "title": "Fear-driven extinction and (de)stabilization in a predator-prey model incorporating prey herd behavior and mutual interference",
+        "trigger": "Primary source whose headline finite-time-extinction theorem motivates the quantitative gap."
+      },
+      {
+        "assessment": "GENERAL_METHOD_PRIOR_MODEL_SPECIFIC_THRESHOLD_NOT_COVERED",
+        "evidence": "The earlier system lacks the present fear denominator and its theorem does not provide a fear-strength-versus-horizon threshold.",
+        "identifier_or_url": "arXiv:2003.02712; doi:10.1016/j.mbs.2020.108407",
+        "material_read": "Full preprint through the model definition, finite-time-extinction theorem, comparison proof, initial-condition restrictions, and numerical discussion.",
+        "method": "Compared its extinction mechanism and hypotheses with the present fear-driven system.",
+        "title": "Dynamics of a predator-prey model with generalized functional response and mutual interference",
+        "trigger": "Earlier finite-time-extinction work by overlapping authors and a closely related sublinear predator-prey mechanism."
+      },
+      {
+        "assessment": "QUANTITATIVE_EXTINCTION_PRIOR_IN_DIFFERENT_SYSTEM",
+        "evidence": "The later model has additional susceptible/infectious structure, Allee effects, and different nonlinear terms; its estimates do not reduce to the current K(T) formula under the inspected formulation.",
+        "identifier_or_url": "doi:10.3934/mbe.2026104",
+        "material_read": "Open full text covering the model, extinction statements, explicit time estimates, and relation to earlier fear-driven predator-prey work.",
+        "method": "Compared whether its explicit bounds imply the present two-dimensional certificate.",
+        "title": "Finite-time extinction in a susceptible-infectious-predator model with dual fear, Allee effect, and sublinear predator aggregation",
+        "trigger": "Later related work with fear and explicit finite-time-extinction bounds."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_FULL_COMPARISON_UNRESOLVED",
+        "evidence": "The abstract advertises a comprehensive finite-time-extinction proof and example for a square-root functional response, but the accessible material was insufficient for statement-level implication comparison.",
+        "identifier_or_url": "doi:10.5890/JAND.2026.06.011",
+        "material_read": "Abstract and bibliographic metadata only; full article text was not available for inspection.",
+        "method": "Treated as unresolved coverage risk rather than inferring non-coverage from the abstract.",
+        "title": "On a Predator-Prey Model with Square Root Functional Response",
+        "trigger": "Plausibly relevant later paper emphasizing finite-time extinction in a sublinear predator-prey model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2f5cb54-8f46-4add-b0e1-e3980f5c7fc1",
+  "value": {
+    "rationale": "Finite-time fear-driven extinction is a headline biological and mathematical conclusion of the motivating article, and the source itself notes that quantitative control of the fear strength remains unresolved. The new result turns that qualitative mechanism into a finite-horizon, directly checkable condition and applies it to the source's own initial data. It also distinguishes a rigorously certified regime from the paper's much smaller simulation value instead of using numerics as proof. This is a substantive boundary/quantification result rather than a cosmetic correction.",
+    "status": "PASS"
+  }
+}
