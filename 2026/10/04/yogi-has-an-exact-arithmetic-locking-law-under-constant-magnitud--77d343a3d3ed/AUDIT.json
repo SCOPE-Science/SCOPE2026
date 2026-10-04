@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "After normalization by \\(G^2\\), Yogi moves by the fixed increment \\(1-\beta_2\\) toward the target \\(1\\). Exact divisibility gives finite hitting and locking; nondivisibility gives immediate alternation between the adjacent lattice points. The first-moment limit and Adam comparison are exact scalar recurrences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source explains that Yogi uses additive updates to control effective-learning-rate changes.",
+        "Implementation documentation reproduces the sign-controlled update and standard beta values.",
+        "No inspected source gives a stronger theorem subsuming the arithmetic classification."
+      ],
+      "reasoning": "General convergence guarantees and qualitative control claims do not imply whether the second moment converges, locks in finite time, or cycles under constant forcing.",
+      "searches": [
+        "Yogi optimizer controlled effective learning rate additive update",
+        "Yogi optimizer constant gradient second moment",
+        "Adam versus Yogi second moment constant gradient"
+      ]
+    },
+    "checked_sources": [
+      "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3",
+      "GoogleResearchBlog:2018-12-03:Google-at-NeurIPS-2018"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 supplies the exact recurrence used in the proof.",
+        "The paper reports beta-two choices 0.9, 0.99, and 0.999 in experiments and discussion.",
+        "The paper's convergence theorem concerns stochastic stationarity, not the deterministic constant-forcing orbit."
+      ],
+      "reasoning": "The final claim requires solving the sign recurrence as a lattice dynamical system and distinguishing exact divisibility from overshoot; this is not stated in the source.",
+      "searches": [
+        "NeurIPS2018 Yogi Algorithm 2 sign second moment",
+        "Yogi beta2 0.9 0.99 0.999",
+        "Yogi constant gradient cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the sign-controlled fixed-magnitude second-moment update.",
+        "Full-text searches for constant gradient, oscillation, and cycle returned no covering statement.",
+        "published-record searches returned unrelated optimizer stability results."
+      ],
+      "reasoning": "Equivalent formulations include finite lattice hitting, a period-two orbit between adjacent lattice points, and nonconvergence of the effective denominator for nonintegral reciprocal increment. None was located.",
+      "searches": [
+        "Yogi optimizer constant gradient second moment exact cycle sign update",
+        "Yogi adaptive method second moment oscillation constant magnitude gradient",
+        "Yogi beta2 constant gradient two cycle",
+        "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned other adaptive methods, quadratic stability frontiers, and unrelated two-cycles.",
+        "No returned result involved Yogi's fixed-increment second-moment lattice."
+      ],
+      "reasoning": "Database search did not reveal a covering published finding; this is supporting evidence only, combined with direct full-text source inspection.",
+      "searches": [
+        "Yogi optimizer constant gradient second moment exact cycle sign update",
+        "Yogi adaptive method second moment oscillation constant magnitude gradient",
+        "Yogi beta2 constant gradient two cycle"
+      ]
+    },
+    "rationale": "The defining paper gives the additive sign update and qualitative controlled-learning-rate interpretation but not this arithmetic finite-lock versus period-two classification. Focused published-record and web searches found no implication-equivalent Yogi result.",
+    "residual_risks": [
+      "An equivalent short calculation may exist in unindexed implementation notes.",
+      "The reported beta grid's locking property may be coincidental.",
+      "Different implementations may initialize the preconditioner positively or add debiasing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_ARITHMETIC_LOCKING_OR_TWO_CYCLE.",
+        "evidence": "The paper gives the sign-controlled fixed-magnitude update and discusses controlled effective-learning-rate change, but no constant-gradient orbit classification was found.",
+        "identifier_or_url": "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3",
+        "material_read": "Full open-access paper, including Algorithm 2, Section 3.2 comparison with Adam, convergence theorem, experiment tables, and practical guidance.",
+        "method": "Full-text PDF inspection with visual inspection of the Algorithm 2 and experiment pages; targeted searches for constant gradient, oscillation, and cycle.",
+        "title": "Adaptive Methods for Nonconvex Optimization",
+        "trigger": "Defining source for Yogi's additive sign-controlled second moment and beta-two settings."
+      },
+      {
+        "assessment": "DATE_EVIDENCE_ONLY.",
+        "evidence": "The dated post provides a verified public-source date of 2018-12-03.",
+        "identifier_or_url": "GoogleResearchBlog:2018-12-03:Google-at-NeurIPS-2018",
+        "material_read": "Public dated post from 2018-12-03 listing the paper by title and authors.",
+        "method": "Direct webpage inspection.",
+        "title": "Google at NeurIPS 2018",
+        "trigger": "Date-only public evidence listing the paper among accepted NeurIPS 2018 work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77d343a3-d3ed-4ce1-ad28-814242c8ac71",
+  "value": {
+    "rationale": "Yogi's defining distinction from Adam is its additive sign-controlled second moment. The theorem identifies a structural consequence of exactly that design: denominator convergence depends on an arithmetic divisibility condition, with a permanent two-cycle otherwise. It also quantifies the cycle width and explains why the paper's reported beta-two grid has especially simple constant-gradient behavior.",
+    "status": "PASS"
+  }
+}
