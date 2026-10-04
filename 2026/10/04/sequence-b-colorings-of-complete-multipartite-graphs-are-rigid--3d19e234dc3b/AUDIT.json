@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the b-coloring definition directly. In a complete multipartite graph, any color is confined to one part. If a part uses at least two colors, every vertex in that part misses another in-part color from its closed neighborhood, so none of those color classes has a color-dominating vertex. Therefore all parts are monochromatic and have distinct colors, forcing exactly r colors; then every vertex is color-dominating. Sorting reduces realizability to the coordinatewise inequalities. The labeled counting formula follows because at step i exactly c_i-(i-1) eligible unused parts remain. The finite verifier checks the definition independently on 16 small complete multipartite graphs, 7200 surjective proper colorings, 144 b-colorings, and 189 sequence instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balabán studies ordinary b-coloring parameterized by distance to co-cluster and identifies co-clusters with complete multipartite graphs.",
+        "Ordinary b-coloring only requires one b-vertex per color and does not encode prescribed CDV multiplicities or maximal realized sequences."
+      ],
+      "reasoning": "Classical b-coloring results are related but do not dominate the sequence claim. The new statement determines all finite requirements and S-spectrum behavior, which is strictly finer information.",
+      "searches": [
+        "\"b-coloring\" \"complete multipartite\" graph",
+        "\"b-chromatic number\" \"complete multipartite graph\"",
+        "Finding b-Colorings Using Feedback Edges complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08484v1",
+      "DOI:10.4230/LIPIcs.MFCS.2026.36"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jakovac–Lang explicitly state the general program of asking which sequences a fixed graph realizes but do not state this class theorem.",
+        "Balabán uses complete multipartite graphs as the co-cluster base class for ordinary b-coloring algorithms, without sequence multiplicities."
+      ],
+      "reasoning": "The closest sources establish definitions, general bounds, complexity, and ordinary b-coloring context. None implies the exact realized-sequence poset, unique maximal sequence, or counting formula without the new structural observation.",
+      "searches": [
+        "\"Sequence b-colorings in graphs\" complete multipartite",
+        "\"b-coloring\" \"complete multipartite\" graph",
+        "sequence b-coloring complete multipartite graphs color-dominating vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jakovac–Lang define realization by requiring prescribed numbers of color-dominating vertices in each color class; this is the same invariant used here.",
+        "The complete-multipartite theorem is equivalently a rigidity statement that every b-coloring equals the chromatic part coloring up to color permutation."
+      ],
+      "reasoning": "No alternative terminology or equivalent formulation located in the searches supplied a sequence-b-coloring classification for complete multipartite graphs.",
+      "searches": [
+        "\"sequence b-coloring\" \"complete multipartite\"",
+        "\"sequence b-coloring\" multipartite",
+        "sequence b-coloring complete multipartite graphs color-dominating vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched exact-result record or table stated the coordinatewise part-size criterion or the labeled-count product.",
+        "The initiating full text has no occurrences of “multipartite” or “bipartite”."
+      ],
+      "reasoning": "The result was not recovered from an existing exact table; the formula follows from the structural proof and is independently stress-tested.",
+      "searches": [
+        "sequence b-coloring complete bipartite graph realized sequence",
+        "complete multipartite sequence b chromatic",
+        "\"sequence b-coloring\" \"complete multipartite\""
+      ]
+    },
+    "rationale": "The sequence-b-coloring invariant was introduced in arXiv:2609.08484v1. The inspected full paper contains the definitions and asks which sequences fixed graphs realize, but no occurrence of “multipartite” or “bipartite” and no theorem implying the complete-multipartite classification. Searches under exact and classical aliases found ordinary b-coloring/co-cluster work rather than the sequence statement.",
+    "residual_risks": [
+      "Sequence b-coloring was introduced only in September 2026, so a very recent or poorly indexed concurrent note could overlap the complete-multipartite classification.",
+      "The ordinary b-coloring literature on special graph classes is large; although its statements do not imply the sequence multiplicity theorem, an obscure source could contain the underlying rigidity observation in classical language."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines realized sequences and S-spectra and treats complete graphs, cycles, and regular graphs; full-text searches returned no occurrence of “multipartite” or “bipartite”.",
+        "identifier_or_url": "arXiv:2609.08484v1",
+        "material_read": "Full 22-page arXiv PDF, including the introduction, Definitions 2.1–2.3, the fixed-graph realizability discussion, and searches across the full text for “multipartite” and “bipartite”.",
+        "method": "Definition matching, implication comparison, and full-text term search.",
+        "title": "Sequence b-colorings in graphs",
+        "trigger": "This is the initiating source for the invariant and the natural place where a basic-class classification could already appear."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper studies ordinary b-coloring algorithms and defines co-cluster graphs as complete multipartite graphs. It does not use the 2026 sequence-b-coloring multiplicity requirements or state the realized-sequence classification.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.MFCS.2026.36",
+        "material_read": "Full PDF introduction and preliminaries through the definition of co-cluster graphs and b-colorings, including the distance-to-co-cluster motivation.",
+        "method": "Statement and invariant comparison.",
+        "title": "Finding b-Colorings Using Feedback Edges",
+        "trigger": "This recent ordinary b-coloring paper explicitly uses complete multipartite graphs as the co-cluster base class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d19e234-dc3b-430e-b133-9da8b902ecff",
+  "value": {
+    "rationale": "This is a complete classification on a canonical graph family, not an arbitrary finite slice. It determines the entire realized-sequence poset, S-spectrum behavior, unique maximal realized sequence, and exact labeled-coloring count. The maximal sequence recovers the multipartite part-size partition, so the new invariant captures strictly finer structural information than the ordinary b-chromatic number on this family. Complete multipartite graphs are also the base objects in distance-to-co-cluster parameterizations, giving the result a natural role as a benchmark for future sequence-b-coloring algorithms.",
+    "status": "PASS"
+  }
+}
