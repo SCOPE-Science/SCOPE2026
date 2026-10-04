@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For a fixed read prefix, endpoint counts \\((p,q)\\) obey four exhaustive transitions: \\(0:(p,0)\\), \\(1:(p+q,p)\\), \\(2:(q,p+q)\\), \\(3:(0,q)\\). Writing \\(S=p+q\\), \\(M=\\max\\{p,q\\}\\), induction proves \\(S\\le F_{j+3}\\), \\(M\\le F_{j+2}\\). Equality forces the same choice, \\(1\\) or \\(2\\), at every step, yielding precisely the two claimed extremizers. Independent brute-force reconstruction through \\(n=19\\) and dynamic fiber counting agree and terminate with VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.15368v1",
+        "doi:10.1109/JSAIT.2023.3334303",
+        "arXiv:2102.01839v1"
+      ],
+      "reasoning": "The broader capacity papers count distinct realizable outputs or derive asymptotic rates. Those quantities do not determine a sharp maximum fiber. The Hulett--Chandak--Wootters abstraction uses unit shifts and is not a stronger theorem for the shifted \\((3,2)\\) multiplicity problem.",
+      "searches": [
+        "transverse read channel maximum ambiguity same read vector Fibonacci",
+        "weighted read channel maximum preimage multiplicity Fibonacci",
+        "weighted read channel ambiguity preimage list size"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT45174.2021.9518271",
+      "doi:10.1109/JSAIT.2023.3334303",
+      "arXiv:2401.15368v1",
+      "arXiv:2102.01839v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The transverse-read papers' deterministic adjacency matrix counts distinct label sequences; the final claim counts accepting source paths for one fixed label sequence.",
+        "The weighted-read paper explicitly observes that multiple inputs may share a read vector but does not bound the largest such class."
+      ],
+      "reasoning": "The prior automata are essential model infrastructure, not a theorem dominating the claim. Obtaining the result requires a new label-specific path-count recurrence and an extremal induction; distinct-output capacity does not imply the maximum preimage size.",
+      "searches": [
+        "doi:10.1109/ISIT45174.2021.9518271 pp. 2926--2927 state machines",
+        "doi:10.1109/JSAIT.2023.3334303 Section III",
+        "arXiv:2401.15368v1 Sections II--III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1109/ISIT45174.2021.9518271",
+        "doi:10.1109/JSAIT.2023.3334303",
+        "arXiv:2401.15368v1"
+      ],
+      "reasoning": "Searched fiber, preimage, ambiguity, same-output, and list-size formulations. The closest papers define the same map and discuss collisions but no inspected statement gives the maximum multiplicity or Fibonacci equality cases.",
+      "searches": [
+        "maximum fiber size (3,2) transverse-read channel Fibonacci",
+        "binary (3,2)-read vector same output maximum number inputs",
+        "read vector 1^m 2^m Fibonacci preimages"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "repository searches returned no matching transverse-read finding; nearest hits were unrelated fiber or coding results"
+      ],
+      "reasoning": "No inspected repository record or finite table states the all-length formula. The result is not a recomputation of a known parameter table.",
+      "searches": [
+        "maximum fiber size (3,2) transverse-read channel Fibonacci",
+        "Fibonacci ambiguity transverse-read code (3,2)",
+        "same output multiple inputs (3,2)-read channel exact maximum"
+      ]
+    },
+    "rationale": "The closest literature studies the same channel through the language of valid read vectors and capacity, whereas the final claim optimizes the multiplicity of a single output. The 2021/2023 transverse-read papers give the two-state NFA and a determinized output-counting matrix but do not state a maximum-preimage theorem; the 2024 weighted-read paper explicitly notes collisions but likewise focuses on distinct outputs. Targeted repository and public searches found no inspected source stating the Fibonacci maximum or its two equality cases.",
+    "residual_risks": [
+      "A poorly indexed, unpublished, or inaccessible derivation could contain the same maximum-fiber formula.",
+      "The inspected literature provides the underlying two-state automaton, so the theorem is close to the model's combinatorics even though no stronger prior multiplicity statement was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same object and gives the state machines and asymptotic rate, but does not state or imply via a stronger multiplicity theorem the maximum fiber formula.",
+        "evidence": "The paper identifies \\(A(n;3,2)\\) with the number of valid read vectors and uses a deterministic adjacency matrix for their asymptotic count; its NFA is the model from which the new label-specific recurrence is derived.",
+        "identifier_or_url": "doi:10.1109/ISIT45174.2021.9518271",
+        "material_read": "Full author PDF; definitions and the \\((3,2)\\) NFA/DFA discussion on pp. 2--3.",
+        "method": "Full-text section reading and searches for finite size, Fibonacci, ambiguity, and same-output multiplicity.",
+        "title": "Coding for Transverse-Reads in Domain Wall Memories",
+        "trigger": "Earliest inspected source defining the shifted Hamming-weight transverse-read channel and the \\((3,2)\\) example."
+      },
+      {
+        "assessment": "NOT_COVERING for the final claim. It repeats and expands valid-output/capacity analysis but does not analyze the largest source fiber.",
+        "evidence": "The inspected text states \\(A(n;3,2)=|TR(n;3,2)|\\) and computes the Perron eigenvalue for the valid-output language; no maximum-multiplicity theorem was found.",
+        "identifier_or_url": "doi:10.1109/JSAIT.2023.3334303",
+        "material_read": "Full PDF; Definitions 1--2, Section III on \\((3,2)\\), and error-correction discussion.",
+        "method": "Full-text reading plus searches for Fibonacci, preimage, ambiguity, list, and same-read-vector statements.",
+        "title": "Transverse-Read-Codes for Domain Wall Memories",
+        "trigger": "Expanded same-topic journal treatment and plausible location for finite or decoding refinements."
+      },
+      {
+        "assessment": "NOT_COVERING for the final claim. It explicitly notes that different inputs can have the same output, then studies distinct-output counts and capacity rather than worst-case multiplicity.",
+        "evidence": "Definition 2 makes read-code size an injective-representative problem, while the inspected graph analysis counts realizable read vectors; no sharp largest-fiber result appears.",
+        "identifier_or_url": "arXiv:2401.15368v1",
+        "material_read": "Full PDF; Introduction, Definitions 1--2, state-diagram construction, and capacity sections.",
+        "method": "Full-text reading and searches for Fibonacci, preimage, ambiguity, and same-read-vector claims.",
+        "title": "The Capacity of the Weighted Read Channel",
+        "trigger": "Later systematic treatment of the identical weighted-read model; especially plausible because it explicitly discusses collisions."
+      },
+      {
+        "assessment": "Related but not dominating: its basic channel slides by one symbol and its transfer matrix counts possible output strings; it does not state the shifted \\((3,2)\\) maximum-fiber theorem.",
+        "evidence": "The model uses consecutive \\(k\\)-mers with unit shift and arbitrary output map; the inspected results concern capacity/output enumeration.",
+        "identifier_or_url": "arXiv:2102.01839v1",
+        "material_read": "Full PDF; abstract model and automaton/transfer-matrix sections.",
+        "method": "Section reading and model comparison.",
+        "title": "On Coding for an Abstracted Nanopore Channel for DNA Storage",
+        "trigger": "Earlier abstract nanopore-channel work cited by the weighted-read literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d72c6473-df5e-4718-98a0-477e3444c8f3",
+  "value": {
+    "rationale": "Maximum fiber size is the natural worst-case list size of a deterministic many-to-one read channel. The result gives an exact formula for every admissible blocklength and uniquely identifies the two most ambiguous outputs, quantifying a channel feature that capacity does not measure. The \\((3,2)\\) case is the first nontrivial odd-window example singled out in the primary literature, so this is a structurally motivated invariant rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
