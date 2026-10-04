@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The finite domain is exhaustive. The verifier derives all minimal recovery sets directly from the \\(3\\times 8\\) binary generator matrix and obtains 11 for each request. With \\(L=2\\), any selected service has multiplicity at most two because it intersects every copy of itself. Hence all possibilities lie in \\(3^{11}\\) multiplicity vectors per request. Exact integer/set enumeration leaves 141 same-request-feasible candidates per request, 306 mutually compatible candidate pairs for each request pair, and exactly two global triples; direct decoding yields the two claimed multisets and shows all three request totals equal five.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.09748v2 proves the general implication from \\((m,L)\\)-strongly-online to \\(t\\)-strongly-online and later gives graph criteria for a simple-recovery submodel.",
+        "Example IV.22 separately proves a no-go result for service sets and exhibits one multiset witness."
+      ],
+      "reasoning": "The general theorems provide sufficient/characterizing conditions in broader settings but do not enumerate all multisets for this nontrivial example. The set-only impossibility also does not determine the multiset solution space.",
+      "searches": [
+        "Recovery Models for Linear Batch Codes strongly online Example 4.22",
+        "(m,L) strongly online batch codes classification recovery sets",
+        "Recovery algorithms for linear batch codes ISITA 2026 Example 4.22"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.09748v1",
+      "arXiv:2605.09748v2",
+      "public published-finding corpus semantic-search results for the exact example/parameter queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In Example IV.22 the authors list one multiset with duplicated singleton services and verify that it is \\((5,2)\\)-strongly online.",
+        "The same example's exhaustive argument concerns service sets for \\(L=1\\) and \\(L=2\\); it does not enumerate multiset multiplicities at \\(L=2\\).",
+        "The paper immediately moves to an open question about whether every strongly-online code admits some \\((m,L)\\)-structure."
+      ],
+      "reasoning": "Prior existence of one \\((5,2)\\) multiset proves only nonemptiness. The new statement determines the entire labeled feasible set at those exact parameters and finds one additional solution, so it is not a corollary of the displayed witness or the set-only impossibility.",
+      "searches": [
+        "arXiv:2605.09748 Example IV.22 (5,2) multiset all structures",
+        "arXiv:2605.09748 Definition IV.19 Example IV.22 five two",
+        "Recovery Models for Linear Batch Codes alternate (5,2) service multiset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.09748v2, Definition IV.19 defines the service-multiset exclusion condition; Example IV.22 gives this exact matrix and one \\((5,2)\\) multiset.",
+        "No published-finding corpus hit among the returned records states the exact two-structure classification or the alternate multiset."
+      ],
+      "reasoning": "Aliases checked included the example number, generator rows, service-multiset terminology, and strong-online terminology. The claimed invariant is the complete labeled solution set of Definition IV.19 at \\((m,L)=(5,2)\\), not merely existence of one witness.",
+      "searches": [
+        "Example 4.22 Recovery Models Linear Batch Codes two (5,2)-strongly online structures",
+        "generator 10101011 01100111 00011111 (5,2) strongly online",
+        "classification (5,2) strongly online batch code services Example IV.22"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published-finding corpus records concerned codimension-two LRC incidence, combinatorial batch-code storage, and unrelated exact coding problems; none used this generator or stated a \\((5,2)\\) service-multiset classification."
+      ],
+      "reasoning": "The database queries used the exact example identifier, exact generator data, parameter pair, and distinctive recovery-set pattern. No matching table or prior record was returned.",
+      "searches": [
+        "published-finding corpus: Example 4.22 Recovery Models Linear Batch Codes two (5,2)-strongly online structures",
+        "published-finding corpus: generator 10101011 01100111 00011111 (5,2) strongly online",
+        "published-finding corpus: singleton duplicated recovery sets 6,7 6,8 5,7 5,8 3,7 3,8 batch code",
+        "published-finding corpus: classification (5,2) strongly online batch code services Example IV.22"
+      ]
+    },
+    "rationale": "The closest primary source is exactly the paper defining the notion and the matrix. It displays one \\((5,2)\\)-multiset to demonstrate that multisets enlarge the model, but it does not classify all such multisets or display the second one. Exact published-finding corpus queries and focused web searches did not return a matching classification. The claim is therefore not implied by the inspected source, while residual indexing/conference-version risk is stated.",
+    "residual_risks": [
+      "The ISITA 2026 short submission cited by the long version was not available for full-text inspection in the focused search.",
+      "The two labeled structures may lie in one orbit under a broader code-equivalence group; the claim deliberately does not assert inequivalence up to automorphism.",
+      "An unindexed finite computation could contain the same labeled classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Example IV.22 displays one \\((5,2)\\) multiset and proves a set-only obstruction, but gives no classification of all \\(L=2\\) multisets and does not display the alternate multiset.",
+        "identifier_or_url": "arXiv:2605.09748v2",
+        "material_read": "Abstract; definitions of recovery sets and minimality; Section IV-C; Definition IV.19; Theorem IV.20; all of Example IV.22; conclusion; references.",
+        "method": "Full-text statement and implication comparison against the exact classified object.",
+        "title": "Recovery Models for Linear Batch Codes",
+        "trigger": "Primary source defining \\((m,L)\\)-strongly-online service multisets and containing the exact generator matrix."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_NOT_PUBLICLY_INSPECTED",
+        "evidence": "The public long version is later and explicitly extended; the unavailable short submission remains a residual originality risk but does not provide a decisive conflicting comparison.",
+        "identifier_or_url": "ISITA 2026 submission cited as reference [5] of arXiv:2605.09748v2",
+        "material_read": "Bibliographic identification and the arXiv paper's statement that the long version contains additional details and complete proofs; no public full text was located in the focused search.",
+        "method": "Access-risk comparison through the public long version and its references.",
+        "title": "Recovery algorithms for linear batch codes",
+        "trigger": "The arXiv paper states that it is an extended version of this conference submission."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5e4734a-8413-4563-a3fa-280b3106ca7a",
+  "value": {
+    "rationale": "The matrix is the paper's canonical example establishing that multiset services genuinely enlarge the newly introduced recovery model. Classifying the exact \\((5,2)\\) solution space is therefore a natural boundary invariant rather than an arbitrary slice: it shows strong rigidity, proves that the paper's construction is one of only two labeled possibilities, and identifies the only missing witness. This gives a reproducible finite benchmark for understanding and testing the new service-multiset formalism.",
+    "status": "PASS"
+  }
+}
