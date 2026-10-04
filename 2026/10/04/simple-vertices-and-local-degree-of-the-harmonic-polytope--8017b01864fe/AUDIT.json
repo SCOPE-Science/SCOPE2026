@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces incident edges to codimension-one coarsenings using the published normal-fan face-poset theorem. The dimension formula forces exactly two coarsening mechanisms, each is classified explicitly, and the enumeration is reduced to marked right-to-left maxima with a reversible deletion/insertion bijection. A separate standard-library exhaustive checker directly reconstructs every codimension-one coarsening for \\(n=2,\\ldots,8\\) and agrees with the closed formula in every case.",
+    "risks": [
+      "The finite computation is not an infinite proof; correctness for arbitrary n rests on the written coarsening classification and counting bijection."
+    ],
+    "sources": [
+      "Ardila--Escobar, arXiv:2006.03078, Definition 2.2 and Proposition 2.4.",
+      "artifacts/verify.py finite exhaustive check through \\(n=8\\)."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ardila--Escobar Proposition 2.4 encodes every face and dimension, so it is the strongest relevant structural input.",
+        "Ardila 2020/2022 proves the related bipermutahedron simple, not the harmonic polytope."
+      ],
+      "reasoning": "The face-poset theorem determines the raw data from which the new local statistic can be derived, but it does not state or parameterize a degree formula or simple-vertex enumeration. The present proof adds a classification of codimension-one coarsenings and a separate marked-permutation enumeration.",
+      "searches": [
+        "arXiv:2006.03078 Proposition 2.4 harmonic triples face poset",
+        "arXiv:2008.02295 harmonic polytope Minkowski quotient simple bipermutahedron",
+        "Published-finding index: harmonic fan local cones simplicial chambers vertex simplicity"
+      ]
+    },
+    "checked_sources": [
+      "Ardila--Escobar, The harmonic polytope, arXiv:2006.03078, full text.",
+      "Ardila, The bipermutahedron, arXiv:2008.02295, full text.",
+      "SageMath Reference Manual, harmonic_polytope(n) entry.",
+      "published-finding semantic index, seven targeted queries.",
+      "Targeted web exact-phrase searches for simple vertices, degree, degree sequence, and right-to-left maxima."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: harmonic triples classify all normal-fan faces and give their dimensions; the fan is noted non-simplicial already for \\(n=3\\).",
+        "New: a closed vertex-wise degree formula, exact simplicity criterion, exact number of simple vertices, and vanishing simple-vertex proportion."
+      ],
+      "reasoning": "The new claim is not a numerical specialization of the published vertex/facet counts or of the bipermutahedron results. It is a nontrivial consequence of the face-poset encoding obtained by classifying all codimension-one coarsenings of a fine triple and then enumerating marked right-to-left maxima. This dependence is disclosed rather than treated as evidence of independence.",
+      "searches": [
+        "arXiv:2006.03078 Definition 2.2 and Proposition 2.4",
+        "arXiv:2006.03078 Proposition 2.5",
+        "arXiv:2008.02295 Section 2 and Section 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No queried published-index hit among the inspected top results names the harmonic polytope or an equivalent right-to-left-maxima simplicity formula.",
+        "Exact-phrase web searches for simple vertices, vertex degree, degree sequence, and right-to-left maxima returned the primary paper and general references but no matching theorem."
+      ],
+      "reasoning": "Equivalent formulations include simplicity of vertices, simplicial maximal normal cones, local cone ray counts, and marked right-to-left-maxima classifications. No inspected source states an equivalent all-n result.",
+      "searches": [
+        "The harmonic polytope Ardila Escobar simple vertices",
+        "harmonic polytope vertex degree simple vertices right-to-left maxima",
+        "harmonic fan local cones simplicial chambers vertex simplicity",
+        "harmonic triples simple vertices enumeration",
+        "harmonic polytope nonsimple vertices count",
+        "harmonic polytope simple vertices vertex degree degree sequence local graph",
+        "harmonic polytope degree formula right-to-left maxima",
+        "Web: \"harmonic polytope\" \"simple vertex\"",
+        "Web: \"harmonic polytope\" \"vertex degree\"",
+        "Web: \"harmonic polytope\" \"degree sequence\"",
+        "Web: \"harmonic polytope\" \"right-to-left maxima\"",
+        "Web: \"H_{n,n}\" \"simple vertices\"",
+        "SageMath reference: harmonic_polytope(n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sage documents the \\(n=3\\) \\(f\\)-vector as \\((1,66,144,102,24,1)\\), consistent with \\(66\\) vertices and \\(144\\) edges.",
+        "No inspected exact table supplied the split 42 degree-4 vertices and 24 degree-5 vertices or the all-n formula."
+      ],
+      "reasoning": "Global \\(f\\)-vectors do not determine the local degree distribution. The new \\(n=3\\) split sums correctly to twice \\(144\\) edge incidences, providing an independent consistency check without being present in the table.",
+      "searches": [
+        "SageMath reference harmonic_polytope(n)",
+        "Web: \"H_{3,3}\" 42 simple vertices",
+        "Web: \"harmonic polytope\" \"degree 4\" 42"
+      ]
+    },
+    "rationale": "The closest source gives a complete harmonic-triple face-poset encoding and only the qualitative statement that the fan is not simplicial. The new theorem extracts and proves an all-n local-degree formula, a sharp three-case classification of simple maximal cones, and a closed enumeration with asymptotic density. These are not stated as special cases or parameter substitutions in the inspected sources, and targeted published-index, web, and database searches found no matching statement. The face-poset theorem is an essential prior premise rather than a theorem whose displayed conclusion specializes to the new formula.",
+    "residual_risks": [
+      "The complete face-poset description is very strong prior coverage; the originality here lies in the new local statistic and enumeration, not in new raw face data.",
+      "Terminology such as simplicial chambers or local normal-cone type could hide an uncatalogued equivalent statement."
+    ],
+    "risks": [
+      "Because Proposition 2.4 determines the full face poset, the new theorem is a derived structural statistic of known combinatorial data; a reader could regard this as close to the source even though the formula, classification, and enumeration require additional arguments.",
+      "Search coverage cannot rule out an uncatalogued note using different terminology for simplicial maximal cones of the harmonic fan."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "Proposition 2.4 gives faces, dimensions, and order via harmonic triples; Proposition 2.5 counts vertices; the text notes non-simplicity for \\(n=3\\), but no vertex-degree formula, simple-vertex classification, or simple-vertex enumeration is stated.",
+        "identifier_or_url": "arXiv:2006.03078 / DOI:10.1007/s00029-021-00687-6",
+        "material_read": "Definition 2.2; Propositions 2.4--2.7; surrounding discussion including the explicit observation of non-simplicity.",
+        "method": "Read the lawful arXiv full text and compared the theorem statements and proofs with the new local-degree statement.",
+        "title": "The harmonic polytope",
+        "trigger": "Primary source defining the object and giving its full face-poset model."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves the bipermutahedron is simple and studies the quotient Pi/H=2; it cites the harmonic-polytope paper for H itself and gives no local-degree or simple-vertex count for H.",
+        "identifier_or_url": "arXiv:2008.02295",
+        "material_read": "Introduction; Section 2 simplicity statement; Section 9 discussion of the harmonic polytope and Minkowski quotient.",
+        "method": "Read the lawful arXiv full text and searched the text for harmonic-polytope and simplicity statements.",
+        "title": "The bipermutahedron",
+        "trigger": "Closest later primary paper on the simple fan refining the harmonic fan and on the Minkowski relation between the two polytopes."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The entry records dimension, \\(3^n-3\\) facets, \\((n!)^2H_n\\) vertices, and the \\(n=3\\) \\(f\\)-vector \\((1,66,144,102,24,1)\\), but no simple-vertex count or vertex-degree distribution.",
+        "identifier_or_url": "SageMath Reference Manual, sage.geometry.polyhedron.library",
+        "material_read": "Documented harmonic_polytope entry and examples, including the \\(n=3\\) \\(f\\)-vector.",
+        "method": "Read the public reference entry returned by web search.",
+        "title": "SageMath polytope library: harmonic_polytope(n)",
+        "trigger": "A natural exact computational table/library that could expose precomputed local data."
+      }
+    ],
+    "sources": [
+      "arXiv:2006.03078",
+      "arXiv:2008.02295",
+      "SageMath Reference Manual: harmonic_polytope(n)",
+      "published-finding-index semantic searches listed in the four comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8017b018-64fe-4567-9135-1245fc3bde44",
+  "value": {
+    "rationale": "The harmonic polytope is explicitly known to be non-simple, and later expository work identifies non-simplicity as a practical disadvantage for its toric/Chow-ring use. The theorem quantifies that defect at the vertex level: it identifies exactly which vertices remain simple, gives their exact number, and shows their proportion vanishes. This is a natural structural statistic of the named polytope, not an arbitrary parameter slice or a recomputation of a known table.",
+    "risks": [
+      "The result is local combinatorics; it does not by itself resolve the geometric or algebraic difficulties caused by singularity."
+    ],
+    "sources": [
+      "Ardila--Escobar, arXiv:2006.03078, observation after Proposition 2.4 that the fan is non-simplicial already for \\(n=3\\).",
+      "Ardila, ICM 2022 survey, discussion that non-simplicity makes the harmonic polytope harder to use for Chow-ring methods."
+    ],
+    "status": "PASS"
+  }
+}
