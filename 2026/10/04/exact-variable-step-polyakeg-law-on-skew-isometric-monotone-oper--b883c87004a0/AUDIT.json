@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "With \\(e_k=x_k-x_\\star\\) and \\(s_k=L\\gamma_k\\), the assumptions imply \\(J^2=-I\\), \\(\\widehat e_k=(I-s_kJ)e_k\\), and \\(F(\\widehat x_k)=L(J+s_kI)e_k\\). Direct inner-product evaluation yields \\(\\alpha_k=\\gamma_k/(1+s_k^2)\\), hence \\(e_{k+1}=(I-s_kJ)e_k/(1+s_k^2)\\). Orthogonality gives the exact norm factor \\((1+s_k^2)^{-1/2}\\). The critical-condition ratio is exactly \\(s_k\\). Under \\(s_k\\le A\\), comparison of \\(\\log(1+s_k^2)\\) with \\(s_k^2\\) proves the stated if-and-only-if convergence criterion. The packaged exact-rational checker replays the step and product identities on canonical blocks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Solodov--Svaiter 1999 establishes a projection method and global convergence under generalized monotonicity.",
+        "Tseng 1995 establishes linear convergence of several VI methods under error bounds.",
+        "Yoon et al. 2026 explicitly say the projection correction is known and supply generic monotone and strongly monotone rates."
+      ],
+      "reasoning": "General convergence theorems do not imply the exact factor \\((1+s_k^2)^{-1/2}\\), the finite product, or the necessary-and-sufficient divergence of \\(\\sum_k s_k^2\\) for this variable-step family.",
+      "searches": [
+        "Web: Polyak extragradient skew-symmetric linear operator projection method monotone rotation exact convergence",
+        "Web: On linear convergence of iterative methods for the variational inequality problem Tseng 1995 error bound projection method rate",
+        "Web: Solodov Svaiter projection method skew symmetric linear operator convergence rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26581v1",
+      "DOI:10.1137/S0363012997317475",
+      "DOI:10.1016/0377-0427(94)00094-H",
+      "published-finding corpus:486b3694d0f0",
+      "published-finding corpus:689d5e743c56",
+      "Pethick et al., Escaping limit cycles, ICLR 2022 / arXiv:2302.09831"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yoon et al. Theorem 3.4 gives \\(O(1/K)\\) best-iterate squared-residual bounds for merely monotone operators and a linear factor only under strong monotonicity.",
+        "Yoon et al. introduce the planar rotation as a canonical monotone rotational example but do not state a PolyakEG exact trajectory formula for it.",
+        "The inspected published-finding corpus normal-extragradient record assumes strong monotonicity and optimizes a degree-two stationary polynomial.",
+        "The inspected FRB/RFB record studies a two-step reflected recurrence rather than PolyakEG's separating-halfspace correction."
+      ],
+      "reasoning": "None of the inspected statements dominates the new claim. Generic linear-convergence results under error bounds are qualitatively compatible but do not determine the exact product or iff step-sequence criterion.",
+      "searches": [
+        "Primary full text arXiv:2609.26581v1",
+        "Solodov--Svaiter 1999 abstract/full bibliographic record",
+        "Tseng 1995 abstract/bibliographic record",
+        "published-finding corpus record 486b3694d0f0",
+        "published-finding corpus record 689d5e743c56"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.26581v1, Algorithm 1 and Theorem 3.4",
+        "published-finding corpus record 486b3694d0f0",
+        "published-finding corpus record 689d5e743c56"
+      ],
+      "reasoning": "Aliases covering projection correction, PolyakEG, rotation operators, skew-isometries, square-summable steps, and exact contraction products were searched. The closest exact-rate records use different update polynomials or recurrences.",
+      "searches": [
+        "published-finding corpus: PolyakEG skew-isometry exact linear convergence factor",
+        "published-finding corpus: skew-isometric monotone root finding exact contraction projection halfspace",
+        "published-finding corpus: rotation-dominated operator PolyakEG residual decay exact",
+        "published-finding corpus: PolyakEG pure rotation square-summable steps convergence iff sum gamma squared",
+        "published-finding corpus: projection correction pure rotation variable steps product 1 plus gamma squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus record states the PolyakEG skew-isometry product law.",
+        "Closest records 486b3694d0f0 and 689d5e743c56 were inspected at full-result level and concern distinct algorithms."
+      ],
+      "reasoning": "This claim is not a recomputation of a known table. Database comparison was statement-level: the nearby records optimize different recurrences and do not imply this variable-step criterion.",
+      "searches": [
+        "published-finding corpus: PolyakEG pure rotation square-summable steps convergence iff sum gamma squared",
+        "published-finding corpus: monotone root finding rotation decreasing step square summability nonconvergence"
+      ]
+    },
+    "rationale": "The source paper states the PolyakEG update, gives only generic best-iterate sublinear bounds for merely monotone operators, and mentions rotation as a canonical test, but does not state the exact product law or square-summability criterion. Checked older projection-method statements establish method families and general convergence, not this exact trajectory law. The closest published-finding corpus records concern FRB/RFB or unequal-step classical extragradient, whose recurrences and implications are different.",
+    "residual_risks": [
+      "Older projection-method literature is extensive; an uninspected specialized linear-operator treatment could contain an equivalent skew-isometry formula.",
+      "The checked Tseng 1995 material was abstract-level rather than full theorem text, so historical exact-constant equivalence is not exhaustively excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact update used here and generic rates, but does not state the skew-isometry product law or square-summability criterion.",
+        "evidence": "Algorithm 1 gives the projection-correction step; Theorem 3.4 gives generic best-iterate rates; the introduction identifies the planar rotation as canonical.",
+        "identifier_or_url": "arXiv:2609.26581v1",
+        "material_read": "Full 40-page arXiv PDF, including Algorithm 1, the critical condition, Theorem 3.4, the constant-step consequences, and the rotation discussion.",
+        "method": "Full-text line inspection plus rendered-page inspection of the algorithm and theorem pages.",
+        "title": "Polyak-Type Extragradient Methods for Monotone Root-Finding Problems",
+        "trigger": "Primary source defining PolyakEG and motivating rotation as the canonical monotone obstruction."
+      },
+      {
+        "assessment": "Establishes the projection method and global convergence; checked material does not state the exact skew-isometry PolyakEG trajectory law.",
+        "evidence": "The method projects the current iterate onto a separating halfspace containing the solution set.",
+        "identifier_or_url": "DOI:10.1137/S0363012997317475",
+        "material_read": "Publisher abstract and method description.",
+        "method": "Publisher page inspection.",
+        "title": "A New Projection Method for Variational Inequality Problems",
+        "trigger": "Primary predecessor explicitly credited for the separating-halfspace projection geometry."
+      },
+      {
+        "assessment": "Proves linear convergence under error bounds for broad algorithm classes but does not provide the exact variable-step product or iff criterion.",
+        "evidence": "Abstract states linear convergence results for extragradient, proximal-point, matrix-splitting and feasible-descent methods based on error bounds.",
+        "identifier_or_url": "DOI:10.1016/0377-0427(94)00094-H",
+        "material_read": "Bibliographic record and abstract.",
+        "method": "Web source inspection.",
+        "title": "On Linear Convergence of Iterative Methods for the Variational Inequality Problem",
+        "trigger": "Potential broader prior coverage through error-bound linear-convergence theory."
+      },
+      {
+        "assessment": "Different assumptions and algorithm: normal strongly monotone systems and an unequal-step degree-two polynomial cycle.",
+        "evidence": "Its exact factor is a half-disk minimax for a stationary polynomial, not a Polyak projection-correction product.",
+        "identifier_or_url": "published-finding corpus:486b3694d0f0",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct repository file inspection.",
+        "title": "Exact degree-two minimax and asymmetric extragradient on normal strongly monotone systems",
+        "trigger": "Closest database hit involving exact normal-operator extragradient rates."
+      },
+      {
+        "assessment": "Different two-step reflected recurrence with characteristic roots; it does not imply PolyakEG's one-step norm identity.",
+        "evidence": "The record optimizes an FRB/RFB spectral radius and explicitly scopes itself to that reflected splitting.",
+        "identifier_or_url": "published-finding corpus:689d5e743c56",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct repository file inspection.",
+        "title": "Exact rate-optimal steps for FRB/RFB on the skew-rotation family",
+        "trigger": "Closest database hit on exact rates for a pure-skew family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b883c870-04a0-4f56-9a4e-b46ddeec0cc1",
+  "value": {
+    "rationale": "The claim gives a complete trajectory law on a canonical rotational monotone class explicitly used to motivate extragradient. It separates generic sublinear theory from the exact behavior of a maximally rotational, non-strongly-monotone benchmark and yields the sharp step-sequence boundary \\(\\sum_k(L\\gamma_k)^2=\\infty\\). In particular, it shows that a decreasing schedule can be nonsummable yet fail to converge if it is square-summable, while every constant critical-condition step converges linearly with a known exact factor. This is a structurally motivated benchmark and convergence boundary, not an arbitrary parameter slice or a numerical recomputation.",
+    "status": "PASS"
+  }
+}
