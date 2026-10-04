@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For the exact eventual Hall quantile, exponential order-statistic spacings give an exact decomposition. The correction expectation is \\(m(z)=-\\beta z/(1+\\beta)+\\beta z^2/(1+2\\beta)+O(z^3)\\); subtracting the first-order bias leaves \\(\\alpha A(n/k)^2/[\\beta(1+2\\beta)]\\). Threshold and centered-correction errors are exponentially negligible at speed \\(k\\delta_n^2\\), after which the gamma moderate-deviation law gives the exponent.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.31127v1, Section 4.2",
+        "arXiv:1606.05687, equations (12)-(14)",
+        "Mathematics 12 (2024), 2866"
+      ],
+      "reasoning": "Broader reduced-bias literature supports leading-bias removal and higher-order modeling but did not supply the combined one-sided moderate-deviation exponent.",
+      "searches": [
+        "Hill estimator Hall class target large deviation exponent choose k threshold selection conservative bias reliability frontier",
+        "extreme value tail index number of upper order statistics reliability constraint moderate deviations second order",
+        "Hall second-order tail Hill estimator threshold selection overestimation probability exponential rate",
+        "minimum-variance reduced-bias Hill estimator Hall class second order bias term",
+        "Hill estimator Hall class A squared bias"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31127v1",
+      "arXiv:1606.05687",
+      "DOI:10.1063/1.4968687",
+      "Mathematics 12 (2024), 2866"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.31127v1 requires \\(|A(n/k)|=O(\\theta_n)\\) for the bias-corrected result and leaves \\(k\\)-selection open.",
+        "arXiv:1606.05687 gives central-limit and MSE statements, not exponentially small one-sided probabilities."
+      ],
+      "reasoning": "The central regime \\(\\theta_n=O(A(n/k)^2)\\), including zero, is outside the closest theorem whenever \\(A(n/k)\\ne0\\). Normal-limit or MSE results do not imply moderate-deviation tail exponents.",
+      "searches": [
+        "Hill estimator Hall class target large deviation exponent choose k threshold selection conservative bias reliability frontier",
+        "bias-corrected Hill exact Hall class residual A squared conservative overestimation exponent k A fourth",
+        "Hill estimator first-order bias correction Hall quantile residual second-order moderate deviations conservative decay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.31127v1, Theorem 3 and Corollary 7",
+        "arXiv:1606.05687, Sections 1-2",
+        "DOI:10.1063/1.4968687"
+      ],
+      "reasoning": "Searches targeted the same statistic, Hall parametrization, reciprocal overestimation event, and residual-bias formulation. The closest theorem imposes a larger explicit-rescaling regime; older bias-reduction work addresses different asymptotic criteria.",
+      "searches": [
+        "Large and Moderate Deviations for Conservative Tail-Index Estimation Hill estimator exact finite sample Pareto",
+        "Hill estimator Pareto exact finite-sample conservative overestimation probability gamma quantile rescaling",
+        "rescaled Hill estimator exact calibration Pareto one-sided overestimation finite sample",
+        "tail index conservative estimator finite sample exact gamma correction",
+        "bias-corrected Hill exact Hall class residual A squared conservative overestimation exponent k A fourth",
+        "Hill estimator first-order bias correction Hall quantile residual second-order moderate deviations conservative decay"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic-result records concerned unrelated moderate deviations or generic gamma expansions; no returned result stated the Hill-specific \\(A(n/k)^2\\) residual and \\(kA(n/k)^4\\) conservative exponent."
+      ],
+      "reasoning": "Exact-object searches included bias-corrected Hill, Hall class, reciprocal overestimation, quadratic residual, and fourth-order exponent terminology.",
+      "searches": [
+        "bias-corrected Hill exact Hall class residual A squared conservative overestimation exponent k A fourth",
+        "threshold selection conservative tail index bias-corrected Hill k A^4",
+        "reciprocal bias-corrected Hill overestimation exponential decay Hall class"
+      ]
+    },
+    "rationale": "The motivating 2026 paper proves the bias-corrected one-sided moderate-deviation law only when \\(|A(n/k)|=O(\\theta_n)\\), which does not cover \\(\\theta_n=0\\) with nonzero Hall amplitude. The accepted statement identifies the next residual scale \\(A(n/k)^2\\), its sign-independent coefficient, and the resulting \\(kA(n/k)^4\\) overestimation exponent.",
+    "residual_risks": [
+      "A higher-order reduced-bias paper may contain the same quadratic Hall bias coefficient under another parametrization; the originality claim is therefore the combined coefficient-plus-one-sided-exponent theorem.",
+      "For the 2024 generalized reduced-bias article, the inspected material establishes asymptotic bias-reduction context but does not expose a one-sided moderate-deviation theorem; a differently stated higher-order result remains a residual literature risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the accepted residual regime.",
+        "evidence": "Theorem 3 assumes \\(|A(n/k)|=O(\\theta_n)\\); Corollary 7 transfers that condition to the reciprocal estimator; the introduction leaves choosing \\(k\\) for a target decay rate as future work.",
+        "identifier_or_url": "arXiv:2609.31127v1",
+        "material_read": "Abstract, definitions, related work, Theorem 3 proof, Corollary 7, and discussion of choosing the order-statistic level.",
+        "method": "Full-text arXiv scientific-text inspection.",
+        "title": "Large and Moderate Deviations for Conservative Tail-Index Estimation",
+        "trigger": "Same statistic, same one-sided reliability objective, same first-order bias correction."
+      },
+      {
+        "assessment": "NOT_COVERING.",
+        "evidence": "The displayed results are central-limit-scale normal approximations and MSE formulas, not one-sided moderate-deviation probabilities.",
+        "identifier_or_url": "arXiv:1606.05687",
+        "material_read": "Introduction and Section 2, including Hill, extended-Pareto bias reduction, asymptotic normal limits, and MSE tuning.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Reducing bias and MSE in estimation of heavy tails: a Bayesian approach",
+        "trigger": "Primary full-text reduced-bias extreme-value paper using Hill and second-order tails."
+      },
+      {
+        "assessment": "No dominating claim visible in the available material.",
+        "evidence": "The abstract emphasizes removal of dominant asymptotic bias while retaining Hill variance and studies nondegenerate asymptotic behavior.",
+        "identifier_or_url": "DOI:10.1063/1.4968687",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher and author metadata inspection.",
+        "title": "Reduced bias Hill estimators",
+        "trigger": "Directly named reduced-bias Hill literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ffef7776-96b3-41a1-a9da-5c82ba00e586",
+  "value": {
+    "rationale": "The source paper's safety objective is exponentially small tail-index overestimation, and its bias-corrected theorem is silent after the first-order bias has been canceled more accurately than \\(|A(n/k)|\\). The canonical Hall model exposes the next reliability scale and an explicit target-decay \\(k\\)-selection law, so the result addresses a motivated gap rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
