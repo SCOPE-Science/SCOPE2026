@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For affine f and g the cutting-plane models are exact. On the certificate ball [0,2 iota], both base and transferred models are affine with positive slope, so the residuals are rho/2 and tilde rho-rho/2 exactly. The feasibility bound is equality at the base penalty and weaker than the transferred residual lower bound for tilde rho>rho. The bundled exact-rational checker reproduces these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.14680 treats the unconstrained normalized Wolfe certificate and therefore has no changing exact-penalty coefficient.",
+        "arXiv:2609.03251v1 states the upper transfer rule but not a lower bound or equality example in the inspected transfer section."
+      ],
+      "reasoning": "A stronger result would have to prove a lower bound on all valid transferred tolerances or exhibit exact attainment. The inspected predecessor and source provide only certificate construction and the transfer upper bound.",
+      "searches": [
+        "published-finding corpus: Wolfe certificate exact penalty transfer tolerance larger penalty parameter",
+        "web: \"normalized Wolfe certificate\" optimization APEX piecewise smooth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.03251v1",
+      "arXiv:2601.14680",
+      "published published-finding corpus semantic search corpus",
+      "current private ledger through generation g000021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.3 implies only that the displayed transferred tolerance is sufficient.",
+        "The affine construction proves necessity for the same point set by computing the exact transferred residual.",
+        "The current ledger search returned no Penalty W-certificate or arXiv:2609.03251 claim."
+      ],
+      "reasoning": "Sufficiency does not imply sharpness. The new lower bound matches the source upper bound exactly, while the predecessor lacks the transfer parameter entirely.",
+      "searches": [
+        "Primary full text: arXiv:2609.03251v1 Definition 3, Proposition 4.3, remarks after Proposition 4.3",
+        "Primary predecessor: arXiv:2601.14680 normalized Wolfe certificate framework",
+        "Current ledger claim/source search for Wolfe, APEX, 2609.03251"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.03251v1 Definition 3 defines the two certificate inequalities; Proposition 4.3 gives the transfer tolerance.",
+        "published-finding corpus closest IDs included 2026/9/17/SCOPE-automatic-boundedness-for-deterministic-gradient-mapping-accumulation--e3edbe40faf5 and 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4, neither concerning Penalty W-certificate transfer."
+      ],
+      "reasoning": "The claim is specifically the exact minimal transferred tolerance for the same certificate set in the new Penalty W-certificate definition. Nearby certificate or penalty results with different residuals are not equivalent.",
+      "searches": [
+        "published-finding corpus: penalty normalized Wolfe certificate transfer larger penalty parameter sharp constant factor 2",
+        "published-finding corpus: Penalty W-certificate transfer sharpness affine one dimensional function constrained optimization",
+        "web: \"Penalty W-certificate\" sharpness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus search returned optimization records on other certificates and penalty phenomena but no record for this proposition or equality example.",
+        "Targeted web search resolved to the primary arXiv paper and did not surface an independent sharpness table or database entry."
+      ],
+      "reasoning": "There is no natural numerical table underlying this symbolic certificate inequality. Exact-source and semantic database searches were used instead to test whether the equality case had already been recorded.",
+      "searches": [
+        "published-finding corpus: Accelerated Prox-Level Methods Unknown Piecewise Smooth Function-constrained Penalty W-certificate Proposition 4.3",
+        "web: \"Proposition 4.3\" \"Penalty W-certificate\""
+      ]
+    },
+    "rationale": "The inspected primary source states the transfer upper bound but no sharpness example or necessity theorem; the predecessor has no penalty transfer. Targeted published-finding corpus, web, and current-ledger searches did not identify a statement implying exact equality for this transfer rule.",
+    "residual_risks": [
+      "A later version or later publication could independently add the same sharpness example; the claim is limited to the literature and records inspected here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_UPPER_BOUND_NOT_SHARPNESS",
+        "evidence": "Definition 3 gives the residual and feasibility inequalities. Proposition 4.3 gives tilde nu = nu + 2 nu (tilde gamma-gamma)/gamma for a larger penalty. No sharpness statement was found in the inspected transfer section.",
+        "identifier_or_url": "arXiv:2609.03251v1",
+        "material_read": "Abstract; Definition 3; Proposition 4.1 context; Proposition 4.3; three remarks following Proposition 4.3; full-text searches for sharp/tight terminology.",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Accelerated Prox-Level Methods for Unknown Piecewise-Smooth Optimization II: Function-constrained Optimization",
+        "trigger": "Primary source introducing the Penalty W-certificate and Proposition 4.3."
+      },
+      {
+        "assessment": "NOT_COVERING_TRANSFER",
+        "evidence": "The predecessor concerns unconstrained PWS minimization and normalized Wolfe certificates; it has no function-constraint penalty parameter to transfer.",
+        "identifier_or_url": "arXiv:2601.14680",
+        "material_read": "Abstract and certificate-focused summaries/search results sufficient to establish that the setting is unconstrained and lacks a changing exact-penalty coefficient.",
+        "method": "arXiv metadata plus targeted web inspection",
+        "title": "Optimal Methods for Unknown Piecewise Smooth Problems I: Convex Optimization",
+        "trigger": "Closest predecessor for the normalized Wolfe certificate framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6187bd76-cfe7-4ef4-a8fc-7a8e4c599d23",
+  "value": {
+    "rationale": "The transfer rule is a central mechanism in the new parameter-free constrained APEX framework. Exact attainability shows that the factor loss is intrinsic to the certificate definition under the theorem's assumptions, distinguishing a structural limitation from a loose proof constant. This directly informs any attempt to improve penalty-update certification.",
+    "status": "PASS"
+  }
+}
