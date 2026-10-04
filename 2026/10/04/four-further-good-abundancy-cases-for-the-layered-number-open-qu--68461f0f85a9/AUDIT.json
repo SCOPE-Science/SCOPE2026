@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces each case to a single exact prime-power factor. The cited A023199 formulas identify a_i; A073751 positions force q_i to exponent one in the relevant c(p), and the rational correction factor is coprime to q_i. Then sigma(q_i)=q_i+1 is divisible by i. The supplied replay checks all finite arithmetic conditions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest indexed mathematical records concern other Zumkeller or divisor-sum classifications, not equality of a_i and g_i at these indices."
+      ],
+      "reasoning": "No stronger theorem covering these four cases was located. The primary paper itself leaves the all-i statement open.",
+      "searches": [
+        "On k-layered numbers a14 a15 a16 a17 good abundant",
+        "smallest 14-abundant good 14-abundant a_14 g_14 k-layered sigma divisible by 14"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.09053v1",
+      "OEIS:A023199",
+      "OEIS:A073751",
+      "indexed semantic search results for layered/good-abundant aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jokar's Remark 4.10 uses exactly the witness pattern q_i || a_i and q_i congruent to -1 mod i only for i<=13 (except 5).",
+        "The present witnesses extend that mechanism to 14,15,16,17."
+      ],
+      "reasoning": "The new claim is not a corollary of the paper without adding the four exact multiplicity checks; it is a finite extension of its stated verified range.",
+      "searches": [
+        "83 149 127 13633 smallest k-abundant sigma divisibility 14 15 16 17",
+        "Jokar open question 4.11 a_i g_i i=14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jokar arXiv:2207.09053v1, Remark 4.10 and Open Question 4.11",
+        "No exact indexed match returned for the four-case equality."
+      ],
+      "reasoning": "The searched aliases cover the paper's notation, the defining phrase 'good k-abundant', and the concrete A023199 representation.",
+      "searches": [
+        "a_i equals g_i k-layered good k-abundant open question 4.11 indices 14 15 16 17",
+        "\"good 14-abundant\" \"a_14\" g_14",
+        "\"a_14\" \"k-layered\" 2621 710"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A023199 gives a(14)=c(2621)*710, a(15)=c(4567)*2/21, a(16)=c(8011)/2, a(17)=c(13999)*1630.",
+        "A073751 b-file supplies the occurrence positions used to prove each witness prime has exponent one."
+      ],
+      "reasoning": "The tables contain the raw minimality and factor-multiplicity data, but do not state the derived equality a_i=g_i for i=14..17.",
+      "searches": [
+        "OEIS A023199 a(14) a(15) a(16) a(17)",
+        "OEIS A073751 positions 83 149 127 13633"
+      ]
+    },
+    "rationale": "The 2022 primary paper explicitly records equality only through i=13 except i=5 and poses the general equality as Open Question 4.11. Targeted semantic-database and web searches for the four next cases, their witness primes, and the open-question language found no statement of the i=14..17 extension. This supports originality while leaving the normal residual risk of an unindexed source.",
+    "residual_risks": [
+      "An unindexed note or unpublished computation could have observed the same four equalities.",
+      "A073751 documents a general conjectural issue about prime consecutive colossally-abundant ratios, although it reports direct verification far beyond the positions used here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the witness pattern only through i=13 except i=5 and explicitly asks the general question.",
+        "evidence": "Remark 4.10 and Open Question 4.11.",
+        "identifier_or_url": "arXiv:2207.09053v1",
+        "material_read": "Definitions 4.1-4.2, Proposition 4.4, Remark 4.10, Open Question 4.11, surrounding proof text.",
+        "method": "Full-text inspection of arXiv HTML.",
+        "title": "On k-layered numbers",
+        "trigger": "Primary source defining a_i, g_i and posing the equality question."
+      },
+      {
+        "assessment": "Provides exact c(p)-multiplier representations for all four needed a_i.",
+        "evidence": "A023199 formulas a(14)..a(17).",
+        "identifier_or_url": "OEIS:A023199",
+        "material_read": "Definition, formulas for a(14)..a(17), and provenance notes.",
+        "method": "Direct page inspection.",
+        "title": "OEIS A023199",
+        "trigger": "Exact values of the least i-abundant integers beyond the paper's tabulated range."
+      },
+      {
+        "assessment": "The needed occurrence windows force each chosen witness prime to appear exactly once before the relevant target first occurrence.",
+        "evidence": "Positions 37/572 vs 425; 52/1500 vs 673; 47/1145 vs 1072; and the 1687..1727 segment.",
+        "identifier_or_url": "OEIS:A073751",
+        "material_read": "Definition, computation notes, b-file ranges around all target and repeat positions.",
+        "method": "Direct page and b-file inspection.",
+        "title": "OEIS A073751",
+        "trigger": "Need exact exponents of the witness primes in c(p)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68461f0f-85a9-4ccd-993a-969ffae7d52c",
+  "value": {
+    "rationale": "The claim resolves the next four consecutive available exact cases of an explicit 2022 open question and extends its published finite verification boundary from 13 to 17. It is a natural finite cutoff using the same structural witness as the source paper, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
