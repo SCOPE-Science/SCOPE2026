@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The proof first characterizes every terminal two-coloring exactly. For each starting convention and each parity of n, explicit pairing or blocking strategies then decide the two-color game. Hartnell--Rall Lemma 4.1, inspected in the primary full text, bounds both game numbers by 2 because the minimum degree is 2. A standalone minimax checker reconstructs adjacency, domination, all terminal two-colorings, and both games for 2<=n<=7; it returns ALL CHECKS PASSED. The computation is only a finite stress test; the universal quantifier is discharged by the analytic strategies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartnell--Rall Theorem 5.5 covers complete bipartite graphs only.",
+        "English--Swan arXiv:2603.13522 studies general bounds and starting-player effects, but searches of the inspected text for split and multipartite formulations found no exact theorem covering K_{1,1,n}."
+      ],
+      "reasoning": "The known complete-bipartite theorem is inapplicable because K_{1,1,n} contains a triangle. General upper bounds constrain the value but do not determine the parity-dependent winner.",
+      "searches": [
+        "domatic number game K_{1,1,n} parity universal vertices",
+        "domatic game complete tripartite K 1 1 n Alice Bob first",
+        "split graph domatic game parity complete split K_2 join independent set",
+        "game domatic number two universal vertices independent set",
+        "domatic number game complete multipartite graph",
+        "game domatic complete tripartite multipartite",
+        "delayed game domatic complete multipartite",
+        "domatic game K_{a,b,c}",
+        "\"domatic number game\" \"K_{1,1,n}\"",
+        "\"domatic game\" \"complete tripartite\"",
+        "\"game domatic number\" split graph",
+        "\"delayed game domatic\" split graph"
+      ]
+    },
+    "checked_sources": [
+      "Hartnell--Rall, arXiv:2508.10754 / DOI:10.61091/ars165-03",
+      "English--Swan, arXiv:2603.13522",
+      "Deletion and palette size in the domatic number game, 2026-08-11 publication",
+      "published-finding corpus semantic index under exact and alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hartnell--Rall Lemma 4.1 implies only the upper bound at delta=2, while Theorem 5.5 applies to bipartite K_{m,n}.",
+        "The ordinary domatic bound dom(G)<=delta+1 yields 3 but does not decide either game convention."
+      ],
+      "reasoning": "The new statement requires both an exact terminal-color characterization and parity-sensitive strategies. Neither the source upper bound nor the complete-bipartite result implies the two formulas or their reversal.",
+      "searches": [
+        "domatic number game K_{1,1,n} parity universal vertices",
+        "domatic game complete tripartite K 1 1 n Alice Bob first",
+        "split graph domatic game parity complete split K_2 join independent set",
+        "game domatic number two universal vertices independent set",
+        "domatic number game complete multipartite graph",
+        "game domatic complete tripartite multipartite",
+        "delayed game domatic complete multipartite",
+        "domatic game K_{a,b,c}",
+        "\"domatic number game\" \"K_{1,1,n}\"",
+        "\"domatic game\" \"complete tripartite\"",
+        "\"game domatic number\" split graph",
+        "\"delayed game domatic\" split graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states a domatic-game formula for K_{1,1,n}, K_2 join an independent set, or the equivalent two-universal-vertices split graph.",
+        "Targeted web searches under K_{1,1,n}, complete tripartite, split graph, and domatic-game aliases found the initiating and follow-up papers but no exact family theorem."
+      ],
+      "reasoning": "The graph was searched both by complete-tripartite notation and by its split-graph/join structure, so a result phrased without K_{1,1,n} notation was also targeted.",
+      "searches": [
+        "domatic number game K_{1,1,n} parity universal vertices",
+        "domatic game complete tripartite K 1 1 n Alice Bob first",
+        "split graph domatic game parity complete split K_2 join independent set",
+        "game domatic number two universal vertices independent set",
+        "domatic number game complete multipartite graph",
+        "game domatic complete tripartite multipartite",
+        "delayed game domatic complete multipartite",
+        "domatic game K_{a,b,c}",
+        "\"domatic number game\" \"K_{1,1,n}\"",
+        "\"domatic game\" \"complete tripartite\"",
+        "\"game domatic number\" split graph",
+        "\"delayed game domatic\" split graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned unrelated complete-multipartite invariants and unrelated game records, with no same-invariant exact table or formula.",
+        "The Hartnell--Rall primary full text contains a complete-bipartite table/formula, not a table for K_{1,1,n}."
+      ],
+      "reasoning": "No exact database/table located in the searched sources contains this family result; the bundled finite table is generated from the new proof as a verification stress test, not imported from prior data.",
+      "searches": [
+        "domatic number game K_{1,1,n} parity universal vertices",
+        "domatic game complete tripartite K 1 1 n Alice Bob first",
+        "split graph domatic game parity complete split K_2 join independent set",
+        "game domatic number two universal vertices independent set",
+        "domatic number game complete multipartite graph",
+        "game domatic complete tripartite multipartite",
+        "delayed game domatic complete multipartite",
+        "domatic game K_{a,b,c}",
+        "\"domatic number game\" \"K_{1,1,n}\"",
+        "\"domatic game\" \"complete tripartite\"",
+        "\"game domatic number\" split graph",
+        "\"delayed game domatic\" split graph"
+      ]
+    },
+    "rationale": "The initiating paper gives exact complete-bipartite formulas but not the complete-tripartite split family K_{1,1,n}; the later English--Swan paper supplies general bounds without the inspected exact family classification. Semantic searches under the graph family, join/split aliases, starting-player parity, and universal-vertex formulations returned no statement implying the claimed parity reversal.",
+    "residual_risks": [
+      "A differently named or poorly indexed prior result on this exact split-graph family could have escaped the targeted searches.",
+      "The deletion/palette follow-up was not needed for the proof and was not used to make a whole-document noncoverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the sharp upper bound and bipartite benchmark but does not state or imply the K_{1,1,n} parity-reversal classification.",
+        "evidence": "Theorem 5.5 gives exact values for K_{m,n}; Lemma 4.1 gives the even-minimum-degree upper bound. The paper identifies MSC 05C57 and 05C69.",
+        "identifier_or_url": "arXiv:2508.10754; DOI:10.61091/ars165-03",
+        "material_read": "Definition and notation, minimum-degree upper bound, complete-bipartite theorem, and concluding research questions in the full text.",
+        "method": "Lawful public arXiv/article full text; relevant PDF pages inspected directly.",
+        "title": "The domatic number game played on graphs",
+        "trigger": "Primary initiating source and closest exact family result."
+      },
+      {
+        "assessment": "No exact K_{1,1,n} or complete-tripartite classification was located.",
+        "evidence": "The paper studies general bounds and starting-player comparisons; targeted family terms were absent from the inspected text.",
+        "identifier_or_url": "arXiv:2603.13522",
+        "material_read": "Abstract and accessible full-text/searchable material, including targeted searches for split, multipartite, universal-vertex, and complete-graph terminology.",
+        "method": "Lawful public arXiv text and targeted in-document search.",
+        "title": "On the Domatic Game",
+        "trigger": "Recent follow-up on bounds and the effect of who starts."
+      },
+      {
+        "assessment": "No exact complete-tripartite or split-family result surfaced; it does not supply a decisive covering comparison.",
+        "evidence": "Available description concerns palette monotonicity and graph deletion rather than this family classification.",
+        "identifier_or_url": "Combinatorial Press publication, 2026-08-11",
+        "material_read": "Bibliographic/search result material describing palette monotonicity and deletion results.",
+        "method": "Public bibliographic and search material.",
+        "title": "Deletion and palette size in the domatic number game",
+        "trigger": "Recent same-invariant follow-up with potentially broader palette statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "08304aa3-dec8-4067-b7b5-1663e5d49ab9",
+  "value": {
+    "rationale": "K_{1,1,n} is a natural first non-bipartite complete multipartite family adjacent to the complete-bipartite case treated in the initiating paper. The exact result separates static and game behavior: dom(G_n)=3 for every n>=2, yet one starting convention has game value 2 and the other 1, with the roles switching at every parity change. This is an infinite structural phenomenon with explicit strategies rather than an isolated small-graph computation.",
+    "status": "PASS"
+  }
+}
