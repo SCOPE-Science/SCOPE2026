@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The Pareto mean-threshold probability reduces exactly to 1-((theta-1)/(kappa theta))^theta. The source derivative is independently reconstructed. With y=1/x, the unique stationary equation is y-log y=1+log kappa; y>1 selects W_{-1}. The exact minimum identity and both endpoint expansions follow by algebra and series reversion. The bundled finite computations only stress-test, rather than establish, the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun--Hu--Sun, Journal of Inequalities and Applications 2024:5, studies the analogous Gamma distribution functional and cites arXiv:2305.02114.",
+        "Guo--Tao--Hu et al., Statistics & Probability Letters 207 (2024) 110037, treats the negative-binomial distribution rather than the Pareto shape optimization."
+      ],
+      "reasoning": "The broader Chvatal-motivated literature treats neighboring distribution families. Those theorems neither specialize to the Pareto type-I shape equation nor dominate its Lambert-W critical expansion.",
+      "searches": [
+        "Pareto distribution probability below kappa mean unique optimizer phase transition",
+        "Pareto mean probability infimum shape parameter kappa asymptotics",
+        "probability distribution infimum at kappa expectation Gamma Pareto Chvatal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.02114v1",
+      "NIST DLMF §4.13",
+      "DOI:10.1186/s13660-024-03081-w",
+      "DOI:10.1016/j.spl.2024.110037"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li--Hu--Zhou Proposition 3.1 establishes unique minimization for kappa>1 and the kappa=1 infimum 1-e^{-1}, but does not quantify how the interior minimizer approaches that boundary.",
+        "DLMF gives W e^W=z, the real W_{-1} branch, and generic branch-point/asymptotic expansions, but not the Pareto reduction y-log y=1+log kappa."
+      ],
+      "reasoning": "Prior existence/uniqueness plus generic special-function theory does not state the final probability theorem. The new claim requires identifying the correct lower branch, translating it back to the Pareto shape and minimum, and carrying out the endpoint expansions.",
+      "searches": [
+        "A study on the Weibull and Pareto distributions motivated by Chvatal theorem Pareto Section 3",
+        "NIST DLMF Lambert W branch W_{-1} branch point expansion",
+        "A study on the Weibull and Pareto distributions cited by Gamma negative binomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.02114v1 writes the unique optimizer as theta_0(kappa)=1/(1-x_0(kappa)), with x_0(kappa) the unique zero of 1-1/x-log(x/kappa).",
+        "NIST DLMF §4.13 defines the lower real branch W_{-1} on (-e^{-1},0), but gives no Pareto mean-threshold application."
+      ],
+      "reasoning": "The source implicit equation is equivalent to the new closed form after y=1/x, but the source does not state that branch-resolved formula or the derived endpoint laws. General Lambert-W identities do not themselves contain the probability result.",
+      "searches": [
+        "Pareto type I min P X less than kappa EX W_{-1} square root log kappa",
+        "theta_kappa W_-1 e kappa Pareto infimum",
+        "arXiv:2305.02114 Section 3 Proposition 3.1 Lemma 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result searches returned no matching Pareto finding; the closest hits concerned unrelated critical laws or other probability families.",
+        "The current primary source gives an implicit root rather than a table or closed-form catalogue entry."
+      ],
+      "reasoning": "No searched database/table entry supplied the claimed exact optimizer or its small- and large-kappa laws. A failed search is not treated as proof of novelty; it is combined with primary full-text comparison.",
+      "searches": [
+        "critical square root law Pareto mean threshold infimum Lambert W lower branch",
+        "1-e^-1 sqrt(2 log kappa) Pareto probability",
+        "2305.02114 Pareto optimizer asymptotic Lambert W"
+      ]
+    },
+    "rationale": "The closest primary source proves the same optimizer only through a unique implicit root. Full-text inspection of its Pareto section found no Lambert-W formula or endpoint asymptotic. Exact-claim and alias searches found no source implying the branch-resolved formula or square-root critical law.",
+    "residual_risks": [
+      "The Lambert-W reduction is short enough that an equivalent observation may exist in poorly indexed literature under different Pareto or special-function terminology.",
+      "Database searches cannot establish uniqueness of publication; originality rests primarily on the exact implication comparison with the closest full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper gives theta_0(kappa)=1/(1-x_0(kappa)) with x_0 the unique zero of 1-1/x-log(x/kappa); no Lambert-W or optimizer endpoint asymptotics appear in the inspected text.",
+        "identifier_or_url": "arXiv:2305.02114v1",
+        "material_read": "Full open text of Section 3, including Proposition 3.1, Lemma 3.2, and their proof.",
+        "method": "Read the lawful open arXiv HTML text and compared equations and implications.",
+        "title": "A study on the Weibull and Pareto distributions motivated by Chvatal's theorem",
+        "trigger": "Exact same Pareto mean-threshold object and implicit optimizer."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "DLMF defines W_{-1} and its generic expansions, but contains no Pareto mean-threshold optimization statement.",
+        "identifier_or_url": "NIST DLMF §4.13",
+        "material_read": "Definition, real branch description, and asymptotic/branch-point discussion.",
+        "method": "Read the public DLMF section.",
+        "title": "Lambert W-Function, NIST Digital Library of Mathematical Functions §4.13",
+        "trigger": "Needed to check branch conventions and whether the special-function reference already packages the application."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_FAMILY",
+        "evidence": "The article concerns Gamma laws and cites the Pareto paper as a separate distribution-family result.",
+        "identifier_or_url": "DOI:10.1186/s13660-024-03081-w",
+        "material_read": "Abstract, bibliographic context, and references to the Pareto paper.",
+        "method": "Read the lawful open article page.",
+        "title": "The infimum values of two probability functions for the Gamma distribution",
+        "trigger": "Later paper in the same probability-at-a-multiple-of-the-mean program and a plausible source of broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e11136c-fbcb-41e5-8801-ceca7ca08abb",
+  "value": {
+    "rationale": "The source identifies kappa=1 as a genuine boundary between an unattained limiting infimum and a kappa>1 attained interior minimum. The exact W_{-1} form exposes the branch mechanism and the square-root expansion supplies the natural escape/onset scale, giving a complete structural description rather than a routine numerical refinement.",
+    "status": "PASS"
+  }
+}
