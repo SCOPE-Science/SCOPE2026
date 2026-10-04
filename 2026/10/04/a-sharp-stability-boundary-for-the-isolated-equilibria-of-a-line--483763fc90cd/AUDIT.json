@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For \\(a,b,c>0\\) the isolated equilibria follow by exact elimination. Substitution into the Jacobian gives \\(p(\\lambda)=\\lambda^3+(a+b)\\lambda^2+(bc^2/a^2)\\lambda+2bc^2/a\\). The cubic Routh determinant equals \\(bc^2(b-a)/a^2\\), which proves Hurwitz stability exactly for \\(b>a\\) and two right-half-plane roots for \\(0<b<a\\). At \\(b=a\\) the polynomial factors as \\((\\lambda+2a)(\\lambda^2+c^2/a)\\). The showcased exact-arithmetic replay independently reconstructs the cubic and excludes a zero root.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang, Nonlinear Dynamics 60 (2010), DOI 10.1007/s11071-009-9601-1, studies \\(\\dot x=a(y-x)\\), \\(\\dot y=cx-axz\\), \\(\\dot z=xy-bz\\) and gives a different isolated-equilibrium cubic.",
+        "Chen et al. replace the first equation by \\(\\dot x=yz-ax\\); their symbolic local analysis on the same page is for the equilibrium line \\(E_3\\)."
+      ],
+      "reasoning": "The natural stronger candidate is the stability theorem for the cited precursor. It is inapplicable because changing the first equation changes both the equilibria and their Jacobian polynomial, so its theorem does not dominate the present claim.",
+      "searches": [
+        "\"Existence of attractor and control of a 3D differential system\" stability equilibrium eigenvalues",
+        "\"Dynamics and Complexity Analysis\" \"E1\" \"E2\" equilibrium 5710765"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2020/5710765",
+      "doi:10.1007/s11071-009-9601-1",
+      "doi:10.1007/s11071-012-0407-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algaba et al., Nonlinear Dynamics 69 (2012), DOI 10.1007/s11071-012-0407-1, criticize the Shilnikov-connection proof in Wang rather than the local spectrum of Chen et al.\\'s modified flow.",
+        "Chen et al. report a zero eigenvalue for \\(E_1\\) and \\(E_2\\) at \\((5,2,34)\\), while the exact isolated-equilibrium polynomial has constant term \\(4624/5\\) and therefore cannot have zero as a root."
+      ],
+      "reasoning": "Neither the precursor theorem nor its rebuttal implies the new cubic for the modified vector field. The introducing article is not stronger: its printed numerical spectrum conflicts with the exact determinant at the isolated points.",
+      "searches": [
+        "Rebuttal of \"Existence of attractor and control of a 3D differential system\" equilibrium stability",
+        "10.1155/2020/5710765 stability equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al., Complexity 2020, DOI 10.1155/2020/5710765, Section 2.1 and equations (2)-(5).",
+        "Exact-phrase searches returned the introducing article but no paper stating the same isolated-equilibrium cubic or \\(b=a\\) stability boundary."
+      ],
+      "reasoning": "Potential aliases were searched through the exact vector-field monomials, the reported numerical eigenvalues, and the line-equilibrium description. The checked matches did not contain an equivalent statement for the isolated equilibria.",
+      "searches": [
+        "\"yz-ax\" \"cx-axz\" \"xy-bz\" equilibrium stability",
+        "\"yz - ax\" \"line equilibrium\" fractional",
+        "\"0.4631\" \"21.3673\" chaotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked exact DOI, exact-polynomial, and reported-number searches recovered the source or unrelated dynamical-systems records; none stated the claimed parameter-global classification."
+      ],
+      "reasoning": "The searches targeted both the exact algebraic invariant and the source-specific numerical fingerprint, reducing the risk that the result appears under a different descriptive title. Absence from the checked indexes is supporting evidence, not a proof of uniqueness.",
+      "searches": [
+        "10.1155/2020/5710765 isolated equilibria stability eigenvalues b>a",
+        "lambda^3 +(a+b) lambda^2 + b c^2/a^2 lambda + 2 b c^2/a",
+        "\"6.0739\" \"21.3673\" 5710765"
+      ]
+    },
+    "rationale": "Statement-level comparison found no checked source that states or implies the sharp isolated-equilibrium boundary for the modified \\(\\dot x=yz-ax\\) system. The introducing article reports only a numerical spectrum at one parameter point and symbolically treats the equilibrium line; the cited precursor has a different first equation and a different characteristic polynomial.",
+    "residual_risks": [
+      "Search cannot prove absolute novelty; an unindexed paper, thesis, or differently parameterized treatment could contain the same cubic classification.",
+      "No claim is made that the local boundary \\(b=a\\) determines any global chaotic transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The source gives \\(E_1\\) and \\(E_2\\) and a one-point numerical spectrum but no isolated-equilibrium characteristic polynomial, no \\(b=a\\) boundary, and no unstable-dimension classification.",
+        "evidence": "DOI 10.1155/2020/5710765, published 22 October 2020, Section 2.1.",
+        "identifier_or_url": "doi:10.1155/2020/5710765",
+        "material_read": "Full article; especially Section 2.1, equations (2)-(5), the isolated-equilibrium coordinates and reported eigenvalues, plus the parameter-varying discussion.",
+        "method": "Open-access HTML and PDF text were inspected; the equation/eigenvalue page was also visually checked in the PDF.",
+        "title": "Dynamics and Complexity Analysis of Fractional-Order Chaotic Systems with Line Equilibrium Based on Adomian Decomposition",
+        "trigger": "Primary source introducing the exact vector field and the disputed isolated-equilibrium spectrum."
+      },
+      {
+        "assessment": "NOT_COVERING. Its first equation is \\(\\dot x=a(y-x)\\), so its isolated-equilibrium polynomial differs and cannot imply the modified-flow classification.",
+        "evidence": "DOI 10.1007/s11071-009-9601-1, equations (1)-(4) and Theorem 2.",
+        "identifier_or_url": "doi:10.1007/s11071-009-9601-1",
+        "material_read": "System definition, equilibrium coordinates, and stability theorem for the two nonzero equilibria.",
+        "method": "Public full-text extract of the primary paper.",
+        "title": "Existence of attractor and control of a 3D differential system",
+        "trigger": "Explicitly cited precursor and the most plausible source of a broader stability theorem."
+      },
+      {
+        "assessment": "NOT_COVERING. It addresses an invalid Shilnikov heteroclinic-orbit argument in Wang, not the modified \\(\\dot x=yz-ax\\) system or its isolated-equilibrium spectrum.",
+        "evidence": "DOI 10.1007/s11071-012-0407-1.",
+        "identifier_or_url": "doi:10.1007/s11071-012-0407-1",
+        "material_read": "Abstract and available full-text discussion of the criticized result.",
+        "method": "Public article page/full-text extract.",
+        "title": "Rebuttal of “Existence of attractor and control of a 3D differential system” by Z. Wang",
+        "trigger": "Potential correction literature attached to the cited precursor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "483763fc-90cd-4f16-872b-b20ac4ba1e44",
+  "value": {
+    "rationale": "The result gives a sharp, complete positive-parameter local classification of the two nontrivial equilibria and identifies their unstable dimension, correcting a zero-eigenvalue spectrum in the motivating paper. The exact boundary \\(b=a\\) is structurally meaningful and lies inside parameter ranges studied in that work. The finding is stronger than a numerical recomputation while remaining self-contained and directly useful for interpreting local versus global dynamics.",
+    "status": "PASS"
+  }
+}
