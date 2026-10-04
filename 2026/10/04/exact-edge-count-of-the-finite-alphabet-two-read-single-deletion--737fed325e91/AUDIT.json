@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The claim follows from the published Type-A iff characterization plus a bijective count. For each edge, the first and last differing coordinates give a unique interval; the Type-A theorem forces the two restrictions to be opposite alternating phases over one unordered symbol pair and forces equality outside. Conversely every such choice creates exactly two common deletion descendants. For interval length \\(L\\), the number of edges is \\((n-L+1)q^{n-L}\\binom{q}{2}\\), and the finite geometric derivative identity gives the closed form. An independent stdlib verifier reconstructs deletion balls and the canonical alternating condition and checks their equivalence on 20 finite parameter pairs, including all binary blocklengths through \\(9\\). Finite verification is explicitly not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1109/TIT.2023.3319608",
+        "arXiv:2410.15290v1",
+        "arXiv:2302.09798v1"
+      ],
+      "reasoning": "Broader intersection and reconstruction works address extremal intersection size, list decoding, code redundancy, or local ball-size counts. Those results do not determine how many unordered equal-length source pairs attain intersection size two.",
+      "searches": [
+        "multiple deletion balls intersection reconstruction list decoding",
+        "single deletion reconstruction q-ary broader coverage",
+        "q-ary deletion codes redundancy reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.01376v1",
+      "arXiv:2302.09798v1",
+      "DOI:10.1109/TIT.2023.3319608",
+      "arXiv:2410.15290v1",
+      "Abu-Sini and Yaakobi, On Levenshtein's Reconstruction Problem Under Insertions, Deletions, and Substitutions, IEEE Transactions on Information Theory 2021",
+      "Junnila, Laihonen, and Lehtilä, On Unique Error Patterns in the Levenshtein's Sequence Reconstruction Model, arXiv:2406.14125"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously recorded finding cca774d5-f4e8-4131-8c86-221656833be8 states the binary length-seven independence number 70; the current formula gives 321 edges at the same parameters."
+      ],
+      "reasoning": "An independence number at one parameter value does not determine the edge count, and the edge count does not determine the independence number. The new statement also ranges over every alphabet size and blocklength, so it is neither a corollary nor a restatement of the prior finite optimum.",
+      "searches": [
+        "two-read single-deletion reconstruction optimum length 7 70",
+        "two-read deletion confusability graph independence number edge count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2001.01376v1 Definition 8 and Proposition 9",
+        "arXiv:2302.09798v1 Type-A reconstruction passages"
+      ],
+      "reasoning": "Searches covered Type-A-confusable pairs, two common single-deletion descendants, reconstruction/confusability graphs, exact edge counts, and average degree. The foundational equivalence was found, but no inspected source performed the global enumeration.",
+      "searches": [
+        "single deletion two-read reconstruction graph exact edge count q-ary",
+        "Type-A confusable q-ary pairs exact enumeration",
+        "binary deletion reconstruction graph 1 5 17 49 129 321",
+        "average degree two-read deletion confusability graph",
+        "q-ary pairs whose single-deletion balls have intersection size two",
+        "Type-A-confusable binary sequences count pairs",
+        "pairs with two common deletion descendants binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000337 contains the shifted binary numerical sequence with formula a(m)=(m-1)2^m+1 and many unrelated combinatorial interpretations; the inspected entry contains no deletion, reconstruction, Type-A, or common-descendant interpretation.",
+        "A targeted published-finding search returned no matching deletion-reconstruction edge enumeration; closest entries concerned exact code cardinality or asymptotic deletion-code redundancy."
+      ],
+      "reasoning": "The binary specialization is numerically the shifted classical sequence OEIS A000337, so numerical coincidence alone is prior art and is not claimed as novelty. The new content is the deletion-reconstruction interpretation, the unique Type-A edge parametrization, and the all-alphabet formula. The inspected OEIS page and targeted exact-table searches do not state that interpretation or implication.",
+      "searches": [
+        "binary deletion reconstruction graph 1 5 17 49 129 321",
+        "single deletion two-read exact edge count table",
+        "Type-A confusable pair enumeration table",
+        "1 + (n-2) 2^(n-1) OEIS",
+        "1, 5, 17, 49, 129, 321 OEIS",
+        "OEIS A000337"
+      ]
+    },
+    "rationale": "The closest primary source characterizes individual pairs but does not state the aggregate graph edge count. Targeted semantic searches for the edge count, Type-A enumeration, binary numerical sequence, average degree, and equivalent common-descendant wording found no matching published finding. Related papers optimize intersection maxima/list sizes or count local configurations relative to a fixed word. The closest previously recorded result gives an independence number at one binary blocklength, a different graph invariant that neither implies nor is implied by the edge count.",
+    "residual_risks": [
+      "An older synchronization/deletion-graph paper may contain the same enumeration under a different graph name or without searchable Type-A terminology.",
+      "Some journal follow-ups were inspectable only through abstracts or open snippets rather than complete publisher text; an unadvertised finite or aggregate enumeration could therefore have been missed.",
+      "Semantic search and the checked publication corpus cannot prove global novelty or exclude unpublished computations.",
+      "Because the binary specialization is OEIS A000337 after an index shift, an older unindexed combinatorial interpretation of that sequence could conceivably coincide with the deletion-reconstruction graph even if it is not labeled that way on the inspected OEIS entry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the pairwise Type-A characterization used as a premise; NOT_COVERING for the aggregate all-source edge count stated here.",
+        "evidence": "Definition 8 gives the alternating Type-A form; Proposition 9 states that for Hamming distance at least two the one-deletion-ball intersection has size two exactly for Type-A-confusable words, while Hamming distance one gives intersection size one.",
+        "identifier_or_url": "arXiv:2001.01376v1",
+        "material_read": "ArXiv abstract and the full PDF sections containing Definition 8 and Proposition 9, including the proof around the Type-A characterization.",
+        "method": "Direct full-text inspection of the open arXiv PDF.",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Foundational source for the exact one-deletion two-read confusability relation."
+      },
+      {
+        "assessment": "NOT_COVERING for the global one-deletion source-pair edge enumeration.",
+        "evidence": "The paper uses Type-A structure to control reconstruction ambiguity, but the inspected statements concern reconstruction conditions and insertion descendants rather than a closed count of all source pairs.",
+        "identifier_or_url": "arXiv:2302.09798v1",
+        "material_read": "Open full-text passages defining Type-A-confusable sequences and relating them to two common insertion descendants.",
+        "method": "Direct inspection of the open-access full text.",
+        "title": "Reconstruction of Sequences Distorted by Two Insertions",
+        "trigger": "Closest follow-up using the same Type-A confusability mechanism in reconstruction."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material; the object is maximum multi-ball intersection/list size, not aggregate enumeration of all source pairs with intersection size two.",
+        "evidence": "The stated results optimize intersections of multiple error balls and list-decoding quantities, a different implication direction from counting every edge of a fixed two-read confusability graph.",
+        "identifier_or_url": "DOI:10.1109/TIT.2023.3319608",
+        "material_read": "Abstract and available open metadata/snippets describing the main extremal intersection and list-decoding results.",
+        "method": "Open bibliographic and abstract inspection.",
+        "title": "On the Intersection of Multiple Insertion (or Deletion) Balls and its Application to List Decoding Under the Reconstruction Model",
+        "trigger": "Plausibly broader work on intersections of deletion balls."
+      },
+      {
+        "assessment": "NOT_COVERING: its Type-A count is local to pairs among descendants of a fixed parent/error ball, whereas the present claim enumerates all equal-length source pairs globally.",
+        "evidence": "The inspected formula counts Type-A relations indexed by a fixed word's run parameters; it does not sum over all source words into the reconstruction graph edge count.",
+        "identifier_or_url": "arXiv:2410.15290v1",
+        "material_read": "Open arXiv text around the Type-A lemma and the local counting expressions used for deletion descendants.",
+        "method": "Direct open-access text inspection.",
+        "title": "On the size of error ball in DNA storage channels",
+        "trigger": "Contains explicit Type-A counting expressions that could dominate the proposed enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "737fed32-5e91-49cc-b236-2155a66b3a84",
+  "value": {
+    "rationale": "The forbidden-pair graph is the exact combinatorial object underlying two-read single-deletion reconstruction codes. Its total collision count and average degree are natural global invariants, not an arbitrary parameter slice. The formula holds for every alphabet size and blocklength, exposes a unique alternating-interval parametrization of every collision, and gives the asymptotic mean conflict degree \\(n-q/(q-1)+o(1)\\). It complements independence-number/code-size questions with exact graph density useful for structural bounds, probabilistic estimates, and finite benchmarks.",
+    "status": "PASS"
+  }
+}
