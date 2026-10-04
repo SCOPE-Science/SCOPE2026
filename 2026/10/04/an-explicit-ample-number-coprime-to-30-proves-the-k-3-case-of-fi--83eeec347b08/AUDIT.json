@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Fink proves \\(a(n)=2K(n)\\) for \\(n\\ge2\\), with \\(K(n)\\) the ordered-factorization count. For a fixed factor length \\(m\\), distributing each prime exponent among ordered factor positions and applying inclusion-exclusion to exclude empty factors gives the finite formula used by the verifier. The packaged checker reconstructs all 30 prime bases, the exponent sum \\(280\\), the exact integer \\(N\\), and the exact value \\(a(N)\\), and confirms the stated positive difference. Small signatures are independently checked by the defining recursive-divisor recurrence, ruling out normalization and factor-of-two errors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The located later paper arXiv:2307.16691 gives general evaluation formulas for recursive divisors but does not state an ample number avoiding \\(2,3,5\\).",
+        "The 2022 RISTCON abstract treats the general construction as ongoing work rather than reporting the next prime-avoidance case.",
+        "A current open-problem index continues to list Fink's conjecture as open with no posted solution."
+      ],
+      "reasoning": "A later theorem proving the full conjecture, or any published witness avoiding at least the first three primes, would cover this claim. The inspected later material supplies computational machinery but no such existence result.",
+      "searches": [
+        "\"Recursively abundant and recursively perfect numbers\" ample 2023 2024",
+        "\"recursive divisors\" ample Fink conjecture 2024",
+        "\"ample\" \"recursive divisors\" Fink Liyanage Ranasinghe",
+        "\"ample numbers\" recursive divisibility 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2008.10398v1",
+      "arXiv:2307.16691v1",
+      "RISTCON-2022:p41",
+      "OEIS:A330575",
+      "MathDB problem 347695"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fink 2020 proves product closure and states the all-\\(k\\) conjecture but stops at the first-two-prime example.",
+        "Fink 2023 proves general exact formulas for \\(a(n)\\), so it supplies the evaluation method but no signature whose evaluation establishes the \\(k=3\\) existential case.",
+        "Liyanage--Ranasinghe 2022 gives partial divisor-type formulas and explicitly describes the conjecture as ongoing."
+      ],
+      "reasoning": "A universal formula for evaluating \\(a(n)\\) does not by itself imply the existence of an \\(n\\) coprime to \\(30\\) with \\(a(n)>n\\). The new implication comes from the supplied exponent vector and its certified positive evaluation.",
+      "searches": [
+        "arXiv:2008.10398 Section 3.3 Conjecture 1",
+        "arXiv:2307.16691 kappa_0 2K closed form recursive divisors",
+        "RISTCON 2022 approach towards settling conjecture ample numbers first two primes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2008.10398v1 states the conjecture and gives examples only for avoidance of the first one and first two primes.",
+        "The exact searches returned no source stating a \\(k=3\\) witness or an ample integer coprime to \\(30\\)."
+      ],
+      "reasoning": "Avoiding the first three primes is equivalent to being coprime to \\(30\\). The searches cover the source terminology 'ample', the older phrase 'recursively abundant', the conjecture label, and the coprimality formulation.",
+      "searches": [
+        "Fink ample number not divisible by first three primes 2 3 5",
+        "recursively abundant ample 7 11 13 first three primes",
+        "ample numbers recursive divisor Conjecture 1 k=3",
+        "a(n)>n recursive divisors avoiding 2 3 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact exponent-pattern or exact-integer match was located.",
+        "OEIS A330575 documents the recursive-divisor function and links Fink's papers but does not provide the present prime-avoidance witness.",
+        "The current problem index records the conjecture as open and lists no solution."
+      ],
+      "reasoning": "These checks address plausible locations for a large computational witness: exact web indexing, the recursive-divisor sequence database, and a dedicated open-problem index.",
+      "searches": [
+        "\"7^53\" \"11^32\" ample",
+        "\"7^53 11^32 13^27\" recursive divisor",
+        "OEIS A330575 recursive divisor ample",
+        "MathDB Fink conjecture ample numbers first primes"
+      ]
+    },
+    "rationale": "Fink's 2020 source gives witnesses only through avoidance of the first two primes and states the general prime-avoidance conjecture. The 2022 follow-up conference abstract still describes the conjecture as ongoing and again cites the first-two-prime witness. Fink's 2023 closed formulas evaluate \\(a(n)\\) for an arbitrary specified signature but do not provide an existential \\(k=3\\) witness. Dedicated exact, alias, later-literature, and database searches found no published ample number coprime to \\(30\\). The residual risk is an unindexed or private computation.",
+    "residual_risks": [
+      "An unindexed or private search may already contain a different or smaller \\(k=3\\) witness.",
+      "No minimality claim is made, so undiscovered smaller witnesses would not invalidate the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the definition, product closure, examples avoiding the first one and two primes, and the conjecture; it contains no \\(k=3\\) witness.",
+        "evidence": "The source states the first-two-prime example near \\(3.3\\times10^{81}\\) and then formulates Conjecture 1.",
+        "identifier_or_url": "arXiv:2008.10398v1",
+        "material_read": "Full HTML Sections 2 and 3, especially Definition 1, Theorem 1, Section 3.3, and Conjecture 1.",
+        "method": "Full-text HTML inspection.",
+        "title": "Recursively abundant and recursively perfect numbers",
+        "trigger": "Primary source defining ample numbers and stating the prime-avoidance conjecture."
+      },
+      {
+        "assessment": "The abstract says the study is ongoing, cites the first-two-prime example, and gives partial divisor-type formulas; it does not report a \\(k=3\\) witness.",
+        "evidence": "Proceedings of the 9th Ruhuna International Science & Technology Conference, 19 January 2022, p. 41.",
+        "identifier_or_url": "RISTCON-2022:p41",
+        "material_read": "The complete one-page published conference abstract.",
+        "method": "Proceedings PDF page inspection.",
+        "title": "An approach towards settling a conjecture on ample numbers",
+        "trigger": "Direct later attempt at the same conjecture."
+      },
+      {
+        "assessment": "The paper gives general formulas for the function but does not furnish an ample number coprime to \\(30\\).",
+        "evidence": "The paper states \\(\\kappa_0(n)=2K(n)\\) and derives general closed expressions.",
+        "identifier_or_url": "arXiv:2307.16691v1",
+        "material_read": "Full HTML Introduction, statements of results, proof of Theorem 1, and discussion of \\(a(n)=2K(n)\\).",
+        "method": "Full-text HTML inspection.",
+        "title": "Number of ordered factorizations and recursive divisors",
+        "trigger": "Later general formulas could potentially subsume an explicit computation."
+      },
+      {
+        "assessment": "The conjecture is still indexed as open with no posted solution.",
+        "evidence": "Current crawl states status open and solutions 0.",
+        "identifier_or_url": "MathDB problem 347695",
+        "material_read": "Problem statement, status, primary-source attribution, and solution count.",
+        "method": "Current problem-index inspection.",
+        "title": "Fink's conjecture on ample numbers avoiding the first primes",
+        "trigger": "Current status and solution-overlap check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83eeec34-7b08-4fe3-9be3-e7638e63af80",
+  "value": {
+    "rationale": "The result establishes the next unresolved explicit case of a named conjecture introduced with only the \\(k=1\\) and \\(k=2\\) cases evidenced. Avoiding \\(2,3,5\\) is a natural, conjecture-dictated target rather than an arbitrary parameter slice. The witness also generates infinitely many examples by the source's product theorem. Although computational, the certificate is exact, finite, self-contained, and answers a specific existence question that later work still described as open.",
+    "status": "PASS"
+  }
+}
