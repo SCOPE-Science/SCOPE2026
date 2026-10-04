@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The exact QLDP parameter is obtained from a uniform spectral sandwich and an explicit attaining antipodal pair. Local-unitary canonicalization reduces the normalized Choi state to Bell-diagonal form, where the entanglement-breaking octahedron and Wootters concurrence formula give C=[s1+s2+s3-1]_+/2. The privacy constraint gives s1<=tanh(epsilon/2), and depolarizing channels have all three singular values equal to this bound, establishing equality.",
+    "risks": [
+      "The bundled finite checker is only a consistency test; the infinite result rests on the analytic proof.",
+      "The canonical Bell-diagonal sign-sector reduction is standard unital-qubit channel geometry and was checked against the entanglement-breaking octahedron formulation."
+    ],
+    "sources": [
+      "arXiv:2609.13418v1 Definition II.1 and Lemma II.2",
+      "arXiv:2602.10510v1 Proposition 3",
+      "arXiv:quant-ph/0302032",
+      "arXiv:quant-ph/9709029"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.13418v1 gives an all-channel entanglement-breaking guarantee for epsilon<=log 2 and optimality of that constant, but not a positive-branch concurrence optimum.",
+        "arXiv:2602.10510v1 gives the exact depolarizing privacy condition and utility optima for state metrics, not Choi entanglement.",
+        "Ruskai and later unital-channel geometry characterize entanglement breaking/canonical forms without a differential-privacy constraint."
+      ],
+      "reasoning": "The closest sources cover either the privacy threshold, utility of a particular mechanism, or the static geometry of unital channels. None subsumes the joint constrained optimization proved here.",
+      "searches": [
+        "High quantum local differential privacy breaks entanglement arXiv 2609.13418",
+        "Privacy-Utility Tradeoffs in Quantum Information Processing depolarizing QLDP",
+        "Qubit Entanglement Breaking Channels unital octahedron",
+        "unital qubit channels canonical form Choi eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.13418v1",
+      "arXiv:2602.10510v1",
+      "arXiv:quant-ph/0302032",
+      "arXiv:quant-ph/9709029",
+      "Choi and Li, On unital qubit channels (2023)",
+      "targeted semantic research index searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem III.1 of arXiv:2609.13418v1 implies only the zero branch through epsilon=log 2.",
+        "Proposition 3 of arXiv:2602.10510v1 supplies a sharp depolarizing feasible point but no universal Choi-concurrence upper bound.",
+        "The standard Bell-diagonal concurrence and octahedron facts contain no privacy parameter."
+      ],
+      "reasoning": "No single cited prior result, nor an explicitly stated corollary in those sources, gives the full formula. The positive branch requires the exact extremal-output privacy parameter for arbitrary unital Bloch matrices plus optimization of all three singular values under that constraint.",
+      "searches": [
+        "arXiv:2609.13418 Theorem III.1 qubit epsilon log 2",
+        "arXiv:2602.10510 Proposition 3 qubit depolarizing epsilon QLDP",
+        "Wootters Bell diagonal concurrence",
+        "unital qubit entanglement breaking octahedron"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No close semantic-index hit stated a QLDP/Choi-concurrence formula; the highest-scoring returned records concerned local Cliffords, Werner-state Bell inequalities, PEPS, classical masking, or unrelated optimization problems.",
+        "Targeted web searches for QLDP with concurrence or Choi entanglement returned the recent QLDP threshold and related privacy papers but no exact concurrence tradeoff.",
+        "A final claim-form semantic search using the exact concurrence/privacy/Bloch-singular-value formulation returned no matching record; the leading hits were mathematically unrelated."
+      ],
+      "reasoning": "Searches explicitly combined the source identifier, QLDP, unital qubit channels, Bloch singular values, Choi states, concurrence, depolarizing channels, and entanglement-breaking thresholds, covering the main natural aliases of the final statement.",
+      "searches": [
+        "arXiv:2609.13418 unital qubit exact privacy parameter Choi concurrence negativity",
+        "quantum local differential privacy unital qubit entanglement tradeoff",
+        "depolarizing QLDP Choi concurrence exact tradeoff",
+        "unital qubit QLDP Bloch singular value entanglement breaking",
+        "exact Choi concurrence maximum epsilon quantum local differential privacy unital qubit tanh epsilon over 2",
+        "unital qubit channel concurrence Bloch singular values QLDP tanh privacy curve"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest opaque records: 2026/9/19/SCOPE-local-cliffords-nonplussed-distinct--1434efbb2fb7; 2026/9/9/SCOPE014; 2026/9/16/SCOPE007; 2026/9/19/SCOPE-exact-tv-low-rank-factor-masks--defb12bcd300. Their stated claims concern local-Clifford ensembles, Werner-state I3322 thresholds, PEPS filtering, and classical masking, respectively."
+      ],
+      "reasoning": "The returned database records do not involve the QLDP privacy parameter of unital qubit channels or Choi-state concurrence, so they do not imply the final claim.",
+      "searches": [
+        "semantic research index: arXiv:2609.13418 unital qubit exact privacy parameter Choi concurrence negativity",
+        "semantic research index: quantum local differential privacy unital qubit entanglement tradeoff",
+        "semantic research index: depolarizing QLDP Choi concurrence exact tradeoff",
+        "semantic research index: unital qubit QLDP Bloch singular value entanglement breaking",
+        "semantic research index: exact Choi concurrence maximum epsilon quantum local differential privacy unital qubit tanh epsilon over 2",
+        "semantic research index: unital qubit channel concurrence Bloch singular values QLDP tanh privacy curve"
+      ]
+    },
+    "rationale": "The recent privacy paper proves only the sharp zero-entanglement threshold, while the earlier privacy–utility paper optimizes state fidelity/trace-distance objectives. Standard qubit-channel and concurrence papers provide separate ingredients but do not state the exact QLDP-versus-Choi-concurrence curve. Targeted semantic and literature searches found no equivalent or stronger statement.",
+    "residual_risks": [
+      "An equivalent quantitative curve may exist under different terminology in channel resource theory or privacy literature not surfaced by the targeted searches.",
+      "A later revision of the recent source could add a quantitative refinement; the comparison is to v1, first public 2026-09-11."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the binary entanglement-breaking threshold and its sharpness, but does not state an exact concurrence curve above the threshold.",
+        "evidence": "The source states epsilon<=log(d/(d-1)) as the entanglement-breaking regime; for d=2 this is epsilon<=log 2.",
+        "identifier_or_url": "arXiv:2609.13418v1",
+        "material_read": "ArXiv full-text HTML sections containing Definition II.1, Lemma II.2, Theorem III.1, main-result discussion, and the qubit threshold.",
+        "method": "Direct primary-source text inspection.",
+        "title": "High quantum local differential privacy breaks entanglement",
+        "trigger": "Primary recent source defining the sharp qubit entanglement-breaking privacy threshold."
+      },
+      {
+        "assessment": "Provides the exact depolarizing privacy condition and state-utility optima, but not a Choi-entanglement objective.",
+        "evidence": "For delta=0 and d=2, Proposition 3 gives p>=2/(exp(epsilon)+1), equivalent to Bloch contraction tanh(epsilon/2).",
+        "identifier_or_url": "arXiv:2602.10510v1",
+        "material_read": "ArXiv full-text HTML around the depolarizing-channel definition, Proposition 3, and the privacy-utility discussion.",
+        "method": "Direct primary-source text inspection.",
+        "title": "Privacy-Utility Tradeoffs in Quantum Information Processing",
+        "trigger": "Closest source for an exact QLDP formula for depolarizing noise."
+      },
+      {
+        "assessment": "Supplies static channel geometry, not a QLDP-constrained concurrence optimization.",
+        "evidence": "The paper is devoted to canonical parameterizations and entanglement-breaking conditions for qubit channels.",
+        "identifier_or_url": "arXiv:quant-ph/0302032",
+        "material_read": "Primary abstract/record and standard canonical-condition statements cross-checked against later unital-channel geometry references.",
+        "method": "Primary bibliographic/abstract inspection plus statement comparison.",
+        "title": "Qubit Entanglement Breaking Channels",
+        "trigger": "Canonical reference for entanglement-breaking conditions of qubit channels."
+      },
+      {
+        "assessment": "Provides concurrence as a state formula; it contains no differential-privacy constraint.",
+        "evidence": "For a Bell-diagonal state, the formula reduces to max(0,2 p_max-1).",
+        "identifier_or_url": "arXiv:quant-ph/9709029",
+        "material_read": "Primary abstract/record and the standard Bell-diagonal specialization of Wootters concurrence.",
+        "method": "Primary bibliographic/abstract inspection and formula reconstruction.",
+        "title": "Entanglement of Formation of an Arbitrary State of Two Qubits",
+        "trigger": "Primary source for two-qubit concurrence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "62cf6218-d38f-4e85-8d7c-e1bf7989e2ea",
+  "value": {
+    "rationale": "The theorem converts a new sharp but binary entanglement-breaking privacy threshold into an exact resource curve on the full unital-qubit channel class. It identifies the precise maximum Choi concurrence compatible with a privacy budget and proves depolarizing noise is sharp for this entanglement objective, giving an interpretable quantitative continuation above epsilon=log 2.",
+    "risks": [
+      "The scope is deliberately restricted to unital qubit channels; broader nonunital optimization remains open here."
+    ],
+    "sources": [
+      "arXiv:2609.13418v1",
+      "arXiv:2602.10510v1",
+      "standard unital-qubit channel geometry and two-qubit concurrence literature"
+    ],
+    "status": "PASS"
+  }
+}
