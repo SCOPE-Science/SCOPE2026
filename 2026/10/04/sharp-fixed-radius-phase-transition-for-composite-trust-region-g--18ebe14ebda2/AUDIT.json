@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The subproblem reduces after positive scaling to minimizing \\(xz+\\theta|z|\\) on \\([x-\\eta,x+\\eta]\\), with slopes \\(x-\\theta\\) and \\(x+\\theta\\) on the two sides of zero. This yields the complete set-valued map explicitly. For \\(\\eta<2\\theta\\), the first crossing from \\(|x|>\\theta\\) lands inside \\((-\\theta,\\theta]\\), after which all singleton steps move toward zero and all threshold choices enter the strict interior; finite absorption follows. At \\(\\eta=2\\theta\\), the threshold minimizer intervals contain the opposite threshold points, giving the displayed admissible cycle. For \\(\\eta>2\\theta\\), every \\(c\\in(\\theta,\\eta-\\theta)\\) and \\(c-\\eta<-\\theta\\) are in singleton regimes, giving a unique two-cycle. Exact-rational replay independently checks representative instances of every regime.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.06064v1 Theorem 4.1 characterizes the trust-region linearized regularized subproblem locally and explicitly notes possible nonuniqueness.",
+        "arXiv:2503.12645v2 defines the same composite trust-region gradient method and gives a generic best-iterate stationarity bound with an \\(O(\\eta)\\) term.",
+        "arXiv:2502.02002v2 Theorem 8.1 proves finite exact termination for the different full-objective ball-proximal oracle for any positive fixed radius."
+      ],
+      "reasoning": "The source and predecessor cover generic stationarity rather than exact constant-radius dynamics. The ball-proximal theorem is stronger for a different oracle and therefore highlights rather than subsumes the effect of linearizing the smooth term.",
+      "searches": [
+        "Primary full text arXiv:2609.06064v1",
+        "Primary full text arXiv:2503.12645v2",
+        "Primary full text arXiv:2502.02002v2",
+        "Web: normalized gradient descent fixed step strongly convex two cycle",
+        "Web: normalized subgradient strongly convex constant step oscillation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.06064v1",
+      "arXiv:2503.12645v2",
+      "arXiv:2502.02002v2",
+      "published-finding corpus record 0eec6412acfe",
+      "arXiv:2009.13725",
+      "DOI:10.1109/TAC.2019.2914998"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source proves existence, boundary motion when nonstationary, and singleton conditions for one subproblem, not a global fixed-radius orbit classification.",
+        "Kovalev's theorem gives only a finite-horizon stationarity guarantee with a radius-dependent residual term and contains no absolute-value two-cycle analysis.",
+        "The ball-proximal theorem minimizes the full objective within a ball and therefore follows a different iteration; its arbitrary-radius finite termination does not imply the linearized method's behavior."
+      ],
+      "reasoning": "No inspected statement dominates the final claim. The new contribution is exactly the sharp selection-robust radius frontier and the two distinct failure mechanisms at and above it.",
+      "searches": [
+        "arXiv:2609.06064v1 Section 4.1 and Theorem 4.1",
+        "arXiv:2503.12645v2 Sections 2.2--2.4 and Theorem 1",
+        "arXiv:2502.02002v2 Section 8 and Theorem 8.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record states the scalar composite trust-region gradient map or the threshold \\(2\\lambda/a\\).",
+        "The closest trust-region record, 0eec6412acfe, studies Cauchy-point decrease for smooth SPD quadratic trust-region subproblems."
+      ],
+      "reasoning": "Searches used the algorithm name and its main aliases, the quadratic-plus-absolute-value object, fixed radius, finite termination, overshoot, and two-cycle language. The closest records use different subproblems and do not imply the set-valued phase portrait.",
+      "searches": [
+        "published-finding corpus: trust-region gradient descent composite l1 quadratic constant radius two-cycle",
+        "published-finding corpus: TRGD composite absolute value quadratic finite termination radius threshold",
+        "published-finding corpus: linearized ball oracle l1 quadratic normalized proximal two-cycle",
+        "published-finding corpus: normalized composite gradient absolute value quadratic overshoot cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit matched arXiv:2609.06064 or the trust-region gradient recurrence with an absolute-value regularizer.",
+        "Returned optimization records concern other trust-region, reflected-gradient, or adaptive-gradient mechanisms."
+      ],
+      "reasoning": "The result is an analytic phase classification, not a recomputation of a stored benchmark or table. No database record found a matching map, threshold, or cycle family.",
+      "searches": [
+        "published-finding corpus: 2609.06064 trust-region gradient method composite regularizer",
+        "published-finding corpus: arXiv 2609.06064 TRGD",
+        "published-finding corpus: Kovalev trust-region gradient method composite regularizer constant radius"
+      ]
+    },
+    "rationale": "The primary 2026 paper states the composite trust-region subproblem and its local existence/uniqueness structure, but does not classify constant-radius trajectories. Kovalev's full 2025 paper proves generic stationarity bounds for the same method, not the exact quadratic-plus-absolute-value phase transition. The full-objective ball-proximal paper proves finite termination for arbitrary positive fixed radii, a different oracle whose stronger behavior does not imply the linearized-ball result. Targeted database searches returned no equivalent threshold or cycle law.",
+    "residual_risks": [
+      "Older normalized-subgradient literature contains general constant-step neighborhood and oscillation phenomena; a specialized scalar note could conceivably contain an equivalent threshold under different terminology.",
+      "The exact threshold was not located in the inspected primary texts or targeted database searches, but failed search is not a proof of historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the exact linearized-ball subproblem and local uniqueness framework but no constant-radius scalar phase portrait.",
+        "evidence": "Section 4.1 defines the update; Theorem 4.1 treats existence, normalized boundary motion, and singleton conditions; Remark 4.1 compares Broximal and trust-region proximal methods.",
+        "identifier_or_url": "arXiv:2609.06064v1",
+        "material_read": "Full PDF portions covering the composite motivation, Section 4.1, Theorem 4.1, the TRGDA definition, and related-work Remark 4.1; the theorem page was also rendered and inspected.",
+        "method": "Full-text PDF inspection plus rendered-page inspection.",
+        "title": "The Role of Gradient Modification in Heavy-Tailed Nonconvex Stochastic Min-Max Optimization",
+        "trigger": "Recent primary source with verified primary MSC 90C26 and a composite trust-region gradient subproblem."
+      },
+      {
+        "assessment": "Defines the same composite linearized-ball method and a generic stationarity guarantee but does not contain the exact scalar threshold or cycles.",
+        "evidence": "Iteration (9) is the method studied here; Theorem 1 has a best-iterate stationarity upper bound with a term proportional to the radius.",
+        "identifier_or_url": "arXiv:2503.12645v2",
+        "material_read": "Full PDF portions covering the composite problem definition, Sections 2.2--2.4, iteration (9), and Theorem 1; the trust-region method page was rendered and inspected.",
+        "method": "Full-text PDF inspection plus rendered-page inspection.",
+        "title": "Understanding Gradient Orthogonalization for Deep Learning via Non-Euclidean Trust-Region Optimization",
+        "trigger": "The primary source credits this paper with the trust-region gradient method for general convex regularizers."
+      },
+      {
+        "assessment": "Uses a different oracle that minimizes the full objective over the ball and finitely terminates for arbitrary positive fixed radii; it does not imply the linearized method's phase transition.",
+        "evidence": "Theorem 8.1 and its discussion state finite exact termination for constant positive radius on proper closed convex objectives.",
+        "identifier_or_url": "arXiv:2502.02002v2",
+        "material_read": "Full PDF portions defining BPM and its fixed-radius convergence, including Theorem 8.1 and the finite-termination discussion; a method-summary page was rendered and inspected.",
+        "method": "Full-text PDF inspection plus rendered-page inspection.",
+        "title": "The Ball-Proximal Point Method: a New Algorithm, Convergence Theory, and Applications",
+        "trigger": "Closest full-objective ball-oracle comparison explicitly discussed by the recent source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18ebe14e-bda2-4eba-8520-7a1011fabbd6",
+  "value": {
+    "rationale": "The quadratic-plus-\\(\\ell_1\\) model is the canonical one-dimensional sparse composite objective, and \\(\\theta=\\lambda/a\\) is its natural balance scale between smooth gradient and regularizer slope. The finding gives a complete sharp phase transition for the new linearized-ball method: robust finite absorption below \\(2\\theta\\), a tie-sensitive boundary cycle at equality, and an open family of tie-free cycles above it. This directly explains when fixed-radius normalization can or cannot preserve the finite-termination behavior of the full-objective ball oracle and is therefore a structural algorithmic boundary rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
