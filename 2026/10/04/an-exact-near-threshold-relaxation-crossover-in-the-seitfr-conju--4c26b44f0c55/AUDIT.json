@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The total-population equation gives the exact full-system eigenvalue -mu. Eliminating that direction yields a five-dimensional tangent Jacobian whose entries are derived algebraically from the published endemic equilibrium. Exact Fraction arithmetic gives an affine shifted determinant with a unique zero at R_cross. In odd real dimension, positive nonzero determinant rules out all shifted eigenvalues lying in the closed left half-plane, proving a tangent eigenvalue has real part greater than -mu below the crossover. The standalone verifier reconstructs the determinant from the baseline parameters. The claim does not infer stability on the whole interval from sampled numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "van den Driessche and Watmough (2002), DOI 10.1016/S0025-5564(02)00108-6, gives general local threshold and center-manifold theory but no SEITFR baseline crossover.",
+        "The closest published-finding hits concern unrelated transcritical or critical-slowing systems and do not dominate the present source-specific statement."
+      ],
+      "reasoning": "General transcritical theory explains why a branch eigenvalue tends to zero near threshold, but it neither computes nor implies the exact collision point with this model's demographic eigenvalue under the published baseline parameters.",
+      "searches": [
+        "Published-finding search: transcritical endemic equilibrium demographic eigenvalue crossover mu R0 conjunctivitis",
+        "Web: \\\"transcritical\\\" \\\"endemic equilibrium\\\" \\\"dominant eigenvalue\\\" demographic mortality epidemic",
+        "Web: Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission transcritical treatment"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261069",
+      "doi:10.1016/S0025-5564(02)00108-6",
+      "Published-finding semantic searches for the exact title, SEITFR/dominant-eigenvalue aliases, critical slowing, and demographic-eigenvalue crossover"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's center-manifold calculation implies a critical eigenvalue approaches zero near R0=1, so qualitative critical slowing is not claimed as new.",
+        "Neither the source theorem nor the general reproduction-number theorem determines where that eigenvalue meets the separate exact demographic eigenvalue -mu."
+      ],
+      "reasoning": "The accepted claim is the exact collision and the resulting rigorous exclusion of demographic dominance below it. This is strictly more specific than the qualitative transcritical implication and is not a corollary with the crossing value already supplied.",
+      "searches": [
+        "Primary full text DOI 10.3934/math.20261069: Theorem 11 forward transcritical bifurcation and Section 6.1 Jacobian spectrum",
+        "Web/PubMed DOI 10.1016/S0025-5564(02)00108-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding hit stated the SEITFR tangent/demographic spectral collision or the exact crossover value.",
+        "The primary article's Figure 7 study starts at R0=1.01 and reports -mu as dominant only on the tested range."
+      ],
+      "reasoning": "Aliases based on the model acronym, disease, dominant-eigenvalue language, critical slowing, and the exact DOI did not reveal an equivalent statement.",
+      "searches": [
+        "Published-finding search: SEITFR conjunctivitis dominant eigenvalue -mu near R0=1 critical slowing endemic",
+        "Published-finding search: \\\"Bifurcation and stability analysis\\\" conjunctivitis dominant eigenvalue critical slowing endemic",
+        "Web: \\\"Bifurcation and stability analysis of an SEITFR conjunctivitis model\\\" \\\"dominant eigenvalue\\\" -mu",
+        "Web: \\\"10.3934/math.20261069\\\" \\\"critical slowing\\\" OR \\\"relaxation\\\" OR eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source tests R0 from 1.01 to 2.50 in steps of 0.01 and states max Re(sigma_i)=-mu over that tested range.",
+        "The source contains no reported value 1.0002892456456818... and no determinant at the shifted point -mu."
+      ],
+      "reasoning": "The precise database/table check is the paper's own baseline table and spectral figure; the new crossover lies below the first sampled R0 value and is absent from the reported table/figure analysis.",
+      "searches": [
+        "Primary full text DOI 10.3934/math.20261069: Table 2 baseline parameters; Section 6.1 and Figure 7 eigenvalue study",
+        "Published-finding exact-title query: \\\"Bifurcation and stability analysis of an SEITFR conjunctivitis model with standard incidence and treatment failure\\\""
+      ]
+    },
+    "rationale": "The source reports -mu as dominant only for its sampled range 1.01 <= R0 <= 2.50 and gives a qualitative forward-transcritical analysis. It does not state the exact tangent/demographic collision or the rational crossover 1.0002892456456818.... Generic epidemic center-manifold results predict a slow critical mode but do not imply the model-specific crossover value. Published-finding, source-title, DOI, alias, and dominant-eigenvalue searches found no covering statement.",
+    "residual_risks": [
+      "Generic transcritical theory qualitatively anticipates a slow near-threshold mode; novelty is limited to the exact collision and its consequence for the published baseline spectral interpretation.",
+      "The crossover is parameter-specific and narrow, so its broader epidemiological importance depends on how closely an application operates to R0=1.",
+      "No claim is made that -mu is dominant for every R0 above the crossover or that the full nonlinear relaxation time equals the reciprocal of the linear spectral abscissa."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact crossover. The article covers the coarse grid and qualitative transcritical behavior but not the shifted determinant or collision value.",
+        "evidence": "Section 6.1 states the eigenvalue sweep uses 1.01 <= R0 <= 2.50 with step 0.01 and reports max Re(sigma_i)=-mu in that tested range.",
+        "identifier_or_url": "doi:10.3934/math.20261069",
+        "material_read": "Full article material relevant to the model equations, reproduction number, endemic equilibrium, bifurcation analysis, baseline Table 2, and Section 6.1/Figure 7 spectral computation.",
+        "method": "Read the lawful full text after public preprint/OA searches did not yield a separate downloadable preprint; compared equations and the stated numerical range directly.",
+        "title": "Bifurcation and stability analysis of an SEITFR conjunctivitis model with standard incidence and treatment failure",
+        "trigger": "Same model, same baseline parameters, endemic Jacobian and claimed dominant eigenvalue."
+      },
+      {
+        "assessment": "NOT_COVERING the model-specific baseline collision.",
+        "evidence": "The work gives general threshold and sub-threshold bifurcation criteria, not the SEITFR tangent determinant or the exact R_cross.",
+        "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+        "material_read": "Abstract and theorem-level scope available through PubMed/search records.",
+        "method": "Compared its general local R0 and center-manifold conclusions with the source-specific spectral-collision statement.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Potential broader theorem covering threshold eigenvalue behavior in compartmental epidemic models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4c26b44f-0c55-474d-ba50-109e9e5d96d7",
+  "value": {
+    "rationale": "The exact crossover answers a natural question created by the source's own spectral conclusion: how close to the transcritical threshold can the demographic mode remain dominant? The answer is an exact, uniquely defined collision on the published one-parameter branch, and it identifies a near-threshold regime omitted by the 0.01 grid where another linear mode is necessarily slower. This is directly relevant to interpreting convergence times close to eradication and is not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
