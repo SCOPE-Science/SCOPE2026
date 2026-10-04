@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the base e-BH rejection event exactly. Under the complete null FDR equals the rejection probability; iid two-point inputs reduce it to a binomial tail. Validity forces \\(c\\le1/p\\), monotonicity makes \\(c=1/p\\) worst at fixed \\(p\\), threshold partitioning yields the finite maximum, and analytic factorial-moment/Bonferroni inequalities prove the stated low-\\(\\alpha\\) unique optimizer. Computations only check reported numerics and finite instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang--Ramdas Theorem 2 gives the general upper bound under arbitrary dependence.",
+        "Wang--Ramdas Theorem 4 gives a PRDS marginal-tail upper bound, and independence implies PRDS."
+      ],
+      "reasoning": "The general and PRDS results are upper bounds over much broader classes, but they do not imply the exact iid two-point envelope or identify its extremizer; the common-event Example 4 is dependent rather than iid.",
+      "searches": [
+        "e-BH independent e-values sharp FDR",
+        "e-BH PRDS exact FDR complete null",
+        "e-BH all-or-nothing independence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2009.02824v1",
+      "DOI:10.1111/rssb.12489",
+      "arXiv:2404.17562v1",
+      "SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0",
+      "SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 4 in Wang--Ramdas attains the generic FDR bound by putting all null e-values on one common event.",
+        "Theorem 4 bounds PRDS e-BH FDR through marginal tail functionals.",
+        "The present proof uses iid Bernoulli counts and optimizes the discrete threshold over the entire valid two-point family."
+      ],
+      "reasoning": "The dependent sharpness construction shows that alpha is attainable without independence but does not determine the iid law. The PRDS bound is not an equality characterization; for the one-spike iid law it can remain at the generic level while the exact FDR is strictly smaller.",
+      "searches": [
+        "Wang Ramdas Example 4 e-BH sharpness common event",
+        "Wang Ramdas Theorem 4 PRDS e-BH independence",
+        "all-or-nothing e-values e-BH exact calibration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang--Ramdas, arXiv:2009.02824v1, base e-BH definition and Sections 4--6",
+        "Lee--Ren, arXiv:2404.17562v1"
+      ],
+      "reasoning": "No inspected source states the reduction to a binomial tail indexed by the integer e-BH threshold or the maximization over valid two-point calibrations.",
+      "searches": [
+        "e-BH iid all-or-nothing two-point e-values exact FDR",
+        "e-BH Bernoulli e-values binomial rejection probability",
+        "base e-BH complete null iid e-values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or database entry was located in the inspected literature or semantic-result searches.",
+        "Closest semantic result: SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0, which concerns Simes/BH with p-values under pairwise independence, not e-BH with iid e-values."
+      ],
+      "reasoning": "The nearby p-value dependence calculation has different inputs, rejection thresholds, and dependence assumptions, so it neither contains nor implies the present e-value statement.",
+      "searches": [
+        "all-or-nothing e-BH binomial table",
+        "two-point e-value e-BH exact complete-null FDR",
+        "one-spike e-BH FDR"
+      ]
+    },
+    "rationale": "The inspected primary e-BH source gives the step-up rule, arbitrary-dependence FDR guarantee, all-or-nothing examples, a common-event sharpness construction, and PRDS bounds, but not the iid two-point binomial envelope or its optimizer. A later conditional-calibration paper was also checked. Multiple semantic searches using equivalent terminology found no stronger or equivalent published finding; the closest database hits concern p-value Simes/BH dependence or unrelated Bernoulli tail problems.",
+    "residual_risks": [
+      "The specialization is elementary enough that an equivalent calculation could exist in unindexed lecture notes, software documentation, or supplementary material not surfaced by the searches.",
+      "The sufficient threshold alpha_0 is not asserted to be the exact largest universal level for the one-spike optimizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact iid two-point binomial envelope or one-spike optimizer.",
+        "evidence": "Equation defining base e-BH; Theorem 2 arbitrary-dependence guarantee; Example 4 common-event sharpness; Theorem 4 PRDS marginal-tail bound.",
+        "identifier_or_url": "arXiv:2009.02824v1 / DOI:10.1111/rssb.12489",
+        "material_read": "Full accessible article text around the base e-BH definition, Theorems 2--4, Example 4, and discussion of all-or-nothing e-values.",
+        "method": "Statement-level comparison of hypotheses, dependence assumptions, rejection event, and claimed FDR conclusions.",
+        "title": "False Discovery Rate Control with E-values",
+        "trigger": "Direct source defining base e-BH and the all-or-nothing construction."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material.",
+        "evidence": "The paper develops conditional calibration to boost e-BH; no inspected statement gives the claimed binomial envelope or optimizer.",
+        "identifier_or_url": "arXiv:2404.17562v1",
+        "material_read": "Abstract and accessible article/search material focused on e-BH calibration, dependence, and two-point/all-or-nothing terminology.",
+        "method": "Comparison for an exact complete-null iid two-point FDR law or a stronger result implying it.",
+        "title": "Boosting e-BH via Conditional Calibration",
+        "trigger": "Later paper devoted to calibration/boosting of e-BH and therefore a plausible source for exact null-distribution refinements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6254cc63-1505-4fb0-9258-272c0f351215",
+  "value": {
+    "rationale": "The object is the canonical all-or-nothing e-value family explicitly highlighted in the foundational e-BH paper. An exact finite-K FDR calibration and sharp conventional-level extremizer quantify how independence changes the general sharpness picture. This is a natural reusable benchmark for e-BH calibration rather than an arbitrary slice or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
