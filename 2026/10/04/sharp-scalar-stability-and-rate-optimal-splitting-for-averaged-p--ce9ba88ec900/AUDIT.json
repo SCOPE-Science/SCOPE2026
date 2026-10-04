@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The proximal map is exactly \\(v/(1+\\tau\\mu)\\), which yields the stated real two-step recurrence. Applying the necessary-and-sufficient Jury conditions to \\(r^2-Ar-B\\) reduces stability to the single inequality \\(4+3(\\gamma-1)t>0\\). The finite boundary has an exact \\(-1\\) root and the source initialization has nonzero weight on that mode; above it the unstable coefficient also cannot vanish. The dominant-root formula follows because \\(B>0\\) makes the roots real with opposite signs. Exact derivatives of \\(A\\) and \\(B\\) prove strict decrease before \\(A=0\\), strict increase after \\(A=0\\) when \\(\\gamma<2\\), and strict decrease to \\(1/2\\) when \\(\\gamma\\ge2\\). The packaged checker independently evaluates the algebra and representative characteristic roots.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang--Li--Yang prove global aPRG convergence under tau < 1/L_F and an ergodic sublinear rate, with no strongly convex quadratic rate theorem.",
+        "Malitsky 2015 proves convergence and an R-linear result for an unaveraged projected reflected-gradient method.",
+        "Malitsky--Tam 2020 studies a forward-backward resolvent recurrence without the aPRG averaging map."
+      ],
+      "reasoning": "General convergence or linear-rate theorems for related reflected methods do not determine the exact aPRG characteristic polynomial after a strongly convex proximal quadratic is inserted. They therefore do not imply the no-finite-ceiling regime or the rate-optimal step.",
+      "searches": [
+        "Primary full text arXiv:2609.06409v1",
+        "DOI:10.1137/14097238X",
+        "DOI:10.1137/18M1207260",
+        "Web: forward-reflected-backward strongly monotone linear convergence rate quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.06409v1",
+      "DOI:10.1137/14097238X",
+      "DOI:10.1137/18M1207260",
+      "published-finding corpus:63a985cd76f4",
+      "published-finding corpus:47dbba32618f",
+      "published-finding corpus:689d5e743c56",
+      "MSC2020:49M29"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The aPRG paper's fixed-step theorem uses tau < 1/L_F and proves global convergence; its stated rate is ergodic sublinear.",
+        "The source explicitly says g=0 becomes Popov with step tau/2, so that limiting slice is prior and is not claimed.",
+        "published-finding corpus 63a985cd76f4 analyzes the unaveraged recurrence x_{k+1}=x_k-lambda B(2x_k-x_{k-1}).",
+        "published-finding corpus 47dbba32618f and 689d5e743c56 analyze forward-reflected-backward with skew resolvent families, not an averaged proximal quadratic.",
+        "The older Malitsky and Malitsky--Tam works establish convergence for related reflected schemes without the exact aPRG split formula."
+      ],
+      "reasoning": "No inspected statement dominates the final claim. In particular, transferring strong monotonicity from g to an operator inside a different splitting theorem does not reproduce the aPRG averaging coefficients or its exact Jury boundary. The new implication is the explicit positive-proximal-curvature phase diagram and rate optimum.",
+      "searches": [
+        "arXiv:2609.06409v1 full text, especially Algorithm 3.1, Remark 3.1, Theorem 3.1 and the rate discussion",
+        "published-finding corpus record 63a985cd76f4 complete RESULT.md",
+        "published-finding corpus record 47dbba32618f complete RESULT.md",
+        "published-finding corpus record 689d5e743c56 complete RESULT.md",
+        "DOI:10.1137/18M1207260 abstract and method scope",
+        "DOI:10.1137/14097238X abstract and method scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.06409v1, Algorithm 3.1 and Remark 3.1",
+        "published-finding corpus record 63a985cd76f4",
+        "published-finding corpus record 47dbba32618f",
+        "published-finding corpus record 689d5e743c56"
+      ],
+      "reasoning": "Aliases covering aPRG, proximal/reflected gradient, scalar quadratic splits, spectral radius, exact rate, strong convexity, and fixed-step stability were searched. The closest records use different recurrences. The source itself identifies only the g=0 specialization with Popov; the new claim requires positive proximal curvature.",
+      "searches": [
+        "published-finding corpus: averaged proximal reflected gradient quadratic split exact rate proximal quadratic",
+        "published-finding corpus: aPRG scalar quadratic proximal exact spectral radius",
+        "published-finding corpus: proximal reflected gradient quadratic regularizer scalar optimal stepsize",
+        "published-finding corpus: reflected proximal gradient scalar quadratic linear operator spectral radius",
+        "Web: averaged proximal reflected gradient quadratic regularizer rate",
+        "Web: proximal reflected gradient quadratic strongly monotone rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus record states the aPRG scalar proximal-quadratic threshold or its rate-optimal step.",
+        "The closest exact records are 63a985cd76f4 for unaveraged affine reflected gradient and 47dbba32618f / 689d5e743c56 for split-skew FRB."
+      ],
+      "reasoning": "This is an analytic phase classification, not a recomputation of a tabulated benchmark. The closest database results have different update maps and parameter meanings.",
+      "searches": [
+        "published-finding corpus: aPRG quadratic split stability threshold 4 over 3 one minus mu over a",
+        "published-finding corpus: aPRG optimal step 2 over 2 minus mu over a rate one over sqrt two plus mu over a",
+        "published-finding corpus: averaged reflected proximal quadratic strong regularizer unbounded stepsize stability"
+      ]
+    },
+    "rationale": "The 2026 primary paper defines aPRG and proves generic convergence for tau below the reciprocal forward Lipschitz constant, but it does not give strong-quadratic scalar stability or rate-optimal formulas. The zero-proximal-curvature Popov slice is explicitly excluded from the novelty claim. Closest published and database results concern unaveraged projected/reflected gradient or forward-reflected-backward recurrences, including skew resolvents; none inspected implies the symmetric proximal-quadratic aPRG phase diagram.",
+    "residual_risks": [
+      "The reflected-splitting literature is large; an older scalar quadratic calculation under different terminology could contain an equivalent positive-proximal-curvature formula.",
+      "The older publisher sources were not both inspected theorem-by-theorem in full text, so exact historical constants outside their displayed method statements remain a residual originality risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact iteration and generic tau < 1/L_F convergence theory but does not state the positive-proximal-quadratic scalar stability or rate-optimal phase diagram.",
+        "evidence": "Algorithm 3.1 gives the averaged proximal reflected update; Remark 3.1 identifies only g=0 with Popov; Theorem 3.1 gives global convergence under the paper's fixed-step assumptions.",
+        "identifier_or_url": "arXiv:2609.06409v1",
+        "material_read": "Full-text portions covering the problem assumptions, related PRG/FRB methods, contributions, Algorithm 3.1, Remark 3.1, Theorem 3.1, the ergodic rate, adaptive-rule section, and references.",
+        "method": "Full-text PDF inspection.",
+        "title": "Averaged proximal reflected gradient method for monotone variational inequalities",
+        "trigger": "Recent primary source defining the aPRG method and its fixed-step guarantee."
+      },
+      {
+        "assessment": "Analyzes unaveraged affine reflected gradient without a proximal quadratic or aPRG averaging.",
+        "evidence": "Its characteristic recurrence is e_{k+1}=(I-2 lambda M)e_k+lambda M e_{k-1}, not the recurrence derived here.",
+        "identifier_or_url": "published-finding corpus:63a985cd76f4",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct repository file inspection.",
+        "title": "Exact conditioning-dependent stability threshold for affine reflected gradient",
+        "trigger": "Closest database result on exact strongly monotone reflected-gradient stability."
+      },
+      {
+        "assessment": "Studies forward-reflected-backward on planar skew resolvent/forward operators and optimizes a reflection coefficient.",
+        "evidence": "Its recurrence has a complex skew resolvent and a different reflection parameter; it does not imply the scalar symmetric aPRG coefficients.",
+        "identifier_or_url": "published-finding corpus:47dbba32618f",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct repository file inspection.",
+        "title": "Optimal reflection tuning against split-skew FRB obstructions",
+        "trigger": "Close database result involving a resolvent split and exact stability."
+      },
+      {
+        "assessment": "Derives rate-optimal steps for a split-skew FRB/RFB recurrence, with different characteristic polynomial and operator geometry.",
+        "evidence": "The reported optimum depends on skew-resolvent ratio and does not yield the aPRG symmetric proximal-curvature threshold.",
+        "identifier_or_url": "published-finding corpus:689d5e743c56",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct repository file inspection.",
+        "title": "Exact rate-optimal steps for FRB/RFB on the skew-rotation family",
+        "trigger": "Close database result on exact rate optimization for a reflected splitting."
+      },
+      {
+        "assessment": "Provides convergence and a linear result under strong monotonicity for an unaveraged projected method, not the current aPRG split.",
+        "evidence": "The abstract identifies projected reflected gradient with one projection and one forward evaluation and states an R-linear result under strong monotonicity.",
+        "identifier_or_url": "DOI:10.1137/14097238X",
+        "material_read": "Abstract, bibliographic metadata, and method scope.",
+        "method": "Publisher and arXiv record inspection.",
+        "title": "Projected Reflected Gradient Methods for Monotone Variational Inequalities",
+        "trigger": "Foundational projected reflected-gradient predecessor cited by the aPRG paper."
+      },
+      {
+        "assessment": "Studies a distinct forward-reflected-backward recurrence; checked material does not state the aPRG scalar proximal-quadratic phase diagram.",
+        "evidence": "The paper proposes one-forward-evaluation monotone splitting and variants with relaxation/inertia, but not the averaged update of arXiv:2609.06409.",
+        "identifier_or_url": "DOI:10.1137/18M1207260",
+        "material_read": "Publisher abstract, bibliographic metadata, and accessible method description.",
+        "method": "Publisher and arXiv record inspection.",
+        "title": "A Forward-Backward Splitting Method for Monotone Inclusions Without Cocoercivity",
+        "trigger": "Foundational resolvent splitting closely related to reflected-gradient methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce9ba88e-c900-4f5c-8395-2f625404f875",
+  "value": {
+    "rationale": "The scalar quadratic split is the canonical commuting model for separating forward curvature \\(a\\) from proximal curvature \\(\\mu\\). The result identifies a natural algorithm-design boundary: proximal curvature is not merely helpful to the contraction factor; at \\(\\mu=a\\) it removes the finite stability ceiling entirely. It also gives the unique fastest finite step for \\(0<\\mu<2a\\) and shows that this step lies beyond the paper's generic Lipschitz-based range. These are structurally motivated stability and tuning facts for the newly proposed method, not an arbitrary numerical slice or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
