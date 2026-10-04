@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof has two necessary conditions and a direct converse. The last 0-block forces at least k selections from the final 1-block. Any kTDS has at least k+1 vertices because selected vertices require k distinct selected neighbors. Conversely the final 1-block is universal and every earlier vertex is adjacent to all of it, so those two inequalities satisfy every open-neighborhood constraint. Binomial counting then gives the polynomial, and every larger feasible set contains a feasible size-(k+1) subset. The packaged verifier exhaustively confirms the characterization, coefficients, and inclusion-minimality for all 511 connected threshold creation strings through order 10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1012.1529 Section 4.4 states that total vector domination is solvable in polynomial time on threshold graphs and in linear time via strongly chordal methods, while the explicit threshold dynamic program developed there is for vector domination.",
+        "arXiv:1303.0944 Corollary 3.4 proves every threshold graph is hereditary total domishold, concerning ordinary total domination only.",
+        "Chaluvaraju–Chaitra, DOI:10.26713/jims.v6i2.256, defines the ordinary total domination polynomial and studies general properties/operations, not uniform k-tuple threshold enumeration."
+      ],
+      "reasoning": "Broader algorithmic solvability does not imply an all-cardinality classification, and a threshold weight representation for ordinary total domination does not imply the k-fold open-neighborhood constraints for k at least two. The present theorem is therefore not a corollary of the inspected broader statements.",
+      "searches": [
+        "total vector domination threshold graphs k-tuple total domination",
+        "On the approximability and exact algorithms for vector domination threshold graphs",
+        "Total Domishold Graphs threshold total domination",
+        "total domination polynomial threshold graphs"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.dam.2010.01.009",
+      "arXiv:1012.1529",
+      "arXiv:1303.0944",
+      "DOI:10.26713/jims.v6i2.256",
+      "published-finding corpus records returned by the four stored semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1012.1529 gives optimization tractability, not an expression for all feasible uniform solutions.",
+        "DOI:10.1016/j.dam.2010.01.009 gives general minimal-kTDS criteria and the k-transversal equivalence but no threshold specialization in the inspected text.",
+        "arXiv:1303.0944 proves the k=1 total-domishold property but does not discuss k-tuple total domination."
+      ],
+      "reasoning": "None of the inspected prior statements logically yields the formula without adding the new structural observation that the final threshold 1-block simultaneously controls every open-neighborhood k-constraint. Conversely, the present result specializes to k=1 but does not supersede non-uniform total-vector-domination algorithms.",
+      "searches": [
+        "arXiv:1012.1529 Section 4.4 threshold graphs total vector domination",
+        "DOI:10.1016/j.dam.2010.01.009 threshold graph",
+        "arXiv:1303.0944 threshold graphs total dominating sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Henning–Kazemi, DOI:10.1016/j.dam.2010.01.009, defines k-tuple total domination, studies minimal kTDSs and k-transversals, and treats complete multipartite graphs; the accessible full text contains no threshold-graph theorem.",
+        "Cicalese–Milanič–Vaccaro, arXiv:1012.1529, Table 1 identifies k-tuple total domination as the uniform open-neighborhood total case, and Section 4.4 addresses threshold graphs algorithmically.",
+        "No retrieved published-finding corpus record states an all-set kTDS characterization or generating polynomial for threshold graphs."
+      ],
+      "reasoning": "Equivalent terminology using kTDS, double total domination, total k-domination, total vector domination with a uniform requirement, and threshold creation sequences was checked. The optimization formulations coincide at constant requirement k, but the inspected sources do not state the feasible-family iff condition or its enumerator.",
+      "searches": [
+        "threshold graph k-tuple total domination number all kTDS final dominating block minimum degree",
+        "threshold graph double total domination k tuple total dominating sets",
+        "all k-tuple total dominating sets threshold graphs generating polynomial",
+        "\"threshold graph\" \"k-tuple total domination\"",
+        "\"threshold graphs\" \"double total domination\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest published-finding corpus hits concerned total domination on central graphs, semitotal domination gaps, complete-multipartite variants, and other unrelated exact enumerators; none matched threshold kTDS enumeration.",
+        "Web searches returned the 2010 parameter paper, the 2010 threshold optimization preprint, and the 2013 total-domishold paper, but no exact table or polynomial for the same object and class."
+      ],
+      "reasoning": "No exact database record or published coefficient table covering the same graph class, parameter, and all-cardinality object was located. Search failure is not treated as proof of novelty, so the residual indexing risk is retained.",
+      "searches": [
+        "threshold graph k-tuple total domination polynomial all cardinalities",
+        "threshold graph kTDS generating function",
+        "threshold graph total vector domination enumeration",
+        "threshold total domishold k-transversal open neighborhood hypergraph enumeration"
+      ]
+    },
+    "rationale": "The claim is an all-cardinality, all-k structural theorem for connected threshold graphs. The closest parameter-specific source develops general kTDS theory and complete-multipartite formulas; the closest threshold-specific source gives optimization algorithms for total vector domination; the closest ordinary-total source gives total-domishold separation. None of the inspected statements covers or implies the two-condition feasible-family classification, the polynomial, or the two-parameter profile collapse.",
+    "residual_risks": [
+      "Older or weakly indexed work may use total k-domination, multiple total domination, or total vector domination terminology without mentioning threshold graphs in titles or abstracts.",
+      "The ordinary k=1 specialization may be derivable quickly from known threshold or total-domishold structure even when its explicit polynomial was not located; originality is claimed for the unified all-k classification and enumerator, not for the existence of easy k=1 reasoning.",
+      "No claim of literature uniqueness is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact parameter and general machinery, but the inspected text gives no threshold-graph all-set characterization or polynomial.",
+        "evidence": "The article states the kTDS definition, minimality criteria, the open-neighborhood hypergraph k-transversal equivalence, and exact complete-multipartite minimum results.",
+        "identifier_or_url": "DOI:10.1016/j.dam.2010.01.009",
+        "material_read": "Accessible article text including abstract, introduction, minimal-kTDS results, k-transversal theorem, and complete-multipartite section.",
+        "method": "Full accessible HTML/text inspection and targeted term search.",
+        "title": "k-tuple total domination in graphs",
+        "trigger": "Foundational and parameter-specific source; potentially could contain a threshold specialization or stronger minimal-set theorem."
+      },
+      {
+        "assessment": "Provides optimization tractability on threshold graphs and a threshold algorithm for vector domination; it does not enumerate all uniform total-vector solutions or give the claimed formula.",
+        "evidence": "Table 1 identifies k-tuple total domination as uniform open-neighborhood total domination; Section 4.4 states total vector domination is polynomial/linear-time solvable on threshold graphs.",
+        "identifier_or_url": "arXiv:1012.1529",
+        "material_read": "Full arXiv HTML introduction, model table, approximation reduction, P4-free algorithms, and Section 4.4 on threshold graphs.",
+        "method": "Full-text arXiv HTML inspection with focused reading of the threshold section.",
+        "title": "On the approximability and exact algorithms for vector domination and related problems in graphs",
+        "trigger": "Direct threshold-graph coverage for the broader total-vector-domination model, with kTDS explicitly listed as a uniform special case."
+      },
+      {
+        "assessment": "Covers ordinary total domination and proves threshold graphs are hereditary total domishold; it does not discuss k-tuple total domination.",
+        "evidence": "Definition 1 concerns ordinary total dominating sets; Corollary 3.4 states every threshold graph is hereditary total domishold.",
+        "identifier_or_url": "arXiv:1303.0944",
+        "material_read": "Full arXiv text through preliminaries and basic properties, including the total-domishold definition and Corollary 3.4.",
+        "method": "Full-text arXiv HTML inspection and targeted search for tuple terminology.",
+        "title": "Total Domishold Graphs: a Generalization of Threshold Graphs, with Connections to Threshold Hypergraphs",
+        "trigger": "Could dominate the k=1 specialization through a complete threshold-weight description of total dominating sets."
+      },
+      {
+        "assessment": "Introduces and studies ordinary total domination polynomials and graph operations; no threshold-graph k-tuple formula is stated in the accessible material.",
+        "evidence": "The abstract defines the ordinary total domination polynomial and says the paper studies properties and some graph operations.",
+        "identifier_or_url": "DOI:10.26713/jims.v6i2.256",
+        "material_read": "Accessible journal landing page with abstract, bibliographic data, references, and stated scope.",
+        "method": "Direct web inspection.",
+        "title": "Total Domination Polynomial of A Graph",
+        "trigger": "Closest archival counting-polynomial source for ordinary total domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c55ba8c2-a25c-48c2-99e2-fed387d19f8e",
+  "value": {
+    "rationale": "The result upgrades optimization-only threshold coverage to a complete feasible-family description simultaneously for every multiplicity k. It determines every coefficient, all inclusion-minimal solutions, and an exact invariance showing that the full sequence of enumerators forgets all creation-block data except order and final-block size. This is a natural structural question attached directly to an established domination parameter, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
