@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The leave-one-out mean and residual give the stated endpoints exactly. For a candidate \\(y\\), direct subtraction of squared residuals factors as \\(((n+1)d_i-x)^2-n^2x^2=(n+1)(n-1)(d_i-x)(x+c_nd_i)\\), so each comparison is exactly membership in \\([\\ell_i,u_i]\\). The source quantile index requires at least \\(j=\\lfloor\\alpha(n+1)\\rfloor\\) such intervals, all of which contain \\(\\bar Y\\); the resulting depth set is exactly \\([\\ell_{(j)},u_{(k)}]\\). Exact-arithmetic replay independently evaluates the original residual definitions on all breakpoint cells for several rational samples and checks the edge convention and rank-count consequence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barber et al. prove generic jackknife+ coverage at least \\(1-2\\alpha\\) and generic full-conformal coverage at least \\(1-\\alpha\\), treating them as distinct procedures.",
+        "The later asymptotic-stability result arXiv:2508.05272 concerns asymptotic training-conditional coverage relations and does not dominate an exact samplewise identity."
+      ],
+      "reasoning": "A broader theorem would cover intercept-only least squares as a special case and therefore subsume the claim. The inspected broader results concern coverage guarantees or asymptotic equivalence, not deterministic finite-sample equality, so they do not imply the claim.",
+      "searches": [
+        "\"jackknife+\" \"full conformal\" linear regression equivalence",
+        "\"jackknife+\" \"location model\" conformal",
+        "full conformal jackknife+ stable prediction algorithm equivalence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.02928",
+      "DOI:10.1214/20-AOS1965",
+      "arXiv:1604.04173",
+      "DOI:10.1080/01621459.2017.1307116",
+      "arXiv:2508.05272"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source supplies the two definitions and generic guarantees needed as premises, but does not derive their coincidence in the sample-mean model.",
+        "arXiv:1604.04173 predates jackknife+ and develops full/split conformal regression and a related jackknife method, so it does not state the later jackknife+ identity.",
+        "The new proof requires the special factorization of the augmented residual comparison and the common-center depth argument; neither follows from the generic coverage inequalities alone."
+      ],
+      "reasoning": "The prior results do not logically imply equality of outputs: two procedures can separately have valid or near-valid coverage without producing the same set. The sample-mean algebra supplies an additional structural implication, and the exact rank coverage follows only after establishing that identity.",
+      "searches": [
+        "arXiv:1905.02928 Sections 1.2, 2, 3.3, and 4",
+        "arXiv:1604.04173 conformal regression and jackknife predecessor",
+        "\"sample mean\" \"full conformal\" prediction interval",
+        "\"jackknife+\" \"sample mean\" pdf statistics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.02928 defines jackknife+ in Eq. (9) and full conformal in Eq. (15), but full-text searches returned no sample-mean, intercept, or location specialization.",
+        "arXiv:2508.05272 describes asymptotic relationships among full conformal, cross-conformal, jackknife+, and jackknife under stability, not this finite-sample sample-mean identity."
+      ],
+      "reasoning": "The derived statement is equality of the realized prediction sets, not merely comparable coverage or asymptotic agreement. The searched equivalent-method language did not yield a published statement with the same finite-sample object and quantile convention.",
+      "searches": [
+        "\"jackknife+\" \"full conformal\" \"sample mean\"",
+        "\"jackknife+\" \"intercept-only\" conformal",
+        "\"jackknife+\" exact equivalence conformal prediction mean",
+        "arXiv:1905.02928 full-text terms: sample mean; intercept; location"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source comparison table lists jackknife+ and full conformal separately with generic guarantees \\(1-2\\alpha\\) and \\(1-\\alpha\\).",
+        "The public implementation documentation reproduces the generic jackknife+ endpoint indices but does not tabulate the sample-mean/full-conformal coincidence.",
+        "Publication metadata classifies the source within MSC 62, including 62G08, 62G09, and 62G15."
+      ],
+      "reasoning": "The exact endpoint identity and exact distinct-residual coverage grid are absent from the inspected summary/table sources. The generic tables therefore do not already contain the claimed special-case result.",
+      "searches": [
+        "Barber et al. Section 4 summary table for Jackknife+ and Full conformal",
+        "predictset conformal_jackknife finite-sample endpoint documentation",
+        "MaRDI publication metadata for DOI:10.1214/20-AOS1965"
+      ]
+    },
+    "rationale": "The direct primary paper defines and contrasts jackknife+ and full conformal but does not state an intercept-only/sample-mean equality; targeted searches for aliases, location-model wording, exact equivalence, and broader linear-regression coverage did not reveal a covering result. Later asymptotic equivalence work does not imply this deterministic finite-sample identity. Residual risk of an unlocated folklore derivation remains.",
+    "residual_risks": [
+      "A specialized note, lecture note, software vignette, or folklore argument not indexed by the searched terminology may already contain the intercept-only identity.",
+      "The claim is deliberately narrow; any broader exact theorem discovered later could subsume it even if it uses different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_IDENTITY",
+        "evidence": "The paper states the two generic procedures and their generic coverage guarantees separately; no sample-mean/intercept/location specialization was found in the inspected full text.",
+        "identifier_or_url": "arXiv:1905.02928 / DOI:10.1214/20-AOS1965",
+        "material_read": "Full-text arXiv PDF: finite-sample quantile convention, leave-one-out residual definitions, Eq. (9) jackknife+, Section 3.3 Eq. (15) full conformal, and Section 4 coverage/cost comparison.",
+        "method": "Primary full-text inspection and within-document searches for sample mean, intercept, and location terminology.",
+        "title": "Predictive inference with the jackknife+",
+        "trigger": "Direct source defining both procedures compared by the claim."
+      },
+      {
+        "assessment": "NOT_COVERING_LATER_JACKKNIFE_PLUS_IDENTITY",
+        "evidence": "The preprint predates the 2019 introduction of jackknife+ and therefore cannot state the claimed identity for that later procedure.",
+        "identifier_or_url": "arXiv:1604.04173 / DOI:10.1080/01621459.2017.1307116",
+        "material_read": "Title, abstract/method relationship, and bibliographic record sufficient to establish chronology and scope.",
+        "method": "Primary arXiv record inspection.",
+        "title": "Distribution-Free Predictive Inference for Regression",
+        "trigger": "Foundational conformal-regression predecessor and related jackknife literature."
+      },
+      {
+        "assessment": "RELATED_ASYMPTOTIC_NOT_COVERING_FINITE_IDENTITY",
+        "evidence": "The stated relationship is asymptotic training-conditional coverage equivalence under stability, not equality of finite-sample prediction sets for the sample mean.",
+        "identifier_or_url": "arXiv:2508.05272",
+        "material_read": "Abstract and stated main relationship among full conformal, cross-conformal, jackknife+, and jackknife.",
+        "method": "Primary preprint record/abstract inspection.",
+        "title": "Conditional validity and a fast approximation formula of full conformal prediction sets",
+        "trigger": "Search result explicitly linking full conformal and jackknife+ under stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a1780fe7-9555-4a54-936f-22913e603701",
+  "value": {
+    "rationale": "The sample mean is a canonical location predictor, and the direct source emphasizes a generic gap between jackknife+ and full conformal in both coverage guarantee and computation. Showing that the two methods collapse to the identical finite-sample set in this natural model explains exact nominal-grid coverage rather than only empirical near-coverage, and isolates a concrete structural mechanism: all candidate residual comparisons become intervals sharing one center. This is a reusable boundary case for analyzing when jackknife+ can inherit full-conformal validity, not an arbitrary numerical slice or a recomputation of a known table.",
+    "status": "PASS"
+  }
+}
