@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The 2026 source gives exact binomial-sum formulas for every proxy point mass and exact cardinalities for the proxy and true knot sets. Rewriting each summand as a fair-binomial point mass produces geometric weights tending to \\((3/4)4^{-i}\\). Uniform local De Moivre--Laplace on bounded standardized windows, together with a binomial maximal-mass bound and geometric-tail domination, yields the stated local Gaussian law for both parities. The odd-row center shift is constant and vanishes on the square-root scale. Exact source-set cardinalities make the palindromic transfer error \\(O(2^{-c/2})\\), negligible relative to \\(c^{-1/2}\\). Constants and lattice spacing were independently recomputed and regression-checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.21107v1 proves a cumulative CLT and exact point formulas but no local CLT or point-mass asymptotic.",
+        "arXiv:2406.17738 studies average absolute signature and consecutive-row binomial identities, not local Gaussian point probabilities.",
+        "OEIS identifies several individual proxy columns as integer sequences but does not give the uniform knot-theoretic statement for \\(K(c)\\)."
+      ],
+      "reasoning": "These are the natural stronger or dominating sources because they contain the exact same signature triangle, the previous asymptotic invariant results, and the enumerated fixed columns. None states a theorem that implies the accepted \\(K(c)\\) local limit without carrying out new local asymptotic analysis.",
+      "searches": [
+        "Primary full-text inspection of arXiv:2604.21107v1, Theorems 1.1 and 1.2 and Section 4",
+        "Primary/author-posted inspection of arXiv:2406.17738, average-signature and recurrence results",
+        "OEIS A006134, A057552, A371964 and neighboring fixed signature-triangle columns"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.21107v1",
+      "arXiv:2406.17738",
+      "OEIS:A006134",
+      "OEIS:A057552",
+      "OEIS:A371964",
+      "OEIS:A079309",
+      "OEIS:A371965",
+      "published scientific findings returned by the recorded semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 controls cumulative probabilities at fixed normalized thresholds; weak convergence alone does not control individual lattice masses.",
+        "Theorem 1.2 provides exactly the additional structure needed: a geometric mixture of near-central fair-binomial point probabilities.",
+        "The source proves only that the palindromic proportion tends to zero, while the exact cardinality formulas sharpen this to exponential decay, which is needed to preserve a \\(c^{-1/2}\\) local asymptotic."
+      ],
+      "reasoning": "The new theorem is strictly stronger than the cited cumulative CLT and depends on a scale-sensitive analysis absent from the prior implication. It is not a restatement of the exact counts because uniform local asymptotics and the \\(K(c)\\) transfer require separate estimates.",
+      "searches": [
+        "Compare Theorem 1.1 of arXiv:2604.21107v1 with the local point-mass statement",
+        "Compare Theorem 1.2 exact binomial sums with standard local De Moivre--Laplace",
+        "Compare the \\(K(c)/T(c)\\) palindromic transfer in Section 4 with the required \\(c^{-1/2}\\) error scale"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The current 2026 paper contains no occurrence of the phrases local limit or fixed signature and states its main asymptotic as a cumulative central limit theorem.",
+        "Web searches using local-limit, fixed-signature, signature-zero, point-probability, and signature-triangle formulations returned the 2026 global CLT and older average-signature work, not an equivalent local theorem.",
+        "Published-finding searches returned unrelated topology and probability records; no 2-bridge signature local-limit record was found."
+      ],
+      "reasoning": "The searches cover both the uniform theorem and its most obvious special cases, so absence is not tied to the phrase local central limit theorem alone.",
+      "searches": [
+        "\"2-bridge knots\" signature \"local central limit theorem\"",
+        "\"2-bridge knot\" \"fixed signature\" asymptotic",
+        "\"2-bridge knots\" \"signature 0\" asymptotic counting",
+        "\"2-bridge knots\" \"zero signature\" counting asymptotic",
+        "\"signature triangle\" \"local limit\" knot",
+        "\"A central limit theorem for the signatures of 2-bridge knots\" \"local\"",
+        "published-finding search: 2-bridge signature local central limit theorem central window",
+        "published-finding search: fixed signature counts 2-bridge knots asymptotic gaussian point probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source table gives small exact values only; the theorem is an all-c asymptotic statement.",
+        "Several even and odd fixed columns are catalogued as sequences, but a finite or one-column table cannot supply uniformity over \\(O(\\sqrt c)\\) signature values or the palindromic transfer to \\(K(c)\\)."
+      ],
+      "reasoning": "The accepted result is not a table extrapolation: the proof uses the all-parameter binomial formulas and a uniform analytic estimate.",
+      "searches": [
+        "OEIS fixed columns cited by arXiv:2604.21107v1: A006134, A057552, A371964, A079309, A371965",
+        "2026 source Table 1 signature triangle through crossing number 14"
+      ]
+    },
+    "rationale": "The closest primary source proves only cumulative weak convergence after square-root scaling, while providing exact point-count formulas. It does not state a local central limit theorem, uniform central-window point-mass asymptotics, or the fixed-signature consequence. Earlier signature work gives recurrences and averages, and OEIS records a few fixed proxy columns, but none supplies the all-fixed-signature or uniform \\(K(c)\\) local theorem. A cumulative CLT does not imply lattice-local masses, so the new statement is not a corollary by implication alone without the exact formulas and local analysis.",
+    "residual_risks": [
+      "A later revision of the 2026 preprint may add a local limit theorem.",
+      "An unindexed combinatorics note could extract the same local asymptotic from the binomial sums.",
+      "No explicit rate is proved; the theorem is only o(1) after the natural local normalization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It proves cumulative convergence and exact formulas but does not state the uniform local point-mass asymptotic.",
+        "evidence": [
+          "Version 1 is dated 2026-04-22 and lists primary MSC 57K10.",
+          "Theorem 1.2 gives the parity-separated binomial sums used in the proof.",
+          "Theorem 1.1 is cumulative: \\(k(c,\\le t\\sqrt c)/|K(c)|\\to\\Phi(t)\\).",
+          "Section 4 transfers the cumulative CLT via palindromic knots; exact \\(K(c)\\) and \\(T(c)\\) cardinalities are printed earlier in the paper."
+        ],
+        "identifier_or_url": "arXiv:2604.21107v1",
+        "material_read": "Full-text introduction, Theorems 1.1 and 1.2, exact \\(K(c)\\) and \\(T(c)\\) counts, palindromic definitions, Section 4 CLT proof, and variance discussion.",
+        "method": "Lawful open full text was inspected in HTML transcription.",
+        "title": "A central limit theorem for the signatures of 2-bridge knots",
+        "trigger": "Primary recent source containing the exact signature-count formulas and the global CLT to be refined."
+      },
+      {
+        "assessment": "It supplies earlier recurrences and average-signature asymptotics but no local central limit theorem.",
+        "evidence": [
+          "The abstract states the average absolute signature asymptotic \\(\\sqrt{2c/\\pi}\\).",
+          "The work includes fixed-signature recurrences and consecutive-row binomial identities used by the 2026 paper."
+        ],
+        "identifier_or_url": "arXiv:2406.17738",
+        "material_read": "Abstract and displayed recurrence/consecutive-row counting context surfaced in the lawful open record.",
+        "method": "Open full-text record was inspected.",
+        "title": "Average signature and 4-genus of 2-bridge knots",
+        "trigger": "Direct predecessor cited by the 2026 paper for the signature triangle and average absolute signature."
+      },
+      {
+        "assessment": "They catalogue individual proxy sequences but do not state the uniform local theorem over the true knot set.",
+        "evidence": [
+          "A006134 is a sum of central binomial coefficients.",
+          "A057552 is a neighboring fixed column and cites the 2026 knot paper.",
+          "The 2026 paper itself lists the relevant OEIS column correspondences."
+        ],
+        "identifier_or_url": "OEIS:A006134;A057552;A371964;A079309;A371965",
+        "material_read": "Entries surfaced for central and neighboring columns, including formulas and references back to the 2026 knot paper.",
+        "method": "Public OEIS records were inspected.",
+        "title": "OEIS fixed signature-triangle columns",
+        "trigger": "The primary source explicitly identifies several fixed signature columns with OEIS sequences, making them plausible prior coverage of fixed-signature asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e0805538-c0cb-4d75-8a54-e50db3d5d4a6",
+  "value": {
+    "rationale": "A local limit theorem is the natural next asymptotic layer beyond the source's CLT: it determines the actual frequency of individual signature values, which weak convergence cannot do. The result is uniform across every bounded central window and yields explicit asymptotic counts for all fixed even signatures, including signature zero. This provides a sharper benchmark for random-knot models and for questions conditioned on a specific signature, rather than a routine recomputation of a finite column.",
+    "status": "PASS"
+  }
+}
