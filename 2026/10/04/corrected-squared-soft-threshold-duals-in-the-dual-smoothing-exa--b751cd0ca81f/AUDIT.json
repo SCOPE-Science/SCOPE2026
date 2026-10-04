@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The coordinatewise maximization is exhaustive for every \\(\\lambda>0\\) and every finite-dimensional \\(y\\). It gives \\(h_\\lambda^*(y)=\\|S(y)\\|_2^2/(2\\lambda)\\). Comparing the two signs in the prox-value expansion yields the exact defect \\(\\|C(y)\\|_2^2/\\lambda\\); the one-sided derivative drop at \\(1\\) proves the printed expression is nonconvex. The corrected dual displays follow by direct substitution into the source’s Lemma 1. Exact-rational replay returned VERIFY_OK. The proof does not infer an infinite statement from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The arXiv record has first public date 2025-12-09 and the inspected v1 contains the disputed display.",
+        "Springer DOI 10.1007/978-3-032-15791-1_6 confirms the later conference chapter but exposes only subscription metadata in the inspected source.",
+        "No accessible correction or erratum was found in the searched records."
+      ],
+      "reasoning": "General dual-smoothing and proximal literature is broader but does not subsume the claim that this particular display has the wrong sign. A later inaccessible publisher correction remains a residual risk and is stated explicitly.",
+      "searches": [
+        "\"Dual Smoothing for Decentralized Optimization\" correction erratum",
+        "\"2512.08167\" sign error Fenchel",
+        "\"decentralized basis pursuit\" dual smoothing soft threshold correction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.08167v1",
+      "DOI:10.1007/978-3-032-15791-1_6",
+      "zbMATH Open:8245939 via MaRDI metadata",
+      "DOI:10.1561/2400000003",
+      "DOI:10.1137/060669498"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source abstract dual formula uses the true Fenchel conjugate, while its later expanded Section 3.3 display changes the sign of the residual-square term.",
+        "The standard proximal literature implies what the correct conjugate must be but does not identify the mismatch in arXiv:2512.08167v1.",
+        "No inspected source stated the exact defect \\(\\|C(y)\\|_2^2/\\lambda\\), the derivative-drop nonconvexity witness, or the two corrected decentralized dual displays."
+      ],
+      "reasoning": "The claim is not a corollary advertised by the source; it is a consistency correction obtained by comparing the source display against its own prox-value identity and the defining conjugate maximization. Standard soft-threshold formulas do not by themselves report this paper-specific error.",
+      "searches": [
+        "\"Dual Smoothing for Decentralized Optimization\" basis pursuit Fenchel conjugate l1 quadratic",
+        "\"Rogozin\" \"Zenuzagh\" basis pursuit formula sign",
+        "\"Dual Smoothing for Decentralized Optimization\" \"soft threshold\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.08167v1, Section 3.3, pp. 8–9 gives the prox-value identity and the expanded expression.",
+        "Parikh–Boyd, Proximal Algorithms, DOI 10.1561/2400000003, documents soft thresholding as the proximal map of the l1 norm.",
+        "Combettes–Pesquet, DOI 10.1137/060669498, treats soft thresholding as the l1 proximal threshold."
+      ],
+      "reasoning": "The standard squared-soft-threshold identity is equivalent to the coordinatewise conjugate calculation. Those general sources cover the mathematical identity but not the source-specific sign reversal, exact defect, or corrected Section 3.3 displays.",
+      "searches": [
+        "\"Dual Smoothing for Decentralized Optimization\" \"Fenchel conjugate\" basis pursuit",
+        "\"Fenchel conjugate\" \"l1\" quadratic soft threshold",
+        "\"l1 + quadratic\" Fenchel conjugate soft threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "zbMATH-derived MaRDI metadata for record 8245939 lists Convex programming (90C25) followed by Optimality conditions and duality in mathematical programming (90C46).",
+        "arXiv:2512.08167 gives the earliest verified public date 2025-12-09."
+      ],
+      "reasoning": "The metadata places the source in the permitted optimization slot. No numerical database or known-value table contains the source-specific correction being claimed.",
+      "searches": [
+        "\"Dual Smoothing for Decentralized Optimization\" 90C25 90C46",
+        "zbMATH Open 8245939 Dual smoothing decentralized optimization"
+      ]
+    },
+    "rationale": "The squared-soft-threshold conjugate itself is classical and is not claimed as original. What survives the comparison is the source-specific diagnosis of the wrong residual-square sign in arXiv:2512.08167v1, the exact additive defect, the convexity contradiction, and the corrected explicit dual examples. Targeted database and web searches found no published erratum or prior statement of this correction. The inaccessible Springer full text is retained as a residual risk rather than treated as evidence of absence.",
+    "residual_risks": [
+      "The Springer final chapter full text was not accessible; it may have corrected the arXiv v1 display.",
+      "A correction could exist under terminology not retrieved by the targeted searches.",
+      "The underlying conjugate formula is standard; originality is restricted to the diagnosis and corrected application to this source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The prox-value identity is consistent, but the following expanded formula has the residual-square term with the opposite sign. The same expanded pattern is used in two explicit dual examples.",
+        "evidence": "arXiv:2512.08167v1, pp. 3, 5, 8–9; especially the display beginning with the Fenchel conjugate on p. 8 and CouplRD on p. 9.",
+        "identifier_or_url": "arXiv:2512.08167v1",
+        "material_read": "Full accessible arXiv PDF; definitions of prox/prox-value, abstract dual formulas, Section 3.3 basis-pursuit and subsequent l1-plus-quadratic example.",
+        "method": "Direct full-text reading of the accessible PDF and equation-level comparison with the conjugate definition.",
+        "title": "Dual Smoothing for Decentralized Optimization",
+        "trigger": "Primary source defining the dual-smoothing framework and the explicit examples under examination."
+      },
+      {
+        "assessment": "Confirms the chapter and bibliographic identity but cannot determine whether the final typeset chapter corrected the Section 3.3 sign.",
+        "evidence": "Springer Nature chapter page, first online 2026-04-01, pp. 76–87.",
+        "identifier_or_url": "DOI:10.1007/978-3-032-15791-1_6",
+        "material_read": "Publisher metadata, abstract, bibliography, and publication details; full chapter text was subscription-blocked.",
+        "method": "Publisher-page inspection after the open arXiv full text.",
+        "title": "Dual Smoothing for Decentralized Optimization",
+        "trigger": "Later refereed chapter of the same work; checked for publication status and possible correction route."
+      },
+      {
+        "assessment": "Supports that soft thresholding is classical; does not cover the source-specific correction.",
+        "evidence": "Parikh and Boyd, Foundations and Trends in Optimization 1(3), 2014.",
+        "identifier_or_url": "DOI:10.1561/2400000003",
+        "material_read": "Public bibliographic page and summary describing proximal operators and l1 soft thresholding.",
+        "method": "Reference-level comparison; not used as a substitute for the self-contained conjugate proof.",
+        "title": "Proximal Algorithms",
+        "trigger": "Closest standard reference for soft thresholding and Moreau/proximal identities."
+      },
+      {
+        "assessment": "General proximal-thresholding coverage, not a correction of the 2025 source.",
+        "evidence": "SIAM Journal on Optimization 18(4), published online 2007-11-14.",
+        "identifier_or_url": "DOI:10.1137/060669498",
+        "material_read": "Public abstract and metadata identifying soft thresholding and MSC 90C25.",
+        "method": "Statement-level comparison.",
+        "title": "Proximal Thresholding Algorithm for Minimization over Orthonormal Bases",
+        "trigger": "Primary literature on l1 proximal thresholding."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b751cd0c-a81f-41b3-99c7-ada3953dcffb",
+  "value": {
+    "rationale": "The discrepancy is in explicit examples meant to instantiate a smooth convex dual algorithm. Literal use of the printed formula produces a nonconvex objective and therefore breaks the intended structural interpretation. The correction restores convexity and \\(1/\\lambda\\)-smoothness and gives materially simpler squared-soft-threshold objectives for both examples. This is implementation-relevant and not an arbitrary algebraic slice, while the scope is kept narrow enough not to overstate consequences for the general theory.",
+    "status": "PASS"
+  }
+}
