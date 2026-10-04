@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The Hessenberg condition for \\(h=(3,4,4,4)\\) is exactly \\(SL\\subset H\\). Forgetting the intermediate plane gives a \\(\\mathbb P^1\\)-bundle over the line-hyperplane incidence complete intersection \\(\\varphi(v)=\\varphi(Sv)=0\\). Linear dependence of the two differentials is equivalent to \\((S-\\mu I)v=0\\) and \\(\\varphi(S-\\mu I)=0\\), which for the two two-dimensional eigenspaces produces exactly two \\(\\mathbb P^1\\) singular components downstairs and hence two \\(\\mathbb P^1\\times\\mathbb P^1\\) components upstairs. An eigenbasis chart gives \\(u+x=0\\) and \\(py+qz=0\\); the quadratic form has rank four, so the transversal is a three-dimensional ordinary double point. The projective-line bundle adds one smooth coordinate. The local model also proves normality. The bundled symbolic checker verifies the local equations, Hessian rank, source-patch coordinate change, and eight fixed-point count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Escobar--Precup--Shareshian Theorem 5 states containment for arbitrary operators and equality only in the nilpotent case.",
+        "Their Theorem 4 implies irreducibility here because no scalar shift of diag(1,1,-1,-1) has rank one; this structural input does not determine the singular locus.",
+        "Regular-nilpotent singularity papers concern a different operator class."
+      ],
+      "reasoning": "The strongest later general result does not specialize to equality for this semisimple spectrum. The incidence computation is therefore not a corollary of a stronger published singular-locus theorem located in the search.",
+      "searches": [
+        "arXiv:2208.06299v1 Theorem 5 semisimple singular locus containment",
+        "irreducible singular semisimple Hessenberg variety normal singular locus",
+        "semisimple codimension-one Hessenberg two eigenvalues multiplicity 2 2 singular locus",
+        "regular nilpotent Hessenberg normality singular locus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1709.05423v1",
+      "arXiv:2208.06299v1",
+      "Cummings, Gröbner Geometry for Hessenberg Varieties, 2024 abstract",
+      "Semantic exact-object and alias literature searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source patch polynomial becomes a nondegenerate quadric after an invertible triangular coordinate change, supporting the node model at that fixed point, but the paper does not globalize it.",
+        "The 2022 preprint/2026 article proves reducedness and semisimple singular-locus containment, not exact equality in this case.",
+        "The accessible Cummings thesis abstract describes radicality of semisimple patch ideals, which does not imply the claimed global singular-stratum geometry."
+      ],
+      "reasoning": "The new implication is the global incidence classification: singularity forces the line and hyperplane covector to lie in the same eigenspace, yielding exactly two P1 components downstairs and two P1 x P1 components after restoring the intermediate plane. Local eigenbasis charts then give the uniform ODP transversal. None of the inspected sources states this chain or a theorem that immediately yields it.",
+      "searches": [
+        "arXiv:1709.05423v1 lines 755-764 Example 5.5",
+        "arXiv:2208.06299v1 Theorems 4-6",
+        "Cummings 2024 Grobner Geometry for Hessenberg Varieties semisimple patch ideals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Insko--Precup Example 5.5 gives the patch polynomial and lists eight singular torus-fixed points, but does not identify a positive-dimensional singular locus.",
+        "No semantically close published the semantic literature database record was returned for the exact object or ordinary-double-point formulation."
+      ],
+      "reasoning": "The comparison searched both the source's patch coordinates and coordinate-free descriptions using eigenspaces, quadric surfaces, determinantal cones, and ordinary double points. The final statement is stronger than the fixed-point computation because it classifies every singular point and its local type.",
+      "searches": [
+        "semisimple Hessenberg variety h=(3,4,4,4) diag(1,1,-1,-1) singular locus ordinary double point",
+        "Hessenberg Example 5.5 x21 x32 x43 - x21 x42 - x31 x43 singularity",
+        "Hessenberg h=(3,4,4,4) S=diag(1,1,-1,-1) singular locus P1xP1",
+        "Insko Precup Example 5.5 singular locus local analytic type",
+        "arXiv:1709.05423v1 Example 5.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2017 paper's table marks the (3,4,4,4), (2,2) case singular, irreducible, and equidimensional and Example 5.5 lists eight singular torus-fixed points.",
+        "No database result located a table or record identifying two P1 x P1 singular components or a uniform node transversal."
+      ],
+      "reasoning": "A fixed-point census does not imply that the singular locus is finite, nor does it identify scheme-local type away from the fixed points. The final theorem supplies those missing geometric statements.",
+      "searches": [
+        "Hessenberg h=(3,4,4,4) S=diag(1,1,-1,-1) singular locus P1xP1",
+        "semisimple Hessenberg ordinary double point transverse node P1 x P1",
+        "Hessenberg diag(1,1,-1,-1) normal singular locus quadric surfaces",
+        "eight singular T-fixed points Hessenberg diag(1,1,-1,-1)"
+      ]
+    },
+    "rationale": "The exact 2017 source records the example's irreducibility, one patch equation, and eight singular torus-fixed points, but not the full singular locus. The later codimension-one theorem gives only a singular-locus containment for general semisimple operators, with equality reserved for nilpotent operators. Exact-object, local-normal-form, determinantal-cone, and quadric-stratum searches found no prior statement of the two disjoint quadric surfaces or the uniform transverse ordinary-double-point model. The 2024 Cummings thesis is a residual access risk because its abstract concerns semisimple patch radicality and the full text was unavailable.",
+    "residual_risks": [
+      "The full 2024 Cummings thesis was not accessible, so an equivalent local computation hidden there cannot be excluded.",
+      "A differently indexed source could contain the same special-case global incidence calculation under flag-incidence or determinantal terminology; targeted exact and alias searches found none."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_INPUT_NOT_CLAIM: exact object and one local equation are present, but the full singular locus and uniform local type are not stated.",
+        "evidence": "Example 5.5 reports one irreducible component and eight singular T-fixed points after patch computations; it does not claim that these are all singular points.",
+        "identifier_or_url": "arXiv:1709.05423v1",
+        "material_read": "Abstract, introduction, Section 5 patch discussion, Lemma 5.3, Conjecture 5.4, Figure 5, and Example 5.5 including the displayed patch equation and fixed-point conclusion.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "The singular locus of semisimple Hessenberg varieties",
+        "trigger": "Exact source of the semisimple (2,2) example with \\(h=(3,4,4,4)\\)."
+      },
+      {
+        "assessment": "NOT_COVERING: proves irreducibility criterion, semisimple singular-locus containment, and reducedness; exact singular-locus equality is stated only for nilpotent operators.",
+        "evidence": "Theorem 5 explicitly gives containment for arbitrary x and equality if x is nilpotent.",
+        "identifier_or_url": "arXiv:2208.06299v1",
+        "material_read": "Abstract/introduction and the statements and proof setup for Theorems 4, 5, and 6 in the current open full text, with the arXiv first-public date separately verified.",
+        "method": "Open full-text HTML and arXiv metadata inspection.",
+        "title": "Hessenberg varieties of codimension one in the flag variety",
+        "trigger": "Strongest later general theorem directly covering \\(h=(3,4,4,4)\\)."
+      },
+      {
+        "assessment": "ACCESS_RISK_NOT_DECISIVE: abstract addresses radicality of semisimple patch ideals, not a singular-locus or local-type classification.",
+        "evidence": "The abstract describes a partial positive answer to the radicality conjecture for semisimple Hessenberg patch ideals.",
+        "identifier_or_url": "McMaster Master's thesis, 2024; author research page",
+        "material_read": "Author-hosted abstract and bibliographic description; full thesis text was not accessible in the available web material.",
+        "method": "Author research page and repository/search metadata inspection.",
+        "title": "Gröbner Geometry for Hessenberg Varieties",
+        "trigger": "Potential later work on the same semisimple patch ideals and the Insko--Precup radicality conjecture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e8c81dc-d6db-476e-823c-9eeba4414584",
+  "value": {
+    "rationale": "The exact example was introduced to show that a nonstandard semisimple Hessenberg variety can be irreducible and singular, but prior work records only patch/fixed-point evidence and later general work gives only semisimple containment. Identifying the entire singular locus as two smooth quadric surfaces and proving a uniform transverse ODP type converts that example into a complete structural description, explains the eight singular torus-fixed points as four on each component, and yields normality. This is a natural geometric invariant of a published benchmark example rather than an arbitrary slice or parameter substitution.",
+    "status": "PASS"
+  }
+}
