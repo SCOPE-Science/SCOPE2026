@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces each antithetic pair to one signed standard Cauchy variable and uses independence plus the Cauchy characteristic function to obtain the exact scale \\(A=\\sum_j|w_{j,+}-w_{j,-}|\\). The reported p-value is a monotone transform, yielding the full cdf directly from the scaled-Cauchy tail. The exactness criterion, strict-conservatism regime, Gaussian realization, and small-\\(\\alpha\\) limit all follow analytically. Numerical checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Long et al. broaden asymptotic Cauchy-tail validity conditions but do not supply this finite two-point dependence law in the inspected text.",
+        "Gui et al. provide broader asymptotic and empirical dependence coverage; their negative-correlation conclusion is qualitative/empirical at finite levels rather than the displayed exact cdf.",
+        "Ota studies growing-number fixed-level calibration under a one-factor equicorrelated Gaussian model, not the fixed two-test singular negative-correlation boundary."
+      ],
+      "reasoning": "Broader dependence papers establish asymptotic validity or qualitative finite-level behavior, but do not determine the exact blockwise Cauchy scale \\(A\\), the exact finite-level cdf, or the iff criterion for standard-Cauchy calibration in this architecture.",
+      "searches": [
+        "arXiv:2107.06040 arbitrary dependence Cauchy combination",
+        "arXiv:2310.20460 heavy-tailed combination negative correlation one-sided",
+        "arXiv:2603.22668 fixed-level calibration Cauchy combination"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.09011",
+      "DOI 10.1080/01621459.2018.1554485",
+      "arXiv:2107.06040",
+      "DOI 10.1080/00031305.2022.2116109",
+      "arXiv:2310.20460",
+      "DOI 10.1093/biomet/asaf038",
+      "arXiv:2603.22668"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original exact case with all p-values equal gives a standard Cauchy statistic for every normalized weight, whereas complementary p-values cancel within latent blocks and leave a generally smaller scale.",
+        "Later asymptotic validity results allow strong-dependence boundary cases but do not identify the exact cancellation scale \\(A\\) or its iff calibration criterion.",
+        "The later qualitative conservatism observation is consistent with, but does not imply, the exact finite-sample block law."
+      ],
+      "reasoning": "Prior results establish robustness or conservatism without identifying how pairwise complementary weights cancel. The present theorem converts that dependence pattern into an exact stable-law scale and a complete weight classification, which is not implied by the cited asymptotic statements.",
+      "searches": [
+        "Liu Xie 2018 perfect dependence exact Cauchy",
+        "Gui Jiang Wang perfect correlation one-sided Cauchy combination Corollary 2",
+        "negative correlation Cauchy combination conservative Bonferroni"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu-Xie Eq. (1) defines the weighted Cauchy statistic; Eq. (3) gives the standard-Cauchy reported p-value. The text singles out independence and all-equal p-values as exact standard-Cauchy cases.",
+        "Gui-Jiang-Wang state that negative correlation can make CCT more conservative than Bonferroni and separately treat perfect-correlation cases asymptotically.",
+        "Targeted searches for antithetic/countermonotone terminology and the cancellation scale returned no matching statement."
+      ],
+      "reasoning": "The claim is not a rephrasing of the exact independent or perfect-positive-dependence cases: each latent block contains two perfectly negatively dependent p-values whose Cauchy transforms cancel before the independent stable summation. The remaining scale \\(A\\) and its exact weight classification are absent from the inspected equivalent-formulation candidates.",
+      "searches": [
+        "Cauchy combination antithetic p-values exact finite sample law weights |2w-1|",
+        "Cauchy combination perfect negative dependence one-sided Gaussian equal weights zero rejection",
+        "CCT countermonotone uniform p-values weighted Cauchy scale",
+        "heavy-tailed combination negative correlation conservative exact attenuation",
+        "\"p2=1-p1\" \"Cauchy combination\"",
+        "antithetic \"Cauchy combination test\"",
+        "arXiv:1808.09011 Section 2 weighted Cauchy statistic and p-value formula",
+        "arXiv:2310.20460 negative one-sided p-values and perfect-correlation discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gui et al. refer to supplementary simulations for negatively correlated one-sided p-values and report conservatism, rather than an analytic antithetic-block weight law.",
+        "No exact database/table result matching the cancellation budget or its finite-level cdf was located in the targeted searches."
+      ],
+      "reasoning": "A simulation table cannot imply an all-level analytic distribution. No located exact table or database entry subsumes the cancellation-budget classification.",
+      "searches": [
+        "Cauchy combination negative correlation exact Type-I error table",
+        "Cauchy combination p-value countermonotone formula",
+        "Biometrika 2025 Supplementary Table S1 negative correlation"
+      ]
+    },
+    "rationale": "The primary CCT paper gives the weighted transform, exact standard-Cauchy behavior for independence and perfect positive dependence, and broad small-tail approximation, but not the independent-antithetic-block scaled-Cauchy law or its cancellation budget. The closest later analysis reports conservatism under negatively correlated one-sided p-values and treats perfect-correlation regimes asymptotically, yet the inspected main text does not state the exact blockwise law, exactness criterion, or tail factor \\(A\\). Targeted statement-level searches found no published finding implying the complete finite-level classification. The principal residual risk is an elementary equivalent stable-law calculation in supplementary or unindexed material.",
+    "residual_risks": [
+      "The stable-law identity is elementary once the antithetic block structure is written down, so an equivalent calculation could exist in unindexed notes, code documentation, or supplementary material not exposed by the inspected text.",
+      "The 2025 paper points to supplementary simulations for negative correlation; the inspected main text does not give the exact cancellation-budget formula, but poorly indexed supplementary prose remains a residual comparison risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines all method ingredients and exact positive-dependence benchmark, but does not state the independent-antithetic-block scale law or cancellation budget.",
+        "evidence": "The source defines T as a normalized weighted sum of Cauchy-transformed p-values and gives p=1/2-arctan(T)/pi; it explicitly notes exact standard-Cauchy behavior for independent or all-equal p-values.",
+        "identifier_or_url": "arXiv:1808.09011 / DOI 10.1080/01621459.2018.1554485",
+        "material_read": "Accessible full-text arXiv HTML, especially introduction, Section 2, equations defining the statistic/test/p-value, exact independence/perfect-positive-dependence discussion, and theorem remarks.",
+        "method": "Statement-level reading and targeted term comparison.",
+        "title": "Cauchy combination test: a powerful test with analytic p-value calculation under arbitrary dependency structures",
+        "trigger": "Primary source defining the statistic and calibration used in the claim."
+      },
+      {
+        "assessment": "Broadens tail approximation theory; no matching exact antithetic-block finite-level law was found in the inspected material.",
+        "evidence": "The article describes asymptotic tail approximation under relaxed dependence conditions and power comparison, not the displayed exact cdf.",
+        "identifier_or_url": "arXiv:2107.06040 / DOI 10.1080/00031305.2022.2116109",
+        "material_read": "Accessible arXiv article text and abstract-level theorem descriptions, with targeted searches for negative/perfect dependence and weights.",
+        "method": "Statement/implication comparison.",
+        "title": "The Cauchy Combination Test under Arbitrary Dependence Structures",
+        "trigger": "Closest follow-up devoted to arbitrary dependence."
+      },
+      {
+        "assessment": "Reports that negative correlation can make CCT more conservative than Bonferroni and gives asymptotic theory, but does not state the exact independent-antithetic-block weight classification in the inspected main text.",
+        "evidence": "The main text explicitly identifies negative-correlation conservatism and points to supplementary simulations; it does not provide the exact cancellation-budget cdf.",
+        "identifier_or_url": "arXiv:2310.20460 / DOI 10.1093/biomet/asaf038",
+        "material_read": "Accessible full main-text HTML, including Sections 2–3, perfect-correlation corollaries, one-sided negative-correlation discussion, and the finite-level empirical-validity section.",
+        "method": "Full-text section reading plus targeted searches for negative, one-sided, perfect correlation, conservative, and Cauchy.",
+        "title": "Aggregating dependent signals with heavy-tailed combination tests",
+        "trigger": "Highly relevant later work explicitly studying one-sided negative correlation and perfect-correlation boundaries."
+      },
+      {
+        "assessment": "Studies growing dimension with positive equicorrelation and a boundary-layer calibration, not the fixed two-test perfect-negative dependence law.",
+        "evidence": "Its stated regime is a one-factor equicorrelated Gaussian model with the number of p-values growing; the present theorem fixes finitely many independent contrasts with perfect negative dependence inside each pair.",
+        "identifier_or_url": "arXiv:2603.22668",
+        "material_read": "Abstract and model/regime description.",
+        "method": "Scope and implication comparison.",
+        "title": "Fixed-level calibration of the Cauchy combination test",
+        "trigger": "Recent paper specifically on fixed-level CCT calibration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3fc996c3-f10d-4eae-be30-87a01832b7da",
+  "value": {
+    "rationale": "The dependence model is natural: independent Gaussian contrasts can generate two opposite one-sided p-values, and recent heavy-tailed-combination work identifies negative-correlation conservatism as a methodological issue. The theorem gives a complete finite-level classification for any number of independent antithetic pairs through the cancellation budget \\(A\\), showing precisely when standard Cauchy calibration remains exact, becomes conservative, or collapses entirely. This is a structural boundary result rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
