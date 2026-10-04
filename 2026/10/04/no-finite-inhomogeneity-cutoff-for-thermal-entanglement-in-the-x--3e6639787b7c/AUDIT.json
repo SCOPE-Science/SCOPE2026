@@ -1,0 +1,116 @@
+{
+  "claim": "For the two-qubit XXZ Hamiltonian in a uniform field \\(B\\) and field inhomogeneity \\(b\\) studied by Zhang and Li, \\[H=\\frac12\\!\\left[J(\\sigma_x\\otimes\\sigma_x+\\sigma_y\\otimes\\sigma_y)+J_z\\sigma_z\\otimes\\sigma_z+(B+b)\\sigma_z\\otimes I+(B-b)I\\otimes\\sigma_z\\right],\\]assume \\(J>0\\), \\(J_z\\ge0\\), \\(T>0\\), and put \\(\\eta=\\sqrt{J^2+b^2}\\). The exact Gibbs-state concurrence is \\[C(T,b)=\\frac{2}{Z}\\left[e^{J_z/(2T)}\\frac{J}{\\eta}\\sinh(\\eta/T)-e^{-J_z/(2T)}\\right]_+,\\]where \\(Z=2e^{-J_z/(2T)}\\cosh(B/T)+2e^{J_z/(2T)}\\cosh(\\eta/T)\\). Therefore \\(C(T,b)>0\\) if and only if \\[\\frac{J}{\\eta}\\sinh(\\eta/T)>e^{-J_z/T}.\\]Because \\(\\sinh x/x\\) is strictly increasing for \\(x>0\\), increasing \\(|b|\\) can never destroy existing concurrence. If \\(\\sinh(J/T)>e^{-J_z/T}\\), then \\(C(T,b)>0\\) for every finite \\(b\\); if equality holds, only \\(b=0\\) is at threshold; and if \\(\\sinh(J/T)<e^{-J_z/T}\\), there is one lower activation threshold \\(b_*>0\\), determined by \\[\\frac{J}{\\sqrt{J^2+b_*^2}}\\sinh\\!\\left(\\frac{\\sqrt{J^2+b_*^2}}{T}\\right)=e^{-J_z/T},\\]with \\(C=0\\) for \\(|b|\\le b_*\\) and \\(C>0\\) for \\(|b|>b_*\\). Whenever it exists, \\(b_*\\) strictly decreases with \\(J_z\\). Moreover, for fixed \\(J,J_z,B,T\\), \\[\\lim_{|b|\\to\\infty}\\frac{|b|}{J}C(T,b)=1,\\]so \\(C(T,b)\\sim J/|b|\\). Thus the finite upper critical inhomogeneity reported in the source does not exist; inhomogeneity can instead activate entanglement and leaves an algebraic positive tail.",
+  "correctness": {
+    "rationale": "The X-state Wootters formula gives C=(2/Z)[exp(Jz/(2T)) J sinh(eta/T)/eta-exp(-Jz/(2T))]_+. Since sinh(x)/x is strictly increasing, the positive set in |b| is either all finite b, all nonzero b at equality, or one upper ray after a unique activation threshold. The large-eta Gibbs asymptotics give C~J/eta~J/|b|. A direct 4x4 matrix checker reproduces the formula over a deterministic parameter grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asoudeh and Karimipour analyze the isotropic model and show that strong inhomogeneity can induce thermal entanglement.",
+        "Wu and Zhou study a closely related anisotropic XXZ model under an inhomogeneous field; accessible material confirms direct topical overlap.",
+        "The accessible sources do not establish the full accepted arbitrary-Jz topology and reciprocal asymptotic."
+      ],
+      "reasoning": "The isotropic precursor does not imply the anisotropy dependence. The 2006 follow-up is a residual coverage risk because full-text comparison was incomplete, but the accessible record is not a decisive stronger theorem covering the accepted statement.",
+      "searches": [
+        "thermal entanglement spins in an inhomogeneous magnetic field Asoudeh Karimipour",
+        "anisotropic XXZ inhomogeneous magnetic field Wu Zhou thermal entanglement",
+        "two-qubit XXZ inhomogeneous field concurrence critical field"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0509009",
+      "DOI:10.1103/PhysRevA.72.034302",
+      "arXiv:quant-ph/0407073",
+      "DOI:10.1103/PhysRevA.71.022308",
+      "DOI:10.1142/S0217979206034583",
+      "MaRDI Q5484225"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang and Li provide the exact X-state entries needed for Wootters concurrence and then make the finite-critical-b interpretation corrected here.",
+        "Asoudeh and Karimipour prove inhomogeneity-induced entanglement in the isotropic model, which supports but does not imply the Jz-dependent theorem.",
+        "The 2006 Wu--Zhou article is a plausible close source; only abstract and bibliographic material were available for this comparison."
+      ],
+      "reasoning": "The accepted result requires combining the source X-state with the monotonicity of sinh(x)/x, then deriving threshold movement and the dominant Gibbs asymptotic. Those conclusions are not established by the inspected prior statements.",
+      "searches": [
+        "Primary full text arXiv:quant-ph/0509009 equations 3-10 and Figure 4 discussion",
+        "Primary full text arXiv:quant-ph/0407073 inhomogeneous-field concurrence equations",
+        "DOI:10.1142/S0217979206034583 anisotropic XXZ inhomogeneous magnetic field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct 2005 source states a finite critical inhomogeneous field but its displayed Gibbs state yields the monotone sign condition used here.",
+        "Targeted semantic searches did not return a matching correction or reciprocal-tail statement.",
+        "The isotropic Asoudeh--Karimipour formula is compatible with activation by inhomogeneity but is a strict special case."
+      ],
+      "reasoning": "Equivalent coverage must imply that the positive-concurrence set is an upper ray in |b| for arbitrary Jz>=0, or supply an algebraically equivalent correction and large-|b| tail. Generic statements that inhomogeneity affects concurrence do not suffice.",
+      "searches": [
+        "two-qubit Heisenberg XXZ inhomogeneous magnetic field concurrence critical inhomogeneous field Jz finite temperature",
+        "Zhang Li quant-ph/0509009 critical inhomogeneous magnetic field correction concurrence",
+        "XXZ thermal entanglement nonuniform field large inhomogeneity concurrence asymptotic",
+        "sinh sqrt(b^2+J^2) over sqrt(b^2+J^2) concurrence inhomogeneous magnetic field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's Figure 4 discussion says the plotted concurrences reach zero at the same b for several Jz values.",
+        "Direct evaluation of the source formula for the same J=1, B=0.8, T=0.6 parameters gives positive concurrence at b=5 for all three listed Jz values.",
+        "No exact published table for the reciprocal asymptotic was located."
+      ],
+      "reasoning": "The accepted claim is not a re-tabulation: it corrects the zero set analytically and describes the global |b| topology and asymptotic tail.",
+      "searches": [
+        "quant-ph/0509009 Figure 4 critical b Jz 0.9 0.4 0",
+        "Physical Review A 72 034302 critical inhomogeneous magnetic field",
+        "large b concurrence XXZ inhomogeneous field 1/b"
+      ]
+    },
+    "rationale": "The direct source explicitly reports a finite upper critical inhomogeneous field independent of Jz. Earlier isotropic work gives a related activation phenomenon, while the accessible material for the close 2006 XXZ follow-up does not establish the exact correction, general threshold topology, or reciprocal tail.",
+    "residual_risks": [
+      "The full text of the 2006 Wu--Zhou XXZ article was not available for complete comparison.",
+      "An equivalent correction may appear under an alternate normalization of the magnetic fields.",
+      "Other coupling-sign regimes are outside the accepted claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The thermal X-state yields the exact sign formula used here. The source's prose interpretation that concurrence reaches zero at a finite upper b for the plotted antiferromagnetic parameters is inconsistent with that formula.",
+        "evidence": "The source defines eta=sqrt(b^2+J^2), gives the X-state off-diagonal factor proportional to J sinh(eta/T)/eta, and states that several Jz curves arrive at zero at the same critical b.",
+        "identifier_or_url": "arXiv:quant-ph/0509009; DOI:10.1103/PhysRevA.72.034302",
+        "material_read": "Full arXiv manuscript including Hamiltonian and spectrum, thermal density matrix, concurrence construction, Figure 4 and its discussion, and conclusion.",
+        "method": "ArXiv full-text and rendered-page inspection.",
+        "title": "Thermal entanglement in a two-qubit Heisenberg XXZ spin chain under an inhomogeneous magnetic field",
+        "trigger": "Direct source containing the Hamiltonian, Gibbs state, concurrence analysis, and claimed finite critical inhomogeneous field."
+      },
+      {
+        "assessment": "Covers the isotropic special case and shows that inhomogeneity can create entanglement; it does not supply the arbitrary-Jz XXZ correction or reciprocal tail.",
+        "evidence": "The paper derives an exact concurrence depending on the inhomogeneous-field scale and explicitly identifies a lower inhomogeneity threshold in one regime.",
+        "identifier_or_url": "arXiv:quant-ph/0407073; DOI:10.1103/PhysRevA.71.022308",
+        "material_read": "Full public manuscript sections deriving the two-spin thermal concurrence, ground-state behavior, and inhomogeneity-induced entanglement thresholds.",
+        "method": "Public full-text inspection.",
+        "title": "Thermal entanglement of spins in an inhomogeneous magnetic field",
+        "trigger": "Closest earlier isotropic model with an inhomogeneous field."
+      },
+      {
+        "assessment": "Substantial residual originality risk because of exact topic overlap. Accessible material does not establish the accepted correction, one-threshold topology, or reciprocal tail, so the claim is retained with this limitation explicit.",
+        "evidence": "The record describes anisotropic XXZ thermal entanglement under an inhomogeneous magnetic field and lists primary MSC 81P68.",
+        "identifier_or_url": "DOI:10.1142/S0217979206034583; MaRDI Q5484225",
+        "material_read": "Publisher/author preview, abstract, bibliographic metadata, and mathematical classification; full article body was not available for complete inspection.",
+        "method": "Accessible preview and bibliographic-record inspection.",
+        "title": "Thermal entanglement in the anisotropic XXZ model under an inhomogeneous magnetic field",
+        "trigger": "Very close later XXZ treatment that could contain stronger or equivalent coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e663978-7b7c-4ddc-aeac-67eb3b7dca92",
+  "value": {
+    "rationale": "A finite upper critical inhomogeneity is a qualitative phase boundary. The corrected theorem reverses that interpretation: inhomogeneity cannot finitely destroy concurrence in the stated regime, may activate it after one lower threshold, and leaves a universal algebraic tail.",
+    "status": "PASS"
+  }
+}
