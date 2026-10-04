@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The bounded-martingale recursion is exact. Conditional binomial variance gives a one-step multiplicative identity for \\(\\mathbb E[P_t(1-P_t)]\\), which telescopes to the finite product. The MSE follows from the martingale mean, the infinite product follows from Euler sine product, and the large-batch expansion follows from the Taylor series of \\(\\sin x/x\\). Exact-rational finite-state propagation independently reproduces the formulas. Boundary and parameterization limits are stated explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dey--Donoho Lemma 5.3 gives asymptotic variance inflation by the reciprocal-square partial sum for fixed generation as per-generation sample size grows.",
+        "Barzilai--Shamir Theorem 4.1 gives high-probability nonasymptotic consistency bounds under regularity assumptions, not exact risk.",
+        "Jin--Yu derive high-dimensional rates and asymptotic normality for BTL accumulation, not exact two-item finite-sample risk."
+      ],
+      "reasoning": "The broader results cover more models or dimensions but at the level of asymptotics or bounds. They do not dominate the exact finite-m, all-generation Bernoulli formula; conversely, the candidate does not claim their generality.",
+      "searches": [
+        "published-finding corpus: Bernoulli augmentation workflow exact finite sample variance infinite product pi squared over 6",
+        "Web/source: arXiv:2410.22812 augment workflow exponential family pi^2/6",
+        "Web/source: arXiv:2505.19046 iterative MLE non-asymptotic consistency"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.32987 (Jin--Yu, full text)",
+      "arXiv:2410.22812 (Dey--Donoho, full text)",
+      "arXiv:2505.19046 (Barzilai--Shamir, full text)",
+      "arXiv:2404.01413 (Gerstgrasser et al., full text)",
+      "AMS MSC2020 entry 62F10 (Point estimation)",
+      "published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gerstgrasser et al. Theorem 2 gives an exact reciprocal-square sum for linear-regression test error.",
+        "Dey--Donoho Theorem 5.1 and Lemma 5.3 are asymptotic in per-generation sample size and imply the reciprocal-square inflation in the Gaussian limit.",
+        "Barzilai--Shamir explicitly contrast their finite-sample bounds with Dey--Donoho fixed-generation asymptotics.",
+        "Jin--Yu state their contribution as nonasymptotic l2/linfty rates and asymptotic normality for the accumulated BTL MLE."
+      ],
+      "reasoning": "Known results imply that the leading large-m inflation approaches the reciprocal-square sum and ultimately \\(\\pi^2/6\\), so that asymptotic constant is not new. They do not imply the exact finite-m product without exploiting the Bernoulli conditional variance, nor the Euler sine-product correction or exact conditional variance given the initial MLE. The accepted claim is restricted to those non-implied finite-sample statements.",
+      "searches": [
+        "Full text arXiv:2609.32987",
+        "Full text arXiv:2404.01413",
+        "Full text arXiv:2410.22812",
+        "Full text arXiv:2505.19046"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.32987 defines iterative BTL MLE from all accumulated comparison rounds.",
+        "arXiv:2410.22812 treats the augment scheme through an asymptotic Gaussian experiment and reciprocal-square variance inflation.",
+        "arXiv:2505.19046 formulates the general accumulated iterative-MLE recursion and uses martingale concentration."
+      ],
+      "reasoning": "The candidate can be written as a bounded martingale for the two-item sufficient statistic, but the exact product of state-dependent Bernoulli variance depletions is not the same statement as the asymptotic Gaussian reciprocal-square sum. Searches for martingale, Polya-urn, Bernoulli, and two-item BTL formulations did not reveal an equivalent finite-sample identity.",
+      "searches": [
+        "published-finding corpus: Bradley Terry two item accumulating synthetic data martingale exact variance iterative MLE",
+        "published-finding corpus: recursive Bernoulli MLE accumulated synthetic samples Polya urn martingale",
+        "Web: Bernoulli iterative MLE synthetic data accumulation martingale"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Candidate-specific published-finding corpus searches returned no matching finding on iterative BTL/Bernoulli augmentation risk; closest hits concerned unrelated Bernoulli tail or cumulant problems.",
+        "The current private ledger contains no prior finding matching Bradley--Terry synthetic augmentation or the pi^2/6 risk pathway."
+      ],
+      "reasoning": "No database row or own-ledger item was found that tabulates or states the finite product, sine-product limit, or conditional no-self-correction identity.",
+      "searches": [
+        "published-finding corpus: Maximum Likelihood Estimation for Entity Ranking under Iterative Synthetic Data Augmentation 2609.32987",
+        "published-finding corpus: Bernoulli augmentation workflow exact finite sample variance infinite product pi squared over 6",
+        "Own ledger search: synthetic data | model collapse | Bradley | pi^2/6 | augmentation workflow"
+      ]
+    },
+    "rationale": "Prior work establishes the reciprocal-square mechanism in exact linear regression, asymptotically across exponential families, and through general nonasymptotic bounds. The surviving claim is the exact finite-batch Bernoulli/BTL product, sine-product limit, strict finite-batch correction, and conditional no-self-correction law; these are not implied by the inspected statements without the new state-dependent calculation.",
+    "residual_risks": [
+      "A specialized finite-sample Bernoulli augmentation calculation may exist under terminology not surfaced by the searches; no such source was found.",
+      "The exact claim is in the win-probability parameter. Transforming to log-odds introduces boundary and nonlinear-moment effects not covered here.",
+      "The equal-batch two-item structure is essential to the closed product; multi-item BTL coupling may change the exact finite-sample law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the successive synthetic-comparison accumulation mechanism specialized in the claim, but does not state the exact two-item Bernoulli moment law.",
+        "evidence": "Section 2 generates L Bernoulli comparisons each round from the current fitted BTL scores and defines the next MLE from all data accumulated through that round; the paper advertises high-dimensional rates and asymptotic normality.",
+        "identifier_or_url": "arXiv:2609.32987",
+        "material_read": "Abstract, introduction/related work, model formulation and iterative MLE definition, plus searches through the full text for two-item and reciprocal-square special cases.",
+        "method": "Full-text inspection of the public preprint.",
+        "title": "Maximum Likelihood Estimation for Entity Ranking under Iterative Synthetic Data Augmentation",
+        "trigger": "Primary recent source defining the BTL accumulation model."
+      },
+      {
+        "assessment": "Establishes the reciprocal-square variance inflation asymptotically as per-generation sample size grows, but not the exact finite-m Bernoulli product or sine-product correction.",
+        "evidence": "Lemma 5.3 gives asymptotic variance inflation by the sum of reciprocal squares; Theorem 5.1 is explicitly a large-sample distributional limit.",
+        "identifier_or_url": "arXiv:2410.22812",
+        "material_read": "Introduction, workflow and exponential-family setup, asymptotic efficiency section, main Gaussian-equivalence theorem, augment-workflow lemma, and additional middle sections checked for finite/exact Bernoulli statements.",
+        "method": "Full-text inspection after open-access retrieval attempts.",
+        "title": "Universality of the \\(\\pi^2/6\\) Pathway in Avoiding Model Collapse",
+        "trigger": "Most plausible dominating result because Bernoulli is an exponential family and the paper proves universal augmentation inflation."
+      },
+      {
+        "assessment": "Provides uniform high-probability consistency bounds rather than exact finite-sample MSE; it uses reciprocal-square summability as a bounding device.",
+        "evidence": "Theorem 4.1 bounds parameter error at order n^{-1/2}; the proof sketch explicitly bounds a martingale variance by the reciprocal-square series.",
+        "identifier_or_url": "arXiv:2505.19046",
+        "material_read": "Introduction, Algorithm 1, assumptions, Theorem 4.1 and proof sketch, and passages discussing reciprocal-square martingale concentration.",
+        "method": "Full-text inspection of the public preprint.",
+        "title": "When Models Don't Collapse: On the Consistency of Iterative MLE",
+        "trigger": "General nonasymptotic iterative-MLE paper in the same accumulating-data setting."
+      },
+      {
+        "assessment": "Contains an exact reciprocal-square sum for linear regression, not the Bernoulli/BTL product law.",
+        "evidence": "Theorem 2 gives accumulated linear-regression test error proportional to the finite reciprocal-square sum and bounds it by pi^2/6.",
+        "identifier_or_url": "arXiv:2404.01413",
+        "material_read": "Abstract, linear-regression theory, Theorems 1--2, appendix statement of the accumulation test-error formula, and discussion of related square-summability results.",
+        "method": "Full-text inspection of the public preprint.",
+        "title": "Is Model Collapse Inevitable? Breaking the Curse of Recursion by Accumulating Real and Synthetic Data",
+        "trigger": "Exact finite-generation predecessor for accumulation risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "986566a5-1e23-4a02-9cbd-707e42c67378",
+  "value": {
+    "rationale": "The result gives an exact finite-sample benchmark for a current BTL synthetic-augmentation model and quantitatively connects finite batches to the known \\(\\pi^2/6\\) asymptotic pathway. It shows precisely how much extra uncertainty is injected and proves that synthetic rounds cannot correct the realized initial MLE in conditional mean. This is a motivated structural fact, not a parameter substitution or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
