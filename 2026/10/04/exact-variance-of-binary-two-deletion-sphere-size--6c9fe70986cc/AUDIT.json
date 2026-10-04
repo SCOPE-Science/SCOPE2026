@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the exact two-deletion run formula, rewrites internal singleton runs and endpoint singleton runs using independent binary boundary indicators, and computes the complete degree-two Walsh spectrum. Orthogonality gives exactly \\(m(m-1)^2/16+\binom m2/16=m(m-1)(2m-1)/32\\), with \\(m=n-1\\); \\(n=2\\) is checked separately. Direct enumeration through \\(n=12\\) verifies every center and both exact moments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pham--Goyal--Kiah define \\(\\mathcal D_t(x)\\), its maximum \\(D(n,t)\\), and worst-case intersection parameters; they do not give random-center second moments.",
+        "Alon et al. state that the deletion graph is not regular and study code size and triangle sparsity rather than the variance of deletion-sphere cardinality."
+      ],
+      "reasoning": "Worst-case ball sizes, pairwise intersections, and graph-degree upper bounds do not imply an exact random-center variance. No broader moment theorem covering this statistic was found.",
+      "searches": [
+        "expected size two deletion ball random q-ary word",
+        "average two-deletion ball size random binary string",
+        "arXiv:2111.04255 deletion ball D(n,t)",
+        "arXiv:2209.11882 deletion graph degree nonregular"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.04255",
+      "doi:10.1109/TIT.2002.806155",
+      "arXiv:2209.11882"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Swart--Ferreira formula determines each center's sphere size but contains no averaging or covariance calculation.",
+        "The Pham--Goyal--Kiah and Alon et al. results concern different extremal or graph quantities."
+      ],
+      "reasoning": "The variance is derivable from the prior deterministic formula only after adding the independent-boundary representation and computing the full quadratic Walsh spectrum. It is therefore not an immediate quoted corollary or a parameter substitution into a located theorem.",
+      "searches": [
+        "Swart Ferreira double deletion subsequences Proposition 3.1",
+        "Pham Goyal Kiah deletion ball maximum D(n,t)",
+        "Alon deletion graph nonregular"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Swart--Ferreira Proposition 3.1 gives the deterministic run-count formula for exactly two deletions.",
+        "No occurrence of 'variance' was found in the inspected Swart--Ferreira full text.",
+        "Targeted searches under deletion-ball, deletion-sphere, second-moment, and distinct-subsequence wording returned no statement of the displayed variance."
+      ],
+      "reasoning": "The closest equivalent formulation is the second moment of the cardinality of the set of distinct length-\\(n-2\\) subsequences. The deterministic size formula is prior work, but taking its exact random-center variance is a separate statement and was not located.",
+      "searches": [
+        "variance two deletion ball binary subsequences runs singleton",
+        "second moment deletion sphere binary two deletions",
+        "distribution size two-deletion ball binary",
+        "average deletion sphere size two deletions variance",
+        "doi:10.1109/TIT.2002.806155"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literature searches returned deletion-code bounds and unrelated substring-variance results, but no published statement of the exact two-deletion sphere variance.",
+        "None of the inspected primary sources states or tabulates the displayed variance polynomial."
+      ],
+      "reasoning": "No exact published table or inspected source was found that lists or implies the polynomial \\(n-1)(n-2)(2n-3)/32\\).",
+      "searches": [
+        "variance deletion ball size two deletions",
+        "distinct subsequences after two deletions expectation",
+        "binary two deletion sphere variance exact"
+      ]
+    },
+    "rationale": "The checked primary literature contains the deterministic two-deletion sphere formula and modern deletion-ball/reconstruction extremal results, but no exact variance of the two-deletion sphere size over a uniform binary center. The new implication is not a special case of an identified stronger moment theorem: it uses the prior run formula plus a separate Walsh analysis of independent binary boundaries.",
+    "residual_risks": [
+      "An unindexed note, thesis, or differently phrased probabilistic analysis of the Swart--Ferreira run formula may contain the same variance.",
+      "The exact mean is a simple double count and is used only as a consistency check; originality is asserted for the variance claim, not for that mean."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the variance claim; it treats extremal deletion-ball/intersection quantities.",
+        "evidence": "The paper defines \\(\\mathcal D_t(x)\\) and \\(D(n,t)=\\max_x|\\mathcal D_t(x)|\\), then studies worst-case intersections.",
+        "identifier_or_url": "arXiv:2111.04255",
+        "material_read": "Full arXiv text, especially Introduction and Preliminaries through the definitions of \\(\\mathcal D_t(x)\\), \\(N(n,\\ell,t)\\), and \\(D(n,t)\\).",
+        "method": "Full-text inspection.",
+        "title": "Sequence Reconstruction Problem for Deletion Channels: A Complete Asymptotic Solution",
+        "trigger": "Middle-window primary source defining the same deletion-ball object and its role in reconstruction."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: exact per-word size formula is prior; no variance statement was found.",
+        "evidence": "Proposition 3.1 enumerates two-deletion descendants by run count and singleton runs; full-text search found no occurrence of variance.",
+        "identifier_or_url": "doi:10.1109/TIT.2002.806155",
+        "material_read": "Full text around Section III, Example 3.1 and Proposition 3.1, including the treatment of internal singleton-run collisions and consecutive singleton runs.",
+        "method": "Author-uploaded full-text inspection.",
+        "title": "A note on double insertion/deletion correcting codes",
+        "trigger": "Direct prior source for the exact two-deletion sphere cardinality in run statistics."
+      },
+      {
+        "assessment": "NOT_COVERING for the sphere-variance claim.",
+        "evidence": "The paper studies independent sets and triangle counts in deletion graphs, not moments of the number of distinct descendants of a random center.",
+        "identifier_or_url": "arXiv:2209.11882",
+        "material_read": "Full arXiv Introduction and the beginning of the graph argument, including the definition of the deletion graph and the statement that it is not regular.",
+        "method": "Full-text inspection.",
+        "title": "Logarithmically larger deletion codes of all distances",
+        "trigger": "Modern deletion-graph source highlighting nonregular local structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c9fe709-86cc-45d6-bc4d-740e44eae0b3",
+  "value": {
+    "rationale": "Deletion-ball size is a basic local ambiguity/degree statistic in deletion coding and reconstruction, and modern work explicitly emphasizes the nonregularity of deletion graphs. The result gives the exact second-order fluctuation scale at the first genuinely nontrivial multiple-deletion radius, rather than an arbitrary finite table: \\(\\operatorname{sd}(B_n)\\sim n^{3/2}/4\\) for every length through a closed all-parameter theorem.",
+    "status": "PASS"
+  }
+}
