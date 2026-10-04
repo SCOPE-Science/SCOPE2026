@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For \\(n=6r+3\\), one has \\(m=3r+1\\). The field \\(\\mathbb F_{2^n}\\) contains \\(\\mathbb F_8\\), and every nonzero element of that subfield has order dividing seven. Thus \\(2^m+3\\equiv5\\pmod7\\), so the sum of \\(W_n\\) over the three-dimensional subspace \\(\\mathbb F_8\\) is the nontrivial power sum \\(\\sum_{x\\in\\mathbb F_8^\\times}x^5=0\\). This directly violates the definition. The source obstruction polynomial gives the same conclusion because Frobenius \\(2^m\\) restricts to squaring on \\(\\mathbb F_8\\). Exact GF(8) replay checks both formulations. The bounded replay is not used to justify the infinite quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conjecture 5.10 is broader but explicitly conjectural; Conjecture 5.11 would imply it but is also conjectural.",
+        "Ebeling--Hou--Rydell--Zhao prove a divisible-by-three result for the multiplicative inverse function, not for the Welch exponent."
+      ],
+      "reasoning": "No proved broader theorem located dominates the accepted statement. Conjectural coverage does not imply a theorem, and the closest proved divisible-by-three result is for a different function.",
+      "searches": [
+        "Hou--Zhao Conjecture 5.10",
+        "Hou--Zhao Conjecture 5.11",
+        "On Sum-Free Functions n divisible by 3 Welch"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31489v1",
+      "arXiv:2410.10426v2",
+      "DOI:10.1016/j.ffa.2025.102744"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper says the third-order status is unknown for arbitrary \\(m\\ge3\\) and then states Conjecture 5.10.",
+        "The earlier paper’s \\(3\\mid n\\) theorem is explicitly about \\(f_{\\mathrm{inv}}(x)=x^{-1}\\)."
+      ],
+      "reasoning": "Neither inspected prior result implies non-sum-freedom of \\(W_n(x)=x^{2^m+3}\\) for all divisible-by-three odd dimensions. The functions and claims are distinct.",
+      "searches": [
+        "arXiv:2609.31489v1 full text §5.3",
+        "arXiv:2410.10426v2 abstract and metadata",
+        "Welch third-order sum-free n divisible by 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hou--Zhao §5.3 gives an equivalent zero of \\(g(x,y)\\) criterion; substituting the \\(\\mathbb F_8\\) Frobenius relation produces the present witness.",
+        "No searched published finding stated the same \\(\\mathbb F_8\\) identity or the infinite progression."
+      ],
+      "reasoning": "The direct zero-sum three-flat formulation and the source paper’s obstruction-polynomial formulation were both compared. They are equivalent manifestations of the same new witness, not two separate claims.",
+      "searches": [
+        "Welch power function third-order sum-free n divisible by 3 F_8 subfield",
+        "Welch W_n X^(2^m+3) not 3rd-order sum-free n congruent 0 mod 3",
+        "F8 witness Welch third order sum-free",
+        "Conjecture 5.10 Welch 3rd-order sum-free infinite family",
+        "arXiv:2609.31489v1 §5.3 criterion (5.7)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hou--Zhao Table 1 records computational confirmation only through \\(n=15\\), including the two divisible-by-three cases \\(n=9\\) and \\(n=15\\)."
+      ],
+      "reasoning": "The table covers finitely many instances and does not imply the uniform statement for all \\(n\\equiv3\\pmod6\\). The accepted theorem subsumes those two table entries by proof.",
+      "searches": [
+        "Hou--Zhao Table 1 gcd determinant Welch n 5 7 9 11 13 15",
+        "Conjecture 5.10 Welch table n=9 n=15"
+      ]
+    },
+    "rationale": "The motivating full text states the all-odd-dimension assertion as Conjecture 5.10 and gives only finite computations through \\(n=15\\). The new statement supplies a uniform explicit \\(\\mathbb F_8\\) witness for every \\(n\\equiv3\\pmod6\\). Searches by the theorem, the subfield witness, the Welch exponent, and the paper’s conjecture surfaced no published statement implying this infinite progression. The earlier divisible-by-three theorem found in the literature concerns the multiplicative inverse function, not the Welch function. Residual risk remains because a later revision dated 2026-09-28 was catalogued but not materially available for full-text inspection.",
+    "residual_risks": [
+      "A later revision of arXiv:2609.31489 dated 2026-09-28 was not materially available for full-text comparison.",
+      "An unindexed or differently phrased observation of the elementary subfield witness may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the infinite divisible-by-three theorem; it gives finite computations and conjectures the broader statement.",
+        "evidence": "The paper states that arbitrary \\(m\\ge3\\) is not known, lists finite cases through \\(n=15\\), and formulates the all-odd statement as Conjecture 5.10.",
+        "identifier_or_url": "arXiv:2609.31489v1",
+        "material_read": "Full HTML: definition of sum-freedom, MSC listing, §5.3 including the obstruction polynomial, Corollary 5.9, Conjecture 5.10, Table 1, and §5.4 Conjecture 5.11.",
+        "method": "Full-text line-level inspection and statement/implication comparison.",
+        "title": "Further Results on Sum-Freedom of Binary and q-ary Functions",
+        "trigger": "Direct motivating source and closest possible coverage."
+      },
+      {
+        "assessment": "NOT_COVERING because the divisible-by-three theorem concerns the multiplicative inverse function.",
+        "evidence": "The abstract explicitly identifies the central function as \\(f_{\\mathrm{inv}}(x)=x^{-1}\\), not the Welch power.",
+        "identifier_or_url": "arXiv:2410.10426v2; DOI:10.1016/j.ffa.2025.102744",
+        "material_read": "ArXiv abstract, metadata, MSC, and stated scope of the divisible-by-three result.",
+        "method": "Statement and object comparison.",
+        "title": "On Sum-Free Functions",
+        "trigger": "Searches surfaced a theorem with the same divisibility condition \\(3\\mid n\\)."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_EVIDENCE_RISK; no indexed evidence of the accepted theorem was found, but unique revision text could not be excluded.",
+        "evidence": "The revision is catalogued after the v1 date; searches for the \\(\\mathbb F_8\\) witness, divisibility-by-three Welch theorem, and Conjecture 5.10 update returned no matching statement.",
+        "identifier_or_url": "arXiv:2609.31489v2 (catalogued 2026-09-28)",
+        "material_read": "Revision metadata and indexed abstract only; full revision text was not materially available.",
+        "method": "Version metadata plus exact-phrase and theorem-object searches.",
+        "title": "Further Results on Sum-Freedom of Binary and q-ary Functions, later revision",
+        "trigger": "Same-paper revision after the first public version."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f24e68fa-c382-4a46-af6d-b97fd013cddf",
+  "value": {
+    "rationale": "The motivating paper explicitly leaves third-order sum-freedom of the Welch family open for arbitrary \\(m\\ge3\\) and supports its conjecture by determinant computations. The accepted theorem converts an infinite arithmetic progression of that conjecture into a structural subfield mechanism, replacing repeated high-degree determinant computations by a canonical witness. Resolving an infinite natural subfamily of a freshly stated conjecture is mathematically motivated and not a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
