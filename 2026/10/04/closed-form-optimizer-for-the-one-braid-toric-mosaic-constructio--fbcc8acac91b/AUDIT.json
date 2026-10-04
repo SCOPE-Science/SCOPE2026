@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof rewrites the objective as maximizing \\(s=h+v\\). Feasibility is equivalent to \\(q\\ge3p-4\\). In the first regime, \\(h+3v\\le q-3p+4\\) directly bounds \\(s\\), with equality at \\((q-3p+4,0)\\). In the second regime, \\(2s\\le q-2p+4\\) is sharp except when \\(q\\equiv2\\pmod4\\); equality there would force \\(h-v=p\\) but gives opposite parities for \\(s\\) and \\(p\\), so one unit is lost. Explicit residue-class witnesses attain every stated bound. An independent finite enumerator agrees for all \\(2\\le p\\le30\\), \\(p<q\\le150\\), and reproduces the source tables/corollaries. Risk: finite replay cannot certify the infinite theorem, so acceptance rests on the algebraic proof, whose boundary cases and integrality conditions were separately checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source gives the one-braid system, a general \\(p=2\\) corollary, a finite \\(p=3\\) table, and a general \\(p=4\\) corollary.",
+        "Its full-braid construction is a different construction developed to improve part of the \\(p=2\\) family; it does not state the all-parameter optimum of the one-braid system."
+      ],
+      "reasoning": "The proposed claim is confined to the exact published one-braid optimization problem. Broader constructions may improve the toric-mosaic upper bound but do not cover the optimizer claim itself.",
+      "searches": [
+        "toric mosaic number one-braid integer linear program closed form p q torus knot",
+        "Heiney Kipe Pezzimenti Pontes Ta one-braid optimal h v closed form",
+        "toric mosaic torus knot optimal solution h v q p",
+        "toric mosaic number general torus knot exact one-braid bound floor",
+        "arXiv:2504.02265v1 Sections 2.1-2.2 and open questions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.02265v1",
+      "DOI:10.1016/j.topol.2025.109657",
+      "github:margekk/toric-mosaics-2025/toric.py@c643508b97694371a35d1ccf3a96adf2bf765b42",
+      "published-finding corpus:2026/9/18/SCOPE-exact-canonical-torus-knot-triangulation-census--831655b0b665",
+      "published-finding corpus:2026/9/20/SCOPE-exact-stick-numbers-after-trefoil-summation--dfc293ee9d95"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The layered-triangulation record concerns canonical triangulation sizes and a census, not toric mosaics or this integer program.",
+        "The stick-number record concerns polygonal stick number under connected sum, a different knot invariant.",
+        "The primary source supplies the optimization problem and special cases, but not the all-parameter optimum, feasibility threshold, or mod-four penalty."
+      ],
+      "reasoning": "None of the closest indexed findings implies the claimed formula. The primary source is the essential antecedent, and the contribution is the exact symbolic solution of its stated integer program.",
+      "searches": [
+        "published-finding corpus:2026/9/18/SCOPE-exact-canonical-torus-knot-triangulation-census--831655b0b665",
+        "published-finding corpus:2026/9/20/SCOPE-exact-stick-numbers-after-trefoil-summation--dfc293ee9d95",
+        "arXiv:2504.02265v1 one-braid integer program"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned indexed finding stated the one-braid optimizer, the feasibility threshold, or the residue-class formula. The highest-scoring hits were on unrelated torus or parity problems.",
+        "The primary manuscript itself formulates the integer program and sends optimal solutions to an integer-programming computation rather than an all-parameter formula."
+      ],
+      "reasoning": "Aliases using optimizer, feasibility threshold, phase transition, parity correction, and the explicit closed form were checked. The direct inspection of the source theorem is stronger evidence than title matching alone: the exact object and objective are present there, but the claimed general solution is not.",
+      "searches": [
+        "one-braid toric mosaic exact optimizer feasibility q >= 3p-4 mod 4 parity",
+        "toric mosaic closed form upper bound p-2 ceil(q/2) parity q mod 4",
+        "torus knot toric mosaic one-braid phase transition q=4p-4 exact integer optimizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 1 gives exactly the four inequalities used here and minimizes \\(q-h-v\\). The paper states that optimal solutions can be computed by integer linear programming.",
+        "Table 1 records selected \\(p=3\\) optima; Table 2 records \\(p=4\\) optima. The verification artifact reproduces all listed bounds.",
+        "The actual `toric.py` implementation defines nonnegative integer variables `h`,`v`, adds the same four constraints, and minimizes `q-h-v`; it contains no closed-form optimizer."
+      ],
+      "reasoning": "The claim solves exactly the database/code path used by the source rather than changing conventions or parameters. Its outputs specialize to every published table/corollary checked.",
+      "searches": [
+        "arXiv:2504.02265v1 Theorem 1 and Tables 1-2",
+        "github:margekk/toric-mosaics-2025/toric.py@c643508b97694371a35d1ccf3a96adf2bf765b42"
+      ]
+    },
+    "rationale": "The exact source manuscript and its companion solver were inspected: they pose and numerically solve the integer program, with only special-case formulas/tables, while the present claim gives the full symbolic optimum, feasibility threshold, phase transition, and residue-two parity correction. Targeted semantic and statement searches found no covering result. This is not a claim that search failure proves novelty; the strongest evidence is the source-level comparison of the exact same optimization problem. Residual risk remains for uncatalogued parallel work.",
+    "residual_risks": [
+      "A later, uncatalogued, or differently worded note could independently solve the same integer program.",
+      "The result is an exact optimizer for one construction, not an exact formula for the toric mosaic number itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact integer program and uses integer linear programming for optimal solutions; states only \\(p=2\\), selected \\(p=3\\), and \\(p=4\\) consequences rather than the all-parameter closed form.",
+        "evidence": "Theorem 1 lists the four constraints and minimizes \\(n=q-(h+v)\\); the following paragraph explicitly directs optimal computation to integer linear programming.",
+        "identifier_or_url": "arXiv:2504.02265v1",
+        "material_read": "Torus-knot conventions; Section 2.1 Theorem 1; optimization paragraph; Tables 1 and 2; one-braid construction proof; Section 2.2 scope and later questions.",
+        "method": "Full-text inspection of the accessible manuscript, with theorem and table statements compared directly to the proposed formula.",
+        "title": "Constructions of and Bounds on the Toric Mosaic Number",
+        "trigger": "Primary source defining the one-braid optimization problem."
+      },
+      {
+        "assessment": "The implementation matches the theorem's integer program exactly and invokes a solver; no symbolic optimizer is encoded.",
+        "evidence": "The function creates integer `h`,`v`, imposes `3h+v<=q-p+4`, `q-2(h+v+p)+4>=0`, `h+3v<=q-3p+4`, `h>=v`, and minimizes `q-h-v`.",
+        "identifier_or_url": "github:margekk/toric-mosaics-2025/toric.py@c643508b97694371a35d1ccf3a96adf2bf765b42",
+        "material_read": "Function `get_rapunzel_params`, including integer variable declarations, all four constraints, objective, and optimal-status return path.",
+        "method": "Direct source-file inspection at the recorded blob identifier.",
+        "title": "toric.py companion implementation",
+        "trigger": "The primary paper cites this implementation for the integer optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbcc8aca-c91b-4fad-abd1-f44be89f2faf",
+  "value": {
+    "rationale": "The source treats the optimization as an integer-programming step and publishes only low-parameter consequences. Closing that optimization for all torus-knot parameters removes the solver dependency, gives a precise feasibility threshold, exposes a non-obvious mod-four obstruction, and supplies explicit optimal witnesses. These are structural facts about a natural published construction, not an arbitrary finite slice. The value is bounded: the theorem improves understanding and reproducibility of the one-braid bound but does not make that bound globally optimal among all toric-mosaic constructions.",
+    "status": "PASS"
+  }
+}
