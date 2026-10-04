@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The proof uses Mwesigye--Truss character recursion, the exact monochromatic linear-order threshold, and an explicit split lemma. Endpoint and interior cases yield thresholds \\(2^q-1\\) and \\(2^q-2\\) respectively. The standalone finite checker independently rebuilds recursive character sets and verifies ranks 1--4 across saturation boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mwesigye--Truss Theorem 1.2 gives a general character recursion.",
+        "The paper states that the general finite coloured classification is not as explicit as the monochromatic case and supplies recursive bounds; exact general values discussed are low-rank bounds.",
+        "The same paper says Bissell--Siders concerns uncoloured linear orders and does not directly apply to coloured linear orders."
+      ],
+      "reasoning": "The candidate is not merely a special case explicitly tabulated by the primary source; it solves the exactly-one-red subfamily in closed form for all ranks. The general recursion is an ingredient, not the claimed conclusion.",
+      "searches": [
+        "Mwesigye--Truss 2010/2011 full text, especially Theorem 1.2 and discussion after it",
+        "Mwesigye--Truss reference to Bissell--Siders 2007"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s11083-010-9178-9",
+      "doi:10.1007/978-3-540-73445-1_6",
+      "published-finding corpus semantic search (four targeted queries)",
+      "Targeted web searches for one-red/unique-red formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.2 reduces q+1 equivalence to equality of q-character sets.",
+        "The monochromatic threshold is recalled as \\(2^q-1\\)."
+      ],
+      "reasoning": "These prior statements enable the induction but do not by themselves state which character sets occur in B^a R B^b. The split analysis is needed to derive the distinct endpoint/interior truncations, exact type count, and sharp compression bound.",
+      "searches": [
+        "Mwesigye--Truss Theorem 1.2 character criterion",
+        "Mwesigye--Truss monochromatic threshold passage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit matched one-red finite linear orders or the stated thresholds.",
+        "Targeted web searches returned no source stating the same classification."
+      ],
+      "reasoning": "Aliases using one-red, unique red, exceptional colour, and word notation were checked; no equivalent statement was located.",
+      "searches": [
+        "published-finding corpus: finite colored linear order one red point exact n-equivalence Ehrenfeucht Fraisse",
+        "published-finding corpus: one exceptional color linear order quantifier rank 2^q-1 threshold",
+        "Web: \"one red\" \"finite coloured linear orders\" Ehrenfeucht",
+        "Web: \"B^a R B^b\" Ehrenfeucht Fraisse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus record.",
+        "The PDF contains no one-colour-occurrence table or one-red formula; its exact-value discussion concerns g(m,1) and g(m,2) for the full coloured class."
+      ],
+      "reasoning": "No database/table located the class count \\((\\(2^q-1\\))^2+2\\) or the representative bound \\(2^{\\(q+1\\)}-3\\).",
+      "searches": [
+        "published-finding corpus exact one-red queries above",
+        "Mwesigye--Truss PDF search for unique / one colour / exact values"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches found no same statement. The closest primary source gives the general recursion and explicitly says the coloured classification is not generally explicit beyond low rank; it does not state the one-red all-rank formula, class count, or sharp representative bound.",
+    "residual_risks": [
+      "Mwesigye 2009 Leeds thesis was cited by the primary paper but not inspected.",
+      "An unindexed finite-word/model-theory source may contain the exactly-one-red special case.",
+      "Bissell--Siders full text was not inspected directly; reliance is on the closest primary source description of its scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Provides the exact character recursion and states general coloured classification is not explicit; no one-red all-rank closed form is stated.",
+        "identifier_or_url": "doi:10.1007/s11083-010-9178-9",
+        "material_read": "Full 11-page repository PDF, with focused inspection of abstract/introduction, Definition 1.1, Theorem 1.2, monochromatic discussion, low-rank discussion, and references",
+        "method": "Repository full text plus page screenshots and text search",
+        "title": "Classification of Finite Coloured Linear Orderings",
+        "trigger": "Closest primary source on n-equivalence of finite coloured linear orders"
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_APPARENTLY_INAPPLICABLE",
+        "evidence": "Mwesigye--Truss explicitly says the results are different in character and do not apply directly to coloured linear orders.",
+        "identifier_or_url": "doi:10.1007/978-3-540-73445-1_6",
+        "material_read": "Bibliographic entry and Mwesigye--Truss comparison; full text not inspected",
+        "method": "Citation inspection in closest primary source",
+        "title": "Ehrenfeucht–Fraïssé Games on Linear Orders",
+        "trigger": "Potential stronger coverage through linear-order game analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eec9053b-6af5-4453-a313-f6c70d00ae5a",
+  "value": {
+    "rationale": "The exactly-one-red family is a natural constrained class of finite coloured words. The result is a complete all-rank classification where the general coloured literature supplies recursive bounds, and it exposes a structural endpoint/interior one-unit threshold gap together with exact type counts and a sharp minimal-representative bound.",
+    "status": "PASS"
+  }
+}
