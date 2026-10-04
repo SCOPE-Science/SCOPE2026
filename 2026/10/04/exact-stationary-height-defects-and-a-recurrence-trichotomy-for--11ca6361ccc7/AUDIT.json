@@ -1,0 +1,120 @@
+{
+  "claim": "For the canonical Newton–Leipnik flow \\(\\dot x=-\\tfrac25x+y+10yz,\\ \\dot y=-x-\\tfrac25y+5xz,\\ \\dot z=\\alpha z-5xy\\), the parameter sign gives an exact compact-recurrence trichotomy. If \\(\\alpha<0\\), the origin is the only bounded complete orbit and supports the only compact invariant probability measure; if \\(\\alpha=0\\), compact invariant probability measures are exactly the compactly supported probabilities on the equilibrium \\(z\\)-axis. If \\(\\alpha>0\\), every compactly supported invariant probability measure \\(\\mu\\) satisfies \\(\\mathbb E_\\mu[xy\\mid z]=\\alpha z/5\\), \\(\\mathbb E_\\mu[(z+1/20)^2]=1/400+\\mathbb E_\\mu[x^2]/(5\\alpha)\\), and \\(\\mathbb E_\\mu[(z-1/10)^2]=1/100+2\\mathbb E_\\mu[y^2]/(5\\alpha)\\). Equality in either centered-square lower bound holds only for the origin measure. Consequently every other compact stationary state gives positive mass outside both slabs \\(-1/10\\le z\\le0\\) and \\(0\\le z\\le1/5\\); a nonconstant periodic orbit that stays in \\(z\\ge0\\) reaches \\(z>1/5\\), while one that stays in \\(z\\le0\\) reaches \\(z<-1/10\\).",
+  "correctness": {
+    "rationale": "The theorem follows from four exact Lie-derivative identities. The negative-parameter case uses a coercive quadratic Lyapunov function with explicit exponential decay; the zero-parameter classification follows from its stationary balance; the positive-parameter conditional and square-defect laws follow from invariant-measure generator identities. Equality rigidity was checked on the invariant support under the actual vector field. The included exact-rational checker replayed the polynomial identities and returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Control papers use Lyapunov functions for controlled dynamics rather than classifying invariant measures of the uncontrolled flow.",
+        "Later rigid-body papers discuss dissipativity, attractors, hidden dynamics, bifurcations, and control but did not supply a stronger theorem covering the stated identities."
+      ],
+      "reasoning": "A stronger global theorem would cover the result even without matching its exact constants; searches targeted boundedness, Lyapunov, recurrence and slab/barrier language and found no such implication.",
+      "searches": [
+        "Newton-Leipnik boundedness Lyapunov function",
+        "Newton-Leipnik b negative no periodic orbit compact invariant set",
+        "Newton-Leipnik recurrence barrier height 0.2 -0.1"
+      ]
+    },
+    "checked_sources": [
+      "Leipnik & Newton (1981), doi:10.1016/0375-9601(81)90165-1",
+      "LoFaro (1997), A Model of the Dynamics of The Newton-Leipnik Attractor, abstract/history as reproduced in later literature",
+      "Richter (2002), doi:10.1016/S0375-9601(02)00183-4",
+      "Marlin (2012), doi:10.1142/S0218127412502653",
+      "Wang et al. (2020), doi:10.1155/2020/5958768",
+      "Published exact-balance findings for neighboring but distinct three-dimensional flows"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1981 source is the canonical system source; later literature describes it as a coarse numerical search focused on oscillatory attractors.",
+        "Marlin 2012 studies an invariant-set model by inverse limits and summarizes earlier numerical/symbolic work.",
+        "Richter 2002 studies stabilization and transfer between the two attractors and gives the standard equilibria."
+      ],
+      "reasoning": "These sources establish the object and its classical dynamical questions but do not imply the invariant-measure equalities, equality rigidity, or negative/zero/positive parameter trichotomy.",
+      "searches": [
+        "Leipnik Newton 1981 double strange attractors rigid body motion",
+        "Marlin 2012 Modeling Newton-Leipnik attractor",
+        "Richter 2002 Controlling chaotic systems multiple strange attractors Newton-Leipnik"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marlin 2012 reproduces the canonical equations and surveys the historical program as numerical attractor/bifurcation/return-map and inverse-limit work.",
+        "Richter 2002 analyzes the same equations for chaos control and equilibrium geometry, not stationary moment laws.",
+        "No same-object published finding was returned by the exact semantic searches."
+      ],
+      "reasoning": "The conditional formulation and both integrated square-defect formulations were searched because either could conceal the same theorem under different wording. No equivalent same-object statement was located.",
+      "searches": [
+        "Newton-Leipnik invariant measure stationary balance x^2 y^2 z^2",
+        "Newton-Leipnik conditional expectation xy given z",
+        "Newton-Leipnik stationary moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A 50-result semantic search contained no Newton–Leipnik finding.",
+        "Nearest indexed exact-balance records concerned Shimizu–Morioka/Rucklidge, Rabinovich–Fabrikant, Burke–Shaw, Rössler, Genesio and related but distinct flows."
+      ],
+      "reasoning": "The nearest database records are analogies in method, not same-object tables or stronger parameterized families containing Newton–Leipnik as a special case.",
+      "searches": [
+        "Newton-Leipnik double strange attractors rigid body invariant measure moment balance recurrence",
+        "Newton-Leipnik exact identity z(z-0.2) y^2"
+      ]
+    },
+    "rationale": "The final statement was compared against same-object Newton–Leipnik literature and a published-finding index using equation names, invariant-measure terminology, aliases for stationary moments, the exact centered-square constants, and the conditional-product formulation. Located same-object sources study numerical attractors, bifurcations, symbolic dynamics, inverse-limit models, and control. No inspected statement implies the conditional law, the two height defects, or the full parameter-sign trichotomy. Closest exact balance theorems are for different vector fields and have no reduction to this system.",
+    "residual_risks": [
+      "The 1981 primary full text was not directly inspected because publisher access required a human verification step, so an unindexed equivalent identity in that paper cannot be ruled out absolutely.",
+      "Negative search evidence cannot prove universal novelty; an obscure or differently parameterized source outside the inspected literature may contain an equivalent balance law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Canonical source confirmed; full-text originality comparison remains partially access-limited.",
+        "evidence": "Later detailed sources reproduce the equations and characterize the original study as numerical exploration of oscillatory double-attractor dynamics.",
+        "identifier_or_url": "doi:10.1016/0375-9601(81)90165-1",
+        "material_read": "Bibliographic metadata and later equation-level reproductions; direct full text was not obtained.",
+        "method": "Bibliographic verification plus authorized publisher-access attempt after open-access/arXiv search failed.",
+        "title": "Double strange attractors in rigid body motion with linear feedback control",
+        "trigger": "Primary source for the canonical Newton–Leipnik flow and earliest public date."
+      },
+      {
+        "assessment": "NOT_COVERING the final invariant-measure theorem.",
+        "evidence": "The paper describes original and later work in terms of numerical parameter searches, bifurcations, return maps, symbolic dynamics and inverse limits.",
+        "identifier_or_url": "doi:10.1142/S0218127412502653",
+        "material_read": "Publisher preview including abstract, canonical equations, parameter discussion, and literature-history paragraphs.",
+        "method": "Direct preview inspection.",
+        "title": "Modeling the Newton–Leipnik Attractor",
+        "trigger": "Detailed same-object historical and mathematical account."
+      },
+      {
+        "assessment": "NOT_COVERING the final theorem.",
+        "evidence": "Its analytical objective is nonlinear feedback control and transfer/stabilization across coexisting attractors.",
+        "identifier_or_url": "doi:10.1016/S0375-9601(02)00183-4",
+        "material_read": "Abstract, introduction, Newton–Leipnik model section, nominal parameters and equilibrium list.",
+        "method": "Author-uploaded full-text inspection.",
+        "title": "Controlling chaotic systems with multiple strange attractors",
+        "trigger": "Same-object full-text paper with equations, standard parameters and equilibria."
+      },
+      {
+        "assessment": "NOT_COVERING the invariant-measure identities.",
+        "evidence": "Focuses on attractor multiplicity and control rather than exact stationary statistics.",
+        "identifier_or_url": "doi:10.1155/2020/5958768",
+        "material_read": "Accessible article and reference context.",
+        "method": "Open web full-text inspection.",
+        "title": "Multifarious Chaotic Attractors and Its Control in Rigid Body Attitude Dynamical System",
+        "trigger": "Later same-object/rigid-body literature comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "11ca6361-ccc7-4c6c-96ae-14f096cdebf6",
+  "value": {
+    "rationale": "The result gives a single rigorous structural description across all signs of the feedback parameter, whereas the inspected Newton–Leipnik literature is dominated by numerical attractor geometry, bifurcation models and control. For positive parameter it constrains every compact stationary state—not just a simulated attractor—through a conditional law and two sharp centered-square defects, yielding immediate recurrence-height barriers. The constants are exact and the baseline bounds are sharp because the origin is invariant, while every non-origin compact stationary state is strictly separated.",
+    "status": "PASS"
+  }
+}
