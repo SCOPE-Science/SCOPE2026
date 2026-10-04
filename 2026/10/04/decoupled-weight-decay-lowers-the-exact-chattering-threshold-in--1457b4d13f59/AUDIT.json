@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "On the alternating orbit, \\(\\beta_1=0\\) gives the exact current gradient and constant squared gradient makes bias correction cancel the entire \\(\\beta_2\\) transient, yielding the stated amplitude exactly. For \\(\\beta_2=0\\), the full map is \\(F(x)=x[1-\\delta-\\alpha h/(h|x|+\\varepsilon)]\\). Below the threshold its magnitude is strictly contractive for every nonzero state; above the threshold the exact symmetric cycle exists and its two-step multiplier is the square of a derivative strictly between \\(-1\\) and \\(1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bock and Weiß show that bias-corrected Adam admits quadratic period-two cycles and analyze their stability.",
+        "Loshchilov and Hutter prove that weight decay and L2 regularization are inequivalent for adaptive methods and define AdamW by moving decay outside the adaptive update."
+      ],
+      "reasoning": "The Adam limit-cycle theorem is broader in momentum hyperparameters but has no decoupled weight-decay term. The AdamW paper is broader in regularization context but does not analyze periodic dynamics. Neither implication supplies the exact decay-dependent boundary or amplitude.",
+      "searches": [
+        "Adam nonconvergence limit cycle quadratic weight decay",
+        "Non-Convergence and Limit Cycles in the Adam optimizer AdamW",
+        "Decoupled Weight Decay Regularization AdamW dynamics"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1711.05101v1",
+      "arXiv:2210.02070v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "AdamW Algorithm 2 places the decay term outside the normalized adaptive gradient update.",
+        "The defining paper states that only the loss gradient is adapted under decoupled weight decay.",
+        "The 2022 Adam cycle paper studies quadratic two-cycles but its stated recurrence contains no decoupled weight-decay term."
+      ],
+      "reasoning": "The prior results provide the two ingredients separately—decoupled shrinkage and Adam periodic behavior—but do not imply how the shrinkage shifts the periodic boundary. The final theorem requires solving the source AdamW recurrence and comparing its exact threshold with the no-decay map.",
+      "searches": [
+        "AdamW Algorithm 2 decoupled weight decay update",
+        "Adam quadratic 2-limit-cycles bias correction",
+        "AdamW weight decay period two quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1711.05101v1, Algorithm 2 and Proposition 2",
+        "arXiv:2210.02070v1, Sections 1-3 on Adam quadratic two-cycles",
+        "Published-record searches for AdamW, decoupled weight decay, scalar quadratics, period-two orbits, and chattering thresholds"
+      ],
+      "reasoning": "Equivalent formulations include an exact flip threshold in the source AdamW scalar map, a stable symmetric two-cycle in the beta2=0 slice, and a strict parameter strip where adding decoupled decay changes convergence to nonzero periodic behavior. No inspected source states these equivalent implications.",
+      "searches": [
+        "AdamW decoupled weight decay scalar quadratic two-cycle normalized sign update",
+        "AdamW limit cycle decoupled weight decay quadratic",
+        "AdamW period two weight decay sign normalized scalar",
+        "decoupled weight decay removes continuum two cycles Adam",
+        "Adam nonconvergence limit cycle quadratic weight decay",
+        "Decoupled Weight Decay Regularization AdamW quadratic dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concern AdOGD spectral persistence, scaled-Polyak quadratic frontiers, and other non-AdamW stability problems.",
+        "No returned AdamW-specific record states a period-two threshold depending on decoupled decay."
+      ],
+      "reasoning": "The closest exact dynamical results use different update maps. Search absence is not treated as uniqueness proof; the originality assessment also uses direct implication comparison with the two primary sources.",
+      "searches": [
+        "AdamW decoupled weight decay scalar quadratic two-cycle normalized sign update",
+        "AdamW limit cycle decoupled weight decay quadratic",
+        "AdamW period two weight decay sign normalized scalar",
+        "decoupled weight decay removes continuum two cycles Adam",
+        "Adam nonconvergence limit cycle quadratic weight decay",
+        "Decoupled Weight Decay Regularization AdamW quadratic dynamics"
+      ]
+    },
+    "rationale": "The defining AdamW paper analyzes decoupling of regularization from adaptive normalization but does not study quadratic limit cycles. The 2022 Adam limit-cycle paper proves period-two behavior for Adam and explicitly analyzes an Adam recurrence without decoupled weight decay. Focused published-record searches found no statement that decoupled decay lowers the scalar chattering threshold to \\(2-\\delta\\) or creates the exact strip where no-decay dynamics converge but AdamW cycles.",
+    "residual_risks": [
+      "An equivalent AdamW two-cycle calculation may exist in unindexed optimizer notes or implementation discussions.",
+      "The strongest stability statement uses the beta2=0 slice rather than default AdamW second-moment memory.",
+      "The 2022 Adam cycle paper uses a closely related but not identical epsilon placement, so its quantitative formulas do not directly transfer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_PERIODIC_DYNAMICS.",
+        "evidence": "The paper defines the recurrence used here and proves inequivalence with L2 regularization, but contains no scalar quadratic period-two classification.",
+        "identifier_or_url": "arXiv:1711.05101v1",
+        "material_read": "Full open-access text covering the introduction, Section 2, Algorithm 2, Propositions 1-3, the explanation that only loss gradients are adapted under decoupled decay, and the source denominator convention.",
+        "method": "Full-text HTML inspection with direct formula comparison.",
+        "title": "Decoupled Weight Decay Regularization",
+        "trigger": "Defining source for AdamW and the exact placement of decoupled weight decay."
+      },
+      {
+        "assessment": "DIRECT_LIMIT_CYCLE_PRIOR_WITHOUT_DECOUPLED_WEIGHT_DECAY.",
+        "evidence": "The inspected Adam recurrence has no AdamW decay term; the paper proves Adam quadratic cycles but does not analyze how decoupled shrinkage moves their onset.",
+        "identifier_or_url": "arXiv:2210.02070v1",
+        "material_read": "Full PDF abstract, introduction, algorithm definition, and proof outline through the setup of scalar quadratic two-cycles, including the stated denominator variant, bias correction, and stability program.",
+        "method": "Full-text PDF inspection with page-level visual inspection of the abstract and algorithm pages.",
+        "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+        "trigger": "Strongest directly relevant prior analysis of quadratic Adam limit cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1457b4d1-3f59-4884-ada9-5f0357926e2c",
+  "value": {
+    "rationale": "Decoupled weight decay is AdamW's defining modification and is normally interpreted as a stabilizing shrinkage mechanism. The theorem exposes a mathematically opposite local effect in the canonical normalized scalar slice: decay lowers the exact period-two threshold and can create a stable nonzero cycle in a regime where the same adaptive method without decay converges. The boundary, amplitude, and cycle multiplier are all explicit, making the result a concrete tuning and interpretation diagnostic rather than an arbitrary special-case computation.",
+    "status": "PASS"
+  }
+}
