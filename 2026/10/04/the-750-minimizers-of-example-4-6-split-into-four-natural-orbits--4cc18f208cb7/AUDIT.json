@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The exact \\(10\\times32\\) evaluation matrix is reconstructed over \\(\\mathbb F_3\\) and has rank \\(10\\). Even degree collapses the columns into \\(16\\) antipodal pairs. For a three-dimensional coefficient space \\(U\\), its projective zero columns span a subspace of \\(U^\\perp\\), hence have rank at most \\(7\\). All \\(11440\\) nine-subsets have rank at least \\(8\\), while exactly \\(750\\) of the \\(12870\\) eight-subsets have rank \\(7\\). Each rank-\\(7\\) eight-subset has a unique three-dimensional annihilator and no ninth zero type, proving support \\(16\\) and the exact count \\(750\\). The verifier constructs \\(1920\\) distinct natural signed-permutation actions and checks the orbit sizes \\(10,20,240,480\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patanker--Singh's full text states that for r=3 their exact regimes are m>2d+1 and m<2d-1; the present case m=5,d=2 is the excluded boundary m=2d+1.",
+        "Jaramillo--Pinto--Villarreal determine the first and second generalized Hamming weights of square-free evaluation codes, not the present third-weight minimizer census."
+      ],
+      "reasoning": "Prior generalized-weight formulas either stop before the third weight or exclude this boundary. Even a formula for d3 would not imply the exact number or symmetry orbits of minimizing subcodes.",
+      "searches": [
+        "generalized Hamming weights toric codes hypersimplices degree 2 r=3",
+        "Patanker Singh hypersimplex third generalized Hamming weight boundary m=2d+1",
+        "squarefree affine evaluation codes generalized Hamming weights"
+      ]
+    },
+    "checked_sources": [
+      "Carvalho--López--San-José, arXiv:2511.08304 and DOI 10.1007/s40590-026-00963-5",
+      "Patanker--Singh, arXiv:2002.10920v4 and DOI 10.3934/amc.2021013",
+      "Jaramillo--Pinto--Villarreal, DOI 10.1007/s10623-020-00818-8",
+      "Exact public searches for Example 4.6, d3=16, 750 minimizers, and orbit terminology",
+      "Research-record semantic searches for the example, exact parameters, toric aliases, minimizer multiplicity, and symmetry orbits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary article explicitly presents the gap 14 versus 16 as a non-sharp footprint example and uses a package to obtain d3.",
+        "The 2023 toric-code theorem leaves the equality boundary m=2d+1 untreated for r=3.",
+        "The 2021 paper's advertised square-free results stop at the second generalized Hamming weight."
+      ],
+      "reasoning": "Neither the primary numerical d3 assertion nor the older formulas determine which three-dimensional subcodes attain the minimum. The rank-7 zero-column classification supplies genuinely additional incidence data.",
+      "searches": [
+        "DOI 10.1007/s40590-026-00963-5 Example 4.6 footprint 14 d3 16",
+        "arXiv 2002.10920 r=3 m>2d+1 m<2d-1",
+        "DOI 10.1007/s10623-020-00818-8 first second generalized Hamming weights squarefree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carvalho--López--San-José Example 4.6 states d3=16 but gives no minimizer multiplicity or orbit classification.",
+        "No same-object record with the count 750 or the four orbit sizes was located in the inspected indexed literature."
+      ],
+      "reasoning": "The queries cover the source example, exact code parameters, projective-character formulation, minimum support, minimizer count, and symmetry formulation.",
+      "searches": [
+        "Cartesian square-free codes Example 4.6 q=3 m=5 d=2 r=3 d3 16",
+        "ternary torus square-free degree two code length 32 dimension 10 third generalized Hamming weight 16",
+        "Example 4.6 750 minimizing three dimensional subcodes support 16",
+        "degree two characters on (F3*)^5 generalized Hamming weight d3 16 toric code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact indexed source located for Example 4.6 is the primary article, which reports d3=16 from software.",
+        "No inspected database or table gives 750 extremal three-subcodes or the orbit partition 10+20+240+480."
+      ],
+      "reasoning": "The new statement is not an existence-table parameter: it classifies every minimizing subcode of one explicit evaluation code.",
+      "searches": [
+        "\"Cartesian square-free codes\" \"750\"",
+        "\"Example 4.6\" \"750\" \"Cartesian square-free\"",
+        "\"d_3=16\" \"Cartesian square-free codes\"",
+        "\"generalized Hamming weights\" \"Cartesian square-free codes\" minimizers"
+      ]
+    },
+    "rationale": "The primary article reports only the numerical value d3=16 for Example 4.6 and notes that its footprint lower bound is not sharp. Earlier hypersimplex-toric results exclude the boundary m=2d+1 from their r=3 exact regimes and do not enumerate minimizing subcodes. Exact public and research-record searches for the source, parameters, 750-minimizer count, and orbit language found no same-object classification.",
+    "residual_risks": [
+      "An unindexed computation could contain the same finite minimizer census.",
+      "A larger automorphism group of the code may fuse some of the four natural signed-permutation orbits; the claim is explicitly subgroup-relative.",
+      "The classification is exact for one boundary example and does not yet give a general formula for other q,m,d,r."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_D3_ONLY",
+        "evidence": "Example 4.6 gives q=3,m=5,d=2,r=3, X=(F_3^*)^5, reports d3=16 using a package, and contrasts it with footprint value 14; it does not count minimizers.",
+        "identifier_or_url": "arXiv:2511.08304; DOI:10.1007/s40590-026-00963-5",
+        "material_read": "Abstract and definitions; Theorems 3.1 and 3.2; Section 4 discussion of toric cases; full Example 4.6; references and publication/MSC metadata.",
+        "method": "open-access publisher full HTML and arXiv metadata",
+        "title": "Cartesian square-free codes",
+        "trigger": "Primary source of Example 4.6 and the package-derived third generalized Hamming weight."
+      },
+      {
+        "assessment": "BOUNDARY_NOT_COVERED",
+        "evidence": "For r=3 the paper states exact third-weight results when m>2d+1 or m<2d-1. The present m=5,d=2 case is m=2d+1, outside those regimes; no minimizing-subcode enumeration is supplied.",
+        "identifier_or_url": "arXiv:2002.10920v4; DOI:10.3934/amc.2021013",
+        "material_read": "Full public arXiv text: abstract and introduction; definition of the affine toric hypersimplex code; Section 4 exact-regime statements and the r=3 range discussion.",
+        "method": "public arXiv full text with the relevant theorem pages inspected",
+        "title": "Generalized Hamming weights of toric codes over hypersimplices and squarefree affine evaluation codes",
+        "trigger": "Highly relevant prior work on generalized weights of the same hypersimplex toric family."
+      },
+      {
+        "assessment": "FIRST_AND_SECOND_WEIGHTS_ONLY",
+        "evidence": "The advertised square-free results determine minimum distance and the first two generalized Hamming weights, not the third-weight boundary example or its minimizers.",
+        "identifier_or_url": "DOI:10.1007/s10623-020-00818-8",
+        "material_read": "Public abstract and bibliographic description of the square-free evaluation-code results.",
+        "method": "public university research record",
+        "title": "Evaluation codes and their basic parameters",
+        "trigger": "Earlier source introducing the relevant square-free evaluation-code parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4cc18f20-8cb7-455f-bd0a-aa98eeb72c4d",
+  "value": {
+    "rationale": "Example 4.6 is singled out by the primary article precisely because the standard footprint method fails there and the third generalized weight is obtained only computationally. The exact count of all 750 minimizers replaces an isolated minimum value by a complete extremal classification, while the four natural symmetry orbits reveal nontrivial internal geometry. This is a motivated finite invariant of the article's canonical counterexample to sharpness, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
