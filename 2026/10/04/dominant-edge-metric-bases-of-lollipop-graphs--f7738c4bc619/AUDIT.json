@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For a vertex cover S, two edge-distance vectors can agree only if the edges have the same selected endpoint set. A collision therefore reduces to two edges sx and sy with x,y outside S. The independent complement, the clique/path attachment geometry, p2, and a selected nonattachment clique vertex eliminate every such case. Thus every vertex cover edge-resolves. Minimum-size and counting formulas are then exact vertex-cover calculations. Direct exhaustive verification checked every vertex cover on 40 lollipops.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 source gives exact values for complete graphs, complete bipartite graphs, cycles, paths, and wheels.",
+        "Its graph-operation section treats corona, iterated corona, edge-corona, and join products.",
+        "Targeted full-text searches found no lollipop, kite, or coalescence occurrence.",
+        "A 2017 lollipop paper gives local metric dimension m-1, and a separate 2017 source gives strong metric dimension m-1; neither concerns dominant edge metric dimension."
+      ],
+      "reasoning": "The product formulas in the defining paper do not represent a lollipop as one of the treated products, and the complete-graph/path values alone do not determine behavior after joining them by a bridge. The lollipop-specific vertex-resolving results do not imply edge resolution under a vertex-cover constraint.",
+      "searches": [
+        "full text DOI 10.5614/ejgta.2023.11.1.16, Theorem 2.1 and Section 3",
+        "full-text search in DOI 10.5614/ejgta.2023.11.1.16 for lollipop",
+        "full-text search in DOI 10.5614/ejgta.2023.11.1.16 for kite",
+        "full-text search in DOI 10.5614/ejgta.2023.11.1.16 for coalescence",
+        "web search: \"edge metric dimension\" \"lollipop graph\""
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.5614/ejgta.2023.11.1.16 full open PDF",
+      "author-uploaded public full text timestamped 11 April 2023",
+      "DOI:10.1088/1742-6596/909/1/012039",
+      "2017 strong-metric-dimension lollipop source",
+      "targeted exact-phrase web searches for lollipop/kite dominant edge metric dimension",
+      "semantic published-results searches for lollipop, clique-path, vertex-cover, and dominant-edge-metric aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper's general lower bound is max{vertex-cover number, edge metric dimension} <= dominant edge metric dimension.",
+        "Its exact base families and product formulas do not specialize to the lollipop bridge construction.",
+        "The 2017 local metric theorem gives local metric dimension m-1, independent of ell.",
+        "The 2017 strong metric result gives strong metric dimension m-1."
+      ],
+      "reasoning": "Neither local nor strong metric dimension imposes a vertex-cover condition or resolves edges. The defining lower bound yields only a lower bound; the new structural statement that every vertex cover is edge resolving supplies the missing upper bound and all-basis classification.",
+      "searches": [
+        "inspect DOI 10.5614/ejgta.2023.11.1.16 Theorem 2.1",
+        "inspect DOI 10.5614/ejgta.2023.11.1.16 Theorems 3.1-3.5",
+        "inspect DOI 10.1088/1742-6596/909/1/012039 lollipop theorem",
+        "inspect 2017 strong-metric lollipop abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned source stated a dominant edge metric dimension formula for lollipop graphs.",
+        "The closest same-invariant published-result was a hypercube theorem, on a structurally unrelated family.",
+        "Exact-phrase web searches returned the defining 2023 paper and unrelated lollipop invariants, not the claimed formula."
+      ],
+      "reasoning": "The final claim is not a rephrasing of local, strong, or ordinary edge metric dimension: it requires simultaneous vertex cover and edge resolution, proves every cover resolves, and classifies all minimum bases.",
+      "searches": [
+        "semantic published-results search: dominant edge metric dimension lollipop graph clique path",
+        "semantic published-results search: dominant edge metric lollipop kite graph",
+        "web search: \"dominant edge metric dimension\" \"lollipop\"",
+        "web search: \"dominant edge metric dimension\" \"kite graph\"",
+        "web search: \"Ddim_e\" lollipop graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table or exact dominant-edge-metric lollipop value was located.",
+        "Searches located strong and local metric-dimension results for lollipops, confirming the graph-family alias but not the target invariant."
+      ],
+      "reasoning": "The result is derived for all parameters from a structural theorem about every vertex cover; the finite checker is corroboration rather than a table lookup.",
+      "searches": [
+        "semantic published-results search: vertex cover edge resolving lollipop graph",
+        "semantic published-results search: dominant edge metric dimension clique attached path",
+        "web search: \"lollipop graph\" \"edge metric dimension\"",
+        "web search: \"lollipop graph\" \"dominant edge metric\""
+      ]
+    },
+    "rationale": "The primary source introducing dominant edge metric dimension does not cover lollipops or clique-path coalescences in its inspected family and operation theorems, and targeted literature searches found no equivalent formula. Retrieved lollipop papers concern local or strong vertex metric dimension and do not imply the edge-cover result.",
+    "residual_risks": [
+      "A differently named or non-indexed exact treatment of the same clique-path bridge family may exist.",
+      "A general theorem for a broader block-graph superclass could potentially specialize to lollipops without using the lollipop name; no such theorem was found in the inspected primary source or targeted searches.",
+      "The earliest exact public day located for the primary source is the author-upload timestamp 11 April 2023; an earlier public journal posting day was not verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same invariant and proves several exact families and product formulas, but does not state or imply the lollipop bridge formula.",
+        "evidence": [
+          "The PDF lists Mathematics Subject Classification 05C12, 05C76, 90C60.",
+          "Theorem 2.1 covers complete, complete bipartite, cycle, path, and wheel graphs.",
+          "Section 3 covers corona, iterated corona, edge-corona, and join products.",
+          "No lollipop, kite, or coalescence occurrence was found."
+        ],
+        "identifier_or_url": "DOI:10.5614/ejgta.2023.11.1.16",
+        "material_read": "Open full PDF: abstract and MSC line, definition, Theorem 2.1 on standard families, Theorems 3.1-3.5 on corona/iterated-corona/edge-corona/join operations, and targeted full-text searches for lollipop, kite, and coalescence.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "The dominant edge metric dimension of graphs",
+        "trigger": "Primary source introducing the target invariant and the closest possible broader-coverage theorem."
+      },
+      {
+        "assessment": "Confirms the standard lollipop definition and gives local metric dimension m-1, but does not address edge representations, vertex covers, dominant edge metric dimension, or basis counts.",
+        "evidence": [
+          "The source defines the same K_m-to-P_n bridge family for m>=3 and n>=2.",
+          "Its theorem concerns local metric dimension rather than dominant edge metric dimension."
+        ],
+        "identifier_or_url": "DOI:10.1088/1742-6596/909/1/012039",
+        "material_read": "Open full-text landing copy and theorem excerpt defining L_{m,n} as K_m joined to P_n by a bridge and stating its local metric dimension.",
+        "method": "Same-object, different-invariant implication comparison.",
+        "title": "On the local metric dimension of a lollipop graph, a web graph, and a friendship graph",
+        "trigger": "Direct prior study of the same lollipop family under a distance-resolving invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7738c4b-c619-48a0-9d9e-4de68c0bf737",
+  "value": {
+    "rationale": "Lollipops are a standard family combining a clique and path through the simplest bridge attachment. The theorem identifies a structural collapse of dominant edge metric dimension to ordinary vertex cover on the entire family, proves every cover works, and classifies and counts every minimum basis. This is a natural infinite-family fact about the interaction of two constraints, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
