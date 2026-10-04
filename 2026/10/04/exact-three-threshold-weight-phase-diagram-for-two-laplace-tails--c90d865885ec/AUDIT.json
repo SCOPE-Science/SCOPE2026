@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from an exact partial-fraction decomposition of the moment-generating function for two scaled Laplace variables, integrates the resulting density to obtain the upper tail, and then uses explicit Taylor expansions at the sparse and equal endpoints. The sparse coefficient is \\(1-t/\\sqrt2\\); the equal-weight quadratic coefficient has the sign of \\(4t^2-6t-3\\). The endpoint-height ratio \\((1+t)e^{-(2-\\sqrt2)t}\\) has one postzero maximum and exactly one positive nonzero crossing. The accompanying checker reproduces the constants and local sign changes. The claim explicitly withholds any unproved uniqueness or global-maximality statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gluskin--Kwapien and the Li--Tkocz moment corollary give two-sided estimates only up to constants in terms of \\(\\|a\\|_2\\) and \\(\\|a\\|_\\infty\\).",
+        "Li--Tkocz Theorem 1 gives all-dimensional bounds and the asymptotic rate governed by the largest weight, but those statements do not determine exact finite-threshold local extrema on a fixed-variance weight arc."
+      ],
+      "reasoning": "The broader inequalities cover more summands but are quantitatively too coarse to imply the exact constants \\(\\sqrt2\\), \\((3+\\sqrt{21})/4\\), or the Lambert-\\(W\\) crossover. The new statement is not a corollary of a stronger exact theorem found in the inspected sources.",
+      "searches": [
+        "Published findings search: two-sided exponential equal-weight sparse-weight exact tail crossover",
+        "Published findings search: Laplace weighted sum tail local extrema equal weights sparse weights threshold",
+        "Gluskin--Kwapien 1995 tail and moment estimates logarithmically concave tails",
+        "Li--Tkocz arXiv:2109.14387 Theorem 6 and Remark 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.14387v2 full HTML",
+      "doi:10.4064/sm-114-3-303-309 abstract/full-text landing metadata",
+      "Nayar--Tkocz 2013 bibliographic record and its use in Li--Tkocz Section 4.2",
+      "Published-findings semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest exact-object source proves upper/lower bounds and asymptotic largest-weight control, while the present claim resolves a finite-threshold change of local weight geometry.",
+        "The logarithmically-concave-tail literature gives constant-factor estimates, and the S-inequality concerns dilations of unconditional sets rather than this signed halfspace tail profile."
+      ],
+      "reasoning": "Neither the general bounds nor the geometric S-inequality implies the sign of the sparse or equal endpoint second-order perturbation coefficients. The candidate derives those coefficients exactly from the two-summand distribution, so it is not merely a renaming or parameter substitution of the inspected results.",
+      "searches": [
+        "Published findings search: two Laplace convolution weight ratio upper tail local extrema",
+        "arXiv:2109.14387 full text: Theorem 1, Proposition 2, Theorem 6, Remark 7, Section 4.2",
+        "doi:10.4064/sm-114-3-303-309 abstract and scope",
+        "Nayar--Tkocz S-inequality source as cited in Li--Tkocz Section 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li--Tkocz Theorem 1 bounds the same standardized upper-tail object for general positive weights but records bounds and large-threshold largest-weight asymptotics, not the exact two-weight local phase diagram.",
+        "Targeted searches for the exact radical threshold and local-extremum formulation returned no equivalent weighted-Laplace statement."
+      ],
+      "reasoning": "The candidate can be phrased either in the ratio coordinate \\(r=b/a\\) or in the squared-weight coordinate \\(p=a^2\\); both were searched conceptually. The closest primary source uses the same variance normalization, so an equivalent statement there would have been directly comparable. The inspected theorem and remarks do not state the two endpoint Hessian signs or their exact transitions.",
+      "searches": [
+        "Published findings search: two Laplace weighted sum equal weights versus one weight variance normalized tail crossing",
+        "Published findings search: three threshold phase diagram variance normalized two Laplace tails local maxima sparse equal weights",
+        "Web: \"sqrt(21)\" Laplace sum weights tail probability",
+        "arXiv:2109.14387, Sections 1 and 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located database entry, exact table, or published finding gave these threshold constants for a two-Laplace weighted tail.",
+        "The exact convolution formula is classical and is explicitly excluded from the originality claim."
+      ],
+      "reasoning": "The searched numerical constants and their defining weight-tail interpretation did not lead to an exact table or prior classification. This check is supportive rather than a novelty proof; the residual risk of unlocated specialized literature is retained.",
+      "searches": [
+        "Published findings search: Laplace weighted sums fixed variance tail extremum equal sparse",
+        "Published findings search: weighted sum two iid Laplace fixed variance endpoint crossover equal weights one weight",
+        "Web: \"1.895643923\" Laplace tail",
+        "Web: \"1.687952825\" Laplace weighted sum"
+      ]
+    },
+    "rationale": "The closest full-text primary source, Li--Tkocz arXiv:2109.14387, studies exactly weighted Laplace tails but supplies nonasymptotic bounds and large-threshold largest-weight asymptotics, not the exact two-weight finite-threshold bifurcations or endpoint crossover. Broader log-concave-tail estimates are only constant-factor. Published-findings and targeted literature searches found no statement implying the combined three-threshold phase diagram.",
+    "residual_risks": [
+      "A specialized exact-convolution or majorization paper not surfaced by the searches may contain an equivalent two-weight local classification.",
+      "Classical formulas for the convolution of two Laplace laws are certainly prior; novelty is claimed only for the combined finite-threshold weight phase diagram and crossover, not the distribution formula itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives general bounds, moment estimates, and asymptotic largest-weight behavior but not the exact two-weight local-extremum transitions or crossover.",
+        "evidence": "Theorem 1 depends on \\(\\alpha=\\sqrt{\\operatorname{Var}(S)}/\\max a_i\\) and states matching leading large-threshold order; Section 4.2 explicitly frames the S-inequality as a small-threshold upper-bound improvement.",
+        "identifier_or_url": "arXiv:2109.14387",
+        "material_read": "Full lawful arXiv HTML: abstract, Introduction and Theorem 1, proof representation in Proposition 2, moment discussion in Section 4.1, and S-inequality discussion in Section 4.2.",
+        "method": "Statement-level implication comparison against the exact two-weight claim.",
+        "title": "Tail bounds for sums of independent two-sided exponential random variables",
+        "trigger": "Same random variables, same weighted-sum object, and same variance-standardized upper-tail functional."
+      },
+      {
+        "assessment": "NOT_COVERING for the exact claim: estimates are stated only up to distribution-dependent or universal constants.",
+        "evidence": "The abstract says the tail and moment estimates are exact up to a constant; Li--Tkocz Theorem 6 records corresponding moment comparability rather than an exact tail surface.",
+        "identifier_or_url": "doi:10.4064/sm-114-3-303-309",
+        "material_read": "Publisher/EUDML abstract plus the explicit restatement as Theorem 6 and Remark 7 in Li--Tkocz.",
+        "method": "Coverage comparison by quantitative strength.",
+        "title": "Tail and moment estimates for sums of independent random variables with logarithmically concave tails",
+        "trigger": "Classical broader tail estimates containing the Laplace law as a log-concave-tail example."
+      },
+      {
+        "assessment": "INAPPLICABLE_AS_COVERAGE: the cited inequality controls dilations of unconditional sets and yields an upper bound, not the exact signed-linear halfspace weight phase diagram.",
+        "evidence": "Li--Tkocz apply it to an unconditional absolute-value set and describe the consequence as an upper-tail bound improvement, not an exact weight classification.",
+        "identifier_or_url": "Nayar--Tkocz, Israel J. Math. 197 (2013), 99--106",
+        "material_read": "Bibliographic abstract/metadata and Li--Tkocz Section 4.2 description of the theorem used.",
+        "method": "Object and implication comparison.",
+        "title": "The unconditional case of the complex S-inequality",
+        "trigger": "Li--Tkocz Section 4.2 invokes an S-inequality to sharpen small-threshold exponential-measure tails."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c90d8658-85ec-4e54-a899-058bc8c24f0c",
+  "value": {
+    "rationale": "The lead literature identifies largest-weight control in the far tail and separately notes small-threshold improvements, making the finite-deviation transition in weight geometry a natural gap. The result locates two exact local bifurcations and a third endpoint-height crossover under the canonical fixed-variance constraint, revealing a nonempty interval where both extreme weight configurations are locally tail-increasing and an interior weight must minimize the tail. This is a structural benchmark for sharp weighted-Laplace concentration rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
