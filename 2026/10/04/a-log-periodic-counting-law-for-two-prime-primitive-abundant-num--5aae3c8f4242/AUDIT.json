@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For odd support \\(p<q\\), the abundancy ratio is strictly below \\(p/(p-1)\\,q/(q-1)\\le15/8<2\\). For \\(n=2^a p^b\\), setting \\(B=2^{a+1}\\) turns abundance into \\((B-p)p^b>B-1\\) and deficiency of \\(n/p\\) into \\((B-p)p^{b-1}<B-1\\). These inequalities exclude \\(b\\ge2\\). For \\(b=1\\), abundance and deficiency of \\(n/2\\) give exactly \\(2^a<p<2^{a+1}-1\\). The resulting non-Mersenne-prime bijection gives the exact count. The prime number theorem is then applied only on \\(U/y\\in[1,2]\\), where its usual asymptotic is uniform, and the Mersenne correction is \\(O(\\log X)\\).",
+    "risks": [
+      "The finite replay is not used to justify the infinite asymptotic; the asymptotic depends on the symbolic classification and the prime number theorem."
+    ],
+    "sources": [
+      "arXiv:1802.07178, definition of primitive abundant numbers and Corollary 2.3",
+      "verify.py exact replay through 500000",
+      "standard prime number theorem"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Amato–Hasler–Melfi–Parton explicitly state that Dickson found all even primitive abundant numbers with \\(\\omega\\le3\\), so the factor classification is prior-covered.",
+        "Ivić studies the global counting function \\(N(x)\\) of all primitive abundant numbers and improves Erdős-type exponential bounds.",
+        "Avidon’s paper is likewise a global distribution paper; later literature cites it for a bound on the total number of primitive abundant numbers."
+      ],
+      "reasoning": "The classical classification covers the structural lemma but not the claimed fixed-support count. Global all-support bounds cannot determine a sparse \\(\\omega=2\\) subfamily, let alone its base-4 phase oscillation.",
+      "searches": [
+        "primitive abundant numbers exactly two distinct prime factors counting function phase",
+        "primitive abundant numbers dyadic prime intervals sqrt x asymptotic",
+        "On the distribution of primitive abundant numbers Avidon 1996",
+        "The distribution of primitive abundant numbers Ivic 1985"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/2370406",
+      "arXiv:1802.07178",
+      "Studia Sci. Math. Hungar. 20 (1985) 183-187",
+      "doi:10.4064/aa-77-2-195-205",
+      "OEIS:A071395",
+      "OEIS:A133814",
+      "OEIS:A306986"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dickson’s classification scope, as reported in arXiv:1802.07178, subsumes the factor classification and is therefore not counted as novel.",
+        "The global Ivić/Avidon estimates permit many different distributions among fixed prime-support strata and do not imply the exact formula or oscillation.",
+        "No result located dominates the fixed-support identity by giving a stronger exact or asymptotic count for this same subfamily."
+      ],
+      "reasoning": "The accepted claim begins only after separating the known classification component. The exact count follows from that classification by tracking dyadic blocks and Mersenne endpoints, while the phase theorem adds a quantitative conclusion not implied by the cited global bounds or sequence tables.",
+      "searches": [
+        "two-prime primitive abundant numbers 2^a p Mersenne prime classification",
+        "primitive abundant omega equals 2 2^a p prime interval",
+        "primitive abundant two prime factors limsup liminf counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching fixed-support phase law was returned by focused literature searches.",
+        "OEIS A133814 gives only the least qualifying number at each power of 2, not the complete count or phase asymptotic.",
+        "OEIS A071395 lists strict primitive abundant numbers but does not state the prime-counting identity."
+      ],
+      "reasoning": "The exact formula, the non-Mersenne-prime parametrization for counting, the piecewise phase function, and the liminf/limsup constants were searched as mutually equivalent or directly implying formulations. None was located.",
+      "searches": [
+        "primitive abundant log-periodic",
+        "primitive abundant limsup sqrt x",
+        "primitive abundant 2 sqrt(2)",
+        "primitive abundant two prime factors asymptotic",
+        "primitive abundant Mersenne floor prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A071395 begins \\(20,70,88,104,272,304,\\ldots\\), consistent with the two-prime subsequence produced by the theorem.",
+        "A133814 records minima such as \\(20,88,272,1184,\\ldots\\) for prescribed powers of two.",
+        "A306986 counts all strict primitive abundant numbers below powers of ten, not exactly-two-prime members."
+      ],
+      "reasoning": "The databases provide consistency checks and nearby invariants, but none tabulates or states \\(P_2(X)\\), the Mersenne correction, or the normalized phase law.",
+      "searches": [
+        "OEIS A071395 primitive abundant",
+        "OEIS A133814 primitive abundant power of two",
+        "OEIS A306986 primitive abundant count"
+      ]
+    },
+    "rationale": "The historical classification component is explicitly treated as prior-covered. The searched contribution is the exact fixed-support counting identity and its log-periodic normalized asymptotic. No inspected source states an equivalent identity, phase function, or liminf/limsup pair, and the global distribution theorems do not imply a count after fixing exactly two distinct prime factors.",
+    "residual_risks": [
+      "The complete 1913 Dickson article was not available line-by-line in the inspected open sources; its classification scope was verified through later full-text literature.",
+      "A differently phrased fixed-support asymptotic may exist in older or poorly indexed literature, although focused alias, implication, sequence, and distribution searches found none."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms the historical source and that the two-prime factor classification is not new; no direct evidence of the claimed counting phase law was found.",
+        "evidence": "The article is American Journal of Mathematics 35(4), 423–426, October 1913; Amato et al. state that Dickson explicitly found all even primitive abundant numbers with \\(\\omega\\le3\\).",
+        "identifier_or_url": "doi:10.2307/2370406",
+        "material_read": "JSTOR article metadata and issue record; a later full-text mathematical paper’s explicit description of Dickson’s classification scope.",
+        "method": "Open bibliographic record plus full-text cross-check through arXiv:1802.07178.",
+        "title": "Even Abundant Numbers",
+        "trigger": "Historical source on the exact even primitive-abundant factor regime."
+      },
+      {
+        "assessment": "Provides the modern definition and confirms Dickson’s coverage; does not state the fixed-\\(\\omega=2\\) exact counting identity or phase law.",
+        "evidence": "Primary MSC is 11A25; the introduction attributes all even \\(\\omega\\le3\\) PAN to Dickson, and Corollary 2.3 gives the maximal-prime-quotient deficiency test.",
+        "identifier_or_url": "arXiv:1802.07178",
+        "material_read": "Introduction and historical discussion; definition of primitive abundant number; Corollary 2.3; Structure Theorem section.",
+        "method": "Full-text HTML inspection.",
+        "title": "Primitive abundant and weird numbers with many prime factors",
+        "trigger": "Modern full-text source on definitions, historical coverage, and structural tests for primitive abundance."
+      },
+      {
+        "assessment": "Studies all primitive abundant numbers rather than the exactly-two-prime subfamily; its bounds do not imply the phase theorem.",
+        "evidence": "The theorem concerns Erdős-type upper and lower bounds for the global \\(N(x)\\).",
+        "identifier_or_url": "Studia Sci. Math. Hungar. 20 (1985) 183-187",
+        "material_read": "Indexed abstract, introduction, and theorem excerpt describing bounds for the total counting function \\(N(x)\\).",
+        "method": "Indexed textual excerpt and bibliographic cross-check.",
+        "title": "The distribution of primitive abundant numbers",
+        "trigger": "Potential broader counting theorem for the same arithmetic property."
+      },
+      {
+        "assessment": "Global all-support distribution; no evidence of an exact \\(\\omega=2\\) count or log-periodic phase statement.",
+        "evidence": "Acta Arithmetica 77(2) (1996), 195–205, primary MSC 11A25; later literature cites Avidon for bounds on the total primitive-abundant counting function.",
+        "identifier_or_url": "doi:10.4064/aa-77-2-195-205",
+        "material_read": "Official publication metadata, bibliographic record, and later literature’s summary of its global bound.",
+        "method": "Publisher/database metadata and citation-context inspection.",
+        "title": "On the distribution of primitive abundant numbers",
+        "trigger": "Later global distribution paper and plausible source of a stronger count."
+      },
+      {
+        "assessment": "Numerically consistent with the classification but does not cover the claimed fixed-support count or phase constants.",
+        "evidence": "A071395 uses the strict definition; A133814 records minima by 2-adic exponent; A306986 counts all primitive abundant numbers below powers of ten.",
+        "identifier_or_url": "OEIS:A071395; OEIS:A133814; OEIS:A306986",
+        "material_read": "Definitions, initial terms, comments, formulas, and linked references.",
+        "method": "Direct database inspection.",
+        "title": "OEIS primitive-abundant records",
+        "trigger": "Exact sequence/table comparison for the same object."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5aae3c8f-4242-441d-8dff-ba9e6860eac6",
+  "value": {
+    "rationale": "Exactly two distinct prime factors form the minimal nontrivial support on which strict primitive abundant numbers occur. The theorem gives a complete exact counting identity and reveals a nonconvergent normalized asymptotic with explicit phase and extremal constants, rather than merely extending a finite table. This is a natural quantitative boundary case for the classical global distribution problem and provides a benchmark showing that fixed-support counts can exhibit log-periodic oscillation even when the ambient counting problem has a very different scale.",
+    "risks": [
+      "The proof after the classical classification is elementary and uses only the prime number theorem; its value is the exact phase description, not technical depth."
+    ],
+    "sources": [
+      "Dickson 1913 historical classification program",
+      "Ivić 1985 and Avidon 1996 global distribution work",
+      "OEIS A071395 and A306986 as exact-data context"
+    ],
+    "status": "PASS"
+  }
+}
