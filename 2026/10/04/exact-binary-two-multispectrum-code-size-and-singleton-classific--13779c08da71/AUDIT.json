@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Let the four adjacent-pair multiplicities be c00,c01,c10,c11. Endpoint telescoping forces c01-c10 in {-1,0,1}. Run decompositions prove the converse realization statement, with the sole zero-transition restriction that only the two constant profiles occur. Summing the feasible loop allocations yields the two parity formulas for Q_n. The singleton classification follows from exact weak-composition counts of loop symbols among forced runs. The bundled verifier independently reconstructs all classes for n=2..16 and checks every observed class size against the run formula; finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacquet--Knessl--Szpankowski count cyclic balanced matrices satisfying c01=c10; their binary example gives an exact cyclic count.",
+        "Gabrys--Milenkovic give a general unrestricted-composition upper bound on the number of L-multispectra and asymptotic rate consequences."
+      ],
+      "reasoning": "The cyclic Markov-type result does not dominate the linear claim because linear endpoints allow c01-c10=+1 or -1 and require treating the disconnected zero-transition case. The general multispectrum composition bound is weaker by a polynomial order at L=2 and does not imply either exact formula or singleton classification.",
+      "searches": [
+        "binary Markov types with free endpoints exact count length n adjacent pair frequencies",
+        "number of realizable binary adjacent-pair count matrices linear words noncyclic",
+        "substring spectrum Markov type binary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.04548v1/v2",
+      "DOI:10.1109/TIT.2019.2935973",
+      "DOI:10.46298/dmtcs.2768",
+      "DOI:10.1137/140962486",
+      "published-finding index searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabrys--Milenkovic define the target code extremum but only bound the number of spectra by unrestricted compositions and develop constructions for much longer reads.",
+        "Jacquet--Knessl--Szpankowski state that to avoid endpoint exceptions they consider cyclic strings, then impose c01=c10 in the binary case.",
+        "Related string-reconstruction literature is indexed under MSC 68R15, supporting field ownership."
+      ],
+      "reasoning": "Neither closest statement implies the new linear formula. The first leaves realizability constraints unresolved; the second removes the endpoint imbalance by changing the object to cyclic strings. The singleton-class theorem is absent from both inspected treatments.",
+      "searches": [
+        "arXiv:1804.04548v2 Sections II-III",
+        "DOI:10.46298/dmtcs.2768 pp.388-389",
+        "DOI:10.1137/140962486 MSC/subject record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1804.04548v2, Section II defines M_L(x) as the multiset of linear length-L substrings and defines L-reconstruction codes.",
+        "DOI:10.46298/dmtcs.2768, pp. 388-389 formulates adjacent-pair frequency matrices as Markov types and then explicitly switches to cyclic strings."
+      ],
+      "reasoning": "The claim was searched under multispectrum, bigram multiset, adjacent-pair count, Euler-trail, Markov-type, and unique-reconstruction terminology. These are mathematically equivalent or near-equivalent descriptions of the invariant; no indexed finding returned the stated free-endpoint formulas.",
+      "searches": [
+        "binary strings uniquely reconstructible from their length-2 substring multiset bigram spectrum exact classification monotone alternating",
+        "2-multispectrum binary string unique reconstruction exact count",
+        "bigram multiset uniquely reconstructible binary words Euler trail unique count",
+        "binary string reconstruction from adjacent pair counts exact enumeration",
+        "substring profile length two unique reconstruction binary words",
+        "Eulerian trail uniqueness two vertex directed multigraph binary bigram counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-result searches returned no matching exact formula or table. The nearest published-finding-index hit 2026/9/8/SCOPE080 concerns cyclic symbol-pair error-correcting codes and not reconstruction from a bigram multiset."
+      ],
+      "reasoning": "No exact database row located a sequence/formula matching the noncyclic profile count. Negative search is not treated as novelty proof; it only supplements the direct source comparisons.",
+      "searches": [
+        "exact number of binary bigram profiles substring multispectra length two reconstruction code",
+        "binary 2-reconstruction code exact size multiset adjacent substrings",
+        "3m^2-m+2 binary strings adjacent pairs",
+        "3m^2+2m+2 strings"
+      ]
+    },
+    "rationale": "Statement-level comparison found no source that states the exact noncyclic binary L=2 reconstruction-code size together with the singleton classification. The closest coded-reconstruction paper uses an unrestricted-composition upper bound and focuses on logarithmic read length. The closest adjacent-pair enumeration paper explicitly changes to cyclic strings and counts balanced frequency matrices, excluding the two free-endpoint imbalance sectors central here.",
+    "residual_risks": [
+      "The exact free-endpoint binary formula is elementary enough that it may appear in an unindexed note, textbook exercise, Markov-type treatment, or application paper under different terminology.",
+      "The 2010 Markov-type paper treats the cyclic analogue exactly; a later source may have written down the noncyclic endpoint correction without using reconstruction-code language."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Section II defines M_L(x), reconstruction codes, and R(n,L). It upper-bounds the number of realizable multispectra by unrestricted 2^L-compositions and states asymptotic consequences; no exact L=2 image count or singleton classification appears in the inspected material.",
+        "identifier_or_url": "arXiv:1804.04548v2 / DOI:10.1109/TIT.2019.2935973",
+        "material_read": "Abstract, Introduction, Section II definitions and rate/counting discussion, and beginning of Section III.",
+        "method": "Open arXiv HTML full text; statement-level comparison.",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Exact same linear multispectrum and reconstruction-code definitions; strongest direct coverage candidate."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper notes the endpoint exception for ordinary strings, then explicitly restricts to cyclic strings. Its binary example imposes c01=c10 and counts balanced cyclic matrices; it does not count the free-endpoint sectors or singleton linear classes.",
+        "identifier_or_url": "DOI:10.46298/dmtcs.2768",
+        "material_read": "Abstract and pages 388-390, including the binary example and the change from ordinary to cyclic strings.",
+        "method": "Open-access PDF text plus visual inspection of pages 388-389.",
+        "title": "Counting Markov Types",
+        "trigger": "Adjacent-pair count matrices are an equivalent formulation and could dominate the profile enumeration."
+      },
+      {
+        "assessment": "INAPPLICABLE_TO_CLAIM",
+        "evidence": "It reconstructs from substring compositions rather than exact adjacent substring identities; the record classifies the area under MSC 68R15.",
+        "identifier_or_url": "DOI:10.1137/140962486",
+        "material_read": "Bibliographic/abstract and classification record.",
+        "method": "zbMATH/MaRDI metadata record.",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "Closest explicitly MSC-classified string-reconstruction source and possible terminology overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13779c08-da71-4095-bb00-36842fc303ee",
+  "value": {
+    "rationale": "Read length two is the shortest nontrivial substring-spectrum model. The result exactly determines the largest possible codebook for every block length, improves the generic unrestricted-composition profile bound from cubic order to the exact quadratic count, and completely identifies the zero-ambiguity singleton words. These are canonical finite-length invariants of the reconstruction model, not an arbitrary parameter slice or a recomputation of a known table.",
+    "status": "PASS"
+  }
+}
