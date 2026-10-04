@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "After the substitution s_i=sqrt(V_i+eta^{-2}) and z_i=a_i/s_i, the objective is a weighted sum of phi(z)=sqrt(log(eta^2/z^2)) under one weighted-mean constraint. For alpha<exp(-1/2), all feasible z lie in the strict-convexity region phi''(z)>0, so Jensen gives the unique equal-z solution and the exact minimum. Fixed unequal arm levels retain the source theorem's union-bound validity. The target-rate limit and KL/entropy excess follow from the exact allocation and the expansion sqrt(L+c)=sqrt(L)+c/(2sqrt(L))+O(L^{-3/2}).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lindon and Kallus Theorem 4.9 uses alpha/2 for both arms and Proposition 4.12 analyzes variance-clock imbalance while retaining that equal split.",
+        "Howard et al. provide the normal-mixture confidence-sequence machinery but do not, in the inspected metadata and the use cited by Lindon and Kallus, give this multi-arm significance-allocation theorem.",
+        "Generic Bonferroni literature covers familywise error control, not the boundary-specific exact minimization and entropy penalty."
+      ],
+      "reasoning": "The closest broader methods establish validity or the component boundary; neither dominates the design-width statement because neither selects the unique allocation for heterogeneous target clocks.",
+      "searches": [
+        "Design-Based Anytime-Valid Inference delayed outcomes alpha split union bound allocation",
+        "confidence sequence weighted Bonferroni alpha allocation normal mixture",
+        "normal mixture boundary unequal alpha allocation union bound confidence sequence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.25971v2",
+      "PMLR:v306:lindon26a",
+      "DOI:10.1214/20-AOS1991",
+      "published-finding semantic searches on normal-mixture error allocation and square-root clock weighting",
+      "web searches on unequal Bonferroni allocation for confidence sequences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.6 defines b(V;alpha); Theorem 4.9 combines b(V0;alpha/2)+b(V1;alpha/2) by a union bound.",
+        "Proposition 4.12 derives an imbalance-dependent asymptotic width ratio while continuing to use alpha/2 in both arms.",
+        "Full-text searches for allocation and unequal splitting did not reveal a corresponding optimization result."
+      ],
+      "reasoning": "The source provides the ingredients and motivation but not the conclusion: neither the exact square-root clock weights nor the minimized closed form follows as a stated prior result.",
+      "searches": [
+        "2603.25971 alpha/2 Theorem 4.9 Proposition 4.12 variance clocks",
+        "2603.25971 unequal alpha allocation",
+        "2603.25971 alpha split"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published-finding semantic index returned no matching confidence-sequence allocation theorem; highest similarities concerned unrelated randomized-experiment concentration and pairwise-independence problems.",
+        "The exact optimizer can also be phrased as a perspective/Jensen allocation theorem for phi(z)=sqrt(log(eta^2/z^2)); targeted statistical searches did not surface that specialization."
+      ],
+      "reasoning": "The claimed formula is not merely the generic permission to choose unequal Bonferroni weights: it identifies the unique weights induced by the normal-mixture boundary and gives the exact objective value.",
+      "searches": [
+        "square-root clock Bonferroni allocation normal-mixture boundary delayed outcomes confidence sequence",
+        "alpha_i proportional square root V_i normal mixture confidence sequence union bound",
+        "optimal significance split b(V; alpha) sqrt log confidence sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed finding or accessible theorem table returned the square-root clock allocation or the exact minimized normal-mixture width.",
+        "Closest indexed randomized-experiment results concern Chernoff envelopes, effective sample size, or variance bounds rather than significance-budget allocation."
+      ],
+      "reasoning": "No inspected database entry or table covers the exact claim. Search non-retrieval is not treated as proof of global novelty.",
+      "searches": [
+        "optimal unequal Bonferroni alpha allocation armwise confidence sequences normal mixture boundary",
+        "weighted union bound confidence sequence two arms optimal error budget",
+        "Bonferroni allocation square-root variance rates confidence sequences"
+      ]
+    },
+    "rationale": "The motivating delayed-outcome paper uses an equal alpha/2 split even while analyzing clock imbalance. The underlying normal-mixture literature develops the boundary rather than this heterogeneous budget optimization. Generic Bonferroni weighting does not state the square-root clock law, exact minimized width, or entropy penalty. Targeted candidate-level searches did not surface an equivalent result; an abstract convex-allocation antecedent under different terminology remains a residual risk.",
+    "residual_risks": [
+      "Because the proof is an application of strict convexity and Jensen's inequality, a mathematically equivalent resource-allocation lemma may exist under different terminology outside the searched statistical literature.",
+      "Search non-retrieval does not establish global novelty; the originality assessment is limited to the inspected and indexed sources.",
+      "The statistically valid application requires a deterministic prespecified split; adapting the split to random plug-in clocks would need a separate argument and is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the normal-mixture boundary, uses alpha/2 in both arms, and explicitly studies variance-clock imbalance. It does not optimize the arm-level significance split or state the square-root allocation or entropy penalty.",
+        "evidence": "Theorem 4.9 gives b(V0;alpha/2)+b(V1;alpha/2); Proposition 4.12 keeps the same split when deriving the imbalance-dependent relative width.",
+        "identifier_or_url": "arXiv:2603.25971v2",
+        "material_read": "Rendered full text around Theorem 4.6, Section 4.2, Theorem 4.9, Corollary 4.10, Remark 4.11, Proposition 4.12, its proof lines, simulation discussion, and conclusion; submission history also inspected.",
+        "method": "Full rendered HTML inspection and in-document searches for alpha/2, weighted, and allocation.",
+        "title": "Design-Based Anytime-Valid Inference for Randomized Experiments with Delayed Outcomes and Staggered Entry",
+        "trigger": "Primary motivating source; it introduces the arm-wise delayed-outcome confidence sequence and equal-split union construction."
+      },
+      {
+        "assessment": "This work develops time-uniform confidence-sequence boundaries and applications; the inspected material did not state the heterogeneous union-budget optimizer claimed here.",
+        "evidence": "Lindon and Kallus explicitly attribute b(V;alpha) to Howard et al. (2021); their own multi-arm theorem supplies the union-bound step.",
+        "identifier_or_url": "DOI:10.1214/20-AOS1991",
+        "material_read": "Bibliographic record and abstract, together with the explicit use and attribution of the normal-mixture boundary in the motivating full text.",
+        "method": "Primary bibliographic/abstract inspection plus statement-level comparison through the motivating paper.",
+        "title": "Time-uniform, nonparametric, nonasymptotic confidence sequences",
+        "trigger": "Underlying primary confidence-sequence source identified by the motivating paper for the normal-mixture boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5746ba68-93f6-49d5-be00-185ada4cf513",
+  "value": {
+    "rationale": "The source specifically identifies clock imbalance as important for union-bound width but fixes the error budget equally. The new result completely solves the resulting prespecified design problem, gives a closed-form finite-clock optimum, yields the simple square-root-rate rule for planned imbalanced experiments, and quantifies equal-split inefficiency by a KL/entropy coefficient while explicitly preserving the validity boundary.",
+    "status": "PASS"
+  }
+}
