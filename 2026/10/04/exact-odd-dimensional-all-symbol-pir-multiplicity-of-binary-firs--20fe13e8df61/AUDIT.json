@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof is self-contained after one published existence theorem. Binary affine generator columns force minimized nontrivial recovery sets to have odd size at least three. Recovery triples translate exactly to nonzero point sets of two-dimensional subspaces. The Năstase--Sissokho theorem supplies \\((2^m-5)/3\\) disjoint triples for odd \\(m\\). Any putative additional disjoint recovery set would force a partial two-spread covering all but one nonzero vector; XOR summation rules that out. Adding the target singleton gives \\(t_{\\max}=(2^m-2)/3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ly--Soljanin, arXiv:2508.08736, Section IV characterizes recovery sets of polynomial message symbols; its targets are not arbitrary stored codeword coordinates.",
+        "Classical majority-logic results use parity-check/design structures but the checked sources did not state the odd coordinate-availability formula."
+      ],
+      "reasoning": "Recovery of message coefficients and recovery of every generator column are different problems. The former does not imply the latter, and the 2026 all-symbol paper treats all stored coordinates as a separate family-level question.",
+      "searches": [
+        "first-order Reed-Muller orthogonal parity checks availability",
+        "Reed-Muller majority logic recovery sets code symbols",
+        "Optimum 1-Step Majority-Logic Decoding Reed-Muller recovery sets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.04041",
+      "arXiv:1710.07386",
+      "DOI:10.13069/jacodesmath.466634",
+      "arXiv:1605.04824",
+      "arXiv:2508.08736"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.12 of arXiv:1710.07386 proves only availability at least \\( (2^m-4)/4 \\) for odd \\(m\\) and says optimality was not shown.",
+        "arXiv:1605.04824 gives the exact maximum partial spread formula, but no Reed–Muller or all-symbol PIR theorem.",
+        "arXiv:2601.04041 explicitly identifies Reed–Muller all-symbol PIR/batch properties as remaining work.",
+        "arXiv:2508.08736 treats recovery of message coefficients, a different target set."
+      ],
+      "reasoning": "The new implication requires both identifying coordinate recovery triples with partial two-spreads and proving that larger arbitrary-size recovery sets cannot beat the triple packing. Neither ingredient alone states the all-symbol multiplicity.",
+      "searches": [
+        "arXiv:1710.07386 Theorem 4.12 odd availability optimal construction",
+        "arXiv:1605.04824 q=2 t=2 odd partial spread",
+        "arXiv:2601.04041 Reed-Muller future directions all-symbol",
+        "arXiv:2508.08736 recovery sets all message symbols"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baumbaugh et al., arXiv:1710.07386, Theorems 4.11-4.12: exact even availability; odd lower bound only, with optimality explicitly unresolved.",
+        "Boruchovsky et al., arXiv:2601.04041, Discussion: Reed–Muller all-symbol PIR/batch properties are listed as a future direction.",
+        "No exact-formula web search located the claimed odd-dimensional equality."
+      ],
+      "reasoning": "The exact all-symbol statement is equivalent to one plus the maximum number of disjoint nontrivial coordinate-recovery sets. The earlier availability result gives only a lower bound in odd dimension, so it is not an equivalent theorem.",
+      "searches": [
+        "exact odd-dimensional availability binary first-order Reed-Muller code partial 2-spread",
+        "all-symbol PIR Reed-Muller exact availability odd dimension",
+        "(2^m-5)/3 Reed-Muller recovery sets",
+        "web: Reed-Muller availability (2^m-5)/3",
+        "web: RM(1,m) partial spread recovery sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest repository record was 2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f, which concerns minimum lengths of dimension-three four-request codes, not Reed–Muller coordinate availability.",
+        "Other close records concerned nonlinear PIR linearization, deletion codes, LCD graphs, and unrelated coding extrema; none states the candidate formula or its partial-spread equivalence."
+      ],
+      "reasoning": "Queries separately targeted the family, all-symbol terminology, locality/availability terminology, the finite-geometry alias, and the exact formula.",
+      "searches": [
+        "coding theory finite fields information theory recent 2026",
+        "binary simplex code functional batch conjecture exact k=4 k=5",
+        "Reed Muller all-symbol PIR first-order exact availability partial spread",
+        "first-order Reed-Muller all-symbol PIR availability partial 2-spread exact",
+        "exact odd-dimensional availability binary first-order Reed-Muller code partial 2-spread",
+        "all-symbol PIR Reed-Muller exact availability odd dimension",
+        "(2^m-5)/3 Reed-Muller recovery sets"
+      ]
+    },
+    "rationale": "Direct statement and implication comparison found no prior source stating the exact odd-dimensional all-symbol coordinate multiplicity. The 2018 source leaves odd availability nonoptimal, the finite-geometry source solves partial spreads without making the Reed–Muller recovery connection, the 2025 source treats message symbols, and the 2026 source explicitly leaves Reed–Muller all-symbol properties for future work. Focused exact-formula and alias searches returned no covering result.",
+    "residual_risks": [
+      "An older coding/design paper may state the same odd availability equality under majority-logic, orthogonal-check, or finite-geometry terminology not surfaced by the focused searches.",
+      "The theorem determines the maximum number of pairwise disjoint recovery sets, not the structure or number of all maximum families."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It defines t-all-symbol PIR and studies MDS/simplex cases; its Discussion states that investigating Hamming and Reed–Muller all-symbol PIR/batch properties remains open.",
+        "identifier_or_url": "arXiv:2601.04041",
+        "material_read": "Abstract, definitions of recovery/all-symbol PIR, fixed-code problem statement, and Discussion/Future Directions.",
+        "method": "Definition and open-direction comparison.",
+        "title": "Serving Every Symbol: All-Symbol PIR and Batch Codes",
+        "trigger": "Recent primary source defining the target property and naming Reed–Muller codes as a remaining family."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Even-dimensional availability is exact; for odd dimension the paper proves only \\(\\delta\\ge(2^m-4)/4\\) and explicitly notes that the construction was not shown optimal.",
+        "identifier_or_url": "arXiv:1710.07386 / DOI:10.13069/jacodesmath.466634",
+        "material_read": "Section 4.1, especially the dual characterization and Theorems 4.11-4.12.",
+        "method": "Exact parameter and implication comparison.",
+        "title": "Batch Codes from Hamming and Reed-Müller Codes",
+        "trigger": "Closest prior source on first-order Reed–Muller locality and availability."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The theorem yields maximum partial two-spread size \\((2^m-5)/3\\) for odd \\(m\\), but does not formulate Reed–Muller recovery or all-symbol PIR consequences.",
+        "identifier_or_url": "arXiv:1605.04824",
+        "material_read": "Abstract theorem and parameter specialization \\(q=2,t=2,r=1\\).",
+        "method": "Specialization and scope comparison.",
+        "title": "The maximum size of a partial spread in a finite projective space",
+        "trigger": "Exact finite-geometry theorem matching recovery triples after translation."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The recovered targets are polynomial message symbols, not arbitrary stored codeword symbols; its geometric “flower” results therefore do not state the present all-symbol coordinate theorem.",
+        "identifier_or_url": "arXiv:2508.08736",
+        "material_read": "Sections III-D and IV, especially Theorems 4-6 and the distinction between message-symbol recovery and codeword coordinates.",
+        "method": "Target-object and implication comparison.",
+        "title": "Optimum 1-Step Majority-Logic Decoding of Binary Reed-Muller Codes",
+        "trigger": "Recent source with a potentially broader “recovery sets of all message symbols” formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20fe13e8-df61-4b2b-8275-e6b4ba863336",
+  "value": {
+    "rationale": "The claim closes the unresolved odd-dimensional exactness gap in a classical first-order Reed–Muller availability problem and gives an infinite exact all-symbol PIR family specifically requested by recent work. It improves an old lower bound to a sharp formula and identifies the exact finite-geometric obstruction.",
+    "status": "PASS"
+  }
+}
