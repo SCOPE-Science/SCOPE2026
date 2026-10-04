@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The first two iterates give the exact solution polynomial α[(2+β)I-αA]. For a Stieltjes matrix only its diagonal can obstruct entrywise nonnegativity, yielding an if-and-only-if fixed-matrix criterion and a sharp spectral-class criterion. Substitution of the published optimal quadratic parameters reduces the condition to κ≤9. For diagonal systems the scalar error is exactly q^k[U_k(c)-qU_{k-1}(c)]; the standard Chebyshev bound proves nonnegativity at every iteration for q≤1/2, and the L-mode gives a second-iterate failure for q>1/2. Exact replay returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lessard--Recht--Packard give the standard heavy-ball recurrence and optimal quadratic parameters and analyze convergence and robustness.",
+        "Danilova--Kulakova--Polyak analyze peak effects and non-monotone trajectories for optimally tuned heavy-ball on quadratics.",
+        "The nearby published research index heavy-ball result concerns the impossibility of interval-wide acceleration with all modal roots real.",
+        "The nearby Polyak result concerns one-step objective monotonicity for Polyak steps rather than momentum-coordinate positivity."
+      ],
+      "reasoning": "Norm or objective non-monotonicity does not determine coordinate signs. The new claim uses the Stieltjes sign pattern and a scalar forced-recurrence representation, neither of which is supplied by the broader convergence analyses.",
+      "searches": [
+        "Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints heavy-ball",
+        "Non-monotone Behavior of the Heavy Ball Method",
+        "Published research index query: heavy ball real root acceleration barrier",
+        "Published research index query: Polyak objective monotonicity frontier"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1408.3595v1",
+      "DOI:10.1137/15M1009597",
+      "arXiv:1811.00658v1",
+      "DOI:10.1016/0041-5553(64)90137-5",
+      "Published record: Uniform real-root barrier for fixed-parameter heavy-ball acceleration",
+      "Published record: Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics",
+      "Published record: Sharp stagewise-safe Richardson frontier and a no-acceleration barrier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lessard--Recht--Packard explicitly state the recurrence and optimal quadratic tuning but do not state coordinatewise positivity in the inspected full text.",
+        "Danilova--Kulakova--Polyak show that optimal heavy-ball can be non-monotone in objective and distance and analyze peak effects, but do not classify signs of positive-system coordinates in the inspected full text.",
+        "The real-root barrier concerns characteristic-root geometry; complex roots can occur on both sides of the present coordinatewise positivity threshold.",
+        "The Polyak objective-frontier record is about objective increase under a different step rule and does not imply the momentum orthant statement."
+      ],
+      "reasoning": "The prior recurrence and parameter formulas are inputs to the proof, not the conclusion. The exact orthant criterion requires inspecting the solution polynomial in the original coordinate basis, while the diagonal all-iterate statement additionally requires the Chebyshev-U forced-response bound.",
+      "searches": [
+        "Primary full text: arXiv:1408.3595 heavy-ball optimal tuning",
+        "Primary full text: arXiv:1811.00658 quadratic heavy-ball non-monotone",
+        "Published research index query: heavy-ball real-root acceleration barrier",
+        "Published research index query: Polyak objective monotonicity frontier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published research index record states the condition-number-nine coordinatewise frontier.",
+        "Direct web searches found heavy-ball convergence, cycling, and peak-effect papers rather than a positive-orthant classification.",
+        "The closest heavy-ball published research index record concerns a real-characteristic-root acceleration barrier, a distinct spectral-root property."
+      ],
+      "reasoning": "Equivalent formulations include entrywise nonnegativity of the second heavy-ball solution polynomial, positive-orthant invariance of diagonal modes, and positivity of the forced second-order recurrence. These aliases were searched without locating a dominating statement.",
+      "searches": [
+        "Published research index query: heavy ball second iterate positivity Stieltjes nonnegative right hand side condition number 9",
+        "Published research index query: Polyak momentum diagonal quadratic nonnegative iterate negative coordinate condition number 9",
+        "Published research index query: heavy ball positive orthant invariant diagonal SPD optimal parameters",
+        "Web: \"heavy-ball\" positivity positive orthant quadratic",
+        "Web: \"heavy-ball method\" nonnegative iterates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-constant search exposed κ=9 as a heavy-ball positivity threshold.",
+        "The standard tables in the inspected heavy-ball source list optimal α, β, and convergence rate, but no orthant-safety column or equivalent condition."
+      ],
+      "reasoning": "Because the threshold is an elementary exact constant, direct exact-constant and table-style searches were used. None located the claimed invariant.",
+      "searches": [
+        "Published research index query: heavy ball condition number 9 positivity",
+        "Web: \"condition number\" 9 heavy ball positivity",
+        "Web: Polyak momentum Stieltjes matrix positivity",
+        "Web: heavy ball diagonal quadratic negative iterate"
+      ]
+    },
+    "rationale": "Heavy-ball construction, optimal quadratic tuning, convergence rates, root geometry, and qualitative transient non-monotonicity are prior work and are excluded. The accepted statement is the exact Stieltjes second-iterate orthant criterion, its sharp condition-number-nine specialization under optimal tuning, and the all-iterate diagonal classification. published research index and primary-literature searches under positivity, orthant invariance, diagonal modes, second-iterate, Stieltjes, and condition-number-nine aliases found no implication-equivalent statement.",
+    "residual_risks": [
+      "Older monotone-iteration or positive-systems literature may contain the second-iterate matrix criterion under different terminology.",
+      "The all-iterate theorem is diagonal only; no originality claim is made for later iterates of general non-diagonal Stieltjes systems.",
+      "Heavy-ball literature is extensive and may contain an unindexed coordinatewise example with the same threshold even if it is not framed as a theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS heavy-ball construction, optimal quadratic parameters, convergence-rate analysis, and robustness. The inspected text does not state the Stieltjes second-iterate positivity criterion, the κ=9 frontier, or all-iterate diagonal orthant invariance.",
+        "evidence": "The full text lists α=4/(√L+√m)^2 and β=((√κ-1)/(√κ+1))^2 as optimal heavy-ball tuning. The journal page lists MSC 90C22 first. arXiv records v1 at 2014-08-15 17:49:50 UTC.",
+        "identifier_or_url": "arXiv:1408.3595; DOI:10.1137/15M1009597",
+        "material_read": "Open arXiv full text around the algorithm definition, heavy-ball case study, optimal-parameter table, and stability discussion; arXiv submission history and SIAM metadata were also checked.",
+        "method": "Lawful arXiv full-text inspection plus SIAM bibliographic/MSC inspection.",
+        "title": "Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints",
+        "trigger": "Primary archive-era source giving the exact constant-parameter heavy-ball recurrence and optimal quadratic tuning; it also verifies slot ownership."
+      },
+      {
+        "assessment": "COVERS non-monotone objective/distance behavior and peak effects under optimal parameters. It does not state the coordinatewise positive-orthant threshold in the inspected text.",
+        "evidence": "The paper explicitly says that even optimal parameters and standard initialization do not guarantee monotone convergence, but its analysis is in norm/objective and modal transient terms.",
+        "identifier_or_url": "arXiv:1811.00658v1",
+        "material_read": "Open full text covering the quadratic heavy-ball recurrence, optimal-parameter discussion, peak-effect section, and conclusions.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Non-monotone Behavior of the Heavy Ball Method",
+        "trigger": "Closest full-text source specifically about heavy-ball transient non-monotonicity on positive definite quadratics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b9a86b72-a2c2-441c-9269-f763f98600a9",
+  "value": {
+    "rationale": "Heavy-ball momentum is a canonical acceleration method, while Stieltjes and diagonal positive systems arise when coordinates represent populations, probabilities, concentrations, or positive discretized fields. The result gives an exact parameter-level safety criterion and shows that the classical optimal acceleration loses that safety precisely beyond condition number nine. The all-iterate diagonal theorem demonstrates that the threshold is not merely a one-step artifact, while the two-dimensional strict witness makes the failure directly reproducible.",
+    "status": "PASS"
+  }
+}
