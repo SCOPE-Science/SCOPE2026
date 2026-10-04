@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact deletion decomposition is proved from aging and white-region geometry, pair-average homotheties give the factor one-half exactly, the order-2 empty-circle rule identifies the deletion triangulations with ordinary Delaunay triangulations, and Rajan's published minimax theorem then gives the inequality componentwise. Genericity handles cocircular ambiguity and the hull-vertex white-region boundary is included explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1007/s00453-022-01027-6 defines a constrained-sphere radius on order-k Delaunay mosaics for alpha shapes",
+        "arXiv:2310.18238 proves angle optimality at order 2, not enclosing-circle coarseness",
+        "DOI:10.1007/BF02574375 gives dimension-general but order-1 triangulation optimality"
+      ],
+      "reasoning": "The higher-order alpha-shape radius is attached to a fixed Delaunay mosaic and does not compare arbitrary hypertriangulations. Rajan is broader in ambient dimension but has a different competitor class, while the order-2 angle theorem optimizes a different functional.",
+      "searches": [
+        "higher-order Delaunay radius function smallest enclosing sphere",
+        "order-k Delaunay alpha shapes radius function optimization",
+        "Delaunay min-containment higher order hypertriangulation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.18238",
+      "DOI:10.1007/BF02574375",
+      "DOI:10.1007/s00453-022-01027-6",
+      "arXiv:2212.11380",
+      "published-finding corpus records returned by the nine listed semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.18238, aging Lemma 2.4, white regions in Section 3.4, and open question in Section 6",
+        "Rajan Theorem 2: ordinary Delaunay minimizes maximum min-containment radius",
+        "DOI:10.1007/s00453-022-01027-6, Section 6: radius function for order-k alpha shapes",
+        "arXiv:2212.11380: main result is flip-connectivity of level-2 hypertriangulations"
+      ],
+      "reasoning": "The proof needs a new bridge: every complete level-2 competitor yields one ordinary triangulation on A and one on each A without x, and the objective is exactly half the maximum of their coarsenesses. None of the inspected sources states this bridge, so the level-2 theorem is not a published corollary by statement alone.",
+      "searches": [
+        "Order-2 Delaunay Triangulations Optimize Angles smallest enclosing circle",
+        "Rajan maximum min-containment radius Delaunay triangulation",
+        "higher-order Delaunay mosaics alpha shapes radius function",
+        "Flips in two-dimensional hypertriangulations enclosing circle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.18238, Section 6 explicitly names the smallest enclosing circle as an open higher-level optimality question",
+        "DOI:10.1007/BF02574375 proves only the ordinary triangulation min-containment theorem",
+        "arXiv:2212.11380 full-text inspection found flip-connectivity but no enclosing-circle functional theorem"
+      ],
+      "reasoning": "The claimed statement is not merely an alternate phrasing of angle optimality, an alpha-shape radius function, or Rajan's level-1 theorem; it quantifies over complete level-2 hypertriangulations and uses their deletion decomposition.",
+      "searches": [
+        "order-2 Delaunay smallest enclosing circle hypertriangulation",
+        "level-2 hypertriangulation min-containment radius Delaunay",
+        "hypertriangulation coarseness smallest enclosing circle",
+        "Delaunay deletion one-point triangulation white region level 2 enclosing circle",
+        "order-2 Delaunay minimizes maximum enclosing circle radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/9/20/SCOPE-separable-inradius-delaunay-rigidity--f2e67632adc7 concerns separable inradius objectives",
+        "Closest published-finding corpus record 2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db concerns triangle roundness and smallest-enclosing-disk fatness calibration",
+        "No returned published-finding corpus record states a level-2 Delaunay enclosing-circle minimax theorem"
+      ],
+      "reasoning": "The database neighbors concern ordinary Delaunay functionals or individual-triangle radius relations, not the present higher-order global extremum.",
+      "searches": [
+        "order-2 Delaunay smallest enclosing circle hypertriangulation",
+        "level-2 hypertriangulation min-containment radius Delaunay",
+        "coarseness order-2 Delaunay"
+      ]
+    },
+    "rationale": "The closest primary source explicitly presents the smallest-enclosing-circle generalization as an open higher-order direction. No equivalent level-2 minimax theorem appeared in targeted published-finding corpus or public-web searches, and the later directly related sources inspected address radius functions on Delaunay mosaics or flip-connectivity rather than optimization over arbitrary complete level-2 hypertriangulations.",
+    "residual_risks": [
+      "The deletion-max identity is short enough that it may have been observed informally or under different terminology without appearing in the indexed literature searched.",
+      "The theorem is intentionally restricted to complete level-2 hypertriangulations; no originality claim is made for stronger competitor classes or higher levels."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper supplies the structural ingredients and proves angle optimality, while Section 6 explicitly lists smallest enclosing circle among the non-angle higher-order optimality questions.",
+        "identifier_or_url": "arXiv:2310.18238",
+        "material_read": "Definitions of hypertriangulations and aging, Lemma 2.4, constrained Delaunay white regions, the original-scale representation in Section 4.1, and Section 6 concluding remarks.",
+        "method": "Direct full-text PDF inspection, including the pages containing the aging structure, white-region construction, and open-question statement.",
+        "title": "Order-2 Delaunay Triangulations Optimize Angles",
+        "trigger": "Primary middle-period source that explicitly asks whether the smallest-enclosing-circle optimality generalizes to higher levels."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "Theorem 2 proves that ordinary Delaunay minimizes maximum min-containment radius among ordinary triangulations; it does not discuss level-2 hypertriangulations.",
+        "identifier_or_url": "DOI:10.1007/BF02574375",
+        "material_read": "Abstract and Theorem 2 with its proof in the primary paper.",
+        "method": "Direct full-text PDF inspection.",
+        "title": "Optimality of the Delaunay Triangulation in R^d",
+        "trigger": "Classical theorem needed for the final minimax implication."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its radius function supports order-k alpha shapes on the fixed Delaunay mosaic; it does not optimize maximum triangle enclosing-circle radius over arbitrary complete hypertriangulations.",
+        "identifier_or_url": "DOI:10.1007/s00453-022-01027-6",
+        "material_read": "Definitions of order-k mosaics and Section 6 radius-function discussion, including the smallest constrained sphere interpretation.",
+        "method": "Direct open-access full-text inspection with targeted searches for enclosing and min-containment terminology.",
+        "title": "A Simple Algorithm for Higher-Order Delaunay Mosaics and Alpha Shapes",
+        "trigger": "Potential broader coverage because it defines radius functions on higher-order Delaunay mosaics."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The stated contribution is flip-connectivity of level-2 hypertriangulations; no enclosing-circle optimization theorem was found.",
+        "identifier_or_url": "arXiv:2212.11380",
+        "material_read": "Abstract, introduction, stated main theorem, and targeted full-text search for enclosing-circle terminology.",
+        "method": "Direct full-text PDF inspection.",
+        "title": "Flips in Two-dimensional Hypertriangulations",
+        "trigger": "Later directly related paper by overlapping authors that could have superseded the 2023 open question."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c02579c1-610c-4325-8048-ea2124ee3f36",
+  "value": {
+    "rationale": "The result resolves at level 2 one of the concrete non-angle Delaunay functionals explicitly singled out as open, for the same complete competitor class used in the order-2 angle theorem. The exact reduction applies to every finite generic planar point set and converts a higher-order mesh-quality objective into n+1 classical Delaunay minimax problems.",
+    "status": "PASS"
+  }
+}
