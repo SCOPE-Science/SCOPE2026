@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Direct algebra from the source iteration gives the exact first-step errors and the invariant mu^{k+1}=delta z^{k+1}. This forces eta^1=0 for every start and exact termination at update two. Since Q+delta I is invertible, x^1=x* iff eta^0=0, establishing necessity and sufficiency for full one-update termination. Exact rational tests reproduce the formulas and a concrete counterexample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giselsson--Boyd study tight global linear rate bounds and metric selection and cite the source paper; inspected relevant sections did not state this initialization correction.",
+        "Warm-start search results discuss practical reuse of ADMM state but did not supply the exact invariant or two-update theorem for this model."
+      ],
+      "reasoning": "General convergence-rate theory does not subsume an exact correction about the first update from an arbitrary full primal-dual state.",
+      "searches": [
+        "arXiv:1410.8479 Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM",
+        "web: ADMM warm-start dual variable initialization consistency quadratic"
+      ]
+    },
+    "checked_sources": [
+      "Optimization Online 3917",
+      "arXiv:1306.2454",
+      "DOI:10.1109/TAC.2014.2354892",
+      "arXiv:1410.8479",
+      "published-finding corpus published-finding search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source states arbitrary ADMM initialization in its general setup, derives mu^{k+1}=delta z^{k+1}, then substitutes mu^k=delta z^k in the reduced recurrence, and states one-iteration convergence at rho=delta, alpha=2.",
+        "The new claim keeps the source parameter optimum but distinguishes first-step behavior off the invariant manifold and proves exact second-step termination."
+      ],
+      "reasoning": "The source paper does not imply unrestricted one-update termination once arbitrary initial mu0 and z0 are retained. The correction follows by restoring the missing initial defect term rather than by weakening the claim.",
+      "searches": [
+        "Optimization Online paper equations (16), Theorem 2, Appendix proof of Theorem 2",
+        "arXiv:1306.2454",
+        "arXiv:1410.8479 related-work and ADMM-rate sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the condition mu0=delta*z0 for the cited over-relaxed ADMM model or the exact two-update law.",
+        "Web searches returned the source paper and general ADMM material but no erratum or equivalent correction."
+      ],
+      "reasoning": "The claim was searched both as a warm-start consistency condition and as a nilpotent/two-update finite-termination statement. Closest hits concern other methods.",
+      "searches": [
+        "Optimal parameter selection ADMM quadratic one iteration rho delta alpha 2 arbitrary initialization",
+        "ADMM initialization manifold mu equals delta z finite termination two iterations",
+        "over-relaxed ADMM l2 regularized quadratic finite termination one iteration two iterations",
+        "web: \"mu^0\" \"delta z^0\" ADMM Ghadimi",
+        "web: \"Optimal parameter selection\" ADMM \"one iteration\" initialization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published-finding corpus finding matched the statement.",
+        "No erratum was located in targeted web searches."
+      ],
+      "reasoning": "The result is not a lookup-table value; the database check was used to detect prior corrections or equivalent exact statements.",
+      "searches": [
+        "published-finding corpus exact source-title + one-iteration + initialization queries",
+        "web: source title + erratum",
+        "web: DOI 10.1109/TAC.2014.2354892 + erratum"
+      ]
+    },
+    "rationale": "The inspected source contains the one-iteration statement and the invariant but does not isolate the initial consistency requirement; targeted published-finding corpus/web searches did not locate this correction or exact two-update law. Residual risk remains for unindexed errata or informal notes.",
+    "residual_risks": [
+      "An unindexed erratum, author note, later implementation note, or differently worded warm-start analysis may already state the same correction.",
+      "The later literature search was targeted rather than exhaustive across every citation of the source paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source allows arbitrary initial primal/dual values in the general ADMM setup. Its over-relaxed proof derives mu^{k+1}=delta z^{k+1}, then reduces the recurrence using mu^k=delta z^k; this reduction is automatically valid only after one completed update unless mu0=delta z0. The source states convergence in one iteration at rho=delta, alpha=2 without separately stating that initialization condition.",
+        "evidence": "General ADMM arbitrary initialization on page 6 of the draft; over-relaxed equations and Theorem 2 on page 10; Appendix proof on pages 28-29.",
+        "identifier_or_url": "Optimization Online 3917 / arXiv:1306.2454 / DOI 10.1109/TAC.2014.2354892",
+        "material_read": "Full-text passages covering arbitrary ADMM initialization, equations (11), (12), and (16), Theorem 2, and Appendix proof of Theorem 2 around equations (49)-(50).",
+        "method": "Direct full-text inspection including rendered PDF pages for the over-relaxed iteration and theorem context.",
+        "title": "Optimal parameter selection for the alternating direction method of multipliers (ADMM): quadratic problems",
+        "trigger": "Primary source of the one-iteration claim and update equations."
+      },
+      {
+        "assessment": "Provides global/tight rate and metric-selection theory but no inspected statement of the specific dual-consistency initialization condition or the exact two-update finite-termination correction.",
+        "evidence": "The paper cites the primary source as a global linear-convergence/parameter-selection result and discusses general rate bounds rather than first-update warm-start consistency.",
+        "identifier_or_url": "arXiv:1410.8479",
+        "material_read": "Introduction, ADMM/Douglas--Rachford formulation, and related-work passages discussing the Ghadimi et al. parameter-selection paper.",
+        "method": "Direct arXiv full-text inspection and targeted text searches for initialization and one-iteration terminology.",
+        "title": "Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM",
+        "trigger": "Later closely related ADMM rate/parameter paper citing the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ecccb603-7a89-4ef8-b816-6599e2e634e5",
+  "value": {
+    "rationale": "The finding gives a necessary-and-sufficient initialization condition for a published one-update finite-termination claim and the sharp uniform replacement bound of two updates. This is structurally relevant to warm-started ADMM because an arbitrary carried primal-dual state need not lie on the invariant manifold, while preserving the source paper's rate-optimal parameter calculation after the invariant is reached.",
+    "status": "PASS"
+  }
+}
