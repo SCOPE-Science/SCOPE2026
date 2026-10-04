@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "After the probability-integral transform, conditional on the observed uniform being above one half, each antithetic pair contributes a Bernoulli exceedance with success probability uniform on \\(0,1\\); below one half, it contributes one plus such a Bernoulli. Mixing a \\(\\operatorname{Binomial}(B,p)\\) count over uniform \\(p\\) gives the exact uniform beta-binomial count on \\(\\{0,\\ldots,B\\}\\). Combining the two halves proves the mass function and CDF. Direct algebra proves the first failing support level and maximal excess. The packaged checker verifies the identities for \\(B\\le200\\) in exact arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barber--Ramdas 2026 gives broad non-joint-exchangeability bounds.",
+        "Ramdas et al. 2023 proves validity under exchangeable permutation samples and gives one antithetic failure example."
+      ],
+      "reasoning": "Those results provide conditions or bounds, not this exact deterministic-coupling law.",
+      "searches": [
+        "Monte Carlo testing non-asymptotic guarantees without joint exchangeability antithetic",
+        "Permutation Tests Using Arbitrary Permutation Distributions antithetic sampling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.13581",
+      "DOI:10.1007/s13171-023-00308-8",
+      "arXiv:2607.23010",
+      "DOI:10.1093/biomet/76.4.713",
+      "published-finding corpus semantic search results for antithetic Monte Carlo p-values and inverse-CDF pairs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A checked prior finding on Cauchy combination of antithetic p-value pairs concerns a different statistic and calibration problem.",
+        "A checked prior finding on Gaussian CRT finite-resample power assumes independent null resamples.",
+        "The 2023 source counterexample is a reverse-permutation construction whose anti-conservatism can occur at \\(\\alpha=1/3\\); it does not reduce to the inverse-CDF pair law here."
+      ],
+      "reasoning": "Neither checked prior result nor the inspected literature implies this claim. The present theorem proves a protected low-level region for a specific canonical antithetic coupling while acknowledging that other antithetic schemes can fail earlier.",
+      "searches": [
+        "conditional randomization test antithetic resampling p-value validity symmetric pairs",
+        "Monte Carlo test dependent resamples antithetic variates exact p value",
+        "source_id:3fc996c3-f10d-4eae-be30-87a01832b7da",
+        "source_id:24f98ca6-d87c-4489-8f93-2b7dcc369d84"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ramdas et al. Example 2.2 gives a reverse-permutation antithetic counterexample, not an inverse-CDF all-B law.",
+        "published-finding corpus searches returned dependence-calibration findings but no matching antithetic empirical p-value distribution."
+      ],
+      "reasoning": "The known counterexample proves possibility of failure; it does not imply the displayed mass function, protected low-level interval, or first-failure threshold.",
+      "searches": [
+        "antithetic Monte Carlo p-value exact distribution dependent null resamples joint exchangeability",
+        "antithetic Monte Carlo p-values uniform rank exact mass half threshold",
+        "inverse-CDF antithetic pair empirical p-value distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the doubled-central-atom table or equivalent formula."
+      ],
+      "reasoning": "The finite values are direct consequences of the proved closed form, not known-table recomputation.",
+      "searches": [
+        "inverse CDF antithetic Monte Carlo p-value table",
+        "antithetic p-value B pairs exact CDF",
+        "U 1-U empirical p-value beta-binomial"
+      ]
+    },
+    "rationale": "The primary source explicitly warns that antithetic permutation sampling can invalidate empirical p-values and gives a concrete \\(M=2\\) counterexample, but does not state this inverse-CDF antithetic law. Later non-joint-exchangeability theory gives bounds rather than the exact distribution. Targeted semantic-database and literature searches found no covering statement.",
+    "residual_risks": [
+      "An equivalent rank identity may exist in older Monte Carlo literature under terminology not surfaced by the searches.",
+      "The theorem is specific to inverse-CDF reflection and must not be generalized to other antithetic schemes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 2.2 assumes iid permutation draws; Theorem 2.3 uses exchangeable permutation draws. Example 2.2 shows a specific reverse-permutation antithetic p-value can be invalid at \\(\\alpha=1/3\\), but gives no all-\\(B\\) inverse-CDF mass law or half-level boundary.",
+        "identifier_or_url": "arXiv:2204.13581; DOI:10.1007/s13171-023-00308-8",
+        "material_read": "Full open-access HTML: Theorem 2.2, Corollary 2.1, Theorem 2.3, Example 2.2, and classification block.",
+        "method": "Statement-level comparison with the inverse-CDF antithetic law.",
+        "title": "Permutation Tests Using Arbitrary Permutation Distributions",
+        "trigger": "Primary source discusses Monte Carlo permutation p-values, exchangeability, and antithetic sampling."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected material gives a broad factor-two guarantee under a latent conditional-iid structure, not the exact inverse-CDF antithetic distribution.",
+        "identifier_or_url": "arXiv:2607.23010",
+        "material_read": "Abstract and accessible summary.",
+        "method": "Compared assumptions and conclusions to the exact coupling here.",
+        "title": "Monte Carlo testing: non-asymptotic guarantees without joint exchangeability",
+        "trigger": "Closest broad theory on empirical Monte Carlo p-values without joint exchangeability."
+      },
+      {
+        "assessment": "MOTIVATION_ONLY",
+        "evidence": "It develops antithetic bootstrap resampling for efficiency, not the claimed p-value law.",
+        "identifier_or_url": "DOI:10.1093/biomet/76.4.713",
+        "material_read": "Abstract and bibliographic material.",
+        "method": "Checked whether the accessible result concerns test-p-value calibration.",
+        "title": "Antithetic resampling for the bootstrap",
+        "trigger": "Classical motivation for antithetic resampling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83577981-ce52-46e5-8e99-082bace7d17b",
+  "value": {
+    "rationale": "Antithetic pairing is a standard variance-reduction device, and the primary source specifically warns that it can destroy p-value validity. The theorem resolves a natural canonical case completely: despite dependence and global invalidity, inverse-CDF reflection preserves every testing level up to \\(1/2\\), while giving an exact first failure and exact worst additive inflation. This separates a practically safe low-level region from the source paper’s more general caution and quantifies precisely what correct null marginals fail to guarantee.",
+    "status": "PASS"
+  }
+}
