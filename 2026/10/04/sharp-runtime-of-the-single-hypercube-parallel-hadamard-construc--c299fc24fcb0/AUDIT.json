@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The propagator factorizes because the hypercube adjacency is a sum of commuting bit flips. Diagonal corrections preserve entry magnitudes, forcing \\(|\\cos(t/n)|=|\\sin(t/n)|\\) and hence the discrete uniform-mixing times. At every such time the Hadamard-to-propagator ratio is the rank-one phase matrix \\(\\rho^{-h(x)}\\rho^{-h(y)}\\), whose diagonal factorization is unique up to scalars. Any loop-singleton sequence of total time \\(T\\) assigns each vertex an accumulated nonnegative time in \\([0,T]\\); therefore the required fourth-root phase set must fit in a directed arc of length \\(T\\). The exact arc lengths are \\(\\pi/2\\), \\(\\pi\\), and \\(3\\pi/2\\), and explicit masks attain them. This proves both lower and upper bounds for every \\(n\\ge1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adisa--Wong develop length-three implementations for arbitrary single-qubit and controlled single-qubit gates; their object is not a parallel \\(H^{\\otimes n}\\) implementation constrained to one hypercube interval.",
+        "Wong develops looped and loopless isolated-vertex phase primitives and gate constructions, without a single-hypercube phase-cost lower bound.",
+        "Chan studies instantaneous uniform mixing and complex Hadamard matrices in cube adjacency algebras, without dynamic phase-sandwich elapsed-time optimization."
+      ],
+      "reasoning": "These broader results do not dominate the claim because they either allow a different control architecture or address existence/classification of uniform mixing rather than the exact elapsed-time minimum of the fixed one-cube architecture.",
+      "searches": [
+        "arXiv:2108.01055 length-3 dynamic quantum walks",
+        "arXiv:1908.00507 isolated vertices dynamic quantum walks",
+        "DOI 10.5802/alco.112 complex Hadamard cubes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.06015v2, Sections 2 and 3.6",
+      "arXiv:1908.00507 / DOI 10.1103/PhysRevA.100.062325",
+      "arXiv:2108.01055 / DOI 10.1103/PhysRevA.104.042604",
+      "DOI 10.5802/alco.112",
+      "Published-finding searches under hypercube Hadamard, phase correction, diagonal equivalence, and loop-singleton terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source supplies an upper-bound construction and asks broadly how dynamic graphs can be simplified in graph count or time.",
+        "Its proof determines one successful phase assignment, but does not prove uniqueness up to scalars, the circular-arc lower bound for phase layers, or global minimization over all hypercube uniform-mixing times.",
+        "The later length-three single-qubit result neither constrains the same architecture nor implies the parallel multi-qubit lower bound."
+      ],
+      "reasoning": "An upper-bound construction does not imply an elapsed-time lower bound. The new proof needs three additional implications: magnitude forcing of uniform-mixing times, uniqueness of the diagonal factorization, and the minimal covering-arc obstruction. Those yield exact optimality rather than another implementation.",
+      "searches": [
+        "arXiv:2106.06015 Section 3.6",
+        "arXiv:2108.01055 abstract and gate architecture",
+        "DOI 10.5802/alco.112 full article landing page"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted published-finding searches returned no statement matching a single-hypercube phase-sandwich runtime optimum; the closest Hadamard hits concern Walsh square functions or Hadamard constructions in unrelated subjects.",
+        "Targeted web searches for the exact \\(5\\pi/2\\), \\(n\\pi/4\\), looped-singleton, and phase-corrected hypercube terminology returned the Herrman--Wong construction itself rather than an optimality theorem.",
+        "Ada Chan, DOI 10.5802/alco.112, treats complex Hadamard matrices and instantaneous uniform mixing in cube-related adjacency algebras, not diagonal phase-layer elapsed-time synthesis."
+      ],
+      "reasoning": "The claim can be phrased as diagonal equivalence between a hypercube propagator and a Walsh-Hadamard matrix plus a one-sided phase-synthesis cost. Searches under both dynamic-walk and complex-Hadamard terminology found the construction and broader mixing theory, but no theorem giving the phase-layer arc lower bound or the stated piecewise optimum.",
+      "searches": [
+        "Hadamard tensor power hypercube quantum walk optimal phase correction time looped singletons",
+        "Walsh Hadamard diagonal equivalence hypercube propagator phase masks minimum time",
+        "dynamic quantum walk Hadamard hypercube phase layers optimal 3 pi",
+        "web: single hypercube Hadamard looped singleton quantum walk optimal",
+        "web: 5 pi/2 H tensor H quantum walk dynamic graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Herrman--Wong Section 3.6 explicitly gives the phase condition, the \\(n\\pi/4\\) hypercube interval, a \\(5\\pi/2\\) simplified \\(H\\otimes H\\) example, and the general \\(\\pi\\) plus \\(\\pi/2\\) phase layers.",
+        "No retrieved table or database record reported the lower bound \\(L_n=(\\pi/2)\\min\\{n,3\\}\\) or the full piecewise optimum."
+      ],
+      "reasoning": "The nearest exact numerical datum is the source construction at \\(n=2\\); the new statement proves its optimality and extends the exact minimum to every dimension within the same architecture.",
+      "searches": [
+        "single hypercube interval Walsh Hadamard loop singleton optimal elapsed time 5pi/2 npi/4 plus 3pi",
+        "phase corrected hypercube continuous time quantum walk Hadamard optimal looped singletons",
+        "Herrman Wong Figure 6 H tensor H hypercube total time 5pi/2"
+      ]
+    },
+    "rationale": "The primary paper gives the hypercube-plus-phase construction and its timings, but not an architecture-sharp lower bound. Targeted published-finding and literature searches under dynamic-walk, Walsh-Hadamard, diagonal-equivalence, uniform-mixing, and phase-synthesis terminology did not find an equivalent or stronger elapsed-time theorem.",
+    "residual_risks": [
+      "An equivalent phase-synthesis lower bound could exist in quantum-control literature under terminology not retrieved by the targeted searches.",
+      "The theorem is intentionally architecture-specific; a more general dynamic-walk control theorem could dominate it if it explicitly specializes to the same one-hypercube phase-sandwich constraints and elapsed-time normalization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Provides the construction and upper-bound timings but no proof that the hypercube time and phase-layer costs are jointly minimal over the stated architecture.",
+        "identifier_or_url": "arXiv:2106.06015v2",
+        "material_read": "Full arXiv HTML, especially Section 2 and Section 3.6, including the normalized Hamiltonian, uniform-mixing time, phase equation, explicit two-qubit construction, and general phase-layer durations.",
+        "method": "Statement-and-implication comparison against the exact runtime claim.",
+        "title": "Simplifying Continuous-Time Quantum Walks on Dynamic Graphs",
+        "trigger": "Primary source; same hypercube and loop-singleton construction."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Constructs simpler gates and generalized phase gates but does not state a hypercube phase-sandwich optimality theorem.",
+        "identifier_or_url": "arXiv:1908.00507 / DOI 10.1103/PhysRevA.100.062325",
+        "material_read": "Abstract and bibliographic record; the primary 2021 source also cites this work as the phase-primitive predecessor.",
+        "method": "Compared claimed gate primitives with the new one-cube phase-cost lower bound.",
+        "title": "Isolated Vertices in Continuous-Time Quantum Walks on Dynamic Graphs",
+        "trigger": "Defines the looped-versus-loopless phase primitive used by the architecture."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The length-three theorem concerns single-qubit gates and controlled single-qubit gates in another architecture; it does not imply the parallel \\(H^{\\otimes n}\\) one-hypercube elapsed-time lower bound.",
+        "identifier_or_url": "arXiv:2108.01055 / DOI 10.1103/PhysRevA.104.042604",
+        "material_read": "Abstract and publication record, including the length-three arbitrary single-qubit and controlled-single-qubit scope.",
+        "method": "Architecture and implication comparison.",
+        "title": "Implementing Quantum Gates Using Length-3 Dynamic Quantum Walks",
+        "trigger": "Plausibly stronger later gate-synthesis result by the same research line."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Studies instantaneous uniform mixing and complex Hadamard matrices in cube-related adjacency algebras, not elapsed-time minimization for loop-singleton phase correction.",
+        "identifier_or_url": "DOI 10.5802/alco.112",
+        "material_read": "Full article landing-page abstract, classification, and scope statement.",
+        "method": "Compared existence/classification results with dynamic diagonal phase-cost optimization.",
+        "title": "Complex Hadamard matrices, instantaneous uniform mixing and cubes",
+        "trigger": "Plausible equivalent formulation through complex Hadamard matrices and cube uniform mixing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c299fc24-fcb0-4d94-a054-24b436c344e4",
+  "value": {
+    "rationale": "The source explicitly treats reducing evolution time as a central simplification objective and gives a fast parallel-Hadamard construction. The exact lower bound turns those timings into an optimality theorem: it certifies that the \\(5\\pi/2\\) two-qubit implementation and the \\(3\\pi/2\\) per-side phase cost for \\(n\\ge3\\) cannot be improved merely by rearranging or splitting loop masks, and it identifies the distinct \\(5\\pi/4\\) one-qubit optimum. This pinpoints which architectural ingredient must change for any further speedup, so the result is a structural design constraint rather than a routine recomputation.",
+    "status": "PASS"
+  }
+}
