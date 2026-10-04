@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the printed susceptible Ito equation. Under hypothetical convergence to the positive deterministic disease-free point, Itô’s formula for the logarithm of the susceptible coordinate gives an asymptotic drift equal to negative one-half the squared susceptible noise amplitude, while Brownian motion divided by time vanishes almost surely; this contradicts the logarithm of the susceptible coordinate divided by time tending to zero. On the disease-free invariant face, direct solution of the zero-current Fokker–Planck equation gives the normalized inverse-gamma density. Exact rational arithmetic verifies the reported parameter moments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broad stochastic-epidemic literature treats stationary distributions as the relevant stochastic analogue of deterministic equilibria.",
+        "The motivating 2026 source itself proves only a time-average susceptible limit in Theorem 3.2."
+      ],
+      "reasoning": "General stationary-distribution theory motivates the correction but does not dominate the source-specific statement because the exact boundary diffusion and parameterized inverse-gamma moments depend on this model’s mortality-noise structure.",
+      "searches": [
+        "stochastic SIRS epidemic model natural death rate perturbation threshold stationary distribution",
+        "mathematical epidemiology stochastic threshold extinction stationary distribution 92D30",
+        "SIRS stochastic sensitivity natural death noise invariant distribution",
+        "stochastic epidemic stationary distribution versus disease-free equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026278",
+      "doi:10.1016/j.amc.2017.02.003",
+      "doi:10.1038/s41598-019-47131-6",
+      "semantic record 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e",
+      "semantic record 2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf",
+      "semantic record 2026/9/14/SCOPE021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.2 of the source gives exponential infected extinction and time-average limits for susceptible and recovered compartments.",
+        "The numerical section later asserts almost-sure convergence of the path to the deterministic disease-free point with susceptible coordinate \\(5\\).",
+        "Cai–Kang–Wang use transmission noise that disappears on the disease-free face."
+      ],
+      "reasoning": "The new claim neither restates Theorem 3.2 nor follows from the predecessor. It identifies a stronger later assertion that is contradicted by the source SDE and supplies the exact stochastic disease-free susceptible law.",
+      "searches": [
+        "10.3934/math.2026278 Theorem 3.2",
+        "10.3934/math.2026278 almost surely tend equilibrium E0",
+        "10.1016/j.amc.2017.02.003 disease-free stationary distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2017 SIRS predecessor reports a disease-free stationary distribution, but its stochastic transmission term vanishes when infection is zero.",
+        "The 2019 SIR paper studies stationary distributions for a different ratio-dependent, regime-switching degenerate diffusion."
+      ],
+      "reasoning": "The closest equivalent language is disease-free stationary distribution rather than deterministic equilibrium. Neither inspected comparison has the same nonvanishing susceptible multiplicative noise on the disease-free face, so neither implies the inverse-gamma law or the log-S contradiction for the 2026 model.",
+      "searches": [
+        "Huang Du Liang 2026 stochastic SIRS extinction susceptible inverse gamma boundary",
+        "stochastic SIRS disease-free stationary distribution susceptible inverse gamma multiplicative mortality noise",
+        "DOI 10.1016/j.amc.2017.02.003",
+        "DOI 10.1038/s41598-019-47131-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic records included 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e, 2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf, and 2026/9/14/SCOPE021; none concern this SIRS boundary law or point-convergence claim."
+      ],
+      "reasoning": "The checked database returned no record with the same source, same susceptible affine-multiplicative boundary diffusion, or an implication covering the exact correction.",
+      "searches": [
+        "stochastic SIRS epidemic model natural death rate perturbation threshold stationary distribution",
+        "mathematical epidemiology stochastic threshold extinction stationary distribution 92D30",
+        "SIRS stochastic sensitivity natural death noise invariant distribution",
+        "Huang Du Liang 2026 stochastic SIRS extinction susceptible inverse gamma boundary",
+        "stochastic SIRS disease-free stationary distribution susceptible inverse gamma multiplicative mortality noise",
+        "path tends to deterministic disease-free equilibrium under multiplicative noise susceptible compartment",
+        "affine multiplicative diffusion dS=(Lambda-mu S)dt-sigma S dB inverse gamma stationary"
+      ]
+    },
+    "rationale": "The source-specific correction was not found in the checked semantic records or inspected literature. Earlier stochastic SIRS work recognizes disease-free stationary distributions, but the quoted predecessor perturbs transmission and therefore has no surviving susceptible diffusion on the disease-free face. The originality claim is intentionally limited to the exact application and correction, not to the classical inverse-gamma family itself.",
+    "residual_risks": [
+      "The inverse-gamma stationary law for affine multiplicative diffusions is classical; the originality assessment covers only its exact deployment in this 2026 SIRS model and the correction of the model-specific point-convergence interpretation.",
+      "The 2017 predecessor was compared through its abstract and the equations reproduced by the 2026 source rather than through a separately downloaded full paper; because its disease-free susceptible diffusion vanishes in the reproduced equation, this access limitation does not create a decisive implication ambiguity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.2 proves a time-average susceptible limit; the later numerical prose strengthens it to almost-sure point convergence. The printed susceptible diffusion remains nonzero at the deterministic disease-free susceptible level.",
+        "evidence": "DOI 10.3934/math.2026278; AIMS Mathematics 11(3), 6720–6743.",
+        "identifier_or_url": "doi:10.3934/math.2026278",
+        "material_read": "Publisher/open-access full text: model (1.3), Theorem 3.2 and proof, equations (4.1)–(4.3), extinction simulations, and the Section 4.2 statement of almost-sure convergence to E0.",
+        "method": "Full-text HTML/PDF text plus page-image inspection of the model, theorem, and numerical claim.",
+        "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+        "trigger": "Direct source defining the model and making the extinction interpretation being tested."
+      },
+      {
+        "assessment": "Its stochastic transfer is proportional to infection and vanishes on the disease-free face, so it does not cover the nondegenerate susceptible boundary diffusion studied here.",
+        "evidence": "DOI 10.1016/j.amc.2017.02.003; the 2026 source reproduces the predecessor model as equation (1.1).",
+        "identifier_or_url": "doi:10.1016/j.amc.2017.02.003",
+        "material_read": "Bibliographic abstract plus the predecessor SDE as reproduced in the 2026 source introduction.",
+        "method": "Abstract inspection and equation-level comparison through the openly available 2026 full text.",
+        "title": "A stochastic SIRS epidemic model with nonlinear incidence rate",
+        "trigger": "Closest SIRS predecessor explicitly cited by the 2026 source and using disease-free stationary-distribution language."
+      },
+      {
+        "assessment": "Supports the general stochastic-stationary-distribution distinction but uses a different regime-switching, degenerate diffusion and does not imply the exact boundary law or source correction.",
+        "evidence": "Scientific Reports 9, 10696 (2019), DOI 10.1038/s41598-019-47131-6.",
+        "identifier_or_url": "doi:10.1038/s41598-019-47131-6",
+        "material_read": "Open-access abstract and model/introduction sections.",
+        "method": "Full-text web inspection.",
+        "title": "A regime-switching SIR epidemic model with a ratio-dependent incidence rate and degenerate diffusion",
+        "trigger": "Open-access stochastic epidemic paper emphasizing stationary distributions and extinction rather than deterministic equilibrium convergence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f842fd68-97d6-43d3-8e8c-12d76a05b865",
+  "value": {
+    "rationale": "The distinction changes the interpretation of stochastic extinction: infection can vanish while susceptible uncertainty remains intrinsically nondegenerate. The exact boundary law quantifies that uncertainty and, at the source’s own parameters, has variance \\(2025/79\\), so the correction is not a tiny numerical effect. It also cleanly separates what Theorem 3.2 actually proves from the stronger numerical narrative.",
+    "status": "PASS"
+  }
+}
