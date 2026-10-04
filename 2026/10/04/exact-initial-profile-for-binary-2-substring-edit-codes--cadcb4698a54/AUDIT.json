@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The claim is a finite graph invariant reconstructed from the primary channel definition. Two independent ball enumerations agree for every binary source word at lengths one through eight. Code correction is equivalent to clique membership in the disjoint-ball compatibility graph. A sound greedy-color upper bound is used inside exhaustive branch-and-bound, and explicit maximum witnesses provide lower bounds. The packaged verifier replays the complete calculation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang et al. give asymptotic redundancy about 2 log n for fixed k.",
+        "Li et al. 2024/2025 give near-optimal asymptotic redundancy log n plus lower-order terms for one substring edit."
+      ],
+      "reasoning": "These asymptotic constructions and lower bounds do not determine the clique numbers of the finite confusability graphs for n at most 8, and no inspected theorem specializes to the displayed exact profile.",
+      "searches": [
+        "localized edit channel binary exact small parameters insertion deletion substitution window length 2",
+        "Asymptotically Optimal Codes Correcting One Substring Edit ISIT 2024",
+        "Optimal Codes Correcting a Substring Edit 2025"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT54713.2023.10206790",
+      "doi:10.1109/TCOMM.2024.3420721",
+      "doi:10.1109/ISIT57864.2024.10619199",
+      "doi:10.1109/TIT.2025.3562730",
+      "published-finding corpus searches listed in the four originality checks",
+      "own ledger through generation g000018 for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023/2025 Tang et al. work defines the channel and proves asymptotic constructions; it does not state the exact first eight maxima in the inspected full-text sections.",
+        "The 2024/2025 Li et al. work advertises asymptotically optimal redundancy rather than exact small-blocklength cardinalities."
+      ],
+      "reasoning": "A general existence lower bound or redundancy asymptotic does not imply exact finite maxima. The new claim supplies both matching finite lower and upper certificates, so it is not a corollary of the inspected prior statements.",
+      "searches": [
+        "doi:10.1109/ISIT54713.2023.10206790",
+        "doi:10.1109/TCOMM.2024.3420721",
+        "doi:10.1109/ISIT57864.2024.10619199",
+        "doi:10.1109/TIT.2025.3562730"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang et al. Section II-B defines a k-substring edit as replacing u by v with both lengths at most k, allowing empty u or v, and defines confusable sets by intersecting error balls.",
+        "Tang et al. Lemma 1 compares the channel with burst-deletion formulations and shows the implications are one-way rather than equivalences."
+      ],
+      "reasoning": "The final graph formulation is exactly the paper's confusability relation specialized to binary k=2 and at most one edit. Burst-deletion and ordinary edit aliases do not imply the exact profile because the primary paper explicitly separates these channels.",
+      "searches": [
+        "binary 2-substring-edit code exact length 8 maximum size 8",
+        "k-substring edit bounded length exact finite code length eight binary",
+        "doi:10.1109/TCOMM.2024.3420721"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no matching substring-edit finite-profile record; closest hits concerned deletion-only codes, separating systems, and unrelated code families.",
+        "Targeted web searches for the exact length-eight value and finite tables did not locate such a table."
+      ],
+      "reasoning": "No inspected database or table contains the profile. This is evidence against coverage, not a proof that no unindexed table exists.",
+      "searches": [
+        "binary 2-substring-edit code exact length 8 maximum size 8",
+        "k-substring edit bounded length exact finite code length eight binary",
+        "substring replacement error correcting code finite table binary k=2",
+        "localized edit channel binary exact small parameters insertion deletion substitution window length 2",
+        "published-finding corpus exact finite substring-edit table binary k=2"
+      ]
+    },
+    "rationale": "The exact profile was compared against the defining 2023/2025 Tang et al. work, the later 2024/2025 asymptotically optimal substring-edit work, published-finding corpus, exact-value aliases, finite-table searches, and burst/localized-error formulations. None of the inspected statements gives or implies the finite profile; residual risk of an unindexed finite computation is retained.",
+    "residual_risks": [
+      "The full text of the 2025 journal paper Optimal Codes Correcting a Substring Edit was not accessible in the inspected source; its abstract does not imply the finite profile, but a hidden small-parameter table remains possible.",
+      "An unindexed or unpublished finite computation could duplicate some or all of the values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the object used here and develops asymptotic constructions, but the inspected material does not state the finite profile through length eight.",
+        "evidence": "Section II-B defines replacement of u by v with |u|,|v|<=k and at least one nonempty; D_{b,k} and B_{b,k} are defined by generated strings and ball intersections; the conclusion reports asymptotic redundancy rather than finite maxima.",
+        "identifier_or_url": "doi:10.1109/TCOMM.2024.3420721",
+        "material_read": "Abstract; Introduction; Section II-A/II-B including the formal channel definition, Lemma 1, confusable-set notation and GV setup; later construction and conclusion excerpts in the accessible full-text rendering.",
+        "method": "Full-text rendering inspection with targeted searches for channel definition, exact tables, confusable sets, bounds, and conclusions.",
+        "title": "Correcting a Substring Edit Error of Bounded Length",
+        "trigger": "Defining full treatment of the same channel and the most direct possible coverage source."
+      },
+      {
+        "assessment": "The advertised optimality is asymptotic redundancy optimality, not an exact finite cardinality table.",
+        "evidence": "The abstract states redundancy log n plus lower-order terms for fixed k; no finite n=8 cardinality appears in inspected material.",
+        "identifier_or_url": "doi:10.1109/ISIT57864.2024.10619199",
+        "material_read": "Proceedings metadata, title/abstract descriptions, and later journal/arXiv abstract describing the same result line.",
+        "method": "Proceedings and bibliographic/abstract inspection; a full manuscript was not available through the inspected public source.",
+        "title": "Asymptotically Optimal Codes Correcting One Substring Edit",
+        "trigger": "Later same-object paper with a title suggesting potentially dominating optimality."
+      },
+      {
+        "assessment": "Abstract gives almost-optimal asymptotic redundancy and document-exchange hashes; no exact finite profile is stated. Full-text inaccessibility remains a residual originality risk rather than being treated as proof of absence.",
+        "evidence": "The abstract states redundancy log n+O_k(log log n), a statement that does not imply exact short-blocklength maxima.",
+        "identifier_or_url": "doi:10.1109/TIT.2025.3562730",
+        "material_read": "Bibliographic record and abstract; full text was inaccessible through the inspected source.",
+        "method": "Exact-title, exact-parameter and table searches plus abstract inspection.",
+        "title": "Optimal Codes Correcting a Substring Edit",
+        "trigger": "Later journal title could plausibly contain a stronger statement covering the finite claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cadcb469-8a54-4c62-b671-02f0bcfc440e",
+  "value": {
+    "rationale": "The quantity is the basic maximum-cardinality invariant for a recently introduced unified localized-edit channel, not an arbitrary slice. The complete initial binary k=2 profile gives exact benchmarks for constructions and decoders at the smallest nontrivial blocklengths, identifies length five as the first length admitting two codewords, and supplies a reproducible finite reference point where asymptotic redundancy theorems are not informative.",
+    "status": "PASS"
+  }
+}
