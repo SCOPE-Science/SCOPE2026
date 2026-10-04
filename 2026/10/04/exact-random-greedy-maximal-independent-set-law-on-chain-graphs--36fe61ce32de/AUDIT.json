@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The proof first classifies maximal independent sets as Ferrers-corner sets. For a fixed corner set, the necessary-and-sufficient greedy-output condition is that every omitted vertex has an earlier selected neighbor. The omitted vertices split into a lower-left Ferrers block and an upper-right Ferrers block on disjoint priority variables, giving an exact product. In either block, conditioning on the earliest active vertex yields the recurrence for \\(\\Phi\\); every recursive state is strictly smaller. A standalone exact-rational checker exhaustively matched support and probabilities for all 127 connected canonical chain degree sequences of total order at most eight across 2,754,350 permutations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1002/rsa.21200 gives a general random-greedy framework and exact analyses in other graph families but no chain/Ferrers specialization in the accessible full text.",
+        "arXiv:2104.04471 / DOI:10.1007/s00453-022-01019-6 uses the fact that chain graphs have O(n) maximal independent sets but does not, in the inspected relevant sections, weight them under random greedy."
+      ],
+      "reasoning": "General random-greedy theory and chain-graph support enumeration do not imply the exact finite probabilities without the disjoint Ferrers-block factorization and first-active-vertex recurrence.",
+      "searches": [
+        "random greedy maximal independent set graph exact probability",
+        "random sequential adsorption graph independent set exact results",
+        "chain graph maximal independent sets random permutation greedy law"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1504.03666",
+      "arXiv:2104.04471",
+      "DOI:10.1007/s00453-022-01019-6",
+      "DOI:10.1002/rsa.21200",
+      "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+      "own-ledger:13703984-bf2d-4163-8e5a-f73b76386bb2",
+      "own-ledger:036eea4e-58d1-4c58-a7b8-01fda0fd061a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior local ledger finding 13703984-bf2d-4163-8e5a-f73b76386bb2 gives an exact law for threshold graphs via isolated/dominating creation steps, not for bipartite chain graphs.",
+        "The published-finding corpus complete-multipartite result implies the complete-bipartite special case only.",
+        "The prior local ledger finding 036eea4e-58d1-4c58-a7b8-01fda0fd061a concerns Grundy domination and does not imply any random-greedy MIS distribution."
+      ],
+      "reasoning": "Neither the threshold-graph recurrence nor the complete-multipartite size-biased law extends by implication to arbitrary nested-neighborhood chain graphs; adding clique edges or collapsing to complete bipartite structure changes the greedy process. The accepted theorem requires a different Ferrers-corner decomposition.",
+      "searches": [
+        "complete multipartite random greedy maximal independent set size-biased part-size law",
+        "exact random greedy independent-set law threshold graphs creation sequence",
+        "chain graph Ferrers nested neighborhoods maximal independent sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus record stated the chain/Ferrers output law or the factorized recurrence.",
+        "Full-text searches of arXiv:1504.03666 found no occurrences of 'greedy' or 'random permutation'; full-text searches of DOI:10.1002/rsa.21200 found no occurrences of 'chain' or 'Ferrers'."
+      ],
+      "reasoning": "The natural aliases are chain graph, Ferrers graph, difference graph, and 2K2-free bipartite graph, while the stochastic process is also called random greedy MIS or blocking/random sequential adsorption. The searched formulations did not yield an equivalent statement.",
+      "searches": [
+        "chain graph random greedy maximal independent set exact distribution recurrence",
+        "Ferrers graph random greedy independent set exact output probabilities",
+        "2K2-free bipartite graph greedy independent set probability distribution",
+        "Ferrers bipartite random sequential adsorption independent set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus stochastic record: 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f.",
+        "No returned published-finding corpus record stated a table, recurrence, or probability-generating function for arbitrary chain graphs."
+      ],
+      "reasoning": "The complete-multipartite record specializes on complete bipartite graphs, but arbitrary chain graphs have several Ferrers corners and are not covered by that result.",
+      "searches": [
+        "chain graph random greedy maximal independent set exact distribution recurrence",
+        "Ferrers graph random greedy independent set exact output probabilities",
+        "chain graph Ferrers nested neighborhoods maximal independent sets"
+      ]
+    },
+    "rationale": "The accepted contribution is the exact stochastic weighting of every Ferrers-corner maximal independent set, not the underlying chain-graph representation or the existence of only linearly many maximal independent sets. Targeted published-finding corpus searches across aliases found no equivalent theorem; accessible primary full-text comparisons separate the claim from both structural chain-graph work and broad random-greedy work. The complete-multipartite database result covers only the complete-bipartite special case. Residual historical-indexing risk is recorded explicitly.",
+    "residual_risks": [
+      "Older chain-graph literature is also indexed under Ferrers graph and difference graph; targeted alias searches reduce but do not eliminate the possibility of an overlooked exact stochastic formula.",
+      "The 1990 difference-graph literature cited by later chain-graph papers was not inspected in full text because no accessible primary full text was located during this run.",
+      "Negative database searches are not novelty proofs; originality is supported by statement-level comparison with the closest accessible structural and random-greedy sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the canonical chain structure used in the proof but no located random-greedy or maximal-independent-set probability theorem.",
+        "evidence": "The full text defines bipartite chain graphs by nested neighborhoods and records the corresponding distinct-degree structure; targeted searches returned no matching stochastic terminology.",
+        "identifier_or_url": "arXiv:1504.03666",
+        "material_read": "Accessible full HTML, especially the introduction and preliminaries defining bipartite chain graphs and their degree structure; targeted full-text searches for independent set, greedy, maximal, and random permutation.",
+        "method": "Statement-level comparison against the accepted support and probability formulas.",
+        "title": "The Maximum Cut Problem in Co-bipartite Chain Graphs",
+        "trigger": "Archive-period source giving an explicit nested-neighborhood representation of bipartite chain graphs."
+      },
+      {
+        "assessment": "Covers small support/enumerability of chain-graph maximal independent sets but the inspected relevant material does not state random-order greedy probabilities.",
+        "evidence": "The article explicitly observes O(n) maximal independent sets in a chain graph and uses them algorithmically; no probability law is supplied in the inspected sections.",
+        "identifier_or_url": "arXiv:2104.04471; DOI:10.1007/s00453-022-01019-6",
+        "material_read": "Accessible chain-graph preliminaries and the proof passages using the fact that chain graphs have O(n) inclusion-wise maximal independent sets, including the independent-domination section.",
+        "method": "Compared the prior support-level statement with the accepted stochastic weighting.",
+        "title": "Combinatorics and Algorithms for Quasi-Chain Graphs",
+        "trigger": "Closest structural independent-set literature located for chain graphs."
+      },
+      {
+        "assessment": "Establishes the process and broad theory, but no chain/Ferrers specialization was located.",
+        "evidence": "The full text defines the random-order greedy MIS and surveys exact analyses; searches for 'chain' and 'Ferrers' returned no matches.",
+        "identifier_or_url": "DOI:10.1002/rsa.21200",
+        "material_read": "Accessible full HTML introduction, comparison-with-prior-work section, exact tree-analysis discussion, and full-text searches for chain and Ferrers.",
+        "method": "Checked whether the general framework or named exact cases include chain/Ferrers graphs.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Broad modern source on exactly the same uniformly random-order greedy MIS process."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36fe61ce-32de-4960-8d0c-fec75dabee97",
+  "value": {
+    "rationale": "The full greedy-output law on chain graphs is mathematically natural because chain graphs are the canonical bipartite nested-neighborhood/Ferrers class and their maximal-independent-set support is already known to be small. The theorem turns that support into exact probabilities, yielding the complete size distribution and all moments, not a routine single-instance computation. The factorization and recurrence expose structural bias of the random greedy sampler and provide exact finite benchmarks for algorithms and random-sequential-adsorption calculations.",
+    "status": "PASS"
+  }
+}
