@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The additive source accumulators reduce exactly to \\(\\varepsilon I+tGG^\\top\\) and \\(\\varepsilon I+tG^\\top G\\). A reduced SVD diagonalizes both, giving every singular value of the preconditioned direction explicitly. The condition-number identity, target iteration threshold, polar-limit error, and cumulative displacement follow algebraically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 norm interpretation proves semi-orthogonal updates only when accumulation is disabled.",
+        "The 2025 decomposition paper studies eigenspectrum scaling, grafting, and staleness for accumulated Shampoo."
+      ],
+      "reasoning": "Those broader geometric and practical analyses do not imply the exact stationary-history formula. The new statement is a closed-form specialization of the original accumulated dynamics, not the accumulation-disabled optimizer.",
+      "searches": [
+        "Shampoo spectral norm steepest descent accumulation",
+        "Shampoo Kronecker preconditioner eigenvalues grafting",
+        "Shampoo constant gradient polar"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1802.09568v1",
+      "arXiv:2409.20325v1",
+      "arXiv:2506.03595v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source initializes \\(L_0=\\varepsilon I_m\\), \\(R_0=\\varepsilon I_n\\), accumulates \\(G_tG_t^\\top\\) and \\(G_t^\\top G_t\\), and updates with two inverse fourth roots.",
+        "The 2024 paper derives \\(UV^\\top\\) only after setting the accumulators equal to the current Gram matrices.",
+        "The 2025 paper writes accumulated Shampoo in a Kronecker eigenbasis and focuses on scaling, grafting, and staleness."
+      ],
+      "reasoning": "The source formulas permit the new reduction, but none of the inspected conclusions provides the exact history-dependent singular values, their condition-number decay, or the cumulative polar drift.",
+      "searches": [
+        "Shampoo Algorithm 1 epsilon identity L0 R0 inverse fourth root",
+        "Old Optimizer New Norm Shampoo accumulation disabled semi orthogonal",
+        "Purifying Shampoo eigenvalue scaling accumulated preconditioner"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1802.09568, Algorithm 1 and matrix-case discussion",
+        "arXiv:2409.20325, Story II on no-accumulation Shampoo",
+        "arXiv:2506.03595, Sections 2-3 on accumulated Shampoo eigenscaling"
+      ],
+      "reasoning": "Equivalent formulations include exact singular-mode time constants, an accumulated-to-polar interpolation, and an exact time-to-target spectral condition number. The closest inspected polar result explicitly removes accumulation, whereas this claim keeps the original additive history.",
+      "searches": [
+        "Shampoo optimizer first step polar factor singular values matrix gradient exact",
+        "Shampoo preconditioned gradient polar decomposition first iteration",
+        "Shampoo matrix optimizer epsilon regularization singular spectrum",
+        "Shampoo optimizer rank one gradient exact preconditioner",
+        "Shampoo constant gradient repeated identical gradient singular values exact decay",
+        "Shampoo linear objective constant gradient polar factor asymptotic",
+        "Shampoo repeated gradient condition number preconditioned gradient",
+        "Shampoo singular equalization identical gradients epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record search returned matrix-valued Stiefel adaptation as a close but non-covering result.",
+        "Published-record search returned stagewise Richardson stability as a close but non-covering result.",
+        "Published-record search returned a diagonal-step initialization obstruction as a close but non-covering result.",
+        "No located Shampoo-specific record states the repeated-gradient singular equalization law."
+      ],
+      "reasoning": "The closest records use different update maps and do not contain Shampoo left/right accumulated Gram factors. Search absence is not used as proof of uniqueness.",
+      "searches": [
+        "Shampoo optimizer first step polar factor singular values matrix gradient exact",
+        "Shampoo preconditioned gradient polar decomposition first iteration",
+        "Shampoo matrix optimizer epsilon regularization singular spectrum",
+        "Shampoo optimizer rank one gradient exact preconditioner",
+        "Shampoo constant gradient repeated identical gradient singular values exact decay",
+        "Shampoo linear objective constant gradient polar factor asymptotic",
+        "Shampoo repeated gradient condition number preconditioned gradient",
+        "Shampoo singular equalization identical gradients epsilon"
+      ]
+    },
+    "rationale": "The defining paper gives additive accumulation and the inverse-quarter-root update but not the stationary-gradient singular equalization law. The closest later paper identifies the polar factor only after disabling accumulation. A 2025 decomposition study analyzes practical Shampoo eigenscaling and grafting but the inspected material does not state the stationary additive law or its exact finite-time condition-number threshold.",
+    "residual_risks": [
+      "The SVD reduction is elementary enough that an equivalent stationary-gradient observation may exist in unindexed notes.",
+      "Later practical Shampoo variants use EMA accumulation, grafting, and stale inverse roots, so the exact law does not transfer verbatim.",
+      "The constant-gradient regime is structurally clean but does not model rotating gradient subspaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_STATIONARY_SINGULAR_EQUALIZATION.",
+        "evidence": "The source states the damped additive accumulators and inverse-quarter-root update and notes order-one-over-square-root-time decay, but does not give the repeated-gradient singular spectrum or polar convergence law.",
+        "identifier_or_url": "arXiv:1802.09568v1",
+        "material_read": "Full open-access PDF around Algorithm 1, matrix-case motivation, rank/SVD analysis, implementation, and inverse-root update.",
+        "method": "Full-text PDF inspection plus visual inspection of the Algorithm 1 page.",
+        "title": "Shampoo: Preconditioned Stochastic Tensor Optimization",
+        "trigger": "Defining source for the original additive matrix Shampoo recurrence."
+      },
+      {
+        "assessment": "CLOSEST_PRIOR_COVERS_NO_ACCUMULATION_ONLY.",
+        "evidence": "It explicitly disables accumulation before deriving \\(UV^\\top\\); it does not state the finite-time accumulated stationary-gradient law.",
+        "identifier_or_url": "arXiv:2409.20325v1",
+        "material_read": "Full open-access PDF Story II, including equations 12-19 and the proposition interpreting Shampoo without accumulation as spectral-norm steepest descent.",
+        "method": "Full-text PDF inspection with targeted search for accumulation and Shampoo.",
+        "title": "Old Optimizer, New Norm: An Anthology",
+        "trigger": "Closest known geometric interpretation connecting Shampoo to a polar or semi-orthogonal update."
+      },
+      {
+        "assessment": "BROADER_PRACTICAL_DECOMPOSITION_NOT_COVERING_STATIONARY_EXACT_LAW.",
+        "evidence": "The paper analyzes accumulated eigenscaling and practical heuristics but no stationary-gradient polar law or exact time-to-condition-number formula was located.",
+        "identifier_or_url": "arXiv:2506.03595v1",
+        "material_read": "Open-access PDF introduction and Sections 2-3 on Kronecker factors, eigenbasis/eigenvalue scaling, grafting, and stale eigensystems, with targeted searches for constant-gradient and polar statements.",
+        "method": "Full-text PDF inspection with visual inspection of the preconditioner-analysis page.",
+        "title": "Purifying Shampoo: Investigating Shampoo's Heuristics by Decomposing its Preconditioner",
+        "trigger": "Recent detailed decomposition of accumulated Shampoo that could dominate the claimed spectral statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "207a9548-bd4b-440a-afca-5d365e3fca04",
+  "value": {
+    "rationale": "Shampoo is defined by accumulated matrix second moments and inverse fourth roots, while later work interprets a no-accumulation idealization as polar descent. The exact stationary-gradient law bridges those two views and quantifies, at every iteration, how fast the actual source accumulator erases singular-value anisotropy. The target-condition-number time and damping-controlled slowest-mode error are natural diagnostics for the role of the regularizer rather than arbitrary numerical slices.",
+    "status": "PASS"
+  }
+}
