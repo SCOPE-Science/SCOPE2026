@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Each SPD eigenmode of source Algorithm 2 is an exact three-state linear recurrence. Its characteristic polynomial is reconstructed from the source update. A Schur reduction to a quadratic leaves three inequalities; positivity is automatic, the determinant-like condition is strictly weaker, and the active condition is \\(\\eta_0h<2/(1+2\\beta_0)\\). The equality root is exactly \\(-1\\), and above it a real root lies below \\(-1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves a stochastic convergence rate with a conservative horizon-dependent learning-rate prescription.",
+        "The source explicitly says the learning-rate normalization is intended to avoid retuning as beta-zero changes.",
+        "Ranger21 later incorporates positive-negative momentum as a practical optimizer component."
+      ],
+      "reasoning": "A sufficient stochastic convergence theorem does not imply the exact deterministic spectral boundary, especially because it uses bounded-gradient and finite-horizon assumptions. Practical reuse of PNM establishes relevance but supplies no stronger covering theorem.",
+      "searches": [
+        "PNM beta0 deterministic convergence quadratic",
+        "Positive-Negative Momentum convergence learning rate",
+        "Ranger21 positive-negative momentum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.17182",
+      "arXiv:2106.13731"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 supplies the exact two-step momentum recurrence and positive-negative parameter update.",
+        "The paper defines the normalized rate eta-zero and rewrites beta as beta-one squared in its convergence analysis.",
+        "The paper recommends beta-zero equal to one as a default, corresponding to noise amplification factor five."
+      ],
+      "reasoning": "These prior statements determine the recurrence but not its exact roots. The final result requires an independent three-state characteristic-polynomial calculation and Schur reduction. The beta-one cancellation and closed noise-factor tradeoff are not direct corollaries of the paper's stated convergence theorem.",
+      "searches": [
+        "arXiv:2103.17182 Algorithm 2 beta0 beta1 normalized learning rate",
+        "arXiv:2103.17182 convergence theorem eta0 1 over 2L",
+        "Positive-Negative Momentum default beta0 1 gamma 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper states Algorithm 2 and its normalized learning rate, but its convergence theorem is a sufficient stochastic result under bounded gradients and variance.",
+        "The full text contains no quadratic stability theorem or spectral-radius characterization.",
+        "Published-record searches returned stability frontiers for other optimization recurrences rather than PNM."
+      ],
+      "reasoning": "Equivalent forms include a Schur boundary for the three-state recurrence, a maximum stable normalized learning rate, and a maximum stable base learning rate expressed by the noise factor. None was located in the inspected PNM source or search results.",
+      "searches": [
+        "Positive Negative Momentum PNM quadratic stability exact spectral radius beta0 beta1",
+        "positive negative momentum deterministic quadratic characteristic polynomial",
+        "positive negative momentum stability region learning rate",
+        "arXiv:2103.17182"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concerned sharp stability frontiers for Polyak, stochastic feedback, reflected-gradient, and other momentum-like methods.",
+        "No returned record used PNM's two interleaved momentum buffers and positive-negative coefficient pair."
+      ],
+      "reasoning": "The closest database results have different characteristic polynomials and do not imply the final PNM boundary. Search absence is not treated as novelty proof; it supplements direct full-text inspection of the defining paper.",
+      "searches": [
+        "Positive Negative Momentum PNM quadratic stability exact spectral radius beta0 beta1",
+        "PNM optimizer scalar quadratic stability learning rate beta0",
+        "positive negative momentum deterministic quadratic characteristic polynomial",
+        "positive negative momentum stability region learning rate",
+        "PNM beta0 deterministic convergence quadratic"
+      ]
+    },
+    "rationale": "The defining PNM paper gives the recurrence, noise-amplitude normalization, stochastic convergence theorem, and beta-zero default, but no exact deterministic quadratic spectral boundary. Focused published-record and web searches did not identify the cubic characteristic polynomial, the beta-one cancellation, or the exact noise-amplification/stability tradeoff.",
+    "residual_risks": [
+      "An equivalent PNM root calculation may exist in unindexed implementation notes or informal analyses.",
+      "The exact result is deterministic and does not characterize stochastic mean-square stability.",
+      "The negative beta-zero regime that recovers conventional momentum is excluded.",
+      "Only abstract-level material was inspected for Ranger21; the defining PNM paper was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_EXACT_DETERMINISTIC_SCHUR_FRONTIER.",
+        "evidence": "The source gives the full recurrence and a stochastic sufficient convergence condition, but no exact deterministic quadratic characteristic polynomial or stability/noise tradeoff.",
+        "identifier_or_url": "arXiv:2103.17182",
+        "material_read": "Open full-text sections covering methodology, Algorithms 1-3, the normalized learning rate, the transformed recurrence used for convergence analysis, Theorem 1 and its proof, the generalization section, and the beta-zero default discussion.",
+        "method": "Full-text HTML inspection with equation-level comparison and targeted searches for quadratic, stability, and divergence statements.",
+        "title": "Positive-Negative Momentum: Manipulating Stochastic Gradient Noise to Improve Generalization",
+        "trigger": "Defining source for PNM's interleaved momentum recurrence, beta-zero noise control, learning-rate normalization, convergence theorem, and default."
+      },
+      {
+        "assessment": "PRACTICAL_REUSE_CONTEXT_NOT_COVERING_PNM_QUADRATIC_STABILITY.",
+        "evidence": "The available material supports later practical reuse of PNM but does not state an implication-equivalent deterministic spectral theorem.",
+        "identifier_or_url": "arXiv:2106.13731",
+        "material_read": "Public arXiv abstract and public implementation-oriented descriptions identifying positive-negative momentum as one of Ranger21's combined components.",
+        "method": "Abstract-level and public implementation-context inspection.",
+        "title": "Ranger21: a synergistic deep learning optimizer",
+        "trigger": "Check whether a prominent later optimizer using positive-negative momentum supplied a covering stability analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8be1c7e1-df01-48f3-a218-0c615e633d04",
+  "value": {
+    "rationale": "PNM's central design parameter beta-zero is explicitly introduced to amplify gradient noise, and the defining paper normalizes the learning rate to reduce retuning. The theorem quantifies the residual deterministic price of that same control knob by an exact, dimensionless stability ceiling, shows the surprising cancellation of beta-one, and converts the paper's noise-amplification factor directly into a stable-learning-rate law. This is a natural optimizer-design diagnostic rather than an arbitrary special case.",
+    "status": "PASS"
+  }
+}
