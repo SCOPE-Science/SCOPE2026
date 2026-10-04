@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Dominy et al. Lemma 5 was checked in the open full text and gives the exact eigenvalue for one weak stabilizer measurement on every isotypical sector. Composition over a schedule multiplies these diagonal eigenvalues, producing the Hamming weight of the associated binary word. Orthogonality of the sectors then makes the restricted Hilbert--Schmidt norm the largest residual eigenvalue, equal to the code minimum-distance exponent. Rank-deficient schedules leave a nontrivial sector fixed. Endpoint and intermediate examples were independently enumerated by the bundled checker. The proof is analytic; finite enumeration is not used to justify the general quantifiers.",
+    "risks": [
+      "The exact norm statement is for the nonselective measurement layer in the Hilbert--Schmidt geometry; it does not by itself provide an exact full system--bath trace-distance error after interleaved dynamics.",
+      "Unequal measurement strengths would replace ordinary Hamming weight by a weighted exponent and are outside the stated claim."
+    ],
+    "sources": [
+      "arXiv:1207.5880, Sections III.1--III.2, especially Lemmas 4--7",
+      "arXiv:1104.5507 for the earlier weak-stabilizer Zeno protocol"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1038/s41534-024-00904-y constructs commuting code-inspired observables and uses minimum distance for classical outcome-error correction.",
+        "arXiv:1907.01393 develops syndrome-measurement codes from redundant stabilizers.",
+        "arXiv:1207.5880 treats weak nonselective stabilizer measurements but only the full-group and minimal-generator protocols."
+      ],
+      "reasoning": "The broader robust-measurement literature covers arbitrary projective POVMs and classical outcome errors, not the equal-strength nonselective weak-measurement attenuation spectrum. The Zeno paper covers the relevant weak channel but not arbitrary code-designed schedules. No inspected broader result dominates the stated theorem.",
+      "searches": [
+        "Robust projective measurements through measuring code-inspired observables stabilizer minimum distance",
+        "quantum data-syndrome codes stabilizer redundant measurements classical code",
+        "weak measurement stabilizer classical code minimum distance decoherence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1104.5507",
+      "arXiv:1207.5880",
+      "DOI:10.1109/ISIT.2014.6874892",
+      "arXiv:1907.01393",
+      "DOI:10.1038/s41534-024-00904-y",
+      "Grassl code tables (codetables.de)",
+      "MaRDI bibliographic record for DOI:10.1088/1751-8113/46/7/075306"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dominy et al. Lemma 5 supplies the character-by-character factor for one weak stabilizer and Lemmas 6--7 specialize to the two schedules they study.",
+        "Ashikhmin--Lai--Brun supply the systematic binary syndrome-measurement code construction for redundant stabilizers.",
+        "Ouyang proves classical minimum-distance optimality for robustness of projective measurement outcomes."
+      ],
+      "reasoning": "The new theorem is a synthesis requiring composition of the weak-channel characters and recognition that the resulting exponent set is exactly the weight distribution of the schedule matrix. Neither cited prior theorem alone implies the optimization claim in its stated nonselective weak-channel norm. The ingredients make the proof short, but the statement is not a special case of a stronger inspected weak-measurement theorem.",
+      "searches": [
+        "Analysis of the quantum Zeno effect for quantum control and computation full text",
+        "Quantum Data-Syndrome Codes full text",
+        "Robust projective measurements through measuring code-inspired observables full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1207.5880 states the one-stabilizer factor and separately the full-group and generator-only spectra.",
+        "arXiv:1907.01393 writes redundant stabilizers using a binary generator matrix and shows the measured syndrome tuple is a codeword, but its objective is correction of syndrome-bit errors."
+      ],
+      "reasoning": "The same binary matrix appears in both settings, but the weak-channel spectral norm statement is not an equivalent formulation of classical syndrome decoding: it concerns unrecorded nonselective measurement and quantum operator attenuation rather than corrupted classical outcomes.",
+      "searches": [
+        "weak stabilizer measurement classical code minimum distance Zeno syndrome",
+        "syndrome measurement code weak Zeno contraction Hamming weight",
+        "full stabilizer generators intermediate subset weak measurement",
+        "arXiv:1207.5880 Lemmas 5--7",
+        "arXiv:1907.01393 Sections III--IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grassl code-table search material contains the binary [4,3,2] code as the dual of the length-four repetition code.",
+        "Semantic claim searches returned coding-theory and stabilizer results but no weak-stabilizer/code-distance contraction statement; closest returned identifiers included 2026/9/11/SCOPE037 and 2026/9/15/SCOPE002, whose claims concern lifted-product and CSS-repair code properties rather than weak measurements."
+      ],
+      "reasoning": "Code tables can supply or bound the purely classical value of the optimization after the correspondence is proved; they do not contain the quantum weak-measurement correspondence itself. The [4,3,2] parameter is therefore treated only as prior input/example, not as a new table entry.",
+      "searches": [
+        "site:codetables.de binary [4,3,2] code",
+        "codetables.de bounds minimum distance linear codes",
+        "weak stabilizer measurement classical code minimum distance Zeno syndrome",
+        "syndrome measurement code weak Zeno contraction Hamming weight"
+      ]
+    },
+    "rationale": "The closest prior strands were separated statement-by-statement. The Zeno source gives the single-stabilizer eigenvalue and two endpoint schedules but not arbitrary schedule optimization. Data-syndrome work uses classical linear codes to make selective syndrome outcomes robust to classical readout errors, while the 2024 code-inspired measurement paper treats robust projective measurements. None of the inspected sources states that the nonselective weak-measurement channel has isotypical spectrum indexed by codeword weights or that its worst Hilbert--Schmidt contraction is exactly the classical minimum distance. Classical code parameters themselves are explicitly excluded from novelty.",
+    "residual_risks": [
+      "The 2014 conference paper on robust syndrome extraction was available primarily through abstract/bibliographic material in this check; its later comprehensive treatment arXiv:1907.01393 was inspected in full.",
+      "An unindexed paper may explicitly connect weak nonselective stabilizer attenuation to syndrome-measurement code distance.",
+      "The theorem does not claim novelty for syndrome-measurement codes, projective robust measurement coding, or any classical minimum-distance value."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "The paper proves the single-measurement character factor and analyzes full-group and minimal-generator products. It does not state arbitrary schedule/code-distance optimization.",
+        "identifier_or_url": "arXiv:1207.5880; DOI:10.1088/1751-8113/46/7/075306",
+        "material_read": "Open full text: Sections II.1--II.2 and III.1--III.2, including Lemmas 1 and 4--7 and equations (30), (34), and (38).",
+        "method": "Direct full-text inspection of the lawful arXiv HTML version.",
+        "title": "Analysis of the quantum Zeno effect for quantum control and computation",
+        "trigger": "Same weak stabilizer channel and the two endpoint protocols."
+      },
+      {
+        "assessment": "CLOSEST_STRUCTURAL_PRIOR_NOT_COVERING_WEAK_CHANNEL",
+        "evidence": "It defines a binary generator matrix, redundant stabilizers, and syndrome codewords for correcting measurement-bit errors, but does not analyze nonselective weak measurements or their isotypical attenuation eigenvalues.",
+        "identifier_or_url": "arXiv:1907.01393",
+        "material_read": "Open full text: Introduction and Sections II--IV through the syndrome-measurement code construction and codeword equation.",
+        "method": "Direct full-text inspection of the open arXiv text.",
+        "title": "Quantum Data-Syndrome Codes",
+        "trigger": "Closest known use of classical linear codes to choose redundant stabilizer measurements."
+      },
+      {
+        "assessment": "BROADER_PROJECTIVE_READOUT_NOT_COVERING_WEAK_NONSELECTIVE_SPECTRUM",
+        "evidence": "Minimum distance controls correction of corrupted classical outcomes of projective measurements. The article does not discuss weak stabilizer attenuation, Zeno suppression, or the claimed Hilbert--Schmidt contraction exponent.",
+        "identifier_or_url": "DOI:10.1038/s41534-024-00904-y",
+        "material_read": "Open full text: Results, minimum-distance theorem/corollary, and robust stabilizer implementation section.",
+        "method": "Direct inspection of the open publisher HTML.",
+        "title": "Robust projective measurements through measuring code-inspired observables",
+        "trigger": "General classical-code construction of commuting observables, potentially broader than stabilizer syndrome coding."
+      },
+      {
+        "assessment": "EARLIEST_PROTOCOL_SOURCE",
+        "evidence": "The v1 submission is dated 2011-04-28 and introduces weak measurements combined with stabilizer codes.",
+        "identifier_or_url": "arXiv:1104.5507; DOI:10.1103/PhysRevLett.108.080501",
+        "material_read": "ArXiv abstract, metadata, and submission history; detailed technical comparison was performed against the expanded arXiv:1207.5880 full text.",
+        "method": "Direct inspection of the arXiv record and the expanded follow-up full text.",
+        "title": "Zeno effect for quantum computation and control",
+        "trigger": "Earlier public source for the weak-stabilizer Zeno protocol."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac15f85f-8895-446c-aa9b-6215492a5eed",
+  "value": {
+    "rationale": "The source presents a sharp resource tension between measuring only generators and measuring the exponentially larger full stabilizer group. The finding fills that motivated gap with an exact continuum of intermediate schedules and converts worst-sector suppression at fixed elementary-measurement budget into a mature coding-theory invariant. The r=3 example shows a concrete nontrivial gain: one extra distinct stabilizer squares the worst attenuation factor. This is a structural design lemma for weak stabilizer control, not a recomputation of a known code table.",
+    "risks": [
+      "The physical cost of a product stabilizer can exceed the cost of a generator, so elementary measurement count is only one resource model.",
+      "The theorem addresses the measurement layer; translating the improved contraction exponent into a sharp full dynamical error bound is future work."
+    ],
+    "sources": [
+      "arXiv:1207.5880 explicitly contrasts full-group and generator-only WMQZE protocols and notes the resource saving of the latter.",
+      "arXiv:1907.01393 and DOI:10.1038/s41534-024-00904-y establish the independent practical relevance of code-designed redundant measurements."
+    ],
+    "status": "PASS"
+  }
+}
