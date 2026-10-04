@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For a prescribed lifted arc \\(xy\\) over a base arc \\(u\\to v\\), Alspach supplies a base \\(t\\)-cycle through \\(u\\to v\\) for every \\(3\\le t\\le c\\). Every target length \\(\\ell\\in[3,c\\alpha]\\) belongs to some integer interval \\([3k,ck]\\) with \\(1\\le k\\le\\alpha\\) because \\(c\\ge5\\) makes consecutive intervals overlap or touch. Writing \\(\\ell\\) as a sum of \\(k\\) admissible base lengths and lifting the \\(j\\)-th base cycle into the \\(j\\)-th clone layer yields a simple directed cycle: each segment is directed, the last vertex of each base cycle points to \\(u\\) and therefore to the next \\(u\\)-clone, distinct layers prevent repeated vertices, and the first lifted base arc is the prescribed \\(xy\\). The verifier independently reconstructs and checks this construction on several regular base tournaments. The \\(c=3\\) boundary is explicitly excluded and fails for \\(\\alpha\\ge2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xia 2026: every regular \\(c\\)-partite tournament is \\(4\\)-arc-pancyclic for \\(c\\ge93\\); for \\(c\\ge7\\) it guarantees a long initial interval of cycle lengths, not the full spectrum from \\(3\\) through \\(c\\alpha\\) in general.",
+        "Pan--Zhang 2004: each arc lies on a cycle meeting exactly \\(k\\) partite sets for \\(k=4,\\ldots,c\\); cycle vertex length is not fixed when partite sets have size greater than one.",
+        "Zhang--Zhang--Gutin--Lou 2021 discusses Hamiltonicity, pancyclicity, and vertex pancyclicity of multipartite tournaments, but the retrieved abstract does not give arc-pancyclicity for these compositions.",
+        "Composition searches mainly returned structural decomposition papers, not pancyclicity statements implying the claim."
+      ],
+      "reasoning": "The strongest retrieved general theorem is Xia's large-\\(c\\) \\(4\\)-arc-pancyclicity result. It neither supplies triangles through every arc nor removes the \\(c\\ge93\\) condition. The new theorem uses a special structural hypothesis to obtain a strictly stronger conclusion.",
+      "searches": [
+        "arXiv:2609.12372 full-text introduction, Theorems 1.1, 1.2, 1.5, Conjecture 3",
+        "DOI:10.1007/s10114-004-0327-1 publisher abstract",
+        "DOI:10.1002/jgt.22606 publisher abstract",
+        "web: semicomplete composition pancyclic",
+        "web: digraph composition pancyclic arc"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.12372",
+      "DOI:10.4153/CMB-1967-028-6",
+      "DOI:10.1007/s10114-004-0327-1",
+      "DOI:10.1002/jgt.22606",
+      "DOI:10.1016/j.dam.2012.03.008",
+      "semantic research index (four claim/alias queries, top 50 each)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alspach proves all arc lengths only in the base regular tournament of order \\(c\\).",
+        "Pan--Zhang fixes the number of partite sets met, which does not force an arbitrary total vertex length after blow-up.",
+        "Known vertex-pancyclicity of regular multipartite tournaments controls vertices rather than prescribed arcs.",
+        "Xia's general result starts at cycle length \\(4\\) and currently needs \\(c\\ge93\\) for all longer lengths."
+      ],
+      "reasoning": "The new layer-splicing step is the missing implication: it converts \\(k\\) base cycles through the same prescribed base arc into one simple blown-up cycle whose length is the sum of their lengths. None of the inspected prior statements supplies this additive construction or its full all-length consequence.",
+      "searches": [
+        "DOI:10.4153/CMB-1967-028-6 theorem statement",
+        "DOI:10.1007/s10114-004-0327-1 abstract",
+        "arXiv:2609.12372 full-text statements",
+        "web: almost all almost regular \\\\(c\\\\)-partite tournaments vertex pancyclic",
+        "web: regular multipartite tournament blow-up cyclic tournament"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No hit among the top 50 semantic-index results for either blow-up query stated the same theorem; the closest returned directed-cycle item was 2026/9/9/SCOPE087, which concerns a chromatic-symmetric-function computation for a circular power digraph.",
+        "Web searches surfaced Alspach's base-tournament theorem and general multipartite arc-cycle literature, but no equal-blow-up arc-pancyclic theorem.",
+        "The standard composition terminology is documented in the literature as replacing each base vertex by a digraph and orienting cross-arcs according to the base digraph."
+      ],
+      "reasoning": "The claim was searched under blow-up, composition, lexicographic product, cyclic-tournament special case, and regular-multipartite terminology. None of the retrieved statements was equivalent to preservation of every arc length from 3 through the full blown-up order.",
+      "searches": [
+        "semantic research index: cyclic tournament blow-up equal independent parts 3-arc-pancyclic",
+        "semantic research index: blow-up of cyclic tournament complete multipartite arc pancyclic",
+        "web: regular tournament blow-up arc-pancyclic",
+        "web: regular tournament composition arc-pancyclic",
+        "web: multipartite tournament arc-pancyclic composition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic research index returned no record asserting the claimed blow-up theorem in the inspected top-50 results for either query.",
+        "The checked prior findings contain a different cyclic-tournament result about acyclic dichromatic number, but no pancyclic or multipartite-tournament blow-up finding."
+      ],
+      "reasoning": "This is a universal structural theorem rather than a database lookup. Exact semantic-index and prior-finding checks found no previously stored result with the same implication.",
+      "searches": [
+        "semantic research index: regular multipartite tournament every arc cycle every length cyclic blowup",
+        "semantic research index: lexicographic product cyclic tournament empty graph directed cycles all lengths arc",
+        "prior-finding text search: pancyclic; multipartite tournament; blow-up; arc-pancyclic; cycle lengths"
+      ]
+    },
+    "rationale": "The 2026 initiating paper proves \\(4\\)-arc-pancyclicity only for all regular multipartite tournaments with at least \\(93\\) parts and gives weaker distinct-length guarantees for smaller part counts; it does not state the equal-blow-up preservation theorem. Alspach covers only the unblown regular tournament. Pan--Zhang controls the number of partite sets met by cycles, not every vertex length. Yeo-type vertex-pancyclicity does not imply arc-pancyclicity. Targeted web and semantic-research-index searches for blow-up/composition/lexicographic-product formulations returned no covering theorem.",
+    "residual_risks": [
+      "An older theorem on digraph compositions, Zykov sums, or extended tournaments may imply the same blow-up statement under terminology not surfaced by the targeted searches.",
+      "The 2026 arXiv paper is recent and may acquire later revisions or citations after the frozen week anchor; those later materials are not used to establish originality here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves \\(4\\)-arc-pancyclicity for \\(c\\ge93\\) and weaker distinct-length guarantees in broader ranges. No equal-blow-up theorem was located in the inspected full text.",
+        "identifier_or_url": "arXiv:2609.12372",
+        "material_read": "Full arXiv HTML text in the introduction and theorem statements, including definitions, Theorems 1.1, 1.2, 1.5 and Conjecture 3; full-text searches for blow-up, cyclic tournament, and lexicographic terminology.",
+        "method": "Direct arXiv HTML inspection and in-document search.",
+        "title": "4-Arc-Pancyclicity of Regular Multipartite Tournaments",
+        "trigger": "Closest recent primary paper on the same invariant and object class."
+      },
+      {
+        "assessment": "BASE_RESULT_ONLY",
+        "evidence": "Alspach proves every arc of a regular tournament lies on every cycle length from \\(3\\) to the tournament order; no multipartite blow-up is part of the statement.",
+        "identifier_or_url": "DOI:10.4153/CMB-1967-028-6",
+        "material_read": "Publisher HTML extract giving the main theorem and definition of the arc-pancyclic property.",
+        "method": "Publisher page inspection.",
+        "title": "Cycles of Each Length in Regular Tournaments",
+        "trigger": "Critical base theorem used in the proof."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The theorem guarantees cycles through each arc meeting exactly \\(k\\) partite sets for \\(k=4,\\ldots,c\\), which does not determine total vertex lengths within those parts.",
+        "identifier_or_url": "DOI:10.1007/s10114-004-0327-1",
+        "material_read": "Publisher abstract and listed theorem statement.",
+        "method": "Publisher HTML inspection.",
+        "title": "On Cycles Containing a Given Arc in Regular Multipartite Tournaments",
+        "trigger": "Classical arc-cycle result for the same multipartite object class."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The retrieved result concerns Hamiltonicity, vertex pancyclicity, and cycle extendability; it does not state prescribed-arc pancyclicity for equal blow-ups.",
+        "identifier_or_url": "DOI:10.1002/jgt.22606",
+        "material_read": "Publisher abstract and contextual statements about vertex pancyclicity and multipartite tournaments.",
+        "method": "Publisher HTML inspection.",
+        "title": "Hamiltonicity, pancyclicity, and full cycle extendability in multipartite tournaments",
+        "trigger": "Broad pancyclicity literature for multipartite tournaments."
+      },
+      {
+        "assessment": "TERMINOLOGY_ONLY",
+        "evidence": "The retrieved material establishes standard composition terminology but does not provide an arc-pancyclicity theorem implying the claim.",
+        "identifier_or_url": "DOI:10.1016/j.dam.2012.03.008",
+        "material_read": "Publisher text defining Zykov sums and digraph compositions and discussing multipartite tournaments.",
+        "method": "Publisher HTML inspection.",
+        "title": "On the acyclic disconnection of multipartite tournaments",
+        "trigger": "Searches under composition/lexicographic-product terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef2e15a0-46de-4161-addf-9e11c045d129",
+  "value": {
+    "rationale": "The theorem gives a broad, natural infinite subclass of regular multipartite tournaments for which the strongest possible prescribed-arc cycle spectrum holds, strengthening the recent general 4-arc-pancyclic direction without a large-number-of-parts assumption. It also isolates a reusable additive splicing mechanism for digraph compositions: multiple base cycles through one arc can be concatenated across independent clone layers to realize all intermediate lengths. This directly informs the current conjectural landscape for arc-pancyclicity in regular multipartite tournaments and is not merely a parameter recomputation or isolated small case.",
+    "status": "PASS"
+  }
+}
