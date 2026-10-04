@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For the exact stationary linearized system, the position autocorrelation is the first diagonal entry of the matrix exponential. In the overdamped case the ratio to the variance-matched first-order autocorrelation reduces to a scalar function whose derivative changes sign exactly once and whose limit is negative, yielding one positive crossover. The repeated-root case has a one-turning-point log ratio. In the underdamped case odd half-period lags make the second-order correlation exactly negative while the first-order correlation is positive. The proof states all parameter ranges and does not extrapolate from simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koen (2012), DOI 10.1111/j.1365-2966.2011.19778.x, treats stochastic damped-oscillator autocorrelation",
+        "Morr et al., DOI 10.1137/24M1669104, treats multidimensional noise interference in early warnings"
+      ],
+      "reasoning": "These sources cover oscillator autocorrelation or multidimensional EWS broadly, but not the source's variance-matched comparator nor the unique crossover/negative-lobe correction.",
+      "searches": [
+        "stochastic damped oscillator autocorrelation CAR(2) sampling lag",
+        "multidimensional early warning autocorrelation inertia damping"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.01164v1",
+      "DOI:10.1111/j.1365-2966.2011.19778.x",
+      "DOI:10.1137/24M1669104"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.01164v1 states the contrary uniform dominance claim after displaying the exact formulas",
+        "Koen (2012) establishes the standard stochastic second-order oscillator setting but does not compare it to this matched first-order model"
+      ],
+      "reasoning": "The source does not imply the result; it is corrected by it. General oscillator formulas imply the algebraic starting point but not the source-specific comparison statement, crossover uniqueness, or EWS interpretation without the additional argument given here.",
+      "searches": [
+        "Early Warning Signals Can Vanish or Amplify autocorrelation always larger second order first order correction",
+        "variance-matched first-order OU second-order Langevin autocorrelation comparison underdamped overdamped unique crossover"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.01164v1, Section 3, equations (9)--(10) and the underdamped/overdamped matrix exponentials",
+        "No semantically matching published finding was returned by the focused searches"
+      ],
+      "reasoning": "Searches used aliases including inertial, underdamped, second-order OU/CAR(2), variance matching, sampling lag, and crossover. No source located states the same all-regime comparison theorem.",
+      "searches": [
+        "variance-matched first-order OU second-order Langevin autocorrelation comparison underdamped overdamped unique crossover",
+        "Early Warning Signals Can Vanish or Amplify autocorrelation always larger second order first order correction",
+        "second-order saddle-node inertia autocorrelation sampling lag sign change underdamped early warning",
+        "Ditlevsen Ditlevsen 2609.01164 autocorrelation always larger"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating source's Figure 4 caption repeats the 'always larger' assertion",
+        "Classical CAR(2) references provide formulas rather than a table or database that implies the comparison"
+      ],
+      "reasoning": "No exact database or tabulation was found that already contains the crossover classification. The result is analytic rather than a recomputation of a known table.",
+      "searches": [
+        "Ditlevsen Ditlevsen 2609.01164 autocorrelation always larger",
+        "CAR(2) autocorrelation first order comparator crossover"
+      ]
+    },
+    "rationale": "The motivating preprint supplies the formulas but asserts the opposite uniform comparison. Classical CAR(2) work supplies oscillatory autocorrelation as background, not the variance-matched first/second-order crossover theorem. Focused scientific searches found no equivalent correction or stronger implication. The remaining risk is unindexed time-series folklore about this particular normalization.",
+    "residual_risks": [
+      "An equivalent first-versus-second-order correlation comparison may exist in unindexed CAR(2) or engineering literature under different notation.",
+      "The motivating source's word 'always' may have been intended only for the particular plotting lag and parameter window of its figure; the result therefore corrects the unrestricted statement, not necessarily every displayed curve."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELEVANT_AND_CONTRADICTED_BY_NEW_RESULT",
+        "evidence": "Section 3 gives the exact linearized matrix and autocorrelation formulas, specifies the first-order variance-matching, and states that the second-order autocorrelation is always larger.",
+        "identifier_or_url": "arXiv:2609.01164v1",
+        "material_read": "Abstract; Sections 2--3; equations (7)--(12); matrix-exponential autocorrelation formulas; Figure 4 caption; Discussion.",
+        "method": "Full HTML text inspection and statement-level comparison.",
+        "title": "Early Warning Signals Can Vanish or Amplify: Dimensionality in Complex Systems",
+        "trigger": "Direct source of the inertia-based early-warning comparison."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_COMPARISON",
+        "evidence": "The paper treats second-order continuous-time autoregressive stochastic oscillations and their autocorrelation, but not the variance-matched first-order saddle-node comparator or the crossover theorem.",
+        "identifier_or_url": "DOI:10.1111/j.1365-2966.2011.19778.x",
+        "material_read": "Title/abstract; Section 2 on the damped stochastic oscillator, spectrum, autocovariance and autocorrelation; time-domain discussion.",
+        "method": "Full accessible article text inspection.",
+        "title": "Estimation of the coherence time of stochastic oscillations from modest samples",
+        "trigger": "Classical full-text background on stochastic damped oscillators/CAR(2) and autocorrelation."
+      },
+      {
+        "assessment": "RELATED_MECHANISM_NOT_COVERING_INERTIAL_LAG_COMPARISON",
+        "evidence": "It studies failure of EWS through internal-noise interference and observables, not the first-versus-second-order inertial sampling-lag comparison.",
+        "identifier_or_url": "DOI:10.1137/24M1669104",
+        "material_read": "Abstract and stated scope.",
+        "method": "Publisher abstract inspection.",
+        "title": "Internal Noise Interference to Warnings of Tipping Points in Generic Multidimensional Dynamical Systems",
+        "trigger": "Close early-warning literature on failures of autocorrelation indicators in multidimensional folds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d60d7298-6906-4ebe-9083-9eb3b3abe10f",
+  "value": {
+    "rationale": "Sampling lag is intrinsic to empirical autocorrelation-based early-warning signals. The theorem replaces an unrestricted recent dominance claim by a sharp regime-aware statement: one crossover in the nonoscillatory case and exact negative bands in the oscillatory case. This identifies when inertia enhances versus suppresses the same variance-matched indicator and is directly useful for interpreting discretely sampled tipping diagnostics.",
+    "status": "PASS"
+  }
+}
