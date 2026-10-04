@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "All 46656 strict labeled profiles are exhaustively evaluated with two independently organized Gale–Shapley implementations that agree profile by profile. Proposal count equals the sum of men-optimal partner ranks, and all six perfect matchings are independently tested for stability. Exact rational recomputation verifies the full distributions, moments, joint table, and conditional means. Published one-round and stable-count marginals match the corresponding verifier outputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wilson 1972 is the classical proposal-count running-time analysis for random stable marriage.",
+        "The 2014 communication-complexity paper summarizes quadratic worst-case and order n log n average behavior under independent uniform preferences.",
+        "The 2024 sequence paper gives the exact one-round count and exact marginal number-of-stable-matchings census for n=3."
+      ],
+      "reasoning": "Asymptotic expectation bounds and one-round enumeration do not determine the complete finite proposal distribution, rank-multiset law, or its coupling to stable-set multiplicity. The new claim is therefore a finer finite calibration rather than a restatement of the classical running-time theory.",
+      "searches": [
+        "Wilson stable marriage proposals expected number random preferences",
+        "A Stable Marriage Requires Communication average Theta n log n proposals",
+        "Sequences of the Stable Matching Problem one round Gale Shapley stable matchings n=3"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF01932966",
+      "arXiv:1405.7709",
+      "JIS:24.2.2",
+      "OEIS:A343475"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-round termination implies only the P=3 atom.",
+        "The stable-matching multiplicity marginals impose only column sums on the new joint table.",
+        "Average-order asymptotics do not imply any of the exact n=3 masses, the seven-proposal cutoff, or conditional means."
+      ],
+      "reasoning": "Neither the prior one-round characterization nor the marginal stable-count census fixes how profiles are distributed over P=4,5,6,7 or how proposal cost couples to stable-set size. Those statements require the additional exhaustive classification.",
+      "searches": [
+        "Gale Shapley one round distinct first choices 10368",
+        "stable matching profiles n=3 one two three stable matchings 34080 11484 1092",
+        "average Gale Shapley proposals random preferences n log n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic repository searches returned no stable-marriage finding matching the full three-by-three proposal distribution or its exact moments.",
+        "Targeted exact-number searches for the mean 35/8 and seven-proposal mass 1/72 did not locate an equivalent published statement.",
+        "The known one-round sequence A343475 supplies only the P=3 atom, not the remaining proposal law."
+      ],
+      "reasoning": "The searches cover proposal-count, deferred-acceptance, stable-marriage, exact n=3, moment, and support-endpoint formulations. The closest exact finite result is the known one-round event, which is explicitly excluded from the novelty claim.",
+      "searches": [
+        "Gale Shapley proposal count distribution three by three exact random preferences",
+        "stable marriage number of proposals n=3 exact distribution",
+        "deferred acceptance proposals small n exact expectation distribution",
+        "\"35/8\" \"stable marriage\" proposals",
+        "\"1/72\" \"stable marriage\" proposals n=3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A343475 records 10368 one-round profiles at n=3 and the corresponding general one-round formula.",
+        "The 2024 sequence paper tabulates the marginal stable-matching counts 34080, 11484, and 1092 for n=3.",
+        "No inspected database or table gives the five-point proposal law, seven rank-multiset counts, or the 5-by-3 joint table."
+      ],
+      "reasoning": "Known exact tables cover constituent marginals, which are treated as prior and used as cross-checks. The accepted data are the complete proposal/rank distribution and the new joint refinement.",
+      "searches": [
+        "OEIS Gale Shapley proposals stable marriage n=3",
+        "A343475 Gale Shapley one iteration 10368",
+        "stable marriage proposal distribution table 3 men 3 women"
+      ]
+    },
+    "rationale": "Classical and modern sources establish proposal-count runtime context, the one-round n=3 count, and the marginal number-of-stable-matchings census. No inspected source states the complete n=3 proposal law, sharp seven-proposal support endpoint, seven-atom men-optimal partner-rank law, or the exact proposal-by-stable-count table.",
+    "residual_risks": [
+      "An unindexed exercise, thesis, lecture note, supplementary table, or software enumeration may contain the same finite proposal law.",
+      "Wilson's original 1972 full text was not inspected in full; it is used only for positive historical context, not a whole-document novelty claim.",
+      "The result is limited to the three-by-three iid-uniform strict-preference model and should not be extrapolated to larger markets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes historical runtime context only. No whole-document absence claim relies on this source.",
+        "evidence": "BIT Numerical Mathematics 12 (1972), 569-575; DOI 10.1007/BF01932966.",
+        "identifier_or_url": "doi:10.1007/BF01932966",
+        "material_read": "Bibliographic record and later scholarly summaries of Wilson's random-input proposal analysis; the original publisher full text was not inspected in full.",
+        "method": "Bibliographic and citation-context inspection.",
+        "title": "An Analysis of the Stable Marriage Assignment Algorithm",
+        "trigger": "Classical primary source making proposal count a running-time object for stable marriage."
+      },
+      {
+        "assessment": "Supplies modern algorithmic context but not the exact three-by-three proposal distribution.",
+        "evidence": "arXiv:1405.7709, first submitted 29 May 2014.",
+        "identifier_or_url": "arXiv:1405.7709",
+        "material_read": "ArXiv abstract and opening full-text discussion of the quadratic worst case and order n log n average case under independent uniformly random preferences.",
+        "method": "ArXiv record and full-PDF inspection.",
+        "title": "A Stable Marriage Requires Communication",
+        "trigger": "Day-resolved public archive source summarizing worst-case and random-average Gale–Shapley complexity."
+      },
+      {
+        "assessment": "Covers the P=3 atom and stable-count marginals, which are treated as prior and used as external checks. It does not state the full proposal/rank law or the joint refinement.",
+        "evidence": "Journal of Integer Sequences 27 (2024), Article 24.2.2; published 16 January 2024.",
+        "identifier_or_url": "JIS:24.2.2",
+        "material_read": "Full article sections defining Gale–Shapley, the one-round sequence and criterion, and the table of profile counts by number of stable matchings.",
+        "method": "Public full-PDF text and rendered-page inspection.",
+        "title": "Sequences of the Stable Matching Problem",
+        "trigger": "Closest exact finite stable-marriage enumeration source."
+      },
+      {
+        "assessment": "Exactly covers the P=3 atom and no more of the accepted proposal distribution.",
+        "evidence": "OEIS A343475.",
+        "identifier_or_url": "OEIS:A343475",
+        "material_read": "Sequence definition, formula, and n=3 example giving 10368 profiles.",
+        "method": "Public database entry inspection.",
+        "title": "OEIS A343475",
+        "trigger": "Exact database entry for one-round men-proposing Gale–Shapley profiles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6adf82ec-232d-42d0-8f85-9903ff93a1d6",
+  "value": {
+    "rationale": "Proposal count is the canonical execution-cost statistic for Gale–Shapley and underlies its classical random-input complexity theory. The exact three-by-three law provides a natural finite calibration, identifies the sharp support endpoint, connects runtime directly to men-optimal welfare ranks, and shows how execution cost couples to stable-set multiplicity. These are motivated structural invariants rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
