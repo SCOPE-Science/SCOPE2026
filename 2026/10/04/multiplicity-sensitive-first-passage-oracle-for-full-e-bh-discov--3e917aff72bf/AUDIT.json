@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For terminal full discovery with null coordinates equal to \\(1\\) and \\(\\alpha\\in(0,1)\\), e-BH cannot select more than \\(m\\) coordinates because every threshold for rank above \\(m\\) is strictly greater than \\(1\\). Full discovery therefore forces \\(k^\\star=m\\) and every nonnull terminal value to be at least \\(K/(\\alpha m)\\). Each stream must consequently have received at least its own first-passage count. Parking each stream at that first crossing attains the bound. The smaller-boundary counterexample is deterministic. The likelihood-ratio expectation follows separately from Wald's identity under explicitly stated integrability assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The stopped-e-BH literature gives conditions under which stopped e-processes remain valid inputs under global stopping, but does not optimize a pooled full-discovery first-passage cost.",
+        "The 2026 adaptive-data-collection paper gives general algorithmic upper and lower sample-complexity bounds, but not the exact favorable-oracle benchmark proved here."
+      ],
+      "reasoning": "The generality of those papers is broader in implementability and validity, but their statements do not dominate this exact pathwise optimization theorem under its narrower oracle/inert-null assumptions.",
+      "searches": [
+        "park e-values before rejection first crossing full discovery multiplicity",
+        "arXiv:2502.08539",
+        "adaptive multiple testing e-BH parked arms exact sample complexity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26651v1",
+      "DOI:10.1111/rssb.12489",
+      "arXiv:2502.08539",
+      "Prior opaque finding 9da7494f-9cdd-494a-a4d2-d6d80e156d7e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin et al.'s upper proof defines each nonnull crossing at \\(\\log(K/\\alpha)\\), while their lower bound scales as \\(\\log(1/\\alpha)\\); neither statement identifies \\(\\log(K/(\\alpha m))\\) as an exact oracle boundary.",
+        "The 2022 bandit scheme stops upon an actual new discovery, not at a latent common parking level.",
+        "The compared prior opaque finding starts from a set already rejected by e-BH and derives a sharp floor for preserving those rejections under future betting; it does not address pre-rejection pooled first passage or the exact full-discovery oracle cost."
+      ],
+      "reasoning": "The new theorem is not a corollary of the post-rejection preservation statement because its key object is the minimum pre-rejection sampling cost when \\(m\\) streams can be parked before any group rejection. It is also not implied by the 2026 information lower bound, which is a different necessary condition for general anytime-valid-FDR algorithms.",
+      "searches": [
+        "arXiv:2609.26651v1 Theorem 4.1 Appendix B Theorem 4.2",
+        "DOI:10.1111/rssb.12489 bandit section",
+        "prior opaque finding 9da7494f-9cdd-494a-a4d2-d6d80e156d7e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin et al. define e-BH by the rank threshold \\(K/(\\alpha k^\\star)\\) and, for simple alternatives, use the crossing level \\(\\log(K/\\alpha)\\) in both the high-probability and expected-stopping analyses.",
+        "Wang and Ramdas give the base e-BH rule and a bandit procedure that stops an arm when a new discovery occurs."
+      ],
+      "reasoning": "The pooled parking statement is not an alias of the source's individual \\(K/\\alpha\\) crossing: it uses knowledge of the eventual multiplicity \\(m\\) to freeze each signal at \\(K/(\\alpha m)\\) before an actual e-BH discovery need occur.",
+      "searches": [
+        "multiplicity-sensitive oracle boundary e-BH parking first crossing K/(alpha m)",
+        "e-BH K/(alpha m) full discovery oracle threshold m nonnulls",
+        "arXiv:2609.26651v1",
+        "DOI:10.1111/rssb.12489"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact threshold, first-passage sum, or multiplicity-interpolation entry was returned by the searched research-record database.",
+        "The nearest returned records concerned Simes size, stopping-time phenomena, or unrelated sharp boundaries rather than e-BH pooled parking."
+      ],
+      "reasoning": "This claim is analytic rather than a database/table lookup. The searches were used to test whether the exact formula or an equivalent recorded result already existed; no such record was found.",
+      "searches": [
+        "e-BH K/(alpha m) full discovery oracle threshold m nonnulls",
+        "e-BH first-passage cost sum hitting times nonnulls"
+      ]
+    },
+    "rationale": "The motivating 2026 paper analyzes full-discovery sample complexity but its simple-alternative upper analysis crosses \\(\\log(K/\\alpha)\\) per nonnull, whereas its information lower bound has \\(\\log(1/\\alpha)\\) scale. The inspected e-BH bandit construction stops an arm on an actual new discovery, and the stopped-e-BH paper addresses filtration validity. None of the inspected sources states the exact oracle identity \\(\\sum_i\\tau_i\\) at the pooled boundary \\(K/(\\alpha m)\\), the sharp universal parking threshold, or the overshoot identity at that multiplicity-sensitive boundary. Searches for equivalent phrasing and first-passage formulations did not return a covering result. A prior related finding about preserving already-rejected e-BH coordinates was compared separately and does not imply this pre-rejection oracle benchmark.",
+    "residual_risks": [
+      "The theorem is mathematically short and may be viewed as a sharp consequence of the e-BH step-up geometry even though it was not found stated in the inspected literature.",
+      "The 2026 preprint may be revised after the inspected version; later versions could add a multiplicity-sensitive oracle discussion.",
+      "The benchmark's oracle knowledge and inert-null assumption are substantive and prevent interpreting it as an implementable e-PS improvement.",
+      "The overshoot expectation requires the explicitly stated Wald conditions; without them only the pathwise identity is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact pooled oracle theorem. The source uses \\(\\log(K/\\alpha)\\) as the per-stream crossing level in its upper analysis and gives a separate general lower bound with \\(\\log(1/\\alpha)\\) scale.",
+        "evidence": "Equation (2) defines the e-BH step-up cutoff; Theorem 4.1 has a \\(\\log(K/\\alpha)/D_{\\mathrm{KL}}\\) nonnull term; Appendix B defines \\(T_k\\) by crossing \\(\\log(K/\\alpha)\\); Theorem 4.2 gives the general information lower bound.",
+        "identifier_or_url": "arXiv:2609.26651v1",
+        "material_read": "Full arXiv HTML was searched; Sections 2.2, 3, 4.1, Theorems 3.2, 4.1, 4.2, and Appendix B's expected-stopping contribution were read directly.",
+        "method": "Statement and proof-ingredient comparison at the level of the e-BH cutoff and per-stream stopping boundary.",
+        "title": "Sample-Efficient Multiple Testing with Adaptive Data Collection",
+        "trigger": "Primary recent source for adaptive sampling, e-BH full discovery, and the gap between nonnull upper and lower complexity scales."
+      },
+      {
+        "assessment": "NOT_COVERING. Its bandit scheme stops an arm when the testing procedure gains a discovery; it does not state the pooled pre-discovery parking threshold or the exact pathwise sum-of-first-passages optimum.",
+        "evidence": "The bandit algorithm stops pulling an arm when the rejection set increases, and notes that the stopping threshold depends on the current number of discoveries.",
+        "identifier_or_url": "DOI:10.1111/rssb.12489",
+        "material_read": "The e-BH definition and the multi-armed-bandit stopping construction on the full-text journal page were read directly.",
+        "method": "Compared the exact stopping event and threshold dependence with latent parking at \\(K/(\\alpha m)\\).",
+        "title": "False Discovery Rate Control with E-values",
+        "trigger": "Foundational e-BH paper and closest earlier bandit use of sequential e-values."
+      },
+      {
+        "assessment": "NOT_COVERING the optimization theorem. It addresses when stopped e-processes remain valid e-values for e-BH, not the multiplicity-sensitive minimum sample count.",
+        "evidence": "Its central condition concerns causal/global filtration validity for stopped e-processes.",
+        "identifier_or_url": "arXiv:2502.08539",
+        "material_read": "Abstract and stated theorem scope concerning local versus global filtrations and stopped e-BH validity were inspected.",
+        "method": "Compared inferential-validity statements with the deterministic pathwise sample-optimization claim.",
+        "title": "Anytime-valid FDR control with the stopped e-BH procedure",
+        "trigger": "Potentially broader stopped-e-process result that could subsume parking validity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e917aff-72bf-430e-b829-a94f47a77a17",
+  "value": {
+    "rationale": "The 2026 source studies the sample budget for discovering all nonnulls and exhibits a visible logarithmic gap between the per-nonnull upper boundary \\(\\log(K/\\alpha)\\) and the general lower scale \\(\\log(1/\\alpha)\\). The theorem identifies a natural exact intermediate benchmark controlled by the true signal multiplicity \\(m\\), with a sharp threshold and exact pathwise cost. It therefore separates the cost of e-BH step-up geometry from the additional costs of learning the nonnull set and keeping unparked evidence stable. The result is narrow but structurally motivated and supplies a precise target for future adaptive algorithms rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
