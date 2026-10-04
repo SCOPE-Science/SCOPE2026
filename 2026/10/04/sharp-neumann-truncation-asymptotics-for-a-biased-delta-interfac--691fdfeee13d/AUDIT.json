@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact equation \\(k\\tanh(kd)+\\sqrt{V_0+k^2}\\tanh(d\\sqrt{V_0+k^2})=\\alpha\\) is taken from the primary source. For \\(0<V_0<\\alpha^2\\), expansion about the unique limiting root \\(a\\) yields \\(k-a=(2ab/\\alpha)e^{-2ad}(1+o(1))\\) and hence the claimed energy coefficient. At \\(V_0=\\alpha^2\\), the equation forces \\(kd\\to0\\) and expansion in \\(y=k^2\\) yields \\(y(d+1/(2\\alpha))=2\\alpha e^{-2\\alpha d}(1+o(1))\\). The packaged root solver reproduces these limits at multiple parameter values; it is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:math-ph/0103029v1, Proposition 2.5: a coarse exponential enclosure for a different symmetric transverse operator in a strong-coupling loop problem.",
+        "arXiv:1701.00279v1: leading finite-volume corrections for bound states in periodic cubic volumes, under finite-range interactions."
+      ],
+      "reasoning": "The symmetric strong-coupling interval model lacks the step bias and its proposition is only an enclosure. Periodic-box finite-volume formulas use different geometry and boundary conditions and do not cover the zero-energy Neumann resonance mechanism here.",
+      "searches": [
+        "tanh(kappa_1 d) tanh(kappa_2 d) eigenvalue",
+        "finite volume bound state energy exponential correction Neumann Schrodinger",
+        "periodic finite-volume bound state leading exponential correction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1701.06288v1",
+      "arXiv:math-ph/0103029v1",
+      "arXiv:1505.02347v1",
+      "arXiv:1701.00279v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1701.06288v1 proves only \\(\\mu_d\\ge\\mu-c_0/d\\) and explicitly calls the bound rough while remarking that the actual error is exponential.",
+        "arXiv:math-ph/0103029v1 bounds a different operator by a non-sharp constant times \\(e^{-\\beta a/2}\\).",
+        "arXiv:1701.00279v1 treats periodic cubic finite volumes and finite-range interactions."
+      ],
+      "reasoning": "None of these statements implies the exact asymmetric coefficient or the critical resonance prefactor. Conversely, the new claim does not subsume their multidimensional geometric results; it sharpens only the one-dimensional transverse truncation used by the primary source.",
+      "searches": [
+        "arXiv:1701.06288 Lemma 3.1 exponential error",
+        "arXiv:math-ph/0103029 Proposition 2.5 exponential delta interval",
+        "arXiv:1701.00279 Neumann resonance finite volume"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1701.06288v1, Lemma 3.1: exact finite-Neumann spectral equation and \\(O(d^{-1})\\) lower estimate; Remark 3.2(b): qualitative exponentially small error.",
+        "arXiv:1505.02347v1: full-line asymmetric transverse threshold, without the finite-Neumann asymptotic."
+      ],
+      "reasoning": "Queries included the scalar hyperbolic-tangent equation, biased delta-interface terminology, Neumann truncation, and critical-resonance aliases. No inspected source stated the coefficient \\(4a^2b/\\alpha\\) or the critical \\(d^{-1}e^{-2\\alpha d}\\) prefactor.",
+      "searches": [
+        "leaky surface potential bias Neumann truncation exponential convergence transverse eigenvalue",
+        "delta interaction step potential finite interval Neumann ground state tanh exponential correction",
+        "Pavel Exner leaky surfaces potential bias Lemma 3.1 mu_d",
+        "Schrodinger delta interface finite-volume transverse threshold exponential convergence",
+        "critical resonance Neumann truncation delta interaction step potential d^{-1} exponential eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-value table or database entry was located for the two displayed asymptotic coefficients.",
+        "The primary source derives the scalar spectral equation analytically rather than tabulating finite-d eigenvalues."
+      ],
+      "reasoning": "The claim is an asymptotic consequence of a transcendental eigenvalue equation, not a lookup of a known numerical constant or finite table.",
+      "searches": [
+        "4 a^2 b alpha biased delta Neumann eigenvalue",
+        "d+1/(2 alpha) e^{-2 alpha d} delta interaction",
+        "critical zero energy resonance finite interval Neumann delta step"
+      ]
+    },
+    "rationale": "The primary paper states only an \\(O(d^{-1})\\) lower error and a qualitative remark that the true Neumann error is exponential. The closest cited interval estimate is for a different symmetric operator and does not give the biased coefficient or critical-resonance scaling. Searches of exact equations, aliases, and broader finite-volume formulations located no statement implying both displayed limits.",
+    "residual_risks": [
+      "An unindexed one-dimensional point-interaction note may contain an equivalent asymptotic expansion under different notation.",
+      "The search did not attempt an exhaustive historical survey of every finite-box delta-interaction calculation; no inspected plausible source gave a stronger covering statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed leading constants: it proves an O(d^{-1}) bound and only remarks qualitatively that the true error is exponentially small.",
+        "evidence": "Lemma 3.1 gives \\(\\kappa_1\\tanh(\\kappa_1d)+\\kappa_2\\tanh(\\kappa_2d)=\\alpha\\) and derives a rough \\(\\mu-2/d+O(d^{-2})\\) comparison; Remark 3.2(b) says the true error is exponentially small.",
+        "identifier_or_url": "arXiv:1701.06288v1",
+        "material_read": "Lemma 2.1, Theorem 2.2, Lemma 3.1, and Remark 3.2(b).",
+        "method": "Full-text inspection of the public preprint, including the displayed spectral condition and surrounding proof.",
+        "title": "On the spectrum of leaky surfaces with a potential bias",
+        "trigger": "Primary source containing the finite-Neumann transverse lemma and the exact tanh spectral equation."
+      },
+      {
+        "assessment": "NOT_COVERING: different symmetric transverse operator and coarse exponential enclosure; no potential-step coefficient or critical resonance law.",
+        "evidence": "Proposition 2.5 encloses its negative eigenvalue between \\(-\\beta^2/4\\) and \\(-\\beta^2/4-(2205/16)\\beta^2e^{-\\beta a/2}\\).",
+        "identifier_or_url": "arXiv:math-ph/0103029v1",
+        "material_read": "Proposition 2.5 and its defining scalar equation.",
+        "method": "Full-text inspection of the public preprint around Proposition 2.5.",
+        "title": "Asymptotics of eigenvalues of the Schrödinger operator with a strong delta-interaction on a loop",
+        "trigger": "The primary source explicitly points to this work as the analogous exponential boundary estimate."
+      },
+      {
+        "assessment": "NOT_COVERING: supports the threshold setup but does not state the finite-Neumann asymptotic.",
+        "evidence": "The paper treats the asymmetric full-line transverse spectral threshold; targeted search did not locate the finite-interval tanh equation.",
+        "identifier_or_url": "arXiv:1505.02347v1",
+        "material_read": "Model and full-line transverse threshold discussion.",
+        "method": "Public preprint and abstract inspection with targeted full-text search for the finite-Neumann tanh condition.",
+        "title": "On the existence of bound states in asymmetric leaky wires",
+        "trigger": "Earlier asymmetric potential-bias model with the same full-line transverse mechanism."
+      },
+      {
+        "assessment": "NOT_COVERING: periodic cubic volumes with finite-range interactions, not Neumann truncation of a biased delta interface or a zero-energy resonance.",
+        "evidence": "The stated framework is a cubic periodic volume and derives breakup-channel finite-volume corrections for bound states.",
+        "identifier_or_url": "arXiv:1701.00279v1",
+        "material_read": "Abstract and scope statement.",
+        "method": "Public preprint metadata/abstract inspection.",
+        "title": "Volume Dependence of N-Body Bound States",
+        "trigger": "Broader literature on leading exponential finite-volume shifts of bound states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "691fdfee-e13d-4ff5-acf5-de1ec4d4a1bf",
+  "value": {
+    "rationale": "The transverse Neumann truncation is an actual quantitative step in the primary paper's bracketing proof. The result replaces a polynomial error estimate by the exact leading exponential and identifies a different critical scaling caused by a zero-energy resonance. These constants directly quantify truncation width and distinguish bound-state from threshold-resonance localization.",
+    "status": "PASS"
+  }
+}
