@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Definitions and quantifiers were reconstructed directly. The embedded exact verifier exhausts all target-size compatible subsets without timeout or heuristic pruning: six at size 11 and none at size 12. It directly checks every listed code, the 23-output shadow unions, the common core, the six-cycle, and the complete 12-element symmetry action. The proof is finite and claims no infinite extrapolation.",
+    "risks": [
+      "The proof is computer-assisted; an implementation error is the main correctness risk. The verifier mitigates this with a definition-level shadow construction, a simple ordered exhaustive recursion, direct checking of every listed extremizer, and explicit symmetry traversal. Independent audit has not been performed."
+    ],
+    "sources": [
+      "artifacts/verify.py",
+      "artifacts/max_codes.json",
+      "artifacts/verification_output.txt"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1003.4057, Remark 1, says its length-four bound is not sharp for odd alphabet size and develops optimal constructions for even sizes.",
+        "arXiv:1211.3128, Table I, gives for \\(q=3\\) and \\(n=4\\) the fractional matching upper bound \\(12\\) and best listed Tenengolts size \\(8\\).",
+        "DOI:10.1002/jcd.20031 proves existence of perfect \\(T^*(3,4,v)\\) codes, a different coverage property; every maximum classified here covers exactly \\(23\\) of \\(27\\) deletion outputs."
+      ],
+      "reasoning": "The broader theorems do not dominate the new statement: even-alphabet optimality excludes \\(q=3\\), fractional bounds do not classify integer extrema, and perfect-code existence concerns a different subset class.",
+      "searches": [
+        "arXiv:1003.4057",
+        "arXiv:1211.3128",
+        "DOI:10.1002/jcd.20031",
+        "Construction of 1-Deletion-Correcting Ternary Codes length 4 classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0810.3729",
+      "arXiv:1003.4057",
+      "arXiv:1211.3128",
+      "DOI:10.1002/jcd.20031",
+      "Z. Li, Brock University M.Sc. thesis, 2011",
+      "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The even-alphabet structure theorem does not apply to \\(q=3\\) and explicitly marks odd \\(q\\) as non-sharp.",
+        "A fractional matching upper bound of 12 does not imply that the integer maximum is 11, much less that there are six extrema in one symmetry orbit.",
+        "Existence of a perfect T* code does not classify maximum-cardinality codes; the classified maxima are nonperfect."
+      ],
+      "reasoning": "No inspected prior statement has a conclusion strong enough to imply the labeled count, the common-core/six-cycle structure, or the symmetry orbit classification.",
+      "searches": [
+        "arXiv:1003.4057 odd q Remark 1",
+        "arXiv:1211.3128 Table I q=3 n=4",
+        "DOI:10.1002/jcd.20031 perfect T*(3,4,v)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-deletion condition is equivalently a clique condition in the graph whose vertices are ternary length-four words and whose edges join disjoint deletion shadows.",
+        "arXiv:1211.3128 explicitly uses the hypergraph-matching formulation for deletion correcting codes, but its ternary length-four table stops at a fractional upper bound of 12."
+      ],
+      "reasoning": "Searches covered deletion-code, hypergraph-matching, perfect-code, exact-parameter, and equivalence language. None of the inspected sources states or implies the complete six-extremizer classification.",
+      "searches": [
+        "ternary length four single deletion correcting code classification maximum 11 orbit",
+        "N(4,3,1)=11 six maximum codes ternary deletion",
+        "single deletion code ternary length 4 equivalence classification maximum codes",
+        "DOI:10.1002/jcd.20031",
+        "arXiv:1003.4057",
+        "arXiv:1211.3128"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest exact database hit concerns the quinary length-four maximum, not ternary extremizer classification.",
+        "Representative-string, exact-count, orbit, and \\(T^*(3,4,3)\\) searches did not return an implication-equivalent record.",
+        "The numerical table in arXiv:1211.3128 contains only upper/lower comparison values for \\(q=3,n=4\\), not a list or count of optimal codes."
+      ],
+      "reasoning": "The exact statement was compared against database records and the most relevant published numerical table, rather than inferred novel from title mismatch.",
+      "searches": [
+        "exactly six maximum ternary length-four single-deletion-correcting codes one orbit under symbol relabeling reversal",
+        "T star (3,4,3) classification six codes deletion",
+        "0000 0011 0022 0120 1021 1100 1111 1122 2200 2211 2222 deletion",
+        "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+        "2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c"
+      ]
+    },
+    "rationale": "Published sources inspected at the same object and parameter level provide even-alphabet sharp constructions, a ternary fractional upper bound, or perfect-code existence, but not the six labeled extrema, common-core/six-cycle description, or one-orbit classification. Exact database searches found no implication-equivalent result. The inaccessible 2011 ternary thesis is retained as a residual risk rather than treated as negative evidence.",
+    "residual_risks": [
+      "The 2011 Brock thesis could contain an unindexed finite enumeration not exposed by searchable excerpts; a direct full-PDF fetch was unavailable.",
+      "A small-parameter classification may exist in poorly indexed design-theory or computational literature under different notation. No inspected source or database result presently implies the six-code classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Remark 1 states that the bound is not sharp for odd alphabet size; the paper then constructs optimal codes for even alphabet sizes. It does not give the ternary six-extremizer classification.",
+        "identifier_or_url": "arXiv:1003.4057",
+        "material_read": "Full text, including Theorem 2.2, Remark 1, and the construction discussion on page 4.",
+        "method": "Open-access full-text inspection.",
+        "title": "Construction of optimal codes in deletion and insertion metric",
+        "trigger": "Same length-four single-deletion object and structural word types."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "For \\(q=3,n=4\\) the table lists Levenshtein bound \\(16\\), closed-form bound \\(13\\), LP upper bound \\(12\\), and best listed Tenengolts size \\(8\\); no exact extremizer count or classification is supplied.",
+        "identifier_or_url": "arXiv:1211.3128",
+        "material_read": "Full text, with direct inspection of Table I on page 14.",
+        "method": "Open-access PDF full-text and page inspection.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General q-ary upper bounds and an exact-parameter numerical table."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The theorem solves existence of perfect \\(T^*(3,4,v)\\) codes. The present maximum codes are nonperfect, with \\(23\\) rather than \\(27\\) received triples covered.",
+        "identifier_or_url": "DOI:10.1002/jcd.20031",
+        "material_read": "Abstract and bibliographic description.",
+        "method": "Public indexed abstract inspection.",
+        "title": "Existence of T*(3, 4, v)-codes",
+        "trigger": "Same length and deletion number, including \\(q=3\\) through the all-\\(v\\) existence theorem."
+      },
+      {
+        "assessment": "RESIDUAL_RISK",
+        "evidence": "Indexed material discusses perfect-code background, greedy/backtracking construction, and cites \\(T^*(3,4,v)\\) existence. No indexed passage located the six-code classification, but the inaccessible full text prevents a whole-document exclusion.",
+        "identifier_or_url": "Brock University M.Sc. thesis, 2011",
+        "material_read": "Indexed Chapter 2 excerpts and targeted indexed searches for length four, maximum, equivalence, classification, and representative strings; direct full-PDF fetch was unavailable.",
+        "method": "Indexed-text inspection with bounded full-text access attempt.",
+        "title": "Construction of 1-Deletion-Correcting Ternary Codes",
+        "trigger": "Exact ternary deletion-code topic and likely small-parameter computations."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "First submitted 2008-10-21; the abstract treats even alphabet size and the record lists MSC 94B60. The version is withdrawn and superseded by the 2010 arXiv paper.",
+        "identifier_or_url": "arXiv:0810.3729",
+        "material_read": "Abstract, submission history, and classification metadata.",
+        "method": "Public source record inspection.",
+        "title": "Optimal codes in deletion and insertion metric",
+        "trigger": "Earliest exact-date public source for the length-four single-deletion direction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d311fe55-50d3-4792-84e0-f22c4220ea1b",
+  "value": {
+    "rationale": "This is a natural complete extremal classification at the smallest nonbinary odd-alphabet length-four instance. It goes beyond the size invariant by determining all extremizers and their channel-symmetry orbit, with a concise common-core/six-cycle structure that can serve as a canonical benchmark for future constructions and exact searches. It is not an arbitrary slice or a mere table recomputation.",
+    "risks": [
+      "The value is concentrated in one small finite parameter set; it is justified by completeness and structural classification, not by a claimed general theorem."
+    ],
+    "sources": [
+      "The complete six-code census and common-core/six-cycle decomposition in RESULT.md and artifacts/max_codes.json",
+      "arXiv:1003.4057 for the unresolved odd-alphabet length-four context",
+      "arXiv:1211.3128 for the prior ternary length-four bound table"
+    ],
+    "status": "PASS"
+  }
+}
