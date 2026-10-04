@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact pair counting yields the scalar energy difference. Strict monotonicity, endpoint signs, and a mean-value-theorem argument establish the root bound and asymptotic constant for all integers k>=2 and all 0<alpha<pi/4. Finite calculations are used only to replay special numeric values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 SIAM paper remains the directly relevant phase-transition source in the searches inspected.",
+        "The 2020 repeated-minimizer theorem covers a lower-p interval but does not provide a stronger upper fence on p(N)."
+      ],
+      "reasoning": "No located source states a theorem that implies p(2k+1) <= q_k(alpha) for the split-pair root, nor an order-1/k lower bound on 2-p(2k+1). Broader spherical-energy papers address different continuous or even-power regimes.",
+      "searches": [
+        "web query: phase transitions p-frame potentials 2025 2026 odd N",
+        "web query: p-frame energies 2025 odd minimizers R2",
+        "semantic literature query: quantitative upper bound first phase transition p-frame potential odd N"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.04444",
+      "DOI:10.1137/22M1539915",
+      "arXiv:1901.06096",
+      "DOI:10.1137/19M1282702",
+      "DOI:10.1016/j.jfa.2021.108995"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 of arXiv:2212.04444 proves X_N^perp optimal only through p <= log(3)/log(2) for odd N, while Conjecture 3.3 asks about the first-transition sequence and Conjecture 3.4 is numerical for N=5.",
+        "Theorem 4.2 of arXiv:1901.06096 proves a repeated-orthonormal lower-p regime in the plane."
+      ],
+      "reasoning": "Neither prior theorem upper-bounds the first transition using an explicit nontrivial competitor. The new implication goes in the opposite direction: it certifies failure of X_N^perp above a closed scalar threshold for every odd N and quantifies the asymptotic gap.",
+      "searches": [
+        "arXiv:2212.04444 full text, especially lines corresponding to Theorem 1.1 and Conjectures 3.3--3.4",
+        "arXiv:1901.06096 full text, especially Theorem 4.2",
+        "web query: Conjecture 3.3 p-frame",
+        "semantic literature query: odd planar p-frame energy two symmetric perturbations repeated orthonormal basis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2212.04444 defines the same discrete planar p-frame potential, the repeated-orthonormal configuration, and the threshold p(N).",
+        "arXiv:1901.06096 uses the equivalent p-frame energy formulation for repeated orthonormal bases."
+      ],
+      "reasoning": "The claim was compared after translating all formulations to ordered sums of powers of absolute pairwise inner products. The new statement is a one-sided transition obstruction, not a rewording of the known lower-p minimizer theorem.",
+      "searches": [
+        "semantic literature query: p-frame potential odd N first phase transition upper bound explicit competitor p(N) 2",
+        "semantic literature query: repeated orthonormal basis p-frame energy split pair competitor odd plane",
+        "arXiv:2212.04444, Sections 1 and 3.2",
+        "arXiv:1901.06096, Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2212.04444 reports the N=5 numerical first transition as 1.77766251887019 and explicitly labels the post-theorem phase description as conjectural.",
+        "No exact table or database result located in the semantic searches contains the split-pair root family or the transition-gap asymptotic."
+      ],
+      "reasoning": "The new N=5 value is not claimed as an improved numerical estimate of the true transition. It is the root of an explicit analytic competitor and therefore a rigorous one-sided bound with a different logical status from the source table/figure.",
+      "searches": [
+        "arXiv:2212.04444, Conjectures 3.3 and 3.4 and Figures 3--4",
+        "semantic literature query: phase transition gap 2-p(N) order 1/N p-frame"
+      ]
+    },
+    "rationale": "The closest full texts define the same threshold and prove lower-p optimality or give numerical conjectures, but do not contain the explicit split-pair all-odd upper fence or the order-1/k transition-gap obstruction.",
+    "residual_risks": [
+      "Search cannot prove priority; a later or differently indexed paper may contain an equivalent explicit competitor bound.",
+      "The theorem does not identify the exact transition, so literature proving the full conjecture would dominate it if such a result exists outside the inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: source gives lower-p theorem and numerical conjectures, but no analytic split-pair root bound or 1/k transition-gap rate.",
+        "evidence": "arXiv submission history gives v1 on 2022-12-08; the paper lists primary MSC 42C15 and states Conjectures 3.3--3.4 for the unresolved phase behavior.",
+        "identifier_or_url": "arXiv:2212.04444; DOI:10.1137/22M1539915",
+        "material_read": "Abstract, introduction and known-results table, proof context for Theorem 1.1, Section 3.1 definition of p(N), Conjectures 3.3--3.4, and the N=5 numerical discussion and figures.",
+        "method": "Lawful arXiv full text and rendered PDF inspection.",
+        "title": "Phase transitions for the minimizers of the p-th frame potentials in R^2",
+        "trigger": "Primary source defining p(N), reporting odd-N numerical transitions, and owning the 42C15 scope."
+      },
+      {
+        "assessment": "NOT_COVERING: proves repeated-orthonormal minimization on a lower-p interval but no upper fence on the first transition.",
+        "evidence": "Section 4 proves the planar repeated-orthonormal lower-p result; its implication direction does not subsume the new competitor construction.",
+        "identifier_or_url": "arXiv:1901.06096; DOI:10.1137/19M1282702",
+        "material_read": "Introduction, lower-bound framework summary, and Section 4 including Theorem 4.2.",
+        "method": "Lawful arXiv full text and rendered PDF inspection.",
+        "title": "Repeated minimizers of p-frame energies",
+        "trigger": "Closest earlier theorem about repeated orthonormal minimizers in the plane."
+      },
+      {
+        "assessment": "NOT_COVERING: concerns continuous measure minimization and different phase-transition structure, not the discrete odd-N first threshold p(N).",
+        "evidence": "The inspected text frames transitions at even powers for continuous energies and does not state a discrete odd-N split-pair bound.",
+        "identifier_or_url": "DOI:10.1016/j.jfa.2021.108995",
+        "material_read": "Available article text describing continuous p-frame energies, even-power transitions, and discreteness conjectures.",
+        "method": "Publisher-indexed web text.",
+        "title": "Energy on spheres and discreteness of minimizing measures",
+        "trigger": "Broader p-frame-energy minimization literature potentially dominating a discrete planar special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "37c4ffb6-bb5c-4402-980c-d7a46d7c275b",
+  "value": {
+    "rationale": "The result addresses an explicit phase-transition sequence left conjectural in the primary 42C15 source. It supplies an all-odd analytic obstruction, a quantitative asymptotic rate constraint, and a simple N=5 certificate very near the reported numerical transition; these are structural rather than arbitrary finite recomputations.",
+    "status": "PASS"
+  }
+}
