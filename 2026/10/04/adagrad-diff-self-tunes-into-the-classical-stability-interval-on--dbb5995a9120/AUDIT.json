@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For a diagonal quadratic the published update reduces exactly to a scalar multiplicative recurrence. The source proves convergence of iterates for smooth convex objectives and square-summability of successive gradient differences, which makes each metric coordinate converge. If an active limiting metric were at most half of the base step times curvature, every multiplier would have magnitude at least one, contradicting convergence to zero. The asymptotic ratio and eventual Q-linear bound then follow by a finite-coordinate maximum argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.02261 uses observed gradient differences through a distinct local-curvature stepsize rule.",
+        "arXiv:2606.29893 discusses gradient-difference accumulation as an alternative to classical AdaGrad but not this exact stability threshold.",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ],
+      "reasoning": "Broader adaptive-gradient and stagewise-stability results use materially different recurrences, so their theorems do not imply the stated AdaGrad-Diff coordinate limit.",
+      "searches": [
+        "gradient-difference accumulation adaptive method quadratic exact rate self tuning",
+        "AdaGrad-Diff cumulative gradient differences self tuning stability interval 2 over lambda",
+        "AdaGrad-Diff strongly convex quadratic last iterate linear rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.13112v1",
+      "arXiv:2308.02261",
+      "arXiv:2606.29893",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.13112 Theorem 2.5 gives generic iterate convergence and an ergodic objective rate; Proposition 3.4 gives square-summable gradient differences.",
+        "arXiv:2308.02261 has a different local-ratio adaptive rule.",
+        "arXiv:2606.29893 addresses a pathology of classical AdaGrad."
+      ],
+      "reasoning": "The new statement is not a restatement of the source theorem: it combines the source convergence facts with the exact diagonal recurrence to derive a per-coordinate limiting stability inequality and an eventual last-iterate Q-linear rate. The inspected related works do not imply this claim because they analyze different algorithms or different questions.",
+      "searches": [
+        "AdaGrad-Diff scalar quadratic asymptotic stepsize stability threshold denominator eta lambda over 2",
+        "AdaGrad-Diff diagonal separable quadratic linear convergence limiting effective stepsize exact factor",
+        "AdaGrad-Diff strongly convex quadratic last iterate linear rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.13112; full text contains the cumulative gradient-difference metric and generic convergence but no quadratic-specialized threshold or linear-rate statement.",
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa"
+      ],
+      "reasoning": "The closest adaptive-gradient record concerns AdOGD and spectral persistence, not the cumulative AdaGrad-Diff denominator. No equivalent formulation of the half-threshold was located.",
+      "searches": [
+        "AdaGrad-Diff scalar quadratic asymptotic stepsize stability threshold denominator eta lambda over 2",
+        "AdaGrad-Diff diagonal quadratic linear convergence exact asymptotic factor",
+        "difference-based AdaGrad quadratic eventual stepsize below 2 over curvature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c"
+      ],
+      "reasoning": "The most similar indexed findings were exact stability or monotonicity frontiers for other methods. None contains AdaGrad-Diff, its cumulative gradient-difference metric, or the claimed limiting threshold.",
+      "searches": [
+        "AdaGrad-Diff diagonal quadratic linear convergence exact asymptotic factor",
+        "AdaGrad-Diff diagonal separable quadratic linear convergence limiting effective stepsize exact factor",
+        "AdaGrad-Diff strongly convex quadratic last iterate linear rate"
+      ]
+    },
+    "rationale": "The primary preprint was inspected in full around the algorithm, convergence theorem, square-summability proposition, experiments, discussion, and appendix proof. Focused searches for the exact diagonal-quadratic threshold, limiting effective step, and linear rate found no matching published finding; the closest records concern different adaptive or fixed-step methods.",
+    "residual_risks": [
+      "A semantically equivalent result could exist in an unindexed preprint or under different terminology.",
+      "Only the abstract and an accessible detailed summary, not the complete primary full text, were available for arXiv:2606.29893 during this check."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact diagonal-quadratic stability threshold and resulting last-iterate linear rate were not found in the source.",
+        "evidence": "Algorithm 1 defines cumulative successive-gradient-difference weights; Theorem 2.5 proves iterate convergence in the smooth convex case; Proposition 3.4 proves square-summability of gradient differences; Section 4.3 reports robustness to the base parameter.",
+        "identifier_or_url": "arXiv:2602.13112v1",
+        "material_read": "Algorithm definition; Theorem 2.5; Proposition 3.4; appendix proof of Proposition 3.4; stepsize-robustness experiments; discussion and future work.",
+        "method": "Full-text preprint inspection with targeted checks for quadratic, linear-convergence, asymptotic, and strongly-convex statements.",
+        "title": "AdaGrad-Diff: A New Version of the Adaptive Gradient Algorithm",
+        "trigger": "Primary recent paper defining the method and motivating robustness to the base stepsize."
+      },
+      {
+        "assessment": "Not covering: its rule uses local gradient-difference ratios rather than the cumulative AdaGrad-Diff metric.",
+        "evidence": "The adaptive update caps a local stepsize using the ratio of iterate displacement to gradient displacement.",
+        "identifier_or_url": "arXiv:2308.02261",
+        "material_read": "Abstract, introduction, fixed-step stability discussion, and adaptive update definition.",
+        "method": "Primary preprint inspection.",
+        "title": "Adaptive Proximal Gradient Method for Convex Optimization",
+        "trigger": "Related adaptive method driven by observed gradient differences."
+      },
+      {
+        "assessment": "No exact diagonal-quadratic limiting threshold or last-iterate linear-rate result was located in the inspected material.",
+        "evidence": "The paper concerns a composite-objective lower bound for classical AdaGrad and explains why gradient-difference accumulation avoids that pathology.",
+        "identifier_or_url": "arXiv:2606.29893",
+        "material_read": "Abstract plus accessible detailed summary of the gradient-difference alternative.",
+        "method": "Bibliographic record and accessible summary inspection.",
+        "title": "AdaGrad does not adapt to Hölder-smoothness for composite objectives",
+        "trigger": "Later paper by the same authors discussing successive gradient differences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dbb5995a-9120-4bde-b5e9-d8fbd3fdd52e",
+  "value": {
+    "rationale": "The primary paper emphasizes robustness to arbitrary base stepsizes but supplies only a generic smooth-convex ergodic rate and iterate convergence. On the canonical separable strongly convex quadratic class, the finding identifies the exact classical instability boundary that the adaptive denominator must cross and upgrades the generic conclusion to eventual last-iterate Q-linear convergence. This directly explains a central advertised behavior of the new method rather than computing an arbitrary invariant.",
+    "status": "PASS"
+  }
+}
