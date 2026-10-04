@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For even N, pairing k with k+N/2 and the parallelogram identity gives M^2 >= |c1|^2 + max|c0+c2 zeta^(2k)|^2. The N/2 roots have covering radius 2pi/N, giving the sharp two-term lower bound. Writing q=cos^2(pi/N) reduces it to M^2 >= |c1|^2+q(|c0|+|c2|)^2, and weighted Cauchy gives the stated upper bound. The displayed coefficient triple makes the paired terms pointwise orthogonal and attains every equality. No finite experiment is used to infer the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Graham 1978 computes the constant attached to the whole finite abelian group, not a prescribed three-character subset.",
+        "Graham arXiv:1910.00924 studies extremal sets with constant sqrt(cardinality); for the present family that boundary occurs only at N=4."
+      ],
+      "reasoning": "Neither broader finite-group result implies the sharp prescribed-subset value for even N >= 6, where the constant is strictly between sqrt(2) and sqrt(3).",
+      "searches": [
+        "finite group Sidon constant arithmetic progression three characters",
+        "The Sidon constant of a finite abelian group Graham 1978",
+        "arXiv:1910.00924"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0102145",
+      "DOI:10.1090/S0002-9939-1978-0458059-X",
+      "arXiv:1910.00924"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neuwirth proves sqrt(2) for the continuous {0,1,2} problem, whereas the finite even-N formula is sqrt(1+sec^2(pi/N)) > sqrt(2).",
+        "Graham 1978 addresses the entire group.",
+        "Extremal-set results can account for the N=4 endpoint sqrt(3) but not the non-extremal N >= 6 family."
+      ],
+      "reasoning": "The inspected prior statements do not imply the all-even finite-sampling formula. The theorem contains one endpoint compatible with older extremal theory, but its infinite non-extremal range is logically outside those results.",
+      "searches": [
+        "arXiv:math/0102145",
+        "DOI:10.1090/S0002-9939-1978-0458059-X",
+        "arXiv:1910.00924",
+        "finite cyclic Sidon constant {0,1,2} exact even order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Neuwirth, arXiv:math/0102145, Theorem 4.3 gives the continuous-torus three-frequency constant; Example 4.1 gives sqrt(2) for {0,1,2}.",
+        "The finite cyclic norm is a maximum over N samples rather than a supremum over the full circle; the new value is strictly larger than sqrt(2) for finite even N."
+      ],
+      "reasoning": "The closest alias is the unconditionality constant of three characters. The continuous result is not equivalent because changing the ambient norm from C(T) to functions on Z_N removes most sampling points; the exact finite constant therefore requires a separate sharp estimate.",
+      "searches": [
+        "finite cyclic Sidon constant {0,1,2} exact even order",
+        "three-character Sidon constant cyclic group discrete sampling 0 1 2",
+        "unconditionality constant characters 0 1 2 Z_N even",
+        "arXiv:math/0102145"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed research-record hit or web-indexed table located by these searches states the proposed formula or an equivalent even-order three-character table.",
+        "The 2019/2026 Graham preprint contains tables of extremal Sidon sets, a different invariant regime."
+      ],
+      "reasoning": "The target is an exact norm formula, not a database lookup. Searches for both the literal expression and natural aliases did not reveal a matching table; this absence is not treated as proof of novelty.",
+      "searches": [
+        "sqrt(1+sec^2(pi/N)) Sidon constant",
+        "finite cyclic Sidon constant {0,1,2} exact even order",
+        "arXiv:1910.00924"
+      ]
+    },
+    "rationale": "The continuous three-frequency constant, the whole-group finite constant, and extremal-set classifications were compared at statement and implication level. None supplies the non-extremal even-N prescribed-subset formula for N >= 6. The N=4 endpoint is compatible with prior extremal theory and is not relied upon as the originality-bearing part.",
+    "residual_risks": [
+      "An older paper on finite cyclic interpolation may use different terminology and contain an equivalent prescribed-subset formula.",
+      "The N=4 endpoint is consistent with known extremal-set theory; originality rests on the uniform even-N formula, especially N >= 6."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the continuous-circle norm and gives sqrt(2) for {0,1,2}; does not cover the finite cyclic sampling norm.",
+        "evidence": "arXiv v1 dated 2001-02-19; Theorem 4.3 gives sec(pi/(2n)) for integer triples and Example 4.1 gives sqrt(2) for {0,1,2}.",
+        "identifier_or_url": "arXiv:math/0102145",
+        "material_read": "Full arXiv text, including Definition 2.1, Example 4.1, Theorem 4.3 and its proof.",
+        "method": "Full-text inspection and theorem-level comparison.",
+        "title": "The Sidon constant of sets with three elements",
+        "trigger": "Exact classical result for the same three frequencies in the continuous torus norm."
+      },
+      {
+        "assessment": "The stated result concerns the constant of the entire finite abelian group, not a prescribed three-character subset.",
+        "evidence": "Indexed abstract states the finite abelian group constant is the square root of the group cardinality.",
+        "identifier_or_url": "DOI:10.1090/S0002-9939-1978-0458059-X",
+        "material_read": "Indexed title and abstract-level description.",
+        "method": "Metadata/abstract comparison; full text was not available in the inspected open source.",
+        "title": "The Sidon constant of a finite abelian group",
+        "trigger": "Potentially broader finite-group result."
+      },
+      {
+        "assessment": "Studies extremal sets whose Sidon constant equals the square root of cardinality; it does not state the proposed non-extremal even-order formula.",
+        "evidence": "Definition 1.1 and surrounding theory identify the extremal regime; no matching {0,1,2} finite-sampling formula was found.",
+        "identifier_or_url": "arXiv:1910.00924",
+        "material_read": "Full indexed arXiv text, with introduction, extremal definitions, theory section and searches for three-element/arithmetic-progression aliases.",
+        "method": "Full-text search and implication comparison.",
+        "title": "A beastiary of sets having extremal Sidon constant, or, there must be more than one theorem somewhere here",
+        "trigger": "Modern finite-group source with explicit cyclic examples and Sidon constants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b76331aa-4281-4819-8d82-664b3f059013",
+  "value": {
+    "rationale": "This is a sharp closed formula and extremizer for an infinite family of finite cyclic interpolation problems. It quantifies the exact sampling penalty relative to the classical continuous theorem and has a transparent geometric mechanism. The result is neither a routine parameter substitution nor a finite census; it isolates a natural invariant and its asymptotic bridge to the continuous case.",
+    "status": "PASS"
+  }
+}
