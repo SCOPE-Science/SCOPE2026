@@ -1,0 +1,104 @@
+{
+  "claim": "For every finite alphabet \\(A\\), every \\(k\\ge 2\\), and every unbordered word \\(u\\in A^k\\), let \\(\\widehat{\\mathcal F}(k,u)\\) be Pribavkina's \\(2k\\)-state completed semi-flower automaton for \\(A^k\\setminus\\{u\\}\\), with state set \\(Q=\\{0,1,\\ldots,2k-1\\}\\). For \\(0\\le r\\le k-1\\), the minimum length of a word \\(w\\) satisfying \\(|Qw|\\le k-r\\) is exactly \\(k+r(k+1)\\). Equivalently, if \\(\\lambda_{k,u}(s)=\\min\\{|w|:|Qw|\\le 2k-s\\}\\), then \\(\\lambda_{k,u}(s)=k+(s-k)(k+1)\\) for every \\(k\\le s\\le 2k-1\\). For every letter \\(a\\in A\\), the word \\(u(au)^r\\) has length \\(k+r(k+1)\\) and image rank exactly \\(k-r\\).",
+  "correctness": {
+    "rationale": "The proof reconstructs the transition function and introduces a phase map that increments modulo k along every nonzero transition. Rank at most k-r forces at least r+1 killed phases; each killed phase forces a full occurrence of u in a distinct start residue modulo k. Unborderedness forbids overlap, so selected starts are at least k+1 apart and |w|>=k+r(k+1). Conversely, the first u merges the two states in every nonzero phase, and u(au)^r exhibits r+1 distinct occurrence residues, leaving rank at most k-r; the lower bound makes the rank exact. A standalone exact power-automaton verifier checks all binary unbordered words through k=7 and all ternary unbordered words through k=5 and returns VERIFY_OK. Finite checks are supporting evidence, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Volkov 2022 defines transformation rank generally and surveys automata with zero; its discussion of the fixed-alphabet sink-state lower bounds cites Pribavkina but records reset thresholds, not intermediate rank distances.",
+        "The general sink-state upper bound n(n-1)/2 and later lower-bound families do not determine the exact profile of this specific completed semi-flower family."
+      ],
+      "reasoning": "General results on rank-one synchronization or worst-case reset thresholds do not dominate a family-specific exact distance to every rank k,k-1,...,1. No broader theorem inspected specializes to the claimed formula.",
+      "searches": [
+        "published-finding corpus: slowly synchronizing automata with zero intermediate rank compression",
+        "Web: \"Slowly Synchronizing Automata with Zero\" rank compression",
+        "Volkov 2022 survey: automata with zero, transformation rank, Pribavkina"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0907.4576v1",
+      "DOI:10.1134/S0001434611090094",
+      "DOI:10.4213/mzm6191",
+      "DOI:10.4213/rm10005e",
+      "published-finding corpus:2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "published-finding corpus:2026/9/7/SCOPE007"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pribavkina's Proposition 4 gives the endpoint r=k-1 only: shortest reset length k^2+k-1.",
+        "Her preceding forbidden-position argument proves that a fully incompletable word needs all k residue classes, but does not state the exact partial-rank interpretation used here.",
+        "The new proof introduces a phase map on nonzero states and converts partial rank loss into the number of killed phase classes, yielding every intermediate threshold."
+      ],
+      "reasoning": "The endpoint theorem does not logically determine intermediate rank thresholds. The new phase lemma is needed to connect image cardinality to distinct occurrence residues; without it, the published reset statement supplies no lower bound for rank k-r when r<k-1.",
+      "searches": [
+        "Primary full text: arXiv:0907.4576v1 Lemma 2, Proposition 2, Proposition 3, Proposition 4",
+        "Survey full text: Volkov 2022 transformation rank and automata-with-zero sections",
+        "published-finding corpus: Pribavkina automaton incomplete set rank compression profile shortest words Fhat(k,u)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pribavkina 2009/2011 defines the completed semi-flower automaton, proves the incompletable/reset equivalence, and proves only the shortest reset length k^2+k-1.",
+        "The inspected full text contains no occurrence of 'rank' or 'image' terminology for an intermediate-rank theorem.",
+        "published-finding corpus's closest exact synchronization records concern the Černý avoiding profile and a different finite one-cluster slow-reset census."
+      ],
+      "reasoning": "The claim was searched under the automaton's original notation, semi-flower terminology, incomplete-set language, transformation rank, and rank compression. These aliases cover the natural equivalent formulations of the invariant; the closest results concern different automata or different invariants.",
+      "searches": [
+        "published-finding corpus: Pribavkina automaton incomplete set rank compression profile shortest words Fhat(k,u)",
+        "published-finding corpus: semi-flower automaton A^k minus unbordered word rank threshold synchronizing",
+        "Web: \"F(k,u)\" automaton Pribavkina rank synchronizing",
+        "Web: \"A^k\\setminus\\{u\\}\" incompletable word automaton rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The defining paper contains figures for the automaton and propositions for reset-word length but no table of intermediate ranks.",
+        "published-finding corpus returned no record tabulating or classifying these rank thresholds."
+      ],
+      "reasoning": "There is no identified parameter table whose entries could already contain the infinite formula; the relevant literature presents the construction symbolically and reports only reset-threshold data.",
+      "searches": [
+        "published-finding corpus: incompletable word forbidden positions automaton image rank",
+        "published-finding corpus: Pribavkina semi-flower automaton exact rank profile",
+        "Primary full text: arXiv:0907.4576v1 Sections 3-4"
+      ]
+    },
+    "rationale": "The exact statement was compared against the defining 2009 Pribavkina preprint, its journal record, Volkov's 2022 survey treatment of rank and automata with zero, and published-finding corpus searches under rank compression, transformation rank, semi-flower automata, incomplete-set automata, and incompletable-word terminology. The primary paper proves only the rank-one endpoint k^2+k-1; the survey likewise records reset-threshold behavior. No inspected source states or implies the full intermediate formula k+r(k+1).",
+    "residual_risks": [
+      "An older paper on incomplete sets, semi-flower automata, or transformation ranks could contain the same intermediate formula under terminology not indexed by the searches performed.",
+      "The theorem is a family-specific structural refinement; it is not claimed as a general sink-state automaton bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same objects and proves the reset endpoint but does not state the intermediate-rank profile.",
+        "evidence": "The paper defines the 2k-state transitions and states shortest reset length k^2+k-1; full-text searches returned no 'rank' or 'image' occurrence for a competing theorem.",
+        "identifier_or_url": "arXiv:0907.4576v1",
+        "material_read": "Full HTML text, especially Lemmas 1-2, Proposition 2, and Sections 3-4 through Propositions 3-5.",
+        "method": "Direct full-text inspection and statement comparison.",
+        "title": "Slowly Synchronizing Automata with Zero and Incomplete Sets",
+        "trigger": "Defining source for the automaton and the known reset endpoint."
+      },
+      {
+        "assessment": "Provides general rank terminology and later context but no exact rank profile for Pribavkina's family.",
+        "evidence": "The survey discusses rank as image size and cites Pribavkina among sink-state lower-bound constructions, while its quantitative statements there concern reset thresholds.",
+        "identifier_or_url": "DOI:10.4213/rm10005e",
+        "material_read": "Transformation-rank discussion and the automata-with-zero/reset-threshold sections, including the bibliography entry for Pribavkina.",
+        "method": "Direct HTML inspection and targeted full-text search.",
+        "title": "Synchronization of finite automata",
+        "trigger": "Broad survey likely to expose later reformulations or stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef663bcc-4c9e-417d-b63e-8a044aebcd0d",
+  "value": {
+    "rationale": "Transformation rank is the natural refinement of synchronization, and Pribavkina's completed semi-flower automata are a classical quadratic-reset family with a sink state. The result determines an entire uniform high-deficiency profile for every alphabet and every unbordered defining word, rather than a single small parameter. It explains the known quadratic reset endpoint as the last step of a rigid arithmetic progression of optimal rank thresholds, with a phase/nonoverlap mechanism that is reusable in studying incomplete-set automata. The result is scoped to this family and does not overclaim a general theorem.",
+    "status": "PASS"
+  }
+}
