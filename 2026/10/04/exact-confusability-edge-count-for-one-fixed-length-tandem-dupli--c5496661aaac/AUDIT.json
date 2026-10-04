@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The standard derivative is a bijection and turns one length-\\(\\ell\\) tandem duplication into insertion of \\(\\ell\\) zeros. For a fixed nonzero skeleton, two distinct sources conflict exactly when their zero-run vectors differ by \\(\\ell(e_i-e_j)\\); the signed support uniquely identifies \\(i,j\\), so there is exactly one common output. Counting legal donor states by weak compositions and summing over skeletons yields the stated closed formula. The standalone verifier independently reconstructs both the channel and derivative relation over a bounded multi-parameter grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 work establishes the fixed-length derivative/zero-insertion model and correcting-code framework.",
+        "The 2017 and 2018 works give sphere-packing bounds and constructions for duplication-correcting codes."
+      ],
+      "reasoning": "These results cover broader coding questions and, in some cases, any number of duplications, but their statements do not imply the exact total number of pairs whose exact-one descendant sets intersect. Maximum-code bounds and unique-root results do not determine this graph edge count.",
+      "searches": [
+        "arXiv:1606.00397v1 full-text fixed-length duplication codes",
+        "arXiv:1712.09345v1 full-text tandem-duplication sphere bounds",
+        "arXiv:1807.02874v1 tandem duplication zero-block insertion bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1712.09345v1",
+      "arXiv:1801.06022v1",
+      "arXiv:1807.02874v1",
+      "arXiv:1606.00397v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work gives the derivative bijection, zero-run signatures, and code/reconstruction bounds.",
+        "The new edge formula requires summing all legal \\(\\ell\\)-zero transfers across every skeleton and prefix; that summation and its closed form were not found in the inspected sources."
+      ],
+      "reasoning": "The claim is not a special case of a stated code-cardinality or reconstruction theorem. Pairwise overlap criteria are ingredients, but aggregating them over all sources is a separate enumerative statement. No inspected stronger theorem determines this aggregate automatically.",
+      "searches": [
+        "arXiv:1712.09345v1 full text",
+        "arXiv:1801.06022v1 full text",
+        "arXiv:1807.02874v1 abstract and full-text available material"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1712.09345v1, derivative and zero-signature representation",
+        "arXiv:1801.06022v1, zero-run signature and Manhattan-distance reconstruction framework"
+      ],
+      "reasoning": "The natural equivalent forms are common one-duplication descendants, zero-block insertion conflicts in derivative coordinates, and signature vectors at Manhattan distance two after scaling. The inspected sources develop these representations but do not state the aggregate edge count.",
+      "searches": [
+        "tandem duplication confusability graph number of edges common descendant fixed length duplication",
+        "two words share one tandem duplication output common descendant count zero block insertion",
+        "fixed length tandem duplication derivative zero block insertion confusable pairs exact formula",
+        "single duplication error ball intersections exact pair count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected indexed result or table reported the closed formula or the binary specialization \\(2^{n-5}(n-4)(n-1)\\)."
+      ],
+      "reasoning": "Searches targeted both the graph invariant and the equivalent common-descendant formulation. Absence from search results is not treated as proof of novelty; it is combined with inspection of the most relevant primary full texts.",
+      "searches": [
+        "tandem duplication confusability graph number of edges common descendant fixed length duplication",
+        "average degree tandem duplication code graph",
+        "common descendant uniform tandem duplication pairs"
+      ]
+    },
+    "rationale": "Inspected primary literature supplies the channel representation and local reconstruction framework but not the aggregate number of exact-one conflicting source pairs. The theorem performs a distinct global enumeration over zero-run transfers and derives a closed edge-count formula and average degree.",
+    "residual_risks": [
+      "An unindexed, unpublished, or differently phrased enumerative result could contain the same aggregate edge formula. Search failure alone is not treated as novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same fixed-length channel machinery and studies correcting-code cardinalities, but no aggregate exact-one confusability edge count was found.",
+        "evidence": "The paper explicitly maps a tandem duplication to insertion of \\(\\ell\\) consecutive zeros in the derivative tail.",
+        "identifier_or_url": "arXiv:1712.09345v1",
+        "material_read": "Definition of tandem duplication and exact-error spheres; derivative map; zero-signature discussion; code-cardinality upper-bound section.",
+        "method": "Full-text inspection.",
+        "title": "Duplication-Correcting Codes",
+        "trigger": "Primary source for finite tandem-duplication spheres and the derivative/zero-signature representation."
+      },
+      {
+        "assessment": "Provides local intersection machinery for prescribed words and multiple reads, but no global enumeration of all one-step conflicting source pairs was found.",
+        "evidence": "The paper encodes zero-run counts as signatures and measures descendant relations through their coordinate differences.",
+        "identifier_or_url": "arXiv:1801.06022v1",
+        "material_read": "Uniform duplication definition; derivative map; zero-run decomposition, trunk/signature, induced Manhattan distance; reconstruction-code intersection criteria.",
+        "method": "Full-text and page-image inspection.",
+        "title": "Reconstruction Codes for DNA Sequences with Uniform Tandem-Duplication Errors",
+        "trigger": "Closest source focused on intersections of tandem-duplication descendant sets."
+      },
+      {
+        "assessment": "Studies bounds and constructions rather than the exact total count of one-error conflict edges.",
+        "evidence": "Its stated results are non-asymptotic code-size bounds and constructions based on zero-block insertion.",
+        "identifier_or_url": "arXiv:1807.02874v1",
+        "material_read": "Abstract, channel setup, relation to zero-block insertion, and stated sphere-packing goals.",
+        "method": "Primary-source inspection.",
+        "title": "Bounds and Constructions for Multi-Symbol Duplication Error Correcting Codes",
+        "trigger": "Same fixed-length multi-symbol duplication model and zero-block insertion reduction."
+      },
+      {
+        "assessment": "Establishes the representation used here and broader code constructions, but no aggregate one-step confusability-edge formula was found.",
+        "evidence": "The derivative map is stated as a bijection and a fixed-length tandem duplication as insertion of a zero block.",
+        "identifier_or_url": "arXiv:1606.00397v1",
+        "material_read": "Definitions of descendants and correcting codes; fixed-length channel section; derivative bijection and zero-block insertion lemma.",
+        "method": "Full-text and page-image inspection.",
+        "title": "Duplication-Correcting Codes for Data Storage in the DNA of Living Organisms",
+        "trigger": "Earlier supporting source for fixed-length tandem duplication and the derivative bijection."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5496661-aaac-4547-ad35-a83290ddbdef",
+  "value": {
+    "rationale": "The edge count is the exact global collision count of the one-error channel and therefore a natural invariant of the correcting-code confusability graph. It yields collision density and average degree for all \\(q,\\ell,n\\), while the unique-common-descendant statement identifies the local multiplicity behind the count. This supplies structural information not contained in sphere sizes or asymptotic redundancy alone.",
+    "status": "PASS"
+  }
+}
