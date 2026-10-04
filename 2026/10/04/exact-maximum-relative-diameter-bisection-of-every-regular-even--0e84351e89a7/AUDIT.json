@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The global reduction to center-passing lines is supplied by the primary 2018 source. For a regular even polygon the remaining optimization is exact: a side parameter t gives d_M^2 = 4a^2 + (b+|t|)^2, so the unique center-line minimum is the side midpoint. The trigonometric substitution is exact, and the n=6 case reproduces the independently published sqrt(13)R/2 value.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 paper covers all centrally symmetric convex bodies structurally, proving reduction to center-passing lines and giving criteria for optimality.",
+        "The same source explicitly notes that standard bisections are not minimizing in general, so its broad-domain theorem does not supply one universal standard-bisection formula."
+      ],
+      "reasoning": "The broader theorem reduces the search space but leaves the direction optimization unresolved. The present claim completes that unresolved optimization for the regular even subfamily.",
+      "searches": [
+        "Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter",
+        "centrally symmetric regular polygon optimal bisection diameter",
+        "standard bisection regular polygon maximum relative diameter formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.00321",
+      "arXiv:1511.08009",
+      "DOI:10.1007/s00009-019-1411-1",
+      "DOI:10.7153/mia-19-25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 source gives only the regular-hexagon standard two-partition value among its examples.",
+        "The 2018 source proves that every arbitrary bisection admits a center-passing straight-line replacement with no larger d_M.",
+        "The 2018 source states that standard bisections need not be minimizing in general and does not give an all-regular-even calculation."
+      ],
+      "reasoning": "The prior results jointly provide a motivation, one special value, and a reduction principle, but they do not state or directly imply the uniform formula until the new exact minimization over regular-polygon boundary directions is carried out.",
+      "searches": [
+        "regular hexagon d_M P2 sqrt13/2 general regular polygon bisection",
+        "Bisections centrally symmetric planar convex bodies center straight line reduction",
+        "regular even polygon side midpoint bisection maximum relative diameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 primary paper was searched for regular-polygon specializations; it contains no occurrence of a regular-polygon theorem and treats only selected examples such as square, rectangle, ellipse, circle, and nonregular centrally symmetric bodies.",
+        "The 2016 multi-rotational paper gives the regular-hexagon standard two-partition value sqrt(13)R/2 but no uniform even-n bisection theorem.",
+        "Semantic searches returned unrelated regular-polygon extremal results and no equivalent maximum-relative-diameter formula."
+      ],
+      "reasoning": "Neither a title match nor a parameter match was used as the criterion. The inspected statements do not imply the all-even-n formula without the new regular-polygon farthest-vertex optimization.",
+      "searches": [
+        "regular even polygon bisection minimizing maximum relative diameter side midpoint exact formula",
+        "maximum relative diameter regular 2m-gon bisection opposite side midpoints",
+        "regular hexagon d_M P2 sqrt13/2 general regular polygon bisection",
+        "centrally symmetric regular polygon optimal bisection diameter",
+        "standard bisection regular polygon maximum relative diameter formula",
+        "\"regular polygon\" \"maximum relative diameter\" bisection",
+        "\"regular n-gon\" bisection diameter minimizing",
+        "\"regular polygon\" \"bisection\" diameter convex body",
+        "\"regular even polygon\" \"bisection\" \"diameter\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed finding states the formula R*sqrt(4-3 sin^2(pi/n)) or an equivalent regular-even bisection classification.",
+        "Closest indexed geometry hits concerned unrelated regular-polygon area, covering, persistence, or minimal-filling problems."
+      ],
+      "reasoning": "The database search supplies an overlap check rather than a novelty proof; direct source inspection was therefore also performed.",
+      "searches": [
+        "regular even polygon bisection minimizing maximum relative diameter side midpoint exact formula",
+        "maximum relative diameter regular 2m-gon bisection opposite side midpoints",
+        "regular hexagon d_M P2 sqrt13/2 general regular polygon bisection",
+        "centrally symmetric regular polygon optimal bisection diameter",
+        "standard bisection regular polygon maximum relative diameter formula"
+      ]
+    },
+    "rationale": "No all-even-n formula or equivalent optimizer classification was located in targeted semantic searches, web searches, or the inspected primary texts. The closest earlier result is the isolated regular-hexagon value; the 2018 source supplies a general reduction but not the regular-family closed form.",
+    "residual_risks": [
+      "The regular-polygon optimization is elementary after the 2018 center-line reduction, so an equivalent formula could appear in older notes or literature under different terminology.",
+      "The 2016 source already contains the n=6 special value, so the originality claim is limited to the uniform all-even-n theorem and equality classification.",
+      "No uniqueness claim is made for arbitrary curved minimizing bisections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves the center-line reduction and analyzes selected bodies. It states no regular-even-polygon closed form and no all-n midpoint minimization theorem.",
+        "identifier_or_url": "arXiv:1803.00321",
+        "material_read": "Definition of bisection, maximum-relative-diameter setup, center-passing reduction, necessary and sufficient conditions, standard-bisection section, and examples.",
+        "method": "Full-text repository/PDF text inspection with targeted searches for regular, square, rectangle, ellipse, and standard bisection.",
+        "title": "Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter",
+        "trigger": "Primary middle-period source for the exact bisection problem and the center-line reduction."
+      },
+      {
+        "assessment": "PARTIAL_SPECIAL_CASE",
+        "evidence": "The regular hexagon has the special value sqrt(13)R/2 for its standard two-partition. No uniform even-n global bisection formula is stated.",
+        "identifier_or_url": "arXiv:1511.08009",
+        "material_read": "Definitions of standard partitions, discussion of the k=2 case, and the explicit regular-hexagon example.",
+        "method": "Full-text/PDF inspection and exact-value comparison.",
+        "title": "The maximum relative diameter for multi-rotationally symmetric planar convex bodies",
+        "trigger": "Closest earlier source containing a regular-hexagon standard two-partition computation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0e84351e-89a7-400e-8b33-e3df2f61519b",
+  "value": {
+    "rationale": "This is a natural complete classification of a canonical infinite family in an established convex-geometric optimization problem. It converts the general structural reduction into a closed formula and equality class, while standard bisections are known not to be optimal for arbitrary centrally symmetric bodies.",
+    "status": "PASS"
+  }
+}
