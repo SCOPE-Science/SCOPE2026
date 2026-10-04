@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The published generator factors were expanded directly over \\(\\mathbb F_4\\), and the resulting \\(7\\times21\\) generator matrix was checked to have rank \\(7\\), minimum distance \\(11\\), and nonsingular Hermitian Gram matrix. The generalized-weight computation uses the exact column-subspace formula \\(d_r=21-c_{7-r}\\). All distinct column-generated subspaces through dimension \\(6\\) were exhaustively canonicalized, producing \\((c_0,\\ldots,c_6)=(0,1,2,3,5,7,10)\\), with explicit maximizing witnesses. Wei duality and support-preserving conjugation give the stated Hermitian-dual hierarchy. The packaged standard-library verifier replays every finite step and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abdukhalikov-Ho-Shat 2026 develops QC distance bounds and gives the explicit [21,7,11] generator, but reports ordinary minimum distance rather than higher support weights.",
+        "Abdukhalikov-Shat 2025 studies index-3 QC generation and Hermitian duality and gives a related [21,7,11] example, without a generalized-weight hierarchy.",
+        "The 2024 optimal quaternary Hermitian LCD literature records optimal minimum distances for related [21,14,5] parameters, not the higher-weight profile of this explicit code."
+      ],
+      "reasoning": "The broader code-construction papers do not dominate the claim because ordinary distance is only the first generalized Hamming weight, and existence of another code with the same [n,k,d] parameters does not determine the remaining weights.",
+      "searches": [
+        "one-generator quasi-cyclic [21,7,11] Hermitian LCD generalized Hamming weights",
+        "dual [21,14,5] generalized Hamming weights quaternary LCD",
+        "generalized Hamming weights optimal quaternary 21 7 11 code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31300v1",
+      "Abdukhalikov-Shat, On Quasi-Cyclic Codes of Index 3, Entropy 27 (2025)",
+      "Lu-Li-Ren, Optimal Quaternary Hermitian LCD Codes, Entropy (2024)",
+      "Wei, Generalized Hamming Weights for Linear Codes, IEEE TIT 37 (1991), DOI 10.1109/18.133259",
+      "published-finding corpus exact/alias searches for [21,7,11], the sequence 11,14,16,18,19,20,21, generalized Hamming weights, weight hierarchy, and the [21,14,5] dual"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.31300v1, Appendix A, supplies the exact generator factors and the ordinary [21,7,11] parameters.",
+        "Wei 1991 supplies the duality theorem once the primal hierarchy is known, but does not determine the primal hierarchy for this code.",
+        "The 2025 index-3 QC paper supplies structurally related constructions and a [21,7,11] dual example but no implication fixing this explicit code's column-intersection profile."
+      ],
+      "reasoning": "Prior work supplies the code and general theory separately. The new finite content is the exact sequence of maximum column intersections in subspaces of dimensions zero through six. Neither the ordinary parameters nor Hermitian LCD property forces that sequence.",
+      "searches": [
+        "Abdukhalikov Ho Shat 2609.31300 [21,7,11] generalized Hamming weights",
+        "dual [21,14,5] generalized Hamming weights quaternary LCD",
+        "quaternary [21,7,11] Hermitian LCD one-generator quasi-cyclic generalized Hamming weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source arXiv:2609.31300v1 contains no occurrence of 'generalized Hamming', 'weight hierarchy', or 'Wei' in the inspected full text.",
+        "The exact numerical sequence and the equivalent dimension-length-profile terminology produced no direct published-finding corpus match."
+      ],
+      "reasoning": "Generalized Hamming weights are also called the weight hierarchy and encode the minimum support size of subcodes of each dimension. Searches covered these aliases as well as the exact sequence, so simple terminological variation was tested.",
+      "searches": [
+        "quaternary [21,7,11] generalized weights hierarchy Hermitian LCD",
+        "generalized Hamming weight hierarchy 11 14 16 18 19 20 21 quaternary",
+        "quaternary [21,7,11] Hermitian LCD one-generator quasi-cyclic generalized Hamming weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record was returned for the exact hierarchy, exact code/source pairing, or the dual hierarchy.",
+        "The source Appendix A table records only [21,7,11]^H_4 and the generator factors, not higher generalized weights."
+      ],
+      "reasoning": "Exact-table searches were included because a database entry for the full weight hierarchy would directly cover the finite invariant. None was located; search absence is supporting evidence rather than a proof of global novelty.",
+      "searches": [
+        "generalized Hamming weights [21,7,11] quaternary code 11 14 16 18 19 20 21",
+        "Abdukhalikov Ho Shat 2609.31300 [21,7,11] generalized Hamming weights",
+        "dual [21,14,5] quaternary generalized Hamming weights"
+      ]
+    },
+    "rationale": "The 2026 source publishes this exact code and its minimum distance but does not state generalized Hamming weights. A closely related 2025 index-\\(3\\) QC paper and the 2024 Hermitian-LCD literature likewise focus on generators, duality, and minimum distance. Searches under the exact parameters, complete numerical hierarchy, weight-hierarchy aliases, dual parameters, and source-generator description found no statement implying the seven weights.",
+    "residual_risks": [
+      "An equivalent [21,7,11] code may have had its hierarchy computed in an unindexed source under a different generator presentation.",
+      "The 2025 [21,7,11] example may or may not be equivalent to the 2026 code; no equivalence claim is made here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for generalized Hamming weights: it gives the code, ordinary distance, and generator factors but no higher support-weight hierarchy.",
+        "evidence": "Appendix A lists m=7, [21,7,11]^H_4 with the three generator components used here; the surrounding paper discusses minimum-distance improvements rather than generalized Hamming weights.",
+        "identifier_or_url": "arXiv:2609.31300v1",
+        "material_read": "Abstract and introduction; distance-bound sections; Hermitian LCD construction section; Table 3; Appendix A generator tables including the [21,7,11] row.",
+        "method": "lawful public full-text reading",
+        "title": "New distance bounds for one-generator quasi-cyclic codes with applications to Hermitian LCD codes and entanglement-assisted quantum codes",
+        "trigger": "Primary source of the exact [21,7,11] code and the most plausible place for a covering weight-hierarchy statement."
+      },
+      {
+        "assessment": "NOT_COVERING: the article studies QC generators and Hermitian duals but does not state the generalized Hamming hierarchy claimed here.",
+        "evidence": "The related example fixes ordinary parameters only; no complete higher-support sequence is given.",
+        "identifier_or_url": "Entropy 27 (2025), full-text public article",
+        "material_read": "Construction and duality sections; examples including the [21,14,5] code with [21,7,11] Hermitian dual; conclusion.",
+        "method": "public full-text reading",
+        "title": "On Quasi-Cyclic Codes of Index 3",
+        "trigger": "Same authorship lineage, same index-3 QC setting, and a related optimal [21,7,11] quaternary code appear in the paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20585c2f-5c7d-4ff5-be97-c1fb2164b215",
+  "value": {
+    "rationale": "Generalized Hamming weights are the canonical higher-order refinement of minimum distance and control minimum support sizes of subcodes, with established applications to wiretap security, erasure behavior, trellis complexity, and network coding. The source code is a newly reported optimal quaternary Hermitian LCD example for which only \\(d_1\\) was published. Determining all seven weights is a natural complete invariant rather than an arbitrary finite slice, and it reveals that the code meets the generalized Singleton bound for every \\(4\\le r\\le7\\). The dual hierarchy follows by Wei duality.",
+    "status": "PASS"
+  }
+}
