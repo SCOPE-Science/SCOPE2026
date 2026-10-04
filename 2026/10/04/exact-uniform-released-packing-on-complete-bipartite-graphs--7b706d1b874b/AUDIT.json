@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts the four saturation patterns on the two sides of \\(K_{a,b}\\). In each pattern, the active closed-neighborhood constraints are exactly the displayed side-sum bounds, and explicit integer assignments attain the corresponding maxima. Exhaustive finite replay independently agrees on all tested small parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source contains a general integer programming formulation but no theorem giving closed optima for all bicliques and all uniform k,u.",
+        "No broader exact graph-family theorem covering the four saturation patterns appeared in the targeted searches."
+      ],
+      "reasoning": "A generic ILP is a computational representation, not a statement that implies the closed formula without solving the optimization. No broader exact theorem located specializes to the claimed expression.",
+      "searches": [
+        "released packing functions complete bipartite graphs uniform upper bound capacity exact formula",
+        "released packing number biclique saturation capacity upper bound",
+        "arXiv:2608.11169v1 Section 3 ILP and final remarks"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.11169v1",
+      "pith:6OPKYP2C",
+      "Targeted web searches for released packing plus complete-bipartite/biclique/conditional-capacity terminology."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.3 covers \\(u=1\\) only.",
+        "The Pith review shows only that the all-\\((u-1)\\) optimality statement is false, with a \\(P_3\\) example.",
+        "The present formula gives exact values for every a,b,k,u and includes both \\(u=1\\) and u>1 regimes."
+      ],
+      "reasoning": "Neither the source special case nor the review counterexample implies the four-term maximum formula. The theorem strictly organizes and extends these boundary phenomena on a standard infinite family.",
+      "searches": [
+        "arXiv:2608.11169v1 Proposition 3.3 dependent-set equivalence",
+        "pith:6OPKYP2C Observation 2.2(iii) critique",
+        "released packing complete bipartite exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.11169v1 defines released packing functions and treats paths, cycles, wheels, complexity, and polyhedral formulations, but no complete-bipartite exact formula was found in the inspected full text.",
+        "pith:6OPKYP2C identifies a \\(P_3\\) counterexample to Observation 2.2(iii) but does not give the \\(K_{a,b}\\) all-parameter formula."
+      ],
+      "reasoning": "The only exact equivalent special case explicitly identified by the source is \\(u=1\\), where released packing is a dependent-set problem. The present theorem covers every \\(u\\ge1\\) and depends on saturation side-sums, so the \\(u=1\\) equivalence does not imply it.",
+      "searches": [
+        "\"released packing\" graph biclique",
+        "\"Released (k\" \"complete bipartite\" packing function",
+        "\"conditional capacity\" graph \"complete bipartite\" packing function",
+        "arXiv:2608.11169v1 full-text search: complete bipartite; biclique"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source examples record exact values for paths, cycles, and wheels, not a table or database of complete-bipartite values with u>1.",
+        "The public review discusses one small \\(P_3\\) witness but no biclique value table."
+      ],
+      "reasoning": "No exact table or database was found that contains the all-parameter values claimed here. Small computed values in the verifier were generated independently from the definition.",
+      "searches": [
+        "\"released packing number\" complete bipartite graph",
+        "\"released packing functions\" \"K_{m,n}\"",
+        "source-paper examples and final remarks"
+      ]
+    },
+    "rationale": "The 2026 initiating preprint does not give the arbitrary complete-bipartite all-parameter formula. Its \\(u=1\\) dependent-set equivalence and its generic ILP do not imply the closed expression. A contemporary review already finds a \\(P_3\\) counterexample to one source observation, so novelty is assigned only to the full biclique classification.",
+    "residual_risks": [
+      "An older result under terminology unrelated to released packing functions could encode the same biclique optimization, although the invariant itself was introduced only in 2026.",
+      "The source preprint contains a known false observation; the present theorem does not use it and is derived directly from the definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and supplies general machinery, but no exact complete-bipartite formula for arbitrary uniform k,u was found.",
+        "evidence": "Definition 2.1 imposes the capacity constraint only at saturated vertices; Section 2 gives path/cycle/wheel examples; Section 5 discusses future directions.",
+        "identifier_or_url": "arXiv:2608.11169v1",
+        "material_read": "Abstract; Definition 2.1; examples around paths, cycles, and wheels; Proposition 3.3 context; final remarks and open questions.",
+        "method": "Lawful arXiv HTML full-text inspection and targeted in-document searches.",
+        "title": "Released packing functions in graphs",
+        "trigger": "Primary source introducing the invariant and therefore the closest possible covering source."
+      },
+      {
+        "assessment": "Covers the falsity of the source observation via a \\(P_3\\) example, but not the complete-bipartite four-phase formula.",
+        "evidence": "The review gives \\(f=(2,0,2)\\) on \\(P_3\\) for \\(u=k=2\\) and explicitly states that the later source theorems do not depend on the false observation.",
+        "identifier_or_url": "pith:6OPKYP2C",
+        "material_read": "Desk editor note and major comment on Observation 2.2(iii).",
+        "method": "Public review full-text inspection.",
+        "title": "Pith review of Released packing functions in graphs",
+        "trigger": "A contemporary public review specifically flags a false optimality observation in the source paper, potentially overlapping with the k=u corollary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b706d1b-874b-4992-99ca-abbe279ed8e3",
+  "value": {
+    "rationale": "The result gives a complete, closed, all-parameter solution on the canonical family \\(K_{a,b}\\), distinguishes four saturation phases, extends beyond the \\(u=1\\) dependent-set reduction, and quantifies a systematic failure mode in the initiating paper rather than producing only an isolated counterexample.",
+    "status": "PASS"
+  }
+}
