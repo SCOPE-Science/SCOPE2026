@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The Bernoulli row choice closes the coordinate covariance at dimension three. The characteristic polynomial is reconstructed exactly, and the cubic Jury conditions reduce to one sharp factor after proving the other three inequalities. The nondecaying eigenmode is shown to be excited by the source initialization, so covariance instability cannot be dismissed as an unreachable state.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Loizou and Richtárik prove L2 convergence for stochastic heavy-ball and randomized Kaczmarz with ordinary displacement momentum under sufficient parameter conditions.",
+        "KGSM introduces an additional geometrically smoothed velocity state and has a different state recursion.",
+        "The KGSM paper itself cites batch-one heavy-ball limitations as motivation for smoothing."
+      ],
+      "reasoning": "The broader heavy-ball theory does not imply the exact KGSM boundary because its recurrence and parameterization differ. Its sufficient L2 conditions also do not determine necessity or the exact identity-system threshold.",
+      "searches": [
+        "Momentum and stochastic momentum randomized Kaczmarz L2 convergence",
+        "heavy ball randomized Kaczmarz mean square convergence",
+        "DOI:10.1007/s10589-020-00220-z"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.09415v1",
+      "DOI:10.1137/24M1633820",
+      "arXiv:1712.09677v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source says its main limitation is lack of insight into critical momentum and separately asks for absolute or Euclidean-error convergence.",
+        "Its main theorem extends a signed expected singular-vector error formula.",
+        "The ordinary-momentum source gives an L2 rate theorem for a different heavy-ball update."
+      ],
+      "reasoning": "Signed expectation does not imply mean-square convergence. The final theorem proves this separation explicitly: at beta equal to zero and mass between one over square root of two and one, the signed mean converges while the second moment does not.",
+      "searches": [
+        "arXiv:2401.09415 critical momentum absolute error l2",
+        "arXiv:1712.09677 randomized Kaczmarz momentum L2",
+        "KGSM signed expectation versus mean square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper's theory controls expected signed singular-vector error.",
+        "The defining paper explicitly asks for a critical momentum region and for absolute or Euclidean-error convergence.",
+        "No inspected source states the covariance Schur boundary beta plus two times one minus beta times M equal to square root of beta plus two."
+      ],
+      "reasoning": "Equivalent statements include Schur stability of the closed covariance recursion, convergence of expected squared Euclidean error on the identity system, and the absence of a nondecaying second-moment mode. These were compared by implication rather than by title.",
+      "searches": [
+        "KGSM critical momentum mean square stability orthonormal system",
+        "geometrically smoothed momentum covariance stability randomized Kaczmarz",
+        "arXiv:2401.09415"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concern maximal-distance Kaczmarz residual spikes, delayed randomized Gauss-Seidel, cyclic block Kaczmarz bias, and generic heavy-ball spectral behavior.",
+        "None of the closest records uses KGSM's smoothed velocity state or gives its covariance stability matrix."
+      ],
+      "reasoning": "The nearby database results analyze different row rules, delays, or deterministic momentum schemes. Search absence is not treated as proof of novelty; it supplements direct comparison with the defining and broader primary sources.",
+      "searches": [
+        "randomized Kaczmarz geometrically smoothed momentum critical M beta",
+        "KGSM orthonormal identity covariance spectral radius",
+        "randomized Kaczmarz momentum exact second moment stability"
+      ]
+    },
+    "rationale": "The defining KGSM paper explicitly asks for the critical momentum region and for unsigned or Euclidean-error convergence, while its proved observable is signed directional expectation. The inspected heavy-ball Kaczmarz literature treats a different unsmoothed recurrence and gives sufficient convergence regions. No inspected source states the exact KGSM orthonormal mean-square boundary or the signed-mean blind-spot interval.",
+    "residual_risks": [
+      "An equivalent identity-system covariance calculation may exist in unindexed notes.",
+      "The theorem answers the source questions only on the smallest nontrivial orthonormal system.",
+      "A general-matrix KGSM critical region can depend on more spectral and row-geometry information."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_SOURCE_AND_EXPLICIT_OPEN_DIRECTION_NOT_COVERING_THE_EXACT_MEAN_SQUARE_FRONTIER.",
+        "evidence": "The source defines the exact recurrence analyzed here and explicitly asks for critical momentum and Euclidean-error convergence, but does not give the identity-system covariance recursion or the exact phase boundary.",
+        "identifier_or_url": "arXiv:2401.09415v1",
+        "material_read": "Open-access full paper including the KGSM recurrence and initialization, main signed-error theorem, numerical parameter discussion, limitations section, critical-momentum question, and question about expected absolute and Euclidean error.",
+        "method": "Full-text PDF inspection with visual inspection of the algorithm page and targeted inspection of the limitations section.",
+        "title": "Randomized Kaczmarz with Geometrically Smoothed Momentum",
+        "trigger": "Defining source and direct statement of the unresolved critical-momentum and Euclidean-error questions."
+      },
+      {
+        "assessment": "BROADER_UNSMOOTHED_MOMENTUM_THEORY_NOT_COVERING_KGSM_EXACT_BOUNDARY.",
+        "evidence": "The update uses ordinary displacement momentum rather than KGSM's geometrically smoothed velocity and provides sufficient convergence guarantees, not the exact necessity-and-sufficiency boundary proved here.",
+        "identifier_or_url": "arXiv:1712.09677v2",
+        "material_read": "Open-access full paper around the L2 convergence theorem and the randomized Kaczmarz with momentum specialization, including the update rule and sufficient parameter conditions.",
+        "method": "Full-text PDF inspection with visual inspection of the momentum setup and targeted searches for L2 convergence and randomized Kaczmarz.",
+        "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+        "trigger": "Broader primary literature on L2 convergence of randomized Kaczmarz with ordinary heavy-ball momentum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e15c0024-8209-4bb9-a9c8-85f8f30026fa",
+  "value": {
+    "rationale": "The critical momentum region and Euclidean-error convergence are explicit open questions in the defining KGSM paper. The identity system is the natural baseline where row geometry is eliminated, yet it already exhibits a sharp nontrivial smoothing threshold. The signed-mean blind spot shows that the source observable can certify decay while mean-square error fails, giving a concrete reason why the stronger question matters.",
+    "status": "PASS"
+  }
+}
