@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "All simple games through five players are generated independently both as minimal-winning antichains and as monotone Boolean truth tables. The two universes agree exactly. Properness, weak-order comparison, all relabeling orbits, and nine weighted representations are exact; Shapley-Shubik is independently replayed by pivotal-coalition and permutation formulas. The packaged verifier returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aziz 2008 gives the simple-game, Shapley-Shubik, and Deegan-Packel definitions and studies computational access to the indices.",
+        "Freixas-Marciniak 2011/2013 shows Shapley-Shubik satisfies an egalitarian property while Deegan-Packel has counterexamples, demonstrating genuine structural differences.",
+        "Khmelnitskaya-Chessa 2020 proves \\(DP_i(v)\\) is the Shapley value of an auxiliary game built from the minimal winning coalitions, explaining affinity without forcing ordinal equivalence on the original game."
+      ],
+      "reasoning": "These broader theorems establish why comparison of the two indices is meaningful but do not determine the smallest proper game with a rank reversal or enumerate the first divergent stratum.",
+      "searches": [
+        "Complexity of comparison of influence of players in simple games Shapley-Shubik Deegan-Packel",
+        "Egalitarian property power indices Shapley-Shubik Deegan-Packel",
+        "Weighted and restricted Deegan-Packel power indices Shapley-Shubik"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0809.0519",
+      "doi:10.1007/s00355-011-0593-7",
+      "UTwente:230880718"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The auxiliary-game identity \\(DP_i(v)=Sh_i(u^v)\\) compares Shapley values of two different games and therefore does not imply the same player order in \\(v\\).",
+        "Shapley-Shubik monotonicity with respect to voting weights and Deegan-Packel monotonicity conditions do not exclude pairwise ordering reversals between the two indices.",
+        "Ordinal-equivalence results for Shapley-Shubik with Banzhaf-type semivalues do not cover Deegan-Packel, which depends only on minimal winning coalitions."
+      ],
+      "reasoning": "The exhaustive lower bound through four proper players and the explicit five-player weighted classes are needed; none of the inspected prior implications determines either half of the sharp boundary.",
+      "searches": [
+        "Deegan-Packel auxiliary game Shapley value Shapley-Shubik",
+        "Deegan-Packel monotonicity Shapley-Shubik weighted majority game",
+        "ordinal equivalence power indices simple games Shapley Shubik"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aziz 2008 treats Shapley-Shubik and Deegan-Packel as classical simple-game power indices and gives their formulas and complexity context, but no small proper-game ranking threshold.",
+        "Khmelnitskaya-Chessa 2020 proves a close Shapley-value representation of Deegan-Packel but does not state equality of player rankings on small proper games.",
+        "Exact-number and five-player searches did not reveal the count \\(460\\), the nine-class decomposition, or the displayed coalition families."
+      ],
+      "reasoning": "The claim concerns weak-order equivalence and strict pairwise reversals, not equality of index values. Searches used both canonical index names, ordinal-ranking language, proper and weighted subclasses, exact player counts, and exact census numbers.",
+      "searches": [
+        "Deegan-Packel Shapley-Shubik same player ranking proper simple games four players five players",
+        "proper weighted voting games Shapley-Shubik Deegan-Packel ordinal ranking five players",
+        "rankings Deegan-Packel Shapley-Shubik proper simple game",
+        "five-player power index ranking reversal Shapley-Shubik Deegan-Packel",
+        "460 Deegan-Packel Shapley-Shubik five players"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the \\(460\\)-game count, the orbit-size multiset, or the nine weighted representatives.",
+        "The verifier derives the census directly from all \\(7579\\) labeled five-player simple games and all \\(2645\\) proper ones.",
+        "Each canonical divergent class is reconstructed independently from an explicit quota-and-weight representation."
+      ],
+      "reasoning": "The result is not a recomputation of a located table. Known small-game counts provide only the ambient universe and do not determine the relation between these two index-induced weak orders.",
+      "searches": [
+        "\"460\" \"Deegan-Packel\" \"Shapley-Shubik\"",
+        "\"2645\" proper simple games power index",
+        "\"9\" isomorphism classes Deegan-Packel Shapley-Shubik",
+        "\"[9;5,4,3,2,1]\" Deegan-Packel Shapley-Shubik"
+      ]
+    },
+    "rationale": "Prior work defines and compares the Deegan-Packel and Shapley-Shubik models and proves a close Shapley-value relation, but the inspected sources do not give the sharp proper-game ranking boundary or its complete five-player census. The accepted statement is not implied by known computational complexity, monotonicity, egalitarian-property, or auxiliary-game identities.",
+    "residual_risks": [
+      "An unindexed older enumeration, thesis, classroom note, or software output may contain the same five-player proper-game classification.",
+      "The oldest foundational Deegan-Packel and Shapley-Shubik papers were used as bibliographic background; the first day-resolved public source date recorded for this package is the 2 September 2008 arXiv submission that treats both indices together.",
+      "The result gives no larger-player frequency law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes definitions and comparison context but contains no proper-game small-player ordinal-equivalence boundary or exact five-player census.",
+        "evidence": "arXiv:0809.0519v1, first submitted 2 September 2008; Sections 2 and 6 explicitly cover Shapley-Shubik and Deegan-Packel.",
+        "identifier_or_url": "arXiv:0809.0519",
+        "material_read": "Full arXiv PDF, including the simple-game and Shapley-Shubik definitions in Section 2 and the Deegan-Packel definition and computational discussion in Section 6.",
+        "method": "Lawful arXiv full-PDF text extraction plus rendered-page inspection.",
+        "title": "Complexity of comparison of influence of players in simple games",
+        "trigger": "Open primary source treating both indices together in simple games and giving their exact formulas."
+      },
+      {
+        "assessment": "Shows that the two indices can behave differently under a structural axiom but does not state the small proper-game ranking boundary.",
+        "evidence": "Published online 21 September 2011; Social Choice and Welfare 40, 207-227.",
+        "identifier_or_url": "doi:10.1007/s00355-011-0593-7",
+        "material_read": "Open article abstract, references, bibliographic record, and reported main results comparing the egalitarian property across indices.",
+        "method": "Publisher open-access HTML inspection.",
+        "title": "Egalitarian property for power indices",
+        "trigger": "Open-access primary article directly contrasting structural properties of Shapley-Shubik and Deegan-Packel."
+      },
+      {
+        "assessment": "Proves that Deegan-Packel is a Shapley value of a related auxiliary game and discusses weighted monotonicity, but gives no exact proper-game ordinal threshold or five-player census.",
+        "evidence": "University of Twente memorandum 2070, dated 12 September 2020; Theorem 3.1 states the auxiliary-game Shapley representation.",
+        "identifier_or_url": "UTwente:230880718",
+        "material_read": "Full institutional-repository PDF, especially the introductory comparison, formulas for both indices, Theorem 3.1, Corollary 3.1, and the monotonicity discussion.",
+        "method": "Lawful institutional full-PDF text extraction plus rendered-page inspection.",
+        "title": "Weighted and Restricted Deegan-Packel Power Indices",
+        "trigger": "Later full-text work giving the closest direct theoretical relation between Deegan-Packel and Shapley-Shubik."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1acdbecf-1e75-4bba-9f3c-66c3358c0167",
+  "value": {
+    "rationale": "Shapley-Shubik and Deegan-Packel encode two classical and substantively different models of voting power. Properness is a standard institutional consistency condition. The smallest proper voting body where the two models strictly reverse a pairwise ranking is therefore a natural structural invariant. The complete first divergent stratum and the fact that all nine classes are weighted make the result directly reusable for weighted voting examples and index-comparison benchmarks.",
+    "status": "PASS"
+  }
+}
