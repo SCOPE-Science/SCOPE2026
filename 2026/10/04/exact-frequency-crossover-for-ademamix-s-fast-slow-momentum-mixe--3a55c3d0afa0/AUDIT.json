@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The two momentum states are stable scalar EMA filters with exact transfer function \\(H_\\beta(\\omega)=(1-\\beta)/(1-\\beta e^{-i\\omega})\\). Differentiation of the squared slow-to-fast ratio with respect to \\(\\cos\\omega\\) gives a strictly positive derivative proportional to \\((\\beta_3-\\beta_1)(1-\\beta_1\\beta_3)\\), proving strict decrease with frequency and uniqueness of the crossover. For DC and Nyquist inputs, \\(g_t^2=G^2\\) makes the bias-corrected second moment exactly \\(G^2\\), so the endpoint normalized-update ratios follow without approximation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining source argues empirically that gradients can remain useful for tens of thousands of steps and introduces a second slow EMA.",
+        "The later connection paper gives accelerated-SGD interpretations and a simplified variant.",
+        "Targeted searches of the connection paper for frequency, alternating, and transfer formulations returned no matching discussion."
+      ],
+      "reasoning": "Optimization-equivalence and convergence interpretations do not determine the exact harmonic magnitude ratio of the two source EMA channels. The present crossover and endpoint gains require solving the filters directly.",
+      "searches": [
+        "The AdEMAMix Optimizer Better Faster Older two EMA old gradients",
+        "Connections between Schedule-Free Optimizers AdEMAMix accelerated SGD",
+        "AdEMAMix low frequency high frequency response"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.03137v1",
+      "arXiv:2502.02431v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source algorithm bias-corrects the fast EMA, leaves the slow EMA uncorrected, and adds the slow EMA with multiplier \\(\u0007lpha\\) before Adam-style normalization.",
+        "The source reports \\(\beta_3=0.9999\\) frequently and practical \\(\u0007lpha\\) values around \\(4\\) to \\(10\\).",
+        "The later connection paper explicitly relates AdEMAMix to accelerated stochastic-gradient methods but does not derive a harmonic crossover."
+      ],
+      "reasoning": "The prior work fixes the architecture but not its frequency boundary. The final claim follows only after deriving the exact EMA transfer functions, proving monotonicity of their ratio, solving the crossover equation, and exploiting the constant-squared-gradient endpoint signals.",
+      "searches": [
+        "arXiv:2409.03137v1 AdEMAMix beta1 beta3 alpha two EMA",
+        "arXiv:2409.03137v1 beta3 0.9999 alpha 4 10",
+        "arXiv:2502.02431v1 AdEMAMix accelerated SGD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source states the separate fast and slow EMA recurrences and their mixture in the parameter update.",
+        "The source emphasizes a slow decay near \\(0.9999\\) and practical slow-momentum multipliers in the range \\(4\\) to \\(10\\).",
+        "No inspected source states the unique frequency where the slow contribution equals the fast one, nor the endpoint selectivity ratios."
+      ],
+      "reasoning": "Equivalent formulations include equality of the two EMA channel gains, a low-pass dominance boundary for the slow channel, and a closed-form temporal-period threshold. These are not stated in the inspected AdEMAMix literature.",
+      "searches": [
+        "AdEMAMix optimizer alternating gradient exact response two EMA fast slow momentum",
+        "AdEMAMix impulse response alpha beta1 beta3 optimizer exact gain",
+        "AdEMAMix long memory gradient oscillation frequency response",
+        "AdEMAMix crossover frequency",
+        "AdEMAMix transfer function EMA mixture"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concerned adaptive-step persistence, polynomial stability, stochastic feedback, and momentum methods with different state equations.",
+        "No returned record used AdEMAMix's fast EMA, uncorrected slow EMA, slow multiplier, and Adam-style denominator in the claimed comparison."
+      ],
+      "reasoning": "The nearest database results have different update maps and cannot imply the AdEMAMix crossover law. Search absence is supporting evidence only and is combined with direct primary-source inspection.",
+      "searches": [
+        "AdEMAMix optimizer alternating gradient exact response two EMA fast slow momentum",
+        "AdEMAMix impulse response alpha beta1 beta3 optimizer exact gain",
+        "AdEMAMix long memory gradient oscillation frequency response"
+      ]
+    },
+    "rationale": "The defining source supplies the two-EMA mechanism and motivates retention of gradients over very long horizons, but does not state a harmonic fast-slow crossover or the exact DC-versus-Nyquist selectivity. A later theoretical connection paper interprets AdEMAMix through accelerated stochastic-gradient methods rather than frequency response. Focused published-record searches found no implication-equivalent AdEMAMix result.",
+    "residual_risks": [
+      "A signal-processing derivation of the same crossover may exist in unindexed implementation notes or discussions.",
+      "The source uses time-varying warmup schedules during part of training, while the theorem analyzes the settled fixed-hyperparameter regime.",
+      "The crossover is between numerator channels; the adaptive denominator prevents extending the same formula to arbitrary-frequency full updates without further assumptions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ARCHITECTURE_NOT_COVERING_EXACT_FREQUENCY_CROSSOVER.",
+        "evidence": "The source explicitly motivates a fast EMA plus a much slower EMA and reports \\(\beta_3=0.9999\\) with \\(\u0007lpha\\) values around \\(4\\) to \\(10\\), but no harmonic transfer-function boundary or DC-versus-Nyquist gain law was found.",
+        "identifier_or_url": "arXiv:2409.03137v1",
+        "material_read": "Open full-text material covering the motivation for fast and old-gradient channels, the AdEMAMix recurrence, the slow-decay and multiplier choices, warmup discussion, implementation listing, hyperparameter tables, and single-EMA comparison.",
+        "method": "Full-text HTML inspection with equation- and hyperparameter-level comparison.",
+        "title": "The AdEMAMix Optimizer: Better, Faster, Older",
+        "trigger": "Defining source for the two gradient EMAs, slow-momentum multiplier, Adam-style second moment, warmup schedules, and practical hyperparameters."
+      },
+      {
+        "assessment": "THEORETICAL_CONNECTION_NOT_COVERING_FREQUENCY_RESPONSE.",
+        "evidence": "The paper establishes accelerated-SGD connections and introduces a simplified variant; targeted frequency-response searches found no implication-equivalent result.",
+        "identifier_or_url": "arXiv:2502.02431v1",
+        "material_read": "Open full text covering the accelerated-SGD framework, explicit AdEMAMix connection, related multi-momentum methods, and simplified AdEMAMix.",
+        "method": "Full-text HTML inspection plus targeted searches for frequency, alternating, and transfer terminology.",
+        "title": "Connections between Schedule-Free Optimizers, AdEMAMix, and Accelerated SGD Variants",
+        "trigger": "Closest later theoretical treatment of AdEMAMix's momentum architecture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a55c3d0-afa0-43de-a5df-cc296f970d60",
+  "value": {
+    "rationale": "The fast-versus-old-gradient tradeoff is the defining motivation for AdEMAMix. The theorem turns that qualitative design principle into a sharp temporal-scale boundary and shows that source-typical parameters strongly amplify persistent low-frequency structure while barely changing the Nyquist response. The multi-thousand-step crossover periods align directly with the method's stated purpose of exploiting very old gradients and provide a concrete interpretation of \\(\u0007lpha\\) and \\(\beta_3\\).",
+    "status": "PASS"
+  }
+}
