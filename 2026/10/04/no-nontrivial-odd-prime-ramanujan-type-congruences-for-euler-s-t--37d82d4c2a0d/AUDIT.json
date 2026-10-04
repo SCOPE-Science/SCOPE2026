@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The factorization criterion for \\(p\\mid\\varphi(m)\\) is exact. The cases \\(p\\nmid A\\) and \\(p\\mid A, B\\not\\equiv1\\pmod p\\) produce a prime witness by CRT plus Dirichlet. In the remaining case, two reduced residue classes \\(c,d\\pmod A\\) satisfy \\(cd\\equiv B\\pmod A\\) while both avoid \\(1\\pmod p\\); distinct prime representatives therefore give a squarefree semiprime whose totient is not divisible by \\(p\\). These cases exhaust all coprime \\(A,B\\). The packaged checker independently verifies all coprime \\(A,B\\le35\\) for odd primes \\(p\\le19\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source full text proves a prime-progression obstruction in Proposition 3.5 and then states Conjecture 2, so the exceptional residue case is not covered there.",
+        "No broader theorem located in the targeted searches rules out all such totient congruences as an immediate corollary."
+      ],
+      "reasoning": "A theorem guaranteeing a \\(p\\)-avoiding totient value in every coprime progression would subsume the claim; none was found, while the focal paper itself marks the full statement as conjectural.",
+      "searches": [
+        "On Ramanujan-type Congruences for Multiplicative Functions Euler phi Section 3.2",
+        "Craig Merca Euler totient Conjecture 2 later proof",
+        "Euler totient arithmetic progression always divisible by odd prime"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.05649v1",
+      "OEIS:A000010"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Craig--Merca's Proposition 3.5 handles the case where the progression residue is not \\(1\\) modulo the congruence prime; their immediately following Conjecture 2 asks for the complete coprime statement.",
+        "The new argument changes the witness class exactly in the uncovered case: a product of two primes in complementary unit classes replaces the unavailable prime witness."
+      ],
+      "reasoning": "The new theorem is not a special case of Proposition 3.5: when \\(p\\mid A\\) and \\(B\\equiv1\\pmod p\\), every prime in the progression has totient divisible by \\(p\\), so the semiprime construction is the essential new step.",
+      "searches": [
+        "arXiv:2112.05649 Proposition 3.5 Conjecture 2 Euler totient",
+        "Craig Merca phi progression B congruent 1 mod p",
+        "phi(A n+B) divisible by p for all n coprime A B"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic-index searches returned no theorem about Craig--Merca Conjecture 2; the nearest totient hits concerned unrelated threshold and undecidability questions.",
+        "Exact web searches returned the Craig--Merca source itself and unrelated Ramanujan-type congruence literature, not a proof of the totient conjecture."
+      ],
+      "reasoning": "The searches covered the stated conjecture, its equivalent divisibility-on-an-arithmetic-progression form, and the language of nontrivial Ramanujan-type congruences for \\(\\varphi\\).",
+      "searches": [
+        "Craig Merca Conjecture 2 Euler phi Ramanujan-type congruences no coprime A B odd prime",
+        "phi(A n+B) divisible by p for all n coprime A B",
+        "Euler totient Ramanujan-type congruences coprime arithmetic progression",
+        "no nontrivial Ramanujan-type congruences Euler totient",
+        "\"Conjecture 2\" \"phi(A'n+B')\" Ramanujan-type congruences",
+        "\"there are no coprime integers\" phi Ramanujan-type congruences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000010 records Euler totient, including the standard prime-power formula, but its inspected comments and formulas do not state the coprime-progression no-congruence theorem."
+      ],
+      "reasoning": "The canonical database entry for the exact arithmetic function was checked; it supplies definitions and identities rather than this progression classification.",
+      "searches": [
+        "OEIS A000010 Euler phi arithmetic progression congruence modulo prime"
+      ]
+    },
+    "rationale": "Craig--Merca explicitly state the no-congruence assertion as Conjecture 2 after proving only the nonexceptional residue case. The new semiprime construction closes the remaining case \\(p\\mid A\\), \\(B\\equiv1\\pmod p\\). Targeted semantic-index, exact-phrase, bibliographic, and database searches did not locate a later implication-equivalent resolution.",
+    "residual_risks": [
+      "An equivalent elementary resolution may exist in an unindexed note, thesis, or source not returned by the targeted searches.",
+      "The proof invokes Dirichlet existence and gives no effective least-witness bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper handles the nonexceptional residue case and explicitly leaves the complete coprime-progression statement as Conjecture 2.",
+        "evidence": "Section 3.2 states that no nontrivial totient congruences seem to exist and formulates Conjecture 2 for odd primes; Proposition 3.5 precedes it with a restricted case.",
+        "identifier_or_url": "arXiv:2112.05649v1",
+        "material_read": "ArXiv metadata and the full PDF material around Section 3.2, Proposition 3.5, and Conjecture 2.",
+        "method": "Open-access PDF text inspection with direct page-image inspection of the conjecture page.",
+        "title": "On Ramanujan-type Congruences for Multiplicative Functions",
+        "trigger": "Primary middle-period source posing the exact totient congruence conjecture."
+      },
+      {
+        "assessment": "No inspected entry text states the arithmetic-progression theorem or resolves Craig--Merca Conjecture 2.",
+        "evidence": "The entry gives the usual formula \\(\u000barphi(n)=n\\prod_{q\\mid n}(1-1/q)\\) and standard interpretations.",
+        "identifier_or_url": "OEIS:A000010",
+        "material_read": "Current definition, comments, formulas, and references.",
+        "method": "Database-page inspection.",
+        "title": "A000010",
+        "trigger": "Canonical database entry for Euler totient."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "37d82d4c-2a0d-41e0-9ed0-36eb50bad03b",
+  "value": {
+    "rationale": "The theorem resolves an explicit published conjecture about Ramanujan-type congruences for Euler's totient. The prime-versus-semiprime dichotomy isolates exactly why the published prime-progression method stops and supplies the minimal natural extension of the witness class needed to close it. This is a complete structural result, not a finite search or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
