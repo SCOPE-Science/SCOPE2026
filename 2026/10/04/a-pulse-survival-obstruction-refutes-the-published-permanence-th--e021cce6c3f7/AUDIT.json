@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The printed x2 equation gives the rigorous upper inequality x2' <= (B+rb)x2 because x1/(k2+x1)<1 and the quadratic term is nonpositive. Combining it with the impulse produces an exact geometric upper bound when q=(1-omega)exp((B+rb)T)<1. At q=1, the independent logistic upper bound for x1 makes the gain strictly less than rb eventually, again forcing decay. The counterexample satisfies every condition explicitly listed in Theorem 3.8, as checked algebraically from the source definitions, while q<1 forces x2 to zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banerjee and Das (2016) prove boundedness and uniform-persistence results for a different seasonally perturbed two-prey/one-predator impulsive model.",
+        "Song and Li (2007) report critical impulse periods separating eradication and permanence for another Holling-II impulsive model.",
+        "The closest indexed published finding concerns Floquet reduction in a row-regular Ricker competition model, not this continuous-time fishery system."
+      ],
+      "reasoning": "Critical-period phenomena are established in the broader literature, but the present necessary bound uses the exact maximal per-capita short-mackerel growth in this source model and directly contradicts this paper's theorem hypotheses.",
+      "searches": [
+        "impulsive predator prey logistic harvest exact Floquet boundary periodic stability period threshold",
+        "small fish extinction periodic orbit impulsive fisheries local stability complete parameter classification",
+        "impulsive predator prey Holling II supremum rb x/(k+x) boundedness permanence correction"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022001",
+      "doi:10.1155/2016/9268257",
+      "doi:10.1016/j.chaos.2006.01.019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Floquet theorem concerns local stability of the small-fish-free boundary orbit and does not imply permanence for T>Tmax.",
+        "The source's permanence theorem claims a positive lower bound for both populations, while the new pulse comparison forces x2 to zero in an admissible theorem-hypothesis regime.",
+        "Related critical-period literature uses different equations and control mechanisms and does not cover the stated source parameter tuple."
+      ],
+      "reasoning": "The accepted claim is not a corollary of the source's printed Floquet multipliers: it supplies a new global upper comparison for x2 and uses it to refute a separate permanence theorem.",
+      "searches": [
+        "Prathumwan Trachoo Maiaugree Chaiya 2021 M3 rb k2 denominator boundedness permanence impulsive fishery",
+        "Rastrelliger brachysoma impulsive fishery Floquet multiplier exact threshold T max extinction periodic solution",
+        "Dynamic complexities Holling II two-prey one-predator impulsive permanence critical period"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary PDF states Theorem 3.8 with T>Tmax but without T>Tmin or another short-mackerel pulse-survival condition.",
+        "The same PDF defines the positive boundary logistic solution only when its denominator is positive and later uses that solution as a lower comparison in the permanence proof.",
+        "Searches returned the source and bibliographic mirrors but no erratum, correction, or source-specific counterexample."
+      ],
+      "reasoning": "The searches cover the literal source, theorem context, the pulse-period issue, and the separate denominator mismatch. No located statement gives the necessary condition (1-omega)exp((B+rb)T)>1 or the explicit parameter counterexample.",
+      "searches": [
+        "\"Preventing extinction in Rastrelliger brachysoma using an impulsive mathematical model\" erratum correction",
+        "\"10.3934/math.2022001\" \"M3\"",
+        "\"Rastrelliger brachysoma\" impulsive \"1+k2\" \"k2+x1\"",
+        "Rastrelliger brachysoma theorem 3.8 permanence denominator correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open primary PDF was inspected at equations (2.1)-(2.4), Lemma 3.4, the reduced impulsive logistic equation, Theorem 3.6, Definition 3.7, Theorem 3.8, its comparison proof, and Table 1.",
+        "Visual page inspection confirms that Lemma 3.4 uses denominator 1+k2*x1 while the printed model and Theorem 3.8 use k2+x1.",
+        "The source's Table-1 biological parameters are exactly the values used in the counterexample."
+      ],
+      "reasoning": "The counterexample is evaluated against the exact theorem statement and source definitions rather than against an abstract or secondary description.",
+      "searches": [
+        "doi:10.3934/math.2022001 equations 2.1 2.4 Theorem 3.8 Table 1",
+        "doi:10.3934/math.2022001 Theorem 3.6 Tmin Tmax",
+        "doi:10.3934/math.2022001 Lemma 3.4 M3"
+      ]
+    },
+    "rationale": "The primary paper states Theorem 3.8 but does not impose the necessary pulse-survival condition and does not identify the counterexample. Its proof uses a positive boundary logistic state without including the corresponding lower-period requirement in the theorem. Exact-title, DOI, theorem-number, pulse-period, denominator, correction and erratum searches found no published repair. Related impulsive predator-prey papers establish model-specific critical periods but do not imply this theorem refutation.",
+    "residual_risks": [
+      "The full text of Song and Li (2007) was access-restricted in the inspected sources; its abstract was read and is not decisive for the source-specific comparison.",
+      "A non-indexed author note could acknowledge the permanence-theorem issue.",
+      "A complete corrected sufficient permanence theorem may require additional conditions beyond the necessary pulse-survival inequality proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "THEOREM_3_8_FALSE_AS_STATED",
+        "evidence": "The theorem allows T=0.01 at the stated counterexample controls, but even the maximal possible continuous growth cannot offset the 50 percent pulse harvest, so x2 converges to zero.",
+        "identifier_or_url": "doi:10.3934/math.2022001",
+        "material_read": "Open full PDF: model equations (2.1)-(2.4); positivity and boundedness section; Lemma 3.4; reduced x1=0 logistic system; Lemma 3.5; Theorem 3.6 and its Floquet multipliers; Definition 3.7; Theorem 3.8 and its comparison proof through the lower-bound construction; Theorem 3.9; numerical parameter table and simulation discussion. Pages containing Lemma 3.4 and Theorem 3.8 were visually inspected.",
+        "method": "Derived the maximal possible per-capita growth of x2, converted it to a pulse-to-pulse extinction bound, and checked every listed Theorem 3.8 hypothesis at the source biological parameters.",
+        "title": "Preventing extinction in Rastrelliger brachysoma using an impulsive mathematical model",
+        "trigger": "Primary source containing the permanence theorem and the impulsive fishery equations."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_MODEL",
+        "evidence": "The paper establishes persistence and eradication conditions for a seasonally perturbed two-prey/one-predator model but does not contain the mackerel equations or this pulse-survival counterexample.",
+        "identifier_or_url": "doi:10.1155/2016/9268257",
+        "material_read": "Full HTML: impulsive model formulation, comparison lemmas, boundedness and uniform-persistence section, prey-eradication periodic solution, and Floquet-stability theorems.",
+        "method": "Compared its model-specific persistence architecture and critical-period analysis with the source theorem.",
+        "title": "Impulsive Control on Seasonally Perturbed General Holling Type Two-Prey One-Predator Model",
+        "trigger": "Closest fully accessible primary literature on impulsive Holling-type persistence and eradication thresholds."
+      },
+      {
+        "assessment": "RELATED_CRITICAL_PERIOD_RESULT_FULL_TEXT_NOT_INSPECTED",
+        "evidence": "The abstract states that small periods can yield eradication and larger periods permanence in a different Holling-II system, but it does not provide the present source-specific condition or parameter counterexample.",
+        "identifier_or_url": "doi:10.1016/j.chaos.2006.01.019",
+        "material_read": "Published abstract and bibliographic record; publisher full text was access-restricted in the inspected sources.",
+        "method": "Checked whether the accessible statement already implies the source-specific theorem refutation.",
+        "title": "Dynamic complexities of a Holling II two-prey one-predator system with impulsive effect",
+        "trigger": "Earlier primary literature explicitly relating impulse period to eradication and permanence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e021cce6-c3f7-493c-b7bd-74437ff9edd7",
+  "value": {
+    "rationale": "The source uses Theorem 3.8 to identify fishery regimes in which both populations persist. The counterexample shows that its listed conditions can instead force the economically central short-mackerel population to extinction, even while retaining the paper's own biological parameters. The necessary pulse-survival inequality is simple, model-intrinsic, and directly constrains any corrected management threshold.",
+    "status": "PASS"
+  }
+}
