@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The center-blue case reduces exactly to the path non-forcing characterization. With a white center, the first force must target the center; this is equivalent to an endpoint pair or three consecutive path vertices. Those triggers guarantee completion. The resulting binary-string complement is counted exactly, and exhaustive direct simulation through \\(m=17\\) matches every coefficient.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 paper gives the exact path polynomial and an exact wheel formula using a dominating-vertex split.",
+        "The 2024 paper proves all outerplanar graphs satisfy the path-extremal coefficient inequality and Lemma 3.8 treats cones.",
+        "The maximal-outerplanar literature identifies fans as a basic family but studies minimum, total, or connected zero forcing rather than this all-set polynomial."
+      ],
+      "reasoning": "These sources cover broader graph classes or related zero-forcing objectives, but their statements provide bounds or minimum parameters. Neither broader theorem specializes to the exact coefficient sequence claimed here.",
+      "searches": [
+        "Inspect arXiv:1801.08910v1 Sections 3–5, especially Proposition 5 and Theorem 8",
+        "Inspect arXiv:2405.01423v1 Sections 2 and 3.2 on path counts, outerplanar graphs, and cones",
+        "web: zero forcing in triangulations fan maximal outerplanar"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.08910v1",
+      "DOI:10.1016/j.dam.2018.11.033",
+      "arXiv:2405.01423v1",
+      "DOI:10.1016/j.disc.2025.114516",
+      "DOI:10.1016/j.cam.2018.05.055",
+      "semantic-index searches recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5 supplies only the path term in the final decomposition.",
+        "Theorem 8 handles wheels, where center-free forcing corresponds to a cyclic path block rather than the fan boundary trigger condition.",
+        "Lemma 3.8 of the 2024 paper proves a lower bound on non-forcing sets in cones and does not give equality for cones over paths.",
+        "The 2018 full-text search has no occurrence of fan."
+      ],
+      "reasoning": "The final claim requires an exact characterization of center-free fan forcing sets. Neither the path formula, the wheel formula, nor the general cone inequality determines that missing class, so the fan polynomial is not a corollary of the inspected statements.",
+      "searches": [
+        "Compare Proposition 5 and Theorem 8 of arXiv:1801.08910v1 with fan K_1 join P_m",
+        "Compare Lemma 3.8 of arXiv:2405.01423v1 with exact fan coefficients",
+        "Search arXiv:1801.08910v1 full text for fan"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1801.08910v1 defines the zero forcing polynomial and gives exact path and wheel formulas.",
+        "arXiv:2405.01423v1 studies the same coefficient counts and cones, but through inequalities.",
+        "No searched source states the endpoint-pair/three-run classification or the boundary-tribonacci fan formula."
+      ],
+      "reasoning": "The fan is a cone over a path, but the known cone result only preserves a coefficientwise extremal inequality. It does not identify which center-free subsets can first force the cone vertex, so it does not imply the exact polynomial.",
+      "searches": [
+        "semantic index: zero forcing polynomial fan graph K1 join path",
+        "semantic index: zero forcing sets fan graph K1 vee path enumeration",
+        "web: \"zero forcing polynomial\" \"fan graph\"",
+        "web: \"zero forcing\" \"fan graph\" polynomial",
+        "web: \"zero forcing polynomial\" \"K_1\" \"P_n\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index result on the zero forcing polynomial concerns coefficientwise extremality among trees.",
+        "The closest graph-family polynomial result on generalized windmills concerns a different position-set invariant.",
+        "No semantic-index result gives a fan zero forcing polynomial."
+      ],
+      "reasoning": "The closest indexed findings either use the same zero-forcing polynomial on trees or use a different polynomial on cone-like graphs; neither implies the fan coefficient formula.",
+      "searches": [
+        "semantic index: zero forcing polynomial maximal outerplanar fan",
+        "semantic index: random zero forcing fan graph counting all zero forcing sets",
+        "semantic index: zero forcing polynomial fan graph K1 join path"
+      ]
+    },
+    "rationale": "The inspected primary sources give path and wheel formulas and general outerplanar/cone inequalities, but no exact fan coefficient sequence or trigger classification.",
+    "residual_risks": [
+      "A differently phrased or non-indexed exact fan enumeration may exist.",
+      "The 2025 journal version of the graph-operations paper is broader in presentation, but the inspected 2024 full preprint already contains the cone and outerplanar results relevant to implication checking."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the polynomial and covers paths and wheels, but not fan graphs.",
+        "evidence": [
+          "Version 1 was public on 26 January 2018.",
+          "Proposition 5 characterizes path non-forcing sets and gives the path polynomial.",
+          "Theorem 8 gives a wheel polynomial via a dominating-vertex split.",
+          "Full-text search found no occurrence of fan."
+        ],
+        "identifier_or_url": "arXiv:1801.08910v1",
+        "material_read": "Full accessible manuscript, with focused inspection of the path formula, wheel theorem and surrounding family section, plus full-text search for fan.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Foundational same-invariant source and strongest risk of a pre-existing family formula."
+      },
+      {
+        "assessment": "Proves coefficientwise path-extremal bounds for outerplanar graphs and cones; it does not give equality or an exact cone-over-path coefficient formula.",
+        "evidence": [
+          "Version 1 was public on 2 May 2024.",
+          "The title page lists MSC2020 codes in graph theory including 05C15.",
+          "Lemma 3.8 gives a non-forcing-set inequality for cones.",
+          "The outerplanar theorem supplies coefficient bounds, not exact fan coefficients."
+        ],
+        "identifier_or_url": "arXiv:2405.01423v1",
+        "material_read": "Full accessible manuscript introduction, path-count preliminaries, outerplanar theorem, and cone/simplicial-vertex section including Lemma 3.8.",
+        "method": "Primary full-text implication comparison.",
+        "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+        "trigger": "Later same-counting literature covering outerplanar graphs and the cone operation, directly overlapping the fan construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f3b2c94d-a283-4d98-8c9f-5797b4432c93",
+  "value": {
+    "rationale": "The zero forcing polynomial is an established counting invariant, and fan graphs are a standard maximal outerplanar family. The theorem converts their full forcing-set space into a compact structural rule and exact polynomial, strictly refining the known minimum value and general coefficient bounds.",
+    "status": "PASS"
+  }
+}
