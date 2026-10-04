@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The ordered-uniform density transformed to minimum, range, and normalized interior coordinates factors as a product, proving endpoint-shape independence. Sample variance divided by squared range depends only on the normalized shape. Its mean is obtained exactly from two fixed endpoints and n-2 iid uniform interior points. Combining independence with the beta(n-1,2) range moments gives the stated covariance formula and strict positivity for q>0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Papadatos treats sharp expected-range bounds under means, variances, and general dependence and reviews classical range inequalities.",
+        "Cheng--Hu--Lin treat deterministic range/standard-deviation inequalities, same-sample studentized range, and uniform range moments."
+      ],
+      "reasoning": "These sources cover the same range statistic and, in the recent paper, the same sample standard deviation. Their stated theorems do not condition sample variance on the range or factor the variance into an endpoint-independent normalized shape.",
+      "searches": [
+        "arXiv:1405.6884",
+        "DOI:10.1007/s13171-026-00457-6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.6884",
+      "DOI:10.1007/s13171-026-00457-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior three-point finding concerns Cov(sample mean, sample range) for a discrete three-point law and does not involve sample variance or continuous uniform normalized shape.",
+        "The prior fixed-profile expected-range finding compares E[R_N] with parent standard deviation over variable finite supports; it does not study the joint distribution of range and sample variance.",
+        "Expected-range inequalities do not determine same-sample covariance or conditional regression.",
+        "Deterministic range/standard-deviation inequalities constrain the ratio pointwise but do not imply independence of S^2/R^2 from the random endpoints."
+      ],
+      "reasoning": "The current claim requires the continuous-uniform minimum/range/shape factorization and an exact same-sample moment calculation. Neither the earlier discrete range results nor the deterministic inequalities imply this factorization or covariance family.",
+      "searches": [
+        "own three-point sample mean range covariance",
+        "own fixed-profile expected sample range standard deviation",
+        "published sample range expected bounds variance",
+        "published same-sample range standard deviation inequalities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact-phrase and alias searches located normalized-spacing and studentized-range literature but no statement that the unbiased sample variance divided by squared range is independent of both extrema.",
+        "No located source stated the conditional regression E[S^2|R]=c_n R^2 or the all-q covariance formula."
+      ],
+      "reasoning": "The searches cover variance/range ratios, studentized-range terminology, normalized spacings, endpoint independence, and exact covariance formulations. Search failure is not treated as proof of originality; it is combined with statement-level full-text comparison against the directly relevant range papers.",
+      "searches": [
+        "\"sample variance\" \"range squared\" independent uniform distribution",
+        "\"S^2/R^2\" uniform sample range variance",
+        "\"variance divided by range\" uniform sample independent",
+        "\"normalized spacings\" \"sample range\" independent",
+        "uniform sample studentized range variance ratio independent range"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record matching Cov(R,S^2)=w^3/[3(n+1)(n+3)] or the general q formula was located."
+      ],
+      "reasoning": "The finding is symbolic for every n>=2, every interval width, and every real q>0, and includes a structural independence theorem rather than a finite numerical table.",
+      "searches": [
+        "\"Cov(R,S^2)\" uniform sample",
+        "\"sample range\" covariance \"sample variance\" uniform",
+        "\"1/[3(n+1)(n+3)]\" range variance",
+        "uniform sample range variance covariance exact"
+      ]
+    },
+    "rationale": "The closest inspected range literature studies expectation bounds or deterministic range-versus-standard-deviation inequalities. The inspected 2026 source records the uniform beta range moments and general same-sample dependence but does not state the exact independence of S^2/R^2 from the endpoints or the resulting regression and covariance family. The normalized-spacing mechanism is classical in spirit, so the novelty claim is deliberately restricted to these variance consequences.",
+    "residual_risks": [
+      "Classical uniform-spacing or invariant-statistic literature may encode the endpoint/normalized-shape independence in a form that makes the variance consequence immediate.",
+      "The main algebra after the shape factorization is elementary; originality rests on the specific independence/regression/covariance package rather than a new integration technique.",
+      "No claim is made for nonuniform continuous parent laws, where the factorization generally fails."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXPECTED_RANGE_OPTIMIZATION_NOT_UNIFORM_RANGE_VARIANCE_FACTORISATION",
+        "evidence": "The article studies optimal expected range under moment information and dependence freedom. The inspected text does not specialize to a uniform parent or derive a sample-variance conditional regression or covariance with range.",
+        "identifier_or_url": "arXiv:1405.6884",
+        "material_read": "Full arXiv HTML introduction and range setup, including the stated MSC 62G30, the classical iid expected-range inequality, the broader moment-constrained range problem, and searches within the full text for uniform, sample variance, and covariance.",
+        "method": "Compared the statistic optimized, conditioning variables, parent-law specialization, and whether same-sample range/variance dependence is studied.",
+        "title": "Maximizing the expected range from dependent observations under mean-variance information",
+        "trigger": "Archive-era primary source with verified primary MSC 62G30 and a detailed review of range inequalities."
+      },
+      {
+        "assessment": "DETERMINISTIC_RANGE_SD_INEQUALITIES_AND_RANGE_MOMENTS_NOT_CONDITIONAL_VARIANCE_LAW",
+        "evidence": "The article states that same-sample range and standard deviation are generally dependent and gives E[R_n^p] explicitly for a uniform parent. It does not state endpoint independence of S^2/R^2, E[S^2|R], or the covariance formulas.",
+        "identifier_or_url": "DOI:10.1007/s13171-026-00457-6",
+        "material_read": "Full open-access HTML through the introduction, main range inequality, uniform-distribution application, beta range moment formula, and reference discussion; targeted full-text searches for conditional and independence statements were also checked.",
+        "method": "Compared deterministic ratio inequalities, uniform range moments, same-sample dependence discussion, and the stochastic claims in the finding.",
+        "title": "On the Sample Range Inequalities",
+        "trigger": "Most directly relevant full text because it studies sample range and sample standard deviation from the same sample and explicitly evaluates uniform range moments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db8997d1-2531-42dc-9f93-1256cfbf16ba",
+  "value": {
+    "rationale": "Sample range and sample variance are canonical dispersion summaries and are compared directly in classical range-standard-deviation theory. The exact endpoint-independent normalization gives a stronger structural relationship than a single covariance value, and the all-power covariance formula quantifies the resulting positive dependence for every sample size.",
+    "status": "PASS"
+  }
+}
