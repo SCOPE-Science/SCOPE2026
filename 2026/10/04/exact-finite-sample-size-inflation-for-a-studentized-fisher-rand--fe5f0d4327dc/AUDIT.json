@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The potential-outcome table satisfies the weak null exactly because the six effects sum to zero. The test is reconstructed from the source treatment-control statistic. Exact Fraction arithmetic enumerates all \\(20\\) actual assignments and all \\(20\\) sharp-null rerandomizations for each, giving p-value counts \\(7\\) at \\(1/10\\), \\(3\\) at \\(1/5\\), \\(3\\) at \\(9/10\\), and \\(7\\) at \\(1\\). Thus \\(7\\) of \\(20\\) assignments reject at \\(\\alpha=0.1\\). All \\(400\\) studentizing denominators are positive, with exact minimum \\(246719/2250000\\). The bundled checker asserts each of these facts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1111/rssb.12439 states that sharp-null randomization tests can be anti-conservative under a weak null and that, for completely randomized designs, studentization supplies asymptotic sharp dominance.",
+        "arXiv:1809.07419 states finite-sample exactness under the sharp null and asymptotic weak-null conservativeness for the advocated studentized statistic."
+      ],
+      "reasoning": "These are broader conceptual and asymptotic results. Neither provides finite-sample weak-null validity, so neither dominates an exact finite counterexample. The later paper explicitly treats finite-sample exactness as a sharp-null property while discussing weak-null behavior asymptotically.",
+      "searches": [
+        "Randomization Tests for Weak Null Hypotheses finite sample studentized simulation type I error",
+        "Gaussian prepivoting finite population weak null studentizing completely randomized design",
+        "Neyman null studentized randomization test finite sample invalid"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1809.07419",
+      "doi:10.1080/01621459.2020.1750415",
+      "doi:10.1111/rssb.12439",
+      "doi:10.1093/biomet/asx059",
+      "doi:10.1016/S0167-7152(97)00043-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:1809.07419 the treatment-control result is explicitly asymptotic under the weak null; exactness is attached to the sharp null.",
+        "Its finite-sample simulations use ANOVA with three arms and a factorial design with four arms, not the two-arm complete-randomization case.",
+        "DOI 10.1111/rssb.12439 recovers studentization as the completely randomized asymptotic fix but does not assert finite-sample weak-null control."
+      ],
+      "reasoning": "An asymptotic stochastic-dominance guarantee cannot imply a finite-sample bound at \\(N=6\\). The exact p-value distribution is therefore neither a special case nor a numerical restatement of the cited theorems.",
+      "searches": [
+        "weak null finite-sample studentized randomization test treatment-control",
+        "t statistic Fisher randomization weak null finite sample type I error treatment control",
+        "studentized permutation tests non-iid generalized Behrens Fisher weak null"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1809.07419 defines the treatment-control studentized statistic and distinguishes finite-sample sharp-null exactness from asymptotic weak-null control.",
+        "The source full text was inspected at the treatment-control specialization and simulation sections; no six-unit or exact two-arm weak-null p-value table was found.",
+        "Focused semantic search returned no matching record; closest returned records concerned different randomized-experiment tail bounds or unrelated t-test dependence constructions."
+      ],
+      "reasoning": "Aliases including studentized Fisher randomization test, studentized FRT, weak/Neyman null, balanced treatment-control, and exact finite-sample counterexample were checked. The published statements found are asymptotic or concern different designs/statistics, so they do not imply the exact \\(7/20\\) claim.",
+      "searches": [
+        "studentized Fisher randomization test weak null six units exact 0.35 size 0.1",
+        "balanced treatment-control studentized FRT finite-sample anti-conservative weak null",
+        "exact finite-sample counterexample studentized randomization weak null average treatment effect",
+        "studentized randomization test weak null finite sample anti-conservative causal inference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic-database record 2026/9/20/SCOPE-sharp-worst-case-moderate-deviations-randomized-experiments--364da77b6b14 concerns moderate-deviation exponents for treatment-effect estimators, not Fisher reference p-values.",
+        "Closest semantic-database record 2026/9/20/SCOPE-pure-n-way-dependence-student-t-size-iid-gaussian-marginals--06f336863f9d concerns an ordinary one-sample t-test under high-order dependence, not randomization inference.",
+        "No retrieved table or database entry gave the displayed six-unit potential outcomes or the p-value multiplicities \\(7,3,3,7\\)."
+      ],
+      "reasoning": "Database searches targeted the exact statistic, null, sample size, nominal level, and numerical size. Returned near-neighbors do not use the same randomization object or imply the claim.",
+      "searches": [
+        "studentized Fisher randomization test weak null six units exact 0.35 size 0.1",
+        "randomization tests weak null finite sample exact size studentized difference in means 2017",
+        "Fisher randomization test Neyman weak null studentized finite sample counterexample exact"
+      ]
+    },
+    "rationale": "The exact finite-sample witness is not a corollary of the cited asymptotic weak-null results. The primary source supplies the statistic and asymptotic guarantee but does not give this balanced two-arm exact p-value distribution; its finite-sample simulations use three- and four-arm settings. Later Gaussian-prepivoting work supplies broader conceptual warnings and asymptotic comparisons but not this exact six-unit calculation.",
+    "residual_risks": [
+      "Older permutation-test or randomization-inference literature could contain an equivalent small finite example that was not surfaced by the focused searches.",
+      "No claim of minimal sample size or worst-case inflation is made, so the originality assessment is limited to the explicit six-unit exact p-value distribution and size statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact claim. It provides finite-sample sharp-null exactness and asymptotic weak-null control, while its finite-sample simulations use three- and four-arm designs.",
+        "evidence": "The treatment-control specialization identifies the statistic as the squared studentized difference in means; the simulation setup explicitly selects J=3 ANOVA and J=4 factorial cases.",
+        "identifier_or_url": "arXiv:1809.07419",
+        "material_read": "Abstract and introduction; Sections 3.1 and 4.2; treatment-control equation for the studentized statistic; Sections 6.1.1 and 6.1.2 on finite-sample simulations; relevant proof statements.",
+        "method": "Full-text inspection of the lawful open preprint, including rendered PDF pages for the treatment-control specialization.",
+        "title": "Randomization Tests for Weak Null Hypotheses in Randomized Experiments",
+        "trigger": "Primary source defining the advocated studentized FRT and its weak-null guarantee."
+      },
+      {
+        "assessment": "NOT_COVERING the exact claim. It provides broader asymptotic theory and examples in other designs but no six-unit exact p-value law for the balanced completely randomized studentized test.",
+        "evidence": "The article describes studentization as furnishing asymptotic sharp dominance in completely randomized designs and reserves finite-sample exactness for the sharp null.",
+        "identifier_or_url": "doi:10.1111/rssb.12439",
+        "material_read": "Abstract; discussion of anti-conservatism under weak nulls; completely randomized difference-in-means example; discussion contrasting exact sharp-null and asymptotic weak-null validity.",
+        "method": "Full-text publisher HTML inspection.",
+        "title": "Gaussian Prepivoting for Finite Population Causal Inference",
+        "trigger": "Later work explicitly comparing sharp-null randomization references and weak-null validity, with studentization as a special case."
+      },
+      {
+        "assessment": "NOT_COVERING the exact claim. The work addresses multi-treatment ANOVA and asymptotic robustness rather than the displayed two-arm exact finite-population enumeration.",
+        "evidence": "The article frames type-I inflation for the F statistic in multi-treatment experiments and proposes an asymptotically robust alternative.",
+        "identifier_or_url": "doi:10.1093/biomet/asx059",
+        "material_read": "Publisher summary and discussion of type-I inflation, treatment heterogeneity, and the proposed robust statistic.",
+        "method": "Publisher-page inspection.",
+        "title": "A randomization-based perspective on analysis of variance: a test statistic robust to treatment effect heterogeneity",
+        "trigger": "Earlier closely related randomization-inference work on weak nulls and studentized/robust statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe5f0d43-27dc-499f-b76d-81817dc0dc79",
+  "value": {
+    "rationale": "The example quantifies a substantive finite-sample gap in a standard asymptotically valid recommendation. A rejection probability \\(0.35\\) at nominal level \\(0.1\\) in a balanced six-unit experiment is large enough to matter conceptually, while the exact rational enumeration makes the example reusable as a benchmark for finite-sample weak-null methods. The value is the boundary phenomenon itself, not merely the existence of code or a recomputed table.",
+    "status": "PASS"
+  }
+}
