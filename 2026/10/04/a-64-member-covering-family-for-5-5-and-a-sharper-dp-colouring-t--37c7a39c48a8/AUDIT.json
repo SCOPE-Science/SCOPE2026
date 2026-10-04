@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The explicit certificate has 64 distinct members of S_5^5. Exhaustive deterministic evaluation verifies that every one of the 3125 points of [5]^5 is mapped to five pairwise distinct values by at least one family member. This proves kappa(5)<=64. The published theorem mu(l)=kappa(l) then yields mu(5)<=64; no optimality inference is made from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.33966v1 gives a general upper-bound construction whose small-value table lists upper bound 134 for l=5.",
+        "arXiv:1803.09141 gives an earlier general complete-bipartite threshold bound that is weaker at k=5."
+      ],
+      "reasoning": "The new certificate is quantitatively stronger than the broader published upper bounds in the only parameter value claimed; those theorems do not imply the value 64.",
+      "searches": [
+        "arXiv:2609.33966v1 Theorem 10 mu(5) upper bound",
+        "arXiv:1803.09141 complete bipartite DP-chromatic upper bound",
+        "complete bipartite DP-coloring K_{5,t} threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.33966v1",
+      "arXiv:1803.09141",
+      "DOI:10.1016/j.disc.2018.08.003"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The initiating source proves only the implication from any covering family to the DP threshold and supplies a 134-member upper-bound construction for l=5.",
+        "The explicit 64-member list is new evidence beyond those prior implications."
+      ],
+      "reasoning": "A general theorem saying mu(5)=kappa(5) does not itself imply kappa(5)<=64. The new content is the concrete smaller covering family, so it is neither a restatement nor a special case of the prior 134 upper bound.",
+      "searches": [
+        "64 covering family [5]^5 permutations",
+        "mu(5)<=64 DP-coloring",
+        "chi_DP K_{5,t}=6 t 64"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.33966v1 defines kappa(l) by l-tuples of permutations covering [l]^l and proves mu(l)=kappa(l).",
+        "The 64-member certificate is checked directly in that permutation formulation."
+      ],
+      "reasoning": "Because the source proves equivalence of the covering and DP-threshold parameters, searches were performed under both formulations. No checked result states or implies kappa(5)<=64 or mu(5)<=64.",
+      "searches": [
+        "DP-coloring complete bipartite threshold mu(5) covering family [5]^5 permutations",
+        "minimum covering family [5]^5 pairwise distinct images permutations",
+        "upper bound chi_DP K_{5,t} mu(5)",
+        "mu(5) DP-coloring covering family",
+        "kappa(5) covering family permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The small-value table in arXiv:2609.33966v1 records mu(4)=12 and leaves the exact value mu(5) unknown, with upper bound 134.",
+        "No checked exact-value table supplied a value or upper bound at most 64 for mu(5)."
+      ],
+      "reasoning": "The closest explicit table confirms that the claimed improvement is not already contained in the initiating source.",
+      "searches": [
+        "arXiv:2609.33966v1 small values mu(1) mu(2) mu(3) mu(4) mu(5)",
+        "mu(5) kappa(5) exact value"
+      ]
+    },
+    "rationale": "The closest same-invariant source records mu(5) as unknown and gives upper bound 134, while the earlier complete-bipartite DP-colouring theorem is weaker at k=5. Targeted searches across the equivalent covering-family and DP-threshold formulations found no result implying the 64-member bound.",
+    "residual_risks": [
+      "An equivalent or stronger construction could exist in unindexed or very recent literature under terminology not reached by the checked searches; no such source was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves mu(l)=kappa(l), but records the exact value at l=5 as unknown and gives upper bound 134.",
+        "evidence": [
+          "The source's table lists l=5 with unknown exact value and upper bound 134."
+        ],
+        "identifier_or_url": "arXiv:2609.33966v1",
+        "material_read": "Definition of covering family and kappa(l), Theorems 7, 8, and 10, and the small-value table including l=5.",
+        "method": "Full arXiv HTML text.",
+        "title": "Covering Families for DP-Coloring of Cartesian Products with Complete Bipartite Graphs",
+        "trigger": "Same invariant and source of the covering-family equivalence."
+      },
+      {
+        "assessment": "NOT_COVERING: its general bound is weaker at k=5 and does not provide the 64-member covering family.",
+        "evidence": [
+          "The published upper threshold has the form 1+(k^k/k!)(log(k!)+1), which is larger than 64 at k=5."
+        ],
+        "identifier_or_url": "arXiv:1803.09141; DOI:10.1016/j.disc.2018.08.003",
+        "material_read": "Abstract and stated complete-bipartite upper and lower threshold bounds.",
+        "method": "arXiv record and bibliographic abstract.",
+        "title": "A Note on the DP-Chromatic Number of Complete Bipartite Graphs",
+        "trigger": "Earlier general threshold theorem for chi_DP(K_{k,t})."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "37c7a39c-48a8-4a66-b158-d403d497993b",
+  "value": {
+    "rationale": "The source highlights mu(5) as the first unresolved small case after mu(4)=12. Replacing the published upper bound 134 by an explicit, fully replayable upper bound 64 is a substantial improvement for a natural finite extremal parameter, without relying on an arbitrary slice or a routine reformulation.",
+    "status": "PASS"
+  }
+}
