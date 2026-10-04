@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact factorization gives pairwise gcd control; integrality restricts all odd denominator primes to the other support prime; higher binary bits therefore occur at most once per odd-prime exponent. The sole possible four-component odd case contradicts multiplicative-order divisibility modulo q versus q+1 being a power of two. The published J<=3 classification then yields exactly 6 and 45. Exact bounded replay independently finds only those two examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper gives explicit bounds for arbitrary J and a complete list only for J<=3.",
+        "The public J=4 classification lists six numbers, all with at least three prime factors, but does not constrain J>=5 two-prime support."
+      ],
+      "reasoning": "General finiteness and upper bounds do not imply the support-specific collapse J<=3. The new gcd/order argument excludes all unbounded higher-component layers simultaneously.",
+      "searches": [
+        "published-finding corpus: infinitary harmonic numbers exactly two distinct prime factors p^a q^b",
+        "published-finding corpus: infinitary harmonic p^a q^b classification",
+        "Web: infinitary harmonic exactly two prime factors",
+        "Cambridge 2026 article full text"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S0004972700017949",
+      "doi:10.1017/S0004972726101324",
+      "oeis:A063947",
+      "oeis:A361385",
+      "published-finding corpus:2026/9/20/SCOPE-infinitary-harmonic-four-i-components--0182bc176f0b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hagis-Cohen prove finiteness for each fixed J, not a uniform support bound.",
+        "Hasanalizade proves the J<=3 classification and T_{3,2}=empty.",
+        "The J=4 finding covers exactly J=4."
+      ],
+      "reasoning": "The final claim is not a special case of any checked stronger statement. It supplies the missing implication from two-prime support to J<=3; only after that new implication do the published low-J classifications yield {6,45}.",
+      "searches": [
+        "Cambridge 1990 full text: Theorem 3 fixed I-components",
+        "Cambridge 2026 full text lines containing T_{2,2}, T_{3,2}",
+        "published-finding corpus closest ID 2026/9/20/SCOPE-infinitary-harmonic-four-i-components--0182bc176f0b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cambridge 2026 Lemma 2.3 and proof: T_{2,2}={6,45}, T_{3,2}=empty; no statement for all k.",
+        "published-finding corpus closest hit 2026/9/20/SCOPE-infinitary-harmonic-four-i-components--0182bc176f0b classifies J=4 globally."
+      ],
+      "reasoning": "The final statement is equivalent to saying every two-prime IHN lies in T_{2,2}, or T_{k,2}=empty for every k>=3. Published low-component results establish only k=2 and k=3, while the J=4 database result treats one further layer, so none is equivalent to the all-k statement.",
+      "searches": [
+        "published-finding corpus: infinitary harmonic two prime factors at most three I-components",
+        "published-finding corpus: two-prime infinitary harmonic J<=3",
+        "published-finding corpus: infinitary harmonic T k 2 empty k greater than 3",
+        "Cambridge 2026 full text: T_{k,l}, prime factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A063947 is an enumerated sequence and does not claim an exhaustive two-prime-support theorem.",
+        "OEIS A361385 records I-component counts for listed IHNs but gives only the general finiteness statement."
+      ],
+      "reasoning": "Finite sequence tables corroborate examples but cannot cover arbitrarily large exponents or prove absence of higher-I-component two-prime cases.",
+      "searches": [
+        "OEIS A063947 infinitary harmonic numbers",
+        "OEIS A361385 I-components of infinitary harmonic numbers",
+        "published-finding corpus: infinitary harmonic four I-components"
+      ]
+    },
+    "rationale": "The checked literature separately handles fixed J, J<=3, and J=4, but no inspected source states or implies that arbitrary two-prime support forces J<=3.",
+    "residual_risks": [
+      "Older or poorly indexed infinitary-divisor literature may contain an equivalent support bound despite the negative searches.",
+      "The 1990 print article has only month-level publication metadata in the inspected record; the exact-day archive anchor therefore uses the earlier day-resolved public OEIS record from 2001-09-03."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves finiteness for fixed J and gives a finite table, not a two-prime all-J collapse.",
+        "evidence": "Theorem 3 states finiteness for a specified number of I-components; Table 1 lists examples through 10^6.",
+        "identifier_or_url": "doi:10.1017/S0004972700017949",
+        "material_read": "Full article, especially defining formulas, Theorems 2-3, and Table 1",
+        "method": "Publisher PDF/full-text inspection",
+        "title": "Infinitary harmonic numbers",
+        "trigger": "Foundational definition and fixed-I-component theorem"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: proves J<=3 list, T_{2,2}={6,45}, and T_{3,2}=empty, but does not exclude T_{k,2} for all k>=4.",
+        "evidence": "Lemma 2.3 and proof explicitly treat T_{2,2} and T_{3,2}.",
+        "identifier_or_url": "doi:10.1017/S0004972726101324",
+        "material_read": "Full HTML sections defining I-components and Lemma 2.3 proof",
+        "method": "Publisher full-text inspection",
+        "title": "Upper bounds for infinitary harmonic numbers and infinitary harmonious tuples",
+        "trigger": "Closest complete small-component result"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: exact J=4 classification only; it does not cover unbounded J.",
+        "evidence": "Summary states exactly six J=4 IHNs and describes extension from J<=3 to J<=4.",
+        "identifier_or_url": "published-finding corpus:2026/9/20/SCOPE-infinitary-harmonic-four-i-components--0182bc176f0b",
+        "material_read": "published-finding corpus title and scientific summary",
+        "method": "Semantic database inspection",
+        "title": "Exact classification of infinitary harmonic numbers with four I-components",
+        "trigger": "Closest published database result in the next I-component layer"
+      },
+      {
+        "assessment": "NOT_COVERING: enumerates terms without an exhaustive two-prime-support theorem.",
+        "evidence": "The record lists terms beginning 1,6,45,60,90,... and cites Hagis-Cohen.",
+        "identifier_or_url": "oeis:A063947",
+        "material_read": "Definition, initial terms, references, and record metadata",
+        "method": "Public sequence record inspection",
+        "title": "OEIS A063947: Infinitary harmonic numbers",
+        "trigger": "Exact sequence/table and archive anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c49974b-623b-4d86-b18f-2bf3aee632a2",
+  "value": {
+    "rationale": "The number of prime factors is a natural structural invariant for harmonic-number classes. Closing the complete two-prime-support stratum removes all arbitrarily large exponent patterns at once and converts an unbounded classification problem to a known finite low-I-component classification; this is substantially stronger than another bounded enumeration.",
+    "status": "PASS"
+  }
+}
