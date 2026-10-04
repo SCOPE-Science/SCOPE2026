@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "The claim follows from the source functional equation and a finite interval enclosure. Each transfer matrix has max-row-sum norm one because \\(p+p^2=1\\). Support in [0,2/3] gives \\(|F(t)-1|\\le4\\pi|t|/3\\), so at depth 42 the terminal-vector error on \\(|\\xi|\\le1000\\) is bounded by \\((88/21)1000/2^{42}\\). The packaged verifier encloses the full depth-42 matrix product on an adaptive cover of [0,1000] using outward interval arithmetic; every leaf has either its real or imaginary enclosure separated from zero by more than the tail radius. Replay returned VERIFY_OK with 10,908 leaves and minimum post-tail margin 2.15110083984447931e-07. Conjugate symmetry covers negative xi. The result is explicitly finite-range only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Exact-map searches returned Mao--Wu as the relevant same-object source; broader zero-free Fourier results found concern different geometric objects.",
+        "Mao--Wu explain that classical homogeneous spectral Cantor-measure machinery relies on an infinite convolution structure absent from their non-homogeneous model."
+      ],
+      "reasoning": "Broader zero-free Fourier theorems and homogeneous spectral Cantor results do not dominate the claim because they concern different objects or hypotheses. The same-object source itself leaves rigorous larger-range verification open.",
+      "searches": [
+        "\"x/2\" \"(x+2)/4\" self-similar measure Fourier spectrum",
+        "\"rho_1=1/2\" \"rho_2=1/4\" spectral measure",
+        "\"golden-mean self-similar measure\" Fourier zero-free interval",
+        "\"p=(sqrt(5)-1)/2\" self-similar measure Fourier"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.04701v1",
+      "Łaba--Wang, Journal of Functional Analysis 193 (2002), 409--420"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A theorem on [-1.08,1.08] does not imply nonvanishing up to 1000.",
+        "A finite-precision numerical scan, explicitly described by its authors as non-formal, does not logically imply continuum nonvanishing."
+      ],
+      "reasoning": "The new finite certificate is strictly stronger than the prior rigorous interval while strictly weaker in range than the prior numerical scan; it supplies the missing proof status on the subrange rather than repackaging the scan.",
+      "searches": [
+        "arXiv:2609.04701v1 Proposition 3.3",
+        "arXiv:2609.04701v1 Section 4 concluding remark",
+        "golden mean self-similar measure zero-free Fourier transform rigorous interval computer assisted proof",
+        "2609.04701 rigorous zero free interval 1000 Fourier transform golden mean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mao--Wu Proposition 3.3 states zero-freeness only on \\([-1.08,1.08]\\).",
+        "Mao--Wu Section 4 scans to \\(10^7\\) numerically but its concluding remark says the computation is not a formal proof and leaves rigorous computer-assisted verification for future work.",
+        "The exact same-object recursion is \\(F(\\xi)=pF(\\xi/2)+p^2e^{-\\pi i\\xi}F(\\xi/4)\\), with support contained in \\([0,2/3]\\)."
+      ],
+      "reasoning": "The natural equivalent formulations are nonvanishing of F, exclusion of zeros of the matrix-product limit, and the Riccati zero condition in the source. The source treats these formulations but rigorously only through 1.08; its broader evidence is numerical. No searched equivalent formulation supplied a rigorous radius 1000.",
+      "searches": [
+        "golden mean self-similar measure zero-free Fourier transform rigorous interval computer assisted proof",
+        "2609.04701 rigorous zero free interval 1000 Fourier transform golden mean",
+        "nonhomogeneous self-similar measure Fourier transform no real zeros certificate",
+        "Riccati golden mean Fourier transform zero free computer assisted",
+        "arXiv:2609.04701v1 Sections 3-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted scientific-database searches for the exact object and claim found no published statement certifying this measure on \\([-1000,1000]\\).",
+        "The exact same-object source was compared directly against the claimed interval and proof status."
+      ],
+      "reasoning": "No exact database or literature entry found in the targeted searches certifies this measure on \\([-1000,1000]\\). Search absence is used only as overlap evidence, not as a uniqueness proof.",
+      "searches": [
+        "golden mean self-similar measure zero-free Fourier transform rigorous interval computer assisted proof",
+        "2609.04701 rigorous zero free interval 1000 Fourier transform golden mean",
+        "nonhomogeneous self-similar measure Fourier transform no real zeros certificate",
+        "Riccati golden mean Fourier transform zero free computer assisted"
+      ]
+    },
+    "rationale": "The exact-object 2026 source proves only the radius 1.08 and explicitly distinguishes its much larger scan from a rigorous proof. Targeted exact-parameter, recursion, Riccati, zero-free, and computer-assisted searches found no rigorous same-object theorem reaching 1000. The closest indexed zero-free Fourier result concerns Fourier transforms of bipyramids, a different object with no implication for this self-similar measure.",
+    "residual_risks": [
+      "Searches cannot exclude an unindexed or very recent independent result stated in different language.",
+      "The exact-object source is very recent, so follow-up work may appear quickly; no such rigorous radius-1000 result was found in the searches performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed rigorous radius 1000. It proves radius 1.08 and reports a much larger numerical scan while explicitly leaving rigorous computer-assisted verification open.",
+        "evidence": "arXiv submission 4 September 2026; primary MSC 42B10; Proposition 3.3; Section 4 concluding remark.",
+        "identifier_or_url": "arXiv:2609.04701v1",
+        "material_read": "Abstract; introduction; support description in Section 2; matrix recursion, Propositions 3.1-3.3 and Riccati reformulation in Section 3; numerical method, error discussion, main results, and concluding remark in Section 4.",
+        "method": "Full arXiv HTML text inspection and statement-level comparison.",
+        "title": "On the spectrality of the non-homogeneous golden-mean self-similar measure",
+        "trigger": "Exact same measure, parameters, Fourier recursion, and zero-set question."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bea185cd-83a5-4b51-b732-4b2de30604b0",
+  "value": {
+    "rationale": "The source explicitly identifies rigorous computer-assisted zero-free verification as future work. Certifying \\(|\\xi|\\le1000\\) expands the proven radius from 1.08 by more than a factor of 900 and turns a substantial finite segment of the new numerical evidence into a continuum proof. This is a natural finite cutoff tied to the spectrality obstruction, not an arbitrary parameter slice, and it supplies a reusable interval-transfer method while clearly leaving the global problem open.",
+    "status": "PASS"
+  }
+}
