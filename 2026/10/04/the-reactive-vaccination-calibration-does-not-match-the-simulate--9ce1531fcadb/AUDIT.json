@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The main article uses the vaccination loss \\(\\nu_a\\mathrm{VE}_a S_a\\); the supplement derives its calibration from \\(\\nu_a(S_a-S_{\\infty,a})\\); and the released notebook implements the main multiplicative form. Solving the two scalar calibration equations gives distinct rate maps. With \\(T=150\\) and \\(\\mathrm{VE}=0.93\\), the simulated law requires \\(\\log 2/(150\\cdot0.93)=0.004968796993\\ldots\\) per day to halve susceptibility. The supplement rates instead yield final susceptible fractions \\(0.1317636\\ldots\\) and \\(0.0675749\\ldots\\), not \\(0.165\\) and \\(0.11\\). The checker independently recomputes these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The article and supplement were read across the full intervention definitions, not only search snippets.",
+        "The released implementation was inspected at the SEIR right-hand side that applies vaccination.",
+        "A separate Texas measles spatial-spread preprint was checked as nearby literature and concerns a different model question."
+      ],
+      "reasoning": "General measles intervention literature can motivate rate-based vaccination but cannot subsume a contradiction between two specific equations in this article. No correction or broader treatment located in the checked literature reconciles those equations.",
+      "searches": [
+        "The 2025 measles outbreak in Texas reactive vaccination rate susceptibility half campaign calibration exponential target relaxation Oraby Ndeffo-Mbah",
+        "reactive vaccination calibration mismatch exponential susceptible decay target relaxation measles",
+        "The 2025 measles outbreak in Texas correction vaccination"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1186/s12879-026-13663-2",
+      "Supplementary Material 1 for doi:10.1186/s12879-026-13663-2",
+      "https://github.com/tamfatkh/measles/blob/main/G_Bayesian_Measles_NB.ipynb",
+      "doi:10.1101/2025.09.01.25334576",
+      "Published-record searches for the source title, printed rates, target-relaxation aliases, correction, and erratum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No current or prior ledger claim concerns DOI 10.1186/s12879-026-13663-2 or this vaccination-calibration mismatch.",
+        "Nearby records on measles stochastic numerics, information-dependent vaccination, and epidemic thresholds use different objects and do not imply this equality-of-rate calculation."
+      ],
+      "reasoning": "The final claim is neither a corollary nor a parameter specialization of the closest checked findings; it depends on comparing the main equation, supplementary calibration equation, and public implementation of this specific study.",
+      "searches": [
+        "The 2025 measles outbreak in Texas reactive vaccination rate susceptibility half campaign calibration exponential target relaxation Oraby Ndeffo-Mbah",
+        "Oraby Ndeffo-Mbah 2026 measles intervention vaccination rate counterfactual correction",
+        "The 2025 measles outbreak in Texas correction vaccination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The main article states the reactive-vaccination equation with multiplicative removal by vaccine efficacy.",
+        "Supplementary Material 1 derives the printed 150-day rate formula from an affine relaxation toward a positive target susceptibility.",
+        "The public notebook implements the multiplicative vaccination term rather than the affine target-relaxation law."
+      ],
+      "reasoning": "Equivalent aliases such as target relaxation, exponential susceptible decay, vaccination hazard, and campaign-rate calibration were searched. No checked record restated the same mismatch or an equivalent corrected rate formula for this study.",
+      "searches": [
+        "The 2025 measles outbreak in Texas reactive vaccination rate susceptibility half campaign calibration exponential target relaxation Oraby Ndeffo-Mbah",
+        "measles Texas vaccination campaign dS/dt nu VE S target susceptibility S infinity rate 0.00658 0.00846",
+        "reactive vaccination calibration mismatch exponential susceptible decay target relaxation measles",
+        "Oraby Ndeffo-Mbah 2026 measles intervention vaccination rate counterfactual correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Supplementary Table S3 identifies vaccine efficacy and the vaccination campaign rate, while the campaign-design section prints the two half-reduction rates.",
+        "The supplement gives the numerical initial susceptible fractions, target susceptibility, duration, and printed rates needed for an exact replay."
+      ],
+      "reasoning": "This claim is not a lookup-table invariant, so no external table can establish it. The exact source table and adjoining equations were checked to ensure that units, efficacy, duration, and target values were not being inferred from a secondary source.",
+      "searches": [
+        "measles Texas vaccination campaign dS/dt nu VE S target susceptibility S infinity rate 0.00658 0.00846",
+        "0.00658 0.00846 measles"
+      ]
+    },
+    "rationale": "The result is a source-specific consistency correction. Exact-title, rate-number, target-formula, vaccination-calibration, correction, and erratum searches returned no record stating the same comparison. Existing ledger items on measles stochastic schemes and vaccination thresholds concern different models and claims and do not imply this one.",
+    "residual_risks": [
+      "The public repository can change after this review; the assessment concerns the inspected notebook version available with the paper record.",
+      "No claim is made that the authors intended the supplementary affine equation to be the simulation equation; the finding is precisely that it cannot calibrate the equation that is printed and implemented.",
+      "The rate comparison isolates vaccination by setting force of infection to zero, as the supplement itself does for its calibration derivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The main article uses multiplicative susceptible removal proportional to \\(\\nu_a\\mathrm{VE}_a S_a\\). It does not state the affine target-relaxation equation used later in the supplement.",
+        "evidence": "Reactive vaccination replaces the susceptible equation by a term \\(-\\nu_a(t)\\mathrm{VE}_aS_a\\); the article is published 2026-05-30 and classified Primary 92D30.",
+        "identifier_or_url": "doi:10.1186/s12879-026-13663-2",
+        "material_read": "Full HTML methods and intervention sections, including the reactive-vaccination susceptible equation and article metadata.",
+        "method": "Direct full-text inspection.",
+        "title": "The 2025 measles outbreak in Texas",
+        "trigger": "Primary source for the counterfactual intervention equation, publication date, and primary MSC classification."
+      },
+      {
+        "assessment": "The supplement calibrates with \\(\\dot S=-\\nu(S-S_\\infty)\\), omits vaccine efficacy in that equation, and states rates \\(0.00658\\) and \\(0.00846\\) for the half-targets.",
+        "evidence": "The rendered campaign-design page explicitly shows the different affine ODE and the two rates.",
+        "identifier_or_url": "https://media.springernature.com/original/springer-static/esm/art:10.1186/s12879-026-13663-2/MediaObjects/12879_2026_13663_MOESM1_ESM.pdf",
+        "material_read": "Model-parameter table and reactive-vaccination campaign-design section, including the affine ODE, its solution, the 150-day half-target calculation, and the printed rates.",
+        "method": "Full-text PDF extraction checked against rendered pages.",
+        "title": "Supplementary Material 1 for The 2025 measles outbreak in Texas",
+        "trigger": "Contains the campaign-rate calibration invoked to justify intervention intensities."
+      },
+      {
+        "assessment": "The implementation subtracts \\((\\nu_t\\mathrm{VE})S\\) from the susceptible derivative and adds the same flow to recovered, matching the main article and not the supplement calibration ODE.",
+        "evidence": "In `erlang_rhs_numpy`, vaccination changes the susceptible derivative by `dS -= (nu_t * VE) * S`.",
+        "identifier_or_url": "https://github.com/tamfatkh/measles/blob/main/G_Bayesian_Measles_NB.ipynb",
+        "material_read": "Notebook source defining the Erlang SEIR right-hand side and vaccination update.",
+        "method": "Direct repository-file inspection.",
+        "title": "Public measles model implementation",
+        "trigger": "Needed to determine which of the two printed vaccination equations is actually implemented."
+      },
+      {
+        "assessment": "The work addresses spatial spread and does not state or imply the source-specific campaign-rate calibration correction.",
+        "evidence": "Its research question and model scope concern spatial outbreak risk rather than the two vaccination ODEs compared here.",
+        "identifier_or_url": "doi:10.1101/2025.09.01.25334576",
+        "material_read": "Abstract, model scope, and bibliographic record.",
+        "method": "Primary preprint inspection.",
+        "title": "Risk and Spatial Spread of a Measles Outbreak in Texas",
+        "trigger": "Nearby Texas-measles modeling literature with overlapping outbreak context and an overlapping author."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ce1531f-cadb-4678-ba38-773bdbb67507",
+  "value": {
+    "rationale": "The mismatch changes the intervention parameter-to-target map: the supplement uses a positive asymptote and no vaccine-efficacy multiplier, while the simulated model uses exponential removal to zero scaled by vaccine efficacy. The resulting 150-day half-target rate is \\(0.49688\\%\\) per day for both groups rather than the printed \\(0.658\\%\\) and \\(0.846\\%\\). Because reactive vaccination is one of the paper's main intervention levers, an exact correction to its campaign-intensity calibration is useful for reproduction, reinterpretation, and extension of the intervention scenarios.",
+    "status": "PASS"
+  }
+}
