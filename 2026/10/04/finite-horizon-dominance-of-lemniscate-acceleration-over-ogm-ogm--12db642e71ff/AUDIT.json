@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The comparison reduces exactly to \\(\\Omega_N>(N+2)^2/8\\). For even \\(N\\ge22\\), the source inequality \\(\\Omega_N>(N+1)^2/\\varpi^2\\), the independently certified bound \\(\\varpi<27/10\\), and the identity \\(800(N+1)^2-729(N+2)^2=71m^2+1666m+1559\\) for \\(N=21+m\\) prove the result. For the ten even horizons from \\(2\\) through \\(20\\), exact rational interval propagation through the source one-step map certifies the source shooting condition \\(\\Phi_k(T_N)<1/T_N\\), which implies \\(T_N<\\Omega_N\\). The asymptotic ratio follows directly from the source limit \\(\\Omega_N/(N+1)^2\\to1/\\varpi^2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source proves the exact recurrence, lower bound, bisection criterion, and asymptotic law, and quotes the chained certificate used as baseline.",
+        "The OGM-G source proves its smooth-convex gradient guarantee and explains its close relation to OGM.",
+        "The OGM source gives the optimized smooth-convex function-value method used in the first phase of the standard chain."
+      ],
+      "reasoning": "None of the inspected broader results states that the new exact coefficient is below the chained coefficient for every even finite horizon. The comparison is therefore not covered by a stronger prior finite-horizon theorem found in the relevant method lineage.",
+      "searches": [
+        "arXiv:2608.07407v1 Section 4.1, Theorem 1, Appendix A.1 Corollary 2 and Lemma 8",
+        "arXiv:1803.06600v4 Theorem 6.1 and Section 6.6",
+        "DOI:10.1007/s10107-015-0949-3 OGM smooth-convex function-value guarantee"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.07407v1",
+      "arXiv:1803.06600v1",
+      "DOI:10.1007/s10957-020-01770-2",
+      "DOI:10.1007/s10107-015-0949-3",
+      "arXiv:1406.5468"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source phrase is an improvement of the leading asymptotic constant by about \\(1.35\\), which allows but does not rule out finite-horizon reversals.",
+        "The new proof establishes strict inequality for the exact source coefficient at each even finite horizon.",
+        "The asymptotic ratio \\(\u000barpi^4/64\\) agrees with the source leading-constant comparison and is not itself the novel part."
+      ],
+      "reasoning": "The final theorem is not a corollary of asymptotic dominance alone. The nontrivial implication is the absence of every finite even-horizon crossover, proved by a finite certified base range plus a uniform analytic tail.",
+      "searches": [
+        "arXiv:2608.07407v1 comparison paragraph at Section 4.1 and exact shooting theorem in Appendix A.1",
+        "arXiv:1803.06600v4 gradient guarantee and OGM relation",
+        "finite-horizon crossover lemniscate OGM OGM-G"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary 2026 paper states the exact coefficient \\(1/\\Omega_N^2\\) and the chained coefficient \\(64/(N+2)^4\\), then discusses only the leading asymptotic constant.",
+        "Searches using crossover, finite-horizon dominance, exact coefficient, and OGM--OGM-G aliases returned no statement-equivalent published result.",
+        "The OGM-G primary paper develops gradient-norm guarantees and the relation to OGM but predates the lemniscate sequence."
+      ],
+      "reasoning": "The final claim is a statement about every finite even horizon. An asymptotic constant comparison does not imply it, because a finite crossover could in principle occur. The proof closes that gap with the exact shooting characterization for the finite exceptional range and an analytic tail bound.",
+      "searches": [
+        "lemniscate acceleration OGM OGM-G finite horizon dominance exact Omega_N coefficient",
+        "LemniAcc exact coefficient 64 over N plus 2 fourth OGM-G",
+        "gradient norm optimized method finite horizon guarantee OGM concatenation exact crossover",
+        "lemniscate acceleration all horizons stronger than OGM-G chaining",
+        "arXiv 2608.07407 lemniscate acceleration gradient norm method"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved published record tabulated or stated the inequality \\(\\Omega_N>(N+2)^2/8\\) for all even horizons.",
+        "The primary paper tabulates some small \\(\\Omega_N\\) values but does not turn them into an all-horizon comparison theorem."
+      ],
+      "reasoning": "The finite computation is not a table recomputation: it certifies the finitely many base cases needed to combine with a separate analytic tail and obtain a universal even-horizon theorem.",
+      "searches": [
+        "lemniscate acceleration OGM OGM-G finite horizon dominance exact Omega_N coefficient",
+        "gradient norm optimized method finite horizon guarantee OGM concatenation exact crossover",
+        "lemniscate acceleration all horizons stronger than OGM-G chaining"
+      ]
+    },
+    "rationale": "The recent primary source states the exact lemniscate coefficient and the even-horizon chained baseline in the same comparison, but it only compares their leading asymptotic constants. It does not state or prove that the exact lemniscate certificate dominates at every finite even horizon. The older OGM and OGM-G papers predate the lemniscate recurrence. Targeted statement-level searches did not return an all-even-horizon crossover theorem.",
+    "residual_risks": [
+      "Because the inequality is a natural comparison of two formulas appearing close together in the recent source, an equivalent observation could exist in informal discussion or later commentary under different wording.",
+      "The theorem concerns certified upper bounds; a stronger comparison of exact worst-case performance would require separate lower-bound analysis.",
+      "The finite base certificates depend on the source shooting theorem, which is treated as a verified premise rather than reproved from first principles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains all nonstandard premises used here but states only the asymptotic-constant comparison, not finite-horizon dominance for every even \\(N\\).",
+        "evidence": "The paper gives \\(G_{\rm lem}=L^2R^2/\\Omega_N^2\\), the chained bound \\(64L^2R^2/(N+2)^4\\), \\(\\Omega_N>(N+1)^2/\u000barpi^2\\), an exact shooting test, and \\(\\Omega_N/(N+1)^2\to1/\u000barpi^2\\).",
+        "identifier_or_url": "arXiv:2608.07407v1",
+        "material_read": "Theorem 1 and its comparison paragraph; recurrence definition; Appendix A.1 one-step map, shooting/bisection criterion, bounds on \\(\\Omega_N\\), and asymptotic Lemma 8.",
+        "method": "Full-text PDF inspection with rendered-page checks.",
+        "title": "A Domain-Specific Harness for End-to-End Automation of Optimization Research",
+        "trigger": "Primary recent source defining lemniscate acceleration and directly comparing it with OGM--OGM-G chaining."
+      },
+      {
+        "assessment": "Provides the OGM-G guarantee lineage but cannot contain the later lemniscate finite-horizon comparison.",
+        "evidence": "Theorem 6.1 gives the smooth-convex gradient bound for OGM-G; Section 6.6 records its parameter symmetry with OGM.",
+        "identifier_or_url": "arXiv:1803.06600 / DOI:10.1007/s10957-020-01770-2",
+        "material_read": "Full PDF introduction, Theorem 6.1 gradient guarantee, Corollary 6.2, and Section 6.6 relating OGM-G to OGM.",
+        "method": "Full-text PDF inspection with rendered first-page check.",
+        "title": "Optimizing the Efficiency of First-Order Methods for Decreasing the Gradient of Smooth Convex Functions",
+        "trigger": "Primary OGM-G source underlying the second phase of the baseline comparison."
+      },
+      {
+        "assessment": "Predates lemniscate acceleration and therefore does not cover the new no-crossover comparison.",
+        "evidence": "The paper introduces OGM and its optimized smooth-convex function-value guarantee.",
+        "identifier_or_url": "arXiv:1406.5468 / DOI:10.1007/s10107-015-0949-3",
+        "material_read": "Open full-article record and primary abstract describing the optimized smooth-convex function-value method and its worst-case guarantee.",
+        "method": "Open-access article/primary-record inspection.",
+        "title": "Optimized First-Order Methods for Smooth Convex Minimization",
+        "trigger": "Primary OGM source underlying the first phase of the chained baseline."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12db642e-71ff-4338-96a7-ae922f78bdb7",
+  "value": {
+    "rationale": "The recent source advertises a better asymptotic constant, but finite horizons are the regime in which constant improvements are operationally meaningful and asymptotics alone do not exclude a crossover. The theorem shows that the exact new certificate is already better at every admissible even horizon, so the advertised constant advantage never has to wait for a sufficiently large iteration count. This is a natural finite-horizon comparison between the new method and the explicit state-of-the-art baseline used by the source, with a complete proof rather than a sampled numerical observation.",
+    "status": "PASS"
+  }
+}
