@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "On 0<S_n<n the RU denominator is positive. If q>=t the perfect predictor treats all, so RU=0 iff the observed treat-all net benefit is the better default, exactly S_n/n>=t. If q<t it treats none, so RU=0 iff treat-none is the better default, exactly S_n/n<=t. This gives the exact sums. Matching Chernoff and Stirling bounds yield rate D(t||q), and binomial CLT arguments yield the critical and root-n limits. Exact rational reconstruction in verify.py agrees with the formulas for both branches and the equality case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The indexed Bernoulli-tail records concern exchangeability, heterogeneous stop-loss deviations, or rank/conformal effects rather than relative utility or the default-strategy switch."
+      ],
+      "reasoning": "Generic binomial large-deviation results justify a proof ingredient but do not imply the identification of the relative-utility zero event or the two-sided threshold phase diagram without the decision-analytic reduction.",
+      "searches": [
+        "SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+        "SCOPE-poisson-binomial-stop-loss-heterogeneity-gap--04ad9ddfdcc3",
+        "SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29133v1",
+      "DOI:10.1111/j.1467-985X.2009.00592.x",
+      "DOI:10.1177/0272989X19850762",
+      "DOI:10.1093/jnci/djp353",
+      "SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "SCOPE-poisson-binomial-stop-loss-heterogeneity-gap--04ad9ddfdcc3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hoessly proves P(RU defined and zero) tends to one only for fixed t<q.",
+        "The present claim additionally resolves fixed q<t, fixed q=t, the exact finite-n law, and the q_n=t+c/sqrt(n) transition."
+      ],
+      "reasoning": "The new statement implies the source's Appendix A.4 limit for t<q after removing endpoint conditioning, but the converse implication does not determine the exact probabilities, rates, symmetric branch, or critical window.",
+      "searches": [
+        "arXiv:2609.29133v1",
+        "DOI:10.1111/j.1467-985X.2009.00592.x"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 Appendix A.4 assumes t<q and concludes convergence to one by the law of large numbers.",
+        "The 2009 and 2019 papers describe relative utility and its default/perfect-prediction benchmarks but do not state the constant-risk binomial phase diagram."
+      ],
+      "reasoning": "Rewriting the same observed relative-utility definition in terms of the sufficient count S_n produces the new exact statement; no inspected source supplied the q<t branch or local-threshold asymptotics.",
+      "searches": [
+        "arXiv:2609.29133v1",
+        "DOI:10.1111/j.1467-985X.2009.00592.x",
+        "DOI:10.1177/0272989X19850762"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating source gives one asymptotic constant-risk result; the foundational sources give definitions and applied relative-utility curves, not a finite-n probability table or exact distribution for zero observed relative utility."
+      ],
+      "reasoning": "No inspected source tabulates or states the claimed exact conditional probability. The formula is derived from the binomial law after identifying the zero-RU count region.",
+      "searches": [
+        "arXiv:2609.29133v1",
+        "PMID:20069131",
+        "DOI:10.1093/jnci/djp353"
+      ]
+    },
+    "rationale": "Statement-level comparison shows that the motivating 2026 paper proves only the fixed t<q law-of-large-numbers limit. The exact two-branch binomial law, the binary-divergence exception rate, the critical half-limit, and the root-n Gaussian transition were not present in the inspected full text or earlier relative-utility formulations. Targeted semantic searches returned no equivalent indexed finding. Residual risk is retained because the finite-count reduction is elementary once the benchmark switch is isolated.",
+    "residual_risks": [
+      "An equivalent elementary binomial-tail observation could appear in unindexed clinical decision-analysis material under different terminology.",
+      "The result is original only as the precise finite-sample and local-asymptotic characterization stated here; standard binomial LDP/CLT ingredients themselves are classical."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING beyond the fixed t<q law-of-large-numbers limit.",
+        "evidence": "Appendix A.4 assumes t<q<1 and derives only convergence of the probability of defined zero relative utility to one; no central-limit, large-deviation, q<t, or threshold-local result is stated.",
+        "identifier_or_url": "arXiv:2609.29133v1",
+        "material_read": "Full six-page preprint, including the definition, Sections 3 and 5, and Appendix A.1-A.4.",
+        "method": "Statement and proof comparison against the exact finite-count characterization and each asymptotic regime.",
+        "title": "Interpreting relative utility for probabilistic predictions",
+        "trigger": "Same statistic, same constant-risk perfect-probability example, and direct source of the research gap."
+      },
+      {
+        "assessment": "NOT_COVERING the claimed finite-sample phase diagram.",
+        "evidence": "The paper introduces and applies relative-utility curves; the inspected material does not state a binomial zero-RU distribution or local threshold asymptotics.",
+        "identifier_or_url": "DOI:10.1111/j.1467-985X.2009.00592.x",
+        "material_read": "Article metadata, abstract, and available formulation/summary of relative utility and the relevant region.",
+        "method": "Compared scope and claimed performance interpretation with the finite-sample count law.",
+        "title": "Using Relative Utility Curves to Evaluate Risk Prediction",
+        "trigger": "Foundational source for relative utility and the perfect-prediction benchmark."
+      },
+      {
+        "assessment": "NOT_COVERING the exact binomial, large-deviation, or root-n statements.",
+        "evidence": "The article compares decision and relative-utility curves and describes benchmark interpretation but does not analyze the random finite-sample zero-RU event under perfect constant risks.",
+        "identifier_or_url": "DOI:10.1177/0272989X19850762",
+        "material_read": "Available publisher text, including the relative-utility definition and interpretation.",
+        "method": "Checked whether the benchmark discussion already implied a finite-sample constant-risk probability law.",
+        "title": "Decision Curves and Relative Utility Curves",
+        "trigger": "Later clarification of the relative-utility construction and benchmarks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf639064-aca4-4726-a766-b678445e6a94",
+  "value": {
+    "rationale": "The result turns a qualitative LLN pathology into a usable finite-sample phase diagram. It quantifies exponential collapse away from the threshold, identifies the nondegenerate q=t limit, and supplies the root-n transition profile relevant when true risk is near the treatment cutoff. This directly sharpens interpretation of the source's motivating example rather than adding a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
