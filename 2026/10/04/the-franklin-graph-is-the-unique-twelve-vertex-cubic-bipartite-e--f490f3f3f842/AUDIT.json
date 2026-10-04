@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The domain is finite and exhaustively covered: every connected cubic bipartite graph of order 12 corresponds to a 6-by-6 binary matrix with all row and column sums 3. The verifier enumerates all 550 nondecreasing-row semilabeled matrices, quotients exactly by all row permutations, canonical column sorting, and transpose, and obtains five connected classes. It checks every candidate dominating matching. Four classes have a dominating 2-matching; the fifth has none but has a dominating 3-matching. A separate exact LCF construction identifies the fifth class as Franklin. The lower bound gamma_pr>=4 follows because one edge in a simple cubic bipartite graph dominates exactly six vertices. No probabilistic, floating-point, timeout, or partial-search premise is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu--Wu, arXiv:2609.30152v1, Theorem 1.1 proves only the universal upper bound and gives K_(3,3) and Q_3 as equality witnesses.",
+        "The 2014 extremal-edge paper studies maximum edge counts at prescribed paired-domination number rather than a cubic-bipartite order-12 classification."
+      ],
+      "reasoning": "General paired-domination bounds and extremal-edge results do not decide which of the five twelve-vertex cubic bipartite graphs attain the sharp Lu--Wu bound.",
+      "searches": [
+        "connected cubic bipartite graphs order 12 paired domination classification",
+        "cubic bipartite graph 12 vertices paired dominating set",
+        "Graphs with maximum size and given paired-domination number"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30152v1",
+      "MathWorld:FranklinGraph",
+      "HouseOfGraphs:Cubic",
+      "Haynes--Slater 1998 Networks abstract",
+      "2014 Discrete Applied Mathematics abstract on maximum size at fixed paired-domination number"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At order 12 the Lu--Wu theorem yields gamma_pr <= 6. A one-edge closed-neighborhood count yields gamma_pr >= 4, leaving both 4 and 6 possible.",
+        "The exhaustive classification supplies explicit dominating 2-matchings in four classes and excludes them in the Franklin class, where a dominating 3-matching exists."
+      ],
+      "reasoning": "The prior theorem narrows the possible values but cannot imply uniqueness of the equality class; the new exhaustive case distinction is logically necessary.",
+      "searches": [
+        "arXiv:2609.30152v1 equality K3,3 cube Q3",
+        "Franklin graph paired domination",
+        "cubic bipartite equality paired domination 12 vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.30152v1 states the equivalence between paired domination and minimum dominating matchings, but not the order-12 classification.",
+        "Haynes--Slater (Networks 32, 1998) introduces paired domination and general bounds; the retrieved abstract does not specialize to the Franklin graph."
+      ],
+      "reasoning": "The dominating-matching language is equivalent to the paired-domination language, so searches were made under both formulations. No source located an exact value for the Franklin graph or the complete order-12 cubic-bipartite stratum.",
+      "searches": [
+        "Franklin graph paired domination number gamma_pr 6",
+        "paired domination equality cubic bipartite Franklin graph",
+        "arXiv:2609.30152v1 Proposition 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The House of Graphs cubic-bipartite table lists exactly five connected cubic bipartite graphs on 12 vertices.",
+        "MathWorld identifies the Franklin graph as the 12-vertex cubic graph with LCF notation [5,-5]^6."
+      ],
+      "reasoning": "The database count corroborates, but does not replace, the embedded exhaustive census. The named-graph source identifies the unique computed six-valued class with the Franklin graph. Neither source tabulates paired domination.",
+      "searches": [
+        "House of Graphs cubic bipartite graphs 12 vertices",
+        "MathWorld Franklin Graph LCF [5,-5]^6"
+      ]
+    },
+    "rationale": "The accepted statement is not implied by the initiating theorem: Lu--Wu gives only the order-12 upper bound 6 and general equality examples, while the new finite classification distinguishes the five order-12 isomorphism classes and proves that exactly one, the Franklin graph, attains 6. Focused indexed searches for the Franklin graph, paired domination, order 12, equality, and dominating-matchings returned no equivalent statement. The House of Graphs table supplies only the five-class count, not paired-domination values. A residual risk of an unindexed exact computation remains but no decisive or broader covering source was found.",
+    "residual_risks": [
+      "A dedicated bibliographic search cannot prove absence from every unindexed paper, thesis, or graph-parameter table.",
+      "The House of Graphs page was available through an indexed table extract rather than interactive rendering; the embedded enumerator independently proves the five-class count, so this access limitation is not load-bearing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the universal sharp upper bound and gives K_(3,3) and Q_3 as equality witnesses; it does not classify order 12 or mention the Franklin graph.",
+        "evidence": "arXiv full text dated 2026-09-24; abstract/introduction and Proposition 2.2 inspected.",
+        "identifier_or_url": "arXiv:2609.30152v1",
+        "material_read": "full HTML abstract, introduction, Theorem 1.1, Proposition 2.2, and equality discussion",
+        "method": "direct full-text inspection",
+        "title": "Paired Domination in Cubic Bipartite Graphs",
+        "trigger": "initiating recent source and possible direct coverage"
+      },
+      {
+        "assessment": "Identifies the Franklin graph as a 12-vertex cubic graph and gives LCF notation [5,-5]^6, matching the verifier's independently generated LCF graph.",
+        "evidence": "MathWorld entry states 12 vertices and LCF [5,-5]^6.",
+        "identifier_or_url": "MathWorld:FranklinGraph",
+        "material_read": "entry description and LCF-identification lines",
+        "method": "direct webpage inspection",
+        "title": "Franklin Graph",
+        "trigger": "identify the exceptional canonical graph"
+      },
+      {
+        "assessment": "Lists five connected cubic bipartite graphs at order 12; contains no paired-domination values.",
+        "evidence": "Order-12 row gives count 5.",
+        "identifier_or_url": "HouseOfGraphs:Cubic",
+        "material_read": "indexed table extract for cubic bipartite graphs by order",
+        "method": "search-index table extract; interactive page requires JavaScript",
+        "title": "Cubic bipartite graph census",
+        "trigger": "independent exact count of order-12 isomorphism classes"
+      },
+      {
+        "assessment": "Introduces paired domination and general bounds; no Franklin or order-12 cubic-bipartite classification in the retrieved material.",
+        "evidence": "Networks 32 (1998), 199--206 abstract.",
+        "identifier_or_url": "DOI:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+        "material_read": "publisher abstract",
+        "method": "direct abstract inspection",
+        "title": "Paired-domination in graphs",
+        "trigger": "equivalent terminology and foundational prior work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f490f3f3-f842-41dc-8b4c-e72dd9d70730",
+  "value": {
+    "rationale": "The initiating 2026 theorem makes equality structure a natural next question and explicitly discusses equality witnesses. Order 12 is the first new multiple-of-four order after the cube where the sharp value 6 can occur. The complete five-class classification shows that equality persists but is exceptional, selecting the named Franklin graph uniquely; this is a structurally interpretable finite cutoff rather than an arbitrary slice or a recomputation of a known table. The result supplies an exact benchmark for any future equality characterization.",
+    "status": "PASS"
+  }
+}
