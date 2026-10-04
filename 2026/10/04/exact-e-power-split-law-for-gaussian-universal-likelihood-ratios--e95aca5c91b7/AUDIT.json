@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge2\\) and admissible \\(m\\), conditioning on the training mean gives exact null expectation one. Under \\(N(\\mu,1)\\), independence yields \\(\\mathbb E[\\widehat\\mu\\overline Y_0]=\\mu^2\\) and \\(\\mathbb E[\\widehat\\mu^2]=\\mu^2+1/m\\), proving the e-power formula. The forward difference is exactly \\(\\frac12[n/(m(m+1))-\\mu^2]\\), which is strictly decreasing in \\(m\\) and proves the integer optimizer and tie cases. The local and fixed-signal limits follow from this threshold characterization. A standalone verifier brute-checks the finite integer characterization and asymptotic examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dunn et al. optimize expected squared confidence-set radius and obtain a split proportion depending on dimension and nominal level.",
+        "Tse--Davison derive exact finite-sample rejection power in the scalar Gaussian model as a function of split proportion and nominal level.",
+        "Strieder--Drton optimize asymptotic rejection power under local alternatives.",
+        "Delong--Wüthrich treat e-power in a broader calibration setting but their inspected split-ratio comparison is numerical and model-specific."
+      ],
+      "reasoning": "These works cover closely related tuning criteria but none of the inspected statements implies the exact expected-log formula plus its integer optimizer, positivity threshold, local \\(|h|=1\\) phase, and fixed-signal vanishing training fraction.",
+      "searches": [
+        "arXiv:2104.14676 Section 3.1 optimal split proportions",
+        "DOI:10.1002/sta4.501 scalar Gaussian power calculation",
+        "arXiv:2203.06748 splitting ratio and local alternatives",
+        "arXiv:2510.23821 e-power and training/validation split"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.11436",
+      "arXiv:2104.14676",
+      "DOI:10.1002/sta4.501",
+      "arXiv:2203.06748",
+      "arXiv:2510.23821",
+      "opaque prior result 744b2d02-6282-411b-b3a0-90e3bc36fd05",
+      "semantic literature-index search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The foundational split likelihood ratio supplies the object and validity but not this alternative expected-log optimizer.",
+        "Published Gaussian analyses optimize confidence radius or rejection power, quantities depending on the critical level and different from \\(\\mathbb E_\\mu[\\log E]\\).",
+        "The 2025 e-power paper establishes relevance of the criterion but does not state the exact scalar Gaussian integer or asymptotic law in the inspected sections."
+      ],
+      "reasoning": "The present statement is not a corollary of the cited published split-ratio optima because the objective function is different. Direct calculation of the expected logarithm is needed, after which the optimizer has qualitatively different fixed-signal behavior.",
+      "searches": [
+        "Wasserman--Ramdas--Balakrishnan 2019/2020 split likelihood-ratio definition",
+        "Dunn et al. 2021/2022 Gaussian universal LRT split optimization",
+        "Tse--Davison 2022 exact scalar Gaussian power",
+        "Strieder--Drton 2022 local-power split optimization",
+        "Delong--Wüthrich 2025 e-power and split sampling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The semantic literature index returned no same-object Gaussian split-e-power optimizer among the top 30 semantic matches.",
+        "Delong--Wüthrich 2025 defines e-power as \\(\\mathbb E_Q[\\log E]\\) and studies split sampling, but the inspected discussion benchmarks split ratios \\(0.3,0.5,0.7\\) numerically in an isotonic mean-calibration problem rather than deriving this Gaussian-location threshold law."
+      ],
+      "reasoning": "The claim uses the standard expected-log e-power criterion, so equivalent terminology was explicitly searched. The closest later source shares the criterion but not the scalar Gaussian theorem or its integer and asymptotic optimizer.",
+      "searches": [
+        "semantic literature search: expected logarithm universal likelihood ratio Gaussian optimal split e-power training fraction",
+        "web: e-power universal inference splitting ratio",
+        "web: expected log universal inference e-value",
+        "arXiv:2510.23821 e-power definition and split-ratio discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed prior result is item 744b2d02-6282-411b-b3a0-90e3bc36fd05, which gives the null moment spectrum of Gaussian \\(K\\)-fold and cross-fit universal likelihood-ratio e-values and explicitly does not claim an optimal power choice.",
+        "No semantic-index hit among the inspected results states the expected-log split optimizer."
+      ],
+      "reasoning": "The prior record and the present theorem concern the same broad e-value family but different distributions and implications: null integrability versus alternative expected-log growth. Neither statement implies the other.",
+      "searches": [
+        "prior published-result index scan for universal likelihood-ratio, Gaussian split, e-power, split ratio",
+        "semantic literature search: split likelihood ratio Gaussian mean expected log e-value optimal training sample size",
+        "semantic literature search: sample splitting e-value expected log growth Gaussian location"
+      ]
+    },
+    "rationale": "The direct literature studies the same split likelihood ratio but with different tuning objectives: expected squared confidence radius, finite-threshold rejection power, or asymptotic rejection power. A 2025 paper explicitly uses e-power and studies split sampling in a broader calibration problem, creating a real residual risk, but the inspected text does not state or imply the scalar Gaussian integer optimizer, the \\(|h|=1\\) local phase, or the fixed-signal vanishing-training-fraction law. The closest indexed prior result is a null-moment theorem and does not cover alternative expected-log growth.",
+    "residual_risks": [
+      "Expected-log or Kelly-optimal design is a standard idea in e-value theory, so a broader source not surfaced by the searches may contain the same Gaussian optimization under different notation.",
+      "arXiv:2510.23821 is later than the cohort source window but relevant to originality; its broader exponential-dispersion treatment could contain an equivalent specialization outside the inspected split-ratio discussion, although the searched PDF text did not reveal one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the object and finite-sample validity; does not provide the claimed expected-log split optimizer.",
+        "evidence": "The paper introduces data splitting and the split likelihood ratio, with equal splitting used in its basic exposition.",
+        "identifier_or_url": "arXiv:1912.11436",
+        "material_read": "Abstract, split-likelihood construction, and Gaussian example context.",
+        "method": "lawful arXiv version",
+        "title": "Universal Inference",
+        "trigger": "Foundational definition of the split likelihood-ratio e-value."
+      },
+      {
+        "assessment": "Optimizes expected squared confidence-set radius, not e-power; its optimizer depends on confidence level and dimension.",
+        "evidence": "Theorem 3 gives the split proportion minimizing expected squared radius, and the surrounding text contrasts \\(1/2\\) with other proportions.",
+        "identifier_or_url": "arXiv:2104.14676",
+        "material_read": "Main Gaussian construction and Section 3.1 on optimal split proportions, including Theorem 3 and its supplement derivation.",
+        "method": "lawful arXiv/full-text material",
+        "title": "Gaussian Universal Likelihood Ratio Testing",
+        "trigger": "Same Gaussian location model and explicit split-proportion optimization."
+      },
+      {
+        "assessment": "Derives exact rejection power and discusses split proportion, but not expected-log e-power optimization.",
+        "evidence": "Section 2.2 gives the scalar Gaussian rejection probability as a function of split proportion; Section 5 studies variance and averaging.",
+        "identifier_or_url": "DOI:10.1002/sta4.501",
+        "material_read": "Open full text, scalar-parameter power calculation and variance section.",
+        "method": "publisher open full text",
+        "title": "A note on universal inference",
+        "trigger": "Exact scalar Gaussian power as a function of split proportion."
+      },
+      {
+        "assessment": "Optimizes asymptotic rejection power under local alternatives, not expected log e-value.",
+        "evidence": "The paper introduces noncentral split chi-square limits and tunes the split ratio numerically for power.",
+        "identifier_or_url": "arXiv:2203.06748",
+        "material_read": "Abstract, main split-ratio setup, and local-power optimization discussion.",
+        "method": "lawful arXiv version",
+        "title": "On the choice of the splitting ratio for the split likelihood ratio test",
+        "trigger": "Most direct prior work on split-ratio tuning."
+      },
+      {
+        "assessment": "This is the closest conceptual overlap. It defines e-power and studies split sampling, but its inspected split-ratio result is a numerical \\(0.3,0.5,0.7\\) comparison in an isotonic calibration problem, not the exact Gaussian-location optimizer.",
+        "evidence": "Definition 3 identifies e-power with expected log e-value; the later numerical section says \\(s=0.5\\) seems to balance isotonic-regression accuracy and validation size.",
+        "identifier_or_url": "arXiv:2510.23821",
+        "material_read": "Introduction; e-power definition on page 11; split-ratio setup; numerical split-ratio discussion around page 28.",
+        "method": "lawful arXiv PDF with relevant pages inspected",
+        "title": "Universal Inference for Testing Calibration of Mean Estimates within the Exponential Dispersion Family",
+        "trigger": "Later paper explicitly studying both e-power and training/validation splitting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e95aca5c-91b7-4d91-8aa2-4ccbea8291b6",
+  "value": {
+    "rationale": "Split-ratio tuning is an explicit practical and theoretical issue in universal inference. The exact law exposes a substantive criterion conflict: e-power-optimal splitting can use a vanishing training fraction for fixed alternatives even though published rejection-power and confidence-radius criteria generally favor nonvanishing fractions. The local \\(|h|=1\\) phase gives a sharp detectability boundary for positive expected log growth. This is a natural design invariant of a widely studied procedure rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
