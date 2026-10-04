@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each zero-containing part, the perfect Italian condition is exactly that the total weight outside the part equals two. The resulting identity R=2q-(q-1)W makes the enumeration exhaustive: q=0 gives all-positive labelings; q=1 forces outside weight two; q at least two permits only total weights two, three, or four, whose support profiles are enumerated disjointly. The packaged checker independently tests the original neighborhood-sum definition on all 748341 ternary labelings across 87 complete multipartite isomorphism types of orders two through nine.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lauri and Mitillos prove minimum weights 4, 3, and N for complete multipartite graphs with all part sizes at least three.",
+        "Banerjee, Henning, and Pradhan state that connected cographs have minimum perfect Italian domination number in a restricted value set or equal to the order, and give a linear-time minimum algorithm.",
+        "A later structured-bipartite study concerns algorithms, parameterization, and hardness for the minimum problem rather than an arbitrary multipartite enumeration."
+      ],
+      "reasoning": "The cograph result is broader in graph class but narrower in output: it computes an optimum. The final claim is an exact characterization and generating function for every feasible labeling on the complete multipartite subclass, so the optimization algorithms do not dominate it.",
+      "searches": [
+        "Perfect Italian domination on planar and regular graphs complete multipartite Theorem 20",
+        "Perfect Italian domination in cographs",
+        "perfect Italian domination cograph complete multipartite enumerator",
+        "perfect Italian domination algorithms structured bipartite graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.06293",
+      "DOI:10.1016/j.dam.2020.05.024",
+      "DOI:10.1016/j.amc.2020.125703",
+      "DOI:10.3390/math14183380",
+      "semantic published-finding searches recorded in the private prior-check record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 20 of Lauri–Mitillos states only the minimum value for complete multipartite graphs with every part size at least three.",
+        "The cograph abstract explicitly describes the minimum number and a linear-time algorithm for that minimum.",
+        "The packaged verifier confirms that the new enumerator has minimum degree 4, 3, or N in every tested all-parts-at-least-three specialization, exactly matching the published theorem."
+      ],
+      "reasoning": "The prior complete-multipartite theorem is a corollary of the new enumerator on its domain, so its minimum-value content is treated as covered rather than novel. Conversely, a minimum number does not determine the number of feasible labelings of each higher weight, and the cograph optimization algorithm likewise does not imply the closed weight distribution.",
+      "searches": [
+        "inspect arXiv:1905.06293 full text, Propositions 5 and 10 and Theorem 20",
+        "inspect bibliographic abstract for DOI 10.1016/j.amc.2020.125703",
+        "compare closed enumerator minimum degree with Theorem 20 when every part has size at least three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full Lauri–Mitillos source defines the same labeling condition and states the complete-multipartite minimum theorem.",
+        "Searches using the equivalent name perfect Roman {2}-domination did not locate an arbitrary complete-multipartite all-function enumerator.",
+        "Search results for polynomial terminology primarily concerned ordinary perfect domination rather than perfect Italian domination."
+      ],
+      "reasoning": "The synonym perfect Roman {2}-domination was included to avoid missing equivalent terminology. Minimum-value theorems and ordinary perfect-domination polynomials do not imply counts of ternary perfect Italian labelings by total weight.",
+      "searches": [
+        "perfect Italian domination complete multipartite graph",
+        "perfect Italian domination polynomial complete multipartite",
+        "perfect Italian dominating functions complete multipartite all functions",
+        "perfect Roman {2} domination complete multipartite enumerator",
+        "perfect Italian domination weight enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding hits concerned total strong Roman domination, locating domination, general-position variants, zero forcing, and resolving sets on complete multipartite graphs.",
+        "No returned published finding stated a perfect Italian all-function classification or weight enumerator for complete multipartite graphs."
+      ],
+      "reasoning": "The closest database records involve different admissibility rules and do not imply the exact neighbor-weight-equals-two condition used here. No table or database record covering the final enumerator was located.",
+      "searches": [
+        "perfect Italian domination complete multipartite graph",
+        "perfect Italian domination polynomial complete multipartite",
+        "perfect Italian dominating functions complete multipartite all functions",
+        "perfect Italian domination complete bipartite weight enumeration"
+      ]
+    },
+    "rationale": "The inspected complete-multipartite source covers the minimum number, not all PID-functions. The cograph source gives broader minimum-value algorithms, but its accessible scope is optimization rather than enumeration. Targeted exact, alias, parameter, and database searches located no arbitrary-complete-multipartite weight enumerator.",
+    "residual_risks": [
+      "The full cograph article was not available from the inspected lawful-access routes; a differently phrased enumerative lemma inside it cannot be excluded from the accessible evidence alone.",
+      "A differently named or unindexed enumeration may exist outside the searched literature and published-finding database.",
+      "The exact minimum result for all part sizes at least three is already known and is not part of the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct prior coverage of the minimum number for complete multipartite graphs with all part sizes at least three, but no all-function classification or weight enumerator located.",
+        "evidence": [
+          "The arXiv record gives v1 on 15 May 2019 and v2 on 27 May 2020.",
+          "Theorem 20 gives minimum weights 4, 3, and N for two, three, and at least four parts when all part sizes are at least three.",
+          "The paper states that its complete-multipartite contribution is determination of the exact parameter value."
+        ],
+        "identifier_or_url": "arXiv:1905.06293; DOI:10.1016/j.dam.2020.05.024",
+        "material_read": "Full arXiv HTML, including the definition, characterization of minimum weights two and three, Proposition 10, Lemmas 17–19, Theorem 20, and the proof of the complete-multipartite result; the arXiv submission history was also inspected.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Perfect Italian domination on planar and regular graphs",
+        "trigger": "Direct primary literature on perfect Italian domination containing a complete-multipartite section."
+      },
+      {
+        "assessment": "The accessible statement gives broader minimum-value computation on cographs, not a stated enumeration of all perfect Italian dominating functions. Because full text was unavailable, a limited residual access risk is retained.",
+        "evidence": [
+          "The abstract says the perfect Italian domination number of a connected cograph belongs to {1,2,3,4} or equals the graph order.",
+          "The abstract states a linear-time algorithm computing the perfect Italian domination number.",
+          "No enumerator or all-function count is stated in the accessible abstract."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.amc.2020.125703",
+        "material_read": "University bibliographic record and abstract, including the stated cograph value spectrum and linear-time minimum algorithm. A full-text copy was not available from the inspected lawful-access routes.",
+        "method": "Abstract-level broader-coverage and access-risk comparison.",
+        "title": "Perfect Italian domination in cographs",
+        "trigger": "Complete multipartite graphs are cographs, creating a plausible stronger-coverage risk."
+      },
+      {
+        "assessment": "The paper studies optimization algorithms and complexity on structured bipartite graph classes; no arbitrary complete-multipartite all-function enumerator was established in the inspected material.",
+        "evidence": [
+          "The abstract gives algorithms for convex and tree-convex bipartite classes and hardness for star-convex bipartite graphs.",
+          "The article lists MSC 05C69 among its classifications."
+        ],
+        "identifier_or_url": "DOI:10.3390/math14183380",
+        "material_read": "Publisher abstract and introductory scope.",
+        "method": "Scope comparison.",
+        "title": "Perfect Italian Domination on Structured Bipartite Graphs: Algorithms, Parameterization, and Hardness",
+        "trigger": "Recent same-parameter algorithmic literature checked for broader or newer coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a141c227-c966-481b-9fad-032319cb2263",
+  "value": {
+    "rationale": "Perfect Italian domination is an established exact-neighbor-weight parameter with published structural, complexity, and algorithmic work. The existing complete-multipartite theorem resolves only the optimum on a restricted part-size domain. The final theorem instead determines the entire feasible labeling space and every weight coefficient for arbitrary part sizes, providing exact counts of minimum and nonminimum configurations and a natural generating-function refinement of the studied optimization problem.",
+    "status": "PASS"
+  }
+}
