@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The lower bound is the published Griesmer bound for n_q(k,d,r). For every residue class modulo 9 from d=4 onward, an explicit multiset in PG(2,3) meets that bound; adding one full projective plane increases length by 13 and distance by 9 while preserving locality 2. The nine bases are checked line-by-line and by direct enumeration of all 26 nonzero messages. Separate dual/parity-check arguments prove the small lower bounds at lengths 4 and 5. The verifier independently reconstructs PG(2,3), the bases, the small witnesses, and all lifted instances through d=1000. No finite enumeration is used to infer the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurz proves n_q(k,d,r)=g_q(k,d) only for sufficiently large d in the general theorem; the proof's locality step requires a large multiplicity threshold and does not imply the sharp threshold d=4 here.",
+        "Hao–Xia–Chen classify only ternary codes meeting the Singleton-like bound; their possible minimum distances stop at 6."
+      ],
+      "reasoning": "Neither broader theorem dominates the finding: one is asymptotic/eventual without the sharp threshold, and the other is restricted to Singleton-optimal parameters and therefore stops before the all-distance Griesmer continuation.",
+      "searches": [
+        "published-finding corpus: ternary dimension three locality two Griesmer bound",
+        "published-finding corpus: Griesmer ternary locality two code dimension three",
+        "web: Bounds on the minimum distance of locally recoverable codes ternary Griesmer",
+        "web: On Optimal Ternary Locally Repairable Codes dimension 3 locality 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.00418 open full PDF and repository metadata",
+      "arXiv:1702.05730 open full HTML",
+      "published-finding corpus semantic searches for eight native/equivalent LRC formulations",
+      "current cumulative private ledger generation g000047 and prior generation g000046 for claim/title overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The three-residual LRC finding treats a different three-block model and residual parameter rows, not the fixed ternary dimension-three all-symbol locality-2 length function.",
+        "The codimension-two LRC finding fixes a different codimension regime and does not imply the formula for k=3 across all distances.",
+        "Kurz's general eventual theorem does not provide d=4 as the threshold; Hao–Xia–Chen do not extend past distance 6."
+      ],
+      "reasoning": "The new implication consists of explicit Griesmer-optimal bases for all nine distance residues modulo 9 and the simplex lift. None of the closest published-finding corpus or published statements contains that all-residue construction or a theorem from which the complete profile follows.",
+      "searches": [
+        "published-finding corpus: ternary locally recoverable code n3(3,d,2) exact Griesmer",
+        "published-finding corpus: locally recoverable [n,3,d]_3 locality 2 exact length",
+        "published-finding corpus closest id 2026/9/17/SCOPE-three-residual-lrc-exact-maxima--bfe156cd182f",
+        "published-finding corpus closest id 2026/9/20/SCOPE-codimension-two-lrc-pair-incidence--43ade2b4102e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kurz defines n_q(k,d,r) as the minimal length of a linear [n,k,d]_q code with locality r.",
+        "Kurz's geometric Lemma 7 makes the positive-multiplicity collinearity condition equivalent to locality 2.",
+        "No searched source stated the complete formula for n_3(3,d,2)."
+      ],
+      "reasoning": "The native coding notation, all-symbol repair formulation, and projective-multiset formulation are equivalent for the linear nondegenerate codes relevant to minimum length, so searches in all three formulations test statement overlap rather than title overlap.",
+      "searches": [
+        "published-finding corpus: exact n_3(3,d,2) locality 2 ternary LRC",
+        "published-finding corpus: ternary LRC all-symbol locality 2 dimension 3",
+        "web: \"n_3(3,d,2)\" locally recoverable",
+        "web: \"[n,3,d]_3\" \"locality 2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kurz's exact ternary table for dimension three is explicitly n_3(3,d,1), i.e. locality 1, rather than n_3(3,d,2).",
+        "The inspected ternary Singleton-optimal classification lists distance classes only from 2 through 6.",
+        "The current cumulative private ledger contains no prior finding on n_3(3,d,2), ternary dimension-three LRC lengths, or this PG(2,3) construction."
+      ],
+      "reasoning": "The closest exact tables either use a different locality parameter or cover only the initial Singleton-optimal range; they do not tabulate or imply the complete target invariant.",
+      "searches": [
+        "published-finding corpus: n3(k,d,r) ternary exact small parameters",
+        "published-finding corpus: PG(2,3) locality 2 multiset exact minimum length",
+        "web: n_3(3,d,2) table ternary LRC"
+      ]
+    },
+    "rationale": "The direct 2023 source defines the exact invariant, solves the binary locality-2 problem in low dimensions, and proves only eventual Griesmer equality in general; its ternary dimension-three exact theorem is for locality 1. The 2017 ternary Singleton-optimal classification covers initial dimension-three locality-2 cases only through distance 6, not the all-distance minimum-length function. published-finding corpus and web searches in native, equivalent, projective, and Griesmer formulations found no complete ternary dimension-three locality-2 profile. The result therefore extends beyond the implication range of the closest inspected literature, while retaining an explicit residual risk for unindexed equivalent formulations.",
+    "residual_risks": [
+      "An unindexed thesis, note, or projective-geometric formulation may contain the same all-distance construction.",
+      "The search did not exhaust every coding-theory database or every non-English source.",
+      "The theorem determines exact lengths but does not classify all optimal multisets, so literature on classifications could contain the length formula as an unstated corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest direct source but not covering the claim. It gives only eventual Griesmer equality generally and its exact ternary dimension-three table is for locality 1.",
+        "evidence": "The full text states the locality-2 point-line criterion, n_q(k,d,r)>=g_q(k,d), eventual equality for sufficiently large d, and later labels its ternary dimension-three exact table n_3(3,d,1).",
+        "identifier_or_url": "arXiv:2401.00418; DOI:10.15495/EPub_UBT_00007405",
+        "material_read": "Open full PDF: geometric coding correspondence; Lemmas 5-8; definition of n_q(k,d,r); Griesmer inequality; Example 9; Theorem 10 and proof; locality-2 ILP; ternary Theorem 40 table.",
+        "method": "Open-access full-text line inspection and PDF-page visual inspection.",
+        "title": "Bounds on the minimum distance of locally recoverable codes",
+        "trigger": "Direct source defining n_q(k,d,r), giving the locality-2 projective criterion, the Griesmer lower bound, and closest exact tables."
+      },
+      {
+        "assessment": "Partially overlapping but not dominating. It covers Singleton-optimal ternary LRCs, including dimension-three locality-2 examples through distance 6, but its theorem explicitly limits possible minimum distances to 2 through 6.",
+        "evidence": "Theorem 1 lists eight Singleton-optimal classes and states that the possible minimum distances are only 2, 3, 4, 5, and 6.",
+        "identifier_or_url": "arXiv:1702.05730",
+        "material_read": "ArXiv full HTML abstract, main Theorem 1 parameter classification, and surrounding all-symbol locality setup.",
+        "method": "Open-access arXiv full-text HTML inspection.",
+        "title": "On Optimal Ternary Locally Repairable Codes",
+        "trigger": "Plausible earlier source covering ternary all-symbol LRCs and potentially the small dimension-three locality-2 cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "65191ebb-c99a-429a-b2aa-d32562227cf0",
+  "value": {
+    "rationale": "The anchor paper treats exact minimum length n_q(k,d,r) as its central invariant, completely solves the nearby binary locality-2 problem in low dimensions, and leaves the ternary side with only selected numerical results. The finding gives a complete all-distance ternary dimension-three locality-2 profile and the sharp threshold at which locality becomes free relative to the Griesmer bound. The nine-residue projective construction is structural and reusable, rather than an isolated finite parameter computation.",
+    "status": "PASS"
+  }
+}
