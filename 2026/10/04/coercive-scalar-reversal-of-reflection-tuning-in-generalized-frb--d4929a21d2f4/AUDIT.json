@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Substitution of \\(F(x)=ax\\) into the source's fixed-step FRB-alpha update gives the exact recurrence \\(x_{k+1}=[1-(1+\\alpha)t]x_k+\\alpha t x_{k-1}\\). The three real Jury conditions reduce to \\(t>0\\), \\(2-(1+2\\alpha)t>0\\), and \\(1+\\alpha t>0\\), proving the if-and-only-if Schur region. At the boundary \\(-1\\) is a root and the other root is strictly inside. For the source initialization, \\(x_1/x_0=1-t\\), while evaluating the characteristic polynomial there gives \\(-\\alpha t^2\\ne0\\), so the unstable mode is never canceled. The exact dominant-root formula and its branch derivatives prove the unique optimum \\(t_\\star=1/(1+\\alpha)\\) and \\(q_\\star=\\sqrt{\\alpha/(1+\\alpha)}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ou--Themelis--Latafat prove a general sufficient constant-step bound and a skew coefficient sharpness example.",
+        "Soe--Vetrivel--Yao study B=I only inside a distinct three-step GFRB and also record the standard FRB identity rate near 1/sqrt(2).",
+        "The split-skew published-finding corpus result optimizes reflection against skew-resolvent obstructions.",
+        "The affine reflected-gradient published-finding corpus result fixes the classical coefficient and recovers the scalar stability endpoint 2/3."
+      ],
+      "reasoning": "General convergence theorems and the standard coefficient slice do not determine how the positive scalar stability ceiling or fastest root factor changes with the newly variable reflection coefficient. The distinct three-step GFRB cannot imply the two-step recurrence without an algorithmic reduction that is absent.",
+      "searches": [
+        "Primary full text arXiv:2609.15936v1",
+        "Primary full text arXiv:2509.02005v2",
+        "published-finding corpus 47dbba32618f full result",
+        "published-finding corpus 63a985cd76f4 full result",
+        "DOI:10.1137/18M1207260"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.15936v1",
+      "arXiv:2509.02005v2",
+      "DOI:10.1137/18M1207260",
+      "published-finding corpus:47dbba32618f",
+      "published-finding corpus:63a985cd76f4",
+      "published-finding corpus:689d5e743c56"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source's exact sharpness example is the planar quarter-turn and gives a different alpha-dependent skew condition.",
+        "Its generic sufficient c(alpha) peaks at alpha=2, whereas the positive scalar exact ceiling decreases with alpha.",
+        "The 2025/2026 GFRB preprint uses an additional older operator value and obtains selected B=I rates through a third-order recurrence.",
+        "published-finding corpus 47dbba32618f concerns split-skew max-min reflection tuning; 63a985cd76f4 concerns standard reflected gradient; 689d5e743c56 concerns standard FRB/RFB skew rate tuning."
+      ],
+      "reasoning": "No inspected prior statement has the same two-step variable-reflection recurrence on a positive scalar operator together with its all-initialization Schur frontier and rate-optimal step. The known alpha=1 slice is a special case and is not claimed as new.",
+      "searches": [
+        "arXiv:2609.15936v1 pages containing FRB-alpha, Example 2.1, Theorem 2.2, and simulation comparison",
+        "arXiv:2509.02005v2 Sections 1 and 4, including B=I examples",
+        "published-finding corpus:47dbba32618f complete RESULT.md",
+        "published-finding corpus:63a985cd76f4 complete RESULT.md",
+        "published-finding corpus:689d5e743c56 complete RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.15936v1 full text defines FRB-alpha and its alpha>1/2 range but gives no positive-scalar formula.",
+        "published-finding corpus 47dbba32618f gives a split-skew two-parameter phase diagram, not a positive scalar one.",
+        "published-finding corpus 63a985cd76f4 gives the scalar endpoint only for the standard reflected-gradient coefficient."
+      ],
+      "reasoning": "Searches covered the method name, reflection coefficient, the identity/positive scalar operator, exact Schur stability, the derived threshold, and the derived rate optimum. Nearby results either change the operator geometry or fix the coefficient.",
+      "searches": [
+        "published-finding corpus: generalized FRB alpha scalar B=I stability threshold 2/(1+2 alpha)",
+        "published-finding corpus: FRB reflection coefficient alpha B=I optimal step 1/(1+alpha) rate sqrt(alpha/(1+alpha))",
+        "published-finding corpus: positive scalar generalized forward reflected backward reflection coefficient exact rate",
+        "published-finding corpus: constant reflection FRB alpha identity operator exact Schur stability rate",
+        "Web: forward-reflected-backward reflection coefficient scalar linear rate alpha"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus record states the derived positive-scalar threshold or fastest-step formula.",
+        "Closest IDs are 47dbba32618f, 689d5e743c56, and 63a985cd76f4, all with different recurrences or operator geometry."
+      ],
+      "reasoning": "The finding is a new analytic phase diagram for the source's coefficient family, not a recomputation of a table. The exact formulas were compared against the closest database statements rather than only against titles.",
+      "searches": [
+        "published-finding corpus: generalized FRB alpha scalar B=I stability threshold 2/(1+2 alpha)",
+        "published-finding corpus: FRB reflection coefficient alpha B=I optimal step 1/(1+alpha) rate sqrt(alpha/(1+alpha))",
+        "published-finding corpus: 2609.15936 scalar linear operator stability rate reflection coefficient"
+      ]
+    },
+    "rationale": "The primary full text defines the variable constant-reflection family and proves the coefficient range alpha>1/2, but its sharpness mechanism is skew-symmetric and it does not state the positive-scalar phase/rate law. The closest published database result treats split-skew resolvent geometry; another fixes the classical reflection coefficient. A separate generalized-FRB paper does analyze B=I but for a different three-step recurrence and special initializations. The classical alpha=1 identity slice is explicitly excluded from the novelty claim. No inspected statement implies the full alpha-dependent positive-scalar stability and rate-tuning conclusion.",
+    "residual_risks": [
+      "Older optimistic-gradient and inertial-splitting literature may contain the same elementary positive-scalar root calculation under different notation.",
+      "The standard alpha=1 identity-operator slice is known; originality rests on the full variable-reflection phase diagram and its tuning reversal, not that slice.",
+      "The finding is modal and does not establish robust optimality over a strongly monotone spectral class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact family and alpha>1/2 range but does not state the positive-scalar alpha-dependent stability or fastest-rate law.",
+        "evidence": "The constant-step section gives FRB-alpha, c(alpha), the skew-symmetric Example 2.1, and Theorem 2.2; later simulations compare alpha=1 and alpha=2.",
+        "identifier_or_url": "arXiv:2609.15936v1",
+        "material_read": "Full preprint portions covering the problem formulation, generalized constant-reflection update, coefficient sharpness example, constant-step theorem, adaptive algorithms, convergence analysis, and numerical comparisons.",
+        "method": "Full-text preprint inspection.",
+        "title": "An Adaptive Linesearch-free Method for Monotone Variational Inequalities under Local Lipschitz Continuity",
+        "trigger": "Primary recent source introducing the constant-reflection FRB-alpha family."
+      },
+      {
+        "assessment": "Its generalized method is a different three-step recurrence with an extra older operator value. It records the standard FRB identity rate and specially initialized faster three-step trajectories, not the variable-reflection two-step phase diagram.",
+        "evidence": "Section 4 writes the distinct third-order recurrence for B=I and compares it with standard FRB.",
+        "identifier_or_url": "arXiv:2509.02005v2",
+        "material_read": "Full preprint portions covering the algorithm definition and the rate section for the rotation and identity examples.",
+        "method": "Full-text preprint inspection.",
+        "title": "On Generalized Forward-Reflected-Backward Method for Monotone Inclusion Problems",
+        "trigger": "Highly relevant prior using the generalized-FRB name and explicitly analyzing the identity operator."
+      },
+      {
+        "assessment": "Exact for a planar split-skew resolvent/forward family and yields a different robust reflection optimum.",
+        "evidence": "Its characteristic polynomial is complex and depends on resolvent-skew ratio; it does not reduce to the positive scalar recurrence except at unrelated specializations.",
+        "identifier_or_url": "published-finding corpus:47dbba32618f",
+        "material_read": "Complete published result.",
+        "method": "Direct full-result inspection.",
+        "title": "Optimal reflection tuning against split-skew FRB obstructions",
+        "trigger": "Closest database result using the same constant reflection coefficient."
+      },
+      {
+        "assessment": "Fixes the standard reflected coefficient and therefore covers the alpha=1 scalar endpoint but not the variable-reflection law.",
+        "evidence": "At condition ratio one it gives the known scalar boundary 2/3 with a -1 multiplier.",
+        "identifier_or_url": "published-finding corpus:63a985cd76f4",
+        "material_read": "Complete published result.",
+        "method": "Direct full-result inspection.",
+        "title": "Exact conditioning-dependent stability threshold for affine reflected gradient",
+        "trigger": "Closest database result on strongly monotone reflected-gradient stability."
+      },
+      {
+        "assessment": "Optimizes steps for standard FRB/RFB on skew rotations and does not vary the reflection coefficient on a positive scalar mode.",
+        "evidence": "Its optimum is governed by a complex split-skew discriminant and a resolvent-skew parameter.",
+        "identifier_or_url": "published-finding corpus:689d5e743c56",
+        "material_read": "Complete published result.",
+        "method": "Direct full-result inspection.",
+        "title": "Exact rate-optimal steps for FRB/RFB on the skew-rotation family",
+        "trigger": "Closest database result on exact FRB rate tuning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d4929a21-d2f4-4810-92e2-8fa937b1624e",
+  "value": {
+    "rationale": "The positive scalar mode is the canonical coercive direction for monotone linear problems, so its exact dependence on the newly introduced reflection coefficient is a natural tuning question. The result exposes a qualitative geometry dependence that the generic theorem hides: the source's worst-case Lyapunov safety coefficient grows toward \\(\\alpha=2\\), while on the coercive scalar mode both the exact stability ceiling and the best asymptotic rate improve as \\(\\alpha\\) decreases toward \\(1/2\\). The theorem supplies a complete stability boundary, a unique rate-optimal step, and an explicit endpoint tradeoff rather than an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
