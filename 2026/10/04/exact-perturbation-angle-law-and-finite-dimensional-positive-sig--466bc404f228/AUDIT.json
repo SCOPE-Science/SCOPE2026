@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Frisch--Waugh--Lovell reduces the mirror pair to orthogonal residualized columns because the published normalization equalizes their component norms. This gives the independent normal coefficient laws exactly. The mirror identity is elementary; the alternative sign probability follows by standardization. Strict monotonicity is proved by the increasing function H(x)=x[2Phi(x)-1]/phi(x). Uniform-sphere geometry gives the rho density and exact moments, yielding the mixture and fixed-lambda expansion. Deterministic replay in verify.py matches all displayed numerical examples. Limits are explicit: low-dimensional fixed-design Gaussian OLS only, and sign probability is not full procedure power.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai--Lin--Xing--Liu, arXiv:2007.01237 / JASA, note that standardization removes the exact finite-sample independence available in the original OLS GM construction.",
+        "Chen et al., Scientific Reports 13:5478 (2023), discuss GM power empirically and state that power depends on the mirror construction/conditional-independence behavior, without an exact residual-angle law."
+      ],
+      "reasoning": "Broader mirror-statistic papers address asymptotic FDR, generalized models, data splitting, or empirical power. None of the inspected statements dominates the exact fixed-design OLS formula or the finite-dimensional sphere-mixture comparison.",
+      "searches": [
+        "mirror statistic independent Gaussian estimates sign probability min absolute value FDR",
+        "scale-free FDR mirror statistic two independent estimates exact finite-sample power",
+        "Gaussian mirror OLS residualized perturbation angle beta plus beta minus",
+        "Gaussian mirror power perturbation c_j regression",
+        "Gaussian mirrors conditional independence power",
+        "Gaussian mirrors orthogonal perturbation positive sign power finite residual dimension"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1911.09761v1 full OLS construction",
+      "DOI:10.1080/01621459.2021.1923510 abstract/journal record",
+      "arXiv:2007.01237 and JASA follow-up note",
+      "DOI:10.1038/s41598-023-32605-5 open full text",
+      "published-finding corpus semantic searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xing--Zhao--Liu Lemma 2 gives the scaling making the two OLS mirror coefficients uncorrelated, and their Gaussianity gives independence.",
+        "The same paper declares a feature significant only for positive mirror thresholds and reports empirical power, but does not evaluate \\(\\Pr(M_j>0)\\) under alternatives as a function of the perturbation direction."
+      ],
+      "reasoning": "Independence alone does not determine the two coefficient variances under an alternative; those variances vary oppositely with \\(\rho\\). The source lemmas are premises for, not statements of, the monotonicity and sphere-mixture result. The new law is therefore not a mere restatement of the source FDR theorem.",
+      "searches": [
+        "Xing Zhao Liu Gaussian mirror Lemma 2 alternative power exact distribution",
+        "mirror statistic Gaussian OLS independent coefficients power",
+        "Gaussian mirror residual dimension n-p+1 power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xing--Zhao--Liu, arXiv:1911.09761v1, Sections 2.1--2.2, equations (2)--(7), Lemmas 1--2.",
+        "published-finding corpus closest IDs: 2026/9/19/SCOPE-sharp-weak-signal-mirror-bernoulli-profiles--80bd8eba23bd; 2026/9/20/SCOPE-sharp-local-diffuse-bernoulli-mirror-distinguishability--0e1e1f426bbd."
+      ],
+      "reasoning": "The source symmetry statement concerns the null and zero correlation of the two coefficients. The new statement parameterizes their unequal variances by the residual angle and derives a non-null sign law. The published-finding corpus mirror hits concern different Bernoulli-product objects, so their statements neither coincide with nor imply this regression result.",
+      "searches": [
+        "Gaussian mirror statistic exact distribution |beta plus + beta minus| minus null finite sample",
+        "Gaussian mirrors OLS exact power conditional distribution residual correlation",
+        "Gaussian mirror perturbation orthogonal residual power finite sample",
+        "mirror statistic identity 2 min absolute values sign product",
+        "OLS Gaussian mirrors residual perturbation angle positive mirror sign probability sphere mixture n-p+1",
+        "Gaussian mirror residual angle rho Phi sqrt 1+rho Phi sqrt 1-rho"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct source reports the construction, symmetry mechanism, algorithms, and simulations rather than a table or formula for the residual-angle positive-sign probability.",
+        "No published-finding corpus record or inspected literature table was found for \\(F_\\lambda(\rho)\\), \\(\\Pi_d(\\lambda)\\), or \\(A(\\lambda)\\)."
+      ],
+      "reasoning": "The claimed quantities are analytic laws derived from the published random perturbation, not recomputation of a known numerical table.",
+      "searches": [
+        "Gaussian mirror exact finite sample power table residual angle",
+        "Gaussian mirror OLS rho sphere mixture",
+        "Gaussian mirror coefficient variance perturbation angle"
+      ]
+    },
+    "rationale": "The source provides the mirror construction and independence mechanism, but the inspected main OLS text and relevant follow-up literature do not state the residual-angle alternative law, its strict orthogonal optimum, the exact sphere mixture, or its first finite-dimensional correction. published-finding corpus searches found no equivalent statement.",
+    "residual_risks": [
+      "Search cannot prove novelty; an equivalent OLS calculation may exist under different mirror/perturbation terminology.",
+      "The strict sign-gate optimum does not imply whole-procedure power optimality because the magnitude distribution, cross-feature dependence, and data-dependent threshold also matter.",
+      "No claim is made that an alternative orthogonal perturbation preserves the published global FDR guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it establishes the mirror construction, Gaussianity, zero correlation/independence and null symmetry, but no residual-angle alternative sign law, sphere mixture, or finite-dimensional correction was found in the inspected OLS material.",
+        "evidence": "arXiv:1911.09761v1, especially equations (4) and (7) and Lemmas 1--2.",
+        "identifier_or_url": "arXiv:1911.09761v1",
+        "material_read": "ArXiv full-text Sections 2.1--2.2: model, equations (2)--(7), Lemmas 1--2, Definition 1, Theorem 1, and the OLS algorithm.",
+        "method": "Full-text HTML inspection.",
+        "title": "Controlling False Discovery Rate Using Gaussian Mirrors",
+        "trigger": "Direct source defining the exact OLS mirror statistic and scaling used by the claim."
+      },
+      {
+        "assessment": "NOT_COVERING: develops asymptotic mirror statistics for GLMs and explicitly contrasts its standardized statistics with the original finite-sample OLS independence; no residual-angle law was located.",
+        "evidence": "arXiv:2007.01237; DOI:10.1080/01621459.2023.2165930.",
+        "identifier_or_url": "arXiv:2007.01237",
+        "material_read": "Abstract and published JASA methodological note concerning the original OLS Gaussian-mirror independence.",
+        "method": "ArXiv abstract and publisher full-text excerpt inspection.",
+        "title": "A Scale-Free Approach for False Discovery Rate Control in Generalized Linear Models",
+        "trigger": "Closest methodological continuation by overlapping authors; could have generalized or subsumed the OLS calculation."
+      },
+      {
+        "assessment": "NOT_COVERING: discusses power empirically and dependence qualitatively, but does not derive the exact OLS residual-angle coefficient law or sign-probability mixture.",
+        "evidence": "Scientific Reports 13, 5478 (2023), DOI:10.1038/s41598-023-32605-5.",
+        "identifier_or_url": "DOI:10.1038/s41598-023-32605-5",
+        "material_read": "Methods description of GM and results/discussion on FDR and power across correlation regimes.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "The systematic comparison between Gaussian mirror and Model-X knockoff models",
+        "trigger": "Direct empirical comparison focused on Gaussian-mirror power and dependence; plausible place for a power characterization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "466bc404-f228-4597-9a4b-96877230d9cf",
+  "value": {
+    "rationale": "The published method intentionally randomizes each feature and emphasizes statistical power. Near the p<n boundary, residual dimension d=n-p+1 is small, and the exact law shows a material featurewise sign-gate loss from the random perturbation direction. This is a natural finite-sample diagnostic of the method, supplies explicit benchmarks for implementation/simulation, and identifies a mathematically motivated design coordinate without claiming a replacement procedure or a global power theorem.",
+    "status": "PASS"
+  }
+}
