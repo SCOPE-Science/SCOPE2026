@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Solving the exact two-step Lion recurrence yields the unique momentum pair for any candidate phase \\(a\\). The two strict sign inequalities reduce exactly to \\(\\beta_1\\eta/(1+\\beta_2)<a<\\eta[1-\\beta_1/(1+\\beta_2)]\\), which is nonempty exactly when \\(2\\beta_1<1+\\beta_2\\). The fixed-sign two-step derivative has eigenvalues \\(1\\) and \\(\\beta_2^2\\), and direct completion of the square gives the exact average-loss floor.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 Lyapunov paper provides continuous- and discrete-time theory for Lion and Lion-family methods.",
+        "The defining paper analyzes Lion's sign update, momentum tracking, regularization, and empirical tuning."
+      ],
+      "reasoning": "General convergence or Lyapunov results under their stated regimes do not imply the exact invariant set of the zero-weight-decay constant-step scalar map. The new claim is a discrete dynamical classification in a regime not explicitly treated by those statements.",
+      "searches": [
+        "Lion Secretly Solves Constrained Optimization discrete time sign momentum",
+        "Lion optimizer convergence analysis sign momentum strongly convex quadratic",
+        "signed momentum quadratic periodic optimizer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.06675v1",
+      "arXiv:2310.05898v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source specifies \\(c_t=\beta_1m_{t-1}+(1-\beta_1)g_t\\), a sign update, and a distinct \\(\beta_2\\) momentum refresh.",
+        "The later theory writes the same discrete Lion rule and interprets it through a Lyapunov framework.",
+        "Full-text searches of the inspected sources found no periodic-orbit or cycle theorem."
+      ],
+      "reasoning": "The source recurrence is the premise of the calculation, but the prior conclusions do not determine the exact constant-step terminal orbit geometry. The period-two band follows only after solving the sign-consistency and momentum-periodicity equations together.",
+      "searches": [
+        "Lion Program 1 beta1 beta2 sign momentum update",
+        "Lion periodic cycle quadratic",
+        "Lion Lyapunov discrete time cycle periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.06675v1, Program 1 and Section 3 analysis of Lion",
+        "arXiv:2310.05898v1, Lion update equation and discrete/continuous Lyapunov analysis",
+        "Focused published-record searches for Lion, signed momentum, periodic orbits, two-cycles, and scalar quadratics"
+      ],
+      "reasoning": "Equivalent formulations include a strict alternating-sign two-cycle band, a continuum of fixed points of the two-step map, and a normally attracting chattering manifold. No inspected source states these formulations or the condition \\(2\beta_1<1+\beta_2\\).",
+      "searches": [
+        "Lion optimizer scalar quadratic exact two-cycle momentum sign periodic orbit",
+        "Lion optimizer constant step sign momentum convergence quadratic limit cycle",
+        "Lion two-cycle strongly convex quadratic",
+        "Symbolic Discovery of Optimization Algorithms Lion sign momentum periodic orbit",
+        "Lion optimizer period-2 two-cycle limit cycle momentum sign"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concern other quadratic period or stability phenomena but do not use the Lion recurrence.",
+        "No returned Lion-specific record states a two-cycle continuum, the beta threshold, or the multiplier \\(\beta_2^2\\)."
+      ],
+      "reasoning": "The closest database matches use different update maps. Search absence is not treated as proof of uniqueness; the conclusion also relies on full-text comparison of the two most relevant Lion papers.",
+      "searches": [
+        "Lion optimizer scalar quadratic exact two-cycle momentum sign periodic orbit",
+        "Lion optimizer constant step sign momentum convergence quadratic limit cycle",
+        "Lion two-cycle strongly convex quadratic",
+        "Symbolic Discovery of Optimization Algorithms Lion sign momentum periodic orbit",
+        "Lion optimizer period-2 two-cycle limit cycle momentum sign"
+      ]
+    },
+    "rationale": "The defining Lion paper gives the two-coefficient sign-momentum recurrence and discusses update magnitude, while the later Lyapunov paper studies constrained/composite optimization and convergence. Neither inspected source states a constant-step scalar period-two continuum, the exact beta-dependent chattering band, or its transverse Floquet spectrum.",
+    "residual_risks": [
+      "A similar period-two calculation may exist in unindexed notes on signed momentum or quantized optimization under different terminology.",
+      "The family is specific to zero weight decay and constant learning rate.",
+      "The result is scalar and does not classify multidimensional coupled cycles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_TWO_CYCLE_BAND.",
+        "evidence": "The source gives the exact two-coefficient sign-momentum update used here and notes the fixed sign-update magnitude, but contains no scalar quadratic or periodic-orbit classification.",
+        "identifier_or_url": "arXiv:2302.06675v1",
+        "material_read": "Open-access full text covering Program 1, the interpolation definition, Section 3 derivation and analysis, the roles of beta1 and beta2, sign-update magnitude, and hyperparameter discussion.",
+        "method": "Full-text HTML inspection with targeted searches for quadratic, periodic, and cycle terminology.",
+        "title": "Symbolic Discovery of Optimization Algorithms",
+        "trigger": "Defining Lion source and earliest public date."
+      },
+      {
+        "assessment": "BROADER_LYAPUNOV_THEORY_NOT_COVERING_CONSTANT_STEP_CHATTERING_BAND.",
+        "evidence": "The paper develops continuous- and discrete-time theory and notes that further dynamical characterization remains open, but no periodic-orbit or cycle statement was located.",
+        "identifier_or_url": "arXiv:2310.05898v1",
+        "material_read": "Full ICLR paper including the discrete Lion update, Lion-family formulation, Lyapunov interpretation, constrained-optimization result, and discussion/future-work section.",
+        "method": "Full PDF text inspection with visual inspection of the update and Lyapunov pages and targeted searches for periodic and cycle terms.",
+        "title": "Lion Secretly Solves Constrained Optimization: As Lyapunov Predicts",
+        "trigger": "Strongest directly relevant theoretical analysis of Lion dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "27b262d7-1046-4b13-b4f5-8aa664844261",
+  "value": {
+    "rationale": "Lion's fixed-magnitude sign update and asymmetric two-coefficient momentum are its defining algorithmic features. The theorem shows exactly how those features create a nonzero terminal chattering set even on the simplest strongly convex objective, quantifies when the set exists, its transverse contraction, its width at the published defaults, and the irreducible constant-step loss floor. This is a natural dynamical invariant that directly informs learning-rate decay and terminal-accuracy behavior.",
+    "status": "PASS"
+  }
+}
