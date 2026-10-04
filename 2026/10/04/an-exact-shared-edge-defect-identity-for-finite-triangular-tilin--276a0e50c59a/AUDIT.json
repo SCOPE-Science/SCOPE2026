@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the planar graph count and the stretch count with all variables defined. Euler gives \\(t+2=v_{\\mathrm{bd}}+2v_{\\mathrm{int}}-v_{\\mathrm{int}}^*\\). Allowing size-\\(2\\) stretches, which are exactly full shared sides, and writing every larger stretch as \\(3+e\\) gives \\(v_{\\mathrm{int}}^*=p+E\\) and \\(\\Sigma=2q+3p+E\\). Combining this with \\(\\Sigma=3t-v_{\\mathrm{bd}}\\) yields the claimed identity exactly. The nonnegative-defect inequality and equality conditions then follow without an experimental step.",
+    "risks": [
+      "The extension from the source's no-shared-side case requires recognizing size-2 stretches as shared full sides; this step was explicitly checked in the reconstructed proof."
+    ],
+    "sources": [
+      "arXiv:1711.04504"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1711.04504, Theorem 6, gives only \\(q\\ge1\\) for \\(k\\ge4\\).",
+        "arXiv:1712.03118 restates the earlier shared-side result in the plane-tiling context but does not dominate \\(q\\ge k-3\\).",
+        "arXiv:1711.08903 cites the earlier existence result in a special equilateral setting and does not provide a general stronger count."
+      ],
+      "reasoning": "No inspected broader theorem supplies a bound at least as strong as \\(q\\ge v_{\\mathrm{bd}}-3\\) for arbitrary finite triangular tilings of a convex polygon.",
+      "searches": [
+        "Tilings with noncongruent triangles convex polygon shared edge quantitative lower bound k-3 stretch",
+        "number of shared edges triangular tiling polygon",
+        "hanging nodes triangulation polygon lower bound shared edges"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1711.04504",
+      "doi:10.1016/j.ejc.2018.05.005",
+      "arXiv:1712.03118",
+      "arXiv:1711.08903",
+      "doi:10.1007/s00454-019-00061-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof assumes no two triangles share a side, hence all stretches have size at least 3, and derives a contradiction when v_bd>=4.",
+        "The candidate instead retains size-2 stretches and derives an equality for their number."
+      ],
+      "reasoning": "The prior existence conclusion \\(q\\ge1\\) does not imply \\(q\\ge k-3\\) for \\(k>4\\), nor the exact defect identity. The candidate is a quantitative strengthening extracted by extending the source counting scheme beyond its \\(q=0\\) contradiction regime.",
+      "searches": [
+        "Theorem 6 Tilings with noncongruent triangles shared edge convex k-gon",
+        "stretch size s subdividing vertices triangle tiling convex polygon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1711.04504 states the existence theorem and its stretch proof but not the quantitative shared-edge count.",
+        "Searches using T-junction, hanging-node, non-edge-to-edge, and shared-edge terminology did not locate an equivalent formula."
+      ],
+      "reasoning": "The candidate was compared under both the source vocabulary (stretch, subdividing vertex, shared side) and mesh vocabulary (T-junction, hanging node, nonconforming triangulation). No inspected source gave an equivalent statement.",
+      "searches": [
+        "finite tiling convex polygon triangles number of shared full sides at least boundary vertices minus three",
+        "triangular tiling convex k-gon at least k-3 pairs of triangles share a full edge",
+        "shared-edge defect identity triangular tiling convex polygon subdividing vertices stretches",
+        "non-edge-to-edge triangular tiling T-junction Euler formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed findings concerned reduced-polygon stability, outerplanar degree spread, and mesh-bisection dynamics; none treated the candidate shared-edge identity.",
+        "The primary bibliographic identifiers arXiv:1711.04504, arXiv:1712.03118, and arXiv:1711.08903 were inspected directly or through full-text/abstract records."
+      ],
+      "reasoning": "The exact claim was not present in the searched published-finding index or in the inspected nearby primary literature.",
+      "searches": [
+        "convex geometry polygon width extremal inequality planar convex bodies support function",
+        "lattice polygon width diameter exact classification convex geometry",
+        "finite tiling convex polygon triangles number of shared full sides at least boundary vertices minus three",
+        "T-junction triangle tiling convex polygon shared edges exact defect identity"
+      ]
+    },
+    "rationale": "The primary 2017 preprint proves only existence of a shared full side for convex \\(k\\)-gons with \\(k\\ge4\\), under a contradiction hypothesis excluding size-\\(2\\) stretches. The inspected proof contains the counting ingredients but does not state the retained-size-\\(2\\) identity, the lower bound \\(q\\ge k-3\\), or its equality characterization. Two closely related papers inspected afterward restate or use the existence theorem rather than the quantitative identity. Targeted semantic and phrase searches did not return a source implying the stated bound.",
+    "residual_risks": [
+      "A differently phrased identity may exist in older tiling or nonconforming-mesh literature that was not indexed by the searches.",
+      "The originality assessment is therefore a literature-supported comparison, not a proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The source proves existence under the assumption \\(q=0\\) and does not state the retained-size-\\(2\\) equality or \\(q\\ge k-3\\).",
+        "identifier_or_url": "arXiv:1711.04504; doi:10.1016/j.ejc.2018.05.005",
+        "material_read": "Abstract, Theorem 6, Section 2 proof, including Euler equation, subdividing-vertex definition, stretch definition, and stretch-size count.",
+        "method": "Full-text inspection of an author-hosted preprint, cross-checked with the arXiv metadata record.",
+        "title": "Tilings with noncongruent triangles",
+        "trigger": "Primary source of the convex-polygon shared-side theorem and stretch method."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected material restates the earlier existence result and does not state the finite convex-polygon quantitative identity.",
+        "identifier_or_url": "arXiv:1712.03118",
+        "material_read": "Abstract and introductory discussion of the earlier shared-side result.",
+        "method": "ArXiv metadata and accessible full-text introductory material.",
+        "title": "Tilings of the plane with unit area triangles of bounded diameter",
+        "trigger": "Follow-up paper by the same authors discussing their earlier shared-side theorem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The work concerns mutually incongruent equilateral triangles and cites the existence theorem; it does not provide the general q identity.",
+        "identifier_or_url": "arXiv:1711.08903; doi:10.1007/s00454-019-00061-6",
+        "material_read": "Abstract and introductory citation context.",
+        "method": "ArXiv metadata and bibliographic/full-text search context.",
+        "title": "Tilings of convex sets by mutually incongruent equilateral triangles contain arbitrarily small tiles",
+        "trigger": "Contemporaneous triangular-tiling paper citing the shared-side theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "276a0e50-c59a-41dc-8cd7-e16059228bbe",
+  "value": {
+    "rationale": "The result is a natural sharp quantitative strengthening of a published existence theorem. It gives an exact structural decomposition of every excess full-edge adjacency into two geometrically meaningful defects: nonsubdividing interior vertices and stretches longer than the minimal non-shared size. The lower bound is sharp for every polygon size, and the equality conditions are immediate from the same identity.",
+    "risks": [
+      "The result is an exact structural lemma rather than a large downstream theorem; its value rests on the sharp quantitative strengthening and defect decomposition."
+    ],
+    "sources": [
+      "arXiv:1711.04504",
+      "arXiv:1712.03118",
+      "arXiv:1711.08903"
+    ],
+    "status": "PASS"
+  }
+}
