@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "All exponent partitions with total multiplicity at most four have exact abundancy maxima below three. For total multiplicity five, the parity criterion excludes odd numbers and the cases by the exponent of two are exhaustive. Exact factor equations and rational inequalities leave only \\(2^3\\cdot3\\cdot5=120\\), which directly satisfies \\(\\sigma(n)=3n\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen 1980 proves that odd triperfect numbers have at least nine distinct prime factors.",
+        "Kishore 1987 improves the odd bound to twelve distinct prime factors.",
+        "Cohen--Sorli 2012 handle \\(2^aM\\) with \\(M\\) odd squarefree and \\(a\\le718\\)."
+      ],
+      "reasoning": "The odd bounds dominate the odd branch but do not determine the small even branch. The squarefree bounded-exponent classification does not cover prime powers in the odd part and is not uniform in \\(a\\).",
+      "searches": [
+        "triperfect numbers prime factors lower bound",
+        "odd triperfect distinct prime factors",
+        "even 3-perfect squarefree odd part Cohen Sorli",
+        "multiply perfect numbers low prime factor count"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S1446788700021376",
+      "doi:10.1017/S1446788700028184",
+      "doi:10.1515/integers-2012-0036",
+      "OEIS:A005820"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cohen's Theorem 4(ii) requires \\(2^2\\cdot3\\cdot5\\mid N\\) before concluding \\(N=120\\).",
+        "Cohen--Sorli's Theorem 7 is restricted to squarefree odd parts and \\(a\\le718\\).",
+        "The closest indexed low-prime-support findings concern different divisor predicates and do not imply triperfectness."
+      ],
+      "reasoning": "The new proof supplies the missing implication from \\(\\Omega(N)=5\\) to the unique divisibility pattern and separately excludes every repeated-prime shape, so the cited prior theorems do not subsume it.",
+      "searches": [
+        "triperfect 120 2^2 3 5 theorem Cohen",
+        "triperfect Omega five unique 120",
+        "3-perfect total prime factors five"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cohen 1980 states a conditional 120 theorem under divisibility by \\(2^2\\cdot3\\cdot5\\).",
+        "Kishore 1987 proves only an odd-number lower bound on distinct prime factors.",
+        "OEIS A005820 lists the known values but gives no fixed-\\(\\Omega\\) theorem."
+      ],
+      "reasoning": "Searches targeted the exact \\(\\Omega\\)-bound, five-factor wording, the 120 boundary case, and the closest divisibility formulation. No equivalent unrestricted statement was found.",
+      "searches": [
+        "triperfect Omega(n) 120 prime factors",
+        "triperfect five prime factors 120",
+        "3-perfect five prime factors 120",
+        "triperfect number at most five prime factors",
+        "triperfect 2^3 120 theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005820 lists exactly six currently known triperfect numbers, beginning with 120.",
+        "The entry says the six are believed to comprise all triperfect numbers."
+      ],
+      "reasoning": "A value table cannot exclude arbitrarily large triperfect numbers in a fixed multiplicative-complexity layer; it therefore does not imply the theorem.",
+      "searches": [
+        "OEIS A005820 triperfect numbers",
+        "A005820 120 672 523776"
+      ]
+    },
+    "rationale": "The closest inspected primary results either assume a specific divisibility pattern, treat only odd triperfect numbers, or impose a squarefree odd part and a bound on the exponent of two. None implies the unrestricted fixed-multiplicity classification.",
+    "residual_risks": [
+      "Older computational literature on triperfect numbers is not uniformly available in searchable full text.",
+      "A short equivalent low-abundancy argument may exist under multiply-perfect rather than triperfect terminology.",
+      "The theorem does not classify any layer above total multiplicity five."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. It proves the conditional divisibility result leading to 120 and an odd distinct-prime lower bound, but no fixed-\\(\\Omega\\) classification.",
+        "evidence": "Theorem 4(ii) assumes \\(2^2\\cdot3\\cdot5\\mid N\\); Theorem 6 requires an odd triperfect number to have at least nine distinct prime factors.",
+        "identifier_or_url": "doi:10.1017/S1446788700021376",
+        "material_read": "Abstract and introduction; Theorems 4--6; full proof of Theorem 4; targeted surrounding discussion of even and odd triperfect numbers.",
+        "method": "Full-text PDF inspection with page-image and exact-text checks.",
+        "title": "On odd perfect numbers (II), multiperfect numbers and quasiperfect numbers",
+        "trigger": "Foundational primary paper treating triperfect divisor restrictions."
+      },
+      {
+        "assessment": "NOT_COVERING. It concerns only odd triperfect numbers.",
+        "evidence": "Its theorem is \\(\\omega(N)\\ge12\\) for odd triperfect \\(N\\).",
+        "identifier_or_url": "doi:10.1017/S1446788700028184",
+        "material_read": "Title page, abstract, introduction, theorem statement, and historical comparison.",
+        "method": "Full-text PDF inspection with page-image check.",
+        "title": "Odd triperfect numbers are divisible by twelve distinct prime factors",
+        "trigger": "Strongest inspected classical lower bound on the odd branch."
+      },
+      {
+        "assessment": "NOT_COVERING. Its classification assumes an odd squarefree part and bounds the exponent of two by 718.",
+        "evidence": "The paper states that the six known examples are the only \\(2^aM\\) cases with \\(M\\) odd squarefree and \\(a\\le718\\).",
+        "identifier_or_url": "doi:10.1515/integers-2012-0036",
+        "material_read": "Abstract, introduction, Lemmas 5--6, the even 3-perfect section, and the main theorem statement.",
+        "method": "Full-text open PDF inspection with page-image and targeted text search.",
+        "title": "On Odd Perfect Numbers and Even 3-Perfect Numbers",
+        "trigger": "Closest later primary classification of even 3-perfect numbers."
+      },
+      {
+        "assessment": "NOT_COVERING. It is a table and conjectural completeness record, not a fixed-multiplicity theorem.",
+        "evidence": "The sequence begins 120, 672, 523776 and states that the six known terms are believed complete.",
+        "identifier_or_url": "OEIS:A005820",
+        "material_read": "Definition, terms, comments, references, formulas, and example factorization of 120.",
+        "method": "Direct sequence-page inspection.",
+        "title": "OEIS A005820: 3-perfect numbers",
+        "trigger": "Exact database for triperfect numbers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f7faa75-7c07-4528-ae84-c18653fb9675",
+  "value": {
+    "rationale": "The theorem gives a complete structural classification at the first possible total-prime-factor layer of a classical incompletely classified divisor-sum family. It explains the uniqueness of 120 at that layer by an unrestricted proof.",
+    "status": "PASS"
+  }
+}
