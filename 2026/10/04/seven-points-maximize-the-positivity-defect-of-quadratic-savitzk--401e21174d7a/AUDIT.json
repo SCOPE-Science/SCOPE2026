@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The center weights follow from exact even-moment normal equations. The data-cube minimum is the total negative coefficient mass. The sign cutoff and finite-sum formula are exact. The unique global maximum is established by rational evaluation for radii through 27 and an analytic integral bound for all larger radii; the asymptotic follows from the explicit cutoff. The packaged checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marchand--Marmet explicitly describe transmission zeros, phase reversals, and overshoots as pitfalls of least-squares polynomial smoothing.",
+        "Schmid--Rath--Diebold discuss negative excursions and ringing in Savitzky--Golay kernels."
+      ],
+      "reasoning": "These sources establish that artifacts and negative lobes are known. They do not, in the material available, determine the sharp cube-data undershoot as a function of window radius, its global maximizer, or its limiting negative mass.",
+      "searches": [
+        "least-squares polynomial smoothing negative coefficients window",
+        "Savitzky Golay overshoot weights negative coefficients polynomial smoothing",
+        "Why and How Savitzky Golay Filters Should Be Replaced negative excursion"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1021/ac60214a047",
+      "DOI:10.1063/1.1137498",
+      "DOI:10.1137/0726040",
+      "DOI:10.1021/acsmeasuresciau.1c00054"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Savitzky--Golay provide the construction and coefficient tables, which are treated as inputs rather than novelty.",
+        "Marchand--Marmet provide a qualitative pitfalls result; only abstract-level material was available after bounded lawful retrieval attempts.",
+        "Scott--Scott treat efficient least-squares polynomial smoothing and establish the numerical-analysis classification, not the sharp positivity-defect theorem in the inspected metadata."
+      ],
+      "reasoning": "The prior construction plus knowledge that some coefficients are negative implies existence of some undershoot, but not the exact closed \\(V_m\\), uniqueness of the seven-point global maximum, or the nonzero infinite-window limit. The unavailable full text of the closest pitfalls paper prevents a definitive whole-document noncoverage claim and is retained as a residual risk.",
+      "searches": [
+        "Smoothing and Differentiation of Data by Simplified Least Squares Procedures Table I quadratic cubic",
+        "Binomial smoothing filter pitfalls least squares polynomial smoothing overshoots",
+        "Efficient Methods for Data Smoothing Savitzky Golay least squares polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original 1964 paper tabulates signed quadratic/cubic convolution weights but does not state the all-window bounded-data negative-mass optimization in the inspected text.",
+        "Searches under the equivalent kernel \\(\\ell_1\\)-norm formulation did not locate the closed all-window defect or the seven-point maximum."
+      ],
+      "reasoning": "For a normalized linear smoother, worst undershoot over \\([0,M]\\) is exactly the total negative kernel mass and the kernel \\(\\ell_1\\) norm is \\(1+2V_m\\). Both aliases were searched. The inspected literature discusses coefficients or qualitative artifacts without deriving the claimed all-window extremal law.",
+      "searches": [
+        "Savitzky Golay filter negative weights positivity sharp undershoot bounded nonnegative data",
+        "Savitzky Golay smoothing l1 norm weights exact total variation",
+        "quadratic Savitzky Golay weights negative mass asymptotic",
+        "Savitzky Golay quadratic smoothing exact worst undershoot nonnegative bounded data seven point 4/21"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original coefficient table reproduces the five- and seven-point kernels used here, providing an independent source check on the derived weights.",
+        "No checked table or database record reported \\(V_3=4/21\\) as the global all-window positivity defect or the limit \\(\\frac32\\sqrt{3/5}-1\\)."
+      ],
+      "reasoning": "Known coefficient tables make each fixed-window negative mass easy to compute, but a table of several kernels does not imply the all-window maximization and asymptotic theorem.",
+      "searches": [
+        "Savitzky Golay quadratic filter total negative weight l1 norm closed form window length",
+        "least squares polynomial smoothing positivity defect negative mass 4/21",
+        "Savitzky Golay equivalent noise bandwidth l1 norm"
+      ]
+    },
+    "rationale": "Signed Savitzky--Golay coefficients, qualitative overshoot, phase reversal, ringing, and negative excursions are prior work and are excluded from the novelty claim. The accepted statement is the exact bounded-nonnegative-data defect for every quadratic/cubic center window, its unique seven-point global maximum, and its nonzero limiting negative mass. Targeted semantic and literature searches found no implication-equivalent statement; inaccessible older literature remains an explicit risk.",
+    "residual_risks": [
+      "The full text of Marchand--Marmet (1983) was not recovered through the lawful open and institutional routes attempted, so an equivalent negative-mass calculation there cannot be excluded.",
+      "Older signal-processing literature may phrase the same quantity as a deterministic \\(\\ell_\\infty\\) gain, kernel \\(\\ell_1\\) norm, or side-lobe mass rather than positivity defect.",
+      "The theorem does not address higher polynomial degrees, whose sign structure and global worst window may differ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the method and fixed-window coefficients; the inspected material does not state the all-window negative-mass extremum, seven-point global maximum, or asymptotic defect.",
+        "evidence": "Table I contains the five-point coefficients proportional to \\((-3,12,17,12,-3)\\) and seven-point coefficients proportional to \\((-2,3,6,7,6,3,-2)\\).",
+        "identifier_or_url": "DOI:10.1021/ac60214a047",
+        "material_read": "Lawful open reprint containing the discussion of least-squares convolutes and Table I with quadratic/cubic smoothing coefficients through twenty-five points.",
+        "method": "Open full-text PDF reprint inspected at the relevant discussion and coefficient-table pages.",
+        "title": "Smoothing and Differentiation of Data by Simplified Least Squares Procedures",
+        "trigger": "Original source for the least-squares smoothing construction and tabulated quadratic/cubic kernels."
+      },
+      {
+        "assessment": "COVERS qualitative transmission zeros, phase reversals, and overshoots. Whole-document comparison of the exact negative-mass formula remains unresolved.",
+        "evidence": "The abstract explicitly identifies overshoots and phase reversals as objectionable effects of least-squares polynomial smoothing.",
+        "identifier_or_url": "DOI:10.1063/1.1137498",
+        "material_read": "Publisher and bibliographic abstract; lawful open-source and authorized institutional full-text routes were attempted but no verified article PDF was recovered.",
+        "method": "Abstract inspection plus bounded lawful full-text retrieval attempts.",
+        "title": "Binomial smoothing filter: A way to avoid some pitfalls of least-squares polynomial smoothing",
+        "trigger": "Closest prior explicitly focused on pitfalls of least-squares polynomial smoothing."
+      },
+      {
+        "assessment": "COVERS efficient least-squares polynomial smoothing; the accessible material does not state the positivity-defect theorem.",
+        "evidence": "The bibliographic record lists primary MSC 65D10 and describes least-squares polynomial fitting for smoothing uniformly spaced data.",
+        "identifier_or_url": "DOI:10.1137/0726040",
+        "material_read": "Publisher bibliographic record and abstract.",
+        "method": "Publisher metadata/abstract inspection.",
+        "title": "Efficient Methods for Data Smoothing",
+        "trigger": "Numerical-analysis source on efficient least-squares polynomial smoothing and classification."
+      },
+      {
+        "assessment": "COVERS qualitative negative excursions and ringing; does not state the all-window bounded-data negative-mass theorem in the inspected material.",
+        "evidence": "The article highlights negative excursions of Savitzky--Golay kernels and the artifacts they can induce.",
+        "identifier_or_url": "DOI:10.1021/acsmeasuresciau.1c00054",
+        "material_read": "Open full text, especially discussion of negative excursions, ringing, and frequency response.",
+        "method": "Lawful open full-text inspection.",
+        "title": "Why and How Savitzky--Golay Filters Should Be Replaced",
+        "trigger": "Modern full-text discussion of Savitzky--Golay artifacts and kernel shape."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "401e2117-4d7a-475f-bad5-9512abaf3f2b",
+  "value": {
+    "rationale": "Quadratic/cubic Savitzky--Golay smoothing is a canonical numerical-data method, and positivity of bounded measurements is a natural shape constraint. The theorem gives a complete deterministic robustness profile across all odd window widths, identifies a unique worst window, supplies a strictly positive counterexample, and proves a persistent large-window defect. This is a reusable design and regression benchmark rather than a fixed-table recomputation.",
+    "status": "PASS"
+  }
+}
