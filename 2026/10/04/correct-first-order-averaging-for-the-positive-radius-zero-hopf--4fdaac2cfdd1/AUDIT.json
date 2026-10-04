@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The first-order average is derived directly from the printed rescaled ODE. The inverse linear change gives P_X=((1+omega^2)P_x-P_y+P_u)/omega, P_Y=P_y+P_u/omega^2, P_Z=P_u, and P_U=P_z. Exact trigonometric moments yield the three averaged functions in the claim. Solving on r>0 gives U_*=(a1 omega^2+j1)/e, and simplicity forces Z_*=0 when a1+d1 is nonzero. The determinant and the 2-by-2 characteristic factor are then exact. The stable and false-certification witnesses are checked in exact rational arithmetic by the bundled replay.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Llibre and Tian, J. Math. Phys. 62, 052703 (2021), DOI 10.1063/5.0023155, state that Yang et al. gave partial results and characterize all zero-Hopf equilibria.",
+        "Their origin periodic-orbit theorem perturbs b,c,d,j around a zero-Hopf family while a is fixed; the 2020 perturbation corrected here keeps b fixed and perturbs a,c,d,j."
+      ],
+      "reasoning": "The later paper is broader at the equilibrium-classification level but its periodic-orbit theorem has different hypotheses, so it does not dominate the source-specific corrected branch without an additional transformation not present in the checked text.",
+      "searches": [
+        "\"The zero-Hopf bifurcations of a four-dimensional hyperchaotic system\" Llibre Tian",
+        "\"s13662-020-02647-4\" Llibre Tian",
+        "doi:10.1063/5.0023155"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1186/s13662-020-02647-4",
+      "doi:10.1063/5.0023155",
+      "MSC2020:37G15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang--Wei--Moroz 2020, DOI 10.1186/s13662-020-02647-4, sets omega^2=b-1 and gives the rescaled ODE and linear change used in the reconstruction, but then prints a different averaged radial function and branch.",
+        "Llibre--Tian 2021, DOI 10.1063/5.0023155, gives a periodic-orbit theorem for a different perturbation direction and does not state the corrected source-specific average."
+      ],
+      "reasoning": "The new statement is not a corollary of the 2020 theorem because that theorem uses incompatible first-order equations, and it is not a direct specialization of the 2021 theorem because the perturbed parameter coordinates differ. No checked source supplied an implication bridge.",
+      "searches": [
+        "\"Periodic solutions for a four-dimensional hyperchaotic system\" Theorem 2 averaging",
+        "\"The zero-Hopf bifurcations of a four-dimensional hyperchaotic system\" Theorem 3",
+        "\"if there exists r\" hyperchaotic periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 full text defines the perturbation, rescaled ODE, and linear change, but its displayed averaged radial and Z functions use a different sign pattern.",
+        "Searches for the corrected combination and exact source title did not identify a separate correction or equivalent theorem."
+      ],
+      "reasoning": "Aliases using zero-Hopf, zero-zero-Hopf, the exact DOI, and the corrected algebraic combination were checked. The located matches either reproduce the 2020 source or concern different systems.",
+      "searches": [
+        "\"Periodic solutions for a four-dimensional hyperchaotic system\" \"a1 omega^2+j1\"",
+        "\"a1(b-1)+j1\" hyperchaotic",
+        "\"a_1\\omega^2+j_1\" \"four-dimensional hyperchaotic\"",
+        "doi:10.1186/s13662-020-02647-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed scientific record was 2026/9/18/SCOPE-boundary-polar-zeros-track-rossler-equilibria--6ecaba26fef5, which concerns a Rössler zero-Hopf unfolding rather than the Yang--Wei--Moroz system.",
+        "Other high-ranked records concerned unrelated flows or general periodic-orbit phenomena and contained neither the present vector field nor the corrected formulas."
+      ],
+      "reasoning": "The exact algebraic fingerprint and object-specific searches did not return a covering record. The close polar-boundary record is methodologically analogous only and has different equations and parameters.",
+      "searches": [
+        "four-dimensional hyperchaotic system corrected averaged function r(eU-j1-a1 omega^2) periodic orbit",
+        "positive-radius averaged zero a1 omega^2 + j1 hyperchaotic zero-Hopf",
+        "Yang Wei Moroz sign error averaged function eU j1 a1 omega squared"
+      ]
+    },
+    "rationale": "Statement-level comparison found no checked source that states or implies the corrected first-order average for the source-specific perturbation with varying a and fixed b. The closest same-system follow-up studies a different perturbation family. The exact 2020 source instead prints incompatible averaged formulas, so it does not cover the corrected branch.",
+    "residual_risks": [
+      "Bibliographic search cannot exclude an unindexed correction or unpublished note.",
+      "A non-obvious conjugacy could relate different perturbation parameterizations, but none is supplied by the checked same-system follow-up; this is a literature risk rather than an ambiguity in the direct first-order reconstruction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source contains the incompatible formulas being corrected and does not state the reconstructed positive-radius branch.",
+        "evidence": "The PDF sets omega^2=b-1, prints a=-1+epsilon a1 and +epsilon a1(y-x), then displays an averaged radial function proportional to -(j1+eU-a1 omega^2); direct differentiation of the same equations gives the formula in the finding.",
+        "identifier_or_url": "doi:10.1186/s13662-020-02647-4",
+        "material_read": "Full HTML text and PDF pages 3--7, including Theorems 1--3, equations (6)--(11), the averaged functions, all four averaged zeros, the determinant calculations, and the stability eigenvalues.",
+        "method": "Equation-by-equation reconstruction from the printed rescaled ODE and inverse linear change, followed by comparison with the displayed average and theorem statement.",
+        "title": "Periodic solutions for a four-dimensional hyperchaotic system",
+        "trigger": "Primary source defining the exact ODE, perturbation, linear change, averaged functions, and Theorem 2."
+      },
+      {
+        "assessment": "NOT_COVERING for this claim: the paper studies a different origin perturbation family and does not state the corrected Yang--Wei--Moroz average.",
+        "evidence": "Its Theorem 3 holds a fixed while perturbing b,c,d,j; the corrected 2020 family holds b fixed while perturbing a,c,d,j.",
+        "identifier_or_url": "doi:10.1063/5.0023155",
+        "material_read": "Full PDF pages 1--8, including the introduction, zero-Hopf parameter classification, Theorem 3, its perturbation family, proof setup, averaged-zero discussion, and examples.",
+        "method": "Compared hypotheses, perturbed parameter coordinates, and theorem implications rather than titles alone.",
+        "title": "The zero-Hopf bifurcations of a four-dimensional hyperchaotic system",
+        "trigger": "Strongest located later paper on the identical four-dimensional vector field and zero-Hopf problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4fdaac2c-fdd1-4eb8-9f74-c2088133201c",
+  "value": {
+    "rationale": "The correction changes a published bifurcation theorem at the level of the first-order averaged vector field, not merely notation. It changes the existence combination, the nondegeneracy factor, and the stability region of the regular positive-radius branch. The b=2 witnesses isolate the issue from the separate (b-1)^2 typo and show that the corrected result both adds a stable branch omitted by the paper and removes a branch that its printed condition purports to certify. This is directly useful for subsequent local dynamics and for any reuse of the theorem.",
+    "status": "PASS"
+  }
+}
