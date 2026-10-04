@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Complete anonymous enumeration through five voters gives zero manipulable profiles for one through four voters and exactly six at five. Two independent Baldwin implementations agree on every tested profile and deviation. A direct labeled-profile enumeration over all 7776 five-voter profiles reproduces exactly the same anonymous support and gives 180 bad profiles and 360 vulnerable distinguished voter-profile pairs. The single normalized event is verified directly by round-by-round Borda scores.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Narodytska--Walsh--Xia prove that unweighted Baldwin manipulation is NP-complete even with one manipulator.",
+        "Their model allows fixed tie-breaking and unrestricted candidate sets, and the reduction establishes computational hardness rather than a small-electorate classification.",
+        "The same paper notes that Baldwin with two candidates degenerates to majority voting, but it does not settle the smallest voter count for three candidates."
+      ],
+      "reasoning": "The complexity theorem guarantees susceptibility in a broad domain but does not imply any exact five-voter boundary, prevalence, or orbit structure. The new result is strictly finer and tie-independent.",
+      "searches": [
+        "Manipulation of Nanson and Baldwin rules single manipulator",
+        "Baldwin rule strategyproof manipulation NP hard one manipulator",
+        "three candidate Baldwin rule manipulation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1106.5312",
+      "doi:10.1609/aaai.v25i1.7872",
+      "TUM:Heilmaier-2020"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heilmaier shows that the truthful 2-1-2 profile makes Black elect A and Baldwin elect C.",
+        "The Gibbard--Satterthwaite discussion only guarantees manipulation somewhere for non-dictatorial single-valued rules after tie-breaking; it gives no sharp electorate size or tie-independent witness.",
+        "The 2011 NP-hardness theorem concerns deciding manipulation in large constructed elections and likewise does not imply the exact boundary."
+      ],
+      "reasoning": "Knowing the truthful Baldwin winner at the five-voter profile does not imply that one ABC voter can profit by reporting BCA, and none of the broad manipulation theorems determine that this is the unique normal form or that four voters are impossible.",
+      "searches": [
+        "Heilmaier Black Baldwin five voters 2 1 2",
+        "Baldwin manipulation single voter NP complete three candidates",
+        "Gibbard Satterthwaite Baldwin strategyproof small electorate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic research-index searches produced no Baldwin-specific record matching the five-voter exact boundary.",
+        "Exact web searches by voter count and strategy terminology located the 2011 manipulation-complexity paper and general Baldwin material, but no six-profile census.",
+        "Searches by the normalized five-voter profile locate Heilmaier's Black-versus-Baldwin disagreement example, not a strategic manipulation result."
+      ],
+      "reasoning": "The searches cover the rule aliases Baldwin and Borda elimination, unilateral manipulation/strategyproofness terminology, the exact voter count, and the exact profile shape. The closest exact-profile source asks a different implication question and does not contain the strategic transition.",
+      "searches": [
+        "Baldwin voting manipulation three candidates five voters exact boundary",
+        "Borda elimination rule strategic manipulation smallest electorate",
+        "Baldwin rule one voter manipulation exact profile census",
+        "Baldwin voting three candidates manipulability five voter profile",
+        "Baldwin 5 voters manipulation",
+        "Baldwin manipulation three candidates 5 voters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected publication or table gives the fractions 5/216 or 1/108 for Baldwin manipulation.",
+        "Heilmaier gives the 2-1-2 truthful profile counts in a rule-comparison table, but not any manipulation table.",
+        "The present counts are generated from all anonymous and all labeled profiles rather than imported from an external database."
+      ],
+      "reasoning": "The prior 2-1-2 profile record does not contain the deviation or multiplicity information needed for the exact strategic census.",
+      "searches": [
+        "\"5/216\" Baldwin voting manipulation",
+        "\"1/108\" Baldwin manipulation",
+        "\"2,0,0,1,2,0\" Baldwin",
+        "\"2 1 2\" Baldwin Black manipulation"
+      ]
+    },
+    "rationale": "General manipulability and single-manipulator hardness of Baldwin are prior. A later thesis also contains the same truthful five-voter profile as a Black-versus-Baldwin rule-difference witness. No inspected source states the unilateral manipulation transition, the no-manipulation result below five voters, the complete six-profile candidate orbit, or the exact finite incidence counts.",
+    "residual_risks": [
+      "The exact truthful five-voter profile is already present in Heilmaier's 2020 thesis; only the manipulation boundary and census are claimed as new.",
+      "An unindexed note, exercise, thesis, or software table may contain the same finite strategyproofness census.",
+      "The theorem excludes fixed tie-breaking and therefore should not be compared numerically with sources that resolve Baldwin score ties by convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general one-manipulator computational hardness and the standard Baldwin elimination rule, but not the five-voter tie-independent boundary or exact profile frequency.",
+        "evidence": "arXiv first submission 27 June 2011; AAAI publication 4 August 2011.",
+        "identifier_or_url": "arXiv:1106.5312; doi:10.1609/aaai.v25i1.7872",
+        "material_read": "Full six-page paper, including the preliminaries, Baldwin definition, unweighted manipulation section, Theorem 1 and its proof sketch, and the discussion of small fixed candidate counts.",
+        "method": "Author-hosted full PDF plus arXiv full-text inspection.",
+        "title": "Manipulation of Nanson's and Baldwin's Rules",
+        "trigger": "Primary paper specifically on Baldwin manipulation."
+      },
+      {
+        "assessment": "Covers the truthful profile and Baldwin winner C, but does not state the unilateral ABC-to-BCA manipulation, minimality below five voters, orbit classification, or frequencies.",
+        "evidence": "Master's thesis, Technische Universität München, submission date 1 July 2020.",
+        "identifier_or_url": "TUM:Heilmaier-2020",
+        "material_read": "Full thesis passages in the three-candidate rule-comparison chapter and strategyproofness discussion. Page 27 gives the five-voter 2-1-2 Black-versus-Baldwin profile and its Borda scores; the later overview states that strategyproofness is not considered further.",
+        "method": "Full PDF text search plus rendered-page inspection.",
+        "title": "Optimal Voting Rules for Few Candidates",
+        "trigger": "Highly relevant later source containing the exact five-voter truthful Baldwin profile."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f030d3b-5c8b-492b-a045-a9ad0f34f06d",
+  "value": {
+    "rationale": "Baldwin is a historical Condorcet-consistent elimination rule whose resistance to manipulation is a recognized computational-social-choice question. The exact first electorate where strategyproofness fails, together with the complete symmetry class, prevalence, and unique profitable report, is a natural structural boundary that complements the known hardness theory.",
+    "status": "PASS"
+  }
+}
