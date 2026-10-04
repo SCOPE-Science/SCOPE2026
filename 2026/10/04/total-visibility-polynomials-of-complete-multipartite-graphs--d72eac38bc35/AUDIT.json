@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a complete multipartite graph, the only distance-two pairs lie within non-singleton parts and have common neighborhood equal to the complement of that part. This gives the exact complement criterion (1). Weighted inclusion-exclusion is exact because the forbidden complement families P(V_i) intersect pairwise only in the empty set. Maximality is equivalent to inclusion-minimal admissible complements, which are completely classified by q=0, q=1, and q>=2. An independent brute-force graph-distance checker verified the full polynomial, maximal-set count, and lower-total value for every complete multipartite isomorphism type through order 9. Risk: finite checking is corroborative only; the infinite statement relies on the symbolic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 theorem characterizes total mutual-visibility sets in every graph through common neighborhoods of distance-two pairs.",
+        "The 2024 diameter-two paper studies several visibility parameters but targeted searches did not expose this complete-multipartite total polynomial or lower-total classification.",
+        "The 2026 game paper studies ordinary mutual visibility on complete multipartite graphs, not the total visibility polynomial."
+      ],
+      "reasoning": "The 2025 theorem is a genuine broader tool and directly yields the local admissibility criterion, but it does not state the weighted enumeration, the inclusion-minimal complement classification, the maximal-set count, or the lower-total formula. Those require a separate exact counting/minimality argument.",
+      "searches": [
+        "DOI:10.1007/s00010-025-01197-y Theorem 5.2 distance-two characterization",
+        "DOI:10.1016/j.ejc.2024.103995 diameter-two mutual-visibility variants",
+        "DOI:10.1007/s40840-026-02083-9 complete multipartite mutual-visibility game"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.02951",
+      "DOI:10.1016/j.amc.2023.128411",
+      "arXiv:2412.03066",
+      "DOI:10.1007/s00010-025-01197-y",
+      "DOI:10.1016/j.ejc.2024.103995",
+      "DOI:10.1007/s40840-026-02083-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For two non-singleton parts, formula (2) factors to the known complete-bipartite total polynomial.",
+        "The distance-two criterion implies the admissibility condition but not by itself the enumerator or minimal-complement classification.",
+        "The Builder-Blocker paper classifies maximal ordinary mutual-visibility behavior, a different set system."
+      ],
+      "reasoning": "The claim is not a numerical special case of a prior exact theorem. It is an explicit enumeration and maximality theorem built from, but not stated by, the general distance-two criterion. The principal residual originality risk is that this derivation may have appeared elsewhere without the searched terminology.",
+      "searches": [
+        "compare formula (2) with Proposition 3.2 and Theorem 5.2 of DOI:10.1007/s00010-025-01197-y",
+        "compare maximal-set statement with complete multipartite Section 3 of DOI:10.1007/s40840-026-02083-9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.02951 introduces the lower total invariant but has no multipartite occurrence; its complete-bipartite proposition is for the ordinary lower mutual-visibility number.",
+        "DOI:10.1007/s00010-025-01197-y gives a general distance-two criterion and the balanced complete-bipartite total polynomial, while its full text contains no multipartite occurrence."
+      ],
+      "reasoning": "The exact arbitrary-part-size polynomial and maximal total-set classification were not found under the direct terminology or its defining complement formulation.",
+      "searches": [
+        "phrase search: lower total mutual-visibility complete multipartite",
+        "full-text inspection of arXiv:2307.02951 for multipartite / complete bipartite / total mutual-visibility",
+        "full-text inspection of DOI:10.1007/s00010-025-01197-y for multipartite / complete bipartite / total visibility polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-result record was found; closest records concerned other complete-multipartite invariants or connected/ordinary mutual visibility.",
+        "The balanced complete-bipartite polynomial in DOI:10.1007/s00010-025-01197-y is an exact special case and matches formula (2)."
+      ],
+      "reasoning": "The known exact table entry for balanced bicliques is subsumed correctly, while no exact arbitrary multipartite total-visibility enumerator or lower-total table was located.",
+      "searches": [
+        "total visibility polynomial complete multipartite lower total mutual visibility maximal sets",
+        "mu_t^- complete multipartite graph n-2 n-1 total mutual visibility",
+        "maximal total mutual visibility complete multipartite complement pair singleton part"
+      ]
+    },
+    "rationale": "The defining lower-total paper does not treat complete multipartite graphs for this invariant. The later visibility-polynomial paper supplies the balanced complete-bipartite polynomial and a general distance-two criterion, but no arbitrary multipartite formula or maximal-total-set classification; full-text search found no multipartite occurrence. Later complete-multipartite work concerns ordinary mutual visibility games. Targeted exact and implication searches found no equivalent published statement. The strongest residual risk is that the 2025 general criterion makes the local condition straightforward and an unlocated source may already have performed the counting.",
+    "residual_risks": [
+      "The 2025 distance-two characterization is a strong precursor; an unlocated paper may already have specialized it to complete multipartite graphs and carried out the enumeration.",
+      "Search coverage cannot exclude differently phrased, nonindexed, or inaccessible prior work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the target lower invariant but does not state the complete-multipartite lower-total result; its explicit K_{r,s} proposition is for the ordinary lower mutual-visibility number.",
+        "evidence": [
+          "Earliest public version dated 2023-07-06.",
+          "MSC includes 05C12 and 05C85.",
+          "No full-text occurrence of multipartite."
+        ],
+        "identifier_or_url": "arXiv:2307.02951 / DOI:10.1016/j.amc.2023.128411",
+        "material_read": "Abstract, introduction, lower-total complexity section, general bounds, concluding product formulas; full-text searches for multipartite and complete bipartite.",
+        "method": "Open-access arXiv/HTML full-text inspection and statement comparison.",
+        "title": "Lower (total) mutual visibility in graphs",
+        "trigger": "Source introducing the lower total mutual-visibility number and lying in the assigned date window."
+      },
+      {
+        "assessment": "Provides the balanced complete-bipartite total polynomial and a general distance-two criterion. It does not give the arbitrary complete-multipartite polynomial or maximal-total-set classification; no multipartite occurrence was found.",
+        "evidence": [
+          "Proposition 3.2 states V_t(K_{n,n};x)=((1+x)^n-x^n)^2.",
+          "Theorem 5.2 characterizes total sets by common neighborhoods of distance-two pairs.",
+          "The paper notes general K_{m,n} can be handled similarly but does not state an arbitrary multipartite formula."
+        ],
+        "identifier_or_url": "arXiv:2412.03066 / DOI:10.1007/s00010-025-01197-y",
+        "material_read": "Definition 3.1, Proposition 3.2, Theorem 5.2, surrounding proof text, and full-text searches for multipartite.",
+        "method": "Open-access full-text inspection and implication comparison.",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Closest source for total visibility polynomials and all-graph characterization."
+      },
+      {
+        "assessment": "Studies the ordinary mutual-visibility game and maximal ordinary mutual-visibility structures; no total visibility polynomial or lower total classification is stated.",
+        "evidence": [
+          "Section 3 is explicitly about the mutual-visibility game.",
+          "The lower quantity used there is the ordinary lower mutual-visibility number."
+        ],
+        "identifier_or_url": "DOI:10.1007/s40840-026-02083-9",
+        "material_read": "Complete multipartite section and references to lower mutual-visibility.",
+        "method": "Open-access full-text statement comparison.",
+        "title": "Builder-Blocker Mutual-Visibility Game",
+        "trigger": "Recent paper explicitly studying complete multipartite mutual visibility."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d72eac38-bc35-4b9e-856b-4aa32f2ab7ab",
+  "value": {
+    "rationale": "The claim gives a complete all-set enumerator and every maximal total mutual-visibility set for a standard graph class, not merely one extremal number. It unifies complete graphs and all complete bipartite cases, handles singleton parts that change maximal-set sizes, and immediately yields the lower total mutual-visibility number and exact count of maximal sets. This is a natural finite classification tied directly to the literature’s newly introduced lower-total invariant and visibility-polynomial program, rather than an arbitrary parameter slice. Risk: the proof is short because complete multipartite distance structure is rigid, so the result is valuable primarily as a clean exact classification rather than a deep technical theorem.",
+    "status": "PASS"
+  }
+}
