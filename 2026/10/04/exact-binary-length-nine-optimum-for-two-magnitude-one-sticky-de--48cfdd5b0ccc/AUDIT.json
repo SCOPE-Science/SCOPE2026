@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The lower bound is an explicit 120-word packing whose channel balls are reconstructed and checked pairwise disjoint. The verifier implements the channel both by maximal-run shortening and by direct position deletion with distinct-run constraints and checks agreement on all 512 sources. The upper bound is an exact rational weighted-cover certificate of total weight 120; every source ball has weight at least 1. Disjointness then proves any code has at most 120 words. All arithmetic in the certificate replay is exact, and no incomplete search or optimization log is used as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.02754v1 gives general logarithmic-redundancy constructions and singles out \\(t=1\\) for a special construction; its inspected theorem statements do not determine the exact \\(t=2,n=9\\) maximum.",
+        "Dolecek--Anantharam 2010 studies a prescribed total number of repetitions, allowing distributions not constrained to one deletion per affected run; that model does not imply the present restricted-channel optimum."
+      ],
+      "reasoning": "General constructions and asymptotic bounds do not provide a matching finite upper and lower bound at n=9. Results for ordinary deletions or unrestricted repetition errors concern strictly different error balls and therefore neither imply nor are implied by the exact value here without an additional reduction, none of which was found.",
+      "searches": [
+        "Codes for Correcting t Limited-Magnitude Sticky Deletions finite optimal tables",
+        "repetition error correcting sets two deletions different runs finite exact code size",
+        "binary length nine two limited-magnitude sticky deletions exact 120"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.02754v1",
+      "arXiv:2301.11680v1",
+      "DOI:10.1137/080730093",
+      "2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+      "2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+      "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published-finding IDs 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea and 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c concern ordinary q-ary deletion asymptotics, not limited-magnitude run errors.",
+        "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03 is an exact finite result for the classical single-deletion channel and does not cover the present channel."
+      ],
+      "reasoning": "The closest results differ in the error relation itself. Their theorems do not yield a 120 upper certificate or a 120-word packing for the two-run magnitude-one channel, so the final claim is not a corollary of those records.",
+      "searches": [
+        "symbol-pair read channel deletion exact binary code size small length synchronization",
+        "sticky deletion channel exact code size binary small parameters",
+        "run-length asymmetric limited-magnitude errors binary sticky deletion exact small parameters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.02754v1 Definition 5 and Definition 6 define the sticky/run-limited channel; Proposition 2 maps it to asymmetric limited-magnitude errors in the run representation.",
+        "Targeted published-finding searches returned no result stating \\(M^{\\le}_{2,1}(9)=120\\) or an equivalent exact length-nine two-run packing value."
+      ],
+      "reasoning": "The claim was compared under the aliases sticky deletion, repetition error, run-length decrement, asymmetric limited-magnitude error, and weighted sphere packing. The run-representation equivalence changes coordinates but not the packing statement; no exact finite theorem for this parameter was found.",
+      "searches": [
+        "\"M_{2,1}(9)\" 120 sticky deletion",
+        "binary length nine two limited-magnitude sticky deletions exact 120",
+        "two runs one repeated bit each deletion correcting code length 9 120",
+        "weighted sphere packing sticky deletions length nine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published-finding hit contained the exact value or an exact finite table for this model.",
+        "Keyword inspection of arXiv:2302.02754v1 found no occurrence of the value 120 or a length-nine t=2 exact table."
+      ],
+      "reasoning": "The absence of an indexed table is only search evidence, not a uniqueness theorem. It supports originality when combined with full-text inspection of the closest primary source.",
+      "searches": [
+        "\"M_{2,1}(9)\" 120 sticky deletion",
+        "limited-magnitude sticky deletions t=2 ell=1 binary length 9 exact maximum code size 120",
+        "two runs one repeated bit each deletion correcting code length 9 120"
+      ]
+    },
+    "rationale": "The channel-defining 2023 paper was inspected at the definitions, equivalence proposition, main construction statements, and special-case discussion. It does not state the exact length-nine two-run magnitude-one optimum. Targeted exact-value, alias, parameter, broader-coverage, and table searches found no inspected source or published-finding record whose theorem implies the value 120. Nearby work treats different channels or asymptotic constructions. A residual unindexed-computation risk is retained.",
+    "residual_risks": [
+      "A poorly indexed or unpublished finite computation may contain the same length-nine value.",
+      "The source paper uses an “at most” definition but later employs compressed error-ball notation; the present finding removes that ambiguity by explicitly stating the at-most channel it proves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the objects and gives general constructions but does not state or imply the exact finite value proved here.",
+        "evidence": "Definition 6 allows at most \\(t\\) run-length coordinates to decrease by at most \\(\\ell\\); Proposition 2 identifies the run-representation asymmetric-error formulation; the displayed special construction at \\(\\ell=1\\) focuses on \\(t=1\\).",
+        "identifier_or_url": "arXiv:2302.02754v1",
+        "material_read": "Abstract; introduction/main-result summary; Definitions 5 and 6; Proposition 2; non-systematic construction statements; special \\(t=1\\) discussion.",
+        "method": "Full-text inspection plus exact-term searches for length nine, \\(t=2\\), and the value \\(120\\).",
+        "title": "Codes for Correcting t Limited-Magnitude Sticky Deletions",
+        "trigger": "Primary source defining the same error model."
+      },
+      {
+        "assessment": "Treats deletion/shift errors and limited-magnitude blocks of zero-deletions, not the two-distinct-run sticky-deletion packing here.",
+        "evidence": "Its main models involve asymmetric adjacent transpositions, zero-deletions, and blocks of zero-deletions.",
+        "identifier_or_url": "arXiv:2301.11680v1",
+        "material_read": "Abstract and stated model scope.",
+        "method": "Direct source inspection.",
+        "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Same authors and adjacent deletion/limited-magnitude terminology could conceal an equivalent formulation."
+      },
+      {
+        "assessment": "Studies immunity to a prescribed total number of repetitions and asymptotic constructions, not the per-run magnitude-one, at-most-two-run finite packing.",
+        "evidence": "The abstract formulates immunity to r repetitions in total; this permits distributions of repetition changes not identical to the present restricted error balls.",
+        "identifier_or_url": "DOI:10.1137/080730093",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Primary/author-hosted bibliographic inspection of the model statement.",
+        "title": "Repetition Error Correcting Sets: Explicit Constructions and Prefixing Methods",
+        "trigger": "Classical repetition-error formulation is the strongest plausible older alias."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "48cfdd5b-0ccc-4acd-93ff-8847a30889c5",
+  "value": {
+    "rationale": "This is the exact maximum cardinality for a central finite packing invariant of the limited-magnitude sticky-deletion model, at a natural first moderate binary instance with two independently affected runs. It supplies a benchmark absent from the inspected construction-focused literature and shows a weighted sphere-packing bound is sharp at this parameter. The parameter is motivated by the primary channel model rather than chosen solely because a computation happened to terminate.",
+    "status": "PASS"
+  }
+}
