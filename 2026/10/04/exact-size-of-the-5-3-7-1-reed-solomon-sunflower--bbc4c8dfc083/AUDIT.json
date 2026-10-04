@@ -1,0 +1,90 @@
+{
+  "correctness": {
+    "rationale": "All 60 distinct [5,3]_7 Reed--Solomon row spaces are reconstructed exactly over F_7. Pairwise intersection dimensions are obtained by exact modular row reduction. A displayed 10-clique gives the lower bound, exhaustive Bron--Kerbosch enumeration of every maximal clique gives maximum size 10, and a separate exact coloring-bound branch-and-bound search independently returns 10. The claim is restricted to this finite instance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source paper gives a general unrestricted sunflower construction and asymptotic RS lower bounds, but not a finite exact RS optimum for q=7.",
+        "At the same parameters the unrestricted sunflower construction can have 50 petals, so it does not imply the RS-restricted optimum."
+      ],
+      "reasoning": "Broader Grassmannian sunflower theorems optimize over all 3-subspaces and therefore do not settle the extremum in the much smaller family of Reed--Solomon row spaces.",
+      "searches": [
+        "Sunflowers of Reed-Solomon Codes extremal size k>=3",
+        "Reed Solomon sunflower q=7 length 5 dimension 3",
+        "constant-dimension subspace sunflower G_7(3,5) center dimension 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.33512v1",
+      "2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f",
+      "2026/9/17/SCOPE-binary-maximum-scattered-space-m7--43a83dc8d5f6",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corollary 3.3 implies there are 60 total target RS codes, not that the maximum compatible subfamily has size 10.",
+        "Proposition 3.23 is an asymptotic greedy lower bound; Section 5 explicitly asks to determine or sharply estimate the maximum for k>=3."
+      ],
+      "reasoning": "The new finite optimum requires resolving the compatibility graph among the 60 codes. Neither the total-code count nor the general greedy lower bound implies the upper bound 10.",
+      "searches": [
+        "arXiv:2609.33512v1 Theorem 2.6 Corollary 3.3 Claim 3.22 Proposition 3.23 Section 5",
+        "Sunflowers of Reed-Solomon Codes largest possible size k>=3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.33512v1 defines the same center/intersection problem and leaves the extremal size open for k>=3.",
+        "Searches in equivalent constant-dimension and stacked-rank language returned the motivating paper or unrelated coding results, not an exact value for this instance."
+      ],
+      "reasoning": "A clique in the compatibility graph is exactly a family of RS row spaces whose pairwise intersections are the common one-dimensional constant subspace, so the graph formulation and RS-sunflower formulation are equivalent for the target parameters.",
+      "searches": [
+        "Reed Solomon sunflowers constant dimension subspace code [5,3]_7 pairwise intersection one",
+        "Reed Solomon evaluation codes F7 length 5 dimension 3 maximum family intersection dimension 1",
+        "web: \"[5,3]_7\" \"Reed-Solomon\" subspace code intersection",
+        "web: \"Reed-Solomon\" \"constant-dimension\" 7 5 3 sunflower"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest repository results included 2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f, 2026/9/17/SCOPE-binary-maximum-scattered-space-m7--43a83dc8d5f6, and 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a.",
+        "None of those records concerns Reed--Solomon sunflowers or implies the clique number of the 60-code compatibility graph."
+      ],
+      "reasoning": "The exact value, the target parameters, and the source paper's generalized V-matrix terminology were queried separately to reduce alias risk.",
+      "searches": [
+        "Reed Solomon sunflower q=7 dimension 3 length 5 exact maximum 10",
+        "RS sunflower [5,3]_7 center all-one pairwise intersection dimension one",
+        "Sunflowers of Reed-Solomon codes finite q exact small parameter",
+        "generalized V-matrix Reed Solomon sunflower exact small field q 7 length 5 dimension 3"
+      ]
+    },
+    "rationale": "The 27 Sep 2026 source explicitly asks for extremal sizes for k>=3 and gives asymptotic constructions rather than the exact (5,3,7;1) value. Focused exact-parameter and equivalent-formulation searches found no source that states or implies 10. Residual risk remains for an older computation under different terminology.",
+    "residual_risks": [
+      "An older exact computation might use constant-dimension-code, orbit-code, or intersection-graph terminology without the recent phrase Reed--Solomon sunflower.",
+      "Search-engine absence is not a novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper explicitly asks for the maximum possible size for k>=3 and states asymptotic lower bounds; it does not state the exact (5,3,7;1) optimum.",
+        "identifier_or_url": "arXiv:2609.33512v1",
+        "material_read": "Full PDF sections 1--3 and Section 5, including Theorem 2.6, Corollary 3.3, Claim 3.22, Proposition 3.23, and the conclusion/open questions.",
+        "method": "Statement-by-statement comparison of exact target parameters with the source's counting theorem, pairwise-intersection criterion, greedy bound, and stated open problem.",
+        "title": "Sunflowers of Reed--Solomon Codes",
+        "trigger": "Direct source introducing the object and posing the extremal-size question."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbc4c8df-c083-4908-b919-ed8dc1956956",
+  "value": {
+    "rationale": "The exact value closes a concrete instance of a new explicit extremal question at the minimal higher-dimensional length ell=2k-1. The invariant is natural and source-motivated, and the 10-versus-50 contrast with unrestricted subspace sunflowers shows that the finite RS restriction is substantive rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
