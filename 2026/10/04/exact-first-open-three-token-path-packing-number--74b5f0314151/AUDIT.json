@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The token-distance formula is proved from ordered noncrossing token moves. The explicit 52-set gives a direct lower bound. The complete 0-1 model has exactly one variable per 3-subset and one exclusion constraint per pair at distance at most two; optimal termination at 52 proves the finite upper bound. Replay also reproduces every published exact n=3..12 value.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1711.03682, Introduction: defines T(n,k) for constant-weight adjacent-transposition correction and gives the packing equivalence.",
+        "doi:10.3934/math.2024571, Table 1 and Tables 3-4: exact weight-three values only through n=12 and bounds 50<=rho(F_3(P_13))<=54.",
+        "doi:10.3934/math.2024571, Conclusions: exact rho(F_3(P_n)) for n>12 is explicitly left open."
+      ],
+      "reasoning": "The closest broader source solves the entire k=2 column, while the direct k=3 source solves n<=12 and only bounds n>=13. Neither broader theorem implies the finite value 52 at n=13; the 2024 upper/lower interval contains several possibilities.",
+      "searches": [
+        "3-token graph path P13 maximum packing independent square",
+        "one-transposition-correcting constant-weight-three length 13 code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1711.03682",
+      "doi:10.3934/math.2024571",
+      "OEIS:A085684",
+      "Relevant prior published findings on adjacent-transposition channels",
+      "Targeted semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.3934/math.2024571, Table 1 and Tables 3-4: exact weight-three values only through n=12 and bounds 50<=rho(F_3(P_13))<=54.",
+        "doi:10.3934/math.2024571, Conclusions: exact rho(F_3(P_n)) for n>12 is explicitly left open."
+      ],
+      "reasoning": "No searched published finding stated or implied rho(F_3(P_13))=52. The closest indexed hits concerned unrelated path packings, cover-free families, or other coding invariants. The direct 2024 literature leaves exactly this first post-n=12 instance unresolved.",
+      "searches": [
+        "packing number F3(Pn) n=13 exact 52",
+        "adjacent swap code weight 3 length 13 52",
+        "token graph P13 distance-three packing 52"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1711.03682, Introduction: defines T(n,k) for constant-weight adjacent-transposition correction and gives the packing equivalence.",
+        "doi:10.3934/math.2024571, Table 1 and Tables 3-4: exact weight-three values only through n=12 and bounds 50<=rho(F_3(P_13))<=54.",
+        "doi:10.3934/math.2024571, Conclusions: exact rho(F_3(P_n)) for n>12 is explicitly left open."
+      ],
+      "reasoning": "The coding formulation, token-graph packing formulation, and independent-set formulation of the square are equivalent: a single adjacent transposition is one token move, so correction balls are disjoint exactly when token-graph distance is at least three. The exact n=13, k=3 statement was compared under all three formulations.",
+      "searches": [
+        "rho(F_3(P_13)) exact packing number 3-token path 13",
+        "binary constant weight 3 code length 13 single adjacent transposition maximum",
+        "A085684 T(13,3) exact value"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A085684: same T(n,k) triangle; current displayed data stop before T(13,3).",
+        "doi:10.3934/math.2024571, Table 1 and Tables 3-4: exact weight-three values only through n=12 and bounds 50<=rho(F_3(P_13))<=54."
+      ],
+      "reasoning": "The named OEIS table and the 2024 paper were checked for an exact database/table entry. OEIS does not display T(13,3), and the paper gives only 50 and 54 as lower and upper bounds.",
+      "searches": [
+        "A085684 T(13,3) exact value",
+        "packing number F3(Pn) n=13 exact 52"
+      ]
+    },
+    "rationale": "The 2017 coding source defines the general invariant but solves weight two. The 2024 weight-three source gives exact values only through n=12, reports 50<=rho(F_3(P_13))<=54, and explicitly leaves n>12 open. Current OEIS and targeted semantic searches did not expose the exact value 52.",
+    "residual_risks": [
+      "An unindexed note, thesis, private computation, or differently phrased later source could contain the finite value 52.",
+      "The 2024 authors link software for bounds; the inspected article itself reports only 50<=rho(F_3(P_13))<=54, so unpublished software output is not treated as published coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the general problem and solves k=2, not the k=3,n=13 value.",
+        "evidence": "First submitted 2017-11-10; AMS classifications list 94B05,94B65,05C70,05C76; Introduction identifies A085684 as T(n,k).",
+        "identifier_or_url": "arXiv:1711.03682",
+        "material_read": "Abstract; Introduction paragraphs defining constant-weight codes, adjacent transpositions, T(n,k), and packing equivalence.",
+        "method": "Open arXiv HTML full text and compare statements and parameter scope.",
+        "title": "The packing number of the double vertex graph of the path graph",
+        "trigger": "Defines the coding invariant and its graph equivalence under a permitted coding-theory MSC."
+      },
+      {
+        "assessment": "NOT_COVERING: exact only for n<=12; at n=13 lower bound 50 and upper bound 54; conclusion leaves n>12 exact values open.",
+        "evidence": "Table 1 gives 1,2,3,6,9,13,18,24,32,41 for n=3..12; Table 4 gives 50 and 54 at n=13.",
+        "identifier_or_url": "doi:10.3934/math.2024571",
+        "material_read": "Full-text HTML including abstract, exact-value table, lower/upper-bound tables, and conclusions.",
+        "method": "Open publisher full-text HTML and compare n=13 statement with the candidate.",
+        "title": "On the packing number of 3-token graph of the path graph P_n",
+        "trigger": "Direct treatment of the same weight-three token-graph invariant."
+      },
+      {
+        "assessment": "NOT_COVERING: the entry defines the same triangle but its displayed values stop before n=13.",
+        "evidence": "Entry definition is maximal 1-transposition-correcting binary constant-weight codes; no T(13,3) appears in the displayed triangle.",
+        "identifier_or_url": "OEIS:A085684",
+        "material_read": "Definition, displayed values, links, cross-references, and modification status.",
+        "method": "Inspect current OEIS entry.",
+        "title": "OEIS A085684",
+        "trigger": "Named database for the same T(n,k) triangle."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "74b5f031-4151-4e79-9df9-70483bf9bf8a",
+  "value": {
+    "rationale": "Length 13 is the first case left unresolved by the direct 2024 weight-three study, with a four-unit published gap. Closing the first missing exact instance is a natural finite classification result for the canonical adjacent-transposition coding invariant and determines the exact optimal code size at that length.",
+    "status": "PASS"
+  }
+}
