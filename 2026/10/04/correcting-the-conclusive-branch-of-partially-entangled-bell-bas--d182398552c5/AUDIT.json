@@ -1,0 +1,140 @@
+{
+  "claim": "In the final probabilistic-teleportation construction of Trump, Bruß, and Lewenstein (arXiv:quant-ph/0010113v1), let \\(x\\in[1/\\sqrt2,1]\\), \\(y=\\sqrt{1-x^2}\\), and let Alice measure the orthonormal partially entangled basis \\(\\{x|01\\rangle-y|10\\rangle,\\;y|01\\rangle+x|10\\rangle,\\;x|00\\rangle-y|11\\rangle,\\;y|00\\rangle+x|11\\rangle\\}\\) while Alice and Bob share \\((|01\\rangle+|10\\rangle)/\\sqrt2\\). The displayed decomposition in Eq. (8) of arXiv v1 is not an identity, and the two matrices printed in Eq. (9) cannot simultaneously be Kraus operators of a POVM because their squared effects do not sum to the identity for \\(y/x\\in(0,1)\\). The correctly normalized four post-measurement branches each have singular values \\(x/\\sqrt2\\) and \\(y/\\sqrt2\\). Consequently the largest input-independent probability with which Bob can reverse a given branch to the unknown qubit is exactly \\(y^2/2\\), and the optimal total unit-fidelity success probability is \\[\\boxed{P_{\\mathrm{succ}}^{\\mathrm{opt}}=2y^2=2(1-x^2).}\\]One achieving filter, for a branch proportional after its Pauli correction to \\(\\mathrm{diag}(x,y)|\\tau\\rangle/\\sqrt2\\), is \\[K_{\\mathrm{s}}=\\mathrm{diag}(y/x,1),\\qquad K_{\\mathrm{f}}=\\mathrm{diag}\\!\\left(\\sqrt{1-y^2/x^2},0\\right),\\]with the transposed diagonal choice for the complementary branch type. The branchwise upper bound follows from \\(K D=cU\\) and \\(K^\\dagger K\\le I\\): for \\(D=\\mathrm{diag}(x,y)/\\sqrt2\\), necessarily \\(|c|\\le y/\\sqrt2\\). Thus the corrected protocol is deterministic at \\(x=1/\\sqrt2\\), tends continuously to zero success as the measurement basis becomes product at \\(x\\to1\\), and replaces the arXiv-v1 statement \\(p=1/(2x^2)\\), which instead tends to \\(1/2\\) in that product-basis limit.",
+  "correctness": {
+    "rationale": "The orthonormal measurement basis gives an exact inverse transformation. Direct expansion yields four unnormalized Bob maps unitarily equivalent to diag(x,y)/sqrt(2) or diag(y,x)/sqrt(2). The CP contraction condition for a branchwise reversing Kraus operator bounds the success amplitude by the smaller singular value y/sqrt(2), and the displayed corrected filter attains it. The source's printed second matrix does not complete the first as a Kraus pair for 0<y/x<1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mor and Horodecki establish perfect conclusive teleportation with pure nonmaximal entanglement.",
+        "Roa et al. study optimal conclusive teleportation.",
+        "Lee et al. formulate optimal reversing operations using smallest singular values of teleportation measurement maps.",
+        "Li et al. formulate entanglement matching for probabilistic teleportation and later received a separate erratum."
+      ],
+      "reasoning": "These sources dominate the general optimization principle, which is therefore explicitly excluded from the novelty claim. They support the corrected 2y^2 law, while the new source-specific point is the mismatch between the printed 2000 construction and a valid instrument.",
+      "searches": [
+        "Teleportation via generalized measurements and conclusive teleportation Mor Horodecki",
+        "Optimal conclusive teleportation of quantum states Roa Delgado Fuentes-Guridi",
+        "Quantum teleportation is a reversal of quantum measurement smallest singular value success probability",
+        "Probabilistic teleportation and entanglement matching partially entangled measurement success probability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0010113v1",
+      "DOI:10.1016/S0375-9601(00)00784-2",
+      "MaRDI Q1594663",
+      "arXiv:quant-ph/9906039",
+      "DOI:10.1103/PhysRevA.68.022310",
+      "DOI:10.1103/PhysRevResearch.3.033119",
+      "DOI:10.1103/PhysRevA.61.034301"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly assumes ideal detection in the final subsection and writes the partially entangled basis, decomposition, proposed POVM, and success probability.",
+        "Later measurement-reversal theory bounds faithful branch reversal by the smallest singular value.",
+        "The corrected branch maps have smallest singular value y/sqrt(2), giving y^2/2 per branch and 2y^2 total."
+      ],
+      "reasoning": "Later general theory implies the corrected success probability once the correct branch maps are supplied, but it does not imply that a particular published display has the wrong decomposition or non-complete Kraus pair without inspecting that source. The accepted claim is therefore the correction, with the general formula treated as prior support.",
+      "searches": [
+        "Primary full text arXiv:quant-ph/0010113v1 equations 7-9",
+        "arXiv:quant-ph/9906039 conclusive teleportation",
+        "DOI:10.1103/PhysRevA.68.022310 optimal conclusive teleportation",
+        "DOI:10.1103/PhysRevResearch.3.033119 measurement reversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:quant-ph/0010113v1 displays Eq. (8), the Eq. (9) two-matrix construction, and the probability 1/(2x^2).",
+        "Targeted searches did not locate an erratum or source-specific correction.",
+        "General conclusive-teleportation literature gives the same smallest-Schmidt/singular-value dependence in dual settings."
+      ],
+      "reasoning": "An equivalent source-specific correction would need to identify the invalid displayed decomposition or invalid Kraus completion and replace it with a valid instrument. Generic conclusive-teleportation formulas cover the repaired success law after mapping but do not by themselves document that this source's printed construction is internally inconsistent.",
+      "searches": [
+        "Trump Bruss Lewenstein 1/(2x^2) probabilistic teleportation correction",
+        "Realistic teleportation linear optical elements Eq 8 Eq 9 probability 1/(2x^2)",
+        "partially entangled measurement maximally entangled channel success probability 2(1-x^2)",
+        "conclusive teleportation partially entangled measurement maximally entangled state POVM",
+        "10.1016/S0375-9601(00)00784-2 erratum",
+        "Realistic teleportation with linear optical elements success probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source full text and rendered PDF page show the equations at issue.",
+        "The MaRDI record supplies DOI, source linkage, and primary MSC 81P15.",
+        "No correction record was surfaced by DOI/title searches."
+      ],
+      "reasoning": "The accepted result is a reconstruction of a quantum instrument, not a database or table lookup.",
+      "searches": [
+        "arXiv:quant-ph/0010113 Eq 8 Eq 9 POVM",
+        "DOI:10.1016/S0375-9601(00)00784-2 correction",
+        "MaRDI Q1594663 Realistic teleportation linear optical elements"
+      ]
+    },
+    "rationale": "Broader conclusive-teleportation and measurement-reversal theory implies the corrected least-singular-value law, so that law alone is not claimed as novel. The accepted originality is the explicit source-specific diagnosis that the final arXiv-v1 decomposition and stated POVM cannot implement the claimed protocol, together with a complete corrected instrument. No targeted search located an erratum or prior correction.",
+    "residual_risks": [
+      "The inaccessible journal typesetting may differ from arXiv v1; the claim is therefore explicitly limited to arXiv v1.",
+      "A source-specific correction may exist in unindexed correspondence or later literature not surfaced by targeted searches.",
+      "The practical linear-optical discrimination efficiency of the partially entangled basis is separate from the ideal conclusive-reversal probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The final displayed decomposition fails direct basis reconstruction, and the two printed matrices do not satisfy Kraus completeness when read as state-transforming measurement operators.",
+        "evidence": "Eq. (8), Eq. (9), and the line stating p=1/(2x^2) are all visible in arXiv v1.",
+        "identifier_or_url": "arXiv:quant-ph/0010113v1; DOI:10.1016/S0375-9601(00)00784-2",
+        "material_read": "Full arXiv HTML plus rendered PDF page containing Eqs. (8)-(9) and the concluding probability statement.",
+        "method": "Full-text and rendered-page inspection.",
+        "title": "Realistic teleportation with linear optical elements",
+        "trigger": "Direct source of the partially entangled measurement construction and printed success probability."
+      },
+      {
+        "assessment": "General conclusive-teleportation premise; does not identify the source-specific displayed inconsistency.",
+        "evidence": "States that perfect conclusive teleportation can be obtained with any pure entangled state.",
+        "identifier_or_url": "arXiv:quant-ph/9906039",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Open arXiv inspection.",
+        "title": "Teleportation via generalized measurements, and conclusive teleportation",
+        "trigger": "Foundational broader coverage of perfect conclusive teleportation."
+      },
+      {
+        "assessment": "Broader optimality theory for nonmaximally entangled channels, not a correction of the 2000 partially entangled measurement display.",
+        "evidence": "Analyzes optimal success of conclusive teleportation for nonmaximally entangled channels.",
+        "identifier_or_url": "DOI:10.1103/PhysRevA.68.022310",
+        "material_read": "APS abstract and scope statement.",
+        "method": "Publisher abstract inspection.",
+        "title": "Optimal conclusive teleportation of quantum states",
+        "trigger": "Closest published optimization work on conclusive teleportation."
+      },
+      {
+        "assessment": "Provides the general smallest-singular-value reversal principle consistent with the corrected result.",
+        "evidence": "The article formulates optimal reversing operators and maximum faithful-teleportation success probabilities from measurement operators.",
+        "identifier_or_url": "DOI:10.1103/PhysRevResearch.3.033119",
+        "material_read": "Open APS article abstract, references, and performance-framework text.",
+        "method": "Open full-text web inspection.",
+        "title": "Quantum teleportation is a reversal of quantum measurement",
+        "trigger": "Modern broader theorem connecting faithful teleportation success to reversing measurement maps."
+      },
+      {
+        "assessment": "Primary MSC is 81P15.",
+        "evidence": "The record lists Quantum measurement theory, state operations, state preparations (81P15).",
+        "identifier_or_url": "MaRDI Q1594663",
+        "material_read": "Bibliographic metadata, full-work link, DOI, keywords, and MSC.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Realistic teleportation with linear optical elements — classification record",
+        "trigger": "Primary MSC ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1823985-52c5-43cf-a019-ad008f6e4861",
+  "value": {
+    "rationale": "The defect changes the limiting physics of the proposed conclusive scheme: the printed probability remains finite in the product-measurement limit, while faithful teleportation must become impossible. The corrected instrument restores the proper deterministic Bell-basis endpoint, zero product-basis endpoint, and exact resource-success curve needed for the trade-off the source itself poses.",
+    "status": "PASS"
+  }
+}
