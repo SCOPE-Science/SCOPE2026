@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Under the literal printed transitions, \\(a^2\\) maps \\(Q_n\\) to \\(\\{3,\\ldots,n\\}\\); \\(b^{n-2}\\) then maps this to \\(\\{1,\\ldots,n-2\\}\\). Each further block \\(a^2b^{n-2}\\) removes the two largest states from an initial interval, so after \\(\\lfloor(n-2)/2\\rfloor\\) blocks the image is \\(\\{1,2\\}\\) or \\(\\{1,2,3\\}\\), and the final \\(a^2\\) maps it to \\(\\{3\\}\\). The length inequalities are exact parity calculations. Independent power-automaton BFS for \\(4\\le n\\le12\\) confirms the witness and finds no longer threshold than it; finite computation is not used for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest same-domain indexed item concerned Černý avoiding thresholds, not \\(E_n\\) or a definition inconsistency.",
+        "The primary \\(E_n\\) paper proves a threshold for the intended Figure-6 automaton but does not acknowledge the literal-table contradiction."
+      ],
+      "reasoning": "No broader result located in the checked literature subsumes the claim, because a generic shortest-word algorithm or a threshold theorem for a different transition action does not imply that this printed transition table is internally inconsistent.",
+      "searches": [
+        "synchronizing automata shortest reset word multiplicity exact classification",
+        "slowly synchronizing automata shortest reset words family enumeration",
+        "Primitive digraphs large exponents E_n correction erratum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.5793v2",
+      "DOI:10.1007/s10958-013-1392-8",
+      "DOI:10.1007/978-3-642-15155-2_7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MFCS 2010 states that two further series, including one with reset length \\(n^2-3n+2\\), would be presented in an extended version, but does not define \\(E_n\\).",
+        "arXiv:1302.5793v2 provides the definition and theorem; the shorter literal-table word contradicts only that displayed formula, while Figure 6 and the proof indicate a different intended action."
+      ],
+      "reasoning": "The precursor cannot imply the present correction because it supplies no \\(E_n\\) transition table. The 2013 theorem does not cover the literal table once its own figure/proof are distinguished from the displayed formula.",
+      "searches": [
+        "Primitive digraphs with large exponents n^2-3n+2 E_n",
+        "Slowly Synchronizing Automata and Digraphs n^2-3n+2 extended version"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1302.5793v2, pp. 12–13: displayed cyclic \\(b\\)-action, Figure 6, and proof identity \\(bab=b^2\\) were inspected together.",
+        "No returned research-index record stated the literal-table reset-word obstruction or an equivalent universal contradiction."
+      ],
+      "reasoning": "Equivalent formulations include describing the issue as a mismatch between the transition table and Figure 6, as failure of the proof identity under cyclic b, or as a shorter reset word for the literal table. Searches were phrased across these forms; none of the closest records implies the present statement.",
+      "searches": [
+        "Ananichev Gusev Volkov E_n transition table Figure 6 discrepancy n^2-3n+2",
+        "automaton E_n printed transition formula cycle b reset threshold",
+        "Primitive digraphs with large exponents E_n erratum correction",
+        "literal E_n shortest reset word multiplicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source inspected is arXiv:1302.5793v2, whose displayed table is the object of the claim.",
+        "No indexed finding with the source title plus erratum/correction terms was located."
+      ],
+      "reasoning": "This check targeted the exact family and exact printed table rather than nearby automata. Absence from search is not treated as proof by itself; originality rests on direct comparison with the primary source and the non-covering precursor.",
+      "searches": [
+        "E_n literal transition table reset threshold n^2-3n+2 typo",
+        "Ananichev Gusev Volkov E_n printed transition table Figure 6 discrepancy"
+      ]
+    },
+    "rationale": "The primary full text was compared at statement level: its displayed transition formula, Figure 6, and proof are mutually inconsistent, and the universal shorter reset word applies specifically to the literal displayed table. The 2010 precursor announces but does not define this family. Targeted semantic and web searches found no indexed correction or equivalent statement. The surviving risk is an informal or non-indexed erratum, so the claim is limited to the public arXiv v2 presentation rather than asserting that no correction exists anywhere.",
+    "residual_risks": [
+      "An informal, non-indexed, or later erratum may already note the transition-table typo.",
+      "The separately typeset journal version was not used to broaden the claim; the accepted statement is explicitly limited to the public arXiv v2 presentation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the present obstruction and internally inconsistent under a literal reading: the table makes \\(b\\) cyclic, while Figure 6 sends both states \\(1\\) and \\(2\\) to \\(3\\) under \\(b\\) and the proof uses \\(bab=b^2\\).",
+        "evidence": [
+          "Displayed table: \\(b\\) sends \\(i\\) to \\(i+1\\) for \\(i<n\\) and \\(n\\) to \\(1\\).",
+          "Figure 6: \\(b\\)-edges from states \\(1\\) and \\(2\\) both enter state \\(3\\).",
+          "Proof: asserts \\(bab\\) and \\(b^2\\) act identically and derives the stated threshold from the Figure-6 action."
+        ],
+        "identifier_or_url": "arXiv:1302.5793v2; DOI:10.1007/s10958-013-1392-8",
+        "material_read": "Full text around the \\(E_n\\) definition, Figure 6, Theorem 4, and its proof on pp. 12–13; the figure itself was visually inspected.",
+        "method": "Statement-by-statement comparison of the displayed transition formulas, directed edges in Figure 6, claimed reset word, and proof identities.",
+        "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+        "trigger": "Primary source defining \\(E_n\\) and stating Theorem 4."
+      },
+      {
+        "assessment": "NOT_COVERING: it announces a series with reset length \\(n^2-3n+2\\) but does not define \\(E_n\\).",
+        "evidence": [
+          "The precursor says the two additional series will be presented in an extended version; the \\(E_n\\) transition table is absent."
+        ],
+        "identifier_or_url": "DOI:10.1007/978-3-642-15155-2_7",
+        "material_read": "Section on slowly synchronizing automata, including the passage announcing two additional series for an extended version.",
+        "method": "Checked whether the precursor defines \\(E_n\\) or states a transition table that would resolve the discrepancy.",
+        "title": "Slowly Synchronizing Automata and Digraphs",
+        "trigger": "Precursor cited by the extended paper and potential prior definition of the same family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c440b19-64ae-4b3f-8cb6-f6b617793758",
+  "value": {
+    "rationale": "The discrepancy affects an entire named slowly synchronizing family and changes the literal-table reset length from the claimed near-\\(n^2\\) scale to an explicit word of roughly \\(n^2/2\\). This is not a cosmetic notation issue: direct implementations of the displayed table reproduce a mathematically different automaton and invalidate the theorem statement as written. The proof and figure simultaneously identify the intended semantics, making the correction actionable for reproducible computational work.",
+    "status": "PASS"
+  }
+}
