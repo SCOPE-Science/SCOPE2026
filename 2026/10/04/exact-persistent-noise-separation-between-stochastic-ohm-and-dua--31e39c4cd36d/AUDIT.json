@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The scalar oracle \\(\\widehat{\\mathbb F}(x;\\xi)=Lx+\\xi\\) is unbiased and its paired sample difference is exactly \\(L(x-y)\\), so it satisfies the required cocoercivity-in-expectation assumption. With \\(\\alpha=2/L\\), the deterministic map is \\(-I\\). Direct solution of the two linear stochastic recurrences yields the displayed terminal noise-transfer coefficients. Independence removes cross terms, and multiplication by \\(L^2=4/\\alpha^2\\) gives the residual laws. The finite Dual-OHM coefficient sum tends to \\(\\pi^2/4-1\\) by the standard odd reciprocal-square identity. The packaged exact-rational replay independently reconstructs both recurrences for horizons through \\(24\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2404.13228v2 proves deterministic H-dual terminal equality on linear operators.",
+        "arXiv:2403.12338v4 states that direct noisy Halpern iterates retain nonnegligible noise and controls it with increasing minibatches.",
+        "arXiv:2608.12043v1 states a uniform \\(6\\sigma^2/B\\) Dual-OHM noise term and identifies \\(\\Theta(N^2)\\) proof-weight accumulation for stochastic OHM."
+      ],
+      "reasoning": "The broader results establish deterministic terminal equivalence or qualitative/general stochastic behavior. None determines the reflected fixed-batch variance coefficients for both methods; deterministic H-duality cannot identify independent stochastic noise transfer.",
+      "searches": [
+        "stochastic Halpern reflection operator persistent noise exact residual growth",
+        "stochastic Halpern iteration persistent noise nonexpansive fixed batch",
+        "Optimal acceleration minimax fixed-point H-dual linear terminal iterate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.12043v1",
+      "arXiv:2404.13228v2",
+      "arXiv:2403.12338v4",
+      "indexed finding 00bfbf6b7815",
+      "indexed finding 9ae0040f2dac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper's Theorem 4.1 gives a Dual-OHM upper bound with noise term \\(6\\sigma^2/B\\), while Section 4.1.1 gives a qualitative accumulation comparison and Experiment 1 an empirical S-OHM divergence.",
+        "Proposition I.1 of arXiv:2404.13228v2 equates deterministic H-dual terminal iterates for linear operators, but has no independent per-call noise.",
+        "arXiv:2403.12338v4 develops stochastic Halpern complexity using minibatching and explicitly notes that direct noisy last iterates retain noise.",
+        "The two inspected indexed findings concern OSGM-SGD absorption and delayed randomized Gauss--Seidel, respectively."
+      ],
+      "reasoning": "The exact new theorem is not a corollary of the stochastic primary bound, which is one-sided, nor of deterministic H-duality, which omits stochastic perturbations. The prior qualitative claim that S-OHM can diverge does not imply the exact scalar growth law or Dual-OHM zeta constant.",
+      "searches": [
+        "arXiv:2608.12043v1 full text",
+        "arXiv:2404.13228v2 full text",
+        "arXiv:2403.12338v4 full text",
+        "indexed finding 00bfbf6b7815 full RESULT.md",
+        "indexed finding 9ae0040f2dac full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.12043v1, Sections 3.3, 4.1.1 and 5",
+        "arXiv:2404.13228v2, Proposition I.1",
+        "arXiv:2403.12338v4, Sections 1.1--1.2"
+      ],
+      "reasoning": "Searches covered the algorithm names, reflection and minus-identity aliases, persistent additive noise, exact variance, and residual growth. The inspected sources contain the surrounding qualitative mechanisms but not the same exact stochastic terminal laws.",
+      "searches": [
+        "S-Dual-OHM reflected nonexpansive operator additive noise exact variance",
+        "stochastic Dual-OHM noise variance reflection minus identity",
+        "Dual Optimal Halpern additive noise scalar linear exact residual",
+        "stochastic OHM noise amplification minus identity linear nonexpansive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed persistent-noise result: 00bfbf6b7815, finite-time absorption for OSGM-SGD under discrete gradient noise.",
+        "Closest indexed exact stochastic-recurrence result: 9ae0040f2dac, delay-distribution law for randomized Gauss--Seidel."
+      ],
+      "reasoning": "The closest indexed findings use different algorithms, stochastic mechanisms, objects and claims. Their statements neither specialize to stochastic Halpern/Dual-OHM nor imply the reflection variance laws.",
+      "searches": [
+        "S-Dual-OHM reflected nonexpansive operator additive noise exact variance",
+        "stochastic OHM noise amplification minus identity linear nonexpansive"
+      ]
+    },
+    "rationale": "The 2026 primary paper proves a uniform Dual-OHM noise bound and explains qualitatively why stochastic OHM accumulates errors; it also reports an empirical divergent constant-batch S-OHM example. It does not state the scalar reflection transfer coefficients, the exact \\(4/3\\) linear divergence coefficient, or the limiting Dual-OHM constant \\(\\pi^2/4-1\\). The deterministic H-duality paper covers identical terminal iterates for linear operators without independent per-call stochastic perturbations. The stochastic Halpern paper uses general bounds and increasing minibatches, not this fixed-batch reflection law.",
+    "residual_risks": [
+      "Specialized work on noisy linear Halpern recurrences may contain an equivalent reflected-map calculation under different terminology.",
+      "The primary source already establishes the qualitative stability-versus-accumulation contrast; originality here is limited to the exact scalar boundary law and constants, not the qualitative phenomenon itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact recurrences and qualitative stability-versus-accumulation picture, but not the reflected scalar closed forms claimed here.",
+        "evidence": "Sections 3.3 and 4 give the update and bound; Section 4.1.1 contrasts \\(O(N)\\) with \\(\\Theta(N^2)\\) proof-weight accumulation; Experiment 1 reports divergent constant-batch S-OHM.",
+        "identifier_or_url": "arXiv:2608.12043v1",
+        "material_read": "Full 22-page arXiv PDF, including the stochastic-oracle assumptions, deterministic and stochastic update rules, Theorem 4.1, Section 4.1.1, appendix recurrence identities, and experiments.",
+        "method": "Full-text and rendered-page inspection.",
+        "title": "Direct Acceleration of Stochastic Root-Finding Without Variance Reduction and Regularization",
+        "trigger": "Primary source defining S-Dual-OHM, its stochastic assumptions, and the stated noise-stability contrast."
+      },
+      {
+        "assessment": "Proposition I.1 proves terminal equality of H-dual algorithms for a fixed linear operator but does not cover independent stochastic perturbations at different evaluations.",
+        "evidence": "Appendix I.3 explicitly characterizes deterministic terminal iterates by matrix polynomials and proves H-dual equality.",
+        "identifier_or_url": "arXiv:2404.13228v2",
+        "material_read": "Full 71-page arXiv PDF, especially the Dual-OHM definition and Appendix I.3 on linear operators.",
+        "method": "Full-text inspection.",
+        "title": "Optimal Acceleration for Minimax and Fixed-Point Problems is Not Unique",
+        "trigger": "Direct deterministic predecessor and potential broader linear-operator coverage."
+      },
+      {
+        "assessment": "Shows why direct stochastic Halpern requires noise control and develops increasing-minibatch guarantees, but does not state the fixed-batch \\(-I\\) exact variance law.",
+        "evidence": "The introduction notes a nonnegligible last-iterate noise term and motivates increasing minibatches.",
+        "identifier_or_url": "arXiv:2403.12338v4",
+        "material_read": "Full 36-page arXiv PDF, with emphasis on the problem setup, direct noisy Halpern discussion, and complexity results.",
+        "method": "Full-text inspection.",
+        "title": "Stochastic Halpern Iteration in Normed Spaces and Applications to Reinforcement Learning",
+        "trigger": "Plausible broader coverage of persistent-noise Halpern behavior."
+      },
+      {
+        "assessment": "Different method and mechanism: exact-objective online-scaled SGD with discrete noise and a reset-and-hit absorption argument.",
+        "evidence": "Its theorem is finite-time absorption at a smooth quadratic, not stochastic Halpern noise amplification.",
+        "identifier_or_url": "indexed finding 00bfbf6b7815",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct scientific-record inspection.",
+        "title": "Finite-time absorption of OSGM-SGD under persistent discrete gradient noise",
+        "trigger": "Closest indexed persistent-noise optimization result."
+      },
+      {
+        "assessment": "Different algorithm and randomness: stale-coordinate Gauss--Seidel with an exact second-moment delay recurrence.",
+        "evidence": "Its scalar recurrence depends on stale-read delay distribution and does not involve anchor or dual-anchor noise transfer.",
+        "identifier_or_url": "indexed finding 9ae0040f2dac",
+        "material_read": "Complete RESULT.md.",
+        "method": "Direct scientific-record inspection.",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Closest indexed exact stochastic linear-recurrence result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31e39c4c-d36d-4435-8618-8ac0a17e4979",
+  "value": {
+    "rationale": "The reflection \\(\\mathbb T=-I\\) is the extremal noncontractive endpoint of the source's admissible scalar cocoercive family, so it is a natural stress test rather than an arbitrary slice. The theorem exactly quantifies the paper's central robustness claim on this boundary: fixed-batch Dual-OHM has a finite zeta-valued noise floor while the matched stochastic OHM residual variance grows linearly. This supplies a reusable closed-form benchmark, isolates actual stochastic transfer rather than proof-weight heuristics, and shows that the experimentally observed anchor instability is already present in one dimension.",
+    "status": "PASS"
+  }
+}
