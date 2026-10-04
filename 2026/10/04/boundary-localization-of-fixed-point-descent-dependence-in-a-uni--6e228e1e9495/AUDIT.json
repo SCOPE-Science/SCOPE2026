@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "After conditioning on Pi(i)=i, any descent comparison not incident to i remains symmetric. For incident comparisons, exact counts among the n-1 remaining values give probabilities (j-1)/(n-1) and (n-j-1)/(n-1). These yield the displayed local covariance matrix. Row and column summation gives the ordinary formulas, and conditioning at positions 1 or n shows the wrap indicator contributes +1/(2n), cancelling the endpoint terms exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diaconis--Evans--Graham study the full random set of fixed points and related random-permutation local patterns.",
+        "Désarménien--Wachs enumerate exact descent classes by total fixed-point count.",
+        "Eriksen--Freij--Wästlund enumerate derangements with prescribed descent positions and prove a descent/derangement correlation result."
+      ],
+      "reasoning": "The second and third sources are stronger than the current work for several aggregate enumeration questions, but they collapse fixed-point locations or impose global no-fixed-point conditions. They therefore do not imply the position-resolved matrix without additional location-specific counting.",
+      "searches": [
+        "arXiv:1308.5459",
+        "DOI:10.1016/0097-3165(93)90100-M",
+        "arXiv:0811.1925"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1308.5459",
+      "DOI:10.1016/0097-3165(93)90100-M",
+      "arXiv:0811.1925",
+      "DOI:10.37236/121"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own descent-precision finding gives covariance and precision among descent indicators only; it contains no fixed-point coordinates.",
+        "The own cycle-count/inversion finding links cycle count to inversion indicators, not fixed-point locations to descents.",
+        "The 1993 descent-class theorem tracks only the number of fixed points, so it does not distinguish which fixed-point coordinates create or cancel covariance.",
+        "The 2008 derangement paper studies the global event of having no fixed points rather than a specified fixed-point coordinate."
+      ],
+      "reasoning": "The new statement requires retaining fixed-point position before summation. Its endpoint-only row sums and cyclic coordinatewise orthogonality cannot be recovered from the own indicator covariance result or from a statistic that records only the total number of fixed points.",
+      "searches": [
+        "own Fibonacci precision law random-permutation descent indicators",
+        "own linear inversion-gap profile cycle count random permutation",
+        "published descent classes fixed point count",
+        "published derangements descents prescribed positions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned a pattern-avoiding fixed-point/descent census and unrelated covariance results, but no full-permutation coordinate covariance theorem.",
+        "Targeted web searches for exact fixed-point/descent covariance and cyclic cancellation did not locate the local formulas."
+      ],
+      "reasoning": "Queries covered coordinate indicators, total counts, boundary localization, cyclic descents, and fixed-point/descent joint distributions. Failed search is not used as proof of originality; the conclusion rests mainly on source-level comparison with classical descent/fixed-point enumeration.",
+      "searches": [
+        "uniform random permutation fixed point indicator descent indicator local covariance adjacent positions",
+        "fixed points total descents covariance boundary endpoints random permutation",
+        "cyclic descents fixed points covariance random permutation",
+        "fixed point descent local dependence uniform permutation",
+        "random walk maximum terminal endpoint covariance half variance symmetric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact literature record matching the two adjacent-coordinate formulas, endpoint-only row sums, or coordinatewise cyclic zero covariance was located."
+      ],
+      "reasoning": "The finding is symbolic for every n and every pair of coordinates. It is not a finite census; exhaustive enumeration is used only as supplementary replay.",
+      "searches": [
+        "\"Cov\" fixed points descents permutation",
+        "\"covariance\" \"fixed points\" descents permutation",
+        "\"fixed point\" \"descent indicator\" permutation",
+        "\"cyclic descents\" fixed points permutation"
+      ]
+    },
+    "rationale": "Classical literature gives strong joint enumeration of descent classes with the total number of fixed points, and separate probability theory for the fixed-point random set. The inspected sources do not retain the fixed-point position and therefore do not state the local cross-covariance matrix or its endpoint/cyclic cancellation. The global covariance alone is not presented as the originality claim.",
+    "residual_risks": [
+      "Older refined permutation-enumeration literature may encode fixed-point locations together with descent positions under a multivariate generating function.",
+      "The aggregate covariance Cov(F,D) is in principle recoverable from older joint enumeration of total fixed points and descent classes; originality is claimed for the local matrix and boundary/cyclic decomposition.",
+      "The proof is elementary once one conditions on a fixed position, so an equivalent identity may have appeared as an unstated or immediate corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIXED_POINT_RANDOM_SET_PRIOR_NOT_DESCENT_CROSS_COVARIANCE",
+        "evidence": "The source proves that a set of unseparated adjacent-value pairs has the same distribution as the fixed-point set in positions 1 through n-1 and develops its probability law. The inspected text does not introduce descent indicators or the fixed-point/descent covariance matrix.",
+        "identifier_or_url": "arXiv:1308.5459",
+        "material_read": "Full public HTML through the introduction, Theorem 1.1, exchangeability remarks, enumerative proof, and Markov-chain construction.",
+        "method": "Compared the random-set object, retained positional information, and whether descent indicators or their covariance with fixed points are analyzed.",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Archive-era primary probability source on the fixed-point random set of a uniform permutation, with primary classification 60C05."
+      },
+      {
+        "assessment": "TOTAL_FIXED_POINT_COUNT_BY_DESCENT_CLASS_NOT_POSITION_RESOLVED",
+        "evidence": "Theorem 5.1 enumerates permutations in an exact descent class with exactly k fixed points. The location of those fixed points is not retained, so the theorem does not state the coordinate covariance matrix or endpoint cancellation.",
+        "identifier_or_url": "DOI:10.1016/0097-3165(93)90100-M",
+        "material_read": "Full text pages 1 through 12, including the introduction, the descent-class bijection, Section 5, and Theorem 5.1.",
+        "method": "Checked whether the enumeration retains fixed-point locations or only the total fixed-point count within descent classes.",
+        "title": "Descent Classes of Permutations with a Given Number of Fixed Points",
+        "trigger": "Strongest classical source found for exact joint information on descents and fixed points."
+      },
+      {
+        "assessment": "GLOBAL_DERANGEMENT_DESCENT_ENUMERATION_NOT_LOCAL_FIXED_POINT_POSITION",
+        "evidence": "The paper enumerates derangements under prescribed descent constraints and studies correlations with the derangement event. It does not state covariance between a specified fixed-point indicator and a specified descent indicator.",
+        "identifier_or_url": "arXiv:0811.1925",
+        "material_read": "Public arXiv text and metadata covering the introduction, generating-function setup, fixed-point-colored permutations, and the stated derangement/descent correlation result.",
+        "method": "Compared its global no-fixed-point and fixed-point-colored enumeration with the single-location conditioning in the finding.",
+        "title": "Enumeration of derangements with descents in prescribed positions",
+        "trigger": "Direct source on fixed-point restrictions and prescribed descent positions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e228e1e-9495-470a-ac0d-a4d604296947",
+  "value": {
+    "rationale": "Fixed points and descents are canonical local permutation statistics. The position-resolved covariance matrix reveals a non-obvious cancellation geometry: bulk fixed points have zero net covariance with total descents, while the two boundary coordinates alone produce the global negative covariance. Cyclic closure cancels those remaining terms coordinatewise, giving a clean structural explanation rather than only an isolated mixed moment.",
+    "status": "PASS"
+  }
+}
