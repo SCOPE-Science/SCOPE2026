@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The switched-affine recurrence was derived directly from the scalar SAM gradient and normalized EMA momentum. The alternating orbit equations reduce to a nonsingular \\(I+A\\) system exactly below \\(s=2(1+\\beta)\\); the characteristic polynomial and Jury inequalities establish the same local-stability frontier. The determinant/discriminant calculation proves the exact \\(\\sqrt{\\beta}\\) local spectral plateau, and the eliminated scalar recurrence proves linear boundary growth and at-least-geometric supercritical growth for \\(m_{-1}=0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.01513v1",
+        "arXiv:2301.06308v1",
+        "arXiv:2303.00565v1",
+        "arXiv:2306.09850v1"
+      ],
+      "reasoning": "The broader SAM theory establishes no-momentum quadratic cycles, practical constant-radius nonconvergence, or stochastic saddle diffusion with momentum. Those results do not supply the exact EMA-momentum forced-cycle amplitude plus necessary-and-sufficient deterministic stability boundary and supercritical law.",
+      "searches": [
+        "sharpness-aware minimization momentum scalar quadratic stability two-cycle",
+        "SAM momentum quadratic optimizer stability",
+        "sharpness-aware period-2 momentum",
+        "AdaSAM quadratic momentum stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.01412v1",
+      "arXiv:2210.01513v1",
+      "arXiv:2301.06308v1",
+      "arXiv:2303.00565v1",
+      "arXiv:2306.09850v1",
+      "arXiv:2401.12033v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2301.06308v1",
+        "arXiv:2303.00565v1",
+        "arXiv:2401.12033v1"
+      ],
+      "reasoning": "AdaSAM's convergence theorem is a stochastic nonconvex sufficient bound with adaptive preconditioning, not an exact periodic-orbit characterization. The saddle-diffusion momentum theorem studies a different stochastic local quantity. MSAM changes the perturbation direction itself. None of these implications specializes to the complete claim.",
+      "searches": [
+        "SAM 2(1+beta) momentum sharpness",
+        "sharpness-aware minimization 2(1+beta) momentum",
+        "SAM momentum stability threshold beta learning rate quadratic",
+        "momentum sharpness-aware minimization heavy ball quadratic exact stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2210.01513v1",
+        "arXiv:2303.00565v1",
+        "arXiv:2306.09850v1"
+      ],
+      "reasoning": "The nearest equivalent language is a forced heavy-ball-type second-order recurrence. Standard heavy-ball Schur conditions explain the local matrix once derived, but the inspected SAM sources do not state the sign-consistent cycle solution, its divergence at the boundary, or the full combined phase characterization.",
+      "searches": [
+        "sharpness-aware minimization momentum scalar quadratic stability two-cycle",
+        "SAM momentum quadratic period two stability learning rate beta",
+        "Anderson acceleration optimization quadratic exact stability depth one damping scalar affine fixed point",
+        "optimization algorithm exact stability scalar quadratic momentum inertial proximal point bilinear extragradient convergence boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2010.01412v1",
+        "arXiv:2210.01513v1",
+        "arXiv:2301.06308v1",
+        "arXiv:2303.00565v1",
+        "arXiv:2306.09850v1",
+        "arXiv:2401.12033v1"
+      ],
+      "reasoning": "No exact matching theorem, parameter table, or formula was found in the targeted searches or in the highly relevant full-text/abstract material inspected. Searches for the derived boundary and cycle terminology returned adjacent SAM or general optimization stability work rather than this statement.",
+      "searches": [
+        "sharpness-aware minimization scalar quadratic exact phase diagram two cycle divergence",
+        "SAM scalar quadratic global learning-rate boundary unique two-cycle amplitude",
+        "sharpness-aware minimization momentum scalar quadratic stability two-cycle",
+        "momentum-SAM scalar quadratic exact stability frontier"
+      ]
+    },
+    "rationale": "The final claim combines the practical scalar SAM forcing with the normalized EMA momentum state and gives an exact cycle existence/stability frontier, amplitude, optimal local spectral band, and boundary/supercritical divergence law. The inspected primary literature covers pieces of the surrounding phenomenon but not this combined statement.",
+    "residual_risks": [
+      "An equivalent forced-heavy-ball calculation may exist under terminology not captured by the targeted SAM and optimization searches.",
+      "The result is a deliberately narrow exact benchmark; novelty must not be generalized to adaptive or multidimensional sharpness-aware methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_ONLY; no EMA-momentum scalar cycle frontier.",
+        "evidence": "The source introduces the normalized sharpness-aware perturbation and descent step but does not analyze the present momentum recurrence.",
+        "identifier_or_url": "arXiv:2010.01412v1",
+        "material_read": "Abstract, algorithmic formulation, and update definition.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "Sharpness-Aware Minimization for Efficiently Improving Generalization",
+        "trigger": "Original practical SAM update and perturbation normalization."
+      },
+      {
+        "assessment": "PARTIALLY_RELATED_NOT_COVERING; no EMA momentum state.",
+        "evidence": "It proves ordinary SAM oscillates across a quadratic minimum, but its update lacks the normalized EMA momentum recursion analyzed here.",
+        "identifier_or_url": "arXiv:2210.01513v1",
+        "material_read": "Quadratic-cycle statement and step-size/cycle analysis.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "The Dynamics of Sharpness-Aware Minimization: Bouncing Across Ravines and Drifting Towards Wide Minima",
+        "trigger": "Closest primary result on SAM cycles for convex quadratics."
+      },
+      {
+        "assessment": "NOT_COVERING the deterministic quadratic two-cycle frontier.",
+        "evidence": "The momentum theorem concerns stochastic saddle-point diffusion; the discussion identifies broader momentum dynamics as requiring further study.",
+        "identifier_or_url": "arXiv:2301.06308v1",
+        "material_read": "Momentum/batch-size section, Theorem 3, discussion, and limitations/future-work section.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Stability Analysis of Sharpness-Aware Minimization",
+        "trigger": "Direct title match for SAM stability and explicit treatment of momentum."
+      },
+      {
+        "assessment": "NOT_COVERING the fixed-preconditioner scalar periodic-orbit phase diagram.",
+        "evidence": "The source proves a stochastic nonconvex convergence rate under adaptive-learning-rate bounds; it does not state the derived necessary-and-sufficient cycle frontier or amplitude.",
+        "identifier_or_url": "arXiv:2303.00565v1",
+        "material_read": "Algorithm 1, normalized first-moment update, adaptive preconditioner, main convergence theorem, and proof sketch.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "AdaSAM: Boosting Sharpness-Aware Minimization with Adaptive Learning Rate and Momentum for Training Deep Neural Networks",
+        "trigger": "Primary source explicitly combining a SAM gradient with normalized EMA momentum."
+      },
+      {
+        "assessment": "NOT_COVERING because momentum is absent and no beta-dependent exact frontier is given.",
+        "evidence": "The source documents practical SAM nonconvergence mechanisms and scalar quadratic examples without the EMA momentum state.",
+        "identifier_or_url": "arXiv:2306.09850v1",
+        "material_read": "Practical SAM update, one-dimensional virtual-loss formulation, strongly-convex results, and large-step discussion.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Practical Sharpness-Aware Minimization Cannot Converge All the Way to Optima",
+        "trigger": "Primary analysis of practical constant-radius SAM and one-dimensional quadratics."
+      },
+      {
+        "assessment": "NOT_EQUIVALENT_UPDATE.",
+        "evidence": "MSAM perturbs parameters along accumulated momentum to avoid an extra gradient computation; the present recurrence instead applies EMA momentum to the practical SAM perturbed gradient.",
+        "identifier_or_url": "arXiv:2401.12033v1",
+        "material_read": "Abstract and method description.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "Momentum-SAM: Sharpness Aware Minimization without Computational Overhead",
+        "trigger": "Potential terminology collision with momentum-based sharpness-aware optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccfcc569-ef82-47cc-8cc4-dddee2bb8915",
+  "value": {
+    "rationale": "Practical constant-radius SAM is known to produce persistent quadratic oscillations and momentum is a standard training component. The exact \\(s=2(1+\\beta)\\) frontier gives a sharp tuning diagnostic, the amplitude formula quantifies blow-up at the edge, the \\(\\sqrt{\\beta}\\) band identifies a full rate-optimal plateau, and the matching critical/supercritical divergence law shows the boundary is dynamically realized rather than merely sufficient.",
+    "status": "PASS"
+  }
+}
