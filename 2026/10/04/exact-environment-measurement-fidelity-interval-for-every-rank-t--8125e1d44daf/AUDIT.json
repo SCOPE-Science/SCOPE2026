@@ -1,0 +1,118 @@
+{
+  "claim": "Let \\(\\Phi:M_2\\to M_2\\) be a trace-preserving qubit channel of Kraus rank exactly \\(2\\), and choose a minimal Kraus pair \\(A_0,A_1\\). Define \\[q_\\Phi(z_0,z_1)=\\det(z_0A_0+z_1A_1)=z^{\\mathsf T}Mz,\\]with \\(M\\) complex symmetric, and let \\(s_1\\ge s_2\\ge0\\) be the Takagi singular values of \\(M\\). These are independent of the chosen minimal Kraus pair. For any finite Kraus representation \\(\\{B_k\\}\\), followed by the optimal outcome-dependent unitary correction of Gregoratti--Werner, \\[F_{\\mathrm{corr}}(\\{B_k\\})=\\frac12+\\frac12\\sum_k|\\det B_k|.\\]As the finite Kraus representation varies, the attainable optimal corrected fidelities are exactly \\[\\left[\\frac{1+s_1-s_2}{2},\\frac{1+s_1+s_2}{2}\\right].\\]Both endpoints and every intermediate value are attainable already by two-outcome unitary remixings of a Takagi Kraus pair. Thus measurement independence holds exactly when \\(s_2=0\\). For qubit amplitude damping with damping probability \\(p\\), the interval collapses to \\((1+\\sqrt{1-p})/2\\); for the rank-two dephasing channel with Kraus operators \\(\\sqrt p\\,I\\) and \\(\\sqrt{1-p}\\,Z\\), it is \\([\\max(p,1-p),1]\\).",
+  "correctness": {
+    "rationale": "The fixed-representation correction formula reduces to a determinant sum. Kraus freedom gives an isometry from a minimal pair, Takagi factorization diagonalizes the determinant quadratic form, and sharp triangle/reverse-triangle bounds give the two endpoints. Explicit two-outcome unitaries attain both endpoints and continuity fills the interval.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gregoratti--Werner optimize conditional correction for a specified Kraus decomposition.",
+        "Uhlmann studies determinant/concurrence structures for rank-two channels but no feedback-fidelity interval was located.",
+        "Memarzadeh--Cafaro--Mancini prove two-outcome amplitude-damping invariance and report numerical three/four-outcome agreement."
+      ],
+      "reasoning": "The present theorem solves the outer optimization over finite Kraus refinements, which is not supplied by those broader frameworks.",
+      "searches": [
+        "On quantum error-correction by classical feedback qubit determinant Kraus decomposition measurement",
+        "On Concurrence and Entanglement of Rank Two Channels determinant Kraus",
+        "Quantum information reclaiming after amplitude damping all possible measurements Kraus",
+        "concurrence of assistance rank two qubit channel determinant environment measurement"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0403092",
+      "DOI:10.1063/1.1758320",
+      "arXiv:quant-ph/0605103",
+      "DOI:10.1007/s11080-005-0490-6",
+      "arXiv:1004.0497",
+      "DOI:10.1088/1751-8113/44/4/045304"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-decomposition result supplies the objective but does not optimize its Kraus representation.",
+        "Rank-two determinant theory supplies the algebraic language but not the environment-feedback extremization.",
+        "The amplitude-damping multi-outcome observations become a corollary because the determinant form has rank one."
+      ],
+      "reasoning": "The sharp bound on the determinant sum and the explicit endpoint constructions are required to reach the accepted claim.",
+      "searches": [
+        "arXiv:quant-ph/0403092 Proposition 4 qubit determinant feedback",
+        "arXiv:quant-ph/0605103 rank two channel determinant quadratic form",
+        "arXiv:1004.0497 qubit amplitude damping two three four Kraus measurements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched record stated the exact Takagi-singular-value fidelity interval or the criterion that its second singular value vanish.",
+        "Searches surfaced the direct correction framework, rank-two concurrence geometry, and the amplitude-damping special case.",
+        "The closest channel-specific paper reports multi-outcome amplitude-damping numerics rather than a rank-two-channel classification."
+      ],
+      "reasoning": "An equivalent statement must optimize over the environment measurement itself, not only the recovery map for a fixed decomposition.",
+      "searches": [
+        "rank two qubit channel feedback entanglement fidelity determinant quadratic form Kraus representations measurement invariance",
+        "qubit channel determinant Kraus operators environment measurement correction entanglement fidelity Takagi",
+        "Kraus rank 2 qubit channel measurement dependence feedback correction determinant",
+        "entanglement fidelity optimal correction sum determinant Kraus qubit channel",
+        "rank two qubit channel environment measurement fidelity Takagi",
+        "sum determinant Kraus qubit feedback correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact best/worst table indexed by determinant-form Takagi singular values was located.",
+        "The amplitude-damping special case is known, but the contrasting dephasing interval was not tabulated in the inspected sources."
+      ],
+      "reasoning": "The endpoint formulas arise from a channel-invariant quadratic form rather than a recomputation of a known table.",
+      "searches": [
+        "amplitude damping environment measurement corrected fidelity all Kraus decompositions",
+        "dephasing environment measurement feedback fidelity Kraus",
+        "Takagi singular values qubit channel Kraus"
+      ]
+    },
+    "rationale": "The inspected prior work separately covers fixed-measurement correction, determinant geometry, and the amplitude-damping special case; no source located states the exact all-rank-two-qubit fidelity interval or the iff invariance criterion.",
+    "residual_risks": [
+      "An equivalent interval may exist under concurrence-of-assistance or channel-correction terminology not surfaced by the searches.",
+      "The determinant quadratic form is standard rank-two-channel machinery, so originality is restricted to its sharp feedback-measurement extremization.",
+      "Coarse-grained environment measurements and higher Kraus-rank channels are outside the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the fixed-decomposition objective and qubit determinant reduction, but not the range over environment measurements for arbitrary rank-two channels.",
+        "evidence": "Proposition 4 attains the optimal corrected fidelity for a specified decomposition; the qubit section uses the determinant identity.",
+        "identifier_or_url": "arXiv:quant-ph/0403092; DOI:10.1063/1.1758320",
+        "material_read": "Full arXiv PDF sections on one-step feedback, Proposition 4, its polar-decomposition proof, and the qubit determinant identity.",
+        "method": "Full-text PDF inspection.",
+        "title": "On quantum error-correction by classical feedback in discrete time",
+        "trigger": "Direct source for optimal correction after an observed Kraus outcome."
+      },
+      {
+        "assessment": "Closely related algebraic machinery, but no environment-measurement feedback-fidelity interval or iff invariance criterion was located.",
+        "evidence": "The paper develops determinant-based concurrence for two-dimensional Kraus structures.",
+        "identifier_or_url": "arXiv:quant-ph/0605103; DOI:10.1007/s11080-005-0490-6",
+        "material_read": "Full arXiv PDF portions on rank-two channels, Kraus spaces, determinants, and concurrence.",
+        "method": "Full-text PDF inspection.",
+        "title": "On Concurrence and Entanglement of Rank Two Channels",
+        "trigger": "Closest determinant-quadratic-form literature for rank-two channels."
+      },
+      {
+        "assessment": "Establishes the amplitude-damping special phenomenon but not the channel-wide classification.",
+        "evidence": "The paper states all two-Kraus amplitude-damping representations give the same fidelity and reports numerical agreement for three and four operators.",
+        "identifier_or_url": "arXiv:1004.0497; DOI:10.1088/1751-8113/44/4/045304",
+        "material_read": "Full arXiv PDF channel setup, optimal correction formula, analytic two-Kraus calculation, and numerical three/four-Kraus discussion.",
+        "method": "Full-text PDF inspection.",
+        "title": "Quantum information reclaiming after amplitude damping",
+        "trigger": "Direct prior work on varying environment measurements for a rank-two qubit channel."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8125e1d4-4daf-4a9a-af17-17cbcf137dac",
+  "value": {
+    "rationale": "The theorem gives a complete natural classification of measurement sensitivity for every rank-two qubit channel, with exact best and worst fidelities, an explicit iff criterion, an analytic closure of the amplitude-damping multi-outcome case, and a contrasting dephasing interval.",
+    "status": "PASS"
+  }
+}
