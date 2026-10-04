@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The proof uses exact multinomial probabilities for same-box and distinct-box indicator products, yielding the covariance formula without approximation. The sign comparison is equivalent to an explicit logarithmic threshold, and a coprimality contradiction rules out equality. All endpoint cases m=2, r=1, and r=n are handled separately or directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour--Gnedin define the exact occupancy counts, note that total occupied boxes are their sum, and study joint normal approximation and covariance structures.",
+        "Their moment section gives exact covariance formulas for Poissonized counts Y_r and Y_s.",
+        "Barbour's univariate paper treats the number of occupied boxes and boxes containing exactly r balls as the principal occupancy statistics."
+      ],
+      "reasoning": "These sources cover a substantially broader occupancy framework and asymptotic dependence theory. Their inspected statements do not collapse the finite uniform covariance with total richness to a single scalar sign comparison or give the unique r-threshold.",
+      "searches": [
+        "arXiv:0809.4387",
+        "DOI:10.1214/EJP.v14-608",
+        "arXiv:0902.0879"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0809.4387",
+      "DOI:10.1214/EJP.v14-608",
+      "arXiv:0902.0879"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior result concerns the covariance matrix and inverse of individual occupied-box indicators, not frequency-spectrum counts K_r.",
+        "The pairwise-independent occupancy result concerns extremal all-distinct probabilities under weakened independence.",
+        "The successive-discovery result concerns covariance of discovery increments through missing mass.",
+        "Barbour--Gnedin analyze r-count covariance structures but not the finite total-richness cross-covariance sign phase."
+      ],
+      "reasoning": "Individual occupancy indicators do not determine K_r linearly, and the frequency count K_r depends on exact occupancies rather than mere nonemptiness. The new claim requires a distinct same-box/off-diagonal calculation and an arithmetic classification of its sign.",
+      "searches": [
+        "occupied-box indicator covariance precision matrix inverse positivity",
+        "pairwise independent occupancy one moment reduction",
+        "successive species discovery covariance missing mass",
+        "small counts infinite occupancy covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned occupancy extremal results, successive species-discovery covariance, and multinomial asymptotics but no matching richness-versus-r-ton sign threshold.",
+        "Web searches for K_n/K_{n,r} covariance and richness/singleton covariance located general occupancy and ecological singleton literature rather than the displayed threshold."
+      ],
+      "reasoning": "The searches cover probability notation, ecological richness terminology, singleton/doubleton language, and balls-in-boxes phrasing. The closest hits optimize different occupancy statistics or study discovery increments, not the cross-covariance between total occupied boxes and a fixed frequency count.",
+      "searches": [
+        "uniform occupancy covariance number occupied boxes number boxes with exactly r balls sign",
+        "species richness frequency spectrum covariance singleton doubleton occupancy",
+        "multinomial occupancy K_n K_n,r covariance sign transition",
+        "balls boxes richness r-ton covariance exact formula",
+        "covariance number occupied boxes number boxes with exactly r balls occupancy",
+        "occupancy number of occupied cells covariance singleton cells"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record containing the threshold kappa_{m,n} or an equivalent power comparison was located."
+      ],
+      "reasoning": "The result is symbolic for all finite m,n,r, not a finite table. The database check was aimed at exact notation and the ecological aliases most likely to conceal the same statement.",
+      "searches": [
+        "\"Cov(K_n, K_{n,r})\" occupancy",
+        "\"covariance\" \"K_{n,r}\" \"K_n\"",
+        "\"species richness\" \"singleton\" covariance",
+        "\"number of species observed\" \"singletons\" covariance"
+      ]
+    },
+    "rationale": "The strongest inspected occupancy sources treat K_n and the r-counts, their normal approximation, moments, and covariance structures, but do not state the finite uniform richness-versus-r-ton single-switch law. The raw covariance identity is elementary and may occur in classical urn references; the originality assessment therefore rests on the explicit strict threshold classification and no-zero theorem.",
+    "residual_risks": [
+      "A classical finite-urn or multinomial occupancy text may contain the raw covariance formula under different notation.",
+      "The finite one-switch sign classification may be an unremarked consequence of older moment formulas even if not stated as a theorem.",
+      "The literature search was strongest for English-language electronic sources and modern database indexing; older book treatments are a residual risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROAD_OCCUPANCY_COVARIANCE_FRAMEWORK_NOT_FINITE_ONE_SWITCH",
+        "evidence": "The paper treats X_{n,r} jointly and gives Poissonized C_{rs}(t), while its main goals are normal approximation and limiting covariance structures. The inspected statements do not give the finite uniform formula for Cov(K,K_r), the threshold r_star, or the proof that zero covariance is impossible.",
+        "identifier_or_url": "arXiv:0809.4387; DOI:10.1214/EJP.v14-608",
+        "material_read": "Open 20-page EJP PDF: title/abstract/classification page; introduction defining K_n and X_{n,r} and stating K_n as the sum of r-counts; normal-approximation covariance setup; Section 4 moment formulas, including exact Poissonized covariances.",
+        "method": "Compared the variables, finite versus Poissonized models, exact versus asymptotic scope, and whether the covariance of total occupied boxes with one r-count is simplified and sign-classified.",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Closest primary source on joint occupancy frequency counts and their covariance structures."
+      },
+      {
+        "assessment": "UNIVARIATE_APPROXIMATION_NOT_CROSS_COVARIANCE_PHASE",
+        "evidence": "The source develops marginal approximation for K_n and K_{n,r}; its accessible setup does not state the finite cross-covariance sign switch.",
+        "identifier_or_url": "arXiv:0902.0879",
+        "material_read": "ArXiv abstract and introduction/setup identifying K_n and K_{n,r} as the main occupancy statistics and stating the translated-Poisson approximation program.",
+        "method": "Checked whether the paper compares K_n directly with K_{n,r} through an exact covariance or sign theorem.",
+        "title": "Univariate approximations in the infinite occupancy scheme",
+        "trigger": "Direct follow-up source focused separately on the number of occupied boxes and exact-r occupancy counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "93dddb2b-e813-462d-92a4-c37eb46618e6",
+  "value": {
+    "rationale": "Observed richness and frequency-of-frequency counts are basic occupancy summaries. The theorem gives a complete finite-sample sign classification under the canonical uniform model, with a particularly interpretable singleton-positive/high-frequency-negative transition and an explicit asymptotic location. This is a natural structural relation among standard statistics rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
