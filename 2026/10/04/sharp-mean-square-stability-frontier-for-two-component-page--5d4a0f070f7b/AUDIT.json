@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact PAGE branches yield a closed second-moment matrix. Its characteristic cubic has binding Jury factor \\(\\alpha[2+3\\alpha-2(1+2h^2)\\alpha^2]/9\\). The package proves \\(|c_3|<1\\), the \\(-1\\) Jury inequality, and the reduced Schur determinant \\(J>0\\) throughout the proposed region, with explicit endpoint factorizations. Equality gives eigenvalue \\(1\\), so the radical threshold is necessary and sufficient.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1906.02351v2 full text, Algorithm 2 and convex convergence section",
+        "PMLR 139 PAGE full paper, Algorithm 1 and Theorem 1",
+        "DOI:10.1007/s10957-026-03065-4 full article"
+      ],
+      "reasoning": "The broader literature controls estimator error and proves convergence with sufficient Lyapunov inequalities. Those guarantees do not imply necessity or the exact second-moment Schur boundary on the heterogeneous two-component model.",
+      "searches": [
+        "PAGE optimizer scalar quadratic exact mean-square stability gradient estimator refresh",
+        "probabilistic gradient estimator PAGE two component quadratic stability",
+        "SARAH scalar quadratic exact mean-square stability recursive gradient",
+        "loopless SARAH two component quadratic exact stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1906.02351v1",
+      "arXiv:2008.10898v1",
+      "DOI:10.1007/s10957-026-03065-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1906.02351v2 full HTML: Algorithm 2, Lemma 4, Theorem 1 and Corollaries 1-3",
+        "PMLR 139 PAGE PDF: Algorithm 1, p=b'/(b+b') discussion, Assumption 2 and Theorem 1",
+        "DOI:10.1007/s10957-026-03065-4 full HTML: Sections 1-2 and Theorem 2.1"
+      ],
+      "reasoning": "L2S proves convergence for convex losses with sufficient \\(\\eta<1/L\\), and PAGE proves general nonconvex/PL rates under sufficient smoothness-dependent steps. The 2026 refinement improves those sufficient bounds. None supplies a necessary-and-sufficient second-moment spectral criterion, so the exact radical boundary is not implied.",
+      "searches": [
+        "On the Convergence of SARAH and Beyond Loopless SARAH Algorithm 2 eta less than 1 over L",
+        "PAGE Algorithm 1 p equals b prime over b plus b prime Theorem 1",
+        "Convergence Analysis PAGE weakly convex finite sum gamma convex",
+        "PAGE quadratic second moment Schur stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1906.02351v1",
+        "arXiv:2008.10898v1",
+        "DOI:10.1007/s10957-026-03065-4"
+      ],
+      "reasoning": "Loopless SARAH uses the same recursive gradient difference with probabilistic full-gradient refresh, and PAGE generalizes the same switch to minibatches. Matching the refresh probability makes the present process an exact algorithmic specialization, so both names were searched and inspected. No inspected source states the lifted matrix or radical frontier.",
+      "searches": [
+        "PAGE Loopless SARAH two component scalar quadratic exact mean-square stability",
+        "ProbAbilistic Gradient Estimator second moment spectral radius quadratic p one third",
+        "Loopless SARAH scalar quadratic mean square exact stepsize two functions",
+        "PAGE curvature heterogeneity exact stability 3 sqrt 25 32 h"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0"
+      ],
+      "reasoning": "The nearest published database records concern exact stochastic-delay moments, stochastic OSGM, reflected-gradient rate tuning, or extragradient minimax polynomials. None contains the PAGE/L2S recursive estimator or the present two-component lifted matrix.",
+      "searches": [
+        "PAGE Loopless SARAH two component scalar quadratic exact mean-square stability",
+        "ProbAbilistic Gradient Estimator second moment spectral radius quadratic p one third",
+        "Loopless SARAH scalar quadratic mean square exact stepsize two functions",
+        "PAGE curvature heterogeneity exact stability 3 sqrt 25 32 h"
+      ]
+    },
+    "rationale": "The defining PAGE paper, the earlier equivalent Loopless-SARAH paper, and the 2026 PAGE Lyapunov analysis were compared at statement level. They provide algorithm definitions and sufficient convergence/stepsize bounds, not the claimed exact two-component mean-square stability frontier.",
+    "residual_risks": [
+      "An equivalent mean-square calculation may exist in older random-linear-system or stochastic-approximation literature under terminology unrelated to PAGE or Loopless SARAH.",
+      "The result fixes p=1/3; an undiscovered arbitrary-p formula would strictly broaden it.",
+      "The scalar commuting-Hessian result should not be generalized to multidimensional noncommuting finite sums."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EQUIVALENT_ALGORITHM_WITH_SUFFICIENT_THEORY_NOT_COVERING.",
+        "evidence": "Algorithm 2 uses probabilistic full-gradient refresh or a SARAH recursive gradient difference. Its convex theory provides sufficient stepsize rules but no exact two-component second-moment spectrum.",
+        "identifier_or_url": "arXiv:1906.02351v1",
+        "material_read": "Full open-access HTML: Algorithm 2, estimator MSE lemma, convex convergence theorem and corollaries, plus strongly convex context.",
+        "method": "Full-text inspection with targeted algorithm and stepsize comparison.",
+        "title": "On the Convergence of SARAH and Beyond",
+        "trigger": "Earlier publication of the algorithmic alias Loopless SARAH."
+      },
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_FRONTIER.",
+        "evidence": "For b=2 and b'=1 the paper's formula gives p=1/3. Its theorem supplies a sufficient average-smoothness stepsize but does not derive a necessary mean-square stability threshold.",
+        "identifier_or_url": "arXiv:2008.10898v1",
+        "material_read": "Full open-access paper with direct inspection of Algorithm 1, the p=b'/(b+b') discussion, average-smoothness assumption, and Theorem 1.",
+        "method": "Full-text PDF inspection including the algorithm and theorem pages.",
+        "title": "PAGE: A Simple and Optimal Probabilistic Gradient Estimator for Nonconvex Optimization",
+        "trigger": "Defining PAGE source and source of the minibatch-dependent probability formula."
+      },
+      {
+        "assessment": "BROADER_LYAPUNOV_THEORY_NOT_COVERING.",
+        "evidence": "The article improves PAGE rates as weak convexity decreases and gives sufficient linear-convergence stepsizes. No scalar quadratic, mean-square, or spectral phase diagram appears in the inspected text.",
+        "identifier_or_url": "DOI:10.1007/s10957-026-03065-4",
+        "material_read": "Full open-access article: PAGE definition, existing-results comparison, Lyapunov construction, and linear-convergence theorem.",
+        "method": "Full-text HTML inspection with targeted searches for quadratic, mean-square, and spectral analyses.",
+        "title": "Convergence Analysis of the ProbAbilistic Gradient Estimator Algorithm for Weakly Convex Finite-Sum Optimization",
+        "trigger": "Most recent broad PAGE convergence analysis found in targeted search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d4a0f07-0f7b-4ba9-ae5a-0c6c416722d6",
+  "value": {
+    "rationale": "The two-component model is the smallest finite sum retaining PAGE's defining full-refresh/recursive-correction switch and genuine curvature heterogeneity. The source probability formula makes \\(p=1/3\\) canonical for \\(b=2,b'=1\\). The exact radical frontier quantifies how heterogeneity erodes allowable stepsize, shows affine noninterpolation offsets cancel, and supplies a sharp benchmark against the sufficient PAGE/L2S stepsize rules.",
+    "status": "PASS"
+  }
+}
