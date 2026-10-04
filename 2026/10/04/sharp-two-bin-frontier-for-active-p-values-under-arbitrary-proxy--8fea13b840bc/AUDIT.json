@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every \\(s<1\\), the proof reduces arbitrary proxy dependence to the pointwise maximum of two rejection rectangles. That envelope is decreasing in the true p-value, so super-uniformity bounds its expectation by the uniform integral. The resulting exact envelope \\(W(s)=h_1\\min(1,s/b_1)+(h_2-h_1)\\min(1,s/b_2)\\) lies below \\(s\\) for all levels exactly when \\(h_1/b_1+(h_2-h_1)/b_2\\le1\\). If the inequality fails, an exactly uniform p-value and deterministic proxy assignment attain the violating envelope at a small level. The packaged verifier confirms the exact boundary example and region algebra but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.01423 develops a broader functional active-p framework but explicitly does not give necessary conditions for its full p-value validity problem.",
+        "arXiv:2502.05715 treats arbitrary proxy dependence for a specific construction and multiple-testing use, not the present exact two-bin design region."
+      ],
+      "reasoning": "A broader framework does not dominate the claim unless it supplies conditions implying the exact feasible region. The closest broader framework leaves necessity unresolved at the full functional level; its sufficient class does not contain the example \\((1/5,4/5,1/2,1)\\).",
+      "searches": [
+        "active p-value robust arbitrary dependence proxy general characterization",
+        "randomized p-value super-uniformity auxiliary statistic query"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.01423v1/v3",
+      "arXiv:2502.05715v1/v2",
+      "MSC2020 code 62G10",
+      "published-finding corpus record 2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff",
+      "published-finding corpus record 2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0",
+      "published-finding corpus record 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kuang--Gang--Xia equation (7) uses a global supremum scaling under general dependence; Remark 3 says the underlying split constraints are not necessary.",
+        "For the new boundary example, the split constraints themselves are inconsistent: \\(\\beta\\ge4/5\\) from the nonquery component and \\(\\beta\\le3/5\\) from the first-bin queried component.",
+        "Xu et al. Proposition 2 verifies a distinct one-parameter construction and does not provide a necessary condition for the present two-bin family."
+      ],
+      "reasoning": "Because the explicit example is universally valid by the new if-and-only-if theorem yet violates every common split parameter, it cannot be a corollary of the prior split-tail sufficient theorem. The earlier Xu construction is not a dominating parameterization of the two-bin rule.",
+      "searches": [
+        "arXiv:2512.01423 equations (3)-(7), Remark 3, Supplement F",
+        "arXiv:2502.05715 Proposition 2 active p-value arbitrary dependence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.01423, Definition 2 and equation (3), gives the active p-value form and exact tail-validity requirement; Remark 3 states the paper's split decomposition is sufficient but not necessary.",
+        "arXiv:2512.01423, Supplement F, gives a nondecomposable example with \\(a\\equiv b\\equiv1\\), not a sharp two-bin queried-multiplier frontier.",
+        "arXiv:2502.05715, Proposition 2, proves validity of its particular arbitrary-dependence active p-value construction."
+      ],
+      "reasoning": "The two primary active-testing papers were compared at statement and implication level. The new theorem fixes a different subfamily (two proxy bins, nonquery output one, bin-specific queried multipliers) and gives an if-and-only-if frontier. Neither inspected source states that frontier, and neither source's stated theorem implies it: the Kuang--Gang--Xia decomposition is only sufficient and excludes the exhibited boundary construction, while the Xu et al. family ties the query rule and queried scaling differently.",
+      "searches": [
+        "active p-value arbitrary dependence two proxy bins multiplier frontier",
+        "randomized query p-value finite proxy exact validity superuniform",
+        "two-bin proxy active p-value sharp scaling",
+        "active hypothesis testing arbitrary dependence necessary sufficient p-value",
+        "arXiv:2512.01423 full text: two-point; finite; two values; h1; b1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus records returned by the targeted searches concerned rare Bernoulli proxy information, Simes size under pairwise independence, and unrelated randomized procedures; no record described active p-values or the frontier formula.",
+        "Exact-formula web searches for the multiplier expression returned no matching active-testing result.",
+        "Final exact-claim published-finding corpus searches using both the theorem wording and the frontier formula again returned no active-p equivalent; closest hits were the same unrelated Simes/proxy-information records already listed."
+      ],
+      "reasoning": "The claim is a theorem about a robust validity region rather than a tabulated constant. Targeted database searches over the source objects, parameter aliases, and the exact frontier structure produced no equivalent record. Failed search is not treated as proof of novelty; the primary-source full-text comparisons carry the main originality assessment.",
+      "searches": [
+        "active p-value arbitrary dependence two proxy bins multiplier frontier",
+        "randomized query p-value finite proxy exact validity superuniform",
+        "two-bin proxy active p-value sharp scaling",
+        "active hypothesis testing arbitrary dependence necessary sufficient p-value",
+        "sharp two-bin frontier active p-values arbitrary proxy dependence h1 b1 h2 b2",
+        "h1/b1 + (h2-h1)/b2 active p-value"
+      ]
+    },
+    "rationale": "The closest 2025 active-testing paper explicitly notes that its split-tail p-value conditions are sufficient but not necessary and supplies only a baseline nondecomposable example. The inspected full text does not state the new two-bin if-and-only-if multiplier frontier. The earlier active-proxy paper gives a particular valid family rather than this feasible-region characterization. Targeted database and web searches returned no equivalent statement. The main residual risk is an equivalent robust-randomization theorem under terminology outside the active-p literature.",
+    "residual_risks": [
+      "An equivalent two-stratum robust randomization inequality may exist under terminology unrelated to active or proxy p-values.",
+      "The theorem intentionally does not claim the full finite-alphabet characterization suggested by the proof technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The paper gives a sufficient decomposition and general-dependence admissible rule, and a nondecomposable example with \\(a\\equiv b\\equiv1\\), but not the sharp two-bin multiplier frontier or its nontrivial boundary example.",
+        "evidence": "Remark 3 states the decomposition is sufficient but not necessary; Supplement F proves this with \\(a\\equiv b\\equiv1\\). Theorem 3's general-dependence construction uses a global supremum query probability.",
+        "identifier_or_url": "arXiv:2512.01423",
+        "material_read": "Full text: Definition 2; equation (3); equations (4)-(7); Remark 3; Theorems 2-3; Supplement E-F; full-text searches for two-point, finite, two values, h1, and b1. Relevant PDF pages were visually inspected as well.",
+        "method": "Direct arXiv full-text/PDF inspection and statement-level comparison.",
+        "title": "Active Hypothesis Testing under Computational Budgets",
+        "trigger": "Same active-p object, arbitrary-dependence setting, and an explicit statement that the published split decomposition is not necessary."
+      },
+      {
+        "assessment": "NOT_COVERING. It proves validity for a specific proxy/query/scaling family but does not characterize the nonquery-one two-bin multiplier region.",
+        "evidence": "Its active p-value uses query probability tied to the proxy and a single queried scaling \\((1-\\gamma)^{-1}\\); Proposition 2 establishes that construction's validity under arbitrary dependence.",
+        "identifier_or_url": "arXiv:2502.05715",
+        "material_read": "Full text: setup, active p-value equation (2), Section 2.1, Proposition 2, and surrounding arbitrary-dependence discussion.",
+        "method": "Direct arXiv full-text/PDF inspection and implication comparison.",
+        "title": "Active multiple testing with proxy p-values and e-values",
+        "trigger": "Earlier primary source for active p-values valid under arbitrary proxy dependence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8fea13b8-40bc-4de1-8ad9-603aa73ab675",
+  "value": {
+    "rationale": "Two bins are the minimal nonconstant proxy discretization in budget-aware testing. The theorem gives the exact dependence-robust tradeoff between query probabilities and queried p-value multipliers, replacing a known conservative sufficient decomposition by a sharp feasible boundary in this natural subclass. The exact example permits multiplier \\(1/2\\) in the low-query bin while every common split parameter is impossible, so the gain is mathematically substantive rather than a relabeling or tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
