@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof covers \\(b=0\\), every power-of-two candidate, and every possible odd prime factor. In the branch \\(p\\equiv1\\pmod3\\), LTE gives exact \\(3\\)-adic valuation one for \\(p^{2t}+p^t+1\\), which is greater than \\(3\\), forcing a forbidden non-\\(3\\) prime factor. All quantifiers are unrestricted, and the finite checker is explicitly non-probative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sándor's Theorem 2 covers arguments \\(p+1\\) with \\(p\\) prime, which does not cover \\(3^a\\) beyond \\(a=1\\).",
+        "Sándor's Theorem 6 gives only an upper bound for odd arguments when \\(\\Sigma^{*}\\) is not \\(1\\) or \\(2\\).",
+        "Das-Saikia 2017 studies \\(U^{*}(p^m)\\) formed with the unitary divisor-sum function \\(\\sigma^{*}\\), not ordinary \\(\\sigma\\)."
+      ],
+      "reasoning": "The apparent broader prime-power literature uses either special arguments \\(p+1\\), general bounds, or a different unitary arithmetic function. None dominates the exact ordinary-divisor formula on every \\(3^a\\).",
+      "searches": [
+        "ordinary divisor-sum maximum function prime-power arguments",
+        "Sándor 2005 Theorems 2,3,6,9,10",
+        "AIMS 2017 unitary divisor maximum prime powers"
+      ]
+    },
+    "checked_sources": [
+      "Sándor 2005 full public text",
+      "OEIS A319068",
+      "Das-Saikia 2017 publisher page",
+      "Encyclopedia of Mathematics entry “Sum of divisors” for MSC ownership",
+      "semantic database search results for exact and equivalent formulations",
+      "web searches for divisor sums equal to powers of 3 and inverse divisor-sum aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior implication \\(\\Sigma^{*}(N)\\ge2\\) when \\(3\\mid N\\) supplies only the lower half of the equality.",
+        "The odd-divisor-sum parity lemma restricts candidate \\(k\\) but does not exclude odd-square factors or higher powers of \\(2\\).",
+        "The new residue/LTE argument eliminates exactly those remaining candidates and therefore adds a nontrivial upper half."
+      ],
+      "reasoning": "Neither the published lower bound nor the published parity lemma alone or together yields \\(\\Sigma^{*}(3^a)\\le2\\); an additional classification of odd prime-power divisor-sum factors and the pure power-of-two case is necessary.",
+      "searches": [
+        "source:sandor-sum-divisors-minmax-2005 complete theorem scan",
+        "sum-of-divisors maximum function powers of 3 Sigma*(3^a)=2",
+        "integers n with sigma(n) a power of 3 only 1 and 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sándor 2005 defines \\(\\Sigma^{*}(N)=\\max\\{k:\\sigma(k)\\mid N\\}\\) and tabulates \\(\\Sigma^{*}(3)=\\Sigma^{*}(9)=\\Sigma^{*}(27)=2\\).",
+        "The same paper proves only \\(\\Sigma^{*}(N)\\ge2\\) for \\(3\\mid N\\) and a general bound for odd \\(N\\); no theorem there states \\(\\Sigma^{*}(3^a)=2\\) for all \\(a\\).",
+        "Semantic database searches returned no exact or equivalent inverse-image statement for powers of \\(3\\)."
+      ],
+      "reasoning": "For fixed \\(a\\), the identity \\(\\Sigma^{*}(3^a)=2\\) is equivalent to saying that every \\(k\\) with \\(\\sigma(k)\\mid3^a\\) is at most \\(2\\). Uniformly in \\(a\\), this is equivalent to classifying all \\(k\\) for which \\(\\sigma(k)\\) is a power of \\(3\\). Both formulations were searched explicitly and compared with the foundational theorems.",
+      "searches": [
+        "sum-of-divisors maximum function powers of 3 Sigma*(3^a)=2",
+        "integers n with sigma(n) a power of 3 only 1 and 2",
+        "source:sandor-sum-divisors-minmax-2005 full text equations (15),(21),(32)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sándor's table contains \\(3\\), \\(9\\), and \\(27\\) with value \\(2\\) but is finite.",
+        "OEIS A319068 gives the same maximum function, data, and the formula \\(a(p+1)=p\\), but no all-exponent formula for powers of \\(3\\).",
+        "Finite tables are consistent with the theorem but do not imply it."
+      ],
+      "reasoning": "The exact tables were checked because a constant subsequence can be silently present in data. The available table evidence stops at finite examples and contains no general formula for the ternary ray.",
+      "searches": [
+        "OEIS A319068",
+        "Sándor 2005 displayed table of Sigma* through 28",
+        "sigma inverse image of powers of 3"
+      ]
+    },
+    "rationale": "The foundational full text was inspected at the definition/table, all theorem statements, the odd-divisor-sum lemma, and the final theorem section. It records \\(\\Sigma^{*}(3)=\\Sigma^{*}(9)=\\Sigma^{*}(27)=2\\) and related bounds but not the all-exponent identity or the classification \\(\\sigma(n)=3^b\\). OEIS A319068 and the later unitary analogue do not imply the claim. Semantic searches returned only different divisor-sum, harmonic, and unitary problems.",
+    "residual_risks": [
+      "An older or poorly indexed note on inverse values of the ordinary divisor-sum function could contain the elementary classification \\(\\sigma(n)=3^b\\).",
+      "The exact publication day for the 2005 source is supplied by bibliographic metadata rather than printed in the scanned paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives \\(\\Sigma^{*}(3)=\\Sigma^{*}(9)=\\Sigma^{*}(27)=2\\), a lower bound for multiples of \\(3\\), and general bounds, but no all-power formula or \\(\\sigma(n)=3^b\\) classification.",
+        "evidence": "Equations (15), (21), (32), the displayed table through 28, and the concluding theorem section were inspected.",
+        "identifier_or_url": "https://rgmia.org/papers/v8n1/art4.pdf",
+        "material_read": "Full ten-page paper, with focused comparison of the definition/table, Theorems 2-10, and Lemma 1 on odd divisor sums.",
+        "method": "Public full-text inspection and theorem-by-theorem implication comparison.",
+        "title": "The sum-of-divisors minimum and maximum functions",
+        "trigger": "Exact same arithmetic function and the first three powers of 3 appear in its table."
+      },
+      {
+        "assessment": "NOT_COVERING: records Sándor and \\(a(p+1)=p\\) but no formula for \\(a(3^m)\\).",
+        "evidence": "The entry's only stated closed formula relevant here is \\(a(p+1)=p\\) for \\(p\\) prime.",
+        "identifier_or_url": "https://oeis.org/A319068",
+        "material_read": "Definition, comments, links, formula section, and displayed data.",
+        "method": "Database statement and formula comparison.",
+        "title": "OEIS A319068",
+        "trigger": "Current database entry for the same maximum function."
+      },
+      {
+        "assessment": "INAPPLICABLE: the paper studies the unitary divisor sum \\(\\sigma^{*}\\) and \\(U^{*}(p^m)\\), not the ordinary divisor sum \\(\\sigma\\) and \\(\\Sigma^{*}(p^m)\\).",
+        "evidence": "The publisher definition explicitly sets \\(U^{*}(n)=\\max\\{k:\\sigma^{*}(k)\\mid n\\}\\) with \\(\\sigma^{*}\\) the unitary divisor sum.",
+        "identifier_or_url": "https://doi.org/10.3934/Math.2017.1.96",
+        "material_read": "Publisher abstract, definition, publication metadata, and references.",
+        "method": "Object-level comparison.",
+        "title": "On the Sum of Unitary Divisors Maximum Function",
+        "trigger": "Title and abstract advertise prime-power arguments for a divisor-sum maximum function."
+      },
+      {
+        "assessment": "SUPPORTING: the entry classifies the ordinary sum-of-divisors function with 2020 MSC Primary 11A25 and Secondary 11A51.",
+        "evidence": "The entry explicitly displays “2020 Mathematics Subject Classification: Primary: 11A25 Secondary: 11A51”.",
+        "identifier_or_url": "https://encyclopediaofmath.org/wiki/Sum_of_divisors",
+        "material_read": "Entry header, classification line, definition, and standard properties.",
+        "method": "Classification and object comparison.",
+        "title": "Sum of divisors",
+        "trigger": "Independent verification of subject ownership by a primary MSC2020 code."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "635506e0-c069-4a93-af2b-056f2361c19b",
+  "value": {
+    "rationale": "This closes a natural prime-power ray of the sum-of-divisors maximum function that the foundational paper samples at \\(3\\), \\(9\\), and \\(27\\) but does not settle uniformly. The equivalent inverse-image theorem is a complete structural classification, not a finite computation or arbitrary slice, and it explains why the ternary ray is constant.",
+    "status": "PASS"
+  }
+}
