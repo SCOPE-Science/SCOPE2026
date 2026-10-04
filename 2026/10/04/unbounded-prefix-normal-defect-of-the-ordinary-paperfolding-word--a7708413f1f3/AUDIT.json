@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The claim follows from the odd-part definition by exact prefix-sum recurrences. The proof derives S(2^m-1)=2^(m-1)-1 and S(L_m)=floor(L_m/2)-floor((m-1)/2), then computes an explicit length-L_m factor whose excess over the length-L_m prefix is exactly m-1. For any fixed c, choosing m>=c+2 makes that factor beat the length-L_m prefix of 1^c p. The bundled verifier independently checks every algebraic identity on a broad finite range, but the quantified conclusion is supplied by induction rather than finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected infinite-prefix-normal paper proves finite-prepending results for balanced words and Thue-Morse and a negative result for Champernowne, while its paperfolding subsection derives prefix normal forms from abelian complexity.",
+        "Madill--Rampersad prove unbounded 2-regular abelian complexity for paperfolding but do not state the needed comparison with the actual initial-prefix counts."
+      ],
+      "reasoning": "The broader theorems do not imply the claim as stated without the new prefix-sum comparison. Unbounded abelian complexity alone does not universally rule out finite prefix normalization, because the relevant quantity is extremal factor count minus the specific prefix count.",
+      "searches": [
+        "web: On Infinite Prefix Normal Words paperfolding full text",
+        "web: The abelian complexity of the paperfolding word",
+        "published-finding corpus: infinite prefix normal paperfolding Thue Morse Champernowne"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1811.06273",
+      "DOI:10.1016/j.tcs.2021.01.015 open PMC full text",
+      "arXiv:1208.2856 full arXiv text",
+      "MaRDI prefix-normal bibliographic records identifying the topic as combinatorics on words (MSC 68R15)",
+      "published-finding corpus semantic searches under five claim-equivalent formulations",
+      "current cumulative private ledger through generation g000052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cicalese--Lipták--Rossi explicitly say that 11 followed by Thue-Morse is prefix normal and that no finite ones suffice for Champernowne; their paperfolding subsection instead determines prefix normal forms.",
+        "Madill--Rampersad state that paperfolding abelian complexity is unbounded and 2-regular, but the inspected material does not compare maximum-1 factors to the prefix at floor(2^m/3)."
+      ],
+      "reasoning": "Neither inspected source implies the final theorem without an additional relation between prefix sums and a concrete heavy factor. The proof supplies exactly that missing relation, with an excess m-1 on an infinite family of lengths.",
+      "searches": [
+        "published-finding corpus: paperfolding prefix normal defect logarithmic",
+        "published-finding corpus: ordinary paperfolding word cannot be made prefix normal by prepending finitely many ones",
+        "web full text: On Infinite Prefix Normal Words, paperfolding subsection and conclusion",
+        "web full text: The abelian complexity of the paperfolding word, definitions and main recurrence discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicalese--Lipták--Rossi define prefix normality by equality between prefix counts and the maximum number of 1s in equal-length factors, so finite prepending and bounded prefix-normal defect are directly equivalent tests.",
+        "No exact finite-prepending statement for the paperfolding word appeared in the targeted published-finding corpus or web results."
+      ],
+      "reasoning": "If the defect F_p^1(n)-P_p(n) is unbounded, then any fixed c fails after prepending c ones; conversely a finite-prepending result would impose a uniform defect bound after accounting for the shifted prefix. The searches therefore cover the natural verbal and defect formulations of the same claim.",
+      "searches": [
+        "published-finding corpus: ordinary paperfolding word cannot be made prefix normal by prepending finitely many ones",
+        "published-finding corpus: paperfolding prefix normal prepend ones",
+        "web: \"paperfolding word\" \"prepending\" \"prefix normal\"",
+        "web: \"paperfolding\" \"finite number of 1s\" \"prefix normal\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus paperfolding record concerns string attractors and does not address prefix normality.",
+        "The paperfolding abelian-complexity source provides recurrence data for extremal factor imbalance, not a table or formula for the prefix-normal defect at the lengths used here."
+      ],
+      "reasoning": "No exact table was found that already contains both sides of the claimed comparison. The new witness family is derived directly from the odd-part sequence, so it is not a recomputation of a known tabulated invariant.",
+      "searches": [
+        "published-finding corpus: paperfolding maximum ones prefix discrepancy floor 2^m/3",
+        "web: \"paperfolding\" \"floor(2^n/3)\" ones",
+        "web: \"paperfolding word\" \"2^m/3\""
+      ]
+    },
+    "rationale": "The closest primary source treats exactly infinite prefix normality and the ordinary paperfolding word. It explicitly classifies finite prepending for Thue-Morse and Champernowne and separately computes paperfolding prefix normal forms, but the inspected full text does not state the paperfolding finite-prepending verdict or the dyadic-third witness family. The older paperfolding abelian-complexity paper gives unbounded extremal factor imbalance but does not compare it with the distinguished prefixes required here. Specific published-finding corpus and web searches found no statement implying the claim.",
+    "residual_risks": [
+      "An unindexed thesis, note, or older discrepancy calculation may contain the same finite-prepending observation under different terminology.",
+      "The exact primary-MSC record for the 2021 journal article was not exposed by the open full-text page; the classification 68R15 is supported by the prefix-normal bibliographic literature and the mathematical content.",
+      "The theorem gives an explicit lower bound on defect and does not prove that the displayed factor is globally extremal for every L_m."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Highly relevant and not covering the final claim: it classifies other named words under finite prepending and computes paperfolding prefix normal forms, but does not state that no finite prepending works for paperfolding or give the explicit witness family.",
+        "evidence": "The results overview contrasts Thue-Morse and Champernowne under finite prepending; Section 5.2.1 derives paperfolding prefix normal forms from abelian complexity; the conclusion summarizes these contributions without a paperfolding finite-prepending verdict.",
+        "identifier_or_url": "arXiv:1811.06273 / DOI:10.1016/j.tcs.2021.01.015 / PMC8219218",
+        "material_read": "Full open HTML: introduction and results overview; definitions; balanced-word prepending discussion; Section 5.2.1 on the paperfolding word; conclusion.",
+        "method": "Lawful open full-text HTML inspection.",
+        "title": "On Infinite Prefix Normal Words",
+        "trigger": "Direct literature source studying finite prepending, prefix normal forms, and the ordinary paperfolding word."
+      },
+      {
+        "assessment": "Supplies background on factor imbalance but does not cover prefix-normal defect or finite prepending.",
+        "evidence": "The paper defines the same 1-indexed ordinary paperfolding word, states its abelian complexity is unbounded and 2-regular, and studies maximum factor imbalance; no comparison to the distinguished initial prefix required for prefix normality is stated in the inspected material.",
+        "identifier_or_url": "arXiv:1208.2856",
+        "material_read": "Open arXiv full text through the number-theoretic definition, unboundedness statement, symmetry claim, and main recurrence setup.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "The abelian complexity of the paperfolding word",
+        "trigger": "Closest source controlling extremal numbers of 0s and 1s in paperfolding factors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7708413-f1f3-4276-b7b5-9585432b4db7",
+  "value": {
+    "rationale": "Finite prepend-normalizability is a named structural question in the anchor paper: it separates Sturmian and Thue-Morse examples from Champernowne. The same paper treats paperfolding in detail but leaves that qualitative behavior unstated. The result places this classical automatic word decisively on the non-normalizable side and supplies a reusable logarithmic obstruction family rather than an isolated finite counterexample.",
+    "status": "PASS"
+  }
+}
