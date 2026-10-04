@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution gives the two-by-two recurrence. Its trace, determinant, and discriminant were independently recomputed. For fixed product, the complex-root modulus decreases with the step sum and the dominant real root increases with it, so the minimum is at the real/complex transition when feasible and otherwise at the arithmetic-geometric boundary. The global product minimization follows from an exact derivative-sign identity. The adaptive product invariant follows algebraically from every published update branch. The packaged checker verifies the key identities and representative values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fercoq gives a general block iteration matrix for quadratic PDHG and an algorithmic spectral-radius tuning strategy; this is broader in problem class but not an explicit solution of the scalar minimization.",
+        "Goldstein et al. prove convergence under adaptive step changes but do not optimize the spectral radius."
+      ],
+      "reasoning": "A general matrix formula does not by itself imply the exact minimizer classification without solving a nontrivial constrained eigenvalue problem. The present claim supplies that closed-form solution in the scalar symmetric case and a precise product-invariance consequence.",
+      "searches": [
+        "Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes arXiv:2403.19202 quadratic spectral radius",
+        "Adaptive Primal-Dual Hybrid Gradient Methods residual balancing product steps"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1305.0546 (metadata and full HTML relevant sections)",
+      "arXiv:2403.19202 (full text relevant sections)",
+      "Semantic searches listed in the four originality checks",
+      "Previously recorded findings searched by claims and method aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldstein et al. lines corresponding to Algorithm 2 show \\(\tau\\) is multiplied by a factor while \\(\\sigma\\) is multiplied by its reciprocal, or neither changes.",
+        "Fercoq states that residual balancing can be far from optimal in the long run and proposes spectral monitoring, but the inspected scalar-related discussion does not give the claimed closed form."
+      ],
+      "reasoning": "The published adaptive rule directly implies only product invariance. Fercoq's broader spectral objective motivates the exact question but does not logically imply the stated minimizers without the new scalar derivation.",
+      "searches": [
+        "Goldstein adaptive PDHG reciprocal steps spectral radius",
+        "Fercoq quadratic PDHG residual balance optimality proposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted semantic searches returned no claim-equivalent PDHG scalar phase diagram; closest hits concerned FRB, extragradient, Richardson, and other methods.",
+        "Goldstein et al., arXiv:1305.0546, Algorithm 2, uses reciprocal \\(\tau\\)/\\(\\sigma\\) updates and motivates residual balancing.",
+        "Fercoq, arXiv:2403.19202, Sections 3-4, reframes quadratic PDHG tuning as spectral-radius minimization."
+      ],
+      "reasoning": "Searches included the exact constants, product threshold, critical-damping language, and adaptive-product invariant. The nearest sources share the tuning objective but do not state an equivalent closed-form scalar theorem.",
+      "searches": [
+        "Goldstein adaptive PDHG reciprocal updates preserve product exact optimal scalar quadratic step product one half",
+        "PDHG scalar strongly convex quadratic exact spectral radius optimal tau sigma sqrt2 minus 1",
+        "primal dual hybrid gradient fixed product optimal asymmetric steps critical damping",
+        "Chambolle Pock scalar quadratic optimal steps tau sigma product 1/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No targeted semantic-search hit reported the constants \\(1/2\\), \\(1/\\sqrt2\\), and \\(\\sqrt2-1\\) for this PDHG recurrence.",
+        "Previously recorded findings were searched by claims for PDHG, primal-dual, spectral, adaptive, and step-size language; the closest item is a Malitsky--Pock PDAL least-squares fixed-product result with a different recurrence and optimizer formula."
+      ],
+      "reasoning": "No exact database entry or previously recorded finding tabulates this phase diagram. The prior PDAL result is not an equivalent formulation because one side is a least-squares dual model and its fixed-product optimizer is unique rather than the two-branch phase diagram here.",
+      "searches": [
+        "PDHG scalar strongly convex quadratic exact spectral radius optimal tau sigma sqrt2 minus 1",
+        "primal dual hybrid gradient fixed product optimal asymmetric steps critical damping",
+        "Chambolle Pock scalar quadratic optimal steps tau sigma product 1/2"
+      ]
+    },
+    "rationale": "The exact closed-form scalar phase diagram was not found in targeted semantic or literature searches. Goldstein et al. define the reciprocal residual-balancing rule, while Fercoq gives a broader quadratic spectral-radius framework and explicitly studies improvements beyond residual balancing; the inspected relevant sections do not state the two asymmetric fixed-product minimizers, the threshold \\(p=1/2\\), or the unique global pair. The closest previously recorded scalar primal-dual result concerns the different PDAL least-squares recurrence and does not imply this claim.",
+    "residual_risks": [
+      "An unindexed thesis, lecture note, or implementation analysis may contain the same scalar closed-form calculation.",
+      "Fercoq's general quadratic framework is close in spirit; later versions or supplementary material not surfaced by the inspected text could include a special-case formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines exactly the method specialized in the claim and makes the step-product invariant visible, but does not state the scalar spectral-radius phase diagram.",
+        "evidence": "ArXiv metadata gives v1 on 2013-05-02 and MSC 65K15; full text gives the basic PDHG update, product stability condition, residual balancing, and reciprocal \\(\tau\\)/\\(\\sigma\\) changes.",
+        "identifier_or_url": "arXiv:1305.0546",
+        "material_read": "ArXiv abstract/metadata and full HTML sections II, IV, V-A, and relevant convergence setup.",
+        "method": "Read the displayed algorithm and equations, including the primal-first update, extrapolation, residual balancing principle, and all three branches of Algorithm 2.",
+        "title": "Adaptive Primal-Dual Hybrid Gradient Methods for Saddle-Point Problems",
+        "trigger": "Primary source for the PDHG ordering, residuals, stability condition, and adaptive step rule."
+      },
+      {
+        "assessment": "Broader spectral framework and strong conceptual overlap, but no inspected statement gives the closed-form \\(p=1/2\\) phase transition or the two asymmetric scalar minimizers.",
+        "evidence": "The paper says spectral-radius monitoring can find better steps than residual balance and gives a general quadratic fixed-point matrix, while presenting residual balancing separately as an adaptive heuristic.",
+        "identifier_or_url": "arXiv:2403.19202",
+        "material_read": "Introduction, Sections 2.3, 3.1, 4.1, and 4.2 in accessible full text.",
+        "method": "Compared the stated goals, Goldstein update reproduction, general quadratic iteration matrix, and spectral-radius discussion against the exact scalar theorem.",
+        "title": "Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes",
+        "trigger": "Highly relevant later work explicitly comparing residual balancing with spectral-radius tuning on quadratics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "78819122-1208-4b7e-ab1e-3c8e13f060b0",
+  "value": {
+    "rationale": "Residual balancing changes only the primal/dual ratio while preserving their product. The scalar theorem gives a complete natural benchmark for that design choice: it locates the globally optimal product, exposes a symmetry-breaking critical-damping regime below \\(p=1/2\\), and distinguishes what ratio-only adaptation can tune from what it cannot. This is useful for evaluating product-adaptive extensions and spectral tuning rules, rather than an arbitrary scalar exercise.",
+    "status": "PASS"
+  }
+}
