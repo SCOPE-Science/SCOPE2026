@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The verifier exhausts all 46656 strict profiles and all six perfect matchings per profile. It computes the quotient by generators of the order-72 symmetry group and independently by Burnside fixed-point sums, with exact agreement and reconstruction of the known labeled totals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borodin et al. state that men can be relabeled, women can be relabeled, and the sides can be swapped; their stable-matching distribution table remains a count of labeled profiles.",
+        "Gale-Shapley establishes the model and existence theorem, not finite isomorphism counts."
+      ],
+      "reasoning": "The broader sources supply the model, raw profile enumeration, and the natural symmetry operations, but do not imply the orbit counts without a fixed-point/orbit computation.",
+      "searches": [
+        "Sequences of the Stable Matching Problem symmetries relabeling men women swap",
+        "stable marriage preference profiles symmetry enumeration"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/00029890.1962.11989827",
+      "arXiv:2201.00645v1",
+      "OEIS:A344666",
+      "OEIS:A344690"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 labeled totals are exactly reconstructed by weighting the new orbit classes by orbit size, providing a consistency check but not determining the orbit decomposition.",
+        "The 1962 paper defines stability and proves existence; it has no three-by-three symmetry census."
+      ],
+      "reasoning": "Knowing only labeled counts and group order does not determine orbit counts because stabilizers vary. The observed orbit sizes 12, 24, 36, and 72 must be computed.",
+      "searches": [
+        "arXiv 2201.00645 stable matching distribution symmetries",
+        "Gale Shapley 1962 stable marriage strict preferences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected Borodin et al. paper gives labeled counts 34080, 11484, 1092 and a separate symmetry discussion, but no full-profile quotient by independent relabeling plus side exchange was located.",
+        "Exact-number web searches for 669 and the 491/161/17 split returned no matching stable-marriage census."
+      ],
+      "reasoning": "The final statement is not a rephrasing of the labeled table: it identifies full-group orbits and stabilizers, information not determined by labeled stratum sizes alone.",
+      "searches": [
+        "stable marriage three men three women profiles up to relabeling both sides orbit count",
+        "stable matching 3x3 1300 orbits relabeling men women",
+        "stable marriage 3x3 669 isomorphism classes",
+        "stable marriage isomorphism classes preference profiles three stable matchings 17"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A344666 records the labeled 3-by-3 distribution, while A344690 counts only one side's preference multisets up to relabeling of that side; neither inspected entry gives the full two-sided profile quotient."
+      ],
+      "reasoning": "The final table is a different quotient statistic, not a recomputation of either OEIS table.",
+      "searches": [
+        "OEIS stable marriage profiles up to relabeling both sides",
+        "OEIS stable marriage 669 491 161 17"
+      ]
+    },
+    "rationale": "The closest inspected enumeration publishes labeled stable-count totals and discusses natural symmetries, but not the full symmetry-reduced table 491/161/17 or the three-stable stabilizer stratification. Exact-number and formulation searches did not find an equivalent source.",
+    "residual_risks": [
+      "An unindexed thesis, course note, or software table may already contain the same full-symmetry quotient counts.",
+      "The result is strictly finite at n=3 and should not be generalized to larger markets without new computation or proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational model source; no finite isomorphism census.",
+        "evidence": "American Mathematical Monthly 69(1), January 1962, pages 9-15.",
+        "identifier_or_url": "doi:10.1080/00029890.1962.11989827",
+        "material_read": "Opening pages of an accessible scan, including the strict-ranking setup, instability definition, and discussion of possibly many stable solutions.",
+        "method": "Accessible primary-paper PDF inspected directly.",
+        "title": "College Admissions and the Stability of Marriage",
+        "trigger": "Foundational source defining the strict two-sided stability model."
+      },
+      {
+        "assessment": "Provides the labeled totals and natural symmetry operations, but the inspected material does not tabulate the full symmetry quotient or stabilizer strata.",
+        "evidence": "First submitted 2021-12-29; Table 4 gives 34080, 11484, 1092 for one, two, three stable matchings at n=3; Section 7 discusses symmetries.",
+        "identifier_or_url": "arXiv:2201.00645v1",
+        "material_read": "Full-text HTML sections on the 3-by-3 labeled distribution and on relabeling men, relabeling women, and swapping sides.",
+        "method": "Lawful arXiv HTML inspection.",
+        "title": "Sequences of the Stable Matching Problem",
+        "trigger": "Direct finite enumeration of preference profiles by number of stable matchings and explicit discussion of symmetries."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58b281ed-93c1-46f8-b66b-154d1d0d0fca",
+  "value": {
+    "rationale": "The quotient removes labeling redundancy from the complete smallest market with three possible stable matchings and adds exact stabilizer information. This yields a compact canonical benchmark and reveals nontrivial symmetry structure among maximally multi-stable profiles.",
+    "status": "PASS"
+  }
+}
