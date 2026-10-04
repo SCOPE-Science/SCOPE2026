@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the actual published constructor. The half-turn \\((x,y,z)\\mapsto(2|w|-x,y,-z)\\) reverses generator order while preserving each positive Artin generator because the reversed step starts with the exchanged lane occupants and the z-sign flip restores the over/under convention. The interpolation and bump identities are exact. Since each A or B block is two identical generators, block reversal is word reversal. Boundary vertices, side couplings, spacers and all three symmetric closure routes are mapped exactly. The map is an orientation-preserving rigid rotation and hence an ambient-isotopy endpoint. Burnside's lemma then gives the orbit count. A standalone coordinate replay checked all 2047 words through length ten without a mismatch.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source records noncommuting transfer structure and finite checks but does not state that the spatial embeddings themselves are reversal-equivalent.",
+        "The constructor source exposes a left-right symmetric host and palindromic pure-square blocks, the precise hypotheses used by the rigid-rotation proof."
+      ],
+      "reasoning": "The transfer formulas do not by themselves imply ambient isotopy. The new result works at the embedding level and therefore strictly strengthens the reversal polynomial equality for this family.",
+      "searches": [
+        "Primary full-text inspection around the order-sensitive family and Supplementary Note 7.C",
+        "Repository inspection of fixed_cubic_pure_braid_graph and pure_squares block definitions",
+        "Repository search for reversal and reverse_word"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31152v1",
+      "github:HakanAkgn/KnottedGraph@9a0f379c38050e80e57967841904917da86c7528:User_guide/applications/05_yamada_formula_discovery.ipynb",
+      "github:HakanAkgn/KnottedGraph@9a0f379c38050e80e57967841904917da86c7528:User_guide/applications/results/figure4_suppfig10/audit/discovery/certificate.json",
+      "github:HakanAkgn/KnottedGraph@9a0f379c38050e80e57967841904917da86c7528:User_guide/applications/results/figure4_suppfig10/audit/discovery/exhaustive_short_word_checks.json",
+      "github:HakanAkgn/KnottedGraph@9a0f379c38050e80e57967841904917da86c7528:User_guide/applications/results/figure4_suppfig10/data/figure4_pure_braid_324.csv",
+      "2026/9/11/SCOPE039",
+      "2026/9/18/SCOPE-exact-canonical-torus-knot-triangulation-census--831655b0b665",
+      "2026/9/20/SCOPE-exact-stick-numbers-after-trefoil-summation--dfc293ee9d95"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eq. (12) states equal normalized Yamada polynomials for AAB and BAA but unequal value for ABA.",
+        "The transfer representation retains ordered word information and is not an embedding classification theorem.",
+        "The finite audit observes reversals but explicitly does not certify an all-word realization."
+      ],
+      "reasoning": "Equality of one invariant, even for all tested reversals, does not imply ambient isotopy. The explicit rigid rotation proves a strictly stronger statement for every word and yields the exact reversal-orbit count without assuming completeness of the Yamada polynomial or of finite data.",
+      "searches": [
+        "Primary comparison: Eq. (12) AAB/BAA/ABA",
+        "Primary comparison: Supplementary Note 7.C transfer representation",
+        "Audit comparison: all_raw_reversals_match and all_word_realization_proved"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper contains no occurrence of a reversal theorem and presents AAB=BAA only at the invariant level.",
+        "The public audit records all_raw_reversals_match=true but gives finite short-word evidence rather than an ambient-isotopy proof.",
+        "published-finding corpus searches returned unrelated braid, spatial-graph, and topology records, with no equivalent theorem for this constructor."
+      ],
+      "reasoning": "Searches covered invariant equality, braid-word reversal, ambient isotopy, the family name, and the specific AAB/BAA example. The nearest source evidence is the authors' finite reversal audit, which is strictly weaker than an all-word geometric equivalence.",
+      "searches": [
+        "Web search: \"KnottedGraph\" \"reversal\" braid Yamada",
+        "Web search: \"Yamada polynomial\" \"word reversal\" braid spatial graph",
+        "Web search: \"pure-braid\" \"reversal\" \"Yamada\"",
+        "Web search: \"AAB\" \"BAA\" Yamada polynomial",
+        "Repository search: reverse_word",
+        "Repository search: reversal",
+        "Repository search: all_raw_reversals_match",
+        "Repository search: raw_same_count_collisions_only_reversal",
+        "Yamada polynomial pure braid word reversal spatial graph",
+        "KnottedGraph reversal symmetry AAB BAA",
+        "spatial graph braid reversal Yamada polynomial",
+        "fixed cubic pure braid graph reverse word ambient isotopy",
+        "braid word reversal spatial graph orientation preserving rotation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The frozen CSV has 324 records. Among 293 records whose reversed word is also present, raw and normalized polynomial hashes have zero mismatches.",
+        "The audit certificate records all_raw_reversals_match=true and all_word_realization_proved=false."
+      ],
+      "reasoning": "The finite table already supports reversal equality and therefore cannot establish originality of that observation. It instead provides a regression check for the stronger all-word geometric proof.",
+      "searches": [
+        "Inspection of figure4_pure_braid_324.csv at frozen commit",
+        "Inspection of audit/discovery/exhaustive_short_word_checks.json",
+        "Inspection of audit/discovery/certificate.json"
+      ]
+    },
+    "rationale": "The primary paper states order sensitivity and explicitly exhibits equal Yamada polynomials for AAB and BAA, while the public audit already records finite reversal equality. This finite observation is therefore not claimed as new. The new claim is the all-word ambient-isotopy theorem, its explicit rigid rotation, and the exact reversal-orbit quotient. The source certificate explicitly marks the all-word realization as unproved, and neither the paper text nor repository searches state the geometric reversal theorem.",
+    "residual_risks": [
+      "The geometric reversal equivalence may be regarded as an elementary consequence of the constructor once noticed, despite not being stated in the inspected source.",
+      "An unindexed note or later repository revision could contain the same all-word half-turn argument.",
+      "The theorem depends on the exact source constructor; changing the host closure or replacing pure-square blocks by non-palindromic blocks can destroy the symmetry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states order sensitivity and the AAB=BAA invariant equality but does not provide the all-word reversal ambient-isotopy theorem.",
+        "evidence": [
+          "Submitted 2026-09-25; MSC list includes 57M15, 57K14 and 57K10.",
+          "Eq. (12) gives normalized Yamada(AAB)=normalized Yamada(BAA) != normalized Yamada(ABA).",
+          "Supplementary Note 7.C defines A=sigma_1^2 and B=sigma_2^2 on a fixed 8-vertex, 12-edge cubic multigraph."
+        ],
+        "identifier_or_url": "arXiv:2609.31152v1",
+        "material_read": "Abstract/metadata, Figure 4 discussion, Eq. (12), and Supplementary Note 7.C including the family definition, Hankel realization, transfer matrices and arbitrary-word formula.",
+        "method": "HTML full text was inspected around the complete relevant sections and searched for reversal terminology.",
+        "title": "KnottedGraph: Scalable knotted-graph topology for scientific and mathematical discovery",
+        "trigger": "Recent primary topology source containing the order-sensitive pure-braid family."
+      },
+      {
+        "assessment": "The coordinate formulas have an exact half-turn symmetry. Each pure block is palindromic and the outer closure x-margins are left-right symmetric.",
+        "evidence": [
+          "A=(+1,+1), B=(+2,+2).",
+          "Braid x-coordinate advances one unit per generator; the right endpoint is x_R=len(expanded braid).",
+          "Closure routes use symmetric margins +/-3, +/-2 and +/-1."
+        ],
+        "identifier_or_url": "github:HakanAkgn/KnottedGraph@9a0f379c38050e80e57967841904917da86c7528:User_guide/applications/05_yamada_formula_discovery.ipynb",
+        "material_read": "Frozen block definitions, braid-body coordinate routine, fixed_cubic_pure_braid_graph, boundary nodes, couplings, spacer edges and nested closure routes.",
+        "method": "The exact file at the cited commit was fetched and the defining cells were inspected.",
+        "title": "Public pure-braid constructor notebook",
+        "trigger": "Needed the exact embedding formulas rather than relying on a schematic figure."
+      },
+      {
+        "assessment": "Finite reversal equality was already known in the source data. The source certificate explicitly records all_word_realization_proved=false, leaving room for the all-word geometric proof.",
+        "evidence": [
+          "certificate: all_raw_reversals_match=true.",
+          "certificate: raw_same_count_collisions_only_reversal=true.",
+          "certificate: all_word_realization_proved=false.",
+          "CSV: 324 records; 293 directed reversal comparisons; zero raw or normalized hash mismatches."
+        ],
+        "identifier_or_url": "github:HakanAkgn/KnottedGraph@9a0f379c38050e80e57967841904917da86c7528:User_guide/applications/results/figure4_suppfig10/audit/discovery/certificate.json",
+        "material_read": "certificate.json, exhaustive_short_word_checks.json, and figure4_pure_braid_324.csv.",
+        "method": "Exact repository files were fetched; the CSV was parsed and reversal hashes were compared.",
+        "title": "Pure-braid discovery certificate and short-word audit",
+        "trigger": "Needed to distinguish the source's existing finite reversal observation from the new theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aec636b0-5929-4168-9665-4faf9459a61c",
+  "value": {
+    "rationale": "The result upgrades a finite invariant-level pattern already present in the source audit to an exact all-word statement about the spatial embeddings themselves. It explains the source's AAB=BAA example without invoking the transfer reconstruction, identifies a genuine geometric redundancy in an explicitly order-sensitive family, and gives an exact reversal-orbit reduction for any exhaustive or learning-based search over braid words. This is a structural lemma rather than a recomputation of the existing data.",
+    "status": "PASS"
+  }
+}
