@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The maximal-minor determinant is exactly the ordinary Vandermonde product times the sum of the four column roots. Distinctness removes the Vandermonde factor. For four unit roots, zero sum also forces the third elementary symmetric function to vanish, so their monic quartic is even and the roots are two antipodal pairs. Antipodes occur among N-th roots exactly for even N. Counting pairs gives binomial(N/2,2), and the first three rows force rank exactly 3. An exact-integer checker independently verifies the determinant identity and all four-column subsets for 5<=N<=40.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alexeev-Cahill-Mixon, arXiv:1110.3548, proves the iff criterion for prime-power DFT sizes.",
+        "The same paper proves uniform distribution necessary in general and gives a composite-size counterexample to sufficiency.",
+        "Isaacs-Evans concerns generalized Vandermonde determinants and roots of unity of prime order."
+      ],
+      "reasoning": "The prime-power theorem dominates the odd prime-power subcase only. It does not imply the odd-composite instances or the classification/count/rank of singular minors for the fixed row pattern.",
+      "searches": [
+        "Alexeev Cahill Mixon Full Spark Frames Theorem 9 prime power uniformly distributed divisors",
+        "Full Spark Frames composite N uniform distribution counterexample",
+        "Isaacs Evans generalized Vandermonde roots unity prime order"
+      ]
+    },
+    "checked_sources": [
+      "Alexeev-Cahill-Mixon, Full Spark Frames, arXiv:1110.3548 / JFAA 18 (2012)",
+      "Isaacs-Evans, Generalized Vandermonde Determinants and Roots of Unity of Prime Order, Proc. AMS 58 (1976)",
+      "Published-finding index searches under harmonic-frame, DFT-minor, root-sum and generalized-Vandermonde formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior prime-power coverage implies full spark for odd prime-power N because {0,1,2,4} is uniformly distributed over every divisor.",
+        "The prior source explicitly leaves general composite sufficiency false and therefore does not extend that implication to arbitrary odd composite N.",
+        "The accepted proof additionally classifies every singular maximal minor and counts them for even N."
+      ],
+      "reasoning": "The accepted statement was narrowed to exclude novelty claims for the prime-power theorem and for generalized-Vandermonde factorization; its non-covered content is the special-family all-modulus theorem plus exact failure geometry.",
+      "searches": [
+        "arXiv:1110.3548 {0,1,2,4} uniformly distributed divisors full spark",
+        "harmonic frame four rows 0 1 2 4 composite Fourier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The determinant condition is equivalent to a vanishing sum of four distinct N-th roots of unity.",
+        "For unit roots, a four-term zero sum is equivalent to two antipodal pairs by the even root-polynomial argument.",
+        "No searched indexed finding stated the all-modulus {0,1,2,4} classification."
+      ],
+      "reasoning": "Aliases through harmonic frames, DFT minors, root-of-unity sums and generalized Vandermonde determinants were compared at the statement level; the classical factorization is not itself counted as original.",
+      "searches": [
+        "exact singular minors rows {0,1,2,4} discrete Fourier transform antipodal pairs",
+        "DFT minor generalized Vandermonde sum of four roots antipodal full spark",
+        "generalized Vandermonde exponents 0 1 2 4 determinant sum variables Schur polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published-finding IDs were unrelated matrix or harmonic-analysis results; no exact table or row-family record was found.",
+        "The nearest prior local four-row record concerns {0,1,3,4}, not {0,1,2,4}."
+      ],
+      "reasoning": "Exact row-set and consequence queries did not locate a database/table entry whose statement contains or implies the accepted claim.",
+      "searches": [
+        "four-row harmonic frame {0,1,2,4} full spark iff N odd",
+        "Fourier matrix four rows 0 1 2 4 minors sum four roots unity",
+        "harmonic frame rows 0 1 2 4 full spark odd N singular minors antipodal pairs"
+      ]
+    },
+    "rationale": "The closest full-text harmonic-frame source covers the full-spark iff uniform-distribution equivalence for prime-power DFT sizes, but explicitly does not provide a general composite-size characterization. Thus odd prime-power cases are prior coverage; the accepted claim is the all-modulus classification for {0,1,2,4}, together with exact bad-minor geometry, count and rank. No searched literature-index formulation or prior published finding located a statement implying those additions.",
+    "residual_risks": [
+      "An older note or exercise indexed only under vanishing sums of roots of unity may contain this elementary special family.",
+      "The Isaacs-Evans full text was not needed for a decisive implication comparison; only its indexed prime-order scope was inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the accepted all-modulus {0,1,2,4} classification; COVERING for the odd prime-power full-spark subcase.",
+        "evidence": "Theorem 9 gives iff for prime powers; later discussion states that general sufficiency fails and exhibits N=10 with a different row set.",
+        "identifier_or_url": "arXiv:1110.3548; doi:10.1007/s00041-012-9235-4",
+        "material_read": "Abstract and full-text portions containing the prime-power theorem, general necessary condition, and composite counterexample.",
+        "method": "Full-text inspection of the open preprint/PDF.",
+        "title": "Full Spark Frames",
+        "trigger": "Closest source on full-spark DFT subframes and uniform distribution over divisors."
+      },
+      {
+        "assessment": "No evidence of an arbitrary-composite {0,1,2,4} harmonic-frame classification; treated only as background.",
+        "evidence": "Indexed scope is generalized Vandermonde determinants and roots of unity of prime order.",
+        "identifier_or_url": "doi:10.2307/2041358",
+        "material_read": "Bibliographic and indexed scope information.",
+        "method": "Bibliographic/index inspection.",
+        "title": "Generalized Vandermonde Determinants and Roots of Unity of Prime Order",
+        "trigger": "Potential broader generalized-Vandermonde coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb8a5601-ae6d-4750-8246-176291266d22",
+  "value": {
+    "rationale": "The fixed row set is a natural one-step perturbation of four consecutive Fourier rows, and the result gives a complete structural all-modulus classification in a setting where general composite-size uniform-distribution sufficiency fails. It identifies every bad erasure pattern, its exact count, and its rank, rather than reporting a finite census or a routine numerical increment.",
+    "status": "PASS"
+  }
+}
