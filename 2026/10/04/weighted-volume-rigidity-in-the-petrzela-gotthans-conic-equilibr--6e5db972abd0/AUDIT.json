@@ -1,0 +1,119 @@
+{
+  "claim": "For the Petrzela–Gotthans system \\(\\dot x=z\\), \\(\\dot y=-z(ay+bxz)\\), \\(\\dot z=x+y^2-r\\), the smooth positive density \\(\\rho=e^{ax}\\) is exactly invariant: \\(\\nabla\\!\\cdot(\\rho f)=0\\), and Liouville's formula gives \\(\\det D\\phi_t=\\exp[-a(x(t)-x(0))]\\). Hence every bounded trajectory has zero asymptotic volume-contraction rate; every periodic orbit has monodromy determinant one and the product of its two transverse Floquet multipliers is one; and the exact continuous-time flow cannot possess a compact asymptotically stable attractor with a bounded open trapping neighborhood. Thus the 2017 paper's dissipative/attracting interpretation cannot hold for the exact ODE in that standard sense, although bounded chaotic invariant sets, chaotic saddles, and neutral or saddle periodic dynamics are not excluded.",
+  "correctness": {
+    "rationale": "Direct differentiation gives \\(\\nabla\\!\\cdot f=-az=-a\\dot x\\). Product-rule differentiation then gives \\(\\nabla\\!\\cdot(e^{ax}f)=0\\), independently replayed by the symbolic verifier. Liouville's formula yields the endpoint Jacobian exactly. Periodicity forces determinant one, and the trapping-region contradiction follows from preservation of a smooth positive locally finite measure. The claim explicitly limits the attractor conclusion to a bounded open trapping neighborhood and does not infer nonexistence of bounded chaos.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/9/19/SCOPE-cohomological-contraction-floquet-threshold-trigonometric-nose-hoover--0debb0e2ee19 full RESULT.md inspected.",
+        "2026/9/18/SCOPE-reversible-floquet-obstruction-trigonometric-nose-hoover--87f8866a2ffc full RESULT.md inspected."
+      ],
+      "reasoning": "The closest broader results treat a different vector field. One reduces divergence to a nonzero observable plus a coboundary; the other obtains reciprocal multipliers for reversing-symmetric periodic orbits only. Neither supplies a smooth invariant density or an all-periodic-orbit determinant-one theorem for the Petrzela–Gotthans flow.",
+      "searches": [
+        "published-finding corpus: hidden attractor smooth invariant volume density e^{a x} no attracting periodic orbit",
+        "published-finding corpus: periodic orbit exact integral identity polynomial flow",
+        "published-finding corpus: Petrzela Gotthans conic shaped equilibrium reversible flow y z sign time reversal"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/app7100976",
+      "hdl:11012/137220",
+      "doi:10.1142/S0218126618300040",
+      "2026/9/19/SCOPE-cohomological-contraction-floquet-threshold-trigonometric-nose-hoover--0debb0e2ee19",
+      "2026/9/18/SCOPE-reversible-floquet-obstruction-trigonometric-nose-hoover--87f8866a2ffc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nosé–Hoover cohomological record: \\(\\operatorname{div}v\\) equals a nonzero observable plus a coboundary, so zero Lyapunov sum is symmetry-dependent.",
+        "Nosé–Hoover reversibility record: reciprocal transverse multipliers are proved for reversing-symmetric periodic orbits; nonsymmetric attracting orbits are explicitly allowed with repelling partners."
+      ],
+      "reasoning": "Those results do not imply the present claim. Here \\(\\operatorname{div}f=-a\\dot x\\) is itself a pure coboundary and \\(e^{ax}\\) is invariant, forcing unit determinant for every periodic orbit and excluding bounded trapping attractors irrespective of orbit symmetry.",
+      "searches": [
+        "Full-text published-finding corpus comparison of SCOPE-cohomological-contraction-floquet-threshold-trigonometric-nose-hoover--0debb0e2ee19",
+        "Full-text published-finding corpus comparison of SCOPE-reversible-floquet-obstruction-trigonometric-nose-hoover--87f8866a2ffc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Petrzela–Gotthans 2017 full-text HTML, DOI 10.3390/app7100976: vector field and dissipativity discussion inspected.",
+        "No exact-title/DOI search result located an invariant density \\(e^{ax}\\) or the endpoint Jacobian formula for this system."
+      ],
+      "reasoning": "The searched equivalent descriptions (invariant density, weighted volume, Liouville Jacobian, volume preservation) did not reveal the same source-specific result.",
+      "searches": [
+        "published-finding corpus: \"New Chaotic Dynamical System with a Conic-Shaped Equilibrium\" weighted divergence volume preserving",
+        "published-finding corpus: \"app7100976\" invariant density reversible",
+        "Web: \"app7100976\" \"invariant measure\"",
+        "Web: \"app7100976\" \"volume preserving\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no record indexed to DOI 10.3390/app7100976 or this vector field with the claimed weighted-volume identity.",
+        "The 2017 source states a dissipative interpretation; the 2018 related review was identified and its abstract/bibliographic material inspected, with no located correction in the accessible material."
+      ],
+      "reasoning": "No exact database entry or accessible related-source material was found that tabulates or states the claimed invariant density and its dynamical consequences.",
+      "searches": [
+        "published-finding corpus exact system/DOI queries listed in prior_checks",
+        "Web exact title and DOI searches",
+        "Related review: DOI 10.1142/S0218126618300040"
+      ]
+    },
+    "rationale": "The source-specific identity \\(\\nabla\\!\\cdot(e^{ax}f)=0\\), the endpoint Jacobian \\(e^{-a(x(t)-x(0))}\\), and the resulting all-periodic-orbit/trapping-attractor obstruction were not found in the inspected source, its related review metadata, exact-title/DOI web searches, or semantic database searches. Full-text comparison of the two closest published-finding corpus records shows they concern a different trigonometric Nosé–Hoover vector field and obtain only symmetry-conditional reciprocal multipliers or a different cohomological contraction law.",
+    "residual_risks": [
+      "Search failure is not a proof of novelty; an unindexed publication may have observed the same invariant density.",
+      "The full text of the 2018 related review was not needed for correctness and was not used for a whole-document noncoverage assertion; only accessible abstract/metadata were inspected.",
+      "The no-attractor conclusion depends on the standard compact trapping-region/asymptotic-stability notion, not every broader use of the word attractor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE; supplies the equations and the interpretation corrected by the exact weighted-volume calculation.",
+        "evidence": "The source gives \\(\\dot x=z\\), \\(\\dot y=-z(ay+bxz)\\), \\(\\dot z=x+y^2-r\\), labels the flow dissipative, and discusses limit cycles and a hidden chaotic attractor.",
+        "identifier_or_url": "doi:10.3390/app7100976",
+        "material_read": "Full-text HTML, especially Sections 2.2, 2.3, and 4.",
+        "method": "Direct equation reconstruction and comparison with the source statements on divergence/contraction, periodic solutions, basins, and hidden strange attractor.",
+        "title": "New Chaotic Dynamical System with a Conic-Shaped Equilibrium Located on the Plane Structure",
+        "trigger": "Primary source defining the exact vector field and making the dissipative/attractor claims addressed by the finding."
+      },
+      {
+        "assessment": "RELATED; no accessible material located the source-specific weighted-volume identity. Full article was not used to establish a NOT_COVERING judgment.",
+        "evidence": "The accessible abstract describes circuit realizations and rich dynamics for plane-continuum equilibrium systems but does not state the present identity.",
+        "identifier_or_url": "doi:10.1142/S0218126618300040",
+        "material_read": "Abstract and bibliographic metadata available through indexed web sources.",
+        "method": "Checked for an accessible correction or broader statement subsuming the invariant-density result.",
+        "title": "Current-Mode Network Structures Dedicated for Simulation of Dynamical Systems with Plane Continuum of Equilibrium",
+        "trigger": "Later review by the same research group covering the model class."
+      },
+      {
+        "assessment": "NOT_COVERING by specific inapplicability: different equations and nonzero residual observable; no invariant density \\(e^{ax}\\) for the Petrzela–Gotthans flow.",
+        "evidence": "Its divergence is cohomologous to \\(-a\\sin z/2\\), so zero integrated contraction needs symmetry; the present divergence is the pure coboundary \\(-a\\dot x\\).",
+        "identifier_or_url": "2026/9/19/SCOPE-cohomological-contraction-floquet-threshold-trigonometric-nose-hoover--0debb0e2ee19",
+        "material_read": "Complete RESULT.md from the public repository.",
+        "method": "Compared vector field, divergence decomposition, hypotheses, and periodic-orbit implications.",
+        "title": "Cohomological contraction and a Floquet edge in the trigonometric Nosé–Hoover flow",
+        "trigger": "Closest semantic match on contraction as a coboundary and Floquet determinant."
+      },
+      {
+        "assessment": "NOT_COVERING by specific inapplicability: only reversing-symmetric periodic orbits have unit transverse product there; the present theorem applies to every periodic orbit because of exact weighted-volume preservation.",
+        "evidence": "The record explicitly allows nonsymmetric attracting periodic orbits paired with repellers, unlike the present all-orbit obstruction.",
+        "identifier_or_url": "2026/9/18/SCOPE-reversible-floquet-obstruction-trigonometric-nose-hoover--87f8866a2ffc",
+        "material_read": "Complete RESULT.md from the public repository.",
+        "method": "Compared the scope of reciprocal-multiplier conclusions.",
+        "title": "Reversible Floquet obstruction in the trigonometric Nosé–Hoover oscillator",
+        "trigger": "Closest semantic match on reciprocal Floquet multipliers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e5db972-abd0-432c-9928-ddce7f3b37db",
+  "value": {
+    "rationale": "The invariant density changes the qualitative interpretation of a published chaotic circuit model: a flow presented as dissipative and possessing attracting limit sets is smoothly weighted-volume preserving. The result gives testable exact constraints on every periodic orbit and on any claimed robust compact attractor, helping distinguish true asymptotic attraction from transient, numerical, or circuit-nonideality effects.",
+    "status": "PASS"
+  }
+}
