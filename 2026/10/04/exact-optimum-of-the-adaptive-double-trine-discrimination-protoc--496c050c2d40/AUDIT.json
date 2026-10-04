@@ -1,0 +1,119 @@
+{
+  "claim": "For the one-parameter three-round two-way LOCC protocol for minimum-error discrimination of the equiprobable double-trine ensemble introduced by Chitambar and Hsieh, with Alice's first-round measurement strength \\(p\\in[0,1]\\), the total error probability is exactly \\[E(p)=1-\\frac12\\left(Q(p)+\\sqrt{S(p)}\\right),\\]where \\[Q(p)=\\frac{8+2\\sqrt3+(\\sqrt3-2)p}{12}\\]and \\[S(p)=\\frac{20+8\\sqrt3+(4+8\\sqrt3)p-(3+4\\sqrt3)p^2}{48}.\\]This protocol family has a unique global minimizer \\[p_*=\\frac{45-8\\sqrt3}{39}=0.798553680498\\ldots,\\]with exact minimum error \\[E_*=\\frac{63-32\\sqrt3}{117}=0.0647382406649\\ldots.\\]The endpoint \\(p=1\\) is the optimal one-way protocol with error \\(E_{\\to}=1/2-\\sqrt3/4\\), so the explicit feedback protocol's exact advantage is \\[E_{\\to}-E_*=\\frac{11\\sqrt3-18}{468}>0.\\]The claim optimizes only this published one-parameter adaptive protocol family; it does not claim the globally optimal finite-round or unrestricted LOCC error.",
+  "correctness": {
+    "rationale": "The source branch probabilities and postmeasurement states give \\(P_0=(1-p)/3\\), \\(P_1=(2+\\sqrt3)(2+p)/12\\), and \\(c=(1-p)/(2(2+p))\\). The Helstrom expression simplifies to the displayed \\(E(p)\\). The exact stationary equation factors as \\((p-1)((18+11\\sqrt3)p-(14+9\\sqrt3))/216=0\\) after squaring; the unsquared sign condition rejects \\(p=1\\), and endpoint derivative signs make the remaining root the unique global optimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2013 paper proves the measurement-class hierarchy and constructs the one-parameter witness but reports its optimum numerically.",
+        "The 2014 paper broadens the operational hierarchy and is indexed under quantum measurement theory, but does not provide the exact scalar constants claimed here.",
+        "Later double-trine literature remains concerned with measurement-class performance and does not, in the inspected material, state the same optimizer."
+      ],
+      "reasoning": "Broader state-discrimination theory does not cover this claim unless it explicitly specializes to the source's three-round architecture and evaluates its measurement-strength optimum.",
+      "searches": [
+        "\"Revisiting the optimal detection of quantum information\" double trine minimum error p",
+        "\"Asymptotic state discrimination\" double trine two-way one-way",
+        "\"Nonclassical traits in multi-copy state discrimination\" double trine",
+        "double trine LOCC separable exact minimum error later literature"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1304.1555",
+      "DOI:10.1103/PhysRevA.88.020302",
+      "arXiv:1311.1536",
+      "DOI:10.1063/1.4902027",
+      "arXiv:2604.26647"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source supplies the branch probabilities, postmeasurement states, and binary Helstrom expression needed for the derivation.",
+        "Its text explicitly says the plotted error obtains a minimum approximately 6.47 times 10 to the minus 2 and identifies p=1 with the one-way optimum.",
+        "No theorem in the inspected source performs the derivative factorization or states the exact p value."
+      ],
+      "reasoning": "The new statement is a genuine implication of the prior analytic formula, but it requires solving the nonlinear scalar optimization and filtering the extraneous stationary root introduced by squaring. The source itself stops at a numerical minimum.",
+      "searches": [
+        "arXiv:1304.1555 adaptive protocol Round I Round II Round III p Helstrom",
+        "DOI:10.1103/PhysRevA.88.020302 Figure 1 minimum 6.47 one-way p=1",
+        "arXiv:1311.1536 two-way one-way distinguishability norms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source gives a plotted minimum only approximately as 6.47 times 10 to the minus 2.",
+        "No searched record returned the exact optimizer or exact radical minimum.",
+        "The later same-authors discrimination paper concerns broader norm hierarchies rather than this closed-form scalar optimum."
+      ],
+      "reasoning": "An equivalent formulation would need to determine the exact source parameter that minimizes the displayed adaptive-protocol error, or an algebraically equivalent exact error/gap. Numerical plots and general two-way-LOCC superiority do not imply those constants.",
+      "searches": [
+        "double trine exact optimal measurement strength two-way LOCC protocol error probability",
+        "double trine Chitambar Hsieh p parameter 0.7985536805 exact minimum error",
+        "double trine three-round LOCC exact error probability algebraic minimizer",
+        "two-way LOCC double trine adaptive protocol optimize p exact",
+        "\"0.798553680\" \"double trine\"",
+        "\"45-8 sqrt(3)\" \"double trine\"",
+        "\"63-32 sqrt(3)\" quantum double trine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source figure and text supply the approximate minimum 6.47 times 10 to the minus 2.",
+        "No exact optimizer/minimum table or algebraic constant was found in targeted searches."
+      ],
+      "reasoning": "The result is not a recomputation of a located exact table: the exact radicals arise from factoring the derivative of the source's analytic one-parameter error function.",
+      "searches": [
+        "\"6.47\" \"double trine\" LOCC",
+        "\"double trine\" measurement strength p minimum",
+        "\"0.064738\" double trine",
+        "\"Revisiting the optimal detection\" \"6.47\""
+      ]
+    },
+    "rationale": "The claim is restricted to the exact scalar optimization of the published adaptive protocol family. The source's protocol, numerical minimum, and qualitative hierarchy are prior work.",
+    "residual_risks": [
+      "The exact scalar simplification may appear in unindexed notes, theses, or code accompanying later work.",
+      "A different parametrization of the same first-round POVM could conceal an equivalent optimizer.",
+      "The accepted claim does not establish the unrestricted two-way LOCC optimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides every premise used in the optimization and reports the minimum numerically, but does not state the exact optimizer, exact minimum, or exact gap.",
+        "evidence": "The arXiv record is dated 2013-04-04. The protocol page gives the Kraus operators and postmeasurement states; the following page states that the error plot has a minimum approximately 6.47e-2 and that p=1 is the one-way endpoint.",
+        "identifier_or_url": "arXiv:1304.1555; DOI:10.1103/PhysRevA.88.020302",
+        "material_read": "Full arXiv PDF pages containing the one-way bound, the three protocol rounds, conditional probabilities, postmeasurement states, Helstrom expression, Figure 1, and the discussion of the approximately 6.47e-2 minimum.",
+        "method": "ArXiv full-text and rendered PDF page inspection.",
+        "title": "A Return to the Optimal Detection of Quantum Information / Revisiting the optimal detection of quantum information",
+        "trigger": "Direct archive-era source introducing the one-parameter adaptive double-trine protocol."
+      },
+      {
+        "assessment": "Supports the placement of this discrimination problem in quantum measurement theory and the broader two-way versus one-way hierarchy; it does not cover the exact p optimization.",
+        "evidence": "The classification record lists MSC 81P15 first, followed by 81P45, 81P16, and 81P50.",
+        "identifier_or_url": "arXiv:1311.1536; DOI:10.1063/1.4902027",
+        "material_read": "Abstract, article metadata, and mathematical classification record.",
+        "method": "ArXiv and journal/zbMATH-derived metadata inspection.",
+        "title": "Asymptotic State Discrimination and a Strict Hierarchy in Distinguishability Norms",
+        "trigger": "Same-authors mathematical treatment of the measurement-class hierarchy and verified MSC ownership."
+      },
+      {
+        "assessment": "Confirms continuing relevance of the double-trine benchmark; no exact value matching the present optimizer was surfaced in the inspected material.",
+        "evidence": "The indexed summary cites Chitambar--Hsieh 2013 for the double-trine LOCC-versus-separable separation.",
+        "identifier_or_url": "arXiv:2604.26647",
+        "material_read": "Public abstract/citation summary identifying the 2013 paper as a key double-trine prior result.",
+        "method": "Public indexed summary inspection.",
+        "title": "Nonclassical traits in multi-copy state discrimination",
+        "trigger": "Recent work revisiting the double-trine ensemble as a measurement-class benchmark."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "496c050c-2d40-4bf6-a39e-55a5a99b9871",
+  "value": {
+    "rationale": "The source protocol is the explicit finite-round witness for a strict two-way-over-one-way communication advantage. Its exact calibration \\(p_*\\), exact error, and exact positive gap replace a plot-level numerical witness with a reproducible closed-form benchmark. This is a natural protocol invariant with direct operational meaning, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
