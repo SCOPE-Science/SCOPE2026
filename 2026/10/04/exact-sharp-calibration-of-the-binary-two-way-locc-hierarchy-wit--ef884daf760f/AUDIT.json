@@ -1,0 +1,109 @@
+{
+  "claim": "For the equiprobable binary two-qubit ensemble used by Chitambar and Hsieh to separate two-way from one-way LOCC discrimination, and for their explicit one-parameter two-way protocol with measurement strength \\(p\\in[0,1]\\), the error probability \\[E(p)=\\frac{1}{16}\\left(6-\\sqrt{4-3p}-\\sqrt{4+5p}\\right)\\]has the unique global minimizer \\[p_*=\\frac{8}{15}.\\]The exact protocol minimum is \\[E_*=\\frac{3}{8}-\\frac{\\sqrt{15}}{15}=0.1168011102528\\ldots,\\]while the optimal one-way LOCC error is \\(E_{\\to}=1/8\\). Hence this published two-way witness has the exact maximal error advantage \\[E_{\\to}-E_*=\\frac{4\\sqrt{15}-15}{60}=0.00819888974716\\ldots>0.\\]The source's separable-operation optimum is \\((3-\\sqrt5)/8\\), so this explicit protocol remains above it by \\[\\frac{\\sqrt5}{8}-\\frac{\\sqrt{15}}{15}>0.\\]The claim optimizes only the source's displayed one-parameter protocol family; it does not claim the globally optimal two-way LOCC error.",
+  "correctness": {
+    "rationale": "The source supplies the exact function \\(E(p)=[6-\\sqrt{4-3p}-\\sqrt{4+5p}]/16\\). The complementary square-root sum has strictly negative second derivative on \\([0,1]\\). Its unique stationary equation is \\(25(4-3p)=9(4+5p)\\), hence \\(p=8/15\\). Exact substitution yields \\(E_*=3/8-\\sqrt{15}/15\\); subtraction from the prior one-way value \\(1/8\\) gives \\((4\\sqrt{15}-15)/60\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The direct paper proves a strict hierarchy and gives the explicit witness protocol.",
+        "Earlier two-qubit discrimination work characterizes related LOCC/separable questions and supplies the separable benchmark cited by the source.",
+        "No inspected broader paper was found to state the exact optimum of this specific one-parameter family."
+      ],
+      "reasoning": "Broader discrimination theorems do not subsume the accepted claim unless they specialize to the source's measurement-strength parameter and imply the exact maximizing value and error.",
+      "searches": [
+        "\"Asymptotic State Discrimination and a Strict Hierarchy in Distinguishability Norms\" p sqrt(4-3p) sqrt(4+5p)",
+        "\"When Do Local Operations and Classical Communication Suffice\" two-way one-way discrimination",
+        "two-way classical communication improves local distinguishability binary two-qubit ensemble",
+        "two-way LOCC distinguishability norm Chitambar Hsieh explicit ensemble"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1311.1536",
+      "DOI:10.1063/1.4902027",
+      "arXiv:1308.1737",
+      "DOI:10.1109/TIT.2013.2295356"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (29) of the direct source is the exact one-parameter error function used here.",
+        "The source states that p=0 and p=1 give the optimal one-way error 1/8 and every interior p performs strictly better.",
+        "The source quotes the separable minimum as (3-sqrt(5))/8 from earlier work."
+      ],
+      "reasoning": "The source formula implies the new constants only after solving the global scalar optimization. Strict concavity supplies uniqueness, while the published text stops at the qualitative interior improvement.",
+      "searches": [
+        "arXiv:1311.1536 equation 29 two-way LOCC error p",
+        "arXiv:1311.1536 Figure 1 p=0 p=1 1/8",
+        "arXiv:1308.1737 separable minimum error two-qubit state discrimination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned no record stating the exact optimizer or radical minimum for this protocol.",
+        "Exact-string web searches for the optimizer and radical minimum did not surface a scholarly source with the same claim.",
+        "The direct source gives the analytic error and a plot but not the closed-form optimum."
+      ],
+      "reasoning": "A covering result must optimize the same one-parameter adaptive protocol, not merely prove that two-way LOCC can outperform one-way LOCC or quote the source's error curve.",
+      "searches": [
+        "two-way LOCC one-way LOCC error protocol p sqrt(4-3p) sqrt(4+5p) exact optimizer",
+        "Chitambar Hsieh asymptotic state discrimination p=8/15 two-way protocol",
+        "binary discrimination psi rho |00> |++> |--> two-way LOCC exact optimal p",
+        "distinguishability norm separation exact two-way protocol 8/15 sqrt15",
+        "LOCC protocol error 1/16(6-sqrt(4-3p)-sqrt(4+5p))",
+        "\"8/15\" \"Asymptotic State Discrimination\" LOCC",
+        "\"3/8\" \"sqrt(15)\" LOCC discrimination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact optimizer/minimum table was found.",
+        "The source's figure supplies the error curve, but the text does not tabulate the minimizing p or exact minimum."
+      ],
+      "reasoning": "The result is not a recomputation of a located exact table; the constants follow from a strict-concavity argument applied to the published analytic formula.",
+      "searches": [
+        "\"8/15\" two-way LOCC Chitambar Hsieh",
+        "\"0.116801110252\" LOCC",
+        "\"4 sqrt(15)-15\" LOCC",
+        "\"sqrt(4-3p)\" \"sqrt(4+5p)\" optimization"
+      ]
+    },
+    "rationale": "The claim is restricted to exact optimization of the source's explicit one-parameter feedback protocol. The ensemble, protocol, analytic error formula, and measurement-class separation are treated as prior work.",
+    "residual_risks": [
+      "The exact one-dimensional simplification may appear in unindexed notes or under another parameter convention.",
+      "The source formula is simple enough that independent rediscovery is plausible.",
+      "The accepted claim does not determine the globally optimal two-way LOCC error."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact error formula and qualitative strict interior improvement, but does not state the exact minimizing p, exact minimum, or exact maximal error advantage.",
+        "evidence": "The arXiv record gives first submission 2013-11-06. Equation (29) is E(p)=[6-sqrt(4-3p)-sqrt(4+5p)]/16; Figure 1 notes p=0,1 give 1/8.",
+        "identifier_or_url": "arXiv:1311.1536; DOI:10.1063/1.4902027",
+        "material_read": "Full-text section separating one-way and two-way LOCC, including the one-way optimum, the parameterized first measurement, branch calculations, equations (24)--(29), Figure 1, and the conclusion.",
+        "method": "Open arXiv full-text inspection and journal metadata comparison.",
+        "title": "Asymptotic State Discrimination and a Strict Hierarchy in Distinguishability Norms",
+        "trigger": "Direct archive-era source containing the binary ensemble and the one-parameter two-way protocol."
+      },
+      {
+        "assessment": "Provides broader LOCC/separable discrimination context; it does not state the exact optimum of the later Chitambar--Hsieh one-parameter two-way witness.",
+        "evidence": "The paper studies when two-qubit ensembles can be optimally distinguished by LOCC and separable operations.",
+        "identifier_or_url": "arXiv:1308.1737; DOI:10.1109/TIT.2013.2295356",
+        "material_read": "Abstract and bibliographic description of its two-qubit minimum-error discrimination results.",
+        "method": "Open arXiv abstract and journal metadata inspection.",
+        "title": "When Do Local Operations and Classical Communication Suffice for Two-Qubit State Discrimination?",
+        "trigger": "Prior two-qubit discrimination work cited by the direct source for separable-measurement performance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ef884daf-760f-4edf-b6e2-d4b96d967792",
+  "value": {
+    "rationale": "The protocol is the paper's explicit finite-round witness of a strict two-way-over-one-way communication advantage. Determining its unique strongest setting and exact advantage gives a natural operational invariant and reproducible benchmark rather than a routine arbitrary slice.",
+    "status": "PASS"
+  }
+}
