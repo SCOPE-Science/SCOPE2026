@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For an outside vertex in part i, the distance multiset is completely determined by a_i=|W∩V_i|: it has a_i copies of 2 and |W|-a_i copies of 1. Thus adjacent outside vertices in distinct parts are distinguished exactly when their active occupancies differ. For k active parts, k distinct nonnegative occupancies have total at least binom(k,2); equality is feasible exactly when the sorted active part sizes satisfy m_j≥j. For fixed k the k largest parts dominate every other k-set in feasibility and saved size, yielding the formula. Boundary cases r=2 and all singleton parts agree with known results. Exhaustive direct-definition computation through order 11 found no mismatch.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The initiating paper proves the boundary value 1 for all bipartite graphs and asks for local outer multiset dimension of joins, but it does not cover arbitrary complete multipartite graphs.",
+        "The 2026 survey states a complete-multipartite theorem for local multiset dimension, not local outer multiset dimension; its local-outer table lists cycles and wheels."
+      ],
+      "reasoning": "The closest broader same-object literature either changes the invariant or covers only boundary families. Neither implies the arbitrary-part formula.",
+      "searches": [
+        "lodim complete multipartite local outer multiset",
+        "local outer multiset basis complete k-partite",
+        "local outer multiset complete k-partite exact",
+        "arXiv:2507.15071v1 Theorem 8 and Open Problem 3",
+        "arXiv:2607.10311v1 Section 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.15071v1",
+      "arXiv:2607.10311v1",
+      "arXiv:1902.03017v1",
+      "2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known bipartite case gives only the r=2 boundary of the formula.",
+        "The known complete-graph case gives only the all-singleton boundary.",
+        "Global outer multiset dimension imposes a stronger all-pairs condition; for balanced complete multipartite graphs it can be N-1, while the local parameter can be smaller, e.g. 3 for K_{2,2,2}."
+      ],
+      "reasoning": "Prior statements supply boundary checks or an upper bound from a stronger invariant, not an implication of the full structural theorem or optimum.",
+      "searches": [
+        "arXiv:2507.15071v1",
+        "arXiv:2607.10311v1",
+        "arXiv:1902.03017v1",
+        "2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2507.15071v1 defines the same local outer multiset invariant and contains no complete-multipartite theorem; its diameter-two/join problem remains open.",
+        "arXiv:2607.10311v1 separates local multiset dimension from local outer multiset dimension and does not list a complete-multipartite local-outer formula."
+      ],
+      "reasoning": "Searches used complete multipartite, local outer, local multiset, join, occupancy, and Hall-condition aliases. No equivalent active-part occupancy theorem or sorted-part formula was located.",
+      "searches": [
+        "complete multipartite local multiset dimension",
+        "complete multipartite local outer multiset dimension",
+        "local multiset dimension complete multipartite Hall condition part sizes",
+        "local outer multiset resolving complete multipartite distinct occupancies",
+        "join of independent sets local multiset dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index record is 'Outer multiset dimension of arbitrary complete multipartite graphs', which concerns the global outer invariant rather than the local outer invariant.",
+        "The 2026 survey's local-outer exact-value list contains cycles and wheels, while its complete-multipartite entry is under local multiset dimension."
+      ],
+      "reasoning": "The exact tables and indexed same-family results do not contain the claimed local outer formula.",
+      "searches": [
+        "local outer multiset dimension complete graph bipartite multipartite",
+        "Local Outer Multiset Dimensions of Graphs Simanjuntak Hasan Anggarawan 2507.15071",
+        "Multiset resolvability parameters in graphs survey local outer multipartite 2607.10311",
+        "2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd"
+      ]
+    },
+    "rationale": "The exact active-occupancy characterization and sorted-part optimization formula were not found in the initiating paper, the 2026 survey, the inspected global outer-multiset paper, or the semantic-index searches. Known complete-multipartite results concern the different local multiset invariant or the stronger global outer invariant, and therefore do not imply the claim.",
+    "residual_risks": [
+      "An older or unindexed equivalent theorem could exist under terminology not surfaced by the inspected primary paper, recent survey, and semantic-index searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines local outer multiset dimension, proves the bipartite value 1, and explicitly leaves join/diameter-two determination open; no complete-multipartite theorem was found.",
+        "identifier_or_url": "arXiv:2507.15071v1",
+        "material_read": "Full arXiv HTML: definitions, Theorem 8, complete-graph discussion, Open Problem 3, references, and full-text search for complete-multipartite terminology.",
+        "method": "Lawful open-access arXiv HTML.",
+        "title": "Local (Outer) Multiset Dimensions of Graphs",
+        "trigger": "Primary source defining the invariant and the most direct possible coverage source."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The survey gives a complete-multipartite theorem for local multiset dimension but, for local outer multiset dimension, states cycle and wheel formulas rather than an arbitrary complete-multipartite result.",
+        "identifier_or_url": "arXiv:2607.10311v1",
+        "material_read": "Section 5.1 on local multiset dimension and local outer multiset dimension, including exact-value theorems and cited complete-multipartite result.",
+        "method": "Lawful open-access arXiv HTML.",
+        "title": "Multiset resolvability parameters in graphs: A survey with new results and open problems",
+        "trigger": "Recent survey likely to consolidate same-invariant results and aliases."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT",
+        "evidence": "The paper requires distinguishing all outside vertices; its balanced complete-multipartite value N-1 is a stronger condition and does not imply the local outer optimum.",
+        "identifier_or_url": "arXiv:1902.03017v1",
+        "material_read": "Full arXiv HTML around the complete multipartite outer-multiset result and definitions.",
+        "method": "Lawful open-access arXiv HTML.",
+        "title": "Distance-based vertex identification in graphs: the outer multiset dimension",
+        "trigger": "Same multiset-distance framework and complete multipartite family, but for the global outer invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bef2e185-c7aa-43d9-9d6c-7f682522b395",
+  "value": {
+    "rationale": "Local outer multiset dimension was introduced recently, and its initiating paper explicitly identifies diameter-two graphs and joins as an open direction. Complete multipartite graphs are a canonical dense diameter-two/iterated-join class. The result gives both a full characterization of every resolving set and an exact formula for arbitrary part sizes, not merely a special case or a numerical table; it also shows a substantive separation from the global outer multiset invariant.",
+    "status": "PASS"
+  }
+}
