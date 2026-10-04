@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The published half-space extreme-point theorem reduces the relevant linear minimization to contiguous log-affine laws. For such a law the mean is strictly increasing and the lower-tail probability at a fixed integer threshold is strictly decreasing in the geometric parameter. Exact rational root bracketing and derivative bounds then certify the sign of the half-mass polynomial for every one of the fifteen nontrivial pairs with support length at most seven, and certify the opposite sign for the eight-point mean-six witness. The finite certificate is exhaustive after reduction rather than an extrapolative experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2004.12005 establishes the log-affine extreme-point localization in a half-space slice and develops broader concentration inequalities, but does not give the seven-versus-eight integer-mean cutoff.",
+        "arXiv:2208.12702 proves the broader universal 1/e lower bound, which is weaker than 1/2 and therefore does not imply the new support-limited strengthening."
+      ],
+      "reasoning": "The main broader results either provide the localization machinery or a weaker universal constant. Neither dominates the support-sensitive 1/2 statement for all laws with at most seven atoms.",
+      "searches": [
+        "discrete log-concave integer mean probability at or below mean one half",
+        "geometric and functional inequalities log-concave probability sequences median mean",
+        "arXiv:2004.12005 log-affine extreme points half-space slice"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.12702",
+      "DOI:10.1137/22M1539514",
+      "arXiv:2004.12005",
+      "DOI:10.1007/s00454-023-00528-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The lead source states existence of a failure on eight points, which proves only that the minimal support is at most eight.",
+        "The localization theorem reduces an optimization problem to log-affine laws but does not by itself determine the sign of the reduced lower-tail polynomial for support lengths three through seven."
+      ],
+      "reasoning": "The new lower bound for every support of cardinality at most seven is the missing implication. Combined with the prior eight-point example it yields the exact minimal cardinality eight; neither prior statement alone implies that lower bound.",
+      "searches": [
+        "arXiv:2208.12702 Corollary 1.2 eight point mean 6",
+        "arXiv:2208.12702 Theorem 2.1 extreme points log-affine",
+        "arXiv:2004.12005 extreme points half-space log-concave sequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2208.12702, Corollary 1.2 discussion gives the 1/e integer-mean bound and an eight-point counterexample to 1/2, but no minimal-support assertion.",
+        "No targeted indexed result returned the statement that all discrete log-concave integer-mean laws on at most seven support points satisfy the 1/2 bound."
+      ],
+      "reasoning": "Aliases checked included half-mass-at-the-mean, median/mean, truncated geometric, support-size seven/eight, and the exact mean-six example. The new claim is a minimal-support boundary, not merely a restatement of the known eight-point counterexample.",
+      "searches": [
+        "eight atoms minimal discrete log-concave integer mean half probability truncated geometric",
+        "support size seven discrete log-concave integer mean P(X <= E X) 1/2",
+        "Alqasem Aravinda Marsiglietti Melbourne support 1 8 mean 6 half bound minimal",
+        "truncated geometric integer mean median half discrete log-concave support",
+        "arXiv:2208.12702; search within full text for integer mean, 1/2, support {1,...,8}, truncated geometric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concerned unrelated finite-support, median, or extremal problems; none tabulated the signs of the mean-constrained truncated-geometric cases for support sizes through eight.",
+        "The exact certificate in verify.py derives its finite table directly from the defining polynomials rather than reproducing a known table."
+      ],
+      "reasoning": "The natural finite database would be the list of reduced pairs (L,s). No inspected source or indexed result supplied that table or the resulting minimal cutoff.",
+      "searches": [
+        "eight atoms minimal discrete log-concave integer mean half probability truncated geometric",
+        "support size seven discrete log-concave integer mean P(X <= E X) 1/2",
+        "Alqasem Aravinda Marsiglietti Melbourne support 1 8 mean 6 half bound minimal",
+        "truncated geometric integer mean median half discrete log-concave support"
+      ]
+    },
+    "rationale": "The lead paper explicitly supplies an eight-point mean-six log-affine counterexample to the one-half bound and the localization mechanism, but the inspected text does not state that support eight is minimal. Targeted semantic and web searches for the seven/eight support cutoff and equivalent truncated-geometric formulations did not locate a statement implying this exact boundary.",
+    "residual_risks": [
+      "A later or poorly indexed note could contain the same seven-versus-eight cutoff despite the targeted searches; search failure is not treated as a proof of novelty.",
+      "The originality assessment is limited to the inspected sources and indexed comparisons, not an exhaustive census of all literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING: supplies the exact motivating example and reduction but does not state or prove minimality of support size eight.",
+        "evidence": "The paper states P(X<=E[X])>=e^{-1} for integer mean, notes 1/2 for several special families, then gives a law on {1,...,8} with mean 6 and lower-tail probability below 1/2. Section 2 recalls the log-affine extreme-point theorem.",
+        "identifier_or_url": "arXiv:2208.12702; DOI:10.1137/22M1539514",
+        "material_read": "Abstract; Introduction including Corollary 1.2 and its eight-point example; Section 2 including Theorem 2.1 and the localization reduction.",
+        "method": "Inspected the publicly available full arXiv text and publisher bibliographic metadata.",
+        "title": "On a Conjecture of Feige for Discrete Log-Concave Distributions",
+        "trigger": "Lead source explicitly discussing the integer-mean 1/2 strengthening and an eight-point counterexample."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING: validates the localization premise but does not determine the finite support threshold in the new claim.",
+        "evidence": "The source explicitly identifies log-affine sequences as the relevant extreme points for a half-space slice, matching the reduction quoted as Theorem 2.1 by the lead paper.",
+        "identifier_or_url": "arXiv:2004.12005; DOI:10.1007/s00454-023-00528-7",
+        "material_read": "Abstract and statements describing log-affine sequences as extreme points of log-concave probability sequences in a half-space slice of the simplex; bibliographic metadata and relation cited by the lead paper.",
+        "method": "Inspected the public preprint description and full-text preview.",
+        "title": "Geometric and Functional Inequalities for Log-Concave Probability Sequences",
+        "trigger": "Originating source for the nonstandard extreme-point localization used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7db5ef4-6966-42ef-9c62-f05601fe2f8d",
+  "value": {
+    "rationale": "The lead source highlights a natural 1/2 strengthening at integer means and exhibits an eight-point failure without identifying where failure first becomes possible. Proving that every support of size at most seven still obeys 1/2 makes the example sharp in support cardinality and supplies a clean structural boundary for a standard class of discrete log-concave laws. The cutoff is motivated by the source rather than by an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
