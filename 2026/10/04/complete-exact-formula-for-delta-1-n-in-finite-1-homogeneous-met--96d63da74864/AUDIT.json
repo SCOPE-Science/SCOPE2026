@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Bargetz et al. identify finite 1-homogeneous metrics with vertex-transitive distance colorings and prove \\(\\delta(X)\\le(|S_X|+|X|)/2\\). Edmonds proves that the number of odd color valencies on even \\(n\\) vertices is at most \\(\\iota(n)=n/2+n_2/2-1\\). Positive singleton distances are valency-one colors, so \\(|S_X|-1\\le\\iota(n)\\), yielding \\(\\delta(X)\\le(3n+n_2)/4\\). Bargetz et al.'s Example 6.10 attains this value for every even \\(n\\), and their Proposition 6.7 covers odd \\(n\\). Boundary cases \\(n=1,2\\) and powers of two agree with the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bargetz et al. Question 1 explicitly leaves \\(n=2^m(2k+1)\\) with higher \\(2\\)-adic valuation, and the composite odd-factor \\(m=1\\) case, open.",
+        "Edmonds' theorem is broader at the coloring level but stops before the metric optimization step and matching metric construction."
+      ],
+      "reasoning": "No inspected later source or indexed result was found that dominates the all-even metric formula. The result arises by combining a previously unused coloring bound with the metric paper's singleton-distance inequality and construction.",
+      "searches": [
+        "web: \\\"Question 1\\\" \\\"Homogeneous isosceles-free spaces\\\" solution",
+        "web: \\\"Delta_1(n)\\\" homogeneous metric involutions",
+        "published-finding corpus: maximal number of distances finite 1-homogeneous metric space exact Delta_1 2^a q",
+        "published-finding corpus: Delta_1(n) 2-adic exact homogeneous metric spaces"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.03163",
+      "DOI:10.1007/s13398-024-01587-y",
+      "EMIS:b50h1edm",
+      "published-finding corpus targeted searches listed in the four originality checks",
+      "current local ledger through generation g000023"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The metric paper supplies the optimization framework and lower construction but explicitly lacks the required upper bound.",
+        "Edmonds supplies the odd-valency upper bound but never states \\(\\Delta_1\\) or combines it with the singleton-distance inequality and rainbow-duplicate construction.",
+        "The earlier local item proves only \\(\\Delta_1(2q)=(3q+1)/2\\) for odd \\(q\\)."
+      ],
+      "reasoning": "Neither inspected source alone states the final theorem. The new bridge is that singleton metric distances are a subset of Edmonds' odd-valency colors; that bridge plus Observation 6.2 and Example 6.10 yields the exact formula. The result is therefore not a special case of a prior metric theorem, while it meaningfully extends the earlier local special case.",
+      "searches": [
+        "full-text comparison: arXiv:2305.03163 Section 6, especially Observation 6.2, Example 6.10, Question 1, Remark 6.14",
+        "full-text comparison: Edmonds 2009 Theorems 1.2 and 1.4",
+        "own ledger item b60ee9c7-e734-417d-8c38-fa62ff7ad624"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bargetz et al. Remark 6.14 states that the metric problem is equivalent to maximizing colors in a vertex-transitive complete-graph coloring.",
+        "Edmonds Theorem 1.4 bounds the oddness of the associated partition for every vertex-transitive complete-graph coloring."
+      ],
+      "reasoning": "The equivalent edge-coloring formulation was searched directly. Edmonds is the closest structurally relevant source, but his stated invariant is odd partition entries, not the maximal metric distance count.",
+      "searches": [
+        "web: \\\"Homogeneous isosceles-free spaces\\\" involutions Edmonds",
+        "web: \\\"maximal number of distances\\\" homogeneous metric involutions",
+        "published-finding corpus: Homogeneous isosceles-free spaces Question 1 Delta_1(n) involutions Edmonds",
+        "published-finding corpus: singleton distances centralizer involutions homogeneous metric space"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bargetz et al. Table 1 records only the partial values known there and is immediately followed by Question 1.",
+        "The current ledger contains an earlier result only for \\(n=2q\\) with \\(q\\) odd, not for higher \\(2\\)-adic valuation."
+      ],
+      "reasoning": "No exact table or database located in the searches contains the full closed formula. The prior local special case is strictly subsumed but does not imply the higher-valuation cases.",
+      "searches": [
+        "web: \\\"(3n+n_2)/4\\\" homogeneous metric",
+        "web: \\\"3q+1\\\" \\\"Delta_1(n)\\\" homogeneous metric",
+        "inspection: Bargetz et al. Table 1 and Question 1",
+        "own-ledger search: Delta_1 / 4k+2 / homogeneous metric"
+      ]
+    },
+    "rationale": "The exact all-\\(n\\) formula is absent from the inspected sources. The 2024 metric paper explicitly asks for the remaining values after its partial cases; Edmonds' 2009 theorem supplies a broader coloring/group bound but does not formulate \\(\\Delta_1\\). Targeted web, published-finding corpus, and own-ledger searches found no source stating the closed formula or solving all remaining even cases.",
+    "residual_risks": [
+      "An unindexed post-2024 note, private communication, or folklore observation may have made the same cross-literature deduction.",
+      "Because the deduction is short after Edmonds' theorem is identified, independent rediscovery is plausible; no indexed covering statement was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING final claim; explicitly leaves the remaining cases open while providing the needed lower construction and metric-to-coloring equivalence.",
+        "evidence": "Question 1 asks for the values not covered; Remark 6.14 reformulates the problem as vertex-transitive complete-graph colorings.",
+        "identifier_or_url": "arXiv:2305.03163 / DOI:10.1007/s13398-024-01587-y",
+        "material_read": "Full-text Section 6 around Observation 6.2, Example 6.10, Proposition 6.11, Question 1, Remark 6.14, plus bibliographic/MSC metadata.",
+        "method": "Open-access full-text HTML and arXiv text inspection.",
+        "title": "Homogeneous isosceles-free spaces",
+        "trigger": "Primary middle-window foundations source posing the exact-distance problem."
+      },
+      {
+        "assessment": "PARTIAL_SUPPORT, not covering the metric formula: proves the exact involution maximum and the odd-valency coloring bound used in the new bridge.",
+        "evidence": "Theorem 1.2 gives \\(\\iota(n)=n/2+n_2/2-1\\); Theorem 1.4 bounds the number of odd entries of the partition of a vertex-transitive coloring by \\(\\iota(n)\\).",
+        "identifier_or_url": "EMIS:b50h1edm",
+        "material_read": "Abstract, Theorems 1.2 and 1.4, surrounding setup identifying partition valencies for vertex-transitive edge-colorings.",
+        "method": "Open-access primary PDF text inspection.",
+        "title": "The Partition Problem for Equifacetal Simplices",
+        "trigger": "Search for vertex-transitive coloring bounds controlling singleton distance colors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "96d63da7-4864-4ad2-94c9-4a81e7115ea0",
+  "value": {
+    "rationale": "The theorem completely resolves the explicit open Question 1 of the primary source and gives one closed expression for a natural extremal invariant at every finite cardinality. It also explains why the source's lower construction is always optimal, including all higher 2-adic valuations that were previously unresolved.",
+    "status": "PASS"
+  }
+}
