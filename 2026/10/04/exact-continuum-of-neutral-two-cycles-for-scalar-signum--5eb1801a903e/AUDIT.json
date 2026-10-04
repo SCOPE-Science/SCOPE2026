@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Opposite nonzero update signs are necessary for a nontrivial two-step position return. Solving the resulting two momentum equations gives the exact interval \\(\\beta\\delta/(1+\\beta)<u<\\delta/(1+\\beta)\\) and unique momentum pair. The local two-step map fixes the position and multiplies deviation from the invariant momentum graph by \\(\\beta^2\\), so the family is normally attracting with tangential multiplier one and no individual cycle is asymptotically stable.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1802.04434v1",
+        "arXiv:2009.06125v1",
+        "arXiv:2507.12091v1"
+      ],
+      "reasoning": "Broader sign-method theory proves stochastic or vanishing-step convergence, while qualitative adaptive-method work studies sign-gradient limits and Adam/RMSprop oscillations. Those statements do not imply the exact discrete Signum cycle family.",
+      "searches": [
+        "sign gradient constant stepsize strongly convex limit cycle momentum",
+        "Signum momentum optimizer quadratic convergence constant stepsize",
+        "constant step signSGD quadratic oscillation",
+        "sign momentum optimization deterministic quadratic limit cycle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1802.04434v1",
+      "arXiv:2009.06125v1",
+      "arXiv:2507.12091v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1802.04434v3 full HTML, Algorithm 2 and Section 5",
+        "arXiv:2009.06125v1 full-text sections on signGD and adaptive-method oscillations",
+        "arXiv:2507.12091v1 full HTML, related work and Section 3"
+      ],
+      "reasoning": "The 2018 theorem uses decaying steps and increasing batches; it does not imply a fixed-step periodic classification. The 2020 source treats sign-gradient flow plus RMSprop/Adam dynamics rather than discrete Signum. The 2025 sign-momentum theory uses horizon-dependent parameters and convergence-rate bounds, so it likewise does not imply the constant-step cycle manifold.",
+      "searches": [
+        "signSGD Compressed Optimisation Algorithm 2 Signum momentum theorem",
+        "A Qualitative Study adaptive gradient algorithms signGD oscillation fixed step",
+        "Improved Analysis Sign-based Methods Momentum Updates Signum convergence",
+        "Signum constant learning rate quadratic period two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1802.04434v1",
+        "arXiv:2009.06125v1",
+        "arXiv:2507.12091v1"
+      ],
+      "reasoning": "The closest equivalent formulation is a relay-feedback system with an exponentially filtered scalar signal. The inspected optimization sources do not reduce Signum to an invariant continuum of relay two-cycles or give the exact midpoint interval.",
+      "searches": [
+        "Signum optimizer scalar quadratic constant stepsize two-cycle momentum sign gradient",
+        "signSGD momentum scalar quadratic period two continuum cycle",
+        "signed momentum optimizer constant step quadratic limit cycle",
+        "signum beta momentum exact invariant band quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact Signum period-two table, formula, or stronger published statement was identified by the listed semantic searches."
+      ],
+      "reasoning": "The closest published search hits concern different smooth-step, stochastic-feedback, or adaptive-gradient recurrences. None contains the signed-momentum state or the exact continuum of two-cycles.",
+      "searches": [
+        "Signum optimizer scalar quadratic constant stepsize two-cycle momentum sign gradient",
+        "signSGD momentum scalar quadratic period two continuum cycle",
+        "signum beta momentum exact invariant band quadratic",
+        "signed momentum optimizer constant step quadratic limit cycle"
+      ]
+    },
+    "rationale": "The inspected defining and follow-up sign-optimization literature does not state the combined exact two-cycle continuum, midpoint-bias interval, and normal-stability multipliers. Focused semantic searches found no covering statement.",
+    "residual_risks": [
+      "An equivalent relay-control or quantized-feedback two-cycle calculation may exist under terminology not captured by optimization-focused searches.",
+      "The theorem is local only for the normal-attraction statement and does not classify all higher-period or global trajectories.",
+      "The deterministic cycle structure should not be generalized directly to stochastic Signum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "Algorithm 2 matches the analyzed update ordering. The paper studies stochastic convergence with decaying learning rates and growing batches, not the exact constant-step scalar period-two family.",
+        "identifier_or_url": "arXiv:1802.04434v1",
+        "material_read": "Full arXiv HTML: Algorithm 2, Section 5 on Signum, and the supplementary Signum-analysis context.",
+        "method": "Open-access full-text inspection.",
+        "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+        "trigger": "Defining source for the Signum update."
+      },
+      {
+        "assessment": "RELATED_DYNAMICS_NOT_COVERING.",
+        "evidence": "The paper studies signGD flow and fixed-step adaptive-method oscillations but does not analyze the discrete Signum recurrence or state the present cycle interval.",
+        "identifier_or_url": "arXiv:2009.06125v1",
+        "material_read": "Open-access full text: introduction, adaptive-method definitions, sign-gradient continuous-time limit, finite-time signGD discussion, and oscillatory RMSprop/Adam sections; targeted search for Signum.",
+        "method": "Full-text inspection and targeted term search.",
+        "title": "A Qualitative Study of the Dynamic Behavior of Adaptive Gradient Algorithms",
+        "trigger": "Highly relevant fixed-step qualitative analysis of sign-like and adaptive dynamics."
+      },
+      {
+        "assessment": "BROADER_STOCHASTIC_THEORY_NOT_COVERING.",
+        "evidence": "The paper analyzes stochastic convergence rates with horizon-dependent momentum and learning rate; it does not give constant-step scalar periodic-orbit dynamics.",
+        "identifier_or_url": "arXiv:2507.12091v1",
+        "material_read": "Full arXiv HTML: introduction, related work, Signum comparison table, momentum-method definition, and main convergence theorems.",
+        "method": "Open-access full-text inspection.",
+        "title": "Improved Analysis for Sign-based Methods with Momentum Updates",
+        "trigger": "Recent primary analysis directly focused on sign methods with momentum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5eb1801a-903e-4754-8543-73fadd2e1552",
+  "value": {
+    "rationale": "Signed updates impose a nonvanishing step near a minimizer, making persistent oscillation a natural structural question. The exact family shows that momentum narrows center bias but cannot reduce the \\(\\delta/2\\) oscillation half-amplitude, while its normal contraction simultaneously slows to \\(\\beta^2\\). The neutral tangent direction also corrects the misleading expectation of an isolated stable limit cycle.",
+    "status": "PASS"
+  }
+}
