@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For squarefree \\(n=2pq\\), the required omitted-divisor sum is exactly \\(D=-pq+3p+3q+3\\). Positivity excludes every \\(p\\ge7\\). For \\(p=3\\), \\(D=12\\); all \\(q\\ge13\\) are excluded because the only divisors below 12 are 1,2,3,6, and the remaining primes 5,7,11 are checked exactly. For \\(p=5\\), positivity forces \\(q=7\\), which fails. The two surviving identities are checked directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 follow-up and its companion README explicitly describe the proved theorem as a classification with exactly two distinct prime factors.",
+        "The same companion repository labels a separate CSV as three-prime-factor search results, distinguishing computation from the theorem."
+      ],
+      "reasoning": "A theorem covering all three-prime-support 2-near-perfect numbers would dominate the claim. The strongest later located result stops at two distinct prime factors, while its three-prime material is computational data.",
+      "searches": [
+        "Complete characterization 2-near perfect exactly 2 prime factors",
+        "2-near-perfect three prime factor classification",
+        "2^k p^m q^n 2-near-perfect"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.01305v1",
+      "arXiv:2310.01305v3",
+      "arXiv:2508.06651v1",
+      "0xCUB3/Near-Perfect-Tester companion repository",
+      "OEIS:A341475"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 theorem concerns \\(2^k p\\) and \\(2^k p^2\\), so it cannot be specialized to \\(2pq\\) with distinct odd primes.",
+        "The 2025 theorem concerns \\(2^k p^m\\), again with only one odd prime.",
+        "The three-prime CSV provides examples but no unbounded exclusion argument."
+      ],
+      "reasoning": "The new step is the complete positivity-and-divisor argument for a genuinely three-prime squarefree family; prior two-prime theorems do not imply it.",
+      "searches": [
+        "arXiv:2310.01305 2^k p^i i 1 2",
+        "arXiv:2508.06651 exactly 2 prime factors",
+        "2-near-perfect 2pq theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 primary source defines 2-near-perfect numbers and states its complete description for \\(2^k p^i\\) with \\(i\\in\\{1,2\\}\\).",
+        "No located indexed theorem states that 30 and 66 exhaust the squarefree \\(2pq\\) family."
+      ],
+      "reasoning": "The searches cover the structural form, squarefree terminology, exact output set, and the broader three-distinct-prime description.",
+      "searches": [
+        "2-near-perfect 2pq squarefree three prime factors",
+        "squarefree 2-near-perfect numbers",
+        "2-near perfect numbers 30 66 classification",
+        "2-near-perfect three distinct prime factors p q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A341475 lists both 30 and 66 as 2-near-perfect.",
+        "The public companion CSV for the 2025 paper begins with 30 and 66 and records witnesses (2,10) and (1,11)."
+      ],
+      "reasoning": "Existing tables corroborate the two members, but neither the OEIS entry nor the search-data file states or proves completeness of the squarefree \\(2pq\\) subfamily.",
+      "searches": [
+        "OEIS A341475 2-near-perfect 30 66",
+        "30 66 2-near-perfect",
+        "2^k * p^m * q^n 30 66 near perfect"
+      ]
+    },
+    "rationale": "The 2023 primary paper completely describes only forms with two distinct prime factors. The 2025 follow-up also states a theorem only for exactly two distinct prime factors. Its public three-prime computational data contains 30 and 66 but is presented as search output rather than a proof of completeness for squarefree 2pq. OEIS A341475 likewise lists both examples without the structural classification. Targeted semantic and exact searches found no covering theorem.",
+    "residual_risks": [
+      "The later three-prime computational project may contain unpublished reasoning not present in the inspected theorem statement or README.",
+      "An unindexed note could already contain the same elementary squarefree classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The complete descriptions are restricted to \\(2^k p^i\\) with one odd prime; no squarefree \\(2pq\\) classification is stated.",
+        "evidence": "The abstract gives the \\(2^k p^i\\), \\(i\\in\\{1,2\\}\\), scope; Section 5 seeks further extensions.",
+        "identifier_or_url": "arXiv:2310.01305v3",
+        "material_read": "Full open-access HTML including the abstract, introduction, main theorem statements, and Section 5 open problems.",
+        "method": "Full-text HTML inspection.",
+        "title": "On 2-Near Perfect Numbers",
+        "trigger": "Primary middle-cohort source defining the object and giving the closest prior classifications."
+      },
+      {
+        "assessment": "The proved result is explicitly restricted to exactly two distinct prime factors.",
+        "evidence": "The companion README says the result completes the classification of numbers \\(2^k p^m\\) with two prime factors.",
+        "identifier_or_url": "arXiv:2508.06651v1",
+        "material_read": "Public abstract plus companion repository README describing the theorem and repository structure.",
+        "method": "Abstract and companion-material inspection.",
+        "title": "Complete characterization of 2-near perfect numbers with exactly 2 prime factors",
+        "trigger": "Strongest later paper with a potentially dominating classification."
+      },
+      {
+        "assessment": "The data corroborates the two examples but is labeled computational search output; no completeness theorem for squarefree \\(2pq\\) is attached to it.",
+        "evidence": "Rows 30 and 66 record factorizations \\(2\\cdot3\\cdot5\\) and \\(2\\cdot3\\cdot11\\) and the omitted pairs.",
+        "identifier_or_url": "0xCUB3/Near-Perfect-Tester:data/2^k * p^m * q^n.csv",
+        "material_read": "Repository data listing and the beginning of the CSV, including rows for 30 and 66.",
+        "method": "Public repository file inspection.",
+        "title": "Three-prime-factor search results",
+        "trigger": "Potential exact computational overlap with the squarefree family."
+      },
+      {
+        "assessment": "It lists 30 and 66 but does not state the squarefree \\(2pq\\) completeness result.",
+        "evidence": "The initial terms contain 30 and 66 and the entry cites the 2023 paper.",
+        "identifier_or_url": "OEIS:A341475",
+        "material_read": "Current definition, initial terms, references, and example.",
+        "method": "Current database-page inspection.",
+        "title": "A341475",
+        "trigger": "Exact database check for the two classified integers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab9cfade-94ac-4ad4-9afd-73c79c473169",
+  "value": {
+    "rationale": "The result gives a natural complete classification at the first squarefree three-prime-support level beyond the published two-prime classifications. It explains why two early sequence values are the only members of this structural slice, replacing finite search evidence with a bound-free proof. The family is motivated by prime support and by the later authors' explicit three-prime computational exploration.",
+    "status": "PASS"
+  }
+}
