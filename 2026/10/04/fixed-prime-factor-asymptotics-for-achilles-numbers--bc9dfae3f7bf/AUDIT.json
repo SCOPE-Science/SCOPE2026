@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exponent-gcd characterization is exact. Principal signatures \\(p^{2j+1}m^2\\) are uniquely represented and are automatically Achilles. Fixed-order Landau counting yields the principal main term, the prime/exponent weights are absolutely summable, a polylogarithmic truncation justifies uniform passage to the sum, and every nonprincipal Achilles signature has at least two exceptional exponents and therefore one fewer Landau logarithmic degree (or \\(X^{1/3+o(1)}\\) when \\(r=2\\)). The finite verifier independently reproduces published counts but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2409.10430v1 Theorem 1.2 gives first and second moments over all h-full numbers.",
+        "Full-text searches in that paper found no Achilles or perfect-power treatment."
+      ],
+      "reasoning": "Ambient h-full moment theorems are broader in the set being averaged over but weaker in localization: they do not determine counts in a fixed \\(\\omega(n)=r\\) fiber after removal of perfect powers. The new leading term comes from the first nonsquare exponent layer, which is invisible to a global moment statement.",
+      "searches": [
+        "powerful numbers fixed number of prime factors asymptotic omega",
+        "squareful numbers omega r counting asymptotic",
+        "Distribution of omega(n) over h-free and h-full numbers"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A052486",
+      "OEIS:A393816",
+      "arXiv:2409.10430v1",
+      "semantic research archive"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A052486/A393816 do not state asymptotics.",
+        "The 2024 h-full paper states moment and normal-order results, not local fixed-r counts."
+      ],
+      "reasoning": "Neither tabulation nor first/second moments logically imply the asymptotic for A_r(X). Conversely, the new fixed-r theorem does not replace the global moment results; it resolves a different local regime.",
+      "searches": [
+        "Achilles number counting function fixed prime support",
+        "Achilles numbers fixed number of prime factors asymptotic",
+        "arXiv:2409.10430v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A052486 gives the exponent-gcd definition; A393816 gives the exact two-prime stratum; neither gives a fixed-r asymptotic.",
+        "semantic archive closest hit 2026/9/20/SCOPE-finite-index-prime-index-lattice-asymptotics--56d261c09b7b concerns prime-index exponent lattices, not powerful/Achilles integers."
+      ],
+      "reasoning": "Aliases checked included Achilles, powerful-not-perfect-power, fixed omega, exact distinct-prime count, and prime signature. No equivalent statement or reformulation was found.",
+      "searches": [
+        "Achilles numbers fixed omega distinct prime factors asymptotic",
+        "Achilles numbers prime signature exactly r prime factors",
+        "powerful not perfect power fixed number distinct primes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A052486 records aggregate Achilles counts; A393816 is exactly the r=2 Achilles sequence.",
+        "The packaged enumeration reproduces the A052486 total 10553 below 10^8."
+      ],
+      "reasoning": "The exact natural sequence and the exact r=2 table were checked. They provide numerical coverage but not the asymptotic or constant.",
+      "searches": [
+        "A052486 asymptotic exact omega",
+        "OEIS A052486",
+        "OEIS A393816"
+      ]
+    },
+    "rationale": "Actual semantic archive searches for Achilles/fixed-omega/prime-signature aliases returned no statement matching this fixed-r asymptotic. The exact OEIS Achilles tables were inspected, including the r=2 table, and contain enumeration rather than the claimed asymptotic. The closest modern analytic paper was inspected in full-text HTML: it studies moments of omega over all h-full numbers and does not discuss Achilles numbers or perfect-power deletion. The claimed statement is not a corollary of those moment theorems because fixed-r local counts and deletion of the dominant perfect-square layer require different information.",
+    "residual_risks": [
+      "Unindexed literature may use only the older terms squarefull/powerful without the name Achilles.",
+      "No growing-r uniformity is claimed, so literature about normal order or Erdos-Kac behavior is not subsumed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the same object and records aggregate counts but no fixed-omega asymptotic.",
+        "evidence": [
+          "A052486 defines Achilles numbers by all exponents >1 and gcd of exponents 1; author entry Henry Bottomley is dated 2000-03-16.",
+          "The page lists counts below powers of ten and no asymptotic by exact number of distinct prime factors."
+        ],
+        "identifier_or_url": "OEIS:A052486",
+        "material_read": "Definition, comments, formulas, examples, program entries, cross-references, author/date lines.",
+        "method": "Full HTML text inspection.",
+        "title": "OEIS A052486 — Achilles numbers - powerful but imperfect",
+        "trigger": "Exact object definition, historical date, aggregate counts, aliases and existing formulas."
+      },
+      {
+        "assessment": "Exact same r=2 stratum is tabulated, but no counting asymptotic or leading constant is stated.",
+        "evidence": [
+          "A393816 explicitly labels the sequence as Achilles numbers with exactly 2 distinct prime factors.",
+          "Its content is an enumeration/table and does not state the sqrt(X)/log(X) asymptotic or the prime-series constant."
+        ],
+        "identifier_or_url": "OEIS:A393816",
+        "material_read": "Definition, terms, examples, program, cross-references and author/date lines.",
+        "method": "Full HTML text inspection.",
+        "title": "OEIS A393816 — Achilles numbers with exactly 2 distinct prime factors",
+        "trigger": "Exact database/table check for the first nontrivial fixed-omega stratum."
+      },
+      {
+        "assessment": "Provides global first/second moments on h-full numbers, not fixed-r counts and not the Achilles (non-perfect-power) subset.",
+        "evidence": [
+          "The paper lists 2020 MSC 11N37, 11N05, 11N56.",
+          "Its full-text searches returned no occurrences of “Achilles” or “perfect power”.",
+          "Theorem 1.2 concerns moments over all h-full integers; these do not imply the fixed-r Achilles asymptotic."
+        ],
+        "identifier_or_url": "arXiv:2409.10430v1",
+        "material_read": "Abstract, introduction, MSC line, definitions, Theorem 1.2 discussion of h-full first/second moments and normal-order discussion.",
+        "method": "arXiv full-text HTML inspection and in-document searches for “Achilles”, “perfect power”, and exact-stratum language.",
+        "title": "Distribution of omega(n) over h-free and h-full numbers",
+        "trigger": "Closest analytic literature: omega-distribution on the ambient 2-full/powerful set."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc9dfae3-f7bf-465b-83b2-c72e37f92991",
+  "value": {
+    "rationale": "The result identifies the first non-perfect-power layer inside a classical thin multiplicative set. At fixed omega, powerful numbers are dominated by perfect squares; the theorem quantifies the next layer after those are deleted, gives an explicit universal prime-series constant, and covers every fixed number of distinct prime factors rather than a single arbitrary finite slice. This directly refines the structure behind the Achilles sequence and complements global h-full omega-distribution results.",
+    "status": "PASS"
+  }
+}
