@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every fixed radius on a path, the ball average of a nondecreasing sequence is nondecreasing as the center moves right: the ball either shifts right, appends a new largest value, removes an old smallest value, or is unchanged. The pointwise maximum over radii is therefore nondecreasing. Its left endpoint is the global mean and its right endpoint is the terminal value, so total variation telescopes to the stated exact formula. The mean is bounded below by \\(((n-1)f(1)+f(n))/n\\), yielding the factor \\((n-1)/n\\) with equality exactly when all intermediate values equal the lower endpoint. Reflection proves the nonincreasing case. An exact-rational finite verifier confirms the formulas and equality cases on all monotone integer sequences of lengths \\(3\\) through \\(8\\) with values in \\(\\{0,1,2,3\\}\\); this computation is supplementary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu--Xue 2021 develops bounded variation theory on finite graphs but the accessible abstract/metadata do not state the path monotone identity.",
+        "González-Riquelme--Madrid 2021 treats sharp constants for complete and star graphs, not the path monotone subclass.",
+        "The 2026 primary source explicitly says the path constant remains conjectural and expected to be difficult."
+      ],
+      "reasoning": "Known broader finite-graph results do not dominate this claim: a general boundedness estimate or a sharp theorem on complete/star graphs does not yield the exact path endpoint formula or its extremizers.",
+      "searches": [
+        "\"On the variation of the Hardy-Littlewood maximal functions on finite graphs\" monotone path",
+        "\"Sharp inequalities for maximal operators on finite graphs\" path monotone",
+        "\"Hardy-Littlewood maximal functions on finite graphs\" path monotone function",
+        "\"maximal operator on finite graphs\" path \"monotone\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.12462",
+      "arXiv:2005.03146",
+      "DOI:10.1007/s13348-020-00290-6",
+      "DOI:10.1016/j.jmaa.2021.125647"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full conjecture in arXiv:2603.12462 would imply the inequality if it were proved, but it is explicitly open.",
+        "The endpoint spike supplies the conjectured lower bound but by itself does not prove the upper bound for all monotone data.",
+        "Earlier complete/star results are on different graphs and do not transfer by restriction or graph inclusion because centered ball averages change with the graph."
+      ],
+      "reasoning": "No inspected proved statement implies the all-n monotone upper bound. The proof uses path-specific order structure that is absent from the prior complete/star arguments.",
+      "searches": [
+        "finite path graph centered maximal operator monotone data total variation",
+        "path graph Hardy-Littlewood maximal conjecture monotone endpoint spike"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no record whose statement is the finite-path monotone identity or its equality classification.",
+        "The arXiv full text of arXiv:2603.12462 has no occurrence of 'monotone' or 'nondecreasing'; 'increasing' occurs only in the unrelated ordering step for complete graphs.",
+        "Web searches for the exact monotone/path/maximal combination returned the 2026 conjecture and general finite-graph papers, not this theorem."
+      ],
+      "reasoning": "The natural equivalent formulation is that fixed-radius centered averages preserve monotonicity and that the maximal variation telescopes between the global mean and an endpoint. No inspected source states this for the path conjecture.",
+      "searches": [
+        "path graph maximal operator monotone functions exact total variation (n-1)/n",
+        "centered Hardy-Littlewood maximal path nondecreasing sequence endpoint average",
+        "Conjecture C_Pn = 1 - 1/n monotone subclass",
+        "path graph variation maximal operator increasing data"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2603.12462 states Conjecture 5, \\(\\mathbf C_{P_n}=1-1/n\\), and reports numerical evidence only for \\(n\\le10\\).",
+        "The recent conjecture summary page found by web search records no published progress beyond the source."
+      ],
+      "reasoning": "Small-\\(n\\) numerical data do not imply an all-\\(n\\) monotone theorem. The present claim is analytic for every \\(n\\ge3\\) and includes an exact formula and equality classification.",
+      "searches": [
+        "arXiv:2603.12462 Conjecture 5 path graph numerical evidence n<=10",
+        "path graph variational constant conjecture progress"
+      ]
+    },
+    "rationale": "The recent primary source leaves the full path constant as Conjecture 5 and reports only numerical evidence through \\(n\\le10\\). Full-text searches of that source found no monotone or nondecreasing path-data result. Earlier finite-graph papers inspected concern complete/star graphs and broader boundedness questions and do not imply the exact endpoint-minus-mean identity or the equality classification. Targeted published-finding corpus searches returned no matching finite-path variation theorem. Residual risk remains for unindexed folklore.",
+    "residual_risks": [
+      "A monotone-path observation could exist as unindexed folklore or inside a source not surfaced by targeted searches.",
+      "Only the recent primary source received full-text monotone-term inspection; some older literature was checked through abstracts and metadata because it is less directly path-specific."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source states \\(\\mathbf C_{P_n}=1-1/n\\) as an open conjecture with numerical evidence through \\(n\\le10\\), and contains no monotone/nondecreasing path theorem.",
+        "identifier_or_url": "arXiv:2603.12462",
+        "material_read": "Open-access PDF and HTML: definitions of graph balls, maximal operator and variation; Conjecture 5 and its surrounding discussion; full-text searches for monotone/nondecreasing/increasing.",
+        "method": "arXiv open-access full text",
+        "title": "Sharp variational inequalities for the Hardy-Littlewood maximal operator on finite undirected graphs",
+        "trigger": "Primary recent source posing the path-graph conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The stated sharp variation results concern complete and star graphs, not monotone data on paths.",
+        "identifier_or_url": "arXiv:2005.03146",
+        "material_read": "Abstract and accessible article metadata describing the graph families and p-ranges treated.",
+        "method": "arXiv/DOI web record",
+        "title": "Sharp inequalities for maximal operators on finite graphs",
+        "trigger": "Earlier sharp finite-graph variation paper cited by the recent source."
+      },
+      {
+        "assessment": "NOT_COVERING_WITH_RESIDUAL_ACCESS_RISK",
+        "evidence": "The accessible summary gives general boundedness and operator-norm investigations, with no statement of the exact monotone path identity.",
+        "identifier_or_url": "DOI:10.1007/s13348-020-00290-6",
+        "material_read": "Accessible abstract and bibliographic summary.",
+        "method": "journal/index record",
+        "title": "On the variation of the Hardy--Littlewood maximal functions on finite graphs",
+        "trigger": "Foundational finite-graph variation paper cited by the recent source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ae83e24-01fb-47d0-9c59-8d7c06a520ee",
+  "value": {
+    "rationale": "The theorem settles the conjectured sharp constant on a natural structured class for every path size, gives a closed exact formula for the maximal variation, classifies equality, and shows that any counterexample to the full conjecture must be genuinely oscillatory. This is a motivated structural boundary for a recent open problem, not a routine small-\\(n\\) increment.",
+    "status": "PASS"
+  }
+}
