@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For each vertex v in part V_i, the neighborhood sum is w-s_i+f(v), so checking the minimum label in each part is necessary and sufficient. The local Laurent-polynomial cases are disjoint and exhaustive, and coefficient extraction enforces the global weight. Exhaustive independent replay through order 9 agrees with the literal definition and all coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liang 2012 treats arbitrary complete multipartite graphs but only the minimum parameters gamma_s, gamma_t^s, and gamma^-.",
+        "Zelinka 2006 treats complete bipartite graphs and scalar signed/minus domination numbers."
+      ],
+      "reasoning": "The broader graph-class source is not broader in claim strength: it optimizes over feasible functions but does not enumerate all feasible functions. The biclique source is both a narrower class and scalar.",
+      "searches": [
+        "\"minus domination complete multipartite signed domination number\"",
+        "\"Signed and Minus Domination in Complete Multipartite Graphs\"",
+        "\"Signed and minus domination in bipartite graphs\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1205.0343v1",
+      "Ars Combinatoria 126 (2016), 133-142",
+      "DOI:10.1007/s10587-006-0039-z",
+      "DOI:10.1016/S0012-365X(98)00284-2",
+      "semantic-index searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liang Theorem 3 proves gamma^-(K_{n_1,...,n_k})=1 with a singleton part and 2 otherwise.",
+        "The proof constructs optimum functions and a lower bound; it does not count nonminimum functions or provide generating coefficients."
+      ],
+      "reasoning": "The prior scalar theorem is an immediate consequence of the new enumerator after taking its least exponent, not conversely. A minimum value alone cannot determine the number of feasible functions at each weight, so the prior statement does not imply the retained claim.",
+      "searches": [
+        "arXiv:1205.0343v1, Section 2, Theorem 3",
+        "Ars Combinatoria 126 paper, minus-domination theorem page",
+        "Zelinka 2006 complete-bipartite summary/full record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1205.0343v1 defines minus domination by closed-neighborhood sums and uses the identity f(N[v])=f(v)+f(V\\V_i).",
+        "No located source states the criterion in terms of every part minimum together with the full weight enumerator."
+      ],
+      "reasoning": "The part-minimum criterion is equivalent to the standard definition on complete multipartite graphs; searches targeted both the standard name and all-function/counting formulations. No equivalent enumerator was located.",
+      "searches": [
+        "\"minus domination polynomial graph weight enumerator minus dominating functions\"",
+        "\"minus dominating functions complete multipartite\"",
+        "\"minus domination polynomial\" graph",
+        "\"minus dominating function\" \"complete multipartite\" all functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic-index or web source located a coefficient table or database of minus-dominating functions for arbitrary complete multipartite profiles."
+      ],
+      "reasoning": "No exact database/table was found that would subsume the stated coefficient formula. This negative search is supporting evidence only, not a novelty proof.",
+      "searches": [
+        "\"minus dominating functions weight distribution complete multipartite\"",
+        "\"minus domination\" \"complete multipartite\" counting"
+      ]
+    },
+    "rationale": "The closest primary source, arXiv:1205.0343v1, determines scalar signed, signed-total, and minus domination numbers of complete multipartite graphs. Its Theorem 3 states the scalar minus domination number and does not state a weight-distribution enumerator. The earlier biclique paper is also scalar. Searches of published semantic-index findings and web literature found no exact all-function enumerator; residual terminology/indexing risk remains.",
+    "residual_risks": [
+      "An older or poorly indexed paper may count minus dominating functions under nonstandard terminology such as a generating function or feasible-labeling census.",
+      "The term minus domination polynomial is not standardized; the retained claim therefore defines its weight enumerator explicitly rather than asserting terminology priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING only for the scalar minimum; NOT_COVERING for the all-function criterion as a stated theorem and the exact weight enumerator.",
+        "evidence": "The abstract and introduction say the paper determines exact values of three parameters; Theorem 3 gives gamma^- only, with constructions/lower bound.",
+        "identifier_or_url": "arXiv:1205.0343v1; https://arxiv.org/html/1205.0343v1",
+        "material_read": "Abstract, definitions, all of Section 2 around the minus-domination theorem, Theorem 3 and proof, references.",
+        "method": "Lawful open-access arXiv full text.",
+        "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+        "trigger": "Exact same graph class and same domination notion."
+      },
+      {
+        "assessment": "Confirms the scalar Theorem 3 and its predecessors; no all-weight enumerator appears on the inspected minus-domination theorem page.",
+        "evidence": "Theorem 3 states only the two-case value 1 or 2 and its proof gives minimum constructions.",
+        "identifier_or_url": "Ars Combinatoria 126 (2016), 133-142; https://combinatorialpress.com/article/ars/Volume%20126/volume-126-paper-12.pdf",
+        "material_read": "Minus-domination theorem page and references page from the publisher PDF.",
+        "method": "Publisher-hosted lawful PDF inspection.",
+        "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+        "trigger": "Published version of the exact same graph-class result."
+      },
+      {
+        "assessment": "COVERING for a scalar two-part specialization only; does not imply the arbitrary-part all-function enumerator.",
+        "evidence": "The record states that the paper studies the signed domination number and minus domination number of K_{p,q}.",
+        "identifier_or_url": "DOI:10.1007/s10587-006-0039-z; https://dml.cz/handle/10338.dmlcz/128088",
+        "material_read": "Bibliographic record and summary identifying the complete-bipartite scalar problem.",
+        "method": "Czech Digital Mathematics Library record.",
+        "title": "Signed and minus domination in bipartite graphs",
+        "trigger": "Named predecessor cited by Liang for the complete bipartite case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b0d37260-a765-4b6a-a545-179f73cb23ea",
+  "value": {
+    "rationale": "The theorem upgrades a classical scalar invariant on a natural graph class to a complete structural and coefficient-level census. It answers the number of feasible labelings at every weight and is directly reusable for counting or probabilistic questions; it is not a renaming of the known minimum formula.",
+    "status": "PASS"
+  }
+}
