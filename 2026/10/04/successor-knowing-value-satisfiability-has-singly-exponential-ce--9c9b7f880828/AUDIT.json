@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The source gives all quantitative ingredients needed for a finite certificate. A length-n formula has at most n subformulas, its single-negation closure has size at most 2n, and modal depth and every explicit successor offset are at most n. The source world bound is therefore dominated by (4n)^(n+1), the standard-model transfer preserves worlds, and the source value compression gives U_n=(nN_n+1)(n+1). Encoding relevant equivalence relations, proposition valuations, and bounded constant valuations uses 2^{O(n log n)} bits, and direct semantic verification is polynomial in that encoding.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang gives an explicit world bound in terms of subformula closure and modal depth.",
+        "Wang preserves the world set when transferring finite witnesses to standard arithmetic.",
+        "Wang bounds relevant constant values and then proves decidability by finite model enumeration.",
+        "Ding provides a sharper PSPACE result for a predecessor language but without equality-plus-successor arithmetic."
+      ],
+      "reasoning": "The accepted theorem does not improve or replace the finite-model theorem; it converts its explicit quantitative data into a standard complexity certificate bound that the source does not state.",
+      "searches": [
+        "Wang 2026 full text: Lemma 5.1 finite non-standard to finite standard models",
+        "Wang 2026 full text: Theorem 5.2 finite-model size bound",
+        "Wang 2026 full text: Theorem 5.6 decidability and bounded constant-value compression",
+        "Ding 2016: knowing-what satisfiability PSPACE-completeness over model class K"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.31891",
+      "DOI:10.4204/EPTCS.447.41",
+      "arXiv:1609.07684",
+      "MSC2020 entry 03B42: logics of knowledge and belief"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves finiteness and decidability but does not perform the nondeterministic certificate-size analysis.",
+        "The source value bound is strong enough to make each constant valuation polynomially many bits in n log n once the world bound is substituted.",
+        "The predecessor PSPACE theorem does not cover successor-equality constraints and therefore does not imply the accepted upper bound.",
+        "No prior current-ledger finding concerns arXiv:2606.31891 or complexity of ELKvSA^r."
+      ],
+      "reasoning": "The new claim is a quantitative consequence requiring an additional model-encoding and verifier analysis; it is not merely a renaming of decidability.",
+      "searches": [
+        "primary-source implication check: Theorem 5.2 plus Theorem 5.6 versus standard complexity class",
+        "primary-source implication check: value-compression endpoint versus bounded certificate encoding",
+        "Ding 2016 implication check: PSPACE predecessor logic versus successor-arithmetic extension",
+        "current cumulative ledger comparison through generation g000055"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published finding states the NEXPTIME or 2^{O(n log n)} certificate bound for arXiv:2606.31891.",
+        "Web searches returned the primary 2026 paper and older knowing-value complexity papers, but no quantitative complexity extraction for the successor-arithmetic extension."
+      ],
+      "reasoning": "The searches covered the exact title and identifier, both standard upper-class terminology and small-model/certificate terminology, and the predecessor knowing-value complexity literature.",
+      "searches": [
+        "published-finding database: Knowing-Value Logic with Successor Arithmetic complexity NEXPTIME",
+        "published-finding database: ELKvSA successor arithmetic complexity exponential model bound",
+        "published-finding database: conditional knowing value logic successor arithmetic satisfiability complexity",
+        "web literature: \"Knowing-Value Logic with Successor Arithmetic\" NEXPTIME complexity satisfiability",
+        "web literature: \"ELKvSA\" complexity",
+        "web literature: \"knowing value\" satisfiability complexity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database entry gives the exact standard-model bounds N_n=(4n)^(n+1), U_n=(nN_n+1)(n+1), or the resulting nondeterministic time class.",
+        "The primary paper stops at decidability despite displaying the required world and value bounds."
+      ],
+      "reasoning": "The relevant exact comparison is the quantitative certificate size implied by the source formulas, not a numerical experimental table.",
+      "searches": [
+        "published-finding database: arXiv 2606.31891 complexity NEXPTIME",
+        "published-finding database: Knowing-Value successor arithmetic finite certificate complexity",
+        "web literature: arXiv 2606.31891 exponential model bound complexity"
+      ]
+    },
+    "rationale": "The 2026 primary paper proves decidability but does not state an NEXPTIME or NTIME(2^{O(n log n)}) upper bound. The exact-source complexity searches found no equivalent quantitative extraction. Older PSPACE results concern a different knowing-value language without successor arithmetic.",
+    "residual_risks": [
+      "A sharper complexity upper bound may follow from tableau sharing or a more compact representation of S5 equivalence classes; no optimality is claimed.",
+      "The primary paper uses ordinary explicit successor syntax; a succinct numeral encoding changes the size analysis.",
+      "An equivalent complexity observation may exist informally or in later commentary not indexed by the checked searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_SUPPORTING_PRIOR_WITHOUT_THE_COMPLEXITY_CLASS_CONCLUSION.",
+        "evidence": "The paper explicitly bounds the selected finite witness and the range of relevant constant values, then concludes only decidability by finite enumeration.",
+        "identifier_or_url": "arXiv:2606.31891; DOI:10.4204/EPTCS.447.41",
+        "material_read": "Full-text material in Sections 3--5, especially Lemma 5.1, Theorem 5.2, Lemma 5.3, Theorem 5.6, and the decision-proof value compression; conclusion and future-work discussion also checked.",
+        "method": "Direct reconstruction of quantitative bounds followed by independent certificate-size and semantic-verifier analysis.",
+        "title": "Knowing-Value Logic with Successor Arithmetic",
+        "trigger": "Primary recent source whose qualitative decidability theorem contains explicit finite-model and value bounds."
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING_SUCCESSOR_ARITHMETIC.",
+        "evidence": "The predecessor logic is PSPACE-complete but lacks the successor-arithmetic equality component introduced in 2026.",
+        "identifier_or_url": "arXiv:1609.07684",
+        "material_read": "Abstract and theorem-level complexity statement.",
+        "method": "Broader-coverage and implication comparison.",
+        "title": "Axiomatization and complexity of modal logic with knowing-what operator on model class K",
+        "trigger": "Closest established complexity result for a conditional knowing-value predecessor language."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9c9b7f88-0828-412c-aae6-2e531980a688",
+  "value": {
+    "rationale": "The source explicitly presents decidability as evidence that the new arithmetic epistemic logic remains computationally tractable, but gives no standard complexity bound. The accepted theorem turns the finite-model proof into a concrete 2^{O(n log n)} nondeterministic certificate bound, providing a meaningful baseline for exact-complexity work and for comparison with the PSPACE predecessor language.",
+    "status": "PASS"
+  }
+}
