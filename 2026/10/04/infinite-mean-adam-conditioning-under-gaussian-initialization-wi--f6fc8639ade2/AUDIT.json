@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "In \\(2\\times2\\), one-sided diagonal scaling reduces to one positive ratio \\(t\\), and \\(K+K^{-1}=\\|A_t\\|_F^2/|\\det A_t|\\) gives a unique row-equilibrating minimum. The row-correlation formula follows from \\((ab-c^2)^2=r_1^2r_2^2-c^2(a+b)^2\\). For Gaussian initialization in any \\(d\\ge2\\), a fixed null direction of one row bounds \\(\\sigma_{\\min}\\) while that row norm grows like \\(1/|g_1|\\); positivity of the nonsingular Gaussian density on a box gives a logarithmically divergent expectation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General one-sided diagonal scaling is a classical matrix-preconditioning problem and modern work gives dimension-dependent near-optimality results.",
+        "The 2024 Adam analysis proves that sufficiently non-diagonal Hessians can make Adam worse than gradient descent.",
+        "The Adam-mini paper reports a rotation-dependent empirical degradation of its instantaneous preconditioner."
+      ],
+      "reasoning": "Generic matrix-scaling results can subsume parts of the deterministic optimization over positive diagonal matrices, so that component is not treated as isolated evidence of originality. The surviving distinction is the exact mapping from initialization to scaling together with the Gaussian heavy-tail law and the explicit source-diagnostic orientation barrier.",
+      "searches": [
+        "Adam diagonal preconditioner condition number row scaling Hx arbitrary initialization",
+        "optimal positive diagonal row scaling 2x2 SPD condition number exact row norm equilibration",
+        "diagonal scaling 2x2 SPD condition number equal row norms",
+        "DOI:10.1137/22M1504901"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.16793v1",
+      "arXiv:2402.07114v1",
+      "DOI:10.1137/22M1504901"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adam-mini explicitly states that it is unaware of an existing lower bound of the diagnostic kind and leaves the characterization as future work.",
+        "The nearby Adam analysis supplies convergence bounds involving diagonal and Jacobi condition quantities, not the random instantaneous matrix \\(D_xH\\).",
+        "The matrix-scaling source addresses generic one-sided scaling and therefore provides relevant background for the deterministic envelope."
+      ],
+      "reasoning": "None of these prior conclusions implies that the particular Gaussian-induced scaling has an infinite condition-number mean. The two-dimensional floor follows from specializing and solving the one-sided scaling problem, while the probabilistic non-integrability requires the source's initialization rule.",
+      "searches": [
+        "arXiv:2406.16793v1 lower bound condition number Adam preconditioner dense Hessian",
+        "arXiv:2402.07114v1 non diagonal Adam preconditioning quadratic",
+        "DOI:10.1137/22M1504901 one-sided scaling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Adam-mini source defines the instantaneous diagnostic with \\(v=g\\odot g\\), Gaussian initialization, and the condition number of the preconditioned Hessian.",
+        "The Adam preconditioning analysis studies condition-number dependence on quadratics but through full adaptive dynamics and Jacobi-type quantities.",
+        "No inspected source states an infinite first moment for the instantaneous condition number."
+      ],
+      "reasoning": "Equivalent formulations include non-integrability of the random conditioning ratio, a reciprocal singularity when one gradient coordinate approaches zero, and a sharp best-over-initialization two-dimensional condition floor. The searches and inspected sources did not provide these equivalent statements.",
+      "searches": [
+        "Adam-mini exact lower bound condition number D Adam H 2x2 dense block",
+        "Adam preconditioner infinite expected condition number Gaussian initialization",
+        "Adam instantaneous diagonal preconditioner heavy tail condition number Gaussian",
+        "arXiv:2406.16793v1",
+        "arXiv:2402.07114v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned close work on weighted Jacobi scaling, row-coherence obstructions, general diagonal preconditioning, and other quadratic stability frontiers.",
+        "No returned record involved the Adam-mini instantaneous preconditioner together with Gaussian conditioning tails."
+      ],
+      "reasoning": "The closest records concern different scaling rules or different adaptive optimizers. Search absence is not treated as a proof of uniqueness; it supplements direct comparison with the defining and strongest nearby primary sources.",
+      "searches": [
+        "Adam-mini optimizer blockwise second moment quadratic exact preconditioner rotation stability",
+        "Adam-mini block variance quadratic condition number",
+        "Adam-mini Hessian blocks optimization exact spectral analysis",
+        "Adam-mini exact lower bound condition number D Adam H 2x2 dense block",
+        "Adam diagonal preconditioner condition number row scaling Hx arbitrary initialization",
+        "optimal positive diagonal row scaling 2x2 SPD condition number exact row norm equilibration",
+        "diagonal scaling 2x2 SPD condition number equal row norms",
+        "Adam preconditioner infinite expected condition number Gaussian initialization",
+        "Adam instantaneous diagonal preconditioner heavy tail condition number Gaussian",
+        "Adam-mini random Xavier preconditioner condition number expectation infinite",
+        "diag 1 over absolute Gaussian row scaling condition number infinite expectation"
+      ]
+    },
+    "rationale": "The defining Adam-mini paper poses lower-bounding the instantaneous dense-block condition number as a difficult open direction and uses Gaussian initialization in that diagnostic. A 2024 Adam-preconditioning analysis establishes broader quadratic conditioning phenomena, while classical matrix-scaling work treats generic diagonal scaling. The inspected sources do not state the Adam-induced Gaussian infinite-mean law or combine it with the exact two-dimensional initialization floor and sharp rotated-spectrum barrier.",
+    "residual_risks": [
+      "Classical one-sided diagonal-scaling theory may subsume the deterministic two-dimensional row-equilibration formula.",
+      "An equivalent Gaussian heavy-tail observation may exist in unindexed optimizer or preconditioning notes.",
+      "A positive denominator regularizer removes the literal divergence, so the theorem applies to the unregularized source diagnostic.",
+      "No exact higher-dimensional best-scaling formula is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_DIAGNOSTIC_AND_OPEN_DIRECTION_NOT_COVERING_THE_FINAL_THEOREM.",
+        "evidence": "The source supplies exactly the random preconditioner analyzed here and reports qualitative density dependence, but gives neither the infinite-mean law nor the sharp two-dimensional floor.",
+        "identifier_or_url": "arXiv:2406.16793v1",
+        "material_read": "Open-access full text covering the random-quadratic case study, the diagonal-preconditioner interpretation, the definitions of \\(D_{\\mathrm{Adam}}\\), \\(v=g\\odot g\\), \\(g=H_bx\\), the Gaussian initialization, the eigenvector-rotation experiment, and the paragraph posing a lower bound on \\(\\kappa(D_{\\mathrm{Adam}}H_b)\\) as future work.",
+        "method": "Full-text HTML inspection with direct inspection of the relevant equations and surrounding discussion.",
+        "title": "Adam-mini: Use Fewer Learning Rates To Gain More",
+        "trigger": "Defining source for the instantaneous dense-block condition-number diagnostic and its Gaussian initialization."
+      },
+      {
+        "assessment": "BROADER_ADAM_PRECONDITIONING_THEORY_NOT_COVERING_INSTANTANEOUS_GAUSSIAN_NONINTEGRABILITY.",
+        "evidence": "The source studies adaptive dynamics and Jacobi-related quantities rather than the one-shot \\(D_x=\\operatorname{diag}(1/|Hx|)\\) diagnostic, and no infinite-mean condition-number statement was located.",
+        "identifier_or_url": "arXiv:2402.07114v1",
+        "material_read": "Open-access full text covering the main quadratic theorems, random-initialization assumptions, the general non-diagonal Hessian discussion, condition-number definitions, and the negative result that sufficiently non-diagonal Hessians can make Adam worse.",
+        "method": "Full-text inspection with targeted comparison of the update object, condition quantities, and non-diagonal examples.",
+        "title": "Towards Quantifying the Preconditioning Effect of Adam",
+        "trigger": "Strongest nearby primary theory explicitly quantifying Adam's conditioning behavior on quadratic objectives."
+      },
+      {
+        "assessment": "GENERAL_SCALING_BACKGROUND_WITH_ACCESS_LIMITATION.",
+        "evidence": "The source confirms that one-sided condition-number scaling is a broader established problem. The available material does not address Adam-induced random scalings or their Gaussian tail integrability.",
+        "identifier_or_url": "DOI:10.1137/22M1504901",
+        "material_read": "Publisher abstract and a public author-affiliation summary describing Jacobi, block-Jacobi, and one-sided full-row-rank scaling results.",
+        "method": "Abstract and public summary inspection; full article text was not available in the retrieved material.",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "General matrix-scaling literature relevant to optimizing \\(\\kappa_2(DH)\\) over positive diagonal \\(D\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6fc8639-ade2-4d2e-bde2-852e3b69fee9",
+  "value": {
+    "rationale": "The source diagnostic explicitly averages empirical conditioning behavior under Gaussian initialization and identifies lower bounds as an open direction. Showing that its unregularized condition number has an infinite population mean is therefore a substantive diagnostic fact: mean-based summaries have no finite population target. The sharp two-dimensional floor additionally isolates orientation as an exact obstruction, with a rotated spectrum for which no initialization can improve conditioning at all.",
+    "status": "PASS"
+  }
+}
