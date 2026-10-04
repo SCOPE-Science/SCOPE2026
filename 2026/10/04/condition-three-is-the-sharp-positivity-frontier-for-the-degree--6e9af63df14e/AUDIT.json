@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The degree-three Chebyshev solution polynomial is expanded exactly. Its diagonal entries are positive because the scalar polynomial is positive on the spectral interval. For off-diagonal entries of a Stieltjes matrix, the \\(A^2\\) term splits into a direct-edge contribution and nonnegative two-edge path products; the direct coefficient is nonnegative exactly under the universal estimate \\(L\\le3\\mu\\). Two dimensions admit the stronger trace identity, while the explicit three-dimensional block family makes the same direct coefficient negative for every \\(\\kappa>3\\). Exact replay verifies the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golub--Varga formulate semi-iterative acceleration by minimax polynomials and identify the Chebyshev polynomial as the spectral minimax choice.",
+        "Gutknecht--Röllin give the interval-scaled three-term Chebyshev recurrence and discuss implementation and roundoff.",
+        "The closest retrieved finite-horizon optimization result concerns Euclidean nonexpansion of individual Richardson stages, not coordinatewise positivity of the final Chebyshev polynomial."
+      ],
+      "reasoning": "The classical minimax theorem determines spectral error size but not entrywise signs in the original coordinate basis. The Stieltjes path decomposition used here is additional structure, and the nearby stagewise-safety theorem concerns a different property and degree.",
+      "searches": [
+        "Chebyshev semi-iterative methods Golub Varga 1961",
+        "The Chebyshev iteration revisited Gutknecht Rollin",
+        "Chebyshev semi-iterative M-matrix nonnegative iterates condition number",
+        "Chebyshev Richardson positivity inverse positive linear system third iterate"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/BF01386014",
+      "DOI:10.1016/S0167-8191(01)00139-9",
+      "DOI:10.1080/00207160903456831",
+      "Published record: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "Focused semantic searches under Stieltjes, M-matrix, positive-orthant, degree-three, and condition-number aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected Golub--Varga full text develops polynomial acceleration and the Chebyshev minimax polynomial for symmetric convergent iterations; it does not state a Stieltjes positive-orthant theorem in the inspected pages.",
+        "The inspected Gutknecht--Röllin material gives the classical interval-scaled recurrence and spectral optimality without an entrywise sign classification.",
+        "The nearby Richardson result optimizes two Euclidean-safe stages and therefore neither contains nor dominates the degree-three Stieltjes coordinatewise statement."
+      ],
+      "reasoning": "Prior formulas define the polynomial used in the proof, but they do not imply its entrywise sign on a Stieltjes matrix without analyzing \\(A^2\\) in the original basis. The direct-edge/two-edge decomposition produces the new sharp frontier and minimal-dimension obstruction.",
+      "searches": [
+        "DOI:10.1007/BF01386014 Chebyshev semi-iterative full text",
+        "DOI:10.1016/S0167-8191(01)00139-9 Chebyshev iteration recurrence",
+        "DOI:10.1080/00207160903456831 Chebyshev acceleration 65F10",
+        "stagewise safe two step Richardson frontier Chebyshev"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked research record states a condition-number-three coordinatewise positivity frontier for the degree-three Chebyshev approximation.",
+        "Searches under positive-orthant and Stieltjes aliases returned implementation and convergence material rather than an entrywise polynomial theorem."
+      ],
+      "reasoning": "Equivalent formulations include entrywise nonnegativity of the quadratic solution polynomial \\(q_2(A)\\), orthant preservation of the third Chebyshev approximation, and finite-horizon positivity on inverse-positive SPD systems. The searched statements did not imply the accepted theorem.",
+      "searches": [
+        "Chebyshev semi iteration positivity Stieltjes matrix condition number 3 third iterate",
+        "Chebyshev polynomial iterative method positive orthant Stieltjes third degree",
+        "Chebyshev semi-iterative positivity Stieltjes matrix",
+        "Chebyshev iteration positive orthant linear system",
+        "degree three Chebyshev iteration condition number 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked table, handbook-style result, or indexed abstract gives the threshold \\(\\kappa=3\\), the \\(2\\times2\\) immunity statement, or the displayed three-dimensional witness.",
+        "Classical sources tabulate recurrences and convergence factors rather than coordinate sign frontiers."
+      ],
+      "reasoning": "The exact constant and low-dimensional obstruction were searched directly because they are natural candidates for a known table or monotonicity lemma. None was located.",
+      "searches": [
+        "\"Chebyshev semi-iterative\" positivity Stieltjes",
+        "\"Chebyshev iteration\" \"positive orthant\"",
+        "\"Chebyshev\" \"M-matrix\" semi-iterative positivity",
+        "\"condition number\" 3 Chebyshev iteration positivity"
+      ]
+    },
+    "rationale": "Classical Chebyshev minimax construction, recurrence formulas, and convergence analysis are prior-covered and excluded. The accepted claim is the coordinatewise positivity frontier for the final degree-three polynomial on the Stieltjes class, the all-condition-number two-dimensional immunity theorem, and the matching three-dimensional obstruction family. Focused semantic and primary-literature searches found no implication-equivalent theorem.",
+    "residual_risks": [
+      "Older monotone-iteration or M-matrix literature may contain an equivalent finite-horizon Chebyshev positivity result under different terminology.",
+      "The theorem classifies only the final degree-three polynomial; higher degrees may have qualitatively different graph-path sign structure.",
+      "Implementation-stage positivity and robustness to inexact spectral endpoints remain separate questions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the classical semi-iterative polynomial construction and minimax property. The inspected material does not state coordinatewise positivity on Stieltjes matrices or a condition-number-three frontier.",
+        "evidence": "The source formulates accelerated errors as a polynomial of the iteration matrix and gives the normalized Chebyshev polynomial as the unique minimax solution.",
+        "identifier_or_url": "https://www.math.kent.edu/~varga/pub/paper_17.pdf",
+        "material_read": "Author-hosted full PDF pages 147--149, including the SPD/symmetric setup, linear acceleration formulation, minimax problem, and explicit Chebyshev solution.",
+        "method": "Lawful author-hosted full-text inspection.",
+        "title": "Chebyshev Semi-Iterative Methods, Successive Overrelaxation Iterative Methods, and Second Order Richardson Iterative Methods, Part I",
+        "trigger": "Foundational primary source for the Chebyshev semi-iterative minimax polynomial."
+      },
+      {
+        "assessment": "COVERS interval-scaled implementation and spectral optimality; it does not state the Stieltjes entrywise positivity theorem in the material inspected.",
+        "evidence": "The source derives recurrences from translated and scaled classical Chebyshev polynomials for a known spectral interval.",
+        "identifier_or_url": "DOI:10.1016/S0167-8191(01)00139-9",
+        "material_read": "Open author-hosted three-page extended abstract, including the interval-scaled residual and iterate recurrences and the spectral optimality statement.",
+        "method": "Lawful author-hosted PDF inspection.",
+        "title": "The Chebyshev Iteration Revisited",
+        "trigger": "Direct modern primary treatment of the classical three-term Chebyshev iteration."
+      },
+      {
+        "assessment": "COVERS Chebyshev polynomial acceleration in iterative linear solvers and lists MSC 65F10; it addresses a different block-SOR least-squares method.",
+        "evidence": "The publisher lists 65F10 among the article's AMS classifications and describes Chebyshev acceleration of block iterative methods.",
+        "identifier_or_url": "DOI:10.1080/00207160903456831",
+        "material_read": "Publisher abstract, bibliographic history, keywords, and MSC metadata.",
+        "method": "Publisher HTML inspection.",
+        "title": "Chebyshev Polynomial Acceleration for Block SOR Methods for Solving the Rank-Deficient Least-Squares Problem",
+        "trigger": "Archive-era source confirming numerical-linear-system classification and use of Chebyshev polynomial acceleration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e9af63d-f14e-43bf-b2cc-8d40edd34d68",
+  "value": {
+    "rationale": "Chebyshev semi-iteration is a classical low-communication accelerator, and Stieltjes systems have nonnegative exact solutions in many discretization settings. A negative accelerated coordinate is therefore a meaningful structural failure. The theorem gives a sharp conditioning threshold, proves complete low-dimensional immunity, and provides an exact minimal-dimensional witness, making the result useful for method selection and regression testing.",
+    "status": "PASS"
+  }
+}
