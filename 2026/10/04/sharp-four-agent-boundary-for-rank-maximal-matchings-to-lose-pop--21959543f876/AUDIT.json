@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "All complete strict profiles for two and three applicants are exhaustively enumerated. Popularity is computed both by direct head-to-head majority tests and by the Abraham-Irving-Kavitha-Mehlhorn characterization; rank-maximality is computed both from lexicographic signatures and an exact steep-base score. The methods agree profile by profile, and the four-agent witness is exhaustively checked over all twenty-four perfect matchings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abraham et al. define popularity, give the strict-list characterization, exhibit a three-applicant no-popular-matching instance with identical preferences, and state that rank-maximal matchings are not necessarily popular.",
+        "Irving et al. define the matching signature and rank-maximality as lexicographic signature maximization.",
+        "A later reference entry surveys both popular and rank-maximal one-sided matching as standard criteria without stating the small-market containment boundary."
+      ],
+      "reasoning": "The prior statement that rank-maximal matchings need not be popular implies existence of some counterexample but does not identify the minimum balanced complete strict size or exclude counterexamples at three applicants when popular matchings exist. The new exhaustive lower bound and explicit four-agent witness supply that missing sharp boundary.",
+      "searches": [
+        "Popular Matchings Abraham Irving Kavitha Mehlhorn 2005",
+        "Rank-maximal matchings Irving Kavitha Mehlhorn Michail Paluch 2004",
+        "ranked matching popular rank maximal house allocation"
+      ]
+    },
+    "checked_sources": [
+      "SODA2004:Irving-Kavitha-Mehlhorn-Michail-Paluch",
+      "doi:10.1145/1198513.1198520",
+      "SODA2005:Abraham-Irving-Kavitha-Mehlhorn",
+      "doi:10.1137/06067328X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The foundational popular-matching paper explicitly says rank-maximal matchings need not be popular.",
+        "Its strict-list characterization provides an efficient test for popularity but does not compare every rank-maximal matching to every popular matching in the three-applicant domain.",
+        "The rank-maximal definition alone provides no majority-vote implication."
+      ],
+      "reasoning": "A general non-implication theorem does not locate its smallest conditional counterexample. The four-agent witness sharpens the prior non-implication, while the complete \\(n\\le3\\) enumeration supplies the missing universal lower-size result.",
+      "searches": [
+        "neither rank-maximal nor maximum-utility matchings necessarily popular",
+        "popular matching characterization f-post s-post strict preferences",
+        "rank-maximal signature lexicographic matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic repository searches returned no matching published result for the conditional-containment boundary.",
+        "Web searches by both criterion names and the exact small market sizes returned the standard definition sources and a 2016 reference entry, but no theorem matching the new \\(3/4\\)-agent boundary.",
+        "Exact-count searches for the new \\(138,72,6\\) census did not locate a matching source."
+      ],
+      "reasoning": "The accepted claim is not merely that the criteria differ. It requires universal containment of the complete rank-maximal argmin set inside the popular set whenever popularity exists through size three, plus a four-agent feasible-popularity counterexample. The searches cover canonical names, house-allocation terminology, small-market aliases, and the exact relation counts.",
+      "searches": [
+        "rank maximal popular matching house allocation three agents containment",
+        "rank-maximal matching popular matching smallest counterexample four applicants",
+        "popular versus rank-maximal one-sided matching exact 3x3 census",
+        "every rank maximal matching popular three applicants posts",
+        "\"rank-maximal\" popular matching \"three applicants\"",
+        "\"rank-maximal\" popular matching \"four applicants\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the \\(138,72,6\\) table.",
+        "The foundational paper reports simulations for larger random instances rather than an exact \\(3\times3\\) relation census.",
+        "The new counts are generated directly from all \\(216\\) labeled profiles."
+      ],
+      "reasoning": "The exact census is not copied from a located table. The literature's empirical popular-existence tables at \\(n=10\\) and \\(n=100\\) do not determine rank-maximal/popular set containment at \\(n=3\\).",
+      "searches": [
+        "\"138\" \"rank-maximal\" popular matching",
+        "\"72\" \"rank-maximal\" popular matching",
+        "\"6\" \"popular matching\" \"rank-maximal\" three applicants"
+      ]
+    },
+    "rationale": "The foundational literature covers the definitions, the fact that rank-maximal matchings need not be popular, and the three-applicant identical-preference nonexistence example. No inspected source states the exact \\(138/72/6\\) three-profile census or the sharp statement that conditional containment \\(R(I)\\subseteq P(I)\\) holds through three applicants and first fails at four while popularity remains nonempty.",
+    "residual_risks": [
+      "Irving's earlier technical report on greedy matchings is bibliographically dated only to April 2003 in the checked records; no day was invented. The metadata date uses the first day-resolved public conference source inspected for rank-maximality.",
+      "An unindexed exercise, thesis, code repository, or supplementary table may contain the same \\(3\times3\\) census or four-agent sharp witness.",
+      "The result does not classify all \\(4\times4\\) profiles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the criteria comparison and the three-applicant nonexistence example, but not the exact \\(3\times3\\) rank-maximal/popular set census or the sharp conditional-containment boundary.",
+        "evidence": "Proceedings of SODA 2005, 23–25 January 2005, pp. 424–432; journal DOI 10.1137/06067328X.",
+        "identifier_or_url": "SODA2005 / doi:10.1137/06067328X",
+        "material_read": "Author-posted full conference PDF: definition of popularity; Figure 1 and discussion of the identical-preference three-applicant no-popular-matching instance; related-work paragraph stating that rank-maximal matchings need not be popular; Lemmas 2.1–2.4 and Theorem 2.1 characterizing popular matchings for strict lists; Section 4 simulation discussion.",
+        "method": "Lawful author-posted full-PDF text extraction plus rendered-page inspection.",
+        "title": "Popular Matchings",
+        "trigger": "Foundational source defining popularity, giving the strict-list characterization, and explicitly comparing popularity with rank-maximality."
+      },
+      {
+        "assessment": "Defines and analyzes rank-maximality but does not provide the small-market popularity-containment result.",
+        "evidence": "SODA 2004 conference paper, New Orleans, beginning 11 January 2004; journal DOI 10.1145/1198513.1198520.",
+        "identifier_or_url": "SODA2004 / doi:10.1145/1198513.1198520",
+        "material_read": "Author-hosted full journal PDF: introductory one-sided matching setting, Definition 1 of signature, Definition 2 of rank-maximal matching, and the equivalent sequential lexicographic construction.",
+        "method": "Author-hosted full-PDF text extraction plus rendered-page inspection.",
+        "title": "Rank-maximal matchings",
+        "trigger": "Primary source for the exact rank-signature objective used in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21959543-f876-4251-b4b8-ef0f31580be1",
+  "value": {
+    "rationale": "Popularity and rank-maximality are canonical one-sided matching criteria with different normative meanings. The smallest market where rank-maximality can conflict with popularity even though popular matchings exist is a natural boundary. The exact \\(3\\times3\\) census and explicit four-agent witness identify that boundary and quantify the complete preceding finite domain.",
+    "status": "PASS"
+  }
+}
