@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Inclusion--exclusion gives the exact covariance entries and their strict off-diagonal signs. For at least two draws, positive-probability singleton and pair occupancy patterns force every zero-variance linear combination to be zero, proving positive definiteness. Diagonal normalization then writes the matrix as I-B with B nonnegative and spectral radius below one; the Neumann series proves every inverse entry strictly positive. Exact-rational sample-space enumeration and inversion replay the formulas on finite instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Joag-Dev--Proschan list the multinomial distribution among negatively associated families.",
+        "Dubhashi--Ranjan prove negative association and negative regression for empty-bin indicators in the balls-and-bins model.",
+        "Bogachev--Gnedin--Yakubovich express occupied-box variance using the same pairwise covariance cross-term as the present matrix entries."
+      ],
+      "reasoning": "Negative association and the aggregate variance formula cover pairwise signs and sums of covariances, but neither implies invertibility of the entire covariance matrix or an entrywise sign for its inverse. The present claim adds the exact sample-size rank transition and global precision geometry.",
+      "searches": [
+        "DOI:10.1214/aos/1176346079",
+        "DOI:10.7146/brics.v3i25.20006",
+        "arXiv:math/0609498"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1214/aos/1176346079",
+      "DOI:10.7146/brics.v3i25.20006",
+      "arXiv:math/0609498"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Negative association implies nonpositive covariance for disjoint monotone coordinates but does not determine covariance rank or inverse signs.",
+        "The fixed-sample occupied-box variance formula contains the pairwise cross-term only after summation and does not solve the matrix inverse problem.",
+        "Extremal all-distinct results under pairwise or three-wise independence concern different joint laws and do not imply iid multinomial precision geometry."
+      ],
+      "reasoning": "The new conclusion needs two additional ingredients absent from the cited implications: a support-based proof that the covariance is strictly positive definite from sample size two onward, and a matrix argument converting the strict negative off-diagonal pattern into strict inverse positivity.",
+      "searches": [
+        "negative association multinomial occupancy indicators",
+        "empty-bin indicators negative regression",
+        "variance number occupied boxes cross terms",
+        "pairwise independent occupancy all distinct extremal probabilities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned negative-dependence and occupancy-variance sources but no statement of strict inverse positivity for the full occupancy-indicator covariance.",
+        "The exact off-diagonal formula appears in occupied-box variance calculations, while matrix inverse and rank statements were absent from the inspected formulations."
+      ],
+      "reasoning": "The queries cover covariance, precision, inverse covariance, M-matrix/Stieltjes terminology, rank, and partial-correlation aliases. Search failure is not treated as proof of novelty; the result was compared directly with the strongest relevant primary sources.",
+      "searches": [
+        "occupancy indicators multinomial covariance matrix positive definite rank",
+        "multinomial occupancy indicators covariance matrix inverse positive M-matrix",
+        "occupancy indicators negative covariance matrix inverse nonnegative",
+        "inverse covariance empty indicators multinomial",
+        "Stieltjes matrix occupancy covariance",
+        "precision matrix occupancy indicators partial correlations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact covariance-inverse table or formula matching the all-positive precision claim was located.",
+        "The theorem is symbolic for every finite positive probability vector and every integer sample size, rather than a finite enumeration."
+      ],
+      "reasoning": "The matrix theorem is proved uniformly from support geometry and a Neumann series, so it is not a recomputation of a known finite table.",
+      "searches": [
+        "occupied box indicator covariance inverse formula",
+        "empty cell indicator covariance precision matrix",
+        "balls into bins occupancy covariance Stieltjes matrix inverse"
+      ]
+    },
+    "rationale": "The inspected literature establishes multinomial and occupancy negative association and records the pairwise covariance cross-term, but no inspected statement gives the sample-size rank transition, strict positive definiteness of the occupied-indicator covariance, or entrywise positivity of its inverse. The closest sources therefore supply ingredients rather than implying the final matrix theorem.",
+    "residual_risks": [
+      "An older occupancy, categorical-data, survey-sampling, or matrix-analysis source may have noted the same Stieltjes-matrix inverse positivity under different terminology.",
+      "The complete Joag-Dev--Proschan article was not available through the checked machine-readable route, so it remains a specific partial-access comparison risk.",
+      "The inverse-positivity step is elementary once strict positive definiteness is known; originality rests on the combined occupancy covariance theorem, exact rank transition, and precision consequence rather than on a new general matrix lemma."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MULTINOMIAL_NEGATIVE_ASSOCIATION_PARTIAL_ACCESS",
+        "evidence": "The abstract explicitly lists the multinomial distribution as negatively associated and states closure properties of negative association. No whole-document noncoverage claim is made because the full article was not inspected.",
+        "identifier_or_url": "DOI:10.1214/aos/1176346079",
+        "material_read": "Publisher abstract, citation record, publication information, keywords, and primary/secondary MSC metadata; the complete article text was not available through the checked machine-readable route.",
+        "method": "Compared the stated negative-association scope with the stronger matrix-rank and precision claims; used only accessible material for coverage assertions.",
+        "title": "Negative Association of Random Variables with Applications",
+        "trigger": "Earliest primary statistical source found that explicitly includes the multinomial law in the negative-association class and supplies the relevant MSC classification."
+      },
+      {
+        "assessment": "STRONG_NEGATIVE_DEPENDENCE_NOT_PRECISION_MATRIX",
+        "evidence": "The report proves that empty-bin indicators are negatively associated and satisfy negative regression. The inspected results do not state the rank transition or entrywise positivity of the inverse covariance.",
+        "identifier_or_url": "DOI:10.7146/brics.v3i25.20006",
+        "material_read": "Complete open 30-page report with focused inspection of the multinomial balls-and-bins setup, the definition and covariance consequences of negative association, and Section 4.2 including Theorem 46 on empty-bin indicators.",
+        "method": "Compared pairwise covariance implications, occupancy-indicator dependence, and whether covariance rank or precision-matrix signs were derived.",
+        "title": "Balls and Bins: A Study in Negative Dependence",
+        "trigger": "Direct full-text source on the balls-and-bins model, occupancy variables, and empty-bin indicators."
+      },
+      {
+        "assessment": "PAIRWISE_CROSS_TERM_KNOWN_GLOBAL_MATRIX_NOT_STATED",
+        "evidence": "Equation (2.14) contains the term (1-p_i-p_j)^n-(1-p_i)^n(1-p_j)^n and identifies cross-terms as arising from occupancy dependence. The paper studies the scalar variance of the number of occupied boxes rather than covariance rank or precision signs.",
+        "identifier_or_url": "arXiv:math/0609498",
+        "material_read": "Full arXiv HTML with focused inspection of Section 2, the indicator representation of the occupied-box count, and equation (2.14) for fixed-sample variance.",
+        "method": "Compared the cross-term formula and the paper's aggregate variance objective with the full covariance-matrix and inverse problem.",
+        "title": "On the variance of the number of occupied boxes",
+        "trigger": "Primary occupancy source whose fixed-sample variance formula exposes the exact pairwise covariance cross-term."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0606274d-4166-4b3b-9646-0ca49ec89c82",
+  "value": {
+    "rationale": "Occupied- and empty-category indicators are standard objects in species sampling, coupon collection, categorical data, and balls-and-bins models. The covariance inverse governs linear conditioning and generalized least-squares geometry, so its strict sign pattern is substantially stronger than pairwise negative covariance. The exact transition from rank m-1 at one draw to positive definiteness at two draws is a natural structural classification.",
+    "status": "PASS"
+  }
+}
