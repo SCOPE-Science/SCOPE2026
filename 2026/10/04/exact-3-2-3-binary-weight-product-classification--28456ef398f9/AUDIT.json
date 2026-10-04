@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Kaneko--Stoll Theorem 2.2 applies because \\(\\max\\{2,3\\}=3\\), giving \\(ab<2^{-13+4\\cdot2\\cdot3}=2^{11}=2048\\). Odd weight-\\(2\\) and weight-\\(3\\) integers have unique exponent forms \\(1+2^u\\) and \\(1+2^v+2^w\\). The bound restricts all exponents to at most \\(10\\). The packaged verifier checks all \\(119\\) admissible exponent triples and an independent direct integer census, both yielding exactly \\((3,7)\\) and \\((5,7)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaneko--Stoll prove finiteness and an explicit bound for all \\(k=3\\) triples with at least one factor weight at least \\(3\\), but do not enumerate this slice.",
+        "No located broader theorem supplies exact solution sets for all such triples."
+      ],
+      "reasoning": "A broader exact classification for all \\(k=3\\) weight triples would dominate the claim; the inspected primary literature instead stops at an effective bound.",
+      "searches": [
+        "Products of integers with few nonzero digits binary factor weight classification",
+        "binary weight product factors two bits three bits classification",
+        "Hamming weight product odd integers 2 3 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.03077v1",
+      "DOI:10.2478/UDT-2022-0006",
+      "Uniform Distribution Theory 17 (2022), 71-89"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.2 states only \\(ab<2^{-13+4\\ell m}\\) under \\(\\max\\{\\ell,m\\}\\ge3\\).",
+        "The source separately identifies the infinite diagonal family \\(a=b=2^c+1\\) for \\((\\ell,m)=(2,2)\\).",
+        "No statement in the inspected main-results section gives the exact \\((2,3)\\) factor-weight solutions."
+      ],
+      "reasoning": "The new classification is not a restatement of the prior bound: it requires an exhaustive finite resolution of the first asymmetric bounded triple. The prior theorem enables the finite completion but does not state the two-element answer.",
+      "searches": [
+        "Kaneko Stoll Theorem 2.2 s(ab)=3 bound",
+        "Kaneko Stoll k=3 l=m=2 infinite family",
+        "arXiv 2112.03077 Theorem 2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic search returned no published finding about this binary-weight slice; the closest hits concern unrelated binary-weight or arithmetic-function problems.",
+        "Exact web searches returned the Kaneko--Stoll paper itself but no separate theorem classifying the \\((3,2,3)\\) case.",
+        "The primary paper states a global bound for \\(k=3\\) outside the \\((2,2)\\) exception."
+      ],
+      "reasoning": "The searches cover the original notation, the source title and parameter triple, the exact solution pairs, and ordinary binary-weight phrasing.",
+      "searches": [
+        "binary sum of digits s(a)=2 s(b)=3 s(ab)=3 odd integers",
+        "Products of integers with few nonzero digits 3 2 3 exact solutions",
+        "\"s(a)=2\" \"s(b)=3\" \"s(ab)=3\"",
+        "\"2112.03077\" \"3,7\" \"5,7\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected database or table was found that records 21 and 35 as the complete \\((3,2,3)\\) product set.",
+        "The primary paper contains no table presenting this exact two-solution classification."
+      ],
+      "reasoning": "Because the answer is a tiny finite set, exact-table overlap is a material risk; direct searches for both values and the weight conditions did not locate such a table.",
+      "searches": [
+        "\"21\" \"35\" \"Products of integers with few nonzero digits\"",
+        "OEIS binary weight product 21 35",
+        "21 35 factors binary Hamming weight 2 3"
+      ]
+    },
+    "rationale": "The primary paper asks which fixed triples \\((k,\\ell,m)\\) admit solutions, identifies only the exceptional infinite family for \\((3,2,2)\\), and proves a general bound for the remaining \\(k=3\\) cases. It does not state the complete \\((3,2,3)\\) solution set. Targeted semantic and web searches for the exact weight system, the pair set, and equivalent binary-weight terminology found no covering statement.",
+    "residual_risks": [
+      "An unindexed note, exercise, or computation may contain the same two-solution classification.",
+      "The result is intentionally a narrow exact slice and does not solve the broader fixed-triple existence problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves a global bound for the present parameter regime but does not state the exact (3,2,3) solution set.",
+        "evidence": "The introduction says it is unclear for which triples solutions exist. The main-results section identifies the (3,2,2) infinite family and gives Theorem 2.2 for every k=3 case with a factor weight at least 3.",
+        "identifier_or_url": "arXiv:2112.03077v1",
+        "material_read": "ArXiv metadata; full-text abstract and introduction; main-results section; Theorem 2.2 statement; proof of Theorem 2.2 through its concluding case.",
+        "method": "Open-access full-text HTML/text inspection.",
+        "title": "Products of integers with few nonzero digits",
+        "trigger": "Primary source defining the fixed binary-weight product system and proving the decisive k=3 bound."
+      },
+      {
+        "assessment": "The published record matches the arXiv scope and does not advertise an exact small-parameter table.",
+        "evidence": "The abstract states only the general k=2,3 bounds and the k=4 minimum-factor bound.",
+        "identifier_or_url": "DOI:10.2478/UDT-2022-0006",
+        "material_read": "Journal abstract, publication metadata, keywords, and bibliographic record.",
+        "method": "Open-access journal metadata inspection.",
+        "title": "Products of Integers with Few Nonzero Digits",
+        "trigger": "Published-version scope and bibliographic cross-check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28456ef3-98f9-4598-804f-04a44388398a",
+  "value": {
+    "rationale": "The source explicitly frames exact existence by fixed weight triple as a natural problem. The case \\((3,2,3)\\) is the first asymmetric instance immediately beyond the exceptional infinite \\((3,2,2)\\) family, so its complete resolution gives a natural boundary datum for the source's program. The finite census is globally exhaustive because of the source theorem, not an arbitrary numerical cutoff.",
+    "status": "PASS"
+  }
+}
