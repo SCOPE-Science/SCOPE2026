@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The equicorrelation inverse and both condition-number formulas were reconstructed symbolically. The Gaussian-sign covariance follows from the classical arcsine identity. The fixed-K monotonicity follows from an explicit derivative that is strictly positive. Any common sub-Gaussian variance proxy dominates the covariance spectral radius, while the cited Gaussian sign concentration theorem gives the matching-order upper bound. The claim states the exact domain and does not identify finite computation with proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roth proves the broader Gaussian Hamming-Lipschitz upper bound with parameter kappa_star.",
+        "Zou--Vershynin prove a broader bounded-differences upper bound with ordinary condition number.",
+        "The broader theorems do not provide a nonsingular lower family or the fixed-kappa_star equicorrelation optimization."
+      ],
+      "reasoning": "The final claim is not presented as a new upper inequality; it is a sharpness and extremal calculation inside a canonical covariance family. The broad upper results therefore do not imply the exact monotonic formula or the pi/2 calibration.",
+      "searches": [
+        "equicorrelated Gaussian sign vector subgaussian norm condition number sharp sqrt kappa",
+        "Gaussian Hamming-Lipschitz concentration kappa star sign lower bound equicorrelation",
+        "McDiarmid dependence Gaussian kappa star sign sub-Gaussian sharpness",
+        "arXiv:2606.12720v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.27563v1",
+      "arXiv:2606.12720v1",
+      "arXiv:1502.07641v3",
+      "arXiv:1305.6916v4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zou--Vershynin use a singular rank-one Gaussian example to demonstrate necessity of conditioning dependence.",
+        "Roth supplies the kappa_star upper proxy for Gaussian sign output.",
+        "The present family is nonsingular for every finite n, has kappa_star exactly K, ordinary condition number tending to K, and pairwise correlation tending to zero while the sign-covariance obstruction remains of order K."
+      ],
+      "reasoning": "The prior upper inequalities plus their stated examples do not imply that diffuse weakly correlated nonsingular Gaussians already force order-K sign variance, nor that the equicorrelation obstruction increases with dimension at fixed kappa_star. Those are the new implication-level facts.",
+      "searches": [
+        "Zou Vershynin quantized linear maps sharpness condition number",
+        "Roth McDiarmid Gaussian kappa star sharp sign concentration",
+        "Gaussian sign vector lower bound sqrt condition number nonsingular equicorrelation",
+        "arXiv:2605.27563v1",
+        "arXiv:2606.12720v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Han--Liu Theorem 4.8 treats compound-symmetric Gaussian signs under a fixed correlation cap.",
+        "Barber--Kolar Lemma 4.5 gives a condition-number upper bound for centered Gaussian signs.",
+        "Neither inspected source defines the 2026 coordinate parameter kappa_star or optimizes sign covariance at fixed kappa_star."
+      ],
+      "reasoning": "The closest equivalent language is sign-sub-Gaussian concentration for compound-symmetric or general Gaussian vectors. Those statements are upper bounds. The new statement fixes kappa_star exactly, derives the associated correlation, and proves strict dimension monotonicity plus the diffuse-limit extremal value.",
+      "searches": [
+        "equicorrelated Gaussian sign sharp kappa star Hamming Lipschitz concentration",
+        "precision standardized covariance equicorrelation sign arcsine sharp concentration",
+        "arXiv:1305.6916v4",
+        "arXiv:1502.07641v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record searches returned Gaussian-magnitude, Gaussian-chaos, and correlation-compatibility results but no record giving the displayed L_{K,n} extremal law.",
+        "The formula is derived from the covariance matrix and arcsine identity rather than read from a numerical table."
+      ],
+      "reasoning": "No exact database or tabulation located in the focused searches states the fixed-kappa_star sequence, its strict monotonicity in dimension, or its diffuse supremum.",
+      "searches": [
+        "fixed kappa star equicorrelation Gaussian sign covariance extremal dimension",
+        "diffuse equicorrelation worst sign variance fixed coordinate condition number",
+        "Gaussian sign covariance spectral norm equicorrelation arcsine kappa star"
+      ]
+    },
+    "rationale": "Focused searches and full-text inspection of the motivating 2026 upper bounds, Barber--Kolar, and the Han--Liu compound-symmetric sign result found no statement of the exact fixed-kappa_star calibration, its strict dimension extremum, or the resulting nonsingular vanishing-correlation sharpness family.",
+    "residual_risks": [
+      "An equivalent extremal observation could exist in older Gaussian-sign literature under different terminology despite the focused searches.",
+      "The exact optimal sub-Gaussian variance proxy is not identified; only its covariance lower bound and published kappa_star upper bound are used."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the broad upper theorem and a singular necessity example, but not the nonsingular equicorrelation sharpness theorem here.",
+        "evidence": "Theorem 2 gives a Gaussian bounded-differences estimate proportional to the square root of the covariance condition number; the sharpness discussion uses a rank-one covariance.",
+        "identifier_or_url": "arXiv:2605.27563v1",
+        "material_read": "Abstract, main theorem, sign-map corollary, and sharpness discussion in the full preprint.",
+        "method": "Full-text inspection of theorem statements, proof context, and the rank-one counterexample.",
+        "title": "On the Subgaussianity of Quantized Linear Maps",
+        "trigger": "Motivating recent primary-MSC source and ordinary-condition-number upper bound."
+      },
+      {
+        "assessment": "Supplies the kappa_star upper proxy but no lower extremizer or fixed-kappa_star equicorrelation optimization.",
+        "evidence": "The inspected Gaussian section defines kappa_star as the top eigenvalue of D^{1/2} Sigma D^{1/2} and applies it to sign vectors.",
+        "identifier_or_url": "arXiv:2606.12720v1",
+        "material_read": "Gaussian approximate-tensorization section, Hamming-Lipschitz corollary, sign-vector example, and comparison to the ordinary condition number.",
+        "method": "Full-text inspection of the relevant displayed definitions and corollaries.",
+        "title": "A McDiarmid-Type Inequality for Dependent Random Variables",
+        "trigger": "Closest stronger 2026 upper theorem using the coordinate condition number."
+      },
+      {
+        "assessment": "Gives a condition-number upper bound for centered Gaussian signs but not the present exact extremal calculation.",
+        "evidence": "Lemma 4.5 states a condition-number-sub-Gaussian property for centered Gaussian sign vectors.",
+        "identifier_or_url": "arXiv:1502.07641v3",
+        "material_read": "The Gaussian sign concentration lemma and surrounding discussion.",
+        "method": "Targeted full-text inspection.",
+        "title": "ROCKET: Robust Confidence Intervals via Kendall's Tau for Transelliptical Graphical Models",
+        "trigger": "Older Gaussian-sign concentration result surfaced by literature comparison."
+      },
+      {
+        "assessment": "Covers an upper sign-sub-Gaussian property for compound symmetry under a correlation cap, not fixed-kappa_star optimization or sharpness.",
+        "evidence": "Theorem 4.8 treats compound-symmetric covariance matrices with bounded positive correlation.",
+        "identifier_or_url": "arXiv:1305.6916v4",
+        "material_read": "Definition of sign-sub-Gaussianity, compound-symmetric theorem, and relevant proof discussion.",
+        "method": "Targeted full-text inspection.",
+        "title": "Statistical Analysis of Latent Generalized Correlation Matrix Estimation in Transelliptical Distribution",
+        "trigger": "Closest older treatment of compound-symmetric Gaussian signs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c80c799c-ea59-4753-b309-b5d48444f44b",
+  "value": {
+    "rationale": "The finding answers a natural sharpness question created by the recent Gaussian concentration bounds: it replaces a singular fully correlated obstruction by an explicit nonsingular family with vanishing pairwise correlations, identifies the exact fixed-kappa_star extremal behavior within the canonical positive-equicorrelation model, and quantifies the remaining gap to the upper proxy. This is a structural boundary fact rather than a parameter substitution or table recomputation.",
+    "status": "PASS"
+  }
+}
