@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The first-force argument is exact: before the first force a black vertex in V_i has W-w_i white neighbors; after it clears the complement, precisely w_i whites remain in V_i, which are forceable iff w_i<=k. This proves the all-set criterion in both directions. Maximizing the two white capacities proves F_k=N-max_i(min(k,n_i-1)+min(k,N-n_i)). At minimum size, witness i is equivalent to w_i=a_i for maximizing i, so ordinary inclusion-exclusion gives the stated minimum-set count. A literal dynamics verifier agrees on 694,928 initial-set checks across all ordered positive multipartite profiles through order 9 for k<=4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 k-forcing-automata paper treats complete bipartite graphs and minimum-set behavior, not complete multipartite graphs with an arbitrary number of parts.",
+        "Connected and oriented k-forcing impose additional constraints; q-zero forcing is a different parameter and therefore does not dominate the retained standard-k-forcing statement."
+      ],
+      "reasoning": "A theorem restricted to two parts cannot imply the r-part structural criterion for r>=3. Results for rule variants are not broader coverage because their feasible sets are defined differently.",
+      "searches": [
+        "complete bipartite k-forcing number formula n minus 2k",
+        "Recognizable Languages of k-Forcing Automata complete bipartite Theorem 9 Theorem 10",
+        "connected k-forcing complete multipartite",
+        "oriented k-forcing complete multipartite",
+        "q-zero forcing complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.6206v1",
+      "arXiv:1801.08910v1",
+      "DOI:10.3390/mca29030032",
+      "published record 2026/9/30/SCOPE-complete-multipartite-dual-general-position-sets-and-exact-varia--9f3385084f7b",
+      "published record 2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9",
+      "published record 2026/9/30/SCOPE-all-distance-equalizer-sets-of-complete-multipartite-graphs--f6310956a036",
+      "published record 2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd",
+      "published record 2026/9/17/SCOPE002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyer et al. imply the retained theorem only on the k=1, all-parts-at-least-two slice; that slice is not claimed as new.",
+        "The 2024 complete-bipartite theorems overlap the r=2 minimum-size behavior but do not state or imply the arbitrary-r all-set classification or overlap-corrected minimum-set count.",
+        "General upper bounds in the foundational paper do not imply equality for complete multipartite graphs."
+      ],
+      "reasoning": "After subtracting covered special cases, the retained implication content is the arbitrary-k arbitrary-part complete-multipartite characterization, its exact F_k formula for all part profiles including singleton parts, and the exact count of minimum sets.",
+      "searches": [
+        "arXiv:1801.08910v1 complete multipartite Proposition 4",
+        "DOI:10.3390/mca29030032 Theorems 9-11 complete bipartite",
+        "arXiv:1401.6206v1 general upper bounds k-forcing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Amos--Caro--Davila--Pepper define standard k-forcing and give general bounds; the inspected full text has no arbitrary multipartite theorem and uses K_{3,3} only as an example.",
+        "Boyer et al., Proposition 4, gives the exact ordinary zero-forcing polynomial of K_{a_1,...,a_r} when every part size is at least two, hence covers the k=1 slice only.",
+        "Published semantic records returned no same-claim complete-multipartite k-forcing result."
+      ],
+      "reasoning": "Ordinary zero forcing is the k=1 specialization, so its exact complete-multipartite formula is acknowledged as covered. The arbitrary-k witness criterion is not equivalent to that specialization because its feasible white profiles vary with k and part capacities.",
+      "searches": [
+        "complete multipartite graph k-forcing number all k-forcing sets",
+        "multipartite generalized zero forcing sets k forcing",
+        "all k-forcing sets complete multipartite generating polynomial",
+        "arXiv:1401.6206v1 full-text search: multipartite; complete bipartite",
+        "arXiv:1801.08910v1 Proposition 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records included complete-multipartite results for dual general position, doubly resolving sets, distance equalizers, and outer multiset dimension, none of which is a k-forcing table or theorem.",
+        "The closest forcing-related record was a zero-forcing-polynomial result for trees, not a complete-multipartite k-forcing classification."
+      ],
+      "reasoning": "No database/table hit supplied the claimed arbitrary-k criterion, exact formula, or minimum-set count. This negative search is supporting evidence only, not by itself a novelty proof.",
+      "searches": [
+        "published-record query: complete multipartite graph k-forcing number all k-forcing sets",
+        "published-record query: complete bipartite k-forcing number formula n minus 2k",
+        "published-record query: multipartite generalized zero forcing sets k forcing",
+        "published-record query: all k-forcing sets complete multipartite generating polynomial"
+      ]
+    },
+    "rationale": "The retained statement is not the known k=1 complete-multipartite result. It classifies standard k-forcing sets for arbitrary k and arbitrary complete multipartite graphs, derives the exact minimum, and counts minimum sets with overlap among maximizing witness parts. Direct full-text and semantic comparisons found only the ordinary zero-forcing multipartite special case and k-forcing complete-bipartite special cases.",
+    "residual_risks": [
+      "An older paper, thesis, or proceedings article indexed only under generalized forcing or propagation terminology could contain an equivalent arbitrary-multipartite theorem.",
+      "The 2024 complete-bipartite paper overlaps some scalar r=2 cases; the originality claim therefore excludes any result implied solely by that special case and rests on arbitrary-r structure and exact counting.",
+      "Database non-hits are not treated as proof of novelty; the PASS judgment depends on the direct implication comparisons with the strongest located same-parameter sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines standard k-forcing and gives general bounds; no arbitrary complete-multipartite characterization located.",
+        "evidence": "First public arXiv version is dated 2014-01-23; the inspected paper is 15 pages and its searchable text contains no multipartite theorem.",
+        "identifier_or_url": "arXiv:1401.6206v1; DOI:10.1016/j.dam.2014.08.029",
+        "material_read": "Abstract, definition/introduction, complete-graph material, K_{3,3} example, family-results section, and full-text term searches for multipartite terminology.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Upper bounds on the k-forcing number of a graph",
+        "trigger": "Foundational source for the exact propagation rule and the natural place to check family-specific exact results."
+      },
+      {
+        "assessment": "Directly covers the ordinary k=1 complete-multipartite polynomial when all parts have size at least two; does not address k>1.",
+        "evidence": "Proposition 4 states Z(K_{a_1,...,a_r};x)=(sum_{i<j} a_i a_j)x^{N-2}+Nx^{N-1}+x^N for all a_i>=2.",
+        "identifier_or_url": "arXiv:1801.08910v1; DOI:10.1016/j.dam.2018.11.033",
+        "material_read": "Definition of the zero-forcing polynomial, complete-multipartite notation, Section 4, and Proposition 4 with proof.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Same graph family and the k=1 specialization could cover part of the proposed claim."
+      },
+      {
+        "assessment": "Treats complete bipartite k-forcing behavior and automata languages; does not supply arbitrary complete multipartite all-set classification or the retained count formula.",
+        "evidence": "Theorems 9-11 are explicitly formulated for a complete X-Y bipartite graph.",
+        "identifier_or_url": "DOI:10.3390/mca29030032",
+        "material_read": "Definition 2 and Section 6, especially Theorems 9-11 and their proofs as available in indexed full text.",
+        "method": "Publisher-indexed full-text inspection.",
+        "title": "Recognizable Languages of k-Forcing Automata",
+        "trigger": "Search surfaced explicit k-forcing results for complete bipartite graphs, a potentially strong r=2 overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21dd3de5-5bd1-47eb-ae5a-dfa8d823129a",
+  "value": {
+    "rationale": "The object and invariant are standard and motivated: complete multipartite graphs are a canonical dense class, and k-forcing is a standard propagation generalization of zero forcing. The theorem is structural rather than a routine numeric recomputation: it characterizes every feasible initial set, gives a closed exact minimum for all part profiles, and counts all minimum sets while correcting overlaps between multiple maximizing witness parts. It properly contains known k=1 and r=2 regimes without claiming their already-covered content.",
+    "status": "PASS"
+  }
+}
