@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The BPG first-order condition reduces exactly to a scalar dual recursion on the invariant ray. Positive B-adaPG steps imply monotonicity, the primary-source objective-infimum theorem forces the boundary limit, and elementary telescoping plus asymptotics give the cumulative-step laws. No finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2508.01353 Theorem 2.7 gives only an infimum equality in the present boundary case unless stronger assumptions hold.",
+        "arXiv:2608.05536 abstract announces broad iterate convergence results for standard Bregman proximal methods, but full text was unavailable in this check."
+      ],
+      "reasoning": "No inspected source was found to dominate the claim for B-adaPG with its adaptive generated steps on this kernel. The inaccessible full text of arXiv:2608.05536 remains a stated residual risk rather than being treated as negative evidence.",
+      "searches": [
+        "published-finding corpus: nonseparable Hellinger kernel adaptive proximal gradient full sequence convergence",
+        "arXiv:2608.05536 abstract: unified iterate convergence framework for Bregman proximal methods"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.01353v2 full text",
+      "arXiv:2211.08043 full text",
+      "arXiv:2608.05536 abstract",
+      "published-finding corpus semantic database"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper explicitly says the kernel violates Assumption 2.4 in dimensions at least two and presents Section 5.6 as proof-of-concept numerical evidence.",
+        "Azizian et al. derive Hellinger boundary rates and cumulative-step bounds under their BPM framework; their generic BPM definition uses a non-increasing step sequence and their main local theorem imposes step conditions, while the motivating Hellinger calculations are one-dimensional."
+      ],
+      "reasoning": "The older work explains the broad Hellinger boundary-rate mechanism and is therefore credited. It does not imply the source-specific fact that B-adaPG’s own adaptive step mass must diverge on this invariant ray, nor the exact leading constants obtained from combining the B-adaPG infimum theorem with the scalar dual recursion.",
+      "searches": [
+        "Full-text comparison: arXiv:2508.01353 Example 2.5, Theorem 2.7, Section 5.6",
+        "Full-text comparison: arXiv:2211.08043 Examples 4–5, Theorem 1, Remark 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated B-adaPG convergence on the nonseparable Hellinger-ball invariant ray or the exact dual/cumulative-step law.",
+        "arXiv:2211.08043 gives Hellinger boundary-rate theory for Bregman proximal methods, including one-dimensional examples."
+      ],
+      "reasoning": "The scalar dual coordinate is a natural Hellinger formulation, but the exact B-adaPG corollary also proves automatic divergence of its endogenous cumulative step mass; the older Hellinger analysis does not state this method-specific conclusion.",
+      "searches": [
+        "published-finding corpus: Hellinger B-adaPG cumulative stepsize inverse square boundary convergence",
+        "published-finding corpus: adaptive Bregman proximal gradient Hellinger ball invariant ray boundary exact asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concern AdOGD endpoint persistence, deterministic gradient-mapping accumulation, and generic Euclidean step frontiers; none records this Hellinger/B-adaPG statement.",
+        "arXiv:2508.01353 Section 5.6 reports numerical boundary-active experiments but no table or theorem with the exact invariant-ray constants."
+      ],
+      "reasoning": "The exact statement and constants were not found in published-finding corpus or the source paper’s numerical section.",
+      "searches": [
+        "published-finding corpus: B-adaPG unit ball boundary radial kernel collinear convergence Hellinger",
+        "published-finding corpus: Hellinger kernel unit ball proximal gradient boundary solution"
+      ]
+    },
+    "rationale": "The primary source does not state the invariant-ray theorem; older Hellinger-rate theory covers the general geometric mechanism but not the B-adaPG-specific automatic divergence of generated cumulative step mass or the exact constants under unrestricted adaptive steps.",
+    "residual_risks": [
+      "Full text of arXiv:2608.05536 was unavailable during this check, so a stronger recent implication could have been missed.",
+      "The exact cumulative-step constants may be derivable as a special corollary of older Hellinger mirror-descent asymptotics, although no inspected source states the B-adaPG corollary or automatic step-mass divergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the method, failure of Assumption 2.4 for the kernel in dimensions at least two, the unconditional objective-infimum equality, and numerical boundary-active experiments; does not state the invariant-ray convergence or exact cumulative-step asymptotic.",
+        "evidence": [
+          "arXiv submission history gives v1 date 2025-08-02 and MSC 65K05 first.",
+          "Example 2.5 gives the kernel and failure of Assumption 2.4 for n>=2.",
+          "Theorem 2.7 gives inf_k objective(x^k)=inf objective under Assumption 2.1.",
+          "Section 5.6 uses the same kernel for boundary-active least squares as a proof of concept."
+        ],
+        "identifier_or_url": "arXiv:2508.01353v2",
+        "material_read": "Full arXiv text around Assumption 2.1, Example 2.5, the Bregman proximal-gradient update, Theorem 2.7, and Section 5.6; relevant PDF pages were visually inspected.",
+        "method": "Direct full-text inspection and statement-level comparison.",
+        "title": "Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness",
+        "trigger": "Primary recent source defining B-adaPG and explicitly studying the same nonseparable Hellinger-ball kernel."
+      },
+      {
+        "assessment": "Covers Hellinger boundary geometry and polynomial-rate behavior, including variable-step cumulative-sum bounds under its theorem conditions. It does not state the B-adaPG-specific automatic step-mass divergence or the exact invariant-ray constants claimed here.",
+        "evidence": [
+          "The BPM definition uses positive non-increasing steps.",
+          "Motivating Hellinger calculations use constant steps in one dimension.",
+          "Remark 3 allows variable steps satisfying the theorem step conditions and uses cumulative step sums.",
+          "Example 5 documents non-compatible Hellinger topology in dimensions at least two."
+        ],
+        "identifier_or_url": "arXiv:2211.08043",
+        "material_read": "Full arXiv text around the BPM recursion and step assumptions, Hellinger Examples 4–5, Theorem 1, and Remark 3; relevant PDF pages were visually inspected.",
+        "method": "Direct full-text implication comparison.",
+        "title": "The Rate of Convergence of Bregman Proximal Methods: Local Geometry Versus Regularity Versus Sharpness",
+        "trigger": "Highly relevant prior work on Hellinger Bregman geometry and boundary convergence rates."
+      },
+      {
+        "assessment": "The abstract announces broad convergence results for standard Bregman proximal methods. Because full text was unavailable, possible implication of the special B-adaPG claim remains a residual risk.",
+        "evidence": [
+          "arXiv abstract dated 2026-08-06 states a unified framework for standard BPMs and broad kernels."
+        ],
+        "identifier_or_url": "arXiv:2608.05536",
+        "material_read": "arXiv abstract and metadata only; direct full-PDF retrieval was unavailable during this check.",
+        "method": "Abstract-level screening only, explicitly not used to establish non-coverage.",
+        "title": "A Unified Framework for Iterate Convergence of Bregman Proximal Methods",
+        "trigger": "Recent broad iterate-convergence paper that could potentially dominate a boundary-convergence claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6eb2c5b9-c996-47e4-a8ee-9b3278c6b964",
+  "value": {
+    "rationale": "The source paper explicitly treats boundary-active least squares with kernels outside its Bregman-zone assumption as a proof-of-concept regime. The result supplies an analytic solvable benchmark there, proving convergence and non-stalling of endogenous step mass with exact leading asymptotics.",
+    "status": "PASS"
+  }
+}
