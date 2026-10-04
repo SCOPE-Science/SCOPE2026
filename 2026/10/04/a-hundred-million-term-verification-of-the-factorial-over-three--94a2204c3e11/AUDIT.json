@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The divisibility test is reduced exactly to prime-valuation inequalities. The packaged program maintains the full exponent vectors under every successive factorial update and tests all 99,999,998 integers in the claimed interval. Initialization, transition invariants, storage bounds, and selected direct recomputations were checked; the packaged replay returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zelinsky Theorem 51 proves eventual p-adic divisibility for each fixed prime p, not one threshold valid simultaneously for all primes.",
+        "The same paper explicitly labels the all-n factorial statement a conjecture."
+      ],
+      "reasoning": "A family of prime-dependent eventual statements does not entail the exhaustive global interval claim without a uniform bound; no such bound is supplied in the inspected source.",
+      "searches": [
+        "Colton conjecture n factorial over 3 tau number refactorable",
+        "Conjecture 47 tau numbers factorial divided by 3",
+        "JIS 5 2002 Zelinsky Theorem 51 factorial tau number"
+      ]
+    },
+    "checked_sources": [
+      "JIS 5 (2002), Article 02.2.8",
+      "JIS 2 (1999), Article 99.1.2",
+      "OEIS:A033950",
+      "published-finding corpus ID 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "JIS 5 (2002), Article 02.2.8: the all-n factorial assertion is stated as conjectural.",
+        "Closest published-finding corpus ID 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00 concerns tau divisibility relative to cyclotomic polynomials, not factorial quotients."
+      ],
+      "reasoning": "The finite cutoff is not a corollary of the inspected source’s fixed-prime theorem and is not covered by the closest database claim on a different relative-tau object.",
+      "searches": [
+        "Colton conjecture n factorial over 3 tau number refactorable",
+        "\"n!/3\" \"tau number\"",
+        "published-finding corpus: Conjecture 47 tau numbers factorial divided by 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zelinsky, JIS 5 (2002), Article 02.2.8, Conjecture 47 discussion: the factorial-over-three assertion remains conjectural.",
+        "No inspected exact-phrase result states a finite verification through 10^8."
+      ],
+      "reasoning": "Tau number and refactorable number are the relevant aliases. Searches under both formulations did not locate an equal or stronger finite cutoff.",
+      "searches": [
+        "\"n!/3\" \"tau number\"",
+        "\"n!/3\" refactorable",
+        "\"n factorial\" \"refactorable number\"",
+        "factorial \"tau number\" refactorable Colton Zelinsky"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected OEIS A033950 entry defines and tabulates refactorable numbers but contains no occurrence of “factorial”.",
+        "Colton’s 1999 distribution table concerns refactorable numbers by magnitude, not values of n for which n!/3 is refactorable."
+      ],
+      "reasoning": "Neither the central sequence database entry nor the foundational computational table records the claimed factorial-over-three cutoff.",
+      "searches": [
+        "OEIS A033950 factorial",
+        "OEIS A033950 refactorable factorial",
+        "refactorable factorial computational cutoff"
+      ]
+    },
+    "rationale": "The 2002 primary source states the factorial-over-three assertion as a conjecture and its fixed-prime theorem does not imply a uniform cutoff. Exact-phrase, alias, database, and published-finding corpus searches located no prior cutoff through one hundred million. The closest located tau-number published-finding corpus item concerns a different polynomial-relative problem. Residual risk is an unindexed computation.",
+    "residual_risks": [
+      "A computation reported only in an unindexed source, private correspondence, or unavailable code may have reached the same or a larger cutoff.",
+      "The finite verification does not resolve the infinite conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PRIOR CONTEXT, NOT COVERING THE CUTOFF. It leaves the factorial assertion conjectural and gives no simultaneous cutoff.",
+        "evidence": "The paper states that Colton conjectured \\(n!/3\\) is a tau number for \\(n>2\\); Theorem 51 treats each fixed prime eventually; publication line gives 2002-12-16 and primary MSC 11B05.",
+        "identifier_or_url": "JIS 5 (2002), Article 02.2.8; https://cs.uwaterloo.ca/journals/JIS/VOL5/Zelinsky/zelinsky9.pdf",
+        "material_read": "Full text with focused inspection of the factorial discussion, valuation criterion, Theorem 51, generalizations, bibliography, publication date, and MSC lines.",
+        "method": "Full-text extraction plus page-level visual inspection of the PDF.",
+        "title": "Tau Numbers: A Partial Proof of a Conjecture and Other Results",
+        "trigger": "Primary source explicitly records the factorial-over-three conjecture."
+      },
+      {
+        "assessment": "BACKGROUND, NOT COVERING. It develops refactorable numbers but the inspected public article has no factorial discussion.",
+        "evidence": "The article defines refactorable numbers by tau(n)|n and its searchable text has no “factorial” occurrence.",
+        "identifier_or_url": "JIS 2 (1999), Article 99.1.2; https://cs.uwaterloo.ca/journals/JIS/colton/joisol.html",
+        "material_read": "Definition, membership theorems, distribution table, and searchable full HTML including a factorial-text check.",
+        "method": "Full HTML inspection and text search.",
+        "title": "Refactorable Numbers — A Machine Invention",
+        "trigger": "Foundational public article on the same predicate and attribution source."
+      },
+      {
+        "assessment": "DATABASE NOT COVERING THE CUTOFF.",
+        "evidence": "The inspected entry contains no “factorial” occurrence and no factorial-over-three verification range.",
+        "identifier_or_url": "OEIS:A033950; https://oeis.org/A033950",
+        "material_read": "Comments, references, links, programs, cross-references, and factorial-text search.",
+        "method": "Current entry inspection and exact text search.",
+        "title": "OEIS A033950 — Refactorable numbers",
+        "trigger": "Exact database/table check for the central sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "94a2204c-3e11-4085-ade7-a7eee5d7b8fc",
+  "value": {
+    "rationale": "This is a large exact finite verification of a published natural conjecture about refactorable factorial quotients. The interval is contiguous and motivated by the conjecture itself, not an arbitrary slice; the exact cutoff supplies a reproducible boundary for future proof or counterexample work.",
+    "status": "PASS"
+  }
+}
