@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Bias correction makes the exact first LAMB direction \\(r_i=(Hx)_i/(|(Hx)_i|+\\varepsilon)\\). A self-contained spectral-moment argument proves \\(\\cos\\angle(x,Hx)\\ge2\\sqrt{\\kappa}/(\\kappa+1)\\). A coordinate-quadrant lemma proves that \\(x^\\top r\\le0\\) would force \\(\\angle(x,Hx)>\\pi/4\\). The threshold \\(\\kappa=3+2\\sqrt2\\) follows exactly, and a rotated endpoint-spectrum family proves sharpness for every fixed positive \\(\\varepsilon\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The LAMB paper proves convergence rates under bounded scaling and stochastic assumptions.",
+        "The LAMBC paper addresses large trust-ratio magnitudes empirically through clipping.",
+        "The LAMB paper notes the sign-method reduction when both moment coefficients vanish."
+      ],
+      "reasoning": "Global convergence theorems under their own step schedules do not imply one-step Euclidean distance monotonicity. Magnitude clipping also does not imply directional safety, because a positive multiple of an obtuse direction still moves farther from the minimizer.",
+      "searches": [
+        "LAMB nonconvex convergence theorem layerwise normalization",
+        "LAMBC trust ratio clipping instability extreme update",
+        "signSGD quadratic convergence SPD"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.00962v1",
+      "arXiv:2011.13584v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source specifies bias-corrected Adam moments and a layer-normalized update.",
+        "The same source states the sign-method reduction in the zero-moment-coefficient limit.",
+        "LAMBC explicitly targets trust-ratio magnitude instability through clipping."
+      ],
+      "reasoning": "Those premises do not imply a conditioning threshold for the direction itself. The final claim distinguishes a directional obstruction from the magnitude instability targeted by trust-ratio clipping.",
+      "searches": [
+        "LAMB Algorithm 2 mhat vhat ratio epsilon layerwise norm",
+        "LAMB beta1 beta2 zero sign SGD scaled by square root layer dimension",
+        "LAMBC clipping trust ratio prevents exploding update"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1904.00962v1/v5, LAMB Algorithm 2 and general layerwise normalization strategy",
+        "arXiv:2011.13584v1, LAMBC trust-ratio clipping rule and instability motivation",
+        "Targeted published-record searches for sign-preconditioned SPD angle thresholds and quadratic LAMB stability"
+      ],
+      "reasoning": "Equivalent formulations include a sharp condition on the angle between a parameter vector and its first Adam-preconditioned direction, a condition-number threshold for positive-step distance expansion, and an impossibility of repairing that direction by positive scalar trust-ratio clipping. No inspected source states these equivalent forms.",
+      "searches": [
+        "LAMB first step scalar quadratic layerwise trust ratio Adam sign preconditioner stability",
+        "LAMB SPD quadratic counterexample first step norm increase",
+        "Layer-wise Adaptive Moments first step sign gradient quadratic instability",
+        "LAMB trust ratio normalized Adam direction quadratic convergence",
+        "LAMB quadratic stability signSGD trust ratio clipping first step SPD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published findings concerned sharp SPD objective frontiers for other methods, stagewise Richardson safety, and unrelated adaptive-step counterexamples.",
+        "No LAMB-specific published record returned the threshold \\(3+2\\sqrt2\\) or an obtuse first-step construction."
+      ],
+      "reasoning": "The closest records analyze different update maps and do not use Adam coordinate saturation followed by a layerwise scalar normalization. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "LAMB first step scalar quadratic layerwise trust ratio Adam sign preconditioner stability",
+        "LAMB SPD quadratic counterexample first step norm increase",
+        "Layer-wise Adaptive Moments first step sign gradient quadratic instability",
+        "LAMB trust ratio normalized Adam direction quadratic convergence",
+        "LAMB quadratic stability signSGD trust ratio clipping first step SPD"
+      ]
+    },
+    "rationale": "The defining LAMB paper gives the exact layer-normalized Adam direction and convergence analysis, while LAMBC clips trust-ratio magnitudes to address extreme updates. Neither inspected source states a conditioning threshold for an obtuse first LAMB direction, an all-positive-step Euclidean expansion result, or the rotated sharpness construction.",
+    "residual_risks": [
+      "An equivalent two-dimensional angle observation may exist in unindexed analyses of sign-preconditioned methods.",
+      "The theorem is about parameter-distance geometry rather than objective increase.",
+      "The sharpness construction exploits coordinate orientation, reflecting the coordinate dependence of diagonal adaptive preconditioning."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_DIRECTIONAL_THRESHOLD.",
+        "evidence": "The source defines the exact update ingredients used in the proof and gives global convergence analysis, but it does not state an SPD turning-angle threshold or a first-step Euclidean expansion counterexample.",
+        "identifier_or_url": "arXiv:1904.00962v1",
+        "material_read": "Open-access full paper around the general strategy, Algorithm 2, the discussion of layerwise normalization, the sign-method reduction, convergence theorem, experimental moment settings, and epsilon defaults.",
+        "method": "Full-text PDF inspection with targeted formula searches.",
+        "title": "Large Batch Optimization for Deep Learning: Training BERT in 76 minutes",
+        "trigger": "Defining LAMB source and source of the exact normalization and Adam-preconditioned direction."
+      },
+      {
+        "assessment": "MAGNITUDE_CLIPPING_WORK_NOT_COVERING_DIRECTIONAL_OBSTRUCTION.",
+        "evidence": "The paper clips trust-ratio magnitudes to control large updates and reports empirical benefits, but contains no quadratic directional theorem and no condition-number threshold.",
+        "identifier_or_url": "arXiv:2011.13584v1",
+        "material_read": "Full paper around the LAMB recap, trust-ratio clipping rule, instability motivation, experiments, and discussion of clipping bounds.",
+        "method": "Full-text PDF inspection with targeted searches for quadratic and sign-based analysis.",
+        "title": "Improving Layer-wise Adaptive Rate Methods using Trust Ratio Clipping",
+        "trigger": "Closest later work explicitly addressing LAMB instability through trust-ratio control."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "00498ba4-52dc-44ce-b05a-33508767e1cd",
+  "value": {
+    "rationale": "LAMB's defining mechanism combines coordinatewise Adam preconditioning with layerwise norm control, and later work explicitly targets instability of its trust ratio. The theorem isolates a different, irreducibly directional failure mode with an exact condition-number threshold: beyond \\(3+2\\sqrt2\\), positive scalar control of the layer step cannot prevent first-step distance growth on some SPD problems. This gives a concrete boundary between magnitude stabilization and directional stabilization.",
+    "status": "PASS"
+  }
+}
