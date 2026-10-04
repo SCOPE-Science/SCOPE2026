@@ -1,0 +1,133 @@
+{
+  "claim": "Let \\(A=\\{a_0,a_1,a_2\\}\\subset\\mathbb Z_N\\) have three distinct elements. Put \\(h=\\gcd(N,a_1-a_0,a_2-a_0)\\), \\(n=N/h\\), and \\(A^\\ast=\\{(a-a_0)/h:a\\in A\\}\\subset\\mathbb Z_n\\). Then \\(A\\) is spectral if and only if \\(3\\mid n\\) and \\(A^\\ast\\) is a complete set of residues modulo \\(3\\). In that case the nonzero Fourier-mask zero set is exactly \\(Z(A)=\\{d\\in\\mathbb Z_N:d\\bmod n\\in\\{n/3,2n/3\\}\\}\\); every three-element spectrum \\(B\\subset\\mathbb Z_N\\) is characterized by the condition that \\(B\\bmod n\\) is a coset of \\(\\{0,n/3,2n/3\\}\\subset\\mathbb Z_n\\); and the number of distinct spectra is exactly \\(Nh^2/3\\).",
+  "correctness": {
+    "rationale": "After translation and gcd normalization, any mask zero is a sum of three unit complex numbers equal to zero, so the three phases form a rotated cube-root triple. Bézout then forces the frequency difference to be congruent to \\(n/3\\) or \\(2n/3\\), and this is possible exactly when the normalized support occupies all residues modulo \\(3\\). Pairwise differences then force every spectrum reduction to be exactly one order-three coset, and lift counting gives \\(Nh^2/3\\). The exact cyclotomic checker independently corroborates all components over the stated finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dutkay–Lai, arXiv:1301.0814, studies reductions among Fuglede statements on finite cyclic groups, integers, and the line.",
+        "Malikiosis, doi:10.1017/fms.2022.14, develops broad structural theorems for spectral and tiling subsets of cyclic groups."
+      ],
+      "reasoning": "The broader works give general criteria or implications, but the inspected material does not specialize them to an explicit all-orders, cardinality-three list of spectra with the count \\(Nh^2/3\\).",
+      "searches": [
+        "finite cyclic Fuglede three element spectral set size 3",
+        "Fuglede three point sets cyclic group complete residue classes modulo 3",
+        "arXiv:1301.0814",
+        "doi:10.1017/fms.2022.14"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0010169",
+      "arXiv:math/0209204",
+      "arXiv:1301.0814",
+      "doi:10.1017/fms.2022.14",
+      "arXiv:math/9511209"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Łaba, arXiv:math/0010169, Corollary 1.7 states a three-point spectral-versus-tiling equivalence in the integer-union model.",
+        "Lam–Leung, arXiv:math/9511209, gives structural constraints on vanishing sums of roots of unity."
+      ],
+      "reasoning": "Weight-three vanishing forces the prime \\(3\\), but passing from that fact to the primitive finite-cyclic criterion and then classifying and counting every spectrum requires the additional gcd reduction and pairwise-difference argument. The inspected prior statements do not state those consequences in the claimed complete form.",
+      "searches": [
+        "three-term mask polynomial spectral set Z_N",
+        "spectral pair cardinality three cyclic group zero set coset order 3",
+        "arXiv:math/0010169",
+        "arXiv:math/9511209"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Łaba, arXiv:math/0010169, Definition 1.2 and Corollary 1.7: polynomial spectra are defined via pairwise mask zeros, and the three-interval model is spectral iff it tiles.",
+        "Malikiosis, doi:10.1017/fms.2022.14: finite-cyclic spectral pairs are studied through difference sets and mask zeros."
+      ],
+      "reasoning": "The prior equivalence concerns existence of spectral/tiling structure. The new statement also determines the primitive congruence normal form, every nonzero mask zero, every possible spectrum, and their exact number, so the inspected equivalence does not imply the complete classification as stated.",
+      "searches": [
+        "three-point spectral sets cyclic group Z_N size 3 spectra classification Fourier orthogonal",
+        "finite cyclic Fuglede three element spectral set size 3",
+        "spectral set cardinality 3 cyclic group roots of unity",
+        "cyclic spectral three-element set gcd normalization complete residues mod 3",
+        "arXiv:math/0010169",
+        "doi:10.1017/fms.2022.14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches for three-element cyclic spectral sets, order-three cosets, and the count \\(Nh^2/3\\) returned no matching published finding.",
+        "Konyagin–Łaba, arXiv:math/0209204, treats special polynomial and tiling structures rather than an enumerative table of all three-point spectra in arbitrary \\(\\mathbb Z_N\\)."
+      ],
+      "reasoning": "No inspected database result or source supplied the exact zero-set formula or all-spectra count; the closest database hits concerned unrelated weight-three cyclic combinatorics or general Fourier concentration.",
+      "searches": [
+        "three-element spectral subsets Z_N all spectra count N h^2 / 3",
+        "spectral pair cardinality three cyclic group zero set coset order 3",
+        "arXiv:math/0209204",
+        "doi:10.1017/fms.2022.14"
+      ]
+    },
+    "rationale": "The nearest inspected archive result proves spectrality-versus-tiling for the three-interval integer model, while later finite-cyclic work supplies general spectral-pair and vanishing-mask machinery. None of the inspected statements gives the combined finite-cyclic primitive criterion, exact mask-zero set, parametrization of every three-element spectrum, and exact spectrum count. Targeted semantic searches likewise returned no equivalent statement. The remaining risk is an unindexed or differently phrased prior three-point theorem.",
+    "residual_risks": [
+      "A differently phrased or poorly indexed prior theorem may already isolate the cardinality-three finite-cyclic case.",
+      "The root-of-unity step is elementary enough that the complete classification could appear as an unstated exercise or lemma in literature not surfaced by the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_BACKGROUND_NOT_COVERING_COMPLETE_CLAIM",
+        "evidence": "Corollary 1.7 gives spectral iff tile for the three-interval integer model, but the inspected statement does not give the finite-cyclic gcd normal form, exact zero set, all spectra, or spectrum count.",
+        "identifier_or_url": "arXiv:math/0010169",
+        "material_read": "Full arXiv text around Definition 1.2, Proposition 1.3, Theorem 1.5, Corollary 1.7, and related proof material.",
+        "method": "Statement-and-implication comparison against the finite-cyclic theorem.",
+        "title": "The spectral set conjecture and multiplicative properties of roots of polynomials",
+        "trigger": "Archive-era source explicitly treats polynomial spectra and the three-point case."
+      },
+      {
+        "assessment": "NOT_COVERING_COMPLETE_CLAIM",
+        "evidence": "The stated results concern special direct-sum/cyclotomic structures, not an arbitrary three-subset of every finite cyclic group with all spectra enumerated.",
+        "identifier_or_url": "arXiv:math/0209204",
+        "material_read": "ArXiv abstract and introductory scope describing special polynomial structures and integer tilings.",
+        "method": "Coverage comparison by objects, hypotheses, and conclusions.",
+        "title": "Spectra of certain types of polynomials and tiling of integers with translates of finite sets",
+        "trigger": "Direct continuation of the polynomial-spectrum framework."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_EXACT_CLASSIFICATION",
+        "evidence": "The source clarifies equivalences and reductions but does not state the cardinality-three normal form or count of all spectra.",
+        "identifier_or_url": "arXiv:1301.0814",
+        "material_read": "ArXiv abstract and finite-cyclic reduction scope.",
+        "method": "Implication comparison.",
+        "title": "Some reductions of the spectral set conjecture to integers",
+        "trigger": "Explicitly connects finite cyclic, integer, and real Fuglede statements."
+      },
+      {
+        "assessment": "GENERAL_TOOLING_NOT_EXPLICIT_THREE_POINT_ENUMERATION",
+        "evidence": "The inspected material gives broad structural criteria and cases of Fuglede, but no statement matching the primitive three-point criterion together with exact zero set, all spectra, and \\(Nh^2/3\\) count.",
+        "identifier_or_url": "doi:10.1017/fms.2022.14",
+        "material_read": "Cambridge full-page theorem summaries and structural discussion of spectral pairs, vanishing mask values, and cyclic Fuglede results.",
+        "method": "Statement-and-implication comparison, including whether general spectral-pair criteria already enumerate the three-point case.",
+        "title": "On the structure of spectral and tiling subsets of cyclic groups",
+        "trigger": "Highly relevant modern finite-cyclic structural treatment."
+      },
+      {
+        "assessment": "SUPPORTING_LEMMA_ONLY",
+        "evidence": "Vanishing-sum structure constrains possible root configurations but does not state the finite-cyclic spectral-pair parametrization or counting conclusion.",
+        "identifier_or_url": "arXiv:math/9511209",
+        "material_read": "Abstract-level theorem scope on possible weights of vanishing sums.",
+        "method": "Check whether the root-of-unity theorem itself implies the full spectral-pair classification.",
+        "title": "On vanishing sums of roots of unity",
+        "trigger": "The proof mechanism depends on a weight-three vanishing sum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b3a85102-70f5-4ab9-ac39-87e39688fcbf",
+  "value": {
+    "rationale": "Cardinality three is the first nontrivial spectral-set stratum beyond pairs. The result closes that stratum in every cyclic order with an explicit invariant, computes the complete mask-zero geometry, parametrizes every orthogonal character basis, and gives an exact basis count. These are structural data not supplied by a mere spectral-versus-tiling existence equivalence and can serve as a sharp base case for finite Fuglede and root-of-unity arguments.",
+    "status": "PASS"
+  }
+}
