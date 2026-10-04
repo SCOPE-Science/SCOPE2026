@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The projection kernel is explicitly \\(1+2\\cos(2\\pi k/N)\\). Endpoint convolution norm equality is attained by the sign function, and the only nontrivial calculation is a finite consecutive cosine sum over the exactly identified negative interval. Each residue class \\(N\\bmod 3\\) is derived separately, including the zero-boundary case when \\(3\\mid N\\). The standalone verifier agrees with the formula for every \\(3\\le N\\le5000\\). The finite verification is corroborative; the proof is valid for every integer \\(N\\ge3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anderson et al. define continuous-torus idempotent Dirichlet kernels and study continuous \\(L^p\\) concentration and norm asymptotics.",
+        "Gilbert--Rzeszotnik calculate norms of the full Fourier transform between finite-group \\(L^p\\) spaces."
+      ],
+      "reasoning": "Neither broader result specializes to the norm of a fixed three-frequency spectral projection: the former is continuous-torus idempotent analysis, while the latter concerns the full Fourier operator rather than convolution by a selected spectral idempotent.",
+      "searches": [
+        "arXiv:0705.0636 full text",
+        "doi:10.5802/aif.2556",
+        "finite cyclic Fourier analysis exact extremal constant idempotent trigonometric polynomial old open problem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0705.0636",
+      "doi:10.5802/aif.2556",
+      "published-finding corpus semantic search on projection-norm, Dirichlet-kernel, and sampled-absolute-sum formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0705.0636, equation (1), defines the continuous Dirichlet kernel; Lemma 3 gives continuous \\(L^p\\) asymptotics for \\(p>1\\), not finite sampled endpoint norms.",
+        "The abstract of DOI 10.5802/aif.2556 states a theorem for the full Fourier transform \\(L^p(G)\\to L^q(\\widehat G)\\), which is a different operator."
+      ],
+      "reasoning": "The new formula requires locating the sign changes of the three-term kernel relative to the finite grid and summing the negative samples exactly. Neither inspected prior statement supplies those grid-dependent residue classes or implies them as a corollary.",
+      "searches": [
+        "arXiv:0705.0636",
+        "doi:10.5802/aif.2556",
+        "finite cyclic Lebesgue constant three consecutive frequencies"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no finding whose statement is the sampled norm \\(N^{-1}\\sum_k|1+2\\cos(2\\pi k/N)|\\) or the three-consecutive-character projection norm.",
+        "Web searches for the exact absolute trigonometric sum and finite cyclic Lebesgue constant did not surface a matching theorem."
+      ],
+      "reasoning": "The operator-norm formulation, the sampled Dirichlet-kernel \\(L^1\\) formulation, and the absolute cosine-sum formulation were all searched because they are mathematically equivalent. No retrieved source implied the residue-class formulas.",
+      "searches": [
+        "exact norm three consecutive frequency Fourier projection cyclic group Lebesgue constant",
+        "finite cyclic Dirichlet kernel length three exact L1 sampled norm",
+        "1+2 cos exact average absolute cyclic grid Fourier projection",
+        "exact discrete L1 norm Dirichlet kernel of length 3 on Z_N",
+        "three term idempotent 1+z+z^2 discrete cyclic L1 norm exact formula",
+        "finite cyclic Lebesgue constant three consecutive frequencies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved database entry or published-finding corpus finding tabulates this all-\\(N\\) endpoint projection norm."
+      ],
+      "reasoning": "The claim is an infinite closed formula, not a recomputation of a finite table. No exact database with these values was identified.",
+      "searches": [
+        "finite cyclic Dirichlet kernel length three exact L1 sampled norm",
+        "1+2 cos exact average absolute cyclic grid Fourier projection",
+        "published-finding corpus: exact norm three consecutive frequency Fourier projection cyclic group Lebesgue constant"
+      ]
+    },
+    "rationale": "The closest inspected primary work treats continuous-torus idempotent Dirichlet kernels or norms of the full finite Fourier transform, not the exact endpoint norm of the three-character finite cyclic spectral projection. Multiple statement-level published-finding corpus and web searches for the sampled absolute sum, cyclic Lebesgue constant, and equivalent projection formulation returned no covering result. The remaining risk is an older equivalent elementary formula under approximation-theory terminology.",
+    "residual_risks": [
+      "An older equivalent finite trigonometric-sum identity may be indexed under Lebesgue constants, interpolation, or numerical Fourier analysis rather than spectral projections.",
+      "The Gilbert--Rzeszotnik comparison used its publisher statement and metadata rather than a line-by-line full-paper inspection; its stated operator is nevertheless distinct from the claimed projection operator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it works on the continuous torus and does not state the finite cyclic sampled endpoint projection norm or its residue-class closed form.",
+        "evidence": "The PDF identifies Primary MSC 42A05, defines \\(D_n\\) in equation (1), and gives continuous \\(L^p\\) asymptotics in Lemma 3.",
+        "identifier_or_url": "arXiv:0705.0636",
+        "material_read": "Full-text arXiv PDF: title/metadata, introduction, Dirichlet-kernel definition, and Lemma 3 on continuous norms.",
+        "method": "Full-text PDF inspection.",
+        "title": "Exponential sums with coefficients 0 or 1 and concentrated Lp norms",
+        "trigger": "Same idempotent/Dirichlet-kernel object and continuous norm context."
+      },
+      {
+        "assessment": "NOT_COVERING: the stated result calculates norms of the full Fourier transform between \\(L^p\\) and \\(L^q\\), not spectral-projection convolution norms.",
+        "evidence": "The publisher abstract states the operator as the Fourier transform from \\(L^p(G)\\) to \\(L^q(\\widehat G)\\).",
+        "identifier_or_url": "doi:10.5802/aif.2556",
+        "material_read": "Publisher abstract, classification, statement scope, and bibliographic record.",
+        "method": "Publisher/Numdam article record inspection.",
+        "title": "The norm of the Fourier transform on finite abelian groups",
+        "trigger": "Potentially dominating finite-abelian-group operator norm theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b176a601-8242-4688-bd3f-6ddea5647b97",
+  "value": {
+    "rationale": "The invariant is the endpoint norm of the first nontrivial consecutive-frequency Fourier projection on a finite cyclic group, a standard stability quantity rather than an arbitrary slice. The exact formula exposes a genuine \\(N\\bmod3\\) sampling effect caused by whether the grid hits the zeros of the three-term Dirichlet kernel, and it gives the finite-to-continuous transition in closed form. This is a complete all-\\(N\\) classification of a natural discrete Lebesgue constant, not a numerical table or a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
