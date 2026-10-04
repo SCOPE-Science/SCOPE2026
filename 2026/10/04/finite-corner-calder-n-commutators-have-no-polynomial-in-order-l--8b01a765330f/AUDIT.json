@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Partitioning by N affine intervals gives N^2 blocks. On a diagonal block the divided difference is the constant slope and the block is a restricted unnormalized Hilbert transform, of norm at most pi times the slope power. On two different ordered intervals, Lipschitz control bounds the kernel by L^n/|x-y|; after translating a separator point this is a restriction of the Carleman kernel 1/(u+v). The Schur weight u^{-1/2} gives the exact upper constant pi. The finite block matrix then has norm at most pi*N*L^n. All principal-value and endpoint issues are contained in the standard diagonal Hilbert blocks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Muhly--Xia 1998 treats a reduction modulo compact operators when the coefficient derivatives lie in VMO.",
+        "A genuine finite-corner piecewise-affine profile has a step-function derivative with jumps and generally is not in VMO.",
+        "The recent source itself reviews the Coifman--McIntosh--Meyer, Christ--Journé, and Verdera bounds but still treats polynomial order-growth as unresolved."
+      ],
+      "reasoning": "General boundedness and compact-perturbation theorems do not dominate the accepted statement because they either have polynomial n-dependence or impose regularity excluding slope jumps. The new block argument exploits finite ordered intervals specifically.",
+      "searches": [
+        "\"higher order Calderón commutator\" \"piecewise\"",
+        "\"Calderón commutator\" Carleman operator piecewise linear",
+        "Reduction of Calderón Commutators VMO Muhly Xia",
+        "Calderón commutators Cauchy integral Lipschitz curves higher order polynomial growth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.04682v1 metadata and arXiv:2606.04682v2 full open preprint text",
+      "DOI:10.1112/S002460939700369X publisher abstract",
+      "DOI:10.4171/RMI/798 scope comparison for Calderón commutators and Lipschitz curves",
+      "Targeted web searches for piecewise-affine, piecewise-linear, finite-corner, Carleman, and higher-order Calderón commutator formulations",
+      "Targeted published-finding searches using the same aliases and the source identifier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recent theorem gives C*n*L^n for general Lipschitz coefficients and a sqrt(n)-scale refinement for several smoother or bounded-variation regimes.",
+        "Its introduction states that no examined lower example exhibits polynomial n-growth and that sharpness is unresolved.",
+        "The Muhly--Xia hypothesis A prime in VMO excludes the generic jump derivatives produced by piecewise-affine corners."
+      ],
+      "reasoning": "The accepted pi*N*L^n estimate is strictly stronger in n on the finite-corner subclass and is not a direct specialization of the source estimates. Its proof uses interval ordering and Carleman domination, ingredients absent from the source implication chain.",
+      "searches": [
+        "arXiv 2606.04682 sharp linear growth n lower bounds higher Calderon commutator",
+        "arXiv 2606.04682 bounded variation sqrt n Calderon commutator",
+        "Muhly Xia reduction Calderon commutators derivative VMO compact perturbation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source explicitly asks whether the linear dependence on n is sharp and says examined examples show no polynomial growth, but it does not give a finite-corner theorem.",
+        "Full-text searches in the source found no occurrence of “piecewise” and no tent-profile result.",
+        "The published-finding searches returned no statement about a uniform-in-order bound for finite-corner Calderón commutators."
+      ],
+      "reasoning": "The claim can be formulated as a piecewise-affine bound, as a finite-breakpoint obstruction to polynomial n-growth, or as a Carleman block decomposition. The searches cover these equivalent formulations rather than relying on title similarity.",
+      "searches": [
+        "piecewise affine Calderon commutator higher order uniform in n",
+        "piecewise linear Lipschitz function nth Calderon commutator norm no polynomial growth",
+        "finite breakpoints Calderon commutator L2 bound uniform n Carleman",
+        "tent function higher order Calderon commutator sqrt n sharp",
+        "arXiv 2606.04682 piecewise affine uniform bound n",
+        "\"piecewise affine\" \"Calderón commutator\"",
+        "\"piecewise linear\" \"higher order Calderón commutator\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest database hits were about unrelated multilinear constants, Schatten commutators, and analytic section radii.",
+        "No returned record involved the operator T_{A,n}, finite affine partitions, or a Carleman-block proof."
+      ],
+      "reasoning": "There is no numerical table to compare. The database check screened the exact operator, the source identifier, and the finite-corner structural formulation.",
+      "searches": [
+        "piecewise affine Calderon commutator higher order uniform in n",
+        "piecewise linear Lipschitz function nth Calderon commutator norm no polynomial growth",
+        "arXiv 2606.04682 piecewise affine uniform bound n",
+        "published-finding search for finite-corner higher Calderon commutator uniform order bounds"
+      ]
+    },
+    "rationale": "The recent primary paper asks whether its linear order-growth is sharp and provides sqrt(n)-type upper bounds under stronger regularity, including compactly supported bounded-variation derivatives, but contains no finite-corner or piecewise-affine uniform-order theorem. Exact claim and alias searches returned no covering published finding. The closest older VMO reduction theorem is inapplicable to genuine slope jumps and does not imply the quantitative finite-corner statement.",
+    "residual_risks": [
+      "An older specialized calculation for polygonal Lipschitz graphs could exist under terminology not surfaced by the searches.",
+      "The factor pi*N is not claimed optimal and may be improvable by exploiting cancellation between blocks.",
+      "The result only excludes polynomial growth when the number of corners is fixed or uniformly bounded; it does not resolve the full sharpness problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The source proves polynomial and square-root-order upper bounds and asks about sharpness, but it contains no finite-corner decomposition or order-uniform piecewise-affine theorem.",
+        "evidence": "The source states the C*n*||A prime||^n theorem, notes that all examined examples show no polynomial lower growth, and proves sqrt(n)-type bounds under stronger regularity.",
+        "identifier_or_url": "arXiv:2606.04682v2",
+        "material_read": "Full open preprint copy: introduction and Cauchy-kernel motivation; sharpness discussion; Theorem 2.1 general linear growth; Theorem 2.2 Dini refinement; Lemma 2.3 fractional estimate; Theorem 2.4 logarithmic-Besov estimate; bounded-variation inclusion; references.",
+        "method": "Direct full-text inspection of an open preprint copy corresponding to the arXiv version, cross-checked with the primary arXiv metadata.",
+        "title": "L^2-boundedness of the n-th Calderón commutator on Lipschitz graphs",
+        "trigger": "Fresh primary source whose main question is the dependence of higher Calderón commutator norms on the order n."
+      },
+      {
+        "assessment": "INAPPLICABLE_TO_GENERIC_CORNERS. A piecewise-affine profile with a nonzero slope jump has derivative outside VMO, and the statement does not provide the pi*N*L^n quantitative bound for such profiles.",
+        "evidence": "The published abstract explicitly assumes all coefficient derivatives belong to VMO and gives a compact-perturbation formula on bounded intervals.",
+        "identifier_or_url": "DOI:10.1112/S002460939700369X",
+        "material_read": "Publisher abstract and theorem scope, including the VMO derivative hypothesis and compact-perturbation conclusion.",
+        "method": "Direct publisher abstract-level statement comparison.",
+        "title": "Reduction of Calderón Commutators",
+        "trigger": "Closest older theorem reducing higher Calderón commutators using regularity of coefficient derivatives."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8b01a765-330f-47b2-a6f4-16ea8bc7c331",
+  "value": {
+    "rationale": "The source explicitly asks whether polynomial growth in the commutator order is real or an artifact of the proof. The theorem rules out a broad and natural candidate class—every fixed polygonal Lipschitz profile—and even improves the source sqrt(n) bounded-variation estimate there to an order-uniform constant. It identifies a concrete necessary feature for any future sharpness example: the slope geometry cannot have uniformly bounded finite complexity.",
+    "status": "PASS"
+  }
+}
