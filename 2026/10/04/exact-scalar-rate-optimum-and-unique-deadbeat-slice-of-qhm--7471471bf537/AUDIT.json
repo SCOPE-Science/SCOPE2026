@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The exact QHM modal matrix yields trace \\(T=1+\\beta-s(1-\\nu\\beta)\\) and determinant \\(D=\\beta[1-s(1-\\nu)]\\). Jury gives the stable interval. For \\(0<\\nu<1\\), the discriminant endpoints are \\((1-\\beta)/(1\\pm\\sqrt{\\beta\\nu})^2\\); the right endpoint has repeated root \\((\\beta-\\sqrt{\\beta\\nu})/(1-\\sqrt{\\beta\\nu})\\). Product and scaled-Jury bounds prove this is the unique global spectral-radius minimum. The minimum is zero exactly at \\(\\nu=\\beta\\), where the matrix has characteristic polynomial \\(z^2\\) and hence square zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1810.06801v1",
+        "DOI:10.3390/a17030126",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56"
+      ],
+      "reasoning": "QHM is known to recover momentum, Nesterov, robust momentum, and other two-state methods. The closest database records optimize different fixed-momentum or splitting recurrences. None implies the curvature-specific QHM formula with a unique zero at \\(\nu=\beta\\).",
+      "searches": [
+        "quasi-hyperbolic momentum stability optimizer quadratic",
+        "momentum interpolation current gradient EMA exact quadratic stability beta nu",
+        "Nesterov QHM nilpotent scalar quadratic two step convergence",
+        "quasi hyperbolic momentum rate optimal scalar quadratic repeated root beta nu"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.06801v1",
+      "DOI:10.3390/a17030126"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1810.06801v4 full HTML, Sections 3, 4.1, 4.5, Appendix C.2 and Appendix D",
+        "DOI:10.3390/a17030126 full article, Section 2 convergence condition and quadratic parameter optimization"
+      ],
+      "reasoning": "The QHM paper supplies the algorithm, operator representation, Nesterov identification, and broad convergence connections, but not a scalar rate minimization theorem. The 2024 paper supplies an equivalent stability polynomial and optimizes its own interval problem; it does not state the fixed-\\((\beta,\nu)\\) rate floor \\(|\beta-\\sqrt{\beta\nu}|/(1-\\sqrt{\beta\nu})\\) or two-step nilpotence. Thus the stability clause is covered, while the final rate/deadbeat theorem is not implied by the inspected statements.",
+      "searches": [
+        "Quasi-hyperbolic momentum and Adam two-state optimizer NAG nu beta theoretical convergence",
+        "Analysis Two-Step Gradient Method Two Momentum Parameters quadratic convergence optimal beta2",
+        "QHM repeated root critical damping beta nu",
+        "Nesterov finite two step scalar quadratic QHM"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1810.06801v1",
+        "DOI:10.3390/a17030126"
+      ],
+      "reasoning": "The 2024 two-step method has scalar polynomial \\(z^2-[1+\beta_1-h(1+\beta_2)\\lambda]z+\beta_1-h\beta_2\\lambda\\). With \\(h=\u0007lpha(1-\beta)\\), \\(\beta_1=\beta\\), and \\(\beta_2=\beta(1-\nu)/(1-\beta)\\), it becomes the QHM polynomial exactly. This establishes prior coverage of the stability range but does not state the QHM fixed-parameter scalar rate optimum or nilpotent slice.",
+      "searches": [
+        "quasi-hyperbolic momentum scalar quadratic exact stability QHM Schur learning rate beta nu",
+        "QHM optimizer quadratic stability exact stepsize quasi hyperbolic momentum",
+        "quasi hyperbolic momentum exact scalar spectral radius optimal stepsize beta nu",
+        "QHM unique deadbeat NAG scalar quadratic finite time annihilation quasi hyperbolic momentum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact QHM rate table or deadbeat formula was identified by the focused searches.",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158"
+      ],
+      "reasoning": "The closest exact published records concern FRB/RFB rate tuning and heavy-ball root geometry. They use different characteristic polynomials and do not contain QHM's immediate-discount parameter.",
+      "searches": [
+        "quasi hyperbolic momentum exact scalar spectral radius optimal stepsize beta nu",
+        "QHM unique deadbeat NAG scalar quadratic finite time annihilation quasi hyperbolic momentum",
+        "quasi-hyperbolic momentum deadbeat optimizer",
+        "quasi-hyperbolic momentum finite-time quadratic"
+      ]
+    },
+    "rationale": "The QHM source does not state the scalar rate-optimal formula or unique deadbeat slice. The closest later two-step analysis covers the stability inequality after parameter translation but not the novel rate/deadbeat characterization.",
+    "residual_risks": [
+      "An equivalent fixed-parameter critical-damping calculation may exist in older two-state momentum or control literature under a different parameterization.",
+      "The 2024 two-step paper already covers the stability boundary after translation; originality is limited to the exact scalar rate landscape and deadbeat characterization.",
+      "The scalar nilpotent resonance is not a multimode acceleration theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_RATE_OPTIMUM.",
+        "evidence": "The paper defines the exact update and states that QHM recovers Nesterov at nu=beta. It presents a two-state operator representation and broad convergence connections, but the inspected text does not derive the scalar quadratic spectral optimum or nilpotent condition.",
+        "identifier_or_url": "arXiv:1810.06801v1",
+        "material_read": "Full open-access HTML: normalized momentum convention, QHM interpretation, Nesterov connection, theoretical-convergence discussion, linear-operator Appendix C.2, and general two-state Appendix D.",
+        "method": "Open-access full-text inspection with targeted searches for convergence, quadratic, characteristic, eigenvalue, and two-state terms.",
+        "title": "Quasi-hyperbolic momentum and Adam for deep learning",
+        "trigger": "Defining source for QHM and the immediate-discount parameter."
+      },
+      {
+        "assessment": "COVERS_STABILITY_AFTER_REPARAMETERIZATION_NOT_RATE_THEOREM.",
+        "evidence": "Its scalar characteristic polynomial maps exactly to QHM under h=alpha(1-beta), beta1=beta, beta2=beta(1-nu)/(1-beta). This recovers the QHM stability inequality, but the inspected paper does not state the QHM scalar rate minimum or deadbeat uniqueness.",
+        "identifier_or_url": "DOI:10.3390/a17030126",
+        "material_read": "Open-access full article: quadratic recurrence, characteristic equation, Theorem 1 stability condition, and the discussion of optimal parameters on spectral intervals.",
+        "method": "Full-text web inspection and explicit algebraic parameter mapping to QHM.",
+        "title": "Analysis of a Two-Step Gradient Method with Two Momentum Parameters for Strongly Convex Unconstrained Optimization",
+        "trigger": "Highly relevant 2024 exact quadratic analysis with two momentum parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7471471b-f537-4474-9079-803a93a2fd1e",
+  "value": {
+    "rationale": "QHM's defining purpose is to separate historical discount \\(\\beta\\) from immediate discount \\(\\nu\\). The exact formula shows that this extra degree of freedom has a sharp deterministic rate interpretation: the best scalar factor is \\(|\\beta-\\sqrt{\\beta\\nu}|/(1-\\sqrt{\\beta\\nu})\\), and only the Nesterov slice \\(\\nu=\\beta\\) reaches zero. This provides a precise critical-damping benchmark for understanding and testing QHM parameterizations.",
+    "status": "PASS"
+  }
+}
