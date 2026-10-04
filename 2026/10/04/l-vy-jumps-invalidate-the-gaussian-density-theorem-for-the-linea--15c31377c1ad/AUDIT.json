@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The source linearization contains additive compensated Poisson jumps with amplitude h_i=ln(1+eta_i). For a Hurwitz drift matrix, the stationary Lévy convolution has fourth cumulant equal to the integral of the fourth power of the propagated jump amplitude. The explicit one-atom witness has a nonzero susceptible jump and a Hurwitz linearization, so the e1 projection has strictly positive fourth cumulant and cannot be Gaussian. The source local Fokker–Planck equation also lacks the nonlocal shift term of the jump generator. The exact second-cumulant rate ln(1.1)^2 differs from the source coefficient 2(0.1-ln(1.1)).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jongbloed, van der Meulen, and van der Vaart (2005), DOI 10.3150/bj/1130077593, treat stationary Lévy-driven Ornstein–Uhlenbeck laws through self-decomposability and the driving Lévy measure.",
+        "Barndorff-Nielsen and Shephard (2001), DOI 10.1111/1467-9868.00282, develop non-Gaussian Ornstein–Uhlenbeck-type processes driven by background Lévy processes.",
+        "The source's cited density predecessor, DOI 10.1016/j.chaos.2020.109865, concerns a diffusion epidemic model rather than the nonlocal generator of the present jump system."
+      ],
+      "reasoning": "The broad literature already explains why genuine Lévy input persists in stationary Ornstein–Uhlenbeck laws. It does not identify the exact SVI theorem error, source covariance mismatch, or the admissible epidemic parameter witness given here.",
+      "searches": [
+        "Levy driven Ornstein Uhlenbeck Gaussian stationary distribution jump noise",
+        "nonlocal Fokker Planck jump diffusion Gaussian approximation",
+        "stationary distribution Levy driven Ornstein Uhlenbeck self-decomposable",
+        "non-Gaussian Ornstein Uhlenbeck background Levy process"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023148",
+      "doi:10.3150/bj/1130077593",
+      "doi:10.1111/1467-9868.00282",
+      "doi:10.1016/j.chaos.2020.109865"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem presents the Gaussian formula for the jump-retaining linearization rather than for a separate diffusion approximation.",
+        "General Lévy-driven Ornstein–Uhlenbeck theory predicts a stationary infinitely divisible or self-decomposable law retaining the jump measure, but does not itself instantiate the source's epidemic threshold and quasi-endemic coefficients.",
+        "The explicit witness proves non-Gaussianity by a strictly positive fourth cumulant while satisfying the source threshold and stability requirements."
+      ],
+      "reasoning": "The source-specific claim is not merely a restatement that Lévy processes can be non-Gaussian. It shows exactly where the source proof deletes the jump operator and provides a theorem-admissible stable SVI linearization for which the displayed Gaussian is impossible.",
+      "searches": [
+        "stochastic SVI Levy jumps log-normal stationary density Fokker Planck",
+        "\"Global dynamics and density function\" Levy Gaussian covariance",
+        "\"Dynamics and density function analysis of a stochastic SVI epidemic model\" density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states Theorem 5.1 with a displayed Gaussian density after linearizing a process that still contains compensated Poisson jumps.",
+        "The theorem proof writes a purely local three-dimensional Fokker–Planck equation and no shifted-density jump term.",
+        "Exact source and correction searches located the article and bibliographic mirrors but no erratum or theorem repair."
+      ],
+      "reasoning": "The searches cover the literal source identity, its claimed density form, and natural correction aliases. No inspected source applies a nonlocal jump forward equation to repair Theorem 5.1.",
+      "searches": [
+        "\"Global dynamics and density function in a class of stochastic SVI epidemic models with Lévy jumps and nonlinear incidence\"",
+        "\"10.3934/math.2023148\" log-normal density Levy jump",
+        "\"10.3934/math.2023148\" erratum correction",
+        "\"math.2023148\" Gaussian density Levy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open publisher PDF was inspected at model (1.2), where each compartment contains Brownian and compensated Poisson terms, and at assumptions H1-H2 on the jump amplitudes.",
+        "The logarithmic linearization (5.2) was inspected and retains additive jumps ln(1+eta_i).",
+        "Theorem 5.1 and its proof were inspected through the Gaussian formula, the local Fokker–Planck equation, and the diagonal rho_i^2 coefficients.",
+        "The publisher record gives publication on 10 November 2022 and lists primary MSC 92D25."
+      ],
+      "reasoning": "The contradiction is tied to the exact primary equations and theorem statement, not to a secondary reconstruction.",
+      "searches": [
+        "DOI 10.3934/math.2023148 equation 1.2 H1 H2 equation 5.2 Theorem 5.1",
+        "DOI 10.3934/math.2023148 Fokker Planck equation 5.3 rho_i",
+        "DOI 10.3934/math.2023148 published 10 November 2022 MSC 92D25"
+      ]
+    },
+    "rationale": "Non-Gaussian stationary laws for Lévy-driven Ornstein–Uhlenbeck processes are established prior knowledge and are not claimed as new. The original contribution is the source-specific diagnosis and exact admissible witness showing that the SVI paper's Theorem 5.1 and covariance equation cannot be exact for its printed nonzero-jump model. Exact-title, DOI, density, Gaussian, Lévy-generator, correction, and erratum searches found no published source-specific repair.",
+    "residual_risks": [
+      "The proof text uses the word approximately near its Gaussian ansatz even though Theorem 5.1 displays the density as a theorem; if read only as a heuristic approximation, no asymptotic scaling or error bound is supplied.",
+      "The full text of the 2005 and 2001 general Lévy-OU references was not required for the source-specific cumulant proof and was not fully inspected here.",
+      "A non-indexed author note could acknowledge the density-formula issue."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GAUSSIAN_DENSITY_NOT_EXACT_WITH_NONZERO_JUMPS",
+        "evidence": "The printed linear system retains ln(1+eta_i) compensated jumps, whereas the theorem proof uses only local second derivatives and a Gaussian Lyapunov covariance.",
+        "identifier_or_url": "doi:10.3934/math.2023148",
+        "material_read": "Open full PDF: model (1.2); compensated Poisson notation and H1-H2; logarithmic variables; stochastic threshold; quasi-endemic state; linearized system (5.2); Theorem 5.1; the following Fokker–Planck equation; covariance/Lyapunov derivation; numerical density discussion. Pages containing the model, linearization, theorem, and forward equation were visually inspected.",
+        "method": "Reconstructed the additive jump amplitude after the logarithmic transform, wrote the correct generator, and tested the theorem on a one-atom admissible jump measure with a stable quasi-endemic linearization.",
+        "title": "Global dynamics and density function in a class of stochastic SVI epidemic models with Lévy jumps and nonlinear incidence",
+        "trigger": "Primary source containing the Lévy-driven SVI model and Theorem 5.1 density claim."
+      },
+      {
+        "assessment": "GENERAL_LEVY_OU_THEORY_SUPPORTS_PERSISTENT_JUMP_STRUCTURE",
+        "evidence": "The stationary distribution retains information about the driving Lévy measure rather than being universally Gaussian.",
+        "identifier_or_url": "doi:10.3150/bj/1130077593",
+        "material_read": "Published abstract and bibliographic record describing stationary self-decomposable laws and recovery of the driving Lévy measure.",
+        "method": "Compared the general stationary-law structure with the source's exact Gaussian claim.",
+        "title": "Nonparametric inference for Lévy-driven Ornstein–Uhlenbeck processes",
+        "trigger": "Primary probability literature on stationary Lévy-driven Ornstein–Uhlenbeck distributions."
+      },
+      {
+        "assessment": "GENERAL_NON_GAUSSIAN_OU_PRIOR_NOT_SOURCE_SPECIFIC",
+        "evidence": "The paper establishes that OU mean reversion is compatible with non-Gaussian Lévy-driven stationary behavior but does not analyze the SVI model or Theorem 5.1.",
+        "identifier_or_url": "doi:10.1111/1467-9868.00282",
+        "material_read": "Published abstract and bibliographic description of non-Gaussian OU-type processes driven by background Lévy processes.",
+        "method": "Checked broader coverage of the non-Gaussian OU mechanism.",
+        "title": "Non-Gaussian Ornstein–Uhlenbeck-based models and some of their uses in financial economics",
+        "trigger": "Established primary literature explicitly constructing non-Gaussian OU-type processes from Lévy input."
+      },
+      {
+        "assessment": "DIFFUSION_PREDECESSOR_DOES_NOT_RESOLVE_JUMP_TERM",
+        "evidence": "The predecessor is described as a stochastic SVI diffusion analysis and does not supply coverage of the nonlocal compensated-Poisson forward operator used in the 2022 model.",
+        "identifier_or_url": "doi:10.1016/j.chaos.2020.109865",
+        "material_read": "Published abstract and bibliographic scope; full publisher text was not available in the inspected source.",
+        "method": "Checked whether the cited predecessor supplies a jump-generator argument that would justify the later theorem.",
+        "title": "Dynamics and density function analysis of a stochastic SVI epidemic model with half saturated incidence rate",
+        "trigger": "Density-function predecessor cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "15c31377-c1ad-4521-a982-6844b11eae08",
+  "value": {
+    "rationale": "The density-function calculation is presented as a main analytic contribution of the source and is used to interpret stochastic fluctuations around the quasi-endemic state. Replacing a jump process by a local Gaussian forward equation changes not only higher tails but already the covariance for the explicit admissible witness. The correction cleanly separates the valid Brownian-only Gaussian boundary from genuine jump regimes and identifies the nonlocal equation required for any exact density analysis.",
+    "status": "PASS"
+  }
+}
