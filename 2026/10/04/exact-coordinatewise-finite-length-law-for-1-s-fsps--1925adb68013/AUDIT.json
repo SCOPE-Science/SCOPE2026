@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "With \\(A=I_n\\) and \\(h\\equiv0\\), the source step has \\(\\delta_k=\\chi/\\gamma_k\\). The Moreau gradient of \\(\\|\\cdot\\|_1\\) is coordinatewise clipping. Each raw coordinate update lies between the current coordinate and zero, so projection is inactive and signs are invariant. A positive coordinate limit would eventually lose \\(\\gamma_k/\\chi\\) at every step, contradicting nonsummability. Coordinatewise telescoping then gives the exact accumulated \\(\\ell_1\\) motion, and \\(\\|v\\|_2\\le\\|v\\|_1\\) yields finite Euclidean length.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.28306v1, Corollary 5.5 and Theorem 6.1: the definable power-schedule finite-length result requires \\(1/2<\\beta\\le1\\).",
+        "arXiv:2608.20859: vanishing nonsummable smoothing does not guarantee whole-sequence convergence for S-FSPS in general."
+      ],
+      "reasoning": "The source theorem is broader in problem class but does not cover the power exponents at or below one half. The counterexample literature prevents promoting the new coordinatewise proof to a general consequence of nonsummability.",
+      "searches": [
+        "arXiv:2609.28306v1 Theorem 6.1 Corollary 5.5",
+        "arXiv:2608.20859 whole-sequence counterexample S-FSPS",
+        "variable smoothing full splitting projected gradient absolute value power schedule beta <= 1/2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28306v1",
+      "arXiv:2312.14341v2",
+      "arXiv:2608.20859",
+      "DOI:10.1007/s10915-020-01332-8",
+      "DOI:10.3934/jimo.2022107"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source states composite finite length in the range \\(1/2<\\beta\\le1\\) and gives an \\(\\ell_1\\)-type worked example, but not the coordinatewise exact path law here.",
+        "Full-text searches of arXiv:2312.14341v2 found no occurrence of “absolute value”, “one-dimensional”, or “finite length”.",
+        "The 2020 variable-smoothing article provides Moreau identities and rate theory rather than this exact S-FSPS trajectory classification."
+      ],
+      "reasoning": "None of the inspected statements implies the exact equality \\(\\sum_k\\|x^{k+1}-x^k\\|_1=\\|x^0\\|_1\\) or the resulting finite Euclidean length for all \\(0<\\beta\\le1\\). Those conclusions use the new coordinatewise sign-invariance and nonsummable-tail argument.",
+      "searches": [
+        "arXiv:2609.28306v1 full text l1 finite length power schedule",
+        "arXiv:2312.14341v2 full text absolute value one-dimensional finite length",
+        "soft thresholding finite length proximal iteration absolute value"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boţ–Böhm 2020 gives the Moreau identity connecting envelope-gradient and proximal steps.",
+        "Gu–Yang 2023 analyzes relaxed proximal-point convergence but not the changing-threshold S-FSPS recurrence or exact accumulated coordinate motion."
+      ],
+      "reasoning": "The iteration can be written coordinatewise as underrelaxed soft thresholding with a changing threshold and relaxation ratio. That equivalence alone does not yield the source-specific all-schedule finite-length statement or the exact \\(\\ell_1\\)-path identity.",
+      "searches": [
+        "S-FSPS scalar absolute value exact finite path length nonsummable smoothing beta one half",
+        "S-FSPS l1 norm coordinatewise variable smoothing all nonsummable schedules finite Euclidean length beta one half",
+        "relaxed proximal point soft threshold vanishing parameter exact total path length absolute value",
+        "DOI:10.3934/jimo.2022107"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic searches returned no published finding matching the exact coordinatewise \\(\\ell_1\\)-path identity or the all-base-schedule S-FSPS conclusion.",
+        "The inspected published-finding records contained no entry with source identifier arXiv:2609.28306v1 or this claim."
+      ],
+      "reasoning": "Database nonmatches are used only for overlap checking, not as novelty proof. Originality rests on the direct implication comparison with the inspected primary and broader sources.",
+      "searches": [
+        "S-FSPS l1 norm coordinatewise variable smoothing all nonsummable schedules finite Euclidean length beta one half",
+        "variable smoothing projected gradient absolute value exact trajectory finite length Moreau envelope",
+        "Moreau envelope |x| gradient descent vanishing smoothing schedule finite length",
+        "arXiv:2609.28306v1"
+      ]
+    },
+    "rationale": "The primary source gives a general finite-length theorem only for power exponents strictly above one half, whereas the new coordinatewise theorem proves finite Euclidean length and an exact accumulated \\(\\ell_1\\)-motion identity for every base-admissible nonsummable smoothing schedule on a canonical separable model. The inspected Moreau and relaxed-proximal sources explain the update representation but do not dominate this schedule-extension statement.",
+    "residual_risks": [
+      "A specialized proximal or shrinkage paper not surfaced by the searches may contain an equivalent coordinatewise identity.",
+      "The claim is intentionally restricted to the identity-map centered-box \\(\\ell_1\\) model; no coupled or general multidimensional extension is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact iteration and the general schedule threshold but not the coordinatewise exact path identity or the extension to power exponents at or below one half.",
+        "evidence": "arXiv:2609.28306v1, pp. 1, 6, 18–19.",
+        "identifier_or_url": "arXiv:2609.28306v1",
+        "material_read": "Full arXiv text with focused inspection of the abstract, Sections 3, 5, and 6, equations (3.1)–(3.2), Corollary 5.5, Theorem 6.1, and Example 6.3.",
+        "method": "PDF text inspection plus page-image checks of the title and MSC, algorithm assumptions, power-schedule table, and composite iteration.",
+        "title": "Whole-Sequence Convergence of Variable-Smoothing Full-Splitting Methods via a Lifted Kurdyka–Łojasiewicz Framework",
+        "trigger": "Primary source defining the iteration and its general finite-length theorem."
+      },
+      {
+        "assessment": "The inspected material does not state this finite-length coordinatewise result.",
+        "evidence": "arXiv:2312.14341v2; no matches for the three targeted phrases in the indexed full text.",
+        "identifier_or_url": "arXiv:2312.14341v2",
+        "material_read": "ArXiv full text with the introduction and model description inspected; full-text searches were run for “absolute value”, “one-dimensional”, and “finite length”.",
+        "method": "PDF text inspection and exact-term searches.",
+        "title": "Full Splitting Algorithms for Fractional Programs with Structured Numerators and Denominators",
+        "trigger": "Original S-FSPS framework cited by the primary source."
+      },
+      {
+        "assessment": "It gives the Moreau gradient/proximal identity and rate results but not this exact S-FSPS coordinatewise path law.",
+        "evidence": "Definition 2.2 and Lemma 2.1 of the open article; targeted phrases were absent.",
+        "identifier_or_url": "DOI:10.1007/s10915-020-01332-8",
+        "material_read": "Open full HTML, especially the introduction and Moreau-envelope preliminaries; targeted searches for “absolute value” and “finite length”.",
+        "method": "Full-text HTML inspection.",
+        "title": "Variable Smoothing for Convex Optimization Problems Using Stochastic Gradients",
+        "trigger": "Prior variable-smoothing literature and source for the Moreau/proximal identity."
+      },
+      {
+        "assessment": "The paper gives generic tight linear convergence bounds for relaxed PPA, not the moving-smoothing S-FSPS recurrence or exact coordinatewise path identity.",
+        "evidence": "Published article text; the two targeted phrases were absent.",
+        "identifier_or_url": "DOI:10.3934/jimo.2022107",
+        "material_read": "Full HTML abstract and introduction plus targeted searches for “absolute value” and “finite length”.",
+        "method": "Full-text HTML inspection and exact-term searches.",
+        "title": "A Unified and Tight Linear Convergence Analysis of the Relaxed Proximal Point Algorithm",
+        "trigger": "Potential broader coverage through the relaxed-proximal interpretation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1925adb6-8013-4638-b113-9bd2f814d6ee",
+  "value": {
+    "rationale": "The identity-map \\(\\ell_1\\) box model is a canonical separable nonsmooth benchmark closely aligned with the source paper’s own \\(\\ell_1\\)-type example. The theorem gives a complete schedule result for this whole finite-dimensional model class, not a single parameter point: every base-admissible smoothing schedule has finite Euclidean length, with an exact accumulated \\(\\ell_1\\)-motion invariant. This cleanly shows that the source’s general \\(\\beta>1/2\\) threshold is a class-level proof condition rather than an algorithmic necessity on all natural nonsmooth instances.",
+    "status": "PASS"
+  }
+}
