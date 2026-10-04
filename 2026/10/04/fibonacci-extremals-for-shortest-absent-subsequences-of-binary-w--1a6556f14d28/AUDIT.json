@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "A fixed-universality reduction selects one opposite symbol plus the unique final symbol from each binary arch, preserving universality while shortening to two-letter arches. The two transfer matrices act by (x,y)->(x+y,y) or (x,x+y), giving a sharp Fibonacci bound. Under an odd total length, exactly one component has length three; all interior and terminal possibilities are enumerated and bounded, with a proved Fibonacci-product inequality. Explicit words attain the bounds. Independent Python enumeration through n=14 and a separate C census through n=22 agree exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. cover arbitrary alphabets at fixed universality index in their extremal framework.",
+        "Fleischmann et al. cover broad m-nearly-universal class structure rather than the fixed-length extremal count.",
+        "The binary Simon-congruence paper covers congruence classes rather than SAS-count maxima by length."
+      ],
+      "reasoning": "Prior works are broader in alphabet/classification axes but do not dominate the length-constrained extremal statement. Conversely, this theorem is narrower in alphabet and does not supersede their structural classifications.",
+      "searches": [
+        "arXiv:2108.13968 Proposition 3.14 and surrounding Section 3",
+        "arXiv:2202.07981 Section 4, especially Proposition 35",
+        "arXiv:2306.14192 binary-case sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.13968",
+      "arXiv:2202.07981",
+      "arXiv:2306.14192",
+      "published-finding corpus:2026/9/8/SCOPE079",
+      "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For even length, prior fixed-index extremality plus the binary transfer recurrence comes close to the new formula; this portion is not presented as conceptually independent.",
+        "For odd length, fixed-index extremality alone allows a shorter 2m-word extremizer and does not yield the sharp restriction imposed by exactly one extra symbol.",
+        "Neither later paper gives the parity-split fixed-length formula."
+      ],
+      "reasoning": "The final claim survives comparison because it optimizes over an external length parameter and proves the odd-length loss exactly. The proof and public discussion explicitly separate that content from the credited fixed-index framework.",
+      "searches": [
+        "Compare final theorem against arXiv:2108.13968 Proposition 3.14",
+        "Compare against arXiv:2202.07981 Proposition 35",
+        "Compare against arXiv:2306.14192 contribution and binary-case statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.13968 Lemmas 3.11, 3.13 and Proposition 3.14 give gluing, fixed-index monotonicity, and an alternating-word extremum; Proposition 3.10 gives only a non-tight exponential estimate in its stated regime.",
+        "arXiv:2202.07981 characterizes m-nearly universal words and the (k-1)-universal subclass but does not state a maximum as a function of total word length.",
+        "arXiv:2306.14192 characterizes binary Simon-congruence classes; full-text search found no Fibonacci formula."
+      ],
+      "reasoning": "The fixed-index part has a clear prior ancestor and is credited. The fixed-length problem adds a length budget not present in those statements; odd length forces one exceptional three-letter component and yields a different sharp value.",
+      "searches": [
+        "published-finding corpus: binary shortest absent subsequence Fibonacci maximum fixed length",
+        "published-finding corpus: maximum number shortest absent subsequences binary word length",
+        "Web/full text: arXiv:2108.13968, arXiv:2202.07981, arXiv:2306.14192; searched Fibonacci and shortest-absent terminology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/9/8/SCOPE079 concerns string attractors, a different invariant.",
+        "Other close hits concern non-overlapping codes and prefix-free graph construction rather than absent subsequences."
+      ],
+      "reasoning": "No database hit states the claimed fixed-length SAS maximum. This is non-overlap evidence, not a proof of novelty.",
+      "searches": [
+        "binary shortest absent subsequence Fibonacci maximum fixed length",
+        "maximum number shortest absent subsequences binary word length",
+        "shortest absent scattered factors binary fixed word length extremal"
+      ]
+    },
+    "rationale": "The inspected literature supplies the fixed-universality SAS framework but does not state the fixed-word-length extremal function or its parity-split Fibonacci formula. The even case is close to a specialization of Kosche et al.; the surviving contribution is the exact all-length optimization, particularly the sharp odd-length one-extra-symbol analysis. published-finding corpus and targeted literature searches found no equivalent statement, with residual risk explicitly retained.",
+    "residual_risks": [
+      "An older paper may contain an equivalent binary fixed-length recurrence under universality or Simon-congruence terminology.",
+      "The even-length half is close to a specialization of prior fixed-universality extremality; originality rests materially on the exact length-constrained parity theorem and odd case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIOR_NOT_COVERING_FIXED_LENGTH_PARITY_FORMULA",
+        "evidence": [
+          "Proposition 3.14 maximizes SAS at fixed universality index via alternating permutation words.",
+          "Proposition 3.10 states an exponential lower bound and explicitly notes it is not tight.",
+          "No exact binary Fibonacci fixed-length theorem appears in the inspected section."
+        ],
+        "identifier_or_url": "arXiv:2108.13968",
+        "material_read": "Full arXiv PDF, including Section 3 around Propositions 3.10 and 3.14 and Lemmas 3.11-3.13.",
+        "method": "Read theorem statements and proofs; checked the exact role of arch decomposition, gluing, monotonicity, and the stated non-tight SAS-count estimate.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Primary source defining SAS and closest fixed-universality extremal result."
+      },
+      {
+        "assessment": "RELATED_CLASSIFICATION_NOT_COVERING_EXTREMAL_LENGTH_PROFILE",
+        "evidence": [
+          "The paper treats m-nearly universality and characterizes the (k-1)-universal subclass.",
+          "Full-text Fibonacci search returned no occurrence.",
+          "No maximum SAS count as a function of total word length was found."
+        ],
+        "identifier_or_url": "arXiv:2202.07981",
+        "material_read": "Full arXiv PDF, introduction and Section 4 including Proposition 35 and surrounding characterization.",
+        "method": "Inspected definitions, binary caveats, and absent-factor characterization; searched full text for Fibonacci.",
+        "title": "m-Nearly k-Universal Words -- Investigating Simon Congruence",
+        "trigger": "Direct follow-up studying counts of absent length-k subsequences."
+      },
+      {
+        "assessment": "BINARY_STRUCTURE_RELATED_NOT_COVERING_SAS_LENGTH_EXTREMUM",
+        "evidence": [
+          "The stated contribution is characterization/index of binary Simon-congruence classes and MaxSimK.",
+          "The paper cites shortest absent scattered factors as background rather than presenting the fixed-length extremal count.",
+          "Full-text Fibonacci search returned no occurrence."
+        ],
+        "identifier_or_url": "arXiv:2306.14192",
+        "material_read": "Full arXiv PDF, introduction, definitions, binary contribution summary, and conclusion; searched full text for Fibonacci and SAS notation.",
+        "method": "Read scope and contribution statements and inspected binary-universality setup.",
+        "title": "α-β-Factorization and the Binary Case of Simon’s Congruence",
+        "trigger": "Highly relevant binary follow-up on the same factorization and subsequence congruence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a6556f1-4d28-4a48-8547-ffccc9e224d6",
+  "value": {
+    "rationale": "The maximum number of SAS at a fixed word length is a natural extremal statistic in a literature that emphasizes potentially exponential SAS sets and their representation. The theorem gives an all-n exact closed form, exhibits a parity effect, and turns the odd one-symbol surplus into a sharp structural bound rather than a routine finite table. The transfer-matrix proof is reusable and the result is not dependent on computation.",
+    "status": "PASS"
+  }
+}
