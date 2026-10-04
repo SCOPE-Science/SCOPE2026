@@ -1,0 +1,131 @@
+{
+  "claim": "For the Parkinson--Roy Fokker--Planck epidemic-control problem, Theorem 4.3 does not establish its stated contraction, unique-fixed-point, or Hamiltonian-minimum conclusions. As written, the theorem defines \\(r(w)\\) as a scalar Hamiltonian contribution, but its projected update treats \\(r(u^k)\\) as a three-vector; even on a one-coordinate affine restriction, the minimizer depends on the coefficient of \\(w\\), not on the value \\(r(u^k)\\). More specifically, for the paper's own simulation diffusion \\(\\sigma_S=-\\sigma_I=\\sqrt{0.02}(1-w_1)SI\\), freezing the state and adjoint at SQH step \\(k\\) gives \\(r_k(w)=c_k+d_{1,k}w_1+d_{2,k}w_2+d_{3,k}w_3+D_k(1-w_1)^2\\), where \\(D_k=0.01\\int_\\Omega f^k S^2I^2(q^k_{SS}+q^k_{II})\\,dS\\,dI\\). Hence the first-coordinate augmented subproblem has curvature \\(\\beta_2+2\\varepsilon-2D_k\\), and, when this is positive and the unconstrained minimizer lies in the control interval, its minimizer is \\((d_{1,k}-\\beta_1-2D_k+2\\varepsilon u_1^k)/(\\beta_2+2\\varepsilon-2D_k)\\), not the paper's displayed expression. No hypothesis in Theorem 4.3 forces \\(D_k=0\\) or replaces the scalar \\(r\\) by the needed coefficient or derivative map. The final fixed-point step also drops the nonnegative proximal term: minimizing \\(H(w)+\\varepsilon\\lvert w-u^*\\rvert^2\\) at \\(u^*\\) yields only \\(H(u^*)\\le H(w)+\\varepsilon\\lvert w-u^*\\rvert^2\\), not \\(H(u^*)\\le H(w)\\). This finding diagnoses the convergence proof only; it does not assert divergence of the implemented SQH scheme or invalidate the separate descent statements of Theorems 4.1--4.2.",
+  "correctness": {
+    "rationale": "PASS. The source defines \\(r(w)\\) as a scalar spatial integral. Freezing \\(f^k\\) and \\(q^k\\), the drift is affine in the control while the stated simulation diffusion gives \\(\\sigma_j^2=0.02(1-w_1)^2S^2I^2\\) for both diagonal terms. The one-half factor therefore yields exactly the correction \\(D_k(1-w_1)^2\\), with \\(D_k=0.01\\int_\\Omega f^kS^2I^2(q^k_{SS}+q^k_{II})\\,dS\\,dI\\). Differentiation gives first-coordinate curvature \\(\\beta_2+2\\varepsilon-2D_k\\) and the stationary point stated in the claim. Exact rational replay in `verify.py` checks this expansion and a concrete mismatch with the printed value-based update. Independently, the fixed-point step can only retain the nonnegative proximal term; the verifier gives a one-dimensional counterexample to deleting it. The accepted claim is only that Theorem 4.3 is not established as written, not that the algorithm diverges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Calà Campana--Katz--Giordano (2024), DOI 10.1109/LCSYS.2024.3412775, treats an ODE epidemic-control problem and advertises rigorous convergence for a smooth-cost setting.",
+        "Borzì (2023), ISBN 9780367715526, develops SQH across stochastic and PDE optimal control.",
+        "Hofmann--Borzì (2025), DOI 10.1137/24M1675369, analyzes an augmented-Hamiltonian method in a different discrete neural-network setting."
+      ],
+      "reasoning": "These sources establish that SQH has broader convergence theory, but the inspected descriptions do not imply the source-specific projected formula for a scalar r with control-dependent diffusion. The current claim is deliberately limited to Theorem 4.3 as written.",
+      "searches": [
+        "\"Sequential quadratic Hamiltonian\" epidemic optimal control convergence contraction",
+        "\"Borzì\" \"Sequential Quadratic Hamiltonian\" 2023",
+        "\"sequential quadratic Hamiltonian\" convergence Hamiltonian minimization proximal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.20181v1",
+      "doi:10.1007/s00285-026-02462-7",
+      "doi:10.1109/LCSYS.2024.3412775",
+      "isbn:9780367715526",
+      "doi:10.1137/24M1675369"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published finding 41bbc097-8013-4c3e-8f9c-8dc2c65ef5d7 on the same paper compares independent compartment noise with transmission-rate noise and derives a covariance/mixed-derivative correction.",
+        "No checked prior claim states or implies the scalar-remainder typing failure, the \\(D_k\\) curvature correction, or the proximal fixed-point logical gap."
+      ],
+      "reasoning": "The earlier same-source covariance result and the present theorem correction concern different mathematical objects, and neither statement implies the other.",
+      "searches": [
+        "Fokker-Planck",
+        "02462-7",
+        "2601.20181",
+        "Theorem 4.3",
+        "SQH",
+        "control-dependent diffusion",
+        "Hamiltonian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The open-access source defines scalar \\(r(w)\\), gives the value-based projected formula in Theorem 4.3, and uses control-dependent diffusion in the numerical model.",
+        "No retrieved published finding states an equivalent scalar-versus-vector or \\(D_k\\) curvature correction for this source."
+      ],
+      "reasoning": "The claim is not a renaming of the earlier covariance observation: it concerns exact minimization of the augmented Hamiltonian and the logic of the convergence theorem. Searches for the theorem, projected update, scalar r, and SQH contraction returned no statement implying this correction.",
+      "searches": [
+        "\"A Fokker-Planck Framework for Control of Epidemics\" Theorem 4.3 control-dependent diffusion SQH",
+        "\"A Fokker-Planck Framework for Control of Epidemics\" projected update r(u) contraction",
+        "\"sequential quadratic Hamiltonian\" scalar r Lipschitz projected update beta2 Cr"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Journal of Mathematical Biology full text, DOI 10.1007/s00285-026-02462-7, equations defining F, r, Theorem 4.3, and the numerical diffusion.",
+        "arXiv:2601.20181v1 metadata records first public posting on 2026-01-28."
+      ],
+      "reasoning": "The target is a theorem and model specification rather than a finite database or parameter table. The exact authoritative objects checked were the source equations and theorem in the open-access article.",
+      "searches": [
+        "doi:10.1007/s00285-026-02462-7 Theorem 4.3",
+        "arXiv:2601.20181 SQH convergence diffusion"
+      ]
+    },
+    "rationale": "PASS. Exact-title, theorem-number, SQH-contraction, projected-update, scalar-remainder, control-dependent-diffusion, and proximal-minimization searches found no published finding that states or implies this source-specific correction. The nearest earlier epidemic SQH paper treats a different ODE smooth-cost setting; the foundational monograph and a recent neural-network SQH paper are broader or different in scope. A previously recorded finding on the same Parkinson--Roy paper concerns covariance of compartment noise versus transmission-rate noise, with no implication for Hamiltonian minimization. A related 2024 repository PDF was inaccessible, so that paper remains a recorded residual access risk rather than being treated as negative evidence.",
+    "residual_risks": [
+      "The open repository link for DOI 10.1109/LCSYS.2024.3412775 returned an access error, so its full proof was not inspected in this run. Its accessible abstract indicates a different ODE smooth-cost setting, but unseen details could contain related SQH algebra.",
+      "No search can prove absolute novelty; the originality conclusion is a statement-versus-implication comparison over the checked literature and own ledger."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SUPPORT",
+        "evidence": "The source defines scalar \\(r(w)\\), prints the update using \\(r(u^k)\\), makes the fixed-point-to-Hamiltonian-minimum inference, and uses \\(\\sigma_S=-\\sigma_I=\\sqrt{0.02}(1-\\alpha)SI\\).",
+        "identifier_or_url": "doi:10.1007/s00285-026-02462-7",
+        "material_read": "Open-access full HTML: model equations, Hamiltonian definition, Theorems 4.1--4.3 and proof, numerical diffusion and control cost, plus publication metadata and MSC.",
+        "method": "Direct equation-by-equation comparison and symbolic reconstruction.",
+        "title": "A Fokker-Planck framework for control of epidemics",
+        "trigger": "Primary source for Theorem 4.3 and the controlled diffusion model."
+      },
+      {
+        "assessment": "DATE_AND_VERSION_SUPPORT",
+        "evidence": "Version 1 was posted 2026-01-28.",
+        "identifier_or_url": "arXiv:2601.20181v1",
+        "material_read": "Abstract and version metadata; substantive theorem checking used the lawful open-access journal full text of the same work.",
+        "method": "Version/date comparison.",
+        "title": "A Fokker-Planck Framework for Control of Epidemics",
+        "trigger": "Earliest public version and same-paper preprint check."
+      },
+      {
+        "assessment": "NOT_DECISIVELY_COVERING",
+        "evidence": "The abstract describes an ODE epidemic-control class with rigorous global convergence guarantees for a smooth cost; it does not expose the source-specific control-dependent Fokker--Planck diffusion calculation.",
+        "identifier_or_url": "doi:10.1109/LCSYS.2024.3412775",
+        "material_read": "Repository bibliographic record and abstract; linked open PDF returned an access error during inspection.",
+        "method": "Abstract-level implication comparison with access risk recorded.",
+        "title": "Sequential-Quadratic-Hamiltonian Optimal Control of Epidemic Models With an Arbitrary Number of Infected and Non-Infected Compartments",
+        "trigger": "Closest earlier epidemic-specific SQH convergence paper cited by the source."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The accessible material confirms broad SQH theory but does not state the specific Theorem 4.3 formula or its \\(D_k\\) correction.",
+        "identifier_or_url": "isbn:9780367715526",
+        "material_read": "Publisher description and table of contents, including stochastic and PDE optimal-control chapters.",
+        "method": "Scope comparison.",
+        "title": "The Sequential Quadratic Hamiltonian Method: Solving Optimal Control Problems",
+        "trigger": "Foundational SQH reference cited by the source."
+      },
+      {
+        "assessment": "DIFFERENT_SETTING",
+        "evidence": "The work concerns discrete-time CNN training with an L0 regularizer, not this Fokker--Planck epidemic Hamiltonian.",
+        "identifier_or_url": "doi:10.1137/24M1675369",
+        "material_read": "Abstract and open article metadata.",
+        "method": "Methodological comparison.",
+        "title": "The Pontryagin Maximum Principle for Training Convolutional Neural Networks",
+        "trigger": "Recent rigorous augmented-Hamiltonian convergence analysis in the SQH family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2316e46c-ece1-4206-99fb-a1c894b7e1a2",
+  "value": {
+    "rationale": "PASS. Theorem 4.3 is the source's strong-convergence and unique-fixed-point result for the mixed \\(L^1/L^2\\) control case, and its conclusion is used to connect the SQH iteration to the Pontryagin Hamiltonian minimum. Identifying the exact missing control-dependent-diffusion curvature and the invalid proximal fixed-point inference materially changes what convergence can be claimed. The result is not a cosmetic type check: it supplies the corrected first-control subproblem structure and isolates additional hypotheses a valid contraction theorem would need, while preserving the source's separate descent results.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "claim": "For the Parkinson--Roy Fokker--Planck epidemic-control problem, Theorem 4.3 does not establish its stated contraction, unique-fixed-point, or Hamiltonian-minimum conclusions. As written, the theorem defines \\(r(w)\\) as a scalar Hamiltonian contribution, but its projected update treats \\(r(u^k)\\) as a three-vector; even on a one-coordinate affine restriction, the minimizer depends on the coefficient of \\(w\\), not on the value \\(r(u^k)\\). More specifically, for the paper's own simulation diffusion \\(\\sigma_S=-\\sigma_I=\\sqrt{0.02}(1-w_1)SI\\), freezing the state and adjoint at SQH step \\(k\\) gives \\(r_k(w)=c_k+d_{1,k}w_1+d_{2,k}w_2+d_{3,k}w_3+D_k(1-w_1)^2\\), where \\(D_k=0.01\\int_\\Omega f^k S^2I^2(q^k_{SS}+q^k_{II})\\,dS\\,dI\\). Hence the first-coordinate augmented subproblem has curvature \\(\\beta_2+2\\varepsilon-2D_k\\), and, when this is positive and the unconstrained minimizer lies in the control interval, its minimizer is \\((d_{1,k}-\\beta_1-2D_k+2\\varepsilon u_1^k)/(\\beta_2+2\\varepsilon-2D_k)\\), not the paper's displayed expression. No hypothesis in Theorem 4.3 forces \\(D_k=0\\) or replaces the scalar \\(r\\) by the needed coefficient or derivative map. The final fixed-point step also drops the nonnegative proximal term: minimizing \\(H(w)+\\varepsilon\\lvert w-u^*\\rvert^2\\) at \\(u^*\\) yields only \\(H(u^*)\\le H(w)+\\varepsilon\\lvert w-u^*\\rvert^2\\), not \\(H(u^*)\\le H(w)\\). This finding diagnoses the convergence proof only; it does not assert divergence of the implemented SQH scheme or invalidate the separate descent statements of Theorems 4.1--4.2.",
+  "first_public_date": "2026-01-28",
+  "independent_audit_status": "not_performed",
+  "independent_validation": false,
+  "integrity": "All displayed algebra was reconstructed from the open-access source equations. Exact rational checks are bundled. No independent audit has been performed.",
+  "phase": "II",
+  "primary_msc": "92D30",
+  "publication_date": "2026-10-04",
+  "record_id": "SCOPE-20261004-2316e46cece1",
+  "same_model_review_status": "passed",
+  "scientific_limitations": "The result diagnoses Theorem 4.3 as written. It does not assert divergence of the numerical algorithm, does not claim that the separate descent statements of Theorems 4.1--4.2 fail, and does not assert that the source-specific coefficient \\(D_k\\) is nonzero on every iterate. A related 2024 SQH epidemic paper was compared from its abstract and repository metadata because its linked full PDF was inaccessible during this inspection.",
+  "scope_run_id": "2316e46c-ece1-4206-99fb-a1c894b7e1a2",
+  "source_ids": [
+    "arXiv:2601.20181v1",
+    "doi:10.1007/s00285-026-02462-7",
+    "doi:10.1109/LCSYS.2024.3412775",
+    "isbn:9780367715526",
+    "doi:10.1137/24M1675369"
+  ],
+  "title": "Control-dependent diffusion breaks the published SQH projection formula",
+  "verification_state": "same_model_reviewed"
+}
