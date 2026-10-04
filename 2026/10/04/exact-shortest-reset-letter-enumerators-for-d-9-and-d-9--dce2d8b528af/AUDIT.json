@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite. The published transition diagram was independently transcribed. Exact BFS over image subsets finds the first singleton at lengths \\(58\\) and \\(56\\). A shortest-path polynomial dynamic program counts all shortest paths by \\(a\\)-letter weight, and an independent set-based layer propagation reproduces every coefficient and the unique targets. Exact integer expansion verifies the displayed factorizations and total \\(2^{30}3^6\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 algorithm paper proves polynomial running time on all AGV slowly synchronizing families, which is broader algorithmic coverage, but it does not derive the enumerators or a theorem that determines them.",
+        "The defining paper supplies general reset-threshold formulas and one optimal witness for each D family, which do not determine the number or letter composition of all optimal words."
+      ],
+      "reasoning": "Neither general threshold theorems nor an algorithm for finding one shortest reset word implies a count or weight distribution over all shortest reset words.",
+      "searches": [
+        "published-finding corpus: shortest reset word multiplicity slowly synchronizing D_n",
+        "published-finding corpus: letter composition enumerator shortest reset words slowly synchronizing automata",
+        "source: DOI:10.1007/s10878-013-9682-0 Section 5.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.0129v1",
+      "DOI:10.1007/s10878-013-9682-0",
+      "published-finding corpus 2026/9/7/SCOPE007",
+      "published-finding corpus 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 fixes reset lengths and exhibits a witness; many distinct shortest-word languages can share the same threshold and witness.",
+        "The own \\(D'_n\\) and \\(D''_n\\) findings concern minimum lengths for prescribed image ranks, not counts or letter-weight distributions of full reset words."
+      ],
+      "reasoning": "The new enumerators strictly refine threshold information. No checked prior statement determines their coefficients, their equal total multiplicity, or their unique shortest-word targets as an all-words assertion.",
+      "searches": [
+        "arXiv:1005.0129v1 Theorem 4",
+        "DOI:10.1007/s10878-013-9682-0 Theorem 3 and Section 5.2",
+        "own:2644e70f-e3d5-4b09-af58-5eb6d6d35e51",
+        "own:e0ae0699-15a7-4fa4-8a90-3971d64a23c2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1005.0129v1, Figure 4 and Theorem 4 define the same two automata and their minimum reset lengths but give no all-shortest-word enumerator.",
+        "DOI:10.1007/s10878-013-9682-0, Section 5.2 explicitly includes \\(D'_n\\) and \\(D''_n\\) among the slowly synchronizing families handled by the shortest-word algorithm, but states complexity rather than multiplicity or composition formulas."
+      ],
+      "reasoning": "A word-count formula, an a-letter weight enumerator, and the equivalent coefficient distribution were all searched under prime/double-prime aliases. Returned records did not state either factorization or an equivalent histogram.",
+      "searches": [
+        "published-finding corpus: D'_9 D''_9 shortest reset letter enumerator 782757789696",
+        "published-finding corpus: nine state D prime D double prime shortest synchronizing words count composition",
+        "web: D'_9 shortest reset words count composition",
+        "web: D''_9 shortest reset words count composition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 5 of arXiv:1005.0129v1 reports exhaustive generation through nine states and reset-length calculation; its table is a census of automata by reset length, not a table of shortest-word multiplicities for individual automata.",
+        "Exact-number web matches for 782757789696 were unrelated number-sequence or arithmetic pages, not synchronizing-automata results."
+      ],
+      "reasoning": "The published \\(n=9\\) census endpoint motivates the parameter, but its tabulated quantity is different and does not contain the two claimed coefficient distributions.",
+      "searches": [
+        "arXiv:1005.0129v1 Section 5 and Table 1",
+        "web exact number: 782757789696 synchronizing automata reset words D'_9 D''_9",
+        "published-finding corpus exact total: D'_9 D''_9 shortest reset letter enumerator 782757789696"
+      ]
+    },
+    "rationale": "The defining paper proves the thresholds and gives witnesses for the two D families but does not state shortest-reset-word counts or letter-composition enumerators. The later exact shortest-reset algorithm covers the same families algorithmically without publishing these enumerators. Exact-formula, alias, multiplicity and composition searches in published-finding corpus and on the public web found no statement that implies the two factorized nine-state enumerators. The closest own records concern intermediate-rank profiles, a different invariant.",
+    "residual_risks": [
+      "A non-indexed ancillary data file or unpublished computation could contain equivalent shortest-word counts; no such source was found in the checked literature and databases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for transition definitions, reset thresholds and existence of shortest witnesses; NOT_COVERING for shortest-word multiplicities and a-letter enumerators.",
+        "evidence": "Theorem 4 states reset lengths \\(n^2-3n+4\\) and \\(n^2-3n+2\\) and gives witnesses; Section 5 says all two-letter initially connected DFA through nine states were generated and their reset lengths calculated.",
+        "identifier_or_url": "arXiv:1005.0129v1",
+        "material_read": "Figure 4, Theorem 4 proof, Section 5 experiments and surrounding text.",
+        "method": "arXiv full text plus PDF figure inspection.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Defining source for the D colorings and the n=9 census endpoint."
+      },
+      {
+        "assessment": "NOT_COVERING for the claimed enumerators; it proves algorithmic complexity for finding shortest reset words rather than enumerating all shortest words by letter composition.",
+        "evidence": "Section 5.2 lists \\(D'_n\\) and \\(D''_n\\) and states polynomial \\(O(n^4)\\) running time for the algorithm on the slowly synchronizing families.",
+        "identifier_or_url": "DOI:10.1007/s10878-013-9682-0",
+        "material_read": "Abstract, complexity discussion, Section 5.2 and Theorem 3.",
+        "method": "Lawful full-text web rendering.",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Plausible broader source because it explicitly treats the same slowly synchronizing families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dce2d8b5-28af-4390-a234-2b6f7497459a",
+  "value": {
+    "rationale": "The \\(n=9\\) case is the endpoint of the complete exhaustive census in the defining paper, so it is a natural historical boundary rather than an arbitrary small slice. The factorized enumerators refine reset threshold to the complete letter-use distribution of every optimal reset word and expose a non-obvious equality of \\(782{,}757{,}789{,}696\\) optimal words for two colorings with different thresholds and different composition laws. This is a reusable exact benchmark for shortest-word algorithms and structural studies of slowly synchronizing automata.",
+    "status": "PASS"
+  }
+}
