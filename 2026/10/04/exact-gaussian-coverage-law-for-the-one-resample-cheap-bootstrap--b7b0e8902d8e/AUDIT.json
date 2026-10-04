@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For iid Gaussian data, conditional on multinomial bootstrap counts, the sample-mean error and the bootstrap displacement are orthogonal Gaussian linear forms and are independent. Their variance ratio is exactly the normalized collision count. The Cauchy ratio formula gives the finite-sample coverage. Concavity yields strict undercoverage. Collision-indicator graph expansions give the exact moments needed for the Taylor remainder and coefficient. The packaged recurrence independently reproduces small exhaustive cases, moments, and numerical coverages. Risk is confined to the explicitly excluded non-Gaussian and multi-resample settings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lam and Liu 2022/2023 prove general finite-sample error bounds for Cheap Bootstrap and specialize them to linear functions, including Gaussian settings, but the results are inequalities based on normal-approximation errors.",
+        "The inspected linear-function theorem does not determine the exact coverage, its sign, or the first-order constant."
+      ],
+      "reasoning": "A broader theorem would cover the present claim only if it implied the exact Gaussian \\(B=1\\) coverage or a stronger exact characterization. The located bounds are broader in model class but strictly weaker in conclusion.",
+      "searches": [
+        "one-resample bootstrap t1 interval normal mean exact coverage O(1/n) coefficient",
+        "Cheap Bootstrap undercoverage Gaussian mean finite sample",
+        "arXiv:2210.10974 Sections 3.1 and 3.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.00090",
+      "arXiv:2210.10974",
+      "arXiv:2111.06859",
+      "arXiv:2606.25968",
+      "PMLR 202 (2023), 18419-18453"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lam 2022 implies only the limit \\(1-\u0007lpha\\) and an abstract \\(O(n^{-1})\\) correction for this specialization.",
+        "Lam and Liu imply finite-sample error control but not the exact identity or strict undercoverage.",
+        "He, Lam, and Yan 2026 study a different studentized/calibrated procedure; changing the interval prevents it from subsuming the original one-resample result."
+      ],
+      "reasoning": "The new statement strictly refines known asymptotic validity in a natural Gaussian benchmark. It is not a corollary of the inspected bound statements without the new Gaussian orthogonality and occupancy calculation.",
+      "searches": [
+        "Cheap Bootstrap Gaussian sample mean B=1 exact coverage Cauchy multinomial occupancy",
+        "Studentized Cheap Bootstrap Gaussian exact B=1 coverage",
+        "arXiv:2606.25968 abstract and Gaussian-mean discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lam 2022 defines the one-resample interval in Eq. (3) and gives asymptotic exactness, but its higher-order coefficient is presented through a general multidimensional integral.",
+        "No returned close record states the Cauchy conditional law or the occupancy-mixture identity. The closest occupancy record concerns pairwise-independent uniform allocations, not bootstrap confidence coverage."
+      ],
+      "reasoning": "The exact law can be rewritten using the quadratic bootstrap count norm or the pair-collision count, so searches covered both formulations. None of the inspected statements is equivalent to the displayed finite-sample coverage identity.",
+      "searches": [
+        "cheap bootstrap one resample Gaussian mean exact finite sample coverage collision occupancy formula",
+        "Cheap Bootstrap Gaussian sample mean B=1 exact coverage Cauchy multinomial occupancy",
+        "arXiv:2202.00090 Sections 2 and 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The focal paper reports numerical coverage studies and analytic asymptotics, not a table of exact finite-sample Gaussian one-resample coverages.",
+        "The follow-up paper reports empirical coverages and finite-sample bounds, not the collision-count distribution used here."
+      ],
+      "reasoning": "The claim is an exact distributional identity rather than a recomputation of a known table. Searches for exact coverage tables and occupancy formulations did not reveal a source from which the stated values are merely read off.",
+      "searches": [
+        "bootstrap occupancy collision count confidence interval Gaussian mean resample",
+        "Cheap Bootstrap exact coverage",
+        "arXiv:2202.00090 numerical and higher-order sections"
+      ]
+    },
+    "rationale": "The focal source proves asymptotic exactness and a general higher-order expansion, while the finite-sample follow-up gives bounds; neither inspected source states the exact Gaussian one-resample occupancy law, strict finite-sample undercoverage, or the closed-form first-order coefficient. Targeted exact-formula and alias searches did not locate an equivalent statement. A later studentized extension changes the procedure and does not imply this law.",
+    "residual_risks": [
+      "An older bootstrap or Monte Carlo calibration paper may contain the same Gaussian normal-mean identity under notation unrelated to Cheap Bootstrap; targeted alias searches did not locate one.",
+      "The full text of arXiv:2606.25968 was inaccessible in the inspected channel, so an incidental equivalent calculation there cannot be ruled out, although its advertised procedure is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. It gives asymptotic exactness and a general \\(1/n\\) expansion, but says the coefficient is generally a multidimensional integral rather than giving this exact occupancy law or coefficient.",
+        "evidence": "Eq. (3) is the \\(B=1\\) interval; Theorem 1 is asymptotic. Section 3.2 states a two-sided \\(1/n\\) expansion and describes its coefficient through Gaussian integrals.",
+        "identifier_or_url": "arXiv:2202.00090",
+        "material_read": "Full arXiv HTML: introduction; Section 2, especially Eqs. (1)-(3) and Theorem 1; Section 3.2, especially Theorem 2 and the discussion of the higher-order coefficient.",
+        "method": "Statement-level comparison of the interval, asymptotic limit, higher-order expansion, and coefficient representation against the new exact Gaussian claim.",
+        "title": "A Cheap Bootstrap Method for Fast Inference",
+        "trigger": "Defines the exact one-resample interval and is the primary object source."
+      },
+      {
+        "assessment": "NOT_COVERING. The results are finite-sample error bounds based on Berry-Esseen/bootstrap approximation terms, not an exact coverage formula or exact coefficient.",
+        "evidence": "Theorem 3.1 bounds coverage error by approximation errors; Theorems 3.7-3.8 specialize to linear functions but remain bounds.",
+        "identifier_or_url": "arXiv:2210.10974",
+        "material_read": "Full arXiv HTML: Sections 3.1 and 3.3, including Theorems 3.1, 3.7 and 3.8, plus discussion of Gaussian linear functions.",
+        "method": "Compared logical strength of its finite-sample inequalities with the exact conditional distribution and sign asserted here.",
+        "title": "Bootstrap in High Dimension with Low Computation",
+        "trigger": "Most plausible direct finite-sample successor, including linear and Gaussian cases."
+      },
+      {
+        "assessment": "NOT_COVERING for the stated claim. It introduces an additional studentized/bootstrap calibration layer and targets a different interval. Access limitation leaves residual risk for incidental remarks in the full paper.",
+        "evidence": "The abstract explicitly introduces a studentized Cheap Bootstrap with higher-order calibration rather than analyzing the unmodified one-resample interval exactly.",
+        "identifier_or_url": "arXiv:2606.25968",
+        "material_read": "ArXiv abstract plus detailed public summary of the Gaussian-mean setup and method distinction; full arXiv HTML was not available during inspection.",
+        "method": "Checked whether the later procedure leaves the original interval unchanged or supplies the same exact finite-sample law.",
+        "title": "Studentized Cheap Bootstrap: Achieving Higher-Order Coverage Accuracy with Low Computation",
+        "trigger": "Later work on higher-order accuracy of Cheap Bootstrap with Gaussian-mean examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7b0e890-2d8e-430f-adfe-d5d2249d0ed9",
+  "value": {
+    "rationale": "The one-resample regime is the defining extreme-computation use case of Cheap Bootstrap. An exact benchmark that proves finite-sample anti-conservatism for every Gaussian sample size, quantifies the deficit in closed form, and exposes its bootstrap-occupancy mechanism is a motivated calibration result rather than a routine restatement. It sharpens prior asymptotic and bound-only results and supplies a directly reusable diagnostic for deciding whether the one-resample limit is acceptable.",
+    "status": "PASS"
+  }
+}
