@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The coefficient-extraction fractions are expanded as a finite base-\\(b^n\\) prefix plus exact positive tails. At each proposed threshold the tails are proved \\(<1\\) for all \\(n\\), while every smaller positive-denominator base either fails at \\(n=1\\) or, if an entire modulus is hidden in the \\(n=1\\) tail, is forced into a range where the \\(n=2\\) tail lies strictly between \\(1\\) and \\(b^2\\). The inequalities were reconstructed algebraically and the finite verifier replays \\(54\\) Pell cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.04083 proves the formulas only for sufficiently large bases and gives the \\(d=7\\) choices \\(143\\) and \\(64\\).",
+        "arXiv:2609.28649 proves the sharp common threshold \\(2X_1(X_1+1)-1\\) but says its necessity argument uses both coordinates together."
+      ],
+      "reasoning": "A stronger prior result would need to imply minimality for each coordinate separately. The general sufficiently-large-base theorem does not, and the common-base theorem cannot determine the smaller Y-only threshold.",
+      "searches": [
+        "semantic database query: Straight-line programs for the solutions of Pell equation least admissible separate coordinate base Y_n 2 X_1 (Y_1+1)",
+        "arXiv:2405.04083 Corollary 37 and Example 38",
+        "arXiv:2609.28649 Theorem 19 and following example"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28649",
+      "arXiv:2405.04083",
+      "Semantic literature-database searches for Pell separate/minimal extraction bases",
+      "Exact web searches for the proposed Y-threshold and d=7 separate-base wording"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 19 implies \\(b_X\\) is sufficient and that no smaller base works for both coordinates, but it leaves open whether \\(X\\) alone or \\(Y\\) alone can work at smaller bases.",
+        "Example 38 verifies one pair of coordinate bases but does not establish their minimality or generalize them."
+      ],
+      "reasoning": "The new theorem resolves the missing quantifier: for each coordinate separately it determines the least base over all integers b in the positive-denominator domain. That statement is not a corollary of failure of the pair.",
+      "searches": [
+        "arXiv:2609.28649 Theorem 19",
+        "arXiv:2609.28649 line of discussion after Theorem 19 noting bases 143 and 64",
+        "arXiv:2405.04083 Corollary 37 and Example 38"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28649 states the least common admissible base and defines admissibility for both formulas together.",
+        "No semantic-database hit matched an individual-coordinate minimal-base theorem or the Y-threshold."
+      ],
+      "reasoning": "The natural aliases are least base, admissible base, digit extraction, generating-function extraction, and separate coordinate base. The inspected common-base theorem is not equivalent because a base may be valid for one coordinate and fail for the other.",
+      "searches": [
+        "semantic database query: Pell generating function digit extraction separate minimal base X_n Y_n",
+        "semantic database query: Pell arithmetic term least base individual coordinate extraction",
+        "web exact search: \"2 X_1 (Y_1 + 1)\" Pell generating function base",
+        "arXiv:2609.28649 Section 9.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The d=7 entry is an example formula, not a table or theorem of minimal coordinate bases.",
+        "No inspected database result supplied a general table of least separate bases."
+      ],
+      "reasoning": "The new claim is not a recomputation of a known table: it gives closed formulas for all nonsquare d in the source setting, with an infinite proof.",
+      "searches": [
+        "semantic database query: Prunescu Sauras-Altuzarra Pell Example 38 base 143 base 64 minimal",
+        "web exact search: \"separate coordinate\" Pell base 64 143 Prunescu",
+        "arXiv:2405.04083 Example 38"
+      ]
+    },
+    "rationale": "The 2025 paper gives sufficiently-large-base formulas and a d=7 example, while the 2026 paper proves the least common base using both coordinates. Neither inspected source states the two general coordinate-wise minima. Targeted semantic and exact web searches found no covering theorem.",
+    "residual_risks": [
+      "The source paper is very recent, so an uncrawled or independently circulating derivation of the same coordinate-wise thresholds is possible.",
+      "Search failure is not a proof of global novelty; the PASS rests on the closest primary full-text comparisons plus targeted alias/equivalence searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the coordinate-wise minima. It proves the least common base and explicitly uses both coordinates in necessity.",
+        "evidence": "Section 9.1 defines common admissibility; Theorem 19 gives \\(2X_1(X_1+1)-1\\); the following paragraph notes separate example bases \\(143\\) and \\(64\\).",
+        "identifier_or_url": "arXiv:2609.28649",
+        "material_read": "Abstract, introduction discussion of the common base, Section 9 through Theorem 19 and the following d=7 example.",
+        "method": "Full arXiv HTML inspection.",
+        "title": "Straight-line programs for the solutions of Pell's equation",
+        "trigger": "Same Pell extraction formulas and sharp common-base theorem."
+      },
+      {
+        "assessment": "NOT_COVERING the general minimal-base theorem.",
+        "evidence": "Corollary 37 says sufficiently large base; Example 38 exhibits \\(143\\) for \\(x\\) and \\(64\\) for \\(y\\) when \\(d=7\\) without a minimality theorem.",
+        "identifier_or_url": "arXiv:2405.04083",
+        "material_read": "Section 7.1, Theorem 36, Corollary 37, and Example 38.",
+        "method": "Full arXiv HTML inspection.",
+        "title": "On the representation of C-recursive integer sequences by arithmetic terms",
+        "trigger": "Cited origin of the Pell extraction formulas and d=7 coordinate examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6de3d70-a94f-4f97-93e1-17df5f181804",
+  "value": {
+    "rationale": "The sharp common-base problem is explicit in the recent source. Coordinate-wise optimization is mathematically natural because the two formulas are used separately in arithmetic constructions. The theorem gives a genuinely smaller exact threshold for \\(Y\\), retains the sharp \\(X\\) threshold without using the other coordinate, and explains the only modular-wrap obstruction via a forced \\(n=2\\) failure.",
+    "status": "PASS"
+  }
+}
