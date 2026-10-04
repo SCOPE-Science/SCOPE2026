@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The exact three-moment operator follows by conditioning on the two Bernoulli branches. Its complete cubic Jury test reduces stability to \\(ps[2p-(2-p)s]>0\\), because the remaining Jury expressions have explicit positive minima or monotone positive forms. A separate geometric-renewal calculation gives the same necessity boundary for the standard zero-residual initialization and yields the exact cycle optimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1806.08054v1",
+        "arXiv:1909.05350v1",
+        "arXiv:2506.05271v1",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+      ],
+      "reasoning": "Broader analyses establish convergence of error-feedback methods under generic assumptions, and the 2025 tight study gives exact worst-case Lyapunov rates for deterministic contractive compressors. Those results do not specialize to the independent Bernoulli compressor's exact second-moment operator. The closest published records concern different stochastic feedback or deterministic operator recurrences.",
+      "searches": [
+        "error feedback compressed SGD scalar quadratic exact stability linear compressor",
+        "error compensation compression quadratic exact stepsize stability",
+        "error feedback contractive compressor linear system eigenvalues",
+        "Tight analyses first-order methods error feedback random compressor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1809.07599v1",
+      "arXiv:1901.09847v1",
+      "arXiv:1806.08054v1",
+      "arXiv:1909.05350v1",
+      "arXiv:2004.05298v1",
+      "arXiv:2506.05271v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1809.07599v1 full text, Sections 2.1-2.3",
+        "arXiv:1901.09847v2 PDF, Algorithm 1 and related-work discussion",
+        "PMLR 80:5325-5333 full PDF, Sections 4-5.2",
+        "arXiv:2004.05298v3 full HTML, Sections 1-3",
+        "arXiv:2506.05271v1 full HTML, Introduction and Assumption 1"
+      ],
+      "reasoning": "The 2018 memory paper defines exactly the residual mechanism and permits sub-one-coordinate random transmission, but proves averaged diminishing/scheduled-step convergence rather than a fixed-step scalar necessity-and-sufficiency theorem. The 2019 general EF paper uses the same residual architecture but does not derive this random-sparsifier phase diagram. The 2018 ECQ-SGD quadratic result uses stochastic quantization and extra feedback parameters. The 2020 random-block paper provides qualitative motivation for alternatives to ordinary EF. The 2025 tight analysis explicitly adopts deterministic contractive compression for its main exact rate theorem, so its stronger worst-case claims do not imply the iid Bernoulli formula.",
+      "searches": [
+        "Sparsified SGD with Memory ultra-sparsification random coordinate probability memory algorithm",
+        "Error Feedback Fixes SignSGD Algorithm 1 arbitrary compression",
+        "Error Compensated Quantized SGD quadratic convergence error feedback",
+        "Detached Error Feedback random block-wise sparsification ordinary error feedback",
+        "Tight analyses first-order methods error feedback deterministic contractive compressor CGD outperforms EF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1809.07599v1",
+        "arXiv:1901.09847v1",
+        "arXiv:2004.05298v1",
+        "No matching exact published-record statement found"
+      ],
+      "reasoning": "The natural equivalent description is a renewal system: failed transmissions accumulate identical scalar gradient steps and the next success applies a random bundled step. The inspected error-feedback and sparsification sources do not state this geometric waiting-time reduction or its exact mean-square threshold.",
+      "searches": [
+        "error feedback random sparsification scalar quadratic mean square stability geometric delay",
+        "Mem-SGD Bernoulli sparsifier exact stability constant step",
+        "error feedback dropout compressor quadratic exact threshold",
+        "error feedback linear compressor quadratic momentum equivalence stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "No exact Bernoulli error-feedback stability table or threshold found"
+      ],
+      "reasoning": "The nearest exact records analyze random delays, stochastic feedback, or deterministic rate-optimal recurrences. None contains classic error feedback with the Bernoulli omit-or-send compressor, so none implies the \\(2p/(2-p)\\) frontier or the cycle factor.",
+      "searches": [
+        "EF-SGD scaled identity compressor scalar quadratic spectral radius",
+        "random-k error feedback quadratic communication cycle geometric",
+        "error feedback random sparsification scalar quadratic mean square stability geometric delay",
+        "2p/(2-p) error feedback SGD compression stability"
+      ]
+    },
+    "rationale": "The inspected defining, quadratic, random-sparsification, and modern tight-analysis papers do not state the combined Bernoulli moment operator, sharp constant-step threshold, communication-cycle optimum, and no-memory comparison.",
+    "residual_risks": [
+      "An equivalent Bernoulli-delay calculation may exist in older communication-delay or quantized-control literature under terminology not mentioning error feedback.",
+      "The 2025 tight-analysis code repository mentions auxiliary random-compressor scripts even though the inspected paper's main exact assumptions are deterministic; an unpublished or auxiliary specialization could reduce originality.",
+      "The scalar no-memory comparison exploits the fact that a successful scalar message loses no coordinate information and should not be generalized to high-dimensional sparse communication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "The source explicitly permits choosing a random coordinate with probability k/d even for k<1, and Algorithm 1 stores the unsent step in memory. Its stated convergence theory uses selected step schedules and averaged iterates rather than the exact fixed-step scalar mean-square phase diagram.",
+        "identifier_or_url": "arXiv:1809.07599v1",
+        "material_read": "Full open-access text: introduction, k-contraction definition, random-k definition, ultra-sparsification remark, variance-blow-up discussion, Algorithm 1, and convergence-result setup.",
+        "method": "Open-access full-text inspection.",
+        "title": "Sparsified SGD with Memory",
+        "trigger": "Defining source for memory-based sparsified SGD and random-coordinate ultra-sparsification."
+      },
+      {
+        "assessment": "GENERAL_ERROR_FEEDBACK_NOT_COVERING.",
+        "evidence": "The algorithm forms a corrected message from the current step plus residual and stores the compression error, matching the mechanism studied here. The paper proves broad convergence but does not state an iid Bernoulli compressor's scalar moment matrix or exact stability boundary.",
+        "identifier_or_url": "arXiv:1901.09847v1",
+        "material_read": "Open-access PDF: Algorithm 1, error-feedback explanation, contribution summary, and related-work discussion of compression and memory.",
+        "method": "Full-PDF text and page inspection.",
+        "title": "Error Feedback Fixes SignSGD and other Gradient Compression Schemes",
+        "trigger": "Canonical general error-feedback formulation."
+      },
+      {
+        "assessment": "QUADRATIC_ERROR_COMPENSATION_NOT_COVERING.",
+        "evidence": "The method uses an unbiased stochastic quantizer with additional compensation and decay parameters, and its quadratic theorem is a worst-case error bound. It does not analyze Bernoulli omit-or-send sparsification or derive the claimed threshold.",
+        "identifier_or_url": "arXiv:1806.08054v1",
+        "material_read": "Full PMLR PDF: error-accumulation equations, Algorithm 1, quantizer definition, Sections 5.1-5.2, quadratic error bound, and parameter conditions.",
+        "method": "Full-PDF text and page inspection.",
+        "title": "Error Compensated Quantized SGD and its Applications to Large-scale Distributed Optimization",
+        "trigger": "Earlier error-compensation paper with explicit quadratic analysis, a plausible covering source."
+      },
+      {
+        "assessment": "RANDOM_SPARSIFICATION_FOLLOWUP_NOT_COVERING.",
+        "evidence": "The paper states that ordinary EF performs poorly for random block-wise gradient sparsification and proposes a detached variant using variance-versus-second-moment analysis. It does not give the scalar geometric-delay reduction or exact constant-step mean-square threshold.",
+        "identifier_or_url": "arXiv:2004.05298v1",
+        "material_read": "Full open-access HTML: introduction, related work on random block-wise sparsification and error feedback, DEF motivation, Algorithm 1, and theoretical setup.",
+        "method": "Open-access full-text inspection.",
+        "title": "Detached Error Feedback for Distributed SGD with Random Sparsification",
+        "trigger": "Directly relevant random-sparsification paper that reports weaknesses of ordinary error feedback."
+      },
+      {
+        "assessment": "BROADER_TIGHT_DETERMINISTIC_COMPRESSOR_ANALYSIS_NOT_COVERING.",
+        "evidence": "The main exact one-node analysis assumes a deterministic contractive compressor and finds tight worst-case Lyapunov rates; it also concludes compressed GD can outperform EF in that setting. The inspected paper does not analyze the independent Bernoulli omit-or-send compressor or state the \\(2p/(2-p)\\) formula.",
+        "identifier_or_url": "arXiv:2506.05271v1",
+        "material_read": "Full open-access HTML: compression assumptions, Algorithms 1-3, literature discussion, contribution statement, and setup of the tight Lyapunov analysis.",
+        "method": "Open-access full-text inspection and targeted search for randomized-compressor coverage.",
+        "title": "Tight analyses of first-order methods with error feedback",
+        "trigger": "Strong modern candidate for broader exact coverage of one-node EF."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db9fbbc3-513e-4170-bd93-4ae541de8bac",
+  "value": {
+    "rationale": "Random sparsification is a canonical communication compressor for which memory/error feedback was introduced. The finding identifies the exact geometric-delay overshoot mechanism and its sharp constant-step stability cost, \\(2p/(2-p)\\), while the communication-cycle optimum quantifies the compression-rate tradeoff. The comparison with memoryless dropout isolates residual accumulation as the source of the stability loss on the smallest natural benchmark.",
+    "status": "PASS"
+  }
+}
