@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The source string is interpreted using the paper\\'s explicit descending-coefficient convention and generates a \\(4096\\)-word negacyclic ideal. Its \\(2\\)-torsion has size \\(1024\\), recovering type \\(4^2 2^8\\), and exhaustive Lee enumeration recovers distance \\(16\\). The Gray image has \\(4096\\) words and binary span dimension \\(12\\), so it is exactly linear. Direct coordinate-permutation and polynomial calculations identify its degree-\\(60\\) binary cyclic generator. Column-dependency enumeration proves dual distance \\(4\\). The packaged standard-library verifier reconstructs every finite step and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackford 2003 gives the general even-length negacyclic Gray-image framework and characterizes linear binary cyclic images, so general cyclicity is treated as prior background.",
+        "Dougherty–Fernández-Córdoba 2016 studies rank and kernel for cyclic and negacyclic quaternary codes, but the located material does not contain the later length-36 record-breaker.",
+        "Aydin et al. 2026 explicitly warn that Gray images need not be linear and do not report rank or kernel for Table 5."
+      ],
+      "reasoning": "General structural theorems do not by themselves state the exact rank, kernel, enumerator, degree-60 generator, or dual distance for the newly published coefficient string; the claim is the exact finite instantiation and identification.",
+      "searches": [
+        "Z4 negacyclic code [36,2,8,16] generator 303230323030321210301230123010323210 Gray image",
+        "new codes cyclic negacyclic even length Z4 [36,2,8,16] binary linear",
+        "Z4-linear code type 4^2 2^8 Gray image linear [72,12,16]"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.08750v1 full public text and authoritative arXiv metadata",
+      "DOI:10.1109/TIT.2003.811915 abstract/metadata",
+      "DOI:10.1007/s10623-015-0163-6 public full-text preview/metadata",
+      "published-finding corpus exact and alias searches for the generator, [36,2,8,16], [72,12,16], Gray image, rank, kernel, and linearity",
+      "Web exact-string and exact-parameter searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source establishes the Z4 code type and Lee distance but explicitly says Gray images of Z4-linear codes are not necessarily binary linear.",
+        "Blackford 2003 supplies a classification framework for even-length negacyclic Gray images; it is used here only as background because the package independently proves linearity and cyclic equality for this code.",
+        "The exact cyclic polynomial, complete weight distribution, and dual distance require the specific 2026 generator and are not fixed by the quaternary parameter tuple alone."
+      ],
+      "reasoning": "The prior source data do not logically imply the advertised full binary fingerprint without additional object-specific computation. General cyclic-image theory is not re-claimed as novel.",
+      "searches": [
+        "Z4 negacyclic code [36,2,8,16] generator 303230323030321210301230123010323210 Gray image",
+        "new codes cyclic negacyclic even length Z4 [36,2,8,16] binary linear",
+        "Z4-linear code type 4^2 2^8 Gray image linear [72,12,16]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no record matching the exact generator string or the quaternary [36,2,8,16] code with a linear [72,12,16] Gray image.",
+        "Web searches of the exact coefficient string and of rank/kernel plus both parameter tuples found the 2026 source but no separate finite invariant computation."
+      ],
+      "reasoning": "Searches covered both the quaternary object and its equivalent binary Gray-image description, including rank/kernel terminology and the exact generator string.",
+      "searches": [
+        "Z4 negacyclic code [36,2,8,16] generator 303230323030321210301230123010323210 Gray image",
+        "binary Gray image [72,12,16] Z4 negacyclic rank kernel weight enumerator",
+        "303230323030321210301230123010323210",
+        "Z4-linear code type 4^2 2^8 Gray image linear [72,12,16]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Aydin et al. Table 5 lists [36,2,8,16] and generator 303230323030321210301230123010323210, but no binary-image table accompanies that row.",
+        "Exact searches of the generator string and weight/rank terminology returned no database entry stating the new binary invariants."
+      ],
+      "reasoning": "An exact quaternary-code database row could directly cover the finite invariants, so the unique generator string was searched. The located source/database discussion supplies only the quaternary record data.",
+      "searches": [
+        "Z4 negacyclic code [36,2,8,16] generator 303230323030321210301230123010323210 Gray image",
+        "303230323030321210301230123010323210",
+        "binary Gray image [72,12,16] Z4 negacyclic rank kernel weight enumerator"
+      ]
+    },
+    "rationale": "The 2026 source publishes the quaternary type, Lee distance, and generator but not this code's Gray rank, kernel, weight distribution, binary linearity, binary cyclic generator, or dual distance. Focused published-finding corpus and web searches using the exact generator and both parameter descriptions found no same-object statement. Earlier literature supplies the general Gray/negacyclic and rank/kernel framework but not this 2026 instantiation.",
+    "residual_risks": [
+      "An unindexed Z4-code database or private computational table could contain the same rank, kernel, or weight distribution.",
+      "Blackford's general classification may offer an alternative derivation of linearity after a detailed factorization of this generator; no published instantiation for this 2026 row was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed binary fingerprint: it publishes the Z4 record and Gray-map background but no rank, kernel, complete enumerator, binary cyclic generator, or dual distance for this row.",
+        "evidence": "Table 5 gives [36,2,8,16] and the exact coefficient string; the Gray-map section says images need not be linear; full-text searches returned no rank, kernel, or weight-distribution occurrence.",
+        "identifier_or_url": "arXiv:2606.08750v1",
+        "material_read": "Gray-map definitions and warnings on nonlinearity; even-length negacyclic construction discussion; computational-results section; Table 5 including the [36,2,8,16] generator row; conclusion; full-text searches for rank, kernel, and weight distribution.",
+        "method": "lawful public full-text reading",
+        "title": "New Codes from Cyclic and Negacyclic Codes of Even Length over Z4",
+        "trigger": "Primary source of the exact record-breaking code and the strongest same-object coverage risk."
+      },
+      {
+        "assessment": "PARTIAL_GENERAL_COVERAGE: it establishes the relevant general framework, so cyclic-image behavior is prior; it does not contain the 2026 generator or its exact binary fingerprint.",
+        "evidence": "The abstract states that it classifies even-length negacyclic Z4 codes and shows which linear binary cyclic codes are Gray images of negacyclic codes.",
+        "identifier_or_url": "DOI:10.1109/TIT.2003.811915",
+        "material_read": "Public abstract and bibliographic description of the transform classification and characterization of linear binary cyclic Gray images.",
+        "method": "public abstract and metadata inspection",
+        "title": "Negacyclic codes over Z4 of even length",
+        "trigger": "The central prior classification of even-length negacyclic Z4 codes and their binary Gray images."
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND, NOT SAME-OBJECT COVERAGE: rank and kernel are established invariants, but no statement of the later [36,2,8,16] record or its values was located.",
+        "evidence": "The paper studies binary rank and kernel of Gray images of cyclic and negacyclic quaternary codes; it predates the 2026 record-breaking generator.",
+        "identifier_or_url": "DOI:10.1007/s10623-015-0163-6",
+        "material_read": "Abstract and publicly available rank/kernel description, including the extension from cyclic to negacyclic quaternary codes.",
+        "method": "public full-text preview and metadata inspection",
+        "title": "Kernels and ranks of cyclic and negacyclic quaternary codes",
+        "trigger": "Direct prior literature on the two structural invariants claimed here."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2cb22714-41ba-47a0-9d66-777ae7ef39a4",
+  "value": {
+    "rationale": "The source singles out this code as a record-breaking \\(\\mathbb Z_4\\) negacyclic construction and explicitly motivates binary Gray images while noting that they are generally nonlinear. Determining that this particular record has a fully linear Gray image is therefore a meaningful structural classification rather than a routine restatement of its Lee distance. The exact binary cyclic generator, full weight enumerator, dual distance, rank, and kernel together give a reusable fingerprint and show that this quaternary record can be handled by ordinary binary cyclic-code algebra. The result is not sold as a binary-distance record.",
+    "status": "PASS"
+  }
+}
