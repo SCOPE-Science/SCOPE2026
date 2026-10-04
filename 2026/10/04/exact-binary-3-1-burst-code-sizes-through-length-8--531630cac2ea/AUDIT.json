@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The channel definition, quantifiers, and finite range are explicit. Two independent implementations generate identical error balls for every source at \\(3\\le n\\le8\\); all ball sizes match the published constant-ball specialization. Explicit attaining codes prove the lower bounds. A standalone exhaustive maximum-clique search proves the upper bounds using a proper-coloring upper bound at every prune. Replay returns exactly \\((1,1,2,2,4,8)\\). Risk: the universal behavior for \\(n>8\\) is unproved and is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu--Zhang prove a general constant-ball sphere-packing bound and give a \\((3,1)\\) construction with redundancy at most \\(\\log n+9\\), described as optimal up to an additive constant.",
+        "Sun--Lu--Zhang--Ge give fixed-parameter \\(q\\)-ary constructions with \\(\\log n+O(1)\\) redundancy.",
+        "Those asymptotic constructions and bounds do not fix the exact maximum cardinality at any of the six stated short lengths."
+      ],
+      "reasoning": "Broader asymptotic rate or redundancy coverage would dominate the claim only if it forced these exact finite maxima. The inspected bounds leave gaps at the short lengths and therefore do not imply the profile.",
+      "searches": [
+        "arXiv:2201.10259 full text (3,1) construction sphere-packing bound",
+        "arXiv:2403.11750 asymptotically optimal (t,s)-burst error",
+        "\"(3,1) burst\" correcting code size"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.10259v1",
+      "arXiv:2201.10259v2",
+      "arXiv:2403.11750v1",
+      "MSC2020 94B20 classification entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Specializing the published constant-ball bound gives integer upper bounds \\((1,1,2,3,5,9)\\) for lengths \\(3\\) through \\(8\\).",
+        "The new exact values are \\((1,1,2,2,4,8)\\), so the published bound alone leaves one-word gaps at lengths \\(6,7,8\\).",
+        "The cited constructions provide lower bounds via code families but do not supply matching short-length upper bounds."
+      ],
+      "reasoning": "Neither the published upper bound nor the asymptotic constructions logically imply the exact values \\(2,4,8\\) at lengths \\(6,7,8\\). The exhaustive compatibility-graph computation closes precisely those finite gaps.",
+      "searches": [
+        "Lu Zhang sphere packing (t,s) burst size upper bound",
+        "Asymptotically Optimal Codes for (t,s)-Burst Error finite exact",
+        "\"(3,1)-burst\" sphere packing length 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2201.10259 defines correction by pairwise-disjoint \\((t,s)\\)-burst balls and proves equivalence of the correction problem with its burst-ball formulation.",
+        "The exact compatibility graph used here is merely a finite reformulation: two words are adjacent exactly when those published error balls are disjoint.",
+        "No inspected indexed result returned the profile \\((1,1,2,2,4,8)\\) or the exact endpoint \\(A_{3,1}(8)=8\\)."
+      ],
+      "reasoning": "The graph formulation changes no object or quantifier, so any published exact small-length code-size result under the disjoint-ball definition would cover the claim. The targeted searches found no such inspected statement.",
+      "searches": [
+        "\"(3,1)-burst\" exact code size binary length",
+        "\"3 deletion 1 insertion burst\" code exact",
+        "binary three deletion one insertion burst code length 8 maximum 8",
+        "disjoint error balls (3,1) burst correcting code maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed searches produced no inspected finite table or exact-value record for these parameters.",
+        "The inspected Lu--Zhang text treats the \\((3,1)\\) case via construction and asymptotic redundancy rather than a short-length optimum table.",
+        "The later asymptotic paper likewise advertises general constructions rather than exact short-block maxima.",
+        "A final exact-profile search using the literal sequence \\((1,1,2,2,4,8)\\) and the endpoint \\(A_{3,1}(8)=8\\) returned no scientifically matching published-finding record."
+      ],
+      "reasoning": "No checked table/database result covers the six values. This negative search is used only as evidence of the performed comparison, not as proof that no such result exists anywhere.",
+      "searches": [
+        "binary (3,1)-burst correcting codes exact sizes 1 1 2 2 4 8 lengths 3 through 8",
+        "Lu Zhang (3,1)-burst finite small length optimum",
+        "t s burst exact short blocklength maximum code",
+        "\"A_{3,1}(8)\" burst code",
+        "\"1,1,2,2,4,8\" \"(3,1)-burst\"",
+        "\"A_{3,1}(8)=8\" burst",
+        "\"(3,1)-burst\" \"sphere-packing\" exact finite"
+      ]
+    },
+    "rationale": "The closest inspected primary and follow-up sources cover the same burst channel through general sphere-packing and asymptotic constructions but do not state or imply the exact short-length profile. Targeted searches covered equivalent disjoint-ball/graph formulations, stronger asymptotic coverage, exact-value/table aliases, and direct implication. Residual risk of unindexed or unpublished finite work is retained.",
+    "residual_risks": [
+      "An unindexed thesis, unpublished computation, or differently phrased finite table may contain one or more of the same values.",
+      "Search failure is not treated as a proof of novelty; the PASS is relative to the inspected sources and implication checks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object and correction criterion. It supplies the general ball-size/bound framework and an additive-constant-optimal construction, but the inspected material does not state the six exact finite maxima.",
+        "evidence": "The paper defines a \\((t,s)\\)-burst as deleting \\(t\\) consecutive symbols and inserting \\(s\\) symbols at the same coordinate; it defines correcting codes by disjoint burst balls and describes the \\((3,1)\\) construction as optimal up to an additive constant.",
+        "identifier_or_url": "arXiv:2201.10259v1",
+        "material_read": "Abstract; introduction; definitions of \\((t,s)\\)-burst and correcting codes; equivalence theorem; constant-ball/sphere-packing section; the dedicated \\((3,1)\\) construction discussion; conclusion.",
+        "method": "Lawful open-access arXiv full text and submission record.",
+        "title": "t-Deletion-s-Insertion-Burst Correcting Codes",
+        "trigger": "Defines the exact channel and explicitly singles out the \\((3,1)\\) case."
+      },
+      {
+        "assessment": "Provides \\(q\\)-ary fixed-parameter constructions with \\(\\log n+O(1)\\) redundancy; this asymptotic statement does not determine the finite maxima through length \\(8\\).",
+        "evidence": "The abstract states explicit \\(q\\)-ary constructions with \\(\\log n+O(1)\\) bits of redundancy for fixed nonnegative \\(t,s\\) and \\(q\\ge2\\).",
+        "identifier_or_url": "arXiv:2403.11750v1",
+        "material_read": "Abstract, bibliographic record, and available summary of the general fixed-parameter construction result.",
+        "method": "Lawful open-access arXiv record plus indexed publication metadata.",
+        "title": "Asymptotically Optimal Codes for \\((t,s)\\)-Burst Error",
+        "trigger": "Later broader work on the identical \\((t,s)\\)-burst model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "531630ca-c2ea-4e6a-910e-b839a08994ab",
+  "value": {
+    "rationale": "Maximum correcting-code cardinality is the natural finite invariant for the channel, and the primary paper specifically isolates the \\((3,1)\\) case as a nontrivial construction problem. The complete initial profile through length \\(8\\) shows exactly where, in this range, the natural constant-ball sphere-packing bound first ceases to be tight. This is a motivated boundary fact rather than an arbitrary recomputation. Risk: the range is short and no downstream asymptotic theorem is claimed.",
+    "status": "PASS"
+  }
+}
