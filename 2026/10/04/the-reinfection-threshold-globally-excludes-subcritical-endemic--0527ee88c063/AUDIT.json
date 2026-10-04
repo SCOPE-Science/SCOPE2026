@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The source’s scalar reduction is exact. For every \\(I>0\\), direct differentiation gives strictly positive partial derivatives of \\(F\\) with respect to \\(\\beta_1\\) and \\(\\beta_2\\). At \\(\\beta_1=\\beta_1^\\ast\\), \\(\\beta_2=\\beta_2^\\ast\\), clearing positive denominators gives \\(-I^2(C_0+C_1I)\\) times a positive factor, with \\(C_0>0\\) and \\(C_1>0\\) because \\(H>0\\), \\(P>0\\), \\(M-\\mu=\\alpha\\sigma>0\\), and \\(M-A\\sigma=\\mu(1-\\sigma)\\ge0\\). Hence the scalar function is negative for every positive \\(I\\) at the extremal corner and therefore throughout the claimed rectangle. The proof is universal, not experimental; exact-rational replay only checks algebraic consistency.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al., arXiv:2205.07258, derives a lower critical threshold and basic reinfection number for a different SEIRE model.",
+        "Wangari 2020 gives a reinfection-driven forward/backward bifurcation threshold for a different SEIR system.",
+        "Sulayman, Abdullah, and Mohd 2021 studies an SVEIRE tuberculosis model with imperfect vaccination and reinfection; its state structure and equilibrium polynomial differ from the present model."
+      ],
+      "reasoning": "The older literature establishes the general phenomenon that reinfection can create backward bifurcation, but it does not dominate this theorem: none of the inspected models has the same five-compartment equations, the same \\(\\beta_2^\\ast\\) formula, or the exact monotone-corner factorization used here.",
+      "searches": [
+        "published-finding corpus: \"reinfection threshold beta2 star R0 below one absence endemic equilibria imperfect vaccination\"",
+        "Web: Sulayman SEIRV vaccination reinfection backward bifurcation global asymptotic stability R0",
+        "Web: \"SEIRV\" reinfection \"backward bifurcation\" \"beta_2\"",
+        "Web: Wangari exogenous reinfection forward backward bifurcation threshold"
+      ]
+    },
+    "checked_sources": [
+      "Khan, Wang, Liu, Xiong (2026), DOI 10.1080/17513758.2026.2713881",
+      "PubMed PMID 42570011",
+      "University of Saskatchewan repository record hdl:10388/19155",
+      "Wang, Wang, Qi, Xu, arXiv:2205.07258",
+      "Wangari (2020), DOI 10.1155/2020/9435819",
+      "Sulayman, Abdullah, Mohd (2021), Mathematics 9, 327",
+      "published-finding corpus semantic search results including 2026/9/14/SCOPE021 and 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f",
+      "Available own ledger snapshots through g000045"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper proves only a local bifurcation-direction test at \\(R_0=1\\) for \\(\\beta_2\\) relative to \\(\\beta_2^\\ast\\), then separately labels global absence of subcritical endemic equilibria as numerical.",
+        "A local forward-bifurcation direction does not exclude a disconnected or remote subcritical endemic branch, so Theorem 5.2 of the source does not imply the accepted claim.",
+        "The inspected older models use different equilibrium equations and their threshold theorems do not specialize to the Khan et al. SEIRV model."
+      ],
+      "reasoning": "The accepted statement is strictly stronger than the source’s local bifurcation result in the relevant direction but narrower than a global dynamical theorem. Its proof closes exactly the implication that the source leaves numerical.",
+      "searches": [
+        "Web: \"Dynamics of an SEIRV endemic model\" Numerical Finding 7.1",
+        "Web: \"Backward bifurcation, basic reinfection number and robustness of a SEIRE epidemic model with reinfection\"",
+        "Web: \"Condition for Global Stability for a SEIR Model Incorporating Exogenous Reinfection and Primary Infection Mechanisms\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Khan et al. 2026 states Numerical Finding 7.1 as a simulation-based suggestion when \\(R_0<1\\) and \\(\\beta_2\\le\\beta_2^\\ast\\).",
+        "The closest published-finding corpus hit was 2026/9/14/SCOPE021, a different two-patch SEIR reproduction-number bracketing counterexample; it does not concern the present scalar SEIRV equilibrium equation."
+      ],
+      "reasoning": "Equivalent searches by source language, threshold aliases, and the positive-root formulation did not return a prior proof. The source’s local forward/backward criterion alone does not imply absence of remote positive equilibria; the new corner factorization is needed.",
+      "searches": [
+        "published-finding corpus: \"SEIRV reinfection Numerical Finding 7.1 beta2 star no subcritical endemic equilibrium\"",
+        "published-finding corpus: \"scalar endemic equilibrium monotone transmission reinfection threshold forward bifurcation no positive root\"",
+        "Web: \"no subcritical endemic equilibrium\" reinfection SEIRV",
+        "Web: \"beta_2^*\" \"subcritical endemic equilibrium\" SEIRV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publisher full text and PubMed identify the original article; no correction or erratum covering Numerical Finding 7.1 was found.",
+        "The available current ledger and all available snapshots contain no row with this DOI, title, or claim."
+      ],
+      "reasoning": "No database correction, published table, published-finding corpus record, or available own-ledger entry already supplies the theorem.",
+      "searches": [
+        "published-finding corpus: \"Dynamics of an SEIRV endemic model effects of reinfection no subcritical endemic equilibrium beta2 threshold\"",
+        "Web: exact DOI 10.1080/17513758.2026.2713881 correction erratum corrigendum",
+        "Local ledger: DOI 10.1080/17513758.2026.2713881; title alias \"SEIRV endemic\"; term \"reinfection\""
+      ]
+    },
+    "rationale": "The motivating paper explicitly presents the no-subcritical-endemic-equilibrium statement as simulation-supported Numerical Finding 7.1 rather than a theorem. The new proof supplies a source-specific monotonicity argument and an exact factorization at \\(R_0=1\\), \\(\\beta_2=\\beta_2^\\ast\\). Targeted published-finding corpus, web, correction/erratum, and local-ledger searches found no result that states or implies this exact theorem for the same SEIRV equations.",
+    "residual_risks": [
+      "Semantic and web searches are not exhaustive; a non-indexed or inaccessible source could contain a similar argument.",
+      "The theorem proves equilibrium exclusion only. It does not settle the motivating paper’s additional numerical suggestion of global convergence to the disease-free equilibrium."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source states the target absence claim only as a numerical finding; it does not give the monotonicity-plus-corner proof.",
+        "evidence": "Published online 2026-08-08; 2020 Mathematics Subject Classification lists 92D30 first. Numerical Finding 7.1 says simulations suggest no subcritical endemic equilibrium for \\(R_0<1\\) when \\(\\beta_2\\le\\beta_2^\\ast\\).",
+        "identifier_or_url": "doi:10.1080/17513758.2026.2713881",
+        "material_read": "Publisher full-text material covering publication metadata, model (2.1), reproduction number, Section 5 threshold statements, Numerical Finding 7.1, and Appendix B.1/B.3 scalar reduction and threshold derivative.",
+        "method": "Open-access publisher text indexed by web search, cross-checked against PubMed and the University of Saskatchewan repository record.",
+        "title": "Dynamics of an SEIRV endemic model: effects of reinfection",
+        "trigger": "Exact motivating source and same equations/parameters."
+      },
+      {
+        "assessment": "NOT_COVERING: different SEIRE state structure and different threshold objects.",
+        "evidence": "The paper derives \\(R_0\\), a lower threshold, and a basic reinfection number for its SEIRE model; it does not state the present SEIRV \\(\\beta_2^\\ast\\) theorem.",
+        "identifier_or_url": "arXiv:2205.07258",
+        "material_read": "Abstract and threshold summary returned from the arXiv record.",
+        "method": "arXiv bibliographic/abstract record via web search.",
+        "title": "Backward bifurcation, basic reinfection number and robustness of a SEIRE epidemic model with reinfection",
+        "trigger": "Closest earlier reinfection-threshold paper cited by the motivating source."
+      },
+      {
+        "assessment": "NOT_COVERING: different compartmental model and threshold polynomial.",
+        "evidence": "The source describes a critical exogenous-reinfection parameter for a different SEIR system and does not contain the Khan et al. scalar function or threshold formula.",
+        "identifier_or_url": "doi:10.1155/2020/9435819",
+        "material_read": "Publisher result text describing the critical reinfection parameter and forward/backward bifurcation regimes.",
+        "method": "Publisher page via web search.",
+        "title": "Condition for Global Stability for a SEIR Model Incorporating Exogenous Reinfection and Primary Infection Mechanisms",
+        "trigger": "Earlier reinfection-driven forward/backward bifurcation threshold in a closely related epidemic setting."
+      },
+      {
+        "assessment": "NOT_COVERING: tuberculosis SVEIRE model with additional exogenous factors and different equilibrium structure.",
+        "evidence": "The abstract reports backward bifurcation despite a reproduction number below one but does not state the present source-specific exclusion theorem.",
+        "identifier_or_url": "Mathematics 9 (2021), 327",
+        "material_read": "Bibliographic record and abstract.",
+        "method": "Indexed journal bibliographic record via web search.",
+        "title": "An SVEIRE Model of Tuberculosis to Assess the Effect of an Imperfect Vaccine and Other Exogenous Factors",
+        "trigger": "The 2026 motivating paper identifies it as especially relevant prior vaccination-plus-reinfection work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0527ee88-c063-42e6-9bfb-e87a51413632",
+  "value": {
+    "rationale": "The source highlights the no-subcritical-endemic-equilibrium statement as Numerical Finding 7.1, so converting it into an exact theorem closes a stated mathematical gap rather than adding a routine parameter example. The result also sharpens the interpretation of \\(\\beta_2^\\ast\\): it is not merely a local bifurcation-direction threshold but an exact global exclusion boundary for positive equilibria throughout \\(R_0\\le1\\). This distinction is directly relevant to how the source organizes eradication and bistability regimes, while the claim deliberately leaves global trajectory convergence open.",
+    "status": "PASS"
+  }
+}
