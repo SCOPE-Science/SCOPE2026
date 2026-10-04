@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For each center label, the defining leaf and support inequalities give a finite exact arm-state list. With center in {1,2,3}, the unique weight-one arm is support -1 / leaf 2; every arm with another support label costs at least one more and raises the support-sum contribution by at most four. The center closed-neighborhood inequality therefore gives sharp exceptional-arm counts. Center -1 forces every arm to weight at least two. Equality conditions yield exactly the stated optimizer types. Full-label brute force for q=4,5 and an exact state DP for q=4..60 confirm the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves a sharp global lower bound for trees but that bound is far below the claimed value on T_q.",
+        "Its exact named families are paths, stars, and cycles; the double-star section gives lower bounds rather than a once-subdivided-star formula.",
+        "The later survey reports the same exact named families and does not state the T_q equality."
+      ],
+      "reasoning": "Neither the global tree bound nor the exact path/star/cycle formulas specialize to the once-subdivided star. The prior T_{4k} construction supplies only the upper half of the equality for one residue class.",
+      "searches": [
+        "primary PDF DOI 10.3934/math.20231580, Proposition 2 and tree section",
+        "primary PDF search for double star and tree lower bound",
+        "2025 survey section on signed double Italian domination",
+        "web search: signed double Italian domination spider arms length two"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/math.20231580",
+      "AIMS open-access PDF math-08-12-1580",
+      "2025 Varieties of Roman domination IV survey section",
+      "targeted web searches for T4k, subdivided star, once-subdivided star, and balanced-spider aliases",
+      "semantic published-results searches for the same invariant and graph family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2 constructs an SDIDF on T_{4k} of weight 5k+1 and concludes gamma_sdI(T_{4k}) <= 5k+1.",
+        "The same proposition proves only that the signed double Roman number is greater than 5k+1.",
+        "Theorem 2 gives gamma_sdI(T) >= (-5|T|+24)/9 for trees, which does not match or imply 5k+1 on T_{4k}.",
+        "The survey states that exact signed double Italian values were determined for paths, stars, and cycles."
+      ],
+      "reasoning": "The prior upper bound plus the general lower bound leave a large gap, so equality is not a corollary. The new center-case proof supplies the missing lower bound and additionally determines all optimizers and all arm counts.",
+      "searches": [
+        "inspect DOI 10.3934/math.20231580 Proposition 2",
+        "inspect DOI 10.3934/math.20231580 Theorem 2 tree lower bound",
+        "inspect 2025 survey signed double Italian section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-results hit stated the signed double Italian value of a once-subdivided star.",
+        "Web searches returned the defining 2023 paper and surveys, but no exact equality theorem or optimizer count.",
+        "The defining paper's Proposition 2 states only an upper bound for T_{4k}."
+      ],
+      "reasoning": "The graph is also a balanced spider with arm length two, but searches under spider and subdivision aliases did not produce an equivalent signed double Italian formula. The all-q formula and complete optimum classification are stronger than the prior witness construction.",
+      "searches": [
+        "published-results semantic search: signed double Italian domination subdivided star",
+        "published-results semantic search: signed double Italian domination once subdivided star exact",
+        "published-results semantic search: signed double Italian domination T4k",
+        "web search: \"5k + 1\" \"signed double Italian\" subdividing star",
+        "web search: \"signed double Italian domination\" \"subdivided star\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact table or parameter list for once-subdivided stars was located.",
+        "The closest database hits concerned strong Roman domination or unrelated invariants on subdivided stars."
+      ],
+      "reasoning": "The result is derived symbolically from local state inequalities. The finite computations are independent checks and not a reconstruction of a known table.",
+      "searches": [
+        "published-results semantic search: signed double Italian domination subdivision of K1n",
+        "published-results semantic search: signed double Italian domination spider arms length two",
+        "web search: \"T4k\" \"signed double Italian\"",
+        "web search: \"signed double Italian domination\" subdivided star exact"
+      ]
+    },
+    "rationale": "The foundational paper uses the same once-subdivided-star family only to establish an upper bound at arm counts divisible by four. The inspected statement does not prove equality, treat all arm counts, classify minimum functions, or count them. Targeted searches did not locate a stronger theorem that implies the final claim.",
+    "residual_risks": [
+      "A differently named or non-indexed exact treatment of the once-subdivided star may exist.",
+      "A later paper could contain the equality without using subdivided-star terminology; no such implication appeared in the inspected survey or targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives gamma_sdI(T_{4k}) <= 5k+1 as a witness for strict separation from signed double Roman domination, but does not prove equality or treat arbitrary q.",
+        "evidence": [
+          "Published 17 November 2023.",
+          "Mathematics subject classification 05C69.",
+          "Proposition 2 defines T_{4k} by subdividing every edge of K_{1,4k} once and constructs an SDIDF of weight 5k+1.",
+          "Theorem 2 gives a general tree lower bound that is not sharp on this family."
+        ],
+        "identifier_or_url": "DOI:10.3934/math.20231580",
+        "material_read": "Open-access PDF definition, Proposition 2 with the T_{4k} construction, exact-family section, double-star bounds, and global tree lower bound; the proposition page was also visually inspected.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Signed double Italian domination",
+        "trigger": "Foundational source introducing the invariant and explicitly using once-subdivided stars."
+      },
+      {
+        "assessment": "Summarizes paths, stars, and cycles as the exact named families from the 2023 source and does not report an exact once-subdivided-star formula.",
+        "evidence": [
+          "The survey restates the definition and general results.",
+          "It explicitly says the parameter was determined for paths, stars, and cycles."
+        ],
+        "identifier_or_url": "2025 survey article, signed double Italian domination section",
+        "material_read": "Signed double Italian domination subsection and its summary of known exact families and bounds.",
+        "method": "Later literature coverage comparison.",
+        "title": "Varieties of Roman domination IV",
+        "trigger": "Later broad survey that could reveal subsequent exact-family coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "501033f4-6b47-43f5-ae04-3f2c4670bf9c",
+  "value": {
+    "rationale": "The foundational paper chose T_{4k} as its principal infinite witness separating signed double Italian from signed double Roman domination, but left its signed double Italian value as a one-sided construction. Proving that construction optimal, extending it to every arm count, and classifying/counting every optimum closes a natural explicit gap in the source rather than introducing an arbitrary family.",
+    "status": "PASS"
+  }
+}
