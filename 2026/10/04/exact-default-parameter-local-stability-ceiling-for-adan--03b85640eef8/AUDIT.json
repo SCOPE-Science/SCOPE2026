@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Exact modal elimination gives the cubic; the cubic Schur inequalities reduce to rational expressions whose unique active positive-step boundary is \\(s=19800/859\\), where \\(r=-1\\). The adaptive squared-moment state has separate first-order eigenvalue \\(0.99\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.06677v1 stochastic nonconvex complexity theory",
+        "public Adan documentation of default coefficients"
+      ],
+      "reasoning": "The source theory is broader in objective class but gives complexity bounds rather than a necessary-and-sufficient local stability boundary for the default constant-parameter deterministic recurrence.",
+      "searches": [
+        "Adan nonconvex convergence large learning rate",
+        "Adan Nesterov momentum estimation convergence",
+        "Adan adaptive optimizer local quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.06677v1",
+      "sail-sg/Adan:paper-form defaults",
+      "fastxtend:Adan-default-convention"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2208.06677v1 defines Nesterov momentum estimation and adaptive moments.",
+        "Implementation documentation records decay defaults 0.98, 0.92, 0.99 and the complement relation to the paper coefficients."
+      ],
+      "reasoning": "These sources determine the recurrence and defaults but do not imply which cubic Jury inequality becomes active or the exact local period-doubling threshold.",
+      "searches": [
+        "Adan beta1 beta2 beta3 gradient difference paper convention",
+        "Adan default betas 0.98 0.92 0.99 paper coefficients",
+        "Adan large learning rate theory"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2208.06677v1",
+        "public Adan implementation documentation"
+      ],
+      "reasoning": "Equivalent formulations are a third-order linear recurrence or a cubic Schur problem after eliminating the two momentum filters. The inspected materials do not provide that reduction.",
+      "searches": [
+        "Adan optimizer scalar quadratic exact stability gradient difference",
+        "Adan adaptive Nesterov momentum quadratic characteristic polynomial",
+        "Adan optimizer local stability deterministic quadratic",
+        "Adan three state momentum exact stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published-record hit returned an Adan-specific exact cubic stability table or the rational threshold 19800/859."
+      ],
+      "reasoning": "Nearest records concern unrelated quadratic stability mechanisms. Search absence is not novelty proof, so generic multistep terminology remains a residual risk.",
+      "searches": [
+        "Adan optimizer scalar quadratic exact stability gradient difference",
+        "Adan adaptive Nesterov momentum quadratic characteristic polynomial",
+        "Adan optimizer local stability deterministic quadratic",
+        "Adan three state momentum exact stability"
+      ]
+    },
+    "rationale": "The inspected Adan source and implementation documentation do not state the exact local cubic or its default-parameter Schur frontier.",
+    "residual_risks": [
+      "Equivalent cubic stability algebra may exist under generic multistep or control terminology.",
+      "Only the default coefficient triple is classified exactly.",
+      "The nonlinear post-instability behavior is not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_LOCAL_CUBIC_FRONTIER.",
+        "evidence": "The paper defines the gradient-difference mechanism and proves stochastic complexity bounds but does not state the exact deterministic scalar Schur boundary.",
+        "identifier_or_url": "arXiv:2208.06677v1",
+        "material_read": "Open-access full text covering the motivation, Nesterov momentum estimation, three moving averages, adaptive denominator, regularized update, and convergence claims.",
+        "method": "Full-text HTML inspection.",
+        "title": "Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models",
+        "trigger": "Defining source for the Nesterov momentum estimate and adaptive update."
+      },
+      {
+        "assessment": "CONFIRMS_DEFAULT_CONVENTION_NOT_COVERING_THEOREM.",
+        "evidence": "The documented defaults are decay coefficients 0.98, 0.92, 0.99, corresponding to paper-form current-sample weights 0.02, 0.08, 0.01.",
+        "identifier_or_url": "fastxtend:Adan-default-convention",
+        "material_read": "Documentation of defaults and the explicit statement that implementation decay coefficients are complements of the paper coefficients.",
+        "method": "Public documentation inspection.",
+        "title": "Public Adan implementation documentation",
+        "trigger": "Verify the default coefficient convention used in implementations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "03b85640-eef8-4f35-936e-87313f891498",
+  "value": {
+    "rationale": "Adan is promoted for large-step robustness; the exact default-parameter local boundary shows where that robustness ends after the adaptive denominator reaches its floor, and quantifies the gradient-difference channel\\'s \\(8.59\\)-fold reduction relative to the first-moment-only recurrence.",
+    "status": "PASS"
+  }
+}
