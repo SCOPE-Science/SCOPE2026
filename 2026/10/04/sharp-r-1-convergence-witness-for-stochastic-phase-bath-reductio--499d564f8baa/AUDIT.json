@@ -1,0 +1,132 @@
+{
+  "claim": "For the two-site, zero-hopping, one-mode Holstein pure-dephasing instance of the stochastic-phase bath reduction in arXiv:2609.28318v1, with equal site energies, initial electronic state \\((|1\\rangle+|2\\rangle)/\\sqrt2\\), oscillator frequency \\(\\omega>0\\), coupling \\(g\\neq0\\), inverse temperature \\(\\beta>0\\), and \\(a=g^2(1-\\cos(\\omega t))\\), the exact independent-bath coherence is \\(L_\\infty=e^{-2a\\coth(\\beta\\omega/2)}\\), while the phase-averaged \\(R\\)-bath coherence is exactly \\(L_R=L_\\infty I_0(2a\\,\\operatorname{csch}(\\beta\\omega/2)/R)^R\\). Hence the trace-norm reduced-state error equals \\(L_R-L_\\infty>0\\) whenever \\(t\\notin 2\\pi\\mathbb Z/\\omega\\), and \\[\\lim_{R\\to\\infty}R\\,\\|\\rho_s^{(R)}(t)-\\rho_s(t)\\|_{\\mathrm{tr}}=e^{-2a\\coth(\\beta\\omega/2)}a^2\\operatorname{csch}^2(\\beta\\omega/2)>0.\\] Therefore the source paper's general fixed-time \\(O(R^{-1})\\) convergence rate is asymptotically sharp even for two sites and a single thermal mode; in this witness the finite-\\(R\\) method under-dephases, while the zero-temperature boundary is exact for every \\(R\\).",
+  "correctness": {
+    "rationale": "The displaced-oscillator propagator and thermal Weyl characteristic function give both coherence factors exactly. The shared-bath phase integral is the standard integral representation of \\(I_0\\) with argument \\(2a\\,\\operatorname{csch}(\\beta\\omega/2)/R\\). The resulting \\(2\\times2\\) density-matrix difference has trace norm exactly equal to the coherence difference, and the \\(I_0\\) series yields a strictly positive \\(R^{-1}\\) coefficient at finite temperature away from revival times.",
+    "risks": [
+      "The proof is scoped to the zero-hopping one-mode witness and does not transfer the closed form to general transport models."
+    ],
+    "sources": [
+      "arXiv:2609.28318v1, Hamiltonians (1) and (2), Theorem 1 and End Matter",
+      "standard Weyl-displacement and thermal-oscillator identities"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2411.08741 studies perturbative upper bounds under Gaussian-environment changes.",
+        "Quantum 9, 1896 (2025) studies dependence on bath correlation functions."
+      ],
+      "reasoning": "Those results compare Gaussian environments through correlation-function perturbations. Here the phase average is non-Gaussian while reproducing the target two-point correlation exactly, so those theorems do not imply the exact Bessel finite-\\(R\\) law or a matching lower bound.",
+      "searches": [
+        "Unified error bounds for perturbations of non-Markovian open quantum systems in Gaussian environments sharp lower bound",
+        "Error Bounds for Open Quantum Systems with Harmonic Bosonic Bath stochastic phase lower bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28318v1",
+      "arXiv:2411.08741",
+      "doi:10.22331/q-2025-10-28-1896"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem states only an upper estimate \\(A_t/R\\) and its proof bounds repeated-channel assignments by a collision probability.",
+        "The source notes a fourth-order \\(R^{-1}\\) cross-site moment but does not derive a reduced-state lower bound or prove that the full dynamical rate is sharp."
+      ],
+      "reasoning": "An \\(O(R^{-1})\\) upper bound plus a fourth-order moment of size \\(R^{-1}\\) does not imply a positive \\(R^{-1}\\) reduced-state error; cancellations could in principle improve the dynamics. The explicit witness rules out such universal improvement.",
+      "searches": [
+        "Scalable simulation of non-Markovian quantum transport stochastic phase bath reduction",
+        "2609.28318"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact-source semantic search returned no matching record; nearest returned records concern unrelated stochastic algorithms or special-function inequalities.",
+        "Full-text search of arXiv:2609.28318v1 for “dephasing”, “Bessel”, “sharp”, and “lower bound” produced no equivalent statement."
+      ],
+      "reasoning": "The claimed finite-\\(R\\) formula and asymptotic lower bound are not equivalent to the source upper bound or its fourth-order moment observation.",
+      "searches": [
+        "stochastic phase algorithm SPA 1/R sharp lower bound Holstein pure dephasing shared baths",
+        "random phase shared bath exact dephasing Bessel I0 1/R convergence",
+        "phase-averaged SPA dynamics error 1/R pure dephasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic record or source table was found containing the exact two-site formula or the positive asymptotic coefficient."
+      ],
+      "reasoning": "This is an analytic dynamical statement, not a database/table value; no known-table recomputation is involved.",
+      "searches": [
+        "arXiv:2609.28318 finite R sharpness lower bound",
+        "Holstein stochastic phase pure dephasing two-site exact error"
+      ]
+    },
+    "rationale": "The source proves only the \\(O(R^{-1})\\) upper bound and identifies fourth-order phase-collision errors. Full-text inspection found no matching lower bound, no pure-dephasing Bessel formula, and no rate-sharpness theorem. Semantic searches returned no equivalent claim; broader Gaussian-environment stability results do not imply the non-Gaussian phase-averaged witness.",
+    "residual_risks": [
+      "Search coverage cannot exclude an equivalent derivation under different terminology, especially in specialized pure-dephasing or random-environment literature.",
+      "The rendered arXiv source references supplemental material but did not provide a separately inspectable supplemental document; the main text and End Matter theorem/proof were inspected in full for the relevant claim."
+    ],
+    "risks": [
+      "Equivalent unpublished or differently worded derivations may exist outside the searched sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: contains the upper bound and fourth-order moment mechanism but no matching reduced-state lower bound or pure-dephasing closed form.",
+        "evidence": [
+          "Main text defines the shared-bath coupling with \\(g/\\sqrt R\\), random site phases, and the phase-averaged reduced state.",
+          "Theorem 1 gives only \\(\\|\\rho_s-\\rho_s^{(R)}\\|_{\\mathrm{tr}}\\le A_t/R\\).",
+          "End Matter attributes the bound to repeated auxiliary-channel assignments."
+        ],
+        "identifier_or_url": "arXiv:2609.28318v1",
+        "material_read": "Full arXiv HTML main text and End Matter Theorem 1 with its proof through the collision bound. The rendered source references supplemental material but did not expose a separate supplemental document for inspection.",
+        "method": "Statement-level comparison and keyword checks for dephasing, Bessel, sharpness, and lower bounds.",
+        "title": "Scalable simulation of non-Markovian quantum transport by stochastic-phase bath reduction",
+        "trigger": "Primary source introducing SPA and proving \\(O(R^{-1})\\) convergence."
+      },
+      {
+        "assessment": "NOT_COVERING on available material: addresses upper perturbation bounds for Gaussian environments, not this exact stochastic-phase lower bound.",
+        "evidence": [
+          "Abstract states perturbative error bounds for observables in Gaussian environments."
+        ],
+        "identifier_or_url": "arXiv:2411.08741",
+        "material_read": "Abstract and bibliographic description.",
+        "method": "Implication comparison with the present non-Gaussian phase-averaged construction.",
+        "title": "Unified analysis of non-Markovian open quantum systems in Gaussian environment using superoperator formalism",
+        "trigger": "Cited by the primary source as general Gaussian-environment error-bound machinery."
+      },
+      {
+        "assessment": "NOT_COVERING on available material: gives upper dependence on bath correlation functions rather than an exact finite-R stochastic-phase witness.",
+        "evidence": [
+          "Published abstract describes error estimates induced by variation of bath correlation functions."
+        ],
+        "identifier_or_url": "doi:10.22331/q-2025-10-28-1896",
+        "material_read": "Published abstract and reference context.",
+        "method": "Implication comparison.",
+        "title": "Error Bounds for Open Quantum Systems with Harmonic Bosonic Bath",
+        "trigger": "Independent rigorous bath-correlation stability literature."
+      }
+    ],
+    "sources": [
+      "arXiv:2609.28318v1",
+      "arXiv:2411.08741",
+      "Quantum 9, 1896 (2025)"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "499d564f-8baa-4386-974d-d2532480fb9f",
+  "value": {
+    "rationale": "The source introduces a new scalable simulation method whose rigorous guarantee is \\(O(R^{-1})\\). Establishing a minimal explicit witness with an exact finite-\\(R\\) error and a positive asymptotic coefficient shows that the rate exponent is genuinely optimal, while the zero-temperature boundary explains when this obstruction disappears. This is a structural calibration of the theorem, not a routine parameter tweak.",
+    "risks": [
+      "The witness does not prove practical worst-case error for transport observables with nonzero hopping."
+    ],
+    "sources": [
+      "arXiv:2609.28318v1, main convergence theorem and discussion"
+    ],
+    "status": "PASS"
+  }
+}
