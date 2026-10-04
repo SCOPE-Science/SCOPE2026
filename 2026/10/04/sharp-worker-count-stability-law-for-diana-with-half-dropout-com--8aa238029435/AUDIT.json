@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "After centering, the exact DIANA second moments close under a \\(3\\times3\\) deterministic matrix. The complete cubic Jury criterion gives the binding inequality \\(n(2+s-s^2)>2s(s+2)\\), with root \\(s_n=[n-4+\\sqrt{9n^2+8n+16}]/[2(n+2)]\\). All other Jury inequalities are shown strict before this root, and \\(P(1)=0\\) at equality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1901.09269v1",
+        "arXiv:2205.04180v1",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+      ],
+      "reasoning": "Broader compressed-optimization theory proves convergence for unbiased compressors and shows improvement from independent workers. Nearby exact database results concern unrelated stochastic curvature feedback or randomized subspace descent.",
+      "searches": [
+        "DIANA compressed gradient scalar quadratic exact mean-square stability error feedback",
+        "DIANA arbitrary unbiased compressor omega distributed optimization 2020",
+        "DIANA compressor omega unbiased Algorithm",
+        "DIANA rand-k optimizer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.09269v1",
+      "arXiv:2205.04180v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1901.09269v3 full HTML, Algorithm 1 and strongly convex theory",
+        "arXiv:2205.04180v4 full HTML, Sections on DIANA as a special case and unbiased compressors"
+      ],
+      "reasoning": "The original paper specifies the shift and estimator recurrences and proves sufficient convergence conditions. EF-BV places DIANA in the arbitrary unbiased-compressor class and identifies the usual scaling \\(\\lambda=1/(1+\\omega)\\). Those results do not imply a necessary-and-sufficient scalar boundary.",
+      "searches": [
+        "Distributed Learning with Compressed Gradient Differences Algorithm 1 shift h alpha compressed difference",
+        "EF-BV DIANA unbiased compressors lambda 1/(1+omega)",
+        "DIANA independent compressors number workers convergence rate",
+        "DIANA Bernoulli compressor scalar quadratic stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1901.09269v1",
+        "arXiv:2205.04180v1",
+        "No exact equivalent formula among focused published-database hits"
+      ],
+      "reasoning": "Equivalent language includes gradient-difference compression, shift learning, variance reduction under unbiased compressors, and second-moment stability of a random linear system. The inspected sources do not state the derived cubic moment map or closed boundary.",
+      "searches": [
+        "DIANA half dropout compressor scalar quadratic exact mean-square stability worker count",
+        "DIANA unbiased Bernoulli compressor exact stepsize stability quadratic",
+        "compressed gradient differences gradient tracking exact Schur stability scalar quadratic",
+        "DIANA independent compressors worker averaging exact stability threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "No exact DIANA stability table or worker-count formula found"
+      ],
+      "reasoning": "The closest exact records analyze different stochastic or operator-splitting recurrences. None contains worker shifts updated from unbiased compressed gradient differences.",
+      "searches": [
+        "DIANA mean-square quadratic compressor stability",
+        "DIANA exact stability quadratic compressor",
+        "DIANA spectral radius quadratic compression",
+        "gradient differences Bernoulli compressor stability DIANA"
+      ]
+    },
+    "rationale": "The inspected DIANA literature gives the algorithm, generic unbiased-compressor setting, and sufficient convergence bounds but not the exact worker-count Schur boundary or its asymptotic expansion.",
+    "residual_risks": [
+      "An equivalent random-linear-system calculation may exist in distributed-control or compression literature under terminology not mentioning DIANA.",
+      "The half-dropout specialization does not classify arbitrary compression probabilities.",
+      "Unequal local Hessians can create additional modes and may yield a different worker-count law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "Algorithm 1 updates each worker shift from a compressed gradient difference and forms the estimator from the old shift plus that compressed difference; the strongly convex theory supplies sufficient stepsize relations but not an exact quadratic second-moment frontier.",
+        "identifier_or_url": "arXiv:1901.09269v1",
+        "material_read": "Open-access full HTML: contributions, Algorithm 1, compressor definition, and strongly convex convergence conditions.",
+        "method": "Full-text inspection of the arXiv HTML and algorithm/theorem sections.",
+        "title": "Distributed Learning with Compressed Gradient Differences",
+        "trigger": "Defining source for DIANA's worker shifts, compressed gradient differences, server estimator, and model update."
+      },
+      {
+        "assessment": "BROADER_UNBIASED_COMPRESSOR_THEORY_NOT_COVERING.",
+        "evidence": "The paper states that DIANA handles unbiased compressors with bounded variance, gives the usual \\(\\lambda=1/(1+\\omega)\\) choice, and highlights gains from independent worker randomness; it does not derive the exact half-dropout scalar boundary as a function of worker count.",
+        "identifier_or_url": "arXiv:2205.04180v1",
+        "material_read": "Open-access full HTML: compressor comparison, DIANA as a special case, canonical DIANA scaling, linear-convergence implications, and rand-k discussion.",
+        "method": "Full-text inspection of the DIANA and compressor sections.",
+        "title": "EF-BV: A Unified Theory of Error Feedback and Variance Reduction Mechanisms for Biased and Unbiased Compression in Distributed Optimization",
+        "trigger": "Direct follow-up clarifying DIANA with arbitrary unbiased compressors and independent worker randomness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8aa23802-9435-4fa7-afaf-a4696d3d02e6",
+  "value": {
+    "rationale": "DIANA is designed to exploit independent compressed worker messages while learning local gradient shifts. The exact law \\(s_n=[n-4+\\sqrt{9n^2+8n+16}]/[2(n+2)]\\) turns the qualitative worker-averaging benefit into a sharp stability boundary, showing recovery of the uncompressed ceiling \\(2\\) with finite-worker deficit \\(16/(3n)+O(n^{-2})\\).",
+    "status": "PASS"
+  }
+}
