@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For even \\(k\\), primes in a consecutive block are odd. If \\(p>B(k)\\), then \\(p\\ne\\rho(k)\\); the least-missing-prime progression lemma forces a composite by index \\(\\rho(k)-1\\). Its largest prime factor is at most one third of the odd composite, giving a next prime \\(q\\le(p+k(\\rho(k)-1))/3<p\\). A cycle with all primes above \\(B(k)\\) would therefore have a strictly decreasing cyclic sequence of prime states, impossible. Disjoint deterministic cycles then inject into the primes at most \\(B(k)\\). The packaged verifier checks the local inequalities and observed cycles on broad finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das proves finiteness and records a generic prime-in-loop scale based on \\(k\\sqrt{k}/2\\).",
+        "Dubickas proves boundedness for a broader class and uses \\(N(k)\\), but the inspected theorem statements bound trajectories in terms of the initial state and do not give this intrinsic deterministic-cycle count."
+      ],
+      "reasoning": "A broader theorem forcing every deterministic cycle to meet primes below the present threshold would cover the claim; neither inspected source states or implies that sharper parity-specific threshold.",
+      "searches": [
+        "A Family of Iterated Maps on Natural Numbers loop bound k sqrt k",
+        "A Class of Bounded Iterative Sequences of Integers N(k) largest prime divisor",
+        "published-finding corpus: A Family of Iterated Maps on Natural Numbers loop bound least prime not dividing k"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.06629v1",
+      "DOI:10.1080/10586458.2023.2294184",
+      "DOI:10.3390/axioms13020107"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Das's even-parameter descent uses a coarse prime-run estimate and yields a larger generic threshold.",
+        "Dubickas's least-missing-prime lemma supplies the exact run length, while his global bounds use only a generic one-half contraction for composites.",
+        "The recoverable prior own-ledger item on this map is a finite odd-parameter loop census and proves only the odd-parameter locator; it does not imply the present even-parameter theorem."
+      ],
+      "reasoning": "The new implication needs both the exact run ceiling and the odd-composite one-third largest-prime-factor contraction. Neither published theorem nor the prior odd-only computation supplies the resulting even-cycle threshold.",
+      "searches": [
+        "Das Lemma 2.1 Lemma 2.3 Theorem 2.7 Remark 2.8",
+        "Dubickas Lemma 1 Theorem 1 Theorem 2 least prime not dividing k",
+        "Own-ledger overlap: arXiv:2312.06629 varphi_k even odd loops"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published-finding corpus matches were unrelated arithmetic-dynamics or divisor-sum findings.",
+        "Exact web searches returned the Das paper, the Dubickas follow-up, and unrelated least-prime material, but no cycle locator of the claimed form."
+      ],
+      "reasoning": "The searches covered the source map, the least-missing-prime alias, the cycle-count formulation, and the main special congruence case.",
+      "searches": [
+        "published-finding corpus: iterated map largest prime divisor p+k loops least prime not dividing k",
+        "published-finding corpus: Das map even k loops 3k/2 prime largest divisor",
+        "Web: 2312.06629 least prime k loops",
+        "Web: largest prime divisor p+k cycles least prime not dividing k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text states the published generic loop bound and its two open issues.",
+        "The follow-up full text defines \\(N(k)\\), tabulates initial values, and proves its prime-progression lemma, but has no matching loop-count theorem."
+      ],
+      "reasoning": "The relevant exact sources are theorem/remark statements rather than a sequence database; both primary full texts were checked at the locations where such a bound would naturally appear.",
+      "searches": [
+        "arXiv:2312.06629 full text Remark 2.8",
+        "DOI:10.3390/axioms13020107 full text N(k)",
+        "Web: phi_k even k cycle bound pi(k)"
+      ]
+    },
+    "rationale": "Das gives a generic \\(k\\sqrt{k}/2\\) loop locator. Dubickas later defines the same least-missing-prime parameter and proves the sharp prime-run ceiling, but his stated results are global trajectory bounds and do not give the parity-specific intrinsic cycle locator \\(B(k)=\\max\\{\\rho(k),k(\\rho(k)-1)/2\\}\\). Targeted literature, database, and published-finding corpus searches found no statement of this bound or its \\(L(k)\\le\\pi(k)\\) corollary for even \\(k\\) with \\(3\\nmid k\\).",
+    "residual_risks": [
+      "The deduction is elementary enough that an equivalent bound may exist in an unindexed note or correspondence.",
+      "The result is a structural upper bound, not an exact formula for the number of cycles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves finite loop count and gives a generic \\(k\\sqrt{k}/2\\) locator, not the least-missing-prime even-parameter threshold.",
+        "evidence": "Lemma 2.1 controls prime arithmetic progressions; Remark 2.8 records the published generic prime-in-loop bound.",
+        "identifier_or_url": "arXiv:2312.06629v1",
+        "material_read": "Full seven-page open-access PDF; Definition 1.2, Lemmas 2.1-2.3, Theorem 2.7, Remark 2.8, and Open Issues, with rendered inspection of the key pages.",
+        "method": "Open-access PDF text plus rendered-page inspection.",
+        "title": "A Family of Iterated Maps on Natural Numbers",
+        "trigger": "Primary definition and published loop-count bounds."
+      },
+      {
+        "assessment": "The paper proves a sharp prime-run ceiling and broad trajectory bounds, but no intrinsic cycle-count bound using the one-third contraction special to even \\(k\\).",
+        "evidence": "Lemma 1 forces a composite among the first \\(N(k)\\) progression terms except for the explicit exceptional start; Theorems 1-2 bound trajectories using a generic contraction parameter.",
+        "identifier_or_url": "DOI:10.3390/axioms13020107",
+        "material_read": "Full open-access text including the definition and estimates for \\(N(k)\\), Theorems 1-3, Lemma 1, proof passages bounding prime blocks, and concluding remarks.",
+        "method": "Open-access full-text inspection and targeted term searches.",
+        "title": "A Class of Bounded Iterative Sequences of Integers",
+        "trigger": "Only indexed follow-up citing Das and explicitly introducing the least prime not dividing \\(k\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "644ecc61-8762-4b9e-8490-e585880a07da",
+  "value": {
+    "rationale": "The bound addresses the harder even-parameter side of the loop-count problem in the source. For every even \\(k\\ge4\\) with \\(3\\nmid k\\), it forces every cycle to meet a prime at most \\(k\\), giving \\(L(k)\\le\\pi(k)\\); for all such \\(k\\ge8\\) this is strictly smaller than the published \\(k\\sqrt{k}/2\\) prime-locator scale. The improvement holds on a natural infinite congruence family and comes from a reusable structural mechanism, not a routine finite increment.",
+    "status": "PASS"
+  }
+}
