@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "PASS. Direct differentiation of \\(F_{\\delta}\\) gives \\(F_{\\delta}''(u)>0\\) on the whole domain and barrier blow-up at both endpoints, hence a unique minimizer. Evaluating \\(F_{\\delta}'(0)\\) proves the exact threshold \\(\\delta_*=\\tau\\mu/(\\mu x_2+\\tau\\zeta)\\) when its denominator is positive and proves impossibility of zero-targeting when it is nonpositive. Substitution of \\(\\tau(\\mu)=c\\mu^a/(\\mu^a+b)\\) gives the three asymptotic regimes by elementary limits; on the critical line \\(c\\zeta=-b x_2\\), exact algebra yields \\(D(\\mu)=x_2\\mu^2/(\\mu+b)\\) and \\(\\delta_*=c/x_2\\). The bundled checker independently evaluates representative strict regimes and verifies the critical identity with rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected comparison literature treats families of MPCC/MPEC relaxation schemes and their convergence/stationarity properties.",
+        "Those broader results do not imply the CCOpt-specific coupled local law because they do not contain both the source endgame denominator and the source rolloff function."
+      ],
+      "reasoning": "General convergence or stationarity results for relaxation methods do not dominate the present claim: the latter is an exact asymptotic classification of a concrete local mechanism under a particular parameter coupling, including a constant critical-boundary relaxation.",
+      "searches": [
+        "CCOpt critical multiplier Q regularization diagonal scaling condition number spectral equivalence",
+        "complementarity homotopy exponent barrier relaxation negative multiplier endgame",
+        "DOI:10.1007/s10107-011-0488-5",
+        "DOI:10.1137/090748883"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.18726",
+      "DOI:10.1137/04060754X",
+      "DOI:10.1007/s10107-011-0488-5",
+      "DOI:10.1137/090748883"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "CCOpt states that its endgame selects a lower-bound relaxation to drive a complementarity coordinate to zero and separately defines the rolloff homotopy law.",
+        "Direct substitution is required to discover that \\(a-1\\) controls the asymptotic sign of the denominator and that the equality case has a nonvanishing exact threshold."
+      ],
+      "reasoning": "The primary source does not state a theorem or corollary covering all three regimes \\(a>1\\), \\(a<1\\), and \\(a=1\\), and its benchmark choice \\(a=2\\) does not imply the sharpness or the critical coefficient case. The older relaxation sources likewise do not imply this formula without the newer CCOpt-specific ingredients.",
+      "searches": [
+        "CCOpt rolloff relaxation exponent endgame bound relaxation phase transition a=1",
+        "MPCC homotopy tau(mu) lower bound relaxation endgame exponent denominator mu x tau zeta",
+        "complementarity homotopy exponent barrier relaxation negative multiplier endgame",
+        "arXiv:2604.18726 full text",
+        "DOI:10.1137/04060754X full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The CCOpt source gives the local barrier objective, its zero-target lower-bound formula, and the rolloff law in separate consecutive subsections.",
+        "The two-sided relaxation paper supplies the strict-interior relaxation framework but not the CCOpt-specific denominator \\(\\mu x_2+\tau\\zeta\\) coupled to \\(\tau(\\mu)=c\\mu^a/(\\mu^a+b)\\)."
+      ],
+      "reasoning": "The accepted statement is not a renaming of either ingredient alone: it classifies the sign of \\(D(\\mu)/\\mu=x_2+\\zeta c\\mu^{a-1}/(\\mu^a+b)\\), including the exact coefficient boundary at \\(a=1\\). No inspected source states this implication-equivalent phase diagram.",
+      "searches": [
+        "CCOpt rolloff relaxation exponent endgame bound relaxation phase transition a=1",
+        "MPCC homotopy tau(mu) lower bound relaxation endgame exponent denominator mu x tau zeta",
+        "arXiv:2604.18726 equations (28)--(32)",
+        "DOI:10.1137/04060754X"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "CCOpt Appendix A lists the rolloff parameters \\(a,b,c\\) and the endgame cap \\(\\delta_{\\max}\\) in separate option tables.",
+        "The inspected result-index neighbors concern unrelated conditioning, stagewise stability, or generic phase-boundary phenomena rather than this MPCC endgame coupling."
+      ],
+      "reasoning": "No checked database result or parameter table tabulates the exponent transition, the sign criterion \\(x_2+(c/b)\\zeta\\), or the identity \\(\\delta_*=c/x_2\\) on the critical line.",
+      "searches": [
+        "RolloffRelaxationUpdate RelaxLBEndgameStrategy interaction exponent",
+        "arXiv:2604.18726 Appendix A Tables 6 and 8"
+      ]
+    },
+    "rationale": "PASS. The primary 2026 source contains the endgame formula and rolloff law as separate mechanisms, while the inspected foundational and comparison literature covers relaxation frameworks without this coupled asymptotic classification. Targeted searches for the denominator, rolloff rule, exponent threshold, and implementation strategy names did not locate a statement implying the three-regime result. Search failure is not treated as proof of novelty; an older equivalent calculation under different notation remains a stated residual risk.",
+    "residual_risks": [
+      "An older interior-point or MPCC implementation analysis may contain an equivalent denominator-versus-homotopy exponent calculation under different notation.",
+      "The theorem is local and fixes the multiplier estimate and complementary coordinate; a broader dynamical theorem could subsume it only with additional hypotheses not present in the inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source contains both ingredients but no coupled exponent phase diagram. The displayed derivative sign in equation (29) is inconsistent with direct differentiation of equation (28), while equation (30) matches the direct derivative; the present proof uses equation (28) and checks the calculus independently.",
+        "evidence": "Equations (28)--(31) define the scalar local endgame model and \\(\\delta=\tau\\mu/(\\mu x_2+\tau\\zeta)\\); equation (32) defines \\(\tau(\\mu)=c\\mu^a/(\\mu^a+b)\\).",
+        "identifier_or_url": "arXiv:2604.18726",
+        "material_read": "Abstract, related-work discussion, Section 3.4.3 including Algorithm 3 and equations (23)--(31), Section 3.5 including equation (32), and Appendix A option tables.",
+        "method": "Full-text inspection of the lawful arXiv PDF, including visual inspection of the pages containing equations (28)--(32).",
+        "title": "CCOpt: an Open-Source Solver for Large-Scale Mathematical Programs with Complementarity Constraints",
+        "trigger": "Primary source defining both the lower-bound endgame and rolloff homotopy update."
+      },
+      {
+        "assessment": "Relevant framework, but it does not contain the CCOpt rolloff law or the exact coupled phase transition.",
+        "evidence": "The paper relaxes complementarity and nonnegativity simultaneously and studies a parameterized interior-point scheme, but predates the CCOpt-specific endgame formula and rolloff rule.",
+        "identifier_or_url": "DOI:10.1137/04060754X",
+        "material_read": "Abstract and substantive full-text portions describing the two-sided relaxation, parameter update, strict feasibility, and interior-point convergence setting.",
+        "method": "Full-text inspection from an accessible scholarly copy after checking the primary bibliographic record.",
+        "title": "A two-sided relaxation scheme for Mathematical Programs with Equilibrium Constraints",
+        "trigger": "Foundational source cited by CCOpt for two-sided lower-bound relaxation and strict-interior behavior."
+      },
+      {
+        "assessment": "Broadly relevant to relaxation-method convergence and comparisons, but not a source of the CCOpt-specific local denominator-plus-rolloff classification.",
+        "evidence": "Its stated scope is theoretical and numerical comparison of MPEC relaxation methods, without the 2026 CCOpt-specific parameter rules.",
+        "identifier_or_url": "DOI:10.1007/s10107-011-0488-5",
+        "material_read": "Abstract and bibliographic/conceptual scope available from the publisher record.",
+        "method": "Publisher record inspection and targeted statement comparison.",
+        "title": "Theoretical and numerical comparison of relaxation methods for mathematical programs with complementarity constraints",
+        "trigger": "Broad comparison source for potentially dominating relaxation theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3431e825-1483-41c4-b323-23622af6c3b4",
+  "value": {
+    "rationale": "PASS. The source motivates the lower-bound endgame as a remedy for terminal Jacobian/KKT degeneracy and makes the rolloff exponent a tunable algorithmic parameter. The result shows that this exponent qualitatively determines whether the endgame's own local zero-target mechanism is asymptotically available, with a sharp transition and a nontrivial critical coefficient law. This directly informs a parameter choice that the source benchmarks empirically and is a structural interaction between two solver mechanisms rather than a routine recomputation or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
