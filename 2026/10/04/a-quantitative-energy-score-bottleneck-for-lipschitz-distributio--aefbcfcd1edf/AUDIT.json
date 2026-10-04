@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes all quantifiers and normalizations. For \\(q<p\\), Borsuk--Ulam forces an antipodal encoder collision. Energy distance is a metric and population energy-score regret is exactly \\(\\mathcal D^2/2\\), giving endpoint regret at least \\(\\Delta_\\mu(R)/8\\). The generated-law map is \\(L_eL_d\\)-Lipschitz in \\(W_1\\); expanding the score shows regret is \\((1+2L_eL_d)\\)-Lipschitz in the covariate. Integrating the resulting \\(\\Delta_\\mu(R)/16\\) floor over the exact spherical cap proves the displayed bound. The translation identity gives \\(0<\\Delta_\\mu(R)\\le4R\\), and the noiseless specialization gives \\(\\Delta_\\mu(R)=4R\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Batson--Haaf--Kahn--Roberts, arXiv:2102.08380, Sections 3--6 and conclusion",
+        "Tan--Li--Xue, arXiv:2609.23789v1, sufficient-predictor and regularity assumptions"
+      ],
+      "reasoning": "Batson et al. give broad topological-autoencoder phenomena and examples, while Belted Engression assumes a low-dimensional sufficient predictor. Neither inspected source states an energy-score population lower bound for conditional-law prediction or a necessary \\((1+2L_eL_d)^{-(p-1)}\\) bottleneck scaling.",
+      "searches": [
+        "Lipschitz autoencoder Borsuk Ulam average reconstruction error",
+        "proper scoring rule topological obstruction dimension reduction continuous encoder",
+        "sufficient dimension reduction topological obstruction continuous"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29291v1",
+      "arXiv:2609.23789v1",
+      "arXiv:2102.08380",
+      "arXiv:2402.04407",
+      "DeVore--Howard--Micchelli (1989), Optimal nonlinear approximation",
+      "Székely--Rizzo (2013), Energy statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Henzi--Liu--Shen explicitly state that measurable \\(q=1\\) reductions always exist, then state that smoothness restrictions rule out arbitrary reduced dimensions.",
+        "Batson et al. show deterministic autoencoder reconstruction can fail for topological reasons.",
+        "Siegel records exact finite-dimensional manifold widths and a Borsuk--Ulam-based proof strategy."
+      ],
+      "reasoning": "Those prior statements imply a qualitative collision or worst-case deterministic reconstruction barrier. They do not imply the accepted expected energy-score bound without the new score-regret Lipschitz propagation and cap integration. Conversely, the accepted theorem does not supersede general manifold-width results; it is specialized to a statistical conditional-law objective.",
+      "searches": [
+        "Sufficiently Reduced Distributional Regression q=1 measurable smoothness Lipschitz dimension",
+        "Belted Engression sufficient predictor Lipschitz dimension",
+        "Topological Obstructions to Autoencoding sphere reconstruction error",
+        "manifold width finite dimensional l2 ball exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Henzi--Liu--Shen, arXiv:2609.29291v1, Lemma 3 and Assumptions 3--4",
+        "Siegel, arXiv:2402.04407 / Journal of Complexity 85 (2024), finite-dimensional manifold-width discussion",
+        "DeVore--Howard--Micchelli, Manuscripta Mathematica 63 (1989), nonlinear widths"
+      ],
+      "reasoning": "The exact worst-case Euclidean reconstruction obstruction for continuous low-dimensional encoders is covered by nonlinear-width theory and was therefore excluded from the claim. The accepted statement instead concerns expected proper-score regret for conditional probability laws and allows stochastic decoder output; its positive-mass cap argument depends on the Lipschitz conditional-law map, not merely on deterministic reconstruction width.",
+      "searches": [
+        "energy score Lipschitz sufficient dimension reduction Borsuk Ulam population risk",
+        "topological obstruction energy score generative bottleneck continuous encoder",
+        "Lipschitz distributional regression bottleneck lower bound energy distance",
+        "Borsuk Ulam sufficient dimension reduction proper scoring risk lower bound",
+        "continuous bottleneck population energy score sphere distributional regression",
+        "continuous nonlinear width Euclidean ball Borsuk Ulam energy score"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus IDs included 2026/9/21/SCOPE-fisher-lossless-fixed-quantizer-location-sumsets--f9e323def0af, 2026/9/19/SCOPE-algebraically-independent-skeletons-euclidean-nonembeddability--1c2547e992d7, and unrelated energy-score/geometry records; none states the accepted conditional-law theorem."
+      ],
+      "reasoning": "The closest indexed records concern finite quantizers, generic metric embeddings, or unrelated energy quantities. Statement and implication comparisons did not reveal a result that would imply the cap-integrated score-regret lower bound.",
+      "searches": [
+        "energy score Lipschitz sufficient dimension reduction Borsuk Ulam population risk",
+        "topological obstruction energy score generative bottleneck continuous encoder",
+        "Lipschitz distributional regression bottleneck lower bound energy distance",
+        "Borsuk Ulam sufficient dimension reduction proper scoring risk lower bound",
+        "continuous bottleneck population energy score sphere distributional regression"
+      ]
+    },
+    "rationale": "Known Borsuk--Ulam/manifold-width and deterministic-autoencoder obstructions are explicitly treated as prior. The new statement is the quantitative population energy-score floor for a stochastic conditional-law generator under the Lipschitz assumptions used in recent generative SDR, plus the induced necessary divergence rate of the encoder--generator Lipschitz product.",
+    "residual_risks": [
+      "Approximation-theory literature on stable or Lipschitz manifold widths is broad; an equivalent cap-integrated average-loss inequality may exist under different terminology even though targeted statement-level searches did not locate one.",
+      "The certified constant is not claimed optimal; stronger waist or concentration theorems could improve the positive-mass bad-set bound without invalidating the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the motivating gap but not the quantitative obstruction.",
+        "evidence": "Lemma 3 permits any \\(q\\ge1\\) measurably and the following paragraph says smoothness restrictions rule out arbitrary \\(q\\); Assumptions 3--4 impose Lipschitz reduction and generator maps.",
+        "identifier_or_url": "arXiv:2609.29291v1",
+        "material_read": "Abstract, introduction, Lemma 3, Assumptions 2--4, and discussion of reduced-dimension selection.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Sufficiently Reduced Distributional Regression",
+        "trigger": "Primary recent source; it juxtaposes arbitrary measurable reductions with Lipschitz model assumptions."
+      },
+      {
+        "assessment": "Assumes low-dimensional sufficient structure and regularity; does not provide a feasibility lower bound for choosing the dimension.",
+        "evidence": "The method posits a lower-dimensional sufficient predictor and proves estimation properties conditional on that structure.",
+        "identifier_or_url": "arXiv:2609.23789v1",
+        "material_read": "Abstract and the assumptions/theorem discussion for sufficient predictors and regularity.",
+        "method": "Lawful arXiv/HTML inspection.",
+        "title": "Belted Engression: Sufficient Dimension Reduction for Generative Distributional Regression",
+        "trigger": "Concurrent method with the same compress-then-generate statistical object."
+      },
+      {
+        "assessment": "Covers deterministic reconstruction phenomena and qualitative poor-reconstruction regions, not stochastic conditional-law prediction with energy-score regret.",
+        "evidence": "The paper discusses continuous autoencoders, latent-space topology, and reconstruction error; no energy-score or conditional-distribution theorem matching the accepted statement was found.",
+        "identifier_or_url": "arXiv:2102.08380",
+        "material_read": "Full-text sections describing circle and sphere obstructions, higher-dimensional spheres, and conclusions.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "Topological Obstructions to Autoencoding",
+        "trigger": "Closest prior use of topology to obstruct continuous bottleneck reconstruction."
+      },
+      {
+        "assessment": "It covers continuous nonlinear approximation widths, including the deterministic Euclidean-ball obstruction, but not the population proper-score conditional-law statement.",
+        "evidence": "The paper states exact finite-dimensional manifold widths and uses sphere-embedding/Borsuk--Ulam arguments; this is why the accepted claim excludes deterministic worst-case reconstruction novelty.",
+        "identifier_or_url": "arXiv:2402.04407 / Journal of Complexity 85 (2024) 101884",
+        "material_read": "Abstract, finite-dimensional width statement, and Borsuk--Ulam proof summary; the classical exact deterministic width was treated as prior.",
+        "method": "Open bibliographic/full-text metadata and theorem-summary inspection.",
+        "title": "Sharp lower bounds on the manifold widths of Sobolev and Besov spaces",
+        "trigger": "Could dominate a simple Borsuk--Ulam reconstruction claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aefbcfcd-1edf-4328-9718-f4e0a31b370b",
+  "value": {
+    "rationale": "The theorem resolves a concrete tension in current generative SDR: measurable one-coordinate sufficiency can coexist with a nonvanishing population proper-score penalty for every bounded-Lipschitz subambient architecture. The explicit dependence on \\(p\\), \\(R\\), the translation separation \\(\\Delta_\\mu(R)\\), and \\(L_eL_d\\) makes the result usable as a structural diagnostic and yields a necessary Lipschitz blow-up rate for attempts to approximate pathological measurable reductions.",
+    "status": "PASS"
+  }
+}
