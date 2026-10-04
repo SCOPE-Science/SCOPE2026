@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof is exact. The iid squared-distance identity reduces both sampling laws to centroids and second moments. \\(\\operatorname{Dirichlet}(1,1,1)\\) barycentric moments give the interior formula; an edge-length-weighted mixture of uniform segment moments gives the boundary formula. Subtraction is checked both in side lengths and classical triangle invariants. Strict positivity follows from an explicit positive polynomial in \\(x=s-a\\), \\(y=s-b\\), \\(z=s-c\\). The accompanying symbolic replay verifies all algebraic reductions; no finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lotnikov proves arbitrary planar bodies only under a high-moment sufficient condition and proves triangles for the first absolute moment; at \\(p=2\\) the displayed area/perimeter condition is incompatible with the isoperimetric bound.",
+        "Tokmachev proves all \\(p\\) under interior/boundary centroid coincidence (or a stronger circumscribed-polytope center condition); a generic triangle fails those centroid hypotheses."
+      ],
+      "reasoning": "Neither broader recent theorem contains the generic-triangle \\(p=2\\) case. Tokmachev covers the equilateral special case, not arbitrary triangles; Lotnikov's triangle theorem is a \\(p=1\\) implication, not a second-moment theorem.",
+      "searches": [
+        "arXiv:2608.14848v1, Theorem 3 and triangle Theorem 5/Theorem 9",
+        "arXiv:2607.08869v1, Theorem 1 and Corollary 1",
+        "Zaporozhets Tarasov triangle p=2 second moment"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.14848v1",
+      "arXiv:2607.08869v1",
+      "DOI:10.1016/j.aim.2021.107813",
+      "DOI:10.1002/mma.7951",
+      "arXiv:2101.03815",
+      "DOI:10.1155/2016/8371750"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published records study triangle shape invariants or unrelated geometric functionals, not interior-versus-boundary random-point moments.",
+        "No inspected prior statement has hypotheses and conclusion that imply the exact second-moment formulas for arbitrary triangles."
+      ],
+      "reasoning": "Statement-level comparison found no implication into the final claim: the closest records have different random objects or no random-point sampling at all, while the two direct 2026 sources have explicit hypotheses that omit generic triangles at \\(p=2\\).",
+      "searches": [
+        "Zaporozhets Tarasov triangle second moment exact squared distance boundary interior",
+        "triangle mean squared chord boundary perimeter random points exact formula",
+        "s squared 3 r squared random boundary triangle mean squared distance",
+        "2026/9/18/SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db",
+        "2026/9/20/SCOPE-pedoe-pairing-hyperbolic-triangle-shape-metric--40ec9aa20497"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published geometry records returned by the searches concern triangle roundness, Pedoe shape metrics, Delaunay inradii, or unrelated boundary phenomena; none states a random-point second-moment identity.",
+        "Exact-formula web searches did not return the formulas \\((s^2-3r^2)/6\\) or \\((s^2+8Rr-7r^2)/18\\) in this probabilistic context."
+      ],
+      "reasoning": "The claim was searched both as a Zaporozhets--Tarasov \\(p=2\\) statement and as the equivalent moment-of-inertia/closed-form identity, reducing the risk of missing a differently titled formulation. No searched statement implies the arbitrary-triangle gap.",
+      "searches": [
+        "triangle random points interior boundary second moment squared distance Zaporozhets Tarasov",
+        "s^2 8Rr 7r^2 mean squared distance triangle",
+        "Zaporozhets Tarasov triangle second moment exact squared distance boundary interior",
+        "web: \"mean squared distance\" triangle boundary random points",
+        "web: \"s^2 - 3r^2\" \"mean squared distance\" triangle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pure--Durrani--Tong--Pan give distance distributions for area-uniform points in arbitrary polygons.",
+        "Bäsel gives moments for area-uniform point pairs in regular polygons.",
+        "Li--Qiu give moments from a fixed vertex to an area-uniform point in arbitrary triangles."
+      ],
+      "reasoning": "These exact-distribution or moment sources address different sampling laws. They can cover interior specializations but do not contain a boundary-arclength versus interior-area comparison for an arbitrary triangle.",
+      "searches": [
+        "DOI:10.1002/mma.7951",
+        "arXiv:2101.03815",
+        "DOI:10.1155/2016/8371750",
+        "web: random points on the boundary triangle distance second moment"
+      ]
+    },
+    "rationale": "The inspected recent primary sources leave generic triangles outside their \\(p=2\\) coverage, targeted literature-database and web searches found no equivalent arbitrary-triangle second-moment statement, and older exact-distance sources located by the searches concern interior-interior pairs or regular polygons rather than the claimed boundary/interior gap.",
+    "residual_risks": [
+      "An equivalent classical formula may exist under moment-of-inertia or polygon-boundary terminology not surfaced by the searches.",
+      "The MSC ownership is assigned as 52A22 because the established mean-distance convex-body literature lists 52A22 as its primary MSC; the two 2026 arXiv lead sources use arXiv subject classes rather than MSC codes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the final claim: triangle coverage is for the first moment, while the general planar higher-moment criterion does not include \\(p=2\\).",
+        "evidence": "Theorem 3 gives a shape-dependent sufficient condition for higher moments; Theorem 5/Theorem 9 explicitly compare first absolute projected distances for triangles.",
+        "identifier_or_url": "arXiv:2608.14848v1",
+        "material_read": "Full PDF, especially pp. 7-8 (Theorem 3, Proposition 2, Corollary 4, triangle Theorem 5) and pp. 37-39 (Theorem 9 and its proof reduction).",
+        "method": "Read text and rendered PDF pages.",
+        "title": "Mean distance between points inside and on the boundary of a convex body",
+        "trigger": "Direct lead source for the all-moments conjecture and its triangle case."
+      },
+      {
+        "assessment": "NOT_COVERING for generic triangles: all-p coverage requires equality of interior and boundary centroids, or a stronger common-center condition for circumscribed polytopes.",
+        "evidence": "Theorem 1 explicitly states the centroid hypotheses. For a triangle, direct barycentric comparison shows interior and boundary centroids coincide only when all three sides are equal.",
+        "identifier_or_url": "arXiv:2607.08869v1",
+        "material_read": "Complete four-page PDF, with Theorem 1, Corollary 1, and the convex-order hypotheses on pp. 1-3.",
+        "method": "Read text and rendered PDF page 3.",
+        "title": "Inequalities for convex functions of random points inside and on the boundary of convex bodies",
+        "trigger": "Potential broader all-moments theorem that could subsume \\(p=2\\)."
+      },
+      {
+        "assessment": "NOT_COVERING: the sampling in the stated framework is uniform in polygon regions, not arclength-uniform on polygon boundaries.",
+        "evidence": "The abstract specifies points uniformly distributed in polygon regions and closed-form PDFs for those distances.",
+        "identifier_or_url": "DOI:10.1002/mma.7951",
+        "material_read": "Article abstract, scope statement, and reference list on the publisher page.",
+        "method": "Read publisher landing-page material.",
+        "title": "Distance distribution between two random points in arbitrary polygons",
+        "trigger": "Possible exact table/framework for arbitrary triangles."
+      },
+      {
+        "assessment": "SPECIAL_CASE_ONLY and different sampling law: area-uniform points in regular polygons.",
+        "evidence": "The abstract states uniformly distributed points in an n-sided regular polygon and derives second/fourth moments; it does not address boundary-uniform points or nonregular triangles.",
+        "identifier_or_url": "arXiv:2101.03815",
+        "material_read": "Abstract and scope statement.",
+        "method": "Read arXiv-indexed abstract.",
+        "title": "The moments of the distance between two random points in a regular polygon",
+        "trigger": "Possible second-moment table including the regular triangle."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d886b40f-95a8-4471-8f82-805dd32b5580",
+  "value": {
+    "rationale": "The \\(p=2\\) case is a natural structural test of the current boundary-versus-interior moment conjecture. Recent work covers arbitrary triangles at \\(p=1\\) and all \\(p\\) only under centroid conditions that generic triangles fail. The result gives an exact quantitative gap in \\(s,R,r\\) for every triangle, so it is more informative than a sign check and can serve as a benchmark for broader moment comparisons.",
+    "status": "PASS"
+  }
+}
