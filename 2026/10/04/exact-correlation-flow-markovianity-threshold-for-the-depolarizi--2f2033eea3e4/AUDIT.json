@@ -1,0 +1,127 @@
+{
+  "claim": "In the isotropic-depolarizing plus Ising-memory model of Apollaro, Lorenzo, Di Franco, Plastina, and Paternostro, let \\(J\\ne0\\) be the Ising coupling, let \\(\\gamma=\\gamma_0/|J|\\ge0\\) be the dimensionless depolarizing rate, and let \\(z=|2B^{0}_{--}-1|\\in[0,1]\\) be the initial magnetization parameter of the memory-keeping spin. For the Luo–Fu–Song correlation-flow witness used in that paper, the exact Markovianity threshold is \\[\\gamma^*_{\\mathrm{LFS}}(z)=\\frac{1-z^2}{\\sqrt{3(1+2z^2)}}.\\]Equivalently, the LFS non-Markovianity is zero exactly for \\(\\gamma\\ge\\gamma^*_{\\mathrm{LFS}}(z)\\), and is positive for \\(0\\le\\gamma<\\gamma^*_{\\mathrm{LFS}}(z)\\). In dimensional form, \\(\\gamma_{0,\\mathrm{LFS}}^*=|J|(1-z^2)/\\sqrt{3(1+2z^2)}\\). The universal threshold over all \\(z\\) is therefore \\(1/\\sqrt3=0.577350269\\ldots\\), attained at \\(z=0\\), which resolves the source's numerical value \\(\\gamma^*\\approx0.6\\). For \\(0<z\\le1\\), this exact formula also gives \\(\\gamma^*_{\\mathrm{LFS}}(z)\\le\\gamma^*_{\\mathrm{LPP}}(z)=(1-z^2)/(3z)\\), with equality only at \\(z=1\\), thereby analytically proving the LFS-versus-LPP portion of the numerical hierarchy reported by the source.",
+  "correctness": {
+    "rationale": "The LFS mutual-information derivative separates as -gamma*q*I_q+r_prime*I_r. A weighted AM-GM identity proves I_r/(q I_q)<=2r/(1+2r^2), with equality in the q->0 limit. Maximizing the remaining exact geometric factor over one Ising phase gives the radical threshold, and repeated phases prove sharpness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Luo--Fu--Song introduce the correlation-flow measure but do not study the competing depolarizing--Ising map.",
+        "Addis--Bylicka--Chruscinski--Maniscalco compare LFS and other measures in different pure-dephasing and dissipative reservoir models.",
+        "The direct competing-channel source remains the closest statement and leaves precisely this boundary numerical."
+      ],
+      "reasoning": "Broader non-Markovianity comparisons do not cover the claim unless they specialize to the same channel and solve the same all-time mutual-information monotonicity problem.",
+      "searches": [
+        "\"Comparative study of non-Markovianity measures\" LFS isotropic depolarizing Ising",
+        "\"Quantifying non-Markovianity via correlations\" depolarizing Ising threshold",
+        "non-Markovianity correlation flow isotropic depolarizing Ising memory threshold",
+        "quantum Markovianity mutual information depolarizing Ising exact threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1311.2045",
+      "DOI:10.1103/PhysRevA.90.012310",
+      "DOI:10.1103/PhysRevA.86.044101",
+      "arXiv:1402.4975",
+      "DOI:10.1103/PhysRevA.90.052103",
+      "DOI:10.1017/S1446181117000207"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source supplies X_LFS, f_t, G_t, and the isotropic depolarizing specialization needed for the derivation.",
+        "It explicitly solves RHP/BLP/LPP thresholds but not LFS.",
+        "The original LFS paper supplies the correlation-flow interpretation but no threshold for this later model."
+      ],
+      "reasoning": "The exact boundary requires the new sharp AM-GM bound on the two partial derivatives of mutual information, its small-q sharpness, and a separate exact phase maximization.",
+      "searches": [
+        "arXiv:1311.2045 equations 4 6 8 LFS threshold numerical",
+        "DOI:10.1103/PhysRevA.90.012310 LFS hierarchy z=0 threshold",
+        "DOI:10.1103/PhysRevA.86.044101 mutual information non-Markovianity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source states that the LFS rate did not allow an analytical treatment in its analysis and that the threshold was evaluated numerically.",
+        "The source reports a universal LFS threshold approximately 0.6 at z=0 rather than an exact constant.",
+        "No targeted public search returned the candidate radical or its universal value in this model."
+      ],
+      "reasoning": "Equivalent coverage would need to state or imply the exact LFS Markovianity boundary for the same isotropic depolarizing plus Ising-memory map. General definitions of LFS non-Markovianity and analytic thresholds for other witnesses do not imply it.",
+      "searches": [
+        "\"Competition between memory-keeping and memory-erasing decoherence channels\" \"LFS\" analytic threshold",
+        "\"gamma_LFS\" non-Markovianity z \"1-z^2\"",
+        "\"1-z^2\" \"sqrt(1+2z^2)\" non-Markovianity",
+        "\"1/sqrt(3)\" \"Luo Fu Song\" non-Markovianity depolarizing",
+        "\"1311.2045\" LFS threshold analytical",
+        "\"PhysRevA.90.012310\" LFS threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper gives a numerical phase-diagram curve and the approximate universal value 0.6.",
+        "No exact table or symbolic boundary for the LFS curve was located."
+      ],
+      "reasoning": "The accepted result is an all-z symbolic phase boundary derived from the source rate, not a recomputation of a tabulated threshold.",
+      "searches": [
+        "\"1311.2045\" \"0.6\" LFS",
+        "\"Competition between memory-keeping\" \"0.6\"",
+        "Apollaro Lorenzo Di Franco Plastina Paternostro LFS phase diagram threshold"
+      ]
+    },
+    "rationale": "The direct source explicitly leaves this LFS boundary numerical while solving the other three thresholds analytically. Public exact-expression and model-alias searches did not locate an equivalent analytic threshold.",
+    "residual_risks": [
+      "An equivalent symbolic threshold may exist in unindexed notes, theses, or literature using different notation.",
+      "The later comparative-study institutional PDF was access-restricted at one endpoint; public arXiv metadata and indexed section material were inspected instead.",
+      "The accepted theorem is specific to the LFS witness and does not collapse the source hierarchy of inequivalent non-Markovianity criteria."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies all model premises and explicitly does not state an analytic LFS boundary.",
+        "evidence": "The paper gives X_LFS as the time derivative of a mutual-information expression with f_t and G_t; then says the LFS rate does not allow an analytical treatment in its analysis and reports the threshold numerically.",
+        "identifier_or_url": "arXiv:1311.2045; DOI:10.1103/PhysRevA.90.012310",
+        "material_read": "Peer-reviewed author manuscript pages containing the isotropic depolarizing specialization, equation (4) for all four rates, the analytic RHP/BLP/LPP thresholds, Figure 1, the explicit statement that the LFS threshold was evaluated numerically, the hierarchy in equation (8), and the z=0 approximately 0.6 statement.",
+        "method": "Full-text peer-reviewed manuscript inspection, including rendered PDF pages 2 and 3.",
+        "title": "Competition between memory-keeping and memory-erasing decoherence channels",
+        "trigger": "Direct source defining the competing-channel model and leaving the LFS threshold numerical."
+      },
+      {
+        "assessment": "Defines the underlying measure but predates and therefore does not cover the later depolarizing--Ising threshold problem.",
+        "evidence": "The publisher abstract states that the measure quantifies non-Markovianity through system-ancilla correlations measured by quantum mutual information.",
+        "identifier_or_url": "DOI:10.1103/PhysRevA.86.044101",
+        "material_read": "Public abstract, bibliographic record, and the direct paper citation/context identifying the mutual-information witness.",
+        "method": "Publisher record plus direct-source reference inspection.",
+        "title": "Quantifying non-Markovianity via correlations",
+        "trigger": "Primary source for the correlation-flow witness used by the direct paper."
+      },
+      {
+        "assessment": "Relevant broader comparison, but the material inspected concerns different exactly solvable reservoirs; no same-model radical threshold was surfaced.",
+        "evidence": "The arXiv abstract states the paper studies pure-dephasing and dissipative one- and two-qubit models; targeted searches within public indexing did not surface the competing depolarizing--Ising model.",
+        "identifier_or_url": "arXiv:1402.4975; DOI:10.1103/PhysRevA.90.052103",
+        "material_read": "ArXiv abstract/metadata and publicly indexed LFS-section material describing the pure-dephasing and dissipative reservoir models studied.",
+        "method": "ArXiv record and public manuscript indexing; one institutional PDF endpoint was access-restricted.",
+        "title": "Comparative study of non-Markovianity measures in exactly solvable one- and two-qubit models",
+        "trigger": "Later broad comparison that could plausibly subsume a witness-specific threshold."
+      },
+      {
+        "assessment": "Classifies quantum Markovian dynamics primarily under MSC 81S22, a permitted mathematical-physics code.",
+        "evidence": "Publisher metadata lists Primary: 81S22 (Open systems, reduced dynamics, master equations, decoherence).",
+        "identifier_or_url": "DOI:10.1017/S1446181117000207",
+        "material_read": "Publisher metadata, abstract, and MSC classification.",
+        "method": "Publisher record inspection.",
+        "title": "A note on Markovian quantum dynamics",
+        "trigger": "Independent verification of primary mathematical subject ownership for quantum Markovian reduced dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2f2033ee-a3e4-4b16-a5c4-228ada4f8a59",
+  "value": {
+    "rationale": "The formula closes the only numerically treated boundary in the source central four-witness phase diagram, identifies the exact universal cutoff behind 0.6, and proves the LFS-versus-LPP ordering for every polarization. It is a natural all-parameter control threshold of the published open-system model.",
+    "status": "PASS"
+  }
+}
