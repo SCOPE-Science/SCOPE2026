@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The source gives a uniform chamber bound for every fixed labeled cyclic decomposition. A cyclic decomposition is a permutation of the vertex slots, and relabeling slots acts by conjugation. Conjugacy classes in the symmetric group are exactly cycle types. Because ordinary link components are unordered and unoriented, every link realization can be relabelled into a canonical decomposition with the same component-length partition. Thus one model per partition into parts at least three suffices. Multiplying the fixed-model bound by the restricted partition count and applying the Hardy--Ramanujan growth of the partition function gives the stated asymptotic exponent.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary manuscript's fixed-decomposition bound is exactly the ingredient reused here.",
+        "Its link remark multiplies by at most the number of labeled cyclic decompositions rather than first quotienting by relabeling."
+      ],
+      "reasoning": "The source's stated ordinary-link bound is weaker by one factorial-scale factor. No inspected result supplied a broader theorem that already forces the restricted-partition summation.",
+      "searches": [
+        "Literature search: \"N^{3N+o(N)}\" polygonal links stick number",
+        "Literature search: \"3N+o(N)\" polygonal links",
+        "Literature search: \"component length partition\" polygonal links stick number",
+        "Literature search: permutation conjugacy cycle type polygonal link component decomposition stick bound",
+        "Literature search: restricted integer partitions component cycles semialgebraic links stick number",
+        "Literature search: unlabeled links cyclic decomposition relabeling factorial chamber bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.01277v1",
+      "github:sashakolpakov/StickNumbers/manuscript/knot_fewnomials.tex",
+      "github:sashakolpakov/StickNumbers/README.md",
+      "github:sashakolpakov/StickNumbers/NOVELTY_AUDIT.md",
+      "DOI:10.1112/plms/s2-17.1.75",
+      "2026/9/20/SCOPE-exact-stick-numbers-after-trefoil-summation--dfc293ee9d95",
+      "2026/9/18/SCOPE-exact-canonical-torus-knot-triangulation-census--831655b0b665"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For each fixed labeled decomposition the source gives at most a constant-times-\\(N\\) to the \\(3N\\) chambers.",
+        "The source then uses at most \\(N!\\) labeled decompositions, yielding an exponent-four asymptotic upper bound."
+      ],
+      "reasoning": "The new quotient shows that all decompositions in one conjugacy class represent the same ordinary-link combinatorial model after a coordinate relabeling. Replacing all labeled decompositions by one representative per cycle type changes the multiplicative factor from factorial to subexponential, so the source's exponent-four bound does not imply the new exponent-three conclusion.",
+      "searches": [
+        "Primary manuscript comparison: ordinary-link remark with factorial labeled-decomposition sum",
+        "Primary manuscript comparison: fixed-combinatorics chamber bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.01277v1 and the accompanying author manuscript state the ordinary-link upper bound with a factorial labeled-decomposition factor.",
+        "Exact-phrase and cycle-type searches returned no source stating the restricted-partition quotient or the resulting exponent-three ordinary-link upper bound."
+      ],
+      "reasoning": "The searches used both the asymptotic conclusion and the structural mechanism (cycle types, relabeling, component-length partitions), reducing the chance that an equivalent result was missed merely because of notation.",
+      "searches": [
+        "Literature search: \"N^{3N+o(N)}\" polygonal links stick number",
+        "Literature search: \"3N+o(N)\" polygonal links",
+        "Literature search: \"component length partition\" polygonal links stick number",
+        "Literature search: permutation conjugacy cycle type polygonal link component decomposition stick bound",
+        "Literature search: restricted integer partitions component cycles semialgebraic links stick number",
+        "Literature search: unlabeled links cyclic decomposition relabeling factorial chamber bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is symbolic and does not rely on a knot or link census.",
+        "Small-stick classification papers concern finite low-stick cases rather than asymptotic counting."
+      ],
+      "reasoning": "No finite database or table can subsume the theorem; the only computation bundled here checks the permutation quotient on small sizes as a regression test.",
+      "searches": [
+        "Literature search: \"N^{4N+o(N)}\" links stick",
+        "Literature search: \"number of link types\" \"stick number\" polygonal"
+      ]
+    },
+    "rationale": "The inspected 2026 author manuscript explicitly sums the fixed-model chamber bound over at most factorially many labeled cyclic decompositions and states the resulting exponent four for ordinary links. It does not quotient those decompositions by relabeling or state the restricted-partition factor. Targeted searches for the exponent-three link bound and the cycle-type reduction found the source itself and unrelated stick-number results, but no equivalent statement.",
+    "residual_risks": [
+      "The target manuscript is recent and may be revised after the inspected version.",
+      "An unindexed later note or informal communication could independently observe the same relabeling quotient.",
+      "The result inherits the correctness and uniformity of the source's fixed-combinatorics chamber estimate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the uniform fixed-decomposition estimate and explicitly incurs an extra factorial factor by summing over labeled cyclic decompositions. It does not perform the conjugacy/cycle-type quotient.",
+        "evidence": [
+          "arXiv:2608.01277v1, first posted 2026-08-02.",
+          "Author manuscript, theorem on the stick-knot upper bound and remark on upper bounds for links."
+        ],
+        "identifier_or_url": "arXiv:2608.01277v1",
+        "material_read": "Author manuscript sections defining the self-intersection walls, proving the fixed-combinatorics chamber bound, and the full ordinary-link upper-bound remark.",
+        "method": "The current author manuscript source was inspected statement-by-statement in the relevant sections.",
+        "title": "Discriminant Varieties for Stick Knots and Links",
+        "trigger": "Primary recent source for the polygonal-link chamber-count problem."
+      },
+      {
+        "assessment": "It gives logarithmic growth of order \\(\\sqrt N\\) for the partition count, which is negligible compared with \\(N\\log N\\).",
+        "evidence": [
+          "Hardy--Ramanujan 1918 partition asymptotic."
+        ],
+        "identifier_or_url": "DOI:10.1112/plms/s2-17.1.75",
+        "material_read": "The Hardy--Ramanujan partition asymptotic was checked against standard references.",
+        "method": "Statement-level verification of the classical asymptotic formula.",
+        "title": "Asymptotic Formulae in Combinatory Analysis",
+        "trigger": "Classical supporting result needed only to show that the number of integer partitions is subfactorial."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c985303-9c11-4b09-b366-a6fc16c82527",
+  "value": {
+    "rationale": "The refinement removes an entire factorial-scale overcount from the source's ordinary-link extension and makes the link upper exponent match the source's knot upper exponent. The mechanism is structural rather than cosmetic: it identifies the correct combinatorial parameter space as component-length cycle types, not all labeled cyclic decompositions. This is directly useful in asymptotic stick-complexity enumeration and isolates where any future improvement must come from after label redundancy is removed.",
+    "status": "PASS"
+  }
+}
