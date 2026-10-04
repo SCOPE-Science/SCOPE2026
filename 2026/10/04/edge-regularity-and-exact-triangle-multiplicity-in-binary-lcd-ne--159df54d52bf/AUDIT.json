@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the common-neighbor problem to an exact extension lemma for codimension-one subspaces of binary nondegenerate spaces. The radical-zero and one-dimensional-radical cases both give exactly \\(2^{n-k}\\) LCD extensions. For an adjacent pair, every common neighbor is either a star extension of the intersection or a top subspace of the sum; orthogonal complementation counts the latter. The unique binary overlap candidate is degenerate in both radical cases, yielding \\(\\lambda=2^k+2^{n-k}-4\\). Degree and triangle formulas then follow by exact double counting. A standalone exhaustive checker independently verifies every parameter \\(2\\le n\\le6\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full Grassmann graph is distance-regular, but the LCD graph is a proper induced subgraph; the source paper explicitly notes that the LCD graph is generally not strongly or distance-regular.",
+        "No checked orthogonal-geometry source was found whose theorem specializes to the claimed binary LCD common-neighbor number."
+      ],
+      "reasoning": "Distance-regularity of the ambient Grassmann graph does not automatically pass to the induced LCD subgraph. The proof specifically uses nondegeneracy and characteristic-two cancellation to obtain the induced common-neighbor count.",
+      "searches": [
+        "binary nondegenerate subspace Grassmann graph common neighbors LCD",
+        "Grassmann graph induced nondegenerate subspaces edge regular binary",
+        "orthogonal geometry nondegenerate k-subspaces adjacent common neighbors F2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.07580v1",
+      "5th Pythagorean Conference slide deck, 5 June 2025",
+      "Focused published-finding corpus searches listed in exact_database_or_table",
+      "Focused web searches for exact formula, common-neighbor, edge-regular, and nondegenerate-subspace aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.16 of arXiv:2609.07580v1 gives binary degree \\((2^{n-k}-1)(2^k-1)\\); Theorem 4.17 and Corollary 5.11 concern orbit-subgraph regularity/biregularity; Section 6 summarizes those results without a triangle formula.",
+        "The earlier slide deck explicitly labels triangle counting as ongoing work."
+      ],
+      "reasoning": "Knowing the vertex degree does not determine the number of common neighbors of an adjacent pair. The new edge-regularity theorem is therefore not an immediate restatement or numerical corollary of the paper's regularity theorem.",
+      "searches": [
+        "arXiv:2609.07580v1 Sections 2--6 degree regularity connectedness orbit subgraphs triangles common neighbors",
+        "5th Pythagorean LCD neighbor graph ongoing work count triangles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.07580v1 defines exactly the same LCD neighbor graph and gives its degree but no common-neighbor parameter.",
+        "The 5 June 2025 public slide deck states that counting triangles is ongoing work.",
+        "Searches under nondegenerate-subspace and edge-regular aliases returned no equivalent theorem."
+      ],
+      "reasoning": "For a regular graph, a constant number of common neighbors on every adjacent pair is precisely edge-regularity, and it determines the triangle count. This is stronger than the source paper's vertex-regularity statement.",
+      "searches": [
+        "binary LCD neighbor graph edge regular common neighbors triangles",
+        "linear complementary dual code neighbor graph triangle count",
+        "binary nondegenerate subspace Grassmann graph common neighbors LCD",
+        "web: common neighbors + LCD codes + neighbor graph",
+        "web: edge-regular + LCD codes + neighbor graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest repository records were generalized covering/coding extrema such as 2026/9/17/SCOPE014, 2026/9/18/SCOPE-packing-covering-redundancy-fifteen--96101bcc4ffa, and 2026/9/20/SCOPE-codimension-two-lrc-pair-incidence--43ade2b4102e.",
+        "No returned record concerns triangle multiplicity in LCD neighbor graphs or the formula \\(2^k+2^{n-k}-4\\)."
+      ],
+      "reasoning": "Queries separately targeted the object name, the graph-theoretic equivalent, the nondegenerate-subspace alias, and the exact candidate formula to reduce table/alias risk.",
+      "searches": [
+        "recent coding theory finite field exact extremal small parameter covering deletion Reed Solomon subspace storage retrieval MSC 94",
+        "binary LCD neighbor graph triangles common neighbors edge-regular 2^k + 2^(n-k) - 4",
+        "binary LCD neighbor graph edge regular common neighbors triangles",
+        "linear complementary dual code neighbor graph triangle count",
+        "binary nondegenerate subspace Grassmann graph common neighbors LCD",
+        "2^k plus 2^(n-k) minus 4 common neighbors coding"
+      ]
+    },
+    "rationale": "The complete 2026 primary preprint was compared statement-by-statement with the claim. It proves the number of LCD neighbors, graph regularity/connectedness, and orbit-subgraph regularity or biregularity, but does not count triangles or state edge-regularity. The same authors' 5 June 2025 presentation explicitly lists triangle counting as ongoing work. Focused database and web searches under common-neighbor, edge-regular, Grassmann/nondegenerate-subspace, and exact-formula aliases found no source stating or implying the theorem. Residual risk remains for an older equivalent result under substantially different orthogonal-geometry terminology.",
+    "residual_risks": [
+      "An older orthogonal-geometry result could encode the same edge-regularity statement without LCD terminology; no such result was found in the checked searches.",
+      "Search failure is not itself a novelty proof; originality rests primarily on the complete comparison with the direct 2026 source and the explicit 2025 ongoing-work statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper determines vertex degrees, connectedness, and orbit-subgraph (bi)regularity. It does not state a triangle count or constant adjacent-common-neighbor parameter; the conclusion lists only those established graph properties.",
+        "identifier_or_url": "arXiv:2609.07580v1",
+        "material_read": "Complete 32-page preprint, including Sections 2--6, Theorems 3.5, 4.16, 4.17, 5.10, Corollary 5.11, and the conclusion.",
+        "method": "Statement and implication comparison against edge-regularity, adjacent-common-neighbor multiplicity, and triangle counting.",
+        "title": "The Neighbor Graph of Linear Complementary Dual (LCD) Codes",
+        "trigger": "Direct primary source on the identical graph and the strongest plausible prior coverage."
+      },
+      {
+        "assessment": "GAP_IDENTIFIED",
+        "evidence": "The final outlook explicitly lists 'Count triangles' as ongoing work after summarizing graph regularity, connectedness, diameter, and girth.",
+        "identifier_or_url": "https://cargo.wlu.ca/5thPythagorean/talks/Carlos_Vela.pdf",
+        "material_read": "Full slide deck, especially the LCD-neighbor theorem, graph regularity/connectedness summary, and final outlook slide.",
+        "method": "Compared the listed main results and ongoing-work items with the final claim.",
+        "title": "The Neighbor Graph of Linear Complementary Dual Codes",
+        "trigger": "Earlier public presentation of the same project, useful for tracing the identified research gap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "159df54d-52bf-4a37-9e6c-a5f8f0e073aa",
+  "value": {
+    "rationale": "The result resolves a directly identified structural problem for the binary LCD neighbor graph with an all-parameter closed formula. It strengthens a global triangle count to edge-regularity and supplies a compact proof using nondegenerate-space extension counts and the binary star/top decomposition. This is useful for local graph structure and potential clique/classification work, not a routine small-parameter census.",
+    "status": "PASS"
+  }
+}
