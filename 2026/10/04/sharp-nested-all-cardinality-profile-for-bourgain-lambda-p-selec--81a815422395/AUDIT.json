@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes all quantifiers and uses only one non-elementary input: the recent critical-size selection theorem with arbitrary polynomial failure. A blockwise construction is a uniform random permutation by an exact factorial calculation. For prefixes \\(m\\le N/2\\), every exposed residual has size at least \\(N/2\\), the number of intersected critical blocks is at most \\(1+2^{2/p}mN^{-2/p}\\), and Minkowski plus Cauchy--Schwarz gives the asserted upper scale. A union bound with a larger failure exponent controls all those blocks simultaneously. For \\(m>N/2\\), \\(L^2\\)-\\(L^\\infty\\) interpolation gives the deterministic tail bound \\(r^{(1-2/p)/2}\\). The Fourier lower bound is uniform over all subsets because every frequency \\(1,\\ldots,N\\) has phase in the same sector on \\(|x|\\le(12N)^{-1}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burstein--Iosevich--Krause discuss Talagrand's general restriction theorem and proportional-subset comparisons, but their stated bounded-orthogonal result remains at the critical cardinality.",
+        "The inspected Talagrand Lambda(p) section formulates the critical restriction scale rather than a single random permutation with simultaneous prefix estimates."
+      ],
+      "reasoning": "Broader restriction machinery is relevant, but no inspected theorem was found that dominates the nested simultaneous statement with the sharp m- and N-dependence.",
+      "searches": [
+        "all cardinalities Lambda(p) bounded orthogonal",
+        "Talagrand restriction bounded orthogonal Lambda(p) proportional subsets",
+        "majorizing measures proportional subsets bounded orthonormal systems Lambda(p)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.12566v1",
+      "J. Bourgain, Acta Math. 162 (1989), DOI 10.1007/BF02392838",
+      "H. Jung et al., Expositiones Mathematicae 43 (2025), article 125691",
+      "Relevant research-database results returned by the listed semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 theorem supplies the block input at each residual size and the needed arbitrary polynomial failure exponent, but it states only one cardinality for a given system.",
+        "Bourgain's Theorem 1 and its optimality paragraph identify N^(2/p) as the largest uniformly bounded Lambda(p) scale; they do not state the growth law beyond that scale or a nested family."
+      ],
+      "reasoning": "The accepted theorem is a new implication of the critical theorem plus a nontrivial nested block construction and a large-prefix interpolation argument. The prior critical theorem is necessary input but does not already contain the conclusion as a stated special case.",
+      "searches": [
+        "arXiv:2609.12566v1 full text: Introduction, Corollary 4.1, Fourier selection and sharp exponent",
+        "DOI:10.1007/BF02392838 full text: Theorem 1 and optimality discussion",
+        "Expositiones Mathematicae 43 (2025) 125691 Bourgain Lambda(p) exposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.12566v1 states a random subsystem of cardinality ceil(N^(2/p)) and arbitrary polynomial failure probability; Corollary 4.1 specializes the same critical cardinality to Fourier characters.",
+        "Bourgain, Acta Math. 162 (1989), Theorem 1 states existence/genericity at size of order N^(2/p), not a nested all-cardinality prefix profile."
+      ],
+      "reasoning": "The new statement cannot be obtained by relabeling the critical theorem: it simultaneously controls one nested chain for every m, and its bound grows past the critical density.",
+      "searches": [
+        "Lambda(p) bounded orthogonal all cardinalities minimax profile subset size m",
+        "Bourgain Lambda(p) exact density profile m N^{-2/p}",
+        "nested Lambda(p) prefixes random permutation bounded orthogonal systems all cardinalities",
+        "arXiv:2609.12566v1 Corollary 4.1",
+        "Bourgain 1989 Theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned research-database record states a nested Lambda(p) prefix profile or the scale max{1,sqrt(m) N^(-1/p)} for bounded orthogonal subsystems.",
+        "The closest returned records concern rearrangement maximal sums, finite Hadamard bases, or spherical-harmonic Lp saturation and do not imply the accepted claim."
+      ],
+      "reasoning": "The database comparisons are on different operators or objects; none supplies the same theorem or a stronger result that specializes to it.",
+      "searches": [
+        "Lambda(p) bounded orthogonal all cardinalities minimax profile subset size m",
+        "Bourgain Lambda(p) exact density profile m N^{-2/p}",
+        "nested Lambda(p) prefixes random permutation bounded orthogonal systems all cardinalities",
+        "simultaneous all cardinalities Bourgain Lambda(p) random permutation prefixes",
+        "bounded orthogonal systems Lambda(p) transition m N^{-2/p} union blocks",
+        "Published-record comparison: 2026/9/20/SCOPE-quantitative-garsia-rearrangement-constant--4185b4e0fd93",
+        "Published-record comparison: 2026/9/18/SCOPE-garsia-counterexamples-finite-butson-hadamard-bases--5e0ce6e50d84",
+        "Published-record comparison: 2026/9/18/SCOPE-simultaneous-all-p-sogge-maximizers-spherical-harmonics--c09578f1da10"
+      ]
+    },
+    "rationale": "The inspected recent and classical primary statements give the critical cardinality only. The accepted claim is a simultaneous nested-prefix theorem at every exact cardinality, with a matching worst-case scale. Targeted semantic and bibliographic searches did not locate that implication packaged as an all-cardinality nested profile.",
+    "residual_risks": [
+      "An equivalent nested-prefix corollary could exist under terminology from proportional restrictions or Banach-space selection rather than Lambda(p) sets.",
+      "The exact numerical constants are not claimed and could have sharper prior formulations without covering the nested all-cardinality statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers a uniformly random subsystem at the single critical cardinality ceil(N^(2/p)); does not state simultaneous nested control for all cardinalities.",
+        "evidence": "Corollary 4.1 gives cardinality ceil(N^(2/p)) and explicitly says the exponent is worst-case sharp.",
+        "identifier_or_url": "arXiv:2609.12566v1",
+        "material_read": "Abstract, theorem discussion, Section 4.1 including Corollary 4.1 and the sharp-exponent paragraph, plus references/comparison discussion.",
+        "method": "Full-text HTML reading.",
+        "title": "Bourgain's Lambda(p) selection theorem: a greedy proof with polynomial failure bounds",
+        "trigger": "Motivating recent theorem and probability input."
+      },
+      {
+        "assessment": "Theorem 1 is a critical-cardinality existence/genericity theorem; its sharpness discussion concerns the critical dimension, not an all-cardinality nested profile.",
+        "evidence": "Theorem 1 gives |S| greater than N^(2/p) with bounded Lambda(p) constant and says this size is optimal.",
+        "identifier_or_url": "DOI:10.1007/BF02392838",
+        "material_read": "Full-text opening theorem and optimality paragraph on the first two pages.",
+        "method": "PDF text and page-image inspection.",
+        "title": "Bounded orthogonal systems and the Lambda(p)-set problem",
+        "trigger": "Classical theorem that the recent paper reproves."
+      },
+      {
+        "assessment": "Describes Bourgain's critical Lambda(p) selection theorem; no nested all-cardinality theorem was located.",
+        "evidence": "The surfaced theorem description is again at cardinality of order N^(2/p).",
+        "identifier_or_url": "arXiv:2504.18533 / Expositiones Mathematicae 43 (2025) 125691",
+        "material_read": "Bibliographic record and theorem-level description surfaced in literature search.",
+        "method": "Bibliographic and theorem-summary inspection.",
+        "title": "Expository article: Bounded orthogonal systems and the Lambda(p)-set problem by Jean Bourgain",
+        "trigger": "Modern exposition likely to record standard equivalent formulations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "81a81542-2395-4e13-bcaf-7e82991f0065",
+  "value": {
+    "rationale": "The quantity \\(K_p(S;\\Phi)\\) is the central finite Lambda(p) constant, and cardinality is the main parameter in Bourgain's theorem. Determining its sharp dependence across every \\(m\\), rather than only at the critical point, is a natural structural question. The result identifies \\(m\\asymp N^{2/p}\\) as the exact transition from bounded constants to growth, and strengthens existence to a single nested random family that is simultaneously order-optimal at all scales. The Fourier construction shows that this is not merely an artifact of the proof or a one-sided estimate.",
+    "status": "PASS"
+  }
+}
