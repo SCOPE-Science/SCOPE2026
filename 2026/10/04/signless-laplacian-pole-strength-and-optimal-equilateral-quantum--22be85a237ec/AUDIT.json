@@ -1,0 +1,116 @@
+{
+  "claim": "Let \\(G=(V,E)\\) be a finite connected simple graph with \\(d=|V|\\ge3\\), make every vertex a boundary vertex, replace every edge by an interval of common length \\(\\ell>0\\), and let \\(\\Lambda_G(\\lambda)\\) be the Dirichlet-to-Neumann map for \\(-u''=\\lambda u\\). For an odd integer \\(n\\ge1\\), put \\(\\lambda_0=(n\\pi/\\ell)^2\\) and define the sharp local pole coefficient \\[C_*(G)=\\lim_{\\lambda\\to\\lambda_0,\\ \\lambda\\ne\\lambda_0}|\\lambda-\\lambda_0|\\,\\sigma_{\\min}(\\Lambda_G(\\lambda)).\\]If \\(Q(G)=D(G)+A(G)\\) is the signless Laplacian and \\(q_{\\min}(G)\\) its least eigenvalue, then \\[C_*(G)=\\frac{2\\lambda_0}{\\ell}\\,q_{\\min}(G).\\]Hence \\(C_*(G)>0\\) exactly when \\(G\\) is non-bipartite. Among all simple \\(d\\)-vertex all-boundary equilateral decorations, the complete graph \\(K_d\\) uniquely maximizes the pole coefficient, with \\[C_*(K_d)=\\frac{2\\lambda_0}{\\ell}(d-2).\\]At an even Dirichlet resonance the corresponding coefficient is \\(0\\). For the four-boundary triangle-with-one-pendant-edge resonator used as the degree-four example by Do--Kuchment--Ong, \\(q_{\\min}=(5-\\sqrt{17})/2\\), so \\(K_4\\) improves the sharp pole coefficient by the exact factor \\((5+\\sqrt{17})/2\\).",
+  "correctness": {
+    "rationale": "The exact edge solution yields \\(\\Lambda_G(k^2)=k[\\sin(k\\ell)]^{-1}(A-\\cos(k\\ell)D)\\). At odd \\(k_0\\ell=n\\pi\\), the finite matrix tends to \\(Q=D+A\\) and the scalar factor satisfies \\(|k^2-k_0^2||k/\\sin(k\\ell)|\\to2k_0^2/\\ell\\). The complement identity and a missing-edge Rayleigh vector prove the unique \\(K_d\\) optimizer. A standalone checker confirms finite cases and resonance limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Do--Kuchment--Ong Theorem 2.1 proves existence of a uniform pole lower bound under a no-solution condition.",
+        "Their Theorem 2.2 gives odd-cycle equilateral decorations as sufficient constructions.",
+        "Their concluding remark states that gap size depends on the constant and asks how decoration controls it to select effective designs.",
+        "No inspected later source was found to solve that design problem for the all-boundary equilateral simple-graph class."
+      ],
+      "reasoning": "The prior theorem is broader in allowed decorations but weaker quantitatively. The present theorem is narrower geometrically but computes the sharp asymptotic constant and closes the fixed-size optimization problem in that subclass.",
+      "searches": [
+        "Do Kuchment Ong resonant gap decoration constant C cycle length optimization",
+        "Do Kuchment Ong open problem constant C decoration effective design complete graph",
+        "On resonant spectral gaps in quantum graphs most effective designs constant C",
+        "complete graph optimal quantum graph resonator decoration Dirichlet-to-Neumann gap pole"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.04774",
+      "DOI:10.4171/175-1/10",
+      "DOI:10.2298/AADM110205006K",
+      "DOI:10.1016/j.laa.2007.01.009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's pole estimate does not give a formula for its best local coefficient.",
+        "Standard signless-Laplacian theory supplies the bipartite criterion once the residue matrix has been identified.",
+        "The complete-graph extremal statement requires the complement identity and a strict Rayleigh argument; it is not a direct statement of the source paper."
+      ],
+      "reasoning": "The claim uses known components but the implication chain requires a new explicit DtN residue calculation followed by a graph-spectral optimization. It is not a special case already written in the inspected source.",
+      "searches": [
+        "arXiv 1601.04774 Theorem 2.1 Theorem 2.2 constant C decoration",
+        "Bipartite Subgraphs and the Signless Laplacian Matrix smallest eigenvalue connected bipartite",
+        "Signless Laplacians of finite graphs least eigenvalue bipartite",
+        "quantum graph Dirichlet-to-Neumann signless Laplacian equilateral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No database result located an equivalent signless-Laplacian formula for the resonant quantum-graph pole coefficient.",
+        "Searches surfaced general signless-Laplacian graph theory and unrelated signless-Laplacian quantum-walk work, not this residue calculation.",
+        "The closest quantum-graph database records concern metric nodal counts or other spectral gaps, with different objects and claims."
+      ],
+      "reasoning": "An equivalent result would have to identify the odd-resonance all-boundary residue with the signless Laplacian, not merely discuss either quantum-graph DtN maps or signless-Laplacian spectra separately.",
+      "searches": [
+        "signless Laplacian controls resonant Dirichlet-to-Neumann pole quantum graph decoration",
+        "equilateral all-boundary quantum graph DtN A minus cos D odd Dirichlet resonance signless Laplacian",
+        "resonant spectral gaps quantum graphs spider decoration Dirichlet-to-Neumann residue odd cycle pole strength triangle optimization",
+        "quantum graph resonator odd cycle boundary DtN pole coefficient spectral gap decoration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry for these pole coefficients was found.",
+        "The source paper gives a four-boundary triangle-plus-pendant construction but does not tabulate or optimize its pole constant."
+      ],
+      "reasoning": "The exact value \\(q_{\\min}=(5-\\sqrt{17})/2\\) for the source example and the comparison with \\(K_4\\) are consequences of the new reduction, not a recomputation of a located published pole-strength table.",
+      "searches": [
+        "published-finding corpus quantum graph resonant gap signless Laplacian decoration",
+        "published-finding corpus Dirichlet-to-Neumann quantum graph residue complete graph optimizer",
+        "signless Laplacian resonator quantum graph spectral gap exact constant"
+      ]
+    },
+    "rationale": "The claim is limited to the sharp local pole coefficient and its fixed-\\(d\\) optimization in the all-boundary equilateral simple-graph class. The general gap mechanism and odd-cycle sufficient construction are prior work.",
+    "residual_risks": [
+      "An equivalent residue identity may occur in literature using M-function or boundary-triple language rather than Dirichlet-to-Neumann terminology.",
+      "The source paper's full design problem allows more general decorations, so the present theorem closes only the all-boundary equilateral simple-graph subclass.",
+      "The sharp local pole coefficient is not by itself an exact host-independent spectral-gap width."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general resonant mechanism and an existence constant, but not the all-boundary signless-Laplacian coefficient or fixed-order optimizer.",
+        "evidence": "The full text states primary MSC 81Q35/81Q10/35P99, gives the pole inequality as equation (2.1), and explicitly asks how its constant depends on the decoration.",
+        "identifier_or_url": "arXiv:1601.04774; DOI:10.4171/175-1/10",
+        "material_read": "Full-text definition of the DtN map, Theorem 2.1, Theorem 2.2, main gap theorem, degree-four example, and concluding design remark.",
+        "method": "Author-uploaded full text plus arXiv and publisher metadata.",
+        "title": "On resonant spectral gap opening in quantum graph networks / On resonant spectral gaps in quantum graphs",
+        "trigger": "Archive-era primary source posing the decoration-strength design question."
+      },
+      {
+        "assessment": "Supports the standard criterion \\(q_{\\min}>0\\) for connected non-bipartite graphs; contains no quantum-graph resonant pole statement.",
+        "evidence": "The paper states that the multiplicity of zero for \\(Q\\) equals the number of bipartite connected components.",
+        "identifier_or_url": "DOI:10.2298/AADM110205006K",
+        "material_read": "Full-text abstract/introduction passage on the least signless-Laplacian eigenvalue and bipartite components.",
+        "method": "Open full-text inspection.",
+        "title": "Bipartite Subgraphs and the Signless Laplacian Matrix",
+        "trigger": "Needed to distinguish the new quantum-graph reduction from the standard graph-spectral fact used afterward."
+      },
+      {
+        "assessment": "General signless-Laplacian spectral theory only; no resonant quantum-graph design result.",
+        "evidence": "The survey describes spectral theory based on the signless Laplacian and its graph-invariant bounds.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2007.01.009",
+        "material_read": "Open repository metadata and survey abstract.",
+        "method": "Institutional repository inspection.",
+        "title": "Signless Laplacians of finite graphs",
+        "trigger": "Background spectral source for the matrix \\(Q=D+A\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22be85a2-37ec-43a3-9242-c8602b35ce93",
+  "value": {
+    "rationale": "The result converts a directly stated resonator-design question into the computable invariant \\(q_{\\min}(D+A)\\), gives a structural non-bipartiteness criterion, proves a unique optimal design for every fixed boundary size, and quantifies the improvement over the source's degree-four example.",
+    "status": "PASS"
+  }
+}
