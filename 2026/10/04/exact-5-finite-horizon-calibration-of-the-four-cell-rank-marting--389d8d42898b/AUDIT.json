@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The published fixed-grid formula reduces at \\(d=2\\) to a function of four occupancy counts. Under the null, cell labels are iid uniform and every length-\\(N\\) labeled path has probability \\(4^{-N}\\). The recurrence quotients only by label permutations and restores exact transition multiplicities. Its implementation agrees with brute force over all \\(4^8\\) short paths, uses exact rational arithmetic at \\(N=128\\), and exhaustively verifies the claimed support gap.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A 2005 thesis on sequential uniformity in multinomial models describes inverse sampling and Monte Carlo rather than this martingale boundary calculation.",
+        "General Dirichlet-multinomial references establish conjugacy but do not give the pathwise first-crossing probability here."
+      ],
+      "reasoning": "Broader sequential-multinomial searches found related procedures but nothing that implies the exact horizon-\\(128\\) calibration.",
+      "searches": [
+        "multinomial sequential probability ratio test exact boundary crossing dynamic programming",
+        "mixture martingale multinomial Dirichlet exact finite horizon",
+        "uniform multinomial martingale Dirichlet prior sequential test"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.13818",
+      "doi:10.1093/biomet/asae023",
+      "https://github.com/AlexanderHenzi/sequential_independence",
+      "UNLV Retrospective Theses & Dissertations 1918 (2005)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Henzi--Law Equation (9) gives the martingale formula and Section 4.4 motivates truncation but not the occupancy dynamic program.",
+        "Their reported \\(N=128\\) threshold \\(9.17\\) is for the Sinkhorn \\(\\eta=0\\) variant, so it neither covers nor conflicts with the fixed-grid \\(d=2\\) threshold."
+      ],
+      "reasoning": "The new statement is an exact calibration of one canonical published martingale, not a corollary of the paper’s simulated Sinkhorn result.",
+      "searches": [
+        "A Rank-Based Sequential Test of Independence fixed d martingale Ville gap",
+        "Dirichlet multinomial Bayes factor sequential test exact boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no matching sequential-calibration record; closest multinomial hits concern modal asymptotics.",
+        "Henzi--Law Remark 2 identifies the fixed-grid process as a uniform-multinomial versus uniform-Dirichlet Bayes factor."
+      ],
+      "reasoning": "Occupancy, Dirichlet-multinomial, Bayes-factor, and boundary-crossing aliases were searched; no equivalent exact recurrence or threshold was located.",
+      "searches": [
+        "exact finite horizon crossing probability Dirichlet multinomial Bayes factor uniform multinomial Ville gap",
+        "Dirichlet multinomial martingale exact truncated sequential threshold uniform multinomial",
+        "\"Dirichlet-multinomial\" martingale \"crossing probability\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Henzi--Law Section 4.4 reports simulation-based thresholds for a different Sinkhorn variant.",
+        "The authors’ replication README states that its Ville-gap routine estimates corrected rejection thresholds."
+      ],
+      "reasoning": "The directly relevant published calibration is estimated, not exact, and applies to a different martingale variant.",
+      "searches": [
+        "rank-based sequential independence exact Ville gap threshold fixed grid",
+        "cross-conformal prediction exact finite sample validity K-fold cross conformal p-values coverage"
+      ]
+    },
+    "rationale": "The primary paper treats finite-horizon Ville-gap calibration numerically and estimates thresholds by simulation. Targeted published-finding corpus and literature searches found no exact finite-state calibration or the certified \\(d=2,N=128\\) boundary. The claim is narrower than the source paper and retains a stated historical-literature risk.",
+    "residual_risks": [
+      "An older sequential multinomial, Pólya-urn, or Bayes-factor source may contain an equivalent state-compressed boundary recursion under terminology not recovered by the searches.",
+      "The numerical threshold is tied to the support-attained convention; over unrestricted real thresholds the rejection event is constant on the interval immediately above the preceding support value."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the process and uses simulation to approximate finite-horizon thresholds; does not state the exact four-cell occupancy recurrence or certified support threshold.",
+        "evidence": "Equation (9) gives the count-factorial martingale; Remark 2 gives the uniform-Dirichlet Bayes-factor interpretation; Section 4.4 states that the gap is examined numerically with \\(100000\\) simulations.",
+        "identifier_or_url": "arXiv:2305.13818",
+        "material_read": "Abstract, fixed-grid construction and Equation (9), Remark 2, Section 4.4, and surrounding discussion.",
+        "method": "Full-text inspection of the open preprint, including rendered pages containing the martingale formula and Ville-gap section.",
+        "title": "A Rank-Based Sequential Test of Independence",
+        "trigger": "Primary source defining the martingale and motivating finite-horizon Ville-gap correction."
+      },
+      {
+        "assessment": "The documented routine estimates corrected thresholds; no exact occupancy-state calibration is described.",
+        "evidence": "The README says `ville_gap.R` estimates corrected rejection thresholds at a fixed stopping horizon.",
+        "identifier_or_url": "https://github.com/AlexanderHenzi/sequential_independence",
+        "material_read": "README description of the Ville-gap computation.",
+        "method": "Public repository documentation inspection.",
+        "title": "Replication repository for A Rank-Based Sequential Test of Independence",
+        "trigger": "Check for an exact threshold method outside the article."
+      },
+      {
+        "assessment": "Uses inverse sampling and decision-theoretic stopping with Monte Carlo illustration; no indication of the present Dirichlet-mixture martingale boundary recurrence.",
+        "evidence": "The abstract describes inverse sampling, a correct-decision criterion, and Monte Carlo experimentation.",
+        "identifier_or_url": "UNLV Retrospective Theses & Dissertations 1918 (2005)",
+        "material_read": "Repository abstract and method summary.",
+        "method": "Bibliographic and abstract inspection.",
+        "title": "Sequential procedure for test of uniformity in multinomial models",
+        "trigger": "Historical sequential uniform-multinomial comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "389d8d42-898b-4a3f-a0ee-c1811d3423b8",
+  "value": {
+    "rationale": "Finite-horizon recalibration is explicitly motivated by the primary paper as a power improvement when the sample budget is bounded, and \\(N=128\\) is one of its studied horizons. The recurrence removes Monte Carlo calibration error for a canonical fixed-grid martingale and compresses \\(4^N\\) paths to occupancy partitions, providing a reusable exact method rather than a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
