@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For each unselected vertex in \\(A_i\\), the number of selected neighbors is exactly the prefix sum \\(Y_i\\); for each unselected vertex in \\(B_j\\), it is exactly the suffix sum \\(X_j\\). This proves the profile criterion without auxiliary lemmas. The singleton and two-vertex classifications then follow by forcing all vertices nonadjacent to the selected opposite-side vertex into the two-element set. Exhaustive labeled replay over all 511 canonical profiles through order 10 checked 349524 subsets with no mismatch.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0711.4345v1 develops perfect domination for rectangular grids, not chain/Ferrers graphs.",
+        "arXiv:1502.01523 studies efficient algorithms for circular-arc graphs rather than an exact chain-graph optimizer classification.",
+        "IJMTT-V67I4P515 treats several standard classes including complete bipartite and complete multipartite graphs; its full text has no chain/Ferrers result."
+      ],
+      "reasoning": "General algorithms or formulas on other graph classes do not imply which two-vertex sets are perfect dominating in an arbitrary nested-neighborhood chain graph. The one-block complete-bipartite boundary is explicitly treated as prior overlap rather than evidence of novelty for the multi-block case.",
+      "searches": [
+        "perfect domination chain graphs minimum perfect dominating sets Ferrers bipartite",
+        "perfect domination number chain graphs",
+        "perfect domination bipartite permutation graph",
+        "perfect domination polynomial complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0711.4345v1",
+      "IJMTT-V67I4P515",
+      "arXiv:1502.01523"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "IJMTT-V67I4P515 includes the special class \\(K_{m,n}\\), corresponding to the chain-graph case \\(p=1\\), but not chain graphs with multiple neighborhood levels.",
+        "For \\(K_{m,n}\\) with \\(m,n\\ge2\\), the paper prints \\(m\\) as the number of size-two perfect dominating sets; directly from its own definition every cross-part pair is valid, giving \\(mn\\).",
+        "The new proof derives both the one-block case and every multi-block case directly from exact neighborhood counts."
+      ],
+      "reasoning": "The prior complete-bipartite statement neither implies the multi-block chain theorem nor supplies the exceptional \\(p=2\\) nonedge pair. Because the printed one-block count appears incorrect, it is not used as a premise; the retained claim survives independently.",
+      "searches": [
+        "perfect domination polynomial complete multipartite",
+        "perfect dominating set complete bipartite graph",
+        "perfect domination chain graph Ferrers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1502.01523 defines perfect domination by exact domination only outside the set and efficient domination as the stricter independent perfect-dominating case.",
+        "arXiv:0711.4345v1 uses the same outside-only perfect-domination definition."
+      ],
+      "reasoning": "The retained theorem is about outside-only perfect domination. Efficient domination/perfect-code results are not equivalent because they add independence; searches using both chain-graph and Ferrers terminology found no statement of the prefix/suffix criterion or minimum-set classification.",
+      "searches": [
+        "perfect domination chain graphs minimum perfect dominating sets Ferrers bipartite",
+        "perfect dominating sets chain graph canonical twin classes",
+        "perfect domination Ferrers graph",
+        "efficient domination chain graph perfect code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused semantic searches returned no chain/Ferrers perfect-domination statement among the closest scientific records.",
+        "IJMTT-V67I4P515 was inspected at the full-text formula page covering complete bipartite and complete multipartite graphs.",
+        "The cited grid and circular-arc sources were compared at the statement level and do not provide the retained chain-graph classification."
+      ],
+      "reasoning": "The exact theorem was compared against focused scientific searches and the most directly relevant all-set polynomial source located. None contains the chain-graph profile criterion or the exceptional nonedge minimum pair.",
+      "searches": [
+        "perfect domination chain graphs minimum perfect dominating sets Ferrers bipartite",
+        "perfect dominating sets chain graph canonical twin classes",
+        "perfect domination number chain graphs",
+        "perfect domination Ferrers graph"
+      ]
+    },
+    "rationale": "The inspected primary literature establishes the definition and treats grids, circular-arc algorithms, and standard perfect-domination polynomials. The closest all-set polynomial source covers the complete-bipartite one-block boundary but not nested chain graphs, and its printed one-block size-two count is not relied upon. Focused semantic searches and the own-ledger scan found no result implying the prefix/suffix theorem or its exceptional nonedge optimizer.",
+    "residual_risks": [
+      "An older or poorly indexed chain/Ferrers perfect-domination result may exist under different terminology.",
+      "The 2021 polynomial paper contains an apparent complete-bipartite counting error; its noncoverage comparison is based on the inspected scope/text, not on trusting that coefficient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same parameter and studies rectangular grids; no chain/Ferrers occurrence was found.",
+        "evidence": "The PDF header states arXiv:0711.4345v1 and 27 Nov 2007; the abstract and introduction define a PDS by exact domination of every vertex outside the set.",
+        "identifier_or_url": "arXiv:0711.4345v1",
+        "material_read": "Full PDF introduction and definition; title/abstract and relevant early pages; full-text searches for chain graph and Ferrers.",
+        "method": "Lawful arXiv PDF inspection.",
+        "title": "Perfect domination in rectangular grid graphs",
+        "trigger": "Foundational archive source for the outside-only definition and an exact first-public date."
+      },
+      {
+        "assessment": "Covers the one-block complete-bipartite boundary and complete multipartite graphs, but not chain/Ferrers graphs. Its printed coefficient for two-vertex sets of \\(K_{m,n}\\) appears inconsistent with the defining condition, so it is not used for correctness.",
+        "evidence": "The inspected formula page states the \\(K_{m,n}\\) and \\(K_{m_1,\\ldots,m_r}\\) propositions; no chain/Ferrers text occurs in the searchable document.",
+        "identifier_or_url": "IJMTT-V67I4P515",
+        "material_read": "Full four-page PDF, with direct inspection of the page containing complete-bipartite and complete-multipartite propositions; full-text searches for chain and Ferrers.",
+        "method": "Public journal PDF inspection.",
+        "title": "Perfect Domination Polynomial of a Graph",
+        "trigger": "Closest located source enumerating perfect dominating sets on highly structured graph classes."
+      },
+      {
+        "assessment": "Explicitly distinguishes perfect domination from efficient domination by the additional independence requirement; used only to rule out a false equivalence.",
+        "evidence": "The abstract defines a perfect dominating set by exact domination outside the set and an efficient dominating set as an independent perfect dominating set.",
+        "identifier_or_url": "arXiv:1502.01523",
+        "material_read": "Title and abstract definition statement.",
+        "method": "Public arXiv record inspection.",
+        "title": "Efficient and Perfect domination on circular-arc graphs",
+        "trigger": "Alias/equivalence check between perfect and efficient domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "40dd57e8-f917-4fd6-8ea9-ed1b53cc6cf1",
+  "value": {
+    "rationale": "The result gives a complete natural optimizer classification, not merely a scalar minimum: it identifies every minimum perfect dominating set from the canonical chain decomposition and isolates a unique structural exception where a minimum pair is a nonedge. This is useful for exact counting and for recognizing optimum solutions in a graph class whose nested neighborhoods are a standard testbed for domination problems; the statement also independently resolves the complete-bipartite boundary count.",
+    "status": "PASS"
+  }
+}
