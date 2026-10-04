@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The incidence derivatives follow from differentiating log F with N equal to the sum of all six state coordinates. Substitution into minus the Hamiltonian state gradient yields the six costates. A standalone finite-difference replay verifies every corrected state and control derivative. The recovered-costate omission and quarantine-adjoint mismatch also follow directly without numerical assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qiu and Hou (2024), DOI 10.1016/j.jmaa.2024.128192, analyze a different SEIAQR media-coverage optimal-control model.",
+        "Other indexed epidemic-control results returned by the searches concern different compartment structures or different control laws and do not contain this six-state Hamiltonian."
+      ],
+      "reasoning": "The broader literature confirms that media-aware epidemic optimal control is well studied, but the accepted claim is a source-specific derivative correction rather than a generic optimal-control theorem.",
+      "searches": [
+        "state dependent total population denominator Pontryagin adjoint epidemic control correction",
+        "standard incidence N=sum states missing derivative optimal control epidemic",
+        "SEIAQR media coverage optimal control adjoint 2024"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2021712",
+      "doi:10.1016/j.jmaa.2024.128192"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No located source states the six corrected equations for this model.",
+        "The correction is obtained directly from the source Hamiltonian, so related model results neither imply nor subsume it unless they have the same six-state incidence and flows."
+      ],
+      "reasoning": "The final claim is narrowly limited to the necessary conditions for the printed 2021 model and to the consequences for certification of its printed optimality system.",
+      "searches": [
+        "Pontryagin standard incidence variable N epidemic costate derivative",
+        "SQEIAR media control recovered adjoint incidence denominator",
+        "quarantine control susceptible quarantined costate lambda optimal control epidemic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact-title and DOI searches returned the 2021 source but no erratum or correction supplying a replacement Eq. (6.2).",
+        "Searches using the equivalent description of a state-dependent total-population denominator did not return a matching correction for this model."
+      ],
+      "reasoning": "These searches target both the literal source identity and the mathematical mechanism that creates the missing terms.",
+      "searches": [
+        "\"Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection\" correction adjoint",
+        "\"10.3934/math.2021712\" erratum optimal control",
+        "SQEIAR media coverage asymptomatic Pontryagin adjoint total population denominator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open-access 2021 full text explicitly defines N as S+Q+E+I+A+R and states dN/dt=Lambda-mu N-mu_I I.",
+        "The same full text prints the controlled incidence, Hamiltonian, and Eq. (6.2), including dot(lambda_6)=mu lambda_6 and the lambda_3 quarantine coefficient in dot(lambda_1).",
+        "The 2024 comparison source is bibliographically distinct and uses a different model."
+      ],
+      "reasoning": "The decisive comparison is made against the exact displayed equations, not against titles, abstracts, or a generic template.",
+      "searches": [
+        "DOI 10.3934/math.2021712 full text controlled system 6.1 adjoint 6.2",
+        "DOI 10.3934/math.2021712 total population dN/dt",
+        "DOI 10.1016/j.jmaa.2024.128192 model media coverage optimal control"
+      ]
+    },
+    "rationale": "The primary 2021 article prints the controlled model, Hamiltonian, and incompatible adjoint equations. Exact-title, DOI, equation-structure, and related-model searches found no erratum or published correction of these adjoints. Related later media-control models have different state equations and do not imply the correction.",
+    "residual_risks": [
+      "An unindexed author note or code repository could contain corrected equations without appearing in the located literature.",
+      "The source numerical implementation is not available here, so the result does not infer which adjoint equations were actually integrated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_ADJOINT_NOT_HAMILTONIAN_GRADIENT",
+        "evidence": "The source states variable N, but Eq. (6.2) omits the resulting N-derivative contribution from several costates and prints an incompatible quarantine coefficient in the susceptible costate.",
+        "identifier_or_url": "doi:10.3934/math.2021712",
+        "material_read": "Open-access full text covering the population definition, dN/dt identity, controlled system (6.1), Hamiltonian, adjoint Eq. (6.2), stationarity Eq. (6.3), and numerical-control discussion.",
+        "method": "Differentiated the displayed Hamiltonian treating N as the stated sum of all six states and compared term by term with Eq. (6.2).",
+        "title": "Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection",
+        "trigger": "Primary source defining the controlled six-state model and its Pontryagin system."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_MODEL",
+        "evidence": "The 2024 article is a separate SEIAQR model and does not supply a correction to the 2021 SQEIAR adjoints.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2024.128192",
+        "material_read": "Bibliographic record and abstract-level model description.",
+        "method": "Compared source identity, compartment structure, and publication metadata.",
+        "title": "Dynamics and optimal control of an SEIAQR epidemic model with media coverage",
+        "trigger": "Closest later title-level match involving media coverage and epidemic optimal control."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12f14a2b-1354-4936-a1bb-19929877a5f1",
+  "value": {
+    "rationale": "The correction changes the backward system that determines all three reported optimal controls. It is not a typographical normalization: the omitted state-dependence affects every costate through the incidence, and the quarantine term couples the susceptible costate to the wrong adjoint in print. This directly bears on reproducibility of the paper’s optimal-control conclusions.",
+    "status": "PASS"
+  }
+}
