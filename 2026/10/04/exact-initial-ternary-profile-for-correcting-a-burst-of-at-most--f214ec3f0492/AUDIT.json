@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The channel, quantifiers, and finite ranges are explicit. Correcting codes are exactly cliques of a completely enumerated compatibility graph. Every deletion ball is reconstructed by two independent implementations; displayed codes attain sizes \\(1,3,7,13\\); and an exact branch-and-bound maximum-clique search supplies matching upper bounds. Greedy coloring is used only as a mathematically valid clique upper bound. No timeout or computation beyond \\(n=5\\) is used as evidence. Risk: correctness depends on the ordinary Python interpreter and exact finite enumeration, but the complete verifier and witnesses are included and replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arbitrary two-deletion correction is a stricter, different channel; asymptotic redundancy results for it do not determine maximum cardinality for consecutive bursts. Same-channel construction papers provide asymptotic or nonasymptotic bounds but no exact finite ternary values through \\(n=5\\)."
+      ],
+      "reasoning": "Broader deletion-correction theorems can yield bounds or feasible subcodes, but none of the inspected statements collapses the gap to the exact four values. Thus there is no dominating implication that covers the claim.",
+      "searches": [
+        "published-finding corpus: q-ary 2-burst deletion correcting code exact finite cardinality",
+        "published-finding corpus: Wang Sima Farnoud burst at most 2 deletions exact small length",
+        "published-finding corpus closest ID 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+        "published-finding corpus closest ID 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+        "arXiv:2210.11818 nonbinary at-most-t construction and upper-bound sections",
+        "arXiv:2210.14006 broader burst-deletion constructions"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT45174.2021.9517917",
+      "arXiv:2210.11818",
+      "arXiv:2210.14006",
+      "published-finding corpus 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+      "published-finding corpus 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+      "published-finding corpus 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Wang et al. nonasymptotic exact-two-burst bound at \\(q=3,t=2,n=4\\) evaluates to \\(9\\), while the new at-most-two-burst optimum is \\(7\\). Its hypotheses do not determine the \\(n=5\\) optimum. Construction-size and redundancy statements supply existence information, not matching upper bounds for these four finite cases."
+      ],
+      "reasoning": "The prior statements neither equal the accepted claim nor imply it as a corollary or special case. The accepted result closes finite optimization instances that remain strictly inside prior upper/lower information.",
+      "searches": [
+        "arXiv:2210.11818 maximum-cardinality notation and Theorem 3",
+        "arXiv:2210.11818 Sections III-IV at-most-two constructions",
+        "arXiv:2210.14006 contribution list and burst-deletion construction sections",
+        "published-finding corpus targeted profile/value searches listed in prior_checks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The accepted code condition is exactly pairwise disjointness of one-deletion balls and two-consecutive-deletion balls; because the two output lengths differ, there are no cross-length intersections. No published-finding corpus hit or inspected primary statement gives the profile \\(1,3,7,13\\)."
+      ],
+      "reasoning": "Compatibility-graph clique language, deletion-ball language, and maximum-cardinality code language are equivalent here. The searches explicitly covered these aliases rather than relying on title matching.",
+      "searches": [
+        "published-finding corpus: exact ternary at-most-two burst deletion code profile 1 3 7 13",
+        "published-finding corpus: ternary consecutive burst deletion correcting code exact maximum length 5",
+        "published-finding corpus: q-ary burst deletion compatibility graph exact code size length 5",
+        "arXiv:2210.11818 same-channel definition and maximum-cardinality notation",
+        "arXiv:2210.14006 at-most-t burst-deletion definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact published-finding corpus item is a quinary length-four single-deletion code, ID 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03, which concerns a different alphabet and channel. The inspected same-channel papers contain constructions/bounds, not a finite exact ternary table."
+      ],
+      "reasoning": "No checked database record or primary table stated any of 1,3,7,13 as this channel profile. Failed search is not treated as proof of novelty; it only supports the comparison alongside full-text inspection.",
+      "searches": [
+        "published-finding corpus: ternary length five code correcting a burst of at most two deletions maximum 13",
+        "published-finding corpus: exact ternary at-most-two burst deletion code profile 1 3 7 13",
+        "published-finding corpus: ternary burst at most two deletions exact maximum code length 3 4 5",
+        "Full-text term search in arXiv:2210.11818 for maximum and finite cardinality statements",
+        "Full-text term search in arXiv:2210.14006 for maximum"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus searches, the available prior ledger, and statement-level inspection of the closest same-channel literature found no published statement or implication giving the exact ternary profile through length five. Prior work gives the model, constructions, and bounds; it does not close these finite maxima.",
+    "residual_risks": [
+      "An unindexed thesis, unpublished computation, or differently phrased finite table could contain one or more of these small exact values.",
+      "The 2021 conference full text was not used for whole-document negative coverage; statement-level comparison relied on the later open extended paper, which explicitly incorporates the ISIT 2021 work.",
+      "A quaternary DNA-storage paper on at-most-two deletion/insertion errors was identified, but it concerns alphabet size four and construction rather than the ternary exact profile; inaccessible portions were not treated as evidence of absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same channel and develops bounds/constructions, but does not state or imply the exact ternary profile \\(1,3,7,13\\). Its displayed nonasymptotic bound specialized to \\(q=3,t=2,n=4\\) gives \\(9\\) rather than the exact value \\(7\\); the theorem does not determine the \\(n=5\\) value.",
+        "evidence": [
+          "arXiv:2210.11818, Sections II-IV and Appendix A; maximum-cardinality notation and Theorem 3; at-most-two construction discussion."
+        ],
+        "identifier_or_url": "arXiv:2210.11818",
+        "material_read": "Abstract; notation and definitions; maximum-cardinality notation and nonasymptotic upper-bound theorem; sections on binary and nonbinary at-most-two-burst constructions; conclusion.",
+        "method": "Open full-text inspection of the lawful arXiv version, with statement-level comparison to the finite ternary claim.",
+        "title": "Non-binary Codes for Correcting a Burst of at Most t Deletions",
+        "trigger": "Same nonbinary consecutive-burst deletion channel and the closest extended treatment of the 2021 result."
+      },
+      {
+        "assessment": "Gives construction and redundancy results for nonbinary burst-deletion codes. No maximum-cardinality finite ternary profile or statement implying the length-five value \\(13\\) was found in the inspected text.",
+        "evidence": [
+          "arXiv:2210.14006, introduction and definitions, especially the at-most-t burst definition and construction summary."
+        ],
+        "identifier_or_url": "arXiv:2210.14006",
+        "material_read": "Abstract; introduction and contribution list; channel definitions and comparison with prior burst-deletion constructions.",
+        "method": "Open arXiv full-text inspection and exact-term searches for maximum/exact finite tables.",
+        "title": "Non-binary Two-Deletion Correcting Codes and Burst-Deletion Correcting Codes",
+        "trigger": "Broader nonbinary burst-deletion construction paper using the same at-most-t terminology."
+      },
+      {
+        "assessment": "Establishes the 2021 public provenance of the nonbinary at-most-two-burst problem; the open extended text was used for statement-level scientific comparison.",
+        "evidence": [
+          "DBLP record conf/isit/WangSF21; DOI 10.1109/ISIT45174.2021.9517917; ISIT 2021 dates 12-20 July 2021."
+        ],
+        "identifier_or_url": "doi:10.1109/ISIT45174.2021.9517917",
+        "material_read": "Bibliographic record and abstract-level description; the later open extended paper explicitly states that it was presented in part at ISIT 2021.",
+        "method": "Bibliographic verification using DBLP/conference metadata and comparison with the later open extended text.",
+        "title": "Non-binary Codes for Correcting a Burst of at Most 2 Deletions",
+        "trigger": "Earliest verified public source for the specific nonbinary at-most-two-burst setting used as the literature anchor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f214ec3f-0492-4085-9d75-9f6ec5b081a2",
+  "value": {
+    "rationale": "Maximum correcting-code cardinality is the natural finite extremal invariant of the channel. The result supplies the complete initial profile for the smallest odd nonbinary alphabet, exhibits explicit optimal codes, and shows that a standard nonasymptotic burst bound does not determine the \\(n=4\\) finite optimum. It is a motivated finite cutoff rather than an arbitrary slice; no claim of a general asymptotic improvement is made. Risk: the result is intentionally small-length and its downstream use is not established.",
+    "status": "PASS"
+  }
+}
