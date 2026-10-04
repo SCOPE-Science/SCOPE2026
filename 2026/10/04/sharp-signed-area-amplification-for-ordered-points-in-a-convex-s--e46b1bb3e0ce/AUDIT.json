@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Keller's published small-polygon bound gives the exact base cases for three through five points. Removing three consecutive entries changes the shoelace sum by exactly one five-point shoelace sum, yielding an induction with coefficient increase one per three vertices. Reversal handles the negative side. Repeated-vertex padding of a multiply traversed triangle attains the bound for every residue class of the list length. No finite experiment is used to infer the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vysotsky's open-access treatment records the Fáry–Makai theorem that absolute signed area does not decrease under edge-vector convexification.",
+        "That convexification rearranges edge vectors and may move vertices outside the original containing convex set."
+      ],
+      "reasoning": "A theorem about maximizing signed area among edge reorderings does not dominate a theorem whose data are arbitrary vertices constrained to remain in a fixed convex set and whose sharp constant depends only on their count.",
+      "searches": [
+        "Fary Makai signed area convexification vertex count convex body",
+        "polygonal line signed area convexification closed directed polygonal line"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21968v1",
+      "DOI:10.1016/j.spa.2024.104519",
+      "Fáry and Makai, Isoperimetry in variable metric, Studia Sci. Math. Hungar. 17 (1982), as identified and summarized in the open-access 2025 source",
+      "Published findings corpus queried by exact claim, source lemma, aliases, and broader convexification terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.21968v1, Section 3.3, proves \\(F_P\\le\\operatorname{area}(H)\\) for \\(3\\le m\\le5\\), gives a twice-traversed triangle as the six-point obstruction, and introduces additional fan/chord conditions for coefficient one at larger \\(m\\).",
+        "The five-point Appendix proves only the base case and contains no induction or all-length coefficient.",
+        "The Fáry–Makai comparison concerns convexification under edge reordering rather than fixed containment of the listed vertices."
+      ],
+      "reasoning": "The new theorem is not a stated corollary of the source: it changes the target from preserving coefficient one to determining the least unconditional coefficient for every list length. The short induction supplies that missing exact classification.",
+      "searches": [
+        "Improved bounds universal convex covers unit arcs Lemma 3.3 more than five vertices",
+        "signed area convexification Fary Makai Vysotsky"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full text of arXiv:2609.21968v1 gives the factor-one statement only for lists of three through five points and states that the analogous factor-one bound fails at six.",
+        "Searches using signed area, algebraic area, shoelace area, self-intersecting polygon, and convex-body phrasing returned no statement of the sharp coefficient \\(\\lfloor m/3\\rfloor\\)."
+      ],
+      "reasoning": "The claim was searched in determinant, shoelace, signed-area, algebraic-area, and self-intersection language. No equivalent all-length coefficient was located.",
+      "searches": [
+        "sharp signed shoelace area bound arbitrary m ordered points convex set floor m over 3",
+        "algebraic area self-intersecting m-gon vertices in convex body floor(m/3)",
+        "ordered list m points convex set signed area optimal constant floor m/3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest record 2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f concerns fixed-thickness reduced polygons and angle variance, not arbitrary-order signed shoelace area.",
+        "Closest record 2026/9/18/SCOPE-exact-planar-cech-h1-persistence-extremum--52fda49b35f2 concerns Čech persistence of planar point sets and does not imply the area coefficient.",
+        "No returned published finding stated or implied the recurrence or the sharp all-length constant."
+      ],
+      "reasoning": "The published findings corpus was queried by exact coefficient, source lemma, aliases, and the older convexification mechanism; the closest hits address different invariants and hypotheses.",
+      "searches": [
+        "sharp signed shoelace area bound arbitrary m ordered points convex set floor m over 3",
+        "Keller small polygon bound m five extension arbitrary m shoelace factor",
+        "Fary Makai signed area convexification vertex count convex body"
+      ]
+    },
+    "rationale": "The motivating 2026 preprint states the factor-one result only through five points and explicitly notes its failure at six, while its longer-list remedies require extra geometric hypotheses. Searches by the exact coefficient and by signed-area aliases found no published statement implying the all-length optimum. The older Fáry–Makai convexification result is not a containing-set vertex-count bound. A residual terminology risk remains because the proof is elementary.",
+    "residual_risks": [
+      "An older equivalent inequality may be indexed under polygonal-line winding, algebraic area, or another terminology not reached by the searches.",
+      "The motivating source is recent, so follow-up work may appear after the search date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves coefficient one only for three to five arbitrary ordered points and uses extra geometric hypotheses for longer lists. It does not state the optimal unconditional coefficient for all list lengths.",
+        "evidence": "Section 3.3 states the small-polygon lemma for three through five points, then notes that a triangle traced twice defeats coefficient one at six points.",
+        "identifier_or_url": "arXiv:2609.21968v1",
+        "material_read": "Abstract; Section 3.3, including Lemmas 3.3--3.5; Appendix A; conclusion.",
+        "method": "Full arXiv HTML text.",
+        "title": "Improved bounds for universal convex covers of unit arcs",
+        "trigger": "The source introduces arbitrary-order shoelace bounds and explicitly identifies the six-point obstruction."
+      },
+      {
+        "assessment": "NOT_COVERING: the cited lemma compares a polygonal line with a convexification obtained by reordering edge vectors; it does not preserve containment in the original convex set and gives no sharp coefficient depending on the number of listed vertices.",
+        "evidence": "The paper states that absolute signed area is no larger than that of an edge-reordered convexification and separately defines the convexification construction.",
+        "identifier_or_url": "DOI:10.1016/j.spa.2024.104519",
+        "material_read": "Convexification discussion and appendix statement of the Fáry–Makai signed-area lemma.",
+        "method": "Open-access HTML text.",
+        "title": "The isoperimetric problem for convex hulls and large deviations rate functionals of random walks",
+        "trigger": "This open-access paper summarizes the older Fáry–Makai signed-area convexification result, a plausible broader prior theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e46b1bb3-e0ce-4dba-acab-cca3f55865f5",
+  "value": {
+    "rationale": "This is a natural complete classification of the least universal signed-area coefficient for arbitrary ordered lists in a convex set. It exactly quantifies the first obstruction highlighted by a current geometry source and gives a sharp reusable baseline for longer shoelace certificates. The result is not claimed to improve the source's covering constant.",
+    "status": "PASS"
+  }
+}
