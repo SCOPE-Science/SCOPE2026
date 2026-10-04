@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The six generator polynomials from the source row were independently reconstructed over \\(\\mathbb F_4\\). Exact row reduction gives dimensions \\(9\\) and \\(5\\), and stacking the two generators gives rank \\(14\\), so the LCP premise is reproduced. The Euclidean dual \\(D^\\perp\\) has dimension \\(9\\). Exhaustive enumeration of all \\(4^9\\) words on each security side reproduces minimum distance \\(4\\) and gives the claimed complete spectra. All \\(2^{14}\\) coordinate subsets are then checked using the exact restricted-column rank formula for generalized Hamming weights. The package replay returns `VERIFY_OK`.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carlet et al. (2018), DOI 10.1109/TIT.2018.2796125, explicitly states that general quasi-cyclic LCPs can fail the equivalence between C and \\(D^\\perp\\).",
+        "That prior result is qualitative and concerns other examples; it does not imply the exact spectra or fourth generalized-weight split for the 2025 Table 1 code."
+      ],
+      "reasoning": "The strongest nearby general result covers the possibility of non-equivalence, so novelty is restricted to the complete invariants of this specific recent optimal-security row rather than the general phenomenon.",
+      "searches": [
+        "Carlet Guneri Ozbudak Ozkaya Sole quasi-cyclic LCP C D dual equivalent",
+        "On linear complementary pairs of codes quasi-cyclic double circulant security parameter",
+        "published-finding corpus: LCP quasi-cyclic C D dual permutation inequivalent weight enumerator"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.15231v1 full preprint text",
+      "doi:10.3934/amc.2026036 publisher abstract and Table 1",
+      "doi:10.1109/TIT.2018.2796125 institutional-repository abstract",
+      "doi:10.3934/amc.2024008 publisher parameter table",
+      "published-finding corpus semantic searches using the exact row, parameters, generator polynomials, spectra coefficients, generalized-weight sequence, and LCP equivalence terminology",
+      "Public web searches for the arXiv identifier with weight-enumerator/generalized-Hamming terminology and exact low-weight coefficient strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing only d(C)=d(\\(D^\\perp\\))=4 does not determine any higher coefficient of either weight enumerator or any generalized Hamming weight beyond d1.",
+        "Knowing that some quasi-cyclic LCP security sides are inequivalent does not determine whether this new optimal row is inequivalent, nor its invariant fingerprints.",
+        "The new computation exhibits two independent separating invariants: different ordinary spectra and d4 equal to 9 versus 8."
+      ],
+      "reasoning": "The accepted statement is not a corollary of either the source's minimum-distance result or the older existential non-equivalence phenomenon. It requires exact reconstruction and exhaustive invariant computation for the specific Table 1 row.",
+      "searches": [
+        "Primary source arXiv:2504.15231v1 Table 1 and discussion of the security parameter",
+        "Carlet et al. 2018 abstract on quasi-cyclic LCP non-equivalence",
+        "published-finding corpus: generalized Hamming weights quaternary [14,9,4] 4 6 7 9 10 11 12 13 14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Table 1 row identifies exactly the same generator polynomials and reports only the minimum-distance security value 4.",
+        "No inspected published-finding corpus result or exact web hit stated either complete weight enumerator or either generalized-weight hierarchy."
+      ],
+      "reasoning": "The searches use the exact paper identifier, source polynomials, code parameters, and invariant names, covering obvious aliases such as weight distribution versus weight enumerator and generalized Hamming weights versus support weights.",
+      "searches": [
+        "published-finding corpus: quaternary quasi-cyclic linear complementary pair length 14 dimension 9 security 4 weight enumerator",
+        "published-finding corpus: g11 x+1 g12 x^3+w^2 x+w g22 x^4+x^3+x^2+1 weight distribution",
+        "Web: \"2504.15231\" \"weight enumerator\"",
+        "Web: \"2504.15231\" \"generalized Hamming\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary table gives \\(n=14\\), \\(k=9\\), the six generator polynomials, \\(d_{\\mathrm{LCP}}=4\\), and \\(d_{\\mathrm{BKLC}}=4\\).",
+        "A separate published quaternary construction also lists an optimal \\([14,9,4]_4\\) code, showing that the bare parameters are known.",
+        "Neither table records the two security-side spectra or generalized support hierarchies computed here."
+      ],
+      "reasoning": "The exact source table and nearby parameter tables cover optimal minimum distance only. The accepted claim is strictly finer and is not a recomputation of the known \\([14,9,4]_4\\) parameter record.",
+      "searches": [
+        "Primary Table 1 of arXiv:2504.15231v1",
+        "Web: quaternary [14,9] linear code best known minimum distance",
+        "Web: \"[14,9,4]\" quaternary code weight enumerator"
+      ]
+    },
+    "rationale": "The 2025 primary paper publishes the generator row and its security parameter but not these complete spectra or generalized Hamming-weight hierarchies. The 2018 LCP literature already establishes that quasi-cyclic security sides need not be equivalent in general, so the final claim deliberately does not present abstract non-equivalence as new. Focused published-finding corpus and public literature searches for the exact row, polynomial tuple, low-weight coefficients, and both generalized-weight sequences found no prior statement of this exact invariant fingerprint.",
+    "residual_risks": [
+      "A non-indexed computational supplement or unpublished author file could contain the same spectra even though the inspected public article does not state them.",
+      "The full 2018 paper's individual quasi-cyclic examples were not needed to establish coverage boundaries because the accepted claim excludes novelty of the generic non-equivalence phenomenon; its public abstract was sufficient for that broader comparison.",
+      "A classification of all quaternary \\([14,9,4]_4\\) codes could contain one or both spectra under an unlabeled equivalence class; that would not by itself cover their identification as the two sides of this exact LCP, but it could reduce novelty of the spectra considered in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: supplies the exact objects and \\(d_{\\mathrm{LCP}}=4\\) but not the complete spectra or generalized Hamming weights.",
+        "evidence": "Table 1 prints \\(g_{11}=x+1\\), \\(g_{12}=x^3+\\omega^2x+\\omega\\), \\(g_{22}=x^4+x^3+x^2+1\\), \\(f_{11}=f_{12}=x^3+x^2+1\\), and \\(f_{22}=x^6+x^5+x^4+x^3+x^2+x+1\\), with \\(n=14\\), \\(k=9\\), and \\(d_{\\mathrm{LCP}}=4\\).",
+        "identifier_or_url": "arXiv:2504.15231v1",
+        "material_read": "QC module convention, dimension statement, discussion of C versus \\(D^\\perp\\) equivalence, Table 1 generator convention, and the n=14 k=9 row.",
+        "method": "lawful public preprint full text",
+        "title": "Linear Complementary Pairs of Quasi-Cyclic and Quasi-Twisted Codes",
+        "trigger": "Primary source for the exact recent LCP row."
+      },
+      {
+        "assessment": "SAME_COVERAGE as the preprint for the accepted claim; no spectra or generalized-weight hierarchy are given.",
+        "evidence": "Publisher metadata lists primary MSC 94B05 and 94B15 and reproduces the \\(n=14\\), \\(k=9\\), \\(d_{\\mathrm{LCP}}=4\\) table entry.",
+        "identifier_or_url": "doi:10.3934/amc.2026036",
+        "material_read": "Journal abstract, MSC metadata, and displayed Table 1 row.",
+        "method": "publisher HTML",
+        "title": "Linear Complementary Pairs of Quasi-Cyclic and Quasi-Twisted Codes",
+        "trigger": "Current journal record and mathematics-subject classification."
+      },
+      {
+        "assessment": "BROADER_BUT_NOT_COVERING: establishes qualitative non-equivalence examples for quasi-cyclic LCPs, but not the 2025 F4 row or its exact spectra/support hierarchy.",
+        "evidence": "The abstract states that C and \\(D^\\perp\\) are equivalent for constacyclic and 2D cyclic LCPs but not for all quasi-cyclic LCPs, where double-circulant counterexamples occur.",
+        "identifier_or_url": "doi:10.1109/TIT.2018.2796125",
+        "material_read": "Public abstract and repository metadata describing the quasi-cyclic non-equivalence result.",
+        "method": "institutional repository abstract",
+        "title": "On Linear Complementary Pairs of Codes",
+        "trigger": "Potential broader prior covering inequivalence of LCP security sides."
+      },
+      {
+        "assessment": "PARAMETER_ONLY: confirms the parameters are known but does not cover this LCP or the claimed spectra and generalized weights.",
+        "evidence": "Its Table 1 includes an optimal quaternary \\([14,9,4]_4\\) trace code.",
+        "identifier_or_url": "doi:10.3934/amc.2024008",
+        "material_read": "Publisher Table 1 row listing a quaternary \\([14,9,4]_4\\) trace code as optimal.",
+        "method": "publisher HTML",
+        "title": "Quaternary conjucyclic codes with an application to EAQEC codes",
+        "trigger": "Independent exact-parameter comparison for quaternary \\([14,9,4]_4\\) codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1130cc6-c1a7-4bb1-8d77-0be193e9cb73",
+  "value": {
+    "rationale": "The source's security criterion deliberately compresses an LCP to the minimum of two distances and highlights optimal rows. For this row, the two distances tie at the optimum, so minimum-distance data cannot distinguish the security sides at all. The exact spectra and generalized-weight hierarchy expose a substantial structural asymmetry hidden by that criterion: the minimum-weight populations differ by more than a factor of five, one side has 630 weight-5 words while the other has none, and their fourth support weights differ. These are natural code invariants of the exact published construction, not an arbitrary slice, and they provide a reproducible fingerprint useful for equivalence testing and higher-support analysis.",
+    "status": "PASS"
+  }
+}
