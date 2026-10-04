@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Eq. (3.1) factors exactly as \\(R_0(v)=(\\mu R_S+vR_V)/(\\mu+v)\\). The derivative, limiting endpoint, threshold condition, and corrected \\((v,\beta_1)\\) boundary follow by elementary algebra. For the Figure 1 values, the \\((E,A)\\) Jacobian block has determinant proportional to \\(1-R_0\\); the recomputed \\(R_0\u0007pprox3.66948\\) therefore implies a positive eigenvalue, explicitly \\(\\lambda_+\u0007pprox0.180134\\). The standalone verifier reproduces every numerical value from the printed decimals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diagne et al. (2021), DOI 10.1155/2021/1250129, state that an imperfect vaccine can fail to eradicate disease even with high coverage and derive a critical vaccination threshold for their different model.",
+        "Bamen et al. (2023), DOI 10.3390/math11051240, derive coverage and efficiency conditions for another imperfect-vaccine model with population turnover.",
+        "These broader results establish that coverage-efficacy interactions are known, so the accepted novelty does not claim that general phenomenon."
+      ],
+      "reasoning": "The broader literature motivates the endpoint-feasibility question but uses different state structures and parameterizations. It does not imply the numerical values or the incompatibility of Figure 1 and the claimed \\(v\u0007pprox0.023\\) threshold with Eq. (3.1).",
+      "searches": [
+        "\"A Mathematical Model of COVID-19 with Vaccination and Treatment\" critical vaccination threshold",
+        "\"Impact of Imperfect Vaccine, Vaccine Trade-Off and Population Turnover\" eradication vaccination coverage",
+        "critical vaccination rate imperfect vaccine reproduction number"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023741",
+      "doi:10.1155/2021/1250129",
+      "doi:10.3390/math11051240",
+      "publisher PDF pages 14511–14520 for DOI 10.3934/math.2023741"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diagne et al. provide a general imperfect-vaccine feasibility condition but not the Ihsanjaya–Susyanto endpoint values.",
+        "Bamen et al. analyze a different vaccinated/unvaccinated transmission system with a different threshold polynomial.",
+        "No inspected source states that the 2023 article's Table 2 parameters force \\(R_V>1\\), gives the corrected \\((v,\beta_1)\\) line, or computes the Figure 1 unstable eigenvalue."
+      ],
+      "reasoning": "The final claim is not a corollary of merely knowing that imperfect vaccines can fail: it depends on substituting the source's published coefficients into its specific Eq. (3.1) and comparing the resulting endpoint floor to the article's own numerical claims.",
+      "searches": [
+        "imperfect vaccine high coverage cannot eradicate Diagne 2021",
+        "breakthrough infection reproduction number critical vaccination coverage 2023",
+        "Ihsanjaya Susyanto cited correction threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2023741, Eq. (3.1), rewrites exactly as an endpoint weighted average.",
+        "Exact-title and DOI searches returned the article and repository copies but no correction or erratum.",
+        "General searches returned imperfect-vaccine threshold results, but not the same two-contact source equation or its printed parameter contradiction."
+      ],
+      "reasoning": "The natural aliases are critical vaccination rate, imperfect-vaccine breakthrough floor, weighted endpoint reproduction number, and threshold vaccination coverage. None of the inspected statements gives this source-specific algebraic diagnosis.",
+      "searches": [
+        "\"A mathematical model for policy of vaccinating recovered people\" threshold vaccination rate",
+        "\"10.3934/math.2023741\" correction erratum",
+        "vaccination rate reproduction number weighted average unvaccinated vaccinated susceptible model"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open-access AIMS PDF prints the model on p. 14511, the disease-free equilibrium and next-generation matrix on pp. 14513–14514, Table 2 on p. 14514, the Figure 1 parameter values on p. 14515, and the critical-rate discussion on p. 14519.",
+        "The PDF states \\(\beta_1=0.000815\\), \\(\beta_2=0.00000059\\) before Figure 1 and labels the trajectory disease-free.",
+        "The PDF states that Eq. (3.1) and Table 2 give a critical point \\(v\u0007pprox0.023\\), while direct substitution into Eq. (3.1) yields a supercritical breakthrough floor."
+      ],
+      "reasoning": "The comparison uses the exact public table and equation, not inferred or revised parameter values.",
+      "searches": [
+        "DOI 10.3934/math.2023741 PDF Eq. 2.1 Eq. 3.1 Table 2 Figure 1 Figure 7",
+        "\"beta1 = 0.000815\" vaccination",
+        "\"0.023\" \"10.3934/math.2023741\""
+      ]
+    },
+    "rationale": "The primary article states that increasing the vaccination rate suppresses transmission and reports a critical rate near \\(0.023\\), but it does not expose the endpoint interpolation or the breakthrough floor. Exact-title, DOI, threshold-language, and equation-pattern searches found the source and related imperfect-vaccine literature but no correction or source-specific derivation of this incompatibility. Earlier imperfect-vaccine work contains the general principle that high coverage may fail when efficacy is low; the accepted claim is narrower and source-specific.",
+    "residual_risks": [
+      "An unindexed corrigendum or private author note could document different intended parameter scaling.",
+      "The published figures may have been generated with code inputs different from the printed decimals; this result intentionally makes no claim about undisclosed code."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_SPECIFIC_THRESHOLD_INCOMPATIBILITY",
+        "evidence": "Eq. (3.1) has an exact breakthrough endpoint \\(R_V\\); Table 2 makes \\(R_V>1\\), while the article later reports a vaccination threshold below one and labels a parameter set with \\(R_0>1\\) as disease-free.",
+        "identifier_or_url": "doi:10.3934/math.2023741",
+        "material_read": "Open-access PDF: model formulation and Eq. (2.1); domain; Theorem 2; next-generation matrix and Eq. (3.1); Table 2; Figure 1 parameter paragraph; sensitivity table; Figure 7/8 threshold discussion and conclusions.",
+        "method": "Re-factored Eq. (3.1), substituted the printed decimals, and reconstructed the disease-free infected Jacobian block.",
+        "title": "A mathematical model for policy of vaccinating recovered people in controlling the spread of COVID-19 outbreak",
+        "trigger": "Primary source defining the model, reproduction number, numerical parameters, and policy threshold."
+      },
+      {
+        "assessment": "RELATED_GENERAL_PRINCIPLE_DIFFERENT_MODEL",
+        "evidence": "It explicitly notes that low vaccine efficacy can prevent eradication even at high coverage, but it does not contain the 2023 source's Eq. (3.1), Table 2 values, corrected boundary, or Figure 1 calculation.",
+        "identifier_or_url": "doi:10.1155/2021/1250129",
+        "material_read": "Public full text: abstract, model formulation, effective reproduction-number discussion, critical vaccination coverage section, numerical interpretation, and conclusion.",
+        "method": "Compared its vaccine-efficacy threshold statement with the two-contact \\(\beta_1,\beta_2\\) structure of the 2023 source.",
+        "title": "A Mathematical Model of COVID-19 with Vaccination and Treatment",
+        "trigger": "Model precursor cited by the primary article and highly relevant imperfect-vaccine threshold analysis."
+      },
+      {
+        "assessment": "RELATED_COVERAGE_THEORY_DIFFERENT_MODEL",
+        "evidence": "It derives coverage/efficiency conditions for a different model and does not imply the source-specific weighted endpoint identity or numerical contradiction.",
+        "identifier_or_url": "doi:10.3390/math11051240",
+        "material_read": "Public full text: abstract, model formulation, eradication corollary, numerical coverage analysis, and discussion.",
+        "method": "Compared its threshold variables and state structure with the source-specific continuous-vaccination formula.",
+        "title": "Impact of Imperfect Vaccine, Vaccine Trade-Off and Population Turnover on Infectious Disease Dynamics",
+        "trigger": "Contemporaneous broad analysis of imperfect-vaccine coverage thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47a58e96-7305-47b6-9216-b895e76f402e",
+  "value": {
+    "rationale": "The paper uses its reproduction number to make a concrete vaccination-policy claim. The exact endpoint decomposition shows when increasing vaccination can or cannot cross threshold and demonstrates that the paper's own breakthrough coefficient places its stated Table 2 scenario above threshold for every vaccination rate. This directly changes the interpretation of the reported critical rate and the disease-free numerical illustration.",
+    "status": "PASS"
+  }
+}
