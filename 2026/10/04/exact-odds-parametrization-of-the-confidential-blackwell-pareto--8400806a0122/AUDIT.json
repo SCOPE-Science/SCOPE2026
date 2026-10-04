@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The source capacity formula reduces every positive support functional to wA+(1-w)B on the probability simplex. The exact Hessian identities make this objective strictly concave on the simplex tangent space. Boundary asymptotics force the unique optimizer into the interior. The Lagrange equations reduce exactly to two logarithmic odds equations, whose product is psi(x)psi(y)=1. Conversely the product relation plus the displayed weight reconstructs both stationarity equations, and strict concavity gives the unique global optimizer. The monotonicity and endpoint limits of psi prove existence, uniqueness, involution, endpoints, and the golden-ratio fixed point. The verifier numerically checks representative cases but the infinite claim rests on the analytic argument.",
+    "risks": [
+      "The source uses base-two entropy while the KKT derivation uses natural logarithms; the common positive conversion factor is explicitly accounted for."
+    ],
+    "sources": [
+      "arXiv:2609.26750v1, especially the deterministic Blackwell capacity formula and Proposition 6.5"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source paper is the closest broader theorem: it proves the full confidential-capacity region for deterministic broadcast channels and specializes it to Blackwell, but leaves the non-symmetric curved Blackwell boundary to numerical weighted optimization.",
+        "Goldfeld et al. (2017) treats cooperative broadcast channels with secrecy; its model includes cooperation/common-private message structure and is not the two-mutually-confidential-message Blackwell problem analyzed here.",
+        "The ordinary Blackwell broadcast capacity without mutual secrecy has a different rate region and therefore does not dominate the confidential conditional-entropy frontier."
+      ],
+      "reasoning": "Broader deterministic-channel and ordinary Blackwell theorems supply the feasible region or address different communication tasks; they do not imply the claimed analytic optimizer locus unless the new KKT/strict-concavity argument is added.",
+      "searches": [
+        "Blackwell broadcast confidential capacity exact Pareto boundary weighted conditional entropy",
+        "coherent Blackwell channel confidential capacity region analytic boundary",
+        "mutually confidential messages Blackwell capacity curved boundary parameterization",
+        "Blackwell confidential broadcast strong secrecy cooperative capacity region"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26750v1 full HTML, Sections 6.3 and 8.1",
+      "AMS MSC2020 entry 81P45 for quantum information, communication, networks",
+      "Goldfeld-Kramer-Permuter-Cuff (2017) institutional abstract",
+      "Claim-specific semantic database searches listed in the four originality checks",
+      "Cumulative own ledger through 2026-09_week4 generation g000019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.26750v1 Eq. (146) gives the union formula and Proposition 6.5 gives only the maximum confidential sum rate 2 log_2(phi); Figure 3 is described as a numerical rendering sampled by weighted maximization.",
+        "The new proof derives strict concavity of every positive weighted objective on the input simplex and solves its KKT system up to a monotone one-dimensional involution, which is sufficient to recover every non-axis supporting point and its unique input distribution."
+      ],
+      "reasoning": "The prior union formula is necessary input but does not itself state or imply the explicit odds locus without optimization. The accepted claim is a structural solution of that optimization problem, not a special case of the already explicit symmetric point.",
+      "searches": [
+        "Blackwell broadcast confidential capacity exact Pareto boundary weighted conditional entropy",
+        "arXiv 2609.26750 Quantum Broadcast Channels with Mutually Confidential Messages Blackwell",
+        "exact Pareto frontier Blackwell confidential classical capacity",
+        "odds ratio characterization Blackwell confidential capacity boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.26750v1, Sections 6.3 and 8.1: the capacity region is the union of conditional-entropy rectangles; the curved boundary is described as numerically sampled by weighted maximization, while only the symmetric maximum-sum point is solved explicitly.",
+        "Exact web searches for mutually confidential Blackwell, confidential classical capacity, and the source identifier returned the source paper itself but no separate analytic Pareto parametrization.",
+        "Semantic database searches returned no Blackwell/confidential-frontier match among the closest records."
+      ],
+      "reasoning": "The accepted statement is not a restatement of the source's union formula: it identifies every supporting optimizer by the odds equation psi(x)psi(y)=1, proves uniqueness through strict concavity, and supplies the inverse weight map. No equivalent formulation was located.",
+      "searches": [
+        "coherent Blackwell channel confidential capacity region analytic boundary",
+        "Blackwell channel H(Y1|Y2) H(Y2|Y1) Pareto frontier exact",
+        "mutually confidential messages Blackwell capacity curved boundary parameterization",
+        "exact Pareto frontier Blackwell confidential classical capacity",
+        "odds ratio characterization Blackwell confidential capacity boundary",
+        "full analytic boundary H(Y1|Y2) H(Y2|Y1) Blackwell"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic database IDs included 2026/9/19/SCOPE-sdpi-relay-capacity-counterexample-template--75866f4b972e, 2026/9/20/SCOPE-window-two-sliding-frameproof-capacity--a9fe0a3dd81c, and 2026/9/18/SCOPE-rectangular-low-rank-masking-privacy--e5bf17359b11; each concerns a different channel/coding object and does not imply the Blackwell frontier.",
+        "The cumulative own ledger through generation g000019 contains no occurrence of Blackwell, mutually confidential, or this Pareto-frontier claim."
+      ],
+      "reasoning": "Both exact-source and semantic searches were claim-focused. The closest database records are scientifically unrelated after statement-level comparison, and the current/prior own ledger has no overlapping claim.",
+      "searches": [
+        "Blackwell broadcast confidential capacity exact Pareto boundary weighted conditional entropy",
+        "coherent Blackwell channel confidential capacity region analytic boundary",
+        "Blackwell channel H(Y1|Y2) H(Y2|Y1) Pareto frontier exact",
+        "mutually confidential messages Blackwell capacity curved boundary parameterization",
+        "arXiv 2609.26750 Quantum Broadcast Channels with Mutually Confidential Messages Blackwell",
+        "exact Pareto frontier Blackwell confidential classical capacity",
+        "odds ratio characterization Blackwell confidential capacity boundary",
+        "full analytic boundary H(Y1|Y2) H(Y2|Y1) Blackwell"
+      ]
+    },
+    "rationale": "The primary source gives the exact feasible region and symmetric maximum-sum point but describes the remaining curved boundary as numerically sampled. Claim-specific semantic and web searches found no analytic full-frontier parametrization, and the own ledger has no overlap. The accepted statement solves the remaining weighted optimization by a universal odds involution and unique supporting-weight map.",
+    "residual_risks": [
+      "An equivalent KKT parametrization may exist in older classical information-theory literature under terminology not returned by the searches.",
+      "Only the closest 2017 cooperative-secrecy paper's abstract/model description was inspected, so it is treated as specifically inapplicable rather than as a whole-document novelty exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the accepted full Pareto parametrization. It supplies the capacity formula and symmetric point but says the boundary is numerically sampled by weighted maximization.",
+        "evidence": "arXiv HTML Eq. (146), Proposition 6.5 / Eqs. (147)-(155), Figure 3 discussion, and Corollary 8.1.",
+        "identifier_or_url": "arXiv:2609.26750v1",
+        "material_read": "Full arXiv HTML sections containing the deterministic-channel theorem, Section 6.3 Blackwell specialization, Proposition 6.5, Figure 3 discussion, and Section 8.1 coherent Blackwell comparison.",
+        "method": "Statement-level comparison of the union formula, symmetric optimum, and description of the curved boundary against the accepted odds-parametrization theorem.",
+        "title": "Quantum Broadcast Channels with Mutually Confidential Messages",
+        "trigger": "Exact source and same Blackwell confidential-capacity object."
+      },
+      {
+        "assessment": "INAPPLICABLE to the exact claim because it studies a cooperative broadcast model with a different message structure. No implication to the two-mutually-confidential-message Pareto frontier follows from the inspected material.",
+        "evidence": "Institutional abstract explicitly describes cooperative broadcast channels and a Blackwell secrecy example.",
+        "identifier_or_url": "IEEE Trans. Inf. Theory 63 (2017), 469-495; DOI 10.1109/TIT.2016.2622058",
+        "material_read": "Abstract and bibliographic description from the institutional publication page.",
+        "method": "Model comparison only; not used as a whole-document novelty exclusion.",
+        "title": "Strong secrecy for cooperative broadcast channels",
+        "trigger": "Searches for Blackwell examples under strong secrecy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8400806a-0122-482a-9c27-1390ff4397be",
+  "value": {
+    "rationale": "The source explicitly leaves the curved Blackwell confidential boundary to numerical weighted optimization. The accepted theorem replaces that recurring two-dimensional optimization by a unique one-dimensional monotone involution, identifies every optimizing input distribution and supporting weight, and connects the full frontier to the already important golden-ratio symmetric point. This is a natural structural refinement of a capacity region, not an arbitrary numerical slice.",
+    "risks": [
+      "The parametrization is implicit rather than elementary closed form away from symmetry and endpoints; its value is exact structural reduction and uniqueness, not a new coding theorem."
+    ],
+    "sources": [
+      "arXiv:2609.26750v1, Figure 3 discussion and Proposition 6.5"
+    ],
+    "status": "PASS"
+  }
+}
