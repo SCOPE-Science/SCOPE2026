@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces by coordinate sign isometries to \\(x_i\\ge0\\), derives the lower inequality from an arbitrary containing slice, and constructs near-optimal slice functionals from every feasible radius. The critical inequalities track the slice slack \\(q=1-a(x)\\), the active set \\(|x_i|>r-1\\), and the normalization of the constructed \\(\\ell_1\\)-functional. Infinite support causes no hidden infinite sum in the upper construction because every active set is finite for \\(r>1\\), while the \\(r=1\\) feasible case also forces finite activity. The standard-library checker independently recovers known exact special cases and the constructive radii.",
+    "risks": [
+      "The upper construction places residual functional mass on an inactive tail coordinate; the proof explicitly tracks its nonzero value through the correction term \\(\tau=a_kx_k\\)."
+    ],
+    "sources": [
+      "arXiv:2307.10647, Definition 2.1 and Section 3.1"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi--Jung Theorem 3.3 is a lower-bound theorem for arbitrary c0 points; Remark 3.4(3) is exact only for equal-coordinate finite-support points."
+      ],
+      "reasoning": "Neither source supplies a theorem whose conclusion implies the exact infimum formula for all c0 points.",
+      "searches": [
+        "exact Delta-constant every point c0 formula active coordinates slice radius",
+        "quantitative Delta-constant c0 slice radius finite support Banach geometry",
+        "arXiv:2307.10647"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.10647 (v1 2023-07-20; v3 2024-06-24)",
+      "arXiv:2203.14528 (v1 2022-03-28)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct substitution proves the new formula implies Choi--Jung Remark 3.4(3).",
+        "Theorem 3.3 supplies only lower estimates and does not determine the slice infimum for general coordinates."
+      ],
+      "reasoning": "The new claim is stronger in the c0 quantitative direction: it decides every point, including heterogeneous and infinite-support points, rather than only bounding them.",
+      "searches": [
+        "arXiv:2307.10647 Theorem 3.3 Remark 3.4(3)",
+        "arXiv:2203.14528 Section 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.10647, Section 3.1",
+        "No retrieved semantic-search record stated the active-sum threshold formula."
+      ],
+      "reasoning": "The prior exact formula is confined to equal coordinates; substituting equal coordinates into the new threshold recovers it, but the reverse implication does not determine heterogeneous or infinite-support points.",
+      "searches": [
+        "exact Delta-constant every point c0 formula active coordinates slice radius",
+        "delta c(x) c0 exact formula sum (1-|x_i|)/(r+1-|x_i|)",
+        "Choi Jung c0 exact Delta constant all x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact-value table or database entry was retrieved; the nearest c0 semantic hits concerned unrelated multiplier or operator-cotype questions."
+      ],
+      "reasoning": "The claim is a symbolic theorem rather than a recomputation of a tabulated finite dataset.",
+      "searches": [
+        "delta c(x) c0 exact formula sum (1-|x_i|)/(r+1-|x_i|)",
+        "Choi Jung Remark 3.4 Delta constant sum t e_k general finitely supported c0"
+      ]
+    },
+    "rationale": "The closest primary source gives general lower bounds on the Delta-constant in c0 and an exact equal-coordinate family, but not an exact formula for arbitrary c0 points. Targeted semantic searches using the invariant name, c0, active-coordinate language, and the displayed rational summand returned no covering statement. The current claim strictly contains the known equal-coordinate formula and is not implied by the prior lower bound.",
+    "residual_risks": [
+      "Semantic and web searches cannot prove global bibliographic novelty.",
+      "An equivalent formula could appear under different terminology in unindexed literature."
+    ],
+    "risks": [
+      "Unindexed, unpublished, or very recent work could contain an equivalent formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states general lower bounds for the c0 Delta-constant and an exact equal-coordinate family, not an exact arbitrary-point formula.",
+        "identifier_or_url": "arXiv:2307.10647",
+        "material_read": "Full arXiv v3 PDF; Definition 2.1 and Section 3.1, especially Proposition 3.2, Theorem 3.3, and Remark 3.4(3).",
+        "method": "full-text arXiv PDF inspection",
+        "title": "The Daugavet and Delta-constants of points in Banach spaces",
+        "trigger": "Primary source introducing the invariant and treating c0."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The source concerns existence and obstruction phenomena for Delta-points and almost Delta-points, not the pointwise quantitative constant formula.",
+        "identifier_or_url": "arXiv:2203.14528",
+        "material_read": "Full-text material around Section 6, including the c0-related almost-Delta discussion.",
+        "method": "arXiv full-text inspection",
+        "title": "Asymptotic geometry and Delta-points",
+        "trigger": "Background source cited in the c0 discussion for almost Delta-points."
+      }
+    ],
+    "sources": [
+      "arXiv:2307.10647",
+      "arXiv:2203.14528"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "092d7050-fe45-4be0-a318-05a8a1e0dbe6",
+  "value": {
+    "rationale": "The result closes a natural exact-value gap in the quantitative geometry of c0 identified by the primary source: it replaces general lower bounds by a computable exact formula, includes arbitrary heterogeneous and infinite-support points, and explains the known equal-coordinate phase transition as a special case. The active-coordinate threshold is structurally informative and directly usable for exact examples.",
+    "risks": [
+      "The theorem is specific to c0 and does not automatically transfer to finite-dimensional l-infinity spaces or other sequence spaces."
+    ],
+    "sources": [
+      "arXiv:2307.10647, Section 3.1",
+      "arXiv:2203.14528, Section 6"
+    ],
+    "status": "PASS"
+  }
+}
