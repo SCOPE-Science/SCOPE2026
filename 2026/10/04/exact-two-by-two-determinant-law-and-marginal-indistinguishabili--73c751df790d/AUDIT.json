@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Entrywise expansion gives the determinant identity exactly. The two distortion families are closed-form. The marginal-only lower bound follows from identical marginals, and the dynamic extension follows from linearity of exponential averaging.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper reports similar empirical performance and adds update clipping for inaccurate or stale second moments.",
+        "The 2025 theory proves convergence with regularization and carefully controlled step sizes despite the nonlinear factored adaptive state."
+      ],
+      "reasoning": "Convergence guarantees and generalized-KL optimality do not imply coordinatewise closeness to a full Adam or RMSProp accumulator. The final claim is specifically an impossibility result for that coordinatewise fidelity.",
+      "searches": [
+        "Adafactor factored second moment approximation limitations row sums columns",
+        "Adafactor worst case approximation factor second moment",
+        "Theoretical Investigation of Adafactor proxy step size matrix factorization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.04235v1",
+      "NeurIPS2025:8e237ec6d3bc86f6d4967e9c7eef37ff"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1804.04235v1 states the reconstruction \\((V\\mathbf 1)(\\mathbf 1^\\top V)/(\\mathbf 1^\\top V\\mathbf 1)\\) and exact recovery for rank-one \\(V\\).",
+        "The same source bases the memory reduction on storing only row and column sums.",
+        "The 2025 theory states that row and column states are exactly the marginals of the full exponential second moment and proves convergence using proxy-step analysis rather than a coordinatewise approximation theorem."
+      ],
+      "reasoning": "Rank-one exactness gives only the zero-determinant case. It does not imply the signed determinant error formula or the no-constant-factor lower bound. The later convergence theorem is compatible with poor coordinatewise fidelity because it controls the optimization process by different mechanisms.",
+      "searches": [
+        "Adafactor Lemma 1 generalized KL row sums column sums rank one",
+        "Adafactor rank one matrices exactly recovered",
+        "Adafactor 2025 matrix factorization proxy step convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1804.04235v1, Section 3 and Lemma 1",
+        "NeurIPS 2025 paper 8e237ec6d3bc86f6d4967e9c7eef37ff, Sections 1 and 4",
+        "Targeted full-text searches in the 2025 paper for determinant, marginal, multiplicative, and rank-1 terminology"
+      ],
+      "reasoning": "The equivalent mathematical object is the independence-model reconstruction of a nonnegative matrix from its row and column marginals. The primary source derives the projection but does not characterize its two-dimensional error by determinant or prove a coordinatewise minimax obstruction.",
+      "searches": [
+        "Adafactor exact factorization row column second moment rank one gradients matrix optimizer",
+        "Adafactor counterexample factored second moment matrix exactness",
+        "Adafactor determinant 2x2 factored second moment row column marginals",
+        "Adafactor no constant factor approximation second moment row column sums",
+        "Adafactor marginal indistinguishability coordinatewise preconditioner",
+        "Adafactor factorization error exact row column reconstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No targeted published-result search identified an Adafactor determinant error identity or same-marginal coordinatewise lower bound.",
+        "The closest returned records concerned unrelated matrix approximation and adaptive-preconditioning phenomena."
+      ],
+      "reasoning": "The closest records do not use Adafactor's row-column second-moment reconstruction and do not imply the claimed formulas. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "Adafactor determinant 2x2 factored second moment row column marginals",
+        "Adafactor no constant factor approximation second moment row column sums",
+        "Adafactor marginal indistinguishability coordinatewise preconditioner",
+        "Adafactor factorization error exact row column reconstruction"
+      ]
+    },
+    "rationale": "The primary source provides the generalized-KL rank-one formula and rank-one exactness, while the later convergence analysis controls the optimizer by regularization and proxy steps. Neither inspected source states the determinant checkerboard law, the universal coordinatewise impossibility, or the same-current-gradient indistinguishability construction.",
+    "residual_risks": [
+      "The determinant identity may be known in contingency-table or independence-model literature without an adaptive-optimization connection.",
+      "The impossibility is worst-case and does not quantify typical neural-network second-moment structure.",
+      "Coordinatewise floors and update clipping can bound downstream numerical effects without restoring lost marginal information."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_COORDINATEWISE_OBSTRUCTION.",
+        "evidence": "The source derives the generalized-KL optimal rank-one projection and notes exact recovery of rank-one matrices, but does not state the two-dimensional determinant law or a marginal-indistinguishability lower bound.",
+        "identifier_or_url": "arXiv:1804.04235v1",
+        "material_read": "Open-access full HTML, especially Section 3, Lemma 1, the row-column reconstruction, rank-one exactness, Algorithm 2, and the update-clipping motivation.",
+        "method": "Full-text inspection with targeted searches for approximation and rank-one statements.",
+        "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+        "trigger": "Defining source for the factored second-moment reconstruction."
+      },
+      {
+        "assessment": "BROADER_CONVERGENCE_THEORY_NOT_COVERING_COORDINATEWISE_IMPOSSIBILITY.",
+        "evidence": "The paper proves convergence using regularization, clipping, and proxy-step bounds. It does not claim uniform coordinatewise approximation of the full second moment and contains no located determinant or marginal-indistinguishability result.",
+        "identifier_or_url": "NeurIPS2025:8e237ec6d3bc86f6d4967e9c7eef37ff",
+        "material_read": "Abstract, introduction, related-work summary, algorithm and review section, main theorem statements, plus targeted full-text searches for determinant, marginal, multiplicative, and rank-1 terms.",
+        "method": "Proceedings PDF text inspection with page-level visual inspection of the abstract and algorithm/review pages.",
+        "title": "Theoretical Investigation of Adafactor for Non-Convex Smooth Optimization",
+        "trigger": "Strongest identified later theory directly analyzing Adafactor matrix factorization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "73c751df-790d-4961-abc2-6a234e6cc0f4",
+  "value": {
+    "rationale": "Adafactor's memory saving comes directly from replacing a full matrix second moment by row and column marginals. The theorem gives the smallest-dimensional exact error law and an information-theoretic obstruction showing that marginal-only reconstruction cannot uniformly preserve coordinatewise adaptive scales. The dynamic construction makes the obstruction optimizer-relevant rather than merely a matrix-approximation curiosity.",
+    "status": "PASS"
+  }
+}
