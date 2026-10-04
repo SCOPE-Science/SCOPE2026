@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Restricting the auxiliary group coordinate to the common local range O(w) preserves every step of Ciardelli's construction: all selected neighborhoods lie in O(w), uniform range provides neighborhoods containing a requested u, independence keeps their intersection nonempty, and the cyclic group on O(w) chooses the last coordinate so the profile product equals u. The two-agent lower bound follows from the number of profiles containing a fixed action in a deterministic game. Exhaustive small-frame replay confirms the construction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ciardelli's proof uses the full carrier W only as an auxiliary group coordinate while every required realized outcome lies in the common union of neighborhoods.",
+        "Chen--Ju--Ågotnes explicitly study actual-power representation across generalized two-agent game-frame classes, but their scope is coalition representation under varying seriality, independence, and determinism assumptions.",
+        "The earlier basic-power literature characterizes representable power families but the checked theorem statements do not give this local action-count bound."
+      ],
+      "reasoning": "The new theorem is not a new representability criterion; it sharpens the constructive size of a recent deterministic representation and proves the sharpening is worst-case tight.",
+      "searches": [
+        "Ciardelli 2026 full arXiv HTML: Definition 2.1 concurrent game structures",
+        "Ciardelli 2026 full arXiv HTML: actual effectivity definition and Theorem 2.2",
+        "Ciardelli 2026 full arXiv HTML: constructive proof, action set indexed by neighborhoods and ambient states",
+        "Chen--Ju--Ågotnes 2026 full arXiv HTML: actual-power representation scope and two-agent construction sections",
+        "van Benthem--Bezhanishvili--Enqvist 2019 representation theorem statements for basic powers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.31866",
+      "arXiv:2603.04160",
+      "DOI:10.1007/s10992-018-9489-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existence of a W-indexed representation does not itself state that W can be replaced by O(w), although the proof mechanism permits it.",
+        "Neither representation theorem states a worst-case lower bound on the number of deterministic actions.",
+        "No prior current-ledger claim concerns arXiv:2606.31866, actual effectivity, or concurrent-game action counts."
+      ],
+      "reasoning": "The accepted claim adds both a strictly smaller finite construction whenever O(w) is a proper subset of W and a matching obstruction showing the local-range factor cannot be uniformly improved.",
+      "searches": [
+        "primary-source implication check: W-indexed auxiliary actions versus local common-range indexing",
+        "primary-source implication check: representation existence versus representation size",
+        "closest-paper implication check: generalized actual-power representability versus deterministic action-count minimization",
+        "current cumulative ledger claim comparison through generation g000037"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published-finding searches returned no finding about action-count minimization or local-range compression; the closest modal result was unrelated weakly Stalnakerian validity.",
+        "Web searches returned the primary representation theorem, the 2026 Chen--Ju--Ågotnes representation paper, and earlier basic-power literature, without an action-cardinality refinement."
+      ],
+      "reasoning": "The searches covered the exact source terminology and the equivalent quantitative formulations: minimal actions, action cardinality, local outcome range, actual powers, and actual effectivity.",
+      "searches": [
+        "published-finding database: actual effectivity concurrent game structure minimal actions representation theorem neighborhood frame",
+        "published-finding database: Inquisitive Action Logic representation theorem action count local outcome range",
+        "published-finding database: concurrent game structure actual effectivity minimal number of actions",
+        "web literature: actual effectivity function minimal actions concurrent game structure",
+        "web literature: Inquisitive Action Logic actions neighborhood representation minimal",
+        "web literature: actual powers minimal actions game frame"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula |Sigma_a(w)||O(w)| or matching |O(w)| lower bound was located.",
+        "The primary source displays the larger action set indexed by all auxiliary states in W."
+      ],
+      "reasoning": "The quantitative claim is a construction-size refinement rather than a pre-existing table. Its value is the exact local factor and sharp lower bound.",
+      "searches": [
+        "published-finding database: actual powers neighborhood frame finite action bound local range",
+        "web literature: actual effectivity number of actions representation",
+        "web literature: actual powers action cardinality concurrent game"
+      ]
+    },
+    "rationale": "The primary 2026 source uses the full carrier W as the auxiliary coordinate and does not analyze action counts. The closest 2026 actual-power representation paper treats a broader generalized two-agent framework but does not state this local-range compression or matching deterministic lower bound. No candidate-specific published-finding or web search located equivalent coverage.",
+    "residual_risks": [
+      "Action-minimization for strategic-form games may have been studied under combinatorial design or game-form terminology rather than actual-effectivity terminology.",
+      "The exact minimum number of actions for an arbitrary representable neighborhood frame can be smaller than the stated upper bound and remains unclassified here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: the source proves representability and uses |W|-many auxiliary coordinates per neighborhood, but does not state the local-range compression or action-count lower bound.",
+        "evidence": "The source explicitly indexes each action by a prescribed neighborhood and an auxiliary element of W, then uses a group product to force an arbitrary target in that neighborhood as an outcome.",
+        "identifier_or_url": "arXiv:2606.31866",
+        "material_read": "Full arXiv HTML through the introduction, Definition 2.1, actual effectivity functions, Theorem 2.2, and the constructive proof at the action-set and outcome-rule steps.",
+        "method": "Direct reconstruction of the construction with the auxiliary coordinate restricted to the common local range, followed by exact output-set verification.",
+        "title": "Inquisitive Action Logic",
+        "trigger": "Primary recent source containing the representation theorem and explicit W-indexed construction."
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING.",
+        "evidence": "The paper studies representation across generalized two-agent game-frame classes and explicitly distinguishes deterministic from generalized settings; no checked statement gives the local-range action-count refinement.",
+        "identifier_or_url": "arXiv:2603.04160",
+        "material_read": "Full arXiv HTML at the introduction, significance discussion, scope of the two-agent actual representation results, and construction-section roadmap.",
+        "method": "Statement-level and scope-level implication comparison.",
+        "title": "Representation theorems for actual and alpha powers over two-agent general concurrent game frames",
+        "trigger": "Closest same-year representation-theorem literature on actual powers."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY.",
+        "evidence": "The work characterizes basic-power families but the checked material does not analyze minimal deterministic action counts for the local concurrent-game construction considered here.",
+        "identifier_or_url": "DOI:10.1007/s10992-018-9489-7",
+        "material_read": "Abstract, representation-theorem statement, and accessible proof excerpt concerning exact basic powers.",
+        "method": "Background and prior-implication comparison.",
+        "title": "A New Game Equivalence, its Logic and Algebra",
+        "trigger": "Earlier basic-power representation theorem cited by both recent sources."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4bce89f5-0bf5-4e8b-a15e-443dc7042440",
+  "value": {
+    "rationale": "The representation theorem is the semantic bridge used to justify neighborhood semantics for the new inquisitive action logic. For finite models, the local-range refinement can shrink the constructed action space from |Sigma_a(w)||W| to |Sigma_a(w)||O(w)| at every world, while the two-agent lower bound proves that the |O(w)| factor is genuinely unavoidable in the worst case.",
+    "status": "PASS"
+  }
+}
