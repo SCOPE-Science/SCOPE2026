@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For a fixed cell, the Gamma ratio is exactly a rising factorial. The first logarithmic derivative is a strictly decreasing finite harmonic sum minus a positive constant, with limits positive infinity and a negative constant, proving a unique maximum and failure of complete monotonicity for every nonzero total count. The zero cell is an exponential. The stated asymptotic follows from the standard digamma expansion with an explicit coefficient cancellation and a derivative of order \\(m^{-1}\\), yielding an \\(O(m^{-2})\\) root error.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Waller and Zelterman 1997 study shape estimation in a multi-observation log-linear negative-multinomial model and state that a shape MLE need not exist in general.",
+        "The motivating paper cites positive multinomial complete-monotonicity results but no negative-multinomial theorem.",
+        "Exact phrase and alias searches for fixed-outcome size/shape log-concavity returned general negative-binomial references but no theorem matching the fixed-cell mode equation or asymptotic."
+      ],
+      "reasoning": "The likelihood literature is broader statistically but does not supply the fixed-cell strict log-concavity theorem, the harmonic mode equation, composition invariance, or the large-total-count expansion. No stronger covering theorem was found in the inspected sources.",
+      "searches": [
+        "negative multinomial complete monotonicity shape parameter",
+        "negative binomial shape parameter likelihood digamma fixed probability",
+        "DOI:10.2307/2533557",
+        "negative multinomial strictly log-concave shape cell probability",
+        "negative binomial size parameter log-concave probability mass fixed outcome",
+        "sum 1/(r+j) negative binomial shape parameter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.04733v1",
+      "DOI:10.3390/mca28040085",
+      "arXiv:1804.02108v1",
+      "DOI:10.1016/j.jmaa.2018.06.049",
+      "DOI:10.2307/2533557",
+      "PMID:9290226"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ouimet 2018 fixes proportions and scales all multinomial counts with one parameter; its complete-monotonicity conclusion does not imply monotonicity when only the negative-multinomial shape varies.",
+        "Ouimet 2023 leaves negative-multinomial complete monotonicity open.",
+        "Waller and Zelterman 1997 do not state the one-cell harmonic maximizer or its asymptotic."
+      ],
+      "reasoning": "The new implication is opposite in sign to the multinomial ray theorem: every nonzero fixed cell initially increases with shape, so complete monotonicity fails on that coordinate. The exact profile and asymptotic are therefore not corollaries of the inspected prior statements.",
+      "searches": [
+        "arXiv:1804.02108v1",
+        "DOI:10.3390/mca28040085",
+        "DOI:10.2307/2533557"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ouimet 2023, Section 6, explicitly poses complete monotonicity of the negative multinomial distribution as an open problem.",
+        "Ouimet 2018, Theorem 2.1, treats a simultaneous scaling path for multinomial probabilities, not a fixed negative-multinomial cell with variable shape."
+      ],
+      "reasoning": "The proposed theorem concerns the restriction of one fixed negative-multinomial cell to the ordinary shape coordinate. The closest complete-monotonicity theorem scales the multinomial total and cell counts together, so neither statement is a reparameterization or special case of the other.",
+      "searches": [
+        "negative multinomial complete monotonicity shape parameter rising factorial",
+        "negative multinomial probability completely monotone parameter r",
+        "negative multinomial logarithmically complete monotonicity",
+        "Ouimet negative multinomial complete monotonicity open problem",
+        "arXiv:2209.04733v1",
+        "arXiv:1804.02108v1",
+        "negative multinomial fixed cell strict log-concavity unique shape mode harmonic equation",
+        "negative multinomial shape mode q/(1-q) m 1/2 digamma asymptotic",
+        "negative binomial fixed outcome probability size parameter strict log concavity unique maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 source gives the exact mass and moment formulas but no table or formula for the fixed-cell shape maximizer.",
+        "The mode is defined analytically by a harmonic equation rather than read from a numerical database."
+      ],
+      "reasoning": "This is an analytic parameter-profile theorem, not a finite tabulation or recomputation of a catalogued invariant. No exact table covering the mode equation or asymptotic was located.",
+      "searches": [
+        "negative multinomial cell probability shape mode total count",
+        "rising factorial exponential unique maximum harmonic sum",
+        "arXiv:2209.04733v1"
+      ]
+    },
+    "rationale": "The motivating 2023 article explicitly leaves negative-multinomial complete monotonicity open. The closest positive theorem found is for a different multinomial simultaneous-scaling path. Targeted searches for the fixed-cell shape mode, harmonic equation, and digamma asymptotic found no covering theorem; the main residual risk is unindexed likelihood literature.",
+    "residual_risks": [
+      "The fixed-cell derivative calculation is elementary and could have appeared under negative-binomial dispersion or size-parameter likelihood terminology that is poorly indexed.",
+      "The source open problem is phrased broadly as complete monotonicity in the parameters; the present theorem resolves the ordinary real shape-coordinate interpretation but does not classify alternative coupled or transformed parameterizations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same negative-multinomial mass and explicitly asks for complete monotonicity; does not give the fixed-cell shape classification.",
+        "evidence": "Section 2 gives the Gamma-form mass; Section 6 asks whether the negative multinomial distribution is completely monotonic in its parameters.",
+        "identifier_or_url": "arXiv:2209.04733 / DOI:10.3390/mca28040085",
+        "material_read": "Probability-mass definition, MSC metadata, and Section 6 open-problem statement.",
+        "method": "Full-text HTML/arXiv text inspection.",
+        "title": "Moments of the Negative Multinomial Distribution",
+        "trigger": "Motivating source and exact open problem."
+      },
+      {
+        "assessment": "The theorem concerns simultaneous scaling of multinomial totals and cell counts and does not imply fixed-cell negative-multinomial shape monotonicity.",
+        "evidence": "Theorem 2.1 studies the simultaneous-scaling map \\(a\\mapsto \\Gamma(aM+1)\\prod_i\\Gamma(a\\gamma_i+1)^{-1}\\prod_i x_i^{a\\gamma_i}\\), not a fixed-cell negative-multinomial shape coordinate.",
+        "identifier_or_url": "arXiv:1804.02108 / DOI:10.1016/j.jmaa.2018.06.049",
+        "material_read": "Introduction, Definition 1.1, Theorem 2.1, and proof setup.",
+        "method": "Full-text arXiv inspection.",
+        "title": "Complete monotonicity of multinomial probabilities and its application to Bernstein estimators on the simplex",
+        "trigger": "Closest positive complete-monotonicity result cited by the motivating source."
+      },
+      {
+        "assessment": "Studies multi-observation log-linear estimation and reports nonexistence of an MLE in general; it does not state the fixed-cell mode theorem or its asymptotic.",
+        "evidence": "The abstract concerns cell means and shape estimation in a log-linear sampling plan.",
+        "identifier_or_url": "DOI:10.2307/2533557 / PMID:9290226",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "PubMed/OpenAlex abstract inspection.",
+        "title": "Log-Linear Modeling with the Negative Multinomial Distribution",
+        "trigger": "Plausible prior work on negative-multinomial shape estimation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f93c5b21-e396-4bf8-afa2-b110fd00a4ec",
+  "value": {
+    "rationale": "The result addresses an explicit open complete-monotonicity question in the motivating distribution and replaces a failed monotonicity hope with a complete structural shape profile: strict log-concavity, a unique exact mode equation, composition invariance, and a two-term mode asymptotic. This is more than a sign counterexample and identifies the natural boundary between the zero cell and all nonzero cells.",
+    "status": "PASS"
+  }
+}
