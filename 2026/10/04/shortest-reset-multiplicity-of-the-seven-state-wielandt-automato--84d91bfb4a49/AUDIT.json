@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "The exact seven-state transition table is reconstructed from the published Wielandt coloring. A complete BFS over all 127 nonempty state subsets gives first singleton distance 31 and unique target state 2. Exact integer polynomial propagation on the shortest-path DAG gives \\(z^6(1+z)^{20}\\); an independent reverse-distance recursion reproduces the same coefficients. The packaged verifier replays these checks from the transition table and does not rely on a solver log.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev–Pribavkina, arXiv:1403.3992v1, Theorems 2.2–2.3 determine reset thresholds for the broader Wielandt-type family.",
+        "The broader threshold theorem contains no shortest-word multiplicity statement."
+      ],
+      "reasoning": "A theorem covering reset lengths for a larger parametric family does not determine how many words attain the minimum or their letter-count distribution; therefore it does not subsume the claim.",
+      "searches": [
+        "Database query: slowly synchronizing Wielandt W_n number of shortest reset words",
+        "Web: Wielandt automaton shortest synchronizing words",
+        "Web: reset thresholds automata two cycle lengths Wielandt"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.0129v1",
+      "arXiv:1403.3992v1",
+      "Database searches listed in the originality checks",
+      "Web searches for Wielandt shortest-word multiplicity and reset-language enumeration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2010 theorem proves reset length \\(n^2-3n+3\\), identifies state \\(2\\) as the endpoint of a minimum word, and gives a particular witness.",
+        "The 2014 paper generalizes the threshold calculation but does not count all shortest words."
+      ],
+      "reasoning": "Knowing a minimum length and one witness does not imply the number of minimum words or their distribution by letter count. The new finite enumeration requires traversing all optimal paths in the power automaton.",
+      "searches": [
+        "Primary full text: arXiv:1005.0129v1, Section 4, Theorem 4.1",
+        "Primary full text: arXiv:1403.3992v1, Section 2, Theorems 2.2–2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ananichev–Gusev–Volkov, arXiv:1005.0129v1, Theorem 4.1 gives reset length and one witness, not the complete minimum-word language.",
+        "No located source stated an equivalent count or letter-count enumerator."
+      ],
+      "reasoning": "The claim was compared under the phrases shortest reset words, minimum synchronizing words, multiplicity, reset language, and generating polynomial. None of the inspected sources supplied an implication-equivalent enumeration.",
+      "searches": [
+        "Database query: Wielandt W7 shortest reset words generating polynomial letter counts",
+        "Web: \"Wielandt automaton\" \"number of reset words\"",
+        "Web: \"Wielandt automaton\" \"reset language\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact-parameter entry was located in the database searches; the closest surfaced records concerned different automata and different invariants."
+      ],
+      "reasoning": "No exact database/table result located in the searches contains the seven-state Wielandt shortest-word count or coefficient vector.",
+      "searches": [
+        "Database query: seven state Wielandt automaton 1048576 shortest reset words",
+        "Database query: Wielandt automaton shortest reset word count multiplicity binomial"
+      ]
+    },
+    "rationale": "The primary Wielandt-family papers determine reset thresholds and exhibit witnesses but do not enumerate all minimum reset words. Specific database and web searches for shortest-word counts, multiplicity, reset-language enumeration, and letter-count generating polynomials found no statement implying the finite polynomial for the seven-state automaton. The remaining risk is an unindexed enumeration.",
+    "residual_risks": [
+      "An unindexed thesis, code repository, or computational note may have enumerated the same finite shortest-word language without being surfaced by the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING threshold and target/witness facts; NOT_COVERING shortest-word multiplicity or letter-count polynomial.",
+        "evidence": "Section 4 defines the unique coloring, states reset length \\(n^2-3n+3\\), gives \\((ab^{n-2})^{n-2}a\\), and argues that a shortest word resets to state \\(2\\).",
+        "identifier_or_url": "arXiv:1005.0129v1",
+        "material_read": "Full-text HTML, especially Section 4 and Theorem 4.1.",
+        "method": "Direct inspection of the open arXiv full text.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Defines the canonical Wielandt family and proves its reset length."
+      },
+      {
+        "assessment": "COVERING reset-threshold structure; NOT_COVERING enumeration of shortest words.",
+        "evidence": "The paper defines \\(W(n,q,p)\\) and proves its reset threshold; no all-optimal-word count is stated in the inspected section.",
+        "identifier_or_url": "arXiv:1403.3992v1",
+        "material_read": "Full-text Section 2, including transition definition and Theorems 2.2–2.3.",
+        "method": "Direct inspection of open full text.",
+        "title": "Reset thresholds of automata with two cycle lengths",
+        "trigger": "Broader Wielandt-type family could potentially subsume the finite claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "84d91bfb-4a49-44b7-84e3-dca5f3077399",
+  "value": {
+    "rationale": "The Wielandt family is a canonical slowly synchronizing benchmark whose extremal feature is minimum reset length. Counting all minimum reset words is the natural multiplicity companion to that threshold, and the exact binomial letter profile distinguishes a highly degenerate optimum from a unique-witness phenomenon. The seven-state instance is small enough to admit a complete transparent certificate yet large enough to have over one million optimum words, making the precise enumerator useful as a benchmark for shortest-reset-language algorithms.",
+    "status": "PASS"
+  }
+}
