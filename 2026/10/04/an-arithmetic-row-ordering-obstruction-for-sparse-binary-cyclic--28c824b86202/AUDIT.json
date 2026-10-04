@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The claim was reconstructed from Lei--Bickel Theorem 2 in the exact scalar saturated parameter regime. The projection residual equals a cyclic-orbit affine altitude; unitary DFT diagonalization gives the reciprocal-spectrum altitude formula, including the zero-frequency affine-dependence case. For a two-one binary vector the spectrum is \\(4\\cos^2(\\pi k d/n)\\); residue counting and the odd-\\(N\\) secant-square identity yield \\((O^*)^2=4n/(nN-1)\\), while even \\(N\\) gives a zero Fourier mode. Divisor monotonicity gives the global optimizer. The bundled dependency-free checker independently reconstructs the residual and exhaustively confirms all separations for \\(3\\le n\\le30\\). The proved statement is explicitly only the design proxy, not full test power.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lei--Bickel explicitly note that \\(O^*(\\Pi X)\\) varies with row order and call the general maximization a nonlinear traveling-salesman problem, but provide heuristic rather than exact family-specific optimization.",
+        "Wang et al., arXiv:2506.02906, improve a different permutation-augmented partial-correlation method by fixing rows; their object and power criterion are not the CPT \\(O^*\\) row-ordering objective.",
+        "Koning--Hemerik (DOI 10.1093/biomet/asad050) analyze representative subgroups and Gaussian-location power, not the cyclic-shift design proxy."
+      ],
+      "reasoning": "The general source theorem is broader in design dimension but does not contain a solved row-ordering classification for this binary family. The later broader permutation-power papers use different transformation sets or statistics and do not dominate the stated arithmetic classification.",
+      "searches": [
+        "cyclic permutation test sparse binary predictor two ones row ordering power collapse",
+        "CPT binary design two active rows cyclic spacing Fourier zero power proxy",
+        "cyclic permutation test power of two sample size binary covariate row permutation",
+        "Power enhancement of permutation-augmented partial-correlation tests via fixed-row permutations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.06133 / DOI:10.1093/biomet/asaa079",
+      "MaRDI Q5022108 (zbMATH-derived MSC 62-XX metadata)",
+      "DOI:10.1561/0100000006",
+      "arXiv:2202.00967 / DOI:10.1093/biomet/asad050",
+      "arXiv:2506.02906 (abstract/metadata comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lei--Bickel Theorem 2 supplies \\(O^*\\) as a projection residual and equation (17) poses row-order maximization, but does not give a criterion for when every ordering collapses or identify exact maximizing separations for a sparse binary predictor.",
+        "Classical circulant diagonalization supplies eigenvalues but contains no statistical row-ordering implication.",
+        "The new arithmetic step uses the exact two-point spectrum, the odd-\\(N\\) secant-square identity, and divisor optimization to obtain necessary and sufficient collapse and optimizer conditions."
+      ],
+      "reasoning": "The new theorem uses the source residual theorem as an input rather than contradicting it. The prior theorem can numerically evaluate each fixed ordering, but the claimed all-orderings iff condition, exact closed form by gcd, and global optimizer require an additional Fourier/arithmetic argument not furnished by the source or by the checked broader literature. Residual risk remains that an unlocated circulant-simplex source may contain the geometric altitude identity, but that would not by itself state the CPT sparse-binary optimizer.",
+      "searches": [
+        "An assumption-free exact test fixed-design exchangeable errors Theorem 2 row ordering",
+        "Toeplitz and Circulant Matrices review DFT diagonalization",
+        "More efficient exact group-invariance testing representative subgroup normal location"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lei--Bickel Theorem 2 (arXiv:1907.06133, Section 2.3) expresses \\(O^*\\) as a least-squares residual; Section 2.4 formulates row ordering as optimization (17).",
+        "The source full text has no substantive occurrence of Fourier or circulant in the CPT derivation; the only Fourier occurrence is a bibliography title unrelated to the construction.",
+        "Gray (DOI 10.1561/0100000006) supplies the classical DFT diagonalization of circulant matrices, but not the CPT altitude or sparse-binary spacing theorem."
+      ],
+      "reasoning": "The nearest equivalent formulation is the altitude of one cyclic-shift vertex above the affine hull of the others. The source gives the residual computation for a fixed design, while the new result identifies its Fourier reciprocal-energy form and then solves the two-one row-ordering family arithmetically. No located source stated an equivalent gcd/parity law.",
+      "searches": [
+        "cyclic permutation test spectral Fourier harmonic mean power proxy",
+        "circulant simplex altitude DFT reciprocal Fourier magnitudes",
+        "cyclic shifts affine altitude harmonic mean Fourier coefficients",
+        "Lei Bickel CPT row ordering Fourier spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches with the listed scientific query strings surfaced no equivalent published statement; the closest surfaced records concerned unrelated Fourier concentration, cyclic codes, or binary combinatorics.",
+        "The inspected Lei--Bickel full text contains no table or exact sparse-binary spacing classification.",
+        "The checked direct CPT citation neighborhood contains no source stating the Fourier/gcd formula, power-of-two obstruction, or exact two-active-row optimizer."
+      ],
+      "reasoning": "No exact database or table located the formula, the power-of-two obstruction, or the \\(n=20\\) spacing classification. Failed search is not treated as proof of novelty; it is combined with statement-level source comparison and implication analysis.",
+      "searches": [
+        "Lei Bickel two ones binary design row ordering exact objective",
+        "cyclic permutation test gcd design",
+        "cyclic permutation test Fourier Lei Bickel",
+        "O*(X) cyclic permutation test"
+      ]
+    },
+    "rationale": "The closest source gives a general residual formula and an unsolved/heuristic row-ordering optimization, not the Fourier/gcd classification or exact two-active-row optimizer. Dedicated alias, broader-coverage, database/table, and implication searches found no equivalent statement. A generic circulant DFT theorem is a proof ingredient, not coverage of the statistical arithmetic classification.",
+    "residual_risks": [
+      "An obscure circulant-simplex or cyclic-orbit geometry source could contain the generic altitude identity under different terminology.",
+      "The search did not establish bibliographic uniqueness; originality is supported by direct statement/implication comparison with the closest statistical source and multiple alias searches.",
+      "The claim is intentionally limited to the CPT proxy so it does not overstate what the source's power proxy implies about full rejection probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "Theorem 2 gives \\(O^*\\) as a least-squares residual; Section 2.4 says row permutations change \\(O^*\\) and formulates a nonlinear traveling-salesman optimization solved heuristically. No Fourier/circulant/gcd/two-one theorem appears in the inspected text.",
+        "identifier_or_url": "arXiv:1907.06133; DOI:10.1093/biomet/asaa079",
+        "material_read": "Abstract; Sections 2.1--2.4; Proposition 2; Theorem 1; Theorem 2; the row-preordering discussion and equation (17); relevant discussion section; keyword searches across the full 46-page lawful arXiv text.",
+        "method": "Statement-level comparison of the source residual theorem and ordering objective against the claimed Fourier/gcd theorem.",
+        "title": "An assumption-free exact test for fixed-design linear models with exchangeable errors",
+        "trigger": "Direct source defining the CPT, \\(O^*\\), and the row-preordering objective."
+      },
+      {
+        "assessment": "PROOF_INGREDIENT_ONLY",
+        "evidence": "The review covers DFT diagonalization and inverses/products of circulant/Toeplitz matrices, not the CPT proxy or the sparse-binary gcd optimizer.",
+        "identifier_or_url": "DOI:10.1561/0100000006",
+        "material_read": "Bibliographic record, abstract, and circulant-matrix scope describing DFT diagonalization.",
+        "method": "Checked whether the generic circulant theory states the CPT altitude or row-ordering result.",
+        "title": "Toeplitz and Circulant Matrices: A Review",
+        "trigger": "Possible broader linear-algebra coverage of the Fourier step."
+      },
+      {
+        "assessment": "RELATED_BUT_DIFFERENT_OBJECT",
+        "evidence": "It optimizes/compares transformation subgroups and Monte Carlo group-invariance tests, rather than the Lei--Bickel cyclic design-row ordering proxy.",
+        "identifier_or_url": "arXiv:2202.00967; DOI:10.1093/biomet/asad050",
+        "material_read": "Abstract, introduction, normal-location power results (Theorems 6--7 and Corollaries 3--4), discussion.",
+        "method": "Compared objects, optimization variables, and implications.",
+        "title": "More efficient exact group-invariance testing: using a representative subgroup",
+        "trigger": "Broader modern literature on choosing transformation subsets for power."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28c824b8-6202-4d36-ba42-f5c528281fdf",
+  "value": {
+    "rationale": "The source explicitly motivates row pre-ordering because \\(O^*\\) can vary materially and frames its general maximization as an NP-hard nonlinear traveling-salesman problem. Exactly two active rows is a natural rare-binary-predictor design, not an arbitrary numeric slice. The theorem completely solves that row-ordering family, exposes a qualitative arithmetic obstruction (every ordering collapses exactly at power-of-two sample sizes), and gives a concrete 5 percent minimal-sample consequence at \\(n=20\\) where only four of nineteen oriented spacings avoid collapse. This provides a diagnostic and exact benchmark for a practically motivated design sensitivity while carefully avoiding a claim about full test power.",
+    "status": "PASS"
+  }
+}
