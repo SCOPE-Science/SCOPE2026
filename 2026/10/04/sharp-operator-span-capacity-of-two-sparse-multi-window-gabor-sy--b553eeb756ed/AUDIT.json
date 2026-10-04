@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the operator span from the Weyl basis: conjugation diagonalizes by characters, so the span dimension is exactly the cardinality of the union of nonzero ambiguity coordinates. A two-point support contributes only translation rows 0 and ±d, giving the universal upper bound. The displayed unequal-amplitude windows make all coordinates on the selected rows nonzero; the even antipodal phase makes both parity classes nonzero. These arguments cover all \\(N\\ge2\\) and \\(s\\ge1\\). The bundled verifier independently checks ambiguity supports, direct projector ranks in small dimensions, and exhaustive support-pair row coverage.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Han--Hu--Liu--Wang abstract describes a necessary and sufficient injectivity condition, genericity, perturbation stability, and examples.",
+        "Salanevich summarizes the simultaneous-nonvanishing criterion and studies phase retrieval with fewer phaseless measurements.",
+        "The later operator-valued-frame literature found in search treats general frame injectivity/phase retrieval rather than the finite cyclic two-sparse rank-capacity optimization."
+      ],
+      "reasoning": "A broader theorem that already gave the joint span dimension for arbitrary sparse multi-window Gabor families would cover the claim. No such statement was found. The closest broader result decides only whether full injectivity occurs, and the single-window rank theorem does not optimize unions of sparse ambiguity supports.",
+      "searches": [
+        "semantic-index query: multi-window Gabor matrix recovery sparse support translation differences",
+        "web: \"multi-window Gabor\" \"rank\" \"ambiguity functions\" finite dimensions",
+        "DOI:10.1007/s43034-022-00208-2",
+        "arXiv:2307.00834v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.01509v1",
+      "DOI:10.1080/03081087.2021.1998308",
+      "DOI:10.1007/s43034-022-00208-2",
+      "arXiv:2307.00834v1",
+      "DOI:10.1109/SampTA59647.2023.10301386",
+      "Semantic-index searches using the query strings recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The single-window result gives rank from one ambiguity support.",
+        "The multi-window quantum-injectivity criterion gives a full-span test via simultaneous nonvanishing.",
+        "The new claim additionally determines the largest non-full span for every s, proves a universal sparse upper bound, and gives extremizers at each budget."
+      ],
+      "reasoning": "The full capacity law is not a special case of the published single-window theorem and is not stated by the multi-window yes/no criterion. Its proof requires a joint Weyl-support decomposition plus a sharp extremal count of cyclic difference rows and a separate antipodal construction in even dimension.",
+      "searches": [
+        "arXiv:2106.01509v1",
+        "DOI:10.1007/s43034-022-00208-2",
+        "arXiv:2307.00834v1",
+        "semantic-index query: multi-window Gabor POVM sparse windows exact minimum quantum detection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldberger--Kang--Okoudjou Theorem 1 identifies single-window operator-span rank with the number of nonzero ambiguity coefficients.",
+        "Han--Hu--Liu--Wang is described in its abstract and by Salanevich as characterizing multi-window injectivity by absence of simultaneous ambiguity zeros.",
+        "No inspected source states the extremal function N min{N,1+2s} for exactly two-sparse windows."
+      ],
+      "reasoning": "The natural equivalent formulations are joint ambiguity support, Weyl-coordinate support of the projector orbit, and quantum-injective matrix span. The proof explicitly identifies these formulations and then solves the sparse extremal problem; the literature checked provides the single-window rank identity or the multi-window yes/no criterion, not the sharp capacity curve.",
+      "searches": [
+        "semantic-index query: quantum injective multi-window Gabor two-sparse windows support size 2 minimum number",
+        "semantic-index query: union ambiguity supports Weyl projector span multi-window Gabor",
+        "web: \"two-sparse\" \"multi-window Gabor\"",
+        "arXiv:2106.01509v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic-index searches returned unrelated capacity/rank records; the closest IDs concern sliding-window frameproof codes and unrelated operator projections.",
+        "Goldberger--Kang--Okoudjou Proposition 3 tabulates possible ranks for one two-sparse Gabor window, not optimal joint ranks for s windows."
+      ],
+      "reasoning": "No exact table or database entry located gives the sequence of optimal joint ranks or the floor(N/2) sparse-window threshold. The single-window rank list is compatible with, but does not contain, the multi-window extremal result.",
+      "searches": [
+        "semantic-index query: exact rank capacity law two-sparse multi-window Gabor quantum injectivity floor N over 2 windows",
+        "semantic-index query: operator span dimension multi-window Gabor projectors two-point support",
+        "web: \"support size at most 2\" Gabor POVM multi-window"
+      ]
+    },
+    "rationale": "Targeted semantic-index and literature searches found the known single-window rank theorem and the known multi-window simultaneous-nonvanishing injectivity criterion, but no source stating or implying without the new extremal argument the exact joint rank-capacity function for \\(s\\) exactly two-sparse windows. The most plausible inaccessible source is explicitly retained as a priority risk.",
+    "residual_risks": [
+      "The full text of Han--Hu--Liu--Wang (2022) was not materially available in the lawful open-access sources inspected. Its abstract and later summaries do not state the present capacity theorem, but an unobserved example could conceivably overlap a special case.",
+      "Searches cannot prove absence from all literature, especially work using different terminology such as operator tomography, covariant POVMs, or Weyl-covariant measurements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the single-window rank ingredient and two-sparse baseline but does not state a multi-window sparse capacity curve.",
+        "evidence": "Theorem 1 says single-window rank equals the number of nonzero ambiguity entries; Proposition 3 lists possible ranks for support size two.",
+        "identifier_or_url": "arXiv:2106.01509v1",
+        "material_read": "Full arXiv HTML, including the introduction, Theorem 1 on Gramian rank, the Weyl/DFT discussion, Proposition 1, and Proposition 3 on two-sparse single-window ranks.",
+        "method": "Lawful open-access full text.",
+        "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+        "trigger": "Same finite cyclic Gabor projectors, ambiguity support, and explicit discussion of two-sparse single windows."
+      },
+      {
+        "assessment": "Closest prior framework. Readable material states a necessary and sufficient multi-window injectivity criterion and genericity/stability, but not the two-sparse rank-capacity theorem.",
+        "evidence": "First online 2022-08-05; primary MSC 42C15 is listed in bibliographic indexing. Salanevich describes the Han et al. condition as non-simultaneous vanishing of ambiguity functions.",
+        "identifier_or_url": "DOI:10.1007/s43034-022-00208-2",
+        "material_read": "Abstract, bibliographic metadata, and later literature excerpts summarizing the main simultaneous-nonvanishing criterion; the full article text was not available through the lawful open-access sources checked.",
+        "method": "Publisher/Crossref metadata plus accessible scholarly summaries; no access-control bypass.",
+        "title": "Quantum injectivity of multi-window Gabor frames in finite dimensions",
+        "trigger": "Exact multi-window quantum-injectivity setting."
+      },
+      {
+        "assessment": "Studies phase retrieval and fewer phaseless measurements. It summarizes the multi-window maximal-span criterion but does not give the exact two-sparse matrix-span capacity.",
+        "evidence": "The paper states that Han et al. obtain maximal span when window ambiguity functions do not vanish simultaneously and contrasts the O(M^2) full-orbit measurement count with its phase-retrieval construction.",
+        "identifier_or_url": "arXiv:2307.00834v1",
+        "material_read": "Open-access arXiv abstract and introduction-level discussion available through indexed full text.",
+        "method": "Lawful open-access text.",
+        "title": "Injectivity of Multi-window Gabor Phase Retrieval",
+        "trigger": "Later work explicitly discussing the Han multi-window result and measurement counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b553eeb7-56ed-48c9-bb8c-a20753e33ea9",
+  "value": {
+    "rationale": "The result gives a complete sharp resource tradeoff, not merely a feasibility example: for every dimension and every number of exactly two-sparse windows it determines the largest possible operator span and therefore the exact tomography threshold. Two-sparse windows are the minimal nontrivial spatial support, so the capacity curve quantifies how much full Gabor covariance can compensate for extreme window sparsity. The even-dimensional antipodal resonance is handled explicitly rather than hidden in a genericity argument.",
+    "status": "PASS"
+  }
+}
