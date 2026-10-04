@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces insertion distance exactly to \\(qk-C_k(w)\\), where \\(C_k(w)\\) is a maximum contiguous-partition coverage statistic. A refinement argument proves \\(C_k(w)\\ge\\min\\{n,q+k-1\\}\\) for every full-support word, and the heavy-symbol family attains equality. Boundary cases \\(q\\ge2\\), \\(n\\ge q\\), and \\(k\\ge1\\) are included. Independent finite replay agrees with the literal supersequence definition on tiny cases and exhaustively checks broader finite ranges; no finite experiment is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.4230/LIPIcs.STACS.2021.25 gives insertion, deletion, and substitution algorithms for arbitrary input words.",
+        "DOI:10.1016/j.jcss.2025.103681 is the later journal version of the same line of work."
+      ],
+      "reasoning": "The prior algorithm has broader edit-operation scope and applies to every input word, but its theorem is algorithmic rather than an analytic extremal formula. The present radius is not a stated special case or corollary: proving the maximum uniformly in \\(q\\), \\(n\\), and \\(k\\) requires the partition-refinement lower bound and a matching extremal construction.",
+      "searches": [
+        "subsequence universality arch factorization insertion edit distance word",
+        "k-universal words insertions formal languages",
+        "binary subsequence universality distribution universality index"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.09192",
+      "DOI:10.4230/LIPIcs.STACS.2021.25",
+      "DOI:10.1016/j.jcss.2025.103681",
+      "published-finding database queries listed in the four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the open STACS full text, Section 4.1 computes minimum insertions for one given word via a dynamic program over segments; segment cost is the number of alphabet symbols missing from a segment.",
+        "The inspected abstract, insertion-only section, and conclusion do not state a worst-case fixed-length full-support radius or an extremal-word theorem."
+      ],
+      "reasoning": "The per-instance dynamic program can evaluate any fixed finite word, but it does not supply the closed-form maximum without solving an additional extremal problem. The proof here identifies \\(C_k(w)\\), proves its sharp universal lower bound, and exhibits equality for every parameter triple.",
+      "searches": [
+        "The Edit Distance to k-Subsequence Universality insertion dynamic program segment cost missing symbols",
+        "subsequence universality insertion radius phase transition full support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.4230/LIPIcs.STACS.2021.25, Section 4.1",
+        "arXiv:2007.09192",
+        "Published-finding database searches returned no equivalent insertion-radius theorem; closest IDs included 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b and 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a, both on different invariants."
+      ],
+      "reasoning": "The inspected primary source optimizes edits for a supplied word. An extremal radius over all full-support words is a different quantified statement. No searched source supplied the maximization, equivalent covering-radius language, or the same extremal family.",
+      "searches": [
+        "binary k-subsequence universal insertion distance covering radius fixed length",
+        "edit distance language k-universal words extremal insertion distance",
+        "maximum insertion distance to universal subsequences binary",
+        "\"insertion radius\" subsequence universal word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula hit was returned for either closed-form term or for the full-support insertion-radius phrasing.",
+        "The closest published-finding hits concerned deletion codes, non-overlapping codes, distinct-substring statistics, or string attractors rather than subsequence-universality insertion distance."
+      ],
+      "reasoning": "No inspected database entry or finite table records this all-parameter radius. Negative search is not treated as proof of novelty; it only reduces the chance of an obvious indexed duplicate.",
+      "searches": [
+        "\"qk-n\" \"subsequence\" universal insertions",
+        "\"(q-1)(k-1)\" \"universal\" subsequence word",
+        "\"full-support\" \"k-universal\" insertion"
+      ]
+    },
+    "rationale": "The closest inspected source solves minimum insertion distance for an individual word by dynamic programming, but it does not state the extremal full-support radius, its phase transition, or the heavy-symbol extremizer. The new theorem requires an additional extremal partition-coverage lemma. Exact-formula, alias, covering-radius, and broader subsequence-universality searches found no statement implying \\(\\max\\{qk-n,(q-1)(k-1)\\}\\). Residual risk from unindexed or differently phrased work remains explicit.",
+    "residual_risks": [
+      "An unindexed thesis, note, or differently phrased result may have extracted the same extremal radius from the known per-word dynamic program.",
+      "The later journal version was compared through its bibliographic record and the open conference full text of the same work; a wording change in material not separately inspected could conceivably state an extremal corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The source gives a per-word polynomial-time minimum-insertion algorithm. The inspected material does not give the fixed-length worst-case full-support radius, the formula \\(\\max\\{qk-n,(q-1)(k-1)\\}\\), the threshold \\(n=q+k-1\\), or the heavy-symbol extremizer.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.STACS.2021.25",
+        "material_read": "Open-access conference PDF: abstract and problem definition; insertion-only Section 4.1 including the dynamic-program recurrence and segment cost; concluding discussion of extensions.",
+        "method": "Direct full-text inspection of the open-access PDF.",
+        "title": "The Edit Distance to k-Subsequence Universality",
+        "trigger": "Same object and same insertion-distance operation."
+      },
+      {
+        "assessment": "DATE_AND_VERSION_ANCHOR",
+        "evidence": "First public posting located on 2020-07-17; the work studies edit distance to subsequence universality.",
+        "identifier_or_url": "arXiv:2007.09192",
+        "material_read": "Metadata and abstract together with the corresponding open conference full text for the mathematical comparison.",
+        "method": "ArXiv metadata verification plus comparison to the open conference version.",
+        "title": "The Edit Distance to k-Subsequence Universality",
+        "trigger": "Earliest public version of the closest primary work."
+      },
+      {
+        "assessment": "LATER_VERSION_NOT_SEPARATE_COVERAGE",
+        "evidence": "Record classifies the work under MSC 68R15 and 68W32; it is a later version of the same edit-distance study.",
+        "identifier_or_url": "DOI:10.1016/j.jcss.2025.103681",
+        "material_read": "Bibliographic record and classification metadata; mathematical comparison anchored to the open conference full text of the same work.",
+        "method": "Bibliographic metadata inspection.",
+        "title": "The edit distance to k-subsequence universality",
+        "trigger": "Later journal version and classification check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "967f04fe-c949-4fc6-a10c-1d2c10b028e6",
+  "value": {
+    "rationale": "Worst-case distance to a target language is a natural extremal companion to the known per-instance edit-distance problem. The theorem gives a complete all-parameter insertion radius, a sharp transition between the length-deficiency term \\(qk-n\\) and the symbol-distribution term \\((q-1)(k-1)\\), and an explicit extremizer. It is neither a routine finite census nor a mere renaming of the known dynamic program.",
+    "status": "PASS"
+  }
+}
