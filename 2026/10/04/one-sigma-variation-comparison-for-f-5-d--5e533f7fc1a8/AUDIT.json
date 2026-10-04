@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "The proof was reconstructed from the beta-integral reduction. The upper inequality is certified for d=5..26 by exact rational intervals and for all real d>=27 by a lower bound whose algebraic resultant has no roots on the tail and is positive at 27. The lower inequality is automatic before the exact endpoint crossing at d=14, and thereafter follows from a quadratic Taylor majorant plus an exact resultant/Sturm certificate. The embedded verifier reconstructs these certificates and returns VERIFY_OK. The limiting chi-square step follows from Slutsky convergence and the cited strict Gamma theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1186/s13660-024-03081-w, Theorem 1.2 covers Gamma laws, not F ratios",
+        "2025 Acta Mathematica Scientia measure-concentration article cites arXiv:2305.13615 but studies infinitely divisible laws"
+      ],
+      "reasoning": "The Gamma theorem supplies only the limiting chi-square comparison. The broader infinitely-divisible literature does not dominate the F(5,d) ratio family, and the located later measure-concentration paper cites rather than supersedes the F preprint.",
+      "searches": [
+        "F-distribution normal variation comparison first unresolved numerator degree 5",
+        "F distribution one standard deviation variation comparison d1=5 d2 monotonic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.13615",
+      "doi:10.1186/s13660-024-03081-w",
+      "doi:10.1007/s10473-025-0211-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2305.13615 proves d1 in {1,2,3,4}; Section 5.2 says Conjecture 1.1 would follow from unresolved inequalities (5.2) and (5.3) for odd d1 at least 5"
+      ],
+      "reasoning": "The prior theorem does not include d1=5. Its general reductions are ingredients rather than the conclusion: the new work proves the needed inequalities for every denominator degree at d1=5 using finite exact interval certificates plus two algebraic tail certificates.",
+      "searches": [
+        "2305.13615 d1 5 variation comparison",
+        "F(5,d2) central one standard deviation probability monotonic d2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.13615, Theorem 1.2, equation (2.1), and Section 5.2"
+      ],
+      "reasoning": "The lead source makes the same central one-standard-deviation probability monotonicity the route to its conjecture. It proves only numerator degrees 1 through 4 and leaves the odd cases starting at 5 unresolved; no equivalent d1=5 theorem was located.",
+      "searches": [
+        "F distribution variation comparison d1=5 denominator degrees one standard deviation",
+        "F(5,d2) central one standard deviation probability monotonic d2",
+        "2305.13615 d1 5 variation comparison"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no direct record for arXiv:2305.13615 or for F(5,d) one-standard-deviation monotonicity; closest hit 2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4 concerns Gamma approximation metrics"
+      ],
+      "reasoning": "No indexed published-finding corpus finding or located exact table states the d1=5 all-denominator monotonicity or its infimum.",
+      "searches": [
+        "F distribution variation comparison d1=5 denominator degrees one standard deviation",
+        "F(5,d2) central one standard deviation probability monotonic d2",
+        "2305.13615 d1 5 variation comparison",
+        "F-distribution normal variation comparison first unresolved numerator degree 5"
+      ]
+    },
+    "rationale": "The lead paper proves numerator degrees 1 through 4 and explicitly leaves odd numerator degrees at least 5 to sufficient inequalities (5.2) and (5.3). The new theorem closes numerator degree 5 for every denominator degree. Targeted published-finding corpus and web searches for the exact parameter pair, monotonic formulation, source identifier, and aliases returned no covering theorem. The closest published-finding corpus hits concern different Gamma approximations or unrelated one-sigma problems and do not imply the claim. Residual risk from an unindexed or differently phrased later proof is retained.",
+    "residual_risks": [
+      "No direct post-2023 proof of the d1=5 F-distribution case was located by the targeted published-finding corpus and web searches. An unindexed, non-English, or differently phrased later proof could still exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves numerator degrees 1-4 and leaves the odd cases beginning at 5 unresolved through (5.2)-(5.3).",
+        "evidence": "arXiv:2305.13615, Theorem 1.2; equations (2.1), (4.1), (4.2), (5.2), (5.3); Section 5.2.",
+        "identifier_or_url": "arXiv:2305.13615",
+        "material_read": "Full text: abstract/introduction, beta-CDF reduction in Section 2, inequalities (4.1)-(4.2), and Section 5.2 including (5.2)-(5.3).",
+        "method": "Lawful arXiv HTML/PDF inspection, including rendered PDF pages 2, 24, and 25.",
+        "title": "Variation comparison between the F-distribution and the normal distribution",
+        "trigger": "Exact motivating source and closest possible covering result."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING: proves the Gamma one-standard-deviation inequality, which supplies the chi-square limit comparison but not monotonicity of F(5,d).",
+        "evidence": "Theorem 1.2 states strict Gamma central one-standard-deviation mass above the standard normal; Theorem 3.1 supplies Gamma-shape monotonicity.",
+        "identifier_or_url": "doi:10.1186/s13660-024-03081-w",
+        "material_read": "Open full text around Theorem 1.2 and Theorem 3.1.",
+        "method": "Publisher open-access HTML inspection.",
+        "title": "The infimum values of two probability functions for the Gamma distribution",
+        "trigger": "Needed to verify the limiting chi-square comparison with the Gaussian and to test whether it already implies the F result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e533f7f-c1a8-44f3-9726-b6a615d2ff3c",
+  "value": {
+    "rationale": "The lead paper identifies numerator degree 5 as the first unresolved odd case after proving degrees 1-4. Closing that entire numerator degree for every admissible denominator degree is a natural structural extension of the published theorem, not an arbitrary finite parameter slice. It also identifies the exact lower-endpoint crossing at d=14 inside the proof and converts the source's unresolved two-variable sufficient conditions into a complete one-parameter theorem.",
+    "status": "PASS"
+  }
+}
