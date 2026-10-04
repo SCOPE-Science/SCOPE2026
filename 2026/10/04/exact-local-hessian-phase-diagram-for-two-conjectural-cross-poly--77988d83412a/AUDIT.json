@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The exact section formula reduces the problem to the Hessian of \\(I_n(a)=\\int_0^\\infty\\prod_j(1+a_j^2t^2)^{-1}dt\\). Intrinsic geodesic differentiation gives a rational second-variation integrand. At the sparse point, representation symmetry leaves two tangent eigenspaces and beta integrals give eigenvalues \\(-3\\) and \\((n-8)/n\\). At the dense point, the tangent representation is irreducible under permutations and exact integration gives the stated scalar eigenvalues for \\(4\\le n\\le8\\). A packaged symbolic checker independently reconstructs and verifies every displayed finite integral and the two candidate-value ratios.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nayar--Tkocz (Proc. Amer. Math. Soc. 148 (2020), DOI 10.1090/proc/14777) proves a strong B-inequality for coordinate dilations of a fixed central section.",
+        "The Nayar--Tkocz survey arXiv:2210.00885 predates the 2026 facet-barycenter constrained problem."
+      ],
+      "reasoning": "The 2020 convexity theorem varies the body by diagonal dilation while holding the section subspace fixed; the present claim varies the normal vector on a codimension-one sphere. Neither its theorem statement nor the pre-2026 survey gives the present local phase diagram.",
+      "searches": [
+        "\"On a convexity property of sections of the cross-polytope\" local maximum normal",
+        "cross-polytope section volume normal variation log concavity Hessian",
+        "\"Extremal sections and projections of certain convex bodies\" cross-polytope local stability"
+      ]
+    },
+    "checked_sources": [
+      "Brazitikos--Pandis, arXiv:2606.07163v1, especially Section 5.",
+      "Nayar--Tkocz, arXiv:1810.02038 / DOI 10.1090/proc/14777.",
+      "Nayar--Tkocz, arXiv:2210.00885, survey of extremal sections and projections.",
+      "Koldobsky, DOI 10.1007/BF02773465, general Fourier-transform section formula background."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conjecture 5.2 proposes \\(p_n\\) as the global maximizer for \\(n<6\\) and \\(q_n\\) for \\(n\\ge6\\), but remains conjectural.",
+        "Theorem 5.1 and the subsequent symmetric-polynomial arguments in the source concern the minimum of the section volume, not the Hessian at the maximum candidates."
+      ],
+      "reasoning": "If the source conjecture were proved, global maximality would imply local maximality for the winning candidate, but it would still not yield the exact Hessian spectrum, the strict local maximum of the losing candidate at \\(n=5,6,7\\), or the quadratic loss of stability of \\(p_n\\) at dimension eight. The new statement is therefore not a corollary of a proved prior result.",
+      "searches": [
+        "arXiv:2606.07163v1 pages 27-39 Conjecture 5.2",
+        "\"Conjecture 5.2\" cross-polytope Brazitikos Pandis",
+        "restricted cross-polytope central sections facet barycenter maximum sparse dense dimension 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.07163v1, Section 5, gives the constrained set, exact section integral, minimum theorem, and Conjecture 5.2 for the maximum.",
+        "The inspected full text contains no stated Hessian spectrum for the cross-polytope maximizer candidates and no bistability theorem for dimensions 5 through 7."
+      ],
+      "reasoning": "Searches used the natural aliases local maximum, local stability, second variation, Hessian, restricted section, and facet barycenter. The source conjecture identifies candidate global extrema but does not imply the exact second variation or the coexistence of a lower-valued strict local maximum.",
+      "searches": [
+        "\"cross-polytope\" \"facet barycenter\" Hessian section volume",
+        "\"restricted sections\" cross-polytope local maximum Hessian",
+        "cross-polytope restricted central sections facet barycenter second variation local maximum local minimum Hessian volume functional",
+        "arXiv:2606.07163 Conjecture 5.2 local stability second variation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-expression and threshold searches did not locate the sparse eigenvalue \\((n-8)/n\\), the dense eigenvalue \\(-2393/7865\\), or a dimension-eight local degeneracy statement for this restricted section problem.",
+        "There is no external numerical table used in the proof; the rational values are derived from the section integral."
+      ],
+      "reasoning": "This claim is an analytic curvature statement rather than a table lookup. Exact-expression searches were used to test whether the distinctive rational constants or the dimension-eight threshold had already been recorded.",
+      "searches": [
+        "\"(n-8)/n\" cross-polytope section Hessian",
+        "\"2393/7865\" cross-polytope",
+        "cross-polytope facet barycenter dimension 8 quadratic degeneracy"
+      ]
+    },
+    "rationale": "The 2026 primary source states the global-maximizer candidates but does not calculate the local Hessian of the cross-polytope section-volume functional. The exact sparse spectrum, dense rational curvatures, and coexistence of two strict local maxima in dimensions \\(5,6,7\\) were not found in targeted statement-level searches or in the older cross-polytope convexity result.",
+    "residual_risks": [
+      "Unindexed or unpublished work could contain an equivalent local calculation.",
+      "The quadratic null direction at \\(p_8\\) is not classified at higher order.",
+      "No dense-candidate sign is claimed for \\(n\\ge9\\), and no global maximality is claimed in any dimension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING: the paper states the candidate global switch at dimension six and proves the minimum, but does not state the local Hessian spectrum or the bistable dimensions.",
+        "evidence": "Conjecture 5.2 gives the sparse and dense maximizer candidates; the following proof work is directed to Theorem 5.1 and symmetric-polynomial extrema.",
+        "identifier_or_url": "arXiv:2606.07163v1",
+        "material_read": "Full text relevant to the cross-polytope problem, including pages 27-39, Theorem 5.1, Conjecture 5.2, and the elementary-symmetric-polynomial argument.",
+        "method": "Full-text inspection of the primary preprint.",
+        "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+        "trigger": "Direct source of the constrained problem and the two conjectural maximizer normals; decisive coverage risk."
+      },
+      {
+        "assessment": "NOT_COVERING: the varied parameters are diagonal dilations of the cross-polytope for a fixed section subspace, not movement of the section normal under \\(\\sum a_j=0\\).",
+        "evidence": "The theorem states log-concavity of \\(\\operatorname{vol}_H(\\operatorname{diag}(e^{t_1},\\ldots,e^{t_n})B_1^n\\cap H)\\) as a function of the dilation variables.",
+        "identifier_or_url": "DOI:10.1090/proc/14777; arXiv:1810.02038",
+        "material_read": "Abstract, theorem statement, and available preprint text describing the strong B-inequality.",
+        "method": "Open preprint and metadata inspection.",
+        "title": "On a convexity property of sections of the cross-polytope",
+        "trigger": "Older cross-polytope section theorem that could potentially imply a local concavity statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77988d83-412a-4b05-b1a3-83a61cdf570a",
+  "value": {
+    "rationale": "The calculation addresses the local geometry of the two explicit candidates in an open 2026 maximizer conjecture. It shows a genuine bistability window \\(n=5,6,7\\), proving that the conjectured global change at \\(n=6\\) is not caused by either candidate immediately losing local stability. The exact eigenvalue \\((n-8)/n\\) isolates a different, natural quadratic threshold at dimension eight. These are structural facts about a canonical extremal-section problem, not routine recomputation or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
