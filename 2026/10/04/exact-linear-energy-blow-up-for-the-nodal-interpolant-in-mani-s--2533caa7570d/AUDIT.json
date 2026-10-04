@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The exact cell rescaling gives \\(I[u_n]=n\\sum_{j<n}c_j\\). The first cell is computed exactly as \\(8/105\\). Concavity plus a standard interpolation remainder gives an absolutely summable \\(O(j^{-6})\\) tail, and a uniform Taylor expansion sharpens it to \\(c_j=\\frac{1}{196830}j^{-6}+O(j^{-7})\\), which implies \\(I[u_n]=Cn-\\frac{1}{984150}n^{-4}+O(n^{-5})\\). The packaged checker re-evaluates the exact polynomial cell integrals and asymptotic constants.",
+    "risks": [
+      "The decimal value of \\(C\\) is numerical; the theorem itself defines \\(C\\) by an absolutely convergent positive series.",
+      "The finite checker does not certify the infinite asymptotic; that part rests on the analytic interpolation bound and uniform Taylor expansion reproduced in RESULT.md."
+    ],
+    "sources": [
+      "arXiv:1003.0934v1 for the functional, boundary data, and exact minimizer",
+      "verify.py for finite arithmetic replay of the exact cell formula and asymptotic constants"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball–Knowles state the broader qualitative divergence of sufficiently regular sequences converging almost everywhere to the Manià minimizer.",
+        "Feng–Schnake state that standard finite elements fail and introduce a derivative cut-off enhanced method.",
+        "Ball's 2001 survey computes \\(8/(105h)\\) for a comparison function that is linear on the first interval and equals \\(u_*\\) afterward."
+      ],
+      "reasoning": "The broader divergence theorem implies only \\(I[u_n]\\to\\infty\\), and Ball's boundary-layer calculation supplies the exact first-cell contribution, which is common to the nodal interpolant. Neither result determines the contributions of all later affine cells, the full coefficient \\(C\\), or the sharp \\(n^{-4}\\) correction. The final originality claim excludes both qualitative divergence and the isolated first-cell calculation.",
+      "searches": [
+        "Mania Lavrentiev piecewise linear interpolation exact minimizer linear divergence functional rate",
+        "Lavrentiev phenomenon Mania finite element interpolation divergence rate n",
+        "source: doi:10.1007/BF01396748",
+        "source: arXiv:1610.03111v1",
+        "source: Ball 2001, Singularities and computation of minimizers for variational problems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.0934v1",
+      "doi:10.1007/BF01396748",
+      "arXiv:1610.03111v1",
+      "Ball–Mizel 1985 qualitative divergence result as cited by Ball–Knowles",
+      "Ferriero 2004 qualitative theorem as cited by Pereira–Cruz–Torres",
+      "J. M. Ball, Singularities and computation of minimizers for variational problems, FoCM 2001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior divergence theorem covers the direction \\(I[u_n]\\to\\infty\\).",
+        "Pereira–Cruz–Torres explicitly observe that the exact polygonal curve through optimal points has increasing energy as the mesh is refined.",
+        "Ball 2001 already implies the lower bound \\(I[u_n]\\ge 8n/105\\) because the nodal interpolant has the same first cell."
+      ],
+      "reasoning": "Prior work dominates any mere divergence claim and supplies the exact first-cell lower bound. The final claim is therefore the full exact cell sum and sharp asymptotic: later-cell contributions raise the linear coefficient from \\(8/105\\) to \\(C\\), and their tail produces the stated correction. These quantities are not implied by the first-cell calculation or the qualitative divergence theorem.",
+      "searches": [
+        "source: arXiv:1003.0934v1 Theorem 4.1",
+        "source: doi:10.1007/BF01396748 equations (1.3)–(1.6)",
+        "piecewise affine interpolation x^(1/3) Mania energy asymptotic 1/h",
+        "source: Ball 2001 first-cell boundary-layer calculation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1003.0934v1, Example 4.2 and Table 3",
+        "doi:10.1007/BF01396748, Manià example and piecewise-linear finite-element discussion"
+      ],
+      "reasoning": "Searches included aliases 'Manià/Mania', 'nodal/polygonal/piecewise affine', and both exact-minimizer and energy-asymptotic wording. No located source stated an equivalent formula for the exact integrated energy of the uniform nodal interpolant.",
+      "searches": [
+        "Mania Lavrentiev piecewise linear interpolation exact minimizer linear divergence functional rate",
+        "Manià example polygonal interpolant x one third functional grows linearly",
+        "Mania nodal interpolant exact minimizer Lavrentiev linear n asymptotic constant c_j 196830",
+        "piecewise affine interpolation x^(1/3) Mania energy asymptotic 1/h"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pereira–Cruz–Torres Table 3 reports PLFOpt values 0.229, 0.381, 0.610, 0.762, 1.143, and 1.524 for 3, 5, 8, 10, 15, and 20 intervals.",
+        "The same paper's Theorem 4.1 states only divergence for Lipschitz trajectories converging almost everywhere to the singular minimizer."
+      ],
+      "reasoning": "The table is the closest numerical record and is consistent with \\(C n\\) after rounding, but a finite list of rounded values is not the infinite exact decomposition or asymptotic theorem and does not imply the coefficient \\(C\\) or the \\(n^{-4}\\) correction.",
+      "searches": [
+        "Mania example discrete calculus variations 8/105 linear blowup",
+        "Mania nodal interpolant exact minimizer Lavrentiev linear n asymptotic constant c_j 196830",
+        "source: arXiv:1003.0934v1 Table 3"
+      ]
+    },
+    "rationale": "The qualitative divergence of regular approximants and the isolated first-cell value \\(8/(105h)\\) are prior-covered. The accepted original claim is the exact full uniform-nodal-interpolant decomposition and sharp asymptotic with the convergent coefficient series and tail. Pereira–Cruz–Torres publish rounded values for precisely the polygonal curve through optimal nodal values but do not derive this law; Ball–Knowles and Ball's 2001 survey establish broader failure and the boundary-layer calculation without summing the full nodal interpolant; the other inspected same-object literature proposes remedies without this quantitative asymptotic.",
+    "residual_risks": [
+      "An unindexed thesis, lecture note, or older finite-element calculation may contain the same exact nodal-interpolant asymptotic under different notation.",
+      "The published PLFOpt table numerically makes the linear rate visible, although it does not state or prove the infinite-mesh asymptotic.",
+      "The known boundary-layer constant makes the leading coefficient numerically very close to \\(8/105\\); an unindexed source may have carried the calculation through the remaining uniform nodal cells."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the accepted quantitative claim; it covers qualitative divergence and supplies rounded finite-mesh values for the same nodal curve.",
+        "evidence": "Example 2.2 defines \\(I[u]\\) and \\(u_*=x^{1/3}\\). Table 3 labels the reference curve PLFOpt and gives increasing exact-integral values through 20 intervals; Theorem 4.1 states only that the energy tends to infinity for Lipschitz approximants converging almost everywhere.",
+        "identifier_or_url": "arXiv:1003.0934v1",
+        "material_read": "Full-text PDF: definition of Manià's example, discretization setup, Example 4.2, Table 3, Theorem 4.1, and surrounding conclusions.",
+        "method": "Statement-level comparison of the object, exact-versus-discrete energy, mesh family, and the implication strength of the published theorem and table.",
+        "title": "A Discrete Algorithm to the Calculus of Variations",
+        "trigger": "Same functional and a table explicitly evaluating the piecewise-linear curve through points of the exact solution."
+      },
+      {
+        "assessment": "NOT_COVERING the accepted quantitative claim; it establishes broader qualitative failure and studies a different finite-dimensional minimization procedure.",
+        "evidence": "The paper states that regular approximants converging almost everywhere to \\(x^{1/3}\\) have diverging energy and discusses uniform piecewise-linear finite elements, but does not state the exact energy asymptotic of the interpolant through exact nodal values.",
+        "identifier_or_url": "doi:10.1007/BF01396748",
+        "material_read": "Full-text PDF: introduction and equations (1.1)–(1.6), piecewise-linear finite-element discussion, quadrature section, and numerical-results discussion.",
+        "method": "Compared the class of approximants, exact-energy statements, finite-element minimization object, and quadrature caveats against the nodal-interpolant theorem.",
+        "title": "A numerical method for detecting singular minimizers",
+        "trigger": "Classical same-object finite-element treatment of Manià's example."
+      },
+      {
+        "assessment": "NOT_COVERING the accepted quantitative claim; the inspected material motivates and analyzes a modified finite-element method instead.",
+        "evidence": "The source explains standard finite-element failure for Manià's problem and introduces derivative capping; no exact uniform-nodal-interpolant energy law was found in the inspected material.",
+        "identifier_or_url": "arXiv:1610.03111v1",
+        "material_read": "Full-text PDF introduction and Manià-example setup describing the standard finite-element obstruction and enhanced cut-off construction.",
+        "method": "Checked whether the same canonical interpolant, linear blow-up rate, coefficient, or tail asymptotic was stated or implied.",
+        "title": "An enhanced finite element method for a class of variational problems exhibiting the Lavrentiev gap phenomenon",
+        "trigger": "Later same-example finite-element analysis specifically motivated by failure of standard finite elements."
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: it contains the exact first-cell energy and the resulting linear lower bound, but not the full nodal-interpolant coefficient or asymptotic tail.",
+        "evidence": "The survey takes a function linear on \\((0,h)\\) and equal to \\(u_*\\) on \\((h,1)\\), and computes energy \\(8/(105h)\\). The uniform nodal interpolant agrees with this function only on the first cell; all subsequent cells are affine chords rather than \\(u_*\\).",
+        "identifier_or_url": "J. M. Ball, Foundations of Computational Mathematics, LMS Lecture Note Series 284 (2001)",
+        "material_read": "Book-preview text containing the Manià boundary-layer calculation and the surrounding Lavrentiev discussion.",
+        "method": "Compared the test function and its support of modification with the fully piecewise-affine uniform nodal interpolant.",
+        "title": "Singularities and computation of minimizers for variational problems",
+        "trigger": "Targeted search for the exact first-cell constant \\(8/105\\) surfaced an earlier explicit boundary-layer calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2533caa7-570d-4686-8bc8-cdaae7901576",
+  "value": {
+    "rationale": "The uniform nodal interpolant of the known exact singular minimizer is a canonical approximation, not an arbitrary slice. The full exact linear blow-up law quantifies a standard numerical pathology and explains the published PLFOpt data beyond the already known first-cell lower bound. It identifies the precise contribution of all later cells and the sharp finite-mesh tail, giving a reproducible benchmark for exact integration and for methods designed to overcome the Lavrentiev gap.",
+    "risks": [
+      "The result is a sharp benchmark for one canonical mesh family rather than a general theorem for arbitrary finite-element spaces.",
+      "The isolated first-cell obstruction is already known; value comes from completing the exact full-mesh asymptotic and explaining the published nodal data."
+    ],
+    "sources": [
+      "arXiv:1003.0934v1 Table 3, which records the same nodal polygonal curve and its worsening exact energy under mesh refinement",
+      "doi:10.1007/BF01396748 and Ball 2001 for the classical numerical significance of the Lavrentiev obstruction"
+    ],
+    "status": "PASS"
+  }
+}
