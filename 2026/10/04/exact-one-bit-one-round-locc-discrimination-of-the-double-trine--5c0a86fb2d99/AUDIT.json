@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces arbitrary binary qubit effects to projections by convexity/extreme points, reduces projectors to the trine plane by an even-convex radial argument, solves Bob's conditional trine discrimination through the exact Helstrom dual, treats both possible active-set regimes, and proves monotonic decrease away from the maximizing symmetry direction. The maximizing branch priors and radical are recomputed directly. Finite checks corroborate but do not replace the continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chitambar-Hsieh prove the unrestricted one-way optimum using a three-outcome Alice POVM.",
+        "Dutra et al. characterize bounded-message one-round LOCC by SDP hierarchy but retain a nonzero m=2 numerical gap."
+      ],
+      "reasoning": "The strongest older analytic result is broader in allowed message outcomes but does not determine the optimum after imposing a two-symbol cap; the recent bounded-message framework gives only bounds for this instance.",
+      "searches": [
+        "arXiv:1304.1555 double trine one-way LOCC",
+        "When do Local Operations and Classical Communication Suffice for Two-Qubit State Discrimination? double trine",
+        "Structure of quantum measurements implementable with one round of classical communication"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.09381v1",
+      "doi:10.1088/1361-6633/ae4fef",
+      "arXiv:1304.1555",
+      "doi:10.1103/PhysRevA.88.020302",
+      "arXiv:2604.26647v1",
+      "MSC2020 81P18 definition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unrestricted one-way success is 1/2+sqrt(3)/4 and is attained by a three-outcome sender measurement.",
+        "The recent source certifies that m=3 performance exceeds its m=2 upper bound, so the unrestricted/three-outcome theorem cannot collapse the m=2 problem."
+      ],
+      "reasoning": "The new statement is not a corollary or special case of the unrestricted one-way optimum: imposing one transmitted bit removes the known optimal three-outcome sender POVM and changes the optimum.",
+      "searches": [
+        "arXiv:1304.1555 one-way double trine three-outcome POVM",
+        "arXiv:2510.09381 m=2 versus m=3 double trine"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.09381, Sec. 4.2 and Table 1: m=2 lower 0.8976, upper 0.905.",
+        "arXiv:2604.26647: one-bit double-trine interval quoted as numerical.",
+        "Published-finding database searches returned no semantically close double-trine/one-bit finding."
+      ],
+      "reasoning": "Searches covered the exact ensemble name, one-bit/two-symbol terminology, adaptive one-round LOCC, binary POVMs, and the numerical interval. No equivalent exact formula or converse was found.",
+      "searches": [
+        "double trine one-bit communication adaptive LOCC state discrimination exact optimal success probability",
+        "trine two-copy discrimination one bit classical communication 0.8976 0.9050",
+        "nonclassical traits multi-copy state discrimination one-bit communication",
+        "arXiv:2510.09381 Table 1 double trine m=2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding database returned unrelated nearest hits, with no double-trine exact-value record.",
+        "The relevant published table explicitly lists 0.8976 and 0.905 rather than an exact value."
+      ],
+      "reasoning": "Neither the database search nor the source table contains the exact radical or a claim equivalent to it.",
+      "searches": [
+        "published-finding database query: double trine one bit classical communication exact success radical",
+        "published-finding database query: double trine binary POVM one-round LOCC projective sender optimal minimum error",
+        "Dutra et al. Table 1 m=2 1R-LOCC"
+      ]
+    },
+    "rationale": "The recent communication-bounded LOCC source reports only numerical lower/upper bounds 0.8976 and 0.905 for the two-symbol double-trine problem. The exact radical and analytic converse were not found in the inspected primary sources, the current/prior ledger, targeted web searches, or published-finding database semantic searches. The unrestricted one-way result uses a three-outcome sender POVM and therefore does not imply the bounded-message theorem.",
+    "residual_risks": [
+      "An equivalent exact two-symbol calculation may exist in older literature under terminology not recovered by the targeted searches.",
+      "The theorem is intentionally restricted to Alice-to-Bob one-round protocols with a binary sender outcome; no implication is claimed for larger message alphabets or two-way LOCC."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: reports 0.8976 lower and 0.905 upper for m=2, not the exact optimum.",
+        "evidence": "Table 1 gives m=2 1R-LOCC see-saw 0.8976 and SDP upper 0.905.",
+        "identifier_or_url": "arXiv:2510.09381 / DOI:10.1088/1361-6633/ae4fef",
+        "material_read": "Introduction, one-round bounded-message setup, Section 4.2 Double trine, Table 1, conclusion.",
+        "method": "Full-text arXiv HTML plus open-access journal PDF; Table 1 was visually inspected.",
+        "title": "Structure of quantum measurements implementable with one round of classical communication",
+        "trigger": "Direct source of the two-symbol numerical gap."
+      },
+      {
+        "assessment": "NOT_COVERING: solves unrestricted one-way LOCC with a three-outcome sender POVM, not the two-symbol message class.",
+        "evidence": "The optimal one-way sender POVM has three outcomes and achieves error 1/2-sqrt(3)/4.",
+        "identifier_or_url": "arXiv:1304.1555 / DOI:10.1103/PhysRevA.88.020302",
+        "material_read": "Full-text discussion of the double trine and the one-way LOCC optimization, including the sender POVM and exact error.",
+        "method": "Open-access published PDF; relevant page was visually inspected.",
+        "title": "Revisiting the optimal detection of quantum information",
+        "trigger": "Canonical analytic double-trine LOCC result that could dominate the claim."
+      },
+      {
+        "assessment": "NOT_COVERING: quotes the same numerical interval without an exact analytic value.",
+        "evidence": "The one-bit adaptive double-trine success is stated only within numerical bounds.",
+        "identifier_or_url": "arXiv:2604.26647",
+        "material_read": "Abstract and double-trine measurement-hierarchy discussion including the one-bit interval.",
+        "method": "arXiv/alphaXiv full-text material.",
+        "title": "Nonclassical traits in multi-copy state discrimination",
+        "trigger": "Later work explicitly quoting the one-bit double-trine benchmark."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c0a86fb-2d99-4832-a68a-07e51b796ef0",
+  "value": {
+    "rationale": "The two-symbol double-trine optimum is a natural communication-cost benchmark highlighted by a recent bounded-message LOCC paper. Closing 0.8976<=P<=0.905 exactly identifies the price of a one-bit sender message and the optimal protocol structure; it is not a routine renaming or an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
