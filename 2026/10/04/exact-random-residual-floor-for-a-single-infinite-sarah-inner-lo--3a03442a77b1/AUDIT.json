@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The SARAH direction is an exact iid product with mean-square multiplier \\(q=(1-\\alpha)^2+\\alpha^2h^2\\), so \\(q<1\\) is exactly \\(0<\\alpha<2/(1+h^2)\\). In that range the iterate is an absolutely summable perpetuity. Its moment fixed-point equation gives \\(\\mathbb E[x_\\infty^2]=x_0^2\\alpha h^2/[2-\\alpha(1+h^2)]\\). At \\(\\alpha=1\\), the cumulative product signs are iid Rademachers; for \\(h=1/2\\) their binary expansion is uniform on \\([-1,1]\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1703.00102v1",
+        "arXiv:1906.02351v1",
+        "arXiv:1908.09345v1"
+      ],
+      "reasoning": "The broader convergence results are for finite inner loops, averaged outputs, or repeated outer resets. Those mechanisms can restore convergence and therefore do not dominate the deliberately infinite single-loop statement.",
+      "searches": [
+        "SARAH infinite inner loop last iterate does not converge optimum",
+        "SARAH scalar quadratic recursive gradient exact convergence",
+        "SARAH single inner loop quadratic limit",
+        "SARAH random limit optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1703.00102v1",
+      "arXiv:1906.02351v1",
+      "arXiv:1908.09345v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1703.00102v1 full text, Algorithm 1 and Section 3.1",
+        "arXiv:1906.02351v1 full text, last-iteration SARAH discussion and finite-loop analysis",
+        "arXiv:1908.09345v1 full text, Section 3.3 on weighted averaging for SARAH"
+      ],
+      "reasoning": "The original paper proves linear decay of \\(v_t\\) inside an inner loop but does not infer convergence of an indefinitely continued iterate. The later last-iterate theorem applies to endpoints of finite loops across repeated outer iterations, and the averaging paper modifies finite-loop output selection. Neither prior statement implies the infinite-loop random residual.",
+      "searches": [
+        "SARAH Algorithm 1 inner loop linear convergence v_t",
+        "On the Convergence of SARAH and Beyond last iteration finite inner loop",
+        "Almost Tune-Free Variance Reduction SARAH weighted averaging estimator bias",
+        "SARAH infinite inner loop random residual"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1703.00102v1",
+        "arXiv:1906.02351v1",
+        "arXiv:1908.09345v1"
+      ],
+      "reasoning": "The natural equivalent formulation is a random affine perpetuity driven by the SARAH component-curvature multiplier. The inspected optimization sources do not formulate the one-loop iterate limit this way or give the resulting exact moments.",
+      "searches": [
+        "SARAH single inner loop scalar quadratic random limit residual variance",
+        "SARAH gradient estimator converges but iterate biased random limit quadratic",
+        "SARAH Bernoulli convolution quadratic",
+        "stochastic recursive gradient multiplicative product quadratic residual floor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published table or formula matching the residual floor or uniform-limit example was identified by the focused searches."
+      ],
+      "reasoning": "The closest database hits concerned unrelated stochastic quadratic recurrences, random-delay methods, or other residual-floor phenomena. None used the SARAH recursive estimator or implied the perpetuity law.",
+      "searches": [
+        "SARAH two-component heterogeneous quadratic exact residual floor",
+        "SARAH Bernoulli convolution quadratic",
+        "SARAH single inner loop scalar quadratic random limit residual variance",
+        "stochastic recursive gradient multiplicative product quadratic residual floor"
+      ]
+    },
+    "rationale": "The inspected SARAH papers cover direction decay, finite-loop last-iterate convergence with outer resets, and finite-loop averaging, but do not state the infinite-loop residual perpetuity, exact residual floor, or uniform limiting example.",
+    "residual_risks": [
+      "Equivalent perpetuity calculations may exist in stochastic-recursion literature under terminology not mentioning SARAH.",
+      "The result does not address unequal component minimizers, which would add an affine noise term.",
+      "The finding must not be interpreted as a failure of the standard restarted SARAH algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "The paper proves linear convergence of the recursive direction inside a single inner loop and motivates stopping by its norm, but the inspected text does not derive the limiting iterate distribution of an infinite loop.",
+        "identifier_or_url": "arXiv:1703.00102v1",
+        "material_read": "Full open-access HTML: Algorithm 1, equations defining the recursive estimator and iterate update, Section 3.1 on a single inner loop, and SARAH+ stopping discussion.",
+        "method": "Open-access full-text inspection.",
+        "title": "SARAH: A Novel Method for Machine Learning Problems Using Stochastic Recursive Gradient",
+        "trigger": "Defining source for the recursive estimator and the claimed inner-loop direction convergence."
+      },
+      {
+        "assessment": "FINITE_LOOP_RESTART_THEORY_NOT_COVERING.",
+        "evidence": "Its last-iterate result concerns finite SARAH inner-loop endpoints used across outer iterations with renewed reference gradients. It does not analyze one inner loop continued indefinitely.",
+        "identifier_or_url": "arXiv:1906.02351v1",
+        "material_read": "Full open-access HTML: recap of SARAH, last-iteration contribution, finite inner-loop endpoint analysis, and discussion of loopless restarts.",
+        "method": "Open-access full-text inspection.",
+        "title": "On the Convergence of SARAH and Beyond",
+        "trigger": "Strongest plausible source on SARAH last-iterate convergence."
+      },
+      {
+        "assessment": "FINITE_LOOP_AVERAGING_NOT_COVERING.",
+        "evidence": "The paper improves finite-loop output selection and notes a nonzero bias correction in SARAH analysis, but does not state an infinite-loop residual floor or Bernoulli-convolution limit.",
+        "identifier_or_url": "arXiv:1908.09345v1",
+        "material_read": "Full open-access HTML: Section 3.3 on weighted averaging for SARAH, estimate-sequence bias term, convergence theorem, and implementation discussion.",
+        "method": "Open-access full-text inspection.",
+        "title": "Almost Tune-Free Variance Reduction",
+        "trigger": "Highly relevant follow-up studying SARAH output averaging and estimator bias."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a03442a-77b1-4006-b571-65299deab5d8",
+  "value": {
+    "rationale": "SARAH's central inner-loop property is shrinking recursive directions. The exact residual law shows that this property alone does not certify optimization accuracy: for heterogeneous curvatures the direction may vanish geometrically while the iterate retains a strictly positive random error. The step-size dependence and the exact uniform example provide a sharp diagnostic for why finite inner loops and reference-gradient resets matter.",
+    "status": "PASS"
+  }
+}
