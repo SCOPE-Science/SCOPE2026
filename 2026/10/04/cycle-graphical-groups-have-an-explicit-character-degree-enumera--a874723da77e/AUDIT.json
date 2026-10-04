@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every proper support, the weighted cycle breaks into path components and each nonzero path run of length r has rank 2 ceil(r/2). The three-state cyclic transfer matrix counts these supports exactly and its two nonzero eigenvalues satisfy the Lucas recurrence with parameter q(q-1)u. For full support, odd cycles always have corank one, while even cycles have full rank unless their two perfect-matching Pfaffian monomials cancel; exactly (q-1)^(n-1) all-nonzero assignments cancel, and those matrices have rank n-2. These cases give the stated formulas. For odd q, the established class-two character-rank theorem multiplies each rank count by q^(n-2i). The packaged checker independently reproduces exact matrix ranks over F2, F3, F4, and F5 in seven cases and verifies the character sum-of-squares identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rossmann explicitly lists known polynomial character formulas for edgeless graphs, paths, and complete graphs.",
+        "O'Brien--Voll provides a general conversion from commutator-matrix rank counts to character multiplicities but does not enumerate cycle ranks.",
+        "Rossmann states that it is unclear whether the rank-count method can answer the character-enumeration question in general."
+      ],
+      "reasoning": "The general character theorem does not dominate the final claim because the hard input is the exact cycle rank distribution. The known path formula handles proper support components but not the cyclic full-support Pfaffian correction, especially the even-cycle cancellation.",
+      "searches": [
+        "Rossmann Question 1.10 graphical groups characters paths complete",
+        "O'Brien Voll Theorem B graphical group antisymmetric rank character degrees",
+        "generic antisymmetric graph matrix rank distribution finite field cycle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.05564v1",
+      "DOI:10.1112/blms.12665",
+      "arXiv:1203.3050"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rossmann reduces character enumeration to rank counts up to an explicit q-power but leaves those counts open beyond the listed families.",
+        "O'Brien--Voll gives ch_if(G)=nu_if(G)|G/G'|q^(-2i), so for a cycle graphical group the missing input is exactly the rank-count function rho_i(C_n;q).",
+        "The final proof supplies rho_i(C_n;q) uniformly for every n>=5 and every finite field."
+      ],
+      "reasoning": "The final theorem is not a formal corollary of the two prior sources: they identify the correct matrix-counting problem but do not solve it for cycles. The transfer-matrix enumeration and the full-support Pfaffian analysis are the new implication-producing steps.",
+      "searches": [
+        "arXiv:2107.05564 Question 1.10 antisymmetric rank",
+        "arXiv:1203.3050 Theorem B character rank commutator matrix",
+        "graphical groups cycles character enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rossmann, arXiv:2107.05564v1, Section 1.6 formulates character enumeration through ranks of generic antisymmetric graph matrices.",
+        "The inspected literature searches did not locate a finite-field weighted-cycle rank enumerator with the displayed odd/even correction terms.",
+        "The closest semantic database results concerned unrelated cycle invariants and graphical groups of different families."
+      ],
+      "reasoning": "The searches cover the group-theoretic formulation, the antisymmetric-matrix formulation, and the natural skew-adjacency aliases. The even-cycle Pfaffian-cancellation term is a distinctive part of the statement, reducing the risk that a title-only mismatch hid an exact equivalent formula.",
+      "searches": [
+        "graphical groups cycle graph irreducible characters character degrees",
+        "cycle graphical group character enumeration rank distribution skew adjacency",
+        "weighted cycle antisymmetric matrix rank distribution finite field",
+        "character degrees graphical group C_n finite field",
+        "Question 1.10 graphical groups cycles",
+        "\"cycle graph\" \"antisymmetric matrix\" rank finite field",
+        "\"weighted cycle\" skew matrix rank finite field",
+        "\"graphical group\" cycle irreducible characters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched database record gave the coefficient formula A_{n,j} [q(q-1)]^j together with the full-support corrections.",
+        "Rossmann's small-graph tables concern conjugacy-class enumeration rather than the character-rank distribution claimed here.",
+        "No located source tabulated the displayed rank vectors even for the visible boundary cases C5 through C8."
+      ],
+      "reasoning": "Exact-formula and low-parameter searches were included because a table or small-case formula could subsume the most visible specializations. None was located.",
+      "searches": [
+        "\"C_n\" graphical group character degree",
+        "\"cycle\" graphical group rank distribution",
+        "\"cycle graph\" skew adjacency rank distribution finite field",
+        "\"Pfaffian\" weighted cycle finite field rank"
+      ]
+    },
+    "rationale": "Rossmann's primary paper explicitly poses the graphical-group character-enumeration problem and lists polynomial solutions for edgeless graphs, paths, and complete graphs, but not cycles. It also identifies antisymmetric rank counting as the relevant route and states that the general effectiveness of that route is unclear. The final theorem supplies a closed rank enumerator for the natural unicyclic cycle family and hence an explicit character-degree formula for odd q. Targeted database and literature searches found no equivalent cycle theorem.",
+    "residual_risks": [
+      "An equivalent weighted-cycle rank enumerator may appear in finite-matrix or Pfaffian literature without graphical-group terminology.",
+      "The character formula relies on the established odd-characteristic class-two character-rank theorem and is not asserted for even q.",
+      "Failed searches do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OPEN_PROBLEM_ANCHOR_NOT_CYCLE_COVERAGE",
+        "evidence": "Cycles are not among the listed solved character families, and the author states that the effectiveness of the rank-count approach for Question 1.10 is unclear.",
+        "identifier_or_url": "arXiv:2107.05564v1",
+        "material_read": "Public full text, especially Section 1.6 containing Question 1.10, the list of known edgeless/path/complete cases, the definition of the generic antisymmetric matrix B_Gamma(Y), and the discussion reducing character counts to rank counts.",
+        "method": "Full-text statement, hypothesis, and implication comparison.",
+        "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+        "trigger": "Primary middle-cohort source explicitly posing the character-enumeration question for graphical groups."
+      },
+      {
+        "assessment": "GENERAL_CONVERSION_THEOREM_NOT_CYCLE_RANK_ENUMERATION",
+        "evidence": "The source supplies the general rank-to-character multiplicity factor but contains no cycle-specific evaluation of the required antisymmetric rank counts.",
+        "identifier_or_url": "arXiv:1203.3050",
+        "material_read": "Theorem B and its proof discussion, including the formula ch_if(G)=nu_if(G)|G/G'|q^(-2i) and the Kirillov-orbit interpretation.",
+        "method": "Full-text theorem and formula inspection.",
+        "title": "Enumerating classes and characters of p-groups",
+        "trigger": "Critical general theorem converting commutator-matrix ranks into character multiplicities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a874723d-a77e-48f5-87f8-020830e25068",
+  "value": {
+    "rationale": "The theorem gives a closed answer for an infinite natural graph family to an explicit character-enumeration problem. Cycles are the first connected unicyclic family after paths, and the even-cycle case introduces a genuine Pfaffian cancellation that is not present in path forests. The result therefore extends the solved landscape structurally rather than by a routine parameter increment, while also producing explicit irreducible-character multiplicities for all odd finite fields.",
+    "status": "PASS"
+  }
+}
