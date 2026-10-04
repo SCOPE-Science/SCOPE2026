@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "A fixed u-v path of length k is contained in (k+1)n^(n-k-2) labeled trees by the classical forest-extension formula. Adding any r prescribed off-path neighbors of u changes the path component size from k+1 to k+1+r and gives the exact inclusion probability ((k+1+r)/(k+1))n^(-r). Summing these probabilities yields the factored pgf. An explicit coupling proves strict stochastic decrease in k, and exact moment algebra gives the covariance identity and asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman proves the general forest-extension formula for arbitrary fixed forests.",
+        "Aldous studies degree distribution and diameter in uniform spanning and labeled trees.",
+        "Berzunza Ojeda--Janson develop distance profiles and root-degree conditioning for simply generated trees."
+      ],
+      "reasoning": "These sources cover broader enumeration or broader random-tree observables, but the inspected statements do not derive the finite conditional endpoint-degree law at a fixed marked-pair distance.",
+      "searches": [
+        "Berkeley-TR-457",
+        "DOI:10.1137/0403039",
+        "DOI:10.1017/S0963548321000304"
+      ]
+    },
+    "checked_sources": [
+      "Berkeley-TR-457",
+      "DOI:10.1006/jcta.1998.2919",
+      "DOI:10.1137/0403039",
+      "DOI:10.1017/S0963548321000304",
+      "DOI:10.1017/S0963548318000457"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier spanning-tree result concerns edge-indicator covariance and precision, not marked-vertex degree conditioned on pair distance.",
+        "The marginal Prüfer degree law does not determine the conditional degree law given distance.",
+        "A distance profile does not determine the degree-distance joint distribution.",
+        "The forest formula supplies the counting ingredient, but the pgf factorization and stochastic-regression consequence require the specialized augmented-forest calculation."
+      ],
+      "reasoning": "Neither marginal law implies the joint theorem. The proof uses a hierarchy of augmented fixed forests to recover all conditional subset moments and identify the distribution.",
+      "searches": [
+        "uniform spanning tree edge indicator precision",
+        "published Cayley degree distribution Prüfer",
+        "published Cayley distance profile",
+        "Moon forest extension formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned generic tree-degree and tree-distance results but no random-Cayley degree-distance theorem.",
+        "Web searches returned degree or distance literature separately, with no matching conditional binomial-plus-Bernoulli law."
+      ],
+      "reasoning": "The searches cover joint distribution, covariance, conditional law, stochastic order, and negative-regression aliases. The comparison also uses full-text inspection of the exact forest-count source and the modern distance-profile source.",
+      "searches": [
+        "uniform Cayley tree degree of vertex distance between two fixed vertices joint distribution covariance",
+        "random labeled tree conditional degree given distance between vertices",
+        "Cayley tree vertex degree distance covariance exact",
+        "\"degree given distance\" \"random labelled tree\"",
+        "\"conditional degree\" \"Cayley tree\" distance",
+        "\"stochastically decreasing\" degree distance random labelled tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula matching the pgf, conditional mean, or covariance identity was located."
+      ],
+      "reasoning": "The finding is symbolic for all n and all admissible distances and includes stochastic-order consequences; it is not a finite-table recomputation.",
+      "searches": [
+        "\"Binomial\" \"Bernoulli\" Cayley tree degree distance",
+        "\"degree-distance\" Cayley tree exact",
+        "\"Cov(D,degree)\" random tree",
+        "\"distance\" \"degree\" \"uniform labelled tree\" joint distribution"
+      ]
+    },
+    "rationale": "The strongest directly inspected classical source covers the general forest-containment enumeration but not the degree-distance specialization. Later random-tree sources study degree distributions, diameter, distance profiles, or root-degree conditioning separately. No inspected source states the exact conditional pgf, strict stochastic regression, or covariance limit.",
+    "residual_risks": [
+      "Older work of Moon, Rényi, or later enumerative tree literature may contain the same bivariate degree-distance distribution under a generating-function encoding.",
+      "The general forest-extension count is classical; originality rests on the exact specialization, pgf factorization, stochastic regression, and covariance asymptotics.",
+      "Primary MSC 60C05 ownership is supported by modern probability literature on uniform random labeled trees; older foundational sources may use older classification labels."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FOREST_CONTAINMENT_PRIOR_NOT_CONDITIONAL_DEGREE_DISTANCE",
+        "evidence": "Lemma 3 states that a forest with component sizes n_i is contained in (product n_i)n^(k-2) labeled trees. The inspected paper does not state the conditional endpoint-degree distribution given a marked-pair distance.",
+        "identifier_or_url": "Berkeley-TR-457 / DOI:10.1006/jcta.1998.2919",
+        "material_read": "Full PDF, especially Section 2.2 and Lemma 3 on trees containing a fixed forest, together with the surrounding rooted-forest enumeration.",
+        "method": "Compared the exact component-size containment formula with the marked-path and augmented-path counts needed here, and searched for degree-distance statements.",
+        "title": "Coalescent Random Forests",
+        "trigger": "Primary source reproducing the exact unrooted forest-extension enumeration used in the proof."
+      },
+      {
+        "assessment": "DEGREES_AND_DIAMETER_SEPARATELY_NOT_JOINT_LAW",
+        "evidence": "The abstract lists degree distribution and diameter, but no conditional law coupling a fixed endpoint degree to a fixed-pair distance.",
+        "identifier_or_url": "DOI:10.1137/0403039",
+        "material_read": "Publisher abstract, metadata, subject classifications, and reference context.",
+        "method": "Checked whether the stated scope included a joint finite degree-distance law.",
+        "title": "The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+        "trigger": "Classical random-tree source explicitly listing degree distribution and diameter among studied observables."
+      },
+      {
+        "assessment": "DISTANCE_PROFILE_AND_ROOT_DEGREE_FRAMEWORK_NOT_FIXED_PAIR_CONDITIONAL_LAW",
+        "evidence": "The article studies distance profiles and branch structure conditional on root degree. The inspected statements do not give degree conditioned on distance to another fixed label.",
+        "identifier_or_url": "DOI:10.1017/S0963548321000304",
+        "material_read": "Full open text, including definitions of degree and distance, the labeled-tree specialization, and statements conditioning on root degree.",
+        "method": "Compared its conditioning direction and asymptotic profile results with the exact finite Cayley conditional degree law.",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Modern full-text source treating distance profiles and root-degree conditioning in the same broad random-tree framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9ddfb06-a9ae-475b-b82b-91fd6636a31c",
+  "value": {
+    "rationale": "Degree and graph distance are canonical local and global observables of uniform labeled trees. A complete conditional law and monotone-regression theorem provide substantially more information than separate marginal distributions, and the covariance/correlation asymptotics expose a non-obvious separation between order-one dependence and vanishing correlation.",
+    "status": "PASS"
+  }
+}
