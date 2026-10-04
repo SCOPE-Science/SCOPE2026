@@ -1,0 +1,110 @@
+{
+  "claim": "For the Xu–Shekofteh–Akgül–Li–Panahi quadratic flow with positive parameters\n\\(\\dot x=gz\\), \\(\\dot y=d x^2+e y^2-f\\), and \\(\\dot z=-a x-bx^2+c y^2\\), define \\(A=be+cd\\), \\(\\Delta=\\sqrt{a^2e^2+4Acf}\\), and \\(x_\\pm=(-ae\\pm\\Delta)/(2A)\\). The positive root \\(x_+\\) always yields exactly two equilibria \\((x_+,\\pm\\sqrt{(f-dx_+^2)/e},0)\\). The negative root is admissible exactly when \\(b\\sqrt{f/d}\\ge a\\): there are two equilibria if the inequality is false, three at equality, and four if it is strict. Every equilibrium is linearly unstable. For every compactly supported invariant probability measure \\(\\mu\\), writing \\(q=\\int x^2\\,d\\mu\\), one has \\(d q+e\\int y^2\\,d\\mu=f\\), \\(\\int z\\,d\\mu=0\\), \\(\\int x\\,d\\mu=(cf-Aq)/(ae)\\), and the exact variance factorization\n\\[\\operatorname{Var}_\\mu(x)=\\frac{A^2}{a^2e^2}(q-x_+^2)(x_-^2-q).\\]\nHence \\(x_+^2\\le q\\le\\min\\{x_-^2,f/d\\}\\), with equality at the lower endpoint exactly for invariant measures supported on the two \\(x_+\\)-equilibria. At the published parameter set \\((a,b,c,d,e,f,g)=(4,1,1,1,1,4,1)\\), the actual equilibria are \\((\\sqrt3-1,\\pm\\sqrt{2\\sqrt3},0)\\), approximately \\((0.73205,\\pm1.86121,0)\\). The source's printed ordinates \\(\\pm3.4641\\) are not equilibria; \\(3.4641\\) is the rounded value of \\(y^2=2\\sqrt3\\). Its printed eigenvalues instead agree with the corrected equilibria.",
+  "correctness": {
+    "rationale": "Exact elimination yields \\(Ax^2+aex-cf=0\\) with \\(A=be+cd\\); feasibility of \\(x_-\\) is equivalent to \\(b\\sqrt{f/d}\\ge a\\). The characteristic polynomial was reconstructed symbolically and each equilibrium branch was shown to possess a right-half-plane eigenvalue. Stationary coordinate balances and the variance factorization were independently replayed by the packaged symbolic checker. The source-parameter corrected equilibria reproduce the published eigenvalues, whereas the printed ordinates fail the source equilibrium equation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The introducing article explains the self-excited/hidden distinction through equilibrium neighborhoods and uses equilibrium stability as part of its classification.",
+        "Related literature contains exact balance laws for other classical flows, showing the general technique is meaningful but not source-specific coverage."
+      ],
+      "reasoning": "General equilibrium analysis and invariant-measure balance methods do not imply the coefficients, threshold, corrected coordinates, or factorized variance law of this system.",
+      "searches": [
+        "chaotic flow equilibrium stability self-excited attractor exact parameter classification",
+        "compact invariant measure stationary moment identities quadratic chaotic flow",
+        "self-excited hidden attractor equilibrium basin definition"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/e20020086",
+      "pmcid:PMC7512649",
+      "OpenAlex W2793097237",
+      "MSC2020 37C10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source treats one numerical parameter set and concludes that its two equilibria are saddle-foci.",
+        "The source does not derive the three-regime two/three/four equilibrium count or rule out stable equilibria throughout the positive parameter family.",
+        "No inspected source states the compact-invariant-measure shell dq+e<y^2>=f together with the factorized x-variance law."
+      ],
+      "reasoning": "The accepted theorem requires additional elimination, feasibility analysis, Routh-Hurwitz algebra, and invariant-measure arguments that are not consequences explicitly contained in the inspected source statements.",
+      "searches": [
+        "A New Chaotic System with a Self-Excited Attractor positive parameters equilibria",
+        "e20020086 stationary measure variance",
+        "Xu Shekofteh system complete equilibrium geometry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text gives the same equations and the printed points (0.7321, ±3.4641, 0), but no square-root correction or general parameter theorem.",
+        "Exact-coordinate and DOI searches surfaced the introducing article and bibliographic mirrors rather than a correction or equivalent derivation.",
+        "Searches for the stationary identities and variance structure returned balance-law results for different dynamical systems, not this vector field."
+      ],
+      "reasoning": "An equivalent result would need to recover the same quadratic elimination, the threshold b sqrt(f/d)=a, universal equilibrium instability, or the same invariant-measure variance factorization. No inspected source did so.",
+      "searches": [
+        "A New Chaotic System with a Self-Excited Attractor equilibrium correction 0.7321 3.4641",
+        "10.3390/e20020086 equilibria correction erratum",
+        "xdot=gz ydot=d x^2+e y^2-f zdot=-a x-b x^2+c y^2 equilibrium stability",
+        "Xu Shekofteh Akgul Li Panahi stationary invariant measure moment identity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full-text mirror reproduces Equation (2), the printed fixed points, Jacobian, and eigenvalues.",
+        "Direct substitution of the printed positive ordinate into Equation (2) gives residual approximately 8.53595922.",
+        "The corrected ordinate |y|=sqrt(2 sqrt(3)) reproduces the article's quoted eigenvalues to the shown precision."
+      ],
+      "reasoning": "The discrepancy is not a difference of convention: the printed coordinates fail the source's own algebraic equilibrium equations, while the spectrum identifies the corrected coordinates.",
+      "searches": [
+        "0.7321 3.4641 3.9784 2.5428 chaotic",
+        "PMC7512649 Equation 2 equilibria 0.7321 3.4641",
+        "Entropy 2018 20 86 fixed points eigenvalues"
+      ]
+    },
+    "rationale": "The primary article contains the vector field, specialized equilibrium equations, printed coordinates, Jacobian, and numerical eigenvalues, but not the complete positive-parameter equilibrium classification, the universal instability theorem, or the stationary variance factorization. The printed ordinates are inconsistent with the displayed equilibrium equations. Targeted exact-title, DOI, coordinate, coefficient, formula, alias, and implication searches found no inspected equivalent derivation.",
+    "residual_risks": [
+      "An unindexed erratum, thesis, or later citing paper may contain part of the same correction or parameter classification.",
+      "The theorem concerns exact flow geometry and stationary constraints; it does not certify the article's numerical chaotic attractor or basin classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source provides the equations and numerical local analysis but not the accepted general theorem. Its printed y-coordinate is inconsistent with Equation (2), while its eigenvalues match the corrected square-root coordinate.",
+        "evidence": [
+          "Published 27 January 2018.",
+          "Equation (1) is xdot=gz, ydot=d x^2+e y^2-f, zdot=-a x-b x^2+c y^2.",
+          "For (a,b,c,d,e,f,g)=(4,1,1,1,1,4,1), Equation (2) is z=0, x^2+y^2=4, and -4x-x^2+y^2=0.",
+          "The paper prints equilibria (0.7321, ±3.4641, 0) and eigenvalues 3.9784, -0.12798±2.5428i on one branch."
+        ],
+        "identifier_or_url": "doi:10.3390/e20020086",
+        "material_read": "Full-text HTML and full-text mirror sections containing the system equations, Equation (2) equilibrium conditions, printed equilibrium coordinates, Jacobian, eigenvalues, bifurcation discussion, and publication metadata.",
+        "method": "Direct full-text inspection plus exact-title, DOI, coordinate, coefficient, alias, and implication searches.",
+        "title": "A New Chaotic System with a Self-Excited Attractor: Entropy Measurement, Signal Encryption, and Parameter Estimation",
+        "trigger": "Primary source introducing the exact quadratic flow and its equilibrium analysis."
+      },
+      {
+        "assessment": "37C10 is 'Dynamics induced by flows and semiflows', matching the theorem's primary content and belonging to the permitted 37 branch.",
+        "evidence": [
+          "MSC2020 lists 37C10 under smooth dynamical systems: general theory as dynamics induced by flows and semiflows."
+        ],
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html",
+        "material_read": "MSC2020 smooth-dynamical-systems classification table around 37C10.",
+        "method": "Direct database inspection.",
+        "title": "MSC2020 database entry 37C10",
+        "trigger": "Verify primary subject ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36d8041a-8e60-40ed-8483-0440ceb43d29",
+  "value": {
+    "rationale": "Equilibrium geometry directly underpins self-excited/hidden-attractor classification in the source literature. The result corrects a source-level fixed-point coordinate, closes the equilibrium count and instability question for the whole positive parameter family, and supplies a sharp invariant-measure amplitude law whose equality case is exactly characterized. This is a structural theorem rather than a recomputation of one numerical table.",
+    "status": "PASS"
+  }
+}
