@@ -1,0 +1,118 @@
+{
+  "claim": "For every real \\(m\\times m\\) matrix \\(U\\) and \\(\\gamma\\ge 0\\), the balanced bipartite Hamiltonian \\[H_\\gamma(U)=\\begin{pmatrix}i\\gamma I_m&U\\\\U^T&-i\\gamma I_m\\end{pmatrix}\\] is orthogonally similar, after a permutation, to the direct sum \\[\\bigoplus_{j=1}^m\\begin{pmatrix}i\\gamma&\\sigma_j\\\\\\sigma_j&-i\\gamma\\end{pmatrix},\\] where \\(\\sigma_j\\) are the singular values of \\(U\\). Hence \\[\\det(\\lambda I-H_\\gamma)=\\prod_{j=1}^m(\\lambda^2+\\gamma^2-\\sigma_j^2),\\] every eigenvalue lies on the real or imaginary axis, the exact real/imaginary eigenvalue fractions are the empirical singular-value counts above/below \\(\\gamma\\), and for \\(\\gamma>0\\) every exceptional point occurs exactly when \\(\\gamma\\) equals a positive singular value and consists only of independent size-two Jordan blocks; higher-order Jordan blocks cannot occur within this model.",
+  "correctness": {
+    "rationale": "Exact SVD similarity gives independent \\(2\\times2\\) blocks. Their squares and characteristic polynomials prove the spectrum and count formulas. At threshold with \\(\\gamma>0\\), each block is nonzero rank-one nilpotent with square zero, hence exactly \\(J_2(0)\\); multiplicities remain direct sums.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic singular-value embeddings were found, but no inspected source was found that subsumed the model-specific shifted block statement and EP-order census.",
+        "General exceptional-point literature documents higher-order EPs in other systems, confirming that the EP2-only conclusion is a model restriction rather than a generic non-Hermitian fact."
+      ],
+      "reasoning": "Broader block-matrix and exceptional-point searches were used to test whether a stronger theorem already dominated the claim. The standard zero-gain embedding is broader in matrix size but does not itself state the gain/loss threshold/Jordan conclusions; those follow here by an explicit shifted dimer calculation.",
+      "searches": [
+        "\"block matrix\" eigenvalues singular values \"aI\" \"dI\" B B*",
+        "\"eigenvalues\" \"[aI B; B* dI]\" singular values",
+        "\"H^2\" \"U U^T\" \"gamma^2\" non-Hermitian",
+        "\"smallest singular value\" \"PT symmetry breaking\" matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1212.1676",
+      "arXiv:2212.13642",
+      "DOI:10.1063/5.0199771",
+      "DOI:10.1016/j.jmaa.2025.130236",
+      "MSC2020 81Q12 description from the MathSciNet MSC2020 database"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1212.1676 gives two double eigenvalues \\(\\pm\\sqrt{{2k^2-\\gamma^2}}\\) and the threshold \\(\\gamma=\\sqrt{{2}}k\\) for its four-mode linear problem.",
+        "arXiv:2212.13642 gives the target block Hamiltonian with \\(U\\) and \\(U^T\\), explicit \\(N=4\\) formulas, and a numerical larger-N study; it does not state the all-size SVD reduction in the inspected text.",
+        "Higher-order-EP sources concern different couplings/constructions and do not imply a higher-order EP inside this SVD-decoupled family."
+      ],
+      "reasoning": "The archive quadrimer is a special square-root precedent, while the later source supplies the exact large bipartite family. Neither inspected source states the all-size singular-value decomposition or the resulting exclusion of Jordan blocks larger than two. The generic SVD antecedent is explicitly acknowledged rather than claimed as new.",
+      "searches": [
+        "arXiv 1212.1676 parity-time symmetric optical coupler spectrum sqrt(2 k^2 gamma^2)",
+        "arXiv 2212.13642 bipartite tight-binding losses gain Hamiltonian U U^T",
+        "\"Stability mapping of bipartite tight-binding graphs\" SVD",
+        "\"higher-order exceptional points\" bipartite gain loss singular values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Standard Jordan-Wielandt/Hermitian dilation was located for the zero-gain block matrix, establishing that this antecedent must not be presented as novel.",
+        "No inspected source from these searches stated the balanced imaginary-diagonal shift together with the exact real/imaginary counts and EP2 decomposition for the target model.",
+        "The full text of arXiv:2212.13642 contained no occurrence of the term “singular” in the inspected searchable text."
+      ],
+      "reasoning": "The exact target claim is not merely the standard zero-gain dilation: it is the model-specific gain/loss reduction and its exceptional-point consequences. Searches covered formula aliases, SVD terminology, and the dimer formulation.",
+      "searches": [
+        "\"sigma_j^2 - gamma^2\" PT symmetric bipartite",
+        "\"singular values\" \"iγ\" bipartite Hamiltonian",
+        "\"Jordan-Wielandt\" shifted diagonal blocks eigenvalues",
+        "balanced bipartite gain-loss Hamiltonian orthogonal similarity direct sum 2x2 dimers singular values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The model paper itself was inspected at its block Hamiltonian, N=4 formulas, and large-N discussion; it treats larger-size real/imaginary fractions numerically.",
+        "Semantic database searches returned no matching published finding for this exact correction/application; the closest returned items concerned unrelated singular-value or spectral problems.",
+        "A final full-claim semantic search returned no matching finding; its top hit was an unrelated dimer-induced Sturm-gap result for disordered Jacobi matrices."
+      ],
+      "reasoning": "The most direct database test used the source title/arXiv identifier plus SVD/singular-value terms and a full claim paraphrase. No exact table, correction, or model-specific theorem was located.",
+      "searches": [
+        "\"Stability mapping of bipartite tight-binding graphs\" \"singular value\"",
+        "\"2212.13642\" singular value",
+        "\"2212.13642\" SVD",
+        "Moreno-Rodriguez Martinez-Martinez Mendez-Bermudez Benisty bipartite gain loss Hamiltonian singular values exact spectrum correction",
+        "For balanced bipartite gain-loss Hamiltonian H=[i gamma I,U;U^T,-i gamma I], SVD reduces H to independent 2x2 dimers, spectrum is plus/minus sqrt(sigma_j^2-gamma^2), real/imaginary fractions are singular-value counts, and exceptional points are only size-2 Jordan blocks"
+      ]
+    },
+    "rationale": "Originality is asserted narrowly for the explicit all-size SVD reduction and EP/count consequences for the inspected balanced bipartite gain-loss model. Standard zero-gain Jordan-Wielandt theory is acknowledged as prior art. Multiple exact-title, formula, alias, and semantic searches plus direct inspection of the closest model paper did not locate the claimed application or correction.",
+    "residual_risks": [
+      "Because the decisive algebra is short, an equivalent application may exist under terminology not surfaced by the searches.",
+      "The phrase “analytic diagonalization” can mean a closed formula in raw matrix entries; the finding claims exact SVD reduction and spectral classification, not radicals for arbitrary singular values.",
+      "The originality assessment is model-specific and does not claim novelty for SVD, Hermitian dilation, or Jordan canonical form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a four-mode square-root precedent but not the arbitrary bipartite-coupling SVD reduction.",
+        "evidence": "The linear spectrum is stated as two double eigenvalues \\(\\pm\\sqrt{{2k^2-\\gamma^2}}\\), real below \\(\\gamma=\\sqrt{{2}}k\\).",
+        "identifier_or_url": "arXiv:1212.1676",
+        "material_read": "ArXiv abstract/submission history and the linear-problem section containing the spectrum and critical gain/loss value.",
+        "method": "Direct full-text inspection of the public arXiv HTML rendering.",
+        "title": "Parity-time symmetric optical coupler with birefringent arms",
+        "trigger": "Archive-cohort PT-symmetric finite-mode source exhibiting a square-root symmetry-breaking threshold."
+      },
+      {
+        "assessment": "The source formulates exactly the matrix family in the claim. It analytically treats \\(N=4\\) and numerically studies larger sizes. No SVD/singular-value reduction was found in the inspected text.",
+        "evidence": "The text writes the Hamiltonian with diagonal blocks \\(\\pm i\\gamma I\\) and off-diagonal blocks \\(U,U^T\\); later it states that the random Hamiltonian is not analytically diagonalized for large network sizes and studies larger-size spectral fractions numerically.",
+        "identifier_or_url": "arXiv:2212.13642; DOI 10.1063/5.0199771",
+        "material_read": "ArXiv abstract/submission history; block Hamiltonian section; PT and pseudo-Hermitian cases; N=4 analytic formulas; larger-N numerical discussion.",
+        "method": "Direct full-text inspection of the public arXiv HTML rendering plus title/arXiv-specific searches.",
+        "title": "Stability mapping of bipartite tight-binding graphs with losses and gain: PT-symmetry and beyond",
+        "trigger": "Closest model-specific source: equal bipartition, balanced scalar gain/loss, and off-diagonal blocks \\(U\\) and \\(U^T\\)."
+      },
+      {
+        "assessment": "Confirms that the zero-gain singular-value embedding is standard; the finding therefore limits originality to the gain/loss model application and consequences.",
+        "evidence": "The article explicitly describes the Jordan-Wielandt embedding as a well-known device for transferring Hermitian eigenvalue results to singular values.",
+        "identifier_or_url": "DOI 10.1016/j.jmaa.2025.130236",
+        "material_read": "Search-exposed remark describing the Jordan-Wielandt/Hermitian embedding as well known and citing standard matrix-analysis references.",
+        "method": "Targeted literature search and inspection of the indexed article text.",
+        "title": "Higher-order singular-value derivatives of real rectangular matrices",
+        "trigger": "Check whether the core singular-value embedding is already standard."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f66eb3c9-75a6-4d3a-ab53-ee777966ba55",
+  "value": {
+    "rationale": "The finding directly converts a published large-size numerical eigenvalue-classification problem into an exact singular-value classification, gives finite-sample real/imaginary fractions and transition locations, and proves an EP2-only rigidity statement. These consequences change how the model’s stability maps can be analyzed and interpreted.",
+    "status": "PASS"
+  }
+}
