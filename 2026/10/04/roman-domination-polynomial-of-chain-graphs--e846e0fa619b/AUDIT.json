@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The four-case partition by placement of label 2 is exhaustive and disjoint. In the two-sided case the unique earliest B-class with a 2 and latest A-class with a 2 exactly determine which canonical classes may contain 0 and which may contain 2; the boundary classes must contain a 2. Multiplying the resulting class enumerators therefore counts each Roman dominating function exactly once. A standard-library brute-force checker independently matched every coefficient for all 255 positive canonical chain profiles through order 9, totaling 3,023,307 assignments and 4,351 coefficient comparisons. The finite check corroborates, but does not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.7251/BIMVI2102355G Theorem 3.4 gives the complete-bipartite polynomial",
+        "doi:10.4230/LIPIcs.MFCS.2023.6 studies minimal Roman dominating functions on split, cobipartite, interval, forest, and chordal classes",
+        "doi:10.1007/s12190-020-01345-4 accessible metadata describes minimum Roman domination rather than an all-weight enumerator",
+        "arxiv:2111.09040 gives a polynomial-time dynamic program for the minimum Roman domination number on convex bipartite graphs, not an all-RDF weight enumerator"
+      ],
+      "reasoning": "A broader theorem covering arbitrary chain graphs would dominate the claim, but none was found in the inspected sources. The known complete-bipartite theorem covers only the canonical one-pair case. The 2023 enumeration problem is for minimal functions, a different object.",
+      "searches": [
+        "Roman domination polynomial graph classes complete bipartite paths cycles",
+        "Roman Census enumerating counting Roman dominating functions graph classes",
+        "Roman domination chain graph algorithm minimum",
+        "Roman domination convex bipartite graph dynamic programming all functions"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.disc.2003.06.004",
+      "doi:10.7251/BIMVI2102355G",
+      "doi:10.1007/s12190-020-01345-4",
+      "doi:10.4230/LIPIcs.MFCS.2023.6",
+      "arxiv:2208.05261",
+      "own ledger through generation p0001_g000016",
+      "published-finding semantic search using the recorded queries",
+      "arxiv:2111.09040"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.7251/BIMVI2102355G supplies only the p=1 complete-bipartite specialization among the inspected statements",
+        "doi:10.1007/s12190-020-01345-4 is the closest same-class optimization source but full text was unavailable",
+        "doi:10.4230/LIPIcs.MFCS.2023.6 counts minimal RDFs and therefore does not determine counts of nonminimal RDFs by weight"
+      ],
+      "reasoning": "Neither a minimum-value algorithm nor a minimal-function enumeration determines the all-function weight polynomial. The complete-bipartite theorem is a genuine covered special case and is excluded from the originality claim.",
+      "searches": [
+        "complete bipartite Roman domination polynomial theorem",
+        "chain graph Roman domination number algorithm",
+        "minimal Roman dominating functions chain graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.7251/BIMVI2102355G (full text inspected; no chain-graph theorem located)",
+        "doi:10.4230/LIPIcs.MFCS.2023.6 and arxiv:2208.05261 (full text inspected; minimal-RDF enumeration on other classes)"
+      ],
+      "reasoning": "Chain graphs are also called Ferrers or nested-neighborhood bipartite graphs in adjacent literature, so alias searches were included. The inspected polynomial paper uses the same all-RDF weight enumerator and supplies the one-pair complete-bipartite specialization, but not the general nested-class factorization.",
+      "searches": [
+        "Roman domination polynomial chain graphs exact all Roman dominating functions",
+        "Roman domination chain graphs polynomial",
+        "chain graph all Roman dominating functions weight enumerator",
+        "Ferrers graph Roman dominating functions enumeration polynomial",
+        "Roman domination chain graph exact polynomial generating function",
+        "nested bipartite graph Roman dominating functions",
+        "Roman census chain graphs Ferrers",
+        "Ferrers graph Roman domination polynomial",
+        "nested bipartite Roman domination polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-finding semantic search returned no direct chain-graph Roman polynomial record; closest Roman records concerned strong/total variants or different graph classes.",
+        "Own current ledger contains a Roman-domination polynomial result for complete multipartite graphs and several chain-graph polynomials for other invariants, but no chain-graph Roman-domination polynomial."
+      ],
+      "reasoning": "The current claim is not a recomputation of an existing own-ledger row or a located exact table. The complete-multipartite Roman row does not imply the chain result because non-complete chain graphs have nested rather than all cross-part adjacencies.",
+      "searches": [
+        "Roman domination polynomial chain graphs exact all Roman dominating functions",
+        "Roman domination chain graphs polynomial",
+        "chain graph all Roman dominating functions weight enumerator",
+        "Ferrers graph Roman dominating functions enumeration polynomial",
+        "Roman domination chain graph exact polynomial generating function",
+        "nested bipartite graph Roman dominating functions",
+        "Roman census chain graphs Ferrers"
+      ]
+    },
+    "rationale": "The originality-bearing statement is the complete all-weight Roman-domination classification and product formula for arbitrary connected chain graphs. The published complete-bipartite formula is explicitly treated as prior coverage. Full-text inspection of the 2021 polynomial paper and the 2023 Roman Census paper found no implication of the general chain formula; the former covers complete bipartite graphs and other operations, while the latter enumerates minimal functions on other graph classes. Targeted semantic searches returned no stronger chain/Ferrers all-weight result. The directly relevant 2020 chain-graph minimum-optimization paper could not be fully inspected, so possible incidental stronger coverage remains a residual risk.",
+    "residual_risks": [
+      "The full text of doi:10.1007/s12190-020-01345-4 was not lawfully accessible during review; although accessible metadata frames it as minimum-weight optimization, an incidental all-function formula cannot be ruled out from metadata alone.",
+      "Poorly indexed older literature may use Ferrers, difference, or nested bipartite terminology without the phrase chain graph.",
+      "Failed semantic searches are not themselves novelty proofs; PASS rests on statement-level comparison with the inspected primary literature plus the absence of stronger coverage in the checked records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SPECIAL_CASE_ONLY",
+        "evidence": "Theorem 3.4 gives the polynomial for complete bipartite graphs. No chain-graph theorem was located in the full text.",
+        "identifier_or_url": "doi:10.7251/BIMVI2102355G",
+        "material_read": "Full accessible PDF, including the complete-bipartite theorem and surrounding results.",
+        "method": "Full-text reading plus in-document search for chain terminology.",
+        "title": "On the Roman Domination Polynomial of Graphs",
+        "trigger": "Same invariant and a graph family that is a special case of chain graphs."
+      },
+      {
+        "assessment": "NOT_IMPLICATION_COVERING",
+        "evidence": "The paper enumerates minimal Roman dominating functions and treats split, cobipartite, interval, forest, chordal, and path cases; the all-RDF weight polynomial on chain graphs is a different object.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.MFCS.2023.6; arxiv:2208.05261",
+        "material_read": "Full accessible paper.",
+        "method": "Full-text reading of abstract, class scope, and enumeration object.",
+        "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+        "trigger": "Closest general enumeration literature for Roman dominating functions."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_ACCESS_RISK",
+        "evidence": "Accessible material frames the paper as the Roman domination decision/minimum-weight problem and reports algorithmic results, but full-text comparison could not be completed.",
+        "identifier_or_url": "doi:10.1007/s12190-020-01345-4",
+        "material_read": "Accessible bibliographic metadata and abstract only; full text was not available from the lawful open sources checked, and institutional retrieval required interactive user input unavailable in this run.",
+        "method": "Open-access search, metadata/abstract inspection, then bounded institutional-access attempt.",
+        "title": "Algorithmic aspects of Roman domination in graphs",
+        "trigger": "Directly relevant standard Roman domination on chain graphs."
+      },
+      {
+        "assessment": "BACKGROUND_DEFINITION",
+        "evidence": "Establishes the standard Roman domination framework; it predates the polynomial invariant and does not by itself imply the chain enumeration formula.",
+        "identifier_or_url": "doi:10.1016/j.disc.2003.06.004",
+        "material_read": "Bibliographic record and standard definition context.",
+        "method": "Primary-source metadata/reference inspection.",
+        "title": "Roman domination in graphs",
+        "trigger": "Foundational definition and archive-date anchor."
+      },
+      {
+        "assessment": "BROADER_CLASS_MINIMUM_ONLY",
+        "evidence": "The paper formulates the objective as finding an optimal Roman dominating function and proves a polynomial-time algorithm for the Roman domination number on line-convex bipartite graphs; it does not define or compute the all-weight Roman domination polynomial.",
+        "identifier_or_url": "arxiv:2111.09040",
+        "material_read": "Accessible full article text, including problem definition, dynamic-programming section, theorem, and conclusion.",
+        "method": "Full-text inspection focused on whether the algorithm enumerates all functions or only optimizes weight.",
+        "title": "Roman Domination in Convex Bipartite Graphs",
+        "trigger": "Broader bipartite graph class containing chain graphs, with standard Roman domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e846e0fa-619b-4dd2-a3ec-a893e7373f04",
+  "value": {
+    "rationale": "The Roman domination polynomial is a named enumerative invariant, and chain graphs are a natural structured family already studied for Roman minimum optimization. The theorem gives the entire weight distribution for every connected chain graph from canonical twin-class data, strictly more information than the minimum value and extending the known complete-bipartite boundary case. The nested-threshold classification is reusable structural information rather than a small numerical increment or arbitrary slice.",
+    "status": "PASS"
+  }
+}
