@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For Rademacher \\(z\\), the coordinate estimator decomposes as \\(D_i=H_{ii}+\\sum_{j\\ne i}H_{ij}z_iz_j\\), so orthogonality of distinct Rademacher monomials gives the exact variance \\(\\sum_{j\\ne i}H_{ij}^2\\). Independent probe averaging divides that variance by \\(m\\), while AdaHessian's bias-corrected RMS weights sum to one. The two-dimensional extremum reduces to a one-variable rational function and has the unique maximizer \\(p=\\kappa/(\\kappa+1)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "AdaHessian motivates RMS momentum as smoothing Hessian diagonal variation and spatial averaging as variance reduction.",
+        "Modern diagonal-estimation analyses show that accuracy improves with diagonal dominance and depends on the off-diagonal matrix part."
+      ],
+      "reasoning": "Those broader results establish why the diagonal estimate is noisy but do not imply that bias-corrected RMS momentum has the exact expected square \\(H_{ii}^2+m^{-1}\\sum_{j\ne i}H_{ij}^2\\) at every iteration. The result is therefore not a restatement of unbiasedness or a generic concentration bound.",
+      "searches": [
+        "AdaHessian Hessian RMS Hutchinson variance",
+        "Hutchinson diagonal estimator off diagonal Frobenius error",
+        "Monte Carlo diagonal estimator diagonal dominance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.00719v1",
+      "DOI:10.1016/j.apnum.2007.01.003",
+      "DOI:10.1137/1.9781611977585.ch32"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The AdaHessian source uses one Hutchinson probe per iteration by default and explicitly allows more probes for greater diagonal accuracy.",
+        "The source squares the spatially averaged diagonal estimate inside a bias-corrected exponential RMS.",
+        "Diagonal-estimator analyses attribute error to off-diagonal matrix energy."
+      ],
+      "reasoning": "Unbiasedness of the instantaneous diagonal estimator does not survive squaring. Combining the known variance identity with the optimizer's exact RMS normalization is necessary to obtain the stated persistent target and sharp conditioning law.",
+      "searches": [
+        "AdaHessian one Hutchinson step per iteration more Hutchinson steps",
+        "AdaHessian root mean square exponential moving average Hessian diagonal",
+        "Hutchinson diagonal estimator off diagonal variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2006.00719v1, Hutchinson diagonal approximation and Hessian RMS construction",
+        "DOI:10.1016/j.apnum.2007.01.003, stochastic matrix-diagonal estimation",
+        "DOI:10.1137/1.9781611977585.ch32, error controlled by the off-diagonal matrix part"
+      ],
+      "reasoning": "Equivalent formulations include an exact mean-square row-norm target, variance-to-curvature leakage through RMS, and a probe-count-controlled inflation factor. The diagonal-estimation literature covers estimator error before this RMS transformation, while the inspected optimizer source does not state the transformed target.",
+      "searches": [
+        "AdaHessian Hutchinson diagonal estimator squared expectation off diagonal row norm",
+        "AdaHessian quadratic Hessian diagonal RMS off diagonal leakage",
+        "Hutchinson diagonal estimator variance sum off diagonal squares AdaHessian",
+        "AdaHessian second moment Hessian diagonal estimator row norm",
+        "adaptive Hessian optimizer Hutchinson estimator bias RMS"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published records found concern row-coherence effects, randomized diagonal-related numerical linear algebra, and other adaptive curvature methods.",
+        "No located AdaHessian-specific record states the row-norm RMS target, the \\(1/m\\) leakage law, or the sharp two-dimensional inflation factor."
+      ],
+      "reasoning": "The closest records use different estimators or different algorithms and do not contain AdaHessian's combination of a Hutchinson diagonal estimate followed by bias-corrected RMS momentum. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "AdaHessian Hutchinson diagonal estimator squared expectation off diagonal row norm",
+        "AdaHessian quadratic Hessian diagonal RMS off diagonal leakage",
+        "Hutchinson diagonal estimator variance sum off diagonal squares AdaHessian",
+        "AdaHessian second moment Hessian diagonal estimator row norm",
+        "adaptive Hessian optimizer Hutchinson estimator bias RMS"
+      ]
+    },
+    "rationale": "The variance structure of Hutchinson diagonal estimation is known in the matrix-estimation literature. The surviving new claim is its exact implication after AdaHessian's RMS momentum: off-diagonal estimator variance becomes a persistent mean-square preconditioner term, with an exact probe-count law and a sharp condition-number inflation formula. The inspected AdaHessian and diagonal-estimation sources do not state this optimizer-level consequence.",
+    "residual_risks": [
+      "The underlying one-probe variance identity is classical; originality rests on the exact AdaHessian RMS consequence and sharp conditioning refinement.",
+      "A specialized implementation note may have observed the same RMS bias without appearing in the indexed literature.",
+      "The public AdaHessian implementation performs absolute-value spatial averaging for blocks larger than one, so the main theorem intentionally uses block size one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_RMS_LEAKAGE_LAW.",
+        "evidence": "The source states the stochastic diagonal estimator and RMS construction but does not identify the expected squared RMS with row energy or provide the condition-number extremum derived here.",
+        "identifier_or_url": "arXiv:2006.00719v1",
+        "material_read": "Open-access full text covering the method overview, Hutchinson diagonal approximation, spatial averaging, Hessian momentum equation, overall AdaHessian preconditioner, and discussion of one versus multiple Hutchinson steps.",
+        "method": "Full-text source inspection and formula comparison.",
+        "title": "AdaHessian: An Adaptive Second Order Optimizer for Machine Learning",
+        "trigger": "Defining source for the Hutchinson approximation, Hessian RMS, probe count, and spatial averaging."
+      },
+      {
+        "assessment": "FOUNDATIONAL_DIAGONAL_ESTIMATION_NOT_COVERING_ADAHESSIAN_RMS.",
+        "evidence": "The work motivates and analyzes stochastic diagonal estimation itself, not the downstream root-mean-square optimizer state.",
+        "identifier_or_url": "DOI:10.1016/j.apnum.2007.01.003",
+        "material_read": "Accessible abstract and bibliographic material describing random-vector diagonal estimation and matrix-vector-product access.",
+        "method": "Published-source inspection.",
+        "title": "An Estimator for the Diagonal of a Matrix",
+        "trigger": "Foundational literature for stochastic diagonal estimation from matrix-vector products."
+      },
+      {
+        "assessment": "STRONG_ESTIMATOR_ERROR_THEORY_NOT_COVERING_RMS_OPTIMIZER_TARGET.",
+        "evidence": "The source controls diagonal-estimation error by off-diagonal energy but does not study AdaHessian's RMS momentum or its exact expected square.",
+        "identifier_or_url": "DOI:10.1137/1.9781611977585.ch32",
+        "material_read": "Published abstract and result summary describing a dimension-independent diagonal-estimation error bound in terms of the matrix with its diagonal removed.",
+        "method": "Published-source inspection.",
+        "title": "A Tight Analysis of Hutchinson's Diagonal Estimator",
+        "trigger": "Strong modern coverage of Hutchinson diagonal error through off-diagonal matrix energy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22bdee1a-f96c-4bf9-8652-5ea9aa04fa25",
+  "value": {
+    "rationale": "AdaHessian's defining design uses a cheap stochastic Hessian diagonal and then an RMS momentum to stabilize it. The theorem shows exactly what that RMS stabilizes around in mean square on a fixed quadratic: not the Hessian diagonal, but a quantity inflated by off-diagonal curvature. The sharp condition-number formula quantifies how large this effect can be, while the \\(1/m\\) law identifies a direct, source-compatible mitigation through additional probes. This distinguishes temporal smoothing from estimator-variance removal and is a natural diagnostic for a second-order adaptive preconditioner.",
+    "status": "PASS"
+  }
+}
