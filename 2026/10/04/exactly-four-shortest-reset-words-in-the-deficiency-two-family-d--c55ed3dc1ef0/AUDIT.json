@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The complete classification follows from the published equality constraints and a direct state check of the two length-three merges. Nonfinal bca exceeds the equality transport budget by one; bcc forces the unique c^{n-3} transport. Prefix and final choices then give exactly four words. Exact BFS for n=5..16 and direct replay for n=5..100 independently stress-test all stated lengths, counts, and targets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2006 defining paper proves the threshold and exhibits one shortest word while its lower-bound proof gives the equality constraints used here.",
+        "The 2015 algorithm paper studies exact computation of a shortest reset word or length and does not state an all-optimal-word formula for this family."
+      ],
+      "reasoning": "General shortest-reset-word algorithms return an optimum word or length but do not imply a count or complete description of all optimum words for D_n. Generic language-theoretic results on minimal reset words do not specialize to the four-word formula.",
+      "searches": [
+        "\"D_n\" \"shortest reset words\" Ananichev Volkov Zaks",
+        "\"letter of deficiency 2\" \"shortest reset words\" four",
+        "\"number of shortest reset words\" synchronizing automata",
+        "\"all shortest reset words\" synchronizing automata",
+        "DOI 10.1007/11779148_39 full text",
+        "DOI 10.1007/s10878-013-9682-0 full text"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/11779148_39",
+      "doi:10.1016/j.tcs.2007.01.010",
+      "doi:10.1007/s10878-013-9682-0",
+      "published literature on languages of factor-minimal reset words"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 defining paper proves the threshold and exhibits one shortest word while its lower-bound proof gives the equality constraints used here.",
+        "The 2015 algorithm paper studies exact computation of a shortest reset word or length and does not state an all-optimal-word formula for this family."
+      ],
+      "reasoning": "The published threshold plus one witness does not imply uniqueness or multiplicity. The new step is an equality-case analysis of the lower-bound proof that rules out nonfinal bca and forces each transport, leaving exactly four words.",
+      "searches": [
+        "\"D_n\" \"shortest reset words\" Ananichev Volkov Zaks",
+        "\"letter of deficiency 2\" \"shortest reset words\" four",
+        "\"number of shortest reset words\" synchronizing automata",
+        "\"all shortest reset words\" synchronizing automata",
+        "DOI 10.1007/11779148_39 full text",
+        "DOI 10.1007/s10878-013-9682-0 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2006 defining paper proves the threshold and exhibits one shortest word while its lower-bound proof gives the equality constraints used here.",
+        "The 2015 algorithm paper studies exact computation of a shortest reset word or length and does not state an all-optimal-word formula for this family."
+      ],
+      "reasoning": "Searches covered the family symbol, author names, deficiency-two terminology, shortest/minimal reset-word language, and multiplicity. Literature using “minimal reset words” studies factor-minimal reset words, which is not equivalent to shortest reset words.",
+      "searches": [
+        "\"D_n\" \"shortest reset words\" Ananichev Volkov Zaks",
+        "\"letter of deficiency 2\" \"shortest reset words\" four",
+        "\"number of shortest reset words\" synchronizing automata",
+        "\"all shortest reset words\" synchronizing automata",
+        "DOI 10.1007/11779148_39 full text",
+        "DOI 10.1007/s10878-013-9682-0 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2006 defining paper proves the threshold and exhibits one shortest word while its lower-bound proof gives the equality constraints used here.",
+        "The 2015 algorithm paper studies exact computation of a shortest reset word or length and does not state an all-optimal-word formula for this family."
+      ],
+      "reasoning": "The defining paper’s displayed witness and threshold do not tabulate optimum-word multiplicity. No inspected census or database entry gives the four-word set or target split for this family.",
+      "searches": [
+        "\"D_n\" \"shortest reset words\" Ananichev Volkov Zaks",
+        "\"letter of deficiency 2\" \"shortest reset words\" four",
+        "\"number of shortest reset words\" synchronizing automata",
+        "\"all shortest reset words\" synchronizing automata",
+        "DOI 10.1007/11779148_39 full text",
+        "DOI 10.1007/s10878-013-9682-0 full text"
+      ]
+    },
+    "rationale": "The four-word classification is not stated in the inspected defining paper or broader shortest-word algorithm literature. It is obtained by resolving all equality cases in the source lower-bound proof: two entry prefixes, forced nonfinal bcc merges with forced transports, and two final merges.",
+    "residual_risks": [
+      "A non-indexed ancillary computation or unpublished enumeration could duplicate the exact count.",
+      "The result is a sharp equality-case corollary latent in the structure of the 2006 proof, although the four-word statement itself is not given there."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as a statement: it gives the threshold and one witness but not the complete four-word classification. Its proof supplies the structural premises used in the new equality-case argument.",
+        "evidence": "The source exhibits c^2(bc^{n-1})^{n-4}bc^2; its proof allows ac or c^2 initially and lists minimum proper merges from the critical pair.",
+        "identifier_or_url": "doi:10.1007/11779148_39",
+        "material_read": "Transition table, Theorem 1.2, Lemma 3.1, and the lower-bound proof including the initial prefixes, proper-merging-word cases, and transport count.",
+        "method": "Full-text statement and proof comparison.",
+        "title": "Synchronizing Automata with a Letter of Deficiency 2",
+        "trigger": "Defines D_n and proves its reset threshold."
+      },
+      {
+        "assessment": "NOT_COVERING: the work computes a shortest reset word or exact length and does not state the D_n multiplicity or all-optimal-word formula.",
+        "evidence": "Its problem formulation is optimization/search, not enumeration of all optimal words for the deficiency-two family.",
+        "identifier_or_url": "doi:10.1007/s10878-013-9682-0",
+        "material_read": "Abstract, introduction, algorithmic objective, and discussion of slowly synchronizing series.",
+        "method": "Full-text statement/implication comparison.",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Broader exact algorithmic coverage of shortest reset words."
+      },
+      {
+        "assessment": "INAPPLICABLE to the claim: “minimal” there means factor-minimal, not shortest by length, and no D_n classification was found.",
+        "evidence": "The object classified is a different reset-word language.",
+        "identifier_or_url": "published minimal-reset-language literature",
+        "material_read": "Definition and scope of minimal reset words and searches within the available text for the D_n family and deficiency-two terminology.",
+        "method": "Definition and full-text keyword comparison.",
+        "title": "Strongly connected synchronizing automata and the language of minimal reset words",
+        "trigger": "Terminological alias risk for “minimal reset words”."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c55ed3dc-1ef0-4de3-9835-03efa8a248f1",
+  "value": {
+    "rationale": "The theorem gives all optimal reset controls for an infinite slowly synchronizing family, reveals boundary-only use of the distinguished deficiency-two letter, and determines the exact two-target split. These are structural invariants of optimal synchronization, not a routine recomputation of the already known threshold.",
+    "status": "PASS"
+  }
+}
