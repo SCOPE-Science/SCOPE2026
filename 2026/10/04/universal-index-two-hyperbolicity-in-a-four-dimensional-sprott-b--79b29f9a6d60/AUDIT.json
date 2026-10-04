@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "From the printed ODE, the two equilibria are exactly E_±=(±sqrt(b),±sqrt(b),0,0). The characteristic polynomial is λ^4+(a+c)λ^3+(ac+b)λ^2+b(2a+c+1)λ+2ab(c+1). Its third Hurwitz determinant equals -b times a polynomial whose every displayed monomial is positive for a,b,c>0, so it is strictly negative. Zero and purely imaginary eigenvalues are excluded; the positive octant is connected; and an exact Routh count at (a,b,c)=(1,1,2) gives exactly two right-half-plane roots. The dependency-free verify.py replays the determinant and exact sign identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's full positive parameter family a,b,c>0 was inspected, including its bifurcation scans and equilibrium section.",
+        "The closest retrieved mathematical results concerned different Halvorsen, Rössler, Lorenz-family, and other vector fields."
+      ],
+      "reasoning": "The claim already covers the full natural positive parameter octant of the introduced model, so a larger same-model parameter theorem would have to include nonpositive parameters, which are outside the source's stated parameter domain. No retrieved broader result on this exact vector field was found.",
+      "searches": [
+        "four-dimensional Sprott B state-feedback system no stable equilibrium maximum Lyapunov negative",
+        "\"10.1155/2019/5803506\" \"dot{x}\" chaotic",
+        "\"A New 4D Chaotic System with Two-Wing\" equation Sprott B controller"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2019/5803506",
+      "msc2020:37C25"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source states that E_1,E_2 are unstable for positive a,b,c and reports one numerical saddle-focus spectrum at a=6,b=11,c=5.",
+        "The source does not state a parameter-uniform 2+2 spectral splitting or prove absence of imaginary-axis crossings."
+      ],
+      "reasoning": "Generic 'unstable' permits multiple unstable dimensions and parameter-dependent crossings among unstable types. The new determinant identity excludes all imaginary-axis crossings and fixes the exact unstable dimension, so it is not a corollary of the source's wording alone.",
+      "searches": [
+        "Primary source Section 3.2 equilibrium and stability statement",
+        "Primary source parameter-scan discussion in Sections 3.3-3.4",
+        "A New 4D Chaotic System Two-Wing Four-Wing coexisting attractors Routh Hurwitz unstable equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1155/2019/5803506, Sections 2 and 3.2",
+        "No checked source retrieved by exact-system searches stated the constant two-dimensional unstable bundle at these equilibria."
+      ],
+      "reasoning": "Equivalent wording such as saddle-focus, Routh-Hurwitz instability, hyperbolicity, unstable index, and absence of equilibrium bifurcation was checked. The source's generic instability statement does not imply the exact count or exclude imaginary-axis crossings without the additional determinant argument.",
+      "searches": [
+        "10.1155/2019/5803506 Huang Zhang Xiang Wang four-dimensional Sprott B equilibrium unstable index",
+        "A New 4D Chaotic System Two-Wing Four-Wing coexisting attractors Routh Hurwitz unstable equilibrium",
+        "x'=a(y-x) y'=xz+w z'=b-xy w'=yz-cw equilibrium stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI/title/claim overlap checks found no checked prior item containing this source-specific theorem.",
+        "Exact DOI/title literature searches retrieved the source itself or mathematically unrelated systems."
+      ],
+      "reasoning": "No checked literature index or overlap record contained this source or an exact same-system unstable-index table. Absence is not treated as proof of novelty; it is only the documented comparison check.",
+      "searches": [
+        "10.1155/2019/5803506",
+        "A New 4D Chaotic System Two-Wing",
+        "10.1155/2019/5803506 Huang Zhang Xiang Wang four-dimensional Sprott B equilibrium unstable index"
+      ]
+    },
+    "rationale": "The 2019 source states only that the two equilibria are unstable for positive parameters and gives one numerical saddle-focus spectrum. The new claim is the stronger parameter-uniform hyperbolicity and exact unstable-index-two classification, with the consequence that no local equilibrium bifurcation occurs anywhere in the positive octant. Exact same-system and implication searches found no checked source covering that strengthening.",
+    "residual_risks": [
+      "Searches are not exhaustive; an unindexed later paper may contain the same Routh-index calculation.",
+      "The source already establishes the weaker fact of instability, so the originality claim is limited to exact hyperbolicity, constant unstable dimension two, and the resulting exclusion of local equilibrium bifurcations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source covers generic instability and one numerical spectrum but not the exact global unstable-index classification or no-equilibrium-bifurcation consequence.",
+        "evidence": "First published 29 October 2019; DOI 10.1155/2019/5803506.",
+        "identifier_or_url": "doi:10.1155/2019/5803506",
+        "material_read": "Publisher full text: model definition, symmetry/dissipativity, equilibrium and stability section, bifurcation/Lyapunov parameter scans, conclusion; equation text cross-checked against the open full-text rendering.",
+        "method": "Read the full-text scientific sections and reconstructed the Jacobian and characteristic polynomial independently from the printed ODE.",
+        "title": "A New 4D Chaotic System with Two-Wing, Four-Wing, and Coexisting Attractors and Its Circuit Simulation",
+        "trigger": "Exact source introducing the vector field and claiming positive-parameter equilibrium instability."
+      },
+      {
+        "assessment": "37C25 covers fixed points and local dynamics and is the primary classification for the finding.",
+        "evidence": "37C25: fixed points and periodic points of dynamical systems; fixed-point index theory; local dynamics.",
+        "identifier_or_url": "msc2020:37C25",
+        "material_read": "MSC2020 description of 37C25.",
+        "method": "Checked the official MSC2020 classification text.",
+        "title": "MSC2020 database entry 37C25",
+        "trigger": "Primary subject ownership check for a theorem about equilibrium local dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "79b29f9a-6d60-4b88-9eb3-8eab73b94b25",
+  "value": {
+    "rationale": "The exact unstable index is a natural complete classification over the model's full positive parameter domain. It rules out an entire mechanism—local equilibrium bifurcation—for every periodic/chaotic window in the source's parameter scans and gives a reusable structural constraint for subsequent analysis. The value is not based merely on recomputing one numerical spectrum.",
+    "status": "PASS"
+  }
+}
