@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and exhaustive. The bundled verifier checks all 1225 unordered two-column deletions by two exact formulations: rebuilding the shortened syndrome sumset and testing whether every original representation support meets the deleted pair. The algorithms agree pointwise, reproduce full original coverage and the published single-deletion benchmark, and match the claimed histogram and nine minimizers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.16078v1 proves the seed is locally optimal, which only implies that every one-column deletion fails to cover all syndromes.",
+        "The author-hosted citable explanation for arXiv:2608.27494v1 states the sharp single-deletion minimum 9 but gives no two-deletion minimum or histogram."
+      ],
+      "reasoning": "Qualitative one-column minimality implies that every two-column deletion also fails, but it gives neither a quantitative lower bound of 27 nor the complete pair profile. The new statement is therefore not a corollary of the broader local-optimality assertion.",
+      "searches": [
+        "published-finding corpus: minimal 1-saturating 50-set PG(9,2) pair deletion robustness",
+        "Web: double deletion 50-column covering code 381 927",
+        "Primary full text: arXiv:2609.16078v1 Theorem 5.2 and surrounding discussion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.27494v1",
+      "arXiv:2609.16078v1",
+      "Ideosphere:covsat-partition:v1",
+      "published-finding corpus searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work supplies the matrix, radius-two coverage, and one-column local optimality. The later public manuscript supplies only aggregate representation multiplicities and the minimum single-deletion defect.",
+        "The new verifier uses the incidence of individual representations with each of the 1225 deleted pairs, information not determined by the published aggregate histograms."
+      ],
+      "reasoning": "Neither the radius-two theorem, local optimality, nor the published aggregate multiplicity histogram logically fixes the two-deletion defect distribution. The final claim requires a new complete incidence calculation on the same object.",
+      "searches": [
+        "published-finding corpus: columns 329 381 927 covering 1024 syndromes",
+        "Web exact-number search: 27 uncovered 381 479 927 covering code",
+        "arXiv:2609.16078v1 full-text comparison of Theorem 5.2 with the new two-deletion statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.16078v1, Definition 1.1 identifies radius two with representation of every syndrome by at most two parity-check columns; Definition 1.2 identifies local optimality with failure after one-column removal.",
+        "Theorem 5.2 of arXiv:2609.16078v1 prints the same 50 decimal columns and states local optimality/minimal 1-saturation."
+      ],
+      "reasoning": "The code, syndrome-sum, and 1-saturating-set formulations are equivalent for this matrix. The accepted claim compares all two-column deletions and counts uncovered syndromes; the cited equivalences translate the claim but do not supply its value or histogram.",
+      "searches": [
+        "published-finding corpus: 50 column radius two covering code two column deletion 27 uncovered syndromes",
+        "Web: two-column shortening defect covering radius 2 50 40",
+        "Full text arXiv:2609.16078v1 searched for remove, shorten, deletion, uncovered"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public stated-results ledger records the representation histogram, the exact single-deletion minimum 9, partition numbers, and related controls, but no two-column deletion profile.",
+        "published-finding corpus returned covering-code results on other objects and no record matching the fixed 50-column seed together with the value 27 or the stated minimizer pairs."
+      ],
+      "reasoning": "The closest structured table is strong enough to expose potential coverage from single-deletion and representation data, but its claims stop before the two-deletion incidence calculation. A failed search is not treated as proof of novelty; it is only one component of the comparison.",
+      "searches": [
+        "published-finding corpus: 50 column radius two covering code exact two deletion defect histogram 27 31 40 45",
+        "Public stated-results ledger: Exact (2,0)-partition numbers for two binary covering codes of covering radius two; searched 27, two-column, double, deletion"
+      ]
+    },
+    "rationale": "Statement-level comparison found prior coverage of the matrix, radius-two property, single-deletion local optimality, representation multiplicities, and exact partition numbers, but not the quantitative two-deletion profile. The claim is not implied by those statements because they do not determine the incidence of representations with deleted pairs.",
+    "residual_risks": [
+      "An obscure or unindexed source could contain the same fixed-seed two-deletion profile; database and web searches cannot prove absolute novelty.",
+      "The author's public repository may contain exploratory data not described in indexed prose; no indexed statement of the accepted profile was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the same object and stronger surrounding construction results, but its shortening statement is qualitative and one-column only; it does not state a two-column defect value or distribution.",
+        "evidence": "Theorem 5.2 prints the 50 labels and calls the code locally optimal/minimal 1-saturating; Definition 1.2 defines this by inability to remove one column while preserving radius two.",
+        "identifier_or_url": "arXiv:2609.16078v1",
+        "material_read": "Abstract; Definitions 1.1--1.4; discussion of the seed; Theorem 5.2 with matrix, local optimality, and partition; full-text searches for remove, shorten, deletion, and uncovered.",
+        "method": "Lawful arXiv full-text and page-image inspection.",
+        "title": "Further results on binary codes of covering radius 2 and saturating sets in projective spaces",
+        "trigger": "Closest primary full text reproducing the exact 50-column matrix and proving its local optimality."
+      },
+      {
+        "assessment": "States the matrix's radius-two role and that the least damaging one-column deletion leaves 9 holes; no two-column minimum or profile was located.",
+        "evidence": "The explanatory text explicitly quantifies the single-column deletion minimum and discusses nearby 49-column search failures as non-proofs.",
+        "identifier_or_url": "arXiv:2608.27494v1",
+        "material_read": "ArXiv metadata/abstract and the author's citable explanatory text on syndrome coverage, the 50-column search, single-column removal, and stated limits.",
+        "method": "Primary arXiv metadata plus author-hosted full explanatory text inspection.",
+        "title": "Covering 1024 syndromes with 50 columns",
+        "trigger": "Original source of the 50-column seed and its search motivation."
+      },
+      {
+        "assessment": "Contains the exact one-column deletion minimum and several aggregate representation statistics, but no two-column shortening defect or histogram.",
+        "evidence": "Its stated result CS5 gives single-deletion minimum 9 at columns 381, 479, 927; the two-column search terms produced no matching claim.",
+        "identifier_or_url": "Ideosphere:covsat-partition:v1",
+        "material_read": "Abstract and all 15 stated-result entries; exact-text searches for 27, two-column, double, and deletion.",
+        "method": "Public manuscript page and stated-results ledger inspection.",
+        "title": "Exact (2,0)-partition numbers for two binary covering codes of covering radius two",
+        "trigger": "Closest public structured claim ledger on the identical seed after the original paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82f5a01d-c7a4-4174-a0e5-ab5dd6e250f3",
+  "value": {
+    "rationale": "The object is the current 50-column seed used to improve an infinite covering-code family. Shortening is mathematically central to the length function, and the source itself motivates deletion/repair searches. The exact two-column profile strengthens qualitative local optimality into a quantitative stability statement, identifies all best double shortenings, and measures how far every 48-column subset of this seed is from radius-two coverage. The claim is narrowly scoped and does not overstate this as a global length-function bound.",
+    "status": "PASS"
+  }
+}
