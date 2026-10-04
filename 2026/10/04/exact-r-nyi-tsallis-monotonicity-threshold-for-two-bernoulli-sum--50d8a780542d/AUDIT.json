@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The claim reduces exactly to a one-variable derivative sign after the odds substitution. For \\(P_q=[1+(u+v)^q+(uv)^q]/[(1+u)^q(1+v)^q]\\) and \\(r=q-1\\), the derivative sign is \\(\\Phi_r-1\\) with \\(\\Phi_r=(1-u)(u+v)^r+u(uv)^r\\). Convexity in \\(r\\), \\(\\Phi_0=1\\), \\(\\Phi_1\\le1\\), and weighted AM–GM giving \\(\\Phi'_0\\le0\\) prove the needed signs for every \\(-1<r\\le1\\). Entropy sign conventions, zero-parameter boundaries, the Shannon endpoint, and the published \\(q>2\\) obstruction were separately checked. The embedded deterministic checker reproduces the algebra numerically but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2103.00896 states sharp Rényi entropy/variance comparisons for Bernoulli sums, not coordinate monotonicity in individual Bernoulli parameters.",
+        "arXiv:2609.27433 states a sharp threshold for joint concavity: concavity through order one and failure above one. Joint concavity is not the same implication as coordinatewise monotonicity."
+      ],
+      "reasoning": "Broader Rényi results do not dominate the claimed statement. In particular, failure of joint concavity for \\(q>1\\) does not preclude monotonicity along positive coordinate directions, and a variance/entropy comparison does not determine derivatives with respect to individual success probabilities.",
+      "searches": [
+        "Bernoulli sums and Rényi entropy inequalities",
+        "The Sharp Rényi and Tsallis Threshold in the Shepp--Olkin Concavity Problem",
+        "Shepp Olkin Renyi Tsallis monotonicity Bernoulli sums",
+        "arXiv:2103.00896",
+        "arXiv:2609.27433"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.09791",
+      "doi:10.1214/19-EJP380",
+      "arXiv:2103.00896",
+      "arXiv:2609.27433",
+      "MaRDI record for arXiv:1810.09791 confirming first public date and MSC 60E15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The lead source proves \\(q=2\\) for all dimensions and shows a two-summand failure for \\(q>2\\), but explicitly leaves \\(0<q<2\\) in a conjecture.",
+        "The 2026 source's stated theorem concerns joint concavity, with a different threshold and different directional geometry.",
+        "The 2021 source's stated results are entropy inequalities controlled by variance and concentration, not coordinate derivative signs."
+      ],
+      "reasoning": "The new theorem is neither a special case of a stronger published monotonicity result located in the search nor implied by the newer concavity threshold. It fills the first nontrivial dimension of the published monotonicity conjecture and combines with the source's own \\(q>2\\) obstruction to identify an exact threshold.",
+      "searches": [
+        "arXiv:1810.09791 Conjecture 4.4",
+        "arXiv:1810.09791 Lemma 4.2 Example 4.3",
+        "arXiv:2609.27433 joint concavity",
+        "arXiv:2103.00896 Bernoulli sums Rényi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1810.09791 Section 4 defines the Rényi/Tsallis power-sum problem and notes the two entropies have the same monotonicity cases.",
+        "arXiv:1810.09791 Conjecture 4.4 asks for nondecreasing entropy on the parameter half-cube for orders from zero through two.",
+        "No searched statement gave the odds-coordinate formula or the complete two-summand classification."
+      ],
+      "reasoning": "Equivalent wording such as fairer coins, coordinate monotonicity, collision entropy, Poisson-binomial Rényi entropy, and the exact conjecture number was searched. The lead source is the same mathematical problem but leaves the interior orders conjectural.",
+      "searches": [
+        "Shepp Olkin Renyi entropy Bernoulli sum q 2 monotonicity",
+        "Bernoulli sum collision entropy fairness monotonicity Renyi",
+        "Shepp Olkin Tsallis Renyi counterexample",
+        "two Bernoulli Shepp Olkin Renyi Tsallis monotonicity q threshold 2",
+        "arXiv:1810.09791",
+        "doi:10.1214/19-EJP380"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact theorem, table, or finite classification matching the two-summand order threshold was returned.",
+        "The closest indexed Bernoulli-sum records concern cumulants, exchangeability, or other entropy inequalities rather than this derivative classification."
+      ],
+      "reasoning": "This is an analytic classification rather than a lookup-table value. Exact-phrase and object-plus-parameter searches were used to test whether the two-summand threshold had already been tabulated or separately stated.",
+      "searches": [
+        "two Bernoulli Renyi Tsallis coordinate monotonicity odds convexity q <= 2",
+        "\"Conjecture 4.4\" Hillion Johnson two Bernoulli q 2",
+        "Poisson binomial two summands Renyi entropy increasing fairer coins q between 1 and 2"
+      ]
+    },
+    "rationale": "The lead paper states the general \\(0\\le q\\le2\\) monotonicity as Conjecture 4.4, proves the \\(q=2\\) endpoint, and supplies the \\(q>2\\) two-summand obstruction. The new content is the complete interior-order proof for \\(n=2\\), yielding the exact two-summand threshold. Searches over aliases and related Bernoulli-sum Rényi literature found no statement implying that classification. The 2026 sharp concavity paper addresses joint concavity rather than coordinatewise monotonicity; because its full text was not accessible in the bounded pass, possible body-level overlap remains a residual risk.",
+    "residual_risks": [
+      "The full text of arXiv:2609.27433 could not be inspected through the bounded public route; its body may mention the older monotonicity conjecture even though its stated theorem is about joint concavity.",
+      "The n=2 argument is elementary enough that an unindexed note, remark, or unpublished calculation may have observed it without appearing in targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING_NOT_COVERING_INTERIOR_TWO_SUMMAND_RESULT",
+        "evidence": "The paper proves the Shannon case and q=2 endpoint, gives failure for q>2, and explicitly labels monotonicity for 0<=q<=2 as Conjecture 4.4 rather than proving the complete n=2 interior.",
+        "identifier_or_url": "arXiv:1810.09791; doi:10.1214/19-EJP380",
+        "material_read": "Full primary PDF, especially Section 4 pages containing the Rényi/Tsallis definitions, Lemma 4.2, Example 4.3, Conjecture 4.4, and Proposition 4.5.",
+        "method": "Primary full-text inspection.",
+        "title": "A proof of the Shepp-Olkin entropy monotonicity conjecture",
+        "trigger": "Lead source and exact published conjecture."
+      },
+      {
+        "assessment": "NO_DOMINATING_STATEMENT_FOUND",
+        "evidence": "The stated results concern variance/Rényi comparisons, min-entropy power, and Littlewood-Offord-type bounds, not coordinatewise monotonicity in the Bernoulli parameters.",
+        "identifier_or_url": "arXiv:2103.00896",
+        "material_read": "Primary arXiv abstract and indexed statement of main results.",
+        "method": "Primary abstract plus targeted statement search.",
+        "title": "Bernoulli sums and Rényi entropy inequalities",
+        "trigger": "Highly related Bernoulli-sum Rényi literature."
+      },
+      {
+        "assessment": "ABSTRACT_ADDRESSES_DIFFERENT_PROPERTY_FULL_TEXT_UNAVAILABLE",
+        "evidence": "The abstract states a universal joint-concavity threshold at q=1 and describes transverse-direction convexity above one. It does not state coordinatewise monotonicity or the n=2 q=2 threshold.",
+        "identifier_or_url": "arXiv:2609.27433",
+        "material_read": "Primary arXiv abstract and bibliographic record. Bounded attempts to fetch the full PDF/HTML were unsuccessful.",
+        "method": "Primary abstract inspection plus exact-title and monotonicity searches.",
+        "title": "The Sharp Rényi and Tsallis Threshold in the Shepp--Olkin Concavity Problem",
+        "trigger": "Very recent paper with nearly identical objects and entropy families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "50d8a780-542d-46a9-b194-b3cffcda33ec",
+  "value": {
+    "rationale": "The result gives a natural complete finite-dimensional classification for the first genuinely nontrivial case of a published probability/information-theory conjecture. It identifies the conjectured endpoint \\(q=2\\) as exactly sharp for two summands and explains the full order interval by one structural convexity argument. This is more than a numerical instance or a routine substitution because it closes a continuous parameter range and separates monotonicity from the distinct concavity threshold.",
+    "status": "PASS"
+  }
+}
