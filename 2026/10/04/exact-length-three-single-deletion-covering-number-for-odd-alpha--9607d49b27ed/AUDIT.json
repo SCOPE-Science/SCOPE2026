@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The counting lower bound is immediate because a length-three word has at most three distinct length-two deletion descendants. For odd q, the cited quadratic-leave theorem yields a triangle decomposition of K_q minus C_q when q is 3 mod 6 (q>=9), or K_q minus C_{q-1} plus an isolated point when q is 1 or 5 mod 6. Two opposite orderings of each triangle cover both directions of its three edges; words of the form (a,b,a) cover one loop and both directions of a leave edge. The block counts give exactly ceil(q^2/3). q=3 is checked directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.15379v1",
+        "doi:10.1007/BF01788106"
+      ],
+      "reasoning": "Xie--Sun--Ge give D(q,3,1)=(1+o(1))q^2/3 through their fixed-(n,R) theorem, which is broader in n,R but weaker than exact equality at finite odd q. Colbourn--Rosa is broader as a design-existence theorem, but its conclusion alone is not the coding parameter statement until combined with the deletion-ball translation given here.",
+      "searches": [
+        "covering codes deletions quadratic leave partial triple system cycle leave",
+        "New bounds for covering codes under insertions or deletions D(q,n,R)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379v1",
+      "arXiv:1911.09944v4",
+      "doi:10.1007/BF01788106",
+      "doi:10.3390/appliedmath4040067",
+      "published-finding corpus semantic searches for exact D(q,3,1), length-three single-deletion covering, and quadratic-leave aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.15379v1",
+        "doi:10.1007/BF01788106",
+        "arXiv:1911.09944v4"
+      ],
+      "reasoning": "Neither inspected covering-code paper implies exact equality for every odd q: their stated results are asymptotic or constant-factor. The design theorem implies only the existence of the required triangle decompositions; the exact deletion-covering equality additionally uses a coding-specific lower bound and the explicit orientation/repeated-symbol translation.",
+      "searches": [
+        "Xie Sun Ge deletion covering asymptotic q to infinity",
+        "Colbourn Rosa quadratic leaves maximal partial triple systems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.15379v1",
+        "arXiv:1911.09944v4",
+        "published-finding corpus:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+      ],
+      "reasoning": "The recent and earlier covering-code sources discuss D(q,n,R), general bounds, and asymptotics. The closest semantic hit with an exact deletion parameter is a deletion-correcting, not deletion-covering, code of different length, so it does not imply the claim.",
+      "searches": [
+        "D(q,3,1) exact deletion covering code odd alphabet length three",
+        "single-deletion covering codes length three odd q exact q^2/3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search: no direct D(q,3,1) covering hit among the inspected top results",
+        "web search: no exact D(q,3,1) table located"
+      ],
+      "reasoning": "No exact-value database or table matching the length-three deletion-covering parameter was located. This negative search is treated only as evidence, not as proof of novelty.",
+      "searches": [
+        "minimum deletion covering code n=3 R=1",
+        "D(q, 3, 1) deletion code",
+        "single deletion covering code length 3"
+      ]
+    },
+    "rationale": "The inspected 2026 deletion-covering source proves asymptotic tightness of the same counting bound for fixed n,R as q grows, not the exact all-odd n=3 value. The 1986 design source supplies the quadratic-leave existence theorem but does not state the deletion-covering consequence. The semantic database searches returned deletion-correcting and unrelated exact coding records rather than this covering statement. A residual risk of an unlocated equivalent formulation remains.",
+    "residual_risks": [
+      "An older coding/design paper may contain an equivalent exact formula under different terminology that was not surfaced by the inspected searches.",
+      "The all-odd existence step depends on the cited quadratic-leave theorem; the finite checker does not independently reprove that theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the recent problem context and asymptotic benchmark, but not exact finite-q equality for n=3.",
+        "evidence": "Submitted 2026-06-13; states asymptotic tightness of q^(n-R)/binom(n,R) as q tends to infinity for fixed n,R.",
+        "identifier_or_url": "arXiv:2606.15379v1",
+        "material_read": "Abstract and searchable full-text extracts containing the definition, elementary lower bound, and fixed-(n,R) asymptotic theorem.",
+        "method": "Direct source-page and searchable-text inspection.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Recent primary source defining D(q,n,R) and identifying the large-alphabet deletion-covering gap."
+      },
+      {
+        "assessment": "Directly supplies the design-theoretic existence theorem used by the proof; it does not formulate deletion covering codes.",
+        "evidence": "Abstract states that every graph with vertex degrees zero and two satisfying the basic necessary conditions is such a leave, with the single C4 union C5 exception.",
+        "identifier_or_url": "doi:10.1007/BF01788106",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher metadata/abstract inspection.",
+        "title": "Quadratic leaves of maximal partial triple systems",
+        "trigger": "Needed to justify existence of triangle decompositions with cycle or cycle-plus-isolated leaves."
+      },
+      {
+        "assessment": "Gives general sphere-covering lower bounds and constant-factor/existential upper bounds, not the exact odd-q length-three value in the inspected material.",
+        "evidence": "The abstract describes single-insertion/deletion upper bounds tight up to a constant factor and general fixed-radius asymptotics in word length.",
+        "identifier_or_url": "arXiv:1911.09944v4",
+        "material_read": "Abstract and searchable source snippets describing the deletion-covering bounds.",
+        "method": "Source-page and search-result inspection.",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Foundational earlier work cited by the 2026 paper."
+      },
+      {
+        "assessment": "Studies one-edge/two-arc mixed triples on distinct vertices; the deletion balls here are transitive three-arc triples for distinct symbols plus repeated-symbol words carrying loops, so its solved cases do not state or imply the present parameter.",
+        "evidence": "The paper defines mixed triples as partial orientations of a 3-cycle with one edge and two arcs and treats coverings of the loopless complete mixed graph.",
+        "identifier_or_url": "doi:10.3390/appliedmath4040067",
+        "material_read": "Open web full-text extract defining mixed triples and the scope of its covering/packing results.",
+        "method": "Full-text web inspection.",
+        "title": "Some Covering and Packing Problems for Mixed Triples",
+        "trigger": "Plausible nearby design formulation involving directed and undirected triples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9607d49b-27ed-4d27-a5ac-05d82399e0c4",
+  "value": {
+    "rationale": "D(q,3,1) is the first nontrivial short-block deletion-covering parameter associated with the 2026 large-alphabet program. Exact attainment of the elementary lower bound on every odd alphabet is a natural infinite-family refinement of the known asymptotic statement, and the construction exposes a reusable bridge from partial triple-system leaves to synchronization covering codes rather than merely recomputing a finite table.",
+    "status": "PASS"
+  }
+}
