@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The source update was specialized directly to the three scalar blocks and two identity-dynamics constraints. Exact elimination factors the five-state characteristic polynomial into an always-Schur quadratic and a cubic. A recursive Schur transform of the cubic gives necessary-and-sufficient inequalities. The remaining Schur inequalities were proved redundant under the two final conditions. The block-Hessian condition and the source bounded-level assumption were checked independently. Exact rational replay from the packaged artifact reproduces the characteristic factorization and the chi=4 boundary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Yuan use a Lyapunov sufficient condition and sequential parameter selection rather than a necessary-and-sufficient equal-parameter frontier.",
+        "Chen--Cui--Han analyze direct E-ADMM for one weakly convex and two strongly convex functions, not this per-block proximal recurrence.",
+        "Cipolla--Gondzio analyze strongly convex quadratic multiblock ADMM through randomized/inexact-ALM linear algebra.",
+        "Zhang--Song--Cai--Han update the third block twice and use a different proximal architecture.",
+        "Ke--Ma--Zhang formulate convex quadratic blocks with positive-semidefinite Hessians."
+      ],
+      "reasoning": "These broader convergence results do not determine the characteristic polynomial of the source algorithm on the present nonconvex dynamics chain. A sufficient theorem for a different algorithm or curvature class cannot imply the sharp equal-parameter instability boundary.",
+      "searches": [
+        "arXiv:2506.17405v1 full text",
+        "DOI:10.1137/24M1684669",
+        "DOI:10.1007/s10092-023-00546-0 full open-access article",
+        "DOI:10.1016/j.cam.2021.113681",
+        "DOI:10.4208/eajam.240817.010318"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.17405v1",
+      "DOI:10.1080/02331934.2026.2725054",
+      "DOI:10.1137/24M1684669",
+      "DOI:10.1007/s10092-023-00546-0",
+      "DOI:10.1016/j.cam.2021.113681",
+      "DOI:10.4208/eajam.240817.010318"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem supplies a convergence-guaranteeing asymmetric parameter procedure; it does not assert necessity or equal-parameter sharpness.",
+        "The weakly-convex three-block paper concerns the direct extension without the source's proximal terms.",
+        "The QP linear-algebra paper assumes an SPD objective Hessian.",
+        "The extended proximal three-block paper has a different update order and proximal placement.",
+        "The 2018 quadratic paper's displayed block Hessians are positive semidefinite."
+      ],
+      "reasoning": "No inspected theorem or algorithm has both the same source recurrence and a statement that dominates the final claim. The most plausible historical quadratic source is not covering by its stated convex hypotheses, although incomplete theorem-level access is retained as a residual risk.",
+      "searches": [
+        "arXiv:2506.17405v1 equations (1.5)--(1.6), Assumption 2.1, and Lyapunov condition (3.35)",
+        "DOI:10.1137/24M1684669 abstract and cited method scope",
+        "DOI:10.1007/s10092-023-00546-0 open-access method and Gauss--Seidel analysis",
+        "DOI:10.1016/j.cam.2021.113681 algorithm description",
+        "DOI:10.4208/eajam.240817.010318 accessible article material"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2506.17405v1 defines the sequential proximal dynamics-chain ADMM but gives no spectral/eigenvalue calculation for a quadratic chain.",
+        "No searched published-research database record matched the derived two-inequality Schur frontier.",
+        "The 2018 three-block quadratic ADMM paper states positive-semidefinite block Hessians and a nonproximal direct ADMM iteration."
+      ],
+      "reasoning": "Searches covered the algorithm name, three-block and multiblock aliases, identity/chain dynamics, weakly convex middle block, Schur stability, spectral radius, strong-convexity gap, and the distinctive derived algebraic forms. The closest formulations change either curvature class or the actual iteration.",
+      "searches": [
+        "proximal multiblock ADMM nonconvex three state chain exact Schur stability",
+        "three-block proximal ADMM one weakly convex two strongly convex exact spectral radius",
+        "proximal ADMM strongly convex subproblems still diverge three block",
+        "three-state dynamics chain proximal ADMM equal penalty exact convergence",
+        "ADMM curvature penalty ratio 9 stability three block",
+        "\"3 - sqrt(k)\" ADMM proximal three block",
+        "\"2 k^2 - k - 4\" ADMM",
+        "\"a/rho\" \"rho eta\" ADMM three block"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-research database hit stated the curvature threshold chi=9, the chi=4 boundary p=1/10, or the two Schur inequalities.",
+        "The nearest returned optimization records concerned unrelated proximal convexification, reflected-gradient stability, and Gauss--Seidel preconditioning."
+      ],
+      "reasoning": "The finding is an analytic iteration-matrix classification, not a recomputation of a stored table or known benchmark.",
+      "searches": [
+        "proximal multiblock ADMM nonconvex three state chain exact Schur stability",
+        "three-block proximal ADMM one weakly convex two strongly convex exact spectral radius",
+        "ADMM curvature penalty ratio 9 stability three block"
+      ]
+    },
+    "rationale": "The primary source gives a general Lyapunov sufficient parameter procedure, not an exact equal-parameter spectral frontier. The closest quadratic and three-block ADMM literature either assumes positive-semidefinite/positive-definite block curvature, uses direct nonproximal ADMM, randomization, or a different extended proximal update. Targeted database and web searches found no statement implying the two exact inequalities or the strong-convexity-versus-global-stability gap.",
+    "residual_risks": [
+      "Complete theorem-level text of the 2018 three-block quadratic ADMM paper was not obtainable through the available lawful routes; its accessible stated hypotheses are convex positive-semidefinite and its displayed iteration is nonproximal.",
+      "The multiblock ADMM literature is extensive, so an equivalent special-case matrix calculation under different notation could exist outside the searched sources.",
+      "The finding is for equal penalties and equal proximal parameters and does not claim sharpness for the source's full unequal-parameter family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the analyzed recurrence and a sufficient parameter-selection procedure, but no exact equal-parameter quadratic spectral frontier.",
+        "evidence": "Equations (1.5)--(1.6) are the sequential proximal updates; Assumption 2.1 is a bounded augmented-level-set condition; (3.35) is a Lyapunov sufficient parameter inequality.",
+        "identifier_or_url": "arXiv:2506.17405v1 / DOI:10.1080/02331934.2026.2725054",
+        "material_read": "Full preprint portions covering the dynamics-chain model, augmented Lagrangian, equations (1.5)--(1.6), related work, Assumption 2.1, and the Lyapunov parameter condition (3.35); rendered pages containing the update, structural assumption, and parameter condition were inspected. Journal metadata was checked for MSC classification.",
+        "method": "Full-text arXiv PDF plus rendered-page inspection and journal metadata.",
+        "title": "Convergent Proximal Multiblock ADMM for Nonconvex Dynamics-Constrained Optimization",
+        "trigger": "Primary recent source defining the exact proximal multiblock dynamics-chain update."
+      },
+      {
+        "assessment": "Highly relevant historical comparison, but its stated block Hessians are positive semidefinite and its displayed algorithm is nonproximal, so it does not cover the negative-curvature middle block with per-block proximal regularization.",
+        "evidence": "The model specifies positive-semidefinite F, G, H and the direct three-block ADMM update without proximal terms.",
+        "identifier_or_url": "DOI:10.4208/eajam.240817.010318",
+        "material_read": "Publisher abstract and accessible opening article pages containing the quadratic model and direct ADMM update. A lawful full-text route was attempted but complete theorem-level text was not obtainable.",
+        "method": "Publisher/OA preview and rendered first page; institutional retrieval attempt returned no verified PDF.",
+        "title": "Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints",
+        "trigger": "Closest historical title combining three-block ADMM, quadratic objectives, and linear constraints."
+      },
+      {
+        "assessment": "Analyzes direct E-ADMM and generic convergence/linear rate, not the Li--Yuan per-block proximal dynamics-chain recurrence.",
+        "evidence": "The abstract explicitly identifies the method as the direct extension of ADMM for one weakly convex and two strongly convex functions.",
+        "identifier_or_url": "DOI:10.1137/24M1684669",
+        "material_read": "Publisher abstract, method scope, MSC codes, and cited convergence claims.",
+        "method": "Publisher article inspection.",
+        "title": "Convergence of Three-Block ADMM for Weakly Convex Optimization Problems",
+        "trigger": "Closest recent three-block paper with one weakly convex and two strongly convex functions."
+      },
+      {
+        "assessment": "Studies SPD quadratic programming and randomized/inexact-ALM interpretations, not the nonconvex proximal chain.",
+        "evidence": "Its QP model assumes an SPD Hessian and connects one multiblock sweep to Gauss--Seidel accuracy.",
+        "identifier_or_url": "DOI:10.1007/s10092-023-00546-0",
+        "material_read": "Open-access abstract, introduction, quadratic model, and Gauss--Seidel/inexact-ALM discussion.",
+        "method": "Open-access full-article web inspection.",
+        "title": "A linear algebra perspective on the random multi-block ADMM: the QP case",
+        "trigger": "Closest open-access multiblock ADMM paper emphasizing iteration-matrix linear algebra on QPs."
+      },
+      {
+        "assessment": "Different method: the third block is updated twice per iteration and proximal terms are introduced on the first two blocks.",
+        "evidence": "The abstract states both structural differences explicitly.",
+        "identifier_or_url": "DOI:10.1016/j.cam.2021.113681",
+        "material_read": "Publisher abstract and algorithm-level description.",
+        "method": "Publisher article inspection.",
+        "title": "An extended proximal ADMM algorithm for three-block nonconvex optimization problems",
+        "trigger": "Closest prior explicitly combining proximal ADMM, three blocks, and nonconvexity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "75453f34-0b95-4e2e-8d09-797a4c24a563",
+  "value": {
+    "rationale": "The three-state identity chain is the smallest genuinely multiblock instance of the source dynamics model, while the sign pattern of the block quadratics gives a constrained strongly convex objective with one locally concave block. The exact frontier separates two notions often conflated in parameter tuning: making every primal subproblem strongly convex and stabilizing the full coupled primal-dual Gauss--Seidel map. The open gap at chi=4 and the no-stable-common-parameter threshold chi=9 are structurally meaningful design facts for a newly proposed proximal multiblock method rather than arbitrary numerical slices.",
+    "status": "PASS"
+  }
+}
