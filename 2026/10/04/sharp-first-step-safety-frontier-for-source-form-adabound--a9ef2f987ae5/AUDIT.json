@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The exact source update is \\(x_2=x_1[1-(1-\\beta_1)h\\widehat\\eta_1]\\). The raw first rate is proportional to \\(1/|x_1|\\), so clipping realizes the full interval \\([\\ell_1,u_1]\\). Universal objective nonincrease is therefore equivalent to the sharp endpoint condition \\((1-\\beta_1)h u_1\\le2\\). When it fails, the upper-clipped neighborhood and its fixed amplification follow by direct substitution.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Savarese proves the original regret theorem incorrect and gives arbitrarily slow convergence examples.",
+        "Later task-dependent-bound work argues that hand-designed AdaBound ranges may not identify unreasonable rates for a specific task.",
+        "The defining paper motivates clipping as protection against extreme adaptive rates."
+      ],
+      "reasoning": "Those broader critiques do not imply the exact one-step theorem. Arbitrarily slow convergence is a different failure mode, and a qualitative task-dependence critique does not determine the precise curvature threshold or amplification.",
+      "searches": [
+        "On the Convergence of AdaBound and its Connection to SGD first step",
+        "AdaCB AdaBound hand designed bounds convergence range",
+        "AdaBound extreme learning rates upper bound safety"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1902.09843v1",
+      "arXiv:1908.04457v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper writes the source update \\(\\widehat\\eta_t=\\operatorname{Clip}(\\alpha/\\sqrt{v_t},\\eta_l(t),\\eta_u(t))\\) and then divides by \\(\\sqrt t\\).",
+        "The same paper recommends \\(\\eta_u(t)=0.1+0.1/((1-\\beta_2)t)\\) in its main experiments.",
+        "The paper states default AdaBound values \\(\\beta_1=0.9\\) and \\(\\beta_2=0.999\\)."
+      ],
+      "reasoning": "These premises determine the first-step map, but the published conclusions do not compare the upper bound with the scalar quadratic stability interval. The final claim is the necessary-and-sufficient implication obtained from that missing comparison.",
+      "searches": [
+        "AdaBound Algorithm 2 clip alpha sqrt v eta_l eta_u",
+        "AdaBound beta1 0.9 beta2 0.999 default",
+        "AdaBound eta_u 0.1 1 plus 1 over 1-beta2 t"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1902.09843v1, Algorithm 2 and recommended bound functions",
+        "arXiv:1908.04457v2, reproduced AdaBound algorithm and global convergence correction",
+        "Applied Sciences 12(18):9389 discussion of task-independent AdaBound bounds"
+      ],
+      "reasoning": "Equivalent formulations are a sharp endpoint condition on the first clipping interval, a small-initialization upper-clip plateau, and a curvature-dependent safety range for the recommended schedule. Focused published-record searches did not locate these statements.",
+      "searches": [
+        "AdaBound first step stability scalar quadratic upper bound",
+        "AdaBound dynamic upper bound exact objective increase",
+        "AdaBound curvature safety dynamic learning rate bound",
+        "AdaBound recommended upper bound 100.1 beta2 0.999 scalar quadratic",
+        "AdaBound source algorithm first step upper clipping objective amplification",
+        "AdaBound task dependent bound curvature stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published findings concern Barzilai–Borwein objective monotonicity.",
+        "Other close findings concern scaled Polyak steps and reflected-gradient stability.",
+        "No located published finding states an AdaBound clipping-interval safety theorem."
+      ],
+      "reasoning": "The closest exact quadratic frontiers use different step constructions and do not contain AdaBound's dynamic clipping rule. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "AdaBound first step stability scalar quadratic upper bound",
+        "AdaBound dynamic upper bound exact objective increase",
+        "AdaBound curvature safety dynamic learning rate bound",
+        "AdaBound recommended upper bound 100.1 beta2 0.999 scalar quadratic",
+        "AdaBound source algorithm first step upper clipping objective amplification",
+        "AdaBound task dependent bound curvature stability"
+      ]
+    },
+    "rationale": "The defining paper gives the bounds and source recurrence; the direct 2019 correction addresses a flawed regret proof and arbitrarily slow convergence; later task-dependent-bound work gives a qualitative critique. None of the inspected statements gives the exact first-step scalar curvature frontier or amplification plateau.",
+    "residual_risks": [
+      "An equivalent one-step observation may exist in unindexed optimizer notes or implementation discussions.",
+      "The source theoretical recurrence differs quantitatively from common bias-corrected, epsilon-regularized software implementations.",
+      "The finding is a sharp local safety theorem, not a new global convergence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_CURVATURE_SAFETY_FRONTIER.",
+        "evidence": "The source gives every recurrence and numerical default used in the theorem but does not state a first-step quadratic safety condition or upper-clipping amplification formula.",
+        "identifier_or_url": "arXiv:1902.09843v1",
+        "material_read": "Open-access full text covering the optimizer framework, Algorithm 2, dynamic bounds, convergence theorem, recommended bound functions, hyperparameter section, and appendices on bound functions and learning-rate evolution.",
+        "method": "Full-text HTML inspection with targeted searches for clipping equations, bound functions, and beta values.",
+        "title": "Adaptive Gradient Methods with Dynamic Bound of Learning Rate",
+        "trigger": "Defining source for the clipping recurrence, recommended bounds, and default parameters."
+      },
+      {
+        "assessment": "DIRECT_CORRECTION_NOT_COVERING_FIRST_STEP_CURVATURE_FRONTIER.",
+        "evidence": "The report corrects global regret claims and studies how bounds vary over time, but does not analyze scalar quadratic objective amplification under the first upper clip.",
+        "identifier_or_url": "arXiv:1908.04457v2",
+        "material_read": "Open-access full text through the reproduced AdaBound algorithm, proof-gap discussion, arbitrarily slow convergence construction, and revised regret guarantee.",
+        "method": "Full-text HTML inspection.",
+        "title": "On the Convergence of AdaBound and its Connection to SGD",
+        "trigger": "Most direct correction to the defining AdaBound convergence theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a9ef2f98-7ae5-4a86-90f9-4e7159882a48",
+  "value": {
+    "rationale": "AdaBound's defining mechanism is to replace extreme Adam rates by dynamic clipping bounds. The theorem identifies exactly when that upper bound is safe on the canonical scalar quadratic, shows that the recommended high-beta2 schedule can permit a large expanding first step, and separates a finite clipped rate from a curvature-compatible clipped rate.",
+    "status": "PASS"
+  }
+}
