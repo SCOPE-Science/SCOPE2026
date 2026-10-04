@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact source-form recurrence has \\(\\xi_t=1/2+O(|x_t-x_{t-1}|)\\), and the nonconstant part multiplies a first-order moment. The denominator satisfies \\(m/(\\sqrt v+\\varepsilon)=m/\\varepsilon+o(\\|z\\|)\\). The limiting optimization block therefore has determinant \\(\\beta_1\\) and trace \\(1+\\beta_1-(1-\\beta_1)\\alpha\\lambda/(2\\varepsilon)\\); exact Jury conditions yield the strict frontier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen et al. give the sharp EMA-heavy-ball preconditioned-curvature threshold and empirically connect it to frozen Adam.",
+        "Bock and Weiß prove scalar-quadratic limit cycles for bias-corrected Adam and stress that local behavior does not guarantee global convergence.",
+        "The diffGrad paper's own theory is an online-regret bound with bounded-gradient assumptions and decaying learning rate."
+      ],
+      "reasoning": "These works cover broader Adam-like stability or global nonlinear behavior, but none includes the diffGrad friction law. They therefore do not imply that gradient-difference sensitivity disappears at first order or that diffGrad doubles the epsilon-floor frozen-momentum ceiling.",
+      "searches": [
+        "Adam local stability quadratic epsilon optimizer dynamical systems",
+        "Adaptive Gradient Methods at the Edge of Stability frozen Adam EMA heavy ball threshold",
+        "Non-Convergence and Limit Cycles in the Adam optimizer quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.11015v1",
+      "arXiv:2207.14484v1",
+      "arXiv:2210.02070v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The diffGrad paper states that its friction coefficient equals one half when the gradient does not change.",
+        "Its parameter update multiplies the bias-corrected first moment by the friction coefficient and divides by the square root of the corrected second moment plus epsilon.",
+        "Its theorem proves an online-regret bound under bounded-gradient and decaying-step assumptions, not a fixed-step local spectral result.",
+        "The adaptive-edge-of-stability paper gives the unfactored EMA-heavy-ball threshold."
+      ],
+      "reasoning": "The source ingredients do not by themselves state which part of the friction survives linearization. The final claim adds the exact limiting Jacobian, strict stability ceiling, oscillatory plateau, and the implication that only the one-half floor changes the first-order threshold.",
+      "searches": [
+        "diffGrad Eq 17 Eq 18 Eq 19 Eq 20 friction coefficient",
+        "diffGrad Theorem 1 regret bounded gradients decaying learning rate",
+        "Adaptive Edge Stability EMA heavy ball threshold",
+        "Adam limit cycles bias correction scalar quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1909.11015v1 defines diffGrad's friction coefficient and update.",
+        "arXiv:2207.14484v1 gives the EMA-style heavy-ball stability threshold used as the unfactored comparison.",
+        "arXiv:2210.02070v1 studies Adam scalar-quadratic cycles but contains no diffGrad analysis."
+      ],
+      "reasoning": "The closest equivalent formulation is frozen preconditioned EMA heavy-ball. diffGrad reduces to that linear recurrence only after proving that the nonconstant friction term and adaptive denominator are higher order at the zero orbit; the inspected sources do not state that reduction.",
+      "searches": [
+        "diffGrad optimizer scalar quadratic local stability gradient difference sigmoid",
+        "diffGrad friction coefficient stationary point one half",
+        "diffGrad exact convergence quadratic epsilon",
+        "diffGrad local linearization momentum",
+        "diffGrad local stability exact epsilon curvature friction coefficient scalar quadratic",
+        "diffGrad stationary point Jacobian friction 0.5 Adam",
+        "gradient difference adaptive optimizer local stability diffGrad",
+        "diffGrad asymptotic equivalent Adam half learning rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No diffGrad-specific published-record result returned an exact scalar quadratic Jacobian, epsilon-floor curvature ceiling, or half-step asymptotic equivalence.",
+        "Closest returned records concerned other sharp stability frontiers such as reflected gradient, stochastic feedback, Polyak steps, and heavy-ball root geometry."
+      ],
+      "reasoning": "The database comparisons use different algorithms or omit the diffGrad friction state, so their statements do not cover the final claim. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "diffGrad optimizer scalar quadratic local stability gradient difference sigmoid",
+        "diffGrad friction coefficient stationary point one half",
+        "diffGrad exact convergence quadratic epsilon",
+        "diffGrad local linearization momentum",
+        "diffGrad local stability exact epsilon curvature friction coefficient scalar quadratic",
+        "diffGrad stationary point Jacobian friction 0.5 Adam",
+        "gradient difference adaptive optimizer local stability diffGrad",
+        "diffGrad asymptotic equivalent Adam half learning rate"
+      ]
+    },
+    "rationale": "The inspected diffGrad source contains the update, friction floor, and regret analysis but no local quadratic spectrum. The closest stability literature gives the EMA-heavy-ball/frozen-Adam threshold, while Adam cycle analyses concern a different optimizer.",
+    "residual_risks": [
+      "A generic adaptive-optimizer linearization result may imply the calculation after substituting diffGrad's friction coefficient.",
+      "The result is local and does not classify diffGrad cycles or global convergence.",
+      "Implementations that place epsilon differently have a different numerical local scale."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_LOCAL_SPECTRUM.",
+        "evidence": "The paper defines the one-half-to-one friction coefficient and claims reduced oscillation near optima, while its formal result is an online-regret bound. No scalar quadratic or Jacobian stability theorem was located.",
+        "identifier_or_url": "arXiv:1909.11015v1",
+        "material_read": "Open-access full text covering the Adam preliminaries, Section III friction definition and parameter update, Theorem 1 and Corollary 1, synthetic stability discussion, and experimental hyperparameters.",
+        "method": "Full-text HTML inspection with targeted searches for quadratic and stability terms.",
+        "title": "diffGrad: An Optimization Method for Convolutional Neural Networks",
+        "trigger": "Defining source and closest method-specific theory."
+      },
+      {
+        "assessment": "CLOSE_LINEAR_COMPARISON_NOT_COVERING_DIFFGRAD.",
+        "evidence": "The source gives the EMA-heavy-ball threshold and connects it to frozen Adam, but does not analyze a gradient-difference friction multiplier.",
+        "identifier_or_url": "arXiv:2207.14484v1",
+        "material_read": "Open-access full text covering the frozen-Adam discussion, EMA heavy-ball definitions, quadratic thresholds, and preconditioned stability interpretation.",
+        "method": "Full-text HTML inspection.",
+        "title": "Adaptive Gradient Methods at the Edge of Stability",
+        "trigger": "Closest published exact linear stability threshold for Adam-like EMA momentum."
+      },
+      {
+        "assessment": "BROADER_ADAM_DYNAMICS_NOT_COVERING_DIFFGRAD.",
+        "evidence": "The paper proves Adam limit-cycle phenomena on scalar quadratics and does not mention diffGrad. Its results reinforce that the present theorem is local rather than global.",
+        "identifier_or_url": "arXiv:2210.02070v1",
+        "material_read": "Open-access full text covering the algorithm definition, scalar-quadratic cycle construction, stability discussion, and bias-correction perturbation argument.",
+        "method": "Full-text HTML inspection with a targeted search for diffGrad.",
+        "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+        "trigger": "Potential broader scalar-quadratic Adam dynamics that could subsume a local claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21673990-8d60-4de1-8171-9b51f3baf746",
+  "value": {
+    "rationale": "diffGrad's defining novelty is its gradient-change friction, introduced specifically to reduce oscillation near optima. The theorem identifies the exact local mechanism: the floor \\(1/2\\) doubles the frozen EMA-momentum curvature margin, whereas gradient-change sensitivity is invisible at first order. This is a sharp stability and interpretation result tied directly to the method's motivating design question.",
+    "status": "PASS"
+  }
+}
