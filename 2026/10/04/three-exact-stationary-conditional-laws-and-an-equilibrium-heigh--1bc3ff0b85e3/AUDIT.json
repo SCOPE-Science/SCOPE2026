@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Arbitrary one-variable antiderivative tests yield \\(\\mathbb E[y\\mid x]=x\\), \\(\\mathbb E[xz\\mid y]=cy\\), and \\(\\mathbb E[xy\\mid z]=bz\\). Their integrated and weighted forms give \\(\\mathbb E[x^2]=b\\mathbb E[z]\\), \\(c\\mathbb E[y^2]=b\\mathbb E[z^2]\\), and exactly \\(\\mathbb E[z(z-c)]=(c/b)\\mathbb E[(y-x)^2]\\). Zero defect forces the invariant support into \\(y=x\\); tangency and bounded completeness reduce that support to the origin and the two nonzero equilibria. The packaged checker verifies the generator and defect algebra exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full 2015 comparison studies equivalence, homoclinic behavior, Lyapunov exponents, and hidden/self-excited attractor analysis.",
+        "The 2012 boundedness abstract states boundedness in specified parameter regions using a Lyapunov function.",
+        "The 2016 global-boundedness abstract states a global boundedness theorem and explicit bounds using dynamical-systems and Lyapunov methods."
+      ],
+      "reasoning": "Absorbing-set or boundedness theorems guarantee where trajectories can remain but do not imply coordinate-wise conditional expectations under every invariant probability measure. Likewise, a coordinate equivalence to a generalized Lorenz form does not by itself supply the accepted stationary defect.",
+      "searches": [
+        "generalized Lorenz system invariant measure stationary moment identity x y z",
+        "Lorenz Chen Lu stationary variance defect equilibrium mixtures",
+        "\"On the global boundedness of the Lü system\"",
+        "\"On the boundness of some solutions of the Lü system\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1142/S0218127402004620",
+      "doi:10.1142/S021812740200631X",
+      "arXiv:1409.8649",
+      "doi:10.1016/j.amc.2016.03.017",
+      "doi:10.1142/S0218127412500150"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original system paper reports numerical chaotic and periodic behavior rather than universal stationary identities.",
+        "The detailed 2015 comparison does not state a theorem localizing stationarity against arbitrary functions of a coordinate.",
+        "The accessible boundedness results concern Lyapunov bounds and global boundedness, not equality-rigid equilibrium mixing."
+      ],
+      "reasoning": "Numerical attractor properties, homoclinic results, coordinate equivalences, and Lyapunov boundedness do not implication-wise yield a universal conditional-expectation theorem. The accepted equality classification depends specifically on the exact square defect and invariant-support tangency.",
+      "searches": [
+        "Lu system exact stationary defect E[z(z-c)] = c/b E[(y-x)^2]",
+        "Lorenz Chen Lu stationary variance defect equilibrium mixtures",
+        "\"Lü system\" invariant probability measure",
+        "\"Lü system\" Lyapunov boundedness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original article and later comparison use the same three-dimensional Lü equations, modulo standard parameter naming.",
+        "The full Lorenz–Chen–Lü comparison explicitly records a constant coordinate/time scaling that normalizes the Lü parameter family.",
+        "No inspected source states any of the three accepted conditional expectations or the equivalent localized test-function identities."
+      ],
+      "reasoning": "Both the original normalization and the standard scaled generalized-Lorenz representation were checked. The conditional identities transform covariantly under the stated linear scaling, so an equivalent normalized statement would have been implication-level coverage.",
+      "searches": [
+        "Lu system E[y|x]=x stationary invariant measure",
+        "Lu system E[xz|y]=c y E[xy|z]=b z invariant measure",
+        "Lorenz Chen Lu system invariant probability measure conditional expectation",
+        "\"Lü system\" \"time average\" x^2 z^2",
+        "\"Lü system\" \"mean square\" z chaos"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic-index result with the Lü system as the object states the three conditional laws or the slab defect.",
+        "The closest indexed findings concern distinct flows such as Rabinovich–Fabrikant, Rössler, Lorenz-84, and Rikitake.",
+        "The recoverable own-ledger claims contain no Lü-system finding."
+      ],
+      "reasoning": "Exact equations, conditional-law aliases, moment-defect language, recurrence-barrier wording, and Lorenz–Chen–Lü equivalence terminology were all queried. Structurally similar invariant-measure laws for other vector fields do not imply this result.",
+      "searches": [
+        "Lu system invariant measure stationary balance exact moment law chaotic flow",
+        "Lü chaotic system compact invariant measure stationary identity",
+        "Lorenz Chen Lu system invariant probability measure conditional expectation",
+        "Lu attractor stationary moments recurrence barrier",
+        "Lu system E[y|x]=x stationary invariant measure",
+        "Lu system E[xz|y]=c y E[xy|z]=b z invariant measure",
+        "Lu system exact stationary defect E[z(z-c)] = c/b E[(y-x)^2]",
+        "generalized Lorenz system invariant measure stationary moment identity x y z",
+        "Lorenz Chen Lu stationary variance defect equilibrium mixtures"
+      ]
+    },
+    "rationale": "The full foundational article gives the Lü equations, chaotic parameters, Lyapunov data, and periodic/chaotic windows but no invariant-probability statement. A full Lorenz–Chen–Lü comparison explicitly treats coordinate/time scalings, generalized-Lorenz equivalence, homoclinic analysis, and Lyapunov-exponent questions without stating the accepted conditional laws or defect. Published boundedness work is related but addresses Lyapunov absorbing bounds rather than stationary disintegration. Exact-object semantic searches over the conditional laws, moment defect, aliases, and generalized-Lorenz equivalences returned no implication-level coverage.",
+    "residual_risks": [
+      "Complete text of the 2016 global-boundedness article was unavailable in the inspected lawful sources.",
+      "The 2012 boundedness article was available only through abstract/preview material in the inspected sources.",
+      "The exact identities are algebraically short, so a differently phrased incidental prior observation could escape semantic searches.",
+      "Linear scalings among Lorenz-like systems mean equivalent statements could occur under normalized parameters; this was specifically searched but cannot be exhaustively excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the exact object and its numerical dynamical behavior. No invariant-measure, conditional-expectation, stationary-moment, or square-defect theorem is stated.",
+        "evidence": "The paper gives \\(\\dot x=a(y-x)\\), \\(\\dot y=-xz+cy\\), \\(\\dot z=xy-bz\\), and uses \\((a,b,c)=(36,3,20)\\) as the representative chaotic parameters.",
+        "identifier_or_url": "doi:10.1142/S0218127402004620",
+        "material_read": "Complete three-page article, including equations, equilibrium discussion, Lyapunov data, and parameter windows for periodic and chaotic behavior.",
+        "method": "Direct full-text inspection.",
+        "title": "A New Chaotic Attractor Coined",
+        "trigger": "Foundational source, exact equations, classical parameter values, and earliest-public-date anchor."
+      },
+      {
+        "assessment": "Provides broader family context and bifurcation geometry but does not state the accepted invariant-probability conditional laws.",
+        "evidence": "The article embeds the Lü attractor into the transition between Lorenz and Chen dynamics.",
+        "identifier_or_url": "doi:10.1142/S021812740200631X",
+        "material_read": "Full available article text, including unified equations, equilibria, linear stability, parameter transition, and numerical orbit geometry.",
+        "method": "Direct full-text inspection with targeted searches for stationary, average, measure, and moment language.",
+        "title": "Bridge the Gap Between the Lorenz System and the Chen System",
+        "trigger": "Same-family primary source connecting Lü to the unified Lorenz–Chen transition family."
+      },
+      {
+        "assessment": "Explicitly handles the normalization/equivalence issue relevant to novelty. It does not state the three conditional laws, the RMS relation, or the equilibrium-height slab defect.",
+        "evidence": "The preprint displays the Lü equations and the scaling \\(x\\mapsto hx\\), \\(y\\mapsto hy\\), \\(z\\mapsto hz\\), \\(t\\mapsto h^{-1}t\\), then develops analysis of the Lorenz-like family.",
+        "identifier_or_url": "arXiv:1409.8649",
+        "material_read": "Complete public preprint, including the displayed Lorenz, Chen, and Lü systems, coordinate/time scaling, generalized representation, homoclinic discussion, Lyapunov-exponent analysis, and open problems.",
+        "method": "Direct full-text and page-image inspection.",
+        "title": "On differences and similarities in the analysis of Lorenz, Chen, and Lu systems",
+        "trigger": "Strongest equivalence risk because it explicitly treats transformations among Lorenz-like systems and Lü homoclinic analysis."
+      },
+      {
+        "assessment": "The accessible material states a global-boundedness theorem based on Lyapunov stability theory and explicit bounds. Whole-document noncoverage is not asserted.",
+        "evidence": "The published abstract describes global boundedness and bounding regions, not invariant-measure conditional or moment identities.",
+        "identifier_or_url": "doi:10.1016/j.amc.2016.03.017",
+        "material_read": "Abstract and bibliographic record; open full-text retrieval was restricted and a bounded institutional retrieval attempt did not return the article.",
+        "method": "Abstract-level implication comparison after bounded lawful-access attempts.",
+        "title": "On the global boundedness of the Lü system",
+        "trigger": "Plausible dominating same-object source because it proves global boundedness and explicit bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1bc3ff0b-85e3-4d69-b68d-f8e7dd6c28f5",
+  "value": {
+    "rationale": "The Lü system is a canonical bridge between Lorenz and Chen dynamics, and its two nonzero equilibria share the natural height \\(z=c\\) while the origin sits at \\(z=0\\). The theorem turns those equilibrium heights into a global stationary obstruction: every genuinely non-equilibrium compact recurrent state must place positive mass outside the entire equilibrium-height slab. The three exact conditional laws are finer than ordinary time averages and give binwise identities that can be checked on periodic or chaotic invariant data. The square-defect equality classification distinguishes equilibrium mixing sharply from recurrent dynamics, making the result a structural invariant-measure constraint rather than a numerical re-estimation of known chaos diagnostics.",
+    "status": "PASS"
+  }
+}
