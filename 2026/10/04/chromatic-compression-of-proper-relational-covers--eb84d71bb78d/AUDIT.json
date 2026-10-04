@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The construction, bounded-morphism conditions, properness, frame-property preservation, two-agent S5 lower bound, and one-agent obstruction were reconstructed directly. A standard-library checker verifies the finite construction on randomized models and exact small chromatic examples; the infinite/general proof does not rely on computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bjorndahl--Sink 2025 proves qualitative existence for arbitrary cardinalities and gives an m^2 finite construction.",
+        "Bjorndahl--Sink 2026 repeats the W x W finite construction and its property preservation.",
+        "Goubault--Ledent--Rajsbaum 2022 uses an unwinding construction for a canonical model and does not provide this finite size refinement."
+      ],
+      "reasoning": "Qualitative existence and arbitrary-cardinality coverage do not imply the model-sensitive finite bound, the one-agent obstruction, or the two-agent S5 lower bound.",
+      "searches": [
+        "web: A Note on Proper Relational Structures full text",
+        "web: A Semantics for Belief in Simplicial Complexes properness W x W",
+        "web: A simplicial model for KB4n unwinding proper"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.17142v1",
+      "arXiv:2512.14647",
+      "DOI:10.4230/LIPIcs.STACS.2022.33",
+      "published-finding corpus semantic index queries listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 source explicitly fixes m copies and labels every world distinctly modulo m.",
+        "The 2026 source again states the finite W x W construction and derives properness from equality of the second coordinate plus the skew partition.",
+        "The 2022 unwinding result is not a finite chromatic compression and does not preserve the same finite-size control."
+      ],
+      "reasoning": "The prior proofs supply the template but not the implication that any proper coloring of the joint-accessibility conflict graph suffices. That implication is proved directly here; the S5 lower bound is a separate counting argument not contained in the inspected sources.",
+      "searches": [
+        "Primary PDF inspection: arXiv:2506.17142v1 pp. 2--5",
+        "Primary/full-text inspection: A Semantics for Belief in Simplicial Complexes, Properness section",
+        "STACS 2022 full-text search for proper/unwinding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2506.17142v1 finite construction uses X tilde = X x X and a modular skew partition; no conflict graph or chromatic parameter appears in the inspected full text.",
+        "No targeted published-finding corpus hit stated a color-compressed proper relational cover or an m*chi(G) size bound."
+      ],
+      "reasoning": "The source's injective labeling can be viewed as an m-coloring, but the weaker condition needed for properness is separation only of all-agent-accessible pairs. The conflict graph and replacement by an optimal coloring are additional statement-level content.",
+      "searches": [
+        "published-finding corpus: Bjorndahl Sink A Note on Proper Relational Structures bounded morphism proper",
+        "published-finding corpus: finite relational model proper bounded morphism color compression",
+        "web: proper relational structures chromatic number bounded morphism modal logic",
+        "web: proper relational chromatic number bounded morphism"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus searches returned unrelated graph and modal findings but no entry on this properization size problem.",
+        "The current and prior owned ledger contained no finding on proper relational covers or this conflict graph."
+      ],
+      "reasoning": "There is no relevant exact database/table identified that already records the claimed cover-size formula or lower bound.",
+      "searches": [
+        "published-finding corpus: arXiv 2506.17142 proper relational structures m squared construction",
+        "published-finding corpus: proper relational structure W times W size bound",
+        "own ledger search: proper relational; chromatic; bounded morphism; simplicial"
+      ]
+    },
+    "rationale": "The closest primary source gives an m^2 finite properization but not the conflict-graph compression, one-agent iff boundary, or two-agent S5 lower bound. Targeted published-finding corpus, primary-literature, and web searches found no statement implying these quantitative claims.",
+    "residual_risks": [
+      "Equivalent color-compression may exist under terminology not surfaced by the semantic/web searches.",
+      "Per-instance global minimality of m*chi(G) is not claimed and was not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING: finite source uses m^2 worlds and injective modular labels; no conflict graph, chromatic compression, one-agent boundary, or matching S5 lower bound was found.",
+        "evidence": "Submitted 20 June 2025; MSC 03B42. Finite construction sets X tilde = X x X and proves projection is a surjective bounded morphism.",
+        "identifier_or_url": "arXiv:2506.17142v1",
+        "material_read": "Abstract, definition of properness, complete finite construction and proofs, general-cardinality extension, property-preservation discussion, references.",
+        "method": "Primary arXiv HTML/PDF text plus visual inspection of the PDF construction pages.",
+        "title": "A Note on Proper Relational Structures",
+        "trigger": "Direct source of the finite properization being sharpened."
+      },
+      {
+        "assessment": "NOT_COVERING: repeats the m^2 construction and qualitative theorem without the chromatic refinement or lower bound.",
+        "evidence": "The properness section starts from m finite worlds, sets W tilde = W x W, and states the resulting proper bounded-morphic simulation.",
+        "identifier_or_url": "arXiv:2512.14647 / EPTCS 447 (2026)",
+        "material_read": "Properness section, finite W x W construction, Propositions 4.1--4.4 and Theorem 4.5 in accessible full text.",
+        "method": "Primary/preprint full-text extraction.",
+        "title": "A Semantics for Belief in Simplicial Complexes",
+        "trigger": "Later application that reproduces the properization in the target simplicial-semantics setting."
+      },
+      {
+        "assessment": "NOT_COVERING: uses path unwinding for a canonical model; no finite chromatic cover-size statement was found.",
+        "evidence": "The paper describes worlds as paths in an unwinded model and uses that for properness/bisimulation.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.STACS.2022.33",
+        "material_read": "Published full-text search around the completeness proof and unwinding construction.",
+        "method": "Publisher/repository full-text search.",
+        "title": "A Simplicial Model for KB4n: Epistemic Logic with Agents That May Die",
+        "trigger": "The 2025 source identifies this as the earlier formal properness discussion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb84d71b-b78d-47df-8dc9-5c328f66cd27",
+  "value": {
+    "rationale": "The result turns a uniform quadratic finite-model blow-up into a graph-sensitive m*chi(G) bound while proving that the quadratic regime is genuinely necessary for complete two-agent S5 conflict. This directly affects the size of proper relational representatives used before translation to simplicial models and identifies the exact obstruction graph driving duplication.",
+    "status": "PASS"
+  }
+}
