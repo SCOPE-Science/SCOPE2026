@@ -1,0 +1,127 @@
+# The finite-dimensional \(\ell^p\) scale yields continuum many intrinsic parts
+
+## Finding
+
+Let \(n\ge 2\). For each \(r\in[1,\infty]\), let \(p_r=\|\cdot\|_r\) on \(\mathbb R^n\). Then \(p_r\) and \(p_s\) lie in the same intrinsic part of \(\mathcal N(\mathbb R^n)\) if and only if \(r=s\). For \(1<r<\infty\), the separating local triangular-defect asymptotic along \(e_1\) and \(e_1+t e_2\) is \(\Delta_{p_r}(e_1,e_1+t e_2)=((1-2^{1-r})/r)t^r+O(t^{2r})\). Consequently, for every \(n\ge 2\), the cone of equivalent norms on \(\mathbb R^n\) has continuum many intrinsic parts.
+
+The asymptotic exponent is itself a useful local obstruction: uniform comparability of triangular defects forces the same power of \(t\) along every common test path on which both defects have positive leading terms. Thus the parameter \(r\) is detected by the intrinsic cone order, even though all of the norms \(p_r\) are mutually equivalent in finite dimension.
+
+## Assumptions and scope
+
+Let \(n\ge 2\), and for \(1\le r<\infty\) define
+
+\[
+p_r(x)=\left(\sum_{j=1}^n |x_j|^r\right)^{1/r},
+\]
+
+while \(p_\infty(x)=\max_j |x_j|\). For a norm \(p\), its triangular defect is
+
+\[
+\Delta_p(x,y)=p(x)+p(y)-p(x+y).
+\]
+
+All \(p_r\) are equivalent norms on \(\mathbb R^n\). The relevant intrinsic part is the part of the cone \(\mathcal N(\mathbb R^n)\cup\{0\}\) under its cone-induced order. Acosta-Portilla's Theorem 4.6 states that two equivalent norms \(p,q\) are in the same intrinsic part exactly when there are constants \(a,b>0\) with
+
+\[
+a\Delta_p(x,y)\le \Delta_q(x,y)\le b\Delta_p(x,y)
+\]
+
+for all \(x,y\). Corollary 4.7 gives the necessary consequence that their triangular defects have identical zero sets.
+
+## Proof
+
+It is enough to work in the coordinate plane spanned by \(e_1,e_2\), because restriction of \(p_r\) to that plane is the usual \(\ell^r\) norm on \(\mathbb R^2\). If two triangular defects were uniformly comparable on \(\mathbb R^n\), their restrictions would remain uniformly comparable on this plane.
+
+First suppose \(1<p<q<\infty\). Put \(x=e_1\) and \(y_t=e_1+t e_2\) for \(t>0\). For any \(1<r<\infty\),
+
+\[
+\Delta_{p_r}(x,y_t)
+=1+(1+t^r)^{1/r}-(2^r+t^r)^{1/r}.
+\]
+
+As \(t\to0^+\), the binomial expansion gives
+
+\[
+(1+t^r)^{1/r}=1+\frac{1}{r}t^r+O(t^{2r})
+\]
+
+and
+
+\[
+(2^r+t^r)^{1/r}
+=2\left(1+\frac{t^r}{2^r}\right)^{1/r}
+=2+\frac{2^{1-r}}{r}t^r+O(t^{2r}).
+\]
+
+Therefore
+
+\[
+\Delta_{p_r}(x,y_t)
+=c_r t^r+O(t^{2r}),
+\qquad
+c_r=\frac{1-2^{1-r}}{r}>0.
+\]
+
+Hence
+
+\[
+\frac{\Delta_{p_q}(x,y_t)}{\Delta_{p_p}(x,y_t)}
+=\frac{c_q}{c_p}t^{q-p}(1+o(1))\longrightarrow0.
+\]
+
+No constant \(a>0\) can satisfy \(a\Delta_{p_p}\le\Delta_{p_q}\) everywhere. By Theorem 4.6, \(p_p\) and \(p_q\) lie in different intrinsic parts.
+
+Now consider the endpoint \(p_1\). Taking \(x=e_1\) and \(y=e_2\),
+
+\[
+\Delta_{p_1}(e_1,e_2)=0,
+\]
+
+whereas
+
+\[
+\Delta_{p_q}(e_1,e_2)=2-2^{1/q}>0
+\]
+
+for every finite \(q>1\), and
+
+\[
+\Delta_{p_\infty}(e_1,e_2)=1>0.
+\]
+
+Thus the zero set for \(p_1\) differs from that of every \(p_q\) with \(q>1\), so Corollary 4.7 separates \(p_1\) from all of them.
+
+Finally, let \(1<p<\infty\) and compare \(p_p\) with \(p_\infty\). With \(x=e_1\) and \(y=e_1+e_2\),
+
+\[
+\Delta_{p_\infty}(x,y)=1+1-2=0.
+\]
+
+The norm \(p_p\) is strictly convex, and \(x\) and \(y\) are not positively collinear, so its triangle inequality is strict:
+
+\[
+\Delta_{p_p}(x,y)
+=1+2^{1/p}-(2^p+1)^{1/p}>0.
+\]
+
+Again the zero sets differ. Therefore \(p_\infty\) lies in a different intrinsic part from every finite \(p_p\). Combining the three cases proves pairwise distinctness. Since the extended interval \([1,\infty]\) has cardinality continuum, the stated continuum lower bound follows.
+
+## Verification
+
+The proof uses the exact intrinsic-part criterion in Acosta-Portilla's Theorem 4.6 and its zero-set consequence, Corollary 4.7. The source's Example 4.8 checks the special pair \(p_2,p_4\) using the same path and obtains the coefficients \(1/4\) and \(7/32\); substituting \(r=2\) and \(r=4\) into \(c_r=(1-2^{1-r})/r\) reproduces those values exactly.
+
+The endpoint arguments require no asymptotic limit: they use explicit defect zeros and positives. No numerical experiment is used as proof. The reduction from \(\mathbb R^n\) to the first coordinate plane is exact.
+
+## Relationship to prior work
+
+Acosta-Portilla introduced the triangular defect and proved the uniform-comparability characterization of intrinsic parts. The paper also gives the concrete example that the Euclidean and \(\ell^4\) norms on \(\mathbb R^2\) belong to different intrinsic parts by comparing quadratic and quartic defect decay. The present finding turns that isolated example into a complete classification of the canonical \(\ell^r\) scale, including both nonsmooth endpoints, and identifies the local defect exponent \(r\) as the separating invariant for every finite \(r>1\).
+
+Focused searches for the all-parameter classification, for a continuum of intrinsic parts generated by \(\ell^r\) norms, and for a named local triangular-defect exponent did not locate a covering result. This negative search evidence is not a proof of novelty; the focal preprint is recent and indexing may be incomplete.
+
+## Limitations
+
+The result concerns the canonical \(\ell^r\) family on real finite-dimensional coordinate spaces. It does not classify all intrinsic parts of \(\mathcal N(\mathbb R^n)\), nor does it determine intrinsic Hilbert distances between different parts, where that distance is infinite by definition. In dimension \(n=1\), every norm is a positive scalar multiple of the absolute-value norm, so the continuum conclusion necessarily starts at \(n=2\).
+
+## References
+
+[1] Juan Rafael Acosta-Portilla, *Intrinsic Hilbert metrics on cones of equivalent norms*, arXiv:2609.28922v1, 24 September 2026. See Theorem 4.6, Corollary 4.7, Example 4.8, and Proposition 4.9.
