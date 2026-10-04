@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The event \\(H_w>h\\) is converted to a one-dimensional uniform integral with the exact lower boundary \\(hw/[1-h(1-w)]\\). Direct integration gives the stated CDF. Differentiating \\(t\\log(1+A/t)\\) proves the strict weight ordering. Independent numerical quadrature reproduces the closed form to floating-point tolerance, and the equal-weight specialization matches a previously published exact formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. cover arbitrary numbers of p-values and several dependence classes qualitatively through sub-uniformity.",
+        "Wilson covers weighted HMPs and asymptotic large-group calibration."
+      ],
+      "reasoning": "Those broader results imply that direct HMP interpretation can be anti-conservative, but they do not imply the displayed two-input weighted distribution or the strict ordering by \\(w(1-w)\\). The present result is narrower in dimension and dependence but sharper in exact finite-sample calibration.",
+      "searches": [
+        "Sub-uniformity of harmonic mean p-values weighted independence",
+        "harmonic mean p-value direct interpretation anti conservative exact two",
+        "arXiv:2405.01368v1"
+      ]
+    },
+    "checked_sources": [
+      "Wilson, bioRxiv 171751 / PNAS 2019.",
+      "Chen, Wang, Wang, Zhu, arXiv:2405.01368v1 and later journal page.",
+      "Rui Li, Some Contributions to Distribution Theory, PhD thesis, University of Manchester, 2018, Chapter 7.",
+      "Embrechts, McNeil, Straumann, Risk Management chapter, 2002, publisher extract.",
+      "Targeted semantic database searches for weighted harmonic mean, two uniforms, exact CDF, calibration, and weight extremum."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wilson: weighted definition and approximate/asymptotic calibration.",
+        "Chen et al.: strict sub-uniformity and need for adjustment, with a citation to an older two-uniform example.",
+        "Li: exact unweighted/equal-weight two-uniform distribution.",
+        "Accessible Embrechts material identifies the risk-management chapter but did not expose a weighted two-uniform formula."
+      ],
+      "reasoning": "Wilson and Chen imply the direction of miscalibration but not its exact two-weight magnitude. Li covers exactly \\(w=1/2\\), so that specialization is subsumed. The arbitrary-weight formula plus strict global maximizer is not implied by any inspected statement except by doing the additional calculation proved here.",
+      "searches": [
+        "doi:10.1101/171751",
+        "arXiv:2405.01368v1",
+        "Rui Li 2018 harmonic mean two uniform distribution",
+        "Embrechts McNeil Straumann 2002 Example 7 harmonic mean uniform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wilson defines the weighted harmonic mean \\((w/U+(1-w)/V)^{-1}\\) in the general multi-p setting and discusses anti-conservative direct interpretation.",
+        "Chen et al. prove strict sub-uniformity of weighted harmonic means under independence.",
+        "Li 2018 gives the exact equal-weight two-uniform CDF."
+      ],
+      "reasoning": "The new statement is not a renaming of the qualitative sub-uniformity theorem: it supplies the exact weighted CDF for every \\(w\\) and \\(h\\), and then compares those CDFs pointwise in \\(w\\). The equal-weight specialization is already known and is not claimed as original.",
+      "searches": [
+        "weighted harmonic mean p-values two independent exact CDF equal weights maximize type I error",
+        "weighted harmonic mean two uniforms distribution closed form",
+        "doi:10.1101/171751",
+        "arXiv:2405.01368v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Li 2018, Chapter 7, reports the equal-weight law \\(h+(h^2/2)\\log((2-h)/h)\\).",
+        "Wilson’s published calibration table shown in accessible material starts at larger group sizes and uses asymptotic calibration rather than the two-weight exact law."
+      ],
+      "reasoning": "The known equal-weight entry is fully acknowledged. No inspected table or database entry supplied a parameterized formula in the deterministic weight \\(w\\) or the exact pointwise extremum over weights.",
+      "searches": [
+        "two uniform p-values harmonic mean exact CDF",
+        "weighted harmonic mean p-value two p-values exact",
+        "Some Contributions to Distribution Theory Rui Li harmonic mean uniform"
+      ]
+    },
+    "rationale": "The closest literature covers the weighted HMP definition and qualitative anti-conservatism, a broad strict sub-uniformity theorem, and the exact equal-weight two-uniform special case. The inspected sources and targeted database searches did not locate the arbitrary normalized two-weight CDF together with the unique equal-weight type-I-error extremum. The claim expressly excludes the known equal-weight formula from its originality assertion.",
+    "residual_risks": [
+      "A generic distribution-theory or actuarial source may contain the same weighted two-uniform transformation without p-value terminology.",
+      "The full text of the cited 2002 risk-management Example 7 was not available in the inspected publisher extract; accessible later sources characterize it as the two-uniform harmonic-mean case rather than as an arbitrary-weight result.",
+      "Search failure is not a proof of novelty; the PASS judgment is based on statement-level comparison with the closest located primary and secondary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the arbitrary-weight two-input exact CDF or weight extremum; COVERING the weighted definition and qualitative anti-conservatism.",
+        "evidence": "The source defines the weighted harmonic mean and states that direct interpretation is approximately calibrated for small values but anti-conservative; its exact-calibration discussion is asymptotic in group size.",
+        "identifier_or_url": "doi:10.1101/171751",
+        "material_read": "Accessible full-text transcription of the preprint, including the weighted definition, direct-interpretation discussion, Landau calibration, and calibration table.",
+        "method": "Statement and formula comparison.",
+        "title": "The harmonic mean p-value for combining dependent tests",
+        "trigger": "Primary source defining the weighted HMP and its direct/asymptotic calibration."
+      },
+      {
+        "assessment": "BROADER_QUALITATIVE but NOT_COVERING the exact weighted two-input CDF or pointwise weight maximizer.",
+        "evidence": "The paper proves strict sub-uniformity under independence and emphasizes threshold adjustment, but the inspected statements do not give the displayed \\(w\\)-parameterized two-input CDF.",
+        "identifier_or_url": "arXiv:2405.01368v1",
+        "material_read": "Abstract and accessible full HTML sections defining weighted harmonic means, stating strict sub-uniformity, and discussing the two-uniform literature.",
+        "method": "Theorem-scope and implication comparison.",
+        "title": "Sub-uniformity of harmonic mean p-values",
+        "trigger": "Closest modern theory for weighted HMP validity under independence."
+      },
+      {
+        "assessment": "COVERING the equal-weight special case only.",
+        "evidence": "The thesis gives \\(h+(h^2/2)\\log((2-h)/h)\\) for the ordinary harmonic mean of two independent uniforms, agreeing exactly with the \\(w=1/2\\) reduction.",
+        "identifier_or_url": "Rui Li, University of Manchester PhD thesis, 2018",
+        "material_read": "Chapter 7 distribution page in the thesis PDF and university metadata.",
+        "method": "Direct formula comparison.",
+        "title": "Some Contributions to Distribution Theory",
+        "trigger": "Searches for an exact law of the harmonic mean of two independent uniforms."
+      },
+      {
+        "assessment": "ACCESS_LIMITED; residual risk for the unweighted two-uniform formula, with no evidence located for the weighted extension.",
+        "evidence": "The accessible chapter material is about dependence modelling; Chen et al. describe Example 7 as the \\(n=2\\) harmonic-mean-of-uniforms case.",
+        "identifier_or_url": "doi:10.1017/CBO9780511615337.008",
+        "material_read": "Accessible publisher extract and bibliographic metadata; the relevant full example was not available in the inspected extract.",
+        "method": "Bibliographic and accessible-extract comparison.",
+        "title": "Correlation and Dependence in Risk Management: Properties and Pitfalls",
+        "trigger": "Chen et al. cite Example 7 as earlier discussion of the harmonic mean of two uniforms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31866efa-b67e-4e67-a8e1-a2431105171b",
+  "value": {
+    "rationale": "The result gives an exact finite-sample calibration for the smallest nontrivial weighted HMP problem that the modern literature explicitly identifies as requiring threshold adjustment. It also yields a structural design fact—equal weights uniquely maximize independent-null size inflation at every threshold—rather than merely recomputing one number. The \\(5\\%\\) example quantifies the practical gap and supplies an exact corrected cutoff.",
+    "status": "PASS"
+  }
+}
