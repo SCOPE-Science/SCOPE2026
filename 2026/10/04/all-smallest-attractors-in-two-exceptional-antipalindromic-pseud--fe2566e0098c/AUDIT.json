@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs both finite directive families from the antipalindromic-closure definition and gives necessary and sufficient position-pair criteria. For A_n, period-two occurrence intervals leave exactly one opposite-parity endpoint failure. For B_n, the length-two factor incidence forces opposite residues modulo four, the factor 0011 removes exactly two boundary pairs, and length-three plus length-at-least-four occurrence geometry proves sufficiency. Both words contain both symbols, so size one is impossible. The bundled verifier independently reconstructs closures and every factor occurrence and confirms the classifications through n=40.",
+    "risks": [
+      "Finite verification alone does not prove the all-n quantifier; correctness therefore rests on the written periodic/residue proof."
+    ],
+    "sources": [
+      "RESULT.md proof",
+      "verify.py direct closure and factor-occurrence checks",
+      "arXiv:2308.00850v1 definitions"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dvořáková--Hendrychová Theorem 8 governs canonical attractor size/minimality for antipalindromic prefixes but does not enumerate all minimum pairs.",
+        "Banbara et al. completely characterize smallest attractors for Fibonacci and period-doubling words, not the two pseudostandard families here."
+      ],
+      "reasoning": "Knowing that a size-two attractor exists, or even one canonical attractor, does not imply how many minimum pairs exist or which pairs they are. The broader 2026 classification concerns different words and therefore does not dominate this theorem.",
+      "searches": [
+        "complete classification all smallest attractor pairs 01^n 0110 periodic antipalindromic prefix",
+        "Dvorakova Hendrychova Theorem 8 exceptional directive prefixes multiplicity smallest attractors",
+        "Banbara smallest string attractors Fibonacci period-doubling complete characterization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.00850v1",
+      "doi:10.4230/LIPIcs.CPM.2026.33",
+      "OEIS:A339668",
+      "published-finding corpus 2026/9/8/SCOPE079",
+      "own prior finding 7d9ddd4b-7925-4fba-82a3-a6ee2be367e9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 8 supplies conditions on the displayed canonical attractor and its minimality, but no statement from it fixes all other minimum pairs.",
+        "The complete pair criteria here require new residue and occurrence-union arguments, including identifying one and two exceptional boundary pairs."
+      ],
+      "reasoning": "The prior minimum-size statements do not logically imply the enumeration of every attaining set. Conversely, the present theorem specializes to two directive families and does not subsume the primary theorem for general pseudostandard prefixes.",
+      "searches": [
+        "arXiv:2308.00850v1 Theorem 8 and Section 5",
+        "all smallest string attractors pseudostandard word periodic exceptional family"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published-finding corpus hit was 2026/9/8/SCOPE079 on Rudin--Shapiro and regular-paperfolding dyadic prefixes, a different object and claim.",
+        "No inspected search result stated an all-pair classification for the periodic words (01)^n or 0(1100)^{n-1}1."
+      ],
+      "reasoning": "The searches used the pseudostandard terminology, the explicit closed-form words, the minimum-attractor multiplicity phrasing, and the exact exceptional directive patterns; these are equivalent routes to the same invariant rather than title matching.",
+      "searches": [
+        "pseudostandard antipalindromic prefixes number of minimum string attractors multiplicity",
+        "\"01(1001)\" string attractor",
+        "\"(01)^n\" string attractor number minimum attractors",
+        "exceptional pseudostandard prefixes size two attractors 0^n 01^{n-1}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact-formula search returned these polynomial multiplicities in the string-attractor setting.",
+        "OEIS A339668 counts binary words of length n whose minimum attractor size is two; it does not count all minimum position pairs for one word."
+      ],
+      "reasoning": "The database statistic and the present within-word multiplicity are different invariants; neither determines the other.",
+      "searches": [
+        "n^2-1 2n(n-2) smallest string attractors pseudostandard",
+        "\"n^2-1\" \"string attractor\"",
+        "\"2n(n-2)\" \"string attractor\"",
+        "OEIS A339668 minimum string attractor size 2"
+      ]
+    },
+    "rationale": "The primary full text, the closest modern all-smallest-attractor paper, OEIS A339668, the current/prior finding ledger, and targeted published-finding corpus searches were compared at the statement and implication level. None inspected states or implies the complete pair classifications or the multiplicities n^2-1 and 2n(n-2) for these pseudostandard families. The primary theorem gives canonical/minimum-size conditions rather than all minimum sets. Risk remains for unindexed or unpublished material.",
+    "residual_risks": [
+      "An unindexed thesis, unpublished computation, or differently phrased prior enumeration may exist.",
+      "Future or unindexed extensions of the active all-smallest-attractor literature could overlap, but no decisive unresolved comparison was found."
+    ],
+    "risks": [
+      "An unindexed thesis, unpublished computation, or differently phrased enumeration may exist.",
+      "The 2026 all-smallest-attractor literature demonstrates active work on multiplicity, so later or forthcoming extensions to pseudostandard words are a residual risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 8 states canonical attractor size/minimality conditions for antipalindromic prefixes; it does not list all size-two position pairs or the multiplicities in the two directive families.",
+        "identifier_or_url": "arXiv:2308.00850v1",
+        "material_read": "Full text, with emphasis on definitions, Theorem 8, its proof context, and the open-problem discussion.",
+        "method": "Lawful open full-text inspection.",
+        "title": "String attractors of Rote sequences",
+        "trigger": "Primary source defining the exact pseudostandard/antipalindromic setting and containing the closest theorem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The work concerns Fibonacci and period-doubling words, not generalized pseudostandard directive families 0^n or 01^{n-1}.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2026.33",
+        "material_read": "Open HTML abstract and bibliographic material describing the complete classifications and multiplicity comparison.",
+        "method": "Lawful open web inspection.",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Closest modern work explicitly classifying all smallest attractors and discussing multiplicity."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It counts words by length with attractor number two, not all minimum attractor sets of a fixed word.",
+        "identifier_or_url": "OEIS:A339668",
+        "material_read": "Sequence definition and interpretation.",
+        "method": "Public database inspection.",
+        "title": "OEIS A339668",
+        "trigger": "Exact database entry for binary words of minimum attractor size two."
+      }
+    ],
+    "sources": [
+      "arXiv:2308.00850v1, especially Theorem 8 and the antipalindromic-prefix section",
+      "DOI 10.4230/LIPIcs.CPM.2026.33",
+      "OEIS A339668",
+      "published published-finding corpus finding 2026/9/8/SCOPE079",
+      "own prior finding 7d9ddd4b-7925-4fba-82a3-a6ee2be367e9"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe2566e0-098c-46f2-97d3-3973b2476b0b",
+  "value": {
+    "rationale": "The two directive patterns are mathematically motivated by the exceptional boundary in the primary antipalindromic-prefix theorem. Enumerating every smallest attractor is a strictly finer invariant than minimum cardinality, and the exact quadratic multiplicities reveal different internal redundancy in the two exceptional families. The recent Fibonacci/period-doubling classification independently demonstrates the relevance of all-smallest-attractor structure. This is an infinite classification with explicit criteria, not an arbitrary finite slice.",
+    "risks": [
+      "The result is specialized to two simple periodic families; its value is the complete exceptional-case classification, not a general theory for all pseudostandard words."
+    ],
+    "sources": [
+      "arXiv:2308.00850v1 Theorem 8",
+      "doi:10.4230/LIPIcs.CPM.2026.33",
+      "RESULT.md closed-form classification"
+    ],
+    "status": "PASS"
+  }
+}
