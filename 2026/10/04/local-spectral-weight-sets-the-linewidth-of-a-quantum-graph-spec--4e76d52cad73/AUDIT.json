@@ -1,0 +1,129 @@
+{
+  "claim": "Consider the Turek--Cheon attached-graph spectral filter with coupling parameter \\(\\alpha>0\\), but restrict the compact attached graph to real scalar potentials and self-adjoint vertex conditions with no magnetic vector potential. Let \\(c=\\hbar^2/(2m)\\), let \\(E_0>0\\) be a simple eigenvalue of the attached graph, and let \\(\\psi_0\\) be an \\(L^2\\)-normalized eigenfunction with nonzero value \\(\\psi_0(v_0)\\) at the attachment vertex. Put \\(k_0=\\sqrt{E_0/c}\\). If \\(\\Lambda(E)\\) is the scalar Dirichlet-to-Neumann function normalized by boundary value \\(1\\) at \\(v_0\\), then \\[\\Lambda'(E_0)=\\frac{1}{c|\\psi_0(v_0)|^2}.\\]For the transmission probability \\[P_\\alpha(E)=\\left[1+\\frac{\\alpha^4\\Lambda(E)^2}{4k(E)^2}\\right]^{-1},\\qquad k(E)=\\sqrt{E/c},\\]the resonance has the universal local scaling \\[P_\\alpha\\!\\left(E_0+\\frac{2ck_0|\\psi_0(v_0)|^2}{\\alpha^2}x\\right)\\longrightarrow\\frac{1}{1+x^2}\\]locally uniformly for bounded real \\(x\\). For all sufficiently large \\(\\alpha\\), the two local half-maximum energies \\(E_-(\\alpha)<E_0<E_+(\\alpha)\\) are unique and satisfy \\[E_\\pm(\\alpha)=E_0\\pm\\frac{2ck_0|\\psi_0(v_0)|^2}{\\alpha^2}+O(\\alpha^{-4}),\\]while the full width at half maximum obeys the sharper cancellation law \\[\\operatorname{FWHM}_\\alpha=\\frac{4ck_0|\\psi_0(v_0)|^2}{\\alpha^2}+O(\\alpha^{-6}).\\]Moreover, on any fixed sufficiently small energy neighborhood \\(J\\) containing no other zero or singularity of \\(\\Lambda\\), \\[\\alpha^2\\int_J P_\\alpha(E)\\,dE\\longrightarrow 2\\pi ck_0|\\psi_0(v_0)|^2.\\]Thus the strong-coupling peak width and area directly measure the local spectral weight \\(|\\psi_0(v_0)|^2\\), and their asymptotic ratio is universal: \\(\\int_JP_\\alpha\\,dE\\,/\\,\\operatorname{FWHM}_\\alpha\\to\\pi/2\\).",
+  "correctness": {
+    "rationale": "Green's identity gives the exact Dirichlet-to-Neumann slope \\(\\Lambda'(E_0)=1/(c|\\psi_0(v_0)|^2)\\). Substitution into the published transmission formula yields \\(F'(E_0)=1/(2ck_0|\\psi_0(v_0)|^2)\\). The inverse-function theorem proves the local half-maximum expansions and the even-power cancellation in the FWHM; a one-dimensional change of variables proves the peak-area limit. A standalone interval checker reproduces all leading constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Turek--Cheon's potential-controlled star filter has a published bandwidth formula for a distinct threshold/potential-controlled architecture.",
+        "Turek's flat-passband work studies bandwidth controlled by auxiliary-edge potentials, again a distinct architecture.",
+        "The attached-compact-graph source states the exact transmission amplitude and strong-coupling peak locations but no quantitative peak width."
+      ],
+      "reasoning": "Prior bandwidth work prevents a broad claim of novelty for quantum-graph filter bandwidth. The present theorem is instead about the eigenfunction-dependent linewidth of the specific attached-compact-graph spectral analyzer.",
+      "searches": [
+        "\"Potential-controlled filtering in quantum star graphs\" bandwidth formula transmission width",
+        "\"On quantum graph filters with flat passbands\" bandwidth 2015 Turek",
+        "\"Quantum graph as a quantum spectral filter\" \"narrow peak\"",
+        "\"Quantum graph as a quantum spectral filter\" \"sharp peaks\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1206.1931",
+      "DOI:10.1063/1.4795404",
+      "arXiv:1203.6555",
+      "DOI:10.1016/j.aop.2012.11.011",
+      "arXiv:1512.09366",
+      "arXiv:1109.3132",
+      "DOI:10.3934/nhm.2012.7.483"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition III.3 of arXiv:1206.1931 gives \\(T(k)=[1+\\alpha^2\\Lambda(E)/(2ik)]^{-1}\\).",
+        "Corollary III.4 gives only the pointwise strong-coupling indicator limit.",
+        "General Weyl/Dirichlet-to-Neumann theory supports norm identities, but the inspected sources did not combine them with this scattering formula to obtain FWHM, area, or local spectral-weight spectroscopy."
+      ],
+      "reasoning": "The new statement requires a derivative identity at a visible eigenvalue plus a local inverse-function and scaling analysis. It is a quantitative extension of the source formula, not a restatement of its pointwise limit.",
+      "searches": [
+        "arXiv 1206.1931 Proposition III.3 transmission Lambda alpha",
+        "Dirichlet-to-Neumann derivative eigenfunction norm Weyl function quantum graph",
+        "Turek Cheon spectral filter indicator function alpha infinity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database result stated the local spectral-weight linewidth theorem.",
+        "Targeted web searches for the source title with linewidth/FWHM terminology returned the source and unrelated filters, not the displayed result.",
+        "A full-text search of arXiv:1206.1931 returned no occurrence of the word “width”; the paper instead describes the passbands qualitatively as narrow or sharp."
+      ],
+      "reasoning": "An equivalent formulation would have to connect the resonance's local width or scaled line shape to the attachment value of the compact-graph eigenfunction. General statements about sharp resonances, Weyl functions, or filter bandwidth in a different device do not do so.",
+      "searches": [
+        "quantum graph spectral filter resonance width local spectral weight Dirichlet-to-Neumann derivative eigenfunction attachment",
+        "Turek Cheon spectral filter FWHM transmission peak alpha eigenfunction value",
+        "quantum graph Dirichlet-to-Neumann zero derivative norm eigenfunction resonance transmission linewidth",
+        "quantum spectral filter Lorentzian scaling passband width alpha squared",
+        "\"Quantum graph as a quantum spectral filter\" linewidth",
+        "\"Quantum graph as a quantum spectral filter\" FWHM",
+        "\"1206.1931\" linewidth OR FWHM OR \"peak width\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or formula for these resonance widths was located.",
+        "The source's plotted examples show narrow peaks but do not tabulate FWHM or local spectral weights."
+      ],
+      "reasoning": "The theorem is not a recomputation of a known width table; it gives a general asymptotic coefficient and area law from local spectral data.",
+      "searches": [
+        "quantum graph spectral filter linewidth local density of states attachment vertex",
+        "Turek Cheon 1206.1931 peak width eigenfunction",
+        "spectral filter Lambda'(E) quantum graph transmission"
+      ]
+    },
+    "rationale": "Originality is restricted to the quantitative simple-resonance line shape and its dependence on attachment-point spectral weight. The attached-graph transmission formula, resonance locations, and indicator limit are explicitly treated as prior work.",
+    "residual_risks": [
+      "An equivalent linewidth identity may be present in literature using Weyl-function, M-function, or boundary-triple terminology rather than spectral-filter terminology.",
+      "The derivative identity itself is standard; originality depends on its quantitative combination with the specific attached-graph transmission formula.",
+      "Multiple, invisible, magnetic, threshold, and overlapping resonances are outside the accepted claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States the exact transmission amplitude, visible-resonance locations, and strong-coupling indicator limit; describes narrow/sharp peaks but does not state a linewidth or local-weight formula.",
+        "evidence": "arXiv v1 is dated 2012-06-09; the journal metadata lists MSC codes beginning with 81Q35. The PDF gives \\(T(k)=[1+\\alpha^2\\Lambda(E)/(2ik)]^{-1}\\) in Proposition III.3.",
+        "identifier_or_url": "arXiv:1206.1931; DOI:10.1063/1.4795404",
+        "material_read": "Full PDF introduction, Section III definitions and Proposition III.3, Corollary III.4, the magnetic-loop example, and conclusion; full-text searches for width/FWHM terminology.",
+        "method": "Full-text PDF inspection and bibliographic metadata check.",
+        "title": "Quantum graph as a quantum spectral filter",
+        "trigger": "Direct source for the attached-graph filter and its transmission formula."
+      },
+      {
+        "assessment": "Computes a bandwidth for a potential-controlled threshold/star filter, not for attached-graph eigenvalue resonances and not in terms of compact-graph eigenfunction weight.",
+        "evidence": "The cited bandwidth depends on the controlling potential and a vertex-coupling parameter.",
+        "identifier_or_url": "arXiv:1203.6555; DOI:10.1016/j.aop.2012.11.011",
+        "material_read": "Abstract and full-text excerpt surrounding the published bandwidth equation.",
+        "method": "arXiv metadata and accessible full-text excerpt.",
+        "title": "Potential-controlled filtering in quantum star graphs",
+        "trigger": "Closest earlier bandwidth calculation by the same authors."
+      },
+      {
+        "assessment": "Studies flat passbands whose widths are controlled by auxiliary-edge potentials; it is a different filter architecture and does not cover the attached-graph resonance linewidth.",
+        "evidence": "The abstract states that the bandwidth is controlled directly by auxiliary-edge potentials.",
+        "identifier_or_url": "arXiv:1512.09366",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "arXiv metadata inspection.",
+        "title": "On quantum graph filters with flat passbands",
+        "trigger": "Later same-author filter work explicitly mentioning bandwidth."
+      },
+      {
+        "assessment": "Provides general Dirichlet-to-Neumann theory but does not state the spectral-filter linewidth result.",
+        "evidence": "Published in 2012 in Networks and Heterogeneous Media.",
+        "identifier_or_url": "arXiv:1109.3132; DOI:10.3934/nhm.2012.7.483",
+        "material_read": "Abstract and full-text definition/background.",
+        "method": "Open-access journal page inspection.",
+        "title": "Dirichlet to Neumann maps for infinite quantum graphs",
+        "trigger": "Background source for quantum-graph Dirichlet-to-Neumann maps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e76d52c-ad73-4dc0-89d9-7c1787b592b8",
+  "value": {
+    "rationale": "The theorem adds a physically and mathematically motivated observable to the spectral analyzer: eigenvalue location gives \\(E_0\\), while FWHM or integrated peak area gives \\(|\\psi_0(v_0)|^2\\). The universal Lorentzian scaling and area/FWHM ratio provide a reusable resolution law rather than a one-parameter numerical refinement.",
+    "status": "PASS"
+  }
+}
