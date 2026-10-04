@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The proof was reconstructed from the S-SEG update: in complex coordinates each sample is multiplication by s+i, so one same-sample extragradient step has multiplier m_s(gamma)=1-s gamma+i(2s gamma^2-gamma). Exact algebra yields |m_+|^2|m_-|^2=16 gamma^8-4 gamma^4+1 and E|m_s|^2=1+2 gamma^2+4 gamma^4. The strong law gives the almost-sure exponent. At gamma=1/sqrt(2), the radial multipliers are sqrt(2)-1 and sqrt(2)+1, making the log-radius a simple symmetric random walk. The included standard-library checker independently replays the algebraic identities; finite computation is not used to justify the probability theorems.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorbunov--Berard--Gidel--Loizou, arXiv:2111.08611, full-text introduction and S-SEG setup: standard same-sample guarantees use stronger per-sample regularity such as monotonicity of stochastic realizations.",
+        "Li et al., arXiv:2107.00464, supplementary Section A: constant-step S-SEG analysis for stochastic bilinear games, with sample operators induced by bilinear saddle matrices.",
+        "For the present family, F(.;-1) has symmetric part -I, so the standard per-sample monotonicity route is inapplicable; its samples are also not bilinear saddle operators."
+      ],
+      "reasoning": "The broader theorems inspected do not dominate the claim. One excludes this family by hypotheses; the other covers a structurally different skew-sample class. Neither supplies the exact pathwise/second-moment separation.",
+      "searches": [
+        "Web: stochastic extragradient almost sure mean square divergence constant step",
+        "Web: same-sample stochastic extragradient interpolation bilinear constant step almost surely",
+        "published-finding corpus: Yoon Loizou same-sample independent-sample stochastic extragradient constant stepsize rho 1 nu 0 Lemma 3.11"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.06182",
+      "arXiv:2111.08611",
+      "arXiv:2107.00464",
+      "published-finding corpus 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+      "published-finding corpus 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "published-finding corpus 2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yoon--Loizou derive general b_s(gamma,gamma_hat) multipliers and use asymptotic expansions for diminishing steps; the present constant-step closed form is not stated in the inspected sections.",
+        "Yoon--Loizou explicitly note that increasing E||x_k||^2 does not by itself determine almost-sure divergence, motivating a pathwise calculation.",
+        "Li et al. prove expected-norm contraction results in an interpolation class of stochastic bilinear games; the signed symmetric parts +/-I in the present samples place this family outside that structural class."
+      ],
+      "reasoning": "None of the inspected prior statements implies the exact threshold plus the critical random-walk law and second-moment divergence. The source lemma is an ingredient, not a statement of the derived specialization.",
+      "searches": [
+        "Full text: Yoon--Loizou arXiv:2608.06182, Lemma 3.11, Theorems 3.9--3.12 and 4.2, and surrounding discussion",
+        "Full text: Gorbunov et al. arXiv:2111.08611, S-SEG assumptions and setup",
+        "Full text: Li et al. arXiv:2107.00464, interpolation and supplementary last-iterate analysis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yoon--Loizou, arXiv:2608.06182, Lemma 3.11 and Sections 3.2.2/4.2: general complex multipliers and diminishing-step divergence mechanisms.",
+        "published-finding corpus closest record 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0 concerns deterministic normal strongly monotone systems, not iid same-sample multiplicative noise.",
+        "published-finding corpus closest record 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56 concerns deterministic FRB/RFB skew rotations."
+      ],
+      "reasoning": "The exact claimed object is an iid two-point S-SEG product. The closest database records and the source paper treat different update laws or different step schedules, so no equivalent formulation located implies the stated Lyapunov exponent or phase boundary.",
+      "searches": [
+        "published-finding corpus: same-sample stochastic extragradient constant stepsize pure rotation multiplicative noise almost sure exponential convergence second moment divergence",
+        "published-finding corpus: S-SEG constant step linear stochastic variational inequality Lyapunov exponent radial noise rotation",
+        "Web: \"same-sample extragradient\" constant step multiplicative noise",
+        "Web: \"extragradient\" \"Lyapunov exponent\" stochastic linear"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit in the inspected top results states the S-SEG multiplier product 16 gamma^8-4 gamma^4+1 or threshold gamma=1/sqrt(2).",
+        "The exact-operator web searches returned no table or database entry for this two-map S-SEG law."
+      ],
+      "reasoning": "No exact database/table coverage was located. Search failure alone is not treated as novelty proof; originality instead rests on comparison against the highly relevant full texts above.",
+      "searches": [
+        "published-finding corpus: extragradient geometric mean stability threshold one over square root two same sample",
+        "Web: \"I+J\" \"-I+J\" extragradient",
+        "Web: \"almost sure convergence\" \"constant step\" stochastic extragradient interpolation"
+      ]
+    },
+    "rationale": "The closest inspected source supplies the general linear S-SEG multiplier family and diminishing-step counterexamples, but not this constant-step specialization, sharp threshold, critical random-walk law, or the simultaneous almost-sure convergence and second-moment divergence. Other close S-SEG literature either imposes per-sample monotonicity, which fails here, or treats stochastic bilinear saddle operators, which are structurally skew samplewise and do not imply the signed-radial-noise result.",
+    "residual_risks": [
+      "An older random-products or stochastic-VI paper may contain the same two-point multiplier calculation under different terminology.",
+      "The source lemma makes the specialization relatively accessible once the parameter choice is made; priority therefore depends on the absence of an unlocated explicit constant-step analysis, not on algebraic difficulty alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general multiplier framework and diminishing-step counterexamples but not the claimed constant-step phase law.",
+        "evidence": "Lemma 3.11 gives the S-SEG complex multiplier b_s; Theorem 4.2 uses unequal diminishing DSEG steps. The paper also remarks that growth of expected squared norm is insufficient to infer pathwise divergence.",
+        "identifier_or_url": "arXiv:2608.06182",
+        "material_read": "Full PDF, especially Lemma 3.11, Sections 3.2.2, 3.2.3, 4.2, and the discussion comparing pathwise and second-moment behavior.",
+        "method": "Read the arXiv full text and inspected the relevant displayed recurrences and counterexample proofs.",
+        "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+        "trigger": "Primary source and exact general linear family underlying the specialization."
+      },
+      {
+        "assessment": "Does not cover the present family through its standard per-sample monotonicity route because the negative-sign sample has symmetric part -I.",
+        "evidence": "The paper states that S-SEG is typically analyzed under Lipschitzness and (strong) monotonicity of individual stochastic realizations.",
+        "identifier_or_url": "arXiv:2111.08611",
+        "material_read": "Full PDF introduction and same-sample setup/assumption discussion.",
+        "method": "Read the arXiv full text around the S-SEG definition and stated hypothesis hierarchy.",
+        "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+        "trigger": "Broad prior S-SEG convergence framework that might dominate a constant-step specialization."
+      },
+      {
+        "assessment": "Its constant-step interpolation guarantees concern stochastic bilinear saddle operators and do not imply the signed-radial sample law here.",
+        "evidence": "The analyzed sample game operators are generated by random bilinear matrices; the present samples have nonzero symmetric parts +/-I.",
+        "identifier_or_url": "arXiv:2107.00464",
+        "material_read": "Full PMLR PDF, especially the interpolation discussion and Supplementary Section A on last-iterate SEG.",
+        "method": "Read the full-text statements and structural bilinear model.",
+        "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+        "trigger": "Closest older paper explicitly analyzing same-sample SEG with constant step size."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "66941fcb-fc3d-4b24-ad17-2d8708aee723",
+  "value": {
+    "rationale": "The claim gives a sharp closed-form pathwise stability boundary for a sampling-sensitive S-SEG model directly motivated by the 2026 source. More importantly, below the boundary the last iterate converges exponentially almost surely while its second moment diverges exponentially. This is a substantive, exact warning that L2 growth can be qualitatively opposite to pathwise stability under multiplicative stochastic extragradient dynamics, and the critical random-walk law identifies the boundary mechanism rather than merely giving a numerical threshold.",
+    "status": "PASS"
+  }
+}
