@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Scalar LAMB with \\(\\phi(z)=z\\) multiplies \\(|x_t|\\) by the sign of its Adam-like direction. Sign coherence plus \\(0<\\eta_t<1\\) preserves that sign forever, giving \\(x_{t+1}=(1-\\eta_t)x_t\\) exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper proves general nonconvex stationarity bounds.",
+        "The LAMBC follow-up motivates trust-ratio clipping from empirical extreme-ratio behavior."
+      ],
+      "reasoning": "Those statements are broader in application domain but do not imply the exact iterate-by-iterate magnitude erasure proved here.",
+      "searches": [
+        "LAMB nonconvex convergence theorem",
+        "LAMB trust ratio clipping unstable extreme",
+        "LAMB condition number optimizer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.00962v1",
+      "arXiv:2011.13584v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper says normalization ignores update size while preserving direction and explicitly discusses identity scaling.",
+        "Algorithm 2 normalizes the Adam-like vector layerwise.",
+        "LAMBC modifies the trust ratio by clipping it."
+      ],
+      "reasoning": "The prior formulas are ingredients, but their published statements do not assert that all Adam magnitude hyperparameters become dynamically irrelevant on this scalar class.",
+      "searches": [
+        "LAMB Algorithm 2 normalized Adam direction",
+        "LAMB phi z equals z inverse Lipschitz",
+        "LAMBC trust ratio clipping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1904.00962v1/v5, layerwise normalization discussion and Algorithm 2",
+        "arXiv:2011.13584v1, layerwise trust-ratio formulation"
+      ],
+      "reasoning": "The equivalent formulation is a scalar normalized-direction iteration. The source update makes the cancellation derivable, but no inspected source states the closed product law on the full sign-coherent no-crossing class.",
+      "searches": [
+        "LAMB scalar quadratic exact trajectory trust ratio",
+        "LAMB curvature cancellation scalar optimizer",
+        "LAMB scale invariance trust ratio scalar"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published formula matching the scalar product trajectory was identified in the focused searches.",
+        "The closest returned mathematical records concerned other trust-region, Polyak, feedback, and adaptive-geometry mechanisms."
+      ],
+      "reasoning": "No searched result implied the final scalar identity. Search absence is not treated as a proof of uniqueness.",
+      "searches": [
+        "LAMB scalar quadratic exact trajectory trust ratio",
+        "LAMB curvature cancellation scalar optimizer",
+        "LAMB scale invariance trust ratio scalar"
+      ]
+    },
+    "rationale": "The inspected defining and trust-clipping papers provide the normalization mechanism but not the exact sign-coherent scalar trajectory or complete hyperparameter erasure.",
+    "residual_risks": [
+      "The scalar cancellation may have appeared informally outside the inspected scholarly literature.",
+      "Active trust clipping, sign reversals, weight decay, and multidimensional directions are outside the theorem.",
+      "The clipped scaling function from the source paper does not preserve the identity once its bounds activate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_SCALAR_TRAJECTORY.",
+        "evidence": "The paper states that normalization ignores update magnitude and defines LAMB by normalizing an Adam-like vector, but its theorem is a nonconvex stationarity bound rather than this exact scalar law.",
+        "identifier_or_url": "arXiv:1904.00962v1; inspected v5 full text",
+        "material_read": "Full open-access PDF sections containing the general normalization strategy, the identity scaling discussion, Algorithm 2, and Theorem 3.",
+        "method": "Full-text PDF inspection with page-level visual verification.",
+        "title": "Large Batch Optimization for Deep Learning: Training BERT in 76 minutes",
+        "trigger": "Defining source for LAMB and identity layer scaling."
+      },
+      {
+        "assessment": "DIRECT_FOLLOWUP_NOT_COVERING_SCALAR_ERASURE.",
+        "evidence": "The paper identifies extreme trust ratios and clips them, but does not derive the sign-invariant scalar product law.",
+        "identifier_or_url": "arXiv:2011.13584v1",
+        "material_read": "Open-access full text covering layerwise normalization, LAMB, and the clipping modification.",
+        "method": "Full-text HTML inspection.",
+        "title": "Improving Layer-wise Adaptive Rate Methods using Trust Ratio Clipping",
+        "trigger": "Closest follow-up focused directly on LAMB trust-ratio behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b6ff031-9dc4-40d7-b9f3-1e890bd693c4",
+  "value": {
+    "rationale": "The defining layer-normalization mechanism has an exact and diagnostically useful scalar consequence: it erases every magnitude-level contribution of the Adam base method. The quadratic corollary provides a curvature-independent reference trajectory against which implementations and trust-ratio modifications can be compared.",
+    "status": "PASS"
+  }
+}
