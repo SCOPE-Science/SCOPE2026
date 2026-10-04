@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The exact scalar recursion yields iid refresh cycles. The cycle-sum recursion gives \\(m=2/(1+s)\\) and an explicit second moment \\(Q\\); hence \\(\\psi_n(s)-1=2s[(n+2)s^2-ns-2n]/[(1+s)(n+2ns-(n+1)s^2)]\\). The denominator stays positive through the positive root, and finite within-cycle second moments plus regenerative decomposition make \\(\\psi_n(s)<1\\) equivalent to all-time mean-square convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2102.07845v1",
+        "arXiv:2110.03300v1"
+      ],
+      "reasoning": "The source theory gives sufficient convergence regions for broad function classes, while the follow-up improves complexity bounds through compressor correlation and Hessian variance. Neither broader theorem implies the exact special-family necessity statement.",
+      "searches": [
+        "MARINA stepsize exact stability distributed compression",
+        "MARINA quadratic compression larger stepsize RandK",
+        "compressed gradient difference random switching scalar quadratic stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.07845v1",
+      "arXiv:2110.03300v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2102.07845v1 full text, Algorithm 1, Theorem 2.1, Corollary 2.1",
+        "arXiv:2110.03300v1 full text, MARINA appendix and quadratic experiments"
+      ],
+      "reasoning": "The defining paper's density-matched sufficient bound specializes to \\(s\\le(1+n^{-1/2})^{-1}\\), which is strictly a sufficient statement and does not determine the exact scalar boundary. The follow-up observes compressor-dependent stepsize tolerance experimentally and sharpens general theory, but does not imply the closed regenerative threshold.",
+      "searches": [
+        "MARINA Algorithm 1 p zetaQ d stepsize theorem independent compressors",
+        "Permutation Compressors MARINA quadratic larger step sizes",
+        "MARINA PL condition scalar quadratic exact rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2102.07845v1",
+        "arXiv:2110.03300v1"
+      ],
+      "reasoning": "The natural equivalent formulation is a regenerative random linear system observed at exact-gradient refresh epochs. The inspected optimization sources do not formulate MARINA this way or state the resulting cycle multiplier.",
+      "searches": [
+        "MARINA scalar quadratic exact mean square stability half dropout compression refresh probability",
+        "MARINA Bernoulli compressor scalar quadratic exact convergence",
+        "MARINA regenerative cycle random product quadratic",
+        "MARINA compressed gradient differences quadratic stability frontier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published table or formula matching \\(s_n=[n+\\sqrt{9n^2+16n}]/[2(n+2)]\\) was identified by the focused searches."
+      ],
+      "reasoning": "The closest database hits concern stochastic OSGM, reflected-gradient stability, and other sharp quadratic recurrences. They do not contain MARINA's refresh/compressed-difference state.",
+      "searches": [
+        "MARINA scalar quadratic exact mean square stability half dropout compression refresh probability",
+        "MARINA Bernoulli compressor scalar quadratic exact convergence",
+        "MARINA stepsize exact stability distributed compression"
+      ]
+    },
+    "rationale": "The inspected MARINA papers provide general complexity and stepsize results and quadratic experiments, but do not state the exact half-dropout regenerative mean-square frontier or its client-count limit.",
+    "residual_risks": [
+      "Equivalent regenerative stability calculations may exist in randomly switched linear-systems literature without MARINA terminology.",
+      "The exact boundary depends on identical scalar client curvatures; heterogeneous Hessians require a higher-dimensional moment analysis.",
+      "The result is a stability benchmark, not a communication-optimal tuning theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_FRONTIER.",
+        "evidence": "The source specifies the exact refresh/compressed-difference update and recommends \\(p=\\zeta_Q/d\\). Its stepsize statements are broad sufficient conditions; the inspected text does not derive a necessary scalar mean-square threshold.",
+        "identifier_or_url": "arXiv:2102.07845v1",
+        "material_read": "Open-access full text and published PDF sections containing Algorithm 1, the quantization definition, Theorem 2.1, Corollary 2.1, and the Polyak–Łojasiewicz discussion.",
+        "method": "Full-text inspection with page-level verification of the algorithm and stepsize formulas.",
+        "title": "MARINA: Faster Non-Convex Distributed Learning with Compression",
+        "trigger": "Defining source for the algorithm, refresh rule, compressor assumptions, and density-matched probability."
+      },
+      {
+        "assessment": "DIRECT_FOLLOWUP_WITH_QUADRATIC_EXPERIMENTS_NOT_COVERING.",
+        "evidence": "The paper reports that compressor choice affects tolerated stepsizes on quadratics and improves general complexity analysis. It does not state the half-dropout regenerative multiplier or exact client-count stability frontier.",
+        "identifier_or_url": "arXiv:2110.03300v1",
+        "material_read": "Full open-access text covering the generalized MARINA analysis, Hessian-variance refinement, Appendix B algorithm discussion, and quadratic experiments with tuned stepsizes.",
+        "method": "Full-text inspection and targeted search for quadratic and stepsize statements.",
+        "title": "Permutation Compressors for Provably Faster Distributed Nonconvex Optimization",
+        "trigger": "Closest follow-up refining MARINA compression theory and testing quadratic problems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7f750c7-1557-4498-b89b-1000a2674c5b",
+  "value": {
+    "rationale": "The benchmark isolates MARINA's defining refresh/compression mechanism and produces a sharp parallelism law: the admissible normalized step increases from \\(1\\) to \\(2\\) as independent compression noise is averaged across clients. This exact recovery of the gradient-descent ceiling is useful for interpreting conservative general bounds and for diagnosing compressed distributed implementations.",
+    "status": "PASS"
+  }
+}
