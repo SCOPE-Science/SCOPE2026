@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Translation by \\\\((1,1)\\\\) has prime-characteristic orbit length \\\\(p\\\\). After writing each output as \\\\(z_i+i\\\\), the defining inequalities reduce exactly to a fixed-list proper cyclic coloring on each orbit. The chromatic count and the numbers of diagonal and off-diagonal orbits yield the stated product. The \\\\(q=2\\\\) and \\\\(q=3\\\\) zero cases and positivity for every prime power \\\\(q\\\\ge4\\\\) follow from the same formula. The accompanying checker independently verifies representative constructions and the two small obstructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.27271v1, Theorem 10 is conditional over \\\\(\\\\mathbb F_q\\\\) and Definition 11 supplies \\\\(q=4\\\\).",
+        "The 2020 CIS-code paper describes general \\\\(q\\\\)-ary single-deletion correction but not the 2026 self-synchronizing map condition."
+      ],
+      "reasoning": "No located source provided a theorem covering all finite fields with an existence classification or count for the three synchronizer-map inequalities.",
+      "searches": [
+        "query: Choi self-synchronizing deletion code map psi finite field q conditions",
+        "query: self-synchronizing SDC map psi q=4 general finite field",
+        "query: complementary information set code self synchronization q-ary generalization",
+        "query: number of Choi synchronizer maps Theorem 10 chromatic polynomial finite field"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.27271v1",
+      "DOI:10.1007/s10623-020-00802-2",
+      "2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+      "2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+      "2026/9/18/SCOPE-forced-colouring-paths-cycles-three-colours--b7cd38cd2fa2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 10 assumes an admissible map; it does not assert when such maps exist or how many there are.",
+        "Definition 11 proves existence only at \\\\(q=4\\\\).",
+        "The 2020 paper establishes \\\\(q\\\\)-ary CIS single-deletion constructions before the extra self-synchronizing map inequality appears."
+      ],
+      "reasoning": "A conditional theorem plus one quartic witness neither implies existence for every \\\\(q\\\\ge4\\\\) nor nonexistence for \\\\(q=2\\\\),3, and it does not imply the product enumeration. The new statement therefore is not a corollary of the inspected claims without the orbit-coloring argument.",
+      "searches": [
+        "source: arXiv:2603.27271v1 Theorem 10 and Definition 11",
+        "source: DOI:10.1007/s10623-020-00802-2",
+        "query: number of Choi synchronizer maps Theorem 10 chromatic polynomial finite field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 10 gives the three map inequalities; the inspected paper does not reformulate them as independent cyclic list-coloring problems.",
+        "The orbit change of variables \\\\(z_i=\\\\psi(a_0+i,b_0+i)-i\\\\) gives a bijection, not merely a sufficient construction."
+      ],
+      "reasoning": "The exact equivalence was searched using both the original inequalities and cycle-coloring language. No matching prior formulation was found; generic cycle-coloring results do not specialize to Choi synchronizer maps without the new orbit identification.",
+      "searches": [
+        "query: psi(a,b) not equal a b psi(a+1,b+1) not equal psi(a,b)+1",
+        "query: cycle coloring synchronizer map q-ary single deletion Choi",
+        "source: arXiv:2603.27271v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Definition 11/Table 1 in arXiv:2603.27271v1 tabulates one map over \\\\(\\\\mathbb F_4\\\\).",
+        "The formula gives \\\\(N(4)=2304\\\\), so the published table is one witness rather than an enumeration."
+      ],
+      "reasoning": "The only directly relevant exact table located is Choi's quartic witness. Searches for an exact count did not find a database or table containing the all-q enumeration.",
+      "searches": [
+        "query: admissible psi maps finite field exact count self-synchronizing deletion",
+        "query: Theorem 10 map psi exact enumeration q finite field deletion",
+        "source: arXiv:2603.27271v1 Definition 11/Table 1"
+      ]
+    },
+    "rationale": "The 2026 primary source states the conditional arbitrary-q map criterion but supplies only a quartic map; its later DNA algorithms specialize to \\\\(\\\\mathbb F_4\\\\). Targeted semantic and exact-condition searches found no prior exact enumeration or sharp alphabet threshold. The closest repository records concern other deletion-code bounds or generic cycle-coloring questions and do not imply this map classification.",
+    "residual_risks": [
+      "Search is not an exhaustive proof of novelty; an equivalent result could exist under different terminology.",
+      "The 2020 source was not inspected as a full publisher PDF in this review, although its abstract and the 2026 paper's detailed summary of the relevant prior theorem were checked.",
+      "The result does not establish nonquartic versions of the later DNA-specific algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 10 states the conditions over \\\\(\\\\mathbb F_q\\\\); Definition 11 provides a map only for \\\\(q=4\\\\); later self-synchronizing DNA algorithms specialize to \\\\(\\\\mathbb F_4\\\\). No existence threshold or enumeration for the map condition was found in the inspected paper.",
+        "evidence": "arXiv:2603.27271v1, pp. 7-9 and concluding remarks/references.",
+        "identifier_or_url": "arXiv:2603.27271v1",
+        "material_read": "Full arXiv PDF with focused inspection of Theorem 10, Definition 11/Table 1, Theorem 14 specialization, conclusion, and references.",
+        "method": "Full-text and page-level inspection.",
+        "title": "Algorithms of self-synchronizing single-deletion-correcting codes",
+        "trigger": "Primary recent source introducing the exact map condition."
+      },
+      {
+        "assessment": "Covers \\\\(q\\\\)-ary CIS single-deletion correction but predates the additional self-synchronizing two-variable map condition, so it does not cover the enumeration claim.",
+        "evidence": "Designs, Codes and Cryptography 88 (2020), DOI:10.1007/s10623-020-00802-2; summarized in arXiv:2603.27271v1 Section 2.",
+        "identifier_or_url": "DOI:10.1007/s10623-020-00802-2",
+        "material_read": "Bibliographic record and abstract; the 2026 paper's summary of its Theorem 3.5/Algorithm 3.7 was also inspected.",
+        "method": "Primary bibliographic abstract plus the later paper's explicit quotation/summarization of the relevant prior construction.",
+        "title": "Construction of single-deletion-correcting DNA codes using CIS codes",
+        "trigger": "Predecessor cited by the 2026 paper for \\\\(q\\\\)-ary CIS single-deletion constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "406f1f4d-c0ca-4347-84cf-7a1a89174764",
+  "value": {
+    "rationale": "The recent construction leaves a concrete arbitrary-field ingredient conditional and then specializes to \\\\(q=4\\\\). The exact product count identifies the hidden orbit structure, proves a sharp alphabet boundary \\\\(q\\\\ge4\\\\), quantifies abundance at admissible alphabets, and exposes \\\\(q=3\\\\) as a genuine obstruction. This is a motivated structural classification of the synchronizer ingredient rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
