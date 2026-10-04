@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Two independent exhaustive recursions certify the finite statement. Canonical least-unused-vertex recursion enumerates every perfect matching exactly once and reproduces 15!!=2,027,025. Canonical nondecreasing-tuple recursion enumerates every eight-element nonzero difference multiset and XOR-filters exactly 20,295 admissible profiles. Equality of the two profile sets proves existence for every admissible profile; exact tallying gives the histogram, and direct inspection plus the fixed-direction 1-factor proves the unique-profile characterization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.08630, Sections 3.1-3.4: a permanent coefficient exactly counts Hall realizations and a determinant coefficient gives a signed count; the paper then treats the two-hole existence problem.",
+        "The paper's known-families theorem states s<=5 solvability, not a full count distribution."
+      ],
+      "reasoning": "The Hall coefficient framework is enumerative but applies after all requests cross one hyperplane. The dimension-four census ranges over every zero-sum profile, including profiles outside that subfamily; neither the Hall theorem nor the two-hole existence theorem implies the listed multiplicities.",
+      "searches": [
+        "perfect matching of F_2^n with prescribed differences number of matchings",
+        "Perfect Matchings with Prescribed Differences Beyond Hall realization count permanent coefficient",
+        "BGS conjecture s<=5 counting realizations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.08630",
+      "arXiv:2501.11122",
+      "DOI:10.1016/j.ejc.2010.11.008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.08630 states s<=5 existence is known and explicitly says its Hall permanent coefficient counts exact realizations in the all-crossing case.",
+        "arXiv:2501.11122 says a prior 2017 proof handles s=2,3,4 while its own polynomial calculations stop at smaller examples.",
+        "Balister--Győri--Schelp is cited as the foundational conjecture source."
+      ],
+      "reasoning": "None of these prior implications fixes R(M) for every dimension-four multiset. The present exhaustive table strictly refines existence by distinguishing sixteen possible realization counts and identifying the unique profiles.",
+      "searches": [
+        "arXiv:2607.08630 Theorem known solvable families s<=5 permanent exact number realizations",
+        "arXiv:2501.11122 s=4 prior proof functional batch",
+        "Balister Gyori Schelp 2011 prescribed differences dimension four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.08630 defines the BGS prescribed-difference problem, records solvability for ambient dimension at most five, and counts realizations via permanent coefficients only in the all-crossing Hall reduction.",
+        "arXiv:2501.11122 states the functional-batch conjecture and notes prior proofs for s=2,3,4, but does not give a realization-count census.",
+        "Search results did not locate the stated 20,295-profile distribution or uniqueness gap."
+      ],
+      "reasoning": "Existence in dimension four is prior, but an existence theorem does not determine the number of perfect matchings for each profile. The claimed object is the complete integer multiplicity distribution over all admissible profiles.",
+      "searches": [
+        "F_2^4 prescribed difference perfect matching exact number of realizations multiplicity spectrum",
+        "binary Hadamard pair solution dimension four count all prescribed differences",
+        "Balister Gyori Schelp s=4 exact solution counts perfect matchings",
+        "prescribed-difference perfect matchings 16 vertices exact enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records included 2026/9/30/SCOPE-exact-small-order-even-intersecting-permutation-families--0f0c08c901a7 and 2026/9/9/SCOPE037, but these concern different permutation/discrepancy problems.",
+        "A direct BGS/realization-count published-finding corpus query returned no record about prescribed-difference matching multiplicities in F_2^4."
+      ],
+      "reasoning": "Repository searches included the exact ambient space, prescribed-difference terminology, Hadamard-pair terminology, realization counting, and BGS aliases. The closest returned records do not imply or tabulate the claimed spectrum.",
+      "searches": [
+        "published-finding corpus: F_2^4 prescribed difference perfect matching exact number of realizations multiplicity spectrum",
+        "published-finding corpus: binary Hadamard pair solution dimension four count all prescribed differences",
+        "published-finding corpus: Balister Gyori Schelp s=4 exact solution counts perfect matchings",
+        "published-finding corpus: prescribed-difference perfect matchings 16 vertices exact enumeration",
+        "published-finding corpus: Balister Gyori Schelp prescribed differences perfect matching F2 s<=5 Hall two-hole realization count"
+      ]
+    },
+    "rationale": "The closest literature establishes existence in dimension four and develops exact counting coefficients for the Hall subfamily, but no checked source or focused search produced the complete full-space dimension-four realization-count spectrum or its uniqueness gap.",
+    "residual_risks": [
+      "An older or unindexed computation may contain an equivalent dimension-four table under strong-set-coloring or Hadamard-pair terminology.",
+      "The census does not explain the sixteen multiplicity values structurally or classify profiles up to GL(4,2)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "It records s<=5 existence and exact Hall-subfamily coefficient information, then proves a general two-hole existence theorem. It does not tabulate R(M) over all zero-sum profiles in F_2^4.",
+        "identifier_or_url": "arXiv:2607.08630",
+        "material_read": "Abstract; known-solvable-families theorem; hyperplane/Hall reduction; permanent and determinant coefficient interpretation; two-hole theorem; conclusion and references.",
+        "method": "Statement, domain, and implication comparison.",
+        "title": "Perfect Matchings with Prescribed Differences Beyond Hall: The Two-Hole Problem",
+        "trigger": "Recent primary source on the same BGS prescribed-difference problem with enumerative character methods."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It notes prior proofs for s=2,3,4 and develops sufficient conditions, but gives no complete realization-count distribution.",
+        "identifier_or_url": "arXiv:2501.11122",
+        "material_read": "Introduction, conjectures, equivalence theorem, sufficient conditions, dimension-specific discussion, and conclusion.",
+        "method": "Equivalent-formulation and scope comparison.",
+        "title": "Optimal Functional 2^{s-1}-Batch Codes: Exploring New Sufficient Conditions",
+        "trigger": "Functional-batch reformulation of the same matching conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The cited role is existence/conjecture formulation; no checked source attributes the dimension-four multiplicity spectrum to it.",
+        "identifier_or_url": "DOI:10.1016/j.ejc.2010.11.008",
+        "material_read": "Bibliographic record and abstract, together with its role as stated in the two recent primary sources.",
+        "method": "Historical scope comparison.",
+        "title": "Coloring vertices and edges of a graph by nonempty subsets of a set",
+        "trigger": "Foundational source cited for the BGS formulation and small-dimensional solvability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d86ded89-9098-465a-b097-b6489c6f8c96",
+  "value": {
+    "rationale": "The exact census upgrades a known small-dimensional existence theorem to a complete quantitative robustness invariant in a currently active prescribed-difference matching problem. It supplies exact benchmarks for every admissible dimension-four request profile and exposes a sharp one-versus-at-least-four solution gap.",
+    "status": "PASS"
+  }
+}
