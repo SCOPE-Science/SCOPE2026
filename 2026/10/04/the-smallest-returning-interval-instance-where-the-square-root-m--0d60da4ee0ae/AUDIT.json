@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For 0<r<1 the Gram matrix is positive definite. Reflection decomposition yields an exact closed form for G^{1/2}. The formulas S_12=r/D>0 and S_11-S_22=(s/2)(1-(1+s)/D)>0 follow algebraically because D^2-(1+s)^2=2r^2. A two-vector orthogonal rotation is a valid POVM, and differentiating its exact success probability gives a strictly positive derivative. Therefore a feasible measurement beats SRM for every nontrivial overlap. Boundary and minimality claims use exact one-site and binary cases. Numerical replay is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen--Ma: P_opt-P_SRM=O_{i,c}(N^{-1/2}) for fixed i and exact finite-size equality for i=1; no strictness theorem for i=2,N=3.",
+        "The full multi-anomaly ensemble has Johnson symmetry and finite-n SRM optimality, whereas the contiguous returning subensemble lacks that transitivity."
+      ],
+      "reasoning": "The source asymptotic bound allows either exact equality or a positive finite-size gap; it does not imply the strict boundary. The multi-anomaly theorem concerns a larger, differently symmetric hypothesis set and does not dominate the contiguous three-state problem.",
+      "searches": [
+        "arXiv:2608.24543 full text, especially Theorem 3.1 and Corollary 3.3",
+        "arXiv:1504.04908 state-discrimination optimality framework",
+        "Quantum multi-anomaly detection finite-n symmetry comparison"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.24543v2",
+      "Eldar--Forney, IEEE TIT 47 (2001)",
+      "arXiv:1504.04908v1",
+      "Quantum 8, 1452 (2024)",
+      "published-finding corpus semantic index",
+      "owned cumulative ledgers g000031 and g000032"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Ma gives only an O(N^{-1/2}) upper bound on the fixed-i Bayes-SRM gap and an exact i=1 formula.",
+        "Eldar--Forney proves equality for GU ensembles; the current ensemble has two endpoint states exchanged by reflection and a middle state fixed, hence no transitive three-element GU action.",
+        "The new derivative formula is strictly positive for every 0<r<1, which is stronger than merely failing a sufficient optimality test."
+      ],
+      "reasoning": "No inspected prior statement logically forces strict finite-size failure for this family without the new square-root calculation and feasible rotation. The result complements rather than contradicts the asymptotic theorem.",
+      "searches": [
+        "Chen--Ma arXiv:2608.24543v2 pages 4--5 and conclusion",
+        "Eldar--Forney IEEE TIT 47 (2001) SRM/MPEM section",
+        "Dalla Pozza--Pierobon arXiv:1504.04908"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the returning-interval i=2, N=3 strict failure.",
+        "Eldar--Forney gives SRM optimality for geometrically uniform pure-state sets and a constant-diagonal sufficient criterion; the present three-state set is not a transitive GU orbit.",
+        "Dalla Pozza--Pierobon treats symmetry-based SRM optimality criteria but the inspected abstract and framework do not state this returning-interval Gram family."
+      ],
+      "reasoning": "The claim is not a renaming of GU optimality: it is a strict non-optimality result for a reflection-symmetric but non-transitive three-state family, proved by a direct feasible perturbation.",
+      "searches": [
+        "published-finding corpus: Quantum Change Interval i=2 N=3 square root measurement suboptimal finite size",
+        "published-finding corpus: returning quantum change interval square root measurement finite size exact optimality two-site interval",
+        "Web: square root measurement diagonal elements square root of Gram optimal",
+        "Web: pretty good measurement constant diagonal Gram matrix optimal pure states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-title published-finding corpus search returned unrelated SCOPE records; no matching quantum-change finding was present.",
+        "The exact Gram-pattern published-finding corpus search returned no matching state-discrimination record.",
+        "Current and immediately prior ledgers contained no recoverable claim about returning intervals or SRM optimality."
+      ],
+      "reasoning": "Neither the available database search nor the owned ledger exposes a prior exact record of the claimed minimal boundary.",
+      "searches": [
+        "published-finding corpus: Quantum Change Interval Exact Asymptotics for Minimum Error Localization",
+        "published-finding corpus: Gram matrix [[1,r,r^2],[r,1,r],[r^2,r,1]] square root measurement optimal",
+        "Current and prior cumulative ledger text search for change interval / square-root measurement / SRM"
+      ]
+    },
+    "rationale": "The 2026 source proves fixed-length asymptotic SRM optimality and exact finite-size optimality only for the one-site interval; it does not state the strict i=2, N=3 boundary. Targeted published-finding corpus and literature searches found no record of this exact returning-interval claim. General SRM criteria and geometrically-uniform optimality results do not state the three-state returning-interval specialization, and the proof here supplies the missing strict inequality by an explicit success-improving rotation. The main residual risk is a remote equivalent treatment under another communications label.",
+    "residual_risks": [
+      "An older communications or quantum-detection paper may have analyzed the same three-state Gram matrix without the returning-interval terminology.",
+      "The exact Bayes optimum for the three-state family is not computed here; only strict improvement over SRM is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the strict i=2,N=3 result; it proves asymptotic optimality and exact i=1 finite-size optimality.",
+        "evidence": "Equation (3.1) gives the Gram family; Theorem 3.1 gives the O(N^-1/2) gap; Corollary 3.3 gives exact finite-size equality for i=1.",
+        "identifier_or_url": "arXiv:2608.24543v2",
+        "material_read": "Complete 14-page main paper, including model, Theorem 3.1, Corollary 3.3, comparison table, numerical discussion, conclusion, and references.",
+        "method": "Lawful full-text retrieval and direct reading.",
+        "title": "Quantum Change Interval: Exact Asymptotics for Minimum Error Localization",
+        "trigger": "Primary recent source with the same returning-interval model and fixed-length SRM theorem."
+      },
+      {
+        "assessment": "NOT_COVERING the returning-interval family; GU optimality applies to transitive group orbits, unlike the three-state reflection geometry here.",
+        "evidence": "The paper states GU-state SRM optimality and a constant-diagonal sufficient criterion for linearly independent states.",
+        "identifier_or_url": "IEEE Transactions on Information Theory 47 (2001), 858--872",
+        "material_read": "SRM versus minimum-probability-of-error section, including Yuen--Kennedy--Lax conditions and the geometrically-uniform theorem.",
+        "method": "Lawful author-hosted PDF; relevant pages inspected visually and as extracted text.",
+        "title": "On Quantum Detection and the Square-Root Measurement",
+        "trigger": "Canonical SRM optimality reference cited by the primary source."
+      },
+      {
+        "assessment": "No inspected statement names or directly specializes to the three-state returning-interval Gram family.",
+        "evidence": "The paper studies GUS constellations and general Gram-factorization conditions.",
+        "identifier_or_url": "arXiv:1504.04908v1",
+        "material_read": "Abstract and introductory optimization framework through the Gram-factorization and SRM discussion.",
+        "method": "Open arXiv HTML.",
+        "title": "On the Optimality of Square Root Measurements in Quantum State Discrimination",
+        "trigger": "Broader symmetry-based SRM optimality criteria cited by the primary source."
+      },
+      {
+        "assessment": "DIFFERENT_MODEL: the full fixed-cardinality anomaly ensemble has Johnson symmetry; contiguity removes that transitivity.",
+        "evidence": "Chen--Ma Table 1 explicitly distinguishes finite-n Johnson-symmetry optimality from the contiguous interval subensemble.",
+        "identifier_or_url": "Quantum 8, 1452 (2024)",
+        "material_read": "Comparison material in Chen--Ma and the article metadata/reference context.",
+        "method": "Published article page and primary-source comparison table.",
+        "title": "Quantum multi-anomaly detection",
+        "trigger": "Primary source identifies it as the closest finite-n exactly optimal related ensemble."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d60da4e-e0ae-4203-9db2-13078dfdee84",
+  "value": {
+    "rationale": "The recent source highlights asymptotic SRM optimality for fixed returning intervals and exact finite-size optimality at one site, leaving open whether finite-size exactness persists at the first nontrivial interval. The result pinpoints the smallest possible failure, uniformly over every nontrivial overlap, and therefore establishes a sharp structural boundary between exact finite-size and merely asymptotic optimality. This is a motivated counterexample/boundary result rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
