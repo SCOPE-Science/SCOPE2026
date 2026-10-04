@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every admissible observed density, total variation on the extended space equals the maximum of its positive and negative observed-density discrepancy masses. Monotonicity of the Gaussian likelihood ratio identifies the two unavoidable tails, and the pointwise clipped density attains both simultaneously. The Mills expansion yields \\(A_b(r)\\sim C_bS^{-3/2}e^{-S}\\) with \\(C_b=\\sqrt b\\,\\log(1/b)/(4\\sqrt\\pi)\\); the lower clip is super-polynomially smaller at the critical scale. Tensorization plus the same testing reduction as Proposition 22 gives the interval lower bound. No experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2410.22647 gives general adaptive robust-testing machinery and Gaussian order-level bounds",
+        "arXiv:2410.10704 develops the realisable missingness model and Gaussian estimation rates"
+      ],
+      "reasoning": "The broader papers cover related contamination/testing frameworks but do not state a theorem implying the exact density-band infimum with the displayed \\(A_b\\), \\(B_{n,b}\\), \\(C_b\\), or the \\(-3/2\\) log-log window.",
+      "searches": [
+        "Gaussian missing data adaptive confidence sharp constant total variation clamp selection model",
+        "MNAR Gaussian adaptive confidence interval sharp lower bound log log total variation",
+        "realisable contamination Gaussian location adaptive confidence interval exact modulus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28336v1",
+      "arXiv:2410.22647",
+      "arXiv:2410.10704",
+      "Published mathematical finding 2026/9/18/SCOPE-hypergeometric-gaussian-hellinger-noncontiguity--40af82dd69ac",
+      "Published mathematical finding 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.28336v1 Proposition 22 proves only a rate lower bound and explicitly chooses \\(r=L/(2\\sqrt{\\log n})\\) in one case and an \\(L/(4\\sqrt{\\log(\\cdot)})\\) scale in the other",
+        "arXiv:2410.22647 Lemma 4 states an order-level Gaussian Huber testing separation"
+      ],
+      "reasoning": "Neither prior statement implies the exact one-sample minimization or its critical asymptotic. Conversely, the new result does not subsume their full interval theory; it sharpens one lower-bound mechanism for fixed MCAR missingness.",
+      "searches": [
+        "2609.28336 Proposition 22 adaptive missing data Gaussian sharp constant lower bound",
+        "Gaussian selection model total variation clipping likelihood ratio tail exact modulus log log n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28336v1, Lemma 8 and Proposition 22",
+        "arXiv:2410.22647, Sections 3 and 4.3"
+      ],
+      "reasoning": "Aliases checked included realisable contamination, MNAR/MCAR selection models, adaptive robust confidence intervals, Gaussian location testing, density clipping, and total-variation moduli. The Huber formulation has a different feasible set; the missing-data source gives the rate but not the exact projection/asymptotic.",
+      "searches": [
+        "adaptive confidence intervals missing data contamination Gaussian finite sample minimax interval",
+        "finite sample exact confidence interval missing not at random Gaussian contamination",
+        "Gaussian missing data adaptive confidence sharp constant total variation clamp selection model",
+        "MNAR Gaussian adaptive confidence interval sharp lower bound log log total variation",
+        "realisable contamination Gaussian location adaptive confidence interval exact modulus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published finding ID 2026/9/18/SCOPE-hypergeometric-gaussian-hellinger-noncontiguity--40af82dd69ac concerns a different Gaussian-boundary Hellinger problem",
+        "Closest published finding ID 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051 concerns a different location-modulus problem"
+      ],
+      "reasoning": "No returned record gives the missing-data density-band projection or the same constants. Similarity hits are methodologically adjacent but have different objects and implication structure.",
+      "searches": [
+        "adaptive confidence intervals missing data contamination Gaussian finite sample minimax interval",
+        "finite sample exact confidence interval missing not at random Gaussian contamination",
+        "2609.28336 Proposition 22 adaptive missing data Gaussian sharp constant lower bound",
+        "Gaussian selection model total variation clipping likelihood ratio tail exact modulus log log n"
+      ]
+    },
+    "rationale": "The exact band-projection formula, its critical \\(-3/2\\) log-log correction, and the resulting fixed-MCAR coefficient \\(1/\\sqrt2\\) were not stated in the inspected motivating paper, the earlier realisable-contamination paper, the adaptive Huber-confidence paper or the published-finding semantic searches. The closest source construction uses the same Gaussian tail geometry but only coarse inequalities and smaller explicit constants. Residual risk from a more general sharp testing theorem is recorded.",
+    "residual_risks": [
+      "A general theorem on sharp Gaussian robust-testing moduli or likelihood-ratio clipping may imply the same asymptotic under different terminology; no such statement was found in the inspected sources or semantic searches.",
+      "The product total variation is not evaluated exactly, so no claim is made that the displayed confidence-length coefficient is the exact minimax constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact modulus or critical-window constants; it establishes minimax rates and uses coarser tail/KL estimates.",
+        "evidence": "Lemma 8 gives the density band; Proposition 22 uses clipped Gaussian constructions and explicit constants 1/2 or 1/4 at the rate level.",
+        "identifier_or_url": "arXiv:2609.28336v1",
+        "material_read": "PDF pages 2, 25, 43--45; model equations (2)--(3), Lemma 8, Proposition 22 and both Gaussian lower-bound cases.",
+        "method": "Primary full-text PDF and rendered page inspection.",
+        "title": "Adaptive confidence intervals with missing data",
+        "trigger": "Direct motivating source and closest same-model lower bound."
+      },
+      {
+        "assessment": "NOT_COVERING: Huber contamination has a different feasible class and the Gaussian lower bound is stated up to constants.",
+        "evidence": "Section 4.3 uses tail truncation to obtain \\(1/\\sqrt{\\log n}\\) separation but does not state the missingness-band clipping infimum or its log-log correction.",
+        "identifier_or_url": "arXiv:2410.22647",
+        "material_read": "ArXiv full-text Sections 3, 4.1 and 4.3, including Lemma 4 and equations (31)--(33).",
+        "method": "Primary arXiv full-text inspection.",
+        "title": "Adaptive Robust Confidence Intervals",
+        "trigger": "Closest general adaptive Gaussian contamination/testing literature."
+      },
+      {
+        "assessment": "NOT_COVERING the adaptive confidence-interval modulus; it studies estimation rather than this exact adaptive testing projection.",
+        "evidence": "The motivating paper cites its Proposition S33(a) only for an MCAR \\(n^{-1/2}\\) lower bound.",
+        "identifier_or_url": "arXiv:2410.10704",
+        "material_read": "Abstract and available primary full-text extraction concerning the realisable model and Gaussian mean estimation.",
+        "method": "Primary arXiv text inspection.",
+        "title": "Estimation beyond Missing (Completely) at Random",
+        "trigger": "Foundational source for the realisable missingness model cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "33cdc5c7-a690-4427-8c9f-d1bb995ef972",
+  "value": {
+    "rationale": "The exact total-variation modulus is the natural testing invariant controlling the adaptive confidence lower bound. It replaces coarse casewise constants by a single exact formula, exposes a genuine \\(-3/2\\) log-log threshold, and strengthens the fixed-MCAR leading lower coefficient to \\(\\log(1/(1-\\epsilon))/\\sqrt2\\). Because the source problem converges only at logarithmic speed, the coefficient and second-order window materially affect the information-theoretic boundary rather than constituting a routine algebraic restatement.",
+    "status": "PASS"
+  }
+}
