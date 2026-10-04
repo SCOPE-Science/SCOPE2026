@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact control-to-state operator is \\(K\\), adjoint propagation gives the error map \\(-3K^*K\\), and the eigenvalue problem reduces to \\(f''+(1/\\mu-1)f=0\\) with \\(f'(0)+f(0)=0\\), \\(f(1)=0\\). The eigenpair \\((\\mu,f)=(1,1-t)\\) is checked directly. No \\(\\mu>1\\) exists because it would require \\(\\tanh\\beta=\\beta\\) for \\(\\beta>0\\). Remaining eigenvalues come from \\(\\tan k=k\\) and tend to zero. Functional calculus for compact self-adjoint \\(A=K^*K\\) then gives the exact norm \\(\\max(|1-\\omega|,|1-4\\omega|)\\), from which the stability and minimax statements follow. The finite script only replays algebra/numerics; it is not used as an infinite-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharp–Burrage–Simpson treat FBSM as a fixed-point iteration and study Aitken, Steffensen, Wegstein, and Anderson acceleration.",
+        "Liu–Frank prove convergence for a regularized forward–backward sweep when regularization is sufficiently large and report slower convergence for excessive regularization.",
+        "Armengou-Riera et al. study discretized CG/GMRES control updates."
+      ],
+      "reasoning": "These works cover broader algorithmic acceleration or regularization, but none of the inspected statements supplies the exact spectrum of this 2012 scalar counterexample, its sharp constant-relaxation interval, or its exact minimax relaxation. General relaxation/Richardson theory becomes decisive only after the new source-specific spectral endpoint \\(\\|K\\|^2=1\\) and eigenfunction are identified.",
+      "searches": [
+        "forward backward sweep optimal control exact convergence threshold relaxation integrator quadratic",
+        "FBSM L2 Volterra operator singular values pi exact rate",
+        "optimal relaxation forward backward sweep control pi squared horizon",
+        "McAsey periodic alternating iterates average exact solution forward backward sweep",
+        "Sharp Burrage Simpson 2021 DOI 10.1098/rsif.2021.0241",
+        "Liu Frank arXiv:1912.07028",
+        "Armengou-Riera DOI 10.1002/oca.70072"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s10589-011-9454-7",
+      "doi:10.1016/0005-1098(66)90009-4",
+      "doi:10.1098/rsif.2021.0241",
+      "arXiv:1912.07028",
+      "doi:10.1016/j.cam.2020.113133",
+      "doi:10.1002/oca.70072",
+      "Targeted published-finding corpus searches recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mitter's inspected successive-approximation scheme is second-variation/Newton-like rather than the plain sweep map analyzed here.",
+        "McAsey–Mou–Han prove sufficient Lipschitz/small-horizon convergence and explicitly note their condition can be sharpened; Remark 4.1 gives only the observed behavior.",
+        "Later acceleration/regularization papers establish frameworks and sufficient convergence results but do not state the exact source-specific endpoint spectrum."
+      ],
+      "reasoning": "The qualitative fact that relaxation can stabilize a fixed-point method is prior-covered. The accepted claim is narrower and quantitative: it identifies the exact top FBSM eigenmode for the published counterexample, proves the complete endpoint norm formula for constant relaxation, derives the iff stability range and unique minimax parameter, and separates the formal unrelaxed multiplier \\(-3\\) from the half-relaxed neutral multiplier \\(-1\\). None of the inspected prior statements implies those constants without this operator calculation.",
+      "searches": [
+        "Convergence of the forward-backward sweep method in optimal control MSC 49M McAsey Mou Han",
+        "Mitter DOI 10.1016/0005-1098(66)90009-4, inspected full text",
+        "McAsey DOI 10.1007/s10589-011-9454-7, inspected full text",
+        "Sharp DOI 10.1098/rsif.2021.0241",
+        "Liu–Frank DOI 10.1016/j.cam.2020.113133"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McAsey–Mou–Han define the plain continuous FBSM in equations (3.4)–(3.6) and in Remark 4.1 report the modified coefficient-3, drift-+1 example with alternating behavior and successful two-iterate averaging.",
+        "The source does not state a Volterra-Gram spectrum, a mode \\(1-t\\), or a relaxation parameter theorem."
+      ],
+      "reasoning": "The finding rewrites that exact continuous sweep as an affine fixed-point map whose error is \\(-3K^*K\\). This formulation is mathematically equivalent to the source's scalar PMP sweep, but the spectral consequences claimed here are additional statements, not a renaming of the source theorem.",
+      "searches": [
+        "forward backward sweep scalar linear quadratic optimal control exact horizon convergence pi over two",
+        "successive approximation optimal control integrator LQ forward backward sweep spectral radius",
+        "forward backward sweep two cycle convergence threshold linear quadratic",
+        "McAsey Mou Han forward backward sweep sharp interval length",
+        "doi:10.1007/s10589-011-9454-7, full text pp. 211-224"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus searches returned no FBSM-specific record. The closest results were exact-rate findings for other algorithms, listed in prior_checks.",
+        "The inspected 2012 article contains numerical Table 1 for its first example and a qualitative Remark 4.1 for the modified example, but no spectral or relaxation table."
+      ],
+      "reasoning": "There is no matching exact database/table entry among the searched records. Failure of search is not treated as a novelty proof; the conclusion rests on direct comparison with the highly relevant full texts.",
+      "searches": [
+        "McAsey Mou Han forward backward sweep modified example x'=x+u 3x^2 relaxation period two",
+        "forward backward sweep relaxation averaging two iterates exact solution optimal control",
+        "accelerated forward backward sweep method optimal control relaxation parameter Sharp 2021",
+        "McAsey forward backward sweep eigenvalue spectral radius Volterra operator"
+      ]
+    },
+    "rationale": "The primary full text gives the modified example and qualitative alternating/averaging observation but not the exact error spectrum or tuning law. Highly relevant later acceleration and regularization papers were compared and do not state an implication-equivalent result. The generic existence of relaxation methods is treated as prior art; originality is assigned only to the exact source-specific spectral mechanism and sharp constants.",
+    "residual_risks": [
+      "An unindexed thesis, lecture note, or implementation note may contain the same operator calculation.",
+      "The 2012 article does not document enough implementation detail to infer that its reported numerical two-cycle used exactly \\(\\omega=1/2\\); the claim therefore treats half-relaxation as an explicitly defined variant rather than attributing it to the source code."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact spectrum/tuning claim; source reports the motivating qualitative phenomenon.",
+        "evidence": "Remark 4.1 changes the state drift to +1 and state-cost coefficient to 3, reports nontermination, alternating iterates, and successful averaging; no relaxation-spectrum calculation is given.",
+        "identifier_or_url": "doi:10.1007/s10589-011-9454-7",
+        "material_read": "Full article, especially pp. 211-224 including equations (3.4)-(3.6), Theorem 3.1, Remark 3.2, Section 4, and Remark 4.1.",
+        "method": "Authorized full-text extraction after open routes were unavailable.",
+        "title": "Convergence of the forward-backward sweep method in optimal control",
+        "trigger": "Primary source and exact modified example."
+      },
+      {
+        "assessment": "NOT_COVERING; the update is a different second-variation/Newton-like scheme.",
+        "evidence": "The inspected algorithm forms a second-variation based control correction with a step reduction parameter rather than the plain source FBSM map.",
+        "identifier_or_url": "doi:10.1016/0005-1098(66)90009-4",
+        "material_read": "Accessible full text, including introduction and update equations around the second-variation method.",
+        "method": "Open-access PDF inspection.",
+        "title": "Successive approximation methods for the solution of optimal control problems",
+        "trigger": "Early method-level predecessor and possible broader coverage."
+      },
+      {
+        "assessment": "NOT_COVERING the source-specific spectrum; establishes generic acceleration context.",
+        "evidence": "The article studies Aitken, Steffensen, Wegstein and Anderson acceleration and says acceleration can induce convergence when the base FBSM fails.",
+        "identifier_or_url": "doi:10.1098/rsif.2021.0241",
+        "material_read": "Open full-text article/abstract and implementation descriptions.",
+        "method": "Lawful open web/PMC text.",
+        "title": "Implementation and acceleration of optimal control for systems biology",
+        "trigger": "Direct later work conceptualizing FBSM as fixed-point iteration and accelerating it."
+      },
+      {
+        "assessment": "NOT_COVERING; proves sufficient regularization convergence and discretization preservation, not the exact constant-relaxation spectrum of the 2012 counterexample.",
+        "evidence": "The paper reports a critical regularization phenomenon numerically but gives no \\(1-t\\) eigenmode or \\(2/5\\) minimax relaxation for this example.",
+        "identifier_or_url": "arXiv:1912.07028; doi:10.1016/j.cam.2020.113133",
+        "material_read": "Open abstract and the convergence/numerical discussion of the regularized method.",
+        "method": "Open arXiv/publisher-author manuscript text.",
+        "title": "Symplectic Runge–Kutta discretization of a regularized forward–backward sweep iteration for optimal control problems",
+        "trigger": "Direct regularization of FBSM could dominate a relaxation result."
+      },
+      {
+        "assessment": "NOT_COVERING; finite-dimensional discretized Krylov/control-residual updates are different from the continuous constant-relaxation map.",
+        "evidence": "The inspected algorithm uses variable step lengths and CG/GMRES directions for the discrete global system.",
+        "identifier_or_url": "doi:10.1002/oca.70072",
+        "material_read": "Accessible full-text sections defining the discretized FBSM and CG/GMRES control updates.",
+        "method": "Open publisher full text.",
+        "title": "On the Convergence of Conjugate Gradient and GMRES Algorithms in the Forward Backward Sweep Method for Optimal Control",
+        "trigger": "Recent exact iterative-solver analysis of FBSM."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5af2041-6eac-4ed8-b279-324712d9cc56",
+  "value": {
+    "rationale": "The result resolves a concrete qualitative anomaly in a standard convergence paper: the formal unrelaxed continuous sweep is not merely noncontractive but has an exact factor-3 unstable mode, while the half-relaxed boundary creates precisely the neutral alternating mode canceled by pair averaging. The exact iff stability range and unique \\(2/5\\) rate-optimal relaxation provide a reusable benchmark for FBSM stabilization and distinguish formal-algorithm behavior from relaxation-induced cycling. This is a motivated boundary/tuning fact, not an arbitrary scalar slice.",
+    "status": "PASS"
+  }
+}
