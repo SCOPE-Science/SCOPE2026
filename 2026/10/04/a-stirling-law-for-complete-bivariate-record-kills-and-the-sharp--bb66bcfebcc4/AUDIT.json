@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the complete-kill event fixes the nth label to be rank one in each independent coordinate permutation and leaves the relative ranks of the first \\(n-1\\) labels uniform. Sorting by the first coordinate converts current Pareto minima into left-to-right minima of a uniform permutation. Independent sequential relative ranks give probability generating function \\(z(z+1)\\cdots(z+n-2)/(n-1)!\\), hence the unsigned-Stirling formula. Fixed-degree elementary-symmetric asymptotics then give \\(C_{n,k}\\sim n^{-3}(\\log n)^{k-1}/(k-1)!\\). The exact Theorem 3.9 remainder has coefficient \\(1/4\\) on \\(C_{n,k}\\) and only lower \\(C_{n,j}\\), which satisfy \\(C_{n,j}=o(C_{n,k})\\) for fixed \\(j<k\\). Boundaries \\(n\\ge2\\), \\(1\\le k\\le n-1\\), and fixed-\\(k\\) asymptotics are explicit. Finite checks are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fill (2023) studies the n-to-infinity conditional broken-record limit in arbitrary dimension and explicitly cites the bivariate geometric limit; its inspected full text does not contain Stirling, \\(C_k\\), or the fixed-k \\(n^{-3}\\) remainder.",
+        "Planar-maxima literature studies the distribution and asymptotics of the number of maxima, but the retrieved sources do not state the complete-kill coefficient or imply the Theorem 3.9 remainder constant without the conditional-rank argument."
+      ],
+      "reasoning": "The later general-dimensional theorem is asymptotic in the conditional broken-record count and does not dominate a finite-n exact identity for the complete-kill component. Generic planar-maxima results concern \\(r_{n-1}\\) unconditionally; the needed bridge is independence from \\(E_n\\).",
+      "searches": [
+        "\"Breaking multivariate records\" \"Stirling\" \"bivariate\"",
+        "\"Breaking multivariate records\" \"C_k\" \"Breaking bivariate\"",
+        "arXiv:2109.14846 full text Stirling C_k n^{-3}",
+        "\"number of maxima\" random points two dimensions Stirling numbers first kind"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.08232v1",
+      "DOI:10.1017/S0963548320000309",
+      "arXiv:2109.14846",
+      "DOI:10.1214/23-EJP968",
+      "Teaching Statistics 25 (2003), Record Values and Surviving Glacial Moraines"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 3.6 gives \\(C_k=\\Pr\\{r_{n-1}=k,\\ K_n=r_{n-1}\\}\\) and \\(\\sum_k C_k=n^{-2}\\).",
+        "Theorem 3.9 writes the fixed-\\(k\\) remainder as a bounded linear combination of \\(C_1,\\ldots,C_k\\), with coefficient \\(1/4\\) on \\(C_k\\).",
+        "Remark 3.11(b) explicitly labels the fixed-\\(k\\) order and leading \\(C_k\\) behavior as conjectural."
+      ],
+      "reasoning": "The source does not determine \\(C_k\\) sharply enough for general fixed \\(k\\). The exact Stirling identity supplies \\(C_{n,j}=o(C_{n,k})\\) for \\(j<k\\) and the asymptotic of \\(C_{n,k}\\), precisely the missing implications needed to turn the source remainder formula into the claimed sharp asymptotic.",
+      "searches": [
+        "arXiv:1901.08232v1 Lemma 3.6 Theorem 3.9 Remark 3.11(b)",
+        "\"Breaking Bivariate Records\" \"Remark 3.11\"",
+        "\"n^{-3}(log n)^{k-1}\" records Fill"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected 2019 full text contains no occurrence of \"Stirling\" or \"cycle\" and presents \\(C_k\\) instead by an integral/finite sum plus special cases.",
+        "The standard unsigned-Stirling distribution of ordinary record counts was found in record-value literature, but those sources do not identify Fill's complete-kill coefficient \\(C_k\\)."
+      ],
+      "reasoning": "An equivalent formulation would have to identify the complete-kill row after conditioning on the nth point being coordinatewise minimal, or otherwise imply the exact \\(C_{n,k}\\) formula. The retrieved sources only provide the generic permutation-record law, not that conditional identification.",
+      "searches": [
+        "\"Breaking Bivariate Records\" Stirling cycles Pareto records C_k",
+        "\"1901.08232\" Stirling records cycles",
+        "bivariate Pareto records all records killed probability cycle count Stirling",
+        "complete bivariate record kill Stirling law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Example 3.10 of the source tabulates \\(C_{n,k}\\) only through n=5; those rows agree with the new formula but are not an all-n table or theorem.",
+        "No retrieved indexed source stated the all-n Stirling formula or the resulting fixed-k leading error constant."
+      ],
+      "reasoning": "The claim is an all-n structural identity and an asymptotic consequence, not a recomputation of the displayed finite table. The table serves only as a consistency check.",
+      "searches": [
+        "Fill 1901.08232 Remark 3.11 fixed k n^-3 log n asymptotic",
+        "\"correct rate of convergence\" \"Breaking bivariate records\"",
+        "Breaking Bivariate Records complete-kill C_k unsigned Stirling first kind permutation cycles"
+      ]
+    },
+    "rationale": "The motivating full text identifies \\(C_k\\) probabilistically, gives only a finite-sum formula and three special cases, and explicitly leaves the fixed-\\(k\\) sharp remainder rate as a conjecture. Exact searches for the paper, \\(C_k\\), complete kills, Stirling/cycle aliases, and the \\(n^{-3}(\\log n)^{k-1}\\) rate found no covering indexed or published statement. The later multivariate paper treats the limiting broken-record law, not this finite-sample component. The classical Stirling law for ordinary permutation records is acknowledged as prior; the new step is the conditional-rank identification of Fill\\'s \\(C_k\\) and its consequence for the stated conjecture.",
+    "residual_risks": [
+      "The reduction is short once one recognizes the classical record-count law, so an equivalent observation could exist under the language of planar maxima, permutation records, or skyline size and remain unindexed.",
+      "The originality claim is limited to the exact complete-kill identification and its consequence for Fill's stated fixed-k conjecture; it does not claim novelty of the unsigned-Stirling law for ordinary records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: exact \\(C_k\\) is left as a finite sum/special cases and the fixed-k sharp error is explicitly conjectural.",
+        "evidence": "Lemma 3.6 identifies the complete-kill event and total probability \\(n^{-2}\\); Theorem 3.9 isolates the \\(C_j\\) remainder; Remark 3.11(b) states the unresolved fixed-k rate.",
+        "identifier_or_url": "arXiv:1901.08232v1; DOI:10.1017/S0963548320000309",
+        "material_read": "Full text, especially Definition 1.1, Lemmas 3.4 and 3.6, Theorem 3.9, Example 3.10, and Remark 3.11(b).",
+        "method": "Lawful full-text inspection including rendered PDF pages.",
+        "title": "Breaking Bivariate Records",
+        "trigger": "Defines \\(C_k\\) and states the fixed-k error conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes the limiting broken-record law in general dimension and recovers the bivariate geometric limit, without the complete-kill Stirling law or fixed-k finite-n remainder.",
+        "evidence": "The main theorem concerns weak convergence of \\(K_n\\) conditional on setting a record; targeted full-text searches returned no Stirling, \\(C_k\\), or \\(n^{-3}\\) discussion.",
+        "identifier_or_url": "arXiv:2109.14846; DOI:10.1214/23-EJP968",
+        "material_read": "Full accessible text around the introduction, main theorem, bivariate reduction, and targeted searches for Stirling, \\(C_k\\), and \\(n^{-3}\\).",
+        "method": "Lawful open full-text inspection.",
+        "title": "Breaking Multivariate Records",
+        "trigger": "Later same-author generalization that could have subsumed the bivariate finite-n question."
+      },
+      {
+        "assessment": "SUPPORTING_PRIOR: confirms the classical record-count/Stirling identity but not the bivariate complete-kill coefficient.",
+        "evidence": "The article states that the number of ordinary records has probabilities given by unsigned Stirling numbers of the first kind divided by n!.",
+        "identifier_or_url": "Teaching Statistics 25 (2003), C. Johnson",
+        "material_read": "Published article summary and displayed discussion of the record-count distribution.",
+        "method": "Published web text inspection.",
+        "title": "Record Values and Surviving Glacial Moraines",
+        "trigger": "Accessible source for the classical unsigned-Stirling law for ordinary record counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb66bcfe-bcc4-4ef0-a4f1-a3c987040fc5",
+  "value": {
+    "rationale": "The exact law is structurally motivated by the complete-kill component that controls the error term in the motivating paper. It converts an opaque finite-sum family into a classical permutation statistic, supplies an all-n generating function and exact probabilities, and directly proves a named fixed-k sharp-error conjecture with its leading constant. This is not an arbitrary finite slice or table recomputation; the consequence holds for every fixed k and every finite n in the exact component.",
+    "status": "PASS"
+  }
+}
