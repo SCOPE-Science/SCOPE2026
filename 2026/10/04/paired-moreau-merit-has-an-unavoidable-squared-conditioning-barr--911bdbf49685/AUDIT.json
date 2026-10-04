@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs both signed proximal resolvents mode by mode. With symmetric endpoints, the source weights give the exact positive Hessian eigenvalue h(lambda)=lambda^2/((Lambda_+-lambda)(Lambda_-+lambda)). Pairing the positive and negative endpoint modes yields the stated strict lower bound on the merit condition number. The infimum follows by sending both regularization parameters to infinity. The fixed-step factor is the exact two-endpoint minimax factor for an SPD quadratic. A packaged standard-library replay checks representative parameters; the proof, not the finite replay, covers all quantified parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source paper treats the full uniformly nondegenerate class and proves general convergence bounds, but its general upper bounds do not imply the exact minimax lower bound over both Moreau regularization parameters on the balanced four-mode witness.",
+        "Published finding 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 analyzes stagewise-safe Richardson polynomials, a different method and admissible class.",
+        "Published finding 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0 analyzes normal strongly monotone systems, not the signed-Moreau merit."
+      ],
+      "reasoning": "A broader theorem covers the source algorithm qualitatively, but the new claim is a sharp obstruction on a concrete witness and across all admissible two-sided regularization parameters. The source convergence theorem supplies an upper guarantee rather than this lower conditioning obstruction.",
+      "searches": [
+        "paired proximal merit symmetric indefinite quadratic condition number squared residual",
+        "uniform nondegeneracy upper lower endpoint gap acceleration paired proximal",
+        "paired Moreau quadratic rational spectral filter condition number squared fixed-step gradient descent"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.06946v1",
+      "PMLR:132:3-47 / arXiv:1906.02027",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Su--Zhang--Zhao define the signed proximal maps and merit and derive general PL/smoothness complexity. Direct specialization is needed to obtain the rational mode function, and an additional geometric-mean argument is needed to prove the all-parameter lower bound.",
+        "Abernethy--Lai--Wibisono analyze Hamiltonian gradient descent for minimax operators; the squared-residual quadratic has kappa-squared conditioning, but that does not imply that every finite paired-Moreau regularization is strictly worse conditioned."
+      ],
+      "reasoning": "The prior results motivate the comparison and supply the definitions, but neither prior statement entails the sharp infimum over both regularization parameters. The claim is therefore not merely a restatement of a reported special case or a numerical substitution into a prior theorem.",
+      "searches": [
+        "First-Order Optimization under Uniform Nondegeneracy paired proximal descent Su Zhang Zhao",
+        "paired Moreau quadratic rational spectral filter condition number squared fixed-step gradient descent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.06946v1, full-text paired signed-Moreau construction and related-work discussion of squared residuals.",
+        "PMLR 132 (2021), 3-47, Hamiltonian gradient descent context for squared-residual merit functions.",
+        "Published finding 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 concerns Rayleigh-residual distortion for normal spectral filtering, not paired signed-Moreau conditioning."
+      ],
+      "reasoning": "The exact four-mode statement is a parameter-uniform lower bound for the condition number of the paired merit. The squared-residual limit is an equivalent asymptotic comparison, but the strict finite-parameter inflation and its all-parameter proof are additional statements. No searched equivalent formulation supplied that implication.",
+      "searches": [
+        "paired proximal merit symmetric indefinite quadratic condition number squared residual",
+        "rational spectral filter A^2 Lambda^2 minus A^2 paired Moreau",
+        "uniform nondegeneracy upper lower endpoint gap acceleration paired proximal",
+        "First-Order Optimization under Uniform Nondegeneracy paired proximal descent Su Zhang Zhao",
+        "paired Moreau quadratic rational spectral filter condition number squared fixed-step gradient descent",
+        "balanced four-mode paired Moreau all regularization condition number kappa squared barrier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding IDs were 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789, 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0, 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705, and 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0; their statements concern different algorithms or residuals.",
+        "The exact primary-paper-title query and a final query for the balanced four-mode all-regularization kappa-squared barrier returned no published finding about this paired-Moreau spectral calculation; the final query's closest mathematical-optimization hit concerned QOT dual conditioning, a different object."
+      ],
+      "reasoning": "Database searches do not prove novelty, but the closest records do not state or imply the claimed four-mode paired-Moreau condition-number formula or sharp infimum.",
+      "searches": [
+        "paired proximal merit symmetric indefinite quadratic condition number squared residual",
+        "rational spectral filter A^2 Lambda^2 minus A^2 paired Moreau",
+        "uniform nondegeneracy upper lower endpoint gap acceleration paired proximal",
+        "First-Order Optimization under Uniform Nondegeneracy paired proximal descent Su Zhang Zhao",
+        "paired Moreau quadratic rational spectral filter condition number squared fixed-step gradient descent",
+        "balanced four-mode paired Moreau all regularization condition number kappa squared barrier"
+      ]
+    },
+    "rationale": "The inspected primary paper gives the paired signed-Moreau construction, global PL/smoothness analysis, and query bounds, but does not state the all-regularization four-mode condition-number obstruction or its sharp infimum. The closest published findings returned by targeted searches concern different spectral filters, step-size frontiers, or other algorithms. Squared-residual/Hamiltonian methods explain the kappa-squared limiting comparison but do not imply the strict finite-regularization inflation for this paired merit.",
+    "residual_risks": [
+      "An older proximal-average, rational regularization, or symmetric nonlinear-equation paper may contain an equivalent four-mode condition-number calculation under different terminology.",
+      "The Hamiltonian-gradient paper was used only for the squared-residual context; its full PDF was not needed for the decisive comparison with the primary paired-Moreau source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_FINAL_CLAIM: the paper supplies the construction and general bounds but the inspected text does not state the four-mode all-parameter condition-number obstruction, its sharp kappa-squared infimum, or the exact fixed-step contraction consequence.",
+        "evidence": "arXiv:2609.06946v1, first submitted 2026-09-07; the paper explicitly pairs signed Moreau envelopes, compares with squared residuals, and reports general upper/lower complexity results.",
+        "identifier_or_url": "arXiv:2609.06946v1",
+        "material_read": "Lawful arXiv full text: introduction and related work; uniformly nondegenerate class; paired signed-Moreau construction and its weights/resolvents; outer merit descent; complexity discussion; deterministic lower-bound discussion.",
+        "method": "Full-text statement and formula inspection followed by an independent quadratic specialization and algebraic implication comparison.",
+        "title": "First-Order Optimization under Uniform Nondegeneracy: Geometry, Computation, and Information",
+        "trigger": "Primary source defining the paired signed-Moreau merit and paired proximal descent."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_OBJECT: establishes Hamiltonian/squared-residual descent for minimax operators, but does not by the inspected material supply the finite paired-Moreau regularization lower bound.",
+        "evidence": "PMLR 132 (2021), 3-47; arXiv:1906.02027.",
+        "identifier_or_url": "PMLR:132:3-47",
+        "material_read": "Primary PMLR article page and abstract, together with the primary source paper's related-work description of Hamiltonian gradient descent.",
+        "method": "Statement-level comparison only; not used as whole-document evidence of absence.",
+        "title": "Last-Iterate Convergence Rates for Min-Max Optimization: Convergence of Hamiltonian Gradient Descent and Consensus Optimization",
+        "trigger": "Closest established squared-residual descent mechanism cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "911bdbf4-9685-455d-b3d2-95a94202b596",
+  "value": {
+    "rationale": "The result isolates a concrete mechanism behind the gap between the new merit-based upper scale and the better class-level information benchmark: the entire admissible two-parameter paired-Moreau family has a kappa-squared conditioning floor on the smallest balanced indefinite endpoint witness. The statement is exact, sharp in the parameter limit, and identifies acceleration or preconditioning of the merit—not retuning the two Moreau parameters—as the mathematically relevant direction if one seeks to beat this outer fixed-step barrier.",
+    "status": "PASS"
+  }
+}
