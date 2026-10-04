@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The classification follows exactly from prime-factor exponents of \\(n\\) and \\(\u000barphi(n)\\): \\(n=2^a p^b\\) is Achilles iff \\(a,b\\ge2\\) and \\(\\gcd(a,b)=1\\); \\(\u000barphi(n)=2^{a+t-1}p^{b-1}\\prod_j q_j^{c_j}\\), so powerfulness and non-perfect-power status give precisely the stated remaining inequalities and gcd. The asymptotic is a two-dimensional lattice-density argument: each prime forbids one or two explicitly distinct residue pairs, finite-prime densities combine by CRT, and the tail is controlled by the convergent sum of reciprocal prime squares. The standalone checker made 13005 direct definition-versus-criterion comparisons and matched all 21 two-prime-support terms in the displayed OEIS prefix through 135000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The broad public solution treats arbitrary prime supports algorithmically, but its inspected mathematical discussion is a decision framework, not a theorem implying the fixed-support asymptotic.",
+        "The closest published search result on fixed-support exponent lattices concerned weak Carmichael numbers, a different predicate."
+      ],
+      "reasoning": "Broader algorithms for enumerating strong Achilles numbers cover the decision criterion and thereby the classification component, but they do not supply the support-wise counting asymptotic or the stated Euler-product constants. The quantitative density analysis is the non-covered part of the final claim.",
+      "searches": [
+        "Strong Achilles numbers two-prime support asymptotic logarithmic density",
+        "Achilles totient 2^a p^b fixed prime p density",
+        "strong numbers powerful but not perfect power number theory"
+      ]
+    },
+    "checked_sources": [
+      "ProjectEuler:302",
+      "QuantAcademy:ProjectEuler302",
+      "OEIS:A194085",
+      "EulerSolve:302",
+      "published-search: fixed-support exponent-lattice results for different arithmetic predicates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "EulerSolve explicitly gives Achilles iff all exponents are at least \\(2\\) and their gcd is \\(1\\), and gives \\(v_q(\u000barphi(n))\\) as contributions from \\(p_i-1\\) plus self-exponents.",
+        "No searched source supplied the stated local-density product or the iff condition that the odd part of \\(p-1\\) be powerful for exact support \\(\\{2,p\\}\\)."
+      ],
+      "reasoning": "The prior exponent bookkeeping dominates the classification component after direct specialization, and that component is not counted as novel. It does not dominate the full final claim because it gives no asymptotic for the exponent lattice. The local-density product and the resulting coefficient of \\((\\log X)^2\\) require the additional CRT-and-tail argument given here.",
+      "searches": [
+        "EulerSolve Problem 302 exponent gcd phi p_i-1",
+        "Strong Achilles numbers theorem",
+        "Strong Achilles number arXiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Project Euler 302 gives the defining condition and benchmark counts.",
+        "OEIS A194085 gives terms and definition-level programs but no support theorem.",
+        "EulerSolve states the general exponent-vector Achilles criterion and totient exponent bookkeeping."
+      ],
+      "reasoning": "The exact theorem was compared against the natural exponent-vector formulation and against the special \\(p=3\\) language. The general exponent test does imply the fixed-support iff classification after specialization. It does not imply the asymptotic constant without an additional local-density argument, and no searched source supplied that quantitative conclusion.",
+      "searches": [
+        "Strong Achilles numbers fixed odd prime support {2,p} exponent criterion p-1 powerful",
+        "strong Achilles numbers 2^a p^b characterization gcd a b b-1",
+        "strong Achilles 2^a 3^b",
+        "source:OEIS:A194085"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A194085 lists the sequence beginning 500, 864, 1944, ... and links definition-level programs.",
+        "Project Euler gives \\(7\\) terms below \\(10^4\\) and \\(656\\) below \\(10^8\\)."
+      ],
+      "reasoning": "The database and benchmark counts are consistent with the theorem and serve as external checks, but neither is an exact table indexed by fixed support p or a table of the support constants, so they do not cover the claim.",
+      "searches": [
+        "source:OEIS:A194085",
+        "Project Euler Problem 302 Strong Achilles Numbers"
+      ]
+    },
+    "rationale": "The inspected original problem, sequence database, and broad public solution provide the definition, examples, global benchmark counts, and general exponent bookkeeping. That bookkeeping implies the fixed-support classification after specialization, so the classification alone is treated as covered. The final claim also proves a support-wise quadratic logarithmic asymptotic with explicit Euler-product constants; focused searches for aliases, density formulations, and stronger implications did not locate that quantitative statement.",
+    "residual_risks": [
+      "Strong Achilles numbers are discussed in recreational/problem-solving literature, some of which may be unindexed; an independently derived equivalent fixed-support result could therefore have escaped focused search. No inspected source or close database hit covered the final theorem or its asymptotic constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines powerful, perfect-power, Achilles, and strong Achilles numbers and gives examples and global benchmark counts; does not state a fixed-support classification or asymptotic.",
+        "evidence": "Problem 302 lines defining strong Achilles numbers and counts below \\(10^4\\) and \\(10^8\\).",
+        "identifier_or_url": "https://projecteuler.net/problem=302",
+        "material_read": "Full problem statement.",
+        "method": "Direct webpage inspection.",
+        "title": "Project Euler Problem 302: Strong Achilles Numbers",
+        "trigger": "Original public definition and benchmark source."
+      },
+      {
+        "assessment": "Records that Project Euler Problem 302 was published on 2010-09-18 and reproduces the problem definition.",
+        "evidence": "Publication metadata: Saturday, 18th September 2010.",
+        "identifier_or_url": "https://quantacademy.art/euler/problem-302",
+        "material_read": "Problem statement and publication metadata.",
+        "method": "Direct webpage inspection.",
+        "title": "Quant Academy mirror of Project Euler Problem 302",
+        "trigger": "Verification of the original public-source date."
+      },
+      {
+        "assessment": "Provides sequence terms and generic tests for strong Achilles numbers; no fixed-\\(\\{2,p\\}\\) theorem or support-density formula was present.",
+        "evidence": "Displayed prefix through 135000 and generic Achilles/totient code.",
+        "identifier_or_url": "https://oeis.org/A194085",
+        "material_read": "Definition, displayed terms, links, programs, author metadata.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A194085: Strong Achilles numbers",
+        "trigger": "Exact sequence/database comparison."
+      },
+      {
+        "assessment": "States general exponent-vector criteria and totient valuations; these cover the fixed-support classification after specialization, but the inspected text does not give the support-wise asymptotic constants.",
+        "evidence": "Sections deriving Achilles from exponent gcd and \\(v_q(\u000barphi(n))\\) from \\(p_i-1\\) plus self-contribution.",
+        "identifier_or_url": "https://eulersolve.org/problem/302/",
+        "material_read": "Detailed mathematical approach through the exponent and totient criteria and recursion rationale.",
+        "method": "Direct full-text webpage inspection with targeted searches.",
+        "title": "EulerSolve Problem 302",
+        "trigger": "Highly relevant full mathematical solution using exponent bookkeeping."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a033e40-cfbe-4c1a-b21f-5e4d39af9a16",
+  "value": {
+    "rationale": "The classification component is a useful exact specialization of the known exponent test, while the substantive added value is quantitative: every admissible two-prime support \\(\\{2,p\\}\\) receives an explicit positive asymptotic constant, and inadmissible supports are identified exactly. This turns a decision/enumeration framework into a support-wise density law tied to the exponent pattern of \\(p-1\\), rather than merely recomputing a finite table.",
+    "status": "PASS"
+  }
+}
