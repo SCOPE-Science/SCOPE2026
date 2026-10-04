@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For genuine transmission-rate noise, the diffusion vector is \\(q(-1,1)^T\\), so \\(BB^T=q^2\\begin{pmatrix}1&-1\\\\-1&1\\end{pmatrix}\\). For the source's independent drivers and amplitudes \\(q,-q\\), \\(BB^T=q^2I_2\\). The forward operator therefore differs by the mixed term \\(-\\partial_{SI}(q^2f)\\), and the transmission contribution to the quadratic variation of \\(S+I\\) is respectively zero and \\(2q^2dt\\). These identities were replayed from the bundled checker with an exact rational witness. The claim is restricted to \\(q\\neq0\\) and does not assert downstream control magnitudes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus returned no close record asserting the Parkinson--Roy covariance mismatch; the nearest epidemic hit was 2026/9/14/SCOPE021 on a coupled-SEIR reproduction-number counterexample, which concerns a different object and implication.",
+        "Web searches found the source article and descriptive reviews but no erratum or mathematical comment identifying the missing cross covariance."
+      ],
+      "reasoning": "General stochastic-epidemic literature covers random transmission parameters, but that broader fact does not itself state that this source's independent-driver Fokker--Planck equation fails its own claimed transmission-rate interpretation. The candidate is a source-specific structural correction, not a new general Itô formula.",
+      "searches": [
+        "A Fokker-Planck framework for control of epidemics Parkinson Roy transmission noise independent Wiener",
+        "Fokker Planck epidemic transmission rate noise common Brownian susceptible infected cross derivative covariance",
+        "Parkinson Roy Fokker Planck control epidemics noise covariance cross derivative"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.20181v1",
+      "doi:10.1007/s00285-026-02462-7",
+      "arXiv:2507.01046v1",
+      "doi:10.1016/j.mbs.2025.109588",
+      "published-finding corpus 2026/9/14/SCOPE021 (closest epidemic hit; non-covering)",
+      "published-finding corpus 2026/9/19/SCOPE-quadratic-anisotropy-slaving-simplex-covariance--c7e9c46d956f (covariance-themed but unrelated)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Parkinson--Wang arXiv:2507.01046v1 explicitly uses a scalar Brownian motion for transmission-rate uncertainty; summing its opposite transfer noises cancels them.",
+        "Parkinson--Roy instead use independent \\(W_1,W_2\\) and a diagonal diffusion matrix, so the predecessor does not imply that their later diagonal Fokker--Planck operator is equivalent to parameter noise; rather, it supplies the comparison model needed to expose the mismatch."
+      ],
+      "reasoning": "The earlier common-driver construction and the later independent-driver construction have different covariance matrices. The candidate claim follows by comparing these statements and the Itô generator, and is not a corollary already stated in either inspected source.",
+      "searches": [
+        "10.1007/s00285-026-02462-7 transmission uncertainty Brownian Fokker Planck",
+        "random transmission rate beta stochastic epidemic same Brownian susceptible infected",
+        "stochastic SIR replacing beta by beta plus white noise opposite infection noise same Brownian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parkinson--Roy Eq. (2) declares independent Wiener components, while Sect. 4 sets opposite amplitudes and describes them as infection-rate uncertainty (arXiv:2601.20181v1; DOI:10.1007/s00285-026-02462-7).",
+        "Parkinson--Wang Sect. 3 uses one scalar Brownian motion for stochastic perturbations of the transmission parameter and places disease-transfer noise with opposite signs (arXiv:2507.01046v1)."
+      ],
+      "reasoning": "The natural equivalent formulations are common scalar parameter noise, rank-one covariance with negative cross-covariance, a mixed Fokker--Planck derivative, and cancellation in the internal-transfer total. They are mathematically equivalent to one another, but none is equivalent to the paper's diagonal independent-noise covariance when \\(q\\neq0\\).",
+      "searches": [
+        "A Fokker-Planck framework for control of epidemics Parkinson Roy transmission noise independent Wiener",
+        "10.1007/s00285-026-02462-7 transmission uncertainty Brownian Fokker Planck",
+        "random transmission rate beta stochastic epidemic same Brownian susceptible infected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv record identifies v1 as first public on 2026-01-28.",
+        "The journal record lists primary MSC 92D30 and the source equations; no database/table located by the searches records this covariance correction."
+      ],
+      "reasoning": "This is not a lookup-table invariant or recomputation of a tabulated quantity. The relevant exact database comparison is whether an erratum/comment or published-finding corpus record already contains the same source-specific correction; none was located.",
+      "searches": [
+        "2601.20181 covariance transmission noise",
+        "2601.20181 mixed derivative",
+        "2601.20181 error erratum comment"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches did not locate the same source-specific covariance correction. The closest same-author predecessor uses the common scalar Brownian structure and therefore provides a non-covering comparison rather than the correction itself. Exact title/DOI searches found the article and descriptive reviews but no erratum/comment stating the mismatch.",
+    "residual_risks": [
+      "Searches cannot exclude an unindexed or future erratum/comment that independently notes the same covariance mismatch.",
+      "The finding does not compare the corrected controller numerically with the published controller, so no quantitative downstream discrepancy is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source explicitly declares independent Wiener components and a diagonal diffusion matrix, yet later sets opposite amplitudes to represent infection-rate uncertainty. The source does not include the mixed covariance term required by a common transmission driver.",
+        "evidence": "DOI:10.1007/s00285-026-02462-7, Sect. 2 Eqs. (2),(5),(6), Sect. 4 diffusion coefficients.",
+        "identifier_or_url": "arXiv:2601.20181v1; DOI:10.1007/s00285-026-02462-7",
+        "material_read": "Full open journal HTML, especially Sect. 2 Eqs. (2), (5), (6), Sect. 4 diffusion choice, references, publication metadata, and MSC listing.",
+        "method": "Statement-level comparison of the SDE driver dimension, covariance, Fokker--Planck operator, and simulation interpretation.",
+        "title": "A Fokker--Planck framework for control of epidemics",
+        "trigger": "Primary source uses opposite susceptible/infected diffusion amplitudes while claiming equivalence to transmission-rate uncertainty."
+      },
+      {
+        "assessment": "It uses one scalar Brownian motion and opposite disease-transfer noise terms; the stochastic internal transfers cancel in the total population. It does not state the later source-specific Fokker--Planck correction.",
+        "evidence": "arXiv:2507.01046v1, Sect. 3, Eqs. (3.1) and the paragraph noting deterministic total population.",
+        "identifier_or_url": "arXiv:2507.01046v1; DOI:10.1016/j.mbs.2025.109588",
+        "material_read": "Open arXiv full text, Sect. 3 around Eq. (3.1) and the total-population observation.",
+        "method": "Checked whether the predecessor uses independent or common stochastic drivers and how transmission terms enter paired compartments.",
+        "title": "A compartmental model for epidemiology with human behavior and stochastic effects",
+        "trigger": "Cited same-author predecessor for stochastic transmission-rate uncertainty."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41bbc097-8013-4c3e-8f9c-8dc2c65ef5d7",
+  "value": {
+    "rationale": "The mismatch changes the principal diffusion tensor of the Fokker--Planck PDE actually optimized in the numerical experiments: rank two diagonal diffusion is substituted for the rank-one internal-transfer diffusion, and a structural conservation diagnostic for transmission noise is lost. Because the paper's simulations explicitly use this diffusion to model infection-rate uncertainty, identifying the correct covariance is directly relevant to interpretation and to any reproduction or extension of the control calculations; it is not an arbitrary normalization check.",
+    "status": "PASS"
+  }
+}
