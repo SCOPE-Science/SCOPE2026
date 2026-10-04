@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The \\(L\\)-th Fourier coefficient of each squared STFT time slice has exactly one surviving window-overlap pair, so it equals \\(f_{k+L}\\overline{f_k}\\overline{g_L}g_0\\). Equal measurements force equal endpoint products. For nonvanishing signals, ratios satisfy \\(r_{k+L}\\overline{r_k}=1\\) and hence \\(r_{k+2L}=r_k\\); \\(\\gcd(d,2L)=1\\) makes the ratio constant, and the first relation makes it unimodular. The packaged verifier independently replays 106 finite parameter pairs and is explicitly not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartusel 2023, Theorem 2.2.3 requires full ambiguity support over all window-difference rows before reducing uniqueness to connectivity.",
+        "Bartusel 2023, Section 4.2 explicitly attributes earlier all-nonvanishing results to additional ambiguity-row conditions and treats separated sparse signals for arbitrary short windows.",
+        "Bartusel 2026, arXiv:2605.31507 abstract gives percentage-of-ambiguity-support sufficient conditions, not an endpoint-only statement in the abstract."
+      ],
+      "reasoning": "The inspected broader criteria impose support conditions on substantially more of the window ambiguity function or address different signal classes. They do not imply the theorem for an arbitrary endpoint-nonzero short window.",
+      "searches": [
+        "STFT phase retrieval nonvanishing signals short window ambiguity zeros",
+        "Uncertainty Principles as a Tool for STFT Phase Retrieval non-vanishing short windows",
+        "STFT Phase Retrieval uniqueness guarantees recovery algorithms non-vanishing window"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.06729",
+      "doi:10.1007/s00041-023-10026-2",
+      "arXiv:1411.1380",
+      "doi:10.1109/LSP.2014.2364225",
+      "Jaganathan--Eldar--Hassibi 2016 as characterized in Bartusel 2023",
+      "Li--Cheng--Han--Sun--Shi 2017 as characterized in Bartusel 2023",
+      "arXiv:2605.31507 abstract",
+      "semantic database exact/alias searches",
+      "prior accepted-claim overlap check"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bartusel 2023 states that Jaganathan et al. obtain almost all nonvanishing signals for a fixed short window.",
+        "Bartusel 2023 states that Eldar et al. obtain all nonvanishing signals when \\(d\\) and \\(L\\) are coprime under \\(\\{0\\}\times\\mathbb Z_d\\subseteq\\Omega_g\\).",
+        "Bartusel 2023 states a related Li et al. result for windows supported in \\(\\{0,\\ldots,L\\}\\), again in the context of additional ambiguity information.",
+        "Bartusel 2023 Theorem 4.2.8 applies to \\(L\\)-separated signals, whereas a nonvanishing signal is not separated."
+      ],
+      "reasoning": "The new statement strengthens the all-nonvanishing regime by eliminating the quoted ambiguity-row hypothesis under a natural odd-cycle arithmetic condition. It is neither a special case of the separated-signal theorem nor implied by the almost-all statement.",
+      "searches": [
+        "Bartusel 2023 Section 4.2 Theorem 4.2.8 and Remark 4.2.2",
+        "Eldar et al. Sparse Phase Retrieval from Short-Time Fourier Measurements arbitrary nonvanishing inputs",
+        "Jaganathan Eldar Hassibi STFT phase retrieval almost all non-vanishing signals",
+        "Li Cheng Han Sun Shi Corollary 3.2 short-time Fourier phase retrieval"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bartusel, arXiv:2206.06729, Section 4.2: almost-all nonvanishing result; all-nonvanishing sufficient condition with an ambiguity-row hypothesis; separated-signal theorems.",
+        "No exact endpoint-product odd-cycle formulation was returned by the checked searches."
+      ],
+      "reasoning": "The candidate is not a restatement of connectivity under full ambiguity support: it uses only the guaranteed endpoint lag and therefore applies when other ambiguity rows, including the zero-lag row, have zeros.",
+      "searches": [
+        "\"gcd(d,2L)\" STFT phase retrieval",
+        "\"endpoint\" correlation \"short-time Fourier\" phase retrieval nonvanishing",
+        "\"all non-vanishing signals\" short window phase retrieval odd",
+        "arXiv:2206.06729 Section 4.2 non-vanishing signals"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-database hits were unrelated Fourier/Vandermonde items and supplied no covering STFT claim.",
+        "Exact web search returned Bartusel 2023 as the relevant short-window source, not the endpoint criterion."
+      ],
+      "reasoning": "No checked database or exact-form search contained the claimed endpoint recovery formula or its odd-cycle consequence.",
+      "searches": [
+        "semantic search query: short-time Fourier phase retrieval short windows all nonvanishing signals odd cyclic dimension endpoint lag correlation gcd d L arbitrary window ambiguity zeros",
+        "semantic search query: phase retrieval short-time Fourier short windows nonvanishing signals without ambiguity nonvanishing condition",
+        "web exact search: \"gcd(d,2L)\" STFT phase retrieval"
+      ]
+    },
+    "rationale": "The closest full-text source distinguishes almost-all nonvanishing recovery, all-nonvanishing recovery under an ambiguity-row hypothesis, and arbitrary-short-window recovery for separated sparse signals. The new odd-cycle endpoint criterion removes that ambiguity-row hypothesis for every nonvanishing signal and permits interior window zeros. No covering result was found in exact-form or semantic searches; a 2026 related preprint remains a stated residual risk because only its abstract was inspectable.",
+    "residual_risks": [
+      "A differently phrased or unindexed result may contain the same endpoint-only criterion.",
+      "The full text of arXiv:2605.31507 was unavailable in the inspected channel; its abstract does not resolve the exact comparison.",
+      "No claim of absolute novelty is made from search non-detection alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the endpoint-only all-nonvanishing odd-cycle theorem.",
+        "evidence": "The full text distinguishes almost-all nonvanishing recovery, earlier all-nonvanishing results with an ambiguity-row condition, and its own separated-signal results; it does not state the endpoint-product reconstruction.",
+        "identifier_or_url": "arXiv:2206.06729; doi:10.1007/s00041-023-10026-2",
+        "material_read": "Definitions and finite STFT convention; ambiguity-function relation; Theorem 2.2.3; Section 4.2 including Definition 4.2.1, literature comparison, Theorems 4.2.6 and 4.2.8, and concluding short-window discussion.",
+        "method": "Open full-text HTML inspection with targeted searches for nonvanishing signals, short windows, ambiguity support, and separated signals.",
+        "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Z_d and R^d",
+        "trigger": "Primary middle-cohort source and closest short-window treatment."
+      },
+      {
+        "assessment": "NOT_COVERING: the earlier all-nonvanishing theorem is presented with additional window/ambiguity conditions.",
+        "evidence": "Bartusel Section 4.2 states that the Eldar et al. theorem requires \\(\\{0\\}\times\\mathbb Z_d\\subseteq\\Omega_g\\) when \\(d\\) and \\(L\\) are coprime.",
+        "identifier_or_url": "arXiv:1411.1380; doi:10.1109/LSP.2014.2364225",
+        "material_read": "ArXiv abstract and the primary source's explicit comparison of its Theorem 1 hypothesis.",
+        "method": "ArXiv record plus cross-comparison in Bartusel 2023 full text.",
+        "title": "Sparse Phase Retrieval from Short-Time Fourier Measurements",
+        "trigger": "Earlier theorem for arbitrary nonvanishing inputs cited by the primary source."
+      },
+      {
+        "assessment": "UNRESOLVED_RISK, not used as noncoverage evidence.",
+        "evidence": "The abstract advertises sufficient conditions based on large fractions of nonzero ambiguity entries, including a prime-dimensional bound; it does not itself state the endpoint-only theorem.",
+        "identifier_or_url": "arXiv:2605.31507",
+        "material_read": "Abstract only.",
+        "method": "ArXiv-indexed abstract search; only the abstract was available for this comparison.",
+        "title": "Uncertainty Principles as a Tool for STFT Phase Retrieval",
+        "trigger": "Recent same-author paper on weakening finite-dimensional ambiguity-support requirements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ab5cece-2e03-4fce-8049-1aaf178803ea",
+  "value": {
+    "rationale": "The theorem removes a standard window-spectrum hypothesis for an entire natural signal class, not for an isolated example. The endpoint coefficient gives an explicit reconstruction and explains the odd-dimensional arithmetic mechanism. This provides a useful structural boundary for short-window STFT phase retrieval and directly advances the literature goal of weakening ambiguity-support assumptions.",
+    "status": "PASS"
+  }
+}
