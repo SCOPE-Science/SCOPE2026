@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The current infected equations give a rank-one new-infection matrix with entries containing the squared compliant mixing factor and a transfer matrix containing the actual noncompliance transmission rate \\(q=\\mu^*-\\mu\\). Exact inversion yields the corrected spectral radius. At the rational witness, the printed and true values are \\(39/40\\) and \\(41/40\\), while the infected Jacobian determinant is \\(-1/5\\), proving instability directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.01046v4 derives the earlier model from explicit \\(F\\) and \\(V\\) matrices and shows that behavioral transfer enters through the actual transmission rate.",
+        "The standard next-generation theorem identifies stability using \\(\\rho(FV^{-1})\\), but it does not contain the source-specific v3 algebra mismatch."
+      ],
+      "reasoning": "General next-generation theory supplies the method, not this correction. The predecessor supports the corrected transfer-rate placement but does not cover the changed v3 infection matrix or threshold reversal.",
+      "searches": [
+        "Parkinson Wang noncompliance R0 compliant noncompliant alpha mu nu",
+        "next generation matrix noncompliance control mu star mu disease free equilibrium",
+        "Ngo Parkinson Wang noncompliance reproduction ratio correction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.09075v3",
+      "arXiv:2509.09075v1",
+      "arXiv:2507.01046v4",
+      "van den Driessche--Watmough 2002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current paper invokes next-generation stability using its printed Eq. (2.6), so a wrong displayed spectral radius is not repaired by the theorem statement itself.",
+        "The prior internal result on the behavioral threshold studies \\(q b/[\\delta(\\nu+\\delta)]=1\\) and algebraic decay; it does not compute or compare the mixed-composition disease invasion spectral radius."
+      ],
+      "reasoning": "Neither the paper nor the prior internal claim logically implies that the v3 printed formula differs from \\(\\rho(FV^{-1})\\), and neither contains the threshold-reversing rational witness.",
+      "searches": [
+        "Optimal Control SIR noncompliance correction erratum reproduction ratio",
+        "alpha squared compliant infectivity noncompliance R0 correction",
+        "behavioral threshold critical noncompliance SIR Parkinson Wang"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.09075v3 defines behavioral transfer by \\(\\mu^*-\\mu\\) in the state equations but prints \\(\\mu\\) inside one mixed term of Eq. (2.6).",
+        "arXiv:2509.09075v1 uses a different infection convention and a different reproduction-number formula, so it is not an equivalent statement of the v3 correction."
+      ],
+      "reasoning": "The natural aliases are the next-generation spectral radius, infected-block linearization, and local invasion threshold. None of the inspected materials states the v3 replacement or the exact stability-reversal example.",
+      "searches": [
+        "\"Optimal Control of an SIR Model with Noncompliance as a Social Contagion\" reproduction ratio",
+        "noncompliance social contagion reproduction ratio mu star minus mu control error",
+        "controlled noncompliance SIR printed reproduction ratio wrong next generation matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected indexed result contains the exact \\(39/40\\) versus \\(41/40\\) witness.",
+        "The exact numbers are derived from the source equations and reproduced by the bundled rational checker."
+      ],
+      "reasoning": "This is an equation-level analytic correction, not a lookup or recomputation of a published table.",
+      "searches": [
+        "\"39/40\" \"41/40\" noncompliance SIR",
+        "\"2509.09075\" \"R_0\" mu noncompliance",
+        "\"2509.09075\" \"2.6\" reproduction ratio"
+      ]
+    },
+    "rationale": "Source-version, formula, alias, correction, and implication searches found no public statement of the current-version \\(\\mu\\) versus \\(\\mu^*-\\mu\\) mismatch or its exact threshold-reversal witness. A prior internal finding on the same model concerns the distinct critical behavioral equality and does not imply this next-generation correction.",
+    "residual_risks": [
+      "A later unindexed author note could already identify the v3 formula mismatch.",
+      "Some third-party summaries mirror the older v1 formula and therefore do not reliably represent the current model.",
+      "No claim is made about numerical experiments that may have used code implementing the correct equations rather than the printed threshold formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The printed Eq. (2.6) uses \\(\\mu\\) in a mixed term although the infected-state transfer rate in the current equations is \\(\\mu^*-\\mu\\).",
+        "evidence": "Current model lines define noncompliance transfer with \\(\\mu^*-\\mu\\); Eq. (2.6) contains \\(\\alpha\\mu s^*/(1-\\alpha)\\).",
+        "identifier_or_url": "arXiv:2509.09075v3",
+        "material_read": "Current six ODEs, disease-free equilibria, Eq. (2.6), Proposition 2.2, Theorem 2.3, stability discussion, and MSC/submission metadata.",
+        "method": "Direct reconstruction of \\(F\\), \\(V\\), \\(\\rho(FV^{-1})\\), followed by exact comparison with the displayed formula.",
+        "title": "Optimal Control of an SIR Model with Noncompliance as a Social Contagion",
+        "trigger": "Primary current source containing the model, Eq. (2.6), and Theorem 2.3."
+      },
+      {
+        "assessment": "v1 uses only one compliant mixing factor in the infection term and has a different corresponding reproduction-number formula; it does not state the v3 correction.",
+        "evidence": "v1 Eq. (2.10) has a different \\(F\\) matrix from v3 and its Eq. (2.11) is consistent with that older model.",
+        "identifier_or_url": "arXiv:2509.09075v1",
+        "material_read": "v1 model equations, next-generation matrices, reproduction-number formula, control monotonicity proposition, theorem statement, and submission date.",
+        "method": "Equation-by-equation version comparison.",
+        "title": "Optimal Control of an SIR Model with Noncompliance as a Social Contagion",
+        "trigger": "Version comparison to determine whether the mismatch is inherited or introduced with the changed infection convention."
+      },
+      {
+        "assessment": "The predecessor confirms that the actual behavioral transmission rate belongs in \\(V\\); it does not contain the altered v3 infection convention or threshold-reversal witness.",
+        "evidence": "Its displayed transfer matrix uses its behavioral transmission parameter directly in both off-diagonal and removal entries.",
+        "identifier_or_url": "arXiv:2507.01046v4",
+        "material_read": "Deterministic model, infected \\(F\\) and \\(V\\) matrices, rank-one spectral-radius derivation, and monotonicity argument.",
+        "method": "Structural comparison of behavioral transfer placement in the next-generation matrix.",
+        "title": "A Compartmental Model for Epidemiology with Human Behavior and Stochastic Effects",
+        "trigger": "Closest deterministic predecessor cited for the disease-free analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc20b8be-6a8d-4af2-a0f1-fd11ef8bf537",
+  "value": {
+    "rationale": "The mismatch can move the reproduction number across one and reverse a disease-free stability prediction at a simple exact admissible parameter point. Because the paper uses this threshold to interpret when controls place the system in a stable disease-free regime, correcting the formula changes a qualitative scientific conclusion rather than a cosmetic algebraic detail.",
+    "status": "PASS"
+  }
+}
