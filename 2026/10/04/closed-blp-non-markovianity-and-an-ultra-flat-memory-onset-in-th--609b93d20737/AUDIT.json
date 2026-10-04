@@ -1,0 +1,129 @@
+{
+  "claim": "For the resonant zero-temperature Lorentzian damped Jaynes--Cummings model used by Xu, Yang, and Feng, let \\(\\Gamma>0\\) be the reservoir spectral width and \\(\\gamma_0>0\\) the Markovian decay scale. In the strong-memory regime \\(\\gamma_0>\\Gamma/2\\), put \\[\\kappa=\\sqrt{2\\gamma_0\\Gamma-\\Gamma^2}.\\]The optimized Breuer--Laine--Piilo trace distance is the excited-state amplitude magnitude \\[|b(t)|=e^{-\\Gamma t/2}\\left|\\cos(\\kappa t/2)+\\frac{\\Gamma}{\\kappa}\\sin(\\kappa t/2)\\right|.\\]Its positive-information-flow maxima occur exactly at \\(t_n=2\\pi n/\\kappa\\), \\(n\\ge1\\), with heights \\[|b(t_n)|=e^{-\\pi\\Gamma n/\\kappa}.\\]Therefore the infinite-time BLP non-Markovianity has the closed form \\[\\mathcal N_{\\mathrm{BLP}}=\\frac{1}{e^{\\pi\\Gamma/\\kappa}-1}\\]for \\(\\gamma_0>\\Gamma/2\\), while \\(\\mathcal N_{\\mathrm{BLP}}=0\\) for \\(\\gamma_0\\le\\Gamma/2\\). Writing \\(\\varepsilon=2\\gamma_0/\\Gamma-1\\), the onset is beyond all algebraic orders: \\[\\mathcal N_{\\mathrm{BLP}}\\sim e^{-\\pi/\\sqrt{\\varepsilon}}\\qquad(\\varepsilon\\downarrow0),\\]and the zero extension to \\(\\varepsilon\\le0\\) is \\(C^\\infty\\) with every derivative equal to zero at the threshold. In the opposite strong-coupling limit \\(r=\\gamma_0/\\Gamma\\to\\infty\\), \\[\\mathcal N_{\\mathrm{BLP}}=\\frac{\\sqrt{2r-1}}{\\pi}-\\frac12+\\frac{\\pi}{12\\sqrt{2r-1}}+O(r^{-3/2}).\\]Thus the canonical resonant Lorentzian model has an exact geometric revival spectrum, an ultra-flat onset of information backflow at the Markovian boundary, and a square-root growth law at strong coupling.",
+  "correctness": {
+    "rationale": "The inspected resonant source proves that the optimized trace distance is |b(t)| and that all relevant local minima are zero. Direct differentiation gives b'(t)=-(gamma0 Gamma/kappa) exp(-Gamma t/2) sin(kappa t/2), so the information-backflow maxima occur at 2 pi n/kappa with exact heights exp(-pi Gamma n/kappa). The geometric sum and both asymptotic regimes then follow algebraically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He et al. rederive the resonant optimizing state pair and trace distance in a broader amplitude-damping framework.",
+        "Zeng et al. establish equivalence of non-Markovian time intervals for several measures in two-level Jaynes-Cummings models.",
+        "Broader reviews discuss the damped Jaynes-Cummings model as a standard non-Markovian example."
+      ],
+      "reasoning": "Those broader results establish optimization structure and measure equivalences but do not, in the inspected materials, state the exact infinite-time geometric BLP sum and threshold flatness.",
+      "searches": [
+        "Effective method of calculating the non-Markovianity for single-channel open systems resonant amplitude damping",
+        "Equivalence of the measures of non-Markovianity for open two-level systems Jaynes-Cummings",
+        "Non-Markovian dynamics in open quantum systems damped Jaynes-Cummings Lorentzian review"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0908.0238",
+      "DOI:10.1103/PhysRevLett.103.210401",
+      "arXiv:0912.2879",
+      "DOI:10.1103/PhysRevA.81.044105",
+      "arXiv:1012.4328",
+      "DOI:10.1103/PhysRevA.83.012108",
+      "DOI:10.1103/PhysRevA.84.032118",
+      "MaRDI Q4688020"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu et al. prove the resonant optimal trace distance |b(t)|, identify zero minima, and reduce the measure to a sum of maxima.",
+        "He et al. explicitly say their resonant result is consistent with Xu et al. and identify each interval contribution as the local maximum.",
+        "Breuer--Laine--Piilo define the total information-backflow measure and introduce the damped Jaynes-Cummings benchmark."
+      ],
+      "reasoning": "The prior formulas make the closed result derivable but do not themselves state the geometric maxima sequence, its summed closed form, or the nonanalytic coupling-scale consequences. The accepted originality is confined to those consequences.",
+      "searches": [
+        "Primary full text arXiv:0912.2879 equations 7-12 resonant Lorentzian non-Markovianity",
+        "Primary full text arXiv:1012.4328 resonant case equations 13-18",
+        "Primary full text arXiv:0908.0238 damped Jaynes-Cummings example and BLP definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No targeted search returned the closed geometric BLP formula.",
+        "The exact-source full text gives the sum over local maxima rather than its closed geometric evaluation.",
+        "No targeted search returned the beyond-all-orders threshold law."
+      ],
+      "reasoning": "Equivalent coverage would need to evaluate the resonant BLP sum for the Lorentzian model or state an algebraically equivalent formula in the ratio 2 gamma0/Gamma-1. General statements about information backflow or strong coupling do not imply the accepted asymptotics.",
+      "searches": [
+        "damped Jaynes Cummings BLP non-Markovianity exact measure geometric series Lorentzian reservoir",
+        "Lorentzian amplitude damping trace distance backflow exact formula e^{-pi lambda Omega}",
+        "Breuer Laine Piilo damped Jaynes Cummings non-Markovianity measure closed form",
+        "1/(exp(pi/sqrt non-Markovianity Jaynes Cummings",
+        "exp(-pi/sqrt non-Markovianity Lorentzian reservoir",
+        "essential singularity non-Markovianity damped Jaynes Cummings",
+        "sqrt(2 gamma0/lambda - 1) non-Markovianity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Xu et al. plot the non-Markovianity as reservoir bandwidth varies and give the sum-over-maxima representation.",
+        "The inspected source does not tabulate or print the closed geometric series value."
+      ],
+      "reasoning": "The finding is not a table lookup: it derives every revival height, sums the infinite series, and extracts singular and strong-coupling asymptotics.",
+      "searches": [
+        "arXiv:0912.2879 Figure 1 non-Markovianity Lorentzian Gamma gamma0",
+        "PhysRevA.81.044105 local maxima b(t) non-Markovianity",
+        "pi Gamma kappa BLP measure Lorentzian"
+      ]
+    },
+    "rationale": "The direct source stops at an infinite sum of local maxima and numerical evaluation. A later optimization paper rederives the resonant optimizer but again does not state the geometric sum, the beyond-all-orders threshold law, or the strong-coupling expansion.",
+    "residual_risks": [
+      "A later application paper may have summed the same geometric sequence without being exposed by the targeted searches.",
+      "The exact formula is resonance-specific and should not be transferred to finite detuning.",
+      "The strong-coupling asymptotic does not certify microscopic validity of the Lorentzian/RWA model at arbitrarily large coupling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides all premises for the geometric sum but stops at a sum over local maxima and numerical evaluation.",
+        "evidence": "The manuscript states b(t), gives the zero local minima, proves the maximum trace distance is |b(t)|, and writes N as the sum of |b| at local maxima.",
+        "identifier_or_url": "arXiv:0912.2879; DOI:10.1103/PhysRevA.81.044105",
+        "material_read": "Full arXiv manuscript, especially the Lorentzian model, equations (7)-(12), local-minimum formula, theorem on the optimal pair, and Figure 1 discussion.",
+        "method": "Full PDF text and rendered-page inspection.",
+        "title": "Proposed method for direct measurement of non-Markovian character of the qubits coupled to bosonic reservoirs",
+        "trigger": "Direct resonant Lorentzian source establishing the optimized trace distance and zero minima."
+      },
+      {
+        "assessment": "Reproduces the resonant optimizer and identifies the interval contribution with the local maximum, but no closed infinite sum or threshold asymptotic was located.",
+        "evidence": "The resonant discussion states that zero minima imply N_n=|h(tau_n^max)| and that the same optimizing pair works for every interval.",
+        "identifier_or_url": "arXiv:1012.4328; DOI:10.1103/PhysRevA.83.012108",
+        "material_read": "Full arXiv manuscript, especially the amplitude-damping application and resonant case around equations (13)-(18).",
+        "method": "Full PDF text and rendered-page inspection.",
+        "title": "An effective method of calculating the non-Markovianity N for single channel open systems",
+        "trigger": "Closest later work revisiting the resonant amplitude-damping optimization."
+      },
+      {
+        "assessment": "Defines the measure and benchmark but does not cover the resonant closed-form sum.",
+        "evidence": "The paper defines N as total positive trace-distance growth and evaluates a detuned Lorentzian example numerically.",
+        "identifier_or_url": "arXiv:0908.0238; DOI:10.1103/PhysRevLett.103.210401",
+        "material_read": "Full arXiv manuscript, especially the BLP definition, damped Jaynes-Cummings example, and numerical non-Markovianity discussion.",
+        "method": "Full PDF text and rendered-page inspection.",
+        "title": "Measure for the Degree of Non-Markovian Behavior of Quantum Processes in Open Systems",
+        "trigger": "Foundational definition of the BLP measure and damped Jaynes-Cummings benchmark."
+      },
+      {
+        "assessment": "Primary MSC is 81P45.",
+        "evidence": "The record lists Quantum information, communication, networks (quantum-theoretic aspects) (81P45) first, followed by quantum control.",
+        "identifier_or_url": "MaRDI Q4688020",
+        "material_read": "Mathematical bibliographic classification record.",
+        "method": "Bibliographic metadata inspection.",
+        "title": "Quantification and manipulation of quantum non-Markovianity",
+        "trigger": "Primary MSC ownership verification for quantum non-Markovianity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "609b93d2-0737-4b9d-ada6-1b4c777005b5",
+  "value": {
+    "rationale": "The BLP measure is itself a total-backflow quantity, so replacing an infinite revival sum by a closed calibration is directly useful. The ultra-flat onset shows that the memory threshold is nonperturbative in coupling distance, while the strong-coupling expansion quantifies the opposite regime.",
+    "status": "PASS"
+  }
+}
