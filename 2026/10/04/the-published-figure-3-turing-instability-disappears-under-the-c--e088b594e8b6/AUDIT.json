@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the printed reaction terms gives the stated Jacobian. At the published equilibrium the zero-mode trace is negative and determinant positive. For the Figure 3 diffusion coefficients the linear coefficient in the modal determinant has the sign that makes every coefficient positive, while the modal trace decreases with spatial eigenvalue. This proves linear stability for every mode. A standalone numerical replay independently solves the equilibrium and checks derivatives by finite differences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related literature contains many Turing analyses for Allee-effect predator-prey systems, including a 2023 Scientific Reports model, but none retrieved the same equations plus the Figure 3 parameter correction.",
+        "The closest published-finding corpus semantic hit concerned a different porous-diffusion Neumann model and does not imply the present calculation."
+      ],
+      "reasoning": "General Turing theory is prior art; the originality here is only the concrete inconsistency for the printed 2024 model and parameter point.",
+      "searches": [
+        "Beddington-DeAngelis double Allee reaction diffusion Turing instability correction",
+        "predator prey Turing Jacobian gu gv swapped",
+        "Allee effect spatiotemporal diffusive predator prey Turing instability"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20241309",
+      "doi:10.1038/s41598-023-28419-0",
+      "published-finding corpus:2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source states Figure 3 is unstable but its printed equations yield the opposite modal signs.",
+        "Related Allee/Turing papers establish only generic possibility in different reaction terms or parameter regimes."
+      ],
+      "reasoning": "No broader theorem forces this specific equilibrium to be Turing-unstable; the modal calculation is parameter-specific and decisive.",
+      "searches": [
+        "Li Li 2024 double Allee Figure 3 instability",
+        "Scientific Reports 2023 Allee predator prey Turing",
+        "Li Shen 2018 double Allee predator prey delay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact DOI/title searches returned the source article and mirrors, with no correction notice in the retrieved results.",
+        "The exact equilibrium and plotted-value searches returned no independent correction."
+      ],
+      "reasoning": "These queries cover literal source identifiers, the numerical equilibrium used in Figure 3, and the distinctive marked dispersion value.",
+      "searches": [
+        "10.3934/math.20241309 Turing instability double Allee Figure 3 Jacobian",
+        "\"The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect\"",
+        "\"3.880786578\" predator prey",
+        "\"0.83\" \"-0.06913\" \"double Allee\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record matched the DOI, equilibrium, Figure 3 value, or source-specific correction.",
+        "Closest published-finding corpus record: 2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368, a different PDE and different mechanism."
+      ],
+      "reasoning": "The published-finding index does not show an overlapping source-specific correction.",
+      "searches": [
+        "published-finding corpus: \"The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect\" Turing dispersion Jacobian equilibrium 3.880786578",
+        "published-finding corpus: 10.3934/math.20241309 Turing instability double Allee Figure 3 Jacobian"
+      ]
+    },
+    "rationale": "The accepted claim is a source-specific correction. The primary paper itself prints the inconsistent Jacobian indexing and the negative Figure 3 dispersion point. Exact-title, DOI, parameter-string, dispersion-value, and semantic database searches did not locate an erratum or the same correction.",
+    "residual_risks": [
+      "An unindexed author note or private code could reveal that Figure 3 used an undocumented alternative parameter set or equation.",
+      "The present result does not analyze nonlinear stability under the large-amplitude initial perturbation used for the pattern panel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIGURE_3_LINEAR_INSTABILITY_NOT_REPRODUCIBLE",
+        "evidence": "The PDF defines a22=g_u and a21=g_v despite the matrix row ordering, states Figure 3 is unstable for d1=0.01 and d2=10, and marks delta approximately -0.06913 at k^2=0.83. Direct differentiation gives delta approximately 4.48731831648 there and positive delta for every nonnegative mode.",
+        "identifier_or_url": "doi:10.3934/math.20241309",
+        "material_read": "Open-access PDF: model equations, Jacobian definition, characteristic polynomial and Turing conditions, numerical-simulation section, Figure 3 caption and marked dispersion value, conclusion.",
+        "method": "Reconstructed the correct reaction Jacobian from the printed equations and evaluated the modal characteristic polynomial at the printed equilibrium and diffusion coefficients.",
+        "title": "The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect",
+        "trigger": "Primary source defining the model and making the Figure 3 instability claim."
+      },
+      {
+        "assessment": "RELATED_MODEL_NOT_COVERING",
+        "evidence": "It studies a different Crowley-Martin response and does not contain the Li-Li Figure 3 equations, parameter set, or correction.",
+        "identifier_or_url": "doi:10.1038/s41598-023-28419-0",
+        "material_read": "Article abstract and model context describing stability, bifurcation, diffusion-driven pattern formation, and numerical validation.",
+        "method": "Compared model class and role of Turing analysis.",
+        "title": "Influence of Allee effect on the spatiotemporal behavior of a diffusive predator-prey model with Crowley-Martin type response function",
+        "trigger": "Related open-access Allee-effect reaction-diffusion predator-prey literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e088b594-e8b6-4e1e-8d18-a3d698f36645",
+  "value": {
+    "rationale": "Figure 3 is used by the source to support the claimed diffusion-driven transition from instability to stability as prey diffusion increases. Showing that the advertised unstable case is actually linearly stable for every spatial mode directly changes the interpretation of a central numerical example and separates possible finite-amplitude spatial structure from genuine Turing instability.",
+    "status": "PASS"
+  }
+}
