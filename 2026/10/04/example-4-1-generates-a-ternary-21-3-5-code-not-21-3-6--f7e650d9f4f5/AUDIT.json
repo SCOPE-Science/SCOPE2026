@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The source factors satisfy the two printed factorizations. The multiplier \\(h=1+2x^2=(x+1)(1+2x)\\) annihilates the first block and produces \\(2+x^2+2x^4+x^6+2x^8\\) in the second block, a direct weight-\\(5\\) codeword. The three generator shifts have rank \\(3\\); exhaustive enumeration of all \\(27\\) codewords finds no smaller nonzero weight and yields the stated enumerator. Exact projective-column multiplicities give generalized weights \\((5,10,21)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hou–Gao 2020 gives the earlier general GQT distance bound but predates the 2026 example.",
+        "Chauhan–Sharma 2021 gives enumerator theory for classes of multi-twisted codes with at most two one-dimensional constituents, but the searched material does not identify or correct this later example."
+      ],
+      "reasoning": "General structural or enumerator theorems do not cover the scientifically central discrepancy unless they are explicitly specialized to this generator; no such specialization or correction was located.",
+      "searches": [
+        "ternary GQT [21,3,6] generated f2 f3 f5 f6 weight 5",
+        "Yang Gao Mi Example 4.1 code [21,3,6] correction"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/amc.2026034 full public text",
+      "DOI:10.1016/j.ffa.2021.101910 abstract/metadata",
+      "Hou–Gao 2020 abstract and the 2026 paper's comparison with that bound",
+      "published-finding corpus exact and alias searches for Example 4.1, [21,3,6], [21,3,5], factor products, and weight five",
+      "Web exact searches for the article title, Example 4.1, and both parameter triples"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source states that its new bound gives 6 and that Magma determines [21,3,6].",
+        "The direct quotient-ring calculation from the same printed factors yields a weight-five word, so the prior conclusion cannot hold for the specified generator."
+      ],
+      "reasoning": "This is not a corollary or special case of the prior claim: it contradicts that claim for the same object. The correction is supported by an explicit word and exhaustive finite verification.",
+      "searches": [
+        "Yang Gao Mi Example 4.1 code [21,3,6] correction",
+        "f2(x)f3(x) f5(x)f6(x) ternary code 21 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang–Gao–Mi Example 4.1 states the generator (f2 f3, f5 f6), reports [21,3,6], and calls the bound 6 sharp.",
+        "No published-finding corpus hit matched the same GQT generator together with a weight-five codeword or corrected [21,3,5] parameters."
+      ],
+      "reasoning": "Searches covered the concrete generator, the published and corrected parameter triples, and the quotient-ring presentation, so a correction phrased without the article title was also tested.",
+      "searches": [
+        "A new minimum distance bound generalized quasi-twisted codes Example 4.1 [21,3,6] minimum distance 5",
+        "generalized quasi-twisted [21,3,5] code x11-2 x10-2",
+        "f2(x)f3(x) f5(x)f6(x) ternary code 21 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher/full-text record itself contains the [21,3,6] statement, not a corrected table.",
+        "Exact searches for [21,3,5] tied to the paper did not return a coding database or corrigendum."
+      ],
+      "reasoning": "A corrigendum, database entry, or table giving [21,3,5] would directly cover the correction. None was found in the exact searches.",
+      "searches": [
+        "A new minimum distance bound generalized quasi-twisted codes Example 4.1 [21,3,6] minimum distance 5",
+        "generalized quasi-twisted [21,3,5] code x11-2 x10-2"
+      ]
+    },
+    "rationale": "The primary 2026 article explicitly reports the same generator as [21,3,6] and calls the new bound 6 sharp. Exact searches of that example, both parameter triples, the article title, and the printed factor products located no correction or prior statement of the weight-five obstruction.",
+    "residual_risks": [
+      "A corrigendum or author communication not indexed by the searched sources could already note the discrepancy.",
+      "The general 2021 multi-twisted enumerator theory may imply the displayed weight distribution after a nontrivial specialization; novelty is therefore centered on identifying and certifying the contradiction with the 2026 example."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTRADICTED for Example 4.1's reported minimum distance: the printed generator has an explicit weight-five codeword.",
+        "evidence": "Example 4.1 states q=3, block lengths 11 and 10, the six factors, generator (f2 f3, f5 f6), new bound 6, and Magma parameters [21,3,6].",
+        "identifier_or_url": "DOI:10.3934/amc.2026034",
+        "material_read": "Introduction; Theorem 3.1 context; Section 4 setup; full Example 4.1 including both factorizations, constituent discussion, claimed inner distances, claimed bound, Magma parameter statement, and sharpness sentence.",
+        "method": "lawful public full-text reading",
+        "title": "A new minimum distance bound of generalized quasi-twisted codes",
+        "trigger": "Primary source containing the exact generator and the published [21,3,6] sharpness claim."
+      },
+      {
+        "assessment": "POSSIBLE_GENERAL_BACKGROUND but no located specialization to the 2026 Example 4.1 and no located correction of its distance claim.",
+        "evidence": "The abstract states that several classes of multi-twisted codes with at most two one-dimensional constituents have explicit Hamming weight enumerators.",
+        "identifier_or_url": "DOI:10.1016/j.ffa.2021.101910",
+        "material_read": "Abstract and bibliographic/subject metadata available publicly.",
+        "method": "public abstract and metadata inspection",
+        "title": "Hamming weight enumerators of multi-twisted codes with at most two non-zero constituents",
+        "trigger": "Highly relevant prior theory that could potentially imply the finite enumerator after specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7e650d9-f4f5-4bea-a659-a527e090d4b9",
+  "value": {
+    "rationale": "Example 4.1 is presented as a sharp computational validation of the paper's new minimum-distance bound. A direct weight-five codeword invalidates that concrete validation as written. The correction is mathematically substantive because it changes the minimum distance, the advertised sharpness conclusion, and the auxiliary finite data used to illustrate the theorem. The complete 27-word enumerator and generalized-weight hierarchy provide a reusable exact replacement for the affected example without overclaiming about the general theorem.",
+    "status": "PASS"
+  }
+}
