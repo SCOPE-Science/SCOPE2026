@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For any non-singleton connected initial set, the first nonempty force from part V_i requires at most k initially white vertices outside V_i; after it, more than k whites remaining inside V_i cannot be forced. Connectivity supplies initially black vertices on both sides, yielding the two additional part-capacity bounds. The matching construction realizes both caps. The singleton case is exactly the universal-vertex case. Exhaustive direct simulation through order nine agrees in all 524 parameter cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source proves F_cdk(K_N)=max{N-k,1} and F_cd2(K_{m,n})=m+n-4 for m,n>=3.",
+        "The 2025 source proves F_cd(K_{m,n})=m+n-2 for m,n>=2.",
+        "The 2020 source gives Z_c(K_{m,n})=m+n-2 and Z_ck(K_{1,n})=n-k+1."
+      ],
+      "reasoning": "These are specializations along complete graphs, k=1, k=2, or stars. None covers arbitrary part sizes and arbitrary admissible k, so none dominates the claim.",
+      "searches": [
+        "connected dom-k-forcing complete multipartite exact formula",
+        "connected dom forcing complete multipartite",
+        "k-forcing number complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.9734/jamcs/2026/v41i22096",
+      "DOI:10.17654/0974165825046",
+      "DOI:10.28919/jmcs/4446",
+      "arXiv:1401.6206"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At k=2 and two nontrivial parts, the formula specializes to m+n-4, matching the 2026 source.",
+        "At k=1 and two nontrivial parts, it specializes to m+n-2, matching the 2025 source.",
+        "On K_N it specializes to max{N-k,1}, matching the 2026 source.",
+        "On stars it agrees with the connected k-forcing boundary while additionally enforcing domination."
+      ],
+      "reasoning": "Agreement on known boundary cases is a consistency check, not an implication in the reverse direction. The new proof uses a two-sided white-cap argument for every part of an arbitrary complete multipartite graph.",
+      "searches": [
+        "complete multipartite connected k forcing dominating set exact number",
+        "connected dom-k-forcing complete multipartite arbitrary k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.9734/jamcs/2026/v41i22096 defines connected dom-k-forcing as simultaneous connected domination and k-forcing.",
+        "DOI:10.17654/0974165825046 is the k=1 predecessor.",
+        "DOI:10.28919/jmcs/4446 studies connected k-forcing without the domination requirement."
+      ],
+      "reasoning": "Aliases separating dom-k-forcing, connected k-forcing, and connected dom-forcing were checked. The closest formulations are different invariants or strict boundary cases; none is equivalent to the arbitrary-part theorem.",
+      "searches": [
+        "connected dom k forcing complete multipartite arbitrary k part sizes",
+        "complete multipartite connected k forcing dominating set exact number",
+        "complete multipartite dom forcing connected zero forcing k forcing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic-index hit located an exact table or database entry for F_cdk on arbitrary complete multipartite graphs.",
+        "The closest indexed complete-multipartite hits concerned unrelated domination, metric, or coloring invariants."
+      ],
+      "reasoning": "No checked exact-value table or indexed result contains the claimed formula or enough entries to imply it.",
+      "searches": [
+        "connected dom-k-forcing complete multipartite",
+        "dom-k-forcing complete bipartite multipartite",
+        "Fcdk complete multipartite"
+      ]
+    },
+    "rationale": "The full initiating source contains the complete-graph all-k formula and only a k=2 complete-bipartite formula, with no complete-multipartite theorem. Full-text checks of the k=1 connected dom-forcing predecessor and the connected k-forcing predecessor recover boundary cases but not the arbitrary-part hybrid invariant. Targeted semantic searches found no covering result.",
+    "residual_risks": [
+      "An equivalent arbitrary-part theorem could exist under terminology not surfaced by the checked exact and semantic searches.",
+      "The foundational upper-bound literature was checked at theorem-record level rather than exhaustively line-by-line because it studies k-forcing rather than the hybrid invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING beyond strict boundary cases.",
+        "evidence": "The source states F_cdk(K_N)=max{N-k,1} and F_cd2(K_{m,n})=m+n-4, and has no occurrence of multipartite.",
+        "identifier_or_url": "DOI:10.9734/jamcs/2026/v41i22096",
+        "material_read": "Full accessible article text, including definition, bounds, exact-value section, conclusion, and the complete-graph and complete-bipartite theorems.",
+        "method": "Lawful public full-text reading.",
+        "title": "Connected Dom-k-forcing Sets in Graphs",
+        "trigger": "Same invariant and initiating source."
+      },
+      {
+        "assessment": "NOT_COVERING except the k=1 complete/biclique/star boundary.",
+        "evidence": "Proposition 3.8 gives F_cd(K_{m,n})=m+n-2 for m,n>=2 and complete/star cases.",
+        "identifier_or_url": "DOI:10.17654/0974165825046",
+        "material_read": "Full open-access PDF, especially definition and Proposition 3.8.",
+        "method": "Lawful open-access full-text reading.",
+        "title": "Connected Dom-forcing Sets in Graphs",
+        "trigger": "Exact k=1 predecessor of the same invariant."
+      },
+      {
+        "assessment": "NOT_COVERING: different invariant and only special complete-bipartite/star formulas.",
+        "evidence": "The paper gives connected zero forcing for K_{m,n} and Z_ck(K_{1,n}) for all k but no arbitrary complete-multipartite connected-dom-k theorem.",
+        "identifier_or_url": "DOI:10.28919/jmcs/4446",
+        "material_read": "Full open-access PDF, including definitions, Proposition 9 on complete bipartite graphs, and Proposition 13 on stars.",
+        "method": "Lawful open-access full-text reading.",
+        "title": "Connected k-forcing sets of graphs and splitting graphs",
+        "trigger": "Closest predecessor removing only the domination requirement."
+      },
+      {
+        "assessment": "NOT_COVERING: bounds do not provide the exact connected dom-k-forcing formula.",
+        "evidence": "The record gives general upper bounds for k-forcing and a relationship to connected k-domination, not the hybrid exact invariant.",
+        "identifier_or_url": "arXiv:1401.6206",
+        "material_read": "Abstract/theorem-level public record describing general upper bounds and the relationship with connected domination.",
+        "method": "Public arXiv record.",
+        "title": "Upper bounds on the k-forcing number of a graph",
+        "trigger": "Foundational k-forcing bounds potentially stronger than a family calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10500195-fd7b-4cf2-8835-6de35e4f7226",
+  "value": {
+    "rationale": "This is a natural exact solution for the complete-multipartite family of a recently introduced hybrid forcing/domination invariant. It unifies several separately published boundary formulas and reduces the optimum to a transparent two-cap expression with a sharp universal-vertex exception. The theorem is analytic and family-wide, not a finite census or routine recomputation.",
+    "status": "PASS"
+  }
+}
