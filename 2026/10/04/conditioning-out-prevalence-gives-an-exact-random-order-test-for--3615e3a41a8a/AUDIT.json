@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The finite-sample conditional law follows exactly from Bernoulli exchangeability. The conditional mean is obtained from first- and second-order hypergeometric moments. An exact centered decomposition reduces the asymptotics to a bounded triangular array; the degenerate quadratic remainder has variance O(log(k)/k^2). The coefficient-square Riemann sums converge to 5 p^2 before and p^2 after plug-in prevalence adjustment, yielding variances 5 p^3(1-p) and p^3(1-p). Exact-enumeration and algebraic checks in verify.py independently replay all finite identities used by the proof. The asymptotic claim is restricted to fixed p in (0,1).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Su–Yuan–Zhu, arXiv:1310.5103",
+        "Smucker–Allan–Carterette, DOI 10.1145/1321440.1321528"
+      ],
+      "reasoning": "Su–Yuan–Zhu use a multinomial score-strata model and a delta-method AP variance for diagnostic ranking, not the top-k iid Bernoulli random-order statistic. Smucker–Allan–Carterette compare paired system-level significance tests for MAP differences, rather than an exact one-sample random-ranking null conditional on total relevance.",
+      "searches": [
+        "average precision central limit theorem random ranking AP@k",
+        "AP@k asymptotic normality random ranking",
+        "A comparison of statistical significance tests for information retrieval evaluation Smucker Allan Carterette"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2511.02571v1",
+      "doi:10.15559/26-VMSTA298",
+      "doi:10.1515/pralin-2015-0007",
+      "arXiv:1310.5103",
+      "doi:10.1145/1321440.1321528"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source explicitly says a statistical test based on its moments is left for future research. Its exact online variance has leading term 5 p^3(1-p)/k, but no conditional decomposition is given."
+      ],
+      "reasoning": "The fixed-count and iid-Bernoulli models make the conditioning step available, yet the claimed Gaussian residual requires an AP@k-specific Hoeffding-type decomposition, control of the degenerate quadratic term, and a triangular-array CLT. Those steps produce the new constant 1 and the 4+1 law-of-total-variance split; they are not stated consequences in the inspected prior results.",
+      "searches": [
+        "MAP@k random baseline test average precision variance central limit",
+        "average precision random ranking unknown p conditional test factor five variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manzhos–Ianevych–Melnyk, arXiv:2511.02571v1 / DOI 10.15559/26-VMSTA298",
+        "Bestgen, DOI 10.1515/pralin-2015-0007"
+      ],
+      "reasoning": "Searches covered AP@k, MAP@k, random-ranking baselines, conditional Bernoulli laws, permutation tests, unknown prevalence, and asymptotic normality. The same-paper online model assumes known prevalence; conditioning on the total maps to its fixed-count model after a normalization change, but the inspected work stops at moments and does not formulate the test or limiting variance decomposition.",
+      "searches": [
+        "average precision cutoff k random rankings central limit theorem Bernoulli AP@k MAP@k",
+        "random ranking AP@k asymptotic normality statistical test online Bernoulli relevance",
+        "MAP@k random baseline test average precision variance central limit",
+        "AP@k conditional on total relevant items exact permutation test Bernoulli prevalence",
+        "average precision random ranking unknown p conditional test factor five variance",
+        "online average precision cutoff k conditional hypergeometric randomization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact formulas in Theorems 1 and 2 of DOI 10.15559/26-VMSTA298 were inspected; Bestgen’s fixed-count random-baseline construction in DOI 10.1515/pralin-2015-0007 was inspected."
+      ],
+      "reasoning": "No inspected formula table or random-baseline database states the conditional AP@k tail law as a nuisance-free test or the first-order 5-to-1 variance reduction. The source tables report unconditional means and variances for selected scenarios.",
+      "searches": [
+        "AP@k conditional on total relevant items exact permutation test Bernoulli prevalence",
+        "online average precision cutoff k conditional hypergeometric randomization"
+      ]
+    },
+    "rationale": "The closest paper gives exact first and second moments for the same online Bernoulli AP@k statistic and explicitly leaves statistical testing for future work; it does not state the prevalence-conditioned pivot, either Gaussian limit, or the 4+1 leading variance split. Fixed-count random-baseline and general AP asymptotic-variance papers cover related objects but do not imply the stated constants without a new AP@k-specific decomposition. The novelty claim excludes the classical fact that iid Bernoulli variables conditional on their total are uniformly distributed over fixed-count strings.",
+    "residual_risks": [
+      "Conditioning iid Bernoulli variables on their total is classical and is not part of the novelty claim.",
+      "A specialized information-retrieval testing paper not surfaced by the searches could contain an equivalent AP@k conditional calibration.",
+      "The Gaussian limit may be obtainable from a general U-statistic or triangular-array theorem, but no inspected source states the AP@k constants 5 and 1 or the 4+1 variance split."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact means/variances and known-prevalence online null, but not the conditional test, CLTs, or variance split.",
+        "evidence": "Online model: iid Bernoulli relevance with p assumed known; Theorem 2 gives exact mean and variance; conclusion leaves construction of a statistical test for future research.",
+        "identifier_or_url": "arXiv:2511.02571v1; DOI 10.15559/26-VMSTA298",
+        "material_read": "Full open-access HTML including model definitions, Theorems 1 and 2, proofs, numerical section, conclusion, and MSC metadata.",
+        "method": "Direct full-text inspection and equation comparison.",
+        "title": "Average Precision at Cutoff k under Random Rankings: Expectation and Variance",
+        "trigger": "Same statistic and random-ranking null; motivating source."
+      },
+      {
+        "assessment": "Provides exact expectation under a fixed relevant count but not the online Bernoulli conditional test or asymptotic variance split.",
+        "evidence": "The paper treats uniformly random fixed-count rankings and exact expected AP; its stated aim and procedure concern expectation rather than the claimed conditional calibration.",
+        "identifier_or_url": "DOI 10.1515/pralin-2015-0007",
+        "material_read": "Open-access eight-page paper, including definition, exhaustive example, hypergeometric exact-expectation procedure, and scope.",
+        "method": "Full-text PDF text plus page-image inspection.",
+        "title": "Exact Expected Average Precision of the Random Baseline for System Evaluation",
+        "trigger": "Closest fixed-count random-ranking AP baseline."
+      },
+      {
+        "assessment": "Different multinomial score-strata estimator and delta-method variance; does not cover random AP@k with iid Bernoulli relevance.",
+        "evidence": "Section 4.3 parameterizes class-specific score-bin multinomials and prevalence, then applies the delta method to AP.",
+        "identifier_or_url": "arXiv:1310.5103",
+        "material_read": "Full arXiv HTML around the asymptotic-variance derivation and model specification.",
+        "method": "Direct section and formula inspection.",
+        "title": "Threshold-free Evaluation of Medical Tests for Classification and Prediction: Average Precision versus Area Under the ROC Curve",
+        "trigger": "Potential broader AP asymptotic-variance coverage."
+      },
+      {
+        "assessment": "Tests differences between retrieval systems over query-level MAP; not a one-sample exact random-ranking AP@k null conditional on count.",
+        "evidence": "The study compares paired t, Wilcoxon, sign, bootstrap, and randomization tests for differences in mean average precision between TREC runs.",
+        "identifier_or_url": "DOI 10.1145/1321440.1321528",
+        "material_read": "Bibliographic record and detailed abstract describing the five compared tests and TREC paired-run design.",
+        "method": "Scope and implication comparison.",
+        "title": "A comparison of statistical significance tests for information retrieval evaluation",
+        "trigger": "Potential prior randomization-test coverage for MAP."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3615e3a4-1a8a-45e8-a962-6a1f6051a020",
+  "value": {
+    "rationale": "The result directly turns the motivating random-baseline moment formulas into a nuisance-free finite-sample ordering test and quantifies which part of AP@k null variability is due to prevalence rather than ordering. The 4+1 split is operationally meaningful: conditioning removes four fifths of the first-order null variance while deliberately changing the target from overall relevance to ordering conditional on count. This addresses the source’s stated testing direction without claiming a general retrieval-system testing theory.",
+    "status": "PASS"
+  }
+}
