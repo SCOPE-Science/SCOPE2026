@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "Projection under the max product metric never enlarges coordinate errors. For p=infinity, chain concatenation preserves the maximum error and synchronizes lengths. For finite p, the constructed finite metric systems have an exact low-cost transition graph: each L-step factor block requires one unit reset, and one least-common-multiple product block contains exactly M/gcd(L,M)+L/gcd(L,M)-1 distinct reset times. Any alternative using a large jump costs at least D, chosen above the claimed threshold.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wiseman proves CR(f x g)=CR(f)xCR(g) and a strong-chain product theorem for a specific sum product metric.",
+        "The same paper explicitly notes that concatenating strong chains accumulates error."
+      ],
+      "reasoning": "Those results explain why synchronization is easy for maximum step error and harder for accumulated error, but they do not cover Yokoyama's positive lp filtration or provide the exact amplification factor.",
+      "searches": [
+        "arXiv:1607.03465 Theorem 3.1",
+        "Akin-Wiseman 2019 strong chain recurrence uniform spaces",
+        "phrase: epsilon-chain recurrent set product"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.01325",
+      "arXiv:1607.03465",
+      "Akin-Wiseman, Contemporary Mathematics 736 (2019)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yokoyama defines the filtration and circulation cost but gives no Cartesian-product comparison.",
+        "Wiseman's chain recurrence proof uses arbitrary repeated concatenation, while his strong-chain discussion stresses that such repetition changes total error."
+      ],
+      "reasoning": "The final claim combines the later positive-budget filtration with a new synchronization count. Neither source implies the explicit finite-p threshold or its unbounded ratio.",
+      "searches": [
+        "arXiv:2504.01325 Definitions 11, 12, 16, 19",
+        "arXiv:1607.03465 Theorem 3.1 and product proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full text of arXiv:2504.01325 contains no occurrence of product terminology in the new coarse-recurrence development.",
+        "arXiv:1607.03465 states product results for zero-level recurrent sets, not positive error thresholds."
+      ],
+      "reasoning": "A zero-level product identity is not equivalent to a positive-threshold formula; the latter retains quantitative information that vanishes as the budget tends to zero.",
+      "searches": [
+        "arXiv:2504.01325",
+        "arXiv:1607.03465",
+        "phrase: coarse chain recurrence + product",
+        "phrase: lp-chain recurrence + product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved research records concerned unrelated product or spectral problems; no record matched the same dynamical object and quantitative claim."
+      ],
+      "reasoning": "No indexed finding located the max-law/unbounded-gap dichotomy for the positive coarse lp-chain threshold.",
+      "searches": [
+        "ell^p chain recurrence finite product max metric product formula coarse recurrence synchronization",
+        "strong chain recurrence product systems product theorem max metric",
+        "circulation cost coarse chain recurrence product"
+      ]
+    },
+    "rationale": "The 2025 source introduces the positive coarse lp-chain filtration but contains no product theorem. The closest product-recurrence source treats zero-level chain and strong-chain recurrence and explains error accumulation under concatenation, but does not determine positive coarse thresholds or the explicit synchronization gap.",
+    "residual_risks": [
+      "An unindexed paper could study positive pseudo-orbit thresholds under another name.",
+      "The exact example uses the max product metric; different compatible metrics can change finite-p quantitative thresholds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source defines the required objects and motivates control budgets, but does not discuss Cartesian products.",
+        "identifier_or_url": "arXiv:2504.01325",
+        "material_read": "Abstract, introduction, Definitions 11--19, filtration/circulation statements, and full-text product-term search.",
+        "method": "Full-text HTML inspection and bibliographic date verification.",
+        "title": "Coarse chain recurrence, Morse graphs with finite errors, and persistence of circulations",
+        "trigger": "Primary source introducing the positive coarse lp-chain filtration and circulation interpretation."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It treats zero-level recurrence and metric-dependent strong recurrence, not positive coarse thresholds or the synchronization formula.",
+        "identifier_or_url": "arXiv:1607.03465",
+        "material_read": "Definitions of chains and strong chains, product metrics, Theorem 3.1, and the proofs of the chain and strong-chain product statements.",
+        "method": "Full-text PDF inspection with page-image verification of the product theorem.",
+        "title": "Generalized Recurrence and the Nonwandering Set for Products",
+        "trigger": "Closest product-recurrence result for ordinary and strong chain recurrence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f401d58-f416-4c6c-b0ce-2043df7ef526",
+  "value": {
+    "rationale": "The positive coarse filtration is intended to quantify control or noise required for recurrence. The theorem gives an exact composition law at the stepwise endpoint and an explicit unbounded synchronization penalty for every finite accumulated-energy norm, so it identifies a structural boundary directly relevant to product systems and quantitative recurrence.",
+    "status": "PASS"
+  }
+}
