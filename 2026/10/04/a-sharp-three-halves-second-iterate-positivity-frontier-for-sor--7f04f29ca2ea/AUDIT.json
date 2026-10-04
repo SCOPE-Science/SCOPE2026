@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Positive diagonal scaling reduces every \\(2\\times2\\) Stieltjes matrix to one coupling parameter without changing signs. Direct SOR multiplication gives the exact second-iterate response, whose only potentially negative coefficient is proportional to \\(3-2\\omega+\\omega^2\\rho^2\\). Complete quadratic analysis yields the fixed-coupling frontier and the robust limit \\(\\omega=3/2\\). The first-iterate and one-dimensional minimality claims are separately proved, and the embedded exact-rational replay verifies the algebraic formulas and witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "James--Riha study convergence of SOR on L-matrices and characterize Stieltjes matrices through generalized diagonal dominance.",
+        "Chang studies SOR spectral-radius bounds on nonsingular M-matrices and gives an explicit two-by-two overrelaxed example.",
+        "Yun's abstract states that an SOR splitting of an M-matrix cannot be weak regular for relaxation above one.",
+        "Lu studies generalized SOR and asymptotic convergence rates."
+      ],
+      "reasoning": "These broader results establish the method, matrix class, convergence range, and matrix-splitting regularity. None of the inspected statements implies the exact coordinatewise sign of the second iterate. In particular, loss of weak regularity above one does not determine the larger finite-horizon safety interval found here.",
+      "searches": [
+        "Convergence Criteria for Successive Overrelaxation DOI:10.1137/0712013",
+        "A note on the upper bound of the spectral radius for SOR iteration matrix DOI:10.1016/j.cam.2003.09.052",
+        "A note on SOR(omega) splitting of an M-matrix DOI:10.1016/j.cam.2004.07.029",
+        "Stair Matrices and Their Generalizations with Applications to Iterative Methods I DOI:10.1137/S0036142998343294"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/0712013",
+      "DOI:10.1016/j.cam.2003.09.052",
+      "DOI:10.1016/j.cam.2004.07.029",
+      "DOI:10.1137/S0036142998343294",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The James--Riha full text develops asymptotic convergence, scaling, generalized diagonal dominance, and Stieltjes characterization, but not finite-iterate coordinatewise positivity.",
+        "The Chang full text uses the same standard SOR iteration matrix and a two-by-two M-matrix at relaxation \\(5/3\\), but its claim is a spectral-radius-bound counterexample, not a sign analysis of iterates.",
+        "Yun's accessible abstract concerns weak regularity of the SOR splitting for relaxation above one; full-text comparison was unavailable.",
+        "Lu's publisher record verifies primary MSC 65F10 for SOR and focuses on generalized iteration and convergence rates."
+      ],
+      "reasoning": "The prior results supply necessary background but do not imply the second-iterate matrix formula or its sign phase diagram. Chang's concrete two-by-two example even sits at coupling \\(1/2\\), where the new formula predicts second-iterate safety throughout the convergent relaxation range, so that example cannot serve as the sharp transient-sign witness.",
+      "searches": [
+        "DOI:10.1137/0712013 full text SOR L-matrix Stieltjes convergence",
+        "DOI:10.1016/j.cam.2003.09.052 full text SOR M-matrix example",
+        "DOI:10.1016/j.cam.2004.07.029 SOR weak regular splitting M-matrix",
+        "DOI:10.1137/S0036142998343294 SOR MSC 65F10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned no record whose statement gives a finite-iterate coordinatewise positivity threshold for forward SOR on two-variable Stieltjes systems.",
+        "The closest numerical-linear-algebra records concern Euclidean transient amplification, weighted Jacobi damping, or modified Gauss-Seidel inverses rather than sign preservation of SOR iterates."
+      ],
+      "reasoning": "Equivalent formulations include nonnegativity of the second response matrix, absence of transient negative coordinates, and monotone-cone preservation through two sweeps. The searches covered these sign and finite-horizon aliases rather than relying on title matching.",
+      "searches": [
+        "SOR second iterate positivity Stieltjes matrix overrelaxation 3/2",
+        "successive overrelaxation transient negativity positive right hand side Stieltjes matrix",
+        "SOR positive solution negative iterate M-matrix overrelaxation",
+        "successive overrelaxation monotone iterations M-matrix omega 3/2",
+        "SOR 2x2 Stieltjes nonnegative iterates relaxation 1.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct constant and sign searches did not return the robust value \\(3/2\\), the coupling frontier \\(3/[1+\\sqrt{1-3\\rho^2}]\\), or the exact witness as an established SOR positivity result.",
+        "Classical SOR sources tabulate or bound spectral radii and convergence regions rather than second-iterate sign thresholds."
+      ],
+      "reasoning": "Because the final constant is simple, it was searched directly as well as through matrix-positivity terminology. No checked table, handbook-like record, or primary article exposed the claimed finite-iterate invariant.",
+      "searches": [
+        "3/2 SOR positivity M-matrix",
+        "1.5 successive overrelaxation M-matrix positivity",
+        "negative iterate SOR M-matrix positive right hand side",
+        "SOR Stieltjes nonnegative iterates"
+      ]
+    },
+    "rationale": "Classical convergence, spectral-radius, Stieltjes-matrix, and weak-splitting results are treated as prior work. The accepted statement is the exact finite-horizon second-iterate positivity phase diagram and its robust \\(3/2\\) frontier. Targeted semantic and bibliographic searches found no implication-equivalent statement, and the most relevant accessible full texts do not analyze coordinatewise signs of the second iterate. The unavailable full text of the closest weak-regularity note remains an explicit risk.",
+    "residual_risks": [
+      "The full text of Yun's 2005 weak-regularity note was not recovered, so an equivalent finite-iterate observation there cannot be excluded.",
+      "Classical SOR monographs and older literature on monotone matrix iterations may contain the two-dimensional second-iterate formula under different terminology.",
+      "The accepted result does not classify third and later iterates, so it should not be interpreted as an all-iteration positivity range."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS asymptotic convergence and the relevant matrix classes; no finite-horizon coordinatewise positivity theorem appears in the inspected text.",
+        "evidence": "The paper states SOR convergence criteria for L-matrices and characterizes symmetric irreducible positive definite L-matrices through generalized diagonal dominance.",
+        "identifier_or_url": "DOI:10.1137/0712013",
+        "material_read": "Complete seven-page article, including convergence theorems, scaling results, and the Stieltjes characterization.",
+        "method": "Full-text article inspection.",
+        "title": "Convergence Criteria for Successive Overrelaxation",
+        "trigger": "Direct classical source on SOR convergence for L-matrices and Stieltjes matrices."
+      },
+      {
+        "assessment": "COVERS the standard SOR matrix and a two-dimensional overrelaxed M-matrix example; it does not study finite-iterate coordinatewise signs.",
+        "evidence": "The article's example uses relaxation \\(5/3\\) and an M-matrix with normalized coupling \\(1/2\\), but the conclusion concerns failure of a spectral-radius upper bound.",
+        "identifier_or_url": "DOI:10.1016/j.cam.2003.09.052",
+        "material_read": "Complete three-page article, including the explicit SOR matrix for the two-by-two example and its spectral-radius comparison.",
+        "method": "Full-text article inspection.",
+        "title": "A Note on the Upper Bound of the Spectral Radius for SOR Iteration Matrix",
+        "trigger": "Highly relevant two-by-two M-matrix SOR example with overrelaxation."
+      },
+      {
+        "assessment": "COVERS the fact that SOR splitting with relaxation above one is not weak regular. Whole-document noncoverage of the finite-iterate claim is not asserted.",
+        "evidence": "The abstract explicitly states the weak-regularity impossibility for relaxation above one.",
+        "identifier_or_url": "DOI:10.1016/j.cam.2004.07.029",
+        "material_read": "Abstract and bibliographic record; a verified full-text copy was not recovered.",
+        "method": "Abstract inspection after bounded open and authorized retrieval attempts.",
+        "title": "A Note on SOR(omega) Splitting of an M-Matrix",
+        "trigger": "Closest source on positivity-related matrix-splitting structure for overrelaxed M-matrix SOR."
+      },
+      {
+        "assessment": "COVERS generalized SOR and convergence-rate theory; no finite-iterate positivity claim is present in the inspected material.",
+        "evidence": "The publisher lists MSC 65F10 first and describes generalization of SOR, optimal parameters, and convergence rates.",
+        "identifier_or_url": "DOI:10.1137/S0036142998343294",
+        "material_read": "Publisher abstract, article metadata, references, and MSC classification.",
+        "method": "Publisher record inspection.",
+        "title": "Stair Matrices and Their Generalizations with Applications to Iterative Methods I: A Generalization of the Successive Overrelaxation Method",
+        "trigger": "Primary numerical-linear-algebra SOR source used to verify classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f04f29c-a2ea-41ca-8c7b-d454ff49a55b",
+  "value": {
+    "rationale": "Stieltjes systems have nonnegative inverses, so nonnegative forcing produces a nonnegative exact solution; a negative SOR coordinate is therefore a meaningful transient shape failure. The theorem resolves the earliest possible failure mechanism, gives a complete two-parameter phase diagram for the minimal dimension, and reveals a robust safety frontier \\(\\omega=3/2\\) that is strictly larger than the matrix-splitting weak-regularity boundary. The exact positive witness makes the distinction operationally testable.",
+    "status": "PASS"
+  }
+}
