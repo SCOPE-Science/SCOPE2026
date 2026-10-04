@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Strict growth of \\(\\rho_t\\) follows from \\(t-(t+1)b+b^{t+1}>0\\). The gate factors as \\((b-1)^2P_t(b)>0\\); \\(P_t\\) has one positive root by Descartes' rule and endpoint signs place it in \\((3/5,1)\\). The root asymptotic follows from the exact displacement identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper states that modeled adaptive-rate variance decreases with effective degrees of freedom.",
+        "It says RAdam automatically controls warmup behavior and notes complete degeneration for beta2 <= 0.6."
+      ],
+      "reasoning": "Those statements do not determine how many unadapted updates occur for a given beta2 above 0.6. The final claim solves that timing problem exactly.",
+      "searches": [
+        "RAdam warmup variance rectification beta2 automatic steps",
+        "Rectified Adam effective sample size rho_t convergence",
+        "RAdam beta2 0.6 degenerate momentum SGD"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1908.03265v1",
+      "arXiv:1908.03265v4",
+      "LiyuanLucasLiu/RAdam"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source algorithm defines rho_t and the strict gate rho_t > 4.",
+        "The source explicitly states beta2 <= 0.6 degenerates to momentum SGD.",
+        "The source says warmup behavior is automatically controlled without a separate warmup-length parameter."
+      ],
+      "reasoning": "The source identifies the limiting regimes but does not determine the exact intermediate timing intervals. The new result supplies necessary-and-sufficient beta2 intervals for every finite first-rectification step.",
+      "searches": [
+        "RAdam Algorithm 2 rho_t > 4 beta2 0.6",
+        "RAdam automatically control warmup behavior moving average rules",
+        "RAdam first rectified step beta2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1908.03265v4, Algorithm 2 and Sections 4.1-4.3",
+        "Official LiyuanLucasLiu/RAdam project documentation"
+      ],
+      "reasoning": "Equivalent formulations are the first time the effective SMA length exceeds four, a beta2 phase partition, and roots of the source activation inequality. No inspected source or published-record search stated these equivalent classifications.",
+      "searches": [
+        "RAdam exact activation step beta2 rho_t > 4 warmup length threshold",
+        "Rectified Adam warmup length beta2 polynomial threshold",
+        "RAdam adaptive learning rate activates step 5 beta2 0.999 exact",
+        "RAdam rho_t effective sample size monotone beta2 threshold sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No RAdam-specific published-record hit stated the activation-index sequence or threshold polynomial.",
+        "Closest returned records concerned unrelated quadratic stability frontiers, adaptive-step persistence, and warmup in other methods."
+      ],
+      "reasoning": "The closest findings do not use RAdam's effective-SMA statistic and do not imply the polynomial phase diagram. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "RAdam exact activation step beta2 rho_t > 4 warmup length threshold",
+        "Rectified Adam warmup length beta2 polynomial threshold",
+        "RAdam adaptive learning rate activates step 5 beta2 0.999 exact",
+        "RAdam rho_t effective sample size monotone beta2 threshold sequence"
+      ]
+    },
+    "rationale": "The defining paper gives the effective-length formula, the source gate, qualitative automatic warmup, and the beta2 <= 0.6 degeneration, but not the activation-index phase partition, threshold polynomials, or boundary asymptotic.",
+    "residual_risks": [
+      "An unindexed software discussion may contain partial first-activation tables.",
+      "Some implementations use rho_t > 5 rather than the source rho_t > 4.",
+      "The theorem analyzes the published effective-length statistic but not the statistical approximation underlying it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_ACTIVATION_PHASE_DIAGRAM.",
+        "evidence": "The source gives the premises and qualitative automatic-warmup claim, but not the beta2 threshold sequence, polynomial roots, or asymptotic law.",
+        "identifier_or_url": "arXiv:1908.03265v4",
+        "material_read": "Open-access full HTML covering the Adam setup, effective SMA length, Algorithm 2, the rectification formula, the beta2 <= 0.6 degeneration, and comparison with heuristic warmup.",
+        "method": "Full-text HTML inspection with targeted searches for threshold, warmup, and beta2 statements.",
+        "title": "On the Variance of the Adaptive Learning Rate and Beyond",
+        "trigger": "Defining source and strongest primary coverage of the rectification statistic."
+      },
+      {
+        "assessment": "IMPLEMENTATION_CONTEXT_NOT_COVERING_THRESHOLD_SEQUENCE.",
+        "evidence": "The repository emphasizes warmup motivation and robustness but does not provide the exact first-rectification map as a function of beta2.",
+        "identifier_or_url": "LiyuanLucasLiu/RAdam",
+        "material_read": "Public README covering motivation, robustness, and links to the defining paper.",
+        "method": "Repository documentation inspection.",
+        "title": "RAdam official project repository",
+        "trigger": "Check whether project documentation supplies an exact beta2-dependent warmup length."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "491b2149-b331-42b4-909e-bc4ee75d3fb4",
+  "value": {
+    "rationale": "RAdam was designed to remove a separate warmup-length hyperparameter by tying the transition to second-moment decay. The exact phase diagram quantifies that central design feature, explains the four unadapted updates at common defaults, and shows why the phase length becomes arbitrarily large near the method's own beta2 = 0.6 degeneracy boundary.",
+    "status": "PASS"
+  }
+}
