@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Direct threshold algebra reduces nonempty selection at \\(q=1/(\\kappa r)\\) to first passage of level \\(r\\) by an iid walk with increments \\(+1\\) and \\(-r\\), having probabilities \\(1/(\\kappa+1)\\) and \\(\\kappa/(\\kappa+1)\\). Raney first-passage counting yields the finite sum; the bounded harmonic equation yields the smaller-root limit. Exact rational replay agrees with direct enumeration across tested boundary cases. The claim explicitly excludes ties and non-null mixtures.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Emery and Keich, arXiv:1911.09442, prove finite-sample FDR control for a different multiple-knockoff construction.",
+        "Luo et al. competition-based FDR work discusses target-decoy/SeqStep control but was not found to state this simultaneous multi-knockoff complete-null law."
+      ],
+      "reasoning": "Broader multiple-competition results establish validity mechanisms and alternative constructions. No inspected broader result supplied the same finite-\\(d\\) Raney sum or the \\(\\kappa,r\\) calibration comparison, so no dominating implication was identified.",
+      "searches": [
+        "\"multiple knockoffs\" \"complete null\" FDR exact finite",
+        "\"simultaneous knockoffs\" FDR sharp complete null",
+        "competition-based FDR multiple knockoffs exact finite sample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.11378v1 and PMLR 89:gimenez19b main paper",
+      "PMLR 89:gimenez19b supplementary material, especially B.3",
+      "arXiv:1911.09442",
+      "arXiv:1404.5609 / Annals of Statistics 43(5)",
+      "Targeted web searches over exact-FDR, complete-null, Catalan, Raney, first-passage, and SeqStep terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gimenez and Zou: uniform null labels, threshold, generic FDR control, and detection threshold.",
+        "A prior exact complete-null result for ordinary single-knockoff Knockoff+ uses fair-sign increments and a different threshold; setting \\(\\kappa=1\\) in the present algebra recovers that special first-passage structure, while \\(\\kappa\\ge2\\) creates a distinct biased increment law and the new \\(\\kappa,r\\) calibration comparison."
+      ],
+      "reasoning": "Generic FDR control only yields an upper bound and does not imply the exact finite-\\(d\\) probability or limiting root. The ordinary single-knockoff law does not itself give the simultaneous multi-knockoff probabilities because the null winner probability changes from \\(1/2\\) to \\(1/(\\kappa+1)\\). The new statement explicitly restricts to \\(\\kappa\\ge2\\) and quantifies the effect of simultaneous knockoff multiplicity.",
+      "searches": [
+        "simultaneous multi-knockoff complete null exact FDR reciprocal detection threshold Raney Catalan",
+        "multi-knockoff q equals 1 over kappa r exact FDR first passage",
+        "Selective SeqStep multi-knockoff Raney number exact FDR"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gimenez and Zou (2019), Lemma 3.2, Algorithm 1, Proposition 3.3, and Supplement B.3.",
+        "Barber and Candes (2015), Selective SeqStep+/knockoff FDR-control framework."
+      ],
+      "reasoning": "The source reduction identifies a two-point null p-value law and a SeqStep+ threshold, but the inspected text does not evaluate the complete-null crossing probability. Searches for the corresponding Catalan/Raney and random-walk formulations did not locate an equivalent formula.",
+      "searches": [
+        "\"multi-knockoff\" Catalan FDR complete null exact finite sample",
+        "\"Selective SeqStep+\" exact FDR complete null Catalan",
+        "\"SeqStep+\" Catalan FDR Bernoulli",
+        "\"biased random walk\" knockoff FDR Catalan"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry matching the finite-feature FDR formula was located in the searched literature.",
+        "The PMLR main paper reports the generic detection threshold \\(\\lceil1/(q\\kappa)\\rceil\\), not a complete-null finite-feature FDR table."
+      ],
+      "reasoning": "The claimed object is an exact probability law for a published selection procedure, not a recomputation of a known table. The source reports generic guarantees and empirical experiments rather than this exact calibration staircase.",
+      "searches": [
+        "\"multi-knockoff\" first passage FDR ballot Catalan",
+        "\"multi-knockoff\" complete null exact FDR",
+        "\"multi-knockoff\" detection threshold exact global-null FDR sharpness"
+      ]
+    },
+    "rationale": "The inspected simultaneous multi-knockoff source proves uniform null labels and generic FDR control, while its main text and supplementary proof stop at the SeqStep+ reduction and do not state the complete-null exact FDR staircase or root law. Targeted literature searches found related control frameworks but no equivalent statement.",
+    "residual_risks": [
+      "A classical first-passage consequence may have been recorded in competition-based FDR literature under notation not captured by the searches.",
+      "The exact formula is a corollary of the source distributional lemma plus a nontrivial but classical Raney counting step; originality is in the procedure-specific law and calibration comparison, not in the ballot theorem itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the conditional iid uniform winner labels and FDR threshold needed for the reduction, but does not state the exact complete-null finite-feature law or root limit.",
+        "evidence": "Lemma 3.2 gives uniform independent null winner labels; Algorithm 1 gives the FDP ratio; Proposition 3.3 proves FDR control; Supplement B.3 reduces the procedure to Selective SeqStep+.",
+        "identifier_or_url": "arXiv:1810.11378 / PMLR 89:gimenez19b",
+        "material_read": "Main paper Section 3.1, Lemma 3.2, Algorithm 1, Proposition 3.3; Supplement B.3 proof.",
+        "method": "Full-text inspection of the open-access main paper and supplementary proof.",
+        "title": "Improving the Stability of the Knockoff Procedure: Multiple Simultaneous Knockoffs and Entropy Maximization",
+        "trigger": "Direct source defining simultaneous multi-knockoffs and the selection rule."
+      },
+      {
+        "assessment": "Different multiple-knockoff construction and generic finite-sample FDR control; no equivalent complete-null Raney staircase located.",
+        "evidence": "The abstract states a multiple-competition construction, batching heuristic, and finite-sample control rather than the simultaneous multi-knockoff exact law.",
+        "identifier_or_url": "arXiv:1911.09442",
+        "material_read": "Abstract and method description available from the public preprint record.",
+        "method": "Public preprint-record inspection and targeted phrase search.",
+        "title": "Controlling the FDR in variable selection via multiple knockoffs",
+        "trigger": "Potentially stronger or equivalent multiple-knockoff FDR result."
+      },
+      {
+        "assessment": "Supplies the generic competition-based FDR mechanism; does not cover the \\(\\kappa\\ge2\\) simultaneous winner law.",
+        "evidence": "The multi-knockoff supplement explicitly invokes Selective SeqStep+ from Barber and Candes.",
+        "identifier_or_url": "arXiv:1404.5609 / DOI:10.1214/15-AOS1337",
+        "material_read": "Public article/technical-report summaries and the role cited directly in the multi-knockoff supplementary proof.",
+        "method": "Primary-source record inspection.",
+        "title": "Controlling the False Discovery Rate via Knockoffs",
+        "trigger": "Foundational SeqStep+/knockoff framework underlying the source proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a931a3c1-40c3-4f0a-9e31-93127ae59ea5",
+  "value": {
+    "rationale": "The source motivates multi-knockoffs by reducing the minimum rejection threshold. The exact result converts that design parameter into a precise finite-feature/global-null calibration law. At the same nominal \\(q=0.1\\), admissible choices have limiting null FDR \\(0.1\\), approximately \\(0.02918\\), or approximately \\(0.00417\\), so the result quantifies a substantive calibration consequence rather than merely rephrasing validity. It also yields exact implementation benchmarks and identifies when the published FDR bound is asymptotically sharp.",
+    "status": "PASS"
+  }
+}
