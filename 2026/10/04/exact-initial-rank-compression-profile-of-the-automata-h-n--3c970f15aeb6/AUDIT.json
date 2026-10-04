@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The all-\\(n\\) proof is self-contained from the transition maps: effective \\(b\\) occurrences are counted, their minimum spacing is proved, equality forces a unique word, and an explicit induction computes its missing-state sets through the exact saturation boundary. Exact power-automaton BFS for \\(4\\le n\\le14\\) and direct replay for \\(4\\le n\\le300\\) corroborate all cases without being used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 survey discusses general compression and avoiding-word bounds, but the inspected searchable text did not expose this exact \\(H_n\\) profile.",
+        "General minimum-rank/reset-word algorithms do not imply the exact all-\\(n\\) intermediate thresholds or uniqueness statement for \\(H_n\\)."
+      ],
+      "reasoning": "A general theorem would cover this result even without naming H_n. The inspected general literature gives algorithms or universal bounds rather than an equality and unique optimizer for each deficiency in this family.",
+      "searches": [
+        "published-finding corpus: slowly synchronizing automata intermediate rank H_n",
+        "published-finding corpus: rank threshold H_n Ananichev Gusev Volkov",
+        "Web: synchronizing automata shortest reset words minimum rank words H_n",
+        "M. V. Volkov, Synchronization of finite automata, Russian Math. Surveys 77:5 (2022)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.5793v1",
+      "arXiv:1005.0129v1",
+      "DOI:10.1007/s10958-013-1392-8",
+      "Russian Math. Surveys 77:5 (2022), MathNet rm10005",
+      "published-finding corpus 2026/9/7/SCOPE007",
+      "published-finding corpus 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1005.0129v1 says an unnamed series with reset length \\(n^2-4n+6\\) will be presented in an extended version; it does not define \\(H_n\\) or give an intermediate profile.",
+        "arXiv:1302.5793v1 proves only the endpoint reset threshold after defining \\(H_n\\).",
+        "An endpoint reset threshold does not determine the shortest lengths for larger target ranks or uniqueness of their minimizers."
+      ],
+      "reasoning": "The new claim strictly refines the high-rank behavior of a known family. It is not a corollary of the published endpoint theorem because many compression profiles can share the same final reset threshold.",
+      "searches": [
+        "arXiv:1005.0129v1, pages announcing later n^2-4n+6 series",
+        "arXiv:1302.5793v1, H_n definition and Theorem 5",
+        "DOI:10.1007/s10958-013-1392-8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1302.5793v1 defines \\(H_n\\) and states only its reset threshold \\(n^2-4n+6\\) in Theorem 5.",
+        "The exact expressions \\(\\lambda_n(s)=3s-3\\), the unique words \\((bab)^{s-1}\\), and the saturation index \\(\\lfloor n/2\\rfloor+1\\) do not occur in the inspected \\(H_n\\) theorem/proof.",
+        "No semantic published-finding corpus hit matched an H_n intermediate-rank profile.",
+        "The final exact-claim published-finding corpus searches returned no H_n rank-compression record among the top matches; the returned records concerned unrelated invariants or automaton families."
+      ],
+      "reasoning": "Rank-compression threshold, shortest word to a prescribed image size, and deficiency threshold are equivalent formulations of the same invariant. Searches using all three formulations did not expose prior coverage.",
+      "searches": [
+        "published-finding corpus: H_n automaton rank compression profile shortest word",
+        "published-finding corpus: H_n automaton deficiency shortest rank word bab",
+        "Web: \"H_n\" synchronizing automata \"rank\" Ananichev",
+        "arXiv:1302.5793v1, Section 4.2 / Theorem 5",
+        "published-finding corpus: H_n exact rank compression lambda 3s-3 unique bab saturation floor n/2",
+        "published-finding corpus: Ananichev Gusev Volkov H_n bab intermediate rank deficiency compression"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/7/SCOPE007 is a finite census of an 8-state one-cluster slice and does not cover H_n's all-n rank profile.",
+        "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f concerns avoiding thresholds for the Černý family, a different invariant and automaton family.",
+        "The current private ledger contains no H_n claim."
+      ],
+      "reasoning": "The closest database records differ in object or invariant and therefore do not imply the claimed statement.",
+      "searches": [
+        "published-finding corpus semantic search for H_n rank compression / deficiency profile",
+        "published-finding corpus closest ID 2026/9/7/SCOPE007",
+        "published-finding corpus closest ID 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+      ]
+    },
+    "rationale": "The defining 2013 source proves the full reset threshold but does not state the intermediate rank-compression equalities, unique minimizers, or saturation boundary. The 2010 precursor only announces the endpoint series for a future extended version. published-finding corpus and literature searches using aliases and implication-oriented wording found no stronger coverage.",
+    "residual_risks": [
+      "An unindexed or differently named earlier source could contain the same intermediate-rank profile.",
+      "The survey inspection was targeted rather than a proof of absence from all synchronizing-automata literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the family definition and endpoint reset threshold, not the claimed intermediate-rank profile or uniqueness statement.",
+        "evidence": "Theorem 5 states reset threshold \\(n^2-4n+6\\); its proof reduces a shortest reset word to a Wielandt subautomaton and does not calculate \\(\\lambda_n(s)\\) for intermediate \\(s\\).",
+        "identifier_or_url": "arXiv:1302.5793v1; DOI:10.1007/s10958-013-1392-8",
+        "material_read": "Full defining subsection around Figure 7 and Theorem 5, including the reset-threshold proof.",
+        "method": "Read the open arXiv full text/PDF definition and theorem/proof and compared the statement and implications with the claimed rank profile.",
+        "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+        "trigger": "Defines the exact automaton family \\(H_n\\) and is the nearest possible primary coverage."
+      },
+      {
+        "assessment": "Announces an unnamed endpoint-threshold series but does not define \\(H_n\\) and does not state an intermediate rank profile.",
+        "evidence": "The paper explicitly says the series with reset length \\(n^2-4n+6\\) will be presented in an extended version.",
+        "identifier_or_url": "arXiv:1005.0129v1; DOI:10.1007/978-3-642-15155-2_7",
+        "material_read": "Full relevant pages in Section 4, including the statements that \\(n^2-4n+6\\) series would be presented only in an extended version.",
+        "method": "Inspected the open arXiv PDF text and rendered pages containing the deferred-series statements.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Earlier paper by the same authors could dominate the later H_n result."
+      },
+      {
+        "assessment": "Provides general compression machinery and bounds, but no located equality/uniqueness theorem implying this \\(H_n\\) profile.",
+        "evidence": "The located passages give upper bounds and general methods rather than exact named-family values \\(\\lambda_n(s)=3s-3\\).",
+        "identifier_or_url": "Russian Math. Surveys 77:5 (2022), MathNet rm10005",
+        "material_read": "Searchable survey passages on compression/avoiding words and reset-threshold bounds; targeted searches for \\(H_n\\) and \\(n^2-4n+6\\).",
+        "method": "Targeted full-text search and implication comparison.",
+        "title": "Synchronization of finite automata",
+        "trigger": "Broad later survey could subsume the profile through a general compression theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c970f15-aeb6-4867-a337-8796362be5c3",
+  "value": {
+    "rationale": "The claim determines a natural structural invariant for a classical slowly synchronizing family over an all-\\(n\\) parameter range, including unique optimal words and the exact first saturation point. It adds information not encoded by the known full reset threshold and is neither a routine renaming nor an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
