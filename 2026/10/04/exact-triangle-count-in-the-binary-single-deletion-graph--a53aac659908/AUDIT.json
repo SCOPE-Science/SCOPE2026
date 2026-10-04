@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The pair NFA semantics are reconstructed from deletion alignments; determinization and the three-pair product count exactly the ordered cliques with equality allowed. Exact invariant Krylov-space certificates prove the stated recurrences for all lengths, and inclusion-exclusion removes equal-coordinate triples. Direct graph enumeration supplies an independent finite cross-check but is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon et al., arXiv:2209.11882, give a general-k upper bound \\(O_k(2^n n^{3k}(\\log n)^k)\\) on total triangles for their graph argument, not an exact formula.",
+        "published-finding corpus 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c concerns q-ary deletion-code redundancy and does not determine clique statistics of \\(\\Gamma_{n,1}\\)."
+      ],
+      "reasoning": "A broad asymptotic upper bound does not imply the exact \\(k=1\\) enumeration or its lower-order terms, and coding-rate results do not determine graph triangle counts.",
+      "searches": [
+        "k-deletion graph Gamma n k triangles exact \\(k=1\\)",
+        "binary single deletion graph local sparsity exact triangles",
+        "single deletion ball intersection exact two strings reconstruction codes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.11882v1",
+      "DOI:10.1109/TIT.2023.3304565",
+      "arXiv:1604.03000",
+      "published-finding-id:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "published-finding-id:2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alon et al.'s triangle estimate is one-sided big-O and therefore cannot yield the exact polynomial-exponential expression.",
+        "Their Proposition on pairs with multiple shortest common supersequences counts a different two-word event; it does not enumerate triples whose three pairs are deletion-confusable.",
+        "Sala et al., arXiv:1604.03000, study extremal common-supersequence multiplicity for a fixed pair, again a different invariant."
+      ],
+      "reasoning": "The new claim requires a three-way global enumeration over all words. Neither a fixed-pair multiplicity maximum nor a general upper bound determines it as a corollary or special case.",
+      "searches": [
+        "exact number triangles single deletion graph Gamma n 1 binary deletion graph",
+        "triangle count one-deletion graph binary words exact",
+        "number of distance-one deletion graph pairs with two shortest common supersequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alon et al., arXiv:2209.11882, define deletion distance through common subsequences and study the graph \\(\\Gamma_{n,k}\\); pairwise LCS/SCS multiplicity statements are different from enumerating three-vertex cliques.",
+        "Closest published-finding database match 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03 concerns an exact finite deletion-code independence number, not triangle counts."
+      ],
+      "reasoning": "Searches explicitly included deletion distance, insertion-ball intersection, shortest common supersequences, Type-A confusability, and deletion-graph triangle aliases. None of the returned statements is equivalent to the all-n triangle enumeration.",
+      "searches": [
+        "q-ary single insertion ball intersection two exact characterization alternating block",
+        "q-ary shortest common supersequence multiplicity distance one exact count",
+        "q-ary deletion distance one multiple shortest common supersequences exact enumeration",
+        "q-ary Type-A confusable alternating insertion ball",
+        "single insertion ball intersection exact pair binary reconstruction code insertion channel",
+        "intersection of one insertion balls exact q-ary strings common supersequences",
+        "single deletion ball intersection exact two strings reconstruction codes",
+        "exact number of binary pairs with multiple shortest common supersequences deletion distance one",
+        "unordered pairs single insertion ball intersection size two alternating block count",
+        "q-ary Type-A confusable single insertion equality structure",
+        "number of distance-one deletion graph pairs with two shortest common supersequences",
+        "binary single-deletion graph exact triangle count formula",
+        "Gamma n 1 exact triangle count deletion distance graph",
+        "2^n n^3 deletion graph triangles exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding database hit returned an exact triangle formula for the binary single-deletion graph; the highest-ranked hits were unrelated graph/hypergraph triangle problems.",
+        "Own current ledger was searched for deletion graph, triangle, insertion/deletion neighborhood, and common-supersequence claims; no prior row states or implies this exact formula."
+      ],
+      "reasoning": "No exact database/table hit was found. This negative evidence is not treated as novelty proof; it only supplements the statement-level primary-source comparison.",
+      "searches": [
+        "binary single-deletion graph exact triangle count formula",
+        "Gamma n 1 exact triangle count deletion distance graph",
+        "2^n n^3 deletion graph triangles exact"
+      ]
+    },
+    "rationale": "Statement-level comparison with the primary deletion-graph paper found only a general asymptotic triangle upper bound and separate pairwise LCS/SCS multiplicity results, none of which imply the exact radius-one triangle formula. Targeted published-finding and literature searches under deletion-graph, triangle-count, insertion-ball, common-supersequence, and equivalent aliases found no stronger covering statement. Residual risk is explicitly retained for unindexed or differently phrased prior work.",
+    "residual_risks": [
+      "An unindexed, unpublished, or differently phrased exact enumeration of radius-one deletion-graph triangles may exist.",
+      "The 2016 common-supersequence literature was inspected at theorem level rather than exhaustively line-by-line; no found statement implies the triangle formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_TRIANGLE_COUNT",
+        "evidence": "The source provides a general asymptotic upper bound for triangle counts and separate fixed-pair LCS/SCS estimates, but no exact all-n formula at \\(k=1\\).",
+        "identifier_or_url": "arXiv:2209.11882 / DOI:10.1109/TIT.2023.3304565",
+        "material_read": "Full open text: graph definition and motivation, the triangle-count reduction and general triangle bound, and the later LCS/SCS multiplicity proposition.",
+        "method": "Statement-level comparison of objects, quantifiers, and implications.",
+        "title": "Logarithmically larger deletion codes of all distances",
+        "trigger": "Defines \\(\\Gamma_{n,k}\\) and uses triangle sparsity in the main coding argument."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_TRIANGLE_COUNT",
+        "evidence": "The extremal number of common supersequences of a pair does not determine the number of triples in the deletion-confusability graph.",
+        "identifier_or_url": "arXiv:1604.03000",
+        "material_read": "Abstract and theorem-level statements on common supersequence multiplicity.",
+        "method": "Compared fixed-pair common-supersequence invariant with global clique enumeration.",
+        "title": "Exact reconstruction from insertions in synchronization codes",
+        "trigger": "Closest older exact common-supersequence literature found during equivalence searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a53aac65-9908-4212-9b26-0639230dc865",
+  "value": {
+    "rationale": "Triangle sparsity is the structural statistic explicitly used in the primary deletion-code graph argument. At the first nontrivial deletion radius, the formula gives the exact global clustering count for every block length and sharpens a general \\(O(2^n n^3\\log n)\\) control to \\(2^{n-3}n^3+O(2^n n^2)\\). This is a natural all-length graph invariant, not an arbitrary finite census, while the package does not overclaim a new code-size theorem.",
+    "status": "PASS"
+  }
+}
