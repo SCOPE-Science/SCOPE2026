@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "All seven occupancy partitions are enumerated. Three-wise independence fixes E[T2]=10/q and E[T3]=10/q^2. The pointwise certificates T2/2-T3 <= I and I <= T2-(9/10)T3 give the universal bounds. Explicit occupancy mixtures attain each endpoint, and symmetry plus the two collision moments proves uniformity of every ordered triple. An exact-rational checker independently replays the identities and explicit small-q joint laws.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pătraşcu--Thorup state that simple tabulation is only 3-independent and identify a special five-key independence phenomenon in their fourth-moment analysis, but do not give the generic five-key birthday envelope.",
+        "Benjamini--Gurel-Gurevich--Peled provide LP duality and classical moment tools for k-wise-independent Boolean inputs, not the q-ary five-key occupancy formula.",
+        "The published pairwise occupancy result has a one-moment reduction and cannot imply the additional triple-collision constraint used here."
+      ],
+      "reasoning": "General k-wise extremal frameworks and special hashing constructions do not by themselves determine the sharp generic five-key occupancy interval; the seven-type reduction and two supporting inequalities are additional.",
+      "searches": [
+        "The Power of Simple Tabulation Hashing arXiv 1011.5200 five keys",
+        "On K-wise Independent Distributions and Boolean Functions arXiv 1201.3261 moment problem",
+        "pairwise independent uniform allocations all distinct occupancy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1011.5200",
+      "arXiv:1201.3261",
+      "DOI:10.1016/0022-0000(79)90044-8",
+      "published-record:0c331de546b4",
+      "own-ledger:0e6fb380-867b-4548-87fc-78d310b06142"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The pairwise occupancy theorem fixes only E[T2] and gives a wider feasible class; it does not imply the three-wise endpoint formulas.",
+        "The four-key theorem has only five occupancy types and different supporting inequalities; its statement contains no five-key reduction or endpoint."
+      ],
+      "reasoning": "Neither closest result dominates the five-key claim. The five-key occupancy polytope introduces new types 2+2+1, 3+2, and 5 and requires both pair- and triple-collision moments.",
+      "searches": [
+        "published-record:0c331de546b4 pairwise independent occupancy one moment",
+        "own-ledger:0e6fb380-867b-4548-87fc-78d310b06142 four-key three-wise birthday"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved publication stated the interval with endpoints max{0,(q-1)(q-9)/q^2} and (q^2-5q+10)/q^2.",
+        "The closest returned occupancy theorem was for pairwise independence and therefore fixes only one collision moment."
+      ],
+      "reasoning": "The searches used both hashing/birthday language and occupancy/moment-polytope language. The retrieved related results have different independence order or different objectives.",
+      "searches": [
+        "five keys three-wise independent uniform hashing exact all-distinct probability interval",
+        "5-key birthday 3-wise independent hashing collision-free probability",
+        "three-independent hashing five balls all distinct occupancy moment polytope",
+        "five uniform hash values 3-wise independent birthday probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved table or catalog listed the sharp five-key endpoint formulas by alphabet size."
+      ],
+      "reasoning": "The claim is symbolic for every integer q>=5 and is not obtained by recomputing a finite published parameter table.",
+      "searches": [
+        "5 key three independent hashing all distinct exact probability",
+        "birthday probability limited independence five hashes",
+        "occupancy partitions five three-wise independence collision-free"
+      ]
+    },
+    "rationale": "The closest inspected sources establish the k-wise-independence framework, simple-tabulation five-key dependence phenomena, or the pairwise occupancy envelope. None states the exact five-key all-distinct interval under arbitrary three-wise independence, its q=9 lower-threshold, or the endpoint occupancy mixtures.",
+    "residual_risks": [
+      "An equivalent five-key occupancy formula could appear in older design-theoretic or orthogonal-array literature under different terminology.",
+      "The web and semantic searches were targeted rather than exhaustive over every hashing and combinatorial-design source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states that simple tabulation is only 3-independent and, in the fourth-moment discussion, notes a special property of any fixed set of five keys. It does not state the arbitrary three-wise-independent five-key birthday interval or the occupancy endpoint mixtures proved here.",
+        "identifier_or_url": "arXiv:1011.5200",
+        "material_read": "Full arXiv HTML, with focused inspection of the introduction, independence definition, and fourth-moment/five-key discussion.",
+        "method": "Compared its five-key hashing statements and objectives against the exact generic collision-free interval.",
+        "title": "The Power of Simple Tabulation Hashing",
+        "trigger": "Primary archive source explicitly discussing three-independent hashing and a five-key dependence phenomenon."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper develops broad tools for Boolean k-wise-independent inputs and moment problems, but the inspected text does not state a five-hash all-distinct envelope over a q-point alphabet.",
+        "identifier_or_url": "arXiv:1201.3261",
+        "material_read": "Full arXiv HTML, including the definitions, convexity discussion, LP duality section, and classical moment-problem section.",
+        "method": "Compared its extremal framework and moment statements with the q-ary five-coordinate occupancy problem.",
+        "title": "On K-wise Independent Distributions and Boolean Functions",
+        "trigger": "Primary probability source for extremal k-wise-independent distributions and moment/LP methods."
+      },
+      {
+        "assessment": "CONTEXT_ONLY",
+        "evidence": "The bibliographic record establishes the foundational universal-hashing setting; no whole-document originality conclusion is drawn from the abstract.",
+        "identifier_or_url": "DOI:10.1016/0022-0000(79)90044-8",
+        "material_read": "Publisher/author bibliographic abstract and publication metadata.",
+        "method": "Used only for historical context, not as evidence of non-coverage of the exact theorem.",
+        "title": "Universal Classes of Hash Functions",
+        "trigger": "Foundational hashing source for random hash-family guarantees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f59877a2-a85f-4b54-9580-fc75fb61faf3",
+  "value": {
+    "rationale": "The theorem exactly quantifies the birthday-event uncertainty left by three-wise independence at five keys, a set size explicitly singled out in classical three-independent hashing analysis. It supplies both endpoint constructions, a sharp q=9 lower-threshold, and the entire attainable interval. This is a structural finite classification rather than a routine numerical extension.",
+    "status": "PASS"
+  }
+}
