@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Pinching into accepted and rejected blocks is trace-distance contractive. Each block has trace imbalance of magnitude \\(d=|p-q|\\), giving a \\(d/2\\) trace-norm contribution. If \\(p\\ge q\\), the triangle inequality applied to \\(p(\\rho_P-\\sigma_P)=(p\\rho_P-q\\sigma_P)-(p-q)\\sigma_P\\) gives \\(\\delta_P\\ge pc-d/2\\). Therefore \\(D(\\rho,\\sigma)\\ge\\max\\{d,pc\\}\\), with the symmetric case obtained by interchange. The three-level diagonal family evaluates exactly to \\(D(\\rho,\\sigma)=\\max\\{d,pc\\}\\), proving sharpness. Random matrix checks and equality-family checks were replayed from the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2011.08487v1 covers general postselection superoperators and weak contractivity/subadditivity questions.",
+        "arXiv:2110.02290v5 covers general non-trace-preserving operations via an operation-level metric."
+      ],
+      "reasoning": "These papers are broader at the operation level but do not dominate the present claim because their inspected theorems do not imply the exact pointwise constant as a function of the two acceptance probabilities and the pre-postselection state distance.",
+      "searches": [
+        "postselection normalized outputs trace-induced diamond distance",
+        "non-trace-preserving quantum operations normalized output trace distance",
+        "postselection conditional state trace distance acceptance probability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.33567v1",
+      "arXiv:2011.08487v1",
+      "arXiv:2110.02290v5",
+      "Phys. Rev. A 108, 032609 (2023)",
+      "MSC2020 entry 81P15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 of arXiv:2609.33567v1 proves \\(D(\\rho_P,\\sigma_P)\\le(\\tau+|p-q|/2)/\\max\\{p,q\\}\\) before clipping and uses an equal-acceptance witness.",
+        "Gavorová's Conversion Lemma 2 compares postselected and ordinary map distances only up to constants under a trace-preserving comparison map.",
+        "Shi--Waks bound a process-level distance after an SVD-based renormalization; their main result is not a pairwise acceptance-profile theorem."
+      ],
+      "reasoning": "The recent source does not imply the new statement because removing a positive numerator term is a genuine strengthening, and its sharpness witness has \\(p=q\\). The older map-level results neither specialize to nor imply the exact coefficient proved here.",
+      "searches": [
+        "arXiv:2609.33567v1 Theorem 6 proof and witness",
+        "arXiv:2011.08487v1 Conversion Lemma 2",
+        "arXiv:2110.02290v5 normalized-output metric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.33567v1, Theorem 6 states the weaker bound with numerator \\(\\tau+|p-q|/2\\).",
+        "arXiv:2011.08487v1 defines postselected trace-induced and diamond distances and proves Conversion Lemma 2 with constant-factor map-level comparisons.",
+        "arXiv:2110.02290v5 defines a worst-case normalized-output operation metric and bounds it by a diamond-distance term plus a normalizing-distance term."
+      ],
+      "reasoning": "None of the inspected formulations is equivalent to the exact acceptance-resolved state-pair inequality. The 2026 source has the same objects but a strictly weaker bound for unequal acceptance; the older works optimize over maps/inputs and use different hypotheses and constants.",
+      "searches": [
+        "\"postselection\" \"trace distance\" \"max(p,q)\" quantum",
+        "\"post-selection\" trace distance conditioning acceptance probability projector quantum states",
+        "\"conditional\" \"trace distance\" \"postselected\" quantum",
+        "\"total variation distance\" conditional distributions event probability bound",
+        "\"tau/max\" postselection trace distance quantum",
+        "\"normalized postselection\" \"trace distance\"",
+        "arXiv:2011.08487v1 Sections 1 and 4.2--4.3",
+        "arXiv:2110.02290v5 main distance/renormalization result"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected search result stated the exact formula or an equivalent all-parameter sharpness table.",
+        "The closest directly matching recent public source is arXiv:2609.33567v1, whose Theorem 6 has the extra \\( |p-q|/2\\) term."
+      ],
+      "reasoning": "Search failure is not a novelty proof; it is used only together with direct statement comparison of the closest primary sources.",
+      "searches": [
+        "published literature: exact formula \\(D(\\rho_P,\\sigma_P)\\le \\tau/\\max\\{p,q\\}\\)",
+        "published literature: conditional total variation under one event with unequal event probabilities",
+        "published findings: sharp postselection stability trace distance projector normalized conditional states acceptance probabilities max p q"
+      ]
+    },
+    "rationale": "The motivating 2026 theorem gives the weaker numerator \\(\\tau+|p-q|/2\\) and proves necessity only through equal-acceptance witnesses. Full-text comparisons with the postselected-computation framework of Gavorová and the non-trace-preserving-operation metric of Shi--Waks found broader map-level theories but not the exact state-pair projector envelope \\(\\tau/\\max\\{p,q\\}\\) or the all-parameter sharpness family. Targeted published-literature and published-finding searches did not locate an implication-equivalent statement. Residual risk remains for an elementary classical conditioning analogue under remote terminology.",
+    "residual_risks": [
+      "The inequality has an elementary commuting specialization, so an equivalent classical conditional-total-variation lemma may exist in older probability, statistics, or information-theory literature under terminology not hit by the searches.",
+      "No claim is made that the formula is new outside the common-projector quantum-state setting; novelty is assessed against the inspected directly relevant postselection literature and published finding index."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIOR_NOT_COVERING",
+        "evidence": "Theorem 6 contains the additional \\( |p-q|/2\\) numerator term and its necessity example has equal acceptances.",
+        "identifier_or_url": "arXiv:2609.33567v1",
+        "material_read": "Full HTML text, especially Section 5.2, Theorem 6, proof, witness, and surrounding discussion.",
+        "method": "Direct theorem/proof comparison.",
+        "title": "Terminal-Register Certification for Finite-Measurement Learning of Multiscale Quantum States",
+        "trigger": "Same projector-postselection objects and the motivating inverse-acceptance theorem."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_DOMINATING",
+        "evidence": "The conversion result is a constant-factor relation between map distances under additional hypotheses; it does not state the exact \\(p,q,\\tau\\) envelope.",
+        "identifier_or_url": "arXiv:2011.08487v1",
+        "material_read": "Full HTML rendering, introduction, definitions, postselected setting, Conversion Lemma 2, and its proof setup.",
+        "method": "Implication comparison between map-level and state-pair statements.",
+        "title": "Notes on distinguishability of postselected computations",
+        "trigger": "Broader theory of distances after normalized postselection."
+      },
+      {
+        "assessment": "RELATED_OPERATION_METRIC_NOT_COVERING",
+        "evidence": "The main bound separates a diamond-distance term and a normalizing-distance term for operations; no exact two-state projector acceptance profile is given.",
+        "identifier_or_url": "arXiv:2110.02290v5",
+        "material_read": "Full arXiv HTML through the definition and main renormalization bound, including the exact normalizing-distance formula.",
+        "method": "Object and implication comparison.",
+        "title": "Error metric for non-trace-preserving quantum operations",
+        "trigger": "Normalized outputs of non-trace-preserving operations and worst-case trace distance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c18fab6-6570-4c47-b582-89383d4760f5",
+  "value": {
+    "rationale": "The result gives the exact worst-case stability constant for the postselection step used in a new finite-measurement quantum-state certification theorem. It removes a mismatch penalty from the current public bound, identifies the larger acceptance probability as the sole amplification denominator, and proves all-parameter optimality. At the minimal feasible global distance \\(\\tau=|p-q|\\), it also quantifies how much conditional-state change can be hidden entirely inside acceptance imbalance. This is a structural boundary result with direct use in finite-noise budgeting rather than a parameter substitution or numerical increment.",
+    "status": "PASS"
+  }
+}
