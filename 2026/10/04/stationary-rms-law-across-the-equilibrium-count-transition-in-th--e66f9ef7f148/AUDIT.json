@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For the plus-sign Chen–Wang normalization used in the rigorous literature, exact differentiation gives \\(L(z+xy+x)=a-x^2+4y^2\\), hence \\(\\mathbb E[x^2]=a+4\\mathbb E[y^2]\\). Arbitrary antiderivative tests give \\(\\mathbb E[y\\mid x]=0\\) and \\(\\mathbb E[z\\mid y]=0\\). For positive parameter, equality forces \\(y=0\\) on the invariant support, then \\(z=0\\), then \\(x^2=a\\), proving the equilibrium-mixture classification. For negative parameter, equality in the lower RMS bound would force \\(x=y=z=0\\), where \\(\\dot z=a\\ne0\\), so the bound is strict. The packaged checker verifies the nonstandard polynomial identity exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The foundational work focuses on constructing chaos while changing the number and stability of equilibria and reports Lyapunov-based numerical examples.",
+        "The 2015 rigorous article proves nonexistence of invariant algebraic surfaces and Darboux first integrals and two small periodic solutions near the zero–Hopf point.",
+        "The 2015 generalized full text treats Hopf/zero–Hopf bifurcations, periodic solutions, Poincaré compactification, and integrability; text searches returned no invariant-measure or average formulation."
+      ],
+      "reasoning": "Local bifurcation theorems and integrability obstructions do not imply an identity for every compact invariant probability measure. The new balance constrains arbitrary compact recurrent components, including but not limited to the small cycles constructed previously.",
+      "searches": [
+        "Constructing a chaotic system with any number equilibria invariant measure recurrence Chen Wang",
+        "Chen-Wang periodic orbit |x| sqrt a recurrence",
+        "Chen-Wang compact recurrence equilibrium slab x sqrt(a/b)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1201.5751",
+      "doi:10.1007/s11071-014-1873-4",
+      "doi:10.1007/s11071-015-2584-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior zero–Hopf theorem constructs small cycles for sufficiently small positive parameter but does not give their exact stationary second moments.",
+        "The global generalized analysis classifies dynamics at infinity and integrability properties without a stationary RMS statement.",
+        "The foundational numerical Lyapunov calculations do not imply a universal invariant-measure identity."
+      ],
+      "reasoning": "Neither existence of periodic solutions nor absence of first integrals implies the exact average relation. Conversely, the accepted balance does not re-prove those bifurcation or integrability results; it supplies a distinct global recurrence constraint.",
+      "searches": [
+        "Chen-Wang system compact invariant measure E x^2 = a + 4 E y^2",
+        "Chen-Wang periodic orbit |x| sqrt a recurrence",
+        "Chen-Wang no equilibrium RMS y lower bound sqrt(-a)/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rigorous 2015 full text states the plus-sign system \\(\\dot x=y\\), \\(\\dot y=z\\), \\(\\dot z=-y-x^2-xz+3y^2+a\\).",
+        "The later generalized full text reproduces the same original one-parameter case before adding a coefficient to \\(x^2\\).",
+        "No same-object semantic-index hit stated the accepted stationary second-moment identity or its no-equilibrium reformulation."
+      ],
+      "reasoning": "The exact state variables and parameter convention were fixed against the rigorous full texts. Searches included both moment and RMS language and the equilibrium-amplitude reformulation, so a direct notational alias was checked.",
+      "searches": [
+        "Chen Wang differential system invariant measure stationary identity x squared 4 y squared a",
+        "Chen-Wang system compact invariant measure E x^2 = a + 4 E y^2",
+        "Chen-Wang no equilibrium RMS y lower bound sqrt(-a)/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact Chen–Wang hit in the checked semantic index stated \\(\\mathbb E[x^2]=a+4\\mathbb E[y^2]\\).",
+        "Closest returned findings concerned Rössler, Genesio, Rikitake, Rucklidge, and other distinct flows.",
+        "The recoverable own-ledger claims contain no Chen–Wang finding."
+      ],
+      "reasoning": "The exact object-and-claim combination was absent from both checked published-index results and recoverable prior own claims. Structurally similar balance laws for other flows do not imply the Chen–Wang formula.",
+      "searches": [
+        "Chen Wang differential system invariant measure stationary identity x squared 4 y squared a",
+        "Constructing a chaotic system with any number equilibria invariant measure recurrence Chen Wang",
+        "Chen-Wang system compact invariant measure E x^2 = a + 4 E y^2",
+        "Chen-Wang periodic orbit |x| sqrt a recurrence",
+        "generalized Chen-Wang differential system invariant measure b E[x^2] a 4 E[y^2]",
+        "Chen-Wang generalized system stationary RMS identity equilibrium amplitude sqrt(a/b)",
+        "Chen-Wang no equilibrium RMS y lower bound sqrt(-a)/2",
+        "Chen-Wang compact recurrence equilibrium slab x sqrt(a/b)"
+      ]
+    },
+    "rationale": "The inspected same-object literature studies equilibrium count, numerical chaos, Darboux integrability, zero–Hopf and Hopf bifurcations, periodic solutions, and dynamics at infinity. No inspected source states the invariant-measure RMS identity, its sharp equilibrium-mixture equality case, or the strict no-equilibrium RMS floor. Semantic searches for the exact formula, aliases, equilibrium-amplitude formulation, and recurrence implications returned only distinct-flow analogues.",
+    "residual_risks": [
+      "A differently phrased, non-digitized, or unindexed stationary identity could escape targeted searches.",
+      "The earliest preprint contains a sign inconsistency; correctness of the final theorem relies on the plus-sign normalization independently stated in the later rigorous full texts.",
+      "The exact RMS balance is algebraically short, so an unpublished or incidental prior observation is harder to exclude than a named theorem.",
+      "The negative-parameter conclusion is a necessary condition for compact recurrence and does not prove existence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the object and the equilibrium-count transition. The PDF displays a sign inconsistency: its equation has a minus parameter term while the immediately following equilibrium statements correspond to the plus-sign convention. The later rigorous literature fixes the plus-sign convention adopted here.",
+        "evidence": "The arXiv record is dated 2012-01-27; the paper states two equilibria for positive parameter, one merged equilibrium at zero, and no equilibria with a reported chaotic attractor for negative parameter.",
+        "identifier_or_url": "arXiv:1201.5751",
+        "material_read": "Full arXiv HTML and the original PDF pages containing the system, equilibrium count, and no-equilibrium chaotic example.",
+        "method": "Direct full-text and PDF inspection.",
+        "title": "Constructing a chaotic system with any number of equilibria",
+        "trigger": "Foundational Chen–Wang source and earliest-public-date anchor."
+      },
+      {
+        "assessment": "Uses exactly the plus-sign normalization in the final claim and studies Darboux integrability and zero–Hopf periodic solutions. No invariant-measure or stationary-average theorem was found in the inspected text.",
+        "evidence": "Its abstract and introduction display the exact equation and state that for sufficiently small positive parameter two small periodic solutions bifurcate from the zero–Hopf point.",
+        "identifier_or_url": "doi:10.1007/s11071-014-1873-4",
+        "material_read": "Full public preprint text, including the system definition, main integrability theorem, and zero–Hopf statement.",
+        "method": "Direct full-text inspection.",
+        "title": "On the integrability and the zero–Hopf bifurcation of a Chen–Wang differential system",
+        "trigger": "Highly relevant rigorous same-object source fixing the differential equation and treating periodic solutions."
+      },
+      {
+        "assessment": "Reproduces the original plus-sign Chen–Wang equation and studies a generalized coefficient on \\(x^2\\). Its main results concern Hopf and zero–Hopf bifurcations, periodic solutions, Poincaré compactification, invariant algebraic surfaces, and first integrals, not stationary probability laws.",
+        "evidence": "The full text states the original equation, the zero/two-equilibrium split, and the generalized family, and its listed main theorems cover bifurcations, infinity, and integrability.",
+        "identifier_or_url": "doi:10.1007/s11071-015-2584-1",
+        "material_read": "Full 27-page public preprint text, including introduction, main theorems, bifurcation statements, dynamics at infinity, and integrability statements.",
+        "method": "Direct full-text inspection; PDF screenshot retrieval was attempted but timed out, while the extracted full text remained available.",
+        "title": "Global dynamical aspects of a generalized Chen–Wang differential system",
+        "trigger": "Broader same-family full text covering global dynamics and a two-parameter generalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e66f9ef7-f148-470d-ac12-b6b4a50188d3",
+  "value": {
+    "rationale": "The defining theme of the Chen–Wang model is the transition between zero and two equilibria while chaotic dynamics can persist. The exact identity places that same parameter transition into a global stationary law: on the two-equilibrium side, equilibrium mixtures are the sharp minimum-RMS states and every other compact recurrent component must exceed the equilibrium amplitude; on the no-equilibrium side, any compact recurrence must carry a strictly positive parameter-controlled velocity RMS. This applies to arbitrary compact invariant measures rather than a selected numerical attractor or a single local bifurcation branch, making it a motivated structural complement to the established literature.",
+    "status": "PASS"
+  }
+}
