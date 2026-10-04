@@ -1,0 +1,15 @@
+# Same-model scientific review
+
+## Correctness
+PASS. The claim was reconstructed from the source definitions of the report probabilities, conditional information gains, follow-up frontier, and lower-bound program. The critical nonstandard premise is the source's proved piecewise-linear fractional-knapsack representation of the follow-up frontier. On each breakpoint interval, the information-cost curve is exactly an affine segment; the perspective program therefore has an exact finite-mode linear-program representation. The lower-hull value, feasibility threshold, and two-mode support bound follow from scaling and planar convex geometry. The selective-value threshold follows from concavity of the frontier, and the outer finite-candidate reduction follows from the perspective of a convex piecewise-linear function. The packaged rational checker verifies a representative nontrivial instance; it is not substituted for the proof.
+
+## Originality
+PASS. The closest source, Ham et al. (arXiv:2609.28859), proves the follow-up frontier and states that the lower bound can be computed by a finite sequence of convex programs. Its inspected full text does not give the exact finite lower-hull formula, at-most-two-mode optimizer, full-escalation domination, selective-value iff threshold, or transformed-breakpoint/crossing solution of the outer benchmark. The 2025 active-AI evaluation paper addresses cost-optimal weak/strong-rater allocation for mean estimation rather than this report-conditioned sequential-testing program. Targeted searches for equivalent formulations, broader coverage, and exact tabulations did not reveal a dominating statement. Residual risk remains that generic polyhedral optimization literature contains an equivalent observation under different terminology.
+
+## Value
+PASS. The source uses its information-theoretic lower bound as the central benchmark for evaluating its sequential policy. Replacing repeated generic convex solves with a finite information-cost hull gives an interpretable exact computation, and the two-mode sparsity theorem identifies the minimal structure of optimal benchmark allocations. The sharp threshold for when selective escalation improves on randomized pure-source mixing directly answers when the extra escalation action is useful. The result is therefore a structural refinement of the motivating statistical design problem rather than a routine numerical exercise.
+
+Same-model review: passed. Independent audit: not yet performed.
+
+## Closest literature and limitations
+The primary comparison is Ham, Zhao, Jasin, and Yang, arXiv:2609.28859. Angelopoulos et al., arXiv:2506.07949, is a nearby cost-allocation reference with a different estimation objective. Standard linear-program and fractional-knapsack facts are ingredients, not prior statements of the source-specific theorem. The claim concerns the lower-bound relaxation and does not assert equality with the exact finite-sample adaptive testing optimum. Ties can make the optimizer representation nonunique, while leaving the value formula unchanged.
