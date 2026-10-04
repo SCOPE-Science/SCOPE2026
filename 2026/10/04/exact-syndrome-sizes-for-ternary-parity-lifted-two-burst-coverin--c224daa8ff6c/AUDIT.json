@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces ternary class sizes to a weighted count of binary parity patterns. The syndrome-parity identity and cyclic-rotation increment are derived explicitly; prime rotation orbits make weighted and signed residue sums uniform away from the two constant words. Solving those two sums yields the four formulas. The accompanying verifier checks the critical identities and formulas for \\(p\\in\\{3,5,7,11\\}\\) and directly verifies two-consecutive-deletion covering for every syndrome class at \\(p\\in\\{3,5,7\\}\\). The infinite covering assertion itself is sourced to Xie--Sun--Ge Theorem VI.4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie--Sun--Ge prove covering for all q in their lifted construction and give an averaging upper bound.",
+        "Lenz et al. give general insertion/deletion covering bounds."
+      ],
+      "reasoning": "These broader covering theorems establish existence or covering, but neither determines the syndrome-by-syndrome weighted cardinalities specialized here.",
+      "searches": [
+        "arXiv:2606.15379v1",
+        "arXiv:1911.09944"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379v1",
+      "Babu-Krishnamoorthy-Roth-Siegel-ISIT-2025",
+      "arXiv:1911.09944"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source averaging bound guarantees only that some class has size at most \\(3^p/(2p)\\).",
+        "The exact formula identifies all \\(2p\\) class sizes and all \\(p-1\\) minimizers."
+      ],
+      "reasoning": "The exact distribution is strictly stronger than the averaging consequence within the same explicit construction and is not implied by direct q-ary DVT size formulas.",
+      "searches": [
+        "arXiv:2606.15379v1",
+        "arXiv:1911.09944",
+        "Babu-Krishnamoorthy-Roth-Siegel-ISIT-2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie--Sun--Ge define the nonbinary two-burst parity-and-checksum construction; at \\(q=3\\) its auxiliary checksum moduli equal one.",
+        "Babu et al. determine cardinalities of direct q-ary differential-VT codes."
+      ],
+      "reasoning": "The accepted claim is about the weighted parity preimage of binary DVT syndromes, not direct ternary DVT syndromes; the two definitions have different syndrome maps and cardinality mechanisms.",
+      "searches": [
+        "arXiv:2606.15379v1",
+        "Babu-Krishnamoorthy-Roth-Siegel-ISIT-2025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source statements give the generic size bound and exact direct-DVT cardinalities, respectively; no ternary parity-lift prime-length table or four-case formula was located."
+      ],
+      "reasoning": "The new formula is not a recomputation of an identified published table; finite tables in the verifier are checks of the general proof.",
+      "searches": [
+        "arXiv:2606.15379v1",
+        "Babu-Krishnamoorthy-Roth-Siegel-ISIT-2025"
+      ]
+    },
+    "rationale": "The closest 2026 paper supplies the parity-and-checksum covering construction and only an averaging cardinality bound; its ternary specialization leaves a weighted differential-VT syndrome distribution that is not evaluated there. The 2025 DVT cardinality paper concerns direct q-ary DVT classes, not parity-lift preimages with nonuniform ternary lift weights. General deletion-covering literature does not imply the exact four-level distribution. Targeted repository and web searches found no statement of the formula.",
+    "residual_risks": [
+      "No database search can prove novelty; an unindexed note could contain an equivalent weighted-syndrome calculation.",
+      "The 2025 conference paper was accessible through a public copy/abstract and through the exact lemma quoted by the 2026 preprint; a full-text fetch was intermittently unavailable during the final comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the construction and generic averaging bound but not the exact ternary prime-length syndrome distribution.",
+        "evidence": "At \\(q=3\\), \\(\\lfloor q/2\\rfloor=1\\) makes both auxiliary checks vacuous, so the construction is exactly a parity preimage of binary DVT syndrome classes.",
+        "identifier_or_url": "arXiv:2606.15379v1",
+        "material_read": "Definition of differential VT syndrome; binary two-burst covering theorem; Theorem VI.4 and its parameter-counting proof; concluding open directions.",
+        "method": "Full-text inspection of the public preprint.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Primary source for the nonbinary two-burst-deletion covering construction."
+      },
+      {
+        "assessment": "Determines direct q-ary DVT code sizes, not the weighted ternary parity-lift classes in the claim.",
+        "evidence": "Its object applies the q-ary differential syndrome directly, whereas \\(C_a(p)\\) first maps ternary symbols to parity and weights binary patterns by the number of lifts.",
+        "identifier_or_url": "Babu-Krishnamoorthy-Roth-Siegel-ISIT-2025",
+        "material_read": "Public abstract and the cardinality scope reported by the source; the current preprint also cites its exact DVT-size lemma.",
+        "method": "Public source inspection and cross-check through the citing preprint.",
+        "title": "On Differential Varshamov–Tenengolts Codes",
+        "trigger": "Closest source on exact DVT code cardinalities."
+      },
+      {
+        "assessment": "General covering bounds do not determine this explicit construction’s exact syndrome distribution.",
+        "evidence": "The paper gives asymptotic/existential covering results rather than parity-lifted DVT class counts.",
+        "identifier_or_url": "arXiv:1911.09944",
+        "material_read": "Abstract and stated general covering bounds.",
+        "method": "Public preprint metadata and abstract inspection.",
+        "title": "Covering Codes Using Insertions or Deletions",
+        "trigger": "Foundational covering-code comparison for insertion/deletion metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c224daa8-ff6c-4599-ac72-072bdf1140bd",
+  "value": {
+    "rationale": "The 2026 construction leaves its ternary syndrome parameter to averaging. The exact distribution identifies every optimal parameter inside the construction, quantifies the improvement over the generic bound, and exposes a rotation-orbit mechanism that can guide analysis of other small alphabets. This is a natural structural invariant of the newly introduced nonbinary two-burst covering family rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
