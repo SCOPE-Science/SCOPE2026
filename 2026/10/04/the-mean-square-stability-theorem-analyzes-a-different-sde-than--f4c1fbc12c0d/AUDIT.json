@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source's original diffusion is sigma_i(t,N_i)N_i, while Section 4 changes it to sigma_i(t,N_i)(N_i-N_i*). Substitution of U_i=N_i-N_i* into the original equations leaves nonzero constant diffusion at U=0 in every one of the four source cases when epsilon,delta>0. A constant Itô equilibrium requires zero diffusion. Itô's formula gives the exact right derivative of E||N_t-P*||^2 at t=0 as ||G(P*)||^2, yielding the four stated positive coefficients. The equilibrium and all numerical coefficients were replayed exactly from the source parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Senosiain and Tocino (2023) define an SDE equilibrium after assuming both drift and diffusion vanish at the equilibrium and then define mean-square stability of that equilibrium.",
+        "Earlier numerical mean-square-stability literature likewise formulates the equilibrium position only when both deterministic and stochastic coefficients vanish.",
+        "These sources give the general framework but do not compare equations (2.1)–(2.2) with (4.1)–(4.2) of the 2024 prey-predator paper."
+      ],
+      "reasoning": "The general principle is standard, so originality is restricted to the source-specific theorem transfer failure and its exact quantitative consequence.",
+      "searches": [
+        "stochastic differential equation equilibrium diffusion coefficient must vanish mean-square stability deterministic equilibrium",
+        "\"equilibrium position\" stochastic differential equation f(t,0)=0 g(t,0)=0 mean square stability",
+        "stochastic population model immigration additive noise positive equilibrium mean-square stability"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2024725",
+      "doi:10.1007/s11075-022-01478-6",
+      "doi:10.1016/j.cam.2007.06.024"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Theorem 4.3 is a sufficient stability result for the altered centered-noise system, not a statement about the nonzero diffusion remaining in the original centered model.",
+        "General stability theory explains why vanishing diffusion is necessary for a point equilibrium but does not supply the source-specific four-case centered coefficients.",
+        "No inspected prior result implies the exact short-time slopes at the source benchmark."
+      ],
+      "reasoning": "The accepted claim is not that small noise can destabilize an equilibrium; it is that the paper changed the SDE to create the equilibrium required by its theorem, so the theorem cannot certify the model it claims to analyze.",
+      "searches": [
+        "AIMS Mathematics 2024 math.2024725 equations 4.1 4.2 diffusion equilibrium",
+        "stochastic prey predator small immigration positive equilibrium mean square stability",
+        "mean-square equilibrium nonzero diffusion point equilibrium stochastic differential equation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text prints sigma_i(t,N_i)N_i in equations (2.1)–(2.2), then sigma_i(t,N_i)(N_i-N_i*) in equations (4.1)–(4.2).",
+        "Exact-title and DOI searches returned the source and bibliographic mirrors but no erratum or correction.",
+        "Indexed research-record searches returned unrelated predator-prey and mean-square-stability findings, not this source-specific model switch."
+      ],
+      "reasoning": "The queries cover the literal title, DOI, the equilibrium/diffusion formulation, and the natural interpretation as a mismatch between the immigration SDE and the stability SDE.",
+      "searches": [
+        "\"Stochastic prey-predator model with small random immigration\" mean-square equilibrium diffusion",
+        "\"Stochastic prey-predator model with small random immigration\" correction erratum",
+        "\"10.3934/math.2024725\" correction",
+        "predator prey stochastic immigration deterministic equilibrium diffusion nonzero mean-square stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open PDF was inspected at the original model equations and the four definitions of sigma_i.",
+        "The Section-4 pages were inspected at the positive deterministic equilibrium, equations (4.1)–(4.3), and Theorem 4.3.",
+        "The numerical-discussion page was inspected at the parameter set and at the statement that Theorem 4.3 governs stability of systems (2.1)–(2.2), including epsilon=0.25 and delta=0.12."
+      ],
+      "reasoning": "The comparison uses the exact primary equations and numerical values rather than title-level or abstract-level inference.",
+      "searches": [
+        "DOI 10.3934/math.2024725 equations 2.1 2.2 4.1 4.2 Theorem 4.3",
+        "DOI 10.3934/math.2024725 epsilon 0.25 delta 0.12 parameters r 1.5 k 3 alpha 2.5"
+      ]
+    },
+    "rationale": "The primary paper contains both equations but presents the Section-4 equation as a stability analysis of the original system. General mean-square stability literature requires the diffusion to vanish at the equilibrium, but does not identify this source-specific switch or compute its four short-time departure rates. Exact-title, DOI, correction, stochastic-equilibrium, and immigration-stability searches located no published repair.",
+    "residual_risks": [
+      "A non-indexed author note could acknowledge the equation change.",
+      "The long-time stochastic behavior of the original model may still be well behaved in a stationary or bounded-moment sense; this finding does not analyze that question.",
+      "The source's unpublished numerical implementation could differ from either printed SDE."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "THE_STABILITY_THEOREM_ANALYZES_AN_ALTERED_SDE",
+        "evidence": "The original noise is sigma_i(t,N_i)N_i dW_i, whereas Section 4 replaces N_i by N_i-N_i* before applying the mean-square theorem.",
+        "identifier_or_url": "doi:10.3934/math.2024725",
+        "material_read": "Open full PDF: equations (2.1)–(2.4); boundedness setup; positive deterministic equilibrium; equations (4.1)–(4.4); Theorems 4.2–4.3; the numerical parameter set; the four immigration cases; the epsilon=0.25, delta=0.12 stability discussion; conclusions. Relevant pages were visually inspected.",
+        "method": "Centered the original stochastic terms exactly, compared them with Section 4, and applied Itô's formula to the squared distance from the deterministic equilibrium.",
+        "title": "Stochastic prey-predator model with small random immigration",
+        "trigger": "Primary source defining the immigration SDE and the claimed small-immigration mean-square stability theorem."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_SUPPORTS_NECESSITY_OF_ZERO_DIFFUSION",
+        "evidence": "The paper assumes both drift and every diffusion coefficient vanish at the origin before calling the constant process an equilibrium position and defining mean-square stability.",
+        "identifier_or_url": "doi:10.1007/s11075-022-01478-6",
+        "material_read": "Full HTML through the SDE setup, equilibrium-position assumptions f(t,0)=0 and g_k(t,0)=0, Definition 1, and the second-moment stability formulation.",
+        "method": "Compared the standard requirement for an SDE equilibrium with the diffusion coefficient of the 2024 model at P*.",
+        "title": "A survey of mean-square destabilization of multidimensional linear stochastic differential systems with non-normal drift",
+        "trigger": "Open-access source stating the standard equilibrium and mean-square-stability framework for Itô systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f4c1fbc1-2c0d-49d4-8174-53fd60228b95",
+  "value": {
+    "rationale": "The source's principal theoretical conclusion is that small stochastic immigration preserves stability. The model switch shows that this conclusion is not proved for the actual immigration equations: their positive deterministic equilibrium ceases to be a stochastic point equilibrium as soon as immigration noise is nonzero. The four exact short-time departure rates quantify the gap at the paper's own benchmark, separating legitimate stationary-fluctuation questions from an inapplicable point-stability theorem.",
+    "status": "PASS"
+  }
+}
