@@ -1,0 +1,108 @@
+{
+  "claim": "For the standard \\(n\\)-state Černý automaton \\(C_n\\), let \\(\\lambda_n(s)\\) be the minimum length of a word whose image has size at most \\(n-s\\). For every \\(n\\ge 3\\) and \\(1\\le s\\le \\lceil n/2\rceil\\), one has \\(\\lambda_n(s)=3s-2\\).",
+  "correctness": {
+    "rationale": "Only the simple singular letter \\(b\\) can reduce image size, by at most one. After an effective \\(b\\), fewer than two intervening cycle letters \\(a\\) cannot make a later \\(b\\) effective, yielding length at least \\(3s-2\\). The witness \\(b(a^2b)^{s-1}\\) has an explicit missing-set induction and attains the bound for \\(s\\le\\lceil n/2\\rceil\\). The included exact BFS independently confirms 40 finite parameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pin 1978 proves the square prescribed-rank bound for circular automata in the high-rank regime, which is an upper bound and does not give this exact value.",
+        "Rystsov 2025 proves the rank conjecture for Černý-type monoids, where rank threshold concerns maps of minimal monoid rank rather than all intermediate ranks."
+      ],
+      "reasoning": "These stronger-sounding general results do not imply equality for the intermediate deficiency threshold of the specific classical family.",
+      "searches": [
+        "Cerny automaton shortest word rank k compression threshold",
+        "rank threshold Cerny automaton subset compression",
+        "Cerny automaton partial synchronization rank threshold image size n-k"
+      ]
+    },
+    "checked_sources": [
+      "J.-É. Pin, C. R. Acad. Sci. Paris 284 (1977), 1233–1235, HAL:hal-00017720",
+      "J.-É. Pin, ICALP 1978, LNCS 62, 345–352",
+      "I. Rystsov, arXiv:2501.19166",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "H. Don, Electronic Journal of Combinatorics 23(3) (2016), P3.12"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The worst-target avoidance result \\(\\operatorname{at}_k(C_n)=kn\\) only controls a maximum over target sets; it gives no lower bound on the best target.",
+        "Pin 1977 and Pin 1978 provide general upper bounds, not matching lower bounds for the stated range."
+      ],
+      "reasoning": "None of the inspected prior statements logically implies \\(\\lambda_n(s)=3s-2\\); the lower bound based on spacing of effective merges is additional.",
+      "searches": [
+        "Cerny automaton deficiency profile shortest word rank n-k 3k-2",
+        "Cerny automaton minimum avoiding k-set best target threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pin 1977 defines prescribed-rank/deficiency lengths and proves a general quartic bound, not the exact profile of the Černý family.",
+        "The 2026 k-avoiding record defines the maximum shortest avoidance length over prescribed sets; deficiency is the minimum over such targets of the same cardinality."
+      ],
+      "reasoning": "Rank-at-most \\(n-s\\), deficiency \\(s\\), and avoidance of some \\(s\\)-set are equivalent formulations of the target invariant. Searches across these aliases returned no prior \\(3s-2\\) formula.",
+      "searches": [
+        "Cerny automaton deficiency profile shortest word rank n-k 3k-2",
+        "Cerny automaton shortest word deficiency k",
+        "Cerny automaton lower envelope avoiding thresholds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact repository record is 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f and reports the maximum target-avoidance threshold \\(kn\\), with no lower-envelope table.",
+        "No exact table for the early deficiency profile appeared in published-finding corpus exact-parameter searches."
+      ],
+      "reasoning": "The finding is not a recomputation of an identified published exact table.",
+      "searches": [
+        "Cerny automaton minimum avoiding k-set best target threshold",
+        "Cerny automaton b a squared deficiency rank"
+      ]
+    },
+    "rationale": "The closest literature treats general prescribed-rank bounds, minimal monoid rank, or the opposite extremum of prescribed-set avoidance. Targeted searches did not locate the exact lower-envelope formula. Originality is asserted to the best of the inspected literature, with a stated terminology risk.",
+    "residual_risks": [
+      "An equivalent exact statement may be implicit in older literature on subset reachability, circular automata, or shortest reset words without being indexed under deficiency terminology.",
+      "The claim does not classify the profile beyond \\(s=\\lceil n/2\\rceil\\).",
+      "The originality conclusion is bibliographic rather than a proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives a general quartic-in-deficiency upper bound and no exact Černý-family profile.",
+        "evidence": "Theorem 1 bounds \\(A(n,n-k)\\) by a quartic polynomial in \\(k\\); the paper does not state \\(3s-2\\).",
+        "identifier_or_url": "HAL:hal-00017720",
+        "material_read": "Full three-page text as exposed by the repository mirror: definitions, Theorems 1–2, proof, and references.",
+        "method": "Repository full-text inspection.",
+        "title": "Sur la longueur des mots de rang donné d’un automate fini",
+        "trigger": "Foundational paper specifically about lengths of words of given rank."
+      },
+      {
+        "assessment": "NOT_COVERING: rank threshold there concerns maps of minimal monoid rank and reset/monoid bounds, not the shortest word reaching each intermediate rank.",
+        "evidence": "The paper defines \\(rt_X(M)\\) using maps in the minimal ideal and proves bounds for that quantity.",
+        "identifier_or_url": "arXiv:2501.19166",
+        "material_read": "Abstract, rank-threshold definitions, Theorems 4.4–4.11, relevant proofs, conclusion, and references; pages 9, 10, and 14 were visually inspected.",
+        "method": "Primary arXiv PDF full-text and page inspection.",
+        "title": "Cerny type automata and rank conjecture",
+        "trigger": "Recent paper directly about Černý-type automata and rank thresholds."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes the maximum prescribed-target avoidance length \\(kn\\), whereas the current result is the minimum target avoidance length in the stated range.",
+        "evidence": "Its definition takes a maximum over all \\(k\\)-subsets and its theorem identifies the unique hardest target.",
+        "identifier_or_url": "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Full RESULT.md, including theorem, inverse-action proof, prior-work comparison, verification, and limitations.",
+        "method": "Public repository full-text inspection.",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Closest exact result on the same automaton and directly related avoidance invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "766d362d-36d3-4b47-a6fa-4e87079b662b",
+  "value": {
+    "rationale": "The shortest length required to attain a prescribed deficiency is a natural synchronization invariant, and the Černý automata are the canonical extremal family. Determining the exact first-half profile gives a structural complement to the known worst-target avoidance threshold and separates early linear rank collapse from the eventual quadratic reset cost.",
+    "status": "PASS"
+  }
+}
