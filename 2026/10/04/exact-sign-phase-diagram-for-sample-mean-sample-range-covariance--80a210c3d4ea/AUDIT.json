@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof rewrites the sample mean and sample range as linear combinations of two nested empirical-cut variables. Each of the four required cut covariances is evaluated exactly, yielding one quadratic in the support gap. Monotonicity of phi_n and a one-positive-root argument give the exhaustive sign classification. Exact rational enumeration independently checks the identities for small sample sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hwang--Hu's abstract says its centered order-statistic class includes the sample range and uses independence to characterize normality.",
+        "Hu--Lin's full paper states the sample-mean/sample-range independence characterization as Corollary 1 and later proves deterministic range inequalities.",
+        "The recent sample-range inequalities paper studies deterministic order covariance, a different object."
+      ],
+      "reasoning": "These sources cover the closest independence and range-inequality frameworks. None of their stated results determines the stochastic covariance sign for an arbitrary fixed three-point mass profile.",
+      "searches": [
+        "DOI:10.11650/twjm/1500407259",
+        "DOI:10.1007/s10463-021-00805-3",
+        "DOI:10.1007/s13171-026-00457-6"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.11650/twjm/1500407259",
+      "DOI:10.1007/s10463-021-00805-3",
+      "DOI:10.1007/s13171-026-00457-6",
+      "2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest database theorem is about correlation of the two extreme order statistics for two draws while varying masses.",
+        "The Hwang--Hu and Hu--Lin statements concern independence and normal characterization, not zero covariance in discrete laws."
+      ],
+      "reasoning": "A theorem about Corr(min,max) does not determine Cov(mean,range). Independence implies zero covariance but a characterization of when independence holds cannot classify the much larger zero-covariance set.",
+      "searches": [
+        "2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4",
+        "Hwang Hu 2000 sample mean sample range independence",
+        "Hu Lin 2022 sample mean sample range Corollary 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A semantic-database search returned a three-point min-max correlation theorem, but that optimizes Corr(min,max) over probability weights on a fixed support rather than Cov(sample mean,range) over support geometry.",
+        "Web searches returned the normal-independence characterization and general range material, not the three-point covariance phase diagram."
+      ],
+      "reasoning": "The searches cover direct covariance notation, uncorrelatedness, the three-point specialization, and the normal-characterization alias. Independence results do not imply which non-normal discrete supports have positive, zero, or negative covariance.",
+      "searches": [
+        "sample mean sample range covariance three point distribution fixed probabilities",
+        "three point distribution sample mean range uncorrelated",
+        "mean range covariance discrete distribution support masses",
+        "sample mean sample range independence characterization normal",
+        "Cov(bar X, range) three point",
+        "\"Covariance between sample mean and sample range\"",
+        "\"sample mean and range\" uncorrelated distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula record containing the quadratic in the normalized middle location or its one-root threshold was returned."
+      ],
+      "reasoning": "The theorem is symbolic for every positive three-mass profile and every sample size at least two, not a finite lookup.",
+      "searches": [
+        "three point sample mean range covariance exact formula",
+        "sample mean range covariance fixed masses threshold",
+        "uncorrelated sample mean range discrete distribution"
+      ]
+    },
+    "rationale": "The archive characterization literature establishes independence of the sample mean and sample range only as a normality criterion. The complete later full text reproduces that theorem and gives deterministic range inequalities but not stochastic covariance signs for a fixed three-point mass profile. No targeted semantic-database or web search returned the displayed covariance formula or threshold.",
+    "residual_risks": [
+      "Older quality-control or order-statistics literature may contain a covariance formula for special three-point populations under different notation.",
+      "The archive Hwang--Hu full text was not accessible in the open search path; its closest claims were checked through its abstract, bibliographic records, and a later full-text restatement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "INDEPENDENCE_CHARACTERIZATION_NOT_COVARIANCE_PHASE_DIAGRAM",
+        "evidence": "The source class includes sample range and characterizes normality from independence. The accessible archive text was not complete, so no whole-document noncoverage claim is based on it alone.",
+        "identifier_or_url": "DOI:10.11650/twjm/1500407259",
+        "material_read": "Abstract, national-library bibliographic record, indexed classification record, and the later full-text paper's explicit restatement of the Hwang--Hu sample-range corollary.",
+        "method": "Compared statistical object, quantifier over parent laws, dependence notion, and conclusion with the fixed three-point covariance claim.",
+        "title": "On Some Characterizations of Population Distributions",
+        "trigger": "Archive-era primary source directly naming the sample mean and sample range in a characterization theorem."
+      },
+      {
+        "assessment": "FULL_TEXT_CLOSEST_NOT_COVERING",
+        "evidence": "Corollary 1 states independence of sample mean and range iff normal under the stated regularity framework; Section 5 gives deterministic sample-range inequalities and conjectures about removing smoothness. The paper does not state the three-point covariance formula or sign threshold.",
+        "identifier_or_url": "DOI:10.1007/s10463-021-00805-3",
+        "material_read": "Complete 16-page open PDF, with focused inspection of the introduction, Corollary 1 and surrounding results, Section 5 on sample range, the conjectures, and references.",
+        "method": "Compared independence claims, range inequalities, support assumptions, and whether stochastic covariance sign or three-point support geometry is analyzed.",
+        "title": "Characterizations of the normal distribution via the independence of the sample mean and the feasible definite statistics with ordered arguments",
+        "trigger": "Full later primary treatment that explicitly reproduces the sample-mean/sample-range result and develops additional range theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "80a210c3-d4ea-4815-b5a1-4a97a9915ff4",
+  "value": {
+    "rationale": "The sample mean and sample range are a classical location--dispersion pair. The theorem gives a complete, exact dependence-sign classification in the smallest nontrivial discrete population, including support-invariant sign regimes and a unique uncorrelated support. This sharply separates zero covariance from the much stronger normal-characterizing independence property.",
+    "status": "PASS"
+  }
+}
