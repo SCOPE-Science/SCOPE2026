@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The barycentric Gram matrix gives an explicit reproducing kernel. Minimization over bounded nonnegative inputs is the negative kernel mass. Convexity of the positive-part affine function proves that this mass is maximized at a vertex, where a Beta(1,d) integral evaluates exactly to the claimed constant. Kernel normalization gives the exact L-infinity norm. The packaged exact-rational replay returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Boor proves L-infinity bounds for least-squares spline approximation and discusses mesh-independent bounds for continuous piecewise polynomials.",
+        "Crouzeix--Thomee address Lp and W1p stability of global finite-element L2 projection.",
+        "Foucart studies max norms of one-dimensional orthogonal spline projectors and polynomial-projector Lebesgue functions.",
+        "Duan--Lin--Saikrishnan--Tan use local or almost local L2 projection onto a linear finite-element space as a numerical primitive."
+      ],
+      "reasoning": "These sources establish the broad norm-stability problem and the practical relevance of local linear L2 projection, but the inspected statements are bounds, global finite-element stability, or one-dimensional spline results. They do not imply the exact bounded-input negative excursion on one d-simplex.",
+      "searches": [
+        "Web: finite element L2 projection maximum principle positivity mass matrix inverse",
+        "Web: The stability in Lp and W1p of the L2-projection onto finite element function spaces",
+        "Web: A bound on the L-infinity-norm of L2-approximation by splines in terms of a global mesh ratio",
+        "Web: On the value of the max-norm of the orthogonal projector onto splines with multiple knots"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/040613573",
+      "DOI:10.1090/S0025-5718-1976-0425432-1",
+      "DOI:10.1016/j.jat.2005.12.004",
+      "DOI:10.1090/S0025-5718-1987-0878688-2",
+      "published-finding corpus semantic searches under positivity, simplex, max-norm, Lebesgue-function, and projector-constant aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Duan paper states that a local or almost local L2 projector onto the linear finite-element space is used, but its abstract concerns least-squares error analysis rather than positivity or an exact local projector norm.",
+        "Foucart explicitly reduces discontinuous one-dimensional spline projection to interval polynomial projection and studies associated Lebesgue functions; this covers the d=1 conceptual setting but not the multivariate simplex formula.",
+        "Crouzeix--Thomee provide stability under mesh conditions, which is a bound and does not determine the sharp single-element kernel mass."
+      ],
+      "reasoning": "The one-dimensional special case should be regarded as part of classical polynomial-projector theory. Neither that special case nor global stability bounds imply the dimension-dependent simplex constant, its indicator extremizer, the strict-positive witness, or the asymptotic \\(d/e\\) defect.",
+      "searches": [
+        "Web: L2-Projected Least-Squares Finite Element Methods for the Stokes Equations",
+        "Web: local L2 projected linear finite element space",
+        "Web: orthogonal projector onto polynomials max norm Foucart",
+        "Web: Crouzeix Thomee finite element L2 projection stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the simplex affine projector constant; closest records concerned abstract projection constants, finite-element positivity of time stepping, or unrelated local projection phenomena.",
+        "Foucart's full open preprint formulates orthogonal-projector max norms through Lebesgue functions for one-dimensional spline and incomplete-polynomial spaces, establishing the relevant alias but not a simplex result in the inspected text."
+      ],
+      "reasoning": "The positivity defect equals half the excess of the L-infinity operator norm over one, so searches were conducted both as positivity and as max-norm/Lebesgue-function problems. No inspected source stated the all-dimensional simplex formula or an equivalent reproducing-kernel integral.",
+      "searches": [
+        "published-finding corpus: L2 projection finite element positivity nonnegative function negative nodal value sharp",
+        "published-finding corpus: L2 projection P1 simplex L infinity norm exact projection constant",
+        "published-finding corpus: orthogonal projection affine polynomials simplex L infinity norm",
+        "published-finding corpus: finite element local L2 projection simplex Lebesgue constant P1",
+        "Web: \"L2 projection\" simplex \"L infinity\" norm affine polynomials",
+        "Web: \"orthogonal projection\" simplex affine polynomials \"L infinity\"",
+        "Web: \"Lebesgue constant\" \"orthogonal projection\" simplex polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published-finding corpus record or web result exposed the closed forms \\(C_d=(d+1)((d+1)/(d+2))^d-1\\) or \\(1+2C_d\\).",
+        "The closest exact-norm literature found was for one-dimensional spline or polynomial projectors rather than affine functions on a multivariate simplex."
+      ],
+      "reasoning": "The claimed constant is a natural projector norm and was searched directly by structural formula, operator-norm terminology, and finite-element terminology. No exact table or formula covering it was located.",
+      "searches": [
+        "published-finding corpus: L2 projector linear polynomial simplex operator norm L infinity",
+        "published-finding corpus: \"(d+1)/(d+2)\" L2 projection simplex",
+        "Web: \"2(d+1)\" \"d+2\" orthogonal projection simplex norm",
+        "Web: \"((d+1)/(d+2))^d\" projection simplex",
+        "Web: \"linear polynomials\" simplex \"L2 projector\" \"L∞\""
+      ]
+    },
+    "rationale": "Projector stability and one-dimensional max-norm theory are prior-covered and explicitly excluded. The accepted claim is the all-dimensional single-simplex affine formula, sharp nonnegative-input extremizer, strict-positive witness, exact L-infinity norm, and dimension-linear asymptotic. published-finding corpus and literature searches under equivalent positivity, Lebesgue-function, reproducing-kernel, and max-norm formulations found no implication-equivalent statement, with residual risk from multivariate approximation theory.",
+    "residual_risks": [
+      "Multivariate approximation-theory literature may contain the same affine-simplex norm under reproducing-kernel, Christoffel-function, or Lebesgue-constant terminology.",
+      "The full Crouzeix--Thomee 1987 article was not recovered in this run, so it is not used for a whole-document noncoverage conclusion.",
+      "The one-dimensional value is part of classical polynomial-projector theory; originality is claimed only for the all-dimensional simplex formula and associated positivity extremal statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the practical use of local linear finite-element L2 projection; the inspected material does not state positivity loss or an exact simplex max norm.",
+        "evidence": "The abstract says a local or almost local L2 projector is applied and that the projection is onto the linear finite-element space; the publisher lists primary MSC 65N30 and published-online date 25 July 2006.",
+        "identifier_or_url": "DOI:10.1137/040613573",
+        "material_read": "Publisher abstract, information/history, MSC metadata, keywords, and visible references.",
+        "method": "SIAM publisher HTML inspection.",
+        "title": "L2-Projected Least-Squares Finite Element Methods for the Stokes Equations",
+        "trigger": "Direct finite-element source using a local or almost local L2 projector onto the linear finite-element space and providing verified MSC ownership and public date."
+      },
+      {
+        "assessment": "COVERS classical L-infinity projector bounds in one-dimensional spline settings; no multivariate simplex exact positivity constant was found in the inspected material.",
+        "evidence": "The paper studies the L-infinity norm of L2 least-squares spline approximation and gives a mesh-independent bound for continuous piecewise polynomials.",
+        "identifier_or_url": "DOI:10.1090/S0025-5718-1976-0425432-1",
+        "material_read": "Open full-text/abstract material describing the projector norm bounds, global mesh ratio, and mesh-independent continuous-piecewise-polynomial bound.",
+        "method": "Lawful open full-text and bibliographic inspection.",
+        "title": "A Bound on the L-Infinity-Norm of L2-Approximation by Splines in Terms of a Global Mesh Ratio",
+        "trigger": "Classical prior on L-infinity stability of least-squares projection."
+      },
+      {
+        "assessment": "COVERS one-dimensional orthogonal spline projector max norms and polynomial-projector Lebesgue functions; no simplex occurrence or multivariate affine-simplex constant was found.",
+        "evidence": "The preprint defines the L-infinity max norm of orthogonal spline projectors, explains the local reduction for discontinuous splines to interval polynomial projection, and develops Lebesgue-function bounds for incomplete polynomial spaces.",
+        "identifier_or_url": "DOI:10.1016/j.jat.2005.12.004",
+        "material_read": "Open author preprint, including abstract, introduction, projector definition, reduction to local polynomial projection, incomplete-polynomial Lebesgue functions, and relevant Gram-matrix discussion; first pages were also visually inspected.",
+        "method": "Author-hosted lawful PDF full-text inspection.",
+        "title": "On the Value of the Max-Norm of the Orthogonal Projector onto Splines with Multiple Knots",
+        "trigger": "Closest exact/max-norm literature and a source for the Lebesgue-function equivalent formulation."
+      },
+      {
+        "assessment": "COVERS global finite-element Lp and W1p stability at the abstract level. Whole-document noncoverage is not claimed.",
+        "evidence": "The abstract states stability of the L2 projection onto standard finite-element spaces under weaker mesh regularity assumptions than quasi-uniformity.",
+        "identifier_or_url": "DOI:10.1090/S0025-5718-1987-0878688-2",
+        "material_read": "Open bibliographic record and abstract. Direct open PDF access failed, followed by bounded authorized institutional retrieval attempts, which returned no verified PDF.",
+        "method": "Open metadata/abstract inspection plus authorized institutional retrieval attempt.",
+        "title": "The Stability in Lp and W1p of the L2-Projection onto Finite Element Function Spaces",
+        "trigger": "Closest classical finite-element stability source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "99c2b9dd-9b34-4641-8d2a-cd0b6e4b8ab6",
+  "value": {
+    "rationale": "Local L2 projection onto linear finite-element spaces is a standard numerical operation, and positivity is a basic structural constraint. The theorem gives a complete sharp diagnosis on the elementary building block: exact negative excursion, exact L-infinity norm, explicit extremizer, strict-positive failure, shape independence, and linear dimension growth. The defect exceeding the entire input amplitude in three dimensions is a substantive design and testing fact.",
+    "status": "PASS"
+  }
+}
