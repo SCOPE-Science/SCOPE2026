@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The alternating empirical innovation is exact. A2Grad-uni follows by Cesàro convergence. A2Grad-inc telescopes to an exact quadratically weighted sum whose normalized second moment tends to \\(G^2/3\\). A2Grad-exp is a stable exponential filter of a forcing sequence tending to \\(G^2\\), followed by a bounded monotone envelope, so its envelope tends to \\(G^2\\). The source \\(\\gamma_k=O(k^{-1})\\) term is negligible relative to all three \\(h_k=\\Theta(\\sqrt{k})\\) scales, yielding the stated step constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves optimal-order convergence bounds for a general family of weighted adaptive scales.",
+        "The source separately derives uniform, quadratic incremental, and exponential variants and compares them experimentally.",
+        "Those convergence bounds do not determine the exact response constants on a deterministic alternating innovation."
+      ],
+      "reasoning": "Worst-case stochastic convergence rates are compatible with distinct constant-factor frequency responses. The final claim requires solving the practical innovation sequence and the three specific recurrences, so it is not implied by the source rate theorem.",
+      "searches": [
+        "A2Grad paper adaptive accelerated stochastic optimization",
+        "A2Grad practical heuristic gradient minus empirical average periodic gradient",
+        "A2Grad quadratic weight moving average convergence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.00553v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithms 4--6 supply the exact scale recurrences used in the proof.",
+        "Algorithm 7 supplies the practical adaptive x-update.",
+        "The practical parameter-estimation paragraph defines the empirical running mean and innovation.",
+        "The source states that earlier incremental weights decay quadratically but gives no alternating-input asymptotic constant."
+      ],
+      "reasoning": "The final statement is not a restatement of the source definitions: it requires an exact solution of the practical innovation, telescoping the incremental recurrence, analyzing the exponential envelope, and comparing the resulting denominator asymptotics.",
+      "searches": [
+        "arXiv:1810.00553v1 Algorithm 4 A2Grad-uni",
+        "arXiv:1810.00553v1 Algorithm 5 A2Grad-inc quadratic weight",
+        "arXiv:1810.00553v1 Algorithm 6 A2Grad-exp",
+        "arXiv:1810.00553v1 practical implementation empirical mean delta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper gives the practical empirical-mean innovation and all three scale recurrences.",
+        "The full text describes the incremental rule as quadratically weighting recent innovations but does not compute a periodic-input response.",
+        "Published-record searches returned no A2Grad result stating the same asymptotic scale constants or inner-step ratio."
+      ],
+      "reasoning": "Equivalent formulations include a period-two frequency response, an asymptotic scale ratio of \\(1/\\sqrt{3}\\), and an adaptive-step ratio of \\(\\sqrt{3}\\). None is stated in the inspected source or returned literature.",
+      "searches": [
+        "A2Grad alternating gradient empirical mean delta quadratic weighted accumulator sqrt 3",
+        "A2Grad-inc high frequency alternating gradient uniform exponential moving average",
+        "arXiv:1810.00553v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concerned other quadratic stability frontiers, adaptive-gradient persistence, stochastic-feedback thresholds, and polynomial first-order methods.",
+        "No returned record used the A2Grad empirical innovation together with its three named moving-average variants."
+      ],
+      "reasoning": "The closest database records have different update maps and do not imply the A2Grad square-root-of-three constant. Search absence is supporting evidence only and is combined with direct full-text source inspection.",
+      "searches": [
+        "A2Grad adaptive accelerated gradient exact quadratic stability",
+        "A2Grad optimizer scalar quadratic momentum recurrence",
+        "A2Grad paper adaptive accelerated stochastic optimization",
+        "A2Grad alternating gradient empirical mean delta quadratic weighted accumulator sqrt 3",
+        "A2Grad-inc high frequency alternating gradient uniform exponential moving average",
+        "A2Grad practical heuristic gradient minus empirical average periodic gradient"
+      ]
+    },
+    "rationale": "The defining source presents all three moving-average schemes and calls the nonuniform weighting aggressive, but does not state a period-two response or the exact square-root-of-three separation. Focused published-record searches returned no A2Grad result with the same signal, parameters, or implication. Closest own alternating-gradient findings analyze different optimizers and different state recurrences.",
+    "residual_risks": [
+      "An equivalent short frequency-response calculation may exist in unindexed implementation notes.",
+      "The input is an idealized alternating signal rather than a fixed-objective gradient trajectory.",
+      "Implementations may modify indexing or numerical safeguards relative to the displayed source algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCES_NOT_COVERING_PERIOD_TWO_SCALE_CONSTANTS.",
+        "evidence": "The paper supplies all recurrences and describes the incremental weighting as aggressive, but no period-two input analysis or exact square-root-of-three scale separation was found.",
+        "identifier_or_url": "arXiv:1810.00553v1",
+        "material_read": "Full open-access paper, including Algorithms 2--7, Theorem 2, Corollaries 1--2, the uniform-versus-nonuniform moving-average discussion, exponential moving-average discussion, practical implementation rewrite, parameter-estimation heuristic, experiments, and conclusion.",
+        "method": "Full-text PDF inspection with visual inspection of the moving-average algorithm pages and practical-heuristic page.",
+        "title": "Optimal Adaptive and Accelerated Stochastic Gradient Descent",
+        "trigger": "Defining source for A2Grad, its three adaptive-scale variants, source schedule, practical x-update, and empirical innovation heuristic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "39646841-fce0-4238-bf2c-e89c04d451cd",
+  "value": {
+    "rationale": "The source explicitly presents the quadratic-weight incremental average as a distinctive, more aggressive moving-average design. The theorem assigns that design a sharp, interpretable high-frequency constant: it yields exactly a square-root-of-three larger asymptotic adaptive inner step than the two companion variants. This compares all three source variants on the same canonical signal and isolates a concrete behavioral consequence of the paper's main moving-average innovation.",
+    "status": "PASS"
+  }
+}
