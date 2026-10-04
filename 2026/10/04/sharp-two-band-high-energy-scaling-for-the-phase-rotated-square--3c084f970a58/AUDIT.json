@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "From the exact published secular coefficients, the Bloch condition is solved for \\(Q\\in[-2,2]\\). Under \\(k=N_n+x/N_n\\), the exact quotient converges uniformly away from \\(x=0\\) to \\((-1)^n(\\sin(2\\mu)\\ell x/2-2\\sin(2\\mu)/(\\ell x)-2\\cos(2\\mu))\\) with \\(O(N_n^{-2})\\) error. The limiting function is strictly monotone on each half-line and has four simple roots at the claimed half-angle expressions. Implicit-function stability gives four exact edges with \\(O(n^{-2})\\) error. Finite bisection replay of the exact equation agrees and is explicitly treated only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1710.02664v1 treats the endpoint \\(U=R\\), with flat bands at \\(k=n\\pi/\\ell\\) and a different asymptotic structure.",
+        "DOI:10.1007/s00023-025-01574-y concerns finite-graph eigenvalue optimization, not periodic square-lattice local band edges.",
+        "arXiv:2409.03538 concerns a hexagonal lattice with a different coupling/geometry and does not specialize to the phase-rotated square model."
+      ],
+      "reasoning": "The broader preferred-orientation literature changes the coupling endpoint, graph geometry, or spectral question. None gives a theorem whose specialization yields the four fixed-\\(\\mu\\) square-lattice edge constants.",
+      "searches": [
+        "Quantum graphs self-adjoint PT symmetry citations square lattice high energy",
+        "preferred orientation square lattice high energy band spectrum Exner Tater",
+        "Optimization Quantum Graph Eigenvalues Preferred Orientation vertex conditions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.04708v1",
+      "DOI:10.1016/j.physleta.2021.127669",
+      "arXiv:1710.02664v1",
+      "DOI:10.1016/j.physleta.2017.11.028",
+      "DOI:10.1103/PhysRevLett.111.130404",
+      "DOI:10.1007/s00023-025-01574-y",
+      "arXiv:2409.03538"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2108.04708v1 gives an exact quartic Floquet condition and then a coarse displacement/width estimate near \\(n\\pi/\\ell\\); obtaining the present result requires a singular scaling that retains the \\(k^4\\sin^2(k\\ell)\\) term at the same leading order as the \\(k^2\\) and \\(k^3\\sin(k\\ell)\\) terms.",
+        "arXiv:1710.02664v1 gives the \\(\\mu=0\\) endpoint condition, where the central flat band makes the local topology different."
+      ],
+      "reasoning": "The prior high-energy statement does not directly imply the two-band limit: the decisive scaled equation is quadratic in the local coordinate and must be solved before the two components and their four roots appear. The endpoint theorem is not a specialization covering interior \\(\\mu\\).",
+      "searches": [
+        "arXiv:2108.04708 equations 20 24 high energy band width",
+        "arXiv:1710.02664 square lattice high energy gap width"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.04708v1, equations (20)--(25): exact secular polynomial and coarse high-energy localization, without the four half-angle edge constants.",
+        "No matching semantic-search record was returned for the exact source identifier together with the four-edge/tan-half-angle formulation; the closest records concerned unrelated spectral operators."
+      ],
+      "reasoning": "The natural equivalent formulation is the Hausdorff limit of the translated local spectrum. The same source does not state that limit, and exact-formula searches for \\(\\tan(\\mu/2)\\), \\(\\cot(\\mu/2)\\), and the source identifier did not reveal an equivalent published statement.",
+      "searches": [
+        "arXiv:2108.04708 square lattice high-energy local two-band edges e^{i mu} R tan(mu/2) cot(mu/2)",
+        "Exner Tater 2108.04708 sharp band edges high energy square lattice",
+        "quantum graph square lattice asymptotic band edges tan(mu/2) cot(mu/2)",
+        "sec mu + tan mu quantum graph",
+        "2108.04708 cot(mu/2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web searches returned no quantum-graph table or formula matching the four edge constants.",
+        "The relevant source figures plot spectra numerically but do not tabulate the asymptotic local edge constants."
+      ],
+      "reasoning": "The claim is not a recomputation of a known tabulated invariant; it resolves asymptotic edges that are left implicit in the secular equation.",
+      "searches": [
+        "sec mu + tan mu quantum graph",
+        "cot(mu/2) quantum graph square lattice",
+        "2108.04708 cot(mu/2)",
+        "2108.04708 sec tan spectrum"
+      ]
+    },
+    "rationale": "The source states the exact Floquet polynomial and a coarse high-energy localization/width estimate, but not the two-band scaled limit or the four exact leading energy edges. The nearest endpoint theorem concerns \\(U=R\\), where flat bands remain, and does not imply the fixed-interior-parameter result.",
+    "residual_risks": [
+      "A mathematically equivalent asymptotic edge law may exist under different terminology for circulant quantum-graph couplings and may not have been retrieved by title/keyword search.",
+      "The result is derived from a published exact secular equation; its originality therefore rests on the unstated singular-scaling analysis and exact root resolution, not on a new underlying operator model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_NON_COVERING_BUT_DECISIVE: supplies the exact equation used in the proof and a coarse asymptotic discussion, but not the two-band scaled limit or four closed edge constants.",
+        "evidence": "Equations (20)--(21) give the quartic Bloch condition; equations (24)--(25) discuss high-energy width and zero energy-density for fixed interior \\(\\mu\\).",
+        "identifier_or_url": "arXiv:2108.04708v1",
+        "material_read": "Full preprint metadata and the complete square-lattice spectral analysis around equations (18)--(26), including the positive high-energy discussion and figures.",
+        "method": "Read the arXiv PDF text and inspected the rendered pages containing equations (12)--(26).",
+        "title": "Quantum graphs: self-adjoint, and yet exhibiting a nontrivial PT-symmetry",
+        "trigger": "Same square lattice, same phase-rotated circulant coupling, and exact Bloch secular equation."
+      },
+      {
+        "assessment": "NOT_COVERING: endpoint \\(\\mu=0\\) has flat bands at the centers and a different high-energy topology.",
+        "evidence": "The paper explicitly factors a flat-band branch at \\(k=n\\pi/\\ell\\) and gives endpoint gap asymptotics.",
+        "identifier_or_url": "arXiv:1710.02664v1",
+        "material_read": "Square-lattice section containing the exact condition (11), flat-band statement, and high-energy gap discussion.",
+        "method": "Read the arXiv PDF text and inspected the rendered square-lattice page.",
+        "title": "Quantum graphs with vertices of a preferred orientation",
+        "trigger": "Endpoint \\(U=R\\) on the same square lattice is the closest parameter specialization."
+      },
+      {
+        "assessment": "NOT_COVERING: studies finite metric graphs and eigenvalue optimization/bounds rather than periodic Bloch bands.",
+        "evidence": "Its abstract states optimization for star graphs and eigenvalue bounds for finite metric graphs.",
+        "identifier_or_url": "DOI:10.1007/s00023-025-01574-y",
+        "material_read": "Open-access abstract, scope statement, and references relevant to preferred-orientation couplings.",
+        "method": "Inspected the publisher's open-access article page.",
+        "title": "Optimization of Quantum Graph Eigenvalues with Preferred Orientation Vertex Conditions",
+        "trigger": "Later paper citing the same preferred-orientation framework could in principle contain a stronger general theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c084f97-0a58-4bc3-b91b-dd169dae3aac",
+  "value": {
+    "rationale": "The source emphasizes that the high-energy behavior is nonuniform in \\(\\mu\\), but its stated estimate does not resolve the local band geometry. The four exact constants identify two separate branches, quantify their asymmetric endpoint blow-up, and show parity independence of the spectral set despite parity exchange of Bloch corners. This is a natural structural refinement of the model rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
