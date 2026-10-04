@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every s>=0, the zonotope volume formula makes each of the four volumes affine in s because only one generator is scaled. Exact maximal-minor enumeration gives coefficient pairs (4,10), (12,18), (8,18), and (24,32). Direct multiplication yields defect 4s(2-s), whose sign gives the complete parameter classification. The packaged integer-arithmetic checker recomputes the coefficients from the displayed vectors and confirms the source point s=1. The lift to higher dimensions is a Cartesian product with a unit cube, so volumes are unchanged. No finite experiment is used to infer an infinite-parameter statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Averkov--von Dichter--Soprunov, arXiv:2608.14909v1, introduction: the original conjecture fails for n>=4 and m>=n+2, while a different partial-polymatroid inequality is proposed and proved in dimension four.",
+        "Fradelizi--Hubard--Manui--Ndiaye--Wang--Zvavitch, arXiv:2608.12681v1: the sharp positive regime is min(n,m-n)<=3, with counterexamples beyond it.",
+        "Sra, arXiv:2608.29595v1: records multiple discrete zonoid counterexamples, including the Skorupinski volume vector, and says violations are not isolated."
+      ],
+      "reasoning": "These results dominate broad existence and threshold questions but not the present exact deformation question. Qualitative non-isolation does not determine the maximal failure interval or the second equality/restoration threshold.",
+      "searches": [
+        "Volume and Projection Inequalities I Zonoids Courtade conjecture Skorupinski",
+        "On the Log-submodularity for zonoids Mixed Volume Hypercube Skorupinski",
+        "GPT the Counterexample Machine zonoid log-submodularity Skorupinski"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.07702v1",
+      "arXiv:2608.14909v1",
+      "arXiv:2608.12681v1",
+      "arXiv:2608.29595v1",
+      "arXiv:2206.02123",
+      "Published-findings index results returned by the recorded semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves equality after removing h and failure at h with unit scale; two point-values do not imply the sign on an interval or the second equality at scale 2.",
+        "General Rayleigh theory says whether the inequality is universally valid for a volume polynomial or class; it does not determine this ray-specific quadratic without evaluating its coefficients."
+      ],
+      "reasoning": "The new conclusion is not a corollary of the source endpoint statements: many quadratics agree at s=0 and s=1 but have different later signs. The determinant-coefficient computation is the load-bearing new step.",
+      "searches": [
+        "Skorupinski 2608.07702 special column h removed equality appended h volume 14 56 30 26",
+        "Rayleigh zonotope volume polynomial generator scaling log-submodularity threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Skorupinski, arXiv:2608.07702v1, Proposition 2.1 and Section 3: unit-scale counterexample and deleted-generator equality.",
+        "Fradelizi et al., arXiv:2608.12681v1: log-submodularity is equivalent to a Rayleigh inequality for zonotope volume polynomials.",
+        "Fradelizi et al., arXiv:2206.02123: equivalences with local mixed-volume, local Loomis-Whitney, and projection-volume statements."
+      ],
+      "reasoning": "The Rayleigh formulation is equivalent at the level of the target inequality, so it was explicitly checked. It explains why the defect is a polynomial in generator weights but does not supply the four coefficients or the roots 0 and 2 for this particular scaling ray.",
+      "searches": [
+        "zonoid volumes are not log-submodular Skorupinski scaled generator",
+        "Skorupinski counterexample phase transition scaling generator",
+        "zonotope log-submodularity defect 4 s 2-s",
+        "14 30 26 56 zonoid scale parameter",
+        "unimodular equality 2-modular zonoid interpolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact-formula search returned the coefficient quadruple 4+10s, 12+18s, 8+18s, 24+32s or the factor 4s(2-s).",
+        "Skorupinski Section 3 tabulates only the s=1 determinant counts and volumes 14,30,26,56; the s=0 equality is described structurally."
+      ],
+      "reasoning": "The exact coefficient and threshold searches targeted the formulas rather than titles. Failure to find them is not by itself a novelty proof, but together with full-text inspection of the source and related preprints it leaves no identified covering statement.",
+      "searches": [
+        "\"4+10s\" \"log-submodularity\" zonoid",
+        "\"4+10 t\" zonotope volume Skorupinski",
+        "\"s=2\" \"Skorupinski\" zonoid",
+        "\"scaled\" \"Zonoid volumes are not log-submodular\""
+      ]
+    },
+    "rationale": "The closest source fixes the special generator at unit scale and separately notes the deleted-generator equality endpoint. The new statement computes the entire scaling ray, locates a second exact equality at s=2, and proves strict restoration for all s>2. Closely related 2026 papers give Rayleigh/generator-count structure, alternative inequalities, and qualitative abundance of counterexamples, but the inspected material does not state or imply this exact sign diagram without computing this specific Rayleigh defect.",
+    "residual_risks": [
+      "An unindexed or not-yet-public note may contain the same one-parameter computation; bounded searches cannot prove global absence.",
+      "Full text of arXiv:2608.12681v1 was not available through the inspected HTML route, so comparison there relies on its primary abstract and a detailed public review; the more directly relevant Skorupinski and Averkov--von Dichter--Soprunov papers were inspected in full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the scaled phase diagram. It gives s=0 structurally and s=1 numerically, but no continuous scale parameter, second equality, or s>2 restoration.",
+        "evidence": "Section 3 defines h=d12-e3, V=(e1,e2,e3,d24,d34,h), w=d14, w-prime=d23; it reports 14*56>30*26 and notes deleting h returns to equality.",
+        "identifier_or_url": "arXiv:2608.07702v1",
+        "material_read": "Proposition 2.1, Section 3 definitions of h,V,w,w-prime, the deleted-h equality paragraph, determinant-count table, and dimensional lift.",
+        "method": "Full-text reading of a lawful open-access copy.",
+        "title": "Zonoid volumes are not log-submodular",
+        "trigger": "Same vectors, same inequality, and the exact unit-scale witness."
+      },
+      {
+        "assessment": "NOT_COVERING. It proves a different log-submodularity-type inequality and discusses the sharp generator-count boundary, not this deformation.",
+        "evidence": "The introduction states failure of the original conjecture for n>=4 with m>=n+2 and then replaces it by a partial-polymatroid inequality; no scaled Skorupinski family was found.",
+        "identifier_or_url": "arXiv:2608.14909v1",
+        "material_read": "Introduction through the stated contributions, generator-count discussion, and the citation of Skorupinski; exact-string searches for the Skorupinski volumes, 2-modularity, and a scale parameter.",
+        "method": "Full-text reading of a lawful open-access copy plus targeted in-document search.",
+        "title": "On the Log-submodularity for zonoids: from Mixed Volume inequalities to the Hypercube",
+        "trigger": "Direct follow-up on the same failed conjecture, citing Skorupinski."
+      },
+      {
+        "assessment": "NOT_COVERING, with limited full-text access. The general framework does not state this exact one-coordinate sign diagram.",
+        "evidence": "The primary abstract states equivalence with the Rayleigh property and sharp counterexamples beyond degree/codegree three.",
+        "identifier_or_url": "arXiv:2608.12681v1",
+        "material_read": "Primary abstract and detailed public review of the Rayleigh equivalence, sharp degree/codegree threshold, and explicit counterexamples.",
+        "method": "Primary abstract inspection supplemented by a detailed public review because a full HTML copy was not available in the inspected source.",
+        "title": "Volume and Projection Inequalities I: Zonoids and Courtade's Conjecture",
+        "trigger": "Independent same-conjecture paper with a general Rayleigh formulation."
+      },
+      {
+        "assessment": "NOT_COVERING. It reports discrete alternative witnesses and qualitative non-isolation, not the exact scaled interval or root at 2.",
+        "evidence": "The text records Skorupinski volume vector (14,30,26,56) and says random search found many violating configurations.",
+        "identifier_or_url": "arXiv:2608.29595v1",
+        "material_read": "The zonoid counterexample scope paragraph and exact-string searches around the Skorupinski volume vector.",
+        "method": "Full-text HTML inspection.",
+        "title": "GPT, the Counterexample Machine",
+        "trigger": "Later paper explicitly discusses Skorupinski and non-isolation of zonoid violations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "75844497-da3f-49e5-89b5-90bfcd3f3d1f",
+  "value": {
+    "rationale": "This is a natural complete classification along the unique special-generator deformation singled out by the source: s=0 is its unimodular equality endpoint and s=1 its minimal six-generator counterexample. The exact factor 4s(2-s) supplies a sharp robustness window, a second non-obvious equality at s=2, and re-entry into the valid regime for larger scale. That boundary information is structurally useful for understanding how the minimal generator-count failure depends on generator magnitude, rather than being a routine recomputation of the published point.",
+    "status": "PASS"
+  }
+}
