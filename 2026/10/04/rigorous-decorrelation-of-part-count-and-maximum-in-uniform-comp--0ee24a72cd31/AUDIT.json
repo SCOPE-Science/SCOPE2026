@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Uniform compositions are exactly fair cut strings. Conditioning on S=s makes the cut set a uniform s-subset; adding a uniformly chosen absent cut produces a uniform (s+1)-subset and can only shorten the longest zero run. The exact single-coordinate Bernoulli covariance gives the influence identity. For a unique longest run, the total decrement is at most floor((L+1)^2/4), and a union bound on run starts yields E(L+1)^2<=m^2+4m+6. Classical longest-run variance asymptotics then imply the correlation rate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Philippou--Makri derive an exact formula for the conditional distribution of longest run given success count.",
+        "Schilling gives detailed exact and asymptotic theory for the longest run, including its near-constant variance.",
+        "Finch studies exactly number of parts versus maximum part in a uniform composition and explicitly requests a rigorous convergence-to-zero argument.",
+        "Archibald--Knopfmacher is primary-classified 60C05 and develops archive probability theory for geometric-sample extremes closely related to random-composition part sizes."
+      ],
+      "reasoning": "The conditional-distribution source is broader than the present work for exact finite tables, and the longest-run source is broader for the marginal extreme. Neither supplies the accepted coordinate-influence representation or the quantitative composition correlation bound.",
+      "searches": [
+        "DOI:10.1016/0167-7152(86)90025-8",
+        "DOI:10.1080/07468342.1990.11973306",
+        "arXiv:2010.06643",
+        "DOI:10.1017/S096354831400011X"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/0167-7152(86)90025-8",
+      "DOI:10.1080/07468342.1990.11973306",
+      "arXiv:2010.06643",
+      "DOI:10.1017/S096354831400011X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1986 conditional formula determines the finite joint distribution in principle but does not itself state or bound the covariance asymptotically.",
+        "Finch's 2020 paper is the exact same composition pair and leaves rigorous decorrelation as an open request.",
+        "Schilling's variance formula controls only the marginal denominator needed after the new covariance bound is proved.",
+        "The checked own ledgers contain no uniform integer-composition part-count/maximum finding."
+      ],
+      "reasoning": "The accepted conclusion is not a mere restatement of the conditional probability formula: it uses a new slice coupling and an influence estimate to obtain a simple all-N dependence theorem and a quantitative asymptotic rate.",
+      "searches": [
+        "Philippou Makri conditional distribution longest run given successes",
+        "Finch Covariance within Random Integer Compositions rigorous treatment",
+        "Schilling longest run variance",
+        "own ledger composition maximum part covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record semantic searches returned no matching theorem for a uniform composition part-count/maximum correlation rate.",
+        "Web searches located the exact Bernoulli conditional-run literature and Finch's same-object numerical study, but no influence decomposition or rigorous decorrelation bound."
+      ],
+      "reasoning": "The searches covered composition, Bernoulli-run, conditional-distribution, covariance, stochastic-order, and asymptotic-independence formulations. The novelty comparison relies primarily on full source inspection rather than on failed search.",
+      "searches": [
+        "random composition number of parts maximum part covariance stochastic monotonicity",
+        "uniform random composition maximum part conditional on number of parts",
+        "random integer composition longest part number of parts covariance",
+        "number of successes longest run covariance Bernoulli",
+        "longest run number of heads covariance",
+        "random composition maximum part number parts asymptotic independence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula or database record matching the influence identity or the O((log N)^2/sqrt(N)) correlation bound was located."
+      ],
+      "reasoning": "The theorem is all-N and analytic; exhaustive bit-string enumeration is supplementary verification, not a finite census presented as novelty.",
+      "searches": [
+        "\"number of parts\" \"maximum part\" random composition correlation",
+        "\"longest run\" \"number of successes\" covariance",
+        "\"Cov\" longest run successes Bernoulli",
+        "\"asymptotic independence\" maximum part number parts composition"
+      ]
+    },
+    "rationale": "The 1986 Bernoulli-run paper gives the exact conditional distribution of longest run given the number of successes, so that fact is treated as prior. The closest same-object composition paper from 2020 computes mixed moments numerically/recursively and explicitly leaves a rigorous proof of rho(N)->0 open. No inspected source states the influence identity or the resulting root-N polylogarithmic correlation bound.",
+    "residual_risks": [
+      "The exact conditional distribution from 1986 could make stochastic monotonicity derivable by algebra even though it is not stated in the inspected text.",
+      "Older run-statistics literature may contain an unstated covariance estimate stronger than the searched formulations.",
+      "No matching lower asymptotic is proved, so the exact decay order of the covariance remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_CONDITIONAL_DISTRIBUTION_PRIOR_NOT_INFLUENCE_OR_DECORRELATION_BOUND",
+        "evidence": "The paper derives explicit conditional probabilities for longest run given success count but does not state the accepted influence identity or a correlation-decay theorem.",
+        "identifier_or_url": "DOI:10.1016/0167-7152(86)90025-8",
+        "material_read": "Public author-uploaded full text, especially the introduction and Section 3, Lemma 3.1 and Theorem 3.2 on P(L_n<=k | S_n=r).",
+        "method": "Compared the exact conditional object and stated consequences with the monotone coupling, covariance influence identity, and asymptotic bound.",
+        "title": "Successes, runs and longest runs",
+        "trigger": "Direct predecessor giving the conditional distribution of longest run given total successes."
+      },
+      {
+        "assessment": "MARGINAL_LONGEST_RUN_THEORY_NOT_MIXED_COVARIANCE",
+        "evidence": "The source gives the classical longest-run variance asymptotic and logarithmic scale; the inspected treatment does not analyze covariance with the total number of successes.",
+        "identifier_or_url": "DOI:10.1080/07468342.1990.11973306",
+        "material_read": "Full 13-page public PDF, including the expectation-and-variance section and the displayed asymptotic variance formula with tiny periodic correction.",
+        "method": "Checked the fair-coin longest-run normalization and whether any mixed statistic with total heads/successes is developed.",
+        "title": "The Longest Run of Heads",
+        "trigger": "Primary marginal source for the longest-run variance needed in the correlation denominator."
+      },
+      {
+        "assessment": "SAME_OBJECT_NUMERICAL_RECURRENCE_WITH_EXPLICIT_RIGOROUS_GAP",
+        "evidence": "The paper identifies number of parts with the bit count and maximum part with longest zero run plus one, reports negative correlations, and explicitly states that a rigorous proof of convergence to zero would be welcome.",
+        "identifier_or_url": "arXiv:2010.06643",
+        "material_read": "Full public HTML through the introduction, unrestricted-bitstring representation, mixed-moment recursion, and discussion of the correlation limit.",
+        "method": "Compared its finite recurrences and numerical conclusions with the accepted monotone coupling and analytic rate.",
+        "title": "Covariance within Random Integer Compositions",
+        "trigger": "Exact same pair of statistics: number of parts and maximum part in a uniform composition."
+      },
+      {
+        "assessment": "PRIMARY_60C05_CONTEXT_SOURCE",
+        "evidence": "The publisher record explicitly lists Primary 60C05 and studies geometric-sample extreme statistics.",
+        "identifier_or_url": "DOI:10.1017/S096354831400011X",
+        "material_read": "Publisher abstract, bibliographic information, and classification showing Primary 60C05.",
+        "method": "Used only for classification ownership and contextual comparison, not for noncoverage of the main claim.",
+        "title": "The Largest Missing Value in a Sample of Geometric Random Variables",
+        "trigger": "Archive probability source verifying primary 60C05 ownership for geometric-sample extreme statistics closely connected to random compositions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ee24a72-cd31-411a-867a-bfcde132f713",
+  "value": {
+    "rationale": "Part count and largest part are canonical statistics of a uniform composition, and a later same-object study explicitly requested a rigorous proof of asymptotic decorrelation. The result gives a strong stochastic-regression statement, an interpretable coordinate-influence formula, and a quantitative rate sufficient to settle that qualitative question.",
+    "status": "PASS"
+  }
+}
