@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the shortest-path interval operator exactly: cross-part pairs are adjacent and add nothing, while same-part pairs add every vertex outside that part. A complete case split by the number of non-singleton parts then proves the hull criterion, enumerator, minimal sets, and scalar consequence. The bundled verifier independently reconstructs graph distances and iterates the literal interval closure for every subset of every complete-multipartite profile through order nine, matching all formulas. The finite check supports but does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araujo et al. state polynomial-time cograph hull-number computation; Kante and Nourine prove a linear-time minimum-hull algorithm for distance-hereditary graphs."
+      ],
+      "reasoning": "These are broader algorithmic classes and cover the scalar optimization problem, but an algorithm for finding/listing optima does not itself state the closed parametric description of all hull subsets and their cardinality distribution. The new claim is narrowed to that structural/counting content.",
+      "searches": [
+        "cograph hull number algorithm",
+        "distance-hereditary minimum hull set",
+        "complete multipartite hull number convexity"
+      ]
+    },
+    "checked_sources": [
+      "HAL:inria-00576581 (repository record, public date 2011-09-13)",
+      "doi:10.1016/j.tcs.2012.12.035 (full author-hosted article inspected)",
+      "doi:10.1137/15M1013389 (publisher metadata and full author-hosted manuscript inspected)",
+      "research-index searches for complete multipartite hull/geodetic-hull aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text search of Araujo et al. found no 'multipartite' occurrence; full-text search of Kante–Nourine found neither 'multipartite' nor 'complete bipartite'. Araujo et al. explicitly cover cograph hull-number algorithms, so the scalar consequence is prior-covered in algorithmic form."
+      ],
+      "reasoning": "The prior results can compute a minimum hull set on this family and generic methods can enumerate minimal hull sets, but they do not imply the displayed closed all-set formula without an additional family-specific derivation. The final claim therefore excludes the scalar optimization result from its originality-bearing core.",
+      "searches": [
+        "On the hull number of some graph classes complete multipartite",
+        "Polynomial Time Algorithms minimum hull set multipartite complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected literature uses hull set, geodetic hull, shortest-path hull, SPG-hull, and geodetic convexity as the relevant equivalent terminology."
+      ],
+      "reasoning": "The claim was compared under the standard aliases for iterated shortest-path convex closure. No alternative formulation located in the inspected sources stated the same complete-multipartite all-set criterion.",
+      "searches": [
+        "complete multipartite hull sets geodetic convexity hull number",
+        "complete multipartite hull number convexity",
+        "complete multipartite geodesic hull sets polynomial",
+        "complete bipartite hull number geodesic",
+        "On the hull number of some graph classes cographs hull number join union theorem",
+        "geodesic convexity complete multipartite hull"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact complete-multipartite hull-set table or cardinality enumerator was returned by the checked research index or web searches; the closest indexed results concern other geodetic variants or generic hull algorithms."
+      ],
+      "reasoning": "Absence from search is not treated as proof of novelty; it only lowers the risk after stronger implication comparisons and full-text inspection.",
+      "searches": [
+        "complete multipartite hull sets geodetic convexity hull number",
+        "complete multipartite geodesic hull sets polynomial",
+        "complete bipartite hull number geodesic"
+      ]
+    },
+    "rationale": "The originality-bearing statement is the explicit classification of every hull set and its closed size enumerator. Prior cograph and distance-hereditary work gives generic optimization/enumeration algorithms and therefore covers the minimum-hull task in principle, but the inspected sources do not state the arbitrary complete-multipartite symbolic characterization or polynomial. The scalar hull number is excluded from the novelty claim.",
+    "residual_risks": [
+      "An obscure or poorly indexed earlier family-specific formula may use different convexity terminology.",
+      "Generic algorithms for listing minimal hull sets determine finite instances computationally; the claimed contribution is the explicit symbolic classification and cardinality enumerator, not computability itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers hull-number computation for cographs and broader classes but does not state a complete-multipartite all-set classification or size enumerator. Because complete multipartite graphs are cographs, its scalar optimization coverage is treated as prior art.",
+        "evidence": [
+          "The full text states that hull number of a cograph can be computed in polynomial time and develops broader algorithmic results; no occurrence of 'multipartite' was found."
+        ],
+        "identifier_or_url": "doi:10.1016/j.tcs.2012.12.035; HAL:inria-00576581",
+        "material_read": "Full 12-page author-hosted article, including abstract/introduction and the section on graphs with few induced four-vertex paths.",
+        "method": "Full-text keyword searches for cograph, multipartite, and minimum hull, followed by inspection of the decomposition/algorithm section.",
+        "title": "On the hull number of some graph classes",
+        "trigger": "Closest cograph/hull-number algorithmic coverage and an older public archive anchor."
+      },
+      {
+        "assessment": "Provides generic minimum-hull algorithms and the same geodetic-hull definition, but no family-specific complete-multipartite statement or enumerator was found.",
+        "evidence": [
+          "The manuscript defines the shortest-path hull operator and proves a linear-time minimum-hull algorithm for distance-hereditary graphs; searches found no 'multipartite' or 'complete bipartite' occurrence."
+        ],
+        "identifier_or_url": "doi:10.1137/15M1013389; https://perso.isima.fr/~lhnourin/Documents/KanteNourineHullSet12.pdf",
+        "material_read": "Full 15-page author-hosted manuscript, including the shortest-path hull definitions and the distance-hereditary theorem.",
+        "method": "Full-text inspection and searches for multipartite, complete bipartite, cograph, distance-hereditary, and minimal hull.",
+        "title": "Polynomial Time Algorithms for Computing a Minimum Hull Set in Distance-Hereditary and Chordal Graphs",
+        "trigger": "Potential broader distance-hereditary coverage, since complete multipartite graphs are distance-hereditary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "777cc97c-75e8-42a1-abbe-1ca6ecee9440",
+  "value": {
+    "rationale": "Geodetic hull sets are a standard convexity object, and complete multipartite graphs are a canonical graph family. The theorem classifies the full feasible-set family rather than only one optimum, gives all inclusion-minimal generators, and provides every cardinality coefficient in closed form. This is a natural exact structural result with immediate counting and sampling use, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
