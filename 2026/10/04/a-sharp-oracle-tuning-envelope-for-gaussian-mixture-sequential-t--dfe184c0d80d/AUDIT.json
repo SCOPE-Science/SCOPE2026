@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Equation (41) of arXiv:2310.03722 was inspected directly. After setting \\(x=c^2\\) and \\(t=T_{n-1}^2\\), exact algebra reduces the squared martingale to \\(x(n+x)^{n-1}(n-1+t)^n/[n(n-1)+(n-1+t)x]^n\\). Its log derivative has the sole sign factor \\(-(x(t-1)-n)\\), proving the optimizer and both boundary cases. Monotonicity in \\(t\\) and \\(n\\) and the Lambert-\\(W\\) limit are analytic. The packaged verifier reproduces representative identities and constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lindon et al. optimize expected log growth under a specified alternative and discuss MDE/default-prior tuning, a different objective from realized-statistic pointwise maximization.",
+        "Wang--Ramdas give asymptotic e-power and confidence-sequence tuning but do not derive the oracle fixed-time envelope."
+      ],
+      "reasoning": "The inspected stronger frameworks construct and analyze the same or broader classes of anytime-valid tests, but their stated tuning criteria do not imply the exact realized-statistic envelope without the additional optimization carried out here.",
+      "searches": [
+        "published-finding corpus: anytime valid t test Gaussian exact finite sample e value normal mean",
+        "published-finding corpus: sequential t test e process Student Gaussian exact",
+        "primary full text: Lindon et al. arXiv:2210.08589, Sections 4.3 and 4.3.1",
+        "primary full text: Wang--Ramdas arXiv:2310.03722, Theorem 4.9, equation (41), Proposition 4.10"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.03722",
+      "arXiv:2210.08589",
+      "doi:10.1080/07474946.2024.2428245",
+      "published-finding corpus:2026/9/20/SCOPE-pure-n-way-dependence-student-t-size-iid-gaussian-marginals--06f336863f9d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work proves validity of each fixed-precision member and gives alternative-based or confidence-width tuning prescriptions.",
+        "The present threshold follows only after maximizing equation (41) over all positive precisions for a fixed realized statistic; it is neither a corollary of one fixed tuning choice nor a restatement of the cited asymptotic e-power result."
+      ],
+      "reasoning": "The implication direction is one-way: the published formula is a premise for the new optimization, but the published validity and asymptotic results do not state the optimizer or tuning-independent finite-time rejection barrier.",
+      "searches": [
+        "Wang--Ramdas arXiv:2310.03722: equation (41), surrounding fixed-n discussion, and citation to Lindon et al.",
+        "Lindon et al. arXiv:2210.08589: mixture-hyperparameter tuning and expected-log-growth theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang--Ramdas equation (41) supplies the same martingale family but the inspected discussion only says that excessively small or large \\(c\\) loses fixed-time power.",
+        "No checked published-finding corpus hit stated the pointwise optimizer, envelope, or Lambert-\\(W\\) barrier."
+      ],
+      "reasoning": "The new statement is an exact optimization of the published family at a realized Student statistic. The algebraic optimizer and envelope were compared against direct formula aliases rather than title similarity.",
+      "searches": [
+        "published-finding corpus: Gaussian mixture t-test martingale optimal precision c observed t statistic envelope",
+        "published-finding corpus: scale invariant t-test martingale optimize c squared n over T squared minus one",
+        "web exact-form search: \"c^2 = n/(T^2-1)\" t-test martingale",
+        "web exact-form search: \"n/(t^2-1)\" e-value t-test"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record among returned results was 2026/9/20/SCOPE-pure-n-way-dependence-student-t-size-iid-gaussian-marginals--06f336863f9d, concerning robustness of the ordinary Student test under higher-order dependence, not precision tuning of this martingale family.",
+        "No prior own-ledger title or claim concerns this Gaussian-mixture t-martingale precision envelope."
+      ],
+      "reasoning": "Database comparison used the claim object, tuning parameter, Student-statistic representation, and optimizer aliases. The nearest returned records address different Student-test phenomena.",
+      "searches": [
+        "published-finding corpus: maximum over Gaussian mixture precision e value Student t",
+        "published-finding corpus: empirical Bayes tuning e value t test Gaussian prior precision",
+        "own ledger claim/title deduplication for the current probability-statistics middle ledger"
+      ]
+    },
+    "rationale": "The two closest primary sources establish the martingale and discuss tuning, but the inspected text does not state the realized-statistic optimizer, oracle envelope, or resulting precision-independent rejection barrier. Targeted published-finding corpus and exact-form searches found no equivalent statement. Residual alias risk from older Bayes-factor literature is retained.",
+    "residual_risks": [
+      "Older Bayes-factor, empirical-Bayes, or invariant-testing literature may contain an algebraically equivalent pointwise prior-precision maximization under different notation.",
+      "Search noncoverage is not a proof of global novelty; the claim is limited to the inspected literature and database evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_FORMULA_AND_NONCOVERING_OF_FINAL_CLAIM",
+        "evidence": "The paper states validity for every fixed \\(c>0\\) and notes that fixed-\\(n\\) evidence vanishes for \\(c\\) too small or too large, but gives no pointwise maximizing \\(c\\) or envelope/barrier formula.",
+        "identifier_or_url": "arXiv:2310.03722",
+        "material_read": "Theorem 4.9, equation (35), tuning discussion, equation (41), Proposition 4.10, and the comparison to Lindon et al.; equation (41) was also visually inspected in the PDF.",
+        "method": "Primary arXiv full-text inspection with formula reconstruction.",
+        "title": "Anytime-valid t-tests and confidence sequences for Gaussian means with unknown variance",
+        "trigger": "This paper states the exact Gaussian-mixture scale-invariant t-test martingale being optimized."
+      },
+      {
+        "assessment": "SAME_FAMILY_DIFFERENT_OPTIMIZATION_OBJECTIVE",
+        "evidence": "The paper tunes prior precision by alternative-distribution growth, MDE, and confidence-set width rather than by maximizing the realized fixed-time statistic over the entire precision family.",
+        "identifier_or_url": "arXiv:2210.08589",
+        "material_read": "Mixture-hyperparameter tuning discussion, expected-log-growth optimization theorem, MDE tuning, and g-prior/default tuning discussion.",
+        "method": "Primary arXiv full-text inspection.",
+        "title": "Anytime-Valid Linear Models and Regression Adjusted Causal Inference in Randomized Experiments",
+        "trigger": "Wang--Ramdas identify this as a concurrent derivation of the same one-dimensional martingale, so it is a decisive predecessor to inspect."
+      },
+      {
+        "assessment": "NO_RETURNED_EQUIVALENT",
+        "evidence": "Returned Student-t records concerned other phenomena; none stated the optimizer \\(c^2=n/(T^2-1)\\), the oracle envelope, or the barrier.",
+        "identifier_or_url": "published-finding corpus semantic index",
+        "material_read": "Ranked titles and summaries returned by the listed optimizer, e-value, and sequential t-test queries.",
+        "method": "Semantic database comparison of claims and implications.",
+        "title": "Published published-finding corpus corpus searches for Gaussian-mixture t-martingale tuning",
+        "trigger": "Required overlap search for equivalent formulations and stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dfe184c0-d80d-4033-bed7-302acec4d18f",
+  "value": {
+    "rationale": "The source papers identify the precision parameter as a genuine finite-time power/tightness choice. Maximizing over it gives a natural structural envelope for the whole family, a sharp precision-independent necessary threshold for rejection, and an explicit asymptotic barrier. The theorem also clarifies that oracle comparison is diagnostic rather than a license for post-hoc e-value tuning.",
+    "status": "PASS"
+  }
+}
