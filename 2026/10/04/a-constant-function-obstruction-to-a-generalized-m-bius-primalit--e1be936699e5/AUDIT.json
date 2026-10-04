@@ -1,0 +1,82 @@
+{
+  "correctness": {
+    "rationale": "For the admissible constant function f(m)=1, the recurrence reduces to star_f(n)=1-n-sum_{d=2}^{n-1} star_f(d). The base case n=2 is -1, and if all earlier values from 2 through n-1 equal -1, the sum is -(n-2), giving star_f(n)=-1. This proves the claim for every n>=2; n=4 is composite. The exact verifier reproduces the recurrence through n=10000 but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.25628v1 is the directly relevant primary source; no searched result supplied a stronger theorem resolving the quantifier issue."
+      ],
+      "reasoning": "Broader searches for generalized Möbius recurrences and prime characterizations returned unrelated prime-indicator results and generic Möbius material. None implied or subsumed the constant-one counterexample.",
+      "searches": [
+        "generalized Mobius star recurrence arbitrary arithmetic function f(1)=1 primality test theorem star(p)=-1 iff prime quantifier",
+        "\"A surprising generalization of the Möbius function\" arXiv 2609.25628"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25628v1",
+      "Current arXiv abstract page for 2609.25628",
+      "Exact-title and arXiv-identifier web searches",
+      "Semantic published-finding searches using the four recorded queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.25628v1 proves prime => star_f(prime)=-1 for every admissible f, but its composite argument only establishes failure of identity across the family of f; that does not imply the fixed-f converse. The constant-one f gives a direct incompatible consequence."
+      ],
+      "reasoning": "The prior theorem's forward implication is compatible with the finding. The literal converse is contradicted because an admissible single f maps every composite, including 4, to -1. The reverse proof's existential variation of f has weaker logical force and therefore does not cover this counterexample.",
+      "searches": [
+        "Andrews Kauffman Sahoo surprising generalization Mobius function star(n) f(floor(n/d)) prime characterization counterexample constant function f=1 composite star(n)=-1",
+        "generalized Mobius star recurrence arbitrary arithmetic function f(1)=1 primality test theorem star(p)=-1 iff prime quantifier",
+        "constant f=1 recurrence star(n)=1-n-sum star(d) gives star(n)=-1 all n composite counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.25628v1, abstract; Theorem 1; proof of reverse implication"
+      ],
+      "reasoning": "The counterexample is equivalently the statement that the constant-one specialization collapses the recurrence to the constant sequence -1 on all n>=2. Searches for both the theorem wording and this specialization found no equivalent published finding.",
+      "searches": [
+        "Andrews Kauffman Sahoo surprising generalization Mobius function star(n) f(floor(n/d)) prime characterization counterexample constant function f=1 composite star(n)=-1",
+        "constant f=1 recurrence star(n)=1-n-sum star(d) gives star(n)=-1 all n composite counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-value database or table is needed for this symbolic recurrence; direct searches by arXiv identifier and specialization returned the source paper but no tabulated prior counterexample."
+      ],
+      "reasoning": "The claim is an all-n algebraic identity, not an empirical table entry. Exact-source searches therefore serve only to check whether the same counterexample had already been published.",
+      "searches": [
+        "\"A surprising generalization of the Möbius function\" arXiv 2609.25628",
+        "constant f=1 recurrence star(n)=1-n-sum star(d) gives star(n)=-1 all n composite counterexample"
+      ]
+    },
+    "rationale": "The source paper states the fixed-form iff in its abstract and Theorem 1, while its reverse proof changes to nonidentity across all admissible f. Targeted title/identifier/recurrence searches and semantic published-finding searches found no source stating the constant-one collapse or this quantifier counterexample.",
+    "residual_risks": [
+      "A correction or later version published after the inspected v1 could repair the quantifier wording.",
+      "Searches cannot prove global bibliographic uniqueness; an older or differently indexed note could contain the same elementary counterexample."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The fixed-function iff is stated, but the reverse proof switches to the claim that a composite value is not identically -1 over all admissible f. The admissible constant-one function is not excluded and yields -1 for every n>=2.",
+        "evidence": "arXiv abstract: submitted 2026-09-22, primary MSC 11A25. Full text: recurrence in Eq. (1), Theorem 1, and reverse proof paragraphs beginning with the contrapositive.",
+        "identifier_or_url": "arXiv:2609.25628v1",
+        "material_read": "Abstract; recurrence definition and examples; Theorem 1; Proposition 1; full reverse-direction proof; references.",
+        "method": "Full experimental HTML text was inspected, with the abstract page used to verify first-public date and primary MSC.",
+        "title": "A surprising generalization of the Möbius function",
+        "trigger": "Direct source of the generalized recurrence and advertised primality criterion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1be9366-99e5-44b4-8244-54348e82d0ab",
+  "value": {
+    "rationale": "The counterexample directly invalidates the paper's advertised arbitrary-function primality-test interpretation, not a peripheral numerical claim. It isolates a precise quantifier error and the smallest composite witness, while the all-n constant-one collapse shows the obstruction is structural rather than an isolated exception. The distinction matters for any use of the recurrence as a primality criterion.",
+    "status": "PASS"
+  }
+}
