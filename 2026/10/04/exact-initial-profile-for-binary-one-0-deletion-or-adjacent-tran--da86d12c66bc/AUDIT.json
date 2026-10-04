@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite over all \\(2^n\\) binary words for each \\(1\\le n\\le7\\). Two independent channel-ball implementations agree on every word. Explicit witnesses establish the lower bounds, and exhaustive maximum-clique search with a sound greedy-coloring upper bound proves the matching upper bounds. The packaged verifier reproduces exactly \\(2,3,4,7,11,17,30\\), so no finite experiment is extrapolated beyond its checked domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.04806 gives asymptotic upper bounds for Damerau--Levenshtein code sizes and states asymptotic redundancy optimality up to an additive constant for the Wang--Vu--Tan setting.",
+        "The checked deletion-code results concern ordinary deletion channels and do not imply exact cardinalities for the asymmetric OR-channel."
+      ],
+      "reasoning": "Asymptotic redundancy bounds do not determine the exact maxima at \\(n\\le7\\), and ordinary deletion-only coverage does not dominate a channel that also includes adjacent transpositions.",
+      "searches": [
+        "arXiv:2507.04806",
+        "asymmetric Damerau Levenshtein single 0 deletion single adjacent transposition exact small lengths",
+        "codes correcting one 0-deletion or one adjacent transposition maximum size"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ITW54588.2022.9965921",
+      "arXiv:2301.11680",
+      "arXiv:2507.04806",
+      "Wang Vu Tan single 0-deletion adjacent transposition exact finite code size length 7 30",
+      "0-deletion adjacent transposition OR-channel exact profile 2 3 4 7 11 17 30",
+      "asymmetric Damerau Levenshtein single 0 deletion single adjacent transposition exact small lengths",
+      "codes correcting one 0-deletion or one adjacent transposition maximum size",
+      "\\\"single 0-deletion\\\" adjacent transposition exact maximum code size 30 51",
+      "asymmetric Damerau Levenshtein exact finite maximum binary code length 8 51",
+      "right-shift left-shift 0-deletion correcting code exact small parameters",
+      "binary codes correcting single 0-deletion or adjacent transposition finite exact"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI 10.1109/ITW54588.2022.9965921 gives a construction with redundancy \\(\\log n+2\\) bits for correcting a single \\(0\\)-deletion or a single adjacent transposition.",
+        "arXiv:2301.11680 expands the constructions but does not supply exact finite maxima for lengths \\(1\\) through \\(7\\).",
+        "arXiv:2507.04806 proves asymptotic upper bounds rather than the exact short-length profile."
+      ],
+      "reasoning": "A constructive redundancy bound and an asymptotic upper bound leave a finite exact maximum undetermined. None of the inspected prior theorems implies the seven exact clique numbers proved here.",
+      "searches": [
+        "doi:10.1109/ITW54588.2022.9965921",
+        "arXiv:2301.11680",
+        "arXiv:2507.04806",
+        "Wang Vu Tan single 0-deletion adjacent transposition exact finite code size length 7 30"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.11680 describes asymmetric adjacent transpositions as right- and left-shifts and studies the same single-error alternative involving a \\(0\\)-deletion.",
+        "The checked published-finding searches returned deletion-only, symbol-pair, or asymptotic deletion results rather than an equivalent finite OR-channel table."
+      ],
+      "reasoning": "The claim was compared under the terms asymmetric adjacent transposition, right-shift, left-shift, and \\(0\\)-deletion, so a mere terminology change would not separate it from prior work. No inspected source gave the sequence or an equivalent exact graph parameter.",
+      "searches": [
+        "asymmetric Damerau Levenshtein single 0 deletion single adjacent transposition exact small lengths",
+        "codes correcting one 0-deletion or one adjacent transposition maximum size",
+        "right-shift left-shift 0-deletion correcting code exact small parameters",
+        "binary codes correcting single 0-deletion or adjacent transposition finite exact",
+        "arXiv:2301.11680"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches using the length-\\(7\\) value \\(30\\) and the complete sequence \\(2,3,4,7,11,17,30\\) returned no inspected exact table for this channel.",
+        "The closest exact small-parameter record located concerned a different quinary deletion-only problem."
+      ],
+      "reasoning": "No checked exact-value or finite-table source matches the channel and parameter range. Failed search alone is not treated as novelty proof; it is combined with full-text inspection of the same-channel expanded primary paper and comparison with the later upper-bound work.",
+      "searches": [
+        "Wang Vu Tan single 0-deletion adjacent transposition exact finite code size length 7 30",
+        "0-deletion adjacent transposition OR-channel exact profile 2 3 4 7 11 17 30",
+        "\\\"single 0-deletion\\\" adjacent transposition exact maximum code size 30 51",
+        "asymmetric Damerau Levenshtein exact finite maximum binary code length 8 51"
+      ]
+    },
+    "rationale": "The inspected primary literature introduces and constructs codes for the same one-\\(0\\)-deletion-or-one-adjacent-transposition channel, but does not state the exact finite profile through length \\(7\\). A later upper-bound paper treats the relevant Damerau--Levenshtein regime asymptotically. Exact-value, sequence, alias, and implication searches found no inspected source or published-finding record that states or dominates the finite claim.",
+    "residual_risks": [
+      "An unindexed finite parameter table or unpublished computation could overlap with some or all of the profile; no inspected source does so.",
+      "The 2022 conference full paper was not separately relied upon for a whole-document noncoverage claim; its publisher abstract was inspected, and the expanded 2023 open-access full text covering the same channel was inspected in detail."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same error channel and constructive objective, but the inspected material states a redundancy construction rather than an exact finite table.",
+        "evidence": "IEEE Xplore records Date Added 2022-12-07 and states a code correcting a single \\(0\\)-deletion or a single adjacent transposition with redundancy \\(\\log n+2\\) bits.",
+        "identifier_or_url": "doi:10.1109/ITW54588.2022.9965921",
+        "material_read": "IEEE Xplore metadata and abstract, including publication metadata and the stated redundancy result.",
+        "method": "Publisher metadata and abstract inspection.",
+        "title": "Codes for the Asymmetric Damerau–Levenshtein Distance",
+        "trigger": "Earliest verified public source for the same asymmetric channel and the same single-error alternative."
+      },
+      {
+        "assessment": "Defines the same error types and supplies constructions; no exact short-length maxima or the claimed seven-value profile were found in the inspected full text.",
+        "evidence": "The paper treats right- and left-shifts as asymmetric adjacent transpositions and separately presents the one-\\(0\\)-deletion-or-one-transposition construction.",
+        "identifier_or_url": "arXiv:2301.11680",
+        "material_read": "Abstract, definitions, and the section constructing codes for a single \\(0\\)-deletion or a single adjacent transposition, including its theorem and proof context.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Expanded same-author full text for the channel underlying the claim."
+      },
+      {
+        "assessment": "Provides asymptotic cardinality/redundancy bounds and does not determine the exact values claimed for \\(n\\le7\\).",
+        "evidence": "The paper frames previous work as constructions and establishes asymptotic upper bounds, including optimal redundancy up to an additive constant for the Wang--Vu--Tan regime.",
+        "identifier_or_url": "arXiv:2507.04806",
+        "material_read": "Abstract, introduction, the section on deletions/asymmetric transpositions, and conclusion.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "On the Maximum Size of Codes Under the Damerau-Levenshtein Metric",
+        "trigger": "Highly relevant later work specifically addressing upper bounds on code cardinality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "da86d12c-66bc-41e4-90a9-0ee43a88a7e7",
+  "value": {
+    "rationale": "The channel is a motivated asymmetric edit model introduced for DNA-storage applications, and the published results inspected are primarily constructive or asymptotic. A complete exact initial profile through length \\(7\\) is a natural finite benchmark: it quantifies short-block performance, provides exact test cases for constructions and bounds, and clarifies the strength of the either/or error model. The result is deliberately limited and makes no unsupported claim for larger lengths.",
+    "status": "PASS"
+  }
+}
