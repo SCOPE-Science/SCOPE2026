@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The scalar source iteration reduces exactly to a two-state matrix with trace \\((2+\\sigma-2r)/(1+\\sigma)\\), determinant \\((1-r)/(1+\\sigma)\\), and discriminant \\((\\sigma^2-4r(1-r))/(1+\\sigma)^2\\). Below the repeated-root threshold the conjugate-pair modulus decreases strictly with \\(\\sigma\\); above it the larger real root has strictly positive derivative. The unique minimizer and \\(\\beta\\) conversion follow algebraically, and the embedded checker reconstructs the matrix and tests representative parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fercoq 2024 gives a general quadratic PDHG iteration matrix and states that faster steps minimize its spectral radius.",
+        "Malitsky--Pock 2016 states that beta is the primal/dual step ratio and that fixed steps below the delta ceiling recover PDA."
+      ],
+      "reasoning": "Fercoq's framework motivates and contains the matrix-level optimization problem but does not provide a theorem whose stated conclusion implies the scalar closed-form minimizer. The 2016 source provides admissibility, not optimality.",
+      "searches": [
+        "arXiv:2403.19202 quadratic PDHG spectral radius step sizes",
+        "Malitsky Pock 2016 beta variable ratio fixed steps delta",
+        "published-finding index: finite horizon heavy ball quadratic exact transient optimal parameters spectral radius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1608.08883",
+      "arXiv:2403.19202",
+      "published-finding index published-finding search",
+      "targeted web search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source explicitly leaves beta free and says developing strategies for varying the ratio was not its purpose.",
+        "Fercoq's quadratic section states the general linear iteration and spectral-radius objective, then develops estimation/adaptation rather than the scalar analytic minimizer stated here."
+      ],
+      "reasoning": "Neither inspected source states a stronger result whose conclusion directly yields \\(\\beta_*=4a^2(1-r)\\) without solving a new scalar minimization. The present claim is a closed exact solution of that specialized tuning problem, not merely a restatement of admissibility or numerical adaptation.",
+      "searches": [
+        "Malitsky--Pock arXiv:1608.08883 Algorithm 1, Remark 1, fixed-step condition",
+        "Fercoq arXiv:2403.19202 Section 4.1 quadratic case, spectral-radius minimization",
+        "Fercoq arXiv:2403.19202 regularized least squares experiments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding index returned no finding stating the scalar PDAL/PDHG beta law or the same two-by-two characteristic equation.",
+        "Web searches for critical-damping and Malitsky beta terminology returned the source algorithm, general PDHG tuning literature, or unrelated damping material, not the claimed formula."
+      ],
+      "reasoning": "The claim was searched as a ratio formula, a fixed-product spectral-radius minimizer, and an eigenvalue-coalescence condition. The closest same-theme results optimize different algorithms.",
+      "searches": [
+        "Malitsky Pock beta ratio scalar least squares critical damping eigenvalue coalescence",
+        "PDAL scalar least squares optimal beta fixed product spectral radius",
+        "PDHG one singular value optimal primal dual ratio spectral radius",
+        "PDHG scalar least squares repeated eigenvalue optimal steps",
+        "web: \"critical damping\" PDHG quadratic",
+        "web: \"spectral radius\" \"Malitsky\" \"beta\" primal dual"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published-finding index row matched the exact scalar formula.",
+        "The closest result, 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56, concerns forward-reflected-backward splitting on a skew family and does not cover PDHG least squares."
+      ],
+      "reasoning": "This is not a tabulated invariant; the database search was used to detect an already-published equivalent parameter law or stronger exact result.",
+      "searches": [
+        "published-finding index: Malitsky Pock beta ratio scalar least squares critical damping eigenvalue coalescence",
+        "published-finding index: PDAL scalar least squares optimal beta fixed product spectral radius",
+        "published-finding index: PDHG scalar least squares repeated eigenvalue optimal steps"
+      ]
+    },
+    "rationale": "The 2016 source leaves beta as a primal/dual ratio and states the fixed-step ceiling but not a rate-optimal ratio. The 2024 Fercoq paper develops spectral-radius tuning for quadratic PDHG and provides the general iteration matrix, but the inspected passages do not state this scalar analytic minimizer or its translation to the Malitsky--Pock beta parameter. Targeted published-finding index and web searches found no implication-equivalent scalar formula; residual risk remains for unindexed or differently phrased analyses.",
+    "residual_risks": [
+      "Fercoq's broader spectral-tuning framework makes the scalar formula a natural specialization; an uninspected appendix, later version, talk, code note, or citing paper could record the same closed form.",
+      "Search coverage was targeted rather than exhaustive over all PDHG parameter-selection literature and non-English sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines \\(\\beta\\) as the primal/dual ratio, notes fixed steps with \\(\\tau\\sigma\\leq\\delta^2/\\lVert K\\rVert^2\\) recover PDA, and explicitly says new ratio-varying strategies are not the paper's purpose. It does not state the scalar rate-optimal ratio.",
+        "evidence": "arXiv first version dated 2016-08-31; Algorithm 1 and the discussion immediately after its stopping criterion.",
+        "identifier_or_url": "arXiv:1608.08883",
+        "material_read": "Full-text introduction, primal-dual model, original fixed-step condition, Algorithm 1, stopping criterion, remarks identifying beta as sigma/tau and the fixed-step sufficient condition.",
+        "method": "Direct full-text inspection of the arXiv-rendered source.",
+        "title": "A first-order primal-dual algorithm with linesearch",
+        "trigger": "Primary archive-eligible source defining PDAL, beta, and the linesearch ceiling."
+      },
+      {
+        "assessment": "The paper explicitly formulates quadratic PDHG as a linear map and seeks step sizes minimizing spectral radius, then builds adaptive estimation. The inspected material does not state the scalar closed form, critical discriminant boundary, or Malitsky--Pock beta formula claimed here.",
+        "evidence": "Section 4.1 states the block iteration matrix and that speed is governed by its spectral radius; the abstract and later sections describe spectral-radius estimation and adaptive step changes.",
+        "identifier_or_url": "arXiv:2403.19202",
+        "material_read": "Abstract, step-size discussion, quadratic-case iteration matrix and spectral-radius minimization section, conjugate-eigenvalue discussion, and regularized least-squares experiment section.",
+        "method": "Direct full-text PDF inspection, including the rendered quadratic-case page.",
+        "title": "Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes",
+        "trigger": "Later work most likely to dominate a spectral-radius tuning claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f8268fe4-26bc-4471-a4f0-dada8f75c1de",
+  "value": {
+    "rationale": "The primary source leaves the primal/dual ratio \\(\\beta\\) free, while ratio choice materially affects convergence. The exact scalar solution gives a sharp calibration law, identifies the underdamped/critical/overdamped transition, and supplies a transparent benchmark for later spectral-radius adaptation. It also exposes the precise multi-mode minimax extension rather than presenting an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
