@@ -1,0 +1,125 @@
+{
+  "claim": "For the reduced two-spin-qutrit Hamiltonian written by Zhang and Li, \\[H=K(\\mathbf S_1\\!\\cdot\\!\\mathbf S_2)^2+B(S_{1z}+S_{2z}),\\qquad K<0,\\]at every positive temperature \\(T\\), define \\(r=e^{-3K/T}=e^{3|K|/T}\\), \\(b=B/T\\), \\(a=(r-1)/3\\), and \\(Z'=(1+2\\cosh b)^2+r-1\\). Its exact negativity is \\[\\mathcal N=\\frac{2(\\sqrt{\\sinh^2 b+a^2}-\\cosh b)+(\\sqrt{\\sinh^2(2b)+a^2}-\\cosh(2b))}{Z'}\\]when \\(r>4\\), and \\(\\mathcal N=0\\) when \\(r\\le4\\). Hence \\[T_c=\\frac{3|K|}{\\log4}\\]is the exact positive-temperature negativity threshold, independent of every finite uniform field \\(B\\). For \\(0<T<T_c\\), \\(\\mathcal N>0\\) for every finite \\(B\\), so there is no finite positive-temperature critical magnetic field. At \\(T=0\\) only, the ground state changes from the maximally entangled spin singlet to a fully polarized product state at \\(|B|=3|K|/2\\). The correct spectrum has singlet energy \\(4K\\), while the eight-dimensional complement has energies \\(K+BM\\), \\(M=-2,-1,0,1,2\\), with multiplicities \\(1,2,2,2,1\\). This corrects the non-total-spin eigenvalues printed in the source and its resulting finite-field disappearance claim.",
+  "correctness": {
+    "rationale": "The total-spin decomposition fixes the spectrum, and partial transpose reduces to three 2x2 blocks with determinant 1-[(r-1)/3]^2. This proves the iff threshold and finite-field nonvanishing; direct 9x9 matrix replay agrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou et al. analyze spin-1 optical-lattice chains with nonlinear coupling, including a two-particle problem.",
+        "Sargolzahi et al. analyze the more general J,K,B1,B2 Hamiltonian and identify the uniform-field nonlinear case as prior work.",
+        "The later paper focuses on a nonuniform-field J=-1 regime and does not state the accepted pure-biquadratic uniform-field formula."
+      ],
+      "reasoning": "General Hamiltonian coverage does not itself supply the exact specialized negativity threshold or the correction to the source's finite-field phase diagram.",
+      "searches": [
+        "Thermal entanglement in 1D optical lattice chains with nonlinear coupling",
+        "Thermal entanglement in a two-qutrit system with nonlinear coupling under nonuniform external magnetic field",
+        "spin-1 bilinear biquadratic dimer thermal entanglement negativity magnetic field"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0510129",
+      "DOI:10.1016/j.optcom.2005.10.039",
+      "DOI:10.1088/1009-1963/14/6/019",
+      "arXiv:0705.3568",
+      "DOI:10.1142/S0219749908004158",
+      "MaRDI Q3536070"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source writes H=K(S1 dot S2)^2+B(S1z+S2z) but prints K/4 and (2±sqrt3)K/2 levels, inconsistent with the total-spin spectrum.",
+        "The source reports a finite critical magnetic field and zero-field ground negativity about 0.972.",
+        "The later broader paper gives the general bilinear-biquadratic nonuniform-field Hamiltonian and only bibliographically points to the uniform case."
+      ],
+      "reasoning": "The accepted claim requires correcting the spectrum, exponentiating through the singlet projector, partially transposing, and identifying the common block determinant; those conclusions are not stated by the inspected sources.",
+      "searches": [
+        "Primary full text arXiv:quant-ph/0510129 equations 2-6 and Figures 2-3 discussion",
+        "Primary full text arXiv:0705.3568 model Hamiltonian and sections 6-7",
+        "DOI:10.1088/1009-1963/14/6/019 two-particle nonlinear optical lattice thermal entanglement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database result covered the claimed formula or correction.",
+        "The direct source gives the same reduced Hamiltonian but a non-total-spin spectrum.",
+        "Targeted literature searches located neighboring spin-1 entanglement work but no matching exact correction."
+      ],
+      "reasoning": "Equivalent coverage would have to specialize to the same pure-biquadratic uniform-field spin-1 dimer and imply the determinant condition r=4 or the same closed negativity formula.",
+      "searches": [
+        "two spin-1 biquadratic Hamiltonian K(S1 dot S2)^2 magnetic field negativity exact critical temperature ln 4",
+        "spin-1 biquadratic dimer negativity magnetic field 3|K|/ln4",
+        "quant-ph/0510129 critical temperature magnetic field negativity exact",
+        "The effects of nonlinear couplings and external magnetic field thermal entanglement correction erratum",
+        "K(S1.S2)^2 negativity thermal entanglement spin 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact threshold table or formula matching 3|K|/log4 was located.",
+        "The source's figures report numerical critical behavior instead."
+      ],
+      "reasoning": "The accepted result is an analytic all-parameter formula, not a recomputation of a finite table.",
+      "searches": [
+        "3|K| ln4 two qutrit negativity",
+        "3 K log 4 spin qutrit thermal entanglement",
+        "critical magnetic field two spin qutrit nonlinear coupling correction"
+      ]
+    },
+    "rationale": "The direct source reports a different spectrum and finite critical field. The closest broader papers do not state the corrected closed formula, exact threshold, and no-finite-positive-temperature-field conclusion together.",
+    "residual_risks": [
+      "The full text of Zhou et al. (2005) was not reliably retrievable; an equivalent zero-field specialization may occur there.",
+      "An equivalent total-spin derivation may exist in unindexed spin-dimer literature.",
+      "Negativity zero does not imply separability for arbitrary 3x3 states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The Hamiltonian is clear, but the printed eigenvalues do not satisfy its total-spin spectrum; the reported finite critical field is based on that spectral calculation.",
+        "evidence": "The source prints H=K(S1·S2)^2+B(S1z+S2z), lists levels including K/4 and (2±sqrt3)K/2, and states that negativity reaches zero at sufficiently large field.",
+        "identifier_or_url": "arXiv:quant-ph/0510129; DOI:10.1016/j.optcom.2005.10.039",
+        "material_read": "Full arXiv manuscript, especially equations (1)-(6), the spin-1 matrices, thermal-state construction, Figures 2-3 discussion, and conclusions.",
+        "method": "ArXiv full-text plus rendered-page inspection.",
+        "title": "The effects of nonlinear couplings and external magnetic field on the thermal entanglement in a two-spin-qutrit system",
+        "trigger": "Direct source of the reduced Hamiltonian and disputed phase diagram."
+      },
+      {
+        "assessment": "Broader model coverage, but no located closed pure-biquadratic uniform-field formula or correction of the earlier source.",
+        "evidence": "The paper says B1=B2 with nonzero K was studied earlier and then analyzes J=-1 with B1!=B2.",
+        "identifier_or_url": "arXiv:0705.3568; DOI:10.1142/S0219749908004158",
+        "material_read": "Available full manuscript sections defining the J,K,B1,B2 Hamiltonian, spectral setup, negativity analysis, and discussion of the uniform nonlinear case.",
+        "method": "Author-uploaded full-text inspection plus arXiv metadata.",
+        "title": "Thermal entanglement in a two-qutrit system with nonlinear coupling under nonuniform external magnetic field",
+        "trigger": "Closest later broader treatment of the same spin-1 bilinear-biquadratic family."
+      },
+      {
+        "assessment": "Relevant broader prior work; residual risk is retained because full-text comparison was incomplete.",
+        "evidence": "The abstract states analysis of two-particle and multiparticle spin-1 thermal entanglement with nonlinear coupling.",
+        "identifier_or_url": "DOI:10.1088/1009-1963/14/6/019",
+        "material_read": "Publisher abstract, metadata, model scope, and citation context.",
+        "method": "Publisher metadata and abstract inspection; full text was not reliably retrievable in this run.",
+        "title": "Thermal entanglement in 1D optical lattice chains with nonlinear coupling",
+        "trigger": "Earlier optical-lattice bilinear-biquadratic spin-1 work that could cover the zero-field specialization."
+      },
+      {
+        "assessment": "Primary MSC is 81P68.",
+        "evidence": "The record lists Quantum computation (81P68) as the Mathematics Subject Classification.",
+        "identifier_or_url": "MaRDI Q3536070; DOI:10.1142/S0219749908004158",
+        "material_read": "Bibliographic record, full-work link, keywords, and MSC list.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Mathematical bibliographic record for the broader two-qutrit nonlinear-coupling thermal-entanglement paper",
+        "trigger": "Primary MSC ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "03f67142-630f-4201-afe7-411cd0af32f8",
+  "value": {
+    "rationale": "The result corrects both the spectrum and qualitative field-temperature phase diagram of a published spin-qutrit model, gives an exact threshold, and distinguishes the true zero-temperature field transition from exponentially small positive-temperature NPT entanglement.",
+    "status": "PASS"
+  }
+}
