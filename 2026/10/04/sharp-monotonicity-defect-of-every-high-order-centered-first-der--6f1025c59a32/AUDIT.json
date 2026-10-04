@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The derivative weights are derived from Lagrange interpolation. Expressing monotone samples by nonnegative increments turns the minimization into a cumulative-tail problem. Alternating decreasing magnitudes identify the second tail as the sharp minimum. A beta-integral converts the full positive-side coefficient sum to \\(H_{2m}-H_m\\), giving the exact defect. Rational replay verifies polynomial exactness, tail signs, extremizers, and harmonic identities for \\(1\\le m\\le40\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fjordholm--Ray show that sign preservation is a nontrivial structural requirement for high-order reconstruction and note the first-order barrier for monotone schemes in conservation-law settings.",
+        "These results motivate sign preservation but do not quantify the classical centered derivative's monotone-data defect."
+      ],
+      "reasoning": "General monotonicity barriers explain why negative coefficients are unsurprising, but they do not imply the exact finite-stencil defect \\(V_m\\), the step extremizers, or its all-order monotone limit.",
+      "searches": [
+        "finite difference differentiation monotonicity preserving derivative weights",
+        "sign preserving numerical differentiation finite differences monotone",
+        "variation diminishing differentiation formula finite difference",
+        "A sign preserving WENO reconstruction method"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1102.3203v1",
+      "arXiv:1510.09038v1",
+      "DOI:10.1090/S0025-5718-1988-0935077-0",
+      "DOI:10.1137/25M1731782",
+      "Targeted semantic searches under monotonicity, sign preservation, harmonic numbers, cumulative weights, and variation-diminishing terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sadiq--Viswanath give the Lagrange-weight framework, uniqueness of standard finite-difference weights, and centered examples, but the inspected full text does not analyze monotone-data sign reversal.",
+        "Fjordholm--Ray discuss sign-preserving reconstruction for entropy stability, a different nonlinear reconstruction problem.",
+        "The Fornberg 1988 full text was not recovered; only its abstract and bibliographic record were inspected."
+      ],
+      "reasoning": "The prior weight formulas are an input to the proof, not a statement that implies the minimax result. General sign-preservation theory supplies motivation but not the sharp constant. The inaccessible Fornberg paper is retained as a residual comparison risk.",
+      "searches": [
+        "Finite Difference Weights Spectral Differentiation and Superconvergence centered difference",
+        "Generation of finite difference formulas on arbitrarily spaced grids Fornberg",
+        "monotone schemes at most first order sign property high order reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned no record describing the sharp monotone-sample minimum or the harmonic constant.",
+        "The closest retrieved materials concern positivity of time-stepping schemes, general finite-difference weights, or sign-preserving nonlinear reconstruction rather than the centered differentiation functional on the monotone cone."
+      ],
+      "reasoning": "An equivalent formulation would determine the minimum of the centered differentiation functional over the isotonic box, equivalently the most negative cumulative stencil tail. No inspected source states that extremal problem or its closed form.",
+      "searches": [
+        "centered finite difference derivative monotone data sign preservation high order",
+        "high order central difference derivative monotonicity negative monotone data",
+        "central derivative weights cumulative sums monotone sequence negative",
+        "\"H_{2m}-H_m\" finite difference derivative weights",
+        "\"1-log 2\" centered finite difference derivative monotone data"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked finite-difference references tabulate or construct stencil coefficients and study accuracy, but no inspected table gives the cumulative-tail extremum.",
+        "No checked record exposed \\(m/(m+1)-(H_{2m}-H_m)\\) as a sign-defect constant."
+      ],
+      "reasoning": "The claim is not a recomputation of a known coefficient table; it is an extremal functional of the whole stencil over an ordered data cone.",
+      "searches": [
+        "finite difference weights harmonic numbers central first derivative",
+        "centered finite difference cumulative weight harmonic number",
+        "standard central difference first derivative closed form coefficients monotonicity",
+        "finite difference derivative monotone samples sharp bound"
+      ]
+    },
+    "rationale": "Weight construction, formal accuracy, and general sign-preservation concerns are prior-covered and excluded. The accepted claim is the exact all-order monotone-cone minimum, harmonic-number constant, extremizers, strict worsening with order, and \\(1-\\log2\\) limit. No checked source implied that package of statements.",
+    "residual_risks": [
+      "The full text of Fornberg (1988) was not recovered, so an equivalent cumulative-tail observation there cannot be excluded.",
+      "Older literature on positive linear functionals, digital differentiators, or variation-diminishing numerical differentiation may contain the same all-order constant under different terminology.",
+      "Recent work on closed-form finite-difference coefficients could make the weight identities easier to derive, but no checked source stated the monotone-cone extremal result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the weight-construction and accuracy framework used as prior work; DOES NOT STATE the monotone-cone minimization, harmonic defect constant, extremizers, or \\(1-\\log2\\) limit in the material inspected.",
+        "evidence": "The paper identifies finite-difference weights as derivatives of Lagrange cardinal polynomials and treats centered differences as standard formulas while focusing on weight computation and superconvergence.",
+        "identifier_or_url": "arXiv:1102.3203v1",
+        "material_read": "Full open HTML text covering the introduction, Lagrange-cardinal derivation of finite-difference weights, centered examples, and accuracy/superconvergence discussion.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Finite Difference Weights, Spectral Differentiation, and Superconvergence",
+        "trigger": "Closest open full-text source on finite-difference weights and centered formulas."
+      },
+      {
+        "assessment": "COVERS the importance of sign preservation and high-order reconstruction barriers; it addresses nonlinear WENO/ENO interface reconstruction, not the classical centered derivative minimax problem.",
+        "evidence": "The source states that its reconstruction must preserve the sign of discrete jumps and discusses monotone schemes as at most first order in its conservation-law setting.",
+        "identifier_or_url": "arXiv:1510.09038v1",
+        "material_read": "Open full-text introduction and sign-property discussion.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "A Sign Preserving WENO Reconstruction Method",
+        "trigger": "Relevant prior literature on sign preservation in high-order finite-difference reconstruction."
+      },
+      {
+        "assessment": "COVERS general finite-difference weight generation at the abstract level. Whole-document noncoverage is not claimed.",
+        "evidence": "The abstract states that recursions are derived for finite-difference weights of arbitrary derivative order and accuracy, with tables for equispaced special cases.",
+        "identifier_or_url": "DOI:10.1090/S0025-5718-1988-0935077-0",
+        "material_read": "Bibliographic record and abstract; full text was attempted through open access and authorized institutional retrieval but was not recovered.",
+        "method": "Publisher/index metadata inspection plus bounded lawful retrieval attempts.",
+        "title": "Generation of Finite Difference Formulas on Arbitrarily Spaced Grids",
+        "trigger": "Foundational source for systematic finite-difference weight generation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f1025c5-9a32-4342-b667-c9a1129ccc59",
+  "value": {
+    "rationale": "The monotone-sample cone is a natural shape constraint, and centered finite differences are ubiquitous. The theorem completely quantifies their sign-reversal defect across every formal order, shows the defect worsens monotonically, and gives exact extremal data and a nonzero limiting fraction. This is a structural benchmark rather than a single low-order counterexample.",
+    "status": "PASS"
+  }
+}
