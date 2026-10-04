@@ -1,0 +1,15 @@
+# Same-model review
+
+## Correctness
+PASS. The proof is constructive and separates all maps into three exhaustive situations. A singleton occupied target level gives an explicit fence \(f\le g\ge c_z\). If a source level spans target levels while no occupied target level is singleton, its lowest occupied target level contains at least two values from that same source level; pushing all but one of those values to an already used higher image preserves monotonicity, is pointwise above \(f\), and creates a singleton level. If no source level spans, each source level lies in one target level; absence of singleton image levels forces a strict injection of source levels into target levels. Height excess is then impossible, while height deficit leaves an omitted target level that can replace one source level and create a singleton. Every branch therefore reaches a constant in at most three comparisons. The packaged checker independently reconstructs and validates this fence for every map in seven finite test pairs, including the nonbinary spanning branch.
+
+## Originality
+PASS. The closest foundational source, Barmak--Minian's strong-homotopy paper, supplies the general pointwise-fence criterion but not the weak-order classification. Speed's full paper on \(\operatorname{Hom}(P,Q)\) treats the same map poset enumeratively through its Möbius function; reading the full article shows no homotopy-component theorem. Pseudosphere literature identifies the object family and its wedge-of-spheres order complexes but not direct finite-space mapping components. Searches across weak orders, ordinal sums of antichains, pseudospheres, finite mapping spaces, unequal heights, and null-homotopy found no covering theorem. A prior binary-source special case is explicitly treated as covered; the accepted novelty is removal of the \(|A_i|=2\) restriction by the spanning-level perturbation together with the uniform three-edge fence bound.
+
+## Value
+PASS. The result gives a natural complete cross-height boundary for a prominent family of finite models whose order complexes are wedges of spheres. It is stronger than classical dimension-based nullity because it contracts maps inside the finite function space itself, where homotopy is finer than homotopy after weak replacement. The arbitrary level-size extension is structural rather than a parameter increment: it identifies the only new obstruction created by larger source levels and neutralizes it with an explicit monotone perturbation. The short-fence bound also makes the nullity constructive and directly checkable.
+
+## Closest literature and limitations
+The foundational sources establish the finite-space/poset dictionary, minimal sphere models, and the mapping-space fence criterion. Speed's 1984 paper gives the Möbius function of the general hom-poset, and later pseudosphere work records the ordinal-sum and wedge-of-spheres structure. None of the inspected sources states the unequal-height direct finite-space nullity theorem for arbitrary level sizes. Equal heights and singleton levels remain outside the claim.
+
+Same-model review: passed. Independent audit: not yet performed.
