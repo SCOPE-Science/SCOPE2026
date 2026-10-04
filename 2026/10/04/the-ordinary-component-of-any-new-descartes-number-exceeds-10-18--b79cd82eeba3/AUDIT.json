@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "From \\(\\sigma(q)(p+1)=2pq\\) with odd \\(p,q\\), the right side has 2-adic valuation one, so \\(\\sigma(q)\\) is odd and therefore odd \\(q\\) is a square. Thus \\(q\\le10^{18}\\) is exhaustively reduced to odd roots \\(m\\le10^9\\). The packaged verifier factors every root by a segmented sieve, computes \\(\\sigma(m^2)\\) exactly, and tests \\(d=2m^2-\\sigma(m^2)>0\\) together with \\(d\\mid\\sigma(m^2)\\). Its complete output contains only the trivial pair and Descartes' pair. The computation was replayed from the actual package path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The BYU Computational Number Theory Group classifies broader primitive spoof factorizations with fewer than seven bases and proves fixed-base finiteness, but its stated results do not bound Tóth's positive ordinary component through \\(10^{18}\\).",
+        "Tóth's 2025 multiperfect work cites the 2021 density paper but addresses multiperfect generalizations rather than a stronger Descartes-component cutoff.",
+        "Current Descartes-number summaries still quote Tóth's \\(10^{12}\\) theorem."
+      ],
+      "reasoning": "A stronger positive-Descartes exclusion or a general theorem implying \\(q>10^{18}\\) would dominate this claim. The inspected later and broader sources address different generalizations or structural parameters and do not provide that implication.",
+      "searches": [
+        "Odd spoof perfect factorizations ordinary component lower bound",
+        "spoof perfect Toth 2021 later Descartes q bound",
+        "Odd Spoof Multiperfect Numbers Toth Descartes lower bound",
+        "spoof odd perfect 10^18"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.09718v1/v2",
+      "DOI:10.12921/cmst.2021.0000005",
+      "arXiv:2006.10697v1",
+      "DOI:10.1016/j.jnt.2021.07.028",
+      "OEIS:A271816",
+      "OEIS:A222263",
+      "Mathematics Stack Exchange question 4629691",
+      "Tóth 2025 spoof-multiperfect publisher pages"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth Theorem 1 explicitly concludes only \\(q>10^{12}\\).",
+        "The 2023 public square scan explicitly stops at \\(10^{16}\\).",
+        "The broader spoof-factorization result is organized by number of bases rather than the size of the positive ordinary component."
+      ],
+      "reasoning": "Neither the published \\(10^{12}\\) bound nor the public \\(10^{16}\\) scan implies absence in the interval \\(10^{16}<q\\le10^{18}\\). That interval is exactly the new exhaustive content.",
+      "searches": [
+        "On the Density of Spoof Odd Perfect Numbers Theorem 1 q 10^12",
+        "Are all elements in this sequence even no other example 10^16 squares",
+        "Odd spoof perfect factorizations fewer than seven bases",
+        "Descartes number properties q 10^12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tóth's defining equation identifies the ordinary component with an element of his divisor-sum set and states only the bound \\(q>10^{12}\\).",
+        "OEIS A271816 gives the equivalent deficient-perfect formulation and notes that odd members are squares, but does not state a \\(10^{18}\\) exclusion range.",
+        "The 2023 public discussion reports the equivalent square search only through \\(10^{16}\\)."
+      ],
+      "reasoning": "The searches cover the Descartes-number terminology, Tóth's ordinary-component terminology, the equivalent deficient-perfect formulation, the square reduction, and the exact new cutoff. None states the \\(10^{18}\\) result.",
+      "searches": [
+        "spoof odd perfect number q 10^18 square root exhaustive search Descartes",
+        "Descartes number non-pseudo-prime component q lower bound 10^18",
+        "odd deficient-perfect square only 9018009 up to 10^18",
+        "Toth density spoof odd perfect extend 10^12 square search"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A271816 identifies \\(9018009=3^2\\cdot7^2\\cdot11^2\\cdot13^2\\) as the smallest odd deficient-perfect member and records the square restriction.",
+        "OEIS A222263 links Tóth's table and explains the pseudo-prime parameter, but its current entry does not report an exclusion through \\(10^{18}\\).",
+        "Exact-number/cutoff searches located the 2023 \\(10^{16}\\) public computation but no \\(10^{18}\\) table or certificate."
+      ],
+      "reasoning": "The databases provide definitions and prior data, not the new full root interval. The packaged computation independently enumerates the complete \\(10^9\\)-root domain required for the new cutoff.",
+      "searches": [
+        "OEIS A271816 odd deficient-perfect 9018009",
+        "OEIS A222263 Toth table spoof perfect",
+        "9018009 10^18 deficient-perfect",
+        "9018009 10^18 spoof"
+      ]
+    },
+    "rationale": "Tóth's peer-reviewed theorem stops at \\(10^{12}\\). The closest located public extension is a 2023 Mathematics Stack Exchange computation through \\(10^{16}\\), explicitly using the square reduction. The new exhaustive cutoff \\(10^{18}\\) is 100 times larger than that public computational frontier and one million times Tóth's published cutoff. The broader spoof-factorization literature does not state an ordinary-component bound of this size, and exact/semantic searches located no covering result.",
+    "residual_risks": [
+      "A non-indexed private or public computation may already exceed the located \\(10^{16}\\) frontier.",
+      "The broad 2022 spoof-factorization paper was compared from its arXiv/journal abstracts rather than full text because full HTML was unavailable; its stated scope and results do not indicate the numerical ordinary-component claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the non-Descartes bound only through \\(q>10^{12}\\) and explicitly suggests extending the computation beyond that range.",
+        "evidence": "Theorem 1 and Sections 2--4 state the \\(10^{12}\\) cutoff, the naive odd-integer scan, and the possibility of further computation.",
+        "identifier_or_url": "arXiv:2101.09718v2",
+        "material_read": "Full arXiv HTML: Introduction, Scope of this paper, Computational methods, Results, and Conclusion.",
+        "method": "Full-text open-access inspection.",
+        "title": "On the Density of Spoof Odd Perfect Numbers",
+        "trigger": "Primary source defining the set, stating the ordinary-component theorem, and documenting the previous exhaustive cutoff."
+      },
+      {
+        "assessment": "A commenter reports no second odd example through \\(10^{16}\\) by scanning roots through \\(10^8\\); this is directly relevant prior public coverage but is strictly weaker than the new \\(10^{18}\\) scan.",
+        "evidence": "The public comment states that only squares need be checked and reports completion through \\(10^{16}\\).",
+        "identifier_or_url": "Mathematics Stack Exchange question 4629691, comments dated 1 February 2023",
+        "material_read": "Answer and comment chain reporting the odd search and its extension.",
+        "method": "Public page inspection.",
+        "title": "Are all elements in this sequence even?",
+        "trigger": "Closest located public computation using the same odd-square reduction."
+      },
+      {
+        "assessment": "The stated results classify primitive spoof factorizations by number of bases and prove fixed-base finiteness; they do not state a \\(q\\)-size exclusion through \\(10^{18}\\).",
+        "evidence": "The abstract states twenty-one primitive factorizations with fewer than seven bases and fixed-base finiteness, with no ordinary-component numerical bound.",
+        "identifier_or_url": "arXiv:2006.10697v1; DOI:10.1016/j.jnt.2021.07.028",
+        "material_read": "ArXiv abstract and detailed journal bibliographic abstract describing the classification and finiteness results.",
+        "method": "Open abstract and journal-record inspection; full HTML was unavailable on the current access path.",
+        "title": "Odd, spoof perfect factorizations",
+        "trigger": "Broader later framework for spoof perfect factorizations could potentially subsume positive Descartes-number bounds."
+      },
+      {
+        "assessment": "The entry records the square property and Descartes' \\(9018009\\), but no \\(10^{18}\\) exclusion statement.",
+        "evidence": "Current comments identify \\(9018009\\) as the smallest odd member and say every odd member is a perfect square with at least four distinct prime factors.",
+        "identifier_or_url": "OEIS:A271816",
+        "material_read": "Current sequence entry, comments, links, and recorded terms.",
+        "method": "Direct database inspection.",
+        "title": "OEIS A271816: Deficient-perfect numbers",
+        "trigger": "Exact database for the equivalent divisor-sum condition and odd-square restriction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b79cd82e-eba3-4a1e-b911-b9e9fd2c28bf",
+  "value": {
+    "rationale": "The cutoff is the natural quantitative invariant singled out by Tóth's theorem, not an arbitrary slice. The result raises the peer-reviewed lower bound by six orders of magnitude and the closest located public computational bound by two orders of magnitude. The square reduction also changes the search dimension from all odd \\(q\\) to roots \\(m\\), making the extension reproducible in seconds while still exhaustively covering the full claimed interval. This is a meaningful finite boundary for the only known positive Descartes-number construction.",
+    "status": "PASS"
+  }
+}
