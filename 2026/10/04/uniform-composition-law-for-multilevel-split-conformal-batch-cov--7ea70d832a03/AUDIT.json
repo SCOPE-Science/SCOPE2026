@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exchangeability plus absence of ties makes every labeled score ordering equiprobable. Collapsing labels to calibration/future type gives a uniform binary interleaving, which is bijective with weak compositions of the future count among calibration gaps. Stars-and-bars yields the Dirichlet-multinomial aggregation, and a prefix-count recurrence yields the band dynamic program. Exact exhaustive enumeration in verify.py checks the fine and aggregated laws, covariance, and dynamic program on finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.14735 connects split conformal order statistics to tolerance regions and beta conditional coverage.",
+        "arXiv:1910.10562 supplies a nested-set formulation of conformal prediction.",
+        "Neither inspected source states the exact finite joint occupancy law or the simultaneous-band counting algorithm."
+      ],
+      "reasoning": "Nested-set and tolerance-region frameworks are broader in modeling language, but the located statements do not dominate the claimed finite multilevel distribution or exact band probability.",
+      "searches": [
+        "split conformal multiple nominal levels joint empirical coverage Dirichlet multinomial",
+        "nested split conformal thresholds joint coverage covariance Dirichlet multinomial",
+        "joint law empirical coverages multiple alpha levels conformal prediction",
+        "Pólya urn multiple conformal coverage levels calibration order statistics",
+        "arXiv:2210.14735 nested tolerance regions beta conditional coverage",
+        "arXiv:1910.10562 nested conformal prediction sets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.02770",
+      "arXiv:2210.14735",
+      "arXiv:1910.10562",
+      "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91",
+      "2026/9/20/SCOPE-sharp-range-free-empirical-cantelli-exchangeable-prediction--529a96ff728f",
+      "2026/9/21/SCOPE-heterogeneous-order-marginals-analytic-identification--096d7231c1a9",
+      "2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marques's one-level theorem is recovered by aggregating the first b fine gaps, so the new statement strictly specifies their joint coupling across all b.",
+        "Classical Dirichlet-multinomial theory explains the aggregated algebra once the conformal fine-gap uniformity is established, but does not by itself identify the conformal gap vector."
+      ],
+      "reasoning": "The prior one-level law is a marginal consequence of the claimed vector law, not conversely. The direct interleaving proof is the missing implication needed to obtain simultaneous multilevel probabilities.",
+      "searches": [
+        "arXiv:2303.02770 Theorem 1 proof predictive probability (b+k)/(m+n+1)",
+        "arXiv:2210.14735 conditional coverage beta tolerance region",
+        "arXiv:1910.10562 nested sets conformal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2303.02770 states a one-level beta-binomial law for empirical split-conformal coverage and a beta limit; its inspected theorem/proof treats one rank threshold.",
+        "No exact multilevel Dirichlet-multinomial or uniform-composition statement was located in the inspected conformal sources."
+      ],
+      "reasoning": "The proposed theorem determines the entire vector of calibration-gap occupancies and hence all rank thresholds jointly. A one-threshold beta-binomial marginal does not imply that full joint law without an additional coupling argument.",
+      "searches": [
+        "split conformal batch empirical coverage beta-binomial exact distribution calibration future points",
+        "conformal calibration conditional coverage beta order statistic beta-binomial count future observations",
+        "exchangeable order statistics predictive batch coverage beta-binomial conformal prediction",
+        "nested conformal thresholds joint batch coverage Dirichlet multinomial exact distribution",
+        "web: \"Dirichlet-multinomial\" conformal prediction calibration thresholds batch coverage",
+        "web: \"joint distribution\" conformal prediction multiple coverage levels order statistics Dirichlet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-search records concern pairwise-independent rank behavior, empirical Cantelli bounds, heterogeneous order marginals, or unrelated multinomial asymptotics rather than the exchangeable split-conformal gap occupancy vector."
+      ],
+      "reasoning": "No located database result tabulates or states the uniform weak-composition law for split-conformal future-gap counts or the resulting full-grid exact band probabilities.",
+      "searches": [
+        "conformal prediction uniform weak compositions future batch calibration gaps",
+        "split conformal simultaneous coverage bands exact lattice path dynamic programming",
+        "conformal coverage curve full joint law order statistics uniform compositions",
+        "future scores calibration gaps uniform composition conformal",
+        "published-finding corpus closest IDs: 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91, 2026/9/20/SCOPE-sharp-range-free-empirical-cantelli-exchangeable-prediction--529a96ff728f, 2026/9/21/SCOPE-heterogeneous-order-marginals-analytic-identification--096d7231c1a9, 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73"
+      ]
+    },
+    "rationale": "PASS: The closest inspected conformal source gives only a one-level beta-binomial empirical-coverage law; nested-set and tolerance-region sources provide the framework but not the finite joint multilevel law. Semantic searches using conformal, Dirichlet-multinomial, uniform-composition, order-statistic, and simultaneous-band formulations found no result that implies the full claim. The fine-gap law is proved directly, while novelty is asserted only for the conformal joint-law/band-evaluator formulation, not for classical Dirichlet-multinomial probability.",
+    "residual_risks": [
+      "Classical multivariate tolerance-region or order-statistics literature may contain an equivalent spacing-count theorem under different terminology; the searches performed cannot rule out that possibility.",
+      "The ingredients of the proof are elementary and classical. The originality assessment is therefore restricted to the exact split-conformal multilevel identification and simultaneous-band evaluator, not the underlying distributions or stars-and-bars identities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers one threshold, not the inspected multilevel joint law.",
+        "evidence": "Theorem 1 derives a beta-binomial empirical-coverage distribution at one nominal level; the proof conditions on a single count k below one calibration order statistic.",
+        "identifier_or_url": "arXiv:2303.02770",
+        "material_read": "Abstract; theorem/proof passages establishing score exchangeability, rank-threshold coverage, beta-binomial mass, and predictive probability (b+k)/(m+n+1); submission history.",
+        "method": "Primary arXiv PDF/abstract inspection plus targeted full-text term checks.",
+        "title": "Universal distribution of the empirical coverage in split conformal prediction",
+        "trigger": "Direct single-level predecessor for batch empirical split-conformal coverage."
+      },
+      {
+        "assessment": "Provides tolerance-region and beta conditional-coverage context; no matching joint Dirichlet-multinomial statement located.",
+        "evidence": "The abstract describes coverage conditional on calibration as beta-dominated and relates split conformal to classical tolerance predictors.",
+        "identifier_or_url": "arXiv:2210.14735",
+        "material_read": "Abstract, submission history, and targeted searches for joint, Dirichlet, multinomial, and nested terminology.",
+        "method": "Primary arXiv abstract/HTML inspection and term search.",
+        "title": "Distribution-Free Finite-Sample Guarantees and Split Conformal Prediction",
+        "trigger": "Potential broader tolerance-region formulation of calibration uncertainty."
+      },
+      {
+        "assessment": "Establishes nested-set viewpoint but no exact finite joint empirical-coverage law located.",
+        "evidence": "The abstract describes calibrating a sequence of nested sets to obtain valid prediction sets.",
+        "identifier_or_url": "arXiv:1910.10562",
+        "material_read": "Abstract, metadata, and nested-set formulation summary.",
+        "method": "arXiv/alphaXiv primary metadata and abstract inspection.",
+        "title": "Nested conformal prediction and quantile out-of-bag ensemble methods",
+        "trigger": "Potential source that could already encode simultaneous nested levels."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ea70d83-2a03-4370-9817-20dda86c0d57",
+  "value": {
+    "rationale": "A single calibration sample is routinely used to report prediction sets at several nominal levels, whose empirical coverages are strongly dependent. The theorem supplies their exact finite-sample coupling, explicit cross-level covariance, and an exact \\(O(nm)\\) simultaneous-band evaluator for the whole coverage curve. This replaces marginal-only calculations or conservative union bounds with a natural complete rank-grid calculation; the scope is the full calibration hierarchy rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
