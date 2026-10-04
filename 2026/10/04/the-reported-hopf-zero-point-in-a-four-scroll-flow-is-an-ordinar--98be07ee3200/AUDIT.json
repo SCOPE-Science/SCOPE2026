@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact source Jacobian factors as \\\\((\\\\lambda+c)[\\\\lambda^3+(b-a)\\\\lambda^2+(1-ab)\\\\lambda+(b-a)]\\\\). At \\\\(a=0\\\\) this becomes \\\\((\\\\lambda+c)(\\\\lambda+b)(\\\\lambda^2+1)\\\\), so the source point has spectrum \\\\(\\\\{-8,-27,\\\\pm i\\\\}\\\\), not a zero eigenvalue. Implicit differentiation gives crossing rate \\\\(729/1460\\\\). The exact quadratic Hopf formula with \\\\(q=(-i,(b+i)^{-1},0,1)^T\\\\) and \\\\(p=(-i/2,0,0,1/2)^T\\\\) yields \\\\(l_1=-[c^2(b^2+3)+8-d(2bc+3c^2+8)]/[2c(b^2+1)^2(c^2+4)]\\\\), hence \\\\(-58491/724744000\\\\) at the source parameters. Standard Hopf theory therefore gives a stable small cycle for sufficiently small positive \\\\(a\\\\). The bundled exact-rational verifier independently reconstructs these computations and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 paper “A New Hyperchaotic Two-Scroll System: Bifurcation Study, Multistability, Circuit Simulation, and FPGA Realization” uses a different vector field.",
+        "The later conference chapter “A New 4-D Four-Scroll Hyperchaotic System with Multistability” uses the different system \\\\(\\\\dot x=-ax+cyz\\\\), \\\\(\\\\dot y=-dy^3+bxz-w\\\\), \\\\(\\\\dot z=bz-xy\\\\), \\\\(\\\\dot w=py\\\\).",
+        "Closest published-finding corpus records concern Hopf corrections or exact bifurcation structure in other systems."
+      ],
+      "reasoning": "Broader family papers do not contain the same characteristic polynomial and therefore do not imply the source-specific spectrum or \\\\(l_1\\\\) formula. General Hopf theorems are methods, not prior statements of this result.",
+      "searches": [
+        "Web: exact title + bifurcation correction",
+        "Web: Vaidyanathan Moroz Sambas four-scroll a=0 Hopf",
+        "Web: later Vaidyanathan four-scroll hyperchaotic bifurcation systems",
+        "published-finding corpus: four-scroll hyperchaotic system ordinary Hopf a=0 first Lyapunov coefficient"
+      ]
+    },
+    "checked_sources": [
+      "Engineering Letters 29(4) EL_29_4_03 primary article",
+      "ResearchGate author-uploaded full text, publication 357200969",
+      "Wiley/Hindawi 2022 two-scroll related article 10.1155/2022/6604684",
+      "EDIESCA 2023 chapter 13 four-scroll related system",
+      "MSC2020 database entry 37G10",
+      "published-finding corpus records returned by exact-title, characteristic-polynomial and Hopf-correction searches",
+      "Own current/prior private research ledger ledger through g000043"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source gives \\\\(p(\\\\lambda,a)\\\\) but does not draw the factorization \\\\(p(\\\\lambda,0)=(\\\\lambda+b)(\\\\lambda^2+1)\\\\); instead it inserts a zero eigenvalue.",
+        "Prior local findings concern different ODEs, so their conclusions do not imply this vector field’s spectrum or \\\\(l_1\\\\).",
+        "The accepted claim adds transversality, \\\\(l_1\\\\), branch side and orbital stability, none of which follows from the source’s incorrect Hopf-zero label."
+      ],
+      "reasoning": "The correction is not a special case of a stronger same-system result located in the searches. It follows by a new source-specific reconstruction and normal-form calculation.",
+      "searches": [
+        "Primary full text Eq. (14)-(16) and surrounding Hopf discussion",
+        "Own-ledger comparison with prior Hopf/normal-form findings",
+        "published-finding corpus general Hopf and hyperchaotic-system records"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states the same characteristic polynomial but reports \\\\(a=0,b=27\\\\) as having eigenvalues \\\\(\\\\pm i,0,-27\\\\).",
+        "No inspected hit supplied the corrected spectrum \\\\(\\\\{-c,-b,\\\\pm i\\\\}\\\\) or the first-Lyapunov formula for this vector field."
+      ],
+      "reasoning": "Aliases based on the exact title, characteristic polynomial, authors, and the source phrase Hopf-zero were searched. A statement equivalent to the accepted claim would have to correct the missing \\\\(-c\\\\) eigenvalue or classify the \\\\(a=0\\\\) crossing; none of the inspected results did so.",
+      "searches": [
+        "published-finding corpus: \"A New Multistable 4-D Hyperchaotic Four-Scroll System\" Hopf zero bifurcation correction",
+        "published-finding corpus: \"lambda^3\" \"b-a\" \"1-ab\" Hopf zero hyperchaotic four-scroll",
+        "Web: exact title + \"Hopf-zero\"",
+        "Web: exact title + \"first Lyapunov coefficient\"",
+        "Web: \"degenerate codimension-two Hopf-zero\" + hyperchaotic + 27"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own-ledger byte search found no occurrence of the source title, ResearchGate ID 357200969, EL_29_4_03, or the exact Hopf coefficient.",
+        "published-finding corpus returned no record for this source-specific correction; closest IDs are listed in prior_checks.",
+        "Exact numeric web searches did not identify a mathematical source covering the coefficient."
+      ],
+      "reasoning": "No exact database/table entry inspected contains the accepted claim. This negative search is supporting evidence only and is not treated as a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus exact-title/correction query",
+        "published-finding corpus characteristic-polynomial query",
+        "Own current/prior ledger source_ids and claim text for title, EL_29_4_03, 357200969, and coefficient 58491/724744000",
+        "Web exact numeric searches for 58491/724744000 and 729/1460 with hyperchaotic context"
+      ]
+    },
+    "rationale": "The introducing article contains the incorrect Hopf-zero classification. Searches by exact title, characteristic polynomial, authors, aliases, correction/erratum terms, exact coefficients and normal-form terms found no inspected source stating this corrected spectrum plus first-Lyapunov classification. Related later systems are algebraically different, and own-ledger claims/source IDs do not cover this source.",
+    "residual_risks": [
+      "An unindexed correction, erratum, thesis, or informal note could independently contain the same local correction.",
+      "The exact journal-publication day was not exposed in the inspected official issue material; first_public_date therefore uses the exact 2021-12-21 date of the publicly accessible author-uploaded full text.",
+      "The theorem is local and does not address the source’s large-amplitude attractors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_SOURCE_NOT_CLAIM: the paper states the incorrect \\\\(a=0\\\\) Hopf-zero spectrum and does not provide the corrected spectrum, transversality, \\\\(l_1\\\\) formula, or local stable branch.",
+        "evidence": [
+          "At \\\\(a=0\\\\) the paper prints eigenvalues \\\\(\\\\pm i,0,-27\\\\) after having printed a characteristic polynomial that instead factors as \\\\((\\\\lambda+c)(\\\\lambda+b)(\\\\lambda^2+1)\\\\)."
+        ],
+        "identifier_or_url": "rg:357200969",
+        "material_read": "Author-uploaded full text including the printed vector field, source parameters, Jacobian, characteristic polynomial, equilibrium discussion, and Hopf section around Eqs. (14)-(16).",
+        "method": "Read searchable full-text rendering and compared the printed equations statement-by-statement with an independent symbolic reconstruction.",
+        "title": "A New Multistable 4-D Hyperchaotic Four-Scroll System, its Dynamic Analysis and Circuit Design",
+        "trigger": "Exact same-system primary full text; source of the claimed Hopf-zero classification."
+      },
+      {
+        "assessment": "SAME_PRIMARY_VERSION: consistent with the author-uploaded text; no correction or erratum was present in the inspected material.",
+        "evidence": [
+          "The official item is labeled Engineering Letters 29:4, EL_29_4_03, Volume 29 Issue 4: December 2021."
+        ],
+        "identifier_or_url": "https://www.engineeringletters.com/issues_v29/issue_4/EL_29_4_03.pdf",
+        "material_read": "Indexed official-PDF text for the article, including the equation/circuit continuation and the December 2021 issue header.",
+        "method": "Compared official-PDF indexed text with the author-uploaded full-text rendering.",
+        "title": "Engineering Letters 29:4, EL_29_4_03 official article PDF",
+        "trigger": "Official primary-source location for equation and issue metadata."
+      },
+      {
+        "assessment": "NOT_COVERING: it studies a different two-scroll vector field and cannot imply the present characteristic factorization or Hopf coefficient.",
+        "evidence": [
+          "Its model and parameter set differ from EL_29_4_03."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2022/6604684",
+        "material_read": "Abstract, system/equilibrium discussion and available full-text sections returned by search.",
+        "method": "Compared the displayed vector field and equilibrium analysis with the accepted source system.",
+        "title": "A New Hyperchaotic Two-Scroll System: Bifurcation Study, Multistability, Circuit Simulation, and FPGA Realization",
+        "trigger": "Later closely themed paper by overlapping authors with a detailed bifurcation analysis."
+      },
+      {
+        "assessment": "NOT_COVERING: the chapter uses a different polynomial system with a cubic y term and different coupling structure.",
+        "evidence": [
+          "The chapter’s system begins \\\\(\\\\dot x=-ax+cyz\\\\) and \\\\(\\\\dot y=-dy^3+bxz-w\\\\), unlike the accepted source system."
+        ],
+        "identifier_or_url": "Complex Systems and Their Applications, EDIESCA 2023, chapter 13",
+        "material_read": "Displayed system equations and bifurcation-summary text returned by search.",
+        "method": "Compared equations directly.",
+        "title": "A New 4-D Four-Scroll Hyperchaotic System with Multistability",
+        "trigger": "Later four-scroll paper/chapter with overlapping authors and similar terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98be07ee-3200-4792-a6da-5379b1eb89f4",
+  "value": {
+    "rationale": "The source labels a central local bifurcation as codimension-two Hopf-zero, but the printed equations give an ordinary Hopf with only a two-dimensional center. Correcting this changes the normal-form class and supplies a concrete, stable small-periodic-orbit prediction on the positive-\\\\(a\\\\) side. The exact \\\\(l_1\\\\) formula also identifies the nonlinear criticality boundary for the whole \\\\(b,c,d>0\\\\) family, so the result is structurally meaningful rather than a cosmetic eigenvalue correction.",
+    "status": "PASS"
+  }
+}
