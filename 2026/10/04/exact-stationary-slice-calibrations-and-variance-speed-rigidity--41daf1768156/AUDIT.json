@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Stationarity against arbitrary antiderivatives of \\(s=x+y\\) gives \\(\\mathbb E[x\\mid s]=A\\). Stationarity against arbitrary antiderivatives of \\(y\\) gives \\(B\\mathbb E[x\\mid y]=y\\mathbb E[x^2\\mid y]\\). The conditional variance and size-biased nullcline law follow algebraically. The barrier \\(s>A\\) follows from a backward-time differential inequality on \\(A-s\\) for bounded complete positive orbits. The first slice law gives \\(\\operatorname{Cov}(x,s)=0\\), and \\(\\dot s=A-x\\) gives the exact speed defect. Zero defect forces \\(x=A\\) on the invariant support and then \\(y=B/A\\), so equality is exactly the equilibrium atom. The packaged checker verifies the pointwise polynomial cancellations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1971 article proves the global period-average \\(\\langle X\\rangle=A\\) and uses it in a thermodynamic average calculation.",
+        "The 1973 article proves and illustrates limit-cycle existence with Poincaré–Bendixson domains and isoclines.",
+        "The 2026 global classification gives the equilibrium/Hopf threshold and the stable-limit-cycle phase portrait.",
+        "The 2012 integrability paper studies Darboux polynomials and first integrals."
+      ],
+      "reasoning": "The global period average is strictly weaker than conditioning on every total-concentration slice. Limit-cycle existence, uniqueness, integrability obstructions, and global phase portraits do not imply the inhibitor-fiber size-bias calibration or the equality-rigid covariance-speed law.",
+      "searches": [
+        "Brusselator periodic orbit time average x equals A",
+        "Chemical Instabilities and Sustained Oscillations Brusselator average X A",
+        "Some further studies nonlinear oscillations Brusselator isoclines",
+        "Classification Global Phase Portraits Brusselator invariant measure average"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1063/1.1668896",
+      "doi:10.1016/0022-5193(71)90054-3",
+      "doi:10.1063/1.1679748",
+      "doi:10.1142/S1402925112500167",
+      "doi:10.1007/s10883-026-09780-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lefever and Nicolis derive only the integrated periodic-orbit consequence of \\(\\dot X+\\dot Y=A-X\\).",
+        "Their complete thermodynamic treatment explicitly says a similar simple global average is not obtained for \\(Y\\), then studies numerical average \\(Y\\)-values.",
+        "The accepted theorem keeps the test function of \\(X+Y\\) before integrating and separately tests functions of \\(Y\\), producing two families of conditional identities.",
+        "The support barrier and equality-rigid speed law require additional bounded-complete-orbit and variance arguments absent from the prior average calculation."
+      ],
+      "reasoning": "Prior knowledge of \\(\\langle X\\rangle=A\\) does not imply \\(\\mathbb E[X\\mid X+Y]=A\\), nor does it imply the full family \\(B\\mathbb E[X\\mid Y]=Y\\mathbb E[X^2\\mid Y]\\). The implication comparison therefore removes the covered global average while leaving a strictly stronger surviving claim.",
+      "searches": [
+        "Brusselator periodic orbit time average x equals A",
+        "Brusselator stationary conditional expectation x given total concentration x+y",
+        "Brusselator periodic orbit crosses x=A total concentration barrier",
+        "Brusselator invariant measure activator size bias inhibitor B/y"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The total-concentration law is equivalent to \\(\\mathbb E[\\phi(x+y)(x-A)]=0\\) for every bounded Borel \\(\\phi\\).",
+        "The inhibitor law is equivalent to the activator-size-biased conditional mean \\(\\mathbb E_\\nu[x\\mid y]=B/y\\).",
+        "The covariance-speed statement is equivalent to orthogonality of \\(x-A\\) to every function of \\(x+y\\) together with \\(\\dot x+\\dot y=A-x\\)."
+      ],
+      "reasoning": "Searches covered conditional-expectation, total-concentration, size-bias, nullcline, covariance, and derivative-energy wordings, so simple reformulations were included in the comparison.",
+      "searches": [
+        "Brusselator stationary conditional expectation x given total concentration x+y",
+        "Brusselator invariant measure activator size bias inhibitor B/y",
+        "Brusselator covariance x y variance total concentration",
+        "Brusselator stationary measure conditional expectation x given x+y"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic-index result with the Brusselator as object stated the accepted slice laws or covariance-speed identity.",
+        "The closest indexed results concern Rabinovich–Fabrikant, Rössler, Genesio, and Rucklidge systems.",
+        "The recoverable current and immediately prior own-ledger claims contain no Brusselator finding."
+      ],
+      "reasoning": "Queries used the exact object name and searched global averages, conditional means, total concentration, activator size bias, inhibitor nullcline, variance identities, and crossing consequences.",
+      "searches": [
+        "Brusselator invariant measure stationary conditional mean total concentration exact balance",
+        "Brusselator periodic orbit time average x equals A",
+        "Brusselator stationary measure conditional expectation x given x+y",
+        "Brusselator variance identity total concentration x+y",
+        "Brusselator nonconstant periodic orbit crosses x=A",
+        "Brusselator stationary conditional expectation x given total concentration x+y",
+        "Brusselator invariant measure activator size bias inhibitor B/y",
+        "Brusselator covariance x y variance total concentration",
+        "Brusselator periodic orbit crosses x=A total concentration barrier"
+      ]
+    },
+    "rationale": "The strongest historical comparison is the complete 1971 Lefever–Nicolis article. It explicitly derives \\(d(X+Y)/dt=A-X\\) and the period-average law \\(\\langle X\\rangle=A\\); that global result is therefore excluded from novelty. The article then analyzes entropy production, frequency spectra, and limit-cycle geometry, but does not state the conditional refinement on total-concentration slices or the inhibitor-fiber relation. The complete 1973 Tyson article develops phase-plane, isocline, and coupled-oscillator theory without those stationary disintegrations. Modern integrability and global-phase-portrait literature likewise addresses different statements. Targeted semantic searches for direct and equivalent conditional, size-biased, covariance, and crossing formulations found no same-object implication.",
+    "residual_risks": [
+      "The generator identities are short enough that an incidental equivalent statement could remain in unindexed chemical-kinetics literature.",
+      "The global average \\(\\langle x\\rangle=A\\) is definitely prior and is explicitly excluded from the originality claim.",
+      "The 2012 integrability source was inspected at theorem/proposition level rather than used for blanket whole-document noncoverage.",
+      "No novelty is claimed for the equations, equilibrium, Hopf threshold, existence or uniqueness of the stable limit cycle, or the known global activator average."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the autocatalytic two-intermediate mechanism and its kinetic equations but does not state the accepted invariant-measure slice laws.",
+        "evidence": "The article is dated 15 February 1968 and gives Scheme I with the autocatalytic step and two intermediate concentrations.",
+        "identifier_or_url": "doi:10.1063/1.1668896",
+        "material_read": "Complete seven-page article, including the reaction scheme, kinetic equations, instability analysis, dissipative structures, and chemical-oscillation discussion.",
+        "method": "Full-text equation and implication comparison.",
+        "title": "Symmetry Breaking Instabilities in Dissipative Systems. II",
+        "trigger": "Foundational reaction scheme and earliest-public-date anchor."
+      },
+      {
+        "assessment": "Explicitly derives \\(d(X+Y)/dt=A-X\\) and the period-average \\(\\langle X\\rangle=A\\). That global identity is prior. The article does not state the conditional total-concentration law or inhibitor-fiber size-bias law.",
+        "evidence": "Section 4 averages the total-concentration equation over one period and obtains the steady-state activator average, then uses it in the entropy-production calculation.",
+        "identifier_or_url": "doi:10.1016/0022-5193(71)90054-3",
+        "material_read": "Complete article sections on the normalized equations, limit-cycle analysis, thermodynamic averages, frequency spectra, and Volterra–Lotka comparison.",
+        "method": "Full-text implication comparison.",
+        "title": "Chemical Instabilities and Sustained Oscillations",
+        "trigger": "Decisive same-object prior because it studies time averages beyond the Brusselator instability."
+      },
+      {
+        "assessment": "Develops global and local oscillation geometry but does not state the accepted stationary conditional identities.",
+        "evidence": "The article writes the standard two-variable equations and the unique steady state and analyzes stable limit cycles for parameters beyond the Hopf threshold.",
+        "identifier_or_url": "doi:10.1063/1.1679748",
+        "material_read": "Complete article, including the standard equations, stability threshold, isoclines, Poincaré–Bendixson domain, relaxation oscillations, coupled oscillators, and biochemical modification.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Some further studies of nonlinear oscillations in chemical systems",
+        "trigger": "Complete classical same-object treatment of Brusselator nonlinear oscillations."
+      },
+      {
+        "assessment": "Addresses first integrals and Darboux theory rather than invariant-measure slice moments.",
+        "evidence": "The paper studies Liouvillian and analytic first integrals of the Brusselator polynomial system.",
+        "identifier_or_url": "doi:10.1142/S1402925112500167",
+        "material_read": "Open-access system statement, abstract, classification metadata, and proposition material on Darboux polynomials and exponential factors.",
+        "method": "Statement-level exact-structure comparison.",
+        "title": "Liouvillian and Analytic First Integrals for the Brusselator System",
+        "trigger": "Potential exact-structure coverage through integrability theory."
+      },
+      {
+        "assessment": "Classifies the global phase portraits and stable-limit-cycle regime but does not formulate the accepted invariant-measure laws.",
+        "evidence": "The article lists MSC 34C05, 34C23, and 34C07 and gives the equilibrium and Hopf threshold for the same equations.",
+        "identifier_or_url": "doi:10.1007/s10883-026-09780-5",
+        "material_read": "Complete open article, including exact equations, equilibrium/Hopf discussion, global phase portraits, conclusions, classification metadata, and targeted document searches for invariant measure, average, and moment.",
+        "method": "Full-text implication comparison.",
+        "title": "Classification of Global Phase Portraits for the Brusselator System",
+        "trigger": "Modern strongest global same-object phase-portrait treatment and MSC ownership check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41daf176-8156-451a-b1e7-7e9514e1b9b4",
+  "value": {
+    "rationale": "The Brusselator is a canonical planar chemical oscillator whose literature emphasizes the Hopf transition, stable limit cycle, isoclines, and global phase portrait. The accepted theorem supplies exact stationary information orthogonal to that classical geometry: the activator mean is fixed separately on every total-concentration slice, and activator size-biasing places the inhibitor-fiber mean exactly on the nonlinear nullcline \\(x=B/y\\). Those slice laws produce a strict recurrent barrier \\(x+y>A\\) and an equality-rigid fluctuation identity tying activator variance to total-concentration speed. They therefore give parameter-explicit consistency checks for sampled limit cycles or other compact stationary data and connect nullcline geometry directly to stationary statistics rather than merely recomputing a known equilibrium or global average.",
+    "status": "PASS"
+  }
+}
