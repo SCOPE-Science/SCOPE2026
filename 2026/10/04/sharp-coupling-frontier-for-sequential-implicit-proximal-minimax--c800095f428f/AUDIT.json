@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source equations reduce exactly to a two-dimensional linear map with trace \\([2+2t-\\kappa^2t^2]/(1+t)^2\\) and determinant \\(1/(1+t)^2\\). The three Jury inequalities leave exactly \\(4+4t+(1-\\kappa^2)t^2>0\\), giving all-step stability for \\(0<\\kappa\\le1\\) and the sharp ceiling \\(2/(\\kappa-1)\\) for \\(\\kappa>1\\). The discriminant changes sign only once at the stated \\(t_\\star\\). Before it the root modulus is \\(1/(1+t)\\); after it, an exact scaled-root derivative inequality proves strict increase. The boundary root and full-resolvent contrast were independently replayed by the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source proves global q-linear convergence under its algorithmic conditions but does not state a complete scalar spectral phase diagram.",
+        "Ouyang's alternating proximity work explicitly presents sufficient conditions for linear convergence rather than a necessary-and-sufficient scalar Schur classification.",
+        "Rockafellar's proximal-point framework applies resolvents of maximal monotone operators; the simultaneous resolvent on this saddle is unconditionally stable."
+      ],
+      "reasoning": "Broad sufficient convergence theorems do not imply the exact endpoint or optimal step. Full-resolvent proximal theory also cannot imply the staggered map's spectrum because block sequentialization changes the iteration matrix.",
+      "searches": [
+        "arXiv:2605.23488v1 full text, Sections 1--2 and implicit update system (2.4)",
+        "arXiv:2310.20156v1 problem formulation and linear-convergence theorem summary",
+        "DOI:10.1137/0314056 proximal-point resolvent theory"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23488v1",
+      "arXiv:2310.20156v1",
+      "DOI:10.1137/0314056",
+      "published-research record 486b3694d0f0",
+      "published-research record 689d5e743c56",
+      "published-research record 21774554697b",
+      "published-research record 63a985cd76f4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (2.4) of arXiv:2605.23488v1 uses old \\(x_k\\) in the implicit \\(y\\) solve and new \\(y_{k+1}\\) in the implicit \\(x\\) solve, producing the triangular map analyzed here.",
+        "The 2023 alternating-proximity source states sufficient parameter conditions but no exact two-dimensional flip frontier or spectral minimizer in the inspected material.",
+        "The simultaneous resolvent has eigenvalue moduli \\(1/\\sqrt{(1+t)^2+\\kappa^2t^2}\\), so its all-step stability does not dominate the staggered claim."
+      ],
+      "reasoning": "No inspected prior result has the same update together with a statement that implies both the necessary-and-sufficient coupling-dependent stability frontier and the unique rate-optimal step. The full resolvent is explicitly separated because confusing the two implicit constructions would incorrectly suggest unconditional stability.",
+      "searches": [
+        "arXiv:2605.23488v1 full text: Assumption 2.1, Section 2.2, equation (2.4), convergence contribution statement",
+        "arXiv:2310.20156v1 strongly convex--strongly concave bilinear formulation and stated sufficient linear-convergence conditions",
+        "DOI:10.1137/0314056 exact proximal-point/resolvent framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.23488v1 defines the y-then-x implicit update system specialized in the finding.",
+        "arXiv:2310.20156v1 studies bilinear strongly convex--strongly concave alternating proximity mappings using sufficient convergence conditions.",
+        "No retrieved published-research record stated the threshold \\(t=2/(\\kappa-1)\\) or the optimizer \\(t_\\star=2/(\\sqrt{1+\\kappa^2}-1)\\)."
+      ],
+      "reasoning": "Searches covered implicit/staggered/Gauss--Seidel aliases, bilinear saddle terminology, exact stability, flip eigenvalues, and the distinctive closed forms. The closest results use different reflected/extragradient maps or provide sufficient rather than sharp conditions.",
+      "searches": [
+        "Published-research database: sequential implicit proximal bilinear saddle 2 over kappa minus 1 stability",
+        "Published-research database: Gauss Seidel proximal saddle sqrt 1 plus kappa squared optimal step",
+        "Web literature: alternating proximal point bilinear game exact convergence factor",
+        "Web literature: Gauss-Seidel proximal bilinear saddle strongly convex concave"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned record stated the exact flip boundary, coalescence step, or optimal factor for this update.",
+        "The closest records concerned extragradient, reflected-gradient, Richardson, and unrelated Gauss--Seidel systems."
+      ],
+      "reasoning": "The finding is an analytic classification of a two-block source update, not a recomputation of a stored benchmark or table.",
+      "searches": [
+        "Published-research database: staggered implicit minimax eigenvalue minus one flip boundary",
+        "Published-research database: sequential implicit proximal bilinear saddle exact rate",
+        "Published-research database: proximal point bilinear game sequential implicit update rate optimal stepsize"
+      ]
+    },
+    "rationale": "The recent primary paper defines the exact staggered implicit system and proves broad sufficient linear-convergence results, but its inspected full text does not give a necessary-and-sufficient scalar coupling threshold or exact rate-optimal step. The closest alternating-proximity paper gives sufficient linear-convergence conditions for bilinear strongly convex--strongly concave saddles, while classical proximal-point theory concerns the simultaneous resolvent. Targeted database and literature searches found no statement implying the combined flip frontier, root-collision optimum, and resolvent comparison.",
+    "residual_risks": [
+      "Alternating and Gauss--Seidel saddle-point literature is broad; an equivalent scalar phase calculation may appear under different splitting notation.",
+      "The Ouyang comparison was inspected through its accessible full-text rendering and theorem summary rather than a line-by-line reconstruction of every proof.",
+      "The accepted claim is limited to equal curvature and equal step and does not establish a robust multidimensional optimal parameter rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the staggered y-then-x implicit map and proves broad linear convergence, but does not state the accepted scalar necessary-and-sufficient frontier or rate-optimal formula.",
+        "evidence": "Section 2.2 writes \\(y^{k+1}\\) using \\(x^k\\), then \\(x^{k+1}\\) using \\(y^{k+1}\\); the paper describes implicit updates as providing enhanced stability.",
+        "identifier_or_url": "arXiv:2605.23488v1",
+        "material_read": "Full-text HTML portions covering the constrained minimax model, contribution summary, Assumption 2.1, Section 2.2, and the complete implicit update system (2.4).",
+        "method": "Full-text lawful arXiv HTML inspection.",
+        "title": "A Stochastic Implicit Proximal Point Algorithm for Solving Linearly Constrained Stochastic Minimax Problems",
+        "trigger": "Primary recent source defining the sequential implicit proximal minimax update."
+      },
+      {
+        "assessment": "Provides sufficient linear-convergence conditions for an alternating proximity framework but no exact scalar Schur boundary, discriminant-collision optimizer, or comparison with the simultaneous resolvent in the inspected statements.",
+        "evidence": "The paper formulates \\(f(x,y)=\\langle Kx,y\rangle+g(x)-h(y)\\) and explicitly labels its constant-parameter convergence restrictions as sufficient.",
+        "identifier_or_url": "arXiv:2310.20156v1",
+        "material_read": "Accessible full-text rendering of the problem formulation, bilinear coupling assumptions, contribution list, and theorem/corollary summary for linear convergence with constant parameters.",
+        "method": "Lawful arXiv full-text rendering and abstract inspection.",
+        "title": "Alternating Proximity Mapping Method for Strongly Convex-Strongly Concave Saddle-Point Problems",
+        "trigger": "Closest prior centered on alternating proximal maps for bilinear strongly convex--strongly concave saddles."
+      },
+      {
+        "assessment": "Establishes the classical resolvent framework; it does not cover the spectral effect introduced by replacing a simultaneous resolvent with sequential block implicit solves.",
+        "evidence": "The classical PPA applies a resolvent step to the operator as a whole, whereas the recent source uses a triangular block update.",
+        "identifier_or_url": "DOI:10.1137/0314056",
+        "material_read": "Abstract and method definition describing proximal-point iteration through resolvents of maximal monotone operators.",
+        "method": "Publisher article inspection.",
+        "title": "Monotone Operators and the Proximal Point Algorithm",
+        "trigger": "Foundational source needed to distinguish classical full-resolvent proximal point from the staggered source update."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c800095f-428f-4354-8022-6511a3665ca6",
+  "value": {
+    "rationale": "The source motivates implicit updates by enhanced stability, so determining whether block-sequential implicitness retains the canonical all-step stability of full proximal point is a natural structural question. The result finds an exact coupling threshold \\(c=a\\): below it every positive step is stable, above it a finite \\(-1\\) flip boundary appears. It also identifies the unique rate-optimal step and shows that taking the step larger than the root-collision point slows the method even before instability. This separates two forms of implicitness in a minimal strongly convex--strongly concave model and supplies concrete parameter-design information.",
+    "status": "PASS"
+  }
+}
