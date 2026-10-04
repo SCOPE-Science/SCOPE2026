@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Plancherel reduces the exact operator norm to \\(2^k\\max_{0\\le t\\le1}t^{k/2}|1-bt|\\). For \\(b\\le1\\) the objective decreases pointwise with \\(b\\); for \\(b>1\\) its two branch maxima are exactly \\(c_r b^{-r}\\) and \\(b-1\\), so the unique minimizer is their unique crossing. The Fourier-positivity condition is exactly \\(b\\le1\\). The asymptotic follows from the defining equation after setting \\(y_r=r(b_r-1)\\). The packaged verifier reproduces the branch equalities and known low-order constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gaitán–Garzón–Madrid solve unrestricted k=3 and Fourier-nonnegative k=4,6 at arbitrary support radius, but explicitly leave other derivative orders open.",
+        "Kravitz–Steinerberger and Richardson give broader support-radius coverage only for low derivative orders."
+      ],
+      "reasoning": "Existing arbitrary-radius theorems dominate the new statement only at the low orders they already solve. They do not imply the radius-one classification for every k, especially the rows explicitly open in the 2026 table.",
+      "searches": [
+        "three point symmetric averaging kernel higher derivatives exact minimax",
+        "C_{k,1} smoothest average arbitrary k"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.25074v1",
+      "arXiv:2310.09713v1",
+      "arXiv:2007.13700v1",
+      "published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 theorem gives the triangle kernel for the second difference under Fourier positivity, not all k.",
+        "The 2023 Richardson theorem gives unrestricted second-difference minimizers for every n, not arbitrary derivative order.",
+        "The 2026 source gives a relation between certain k and 2k problems but changes the support structure and does not yield this fixed-radius all-order formula."
+      ],
+      "reasoning": "Specializing the known low-order theorems recovers checks of the new formula but does not imply its all-order statement. Conversely, the new result does not subsume the larger-support theorems.",
+      "searches": [
+        "triangle kernel n=1 nonnegative Fourier optimal every derivative order smoothest average",
+        "support radius one k-th discrete derivative optimal convolution kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the same radius-one all-order minimax formula or optimizer classification.",
+        "The motivating arXiv full text was searched for radius-one/three-point specializations; the open-problem table is organized by derivative order rather than giving this all-order cutoff."
+      ],
+      "reasoning": "The proposed theorem is equivalent to a weighted degree-one Chebyshev minimax problem. Searches using both the smoothest-average language and the explicit scalar equal-ripple equation found no equivalent published published-finding corpus statement.",
+      "searches": [
+        "all-order sharp three-point smoothest averages support radius one",
+        "optimal symmetric kernel {-1,0,1} nabla^k ell2 all k",
+        "(b-1)b^(k/2)= (k/2)^(k/2)/(k/2+1)^(k/2+1) smoothest average"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 2 of arXiv:2604.25074v1 marks Fourier-nonnegative nabla and nabla^3, and unrestricted nabla^4 and nabla^6, as open, and says derivative orders not shown remain open.",
+        "No exact table or database result located the radius-one all-order constants."
+      ],
+      "reasoning": "The new finite-radius classification supplies exact entries across all orders at n=1 rather than recomputing an already tabulated constant.",
+      "searches": [
+        "smoothest average support {-1,0,1} arbitrary derivative order exact optimal kernel",
+        "unrestricted fourth derivative smoothest average three point kernel"
+      ]
+    },
+    "rationale": "The recent primary source explicitly lists several derivative-order variants of the general smoothest-average problem as open. Its searchable full text does not state an all-order radius-one classification. Earlier primary sources cover only the first and second differences. Targeted published-finding corpus and web searches for the radius-one all-order formula, its scalar equation, and the triangle-kernel universality returned no covering result.",
+    "residual_risks": [
+      "A weighted degree-one minimax formula equivalent to this theorem may exist in older approximation literature under notation unrelated to smoothest averages.",
+      "The recent source is a preprint; later revisions after the inspected version could add the radius-one observation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the all-order n=1 theorem; it covers selected k at arbitrary n and explicitly records other cases as open.",
+        "evidence": "The source states that orders absent from its table remain open and lists open cells including Fourier-nonnegative first/third differences and unrestricted fourth/sixth differences.",
+        "identifier_or_url": "arXiv:2604.25074v1",
+        "material_read": "arXiv abstract and searchable HTML full-text passages containing Theorem 1.12, Remark 1.13, Table 2, and the discussion of higher-order obstacles.",
+        "method": "Direct source-text inspection and targeted in-document searches.",
+        "title": "The smoothest average and some extremal problems for polynomials",
+        "trigger": "Primary recent source defining the same extremal problem and listing unresolved derivative orders."
+      },
+      {
+        "assessment": "NOT_COVERING beyond k=2.",
+        "evidence": "The paper is explicitly about the second derivative; the present k=2 specialization agrees with it at n=1.",
+        "identifier_or_url": "arXiv:2310.09713v1",
+        "material_read": "Primary arXiv abstract describing the exact second-difference minimizer for every support radius.",
+        "method": "Direct abstract inspection and comparison of theorem scope.",
+        "title": "A Sharp Fourier Inequality and the Epanechnikov Kernel",
+        "trigger": "Closest unrestricted low-order predecessor."
+      },
+      {
+        "assessment": "NOT_COVERING for arbitrary k.",
+        "evidence": "Its exact statements concern first difference without Fourier positivity and second difference with Fourier positivity.",
+        "identifier_or_url": "arXiv:2007.13700v1",
+        "material_read": "Primary arXiv abstract stating the sharp first-difference result and triangle-kernel second-difference result.",
+        "method": "Direct abstract inspection and implication comparison.",
+        "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+        "trigger": "Foundational first-difference and Fourier-nonnegative second-difference predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "97ecaa4c-d5e9-49c9-8a05-bd172041850c",
+  "value": {
+    "rationale": "The support radius is a central parameter of the smoothest-average problem, and n=1 is its first nontrivial case. The theorem gives a natural complete classification at that cutoff for every derivative order, fills exact finite-radius instances of several cells the recent source marks open at general radius, identifies a universal Fourier-positive optimizer, and quantifies the all-order asymptotic gap. This is more than a numerical recomputation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
