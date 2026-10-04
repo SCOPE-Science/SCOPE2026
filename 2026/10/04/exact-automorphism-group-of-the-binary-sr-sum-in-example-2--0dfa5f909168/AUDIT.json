@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For a full-rank generator \\(H\\), every coordinate automorphism \\(P\\) has a unique \\(A\\in\\operatorname{GL}(3,2)\\) with \\(AH=HP\\). The column multiplicities \\(4,2,2,1\\) force exactly two possible row actions, each allowing \\(4!2!2!=96\\) coordinate matchings, giving the exact upper bound \\(192\\). The source symmetries generate a subgroup of that order. Independently, exhaustive enumeration of all \\(9!\\) coordinate permutations finds exactly \\(192\\) automorphisms and the claimed three orbits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's Proposition 2.5 supplies only a componentwise subgroup and explicitly notes that the full group may be larger.",
+        "General code-automorphism literature located by the searches gives methods and unrelated examples, not a theorem that determines this exact repeated-column SR-sum."
+      ],
+      "reasoning": "A general lower-bound construction or a general computational method does not imply the exact stabilizer of this particular column multiset.",
+      "searches": [
+        "outer sum linear codes automorphism group repeated columns",
+        "binary code automorphism repeated columns wreath product",
+        "SR-sum automorphism group exact"
+      ]
+    },
+    "checked_sources": [
+      "Kwiatkowski, SR-sum of linear codes, DOI 10.3934/amc.2026052, full Example 2 and automorphism-group section",
+      "Publisher metadata for publication date and primary MSC 94B05",
+      "Public exact/alias searches using the example number, generator rows, group order, wreath-product description, and code weight enumerator",
+      "Searches for short binary-code classifications and exact [9,3,3] automorphism-group data"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 2 states that the group contains the componentwise subgroup, contains \\(S_4\\) because four columns coincide, and contains factor transposition.",
+        "The source does not prove an upper bound or state that these symmetries generate the full group."
+      ],
+      "reasoning": "Containment of the displayed subgroups does not imply that no further row action or coordinate mixing exists. The new column-multiset stabilizer argument supplies the missing upper bound and proves completeness.",
+      "searches": [
+        "Kwiatkowski Example 2 contains S4 transpose automorphism",
+        "SR-sum Proposition 2.5 automorphism subgroup Example 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article gives the same generator and identifies contained symmetries but not the exact group.",
+        "No inspected exact-string or parameter search produced a source stating order 192 or the direct-product/wreath-product decomposition for this code."
+      ],
+      "reasoning": "The searches cover the paper's terminology, the explicit example, the exact order, an equivalent group description, and an invariant fingerprint of the code.",
+      "searches": [
+        "SR-sum Example 2 exact automorphism group order 192",
+        "Kwiatkowski SR-sum Example 2 wreath product automorphism",
+        "binary length 9 dimension 3 weight enumerator 1+2z^3+z^4+z^5+2z^6+z^9 automorphism"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches did not locate an indexed code table or classification entry matching this code's weight distribution and automorphism order.",
+        "The only prominent exact-parameter search hits inspected concerned unrelated quantum or nonbinary codes."
+      ],
+      "reasoning": "No exact database/table coverage of this specific binary code was found. This is a residual-risk statement rather than a novelty proof by failed search alone; the primary novelty comparison is against the paper's explicit unfinished group analysis.",
+      "searches": [
+        "binary [9,3,3] code classification automorphism group",
+        "binary linear codes length 9 dimension 3 classification",
+        "[9,3,3] automorphism group 192"
+      ]
+    },
+    "rationale": "The primary paper explicitly discusses this example's automorphism group but states only contained subgroups and a factor-transposition automorphism. It does not state the exact order, isomorphism type, orbit decomposition, or completeness of those generators. Exact and alias searches for the example, generator, order, group type, and weight enumerator found no prior same-object statement.",
+    "residual_risks": [
+      "A non-indexed or software-internal classification of all binary [9,3] codes may contain an equivalent representative with automorphism order 192.",
+      "The exact abstract group could be recorded elsewhere under a different representative without an easily searchable weight-enumerator or generator fingerprint.",
+      "These risks do not affect correctness; they are publication-priority risks for the exact invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: the source gives lower-bound symmetries and factor transposition but not the exact group.",
+        "evidence": "Example 2 prints the generator, states that the group contains the componentwise subgroup and \\(S_4\\), and gives the transpose automorphism; no order or full-group identification follows.",
+        "identifier_or_url": "doi:10.3934/amc.2026052",
+        "material_read": "Introduction on automorphism-group motivation; Proposition 2.5; the surrounding discussion; all of Example 2; the transition to the weight-distribution section.",
+        "method": "publisher HTML plus lawful CC BY full-text copy",
+        "title": "SR-sum of linear codes",
+        "trigger": "Primary source defining the construction and the exact Example 2 code."
+      },
+      {
+        "assessment": "NO_DECISIVE_COVERAGE_FOUND.",
+        "evidence": "No inspected result matched the explicit generator or its invariant fingerprint with the claimed automorphism group.",
+        "identifier_or_url": "parameter and invariant searches",
+        "material_read": "Search results for binary length \\(9\\), dimension \\(3\\), minimum distance \\(3\\), exact weight enumerator, and automorphism order \\(192\\).",
+        "method": "public literature and database search",
+        "title": "Searches for classifications of short binary linear codes and automorphism groups",
+        "trigger": "Potential stronger coverage through a complete short-code classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0dfa5f90-9168-4ea2-b6eb-b187c0ff3be2",
+  "value": {
+    "rationale": "Automorphism groups are one of the paper's stated structural targets and are motivated there by permutation decoding. Example 2 is specifically used to demonstrate that SR-sums can have substantially more symmetry than the product of component automorphism groups, but it stops at lower bounds. Determining the full group, its orbit structure, and the fact that the displayed generators are complete resolves the natural finite question raised by that example rather than adding an arbitrary invariant.",
+    "status": "PASS"
+  }
+}
