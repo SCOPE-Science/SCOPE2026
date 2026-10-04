@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For a strictly positive periodic orbit, integrating the exact logarithmic derivative of S over one period gives <beta_bar I>=bK<1/S>-b. Decomposing the left side into beta<I>+Cov(beta_bar,I), then subtracting the positive averaged-equilibrium identity beta I*=bK/S*-b, gives the first formula with no approximation. The second formula follows analogously from the period average of d log I/dt and subtraction of beta S*+lambda R*=alpha+b. All divisions and quantifiers are explicitly covered by strict positivity; no numerical experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1007/s10884-008-9111-8 provides broad threshold results for periodic compartmental epidemic systems but does not compare nonlinear endemic time averages with equilibria of an averaged system.",
+        "doi:10.3390/math14060953 itself says the averaged-equilibrium approximation to mean periodic prevalence is not guaranteed and supports that statement numerically."
+      ],
+      "reasoning": "General threshold theorems are logically weaker/different: they govern invasion and persistence near the disease-free state. They do not imply the claimed exact endemic mean-bias decomposition.",
+      "searches": [
+        "\"seasonal epidemic\" \"averaged equilibrium\" prevalence bias identity",
+        "\"covariance\" \"periodic epidemic\" \"time average\" susceptible infected transmission rate",
+        "\"averaged system\" \"periodic system\" \"mean prevalence\" SIRI covariance"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14060953",
+      "doi:10.1007/s10884-008-9111-8",
+      "OpenAlex:W7135025892"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.3390/math14060953 proves equality of reproduction numbers and gives persistence/stability results, but only numerical evidence for averaged-equilibrium approximation of mean endemic prevalence.",
+        "The closest published-result searches returned threshold, Floquet, and covariance results for different epidemic or dynamical systems; none implies this source-specific identity."
+      ],
+      "reasoning": "The claim follows from a logarithmic period balance in the susceptible equation plus the averaged equilibrium equation. Neither equality of reproduction numbers nor periodic persistence entails this identity, and the identity supplies an exact iff criterion for the approximation question left numerical in the source.",
+      "searches": [
+        "\"Threshold Dynamics of a SIRI Model with Reinfection\" averaged periodic mean prevalence",
+        "periodic SIRI mean prevalence endemic equilibrium covariance exact identity transmission covariance",
+        "seasonal epidemic averaged equilibrium prevalence bias identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.3390/math14060953, Sections 2, 3, and 4.4.3: the source gives the periodic and averaged SIRI equations and compares mean seasonal states with averaged equilibria numerically, but does not state the reciprocal-susceptible/covariance identity.",
+        "doi:10.1007/s10884-008-9111-8: periodic epidemic threshold theory concerns the next-infection operator and disease-free threshold dynamics rather than nonlinear mean endemic prevalence."
+      ],
+      "reasoning": "The searched aliases target the same object (periodic SIRI), same comparison (mean periodic prevalence versus averaged equilibrium), and the key covariance/reciprocal-susceptible formulation. No equivalent statement was located.",
+      "searches": [
+        "\"periodic SIRI\" \"mean prevalence\" endemic equilibrium covariance",
+        "\"SIRI\" \"time-averaged\" endemic equilibrium covariance periodic",
+        "\"bK\" \"1/S\" periodic epidemic covariance transmission prevalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's Section 4.4.3 and equations (32)–(33) report numerical relative deviations for mean periodic states versus averaged equilibria; they do not tabulate or derive the exact identity claimed here.",
+        "No separate arXiv/preprint version with an earlier or stronger analytical statement was located in the title/identifier searches."
+      ],
+      "reasoning": "The closest exact numerical material is the source's own constrained-simulation comparison. The new statement is not a recomputation of that table; it is an identity valid for every strictly positive periodic orbit satisfying the model equations.",
+      "searches": [
+        "\"Threshold Dynamics of a SIRI Model with Reinfection\" \"mean prevalence\"",
+        "\"10.3390/math14060953\" time average infected prevalence covariance",
+        "\"Threshold Dynamics of a SIRI Model with Reinfection\" arXiv"
+      ]
+    },
+    "rationale": "The motivating paper poses the averaged-equilibrium versus mean-periodic-prevalence comparison numerically and does not state the exact bias identities. Targeted searches for the same source, covariance aliases, reciprocal-susceptible balance, and broader periodic-epidemic averaging did not locate an equivalent or stronger result. General periodic threshold theory concerns disease-free linearization and does not imply the nonlinear endemic mean identities.",
+    "residual_risks": [
+      "Search cannot exclude an equivalent balance identity under different notation in the wider seasonal-epidemic literature.",
+      "No independent audit has checked the literature comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the model and the numerical approximation question but not the claimed exact covariance/reciprocal-susceptible decomposition.",
+        "evidence": "System (2), System (7), Section 4.4.3, equations (32)–(33), and Discussion; primary MSC is listed as 92D30 and publication date as 2026-03-11.",
+        "identifier_or_url": "doi:10.3390/math14060953",
+        "material_read": "Full open article text covering the seasonal system, the averaged system, threshold results, equilibrium equations, Section 4.4.3 constrained simulations, and the discussion.",
+        "method": "Open-access HTML and full-text article rendering; equations and numerical comparison were read directly.",
+        "title": "Threshold Dynamics of a SIRI Model with Reinfection: Averaged and Periodic Systems and Application to Tuberculosis Data",
+        "trigger": "Exact motivating source; it explicitly compares mean seasonal prevalence with averaged endemic equilibria."
+      },
+      {
+        "assessment": "Relevant to periodic invasion thresholds but not covering nonlinear mean endemic prevalence or the claimed identities.",
+        "evidence": "The work is consistently cited for the periodic next-infection operator and threshold characterization; the present claim instead uses nonlinear period balances on a positive orbit.",
+        "identifier_or_url": "doi:10.1007/s10884-008-9111-8",
+        "material_read": "Bibliographic record and theorem descriptions in accessible citing literature sufficient to identify its scope as next-infection-operator and threshold dynamics.",
+        "method": "Bibliographic and theorem-scope comparison.",
+        "title": "Threshold dynamics for compartmental epidemic models in periodic environments",
+        "trigger": "Broad periodic-epidemic threshold framework cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e4153c59-f437-4e72-b268-2c264054fb0d",
+  "value": {
+    "rationale": "The source explicitly investigates whether an averaged endemic equilibrium approximates mean prevalence of a seasonal orbit and concludes from simulations that the approximation is parameter-dependent. The exact identity isolates the two competing mechanisms controlling infected-prevalence error—reciprocal susceptible level and transmission–infection covariance—and gives a necessary-and-sufficient equality condition. This is a structurally useful diagnostic for an expressly motivated modeling question, not a parameter substitution or a recomputation of a published table.",
+    "status": "PASS"
+  }
+}
