@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Theorem 6.3 gives all shortest embeddings as \\(B=U^{-1}[D;E]\\) with \\(D\\in GL_2(R)\\) and \\(E\\in R^{1\\times2}\\). The reduction map gives \\(|GL_2(R)|=6\\cdot16=96\\), hence \\(1536\\) cases. The verifier enumerates all \\(64\\) words of every case, checks binary Gray rank \\(6\\), binary Gram rank \\(6\\), the complete \\(768/720/48\\) distance census, both optimal weight enumerators, and the source-displayed \\(B\\). No sampling or timeout is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 6.3 characterizes all shortest LCD embeddings abstractly but does not provide the distance-distribution census for Example 7.5.",
+        "Bouyukliev–Bouyuklieva–Gulliver–Östergård classify optimal binary self-orthogonal [20,6,8] codes, a different class; their displayed weight enumerators have only even weights.",
+        "The present two Gray spectra contain odd weights and arise from binary LCD codes, so that self-orthogonal classification does not subsume them."
+      ],
+      "reasoning": "A general parameterization is not the same statement as the exact finite distribution of distances and spectra after specializing to this example. The main nearby length-20 classification concerns self-orthogonal rather than LCD codes.",
+      "searches": [
+        "shortest LCD embeddings over Fq+uFq Example 7.5 classification minimum distance",
+        "binary [20,6,8] LCD code classification",
+        "optimal LCD [20,6,8] binary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.28222v1 full public HTML",
+      "Grassl codetables binary [20,6] entry",
+      "Bouyukliev–Bouyuklieva–Gulliver–Östergård 2006 length-20 self-orthogonal classification page",
+      "published-finding corpus exact/alias searches for Example 7.5, arXiv:2608.28222, 1536, 48, [20,6,8], F2+uF2, and weight-enumerator formulations",
+      "Web exact searches for 1536, 48, Example 7.5, [20,6,8], and the two leading weight-enumerator coefficient strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source says it enumerates all shortest embeddings and exhibits one with largest ring minimum distance 4.",
+        "The source reports one optimal [20,6,8] Gray image but does not give multiplicities or classify the remaining shortest embeddings.",
+        "The new census shows exactly 48 optimal Gray images and two distinct spectra with multiplicities 32 and 16."
+      ],
+      "reasoning": "Existence of one maximizer and knowledge of the maximum do not imply how many maximizers there are, the distribution of suboptimal Gray distances, or the existence of multiple inequivalent optimal spectra.",
+      "searches": [
+        "2608.28222 Example 7.5 largest minimum distance all shortest LCD embeddings",
+        "Example 7.5 [20,6,8] optimal LCD Gray image"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An–Kim Example 7.5 gives the same G, U, one B, ring distance 4, and one optimal binary LCD [20,6,8] Gray image.",
+        "No published-finding corpus hit matched the same example together with the 1536 total, 768/720/48 census, or either new optimal weight spectrum."
+      ],
+      "reasoning": "Searches covered the paper identifier, example number, ring notation, Gray-image parameters, total family size, and the principal numerical census, reducing the risk of a differently phrased duplicate.",
+      "searches": [
+        "Example 7.5 shortest LCD embedding F2+uF2 [20,6,8] weight enumerator",
+        "2608.28222 Example 7.5 1536 shortest LCD embeddings 48 optimal",
+        "F2+uF2 shortest LCD embedding Gray image [20,6,8] enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grassl's binary [20,6] table has lower bound 8 and upper bound 8, confirming optimality of distance 8.",
+        "The table supplies a construction of some [20,6,8] code but no F2+uF2 shortest-embedding provenance, no 1536-family census, and no matching weight-enumerator entry."
+      ],
+      "reasoning": "The standard parameter table confirms only the extremal distance value. It neither records the ring-embedding family nor the two spectra found here.",
+      "searches": [
+        "Grassl codetables [20,6] GF(2)",
+        "[20,6,8] weight enumerator LCD"
+      ]
+    },
+    "rationale": "The primary paper states that all shortest embeddings were enumerated and displays one maximizing ring minimum distance, but it does not publish the total count, the full distance census, the fact that every Gray image is binary LCD, or the two optimal Gray-image weight spectra. Focused published-finding corpus and web searches for the exact example, arXiv identifier, counts, parameters, and weight-enumerator coefficients found no prior statement of these results.",
+    "residual_risks": [
+      "The authors' unpublished computation files may contain the same census even though the public paper does not state it.",
+      "A non-indexed classification of binary LCD [20,6,8] codes could contain codes with these two weight enumerators; that would not by itself cover the exact 1536-embedding census, but it could reduce novelty of the spectra considered in isolation.",
+      "The two weight enumerators prove at least two permutation-inequivalent optimal images; the census does not classify equivalence within each weight-enumerator class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: the source supplies the complete parameterization and one optimal witness but not the finite census or the two optimal spectra.",
+        "evidence": "Theorem 6.3 states the iff form B=U^{-1}[D;E]. Example 7.5 gives G, U, one B, ring distance 4, and an optimal binary LCD [20,6,8] Gray image.",
+        "identifier_or_url": "arXiv:2608.28222v1",
+        "material_read": "Definitions of the ring and Gray map; Theorems 6.1 and 6.3; Section 7 introduction; full Example 7.5; bibliography entry for the code tables.",
+        "method": "lawful public arXiv HTML full text",
+        "title": "Shortest self-orthogonal and LCD embeddings of linear codes over Fq+uFq",
+        "trigger": "Primary source for the exact code, Gray map, complete shortest-embedding parameterization, and Example 7.5."
+      },
+      {
+        "assessment": "NOT_COVERING for the census; confirms only that distance 8 is optimal.",
+        "evidence": "The table gives lower bound 8 and upper bound 8 for binary [20,6] codes.",
+        "identifier_or_url": "https://www.codetables.de/BKLC/BKLC.php?q=2&n=20&k=6",
+        "material_read": "The [20,6] binary bounds entry and construction lines.",
+        "method": "public database page inspection",
+        "title": "Bounds on the minimum distance of linear codes and quantum codes",
+        "trigger": "Exact parameter table for the binary [20,6] optimum."
+      },
+      {
+        "assessment": "INAPPLICABLE to the new optimal Gray images because it classifies self-orthogonal codes; the listed spectra are even-weight, unlike both new LCD spectra.",
+        "evidence": "The length-20 page lists 23 self-orthogonal [20,6,8] weight enumerators, all supported on even weights.",
+        "identifier_or_url": "JCMCC 59 (2006), 33–87",
+        "material_read": "Title/authors and the length-20 page listing the 23 optimal self-orthogonal [20,6,8] weight enumerators.",
+        "method": "public PDF visual inspection",
+        "title": "Classification of Optimal Binary Self-Orthogonal Codes",
+        "trigger": "Potential stronger length-20 classification that might subsume the binary outputs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b97496ec-25bd-426c-9eb6-19b1597a92d9",
+  "value": {
+    "rationale": "The primary paper explicitly relies on exhaustive enumeration to identify the best shortest LCD embedding in Example 7.5, but publishes only one maximizer. A complete census turns that existential optimization into a reproducible finite classification: it quantifies the rarity of the optimal Gray distance (48 of 1536), separates ring distance from Gray distance, proves every Gray image is binary LCD, and exposes two distinct optimal spectra. These are natural invariants of the exact example and materially sharpen how robust or non-unique the paper's displayed optimum is.",
+    "status": "PASS"
+  }
+}
