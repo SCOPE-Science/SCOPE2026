@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Oddness of n^2+n-1 forces tau(n) odd, hence n square. Any prime r dividing tau(n) must therefore see a nonzero quadratic-residue root of x^2+x-1. For primes below 19 only r=11 can do so. Consequently tau(n)<209 forces tau(n)=11 or 121; the complete divisor-count shapes for those values all give n congruent to 1 modulo 11, contradicting divisibility. The family p^10*31^18 has tau=209 and is divisible modulo both 11 and 19 exactly as claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abel-Lauer-Redi Theorem 3 gives a general sufficient construction for infinitude but no lower bound on tau(n).",
+        "Their Open Problem 2 explicitly asks for possible values of tau(n) for a fixed polynomial."
+      ],
+      "reasoning": "The prior theorem covers the upper-bound/existence side only. It does not imply that 209 is minimal, so it does not dominate the final claim.",
+      "searches": [
+        "published-finding corpus: tau-numbers relative polynomial x^2+x-1 infinitely many Abel Lauer Redi",
+        "published-finding corpus: tau(n) divides n^2+n-1 infinitely many",
+        "Primary source Theorem 3 and Open Problems 1-3"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.12697/ACUTM.2021.25.07",
+      "OEIS:A000005",
+      "published-finding corpus semantic searches for the exact polynomial, exact minimum, tau=209, and relative-tau aliases",
+      "Web searches for the exact divisibility, value 209, and polynomial"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 can supply tau=209 examples for x^2+x-1 but cannot exclude tau<209.",
+        "The closest published-finding corpus finding concerns x^2-x+1 and proves only n=1 there."
+      ],
+      "reasoning": "The final statement combines an attainable value with a strict universal lower bound absent from both the general construction theorem and the nearby opposite-sign result.",
+      "searches": [
+        "Abel-Lauer-Redi Theorem 3 q1 q2 construction",
+        "Abel-Lauer-Redi Open Problem 2 possible tau(n) values",
+        "published-finding corpus: x^2-x+1 cyclotomic tau relative uniqueness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published-finding corpus record proves uniqueness for the different polynomial n^2-n+1.",
+        "Web searches returned no exact-minimum result for n^2+n-1."
+      ],
+      "reasoning": "The searches cover the exact polynomial, the divisibility formulation, and the numerical invariant 209; no equivalent statement was located.",
+      "searches": [
+        "published-finding corpus: minimum divisor count tau(n) for tau(n) divides n^2+n-1 209",
+        "published-finding corpus: relative tau polynomial x^2+x-1 minimum tau 209",
+        "Web: \"209\" \"n^2+n-1\" tau number",
+        "Web: \"tau(n)=209\" \"n^2+n-1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source reports only n=1 through 10^8 for this polynomial.",
+        "The divisor-count factorization tau(n)=product(e_i+1) supplies the exhaustive shapes for tau=11 and tau=121."
+      ],
+      "reasoning": "The finite search does not contain the 41-digit family and gives no lower bound in tau-space; the standard tau formula is used only to close the two small divisor-count cases.",
+      "searches": [
+        "Primary source computer-search statement for x^2+x-1 through 10^8",
+        "OEIS A000005 divisor-count formula"
+      ]
+    },
+    "rationale": "The source paper's Theorem 3 can imply existence of an infinite family after suitable residue choices, so existence alone is not claimed as original. The accepted claim is the exact minimum tau(n)=209, requiring a new lower-bound argument. The source paper instead reports only a search through 10^8 for x^2+x-1 and asks generally for possible tau-values. Targeted published-finding corpus and web searches found no statement of the 209 minimum or an equivalent lower bound.",
+    "residual_risks": [
+      "An unindexed note may contain the same exact-minimum observation.",
+      "The result does not settle the least nontrivial integer n or all attainable divisor-count values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies a general infinitude criterion and explicitly leaves type-II classification and possible tau-values open. It does not state or imply the exact minimum 209 without the new lower-bound argument.",
+        "evidence": "Published 2021-06-21; Theorem 3 on page 114; Open Problems on pages 116-117.",
+        "identifier_or_url": "DOI:10.12697/ACUTM.2021.25.07",
+        "material_read": "Definition of relative tau-number; Theorem 3; Section 6 Open Problems, including the x^2+x-1 computation through 10^8 and Open Problems 1-3.",
+        "method": "Full-text PDF inspection, including page image for the relevant theorem page.",
+        "title": "About the number of tau-numbers relative to polynomials with integer coefficients",
+        "trigger": "Primary source for the type-II classification problem and the specific polynomial x^2+x-1."
+      },
+      {
+        "assessment": "Confirms tau(n)=product(e_i+1), used to enumerate the shapes for 11, 121 and 209.",
+        "evidence": "A000005 definition and comments.",
+        "identifier_or_url": "OEIS:A000005",
+        "material_read": "Definition and product formula for the number of divisors.",
+        "method": "Direct sequence-page inspection.",
+        "title": "OEIS A000005",
+        "trigger": "Cross-check the standard divisor-count factorization used in the small-tau cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ceb766b3-9c64-484f-910b-cebcf788a514",
+  "value": {
+    "rationale": "The source paper explicitly highlights x^2+x-1 as having no nontrivial example through 10^8 and asks for possible divisor-count values. The exact minimum 209 gives the first nontrivial point of that spectrum, proves infinitely many examples exist far beyond the searched range, and explains the computational gap. This is a natural exact invariant tied directly to an explicit open problem rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
