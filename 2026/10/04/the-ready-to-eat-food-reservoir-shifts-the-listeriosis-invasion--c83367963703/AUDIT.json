@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "The primary equations give \\(F_u+F_c=F\\) and the stated zero-food point has \\(F_u'=p_fF\\), so it is not an equilibrium for \\(F>0\\). On the invariant food-total manifold the clean-food equilibrium is exact. Its \\(3\\times3\\) infected/environmental characteristic polynomial is reconstructed explicitly; for \\(q>0\\), \\(\\mathcal R_F<1\\) implies all cubic Routh–Hurwitz inequalities, while \\(\\mathcal R_F>1\\) makes the constant term negative and hence forces a positive real eigenvalue. The equality case is left nonhyperbolic and unclassified. The rational witness is checked by the packaged verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chukwu and Nyabadza (2020), DOI 10.1155/2020/9207403, explicitly model uncontaminated and contaminated ready-to-eat food and derive a food-contamination threshold, but use a different human-worker-food-environment system."
+      ],
+      "reasoning": "The older paper shows that food contamination can define its own threshold, but its equations do not reduce to the 2026 subsystem and do not yield the factor 1+alpha_3 F/(p_f-alpha_4 F). It therefore does not imply the present correction.",
+      "searches": [
+        "listeriosis model ready-to-eat food Fu Fc F contaminated food R0 alpha3 alpha4",
+        "listeriosis contaminated food mathematical model basic reproduction number ready-to-eat food",
+        "A theoretical model of Listeriosis driven by cross contamination of ready-to-eat food products"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.28924/2291-8639-24-2026-160",
+      "doi:10.1155/2020/9207403",
+      "https://etamaths.com/index.php/ijaa/article/view/4183"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 cross-contamination paper treats a different mechanism and threshold; the 2026 source does not include the food-feedback factor in R_0^L."
+      ],
+      "reasoning": "Neither inspected statement logically implies the corrected equilibrium or the exact stability equivalence for the 2026 subsystem.",
+      "searches": [
+        "listeriosis food reservoir invasion threshold clean food equilibrium",
+        "ready-to-eat food listeriosis disease-free equilibrium contaminated food feedback"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper itself states the zero-food disease-free point and R_0^L in Proposition 4.1.",
+        "No indexed source-specific correction was found."
+      ],
+      "reasoning": "A correction phrased as a food-mass constraint, clean-food equilibrium, environmental feedback loop, or modified invasion number would have been relevant; none of the retrieved source-specific records contained such a result.",
+      "searches": [
+        "Mathematical Analysis of a Co-Dynamics Model of Listeriosis and Bacterial Meningitis Starting From Ready-to-Eat Foods disease-free equilibrium ready-to-eat food threshold",
+        "Koutou Kouanda Ouedraogo listeriosis-only food reservoir basic reproduction number correction",
+        "Mathematical Analysis of a Co-Dynamics Model correction listeriosis food"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database or tabulated threshold retrieved contained the 2026 model's five-state listeriosis subsystem or the corrected formula."
+      ],
+      "reasoning": "The claim is an algebraic consequence of the specific 2026 ODE and is not a recomputation of a known numerical table.",
+      "searches": [
+        "listeriosis ready-to-eat food reproduction number contamination threshold",
+        "food contamination threshold listeriosis Chukwu Nyabadza"
+      ]
+    },
+    "rationale": "Exact-title, source-specific, threshold, food-reservoir, alias and implication searches found no published correction of this 2026 model. The closest related primary literature has a distinct compartmental model and a separate food-contamination threshold, not the corrected equilibrium or threshold factor proved here.",
+    "residual_risks": [
+      "A correction may exist in an unindexed note, author communication, or differently phrased source.",
+      "The result uses the published equations and positive-food biological region literally; a different unpublished intended interpretation of F would require separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source explicitly imposes F_u+F_c=F yet later sets both food coordinates to zero at its disease-free point and omits the contaminated-food feedback from R_0^L.",
+        "evidence": "Equations (4.1a-e), definitions lambda_l=beta_l(B+alpha_3 F_c) and lambda_f=B+alpha_4 F_c, region (2.5), and equation (4.2)/Proposition 4.1.",
+        "identifier_or_url": "doi:10.28924/2291-8639-24-2026-160",
+        "material_read": "Full model formulation, food-balance region, listeriosis-only equations, disease-free equilibrium, reproduction number, Proposition 4.1, and adjacent bifurcation linearization.",
+        "method": "Direct full-text inspection of the journal PDF.",
+        "title": "Mathematical Analysis of a Co-Dynamics Model of Listeriosis and Bacterial Meningitis Starting From Ready-to-Eat Foods",
+        "trigger": "Primary source defining the exact listeriosis-only subsystem and the disputed disease-free threshold."
+      },
+      {
+        "assessment": "Related but not covering: it has different human, worker, environmental-bacteria and food dynamics and a distinct contamination threshold.",
+        "evidence": "The paper defines F=F_n+F_c, human infection from F_c, worker-driven food contamination, and its own R_wf threshold.",
+        "identifier_or_url": "doi:10.1155/2020/9207403",
+        "material_read": "Full-text model formulation, food compartments, contamination forces, abstract threshold statement, and feasible-region discussion.",
+        "method": "Direct full-text inspection of the open-access article PDF.",
+        "title": "A Theoretical Model of Listeriosis Driven by Cross Contamination of Ready-to-Eat Food Products",
+        "trigger": "Closest primary literature on ready-to-eat food contamination thresholds in listeriosis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8336796-3703-4430-aefe-9e985ff50f14",
+  "value": {
+    "rationale": "The issue changes the model's disease-free equilibrium and the local invasion threshold at the center of Proposition 4.1. The missing feedback can reverse a stability conclusion even with strictly positive rational parameters, so the correction is structural rather than cosmetic. It also identifies the exact food-reservoir amplification factor and a parameter regime in which the published \\(\\mathcal R_0^L\\) is insufficient.",
+    "status": "PASS"
+  }
+}
