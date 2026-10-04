@@ -1,0 +1,104 @@
+{
+  "claim": "For the Li–Wu–Zhang four-dimensional flow \\(\\dot x_1=a(x_2-x_1)+x_4\\), \\(\\dot x_2=bx_1+x_2-x_1x_3\\), \\(\\dot x_3=-cx_3+e^{x_1x_2}\\), \\(\\dot x_4=dx_2x_3\\), assume \\(a>0\\), \\(c>0\\), and \\(b=1/c\\). Its equilibrium line \\(E_\\xi=(\\xi,0,1/c,a\\xi)\\) has the exactly factored characteristic polynomial \\(\\chi_\\xi(\\lambda)=\\lambda(\\lambda+a)(\\lambda^2+(c-1)\\lambda+\\xi^2-c)\\). Consequently its three transverse eigenvalues all have negative real part exactly when \\(c>1\\) and \\(\\xi^2>c\\); when \\(\\xi^2<c\\) there is one positive and one negative eigenvalue from the quadratic factor, at \\(\\xi^2=c\\) an additional zero eigenvalue appears, for \\(c=1\\) and \\(\\xi^2>1\\) the transverse pair is purely imaginary, and for \\(0<c<1\\) with \\(\\xi^2>c\\) that pair has positive real part. No individual point of the line can be locally asymptotically stable because every neighborhood contains distinct equilibria. Thus the stability condition stated as Equation (7) in the source is not valid: at its own line-equilibrium parameters \\(a=2\\), \\(b=3/8\\), \\(c=8/3\\), \\(d=0.1\\), the point \\(E_0\\) satisfies the stated inequality but has spectrum \\(\\{0,-2,1,-8/3\\}\\), while the two numerically reported limiting points \\(\\xi\\approx1.6385\\) and \\(\\xi\\approx2.0070\\) lie in the actual transversely attracting region \\(|\\xi|>\\sqrt{8/3}\\); the latter even violates the source's stated inequality.",
+  "correctness": {
+    "rationale": "Direct substitution gives the equilibrium line. Symbolic determinant expansion factors the characteristic polynomial into a tangent zero, the stable factor lambda+a, and a quadratic whose sum and product give the complete case split. The source-slice counterexample is exact: at a=2, c=8/3, xi=0 the published inequality is positive while the spectrum contains +1. The packaged checker replays these algebraic facts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest semantic records concern Thomas, Halvorsen, Lorenz-96, and Rabinovich systems with unrelated equations."
+      ],
+      "reasoning": "General normal-hyperbolicity and stability theory provides the framework but does not imply the source-specific factorization or show that its published inequality fails.",
+      "searches": [
+        "line of equilibria transverse stability cubic characteristic x star squared c hyperchaotic system",
+        "continuum equilibria cannot be asymptotically stable individual point normal attraction chaotic system"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math9243281",
+      "MSC2020 37C75",
+      "Critical damping closure and sharp algebraic decay for the Thomas cyclic flow",
+      "Exact diagonal balance and compact-recurrence bounds for the Halvorsen flow",
+      "Closed energy-stability boundary for Lorenz-96-like quadratic advection",
+      "Quintic pump threshold and critical slowing in the Rabinovich wave system"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source polynomial is algebraically compatible with the factorization, but the source does not perform it and instead states a different condition.",
+        "The source reports a convergent xi≈2.0070 point that violates its own Equation (7), so the published condition cannot imply the accepted claim."
+      ],
+      "reasoning": "The exact claim is strictly stronger and corrective: it gives necessary and sufficient transverse spectral conditions and explains the reported convergence examples.",
+      "searches": [
+        "Analysis and Synchronization of a New Hyperchaotic System with Exponential Term equilibrium line stability",
+        "hyperchaotic exponential term line equilibrium normal stability zero eigenvalue b=1/c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The open-access primary full text states the line E_xi, Equation (6), Equation (7), and two convergent line-equilibrium examples.",
+        "Exact-title and exact-parameter web searches returned the source, bibliographic mirrors, and later citing papers, not a factorization/correction of Equation (7)."
+      ],
+      "reasoning": "An equivalent result would factor Equation (6) or state the exact criterion c>1 and xi^2>c, or give the same direct counterexample to Equation (7). No inspected source did so.",
+      "searches": [
+        "Analysis and Synchronization of a New Hyperchaotic System with Exponential Term transverse stability",
+        "math9243281 x star squared greater c equilibrium line",
+        "b=1/c exponential hyperchaotic equilibrium factor lambda+a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary article was published 2021-12-17 and displays Equation (7) plus the rounded limits xi≈2.0070 and xi≈1.6385.",
+        "At a=2 and c=8/3 the source inequality becomes 3-xi^2>0, whereas the exact spectrum at xi=0 includes +1."
+      ],
+      "reasoning": "This is not a table recomputation: the factorization produces a complete parameter partition, a direct contradiction to the source criterion, and the exact transition boundaries.",
+      "searches": [
+        "math9243281 Routh-Hurwitz line equilibrium",
+        "10.3390/math9243281 stability line equilibrium correction"
+      ]
+    },
+    "rationale": "The primary article gives the unfactored polynomial and a different stability inequality but not the exact factorization or transverse partition. Targeted same-title, same-equation, stability, factorization, and citation searches found no inspected equivalent result.",
+    "residual_risks": [
+      "Citation and semantic indexes can miss unindexed or non-English equivalent analyses.",
+      "A non-obvious coordinate transformation could conceal an equivalent result; no such source was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source contains the equations and unfactored characteristic polynomial but not the exact factorization; its Equation (7) is contradicted by xi=0 on its own parameter slice, while its two reported convergent points satisfy the corrected criterion.",
+        "evidence": [
+          "Published 17 December 2021 under DOI 10.3390/math9243281.",
+          "Equation (6) is the same quartic used in the proof before factorization.",
+          "Equation (7) states a+c>1 and 2a+2c-ac-xi^2-1>0.",
+          "Figures 1 and 2 report convergence to xi≈2.0070 and xi≈1.6385 for a=2, b=3/8, c=8/3, d=0.1."
+        ],
+        "identifier_or_url": "doi:10.3390/math9243281",
+        "material_read": "Open-access full-text HTML covering the model, equilibrium section, characteristic equations, Equation (7), numerical line-equilibrium examples, and publication metadata.",
+        "method": "Direct full-text inspection plus targeted title/equation/stability searches.",
+        "title": "Analysis and Synchronization of a New Hyperchaotic System with Exponential Term",
+        "trigger": "Primary source introducing the exact four-dimensional flow and its line-equilibrium analysis."
+      },
+      {
+        "assessment": "37C75 is stability theory for smooth dynamical systems, matching the principal transverse-stability theorem.",
+        "evidence": [
+          "MSC2020 lists 37C75 as Stability theory for smooth dynamical systems."
+        ],
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=37C81",
+        "material_read": "MSC2020 smooth-dynamical-systems classification table containing 37C75.",
+        "method": "Direct web inspection.",
+        "title": "MSC2020 database entry 37C75",
+        "trigger": "Verify classification ownership for the accepted theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7c3a87b-54ee-4f7f-8c35-9e0611cac3de",
+  "value": {
+    "rationale": "The paper uses the stability of an equilibrium continuum to interpret its dynamics, and its stated criterion is not merely nonsharp but false on its own parameter slice. The exact factorization gives a necessary-and-sufficient transverse spectral partition, identifies the transition set xi^2=c and the special case c=1, and reconciles both numerical convergence examples. This is a structural correction with direct interpretive value rather than a routine substitution.",
+    "status": "PASS"
+  }
+}
