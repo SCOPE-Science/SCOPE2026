@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The complete finite domains for two and three pairs are exhaustively enumerated. For each profile, two independent blocking-pair implementations agree on the full stable-matching set, after which egalitarian and regret argmins are computed by exact integer rank comparisons. The \\(4\\times4\\) witness is independently checked over all twenty-four perfect matchings and has exactly the two stated stable matchings with objective pairs \\((15,3)\\) and \\((13,4)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gelain et al. treat egalitarian and minimum-regret stable matching as established optimization objectives.",
+        "De Clercq et al. explicitly define egalitarian cost as the sum of individual ranks and regret as the maximum individual rank.",
+        "Desai et al. exhibit a five-pair instance where stable matchings favored by the egalitarian and minimum-regret criteria differ."
+      ],
+      "reasoning": "These sources establish the objectives and qualitative incompatibility in larger instances, but neither polynomial solvability nor a five-pair conflict implies the universal three-pair nesting, its exact frequency decomposition, or the smaller four-pair sharp witness.",
+      "searches": [
+        "Local Search Approaches in Stable Matching Problems egalitarian minimum regret",
+        "Solving stable matching problems using answer set programming egalitarian regret",
+        "Fair Stable Matching Nash Social Welfare egalitarian minimum regret example"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/a6040591",
+      "doi:10.1017/S147106841600003X",
+      "arXiv:2609.02354"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Separate polynomial algorithms for minimizing total rank and maximum rank provide no inclusion relation between their argmin sets.",
+        "A conflict example on five pairs establishes only that the objectives can disagree by that size; it does not show that four pairs suffice or that three pairs never conflict.",
+        "Classical stable-lattice results ensure existence of stable matchings but do not force the two fairness objectives to share an optimum."
+      ],
+      "reasoning": "The accepted theorem adds a small-market structural boundary not implied by prior solvability or existence results. The \\(4\\times4\\) witness strictly sharpens the known larger conflict examples, while the complete \\(3\\times3\\) enumeration supplies the necessary lower-bound side.",
+      "searches": [
+        "egalitarian stable matching polynomial algorithm minimum regret stable matching polynomial algorithm",
+        "fair stable matching egalitarian minimum regret conflict five agents",
+        "stable marriage optimality criteria egalitarian regret"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Repository searches returned no stable-marriage finding matching the \\(3\\times3\\) nesting or \\(4\\times4\\) minimal-conflict statement.",
+        "Literature searches included the aliases egalitarian, minimum-regret, minimum maximum-rank, sum-of-ranks, fair stable matching, and small-market or exact-census formulations.",
+        "The closest sources define the objectives or provide larger qualitative conflict examples rather than the exact small-market theorem."
+      ],
+      "reasoning": "The accepted statement is about complete argmin-set inclusion, not merely equality of one selected matching. Searching both objective names and their equivalent rank-sum/worst-rank descriptions did not reveal a theorem equivalent to universal nesting through three pairs or the exact boundary at four.",
+      "searches": [
+        "stable marriage egalitarian minimum regret same optimum three by three",
+        "minimum regret egalitarian stable matching 3x3 exact boundary",
+        "stable marriage minimum regret versus egalitarian small instances",
+        "optimal stable matching egalitarian minimum regret coincidence n=3",
+        "stable marriage egalitarian regret fairness exact profile census",
+        "stable marriage minimum regret egalitarian objective",
+        "three by three stable marriage fairness rank sum worst rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the \\(40056,5400,1200\\) relation table.",
+        "No inspected source supplied the displayed four-pair witness or an equivalent claimed minimal boundary.",
+        "The verifier derives the counts directly from all \\(46656\\) labeled three-pair profiles rather than importing a published table."
+      ],
+      "reasoning": "The exact census is not a recomputation of a located database or table. The stable-count marginal is used only as an independent sanity check and does not determine the finer relation between the two objective argmin sets.",
+      "searches": [
+        "\"egalitarian\" \"minimum regret\" \"3x3\" stable marriage",
+        "\"stable marriage\" \"egalitarian\" \"minimum regret\" \"disjoint\" stable matchings",
+        "\"4 men\" \"4 women\" \"egalitarian\" \"minimum regret\" stable marriage",
+        "\"minimum regret stable matching\" \"egalitarian\" \"three men\" \"three women\"",
+        "stable marriage egalitarian regret fairness exact profile census"
+      ]
+    },
+    "rationale": "Prior literature defines and algorithmically studies egalitarian and minimum-regret stable marriage and contains larger examples where the criteria conflict. The inspected literature and targeted semantic searches did not state the universal \\(3\\times3\\) nesting theorem, its exact profile census, or the sharp \\(4\\times4\\) disjoint-optimum boundary.",
+    "residual_risks": [
+      "An unindexed thesis, exercise, lecture note, code repository, or supplementary table may already contain the same small-market boundary.",
+      "The originality conclusion rests on targeted searches and full-text inspection of the closest directly relevant sources, not on an exhaustive bibliographic proof of novelty.",
+      "The theorem does not classify objective conflicts for markets larger than four pairs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms the standard meanings of the two objectives and their algorithmic status; no exact \\(3\\times3\\) nesting or \\(4\\times4\\) sharp-boundary theorem was found.",
+        "evidence": "Algorithms 6 (2013), 591-617; DOI 10.3390/a6040591; published 3 October 2013.",
+        "identifier_or_url": "doi:10.3390/a6040591",
+        "material_read": "Accessible article material covering the definitions and related-work discussion of egalitarian and minimum-regret stable matching.",
+        "method": "Publisher full-text and bibliographic inspection.",
+        "title": "Local Search Approaches in Stable Matching Problems",
+        "trigger": "Historical paper surveying and computationally studying stable-matching optimization criteria."
+      },
+      {
+        "assessment": "Explicitly formalizes both optimization criteria but does not state the small-market nesting theorem or minimal disjointness boundary.",
+        "evidence": "Theory and Practice of Logic Programming 16 (2016), 247-268; DOI 10.1017/S147106841600003X; published online 7 March 2016.",
+        "identifier_or_url": "doi:10.1017/S147106841600003X",
+        "material_read": "Open accepted-manuscript PDF, including the section defining individual costs, egalitarian cost as their sum, and regret cost as their maximum.",
+        "method": "Lawful open full-PDF text and rendered-page inspection.",
+        "title": "Solving stable matching problems using answer set programming",
+        "trigger": "Primary methodological source giving exact formal objective definitions."
+      },
+      {
+        "assessment": "Provides a larger qualitative conflict example but no claim that five pairs are minimal, no four-pair witness, and no universal three-pair nesting classification.",
+        "evidence": "arXiv:2609.02354, first submitted 2 September 2026.",
+        "identifier_or_url": "arXiv:2609.02354",
+        "material_read": "Full arXiv HTML sections defining egalitarian and minimum-regret objectives and the table exhibiting a five-pair instance where the objectives favor different stable matchings.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+        "trigger": "Contemporary paper directly comparing multiple fairness objectives for stable matching."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "57631882-a89b-4cc6-989c-b5f60900bd6d",
+  "value": {
+    "rationale": "Egalitarian and minimum-regret stable matchings are canonical fairness objectives measuring total rank burden and worst individual burden. The smallest size at which they can force incompatible stable choices is a natural structural invariant. Universal nesting through three pairs, the full relation census, and an explicit sharp four-pair separation jointly provide a meaningful boundary rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
