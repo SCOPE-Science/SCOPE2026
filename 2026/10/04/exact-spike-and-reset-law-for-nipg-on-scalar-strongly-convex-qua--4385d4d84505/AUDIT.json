@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For the exact scalar quadratic specialization, the proximal map is explicit and both source curvature measures reduce exactly to \\(a\\) times the squared step. This makes the curvature test equivalent to \\(a t_k>c_0\\), its contraction branch an exact reset \\(t_{k+1}=c_1/a\\), and the objective ratio exactly \\((1-a t_k)^2\\). The initialization and strict inequality give \\(t_1=(1+\\gamma_0)c_0/a\\), proving the displayed unbounded transient factor for admissible summable sequences. The safety cap follows from the exact scalar nonincrease condition \\(0<a t\\le2\\). An exact-rational checker replays representative instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper explicitly says exact proximal steps are included and its objective-descent theorem starts at a finite \\(k_\\ell^*\\).",
+        "The 2024 NPG1 paper gives the same exact adaptive mechanism up to a parameter-range change and also proves descent only from a fixed iteration.",
+        "The predecessor describes eventual control from summability of \\((\\gamma_k)\\) but does not give a pre-asymptotic amplification envelope."
+      ],
+      "reasoning": "Generic eventual convergence or descent does not bound finite transient amplification. The new statement gives the exact scalar recurrence, sharp safety cap, and a post-hoc reset mechanism not implied by those asymptotic theorems.",
+      "searches": [
+        "Primary full text OptimizationOnline:36519",
+        "Primary full text OptimizationOnline:26741",
+        "Web: adaptive proximal gradient from some fixed iteration objective descent overshoot",
+        "Web: NPG1 gamma objective increase"
+      ]
+    },
+    "checked_sources": [
+      "OptimizationOnline:36519",
+      "OptimizationOnline:26741",
+      "published-finding corpus:169a05cdc789",
+      "published-finding corpus:6979da6f15ad",
+      "published-finding corpus:69464fd3db0c",
+      "published-finding corpus:e3edbe40faf5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source allows arbitrary \\(t_0>0\\) and any positive summable \\((\\gamma_k)\\), and expands after a non-strict curvature pass.",
+        "Its descent and rate statements are explicitly from a finite iteration rather than from the initial iteration.",
+        "The 2024 predecessor likewise states descent from a fixed iteration and identifies summability of \\((\\gamma_k)\\) as eventual stepsize control."
+      ],
+      "reasoning": "The prior theorems are compatible with but do not imply a finite-transient upper bound. The exact scalar calculation shows why: admissible early expansion can be arbitrarily large, then the post-step test repairs the next step.",
+      "searches": [
+        "OptimizationOnline:36519 full text: Definition 3.1, Remark 3.1(ii), Algorithm 3.1, Theorems 4.1 and 5.1",
+        "OptimizationOnline:26741 full text: Algorithm 3.1 NPG1, contribution summary, Corollary 3.1, Theorem 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OptimizationOnline:36519 Algorithm 3.1, Remark 3.1(ii), Theorems 4.1 and 5.1",
+        "OptimizationOnline:26741 Algorithm 3.1, contribution summary, Corollary 3.1 and Theorem 3.2",
+        "published-finding corpus closest hits 169a05cdc789, 6979da6f15ad, 69464fd3db0c, e3edbe40faf5"
+      ],
+      "reasoning": "Queries covered NIPG/NPG1 aliases, scalar strongly convex quadratics, objective spikes and overshoot, post-hoc curvature tests, summable expansion sequences, and transient amplification. The closest published-finding corpus findings analyze Polyak, Nesterov, CG_AOS, or accumulator methods with different step recurrences.",
+      "searches": [
+        "NIPG adaptive proximal gradient scalar quadratic objective spike gamma expansion",
+        "inexact adaptive proximal gradient Hoai Hao Yao transient amplification",
+        "adaptive proximal gradient post hoc curvature test objective increase quadratic",
+        "Algorithm 3.1 NIPG gamma expansion strongly convex quadratic overshoot",
+        "proximal gradient adaptive stepsize summable gamma unbounded transient objective"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record matched NIPG/NPG1 or the source identifiers.",
+        "Closest records concern other objective-spike or adaptive-step mechanisms and have different formulas."
+      ],
+      "reasoning": "This is an analytic recurrence classification, not a table recomputation. No returned database statement contains the NIPG reset \\(t_{k+1}=c_1/a\\) or the safety threshold \\(2/c_0-1\\).",
+      "searches": [
+        "published-finding corpus: NIPG adaptive proximal gradient scalar quadratic objective spike gamma expansion",
+        "published-finding corpus: proximal gradient adaptive stepsize summable gamma unbounded transient objective",
+        "published-finding corpus: adaptive proximal gradient post hoc curvature test objective increase quadratic"
+      ]
+    },
+    "rationale": "The recent primary paper and its immediate exact-method predecessor were inspected in full at the algorithm and convergence-theorem level. Both establish descent only from a finite iteration; neither states the scalar spike-and-reset law, unbounded finite-transient factor, or sharp scalar expansion-safety cap. Targeted published-finding corpus and web searches found only different algorithms and no dominating statement.",
+    "residual_risks": [
+      "The exact NIPG2 specialization reduces to the older NPG1 mechanism, so an unindexed note or the earlier NGD literature could conceivably contain the same scalar observation under different terminology.",
+      "The result does not establish a multidimensional or inexact-proximal transient bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the exact recurrence ingredients and eventual descent and convergence results, but not the claimed scalar transient law or safety cap.",
+        "evidence": "Algorithm 3.1 permits arbitrary positive summable \\((\\gamma_k)\\), uses a strict post-step curvature test, and Theorems 4.1 and 5.1 begin descent and rates at finite \\(k_\\ell^*\\).",
+        "identifier_or_url": "OptimizationOnline:36519",
+        "material_read": "Full PDF portions containing the problem assumptions, curvature definitions, exact-proximal remark, Algorithm 3.1, convergence theorem, convex rate theorem, references, and rendered algorithm page.",
+        "method": "Full-text PDF line inspection plus rendered-page inspection.",
+        "title": "New inexact adaptive proximal gradient algorithms for nonconvex composite optimization problems",
+        "trigger": "Primary recent source defining NIPG and its adaptive post-step curvature rule."
+      },
+      {
+        "assessment": "Uses essentially the same exact adaptive mechanism and proves only eventual descent; no scalar transient spike-reset classification was found.",
+        "evidence": "The paper states objective descent from some fixed iteration and eventual stepsize control from summability of \\((\\gamma_k)\\).",
+        "identifier_or_url": "OptimizationOnline:26741",
+        "material_read": "Full 35-page PDF portions covering NPG1 Algorithm 3.1, contribution summary, gamma-control lemmas, sufficient-decrease corollary, convergence theorem, and rendered algorithm page.",
+        "method": "Full-text PDF line inspection plus rendered-page inspection.",
+        "title": "Composite optimization problems via novel proximal gradient algorithms and applications",
+        "trigger": "Immediate predecessor explicitly identified by the primary source as the exact NIPG2 reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4385d4d8-4505-4bd0-a72a-603af6803088",
+  "value": {
+    "rationale": "This is a complete and motivated boundary analysis of the source's adaptive rule on the canonical strongly convex quadratic. It separates post-hoc curvature repair from pre-step safety, gives the exact repair \\(t_{k+1}=c_1/a\\), proves that the stated theoretical inputs allow unbounded finite transient amplification even after an initially decreasing step, and supplies the sharp scalar expansion cap \\(\\gamma'_k\\le2/c_0-1\\) that prevents such increases. The fact directly explains why the source's descent theorem is eventual rather than all-iterate and gives a concrete safeguard criterion.",
+    "status": "PASS"
+  }
+}
