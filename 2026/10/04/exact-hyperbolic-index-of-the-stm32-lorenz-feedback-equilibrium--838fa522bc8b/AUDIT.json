@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The equilibrium equations force x=y=z=w=0 for d>0. Exact symbolic expansion gives (lambda+3)(lambda^3+15lambda^2-(1400+d)lambda+25d). The sign values at -40, 0, and 25 plus the cubic end behavior force three distinct real roots in disjoint intervals; q_d(-3)>0 shows the fourth root -3 is distinct. The standalone verifier reproduces the determinant and the d=15 numerical spectrum. No global inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1038/s41598-024-71338-x, dynamical-analysis section: local stability is presented with eigenvalues (-40,25,-3,0)",
+        "doi:10.1155/2021/6771261: antecedent work is three-dimensional and fractional-order",
+        "A nearby published Lorenz–Stenflo stability result concerns a different vector field and therefore does not imply this four-dimensional feedback calculation."
+      ],
+      "reasoning": "A broader theorem could cover this claim only if it specialized to the exact 4x4 Jacobian and forced the same root-location result. No inspected broader source supplied that implication; the nearest Lorenz-type findings address other equations and parameters.",
+      "searches": [
+        "Dynamic analysis of a novel hyperchaotic system based on STM32 correction eigenvalues",
+        "Cheng Zhu Liu 2024 Scientific Reports 20452 equilibrium stability correction",
+        "hyperchaotic Lorenz feedback origin unstable manifold dimension two d parameter"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21203/rs.3.rs-3637346/v1",
+      "doi:10.1038/s41598-024-71338-x",
+      "doi:10.1155/2021/6771261",
+      "MSC2020 37C10 database entry",
+      "published semantic matches returned by exact-system and Lorenz-type searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source conclusion discusses two positive Lyapunov exponents on selected non-equilibrium trajectories, which does not imply the equilibrium has two positive eigenvalues.",
+        "doi:10.1155/2021/6771261 studies a different three-dimensional fractional-order state space, so its synchronization analysis cannot imply the 4D equilibrium polynomial.",
+        "Exact determinant expansion in verify.py produces the missing d-dependent cubic factor."
+      ],
+      "reasoning": "Trajectory Lyapunov exponents and equilibrium eigenvalues are distinct objects. The prior numerical hyperchaos statement neither contains nor implies the local spectral classification proved here.",
+      "searches": [
+        "characteristic polynomial λ^3+15λ^2-(1400+d)λ+25d hyperchaotic",
+        "two positive eigenvalues origin modified Lorenz w dx",
+        "STM32 Lorenz hyperchaotic equilibrium hyperbolic index 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.21203/rs.3.rs-3637346/v1, pp. 3-6: same system and printed equilibrium spectrum",
+        "doi:10.1038/s41598-024-71338-x: same system and same printed equilibrium spectrum",
+        "Published semantic matches inspected concerned different flows (the Halvorsen flow and the Shimizu–Morioka/Rucklidge family), so they do not cover this vector field."
+      ],
+      "reasoning": "The exact-equation and spectral searches led back to the motivating preprint/article rather than to an equivalent correction. The closest semantic findings concern different vector fields, so no coordinate renaming, sign convention, or equivalent determinant formulation was found.",
+      "searches": [
+        "\"40(y-x)+w\" \"25 y\" \"dx\" hyperchaotic eigenvalues",
+        "\"dot{w}=dx\" \"40\" \"25\" hyperchaotic",
+        "\"λ1=-40\" \"λ2=25\" \"-3\" \"0\" hyperchaotic",
+        "semantic query: 40(y-x)+w 10x+25y-xz xy-3z dx hyperchaotic STM32 equilibrium eigenvalues characteristic polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research Square DOI 10.21203/rs.3.rs-3637346/v1, Eq. (2)-(3): Jacobian contains d but listed spectrum is (-40,25,-3,0)",
+        "Scientific Reports DOI 10.1038/s41598-024-71338-x, Eq. (2)-(3): repeats the same Jacobian and list",
+        "No located correction, erratum, supplementary table, or later indexed source supplied the exact characteristic polynomial."
+      ],
+      "reasoning": "The exact source tables/equations were inspected rather than inferred from snippets. They do not contain the proved factorization or the corrected root intervals.",
+      "searches": [
+        "s41598-024-71338-x eigenvalues origin d",
+        "rs-3637346 equilibrium eigenvalues",
+        "Scientific Reports 14 20452 hyperchaotic eigenvalue zero"
+      ]
+    },
+    "rationale": "The claim is not stated in the inspected 2023 preprint or 2024 journal article, both of which instead print the parameter-independent spectrum (-40,25,-3,0). The cited 2021 antecedent is a three-dimensional fractional-order system and does not contain the added w feedback or this characteristic polynomial. Exact-title, exact-vector-field, spectrum, alias, and implication searches in published literature and the semantic literature search returned no source that states or implies the all-d>0 factorization and index-two classification.",
+    "residual_risks": [
+      "Search coverage cannot exclude an unindexed note, thesis, or informal correction that independently derived the same determinant identity.",
+      "The result is intentionally local; it does not settle the source paper's global numerical attractor claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source contains the same Jacobian but prints a d-independent spectrum. It does not state the corrected characteristic polynomial or all-d>0 unstable index.",
+        "evidence": "Posted 23 November 2023; Eq. (2) contains the d entry in the fourth row, while Eq. (3) lists (-40,25,-3,0).",
+        "identifier_or_url": "doi:10.21203/rs.3.rs-3637346/v1",
+        "material_read": "Cover date; dynamical-analysis section; equations (1)-(4); parameter table and d=15 example.",
+        "method": "Full-text preprint inspection, including visual inspection of the page containing the Jacobian and printed eigenvalues.",
+        "title": "A new hyperchaotic system with dynamical analysis and its application in image encryption based on STM32",
+        "trigger": "Earliest public version of the exact system and the direct source of the displayed equilibrium calculation."
+      },
+      {
+        "assessment": "The journal version repeats the same local spectral list and does not contain the corrected factorization.",
+        "evidence": "Published 3 September 2024; Eq. (2)-(3) repeat the Jacobian and (-40,25,-3,0).",
+        "identifier_or_url": "doi:10.1038/s41598-024-71338-x",
+        "material_read": "Full HTML dynamical-analysis section, equilibrium Jacobian and eigenvalue equations, numerical d-regime discussion, conclusion, and references.",
+        "method": "Publisher full-text HTML inspection; PDF text was cross-checked where available.",
+        "title": "Dynamic analysis of a novel hyperchaotic system based on STM32 and application in image encryption",
+        "trigger": "Peer-reviewed journal version of the same work."
+      },
+      {
+        "assessment": "It treats a three-dimensional fractional-order modified Lorenz system and synchronization, not the four-dimensional integer-order feedback system analyzed here.",
+        "evidence": "No fourth feedback state w or equation wdot=dx appears in the inspected 3D fractional-order construction.",
+        "identifier_or_url": "doi:10.1155/2021/6771261",
+        "material_read": "Full HTML abstract, introduction, system construction section, synchronization section, conclusion, and references.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "Circuit Implementation Synchronization between Two Modified Fractional-Order Lorenz Chaotic Systems via a Linear Resistor and Fractional-Order Capacitor in Parallel Coupling",
+        "trigger": "The 2024 article cites it as antecedent reference for the Lorenz-based system lineage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "838fa522-bc8b-49b2-9db1-3f0ed4ee7924",
+  "value": {
+    "rationale": "The equilibrium spectrum is a central structural datum for a paper whose stated purpose includes stability and hyperchaotic dynamics. The correction is not a cosmetic numerical change: it removes the claimed zero eigenvalue, makes the equilibrium hyperbolic for every positive d, and changes the local unstable dimension from one to two throughout the full parameter family. That distinction is directly relevant to interpreting the geometry of nearby dynamics and the relation between equilibrium instability and claimed hyperchaos.",
+    "status": "PASS"
+  }
+}
