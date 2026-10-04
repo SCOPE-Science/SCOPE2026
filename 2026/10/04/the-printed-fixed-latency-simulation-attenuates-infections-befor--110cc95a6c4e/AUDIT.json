@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The printed transport equation with \\(\\ell=1\\) on \\([0,\\rho)\\) gives the exact characteristic attenuation \\(e^{-\\rho}\\). Substitution into the printed boundary inflow yields a scalar linear delay equation whose characteristic roots are stable exactly when \\((1-\\gamma)\\eta S_0e^{-\\rho}<q\\). The proof excludes every root with nonnegative real part below threshold and produces a positive real root above threshold. The fixed-delay comparison removes the continuous progression loss and yields the standard discrete-delay threshold. Source parameter arithmetic was independently replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Zou (2009), DOI 10.1007/s11538-009-9457-z, derive a fixed-latency spatial epidemic model from infection age and obtain discrete-delay transfer across the latent-age boundary.",
+        "Guo, Wang, and Zou (2012), DOI 10.1007/s00285-011-0500-y, study threshold dynamics for a fixed-latency nonlocal epidemic model.",
+        "These works establish the broader fixed-delay architecture but do not imply the exact correction for the 2024 Section 4.2 parameterization."
+      ],
+      "reasoning": "General fixed-delay literature could dominate a merely textbook statement, so the accepted claim is restricted to the source-specific incompatibility, exact threshold, and numerical consequence.",
+      "searches": [
+        "age-structured epidemic fixed latent period hazard survival quarantine reproduction number",
+        "\"fixed latent period\" epidemic age structured discrete delay",
+        "\"Modeling Spatial Spread of Infectious Diseases with a Fixed Latent Period\"",
+        "fixed delay latent stage transport equation hazard epidemic"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2024945",
+      "doi:10.1007/s11538-009-9457-z",
+      "doi:10.1007/s00285-011-0500-y",
+      "published-finding:2026/9/14/SCOPE021",
+      "published-finding:2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's analytic threshold uses total progression through the latent stage and is independent of \\(\\rho\\) when all latent infections eventually progress.",
+        "The printed Section 4.2 transport equation instead attenuates the boundary flux by \\(e^{-\\rho}\\).",
+        "Li and Zou's fixed-latency derivation transfers infection-age density through a fixed age boundary and produces a discrete delay, but does not analyze the 2024 hybrid equation."
+      ],
+      "reasoning": "The source itself does not imply the accepted conclusion because it treats the Section 4.2 system as a fixed-delay numerical realization and uses it to support containment. The comparison source supplies the appropriate modeling architecture but not the source-specific threshold calculation.",
+      "searches": [
+        "COVID spatial spreading speed quarantine 75% reproduction number S0=10",
+        "fixed latent period transport boundary infection age discrete delay",
+        "Alanazi 2024 e^{-rho} latent period"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full 2024 source was inspected at the general age-structured model, the Laplace-transform threshold, Section 4.2, the discussion, and Table 3.",
+        "Exact-title and DOI searches returned the article, mirrors, and citation pages but no erratum or source-specific correction.",
+        "The closest indexed epidemic-threshold comparison was a distinct two-patch SEIR counterexample with no fixed-latency or quarantine claim."
+      ],
+      "reasoning": "The searches cover literal title and DOI aliases, the fixed-latency mechanism, the 75 percent conclusion, and reproduction-threshold language. No result states the same printed-system threshold or the \\(e^{-\\rho}\\) mismatch.",
+      "searches": [
+        "\"The asymptotic spreading speeds of COVID-19 with the effect of delay and quarantine\" correction erratum",
+        "\"10.3934/math.2024945\" fixed latent period",
+        "\"10.3934/math.2024945\" quarantine 75% reproduction number",
+        "Alanazi 2024 asymptotic spreading speeds COVID-19 quarantine fixed latent period 75 percent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 4.2 prints \\(\\ell(a)=1\\) for \\(0\\le a<\\rho\\), \\(Q_t=(1-\\gamma)I(\\rho)-qQ\\), and \\(S_0=10\\).",
+        "Table 1 gives \\(\\eta=0.59\\), \\(\\rho=3\\), and mean infectious period \\(1/q=1.61\\).",
+        "The discussion states that 75 percent quarantine controls the disease within two months, while Table 3 reports a positive spreading speed \\(c^*\\approx1.9\\) for \\(S_0=10\\), \\(\\gamma=0.75\\)."
+      ],
+      "reasoning": "The accepted numerical consequences are tied to the exact printed equations and table values rather than to a generic parameter regime.",
+      "searches": [
+        "Alanazi 2024 PDF Section 4.2 equation 4.2 Table 1 Table 3",
+        "\"S0 = 10\" \"gamma = 0.75\" \"c*\" Alanazi COVID spreading speed",
+        "\"rho = 3\" \"1/q\" \"1.61\" Alanazi"
+      ]
+    },
+    "rationale": "The 2024 source prints both the general hazard model and the incompatible Section 4.2 fixed-latency system but does not derive the resulting \\(e^{-\\rho}\\) threshold. Exact-title, DOI, fixed-latency, quarantine-threshold, and source-specific numerical searches found no published correction. A fully inspected 2009 fixed-latency primary source derives the discrete-delay boundary transfer in a different model and does not contain this source-specific inconsistency or threshold.",
+    "residual_risks": [
+      "The unpublished simulation code could differ from equation (4.2); the publication does not document such a difference.",
+      "A non-indexed author note could contain the same correction.",
+      "The result is a model-consistency and threshold statement, not an empirical recommendation for a real quarantine percentage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_FIXED_LATENCY_SPECIALIZATION_IS_NOT_THE_GENERAL_MODEL_SPECIALIZATION",
+        "evidence": "The source simultaneously retains continuous loss \\(-\\ell I\\) with \\(\\ell=1\\) before \\(\\rho\\) and uses only the surviving boundary value \\(I(\\rho)\\) as infectious inflow.",
+        "identifier_or_url": "doi:10.3934/math.2024945",
+        "material_read": "Open full PDF: model equations and definitions in Section 2; reduction and reproduction-number derivation in Section 3; Section 4.2 equations and initial data; Figures 1--4 captions; discussion; Table 1; Table 3.",
+        "method": "Solved the printed latent transport equation along characteristics, linearized the resulting delay equation, and compared its threshold with the intended fixed-delay construction and the source tables.",
+        "title": "The asymptotic spreading speeds of COVID-19 with the effect of delay and quarantine",
+        "trigger": "Primary source defining the age-structured model and the 75 percent quarantine simulation."
+      },
+      {
+        "assessment": "BROADER_FIXED_DELAY_MODEL_NOT_SOURCE_SPECIFIC_CORRECTION",
+        "evidence": "The 2009 model explicitly treats the fixed latent period as a boundary at infection age \\(\\tau\\) and derives a delayed transfer term from that boundary.",
+        "identifier_or_url": "doi:10.1007/s11538-009-9457-z",
+        "material_read": "Author-hosted full PDF: infection-age formulation, fixed latent-age boundary, derivation of the transfer term \\(E(t,\\tau,x)\\), and the resulting discrete-delay infection equation.",
+        "method": "Compared the deterministic-age boundary transfer with the 2024 source's hybrid hazard-plus-boundary construction.",
+        "title": "Modeling spatial spread of infectious diseases with a fixed latent period in a spatially continuous domain",
+        "trigger": "Primary literature on a genuinely fixed latent period using infection age."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "110cc95a-6c4e-4a91-b098-b39a57191639",
+  "value": {
+    "rationale": "The mismatch changes the qualitative regime of the paper's numerical model: with the published parameters the printed Section 4.2 system is subcritical even at zero quarantine, while the intended fixed-delay model remains supercritical at 75 percent quarantine. It therefore directly affects whether the numerical figures can validate the analytic spreading theory and changes the model-internal containment threshold from the reported 75 percent to about 89.47 percent at the stated susceptible density.",
+    "status": "PASS"
+  }
+}
