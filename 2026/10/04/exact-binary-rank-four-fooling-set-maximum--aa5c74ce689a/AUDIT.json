@@ -1,0 +1,105 @@
+{
+  "claim": "Over \\(\\mathbb F_2\\), the largest order of a fooling-set matrix of rank at most four is exactly 11: \\(f_{\\mathbb F_2}(4)=11\\).",
+  "correctness": {
+    "rationale": "A binary matrix of rank at most four admits a four-dimensional rank factorization. Diagonal ones reduce all positions to 120 admissible ordered factor pairs, and the fooling-set condition is exactly clique compatibility. The included standard-library verifier checks the order-11 witness, exact binary rank four, and an exhaustive maximum-clique upper bound of 11 using proper-coloring branch bounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dietzfelbinger–Hromkovič–Schnitger give the field-independent quadratic upper bound, which is 16 at rank four.",
+        "The closest published exact result found is 2026/9/21/SCOPE-rank-three-fooling-set-matrices--5e979acb344b; it determines rank three and gives a general tournament bound of 15 at rank four."
+      ],
+      "reasoning": "Known general results leave a numerical gap at rank four and do not dominate or imply the exact value 11.",
+      "searches": [
+        "binary fooling-set matrix rank at most 4 exact maximum",
+        "maximum fooling-set matrix rank four characteristic two size 11"
+      ]
+    },
+    "checked_sources": [
+      "Dietzfelbinger, Hromkovič, Schnitger (1996), DOI 10.1016/S0304-3975(96)00062-X",
+      "Friesen, Hamed, Lee, Theis, arXiv:1208.2920 / European Journal of Combinatorics 48 (2015)",
+      "Hamed, Lee, arXiv:1310.7321",
+      "2026/9/21/SCOPE-rank-three-fooling-set-matrices--5e979acb344b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Friesen–Theis construct size \\(r(r-1)+1\\) over finite fields only for ranks \\(r=p^t+1\\); over the binary field these ranks are 3, 5, 9, and so on, not 4.",
+        "Hamed–Lee construct size binomial(r+1,2) in characteristic zero; at rank four this is size 10 and does not yield an upper bound of 11."
+      ],
+      "reasoning": "Neither principal construction specializes to an exact binary rank-four theorem, and the existing exact rank-three result does not imply it.",
+      "searches": [
+        "Friesen Theis finite field fooling set \\(r=p^t+1\\)",
+        "Rank and fooling set size Hamed Lee rank 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hamed and Lee, arXiv:1310.7321, identify fooling-set matrices with Hadamard factorizations of the identity and discuss rank constructions, but do not state the binary rank-four optimum.",
+        "Friesen and Theis explicitly identify the cross-free-matching formulation in their 2013 extended abstract."
+      ],
+      "reasoning": "The main standard aliases were searched directly; none returned a statement equivalent to the exact value 11 at binary rank four.",
+      "searches": [
+        "f_F2(4) fooling-set matrix exact 11 rank four",
+        "Hadamard factorization identity rank 4 size 11 F2",
+        "cross-free matching rank four GF(2) eleven"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact low-rank table or database entry covering the binary rank-four value appeared in the targeted repository searches.",
+        "The exact rank-three repository record contains no rank-four table and its theorem stops at rank three."
+      ],
+      "reasoning": "The candidate is not a recomputation of an identified published exact table entry.",
+      "searches": [
+        "fooling-set matrix order 12 rank at most 4 impossible",
+        "F2 fooling set rank 4 11"
+      ]
+    },
+    "rationale": "Targeted searches found the exact rank-three result and the classical/asymptotic rank-versus-fooling-set literature but no exact binary rank-four value. Full relevant source material inspected does not imply the claim. Originality is asserted to the best of current bibliographic knowledge, with an explicit residual terminology risk.",
+    "residual_risks": [
+      "An equivalent exact rank-four result may exist under unindexed minimum-rank, sign-pattern, incidence, or cross-free-matching terminology.",
+      "The originality conclusion is bibliographic rather than a proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the finite-field construction has ranks \\(r=p^t+1\\) and does not determine \\(r=4\\) over \\(\\mathbb F_2\\).",
+        "evidence": "The source states the finite-field construction and its rank family explicitly.",
+        "identifier_or_url": "arXiv:1208.2920 / CTW 2013 extended abstract",
+        "material_read": "Introduction, theorem statement, cross-free-matching equivalence, construction parameters, conclusion, and references.",
+        "method": "Open full text and page inspection.",
+        "title": "Fooling-sets and rank in nonzero characteristic",
+        "trigger": "Primary finite-field construction is the closest potentially broader result."
+      },
+      {
+        "assessment": "NOT_COVERING: it gives size binomial(r+1,2) in characteristic zero and no exact \\(\\mathbb F_2\\) rank-four upper bound.",
+        "evidence": "No occurrence of an exact size-11 rank-four statement was found, and the theorem stated is the characteristic-zero construction.",
+        "identifier_or_url": "arXiv:1310.7321",
+        "material_read": "Abstract, introduction, construction statement, rank theorem, and conclusion.",
+        "method": "Open full text.",
+        "title": "Rank and fooling set size",
+        "trigger": "Could contain a rank-four construction or exact low-rank discussion."
+      },
+      {
+        "assessment": "NOT_COVERING: it proves only the rank-three optimum; its general bound gives at most 15 at rank four.",
+        "evidence": "The theorem explicitly stops at rank three and lists the broader bound separately.",
+        "identifier_or_url": "2026/9/21/SCOPE-rank-three-fooling-set-matrices--5e979acb344b",
+        "material_read": "Full RESULT.md, including theorem, tournament bound, characteristic-two Fano argument, constructions, prior-work comparison, and limitations.",
+        "method": "Public repository full-text inspection.",
+        "title": "Exact maximum size of rank-three fooling-set matrices",
+        "trigger": "Closest exact low-rank published result in the repository."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa5c74ce-689a-42d1-a33a-52bf80808cb3",
+  "value": {
+    "rationale": "The exact quantity \\(f_{\\mathbb F_2}(4)\\) is a natural next low-rank extremal invariant after the known rank-three case. Determining it as 11 closes the gap between explicit constructions and the generic quadratic/tournament upper bounds at the first unresolved binary rank, and directly refines a standard communication-complexity lower-bound interface.",
+    "status": "PASS"
+  }
+}
