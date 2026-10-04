@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The corona has 2n vertices, so the standard half-order lower bound is n, attained by both the original vertices and the leaves. Any size-n super dominating set must meet every support-leaf pair and hence meets each pair exactly once. A selected support whose leaf is outside must have no outside base neighbor, so the outside supports form a union of connected components. Conversely every such component union yields a valid set by private-leaf witnesses on one side and support witnesses on the other. The resulting bijection gives exactly 2^{c(H)} minima. Exhaustive direct checking of all 1099 labeled bases on at most five vertices confirms the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 paper states that Section 3 obtains a closed formula for the super domination number of any corona graph; its text does not enumerate corona minimizers.",
+        "The 2022/2024 paper counts N_sp for selected families such as paths and cycles and its conclusion asks to count minimum super dominating sets in trees.",
+        "The 2026 super-domatic theorem proves d_sp(G circle K_1)=2 using the original vertices and leaves; it does not classify all minimum sets or give 2^{c(H)}."
+      ],
+      "reasoning": "None of these broader results implies the claimed classification. The 2017 parameter theorem fixes only cardinality; the 2022 enumeration results concern other graph classes; the 2026 partition parameter is coarser than the set count.",
+      "searches": [
+        "arXiv:1705.00928 full text, Section 3 corona products and search for minimum super dominating sets",
+        "arXiv:2209.01795 and published full text, enumeration section and conclusions",
+        "2026 Super domatic in graphs, corona theorem and abstract",
+        "web search: corona product super domination K1 minimum sets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1705.00928v1",
+      "DOI:10.22049/cco.2019.26587.1122",
+      "arXiv:2209.01795v1",
+      "DOI:10.1016/j.dam.2024.01.039",
+      "2026 Super domatic in graphs corona theorem",
+      "targeted exact-phrase web searches for corona minimum super dominating sets",
+      "semantic published-results searches for corona enumeration and tree counting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 corona result establishes the minimum cardinality for corona products but contains no minimum-set enumeration.",
+        "The 2022/2024 conclusion explicitly proposes general bounds for the number of minima and counting minimum super dominating sets in trees.",
+        "The 2026 theorem establishes a super-domatic partition of G circle K_1 into the original vertices and leaves, which is compatible with but weaker than the final claim."
+      ],
+      "reasoning": "Knowing a minimum value or one complementary pair does not imply uniqueness for connected bases or the precise 2^{c(H)} number for arbitrary disconnected bases. The new no-crossing argument is the step that forces the component-union structure.",
+      "searches": [
+        "Inspect arXiv:1705.00928 Theorem 18 and corona-product proof",
+        "Inspect arXiv:2209.01795 Section 6 and published conclusion items (c) and (d)",
+        "Inspect 2026 super-domatic corona Theorem 2.8 snippet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned unrelated domination results and no same-claim record.",
+        "Web searches located the 2017 scalar corona paper, the 2022 enumeration paper, and a 2026 super-domatic corona theorem, but no minimum-set component-union formula."
+      ],
+      "reasoning": "The scalar equality gamma_sp(H circle K_1)=|V(H)| does not determine how many minimizers exist. Likewise, existence of a two-class super-domatic partition proves only that two complementary super dominating sets exist, not that every minimum set is determined componentwise.",
+      "searches": [
+        "number minimum super dominating sets corona graph K1",
+        "super domination enumeration corona product K1",
+        "N_sp corona product super domination",
+        "minimum super dominating sets corona graph",
+        "web exact phrase: \"super domination\" corona \"number of minimum\"",
+        "web exact phrase: \"super domination\" \"2^c\" corona"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table or exact corona minimum-set count was returned.",
+        "Closest published-results records involving coronas concern other domination variants or different parameters."
+      ],
+      "reasoning": "The theorem is not inferred from a known table: it gives an arbitrary-base bijection, and the independent computation enumerates small graphs only as a check.",
+      "searches": [
+        "number of minimum super dominating sets trees",
+        "super domination enumeration tree",
+        "minimum super dominating sets tree count",
+        "N_sp corona product super domination"
+      ]
+    },
+    "rationale": "The closest corona paper gives scalar super-domination values, while the later enumeration paper explicitly develops N_sp only for selected families and leaves tree counting as a future direction. No inspected source or targeted search states the component-union classification or the 2^{c(H)} count.",
+    "residual_risks": [
+      "A differently phrased or non-indexed enumeration of minimum super dominating sets of one-leaf coronas may exist.",
+      "A later result on a broader corona-enumeration parameter could imply this theorem without using N_sp terminology; no such result was located in the inspected literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Determines scalar super domination values for corona products but does not enumerate all minimum sets.",
+        "evidence": [
+          "First public arXiv version dated 2 May 2017.",
+          "AMS classifications include 05C69.",
+          "Section 3 is explicitly devoted to corona products and the text defines gamma_sp-sets but does not supply their count."
+        ],
+        "identifier_or_url": "arXiv:1705.00928v1; DOI:10.22049/cco.2019.26587.1122",
+        "material_read": "Full arXiv HTML through the definition, general half-order bound, Section 3 corona definition, Theorem 18, and its corona proof; targeted search for minimum-set enumeration.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "On the super domination number of graphs",
+        "trigger": "Closest primary source on ordinary corona products for the same invariant."
+      },
+      {
+        "assessment": "Counts minima for selected families and explicitly asks for tree counts; it does not state the one-leaf-corona component formula.",
+        "evidence": [
+          "First public arXiv version dated 5 September 2022.",
+          "MSC classes are 05C38, 05C69, 05C76.",
+          "The conclusion asks for general bounds on the number of minimum super dominating sets and specifically for counts in trees."
+        ],
+        "identifier_or_url": "arXiv:2209.01795v1; DOI:10.1016/j.dam.2024.01.039",
+        "material_read": "ArXiv record and full article, including the definition, enumeration section, cycle theorem, conclusion, and a visual inspection of the conclusion page.",
+        "method": "Primary full-text scope and open-problem comparison.",
+        "title": "Super Domination: Graph Classes, Products and Enumeration",
+        "trigger": "Primary enumeration source defining and computing the number of minimum super dominating sets."
+      },
+      {
+        "assessment": "Proves that the super domatic number of G circle K_1 is two via the original-vertex and leaf partition, but does not enumerate all minimum super dominating sets.",
+        "evidence": [
+          "The surfaced Theorem 2.8 states d_sp(G circle K_1)=2.",
+          "Its enumeration target is super-domatic partitions rather than N_sp of corona minimum sets."
+        ],
+        "identifier_or_url": "2026 preprint; DOI:10.13140/RG.2.2.30791.97442",
+        "material_read": "Abstract and surfaced theorem text for the corona case.",
+        "method": "Later-literature implication check.",
+        "title": "Super domatic in graphs",
+        "trigger": "Later work that treats the same corona H circle K_1 while studying a related partition parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "304999ba-8c77-445a-98dc-a44a1b254691",
+  "value": {
+    "rationale": "The result is a complete structural enumeration for a standard graph product and all finite base graphs, not a finite or arbitrary slice. It strengthens a known scalar corona formula by describing every minimizer, makes the count depend transparently on component structure, and gives exactly two minima for every connected base. For tree bases it supplies an infinite family directly aligned with the 2022/2024 paper’s explicit future-work question on counting minimum super dominating sets in trees.",
+    "status": "PASS"
+  }
+}
