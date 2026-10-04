@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact second-moment recursion is derived by conditioning on all four sign/refresh branches. The resulting cubic has \\(P(1)=\\alpha[2+\\alpha-(1+4h^2)\\alpha^2]/4\\). The complete cubic Jury criterion is checked analytically: \\(|c_3|<1\\), the \\(-1\\) condition, and the reduced Schur condition \\(J>0\\) are all proved strict throughout the proposed interval. Equality produces eigenvalue \\(1\\), and larger positive steps violate the necessary \\(P(1)>0\\) condition.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1901.08689v1",
+        "JMLR:22(112):1-47:2021",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ],
+      "reasoning": "Broader Loopless SVRG theory proves sufficient linear convergence and arbitrary-sampling extensions. Nearby exact database results concern different stochastic feedback or delayed Gauss-Seidel recurrences, so they do not imply the present snapshot-control-variate matrix.",
+      "searches": [
+        "loopless SVRG quadratic exact stability mean square step size two component 2019 2020 2021",
+        "L-SVRG quadratic stepsize arbitrary sampling expected smoothness",
+        "variance reduced stochastic gradient two-client scalar quadratic mean-square stability refresh probability",
+        "SVRG quadratic stability exact stepsize"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.08689v1",
+      "JMLR:22(112):1-47:2021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1901.08689v1 full text, Algorithm 1 and Theorem 3.5 development",
+        "JMLR:22(112):1-47:2021 full text, Algorithm 1 and Theorem 6"
+      ],
+      "reasoning": "The 2019 source proves a general sufficient condition with \\(p=1/n\\) as the standard choice; the 2021 extension replaces ordinary smoothness by expected-smoothness constants. Neither theorem specializes to necessity, nor to the exact radical boundary: their hypotheses remain sufficient upper bounds. The present proof directly diagonalizes the second-moment recursion and therefore is not a corollary of the inspected bounds.",
+      "searches": [
+        "Don't Jump Through Hoops Loopless SVRG eta 1/(6L) p=1/n quadratic",
+        "L-SVRG arbitrary sampling Theorem 6 eta 1/(6L1)",
+        "Loopless SVRG exact quadratic spectral radius",
+        "Loopless SVRG two functions heterogeneous curvature stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1901.08689v1",
+        "JMLR:22(112):1-47:2021",
+        "No exact equivalent statement among focused database hits"
+      ],
+      "reasoning": "The exact recursion can be viewed as a two-state Markov jump linear system, but the inspected optimization sources analyze it through Lyapunov or expected-smoothness inequalities. No searched source stated the three-moment matrix and radical Schur frontier.",
+      "searches": [
+        "loopless SVRG exact mean-square stability threshold two component scalar quadratic refresh probability one half",
+        "variance reduction stale snapshot scalar quadratic Schur Jury stability loopless SVRG",
+        "L-SVRG two-point quadratic stability stepsize exact second moment",
+        "loopless SVRG scalar quadratic jump linear system mean square stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+        "No exact Loopless SVRG table or formula found"
+      ],
+      "reasoning": "The closest records contain exact stability frontiers for different stochastic or splitting algorithms. None contains the Loopless SVRG estimator, pre-step reference refresh, or the radical frontier in \\(h\\).",
+      "searches": [
+        "L-SVRG two component quadratic second moment spectral radius 1+sqrt(9+32 h squared) stability",
+        "loopless SVRG standard p equals 1 over n two functions quadratic exact stepsize ceiling",
+        "loopless SVRG exact mean-square stability threshold two component scalar quadratic refresh probability one half",
+        "loopless SVRG beta curvature heterogeneity exact Schur boundary"
+      ]
+    },
+    "rationale": "The inspected primary Loopless SVRG sources provide general sufficient convergence bounds but not an exact two-component scalar mean-square stability classification. Focused semantic searches for the method, aliases, second moments, quadratic stability, and the derived formula found no covering statement.",
+    "residual_risks": [
+      "An equivalent calculation may exist in older stochastic-approximation, Markov jump linear-system, or control-variate literature under terminology not captured by optimization-focused searches.",
+      "The result fixes p=1/2; arbitrary-refresh formulas could subsume it if later discovered.",
+      "The scalar commuting-Hessian model should not be generalized to higher-dimensional noncommuting finite sums."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "Algorithm 1 updates \\(x_{k+1}\\) and then sets \\(w_{k+1}=x_k\\) with probability p. The paper proves linear convergence from a sufficient \\(\\eta\\le1/(6L)\\) rule and does not state an exact two-component second-moment frontier.",
+        "identifier_or_url": "arXiv:1901.08689v1",
+        "material_read": "Open-access full PDF: Algorithm 1, the explanation of the pre-step reference refresh, the p=1/n recommendation, Lyapunov construction, and the sufficient stepsize theorem.",
+        "method": "Full-text inspection with direct visual inspection of the algorithm page.",
+        "title": "Don't Jump Through Hoops and Remove Those Loops: SVRG and Katyusha are Better Without the Outer Loop",
+        "trigger": "Defining primary source for the original Loopless SVRG update and standard refresh probability."
+      },
+      {
+        "assessment": "BROADER_SUFFICIENT_THEORY_NOT_COVERING.",
+        "evidence": "The paper retains the pre-step \\(w_{k+1}=x_k\\) refresh and proves linear convergence under an expected-smoothness sufficient bound. It does not provide the exact scalar three-moment matrix or necessary-and-sufficient stability formula.",
+        "identifier_or_url": "JMLR:22(112):1-47:2021",
+        "material_read": "Open-access full PDF: introduction, Algorithm 1, expected-smoothness setup, strongly convex Lyapunov function, and Theorem 6.",
+        "method": "Full-text inspection with direct visual inspection of the algorithm/theorem page.",
+        "title": "L-SVRG and L-Katyusha with Arbitrary Sampling",
+        "trigger": "Broader primary theory that generalizes Loopless SVRG sampling and stepsize analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a5c82c9-e834-4a13-b010-1a478ca0ee57",
+  "value": {
+    "rationale": "The source method specifically uses rare snapshot refreshes to trade full-gradient cost against variance control. The natural \\(n=2\\), \\(p=1/n\\) model preserves that mechanism and yields a nontrivial exact stability loss as curvature heterogeneity grows. The result also shows that component-gradient noninterpolation does not move this boundary because its offset cancels exactly. These are directly interpretable algorithmic facts and provide a sharp benchmark beyond the general sufficient \\(\\eta\\le1/(6L)\\) theory.",
+    "status": "PASS"
+  }
+}
