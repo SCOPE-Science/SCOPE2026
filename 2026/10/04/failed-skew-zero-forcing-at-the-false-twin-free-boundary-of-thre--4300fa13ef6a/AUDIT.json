@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For a failed initial filled set, skew closure ends with a nonempty skew-stalled white residue; conversely the complement of a stalled white set is failed. Thus the extremal problem is exactly minimum stalled-white size. Connectedness excludes size one. A size-two stalled set would be a nonadjacent open-twin pair, but singleton zero-block threshold graphs have strictly nested open neighborhoods on their independent-side vertices. For a stalled triple, choosing the largest represented one-block forces at least two white vertices in that block; the third must lie in the same block or earlier in the creation order. Every such triple is directly checked to be stalled. Counting these disjoint forms gives the stated formula. The packaged verifier independently replays all eligible profiles through order 11, including every initial filled set; finite verification is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1609.00211 proves NP-completeness for general FAILED SKEW ZERO FORCING rather than an exact threshold-class formula.",
+        "doi:10.3390/appliedmath5020032 treats path powers and circulant graphs; its inspected survey text lists several known families but does not state a threshold-graph theorem.",
+        "doi:10.1016/j.laa.2016.07.019 abstract reports several graph-family results, but the full text was not inspectable."
+      ],
+      "reasoning": "A general hardness theorem does not imply the exact value or witness count on threshold graphs. The inspected later family-specific paper studies different families. The foundational 2016 article is the main unresolved broader-coverage risk because abstract-level evidence cannot exclude a hidden threshold specialization.",
+      "searches": [
+        "published-finding corpus: skew zero forcing threshold graphs exact sets polynomial",
+        "published-finding corpus: skew zero forcing chain graphs",
+        "Literature inspection: arXiv:1609.00211",
+        "Literature inspection: doi:10.3390/appliedmath5020032"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.00211",
+      "doi:10.1016/j.laa.2016.07.019",
+      "doi:10.3390/math10234463",
+      "arXiv:2209.09379",
+      "doi:10.3390/appliedmath5020032",
+      "OEIS A355067",
+      "OEIS A355399",
+      "2026/9/19/SCOPE-skewness-splits-flat-chaos-gaussianization--78000fe178d9",
+      "2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038",
+      "2026/9/20/SCOPE-sharp-levy-tail-inflation-pairwise-independent-rademachers--be082b5ae3c3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.3390/math10234463 characterizes graphs with F^{-}=1 and asks how many maximum failed skew zero forcing sets can occur for a graph with prescribed value.",
+        "For the present noncomplete family, N>=5 and the proved value is F^{-}=N-3>=2, so the 2022 classification does not imply the theorem.",
+        "The complete-graph p=1 case is excluded from the claim, avoiding a known small-parameter specialization."
+      ],
+      "reasoning": "The strongest inspected neighboring theorem applies only to the F^{-}=1 regime. The present structural classification and count are not corollaries of that result or of general complexity. No decisive implication from a stronger exact threshold result was found. The inaccessible foundational full text remains explicitly unresolved.",
+      "searches": [
+        "published-finding corpus: maximum failed skew forcing threshold graph",
+        "published-finding corpus: threshold graphs skew zero forcing forts",
+        "Literature inspection: doi:10.3390/math10234463",
+        "Literature inspection: doi:10.1016/j.laa.2016.07.019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1609.00211, definitions of skew stalled sets and FAILED SKEW ZERO FORCING",
+        "doi:10.3390/math10234463, definitions and the F^{-}=1 classification"
+      ],
+      "reasoning": "The useful equivalent formulation is by complements of nonempty skew-stalled white sets. The theorem classifies the minimum such white sets in the stated threshold family. Searches under stalled-set, forcing, and threshold terminology did not locate an equivalent threshold-specific statement.",
+      "searches": [
+        "published-finding corpus: skew stalled sets threshold graphs",
+        "published-finding corpus: failed skew zero forcing threshold graphs maximum failed sets",
+        "Literature search: \"failed skew zero forcing\" \"threshold graph\"",
+        "Literature search: \"skew zero forcing\" \"threshold graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A355067 records failed skew zero forcing values for a path-power family.",
+        "OEIS A355399 records failed skew zero forcing values for a cycle-power family.",
+        "The closest published-finding corpus records returned by the direct searches concern unrelated subjects rather than the same graph parameter and class."
+      ],
+      "reasoning": "The inspected exact tables concern path/cycle powers and do not encode the block-size-dependent threshold formula. Database nonhits are not treated as novelty proof; they only reduce the chance of an obvious tabulated duplicate.",
+      "searches": [
+        "published-finding corpus: failed zero forcing threshold graphs",
+        "published-finding corpus: forts threshold graphs minimal forts",
+        "OEIS A355067",
+        "OEIS A355399"
+      ]
+    },
+    "rationale": "Statement-level comparisons found no source that implies the threshold-family classification or maximum-witness count. General complexity, the F-minus-equals-one classification, and path-power/circulant formulas do not cover the present noncomplete singleton-zero-block threshold family. The inaccessible full text of the 2016 foundational article is retained as a material residual risk rather than being treated as negative evidence.",
+    "residual_risks": [
+      "The full text of Ansill--Jacob--Penzellna--Saavedra (2016) was not inspectable; its abstract says several graph families are treated, so a hidden threshold-graph specialization cannot be excluded absolutely.",
+      "Older results may be indexed under alternate terminology such as split graphs, creation sequences, nested neighborhoods, forts, or stalled sets; the performed searches reduce but do not eliminate that risk.",
+      "Absence from published-finding corpus or exact-sequence tables is not itself evidence of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses skew-stalled sets and proves general NP-completeness; no threshold-graph exact formula or maximum-witness count was found in the inspected text.",
+        "evidence": "arXiv v1 timestamp 2016-09-01; MSC includes 05C50; theorem proves FAILED SKEW ZERO FORCING NP-complete.",
+        "identifier_or_url": "arXiv:1609.00211",
+        "material_read": "Complete accessible arXiv HTML text, including definitions, problem statements, reduction, and NP-completeness proof.",
+        "method": "Direct full-text inspection.",
+        "title": "On the complexity of failed zero forcing",
+        "trigger": "Foundational definition, complexity, and exact archive-date anchor."
+      },
+      {
+        "assessment": "Covers F^{-}=1, including the K4 exception, not the claimed noncomplete threshold family with F^{-}>=2. The conclusion asks about counting maximum failed sets.",
+        "evidence": "Mathematics 10 (2022), 4463, main characterization and Conclusions.",
+        "identifier_or_url": "doi:10.3390/math10234463; arXiv:2209.09379",
+        "material_read": "Accessible full text, including main classification and conclusion.",
+        "method": "Direct full-text inspection.",
+        "title": "Characterization of All Graphs with a Failed Skew Zero Forcing Number of 1",
+        "trigger": "Closest exact low-parameter classification and explicit counting-question motivation."
+      },
+      {
+        "assessment": "Treats path powers and circulant graphs. The inspected retrospective discussion does not state a threshold-graph formula.",
+        "evidence": "AppliedMath 5 (2025), 32.",
+        "identifier_or_url": "doi:10.3390/appliedmath5020032",
+        "material_read": "Accessible full-text introduction, main scope, and conclusions.",
+        "method": "Direct full-text inspection.",
+        "title": "Failed Skew Zero Forcing Numbers of Path Powers and Circulant Graphs",
+        "trigger": "Recent family-specific literature and retrospective list of known families."
+      },
+      {
+        "assessment": "Abstract reports high/low-value classifications and multiple graph families. Because full text was unavailable, hidden threshold-specific coverage cannot be ruled out from this source alone.",
+        "evidence": "Linear Algebra and its Applications 509 (2016), DOI 10.1016/j.laa.2016.07.019, abstract.",
+        "identifier_or_url": "doi:10.1016/j.laa.2016.07.019",
+        "material_read": "Bibliographic metadata and abstract only; full text was not available from the lawful sources inspected.",
+        "method": "Abstract-level inspection after open-access/full-text attempts.",
+        "title": "Failed skew zero forcing on a graph",
+        "trigger": "Foundational paper introducing the parameter and therefore a high-priority overlap check."
+      },
+      {
+        "assessment": "Tables concern path/cycle power families, not threshold graphs.",
+        "evidence": "OEIS A355067 and A355399.",
+        "identifier_or_url": "OEIS A355067; OEIS A355399",
+        "material_read": "Sequence descriptions and family identification.",
+        "method": "Database inspection.",
+        "title": "OEIS failed-skew-zero-forcing family tables",
+        "trigger": "Exact-table check for already-tabulated values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4300fa13-ef6a-488a-acd2-db50dec41fe8",
+  "value": {
+    "rationale": "The class is mathematically natural: singleton canonical zero-blocks are exactly the threshold-side boundary where the immediate two-vertex false-twin stalled obstruction disappears. The theorem identifies the next obstruction size, gives all extremal obstructions, and counts every maximum failed set. This is more than a routine parameter substitution: it converts an NP-complete general decision problem into a closed-form structural theorem on a canonical graph class and answers an explicit later-literature question about counting maximum failed sets for an infinite family.",
+    "status": "PASS"
+  }
+}
