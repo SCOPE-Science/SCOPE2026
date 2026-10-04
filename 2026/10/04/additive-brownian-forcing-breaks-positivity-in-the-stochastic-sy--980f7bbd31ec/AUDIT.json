@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Exact summation of the twelve displayed drifts leaves \\(\\Pi-\\mu T-\\pi_pS_f\\), while the twelve additive Brownian terms combine into one Brownian motion of variance rate \\(\\sigma_\\Sigma^2\\). Variation of constants yields \\(T-Y=-\\pi_p e^{-\\mu t}\\int_0^t e^{\\mu s}S_f(s)ds\\). Any path that stays nonnegative therefore has \\(0\\le T(t)\\le Y(t)\\), but \\(Y(t)\\) is Gaussian with positive variance for every \\(t>0\\), giving the stated strictly positive lower bound. The source's later Itô formulas contain \\(\\sigma_i^2X_i^2\\) and \\(\\sigma_iX_i dB_i\\), confirming that those calculations use a different multiplicative diffusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai, Cai, and Mao, DOI 10.1016/j.jmaa.2019.02.039, use diffusion coefficients \\(\\sigma_1I(N-I)\\) and \\(\\sigma_2I\\sqrt{N-I}\\), which vanish at the epidemic boundary; their positivity theorem therefore concerns a different SDE.",
+        "The motivating article cites general stochastic-SDE references, but its displayed additive diffusion does not satisfy the boundary-vanishing structure used by the inspected epidemic predecessor."
+      ],
+      "reasoning": "General SDE theory makes the qualitative danger of additive noise familiar, but the checked broader literature does not subsume the exact source-specific cancellation, quantitative lower bound, or diagnosis of the article's internal diffusion substitution.",
+      "searches": [
+        "constant additive Brownian noise epidemic compartment nonnegative solution positivity",
+        "viability positive orthant stochastic differential equation diffusion boundary nonzero",
+        "stochastic epidemic additive noise nonnegative orthant total population Gaussian exit",
+        "A stochastic differential equation SIS epidemic model with two independent Brownian motions"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261114",
+      "doi:10.1016/j.jmaa.2019.02.039",
+      "publisher exact-title/DOI searches for a correction or earlier preprint",
+      "published-result searches for syphilis/additive-noise/orthant/Gaussian-exit equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper's Appendix total-population calculation uses \\(\\sum_i\\sigma_iX_i dB_i\\) and quadratic variation \\(\\sum_i\\sigma_i^2X_i^2\\), although Eq. (24) has \\(\\sum_i\\sigma_i dB_i\\).",
+        "The inspected Cai--Cai--Mao SIS paper proves positivity for state-dependent diffusion and therefore cannot imply positivity or the Gaussian-exit bound for the printed additive syphilis model."
+      ],
+      "reasoning": "The claim is a correction to a specific published model and theorem, not a new general theorem about additive Brownian SDEs. Its exact implication comparison is that the source theorem is false for Eq. (24), while the literature's positive solutions concern materially different diffusion coefficients.",
+      "searches": [
+        "additive Brownian epidemic positivity contradiction total population Ornstein Uhlenbeck",
+        "constant additive noise positive orthant epidemic model exits with positive probability",
+        "stochastic syphilis model additive noise positive solution correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.20261114 prints additive terms \\(\\sigma_i dB_i\\) in Eq. (24) and states a unique global positive solution in Theorem 1.",
+        "No checked source stated the same total-coordinate Ornstein--Uhlenbeck domination or Gaussian exit lower bound for the printed model."
+      ],
+      "reasoning": "The searches cover the exact title and DOI, the positivity conclusion, the additive-noise formulation, the orthant-invariance formulation, and the quantitative Gaussian formulation rather than title matching alone.",
+      "searches": [
+        "Stochastic dynamics of a syphilis epidemic model with perturbation positivity additive Brownian 2026",
+        "10.3934/math.20261114 correction positivity",
+        "syphilis stochastic model additive Brownian motion positive orthant invariance",
+        "Khan Alqarni syphilis positivity theorem additive noise Gaussian lower bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher record gives 2 September 2026 and MSC 92D30, 60H10, 34D20.",
+        "Exact-title and DOI searches found no arXiv copy and no correction or erratum addressing positivity."
+      ],
+      "reasoning": "This is not a tabulated invariant. Exact bibliographic and preprint searches were used to check for a source-specific correction and earlier public version; none was located in the checked sources.",
+      "searches": [
+        "10.3934/math.20261114 positive non-negative solution additive noise",
+        "Stochastic dynamics of a syphilis epidemic model with perturbation site:arxiv.org",
+        "10.3934/math.20261114 site:arxiv.org"
+      ]
+    },
+    "rationale": "Source-specific title, DOI, positivity, additive-noise, orthant-invariance, Gaussian-exit, and Ornstein--Uhlenbeck searches found no published correction or equivalent quantitative statement for this syphilis model. The closest stochastic-epidemic source inspected uses boundary-vanishing state-dependent diffusion, so it does not imply the claim for Eq. (24).",
+    "residual_risks": [
+      "The general fact that nondegenerate additive diffusion conflicts with orthant invariance is standard, so originality is intentionally limited to the exact source-specific correction, bound, and proof/model mismatch.",
+      "A correction, author manuscript, or unindexed preprint not reached by the checked searches could exist.",
+      "The result does not determine which compartment first reaches the boundary or the full first-exit-time distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_SOURCE_BUT_NOT_CORRECTION: the article contains the additive system and positivity claim but no correction; later calculations switch to state-dependent diffusion.",
+        "evidence": "Eq. (24) has additive \\(\\sigma_i dB_i\\); Theorem 1 asserts a global positive solution; Eq. (62) instead uses \\(\\sigma_iX_i dB_i\\); Eq. (92) uses \\(\\sigma_i^2X_i^2\\); Theorem 5 explicitly assumes multiplicative noise for \\(I_{fp}\\).",
+        "identifier_or_url": "doi:10.3934/math.20261114",
+        "material_read": "Publisher full-text HTML: model formulation Eq. (24), Section 5 positivity statement, Theorem 5, and Appendix formulas including Eqs. (62) and (92).",
+        "method": "Direct full-text inspection and term-by-term comparison of the displayed diffusion coefficients with the Itô terms used later.",
+        "title": "Stochastic dynamics of a syphilis epidemic model with perturbation: Stationary distribution and extinction thresholds",
+        "trigger": "Primary source for the displayed stochastic system and positivity theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: diffusion is state dependent and vanishes at the boundary, unlike the motivating article's additive diffusion.",
+        "evidence": "Eq. (1.5) contains \\(\\sigma_1I(N-I)dB_1-\\sigma_2I\\sqrt{N-I}dB_2\\), and Theorem 2.1 proves \\(I(t)\\in(0,N)\\) under an explicit condition.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2019.02.039",
+        "material_read": "Accepted-manuscript full text, especially model Eq. (1.5) and Theorem 2.1 with its stopping-time positivity proof.",
+        "method": "Full-text PDF inspection of the model and positivity theorem.",
+        "title": "A stochastic differential equation SIS epidemic model with two independent Brownian motions",
+        "trigger": "Highly relevant epidemic-SDE positivity predecessor cited by the motivating article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "980f7bbd-31ec-421b-b13a-455a943088ab",
+  "value": {
+    "rationale": "Positivity is the foundational biological-feasibility premise for all twelve compartments and for the article's stationary-distribution and long-time stochastic arguments. The correction is not a cosmetic sign check: it gives a universal, parameter-explicit positive lower bound on failure of the claimed state space at every positive time and identifies why the published proof does not apply to the printed equation. This directly separates a biologically admissible multiplicative-noise formulation from the published additive one and is useful before any downstream threshold interpretation.",
+    "status": "PASS"
+  }
+}
