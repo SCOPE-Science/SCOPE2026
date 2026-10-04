@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The source preconditioner gives exactly \\(u_{k+1}=u_k[1-\\tau/(1+|u_k|^4)^{1/4}]\\) after scaling. For \\(0<\\tau\\le2\\), the absolute multiplier is strictly below one at every nonzero state, proving global convergence. Taylor expansion gives the fifth-order matched step and the critical recurrence \\(v_{k+1}=v_k-\\frac12v_k^5+O(v_k^9)\\), hence \\(v_k\\sim(2k)^{-1/4}\\). For \\(\\tau>2\\), the origin has multiplier \\(1-\\tau\\), while the exact symmetric two-cycle has one-step derivative \\(1-32/\\tau^4\\); its squared two-step multiplier is strictly below one.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source treats fixed-step nonlinear preconditioned gradient generally and separately analyzes practical pre-normalization; no exact scalar bifurcation theorem is stated.",
+        "The 2025 predecessor's displayed reference-function table contains clipping-, arcsinh-, tanh-, and projection-type preconditioners, not the new kappa=4 family.",
+        "The Polar Express paper's scalar recurrences are internal polynomial iterations for approximating sign/polar factors, not the outer optimization map analyzed here."
+      ],
+      "reasoning": "General convergence of a nonlinear-preconditioned method does not imply an exact necessary-and-sufficient scalar fixed-step frontier, the degenerate critical rate, or the postcritical cycle. The matrix-sign subroutine has a different state and purpose.",
+      "searches": [
+        "arXiv:2605.11850v1 full text: main update, deterministic Appendix B, Polar Express Section 4.2 and Appendix F",
+        "arXiv:2502.08532 full text: nonlinear-preconditioning map, reference-function table, convergence framework",
+        "arXiv:2505.16932 full text: Muon update and Polar Express polynomial matrix-sign algorithm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.11850v1",
+      "arXiv:2502.08532",
+      "arXiv:2505.16932",
+      "Uniform real-root barrier for fixed-parameter heavy-ball acceleration",
+      "Sharp minimax relaxation frontier for scalar Newton under derivative-sector bounds",
+      "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source identifies h4' as a close model of practical Polar Express and gives rate bounds, but no exact constant-step scalar quadratic phase portrait.",
+        "The predecessor gives a general nonlinear-preconditioning framework and examples but does not contain the h4 surrogate.",
+        "The Polar Express paper proves properties of matrix-sign polynomial approximation; it does not imply the outer optimization recurrence or its cycle."
+      ],
+      "reasoning": "No inspected statement dominates the final claim. The new implication requires solving the exact one-dimensional outer map through and beyond its loss of linear stability, including the nonhyperbolic boundary and postcritical orbit.",
+      "searches": [
+        "arXiv:2605.11850v1 lines defining update (1), Appendix B fixed-step deterministic map, Theorem 4.7, and Appendix F.1--F.3",
+        "arXiv:2502.08532 sections 1.1--1.3 and reference-function table",
+        "arXiv:2505.16932 introduction, Muon update, and Newton--Schulz/Polar Express scalar polynomial discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.11850v1, Appendix F.1 defines the exact kappa-family and identifies kappa=4 with the Polar-Express surrogate.",
+        "No returned published-research record stated the scalar threshold gamma*a=2*epsilon, the critical k^{-1/4} law, or the two-cycle amplitude.",
+        "Direct web searches for the distinctive scalar map and period-doubling terminology did not identify an optimization result with the same statement."
+      ],
+      "reasoning": "The searches used both source terminology and equation-level aliases. Nearby hits concern generic scalar optimization stability or unrelated dynamical bifurcations, not this surrogate map.",
+      "searches": [
+        "Published-research database: Polar Express nonlinear preconditioner scalar quadratic two cycle critical step quintic convergence",
+        "Published-research database: nonlinear preconditioner x over epsilon k plus x k scalar quadratic exact dynamics",
+        "Web literature: x/(epsilon^4+x^4) gradient descent cycle optimization",
+        "Web literature: period-doubling gradient clipping scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved record contains the exact dimensionless map, threshold tau=2, matched tau=1 fifth-order law, or cycle multiplier."
+      ],
+      "reasoning": "The finding is an analytic dynamical classification of a newly proposed surrogate, not a recomputation of a benchmark or table.",
+      "searches": [
+        "Published-research database: Muon Polar Express scalar quadratic stability bifurcation",
+        "Published-research database: normalized gradient smooth nonlinear preconditioner critical step algebraic rate two cycle",
+        "Published-research database: Polar Express nonlinear preconditioner scalar quadratic two cycle critical step quintic convergence"
+      ]
+    },
+    "rationale": "The recent primary source introduces the kappa=4 surrogate and develops general convergence analysis, but the inspected deterministic and Polar-Express sections do not state this scalar quadratic phase diagram. The 2025 nonlinear-preconditioning predecessor supplies the general framework but not this new surrogate or phase law. The Polar Express paper analyzes polynomial matrix-sign computation rather than optimization dynamics. Targeted published-research searches found no statement implying the exact threshold, critical power law, or stable two-cycle.",
+    "residual_risks": [
+      "One-dimensional smooth saturation maps are classical dynamical objects, so an equivalent bifurcation calculation could exist outside optimization terminology.",
+      "The result concerns the smooth surrogate, not the finite Polar Express polynomial or the source's additional pre-normalized practical update.",
+      "Only local attraction, not global attraction, is claimed for the postcritical two-cycle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact surrogate and relevant base deterministic map but does not state the scalar quadratic stability frontier, matched fifth-order cancellation, critical algebraic law, or postcritical two-cycle.",
+        "evidence": "Appendix F.1 gives (h_kappa*)'(d)=d/(epsilon^kappa+|d|^kappa)^(1/kappa) and identifies kappa=4 with Polar Express; Appendix B writes the fixed-step deterministic nonlinear-preconditioned gradient map.",
+        "identifier_or_url": "arXiv:2605.11850v1",
+        "material_read": "Full-text portions covering the main forward/backward update, Assumption 2.1, deterministic fixed-step Appendix B, Section 4.2, Appendix F.1 definition of the surrogate, Appendix F.2 deterministic analysis, and Appendix F.3 pre-normalized update.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives",
+        "trigger": "Primary recent source introducing the kappa-family and identifying kappa=4 as the Polar-Express surrogate."
+      },
+      {
+        "assessment": "Provides the broader nonlinear-preconditioning theory and several sigmoid-like examples, but not the new kappa=4 surrogate or the claimed scalar phase diagram.",
+        "evidence": "Its main map is x_{k+1}=x_k-gamma grad phi*(lambda grad f(x_k)); the displayed table lists other preconditioners such as clipping and tanh.",
+        "identifier_or_url": "arXiv:2502.08532",
+        "material_read": "Full-text introduction, general iteration, reference-function table, contribution and related-work sections, and convergence framework.",
+        "method": "Full-text arXiv inspection.",
+        "title": "Nonlinearly Preconditioned Gradient Methods under Generalized Smoothness",
+        "trigger": "Closest predecessor for the exact outer nonlinear-preconditioned gradient framework."
+      },
+      {
+        "assessment": "Studies efficient polynomial computation of the matrix polar factor; it does not analyze the smooth surrogate as a constant-step scalar quadratic optimization map.",
+        "evidence": "The paper's scalar iteration applies polynomials to singular values to approximate sign, whereas the accepted claim iterates optimization state through h4'(a*x).",
+        "identifier_or_url": "arXiv:2505.16932",
+        "material_read": "Full-text introduction, Muon outer update description, polar-factor definition, and polynomial/Newton--Schulz scalar iteration discussion.",
+        "method": "Full-text arXiv inspection.",
+        "title": "The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm",
+        "trigger": "Original Polar Express source, needed to distinguish the surrogate optimization dynamics from the polynomial matrix-sign subroutine."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f6e926d-f82f-494d-bb9c-d57f732eaa13",
+  "value": {
+    "rationale": "The source explicitly promotes the \\(\\kappa=4\\) nonlinear preconditioner as a more faithful mathematical model of Polar Express, so its fixed-step behavior on the canonical quadratic mode is a natural calibration problem. The exact frontier shows that the smoothing parameter sets a hard learning-rate scale, identifies a fifth-order matched point, and explains the critical slowdown and persistent oscillation immediately beyond stability. These are parameter-design and failure-mode facts for the new model, not an arbitrary scalar slice or a routine recomputation of a known table.",
+    "status": "PASS"
+  }
+}
