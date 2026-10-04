@@ -1,0 +1,12 @@
+# Same-model review
+
+## Correctness
+PASS. The source quartic is rewritten exactly as \(F=(a^2+b^2+pq)^2-4(a^2b^2+pq)\). Factoring its four derivatives gives an exhaustive case split: \(p=q=0\) yields exactly the two main lines, while \((p,q)\ne(0,0)\) forces \(pq=0\) and \(a^2=b^2=1\), yielding exactly eight isotropic lines. At the origin the invertible coordinate change gives \(PQ-u^2v^2\); its Jacobian singular ideal is \((P,Q,uv^2,u^2v)\), whose radical is \((P,Q,uv)\), and the residual nilpotent class \(uv\) has \(\mathbb C\)-length one and square zero. At each of the four triple points the exact identity yields \(U^2+Vpq\), whose singular ideal is radical. Explicit Hessian minors prove transverse \(A_1\) type on all remaining singular strata. The embedded verifier independently reproduces these algebraic certificates. Scientific limit: no assertion is made about the projective closure or positive characteristic.
+
+## Originality
+PASS. The full primary source was inspected at Example 8.1 and its surrounding discussion. It supplies the quartic, irreducibility, degree, and four real points exposed by more than one vector, but not the ten-line complex singular support, the unique nonreduced point of the Jacobian singular scheme, or the local normal forms. A later related discotope paper concerns three-space and does not imply this four-dimensional calculation. Searches using the exact example, discotope aliases, local-form language, and nonreduced Jacobian terminology found no covering statement. Residual risk: an equivalent classical treatment could exist under a non-obvious coordinate transformation or unrelated quartic terminology.
+
+## Value
+PASS. The source uses this example to expose the difficulty of higher-dimensional discs. The result gives structural information directly tied to that motivating gap: it explains the four distinguished real boundary points as triple intersections of complex singular branches and identifies a qualitatively different infinitesimal degeneration at the origin, where the singular scheme has a length-one embedded nilpotent. This is useful local geometry for normalization, deformation, and critical-locus questions and is not merely a re-expansion of the known quartic equation. Value limit: it is intentionally example-specific and does not settle the source's general conjectures.
+
+Same-model review: passed. Independent audit: not yet performed.
