@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The odds-ray representation \\(F_i=P_0o_i\\) reduces equality of nonzero fingerprints to equality of a scalar function \\(h(u)=u/\\prod_j(1+ur_j)\\). Its derivative has sign \\(1-\\sum_jp_j(u)\\), proving injectivity on the stated domain. The homogeneous fold gives the converse cube threshold. At the boundary, singleton discrepancy is quadratic in \\(\\varepsilon\\) while total variation is at least the linear marginal difference \\(\\varepsilon\\). Edge case \\(F=0\\) is handled because all parameters are strictly below one.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.21049v1 Theorems 1.1 and 1.2 characterize product TV through full marginal midpoint scores up to constants.",
+        "Its introduction cites arXiv:2602.21828v1 as a specialized Bernoulli result; its displayed applications do not use or characterize the singleton slice."
+      ],
+      "reasoning": "The broader product-TV theorem is stronger for approximating TV from full marginal information, but it does not imply injectivity of the much coarser labeled singleton fingerprint. Therefore it does not cover the claimed threshold or boundary instability.",
+      "searches": [
+        "arXiv:2609.21049v1 full text product total variation analytic proxy",
+        "web: Bernoulli product total variation tensorization singleton discrepancy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21049v1",
+      "arXiv:2602.21828v1",
+      "Research-index exact/alias searches listed in the four originality checks",
+      "Public web searches for exactly-one-success, singleton odds and inverse Poisson-binomial terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.21828v1 Theorem 1.2 assumes \\(p_i,q_i\\le1/(2n)\\); Lemma 4.3 proves \\(\\ell_1\\) parameter control from the singleton slice on that same cube.",
+        "The full text of arXiv:2609.21049v1 contains no singleton, \\(1/(2n)\\), or \\(1/n\\) threshold statement in the inspected text."
+      ],
+      "reasoning": "Prior singleton control on the smaller cube implies injectivity there but not the exact maximal cube, the singular behavior at the endpoint, or explicit nonidentifiability above it. The new proof independently establishes those three claims.",
+      "searches": [
+        "arXiv:2602.21828v1 Lemma 4.3 singleton control 1/(2n)",
+        "arXiv:2609.21049v1 singleton 1/n 1/(2n)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.21828v1 expresses singleton masses as the first Hamming slice and uses odds coordinates in its proof machinery.",
+        "No retrieved published-finding corpus finding or public search result states the exact odds-ray injectivity/fold trichotomy."
+      ],
+      "reasoning": "Conditioning on exactly one success determines ratios of Bernoulli odds, so that terminology is an equivalent formulation of the direction of the singleton fingerprint. The remaining scale is exactly the ray variable handled by the proof; searched aliases did not reveal a prior sharp threshold statement.",
+      "searches": [
+        "research-index: Bernoulli product singleton slice injectivity threshold 1/n odds coordinates",
+        "research-index: singleton atom probabilities identify Bernoulli product parameters sharp threshold",
+        "web: conditional on exactly one success Bernoulli odds parameters identifiability",
+        "web: probability exactly one success vector Bernoulli inverse parameters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest research-index hits concerned rare-event TV asymptotics, exchangeable Bernoulli tails, and other Bernoulli-product proxies, with no exact singleton-inverse threshold.",
+        "No exact-value database or parameter table is relevant; the claim is an analytic global property of a finite-dimensional map."
+      ],
+      "reasoning": "The natural exact-record check is for previously published statements of the same map and threshold rather than a numerical table. Targeted record searches did not return one.",
+      "searches": [
+        "research-index: TV Bernoulli products singleton discrepancy injectivity small regime",
+        "research-index: Bernoulli singleton fingerprint noninjective beyond sum probabilities one",
+        "web: Poisson binomial exactly one inverse problem parameters"
+      ]
+    },
+    "rationale": "The nearest Bernoulli singleton theorem is confined to \\([0,1/(2n)]^n\\); the newer broad product-TV theorem uses full marginal midpoint scores. Targeted searches over equivalent exactly-one-success, odds, inverse and singleton terminology found no source that states or implies the sharp injectivity/stability trichotomy.",
+    "residual_risks": [
+      "Because the ray calculation is elementary, an equivalent injectivity theorem may exist under inverse-problem or algebraic-statistics terminology not surfaced by the searches.",
+      "The finding does not settle the best positive singleton-TV comparison inside \\(1/(2n),1/n\\), so no claim is made about that unresolved quantitative gap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed singleton-fingerprint threshold. The source uses full marginal midpoint scores and gives no singleton or \\(1/n\\) boundary statement.",
+        "evidence": "Theorem 1.1 uses \\(\\mathbb E(\\sum U_i^2)^{1/2}\\); Section 3.6 gives a Bernoulli iid TV estimate from the full two-point marginal law, while the introduction separately cites the small-parameter singleton paper.",
+        "identifier_or_url": "arXiv:2609.21049v1",
+        "material_read": "Full rendered text: main theorems and proofs; tensorization, identical-distribution, hypothesis-testing and multinomial/Bernoulli examples.",
+        "method": "Rendered arXiv full text and metadata.",
+        "title": "Total Variation Distance between Product Distributions: an Analytic Proxy",
+        "trigger": "Fresh primary-MSC source on analytic proxies for product total variation and explicit citation of the Bernoulli small-parameter program."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR only. It proves singleton-based TV and parameter control on \\([0,1/(2n)]^n\\), not the maximal injectivity cube or the boundary/nonidentifiability results.",
+        "evidence": "Theorem 1.2 assumes \\(\\lambda_n=1/(2n)\\); Lemma 4.3 obtains parameter control under that same assumption and is then used for the slice recursion.",
+        "identifier_or_url": "arXiv:2602.21828v1",
+        "material_read": "Full text covering Theorems 1.1 and 1.2, Lemma 4.3, the higher-slice recursion and appendix.",
+        "method": "Rendered arXiv/CC-BY full-text mirrors.",
+        "title": "TV over Bernoulli products: the small parameter regime",
+        "trigger": "Closest paper using exactly the same singleton slice."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "452fbc6c-21c4-443b-a768-5bbfd007f8d6",
+  "value": {
+    "rationale": "The singleton slice is a concrete low-complexity proxy used in the recent Bernoulli-TV program. Establishing its exact identifiability threshold and separating injectivity from Lipschitz stability gives a sharp obstruction: any method relying only on labeled one-success masses must fail uniformly at \\(1/n\\) and fails even to identify parameters above it. This is a motivated structural boundary rather than an arbitrary parameter exercise.",
+    "status": "PASS"
+  }
+}
