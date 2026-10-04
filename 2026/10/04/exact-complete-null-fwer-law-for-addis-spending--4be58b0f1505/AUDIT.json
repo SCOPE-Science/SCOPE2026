@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For iid exact-uniform complete-null p-values and rejection levels contained in the candidate region, each ADDIS-Spending state exits by rejection with probability proportional to \\(\\alpha(\\tau-\\lambda)\\gamma_j\\) or by advancement with probability \\(\\tau-\\lambda\\). Conditioning on the first exit gives exact survival factor \\((1+\\alpha\\gamma_j)^{-1}\\). Multiplication over states, continuity from above, elementary product/log bounds, and Euler's sinh product prove every part of the claim. The packaged checker independently verifies finite recursions and numerical values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fischer 2024 proves a stronger rejection-region result for a modified exhaustive ADDIS procedure and exact level exhaustion for that modified construction.",
+        "That theorem does not provide the baseline ADDIS-Spending FWER as a function of the original spending sequence."
+      ],
+      "reasoning": "The exhaustive-ADDIS result dominates the original procedure operationally, but it does not subsume the claimed evaluation: the object here is the unmodified Tian--Ramdas rule and the conclusion is its exact conservative error expenditure and sharp gamma-envelope.",
+      "searches": [
+        "\"An exhaustive ADDIS principle for online FWER control\"",
+        "Fischer 2024 ADDIS-Spending exhaustive improvement",
+        "online FWER adaptive spending exact complete null"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.04900 (first public 2019-10-10)",
+      "DOI:10.1177/0962280220983381",
+      "DOI:10.1002/bimj.202300237",
+      "onlineFDR documentation for the published ADDIS-Spending parameterization",
+      "Targeted semantic and exact-phrase searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior own finding concerns the first-rejection law of SAFFRON, a different online FDR procedure with different wealth dynamics.",
+        "Tian--Ramdas prove only an upper error guarantee for ADDIS-Spending in the inspected theorem.",
+        "Fischer proves exact exhaustion for exhaustive ADDIS, not an exact baseline ADDIS-Spending formula."
+      ],
+      "reasoning": "Neither the prior ledger claim nor the inspected literature implies the present equality as a corollary without the new state-exit calculation. Conversely, the new equality does not claim or imply the stronger optimality properties of exhaustive ADDIS.",
+      "searches": [
+        "SAFFRON complete-null first-rejection law versus ADDIS-Spending exact FWER",
+        "ADDIS online FDR complete null exact law conservative null p-values",
+        "Tian--Ramdas 2021 and Fischer 2024 ADDIS-Spending exact complete-null comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tian--Ramdas equation (27) gives the ADDIS-Spending level and state index; Theorem 1 gives control, not an exact complete-null equality.",
+        "Fischer 2024 explains that history-dependent ADDIS rejection events block the ordinary Sidak factorization and calls the original ADDIS principle conservative."
+      ],
+      "reasoning": "No inspected source states an equivalent complete-null product over the spending weights. The derivation uses state-exit probabilities rather than independence of the rejection events themselves, so it is not the ordinary Sidak identity already discussed in the literature.",
+      "searches": [
+        "Exact complete-null FWER law for ADDIS-Spending product over gamma",
+        "ADDIS-Spending FWER 1 minus product 1 plus alpha gamma",
+        "\"ADDIS-Spending\" \"complete null\" FWER exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published simulations report empirical FWER for chosen schedules but no exact table or formula matching the theorem.",
+        "Fischer 2024 uses the normalized inverse-square schedule in simulations, but does not state the closed-form sinh FWER for ordinary ADDIS-Spending."
+      ],
+      "reasoning": "The claimed number at alpha 0.2 is evaluated from the proved formula, not copied from a known exact table or database.",
+      "searches": [
+        "ADDIS-Spending sinh square root 6 alpha default gamma",
+        "\"ADDIS-Spending\" \"exact FWER\" uniform null",
+        "Tian--Ramdas ADDIS-Spending simulation spending schedule exact calibration"
+      ]
+    },
+    "rationale": "The inspected Tian--Ramdas source defines and validates ADDIS-Spending but does not state the exact complete-null product. The inspected Fischer source proves ordinary ADDIS is conservative and develops an exhaustive improvement, with exact global-null exhaustion for that modified procedure, but does not state the baseline gamma-dependent equality, its sharp envelope, or the sinh specialization.",
+    "residual_risks": [
+      "An equivalent exact identity could appear in supplementary notes or unindexed material not exposed by the inspected full texts.",
+      "The broad top-level MSC assignment is statistical methodology/multiple testing; no narrower subclass is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact product law. It supplies the algorithm and upper-control theorem but not the claimed equality or gamma-envelope.",
+        "evidence": "Equation (27) defines \\(\\alpha_i=\\alpha(\\tau_i-\\lambda_i)\\gamma_{t(i)}\\); Theorem 1 states PFER/FWER control. The inspected text discusses power and simulations rather than an exact complete-null evaluation.",
+        "identifier_or_url": "arXiv:1910.04900; DOI:10.1177/0962280220983381",
+        "material_read": "Full accessible HTML around Section 3.3.1, equation (27), Theorem 1, and simulation parameter discussion; arXiv metadata for first-public date.",
+        "method": "Statement-level comparison of the algorithm, hypotheses, and conclusions.",
+        "title": "Online control of the familywise error rate",
+        "trigger": "Primary source defining ADDIS-Spending and its FWER guarantee."
+      },
+      {
+        "assessment": "CLOSEST BUT NOT COVERING. It proves exact level exhaustion for the modified exhaustive procedure and uniform improvement over ordinary ADDIS, not the exact ordinary ADDIS-Spending FWER formula.",
+        "evidence": "The paper states ordinary ADDIS is conservative because of Bonferroni-based control, notes history-dependent rejection events prevent direct Sidak factorization, and gives a different exhaustive update that can attain FWER alpha.",
+        "identifier_or_url": "DOI:10.1002/bimj.202300237",
+        "material_read": "Full accessible HTML around the conservatism discussion, global-null calculation, Proposition 3.4, and Section 4 ADDIS-Spending improvement.",
+        "method": "Compared the exact object (ordinary versus exhaustive ADDIS), assumptions, and implication direction.",
+        "title": "An exhaustive ADDIS principle for online FWER control",
+        "trigger": "Closest later work explicitly addressing conservatism and uniform improvement of ADDIS."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4be58b0f-1505-40b8-832c-02328d753451",
+  "value": {
+    "rationale": "The exact equality quantifies the conservatism that later work identifies as improvable, isolates the spending-sequence dependence from the discard/candidate thresholds under exact uniforms, gives the sharp attainable range over all spending schedules, and yields a closed-form benchmark for a published inverse-square schedule. This is a natural calibration invariant of an established online multiple-testing procedure.",
+    "status": "PASS"
+  }
+}
