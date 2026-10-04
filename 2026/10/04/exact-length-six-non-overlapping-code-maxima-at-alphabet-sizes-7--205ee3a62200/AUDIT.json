@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The published structural theorem reduces every global optimum at length six to a representative with one side empty at levels four and five. Exhaustive integer enumeration of all remaining size recurrences gives exact maxima \\(7776\\), \\(16807\\), and \\(33872\\) for \\(q=7,8,9\\). The bundled verifier enumerates \\(66148\\) reduced states and independently constructs attaining codes, checking all proper-prefix/proper-suffix sets for disjointness. The finite computation is not used to infer any \\(q\\) outside \\({7,8,9}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn proves exact formulas only for lengths at most three and gives general constructions and asymptotics.",
+        "Stanovnik–Moškon–Mraz report exact nonbinary tables only for \\(3\\le q\\le6\\).",
+        "Qin–Chen–Luo concern non-expandability of construction families rather than unrestricted maximum cardinality."
+      ],
+      "reasoning": "None of the broader theorems implies exact \\(q=7,8,9\\) length-six maxima. The \\(q=9\\) value also lies above the \\(k=5\\) construction, so it is not a corollary of that construction.",
+      "searches": [
+        "arXiv:1303.1026",
+        "arXiv:2307.12593",
+        "arXiv:2309.08915",
+        "maximum 9-ary length 6 non-overlapping code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.12593",
+      "doi:10.1007/s10623-023-01344-z",
+      "arXiv:1303.1026",
+      "arXiv:2309.08915",
+      "Exact size and enumeration of maximum length-five non-overlapping codes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source supplies the reduction that makes the new finite computation rigorous but not the \\(q=7,8,9\\) numerical optima.",
+        "The length-five all-\\(q\\) result changes the block length and does not imply the length-six integer program.",
+        "Blackburn’s \\(k=5\\) construction gives \\(33614\\) at \\(q=9\\), strictly below \\(33872\\)."
+      ],
+      "reasoning": "The new statement requires evaluating previously unreported parameter cells; it is neither a special case already tabulated nor implied by the known construction values.",
+      "searches": [
+        "arXiv:2307.12593",
+        "arXiv:1303.1026",
+        "Exact size and enumeration of maximum length-five non-overlapping codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stanovnik–Moškon–Mraz explicitly identify non-overlapping, cross-bifix-free, mutually uncorrelated, and strong comma-free codes as aliases of the same prefix/suffix condition.",
+        "No targeted indexed result located the three claimed values under those aliases."
+      ],
+      "reasoning": "The searches covered the main naming variants for the same object; the closest exact source uses the same \\(S(q,n)\\) invariant but reports \\(q\\le6\\) for nonbinary length-six computations.",
+      "searches": [
+        "S(9,6) non-overlapping code 33872",
+        "maximum 9-ary length 6 non-overlapping code",
+        "cross-bifix-free code alphabet 9 length 6",
+        "mutually uncorrelated code q=9 n=6 maximum",
+        "arXiv:2307.12593",
+        "arXiv:2309.08915"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published exact table states its computed nonbinary range as \\(3\\le q\\le6\\) and \\(5\\le n\\le16\\).",
+        "A nearby indexed result gives an all-\\(q\\) formula for length five, not length six.",
+        "A search of the public companion repository for the literal strings `33872`, `S(9,6)`, `q=9`, and `9, 6` returned no matching file."
+      ],
+      "reasoning": "The claimed cells are outside the published table and were not found in the companion repository or indexed exact-value searches.",
+      "searches": [
+        "S(9,6) non-overlapping code 33872",
+        "non-overlapping code q=7 q=8 q=9 length six",
+        "Exact size and enumeration of maximum length-five non-overlapping codes"
+      ]
+    },
+    "rationale": "The closest same-object paper reports nonbinary exact computations only through \\(q=6\\), while the claimed cells are \\(q=7,8,9\\). Exact-value and alias searches found no published source stating these values. Blackburn’s general construction does not cover the \\(q=9\\) optimum because its best \\(k=5\\) size is \\(33614\\), below \\(33872\\).",
+    "residual_risks": [
+      "An unindexed thesis, appendix, or unpublished computation could contain one or more \\(q=7,8,9\\) values.",
+      "The companion software is capable in principle of solving additional cells; targeted repository search found no stored \\(q=9\\) or `33872` result, but absence of a search hit is not a proof that no historical computation exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed \\(q=7,8,9\\) values; it reports nonbinary computations only for \\(3\\le q\\le6\\), but it supplies the structural theorem used for exhaustive reduction.",
+        "evidence": "The paper states the nonbinary solved range \\(3\\le q\\le6\\), \\(5\\le n\\le16\\), and gives the reduction that some maximum has \\(|L_i||R_i|=0\\) above half the block length.",
+        "identifier_or_url": "arXiv:2307.12593 / doi:10.1007/s10623-023-01344-z",
+        "material_read": "Abstract, definitions, integer optimization, reduction theorem, exact-computation range, MSC metadata, and comparison section.",
+        "method": "Full-text HTML inspection of the arXiv and open publisher versions.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Same invariant \\(S(q,n)\\), exact small-parameter computations, and the structural reduction used in the proof."
+      },
+      {
+        "assessment": "NOT_COVERING exact length-six \\(q=7,8,9\\) maxima.",
+        "evidence": "Exact maxima are proved only for lengths two and three; the \\(k=n-1\\) construction is general but is not exact at \\(q=9\\) here.",
+        "identifier_or_url": "arXiv:1303.1026",
+        "material_read": "Definitions, construction section, small-length exact section, and conjectures.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Non-overlapping codes",
+        "trigger": "Foundational construction and conjecture for fixed length with growing alphabet."
+      },
+      {
+        "assessment": "NOT_COVERING unrestricted maximum \\(S(q,6)\\) at \\(q=7,8,9\\).",
+        "evidence": "The paper studies when named construction families are non-expandable and how to enlarge them, rather than solving the unrestricted maximum-cardinality problem.",
+        "identifier_or_url": "arXiv:2309.08915",
+        "material_read": "Abstract and full-text sections describing the construction families and non-expandability objective.",
+        "method": "Full-text arXiv inspection.",
+        "title": "On non-expandable cross-bifix-free codes",
+        "trigger": "Same object under the cross-bifix-free alias and recent construction-family results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "205ee3a6-2200-4726-b8b3-ef7a7168c9ac",
+  "value": {
+    "rationale": "These are the first three alphabet sizes immediately beyond the published nonbinary length-six table, so they form a natural finite cutoff rather than an arbitrary slice. The \\(q=9\\) cell additionally reveals a genuine \\(258\\)-codeword failure of the canonical \\(k=5\\) Blackburn construction after equality at \\(q=7\\) and \\(q=8\\), which is structurally relevant to the fixed-length extremal problem and its eventual-optimality conjecture.",
+    "status": "PASS"
+  }
+}
