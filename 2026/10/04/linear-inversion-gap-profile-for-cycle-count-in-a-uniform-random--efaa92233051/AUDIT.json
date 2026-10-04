@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The image-swap involution converts the covariance into a signed same-cycle probability. Conditioning on two images gives exact probabilities 0, 1, or 1/2 according to whether the prescribed arrows force separation, force connection, or are disjoint. The signed image-pair count gives the local formula, and summing over gaps gives the total covariance. Independent Bernoulli and Lehmer-code representations give the stated variances and correlation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gladkich--Peled study cycle structure for Mallows permutations and give an order-of-magnitude theorem for expected number of cycles.",
+        "He--Müller--Verstraaten study Mallows cycle counts and their asymptotic distributions.",
+        "Parviainen gives cycle-refined generating functions for a cycle-form inversion statistic."
+      ],
+      "reasoning": "The Mallows sources cover a broader parameter family but not the exact uniform-point mixed derivative. Parviainen is close enumeratively but uses a different inversion statistic; the distinction is explicit in the inspected full text.",
+      "searches": [
+        "arXiv:1601.06991",
+        "arXiv:2201.11610",
+        "arXiv:math/0610616"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.06991",
+      "DOI:10.1214/17-AOP1202",
+      "arXiv:2201.11610",
+      "arXiv:math/0610616"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier all-inversion-indicator finding concerns the covariance matrix among inversion indicators themselves and does not involve cycle count.",
+        "The descent-indicator precision theorem concerns only adjacent comparisons and has no cycle statistic.",
+        "Gladkich--Peled give only order-of-magnitude expected-cycle behavior, which does not determine the exact derivative at q=1.",
+        "Parviainen's inversion statistic is defined after standard cycle-form encoding and is not the ordinary Mallows inversion number."
+      ],
+      "reasoning": "The accepted claim adds a new cross-statistic between cycle structure and ordinary inversion coordinates. Neither prior own work nor the inspected literature implies the positional gap profile.",
+      "searches": [
+        "own all inversion indicator incidence precision",
+        "own random permutation descent precision Fibonacci",
+        "Mallows expected cycle count q close to 1",
+        "cycles and patterns permutations inversions standard cycle form"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned random-permutation and ordering results but no matching exact covariance theorem.",
+        "Web searches located Mallows cycle papers and enumerative cycle/inversion papers, but not the ordinary one-line local covariance profile or the derivative formula."
+      ],
+      "reasoning": "The searches cover covariance, mixed moments, Mallows score derivatives, individual inversion indicators, positional gaps, and cycle/inversion joint distributions. Novelty is based on source comparison, not on failed search alone.",
+      "searches": [
+        "uniform permutation number of cycles inversion number covariance exact",
+        "Mallows expected number of cycles derivative at q=1 covariance inversions",
+        "cycle count inversion indicator covariance gap permutation",
+        "random permutation cycles inversions joint moments",
+        "\"number of cycles\" \"inversion number\" permutation covariance",
+        "\"cycles\" \"inversions\" covariance uniform permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact record matching the local gap law or total covariance was located."
+      ],
+      "reasoning": "The result is an all-n symbolic theorem with one formula for every inversion coordinate, not a finite census or table recomputation.",
+      "searches": [
+        "\"Cov(cycles,inversions)\" permutation",
+        "\"Cov(C,inv)\" permutation",
+        "\"(2n-1)/12\" cycles inversions",
+        "\"2(j-i)-1\" permutation cycle covariance"
+      ]
+    },
+    "rationale": "The closest probability literature studies Mallows cycle structure and expected cycle counts, while a close enumerative source studies a different inversion statistic defined in standard cycle-form notation. No inspected source states the ordinary one-line inversion/cycle covariance, the gap-resolved profile, or the exact Mallows derivative at q=1.",
+    "residual_risks": [
+      "Older enumerative work on ordinary inversions and cycle count may contain the same mixed first moment under a different generating function.",
+      "The global covariance follows by summing the local profile, so originality is strongest in the gap-resolved formula and the Mallows-response interpretation.",
+      "No claim is made about higher mixed moments or the global q-dependence away from q=1."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MALLOWS_CYCLE_EXPECTATION_NOT_EXACT_UNIFORM_DERIVATIVE",
+        "evidence": "The paper defines Mallows weight using ordinary inversion count and proves that expected cycle count has order (1-q)n+log(n+1). The inspected statements do not give the exact derivative at q=1 or covariance with inversion number.",
+        "identifier_or_url": "arXiv:1601.06991",
+        "material_read": "Full arXiv PDF, especially the introduction, Mallows definition, uniform q=1 discussion, Theorem 1.5 on expected number of cycles, and the proof section for that theorem.",
+        "method": "Compared the observable, inversion statistic, q-dependence, and whether an exact uniform-point derivative or mixed covariance is stated.",
+        "title": "On the Cycle Structure of Mallows Permutations",
+        "trigger": "Archive-era primary probability source studying cycle structure under weighting by ordinary inversion number."
+      },
+      {
+        "assessment": "CYCLE_COUNT_ASYMPTOTICS_NOT_CYCLE_INVERSION_COVARIANCE",
+        "evidence": "The article develops fixed-q asymptotics and limiting cycle-count laws. No inspected statement gives the covariance of total cycle count with ordinary inversion number.",
+        "identifier_or_url": "arXiv:2201.11610",
+        "material_read": "Full open article introduction, theorem statements, and targeted full-text searches for covariance, derivative, and expected number of cycles.",
+        "method": "Checked for exact uniform-point cycle/inversion mixed moments and local inversion-coordinate formulas.",
+        "title": "Cycles in Mallows random permutations",
+        "trigger": "Strong later source focused explicitly on Mallows cycle counts."
+      },
+      {
+        "assessment": "DIFFERENT_CYCLE_FORM_INVERSION_STATISTIC",
+        "evidence": "The paper explicitly defines inv(pi) in that section as the number of cyclic inversions after standard cycle-form encoding. Its generating function therefore does not directly cover ordinary one-line inversion number or position-indexed indicators I_ij.",
+        "identifier_or_url": "arXiv:math/0610616",
+        "material_read": "Full arXiv PDF introduction and Section 2, including the definition of cyclic inversions and Theorem 2's generating function.",
+        "method": "Compared the precise inversion statistic and encoding with ordinary one-line inversions used by Mallows.",
+        "title": "Cycles and patterns in permutations",
+        "trigger": "Closest enumerative source because its abstract and Section 2 explicitly discuss cycles and inversions jointly."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "efaa9223-3051-443c-a721-8b33d5192810",
+  "value": {
+    "rationale": "Cycle count is a canonical permutation observable, and inversion number is the score statistic that defines the Mallows deformation. The theorem therefore gives the exact finite-n sensitivity of cycle structure at the uniform model, and the local formula explains that sensitivity through a nontrivial linear positional-gap profile.",
+    "status": "PASS"
+  }
+}
