@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The smoothing state contains the current term \\((1-\\beta_3)\\eta_t\\), so the clipped rate cannot fall below it; equality holds at the first step. On the scalar quadratic, source bias correction gives the exact first-step ratio \\([1-(1-\\beta_3)\\alpha h/(h|x_0|+\\varepsilon)]^2\\), and the sharp frontier follows from solving \\((1-K)^2\\le1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper describes long-term-memory smoothing and empirical stabilization.",
+        "Later implementation documentation repeats the momental-bound interpretation."
+      ],
+      "reasoning": "Qualitative stabilization does not imply an absolute cap or one-step curvature safety. The new claim isolates the residual fraction of every current spike and its exact optimization consequence.",
+      "searches": [
+        "AdaMod convergence theorem learning rate bound theoretical analysis",
+        "AdaMod scalar quadratic stability",
+        "AdaMod warmup exact exponential",
+        "AdaMod learning rate lower bound beta3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.12249v1",
+      "torch-optimizer:adamod"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source initializes the smoothing state at zero and says it is not bias-corrected.",
+        "The source defines the final rate by taking the minimum of the raw and smoothed rates.",
+        "Algorithm 2 uses Adam bias-corrected gradient moments before forming the raw rate."
+      ],
+      "reasoning": "These premises make the theorem derivable, but the published conclusions stop at qualitative smoothing and do not connect the exact residual fraction to the quadratic stability boundary.",
+      "searches": [
+        "An Adaptive and Momental Bound Method smoothing adaptive learning rates s_t min eta_t",
+        "AdaMod s0=0 no bias correction learning rate",
+        "AdaMod beta3 first update learning rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1910.12249v1, Algorithm 2 and rate-smoothing equations",
+        "torch-optimizer AdaMod documentation for implementation-scale parameters"
+      ],
+      "reasoning": "Equivalent forms are a lower relative bound on the clip and a curvature-dependent first-step nonexpansion threshold. The inspected literature discusses an upper bound qualitatively but does not state either theorem.",
+      "searches": [
+        "AdaMod adaptive learning rate scalar quadratic exact stability clipping smoothing",
+        "AdaMod one-step learning rate attenuation factor 1-beta3 first step scalar quadratic",
+        "AdaMod default beta3 epsilon local instability scalar quadratic",
+        "AdaMod first step effective learning rate min eta s one minus beta3",
+        "AdaMod cannot bound arbitrary learning rate spike multiplicative attenuation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned other one-step quadratic frontiers, adaptive-step persistence, and unrelated feedback rules.",
+        "No AdaMod-specific hit stated the factor \\(1-\beta_3\\) attenuation floor or the first-step scalar-quadratic frontier."
+      ],
+      "reasoning": "The closest results use different algorithms and do not contain AdaMod's learning-rate EMA followed by a minimum. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "AdaMod adaptive learning rate scalar quadratic exact stability clipping smoothing",
+        "AdaMod one-step learning rate attenuation factor 1-beta3 first step scalar quadratic",
+        "AdaMod default beta3 epsilon local instability scalar quadratic",
+        "AdaMod first step effective learning rate min eta s one minus beta3",
+        "AdaMod cannot bound arbitrary learning rate spike multiplicative attenuation"
+      ]
+    },
+    "rationale": "The defining source gives the smoothing and clipping recurrences and qualitative stabilization claims, but the inspected text does not state the attenuation floor, scalar-quadratic frontier, or exact amplification neighborhood. Focused published-record searches found no implication-equivalent AdaMod result.",
+    "residual_risks": [
+      "An equivalent observation may exist in unindexed implementation discussions.",
+      "The theorem is deliberately first-step and does not characterize later AdaMod dynamics.",
+      "Common implementation defaults vary slightly across packages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_SHARP_ATTENUATION_OR_QUADRATIC_FRONTIER.",
+        "evidence": "The source contains every recurrence used in the proof and claims empirical stabilization, but does not state the all-history lower attenuation bound or first-step objective-safety condition.",
+        "identifier_or_url": "arXiv:1910.12249v1",
+        "material_read": "Open-access full HTML through the Adam review and AdaMod method section, including Algorithm 2, the smoothing equation, the no-bias-correction statement, and the minimum-based bound.",
+        "method": "Full-text HTML inspection with targeted searches for smoothing, initialization, and bounding.",
+        "title": "An Adaptive and Momental Bound Method for Stochastic Learning",
+        "trigger": "Defining source for AdaMod smoothing, clipping, initialization, and bias corrections."
+      },
+      {
+        "assessment": "IMPLEMENTATION_CONTEXT_NOT_COVERING_SAFETY_THEOREM.",
+        "evidence": "The documentation records common learning-rate, epsilon, and smoothing scales but gives no curvature-dependent safety analysis.",
+        "identifier_or_url": "torch-optimizer:adamod",
+        "material_read": "Public API and source documentation for learning rate, beta coefficients, beta3, epsilon, and weight decay.",
+        "method": "Implementation documentation inspection.",
+        "title": "torch-optimizer AdaMod documentation",
+        "trigger": "Check practical parameter scales in a public AdaMod implementation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb336c1a-e233-47d0-a571-18197bbedad1",
+  "value": {
+    "rationale": "AdaMod was introduced specifically to control unexpectedly large early adaptive rates without manual warmup. The attenuation floor identifies the exact fraction of any current spike that must survive the bound, while the quadratic theorem turns that structural fact into a sharp curvature-sensitive safety test and failure neighborhood.",
+    "status": "PASS"
+  }
+}
