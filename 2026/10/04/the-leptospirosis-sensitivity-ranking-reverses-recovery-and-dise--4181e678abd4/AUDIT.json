@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The disease-free susceptible levels follow directly from the printed equations. The two-state next-generation matrix is reconstructed from the exact human and vector infection terms and removal rates, yielding characteristic polynomial z^2-a z-c. The earlier-model type threshold a+c has the same one-crossing because p(1)=1-a-c. Loss of immunity does not enter the infected subsystem, while human recovery and disease mortality enter only through the positive removal rate q_h, proving zero and negative sensitivities respectively. Exact rational arithmetic reproduces the full type-threshold sensitivity table, and high-precision eigenvalue and finite-difference checks replay the spectral calculation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2012 same-family leptospirosis paper gives a direct human-transmission plus vector-mediated threshold and does not make the 2022 source-specific sensitivity claims.",
+        "The 2013 host-vector paper uses a reproduction threshold to separate extinction and persistence in a related model.",
+        "A different 2022 human-rodent leptospirosis model reports conventional signed sensitivities but has different compartments and parameters."
+      ],
+      "reasoning": "Broader literature establishes the threshold and sensitivity methodology, so novelty is restricted to reconstructing and correcting the 2022 paper's exact model and parameter ranking.",
+      "searches": [
+        "\"Modeling Dynamical Interactions between Leptospirosis Infected Vector and Human Population\" reproduction number",
+        "\"Global Stability of Vector-Host Disease with Variable Population Size\" reproduction threshold",
+        "\"A Mathematical Model Analysis for the Transmission Dynamics of Leptospirosis Disease in Human and Rodent Populations\" sensitivity",
+        "leptospirosis sensitivity recovery mortality reproduction number"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022492",
+      "Modeling dynamical interactions between leptospirosis infected vector and human population (2012)",
+      "doi:10.1155/2013/710917",
+      "doi:10.1155/2022/1806585"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or correction of the 2022 sensitivity section was located.",
+        "The 2012 predecessor's threshold is independent of the recovered-to-susceptible return parameter, consistent with the reconstructed infected subsystem.",
+        "The source-specific numerical elasticity hierarchy at the 2022 parameter set is not supplied by the predecessor literature."
+      ],
+      "reasoning": "Prior threshold formulas imply the general direction of the correction but do not state the corrected 2022 sensitivities. The final claim therefore does not present the underlying method as novel; it presents the exact source-specific sign and ranking correction.",
+      "searches": [
+        "\"10.3934/math.2022492\" correction erratum",
+        "\"10.3934/math.2022492\" lambda_h sensitivity",
+        "\"10.3934/math.2022492\" delta_h gamma_h sensitivity",
+        "\"Modeling dynamical interactions between leptospirosis infected vector and human population\" threshold quantity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states that lambda_h, delta_h, and gamma_h have positive impact on its reproduction number, then says lambda_h has no impact in the same paragraph.",
+        "Published-finding searches by exact DOI/title and by threshold/sensitivity aliases returned no correction of this source.",
+        "The reconstructed infected subsystem makes lambda_h absent and places delta_h and gamma_h only in a positive removal denominator."
+      ],
+      "reasoning": "The claim was checked under both common formulations of the invasion threshold: next-generation spectral radius and the direct-plus-vector human-generation threshold. The corrected sign statements survive this equivalence, so they are not an artifact of a naming convention.",
+      "searches": [
+        "\"10.3934/math.2022492\" sensitivity reproduction number leptospirosis",
+        "\"Existence theory and numerical solution of leptospirosis disease model via exponential decay law\" sensitivity",
+        "leptospirosis host vector reproduction number beta1 beta2 beta3 loss immunity",
+        "leptospirosis next generation matrix direct transmission vector human"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at equation (1.1), where the five model equations and all infection/removal pathways are printed.",
+        "The primary PDF was inspected at the simulation paragraph listing b1=0.121, mu_h=0.0121, beta1=0.14, beta2=0.02, beta3=0.10, delta_h=0.8, gamma_h=0.25, b2=0.002, gamma_v=0.23, delta_v=0.001.",
+        "The primary PDF was inspected at Section 7 and Figure 5, including the paragraph that gives sensitivity interpretations.",
+        "The 2012 predecessor was inspected at its disease-free equilibrium and printed threshold formula."
+      ],
+      "reasoning": "The correction is anchored to the exact printed equations and source parameter set rather than inferred from an abstract or generic epidemic formula.",
+      "searches": [
+        "doi:10.3934/math.2022492 equation 1.1 sensitivity section 7",
+        "doi:10.3934/math.2022492 parameter values b1 0.121 beta1 0.14",
+        "\"Modeling dynamical interactions\" leptospirosis R0 b1 mu_h beta1"
+      ]
+    },
+    "rationale": "Next-generation matrices, normalized sensitivities, and direct-plus-vector threshold decompositions are prior art and are not claimed as new. The accepted originality is the source-specific correction: the 2022 paper's Section 7 assigns positive sensitivity to parameters whose exact model sensitivities are zero or negative, and substantially misranks the direct and vector-mediated transmission elasticities at its own parameter set. Exact-source and alias searches found no published correction of these sensitivity conclusions.",
+    "residual_risks": [
+      "The 2022 paper does not clearly display the algebraic reproduction-number formula it differentiated, so the report compares its stated sensitivity conclusions to both standard threshold conventions derived from the printed model.",
+      "A non-indexed author correction could exist outside the searched records.",
+      "The fractional Caputo-Fabrizio stability problem may have additional order-dependent spectral conditions; the accepted claim is restricted to the epidemiological invasion-threshold sensitivity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SENSITIVITY_SIGNS_AND_RANKING_NOT_COMPATIBLE_WITH_PRINTED_MODEL",
+        "evidence": "The printed model makes lambda_h absent from the infected subsystem and makes delta_h and gamma_h positive components of the human infected removal rate, while Section 7 assigns all three positive impact before contradicting itself on lambda_h.",
+        "identifier_or_url": "doi:10.3934/math.2022492",
+        "material_read": "Publisher full text and PDF: title page and MSC; equation (1.1) and Caputo-Fabrizio reformulation; simulation parameter paragraph; Section 7 definition of normalized sensitivity; sensitivity interpretation paragraph; Figure 5 and associated parameter plots.",
+        "method": "Reconstructed the disease-free infected subsystem, formed the next-generation matrix, derived the threshold-equivalent direct-plus-vector quantity, and differentiated both threshold forms.",
+        "title": "Existence theory and numerical solution of leptospirosis disease model via exponential decay law",
+        "trigger": "Primary source whose sensitivity claims are being assessed."
+      },
+      {
+        "assessment": "TYPE_THRESHOLD_CONVENTION_PRIOR_AND_CONSISTENT_WITH_ZERO_LOSS_OF_IMMUNITY_SENSITIVITY",
+        "evidence": "The predecessor writes its threshold as susceptible-host recruitment divided by host mortality times a sum of direct and vector-mediated infection contributions; the recovered-class loss-of-immunity parameter is not part of that threshold.",
+        "identifier_or_url": "Applied Mathematical Sciences 6 (2012), 1287-1302",
+        "material_read": "Accessible full-text material covering the disease-free equilibrium, the printed direct-plus-vector threshold quantity, its parameter definitions, and the subsequent local-stability discussion.",
+        "method": "Compared the predecessor threshold convention with the reconstructed 2022 infected subsystem.",
+        "title": "Modeling dynamical interactions between leptospirosis infected vector and human population",
+        "trigger": "Earlier same-family leptospirosis host-vector model cited by the motivating source."
+      },
+      {
+        "assessment": "DIFFERENT_MODEL_STANDARD_SIGNED_SENSITIVITY_CONTEXT",
+        "evidence": "The paper interprets positive and negative sensitivities conventionally but uses a different human-rodent compartmental model and different threshold formula.",
+        "identifier_or_url": "doi:10.1155/2022/1806585",
+        "material_read": "Accessible article summary and sensitivity table with signed normalized indices and their interpretation.",
+        "method": "Used only as broader methodological context, not as evidence that the source-specific correction was already published.",
+        "title": "A Mathematical Model Analysis for the Transmission Dynamics of Leptospirosis Disease in Human and Rodent Populations",
+        "trigger": "Contemporary leptospirosis sensitivity analysis in a different model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4181e678-abd4-48e7-a5c5-657fc9f2f2d1",
+  "value": {
+    "rationale": "Section 7 explicitly motivates sensitivity analysis as a guide to reducing infection spread and designing control strategies. The corrected calculation reverses the signs of recovery and disease-induced removal, makes loss of immunity exactly irrelevant to invasion, and shows that the vector-mediated route has three orders of magnitude less elasticity than the direct human route at the paper's own parameter set. This changes the biological interpretation and parameter prioritization rather than merely correcting a typographical coefficient.",
+    "status": "PASS"
+  }
+}
