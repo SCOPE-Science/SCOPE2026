@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on all non-triangle edges reduces the problem to the rank contribution of a Bernoulli subgraph on three vertices. The two-component case has expected rank 1-(1-p)^2; the three-component case has expected rank 3p-p^3. Subtracting these from the fully open ranks gives the exact negative component covariance. Adding the three edge-indicator covariances gives the cycle-rank formula and its positive bounds. For p=c/n with c<1, a simple-path union bound makes the exterior three-point state asymptotically fully disconnected.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elçi--Weigel--Fytas derive exact finite-graph bridge and edge-class identities from Russo--Margulis methods and study component sensitivity to one edge.",
+        "Janson develops functional limit theory for fixed subgraph counts in Erdős–Rényi graphs."
+      ],
+      "reasoning": "The bridge paper covers broader single-edge connectivity response, while the subgraph-count paper covers broader motif asymptotics. The accepted theorem combines a triangle motif with the ambient three-vertex connectivity partition; neither inspected statement supplies that finite mixed law.",
+      "searches": [
+        "arXiv:1509.00668",
+        "DOI:10.1002/rsa.3240010103",
+        "\"Bridges in the random-cluster model\" triangle",
+        "\"A functional limit theorem for random graphs with applications to subgraph count statistics\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1509.00668",
+      "DOI:10.1016/j.nuclphysb.2015.12.001",
+      "DOI:10.1002/rsa.3240010103"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own triangle-precision finding concerns covariance and precision among triangle indicators themselves, not covariance with component count or cycle rank.",
+        "The own Cayley-tree edge-precision finding concerns the uniform spanning-tree law rather than independent bond percolation.",
+        "The bridge-edge identity controls one-edge component sensitivity and does not by itself state the rank deficit of a three-edge triangle conditional on ambient three-point connectivity.",
+        "Classical triangle-count fluctuation theory does not determine the component covariance without joint connectivity information."
+      ],
+      "reasoning": "The accepted claim requires a three-edge conditional rank calculation after quotienting the triangle vertices by exterior connectivity. Neither own prior work nor the inspected one-edge bridge relation implies the displayed coefficients without this additional calculation.",
+      "searches": [
+        "own alternating precision geometry triangle indicators Erdos Renyi",
+        "own grounded precision uniform Cayley tree edge indicators",
+        "published bridge edge identity percolation component count",
+        "published random graph triangle count asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic search returned spanning-forest, percolation-obstruction, and deterministic cycle-rank results but no matching component–triangle covariance theorem.",
+        "Web searches found classical subgraph-count fluctuation theory and exact bridge/component relations, but no three-point connectivity covariance formula."
+      ],
+      "reasoning": "Queries covered component count, cycle rank, triangle indicators and totals, three-point connectivity, bond percolation, and Erdős–Rényi terminology. Search failure is not treated as novelty proof; the accepted comparison rests on the inspected primary sources and explicit statement-level differences.",
+      "searches": [
+        "Erdos Renyi number of connected components triangle count covariance",
+        "bond percolation component count triangle indicator covariance",
+        "random graph cycle rank triangle count covariance",
+        "percolation three point connectivity triangle component covariance",
+        "\"triangle count\" \"number of components\" covariance Erdős Rényi",
+        "\"component count\" triangle covariance percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or literature record matching the coefficients P(C=2)+(p+2)P(C=3) or the cycle-rank companion was located."
+      ],
+      "reasoning": "The finding is symbolic for every finite simple base graph and every p in (0,1); exact enumeration is only a replay check.",
+      "searches": [
+        "\"Cov\" components triangles random graph",
+        "\"Cov(K,T)\" random graph triangle",
+        "\"cycle rank\" triangle covariance percolation",
+        "\"three-point connectivity\" triangle percolation covariance"
+      ]
+    },
+    "rationale": "The closest inspected full source derives exact bridge/component relations for single-edge perturbations but does not state the triangle or three-point formula. The closest subgraph-count source treats asymptotic motif fluctuations; its full text was not accessible, so it remains a named residual risk rather than being declared non-covering from an abstract alone. No searched source stated the exact covariance identity or the opposite-sign cycle-rank companion.",
+    "residual_risks": [
+      "Janson's 1990 full text was not accessible in the inspected source; an implicit joint-statistic calculation may occur there or in related random-graph literature.",
+      "The formula is an elementary finite conditioning identity once the three-point connectivity partition is chosen, so an equivalent unpublished or textbook exercise may exist.",
+      "The claimed originality is the explicit three-point covariance law, the cycle-rank sign split, and the subcritical constants, not the Russo--Margulis formula or classical triangle-count asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SINGLE_EDGE_BRIDGE_IDENTITIES_NOT_TRIANGLE_THREE_POINT_COVARIANCE",
+        "evidence": "The source classifies one edge as bridge/non-bridge/candidate variants and derives exact bridge-density relations from the response of component count to one edge. The inspected full text does not formulate a triangle-count covariance or a three-vertex connectivity correction.",
+        "identifier_or_url": "arXiv:1509.00668 / DOI:10.1016/j.nuclphysb.2015.12.001",
+        "material_read": "Full public arXiv HTML, especially the random-cluster definition, edge classification, and Section 2.3 Russo--Margulis derivation; full-text searches for triangle and subgraph-count terminology were also performed.",
+        "method": "Compared the observable, conditioning granularity, and exact connectivity state used in the source with the triangle-deleted three-point partition in the finding.",
+        "title": "Bridges in the random-cluster model",
+        "trigger": "Closest exact finite-graph source on component sensitivity, bridges, and independent bond percolation."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_SUBGRAPH_COUNT_SOURCE_UNRESOLVED_FOR_FULL_NONCOVERAGE",
+        "evidence": "The accessible record states functional limit theorems and asymptotic distributions for fixed subgraph counts in G(n,p) and G(n,N). It does not expose a component-count covariance in the accessible material, but full-document noncoverage is not asserted.",
+        "identifier_or_url": "DOI:10.1002/rsa.3240010103",
+        "material_read": "Publisher bibliographic record and abstract; full text was not available in the inspected source.",
+        "method": "Compared the accessible theorem scope with the exact finite component/triangle covariance and marked the inaccessible full text as an unresolved originality risk.",
+        "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+        "trigger": "Classical primary source on Erdős–Rényi subgraph counts, directly relevant to triangle-count fluctuations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f947a72b-3174-4d02-834b-483d0886a39b",
+  "value": {
+    "rationale": "Triangle count is the basic local cycle motif, while component count and cycle rank are the two graph Betti numbers. The exact identity explains their opposite covariance signs through the ambient connectivity of the triangle's vertices and yields explicit subcritical constants. This is a structural local-to-global relation rather than a recomputation of either marginal statistic.",
+    "status": "PASS"
+  }
+}
