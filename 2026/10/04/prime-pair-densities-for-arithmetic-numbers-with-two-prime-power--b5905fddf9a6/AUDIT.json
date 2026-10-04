@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof specializes Oller-Marcén Proposition 6 to two fixed exponent primes, counts exact order classes in the cyclic group modulo the larger exponent prime, combines them with the smaller congruence by CRT, and applies the prime number theorem in fixed arithmetic progressions. The diagonal and finitely excluded primes contribute only O(pi(x)). A standalone finite replay found no discrepancy in 68448 admissible ordered prime pairs and verified the residue-class count for eight exponent-prime pairs. The finite replay is explicitly not used as proof of the asymptotic.",
+    "risks": [
+      "The asymptotic depends on the exact specialization of Proposition 6 and on fixed-modulus prime equidistribution; finite computation alone would not establish either infinite statement."
+    ],
+    "sources": [
+      "arXiv:1206.1823v1, Proposition 6",
+      "Standard prime number theorem in fixed arithmetic progressions",
+      "verify.py finite consistency replay"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bateman, Erdős, Pomerance and Straus prove global distribution results for arithmetic numbers, including density one for the full set.",
+        "Oller-Marcén provides a broader structural characterization for arbitrary arithmetic numbers and for products with several exponent primes."
+      ],
+      "reasoning": "The broader sources cover either global density or structural integrality. Neither gives the leading density on the sparse family with two fixed exponent primes, so neither implies the displayed constant without the new residue-class counting argument.",
+      "searches": [
+        "published-finding corpus: Oller-Marcen Proposition 6 arithmetic numbers Dirichlet density prime tuples",
+        "Web: The arithmetic mean of the divisors of an integer Bateman Erdos Pomerance Straus",
+        "Web: arithmetic numbers prime powers product density"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1206.1823v1",
+      "Bateman, Erdős, Pomerance and Straus, Lecture Notes in Mathematics 899 (1981)",
+      "OEIS A003601",
+      "OEIS A245656",
+      "published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Oller-Marcén Proposition 6 implies the exact logical membership criterion used as the starting point.",
+        "The Bateman–Erdős–Pomerance–Straus global density-one theorem does not determine conditional density on this sparse family.",
+        "The prime number theorem in fixed progressions supplies the new counting step once the exact residue sets are identified."
+      ],
+      "reasoning": "The claimed asymptotic is a genuine additional implication requiring exact counting of the overlap between the self-supplied and cross-supplied branches. It is not a restatement or special case of a prior asymptotic theorem located in the search.",
+      "searches": [
+        "published-finding corpus: arithmetic numbers prime powers p^(q-1) r^(s-1) density prime pairs cross compensation",
+        "Web: On arithmetic numbers Oller-Marcen Proposition 6",
+        "Web: arithmetic mean divisors fixed exponents prime pair asymptotic density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1206.1823v1, Proposition 6 gives the exact two-block congruence/order criterion after specialization.",
+        "No returned published-finding corpus record stated the same prime-pair asymptotic constant or the same cross-compensation density."
+      ],
+      "reasoning": "The nearest equivalent formulation is the specialized Proposition 6 criterion. The new claim is not merely that criterion: it counts the prime pairs satisfying its union of congruence conditions and isolates the leading mass contributed by the cross-order branch.",
+      "searches": [
+        "published-finding corpus: arithmetic numbers family P^(ell-1) Q^(m-1) asymptotic density exact constant",
+        "published-finding corpus: arithmetic number product prime powers one non-arithmetic factor positive density",
+        "Web: arithmetic numbers p^(q-1) r^(s-1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A003601/A245656 record arithmetic numbers and their characteristic function, with global references.",
+        "No inspected database entry or returned published-finding corpus record tabulated the two-parameter density constant."
+      ],
+      "reasoning": "A sequence table can confirm membership examples but does not encode the fixed-exponent prime-pair asymptotic or distinguish the cross-compensated branch.",
+      "searches": [
+        "Web: OEIS A003601 arithmetic numbers",
+        "Web: OEIS A245656 characteristic function arithmetic numbers",
+        "published-finding corpus: tau divides sigma prime pair fixed exponents density Dirichlet"
+      ]
+    },
+    "rationale": "The inspected characterization paper supplies the exact structural criterion but not the fixed-family density or the separate cross-compensation constant. The classic global distribution paper treats arithmetic numbers in the integers as a whole and therefore does not imply the thin-family leading constant. Focused published-finding corpus and web/database searches found no statement matching the two-block asymptotic or its positive-density compensation subfamily.",
+    "residual_risks": [
+      "A later article or note may have extracted the same two-block density corollary from Oller-Marcén under different terminology.",
+      "The search establishes no formal uniqueness claim; it supports originality only relative to the inspected literature and databases."
+    ],
+    "risks": [
+      "A differently phrased later corollary may state the same thin-family density.",
+      "Search evidence does not constitute a proof of uniqueness in the literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATION_NOT_COVERING_DENSITY",
+        "evidence": "Proposition 6 states the congruence/order criterion for products with exponents q_i-1, but the inspected text does not state an asymptotic density for prime tuples satisfying it.",
+        "identifier_or_url": "arXiv:1206.1823v1",
+        "material_read": "Full text, especially Proposition 1, Theorem 2, Theorem 3, and Proposition 6.",
+        "method": "Read the complete accessible text and compared the exact hypotheses and implications to the proposed two-block density theorem.",
+        "title": "On arithmetic numbers",
+        "trigger": "Closest structural source for arithmetic-number integrality and the exact fixed-exponent product criterion."
+      },
+      {
+        "assessment": "BROADER_GLOBAL_NOT_THIN_FAMILY",
+        "evidence": "The paper studies the distribution of arithmetic numbers among all integers and related global averages; it does not determine the two-block conditional density.",
+        "identifier_or_url": "Bateman-Erdos-Pomerance-Straus, LNM 899 (1981), 197-220",
+        "material_read": "Full PDF introduction and distribution statements, with the paper's global asymptotic context inspected.",
+        "method": "Compared the domain of the global density results with the sparse fixed-exponent prime-pair family.",
+        "title": "The arithmetic mean of the divisors of an integer",
+        "trigger": "Potential broader distribution theorem for arithmetic numbers."
+      },
+      {
+        "assessment": "NOT_COVERING_FIXED_FAMILY",
+        "evidence": "The entries give the characteristic function and global sequence, not the two-parameter prime-pair asymptotic.",
+        "identifier_or_url": "OEIS:A245656; OEIS:A003601",
+        "material_read": "Sequence description, formulas, references, and global density note.",
+        "method": "Checked whether the fixed-exponent prime-pair family or its density constant appeared in the database material.",
+        "title": "OEIS A245656 / A003601",
+        "trigger": "Exact database/table check for arithmetic-number membership and references."
+      }
+    ],
+    "sources": [
+      "arXiv:1206.1823v1",
+      "Bateman, Erdős, Pomerance and Straus, LNM 899 (1981)",
+      "OEIS A003601/A245656",
+      "published-finding corpus semantic searches recorded in the four named checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5905fdd-f9a6-4a40-bd9a-067ff91fb771",
+  "value": {
+    "rationale": "The exact constant measures how often integrality on a natural sparse family is produced locally versus by a cross-factor cyclotomic contribution. The positive-density compensation term is structurally motivated by Oller-Marcén's directed order condition and is invisible in the global density-one theorem. It supplies a quantitative invariant of the two-block interaction rather than an arbitrary finite slice or recomputation.",
+    "risks": [
+      "The theorem is deliberately narrow to two fixed exponent primes and gives no secondary term or higher-block analogue."
+    ],
+    "sources": [
+      "Oller-Marcén Proposition 6 supplies the natural cross-factor order condition whose distribution is quantified.",
+      "Bateman–Erdős–Pomerance–Straus global density results provide the contrasting full-integer baseline."
+    ],
+    "status": "PASS"
+  }
+}
