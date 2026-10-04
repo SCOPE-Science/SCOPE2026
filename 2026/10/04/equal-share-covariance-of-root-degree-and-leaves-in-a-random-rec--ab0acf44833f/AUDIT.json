@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For each i>=2, leaf survival is the product over future parent choices and has probability (i-1)/(n-1). For j>i, conditioning on A_j=1 removes exactly the j-to-i destruction hazard, giving Cov(A_j,Y_i)=(i-1)/[(n-1)(j-1)(j-2)]. Summing this exact kernel gives both the linear leaf-label profile and the equal-share root-attachment profile. Independent Bernoulli root attachments and the exact leaf recursion supply the variances used in the correlation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bryc--Minda--Sethuraman develop LLN, CLT, and large deviations for the random-recursive-tree leaf count.",
+        "Janson gives asymptotic covariance formulas for counts of vertices of fixed outdegrees.",
+        "Hartle--Krapivsky study leaf degree, the number of leaf neighbors of a vertex, and its distribution in random recursive trees."
+      ],
+      "reasoning": "These sources cover the two marginal themes and a nearby local leaf statistic, but not the cross-covariance between the distinguished root degree and total leaves. The empirical degree-count vector does not determine covariance with the degree of a fixed exceptional vertex.",
+      "searches": [
+        "arXiv:0809.4741",
+        "DOI:10.1002/rsa.20046",
+        "DOI:10.1088/1742-5468/ae3a6a"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0809.4741",
+      "DOI:10.1239/aap/1253281066",
+      "DOI:10.1002/rsa.20046",
+      "DOI:10.1088/1742-5468/ae3a6a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The latest own tree result concerns a uniform Cayley tree, not a growing recursive tree, and conditions endpoint degree on graph distance.",
+        "The earlier tree precision result concerns edge indicators of a uniform Cayley tree.",
+        "The leaf-count Markov chain determines leaf marginals but does not encode distinguished-root attachments.",
+        "Asymptotic covariances of global degree counts do not determine a fixed-root/global-leaf mixed moment."
+      ],
+      "reasoning": "The accepted claim uses the independent arrival-parent structure of recursive trees and an asymmetric distinguished root. Neither prior own work nor global degree-count covariance results imply the equal-share identity.",
+      "searches": [
+        "own Cayley-tree endpoint degree distance regression",
+        "own Cayley-tree edge indicator precision",
+        "published random recursive tree leaves Markov chain",
+        "published random recursive tree outdegree counts covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned generic tree-degree and tree-structure findings but no root-degree/leaf-count theorem.",
+        "Web exact-phrase searches located leaf-count and degree-distribution literature separately but no exact covariance or equal-share identity."
+      ],
+      "reasoning": "The queries cover root degree, total leaves, individual leaf indicators, joint distribution, covariance, and recursive-tree aliases. The assessment also compares statement content against the full primary leaf-process source.",
+      "searches": [
+        "random recursive tree root degree number of leaves covariance exact",
+        "recursive tree root degree leaf indicator covariance",
+        "uniform recursive tree root degree leaves joint law",
+        "\"root degree\" leaves covariance \"random recursive tree\"",
+        "\"number of leaves\" \"root degree\" \"random recursive tree\"",
+        "\"root degree\" \"number of leaves\" recursive tree covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record matching the local equal-share or total covariance formula was located."
+      ],
+      "reasoning": "The result is symbolic for every n and resolves both labeled-leaf and arrival-time contributions, rather than recomputing a finite table.",
+      "searches": [
+        "\"Cov(root degree, leaves)\" recursive tree",
+        "\"root degree\" \"leaf count\" covariance recursive tree",
+        "\"1/(2(n-1))\" random recursive tree leaves",
+        "\"(n-2)/(2(n-1))\" recursive tree"
+      ]
+    },
+    "rationale": "The closest inspected primary leaf source treats the leaf-count Markov chain, while the closest degree source treats empirical counts by outdegree rather than the distinguished root. No inspected source states the finite root-degree/leaf-count covariance, the labeled-leaf profile, or the equal contribution of each post-initial root attachment.",
+    "residual_risks": [
+      "Older recursive-tree or Pólya-urn literature may contain the same root-degree/leaf-count mixed moment under another encoding.",
+      "The covariance proof is elementary once arrival-time indicators are used; originality rests on the exact local profiles and equal-share interpretation rather than a new probabilistic technique.",
+      "No complete joint distribution of root degree and leaf count is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LEAF_COUNT_PROCESS_PRIOR_NOT_ROOT_DEGREE_COVARIANCE",
+        "evidence": "The paper identifies the number of random-recursive-tree leaves with its general Markov chain and develops fluctuation and large-deviation results. The inspected text does not state a distinguished-root degree/leaf covariance or arrival-time decomposition.",
+        "identifier_or_url": "arXiv:0809.4741",
+        "material_read": "Full arXiv HTML introduction and results, including the Markov-chain transition, the identification of the alpha=1 case with random recursive tree leaves, and the discussion of LLN/CLT/LDP results.",
+        "method": "Compared the random-tree model, leaf statistic, observables coupled to leaves, and whether root degree or root-attachment indicators enter the statements.",
+        "title": "Large deviations for the leaves in some random trees",
+        "trigger": "Archive-era primary probability source directly defining the leaf process in random recursive trees and carrying primary MSC 60F10."
+      },
+      {
+        "assessment": "GLOBAL_DEGREE_COUNT_COVARIANCES_NOT_FIXED_ROOT_LEAF_COVARIANCE",
+        "evidence": "The source studies empirical counts of outdegrees and their asymptotic covariance structure. A fixed root degree is not one of those count variables, and the abstract does not state its joint covariance with total leaves.",
+        "identifier_or_url": "DOI:10.1002/rsa.20046",
+        "material_read": "Publisher abstract, publication history, and stated scope of asymptotic variances and covariances for numbers of vertices of specified outdegrees.",
+        "method": "Compared the degree statistic indexed by all vertices with the distinguished-root statistic in the finding.",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Closest primary degree source for recursive trees."
+      },
+      {
+        "assessment": "LEAF_DEGREE_DISTRIBUTION_NOT_ROOT_DEGREE_TOTAL_LEAVES_COVARIANCE",
+        "evidence": "The source studies the distribution of the number of leaf neighbors of a vertex and recalls ordinary degree distributions. It does not state the equal-share root-attachment covariance or total root-degree/leaf-count covariance.",
+        "identifier_or_url": "DOI:10.1088/1742-5468/ae3a6a",
+        "material_read": "Open article text covering notation, the RRT degree distribution, leaf degree definition, and the leaf-degree analysis in Section 2.",
+        "method": "Compared total leaves, ordinary degree, leaf-neighbor degree, and the fixed-root/global-leaf covariance claimed here.",
+        "title": "Statistics of leaves in growing random trees",
+        "trigger": "Recent full-text work explicitly combining ordinary degree and leaf-based local statistics in random recursive trees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab0acf44-833f-4f5e-8046-72a11fec5c8c",
+  "value": {
+    "rationale": "Root degree and total leaves are canonical local and global statistics of the standard random recursive tree. The exact limiting covariance together with vanishing correlation quantifies scale separation, while the equal-share identity reveals a simple growth-time mechanism that is invisible from the two marginal laws.",
+    "status": "PASS"
+  }
+}
