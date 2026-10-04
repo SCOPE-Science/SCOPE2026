@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For a fixed ordered alphabet of size \\(s\\), the variable Parikh-matrix entries are exactly the counts of the \\(s-\\ell+1\\) consecutive alphabet blocks of each length \\(\\ell=1,\\ldots,s\\). For words of length at most \\(n\\), each such count lies between \\(0\\) and \\(\\binom{n}{\\ell}\\), so the number of possible matrices is at most the stated product. Each \\(M\\)-unambiguous word is a singleton fiber, hence distinct such words inject into distinct matrices. The exponent identity is an elementary finite sum, and the denominator is the geometric count of all words. No finite computation is used as an infinite proof. The bundled verifier independently recomputes exact signatures for all binary words through length \\(9\\) and ternary words through length \\(7\\), checks all entry caps and fiber bounds, reproduces the published binary exact count for lengths \\(4\\) through \\(9\\), and checks the exponent identity through \\(s=50\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hahn-Cheon-Han 2023 full text characterizes M-equivalence and M-unambiguity for the ternary alphabet and says the general-alphabet characterization remains elusive.",
+        "The 2025/2026 journal expansion's abstract again states a ternary solution rather than an arbitrary-alphabet counting theorem.",
+        "The searched broader literature did not state a result dominating the all-fixed-alphabet density conclusion."
+      ],
+      "reasoning": "A ternary structural characterization can settle the three-letter case but does not imply the claimed theorem for every fixed alphabet size, especially \\(s\\ge4\\). Conversely, the present counting theorem does not subsume the finer ternary classification. The two statements address different levels of structure.",
+      "searches": [
+        "web: \"M-equivalence of Parikh Matrix over a Ternary Alphabet\" PDF",
+        "web: \"Characterizations of M-Equivalence and Weak M-Relation\" Parikh matrix",
+        "web: \"M-unambiguous\" \"number of\" Parikh matrices",
+        "web: \"Parikh matrices\" \"polynomial\" \"M-unambiguous\""
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.19184/ijc.2020.4.1.1 full open-access PDF",
+      "DOI:10.1007/978-3-031-40247-0_10 author-hosted corrected full PDF",
+      "DOI:10.1142/S0129054125410047 publisher abstract and references",
+      "ORCID bibliographic record confirming the 2020-06-28 public date",
+      "Semantic research-index searches under seven Parikh-matrix and M-unambiguity formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Teh's theorem assumes Şerbănuţă's conjecture; the paper explicitly says removing that assumption is open.",
+        "The 2023 paper proves a ternary regular-language characterization and explicitly frames general alphabets as still elusive.",
+        "The journal expansion describes the same ternary M-unambiguity solution."
+      ],
+      "reasoning": "The 2020 result does not imply the new theorem because its decisive hypothesis is precisely what the new proof removes. The 2023 and later ternary results do not imply the arbitrary-fixed-alphabet statement. The new implication comes from a separate observation: the full Parikh-matrix image up to length \\(n\\) has polynomial cardinality because the matrix dimension is fixed and every scattered-subword entry is binomially bounded.",
+      "searches": [
+        "Teh 2020 DOI:10.19184/ijc.2020.4.1.1, Theorem 3.1 and following paragraph",
+        "Hahn-Cheon-Han 2023 DOI:10.1007/978-3-031-40247-0_10, Sections 1, 4, 5",
+        "Hahn-Cheon-Han journal expansion DOI:10.1142/S0129054125410047, abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Teh 2020, Theorem 3.1 and the paragraph immediately after it: the density-zero conclusion is conditional and the unconditional version is explicitly left open.",
+        "No semantic-index hit matched Parikh matrices or M-unambiguity closely enough to imply the claimed counting bound; the highest-scoring exact-query result concerned an unrelated matrix-ring problem.",
+        "Focused literature searches surfaced the 2020 anchor and ternary characterizations, not an all-alphabet density theorem."
+      ],
+      "reasoning": "The native open problem asks whether the fraction of M-unambiguous words among all words up to length n tends to zero without the conjecture. The new polynomial numerator bound directly implies that statement and is strictly quantitative, so searches for density, sparsity, polynomial count, and matrix-range formulations test equivalent or stronger forms rather than title similarity.",
+      "searches": [
+        "Parikh matrix M-unambiguous words asymptotic density zero",
+        "M-unambiguous words sparse density Parikh matrices",
+        "Parikh matrix M-equivalence M-unambiguous",
+        "\"M-unambiguous\" \"density\" \"Parikh matrix\"",
+        "\"M-unambiguous words\" asymptotic",
+        "\"M-unambiguous\" polynomial Parikh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No standard database or parameter table for singleton Parikh-matrix fibers was identified in the checked sources.",
+        "The direct literature formulates the issue as an injectivity/density problem, not as a tabulated finite parameter."
+      ],
+      "reasoning": "This check is specifically inapplicable as a table-lookup comparison: the finding is an asymptotic theorem for every fixed alphabet, not an isolated database entry. The relevant exact comparison is instead the statement of Teh's Theorem 3.1 and its explicitly open unconditional version.",
+      "searches": [
+        "Parikh matrix M-equivalence M-unambiguous",
+        "\"number of Parikh matrices\" words length n",
+        "\"Parikh matrix\" polynomially many matrices word length"
+      ]
+    },
+    "rationale": "The direct 2020 source proves density zero only conditionally on Şerbănuţă's conjecture and explicitly leaves the unconditional conclusion open. The 2023 full-text ternary paper gives a structural characterization only for a three-letter alphabet and states that the general-alphabet characterization remains elusive; no density statement appears in the inspected full text. The 2025/2026 journal expansion likewise advertises a ternary characterization. Targeted semantic-index and literature searches under native density, polynomial-count, matrix-range, and M-unambiguity formulations did not surface the all-fixed-alphabet counting theorem. The claim is therefore not implied by the closest inspected sources, though an unindexed elementary observation remains possible.",
+    "residual_risks": [
+      "Because the proof is elementary, the same counting observation could exist as an unindexed remark, thesis passage, lecture note, or forum post not found by the checked searches.",
+      "The 2025/2026 journal page was inspected at abstract/reference level rather than as a full PDF; its stated scope is ternary, so it is not a decisive unresolved comparison for the arbitrary-alphabet claim.",
+      "The polynomial exponent is not asserted optimal; stronger image-size bounds may be known or possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering: density zero is proved only under Şerbănuţă's conjecture, and the unconditional conclusion is explicitly left open.",
+        "evidence": "Theorem 1.1 identifies matrix entries with consecutive-letter scattered-subword counts; Theorem 3.1 assumes the conjecture; the next paragraph states that the unconditional conclusion is left open.",
+        "identifier_or_url": "DOI:10.19184/ijc.2020.4.1.1",
+        "material_read": "Open-access nine-page PDF: first-page classification, Definition 1.1, Theorem 1.1, Definition 1.2, Theorem 3.1, its proof, and the following open-problem paragraph; the critical page was also visually inspected.",
+        "method": "Open-access full PDF text plus page screenshot.",
+        "title": "On M-unambiguity of Parikh matrices",
+        "trigger": "Direct source containing the density theorem and the explicit open problem."
+      },
+      {
+        "assessment": "Not covering the all-fixed-alphabet claim. It completely characterizes the ternary case and explicitly says the general-alphabet characterization remains elusive.",
+        "evidence": "Theorem 4 gives the ternary M-ambiguous language; Corollary 2 gives the ternary M-unambiguous characterization; the conclusion discusses extending the relation to arbitrary alphabets. No density occurrence was found in the full text.",
+        "identifier_or_url": "DOI:10.1007/978-3-031-40247-0_10",
+        "material_read": "Author-hosted corrected full PDF: introduction, the M-unambiguity section including Theorem 4 and Corollary 2, and the conclusion.",
+        "method": "Author-hosted full-text PDF.",
+        "title": "M-equivalence of Parikh Matrix over a Ternary Alphabet",
+        "trigger": "Highly relevant later paper on the same M-unambiguity object and a plausible source of stronger coverage."
+      },
+      {
+        "assessment": "The abstract describes a ternary M-unambiguity characterization and a weak-M-relation result, not a general density theorem.",
+        "evidence": "The abstract says the authors solve M-unambiguity for a ternary alphabet and obtain a regular expression; it does not claim an arbitrary-alphabet density result.",
+        "identifier_or_url": "DOI:10.1142/S0129054125410047",
+        "material_read": "Publisher abstract, history, and reference list.",
+        "method": "Publisher full bibliographic page; the inspected abstract states the scientific scope.",
+        "title": "Characterizations of M-Equivalence and Weak M-Relation",
+        "trigger": "Journal expansion of the ternary work and the closest later publication found."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68116579-b62c-4e1f-bf20-363f970e3a38",
+  "value": {
+    "rationale": "The theorem directly answers an explicit published open problem and does so in a stronger quantitative form: the exceptional set is polynomial rather than merely zero-density. It also removes dependence on a conjecture that Teh's paper notes was later disproved in the quaternary setting, so the argument supplies a robust route that survives failure of that approach. The result is global for every fixed alphabet size and uses only the defining matrix statistics, making it reusable independently of the much harder classification problem.",
+    "status": "PASS"
+  }
+}
