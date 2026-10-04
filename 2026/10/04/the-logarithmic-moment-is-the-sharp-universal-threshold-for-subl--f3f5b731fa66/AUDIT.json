@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For sufficiency, finite E log(1+T) makes tail probabilities summable along every geometric subsequence; Borel-Cantelli plus bounded upward increments fills inter-subsequence gaps. For necessity in the universal sense, dyadic Bernoulli activation blocks with probabilities P(T>=2^k-1) satisfy the age-growth and timestamp constraints, are pointwise dominated by T, and recur infinitely often exactly because the logarithmic tail sum diverges. Their endpoint age ratios tend to 1/2. The harmonic-window bound is a direct consequence of tau_n/n->0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 TAC published statement concerns time-varying networks and eventual message delivery rather than a universal common-dominator moment threshold.",
+        "The 2026 and 2023 full texts use stronger finite-positive-moment assumptions for the corresponding sublinear-delay step."
+      ],
+      "reasoning": "A broader theorem would have to imply both finite-log sufficiency for every bounded-growth dominated age process and the universal sharpness boundary. None of the inspected broader asynchronous-delay sources supplied that implication.",
+      "searches": [
+        "literature query: finite logarithmic moment bounded increments probability",
+        "literature query: unbounded stochastic information delays logarithmic moment",
+        "literature query: Age-of-Information Processes logarithmic moment",
+        "doi:10.1109/TAC.2021.3108492"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.27499v1",
+      "arXiv:2305.07091v1",
+      "doi:10.17619/UNIPB/1-1997",
+      "doi:10.1109/TAC.2021.3108492"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source requires E[T^p]<infinity for some p in (0,1] before proving tau_n/n->0.",
+        "The 2023 predecessor requires a finite positive moment before proving the same sublinear-delay property.",
+        "The dissertation's inspected corresponding lemmas retain the finite positive moment."
+      ],
+      "reasoning": "Finite positive moment implies finite logarithmic moment, but not conversely. Therefore the prior results cover only a strict subclass of the sufficient direction and do not imply its sharp converse. The harmonic-window consequence follows after the newly proved sublinear-age lemma under the source's remaining assumptions.",
+      "searches": [
+        "arXiv:2609.27499v1: Assumption 1, sublinear-delay lemma, harmonic delay-window equation, delayed-drift lemma, stability and convergence theorems",
+        "arXiv:2305.07091v1: Age-of-Information Process definition, common-dominator moment assumption, sublinear-delay and delay-window lemmas",
+        "doi:10.17619/UNIPB/1-1997: corresponding chapter on unbounded stochastic information delays"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.27499v1 assumes a common dominator with finite p-th moment for some p in (0,1] and derives tau_n/n -> 0.",
+        "arXiv:2305.07091v1 assumes a common dominator with a finite positive moment and derives sublinear delay plus a vanishing stale-step window.",
+        "The inspected dissertation text retains the finite-positive-moment assumption in its corresponding age-growth lemmas."
+      ],
+      "reasoning": "The new theorem is not equivalent to those positive-moment hypotheses: an explicit T=floor(exp(Z^2))-1 example has finite logarithmic moment but no positive power moment. No inspected source gave an equivalent logarithmic criterion.",
+      "searches": [
+        "literature query: logarithmic moment stochastic domination bounded increments sublinear delays age of information",
+        "literature query: E log(1+tau) stochastic approximation delays bounded growth",
+        "literature query: sublinear age of information stochastic dominance logarithmic moment",
+        "literature query: asynchronous stochastic approximation unbounded delays logarithmic moment",
+        "arXiv:2609.27499v1",
+        "arXiv:2305.07091v1",
+        "doi:10.17619/UNIPB/1-1997"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published records concerned stationary renewal age/residual correlation, bounded-delay randomized Gauss-Seidel, and renewal-tail bias; their statements address different objects and do not imply the theorem.",
+        "No retrieved record stated a finite-logarithmic-moment common-dominator threshold for sublinear information age."
+      ],
+      "reasoning": "Search absence is not treated as a novelty proof. The PASS assessment rests on direct statement-level comparison with the highly relevant full texts; the database search is supporting evidence against an obvious duplicate.",
+      "searches": [
+        "semantic literature search: logarithmic moment stochastic domination bounded increments sublinear delays age of information",
+        "semantic literature search: E log(1+tau) stochastic approximation delays bounded growth",
+        "semantic literature search: asynchronous stochastic approximation unbounded delays logarithmic moment",
+        "semantic literature search: sublinear age of information stochastic dominance logarithmic moment"
+      ]
+    },
+    "rationale": "The inspected 2026 source, 2023 predecessor, and 2024 dissertation all use a finite positive moment of a common delay dominator to derive sublinear age; none states the finite-logarithmic-moment threshold or a matching converse. The 2022 TAC comparison uses a different eventual-delivery model. Focused database and web searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "A general probability theorem outside the age-of-information literature, under different terminology, could subsume the standalone bounded-growth logarithmic-moment lemma.",
+      "The 2022 IEEE TAC comparison was made from its accessible published statement rather than a full-text theorem-by-theorem inspection; it concerns a different communication assumption."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper assumes a finite p-th moment for some p in (0,1] and does not state the finite-log threshold or matching converse.",
+        "identifier_or_url": "arXiv:2609.27499v1",
+        "material_read": "Abstract; moment assumption; sublinear-delay lemma; harmonic delay-window relation; delayed-drift lemma; stability and convergence theorem statements; proof passage recording bounded one-step age growth.",
+        "method": "Full-text inspection of the open preprint.",
+        "title": "Distributed Stochastic Approximation Algorithms and Heavy-Tailed Age of Information",
+        "trigger": "Primary motivating source with the same heavy-tailed age-of-information object and stochastic-approximation application."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The predecessor assumes a finite positive moment of the common dominator and proves a correspondingly stronger-hypothesis sublinear-delay result.",
+        "identifier_or_url": "arXiv:2305.07091v1",
+        "material_read": "Age-of-information definition; common-dominator and step-size assumptions; sublinear-delay lemma; vanishing stale-window lemma; appendix proof of the delay growth bound.",
+        "method": "Full-text inspection of the open preprint.",
+        "title": "Stability and Convergence of Distributed Stochastic Approximations with large Unbounded Stochastic Information Delays",
+        "trigger": "Direct predecessor cited by the motivating source."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The corresponding chapter retains an arbitrary finite positive moment assumption; targeted full-text searches did not locate a logarithmic-moment replacement.",
+        "identifier_or_url": "doi:10.17619/UNIPB/1-1997",
+        "material_read": "Relevant chapter and lemma statements; targeted searches for logarithmic-moment terminology.",
+        "method": "Full-text inspection of the repository PDF.",
+        "title": "Distributed Asynchronous Stochastic Approximation Algorithms with unbounded Stochastic Information Delays – Theory and Applications",
+        "trigger": "Long-form treatment of the same distributed stochastic-approximation delay framework."
+      },
+      {
+        "assessment": "NOT_COVERING_ON_ACCESSIBLE_STATEMENT",
+        "evidence": "The accessible statement uses a different eventual-delivery communication model and does not state a common-dominator logarithmic threshold.",
+        "identifier_or_url": "doi:10.1109/TAC.2021.3108492",
+        "material_read": "Accessible published abstract and bibliographic statement.",
+        "method": "Published-record inspection.",
+        "title": "Optimization Over Time-Varying Networks and Unbounded Information Delays",
+        "trigger": "Earlier unbounded-information-delay comparison in the same research line."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f3f5b731-fa66-4df6-9ca7-55e417894ee1",
+  "value": {
+    "rationale": "The result identifies an exact structural threshold for a mechanism central to heavy-tailed asynchronous stochastic approximation. It admits common delay dominators with no finite positive moment, supplies a matching failure construction when the log moment diverges, and directly yields the harmonic stale-window estimate. This is a motivated boundary theorem, not a routine parameter tweak or numerical recomputation.",
+    "status": "PASS"
+  }
+}
