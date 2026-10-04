@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "With \\(r=1/\\gamma\\) and \\(D=r+\\rho-a>0\\), the exact box-constrained primal subproblem is \\(D\\)-strongly convex. In a neighborhood of \\((0,0)\\) its unconstrained minimizer is interior, giving the exact state matrix \\(M=D^{-1}\\begin{pmatrix}r&-1\\\\ \\rho r&r-a\\end{pmatrix}\\). Its trace and determinant are \\((2r-a)/D\\) and \\(r/D\\). The three second-order Jury-Schur inequalities reduce exactly to \\((\\rho-a)/D>0\\), \\(\\rho/D>0\\), and \\((4r+\\rho-2a)/D>0\\). Boundary non-attraction is supplied by unit-modulus or \\(-1\\) eigenmodes of the exact local linear map. The eigenvalue discriminant is \\((a^2-4\\rho r)/D^2\\); monotonicity on its real-root and complex-root sides proves the unique optimum \\(r_\\star=a^2/(4\\rho)\\) and factor \\(a/(2\\rho-a)\\). The packaged exact-rational checker verifies all critical identities and representative boundary cycles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adeoye--Latafat--Bemporad state that a suitable proximal parameter can make a nonconvex subproblem strongly convex and focus their nonconvex analysis on adaptive finite termination at approximate KKT points.",
+        "Hermans--Themelis--Patrinos enforce strong convexity of proximal QP subproblems but use a nested PPA/ALM structure with an inner feasibility loop.",
+        "Zhang--Wu--Zhang 2020 state local linear convergence of the proximal method of multipliers when a penalty parameter exceeds a threshold, without an exact scalar frontier in the accessible abstract.",
+        "Rockafellar 1976 treats convex programming through proximal-point interpretations and therefore does not cover the negative-curvature normal mode."
+      ],
+      "reasoning": "The general local convergence literature motivates penalty thresholds but does not, in the inspected material, dominate the exact fixed-one-step map, its strong-convexification counterregion, or the unique optimal \\(1/\\gamma\\). The closest quadratic implementation paper changes the iteration by holding the proximity point fixed during inner ALM solves.",
+      "searches": [
+        "Primary full text arXiv:2509.02894v1/v2",
+        "Primary full text arXiv:2010.02653v1",
+        "Web: proximal method of multipliers nonlinear programming convergence rate penalty threshold",
+        "DOI:10.1287/moor.1.2.97"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.02894v1/v2",
+      "arXiv:2010.02653v1",
+      "DOI:10.1080/10556788.2020.1738435",
+      "DOI:10.1287/moor.1.2.97",
+      "published-finding corpus:3f4cca8affa4",
+      "published-finding corpus:63a985cd76f4",
+      "published-finding corpus:486b3694d0f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 source explicitly separates proximal strong convexification from its adaptive finite-termination analysis and says the nonconvex analysis does not prove sequential convergence.",
+        "QPALM 2020 states that its dual penalty has no theoretical lower bound because strongly convex inner ALM subproblems are iterated while the outer proximity point can remain fixed; this is not the one-step map analyzed here.",
+        "The 2020 nonlinear-PMM rate paper asserts linear convergence for sufficiently large penalty under regularity assumptions but the accessible statement does not identify this mode's exact penalty/proximal frontier or optimal local factor.",
+        "The 1976 proximal multiplier theory is convex."
+      ],
+      "reasoning": "No inspected statement implies the final claim. A generic sufficient penalty threshold cannot supply the exact necessity, the second stability boundary involving \\(\\gamma\\), the existence of a strongly-convex-yet-unstable region, or the unique rate-optimal proximal coefficient.",
+      "searches": [
+        "arXiv:2509.02894 full text: equations (1.3)--(1.4), Algorithm 1, Assumption I, and motivation discussion",
+        "arXiv:2010.02653 full text: Algorithm 1, Sections 2 and 5.3",
+        "DOI:10.1080/10556788.2020.1738435 abstract",
+        "DOI:10.1287/moor.1.2.97 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus record states the P-ALM matrix frontier or the rate-optimal proximal coefficient.",
+        "Closest record 3f4cca8affa4 concerns Lanczos-based proximal convexification certification in a different algorithm.",
+        "Other close records 63a985cd76f4 and 486b3694d0f0 concern reflected-gradient and extragradient recurrences, not augmented-Lagrangian multiplier dynamics."
+      ],
+      "reasoning": "Searches covered the method name and aliases, fixed penalties, negative normal curvature, strong convexification, Schur stability, scalar equality constraints, and optimal proximal tuning. The closest records have different state equations and do not imply the \\(2\times2\\) augmented-Lagrangian frontier.",
+      "searches": [
+        "published-finding corpus: proximal augmented Lagrangian fixed penalty negative curvature scalar quadratic exact stability",
+        "published-finding corpus: fixed-parameter proximal augmented Lagrangian concave quadratic box equality sharp Schur stability frontier",
+        "published-finding corpus: P-ALM strong convex subproblem insufficient convergence scalar equality negative curvature"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit matched arXiv:2509.02894, the fixed P-ALM scalar state matrix, or the formulas \\(\rho>a\\), \\(4/\\gamma+\rho>2a\\), and \\(\\gamma_\\star=4\rho/a^2\\).",
+        "The closest database hit 3f4cca8affa4 addresses whether a Ritz-based proximal shift certifies convexification, not convergence after convexification."
+      ],
+      "reasoning": "The finding is a closed-form dynamical classification and tuning result rather than a recomputation of a stored numerical table.",
+      "searches": [
+        "published-finding corpus: proximal augmented Lagrangian scalar concave quadratic equality constraint fixed penalty stability",
+        "published-finding corpus: proximal augmented Lagrangian normal negative curvature penalty exceeds curvature optimal proximal parameter"
+      ]
+    },
+    "rationale": "The 2025 primary source defines the same proximal augmented-Lagrangian primal update and multiplier step, emphasizes proximal strong convexification, and analyzes adaptive finite termination rather than the fixed-parameter sequential phase portrait. The 2020 QPALM full text uses a different nested structure in which the proximity point may remain fixed across inner ALM iterations. The accessible 2020 nonlinear-PMM rate abstract gives broad thresholded local linear convergence but no exact two-parameter scalar frontier or optimal proximal coefficient. Targeted published-finding corpus searches found no equivalent claim.",
+    "residual_risks": [
+      "The full theorem text of Zhang--Wu--Zhang 2020 was not available in the inspected source; its unpublished or paywalled constants could conceivably specialize to part of the scalar frontier.",
+      "Older local proximal-multiplier literature is extensive, so an exact scalar spectral calculation may exist under different notation even though targeted searches and the inspected primary texts did not locate it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the update analyzed here and highlights strong convexification, but its main nonconvex result uses adaptive schedules and approximate-KKT finite termination rather than a fixed-parameter sequential stability classification.",
+        "evidence": "The paper states that the proximal term can make a nonconvex subproblem strongly convex and separately notes that its nonconvex framework establishes approximate-KKT termination rather than sequential convergence.",
+        "identifier_or_url": "arXiv:2509.02894v1",
+        "material_read": "Full-text portions covering the subject classification, equations (1.2)--(1.4), motivation, Assumption I, the KKT-operator form (2.3), Algorithm 1, and the finite-termination discussion; the P-ALM definition page was rendered and inspected.",
+        "method": "arXiv full-text and rendered-PDF inspection.",
+        "title": "A proximal augmented Lagrangian method for nonconvex optimization with equality and inequality constraints",
+        "trigger": "Recent primary source defining the exact P-ALM primal update and motivating proximal strong convexification."
+      },
+      {
+        "assessment": "Uses a different nested algorithm in which the proximity point can remain fixed across inner ALM iterations; its statement that any positive dual penalty is theoretically allowed therefore does not cover the fixed-one-step recurrence here.",
+        "evidence": "The paper explicitly describes the inner ALM loop and says strong convexity of those inner subproblems removes a theoretical lower bound on its dual penalty.",
+        "identifier_or_url": "arXiv:2010.02653v1",
+        "material_read": "Full text covering Algorithm 1, the proximal-point interpretation, Section 2's nested ALM step, and Section 5.3 on dual and primal penalty parameters.",
+        "method": "arXiv full-text inspection.",
+        "title": "QPALM: A Proximal Augmented Lagrangian Method for Nonconvex Quadratic Programs",
+        "trigger": "Highly relevant prior work on proximal augmented Lagrangian methods for nonconvex quadratic objectives."
+      },
+      {
+        "assessment": "Establishes broad local linear-rate results above a penalty threshold but does not expose an exact specialization matching the two-parameter frontier in the accessible material.",
+        "evidence": "The abstract states a ratio proportional to the inverse penalty once the penalty exceeds a threshold.",
+        "identifier_or_url": "DOI:10.1080/10556788.2020.1738435",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Web source inspection; full theorem text was not available in the inspected source.",
+        "title": "The rate of convergence of proximal method of multipliers for nonlinear programming",
+        "trigger": "Potential broader prior coverage of local convergence thresholds for nonconvex proximal multiplier methods."
+      },
+      {
+        "assessment": "Convex-programming theory; it does not cover the negative-curvature normal mode used here.",
+        "evidence": "The abstract formulates the proximal multiplier method through maximal-monotone/proximal-point ideas for convex programming.",
+        "identifier_or_url": "DOI:10.1287/moor.1.2.97",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher web inspection.",
+        "title": "Augmented Lagrangians and Applications of the Proximal Point Algorithm in Convex Programming",
+        "trigger": "Foundational proximal method-of-multipliers reference."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b8117b8b-15ed-4787-b0c1-418ff49ecf5a",
+  "value": {
+    "rationale": "The model isolates a natural normal negative-curvature mode while satisfying the standard composite problem assumptions through a simple box indicator. The result separates two notions that are easy to conflate in proximal augmented Lagrangian design: making every primal subproblem strongly convex versus stabilizing the coupled primal-dual iteration. It gives the exact missing balance, \\(\\rho>a\\) and \\(4/\\gamma+\\rho>2a\\), and a unique critically damped local tuning \\(\\gamma_\\star=4\\rho/a^2\\). This supplies a structural parameter-design benchmark for the recent adaptive P-ALM framework rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
