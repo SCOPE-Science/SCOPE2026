@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Proposition 4.4 gives the exact decision rule. For gamma<=alpha, threshold monotonicity gives immediate inclusion. For gamma>alpha, evaluating the required exclusion condition at t=s(X_{n+1}) and ell=1 turns the candidate risk into Q itself, so selection forces Q<=alpha and hence selection at gamma=alpha. The same substitution works in the weighted analogue. Strict witnesses were constructed on both sides of alpha and checked computationally.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angelopoulos et al. arXiv:2208.02814 controls monotone expected loss but predates and does not contain the SCoRE risk-adjusted e-value tuning family.",
+        "Xu-Guo-Wei arXiv:2512.12844 uses a distinct two-stage selective conformal calibration framework.",
+        "Bai-Jin arXiv:2603.24704 is the direct and strongest relevant source checked."
+      ],
+      "reasoning": "Broader conformal risk-control frameworks do not imply an ordering of a tuning parameter that is specific to Bai-Jin's e-value construction.",
+      "searches": [
+        "Web: Conformal Risk Control Angelopoulos Bates Fisch Lei Schuster",
+        "Web: Selective conformal risk control 2512.12844",
+        "Web: risk-adjusted e-values conformal selective prediction gamma"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.24704",
+      "arXiv:2512.12844",
+      "arXiv:2208.02814",
+      "AMS MSC2020 62G10: Nonparametric hypothesis testing",
+      "published-finding corpus semantic searches listed in prior checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Remark 4.5 explicitly handles gamma<alpha and describes gamma>alpha as requiring an extra condition with asymptotically zero power.",
+        "Theorem 4.6(ii) gives asymptotic power optimality at gamma=alpha.",
+        "The weighted appendix repeats the same two-condition structure, allowing the same finite-sample substitution argument."
+      ],
+      "reasoning": "The prior statements provide the ingredients but stop short of the all-gamma pathwise inclusion. The new implication requires recognizing that the gamma>alpha exclusion condition, at the particular pair t=s(test), ell=1, forces the gamma=alpha criterion exactly.",
+      "searches": [
+        "Bai Jin Remark 4.5 gamma alpha SCoRE MDR",
+        "Bai Jin Theorem 4.6 gamma alpha asymptotic power",
+        "SCoRE weighted MDR gamma alpha covariate shift"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bai-Jin arXiv:2603.24704 Proposition 4.4 and Remark 4.5 state the exact decision regimes and gamma<alpha dominance, but not all-gamma pointwise dominance.",
+        "Bai-Jin Theorem 4.6 states asymptotic power optimality for gamma=alpha rather than the finite-sample pathwise result.",
+        "No targeted published-finding corpus hit described SCoRE, risk-adjusted e-values, or gamma-vs-alpha pointwise dominance."
+      ],
+      "reasoning": "The final claim is a stronger finite-sample ordering than the source's explicit asymptotic tuning statement. No equivalent formulation was located in the checked records.",
+      "searches": [
+        "published-finding corpus: SCoRE MDR gamma alpha finite-sample dominance risk-adjusted e-values",
+        "published-finding corpus: Conformal selective prediction general risk control gamma greater alpha pointwise selection",
+        "Web: gamma=alpha pointwise SCoRE MDR e-value",
+        "Web: Proposition 4.4 gamma alpha finite-sample SCoRE"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published-finding corpus hits concerned unrelated conformal/order-statistic or optimization results, with no SCoRE tuning record.",
+        "The claim is symbolic and is not a recomputation of a published numerical table or database entry."
+      ],
+      "reasoning": "No exact database/table entry covers the theorem; the relevant overlap check is statement-level.",
+      "searches": [
+        "published-finding corpus: finite-sample pointwise dominance of tuning parameter in conformal selective risk control risk-adjusted e-values",
+        "published-finding corpus: SCoRE Proposition 4.4 gamma alpha selection indicator"
+      ]
+    },
+    "rationale": "The source paper states dominance for gamma<alpha and asymptotic power optimality at gamma=alpha, but not the gamma>alpha pointwise implication or the resulting finite-sample reward-uniform dominance. Targeted published-finding corpus and scholarly searches found no equivalent stated theorem.",
+    "residual_risks": [
+      "The implication may have been noticed informally in code discussions or unindexed notes.",
+      "The weighted extension relies on the paper's stated weighted decision characterization; only the relevant appendix proof structure was inspected.",
+      "No claim of exhaustive historical priority is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_INGREDIENTS_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "The paper states gamma<alpha dominance and asymptotic gamma=alpha optimality. Its gamma>alpha condition contains, but does not state, the stronger finite-sample pathwise implication proved here.",
+        "identifier_or_url": "arXiv:2603.24704",
+        "material_read": "Full arXiv HTML relevant portions: problem setup; Definition 3.1; Theorems 3.2-3.3; Sections 4.1-4.3; Proposition 4.4; Remark 4.5; Theorem 4.6; proof of Proposition 4.4; weighted proof structure in Appendix C.1.",
+        "method": "Statement-by-statement HTML inspection and implication comparison.",
+        "title": "Conformal Selective Prediction with General Risk Control",
+        "trigger": "Direct source defining SCoRE-MDR and its gamma tuning parameter."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_CONSTRUCTION",
+        "evidence": "Uses a two-stage selective calibration framework rather than the Bai-Jin risk-adjusted e-value gamma family.",
+        "identifier_or_url": "arXiv:2512.12844",
+        "material_read": "Abstract plus public alphaXiv framework/method summary for v1/v2.",
+        "method": "Scope and method comparison.",
+        "title": "Selective Conformal Risk Control",
+        "trigger": "Recent adjacent selective conformal risk-control framework."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING",
+        "evidence": "Controls monotone expected losses but does not define the SCoRE risk-adjusted e-value tuning parameter.",
+        "identifier_or_url": "arXiv:2208.02814 / ICLR 2024",
+        "material_read": "Abstract and published-scope description.",
+        "method": "Scope comparison.",
+        "title": "Conformal Risk Control",
+        "trigger": "Foundational conformal risk-control framework cited by the direct source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88f18c12-8763-481e-8db8-47dc44fe917b",
+  "value": {
+    "rationale": "The theorem converts an asymptotic tuning recommendation into an exact finite-sample, pathwise design rule. Within SCoRE-MDR, no search over gamma can improve any nonnegative deployment reward over gamma=alpha; the same simplification survives the known-shift weighted construction. This directly removes a tuning degree of freedom in a recent selective-risk-control method.",
+    "status": "PASS"
+  }
+}
