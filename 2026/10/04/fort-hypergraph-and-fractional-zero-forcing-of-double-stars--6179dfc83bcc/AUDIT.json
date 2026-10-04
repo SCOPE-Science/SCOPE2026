@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A fort containing a center must contain every leaf adjacent to that center, hence contains a proper two-leaf fort and cannot be minimal. With both centers outside, the fort condition is exactly that neither same-side leaf intersection has size one; minimality then forces a pair of leaves on one side. This gives fort hypergraph K_a disjoint union K_b. The claimed parameters and optimal-weight face follow from matching, fractional vertex cover, and vertex cover of complete graphs. Direct fort enumeration, zero-forcing simulation, and LP checks over 25 parameter pairs corroborate every step.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 source proves Z*(T) <= ell(T)/2 for every tree and characterizes trees satisfying Z*(T)=Z(T).",
+        "The same source gives exact values for paths, cycles, complete graphs, complete bipartite graphs, selected coronas, and other families.",
+        "Targeted full-text searches in the 2023 source found no double-star or bistar occurrence.",
+        "The 2025 IP-model paper describes algorithms and numerical experiments but no double-star formula was located."
+      ],
+      "reasoning": "The general tree upper bound supplies only the upper inequality Z*(D_{a,b}) <= (a+b)/2. It does not imply equality, the complete minimal-fort classification, the fort number, or the optimizer face.",
+      "searches": [
+        "arXiv:2310.17904 full text Sections 1-4 and tree theorem",
+        "arXiv:2310.17904 full-text searches for double star and bistar",
+        "arXiv:2508.07293 abstract and targeted searches for double star, bistar, and spider"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.17904v1 and current full HTML",
+      "arXiv:2508.07293v1",
+      "targeted semantic literature searches for fractional zero forcing, minimal forts, double stars, bistars, and tree leaf bounds",
+      "targeted exact-phrase web searches for double-star and bistar formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Definition 2.3 identifies Z* with the fractional transversal number of the minimal-fort hypergraph.",
+        "Lemma 4.14 gives only Z*(T) <= ell(T)/2 for arbitrary trees.",
+        "Theorem 4.15 characterizes equality Z*(T)=Z(T), which fails for most double stars and therefore does not supply their fractional value.",
+        "The family summary does not list double stars."
+      ],
+      "reasoning": "The prior tree theorem bounds the target quantity but does not identify the fort hypergraph or prove sharpness of the leaf bound on double stars. The new classification supplies exactly the missing lower bound and describes all optimum fractional solutions.",
+      "searches": [
+        "Inspect arXiv:2310.17904 Definition 2.3 and Lemma 4.14",
+        "Inspect arXiv:2310.17904 Theorem 4.15",
+        "Inspect arXiv:2310.17904 family summary table",
+        "Inspect arXiv:2508.07293 for all-minimal-fort and fractional-zero-forcing scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches returned the general fort/fractional-zero-forcing paper and unrelated tree or zero-forcing results, not an exact double-star theorem.",
+        "No result located a fort hypergraph isomorphic to K_a disjoint union K_b for double stars."
+      ],
+      "reasoning": "A scalar tree bound or a standard zero forcing formula does not determine the minimal-fort hypergraph or the fractional optimizer face. The final claim is therefore strictly more specific than the retrieved general statements.",
+      "searches": [
+        "semantic literature search: fractional zero forcing double star",
+        "semantic literature search: minimal forts double star tree",
+        "semantic literature search: fractional zero forcing bistar",
+        "web search: \"fractional zero forcing\" \"double star\"",
+        "web search: \"minimal forts\" \"double star\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or indexed formula for double stars was returned.",
+        "The nearest indexed records concern general trees, complete bipartite graphs, hypercubes, or computational models."
+      ],
+      "reasoning": "The result is not a recomputation of a known table; the fort hypergraph is derived directly for arbitrary a and b and then solved symbolically.",
+      "searches": [
+        "semantic literature search: fort hypergraph double star",
+        "semantic literature search: fractional zero forcing tree leaves",
+        "web search: double star fort hypergraph fractional zero forcing",
+        "web search: bistar fractional zero forcing"
+      ]
+    },
+    "rationale": "The foundational fractional-fort paper gives general tree bounds and several standard-family values, but does not state a double-star or bistar fort-hypergraph classification. Targeted literature and semantic searches found no equivalent exact result.",
+    "residual_risks": [
+      "A differently named or non-indexed treatment of double stars may exist.",
+      "A general theorem about minimal forts in a broader tree subclass could specialize to the same classification without using double-star terminology; no such theorem was located in the inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the framework and a general tree upper bound but no exact double-star fort-hypergraph or optimizer classification.",
+        "evidence": [
+          "Version 1 was submitted 27 October 2023.",
+          "The paper lists 2020 MSC classes beginning with 05C57 and other 05 classes.",
+          "Lemma 4.14 states Z*(T) <= ell(T)/2 for every tree.",
+          "Targeted full-text searches found no double star or bistar occurrence."
+        ],
+        "identifier_or_url": "arXiv:2310.17904v1",
+        "material_read": "ArXiv full HTML covering the definition of forts and the fort hypergraph, the LP definition of Z*, the standard-family examples, Lemma 4.14 on trees, Theorem 4.15, and targeted searches for double star and bistar.",
+        "method": "Primary full-text definition, scope, and implication comparison.",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Foundational source introducing the fort hypergraph, fort number, and LP fractional zero forcing number."
+      },
+      {
+        "assessment": "Develops computational models but does not state the closed double-star fort-hypergraph or fractional optimizer theorem.",
+        "evidence": [
+          "Version 1 was submitted 10 August 2025.",
+          "The paper explicitly includes models for all minimal forts and fractional zero forcing.",
+          "Targeted searches returned no double-star or bistar statement."
+        ],
+        "identifier_or_url": "arXiv:2508.07293v1",
+        "material_read": "ArXiv abstract and searchable text describing IP/LP models and numerical experiments, with targeted searches for double star, bistar, and spider.",
+        "method": "Primary-source broader-coverage comparison.",
+        "title": "IP Models for Minimum Zero Forcing Sets, Forts, and Related Graph Parameters",
+        "trigger": "Later same-parameter work with explicit models for all minimal forts and fractional zero forcing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6179dfc8-3bcc-44d8-bca8-77d70e43d47c",
+  "value": {
+    "rationale": "Double stars are a canonical diameter-three tree family. The theorem turns a general tree upper bound into an exact value, identifies the entire fort hypergraph and fractional optimizer face, and exhibits an asymptotic factor-two fort-cover integrality gap on structurally elementary trees. The mechanism is explicit and reusable rather than a finite isolated computation.",
+    "status": "PASS"
+  }
+}
