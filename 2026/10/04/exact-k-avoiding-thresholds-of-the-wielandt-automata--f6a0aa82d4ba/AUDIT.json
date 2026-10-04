@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The inverse actions are reconstructed explicitly. A shortest inverse avoidance path can be normalized so every c^{-1} decreases cardinality; deletion is possible exactly at an occupied-to-empty cyclic boundary p, with exact cost p for p!=0 and n for p=0 and exact update (P\\{p})-p. This forces n+(k-1)(n-1) on B_{n,k} and gives at most k(n-1) for every other k-set. The forward witness matches the inverse blocks. Exhaustive power-automaton BFS for n=3..11 and direct witness replay through n=40 returned VERIFY_OK; these computations are checks, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferens-Szykuła-Vorel (2021) gives general bounds and the C_4 example; full-PDF search found no occurrence of 'Wielandt'.",
+        "Don (2016) proves reachability results for aperiodically 1-contracting automata but does not provide this exact W_n k-avoiding profile.",
+        "Volkov (2022) treats W_n in the reset-threshold discussion and later treats one-state avoidability/general avoiding methods; no exact all-k W_n formula is stated in the inspected material."
+      ],
+      "reasoning": "General avoiding and reachability theorems give context or upper bounds but do not dominate the exact value k(n-1)+1 together with its unique extremal target. The exact statement therefore is not a corollary of the broader bounds inspected.",
+      "searches": [
+        "published-finding corpus: Wielandt automaton k-avoiding threshold",
+        "published-finding corpus: W_n avoiding threshold synchronizing automaton",
+        "Web: \"Lower Bounds on Avoiding Thresholds\" Wielandt automaton",
+        "Web: \"Wielandt\" \"1-contracting automata\"",
+        "Web: \"Wielandt automaton\" completely reachable"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.0129v1",
+      "arXiv:1403.3992v1",
+      "arXiv:1608.01268v1",
+      "arXiv:1507.06070 / DOI:10.37236/5616",
+      "DOI:10.4230/LIPIcs.MFCS.2021.46",
+      "DOI:10.4213/rm10005e",
+      "published-finding corpus:2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ananichev-Gusev-Volkov (2010), Theorem 4.1, proves only the reset length n^2-3n+3 for W_n and records the induced relationship between W_n and C_n.",
+        "Gusev-Pribavkina (2014), Theorem 2.2 and surrounding Section 2, studies reset thresholds of the generalized W(n,q,p) family, not prescribed-subset avoidance.",
+        "The published-finding corpus Černý theorem states at_k(C_n)=kn. Its automaton and letter costs differ from W_n, so it neither states nor implies at_k(W_n)=k(n-1)+1 without a new W_n-specific inverse analysis.",
+        "The present proof identifies the W_n-specific deletion boundary, with cost n only at boundary 0 and cost at most n-1 thereafter; this mechanism is absent from the cited reset-threshold statements."
+      ],
+      "reasoning": "Prior reset thresholds control synchronization to some state, not the maximum shortest word avoiding each prescribed k-set. The Cerny exact k-profile is on a related but different automaton; the induced-letter relationship changes word length and the nonpermutation action. Therefore the claimed statement is not logically subsumed by the inspected prior results.",
+      "searches": [
+        "published-finding corpus: Exact k-avoiding thresholds of the Cerny automata",
+        "Primary full text: arXiv:1005.0129v1 Section 4",
+        "Primary full text: arXiv:1403.3992v1 Section 2",
+        "Survey full text: Volkov 2022 W_n and avoidability sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferens-Szykuła-Vorel, MFCS 2021, Sections 1.1-1.2: avoidance is equivalent to included reachability/total extension, and the paper defines k-avoiding threshold.",
+        "Kisielewicz-Szykuła, arXiv:1608.01268v1, Sections 1-2: extension/preimage terminology is developed for different automata; full-text search returned no Wielandt occurrence.",
+        "published-finding corpus closest hit: 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f, concerning the Černý rather than Wielandt family."
+      ],
+      "reasoning": "The claim was searched under avoiding, included-reachability, total-extension, and preimage language. These are the principal equivalent formulations. The inspected extension source concerns different constructions, and the closest published exact k-profile is for the Černý family, not W_n.",
+      "searches": [
+        "published-finding corpus: Wielandt automaton avoiding subset",
+        "published-finding corpus: Wielandt automaton totally extending preimage",
+        "published-finding corpus: Wielandt automaton included reachability avoidance",
+        "Web: \"Wielandt automaton\" \"avoiding subset\"",
+        "Web: \"Wielandt automaton\" \"totally extending\"",
+        "Web: \"Wielandt automaton\" \"preimage\" \"subset\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit states the W_n formula; the highest-relevance exact-profile hit is the Černý k-avoiding record.",
+        "Exact-formula web searches did not locate a mathematical source stating k(n-1)+1 or kn-k+1 as a Wielandt avoiding threshold."
+      ],
+      "reasoning": "No exact table or database entry located during the searches contains the claimed W_n values or unique maximizing targets. Failed search alone is not used as novelty proof; it is combined with direct inspection of the most relevant primary and survey sources.",
+      "searches": [
+        "published-finding corpus: Wielandt automaton k-avoiding threshold",
+        "published-finding corpus: Wielandt automaton avoiding subset",
+        "Web: \"Wielandt automaton\" \"k(n-1)+1\"",
+        "Web: \"Wielandt automaton\" \"kn-k+1\""
+      ]
+    },
+    "rationale": "The final statement was compared by implication against the primary W_n reset literature, generalized Wielandt-type reset literature, extension/preimage literature, the primary avoiding-threshold paper, a major synchronization survey, and the closest published published-finding corpus exact profile for the Cerny family. None states or dominates the exact W_n all-k value with its unique extremal target.",
+    "residual_risks": [
+      "An older or poorly indexed source may state the same distances using total-extension, included-reachability, or subset-reachability language.",
+      "The close induced relationship between C_n and W_n makes an unstated corollary in older Cerny-family work a plausible residual bibliographic risk, although no such statement was found in the inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same family up to relabeling and proves reset threshold n^2-3n+3, but does not state k-avoiding thresholds or unique hardest prescribed target sets.",
+        "evidence": "arXiv v1 dated 2010-05-02; Section 4 identifies W_n as the unique binary coloring of the Wielandt digraph and Theorem 4.1 gives its reset length.",
+        "identifier_or_url": "arXiv:1005.0129v1; https://arxiv.org/html/1005.0129v1",
+        "material_read": "Abstract; Sections 1-4, with detailed inspection of Section 4, especially the definition of W_n and Theorem 4.1; arXiv metadata for first-public date and MSC.",
+        "method": "Lawful arXiv full HTML.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Primary source defining the classical Wielandt automaton and its reset threshold."
+      },
+      {
+        "assessment": "Generalizes W_n as W(n,q,p) and proves reset thresholds; does not formulate prescribed-set avoidance or the claimed profile.",
+        "evidence": "Section 2 explicitly states that q=n,p=n-1 gives W_n and Theorem 2.2 gives a reset-threshold formula. Full-text searches returned no 'avoid' or 'subset' occurrence.",
+        "identifier_or_url": "arXiv:1403.3992v1; https://arxiv.org/abs/1403.3992",
+        "material_read": "Abstract, introduction, and complete Section 2 on Wielandt-type automata; full-text searches for 'avoid' and 'subset'.",
+        "method": "Lawful arXiv full text.",
+        "title": "Reset thresholds of automata with two cycle lengths",
+        "trigger": "Potential broader Wielandt-type family that might dominate the claim."
+      },
+      {
+        "assessment": "Studies extension distances for different automata. It supplies relevant equivalent terminology but does not treat W_n or the exact claim.",
+        "evidence": "The paper defines m-extendability via inverse images and analyzes A_{2m-1}/A_{2m}; full-text search found no Wielandt/W_n occurrence.",
+        "identifier_or_url": "arXiv:1608.01268v1; https://arxiv.org/pdf/1608.01268",
+        "material_read": "Introduction and Sections 2-3 on extension/preimage methods, including the quadratically extendable family; full-text searches for 'Wielandt', 'W_n', and 'avoiding'.",
+        "method": "Lawful arXiv PDF with text and page inspection.",
+        "title": "Synchronizing Automata with Extremal Properties",
+        "trigger": "Plausible equivalent coverage through extending-word/preimage terminology."
+      },
+      {
+        "assessment": "Defines the invariant, gives general bounds and a four-state Černý example, but does not mention Wielandt automata.",
+        "evidence": "The paper defines k-avoiding threshold as the maximum shortest avoidance length over k-subsets; full-PDF search for 'Wielandt' returned no match.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.MFCS.2021.46",
+        "material_read": "Full PDF search; Sections 1.1-1.4 and pages containing definitions, equivalences, known bounds, and the C_4 example.",
+        "method": "Open-access Dagstuhl PDF, including page inspection.",
+        "title": "Lower Bounds on Avoiding Thresholds",
+        "trigger": "Primary source for the k-avoiding-threshold invariant and possible family examples."
+      },
+      {
+        "assessment": "Records the W_n reset argument and general one-state avoidability bounds, but no all-k W_n avoiding profile.",
+        "evidence": "The survey discusses W_n in its Cerny reset proof and later defines one-state avoidability threshold; the inspected passages do not connect these into the present formula.",
+        "identifier_or_url": "DOI:10.4213/rm10005e",
+        "material_read": "W_n discussion around the induced Cerny/Wielandt construction and the avoidability/extension sections.",
+        "method": "Open HTML full text at Math-Net.",
+        "title": "Synchronization of finite automata",
+        "trigger": "Large survey that separately covers W_n and avoiding-word methods."
+      },
+      {
+        "assessment": "Proves at_k(C_n)=kn and a unique hardest Cerny target; it is scientifically close but concerns a different automaton and does not imply the W_n formula.",
+        "evidence": "Its theorem is explicitly restricted to the standard Cerny automata and its inverse-action formula is for the Cerny merge letter.",
+        "identifier_or_url": "published-finding corpus:2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Complete RESULT.md statement, proof, prior-work comparison, verification and limitations.",
+        "method": "Published published-finding corpus repository record.",
+        "title": "Exact k-avoiding thresholds of the Cerny automata",
+        "trigger": "Closest published exact all-k claim in the required published-finding corpus search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6a0aa82-d4ba-4c64-aa0b-ed6d16c77736",
+  "value": {
+    "rationale": "k-avoiding thresholds are an established synchronization invariant, and W_n is a canonical slowly synchronizing family. The theorem determines the complete two-parameter profile and the unique hardest target geometry, and it distinguishes W_n from the related Cerny profile. This is a structural uniform theorem rather than a routine isolated computation.",
+    "status": "PASS"
+  }
+}
