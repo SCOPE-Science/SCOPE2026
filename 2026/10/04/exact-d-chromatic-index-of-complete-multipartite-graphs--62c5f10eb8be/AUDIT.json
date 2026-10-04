@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For disjoint edges of a complete multipartite graph, Wang’s connector condition creates a D-conflict exactly when the edges do not lie in the same bipartite cut. Hence the D-conflict graph is the complete join of the line graphs of all cuts. Chromatic number is additive under join, and each cut has chromatic index equal to its maximum side size by the degree lower bound and an explicit cyclic coloring. The maximum-degree corollary follows from a nonnegative algebraic decomposition. The standalone verifier independently reconstructs the definition and exactly checks all multipartite types through seven vertices, with broader construction and bound tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang proves a general upper bound and conjectures the sharper universal quadratic bound.",
+        "Tian and Wang improve the asymptotic general upper bound for sufficiently large maximum degree.",
+        "For triangle-free graphs D-coloring collapses to ordinary proper edge coloring, covering the complete-bipartite endpoint."
+      ],
+      "reasoning": "These results are broader in graph class but weaker in conclusion. They do not determine the exact index for arbitrary complete multipartite graphs, do not give the part-pair conflict decomposition, and do not characterize equality within this family.",
+      "searches": [
+        "arXiv:2606.06831v1 D-chromatic upper bound complete graph",
+        "arXiv:2609.01875v1 stronger upper bound D-chromatic index",
+        "D-coloring triangle-free graph diamond-free"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.06831v1",
+      "arXiv:2609.01875v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The conjectured bound gives only an inequality and the complete-graph example gives one sharp endpoint.",
+        "The later probabilistic theorem gives a large-degree upper estimate, not an exact structured-family value.",
+        "The triangle-free observation yields the \\(r=2\\) slice only."
+      ],
+      "reasoning": "Neither the universal inequality statements nor the two known endpoint slices imply the exact formula for arbitrary part sizes. The new theorem simultaneously supplies the exact optimum and a structural decomposition of all possible color reuse.",
+      "searches": [
+        "arXiv:2606.06831v1 Conjecture D-chromatic complete graph",
+        "arXiv:2609.01875v1 D-chromatic probabilistic upper bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang’s equivalent connector-edge formulation identifies exactly which nonincident edges conflict in a D-coloring.",
+        "The full text of each inspected D-coloring preprint has no occurrence of “multipartite”.",
+        "Focused searches for complete multipartite, complete tripartite, and the sum-of-maxima formula returned no covering theorem."
+      ],
+      "reasoning": "On a complete multipartite graph, translating Wang’s connector criterion yields the new exact identity that the D-conflict graph is the complete join of the line graphs of the bipartite cuts. No inspected source states this equivalent formulation.",
+      "searches": [
+        "D-chromatic index complete multipartite formula sum max part sizes",
+        "proper edge coloring rainbow diamonds complete multipartite exact",
+        "D-coloring complete tripartite graph exact chromatic index",
+        "arXiv:2606.06831v1 full-text search: multipartite",
+        "arXiv:2609.01875v1 full-text search: multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No focused search result supplied a table or formula for arbitrary complete multipartite D-chromatic indices.",
+        "The embedded computation is generated from the definition and is not presented as evidence of literature novelty."
+      ],
+      "reasoning": "No exact database or published table located in the checked sources subsumes the formula. Failed search alone is not treated as proof of novelty; the full-text primary-source comparisons provide the main evidence.",
+      "searches": [
+        "D-chromatic index complete multipartite exact values",
+        "D-coloring complete tripartite exact",
+        "proper edge coloring rainbow diamonds complete multipartite exact"
+      ]
+    },
+    "rationale": "The arbitrary complete-multipartite conflict decomposition and exact formula are not stated in either inspected D-coloring paper. Prior work already covers the triangle-free complete-bipartite endpoint via ordinary edge coloring and the complete-graph sharpness endpoint, but neither endpoint implies the multipartite theorem for three or more nonsingleton interaction classes. Focused source, alias, parameter, and implication searches found no covering result. Residual risk remains for poorly indexed or unpublished material.",
+    "residual_risks": [
+      "A poorly indexed, unpublished, or not-yet-discovered source could contain the same arbitrary complete-multipartite formula.",
+      "The literature comparison establishes noncoverage of the two most relevant D-coloring preprints, not a logically exhaustive proof of novelty across all possible sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_OVERLAP_ONLY: it covers the complete-bipartite endpoint through the diamond-free observation and the complete-graph endpoint, but not the arbitrary complete-multipartite conflict decomposition or formula.",
+        "evidence": "Definition and conjecture match the invariant used here; full-text search found no “multipartite” theorem.",
+        "identifier_or_url": "arXiv:2606.06831v1",
+        "material_read": "Full 16-page preprint, including the definition, equivalent connector formulation, main general bound, conjecture, complete-graph sharpness discussion, final remarks, and full-text search for “multipartite”.",
+        "method": "Primary full-text inspection.",
+        "title": "Proper edge coloring with rainbow diamonds",
+        "trigger": "Introducing paper for the invariant and central conjecture; highest-priority primary comparison."
+      },
+      {
+        "assessment": "NOT_COVERING: it improves a general asymptotic upper bound for sufficiently large maximum degree and does not state a complete-multipartite exact theorem.",
+        "evidence": "The main theorem is an asymptotic general bound; full-text search found no occurrence of “multipartite”.",
+        "identifier_or_url": "arXiv:2609.01875v1",
+        "material_read": "Full arXiv HTML text, including introduction, theorem statement, auxiliary conflict graph construction, proof, remarks, and full-text search for “multipartite”.",
+        "method": "Primary full-text inspection.",
+        "title": "A stronger upper bound on the D-chromatic index",
+        "trigger": "Later same-invariant work could dominate or subsume a structured-family result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "62c5f10e-b8be-4aaf-aa25-1c1fd3d7813f",
+  "value": {
+    "rationale": "D-coloring is a recent edge-coloring invariant whose central conjecture remains open. Complete multipartite graphs form a canonical dense family linking the already-known complete-bipartite and complete-graph endpoints. The theorem gives an exact all-parameter value, identifies the entire conflict graph as a join of line graphs, characterizes the support of every color class, verifies the conjectured bound for an unbounded family, and isolates complete graphs as the equality cases within that family.",
+    "status": "PASS"
+  }
+}
