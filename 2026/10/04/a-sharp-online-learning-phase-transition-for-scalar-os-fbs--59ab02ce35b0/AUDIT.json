@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact scalar FBS map, FBE, normalized OSOP feedback, projected online-gradient recursion, null-step comparison and all theta regimes. For 0<theta<2, projection inactivity follows from |1-theta|<1 and the symmetric interval; multiplying the exact probe factors proves the closed form. At theta>=2 the projected affine map swaps the endpoints exactly. The verifier uses exact rationals only as a supplement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.10732v1, Theorem 4.24, proves local superlinear convergence for locally affine splitting maps with a horizon-dependent online stepsize; it does not give the constant-eta phase diagram.",
+        "arXiv:2502.11229v2 gives global/local hypergradient convergence guarantees and a sufficient small-learning-rate analysis, not a sharp projected scalar threshold through the overlearning regime.",
+        "The closest published stochastic OSGM record concerns random-curvature population feedback targets and support thresholds, not deterministic OS-FBS with the symmetric projected interval."
+      ],
+      "reasoning": "The broader theorems establish adaptivity or superlinear convergence in different parameter regimes but do not dominate the exact claim, because they do not imply the theta>=2 endpoint-cycle behavior or the exact rate collapse under universally accepted probes.",
+      "searches": [
+        "Operator Splitting Methods with Online Scaling OSOP scalar quadratic exact dynamics",
+        "hypergradient preconditioner boundary cycle null step",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10732v1",
+      "arXiv:2502.11229v2",
+      "arXiv:2505.23081v2",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+      "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OSOP Algorithm 1 permits constant eta, but Theorem 4.24 fixes eta=Delta_P/(G_ell sqrt(K)) and reports a general local bound rather than this fixed-eta scalar phase transition.",
+        "The hypergradient-descent source explicitly notes instability and uses null steps, and its Lemma 3.1 gives a sufficient distance-decrease inequality; the inspected text does not classify the projected two-cycle for oversized eta.",
+        "The online-scaling foundations prove superlinear rates for prescribed scheduler choices and do not state the boundary-cycle mechanism."
+      ],
+      "reasoning": "The claim is derivable only after specializing the envelope, normalizing the residual feedback, solving the projected scalar scheduler exactly, and coupling it back to the accepted primal probes. No inspected stronger result subsumes both regimes as stated.",
+      "searches": [
+        "arXiv:2609.10732v1",
+        "arXiv:2502.11229v2",
+        "arXiv:2505.23081v2",
+        "online preconditioner quadratic projected OGD exact superlinear exp k squared",
+        "forward backward online scaling scalar quadratic preconditioner saturation",
+        "hypergradient preconditioner boundary cycle null step"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Under alpha=gamma p, the smooth scalar OS-FBS probe is ordinary gradient descent with a learned scalar stepsize alpha; its scheduler contraction factor is 1-eta*a*(1-s).",
+        "arXiv:2502.11229v2, Algorithm 1 and equations (1)-(2), gives projected hypergradient descent with null steps; Section 3.3 treats strongly convex quadratics and superlinear convergence.",
+        "arXiv:2505.23081v2, Section 3.2 defines the same normalized hypergradient-feedback mechanism and Theorem 6.9 gives a general superlinear result."
+      ],
+      "reasoning": "The claim is not presented as a new learning mechanism. Its original content is the exact projected phase law for the OS-FBS specialization. The closest equivalent formulation supplies the algorithmic template but not the theta=2 bifurcation, endpoint cycle, or exact primal product in the inspected statements.",
+      "searches": [
+        "online scaled operator splitting projected hypergradient scalar quadratic phase transition",
+        "OSOP learning rate two cycle boundary projection null step",
+        "online preconditioner quadratic projected OGD exact superlinear exp k squared",
+        "forward backward online scaling scalar quadratic preconditioner saturation",
+        "hypergradient preconditioner boundary cycle null step",
+        "arXiv:2502.11229v2",
+        "arXiv:2505.23081v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved record or inspected source gave a table or exact formula matching p_{2j}=1, p_{2j+1}=2/s-1 at theta>=2.",
+        "No retrieved record gave the exact scalar OS-FBS product x_k=x_0(1-s)^k(1-theta)^{k(k-1)/2} together with the projection boundary."
+      ],
+      "reasoning": "The database comparison was statement-level: nearby records study different algorithms or stochastic curvature models. Absence from search is not treated as proof of novelty; it only supports the full-text comparisons.",
+      "searches": [
+        "OSOP learning rate two cycle boundary projection null step",
+        "online preconditioner quadratic projected OGD exact superlinear exp k squared",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+        "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0"
+      ]
+    },
+    "rationale": "The exact scalar projected scheduler law, the sharp threshold at theta=2, the endpoint two-cycle, and the persistence of null-step acceptance were not stated in the inspected OSOP or closest hypergradient-descent sources. The affine equivalence to scalar hypergradient descent was explicitly checked and is retained as the main residual risk.",
+    "residual_risks": [
+      "The scalar OS-FBS specialization is affinely equivalent to scalar projected hypergradient descent, so an older or unindexed source may contain the same exact projected quadratic recurrence under different terminology.",
+      "The primary arXiv abstract does not display MSC metadata; an inspected bibliographic classification record lists 90C06 first, followed by 90C25 and 90C53.",
+      "The result uses a canonical symmetric candidate interval; different candidate sets can have different projected dynamics and thresholds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING the algorithmic premises and general superlinear context; NOT COVERING the exact fixed-online-stepsize scalar phase law in the inspected material.",
+        "evidence": "Algorithm 1 uses residual probes, projected online gradient updates and a null step; Theorem 4.24 assumes a locally affine map and a horizon-dependent eta.",
+        "identifier_or_url": "arXiv:2609.10732v1",
+        "material_read": "Full arXiv HTML: Section 2.1; Section 3.1; equations (6), (16)-(18); Algorithm 1; Section 4.3 and Theorem 4.24.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML.",
+        "title": "Operator Splitting Methods with Online Scaling",
+        "trigger": "Primary source defining OSOP and the claimed scalar specialization."
+      },
+      {
+        "assessment": "COVERING the equivalent projected hypergradient framework and general quadratic superlinear behavior; NOT COVERING the exact theta=2 endpoint-cycle statement found here.",
+        "evidence": "The paper defines projected preconditioner OGD and null steps, discusses strongly convex quadratics, and gives sufficient learning-rate inequalities but no exact endpoint two-cycle classification in the inspected text.",
+        "identifier_or_url": "arXiv:2502.11229v2",
+        "material_read": "Full arXiv HTML: Algorithm 1; Sections 2-3.3; Lemma 3.1; appendix online-gradient regret formulas.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML.",
+        "title": "Provable and Practical Online Learning Rate Adaptation with Hypergradient Descent",
+        "trigger": "Closest affine-equivalent projected hypergradient method, including null steps and quadratic local analysis."
+      },
+      {
+        "assessment": "COVERING the feedback machinery and general superlinear guarantees; NOT COVERING the exact projected OS-FBS phase transition in the inspected material.",
+        "evidence": "The source defines normalized hypergradient feedback and proves superlinear convergence for particular scheduler choices, without the symmetric endpoint cycle or sharp oversized-learning threshold.",
+        "identifier_or_url": "arXiv:2505.23081v2",
+        "material_read": "Full arXiv HTML: Section 3.2; minimax stepsize discussion; Theorems 6.6-6.10; quadratic appendix discussion.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML.",
+        "title": "Gradient Methods with Online Scaling Part I. Theoretical Foundations",
+        "trigger": "Broader online-scaling and hypergradient-feedback framework that could subsume the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "59ab02ce-35b0-4dbd-8bf8-b601b22910d6",
+  "value": {
+    "rationale": "The result identifies a motivated sharp tuning boundary for the online scheduler in the source algorithm and shows a non-obvious failure mode of a monotone safeguard: function values remain safely decreasing while the learned preconditioner enters a boundary cycle and the superlinear gain disappears. This is a structural boundary statement tied to the identity initialization and exact one-step preconditioner, not an arbitrary numerical recomputation.",
+    "status": "PASS"
+  }
+}
