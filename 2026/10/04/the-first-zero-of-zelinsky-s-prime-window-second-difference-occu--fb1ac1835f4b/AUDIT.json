@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source definition reduces a(n) to the first b at which a strictly increasing product of positive rational factors exceeds 2. The packaged checker performs these rational comparisons exactly for a(1) through a(44), verifies the minimal crossing on each run, reproduces the published f(31)=-5 normalization, obtains a(42)=3900, a(43)=4112, a(44)=4324, and checks all earlier second differences n=2..42 are nonzero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest source itself leaves the zero question open in its 2023 publication.",
+        "The earlier same-object paper reports f(31)=-5 and f(100)=-144 and asks whether zero occurs.",
+        "No later broader theorem located determines the exact zero set or implies f(43)=0."
+      ],
+      "reasoning": "A theorem determining all values or zeros of f would dominate the finite first-zero statement, so searches included both the source family and broad second-difference language.",
+      "searches": [
+        "Zelinsky f(n) second difference a_2 n zero non-deficient prime factors",
+        "second difference prime-window product p/(p-1) zero",
+        "\"On the small prime factors of a non-deficient number\" f(n) zero",
+        "\"On the number of total prime factors of an odd perfect number\" f(n)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2005.12118v1",
+      "arXiv:2005.12118v6",
+      "INTEGERS:23:A13",
+      "arXiv:1810.13063v2",
+      "INTEGERS:21:A76"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier paper proves eventual growth of first differences but explicitly presents the second-difference zero question as open.",
+        "The later paper repeats the zero question after generalizing from f to f_alpha.",
+        "Strict increase of a(n) does not determine whether the increments a(n+1)-a(n) repeat at adjacent indices, which is exactly f(n)=0."
+      ],
+      "reasoning": "Prior asymptotics and monotonicity do not imply this equality. The new exact prime-window computation supplies the missing adjacent-equal-increment witness and verifies that none occurs earlier.",
+      "searches": [
+        "arXiv:1810.13063 f(31) f(100) zero",
+        "arXiv:2005.12118 Question 4 f(n) zero",
+        "Zelinsky Proposition 54 a(n+1)-a(n) second differences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 Integers paper defines f_alpha and asks in Question 4, in particular, whether f(n) is ever zero.",
+        "The earlier Zelinsky paper defines the same f and asks the same zero question; no f(43) statement appears in the inspected text.",
+        "Exact web searches did not return a mathematical source containing f(43)=0 or the exact triple 3900,4112,4324."
+      ],
+      "reasoning": "The claim was searched in source notation, as an exact numerical triple, as the quoted question, and as the expanded second-difference identity, covering the main equivalent formulations.",
+      "searches": [
+        "\"f(43)\" \"a(42)\" 3900 Zelinsky",
+        "\"3900, 4112, 4324\" prime factors Zelinsky",
+        "\"is f(n) ever zero\" Zelinsky",
+        "\"a_2(43)\" 4112",
+        "second difference a(n+1)+a(n-1)-2a(n) prime factors odd perfect"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed table or sequence entry containing these three values in this context was found.",
+        "The source papers provide qualitative examples such as f(31)=-5 but no table covering the first zero."
+      ],
+      "reasoning": "Because this is a finite exact computation, an existing table is the strongest plausible coverage risk; targeted exact-number searches did not locate one.",
+      "searches": [
+        "\"3900\" \"4112\" \"4324\" Zelinsky",
+        "\"f(43)=0\" prime window",
+        "\"a(42)=3900\" prime",
+        "\"a(43)=4112\" prime"
+      ]
+    },
+    "rationale": "The 2018/2021 Zelinsky paper explicitly asks whether f(n) is ever zero, and the 2020/2023 follow-up repeats the question. The full relevant published pages and the earlier same-object discussion were inspected. Exact searches for f(43), the triple 3900/4112/4324, and the quoted zero question found no prior answer. Semantic searches of published findings returned no covering claim.",
+    "residual_risks": [
+      "An unindexed or unpublished computation may have observed the same zero.",
+      "The literature searches do not establish that no private computation or non-indexed table contains f(43)=0."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper explicitly asks whether f(n) is ever zero and does not provide the n=43 answer.",
+        "evidence": "Published page 14 states Question 4: whether f_alpha takes any integer value and, in particular, whether f(n) is ever zero.",
+        "identifier_or_url": "arXiv:2005.12118; INTEGERS 23 (2023), A13",
+        "material_read": "ArXiv metadata and full published text around the definitions of b_alpha and a_alpha, Conjecture 27, and the page containing the five questions about f_alpha.",
+        "method": "Open-access HTML/PDF text and page inspection.",
+        "title": "On the small prime factors of a non-deficient number",
+        "trigger": "Primary middle-cohort source repeating the exact zero question and defining a_alpha."
+      },
+      {
+        "assessment": "It asks whether f(n) is ever zero and contains no located f(43) answer.",
+        "evidence": "The inspected section defines f(n)=a(n+1)+a(n-1)-2a(n), gives two negative examples, and explicitly asks whether f(n) is ever zero.",
+        "identifier_or_url": "arXiv:1810.13063v2; INTEGERS 21 (2021), A76",
+        "material_read": "Full-text section defining f(n), reporting f(31)=-5 and f(100)=-144, and listing the five follow-up questions.",
+        "method": "Full-text open web inspection.",
+        "title": "On the number of total prime factors of an odd perfect number",
+        "trigger": "Earlier same-object source cited by the primary paper as the origin of f(n)."
+      },
+      {
+        "assessment": "The first public version is dated 25 May 2020 and the paper lists MSC 11A25, 11N64.",
+        "evidence": "ArXiv submission history gives v1 on 25 May 2020; MSC metadata lists 11A25 and 11N64.",
+        "identifier_or_url": "arXiv:2005.12118",
+        "material_read": "Submission history and MSC metadata.",
+        "method": "ArXiv abstract-page inspection.",
+        "title": "On the small prime factors of a non-deficient number — arXiv record",
+        "trigger": "Cohort-date and classification verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb1ac183-5f4b-4fa5-88b7-26987a37be9c",
+  "value": {
+    "rationale": "The result directly answers a specifically posed question in two versions of the source literature, rather than selecting an arbitrary parameter. Identifying the first zero adds a natural minimality statement, and the exact triple provides a compact reproducible certificate. Although finite, the fact resolves the existence subquestion completely.",
+    "status": "PASS"
+  }
+}
