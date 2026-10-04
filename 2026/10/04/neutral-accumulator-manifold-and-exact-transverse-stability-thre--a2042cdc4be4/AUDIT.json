@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The exact state map fixes every \\((0,0,V)\\). For \\(V>0\\), the sign branch is locally constant, the accumulator derivative is \\(1\\), and the transverse block has determinant \\(\\beta_1\\) and trace \\(1+\\beta_1-(1-\\beta_1)\\eta\\lambda/(\\sqrt V+\\varepsilon)\\). Jury conditions give the sharp threshold.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper proves stochastic nonconvex stationarity bounds under parameter restrictions.",
+        "Its experimental section explicitly says moment initialization is important and proposes gradient-square initialization."
+      ],
+      "reasoning": "Those broader convergence statements do not imply asymptotic stability of an individual optimizer state because the deterministic Yogi state contains a neutral accumulator direction.",
+      "searches": [
+        "Adaptive Methods for Nonconvex Optimization Yogi convergence theorem",
+        "adaptive optimizer dynamical system fixed manifold second moment",
+        "Yogi initialization second moment convergence"
+      ]
+    },
+    "checked_sources": [
+      "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3",
+      "pytorch-optimizer:Yogi"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper states \\(v^+=v-(1-\beta_2)\\operatorname{sign}(v-g^2)g^2\\).",
+        "The paper states that initialization of \\(m_t\\) and \\(v_t\\) is important and recommends initializing \\(v_t\\) from initial gradient squares.",
+        "The paper's theorem is a stochastic stationarity bound and does not linearize the deterministic optimizer state."
+      ],
+      "reasoning": "The source recurrence makes the fixed ray derivable, but the published theorem neither identifies the continuum of equilibria nor supplies the accumulator-dependent normal-stability criterion.",
+      "searches": [
+        "Yogi Algorithm 2 second moment sign update",
+        "Yogi initialization mt vt important gradient square initial point",
+        "Yogi theorem beta2 epsilon eta nonconvex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "NeurIPS 2018 paper `90365351ccc7437a1309dc64e4db32a3`, Algorithm 2 and Yogi discussion",
+        "pytorch-optimizer Yogi documentation with configurable nonzero initial accumulator"
+      ],
+      "reasoning": "An equivalent formulation is normal stability of a one-dimensional invariant manifold of optimizer states. The inspected sources define the recurrence and initialization choices but do not state this invariant-manifold calculation.",
+      "searches": [
+        "Yogi optimizer fixed point stability dynamical system",
+        "Yogi adaptive optimizer local stability",
+        "Yogi continuum fixed points optimizer",
+        "Yogi initialization second moment convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No Yogi-specific published-record hit stated the equilibrium ray, neutral eigenvalue, or accumulator threshold.",
+        "Nearest semantic records concerned unrelated quadratic stability frontiers for reflected gradient, momentum, and adaptive-gradient counterexamples."
+      ],
+      "reasoning": "No searched exact formula matched \\(V_c=[\\eta\\lambda(1-\beta_1)/(2(1+\beta_1))-\u000barepsilon]^2\\). Search absence is not treated as a proof of uniqueness; terminology risk remains.",
+      "searches": [
+        "Yogi optimizer fixed point stability dynamical system",
+        "Yogi adaptive optimizer local stability",
+        "Yogi continuum fixed points optimizer",
+        "Yogi initialization second moment convergence"
+      ]
+    },
+    "rationale": "The inspected defining paper discusses additive second-moment control and initialization sensitivity but not the fixed equilibrium ray, neutral tangent mode, or exact accumulator-dependent transverse threshold.",
+    "residual_risks": [
+      "An equivalent neutral-manifold analysis may exist under generic adaptive-optimizer dynamical-systems terminology.",
+      "The endpoint \\(V=0\\) is nonsmooth and is outside the differentiable local theorem.",
+      "Global basins and the limiting accumulator selected from the source default initialization are not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_FIXED_MANIFOLD.",
+        "evidence": "The source defines the additive Yogi accumulator and notes initialization sensitivity, but does not state a deterministic fixed-state manifold or local transverse spectrum.",
+        "identifier_or_url": "NeurIPS2018:90365351ccc7437a1309dc64e4db32a3",
+        "material_read": "Full proceedings paper, including Algorithm 2, the Yogi comparison with Adam, Theorem 2, and the experimental initialization discussion.",
+        "method": "Full-text PDF inspection with visual inspection of the algorithm and initialization pages.",
+        "title": "Adaptive Methods for Nonconvex Optimization",
+        "trigger": "Defining Yogi source and closest theoretical coverage."
+      },
+      {
+        "assessment": "IMPLEMENTATION_RELEVANCE_NOT_COVERING_THEOREM.",
+        "evidence": "The implementation exposes a nonzero initial accumulator, supporting the practical relevance of accumulator-level dependence without providing the fixed-manifold analysis.",
+        "identifier_or_url": "pytorch-optimizer:Yogi",
+        "material_read": "Public optimizer documentation describing Yogi parameters and `initial_accumulator`.",
+        "method": "Documentation inspection.",
+        "title": "pytorch-optimizer Yogi documentation",
+        "trigger": "Check whether nonzero accumulator initialization is an operational variant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2042cdc-4be4-42c4-86f8-48791db3a4c9",
+  "value": {
+    "rationale": "The source method is explicitly designed around controlled persistence of its second-moment state and reports sensitivity to its initialization. The theorem shows that this persistence creates a continuum of optimizer-state equilibria and gives an exact curvature-versus-accumulator threshold, including the stabilization-versus-speed tradeoff.",
+    "status": "PASS"
+  }
+}
