@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact Lagrange basis and rewrites all admissible monotone data in a nonnegative increment simplex. Exact factorizations prove the complete coefficient ordering on the whole central cell, making the data optimization exhaustive rather than sampled. The two remaining cubic extrema are solved analytically and the strict-positive witness is exact. The embedded checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fritsch--Carlson establishes that derivative selection must be constrained to guarantee a monotone cubic Hermite segment.",
+        "Berzins proves data-boundedness and monotonicity for a limited adaptive equal-grid polynomial construction of arbitrary degree.",
+        "Revers surveys global convergence and divergence phenomena for equidistant-node Lagrange interpolation; the accessible portion does not address the finite monotone four-point extremal problem."
+      ],
+      "reasoning": "These sources broadly cover shape preservation and equal-grid interpolation, but their conclusions do not imply the exact range of the ordinary four-node cubic on one central cell. Modified monotone or limited constructions are different operators.",
+      "searches": [
+        "Monotone Piecewise Cubic Interpolation Fritsch Carlson",
+        "Adaptive Polynomial Interpolation on Evenly Spaced Meshes Berzins data-bounded",
+        "A Survey on Lagrange Interpolation Based on Equally Spaced Nodes Revers",
+        "equally spaced Lagrange interpolation data bounded monotone"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/0717021",
+      "DOI:10.1137/050625667",
+      "DOI:10.1007/978-3-0348-7600-1_12",
+      "NIST DLMF section 3.3(ii) on equally spaced Lagrange interpolation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete Fritsch--Carlson article derives necessary and sufficient monotonicity conditions for a Hermite cubic and compares several interpolation rules; its theorem is parameterized by endpoint derivatives rather than four Lagrange data values.",
+        "The complete Berzins article starts from unmodified equal-grid Lagrange polynomials, documents oscillation, and then changes divided differences and stencils to guarantee data-boundedness. Its proved bounds apply to the modified construction.",
+        "Only an initial extract of the Revers survey was accessible; its abstract and opening sections frame global convergence/divergence and Lebesgue-function questions rather than the local monotone-data range."
+      ],
+      "reasoning": "The prior papers establish the motivation and alternative shape-preserving constructions, but none of the inspected statements implies the cumulative coefficient ordering \\(q_0\\ge1\\ge q_1\\ge0\\ge q_2\\) and the resulting sharp \\(\\sqrt3/27\\) defect for the ordinary four-point cubic. The partially accessible survey is retained as a residual risk rather than treated as evidence of noncoverage.",
+      "searches": [
+        "DOI:10.1137/0717021 full text cubic monotonicity",
+        "DOI:10.1137/050625667 full text equally spaced Lagrange data bounded",
+        "DOI:10.1007/978-3-0348-7600-1_12 equidistant Lagrange survey",
+        "cubic Lagrange central interval bounded monotone samples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fritsch--Carlson proves general single-interval cubic Hermite monotonicity conditions and develops a modified shape-preserving algorithm, not the sharp range of the unmodified four-point Lagrange polynomial.",
+        "Berzins explicitly formulates equally spaced Lagrange interpolation and develops adaptive limiting to enforce data-boundedness; the complete article does not state the exact local constant \\(\\sqrt3/27\\).",
+        "Direct searches under range-preservation, overshoot, negative-weight, and central-cell aliases did not locate a statement implying both sharp sides and equality data."
+      ],
+      "reasoning": "The theorem could be phrased as a sharp range-preservation defect, a negative cumulative Lagrange-basis mass, or a local data-boundedness constant. Searches covered those formulations. The closest literature treats qualitative oscillation or modifies the interpolant to enforce bounds rather than quantifying this unmodified four-node operator.",
+      "searches": [
+        "uniform four point cubic Lagrange interpolation monotone data overshoot exact bound",
+        "cubic Lagrange interpolation monotonicity four equally spaced points overshoot",
+        "local cubic interpolation monotone samples range preserving Lagrange sharp constant",
+        "four point polynomial interpolation monotone bounded data negative undershoot"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard references and coefficient tables expose the four cubic Lagrange basis functions but the checked results did not identify \\(\\sqrt3/27\\) as a monotone-data range defect.",
+        "The exact-constant searches did not return a matching interpolation theorem.",
+        "General Lebesgue constants optimize arbitrary signed data and therefore do not by themselves imply the monotone-data simplex extremum proved here."
+      ],
+      "reasoning": "Because the proof reduces to low-degree basis coefficients, an equivalent result could hide in interpolation tables or a local Lebesgue-function calculation. Exact coefficient and constant searches were therefore performed separately; no checked table supplied the monotone cumulative-weight theorem.",
+      "searches": [
+        "four equally spaced nodes Lebesgue constant cubic interpolation exact",
+        "four equidistant nodes Lebesgue function interpolation",
+        "sqrt(3)/27 interpolation",
+        "four-point Lagrange monotone interpolation"
+      ]
+    },
+    "rationale": "Qualitative oscillation of equal-grid Lagrange interpolation, cubic monotonicity conditions, and adaptive data-bounded interpolation are established prior work and are excluded. The accepted claim is the exact monotone-data central-cell range, equality cases, and strict-positive sign reversal for the unmodified four-point cubic. Direct, alias, exact-constant, and broad-source comparisons did not locate an implication-equivalent statement; an incompletely accessible equidistant-node survey and old coefficient tables remain explicit risks.",
+    "residual_risks": [
+      "The complete Revers survey chapter was not available in the retrieved material; an uninspected later section could mention a low-degree coefficient extremum.",
+      "Older interpolation handbooks or tables may record the same basis-function extrema without framing them as a sharp monotone-data range theorem.",
+      "The theorem is only for the central cell of a uniform four-node stencil; no originality claim is made for nonuniform ratios or higher degrees."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS cubic Hermite monotonicity theory and shape-preserving derivative modification. It does not state the sharp range of the ordinary four-point Lagrange cubic in the inspected full text.",
+        "evidence": "The paper parameterizes each interval by endpoint derivatives and derives its monotonicity region; the proposed algorithm modifies those derivatives when needed.",
+        "identifier_or_url": "DOI:10.1137/0717021",
+        "material_read": "Complete nine-page article, including the Hermite representation, necessary and sufficient single-interval monotonicity conditions, algorithm construction, numerical comparisons, discussion, and references.",
+        "method": "Authorized full-text inspection after open-access retrieval did not provide a usable complete copy.",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "Closest classical primary source on exactly when a cubic segment is monotone and on shape-preserving interpolation of monotone data."
+      },
+      {
+        "assessment": "COVERS the equal-grid interpolation problem and proves bounds for a modified adaptive limited polynomial. It does not state the sharp central-cell range constant for the unmodified four-point cubic in the inspected full text.",
+        "evidence": "The article explicitly defines ordinary Lagrange interpolation, motivates positivity preservation, and then changes stencils/divided differences to obtain a data-bounded monotone interpolant.",
+        "identifier_or_url": "DOI:10.1137/050625667",
+        "material_read": "Complete twenty-four-page article, including Lagrange and divided-difference formulations, Runge/Lebesgue discussion, ENO selection, limiter construction, experiments, and the data-boundedness and monotonicity theorems.",
+        "method": "Authorized full-text inspection after the open author-copy route did not yield a stable complete file.",
+        "title": "Adaptive Polynomial Interpolation on Evenly Spaced Meshes",
+        "trigger": "Direct primary source on oscillation, positivity, and data-bounded polynomial interpolation on equal grids, with explicit Lagrange formulas."
+      },
+      {
+        "assessment": "The accessible material concerns global convergence/divergence and Lebesgue-function behavior. Whole-chapter noncoverage is not claimed.",
+        "evidence": "The abstract describes a survey of pointwise divergence properties and limit relations for equidistant-node Lagrange interpolation.",
+        "identifier_or_url": "DOI:10.1007/978-3-0348-7600-1_12",
+        "material_read": "Abstract and the accessible opening extract defining equidistant Lagrange interpolation, Lebesgue functions, and the start of the divergence discussion.",
+        "method": "Open bibliographic search followed by authorized retrieval; only a short extract was available rather than the full chapter.",
+        "title": "A Survey on Lagrange Interpolation Based on Equally Spaced Nodes",
+        "trigger": "Broad survey whose title could conceal an equivalent low-degree equal-grid coefficient result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1fad48a6-c445-430d-b3f5-55eddeb12ad5",
+  "value": {
+    "rationale": "Data-boundedness and positivity are explicit goals in the interpolation literature, especially on equally spaced meshes. The ordinary four-node cubic is a basic local high-order interpolant, and the theorem gives its complete worst-case range loss on monotone bounded data, rather than a qualitative overshoot warning. The exact constant, extremizers, and strict-positive counterexample are useful as guardrails and regression targets.",
+    "status": "PASS"
+  }
+}
