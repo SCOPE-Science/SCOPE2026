@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Equation (3.1) has positive denominators for nonnegative rates and h>0. Writing its infection, progression, and removal terms as three nonnegative transfers makes the five increments telescope exactly; the boundary counterexample is obtained by direct substitution of the disease-free state. Exact-rational replay independently checks representative cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General NSFD and positivity-preserving epidemic schemes exist, including Ding–Ma–Ding (2014), but their theorems concern different discrete systems.",
+        "A published-finding corpus record on filtered Crank–Nicolson proves mass/positivity for a heat-lattice operator, not this SEIR transfer map."
+      ],
+      "reasoning": "General structure-preservation results do not dominate this claim because the exact map, boundary support, and conserved quantity are scheme-specific.",
+      "searches": [
+        "published-finding corpus: unconditional positivity epidemic compartment scheme exact conservation invariant",
+        "Web: unconditional positivity-preserving SEIR Gauss-Seidel epidemic numerical scheme",
+        "Web: positivity preserving epidemic scheme exact conservation invariant"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.00698v3 full HTML",
+      "DOI 10.3934/cpaa.2021093 published article page",
+      "Ding–Ma–Ding 2014 publisher abstract",
+      "published-finding corpus searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source claims unconditional strict positivity, while the displayed formulas leave the disease-free boundary invariant.",
+        "The exact conservation law follows by summing the five displayed increments but is not stated in the inspected source text."
+      ],
+      "reasoning": "The final claim is neither a corollary explicitly supplied by the source nor covered by its strict positivity statement; one component is a correction to that statement and the other is an additional exact invariant.",
+      "searches": [
+        "Primary full text: arXiv:2012.00698v3 Section 3.1 and surrounding numerical-analysis claims",
+        "Published version: DOI 10.3934/cpaa.2021093",
+        "Web phrase search for the five component updates and mass conservation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2012.00698v3, Section 3.1, equation (3.1), states the sequential update and the strict positivity implication.",
+        "No conservation statement was located by text search in the source.",
+        "published-finding corpus returned no record stating the same boundary correction and conservation identity for this scheme."
+      ],
+      "reasoning": "Equivalent wording would need to identify equation (3.1), replace the strict interior claim by nonnegativity on boundary data, or state the same exact telescoping invariant. None of the inspected records did so.",
+      "searches": [
+        "published-finding corpus: SEIR positivity preserving Gauss Seidel forward discretization exact conservation total population deaths",
+        "published-finding corpus: Liu Tian SEIR forward scheme strict positivity boundary disease-free state exact conservation",
+        "Web: \"Data-driven optimal control\" SEIR \"mass conservation\" discretization",
+        "Source text search: conservation / preserve / sum in arXiv:2012.00698v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records were for a Padé Markov map, filtered Crank–Nicolson lattice, and coupled-SEIR threshold counterexample.",
+        "No exact database record returned the Liu–Tian equation (3.1) conservation identity."
+      ],
+      "reasoning": "The searched finding database contains nearby numerical-positivity topics but no matching source, formula, or implication.",
+      "searches": [
+        "published-finding corpus: data-driven optimal control SEIR scheme exact mass conservation Liu Tian 2012.00698",
+        "published-finding corpus: Liu Tian SEIR forward scheme strict positivity boundary disease-free state exact conservation"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches found general positivity-preserving schemes and unrelated SEIR results, but no record stating this exact boundary correction plus conservation law for Liu–Tian equation (3.1). The primary full text was inspected directly and does not state the conservation invariant.",
+    "residual_risks": [
+      "The literature search is not exhaustive; an unindexed note or implementation comment could have observed the same conservation identity.",
+      "The published article may have supplementary code comments not represented in the inspected article text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the exact step used here and states a strict positivity implication, but no conservation statement was located. The boundary counterexample directly contradicts only the strictness, not nonnegativity preservation.",
+        "evidence": "arXiv v1 submission date 2020-12-01; primary classifications include 92D30; Section 3.1 equations and positivity statement.",
+        "identifier_or_url": "arXiv:2012.00698v3 / https://arxiv.org/html/2012.00698v3",
+        "material_read": "Abstract metadata; MSC classification; Sections 2.1–2.4; Section 3.1 including equation (3.1); surrounding algorithm text.",
+        "method": "Direct full-text HTML inspection and formula-by-formula algebraic comparison.",
+        "title": "Data-driven optimal control of a SEIR model for COVID-19",
+        "trigger": "Primary source defining the forward discretization and its positivity claim."
+      },
+      {
+        "assessment": "Background confirms positivity preservation is an established numerical-design goal, but it concerns a different model and scheme and does not cover the present equation (3.1) identity.",
+        "evidence": "Publisher abstract describes unconditional positivity and equilibrium stability for a vaccination NSFD scheme.",
+        "identifier_or_url": "International Journal of Applied Mathematics and Computer Science 24 (2014)",
+        "material_read": "Abstract-level description from publisher/indexed web result.",
+        "method": "Statement-level comparison only.",
+        "title": "An unconditionally positive and global stability preserving NSFD scheme for an epidemic model with vaccination",
+        "trigger": "Potential broader prior coverage of positivity-preserving epidemic discretizations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e5cd3c8-c9f4-407a-9871-e6f3dcf9597c",
+  "value": {
+    "rationale": "The result supplies a sharp boundary correction to a published structural claim and an exact natural compartment-balance invariant. The invariant is useful as a zero-tolerance implementation check for the data-fitting/control solver, while distinguishing nonnegativity from strict interior positivity prevents an incorrect claim about boundary trajectories such as the disease-free state.",
+    "status": "PASS"
+  }
+}
