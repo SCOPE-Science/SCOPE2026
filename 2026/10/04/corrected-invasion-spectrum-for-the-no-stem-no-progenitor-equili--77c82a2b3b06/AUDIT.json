@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source equilibrium satisfies 1+l d1=Rc. Direct differentiation of the printed vector field therefore gives the stem invasion eigenvalue Ra/Rc-1 and the progenitor invasion eigenvalue gb(Rb/Rc-1). The remaining c-d block has negative trace and positive determinant for Rc>1, with the exact quadratic given in the finding. This yields the if-and-only-if ordinary-model threshold Rc>max{Ra,Rb}. The symbolic checker reconstructs the characteristic factorization and the exact witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakata et al. analyze two- and three-compartment hierarchical cell-production models with mature-cell feedback and reproduction numbers.",
+        "Their three-compartment model contains one intermediate progenitor compartment, not the added myeloid stage of the 2022 source.",
+        "Broader multistage lineage literature motivates feedback-stability questions but does not supply the source-specific four-stage Jacobian factorization."
+      ],
+      "reasoning": "Earlier lineage stability theory could dominate a generic observation about reproduction numbers, so the accepted claim is restricted to the exact added-myeloid equilibrium and its two independent upstream invasion modes.",
+      "searches": [
+        "\"Stability analysis of multi-compartment models for cell production systems\" stem progenitor mature equilibrium",
+        "multistage cell lineages reproduction number equilibrium stability stem progenitor myeloid",
+        "four compartment stem progenitor myeloid mature reproduction number stability",
+        "hierarchical cell production reproduction number no stem equilibrium multistage"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022289",
+      "doi:10.1080/17513758.2011.558214",
+      "doi:10.3934/mbe.2009.6.59"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011/2012 predecessor establishes local-stability results for two- and three-compartment models but has no myeloid compartment.",
+        "The 2022 source itself adds the myeloid stage and introduces Rc, so the equilibrium fixes mature feedback through Rc rather than Rb.",
+        "No inspected prior theorem contains both corrected upstream invasion factors Ra/Rc and Rb/Rc for this four-stage state."
+      ],
+      "reasoning": "The predecessor suggests the biological role of reproduction-number comparisons but does not imply the four-stage characteristic polynomial. The accepted result requires direct reconstruction of the new model Jacobian.",
+      "searches": [
+        "no stem cell equilibrium reproduction number progenitor stability stem cells mature cells",
+        "multi-compartment cell production no stem equilibrium reproduction number",
+        "four-stage cell lineage no stem progenitor myeloid equilibrium stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary PDF was inspected at Theorems 5.1 and 5.3 and the proof of Theorem 5.3.",
+        "Theorem 5.1 gives d1=(Rc-1)/l, whereas the proof of Theorem 5.3 substitutes 1+l d1=Rb.",
+        "Exact-title and DOI searches returned the article and mirrors but no erratum or source-specific correction."
+      ],
+      "reasoning": "The searches cover the literal source, theorem number, boundary-equilibrium aliases, and the corrected quotient structure. No located source states the corrected four eigenvalues or the max-reproduction threshold for this four-stage equilibrium.",
+      "searches": [
+        "\"Fractional order modeling and analysis of dynamics of stem cell differentiation in complex network\" Theorem 5.3 correction eigenvalue",
+        "\"10.3934/math.2022289\" erratum correction",
+        "\"absence of stem and progenitor\" equilibrium stability Rc Ra Rb",
+        "stem progenitor myeloid mature equilibrium Ra Rc Rb corrected invasion eigenvalues Ra/Rc Rb/Rc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF gives Rc>1 and d1=(Rc-1)/l for E1* in Theorem 5.1.",
+        "Theorem 5.3 prints lambda1=Ra/Rb-1 and lambda2=gb Rb/Rc-gd.",
+        "The proof of Theorem 5.3 explicitly states 1+l d1=Rb even though Theorem 5.1 makes the left side equal Rc."
+      ],
+      "reasoning": "The correction is tied to the exact displayed equilibrium, eigenvalue formula, and proof identity in the primary article.",
+      "searches": [
+        "doi:10.3934/math.2022289 Theorem 5.1 Theorem 5.3 PDF",
+        "doi:10.3934/math.2022289 equation 5.13 Ra Rb Rc",
+        "doi:10.3934/math.2022289 1+l d1=Rb"
+      ]
+    },
+    "rationale": "The source prints different eigenvalues and uses the inconsistent identity 1+l d1=Rb. The closest full-text predecessor treats only two- and three-compartment lineages and cannot imply the four-stage two-invasion classification. Exact-title, DOI, correction, equilibrium-alias, and reproduction-number searches found no published correction.",
+    "residual_risks": [
+      "A non-indexed author correction could exist despite exact-title and DOI searches.",
+      "A complete stability criterion for the Atangana-Baleanu-Caputo fractional system is outside this finding and may differ from the ordinary-model criterion.",
+      "The explicit witness is a mathematical parameter example rather than an empirical calibration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_UPSTREAM_EIGENVALUES_ARE_NOT_JACOBIAN_EIGENVALUES",
+        "evidence": "Theorem 5.1 gives 1+l d1=Rc. Theorem 5.3 instead divides the stem invasion rate by Rb and subtracts gd rather than gb in the progenitor mode; its proof explicitly writes 1+l d1=Rb.",
+        "identifier_or_url": "doi:10.3934/math.2022289",
+        "material_read": "Open full PDF: model formulation and normalized equations; state and parameter tables; reproduction-number definitions; Theorem 5.1 equilibrium formula; Theorem 5.2; Theorem 5.3 eigenvalues, stability statement, and complete proof; numerical and conclusion sections. The theorem page was visually inspected.",
+        "method": "Reconstructed the full Jacobian at E1*, substituted the source equilibrium identities, factored its characteristic polynomial, and compared every factor with Theorem 5.3.",
+        "title": "Fractional order modeling and analysis of dynamics of stem cell differentiation in complex network",
+        "trigger": "Primary source defining the four-stage model and the no-stem/no-progenitor stability theorem."
+      },
+      {
+        "assessment": "CLOSE_PREDECESSOR_WITHOUT_THE_ADDED_MYELOID_STAGE",
+        "evidence": "The paper treats two- and three-compartment cell-production systems. It does not contain a four-stage stem/progenitor/myeloid/mature equilibrium with two independent upstream invasion modes controlled by Rc.",
+        "identifier_or_url": "doi:10.1080/17513758.2011.558214",
+        "material_read": "Full article HTML: model formulation; two-compartment equilibria and stability; three-compartment equilibria, no-stem state and positive-state stability; discussion of reproduction numbers and intermediate differentiation stages.",
+        "method": "Compared the number of lineage stages, boundary equilibria, and stability implications with the four-stage model.",
+        "title": "Stability analysis of multi-compartment models for cell production systems",
+        "trigger": "Highly relevant predecessor on reproduction-number stability in hierarchical stem-cell lineages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77c82a2b-3b06-4a43-a50e-c07b28f7eb45",
+  "value": {
+    "rationale": "The boundary equilibrium represents persistence of the myeloid/mature lineage after loss of stem and progenitor cells, a biologically meaningful state explicitly analyzed by the source. Correcting its invasion spectrum changes the local phase diagram: stability requires the myeloid reproduction number to exceed each upstream reproduction number, not an ordering of the two upstream classes. The explicit witness shows that the published eigenvalues can reverse both invasion signs, so this is not a cosmetic simplification.",
+    "status": "PASS"
+  }
+}
