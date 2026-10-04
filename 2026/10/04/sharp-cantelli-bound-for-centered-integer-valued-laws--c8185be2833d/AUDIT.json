@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For integer \\(x\\), the product \\((x+j)(x+j+1)\\) is nonnegative because its roots are consecutive integers, and for \\(x\\ge k\\) the normalized quadratic is at least one. This proves the indicator majorization on the full lattice. Expectation gives the stated bound. The explicit three-point masses are nonnegative, sum to one, and match mean zero and variance \\(v\\); equality points of the majorant give uniqueness. The Cantelli-gap formula follows by exact algebra. A rational-arithmetic checker independently replays these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rujeerapaiboon--Kuhn--Wiesemann give a generalized moment/dual-polynomial framework, but the inspected material does not specialize it to the centered integer lattice formula.",
+        "Ghosh's available abstract treats best bounds for arbitrary or nonnegative random variables; integer support is not part of the abstracted statement.",
+        "Troffaes--Basu treat exchangeable prediction from sample statistics with a range correction, a different optimization problem.",
+        "The closest published exchangeable studentized result optimizes a finite-vector leave-one-out statistic, not a fixed-law lattice moment problem."
+      ],
+      "reasoning": "General moment inequalities do not themselves determine the sharp value after imposing integer support. The lattice restriction changes the dual feasible polynomials and produces the strict gap in the theorem.",
+      "searches": [
+        "Chebyshev inequalities generalized moment problem first two moments dual polynomial",
+        "Probability inequalities related to Markov theorem best bound mean standard deviation one sided",
+        "Cantelli type inequality exchangeability sample mean sample variance",
+        "sharp range free empirical Cantelli exchangeable prediction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1605.05487",
+      "DOI:10.1198/000313002119",
+      "PMLR:103:troffaes19a",
+      "529a96ff728f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 source supplies moment-program machinery but no integer-support equality formula in the inspected portions.",
+        "The 2002 abstract describes arbitrary/nonnegative support classes rather than integer support; full text was unavailable for this comparison.",
+        "The 2019 theorem concerns bounded-range exchangeable samples and estimated moments.",
+        "The published finite-sample exchangeable studentized result has a different object, feasible class, and extremizer construction, so its staircase does not algebraically imply this moment envelope."
+      ],
+      "reasoning": "None of the closest statements dominates the present one under a direct specialization: either the support class omits the lattice constraint, or the random object and constraints are sample-based rather than fixed first-two-moment constraints.",
+      "searches": [
+        "arXiv:1605.05487 Chebyshev inequalities products random variables",
+        "DOI:10.1198/000313002119",
+        "Troffaes Basu 2019 Cantelli exchangeability PMLR 103",
+        "529a96ff728f sharp range free empirical Cantelli exchangeable prediction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved published-result record stated the centered integer-valued formula with \\(j=\\lfloor v/k\\rfloor\\).",
+        "Formula-like searches for the consecutive-root denominator did not retrieve an equivalent probability inequality."
+      ],
+      "reasoning": "The proposed theorem is characterized not merely by a tail bound but by an exact three-point extremizer and a dual quadratic with consecutive lattice roots. No inspected statement had all of these equivalent features.",
+      "searches": [
+        "integer valued Cantelli inequality sharp one sided Chebyshev lattice correction",
+        "integer-valued random variable Cantelli inequality",
+        "lattice-valued Chebyshev inequality sharp one-sided variance",
+        "consecutive integers Chebyshev inequality random variable"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved table, database record, or exact-bound catalog matched the formula or the three support points."
+      ],
+      "reasoning": "The claim is a symbolic theorem over all nonnegative variances and positive integer thresholds, not a finite tabulation or recomputation of known numerical constants.",
+      "searches": [
+        "(k+j)(k+j+1) probability variance integer-valued",
+        "j(j+1) Cantelli probability",
+        "discrete Chebyshev integer support exact extremizer",
+        "lattice moment problem exact one sided tail variance"
+      ]
+    },
+    "rationale": "The inspected general moment-inequality sources and exchangeable Cantelli results do not state the integer-lattice consecutive-root formula, its equality classification, or the exact gap from Cantelli. Targeted semantic and bibliographic searches using both conceptual and formula-like queries found no direct coverage.",
+    "residual_risks": [
+      "Older Markov--Chebyshev moment-problem or lattice-probability literature may contain an equivalent consecutive-root formula under different terminology.",
+      "The full text of Ghosh's 2002 article was not inspected; only its bibliographic record and abstract were available in this comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected material develops first-two-moment optimization and polynomial duality for other support/functionals; it does not state the consecutive-root integer majorant, the bound in the finding, or its equality law.",
+        "identifier_or_url": "arXiv:1605.05487",
+        "material_read": "ArXiv abstract plus the moment-duality development and retrieved discussion of extensions to sums.",
+        "method": "Compared feasible support class, dual certificate structure, and stated sharp bounds with the integer-lattice theorem.",
+        "title": "Chebyshev Inequalities for Products of Random Variables",
+        "trigger": "Archive-period primary source using generalized moment problems and dual polynomial majorants for sharp probability inequalities."
+      },
+      {
+        "assessment": "NO_DECISIVE_COVERAGE_FOUND",
+        "evidence": "The abstract treats arbitrary and nonnegative random variables and does not mention an integer/lattice support refinement. The uninspected full text is retained as a residual risk.",
+        "identifier_or_url": "DOI:10.1198/000313002119",
+        "material_read": "Bibliographic record and abstract only.",
+        "method": "Compared the abstracted support assumptions and claimed bound classes.",
+        "title": "Probability Inequalities Related to Markov's Theorem",
+        "trigger": "Relevant review of best one-sided probability bounds from mean and standard deviation."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its theorem bounds a future observation using sample mean and variance under exchangeability and a bounded-range correction; it does not solve the centered integer-valued fixed-moment tail problem.",
+        "identifier_or_url": "PMLR:103:troffaes19a",
+        "material_read": "PDF first page, definitions, main theorem, and relevant proof/discussion.",
+        "method": "Compared hypotheses, random object, moments, support assumptions, and extremal conclusion.",
+        "title": "A Cantelli-Type Inequality for Constructing Non-Parametric P-Boxes Based on Exchangeability",
+        "trigger": "Closest accessible paper explicitly deriving a discrete exchangeable Cantelli-type inequality."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The result concerns an externally studentized leave-one-out prediction residual under exchangeability. Its finite-vector count staircase does not imply the fixed-law integer-support moment bound or its exact gap from Cantelli.",
+        "identifier_or_url": "529a96ff728f",
+        "material_read": "Complete public result text.",
+        "method": "Compared the deterministic reduction, extremizers, and probability functional with the proposed lattice moment envelope.",
+        "title": "Sharp range-free empirical Cantelli bounds for exchangeable prediction",
+        "trigger": "Closest published-result semantic match involving an exact finite-sample Cantelli staircase."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8185be2-833d-4b0e-a68f-af30e33c3da1",
+  "value": {
+    "rationale": "Integer-valued laws are a natural probability class, and Cantelli is a canonical one-sided moment bound. The theorem exactly quantifies the lattice improvement for every variance and threshold, gives the complete extremizer, and exposes a reusable discrete dual-certificate mechanism. The improvement is structural rather than a numerical special case.",
+    "status": "PASS"
+  }
+}
