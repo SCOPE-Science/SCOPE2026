@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The parity step is exact: an even common value would force two odd terms two apart to be squares; an odd common value forces every even term to be a square or twice a square. A five-term block beginning at an even integer would then contain three even terms, two of the same type, which is impossible at gaps \\(2\\) or \\(4\\). For an odd start, the two even terms must have opposite types, yielding the two Pell equations and the displayed divisor-sum identities by multiplicativity of \\(\\sigma\\). Standard descent by the unit \\(3-2\\sqrt2\\) proves the two Pell parametrizations. The finite \\(10^{38}\\) cutoff is replayed from the packaged paths with deterministic factorization; all \\(50\\) residuals are nonzero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lebowitz-Lockard and Vandehey prove \\(F_s(x)\\le5\\), equivalently no six-term constant run, and their proof uses the odd-\\(\\sigma\\) square/twice-square criterion.",
+        "Their theorem does not imply that a five-term run is absent or that its two even terms satisfy one of two Pell parametrizations.",
+        "The cited MathOverflow thread studies a single adjacent pair and records only the one-term parity obstruction."
+      ],
+      "reasoning": "A global theorem excluding five-term runs would subsume the claim, but no such theorem was found. The published six-term upper bound is strictly weaker than the present boundary reduction and finite cutoff.",
+      "searches": [
+        "\"Arithmetic Functions that Remain Constant on Runs of Consecutive Integers\"",
+        "\"sum of proper divisors\" consecutive equal values",
+        "\"aliquot sum\" consecutive equal values"
+      ]
+    },
+    "checked_sources": [
+      "JIS:26:23.8.4",
+      "OEIS:A001065",
+      "MathOverflow:14459"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper's Theorem 4 rules out six consecutive equal values.",
+        "The same paper's proof shows how three even terms create a pigeonhole contradiction among square and twice-square types.",
+        "The MathOverflow question observes that an adjacent equal pair must involve a square or twice a square, but does not combine two such even terms into a Pell equation."
+      ],
+      "reasoning": "The prior six-term contradiction needs three even terms. A five-term block starting odd has only two even terms, so a new analysis is required; forcing those two to opposite types is what creates the Pell equations.",
+      "searches": [
+        "\"sum-of-proper-divisors function\" six consecutive integers",
+        "\"Are there pairs of consecutive integers with the same sum of factors?\"",
+        "\"five consecutive\" \"proper divisors\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact searches returned the 2023 constant-run paper and general proper-divisor-sum resources, but no five-term Pell classification.",
+        "No located source states either divisor-sum identity on the Pell families.",
+        "Final exact-equation and five-run semantic searches returned only unrelated divisor-sum or Pell records and no statement covering either required identity."
+      ],
+      "reasoning": "The main aliases checked were proper-divisor sum, aliquot sum, \\(\\sigma(n)-n\\), five consecutive equal values, and Pell square/twice-square pairs.",
+      "searches": [
+        "\"sum of proper divisors\" \"five consecutive\" equal",
+        "\"sum-of-proper-divisors\" Pell consecutive",
+        "\"s(n)\" \"s(n+1)\" \"s(n+2)\" \"s(n+3)\" \"s(n+4)\"",
+        "\"proper divisor sum\" \"Pell equation\" consecutive integers",
+        "sigma(a^2)+2=3 sigma(b^2) a^2-2b^2=-2 proper divisor sum",
+        "3 sigma(a^2)+2=sigma(b^2) b^2-2a^2=2 aliquot sum",
+        "Pell family five consecutive equal aliquot sums"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001065 is the canonical proper-divisor-sum sequence and gives formulas and related concepts.",
+        "Its inspected entry does not record five-term constant runs, Pell candidate families, or the two divisor-sum identities."
+      ],
+      "reasoning": "The exact sequence database was checked because the object is a canonical integer sequence and a finite repeated-value phenomenon could have been tabulated independently.",
+      "searches": [
+        "OEIS A001065",
+        "site:oeis.org \"sum of proper divisors\" consecutive equal",
+        "site:oeis.org \"aliquot sum\" consecutive"
+      ]
+    },
+    "rationale": "The focal paper proves only that a six-term constant run is impossible; its parity argument leaves the five-term boundary open when the block starts odd. The present result identifies the exact two Pell families for that boundary, derives additional divisor-sum identities, proves logarithmic sparsity of candidate starts, and eliminates every candidate below \\(10^{38}\\). The adjacent-pair discussion on MathOverflow contains the basic square-or-twice-square parity observation but not the five-term Pell reduction. Targeted semantic, exact-phrase, and database searches did not locate the theorem or an implication covering it.",
+    "residual_risks": [
+      "An equivalent elementary five-term reduction may exist in an unindexed note or unpublished computation.",
+      "The theorem does not establish global nonexistence beyond the exact \\(10^{38}\\) cutoff."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest prior result. It proves no six-term run and supplies the parity lemma, but does not analyze the five-term boundary via Pell equations.",
+        "evidence": "Theorem 4 states \\(F_s(x)\\le5\\). The proof uses three even terms in a six-block to force two squares or two twice-squares and obtain a contradiction.",
+        "identifier_or_url": "JIS:26:23.8.4",
+        "material_read": "Full open-access PDF, especially the introduction, Theorem 4, Lemma 11, the proof of Theorem 4, and the MSC/publication page.",
+        "method": "Full-text and page-image inspection.",
+        "title": "Arithmetic Functions that Remain Constant on Runs of Consecutive Integers",
+        "trigger": "Primary source establishing the six-term upper bound for equal proper-divisor sums."
+      },
+      {
+        "assessment": "Not covering the five-term boundary theorem or the Pell reduction.",
+        "evidence": "The entry defines the aliquot sum and catalogs standard properties, without a five-run classification.",
+        "identifier_or_url": "OEIS:A001065",
+        "material_read": "Current sequence definition, comments, formulas, links, and related sequences.",
+        "method": "Database-page inspection.",
+        "title": "A001065",
+        "trigger": "Canonical database entry for the proper-divisor-sum function."
+      },
+      {
+        "assessment": "The thread contains the basic square-or-twice-square obstruction for an adjacent pair but not the five-term Pell classification.",
+        "evidence": "The question notes that equal adjacent proper-divisor sums force at least one member of the pair to be a square or twice a square.",
+        "identifier_or_url": "MathOverflow:14459",
+        "material_read": "Question statement and visible answers, including the parity observation.",
+        "method": "Web-page inspection.",
+        "title": "Are there pairs of consecutive integers with the same sum of factors?",
+        "trigger": "Reference cited by the primary source for adjacent equal proper-divisor sums."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91ee4d55-79bc-42d5-9f2e-3674d234d145",
+  "value": {
+    "rationale": "The focal paper leaves five as the only possible extremal run length for the proper-divisor-sum function. The present theorem attacks exactly that natural boundary rather than an arbitrary slice: it converts a putative maximal run into two explicit Pell-divisor equations, reducing \\(X\\) possible starts to only \\(O(\\log X)\\) candidates. The exact \\(10^{38}\\) exclusion then gives a very large, reproducible finite cutoff obtained from the structural reduction rather than a raw integer scan. This supplies both a reusable route for further global work and a concrete strengthening of the published extremal result.",
+    "status": "PASS"
+  }
+}
