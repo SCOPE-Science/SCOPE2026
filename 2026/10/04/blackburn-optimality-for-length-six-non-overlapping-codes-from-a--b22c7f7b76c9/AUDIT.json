@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Starting from the published exact SQN formulation, the proof eliminates the fifth and fourth partition choices by linear optimization, then maximizes the remaining concave quadratic/cubic branches. The only near-critical branch is reduced to a normalized function whose stationary envelope is proved decreasing for a/b>=1/4 by exact discriminant and polynomial-sign calculations. The complementary branch is bounded by q^6/16, below the explicit Kq^6 threshold. The integer lower construction reaches at least Kq^6 for every q>=10, forcing the exact Blackburn maximum. The packaged exact verifier reproduces all algebraic constants and independently checks SQN instances without being used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn proves optimality when the length divides the alphabet size, which covers only a sparse subset of the new q>=10 tail.",
+        "The 2024 SQN paper states that Blackburn’s conjecture remained unresolved and reports exact computations only for q<=6 in the relevant multi-letter tables.",
+        "A 2025 paper on restricted overlaps studies a broader overlap model but does not determine S(q,6)."
+      ],
+      "reasoning": "Known divisibility cases and general asymptotic bounds do not imply the exact integer maximum for every q>=10. No later source found in the searches supplies stronger coverage of this length-six tail.",
+      "searches": [
+        "Blackburn conjecture non-overlapping codes 2025",
+        "Blackburn conjecture non-overlapping codes 2026",
+        "maximum non-overlapping codes length six",
+        "published-finding corpus: Blackburn conjecture n=6 sufficiently large alphabet non-overlapping code exact maximum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1303.1026v1",
+      "DOI:10.1007/s10623-023-01344-z",
+      "DOI:10.1007/s12190-025-02441-z",
+      "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "own ledger item a4c76833-d8cb-4e09-aaeb-3fbdf42602d6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn’s Construction with k=5 gives the lower bound l^5(q-l), but his paper does not upper-bound S(q,6) by that value for all large q.",
+        "Proposition 10 of the 2024 paper makes SQN exact, but the paper does not analytically solve SQN(q,6) for q>=10; Section 6 says no simple formula is known for larger lengths and retains Blackburn’s statement as a conjecture."
+      ],
+      "reasoning": "The prior sources provide, respectively, the candidate lower-bound family and the exact optimization framework. The new branch analysis is required to prove that no other SQN partition can exceed the Blackburn value for every q>=10.",
+      "searches": [
+        "For every q>=10 S(q,6)=max_{1<=l<=q-1} l(q-l)^5 non-overlapping codes length six",
+        "Blackburn conjecture n=6 sufficiently large alphabet non-overlapping code exact maximum",
+        "length-six q-ary non-overlapping code optimum Blackburn k=5 q>=10",
+        "length six non-overlapping codes exact maximum S(q,6) formula Blackburn conjecture",
+        "cross-bifix-free length 6 maximum q-ary exact formula",
+        "SQN(q,6) exact non-overlapping codes",
+        "arXiv:1303.1026 full text construction k=n-1 conjecture",
+        "DOI:10.1007/s10623-023-01344-z full text SQN Proposition 10 and Section 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn arXiv:1303.1026, Conjecture 1 asks whether the k=n-1 construction is eventually maximum for each fixed length.",
+        "Stanovnik–Moškon–Mraz DOI:10.1007/s10623-023-01344-z identifies non-overlapping, cross-bifix-free and mutually uncorrelated terminology and formulates the exact SQN optimization."
+      ],
+      "reasoning": "The new statement is the length-six exact resolution of the same eventual-optimality question, not a renaming of a different coding invariant. Alias searches returned no statement giving the q>=10 exact formula.",
+      "searches": [
+        "For every q>=10 S(q,6)=max_{1<=l<=q-1} l(q-l)^5 non-overlapping codes length six",
+        "Blackburn conjecture n=6 sufficiently large alphabet non-overlapping code exact maximum",
+        "length-six q-ary non-overlapping code optimum Blackburn k=5 q>=10",
+        "aliases checked: non-overlapping / cross-bifix-free / mutually uncorrelated; C(6,q) / S(q,6); Blackburn Construction 2/4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 article says its exact SQN tables cover 3<=q<=6 and 5<=n<=16.",
+        "The current prior ledger contains a separate length-six result only for q=7,8,9.",
+        "published-finding corpus record 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a concerns n=5, not n=6."
+      ],
+      "reasoning": "The new domain q>=10 is disjoint from the exact q<=9 length-six rows identified in the published table and the own ledger. The n=5 formula is adjacent but has different SQN geometry and does not imply the n=6 theorem.",
+      "searches": [
+        "Stanovnik Moškon Mraz Table 1 S(q,n) q<=6 n<=16",
+        "own ledger length-six q=7 q=8 q=9 non-overlapping",
+        "published-finding corpus exact length five non-overlapping code optima"
+      ]
+    },
+    "rationale": "Blackburn states the eventual-optimality conjecture and supplies the candidate construction but does not solve length six. The 2024 exact-SQN paper explicitly leaves Blackburn’s conjecture unresolved and reports exact tables only through q=6 in this regime. published-finding corpus, own-ledger, alias, formula, and later-literature searches found no implication-equivalent q>=10 length-six formula; the closest own result covers only q=7,8,9 and the closest published-finding corpus formula covers length five.",
+    "residual_risks": [
+      "A non-indexed thesis, ancillary computation, or unpublished manuscript could contain the same length-six tail formula.",
+      "The theorem gives the maximum size but not a classification of all equality cases; no such classification is inferred from the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the lower-bound construction and explicitly poses, rather than proves, eventual k=n-1 optimality. Exact maxima are proved only through length three; divisibility cases are separate.",
+        "evidence": "Conjecture 1 states that for fixed n and sufficiently large q a largest code should arise from Construction 2 with k=n-1.",
+        "identifier_or_url": "arXiv:1303.1026v1",
+        "material_read": "Full arXiv text, especially the construction section and the page containing Conjecture 1.",
+        "method": "Read the lawful arXiv full text and visually inspected the PDF page containing Conjecture 1.",
+        "title": "Non-overlapping codes",
+        "trigger": "Defining construction and original eventual-optimality conjecture."
+      },
+      {
+        "assessment": "Proposition 10 exactly identifies S(q,n) with SQN. Section 6 says no simple formula is available for larger lengths, reports exact tables only for q<=6 in the relevant range, and says Blackburn’s conjecture remains conditional.",
+        "evidence": "The article reports exact SQN computations for 3<=q<=6 and 5<=n<=16 and states that its own conjectural reduction would imply Blackburn’s conjecture for q>=n.",
+        "identifier_or_url": "DOI:10.1007/s10623-023-01344-z",
+        "material_read": "Full open-access HTML, including Proposition 10, Section 6, exact-table scope, Conjecture 1 and Remark 3.",
+        "method": "Read the publisher full text.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Exact optimization framework and closest later attempt at maximum-code computation."
+      },
+      {
+        "assessment": "Studies (t1,t2)-overlap-free codes and exact special restricted-overlap cases; it does not give the exact maximum for ordinary length-six non-overlapping codes.",
+        "evidence": "The stated exact result concerns q-ary (1,2)-overlap-free codes, not full (1,n-1) non-overlap at n=6.",
+        "identifier_or_url": "DOI:10.1007/s12190-025-02441-z",
+        "material_read": "Publisher abstract and relevant construction section surfaced by current literature search.",
+        "method": "Read open publisher text.",
+        "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+        "trigger": "Later work by an author of the SQN paper on a broader overlap model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b22c7f7b-76c9-47ca-879c-3bf84f73ec8c",
+  "value": {
+    "rationale": "The claim resolves a named 2013 eventual-optimality conjecture in the first unsolved even length beyond the short exact cases, over an infinite alphabet-size tail rather than an arbitrary finite slice. It converts a computationally difficult integer optimization into a closed exact formula and gives a concrete threshold q>=10. This is structurally informative because the neighboring q=9 optimization is known to exhibit a rounding exception, so the theorem identifies where the asymptotic one-boundary geometry becomes provably dominant.",
+    "status": "PASS"
+  }
+}
