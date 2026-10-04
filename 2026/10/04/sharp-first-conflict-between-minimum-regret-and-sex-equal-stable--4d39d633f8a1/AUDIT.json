@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The \\(2\\times2\\) and \\(3\\times3\\) strict domains are exhausted. For every profile all perfect matchings are checked by two independent blocking-pair implementations, which agree exactly. Regret and sex-equality costs use exact integer ranks. The stable-count marginal \\(34080,11484,1092\\), the disjoint objective pattern, both symmetry orbits, and the explicit witness all replay successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iwama, Miyazaki, and Yanagisawa treat sex-equal stable marriage and discuss other rank-based stable-marriage objectives.",
+        "De Clercq et al. explicitly define sex-equality cost and regret cost and provide exact optimization encodings for both."
+      ],
+      "reasoning": "Algorithmic solvability and objective definitions do not imply where the two argmin sets first diverge, how often they differ at three pairs, or whether their first conflicts are disjoint.",
+      "searches": [
+        "Approximation Algorithms for the Sex-Equal Stable Marriage Problem Iwama Miyazaki Yanagisawa",
+        "Solving stable matching problems using answer set programming minimum regret sex-equal",
+        "stable marriage minimum regret sex-equal exact algorithms"
+      ]
+    },
+    "checked_sources": [
+      "hdl:2433/227009",
+      "arXiv:1512.05247",
+      "doi:10.1017/S147106841600003X",
+      "JIS:27:24.2.2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Clercq et al. define minimum regret as minimizing maximum individual cost and sex-equality as minimizing the absolute side-cost difference.",
+        "The existence of exact algorithms for each objective separately does not impose any inclusion relation between their optimum sets.",
+        "Small-profile stable-count and egalitarian tables do not imply minimum-regret versus sex-equal comparisons."
+      ],
+      "reasoning": "The new result requires simultaneous profile-by-profile optimization of both criteria. Neither single-objective algorithms nor stable-count data imply the sharp \\(2\\)-to-\\(3\\)-pair conflict boundary or the \\(1/324\\) disjointness probability.",
+      "searches": [
+        "minimum regret stable marriage worst-off criterion",
+        "sex-equal stable marriage aggregate rank difference",
+        "small stable marriage profiles number of stable matchings n=3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered the canonical names “minimum regret” and “sex-equal”, aliases based on worst partner rank and aggregate gender/side rank imbalance, the exact market size, disjoint argmin sets, and the exact counts.",
+        "No semantically close published record returned an equivalent finite theorem; the nearest indexed results were unrelated finite classifications."
+      ],
+      "reasoning": "The claim is about complete argmin-set relations, not merely the existence or definitions of the two objectives. Searches by both canonical terminology and objective formulas found no equivalent statement.",
+      "searches": [
+        "stable marriage minimum regret sex-equal exact small market boundary",
+        "sex-equal minimum regret stable matching three men three women",
+        "stable marriage worst rank gender balance exact enumeration",
+        "stable marriage minimum regret sex equality argmin sets disjoint three pairs 144",
+        "stable marriage regret cost sex equality cost exact 3x3 census 46656",
+        "minimum regret stable matching versus sex-equal stable matching small instances"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-count searches did not locate a stable-marriage table matching the new census.",
+        "Borodin et al. enumerate the three-pair stable-count marginal and egalitarian-cost statistics; searches of the full paper for “minimum regret”, “regret”, and “sex-equal” found no corresponding table."
+      ],
+      "reasoning": "The known \\(34080/11484/1092\\) stable-count marginal is strictly coarser and is used only as a cross-check. It does not determine the two fairness argmin sets or their intersection.",
+      "searches": [
+        "38880 sex-equal stable marriage",
+        "7488 sex-equal stable marriage",
+        "144 minimum regret sex-equal stable matching",
+        "46656 minimum regret sex-equal"
+      ]
+    },
+    "rationale": "Prior work defines and optimizes minimum-regret and sex-equal stable matchings, and later work enumerates small stable-marriage statistics. No inspected source gives the exact three-pair relation census, the sharp first disjointness boundary, or the two symmetry classes of disjoint profiles.",
+    "residual_risks": [
+      "An unindexed thesis, exercise, note, software repository, or supplementary table may contain the same finite classification.",
+      "The originality conclusion is based on targeted semantic, exact-count, and alias searches plus inspection of the closest primary and small-enumeration sources; it is not a proof of bibliographic uniqueness.",
+      "No statement for markets larger than three pairs is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the sex-equal objective and algorithmic context, but does not state the three-pair minimum-regret-versus-sex-equal census.",
+        "evidence": "Kyoto University repository record dated 3 March 2008; later article DOI 10.1145/1868237.1868239.",
+        "identifier_or_url": "hdl:2433/227009",
+        "material_read": "Kyoto University repository record, exact public date, abstract, bibliographic metadata, and accessible article text describing the sex-equal criterion.",
+        "method": "Institutional repository and lawful accessible-text inspection.",
+        "title": "Approximation Algorithms for the Sex-Equal Stable Marriage Problem",
+        "trigger": "Early primary source for the sex-equal objective and its relation to other stable-marriage optimization criteria."
+      },
+      {
+        "assessment": "Provides the exact objective definitions and algorithms but no small-market pairwise argmin-set boundary or census.",
+        "evidence": "Accepted manuscript corresponding to Theory and Practice of Logic Programming 16 (2016), 247–268; DOI 10.1017/S147106841600003X.",
+        "identifier_or_url": "arXiv:1512.05247 / doi:10.1017/S147106841600003X",
+        "material_read": "Open accepted-manuscript PDF, especially Definition 4 and the optimization construction: sex-equality is the absolute difference of side costs; regret is the maximum participant cost; both corresponding optimal stable matchings are defined and implemented.",
+        "method": "Full-PDF text inspection with rendered-page inspection of the definitions page.",
+        "title": "Solving stable matching problems using answer set programming",
+        "trigger": "Primary source explicitly defining and optimizing both criteria in one framework."
+      },
+      {
+        "assessment": "Confirms the published \\(34080/11484/1092\\) stable-count marginal used as an external check. No minimum-regret or sex-equal census was found in the inspected paper.",
+        "evidence": "Journal of Integer Sequences 27 (2024), Article 24.2.2.",
+        "identifier_or_url": "JIS:27:24.2.2",
+        "material_read": "Full PDF sections on three-pair profile counts and egalitarian-cost distributions; full-text searches for “minimum regret”, “regret”, and “sex-equal”.",
+        "method": "Full-PDF text inspection plus rendered-page inspection of the three-pair enumeration section.",
+        "title": "Sequences of the Stable Matching Problem",
+        "trigger": "Closest exact small-instance enumeration source for classical stable marriage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d39d633-f8a1-4d95-87e2-08381ec25e76",
+  "value": {
+    "rationale": "Minimum regret protects the worst-off participant, while sex-equality balances aggregate dissatisfaction across the two sides. The first market size where these standard fairness principles can force mutually exclusive stable choices is a natural structural boundary. The exact \\(1/324\\) conflict incidence and two-orbit classification make the result more informative than a routine isolated witness.",
+    "status": "PASS"
+  }
+}
