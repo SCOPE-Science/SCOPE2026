@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The paired sequence is exactly the Hausdorff moment sequence of the weighted square-pushforward of the reversible spectral measure. Radon-Nikodym splitting on the positive and negative square roots gives every inverse measure, with the residual normalization mass forced to -1. Pointwise minimization proves the compatibility criterion, and the strict excess formula on (0,1) proves uniqueness. An exact finite-state example and rational checker verify the nonidentifiability and variance consequences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Geyer introduced the paired sequence for reversible-chain variance estimation.",
+        "Berg--Song prove that the full autocovariance is a [-1,1]-moment sequence and the paired sequence a [0,1]-moment sequence.",
+        "The closest sharp two-lag theorem assumes nonnegative spectrum and explicitly notes that general reversible chains with negative spectrum are outside its stated envelope."
+      ],
+      "reasoning": "The forward moment representation and positive-spectrum inequalities do not invert the many-to-one square/sign transform. The new theorem characterizes the whole inverse fiber and exhibits ambiguity within irreducible aperiodic finite-state chains.",
+      "searches": [
+        "DOI:10.1214/ss/1177011137",
+        "arXiv:2207.12705",
+        "Sharp two-lag variance envelopes for positive reversible Markov chains"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1214/ss/1177011137",
+      "arXiv:2207.12705",
+      "public related result: Sharp two-lag variance envelopes for positive reversible Markov chains"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Berg--Song Proposition 1 maps the paired sequence forward to a [0,1] moment measure but does not characterize all [-1,1] measures mapping to it.",
+        "Their discussion states that complete monotonicity of the paired sequence is not sufficient for their goal of estimating the entire autocovariance sequence, without giving an inverse theorem.",
+        "The positive-spectrum result has no sign ambiguity because lambda to lambda squared is injective after restricting lambda to [0,1]."
+      ],
+      "reasoning": "None of the prior statements dominates the final claim. The Hausdorff theorem identifies G from its moments, but it does not recover the signed reversible spectral measure from G; that inverse problem is the content proved here.",
+      "searches": [
+        "arXiv:2207.12705 Proposition 1 Gamma moment representation",
+        "Geyer 1992 initial sequence estimator paired autocovariances",
+        "positive reversible chain two-lag variance envelopes negative spectrum limitation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest retrieved source gives the forward [0,1]-moment representation of the paired sequence and explicitly says it is not satisfactory for estimating the full autocovariance sequence.",
+        "No retrieved result states the sign-splitting fiber, the integral uniqueness criterion, or an exact finite-state same-Gamma/different-autocorrelation pair."
+      ],
+      "reasoning": "The searches cover the standard Geyer notation, initial-sequence terminology, spectral sign folding, aliasing, and identifiability. The final claim is an inverse classification, not merely the known complete-monotonicity property of the paired sequence.",
+      "searches": [
+        "reversible Markov chain Geyer Gamma sequence identifiability autocovariance",
+        "Gamma(k)=gamma(2k)+gamma(2k+1) identify autocovariance reversible",
+        "initial sequence estimator Gamma loses autocovariance information",
+        "reversible autocovariance paired sums aliasing negative spectrum",
+        "paired autocovariance reversible Markov spectral measure negative eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record or finite example with identical complete paired sequence and differing individual lags was returned."
+      ],
+      "reasoning": "The result is a symbolic measure-level classification for arbitrary representing measures, with a finite-state example only as a witness; it is not a table lookup or finite census.",
+      "searches": [
+        "Geyer paired autocovariance exact fiber",
+        "reversible chain same paired autocovariances different autocorrelation",
+        "Gamma sequence reversible chain identifiability finite state"
+      ]
+    },
+    "rationale": "The primary modern full text establishes the forward gamma and paired-Gamma moment representations and notes that the paired sequence is inadequate for the entire autocovariance sequence, but it does not give the inverse fiber, compatibility test, or exact aliasing example. The closest published positive-spectrum theorem is injective by construction and excludes negative spectrum. Targeted searches did not locate a stronger inverse-identification theorem.",
+    "residual_risks": [
+      "Older operator-theoretic or moment-problem literature may contain an equivalent inverse square/sign transform under terminology unrelated to MCMC paired autocovariances.",
+      "The 1992 Geyer article was not materially readable in the available extracted PDF and therefore was not used for a noncoverage claim.",
+      "For non-finitely-supported fibers the theorem classifies spectral probability measures but does not assert finite-state Markov realizability of every fiber point."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FORWARD_REPRESENTATION_NOT_INVERSE_CLASSIFICATION",
+        "evidence": "The paper proves that gamma(k) is represented on [-1,1] and Gamma(k)=gamma(2k)+gamma(2k+1) is represented on [0,1]. It notes that the paired sequence is not satisfactory for estimating the entire autocovariance sequence, but does not state the inverse sign-splitting fiber or the compatibility and uniqueness conditions.",
+        "identifier_or_url": "arXiv:2207.12705",
+        "material_read": "Full arXiv HTML was available; focused reading covered the introduction, Proposition 1, the Hausdorff-moment discussion, the negative-spectrum examples, and the supplementary spectral derivation.",
+        "method": "Compared the forward map, support restrictions, identifiability statements, and stated purpose of the paired sequence with the inverse-fiber claim.",
+        "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+        "trigger": "Most relevant full primary text because it formalizes both the reversible [-1,1] spectral moment representation and Geyer's paired [0,1] moment sequence."
+      },
+      {
+        "assessment": "POSITIVE_SPECTRUM_NOT_COVERING",
+        "evidence": "The result assumes the relevant spectrum lies in [0,1] and explicitly says its envelopes do not apply unchanged to general reversible chains with negative spectrum. On [0,1] the sign-folding ambiguity analyzed here is absent.",
+        "identifier_or_url": "public related result",
+        "material_read": "Complete published result, including setup, moment-envelope theorem, finite-horizon variance consequences, realizability construction, and limitations.",
+        "method": "Compared spectral support, objects fixed, conclusions, and whether negative eigenmodes are allowed.",
+        "title": "Sharp two-lag variance envelopes for positive reversible Markov chains",
+        "trigger": "Closest published sharp spectral result using exact low-order autocorrelations."
+      },
+      {
+        "assessment": "ARCHIVE_ANCHOR_NOT_USED_FOR_NONCOVERAGE",
+        "evidence": "The verified public record dates the article to 1992-11-01 and later full-text literature attributes the paired Gamma sequence and its shape constraints to Geyer.",
+        "identifier_or_url": "DOI:10.1214/ss/1177011137",
+        "material_read": "Bibliographic record and abstract were read. An authorized historical PDF was obtained after open-access retrieval failed, but its available extraction contained no scientific text beyond the cover.",
+        "method": "Used only as the verified archive anchor and historical motivation; no whole-document noncoverage conclusion relies on it.",
+        "title": "Practical Markov Chain Monte Carlo",
+        "trigger": "Archive-era source introducing the paired autocovariance sequence used by initial-sequence estimators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b73a3cd-0fdf-44dc-ba8c-5246783b9f32",
+  "value": {
+    "rationale": "The paired Gamma sequence is a standard reversible-MCMC variance object. The theorem gives a complete answer to its information content: an exact inverse fiber, a sharp uniqueness criterion, and an aperiodic finite-state witness showing that the ambiguity affects finite-horizon variance even when asymptotic variance is identical. This is a structural identifiability result rather than a routine numerical refinement.",
+    "status": "PASS"
+  }
+}
