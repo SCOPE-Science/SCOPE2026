@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs both endpoints analytically. On each side of the centered support, y^2 is bounded by the extreme deviation times |y|, and the endpoint atoms bound those extreme deviations in terms of the common one-sided first moment; this gives the lower constant. The upper constant is Cauchy--Schwarz against the binary indicator above the mean. Equality conditions force the stated attainment behavior. Continuity on the connected strict-support cone gives the complete intervals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korwar proves mean-absolute-deviation bounds for functions of discrete variables and characterizes specific distribution families.",
+        "Berend--Kontorovich give sharp non-asymptotic MAD estimates for binomial variables.",
+        "Aghili-Ashtiani proves MAD upper bounds using range and counts of observations above and below the mean."
+      ],
+      "reasoning": "These sources provide broader MAD inequality context but optimize different quantities under different constraints. None determines the exact MAD/SD image obtained by moving support positions while freezing an arbitrary ordered probability vector.",
+      "searches": [
+        "DOI:10.1007/BF00118636",
+        "DOI:10.1016/j.spl.2013.01.023",
+        "Upper bounds on deviations from the mean and the mean absolute deviation"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/BF00118636",
+      "DOI:10.1016/j.spl.2013.01.023",
+      "Italian Journal of Pure and Applied Mathematics 45 (2021), 940-951"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aghili-Ashtiani's inspected theorems control MAD by range and sign-segment counts, without a variance-normalized lower bound or arbitrary probability weights.",
+        "Korwar's Theorem 2.1 bounds MAD of a transformed discrete variable by a distribution-dependent difference-weight expectation.",
+        "The binomial source keeps the lattice support and binomial probabilities fixed together rather than varying support geometry."
+      ],
+      "reasoning": "A range upper bound does not determine a sharp ratio to standard deviation, and a function-difference inequality does not determine the support-location extremizers. The final two-sided fixed-profile range therefore is not a corollary of the closest inspected statements.",
+      "searches": [
+        "Aghili-Ashtiani mean absolute deviation counts above below mean theorem",
+        "Korwar mean absolute deviation discrete random variable theorem",
+        "Berend Kontorovich binomial mean absolute deviation standard deviation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned generic sharp MAD results, binomial MAD bounds, and unrelated profile inequalities, but no fixed-profile MAD/SD interval.",
+        "Web searches for MAD/SD finite-sample sharpness returned the universal inequality and count/range bounds rather than endpoint-mass and cumulative-cut constants."
+      ],
+      "reasoning": "The searches cover the natural aliases: mean deviation, MAD, standard deviation ratio, atom probabilities, frequency profile, and support geometry. The final claim is not a restatement of the universal inequality because it also gives a positive profile-specific lower bound and exact attainment topology.",
+      "searches": [
+        "mean absolute deviation standard deviation fixed probability profile sharp support",
+        "discrete mean absolute deviation variance fixed atom probabilities",
+        "standardized mean absolute deviation fixed categorical probabilities support locations",
+        "mean deviation support geometry probabilities exact range",
+        "mean absolute deviation finite distribution fixed masses"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record or table containing both \\(2\\sqrt{p_1p_m/(p_1+p_m)}\\) and \\(2\\max_j\\sqrt{P_j(1-P_j)}\\) was returned."
+      ],
+      "reasoning": "The theorem is symbolic for every positive finite mass profile and arbitrary ordered real support. It is not a finite catalog or recomputation.",
+      "searches": [
+        "fixed probability profile mean absolute deviation standard deviation exact range",
+        "finite support MAD SD ratio atom probabilities",
+        "frequency profile absolute deviation variance sharp"
+      ]
+    },
+    "rationale": "The closest full primary sources cover distribution-characterizing MAD inequalities and range/count-based MAD upper bounds. The binomial literature gives sharp named-family MAD estimates. None of the inspected or searched sources states the exact fixed-probability-profile MAD-to-standard-deviation range with endpoint-mass and cumulative-cut constants.",
+    "residual_risks": [
+      "Older finite-population or descriptive-statistics literature may contain an equivalent fixed-frequency MAD/SD theorem under different terminology.",
+      "The full Berend--Kontorovich article was not inspected; only its abstract and bibliographic description were available in the search path used."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MAD_INEQUALITY_FRAMEWORK_NOT_FIXED_PROFILE_RANGE",
+        "evidence": "The paper's discrete theorem bounds MAD of g(X) by an expectation involving a distribution-dependent eta function and the forward difference of g. It does not vary support geometry at fixed atom probabilities or state the two-sided standardized MAD range.",
+        "identifier_or_url": "DOI:10.1007/BF00118636",
+        "material_read": "Full nine-page open-access PDF; focused reading of the introduction, Section 2 discrete MAD bound and proof, converse theorem, and subsequent characterization section.",
+        "method": "Compared the inequality's variables, normalization, equality mechanism, and optimized object with the fixed atom-profile MAD/SD problem.",
+        "title": "On characterizations of distributions by mean absolute deviation and variance bounds",
+        "trigger": "Archive-era primary paper centered on MAD bounds for discrete random variables."
+      },
+      {
+        "assessment": "COUNT_AND_RANGE_BOUNDS_NOT_COVERING_RATIO_RANGE",
+        "evidence": "The paper gives MAD upper bounds in terms of range, mean, and counts below/above the mean. It does not state the endpoint-mass lower barrier, cumulative-mass variance-normalized upper constant, or exact attainable sets.",
+        "identifier_or_url": "Italian Journal of Pure and Applied Mathematics 45 (2021), 940-951",
+        "material_read": "Full twelve-page open PDF with focused inspection of Section 2.2, including the lower/upper/boundary segmentation and Theorems 2.2 through 2.6.",
+        "method": "Compared sign-segment parameters, range normalization, and equality mechanisms with the arbitrary-weight MAD/SD ratio.",
+        "title": "Upper bounds on deviations from the mean and the mean absolute deviation",
+        "trigger": "Closest full-text paper found on sharp MAD bounds using information about observations above and below the mean."
+      },
+      {
+        "assessment": "NAMED_FAMILY_PARTIAL_ACCESS",
+        "evidence": "Available material concerns the binomial family and fixes its support and probability law jointly. Because the full article was not inspected, it remains a residual source risk rather than a whole-document noncoverage certificate.",
+        "identifier_or_url": "DOI:10.1016/j.spl.2013.01.023",
+        "material_read": "Abstract and bibliographic record describing the sharp all-parameter binomial MAD estimates and their linear-to-square-root transition.",
+        "method": "Used as a scope comparison only; no whole-document noncoverage claim is based on inaccessible full text.",
+        "title": "A sharp estimate of the binomial mean absolute deviation with applications",
+        "trigger": "Closest archive named-family result explicitly giving sharp MAD estimates and comparing MAD scale with standard deviation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a1bac9c-4e8e-4271-85c0-b4b26a759775",
+  "value": {
+    "rationale": "The result completely solves a natural support-geometry problem for two standard dispersion measures under a fixed categorical probability profile. It supplies both a nontrivial positive lower barrier and a sharp upper barrier, with explicit equality and nonattainment structure. The equal-weight corollary gives a simple cardinality law and shows exactly when the universal MAD<=SD bound can be approached.",
+    "status": "PASS"
+  }
+}
